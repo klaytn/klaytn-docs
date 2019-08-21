@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Welcome](klaytn/README.md)
+* [Welcome](README.md)
 
 * [Klaytn Overview](klaytn/README.md)
   * [Why Klaytn](klaytn/why-klaytn/README.md)
