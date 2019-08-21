@@ -7,7 +7,7 @@ KlaytnDocs introduces and explains [Klaytn](https://www.klaytn.com/), an enterpr
 | [Klaytn Overview](klaytn/README.md) | Describes Klaytn key concepts and design principles. |
 | [Getting Started](getting-started/README.md) | Provides guidelines for getting started with Klaytn. |
 | [Smart Contract](smart-contract/README.md) | Tools and resources for smart contract development. |
-| [Installation & Operation](node/READMD.md) | Illustrates how to set up and operate Core Cell (CC), Endpoint Node (EN), and Service Chain. |
+| [Installation & Operation](node/README.md) | Illustrates how to set up and operate Core Cell (CC), Endpoint Node (EN), and Service Chain. |
 | [BApp Development](bapp/README.md) | Development resources and references for BApp developers. |
 | [Roadmap](misc/roadmap.md) | Klaytn roadmap. |
 | [FAQ](misc/faq.md) | Provides a list of frequently asked questions \(FAQs\). |
