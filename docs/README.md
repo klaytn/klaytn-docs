@@ -4,19 +4,20 @@ KlaytnDocs introduces and explains [Klaytn](https://www.klaytn.com/), an enterpr
 
 | Document | Description |
 | :--- | :--- |
-| Why Klaytn |  |
-| ​Klaytn Design | Describes the Klaytn key concepts and design principles.  |
-| ​[Roadmap](https://docs.klaytn.com/roadmap)​ | Describes the roadmap for Klaytn. |
-| ​[FAQ](https://docs.klaytn.com/faq)​ | Provides a list of frequently asked questions \(FAQs\). |
-| ​[Glossary](https://docs.klaytn.com/glossary)​ | Enumerates terminologies used within KlaytnDocs. |
+| [Klaytn Overview](klaytn/README.md) | Describes Klaytn key concepts and design principles. |
+| [Getting Started](getting-started/README.md) | Provides guidelines for getting started with Klaytn. |
+| [Smart Contract](smart-contract/README.md) | Tools and resources for smart contract development. |
+| [Installation & Operation](node/READMD.md) | Illustrates how to set up and operate Core Cell (CC), Endpoint Node (EN), and Service Chain. |
+| [BApp Development](bapp/README.md) | Development resources and references for BApp developers. |
+| [Roadmap](misc/roadmap.md) | Klaytn roadmap. |
+| [FAQ](misc/faq.md) | Provides a list of frequently asked questions \(FAQs\). |
+| [Glossary](misc/glossary.md) | Enumerates terminologies used within KlaytnDocs. |
 
 **Disclaimer**: Some notes are derived from Ethereum documents as the Klaytn source code was initiated from Ethereum’s Byzantium version. As Klaytn develops further, KlaytnDocs and the source code will continue to be updated. Reference websites are as follows:
 
-* ​[http://www.ethdocs.org/en/latest/](http://www.ethdocs.org/en/latest/)​
-* ​[https://github.com/ethereum/go-ethereum/wiki](https://github.com/ethereum/go-ethereum/wiki)​
-* ​[https://truffleframework.com/docs](https://truffleframework.com/docs)​
-* ​[https://web3js.readthedocs.io/en/1.0/](https://web3js.readthedocs.io/en/1.0/)​
+* [http://www.ethdocs.org/en/latest/](http://www.ethdocs.org/en/latest/)
+* [https://github.com/ethereum/go-ethereum/wiki](https://github.com/ethereum/go-ethereum/wiki)
+* [https://truffleframework.com/docs](https://truffleframework.com/docs)
+* [https://web3js.readthedocs.io/en/1.0/](https://web3js.readthedocs.io/en/1.0/)
 
-[  
-](https://docs.klaytn.com/vision)
 
