@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Welcome](klaytn/README.md)
+
 * [Klaytn Overview](klaytn/README.md)
   * [Why Klaytn](klaytn/why-klaytn/README.md)
     * [High Performance Low Cost](klaytn/why-klaytn/high-performance-low-cost.md)
@@ -24,7 +25,6 @@
     * [Token Economy](klaytn/klaytn-design/token-economy.md)
     * [Governance](klaytn/klaytn-design/governance.md)
 
-
 * [Getting Started](getting-started/README.md)
   * [Quick Start](getting-started/quick-start/README.md)
     * [Launch an Endpoint Node](getting-started/quick-start/launch-an-en.md)
@@ -40,7 +40,6 @@
   * [Request for Initial Setup on Cypress Mainnet](getting-started/request-for-initial-setup-on-cypress-mainnet.md)
   * [A Beginner's Guide to Klaytn BApp](getting-started/a-beginners-guide-to-klaytn-bapp/README.md)
     * [Typical BApp Architecture](getting-started/a-beginners-guide-to-klaytn-bapp/typical-bapp-architecture.md)
-
 
 * [Smart Contract](smart-contract/README.md)
   * [Solidity - Smart Contract Language](smart-contract/solidity-smart-contract-language.md)
@@ -62,7 +61,6 @@
       * [2. Deploying Smart Contract](smart-contract/sample-contracts/erc-721/2-erc721.md)
   * [Porting Ethereum Contract](smart-contract/porting-ethereum-contract.md)
   * [Klaytn Token Standard](smart-contract/token-standard.md)
-
 
 * [Installation & Operation](node/README.md)
   * [Endpoint Node](node/endpoint-node/README.md)
@@ -133,7 +131,6 @@
       * [Installation Guide](node/service-chain/multi-node-service-chain/untitled-1.md)
       * [Operation Guide](node/service-chain/multi-node-service-chain/untitled.md)
   * [Errors & Troubleshooting](node/errors-and-troubleshooting.md)
-
 
 * [BApp Developers](bapp/README.md)
   * [JSON-RPC- APIs](bapp/json-rpc-apis/README.md)
