@@ -60,7 +60,7 @@ If you do not specify the data directory, the default location is as follows.
 
 ## JavaScript Console
 
-To connect to the JavaScript console, an EN must be in running status. For more information, see [Launching an EN](quick-start/launch-an-en.md). Start an EN and attach to the console as follows.
+To connect to the JavaScript console, an EN must be in running status. For more information, see [Launching an EN](../quick-start/launch-an-en.md). Start an EN and attach to the console as follows.
 
 ### Usage
 

@@ -18,8 +18,8 @@
 
 **Klaytn SDKs** 
 
-* [caver-js](../bapp/sdk/caver-js/) : A JavaScript library that implements the Klaytn JSON-RPC APIs.
-* [caver-java](../bapp/sdk/caver-java/) : A Java library that implements the Klaytn JSON-RPC APIs. 
+* [caver-js](../bapp/sdk/caver-js/README.md) : A JavaScript library that implements the Klaytn JSON-RPC APIs.
+* [caver-java](../bapp/sdk/caver-java/README.md) : A Java library that implements the Klaytn JSON-RPC APIs. 
 
 **Klaytn Toolkits**
 
