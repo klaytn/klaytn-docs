@@ -151,7 +151,7 @@ In this section, you can create a new solidity test file in the current folder a
 
 This module allows you to debug the transaction. It can be used to deploy transactions created from IDE and already mined transactions.
 
-> Debugging works only if the current environment provides the necessary features. For debugging, the **personal** API must be enabled in the EN node. Please see the `RPC_API` option in the [EN configuration file](https://github.com/tinaklay/docs-contract/tree/e76d9c53e4aa6c3385cae5964636038b0a3e0ff4/node/en/installation/config.md).
+> Debugging works only if the current environment provides the necessary features. For debugging, the **personal** API must be enabled in the EN node. Please see the `RPC_API` option in the [EN configuration file](../node/endpoint-node/operation-guide/configuration.md).
 
 If you need more information, please visit [Remix docs &gt; Debugger](https://remix-ide.readthedocs.io/en/latest/debugger.html)
 

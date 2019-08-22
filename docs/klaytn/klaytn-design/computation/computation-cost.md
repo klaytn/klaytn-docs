@@ -8,7 +8,7 @@ Limiting the execution time of a transaction was not feasible either because the
 
 The last solution is to limit the computation cost of a transaction. We modeled the computation cost of each EVM opcode based on its actual execution time and limit the sum of computation cost of a transaction. With this approach, we eliminate other factors and only count the normalized execution time unit, and nodes can reach a consensus as well.
 
-Therefore, we chose the third option and implemented it in Klaytn. For now, the limit of the execution cost is set to 100,000,000. Since the limitation is determined by the platform, developers should know the computation cost of a transaction. To get the computation cost of a transaction, Klaytn provides [klay\_estimateComputationCost](https://github.com/tinaklay/docs-overview/tree/0f357c3c0311d48c599d79074853dd73f66e4c7f/api/platform/transaction.md#klay_estimatecomputationcost). The usage is almost the same as [klay\_estimateGas](https://github.com/tinaklay/docs-overview/tree/0f357c3c0311d48c599d79074853dd73f66e4c7f/api/platform/transaction.md#klay_estimategas).
+Therefore, we chose the third option and implemented it in Klaytn. For now, the limit of the execution cost is set to 100,000,000. Since the limitation is determined by the platform, developers should know the computation cost of a transaction. To get the computation cost of a transaction, Klaytn provides [klay\_estimateComputationCost](../../../bapp/json-rpc-apis/platform/transaction.md#klay_estimatecomputationcost). The usage is almost the same as [klay\_estimateGas](../../../bapp/json-roc-apis/platform/transaction.md#klay_estimategas).
 
 ## Computation Cost of Opcodes
 

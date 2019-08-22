@@ -13,7 +13,7 @@ You can install Truffle as the following:
 $ sudo npm install -g truffle
 ```
 
-If you have a local EN running, you can deploy contracts directly with truffle framework. For more details, refer to this [link](https://github.com/tinaklay/docs-contract/tree/cf868ceb857f121439d5f48bc3879169fb82f77c/getting_started/quick_start/deploy_sc.md#deploying-a-smart-contract-using-truffle).
+If you have a local EN running, you can deploy contracts directly with truffle framework. For more details, refer to this [link](../getting-started/quick-start/deploy-a-smart-contract.md#deploying-a-smart-contract-using-truffle).
 
 If you want to deploy with a remote EN node, you should use [truffle-hdwallet-provider-klaytn](https://www.npmjs.com/package/truffle-hdwallet-provider-klaytn).
 
@@ -103,5 +103,4 @@ Deploying on Klaytn mainnet
 $ truffle deploy --network mainnet
 ```
 
-For more information, refer to [tutorials](https://github.com/tinaklay/docs-contract/tree/cf868ceb857f121439d5f48bc3879169fb82f77c/tutorials/tutorials.md).
 

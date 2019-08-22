@@ -60,7 +60,7 @@ In the second step, you download the keystore file that has been encrypted with 
 
 In the final step, you are shown the Wallet Key and the private key corresponding to your newly created account. You are strongly encouraged to store the key in a separate, disconnected storage.
 
-For more in-depth information about Klaytn account, please visit Klaytn Docs and review the [Account](https://github.com/tinaklay/docs-contract/tree/cf868ceb857f121439d5f48bc3879169fb82f77c/klaytn/design/account.md) section.
+For more in-depth information about Klaytn account, please visit Klaytn Docs and review the [Accounts](../klaytn/klaytn-design/accounts.md) section.
 
 ![](img/01-create-new-5.png)
 

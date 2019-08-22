@@ -40,7 +40,7 @@ Klaytn wallet key format is provided to easily handle a private key along with t
 0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d80x000xa94f5374fce5edbc8e2a8697c15331677e6ebf0b
 ```
 
-This format is currently supported in [Klaytn Wallet](https://github.com/tinaklay/docs-overview/tree/0f357c3c0311d48c599d79074853dd73f66e4c7f/toolkit/wallet.md).
+This format is currently supported in [Klaytn Wallet](../../toolkit/klaytn-wallet.md).
 
 ### Klaytn Account Types
 
