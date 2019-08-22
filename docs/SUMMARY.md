@@ -183,9 +183,9 @@
         * [7-3. Feed Component](bapp/tutorials/klaystagram/7.-feedpage/7-3.-feed-component.md)
         * [7-4. TransferOwnership Component](bapp/tutorials/klaystagram/7.-feedpage/7-4.-transferownership-component.md)
       * [8. Run App](bapp/tutorials/klaystagram/8.-run-app.md)
-  * [Developer Tools](bapp/tools/README.md)
-    * [Klaytn Wallet](bapp/tools/klaytn-ide.md)
-    * [Klaytnscope](bapp/tools/klaytnscope.md)
+  * [Developer Tools](bapp/developer-tools/README.md)
+    * [Klaytn Wallet](bapp/developer-tools/ide.md)
+    * [Klaytnscope](bapp/developer-tools/scope.md)
 
 ## --- <a id="misc"></a>
 
