@@ -1,1 +1,0 @@
-../../smart-contract/ide-and-tools/klaytn-ide.md

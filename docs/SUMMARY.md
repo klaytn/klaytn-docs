@@ -184,8 +184,8 @@
         * [7-4. TransferOwnership Component](bapp/tutorials/klaystagram/7.-feedpage/7-4.-transferownership-component.md)
       * [8. Run App](bapp/tutorials/klaystagram/8.-run-app.md)
   * [Developer Tools](bapp/developer-tools/README.md)
-    * [Klaytn Wallet](bapp/developer-tools/ide.md)
-    * [Klaytnscope](bapp/developer-tools/scope.md)
+    * [Klaytn Wallet](smart-contract/ide-and-tools/klaytn-ide.md)
+    * [Klaytnscope](smart-contract/ide-and-tools/klaytnscope.md)
 
 ## --- <a id="misc"></a>
 
