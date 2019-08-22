@@ -4,7 +4,7 @@
 | :--- | :--- |
 | BApp | Blockchain application |
 | Block reward | Newly issued KLAY and the sum of transaction fees used in the block |
-| Bootnode | Bootnodes that helps PNs and ENs to register themselves in the network and to discover other nodes to connect to. CC Operation Guide |
+| Bootnode | Bootnodes that helps PNs and ENs to register themselves in the network and to discover other nodes to connect to. [CC Operation Guide] |
 | caver-js | caver-js is a JavaScript API library that allows developers to interact with a Klaytn node. [caver-js](../bapp/sdk/caver-js/README.md) |
 | CC | Core Cell. Core Cell plays a role of generating blocks in the Klaytn blockchain network. Details at CC Operation Guide |
 | CCN | Core Cell Network. The network consists of Core Cells \(CCs\) that verify and execute submitted transactions.  CCN is also responsible for the creation and propagation of blocks with the transactions. Details at CC Operation Guide |
@@ -36,4 +36,4 @@
 [Core Cell System Requirements]: ../node/consensus-nodes/system-requirements.md
 [EN Operation Guide]: ../node/endpoint-node/README.md
 [SCN Operation Guide]: ../node/service-chain/README.md
-
+[caver-js] ../bapp/sdk/caver-js/README.md
