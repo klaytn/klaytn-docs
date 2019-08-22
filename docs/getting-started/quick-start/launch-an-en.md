@@ -2,7 +2,7 @@
 
 ## Download and Initialize an Endpoint Node \(EN\)
 
-Unzip the provided [ken binary package]() and copy the files into the klaytn folder.  
+Unzip the provided [ken binary package](../../node/endpoint-node/installation-guide/download.md) and copy the files into the klaytn folder.  
 **Note**: Please download appropriate package starting with `ken`.
 
 For Mac users, unzip the downloaded file with the following command.
@@ -27,7 +27,7 @@ $ mkdir -p ~/kend_home
 
 ## Configuring the EN
 
-The configuration file, `kend.conf`, is located under `ken-xxxxx-amd64/conf/`. For the details of configurable parameters, you can refer to the [EN Configuration Guide](). To launch an EN of Baobab testnet, please update the `kend.conf` file accordingly as follows.
+The configuration file, `kend.conf`, is located under `ken-xxxxx-amd64/conf/`. For the details of configurable parameters, you can refer to the [EN Configuration Guide](../../node/endpoint-node/operation-guide/configuration.md). To launch an EN of Baobab testnet, please update the `kend.conf` file accordingly as follows.
 
 ```text
 # cypress, baobab is only available if you don't specify NETWORK_ID.
@@ -71,5 +71,5 @@ INFO[03/26,15:37:49 +09] [5] Imported new chain segment                blocks=1 
 
 ## Troubleshooting
 
-Please refer to the [Troubleshooting]() if you have trouble in launching the Klaytn Endpoint Node.
+Please refer to the [Troubleshooting](../../node/endpoint-node/operation-guide/errors-and-troubleshooting.md) if you have trouble in launching the Klaytn Endpoint Node.
 
