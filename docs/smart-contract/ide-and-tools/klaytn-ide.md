@@ -1,10 +1,10 @@
 # Klaytn IDE
 
-![](../.gitbook/assets/ide-overview-all.png)
+![](img/klaytn-ide/ide-overview-all.png)
 
 Klaytn IDE is a browser-based compiler and IDE that helps developers build Klaytn smart contracts with Solidity language. Klaytn IDE also supports test and deployment of smart contracts. Klaytn IDE is forked from Remix 0.7.7.
 
-You can access to the Klaytn IDE at [https://ide.klaytn.com](https://ide.klaytn.com). This document is an overview of the Klaytn IDE, it explains the major features and the usage guideline. You can find more detailed information in [Remix docs](https://remix.readthedocs.io/en/latest/).
+You can access to the Klaytn IDE at [https://ide.klaytn.com](https://ide.klaytn.com). This document is an overview of the Klaytn IDE, it explains the major features and the usage guideline. You can find more detailed information in [Remix docs](https://remix-ide.readthedocs.io/en/latest/).
 
 ## What's different from Remix?
 
@@ -14,52 +14,52 @@ You can access to the Klaytn IDE at [https://ide.klaytn.com](https://ide.klaytn.
 
 ## Overview
 
-![](../.gitbook/assets/ide-docs-sections.png)
+![](img/klaytn-ide/ide-docs-sections.png)
 
 The layout of the Klaytn IDE is as shown above. There are 4 areas - file explorer, code editor, console, and modules.
 
 ## 1. File Explorer
 
-![](../.gitbook/assets/ide-file-explorer.png)
+![](img/klaytn-ide/ide-file-explorer.png)
 
 The file explorer on the left side of the workspace shows the list of smart contract files stored in your browser. Please be aware that clearing the browser storage will permanently delete all smart contract files you wrote. You can add, rename, and delete files from the file explorer.
 
 * Create a new file  
-  * You can create `Untitled1.sol` file by clicking ![](../.gitbook/assets/ide-create-file.png) icon on the title bar.
+  * You can create `Untitled1.sol` file by clicking ![](img/klaytn-ide/ide-create-file.png) icon on the title bar.
 * Add a local file  
-  * You can select files from the local file system and import them to the browser storage. Clicking ![](../.gitbook/assets/ide-open-file.png) icon will display a select-file dialog.
+  * You can select files from the local file system and import them to the browser storage. Clicking ![](img/klaytn-ide/ide-open-file.png) icon will display a select-file dialog.
 * Rename and delete a file  
   * Right-click on a file will show up a context menu from which you can rename or delete the file.
 
 ## 2. Code Editor
 
-![](../.gitbook/assets/ide-editor-view.png)
+![](img/klaytn-ide/ide-editor-view.png)
 
 At the center of the workspace, you can edit files.
 
 ### File tabs
 
-You can open multiple files, and the editor displays the opened files as tabs. When you create or add a file to the file explorer, the file appears on the file tabs. Clicking ![](../.gitbook/assets/ide-editor-close%20%281%29.png) icon on the tab will close the file.
+You can open multiple files, and the editor displays the opened files as tabs. When you create or add a file to the file explorer, the file appears on the file tabs. Clicking ![](img/klaytn-ide/ide-editor-close%20%281%29.png) icon on the tab will close the file.
 
-Note: Closing a file \(by clicking ![](../.gitbook/assets/ide-editor-close.png) icon\) does not remove the file from the file explorer.
+Note: Closing a file \(by clicking ![](img/klaytn-ide/ide-editor-close.png) icon\) does not remove the file from the file explorer.
 
 ### Auto-completion for Solidity reserved keywords
 
 There are frequently-used statements in Solidity, for example, `bytes32`, `public`, and `modifier`. You don't need to type the whole characters since Klaytn IDE suggests the word you are intending to type. The auto-completion works for all reserved keywords in Solidity and the functions, variables, and classes you define.
 
-![](../.gitbook/assets/ide-auto-completion.png)
+![](img/klaytn-ide/ide-auto-completion.png)
 
 ### Error detection
 
 A red marker is displayed next to the line number where a compilation error occurred.
 
-![](../.gitbook/assets/ide-error-detection.png)
+![](img/klaytn-ide/ide-error-detection.png)
 
 ## 3. Modules
 
 There are six tabs in Modules. Compile, Run, Analysis, Testing, Debugger, and Settings.
 
-![](../.gitbook/assets/ide-tabs.png)
+![](img/klaytn-ide/ide-tabs.png)
 
 * Compile: To select the compiler version and to enable/disable several compilation options. A list of compiled projects is displayed in this tab as well. 
 * Run: In this tab, you can deploy a contract to the network and invoke the contract functions. This tab has options to manage the parameters for transactions, such as network, account, gas limit, and input params.
@@ -74,7 +74,7 @@ Compiling is triggered when you click the `Start to compile` button. If you want
 
 For now, we support two compiler versions, Solidity v0.4.24 and v0.5.6. So you always need to add `pragma solidity 0.4.24;` or `pragma solidity 0.5.6` on top of the document. You can manually click `"Compile"` button \(Cmd+s for MacOS, Ctrl+s for Windows\) every time you need, or you can activate the auto-compile function.
 
-![](../.gitbook/assets/ide-compile-tab.png)
+![](img/klaytn-ide/ide-compile-tab.png)
 
 Note:
 
@@ -85,7 +85,7 @@ Note:
 
 #### Environment \(Network Selector\)
 
-![](../.gitbook/assets/ide-environment.png)
+![](img/klaytn-ide/ide-environment.png)
 
 You can choose which network to use from the `"Environment"` dropdown. By default, Klaytn IDE provides following network options:
 
@@ -98,66 +98,66 @@ If you want to connect to another custom node, click the dropdown list, select `
 
 #### Account \(Account Selector\)
 
-![](../.gitbook/assets/ide-from-account.png)
+![](img/klaytn-ide/ide-from-account.png)
 
 With `Account Selector`, you can change your current account to another one.  
-To import an account, click ![](../.gitbook/assets/ide-add-account-button.png) button and choose the import method either by private key or keystore.
+To import an account, click ![](img/klaytn-ide/ide-add-account-button.png) button and choose the import method either by private key or keystore.
 
-![](../.gitbook/assets/ide-account-add-popup.png)
+![](img/klaytn-ide/ide-account-add-popup.png)
 
 After Import, your account balance will appear in the`Account` selector in a few seconds.
 
 #### Value
 
-![](../.gitbook/assets/ide-tx-value-controller.png)
+![](img/klaytn-ide/ide-tx-value-controller.png)
 
 On the `Value (Tx Value Controller)`, you can fill the amount of value for the next created transaction.
 
 #### Gas Limit Controller
 
-![](../.gitbook/assets/ide-gas-limit-controller.png)
+![](img/klaytn-ide/ide-gas-limit-controller.png)
 
 In the `Gas Limit` controller, you can fill the maximum amount of gas which will be used for calling a smart contract function.
 
 #### Deploy
 
-![](../.gitbook/assets/ide-deploy.png)
+![](img/klaytn-ide/ide-deploy.png)
 
 Once you compile the code, you will find the contract listed in the dropdown selector. Among the compiled list, you can select a contract and deploy it by clicking the `Deploy` button.
 
-![](../.gitbook/assets/ide-deploy-result.png)
+![](img/klaytn-ide/ide-deploy-result.png)
 
 If the contract is deployed successfully, the contract address is shown and you can see the list of functions that the contract exposes in the below. There are only two types of functions in the smart contract, functions that write data to the blockchain \(transaction\) and functions that read data from the blockchain.
 
 ### Analysis
 
-![](../.gitbook/assets/ide-tab-analysis.png)
+![](img/klaytn-ide/ide-tab-analysis.png)
 
 This section shows the output from the last compilation. By default, a new analysis is run at each compilation.
 
 The analysis tab gives detailed information about the contract code. It can help you avoid code mistakes and to enforce best practices.
 
-If you need more information, please visit [Remix docs &gt; Analysis ](https://remix.readthedocs.io/en/latest/static_analysis.html?highlight=analysis)
+If you need more information, please visit [Remix docs &gt; Analysis ](https://remix-ide.readthedocs.io/en/latest/static_analysis.html?highlight=analysis)
 
 ### Testing
 
-![](../.gitbook/assets/ide-tab-testing.png)
+![](img/klaytn-ide/ide-tab-testing.png)
 
-In this section, you can create a new solidity test file in the current folder and execute the tests. The execution result is displayed below. If you need more information, please visit [Remix docs &gt; Unit Testing](https://remix.readthedocs.io/en/latest/unittesting.html)
+In this section, you can create a new solidity test file in the current folder and execute the tests. The execution result is displayed below. If you need more information, please visit [Remix docs &gt; Unit Testing](https://remix-ide.readthedocs.io/en/latest/unittesting.html)
 
 ### Debugger
 
-![](../.gitbook/assets/ide-tab-debugger.png)
+![](img/klaytn-ide/ide-tab-debugger.png)
 
 This module allows you to debug the transaction. It can be used to deploy transactions created from IDE and already mined transactions.
 
 > Debugging works only if the current environment provides the necessary features. For debugging, the **personal** API must be enabled in the EN node. Please see the `RPC_API` option in the [EN configuration file](https://github.com/tinaklay/docs-contract/tree/e76d9c53e4aa6c3385cae5964636038b0a3e0ff4/node/en/installation/config.md).
 
-If you need more information, please visit [Remix docs &gt; Debugger](https://remix.readthedocs.io/en/latest/debugger.html)
+If you need more information, please visit [Remix docs &gt; Debugger](https://remix-ide.readthedocs.io/en/latest/debugger.html)
 
 ### Settings
 
-![](../.gitbook/assets/ide-tab-setting.png)
+![](img/klaytn-ide/ide-tab-setting.png)
 
 This tab contains general settings and support channels.
 
@@ -168,7 +168,7 @@ Important settings:
 
 ## 4. Terminal
 
-![](../.gitbook/assets/ide-console.png)
+![](img/klaytn-ide/ide-console.png)
 
 At the bottom of the code editor, compiled outputs, compiler errors, deployment results, and transaction information are shown in the terminal.
 
@@ -182,7 +182,7 @@ The OpenZepplin library is available after connecting to localhost via remixd. T
 
 ### Install Remixd
 
-Remixd is a tool that is intended to be used with Remix IDE \(aka. Browser-Solidity\). It allows a websocket connection between Remix IDE \(web application\) and the local computer. Get more details at: [remixd document](https://remix.readthedocs.io/en/latest/remixd.html?highlight=remixd).
+Remixd is a tool that is intended to be used with Remix IDE \(aka. Browser-Solidity\). It allows a websocket connection between Remix IDE \(web application\) and the local computer. Get more details at: [remixd document](https://remix-ide.readthedocs.io/en/latest/remixd.html?highlight=remixd).
 
 `remixd` can be globally installed using the following command: After installation, start `remixd`. `-s` option gives the IDE access to the given folder. In the given folder, you will install OpenZepplin and place your contract source code.
 
@@ -192,7 +192,7 @@ For example, `remixd -s ~/temp/openzepplin --remix-ide http://ide.klaytn.com`
 
 Then, you will see the following messages in your terminal.
 
-![](../.gitbook/assets/ide-launch-remixd.png)
+![](img/klaytn-ide/ide-launch-remixd.png)
 
 ### Install OpenZepplin
 
@@ -204,23 +204,23 @@ Go to the shared folder, and install OpenZepplin.
 
 Click remix connect button as shown below.
 
-![](../.gitbook/assets/ide-connect-remixd.png)
+![](img/klaytn-ide/ide-connect-remixd.png)
 
 Click connect.
 
-![](../.gitbook/assets/ide-connet-remix-popup.png)
+![](img/klaytn-ide/ide-connet-remix-popup.png)
 
 localhost directory will appear in the file browser.
 
-![](../.gitbook/assets/ide-connection-localhost.png)
+![](img/klaytn-ide/ide-connection-localhost.png)
 
 In your contract source file, import the required solidity contract from the OpenZepplin.
 
-![](../.gitbook/assets/ide-import-openzepplin.png)
+![](img/klaytn-ide/ide-import-openzepplin.png)
 
 ## Need more information?
 
-The Klaytn IDE is based on the Remix v0.7.7. Many features are compatible, so please refer to the [official Remix documentation](https://remix.readthedocs.io/en/latest/).
+The Klaytn IDE is based on the Remix v0.7.7. Many features are compatible, so please refer to the [official Remix documentation](https://remix-ide.readthedocs.io/en/latest/).
 
 ## Send us feedback!
 

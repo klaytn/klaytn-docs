@@ -1,18 +1,6 @@
 # Solidity - Smart Contract Language
 
-
-
-This chapter presents an overview of the Klaytn smart contract languages.
-
-## Overview
-
-Klaytn executes a user's program called _smart contract_ that can implement token transfers, service logic, games, libraries, or any other code interacting with the Klaytn blockchain. Smart contracts are initially deployed and invoked by a _transaction_. The details of the Klaytn smart contract and transaction will be covered in [Execution Model]().
-
-To write smart contracts, Klaytn currently supports [Solidity](https://github.com/ethereum/solidity) as the primary programming language. Solidity is adopted in Klaytn because it is a _de facto_ standard contract programming language for Ethereum and has a large user base and an active community. The Klaytn team decided to provide the users with familiar development experience so that the Ethereum DApp developers could easily experiment with or migrate their existing smart contracts to Klaytn.
-
-In the future, Klaytn also plans to support writing smart contracts using other programming languages. The Klaytn team is investigating various favorable programming languages that developers might embrace.
-
-This chapter describes only the core concepts, development processes, and examples written in Solidity because Solidity is already well documented on its official websites. For language specifications or implementations, please refer to the [References]() section. The content of this chapter is based on various websites listed in the References section.
+This chapter describes only the high-level concepts, development processes, and examples written in Solidity because Solidity is already well documented on its official websites. For language specifications or implementations, please refer to the [References](#references) below. The content of this chapter is based on various websites listed in the [References](#references).
 
 ## Solidity and Klaytn
 
@@ -113,8 +101,8 @@ NOTE: This section will be updated in the future.
 
 It is more difficult to debug Solidity code than to debug code written in other programming languages due to the lack of mature debugging tools. Below, we list some resources for Solidity debugging.
 
-* [Debugging a transaction with Remix](https://remix.readthedocs.io/en/latest/debugger_tab.html)
-* [Tutorial on debugging transactions with Remix](https://remix.readthedocs.io/en/latest/tutorial_debug.html)
+* [Debugging a transaction with Remix](https://remix-ide.readthedocs.io/en/latest/debugger.html)
+* [Tutorial on debugging transactions with Remix](https://remix-ide.readthedocs.io/en/latest/tutorial_debug.html)
 * [Debugging contracts with Truffle](https://truffleframework.com/docs/truffle/getting-started/debugging-your-contracts)
 
 NOTE: This section will be updated in the future.
@@ -132,6 +120,6 @@ NOTE: This section will be updated in the future.
 * [Solidity GitHub site](https://github.com/ethereum/solidity)
 * [Solidity v0.4.24 documentation](https://solidity.readthedocs.io/en/v0.4.24/index.html)
 * [Solidity v0.5.6 documentation](https://solidity.readthedocs.io/en/v0.5.6/index.html)
-* [Remix documentation](https://remix.readthedocs.io/en/latest/)
+* [Remix documentation](https://remix-ide.readthedocs.io/en/latest/)
 * [Truffle documentation](https://truffleframework.com/docs/truffle/overview)
 

@@ -9,7 +9,7 @@ Klaytn Wallet is a browser-based account management tool for blockchain applicat
 * Klaytn Wallet for the Cypress mainnet: [https://wallet.klaytn.com](https://wallet.klaytn.com)
 * Klaytn Wallet for the Baobab testnet: [https://baobab.wallet.klaytn.com](https://baobab.wallet.klaytn.com)
 
-![](../.gitbook/assets/00-main.png)
+![](img/00-main.png)
 
 ## Klaytn Wallet Functions
 
@@ -46,7 +46,7 @@ You can use Klaytn Wallet to create new Klaytn accounts. To create a new account
 
 As the first step in creating a new account, you must create a password for your keystore file. A keystore file is a JSON file that securely stores your Klaytn account information, including the account's address and the private key associated with the account. A keystore file's password must be strong enough to meet Klaytn's security standard, as the password protects the private key stored within the file.
 
-![](../.gitbook/assets/01-create-new-1.png)
+![](img/01-create-new-1.png)
 
 When you click the password input form, a tooltip will appear above and it will show you, as you type in, if the entered password satisfies the security requirements. If your password meets all the requirements, `Next Step` button will be activated. ! 
 
@@ -54,7 +54,7 @@ When you click the password input form, a tooltip will appear above and it will 
 
 In the second step, you download the keystore file that has been encrypted with the submitted password. Click the `Download & Next Step` button to immediately download the keystore file and move on to the last step. \(Note that if the downloaded keystore file gets lost, you can download a new keystore file in the `View Account Info` menu.\)
 
-![](../.gitbook/assets/01-create-new-4.png)
+![](img/01-create-new-4.png)
 
 ### Step 3. Save your Klaytn Wallet key and Private Key
 
@@ -62,7 +62,7 @@ In the final step, you are shown the Wallet Key and the private key correspondin
 
 For more in-depth information about Klaytn account, please visit Klaytn Docs and review the [Account](https://github.com/tinaklay/docs-contract/tree/cf868ceb857f121439d5f48bc3879169fb82f77c/klaytn/design/account.md) section.
 
-![](../.gitbook/assets/01-create-new-5.png)
+![](img/01-create-new-5.png)
 
 ## Access Existing Account
 
@@ -77,13 +77,13 @@ To check your account's balance of KLAY or Klay tokens, or to transfer tokens to
 
 To access your account, click the `View Account Info` button from the menu bar on the left, and go to the `Private Key` tab on the screen. Enter the Klaytn Wallet Key or private key for the account you wish to access in the input box.
 
-![](../.gitbook/assets/03-access-1pk-1.png)
+![](img/03-access-1pk-1.png)
 
 #### Step 2. Check the Checkbox and Click 'Access' button
 
 Click the `Access` button to go to your account page. If the key information you provided does not conform to any key format, the `Access` button will not be active.
 
-![](../.gitbook/assets/03-access-1pk-2.png)
+![](img/03-access-1pk-2.png)
 
 ### Access Existing Account Using Keystore File and Password
 
@@ -91,25 +91,25 @@ Click the `Access` button to go to your account page. If the key information you
 
 Go to the `Keystore File` tab on the screen.
 
-![](../.gitbook/assets/03-access-2ks-1.png)
+![](img/03-access-2ks-1.png)
 
 #### Step 2. Select the Keystore File to Use
 
 Click the `Upload` button, and locate your keystore file.
 
-![](../.gitbook/assets/03-access-2ks-2.png)
+![](img/03-access-2ks-2.png)
 
 #### Step 3. Enter Keystore File Password
 
 Enter the password corresponding to the selected keystore file, and click the `Access` button to go to your account page.
 
-![](../.gitbook/assets/03-access-2ks-3.png)
+![](img/03-access-2ks-3.png)
 
 ### View Account Info
 
 On this page, you can check your account's address, private key, and Klaytn Wallet Key information. On the right side of the page, you can check the balance of your KLAY and other Klaytn tokens. Using Klaytn Wallet to check account balance is recommended for blockchain application developers who do not wish to unlock their accounts every time a balance check is needed, for security reasons.
 
-![](../.gitbook/assets/04-balance-3.png)
+![](img/04-balance-3.png)
 
 ## How to Add Klaytn Tokens
 
@@ -123,13 +123,13 @@ Go to your account page by following the steps of [Access Existing Account](klay
 
 Click the '+' button in the bottom-right of the screen in the `Balance` area.
 
-![](../.gitbook/assets/05-addtoken-3.png)
+![](img/05-addtoken-3.png)
 
 ### Step 3. Enter Token Information
 
 Enter the `Token Symbol`, `Token Contract Address`, and `Decimals`. After clicking the `Save` button, you will see the token listed in your account's balance section.
 
-![](../.gitbook/assets/05-addtoken-4.png)
+![](img/05-addtoken-4.png)
 
 ## How to Send KLAY and Tokens
 
@@ -139,7 +139,7 @@ You can send KLAY or Klaytn tokens to other accounts using Klaytn Wallet. When s
 
 Either click the `Send KLAY & Token` button from the menu bar on the left, or the same button on the main page.
 
-![](../.gitbook/assets/06-send-1.png)
+![](img/06-send-1.png)
 
 ### Step 2. Access Your Account
 
@@ -149,25 +149,25 @@ In case you have not loaded your account into the wallet yet, do so by following
 
 Select the token to transfer in `Step 1. Select Tokens` area.
 
-![](../.gitbook/assets/06-send-3.png)
+![](img/06-send-3.png)
 
 ### Step 4. Select Token Transfer Information
 
 After selecting the token to send, move on to `Step 2. Enter the information` section and fill in the necessary information \(`To Address` and `Amount to Send`\), then click the `Send Transaction` button.
 
-![](../.gitbook/assets/06-send-4.png)
+![](img/06-send-4.png)
 
 ### Step 5. Confirm the Transfer
 
 A confirmation page will appear. Double check the amount to transfer and the recipient address. If everything is correct, click `Yes, I'm sure`. Otherwise, you can go back to the previous page to edit the token transfer information.
 
-![](../.gitbook/assets/06-send-9.png)
+![](img/06-send-9.png)
 
 ### Step 6. Review Transfer Details
 
 Your transaction request is completed. You can check the status of the transaction on the Klaytnscope. Clicking the `View Transaction Info` will launch Klaytnscope to show the transaction details.
 
-![](../.gitbook/assets/06-send-10.png)
+![](img/06-send-10.png)
 
 ## How to Receive Baobab testnet KLAY
 
@@ -184,7 +184,7 @@ From the [Baobab Klaytn Wallet](https://baobab.wallet.klaytn.com), `KLAY Faucet`
 
 The requested page will show your address and the current testnet KLAY balance of your account.
 
-![](../.gitbook/assets/test_klay_faucet.png)
+![](img/test_klay_faucet.png)
 
 ### Step 2. Run Faucet
 

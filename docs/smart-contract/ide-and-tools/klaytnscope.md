@@ -5,7 +5,7 @@ Klaytnscope is the block explorer for the Klaytn Network. Klaytnscope gives you 
 * For the Baobab network, visit [https://baobab.scope.klaytn.com](https://baobab.scope.klaytn.com)
 * For the Mainnet, visit [https://scope.klaytn.com](https://scope.klaytn.com)
 
-![](../.gitbook/assets/scope_01_main.png)
+![](img/scope_01_main.png)
 
 ## Major Features
 
@@ -24,7 +24,7 @@ In the subsequent sections, we will visit the major functions and screenshots of
 
 Network information is presented in the dashboard. The information includes average block generation time, average number of transactions in a block, number of consensus nodes, and the latest trends in transactions.
 
-![](../.gitbook/assets/scope_02_main_indicator.png)
+![](img/scope_02_main_indicator.png)
 
 * Block Height: The latest block height. It shows that how many blocks have been generated since the genesis. 
 * Network Performance: It shows Klaytn's network performance with four indicators.
@@ -38,11 +38,11 @@ Network information is presented in the dashboard. The information includes aver
 
 These lists show recently created blocks and transactions respectively. You can get the latest information by clicking the refresh button on the upper-right corner in the pane. In the bottom of the list, clicking the ‘view all’ button will take you to the [list view](klaytnscope.md#list-view).
 
-![](../.gitbook/assets/scope_03_main_list.png)
+![](img/scope_03_main_list.png)
 
 ### Network Status & Network Selector
 
-![](../.gitbook/assets/network_status.gif)
+![](img/network_status.gif)
 
 On the upper-right corner of the site, there are network status indicator and the network selector drop down.
 
@@ -59,7 +59,7 @@ If you want to get a closer look at the status of the Klaytn network, you can ch
 
 ### Blocks
 
-![](../.gitbook/assets/scope_04_block_list.png)
+![](img/scope_04_block_list.png)
 
 A list of recently generated blocks. To update the information, please click the refresh.
 
@@ -72,7 +72,7 @@ A list of recently generated blocks. To update the information, please click the
 
 ### Transactions
 
-![](../.gitbook/assets/scope_05_tx_list.png)
+![](img/scope_05_tx_list.png)
 
 A list of recently executed transactions. To update the information, please click the refresh.
 
@@ -90,7 +90,7 @@ Detailed information about single Block, Transaction, Account, and Contract can 
 
 ### Block
 
-![](../.gitbook/assets/scope_08_block_detail.png)
+![](img/scope_08_block_detail.png)
 
 #### Overview
 
@@ -116,7 +116,7 @@ List of transactions included in the block.
 
 ### Transaction
 
-![](../.gitbook/assets/scope_09_tx_detail.png)
+![](img/scope_09_tx_detail.png)
 
 #### Overview
 
@@ -143,7 +143,7 @@ Extra data provided by the sender or contract.
 
 ### Account
 
-![](../.gitbook/assets/scope_10_account_detail.png)
+![](img/scope_10_account_detail.png)
 
 #### Overview
 
@@ -160,7 +160,7 @@ The list of transactions related to this account. The color of the arrow indicat
 
 ### Contract
 
-![](../.gitbook/assets/scope_11_contract_detail.png)
+![](img/scope_11_contract_detail.png)
 
 #### Overview
 
@@ -181,7 +181,7 @@ The list of transactions related to this contract.
 
 Through Klaytnscope, you can search for the information about account, contract, transactions and blocks. The search bar is placed on every page, making it easy to access. Entering a valid keyword will take you to the detail view of the entity.
 
-![](../.gitbook/assets/scope_06_search.png)
+![](img/scope_06_search.png)
 
 ### Search Keyword
 
@@ -219,7 +219,7 @@ The unique characteristics that distinguish each keyword are as follows:
 
 ### Search Errors
 
-![](../.gitbook/assets/scope_07_noresult.png)
+![](img/scope_07_noresult.png)
 
 If you search for a keyword that doesn't fit in the specified format or information hasn't yet been generated, no result page will appear.
 
