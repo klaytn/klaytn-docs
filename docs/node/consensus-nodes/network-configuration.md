@@ -21,7 +21,7 @@ The three-layer subnet consists of the following:
 
 A CN Subnet consists of CN servers in Core Cells. The working CN in a Core Cell is only one, but spare one should be prepared for high availability. IP/Port of all CNs within the Core Cell Network \(CCN\) must be opened to each other because they try to connect to the others from the outside of the Core Cell. \(This connection information can be received from Baobab operators.\) The internal communication with other subnets in the Core Cell requires to open default port \(32323: default Klaytn P2P port number\) in order to connect to PNs of the PN Subnet. Furthermore, it is necessary to open other ports such as the CN monitoring port \(61001\) for the monitoring server and the SSH port \(22\) for the management purpose. If the multichannel feature is used, another port \(32324: default multichannel port\) should be opened as well.
 
-![CN Subnet](https://github.com/tinaklay/docs-node/tree/8ad4bd448de532aee7d9d8efdb27386b22610785/consensus-nodes/resources/cn_subnet.png)
+![CN Subnet](images/cn_subnet.png)
 
 | Origin Subnet | Target Subnet | Ingress | Egress |
 | :--- | :--- | :--- | :--- |
@@ -40,7 +40,7 @@ A PN subnet is connected to the following nodes:
 * Core Cell Management Servers \(Mgmt, Monitoring\)
 * EN nodes
 
-![PN Subnet](https://github.com/tinaklay/docs-node/tree/8ad4bd448de532aee7d9d8efdb27386b22610785/consensus-nodes/resources/pn_subnet.png)
+![PN Subnet](images/pn_subnet.png)
 
 | Origin Subnet | Target Subnet | Ingress | Egress |
 | :--- | :--- | :--- | :--- |
@@ -52,7 +52,7 @@ A PN subnet is connected to the following nodes:
 
 A Mgmt Subnet is a gateway subnet for the operator to enter into the Core Cell nodes through ssh. A VPN server may be necessary to make the connection together with a monitoring server and a management server installed with a tool to manage the Core Cell nodes.
 
-![Management Subnet](https://github.com/tinaklay/docs-node/tree/8ad4bd448de532aee7d9d8efdb27386b22610785/consensus-nodes/resources/admin_subnet.png)
+![Management Subnet](images/admin_subnet.png)
 
 | Origin Subnet | Target Subnet | Ingress | Egress |
 | :--- | :--- | :--- | :--- |
@@ -66,5 +66,5 @@ A single subnet of a Core Cell is built for the development/test purpose or unde
 
 All nodes are setup under a single CC subnet. Firewall setup is also necessary for the CN to connect to other CNs within the CNN using P2P port \(32323, 32324 for multichannel option\). The P2P port of the PN is opened to connect with ENs in Endpoint Node Network \(ENN\) and PNs in the Core Cell Network \(CNN\). Additionally, an optional VPN and monitoring servers are required to be managed remotely.
 
-![CC with a Single Subnet](https://github.com/tinaklay/docs-node/tree/8ad4bd448de532aee7d9d8efdb27386b22610785/consensus-nodes/resources/cc_single_subnet.png)
+![CC with a Single Subnet](images/cc_single_subnet.png)
 

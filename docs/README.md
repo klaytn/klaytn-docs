@@ -7,11 +7,8 @@ KlaytnDocs introduces and explains [Klaytn](https://www.klaytn.com/), an enterpr
 | [Klaytn Overview](klaytn/README.md) | Describes Klaytn key concepts and design principles. |
 | [Getting Started](getting-started/README.md) | Provides guidelines for getting started with Klaytn. |
 | [Smart Contract](smart-contract/README.md) | Tools and resources for smart contract development. |
-| [Installation & Operation](node/README.md) | Illustrates how to set up and operate Core Cell (CC), Endpoint Node (EN), and Service Chain. |
-| [BApp Development](bapp/README.md) | Development resources and references for BApp developers. |
-| [Roadmap](misc/roadmap.md) | Klaytn roadmap. |
-| [FAQ](misc/faq.md) | Provides a list of frequently asked questions \(FAQs\). |
-| [Glossary](misc/glossary.md) | Enumerates terminologies used within KlaytnDocs. |
+| [Installation & Operation](node/README.md) | Illustrates how to set up and operate Endpoint Node (EN), Core Cell (CC) and Service Chain. |
+| [BApp Developers](bapp/README.md) | Development resources and references for BApp developers. This section contains Klaytn API references and provides end-to-end BApp development tutorials. |
 
 **Disclaimer**: Some notes are derived from Ethereum documents as the Klaytn source code was initiated from Ethereum’s Byzantium version. As Klaytn develops further, KlaytnDocs and the source code will continue to be updated. Reference websites are as follows:
 

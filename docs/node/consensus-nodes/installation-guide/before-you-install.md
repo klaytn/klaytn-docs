@@ -8,7 +8,7 @@ Before installing the Klaytn package, it is required to create the associated no
 
 ## Download `kgen` Package
 
-First of all, you can download the latest version of `kgen` package depending on your operating systems on [Download](https://github.com/tinaklay/docs-node/tree/8ad4bd448de532aee7d9d8efdb27386b22610785/download.md) page.
+First of all, you can download the latest version of `kgen` package depending on your operating systems on [Download](download.md) page.
 
 You can find the `kgen` binary file under the `bin` directory.
 

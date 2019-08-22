@@ -4,12 +4,12 @@ This tutorial presents lectures about developing a blockchain application \(BApp
 
 The tutorial consists of the following lectures:
 
-1. [Introduction](https://github.com/tinaklay/docs-bapps/tree/323ca019672d4b0b7e03a0ad9708c1a5eec1f039/tutorials/bapp-on-baobab-video-lecture/1-introduction.md)
-2. [Weakness of Blockchain Platform](https://github.com/tinaklay/docs-bapps/tree/323ca019672d4b0b7e03a0ad9708c1a5eec1f039/tutorials/bapp-on-baobab-video-lecture/2-weakness-of-blockchain-platform.md)
-3. [Understanding Klaytn](https://github.com/tinaklay/docs-bapps/tree/323ca019672d4b0b7e03a0ad9708c1a5eec1f039/tutorials/bapp-on-baobab-video-lecture/3-understanding-klaytn.md)
-4. [Developing an Addition Game with Klaytn Tools](https://github.com/tinaklay/docs-bapps/tree/323ca019672d4b0b7e03a0ad9708c1a5eec1f039/tutorials/bapp-on-baobab-video-lecture/4-developing-game.md)
-5. [Front-end for Klaytn Addition Game Development](https://github.com/tinaklay/docs-bapps/tree/323ca019672d4b0b7e03a0ad9708c1a5eec1f039/tutorials/bapp-on-baobab-video-lecture/5-frontend.md)
-6. [Summary](https://github.com/tinaklay/docs-bapps/tree/323ca019672d4b0b7e03a0ad9708c1a5eec1f039/tutorials/bapp-on-baobab-video-lecture/6-summary.md)
+1. [Introduction](1.-introduction.md)
+2. [Weakness of Blockchain Platform](2.-weakness-of-blockchain-platform.md)
+3. [Understanding Klaytn](3.-understanding-klaytn.md)
+4. [Developing an Addition Game with Klaytn Tools](4.-developing-an-addition-game-with-klaytn-tools.md)
+5. [Front-end for Klaytn Addition Game Development](5.-front-end-for-klaytn-addition-game-development.md)
+6. [Summary](6.-summary.md)
 
 **NOTE**: The language on the lectures is Korean, but English captions are provided.
 
