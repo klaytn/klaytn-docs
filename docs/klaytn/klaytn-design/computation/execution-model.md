@@ -16,7 +16,7 @@ When block generation is complete, the block is propagated to all the other CNs.
 
 Klaytn's Baobab and Cypress networks currently have the following restrictions on the transaction execution:
 
-* A transaction must set its gas price to Klaytn's [unit price](../transaction-fees.md/#units-of-klay), _i.e._, 25 Gpeb.
+* A transaction must set its gas price to Klaytn's [unit price](../klaytn-native-coin-klay.md/#units-of-klay), _i.e._, 25 Gpeb.
 * A transaction which has bigger execution cost than a computation cost limit is discarded. Please refer to [computation cost](computation-cost.md)
 
 ## Data Structures
@@ -27,7 +27,7 @@ An account in Klaytn blockchain platform is a data structure containing informat
 
 ### Transaction
 
-A transaction in a blockchain platform is a message sent between nodes that changes the state of the blockchain. Klaytn also redesigns its transaction model. Transactions are separated into various types according to their own purposes to find chances of performance optimization and to support the redesigned account model. Detailed information about the transaction model can be found [here](../transactions.md).
+A transaction in a blockchain platform is a message sent between nodes that changes the state of the blockchain. Klaytn also redesigns its transaction model. Transactions are separated into various types according to their own purposes to find chances of performance optimization and to support the redesigned account model. Detailed information about the transaction model can be found [here](../transactions/).
 
 ### State
 
@@ -83,112 +83,4 @@ Klaytn will provide ways to upgrade a deployed smart contract to address the inc
 * Only authorized accounts or the owner of a smart contract should be able to upgrade the smart contract.
 * Upgraded smart contracts should be able to manipulate existing data maintained by the old smart contract.
 * Other smart contracts that refer to the old smart contracts should be able to determine whether to use newer, upgraded versions of those smart contracts.
-
-## Klaytn Tokens and Transaction Fees
-
-### KLAY
-
-KLAY is the main internal transferable cryptocurrency of Klaytn and is used to pay transaction fees when creating or executing smart contracts or when transferring KLAY.
-
-KLAY is a necessary element--a fuel--for operating the Klaytn distributed application platform. It is a form of payment made by the clients of the platform to the consensus nodes \(CNs\) executing the requested operations. To put it another way, KLAY is an incentive; it ensures that developers write high-quality applications \(wasteful code costs more\) and that the network remains healthy \(CNs and RNs are compensated for the resources they contribute\).
-
-#### Units of KLAY
-
-Klaytn uses the following unit system for KLAY.
-
-* `peb` is the smallest currency unit.
-* `ston` is an alias for `Gpeb` and introduced for convenience.
-* A `KLAY` is 10^18 peb.
-
-| Unit | peb value | peb |
-| :--- | :--- | :--- |
-| peb | 1 peb | 1 |
-| kpeb | 10^3 peb | 1,000 |
-| Mpeb | 10^6 peb | 1,000,000 |
-| Gpeb | 10^9 peb | 1,000,000,000 |
-| ston | 10^9 peb | 1,000,000,000 |
-| uKLAY | 10^12 peb | 1,000,000,000,000 |
-| mKLAY | 10^15 peb | 1,000,000,000,000,000 |
-| KLAY | 10^18 peb | 1,000,000,000,000,000,000 |
-| kKLAY | 10^21 peb | 1,000,000,000,000,000,000,000 |
-| MKLAY | 10^24 peb | 1,000,000,000,000,000,000,000,000 |
-| GKLAY | 10^27 peb | 1,000,000,000,000,000,000,000,000,000 |
-| TKLAY | 10^30 peb | 1,000,000,000,000,000,000,000,000,000,000 |
-
-#### APIs Related to KLAY Units
-
-`klay.toPeb` and `klay.fromPeb` are convenient APIs for converting between KLAY units.
-
-```text
-$ ./klay attach data/dd/klay.ipc
-...
-> klay.fromPeb(25, "peb")
-"25"
-> klay.fromPeb(25, "Gpeb")
-"0.000000025"
-> klay.fromPeb(25, "ston")
-"0.000000025"
-> klay.fromPeb(25, "KLAY")
-"0.000000000000000025"
-> klay.toPeb(25, "peb")
-"25"
-> klay.toPeb(25, "ston")
-"25000000000"
-> klay.toPeb(25, "KLAY")
-"25000000000000000000"
-```
-
-You can get the list of all units supported by `klay.toPeb` and `klay.fromPeb` by sending an invalid unit string such as the one below.
-
-```text
-> klay.toPeb(1, "something-does-not-exist")
-Error: This unit doesn't exist, please use one of the following units
-"noKLAY": "0"
-"peb": "1"
-"kpeb": "1000"
-"Mpeb": "1000000"
-"Gpeb": "1000000000"
-"ston": "1000000000"
-"uKLAY": "1000000000000"
-"mKLAY": "1000000000000000"
-"KLAY": "1000000000000000000"
-"kKLAY": "1000000000000000000000"
-"MKLAY": "1000000000000000000000000"
-"GKLAY": "1000000000000000000000000000"
-"TKLAY": "1000000000000000000000000000000"
-
-    at web3.js:2170:19
-    at web3.js:2255:49
-    at <anonymous>:1:1
-```
-
-### Transaction Fee
-
-Transaction fees can be calculated in various ways depending on the execution environment where the transaction is executed. For example, the transaction fee for the current Klaytn virtual machine \(KLVM\) is computed as follows:
-
-```text
-Transaction fee := (total gas used) x (unit price)
-```
-
-* The `total gas used` is computed by KLVM based on the gas cost of the opcode and the intrinsic gas cost.
-
-  See [Fee Overview]() for more details.  - `unit price` is the price of gas defined in Klaytn.
-
-This calculated transaction fee is subtracted from the sender's or enterprise account's balance, depending on the transaction.
-
-#### Unit Price
-
-In Klaytn, the unit price is the fixed price of gas defined in the platform and is used to calculate the transaction fee. It is currently set to 25 Gpeb \(_i.e._, 25 x 10^9 peb\) per gas and cannot be changed by user. The current value of the unit price can be obtained by calling the `klay.gasPrice` API.
-
-#### Transaction Validation against Unit Price
-
-Klaytn only accepts transactions with gas prices, which can be set by the user, that are equal to the unit price of Klaytn; it rejects transactions with gas prices that are different from the unit price in Klaytn.
-
-#### Unit Price Error
-
-The error message `invalid unit price` is returned when the gas price of a transaction is not equal to the unit price of Klaytn.
-
-#### Transaction Replacement
-
-Klaytn currently does not provide a way to replace a transaction using the unit price but may support different methods for the transaction replacement in the future. Note that in Ethereum, a transaction with a given nonce can be replaced by a new one with a higher gas price.
 

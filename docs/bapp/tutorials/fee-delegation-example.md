@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-* [1. Introduction](#introduction)
+* [1. Introduction](#1-introduction)
 * [2. How fee delegation works](#2-how-fee-delegation-works)
   * 2.1 Transaction signing by the sender
   * 2.2 Transaction signing by the fee payer

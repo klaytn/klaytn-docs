@@ -32,9 +32,9 @@
     * [Install Development Tools](getting-started/quick-start/install-development-tools.md)
     * [Deploy a Smart Contract](getting-started/quick-start/deploy-a-smart-contract.md)
     * [Check the Deployment](getting-started/quick-start/check-the-deployment.md)
-  * [Account Management](getting-started/managing-account/README.md)
-    * [Creating Accounts](getting-started/managing-account/creating-accounts.md)
-    * [Managing Accounts](getting-started/managing-account/managing-accounts.md)
+  * [Account Management](getting-started/account/README.md)
+    * [Creating Accounts](getting-started/account/creating-accounts.md)
+    * [Managing Accounts](getting-started/account/managing-accounts.md)
   * [Development Environment](getting-started/development-environment.md)
   * [Getting KLAY](getting-started/getting-klay.md)
   * [Request for Initial Setup on Cypress Mainnet](getting-started/request-for-initial-setup-on-cypress-mainnet.md)
@@ -184,8 +184,8 @@
         * [7-4. TransferOwnership Component](bapp/tutorials/klaystagram/7.-feedpage/7-4.-transferownership-component.md)
       * [8. Run App](bapp/tutorials/klaystagram/8.-run-app.md)
   * [Developer Tools](bapp/developer-tools/README.md)
-    * [Klaytn Wallet](bapp/developer-tools/klaytn-ide.md)
-    * [Klaytnscope](bapp/developer-tools/klaytnscope.md)
+    * [Klaytn Wallet](bapp/tools/klaytn-ide.md)
+    * [Klaytnscope](bapp/tools/klaytnscope.md)
 
 ## --- <a id="misc"></a>
 
