@@ -4,10 +4,11 @@
 | :--- | :--- |
 | BApp | Blockchain application |
 | Block reward | Newly issued KLAY and the sum of transaction fees used in the block |
-| Bootnode | Bootnodes that helps PNs and ENs to register themselves in the network and to discover other nodes to connect to. [CC Operation Guide] |
-| caver-js | caver-js is a JavaScript API library that allows developers to interact with a Klaytn node. [caver-js](../bapp/sdk/caver-js/README.md) |
-| CC | Core Cell. Core Cell plays a role of generating blocks in the Klaytn blockchain network. Details at [CC Operation Guide] |
-| CCN | Core Cell Network. The network consists of Core Cells \(CCs\) that verify and execute submitted transactions.  CCN is also responsible for the creation and propagation of blocks with the transactions. Details at [CC Operation Guide] |
+| Bootnode | Bootnodes that helps PNs and ENs to register themselves in the network and to discover other nodes to connect to. |
+| caver-js | [caver-js] is a JavaScript API library that allows developers to interact with a Klaytn node. |
+| caver-java | [caver-java] is a Java API library that allows developers to interact with a Klaytn node. |
+| CC | Core Cell. Core Cell plays a role of generating blocks in the Klaytn blockchain network. Details at [Consensus Nodes] |
+| CCN | Core Cell Network. The network consists of Core Cells \(CCs\) that verify and execute submitted transactions.  CCN is also responsible for the creation and propagation of blocks with the transactions. Details at [Consensus Nodes] |
 | CN | Klaytn Consensus Node. A node which creates a new block with other CN participants of the Core Cell Network. Details at [Consensus Nodes] |
 | CNN | Consensus Node Network. CNN is a full-mesh network of CNs. [Consensus Nodes] |
 | Committee | A group of selected consensus nodes participating in Byzantine fault-tolerant \(BFT\) consensus. Committee consists of a proposer and validators. |
@@ -18,10 +19,10 @@
 | Full node | A node containing all the blocks generated from a blockchain |
 | KIR | Klaytn Improvement Reserve. [Token Economy](../klaytn/klaytn-design/token-economy.md#klaytn-improvement-reserve) |
 | KLAY | KLAY is the main internal transferable cryptocurrency of Klaytn and is used to pay transaction fees when creating or executing smart contracts or when transferring KLAY. Also currency unit of KLAY and 1 KLAY is 10^18 peb. [Klaytn native coin - KLAY](../klaytn/klaytn-design/klaytn-native-coin-klay.md) |
-| KLVM | Klaytn Virtual Machine. Details at [Klaytn Virtual Machine](../klaytn/klaytn-design/computation/klaytn-virtual-machine.md) |
+| KLVM | [Klaytn Virtual Machine] |
 | peb | The smallest currency unit of KLAY. [Klaytn native coin - KLAY](../klaytn/klaytn-design/klaytn-native-coin-klay.md#units-of-klay) |
 | PN | Klaytn Proxy Node. A node which submits transactions received from the Klaytn Endpoint Node Network to a CN or CNs. Details at Core Cell System Requirements |
-| PNN | Proxy Node Network. PNN is the network consisting of PNs in CCN. [CC Operation Guide] |
+| PNN | Proxy Node Network. PNN is the network consisting of PNs in CCN. [Consensus Nodes] |
 | PoC | Proof of Contribution is a transparent evaluation mechanism that incentivizes and stimulates participants in its economy by evaluating their contributions and compensating them. [Token Economy](../klaytn/klaytn-design/token-economy.md#proof-of-contribution) |
 | Proposer | A consensus node proposing a new block |
 | Proposer reward | Amount of KLAY which a proposer receives from block reward |
@@ -38,4 +39,6 @@
 [Endpoint Nodes]: ../node/endpoint-node/README.md
 [EN Operation Guide]: ../node/endpoint-node/README.md
 [SCN Operation Guide]: ../node/service-chain/README.md
-[caver-js] ../bapp/sdk/caver-js/README.md
+[caver-js]: ../bapp/sdk/caver-js/README.md
+[caver-java]: ../bapp/sdk/caver-java/README.md
+[Klaytn Virtual Machine]: ../klaytn/klaytn-design/computation/klaytn-virtual-machine.md
