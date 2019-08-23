@@ -24,6 +24,7 @@
     * [Klaytn native coin - KLAY](klaytn/klaytn-design/klaytn-native-coin-klay.md)
     * [Token Economy](klaytn/klaytn-design/token-economy.md)
     * [Governance](klaytn/klaytn-design/governance.md)
+  * [Layer 2 Solution](klaytn/layer-2-solution.md)
 
 * [Getting Started](getting-started/README.md)
   * [Quick Start](getting-started/quick-start/README.md)
@@ -50,6 +51,7 @@
     * [Klaytn Wallet](toolkit/klaytn-wallet.md)
     * [Klaytnscope](toolkit/klaytnscope.md)
   * [Deploy Guide](smart-contract/deploy-guide.md)
+  * [Testing Guide](smart-contract/testing-guide.md)
   * [Sample Contracts](smart-contract/sample-contracts/README.md)
     * [KlaytnGreeter](smart-contract/sample-contracts/klaytngreeter.md)
     * [ERC-20](smart-contract/sample-contracts/erc-20/README.md)
