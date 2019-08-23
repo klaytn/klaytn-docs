@@ -128,10 +128,10 @@
         * [Logging](node/service-chain/single-node-service-chain/operation-guide/logging.md)
         * [Errors & Troubleshooting](node/service-chain/single-node-service-chain/operation-guide/errors-and-troubleshooting.md)
     * [Multi-Node Service Chain](node/service-chain/multi-node-service-chain/README.md)
-      * [Overview](node/service-chain/multi-node-service-chain/untitled-2.md)
+      * [Overview](node/service-chain/multi-node-service-chain/overview.md)
       * [System Requirements](node/service-chain/multi-node-service-chain/system-requirements.md)
-      * [Installation Guide](node/service-chain/multi-node-service-chain/untitled-1.md)
-      * [Operation Guide](node/service-chain/multi-node-service-chain/untitled.md)
+      * [Installation Guide](node/service-chain/multi-node-service-chain/installation-guide.md)
+      * [Operation Guide](node/service-chain/multi-node-service-chain/operation-guide.md)
   * [Errors & Troubleshooting](node/errors-and-troubleshooting.md)
 
 * [BApp Developers](bapp/README.md)
