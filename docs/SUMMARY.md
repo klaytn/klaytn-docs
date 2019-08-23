@@ -74,7 +74,7 @@
       * [Installation Guide](node/endpoint-node/installation-guide/installation-guide.md)
       * [Configuration](node/endpoint-node/installation-guide/configuration.md)
       * [Startup the EN](node/endpoint-node/installation-guide/startup-the-en.md)
-      * [Testing the Installation](node/endpoint-node/installation-guide/untitled.md)
+      * [Testing the Installation](node/endpoint-node/installation-guide/testing-the-installation.md)
     * [Operation Guide](node/endpoint-node/operation-guide/README.md)
       * [Starting/Stopping EN](node/endpoint-node/operation-guide/starting-stopping-en.md)
       * [Configuration](node/endpoint-node/operation-guide/configuration.md)

@@ -1,5 +1,7 @@
 # Testing the Installation
 
+It is time to check that Endpoint Node is successfully installed and it is working as expected after installation.
+
 ## Process Status
 
 It is possible to check the status of EN's process using the status commands `systemctl` and `kend`.

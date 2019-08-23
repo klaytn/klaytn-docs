@@ -1,5 +1,7 @@
 # Testing the Core Cell
 
+It is time to check that Core Cell is successfully installed and it is working as expected after installation.
+
 ## Process Status
 
 It is possible to check the status of CN/PN's process using the status commands `systemctl` and `kcnd/kpnd`.

@@ -1,6 +1,6 @@
 # Startup the EN
 
-## EN Start/Stop <a id="en-start-stop-status"></a>
+You can start or stop the Endpoint Node using the following commands.
 
 **start**
 
@@ -16,6 +16,4 @@ $ kend stop
 Shutting down kend: Killed
 ```
 
-[  
-](https://docs.klaytn.com/node/en/installation/linux/enlinuxinstall)
 
