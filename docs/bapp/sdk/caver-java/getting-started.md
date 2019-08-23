@@ -1,9 +1,5 @@
 # Getting Started
 
-## API Reference
-
-If you need more information about caver-java API reference, please refer to our [Javadoc](https://javadoc.io/doc/com.klaytn.caver/core).
-
 ## Prerequisites
 
 ### Dependency

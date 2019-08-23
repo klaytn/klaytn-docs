@@ -150,7 +150,7 @@
     * [caver-java](bapp/sdk/caver-java/README.md)
       * [Introduction](bapp/sdk/caver-java/introduction.md)
       * [Getting Started](bapp/sdk/caver-java/getting-started.md)
-      * [API references](bapp/sdk/caver-java/api-references.md)
+      * [API references](https://javadoc.io/doc/com.klaytn.caver/core/)
       * [Porting from web3j](bapp/sdk/caver-java/porting-from-web3j.md)
   * [Tutorials](bapp/tutorials/README.md)
     * [Fee Delegation Example](bapp/tutorials/fee-delegation-example.md)
