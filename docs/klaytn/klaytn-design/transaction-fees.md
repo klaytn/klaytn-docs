@@ -11,9 +11,21 @@ Transaction fee := (total gas used) x (unit price)
 
 This calculated transaction fee is subtracted from the sender's or enterprise account's balance, depending on the transaction.
 
+## Gas and Unit Price Overview
+
+### Gas
+
+Every action that changes the state of the blockchain requires gas. When a node processes user's transaction such as sending KLAY, using ERC-20 tokens, or executing a contract, the user has to pay for the computation and storage usage. The amount of payment is decided by the amount of `gas` required.
+
+`Gas` is a measuring unit representing how much calculation is needed to process the user's transaction.
+
 ### Unit Price
 
-In Klaytn, the unit price is the fixed price of gas defined in the platform and is used to calculate the transaction fee. It is currently set to 25 Gpeb \(_i.e._, 25 x 10^9 peb\) per gas and cannot be changed by user. The current value of the unit price can be obtained by calling the `klay.gasPrice` API.
+`Unit price` is the price for a single gas. The unit price \(also called `gas price`\) is set in the system by the governance. It is currently set to 25 Gpeb \(_i.e._, 25 x 10^9 peb\) per gas and cannot be changed by user. The current value of the unit price can be obtained by calling the `klay.gasPrice` API.
+
+In Ethereum, users set the gas price for each transaction, and miners choose which transactions to be included in their block to maximize their reward. It is something like bidding for limited resources. This approach has been working because it is market-based. However, the transaction cost fluctuates and often becomes too high to guarantee the execution.
+
+To solve the problem, Klaytn is using a fixed unit price and the price can be adjusted by the governance council. This policy ensures that every transaction will be handled equally and be guaranteed to be executed. Therefore, users do not need to struggle to determine the right unit price.
 
 #### Transaction Validation against Unit Price
 
@@ -27,27 +39,7 @@ The error message `invalid unit price` is returned when the gas price of a trans
 
 Klaytn currently does not provide a way to replace a transaction using the unit price but may support different methods for the transaction replacement in the future. Note that in Ethereum, a transaction with a given nonce can be replaced by a new one with a higher gas price.
 
-
-
-## Gas and Unit Price Overview <a id="gas-and-unit-price-overview"></a>
-
-Every action that changes the state of the blockchain requires gas. When a node processes user's transaction such as sending KLAY, using ERC-20 tokens, or executing a contract, the user has to pay for the computation and storage usage. The amount of payment is decided by the amount of `Gas` required.
-
-`Gas` is a measuring unit representing how much calculation is needed to process the user's transaction.
-
-As the transaction fee is paid in KLAY, the total amount of KLAY to be paid by a user is calculated as below,
-
-```text
-transaction fee = the amount of gas * unit price (KLAY)
-```
-
-where the `unit price` is the price for a single gas. The unit price \(also called `gas price`\) is set in the system by the governance.
-
-In Ethereum, users set the gas price for each transaction, and miners choose which transactions to be included in their block to maximize their reward. It is something like bidding for limited resources. This approach has been working because it is market-based. However, the transaction cost fluctuates and often becomes too high to guarantee the execution.
-
-To solve the problem, Klaytn is using a fixed unit price \(25 ston\) and the price can be adjusted by the governance council. This policy ensures that every transaction will be handled equally and be guaranteed to be executed. Therefore, users do not need to struggle to determine the right unit price.
-
-## Klaytn's Gas table <a id="klaytns-gas-table"></a>
+## Klaytn's Gas table 
 
 Basically, Klaytn is keeping compatibility with Ethereum. So Klaytn's gas table is pretty similar with that of Ethereum. But because of the existence of unique features of Klaytn, there are several new constants for those features.
 
