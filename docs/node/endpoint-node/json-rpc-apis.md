@@ -1,4 +1,4 @@
-Endpoint Node exposes JSON-RPC APIs. You can enable/disable APIs as follows. For the detailed API specification, please refer to the [JSON-RPC APIs](../../bapp/json-rpc-apis/api-references.md). 
+Endpoint Node exposes JSON-RPC APIs. You can enable/disable APIs as follows. For the detailed API specification, please refer to the [JSON-RPC APIs](../../bapp/json-rpc/api-references.md). 
 
 ***
 
