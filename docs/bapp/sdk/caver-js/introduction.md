@@ -18,12 +18,12 @@
 
 Below are packages provided in `caver-js`.
 
-* ​[caver.klay](https://docs.klaytn.com/sdk/caverjs/caver.klay)​
-* ​[caver.klay.accounts](https://docs.klaytn.com/sdk/caverjs/caver.klay.accounts)​
-* ​[caver.klay.Contract](https://docs.klaytn.com/sdk/caverjs/caver.klay.contract)​
-* ​[caver.klay.net](https://docs.klaytn.com/sdk/caverjs/caver.klay.net)​
-* ​[caver.klay.abi](https://docs.klaytn.com/sdk/caverjs/caver.klay.abi)​
-* ​[caver.utils](https://docs.klaytn.com/sdk/caverjs/caver.utils)​
+* ​[caver.klay](api-references/caver.klay)​
+* ​[caver.klay.accounts](api-references/caver.klay.accounts)​
+* ​[caver.klay.Contract](api-references/caver.klay.contract)​
+* ​[caver.klay.net](api-references/caver.klay.net)​
+* ​[caver.klay.abi](api-references/caver.klay.abi)​
+* ​[caver.utils](api-references/caver.utils)​
 
 ## Error Code Improvement <a id="error-code-improvement"></a>
 
@@ -51,9 +51,9 @@ Error: runtime error occurred in interpreter
 
 ## Caution when Sending a Transaction to Klaytn <a id="caution-when-sending-a-transaction-to-klaytn"></a>
 
-Klaytn uses a fixed gas price \(25 ston = 25 \* 10^9\). If a transaction with other gas price is submitted to the Klaytn network, it is rejected. For more information about the gas price, see [Gas and Unit Price Overview](https://docs.klaytn.com/klaytn/design/gas#gas-and-unit-price-overview) The price of gas used in the network can be obtained by using [caver.klay.getGasPrice](https://docs.klaytn.com/sdk/caverjs/caver.klay/config#getgasprice).
+Klaytn uses a fixed gas price \(25 ston = 25 \* 10^9\). If a transaction with other gas price is submitted to the Klaytn network, it is rejected. For more information about the gas price, see [Gas and Unit Price Overview](../../../klaytn/klaytn-design/transaction-fees.md#gas-and-unit-price-overview) The price of gas used in the network can be obtained by using [caver.klay.getGasPrice](api-references/caver.klay/config#getgasprice).
 
-If `gasPrice` is not defined when you sign or submit a transaction, caver-js uses the [caver.klay.getGasPrice](https://docs.klaytn.com/sdk/caverjs/caver.klay/config#getgasprice) RPC call to set the gas price of the transaction.
+If `gasPrice` is not defined when you sign or submit a transaction, caver-js uses the [caver.klay.getGasPrice](api-references/caver.klay/config#getgasprice) RPC call to set the gas price of the transaction.
 
 ## Links <a id="links"></a>
 
