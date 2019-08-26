@@ -196,7 +196,7 @@ As shown in the example above, you can send a request and use the event emitter 
 
 ### Checking Receipts <a id="checking-receipts"></a>
 
-You can use the promise or event emitter to get the receipt of the transaction when you transfer the transaction to [caver.klay.sendSignedTransaction](https://docs.klaytn.com/sdk/caverjs/caver.klay/transaction#sendsignedtransaction) or [caver.klay.sendTransaction](https://docs.klaytn.com/sdk/caverjs/caver.klay/transaction#sendtransaction).
+You can use the promise or event emitter to get the receipt of the transaction when you transfer the transaction to [caver.klay.sendSignedTransaction](api-references/caver.klay/transaction.md#sendsignedtransaction) or [caver.klay.sendTransaction](api-references/caver.klay/transaction.md#sendtransaction).
 
 The following example shows how to get a receipt using promise and event emitter.
 
@@ -435,14 +435,11 @@ See [caver.klay.Contract]() for details.
 
 The BApp \(Blockchain Application\) Development sample projects using caver-js are the following:
 
-* ​[Count BApp](https://docs.klaytn.com/tutorials/countbapp)​
-* ​[Klaystagram](https://docs.klaytn.com/tutorials/klaystagram)​
+* ​[Count BApp](../../tutorials/countbapp/README.md)​
+* ​[Klaystagram](../../tutorials/klaystagram/README.md)​
 
 ## Links <a id="links"></a>
 
 * caver-js [GitHub repository](https://github.com/klaytn/caver-js)​
 * caver-js on [npm](https://www.npmjs.com/package/caver-js)​
-
-[  
-](https://docs.klaytn.com/sdk/caverjs)
 
