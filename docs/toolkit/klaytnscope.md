@@ -235,5 +235,5 @@ If you search for a keyword that doesn't fit in the specified format or informat
 * Non-existent TX Hash
 
 
-[Transactions]: ../klaytn/klaytn-design/transactions/README.md
-[Klaytn Token Economy]: ../klaytn/klaytn-design/token_economy.md
+[Transactions]: ../klaytn/design/transactions/README.md
+[Klaytn Token Economy]: ../klaytn/design/token_economy.md

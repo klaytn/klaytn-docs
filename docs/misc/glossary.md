@@ -42,11 +42,11 @@
 [SCN Operation Guide]: ../node/service-chain/README.md
 [caver-js]: ../bapp/sdk/caver-js/README.md
 [caver-java]: ../bapp/sdk/caver-java/README.md
-[Klaytn Virtual Machine]: ../klaytn/klaytn-design/computation/klaytn-virtual-machine.md
-[Klaytn Account Types]: ../klaytn/klaytn-design/accounts.md#klaytn-account-types
-[KLAY]: ../klaytn/klaytn-design/klaytn-native-coin-klay.md
-[Unit of KLAY]: ../klaytn/klaytn-design/klaytn-native-coin-klay.md#units-of-klay
-[Unit Price]: ../klaytn/klaytn-design/transaction-fees.md#unit-price
-[Token Economy - Proof of Contribution]: ../klaytn/klaytn-design/token-economy.md#proof-of-contribution
-[Token Economy - Klaytn Improvement Reserve]: ../klaytn/klaytn-design/token-economy.md#klaytn-improvement-reserve
+[Klaytn Virtual Machine]: ../klaytn/design/computation/klaytn-virtual-machine.md
+[Klaytn Account Types]: ../klaytn/design/accounts.md#klaytn-account-types
+[KLAY]: ../klaytn/design/klaytn-native-coin-klay.md
+[Unit of KLAY]: ../klaytn/design/klaytn-native-coin-klay.md#units-of-klay
+[Unit Price]: ../klaytn/design/transaction-fees.md#unit-price
+[Token Economy - Proof of Contribution]: ../klaytn/design/token-economy.md#proof-of-contribution
+[Token Economy - Klaytn Improvement Reserve]: ../klaytn/design/token-economy.md#klaytn-improvement-reserve
 
