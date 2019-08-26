@@ -1,8 +1,10 @@
-# Klaytn Token Standard
+# Klaytn Compatible Tokens
+
+Klaytn Compatible Token (KCT) is a special type of smart contract that implements certain technical specifications. Everyone who wants to issue tokens on top of Klaytn must follow the specification.  
 
 Klaytn supports Ethereum token standards, specifically ERC20 and ERC721. These standards are widely adopted among blockchain developers. Thus as of this moment Klaytn is Ethereum-compatible to provide familiar development experience to blockchain developers.
 
-Nevertheless, note that Klaytn embraces new features that Ethereum does not provide, such as role-based accounts, fee delegation. These new features, or any other features that Klaytn will provide in the future, may require their own standards. Or even ERC20, and ERC721 standards can be powerfully upgraded when integrated with Klaytn specific features. For these reasons, Klaytn team is planning to provide various ways \(such as developers' portal and Github issues\) for developers to actively discuss ideas and propose new standards.
+Nevertheless, note that Klaytn embraces new features that Ethereum does not provide, such as role-based accounts, fee delegation. These new features, or any other features that Klaytn will provide in the future, may require their own standards. For these reasons, Klaytn team is planning to provide various ways \(such as developers' portal and Github issues\) for developers to actively discuss ideas and propose new standards.
 
 ## Fungible Token Standard \(ERC-20\)
 
