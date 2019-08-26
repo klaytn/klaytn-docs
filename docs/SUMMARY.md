@@ -25,7 +25,7 @@
     * [Klaytn native coin - KLAY](klaytn/klaytn-design/klaytn-native-coin-klay.md)
     * [Token Economy](klaytn/klaytn-design/token-economy.md)
     * [Governance](klaytn/klaytn-design/governance.md)
-  * [Layer 2 Solution](klaytn/layer-2-solution.md)
+  * [Scaling Solutions](klaytn/scaling-solutions.md)
 
 * [Getting Started](getting-started/README.md)
   * [Quick Start](getting-started/quick-start/README.md)
