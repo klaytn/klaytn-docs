@@ -1,0 +1,2 @@
+# Typical BApp Architecture
+
