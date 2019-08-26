@@ -63,7 +63,7 @@
       * [1. Writing ERC-721 Smart Contract](smart-contract/sample-contracts/erc-721/1-erc721.md)
       * [2. Deploying Smart Contract](smart-contract/sample-contracts/erc-721/2-erc721.md)
   * [Porting Ethereum Contract](smart-contract/porting-ethereum-contract.md)
-  * [Klaytn Token Standard](smart-contract/token-standard.md)
+  * [Klaytn Compatible Tokens](smart-contract/token-standard.md)
 
 * [Installation & Operation](node/README.md)
   * [Endpoint Node](node/endpoint-node/README.md)
