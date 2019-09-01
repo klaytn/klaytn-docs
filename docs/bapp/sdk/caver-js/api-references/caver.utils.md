@@ -1091,6 +1091,8 @@ caver.utils.isHexPrefixed(input)
 ```
 Returns `true` if input is a 0x-prefixed hex string, otherwise it returns `false`.
 
+**NOTE** caver.klay.isHexPrefixed is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
+
 **Parameters**
 
 | Name | Type | Description |
@@ -1126,6 +1128,8 @@ caver.utils.addHexPrefix(input)
 ```
 Returns a 0x-prefixed hex string. If the input is already 0x-prefixed or a non-hex string, the input value is returned as-is.
 
+**NOTE** caver.klay.addHexPrefix is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
+
 **Parameters**
 
 | Name | Type | Description |
@@ -1154,6 +1158,8 @@ Returns a 0x-prefixed hex string. If the input is already 0x-prefixed or a non-h
 caver.utils.stripHexPrefix(input)
 ```
 Returns the result with 0x prefix stripped from input.
+
+**NOTE** caver.klay.stripHexPrefix is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
 
 **Parameters**
 
@@ -1236,7 +1242,9 @@ Error: To convert an object to a buffer, the toArray function must be implemente
 caver.utils.numberToBuffer(input)
 ```
 This function converts a number to a [Buffer](https://nodejs.org/api/buffer.html). The [caver.utils.toBuffer](#tobuffer) has the same behavior as this function when the input is a number.
+
 **NOTE** caver.klay.numberToBuffer is supported from **v1.1.0**. To use this feature, please install [v1.1.0](https://www.npmjs.com/package/caver-js/v/1.1.0) or higher.
+
 **Parameters**
 | Name | Type | Description |
 | --- | --- | --- |
