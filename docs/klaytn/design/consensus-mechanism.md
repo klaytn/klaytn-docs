@@ -1,6 +1,6 @@
 # Consensus Mechanism
 
-A consensus mechanism (algorithm) is a way of making a consensus between trustless entities. In blockchain technology, it is used to make a consensus about if a block is valid or not. 
+A consensus mechanism (algorithm) is a way of reaching a consensus between trustless entities. In blockchain technology, it is used to reach a consensus about if a block is valid or not. 
 
 Bitcoin and Ethereum are using PoW (Proof of Work) based consensus mechanism. And there are other block chain networks using PoS (Proof of Stake) mechanism which decides a block generating node by the stake of the node. Usually these algorithms have no communication between nodes in deciding an order and a validity of blocks. 
 
