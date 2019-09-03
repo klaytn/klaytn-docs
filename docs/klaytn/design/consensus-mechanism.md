@@ -2,7 +2,7 @@
 
 A consensus mechanism (algorithm) is a way of reaching a consensus between trustless entities. In blockchain technology, it is used to reach a consensus about if a block is valid or not. 
 
-Bitcoin and Ethereum are using PoW (Proof of Work) based consensus mechanism. And there are other block chain networks using PoS (Proof of Stake) mechanism which decides a block generating node by the stake of the node. Usually these algorithms do not require communication between nodes when deciding an order and validating blocks. 
+[Bitcoin](https://en.wikipedia.org/wiki/Bitcoin) and [Ethereum](https://en.wikipedia.org/wiki/Ethereum) are using [PoW](https://en.wikipedia.org/wiki/Proof_of_work) (Proof of Work) based consensus mechanism. And there are other block chain networks using [PoS](https://en.wikipedia.org/wiki/Proof_of_stake) (Proof of Stake) mechanism which decides a block generating node by the stake of the node. Usually these algorithms have no communication between nodes in deciding validities of blocks. 
 
 So in these systems, a fork can happen which means two or more different blocks can be made on the same height . Usually "Longest chain wins" rule is used to solve the fork condition. It means that those forks will be merged to a single canonical chain eventually, but it also means a list of blocks can be reverted in some period of time when it belongs to the shorter chain. So in these algorithms, there is no guarantee of finality of blocks and transactions. The finality only can be achieved probabilistically after some period of time though it can't be 100% sure.
 
