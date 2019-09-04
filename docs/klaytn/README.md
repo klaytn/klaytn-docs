@@ -42,12 +42,12 @@ SCNs are Klaytn subnetworks composed of auxiliary blockchains independently oper
 Blockchain Applications can run on the Klaytn main chain, Cypress, or can operate on their own blockchains called **Service Chains**. If you want to have a dedicated execution environment for your application that guarantees high TPS and configuratble network policies, we recommend to use Service Chain. 
 To setup a Service Chain for your application, read the [installation and operation guide of Service Chain](../node/service-chain/README.md).
 
-## Klaytn Mainnet
+## Klaytn Network Topology
 
 In this section, we will describe the network topology of Klaytn main chain.
-A tiered network architecture with role-based node types is implemented in Klaytn to optimize the network performance:q.
+A tiered network architecture with role-based node types is implemented in Klaytn to optimize the network performance.
 
-### Nodes Types
+### Role-based Node Types
 
 Before we go over the Klaytn main chain network topology,
 we need to get familiar with the different types of Klaytn nodes.
