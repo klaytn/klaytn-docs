@@ -6,10 +6,10 @@ Key design goals are;
 - Immediate finality.
 - High TPS that meets real-world use cases.
 - Lower the cost of running Blockchain Applications.
-- Lower the barriers to entry for end-users without technical experience.
+- Lower the barriers to entry for end-users.
 - Ease the technology adoption process for industry.
 
-Klaytn launched its mainnet, **Cypress**, on Jun/27/2019 with the following specifications.
+Klaytn launched its mainnet, [**Cypress**](https://scope.klaytn.com/), on Jun/27/2019 with the following specifications.
 
 - 1-second block generation and confirmation time.
 - 4,000 transactions per second.
@@ -32,9 +32,156 @@ CCN consists of Core Cells (CCs) that verify and execute transactions submitted 
 
 ENN consists of Endpoint Nodes (ENs) that mainly create transactions, handle RPC API requests, and process data requests from service chains.
 
-**Core Cell Network** and **Endpoint Node Network** form a Klaytn main chain.
-
 ### Service Chain Network (SCN)
 
 SCNs are Klaytn subnetworks composed of auxiliary blockchains independently operated by blockchain applications (BApps). Service chains are connected to the main chain via ENs.
+
+**Core Cell Network** and **Endpoint Node Network** form a Klaytn main chain or mainnet.
+Blockchain Applications can run on the Klaytn main chain, Cypress, or can operate on their own blockchains called Service Chains. If you want to have a dedicated execution environemnt for your application that guarantees high TPS and configuratble network policies, we recommend to use Service Chains.   
+
+## Klaytn Main Chain: CCN + ENN
+
+![Klaytn Network Physical Topology & Core Cell Network Breakdown (CNN and PNN)](../../../images/klaytn_network_node.png)
+
+Above figure shows the overall topology of Klaytn network, where Core Cell Network
+(CCN) is further broken down in detail to show its two constituent subnetworks:
+Consensus Node Network (CNN) and Proxy Node Network (PNN). Endpoint Node
+Network (ENN) is also shown as the surrounding network connected directly to PNN.
+
+### Klaytn Nodes
+
+To understand the Klaytn Network Topology, we need to visit the different types of Klaytn Nodes.
+
+#### Core Cell (CC): Consensus Node (CN) + Proxy Node (PN)
+
+**Core Cell (CCs)** is composed of a single
+**Consensus Node (CN)** and two **Proxy Nodes (PNs)**.
+Consensus Nodes are participating in the block generation process, while Proxy Nodes provides the interfaces to the
+outter network. PNs transmits the transaction requests to the Consensus Nodes, and propagates the blocks to the Endpoint Nodes. 
+
+#### Endpoint Node (EN)
+
+ENs serve as endpoints for Klaytn
+network handling RPC API requests and processing data sent to and from service
+chains.
+
+#### Bootnode
+
+Bootnodes are special type nodes operated by Klaytn to help newly joining nodes
+register to the network and to discover other nodes to connect with.
+CN bootnodes reside within the CNN and are not exposed to the public, while PN
+and EN bootnodes are publicly visible.  PN bootnodes only allow permitted PNs to
+be registered, and lets eligible PNs connect with ENs.  EN bootnodes provide ENs
+with information on which PNs to connect to. 
+
+### Tiered Networks
+
+CNs, PNs, and ENs respectively form a logical network, CNN, PNN, and ENN, respectively.
+Details are give in the below.
+
+#### Consensus Node Network (CNN)
+
+CNs form a full-mesh network among themselves called CNN. CNN applies BFT over
+a WAN (wide area network) and requires each CN to satisfy stringent hardware
+and network resource requirements to carry out BFT consensus at a sufficient
+performance level. 
+
+#### Proxy Node Network (PNN)
+
+PNs are connected with each other and forms PNN. PNs explicitly do not connect
+with their peer within the same CC. Typically, PNs maintain just one
+connection with a peer PN, but this number is subject to change depending on
+the network configuration.
+
+#### Endpoint Node Network (ENN)
+
+The outermost subnetwork, ENN, is solely composed of ENs connected
+to each other and also to a number of PNs.
+
+
+## Block Generation and Propagation
+
+Block generation and propagation design, along with the consensus
+algorithm used, plays an important role in determining the expected latency of a
+blockchain platform.
+
+### Block Generation Cycle
+
+A 'round' is a block generation cycle in Klaytn. Each round generates a new
+block, and is immediately followed by the start of a new round.  Klaytn targets
+each round to last approximately one second, although block generation interval
+may be influenced by network traffic and node operation conditions.
+
+#### Proposer and Committee Selection
+
+In each round, Klaytn randomly but deterministically selects a Consensus Node
+(CN) as the proposer for the block to be created, and then selects a group of
+CNs as the committee for the given round. Klaytn is not directly involved in
+the selection of either the proposer or committee; instead, each CN uses a
+random number derived from the most recent block header to run a cryptographic
+operation which yields proof that the CN has (or has not) been selected for
+this round. The committee size should be Byzantine resistant; if the size of
+the CNN is small, all CNs (except the proposer) are eligible to be selected as
+committee members.
+
+#### Block Proposal and Validation
+
+Once selected, the proposer broadcasts its proof of selection for the round
+(i.e., a cryptographic proof verifiable by the public key of the proposer) to
+all CNs. Thereafter, the CNs selected as committee for the given round responds
+to the proposer with their own proofs of selection, notifying the proposer to
+whom to broadcast the new block to be proposed. The proposer then selects a set
+of transactions from its transaction pool and creates a block by ordering them.
+Lastly, the proposer executes consensus with the committee to agree upon and
+finalize the newly created block. Note that Klaytn plans to continuously
+improve its consensus algorithm to achieve higher security and efficiency.
+
+### Block Propagation
+
+A proposed block must receive signatures from more than two-thirds of the
+committee members to be successfully finalized. When the committee reaches
+consensus, the new block is propagated to all CNs and the consensus round ends.
+Once the new block is propagated to all CNs, the information of the newly
+created block can be made available to all Klaytn network participants by
+delivering block header and body data to ENN through PNN.
+
+## Public Disclosure and Open Validation
+
+Service providers and end-users on Klaytn network can freely validate block
+generation results and check if the CN committee have generated the block
+according to proper procedures. Such validation includes checking if the block
+header contains more than two-thirds of the committee signatures. All CNs must
+support open validation and are required to post their public keys (used to
+sign blocks) in a publicly accessible space (e.g., block headers). Open
+validation promotes transparency, deter censorship, and prevent malicious
+behaviors.
+
+## Separated Propagation Channels for Blocks and Transactions (Multichannel Propagation)
+
+A network's latency is heavily affected by its degree of congestion. Assuming
+the network's throughput remains constant, increased number of transactions
+will cause the network's latency to be proportionately delayed. Latency delay
+is a critical issue in ensuring satisfactory end-user experience using BApps;
+typical users of legacy mobile apps or web services will not tolerate response
+time that takes more than a few seconds, and blockchain services have no reason
+to assume a higher user tolerance.
+
+Klaytn adopts a multichannel approach in order to handle network congestion
+issues. By assigning separate propagation channels for transactions and blocks,
+Klaytn network is able to propagate newly created blocks in a timely manner
+even when the network faces heavy congestion with high number of transactions.
+In this way, Klaytn ensures that BApps on its network can stay responsive to
+end-user requests regardless of intermittent network traffic spikes.
+
+## Block rewards
+
+For each round, block reward (which is the sum of 9.6 newly minted KLAY and
+transaction fees paid to process the block) will be distributed to Klaytn's
+token economy structures according to preset distribution ratios. The proposer
+of the newly created block will receive 100% of the reward to be awarded to
+CNs, whereas the committee will receive none. Note that the probability of
+being selected as the proposer is influenced by the amount of KLAY staked by
+the CN, implying that a CN with more KLAY invested in the platform will
+probabilistically receive more rewards. Details of block reward distribution
+can be found in the [Klaytn Token Economy](design/token-economy.md) section.
 
