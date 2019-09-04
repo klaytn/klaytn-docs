@@ -39,7 +39,7 @@ SCNs are Klaytn subnetworks composed of auxiliary blockchains independently oper
 
 **Core Cell Network** and **Endpoint Node Network** form a Klaytn main chain or mainnet.
 Blockchain Applications can run on the Klaytn main chain, Cypress, or can operate on their own blockchains called **Service Chains**. If you want to have a dedicated execution environment for your application that guarantees high TPS and configuratble network policies, we recommend to use Service Chain. 
-To setup a Service Chain for you application, read the [installation and operation guide of Service Chain](../node/service-chain/README.md).
+To setup a Service Chain for your application, read the [installation and operation guide of Service Chain](../node/service-chain/README.md).
 
 ## Main Chain: CCN + ENN
 
@@ -47,23 +47,22 @@ In this section, we will describe the network topology of Klaytn main chain.
 
 ### Klaytn Nodes
 
-To understand the Klaytn main chain network topology, we need to visit the different types of Klaytn nodes.
+Before we go over the Klaytn main chain network topology,
+we need to get familiar with the different types of Klaytn nodes.
 
 #### Core Cell (CC): Consensus Node (CN) + Proxy Node (PN)
 
-**Core Cell (CCs)** is composed of a single **Consensus Node (CN)** and two **Proxy Nodes (PNs)**.
-Consensus Nodes are participating in the block generation process, while Proxy Nodes provides the interfaces to the
-outter network. PNs transmits the transaction requests to the Consensus Nodes, and propagates the blocks to the Endpoint Nodes.
-
+Core Cell (CCs) is composed of a single **Consensus Node (CN)** and two **Proxy Nodes (PNs)**.
+Consensus Nodes are participating in the block generation process, while Proxy Nodes provide the interface to the
+outter network. PNs transmit the transaction requests to the Consensus Nodes, and propagate the blocks to the Endpoint Nodes. 
 If you are interested in being a Core Cell Operator, read the [installation and operation guide of Core Cell](../node/core-cell/README.md).
 
 #### Endpoint Node (EN)
 
 ENs serve as endpoints for Klaytn
 network handling RPC API requests and processing data sent to and from service
-chains.
-
-To setup an Endpoint Node for you application, read the [installation and operation guide of Endpoint Node](../node/endpoint-node/README.md).
+chains. 
+To setup an Endpoint Node for your application, read the [installation and operation guide of Endpoint Node](../node/endpoint-node/README.md).
 
 #### Bootnode
 
@@ -76,15 +75,14 @@ with information on which PNs to connect to.
 
 ### Tiered Networks
 
-![Klaytn Main Chain Physical Topology & Core Cell Network Breakdown (CNN and PNN)](images/klaytn_network_node.png)
+CNs, PNs, and ENs form logical networks, Consensus Node Network (CNN), Proxy Node Network (PNN), and Endpoint Node Network (ENN), respectively.
 
-Above figure shows the overall topology of Klaytn mainnet, where Core Cell Network
-(CCN) is further broken down in detail to show its two constituent subnetworks:
-Consensus Node Network (CNN) and Proxy Node Network (PNN). Endpoint Node
-Network (ENN) is also shown as the surrounding network connected directly to PNN.
+Below figure shows the overall topology of Klaytn mainnet, where Core Cell Network
+(CCN) is further broken down into Consensus Node Network (CNN) and Proxy Node Network (PNN). 
+Endpoint Node Network (ENN) is also shown as the surrounding network connected directly to PNN.
 
-CNs, PNs, and ENs form logical networks, CNN, PNN, and ENN, respectively.
-Details are give in the below.
+![Klaytn Main Chain Physical Topology and Tiered Architecture (CNN, PNN, and ENN)](images/klaytn_network_node.png)
+
 
 #### Consensus Node Network (CNN)
 
