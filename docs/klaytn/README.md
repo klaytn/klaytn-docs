@@ -45,10 +45,9 @@ To setup a Service Chain for your application, read the [installation and operat
 ## Klaytn Mainnet
 
 In this section, we will describe the network topology of Klaytn main chain.
-A tiered network architecture with role-based node types is implemented in Klaytn.
-This design was adopted for performance optimization. 
+A tiered network architecture with role-based node types is implemented in Klaytn to optimize the network performance:q.
 
-### Klaytn Nodes
+### Nodes Types
 
 Before we go over the Klaytn main chain network topology,
 we need to get familiar with the different types of Klaytn nodes.
@@ -57,7 +56,7 @@ we need to get familiar with the different types of Klaytn nodes.
 
 Core Cell (CCs) is composed of a single **Consensus Node (CN)** and two **Proxy Nodes (PNs)**.
 Consensus Nodes are participating in the block generation process, while Proxy Nodes provide the interface to the
-outter network. PNs transmit the transaction requests to the Consensus Nodes, and propagate the blocks to the Endpoint Nodes. 
+outter network. PNs transmit the transaction requests to the Consensus Nodes, and propagate the blocks down to the Endpoint Nodes. 
 
 If you are interested in being a Core Cell Operator, read the [installation and operation guide of Core Cell](../node/core-cell/README.md).
 
