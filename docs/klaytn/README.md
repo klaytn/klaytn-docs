@@ -16,12 +16,13 @@ Klaytn launched its mainnet, **Cypress**, on Jun/27/2019 with the following spec
 - Low gas price that is almost 1/10 of Ethereum.
 - Runs EVM (Ethereum Virtual Machine) and supports the execution of Solidity contracts.  
 - 23 reputable corporations worldwide formed Klaytn Governance Council to operate consensus nodes.
-- More than 50 initial service partners have commited to launch Blockchain Applications on Klaytn.
+- More than 50 initial service partners have committed to launch Blockchain Applications on Klaytn.
 
 ## Klaytn Network
 
-Klaytn network can be partitioned into three logical subnetworks based on their roles and purposes, as shown in Figure 1. 
-![Figure 1. Klaytn Network and its Logical Subnetworks (CCN, ENN, SCN)](images/klaytn_network_overview.png)
+Klaytn network can be partitioned into three logical subnetworks based on their roles and purposes. The below figure displays the high-level view of the Klaytn network.
+
+![Klaytn Network and its Logical Subnetworks (CCN, ENN, SCN)](images/klaytn_network_overview.png)
 
 ### Core Cell Network (CCN)
 
