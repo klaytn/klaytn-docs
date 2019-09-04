@@ -33,10 +33,10 @@
 | Validator reward | Total amount of KLAY that validators receive from block reward |
 
 
-[Consensus Nodes]: ../node/consensus-nodes/README.md
-[Core Cell]: ../node/consensus-nodes/README.md
-[CC Operation Guide]: ../node/consensus-nodes/README.md
-[Core Cell System Requirements]: ../node/consensus-nodes/system-requirements.md
+[Consensus Nodes]: ../node/core-cell/README.md
+[Core Cell]: ../node/core-cell/README.md
+[CC Operation Guide]: ../node/core-cell/README.md
+[Core Cell System Requirements]: ../node/core-cell/system-requirements.md
 [Endpoint Node]: ../node/endpoint-node/README.md
 [EN Operation Guide]: ../node/endpoint-node/README.md
 [SCN Operation Guide]: ../node/service-chain/README.md

@@ -18,9 +18,9 @@ Klaytn launched its mainnet, [Cypress](https://scope.klaytn.com/), on Jun/27/201
 - 23 reputable corporations worldwide formed Klaytn Governance Council to operate consensus nodes.
 - More than 50 initial service partners have committed to launch Blockchain Applications on Klaytn.
 
-## Klaytn Ecosystem
+## Klaytn: The Big Picture
 
-Klaytn ecosystem can be partitioned into three logical subnetworks based on their roles and purposes. The below figure displays the high-level view of the Klaytn ecosystem.
+Klaytn can be partitioned into three logical subnetworks based on their roles and purposes. The below figure displays the high-level view of the Klaytn ecosystem.
 
 ![Klaytn Ecosystem and its Logical Subnetworks (CCN, ENN, SCN)](images/klaytn_network_overview.png)
 
@@ -36,27 +36,26 @@ ENN consists of Endpoint Nodes (ENs) that mainly create transactions, handle RPC
 
 SCNs are Klaytn subnetworks composed of auxiliary blockchains independently operated by blockchain applications (BApps). Service chains are connected to the main chain via ENs.
 
+
 **Core Cell Network** and **Endpoint Node Network** form a Klaytn main chain or mainnet.
-Blockchain Applications can run on the Klaytn main chain, Cypress, or can operate on their own blockchains called Service Chains. If you want to have a dedicated execution environemnt for your application that guarantees high TPS and configuratble network policies, we recommend to use Service Chains.   
+Blockchain Applications can run on the Klaytn main chain, Cypress, or can operate on their own blockchains called **Service Chains**. If you want to have a dedicated execution environment for your application that guarantees high TPS and configuratble network policies, we recommend to use Service Chain. 
+To setup a Service Chain for you application, read the [installation and operation guide of Service Chain](../node/service-chain/README.md).
 
 ## Main Chain: CCN + ENN
 
-![Klaytn Main Chain Physical Topology & Core Cell Network Breakdown (CNN and PNN)](images/klaytn_network_node.png)
-
-Above figure shows the overall topology of Klaytn mainnet, where Core Cell Network
-(CCN) is further broken down in detail to show its two constituent subnetworks:
-Consensus Node Network (CNN) and Proxy Node Network (PNN). Endpoint Node
-Network (ENN) is also shown as the surrounding network connected directly to PNN.
+In this section, we will describe the network topology of Klaytn main chain.
 
 ### Klaytn Nodes
 
-To understand the Klaytn main chain network topology, we need to visit the different types of Klaytn Nodes.
+To understand the Klaytn main chain network topology, we need to visit the different types of Klaytn nodes.
 
 #### Core Cell (CC): Consensus Node (CN) + Proxy Node (PN)
 
 **Core Cell (CCs)** is composed of a single **Consensus Node (CN)** and two **Proxy Nodes (PNs)**.
 Consensus Nodes are participating in the block generation process, while Proxy Nodes provides the interfaces to the
-outter network. PNs transmits the transaction requests to the Consensus Nodes, and propagates the blocks to the Endpoint Nodes. 
+outter network. PNs transmits the transaction requests to the Consensus Nodes, and propagates the blocks to the Endpoint Nodes.
+
+If you are interested in being a Core Cell Operator, read the [installation and operation guide of Core Cell](../node/core-cell/README.md).
 
 #### Endpoint Node (EN)
 
@@ -64,9 +63,11 @@ ENs serve as endpoints for Klaytn
 network handling RPC API requests and processing data sent to and from service
 chains.
 
+To setup an Endpoint Node for you application, read the [installation and operation guide of Endpoint Node](../node/endpoint-node/README.md).
+
 #### Bootnode
 
-Bootnodes are special type nodes operated by Klaytn to help newly joining nodes
+Bootnodes are special-type nodes operated by Klaytn to help newly joining nodes
 register to the network and to discover other nodes to connect with.
 CN bootnodes reside within the CNN and are not exposed to the public, while PN
 and EN bootnodes are publicly visible.  PN bootnodes only allow permitted PNs to
@@ -75,7 +76,14 @@ with information on which PNs to connect to.
 
 ### Tiered Networks
 
-CNs, PNs, and ENs respectively form a logical network, CNN, PNN, and ENN, respectively.
+![Klaytn Main Chain Physical Topology & Core Cell Network Breakdown (CNN and PNN)](images/klaytn_network_node.png)
+
+Above figure shows the overall topology of Klaytn mainnet, where Core Cell Network
+(CCN) is further broken down in detail to show its two constituent subnetworks:
+Consensus Node Network (CNN) and Proxy Node Network (PNN). Endpoint Node
+Network (ENN) is also shown as the surrounding network connected directly to PNN.
+
+CNs, PNs, and ENs form logical networks, CNN, PNN, and ENN, respectively.
 Details are give in the below.
 
 #### Consensus Node Network (CNN)
