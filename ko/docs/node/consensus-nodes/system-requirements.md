@@ -22,9 +22,9 @@ Note that this is a recommended hardware specification for CNs and PNs, not an e
 
 #### Recommended Specification Based on AWS
 
-| Model                         | vCPU | Memory \(GiB\) | Storage \(GiB\) | EBS Bandwidth \(Mbps\) | Network Bandwidth \(Gbps\) | Price \(Seoul region, USD/h\) |
-|:----------------------------- |:---- |:---------------- |:----------------- |:------------------------ |:---------------------------- |:------------------------------- |
-| c5.18xlarge \(recommended\) | 72   | 144              | EBS-Only          | 14,000                   | 25                           | 3.456                           |
+| Model                         | vCPU | Memory \(GiB\) | Storage \(GiB\)       | EBS Bandwidth \(Mbps\) | Network Bandwidth \(Gbps\) | Price \(Seoul region, USD/h\) |
+|:----------------------------- |:---- |:---------------- |:----------------------- |:------------------------ |:---------------------------- |:------------------------------- |
+| c5.18xlarge \(recommended\) | 72   | 144              | 500 (Minimum, EBS-Only) | 14,000                   | 25                           | 3.456                           |
 
 
 The information above is from <https://aws.amazon.com/ec2/instance-types/> and <https://aws.amazon.com/ec2/pricing/on-demand/> and may be changed by AWS.
