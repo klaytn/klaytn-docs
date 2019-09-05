@@ -39,7 +39,8 @@ SCNs are Klaytn subnetworks composed of auxiliary blockchains independently oper
 
 **Core Cell Network** and **Endpoint Node Network** form a Klaytn main chain or mainnet.
 Blockchain Applications can run on the Klaytn main chain, Cypress, or can operate on their own blockchains called **Service Chains**. If you want to have a dedicated execution environment for your application that guarantees high TPS and configurable network policies, we recommend using Service Chain. 
-To set up a Service Chain for your application, read the [installation and operation guide of Service Chain](../node/service-chain/README.md).
+
+> To set up a Service Chain for your application, read the [installation and operation guide of Service Chain](../node/service-chain/README.md).
 
 ## Klaytn Network Topology
 
@@ -56,7 +57,7 @@ we need to get familiar with the different types of Klaytn nodes.
 Core Cell (CCs) is composed of a single **Consensus Node (CN)** and two **Proxy Nodes (PNs)**.
 Consensus Nodes are participating in the block generation process, while Proxy Nodes provide the interface to the network. PNs transmit the transaction requests to the Consensus Nodes, and propagate the blocks down to the Endpoint Nodes. 
 
-If you are interested in being a Core Cell Operator, read the [installation and operation guide of Core Cell](../node/core-cell/README.md).
+> If you are interested in being a Core Cell Operator, read the [installation and operation guide of Core Cell](../node/core-cell/README.md).
 
 #### Endpoint Node (EN)
 
@@ -64,7 +65,7 @@ ENs serve as endpoints for Klaytn
 network handling RPC API requests and processing data sent to and from service
 chains. 
 
-To setup an Endpoint Node for your application, read the [installation and operation guide of Endpoint Node](../node/endpoint-node/README.md).
+> To set up an Endpoint Node for your application, read the [installation and operation guide of Endpoint Node](../node/endpoint-node/README.md).
 
 #### Bootnode
 
