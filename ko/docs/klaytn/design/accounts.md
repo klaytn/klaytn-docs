@@ -54,7 +54,7 @@ Externally owned accounts have information such as nonce and balance. This type 
 
 | Attribute     | Type                                  | Description                                                                                                                                                                                                                                                                                                                                                                                           |
 |:------------- |:------------------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type          | uint8 \(Go\)                        | The type of externally owned accounts. It must be 0x1 for EOAs.                                                                                                                                                                                                                                                                                                                                       |
+| type          | uint8 \(Go\)                        | The type of externally owned accounts. It must be **0x1** for EOAs.                                                                                                                                                                                                                                                                                                                                   |
 | nonce         | uint64 \(Go\)                       | A sequence number used to determine the order of transactions. The transaction to be processed next has the same nonce with this value.                                                                                                                                                                                                                                                               |
 | balance       | \*big.Int \(Go\)                  | The amount of KLAY the account has.                                                                                                                                                                                                                                                                                                                                                                   |
 | humanReadable | bool \(Go\)                         | A boolean value indicating that the account is associated with a human-readable address. Since [HRA](accounts.md#human-readable-address-hra) is under development, this value is false for all accounts.                                                                                                                                                                                              |
@@ -69,7 +69,7 @@ In contrast to EOAs, SCAs have code associated with them and are controlled by t
 
 | Attribute     | Type                                  | Description                                                                                                                                                                                                                                                                                                                                                                                           |
 |:------------- |:------------------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type          | uint8 \(Go\)                        | The type of smart contract accounts. It must be 0x2 for SCAs.                                                                                                                                                                                                                                                                                                                                         |
+| type          | uint8 \(Go\)                        | The type of smart contract accounts. It must be **0x2** for SCAs.                                                                                                                                                                                                                                                                                                                                     |
 | nonce         | uint64 \(Go\)                       | A sequence number used to determine the order of transactions. The transaction to be processed next has the same nonce with this value.                                                                                                                                                                                                                                                               |
 | balance       | \*big.Int \(Go\)                  | The amount of KLAY the account has.                                                                                                                                                                                                                                                                                                                                                                   |
 | humanReadable | bool \(Go\)                         | A boolean value indicating that the account is associated with a human-readable address. Since [HRA](accounts.md#human-readable-address-hra) is under development, this value is false for all accounts.                                                                                                                                                                                              |
@@ -77,6 +77,16 @@ In contrast to EOAs, SCAs have code associated with them and are controlled by t
 | codeHash      | \[\]byte \(Go\)                   | The hash of the account's smart contract code. This value is immutable, which means it is set only when the smart contract is created.                                                                                                                                                                                                                                                                |
 | storageRoot   | \[32\]byte \(Go\)                 | A 256-bit hash of the root of the Merkle Patricia Trie that contains the values of all the storage variables in the account.                                                                                                                                                                                                                                                                          |
 | codeFormat    | uint8 \(Go\)                        | A format of the code in this account. Currently, it supports EVM\(0x00\) only.                                                                                                                                                                                                                                                                                                                      |
+
+
+### Klaytn Account Type ID
+
+Below are the Account Type ID assigned to each Account Type.
+
+| Account Type                   | Account Type ID |
+| ------------------------------ | --------------- |
+| Externally Owned Account (EOA) | 0x1             |
+| Smart Contract Account (SCA)   | 0x2             |
 
 
 ## Account Key
@@ -109,9 +119,9 @@ AccountKeyLegacy is used for the account having an address derived from the corr
 
 #### Attributes
 
-| Attribute | Type           | Description                                      |
-|:--------- |:-------------- |:------------------------------------------------ |
-| Type      | uint8 \(Go\) | The type of AccountKeyLegacy. This must be 0x01. |
+| Attribute | Type           | Description                                          |
+|:--------- |:-------------- |:---------------------------------------------------- |
+| Type      | uint8 \(Go\) | The type of AccountKeyLegacy. This must be **0x01**. |
 
 
 #### RLP Encoding
@@ -132,7 +142,7 @@ If an account has an AccountKeyPublic object, the transaction validation process
 
 | Attribute | Type                  | Description                                          |
 |:--------- |:--------------------- |:---------------------------------------------------- |
-| Type      | uint8 \(Go\)        | The type of AccountKeyPublic. This must be 0x02.     |
+| Type      | uint8 \(Go\)        | The type of AccountKeyPublic. This must be **0x02**. |
 | Key       | \[33\]byte \(Go\) | Key should be a compressed public key on S256 curve. |
 
 
@@ -158,9 +168,9 @@ If an account has the key AccountKeyFail, the transaction validation process alw
 
 #### Attributes
 
-| Attribute | Type           | Description                                   |
-|:--------- |:-------------- |:--------------------------------------------- |
-| Type      | uint8 \(Go\) | The type of AcccountKeyFail. It must be 0x03. |
+| Attribute | Type           | Description                                       |
+|:--------- |:-------------- |:------------------------------------------------- |
+| Type      | uint8 \(Go\) | The type of AcccountKeyFail. It must be **0x03**. |
 
 
 #### RLP Encoding
@@ -175,7 +185,7 @@ AccountKeyWeightedMultiSig is an account key type containing a threshold and Wei
 
 | Attribute          | Type                                | Description                                                                                                                    |
 |:------------------ |:----------------------------------- |:------------------------------------------------------------------------------------------------------------------------------ |
-| Type               | uint8 \(Go\)                      | The type of AccountKeyWeightedMultiSig. This must be 0x04.                                                                     |
+| Type               | uint8 \(Go\)                      | The type of AccountKeyWeightedMultiSig. This must be **0x04**.                                                                 |
 | Threshold          | uint \(Go\)                       | Validation threshold. To be a valid transaction, the weight sum of signatures should be larger than or equal to the threshold. |
 | WeightedPublicKeys | \[\]{uint, \[33\]byte} \(Go\) | A list of weighted public keys. A weighted public key contains a compressed public key and its weight.                         |
 
@@ -212,7 +222,7 @@ AccountKeyRoleBased represents a role-based key. The roles are specified at [Rol
 
 | Attribute | Type                        | Description                                                                                                                            |
 |:--------- |:--------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------- |
-| Type      | uint8 \(Go\)              | The type of AccountKeyRoleBased. It must be 0x05.                                                                                      |
+| Type      | uint8 \(Go\)              | The type of AccountKeyRoleBased. It must be **0x05**.                                                                                  |
 | Keys      | \[\]{AccountKey} \(Go\) | A list of keys. A key can be any of AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail, and AccountKeyWeightedMultiSig. |
 
 
@@ -259,3 +269,15 @@ PubkeyY 0x94c27901465af0a703859ab47f8ae17e54aaba453b7cde5a6a9e4a32d45d72b2
 
 RLP: 0x05f898a302a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512db84e04f84b02f848e301a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512de301a10336f6355f5b532c3c1606f18fa2be7a16ae200c5159c8031dd25bfa389a4c9c06a302a102c8785266510368d9372badd4c7f4a94b692e82ba74e0b5e26b34558b0f081447
 ```
+
+## Account Key Type ID
+
+Below are the Account Key Type ID assigned to each Account Key Type.
+
+| Account Key Type           | Account Key Type ID |
+| -------------------------- | ------------------- |
+| AccountKeyLegacy           | 0x01                |
+| AccountKeyPublic           | 0x02                |
+| AccountKeyFail             | 0x03                |
+| AccountKeyWeightedMultiSig | 0x04                |
+| AccountKeyRoleBased        | 0x05                |
