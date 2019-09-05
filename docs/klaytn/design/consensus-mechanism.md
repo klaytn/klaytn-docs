@@ -44,6 +44,6 @@ And also the issue of increasing communication volume in the BFT algorithm is so
 
 ![Concept of council and committee](../images/council-committee.png)
 
-Because consensus messages are exchanged only between the committee members, the communication volume can be limited under the designed level even though the total number of CNs increased.
+Because consensus messages are exchanged only between the committee members, the communication volume can be limited under the designed level even though the total number of CNs increases.
 
 Currently, Klaytn Mainnet Cypress can provide a high throughput of 4,000 transactions per second with one-second block generation interval. More than 50 consensus nodes can participate in the CNN (Consensus Node Network) at the moment and the number will continuously increase as Klaytn continues to aggressively optimize the algorithm.
