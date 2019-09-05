@@ -1,6 +1,16 @@
 # Consensus Mechanism
 
-A consensus mechanism (algorithm) is a way of reaching a consensus between trustless entities. In blockchain technology, it is used to reach a consensus about if a block is valid or not. 
+A consensus mechanism (algorithm) is a way of reaching a consensus between trustless entities. In blockchain technology, it is used to reach a consensus about if a block is valid or not. The performance of blockchain networks relies on the performance of the adopted consensus mechanisms, and it has a significant impact on the perceived usability of the Blockchain Applications.
+
+Klaytn Mainnet Cypress exhibits the following performance.
+- Handles 4,000 transactions per second. 
+- Immediate transaction finality.
+- One-second block generation time. 
+- Over 50 consensus nodes can participate in the consensus process.
+
+In the document, we will go over how Klaytn implemented the high-performing consensus process. 
+
+## Background
 
 [Bitcoin](https://en.wikipedia.org/wiki/Bitcoin) and [Ethereum](https://en.wikipedia.org/wiki/Ethereum) are using [PoW](https://en.wikipedia.org/wiki/Proof_of_work) (Proof of Work) based consensus mechanism. And there are other block chain networks using [PoS](https://en.wikipedia.org/wiki/Proof_of_stake) (Proof of Stake) mechanism which decides a block generating node by the stake of the node. Usually these algorithms have no communication between nodes in deciding validities of blocks. 
 
