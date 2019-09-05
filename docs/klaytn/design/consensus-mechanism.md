@@ -15,7 +15,7 @@ To prevent above issues, we need other algorithm which guarantees finality confi
 
 In the PoW algorithm stated above, though each node receives and validates blocks, there are no message exchanges between nodes to reach a consensus. But in PBFT, each node communicates with other participating nodes to reach a consensus and the finality of the block can be guaranteed as soon as nodes were able to reach a consensus.
 
-The communication between nodes basically progress as shown below. But there are some variants which reflects each system's characteristics.
+The communication between nodes basically progresses as shown below. But there are some variants which reflect each system's characteristics.
 
 ![PBFT message flow](../images/pbft.png)
 
