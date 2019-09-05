@@ -16,7 +16,7 @@ In the document, we will go over how Klaytn implemented the high-performing cons
 
 So in these systems, a fork can happen which means two or more different blocks can be made on the same height. Usually "Longest chain wins" rule is used to solve the fork condition. It means that those forks will be merged into a single canonical chain eventually, but it also means a list of blocks can be reverted in some period of time when it belongs to the shorter chain. So in these algorithms, there is no guarantee of the finality of blocks and transactions. The finality only can be achieved probabilistically after some period of time though it can't be 100% sure.
 
-This lack of finality is a very difficult issue in customer-facing services which use a blockchain platform. Because a user's activity can be reverted until some time has passed, a service can't be confident to believe it. This characteristic gives a negative effect both on users and service providers. 
+This lack of finality is a very difficult issue in customer-facing services which use a blockchain platform. Because it has to wait until forks are resolved and enough blocks are stacked after the transfer to believe the transaction is not reversible. This characteristic gives a negative effect both on users and service providers. 
 
 A simple example of this issue is a financial service. Assuming that an user transferred some funds to someone, the service can't acknowledge that the transfer is valid until 30 to 60 minutes passed. Because it have to wait until forks are merged into a single chain and several blocks stacked after the transfer to believe the transaction is not reversible.
 
@@ -29,7 +29,7 @@ The communication between nodes basically progresses as shown below. But there a
 
 ![PBFT message flow](../images/pbft.png)
 
-As shown above, a participating node in PBFT basically cummunicates with all nodes in the network in several phases. This characteristic limits the number of nodes because the communication volume increases in multiple as the number of nodes increases.
+As shown above, a participating node in PBFT basically communicates with all nodes in the network in several phases. This characteristic limits the number of nodes because the communication volume increases exponentially as the number of nodes increases.
 
 ## Consensus Mechanism in Klaytn
 Klaytn is aiming to be an Enterprise-ready and Service-centric platform. Therefore we need to solve the finality problem written above and the network should be able to allow many nodes to participate in the network. To make this possible, Klaytn is using an optimized version of Istanbul BFT, which implements PBFT with modifications to deal with blockchain network's characteristics.
@@ -38,7 +38,7 @@ In Klaytn, there are three types of nodes, CN (Consensus Node), PN (Proxy Node) 
 
 ![Network topology](../images/klaytn_network_node.png)
 
-Klaytn achieves fast finality by adopting Istanbul BFT. Because validation and consensus are done for each block there is no fork and the block's finality is guaranted instantly as soon as the consensus is made. 
+Klaytn achieves fast finality by adopting and improving Istanbul BFT. Because validation and consensus are done for each block there is no fork and the block's finality is guaranted instantly as soon as the consensus is made. 
 
 And also the issue of increasing communication volume in the BFT algorithm is solved by utilizing randomly selected `Committee`. CNs collectively form a `Council` and on each block generation, part of them are selected as a member of `Committee` using a VRF (Verifiable Random Function).
 
