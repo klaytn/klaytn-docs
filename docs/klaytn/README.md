@@ -37,10 +37,9 @@ ENN consists of Endpoint Nodes (ENs) that mainly create transactions, handle RPC
 
 SCNs are Klaytn subnetworks composed of auxiliary blockchains independently operated by blockchain applications (BApps). Service chains are connected to the main chain via ENs.
 
-
 **Core Cell Network** and **Endpoint Node Network** form a Klaytn main chain or mainnet.
-Blockchain Applications can run on the Klaytn main chain, Cypress, or can operate on their own blockchains called **Service Chains**. If you want to have a dedicated execution environment for your application that guarantees high TPS and configuratble network policies, we recommend to use Service Chain. 
-To setup a Service Chain for your application, read the [installation and operation guide of Service Chain](../node/service-chain/README.md).
+Blockchain Applications can run on the Klaytn main chain, Cypress, or can operate on their own blockchains called **Service Chains**. If you want to have a dedicated execution environment for your application that guarantees high TPS and configurable network policies, we recommend using Service Chain. 
+To set up a Service Chain for your application, read the [installation and operation guide of Service Chain](../node/service-chain/README.md).
 
 ## Klaytn Network Topology
 
@@ -55,8 +54,7 @@ we need to get familiar with the different types of Klaytn nodes.
 #### Core Cell (CC): Consensus Node (CN) + Proxy Node (PN)
 
 Core Cell (CCs) is composed of a single **Consensus Node (CN)** and two **Proxy Nodes (PNs)**.
-Consensus Nodes are participating in the block generation process, while Proxy Nodes provide the interface to the
-outter network. PNs transmit the transaction requests to the Consensus Nodes, and propagate the blocks down to the Endpoint Nodes. 
+Consensus Nodes are participating in the block generation process, while Proxy Nodes provide the interface to the network. PNs transmit the transaction requests to the Consensus Nodes, and propagate the blocks down to the Endpoint Nodes. 
 
 If you are interested in being a Core Cell Operator, read the [installation and operation guide of Core Cell](../node/core-cell/README.md).
 
@@ -74,7 +72,7 @@ Bootnodes are special-type nodes operated by Klaytn to help newly joining nodes
 register to the network and to discover other nodes to connect with.
 CN bootnodes reside within the CNN and are not exposed to the public, while PN
 and EN bootnodes are publicly visible.  PN bootnodes only allow permitted PNs to
-be registered, and lets eligible PNs connect with ENs.  EN bootnodes provide ENs
+be registered, and let eligible PNs connect with ENs.  EN bootnodes provide ENs
 with information on which PNs to connect to. 
 
 ### Tiered Networks
@@ -97,8 +95,8 @@ performance level.
 
 #### Proxy Node Network (PNN)
 
-PNs are connected with each other and forms PNN. PNs explicitly do not connect
-with their peer within the same CC. Typically, PNs maintain just one
+PNs are connected with each other and form PNN. PNs explicitly do not connect
+with their peers within the same CC. Typically, PNs maintain just one
 connection with a peer PN, but this number is subject to change depending on
 the network configuration.
 
