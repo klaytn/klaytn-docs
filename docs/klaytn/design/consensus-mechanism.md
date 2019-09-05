@@ -13,7 +13,7 @@ A simple example of this issue is a financial service. Assuming that an user tra
 ## PBFT (Practical Byzantine Fault Tolerance) 
 To prevent above issues, we need other algorithm which guarantees finality confidently. BFT algorithm is one of those, first [published](https://dl.acm.org/citation.cfm?doid=357172.357176) at 1982 by Lamport, Shostak, Pease. In 1999, Miguel Castro and Barbara Liskov introduced "Practical Byzantine Fault Tolerance" ([PBFT](http://www.pmg.csail.mit.edu/papers/bft-tocs.pdf)) which provides high performance state machine replication.
 
-In PoW algorithm stated above, though each node receive and validate blocks, there are no message exchange between nodes to make a consensus. But in PBFT, each node communicates with other participating nodes to make a consensus and the finality of the block can be guaranted as soon as nodes were able to make a consensus.
+In the PoW algorithm stated above, though each node receives and validates blocks, there are no message exchanges between nodes to reach a consensus. But in PBFT, each node communicates with other participating nodes to reach a consensus and the finality of the block can be guaranteed as soon as nodes were able to reach a consensus.
 
 The communication between nodes basically progress as shown below. But there are some variants which reflects each system's characteristics.
 
