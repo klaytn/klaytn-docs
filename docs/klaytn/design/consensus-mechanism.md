@@ -22,7 +22,7 @@ The communication between nodes basically progress as shown below. But there are
 As shown above, a participating node in PBFT basically cummunicates with all nodes in the network in several phases. This characteristic limits the number of nodes because the communication volume increases in multiple as the number of nodes increases.
 
 ## Consensus Mechanism in Klaytn
-Klaytn is aiming to be a Enterprise-ready and Service Centric platform. Therefore we need to solve the finality problem written above and the network should be able to allow many nodes to participate in the network. To make this possible, Klaytn is using optimized version of Istanbul BFT which implements PBFT with blockchain network's characteristics.
+Klaytn is aiming to be an Enterprise-ready and Service-centric platform. Therefore we need to solve the finality problem written above and the network should be able to allow many nodes to participate in the network. To make this possible, Klaytn is using an optimized version of Istanbul BFT, which implements PBFT with modifications to deal with blockchain network's characteristics.
 
 In Klaytn, nodes are separated in three types, CN (Consensus Node), PN (Proxy Node) and EN (Endpoint Node). CN nodes managed by CCOs (Core Cell Operators) are in charge of building blocks and these blocks are verified by all nodes in the network. Please refer to [here]() to know more about this network topology.
 
