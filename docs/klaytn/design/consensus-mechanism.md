@@ -24,7 +24,7 @@ As shown above, a participating node in PBFT basically cummunicates with all nod
 ## Consensus Mechanism in Klaytn
 Klaytn is aiming to be an Enterprise-ready and Service-centric platform. Therefore we need to solve the finality problem written above and the network should be able to allow many nodes to participate in the network. To make this possible, Klaytn is using an optimized version of Istanbul BFT, which implements PBFT with modifications to deal with blockchain network's characteristics.
 
-In Klaytn, nodes are separated in three types, CN (Consensus Node), PN (Proxy Node) and EN (Endpoint Node). CN nodes managed by CCOs (Core Cell Operators) are in charge of building blocks and these blocks are verified by all nodes in the network. Please refer to [here]() to know more about this network topology.
+In Klaytn, there are three types of nodes, CN (Consensus Node), PN (Proxy Node) and EN (Endpoint Node). CNs are managed by CCOs (Core Cell Operators) and are in charge of block generation. These blocks are verified by all nodes in the network. Please refer to [here]() to know more about this network topology.
 
 ![Network topology](../images/klaytn_network_node.png)
 
