@@ -30,7 +30,7 @@ In Klaytn, there are three types of nodes, CN (Consensus Node), PN (Proxy Node) 
 
 Klaytn achieves fast finality by adopting Istanbul BFT. Because validation and consensus are done for each block there is no fork and the block's finality is guaranted instantly as soon as the consensus is made. 
 
-And also the issue of increasing communication volume in BFT algorithm is solved by utilizing randomly selected `Committee`. All CN nodes form a `Council` and some of them are selected as a `Committee` for each block using a VRF (Verifiable Random Function).
+And also the issue of increasing communication volume in the BFT algorithm is solved by utilizing randomly selected `Committee`. CNs collectively form a `Council` and on each block generation, part of them are selected as a member of `Committee` using a VRF (Verifiable Random Function).
 
 ![Concept of council and committee](../images/council-committee.png)
 
