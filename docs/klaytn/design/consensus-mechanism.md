@@ -6,7 +6,7 @@ A consensus mechanism (algorithm) is a way of reaching a consensus between trust
 
 So in these systems, a fork can happen which means two or more different blocks can be made on the same height . Usually "Longest chain wins" rule is used to solve the fork condition. It means that those forks will be merged to a single canonical chain eventually, but it also means a list of blocks can be reverted in some period of time when it belongs to the shorter chain. So in these algorithms, there is no guarantee of finality of blocks and transactions. The finality only can be achieved probabilistically after some period of time though it can't be 100% sure.
 
-This lack of finality is very difficult issue in customer facing services which uses a blockchain platform. Because an user's activity can be reverted until some time have passed, a service can't be confident to believe it. This characteristic gives negative effect both on users and service providers. 
+This lack of finality is a very difficult issue in customer-facing services which use a blockchain platform. Because a user's activity can be reverted until some time has passed, a service can't be confident to believe it. This characteristic gives a negative effect both on users and service providers. 
 
 A simple example of this issue is a financial service. Assuming that an user transferred some funds to someone, the service can't acknowledge that the transfer is valid until 30 to 60 minutes passed. Because it have to wait until forks are merged into a single chain and several blocks stacked after the transfer to believe the transaction is not reversible.
 
