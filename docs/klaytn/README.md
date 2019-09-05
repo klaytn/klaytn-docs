@@ -15,7 +15,7 @@ Klaytn launched its mainnet, [Cypress](https://scope.klaytn.com/), on Jun/27/201
 - 4,000 transactions per second.
 - Low gas price that is almost 1/10 of Ethereum.
 - Runs EVM (Ethereum Virtual Machine) and supports the execution of Solidity contracts.  
-- 23 reputable corporations worldwide formed Klaytn Governance Council to operate consensus nodes.
+- 19 reputable corporations worldwide initially formed Klaytn Governance Council to operate consensus nodes. The current number of consensus nodes is shown in the [Klaytnscope](https://scope.klaytn.com/).
 - More than 50 initial service partners have committed to launch Blockchain Applications on Klaytn.
 
 ## Klaytn: The Big Picture
@@ -90,16 +90,13 @@ Endpoint Node Network (ENN) is also shown as the surrounding network connected d
 #### Consensus Node Network (CNN)
 
 CNs form a full-mesh network among themselves called CNN. CNN applies BFT over
-a WAN (wide area network) and requires each CN to satisfy stringent hardware
-and network resource requirements to carry out BFT consensus at a sufficient
-performance level. 
+a WAN (wide area network) and requires each CN to satisfy [stringent hardware and network resource requirements](../node/core-cell/system-requirements.md) to carry out BFT consensus at a sufficient performance level. 
 
 #### Proxy Node Network (PNN)
 
-PNs are connected with each other and form PNN. PNs explicitly do not connect
-with their peers within the same CC. Typically, PNs maintain just one
-connection with a peer PN, but this number is subject to change depending on
-the network configuration.
+PNN consists of PNs. 
+Typically, PNs maintain just one connection with a PN in a neighboring Core Cell. 
+The number of peer connections is subject to change depending on the network configuration.
 
 #### Endpoint Node Network (ENN)
 
@@ -110,7 +107,7 @@ to each other and also to a number of PNs.
 ## Block Generation and Propagation
 
 Block generation and propagation design, along with the consensus
-algorithm used, plays an important role in reducing the expected latency of a
+algorithm used, plays an important role in reducing the latency of a
 blockchain platform.
 
 ### Block Generation Cycle
