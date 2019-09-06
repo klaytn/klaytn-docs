@@ -115,7 +115,6 @@
         * [Testing the Installation](node/service-chain/single-node-service-chain/installation-guide/testing-the-installation.md)
       * [Operation Guide](node/service-chain/single-node-service-chain/operation-guide/README.md)
         * [Starting/Stopping Service Chain](node/service-chain/single-node-service-chain/operation-guide/starting-stopping-service-chain.md)
-        * [Configuration](node/service-chain/single-node-service-chain/operation-guide/configuration.md)
         * [Errors & Troubleshooting](node/errors-and-troubleshooting.md)
     * [Multi-Node Service Chain](node/service-chain/multi-node-service-chain/README.md)
   * [Errors & Troubleshooting](node/errors-and-troubleshooting.md)

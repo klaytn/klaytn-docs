@@ -3,7 +3,7 @@
 ## Intended Audience
 
 - BApp operators who need high TPS, minimal transaction fees, or data privacy.  
-
+- Anyone who want to build a local private network or a ledge database for testing.
 
 ## Service Chain Overview
 
@@ -17,4 +17,4 @@ Klaytn Service Chain provides the following features.
 ![](../../klaytn/images/sc_connection.png)
 
 
-Read the [Klaytn Scaling Solution] for more details about the Service Chain.
+Read the [Klaytn Scaling Solution](../../klaytn/scaling-solutions.md) for more details about the Service Chain.
