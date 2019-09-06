@@ -16,4 +16,9 @@ $ kend stop
 Shutting down kend: Killed
 ```
 
+**status**
 
+```bash
+$ kend status
+kend is running
+```
