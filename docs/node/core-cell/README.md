@@ -1,24 +1,30 @@
 # Core Cell Overview
 
-\[What is it\]
+## Intended Audience 
 
-\[Why / when it is needed - intended audience\]
+- Core Cell Operators
+- If your interest is in making and running Blockchain Applications on Klaytn, you don't need to maintain a Core Cell. You need to run an [Endpoint Node](../endpoint-node/README.md) instead to make your application interact with Klaytn network. 
 
 
+## Core Cell Overview
 
-A Klaytn Core Cell \(CC\) consists of the following components.
+Core Cell (CC) is an entity that is participating in the consensus process, and is in charge of executing transactions and generating blocks.
+A Klaytn Core Cell (CC) consists of the following components.
 
-* Klaytn Consensus Node \(CN\)
-* Klaytn Proxy Node \(PN\)
+-  Consensus Node (CN): Consensus Nodes are participating in the block generation process. 
+-  Proxy Node (PN): Proxy Nodes provide the interface to the network. PNs transmit the transaction requests to the Consensus Nodes, and propagate the blocks down to the Endpoint Nodes.
+
+It is recommended that a Core Cell consists of one CN with two or more PNs.
+A CN connects to other CNs within the Core Cell Network to perform consensus. 
+CNs only accept connections from their PNs in the same Core Cell to receive transaction requests and propagate blocks to the network. 
+PNs accepts connections from any ENs within the Endpoint Node Network.
 
 ![Core Cell Overview](images/cn_set.png)
 
 | Name | Description | Network Security | Quantity |
 | :--- | :--- | :--- | :--- |
-| Klaytn CN | A node which creates a new block with other CN participants of the Core Cell Network | A network is comprised of the permissioned CNs \(Required IP access control\). | 1 unit |
-| Klaytn PN | - A node which submits transactions received from the Klaytn Endpoint Node Network to a CN or CNs.  - It propagates the created blocks from a CN or CNs to Klaytn Endpoint Node Network.  - It may be required to be scaled out horizontally depending on the number of ENs in the Klaytn Endpoint Node Network. | - It is connected with CNs internally in a Core Cell, and its IP and Ports are required to be public to be connected with other Klaytn nodes on the Internet.  - It can connect to some PNs in the other CCs via a PN bootnode \(not implemented yet\).  - It supports connections to an EN or ENs via a EN bootnode \(not yet implemented.\) | At least 1, but recommended 2 or more for spares. |
-
-It is recommended that a Core Cell consists of a CN with 2 or more PNs. A CN is able to be connected to the other CNs within the Core Cell Network, or to PNs in the same Core Cell. A PN is able to be connected to all the ENs within the Klaytn Endpoint Node Network.
+| CN | A node that creates a new block with other CNs in the Core Cell Network | A network is composed of permissioned CNs. (Requires IP access control). | 1 unit |
+| PN | - A node that submits transactions received from the Klaytn Endpoint Node Network to the CN. <br>- It propagates the created blocks to Klaytn Endpoint Node Network. <br>- It can scale out horizontally depending on the number of ENs in the Endpoint Node Network. | - It is connected to the CN in the Core Cell, and its IP and Ports are required to be public to accept connections from other Klaytn nodes on the Internet. <br>- It can connect to other PNs in other Core Cell via PN bootnode. <br>- It can connect to ENs via EN bootnode. | At least 1 PN required. 2 or more PNs are recommended. |
 
 
 

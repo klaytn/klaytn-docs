@@ -80,7 +80,7 @@
       * [Errors & Troubleshooting](node/endpoint-node/operation-guide/errors-and-troubleshooting.md)
     * [ken CLI commands](node/endpoint-node/ken-cli-commands.md)
     * [JSON-RPC APIs](node/endpoint-node/json-rpc.md)
-  * [Consensus Nodes](node/core-cell/README.md)
+  * [Core Cell](node/core-cell/README.md)
     * [System Requirements](node/core-cell/system-requirements.md)
     * [Installation Guide](node/core-cell/installation-guide/README.md)
       * [Download](node/core-cell/installation-guide/download.md)
