@@ -1,10 +1,10 @@
 # Startup the CN
 
-## CN Start/Stop <a id="cn-start-stop-status"></a>
+## CN Start/Stop 
 
 You can start/stop the Klaytn service with the following `systemctl` command.
 
-**Note**: the root access is required to control the installed files.
+**Note**: This requires root privileges.
 
 **start**
 
@@ -28,12 +28,10 @@ If you meet the following error,
 Failed to start kcnd.service: Unit not found.
 ```
 
-you might need to take the changed configuration with the following command.
+reload the systemd manager configuration with the following command.
 
 ```bash
 $ systemctl daemon-reload
 ```
 
-[  
-](https://docs.klaytn.com/node/cc/installation/rpm/cnrpminstall)
 
