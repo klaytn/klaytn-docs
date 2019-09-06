@@ -1,6 +1,6 @@
 # Startup the Service Chain
 
-Depending your installation type, you can operate `kscn` like below different ways. You can start/stop the Klaytn service with the following `systemctl`  or `kscnd` command.
+Depending on your installation type, you can start/stop the Klaytn service with the following `systemctl`  or `kscnd` command.
 
 **start**
 
@@ -13,7 +13,7 @@ $ kscnd start
 
 ```
 
-**termination**
+**stop**
 
 ```bash
 ## when installed using linux archive
