@@ -105,7 +105,6 @@
     * [Network Configuration](node/core-cell/network-configuration.md)
   * [Service Chain](node/service-chain/README.md)
     * [Single-Node Service Chain](node/service-chain/single-node-service-chain/README.md)
-      * [Overview](node/service-chain/single-node-service-chain/overview.md)
       * [System Requirements](node/service-chain/single-node-service-chain/system-requirements.md)
       * [Installation Guide](node/service-chain/single-node-service-chain/installation-guide/README.md)
         * [Download](node/service-chain/single-node-service-chain/installation-guide/download.md)
