@@ -1,50 +1,36 @@
 # Download
 
-## v1.0.0 \(latest\)
+Below is the latest packages. You can get the entire list of node binaries in the [download page](../../download/README.md). 
 
-### Package Downloads
-
-#### Linux
+## Linux 
 
 Cypress Packages
-
-* [kcnd-v1.0.0-1.el7.x86\_64.rpm](http://packages.klaytn.net/klaytn/v1.0.0/kcnd-v1.0.0-1.el7.x86_64.rpm)
-* [kpnd-v1.0.0-1.el7.x86\_64.rpm](http://packages.klaytn.net/klaytn/v1.0.0/kpnd-v1.0.0-1.el7.x86_64.rpm)
-* [kcn-v1.0.0-1-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.0.0/kcn-v1.0.0-1-linux-amd64.tar.gz)
-* [kpn-v1.0.0-1-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.0.0/kpn-v1.0.0-1-linux-amd64.tar.gz)
+- [kcnd-v1.1.1-3.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.1.1/kcnd-v1.1.1-3.el7.x86_64.rpm)
+- [kpnd-v1.1.1-3.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.1.1/kpnd-v1.1.1-3.el7.x86_64.rpm)
+- [kcn-v1.1.1-3-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/kcn-v1.1.1-3-linux-amd64.tar.gz)
+- [kpn-v1.1.1-3-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/kpn-v1.1.1-3-linux-amd64.tar.gz)
 
 Baobab Packages
-
-* [kcnd-baobab-v1.0.0-1.el7.x86\_64.rpm](http://packages.klaytn.net/klaytn/v1.0.0/kcnd-baobab-v1.0.0-1.el7.x86_64.rpm)
-* [kpnd-baobab-v1.0.0-1.el7.x86\_64.rpm](http://packages.klaytn.net/klaytn/v1.0.0/kpnd-baobab-v1.0.0-1.el7.x86_64.rpm)
-* [kcn-baobab-v1.0.0-1-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.0.0/kcn-baobab-v1.0.0-1-linux-amd64.tar.gz)
-* [kpn-baobab-v1.0.0-1-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.0.0/kpn-baobab-v1.0.0-1-linux-amd64.tar.gz)
+- [kcnd-baobab-v1.1.1-3.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.1.1/kcnd-baobab-v1.1.1-3.el7.x86_64.rpm)
+- [kpnd-baobab-v1.1.1-3.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.1.1/kpnd-baobab-v1.1.1-3.el7.x86_64.rpm)
+- [kcn-baobab-v1.1.1-3-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/kcn-baobab-v1.1.1-3-linux-amd64.tar.gz)
+- [kpn-baobab-v1.1.1-3-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/kpn-baobab-v1.1.1-3-linux-amd64.tar.gz)
 
 Common Packages
+- [kgen-v1.1.1-3-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/kgen-v1.1.1-3-linux-amd64.tar.gz)
 
-* [kgen-v1.0.0-1-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.0.0/kgen-v1.0.0-1-linux-amd64.tar.gz)
 
-#### MacOS
+## MacOS
 
 Cypress Packages
-
-* [kcn-v1.0.0-1-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.0.0/kcn-v1.0.0-1-darwin-amd64.tar.gz)
-* [kpn-v1.0.0-1-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.0.0/kpn-v1.0.0-1-darwin-amd64.tar.gz)
+- [kcn-v1.1.1-3-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/kcn-v1.1.1-3-darwin-amd64.tar.gz)
+- [kpn-v1.1.1-3-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/kpn-v1.1.1-3-darwin-amd64.tar.gz)
 
 Baobab Packages
-
-* [kcn-baobab-v1.0.0-1-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.0.0/kcn-baobab-v1.0.0-1-darwin-amd64.tar.gz)
-* [kpn-baobab-v1.0.0-1-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.0.0/kpn-baobab-v1.0.0-1-darwin-amd64.tar.gz)
+- [kcn-baobab-v1.1.1-3-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/kcn-baobab-v1.1.1-3-darwin-amd64.tar.gz)
+- [kpn-baobab-v1.1.1-3-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/kpn-baobab-v1.1.1-3-darwin-amd64.tar.gz)
 
 Common Packages
+- [kgen-v1.1.1-3-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/kgen-v1.1.1-3-darwin-amd64.tar.gz)
 
-* [kgen-v1.0.0-1-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.0.0/kgen-v1.0.0-1-darwin-amd64.tar.gz)
-
-#### Windows
-
-* Not supported yet
-
-### Release Notes for Klaytn v1.0.0
-
-Cypress genesis release.
 
