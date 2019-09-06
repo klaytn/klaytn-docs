@@ -120,6 +120,11 @@
         * [Errors & Troubleshooting](node/service-chain/single-node-service-chain/operation-guide/errors-and-troubleshooting.md)
     * [Multi-Node Service Chain](node/service-chain/multi-node-service-chain/README.md)
   * [Errors & Troubleshooting](node/errors-and-troubleshooting.md)
+  * [Download](node/download/README.md)
+    * [v1.1.1 (latest)](node/download/v1.1.1.md)
+    * [v1.0.0](node/download/v1.0.0.md)
+    * [v0.9.6](node/download/v0.9.6.md)
+    * [v0.8.2](node/download/v0.8.6.md)
 
 * [BApp Developers](bapp/README.md)
   * [JSON-RPC- APIs](bapp/json-rpc/README.md)
