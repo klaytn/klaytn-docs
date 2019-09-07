@@ -4,7 +4,9 @@ Endpoint Node exposes JSON-RPC APIs. You can enable/disable APIs as follows. For
 access to the APIs who can access this interface (DApps, browser tabs, etc). Be careful which APIs
 you enable. By default Klay enables all APIs over the IPC (`ipc`) interface but for `rpc` and `ws` required modules have to be explicitly enabled.
 
-## Enabling APIs from Commandline
+## Enabling APIs 
+
+### From Commandline
 To offer the APIs over the Klaytn RPC endpoints, please specify them with the `--${interface}api`
 command line argument where `${interface}` can be `rpc` for the HTTP endpoint or `ws` for the WebSocket endpoint.
 
@@ -20,7 +22,7 @@ $ ken --rpcapi klay,net --rpc --{other options}
 
 The HTTP RPC interface must be explicitly enabled using the `--rpc` flag.
 
-## Enabling APIs using Configuration
+### Using Configuration
 
 Please update the `RPC_ENABLE`, `RPC_API`, `WS_ENABLE` and  `WS_API` properties in the [Configuration File](operation-guide/configuration.md).
 
@@ -63,4 +65,4 @@ will give all enabled modules including the version number:
 
 ## API References
 
-For the complete list of API specifications, please see the [JSON-RPC API references](../../bapp/json-rpc/api-references.md). 
+For the complete list of API specifications, please see the [JSON-RPC API references](../../bapp/json-rpc/api-references/README.md). 
