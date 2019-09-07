@@ -60,3 +60,7 @@ will give all enabled modules including the version number:
    }
 }
 ```
+
+## API References
+
+For the complete list of API specifications, please see the [JSON-RPC API references](../../bapp/json-rpc/api-references.md). 
