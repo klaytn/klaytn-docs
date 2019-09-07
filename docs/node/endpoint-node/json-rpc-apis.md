@@ -1,14 +1,14 @@
-Endpoint Node exposes JSON-RPC APIs. You can enable/disable APIs as follows. For the detailed API specification, please refer to the [JSON-RPC APIs](../../bapp/json-rpc/api-references.md). 
+Endpoint Node exposes JSON-RPC APIs. You can enable/disable APIs as follows. For the detailed API specification, please refer to the [JSON-RPC APIs](../../bapp/json-rpc/api-references/README.md). 
 
 **NOTE**: Offering an API over the HTTP (`rpc`) or WebSocket (`ws`) interfaces will give everyone
-access to the APIs who can access this interface (DApps, browser tabs, etc). Be careful which APIs
-you enable. By default Klay enables all APIs over the IPC (`ipc`) interface but for `rpc` and `ws` required modules have to be explicitly enabled.
+access to the APIs who can access this interface (DApps, browser tabs, etc). Be careful about which APIs
+you enable. By defaulti, Klaytn enables all APIs over the IPC (`ipc`) interface but for `rpc` and `ws` required modules have to be explicitly enabled.
 
 ## Enabling APIs 
 
 ### From Commandline
 To offer the APIs over the Klaytn RPC endpoints, please specify them with the `--${interface}api`
-command line argument where `${interface}` can be `rpc` for the HTTP endpoint or `ws` for the WebSocket endpoint.
+command-line argument where `${interface}` can be `rpc` for the HTTP endpoint or `ws` for the WebSocket endpoint.
 
 `ipc` offers all APIs over the unix socket (Unix) or named pipe (Windows) endpoint without any flag.
 
@@ -63,6 +63,3 @@ will give all enabled modules including the version number:
 }
 ```
 
-## API References
-
-For the complete list of API specifications, please see the [JSON-RPC API references](../../bapp/json-rpc/api-references/README.md). 
