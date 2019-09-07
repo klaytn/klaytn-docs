@@ -6,5 +6,4 @@ You will install a single Service Chain Node (SCN) that will act as a proprietar
 
 Then, you will connect the SCN to the main chain by enabling an EN's main bridge. SCN will periodically send anchoring transactions to the main chain via EN. 
 
-![](../../../klaytn/images/sc_connection.png)
  

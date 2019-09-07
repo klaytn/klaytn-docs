@@ -20,6 +20,13 @@ $ systemctl stop kcnd.service
 
 ```
 
+**status**
+
+```bash
+$ systemctl status kcnd.service
+
+```
+
 ## PN Start/Stop 
 
 You can start/stop the Klaytn service with the following `systemctl` command.
@@ -37,6 +44,13 @@ $ systemctl start kpnd.service
 
 ```bash
 $ systemctl stop kpnd.service
+
+```
+
+**status**
+
+```bash
+$ systemctl status kpnd.service
 
 ```
 
