@@ -7,6 +7,8 @@ USAGE:
    ken [options] command [command options] [arguments...]
 ```
 
+## Commands
+
 `ken` has the following commands. 
 
 ```bash
@@ -52,3 +54,31 @@ This is a destructive action and changes the network in which you will be
 participating.
  ...
 ```
+
+## JavaScript Console
+
+Klaytn Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Klaytn API calls to your EN. To attach to the JavaScript console, execute the following command.
+
+```bash
+$ ken attach ~/kend_home/klay.ipc
+Welcome to the Klaytn JavaScript console
+
+!instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+ datadir: ~/kend_home
+ modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
+
+ >
+```
+
+`attach` command connects to the running node, while `console` command launches a node and connects to it.  
+
+```bash
+   attach      Start an interactive JavaScript environment (connect to node)
+   console     Start an interactive JavaScript environment
+```
+
+### JavaScript APIs
+
+For the list of JavaScript Klaytn APIs, please see the [caver-js API references](../../bapp/sdk/caver-js/api-references/README.md).  
+
+  
