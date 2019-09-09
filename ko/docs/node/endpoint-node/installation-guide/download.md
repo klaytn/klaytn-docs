@@ -1,35 +1,25 @@
 # Download
 
-## v1.0.0 \(latest\)
+Below is the latest packages. You can get the entire list of node binaries in the [download page](../../download/README.md).
 
-### Package Downloads
-
-#### Linux
+## Linux
 
 Cypress Packages
 
-* [kend-v1.0.0-1.el7.x86\_64.rpm](http://packages.klaytn.net/klaytn/v1.0.0/kend-v1.0.0-1.el7.x86_64.rpm)
-* [ken-v1.0.0-1-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.0.0/ken-v1.0.0-1-linux-amd64.tar.gz)
+- [kend-v1.1.1-3.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.1.1/kend-v1.1.1-3.el7.x86_64.rpm)
+- [ken-v1.1.1-3-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/ken-v1.1.1-3-linux-amd64.tar.gz)
 
 Baobab Packages
 
-* [kend-baobab-v1.0.0-1.el7.x86\_64.rpm](http://packages.klaytn.net/klaytn/v1.0.0/kend-baobab-v1.0.0-1.el7.x86_64.rpm)
-* [ken-baobab-v1.0.0-1-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.0.0/ken-baobab-v1.0.0-1-linux-amd64.tar.gz)
+- [kend-baobab-v1.1.1-3.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.1.1/kend-baobab-v1.1.1-3.el7.x86_64.rpm)
+- [ken-baobab-v1.1.1-3-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/ken-baobab-v1.1.1-3-linux-amd64.tar.gz)
 
-#### MacOS
+## MacOS
 
 Cypress Packages
 
-* [ken-v1.0.0-1-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.0.0/ken-v1.0.0-1-darwin-amd64.tar.gz)
+- [ken-v1.1.1-3-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/ken-v1.1.1-3-darwin-amd64.tar.gz)
 
 Baobab Packages
 
-* [ken-baobab-v1.0.0-1-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.0.0/ken-baobab-v1.0.0-1-darwin-amd64.tar.gz)
-
-#### Windows
-
-* Not supported yet
-
-### Release Notes for Klaytn v1.0.0
-
-Cypress genesis release.
+- [ken-baobab-v1.1.1-3-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/ken-baobab-v1.1.1-3-darwin-amd64.tar.gz)
