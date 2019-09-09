@@ -49,8 +49,6 @@
     * [Truffle](toolkit/truffle.md)
     * [Klaytn Wallet](toolkit/klaytn-wallet.md)
     * [Klaytnscope](toolkit/klaytnscope.md)
-  * [Deploy Guide](smart-contract/deploy-guide.md)
-  * [Testing Guide](smart-contract/testing-guide.md)
   * [Sample Contracts](smart-contract/sample-contracts/README.md)
     * [KlaytnGreeter](smart-contract/sample-contracts/klaytngreeter.md)
     * [ERC-20](smart-contract/sample-contracts/erc-20/README.md)
@@ -60,7 +58,6 @@
     * [ERC-721](smart-contract/sample-contracts/erc-721/README.md)
       * [1. Writing ERC-721 Smart Contract](smart-contract/sample-contracts/erc-721/1-erc721.md)
       * [2. Deploying Smart Contract](smart-contract/sample-contracts/erc-721/2-erc721.md)
-  * [Porting Ethereum Contract](smart-contract/porting-ethereum-contract.md)
   * [Klaytn Compatible Tokens](smart-contract/token-standard.md)
 
 * [Installation & Operation](node/README.md)
