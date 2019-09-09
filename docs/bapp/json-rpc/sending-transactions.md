@@ -13,7 +13,7 @@ To send a legacy transaction, you can either use `klay_sendTransaction` or get a
 
 1. [klay_sendTransaction]
 
- or 
+or 
 
 1. [klay_signTransaction]
 2. [klay_sendRawTransaction] 
