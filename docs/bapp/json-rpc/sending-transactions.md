@@ -6,10 +6,10 @@ This page gives an explaination about how to send transactions using JSON-RPC AP
 
 The below APIs accepts [TxTypeLegacyTransaction] as their input.
 
-- [klay_sendTransaction]
-- [klay_signTransaction]
+- [klay_sendTransaction] - Sends a transaction to the network and returns a transaction hash.
+- [klay_signTransaction] - Returns a raw transaction. Raw transaction is an RLP-encoded transaction with the signature attached to it.
 
-To send a legacy transaction, you can either use `klay_sendTransaction` or get a raw transaction using `klay_signTransaction` then send it through `klay_sendRawTransaction. 
+To send a legacy transaction, you can either use `klay_sendTransaction` or get a raw transaction using `klay_signTransaction` then send it through `klay_sendRawTransaction`. 
 
 1. [klay_sendTransaction]
 
