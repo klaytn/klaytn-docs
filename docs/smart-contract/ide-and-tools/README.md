@@ -17,9 +17,8 @@ You can write, compile, deploy and execute smart contracts from Klaytn IDE.
 
 #### Klaytn Wallet 
 
-* Klaytn Wallet is a browser-based account management tool for the Blockchain Application \(BApp\) developers. 
+* Klaytn Wallet is a browser-based account management tool for the Blockchain Application (BApp) developers. You can create/load your accounts, review your account balance, and transfer KLAY. You can also register your own Klaytn tokens to test basic behaviors.
 
 #### Klaytnscope 
 
-* Klaytnscope is the block explorer for the Klaytn Network. 
-
+* Klaytnscope is the block explorer for the Klaytn Network. You can browse and inspect your transactions on the browser.
