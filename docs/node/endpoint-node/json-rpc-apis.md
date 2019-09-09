@@ -1,25 +1,32 @@
-Endpoint Node exposes JSON-RPC APIs. You can enable/disable APIs as follows. For the detailed API specification, please refer to the [JSON-RPC APIs](../../bapp/json-rpc/api-references.md). 
+Endpoint Node exposes JSON-RPC APIs. You can enable/disable APIs as follows. For the detailed API specification, please refer to the [JSON-RPC APIs](../../bapp/json-rpc/api-references/README.md). 
 
-***
+**NOTE**: Offering an API over the HTTP (`rpc`) or WebSocket (`ws`) interfaces will give everyone
+access to the APIs who can access this interface (DApps, browser tabs, etc). Be careful about which APIs
+you enable. By defaulti, Klaytn enables all APIs over the IPC (`ipc`) interface but for `rpc` and `ws` required modules have to be explicitly enabled.
 
-## Enabling APIs
+## Enabling APIs 
+
+### From Commandline
 To offer the APIs over the Klaytn RPC endpoints, please specify them with the `--${interface}api`
-command line argument where `${interface}` can be `rpc` for the HTTP endpoint or `ws` for the WebSocket endpoint.
+command-line argument where `${interface}` can be `rpc` for the HTTP endpoint or `ws` for the WebSocket endpoint.
 
 `ipc` offers all APIs over the unix socket (Unix) or named pipe (Windows) endpoint without any flag.
 
 You can launch a Klaytn node with specific APIs you want to add like the example below. But keep in mind that you can't change APIs once you launch the node.
 
 Example) launching a Klaytn node with `klay` and `net` modules enabled:
+
 ```shell
 $ ken --rpcapi klay,net --rpc --{other options}
 ```
 
 The HTTP RPC interface must be explicitly enabled using the `--rpc` flag.
 
-**NOTE**: Offering an API over the HTTP (`rpc`) or WebSocket (`ws`) interfaces will give everyone
-access to the APIs who can access this interface (DApps, browser tabs, etc). Be careful which APIs
-you enable. By default Klay enables all APIs over the IPC (`ipc`) interface but for `rpc` and `ws` required modules have to be explicitly enabled.
+### Using Configuration
+
+Please update the `RPC_ENABLE`, `RPC_API`, `WS_ENABLE` and  `WS_API` properties in the [Configuration File](operation-guide/configuration.md).
+
+## Querying Enabled APIs
 
 To determine which APIs an interface provides, the `modules` JSON-RPC method can be invoked. For
 example over an `rpc` interface:
@@ -55,3 +62,4 @@ will give all enabled modules including the version number:
    }
 }
 ```
+
