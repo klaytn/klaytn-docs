@@ -4,27 +4,32 @@ This page gives an explaination about how to send transactions using JSON-RPC AP
 
 ## Send Legacy Transactions
 
-The below APIs accepts [TxTypeLegacyTransaction](../../klaytn/design/transactions/basic.md#txtypelegacytransaction).
-- [klay_sendTransaction](api-references/platform/transaction.md#klay_sendtransaction)
-- [klay_signTransaction](api-references/platform/transaction.md#klay_signtransaction)
+The below APIs accepts [TxTypeLegacyTransaction] as their input.
 
-You can either use `klay_sendTransaction` or get a raw transaction then send it through `[klay_sendRawTransaction](api-references/platform/transaction.md#klay_sendrawtransaction)`. 
-The below three have the same effect.
+- [klay_sendTransaction]
+- [klay_signTransaction]
 
-* 1. klay_sendTransaction
+To send a legacy transaction, you can either use `klay_sendTransaction` or get a raw transaction using `klay_signTransaction` then send it through `klay_sendRawTransaction. 
 
-* 1. klay_signTransaction
-* 2. klay_sendRawTransaction
+1. [klay_sendTransaction]
 
-* 1. RLP encoding
-* 2. klay_sendRawTransaction
+ or 
+
+1. [klay_signTransaction]
+2. [klay_sendRawTransaction] 
 
 ## Send Klaytn-specific Transactions
 
 To send Klaytn specific transactions, you should first serialize the transaction using RLP-encoding, and sent it through `klay_sendRawTransaction`.
 
-* 1. RLP encoding
-* 2. klay_sendRawTransaction
+1. RLP encoding
+2. [klay_sendRawTransaction]
 
-RLP serialization process of each transaction type is explained in the [Transaction](../../klaytn/design/transactions/README.md) chapter.  
+RLP serialization process of each transaction type is explained in the [Transaction] chapter.  
 
+
+[TxTypeLegacyTransaction]: ../../klaytn/design/transactions/basic.md#txtypelegacytransaction
+[klay_sendTransaction]: api-references/platform/transaction.md#klay_sendtransaction
+[klay_signTransaction]: api-references/platform/transaction.md#klay_signtransaction
+[klay_sendRawTransaction]: api-references/platform/transaction.md#klay_sendrawtransaction
+[Transaction]: ../../klaytn/design/transactions/README.md  
