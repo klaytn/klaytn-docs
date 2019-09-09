@@ -40,8 +40,6 @@
   * [Development Environment](getting-started/development-environment.md)
   * [Getting KLAY](getting-started/getting-klay.md)
   * [Request for Initial Setup on Cypress Mainnet](getting-started/request-for-initial-setup-on-cypress-mainnet.md)
-  * [A Beginner's Guide to Klaytn BApp](getting-started/a-beginners-guide-to-klaytn-bapp/README.md)
-    * [Typical BApp Architecture](getting-started/a-beginners-guide-to-klaytn-bapp/typical-bapp-architecture.md)
 
 * [Smart Contract](smart-contract/README.md)
   * [Solidity - Smart Contract Language](smart-contract/solidity-smart-contract-language.md)
