@@ -1,6 +1,6 @@
-# Personal
+# Namespace personal
 
-The `personal` API manages private keys in the key store.
+The namespace `personal` manages private keys in the key store.
 
 ## personal_importRawKey
 
