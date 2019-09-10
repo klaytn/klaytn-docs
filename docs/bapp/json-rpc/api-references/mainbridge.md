@@ -1,6 +1,7 @@
 # Namespace mainbridge
 
-The namespace `mainbridge` provides APIs for ENs of the main chain (Mainnet or Baobab testnet).
+The namespace `mainbridge` provides functions related to Service Chain.
+To use functions in this namespace, the option `mainbridge` should be enabled in the EN connected to the main chain (Mainnet or Baobab testnet).
 
 ## mainbridge_nodeInfo
 

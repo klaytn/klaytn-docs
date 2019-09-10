@@ -1,6 +1,7 @@
 # Namespace subbridge
 
-The namespace `subbridge` provides APIs for SCNs of the service chain.
+The namespace `subbridge` provides functions related to Service Chain.
+To use functions in this namespace, the option `subbridge` should be enabled in the SEN connected to the service chain.
 
 ## subbridge_nodeInfo
 
