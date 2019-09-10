@@ -1,4 +1,4 @@
-# Governance
+# Namespace governance
 
 For the governance of the network, Klaytn provides the following APIs under `governance` namespace.
 
