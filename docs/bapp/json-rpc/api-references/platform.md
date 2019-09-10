@@ -1,6 +1,6 @@
 # Namespace klay
 
-Namespace `klay` provides functions related to accounts, blocks, transactions,
+The namespace `klay` provides functions related to accounts, blocks, transactions,
 configurations of networks or nodes, filters, and so on.
 The list below enumerates the API functions that are currently supported in Klaytn.
 

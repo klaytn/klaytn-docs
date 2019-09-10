@@ -1,6 +1,6 @@
 # Namespace mainbridge
 
-Namespace `mainbridge` provides APIs for ENs of the main chain (Mainnet or Baobab testnet).
+The namespace `mainbridge` provides APIs for ENs of the main chain (Mainnet or Baobab testnet).
 
 ## mainbridge_nodeInfo
 

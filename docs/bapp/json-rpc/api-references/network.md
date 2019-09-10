@@ -1,6 +1,6 @@
 # Namespace net
 
-Namespace `net` provides functions related to the Klaytn networks.
+The namespace `net` provides functions related to the Klaytn networks.
 
 
 ## net_networkID
