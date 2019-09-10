@@ -1,3 +1,8 @@
+---
+description: >-
+To manage accounts and private keys in the node.
+---
+
 # Namespace personal
 
 The namespace `personal` manages private keys in the key store.

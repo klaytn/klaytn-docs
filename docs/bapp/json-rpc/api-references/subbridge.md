@@ -1,3 +1,8 @@
+---
+description: >-
+This namespace should be enbled in the service chain Endpoint Node.
+---
+
 # Namespace subbridge
 
 The namespace `subbridge` provides functions related to Service Chain.

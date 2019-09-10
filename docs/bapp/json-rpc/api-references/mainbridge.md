@@ -1,3 +1,8 @@
+---
+description: >-
+This namespace should be enbled in the main chain Endpoint Node.
+---
+
 # Namespace mainbridge
 
 The namespace `mainbridge` provides functions related to Service Chain.

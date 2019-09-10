@@ -1,3 +1,8 @@
+---
+description: >-
+Functions used to query network configuration.
+---
+
 # Namespace net
 
 The namespace `net` provides functions related to the Klaytn networks.

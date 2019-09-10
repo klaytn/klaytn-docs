@@ -1,3 +1,8 @@
+---
+description: >-
+Functions used to inspect and debug node state and blockchain data at run time.
+---
+
 # Namespace debug
 
 The namespace `debug` gives you access to several non-standard RPC methods, which
