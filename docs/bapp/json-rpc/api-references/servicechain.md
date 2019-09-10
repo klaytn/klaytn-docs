@@ -1,5 +1,5 @@
 ---
 description: >-
-Namespaces related to "Service Chain".
+  Namespaces related to "Service Chain".
 ---
 

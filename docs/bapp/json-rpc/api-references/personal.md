@@ -1,6 +1,6 @@
 ---
 description: >-
-To manage accounts and private keys in the node.
+  To manage accounts and private keys in the node.
 ---
 
 # Namespace personal

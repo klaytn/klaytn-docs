@@ -1,6 +1,6 @@
 ---
 description: >-
-APIs related to the Klaytn Governance.
+  APIs related to the Klaytn Governance.
 ---
 
 # Namespace governance

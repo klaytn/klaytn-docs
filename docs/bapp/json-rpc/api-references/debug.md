@@ -1,6 +1,6 @@
 ---
 description: >-
-Functions used to inspect and debug node state and blockchain data at run time.
+  Functions used to inspect and debug node state and blockchain data at run time.
 ---
 
 # Namespace debug

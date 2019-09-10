@@ -1,6 +1,6 @@
 ---
 description: >-
-To inspect transaction pools in the node.
+  To inspect transaction pools in the node.
 ---
 
 # Namespace txpool

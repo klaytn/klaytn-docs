@@ -1,6 +1,6 @@
 ---
 description: >-
-This namespace provides functions related to accounts, blocks, transation, and nodes. 
+  This namespace provides functions related to accounts, blocks, transation, and nodes. 
 ---
 
 # Namespace klay
