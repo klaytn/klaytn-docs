@@ -2,7 +2,7 @@
 
 This page gives an explaination about how to send transactions using JSON-RPC APIs.
 
-## Send Legacy Transactions
+## Legacy Transactions
 
 The below APIs accept [TxTypeLegacyTransaction] as their input. Other transaction types will be supported in the near future.
 
@@ -18,7 +18,7 @@ or
 1. [klay_signTransaction]
 2. [klay_sendRawTransaction] 
 
-## Send Klaytn-specific Transactions
+## Klaytn-specific Transactions
 
 To send Klaytn specific transactions, you should first serialize the transaction using RLP-encoding, and sent it through `klay_sendRawTransaction`.
 
