@@ -1,6 +1,6 @@
-# Network API
+# Namespace net
 
-The `net` namespace provides functions related to the Klaytn networks.
+Namespace `net` provides functions related to the Klaytn networks.
 
 
 ## net_networkID
