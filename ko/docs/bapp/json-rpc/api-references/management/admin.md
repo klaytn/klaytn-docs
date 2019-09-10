@@ -1,6 +1,6 @@
-# Admin
+# Namespace admin
 
-The `admin` API gives you access to several non-standard RPC methods, which will allow you to have fine-grained control over your Klaytn instance, including but not limited to network peer and RPC endpoint management.
+The namespace `admin` gives you access to several non-standard RPC methods, which will allow you to have fine-grained control over your Klaytn instance, including but not limited to network peer and RPC endpoint management.
 
 ## admin_nodeInfo
 
