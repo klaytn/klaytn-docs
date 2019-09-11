@@ -6,10 +6,10 @@
 
 The following packages are required to use the caver-js library.
 
-* ​[Node.js](https://nodejs.org/en/download/)​
-* ​[npm](https://www.npmjs.com/get-npm)​
-* ​[gcc-c++](https://gcc.gnu.org/)​
-* ​[Solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)​
+* [Node.js](https://nodejs.org/en/download/)
+* [npm](https://www.npmjs.com/get-npm)
+* [gcc-c++](https://gcc.gnu.org/)
+* [Solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
 **Note** caver-js can run on Node.js versions 8 and 10, and the recommended versions are:
 
@@ -435,11 +435,11 @@ See [caver.klay.Contract]() for details.
 
 The BApp \(Blockchain Application\) Development sample projects using caver-js are the following:
 
-* ​[Count BApp](../../tutorials/countbapp/README.md)​
-* ​[Klaystagram](../../tutorials/klaystagram/README.md)​
+* [Count BApp](../../tutorials/count-bapp/README.md)
+* [Klaystagram](../../tutorials/klaystagram/README.md)
 
 ## Links <a id="links"></a>
 
-* caver-js [GitHub repository](https://github.com/klaytn/caver-js)​
-* caver-js on [npm](https://www.npmjs.com/package/caver-js)​
+* caver-js [GitHub repository](https://github.com/klaytn/caver-js)
+* caver-js on [npm](https://www.npmjs.com/package/caver-js)
 
