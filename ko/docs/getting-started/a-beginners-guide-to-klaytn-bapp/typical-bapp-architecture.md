@@ -1,1 +1,1 @@
-# Typical BApp Architecture
+# 일반적인 BApp 구조
