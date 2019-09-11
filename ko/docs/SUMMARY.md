@@ -1,4 +1,4 @@
-# Table of contents
+# 목차
 
 * [Welcome](README.md)
 
@@ -116,7 +116,7 @@
   * [v1.1.1 (latest)](node/download/v1.1.1.md)
   * [v1.0.0](node/download/v1.0.0.md)
   * [v0.9.6](node/download/v0.9.6.md)
-  * [v0.8.2](node/download/v0.8.6.md)
+  * [v0.8.2](node/download/v0.8.2.md)
 * [BApp Developers](bapp/README.md)
   
   * [JSON-RPC APIs](bapp/json-rpc/README.md)
@@ -176,7 +176,7 @@
     * [API references](https://javadoc.io/doc/com.klaytn.caver/core/)
     * [Porting from web3j](bapp/sdk/caver-java/porting-from-web3j.md)
   * [Tutorials](bapp/tutorials/README.md)
-  * [Fee Delegation Example](bapp/tutorials/fee-delegation-example.md)
+  * [트랜잭션 비용 위임 예시](bapp/tutorials/fee-delegation-example.md)
   * [BApp on Baobab \(Video Lecture\)](bapp/tutorials/bapp-on-baobab-video-lecture/README.md) 
     * [1. Introduction](bapp/tutorials/bapp-on-baobab-video-lecture/1.-introduction.md)
     * [2. Weakness of Blockchain Platform](bapp/tutorials/bapp-on-baobab-video-lecture/2.-weakness-of-blockchain-platform.md)
