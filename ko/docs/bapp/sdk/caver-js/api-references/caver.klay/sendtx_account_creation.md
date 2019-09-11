@@ -6,7 +6,7 @@
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
 
-Sends an [Account Creation](../../../klaytn/design/transactions/basic.md) transaction to the network.
+Sends an [Account Creation](../../../../../klaytn/design/transactions/basic.md) transaction to the network.
 
 **Parameters**
 
