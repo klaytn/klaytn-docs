@@ -1,6 +1,6 @@
 ---
 description: >-
-  This namespace should be enbled in the main chain Endpoint Node.
+  This namespace should be enabled in the main chain Endpoint Node.
 ---
 
 # Namespace mainbridge
