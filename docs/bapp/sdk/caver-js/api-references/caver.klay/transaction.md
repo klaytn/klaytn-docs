@@ -457,7 +457,7 @@ This can be checked by calling [isSenderTxHashIndexingEnabled](./config.md#issen
 
 | Name | Type | Description |
 | --- | --- | --- |
-| senderTxHash | String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../klaytn/design/transactions.md#sendertxhash). |
+| senderTxHash | String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash). |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -483,7 +483,7 @@ This can be checked by calling [isSenderTxHashIndexingEnabled](./config.md#issen
 | logs | Array | Array of log objects, which this transaction generated. |
 | logsBloom | 256-byte DATA | Bloom filter for light clients to quickly retrieve related logs. |
 | nonce | QUANTITY | The number of transactions made by the sender prior to this one. |
-| senderTxHash | 32-byte DATA | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../klaytn/design/transactions.md#sendertxhash). This value is always the same as `transactionHash` for non fee-delegated transactions. |
+| senderTxHash | 32-byte DATA | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash). This value is always the same as `transactionHash` for non fee-delegated transactions. |
 | signatures | Array | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 | status | Boolean | `true` if the transaction was successful, `false` if the Klaytn Virtual Machine reverted the transaction. |
 | txError | QUANTITY | (optional) detailed error code if `status` is equal to zero. |
