@@ -1,1 +1,1 @@
-# A Beginner's Guide to Klaytn BApp
+# Klaytn BApp 초보자 가이드
