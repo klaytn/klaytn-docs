@@ -54,7 +54,7 @@ $ systemctl status kpnd.service
 
 ```
 
-## Troubleshooting
+## 문제 해결
 
 If you meet the following error,
 
