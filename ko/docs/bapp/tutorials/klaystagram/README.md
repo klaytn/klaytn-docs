@@ -13,7 +13,7 @@
   * [7-2. UploadPhoto Component](7.-feedpage/7-2.-uploadphoto-component.md)
   * [7-3. Feed Component](7.-feedpage/7-3.-feed-component.md)
   * [7-4. TransferOwnership Component](7.-feedpage/7-4.-transferownership-component.md)
-* [8. Run App](8-run-app.md)
+* [8. Run App](8.-run-app.md)
 
 ## Introduction
 
