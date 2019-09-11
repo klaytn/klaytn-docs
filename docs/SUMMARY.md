@@ -143,7 +143,6 @@
     * [Service Chain API references](bapp/json-rpc/api-references/servicechain.md)
       * [mainbridge](bapp/json-rpc/api-references/mainbridge.md)
       * [subbridge](bapp/json-rpc/api-references/subbridge.md)
-    * [Sending Transactions](bapp/json-rpc/sending-transactions.md)
     * [Transaction Error Codes](bapp/json-rpc/transaction-error-codes.md)
   * [Klaytn SDKs](bapp/sdk/README.md)
     * [caver-js](bapp/sdk/caver-js/README.md)
