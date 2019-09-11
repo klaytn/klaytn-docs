@@ -62,7 +62,7 @@ false
 caver.klay.getAccount(address[, defaultBlock] [, callback])
 ```
 
-Returns the account information of a given address. There are two different account types in Klaytn: Externally Owned Account (EOA) and Smart Contract Account. See [Klaytn Accounts](../../../klaytn/design/account.md#klaytn-accounts).
+Returns the account information of a given address. There are two different account types in Klaytn: Externally Owned Account (EOA) and Smart Contract Account. See [Klaytn Accounts](../../../../../klaytn/design/accounts.md#klaytn-accounts).
 
 **Parameters**
 
@@ -137,7 +137,7 @@ Returns a list of accounts that the node controls.
 caver.klay.getAccountKey(address [, defaultBlock] [, callback])
 ```
 
-Returns the account key of the Externally Owned Account (EOA) at a given address. If the account has AccountKeyLegacy or the account of the given address is a Smart Contract Account, it will return an empty key value. See [Account Key](../../../klaytn/design/account.md#account-key).
+Returns the account key of the Externally Owned Account (EOA) at a given address. If the account has AccountKeyLegacy or the account of the given address is a Smart Contract Account, it will return an empty key value. See [Account Key](../../../../../klaytn/design/accounts.md#account-key).
 
 **Parameters**
 
@@ -364,7 +364,7 @@ false
 caver.klay.sign(message, address [, callback])
 ```
 
-Generates signed data specific to the Klaytn network. Refer to [Klaytn Platform API - klay_sign](../../../api/platform/account.md#klay_sign) to know how the signature is generated.
+Generates signed data specific to the Klaytn network. Refer to [Klaytn Platform API - klay_sign](../../../../json-rpc/api-references/platform/account.md#klay_sign) to know how the signature is generated.
 
 **NOTE**: This API provides the function to sign a message using an account that exists in your node. The account in the node must be unlocked to sign the message. To sign a transaction, use [caver.klay.signTransaction](./transaction.md#signtransaction).
 
