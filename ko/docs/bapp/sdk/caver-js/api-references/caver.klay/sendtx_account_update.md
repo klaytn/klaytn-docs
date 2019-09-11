@@ -6,7 +6,7 @@
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
 
-Sends an [Account Update](../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) transaction to the network.
+Sends an [Account Update](../../../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) transaction to the network.
 
 **Parameters**
 
@@ -193,7 +193,7 @@ caver.klay.sendTransaction({
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
 
-Sends a [Fee Delegated Account Update](../../../klaytn/design/transactions/fee_delegation.md#txtypefeedelegatedaccountupdate) transaction to the network.
+Sends a [Fee Delegated Account Update](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate) transaction to the network.
 
 **Parameters**
 
@@ -276,7 +276,7 @@ caver.klay.sendTransaction({
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
 
-Sends a [Fee Delegated Account Update With Ratio](../../../klaytn/design/transactions/partial_fee_delegation.md#txtypefeedelegatedaccountupdatewithratio) transaction to the network.
+Sends a [Fee Delegated Account Update With Ratio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio) transaction to the network.
 
 **Parameters**
 
