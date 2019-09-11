@@ -20,7 +20,7 @@ Below are packages provided in `caver-js`.
 
 * ​[caver.klay](api-references/caver.klay.md)​
 * ​[caver.klay.accounts](api-references/caver.klay.accounts.md)​
-* ​[caver.klay.Contract](api-references/caver.klay.contract.md)​
+* ​[caver.klay.Contract](api-references/caver.klay.Contract.md)​
 * ​[caver.klay.net](api-references/caver.klay.net.md)​
 * ​[caver.klay.abi](api-references/caver.klay.abi.md)​
 * ​[caver.utils](api-references/caver.utils.md)​
