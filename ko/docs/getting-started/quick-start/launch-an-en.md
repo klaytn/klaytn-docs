@@ -1,66 +1,66 @@
 # Launch an Endpoint Node
 
-## Download and Initialize an Endpoint Node \(EN\)
+## 엔드포인트 노드(Endpoint Node, EN) 다운로드 및 초기화 \(EN\)
 
-Unzip the provided [ken binary package](../../node/endpoint-node/installation-guide/download.md) and copy the files into the klaytn folder.  
-**Note**: Please download appropriate package starting with `ken`.
+제공된 [ken 바이너리 패키지](../../node/endpoint-node/installation-guide/download.md)를 압축 해제하고, 파일을 klaytn 폴더에 복사합니다.  
+**참고**: `ken`으로 시작하는 적합한 패키지를 다운로드하시기 바랍니다.
 
-For Mac users, unzip the downloaded file with the following command.
+Mac 사용자의 경우, 다음 명령으로 다운로드한 파일을 압축 해제합니다.
 
 ```bash
 $ tar zxf ken-baobab-vX.X.X-X-darwin-amd64.tar.gz
 $ export PATH=$PATH:$PWD/ken-darwin-amd64/bin
 ```
 
-For Linux users, unzip the downloaded file with the following command.
+Linux 사용자의 경우, 다음 명령으로 다운로드한 파일을 압축 해제합니다.
 
 ```bash
 $ tar zxf ken-baobab-vX.X.X-X-linux-amd64.tar.gz
 $ export PATH=$PATH:$PWD/ken-linux-amd64/bin
 ```
 
-You should create a data directory to store the blockchain data. In this tutorial, we will create a `kend_home` folder in the home directory.
+블록체인 데이터를 저장할 데이터 디렉토리를 만들어야 합니다. 이 튜토리얼에서는 홈 디렉터리에 `kend_home` 폴더를 생성하겠습니다.
 
 ```bash
 $ mkdir -p ~/kend_home
 ```
 
-## Configuring the EN
+## EN 구성
 
-The configuration file, `kend.conf`, is located under `ken-xxxxx-amd64/conf/`. For the details of configurable parameters, you can refer to the [EN Configuration Guide](../../node/endpoint-node/operation-guide/configuration.md). To launch an EN of Baobab testnet, please update the `kend.conf` file accordingly as follows.
+구성 파일인 `kend.conf`는 `ken-xxxxx-amd64/conf/`에 위치합니다. 구성 가능한 매개 변수에 대한 자세한 내용은 [EN 구성 가이드](../../node/endpoint-node/operation-guide/configuration.md)를 참조하시면 됩니다. Baobab 테스트넷의 EN을 실행하려면, 다음과 같이 `kend.conf` 파일을 업데이트하시기 바랍니다.
 
 ```text
-# cypress, baobab is only available if you don't specify NETWORK_ID.
-NETWORK="baobab"
-# if you specify NETWORK_ID, a private network is created.
+# cypress, baobab은 NETWORK_ID를 명시하지 않은 경우에만 사용할 수 있습니다.
+NETWORK = "baobab"
+# NETWORK_ID를 명시하면 개인(private) 네트워크가 생성됩니다.
 NETWORK_ID=
 ...
-RPC_API="klay,net" # net module should be opened for truffle later on.
+RPC_API="klay,net" # 추후 truffle을 위해 net 모듈을 열어야 합니다.
 ...
 DATA_DIR=~/kend_home
 ```
 
-## Launching the EN
+## EN 실행
 
-To launch the EN, execute the following command.
+EN을 시작하려면 다음 명령을 실행합니다.
 
 ```bash
 $ kend start
  Starting kend: OK
 ```
 
-## Checking the EN
+## EN 확인
 
-To check if the EN is running, execute the following command.
+EN이 구동 중인지 확인하려면 다음 명령을 실행합니다.
 
 ```bash
 $ kend status
 kend is running
 ```
 
-## Checking the log of the EN
+## EN의 로그 확인
 
-To check the log of the EN, execute the following command.
+EN의 로그를 확인하려면 다음 명령을 실행합니다.
 
 ```bash
 $ tail -f ~/kend_home/logs/kend.out
@@ -69,6 +69,6 @@ INFO[03/26,15:37:49 +09] [5] Imported new chain segment                blocks=1 
 ...
 ```
 
-## Troubleshooting
+## 문제 해결
 
-Please refer to the [Troubleshooting](../../node/endpoint-node/operation-guide/errors-and-troubleshooting.md) if you have trouble in launching the Klaytn Endpoint Node.
+Klaytn 엔드포인트 노드 실행에 문제가 있는 경우, [문제 해결](../../node/endpoint-node/operation-guide/errors-and-troubleshooting.md)을 참고하시기 바랍니다.
