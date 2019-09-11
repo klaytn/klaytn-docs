@@ -435,7 +435,7 @@ See [caver.klay.Contract]() for details.
 
 The BApp \(Blockchain Application\) Development sample projects using caver-js are the following:
 
-* ​[Count BApp](../../tutorials/countbapp/README.md)​
+* ​[Count BApp](../../tutorials/count-bapp/README.md)​
 * ​[Klaystagram](../../tutorials/klaystagram/README.md)​
 
 ## Links <a id="links"></a>

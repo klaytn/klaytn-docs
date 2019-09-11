@@ -263,7 +263,7 @@ Use [isSenderTxHashIndexingEnabled](./config.md#issendertxhashindexingenabled) t
 
 | Name | Type | Description |
 | --- | --- | --- |
-| senderTxHash | String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../klaytn/design/transactions.md#sendertxhash). |
+| senderTxHash | String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash). |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -286,7 +286,7 @@ Use [isSenderTxHashIndexingEnabled](./config.md#issendertxhashindexingenabled) t
 | key | String | (optional) Key of the newly created account. |
 | input | DATA | (optional) The data sent along with the transaction. |
 | nonce | QUANTITY | The number of transactions made by the sender prior to this one. |
-| senderTxHash | 32-byte DATA | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../klaytn/design/transactions.md#sendertxhash). This value is always the same as `hash` for non fee-delegated transactions. |
+| senderTxHash | 32-byte DATA | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash). This value is always the same as `hash` for non fee-delegated transactions. |
 | signatures | Array | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 | to | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction. |
 | transactionIndex | QUANTITY | Integer of the transaction index position in the block. `null` when it is pending. |
