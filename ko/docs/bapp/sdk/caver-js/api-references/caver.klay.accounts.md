@@ -144,15 +144,15 @@ Signs a Klaytn transaction with a given private key.
 
 `Promise` returning `Object`: The signed data RLP encoded transaction, or if `returnSignature` is `true` the signature values as follows:
 
-| Name           | Type           | Description                                                                                                                   |
-| -------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| messageHash    | String         | The hash of the given message.                                                                                                |
-| r              | String         | First 32 bytes of the signature.                                                                                              |
-| s              | String         | Next 32 bytes of the signature.                                                                                               |
-| v              | String         | Recovery value + 27.                                                                                                          |
-| rawTransaction | String         | The RLP encoded transaction, ready to be send using caver.klay.sendSignedTransaction.                                         |
-| txHash         | 32-byte String | Hash of the transaction.                                                                                                      |
-| senderTxHash   | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../klaytn/design/transactions.md#sendertxhash) |
+| Name           | Type           | Description                                                                                                                                |
+| -------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| messageHash    | String         | The hash of the given message.                                                                                                             |
+| r              | String         | First 32 bytes of the signature.                                                                                                           |
+| s              | String         | Next 32 bytes of the signature.                                                                                                            |
+| v              | String         | Recovery value + 27.                                                                                                                       |
+| rawTransaction | String         | The RLP encoded transaction, ready to be send using caver.klay.sendSignedTransaction.                                                      |
+| txHash         | 32-byte String | Hash of the transaction.                                                                                                                   |
+| senderTxHash   | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash) |
 
 
 **Example**
@@ -367,7 +367,7 @@ Encrypts a private key to the Klaytn keystore v3 standard.
 
 **NOTE**: There are two ways to encrypt the private key when an account has a decoupled private key from the address.
 
-1. Use the [KlaytnWalletKey](../../klaytn/design/account.md#klaytn-wallet-key-format) format with the privateKey parameter.
+1. Use the [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format with the privateKey parameter.
 2. Use the `options.address` to send the address as a parameter.
 
 **Return Value**
@@ -646,7 +646,7 @@ Adds an account using a private key or account object to the wallet.
 | targetAddress | String               | A target address which will be used with a given private key.                       |
 
 
-**NOTE**: caver-js supports two types of private key formats. One is a raw private key format of a 32-byte string type and the other is the [KlaytnWalletKey](../../klaytn/design/account.md#klaytn-wallet-key-format).
+**NOTE**: caver-js supports two types of private key formats. One is a raw private key format of a 32-byte string type and the other is the [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format).
 
 **Return Value**
 
