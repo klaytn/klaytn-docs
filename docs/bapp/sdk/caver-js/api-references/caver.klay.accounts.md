@@ -640,7 +640,7 @@ If you want to change the private key associated to an account in the wallet, pl
 | targetAddress | String | A target address which will be used with a given private key. |
 
 **NOTE**: caver-js supports two types of private key formats.
-One is a raw private key format of a 32-byte string type and the other is the [KlaytnWalletKey](../../klaytn/design/account.md#klaytn-wallet-key-format).
+One is a raw private key format of a 32-byte string type and the other is the [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format).
 
 **Return Value**
 

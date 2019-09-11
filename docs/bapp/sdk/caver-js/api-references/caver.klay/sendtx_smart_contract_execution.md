@@ -76,7 +76,7 @@ caver.klay.sendTransaction({
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends a [Fee Delegated Smart Contract Execution](../../../klaytn/design/transactions/fee_delegation.md#txtypefeedelegatedsmartcontractexecution) transaction to the network.
+Sends a [Fee Delegated Smart Contract Execution](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution) transaction to the network.
 
 **Parameters**
 

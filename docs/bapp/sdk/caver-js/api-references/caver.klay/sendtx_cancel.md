@@ -67,7 +67,7 @@ caver.klay.sendTransaction({
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends a [Fee Delegated Cancel](../../../../../klaytn/design/transactions/fee_delegation.md#txtypefeedelegatedcancel) transaction to the network.
+Sends a [Fee Delegated Cancel](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedcancel) transaction to the network.
 
 **Parameters**
 

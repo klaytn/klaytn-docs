@@ -5,7 +5,7 @@ The namespace `personal` manages private keys in the key store.
 
 ## personal_importRawKey
 
-Imports the given unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../klaytn/design/account.md#klaytn-wallet-key-format) into the key store,
+Imports the given unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) into the key store,
 encrypting it with the passphrase.
 
 Returns the address of the imported account.
@@ -19,7 +19,7 @@ Returns the address of the imported account.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| keydata | string | The unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../klaytn/design/account.md#klaytn-wallet-key-format). |
+| keydata | string | The unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
 | passphrase | string | The pass phrase for encryption. |
 
 **Return Value**
