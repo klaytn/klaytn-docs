@@ -133,11 +133,11 @@ If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn W
 
 ### Sending a Value Transfer Transaction
 
-You can use a caver-js wallet to generate a signature of a transaction. If you have an account in the caver-js wallet, the signature generation will be done with the private key inside the caver-js wallet when you execute `caver.klay.sendTransaction`. Note that `caver.klay.sendTransaction` performs both signature generation and submission of the transaction at once.
+트랜잭션 서명은 caver-js 지갑을 통해 할 수 있습니다. 만약 caver-js 지갑에 계정이 있다면, `caver.klay.sendTransaction`을 실행할 때 caver-js 지갑에 저장된 개인키로 서명이 생성됩니다. 이때 `caver.klay.sendTransaction`은 서명 생성과 트랜잭션 제출을 동시에 처리합니다.
 
 ```text
 // If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
-// If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. In this case, you can use the address string in the `from` field to reference the account in the wallet.
+// If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. 이 경우 출력된 주소값을 'from' 필드에 입력하여 해당 계정을 참조할 수 있습니다.
 
 > const account = caver.klay.accounts.wallet.add('0x{private key}')
 
@@ -164,14 +164,14 @@ You can use a caver-js wallet to generate a signature of a transaction. If you h
 }
 ```
 
-If you want to generate a signature directly from the private key without a caver-js wallet, the following steps are required:
+caver-js 지갑 없이 해당 개인키로부터 서명을 직접 생성하고자 하는 경우 다음과 같이 진행할 수 있습니다.
 
-1. `caver.klay.accounts.signTransaction` - The process of signing a transaction with a private key and getting a RLP-encoded transaction.
-2. `caver.klay.sendSignedTransaction` - sends the RLP-encoded transaction to the node connected to caver-js.
+1. `caver.klay.accounts.signTransaction`를 실행하세요. - 개인키로 트랜잭션을 서명하고 RLP 인코딩합니다. 
+2. `caver.klay.sendSignedTransaction`을 실행하세요. - caver-js와 연결된 노드에게 RLP 인코딩된 트랜잭션을 전송합니다.
 
-First, to sign the transaction, specify the sender, recipient, and the private key appropriately like shown below:
+먼저 트랜잭션을 서명하려면 아래와 같이 발신자, 수신자, 개인키를 지정하세요.
 
-**Note:** The sender should have enough amount of KLAY.
+**참고:** 발신자의 잔액은 송금하려는 KLAY보다 많아야 합니다.
 
 ```text
 > caver.klay.accounts.signTransaction({
@@ -185,20 +185,20 @@ First, to sign the transaction, specify the sender, recipient, and the private k
   })
 ```
 
-You can get a RLP-encoded transaction \(`rawTransaction`\) using [caver.klay.accounts.signTransaction]() as above and use this to transfer the transaction to the Klaytn network as below.
+그리고 위와 같이 `caver.klay.accounts.signTransaction`을 실행하여 RLP 인코딩된 트랜잭션\([rawTransaction]()\)을 생성하고, 이를 이용하여 아래와 같이 해당 트랜잭션을 Klaytn 네트워크에 전송합니다.
 
 ```text
 > caver.klay.sendSignedTransaction(rawTransaction).on('transactionHash', console.log)
 0xac418c96f7386a3343d149eeb29e48e28905525dda2e5afe55b0661f9ab01aca
 ```
 
-As shown in the example above, you can send a request and use the event emitter to get the hash of the submitted transaction by calling `.on('transactionHash', console.log)`.
+위 예시처럼 `.on(‘transactionHash’, console.log)`를 호출하여 제출한 트랜잭션의 해시값을 요청하고 이벤트 에미터(event emitter)로 받아올 수 있어요.
 
-### Checking Receipts <a id="checking-receipts"></a>
+### 영수증 확인<a id="checking-receipts"></a>
 
-You can use the promise or event emitter to get the receipt of the transaction when you transfer the transaction to [caver.klay.sendSignedTransaction](api-references/caver.klay/transaction.md#sendsignedtransaction) or [caver.klay.sendTransaction](api-references/caver.klay/transaction.md#sendtransaction).
+[caver.klay.sendSignedTransaction](api-references/caver.klay/transaction.md#sendsignedtransaction) 또는 [caver.klay.sendTransaction](api-references/caver.klay/transaction.md#sendtransaction)을 통해 트랜잭션을 전송할 때 프로미스(promise)나 이벤트 에미터(event emitter)를 사용하여 트랜잭션의 영수증을 받아올 수 있습니다.
 
-The following example shows how to get a receipt using promise and event emitter.
+다음 예시는 프로미스(promise) 및 이벤트 에미터(event emitter)를 사용하여 영수증을 받는 과정입니다.
 
 ```text
 // Using promise
@@ -236,7 +236,7 @@ The following example shows how to get a receipt using promise and event emitter
 }
 ```
 
-As described in the example above, you can get the result of sending a transaction through the promise and event emitter. And also, if you know the transaction hash, you can query the transaction receipt using the [caver.klay.getTransactionReceipt]() RPC call. The example below shows how to get a receipt using the [caver.klay.getTransactionReceipt]() RPC call.
+위 예시와 같이 프로미스(promise)와 이벤트 에미터(event emitter)를 통해 트랜잭션을 전송한 결과를 가져올 수 있습니다. 또한 트랜잭션의 해시값을 알고 있다면 [caver.klay.getTransactionReceipt]() RPC 호출을 하여 트랜잭션 영수증을 요청할 수도 있습니다. [caver.klay.getTransactionReceipt]() RPC 호출을 통해 영수증을 확인하는 방법은 아래 예시를 통해 확인하실 수 있습니다.
 
 ```text
 > caver.klay.getTransactionReceipt('0xbad4dd6d80beda6c04d90f1db7e4179557ab48423d4f14295b33e38a9418e59f').then(console.log)
@@ -269,7 +269,7 @@ As described in the example above, you can get the result of sending a transacti
 }
 ```
 
-The result of the transaction can be found through the status of the receipt. For a detailed description of the return values, see [getTransactionReceipt](). If a transaction is failed, you can check the detailed error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures]().
+트랜잭션의 실행 결과는 영수증의 상태를 통하여 확인할 수 있습니다. 리턴값들에 대한 자세한 설명은 [getTransactionReceipt]()을 참고해주세요. 만약 트랜잭션 실행이 실패한다면 에러에 대한 내용은 영수증의 `txError`에서 확인할 수 있습니다. `txError`에 대한 자세한 설명은 [txError: Detailed Information of Transaction Failures]()를 참고해주세요. 
 
 ## Executing Other Transaction Types <a id="executing-other-transaction-types"></a>
 
@@ -325,7 +325,7 @@ If you want to change the key of the account, send a transaction as shown below.
 
 ```text
 // If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
-// If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. In this case, you can use the address string in the `from` field to reference the account in the wallet.
+// If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. 이 경우 출력된 주소값을 'from' 필드에 입력하여 해당 계정을 참조할 수 있습니다.
 > const account = caver.klay.accounts.wallet.add('0x{private key}')
 
 > caver.klay.sendTransaction({
@@ -359,7 +359,7 @@ If the contract instance is created, you can deploy it by passing the bytecode t
 
 ```text
 // If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
-// If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. In this case, you can use the address string in the `from` field to reference the account in the wallet.
+// If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. 이 경우 출력된 주소값을 'from' 필드에 입력하여 해당 계정을 참조할 수 있습니다.
 > const account = caver.klay.accounts.wallet.add('0x{private key}')
 
 > contractInstance.deploy({
@@ -401,7 +401,7 @@ To transact with a smart contract:
 
 ```text
 // If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
-// If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. In this case, you can use the address string in the `from` field to reference the account in the wallet.
+// If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. 이 경우 출력된 주소값을 'from' 필드에 입력하여 해당 계정을 참조할 수 있습니다.
 > const account = caver.klay.accounts.wallet.add('0x{private key}')
 
 > contractInstance.methods.setCount(1).send({from:account.address, gas:'0x4bfd200'}).then(console.log)
@@ -435,7 +435,7 @@ See [caver.klay.Contract]() for details.
 
 The BApp \(Blockchain Application\) Development sample projects using caver-js are the following:
 
-* ​[Count BApp](../../tutorials/countbapp/README.md)​
+* ​[Count BApp](../../tutorials/count-bapp/README.md)​
 * ​[Klaystagram](../../tutorials/klaystagram/README.md)​
 
 ## Links <a id="links"></a>
