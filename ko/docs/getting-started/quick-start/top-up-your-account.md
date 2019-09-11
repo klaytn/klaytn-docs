@@ -19,7 +19,7 @@ Welcome to the Klaytn JavaScript console
 
 **NOTE**: Type `klay` or `personal` to get the list of available functions.
 
-## Creating a New Klaytn Account <a id="creating-a-new-klaytn-account"></a>
+## 새로운 Klaytn 계정 생성 <a id="creating-a-new-klaytn-account"></a>
 
 To create a new Klaytn account from the JavaScript console, execute the following command. Your private key will be encrypted with the passphrase you enter.
 
