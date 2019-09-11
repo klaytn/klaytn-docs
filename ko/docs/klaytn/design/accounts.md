@@ -1,22 +1,22 @@
-# Accounts
+# 계정
 
-## Klaytn Accounts
+## Klaytn 계정
 
-### Overview of Account, State, and Address
+### 계정(account), 상태(state), 주소(adress)에 대한 개요
 
-An account in Klaytn is a data structure containing information about a person's balance or a smart contract. Klaytn's state is the collection of all its accounts' states - that is, the past and current state of all data stored across Klaytn's accounts. When a transaction is executed on a Klaytn node, the state of Klaytn consequently changes across all its nodes. The state should be the same across all nodes in the Klaytn network if they have processed the same blocks in the same order. State information of each account is associated with a 20-byte address, which is used to identify each account.
+Klaytn의 계정(account)은 개인의 잔액이나 스마트 계약에 관한 정보를 포함하는 데이터 구조입니다. Klaytn의 상태(state)는 모든 계정의 상태, 즉 Klaytn의 계정들에 저장된 모든 데이터의 과거와 현재 상태를 의미합니다. Klaytn 노드에서 트랜잭션이 실행되면, Klaytn의 상태는 모든 노드에서 변경됩니다. Klaytn의 노드들이 같은 블록들을 같은 순서대로 처리했다면 Klaytn의 상태는 Klaytn 네트워크의 모든 노드에서 동일해야 합니다. 각 계정의 상태 정보는 각 계정의 식별에 사용되는 20바이트 주소로 참조할 수 있습니다. 
 
-### Decoupling Key Pairs From Addresses
+### 주소로부터 키 쌍(key pairs) 분리하기
 
-An account in a typical blockchain platform is associated with a cryptographically processed address of a certain length that usually looks like this: "0x0fe2e20716753082222b52e753854f40afddffd2". This address is strongly coupled with a key pair. If a key pair is chosen, the address is derived from the public key. This has many disadvantages in terms of user experience. Some of them are the following:
+일반적인 블록체인 플랫폼의 계정은 다음과 같은 특정 길이의 암호화된 주소와 연결되어있습니다 "0x0fe2e20716753082222b52e753854f40afddffd2". 이 주소는 키 쌍(key pair)과 강하게 결합되어 있습니다. 이 주소는 키 쌍(key pair)과 강하게 결합되어 있습니다. 키 쌍이 선택된 경우, 주소는 공개 키에서 파생됩니다. 이는 사용자 경험 측면에서 많은 단점을 가지고 있습니다. 몇가지 단점의 예시는 다음과 같습니다.
 
-* It is impossible for users to have addresses they want.
-* It is impossible for users to use multiple key pairs to increase security of their accounts.
-* It is impossible for users to change the account's key pair when the private key is accidentally exposed or when users want to update the private key periodically to increase the account's security.
+* 사용자가 원하는 주소를 가질 수 없습니다.
+* 보안성을 향상하기 위해 여러 키 쌍을 사용할 수 없습니다.
+* 개인키가 노출되었을 때나 사용자가 주기적으로 보안성 향상을 위해 개인키를 변경하고 싶을 때 키 쌍을 변경할 수 없습니다.
 
-Those are big hurdles that users cannot think of an address as an identifier in the blockchain platform. To clear this hurdle, Klaytn provides a feature that users can choose their addresses and key pairs. With this feature, users can choose addresses that they want and they can use multiple key pairs to increase security. The number of key pairs can be one or more, and the key pairs can have different roles. For details of multiple key pairs or role-based keys, please refer to [Multiple Key Pairs & Role-Based Keys](accounts.md#multiple-key-pairs-and-role-based-keys).
+이런 단점들은 블록체인 플랫폼에서 사용자가 주소를 식별자로 생각할 수 없게 만드는 큰 장애물입니다. 이 문제를 해결하기 위해 클레이튼은 사용자가 자신의 주소와 키 쌍을 선택할 수 있도록 하는 기능을 제공합니다. 이 기능으로 사용자는 원하는 주소를 선택할 수 있고, 여러 키 쌍을 사용하여 보안을 강화할 수 있습니다. 키 쌍의 수는 하나 이상이 될 수 있으며, 키 쌍은 각기 다른 역할을 할 수 있습니다. 여러 키 쌍과 역할 기반 키에 대한 상세 내용은 [Multiple Key Pairs & Role-Based Keys를 참고해주십시오.](accounts.md#multiple-key-pairs-and-role-based-keys).
 
-It is worth noting that Klaytn also supports the old scheme that a key pair and an address is strongly coupled.
+Klatn은 키 쌍과 주소가 강하게 결합되어 있는 전통적인 방식 또한 지원한다는 사실도 기억해주세요.
 
 ### Multiple Key Pairs and Role-Based Keys
 
