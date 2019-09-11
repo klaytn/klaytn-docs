@@ -42,6 +42,6 @@ contract KlaytnGreeter is Mortal {
 
 For the details of contract deployment and the Klaytn IDE usage guideline, please refer to the following documents.
 
-* [Klaytn IDE](../ide-and-tools/klaytn-ide.md)
-* [Truffle](../ide-and-tools/truffle.md)
+* [Klaytn IDE](../ide-and-tools/README.md#klaytn-ide)
+* [Truffle](../ide-and-tools/README.md#truffle)
 * [Deploy Guide](../deploy-guide.md)
