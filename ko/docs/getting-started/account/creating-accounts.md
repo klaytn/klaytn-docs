@@ -1,12 +1,12 @@
 # Creating Accounts
 
-## Creating a New Account <a id="creating-a-new-account"></a>
+## 새 계정 만들기 <a id="creating-a-new-account"></a>
 
-This will create a new account and print the address on the screen. A keystore file is created under the data directory.
+이렇게 하면 새 계정이 만들어지고 화면에 주소가 인쇄됩니다. 키스토어(keystore) 파일은 데이터 디렉토리 아래에 작성됩니다.
 
-**Klaytn Keystore File**
+**Klaytn 키스토어 파일**
 
-When you create an account, a keystore file is created. The keystore file is an encrypted version of your unique Klaytn private key that you will use to sign your transactions. The keystore file name has the following format:
+계정을 생성하면, 키스토어 파일이 생성됩니다. The keystore file is an encrypted version of your unique Klaytn private key that you will use to sign your transactions. The keystore file name has the following format:
 
 * `UTC--<created_at UTC ISO8601>-<address hex>`
 
