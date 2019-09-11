@@ -187,7 +187,7 @@ caver.klay.newFilter(options [, callback])
 
 Creates a filter object using the given filter options, to receive the specific state changes (logs). - To check if the state has changed, call [getFilterChanges](#getfilterchanges). - To obtain all logs matching the filter created by `newFilter`, call [getFilterLogs](#getfilterlogs).
 
-For detailed information about topic filters, please see [Klaytn Platform API - klay_newFilter](../../../api/platform/filter.md#klay_newfilter).
+For detailed information about topic filters, please see [Klaytn Platform API - klay_newFilter](../../../../json-rpc/api-references/platform/filter.md#klay_newfilter).
 
 **Parameters**
 
