@@ -2,7 +2,7 @@
 
 Now we are ready to develop and deploy Klaytn smart contracts!
 
-## Creating a Project Directory
+## 프로젝트 디렉토리 생성
 
 First of all, create a directory where the source code locates.
 
