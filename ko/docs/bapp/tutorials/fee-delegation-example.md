@@ -3,9 +3,9 @@
 ## Table of Contents
 
 * [1. Introduction](#1-introduction)
-* [2. How fee delegation works](#2-how-fee-delegation-works) 
-  * 2.1 Transaction signing by the sender
-  * 2.2 Transaction signing by the fee payer
+* [2. 트랜잭션 비용 위임 작동 방식](#2-how-fee-delegation-works) 
+  * 2.1 발신자에 의한 거래 서명
+  * 2.2 트랜잭션 비용 지불자에 의한 트랜잭션 서명
 * [3. Simple server and client for fee delegation](#3-simple-server-and-client-for-fee-delegation) 
   * 3.1 Sender's client
   * 3.2 Fee payer's server
@@ -19,11 +19,11 @@
 
 This tutorial helps you to write a simple server-client example using caver-js SDK to illustrate how fee delegated value transfer transaction works in Klaytn. This tutorial and the example code is using the Baobab testnet.
 
-## 2. How fee delegation works
+## 2. 트랜잭션 비용 위임 작동 방식
 
 Let's skim though how fee delegation works.
 
-### 2.1 Transaction signing by the sender
+### 2.1 발신자에 의한 거래 서명
 
 `Sender` always should sign the transaction before sending a transaction.
 
@@ -46,7 +46,7 @@ If there are no errors, then `senderRawTransaction` will have a signed transacti
 
 Now, you need to send the `senderRawTransaction` to the fee payer. There will be various ways to implement this. In this tutorial, we will provide you a simple server-client code as an example of sending a `senderRawTransaction` to the fee payer.
 
-### 2.2 Transaction signing by the fee payer
+### 2.2 트랜잭션 비용 지불자에 의한 트랜잭션 서명
 
 When `fee payer` receives the `senderRawTransaction`, `fee payer` signs the `senderRawTransaction` again with their private key and sends the transaction to Klaytn. The below code snippet illustrates the process. `klay.sendTransaction` method signs the transaction with the given account's private key before sending the transaction. Before running the code, please replace `"FEEPAYER_ADDRESS"` and `"PRIVATE_KEY"` with the actual values.
 
