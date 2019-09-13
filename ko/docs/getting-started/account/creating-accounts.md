@@ -6,11 +6,11 @@
 
 **Klaytn 키스토어 파일**
 
-계정을 생성하면, 키스토어 파일이 생성됩니다. The keystore file is an encrypted version of your unique Klaytn private key that you will use to sign your transactions. The keystore file name has the following format:
+계정을 생성하면, 키스토어 파일이 생성됩니다. 키스토어 파일은 거래를 서명하는 데 사용할 고유한 Klaytn 개인키의 암호화 버전입니다. 키스토어 파일 이름의 형식은 다음과 같습니다.
 
 * `UTC--<created_at UTC ISO8601>-<address hex>`
 
-It is safe to transfer the entire directory or the individual keystore file therein between Klaytn nodes. Note that in case you are adding keys to your node from a different node, the order of accounts may change. So make sure you do not rely on the index in your scripts or code snippets.
+Klaytn 노드들 간에 전체 디렉토리 또는 개별 키스토어 파일을 전송하는 것이 안전합니다. 다른 노드에서 노드에 키들을 추가하는 경우 계정 순서가 변경 될 수 있음에 주의하세요. 따라서 스크립트 또는 코드 조각의 인덱스(index)에 의존하지 않아야 합니다.
 
 ### ken <a id="ken"></a>
 
