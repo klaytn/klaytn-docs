@@ -20,7 +20,7 @@ $ ken account new --password <passwordfile> --datadir <DATADIR>
 $ ken account new --password <(echo $mypassword) --datadir <DATADIR>
 ```
 
-**`WARNING`**: Note that using a password file is meant to be used for testing only, it is a bad idea to save your password to a file or expose it in any other way. If you use the password flag with a password file, best to make sure the file is not readable or even listable for anyone but you. You achieve this with:
+**`경고`**: 암호 파일은 테스트 목적으로만 사용되므로, 암호를 파일에 저장하거나 다른 방법으로 노출시키는 것은 좋지 않습니다. 비밀번호 파일에 비밀번호 플래그(flag)를 사용하는 경우, 파일을 본인 이외의 사람이 읽을 수 없거나 나열 할 수 없는지 확인하는 것이 좋습니다. 다음으로 이를 달성할 수 있습니다:
 
 ```bash
 $ touch /path/to/password
@@ -30,23 +30,23 @@ I type my pass here
 ^D
 ```
 
-### JavaScript Console <a id="javascript-console"></a>
+### 자바스크립트 콘솔 <a id="javascript-console"></a>
 
-On the console, you can call the following function to create an account:
+콘솔에서 다음 함수를 호출하여 계정을 만들 수 있습니다:
 
 ```javascript
 > personal.newAccount("passphrase")
 ```
 
-The account is saved in an encrypted format. You **must** remember this passphrase to unlock your account in the future.
+계정은 암호화된 형식으로 저장됩니다. 앞으로 계정을 잠금 해제하려면 **반드시** 이 암호를 기억하십시오.
 
-## Importing an Account <a id="importing-an-account"></a>
+## 계정 가져오기 <a id="importing-an-account"></a>
 
-You can import an account using a keyfile. The keyfile is assumed to contain an unencrypted private key as canonical EC raw bytes encoded into hex. In a simpler term, it is a private key in a plain text without leading `0x`.
+키파일(keyfile)을 사용하여 계정을 가져올 수 있습니다. 키파일은 16진법으로 인코딩된 표준 EC 원시 바이트로 암호화되지 않은 개인키를 포함한다고 가정합니다. 간단히 말해서, `0x`로 시작하지 않는 일반 텍스트의 개인키입니다.
 
-This imports an unencrypted private key from the given keyfile, creates a new account, generates a keystore file under the data directory, and prints the address in the console. You must remember the passphrase to unlock your account in the future.
+지정된 키파일에서 암호화되지 않은 개인키를 가져오고, 새 계정을 만들고, 데이터 디렉토리 아래에 키스토어 파일을 생성한 다음, 콘솔에서 주소를 인쇄합니다. 앞으로 계정을 잠금 해제하려면 반드시 암호를 기억하십시오.
 
-**NOTE**: If you can directly copy your keystore files to another Klaytn instance, this import/export mechanism is not needed.
+**참고**: 키스토어 파일을 다른 Klaytn 인스턴스에 직접 복사 할 수 있으면, 이 가져오기/내보내기 메커니즘이 필요하지 않습니다.
 
 ### ken <a id="ken-1"></a>
 
@@ -55,7 +55,7 @@ $ ken account import <keyfile> --datadir <DATADIR>
 $ ken account import --password <passwordfile> <keyfile> --datadir <DATADIR>
 ```
 
-### JavaScript Console <a id="javascript-console-1"></a>
+### 자바스크립트 콘솔 <a id="javascript-console-1"></a>
 
 ```bash
 > personal.importRawKey('{private key}', 'mypassword')
