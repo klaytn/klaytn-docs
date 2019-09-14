@@ -1,12 +1,12 @@
 # Managing Accounts
 
-## List Your Accounts
+## 계정 나열하기
 
-This will return the list of all accounts created under the data directory.
+다음은 데이터 디렉토리에 생성된 모든 계정 목록을 반환합니다.
 
 ### ken
 
-From the command line, call the CLI with:
+명령 행에서, 다음을 사용하여 CLI를 호출하십시오:
 
 ```bash
 $ ken account list --datadir <DATADIR>
