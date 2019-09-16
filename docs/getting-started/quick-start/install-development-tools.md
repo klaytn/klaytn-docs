@@ -60,7 +60,7 @@ We can install Truffle either
 ```bash
 $ sudo npm install -g truffle@4.1.15
 $ cd /usr/local/lib/node_modules/truffle
-$ sudo npm install solc@0.4.24
+$ sudo npm install solc@0.5.6
 $ cd -
 ```
 
@@ -72,7 +72,7 @@ or
 # Assuming you are in $HOME/klaytn/.
 $ npm install truffle@4.1.15
 $ cd node_modules/truffle
-$ npm install solc@0.4.24
+$ npm install solc@0.5.6
 $ cd -
 $ ln -s node_modules/truffle/build/cli.bundled.js truffle
 $ export PATH=`pwd`:$PATH
