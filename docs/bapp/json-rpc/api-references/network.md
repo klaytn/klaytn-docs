@@ -1,6 +1,6 @@
 ---
 description: >-
-  Functions used to query network configuration.
+  APIs used to query network configuration.
 ---
 
 # Namespace net

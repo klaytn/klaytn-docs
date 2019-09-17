@@ -1,6 +1,6 @@
 ---
 description: >-
-  Functions to control Klaytn node.
+  APIs to control Klaytn node.
 ---
 
 # Namespace admin
