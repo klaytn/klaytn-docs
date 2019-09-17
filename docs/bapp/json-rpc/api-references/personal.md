@@ -10,7 +10,7 @@ The namespace `personal` manages private keys in the key store.
 
 ## personal_importRawKey
 
-Imports the given unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) into the key store,
+Imports the given unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format) into the key store,
 encrypting it with the passphrase.
 
 Returns the address of the imported account.
@@ -24,7 +24,7 @@ Returns the address of the imported account.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| keydata | string | The unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
+| keydata | string | The unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
 | passphrase | string | The pass phrase for encryption. |
 
 **Return Value**
@@ -241,7 +241,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_replaceRawKey
 
-Replaces the encrypted key file in the key store with the given unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format),
+Replaces the encrypted key file in the key store with the given unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format),
 encrypting it with the new passphrase.
 It also receives the old passphrase to decrypt the old private key before replacement.
 If it is failed to decrypt, or can not find the matching account, it throws an error.
@@ -257,7 +257,7 @@ Returns the address of the replaced account if successful.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| keydata | string | The unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
+| keydata | string | The unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
 | oldPassphrase | string | The passphrase to decrypt the old private key. |
 | newPassphrase | string | The passphrase to encrypt the new private key. |
 
@@ -286,7 +286,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_sendAccountUpdate
 
-Validates the given passphrase and submits a [TxTypeAccountUpdate](../../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) transaction.
+Validates the given passphrase and submits a [TxTypeAccountUpdate](../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) transaction.
 The transaction object must have fields `from` and `key`. Other fields such as `gas`, `gasPrice`, and `nonce` are set internally if unspecified.
 If the passphrase is able to decrypt the private key belonging to `tx.from` and the transaction is verified,
 the transaction is signed and submitted onto the network.
@@ -329,7 +329,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_sendTransaction
 
-Validates the given passphrase and submits a [TxTypeLegacy](../../../../klaytn/design/transactions/basic.md#txtypelegacytransaction) transaction.
+Validates the given passphrase and submits a [TxTypeLegacy](../../../klaytn/design/transactions/basic.md#txtypelegacytransaction) transaction.
 The transaction object must have fields `from`, `to`, and `value`. Other fields such as `gas`, `gasPrice`, and `nonce` are set internally if unspecified.
 If the passphrase is able to decrypt the private key belonging to `tx.from` and the transaction is verified,
 the transaction is signed and submitted onto the network.
@@ -372,7 +372,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_sendValueTransfer
 
-Validates the given passphrase and submits a [TxTypeValueTransfer](../../../../klaytn/design/transactions/basic.md#txtypevaluetransfer) transaction.
+Validates the given passphrase and submits a [TxTypeValueTransfer](../../../klaytn/design/transactions/basic.md#txtypevaluetransfer) transaction.
 The transaction object must have fields `from`, `to`, and `value`. Other fields such as `gas`, `gasPrice`, and `nonce` are set internally if unspecified.
 If the passphrase is able to decrypt the private key belonging to `tx.from` and the transaction is verified,
 the transaction is signed and submitted onto the network.
