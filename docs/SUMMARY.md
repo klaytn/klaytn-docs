@@ -215,6 +215,12 @@
 ## --- <a id="misc"></a>
 
 * [Vision](misc/vision/README.md)
+  * [Klaytn BApp (Blockchain App)](misc/vision/bapps.md)
+  * [Value Proposition](misc/vision/value-proposition.md)
+  * [Governance Council](misc/vision/governance-council.md)
+  * [Service Partners](misc/vision/service-partners.md)
+  * [Klaytn Ecosystem Support](misc/vision/ecosystem.md)
+  * [Open Source](misc/vision/opensource.md)
 * [Roadmap](misc/roadmap.md)
 * [FAQ](misc/faq.md)
 * [Glossary](misc/glossary.md)
