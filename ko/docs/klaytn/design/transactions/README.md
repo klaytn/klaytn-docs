@@ -2,7 +2,7 @@
 
 ## Transactions Overview
 
-A transaction in a blockchain platform is a message sent between nodes that changes the state of the blockchain. For example, when a transaction that sends 10 KLAY from Alice’s account to Bob’s is executed, Alice's balance decreases by 10 KLAY, and Bob's balance increases by 10 KLAY. Note that a transaction cannot be interleaved with another transaction because a transaction is an atomic operation. A typical blockchain transaction has components as shown below:
+블록체인 플랫폼의 트랜잭션은 블록체인의 상태를 변경하는 노드간 전송되는 메시지입니다. For example, when a transaction that sends 10 KLAY from Alice’s account to Bob’s is executed, Alice's balance decreases by 10 KLAY, and Bob's balance increases by 10 KLAY. Note that a transaction cannot be interleaved with another transaction because a transaction is an atomic operation. A typical blockchain transaction has components as shown below:
 
 | Components | Description                                                                                                                                                                                                                                                                                                                               |
 |:---------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
