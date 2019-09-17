@@ -1,3 +1,9 @@
+* * *
+
+description: >- caver-js APIs related to ABI encoding and decoding.
+
+* * *
+
 # caver.klay.abi
 
 The `caver-klay-abi` package allows you to de- and encode parameters from an ABI (Application Binary Interface). This will be used for calling functions of a deployed smart-contract.
