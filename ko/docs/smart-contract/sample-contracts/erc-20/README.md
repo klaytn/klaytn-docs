@@ -1,6 +1,6 @@
 # ERC-20
 
-## Introduction
+## 소개
 
 This tutorial helps you to create an example ERC-20 compatible token that comforms to the [Klaytn Token Standards](../../token-standard.md), especially [Fungible Token Standard \(ERC-20\)](../../token-standard.md#fungible-token-standard-erc-20).
 
