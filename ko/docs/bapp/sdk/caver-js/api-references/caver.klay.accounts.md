@@ -1,3 +1,9 @@
+* * *
+
+description: >- caver-js APIs related to managing accounts.
+
+* * *
+
 # caver.klay.accounts
 
 `caver.klay.accounts` contains functions to generate Klaytn accounts and sign transactions and data.
