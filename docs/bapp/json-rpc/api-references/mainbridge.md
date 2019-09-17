@@ -1,6 +1,6 @@
 ---
 description: >-
-  This namespace should be enabled in the main chain Endpoint Node.
+  APIs related to main chain ENs connected with a service chain.
 ---
 
 # Namespace mainbridge

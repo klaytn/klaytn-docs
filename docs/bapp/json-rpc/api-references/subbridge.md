@@ -1,6 +1,6 @@
 ---
 description: >-
-  This namespace should be enabled in the service chain Endpoint Node.
+  APIs related to service chain ENs.
 ---
 
 # Namespace subbridge
