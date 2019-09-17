@@ -35,7 +35,7 @@ The following tables summarize the symbols used in the KLVM specification.
 
 | Symbol           | Description                                |
 |:---------------- |:------------------------------------------ |
-| `S`              | State                                      |
+| `S`              | 상태 (State)                                 |
 | `S_system`       | System state                               |
 | `S_machine`      | Machine state                              |
 | `P_modify_state` | The permission to make state modifications |
