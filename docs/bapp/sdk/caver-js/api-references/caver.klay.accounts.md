@@ -1,6 +1,6 @@
 ---
 description: >-
-  caver-js APIs related to accounts.
+  caver-js APIs related to managing accounts.
 ---
 
 # caver.klay.accounts
