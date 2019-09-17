@@ -1,6 +1,6 @@
 ---
 description: >-
-  Klaytn API wrappers of the namespace 'net'.
+  A JavaScript wrapper to Klaytn APIs around the namespace 'net'.
 ---
 
 # caver.klay.net
