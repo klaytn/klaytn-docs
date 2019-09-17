@@ -149,7 +149,7 @@
   * [Klaytn SDKs](bapp/sdk/README.md)
     * [caver-js](bapp/sdk/caver-js/README.md)
       * [Getting Started](bapp/sdk/caver-js/getting-started.md)
-      * [API References](bapp/sdk/caver-js/api-references/README.md)
+      * [API references](bapp/sdk/caver-js/api-references/README.md)
         * [caver.klay](bapp/sdk/caver-js/api-references/caver.klay.md)
             * [Account](bapp/sdk/caver-js/api-references/caver.klay/account.md)
             * [Block](bapp/sdk/caver-js/api-references/caver.klay/block.md)
