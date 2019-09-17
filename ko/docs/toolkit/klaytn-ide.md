@@ -155,7 +155,7 @@ This module allows you to debug the transaction. It can be used to deploy transa
 
 If you need more information, please visit [Remix docs &gt; Debugger](https://remix-ide.readthedocs.io/en/latest/debugger.html)
 
-### Settings
+### 설정
 
 ![](img/klaytn-ide/ide-tab-setting.png)
 
