@@ -1,3 +1,8 @@
+---
+description: >-
+  Klaytn API wrappers of the namespace 'klay'.
+---
+
 # caver.klay
 
 The `caver-klay` package allows you to interact with the Klaytn nodes.  The list below

@@ -1,3 +1,8 @@
+---
+description: >-
+  caver-js APIs related to smart contracts.
+---
+
 # caver.klay.Contract
 
 The ``caver.klay.Contract`` object makes it easy to interact with smart
