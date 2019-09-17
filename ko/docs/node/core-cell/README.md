@@ -1,6 +1,6 @@
 # Core Cell Overview
 
-## Intended Audience
+## 튜토리얼 대상
 
 - Core Cell Operators
 - If your interest is in making and running Blockchain Applications on Klaytn, you don't need to maintain a Core Cell. You need to run an [Endpoint Node](../endpoint-node/README.md) instead to make your application interact with Klaytn network. 
