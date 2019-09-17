@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  check_link:
+    docker:
+      - image: kjhman21/klaytn-docs-dev-link-checker
+    working_directory: ~/klaytn-docs
+    steps:
+      - checkout
+      - run: ~/go/bin/liche -r ~/klaytn-docs -x "^http.*" --document-root ~/klaytn-docs/docs
+
+
+workflows:
+  version: 2
+  job_check_link:
+    jobs:
+      - check_link

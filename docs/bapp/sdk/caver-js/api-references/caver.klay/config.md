@@ -146,7 +146,7 @@ Returns `true` if the node is indexing sender transaction hash to transaction ha
 
 **Return Value**
 
-`Promise` returns `Boolean` - `true` means the node is indexing the sender transaction hash to find the fee-payer-signed transaction. For detailed information, please see [Klaytn Platform API - klay_getTransactionBySenderTxHash](../../../api/platform/transaction.md#klay_gettransactionbysendertxhash) and [Klaytn Transactions - Fee Delegation and SenderTxHash](../../../klaytn/design/transactions.md#fee-delegation).
+`Promise` returns `Boolean` - `true` means the node is indexing the sender transaction hash to find the fee-payer-signed transaction. For detailed information, please see [Klaytn Platform API - klay_getTransactionBySenderTxHash](../../../../json-rpc/api-references/platform/transaction.md#klay_gettransactionbysendertxhash) and [Klaytn Transactions - Fee Delegation and SenderTxHash](../../../../../klaytn/design/transactions/README.md#fee-delegation).
 
 
 **Example**
@@ -188,7 +188,7 @@ true
 caver.klay.rewardbase([callback])
 ```
 
-Returns the rewardbase of the current node. Rewardbase is the address of the account where the block reward goes to. Only the Klaytn Consensus Nodes (CN) have the rewardbase in their configuration. See [Configuration File](../../../node/cc/installation/config.md).
+Returns the rewardbase of the current node. Rewardbase is the address of the account where the block reward goes to. Only the Klaytn Consensus Nodes (CN) have the rewardbase in their configuration. See [Configuration File](../../../../../node/core-cell/operation-guide/configuration.md).
 
 
 **Parameters**
