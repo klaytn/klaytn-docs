@@ -1,3 +1,8 @@
+---
+description: >-
+  A JavaScript wrapper to Klaytn APIs around the namespace 'net'.
+---
+
 # caver.klay.net
 
 The `caver-klay-net` package allows you to interact with the Klaytn nodes'

@@ -1,3 +1,8 @@
+---
+description: >-
+  A caver-js object used to interact with a smart contract.
+---
+
 # caver.klay.Contract
 
 The ``caver.klay.Contract`` object makes it easy to interact with smart
