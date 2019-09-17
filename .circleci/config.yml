@@ -6,7 +6,7 @@ jobs:
     working_directory: ~/klaytn-docs
     steps:
       - checkout
-      - run: ~/go/bin/liche -r ~/klaytn-docs -x "^http.*" --document-root ~/klaytn-docs/docs
+      - run: ~/go/bin/liche -r ~/klaytn-docs/docs -x "^http.*" --document-root ~/klaytn-docs/docs
 
 
 workflows:
