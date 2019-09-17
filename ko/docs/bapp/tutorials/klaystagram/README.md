@@ -1,6 +1,6 @@
 # Klaystagram
 
-## Table of Contents
+## 목차
 
 * [1. Environment Setup](1.-environment-setup.md)
 * [2. Clone Klaystagram BApp](2.-clone-klaystagram-bapp.md)
@@ -15,7 +15,7 @@
   * [7-4. TransferOwnership Component](7.-feedpage/7-4.-transferownership-component.md)
 * [8. Run App](8.-run-app.md)
 
-## Introduction
+## 소개
 
 [![Klaystagram Introduction Video](images/klaystagram-video-poster.png)](https://vimeo.com/327033594)
 
@@ -34,15 +34,15 @@ There are three main features.
 > **Source Code**  
 > Complete source code can be found on GitHub at <https://github.com/underbleu/klaystagram>
 
-## Intended Audience
+## 튜토리얼 대상
 
-We will build a web application that interacts with smart contracts. To complete this tutorial, the audience is expected to be familiar with the following concepts.
+다만 스마트 컨트랙트와 상호작용하는 웹 어플리케이션을 구축할 것이기 때문에 다음의 개념들에 대해서 익숙하신 분들께 권장드립니다.
 
-* Basic knowledge on [React](https://reactjs.org/) and [Redux](https://redux.js.org/). This course is not for absolute beginners.
-* Basic knowledge and experience in [Solidity](https://solidity.readthedocs.io/en/v0.5.10/) development are recommended. However, any experienced SW developer should be able to complete the task by following the step-by-step guideline of this tutorial.
+* [React](https://reactjs.org/)와 [Redux](https://redux.js.org/)에 대한 기본 지식이 필요합니다. 이 과정은 초보자를 위한 기본적인 설명이 없습니다.
+* Basic knowledge and experience in [Solidity](https://solidity.readthedocs.io/en/v0.5.10/) development are recommended. 만약 솔리디티에 대해 잘 모르시더라도 소프트웨어 개발 경험이 어느정도 있으시다면 튜토리얼의 단계별 가이드라인을 따라 수월하게 완료하실 수 있을거에요.
 * Anyone interested in [ERC-721 Tokens](http://erc721.org/).
 
-## Testing Environment
+## 테스트 환경
 
 Klaystagram BApp is tested in the following environment.
 
