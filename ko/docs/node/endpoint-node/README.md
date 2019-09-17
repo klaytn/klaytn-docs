@@ -1,6 +1,6 @@
 # Endpoint Node
 
-## Intended Audience
+## 튜토리얼 대상
 
 - Anyone who wants to send transactions or query the state of Klaytn network using [Klaytn APIs](../../bapp/json-rpc/README.md) needs to do so via an Endpoint Node.
 - Endpoint Nodes are the interface to the Klaytn Network. 
