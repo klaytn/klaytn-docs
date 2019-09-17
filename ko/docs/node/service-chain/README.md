@@ -1,6 +1,6 @@
-# Service Chain
+# 서비스체인
 
-## Intended Audience
+## 튜토리얼 대상
 
 - BApp operators who need high TPS, minimal transaction fees, or data privacy. 
 - Anyone who want to build a local private network or a ledge database for testing.
