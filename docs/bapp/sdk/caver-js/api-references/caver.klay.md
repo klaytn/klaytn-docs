@@ -1,6 +1,6 @@
 ---
 description: >-
-  Klaytn API wrappers of the namespace 'klay'.
+  A JavaScript wrapper to Klaytn APIs around the namespace 'klay'.
 ---
 
 # caver.klay
