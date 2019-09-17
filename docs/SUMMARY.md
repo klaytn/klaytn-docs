@@ -214,6 +214,7 @@
 
 ## --- <a id="misc"></a>
 
+* [Vision](misc/vision/README.md)
 * [Roadmap](misc/roadmap.md)
 * [FAQ](misc/faq.md)
 * [Glossary](misc/glossary.md)
