@@ -1,6 +1,6 @@
 ---
 description: >-
-  caver-js APIs related to ABI.
+  caver-js APIs related to ABI encoding and decoding.
 ---
 
 # caver.klay.abi
