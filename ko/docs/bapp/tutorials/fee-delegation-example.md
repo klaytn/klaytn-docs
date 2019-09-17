@@ -1,8 +1,8 @@
 # 트랜잭션 비용 위임 예시
 
-## Table of Contents
+## 목차
 
-* [1. Introduction](#1-introduction)
+* [1. 소개](#1-introduction)
 * [2. 트랜잭션 비용 위임 작동 방식](#2-how-fee-delegation-works) 
   * 2.1 트랜잭션 발신자에 의한 서명
   * 2.2 트랜잭션 비용 납부자에 의한 서명
@@ -15,7 +15,7 @@
   * 4.3 `feepayer_server.js` 확인
   * 4.4 Klaytn scope
 
-## 1. Introduction
+## 1. 소개
 
 본 튜토리얼은 caver-js SDK를 활용하여 간단한 서버-클라이언트를 예제를 구축할 수 있도록 함으로써 Klaytn에서 어떻게 트랜잭션 비용이 위임된 송금 트랜잭션이 작동되는지 보여줍니다. 튜토리얼과 예제의 코드는 Baobab 테스트넷을 사용하고 있습니다.
 
