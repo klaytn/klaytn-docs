@@ -7,7 +7,7 @@ USAGE:
    ken [options] command [command options] [arguments...]
 ```
 
-## Commands
+## 명령어
 
 `ken` has the following commands.
 
@@ -55,7 +55,7 @@ participating.
  ...
 ```
 
-## JavaScript Console
+## 자바스크립트 콘솔
 
 Klaytn Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Klaytn API calls to your EN. To attach to the JavaScript console, execute the following command.
 
