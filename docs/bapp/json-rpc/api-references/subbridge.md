@@ -1,3 +1,8 @@
+---
+description: >-
+  APIs related to service chain ENs.
+---
+
 # Namespace subbridge
 
 The namespace `subbridge` provides functions related to Service Chain.

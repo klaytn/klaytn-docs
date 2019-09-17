@@ -1,3 +1,8 @@
+---
+description: >-
+  APIs to inspect transaction pools in the node.
+---
+
 # Namespace txpool
 
 The namespace `txpool` API gives you access to several non-standard RPC methods to inspect the contents of the

@@ -1,3 +1,8 @@
+---
+description: >-
+  APIs related to main chain ENs connected with a service chain.
+---
+
 # Namespace mainbridge
 
 The namespace `mainbridge` provides functions related to Service Chain.

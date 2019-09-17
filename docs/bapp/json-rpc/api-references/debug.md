@@ -1,3 +1,8 @@
+---
+description: >-
+  APIs used to inspect and debug node state and blockchain data at run time.
+---
+
 # Namespace debug
 
 The namespace `debug` gives you access to several non-standard RPC methods, which
@@ -51,12 +56,8 @@ will allow you to inspect, debug and set certain debugging flags at run time.
 - [debug_traceBlockByNumber](./debug/tracing.md#debug_traceblockbynumber)
 - [debug_traceBlockFromFile](./debug/tracing.md#debug_traceblockfromfile)
 - [debug_traceTransaction](./debug/tracing.md#debug_tracetransaction)
-
-
-## [VM Tracing Options](./debug/tracing_options.md)
-
-- [Tracing Options](./debug/tracing_options.md#tracing-options)
-- [JavaScript-based Tracing](./debug/tracing_options.md#javascript-based-tracing)
+- [Tracing Options](./debug/tracing.md#tracing-options)
+- [JavaScript-based Tracing](./debug/tracing.md#javascript-based-tracing)
 
 
 ## [VM Standard Tracing](./debug/standard_tracing.md)
