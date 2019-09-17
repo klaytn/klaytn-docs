@@ -1,3 +1,8 @@
+---
+description: >-
+  caver-js utility APIs.
+---
+
 # caver.utils
 
 `caver.utils` provides utility functions.
@@ -1091,6 +1096,8 @@ caver.utils.isHexPrefixed(input)
 ```
 Returns `true` if input is a 0x-prefixed hex string, otherwise it returns `false`.
 
+**NOTE** caver.klay.isHexPrefixed is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
+
 **Parameters**
 
 | Name | Type | Description |
@@ -1126,6 +1133,8 @@ caver.utils.addHexPrefix(input)
 ```
 Returns a 0x-prefixed hex string. If the input is already 0x-prefixed or a non-hex string, the input value is returned as-is.
 
+**NOTE** caver.klay.addHexPrefix is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
+
 **Parameters**
 
 | Name | Type | Description |
@@ -1155,6 +1164,8 @@ caver.utils.stripHexPrefix(input)
 ```
 Returns the result with 0x prefix stripped from input.
 
+**NOTE** caver.klay.stripHexPrefix is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
+
 **Parameters**
 
 | Name | Type | Description |
@@ -1175,4 +1186,86 @@ Returns the result with 0x prefix stripped from input.
 
 > caver.utils.stripHexPrefix('0xa5b0cd8c87e77879d64cc064ee239ed6f71cacf9')
 'a5b0cd8c87e77879d64cc064ee239ed6f71cacf9'
+```
+
+## toBuffer
+
+```javascript
+caver.utils.toBuffer(input)
+```
+This function converts the input to a [Buffer](https://nodejs.org/api/buffer.html). To convert an Object into a Buffer using `toBuffer`, the Object must implement **toArray** function. For String type input, this function only works with a **0x-prefixed hex string**.
+
+**NOTE** caver.klay.toBuffer is supported from **v1.1.0**. To use this feature, please install [v1.1.0](https://www.npmjs.com/package/caver-js/v/1.1.0) or higher.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| input | Buffer &#124; String &#124; Number &#124; Array &#124; BN &#124; Object | The value to be converted to a Buffer. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Buffer | The value converted to Buffer type is returned. |
+
+**Examples**
+
+```javascript
+// Buffer
+> caver.utils.toBuffer(Buffer.alloc(0))
+<Buffer >
+// 0x-prefixed hex string
+> caver.utils.toBuffer('0x1234')
+<Buffer 12 34>
+// Number
+> caver.utils.toBuffer(1)
+<Buffer 01>
+// Array
+> caver.utils.toBuffer([1,2,3])
+<Buffer 01 02 03>
+// BN
+> caver.utils.toBuffer(new caver.utils.BN(255))
+<Buffer ff>
+// Object that implements toArray function
+> caver.utils.toBuffer({toArray: function() {return [1,2,3,4]}})
+<Buffer 01 02 03 04>
+// null or undefined
+> caver.utils.toBuffer(null)
+<Buffer >
+> caver.utils.toBuffer(undefined)
+<Buffer >
+// non 0x-prefixed hex string
+> caver.utils.toBuffer('0xqwer')
+Error: Failed to convert string to Buffer. 'toBuffer' function only supports 0x-prefixed hex string
+// Object that does not implement toArray function
+> caver.utils.toBuffer({})
+Error: To convert an object to a buffer, the toArray function must be implemented inside the object
+```
+## numberToBuffer
+```javascript
+caver.utils.numberToBuffer(input)
+```
+This function converts a number to a [Buffer](https://nodejs.org/api/buffer.html). The [caver.utils.toBuffer](#tobuffer) has the same behavior as this function when the input is a number.
+
+**NOTE** caver.klay.numberToBuffer is supported from **v1.1.0**. To use this feature, please install [v1.1.0](https://www.npmjs.com/package/caver-js/v/1.1.0) or higher.
+
+**Parameters**
+| Name | Type | Description |
+| --- | --- | --- |
+| input | String &#124; Number &#124; BN | A number to be converted to a Buffer. |
+**Return Value**
+| Type | Description |
+| --- | --- |
+| Buffer | The value converted to Buffer type is returned. |
+**Examples**
+```javascript
+> caver.utils.numberToBuffer(1)
+<Buffer 01>
+> caver.utils.numberToBuffer('2')
+<Buffer 02>
+> caver.utils.numberToBuffer('0x3')
+<Buffer 03>
+> caver.utils.numberToBuffer(new caver.utils.BN(4))
+<Buffer 04>
 ```

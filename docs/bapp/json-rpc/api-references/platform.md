@@ -1,7 +1,13 @@
-# Platform API
+---
+description: >-
+  APIs related to accounts, blocks, transactions, and nodes. 
+---
 
-The Klaytn platform API is provided under the `klay` namespace.  The list below
-enumerates the API functions that are currently supported in Klaytn.
+# Namespace klay
+
+The namespace `klay` provides functions related to accounts, blocks, transactions,
+configurations of networks or nodes, filters, and so on.
+The list below enumerates the API functions that are currently supported in Klaytn.
 
 
 ### [Account](./platform/account.md)

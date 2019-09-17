@@ -1,2 +1,0 @@
-# Starting/Stopping Core Cell
-

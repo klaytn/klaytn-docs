@@ -237,7 +237,7 @@ This API works only on RPC call, not on Javascript console.
 | key | String | (optional) Key of the newly created account. |
 | input | DATA | (optional) The data sent along with the transaction. |
 | nonce | QUANTITY | The number of transactions made by the sender prior to this one. |
-| senderTxHash | 32-byte DATA | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../klaytn/design/transactions.md#sendertxhash). This value is always the same as `hash` for non fee-delegated transactions. |
+| senderTxHash | 32-byte DATA | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash). This value is always the same as `hash` for non fee-delegated transactions. |
 | signatures | Array | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 | to | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction. |
 | transactionIndex | QUANTITY | Integer of the transaction index position in the block. `null` when it is pending. |
@@ -301,7 +301,7 @@ This can be checked by call [klay_isSenderTxHashIndexingEnabled](config.md#klay_
 
 | Type | Description |
 | --- | --- |
-| 32-byte DATA | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../klaytn/design/transactions.md#sendertxhash). |
+| 32-byte DATA | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash). |
 
 **Return Value**
 
@@ -323,7 +323,7 @@ This can be checked by call [klay_isSenderTxHashIndexingEnabled](config.md#klay_
 | key | String | (optional) Key of the newly created account. |
 | input | DATA | (optional) The data sent along with the transaction. |
 | nonce | QUANTITY | The number of transactions made by the sender prior to this one. |
-| senderTxHash | 32-byte DATA | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../klaytn/design/transactions.md#sendertxhash). This value is always the same as `hash` for non fee-delegated transactions. |
+| senderTxHash | 32-byte DATA | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash). This value is always the same as `hash` for non fee-delegated transactions. |
 | signatures | Array | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 | to | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction. |
 | transactionIndex | QUANTITY | Integer of the transaction index position in the block. `null` when it is pending. |

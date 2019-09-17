@@ -338,7 +338,9 @@ After the fee payer gets the transaction from the sender, the fee payer can send
 
 ```java
 KlayCredentials feePayer = KlayWalletUtils.loadCredentials(<password>, <walletfilePath>);
-FeePayerManager feePayerManager = new FeePayerManager.Builder(caver, feePayer).build();
+FeePayerManager feePayerManager = new FeePayerManager.Builder(caver, feePayer)
+        .setChainId(ChainId.BAOBAB_TESTNET)
+        .build();
 feePayerManager.executeTransaction(senderRawTransaction);
 ```
 

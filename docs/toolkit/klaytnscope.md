@@ -236,4 +236,4 @@ If you search for a keyword that doesn't fit in the specified format or informat
 
 
 [Transactions]: ../klaytn/design/transactions/README.md
-[Klaytn Token Economy]: ../klaytn/design/token_economy.md
+[Klaytn Token Economy]: ../klaytn/design/token-economy.md

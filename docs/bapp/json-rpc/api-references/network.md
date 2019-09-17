@@ -1,6 +1,11 @@
-# Network API
+---
+description: >-
+  APIs used to query network configuration.
+---
 
-The `net` namespace provides functions related to the Klaytn networks.
+# Namespace net
+
+The namespace `net` provides functions related to the Klaytn networks.
 
 
 ## net_networkID

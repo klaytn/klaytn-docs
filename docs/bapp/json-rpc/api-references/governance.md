@@ -1,4 +1,9 @@
-# Governance
+---
+description: >-
+  APIs related to the Klaytn Governance.
+---
+
+# Namespace governance
 
 For the governance of the network, Klaytn provides the following APIs under `governance` namespace.
 
