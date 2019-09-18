@@ -173,7 +173,7 @@ For more details refer to this [link](../toolkit/truffle.md)
 
 ## VVISP
 vvisp is an easy-to-use cli tool/framework for developing smart contracts, provided by HEACHI LABS. You can easily set environment, deploy and execute Klaytn smart contracts with a single-command. Refer to following link for more details. 
-- https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md
+- https://henesis.gitbook.io/vvisp/deploying-smart-contracts
 
 ## Solc & Caver-js
 
