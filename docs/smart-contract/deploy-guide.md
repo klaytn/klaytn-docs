@@ -67,12 +67,14 @@ contract KlaytnGreeter is Mortal {
 
 Truffle is the most popular framework for smart contract deployment and execution. 
 
-- Install via following
+- Install via following  
+
 ```
 $ sudo npm install -g truffle
 ```
 
 - Set up project directory, and install `truffle-hdwallet-provider-klaytn` 
+
 ```
 $ mkdir hello-klaytn
 $ cd hello-klaytn
@@ -80,7 +82,7 @@ $ truffle init
 $ npm install truffle-hdwallet-provider-klaytn
 ```
 
-- Create `KlaytnGreeter.sol` under `/contracts` directory and copy the following code
+- Create `KlaytnGreeter.sol` under `/contracts` directory and copy the following code  
 
 ```
 pragma solidity 0.5.6;
@@ -108,7 +110,8 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-- Modify `/migrations/1_initial_migration.js` as following
+- Modify `/migrations/1_initial_migration.js` as following  
+
 ```
 const Migrations = artifacts.require("./Migrations.sol");
 const KlaytnGreeter = artifacts.require("./KlaytnGreeter.sol");
@@ -120,7 +123,6 @@ module.exports = function(deployer) {
 
 - Set `truffle-config.js` as below. Make sure you enter private key of an account that has enough `KLAY` to deploy contract. 
 
-*NOTE*: This example is not for production use. Be very careful when dealing with private keys. 
 ```
 const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
 
@@ -153,6 +155,7 @@ module.exports = {
   }
 };
 ```
+*NOTE*: This example is not recommended for production use. Be very careful when dealing with private keys.  
 
 - Deploying on Klaytn testnet
 
@@ -176,7 +179,8 @@ vvisp is an easy-to-use cli tool/framework for developing smart contracts, provi
 
 Another way to deploy contracts is manually compiling contracts with solc and deploying them with caver-js.
 
-- Create `KlaytnGreeter.sol` and write the following code
+- Create `KlaytnGreeter.sol` and write the following code  
+
 ```
 pragma solidity 0.5.6;
 
@@ -203,25 +207,25 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-- Install solc 0.5.6
+- Install solc 0.5.6  
 
 ```
 $ sudo npm install -g solc@0.5.6
 ```
 
-- Compile contracts
+- Compile contracts  
+
 ```
 $ solcjs KlaytnGreeter.sol --bin
 ```
 
-- Install caver-js
+- Install caver-js  
+
 ```
 $ npm install caver-js
 ```
 
 - Create `deploy.js` in the same directory with following code  
-
-*NOTE*: This example is not for production use. Be very careful when dealing with private keys. 
 
 ```
 const Caver = require("caver-js");
@@ -252,10 +256,10 @@ caver.klay.sendTransaction({
   console.log(error);
 })
 ```
+*NOTE*: This example is not recommended for production use. Be very careful when dealing with private keys.  
 
-- Finally deploy contracts using node environment
+- Finally deploy contracts using node environment  
+
 ```
 $ node deploy.js
 ```
-
-- Using similary code, you can also deploy on internet browser. For more details, refer to [tutorials](../bapp/tutorials/README.md)
