@@ -44,7 +44,7 @@ As per this principle, Klaytn has been designed to meet the following requiremen
 - Ability to delegate the user's transaction fee to the application operator. 
 - See [Fee Delegation]. Application operator can decide the amount of subsidy for each transaction and can implement more flexible business models such as freemium or subscription. Fee delegation can effectively lower the user acquisition barrier. 
 
-***
+<hr>
 
 Removing usability hurdles in the platform layer is not enough to drive the mass-adoption. To find attractive blockchain applications, fostering global developer communities along the strategic partnership with business owners is a crucial step. 
 
@@ -73,7 +73,7 @@ This entails the following requirements to support application development.
 - Applications that contribute to growing Klaytn ecosystem should be fairly rewarded.
 - See [Incentive Program]. 
 
-***
+<hr>
 
 Lastly, the grounding rules, 
 
@@ -98,14 +98,11 @@ Klaytn does not sacrifices blockchain’s core characteristics to achieve the ab
 [Consensus Mechanism]: design/consensus-mechanism.md
 [Affordable Smart Contract Execution Cost]: design/computation/klaytn-smart-contract.md#affordable-smart-contract-execution-cost
 [Transaction Fees]: design/transaction-fees.md
-[Fee Delegation]: design/transactions#fee-delegation
+[Fee Delegation]: design/transactions/README.md#fee-delegation
 [Service Chain]: scaling-solutions.md#service-chain
 [Solidity - Smart Contract Language]: ../smart-contract/solidity-smart-contract-language.md
 [Truffle]: ../toolkit/truffle.md
 [Migrating Ethereum App to Klaytn]: ../bapp/tutorials/migrating-ethereum-app-to-klaytn.md
-[Incentive Program]: ../token_economy.md#incentive-programs
-
-
-
+[Incentive Program]: design/token-economy.md#incentive-programs
 
 
