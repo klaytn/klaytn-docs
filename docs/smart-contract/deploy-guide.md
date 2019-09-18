@@ -171,11 +171,11 @@ $ truffle deploy --network mainnet
 
 For more details refer to this [link](../toolkit/truffle.md)
 
-## vvisp
+## VVISP
 vvisp is an easy-to-use cli tool/framework for developing smart contracts, provided by HEACHI LABS. You can easily set environment, deploy and execute Klaytn smart contracts with a single-command. Refer to following link for more details. 
 - https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md
 
-## solc & caver-js
+## Solc & Caver-js
 
 Another way to deploy contracts is manually compiling contracts with solc and deploying them with caver-js.
 
@@ -258,7 +258,7 @@ caver.klay.sendTransaction({
 ```
 *NOTE*: This example is not recommended for production use. Be very careful when dealing with private keys.  
 
-- Finally deploy contracts using node environment  
+- Deploy contracts using node environment  
 
 ```
 $ node deploy.js
