@@ -11,13 +11,13 @@ DApp is abbreviated form for Decentralized Application. If you are already famil
 ## The steps one needs to undertake
 BApp development isn't a simple plug-n-play project, it requires some programming skills. Also, you may need to choose one of the many development tools that works for you. This guide doesn't intend to cover details of it, rather it provides high-level overview of the steps.
 
-Here's high-level overview of what a developer needs to do, step-by-step, to create and launch an Klaytn BApp.
+Here's high-level overview of what a developer needs to do, step-by-step, to create and launch a Klaytn BApp.
 
 1. Learn Klaytn  
 BApp needs to follow a specific conceptual framework of `Klaytn`, and the only way to understand that is to learn Klaytn.  
 For e.g., a BApp must be open-source and it must operate autonomously without any entity controlling majority of the crypto tokens. If you want to privide service with fee delegation, you need to understand how to fee-delegated transaction is working.
 
-2. Meet software requirement
+2. Meet software requirement  
 There are two main development environments for implementing DApps. The backend  for creating and deploying smart contracts, and the frontend for implementing user interfaces. In order to build BApp, we need a few dependencies first
 
     * Node  
@@ -59,9 +59,9 @@ A developer coding smart contracts must follow the following broad guidelines fo
     **NOTE:**  the Ganache or testrpc must be running in another window.
 
 7. Invoke the smart contract  
-    Calls to the smart contracts must be in hexadecimal strings, however, there are Ethereum contract ‘application binary interface’ (ABI) libraries to help with that.   
+    Calls to the smart contracts must be in hexadecimal strings, however, there are Ethereum `contract application binary interface(ABI)` libraries to help with that.   
 
-    ABI is interface between two program modules or OS and user program. It defines how data structures and functions are used in machine code. In Klaytn, ABI is used to encode contract calls in the KVM and read data from transactions. The contrac's ABI is stored as a JSON array of function description and events.
+    ABI is interface between two program modules or OS and user program. It defines how data structures and functions are used in machine code. In Klaytn, [The Contract ABI]((https://solidity.readthedocs.io/en/v0.5.6/abi-spec.html)) is used to encode contract calls in the KVM and read data from transactions. The contrac's ABI is stored as a JSON array of function description and events.
 
 8. Transact with the smart contract  
     When you have some klay and storing it in your account, you're ready to transact using the Klay. There are 3 ways to make transaction.
@@ -81,5 +81,5 @@ Following are the resources for the individual steps:
     6\) [material for ABI library](https://solidity.readthedocs.io/en/v0.5.11/introduction-to-smart-contracts.html)  
     7\) [Klaytn web wallet](https://wallet.klaytn.com/)
 
-## Conclusion
+---
 It was a lot of stuff. If you're feeling overwhelmed, we suggest you to take it slow and refer to this simple [tutorial](../../bapp/tutorials/bapp-on-baobab-video-lecture/1.-introduction.md).
