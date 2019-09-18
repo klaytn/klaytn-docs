@@ -1,18 +1,23 @@
+---
+description: >-
+  This document explains the key design principles of Klaytn and how Klaytn differentiates itself from others. 
+---
+
 # Why Klaytn
 
 Ten years since the first bitcoin transaction, nobody has come up with a real-use application. The major roadblocks to blockchain adoption are; 
 
 - Difficulty of use: Blockchain applications force end-users to understand cryptographic terms and the inner workings of the system. There are too many steps in making transactions, and hex-strings pop up all over.
-- Poor user experience: The burden of technical immaturity is simply passed to the users. In many blockchain systems, transaction is not confirmed until significant time passes. Use of application often requires password inputs repeatedly (while there are no password recoveries), and charges fee for each interaction (where the amount of fee can be highly fluctuating each time). 
-- Uncertain sustainability: Lack of long-term sustainable business models for public blockchain. The operation heavily relies on token economy that incentivize the stakeholders to act in a sustainable manner, but the model is not proven on commercial areas yet.
+- Poor user experience: The burden of technical immaturity is simply passed to the users. In many blockchain systems, a transaction is not confirmed until significant time passes. Use of application often requires password inputs repeatedly (while there are no password recoveries), and charges a fee for each interaction (where the amount of fee can be highly fluctuating each time). 
+- Uncertain sustainability: Lack of long-term sustainable business models for public blockchains. The operation heavily relies on the token economy that incentivizes the stakeholders to act in a sustainable manner, but the model is not proven in commercial areas yet.
 
 ## Klaytn is aiming at Mass-adoption of Blockchain
 
 The goal of Klaytn is blockchain mass adoption. The foremost design principle is;
 
-{% hint style="info" %}
+{% hint style="success" %}
 Giving the same user experience that matches the expectation set on the web applications, eventually making the technology invisible to the users.
-{% endhint %}
+{% endsuccess %}
 
 As per this principle, Klaytn has been designed to meet the following requirements.
 
@@ -24,28 +29,28 @@ As per this principle, Klaytn has been designed to meet the following requiremen
 
 ### Low cost 
 
-- End-users should not be burdened with any higher transaction fees that is beyond the cost that the traditional systems require.
-- Transaction fee should be stable, and be determined by the transaction complexity itself not by surrounding factors.
+- End-users should not be burdened with any higher transaction fee that is beyond the cost that the traditional systems require.
+- Transaction fee should be stable and be determined by the transaction complexity itself, not by surrounding factors.
 - See [Affordable Smart Contract Execution Cost] and [Transaction Fees]. At the time of writing, sending KLAY requires a fixed fee of 0.000625 KLAY. 
 
 ### Usability in User Account Management
 
-- User should be able to choose own account address in human-readable format.
+- User should be able to choose own account address in a human-readable format.
 - Ability to change the private key of an account without changing the address. 
 - See [Human-Readable Address] and [Decoupling of Key Pairs from Addresses].
 
 ### Usability in Transaction
 
-- Ability to delegate user's transaction fee to the application operator. 
-- See [Fee Delegation]. Application operator can decide the amount of subsidy for each transaction, and can implement more flexible business models such as freemium or subscription. Fee delegation can effectively lower the user acquisition barrier. 
+- Ability to delegate the user's transaction fee to the application operator. 
+- See [Fee Delegation]. Application operator can decide the amount of subsidy for each transaction and can implement more flexible business models such as freemium or subscription. Fee delegation can effectively lower the user acquisition barrier. 
 
 ***
 
 Removing usability hurdles in the platform layer is not enough to drive the mass-adoption. To find attractive blockchain applications, fostering global developer communities along the strategic partnership with business owners is a crucial step. 
 
-```
-Making business-friendly environment to encourage the birth of compelling applications.
-```
+{% hint style="success" %}
+Making a business-friendly environment to encourage the birth of compelling applications.
+{% endsuccess %}
 
 This entails the following requirements to support application development. 
 
@@ -56,12 +61,12 @@ This entails the following requirements to support application development.
 
 ### Service-specific Private Chains with Data Anchoring
 
-- Klaytn should provide a dedicated solution for private blockchain. The private chain can have own governance and connect to the Klaytn main chain for data anchoring and asset transfer. 
-- See [Service Chain]. Enterprises often want to have own dedicated execution environment to meet the SLA. With the service chain, enterprise can maintain an isolated high-performing execution environment that is not affected by other blockchain applications, and also keep their business-sensitive data private. 
+- Klaytn should provide a dedicated solution for private blockchain. The private chain can have its own governance and connect to the Klaytn main chain for data anchoring and asset transfer. 
+- See [Service Chain]. Enterprises often want to have their own dedicated execution environment to meet the SLA. With the service chain, an enterprise can maintain an isolated high-performing execution environment that is not affected by other blockchain applications, and also keep their business-sensitive data private. 
 
 ### Application Service Layer
 
-- Klaytn provides an additional service layer, Klaytn API Service (KAS), to ease blockchain application development and operation. KAS has APIs that can be used without much blockchain knowledge, and provides business intelligence insights through data analysis.    
+- Klaytn provides an additional service layer, Klaytn API Service (KAS), to ease blockchain application development and operation. KAS has APIs that can be used without much blockchain knowledge and provides business intelligence insights through data analysis.    
 
 ### Contribution Reward
 
@@ -72,9 +77,9 @@ This entails the following requirements to support application development.
 
 Lastly, the grounding rules, 
 
-```
+{% hint style="success" %}
 Klaytn does not sacrifices blockchain’s core characteristics to achieve the above-mentioned enhancement, and the platform stays stable with strongly committed stakeholders.
-```
+{% endsuccess %}
 
 ### Transparency, Security and Decentralization
 
