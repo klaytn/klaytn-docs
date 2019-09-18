@@ -63,12 +63,12 @@ A developer coding smart contracts must follow the following broad guidelines fo
 
     ABI is interface between two program modules or OS and user program. It defines how data structures and functions are used in machine code. In Klaytn, ABI is used to encode contract calls in the KVM and read data from transactions. The contrac's ABI is stored as a JSON array of function description and events.
 
-8. Trnasact with the smart contract
+8. Transact with the smart contract  
     When you have some klay and storing it in your account, you're ready to transact using the Klay. There are 3 ways to make transaction.
 
     1\) Transfer to another address as a value.  
     2\) Call a contract function which will update the state of the network, which requires gas to process your update.   
-    3\) Involve a contract that update s the state of the network and accepts Klay as payment. The developer also needs to pay the fees.
+    3\) Involve a contract that updates the state of the network and accepts Klay as payment. The developer also needs to pay the fees.
 
 9. Useful resources  
 Following are the resources for the individual steps:  

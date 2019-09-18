@@ -34,6 +34,7 @@
     * [Install Development Tools](getting-started/quick-start/install-development-tools.md)
     * [Deploy a Smart Contract](getting-started/quick-start/deploy-a-smart-contract.md)
     * [Check the Deployment](getting-started/quick-start/check-the-deployment.md)
+    * [A Beginners Guide to Klaytn BApp](getting-started/a-beginners-guide-to-klaytn-bapp/README.md)
   * [Account Management](getting-started/account/README.md)
     * [Creating Accounts](getting-started/account/creating-accounts.md)
     * [Managing Accounts](getting-started/account/managing-accounts.md)
