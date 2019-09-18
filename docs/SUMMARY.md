@@ -3,11 +3,7 @@
 * [Welcome](README.md)
 
 * [Klaytn Overview](klaytn/README.md)
-  * [Why Klaytn](klaytn/why-klaytn/README.md)
-    * [High Performance Low Cost](klaytn/why-klaytn/high-performance-low-cost.md)
-    * [Usability Enhancement](klaytn/why-klaytn/usability-enhancement.md)
-    * [Scalable Architecture](klaytn/why-klaytn/scalable-architecture.md)
-    * [Value-added Enterprise Solutions](klaytn/why-klaytn/value-added-enterprise-solutions.md)
+  * [Why Klaytn](klaytn/why-klaytn.md)
   * [Klaytn Design](klaytn/design/README.md)
     * [Consensus Mechanism](klaytn/design/consensus-mechanism.md)
     * [Accounts](klaytn/design/accounts.md)
