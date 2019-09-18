@@ -44,7 +44,7 @@ As per this principle, Klaytn has been designed to meet the following requiremen
 - Ability to delegate the user's transaction fee to the application operator. 
 - See [Fee Delegation]. Application operator can decide the amount of subsidy for each transaction and can implement more flexible business models such as freemium or subscription. Fee delegation can effectively lower the user acquisition barrier. 
 
-<hr>
+***
 
 Removing usability hurdles in the platform layer is not enough to drive the mass-adoption. To find attractive blockchain applications, fostering global developer communities along the strategic partnership with business owners is a crucial step. 
 
@@ -57,7 +57,7 @@ This entails the following requirements to support application development.
 ### Rapid Development
 
 - The development of application on Klaytn must be straightforward, and the technologies used must follow the open standard to reduce the learning curve.
-- See [Solidity - Smart Contract Languag], [Truffle], and [Migrating Ethereum App to Klaytn]. As Klaytn Virtual Machine (KLVM) supports Ethreum’s solidity contract, it becomes much easier to port PoC product on Ethereum to Klaytn for commercial use. It is much easier as well to find development tools and to get some help from the well-established developer community. 
+- See [Solidity - Smart Contract Language], [Truffle], and [Migrating Ethereum App to Klaytn]. As Klaytn Virtual Machine (KLVM) supports Ethreum’s solidity contract, it becomes much easier to port PoC product on Ethereum to Klaytn for commercial use. It is much easier as well to find development tools and to get some help from the well-established developer community. 
 
 ### Service-specific Private Chains with Data Anchoring
 
@@ -73,7 +73,7 @@ This entails the following requirements to support application development.
 - Applications that contribute to growing Klaytn ecosystem should be fairly rewarded.
 - See [Incentive Program]. 
 
-<hr>
+***
 
 Lastly, the grounding rules, 
 
