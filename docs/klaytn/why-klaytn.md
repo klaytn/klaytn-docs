@@ -17,7 +17,7 @@ The goal of Klaytn is blockchain mass adoption. The foremost design principle is
 
 {% hint style="success" %}
 Giving the same user experience that matches the expectation set on the web applications, eventually making the technology invisible to the users.
-{% endsuccess %}
+{% endhint %}
 
 As per this principle, Klaytn has been designed to meet the following requirements.
 
@@ -50,7 +50,7 @@ Removing usability hurdles in the platform layer is not enough to drive the mass
 
 {% hint style="success" %}
 Making a business-friendly environment to encourage the birth of compelling applications.
-{% endsuccess %}
+{% endhint %}
 
 This entails the following requirements to support application development. 
 
@@ -79,7 +79,7 @@ Lastly, the grounding rules,
 
 {% hint style="success" %}
 Klaytn does not sacrifices blockchain’s core characteristics to achieve the above-mentioned enhancement, and the platform stays stable with strongly committed stakeholders.
-{% endsuccess %}
+{% endhint %}
 
 ### Transparency, Security and Decentralization
 
