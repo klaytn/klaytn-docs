@@ -30,7 +30,7 @@
 트랜잭션을 서명하려면 개인키로 트랜잭션 서명을 하는 [signTransaction](../sdk/caver-js/api-references/caver.klay.accounts.md#signtransaction)을 실행하세요.
 
 ```text
-// using the event emitter
+// 이벤트 에미터 사용
 const senderPrivateKey = "PRIVATE_KEY"
 
 const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
@@ -103,7 +103,7 @@ const senderPrivateKey = "SENDER_PRIVATEKEY";
 const toAddress = "TO_ADDRESS";
 
 sendFeeDelegateTx = async() => {
-    // sign transaction with private key of sender
+    // 발신자의 개인키로 트랜잭션을 서명합니다.
     const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
       type: 'FEE_DELEGATED_VALUE_TRANSFER',
       from: senderAddress,
@@ -112,7 +112,7 @@ sendFeeDelegateTx = async() => {
       value: caver.utils.toPeb('0.00001', 'KLAY'),
     }, senderPrivateKey)
 
-    // send signed raw transaction to fee payer's server
+    // 서명된 raw 트랜잭션을 트랜잭션 비용 납부자의 서버로 전송합니다.
     client.connect(1337, '127.0.0.1', function() {
             console.log('Connected to fee delegated service');
     });
@@ -127,7 +127,7 @@ sendFeeDelegateTx = async() => {
     });
 }
 
-sendFeeDelegateTx();
+sendFeeDelegateTx();{ rawTransaction: senderRawTransaction }
 ```
 
 위 코드에서는 `senderPrivateKey`를 통해 트랜잭션 비용이 위임된 송금 트랜잭션을 서명한 후 IP 주소 `127.0.0.1`\(로컬호스트\)의 `1337`번 포트에 있는 트랜잭션 비용 납부자의 서버로 서명된 `senderRawTranscation`를 전송하고 있습니다.
@@ -144,14 +144,14 @@ const caver = new Caver('https://api.baobab.klaytn.net:8651');
 const feePayerAddress = "FEEPAYER_ADDRESS";
 const feePayerPrivateKey = "FEEPAYER_PRIVATEKEY";
 
-// add fee payer account
+// 트랜잭션 비용 납부자의 계정을 추가합니다.
 caver.klay.accounts.wallet.add(feePayerPrivateKey, feePayerAddress);
 
 var net = require('net');
 
 
 feePayerSign = (senderRawTransaction, socket) => {
-    // fee payer
+    // 트랜잭션 비용 납부자
     caver.klay.sendTransaction({
       senderRawTransaction: senderRawTransaction,
       feePayer: feePayerAddress,
@@ -164,7 +164,7 @@ feePayerSign = (senderRawTransaction, socket) => {
         socket.write('Tx hash is '+ receipt.transactionHash);
         socket.write('Sender Tx hash is '+ receipt.senderTxHash);
     })
-    .on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+    .on('error', console.error); // 가스 부족 에러(out-of-gas error)가 발생하면 두 번째 파라미터는 트랜잭션 영수증이 됩니다.
 }
 
 var server = net.createServer(function(socket) {
