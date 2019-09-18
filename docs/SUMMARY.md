@@ -28,6 +28,7 @@
   * [Scaling Solutions](klaytn/scaling-solutions.md)
 
 * [Getting Started](getting-started/README.md)
+  * [A Beginners Guide To Klaytn BApp](getting-started/a-beginners-guide-to-klaytn-bapp/README.md)
   * [Quick Start](getting-started/quick-start/README.md)
     * [Launch an Endpoint Node](getting-started/quick-start/launch-an-en.md)
     * [Top up your Account](getting-started/quick-start/top-up-your-account.md)
