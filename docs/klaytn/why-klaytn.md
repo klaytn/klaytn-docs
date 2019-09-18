@@ -101,9 +101,9 @@ Klaytn does not sacrifices blockchain’s core characteristics to achieve the ab
 [Fee Delegation]: design/transactions#fee-delegation
 [Service Chain]: scaling-solutions.md#service-chain
 [Solidity - Smart Contract Language]: ../smart-contract/solidity-smart-contract-language.md
-[Truffle]: ../smart-contract/ide-and-tools.md/truffle
+[Truffle]: ../toolkit/truffle.md
 [Migrating Ethereum App to Klaytn]: ../bapp/tutorials/migrating-ethereum-app-to-klaytn.md
-[Incentive Program]: ../token_economy#incentive-programs
+[Incentive Program]: ../token_economy.md#incentive-programs
 
 
 
