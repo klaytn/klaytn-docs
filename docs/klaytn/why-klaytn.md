@@ -10,9 +10,9 @@ Ten years since the first bitcoin transaction, nobody has come up with a real-us
 
 The goal of Klaytn is blockchain mass adoption. The foremost design principle is;
 
-```
+{% hint style="info" %}
 Giving the same user experience that matches the expectation set on the web applications, eventually making the technology invisible to the users.
-```
+{% endhint %}
 
 As per this principle, Klaytn has been designed to meet the following requirements.
 
