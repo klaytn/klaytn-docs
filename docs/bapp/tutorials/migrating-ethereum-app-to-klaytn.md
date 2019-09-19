@@ -4,9 +4,9 @@
 
 * [1. Introduction](#1-introduction)
 * [2. Klaytn is keeping compatibility with Ethereum](#2-klaytn-is-keeping-compatibility-with-ethereum)
-* [3. Migrate a node connection from Ethereum to Klaytn](#1-introduction)
+* [3. Migrate a node connection from Ethereum to Klaytn](#3-migrate-a-node-connection-from-ethereum-to-klaytn)
   * 3-1. Interact with Klaytn node: BlockNumber component
-* [4. Interact with the contract](#1-introduction)
+* [4. Interact with the contract](#1-interact-with-the-contract)
   * 4-1. Deploy Count contract on Klaytn
   * 4-2. Create a contract instance
   * 4-3. Interact with contract
@@ -15,7 +15,7 @@
 
 This tutorial is intended to give a guide to migrate Ethereum App to Klaytn. No previous Klaytn experience is needed. A simple blockchain app's code will be used as a sample code to show how to migrate Ethereum App to Klaytn.  
 
-We will focus only on the code modifications required to migrate an Ethereum App to Klaytn. If you need details on creating a BApp, Please refer to [CountBApp Tutorial](./count-bapp).
+We will focus only on the code modifications required to migrate an Ethereum App to Klaytn. If you need details on creating a BApp, Please refer to [CountBApp Tutorial](https://docs.klaytn.com/bapp/tutorials/count-bapp).
 
 > **Full diff code**  
 > Full diff code of migration(Ethereum -> Klaytn) can be found on GitHub at [https://github.com/underbleu/countbapp](https://github.com/underbleu/countbapp)
@@ -62,8 +62,8 @@ BlockNumber component get the current block number per 1 second(1000ms).
 
 By replacing the `web3` library with `caver-js`, you can simply sync Klaytn's BlockNumber in real time instead of Ethereum's BlockNumber.
 
->Ethereum: [`web3.eth.getBlockNumber()`](https://docs.klaytn.com/sdk/caverjs/caver.klay.Contract#methods)  
->Klaytn: [`caver.klay.getBlockNumber()`](https://docs.klaytn.com/sdk/caverjs/caver.klay.Contract#methods)
+>Ethereum: [`web3.eth.getBlockNumber()`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth.html#getblocknumber)  
+>Klaytn: [`caver.klay.getBlockNumber()`](https://docs.klaytn.com/bapp/sdk/caver-js/api-references/caver.klay/block#getblocknumber)
 
 ```js
 // import web3 from 'ethereum/web3'
@@ -83,7 +83,7 @@ class BlockNumber extends Component {
 
 export default BlockNumber
 ```
-For more detail about `BlockNumber` component, see [CountBApp tutorial - Blocknumber Component](./count-bapp/5.-frontend-code-overview/5-1.-blocknumber-component.md)
+For more detail about `BlockNumber` component, see [CountBApp tutorial - Blocknumber Component](https://docs.klaytn.com/bapp/tutorials/count-bapp/5.-frontend-code-overview/5-1.-blocknumber-component)
 
 ## 4. Interact with the contract: `Count` component
 
@@ -105,14 +105,6 @@ To migrate CountBApp, we need to deploy a Count contract on Klaytn and get the c
 2. Get KLAY to your account at [KLAY faucet](https://baobab.wallet.klaytn.com/access?next=faucet) to receive 5 KLAY
 3. Type `$ truffle deploy --network klaytn`
 4. `Count` contract will be deployed on Baobab testnet, Klaytn
-
-<!-- * HDWalletProvider: JavaScript HD wallet provider
-
-HD Wallet-enabled Web3 provider. Use it to sign transactions for addresses derived from a 12-word mnemonic. 엘리엇 설명 요청
-
-* NETWORK_ID: Specifies the network id
-* RPC_URL: URL for the specific node you will connect
-* PRIVATE_KEY: Private key of the account that has enough KLAY to deploy contract -->
 
 `truffle-config.js`
 ```js
@@ -153,16 +145,16 @@ module.exports = {
 }
 ```
 
-For more details about deploy contract, See [CountBapp tutorial - 6. Deploy Contract](./count-bapp/6.-deploy-contract.md)
+For more details about deploy contract, See [CountBapp tutorial - 6. Deploy Contract](https://docs.klaytn.com/bapp/tutorials/count-bapp/6.-deploy-contract)
 
 ### 4-2. Create a contract instance
 
 You can create a contract instance with the `caver-js` API. The contract instance creates a connection to `Count` contract. You can call contract method through this instance.
 
->Ethereum : [`web3.eth.Contract(ABI, address)`](https://docs.klaytn.com/sdk/caverjs/caver.klay.Contract#methods)  
->Klaytn : [`caver.klay.Contract(ABI, address)`](https://docs.klaytn.com/sdk/caverjs/caver.klay.Contract#methods)
+>Ethereum : [`web3.eth.Contract(ABI, address)`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth-contract.html#web3-eth-contract)  
+>Klaytn : [`caver.klay.Contract(ABI, address)`](https://docs.klaytn.com/bapp/sdk/caver-js/api-references/caver.klay.contract#new-contract)
 
-#### `src/components/Count.js`
+`src/components/Count.js`
 ```javascript
 // import web3 from 'ethereum/web3'
 import caver from 'klaytn/caver'
