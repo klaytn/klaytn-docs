@@ -107,7 +107,7 @@ To import an account, click ![](img/klaytn-ide/ide-add-account-button.png) butto
 
 After Import, your account balance will appear in the`Account` selector in a few seconds.
 
-#### Value
+#### 값
 
 ![](img/klaytn-ide/ide-tx-value-controller.png)
 
