@@ -17,8 +17,8 @@ This tutorial is intended to give a guide to migrate Ethereum App to Klaytn. No 
 
 We will focus only on the code modifications required to migrate an Ethereum App to Klaytn. If you need details on creating a BApp, Please refer to [CountBApp Tutorial](https://docs.klaytn.com/bapp/tutorials/count-bapp).
 
-> **Full diff code**  
-> Full diff code of migration(Ethereum -> Klaytn) can be found on GitHub at [https://github.com/underbleu/countbapp](https://github.com/underbleu/countbapp)
+> **Full diff code** of migration(Ethereum -> Klaytn) can be found on GitHub at  
+[https://github.com/underbleu/countbapp](https://github.com/underbleu/countbapp)
 
 
 ## 2. Klaytn has Ethereum compatibility
@@ -151,7 +151,7 @@ For more details about deploy contract, See [CountBapp tutorial - 6. Deploy Cont
 
 You can create a contract instance with the `caver-js` API. The contract instance creates a connection to `Count` contract. You can call contract method through this instance.
 
->Ethereum : [`web3.eth.Contract(ABI, address)`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth-contract.html#web3-eth-contract)  
+>Ethereum : [`web3.eth.Contract(ABI, address)`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth-contract.html#new-contract)  
 >Klaytn : [`caver.klay.Contract(ABI, address)`](https://docs.klaytn.com/bapp/sdk/caver-js/api-references/caver.klay.contract#new-contract)
 
 `src/components/Count.js`
