@@ -13,7 +13,7 @@ This calculated transaction fee is subtracted from the sender's or enterprise ac
 
 ## Gas and Unit Price Overview
 
-### Gas
+### 가스
 
 Every action that changes the state of the blockchain requires gas. When a node processes user's transaction such as sending KLAY, using ERC-20 tokens, or executing a contract, the user has to pay for the computation and storage usage. The amount of payment is decided by the amount of `gas` required.
 
@@ -45,7 +45,7 @@ Basically, Klaytn is keeping compatibility with Ethereum. So Klaytn's gas table 
 
 ### Common Fee <a id="common-fee"></a>
 
-| Item              | Gas   | Description                                                                                        |
+| Item              | 가스    | Description                                                                                        |
 |:----------------- |:----- |:-------------------------------------------------------------------------------------------------- |
 | G\_zero         | 0     | Nothing paid for operations of the set Wzero                                                       |
 | G\_base         | 2     | Amount of gas to pay for operations of the set Wbase                                               |
@@ -89,7 +89,7 @@ Basically, Klaytn is keeping compatibility with Ethereum. So Klaytn's gas table 
 
 Precompiled contracts are special kind of contracts which usually perform complex cryptographic computations and are initiated by other contracts.
 
-| Item                    | Gas                | Description                                               |
+| Item                    | 가스                 | Description                                               |
 |:----------------------- |:------------------ |:--------------------------------------------------------- |
 | EcrecoverGas            | 3000               | Perform ECRecover operaton                                |
 | Sha256BaseGas           | 60                 | Perform sha256 hash operation                             |
@@ -123,7 +123,7 @@ TotalGas = number of signatures * ValidateSenderGas
 
 ### Account-related Gas Table <a id="account-related-gas-table"></a>
 
-| Item                       | Gas   | Description                                                 |
+| Item                       | 가스    | Description                                                 |
 |:-------------------------- |:----- |:----------------------------------------------------------- |
 | TxAccountCreationGasPerKey | 20000 | Gas required for a key-pair creation                        |
 | TxValidationGasPerKey      | 15000 | Gas required for a key validation                           |
@@ -144,7 +144,7 @@ GasPayload = number_of_bytes * TxDataGas
 
 ### Gas Formula for Transaction Types <a id="gas-formula-for-transaction-types"></a>
 
-| TxType                 | Gas                                                    |
+| TxType                 | 가스                                                     |
 |:---------------------- |:------------------------------------------------------ |
 | LegacyTransaction      | TxGas + PayloadGas + KeyValidationGas                  |
 | ValueTransfer          | TxGasValueTransfer + KeyValidationGas                  |
@@ -157,7 +157,7 @@ GasPayload = number_of_bytes * TxDataGas
 
 KeyValidationGas is defined as below based on key type,
 
-| Key Type  | Gas                                               |
+| Key Type  | 가스                                                |
 |:--------- |:------------------------------------------------- |
 | Nil       | N/A                                               |
 | Legacy    | 0                                                 |
@@ -169,7 +169,7 @@ KeyValidationGas is defined as below based on key type,
 
 KeyCreationGas is defined as below based on key type,
 
-| Key Type  | Gas                                                                                                                                                                                                                |
+| Key Type  | 가스                                                                                                                                                                                                                 |
 |:--------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Nil       | N/A                                                                                                                                                                                                                |
 | Legacy    | 0                                                                                                                                                                                                                  |
