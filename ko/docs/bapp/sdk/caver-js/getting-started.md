@@ -131,13 +131,13 @@ This section will show you how to send a KLAY using caver-js on the Baobab netwo
 
 If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](https://docs.klaytn.com/toolkit/wallet#how-to-receive-baobab-testnet-klay). Log in to the Klaytn Wallet using the private key or the keystore file and receive Baobab testnet KLAY via the faucet for testing.
 
-### Sending a Value Transfer Transaction
+### 송금 트랜잭션 전송
 
 트랜잭션 서명은 caver-js 지갑을 통해 할 수 있습니다. 만약 caver-js 지갑에 계정이 있다면, `caver.klay.sendTransaction`을 실행할 때 caver-js 지갑에 저장된 개인키로 서명이 생성됩니다. 이때 `caver.klay.sendTransaction`은 서명 생성과 트랜잭션 제출을 동시에 처리합니다.
 
 ```text
-// If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
-// If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. 이 경우 출력된 주소값을 'from' 필드에 입력하여 해당 계정을 참조할 수 있습니다.
+// 아직 caver-js 지갑에 계정을 추가하지 않았다면 'caver.klay.accounts.wallet.add'를 실행하여 지갑에 계정을 추가하세요.
+// 동일한 계정이 이미 지갑에 있는 경우 'Error: Account exists with {hex in address}'가 출력됩니다. 이 경우 출력된 주소값을 'from' 필드에 입력하여 해당 계정을 참조할 수 있습니다.
 
 > const account = caver.klay.accounts.wallet.add('0x{private key}')
 
@@ -201,7 +201,7 @@ caver-js 지갑 없이 해당 개인키로부터 서명을 직접 생성하고�
 다음 예시는 프로미스(promise) 및 이벤트 에미터(event emitter)를 사용하여 영수증을 받는 과정입니다.
 
 ```text
-// Using promise
+// 프로미스(promise) 사용
 > caver.klay.sendSignedTransaction(rawTransaction).then(console.log)
 { 
     blockHash: '0x6ccef34eb59fab927705d344f080f449b576c0626e4aa3e20f569feb8df6e283',
@@ -218,7 +218,7 @@ caver-js 지갑 없이 해당 개인키로부터 서명을 직접 생성하고�
     value: '0xde0b6b3a7640000' 
 }
 
-// Using event emitter
+// 이벤트 에미터(event emitter) 사용
 > caver.klay.sendSignedTransaction(rawTransaction).on('receipt', console.log)
 { 
     blockHash: '0x6ccef34eb59fab927705d344f080f449b576c0626e4aa3e20f569feb8df6e283',
@@ -324,8 +324,8 @@ With the signed RLP-encoded transaction object \(`rawTransaction`\), the fee pay
 If you want to change the key of the account, send a transaction as shown below. Please check [Account Update]() for the transaction field according to the key type.
 
 ```text
-// If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
-// If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. 이 경우 출력된 주소값을 'from' 필드에 입력하여 해당 계정을 참조할 수 있습니다.
+// 아직 caver-js 지갑에 계정을 추가하지 않았다면 'caver.klay.accounts.wallet.add'를 실행하여 지갑에 계정을 추가하세요.
+// 동일한 계정이 이미 지갑에 있는 경우 'Error: Account exists with {hex in address}'가 출력됩니다. 이 경우 출력된 주소값을 'from' 필드에 입력하여 해당 계정을 참조할 수 있습니다.
 > const account = caver.klay.accounts.wallet.add('0x{private key}')
 
 > caver.klay.sendTransaction({
@@ -358,8 +358,8 @@ For smart contract deployment, you can use [caver.klay.Contract]() to deploy it,
 If the contract instance is created, you can deploy it by passing the bytecode to the `data` field as shown below:
 
 ```text
-// If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
-// If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. 이 경우 출력된 주소값을 'from' 필드에 입력하여 해당 계정을 참조할 수 있습니다.
+// 아직 caver-js 지갑에 계정을 추가하지 않았다면 'caver.klay.accounts.wallet.add'를 실행하여 지갑에 계정을 추가하세요.
+// 동일한 계정이 이미 지갑에 있는 경우 'Error: Account exists with {hex in address}'가 출력됩니다. 이 경우 출력된 주소값을 'from' 필드에 입력하여 해당 계정을 참조할 수 있습니다.
 > const account = caver.klay.accounts.wallet.add('0x{private key}')
 
 > contractInstance.deploy({
@@ -400,8 +400,8 @@ One way to invoke a specific method of a smart contract is to use it with `caver
 To transact with a smart contract:
 
 ```text
-// If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
-// If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. 이 경우 출력된 주소값을 'from' 필드에 입력하여 해당 계정을 참조할 수 있습니다.
+// 아직 caver-js 지갑에 계정을 추가하지 않았다면 'caver.klay.accounts.wallet.add'를 실행하여 지갑에 계정을 추가하세요.
+// 동일한 계정이 이미 지갑에 있는 경우 'Error: Account exists with {hex in address}'가 출력됩니다. 이 경우 출력된 주소값을 'from' 필드에 입력하여 해당 계정을 참조할 수 있습니다.
 > const account = caver.klay.accounts.wallet.add('0x{private key}')
 
 > contractInstance.methods.setCount(1).send({from:account.address, gas:'0x4bfd200'}).then(console.log)
