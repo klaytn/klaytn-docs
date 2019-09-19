@@ -20,6 +20,18 @@ We will focus only on the code modifications required to migrate an Ethereum App
 > **Full diff code** of migration(Ethereum -> Klaytn) can be found on GitHub at  
 [https://github.com/underbleu/countbapp](https://github.com/underbleu/countbapp)
 
+#### Intended Audience
+
+* Basic knowledge on [React](https://reactjs.org/). Sample code is made with React
+* Basic knowledge and experience in Blockchain app but no previous Klaytn experience is needed
+
+#### Testing Environment
+CountBApp is tested in the following environment.
+
+* MacOS Mojave 10.14.5
+* Node 10.16.0 \(LTS\)
+* npm 6.9.0
+* Python 2.7.10
 
 ## 2. Klaytn has Ethereum compatibility
 
