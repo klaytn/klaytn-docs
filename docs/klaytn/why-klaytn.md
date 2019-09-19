@@ -21,13 +21,13 @@ Giving the same user experience that matches the expectation set on the web appl
 
 As per this principle, Klaytn has been designed to meet the following requirements.
 
-### High performance 
+### High Performance 
 
 - Main chain should handle at least 4,000 TPS. 
-- Immediate transaction finality with one-second block generation time.
+- Main chain should guarantee immediate transaction finality with one-second block generation time.
 - See [Consensus Mechanism].
 
-### Low cost 
+### Low Cost 
 
 - End-users should not be burdened with any higher transaction fee that is beyond the cost that the traditional systems require.
 - Transaction fee should be stable and be determined by the transaction complexity itself, not by surrounding factors.
@@ -36,7 +36,7 @@ As per this principle, Klaytn has been designed to meet the following requiremen
 ### Usability in User Account Management
 
 - User should be able to choose own account address in a human-readable format.
-- Ability to change the private key of an account without changing the address. 
+- User can change the private key of an account without changing the address. 
 - See [Human-Readable Address] and [Decoupling of Key Pairs from Addresses].
 
 ### Usability in Transaction
@@ -78,7 +78,7 @@ This entails the following requirements to support application development.
 Lastly, the grounding rules, 
 
 {% hint style="success" %}
-Klaytn does not sacrifices blockchain’s core characteristics to achieve the above-mentioned enhancement, and the platform stays stable with strongly committed stakeholders.
+Klaytn does not sacrifice blockchain’s core characteristics to achieve the above-mentioned enhancement, and the platform stays stable with strongly committed stakeholders.
 {% endhint %}
 
 ### Transparency, Security and Decentralization
