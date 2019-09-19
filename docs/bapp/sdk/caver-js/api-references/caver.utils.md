@@ -1304,7 +1304,7 @@ Returns `true` if input is in transaction hash format, otherwise it returns `fal
 **Parameters**
 | Name | Type | Description |
 | --- | --- | --- |
-| input | String | The value to be determined if the parameter is in format of transaction hash or not. |
+| input | String | The value to be determined if the parameter is in the format of transaction hash or not. |
 **Return Value**
 | Type | Description |
 | --- | --- |
