@@ -1308,7 +1308,7 @@ Returns `true` if input is in transaction hash format, otherwise it returns `fal
 **Return Value**
 | Type | Description |
 | --- | --- |
-| Boolean | `true` means the input is in format of transaction hash. |
+| Boolean | `true` means the input is in the format of transaction hash. |
 **Examples**
 ```javascript
 // with '0x' hex prefix
