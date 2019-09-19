@@ -2,16 +2,16 @@
 
 ## 목차
 
-* [1. Environment Setup](1.-environment-setup.md)
+* [1. 개발 환경 구성](1.-environment-setup.md)
 * [2. Count BApp 복제](2.-clone-count-bapp.md)
-* [3. Directory Structure](3.-directory-structure.md)
+* [3. 디렉토리 구조](3.-directory-structure.md)
 * [4. 스마트 컨트랙트 작성](4.-write-smart-contract.md)
-* [5. Frontend Code Overview](5.-frontend-code-overview/README.md) 
+* [5. 프론트엔드 코드 개요](5.-frontend-code-overview/README.md) 
   * [5-1. BlockNumber 컴포넌트](5.-frontend-code-overview/5-1.-blocknumber-component.md)
-  * [5-2. Auth Component](5.-frontend-code-overview/5-2.-auth-component.md)
-  * [5-3. Count Component](5.-frontend-code-overview/5-3.-count-component.md)
-* [6. Deploy Contract](6.-deploy-contract.md)
-* [7. Run App](7.-run-app.md)
+  * [5-2. Auth 컴포넌트](5.-frontend-code-overview/5-2.-auth-component.md)
+  * [5-3. Count 컴포넌트](5.-frontend-code-overview/5-3.-count-component.md)
+* [6. 스마트 컨트랙트 배포](6.-deploy-contract.md)
+* [7. 어플리케이션 실행](7.-run-app.md)
 
 ## 소개
 
