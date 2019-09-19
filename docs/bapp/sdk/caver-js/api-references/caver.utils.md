@@ -1274,7 +1274,7 @@ This function converts a number to a [Buffer](https://nodejs.org/api/buffer.html
 ```javascript
 caver.utils.isTxHash(input)
 ```
-Returns `true` if input is in transaction hash format, otherwise it returns `false`. This function only looks at the inputs and determines if it is in the format of a transaction hash.
+Returns `true` if input is in transaction hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of a transaction hash.
 **NOTE** caver.klay.isTxHash is supported from **v1.2.0-rc.1**. To use this feature, please install [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) or higher.
 **Parameters**
 | Name | Type | Description |
