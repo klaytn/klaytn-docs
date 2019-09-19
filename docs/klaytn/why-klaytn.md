@@ -88,7 +88,7 @@ Klaytn does not sacrifice blockchain’s core characteristics to achieve the abo
 
 ### Governance by Enterprises
 
-- The development and use of Klaytn is backed by the dominant massaging platform giant in Korea. Trusted entities, global listed enterprises that manage the business of hundreds of thousands to billions of dollars, operate Klaytn node and participate in decision making for the development of Klaytn. 
+- The development and use of Klaytn is backed by Kakao, the massaging giant in Korea. Trusted entities, global listed enterprises that manage the business of hundreds of thousands to billions of dollars, operate Klaytn node and participate in decision making for the development of Klaytn. 
 
 
 
