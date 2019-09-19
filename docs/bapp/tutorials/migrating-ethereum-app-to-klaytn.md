@@ -3,13 +3,13 @@
 ## Table of Contents
 
 * [1. Introduction](#1-introduction)
-* [2. Klaytn is keeping compatibility with Ethereum](#2-klaytn-is-keeping-compatibility-with-ethereum)
-* [3. Migrate a node connection from Ethereum to Klaytn](#3-migrate-a-node-connection-from-ethereum-to-klaytn)
-  * 3-1. Interact with Klaytn node: BlockNumber component
-* [4. Interact with the contract](#1-interact-with-the-contract)
-  * 4-1. Deploy Count contract on Klaytn
-  * 4-2. Create a contract instance
-  * 4-3. Interact with contract
+* [2. Klaytn has Ethereum compatibility](#2-klaytn-has-ethereum-compatibility)
+* [3. Migrate node connection from Ethereum to Klaytn](#3-migrate-node-connection-from-ethereum-to-klaytn)
+* [4. Interact with Klaytn node: `BlockNumber` component](#4.-interact-with-klaytn-node:-`blocknumber`-component)
+* [5. Interact with the contract: `Count` component](#5.-interact-with-the-contract:-`count`-component)
+  * [5-1. Deploy Count contract on Klaytn](#5-1.-deploy-count-contract-on-klaytn)
+  * [5-2. Create a contract instance](#5-2.-create-a-contract-instance)
+  * [5-3. Interact with contract](#5-3.-interact-with-contract)
 
 ## 1. Introduction
 
@@ -56,7 +56,7 @@ export default caver
 ```
 
 
-### 3-1. Interact with Klaytn node: `BlockNumber` component
+## 4. Interact with Klaytn node: `BlockNumber` component
 ![blocknumber component](./count-bapp/images/blocknumber-component.gif)
 BlockNumber component get the current block number per 1 second(1000ms).  
 
@@ -85,7 +85,7 @@ export default BlockNumber
 ```
 For more detail about `BlockNumber` component, see [CountBApp tutorial - Blocknumber Component](https://docs.klaytn.com/bapp/tutorials/count-bapp/5.-frontend-code-overview/5-1.-blocknumber-component)
 
-## 4. Interact with the contract: `Count` component
+## 5. Interact with the contract: `Count` component
 
 ![count component](./count-bapp/images/count-component.gif)
 
@@ -93,11 +93,11 @@ To interact with the contract, we first need to create a instance of the depolye
 
 Let's learn step by step how to migrate `CountBApp` from Ethereum to Klaytn!
 
-- 4-1. Deploy `Count` contract on Klaytn
-- 4-2. Create a contract instance
-- 4-3. Interact with contract
+- 5-1. Deploy `Count` contract on Klaytn
+- 5-2. Create a contract instance
+- 5-3. Interact with contract
 
-### 4-1. Deploy `Count` contract on Klaytn
+### 5-1. Deploy `Count` contract on Klaytn
 
 To migrate CountBApp, we need to deploy a Count contract on Klaytn and get the contract address.
 
@@ -147,7 +147,7 @@ module.exports = {
 
 For more details about deploy contract, See [CountBapp tutorial - 6. Deploy Contract](https://docs.klaytn.com/bapp/tutorials/count-bapp/6.-deploy-contract)
 
-### 4-2. Create a contract instance
+### 5-2. Create a contract instance
 
 You can create a contract instance with the `caver-js` API. The contract instance creates a connection to `Count` contract. You can call contract method through this instance.
 
@@ -175,7 +175,7 @@ class Count extends Component {
 export default Count
 ```
 
-### 4-3. Interact with contract
+### 5-3. Interact with contract
 
 The `ABI` \(Application Binary Interface\) used to create the Count contract intance allows the `caver-js` to call contract's methods as below. You can interact with Count contract.
 
