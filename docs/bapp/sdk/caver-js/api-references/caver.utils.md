@@ -1299,7 +1299,7 @@ false
 ```javascript
 caver.utils.isTxHashStrict(input)
 ```
-Returns `true` if input is in transaction hash format, otherwise it returns `false`. This function only looks at the inputs and determines if it is in the format of a transaction hash. Difference to [caver.utils.isTxHash](#istxhash) is that it expects HEX to be prefixed with ``0x``.
+Returns `true` if input is in transaction hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of a transaction hash. Difference to [caver.utils.isTxHash](#istxhash) is that it expects HEX to be prefixed with ``0x``.
 **NOTE** caver.klay.isTxHashStrict is supported from **v1.2.0-rc.1**. To use this feature, please install [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) or higher.
 **Parameters**
 | Name | Type | Description |
