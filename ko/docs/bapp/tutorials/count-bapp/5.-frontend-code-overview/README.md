@@ -32,9 +32,9 @@ if (module.hot) {
 }
 ```
 
-`'index.js'`가 튜토리얼 어플리케이션의 메인 javascript 파일이며, 어플리케이션의 엔트리 포인트입니다.
+`'index.js'`가 튜토리얼 어플리케이션의 메인 자바스크립트 파일이며, 어플리케이션의 엔트리 포인트입니다.
 
-'react-dom' 라이브러리를 사용하여 컨테이너('\#root'\)에서 React의 구성 요소들을 DOM으로 렌더링하고 해당 컴포넌트에 대한 참조를 반환합니다. 즉 'react-dom'을 통해 튜토리얼 어플리케이션의 DOM을 `public/index.html` 파일의 `<div id="root"></div>`로 채우게 됩니다.
+'react-dom' 라이브러리를 사용하여 컨테이너('\#root'\)에서 리액트의 구성 요소들을 DOM으로 렌더링하고 해당 컴포넌트에 대한 참조를 반환합니다. 즉 'react-dom'을 통해 튜토리얼 어플리케이션의 DOM을 `public/index.html` 파일의 `<div id="root"></div>`로 채우게 됩니다.
 
 ## 2\) `public/index.html`:
 
@@ -68,7 +68,7 @@ if (module.hot) {
 
 `index.html`은 튜토리얼 어플리케이션을 렌더링하기 위한 HTML 파일입니다.
 
-자세한 내용은 React 공식 사이트를 참고해주세요. [https://reactjs.org/docs/react-dom.html\#render](https://reactjs.org/docs/react-dom.html#render)
+자세한 내용은 리액트 공식 사이트를 참고해주세요. [https://reactjs.org/docs/react-dom.html\#render](https://reactjs.org/docs/react-dom.html#render)
 
 ## 3\) `src/routes.js`:
 
@@ -93,7 +93,7 @@ export default renderRoutes
 루트 컴포넌트 `'App.js'`는 `'route.js'` 파일에 정의된 하위 컴포넌트들을 렌더링합니다.  
 위 코드에서 브라우저의 URL 경로가 `"/"`이면 `'Count'` 컴포넌트가 rootComponent의 하위로 렌더링됩니다.
 
-자세한 내용은 React 라우터의 github를 참고해주세요. <https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md>
+자세한 내용은 리액트 라우터의 github를 참고해주세요. <https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md>
 
 ## 4\) `src/App.js`:
 
@@ -205,7 +205,7 @@ export default cav
 ```
 
 `caver-js` 라이브러리가 Klaytn 노드에 연결하게 해줍니다.  
-연결이 완료되면 노드로부터 현재 블록 번호를 가져와 스마트 컨트랙트 메서드를 호출할 수 있습니다.
+연결이 완료되면 노드로부터 현재 블록 번호를 가져와 컨트랙트 메서드를 호출할 수 있습니다.
 
 'rpcURL'에 특정 Klaytn 노드를 지정하여 연결할 수 있습니다.
 
