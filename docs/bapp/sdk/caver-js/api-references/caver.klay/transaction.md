@@ -104,7 +104,7 @@ The transaction will not be added to the blockchain.
 caver.klay.decodeTransaction(rawTransaction)
 ```
 Returns a transaction object containing all decoded values from the given `rawTransaction`, an RLP-encoded transaction.
-The v, r, s and payerV, payerR, and payerS of the result returned by the decodeTransaction are the value of the 0th index of the signature of each sender and fee payer.
+The v, r, s and payerV, payerR, payerS of the result returned by the decodeTransaction are the value of the 0th index of the signature of each sender and fee payer.
 
 **NOTE** caver.klay.decodeTransaction is supported from **v1.0.1-rc.8**.  To use this feature, please install [v1.0.1-rc.8](https://www.npmjs.com/package/caver-js/v/1.0.1-rc.8) or higher.
 
