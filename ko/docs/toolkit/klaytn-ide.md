@@ -12,7 +12,7 @@ You can access to the Klaytn IDE at <https://ide.klaytn.com>. This document is a
 2. Supports 2 Solidity versions \(v0.4.24 and v0.5.6\)
 3. Does not support Plugin, Gist add-on, and Swarm.
 
-## Overview
+## 개요
 
 ![](img/klaytn-ide/ide-docs-sections.png)
 
