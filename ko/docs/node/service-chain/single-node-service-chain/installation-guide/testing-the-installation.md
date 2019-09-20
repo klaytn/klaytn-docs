@@ -24,7 +24,7 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kscnd[29636]: Sta
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Started (null).
 ```
 
-You can check the current status such as `Active: active (running)` in the example above.
+위 예시에서와 같이 `Active: active (running)` 등의 현재 상태를 확인할 수 있습니다.
 
 ### kscnd
 
@@ -37,7 +37,7 @@ kscnd is running
 
 ## Logs
 
-The log is stored in `kscnd.out` file located in the path defined in the `LOG_DIR` field of the `kscnd.conf` file. When the node works properly, you can see that each block is imported per second as follows.
+The log is stored in `kscnd.out` file located in the path defined in the `LOG_DIR` field of the `kscnd.conf` file. 노드가 제대로 작동하면 다음과 같이 매초 블록을 가져오는 것을 볼 수 있습니다.
 
 Example:
 
@@ -55,7 +55,7 @@ INFO[02/13,07:02:27 Z] [5] Imported new chain segment                blocks=1 tx
 INFO[02/13,07:02:27 Z] [35] Commit new mining work      
 ```
 
-## Queries
+## 쿼리
 
 ### kscn console
 
@@ -83,7 +83,7 @@ The useful APIs to check the status of SCN:
 
 ### klay.blockNumber
 
-You can get the latest block number to see if blocks are propagated properly.
+최신 블록 번호를 가져와 블록이 제대로 전파되었는지 확인할 수 있습니다.
 
 ```text
 > klay.blockNumber
