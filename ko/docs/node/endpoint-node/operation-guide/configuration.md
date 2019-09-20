@@ -1,26 +1,26 @@
-# Configuration
+# 환경 설정
 
-This document explains the configurable properties of the Endpoint Node. Klaytn node package ships with good defaults and requires very little configuration. If you changed any settings of a running node, you must restart the node to reflect the changes.
+본 문서는 Endpoint Node 속성의 환경 설정에 대해 안내합니다. Klaytn 노드 패키지는 기본적으로 제공되며 별도의 환경 설정은 거의 필요하지 않습니다. 실행중인 노드의 설정을 변경했다면 해당 노드를 재시작해야 변경 사항이 반영됩니다.
 
-## Configuration File location
+## 환경 설정 파일 위치
 
-* `kend.conf` for configuring the Proxy Node
+* Proxy Node 환경 설정 시 `kend.conf`
 
-The configuration file is located in the `conf` directory, whose default location depends on whether or not the installation is from an archive distribution \(`tar.gz`\) or a package distribution \(RPM\).
+이 환경 설정 파일은 `conf` 디렉토리에 있습니다. 해당 디렉토리의 위치는 아카이브 배포 \(`tar.gz`\)인지 또는 패키지 배포 \(RPM\)인지에 따라 기본 설정이 다릅니다.
 
-* For the archive distribution, the config directory location defaults to `$INSTALL_PATH/ken-linux-amd64/conf/`.
-* For the package distribution, the config directory defaults to `/etc/kend/conf/`.
+* 아카이브 배포의 경우 환경 설정 디렉토리의 위치가 `$INSTALL_PATH/ken-linux-amd64/conf/`으로 기본 설정되어 있습니다.
+* 패키지 배포의 경우 환경 설정 디렉토리의 위치가 `/etc/kend/conf/`으로 기본 설정되어 있습니다.
 
-## Configuration File Format
+## 환경 설정 파일 형식
 
-Below is a sample configuration file for the EN that participates in the `cypress` network and stores the blockchain data in the default location, which is `~/kend_home` with the archive distribution, `/var/kend/data` with the package distribution.
+다음은 EN의 환경설정 파일 샘플로, `cypress`네트워크에 참여하고 블록체인 데이터를 기본 설정 위치에 저장하도록 되어 있습니다. 이때 기본으로 설정된 블록체인 데이터 저장 위치는 아카이브 배포의 경우 `~/kend_home`, 패키지 배포의 경우 `/var/kend/data`입니다.
 
 ```text
-# Configuration file for the kend
+# kend의 환경 설정 파일입니다.
 
-# cypress, baobab is only available if you don't specify NETWORK_ID.
-NETWORK="cypress"
-# if you specify NETWORK_ID, a private network is created.
+# NETWORK_ID를 지정하지 않은 경우 cypress와 baobab만을 사용할 수 있습니다.
+NETWORK = "cypress"
+# NETWORK_ID를 명시하면 프라이빗 네트워크가 생성됩니다.
 NETWORK_ID=
 PORT=32323
 SERVER_TYPE="fasthttp"
@@ -35,7 +35,7 @@ DATA_DIR=
 LOG_DIR=$DATA_DIR/logs
 ```
 
-The recommended txpool sizes for EN are as follows.
+아래와 같이 EN의 txpool 크기를 권장합니다.
 
 ```text
 TXPOOL_EXEC_SLOTS_ALL=4096
@@ -44,57 +44,56 @@ TXPOOL_EXEC_SLOTS_ACCOUNT=4096
 TXPOOL_NONEXEC_SLOTS_ACCOUNT=4096
 ```
 
-## Properties
+## 속성
 
-The configuration file has the following configurable properties.
+다음은 환경 설정 파일에서 설정할 수 있는 속성입니다.
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Name</th>
-      <th style="text-align:left">Description</th>
+      <th style="text-align:left">명칭</th>
+      <th style="text-align:left">설명</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">Name</td>
-      <td style="text-align:left">Description</td>
+      <td style="text-align:left">명칭</td>
+      <td style="text-align:left">설명</td>
     </tr>
     <tr>
       <td style="text-align:left">NETWORK</td>
       <td style="text-align:left">
-        <p>Network name that this node will join.</p>
-        <p>This value is used when NETWORK_ID is not defined.</p>
+        <p>노드가 참여할 네트워크의 이름입니다.</p>
+        <p>NETWORK_ID가 정의되지 않은 경우에 사용합니다.</p>
         <p>(&quot;cypress&quot;, &quot;baobab&quot;)</p>
       </td>
     </tr>
     <tr>
       <td style="text-align:left">NETWORK_ID</td>
       <td style="text-align:left">
-        <p>Klaytn network ID.</p>
-        <p>If you create a local private network, you will define the network ID
-          for your own.</p>
-        <p>Following IDs are reserved for pre-configured networks.</p>
-        <p>8217 : Cypress (Main network)</p>
-        <p>1000 : Aspen test network</p>
-        <p>1001 : Baobab test network</p>
+        <p>Klaytn 네트워크 ID입니다.</p>
+        <p>로컬 프라이빗 네트워크를 만들면 프라이빗 네트워크의 ID를 정의합니다.</p>
+        <p>다음은 사전에 구성된 네트워크에 미리 지정된 ID들입니다.</p>
+        <p>8217 : Cypress (메인넷)</p>
+        <p>1000 : Aspen 테스트넷</p>
+        <p>1001 : Baobab 테스트넷</p>
       </td>
     </tr>
     <tr>
       <td style="text-align:left">PORT</td>
-      <td style="text-align:left">P2P port.</td>
+      <td style="text-align:left">P2P 포트</td>
     </tr>
     <tr>
       <td style="text-align:left">SERVER_TYPE</td>
       <td style="text-align:left">
-        <p>JSON RPC server type.</p>
+        <p>JSON RPC 서버 유형</p>
         <p>(&quot;http&quot;, &quot;fasthttp&quot;)</p>
       </td>
     </tr>
     <tr>
       <td style="text-align:left">SYNCMODE</td>
       <td style="text-align:left">
-        <p>Blockchain sync mode.</p>
+        <p>블록체인 동기화 모드</p>
         <p>(&quot;fast&quot;, &quot;full&quot;)</p>
       </td>
     </tr>
