@@ -1364,3 +1364,69 @@ This function converts a number to a [Buffer](https://nodejs.org/api/buffer.html
 > caver.utils.numberToBuffer(new caver.utils.BN(4))
 <Buffer 04>
 ```
+
+## isTxHash
+
+```javascript
+caver.utils.isTxHash(input)
+```
+
+Returns `true` if input is in transaction hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of a transaction hash. **NOTE** caver.klay.isTxHash is supported from **v1.2.0-rc.1**. To use this feature, please install [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) or higher. **Parameters** 
+
+| Name  | Type   | Description                                                                              |
+| ----- | ------ | ---------------------------------------------------------------------------------------- |
+| input | String | The value to be determined if the parameter is in the format of transaction hash or not. |
+
+
+**Return Value** 
+
+| Type    | Description                                              |
+| ------- | -------------------------------------------------------- |
+| Boolean | `true` means the input is in format of transaction hash. |
+
+
+**Examples**
+
+```javascript
+// with '0x' hex prefix
+> caver.utils.isTxHash('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550')
+true
+// without '0x' hex prefix
+> caver.utils.isTxHash('e9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550')
+true
+> caver.utils.isTxHash('0x1')
+false
+```
+
+## isTxHashStrict
+
+```javascript
+caver.utils.isTxHashStrict(input)
+```
+
+Returns `true` if input is in transaction hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of a transaction hash. Difference to [caver.utils.isTxHash](#istxhash) is that it expects HEX to be prefixed with `0x`. **NOTE** caver.klay.isTxHashStrict is supported from **v1.2.0-rc.1**. To use this feature, please install [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) or higher. **Parameters** 
+
+| Name  | Type   | Description                                                                              |
+| ----- | ------ | ---------------------------------------------------------------------------------------- |
+| input | String | The value to be determined if the parameter is in the format of transaction hash or not. |
+
+
+**Return Value** 
+
+| Type    | Description                                                  |
+| ------- | ------------------------------------------------------------ |
+| Boolean | `true` means the input is in the format of transaction hash. |
+
+
+**Examples**
+
+```javascript
+// with '0x' hex prefix
+> caver.utils.isTxHashStrict('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550')
+true
+// without '0x' hex prefix
+> caver.utils.isTxHashStrict('e9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550')
+false
+> caver.utils.isTxHashStrict('0x1')
+false
+```
