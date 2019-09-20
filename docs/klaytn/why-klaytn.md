@@ -1,6 +1,6 @@
 ---
 description: >-
-  This document explains the key design principles of Klaytn and how Klaytn differentiates itself from others. 
+  This document explains the key design principles of Klaytn and illustrates how Klaytn differentiates itself from others. 
 ---
 
 # Why Klaytn
