@@ -1,7 +1,7 @@
 * * *
 
-description: >- This chapter contains practical BApp examples with complete source code and explanation.
+description: >- 이 장에서는 실제 BApp 예제들의 소스 코드와 그에 대한 설명을 다룹니다.
 
 * * *
 
-# Tutorials
+# 튜토리얼
