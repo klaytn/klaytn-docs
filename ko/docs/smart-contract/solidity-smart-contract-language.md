@@ -95,7 +95,7 @@ Some resources for compiling, deploying, and executing smart contracts are liste
 * [Compiling contracts with Truffle](https://truffleframework.com/docs/truffle/getting-started/compiling-contracts)
 * [Deploying contracts with Truffle](https://truffleframework.com/docs/truffle/getting-started/running-migrations)
 
-NOTE: This section will be updated in the future.
+참고: 이 장은 나중에 업데이트 될 예정입니다.
 
 ## Debugging Smart Contracts
 
@@ -105,7 +105,7 @@ It is more difficult to debug Solidity code than to debug code written in other 
 * [Tutorial on debugging transactions with Remix](https://remix-ide.readthedocs.io/en/latest/tutorial_debug.html)
 * [Debugging contracts with Truffle](https://truffleframework.com/docs/truffle/getting-started/debugging-your-contracts)
 
-NOTE: This section will be updated in the future.
+참고: 이 장은 나중에 업데이트 될 예정입니다.
 
 ## Smart Contract Best Practices
 
@@ -113,7 +113,7 @@ To eliminate security concerns and code quality issues from your smart contract,
 
 * [Smart Contract Security Best Practices](https://github.com/ConsenSys/smart-contract-best-practices)
 
-NOTE: This section will be updated in the future.
+참고: 이 장은 나중에 업데이트 될 예정입니다.
 
 ## References
 
