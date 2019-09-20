@@ -1,6 +1,6 @@
-# Creating Accounts
+# 계정 생성
 
-## 새 계정 만들기 <a id="creating-a-new-account"></a>
+## 새로운 계정 생성 <a id="creating-a-new-account"></a>
 
 이렇게 하면 새 계정이 만들어지고 화면에 주소가 인쇄됩니다. 키스토어(keystore) 파일은 데이터 디렉토리 아래에 작성됩니다.
 
