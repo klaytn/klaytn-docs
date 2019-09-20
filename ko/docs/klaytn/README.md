@@ -1,4 +1,4 @@
-# Overview
+# 개요
 
 Klaytn is a highly optimized, BFT-based public blockchain that aims to meet the enterprise-grade reliability. Key design goals are;
 
