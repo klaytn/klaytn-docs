@@ -1,6 +1,6 @@
 # Token Economy
 
-## Overview
+## 개요
 
 Klaytn’s token economy is designed to create sustainable funding structures for powering its ecosystem operations, growth initiatives, and strategic investments. Many public blockchain projects have monetary systems that solely incentivize their node operators \(miners or block producers\), focusing only on the technical aspect of network maintenance. However, such designs miss out on the importance of incentivizing other types of participants who contribute to the growth of the network’s token economy or invest in long-term growth prospects. In contrast, Klaytn’s token economy is designed to compensate more diverse forms of contributions from a wider range of participants, and has built-in funding structure to procure sustained resources to fuel future growth initiatives and strategically sourced investment projects in addition to maintaining its blockchain nodes. For detailed information on Klaytn token economy, please refer to [Token Economy & Governance Paper](https://www.klaytn.com/technology).
 
@@ -58,7 +58,7 @@ The extended imbalance between supply and demand makes economies unsustainable, 
 
 ## Proof of Contribution Operation Plan
 
-### Overview
+### 개요
 
 Only once service onboarding begins can users join the platform. Therefore, we will focus on assessing and rewarding service contributions during the early operation period of the platform.
 
