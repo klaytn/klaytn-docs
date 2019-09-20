@@ -115,7 +115,7 @@ To migrate CountBApp, we need to deploy a Count contract on Klaytn and get the c
 
 1. Change network properties in `truffle-config.js` to deploy contract on Klaytn
 2. Get KLAY to your account at [KLAY faucet](https://baobab.wallet.klaytn.com/access?next=faucet) to receive 5 KLAY
-3. Type `$ truffle deploy --network klaytn`
+3. Type `$ truffle deploy --network klaytn --reset`
 4. `Count` contract will be deployed on Baobab testnet, Klaytn
 
 `truffle-config.js`
