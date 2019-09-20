@@ -1,8 +1,8 @@
-# Install Development Tools
+# 개발 도구 설치하기
 
-## Installing caver-js <a id="installing-caver-js"></a>
+## caver-js 설치 <a id="installing-caver-js"></a>
 
-We recommend to create a klaytn project directory such that:
+다음과 같은 klaytn 프로젝트 디렉토리를 만드는 것이 좋습니다:
 
 ```bash
 $ mkdir $HOME/klaytn
