@@ -1,14 +1,14 @@
-# Testing the Installation
+# 설치 테스트
 
-It is time to check that Endpoint Node is successfully installed and it is working as expected after installation.
+Endpoint Node가 성공적으로 설치되어 잘 작동하는지 점검해보겠습니다. 
 
-## Process Status
+## 프로세스 상태
 
-It is possible to check the status of EN's process using the status commands `systemctl` and `kend`.
+EN's process using the 상태 명령 `systemctl`과 `kend`을 사용하여 EN의 프로세스 상태를 확인할 수 있습니다.
 
 ### systemctl
 
-`systemctl` is installed along with the RPM, and the status of EN can be checked as follows.
+`systemctl`은 RPM과 함께 설치되며 EN의 상태는 다음과 같이 확인할 수 있습니다.
 
 ```bash
 $ systemctl status kend.service
@@ -26,22 +26,22 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kend[29636]: Star
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Started (null).
 ```
 
-You can check the current status such as `Active: active (running)` in the example above.
+위 예시에서와 같이 `Active: active (running)` 등의 현재 상태를 확인할 수 있습니다.
 
 ### kend
 
-`kend` is installed along with the package, and the status of EN can be checked as follows.
+`kend`은 패키지와 함께 설치되며 EN의 상태는 다음과 같이 확인할 수 있습니다.
 
 ```bash
 $ kend status
 kend is running
 ```
 
-## Logs
+## 로그
 
-The log is stored in `kend.out` file located in the path defined in the `LOG_DIR` field of the `kend.conf` file. When the node works properly, you can see that each block is imported per second as follows.
+로그는 `kend.out` 파일에 저장되어 있고, 이 파일은 `LOG_DIR` field of the `kend.conf` 파일의 <0>LOG_DIR</0> 필드에서 정의된 경로에 있습니다. 노드가 제대로 작동하면 다음과 같이 매초 블록을 가져오는 것을 볼 수 있습니다.
 
-Example:
+예시:
 
 ```bash
 $ tail kend.out
@@ -57,13 +57,13 @@ INFO[02/13,07:02:27 Z] [5] Imported new chain segment                blocks=1 tx
 INFO[02/13,07:02:27 Z] [35] Commit new mining work      
 ```
 
-## Queries
+## 쿼리
 
-### ken console
+### ken 콘솔
 
-Klaytn provides a CLI client: `ken console`. Another way of using the client is to connect to the process via IPC \(inter-process communication\). The IPC file `klay.ipc` is located in the `data` directory on an EN.
+Klaytn은 `ken console`라는 CLI 클라이언트를 제공합니다. 클라이언트를 사용하는 또 다른 방법은 IPC \(inter-process communication\)를 통해 프로세스에 연결하는 것입니다. `klay.ipc` IPC 파일은 EN의 `data` 디렉토리에 있습니다.
 
-Please execute the following command and check out the result.
+다음 명령을 실행하고 결과를 확인하세요.
 
 ```text
 $ ken attach /var/kend/data/klay.ipc
@@ -75,16 +75,16 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  >
 ```
 
-You can check the usable commands on [API Document]()
+[API 문서]()를 보시면 유용한 명령어들을 확인할 수 있습니다.
 
-The useful APIs to check the status of EN:
+EN의 상태를 확인하는 유용한 API는 다음과 같습니다.
 
-* `klay.blockNumber` \(to get the latest block number\)
-* `net.peerCount` \(to get the number of the connected Klaytn nodes currently\)
+* `klay.blockNumber` \(최신 블록 번호를 가져옵니다\)
+* `net.peerCount` \(현재 연결된 Klaytn 노드의 수를 가져옵니다\)
 
 ### klay.blockNumber
 
-You can get the latest block number to see if blocks are propagated properly.
+최신 블록 번호를 가져와 블록이 제대로 전파되었는지 확인할 수 있습니다.
 
 ```text
 > klay.blockNumber
@@ -98,4 +98,4 @@ You can get the latest block number to see if blocks are propagated properly.
 14
 ```
 
-The above command line returns the number of nodes that the EN connects to.
+위 명령은 EN이 연결한 노드의 수를 반환합니다.
