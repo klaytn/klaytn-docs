@@ -1,6 +1,6 @@
 # Governance
 
-## Overview
+## 개요
 
 ### Klaytn Governance Council: Co-governed by Klaytn Contributors
 
