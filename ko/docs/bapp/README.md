@@ -1,7 +1,7 @@
 * * *
 
-description: >- This chapter contains the resources for the BApp development - back-end/front-end APIs, tools, and useful tutorials. Go to "Smart Contract" for the details of contract development.
+description: >- 이 장에서는 BApp 개발을 위한 리소스, 즉 백엔드/프론트엔드 API, 도구, 유용한 튜토리얼 등을 다룹니다. 스마트 컨트랙트 개발에 대한 자세한 안내는 "스마트 컨트랙트" 장에서 확인하시기 바랍니다.
 
 * * *
 
-# Overview
+# 개요
