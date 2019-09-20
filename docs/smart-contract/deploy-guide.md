@@ -53,8 +53,8 @@ contract KlaytnGreeter is Mortal {
 ![](img/deploy-with-ide/deploy-with-ide.004.png)
 
 - Set Gas limit and Value to send. 
-- You may need to set higher Gas limit if you are deploying a more complicated contract. In this example, you can leave it as it is.
-- Set `Value` to 0 unless you want to send `KLAY` to the contract at the time of deployment.
+  - You may need to set higher Gas limit if you are deploying a more complicated contract. In this example, you can leave it as it is.
+  - Set `Value` to 0 unless you want to send `KLAY` to the contract at the time of deployment.
 - Enter "Hello World!" as an argument for constructor function and click on `Deploy` button. If everything goes successful, deployed contract's instance will show up below.
 
 ![](img/deploy-with-ide/deploy-with-ide.005.png)
