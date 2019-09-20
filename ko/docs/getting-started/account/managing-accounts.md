@@ -1,4 +1,4 @@
-# Managing Accounts
+# 계정 관리
 
 ## 계정 나열하기
 
