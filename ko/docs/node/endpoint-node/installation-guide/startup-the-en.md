@@ -1,15 +1,15 @@
-# Startup the EN
+# EN 실행
 
-You can start or stop the Endpoint Node using the following commands.
+다음 명령을 사용하여 Endpoint Node를 실행하거나 중지할 수 있습니다.
 
-**start**
+**실행**
 
 ```bash
 $ kend start
 Starting kend: OK
 ```
 
-**stop**
+**중지**
 
 ```bash
 $ kend stop
