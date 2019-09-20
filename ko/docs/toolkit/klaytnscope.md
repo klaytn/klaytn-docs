@@ -92,7 +92,7 @@ Detailed information about single Block, Transaction, Account, and Contract can 
 
 ![](img/scope_08_block_detail.png)
 
-#### Overview
+#### 개요
 
 Overall information about the block.
 
@@ -118,7 +118,7 @@ List of transactions included in the block.
 
 ![](img/scope_09_tx_detail.png)
 
-#### Overview
+#### 개요
 
 Overall information about the transaction.
 
@@ -145,7 +145,7 @@ Extra data provided by the sender or contract.
 
 ![](img/scope_10_account_detail.png)
 
-#### Overview
+#### 개요
 
 Overall information about the account.
 
@@ -162,7 +162,7 @@ The list of transactions related to this account. The color of the arrow indicat
 
 ![](img/scope_11_contract_detail.png)
 
-#### Overview
+#### 개요
 
 Overall information about the contract.
 
