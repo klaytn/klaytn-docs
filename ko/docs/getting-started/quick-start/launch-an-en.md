@@ -1,6 +1,6 @@
-# Launch an Endpoint Node
+# Endpoint Node 실행
 
-## 엔드포인트 노드(Endpoint Node, EN) 다운로드 및 초기화 \(EN\)
+## Endpoint Node\(EN\) 다운로드 및 초기화
 
 제공된 [ken 바이너리 패키지](../../node/endpoint-node/installation-guide/download.md)를 압축 해제하고, 파일을 klaytn 폴더에 복사합니다.  
 **참고**: `ken`으로 시작하는 적합한 패키지를 다운로드하시기 바랍니다.
@@ -71,4 +71,4 @@ INFO[03/26,15:37:49 +09] [5] Imported new chain segment                blocks=1 
 
 ## 문제 해결
 
-Klaytn 엔드포인트 노드 실행에 문제가 있는 경우, [문제 해결](../../node/endpoint-node/operation-guide/errors-and-troubleshooting.md)을 참고하시기 바랍니다.
+Klaytn Endpoint Node 실행에 문제가 있는 경우, [문제 해결](../../node/endpoint-node/operation-guide/errors-and-troubleshooting.md)을 참고하시기 바랍니다.
