@@ -54,10 +54,6 @@ contract KlaytnGreeter is Mortal {
         return greeting;
     }
 }
-CONTEXTEDIT
- 
-Text
-XPath: /pre[4]/code
 ```
 
 ## 마이그레이션(Migration) 스크립트 수정
@@ -111,10 +107,6 @@ module.exports = {
       }
   }
 };
-CONTEXTEDIT
- 
-Text
-XPath: /pre[8]/code
 ```
 
 다음 명령을 사용하여 계약을 배포하세요.
