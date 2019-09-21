@@ -149,9 +149,9 @@ AccountKeyPublic은 하나의 공개키를 가진 계정이 사용할 수 있습
 
 `0x02 + encode(CompressedPubKey)`
 
-**NOTE**: CompressedPubKey is a public key in a compressed format defined in [SEC1](https://www.secg.org/SEC1-Ver-1.0.pdf). In short, 0x02{PubkeyX} if PubkeyY is an even number or 0x03{PubkeyX} otherwise.
+**참고**: CompressedPubKey는 [SEC1](https://www.secg.org/SEC1-Ver-1.0.pdf)에 정의된 압축된 형식의 공개키입니다. 즉, PubkeyY가 짝수이면 0x02{PubkeyX} 이고, 그렇지 않으면 0x03{PubkeyX} 입니다.
 
-#### RLP Encoding \(Example\)
+#### RLP 인코딩 \(예시\)
 
 ```javascript
 prvkey 0xf8cc7c3813ad23817466b1802ee805ee417001fcce9376ab8728c92dd8ea0a6b
@@ -163,13 +163,13 @@ RLP: 0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8
 
 ### AccountKeyFail
 
-If an account has the key AccountKeyFail, the transaction validation process always fails. It can be used for smart contract accounts so that a transaction sent from the smart contract account always fails.
+계정에 AccountKeyFail 키가 있으면 트랜잭션 유효성 검증 프로세스는 항상 실패하게 됩니다. 특정 스마트 컨트랙트 계정에서 전송된 트랜잭션이 항상 실패하도록 사용될 수 있습니다.
 
 #### 속성
 
-| 속성   | Type           | Description                                       |
-|:---- |:-------------- |:------------------------------------------------- |
-| Type | uint8 \(Go\) | The type of AcccountKeyFail. It must be **0x03**. |
+| 속성   | 형식             | 설명                                     |
+|:---- |:-------------- |:-------------------------------------- |
+| Type | uint8 \(Go\) | AcccountKeyFail의 type. 이는 0x03이어야 합니다. |
 
 
 #### RLP 인코딩
@@ -193,7 +193,7 @@ AccountKeyWeightedMultiSig is an account key type containing a threshold and Wei
 
 `0x04 + encode([threshold, [[weight, CompressedPubKey1], [weight2, CompressedPubKey2]]])`
 
-#### RLP Encoding \(Example\)
+#### RLP 인코딩 \(예시\)
 
 ```javascript
 Threshold 3
@@ -248,7 +248,7 @@ The roles can be omitted from the last, and the omitted roles are mapped to the 
 
 This feature is provided to extend more roles in the future. If a new role is provided, the new role of accounts already created with old roles is mapped to the first role.
 
-#### RLP Encoding \(Example\)
+#### RLP 인코딩 \(예시\)
 
 ```javascript
 RoleTransaction Key
