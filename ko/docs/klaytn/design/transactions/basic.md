@@ -52,7 +52,7 @@ TxHashRLP = encode([nonce, gasPrice, gas, to, value, input, v, r, s])
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP Encoding \(Example\)
+### RLP 인코딩 \(예시\)
 
 The following shows the result of RLP serialization and the transaction object:
 
@@ -173,7 +173,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, txSignatures])
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP Encoding \(Example\)
+### RLP 인코딩 \(예시\)
 
 The following shows the result of RLP serialization with the given parameters and the information of the transaction object:
 
@@ -291,7 +291,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, txSigna
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP Encoding \(Example\)
+### RLP 인코딩 \(예시\)
 
 The following shows the result of RLP serialization and the transaction object:
 
@@ -414,7 +414,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, humanRe
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP Encoding \(Example\)
+### RLP 인코딩 \(예시\)
 
 The following shows the result of RLP serialization and the transaction object:
 
@@ -539,7 +539,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, txSigna
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP Encoding \(Example\)
+### RLP 인코딩 \(예시\)
 
 The following shows the result of RLP serialization and the transaction object:
 
@@ -658,7 +658,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, from, rlpEncodedKey, txSignatur
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP Encoding \(Example\)
+### RLP 인코딩 \(예시\)
 
 The following shows the result of RLP serialization and the transaction object:
 
@@ -785,7 +785,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, from, txSignatures])
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP Encoding \(Example\)
+### RLP 인코딩 \(예시\)
 
 The following shows the result of RLP serialization and the transaction object:
 
@@ -893,7 +893,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, from, anchoredData, txSignature
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP Encoding \(Example\)
+### RLP 인코딩 \(예시\)
 
 The following shows the result of RLP serialization and the transaction object:
 
