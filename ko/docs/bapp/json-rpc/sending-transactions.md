@@ -13,7 +13,7 @@ To send a legacy transaction, you can either use `klay_sendTransaction` or get a
 
 1. [klay_sendTransaction](api-references/platform/transaction.md#klay_sendtransaction)
 
-or
+또는
 
 1. [klay_signTransaction](api-references/platform/transaction.md#klay_signtransaction)
 2. [klay_sendRawTransaction](api-references/platform/transaction.md#klay_sendrawtransaction) 
