@@ -61,7 +61,7 @@ $ ken account import --password <passwordfile> <keyfile> --datadir <DATADIR>
 > personal.importRawKey('{private key}', 'mypassword')
 "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"​
 
-// Using a Klaytn wallet key
+// Klaytn 지갑 키 사용
 > personal.importRawKey('{private key}0x000x{address}', 'mypassword')
 "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"
 ```
