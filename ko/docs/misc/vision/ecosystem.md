@@ -4,7 +4,7 @@ In order to maintain the network and strengthen the economic growth at a greater
 
 Proof of Contribution aims to assess the contribution level of all economic entities and provide rewards that correspond to each entity’s level of contribution. Currently, PoC primarily focuses on two types of economic entities: service providers and end users.
 
-### Service Providers
+### 서비스 제공자(Service Providers)
 
 To achieve mass adoption of blockchain technology, it is important to implement and leverage widely popular blockchain applications to create a solid foundation of end users who discover value from such applications. Our service providers play a key role in the Klaytn economy as entities on the supply side. They not only create a supply of services to satisfy end users but also serve as channels of new user acquisition and as anchors of user engagement. Acknowledging their contributions, Klaytn is designing PoC as an incentive mechanism for service providers to effortlessly join the Klaytn platform and enjoy sustained support as they continue to grow in our ecosystem.
 
