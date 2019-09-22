@@ -229,7 +229,7 @@ TXPOOL_NONEXEC_SLOTS_ACCOUNT=4096
     </tr>
     <tr>
       <td style="text-align:left">ADDITIONAL</td>
-      <td style="text-align:left">추가적인 command-line 옵션( 예를 들어, --txpool.nolocals)이 있는 경우 사용합니다.</td>
+      <td style="text-align:left">추가적인 command-line 옵션 (예: --txpool.nolocals)이 있는 경우 사용합니다.</td>
     </tr>
     <tr>
       <td style="text-align:left">DATA_DIR</td>
