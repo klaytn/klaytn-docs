@@ -4,7 +4,7 @@ This document explains how to use Klaytn APIs. Most APIs except Toolkit API supp
 
 **NOTE**: Since few APIs do not support both of remote protocols and Klaytn JavaScript console, APIs available in remote protocols are documented mainly. Rest of APIs will be documented later.
 
-## Enabling APIs
+## API 활성화
 
 To offer the APIs over the Klaytn RPC endpoints, please specify them with the `--${interface}api` command line argument where `${interface}` can be `rpc` for the HTTP endpoint or `ws` for the WebSocket endpoint.
 
