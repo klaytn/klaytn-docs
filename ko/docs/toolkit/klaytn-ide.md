@@ -2,23 +2,23 @@
 
 ![](img/klaytn-ide/ide-overview-all.png)
 
-Klaytn IDE is a browser-based compiler and IDE that helps developers build Klaytn smart contracts with Solidity language. Klaytn IDE also supports test and deployment of smart contracts. Klaytn IDE is forked from Remix 0.7.7.
+Klaytn IDE는 솔리디티 언어로 Klaytn 스마트 컨트랙트를 개발하도록 도와주는 브라우저 기반의 컴파일러 및 IDE입니다. 또한 Klaytn IDE는 스마트 컨트랙트의 테스트 및 배포를 지원합니다. Klaytn IDE는 Remix의 0.7.7 버전으로부터 파생되어 만들어졌습니다.
 
-You can access to the Klaytn IDE at <https://ide.klaytn.com>. This document is an overview of the Klaytn IDE, it explains the major features and the usage guideline. You can find more detailed information in [Remix docs](https://remix-ide.readthedocs.io/en/latest/).
+Klaytn IDE는 <https://ide.klaytn.com>에서 확인하실 수 있습니다. 본 문서는 Klaytn IDE의 개요로, 주요 기능과 사용법에 대해 설명하겠습니다. 더 자세한 내용은 [Remix docs](https://remix-ide.readthedocs.io/en/latest/)를 참고해주세요.
 
-## What's different from Remix?
+## Remix와 차이점
 
-1. Sign-in with Klaytn accounts
-2. Supports 2 Solidity versions \(v0.4.24 and v0.5.6\)
-3. Does not support Plugin, Gist add-on, and Swarm.
+1. Klaytn 계정으로 로그인
+2. 두 개의 솔리디티 버전\(v0.4.24, v0.5.6\) 지원
+3. 플러그인, Gist 애드온, Swarm 미지원
 
 ## 개요
 
 ![](img/klaytn-ide/ide-docs-sections.png)
 
-The layout of the Klaytn IDE is as shown above. There are 4 areas - file explorer, code editor, console, and modules.
+Klaytn IDE의 레이아웃은 다음과 같습니다. 크게 파일 탐색기, 코드 편집기, 콘솔, 모듈 등 4개 기능을 중심으로 Klaytn IDE를 설명할게요.
 
-## 1. File Explorer
+## 1. 파일 탐색기
 
 ![](img/klaytn-ide/ide-file-explorer.png)
 
