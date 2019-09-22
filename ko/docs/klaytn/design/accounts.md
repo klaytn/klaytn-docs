@@ -167,9 +167,9 @@ RLP: 0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8
 
 #### 속성
 
-| 속성   | 형식             | 설명                                     |
-|:---- |:-------------- |:-------------------------------------- |
-| Type | uint8 \(Go\) | AcccountKeyFail의 type. 이는 0x03이어야 합니다. |
+| 속성   | 형식             | 설명                                           |
+|:---- |:-------------- |:-------------------------------------------- |
+| Type | uint8 \(Go\) | AcccountKeyFail의 type. 이는 **0x03**가 되어야 합니다. |
 
 
 #### RLP 인코딩
@@ -178,15 +178,15 @@ RLP: 0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8
 
 ### AccountKeyWeightedMultiSig
 
-AccountKeyWeightedMultiSig is an account key type containing a threshold and WeightedPublicKeys which contains a list whose item is composed of a public key and its weight. To be a valid transaction for an account associated with AccountKeyWeightedMultiSig, the weighted sum of signed public keys should be larger than the threshold.
+AccountKeyWeightedMultiSig는 계정 키 타입입니다. 여기에는 threshold와 WeightedPublicKeys가 저장되어 있습니다. WeightedPublicKeys는 공개키와 공개키의 가중치(weight)로 이루어진 리스트입니다. AccountKeyWeightedMultiSig와 연결된 계정에 대해 유효한 트랜잭션이 되려면 서명된 공개키의 가중치 합계가 임계값(threshold)보다 커야합니다.
 
 #### 속성
 
-| 속성                 | Type                                | Description                                                                                                                    |
-|:------------------ |:----------------------------------- |:------------------------------------------------------------------------------------------------------------------------------ |
-| Type               | uint8 \(Go\)                      | The type of AccountKeyWeightedMultiSig. This must be **0x04**.                                                                 |
-| Threshold          | uint \(Go\)                       | Validation threshold. To be a valid transaction, the weight sum of signatures should be larger than or equal to the threshold. |
-| WeightedPublicKeys | \[\]{uint, \[33\]byte} \(Go\) | A list of weighted public keys. A weighted public key contains a compressed public key and its weight.                         |
+| 속성                 | 형식                                  | 설명                                                                                                      |
+|:------------------ |:----------------------------------- |:------------------------------------------------------------------------------------------------------- |
+| Type               | uint8 \(Go\)                      | AccountKeyWeightedMultiSig의 type입니다. 이는 **0x04**이어야 합니다.                                                |
+| Threshold          | uint \(Go\)                       | 검증 임계값(threshold) 유효한 거래가 되려면 서명의 가중치(weight) 합계가 임계값(threshold) 이상이어야합니다.                              |
+| WeightedPublicKeys | \[\]{uint, \[33\]byte} \(Go\) | 가중 공개키 목록(A list of weighted public keys). 가중 공개키(weighted public key)에는 압축된 공개키와 그 가중치(weight)가 포함됩니다. |
 
 
 #### RLP 인코딩
@@ -215,38 +215,38 @@ RLP: 0x04f89303f890e301a102c734b50ddb229be5e929fc4aa8080ae8240a802d23d3290e5e615
 
 ### AccountKeyRoleBased
 
-AccountKeyRoleBased represents a role-based key. The roles are specified at [Roles](accounts.md#roles).
+AccountKeyRoleBased는 역할기반 키를 의미합니다. 역할은 [Roles](accounts.md#roles)에 명시되어있습니다.
 
 #### 속성
 
-| 속성   | Type                        | Description                                                                                                                            |
-|:---- |:--------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------- |
-| Type | uint8 \(Go\)              | The type of AccountKeyRoleBased. It must be **0x05**.                                                                                  |
-| Keys | \[\]{AccountKey} \(Go\) | A list of keys. A key can be any of AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail, and AccountKeyWeightedMultiSig. |
+| 속성   | 형식                          | 설명                                                                                                               |
+|:---- |:--------------------------- |:---------------------------------------------------------------------------------------------------------------- |
+| Type | uint8 \(Go\)              | AccountKeyRoleBased의 type입니다. 이는 **0x05**이어야 합니다.                                                                |
+| Keys | \[\]{AccountKey} \(Go\) | 키 목록. 키는 AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail 및 AccountKeyWeightedMultiSig 중 하나입니다. |
 
 
-#### Roles
+#### 역할
 
-Roles of AccountKeyRoleBased are defined as below:
+AccountKeyRoleBased의 역할은 다음과 같이 정의됩니다.
 
-| Role              | Description                                                                                                                                                                                                                       |
-|:----------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| RoleTransaction   | Index 0. Default key. Transactions other than TxTypeAccountUpdate should be signed by the key of this role.                                                                                                                       |
-| RoleAccountUpdate | Index 1. TxTypeAccountUpdate transaction should be signed by this key. If this key is not present in the account, TxTypeAccountUpdate transaction is validated using RoleTransaction key.                                         |
-| RoleFeePayer      | Index 2. If this account wants to send tx fee instead of the sender, the transaction should be signed by this key. If this key is not present in the account, a fee-delegated transaction is validated using RoleTransaction key. |
+| 역할                | 설명                                                                                                                             |
+|:----------------- |:------------------------------------------------------------------------------------------------------------------------------ |
+| RoleTransaction   | Index 0. 기본키. TxTypeAccountUpdate 이외의 트랜잭션은 이 역할의 키로 서명해야합니다.                                                                  |
+| RoleAccountUpdate | Index 1. TxTypeAccountUpdate 트랜잭션은 이 키로 서명되어야 합니다. 이 키가 계정에 없으면, RoleTransaction 키를 사용하여 TxTypeAccountUpdate 트랜잭션의 유효성이 검사됩니다. |
+| RoleFeePayer      | Index 2. 이 계정이 발신자 대신 트랜잭션 수수료를 보내려면 이 키로 트랜잭션에 서명해야합니다. 이 키가 계정에 없으면 RoleTransaction 키를 사용하여 수수료 위임 트랜잭션의 유효성이 검사됩니다.         |
 
 
 #### RLP 인코딩
 
 `0x05 + encode([key1, key2, key3])`
 
-Note that key1, key2, and key3 can be any of above keys \(AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail, and AccountKeyWeightedMultiSig\).
+참고: key1, key2 및 key3은 위의 키 (AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail 및 AccountKeyWeightedMultiSig\) 중 하나입니다.
 
-#### Omissible and Extendable Roles
+#### 생략할 수 있고 확장이 가능한 역할
 
-The roles can be omitted from the last, and the omitted roles are mapped to the first role. However, a role in the middle cannot be omitted, which means RoleTransaction and RoleFeePayer cannot be set without RoleAccountUpdate. For example, if a role-based key is set to `0x05 + encode([key1, key2])`, RoleFeePayer works as if the key is set like `0x05 + encode([key1, key2, key1])`.
+역할은 끝에서부터 생략할 수 있으며 생략된 역할은 첫 번째 역할에 매핑됩니다. 그러나, 중간에 있는 역할을 생략할 수 없으므로 RoleAccountUpdate 없이는 RoleTransaction 및 RoleFeePayer를 설정할 수 없습니다. 예를 들어, 역할기반 키가 `0x05 + encode([key1, key2])`로 설정되어있으면, RoleFeePayer는 `0x05 + encode ([key1, key2, key1])`로 설정되어있는 것처럼 작동합니다.
 
-This feature is provided to extend more roles in the future. If a new role is provided, the new role of accounts already created with old roles is mapped to the first role.
+이 기능은 향후 더 많은 역할을 확장하기 위해 제공됩니다. 새 역할이 제공되면 이전 역할로 이미 생성된 새 계정 역할이 첫 번째 역할에 대응됩니다.
 
 #### RLP 인코딩 \(예시\)
 
@@ -269,14 +269,14 @@ PubkeyY 0x94c27901465af0a703859ab47f8ae17e54aaba453b7cde5a6a9e4a32d45d72b2
 RLP: 0x05f898a302a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512db84e04f84b02f848e301a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512de301a10336f6355f5b532c3c1606f18fa2be7a16ae200c5159c8031dd25bfa389a4c9c06a302a102c8785266510368d9372badd4c7f4a94b692e82ba74e0b5e26b34558b0f081447
 ```
 
-## Account Key Type ID
+## 계정 키 유형 ID
 
-Below are the Account Key Type ID assigned to each Account Key Type.
+다음은 각 계정 키 유형에 지정된 계정 키 유형 ID입니다.
 
-| Account Key Type           | Account Key Type ID |
-| -------------------------- | ------------------- |
-| AccountKeyLegacy           | 0x01                |
-| AccountKeyPublic           | 0x02                |
-| AccountKeyFail             | 0x03                |
-| AccountKeyWeightedMultiSig | 0x04                |
-| AccountKeyRoleBased        | 0x05                |
+| 계정 키 유형                    | 계정 키 유형 ID |
+| -------------------------- | ---------- |
+| AccountKeyLegacy           | 0x01       |
+| AccountKeyPublic           | 0x02       |
+| AccountKeyFail             | 0x03       |
+| AccountKeyWeightedMultiSig | 0x04       |
+| AccountKeyRoleBased        | 0x05       |
