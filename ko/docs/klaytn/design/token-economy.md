@@ -1,10 +1,10 @@
-# Token Economy
+# 토큰 이코노미
 
 ## 개요
 
-Klaytn’s token economy is designed to create sustainable funding structures for powering its ecosystem operations, growth initiatives, and strategic investments. Many public blockchain projects have monetary systems that solely incentivize their node operators \(miners or block producers\), focusing only on the technical aspect of network maintenance. However, such designs miss out on the importance of incentivizing other types of participants who contribute to the growth of the network’s token economy or invest in long-term growth prospects. In contrast, Klaytn’s token economy is designed to compensate more diverse forms of contributions from a wider range of participants, and has built-in funding structure to procure sustained resources to fuel future growth initiatives and strategically sourced investment projects in addition to maintaining its blockchain nodes. For detailed information on Klaytn token economy, please refer to [Token Economy & Governance Paper](https://www.klaytn.com/technology).
+Klaytn의 토큰 이코노미는 생태계 운영, 성장 전략, 전략적 투자에 동력을 제공할 수 있도록 지속적인 자금 조달이 가능한 구조로 설계되었습니다. 많은 퍼블릭 블록체인 프로젝트는 네트워크 유지의 기술적 측면에만 초점을 맞춰서 노드 운영자(마이너 또는 블록 생산자)에게만 인센티브를 주는 토큰 이코노미를 가지고 있습니다. 그러나, 이러한 디자인은 네트워크의 성장에 기여하거나 장기 성장 가능성에 투자하는 다른 참여자들에게 인센티브를 제공하지 못합니다. 하지만, 클레이튼의 토큰 이코노미는 광범위한 참여자들이 더 다양한 형태의 기여에 대해 보상을 받을 수 있도록 설계되었습니다. 블록체인 노드를 유지하는 것 외에도 전략적으로 투자를 받은 프로젝트들과 그들의 미래 성장 전략에 지속해서 자원을 공급할 수 있는 자금 조달 구조가 내장되어있습니다. Klaytn의 토큰 이코노미에 대해 더 자세한 정보를 알고 싶다면, [Token Economy & Governance Paper](https://www.klaytn.com/technology)를 참고해주세요.
 
-## Funding Structure
+## 자금 조달 구조(Funding Structure)
 
 Klaytn’s funding structure runs continuously with Klaytn network’s block generation. With every new block, newly issued KLAY and the sum of transaction fees used in the block \(collectively called “block reward”\) are aggregated and distributed to the following three destination accounts in accordance to the predetermined ratio:
 
@@ -12,49 +12,49 @@ Klaytn’s funding structure runs continuously with Klaytn network’s block gen
 * Proof of Contribution \(PoC\): 54%
 * Klaytn Improvement Reserve \(KIR\): 12%
 
-At the time of Klaytn mainnet launch, 9.6 KLAY will be minted per block. This implies that approximately 300 million KLAY will be minted annually, which is equivalent to 3% annual inflation against the 10 billion KLAY issued at genesis \(the annual inflation rate is subject to change through the Klaytn Governance Process\). Transaction fee is charged per OPCODE and is metered according to the transaction fee table. For detailed information on the transaction fee table, please refer to Klaytn Docs \(to be made available on <https://docs.klaytn.com/>\).
+Klaytn 메인넷 출시 시점에는 블록당 9.6 KLAY가 발행됩니다. 따라서, 매년 약 3억개의 KLAY가 발행될 것으로 예상할 수 있습니다. 이는 처음에 발행된 100억 KLAY 대비 연간 3 %의 인플레이션이 일어나는 것과 같습니다(연간 인플레이션율은 Klaytn Governance Process를 통해 변경 될 수 있습니다). 트랜잭션 수수료는 연산자(OPCODE)당 부과되며, 트랜잭션 수수료 표에 따라 책정됩니다. 트랜잭션 수수료 표에 대해서 더 많은 정보가 필요하면 Klaytn Docs \(<https://docs.klaytn.com/>\)를 참고해주세요.
 
 ## Klaytn Governance Council Reward
 
-Klaytn Governance Council is the collective group of Core Cell Operators \(CCOs\). Council members are responsible for maintaining Core Cells \(CCs\), which makes the Council an essential body in the Klaytn ecosystem responsible for providing the underlying infrastructure. To become a Council member, the candidate must undergo a qualification review by the Klaytn Governance Process and must stake at least 5 million KLAY. The Klaytn Governance Council Reward is a structure for incentivizing Council members to continue to provide a stable foundation for the Klaytn ecosystem.
+Klaytn Governance Council은 코어 셀 운영자\(CCOs\) 들의 그룹입니다. Council 구성원은 코어 셀 \(CCs\)을 유지해야 할 책임이 있으며, 이 Council은 Klaytn 생태계에서 기본 인프라 제공을 담당하는 필수 기관이됩니다. Council 멤버가 되려면 Klaytn Governance Process에서 자격 검토를 받아야하며 최소 5 백만 KLAY를 스테이크해야합니다. Klaytn Governance Council 보상은 Council 멤버들이 Klaytn 생태계의 안정적인 기반이 될 수 있도록 인센티브를 제공하는 구조입니다.
 
-### Klaytn Governance Council Reward Mechanism
+### Klaytn Governance Council 보상 메커니즘
 
-For every block, a Committee composed of randomly selected Council members is formed. Each Committee has one member assigned the role of Proposer; all other Committee members assume the role of Validators. When a block is successfully created and added to the Klaytn blockchain, the Proposer of the said block is rewarded with 100% of the block reward. The probability of a Council member being selected a Proposer is proportional to the amount of KLAY staked by the member; that is, the more KLAY a member stakes, the more likely that the member will be selected as a Proposer and potentially claim the block reward.
+모든 블록마다 무작위로 선정된 Council 멤버로 이루어진 위원회가 구성됩니다. 각 위원회는 한 멤버가 제안자(Proposer) 역할을 할당받습니다. 다른 모든 위원회 위원은 검증자(Validator)의 역할을 맡습니다. 블록이 성공적으로 생성되어 Klaytn 블록체인에 추가되면, 해당 블록의 제안자에게는 블록 보상의 100%가 제공됩니다. Council member가 제안자로 선정될 확률은 회원이 스테이크한 KLAY의 양에 비례합니다. 즉, 더 많은 KLAY를 스테이크 할수록 멤버가 제안자로 선정되어 블록보상을 받을 가능성이 커집니다.
 
-As long as the minimum 5 million KLAY staking requirement is met, Klaytn Governance Council members can freely stake or unstake his or her own KLAY. Staking information is updated every 86,400 blocks, and newly staked KLAY comes info effect two update cycles later from when the staking is completed. Withdrawing staked KLAY requires one week of delay to prevent malicious members from immediately exiting.
+요구사항인 최소 500만 KLAY 스테이킹이 충족되는 한 Klaytn Governance Council 멤버는 자신의 KLAY를 자유롭게 스테이크하거나 언스테이크(unstake) 할 수 있습니다. 스테이킹 정보는 86,400블록마다 업데이트되며, 새로 스테이크 된 KLAY는 스테이킹이 완료된 후 두 번의 업데이트 주기 이후에 효력이 생깁니다. 스테이크 된 KLAY를 인출하는 일은 악의적인 멤버가 즉시 빠져나가지 못하도록 일주일 정도 지연됩니다.
 
-To prevent monopolized claiming of Klaytn Governance Council Reward by small groups of highly invested Council members, Gini coefficient may be used to adjust the effective amount of staked KLAY. The application formula is as follows:
+많이 투자한 소규모 그룹의 Council 멤버들이 Klaytn Governance Council 보상을 독점하는 것을 막기 위해 지니 계수(Gini coefficient)가 이용되어 스테이크 된 Klay의 유효 수량을 조정할 수 있습니다. 적용 공식은 다음과 같습니다.
 
-* *Adjusted staking amount = \(Council member's staking amount\)^\(1/1+G\)*
+* *조정된 스테이킹 양(Adjusted staking amount) = \(Council 멤버의 스테이킹 양\)^\(1/1+G\)*
 
-### Penalty for Misbehaving Council Members
+### 잘못된 행동을 하는 Council 멤버에 대한 처벌
 
-A Council member may be subject to penalties for conducting misbehaviors defined below. In the future, more penalty rules can be established and refined through the Klaytn Governance Process.
+Council 멤버는 아래와 같은 잘못된 행동을 하면 처벌의 대상이 될 수 있습니다. 앞으로 Klaytn Governance Process를 통해 더 많은 페널티 규칙이 수립되고 수정될 수 있습니다.
 
-Causing Safety Failure:
+Safety Failure를 일으키는 경우:
 
-* A Council member selected as Proposer may not create more than one block in the same height
-* A Council member selected as Proposer may not intentionally omit certain transactions
+* 제안자로 선택된 Council 멤버는 같은 height에 두 개 이상의 블록을 만들 수 없습니다.
+* 제안자로 선정된 Council 멤버는 의도적으로 특정 트랜잭션을 제외할 수 없습니다.
 
-Causing Liveness Failure:
+Liveness Failure를 일으키는 경우:
 
-* A Council member selected as Proposer must create a valid block
-* A Council member selected as Validator must validate the block proposed by the Proposer
+* 제안자로 선택된 Council 멤버는 유효한 블록을 생성해야 합니다.
+* 검증자로 선정된 Council 멤버는 제안자가 제안한 블록을 검증해야합니다.
 
-## Proof of Contribution
+## 기여 증명(Proof of Contribution)
 
-Klaytn’s token economy depends on economic entities to spontaneously engage in economic activities, creating value and exchanging them with each other in the market. Such activities collectively build up an economy of circulating wealth that drives the economic growth of the entire ecosystem. Klaytn incentivizes and stimulates participants in its economy by evaluating their contributions and compensating them via a transparent evaluation mechanism called Proof of Contribution \(PoC\).
+Klaytn의 토큰 이코노미는 경제 활동에 자발적으로 참여하여 가치를 창출하고 시장에서 가치를 교환하는 경제 주체들에 의해 지탱됩니다. 이런 활동들이 모여 자산이 순환하는 경제를 구축하고, 전체 생태계의 경제적인 성장을 이끕니다. Klaytn은 기여도를 평가하고 기여 증명 \(PoC\)이라는 투명한 평가 메커니즘을 통해 참여자들을 보상함으로써 이코노미 참여자들에게 인센티브를 제공하고 자극합니다.
 
-Proof of Contribution is designed to compensate all participants in the Klaytn token economy that makes meaningful contributions. However, currently, PoC primarily focuses on two types of economic entities: service providers \(providing blockchain application services to end-users\) and end-users \(consumers of service provider’s offerings\).
+기여 증명은 의미 있는 기여를 하는 Klaytn 토큰 이코노미의 모든 참가자를 보상하기 위해 디자인되었습니다. 그러나, 현재 PoC는 주로 두 가지 경제 주체에 초점을 두고 있습니다. 하나는 서비스 제공 업체 \(사용자에게 블록체인 응용 프로그램 서비스를 제공하는)이고, 또 다른 하나는 사용자\(서비스 제공 업체의 서비스를 사용하는 소비자\)입니다.
 
-### Service Providers
+### 서비스 제공자(Service Providers)
 
-In order to achieve mass adoption of blockchain technology, it is important to implement and leverage widely popular, massive blockchain applications - or Killer BApps - to create a solid foundation of end-users who discover and enjoy value from such apps in their daily lives. Service providers play a key role in Klaytn economy as entities on the supply-side; they not only create supply of services to satisfy end-users, but they also serve as channels of new user acquisition and as anchors of user engagement. Acknowledging their contributions, Klaytn is designing PoC as an incentivizing mechanism for service providers to effortlessly onboard the Klaytn platform and enjoy sustained support as they continue to grow in its ecosystem.
+블록체인 기술이 대중화되려면 대규모 블록체인 애플리케이션 또는 Killer BApp이 구현되고 널리 활용되는 것이 중요합니다. 그러면 일상생활 속에서 그런 앱들을 통해 가치를 발견하고 즐기는 사용자층이 두터워질 것입니다. 서비스 제공자는 공급측의 주체로서 Klaytn 이코노미에서 핵심적인 역할을 합니다. 서비스 제공자는 사용자를 만족시키는 서비스를 공급할 뿐만 아니라 새로운 사용자 확보 채널 및 사용자 참여의 앵커 역할도 합니다. 서비스 제공자들의 기여를 알기 때문에, Klaytn은 서비스 제공자들이 쉽게 Klaytn 플랫폼으로 유입되고 생태계가 성장함에 따라 지속적인 지원을 받을 수 있도록 인센티브를 제공하는 PoC를 디자인했습니다.
 
-### End-Users
+### 사용자(End-Users)
 
-The extended imbalance between supply and demand makes economies unsustainable, an observation which places end-users on a key position within Klaytn token economy. End-users are the fundamental driving force behind economic growth as the primary demand-side entities, creating valuable market signals by carefully selecting and using services and sharing reviews with each other. Recognizing the value of end-users, Klaytn is reviewing designs to make PoC an incentivizing mechanism for their contributions to growing the Klaytn ecosystem.
+The extended imbalance between supply and demand makes economies unsustainable, an observation which places end-users on a key position within Klaytn token economy. 사용자는 주요한 수요 주체로서 경제적 성장을 이끄는 근본적인 원동력입니다. 사용자는 서비스를 신중하게 선택하고, 사용하며, 리뷰를 공유함으로써 귀중한 시장 신호(Market signal)를 만듭니다. Klaytn은 사용자의 가치를 인식하여, PoC가 Klaytn 생태계 성장에 기여하는 바에 따라 사용자에게 보상할 수 있는 인센티브 메커니즘이 될 수 있도록 검토하고 있습니다.
 
 ## Proof of Contribution Operation Plan
 
