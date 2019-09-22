@@ -1,8 +1,8 @@
-# Top up your Account
+# 계정에 자금 추가하기
 
-## Attaching to the Console <a id="attaching-to-the-console"></a>
+## 콘솔에 연결하기 <a id="attaching-to-the-console"></a>
 
-Klaytn Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Klaytn API calls to your EN. To attach to the JavaScript console, execute the following command.
+Klaytn Endpoint Node는 자바스크립트 콘솔과 함께 제공됩니다. 콘솔 명령 행에서 EN을 향한 Klaytn API 호출의 일부를 시작할 수 있습니다. 자바스크립트 콘솔에 연결하려면 다음 명령을 실행하세요.
 
 ```bash
 $ ken attach ~/kend_home/klay.ipc
@@ -15,64 +15,64 @@ Welcome to the Klaytn JavaScript console
  ​>
 ```
 
-**NOTE**: You must wait until it downloads all the blocks. Enter `klay.blockNumber` in a console and check whether it matches the current block number [here](https://baobab.scope.klaytn.com/)
+**참고**: 모든 블록을 다운로드 할 때까지 기다려야 합니다. 콘솔에 `klay.blockNumber`를 입력하고 [여기](https://baobab.scope.klaytn.com/)의 현재 블록 번호와 일치하는지 확인하세요.
 
-**NOTE**: Type `klay` or `personal` to get the list of available functions.
+**참고**: `klay` 또는 `personal`을 입력해 사용 가능한 함수 목록을 가져옵니다.
 
 ## 새로운 Klaytn 계정 생성 <a id="creating-a-new-klaytn-account"></a>
 
-To create a new Klaytn account from the JavaScript console, execute the following command. Your private key will be encrypted with the passphrase you enter.
+자바스크립트 콘솔에서 새 Klaytn 계정을 생성하려면 다음 명령을 실행하세요. 개인키는 입력한 암호로 암호화됩니다.
 
 ```javascript
 > personal.newAccount()
-Passphrase:  # enter your passphrase
+Passphrase:  # 암호를 입력하세요
 Repeat passphrase:
-"0x75a59b94889a05c03c66c3c84e9d2f8308ca4abd" # created account address
+"0x75a59b94889a05c03c66c3c84e9d2f8308ca4abd" # 생성된 계정 주소
 ```
 
-Keystore file will be created under `keystore` folder in the EN data directory, `DATA_DIR` set in the `kend.conf`. If you follows the quick start default guideline, it must be `~/kend_home/keystore/`.
+키스토어 파일은 `kend.conf`에서 설정한 `DATA_DIR`인 EN 데이터 디렉토리의 `keystore` 폴더 아래에 생성될 것입니다. 만일 빠른 시작 기본 가이드라인을 따를 경우, 이는`~/kend_home/keystore/`이어야 합니다.
 
 ```javascript
 $ ls ~/kend_home/keystore/
 UTC--2019-06-24T11-20-15.590879000Z--75a59b94889a05c03c66c3c84e9d2f8308ca4abd
 ```
 
-## Unlocking the Klaytn Account <a id="unlocking-the-klaytn-account"></a>
+## Klaytn 계정 잠금 해제 <a id="unlocking-the-klaytn-account"></a>
 
-To unlock the created account, execute the following command. It unlocks the account for 300 seconds. **Note**: If you want to manually set the unlock duration, refer to this [link](https://docs.klaytn.com/api/management/personal#personal_unlockaccount). **`WARNING`**: Unlocking an account could be very dangerous if not done carefully. There are chances that your tokens will be taken away by hackers if your EN is hacked by a hacker. To use safer method, refer to this [deployment guide using private key](https://docs.klaytn.com/tutorials/countbapp/6-deploy-contract#deploy-method-1-by-private-key)​
+생성된 계정을 잠금 해제하려면, 다음 명령을 실행합니다. 이는 300초 동안 계정을 잠금 해제합니다. **참고**: 잠금 해제 기간을 수동으로 설정하려면, 다음 [링크](https://docs.klaytn.com/api/management/personal#personal_unlockaccount)를 참조하세요. **`경고`**: 주의하지 않으면 계정 잠금을 해제하는 것은 매우 위험할 수 있습니다. EN이 해커에 의해 해킹되면, 해커가 토큰을 빼앗을 가능성이 있습니다. 보다 안전한 방법을 사용하려면, 다음의 [개인키를 사용하는 배포 가이드](https://docs.klaytn.com/tutorials/countbapp/6-deploy-contract#deploy-method-1-by-private-key)를 참조하세요.
 
 ```javascript
-> personal.unlockAccount('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # account address to unlock
+> personal.unlockAccount('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # 잠금을 해제할 계정 주소
 Unlock account 75a59b94889a05c03c66c3c84e9d2f8308ca4abd
-Passphrase: # enter your passphrase
+Passphrase: # 암호를 입력하세요
 true
 ```
 
-## Getting testnet KLAY from the Baobab Faucet <a id="getting-testnet-klay-from-the-baobab-faucet"></a>
+## Baobab Faucet에서 테스트넷 KLAY 받기 <a id="getting-testnet-klay-from-the-baobab-faucet"></a>
 
-* Using the Baobab faucet in KlaytnWallet.
-* Access [https://baobab.wallet.klaytn.com](https://baobab.wallet.klaytn.com/).
-* You can either create a new account from the Wallet or use the keystore file you created from the EN JavaScript console above to log into the Wallet.
-* Go to "KLAY Faucet" from the left pane menu, and click the "Run Faucet" button to get 5 KLAY.
+* KlaytnWallet의 Baobab Faucet 사용하기
+* [https://baobab.wallet.klaytn.com](https://baobab.wallet.klaytn.com/) 접근하기
+* 지갑에 로그인하기 위하여 지갑에서 새 계정을 만들거나 위의 EN 자바스크립트 콘솔에서 생성한 키스토어 파일을 사용할 수 있습니다.
+* 왼쪽 창 메뉴에서 "KLAY Faucet"으로 이동해, "Run Faucet" 버튼을 클릭해 5 KLAY를 얻습니다.
     
-    You can run the KLAY Faucet once every 24 hours.
+    KLAY Faucet를 24시간마다 한 번씩 실행할 수 있습니다.
 
-* If you created a new account to get KLAY, then send the KLAY to your created account on the EN.
+* KLAY를 얻기 위해 새 계정을 만든 경우, KLAY를 EN의 생성된 계정으로 보냅니다.
 
-## Checking the Balance in Your Account <a id="checking-the-balance-in-your-account"></a>
+## 계정 잔액 확인 <a id="checking-the-balance-in-your-account"></a>
 
-To see the balance of your account, execute the following command.
+계정의 잔액을 확인하려면, 다음 명령을 실행합니다.
 
-The default unit is peb \(1 KLAY = 10^18 peb\). More information about KLAY units can be found at [Units of KLAY](https://docs.klaytn.com/klaytn/design/computation/exec_model#units-of-klay).
+기본 단위는 peb \(1 KLAY = 10 ^ 18 peb\)입니다. KLAY 단위에 대한 자세한 내용은 [Units of KLAY](https://docs.klaytn.com/klaytn/design/computation/exec_model#units-of-klay)에서 확인할 수 있습니다.
 
 ```javascript
-> klay.getBalance('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # enter your account address
+> klay.getBalance('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # 계정 주소를 입력하세요
 1e+21  # 1000 KLAY
 ```
 
-## Exiting the Console <a id="exiting-the-console"></a>
+## 콘솔 종료 <a id="exiting-the-console"></a>
 
-To leave the javascript console, execute the following command.
+자바스크립트 콘솔을 떠나려면, 다음 명령을 실행하세요.
 
 ```javascript
 > exit
