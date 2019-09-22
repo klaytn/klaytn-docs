@@ -1,1 +1,1 @@
-# Errors & Troubleshooting
+# 에러 & 문제 해결
