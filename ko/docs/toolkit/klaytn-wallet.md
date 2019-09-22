@@ -171,12 +171,12 @@ Your transaction request is completed. You can check the status of the transacti
 
 ## How to Receive Baobab testnet KLAY
 
-The testnet KLAY faucet runs on the Baobab network. The faucet can be accessed from the [Baobab Klaytn Wallet](https://baobab.wallet.klaytn.com).
+The testnet KLAY faucet runs on the Baobab network. Faucet은 [Baobab Klaytn Wallet Klaytn Wallet](https://baobab.wallet.klaytn.com)에서 접근할 수 있습니다.
 
-To receive testnet KLAY, you should have a valid Klaytn account.
+테스트넷 KLAY를 받으려면, 유효한 Klaytn 계정이 있어야 합니다.
 
 * If you do not have an account, please create one by following the steps in [Create a New Account](klaytn-wallet.md#create-a-new-account).
-* Load your account into the wallet by following the steps in [Access Existing Account](klaytn-wallet.md#access-existing-account). Testnet KLAY will be sent to the loaded account. 
+* Load your account into the wallet by following the steps in [Access Existing Account](klaytn-wallet.md#access-existing-account). 테스트넷 KLAY는 로드된 계정으로 전송됩니다. 
 
 ### Step 1. Go to the testnet KLAY Faucet
 
@@ -188,4 +188,4 @@ The requested page will show your address and the current testnet KLAY balance o
 
 ### Step 2. Run Faucet
 
-Clicking `Run Faucet` button will send you 5 testnet KLAY and your balance will be updated. Note that you can run the faucet for each account once every 24 hours.
+Clicking `Run Faucet` button will send you 5 testnet KLAY and your balance will be updated. 24시간마다 한 번씩 각 계정에 대해 Faucet을 실행할 수 있습니다.
