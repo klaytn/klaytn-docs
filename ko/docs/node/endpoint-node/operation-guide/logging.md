@@ -1,9 +1,9 @@
-# Logging
+# 로깅
 
-## Log File Location
+## 로그 파일 위치
 
-## Log File Format
+## 로그 파일 형식
 
-## Log Levels
+## 로그 레벨
 
-## Error Logs
+## 에러 로그
