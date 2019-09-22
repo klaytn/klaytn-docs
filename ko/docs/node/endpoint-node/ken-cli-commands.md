@@ -1,6 +1,6 @@
-# ken CLI commands
+# ken CLI 명령어
 
-`ken` is a command-line interface for Klayrn Endpoint Node.
+`ken` Klaytn Endpoint Node의 명령 줄 인터페이스(CLI)입니다.
 
 ```bash
 USAGE:
@@ -9,20 +9,20 @@ USAGE:
 
 ## 명령어
 
-`ken` has the following commands.
+`ken`에는 다음의 명령어들이 있습니다.
 
 ```bash
-COMMANDS:
-   account     Manage accounts
-   attach      Start an interactive JavaScript environment (connect to node)
-   console     Start an interactive JavaScript environment
-   dumpconfig  Show configuration values
-   init        Bootstrap and initialize a new genesis block
-   version     Show version number
-   help, h     Shows a list of commands or help for one command
+명령어:
+   account     계정을 관리합니다
+   attach      대화형 자바스크립트 환경을 시작합니다 (노드에 연결합니다)
+   console     대화형 자바스크립트 환경을 시작합니다
+   dumpconfig  환경 설정 값을 나타냅니다
+   init        제네시스 블록을 부트스트랩하고 초기화합니다
+   version     버전 번호를 나타냅니다
+   help, h     명령어 리스트 또는 명령어에 대한 도움말을 나타냅니다
 ```
 
-To get a detailed usage guideline for each command, give `-h` option.
+`-h` 옵션을 사용하여 각 명령에 대한 자세한 사용법을 확인해주세요.
 
 ```bash
 $ ken account -h
@@ -57,7 +57,7 @@ participating.
 
 ## 자바스크립트 콘솔
 
-Klaytn Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Klaytn API calls to your EN. To attach to the JavaScript console, execute the following command.
+Klaytn Endpoint Node는 자바스크립트 콘솔과 함께 제공됩니다. 콘솔 명령 행에서 EN을 향한 Klaytn API 호출의 일부를 시작할 수 있습니다. 자바스크립트 콘솔에 연결하려면 다음 명령을 실행하세요.
 
 ```bash
 $ ken attach ~/kend_home/klay.ipc
@@ -70,13 +70,13 @@ Welcome to the Klaytn JavaScript console
  >
 ```
 
-`attach` command connects to the running node, while `console` command launches a node and connects to it.
+명령어 `attach`는 이미 실행 중인 노드에 연결하고, 명령어 `console`은 노드를 새로 실행시키고 연결합니다.
 
 ```bash
-   attach      Start an interactive JavaScript environment (connect to node)
-   console     Start an interactive JavaScript environment
+   attach       대화형 자바스크립트 환경을 시작합니다 (노드에 연결합니다)
+   console      대화형 자바스크립트 환경을 시작합니다
 ```
 
-### JavaScript APIs
+### 자바스크립트 API
 
-For the list of JavaScript Klaytn APIs, please see the [caver-js API references](../../bapp/sdk/caver-js/api-references/README.md).
+자바스크립트 Klaytn API의 목록은 [caver-js API 참조](../../bapp/sdk/caver-js/api-references/README.md)를 참고해주세요.
