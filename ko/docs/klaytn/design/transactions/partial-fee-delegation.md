@@ -1,10 +1,10 @@
-# Partial Fee Delegation
+# 부분 수수료 위임
 
 ## TxTypeFeeDelegatedValueTransferWithRatio
 
-TxTypeFeeDelegatedValueTransferWithRatio is used when a user wants to send tokens. As Klaytn provides multiple transaction types to make each transaction type serve a single purpose, TxTypeFeeDelegatedValueTransferWithRatio is limited to send tokens to an externally owned account. Therefore, TxTypeFeeDelegatedValueTransferWithRatio is accepted only if `to` is an externally owned account. To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecutionWithRatio](partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) instead. The following changes will be made by this transaction type.
+TxTypeFeeDelegatedValueTransferWithRatio는 사용자가 토큰을 보내려고 할 때 사용됩니다. As Klaytn provides multiple transaction types to make each transaction type serve a single purpose, TxTypeFeeDelegatedValueTransferWithRatio is limited to send tokens to an externally owned account. Therefore, TxTypeFeeDelegatedValueTransferWithRatio is accepted only if `to` is an externally owned account. To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecutionWithRatio](partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) instead. The following changes will be made by this transaction type.
 
-1. The fee payer's balance decreases by the given ratio of the transaction fee.
+1. 수수료 지불자의 잔고는 주어진 거래 수수료 비율(fee ratio)에 따라 감소합니다.
 2. The sender's balance decreases by the remaining transaction fee. e.g., If the `feeRatio` is 30, 30% of the fee will be paid by the fee payer, and the remaining 70% of the fee will be paid by the sender.
 3. The sender's nonce increases by one.
 4. `value` KLAY is transferred from the sender to the recipient.
@@ -26,9 +26,9 @@ TxTypeFeeDelegatedValueTransferWithRatio is used when a user wants to send token
 | feePayerSignatures | \[\]{*big.Int, *big.Int, \*big.Int} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                                                                                                                         |
 
 
-### RLP Encoding for Signature of the Sender
+### 발신자의 서명을 위한 RLP 인코딩
 
-To make a signature of the sender, RLP serialization should be done like the following:
+발신자의 서명을 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, feeRatio]), chainid, 0, 0])
@@ -36,9 +36,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <the sender's private key>)
 ```
 
-### RLP Encoding for Signature of the Fee Payer
+### 수수료 지불자의 서명을 위한 RLP 인코딩
 
-To make a signature of the fee payer, RLP serialization should be done like the following:
+수수료 지불자의 서명을 만들려면 RLP serialization를 다음과 같이 수행해야합니다.
 
 ```javascript
 SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, feeRatio]), feePayer, chainid, 0, 0])
@@ -46,9 +46,9 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### RLP Encoding for SenderTxHash
+### SenderTxHash를 위한 RLP 인코딩
 
-To make a SenderTxHash, RLP serialization should be done like the following:
+SenderTxHash를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -57,9 +57,9 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, feeRatio
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### RLP Encoding for Transaction Hash
+### 트랜잭션 해시를 위한 RLP 인코딩
 
-To make a transaction hash, RLP serialization should be done like the following:
+트랜잭션 해시를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
