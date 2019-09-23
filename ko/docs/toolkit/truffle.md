@@ -1,35 +1,35 @@
 # Truffle
 
-## Compatibility with Truffle
+## Truffle과의 호환성
 
-In Klaytn, a smart contract written in Solidity can be compiled and deployed via Truffle. At the moment, Klaytn supports up to Truffle v5.0.26, the latest version at the time of writing. Please find details about Truffle on the websites below.
+Klaytn에서는 솔리디티로 작성된 스마트 컨트랙트를 Truffle을 통해 컴파일하고 배포할 수 있습니다. 현재 Klaytn은 Truffle 최신 버전인 v5.0.26까지 지원합니다. Truffle에 대한 자세한 내용은 아래 웹 사이트를 참고해주세요.
 
-* [Truffle overview](https://truffleframework.com/docs/truffle/overview)
-* [Truffle repository](https://github.com/trufflesuite/truffle)
+* [Truffle 개요](https://truffleframework.com/docs/truffle/overview)
+* [Truffle 레포지토리](https://github.com/trufflesuite/truffle)
 
-You can install Truffle as the following:
+다음과 같이 Truffle을 설치할 수 있습니다.
 
 ```text
 $ sudo npm install -g truffle
 ```
 
-If you have a local EN running, you can deploy contracts directly with truffle framework. For more details, refer to this [link](../getting-started/quick-start/deploy-a-smart-contract.md#deploying-a-smart-contract-using-truffle).
+로컬 EN을 실행 중인 경우 Truffle 프레임워크를 사용하여 직접 컨트랙트를 배포할 수 있습니다. 자세한 내용은 [링크](../getting-started/quick-start/deploy-a-smart-contract.md#deploying-a-smart-contract-using-truffle)를 참고해주세요.
 
-If you want to deploy with a remote EN node, you should use [truffle-hdwallet-provider-klaytn](https://www.npmjs.com/package/truffle-hdwallet-provider-klaytn).
+원격 EN 노드로 배포하려면 [truffle-hdwallet-provider-klaytn](https://www.npmjs.com/package/truffle-hdwallet-provider-klaytn)을 사용해야 합니다.
 
-## Configuring truffle-hdwallet-provider-klaytn
+## truffle-hdwallet-provider-klaytn 환경 설정
 
-truffle-hdwallet-provider-klaytn is a JavaScript HD wallet provider forked from truffle-hdwallet-provider.
+truffle-hdwallet-provider-klaytn은 truffle-hdwallet-provider에서 파생된 자바스크립트 HD 지갑 제공자입니다.
 
-Install as the following
+다음과 같이 설치하세요.
 
 ```text
 $ npm install truffle-hdwallet-provider-klaytn
 ```
 
-Set `truffle-config.js` as below.
+아래와 같이 `truffle-config.js`를 설정하세요.
 
-### Using a mnemonic
+### 니모닉 사용
 
 ```javascript
 const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
@@ -41,17 +41,17 @@ module.exports = {
     development: {
       host: "localhost",
       port: 8545,
-      network_id: "*" // Match any network id
+      network_id: "*" // 모든 네트워크 ID에 대해서
     },
     testnet: {
       provider: () => new HDWalletProvider(mnemonic, "https://api.baobab.klaytn.net:8651"),
-      network_id: '1001', //Klaytn baobab testnet's network id
+      network_id: '1001', // Klaytn baobab 테스트넷의 네트워크 ID
       gas: '8500000',
       gasPrice: null
     },
     mainnet: {
       provider: () => new HDWalletProvider(mnemonic, "https://api.cypress.klaytn.net:8651"),
-      network_id: '8217', //Klaytn mainnet's network id
+      network_id: '8217', // Klaytn 메인넷의 네트워크 ID
       gas: '8500000',
       gasPrice: null
     }
@@ -59,7 +59,7 @@ module.exports = {
 };
 ```
 
-### Using a private key
+### 개인키 사용
 
 ```javascript
 const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
@@ -71,17 +71,17 @@ module.exports = {
     development: {
       host: "localhost",
       port: 8545,
-      network_id: "*" // Match any network id
+      network_id: "*" // 모든 네트워크 ID에 대해
     },
     testnet: {
       provider: () => new HDWalletProvider(privateKey, "https://api.baobab.klaytn.net:8651"),
-      network_id: '1001', //Klaytn baobab testnet's network id
+      network_id: '1001', // Klaytn baobab 테스트넷의 네트워크 ID
       gas: '8500000',
       gasPrice: null
     },
     mainnet: {
       provider: () => new HDWalletProvider(privateKey, "https://api.cypress.klaytn.net:8651"),
-      network_id: '8217', //Klaytn mainnet's network id
+      network_id: '8217', //Klaytn 메인넷의 네트워크 ID
       gas: '8500000',
       gasPrice: null
     }
@@ -89,15 +89,15 @@ module.exports = {
 };
 ```
 
-**WARNING: Be very careful not to expose your mneomonic or private key.**
+**경고: 니모닉 및 개인키가 노출되지 않도록 주의하세요.**
 
-Deploying on Klaytn testnet
+Klaytn 테스트넷에 배포
 
 ```bash
 $ truffle deploy --network testnet
 ```
 
-Deploying on Klaytn mainnet
+Klaytn 메인넷에 배포
 
 ```bash
 $ truffle deploy --network mainnet
