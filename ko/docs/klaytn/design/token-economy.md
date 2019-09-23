@@ -2,21 +2,21 @@
 
 ## 개요
 
-Klaytn의 토큰 이코노미는 생태계 운영, 성장 전략, 전략적 투자에 동력을 제공할 수 있도록 지속적인 자금 조달이 가능한 구조로 설계되었습니다. 많은 퍼블릭 블록체인 프로젝트는 네트워크 유지의 기술적 측면에만 초점을 맞춰서 노드 운영자(마이너 또는 블록 생산자)에게만 인센티브를 주는 토큰 이코노미를 가지고 있습니다. 그러나, 이러한 디자인은 네트워크의 성장에 기여하거나 장기 성장 가능성에 투자하는 다른 참여자들에게 인센티브를 제공하지 못합니다. 하지만, 클레이튼의 토큰 이코노미는 광범위한 참여자들이 더 다양한 형태의 기여에 대해 보상을 받을 수 있도록 설계되었습니다. 블록체인 노드를 유지하는 것 외에도 전략적으로 투자를 받은 프로젝트들과 그들의 미래 성장 전략에 지속해서 자원을 공급할 수 있는 자금 조달 구조가 내장되어있습니다. Klaytn의 토큰 이코노미에 대해 더 자세한 정보를 알고 싶다면, [Token Economy & Governance Paper](https://www.klaytn.com/technology)를 참고해주세요.
+Klaytn의 토큰 이코노미는 생태계 운영, 성장 전략, 전략적 투자에 동력을 제공할 수 있도록 지속적인 펀딩이 가능한 구조로 설계되었습니다. 많은 퍼블릭 블록체인 프로젝트는 네트워크 유지의 기술적 측면에만 초점을 맞춰서 노드 운영자(마이너 또는 블록 생산자)에게만 인센티브를 주는 토큰 이코노미를 가지고 있습니다. 그러나, 이러한 디자인은 네트워크의 성장에 기여하거나 장기 성장 가능성에 투자하는 다른 참여자들에게 인센티브를 제공하지 못합니다. 하지만, 클레이튼의 토큰 이코노미는 광범위한 참여자들이 더 다양한 형태의 기여에 대해 보상을 받을 수 있도록 설계되었습니다. 블록체인 노드를 유지하는 것 외에도 전략적으로 투자를 받은 프로젝트들과 그들의 미래 성장 전략에 지속해서 자원을 공급할 수 있는 펀딩 구조가 내장되어있습니다. Klaytn의 토큰 이코노미에 대해 더 자세한 정보를 알고 싶다면, [Token Economy & Governance Paper](https://www.klaytn.com/technology)를 참고해주세요.
 
-## 자금 조달 구조(Funding Structure)
+## 펀딩 구조(Funding Structure)
 
-Klaytn’s funding structure runs continuously with Klaytn network’s block generation. With every new block, newly issued KLAY and the sum of transaction fees used in the block \(collectively called “block reward”\) are aggregated and distributed to the following three destination accounts in accordance to the predetermined ratio:
+Klaytn의 펀딩 구조는 Klaytn 네트워크의 블록 생성과 함께 지속적으로 운영됩니다. 모든 신규 블록에서 새로 발행된 KLAY와 블록\(총칭 "블록 보상" \)에 사용된 트랜잭션 수수료 합계는 사전 결정된 비율에 따라 다음 세 개의 대상 계정에 집계 및 배포됩니다.
 
-* Klaytn Governance Council Reward: 34%
-* Proof of Contribution \(PoC\): 54%
-* Klaytn Improvement Reserve \(KIR\): 12%
+* Klaytn Governance Council 보상: 34%
+* 기여 증명 \(PoC\) : 54 %
+* Klaytn 개선 준비금 \(KIR\) : 12 %
 
 Klaytn 메인넷 출시 시점에는 블록당 9.6 KLAY가 발행됩니다. 따라서, 매년 약 3억개의 KLAY가 발행될 것으로 예상할 수 있습니다. 이는 처음에 발행된 100억 KLAY 대비 연간 3 %의 인플레이션이 일어나는 것과 같습니다(연간 인플레이션율은 Klaytn Governance Process를 통해 변경 될 수 있습니다). 트랜잭션 수수료는 연산자(OPCODE)당 부과되며, 트랜잭션 수수료 표에 따라 책정됩니다. 트랜잭션 수수료 표에 대해서 더 많은 정보가 필요하면 Klaytn Docs \(<https://docs.klaytn.com/>\)를 참고해주세요.
 
-## Klaytn Governance Council Reward
+## Klaytn Governance Council 
 
-Klaytn Governance Council은 코어 셀 운영자\(CCOs\) 들의 그룹입니다. Council 구성원은 코어 셀 \(CCs\)을 유지해야 할 책임이 있으며, 이 Council은 Klaytn 생태계에서 기본 인프라 제공을 담당하는 필수 기관이됩니다. Council 멤버가 되려면 Klaytn Governance Process에서 자격 검토를 받아야하며 최소 5 백만 KLAY를 스테이크해야합니다. Klaytn Governance Council 보상은 Council 멤버들이 Klaytn 생태계의 안정적인 기반이 될 수 있도록 인센티브를 제공하는 구조입니다.
+Klaytn 거버넌스 카운슬은 코어 셀 운영자\(CCOs\) 들의 그룹입니다. Council 구성원은 코어 셀 \(CCs\)을 유지해야 할 책임이 있으며, 이 Council은 Klaytn 생태계에서 기본 인프라 제공을 담당하는 필수 기관이됩니다. Council 멤버가 되려면 Klaytn Governance Process에서 자격 검토를 받아야하며 최소 5 백만 KLAY를 스테이크해야합니다. Klaytn Governance Council 보상은 Council 멤버들이 Klaytn 생태계의 안정적인 기반이 될 수 있도록 인센티브를 제공하는 구조입니다.
 
 ### Klaytn Governance Council 보상 메커니즘
 
@@ -54,68 +54,68 @@ Klaytn의 토큰 이코노미는 경제 활동에 자발적으로 참여하여 �
 
 ### 사용자(End-Users)
 
-The extended imbalance between supply and demand makes economies unsustainable, an observation which places end-users on a key position within Klaytn token economy. 사용자는 주요한 수요 주체로서 경제적 성장을 이끄는 근본적인 원동력입니다. 사용자는 서비스를 신중하게 선택하고, 사용하며, 리뷰를 공유함으로써 귀중한 시장 신호(Market signal)를 만듭니다. Klaytn은 사용자의 가치를 인식하여, PoC가 Klaytn 생태계 성장에 기여하는 바에 따라 사용자에게 보상할 수 있는 인센티브 메커니즘이 될 수 있도록 검토하고 있습니다.
+수요와 공급 사이의 불균형이 확대되면 경제가 지속 가능하지 않습니다. 따라서, 사용자는 Klaytn 토큰 이코노미 내에서 중요한 위치를 차지합니다. 사용자는 주요한 수요 주체로서 경제적 성장을 이끄는 근본적인 원동력입니다. 사용자는 서비스를 신중하게 선택하고, 사용하며, 리뷰를 공유함으로써 귀중한 시장 신호(Market signal)를 만듭니다. Klaytn은 사용자의 가치를 인식하여, PoC가 Klaytn 생태계 성장에 기여하는 바에 따라 사용자에게 보상하는 인센티브 메커니즘이 될 수 있도록 검토하고 있습니다.
 
-## Proof of Contribution Operation Plan
+## PoC 운영 계획
 
 ### 개요
 
-Only once service onboarding begins can users join the platform. Therefore, we will focus on assessing and rewarding service contributions during the early operation period of the platform.
+서비스 온보딩이 시작된 후에만 사용자가 플랫폼에 참여할 수 있습니다. 따라서, 저희는 플랫폼의 초기 운영 기간 동안 서비스 기여도를 평가하고 보상하는 데 중점을 둘 것입니다.
 
-| Phase 1                |                                                                                                                                                                                                                                                                                                                                                       |
-|:---------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Application**        | Services who want to participate in Proof of Contribution must file an application. Announcement will be made by email when Proof of Contribution scheme starts. You can register yourself on the [Proof of Contribution waiting list here](https://klaytn.typeform.com/to/uKlY16).                                                                   |
-| **Basic Requirements** | \(1\) Services are required to set up fee delegation structure for users. [Checkout Fee Delegation Example here.](../../bapp/tutorials/fee-delegation-example.md) \(2\) Services must be completed onboarding Cypress \(Klaytn Mainnet\). To start onboarding, please [request fee delegation key here](https://klaytn.typeform.com/to/op3xWQ). |
-| **Resources**          | Maximum 80,000,000 KLAY will be distributed to service providers. \(Specific fund scale is subject to change based on block-creation and transaction fee collection situations.\)                                                                                                                                                                   |
-| **Reward Schedule**    | Service Providers will be rewarded on a weekly basis - every Wednesday. Specific amount of reward will be computed based on the blockchain data collected from last week's Wednesday 00:00 ~ Tuesday 23:59 \(UTC+00:00\).                                                                                                                           |
-| **Policy**             | **ON ABUSING** : Services whose performance is found to be fabricated will be disqualified.                                                                                                                                                                                                                                                           |
-| **Notice**             | BApp Reward & KLAY BApp Reward will be operated after a significant number of users have flown in. Platform status will be continuously monitored and the announcement will be made when the condition is satisfied.                                                                                                                                  |
-
-
-### Incentive Programs
-
-|              | 1. BApp Reward                                                                                                                                                      | 2. KLAY BApp Reward                                                                                                                                                                                    |
-|:------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Requirements | • Implementation of TX fee delegation  
-• Smart contract implementation                                                                                             | • Implementation of TX fee delegation  
-• Smart contract implementation  
-• Accepts KLAY payments                                                                                                      |
-| Reward       | Top N services will be rewarded. BApps are ranked based on the following two metrics:  
-• Average daily active users \(DAU\)  
-• Delegated transaction fee amount | Top M services will be rewarded. KLAY BApps are ranked based on the following three metrics:  
-• Average daily active users \(DAU\)  
-• Delegated transaction fee amount  
-• KLAY transaction volume |
+| Phase 1      |                                                                                                                                                                                                                                                    |
+|:------------ |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **신청**       | 기여증명(PoC)에 참여하려는 서비스는 신청서를 제출해야합니다. 기여증명 제도가 시작되면 이메일로 공지할 것입니다. 여기 [기여증명 대기 리스트](https://klaytn.typeform.com/to/uKlY16)에 자신을 등록할 수 있습니다.                                                                                                          |
+| **기본 요구 사항** | \(1\) 서비스는 사용자를 위한 수수료 위임 구조를 설정해야 합니다. [수수료 위임 예시는 여기를 참고하세요.](../../bapp/tutorials/fee-delegation-example.md) \(2\) 서비스는 Cypress 온보딩을 완료해야 합니다. \(Klaytn 메인넷\) 온보딩을 하기 위해서, [여기서 수수료 위임키를 요청해 주세요](https://klaytn.typeform.com/to/op3xWQ). |
+| **자원**       | 최대 80,000,000 KLAY가 서비스 제공자들에게 배포됩니다. \(자금 규모는 블록 생성 및 거래 수수료 수입 상황에 따라 변경될 수 있습니다.\)                                                                                                                                                            |
+| **보상 일정**    | 서비스 제공자는 매주 수요일마다 보상을 받습니다. 보상 금액은 지난 수요일 00:00 ~ 화요일 23:59 \(UTC+00:00\)동안 수집한 블록 체인 데이터를 기반으로 계산됩니다.                                                                                                                                           |
+| **정책**       | **어뷰징인 경우** : 서비스의 퍼포먼스가 조작된 것으로 확인된 서비스는 실격 처리됩니다.                                                                                                                                                                                                |
+| **주의**       | BApp 보상 & KLAY BApp 보상은 상당수의 사용자가 유입된 후에 운영됩니다. 플랫폼 상태는 지속적으로 모니터링되며 조건이 충족되면 알림이 전송됩니다.                                                                                                                                                           |
 
 
-#### 1. BApp Reward
+### 인센티브 프로그램
 
-Incentive scheme for Services which are implemented on Klaytn in the form of smart contracts. Service providers whose services are rank above a certain watermark as set by the criteria listed below will receive additional rewards each week. All services must meet minimum requirements to receive rewards.
+|       | 1. BApp 보상                                                                                       | 2. KLAY BApp 보상                                                                                                     |
+|:----- |:------------------------------------------------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------- |
+| 요구 사항 | • TX 수수료 위임 구현   
+• 스마트 컨트랙트 구현                                                                  | • TX 수수료 위임 구현   
+• 스마트 컨트랙트 구현   
+• KLAY 지불 허용                                                                     |
+| 보상    | N개의 Top 서비스들이 보상을 받습니다. BApp들은 두가지 기준으로 순위가 결정됩니다.   
+• 일평균 활성 사용자 \(DAU\)  
+• 위임된 트랜잭션 수수료 액수 | M개의 Top 서비스들이 보상을 받습니다. BApp들은 세 가지 기준으로 순위가 결정됩니다.   
+• 일평균 활성 사용자 \(DAU\)  
+• 위임된 트랜잭션 수수료 액수   
+• KLAY 트랜잭션 볼륨 |
 
-* Average daily active users \(DAU\): average of daily distinct number of accounts that sent at least 1 transaction to smart contracts of the service.
-* Delegated transaction fee amount: total amount of transaction fee that service provider paid for the user.
 
-The total reward amount as well as the number of beneficiaries are designed to grow proportionally on a step-by-step basis along with the overall growth of Klaytn.
+#### 1. BApp 보상
 
-#### 2. KLAY BApp Reward
+Klaytn에서 스마트 컨트랙트의 형태로 구현되는 서비스에 대한 인센티브 제도입니다. 아래 나열된 기준에 따라 서비스가 특정 기준 이상에 속하는 서비스 제공자는 매주 추가 보상을 받게 됩니다. 모든 서비스는 보상을 받으려면 최소 요구 사항을 충족해야 합니다.
 
-Additional incentive scheme only for KLAY BApps, namely those that accept KLAY as a direct means of using their services. Since those who use KLAY as the payment method contribute more directly to the token economy, service providers whose services are rank above a certain watermark as set by the criteria listed below will receive additional rewards each week. Note that only transactions with KLAY value transfer are subject to evaluation. All services must meet minimum requirements to receive rewards.
+* 일평균 활성 사용자 \(DAU\): 서비스 스마트 컨트랙트에 트랜잭션을 1개 이상 보낸 일별 고유 계정 수의 평균입니다.
+* 위임된 트랜잭션 수수료 액수: 서비스 제공 업체가 사용자에 대해 지급한 총 거래 수수료 액수
 
-* Average daily active users \(DAU\): average of daily distinct number of accounts that sent at least 1 transaction with KLAY value transfer to smart contracts of the service.
-* Delegated transaction fee amount: total amount of transaction fee that service provider paid for the user.
-* KLAY transaction volume: total amount of KLAY that has been sent to smart contracts of the service.
+총 보상 금액과 수혜자 수는 단계적으로 Klaytn의 전반적인 성장과 함께 비례하여 증가하도록 디자인되었습니다.
 
-The total reward amount as well as the number of beneficiaries are designed to grow proportionally on a step-by-step basis along with the overall growth of Klaytn.
+#### 2. KLAY BApp 보상
 
-## Klaytn Improvement Reserve
+KLAY BApps(서비스 사용시 KLAY를 직접적인 지불 수단으로 이용하는 애플리케이션)에 대한 추가 인센티브 제도입니다. 지불수단으로 KLAY를 사용하는 사업자는 토큰 이코노미에 보다 직접적으로 기여하기 때문에, 아래 나열된 기준에 의해 정해진 특정 기준보다 높은 서비스를 제공하는 서비스 제공자는 매주 추가 보상을 받게 됩니다. KLAY를 전송한 트랜잭션만 평가 대상이 됩니다. 모든 서비스는 보상을 받으려면 최소 요구 사항을 충족해야 합니다.
 
-As technology continues to improve and the needs of users change over time, our platform must have the ability to quickly adapt to any new circumstance that arises. To respond to such changes, we must not only work on services, but also undergo various activities to maintain Klaytn’s ecosystem. For instance, research and development for better technology, or projects that contribute to the overall growth of the ecosystem may be part of these activities. These activities are necessary for Klaytn to progress continuously. Therefore, the Klaytn Improvement Reserve \(KIR\) will be managed on the platform for the investment and research on the Klaytn ecosystem.
+* 일평균 활성 사용자 \(DAU\): 서비스 스마트 컨트랙트에 KLAY 전송을 포함한 트랜잭션을 1개 이상 보낸 일별 고유 계정 수 평균입니다.
+* 위임된 트랜잭션 수수료 액수: 서비스 제공 업체가 사용자에 대해 지급한 총 거래 수수료 액수
+* KLAY 트랜잭션 볼륨: 서비스 스마트 컨트랙트에 전송된 총 KLAY 양입니다.
 
-The spending necessary to set up the ecosystem can be categorized as following.
+총 보상 금액과 수혜자 수는 단계적으로 Klaytn의 전반적인 성장과 함께 비례하여 증가하도록 디자인되었습니다.
 
-* Platform: Support for infrastructure, research and development, and the creation of a durable protocol
-* Tools: Create a better development environment to enhance developer experience
-* Community: Create programs to encourage participation in Klaytn’s ecosystem \(community events, meetups, hackathons, etc.\)
-* Others
+## Klaytn 개선 준비금(Klaytn Improvement Reserve)
 
-KIR proposals can be created by any participant in Klaytn’s ecosystem. KIR spending proposals will be processed per KIR Governance Process. Refer to the [Klaytn Improvement Reserve Governance Process](governance.md#klaytn-improvement-reserve-governance-process) section for more information on the procedure. Once a spending proposal has passed, KLAY will be distributed periodically, from a predetermined total amount, based on the project’s level of progress. This process may change based on the project size but is planned to be processed monthly.
+기술은 지속해서 향상되고, 사용자의 요구는 시간이 지나면서 변화합니다. 그러므로 저희 플랫폼은 발생하는 모든 새로운 상황에 신속하게 대처할 수 있는 능력을 갖추어야 합니다. 이러한 변화에 대응하기 위해서 서비스뿐 아니라 Klaytn의 생태계를 유지하기 위해 다양한 활동에 노력을 들여야 합니다. 예를 들어, 더 나은 기술을 위한 연구 개발 또는 생태계의 전반적인 성장에 기여하는 프로젝트가 이러한 활동의 일부입니다. 이러한 활동은 Klaytn이 지속해서 발전하기 위해 필수적입니다. 따라서, Klaytn 개선 준비금\(KIR\)은 Klaytn 생태계에 대한 투자와 연구를 위해 플랫폼에서 관리될 것입니다.
+
+필요한 지출은 다음과 같이 분류할 수 있습니다.
+
+* 플랫폼: 인프라, 연구 개발 및 지속가능한 프로토콜 생성 지원
+* 툴: 개발자 경험을 향상시키기 위해 더 나은 개발 환경 조성
+* 커뮤니티: Klaytn의 생태계 참여를 장려하는 프로그램 \(커뮤니티 이벤트, 모임, 해커 톤 등\).
+* 기타
+
+KIR 제안(proposal)은 Klaytn 생태계의 모든 참여자가 만들 수 있습니다. KIR 지출 제안은 KIR 거버넌스 프로세스에 따라 처리됩니다. 자세한 과정에 대한 정보가 필요하시면 [Klaytn 개선 준비금 거버넌스 프로세스](governance.md#klaytn-improvement-reserve-governance-process)를 참고해주세요. 지출 제안서가 통과되면 프로젝트의 진행 수준에 따라 KLAY는 미리 결정된 총액 안에서 주기적으로 배포됩니다. 이 프로세스는 프로젝트 크기에 따라 변경될 수 있지만 매달 처리될 예정입니다.
