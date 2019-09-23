@@ -111,7 +111,7 @@ Returns a transaction object containing all decoded values from the given `rawTr
 
 **NOTE** caver.klay.decodeTransaction is supported from **v1.0.1-rc.8**. To use this feature, please install [v1.0.1-rc.8](https://www.npmjs.com/package/caver-js/v/1.0.1-rc.8) or higher.
 
-**NOTE** To support multiple signature, `signature` and `feePayerSignature` properties have been added since caver-js [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1).
+**NOTE** To support multiple signature, `signatures` and `feePayerSignatures` properties have been added since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3).
 
 **Parameters**
 
@@ -143,7 +143,7 @@ Returns a transaction object containing all decoded values from the given `rawTr
     v: '0x26',
     r: '0x6fc7412ad1801b4790e7a5a5097fdbef01bc9fe1b970d08232184d110226c221',
     s: '0x4665f772edbc4ba4dfbf189d89a9b9cb1e5cdcea0fd5a8b1a497b9c275e5267c',
-    signature: [ 
+    signatures: [ 
         '0x26',
         '0x6fc7412ad1801b4790e7a5a5097fdbef01bc9fe1b970d08232184d110226c221',
         '0x4665f772edbc4ba4dfbf189d89a9b9cb1e5cdcea0fd5a8b1a497b9c275e5267c' 
@@ -163,7 +163,7 @@ Returns a transaction object containing all decoded values from the given `rawTr
     v: '0x4e43',
     r: '0x99c0a4c85bb9f2c0be2646b963201680e2f76128e4fd1f54d3f9cf80d1d117e7',
     s: '0x69b62aa6640c8aa3606a67869fe062dde1c61a60aea5c5161550ff11ee71c24b',
-    signature: [
+    signatures: [
         [ 
             '0x4e43',
             '0x99c0a4c85bb9f2c0be2646b963201680e2f76128e4fd1f54d3f9cf80d1d117e7',
@@ -174,7 +174,7 @@ Returns a transaction object containing all decoded values from the given `rawTr
     payerV: '0x4e43',
     payerR: '0xbdfdc50649c8f52930a330b2e44d92f8943b28c7ff7edd8ff7f2f95e617c0d77',
     payerS: '0x6e96bdd983494f6967f1a26d2f0ae991a4e8ebef1ac3c9029251a18c19002ab3',
-    feePayerSignature: [ 
+    feePayerSignatures: [ 
         [ 
             '0x4e43',
             '0xbdfdc50649c8f52930a330b2e44d92f8943b28c7ff7edd8ff7f2f95e617c0d77',
@@ -200,7 +200,7 @@ Returns a transaction object containing all decoded values from the given `rawTr
     v: '0x25',
     r: '0xd8cdc1219df8bbca8a00255420a5bec0f602e6266b76ce7dcf5b0b26bd7fe3b9',
     s: '0x5557496a3a17f784c3eb40acbb526dfbc20ae6b00c633a0186d804cd9137b13e',
-    signature: [ 
+    signatures: [ 
         [ 
             '0x25',
             '0xd8cdc1219df8bbca8a00255420a5bec0f602e6266b76ce7dcf5b0b26bd7fe3b9',
@@ -211,7 +211,7 @@ Returns a transaction object containing all decoded values from the given `rawTr
     payerV: '0x25',
     payerR: '0x41a4c4bf0e3039d04472beae4135a14c26ae4c88bad08d5f0acf61f7c0eb60df',
     payerS: '0x3d1658f38e5c2089d64985fb33cb13db2e41cde6958ba2cfcfaba685a7f565e2',
-    feePayerSignature: [ 
+    feePayerSignatures: [ 
         [ 
             '0x25',
             '0x41a4c4bf0e3039d04472beae4135a14c26ae4c88bad08d5f0acf61f7c0eb60df',
