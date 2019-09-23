@@ -57,7 +57,6 @@
   * [Deployment Guide](smart-contract/deploy-guide.md)
   * [Klaytn Compatible Tokens](smart-contract/token-standard.md)
   * [Porting Ethereum Contract](smart-contract/porting-ethereum-contract.md)
-  * [Testing Guide](smart-contract/testing-guide.md)
 
 * [Installation & Operation](node/README.md)
   * [Endpoint Node](node/endpoint-node/README.md)
