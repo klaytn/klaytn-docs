@@ -1,9 +1,9 @@
-# Transaction Fees
+# 트랜잭션 비용
 
-The transaction fee for the current Klaytn virtual machine \(KLVM\) is computed as follows:
+현재 Klaytn 가상머신\(KLVM\)의 트랜잭션 비용은 다음과 같이 계산됩니다.
 
 ```text
-Transaction fee := (total gas used) x (unit price)
+트랜잭션 비용 : = (총 가스 사용량) x (가스 단가)
 ```
 
 * The `total gas used` is computed by KLVM based on the gas cost of the opcode and the intrinsic gas cost.
@@ -19,7 +19,7 @@ Every action that changes the state of the blockchain requires gas. When a node 
 
 `Gas` is a measuring unit representing how much calculation is needed to process the user's transaction.
 
-### Unit Price
+### 단가
 
 `Unit price` is the price for a single gas. The unit price \(also called `gas price`\) is set in the system by the governance. It is currently set to 25 Gpeb \(*i.e.*, 25 x 10^9 peb\) per gas and cannot be changed by user. The current value of the unit price can be obtained by calling the `klay.gasPrice` API.
 
