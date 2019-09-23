@@ -1,5 +1,5 @@
 # Testing Guide
-In this section, we'll introduce how to test smart contracts. Testing is very important aspect of quality smart contract deployment.
+In this section, we'll introduce how to test smart contracts. Because any transaction on the blockchain is not reversible, testing your smart contract is crucial before you deploy the contract. 
 
 ## Testing with Truffle
 Truffle provides an automated testing framework. This framework lets you write simple and manageable tests in two different ways:  
