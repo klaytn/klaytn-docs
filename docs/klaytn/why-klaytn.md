@@ -9,7 +9,7 @@ Ever since the first bitcoin transaction in 2009, numerous blockchain applicatio
 
 - Difficulty of use: Blockchain applications force end-users to understand cryptographic terms and the inner workings of the system. There are too many steps in making transactions, and hex-strings pop up all over.
 - Poor user experience: The burden of technical immaturity is simply passed to the users. In many blockchain systems, a transaction is not confirmed until significant time passes. Use of application often requires password inputs repeatedly (while there are no password recoveries), and charges a fee for each interaction (where the amount of fee can be highly fluctuating each time). 
-- Uncertain sustainability: Lack of long-term sustainable business models for public blockchains. The operation heavily relies on the token economy that incentivizes the stakeholders to act in a sustainable manner, but the model is not proven in commercial areas yet.
+- Uncertain sustainability: Lack of long-term sustainable business models for public blockchains slows down enterprise adoption. The operation heavily relies on the token economy that incentivizes the stakeholders to act in a sustainable manner, but the model is not proven in commercial areas yet.
 
 ## Klaytn is aiming at Mass-adoption of Blockchain
 
