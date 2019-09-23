@@ -6,6 +6,6 @@ structure:
 
 redirects:
   getting_started: ./getting-started/README.md
-  token_economy: ./klaytn/design/token-economy.md
-  token_economy#proof-of-contribution: ./klaytn/design/token-economy.md#proof-of-contribution
+  klaytn/token_economy: ./klaytn/design/token-economy.md
+  klaytn/token_economy#proof-of-contribution: ./klaytn/design/token-economy.md#proof-of-contribution
   vision: ./misc/vision/README.md

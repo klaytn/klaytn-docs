@@ -3,11 +3,6 @@
 * [Welcome](README.md)
 
 * [Klaytn Overview](klaytn/README.md)
-  * [Why Klaytn](klaytn/why-klaytn/README.md)
-    * [High Performance Low Cost](klaytn/why-klaytn/high-performance-low-cost.md)
-    * [Usability Enhancement](klaytn/why-klaytn/usability-enhancement.md)
-    * [Scalable Architecture](klaytn/why-klaytn/scalable-architecture.md)
-    * [Value-added Enterprise Solutions](klaytn/why-klaytn/value-added-enterprise-solutions.md)
   * [Klaytn Design](klaytn/design/README.md)
     * [Consensus Mechanism](klaytn/design/consensus-mechanism.md)
     * [Accounts](klaytn/design/accounts.md)
@@ -58,7 +53,9 @@
     * [ERC-721](smart-contract/sample-contracts/erc-721/README.md)
       * [1. Writing ERC-721 Smart Contract](smart-contract/sample-contracts/erc-721/1-erc721.md)
       * [2. Deploying Smart Contract](smart-contract/sample-contracts/erc-721/2-erc721.md)
+  * [Deployment Guide](smart-contract/deploy-guide.md)
   * [Klaytn Compatible Tokens](smart-contract/token-standard.md)
+  * [Porting Ethereum Contract](smart-contract/porting-ethereum-contract.md)
   * [Testing Guide](smart-contract/testing-guide.md)
 
 * [Installation & Operation](node/README.md)
