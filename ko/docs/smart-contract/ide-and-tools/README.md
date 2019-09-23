@@ -1,9 +1,9 @@
 ---
 description: >-
-  This page contains the list of development tools that is available to help smart contract development on Klaytn.
+  이 페이지는 Klaytn의 스마트 컨트랙트 개발을 돕는 개발 도구 목록이 포함되어 있습니다.
 ---
 
-# IDE and Tools
+# IDE 및 도구
 
 #### Klaytn IDE
 
