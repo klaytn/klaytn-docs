@@ -60,7 +60,7 @@ Testing with Solidity can be a little bit more intuitive than JavaScript tests. 
 Create a file called `TestKlaytnGreeting.sol` in the `test` folder. The Truffle suite provides us with helper libraries for testing, so we need to import those.
 Let's take a look at the example Solidity test:
 ```
-pragma solidity ^0.4.20;
+pragma solidity ^0.5.6;
 
 import "truffle/Assert.sol";
 import "truffle/DeployedAddresses.sol";
