@@ -17,7 +17,7 @@
     * [연산 비용](klaytn/design/computation/computation-cost.md)
     * [Klaytn 가상머신](klaytn/design/computation/klaytn-virtual-machine.md)
   * [Storage](klaytn/design/storage.md)
-  * [Transaction Fees](klaytn/design/transaction-fees.md)
+  * [트랜잭션 비용](klaytn/design/transaction-fees.md)
   * [Klaytn native coin - KLAY](klaytn/design/klaytn-native-coin-klay.md)
   * [토큰 이코노미](klaytn/design/token-economy.md)
   * [Governance](klaytn/design/governance.md)
@@ -56,6 +56,7 @@
     * [2. Deploying Smart Contract](smart-contract/sample-contracts/erc-721/2-erc721.md)
   * [Deployment Guide](smart-contract/deploy-guide.md)
   * [Klaytn Compatible Tokens](smart-contract/token-standard.md)
+  * [Porting Ethereum Contract](smart-contract/porting-ethereum-contract.md)
 * [Installation & Operation](node/README.md)
   
   * [Endpoint Node](node/endpoint-node/README.md)
