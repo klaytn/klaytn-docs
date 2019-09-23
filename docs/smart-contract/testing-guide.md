@@ -198,7 +198,7 @@ If you are unfamiliar with `Mocha` unit test, please check the [Mocha document](
 
 * Use contract() instead of describe()  
 Structurally, the Truffle test code shouldn't be much different from the usual test code of Mocha. Your test should contain the code that Mocha will recognize it as an automated test. The difference between Mocha and Truffle test is the contract() function.  
-**NOTE:** Use of the contract() function, the `account` array for specifying available accounts.
+**NOTE** the use of the `contract()` function, and the `accounts` array for specifying available Klaytn accounts.
 
 * Contract abstractions within your tests  
 Since Truffle has no way of detecting which contract you'll need to interact with during test, you should specify the contract explicitly. One way to do this is by using the `artifacts.require()` method. 
