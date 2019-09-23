@@ -13,7 +13,7 @@
   * 4.1 `feepayer_server.js` 실행
   * 4.2 `sender_client.js` 실행
   * 4.3 `feepayer_server.js` 확인
-  * 4.4 Klaytn scope
+  * 4.4 Klaytnscope
 
 ## 1. 소개
 
@@ -275,9 +275,9 @@ receipt { blockHash:
   value: '0x9184e72a000' }
 ```
 
-### 4.4 Klaytn scope
+### 4.4 Klaytnscope
 
-위 트랜잭션은 [Klaytn scope](https://baobab.scope.klaytn.com)에서 확인하실 수도 있어요.
+위 트랜잭션은 [Klaytnscope](https://baobab.scope.klaytn.com)에서 확인하실 수도 있어요.
 
 위의 예제는 이 트랜잭션의 타입이`TxTypeFeeDelegatedValueTransfer`이고 `Fee payer` \(트랜잭션 비용 납부자\)의 주소가 `0x2645ba5be42ffee907ca8e9d88f6ee6dad8c1410`, 즉 `feepayerAddress`에 입력된 주소임을 나타냅니다. 이때 `From`은 `Fee payer`와는 다른 주소로 위 예제에서의 <0>senderAddress</0>임을 확인하실 수 있습니다.
 
