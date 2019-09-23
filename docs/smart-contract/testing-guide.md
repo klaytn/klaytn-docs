@@ -7,11 +7,9 @@ Truffle provides an automated testing framework. This framework lets you write s
 * In `Solidity`, for exercising your contracts in advances, bare-to-the-metal scenarios.
 
 ### 1) Getting started
-We suppose that you made KlaytnGreeting project and deployed contract. The greeting message is "Hello, Klaytn".
+We will follow the [Deployment Guide using Truffle](./deploy-guide.md#truffle) to create a contract and deploy it. But, before we deploy it, we will add a setter function `setGreet` to the contract for testing purpose. The source code is given below.
 
 
-Please refer to following page for deploying : 
-* Truffle part of [Deploy guide](./deploy-guide.md).  
 **NOTE:** We have made some modifications to the contract for testing.
 
 Below is KlaytnGreeting contract source code.
@@ -50,17 +48,17 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-We will testing 1) `greet()` function whether it returns "Hello, Klaytn" message properly, 2) `setGreet()` function whether it set new greeting message properly and revert when non-owner account attemps to update the greeting.
+We will test 1) `greet()` function whether it returns "Hello, Klaytn" message properly, 2) `setGreet()` function whether it set new greeting message properly and reverts when non-owner account attempts to update the greeting.
 
-First we will install the Chai assertions library (or a different assertions library) for generic assertions, and the truffle-assertions library for the smart contract assertions.
+First, we will install the Chai assertions library (or any different assertions library you use) for generic assertions, and the truffle-assertions library for the smart contract assertions.
 ```
 npm install --save-dev chai truffle-assertions
 ```
-### 2) Wirting test in solidity
- Solidity test contracts live alingside Javascript tests and it can be little more intuitive.
+### 2) Writing test in Solidity
+Testing with Solidity can be a little bit more intuitive than JavaScript tests. Solidity test contracts live alongside JavaScript tests as .sol files. 
 
 Create a file called `TestKlaytnGreeting.sol` in the `test` folder. The Truffle suite provides us with helper libraries for testing, so we need to import those.
-Let's take a look an example Solidity test:
+Let's take a look at the example Solidity test:
 ```
 pragma solidity ^0.4.20;
 
@@ -68,8 +66,8 @@ import "truffle/Assert.sol";
 import "truffle/DeployedAddresses.sol";
 import "../contracts/HashMarket.sol";
 ```
-* Assert : It gives us access to various testing functions, like Assert.equals(), Assert.greaterThan(), etc.
-* DeployedAddresses : It messages contract addresses and manage deployed address. Since every time you change your contract, you must redeploy it to a new contract address.
+* Assert : It gives us access to various testing functions, like `Assert.equals()`, `Assert.greaterThan()`, etc.
+* DeployedAddresses : Every time you change your contract, you must redeploy it to a new address. You can get the deployed contract addresses through this library. 
 
 Now, Let's wirte a test code.
 ```
@@ -128,8 +126,8 @@ Compiling your contracts...
       at processResult (/Users/jieunkim/.nvm/versions/node/v10.16.0/lib/node_modules/truffle/build/webpack:/packages/core/lib/testing/soliditytest.js:69:1)
       at process._tickCallback (internal/process/next_tick.js:68:7)
 ```
-Oops, we failed. Let's check a error message that it said `Error: greeting message should match (Tested: Hello, Klaytn, Against: Hello Klaytn)`.
-I can see that missed `',(comma)'` at *string memory expectedGreet = "Hello Klaytn"*.  
+Oops, we failed. Let's check the error message,`Error: greeting message should match (Tested: Hello, Klaytn, Against: Hello Klaytn)`.
+I can notice the missed `',(comma)'` at *string memory expectedGreet = "Hello Klaytn"*.  
 Fix the code and run the test again.
 ```
 $ truffle test
@@ -151,12 +149,12 @@ Compiling your contracts...
 ```
 Congratulations! Your test has passed.
 
-### 3) Writing test in javascript
-Truffle uses the [Mocha](https://mochajs.org/) testing framework and [Chai](https://www.chaijs.com/) for assertions to provide you with a solid framework from which to write your Javascript test. Javascript test gives you many more possibilities and enables you to wirte more complex test.
+### 3) Writing test in JavaScript
+Truffle uses the [Mocha](https://mochajs.org/) testing framework and [Chai](https://www.chaijs.com/) assertion library to provide a solid framework for JavaScript test. JavaScript test gives you more flexibility and enables you to write more complex tests.
 
-Let's create a file and name it `0_KlaytnGreeting.js` at `test` directory.  
+Let's create a file and name it `0_KlaytnGreeting.js` under `test` directory.  
 The test code is: 
-```
+```javascript
 // Interacting directly with KlaytnGreeter contract
 const KlaytnGreeter = artifacts.require("./KlaytnGreeter.sol");
 const truffleAssert = require('truffle-assertions');
@@ -196,20 +194,20 @@ contract("KlaytnGreeter", async(accounts) => {
     });
 });
 ```
-If you're unfamiliar with `Mocha` unit test, please check the [Mocha document](https://mochajs.org/#getting-started).
+If you are unfamiliar with `Mocha` unit test, please check the [Mocha document](https://mochajs.org/#getting-started).
 
 * Use contract() instead of describe()  
-Structurally, testing shouldn't be much different from Mocha's. Your tests should contain code that Mocha will recognize as an automated test. The difference between Mocah and Truffle test is the contract() function.  
+Structurally, the Truffle test code shouldn't be much different from the usual test code of Mocha. Your test should contain the code that Mocha will recognize it as an automated test. The difference between Mocha and Truffle test is the contract() function.  
 **NOTE:** Use of the contract() function, the `account` array for specifying available accounts.
 
 * Contract abstractions within your tests  
-Since Truffle has no way of detecting which contracts you'll need to interact with during tests, you'll need to ask for those contracts explicitly. One way do this is using the `artifacts.require()` method. 
+Since Truffle has no way of detecting which contract you'll need to interact with during test, you should specify the contract explicitly. One way to do this is by using the `artifacts.require()` method. 
 
-* `it` syntax
-This describes the test we'll write and presents a message for us to know the purpose of the test. You can check test message `"#1 check Greeting message"` from output below.
+* `it` syntax  
+This represents each test case with description. The description will print on the console on test-run. 
 
-* `truffle-assertion` library
-This library allows you to easily test this revert functionality by offering the truffleAssert.reverts() and truffleAssert.fails() functions.
+* `truffle-assertion` library  
+This library allows you to easily test reverts or other failures by offering the `truffleAssert.reverts()` and `truffleAssert.fails()` functions.
 
 The output should looks like the following:
 ```
