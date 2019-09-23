@@ -209,7 +209,7 @@ This represents each test case with description. The description will print on t
 * `truffle-assertion` library  
 This library allows you to easily test reverts or other failures by offering the `truffleAssert.reverts()` and `truffleAssert.fails()` functions.
 
-The output should looks like the following:
+The output should like the following:
 ```
 Using network 'development'.
 
