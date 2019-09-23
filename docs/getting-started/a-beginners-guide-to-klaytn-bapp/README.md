@@ -4,7 +4,8 @@
 This page is for developers who are new to BApp. We introduce process of creating Klaytn-based decentralized blockchain application.
 
 ## What is BApp?
-DApp is abbreviated form for Decentralized Application. If you are already familiar with DApps, you can understand Klaytn's BApp in the simillar way. If not, you need to understand what BApp(Blockchain Application) is. Just as Apple and Goole provide an echosystem for building platforms and createing apps on OS, blockchain platforms(ex. Klaytn, Ethereum, EOS etc.) can also create and run application on them. Blockchain application has following features:
+DApp is abbreviated form for Decentralized Application. If you are already familiar with DApps, you can understand Klaytn's BApp in the simillar way. If not, you need to understand what BApp(Blockchain Application) is. [The Klaytn BAPP](../../misc/vision/bapps.md) shows why we use the word BApp instead of DApp.  
+Just as Apple and Goole provide an echosystem for building platforms and createing apps on OS, blockchain platforms(ex. Klaytn, Ethereum, EOS etc.) can also create and run application on them. Blockchain application has following features:
 * It's open source and operate autonomously without any entity controlling majority.
 * Storing data on blockchain.(once data is stored on the blockchain, it can't be reverted or transformed.)
 
@@ -31,7 +32,7 @@ There are two main development environments for implementing DApps. The backend 
     * Ganache
     Ganache is a local in-memory blockchain. You can install Ganache by [downloading it from the Truffle Framework website](https://www.trufflesuite.com/ganache). It will give a 10 external accounts with addresses on our local blockcahin. Each account is preloaded with fake ether.
 
-3. Communicatie with the blockcahin  
+3. communicate with the blockcahin  
 The easist and most common tool to communicate with the Klaytn blockchain is `caver`. You can install caver with npm in your command line and if you wannt to know how to use it refer [caver-js](../../bapp/sdk/caver-java/porting-from-web3j.md)
 
 4. Learn smart contract languages  
@@ -49,7 +50,7 @@ A developer coding smart contracts must follow the following broad guidelines fo
     * The code must avoid complexity, because the more complex the code is, the higher is the likelihood of errors. The outcome of a smart contract is irreversible, hence coding simple error-free smart contracts is imperative.
     * You should be aware of the known security issues for developing your contract. Please refer to [Smart contract Security Best Practices](https://consensys.github.io/smart-contract-best-practices/).
 
-6. Deply your smart contract  
+6. [Deploy](../../smart-contract/deploy-guide.md) your smart contract  
     You can deploy your smart contract by using Truffle or on [IDE](https://ide.klaytn.com/). The tool suite recommended is `Truffle` because it has the following advantages
     * A directory allows the developer to maintain all smart contracts
     * The tool can easily blend into the testing framework because the scripts can deploy the contracts in the test environment, run `truffle test`, and run regular tests.
@@ -82,4 +83,4 @@ Following are the resources for the individual steps:
     7\) [Klaytn web wallet](https://wallet.klaytn.com/)
 
 ---
-It was a lot of stuff. If you're feeling overwhelmed, we suggest you to take it slow and refer to this simple [tutorial](../../bapp/tutorials/bapp-on-baobab-video-lecture/1.-introduction.md).
+It was a lot of stuff sounds too informal. If you're feeling overwhelmed, we suggest you to take it slow and refer to this simple [tutorial](../../bapp/tutorials/bapp-on-baobab-video-lecture/1.-introduction.md).
