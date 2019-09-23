@@ -116,7 +116,7 @@ Truffle is the most popular framework for smart contract deployment and executio
     };
     
 
-- Set `truffle-config.js` as below. Make sure you enter the private key of an account that has enough `KLAY` to deploy the contract. 
+- 아래와 같이 `truffle-config.js`를 설정하세요. Make sure you enter the private key of an account that has enough `KLAY` to deploy the contract. 
 
     const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
     
