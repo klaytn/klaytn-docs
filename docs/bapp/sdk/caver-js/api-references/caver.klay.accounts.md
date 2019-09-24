@@ -607,7 +607,7 @@ Returns an account that has an address derived from the given private key. See [
 
 | Name | Type | Description |
 | --- | --- | --- |
-| key | String | The parameter to get an account that has a key as a legacy account key. Key can be a raw private key format of a 32-byte string type and also can be a [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format. In the KlaytnWalletKey format, only the portion corresponding to the private key is used.|
+| key | String | The parameter used to get an account that has a legacy account key. Key can be a 32-byte string private key or a [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format). In KlaytnWalletKey, only the portion corresponding to the private key is used. |
 
 
 **Return Value**
