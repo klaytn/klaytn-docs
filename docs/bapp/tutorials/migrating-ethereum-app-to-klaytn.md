@@ -35,7 +35,7 @@ CountBApp is tested in the following environment.
 
 ## 2. Klaytn has Ethereum compatibility
 
-Klaytn runs similar to Ethereum except for the consensus algorithm. It even keeps compatibility with Ethereum Byzantium in RPC/API interfaces and executes smart contracts written in Solidity. Since Klaytn keeps compatibility with Ethereum, Javascript API for creating BApps are similar too. So it's easy to migrate Ethereum App to Klaytn enabling developers soft-landing on a new blockchain platform.
+Klaytn runtime environment is compatible with Ethereum Virtual Machine and executes smart contracts written in Solidity. Klaytn's RPC APIs and other client libraries maintain almost identical API specifications with Ethereum's whenever available. Therefore, it is fairly straightforward to migrate Ethereum Apps to Klaytn. This helps developers easily move to a new blockchain platform.
 
 ## 3. Change node connection from Ethereum to Klaytn
 
