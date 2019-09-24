@@ -601,7 +601,7 @@ false
 ```javascript
 caver.klay.accounts.getLegacyAccount(key)
 ```
-Returns account which has input private key as legacy account key.
+Returns an account that has an address derived from the given private key. See [AccountKeyLegacy](../../../../klaytn/design/accounts.md#accountkeylegacy).
 
 **Parameters**
 
