@@ -1,6 +1,6 @@
 # Testing the Installation
 
-## Process Status
+## 프로세스 상태
 
 It is possible to check the status of SCN's process using the status commands `systemctl` and `kscnd`.
 
@@ -35,11 +35,11 @@ $ kscnd status
 kscnd is running
 ```
 
-## Logs
+## 로그
 
 The log is stored in `kscnd.out` file located in the path defined in the `LOG_DIR` field of the `kscnd.conf` file. 노드가 제대로 작동하면 다음과 같이 매초 블록을 가져오는 것을 볼 수 있습니다.
 
-Example:
+예시:
 
 ```bash
 $ tail kscnd.out
@@ -59,9 +59,9 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work
 
 ### kscn console
 
-Klaytn provides a CLI client: `kscn console`. Another way of using the client is to connect to the process via IPC \(inter-process communication\). The IPC file `klay.ipc` is located in the `data` directory on an SCN.
+Klaytn provides a CLI client: `kscn console`. 클라이언트를 사용하는 또 다른 방법은 IPC \(inter-process communication\)를 통해 프로세스에 연결하는 것입니다. The IPC file `klay.ipc` is located in the `data` directory on an SCN.
 
-Please execute the following command and check out the result.
+다음 명령을 실행하고 결과를 확인하세요.
 
 ```text
 $ kscn attach ~/kscnd_home/klay.ipc
@@ -74,12 +74,12 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
  >
 ```
 
-You can check the usable commands on [API Document]()
+[API 문서]()를 보시면 유용한 명령어들을 확인할 수 있습니다.
 
 The useful APIs to check the status of SCN:
 
-* `klay.blockNumber` \(to get the latest block number\)
-* `net.peerCount` \(to get the number of the connected Klaytn nodes currently\)
+* `klay.blockNumber` \(최신 블록 번호를 가져옵니다\)
+* `net.peerCount` \(현재 연결된 Klaytn 노드의 수를 가져옵니다\)
 
 ### klay.blockNumber
 
