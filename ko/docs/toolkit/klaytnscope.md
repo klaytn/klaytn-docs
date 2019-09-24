@@ -1,235 +1,235 @@
 # Klaytnscope
 
-Klaytnscope is the block explorer for the Klaytn Network. Klaytnscope gives you an insight about the Klaytn network by monitoring the network health and providing various statistics of Klaytn network. You can also explore the block and transaction data and the list of smart contracts on the Klaytn network.
+Klaytnscope는 Klaytn 네트워크의 블록 탐색기입니다. Klaytnscope는 네트워크 상태를 모니터링하고 다양한 통계를 제공하여 Klaytn 네트워크에 대한 깊은 이해를 하도록 도와줍니다. 또한 블록 및 트랜잭션 데이터와 Klaytn 네트워크의 스마트 컨트랙트 리스트도 탐색할 수 있습니다.
 
-* For the Baobab network, visit <https://baobab.scope.klaytn.com>
-* For the Mainnet, visit <https://scope.klaytn.com>
+* Baobab 네트워크에 대한 자세한 내용은 <https://baobab.scope.klaytn.com>를 참고해주세요.
+* 메인넷에 대한 자세한 내용은 <https://scope.klaytn.com>을 참고해주세요.
 
 ![](img/scope_01_main.png)
 
-## Major Features
+## 주요 기능
 
-Please note that some of the features are under development.
+일부 기능은 아직 개발 중입니다.
 
-* Overview of the network
-* Block search
-* Transaction search
-* Account search 
-* Event logs search
-* Block proposer information
+* 네트워크 개요
+* 블록 검색
+* 트랜잭션 검색
+* 계정 검색 
+* 이벤트 로그 검색
+* 블록 제안자 정보
 
-In the subsequent sections, we will visit the major functions and screenshots of Klaytnscope. Functions are grouped by four categories - dashboard, list view, detail view, and search.
+이후 섹션에서는 Klaytnscope의 스크린샷과 함께 주요 기능들을 살펴보겠습니다. 기능들은 대시보드, 목록 보기, 상세 보기, 검색 등 네 개의 카테고리로 분류됩니다.
 
-## Dashboard
+## 대시보드
 
-Network information is presented in the dashboard. The information includes average block generation time, average number of transactions in a block, number of consensus nodes, and the latest trends in transactions.
+대시보드에는 네트워크 정보가 나타납니다. 즉 평균 블록 생성 시간, 블록당 평균 트랜잭션 수, 합의 노드의 개수, 트랜잭션의 최근 추세를 제공합니다.
 
 ![](img/scope_02_main_indicator.png)
 
-* Block Height: The latest block height. It shows that how many blocks have been generated since the genesis. 
-* Network Performance: It shows Klaytn's network performance with four indicators. 
-  * Consensus Nodes: Above picture shows that 15 nodes are participated in the consensus process. 
-  * Avg Block Time \(1 hour\): It shows the average block generation time over the last hour.
-  * Avg Block Time \(24 hours\): It shows the average block generation time over the last 24 hours.
-  * Avg TX Per Block \(24 hours\): The average number of transactions included in one block over the last 24 hours.
-* Transaction History \(14 days\): The graphs show the number of daily transactions over the last 14 days. You can see the trend in the transaction volume over the last two weeks.
+* Block Height: 최신 블록의 번호입니다. 즉 제네시스 블록으로부터 몇 개의 블록이 생성되었는지 나타냅니다. 
+* Network Performance: Klaytn 네트워크의 성능을 네 가지 지표로 나타냅니다. 
+  * Consensus Nodes: 위 그림에서는 15개의 노드가 합의에 참여하고 있습니다. 
+  * Avg Block Time \(1 hour\): 지난 한 시간 동안의 평균 블록 생성 시간입니다.
+  * Avg Block Time \(24 hours\): 지난 24시간 동안의 평균 블록 생성 시간입니다.
+  * Avg TX Per Block \(24 hours\): 지난 24시간 동안 한 블록에 담긴 트랜잭션의 평균 개수입니다.
+* Transaction History \(14 days\): 지난 14일 동안 하루에 발생한 트랜잭션의 개수 그래프입니다. 지난 2주 동안 발생한 트랜잭션의 양에 대한 추세를 확인할 수 있습니다.
 
 ### Recent Blocks & Transactions
 
-These lists show recently created blocks and transactions respectively. You can get the latest information by clicking the refresh button on the upper-right corner in the pane. In the bottom of the list, clicking the ‘view all’ button will take you to the [list view](klaytnscope.md#list-view).
+이 목록들은 각각 최근에 생성된 블록과 트랜잭션을 나타냅니다. 우측 상단의 새로 고침 버튼을 클릭하여 최신 정보를 가져올 수 있습니다. 목록의 하단에 있는 ‘view all’ 버튼을 클릭하여 [목록 보기](klaytnscope.md#list-view)로 이동할 수 있습니다.
 
 ![](img/scope_03_main_list.png)
 
-### Network Status & Network Selector
+### 네트워크 상태 표시기 & 네트워크 선택 탭
 
 ![](img/network_status.gif)
 
-On the upper-right corner of the site, there are network status indicator and the network selector drop down.
+우측 상단에 네트워크 상태 표시기와 네트워크를 선택할 수 있는 탭이 있습니다.
 
-* Network Status Indicator 
-  * Network is healthy: Klaytnscope is healthy and fully operational. The network status is normal.
-  * Data latency: Klaytnscope is undergoing system maintenance. Data is in a delayed state.
-  * Data accuracy: Klaytnscope is synchronizing data, please wait.
-* Network Selector Drop Down 
-  * You can choose Klaytn mainnet and Baobab testnet from the menu.
+* 네트워크 상태 표시기 
+  * Network is healthy: Klaytnscope가 정상적으로 작동하는 상태입니다. 네트워크 상태에는 이상이 없습니다.
+  * Data latency: Klaytnscope가 시스템 유지 관리 중입니다. 데이터가 지연되고 있는 상태입니다.
+  * Data accuracy: Klaytnscope가 데이터를 동기화하고 있는 상태이므로 잠시만 기다려주세요.
+* 네트워크 선택 탭 
+  * 이 메뉴에서 Klaytn 메인넷과 Baobab 테스트넷을 선택할 수 있습니다.
 
-## List View
+## 목록 보기
 
-If you want to get a closer look at the status of the Klaytn network, you can check the list of recently generated blocks and transactions. To access the list page, click the button on the navigation bar which located on the left of the screen.
+Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 트랜잭션 목록을 확인하세요. 목록 페이지로 이동하려면 화면 왼쪽의 탐색 모음에서 버튼을 클릭하세요.
 
-### Blocks
+### 블록
 
 ![](img/scope_04_block_list.png)
 
-A list of recently generated blocks. To update the information, please click the refresh.
+최근 생성된 블록들의 목록입니다. 정보를 업데이트하려면 새로 고침을 클릭하세요.
 
-* Block: The unique number of the block. Starting from zero \(the genesis block\), it is given sequentially each time a block is generated.
-* Time: Duration of time since the block was generated. You can check the exact date and time by hovering this.
-* Total TXs: The total number of transactions included in the block.
-* Block Proposer: Randomly but deterministically selected Consensus Node that proposed the block. By clicking the address, you can easily go to the details page.
-* Reward: Aggregation of newly minted KLAY \(9.6 KLAY\) and transaction fees used in the block. The list displays only the sum of Klaytn Governance Council Reward, Proof of Contribution, and Klaytn Improvement Reserve. Hover the block reward section on the block detail page to see detailed information. More details about the block reward distribution system can be found in the [Klaytn Token Economy](../klaytn/design/token-economy.md).
-* Size: The size of blocks measured in Byte. The more transactions are included, the larger the block size.
+* Block: 블록의 고유 번호입니다. 0\(the genesis block\)부터 시작하여 블록이 생성될 때마다 순차적으로 부여받습니다.
+* Time: 블록이 생성된 때부터 지금까지 지난 시간입니다. 여기에 마우스 포인터를 가져가면 정확한 날짜와 시간을 볼 수 있습니다.
+* Total TXs: 블록에 담긴 트랜잭션의 개수입니다.
+* Block Proposer: 블록을 제안한 합의 노드입니다. 블록을 생성한 노드는 무작위적이지만 한편으론 결정론적으로 선택됩니다. 이 주소를 클릭하여 상세 보기 페이지로 쉽게 이동할 수 있습니다.
+* Reward: 새로 발행된 KLAY \(9.6 KLAY\)와 블록에서 사용된 트랜잭션 비용의 합계입니다. 이 목록에서는 Klaytn Governance Council 보상, 기여증명, Klaytn 개선 준비금의 합계만 나타납니다. 상세 정보를 보려면 블록 상세 보기 페이지의 블록 보상 섹션에 마우스 포인터를 가져가세요. 블록 보상 분배 시스템에 대한 자세한 내용은 [Klaytn Token Economy](../klaytn/design/token-economy.md)를 참고하세요.
+* Size: 블록의 바이트 단위 크기입니다. 많은 트랜잭션이 담겨 있을수록 블록의 크기가 더 커집니다.
 
-### Transactions
+### 트랜잭션
 
 ![](img/scope_05_tx_list.png)
 
-A list of recently executed transactions. To update the information, please click the refresh.
+최근 실행된 트랜잭션의 목록입니다. 정보를 업데이트하려면 새로 고침을 클릭하세요.
 
-* TX Hash: The unique identifier of the transaction. For more information, click the hash to go to the detail page. If the transaction fails, a red exclamation mark appears next to it.
-* Block \#: Number of the block which contains this transaction. Clicking on the number takes you to the details page of the block.
-* Time: Duration of time since the transaction was executed. You can check the exact date and time by hovering this.
-* From -&gt; To: The addresses of sender and receiver. By clicking the address, you can easily go to the details page. If the file icon displays next to an address, it means that the address is a contract.
-* TX Type: Type of the transaction. You can apply a filter to get the transactions of a specific type. For more information, please visit [Transactions](../klaytn/design/transactions/README.md).
-* Amount: The amount of value transferred through the transaction.
-* TX Fee: The actual cost used to process transaction.
+* TX Hash: 트랜잭션의 고유 식별자입니다. 더 자세한 정보를 확인하려면 해시를 클릭하여 상세 보기 페이지로 이동하세요. 트랜잭션이 실패한 경우 옆에 빨간색 느낌표가 나타납니다.
+* Block \#: 해당 트랜잭션을 담은 블록의 번호입니다. 번호를 클릭하여 해당 블록의 상세 보기 페이지로 이동할 수 있습니다.
+* Time: 트랜잭션 실행으로부터 지금까지 지난 시간입니다. 여기에 마우스 포인터를 가져가면 정확한 날짜와 시간을 볼 수 있습니다.
+* From -&gt; To: 트랜잭션 발신자와 수신자의 주소입니다. 이 주소를 클릭하여 상세 보기 페이지로 쉽게 이동할 수 있습니다. 주소 옆에 파일 아이콘이 표시되면 해당 주소는 컨트랙트의 주소입니다.
+* TX Type: 트랜잭션의 유형입니다. 필터를 적용하여 특정 유형의 트랜잭션을 조회할 수 있습니다. 자세한 내용은 [Transactions](../klaytn/design/transactions/README.md)을 참고해주세요.
+* Amount: 트랜잭션을 통해 전송된 금액입니다.
+* TX Fee: 트랜잭션 처리에 소비된 실제 비용입니다.
 
-## Detail View
+## 상세 보기
 
-Detailed information about single Block, Transaction, Account, and Contract can be found on this page. To go to the details view, you can search for the entity from the search bar or click the item from the list view.
+이 페이지를 통해 블록, 트랜잭션, 계정, 컨트랙트 하나씩의 자세한 정보를 확인할 수 있습니다. 상세 보기로 이동하려면 검색 창에서 검색하거나 목록 보기에서 항목을 클릭하세요.
 
-### Block
+### 블록
 
 ![](img/scope_08_block_detail.png)
 
-#### 개요
+#### Overview
 
-Overall information about the block.
+블록에 대한 전반적인 정보입니다.
 
-* Time: Elapsed time since the block generation. Exact datetime is also displayed next to it.
-* Hash: The unique identifier of the block. By pressing the copy button, you can easily copy the hash.
-* Parent Hash: The unique identifier of the previous block. Clicking on the hash takes you to the detail view of the parent hash.
-* Total TXs: The total number of transactions included in the block.
-* Block Reward: Aggregation of the newly minted KLAY \(9.6 KLAY\) and the transaction fees collected in the block. If you hover, you will find detailed information on Klaytn Governance Council Reward, Proof of Contribution and Klaytn Improvement Reserve. More details about block reward distribution system can be found in the [Klaytn Token Economy](../klaytn/design/token-economy.md).
-* Block Size: The size of block measured in Byte. The more transactions are included, the larger the block size.
+* Time: 블록 생성 후 경과한 시간입니다. 정확한 일시 또한 옆에 나타납니다.
+* Hash: 블록의 고유 식별자입니다. 복사 버튼을 눌러 해시를 쉽게 복사할 수 있습니다.
+* Parent Hash: 이전 블록의 고유 식별자입니다. 해시를 클릭하여 이전 블록 해시의 상세 보기 페이지로 이동할 수 있습니다.
+* Total TXs: 블록에 담긴 트랜잭션의 개수입니다.
+* Block Reward: 새로 발행된 KLAY \(9.6 KLAY\)와 블록에서 사용된 트랜잭션 비용의 합계입니다. 마우스 포인터를 가져가면 Klaytn Governance Council 보상, 기여증명, Klaytn 개선 준비금에 대한 자세한 정보를 확인할 수 있습니다. 블록 보상 분배 시스템에 대한 자세한 내용은 [Klaytn Token Economy](../klaytn/design/token-economy.md)를 참고하세요.
+* Block Size: 블록의 바이트 단위 크기입니다. 많은 트랜잭션이 담겨 있을수록 블록의 크기가 더 커집니다.
 
 #### Committee
 
-List of consensus nodes that proposed and validated the block.
+블록을 제안하고 검증하는 합의 노드의 목록입니다.
 
-* Block Proposer: Randomly but deterministically selected consensus node that proposed the block. By clicking the address, you can easily go to the detail view of the node.
-* Validators: Consensus nodes that validated the block. By clicking the address, you can easily go to the detail view of the node.
+* Block Proposer: 블록을 제안한 합의 노드입니다. 블록을 생성한 노드는 무작위적이지만 한편으론 결정론적으로 선택됩니다. 이 주소를 클릭하여 노드의 상세 보기 페이지로 쉽게 이동할 수 있습니다.
+* Validators: 블록을 검증하는 합의 노드입니다. 이 주소를 클릭하여 노드의 상세 보기 페이지로 쉽게 이동할 수 있습니다.
 
 #### Transactions
 
-List of transactions included in the block.
+블록에 담긴 트랜잭션들의 목록입니다.
 
-### Transaction
+### 트랜잭션
 
 ![](img/scope_09_tx_detail.png)
 
-#### 개요
+#### Overview
 
-Overall information about the transaction.
+트랜잭션에 대한 전반적인 정보입니다.
 
-* Status indicator: On the upper-right corner. The indicator whether the transaction succeeded or not.
-* TX Type: Type of the transaction. For more information, please see [Transactions](../klaytn/design/transactions/README.md).
-* Block \#: Number of the block which contains this transaction. Clicking on the number takes you to the detail view of the block.
-* From -&gt; To: The addresses of sender and receiver. By clicking the address, you can go to the detail view of the account. If a file icon displays next to the address, it means that address is contract.
-* Fee Payer: Displayed when TX type is either Fee Delegated or Fee Delegated with Ratio. When you click the address of fee payer you can go to the detailed view of the account.
-* Time: Elapsed time since the transaction was executed.
-* Nonce: Number of the transaction sent from the sender's address. Starting from zero, it increases sequentially each time a transaction is sent.
-* Amount: The amount of value transferred in this transaction.
-* Gas Price: Cost per gas measured in KLAY. In Klaytn network, Gas Price is fixed.
-* Gas Used: Exact gas that was used to execute the transaction.
-* Gas Limit: Maximum gas that the sender was willing to pay for this transaction.
-* TX Fee: The actual cost used to process transaction. Calculated by multiplying Gas Price by Gas Used.
-* TX Fee by Sender: Displayed when TX type is Fee Delegated with Ratio. The portion of TX fee paid by the sender.
-* TX Fee by Fee Payer: Displayed when TX type is Fee Delegated with Ratio. The portion of TX fee paid by the fee payer.
+* Status indicator: 우측 상단에 있습니다. 트랜잭션의 성공 여부를 나타냅니다.
+* TX Type: 트랜잭션의 유형입니다. 자세한 내용은 [Transactions](../klaytn/design/transactions/README.md)을 참고해주세요.
+* Block \#: 해당 트랜잭션을 담은 블록의 번호입니다. 번호를 클릭하여 해당 블록의 상세 보기 페이지로 이동할 수 있습니다.
+* From -&gt; To: 트랜잭션 발신자와 수신자의 주소입니다. 이 주소를 클릭하여 계정의 상세 보기 페이지로 쉽게 이동할 수 있습니다. 주소 옆에 파일 아이콘이 표시되면 해당 주소는 컨트랙트의 주소입니다.
+* Fee Payer: 트랜잭션 비용이 전부 혹은 부분적으로 위임된 트랜잭션의 경우 표시됩니다. 이 주소를 클릭하여 계정의 상세 보기 페이지로 쉽게 이동할 수 있습니다.
+* Time: 트랜잭션 실행으로부터 지금까지 지난 시간입니다.
+* Nonce: 해당 발신자의 주소에서 전송한 트랜잭션의 개수입니다. 0부터 시작하여 트랜잭션이 전송될 때마다 순차적으로 1씩 증가합니다.
+* Amount: 트랜잭션을 통해 전송된 금액입니다.
+* Gas Price: 가스당 KLAY 가격입니다. 이 값은 Klaytn 네트워크에서 고정되어 있습니다.
+* Gas Used: 트랜잭션을 실행하는 데에 소비된 정확한 가스양입니다.
+* Gas Limit: 트랜잭션 발신자가 트랜잭션을 실행하는 데에 지불하고자 하는 가스양의 한도입니다.
+* TX Fee: 트랜잭션 처리에 소비된 실제 비용입니다. Gas Price와 Gas Used 값의 곱으로 계산합니다.
+* TX Fee by Sender: 트랜잭션의 비용이 부분적으로 위임된 트랜잭션의 경우 표시됩니다. 트랜잭션 비용 중 트랜잭션 발신자가 지불한 몫입니다.
+* TX Fee by Fee Payer: 트랜잭션의 비용이 부분적으로 위임된 트랜잭션의 경우 표시됩니다. 트랜잭션 비용 중 트랜잭션 비용 납부자가 지불한 몫입니다.
 
 #### Input Data
 
-Extra data provided by the sender or contract.
+트랜잭션 발신자나 컨트랙트에 의해 입력된 추가 데이터입니다.
 
-### Account
+### 계정
 
 ![](img/scope_10_account_detail.png)
 
-#### 개요
+#### Overview
 
-Overall information about the account.
+계정에 대한 전반적인 정보입니다.
 
-* Address \(Hex\): The unique address of the account.
-* Balance: The total amount of KLAY that this account has.
-* Total TXs: The total number of transactions that this account sent or received.
-* HRA: It informs whether this account type is HRA or not. \(TBD\)
+* Address \(Hex\): 계정의 고유 주소입니다.
+* Balance: 계정이 가진 총 KLAY 양입니다.
+* Total TXs: 계정이 보내거나 받은 트랜잭션의 총 개수입니다.
+* HRA: 계정 유형이 HRA인지 여부를 나타냅니다. \(TBD\)
 
 #### Transactions
 
-The list of transactions related to this account. The color of the arrow indicates if the account is a sender or receiver.
+계정과 관련된 트랜잭션의 목록입니다. 화살표의 색은 이 계정이 발신자인지 수신자인지 나타냅니다.
 
-### Contract
+### 컨트랙트
 
 ![](img/scope_11_contract_detail.png)
 
-#### 개요
+#### Overview
 
-Overall information about the contract.
+컨트랙트에 대한 전반적인 정보입니다.
 
-* Account \(Hex\): The unique address of the contract.
-* Balance: The total amount of KLAY that this contract has.
-* Contract Creator: The account that deployed this contract. By clicking the address, you can go to the detail view of the accont.
-* Total TXs: The total number of transactions that this contract received.
-* Contract Created TX: The transaction that deployed this contract. Clicking on the hash takes you to the detail view of the transaction.
-* HRA: It informs whether the contract account type is HRA or not. \(TBD\)
+* Account \(Hex\): 컨트랙트의 고유 주소입니다.
+* Balance: 컨트랙트가 가진 총 KLAY 양입니다.
+* Contract Creator: 컨트랙트를 배포한 계정입니다. 이 주소를 클릭하여 계정의 상세 보기 페이지로 쉽게 이동할 수 있습니다.
+* Total TXs: 컨트랙트가 받은 트랜잭션의 총 개수입니다.
+* Contract Created TX: 컨트랙트를 배포한 트랜잭션입니다. 해시를 클릭하여 트랜잭션의 상세 보기 페이지로 이동할 수 있습니다.
+* HRA: 컨트랙트 계정의 유형이 HRA인지 여부를 나타냅니다. \(TBD\)
 
 #### Transactions
 
-The list of transactions related to this contract.
+컨트랙트와 관련된 트랜잭션의 목록입니다.
 
-## Search
+## 검색
 
-Through Klaytnscope, you can search for the information about account, contract, transactions and blocks. The search bar is placed on every page, making it easy to access. Entering a valid keyword will take you to the detail view of the entity.
+Klaytnscope를 통해 계정, 컨트랙트, 트랜잭션, 블록에 대한 정보를 검색할 수 있습니다. 모든 페이지에 검색 창이 있어 쉽게 접근할 수 있습니다. 검색 대상의 키워드가 잘 입력되었다면 검색 대상의 상세 보기 페이지로 이동합니다.
 
 ![](img/scope_06_search.png)
 
-### Search Keyword
+### 검색 키워드
 
-In the mainnet version, searchable keywords are as follows:
+메인넷 버전에서 검색 가능한 키워드는 다음과 같습니다.
 
-* Block \#
-* TX Hash
-* Address \(Account, Contract\)
+* 블록 번호
+* 트랜잭션 해시
+* 주소 \(계정, 컨트랙트\)
 * Human Readable Address \(.klaytn\) \(TBD\)
 
-### Keyword Format
+### 키워드 형식
 
-The unique characteristics that distinguish each keyword are as follows:
+각 키워드의 특징은 다음과 같습니다.
 
-#### Block
+#### 블록
 
-* Decimal numbers only \[0~9\]
+* 10진수만 가능합니다. \[0~9\]
 
-#### TX Hash
+#### 트랜잭션 해시
 
-* 66 characters long
-* Starts with a prefix `0x`
-* Hexadecimal number only \[0~9, a~f\]
+* 66자입니다.
+* `0x`로 시작합니다.
+* 16진수만 가능합니다. \[0~9, a~f\]
 
-#### Address
+#### 주소
 
-* 42 characters long
-* Start with a prefix `0x`
-* Hexadecimal number only \[0~9, a~f\]
+* 42자입니다.
+* `0x`로 시작합니다.
+* 16진수만 가능합니다. \[0~9, a~f\]
 
 #### Human Readable Address \(TBD\)
 
-* 12~20 characters long
-* Ends in `.klaytn`
+* 12~20자입니다.
+* `.klaytn`으로 끝납니다.
 
-### Search Errors
+### 검색 오류
 
 ![](img/scope_07_noresult.png)
 
-If you search for a keyword that doesn't fit in the specified format or information hasn't yet been generated, no result page will appear.
+지정된 형식에 맞지 않는 키워드를 검색하거나 검색한 내용에 해당하는 결과가 없는 경우 검색 결과가 나타나지 않습니다.
 
-#### Wrong Format \(TX Hash / Address\)
+#### 잘못된 형식 \(트랜잭션 해시 / 주소\)
 
-* Wrong number of characters
-* Doesn't start with a prefix `0x`
-* Contains special characters or non-hexadecimal characters \[g~z\]
+* 검색한 키워드의 글자 수가 잘못된 경우
+* 검색 키워드가 `0x`로 시작하지 않은 경우
+* 검색 키워드에 특수 문자나 16진수가 아닌 문자가 포함된 경우 \[g~z\]
 
-#### Doesn't Exist
+#### 검색 결과 없음
 
-* Blocks not yet generated \(if the block number entered was higher than recently generated block number\)
-* Non-existent TX Hash
+* 검색 키워드에 해당하는 블록이 아직 생성되지 않은 경우 \(검색한 블록 번호가 현재 블록 번호보다 더 이후인 경우\)
+* 검색 키워드가 존재하지 않는 트랜잭션 해시인 경우
