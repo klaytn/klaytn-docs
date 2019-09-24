@@ -141,7 +141,7 @@ Signs a Klaytn transaction with a given private key.
 | privateKey | String &#124; Array | (optional) The private key to sign with. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-**NOTE** The `privateKey` parameter has been changed to an `optional paramter` since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). And also privateKey parameter supports `array` of private key string since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). If you do not pass the privateKey as a parameter, the account of from or feePayer to be used for signing must exist in caver.klay.accounts.wallet. And if the array comes as a privateKey parameter, transaction is signed with all the keys inside the array.
+**NOTE** The `privateKey` parameter has been changed to an `optional parameter` since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). Also, privateKey parameter supports `array` of private key strings since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). If you do not pass a privateKey, either `from` or `feePayer` account must exist in caver.klay.accounts.wallet to sign the transaction. If an array of privateKeys are provided, the transaction is signed with all the keys inside the array.
 
 **Return Value**
 
