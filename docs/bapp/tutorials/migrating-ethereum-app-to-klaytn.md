@@ -6,7 +6,7 @@
 * [2. Klaytn has Ethereum compatibility](#2-klaytn-has-ethereum-compatibility)
 * [3. Migrate node connection from Ethereum to Klaytn](#3-migrate-node-connection-from-ethereum-to-klaytn)
 * [4. Interact with Klaytn node: `BlockNumber` component](#4.-interact-with-klaytn-node:-`blocknumber`-component)
-* [5. Interact with the contract: `Count` component](#5.-interact-with-the-contract:-`count`-component)
+* [5. Interact with the contract: `Count` component](#5-interact-with-the-contract-count-component)
   * [5-1. Deploy Count contract on Klaytn](#5-1.-deploy-count-contract-on-klaytn)
   * [5-2. Create a contract instance](#5-2.-create-a-contract-instance)
   * [5-3. Interact with contract](#5-3.-interact-with-contract)
