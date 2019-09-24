@@ -42,10 +42,10 @@ Klaytn runtime environment is compatible with Ethereum Virtual Machine and execu
 First, you need to change the library that makes a connection to the node. Then you will specify the node URL in 'rpcURL'. 
 
 - In Ethereum BApp example
-  - `web3` library makes a connection, communicating with Ethereum node
+  - `web3` library connects to and communicates with Ethereum node.
   - `Ropsten testnet` URL is assigned to 'rpcURL' .
 - In Klaytn BApp example
-  - `caver-js` library makes a connection, communicating with Klaytn node
+  - `caver-js` library is used to connect to and communicate with Klaytn node.
   - `Baobab testnet` URL is assigned to 'rpcURL'.
 
 `src/klaytn/caver.js`
@@ -102,7 +102,7 @@ For more detail about `BlockNumber` component, see [CountBApp tutorial - Blocknu
 
 ![count component](./count-bapp/images/count-component.gif)
 
-To interact with the contract, we need to create a instance of the depolyed contract. With the instance, we can read and write the contract's data.  
+To interact with the contract, we need to create an instance of the deployed contract. With the instance, we can read and write the contract's data.  
 
 Let's learn step by step how to migrate `CountBApp` from Ethereum to Klaytn!
 
