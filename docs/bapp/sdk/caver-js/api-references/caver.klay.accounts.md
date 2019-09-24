@@ -577,7 +577,7 @@ Determines if the key is decoupled from the address.
 
 | Type | Description |
 | --- | --- |
-| Boolean | `true` if the key is decoupled from address. `false` if it is not decoupled. |
+| Boolean | `true` if the key is decoupled from the address. `false` if it is not decoupled. |
 
 
 **Example**
