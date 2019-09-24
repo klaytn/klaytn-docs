@@ -614,7 +614,7 @@ Returns an account that has an address derived from the given private key. See [
 
 | Type | Description |
 | --- | --- |
-| Object | The account obejct with the input key as the legacy account key is returned, and if there is address information extracted from the key, it is returned together. |
+| Object | An account object with a legacy account key of the given value. If there is address information extracted from the key, it is returned together. |
 
 
 **Example**
