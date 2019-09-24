@@ -138,12 +138,14 @@ Signs a Klaytn transaction with a given private key.
 | Name | Type | Description |
 | --- | --- | --- |
 | tx | Object | The transaction object.  The fields of the transaction object are different for each transaction type. For a description of each transaction, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
-| privateKey | String | The private key to sign with. |
+| privateKey | String &#124; Array | (optional) The private key to sign with. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+
+**NOTE** The `privateKey` parameter has been changed to an `optional parameter` since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). Also, privateKey parameter supports `array` of private key strings since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). If you do not pass a privateKey, either `from` or `feePayer` account must exist in caver.klay.accounts.wallet to sign the transaction. If an array of privateKeys are provided, the transaction is signed with all the keys inside the array.
 
 **Return Value**
 
-``Promise`` returning ``Object``: The signed data RLP encoded transaction, or if ``returnSignature`` is ``true`` the signature values as follows:
+`Promise` returning `Object`: The RLP encoded signed transaction. The object properties are as follows:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -154,28 +156,159 @@ Signs a Klaytn transaction with a given private key.
 | rawTransaction | String | The RLP encoded transaction, ready to be send using caver.klay.sendSignedTransaction. |
 | txHash | 32-byte String | Hash of the transaction. |
 | senderTxHash | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash) |
+| signatures | Array | (optional) An array of the sender's signature(s). |
+| feePayerSignatures | Array | (optional) An array of the fee payer's signature(s). |
 
+**NOTE** The signatures and feePayerSignatures properties have been added since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). If the sender signs the transaction, the signature array is returned in `signatures`. If the fee payer signs, the signature array is returned in `feePayerSignatures`.
 
 **Example**
 
 ```javascript
+// sign legacy transaction with private key string
 > caver.klay.accounts.signTransaction({
-      type: 'VALUE_TRANSFER',
-      from: '0xab0833d744a8943fe3c783f9cc70c13cbd70fcf4',
-      to: '0xa9d2cc2bb853163b6eadfb6f962d72f7e00bc2e6',
-      value: caver.utils.toPeb(1, 'KLAY'),
-      gas: 900000,
-    }, '0x{private key}').then(console.log)
+    from: '0x72519cf34d9aa14629e7ad0cad5d55a3bb398364',
+    to: '0xa9d2cc2bb853163b6eadfb6f962d72f7e00bc2e6',
+    value: caver.utils.toPeb(1, 'KLAY'),
+    gas: 900000,
+}, '0x{private key}').then(console.log)
 { 
-     messageHash: '0xa803f112f4bb7f0514bba08004df291e4d7b964a66decc616bcca10c4843aa60',
-     v: '0x4e44',
-     r: '0xb895e0aed7117d289b3adcb65869ead9e548bc2d62205bdf003f35e73b00b4b2',
-     s: '0x74d899225baf65c6de256c7c0f0a7b55f7ccdfbcdb9656bc402f3cb7cdfe6db3',
-     rawTransaction: '0x08f887808505d21dba00830dbba094a9d2cc2bb853163b6eadfb6f962d72f7e00bc2e6880de0b6b3a764000094ab0833d744a8943fe3c783f9cc70c13cbd70fcf4f847f845824e44a0b895e0aed7117d289b3adcb65869ead9e548bc2d62205bdf003f35e73b00b4b2a074d899225baf65c6de256c7c0f0a7b55f7ccdfbcdb9656bc402f3cb7cdfe6db3',
-     txHash: '0x55547ac7620ba718e911aa4db745424e8bd280f063f6c59dc4ff3769f45f501f',
-     senderTxHash: '0x55547ac7620ba718e911aa4db745424e8bd280f063f6c59dc4ff3769f45f501f'
+    messageHash: '0xc4f3d98b901489c2c6e7bb9a5ddb4bc807b0251c6eac671356f01b66b749141f',
+    v: '0x4e44',
+    r: '0x2ef0d0c59ad302bcd73823879f6e1550e4bc6e6c38be69724c71ad6e09edde82',
+    s: '0x602b1064ff5a6ba4718a493e50cf9e58ca9a9addf6ed4bbbc89fbc040a3c107e',
+    rawTransaction: '0xf86f808505d21dba00830dbba094a9d2cc2bb853163b6eadfb6f962d72f7e00bc2e6880de0b6b3a764000080824e44a02ef0d0c59ad302bcd73823879f6e1550e4bc6e6c38be69724c71ad6e09edde82a0602b1064ff5a6ba4718a493e50cf9e58ca9a9addf6ed4bbbc89fbc040a3c107e',
+    txHash: '0x87e84bd1d9c512cfabe5ebce10597dd40bc6fe828a10e460b7c01075c76b71a5',
+    senderTxHash: '0x87e84bd1d9c512cfabe5ebce10597dd40bc6fe828a10e460b7c01075c76b71a5',
+    signatures: [ 
+        '0x4e44',
+        '0x2ef0d0c59ad302bcd73823879f6e1550e4bc6e6c38be69724c71ad6e09edde82',
+        '0x602b1064ff5a6ba4718a493e50cf9e58ca9a9addf6ed4bbbc89fbc040a3c107e' 
+    ] 
 }
 
+// signTransaction with private key string
+> caver.klay.accounts.signTransaction({
+    type: 'VALUE_TRANSFER',
+    from: '0x72519cf34d9aa14629e7ad0cad5d55a3bb398364',
+    to: '0xa9d2cc2bb853163b6eadfb6f962d72f7e00bc2e6',
+    value: caver.utils.toPeb(1, 'KLAY'),
+    gas: 900000,
+}, '0x{private key}').then(console.log)
+{ 
+    messageHash: '0xf003c68467424eed29b55d3d107167b207adb6bba66f8b9b73b7df824beb144c',
+    v: '0x4e43',
+    r: '0xea3bba902857eb58bed048fd1b94c5d99881e4356221d6e1e6e873401abf3a5c',
+    s: '0x5e5d250db3c31a193dbe5289935755461ad78e41c1f60d3ca80ae0a97d2a9924',
+    rawTransaction: '0x08f887808505d21dba00830dbba094a9d2cc2bb853163b6eadfb6f962d72f7e00bc2e6880de0b6b3a76400009472519cf34d9aa14629e7ad0cad5d55a3bb398364f847f845824e43a0ea3bba902857eb58bed048fd1b94c5d99881e4356221d6e1e6e873401abf3a5ca05e5d250db3c31a193dbe5289935755461ad78e41c1f60d3ca80ae0a97d2a9924',
+    txHash: '0x1b5759e8060ac01ba94437bd115ecf471ba05e144f4874dd5b82a8379aa98a63',
+    senderTxHash: '0x1b5759e8060ac01ba94437bd115ecf471ba05e144f4874dd5b82a8379aa98a63',
+    signatures: [ 
+        [ 
+            '0x4e43',
+            '0xea3bba902857eb58bed048fd1b94c5d99881e4356221d6e1e6e873401abf3a5c',
+            '0x5e5d250db3c31a193dbe5289935755461ad78e41c1f60d3ca80ae0a97d2a9924' 
+        ]
+    ]
+}
+
+// signTransaction without privateKey parameter
+> caver.klay.accounts.signTransaction({
+    type: 'VALUE_TRANSFER',
+    from: '0x72519cf34d9aa14629e7ad0cad5d55a3bb398364',
+    to: '0xa9d2cc2bb853163b6eadfb6f962d72f7e00bc2e6',
+    value: caver.utils.toPeb(1, 'KLAY'),
+    gas: 900000,
+}).then(console.log)
+{ 
+    messageHash: '0xf003c68467424eed29b55d3d107167b207adb6bba66f8b9b73b7df824beb144c',
+    v: '0x4e43',
+    r: '0xea3bba902857eb58bed048fd1b94c5d99881e4356221d6e1e6e873401abf3a5c',
+    s: '0x5e5d250db3c31a193dbe5289935755461ad78e41c1f60d3ca80ae0a97d2a9924',
+    rawTransaction: '0x08f887808505d21dba00830dbba094a9d2cc2bb853163b6eadfb6f962d72f7e00bc2e6880de0b6b3a76400009472519cf34d9aa14629e7ad0cad5d55a3bb398364f847f845824e43a0ea3bba902857eb58bed048fd1b94c5d99881e4356221d6e1e6e873401abf3a5ca05e5d250db3c31a193dbe5289935755461ad78e41c1f60d3ca80ae0a97d2a9924',
+    txHash: '0x1b5759e8060ac01ba94437bd115ecf471ba05e144f4874dd5b82a8379aa98a63',
+    senderTxHash: '0x1b5759e8060ac01ba94437bd115ecf471ba05e144f4874dd5b82a8379aa98a63',
+    signatures: [ 
+        [ 
+            '0x4e43',
+            '0xea3bba902857eb58bed048fd1b94c5d99881e4356221d6e1e6e873401abf3a5c',
+            '0x5e5d250db3c31a193dbe5289935755461ad78e41c1f60d3ca80ae0a97d2a9924' 
+        ]
+    ]
+}
+
+// signTransaction with array of private keys
+> caver.klay.accounts.signTransaction({
+    type: 'VALUE_TRANSFER',
+    from: '0x72519cf34d9aa14629e7ad0cad5d55a3bb398364',
+    to: '0xa9d2cc2bb853163b6eadfb6f962d72f7e00bc2e6',
+    value: caver.utils.toPeb(1, 'KLAY'),
+    gas: 900000,
+}, ['0x{private key}', '0x{private key}']).then(console.log)
+{ 
+    messageHash: '0xf003c68467424eed29b55d3d107167b207adb6bba66f8b9b73b7df824beb144c',
+    v: '0x4e44',
+    r: '0xf9e93c6dc3227a4cde633dc7a9b3c5e81ceb1879bfcf138d6205b2d49cdef60b',
+    s: '0x0787d1a42c75d6d708ddb7552c6470ad15e58da6259cdf48e508f577187fad20',
+    rawTransaction: '0x08f8ce808505d21dba00830dbba094a9d2cc2bb853163b6eadfb6f962d72f7e00bc2e6880de0b6b3a76400009472519cf34d9aa14629e7ad0cad5d55a3bb398364f88ef845824e44a0f9e93c6dc3227a4cde633dc7a9b3c5e81ceb1879bfcf138d6205b2d49cdef60ba00787d1a42c75d6d708ddb7552c6470ad15e58da6259cdf48e508f577187fad20f845824e43a0ea3bba902857eb58bed048fd1b94c5d99881e4356221d6e1e6e873401abf3a5ca05e5d250db3c31a193dbe5289935755461ad78e41c1f60d3ca80ae0a97d2a9924',
+    txHash: '0x1dfac8cb1ab9c25de93758652f3cded2537355e2207c45ba39442b7cb700e8fd',
+    senderTxHash: '0x1dfac8cb1ab9c25de93758652f3cded2537355e2207c45ba39442b7cb700e8fd',
+    signatures: [ 
+        [ 
+            '0x4e44',
+            '0xf9e93c6dc3227a4cde633dc7a9b3c5e81ceb1879bfcf138d6205b2d49cdef60b',
+            '0x0787d1a42c75d6d708ddb7552c6470ad15e58da6259cdf48e508f577187fad20' 
+        ],
+        [ 
+            '0x4e43',
+            '0xea3bba902857eb58bed048fd1b94c5d99881e4356221d6e1e6e873401abf3a5c',
+            '0x5e5d250db3c31a193dbe5289935755461ad78e41c1f60d3ca80ae0a97d2a9924' 
+        ]
+    ] 
+}
+
+// signTransaction with fee payer's private key
+> caver.klay.accounts.signTransaction({
+    senderRawTransaction: '0x09f886819a8505d21dba00830dbba094d05c5926b0a2f31aadcc9a9cbd3868a50104d834019476d1cc1cdb081de8627cab2c074f02ebc7bce0d0f847f845820fe9a0c5ea5b57f460bbc76101bafa2ed16228af0c0094d31a8a799e430278b4360724a0240afd7cf426e6aababdc59a3935b97aac4e059b59ba85ccedc75c95168abcfb80c4c3018080',
+    feePayer: '0x6e75945404daa4130a338af01199244b1eae2a0b'
+}, '0x{private key}').then(console.log)
+{ 
+    messageHash: '0xec121b6f7e2925166bcb1e6f14fd0b078f1168b6feca9340db7bd31998d14043',
+    v: '0x4e44',
+    r: '0xf68d2c65563baee7a76d5f75aaadbfecf4ae3f55b349013f740159edd38465d9',
+    s: '0x5146c0bbe998a7ba6e7c8f5aef7eb5fea0b4b7429713d65e38b2435f6a575300',
+    rawTransaction: '0x09f8de819a8505d21dba00830dbba094d05c5926b0a2f31aadcc9a9cbd3868a50104d834019476d1cc1cdb081de8627cab2c074f02ebc7bce0d0f847f845820fe9a0c5ea5b57f460bbc76101bafa2ed16228af0c0094d31a8a799e430278b4360724a0240afd7cf426e6aababdc59a3935b97aac4e059b59ba85ccedc75c95168abcfb946e75945404daa4130a338af01199244b1eae2a0bf847f845824e44a0f68d2c65563baee7a76d5f75aaadbfecf4ae3f55b349013f740159edd38465d9a05146c0bbe998a7ba6e7c8f5aef7eb5fea0b4b7429713d65e38b2435f6a575300',
+    txHash: '0xf31ab04d9ccdb93262a4349afabd68326db0d61452c06259ed8ea91bc09ca295',
+    senderTxHash: '0x1b7c0f2fc7548056e90d9690e8c397acf99eb38e622ac91ee22c2085065f8a55',
+    feePayerSignatures: [ 
+        [ 
+            '0x4e44',
+            '0xf68d2c65563baee7a76d5f75aaadbfecf4ae3f55b349013f740159edd38465d9',
+            '0x5146c0bbe998a7ba6e7c8f5aef7eb5fea0b4b7429713d65e38b2435f6a575300' 
+        ] 
+    ] 
+}
+
+// signTransaction without fee payer's private key
+> caver.klay.accounts.signTransaction({
+    senderRawTransaction: '0x09f886819a8505d21dba00830dbba094d05c5926b0a2f31aadcc9a9cbd3868a50104d834019476d1cc1cdb081de8627cab2c074f02ebc7bce0d0f847f845820fe9a0c5ea5b57f460bbc76101bafa2ed16228af0c0094d31a8a799e430278b4360724a0240afd7cf426e6aababdc59a3935b97aac4e059b59ba85ccedc75c95168abcfb80c4c3018080',
+    feePayer: '0x6e75945404daa4130a338af01199244b1eae2a0b'
+}).then(console.log)
+{ 
+    messageHash: '0xec121b6f7e2925166bcb1e6f14fd0b078f1168b6feca9340db7bd31998d14043',
+    v: '0x4e44',
+    r: '0xf68d2c65563baee7a76d5f75aaadbfecf4ae3f55b349013f740159edd38465d9',
+    s: '0x5146c0bbe998a7ba6e7c8f5aef7eb5fea0b4b7429713d65e38b2435f6a575300',
+    rawTransaction: '0x09f8de819a8505d21dba00830dbba094d05c5926b0a2f31aadcc9a9cbd3868a50104d834019476d1cc1cdb081de8627cab2c074f02ebc7bce0d0f847f845820fe9a0c5ea5b57f460bbc76101bafa2ed16228af0c0094d31a8a799e430278b4360724a0240afd7cf426e6aababdc59a3935b97aac4e059b59ba85ccedc75c95168abcfb946e75945404daa4130a338af01199244b1eae2a0bf847f845824e44a0f68d2c65563baee7a76d5f75aaadbfecf4ae3f55b349013f740159edd38465d9a05146c0bbe998a7ba6e7c8f5aef7eb5fea0b4b7429713d65e38b2435f6a575300',
+    txHash: '0xf31ab04d9ccdb93262a4349afabd68326db0d61452c06259ed8ea91bc09ca295',
+    senderTxHash: '0x1b7c0f2fc7548056e90d9690e8c397acf99eb38e622ac91ee22c2085065f8a55',
+    feePayerSignatures: [ 
+        [ 
+            '0x4e44',
+            '0xf68d2c65563baee7a76d5f75aaadbfecf4ae3f55b349013f740159edd38465d9',
+            '0x5146c0bbe998a7ba6e7c8f5aef7eb5fea0b4b7429713d65e38b2435f6a575300' 
+        ] 
+    ] 
+}
 ```
 
 
