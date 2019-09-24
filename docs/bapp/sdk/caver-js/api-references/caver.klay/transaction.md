@@ -104,8 +104,11 @@ The transaction will not be added to the blockchain.
 caver.klay.decodeTransaction(rawTransaction)
 ```
 Returns a transaction object containing all decoded values from the given `rawTransaction`, an RLP-encoded transaction.
+Since all transaction types except for legacy transaction can have multiple signatures of sender and fee payer, the existing returned fields v, r, s and payerV, payerR, payerS are the 0th signature of sender and fee payer.
 
 **NOTE** caver.klay.decodeTransaction is supported from **v1.0.1-rc.8**.  To use this feature, please install [v1.0.1-rc.8](https://www.npmjs.com/package/caver-js/v/1.0.1-rc.8) or higher.
+
+**NOTE** To support multiple signature, `signatures` and `feePayerSignatures` properties have been added since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3).
 
 **Parameters**
 
@@ -132,9 +135,14 @@ Returns a transaction object containing all decoded values from the given `rawTr
     to: '0xd03227635c90c7986f0e3a4e551cefbca8c55316',
     value: '0x174876e800',
     data: '0x',
-    v: '0x25',
-    r: '0x21bed200c7cbbbfac487385ca3e7916f396241749c5c80824f29dea8e16d7745',
-    s: '0x55ac0423b039773f043a4ad467da4c863c695b873e333182215c6f0eb9eb1a29' 
+    v: '0x26',
+    r: '0x6fc7412ad1801b4790e7a5a5097fdbef01bc9fe1b970d08232184d110226c221',
+    s: '0x4665f772edbc4ba4dfbf189d89a9b9cb1e5cdcea0fd5a8b1a497b9c275e5267c',
+    signatures: [ 
+        '0x26',
+        '0x6fc7412ad1801b4790e7a5a5097fdbef01bc9fe1b970d08232184d110226c221',
+        '0x4665f772edbc4ba4dfbf189d89a9b9cb1e5cdcea0fd5a8b1a497b9c275e5267c' 
+    ]
 }
 
 // Fee Delegation
@@ -150,10 +158,24 @@ Returns a transaction object containing all decoded values from the given `rawTr
     v: '0x4e43',
     r: '0x99c0a4c85bb9f2c0be2646b963201680e2f76128e4fd1f54d3f9cf80d1d117e7',
     s: '0x69b62aa6640c8aa3606a67869fe062dde1c61a60aea5c5161550ff11ee71c24b',
+    signatures: [
+        [ 
+            '0x4e43',
+            '0x99c0a4c85bb9f2c0be2646b963201680e2f76128e4fd1f54d3f9cf80d1d117e7',
+            '0x69b62aa6640c8aa3606a67869fe062dde1c61a60aea5c5161550ff11ee71c24b' 
+        ] 
+    ],
     feePayer: '0x6a4b71a6796c2fd376fb0526385e0783da86a039',
     payerV: '0x4e43',
     payerR: '0xbdfdc50649c8f52930a330b2e44d92f8943b28c7ff7edd8ff7f2f95e617c0d77',
-    payerS: '0x6e96bdd983494f6967f1a26d2f0ae991a4e8ebef1ac3c9029251a18c19002ab3' 
+    payerS: '0x6e96bdd983494f6967f1a26d2f0ae991a4e8ebef1ac3c9029251a18c19002ab3',
+    feePayerSignatures: [ 
+        [ 
+            '0x4e43',
+            '0xbdfdc50649c8f52930a330b2e44d92f8943b28c7ff7edd8ff7f2f95e617c0d77',
+            '0x6e96bdd983494f6967f1a26d2f0ae991a4e8ebef1ac3c9029251a18c19002ab3' 
+        ] 
+    ]
 }
 
 // Partial Fee Delegation
@@ -171,12 +193,26 @@ Returns a transaction object containing all decoded values from the given `rawTr
     feeRatio: '0x21',
     codeFormat: '0x',
     v: '0x25',
-    r: '0x67a99f118cb6305b5491d71e4cbbac0d341f84dc886b22f2462d976200439660',
-    s: '0x34a83b6163ef4c0b7badae07cd2f74882c3c21079258c9062075fd7b3c455eec',
+    r: '0xd8cdc1219df8bbca8a00255420a5bec0f602e6266b76ce7dcf5b0b26bd7fe3b9',
+    s: '0x5557496a3a17f784c3eb40acbb526dfbc20ae6b00c633a0186d804cd9137b13e',
+    signatures: [ 
+        [ 
+            '0x25',
+            '0xd8cdc1219df8bbca8a00255420a5bec0f602e6266b76ce7dcf5b0b26bd7fe3b9',
+            '0x5557496a3a17f784c3eb40acbb526dfbc20ae6b00c633a0186d804cd9137b13e' 
+        ] 
+    ],
     feePayer: '0x33f524631e573329a550296f595c820d6c65213f',
-    payerV: '0x26',
-    payerR: '0x812d8de8d42e7bfdc6c9b8eecc3fe23695d3594c145a109443935212ebd5d1db',
-    payerS: '0x2bd1660711b91eb47594521ec3aa76ab13684875fc03f2b278e6a58265b623c7' 
+    payerV: '0x25',
+    payerR: '0x41a4c4bf0e3039d04472beae4135a14c26ae4c88bad08d5f0acf61f7c0eb60df',
+    payerS: '0x3d1658f38e5c2089d64985fb33cb13db2e41cde6958ba2cfcfaba685a7f565e2',
+    feePayerSignatures: [ 
+        [ 
+            '0x25',
+            '0x41a4c4bf0e3039d04472beae4135a14c26ae4c88bad08d5f0acf61f7c0eb60df',
+            '0x3d1658f38e5c2089d64985fb33cb13db2e41cde6958ba2cfcfaba685a7f565e2' 
+        ] 
+    ]
 }
 ```
 

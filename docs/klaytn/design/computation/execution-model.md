@@ -74,7 +74,7 @@ A function of a smart contract can be called and executed either by sending a tr
 
 ### Disabling Smart Contracts
 
-Because smart contracts exist in the Klaytn blockchain, they cannot be deleted; they can only be disabled. For now, Klaytn has adopted the same process for disabling a Klaytn smart contract as is used for disabling smart contracts in Ethereum. For example, the Klaytn smart contract for KLVM can be disabled by using the [`selfdestruct(address recipient)`](https://solidity.readthedocs.io/en/v0.4.24/introduction-to-smart-contracts.html#self-destruct) call in Solidity \(or the KLVM opcode `SELFDESTRUCT`\). The Klaytn team will also provide ways to disable smart contracts for other execution environments.
+Because smart contracts exist in the Klaytn blockchain, they cannot be deleted; they can only be disabled. For now, Klaytn has adopted the same process for disabling a Klaytn smart contract as is used for disabling smart contracts in Ethereum. For example, the Klaytn smart contract for KLVM can be disabled by using the [`selfdestruct(address recipient)`](https://solidity.readthedocs.io/en/v0.5.6/introduction-to-smart-contracts.html#self-destruct) call in Solidity \(or the KLVM opcode `SELFDESTRUCT`\). The Klaytn team will also provide ways to disable smart contracts for other execution environments.
 
 ### Upgrading Smart Contracts
 
