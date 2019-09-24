@@ -1,4 +1,4 @@
-# Download
+# 다운로드
 
 Below is the latest packages. You can get the entire list of node binaries in the [download page](../../../download/README.md).
 
