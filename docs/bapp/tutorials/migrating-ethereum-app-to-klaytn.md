@@ -23,7 +23,7 @@ We will focus only on the code modifications required to migrate an Ethereum App
 #### Intended Audience
 
 * We assume that you have basic knowledge on [React](https://reactjs.org/). Sample code is made with React.
-* Basic knowledge and experience in Blockchain app but no previous Klaytn experience is needed
+* Basic knowledge and experience in Blockchain app is required, but no previous Klaytn experience is needed.
 
 #### Testing Environment
 CountBApp is tested in the following environment.
