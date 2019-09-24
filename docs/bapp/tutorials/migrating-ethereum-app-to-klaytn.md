@@ -43,10 +43,10 @@ First, you need to change the library that makes a connection to the node. Then 
 
 - In Ethereum BApp example
   - `web3` library makes a connection, communicating with Ethereum node
-  - `Ropsten testnet` 'rpcURL' is used for testing
+  - `Ropsten testnet` URL is assigned to 'rpcURL' .
 - In Klaytn BApp example
   - `caver-js` library makes a connection, communicating with Klaytn node
-  - `Baobab testnet` 'rpcURL' is used for testing
+  - `Baobab testnet` URL is assigned to 'rpcURL'.
 
 `src/klaytn/caver.js`
 
@@ -73,7 +73,7 @@ export default caver
 
 BlockNumber component gets the current block number every 1 second (1000ms).  
 
-By replacing the `web3` library with `caver-js`, you can simply sync Klaytn's BlockNumber in real time instead of Ethereum's BlockNumber.
+By simply replacing the `web3` library with `caver-js`, you can sync Klaytn's BlockNumber in real-time instead of Ethereum's BlockNumber.
 
 >Ethereum: [`web3.eth.getBlockNumber()`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth.html#getblocknumber)  
 >Klaytn: [`caver.klay.getBlockNumber()`](https://docs.klaytn.com/bapp/sdk/caver-js/api-references/caver.klay/block#getblocknumber)
@@ -96,7 +96,7 @@ class BlockNumber extends Component {
 
 export default BlockNumber
 ```
-For more detail about `BlockNumber` component, see [CountBApp tutorial - Blocknumber Component](https://docs.klaytn.com/bapp/tutorials/count-bapp/5.-frontend-code-overview/5-1.-blocknumber-component)
+For more detail about `BlockNumber` component, see [CountBApp tutorial - Blocknumber Component](https://docs.klaytn.com/bapp/tutorials/count-bapp/5.-frontend-code-overview/5-1.-blocknumber-component).
 
 ## 5. Interact with the contract: `Count` component
 
@@ -112,12 +112,12 @@ Let's learn step by step how to migrate `CountBApp` from Ethereum to Klaytn!
 
 ### 5-1. Deploy `Count` contract on Klaytn
 
-To migrate CountBApp, we need to deploy a Count contract on Klaytn and get the contract address.
+The first step is deploying Count contract on Klaytn and get the contract address. Most of the cases, you can use Etherem contracts on Klaytn without modification. See [Porting Etherem Contract](../../smart-contract/porting-ethereum-contract.md). In this guide, we will use Truffle to deploy the contract.
 
-1. Change network properties in `truffle-config.js` to deploy contract on Klaytn
-2. Get KLAY to your account at [KLAY faucet](https://baobab.wallet.klaytn.com/access?next=faucet) to receive 5 KLAY
+1. Change network properties in `truffle-config.js` to deploy the contract on Klaytn.
+2. Top up your account using [KLAY faucet](https://baobab.wallet.klaytn.com/access?next=faucet).
 3. Type `$ truffle deploy --network baobab --reset`
-4. `Count` contract will be deployed on Baobab testnet, Klaytn
+4. `Count` contract will be deployed on Baobab testnet, Klaytn.
 
 `truffle-config.js`
 ```js
