@@ -42,10 +42,10 @@ Klaytn runs similar to Ethereum except for the consensus algorithm. It even keep
 To migrate a BApp, you first need to change the library that makes node connection. Then you could connect to specific node by changing 'rpcURL' value. 
 
 - In Ethereum BApp example
-  - `web3` libary makes a connection, communicating with Ethereum node
+  - `web3` library makes a connection, communicating with Ethereum node
   - `Ropsten testnet` 'rpcURL' is used for testing
 - In Klaytn BApp example
-  - `caver-js` libary makes a connection, communicating with Klaytn node
+  - `caver-js` library makes a connection, communicating with Klaytn node
   - `Baobab testnet` 'rpcURL' is used for testing
 
 `src/klaytn/caver.js`
