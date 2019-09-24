@@ -1,1 +1,1 @@
-# System Requirements
+# 시스템 요구사항
