@@ -67,7 +67,7 @@ You need to run an EN of the main chain as a main-bridge. And also you should de
 
 There are different way to connect the EN process. You can check the usable commands on [API Document](https://docs.klaytn.com/api) This page explains the way to connect the process via IPC \(inter-process communication\). The IPC file `klay.ipc` is located in the data directory on an EN/SCN.
 
-Please execute the following command and check out the result. \(If you added `mainbridge` API for RPC, you can check the bridge API like below. If there is no `mainbridge` API, you should check [Operate EN as Main-bridge](https://docs.klaytn.com/node/sc/setup_main-bridge#configuration-of-the-initial-file) again. \)
+다음 명령을 실행하고 결과를 확인하세요. \(If you added `mainbridge` API for RPC, you can check the bridge API like below. If there is no `mainbridge` API, you should check [Operate EN as Main-bridge](https://docs.klaytn.com/node/sc/setup_main-bridge#configuration-of-the-initial-file) again. \)
 
 ```bash
 $ ken attach ~/kend_home/klay.ipc
