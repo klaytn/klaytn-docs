@@ -102,7 +102,7 @@ For more detail about `BlockNumber` component, see [CountBApp tutorial - Blocknu
 
 ![count component](./count-bapp/images/count-component.gif)
 
-To interact with the contract, we first need to create a instance of the depolyed contract. With the instance, we can read and write the contract's data.  
+To interact with the contract, we need to create a instance of the depolyed contract. With the instance, we can read and write the contract's data.  
 
 Let's learn step by step how to migrate `CountBApp` from Ethereum to Klaytn!
 
@@ -158,7 +158,7 @@ module.exports = {
 }
 ```
 
-For more details about deploying contracts, See [CountBapp tutorial - 6. Deploy Contract](https://docs.klaytn.com/bapp/tutorials/count-bapp/6.-deploy-contract).
+For more details about deploying contracts, See [CountBapp tutorial - Deploy Contract](https://docs.klaytn.com/bapp/tutorials/count-bapp/6.-deploy-contract).
 
 ### 5-2. Create a contract instance
 
