@@ -164,7 +164,7 @@ Signs a Klaytn transaction with a given private key.
 **Example**
 
 ```javascript
-// signTransaction with priavet key string to legacy transaction
+// sign legacy transaction with private key string
 > caver.klay.accounts.signTransaction({
     from: '0x72519cf34d9aa14629e7ad0cad5d55a3bb398364',
     to: '0xa9d2cc2bb853163b6eadfb6f962d72f7e00bc2e6',
