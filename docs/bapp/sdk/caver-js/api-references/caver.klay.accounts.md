@@ -563,7 +563,7 @@ Decrypts a keystore v3 JSON and returns the decrypted account object.
 ```javascript
 caver.klay.accounts.isDecoupled(key, address)
 ```
-Determines if key is decoupled from address.
+Determines if the key is decoupled from the address.
 
 **Parameters**
 
