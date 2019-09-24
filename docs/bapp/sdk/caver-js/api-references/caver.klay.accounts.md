@@ -641,7 +641,7 @@ Returns an account that has an address derived from the given private key. See [
 }
 
 // getLegacyAccount with decoupled KlaytnWalletKey format
-> caver.klay.accounts.isDecoupled('0x{private key}0x{type}0x{address in hex}')
+> caver.klay.accounts.getLegacyAccount('0x{private key}0x{type}0x{address in hex}')
 { 
     legacyAccount: { 
         address: '0xE26D5d4983eD62A99D7D4Bc0cE0e784782fF6B27',
