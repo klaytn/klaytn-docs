@@ -60,7 +60,7 @@ Truffle은 다음 방법들로 설치 가능합니다:
 ```bash
 $ sudo npm install -g truffle@4.1.15
 $ cd /usr/local/lib/node_modules/truffle
-$ sudo npm install solc@0.4.24
+$ sudo npm install solc@0.5.6
 $ cd -
 ```
 
@@ -72,7 +72,7 @@ $ cd -
 # $HOME/klaytn/에 있다고 가정합니다.
 $ npm install truffle@4.1.15
 $ cd node_modules/truffle
-$ npm install solc@0.4.24
+$ npm install solc@0.5.6
 $ cd -
 $ ln -s node_modules/truffle/build/cli.bundled.js truffle
 $ export PATH=`pwd`:$PATH
