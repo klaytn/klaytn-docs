@@ -570,7 +570,7 @@ Determines if the key is decoupled from the address.
 | Name | Type | Description |
 | --- | --- | --- |
 | key | String | Key to determine if decoupled from address. Key can be a 32-byte string private key or a [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
-| address | String | (optional) Address to be used to determine if decoupled. If no address is specified as a parameter, the address is extracted from the KlaytnWalletKey format or created from the normal private key to determine if it is decoupled. |
+| address | String | (optional) Address to be used to determine if decoupled. If no address is given, the address is derived from the key. |
 
 
 **Return Value**
