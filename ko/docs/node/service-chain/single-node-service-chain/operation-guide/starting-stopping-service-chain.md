@@ -2,7 +2,7 @@
 
 Depending on your installation type, you can start/stop the Klaytn service with the following `systemctl` or `kscnd` command.
 
-**start**
+**실행**
 
 ```bash
 ## when installed from rpm distribution 
@@ -13,7 +13,7 @@ $ kscnd start
 
 ```
 
-**stop**
+**중지**
 
 ```bash
 ## when installed from rpm distribution 
