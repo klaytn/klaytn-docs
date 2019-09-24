@@ -6,26 +6,26 @@
 트랜잭션 비용 : = (총 가스 사용량) x (가스 단가)
 ```
 
-* The `total gas used` is computed by KLVM based on the gas cost of the opcode and the intrinsic gas cost.
-* `unit price` is the price of gas defined in Klaytn.
+* `총 가스 사용량`은 opcode의 가스 비용과 intrinsic gas cost을 기준으로 KLVM이 계산합니다.
+* `unit price`는 Klaytn에서 정한 가스 가격입니다.
 
-This calculated transaction fee is subtracted from the sender's or enterprise account's balance, depending on the transaction.
+이 계산된 트랜잭션 비용은 트랜잭션에 따라 발신자 또는 기업 계좌 잔액에서 차감됩니다.
 
-## Gas and Unit Price Overview
+## 가스 및 단가 개요
 
-### 가스
+### 가스(Gas)
 
-Every action that changes the state of the blockchain requires gas. When a node processes user's transaction such as sending KLAY, using ERC-20 tokens, or executing a contract, the user has to pay for the computation and storage usage. The amount of payment is decided by the amount of `gas` required.
+블록체인 상태를 변경하는 모든 행동에는 가스가 필요합니다. 노드가 KLAY 전송, ERC-20 토큰 사용 또는 컨트랙트 실행과 같은 사용자의 트랜잭션을 처리할 때 사용자는 연산 및 스토리지 사용 비용을 지불해야 합니다. 지불 금액은 필요한 `gas`양으로 정합니다.
 
-`Gas` is a measuring unit representing how much calculation is needed to process the user's transaction.
+`가스`는 사용자의 트랜잭션을 처리하는 데 어느 정도의 연산이 필요한지를 나타내는 측정 단위입니다.
 
-### 단가
+### 단가(Unit Price)
 
-`Unit price` is the price for a single gas. The unit price \(also called `gas price`\) is set in the system by the governance. It is currently set to 25 Gpeb \(*i.e.*, 25 x 10^9 peb\) per gas and cannot be changed by user. The current value of the unit price can be obtained by calling the `klay.gasPrice` API.
+`단가`는 가스당 가격입니다. 단가 \(`가스 가격`\라고도 함)는 거버넌스에 의해 시스템에 설정되어 있습니다. 현재는 가스당 25 Gpeb\(*즉*, 25 x 10^9 peb\)로 설정되어있으며, 사용자에 의해 바뀔 수 없습니다. 현재의 단가 정보는 `klay.gasPrice` API를 호출하여 얻을 수 있습니다.
 
-In Ethereum, users set the gas price for each transaction, and miners choose which transactions to be included in their block to maximize their reward. It is something like bidding for limited resources. This approach has been working because it is market-based. However, the transaction cost fluctuates and often becomes too high to guarantee the execution.
+이더리움에서 사용자는 각 트랜잭션에 대한 가스 가격을 설정하고, 마이너들은 보상을 극대화하기 위해 특정 거래를 그들의 블록에 포함시킬 수 있습니다. 이는 한정된 자원을 얻기 위한 경매와 같습니다. 이 접근 방식은 시장을 기반으로 하므로 작동합니다. 하지만, 트랜잭션 비용의 변동이 심하고 실행을 보장할 수 없을 정도로 자주 너무 높아집니다.
 
-To solve the problem, Klaytn is using a fixed unit price and the price can be adjusted by the governance council. This policy ensures that every transaction will be handled equally and be guaranteed to be executed. Therefore, users do not need to struggle to determine the right unit price.
+이 문제를 해결하기 위해 Klaytn은 고정된 단가를 사용하고 있으며 가격은 governance council에서 조정할 수 있습니다. 이 정책은 모든 트랜잭션이 동일하게 처리되고 실행되도록 보장합니다. 따라서, 사용자는 적절한 단가를 결정하기 위해 애쓸 필요가 없습니다.
 
 #### Transaction Validation against Unit Price
 
