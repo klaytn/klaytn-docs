@@ -145,7 +145,7 @@ Signs a Klaytn transaction with a given private key.
 
 **Return Value**
 
-`Promise` returning `Object`: The signed transaction data RLP encoded values as follows:
+`Promise` returning `Object`: The RLP encoded signed transaction. The object properties are as follows:
 
 | Name | Type | Description |
 | --- | --- | --- |
