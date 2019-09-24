@@ -38,7 +38,7 @@ There are three main features.
 
 We will build a web application that interacts with smart contracts. To complete this tutorial, the audience is expected to be familiar with the following concepts.
 
-* Basic knowledge on [React](https://reactjs.org/) and [Redux](https://redux.js.org/). This course is not for absolute beginners.
+* We assume that you have basic knowledge on [React](https://reactjs.org/) and [Redux](https://redux.js.org/). This course is not for absolute beginners.
 * Basic knowledge and experience in [Solidity](https://solidity.readthedocs.io/en/v0.5.10/) development are recommended. However, any experienced SW developer should be able to complete the task by following the step-by-step guideline of this tutorial.
 * Anyone interested in [ERC-721 Tokens](http://erc721.org/).
 
