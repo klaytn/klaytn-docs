@@ -157,7 +157,7 @@ Signs a Klaytn transaction with a given private key.
 | txHash | 32-byte String | Hash of the transaction. |
 | senderTxHash | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash) |
 | signatures | Array | (optional) An array of the sender's signature(s). |
-| feePayerSignatures | Array | (optional) The fee payer's signatures are returned as an array in feePayerSignatures. |
+| feePayerSignatures | Array | (optional) An array of the fee payer's signature(s). |
 
 **NOTE** The signatures and feePayerSignatures properties have been added since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). If the sender signs the transaction, the signature array is returned in `signatures`. If the fee payer signs, the signature array is returned in `feePayerSignatures`.
 
