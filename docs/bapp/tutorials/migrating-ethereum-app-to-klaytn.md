@@ -197,7 +197,7 @@ The `ABI` \(Application Binary Interface\) used to create the Count contract ins
 `CountContract.methods.plus().send({ ... })`  
 `CountContract.methods.minus().send({ ... })`
 
-Since you created a contract instance in previous step, you dont need to modify any code in the part that uses the methods of the contract instance. BApp migration has been completed!
+Once you created a contract instance as in the previous step, you don't need to modify any code in using the contract methods afterward. BApp migration has been completed!
 
 #### Full code: `Count` component
 
