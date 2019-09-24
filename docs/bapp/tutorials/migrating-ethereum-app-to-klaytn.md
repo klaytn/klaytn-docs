@@ -69,7 +69,7 @@ export default caver
 
 
 ## 4. Interact with Klaytn node: `BlockNumber` component
-![blocknumber component](./count-bapp/images/blocknumber-component.gif)
+![blocknumber component](./count-bapp/images/blocknumber-component.gif)  
 BlockNumber component gets the current block number every 1 second (1000ms).  
 
 By replacing the `web3` library with `caver-js`, you can simply sync Klaytn's BlockNumber in real time instead of Ethereum's BlockNumber.
