@@ -76,7 +76,7 @@ Klaytn의 **상태**는 계정 상태를 모은 것입니다. Klaytn의 노드�
 
 ### 스마트 컨트랙트 비활성화
 
-스마트 컨트랙트는 Klaytn 블록체인 상에 존재하기 때문에 삭제될 수 없습니다. 오직 비활성화 될 수만 있습니다. 현재 Klaytn 스마트 컨트랙트를 비활성화기 위해서는 이더리움에서 사용된 방식과 같은 방식을 이용할 수 있습니다. 예를 들어, Klaytn 스마트 컨트랙트는 솔리디티의 [`selfdestruct(address recipient)`](https://solidity.readthedocs.io/en/v0.4.24/introduction-to-smart-contracts.html#self-destruct) 호출이나 \(the KLVM opcode `SELFDESTRUCT`\)을 이용하여 비활성화 될 수 있습니다. Klaytn팀은 다른 실행 환경에서 스마트 컨트랙트를 비활성화하는 방법도 제공할 예정입니다.
+스마트 컨트랙트는 Klaytn 블록체인 상에 존재하기 때문에 삭제될 수 없습니다. 오직 비활성화 될 수만 있습니다. 현재 Klaytn 스마트 컨트랙트를 비활성화기 위해서는 이더리움에서 사용된 방식과 같은 방식을 이용할 수 있습니다. For example, the Klaytn smart contract for KLVM can be disabled by using the [`selfdestruct(address recipient)`](https://solidity.readthedocs.io/en/v0.5.6/introduction-to-smart-contracts.html#self-destruct) call in Solidity \(or the KLVM opcode `SELFDESTRUCT`\). Klaytn팀은 다른 실행 환경에서 스마트 컨트랙트를 비활성화하는 방법도 제공할 예정입니다.
 
 ### 스마트 컨트랙트 업그레이드
 
