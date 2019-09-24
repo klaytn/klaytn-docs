@@ -189,7 +189,7 @@ export default Count
 
 ### 5-3. Interact with contract
 
-The `ABI` \(Application Binary Interface\) used to create the Count contract intance allows the `caver-js` to call contract's methods as below. You can interact with Count contract.
+The `ABI` \(Application Binary Interface\) used to create the Count contract instance allows the `caver-js` to invoke contract's methods as below. You can interact with Count contract as if it were a JavaScript object.
 
 - Read data (call)  
 `CountContract.methods.count().call()`
