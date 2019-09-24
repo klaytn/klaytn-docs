@@ -558,6 +558,99 @@ Decrypts a keystore v3 JSON and returns the decrypted account object.
 }
 ```
 
+## isDecoupled
+
+```javascript
+caver.klay.accounts.isDecoupled(key, address)
+```
+Determines if key is decoupled from address.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| key | String | Key to determine if decoupled from address. Key can be a raw private key format of a 32-byte string type and also can be a [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format. |
+| address | String | (optional) Address to be used to determine if decoupled. If no address is specified as a parameter, the address is extracted from the KlaytnWalletKey format or created from the normal private key to determine if it is decoupled. |
+
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Boolean | `true` if the key is decoupled from address. `false` if it is not decoupled. |
+
+
+**Example**
+
+```javascript
+> caver.klay.accounts.isDecoupled('0x{private key}', '0x{address in hex}')
+true
+
+> caver.klay.accounts.isDecoupled('0x{private key}0x{type}0x{address in hex}')
+true
+
+> caver.klay.accounts.isDecoupled('0x{private key}')
+false
+
+> caver.klay.accounts.isDecoupled('0x{private key}0x{type}0x{address in hex}')
+false
+```
+
+## getLegacyAccount
+
+```javascript
+caver.klay.accounts.getLegacyAccount(key)
+```
+Returns account which has input private key as legacy account key.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| key | String | The parameter to get an account that has a key as a legacy account key. Key can be a raw private key format of a 32-byte string type and also can be a [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format. In the KlaytnWalletKey format, only the portion corresponding to the private key is used.|
+
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Object | The account obejct with the input key as the legacy account key is returned, and if there is address information extracted from the key, it is returned together. |
+
+
+**Example**
+
+```javascript
+// getLegacyAccount with raw private key format
+> caver.klay.accounts.getLegacyAccount('0x{private key}')
+{ 
+    legacyAccount: { 
+        address: '0xE26D5d4983eD62A99D7D4Bc0cE0e784782fF6B27',
+        privateKey: '0x{private key}' 
+    },
+    klaytnWalletKeyAddress: '' 
+}
+
+// getLegacyAccount with KlaytnWalletKey format
+> caver.klay.accounts.isDecoupled('0x{private key}0x{type}0x{address in hex}')
+{ 
+    legacyAccount: { 
+        address: '0xE26D5d4983eD62A99D7D4Bc0cE0e784782fF6B27',
+        privateKey: '0x{private key}'
+    },
+    klaytnWalletKeyAddress: '0xE26D5d4983eD62A99D7D4Bc0cE0e784782fF6B27'
+}
+
+// getLegacyAccount with decoupled KlaytnWalletKey format
+> caver.klay.accounts.isDecoupled('0x{private key}0x{type}0x{address in hex}')
+{ 
+    legacyAccount: { 
+        address: '0xE26D5d4983eD62A99D7D4Bc0cE0e784782fF6B27',
+        privateKey: '0x{private key}' 
+    },
+    klaytnWalletKeyAddress: '0xd05c5926b0a2f31aadcc9a9cbd3868a50104d834'
+}
+```
+
 
 ## wallet
 
