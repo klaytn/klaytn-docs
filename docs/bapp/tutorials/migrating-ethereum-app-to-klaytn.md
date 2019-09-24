@@ -13,7 +13,7 @@
 
 ## 1. Introduction
 
-This tutorial is intended to give a guide to migrate Ethereum App to Klaytn. No previous Klaytn experience is needed. A simple blockchain app's code will be used as a sample code to show how to migrate Ethereum App to Klaytn.  
+This tutorial is intended to give a guide to migrate an Ethereum App to Klaytn. No previous Klaytn experience is needed. A simple blockchain app will be used as a sample to show how to migrate an Ethereum App to Klaytn.  
 
 We will focus only on the code modifications required to migrate an Ethereum App to Klaytn. If you need details on creating a BApp, Please refer to [CountBApp Tutorial](https://docs.klaytn.com/bapp/tutorials/count-bapp).
 
