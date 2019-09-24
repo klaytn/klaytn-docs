@@ -39,7 +39,7 @@ Klaytn runtime environment is compatible with Ethereum Virtual Machine and execu
 
 ## 3. Change node connection from Ethereum to Klaytn
 
-To migrate a BApp, you first need to change the library that makes node connection. Then you could connect to specific node by changing 'rpcURL' value. 
+First, you need to change the library that makes a connection to the node. Then you will specify the node URL in 'rpcURL'. 
 
 - In Ethereum BApp example
   - `web3` library makes a connection, communicating with Ethereum node
