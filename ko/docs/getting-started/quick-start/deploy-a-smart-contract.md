@@ -32,25 +32,25 @@ $ vi KlaytnGreeter.sol
 KlaytnGreeter.sol에 다음 코드를 작성하세요.
 
 ```text
-pragma solidity 0.4.24;
+pragma solidity 0.5.6;
 contract Mortal {
     /* 주소 타입의 소유자(owner) 변수 정의 */
-    address owner;
+    address payable owner;
     /* 이 함수는 초기화 시점에 실행되어 컨트랙트 소유자를 설정합니다 */
-    function Mortal() { owner = msg.sender; }
+    constructor () public { owner = msg.sender; }
     /* 컨트랙트에서 자금을 회수하는 함수 */
-    function kill() { if (msg.sender == owner) selfdestruct(owner); }
+    function kill() public payable { if (msg.sender == owner) selfdestruct(owner); }
 }
 
 contract KlaytnGreeter is Mortal {
     /* 문자열 타입의 변수 greeting 정의 */
     string greeting;
     /* 이 함수는 컨트랙트가 실행될 때 작동합니다 */
-    function KlaytnGreeter(string _greeting) public {
+    constructor (string memory _greeting) public {
         greeting = _greeting;
     }
     /* 주(Main) 함수 */
-    function greet() constant returns (string) {
+    function greet() public view returns (string memory) {
         return greeting;
     }
 }
@@ -103,7 +103,7 @@ module.exports = {
     },
     compilers: {
       solc: {
-        version: "0.4.24"    // 컴파일러 버전을 0.4.24로 지정
+        version: "0.5.6"    // 컴파일러 버전을 0.5.6로 지정
       }
   }
 };
