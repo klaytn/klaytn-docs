@@ -157,7 +157,7 @@ module.exports = {
 }
 ```
 
-For more details about deploy contract, See [CountBapp tutorial - 6. Deploy Contract](https://docs.klaytn.com/bapp/tutorials/count-bapp/6.-deploy-contract)
+For more details about deploying contracts, See [CountBapp tutorial - 6. Deploy Contract](https://docs.klaytn.com/bapp/tutorials/count-bapp/6.-deploy-contract).
 
 ### 5-2. Create a contract instance
 
