@@ -186,7 +186,7 @@ Signs a Klaytn transaction with a given private key.
     ] 
 }
 
-// signTransaction with priavet key string
+// signTransaction with private key string
 > caver.klay.accounts.signTransaction({
     type: 'VALUE_TRANSFER',
     from: '0x72519cf34d9aa14629e7ad0cad5d55a3bb398364',
