@@ -17,8 +17,8 @@ This tutorial is intended to give a guide to migrate an Ethereum App to Klaytn. 
 
 We will focus only on the code modifications required to migrate an Ethereum App to Klaytn. If you need details on creating a Klaytn BApp, Please refer to [CountBApp Tutorial](https://docs.klaytn.com/bapp/tutorials/count-bapp).
 
-> **Full diff code** of migration(Ethereum -> Klaytn) can be found on GitHub at  
-[https://github.com/underbleu/countbapp](https://github.com/underbleu/countbapp)
+> **Source Code**  
+> Complete source code can be found on GitHub at [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
 
 #### Intended Audience
 

@@ -32,7 +32,7 @@ There are three main features.
 3. **Transfer ownership** The owner of the photo can transfer ownership of the photo to another user, and the transaction will be shown in the ownership history.
 
 > **Source Code**  
-> Complete source code can be found on GitHub at [https://github.com/underbleu/klaystagram](https://github.com/underbleu/klaystagram)
+> Complete source code can be found on GitHub at [https://github.com/klaytn/klaystagram](https://github.com/klaytn/klaystagram)
 
 ## Intended Audience
 

@@ -21,7 +21,7 @@ This tutorial is intended to give a step by step guide to build a Klaytn BApp. N
 Any user who has a Klaytn account can increase and decrease the current value as shown in the above gif.
 
 > **Source Code**  
-> Complete source code can be found on GitHub at [https://github.com/underbleu/countbapp](https://github.com/underbleu/countbapp)
+> Complete source code can be found on GitHub at [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
 
 ## Intended Audience
 
