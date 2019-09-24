@@ -32,25 +32,25 @@ $ vi KlaytnGreeter.sol
 Write the following code in KlaytnGreeter.sol.
 
 ```text
-pragma solidity 0.4.24;
+pragma solidity 0.5.6;
 contract Mortal {
     /* Define variable owner of the type address */
-    address owner;
+    address payable owner;
     /* This function is executed at initialization and sets the owner of the contract */
-    function Mortal() { owner = msg.sender; }
+    constructor () public { owner = msg.sender; }
     /* Function to recover the funds on the contract */
-    function kill() { if (msg.sender == owner) selfdestruct(owner); }
+    function kill() public payable { if (msg.sender == owner) selfdestruct(owner); }
 }
 
 contract KlaytnGreeter is Mortal {
     /* Define variable greeting of the type string */
     string greeting;
     /* This runs when the contract is executed */
-    function KlaytnGreeter(string _greeting) public {
+    constructor (string memory _greeting) public {
         greeting = _greeting;
     }
     /* Main function */
-    function greet() constant returns (string) {
+    function greet() public view returns (string memory) {
         return greeting;
     }
 }
@@ -103,7 +103,7 @@ module.exports = {
     },
     compilers: {
       solc: {
-        version: "0.4.24"    // Specify compiler's version to 0.4.24
+        version: "0.5.6"    // Specify compiler's version to 0.5.6
       }
   }
 };
