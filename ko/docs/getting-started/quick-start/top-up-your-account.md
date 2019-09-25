@@ -8,11 +8,11 @@ Klaytn Endpoint Node는 자바스크립트 콘솔과 함께 제공됩니다. 콘
 $ ken attach ~/kend_home/klay.ipc
 Welcome to the Klaytn JavaScript console
 
-!​instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+!instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kend_home
  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
 
- ​>
+ >
 ```
 
 **참고**: 모든 블록을 다운로드 할 때까지 기다려야 합니다. 콘솔에 `klay.blockNumber`를 입력하고 [여기](https://baobab.scope.klaytn.com/)의 현재 블록 번호와 일치하는지 확인하세요.
@@ -39,7 +39,7 @@ UTC--2019-06-24T11-20-15.590879000Z--75a59b94889a05c03c66c3c84e9d2f8308ca4abd
 
 ## Klaytn 계정 잠금 해제 <a id="unlocking-the-klaytn-account"></a>
 
-생성된 계정을 잠금 해제하려면, 다음 명령을 실행합니다. 이는 300초 동안 계정을 잠금 해제합니다. **참고**: 잠금 해제 기간을 수동으로 설정하려면, 다음 [링크](https://docs.klaytn.com/api/management/personal#personal_unlockaccount)를 참조하세요. **`경고`**: 주의하지 않으면 계정 잠금을 해제하는 것은 매우 위험할 수 있습니다. EN이 해커에 의해 해킹되면, 해커가 토큰을 빼앗을 가능성이 있습니다. 보다 안전한 방법을 사용하려면, 다음의 [개인키를 사용하는 배포 가이드](https://docs.klaytn.com/tutorials/countbapp/6-deploy-contract#deploy-method-1-by-private-key)를 참조하세요.
+생성된 계정을 잠금 해제하려면, 다음 명령을 실행합니다. 이는 300초 동안 계정을 잠금 해제합니다. **Note**: If you want to manually set the unlock duration, refer to this [link](../../bapp/json-rpc/api-references/personal.md#personal_unlockaccount). **`경고`**: 주의하지 않으면 계정 잠금을 해제하는 것은 매우 위험할 수 있습니다. EN이 해커에 의해 해킹되면, 해커가 토큰을 빼앗을 가능성이 있습니다. To use safer method, refer to this [deployment guide using private key](../../bapp/tutorials/count-bapp/6.-deploy-contract.md#deploy-method-1-by-private-key)
 
 ```javascript
 > personal.unlockAccount('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # 잠금을 해제할 계정 주소
@@ -63,7 +63,7 @@ true
 
 계정의 잔액을 확인하려면, 다음 명령을 실행합니다.
 
-기본 단위는 peb \(1 KLAY = 10 ^ 18 peb\)입니다. KLAY 단위에 대한 자세한 내용은 [Units of KLAY](https://docs.klaytn.com/klaytn/design/computation/exec_model#units-of-klay)에서 확인할 수 있습니다.
+기본 단위는 peb \(1 KLAY = 10 ^ 18 peb\)입니다. More information about KLAY units can be found at [Units of KLAY](../../klaytn/design/klaytn-native-coin-klay.md#units-of-klay).
 
 ```javascript
 > klay.getBalance('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # 계정 주소를 입력하세요
@@ -78,6 +78,3 @@ true
 > exit
 $
 ```
-
-[  
-](https://docs.klaytn.com/getting_started/quick_start/launch_en)
