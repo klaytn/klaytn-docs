@@ -53,8 +53,6 @@ MAIN_BRIDGE_INDEXING=1
 ...
 ```
 
-*You should note the `WS_PORT` to use for `SC_MAIN_CHAIN_WS` in* [*Setup Service Chain*]()_._
-
 ### Restart the EN
 
 ## Connect SCN to the Main Chain
@@ -65,9 +63,9 @@ You need to run an EN of the main chain as a main-bridge. And also you should de
 
 #### Open EN Console
 
-There are different way to connect the EN process. You can check the usable commands on [API Document](https://docs.klaytn.com/api) This page explains the way to connect the process via IPC \(inter-process communication\). The IPC file `klay.ipc` is located in the data directory on an EN/SCN.
+There are different way to connect the EN process. You can check the usable commands on [ken CLI commands](../../../endpoint-node/ken-cli-commands.md). This page explains the way to connect the process via IPC \(inter-process communication\). The IPC file `klay.ipc` is located in the data directory on an EN/SCN.
 
-다음 명령을 실행하고 결과를 확인하세요. \(If you added `mainbridge` API for RPC, you can check the bridge API like below. If there is no `mainbridge` API, you should check [Operate EN as Main-bridge](https://docs.klaytn.com/node/sc/setup_main-bridge#configuration-of-the-initial-file) again. \)
+다음 명령을 실행하고 결과를 확인하세요. \(If you added `mainbridge` API for RPC, you can check the bridge API like below. If there is no `mainbridge` API, you should check [EN Configuration - Enable Main-bridge](#en-configuration-enable-main-bridge) again. \)
 
 ```bash
 $ ken attach ~/kend_home/klay.ipc
@@ -82,7 +80,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
 
 #### Get the EN's KNI
 
-After connecting the process via IPC, you can check the EN's main-bridge KNI like below. You can refer to [Service Chain API](https://docs.klaytn.com/api/servicechain).
+After connecting the process via IPC, you can check the EN's main-bridge KNI like below. You can refer to [Service Chain API](../../../../bapp/json-rpc/api-references/servicechain.md).
 
 ```javascript
 > mainbridge.nodeInfo
