@@ -183,7 +183,7 @@ componentWillMount() {
 `walletInstance` session may not exist if you have never logged in our tutorial app.  
 Otherwise, `walletInstance` session will exist as a JSON string, if so, it attempts to add the wallet instance to the caver's wallet.  
 You can add a wallet instance to caver through `cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))`.  
-For further information related `caver.klay.accounts.wallet.add`, see [caver.klay.accounts.wallet.add](../../../../sdk/caver-js/api-references/caver.klay.accounts#wallet-add)
+For further information related `caver.klay.accounts.wallet.add`, see [caver.klay.accounts.wallet.add](../../../sdk/caver-js/api-references/caver.klay.accounts.md#wallet-add)
 
 cf\) `JSON.parse` is needed since `walletInstance` session is stored as a JSON string.
 

@@ -65,7 +65,7 @@ You need to run an EN of the main chain as a main-bridge. And also you should de
 
 #### Open EN Console
 
-There are different way to connect the EN process. You can check the usable commands on [ken CLI commands](../../../../endpoint-node/ken-cli-commands.md). This page explains the way to connect the process via IPC \(inter-process communication\). The IPC file `klay.ipc` is located in the data directory on an EN/SCN.
+There are different way to connect the EN process. You can check the usable commands on [ken CLI commands](../../../endpoint-node/ken-cli-commands.md). This page explains the way to connect the process via IPC \(inter-process communication\). The IPC file `klay.ipc` is located in the data directory on an EN/SCN.
 
 Please execute the following command and check out the result. \(If you added `mainbridge` API for RPC, you can check the bridge API like below. If there is no `mainbridge` API, you should check [EN Configuration - Enable Main-bridge](#en-configuration-enable-main-bridge) again. \)
 
