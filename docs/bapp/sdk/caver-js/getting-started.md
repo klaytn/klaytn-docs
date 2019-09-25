@@ -353,7 +353,7 @@ Contract JSON ABI
 
 **NOTE**: To compile a smart contract, you must have a solidity complier installed.
 
-For smart contract deployment, you can use [caver.klay.Contract] to deploy it, or you can deploy it using [SMART\_CONTRACT\_DEPLOY] transaction. Here is an example of using [caver.klay.Contract].
+For smart contract deployment, you can use [caver.klay.Contract] to deploy it, or you can deploy it using [SMART_CONTRACT_DEPLOY] transaction. Here is an example of using [caver.klay.Contract].
 
 If the contract instance is created, you can deploy it by passing the bytecode to the `data` field as shown below:
 
@@ -395,7 +395,7 @@ The deployed contract address can be found in `contractAddress` of the transacti
 '0xC9f0b868e5103b6823171a2Df85E7B696660E466'
 ```
 
-One way to invoke a specific method of a smart contract is to use it with `caver.klay.Contract` or use [SMART\_CONTRACT\_EXECUTION].
+One way to invoke a specific method of a smart contract is to use it with `caver.klay.Contract` or use [SMART_CONTRACT_EXECUTION].
 
 To transact with a smart contract:
 
