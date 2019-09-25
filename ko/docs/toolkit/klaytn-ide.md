@@ -16,7 +16,7 @@ Klaytn IDE는 <https://ide.klaytn.com>에서 확인하실 수 있습니다. 본 
 
 ![](img/klaytn-ide/ide-docs-sections.png)
 
-Klaytn IDE의 레이아웃은 다음과 같습니다. 크게 파일 탐색기, 코드 편집기, 콘솔, 모듈 등 4개 기능을 중심으로 Klaytn IDE를 설명할게요.
+Klaytn IDE의 레이아웃은 다음과 같습니다. 화면은 파일 탐색기, 코드 편집기, 콘솔, 모듈 등 4개 부분으로 분할되어 있습니다.
 
 ## 1. 파일 탐색기
 
@@ -57,18 +57,18 @@ Klaytn IDE의 레이아웃은 다음과 같습니다. 크게 파일 탐색기, �
 
 ## 3. 모듈
 
-Klaytn IDE는 모듈에는 컴파일, 실행, 분석, 테스트, 디버거, 설정 등 6개 탭이 있습니다.
+Klaytn IDE는 모듈에는 Compile, Run, Analysis, Testing, Debugger, Settings 등 6개 탭이 있습니다.
 
 ![](img/klaytn-ide/ide-tabs.png)
 
-* 컴파일: 컴파일러 버전을 선택하고 여러 컴파일 옵션을 활성화/비활성화합니다. 컴파일된 프로젝트의 목록 또한 나타납니다. 
-* 실행: 컨트랙트를 네트워크에 배포하고 컨트랙트 함수를 호출할 수 있습니다. 이 탭에는 네트워크, 계정, 가스 한도, 입력 인자 등 트랜잭션의 매개변수를 관리하는 옵션이 있습니다.
-* 분석: 선택한 체크리스트에 따라 정적 및 런타임 코드 분석을 실행할 수 있습니다. 
-* 테스트: 유닛 테스트를 생성하고 실행합니다.
-* 디버거: 트랜잭션을 디버깅합니다. 
-* 설정: 일반 설정과 도움말 & 지원 링크가 있습니다.
+* Compile: 컴파일러 버전을 선택하고 여러 컴파일 옵션을 활성화/비활성화합니다. 컴파일된 프로젝트의 목록 또한 나타납니다. 
+* Run: 컨트랙트를 네트워크에 배포하고 컨트랙트 함수를 호출할 수 있습니다. 이 탭에는 네트워크, 계정, 가스 한도, 입력 인자 등 트랜잭션의 매개변수를 관리하는 옵션이 있습니다.
+* Analysis: 선택한 체크리스트에 따라 정적 및 런타임 코드 분석을 실행할 수 있습니다. 
+* Testing: 유닛 테스트를 생성하고 실행합니다.
+* Debugger: 트랜잭션을 디버깅합니다. 
+* Settings: 일반 설정과 도움말 & 지원 링크가 있습니다.
 
-### 컴파일
+### Compile
 
 컴파일을 시작하려면 `Start to compile` 버튼을 클릭하세요. 각 파일을 저장하거나 다른 파일을 선택할 때마다 파일을 컴파일하려면 `Auto compile` 체크 박스를 체크하세요.
 
@@ -81,9 +81,9 @@ Klaytn IDE는 모듈에는 컴파일, 실행, 분석, 테스트, 디버거, 설�
 * 15초마다 코드가 자동으로 저장됩니다. 또한 파일을 컴파일하거나 파일 탭을 닫거나 Klaytn IDE를 종료할 때에도 자동으로 저장됩니다. 
 * 자동 컴파일 기능이 활성화되면 입력을 중지할 때 컴파일이 됩니다.
 
-### 실행
+### Run
 
-#### 환경 \(네트워크 선택 옵션\)
+#### Environment \(네트워크 선택 옵션\)
 
 ![](img/klaytn-ide/ide-environment.png)
 
@@ -96,7 +96,7 @@ Klaytn IDE는 모듈에는 컴파일, 실행, 분석, 테스트, 디버거, 설�
 
 > 컨트랙트를 배포하려면 트랜잭션 수수료를 지불하기 위한 KLAY가 필요합니다. `Baobab 네트워크` \(Klaytn 테스트넷\)의 경우 **테스트넷 KLAY**를 Faucet \[<https://baobab.wallet.klaytn.com/faucet>\]에서 얻을 수 있습니다. **테스트넷 KLAY**를 받으면 해당 계정을 Klaytn IDE의 `"Account"`에서 선택하여 연동하세요.
 
-#### 계정 \(계정 선택 옵션\)
+#### Account \(계정 선택 옵션\)
 
 ![](img/klaytn-ide/ide-from-account.png)
 
@@ -107,19 +107,19 @@ Klaytn IDE는 모듈에는 컴파일, 실행, 분석, 테스트, 디버거, 설�
 
 연동이 완료되면 수 초 내에 `Account`에 연동한 계정의 잔액이 나타납니다.
 
-#### 값
+#### Value
 
 ![](img/klaytn-ide/ide-tx-value-controller.png)
 
 `Value (트랜잭션 값 조절)` 옵션을 통해 다음에 생성된 트랜잭션의 값을 입력할 수 있습니다.
 
-#### 가스 한도 조절
+#### Gas Limit 조절
 
 ![](img/klaytn-ide/ide-gas-limit-controller.png)
 
 `Gas Limit` 옵션을 통해 스마트 컨트랙트 함수를 호출하는 데에 사용될 가스양의 최대 한도를 설정할 수 있습니다.
 
-#### 배포
+#### Deploy
 
 ![](img/klaytn-ide/ide-deploy.png)
 
@@ -129,7 +129,7 @@ Klaytn IDE는 모듈에는 컴파일, 실행, 분석, 테스트, 디버거, 설�
 
 컨트랙트가 성공적으로 배포되면 컨트랙트의 주소와 해당 컨트랙트의 함수들이 나타납니다. 스마트 컨트랙트에는 블록체인에 데이터를 쓰는 함수와 블록체인으로부터 데이터를 읽어오는 함수 두 종류의 함수가 있습니다.
 
-### 분석
+### Analysis
 
 ![](img/klaytn-ide/ide-tab-analysis.png)
 
@@ -137,15 +137,15 @@ Klaytn IDE는 모듈에는 컴파일, 실행, 분석, 테스트, 디버거, 설�
 
 분석 탭에서는 컨트랙트 코드에 대한 자세한 정보를 확인할 수 있습니다. 이를 통해 코드 실수를 피하고 모범 사례를 시행할 수 있습니다.
 
-자세한 안내는 [리믹스 문서 &gt; 분석](https://remix-ide.readthedocs.io/en/latest/static_analysis.html?highlight=analysis)을 참고하세요.
+자세한 안내는 [Remix docs &gt; Analysis ](https://remix-ide.readthedocs.io/en/latest/static_analysis.html?highlight=analysis)을 참고하세요.
 
-### 테스트
+### Testing
 
 ![](img/klaytn-ide/ide-tab-testing.png)
 
-이 섹션에서는 새로운 솔리디티 테스트 파일을 현재 폴더에서 생성하고 테스트를 실행할 수 있습니다. 실행 결과는 아래에 나타납니다. 자세한 안내는 [리믹스 문서 &gt; 유닛 테스트](https://remix-ide.readthedocs.io/en/latest/unittesting.html)를 참고하세요.
+이 섹션에서는 새로운 솔리디티 테스트 파일을 현재 폴더에서 생성하고 테스트를 실행할 수 있습니다. 실행 결과는 아래에 나타납니다. 자세한 안내는 [Remix docs &gt; Unit Testing](https://remix-ide.readthedocs.io/en/latest/unittesting.html)를 참고하세요.
 
-### 디버거
+### Debugger
 
 ![](img/klaytn-ide/ide-tab-debugger.png)
 
@@ -153,9 +153,9 @@ Klaytn IDE는 모듈에는 컴파일, 실행, 분석, 테스트, 디버거, 설�
 
 > 필요한 기능을 현재 환경에서 제공하는 경우에만 디버깅이 작동합니다. 디버깅을 하려면 EN 노드에서 **개인** API가 활성화되어야 합니다. `RPC_API` 옵션을 [EN 환경 설정 파일](../node/endpoint-node/operation-guide/configuration.md)에서 참고해주세요.
 
-자세한 안내는 [리믹스 문서 &gt; 디버거](https://remix-ide.readthedocs.io/en/latest/debugger.html)를 참고하세요.
+자세한 안내는 [Remix docs &gt; Debugger](https://remix-ide.readthedocs.io/en/latest/debugger.html)를 참고하세요.
 
-### 설정
+### Settings
 
 ![](img/klaytn-ide/ide-tab-setting.png)
 
@@ -163,8 +163,8 @@ Klaytn IDE는 모듈에는 컴파일, 실행, 분석, 테스트, 디버거, 설�
 
 주요 설정:
 
-* 텍스트 줄 바꿈: 편집기의 텍스트 줄 바꿈 여부를 설정합니다.
-* 개인 모드 활성화: 프라이빗 네트워크에서 사용합니다.
+* Text Wrap: 편집기의 텍스트 줄 바꿈 여부를 설정합니다.
+* Enable Personal Mode : 프라이빗 네트워크에서 사용합니다.
 
 ## 4. 터미널
 
@@ -172,7 +172,7 @@ Klaytn IDE는 모듈에는 컴파일, 실행, 분석, 테스트, 디버거, 설�
 
 코드 편집기 하단의 터미널에 컴파일 결과, 컴파일 에러, 배포 결과, 트랜잭션 정보가 나타납니다.
 
-트랜잭션 결과를 클릭하여 자세한 정보를 확인할 수 있습니다. 디버깅이 가능한 경우 디버그 탭에서 트랜잭션 디버깅을 할 수 있습니다.
+트랜잭션 결과를 클릭하여 자세한 정보를 확인할 수 있습니다. 디버깅이 가능한 경우 Debug 탭에서 트랜잭션 디버깅을 할 수 있습니다.
 
 ## OpenZepplin으로 개발하기
 
@@ -206,11 +206,11 @@ Remixd는 Remix IDE \( 브라우저 솔리디티\)에서 사용하기 위한 도
 
 ![](img/klaytn-ide/ide-connect-remixd.png)
 
-연결 버튼을 클릭하세요.
+Connect 버튼을 클릭하세요.
 
 ![](img/klaytn-ide/ide-connet-remix-popup.png)
 
-파일 탐색기에 로컬 호스트 디렉토리가 나타납니다.
+파일 탐색기에 localhost 디렉토리가 나타납니다.
 
 ![](img/klaytn-ide/ide-connection-localhost.png)
 
@@ -220,7 +220,7 @@ OpenZepplin에서 필요한 솔리디티 컨트랙트 파일을 가져오세요.
 
 ## 자세한 내용 보기
 
-Klaytn IDE는 Remix v0.7.7을 기반으로 합니다. 많은 기능이 호환되므로 [공식 Remix 문서](https://remix-ide.readthedocs.io/en/latest/)를 참고해주세요.
+Klaytn IDE는 Remix v0.7.7을 기반으로 합니다. 많은 기능이 호환되고 있으므로 [official Remix documentation](https://remix-ide.readthedocs.io/en/latest/)를 참고해주세요.
 
 ## 의견 보내기
 
