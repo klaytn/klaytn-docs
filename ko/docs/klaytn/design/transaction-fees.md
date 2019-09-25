@@ -31,91 +31,91 @@
 
 Klaytn only accepts transactions with gas prices, which can be set by the user, that are equal to the unit price of Klaytn; it rejects transactions with gas prices that are different from the unit price in Klaytn.
 
-#### Unit Price Error
+#### 단가 오류(Unit Price Error)
 
-The error message `invalid unit price` is returned when the gas price of a transaction is not equal to the unit price of Klaytn.
+트랜잭션의 가스 가격이 Klaytn의 단가(Unit price)와 같지 않을 때, 에러 메시지인 `invalid unit price`가 반환됩니다.
 
-### Transaction Replacement
+### 트랜잭션 교체
 
-Klaytn currently does not provide a way to replace a transaction using the unit price but may support different methods for the transaction replacement in the future. Note that in Ethereum, a transaction with a given nonce can be replaced by a new one with a higher gas price.
+Klaytn은 현재 단가를 이용하는 트랜잭션을 교체할 수 없습니다. 하지만 향후 트랜잭션 교체를 위한 방법이 지원될 것입니다. 이더리움에서는 주어진 nonce를 가진 트랜잭션이 더 높은 가스 가격으로 설정된 트랜잭션에 의해 교체될 수 있습니다.
 
-## Klaytn's Gas table
+## Klaytn의 가스표
 
-Basically, Klaytn is keeping compatibility with Ethereum. So Klaytn's gas table is pretty similar with that of Ethereum. But because of the existence of unique features of Klaytn, there are several new constants for those features.
+기본적으로 Klaytn은 이더리움과 호환성을 유지합니다. 그래서 Klaytn의 가스표는 이더리움과 매우 유사합니다. 하지만 Klaytn의 고유한 기능이 있기 때문에, 그런 기능들을 위한 다른 수치들이 있습니다.
 
-### Common Fee <a id="common-fee"></a>
+### 공통 비용<a id="common-fee"></a>
 
-| Item              | 가스    | Description                                                                                        |
-|:----------------- |:----- |:-------------------------------------------------------------------------------------------------- |
-| G\_zero         | 0     | Nothing paid for operations of the set Wzero                                                       |
-| G\_base         | 2     | Amount of gas to pay for operations of the set Wbase                                               |
-| G\_verylow      | 3     | Amount of gas to pay for operations of the set Wverylow                                            |
-| G\_low          | 5     | Amount of gas to pay for operations of the set Wlow                                                |
-| G\_mid          | 8     | Amount of gas to pay for operations of the set Wmid                                                |
-| G\_high         | 10    | Amount of gas to pay for operations of the set Whigh                                               |
-| G\_blockhash    | 20    | Payment for BLOCKHASH operation                                                                    |
-| G\_extcode      | 700   | Amount of gas to pay for operations of the set Wextcode                                            |
-| G\_balance      | 400   | Amount of gas to pay for a BALANCE operation                                                       |
-| G\_sload        | 200   | Paid for a SLOAD operation                                                                         |
-| G\_jumpdest     | 1     | Paid for a JUMPDEST operation                                                                      |
-| G\_sset         | 20000 | Paid for an SSTORE operation when the storage value is set to non-zero from zero                   |
-| G\_sreset       | 5000  | Paid for an SSTORE operation when the storage value’s zeroness remains unchanged or is set to zero |
-| G\_sclear       | 15000 | Refund given \(added into refund counter\) when the storage value is set to zero from non-zero   |
-| R\_selfdestruct | 24000 | Refund given \(added into refund counter\) for self-destructing an account                       |
-| G\_selfdestruct | 5000  | Amount of gas to pay for a SELFDESTRUCT operation                                                  |
-| G\_create       | 32000 | Paid for a CREATE operation                                                                        |
-| G\_codedeposit  | 200   | Paid per byte for a CREATE operation to succeed in placing code into state                         |
-| G\_call         | 700   | Paid for a CALL operation                                                                          |
-| G\_callvalue    | 9000  | Paid for a non-zero value transfer as part of the CALL operation                                   |
-| G\_callstipend  | 2300  | A stipend for the called contract subtracted from Gcallvalue for a non-zero value transfer         |
-| G\_newaccount   | 25000 | Paid for a CALL or SELFDESTRUCT operation which creates an account                                 |
-| G\_exp          | 10    | Partial payment for an EXP operation                                                               |
-| G\_expbyte      | 50    | Partial payment when multiplied by dlog256\(exponent\)e for the EXP operation                    |
-| G\_memory       | 3     | Paid for every additional word when expanding memory                                               |
-| G\_txcreate     | 32000 | Paid by all contract-creating transactions                                                         |
-| G\_transaction  | 21000 | Paid for every transaction                                                                         |
-| G\_log          | 375   | Partial payment for a LOG operation                                                                |
-| G\_logdata      | 8     | Paid for each byte in a LOG operation’s data                                                       |
-| G\_logtopic     | 375   | Paid for each topic of a LOG operation                                                             |
-| G\_sha3         | 30    | Paid for each SHA3 operation                                                                       |
-| G\_sha3word     | 6     | Paid for each word \(rounded up\) for input data to a SHA3 operation                             |
-| G\_copy         | 3     | Partial payment for \*COPY operations, multiplied by words copied, rounded up                    |
-| G\_blockhash    | 20    | Payment for BLOCKHASH operation                                                                    |
-| G\_extcodehash  | 400   | Paid for getting keccak256 hash of a contract's code                                               |
-| G\_create2      | 32000 | Paid for opcode CREATE2 which bahaves identically with CREATE but use different arguemnts          |
-
-
-### Precompiled Contracts <a id="precompiled-contracts"></a>
-
-Precompiled contracts are special kind of contracts which usually perform complex cryptographic computations and are initiated by other contracts.
-
-| Item                    | 가스                 | Description                                               |
-|:----------------------- |:------------------ |:--------------------------------------------------------- |
-| EcrecoverGas            | 3000               | Perform ECRecover operaton                                |
-| Sha256BaseGas           | 60                 | Perform sha256 hash operation                             |
-| Sha256PerWordGas        | 12                 | ​                                                         |
-| Ripemd160BaseGas        | 600                | Perform Ripemd160 operation                               |
-| Ripemd160PerWordGas     | 120                | ​                                                         |
-| IdentityBaseGas         | 15                 | ​                                                         |
-| IdentityPerWordGas      | 3                  | ​                                                         |
-| ModExpQuadCoeffDiv      | 20                 | ​                                                         |
-| Bn256AddGas             | 500                | Perform Bn256 elliptic curve operation                    |
-| Bn256ScalarMulGas       | 40000              | ​                                                         |
-| Bn256PairingBaseGas     | 100000             | ​                                                         |
-| Bn256PairingPerPointGas | 80000              | ​                                                         |
-| VMLogBaseGas            | 100                | Write logs to node's log file - Klaytn only               |
-| VMLogPerByteGas         | 20                 | Klaytn only                                               |
-| FeePayerGas             | 300                | Get feePayer's address - Klaytn only                      |
-| ValidateSenderGas       | 5000 per signature | Validate the sender's address and signature - Klaytn only |
+| 항목                | 가스    | 설명                                                                                               |
+|:----------------- |:----- |:------------------------------------------------------------------------------------------------ |
+| G\_zero         | 0     | Set Wzero 연산을 위해 지불할 금액은 없음                                                                      |
+| G\_base         | 2     | Set Wbase 연산을 위해 지불하는 가스량                                                                        |
+| G\_verylow      | 3     | Set Wverylow 연산을 위해 지불하는 가스량                                                                     |
+| G\_low          | 5     | Set Wlow 연산을 위해 지불하는 가스량                                                                         |
+| G\_mid          | 8     | Set Wmid 연산을 위해 지불하는 가스량                                                                         |
+| G\_high         | 10    | Set Whigh 연산을 위해 지불하는 가스량                                                                        |
+| G\_blockhash    | 20    | BLOCKHASH 연산을 위해 지불하는 가스량                                                                        |
+| G\_extcode      | 700   | Set Wextcode 연산을 위해 지불하는 가스량                                                                     |
+| G\_balance      | 400   | BALANCE 연산을 위해 지불하는 가스량                                                                          |
+| G\_sload        | 200   | SLOAD 연산을 위해 지불되는 가스량                                                                            |
+| G\_jumpdest     | 1     | JUMPDEST 연산을 위해 지불되는 가스량                                                                         |
+| G\_sset         | 20000 | Storage value가 0에서 0이 아니도록 변경된 경우 SSTORE 연산을 위해 지불하는 가스량                                         |
+| G\_sreset       | 5000  | Storage value가 0이 유지되거나 0으로 바뀐 경우 SSTORE 연산을 위해 지불하는 가스량                                         |
+| G\_sclear       | 15000 | Refund given \(added into refund counter\) when the storage value is set to zero from non-zero |
+| R\_selfdestruct | 24000 | Refund given \(added into refund counter\) for self-destructing an account                     |
+| G\_selfdestruct | 5000  | SELFDESTRUCT 연산을 위해 지불하는 가스량                                                                     |
+| G\_create       | 32000 | CREATE 연산을 위해 지불되는 가스량                                                                           |
+| G\_codedeposit  | 200   | Paid per byte for a CREATE operation to succeed in placing code into state                       |
+| G\_call         | 700   | CALL 연산을 위해 지불되는 가스량                                                                             |
+| G\_callvalue    | 9000  | Paid for a non-zero value transfer as part of the CALL operation                                 |
+| G\_callstipend  | 2300  | A stipend for the called contract subtracted from Gcallvalue for a non-zero value transfer       |
+| G\_newaccount   | 25000 | Paid for a CALL or SELFDESTRUCT operation which creates an account                               |
+| G\_exp          | 10    | Partial payment for an EXP operation                                                             |
+| G\_expbyte      | 50    | Partial payment when multiplied by dlog256\(exponent\)e for the EXP operation                  |
+| G\_memory       | 3     | Paid for every additional word when expanding memory                                             |
+| G\_txcreate     | 32000 | Paid by all contract-creating transactions                                                       |
+| G\_transaction  | 21000 | 모든 트랜잭션에 대해 지불하는 가스량                                                                             |
+| G\_log          | 375   | LOG 연산에 대한 부분 지불                                                                                 |
+| G\_logdata      | 8     | LOG 연산 데이터의 각 바이트에 대해 지불하는 가스량                                                                   |
+| G\_logtopic     | 375   | Paid for each topic of a LOG operation                                                           |
+| G\_sha3         | 30    | SHA3 연산을 위해 지불되는 가스량                                                                             |
+| G\_sha3word     | 6     | Paid for each word \(rounded up\) for input data to a SHA3 operation                           |
+| G\_copy         | 3     | Partial payment for \*COPY operations, multiplied by words copied, rounded up                  |
+| G\_blockhash    | 20    | BLOCKHASH 연산을 위해 지불하는 가스량                                                                        |
+| G\_extcodehash  | 400   | 컨트랙트 코드의 keccak256 해시값을 얻기 위해 지불하는 가스량                                                           |
+| G\_create2      | 32000 | CREATE와 똑같이 작동하지만 다른 인수를 사용하는 CREATE2 연산자를 위해 지불하는 가스량.                                          |
 
 
-Total gas of those items which has XXXBaseGas and XXXPerWordGas \(e.g. Sha256BaseGas, Sha256PerWordGas\) are calcluated as
+### 미리 컴파일된 컨트랙트(Precompiled Contracts) <a id="precompiled-contracts"></a>
+
+미리 컴파일된 컨트랙트는 일반적으로 복잡한 암호화 연산을 수행하며, 다른 컨트랙트에 의해 실행되는 특수한 유형의 컨트랙트입니다.
+
+| 항목                      | 가스                 | 설명                           |
+|:----------------------- |:------------------ |:---------------------------- |
+| EcrecoverGas            | 3000               | ECRecover 연산 수행              |
+| Sha256BaseGas           | 60                 | sha256 hash 연산 수행            |
+| Sha256PerWordGas        | 12                 | ​                            |
+| Ripemd160BaseGas        | 600                | Ripemd160 연산 수행              |
+| Ripemd160PerWordGas     | 120                | ​                            |
+| IdentityBaseGas         | 15                 | ​                            |
+| IdentityPerWordGas      | 3                  | ​                            |
+| ModExpQuadCoeffDiv      | 20                 | ​                            |
+| Bn256AddGas             | 500                | Bn256 elliptic curve 연산 수행   |
+| Bn256ScalarMulGas       | 40000              | ​                            |
+| Bn256PairingBaseGas     | 100000             | ​                            |
+| Bn256PairingPerPointGas | 80000              | ​                            |
+| VMLogBaseGas            | 100                | 노드의 로그 파일에 로그 쓰기 - Klaytn 전용 |
+| VMLogPerByteGas         | 20                 | Klaytn only                  |
+| FeePayerGas             | 300                | feePayer의 주소 획득 - Klaytn 전용  |
+| ValidateSenderGas       | 5000 per signature | 발신자의 주소와 서명 검증 - Klaytn 전용   |
+
+
+XXXBaseGas와 XXXPerWordGas \(e.g. Sha256BaseGas, Sha256PerWordGas\)등을 포함한 항목들의 총 가스량은 다음과 같이 계산됩니다.
 
 ```text
 TotalGas = XXXBaseGas + (number of words * XXXPerWordGas)
 ```
 
-ValidateSenderGas have to be paid per signature basis.
+ValidateSenderGas는 서명마다 지불해야 합니다.
 
 ```text
 TotalGas = number of signatures * ValidateSenderGas
@@ -123,28 +123,28 @@ TotalGas = number of signatures * ValidateSenderGas
 
 ### Account-related Gas Table <a id="account-related-gas-table"></a>
 
-| Item                       | 가스    | Description                                                 |
-|:-------------------------- |:----- |:----------------------------------------------------------- |
-| TxAccountCreationGasPerKey | 20000 | Gas required for a key-pair creation                        |
-| TxValidationGasPerKey      | 15000 | Gas required for a key validation                           |
-| TxGasAccountUpdate         | 21000 | Gas required for an account update                          |
-| TxGasFeeDelegated          | 10000 | Gas required for a fee delegation                           |
-| TxGasFeeDelegatedWithRatio | 15000 | Gas required for a fee delegation with ratio                |
-| TxGasCancel                | 21000 | Gas required to cancel a transaction which has a same nonce |
-| TxGasValueTransfer         | 21000 | Gas required to transfer KLAY                               |
-| TxGasContractExecution     | 21000 | Base gas for contract execution                             |
-| TxDataGas                  | 100   | Gas required per transaction's single byte                  |
+| 항목                         | 가스    | 설명                                           |
+|:-------------------------- |:----- |:-------------------------------------------- |
+| TxAccountCreationGasPerKey | 20000 | 키 페어 생성에 필요한 가스                              |
+| TxValidationGasPerKey      | 15000 | 키 검증(validation)에 필요한 가스                     |
+| TxGasAccountUpdate         | 21000 | 계정 업데이트에 필요한 가스                              |
+| TxGasFeeDelegated          | 10000 | 트랜잭션 비용 위임에 필요한 가스                           |
+| TxGasFeeDelegatedWithRatio | 15000 | Gas required for a fee delegation with ratio |
+| TxGasCancel                | 21000 | nonce가 같은 거래를 취소하는 데 필요한 가스                  |
+| TxGasValueTransfer         | 21000 | KLAY 전송에 필요한 가스                              |
+| TxGasContractExecution     | 21000 | 컨트랙트 실행을 위한 기본 가스                            |
+| TxDataGas                  | 100   | 트랜잭션의 단일 바이트 당 필요한 가스                        |
 
 
-Gas for payload data is calculated as below
+페이로드 데이터는 아래와 같이 계산됩니다.
 
 ```text
 GasPayload = number_of_bytes * TxDataGas
 ```
 
-### Gas Formula for Transaction Types <a id="gas-formula-for-transaction-types"></a>
+### 트랜잭션 유형에 따른 가스 계산 공식<a id="gas-formula-for-transaction-types"></a>
 
-| TxType                 | 가스                                                     |
+| 트랜잭션 유형                | 가스                                                     |
 |:---------------------- |:------------------------------------------------------ |
 | LegacyTransaction      | TxGas + PayloadGas + KeyValidationGas                  |
 | ValueTransfer          | TxGasValueTransfer + KeyValidationGas                  |
@@ -155,25 +155,25 @@ GasPayload = number_of_bytes * TxDataGas
 | Cancel                 | TxGasCancel + KeyValidationGas                         |
 
 
-KeyValidationGas is defined as below based on key type,
+KeyValidationGas는 키 유형에 따라 아래와 같이 정의됩니다.
 
-| Key Type  | 가스                                                |
+| 키 유형      | 가스                                                |
 |:--------- |:------------------------------------------------- |
 | Nil       | N/A                                               |
 | Legacy    | 0                                                 |
 | Fail      | 0                                                 |
 | Public    | 0                                                 |
 | MultiSig  | \(keys-1\) \* GasValidationPerKey \(15000\) |
-| RoleBased | Based on keys in the role used in the validation  |
+| RoleBased | 검증(validation)에 사용된 역할의 키를 기반으로 함                 |
 
 
-KeyCreationGas is defined as below based on key type,
+KeyCreationGas는 키 유형에 따라 아래와 같이 정의됩니다.
 
-| Key Type  | 가스                                                                                                                                                                                                                 |
-|:--------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Nil       | N/A                                                                                                                                                                                                                |
-| Legacy    | 0                                                                                                                                                                                                                  |
-| Fail      | 0                                                                                                                                                                                                                  |
-| Public    | GasCreationPerKey \(20000\)                                                                                                                                                                                      |
-| MultiSig  | \(keys\) \* GasCreationPerKey                                                                                                                                                                                  |
-| RoleBased | Gas fee calculated based on keys in each role. e.g., GasRoleTransaction = \(keys\) *GasCreationPerKey* *GasRoleAccountUpdate = \(keys\)* GasCreationPerKey GasRoleFeePayer = \(keys\) \* GasCreationPerKey |
+| 키 유형      | 가스                                                                                                                                                                                              |
+|:--------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nil       | N/A                                                                                                                                                                                             |
+| Legacy    | 0                                                                                                                                                                                               |
+| Fail      | 0                                                                                                                                                                                               |
+| Public    | GasCreationPerKey \(20000\)                                                                                                                                                                   |
+| MultiSig  | \(keys\) \* GasCreationPerKey                                                                                                                                                               |
+| RoleBased | 가스 비용은 각 역할의 키를 기반으로 계산됩니다. e.g., GasRoleTransaction = \(keys\) *GasCreationPerKey* *GasRoleAccountUpdate = \(keys\)* GasCreationPerKey GasRoleFeePayer = \(keys\) \* GasCreationPerKey |
