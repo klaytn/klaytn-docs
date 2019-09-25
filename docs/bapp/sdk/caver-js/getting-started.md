@@ -58,7 +58,7 @@ $ node
 
 ### Creating an Account <a id="creating-an-account"></a>
 
-You can use `caver-js` to create an account as shown below. You can also create an account via [Klaytn Wallet]().
+You can use `caver-js` to create an account as shown below. You can also create an account via [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#create-a-new-account).
 
 ```text
 > const account = caver.klay.accounts.create()
@@ -129,7 +129,7 @@ This section will show you how to send a KLAY using caver-js on the Baobab netwo
 
 ### Getting KLAY via Baobab Faucet <a id="getting-klay-via-baobab-faucet"></a>
 
-If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](https://docs.klaytn.com/toolkit/wallet#how-to-receive-baobab-testnet-klay). Log in to the Klaytn Wallet using the private key or the keystore file and receive Baobab testnet KLAY via the faucet for testing.
+If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the Klaytn Wallet using the private key or the keystore file and receive Baobab testnet KLAY via the faucet for testing.
 
 ### Sending a Value Transfer Transaction
 
