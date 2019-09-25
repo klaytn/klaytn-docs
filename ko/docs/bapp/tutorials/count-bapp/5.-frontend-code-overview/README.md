@@ -175,11 +175,11 @@ componentWillMount() {
 }
 ```
 
-`componentWillMount`는 브라우저의 sessionStorage에 `walletInstance` 세션이 있는지 확인합니다.  
-튜토리얼 어플리케이션에 로그인한 적이 없다면 `walletInstance` 세션이 없겠죠?  
-로그인을 했었다면 `walletInstance` 세션이 JSON 문자열로 존재하고 이 지갑 인스턴스를 caver 지갑에 추가할 것입니다.  
-또는 `cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))`을 사용하여 지갑 인스턴스를 caver 지갑에 추가할 수도 있습니다.  
-`caver.klay.accounts.wallet.add`에 대한 자세한 내용은 [caver.klay.accounts.wallet.add](https://docs.klaytn.com/sdk/caverjs/caver.klay.accounts#wallet-add)를 참고해주세요.
+`componentWillMount` checks if there is a `walletInstance` session in the browser's sessionStorage.  
+`walletInstance` session may not exist if you have never logged in our tutorial app.  
+Otherwise, `walletInstance` session will exist as a JSON string, if so, it attempts to add the wallet instance to the caver's wallet.  
+You can add a wallet instance to caver through `cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))`.  
+For further information related `caver.klay.accounts.wallet.add`, see [caver.klay.accounts.wallet.add](../../../sdk/caver-js/api-references/caver.klay.accounts.md#wallet-add)
 
 참고\) `walletInstance` 세션이 JSON 문자열로 저장되기 때문에 `JSON.parse`가 필요합니다.
 
