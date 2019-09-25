@@ -61,7 +61,7 @@ $ node
 You can use `caver-js` to create an account as shown below. You can also create an account via [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#create-a-new-account).
 
 ```text
-> const account = caver.klay.accounts.create
+> const account = caver.klay.accounts.create()
 
 > account
 { address: '0x3bd32d55e64d6cbe54bec4f5200e678ee8d1a990',
@@ -77,7 +77,7 @@ You can use your account easily by using the in-memory wallet provided by caver-
 
 ```text
 // Using an account object
-> caver.klay.accounts.wallet.add(caver.klay.accounts.create)
+> caver.klay.accounts.wallet.add(caver.klay.accounts.create())
 { 
     address: '0xebec0df19ed2f8b4070dec94d55a69077c544403',
     privateKey: '0x{private key}',
@@ -425,7 +425,7 @@ To transact with a smart contract:
 To call a smart contract:
 
 ```text
-> contractInstance.methods.getBlockNumber.call.then(console.log)
+> contractInstance.methods.getBlockNumber().call().then(console.log)
 2194
 ```
 

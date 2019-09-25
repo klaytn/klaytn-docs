@@ -94,14 +94,14 @@ In order to sign transactions, you need to have either an EC \(Elliptic Curve\) 
 You can create a Klaytn account using an EC key pair like below:
 
 ```java
-KlayCredentials credentials = KlayCredentials.create(Keys.createEcKeyPair);
-String privateKey = Numeric.toHexStringWithPrefix(credentials.getEcKeyPair.getPrivateKey); 
-String address = credentials.getAddress;
+KlayCredentials credentials = KlayCredentials.create(Keys.createEcKeyPair());
+String privateKey = Numeric.toHexStringWithPrefix(credentials.getEcKeyPair().getPrivateKey()); 
+String address = credentials.getAddress();
 ```
 
 #### Using a Keystore File
 
-If you want to create a new account with a keystore file \(you can also create a new keystore file in [Klaytn Wallet]\):
+If you want to create a new account with a keystore file (you can also create a new keystore file in [Klaytn Wallet]):
 
 ```java
 KlayWalletUtils.generateNewWalletFile(
@@ -138,10 +138,10 @@ After you get a `Caver` instance and create an account which has some KLAY, you 
 
 ```java
 TransactionManager transactionManager = new TransactionManager.Builder(caver, credentials)
-        .setChaindId(ChainId.BAOBAB_TESTNET).build;
+        .setChaindId(ChainId.BAOBAB_TESTNET).build();
 
 ValueTransferTransaction valueTransferTransaction = ValueTransferTransaction.create(
-        credentials.getAddress,  // fromAddress
+        credentials.getAddress(),  // fromAddress
         "0xe97f27e9a5765ce36a7b919b1cb6004c7209217e",  // toAddress
         BigInteger.ONE,  // value
         BigInteger.valueOf(100_000)  // gasLimit
@@ -159,12 +159,12 @@ If you use `ValueTransfer` class, you can more easily compose and send a transac
 ```java
 KlayTransactionReceipt.TransactionReceipt transactionReceipt
         = ValueTransfer.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendFunds(
-                redentials.getAddress,  // fromAddress
+                redentials.getAddress(),  // fromAddress
                 "0xe97f27e9a5765ce36a7b919b1cb6004c7209217e",  // toAddress
                 BigDecimal.ONE,  // value 
                 Convert.Unit.PEB,  // unit 
                 BigInteger.valueOf(100_000)  // gasLimit
-            ).send;
+            ).send();
 ```
 
 ### Checking Receipts
@@ -213,21 +213,21 @@ If you want to update the key of the given account to a new [AccountKeyPublic] k
 
 ```java
 AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.create(
-        credentials.getAddress,  // fromAddress
+        credentials.getAddress(),  // fromAddress
         AccountKeyPublic.create(
                 "0xbf8154a3c1580b5478ceec0aac319055185280ce22406c6dc227f4de85316da1",  // publicKeyX
                 "0x0dc8e4b9546adcc6d1f11796e43e478bd7ffbe302917667837179f4da77591d8"  // publicKeyY
         ),  // newAccountKey
         BigInteger.valueOf(100_000)  // gasLimit
 );
-Account.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendUpdateTransaction(accountUpdateTransaction).send;
+Account.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendUpdateTransaction(accountUpdateTransaction).send();
 ```
 
 An account key represents the key structure associated with an account. To get more details and types about the Klaytn account key, please read [Account Key].
 
 ### Smart Contract
 
-caver-java supports auto-generation of smart contract wrapper code. Using the wrapper, you can easily deploy and execute a smart contract. Before generating a wrapper code, you need to compile the smart contract first \(Note: This will only work if a Solidity compiler is installed in your computer. See [Solidity Compiler].
+caver-java supports auto-generation of smart contract wrapper code. Using the wrapper, you can easily deploy and execute a smart contract. Before generating a wrapper code, you need to compile the smart contract first. Note: This will only work if a Solidity compiler is installed in your computer. See [Solidity Compiler].
 
 ```text
 $ solc <contract>.sol --bin --abi --optimize -o <output-dir>/
@@ -244,7 +244,7 @@ Above command will output `<smartContract>`.java. After generating the wrapper c
 ```java
 <smartContract> contract = <smartContract>.deploy(
         caver, credentials, <chainId>, <gasProvider>,
-        <param1>, ..., <paramN>).send;
+        <param1>, ..., <paramN>).send();
 ```
 
 After the smart contract has been deployed, you can create a smart contract instance like below:
@@ -260,13 +260,13 @@ To transact with a smart contract:
 ```java
 KlayTransactionReceipt.TransactionReceipt transactionReceipt = contract.<someMethod>(
         <param1>,
-        ...).send;
+        ...).send();
 ```
 
 To call a smart contract:
 
 ```java
-<type> result = contract.<someMethod>(<param1>, ...).send;
+<type> result = contract.<someMethod>(<param1>, ...).send();
 ```
 
 #### Example
@@ -277,11 +277,11 @@ This section describes how to deploy and execute a smart contract on the Baobab 
 ERC20Mock erc20Mock = ERC20Mock.deploy(
         caver, credentials, 
         ChainId.BAOBAB_TESTNET,  // chainId
-        new DefaultGasProvider,  // gasProvider
-        credentials.getAddress,  // param1(initialAccount)
+        new DefaultGasProvider(),  // gasProvider
+        credentials.getAddress(),  // param1(initialAccount)
         BigInteger.valueOf(100)  // param2(initialBalance)
-).send;
-String deployedContractAddress = erc20Mock.getContractAddress;
+).send();
+String deployedContractAddress = erc20Mock.getContractAddress();
 ```
 
 To create an instance of the deployed ERC20Mock contract:
@@ -291,7 +291,7 @@ ERC20Mock erc20Mock = ERC20Mock.load(
         deployedContractAddress, 
         caver, credentials, 
         ChainId.BAOBAB_TESTNET,  // chainId 
-        new DefaultGasProvider  // gasProvider
+        new DefaultGasProvider()  // gasProvider
 );
 ```
 
@@ -301,7 +301,7 @@ If you transfer 10 tokens to a specified address \(e.g., `0x2c8ad0ea2e0781db8b8c
 KlayTransactionReceipt.TransactionReceipt transactionReceipt = erc20Mock.transfer(
         "0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a",  // toAddress
         BigInteger.valueOf(10)  // value
-).send;
+).send();
 ```
 
 To check the balance of the recipient \(e.g., `0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a`\), use the code below:
@@ -309,7 +309,7 @@ To check the balance of the recipient \(e.g., `0x2c8ad0ea2e0781db8b8c9242e07de3a
 ```java
 BigInteger balance = erc20Mock.balanceOf(
         "0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a"  // owner
-).send;
+).send();
 ```
 
 ### Fee Delegation
@@ -318,35 +318,35 @@ Klaytn provides [Fee Delegation] feature which allows service providers to pay t
 
 #### Value Transfer
 
-On the client side, client who initiates the transaction will generate a fee-delegated value transfer transaction as follows: A sender creates a default `ValueTransferTransaction` object, then [`transactionManager.sign`](https://static.javadoc.io/com.klaytn.caver/core/1.0.1/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) returns a signed `FeeDelegatedValueTransferTransaction` object if the second parameter is set to `true`.
+On the client side, client who initiates the transaction will generate a fee-delegated value transfer transaction as follows: A sender creates a default `ValueTransferTransaction` object, then [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.1/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) returns a signed `FeeDelegatedValueTransferTransaction` object if the second parameter is set to `true`.
 
 ```java
 TransactionManager transactionManager = new TransactionManager.Builder(caver, credentials)
-        .setChaindId(ChainId.BAOBAB_TESTNET).build;  // BAOBAB_TESTNET = 1001
+        .setChaindId(ChainId.BAOBAB_TESTNET).build();  // BAOBAB_TESTNET = 1001
 ValueTransferTransaction valueTransferTransaction = ValueTransferTransaction.create(
-        credentials.getAddress,  // fromAddress
+        credentials.getAddress(),  // fromAddress
         "0xe97f27e9a5765ce36a7b919b1cb6004c7209217e",  // toAddress
         BigInteger.ONE,  // value
         BigInteger.valueOf(100_000)  // gasLimit
 );
-String senderRawTransaction = transactionManager.sign(valueTransferTransaction, true).getValueAsString;  // isFeeDelegated : true
+String senderRawTransaction = transactionManager.sign(valueTransferTransaction, true).getValueAsString();  // isFeeDelegated : true
 ```
 
 A signed transaction, `senderRawTransaction`, is generated. Now the sender delivers the transaction to the fee payer who will pay for the transaction fee instead. Transferring transactions between the sender and the fee payer is not performed on the Klaytn network. The protocol should be defined by themselves.
 
-After the fee payer gets the transaction from the sender, the fee payer can send the transaction using the `FeePayerManager` class as follows. `FeePayerManager.executeTransaction` will sign the received transaction with the fee payer's private key and send the transaction to the Klaytn network.
+After the fee payer gets the transaction from the sender, the fee payer can send the transaction using the `FeePayerManager` class as follows. `FeePayerManager.executeTransaction()` will sign the received transaction with the fee payer's private key and send the transaction to the Klaytn network.
 
 ```java
 KlayCredentials feePayer = KlayWalletUtils.loadCredentials(<password>, <walletfilePath>);
 FeePayerManager feePayerManager = new FeePayerManager.Builder(caver, feePayer)
         .setChainId(ChainId.BAOBAB_TESTNET)
-        .build;
+        .build();
 feePayerManager.executeTransaction(senderRawTransaction);
 ```
 
 #### Smart Contract Execution
 
-The difference between fee-delegated smart contract execution and fee-delegated value transfer above is that this needs input data to call a function of a smart contract. A sender can generate a fee-delegated smart contract execution transaction as shown below. Note that [`transactionManager.sign`](https://static.javadoc.io/com.klaytn.caver/core/1.0.1/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) returns a `TxTypeFeeDelegatedSmartContractExecution` object if you pass `true` to the second parameter. The example below invokes the `transfer` method of [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol) contract which is described in [Smart Contract].
+The difference between fee-delegated smart contract execution and fee-delegated value transfer above is that this needs input data to call a function of a smart contract. A sender can generate a fee-delegated smart contract execution transaction as shown below. Note that [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.1/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) returns a `TxTypeFeeDelegatedSmartContractExecution` object if you pass `true` to the second parameter. The example below invokes the `transfer` method of [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol) contract which is described in [Smart Contract].
 
 ```java
 String recipient = "0x34f773c84fcf4a0a9e2ef07c4615601d60c3442f";
@@ -354,28 +354,28 @@ BigInteger transferValue = BigInteger.valueOf(20);
 Function function = new Function(
         ERC20Mock.FUNC_TRANSFER,  // FUNC_TRANSFER = "transfer"
         Arrays.asList(new Address(recipient), new Uint256(transferValue)),  // inputParameters
-        Collections.emptyList  // outputParameters
+        Collections.emptyList()  // outputParameters
 );
 String data = FunctionEncoder.encode(function);
 
 TransactionManager transactionManager = new TransactionManager.Builder(caver, credentials)
-        .setChaindId(ChainId.BAOBAB_TESTNET).build;  // BAOBAB_TESTNET = 1001
+        .setChaindId(ChainId.BAOBAB_TESTNET).build();  // BAOBAB_TESTNET = 1001
 SmartContractExecutionTransaction smartContractExecution = 
         SmartContractExecutionTransaction.create(
-                credentials.getAddress,  // fromAddress
-                erc20Mock.getContractAddress,  // contractAddress
+                credentials.getAddress(),  // fromAddress
+                erc20Mock.getContractAddress(),  // contractAddress
                 BigInteger.ZERO,  // value
                 Numeric.hexStringToByteArray(data),  // data
                 BigInteger.valueOf(100_000)  // gasLimit
         );
-String senderRawTransaction = transactionManager.sign(smartContractExecution, true).getValueAsString;
+String senderRawTransaction = transactionManager.sign(smartContractExecution, true).getValueAsString();
 ```
 
 After you get `senderRawTransaction`, the rest of the process using `FeePayerManager` is the same way as you saw in [fee-delegated value transfer] above:
 
 ```java
 KlayCredentials feePayer = KlayWalletUtils.loadCredentials(<password>, <walletfilePath>);
-FeePayerManager feePayerManager = new FeePayerManager.Builder(caver, feePayer).build;
+FeePayerManager feePayerManager = new FeePayerManager.Builder(caver, feePayer).build();
 feePayerManager.executeTransaction(senderRawTransaction);
 ```
 
