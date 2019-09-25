@@ -1,4 +1,4 @@
-Klaytn’s token economy is designed to encourage and incentivize the participants within the Klaytn ecosystem to spontaneously engage in economic activities by creating and exchanging values with one another. Such activities collectively build up an economy of circulating wealth that helps improve the stability of the Klaytn platform and also drives economic growth of the entire ecosystem.
+Klaytn의 토큰 이코노미는 Klaytn 생태계 참가자들이 가치를 창출하고 서로 교환함으로써 자발적으로 경제 활동에 참여하는 것을 장려하고 보상합니다. 이러한 활동은 부가 순환되는 경제체제를 구축하여 Klaytn 플랫폼의 안정성을 향상시키며 전체 생태계의 경제 성장을 주도합니다.
 
 In order to maintain the network and strengthen the economic growth at a greater scale, Klaytn compensates more diverse forms of contributions from a wider range of participants. In doing so, Klaytn rewards all economic entities in the Klaytn token economy that makes meaningful contributions via a transparent evaluation and incentive mechanism called Proof of Contribution (PoC).
 
