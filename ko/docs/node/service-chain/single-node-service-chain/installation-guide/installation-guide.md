@@ -47,7 +47,3 @@ The Klaytn Linux package consists of the executable binary and the configuration
 |:---------- |:-------------------------- |
 | kscn       | /usr/bin/kscn              |
 | kscnd.conf | /etc/kscnd/conf/kscnd.conf |
-
-
-[  
-](https://docs.klaytn.com/node/sc/setup_main-bridge)
