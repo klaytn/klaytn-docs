@@ -1,21 +1,21 @@
-Klaytn Governance Council (KGC) is the organization that operates the Klaytn node and participates in decision making for the development of Klaytn. It can be said that it is the practical operator of Klaytn network. KGC consists mainly of credible Asian enterprises that are invited from Klaytn. At the point of Klaytn Mainnet launching, it starts with 18 enterprises and, enterprises that are now under discussion will join and soon it will expand to about 30. If network safety is verified after mainnet and there is no problem in the expendability of consensus algorithms, we can accept KGC members additionally.
+KGC는 Klaytn 노드를 운영하며, Klaytn 발전을 위한 의사결정에 참여하는 조직을 말합니다. Klaytn 네트워크의 실질적인 운영자라고 할 수 있습니다. KGC는 Klaytn으로부터 초대받은 신뢰할만한 아시아 기업들 중심으로 구성되어 있습니다. Klaytn Mainnet 런칭 시점에는 18개의 기업들로 시작하며, 현재 논의 중인 기업들은 테스트 과정을 거쳐 합류하면서 곧 30개 내외 확대될 것입니다. 메인넷 이후 네트워크의 안정성이 검증되고 컨센서스 알고리즘의 확장성에 문제가 없다면, 추가로 KGC 멤버를 받아들일 수도 있습니다.
 
-### KGC Roles
+### KGC 역할
 
-**Node setups and operation as CCO (Core Cell Operator)**: They need to set up and operate Core Cell (CC) that is the set of nodes that participate in consensus. We need to secure the management-labor force for smooth communication with Klaytn about failure dealing and upgrade etc. And we need to stake at least 5 million KLAY (platform token of Klaytn) for node participation.
+**CCO(Core Cell Operator)로서 노드 셋업과 운영**: Consensus에 참여하는 노드들의 셋인 Core Cell(CC)을 셋업하고 운영해야 합니다. 장애 대응과 업그레이드 등에 대해 Klaytn과 원활한 커뮤니케이션이 될 수 있도록 관리 인력을 확보해야 합니다. 그리고 노드 참여를 위해 최소 5백만 KLAY(Klaytn의 플랫폼 토큰)를 Staking해야 합니다.
 
-**Governance participation**: They get to participate in decision making for the operation and development of Klaytn. Governance is done in a mixed form of On-chain and Off-chain. They get to participate in on-chain vote through Governance Portal Service and participate in off-chain decision making about the important matters through regular summits. For decision making, it is basically 1 vote and depending on the level of contribution and amount of KLAY Staking maximum 1 more vote can be given additionally.
+**Governance 참여**: Klaytn의 운영과 개선을 위한 의사결정에 참여하게 됩니다. 거버넌스는 On-chain과 Off-chain이 혼합된 형태로 이루어 집니다. Governance Portal Service를 통해 온체인 투표에 참여하게 되고, 정기적인 Summit을 통해 중요한 사안에 대해 오프체인 의사결정에 참여합니다. 의사 결정 투표 시 기본 1표이며 기여도 및 KLAY Staking 양에 따라 최대 1표 추가 부여될 수 있습니다.
 
-**Klaytn business cooperation:** They cooperate with members of Klaytn and KGC for commercialization of blockchain based on Klaytn. Also, they seek business cooperation with Klaytn Service Partners and ultimately try hard to launch blockchain business that is meaningful on Klaytn.
+**Klaytn 사업 협력**: Klaytn 기반의 블록체인 사업화를 위해 Klaytn 및 KGC 멤버들과 협력합니다. 또한 Klaytn Service Partner들과 사업 협력을 모색하고 궁극적으로 Klaytn에서 유의미한 블록체인 사업을 런칭하도록 노력합니다.
 
-### KGC Benefit
+### KGC 혜택
 
-**Mining compensation**: By operating Klaytn node, they get mining compensation for block production. The possibility of block production increases with the amount of KLAY Staking done and they get more mining compensation, but we apply the genie coefficient and adjust the difference so that it cannot be monopolized.
+**마이닝 보상**: Klaytn 노드를 운영함으로써 블록 생성에 대한 마이닝 보상을 받게 됩니다. KLAY Staking 한만큼 블록 생성 확률이 증가하여 마이닝 보상을 더 받게 되지만, 지니 계수를 적용하여 차이를 조정하여 독점하지 못하도록 합니다.
 
-**Participation in public blockchain operation**: They become the central operating party for important blockchain platform and by participating in governance they can earn the competence at blockchain market.
+**퍼블릭 블록체인 운영에 참여**: 주요한 블록체인 플랫폼의 운영 주체가 되고 거버넌스에 참여함으로써 블록체인 시장에서 경쟁력을 확보할 수 있습니다.
 
-**Opportunity for blockchain commercializing cooperation**: They provide an opportunity to interact with main participants of Klaytn like KGC member enterprises, Klaytn Service Partners and by sharing the cases and best practices of first applying blockchain, they help blockchain commercialization.
+**블록체인 사업화 협력 기회**: KGC 멤버 기업들, Klaytn Service Partner들 등 Klaytn의 주요 참가자들과 교류할 수 있는 기회를 제공하며, 블록체인을 선 적용한 사례와 Best Practice들을 공유받음으로써 블록체인 사업화를 돕습니다.
 
-### Evolution from Permissioned Network to Open Network
+### Permissioned Network에서 Open Network으로 진화
 
-KGC operates for approximately 2 years after Klaytn mainnet launching. During that period KGC members will be provided opportunities to limited enterprises. Operating as Permissioned Network for 2 years, developing Klaytn’s expandability and learn the behavior of BApp and users through data. 2 years later in 2021, more and various players will participate in node operation and governance. At that time, rights will be given to places that have a higher level of contribution to Klaytn among service providing places based on Klaytn, not the enterprises invited by Klaytn. This process will be done completely based on data and algorithms. Ultimately, they picture the future that service providers and platform operators agree.
+KGC는 Klaytn 메인넷 런칭 이후 2년 동안 운영합니다. 그 기간 동안 KGC 멤버는 제한된 기업들에게 기회가 제공될 예정입니다. 2년 동안 Permissioned Network으로 운영하면서 Klaytn의 확장성을 개선하고 데이터를 통해 BApp과 사용자의 행태를 학습할 것입니다. 2년 후인 2021년에는 보다 많고 다양한 플레이어들이 노드 운영과 거버넌스에 참여할 것입니다. 그때는 Klaytn에서 초대한 기업이 아니라, Klaytn 기반으로 서비스를 제공하는 곳들 중 Klaytn에 대한 기여도가 높은 곳들이 권리를 부여받게 될 것입니다. 이 과정은 전적으로 데이터와 알고리즘 기반으로 이루어질 것입니다. 궁극적으로 서비스 제공자와 플랫폼 운영자가 일치하는 미래를 그립니다.
