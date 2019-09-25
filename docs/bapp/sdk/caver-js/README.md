@@ -18,12 +18,12 @@
 
 Below are packages provided in `caver-js`.
 
-* ​[caver.klay](api-references/caver.klay.md)​
-* ​[caver.klay.accounts](api-references/caver.klay.accounts.md)​
-* ​[caver.klay.Contract](api-references/caver.klay.Contract.md)​
-* ​[caver.klay.net](api-references/caver.klay.net.md)​
-* ​[caver.klay.abi](api-references/caver.klay.abi.md)​
-* ​[caver.utils](api-references/caver.utils.md)​
+* [caver.klay](api-references/caver.klay.md)
+* [caver.klay.accounts](api-references/caver.klay.accounts.md)
+* [caver.klay.Contract](api-references/caver.klay.Contract.md)
+* [caver.klay.net](api-references/caver.klay.net.md)
+* [caver.klay.abi](api-references/caver.klay.abi.md)
+* [caver.utils](api-references/caver.utils.md)
 
 ## Error Code Improvement <a id="error-code-improvement"></a>
 
@@ -57,9 +57,7 @@ If `gasPrice` is not defined when you sign or submit a transaction, caver-js use
 
 ## Links <a id="links"></a>
 
-* caver-js [GitHub repository](https://github.com/klaytn/caver-js)​
-* caver-js on [npm](https://www.npmjs.com/package/caver-js)​
+* caver-js [GitHub repository](https://github.com/klaytn/caver-js)
+* caver-js on [npm](https://www.npmjs.com/package/caver-js)
 
-[  
-](https://docs.klaytn.com/sdk)
 

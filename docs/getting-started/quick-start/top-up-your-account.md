@@ -8,11 +8,11 @@ Klaytn Endpoint Node comes with JavaScript console. From the console command lin
 $ ken attach ~/kend_home/klay.ipc
 Welcome to the Klaytn JavaScript console
 
-!​instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+!instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kend_home
  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
  
- ​>
+ >
 ```
 
 **NOTE**: You must wait until it downloads all the blocks. Enter `klay.blockNumber` in a console and check whether it matches the current block number [here](https://baobab.scope.klaytn.com/) 
@@ -39,7 +39,7 @@ UTC--2019-06-24T11-20-15.590879000Z--75a59b94889a05c03c66c3c84e9d2f8308ca4abd
 
 ## Unlocking the Klaytn Account <a id="unlocking-the-klaytn-account"></a>
 
-To unlock the created account, execute the following command. It unlocks the account for 300 seconds. **Note**: If you want to manually set the unlock duration, refer to this [link](https://docs.klaytn.com/api/management/personal#personal_unlockaccount). **`WARNING`**: Unlocking an account could be very dangerous if not done carefully. There are chances that your tokens will be taken away by hackers if your EN is hacked by a hacker. To use safer method, refer to this [deployment guide using private key](https://docs.klaytn.com/tutorials/countbapp/6-deploy-contract#deploy-method-1-by-private-key)​
+To unlock the created account, execute the following command. It unlocks the account for 300 seconds. **Note**: If you want to manually set the unlock duration, refer to this [link](../../bapp/json-rpc/api-references/personal.md#personal_unlockaccount). **`WARNING`**: Unlocking an account could be very dangerous if not done carefully. There are chances that your tokens will be taken away by hackers if your EN is hacked by a hacker. To use safer method, refer to this [deployment guide using private key](../../bapp/tutorials/count-bapp/6.-deploy-contract.md#deploy-method-1-by-private-key)
 
 ```javascript
 > personal.unlockAccount('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # account address to unlock
@@ -63,7 +63,7 @@ true
 
 To see the balance of your account, execute the following command.
 
-The default unit is peb \(1 KLAY = 10^18 peb\). More information about KLAY units can be found at [Units of KLAY](https://docs.klaytn.com/klaytn/design/computation/exec_model#units-of-klay).
+The default unit is peb \(1 KLAY = 10^18 peb\). More information about KLAY units can be found at [Units of KLAY](../../klaytn/design/klaytn-native-coin-klay.md#units-of-klay).
 
 ```javascript
 > klay.getBalance('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # enter your account address
@@ -79,6 +79,4 @@ To leave the javascript console, execute the following command.
 $
 ```
 
-[  
-](https://docs.klaytn.com/getting_started/quick_start/launch_en)
 
