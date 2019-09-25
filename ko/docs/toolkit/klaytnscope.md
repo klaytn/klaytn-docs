@@ -57,7 +57,7 @@ Klaytnscope는 Klaytn 네트워크의 블록 탐색기입니다. Klaytnscope는 
 
 Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 트랜잭션 목록을 확인하세요. 목록 페이지로 이동하려면 화면 왼쪽의 탐색 모음에서 버튼을 클릭하세요.
 
-### 블록
+### Blocks
 
 ![](img/scope_04_block_list.png)
 
@@ -70,7 +70,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 * Reward: 새로 발행된 KLAY \(9.6 KLAY\)와 블록에서 사용된 트랜잭션 비용의 합계입니다. 이 목록에서는 Klaytn Governance Council 보상, 기여증명, Klaytn 개선 준비금의 합계만 나타납니다. 상세 정보를 보려면 블록 상세 보기 페이지의 블록 보상 섹션에 마우스 포인터를 가져가세요. 블록 보상 분배 시스템에 대한 자세한 내용은 [Klaytn Token Economy](../klaytn/design/token-economy.md)를 참고하세요.
 * Size: 블록의 바이트 단위 크기입니다. 많은 트랜잭션이 담겨 있을수록 블록의 크기가 더 커집니다.
 
-### 트랜잭션
+### Transactions
 
 ![](img/scope_05_tx_list.png)
 
@@ -88,7 +88,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 
 이 페이지를 통해 블록, 트랜잭션, 계정, 컨트랙트 하나씩의 자세한 정보를 확인할 수 있습니다. 상세 보기로 이동하려면 검색 창에서 검색하거나 목록 보기에서 항목을 클릭하세요.
 
-### 블록
+### Block
 
 ![](img/scope_08_block_detail.png)
 
@@ -114,7 +114,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 
 블록에 담긴 트랜잭션들의 목록입니다.
 
-### 트랜잭션
+### Transaction
 
 ![](img/scope_09_tx_detail.png)
 
@@ -141,7 +141,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 
 트랜잭션 발신자나 컨트랙트에 의해 입력된 추가 데이터입니다.
 
-### 계정
+### Account
 
 ![](img/scope_10_account_detail.png)
 
@@ -158,7 +158,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 
 계정과 관련된 트랜잭션의 목록입니다. 화살표의 색은 이 계정이 발신자인지 수신자인지 나타냅니다.
 
-### 컨트랙트
+### Contract
 
 ![](img/scope_11_contract_detail.png)
 
