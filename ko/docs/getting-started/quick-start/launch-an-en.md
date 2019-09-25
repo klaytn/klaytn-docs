@@ -71,4 +71,4 @@ INFO[03/26,15:37:49 +09] [5] Imported new chain segment                blocks=1 
 
 ## 문제 해결
 
-Klaytn Endpoint Node 실행에 문제가 있는 경우, [문제 해결](../../node/endpoint-node/operation-guide/errors-and-troubleshooting.md)을 참고하시기 바랍니다.
+Please refer to the [Troubleshooting](../../node/errors-and-troubleshooting.md) if you have trouble in launching the Klaytn Endpoint Node.
