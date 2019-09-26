@@ -35,7 +35,7 @@ caver.klay.accountCreated(address [, defaultBlock] [, callback])
 
 Returns `true` if the account associated with the address is created. It returns `false` otherwise.
 
-**NOTE** accountCreated checks to see if it exists on the network, so even if a key pair is created, false is returned if the account matching the address does not exist on the actual blockchain network.
+**NOTE** accountCreated checks if the account exists on the network, so even if a key pair is created, false is returned if the account matching the address does not exist on the actual blockchain network.
 
 **Parameters**
 
