@@ -1,6 +1,6 @@
 Endpoint Node는 JSON-RPC API로 접근할 수 있습니다. 다음과 같이 API를 활성화하거나 비활성화할 수 있습니다. API 스펙에 대한 자세한 내용은 [JSON-RPC APIs](../../bapp/json-rpc/api-references/README.md)를 참고해주세요.
 
-**NOTE**: HTTP (`rpc`) 또는 WebSocket (`ws`) 인터페이스를 통한 API를 제공하는 것은 인터페이스 (DApp, 브라우저 탭 등)에 접근할 수 있는 누구나에게 API에 접근할 수 있도록 하는 것입니다. 활성화한 API들에 대해 주의하세요. 기본적으로 Klaytn에서는 IPC (`ipc`) 인터페이스를 통한 모든 API가 활성화되어 있지만, `rpc`와 `ws`의 경우 모듈을 직접 활성화해야 합니다.
+**NOTE**: HTTP (`rpc`) 또는 WebSocket (`ws`) 인터페이스를 통한 API를 제공하는 것은 인터페이스 (DApp, 브라우저 탭 등)에 접근할 수 있는 누구에게나 API에 접근할 수 있도록 하는 것입니다. 활성화한 API들에 대해 주의하세요. 기본적으로 Klaytn에서는 IPC (`ipc`) 인터페이스를 통한 모든 API가 활성화되어 있지만, `rpc`와 `ws`의 경우 모듈을 직접 활성화해야 합니다.
 
 ## API 활성화
 
@@ -10,7 +10,7 @@ Klaytn RPC 엔드포인트를 통해 API를 제공하려면 명령 줄의 `--${i
 
 `ipc`는 플래그 없이 unix 소켓 (Unix) 또는 명명된 파이프 (Windows) 엔드포인트를 통한 API를 제공합니다.
 
-아래 예시와 같이 추가하고자 하는 특정 API와 함께 Klaytn 노드를 실행할 수 있습니다. 하지만 노드를 시작한 이후에는 API를 변경할 수 없다는 점을 유의해주세요.
+아래 예시처럼 추가하고자 하는 특정 API와 함께 Klaytn 노드를 실행할 수 있습니다. 하지만 노드를 시작한 이후에는 API를 변경할 수 없다는 점을 유의해주세요.
 
 예시) `klay`와 `net` 모듈을 활성화하며 Klaytn 노드 실행하기
 
