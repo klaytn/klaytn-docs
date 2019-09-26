@@ -37,7 +37,7 @@ The table below shows the account data that are stored in the state.
 
 | Component | Description |
 | :--- | :--- |
-| Nonce | An integer value indicating the number of transactions executed by this account. To submit a transaction with the account, the `nonce` of the transaction should be equal to or greater than the account's nonce. |
+| Nonce | An integer value indicating the number of transactions executed by this account. When submitting a transaction, the nonce of the transaction should be equal to the account's nonce. |
 | Balance | An integer value showing the amount of KLAY that this account currently has. |
 | StorageRoot | A 256-bit hash of the root of the Merkle Patricia Trie that contains the values of all the storage variables in the account. |
 | CodeHash | The hash of the account's bytecode.  This value is immutable, which means it is set only when the smart contract is created.  If the account is an EOA or an EA, this value is set to the hash of null. |
