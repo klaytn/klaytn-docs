@@ -275,9 +275,9 @@ The `itemsAt` returns governance items at specific block. It is the result of pr
 
 **Parameters**
 
-| Type                | Description                                                                                                                                                             |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./platform/block.md#the-default-block-parameter). |
+| Type                | Description                                                                                                                                                         |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
 
 
 **Return Value**
