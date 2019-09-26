@@ -4,7 +4,7 @@ Endpoint Node가 성공적으로 설치되어 잘 작동하는지 점검해보�
 
 ## 프로세스 상태
 
-EN's process using the 상태 명령 `systemctl`과 `kend`을 사용하여 EN의 프로세스 상태를 확인할 수 있습니다.
+상태 명령 `systemctl`과 `kend`을 사용하여 EN의 프로세스 상태를 확인할 수 있습니다.
 
 ### systemctl
 
@@ -26,7 +26,7 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kend[29636]: Star
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Started (null).
 ```
 
-위 예시에서와 같이 `Active: active (running)` 등의 현재 상태를 확인할 수 있습니다.
+위 예시처럼 `Active: active (running)` 등의 현재 상태를 확인할 수 있습니다.
 
 ### kend
 
@@ -61,7 +61,7 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work
 
 ### ken 콘솔
 
-Klaytn은 `ken console`라는 CLI 클라이언트를 제공합니다. 클라이언트를 사용하는 또 다른 방법은 IPC \(inter-process communication\)를 통해 프로세스에 연결하는 것입니다. `klay.ipc` IPC 파일은 EN의 `data` 디렉토리에 있습니다.
+Klaytn은 `ken console`이라는 CLI 클라이언트를 제공합니다. 클라이언트를 사용하는 또 다른 방법은 IPC \(inter-process communication\)를 통해 프로세스에 연결하는 것입니다. `klay.ipc` IPC 파일은 EN의 `data` 디렉토리에 있습니다.
 
 다음 명령을 실행하고 결과를 확인하세요.
 
