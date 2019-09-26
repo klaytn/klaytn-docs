@@ -1,4 +1,4 @@
-root: ./docs/
+root: ./ko/docs/
 
 structure:
   readme: README.md
