@@ -12,9 +12,9 @@ The `kend.conf` contains the following main-bridge properties.
 
 | Name | Description |
 | :--- | :--- |
-| MAIN\_BRIDGE | Enable bridge service as main bridge for service chain   1 to be enabled |
-| MAIN\_BRIDGE\_PORT | bridge listen port   e.g\) default: 50505 |
-| MAIN\_BRIDGE\_INDEXING | Enable storing transaction hash of service chain transaction for fast access to service chain data   e.g\) 1 to enabled |
+| MAIN_BRIDGE | Enable bridge service as main bridge for service chain   1 to be enabled |
+| MAIN_BRIDGE_PORT | bridge listen port   e.g) default: 50505 |
+| MAIN_BRIDGE_INDEXING | Enable storing transaction hash of service chain transaction for fast access to service chain data   e.g) 1 to enabled |
 
 To enable main-bridge on EN, you should do like below.
 
@@ -59,15 +59,15 @@ MAIN_BRIDGE_INDEXING=1
 
 ## Connect SCN to the Main Chain
 
-You need to run an EN of the main chain as a main-bridge. And also you should determine which SCN \(Service Chain Node\) as a sub-bridge will connect with the EN.
+You need to run an EN of the main chain as a main-bridge. And also you should determine which SCN (Service Chain Node) as a sub-bridge will connect with the EN.
 
-### Check EN \(Main-Bridge\) information
+### Check EN (Main-Bridge) information
 
 #### Open EN Console
 
-There are different way to connect the EN process. You can check the usable commands on [ken CLI commands](../../../endpoint-node/ken-cli-commands.md). This page explains the way to connect the process via IPC \(inter-process communication\). The IPC file `klay.ipc` is located in the data directory on an EN/SCN.
+There are different way to connect the EN process. You can check the usable commands on [ken CLI commands](../../../endpoint-node/ken-cli-commands.md). This page explains the way to connect the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the data directory on an EN/SCN.
 
-Please execute the following command and check out the result. \(If you added `mainbridge` API for RPC, you can check the bridge API like below. If there is no `mainbridge` API, you should check [EN Configuration - Enable Main-bridge](#en-configuration-enable-main-bridge) again. \)
+Please execute the following command and check out the result. (If you added `mainbridge` API for RPC, you can check the bridge API like below. If there is no `mainbridge` API, you should check [EN Configuration - Enable Main-bridge](#en-configuration-enable-main-bridge) again. )
 
 ```bash
 $ ken attach ~/kend_home/klay.ipc
@@ -120,7 +120,7 @@ You should note main-bridge `kni` information of EN.
 
 #### Open SCN Console
 
-Likes EN case, you can connect the SCN process like below. \(If you added `subbridge` API for RPC, you can check the bridge API like below. If there is no `subbridge` API, you should check [Setup Service Chain](https://docs.klaytn.com/node/sc/setup_servicechain#configuration-of-the-initial-file) again. \)
+Likes EN case, you can connect the SCN process like below. (If you added `subbridge` API for RPC, you can check the bridge API like below. If there is no `subbridge` API, you should check [Setup Service Chain](https://docs.klaytn.com/node/sc/setup_servicechain#configuration-of-the-initial-file) again. )
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
@@ -194,7 +194,7 @@ When SCN anchor the block data, SCN make an anchoring transaction by the chain a
 
 ### Enable Anchoring
 
-After charging KLAY, you can enable via RPC like below. You can refer to [Service Chain API]() for more details.
+After charging KLAY, you can enable via RPC like below. You can refer to [Service Chain API] for more details.
 
 ```javascript
 > subbridge.anchoring(true)
@@ -207,7 +207,7 @@ If the anchoring feature is enabled, SCN will anchor the block data to main chai
 
 ### Main-Bridge
 
-In Main-Bridge, if chain indexing option is enabled, you can find the anchoring tx hash by a service chain block hash like below. You can refer to [Service Chain API]() for more details.
+In Main-Bridge, if chain indexing option is enabled, you can find the anchoring tx hash by a service chain block hash like below. You can refer to [Service Chain API] for more details.
 
 ```javascript
 > mainbridge.convertServiceChainBlockHashToMainChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
@@ -216,7 +216,7 @@ In Main-Bridge, if chain indexing option is enabled, you can find the anchoring 
 
 ### Sub-Bridge
 
-In Sun-Bridge, You can check the last anchored block number like below. You can refer to [Service Chain API]() for more details.
+In Sun-Bridge, You can check the last anchored block number like below. You can refer to [Service Chain API] for more details.
 
 ```javascript
 > subbridge.latestAnchoredBlockNumber
@@ -225,5 +225,5 @@ In Sun-Bridge, You can check the last anchored block number like below. You can 
 
 
 
-
+[Service Chain API]: ../../../../bapp/json-rpc/api-references/servicechain.md
 

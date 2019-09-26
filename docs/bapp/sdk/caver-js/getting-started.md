@@ -69,7 +69,7 @@ You can use `caver-js` to create an account as shown below. You can also create 
   ... }
 ```
 
-**Note**: Functions associated with [caver.klay.accounts]() have no effect on the actual Klaytn network.
+**Note**: Functions associated with [caver.klay.accounts] have no effect on the actual Klaytn network.
 
 ### Add Accounts to caver-js
 
@@ -185,7 +185,7 @@ First, to sign the transaction, specify the sender, recipient, and the private k
   })
 ```
 
-You can get a RLP-encoded transaction \(`rawTransaction`\) using [caver.klay.accounts.signTransaction]() as above and use this to transfer the transaction to the Klaytn network as below.
+You can get a RLP-encoded transaction \(`rawTransaction`\) using [caver.klay.accounts.signTransaction] as above and use this to transfer the transaction to the Klaytn network as below.
 
 ```text
 > caver.klay.sendSignedTransaction(rawTransaction).on('transactionHash', console.log)
@@ -236,7 +236,7 @@ The following example shows how to get a receipt using promise and event emitter
 }
 ```
 
-As described in the example above, you can get the result of sending a transaction through the promise and event emitter. And also, if you know the transaction hash, you can query the transaction receipt using the [caver.klay.getTransactionReceipt]() RPC call. The example below shows how to get a receipt using the [caver.klay.getTransactionReceipt]() RPC call.
+As described in the example above, you can get the result of sending a transaction through the promise and event emitter. And also, if you know the transaction hash, you can query the transaction receipt using the [caver.klay.getTransactionReceipt] RPC call. The example below shows how to get a receipt using the [caver.klay.getTransactionReceipt] RPC call.
 
 ```text
 > caver.klay.getTransactionReceipt('0xbad4dd6d80beda6c04d90f1db7e4179557ab48423d4f14295b33e38a9418e59f').then(console.log)
@@ -269,7 +269,7 @@ As described in the example above, you can get the result of sending a transacti
 }
 ```
 
-The result of the transaction can be found through the status of the receipt. For a detailed description of the return values, see [getTransactionReceipt](). If a transaction is failed, you can check the detailed error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures]().
+The result of the transaction can be found through the status of the receipt. For a detailed description of the return values, see [getTransactionReceipt]. If a transaction is failed, you can check the detailed error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures].
 
 ## Executing Other Transaction Types <a id="executing-other-transaction-types"></a>
 
@@ -277,7 +277,7 @@ Klaytn provides various transaction types for extensibility and performance. For
 
 ### Fee Delegation
 
-Klaytn provides [Fee Delegation]() feature. Here's an example code.
+Klaytn provides [Fee Delegation] feature. Here's an example code.
 
 When you are a sender, use the code below to make an RLP-encoded transaction object:
 
@@ -321,7 +321,7 @@ With the signed RLP-encoded transaction object \(`rawTransaction`\), the fee pay
 
 ### Account Update
 
-If you want to change the key of the account, send a transaction as shown below. Please check [Account Update]() for the transaction field according to the key type.
+If you want to change the key of the account, send a transaction as shown below. Please check [Account Update] for the transaction field according to the key type.
 
 ```text
 // If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
@@ -338,7 +338,7 @@ If you want to change the key of the account, send a transaction as shown below.
 
 ### Smart Contract
 
-The [caver.klay.Contract]() package makes it easy to interact with smart contracts on Klaytn. It automatically converts all methods of a smart contract into javascript calls when its low-level ABI \(Application Binary Interface\) is given. This allows you to interact with smart contracts as if they were JavaScript objects.
+The [caver.klay.Contract] package makes it easy to interact with smart contracts on Klaytn. It automatically converts all methods of a smart contract into javascript calls when its low-level ABI \(Application Binary Interface\) is given. This allows you to interact with smart contracts as if they were JavaScript objects.
 
 First, we start by compiling a smart contract to get its bytecode and ABI.
 
@@ -353,7 +353,7 @@ Contract JSON ABI
 
 **NOTE**: To compile a smart contract, you must have a solidity complier installed.
 
-For smart contract deployment, you can use [caver.klay.Contract]() to deploy it, or you can deploy it using [SMART\_CONTRACT\_DEPLOY]() transaction. Here is an example of using [caver.klay.Contract]().
+For smart contract deployment, you can use [caver.klay.Contract] to deploy it, or you can deploy it using [SMART_CONTRACT_DEPLOY] transaction. Here is an example of using [caver.klay.Contract].
 
 If the contract instance is created, you can deploy it by passing the bytecode to the `data` field as shown below:
 
@@ -395,7 +395,7 @@ The deployed contract address can be found in `contractAddress` of the transacti
 '0xC9f0b868e5103b6823171a2Df85E7B696660E466'
 ```
 
-One way to invoke a specific method of a smart contract is to use it with `caver.klay.Contract` or use [SMART\_CONTRACT\_EXECUTION]().
+One way to invoke a specific method of a smart contract is to use it with `caver.klay.Contract` or use [SMART_CONTRACT_EXECUTION].
 
 To transact with a smart contract:
 
@@ -429,7 +429,7 @@ To call a smart contract:
 2194
 ```
 
-See [caver.klay.Contract]() for details.
+See [caver.klay.Contract] for details.
 
 ## Sample Projects <a id="sample-projects"></a>
 
@@ -442,4 +442,18 @@ The BApp \(Blockchain Application\) Development sample projects using caver-js a
 
 * caver-js [GitHub repository](https://github.com/klaytn/caver-js)
 * caver-js on [npm](https://www.npmjs.com/package/caver-js)
+
+
+
+[caver.klay.Contract]: api-references/caver.klay.Contract.md 
+[caver.klay.accounts]: api-references/caver.klay.accounts.md
+[caver.klay.accounts.signTransaction]: api-references/caver.klay.accounts.md#signtransaction
+[caver.klay.getTransactionReceipt]: api-references/caver.klay/transaction.md#gettransactionreceipt
+[getTransactionReceipt]: api-references/caver.klay/transaction.md#gettransactionreceipt 
+[txError: Detailed Information of Transaction Failures]: ../../json-rpc/transaction-error-codes.md
+[Fee Delegation]: ../../../klaytn/design/transactions/README.md#fee-delegation
+[Account Update]: api-references/caver.klay/sendtx_account_update.md
+[SMART_CONTRACT_DEPLOY]: api-references/caver.klay/sendtx_smart_contract_deploy.md
+[SMART_CONTRACT_EXECUTION]: api-references/caver.klay/sendtx_smart_contract_execution.md
+
 

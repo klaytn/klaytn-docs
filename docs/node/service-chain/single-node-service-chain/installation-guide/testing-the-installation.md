@@ -59,7 +59,7 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work
 
 ### kscn console
 
-Klaytn provides a CLI client: `kscn console`. Another way of using the client is to connect to the process via IPC \(inter-process communication\). The IPC file `klay.ipc` is located in the `data` directory on an SCN.
+Klaytn provides a CLI client: `kscn console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `data` directory on an SCN.
 
 Please execute the following command and check out the result.
 
@@ -74,12 +74,12 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
  >
 ```
 
-You can check the usable commands on [API Document]()
+You can check the usable commands on [API Document](../../../../bapp/json-rpc/README.md)
 
 The useful APIs to check the status of SCN:
 
-* `klay.blockNumber` \(to get the latest block number\)
-* `net.peerCount` \(to get the number of the connected Klaytn nodes currently\)
+* `klay.blockNumber` (to get the latest block number)
+* `net.peerCount` (to get the number of the connected Klaytn nodes currently)
 
 ### klay.blockNumber
 
