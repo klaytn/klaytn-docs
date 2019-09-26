@@ -68,6 +68,7 @@ This entails the following requirements to support application development.
 
 - Klaytn provides an additional off-chain service layer called Enterprise Proxy (EP) to ease blockchain application development and operation. Enterprise Proxy will reduce the technical hurdles in using blockchain, and support seamless integration with traditional database and security systems. 
 - One of the first EP product will launch in early 2020. It will have APIs that can be used without much blockchain knowledge and provide business intelligence insights through data analysis. 
+- See [Enterprise Proxy] to learn about its strategic direction and the problems it aims to address. 
 
 ### Contribution Reward
 
@@ -105,5 +106,5 @@ Klaytn does not sacrifice blockchain’s core characteristics to achieve the abo
 [Truffle]: ../toolkit/truffle.md
 [Migrating Ethereum App to Klaytn]: ../bapp/tutorials/migrating-ethereum-app-to-klaytn.md
 [Incentive Program]: design/token-economy.md#incentive-programs
-
+[Enterprise Proxy]: enterprise-proxy.md
 
