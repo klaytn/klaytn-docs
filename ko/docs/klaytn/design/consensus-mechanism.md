@@ -31,22 +31,22 @@ Klaytn 메인넷 Cypress은 다음과 같은 성능을 보여줍니다.
 
 ![PBFT message flow](../images/pbft.png)
 
-위와 같이 PBFT에 참여하는 노드는 기본적으로 네트워크의 모든 노드와 여러 단계에서 통신합니다. This characteristic limits the number of nodes because the communication volume increases exponentially as the number of nodes increases.
+위와 같이 PBFT에 참여하는 노드는 기본적으로 네트워크의 모든 노드와 여러 단계에서 통신합니다. 이 특성은 노드 수가 증가할수록 통신량이 기하급수적으로 증가하므로 노드 수를 제한합니다.
 
-## Consensus Mechanism in Klaytn
+## Klaytn의 합의 메커니즘
 
-Klaytn is aiming to be an Enterprise-ready and Service-centric platform. Therefore we need to solve the finality problem written above and the network should be able to allow many nodes to participate in the network. To make this possible, Klaytn is using an optimized version of Istanbul BFT, which implements PBFT with modifications to deal with blockchain network's characteristics.
+Klaytn은 엔터프라이즈급 서비스 중심 플랫폼이 되는 것을 목표로 하고 있습니다. 따라서 위에서 설명한 완결성 문제를 해결해야 하며 많은 노드가 네트워크에 참여할 수 있어야 합니다. 이를 위해 Klaytn은 최적화된 버전의 Istanbul BFT를 사용하고 있습니다. 이는 블록체인 네트워크의 특성을 반영하여 변형된 버전의 PBFT입니다.
 
-In Klaytn, there are three types of nodes, CN (Consensus Node), PN (Proxy Node) and EN (Endpoint Node). CNs are managed by CCOs (Core Cell Operators) and are in charge of block generation. These blocks are verified by all nodes in the network. Please refer to [here](../README.md#klaytn-network-topology) to know more about this network topology.
+Klaytn에는 CN(Consensus Node), PN(Proxy Node) 및 EN(Endpoint Node)라는 세 가지 유형의 노드가 있습니다. CN은 CCO(Core Cell Operators)에 의해 관리되며 블록 생성을 담당합니다. 이 블록은 네트워크의 모든 노드에서 검증됩니다. 이 네트워크 토폴로지를 더 알고 싶으시면, [여기](../README.md#klaytn-network-topology)를 확인해주세요.
 
 ![Network topology](../images/klaytn_network_node.png)
 
-Klaytn achieves fast finality by adopting and improving Istanbul BFT. Because validation and consensus are done for each block there is no fork and the block's finality is guaranted instantly as soon as the consensus is made.
+Klaytn은 Istanbul BFT를 채택하고, 개선함으로써 빠른 완결성을 보장합니다. 각 블록에 대해 검증 및 합의가 수행되므로 포크가 없고, 합의가 이루어지면 블록의 완결성이 즉시 보장되기 때문입니다.
 
-And also the issue of increasing communication volume in the BFT algorithm is solved by utilizing randomly selected `Committee`. CNs collectively form a `Council` and on each block generation, part of them are selected as a member of `Committee` using a VRF (Verifiable Random Function).
+또한, BFT 알고리즘의 통신량 증가 문제는 임의로 선택된 `위원회(Committee)`를 활용하여 해결됩니다. CN은 함께 `Council`을 구성하고, 각 블록 생성시 VRF(Verifiable Random Function)을 이용하여 위원회의 멤버로 선택됩니다.
 
 ![Concept of council and committee](../images/council-committee.png)
 
-Because consensus messages are exchanged only between the committee members, the communication volume can be limited under the designed level even though the total number of CNs increases.
+합의 메세지는 오직 위원회 멤버들 사이에 교환이 이루어지므로 총 CN의 숫자가 늘더라도 통신량은 제한될 수 있습니다.
 
-Currently, Klaytn Mainnet Cypress can provide a high throughput of 4,000 transactions per second with one-second block generation interval. More than 50 consensus nodes can participate in the CNN (Consensus Node Network) at the moment and the number will continuously increase as Klaytn continues to aggressively optimize the algorithm.
+현재 Klaytn Mainnet Cypress는 1초의 블록 생성 간격을 가지며 초당 4,000개의 트랜잭션을 처리할 수 있습니다. 현재 50개 이상의 합의 노드가 CNN(Consensus Node Network)에 참여할 수 있으며, Klaytn이 계속해서 알고리즘을 적극적으로 최적화함에 따라 그 수는 지속해서 증가할 예정입니다.
