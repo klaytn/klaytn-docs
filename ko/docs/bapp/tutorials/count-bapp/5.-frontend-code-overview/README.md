@@ -175,11 +175,11 @@ componentWillMount() {
 }
 ```
 
-`componentWillMount` checks if there is a `walletInstance` session in the browser's sessionStorage.  
-`walletInstance` session may not exist if you have never logged in our tutorial app.  
-Otherwise, `walletInstance` session will exist as a JSON string, if so, it attempts to add the wallet instance to the caver's wallet.  
-You can add a wallet instance to caver through `cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))`.  
-For further information related `caver.klay.accounts.wallet.add`, see [caver.klay.accounts.wallet.add](../../../sdk/caver-js/api-references/caver.klay.accounts.md#wallet-add)
+`componentWillMount`는 브라우저의 sessionStorage에 `walletInstance` 세션이 있는지 확인합니다.  
+튜토리얼 어플리케이션에 로그인한 적이 없다면 `walletInstance` 세션이 없겠죠?  
+로그인했었다면 `walletInstance` 세션이 JSON 문자열로 존재하고 이 지갑 인스턴스를 caver 지갑에 추가할 것입니다.  
+또는 `cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))`을 사용하여 지갑 인스턴스를 caver 지갑에 추가할 수도 있습니다.  
+`caver.klay.accounts.wallet.add`에 대한 자세한 내용은 [caver.klay.accounts.wallet.add](../../../sdk/caver-js/api-references/caver.klay.accounts.md#wallet-add)를 참고해주세요.
 
 참고\) `walletInstance` 세션이 JSON 문자열로 저장되기 때문에 `JSON.parse`가 필요합니다.
 
@@ -189,7 +189,7 @@ For further information related `caver.klay.accounts.wallet.add`, see [caver.kla
 /**
  * caver-js 라이브러리는 Klaytn 노드에 연결하게 해줍니다.
  * 'rpcURL' 값을 변경하여 특정 Klaytn 노드에 연결할 수 있습니다.
- * Klaytn 풀노드를 운용중이라면 rpcURL을 운용중인 풀노드의 URL로 설정하세요.
+ * Klaytn 풀노드를 운용 중이라면 rpcURL을 운용 중인 풀노드의 URL로 설정하세요.
  * 예시) rpcURL: 'http://localhost:8551'
  * 기본으로 설정된 rpcURL은 'https://api.baobab.klaytn.net:8651/'입니다.
  */
@@ -209,7 +209,7 @@ export default cav
 
 'rpcURL'에 특정 Klaytn 노드를 지정하여 연결할 수 있습니다.
 
-* Klaytn 풀노드를 운용중이라면 rpcURL을 운용중인 풀노드의 URL로 설정하세요.
+* Klaytn 풀노드를 운용 중이라면 rpcURL을 운용 중인 풀노드의 URL로 설정하세요.
     
     예를 들어, `rpcURL: 'http://localhost:8551'` 이렇게요.
 
