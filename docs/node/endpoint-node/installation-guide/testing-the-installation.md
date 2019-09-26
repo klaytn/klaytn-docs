@@ -61,7 +61,7 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work
 
 ### ken console
 
-Klaytn provides a CLI client: `ken console`. Another way of using the client is to connect to the process via IPC \(inter-process communication\). The IPC file `klay.ipc` is located in the `data` directory on an EN.
+Klaytn provides a CLI client: `ken console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `data` directory on an EN.
 
 Please execute the following command and check out the result.
 
@@ -75,12 +75,12 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  >
 ```
 
-You can check the usable commands on [API Document]()
+You can check the usable commands on [API Document](../../../bapp/json-rpc/README.md)
 
 The useful APIs to check the status of EN:
 
-* `klay.blockNumber` \(to get the latest block number\)
-* `net.peerCount` \(to get the number of the connected Klaytn nodes currently\)
+* `klay.blockNumber` (to get the latest block number)
+* `net.peerCount` (to get the number of the connected Klaytn nodes currently)
 
 ### klay.blockNumber
 
