@@ -23,8 +23,8 @@ EN에 대한 정확한 물리적 명세를 지정하지는 않지만, 클라우�
 
 ## 스토리지 요구사항
 
-평균적으로 TPS가 100, 트랜잭션 크기가 300 바이트, 블록 레이턴시가 1초임을 감안하면 하루에 필요한 EN의 스토리지는 2.5 GB/일 (=300x100x86400) 입니다.
+Assuming 100 TPS in average, 300 bytes average transaction size, and 1-second block latency, the expected EN daily storage requirement is 2.5 GB/day (=300x100x86400).
 
 ## 운영 체제
 
-[Amazon Linux 2](https://aws.amazon.com/ko/about-aws/whats-new/2017/12/introducing-amazon-linux-2/) 환경을 권장합니다. Klaytn 바이너리는 Amazon Linux 2에서 충분히 테스트되었고, 리눅스 기반의 다른 환경에서도 가능합니다. 또한 개발 지원을 위해 macOS 용 바이너리도 제공하고 있습니다.
+[Amazon Linux 2](https://aws.amazon.com/ko/about-aws/whats-new/2017/12/introducing-amazon-linux-2/) 환경을 권장합니다. Klaytn 바이너리는 Amazon Linux 2에서 충분히 테스트 되었고, 리눅스 기반의 다른 환경에서도 가능합니다. 또한 개발 지원을 위해 macOS 용 바이너리도 제공하고 있습니다.
