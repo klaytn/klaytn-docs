@@ -77,8 +77,25 @@ Welcome to the Klaytn JavaScript console
    console     Start an interactive JavaScript environment
 ```
 
-### JavaScript APIs
+### Module APIs
 
-For the list of JavaScript Klaytn APIs, please see the [caver-js API references](../../bapp/sdk/caver-js/api-references/README.md).  
+If you type the module name on the console prompt, you will see the available properties and functions of the module. For the details of functions, please see [Klaytn API](../../bapp/json-rpc/api-references/README.md).  
 
-  
+```javascript
+> personal
+{
+  listAccounts: [...],
+  listWallets: [...],
+  deriveAccount: function(),
+  ecRecover: function(),
+  getListAccounts: function(callback),
+  getListWallets: function(callback),
+  importRawKey: function(),
+  lockAccount: function(),
+  ...
+}
+
+> personal.listAccounts
+["0x960dba2500ab529693ef8e299210768aa0d55ec8", "0x09a04dc9ac3cd92de5ff0d45ae50ff1b618305d9", "0x36662211c072dadbf5fc1e087ddebd36df986abd", "0xbf9683cf04520eeba6d936a3478de29437c5d048"]
+> 
+```  
