@@ -123,7 +123,7 @@ function callBn256ScalarMul(bytes32 x, bytes32 y, bytes32 scalar) public returns
 
 ```text
 function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
-    // input is a serialized bytes stream of (a1, b1, a2, b2, ..., ak, bk) from (G_1 x G_2)^k
+    // 입력은 (G_1 x G_2)^k로부터 나온 (a1, b1, a2, b2, ..., ak, bk)의 일련화된 바이트 스트림입니다.
     uint256 len = input.length;
     require(len % 192 == 0);
     assembly {
@@ -141,7 +141,7 @@ function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
 
 ## 주소 0x09: vmLog\(str\) <a id="address-0x-09-vmlog-str"></a>
 
-The address 0x09 prints the specified string `str` to a specific file or passes it to the logger module. For more information, see [debug\_setVMLogTarget](../bapp/json-rpc/api-references/debug/logging.md#debug_setvmlogtarget). Note that this precompiled contract should be used only for debugging purposes, and it is required to enable the `--vmlog` option when the Klaytn node starts. Also, the log level of the Klaytn node should be 4 or more to see the output of vmLog. 이 사전 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
+0x09 주소는 특정 문자열 `str`을 특정 파일로 출력하거나 로깅 모듈에 전달하는 사전 컴파일된 컨트랙트입니다. 자세한 내용은 [debug\_setVMLogTarget](../bapp/json-rpc/api-references/debug/logging.md#debug_setvmlogtarget)를 참고해주세요. 이 컨트랙트는 오직 디버깅을 목적으로 사용되어야 하며, Klaytn 노드를 시작할 때 `--vmlog` 옵션을 활성화해야 사용할 수 있습니다. 또한 vmLog의 출력을 보려면 Klaytn 노드의 로깅 수준이 4 이상이어야 합니다. 이 사전 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
 
 ```text
 function callVmLog(bytes memory str) public {
@@ -151,7 +151,7 @@ function callVmLog(bytes memory str) public {
 
 ## 주소 0x0A: feePayer\(\) <a id="address-0x-0-a-feepayer"></a>
 
-The address 0x0A returns a fee payer of the executing transaction. 이 사전 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
+0x0A 주소의 사전 컴파일된 컨트랙트는 실행 중인 트랜잭션의 비용을 납부할 계정을 반환합니다. 이 사전 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
 
 ```text
 function feePayer() internal returns (address addr) {
@@ -168,13 +168,13 @@ function feePayer() internal returns (address addr) {
 
 ## 주소 0x0B: validateSender\(\) <a id="address-0x-0-b-validatesender"></a>
 
-The address 0x0B validates the sender's signature with the message. Since Klaytn [decouples key pairs from addresses](../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses), it is required to validate that a signature is properly signed by the corresponding sender. To do that, this precompiled contract receives three parameters:
+0x0B 주소의 사전 컴파일된 컨트랙트는 메세지 발신자의 서명을 검증합니다. Klaytn은 [주소로부터 키 쌍\(key pairs\) 분리하기](../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses) 때문에 해당 발신자가 올바르게 서명했는지 검증해야 합니다. 이를 위해 이 컨트랙트는 세 개의 매개 변수를 입력받습니다.
 
-* The sender's address to get the public keys
-* The message hash that is used to generate the signature
-* The signatures that are signed by the sender's private keys with the given message hash
+* 공개키를 가져오는 데에 사용되는 발신자의 주소
+* 서명을 생성하는 데에 사용된 메세지의 해시
+* 메세지의 해시를 발신자의 개인키로 서명한 서명값
 
-The precompiled contract validates that the given signature is properly signed by the sender's private keys. Note that Klaytn natively support multi signatures, the signatures can be multiple. The length of a signature must be 65 byte long.
+이 컨트랙트는 주어진 서명값이 발신자의 개인키로 올바르게 서명된 것인지 검증합니다. Klaytn은 기본적으로 다중 서명을 지원하여 여러 개의 서명이 있을 수도 있습니다. 각 서명의 길이는 65바이트이어야 합니다.
 
 ```text
 function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public returns (bool) {
@@ -192,7 +192,7 @@ function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public retu
         data[idx++] = sigs[i];
     }
     assembly {
-        // skip length header.
+        // 길이를 나타내는 헤더는 건너뜁니다
         let ptr := add(data, 0x20)
         if iszero(call(gas, 0x0b, 0, ptr, idx, 31, 1)) {
           invalid()
