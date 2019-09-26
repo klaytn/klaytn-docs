@@ -29,7 +29,7 @@ RLP serialization process of each transaction type is explained in the [Transact
 
 
 [TxTypeLegacyTransaction]: ../../klaytn/design/transactions/basic.md#txtypelegacytransaction
-[klay_sendTransaction]: api-references/platform/transaction.md#klay_sendtransaction
-[klay_signTransaction]: api-references/platform/transaction.md#klay_signtransaction
-[klay_sendRawTransaction]: api-references/platform/transaction.md#klay_sendrawtransaction
+[klay_sendTransaction]: api-references/klay/transaction.md#klay_sendtransaction
+[klay_signTransaction]: api-references/klay/transaction.md#klay_signtransaction
+[klay_sendRawTransaction]: api-references/klay/transaction.md#klay_sendrawtransaction
 [Transaction]: ../../klaytn/design/transactions/README.md  
