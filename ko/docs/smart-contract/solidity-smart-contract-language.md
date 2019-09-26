@@ -59,13 +59,13 @@ L20: }
 * `L05` - `L20`은 `UserStorage`라는 스마트 컨트랙트를 정의하는 부분입니다. `contract` 키워드는 컨트랙트의 이름 앞에 위치하여 이 코드가 스마트 컨트랙트임을 나타냅니다. 솔리디티의 컨트랙트는 객체 지향 언어의 클래스와 유사합니다. 컨트랙트는 상태 변수, 함수, 함수 변경자(modifier), 이벤트, 구조체 자료형, 열거식 자료형에 대한 선언을 포함할 수 있습니다. 또한 컨트랙트는 다른 컨트랙트로부터 상속될 수도 있습니다. 위 예제 코드에는 하나의 컨트랙트만 있지만, 한 솔리디티 파일에 여러 개의 컨트랙트가 정의될 수도 있습니다.
 * `L07`의 `userData` 맵핑 자료형의 상태 변수입니다. 상태 변수는 컨트랙트 스토리지에 영구적으로 저장됩니다. 상태 변수 `userData`는 `address`와 `uint` 값을 맵핑합니다. `address` 자료형은 20바이트 길이의 주소입니다 \(Klaytn은 이더리움과 같이 20바이트 길이의 주소를 사용합니다\).
 * `L09`에서는 `x`를 메세지 발신자의 `userData`에 저장하는 퍼블릭 함수 `set`를 정의합니다. `msg.sender` 변수는 솔리디티에서 정의된 특별한 변수로 메세지 \(*즉* current call\) 발신자의 주소를 나타냅니다. `public` 키워드는 이 함수가 컨트랙트 인터페이스의 일부이며 내외부적으로\(externally or internally\) 호출될 수 있음을 나타냅니다.
-* `L13`의 `get` 함수와 `L17`의 `getUserData` 함수는 `view`로 선언되었습니다. 이는 이 함수들의 상태 변수가 수정되면 안 된다는 것을 의미합니다. 이 함수들의 선언부에는 `returns (uint)`가 있습니다. 이는 함수가 반환하는 값의 자료형이 `uint` 임을 의미합니다.
+* `L13`의 `get` 함수와 `L17`의 `getUserData` 함수는 `view`로 선언되었습니다. 이는 이 함수들의 상태 변수가 수정되면 안 된다는 것을 의미합니다. 이 함수들의 선언 부에는 `returns (uint)`가 있습니다. 이는 함수가 반환하는 값의 자료형이 `uint` 임을 의미합니다.
 
-솔리디티 언어의 구문과 문법에 대한 자세한 내용은 [Solidity documentation v0.4.24](https://solidity.readthedocs.io/en/v0.4.24/solidity-in-depth.html) 또는 [Solidity documentation v0.5.6](https://solidity.readthedocs.io/en/v0.5.6/solidity-in-depth.html)를 참고해주세요.
+솔리디티 언어의 구문과 문법에 대한 자세한 내용은 [Solidity documentation v0.4.24](https://solidity.readthedocs.io/en/v0.4.24/solidity-in-depth.html) 또는 [Solidity documentation v0.5.6](https://solidity.readthedocs.io/en/v0.5.6/solidity-in-depth.html)을 참고해주세요.
 
 ## 컴파일, 배포, 실행하기
 
-솔리디티 코드를 컴파일하는 방법 중 하나는 명령 줄 컴파일러인 *solc*를 사용하는 것입니다. 이 컴파일러는 간단한 바이너리와 어셈블리부터 추상 구문 트리 \(파스 트리\)에 이르기까지 다양한 결과물을 생성합니다. 위의 코드를 `UserStorage.sol`라고 저장한다고 할 때 \(위 예제에서 `L03`는 제외하였습니다\), `UserStorage.sol`를 컴파일하는 예제는 다음과 같습니다.
+솔리디티 코드를 컴파일하는 방법 중 하나는 명령 줄 컴파일러인 *solc*를 사용하는 것입니다. 이 컴파일러는 간단한 바이너리와 어셈블리부터 추상 구문 트리 \(파스 트리\)에 이르기까지 다양한 결과물을 생성합니다. 위의 코드를 `UserStorage.sol`라고 저장한다고 할 때 \(위 예제에서 `L03`는 제외하였습니다\), `UserStorage.sol`을 컴파일하는 예제는 다음과 같습니다.
 
 ```bash
 $ solc --bin UserStorage.sol
@@ -77,15 +77,15 @@ $ solc --bin UserStorage.sol
 solc -o output --bin --ast --asm UserStorage.sol
 ```
 
-* 컴파일러는\(`--bin` 옵션에 의해\) 바이너리, \(`--ast` 옵션에 의해\) 추상 구문트리, \(`--asm` 옵션에 의해\) 어셈블리 코드를 각각 별도의 파일로 `output` 디렉토리에 생성합니다.
+* 컴파일러는\(`--bin`에 의해\) 바이너리, \(`--ast`에 의해\) 추상 구문트리, \(`--asm`에 의해\) 어셈블리 코드를 각각 별도의 파일로 `output` 디렉토리에 생성합니다.
 
 ```bash
 solc --optimize --bin UserStorage.sol
 ```
 
-* For better performance, the optimizer can be activated during compilation using the `--optimize` flag.
+* 더 나은 성능을 위해 `--optimize` 플래그를 사용하여 컴파일 과정을 최적화할 수도 있습니다.
 
-Some resources for compiling, deploying, and executing smart contracts are listed below.
+스마트 컨트랙트를 컴파일, 배포, 실행하는 데에 참고할 수 있는 자료는 아래와 같습니다.
 
 * [Using the Solidity command-line compiler v0.4.24](https://solidity.readthedocs.io/en/v0.4.24/using-the-compiler.html)
 * [Using the Solidity command-line compiler v0.5.6](https://solidity.readthedocs.io/en/v0.5.6/using-the-compiler.html)
@@ -95,11 +95,11 @@ Some resources for compiling, deploying, and executing smart contracts are liste
 * [Compiling contracts with Truffle](https://truffleframework.com/docs/truffle/getting-started/compiling-contracts)
 * [Deploying contracts with Truffle](https://truffleframework.com/docs/truffle/getting-started/running-migrations)
 
-참고: 이 장은 나중에 업데이트 될 예정입니다.
+참고: 이 장은 나중에 업데이트될 예정입니다.
 
-## Debugging Smart Contracts
+## 스마트 컨트랙트 디버깅
 
-It is more difficult to debug Solidity code than to debug code written in other programming languages due to the lack of mature debugging tools. Below, we list some resources for Solidity debugging.
+완성도 높은 디버깅 도구가 별로 없기 때문에 다른 프로그래밍 언어로 작성된 코드보다 솔리디티로 작성된 코드를 디버깅 하는 것이 더 까다롭습니다. 솔리디티 디버깅에 대한 참고 자료는 아래와 같습니다.
 
 * [Debugging a transaction with Remix](https://remix-ide.readthedocs.io/en/latest/debugger.html)
 * [Tutorial on debugging transactions with Remix](https://remix-ide.readthedocs.io/en/latest/tutorial_debug.html)
@@ -107,15 +107,15 @@ It is more difficult to debug Solidity code than to debug code written in other 
 
 참고: 이 장은 나중에 업데이트 될 예정입니다.
 
-## Smart Contract Best Practices
+## 스마트 컨트랙트 모범 사례
 
-To eliminate security concerns and code quality issues from your smart contract, it is important to study and follow best practices in Solidity programming. Here, we show a reference for Solidity best practices.
+스마트 컨트랙트의 보안 문제와 코드 품질 문제를 해결하려면 솔리디티 프로그래밍의 모범 사례를 연구하고 참고하는 것이 중요합니다. 솔리디티 모범 사례에 대한 참고 자료는 아래와 같습니다.
 
 * [Smart Contract Security Best Practices](https://github.com/ConsenSys/smart-contract-best-practices)
 
-참고: 이 장은 나중에 업데이트 될 예정입니다.
+참고: 이 장은 나중에 업데이트될 예정입니다.
 
-## References
+## 참고
 
 * [Solidity GitHub site](https://github.com/ethereum/solidity)
 * [Solidity v0.4.24 documentation](https://solidity.readthedocs.io/en/v0.4.24/index.html)
