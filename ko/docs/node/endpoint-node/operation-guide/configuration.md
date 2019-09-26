@@ -1,6 +1,6 @@
 # 환경 설정
 
-본 문서는 Endpoint Node 속성의 환경 설정에 대해 안내합니다. Klaytn 노드 패키지는 기본적으로 제공되며 별도의 환경 설정은 거의 필요하지 않습니다. 실행중인 노드의 설정을 변경했다면 해당 노드를 재시작해야 변경 사항이 반영됩니다.
+본 문서는 Endpoint Node 속성의 환경 설정에 대해 안내합니다. Klaytn 노드 패키지는 기본적으로 제공되며 별도의 환경 설정은 거의 필요하지 않습니다. 실행 중인 노드의 설정을 변경했다면 해당 노드를 재시작해야 변경 사항이 반영됩니다.
 
 ## 환경 설정 파일 위치
 
@@ -13,12 +13,12 @@
 
 ## 환경 설정 파일 형식
 
-다음은 EN의 환경설정 파일 샘플로, `cypress`네트워크에 참여하고 블록체인 데이터를 기본 설정 위치에 저장하도록 되어 있습니다. 이때 기본으로 설정된 블록체인 데이터 저장 위치는 아카이브 배포의 경우 `~/kend_home`, 패키지 배포의 경우 `/var/kend/data`입니다.
+다음은 EN의 환경설정 파일 샘플로, `cypress`네트워크에 참여하고 블록체인 데이터를 기본 설정 위치에 저장하게 되어 있습니다. 이때 기본으로 설정된 블록체인 데이터 저장 위치는 아카이브 배포의 경우 `~/kend_home`, 패키지 배포의 경우 `/var/kend/data`입니다.
 
 ```text
 # kend의 환경 설정 파일입니다.
 
-# NETWORK_ID를 지정하지 않은 경우 cypress와 baobab만을 사용할 수 있습니다.
+# NETWORK_ID를 지정하지 않으면 cypress와 baobab만을 사용할 수 있습니다.
 NETWORK = "cypress"
 # NETWORK_ID를 명시하면 프라이빗 네트워크가 생성됩니다.
 NETWORK_ID=
@@ -217,7 +217,7 @@ TXPOOL_NONEXEC_SLOTS_ACCOUNT=4096
     </tr>
     <tr>
       <td style="text-align:left">SUBPORT</td>
-      <td style="text-align:left">MULTICHANNEL 옵션이 활성화된 경우 보조 수신 포트 번호입니다.</td>
+      <td style="text-align:left">MULTICHANNEL 옵션이 활성화되었을 때 보조 수신 포트 번호입니다.</td>
     </tr>
     <tr>
       <td style="text-align:left">NO_DISCOVER</td>
