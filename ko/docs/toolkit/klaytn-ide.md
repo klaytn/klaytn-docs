@@ -45,7 +45,7 @@ Klaytn IDE의 레이아웃은 다음과 같습니다. 화면은 파일 탐색기
 
 ### 솔리디티 예약어 자동 완성
 
-솔리디티에는 `bytes32`, `public`, `modifier`과 같이 자주 사용되는 단어가 있습니다. 입력하려는 단어를 Klaytn IDE가 추천해주기 때문에 단어 자체를 직접 입력할 필요가 없습니다. 자동 완성 기능은 솔리디티의 예약어뿐만 아니라 사용자가 정의한 함수, 변수, 클래스에도 적용이 됩니다.
+솔리디티에는 `bytes32`, `public`, `modifier`처럼 자주 사용되는 단어가 있습니다. 입력하려는 단어를 Klaytn IDE가 추천해주기 때문에 단어 자체를 직접 입력할 필요가 없습니다. 자동 완성 기능은 솔리디티의 예약어뿐만 아니라 사용자가 정의한 함수, 변수, 클래스에도 적용이 됩니다.
 
 ![](img/klaytn-ide/ide-auto-completion.png)
 
@@ -111,13 +111,13 @@ Klaytn IDE는 모듈에는 Compile, Run, Analysis, Testing, Debugger, Settings �
 
 ![](img/klaytn-ide/ide-tx-value-controller.png)
 
-`Value (트랜잭션 값 조절)` 옵션을 통해 다음에 생성된 트랜잭션의 값을 입력할 수 있습니다.
+`Value (트랜잭션값 조절)` 옵션을 통해 다음에 생성된 트랜잭션의 값을 입력할 수 있습니다.
 
 #### Gas Limit 조절
 
 ![](img/klaytn-ide/ide-gas-limit-controller.png)
 
-`Gas Limit` 옵션을 통해 스마트 컨트랙트 함수를 호출하는 데에 사용될 가스양의 최대 한도를 설정할 수 있습니다.
+`Gas Limit` 옵션을 통해 스마트 컨트랙트 함수를 호출하는 데에 사용될 가스양의 최대한도를 설정할 수 있습니다.
 
 #### Deploy
 
@@ -143,7 +143,7 @@ Klaytn IDE는 모듈에는 Compile, Run, Analysis, Testing, Debugger, Settings �
 
 ![](img/klaytn-ide/ide-tab-testing.png)
 
-이 섹션에서는 새로운 솔리디티 테스트 파일을 현재 폴더에서 생성하고 테스트를 실행할 수 있습니다. 실행 결과는 아래에 나타납니다. 자세한 안내는 [Remix docs &gt; Unit Testing](https://remix-ide.readthedocs.io/en/latest/unittesting.html)를 참고하세요.
+이 섹션에서는 새로운 솔리디티 테스트 파일을 현재 폴더에서 생성하고 테스트를 실행할 수 있습니다. 실행 결과는 아래에 나타납니다. 자세한 안내는 [Remix docs &gt; Unit Testing](https://remix-ide.readthedocs.io/en/latest/unittesting.html)을 참고하세요.
 
 ### Debugger
 
@@ -151,7 +151,7 @@ Klaytn IDE는 모듈에는 Compile, Run, Analysis, Testing, Debugger, Settings �
 
 이 섹션에서는 트랜잭션을 디버깅할 수 있습니다. IDE에서 생성된 트랜잭션과 이미 채굴된 트랜잭션을 배포하는 데에 사용할 수 있습니다.
 
-> 필요한 기능을 현재 환경에서 제공하는 경우에만 디버깅이 작동합니다. 디버깅을 하려면 EN 노드에서 **개인** API가 활성화되어야 합니다. `RPC_API` 옵션을 [EN 환경 설정 파일](../node/endpoint-node/operation-guide/configuration.md)에서 참고해주세요.
+> 필요한 기능을 현재 환경에서 제공하는 경우에만 디버깅이 작동합니다. 디버깅하려면 EN 노드에서 **개인** API가 활성화되어야 합니다. `RPC_API` 옵션을 [EN 환경 설정 파일](../node/endpoint-node/operation-guide/configuration.md)에서 참고해주세요.
 
 자세한 안내는 [Remix docs &gt; Debugger](https://remix-ide.readthedocs.io/en/latest/debugger.html)를 참고하세요.
 
@@ -176,7 +176,7 @@ Klaytn IDE는 모듈에는 Compile, Run, Analysis, Testing, Debugger, Settings �
 
 ## OpenZepplin으로 개발하기
 
-OpenZeppelin은 안전한 스마트 컨트랙트 개발을 위한 라이브러리입니다. OpenZeppelin은 ERC20과 ERC721과 같은 표준 구현체를 제공하여 이를 그대로 배포하거나 필요에 따라 확장할 수 있습니다. 뿐만 아니라 맞춤형 컨트랙트와 더 복잡한 탈중앙화된 시스템을 구축할 수 있도록 솔리디티 컴포넌트를 제공합니다.
+OpenZeppelin은 안전한 스마트 컨트랙트 개발을 위한 라이브러리입니다. OpenZeppelin은 ERC20과 ERC721과 같은 표준 구현체를 제공하여 이를 그대로 배포하거나 필요에 따라 확장할 수 있습니다. 그뿐만 아니라 맞춤형 컨트랙트와 더 복잡한 탈중앙화된 시스템을 구축할 수 있도록 솔리디티 컴포넌트를 제공합니다.
 
 OpenZepplin 라이브러리는 remixd를 통해 로컬 호스트에 연결한 후 사용할 수 있습니다. 따라서 remixd의 설치가 필요합니다.
 
@@ -220,8 +220,8 @@ OpenZepplin에서 필요한 솔리디티 컨트랙트 파일을 가져오세요.
 
 ## 자세한 내용 보기
 
-Klaytn IDE는 Remix v0.7.7을 기반으로 합니다. 많은 기능이 호환되고 있으므로 [official Remix documentation](https://remix-ide.readthedocs.io/en/latest/)를 참고해주세요.
+Klaytn IDE는 Remix v0.7.7을 기반으로 합니다. 많은 기능이 호환되고 있으므로 [official Remix documentation](https://remix-ide.readthedocs.io/en/latest/)을 참고해주세요.
 
 ## 의견 보내기
 
-Klaytn IDE에 대한 의견 또는 제안은 <developer@klaytn.com>로 이메일을 보내주세요!
+Klaytn IDE에 대한 의견 또는 제안은 <developer@klaytn.com>으로 이메일을 보내주세요!
