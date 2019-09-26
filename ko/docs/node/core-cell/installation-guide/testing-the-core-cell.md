@@ -91,7 +91,7 @@ In case of a PN,
   >
 ```
 
-[API 문서]()를 보시면 유용한 명령어들을 확인할 수 있습니다.
+You can check the usable commands on [API Document](../../../bapp/json-rpc/README.md)
 
 The useful APIs to check the status of a CN/PN:
 
