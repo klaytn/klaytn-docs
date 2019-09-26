@@ -1,1 +1,1 @@
-# Klaytn Design
+# Klaytn 디자인
