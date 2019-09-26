@@ -1,6 +1,6 @@
 # Configuration
 
-This page explains the configuration of a single Service Chain Node \(SCN\).
+This page explains the configuration of a single Service Chain Node (SCN).
 
 ## Creation of SCSigner Keystore / Password Files
 
@@ -35,13 +35,13 @@ $ tree
 └── passwd
 ```
 
-After [Initialization of a Genesis Block](), you will copy these files to the data directory.
+After [Initialization of a Genesis Block](#initialization-of-a-genesis-block), you will copy these files to the data directory.
 
 ## Creation of a Genesis File
 
 First, you should create new genesis file for your own service chain and initialize all service chain nodes with the same genesis file. The genesis file of the service chain is different with main chain. To create new genesis file, you should write the scsigner address of your service chain in `governingnode`, `extraData` and `alloc` field. The `unitPrice` is set to `0` in the example below, but you can change it to the value you want.
 
-The `genesis.json` examples follow. You can find more details in [Genesis JSON]().
+The `genesis.json` examples follow. You can find more details in [Genesis JSON](../../genesis.md).
 
 * `geneis.json` example for a consensus node. 
   * The consensus node's scsigner is `c04ae62e6a8e084e8f00030d637380792db3dc26`.
@@ -76,7 +76,7 @@ Considering the fact that the size of Klaytn blockchain data is always increased
 $ mkdir -p ~/kscnd_home
 ```
 
-### **Initialization of a Genesis Block**
+### Initialization of a Genesis Block
 
 Before starting an service chain node, it is necessary to initialize the genesis block of the service chain network using `kscn` and `genesis.json`.
 
