@@ -61,7 +61,7 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work
 
 ### ken 콘솔
 
-Klaytn은 `ken console`이라는 CLI 클라이언트를 제공합니다. 클라이언트를 사용하는 또 다른 방법은 IPC \(inter-process communication\)를 통해 프로세스에 연결하는 것입니다. `klay.ipc` IPC 파일은 EN의 `data` 디렉토리에 있습니다.
+Klaytn은 `ken console`이라는 CLI 클라이언트를 제공합니다. Another way of using the client is to connect to the process via IPC (inter-process communication). `klay.ipc` IPC 파일은 EN의 `data` 디렉토리에 있습니다.
 
 다음 명령을 실행하고 결과를 확인하세요.
 
@@ -75,12 +75,12 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  >
 ```
 
-[API 문서]()를 보시면 유용한 명령어들을 확인할 수 있습니다.
+You can check the usable commands on [API Document](../../../bapp/json-rpc/README.md)
 
 EN의 상태를 확인하는 유용한 API는 다음과 같습니다.
 
-* `klay.blockNumber` \(최신 블록 번호를 가져옵니다\)
-* `net.peerCount` \(현재 연결된 Klaytn 노드의 수를 가져옵니다\)
+* `klay.blockNumber` (to get the latest block number)
+* `net.peerCount` (to get the number of the connected Klaytn nodes currently)
 
 ### klay.blockNumber
 
