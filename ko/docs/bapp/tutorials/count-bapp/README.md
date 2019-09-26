@@ -28,11 +28,11 @@
 본 튜토리얼은 Klaytn에서 블록체인 어플리케이션을 구축하는 방법을 배우고 싶으신 모든 분을 대상으로 합니다. 다만 스마트 컨트랙트와 상호작용하는 웹 어플리케이션을 구축할 것이기 때문에 다음의 개념들에 대해서 익숙하신 분들께 권장드립니다.
 
 * [React](https://reactjs.org/)와 [Redux](https://redux.js.org/)에 대한 기본 지식이 필요합니다. 이 과정은 초보자를 위한 기본적인 설명이 없습니다.
-* 솔리디티에 대한 기본 지식과 개발 경험이 있다면 좋습니다. 만약 솔리디티에 대해 잘 모르시더라도 소프트웨어 개발 경험이 어느정도 있으시다면 튜토리얼의 단계별 가이드라인을 따라 수월하게 완료하실 수 있을거에요.
+* 솔리디티에 대한 기본 지식과 개발 경험이 있다면 좋습니다. However, any experienced SW developer should be able to complete the task by following the step-by-step guideline of this tutorial.
 
 ## 테스트 환경
 
-Count BApp은 다음의 환경에서 테스트되었습니다.
+Count BApp은 다음의 환경에서 테스트 되었습니다.
 
 * MacOS Mojave 10.14.5
 * Node 10.16.0 \(LTS\)
