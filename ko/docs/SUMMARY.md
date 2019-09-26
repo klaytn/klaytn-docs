@@ -4,7 +4,7 @@
 
 * [Klaytn Overview](klaytn/README.md)
   
-  * [Klaytn Design](klaytn/design/README.md)
+  * [Klaytn 디자인](klaytn/design/README.md)
   * [합의 메커니즘](klaytn/design/consensus-mechanism.md)
   * [계정](klaytn/design/accounts.md)
   * [Transactions](klaytn/design/transactions/README.md) 
@@ -20,7 +20,7 @@
   * [트랜잭션 비용](klaytn/design/transaction-fees.md)
   * [Klaytn native coin - KLAY](klaytn/design/klaytn-native-coin-klay.md)
   * [토큰 이코노미](klaytn/design/token-economy.md)
-  * [Governance](klaytn/design/governance.md)
+  * [거버넌스 (Governance)](klaytn/design/governance.md)
   * [Scaling Solutions](klaytn/scaling-solutions.md)
 * [Getting Started](getting-started/README.md)
   
@@ -48,7 +48,7 @@
   * [Sample Contracts](smart-contract/sample-contracts/README.md)
   * [KlaytnGreeter](smart-contract/sample-contracts/klaytngreeter.md)
   * [ERC-20](smart-contract/sample-contracts/erc-20/README.md) 
-    * [1. Writing ERC-20 Smart Contract](smart-contract/sample-contracts/erc-20/1-erc20.md)
+    * [1. ERC-20 스마트 컨트랙트 작성](smart-contract/sample-contracts/erc-20/1-erc20.md)
     * [2. Deploying Smart Contract](smart-contract/sample-contracts/erc-20/2-erc20.md)
     * [3. Interacting with ERC-20 token from Klaytn Wallet](smart-contract/sample-contracts/erc-20/3-erc20.md)
   * [ERC-721](smart-contract/sample-contracts/erc-721/README.md) 
