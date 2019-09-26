@@ -44,7 +44,7 @@ const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signT
 
 에러가 발생하지 않았다면 `senderRawTransaction` 실행 결과 `senderPrivateKey`를 통해 서명된 트랜잭션을 확인하실 수 있을 것입니다.
 
-이제 트랜잭션 비용 납부자에게 `senderRawTransaction`를 전송해야 합니다. 이것을 전송하는 방법에는 여러가지가 있어요. 여기서는 `senderRawTransaction`를 트랜잭션 비용 납부자에게 전송하는 예제로 간단한 서버-클라이언트 코드를 드릴게요.
+이제 트랜잭션 비용 납부자에게 `senderRawTransaction`를 전송해야 합니다. 이것을 전송하는 방법에는 여러 가지가 있어요. 여기서는 `senderRawTransaction`를 트랜잭션 비용 납부자에게 전송하는 예제로 간단한 서버-클라이언트 코드를 드릴게요.
 
 ### 2.2 트랜잭션 비용 납부자에 의한 서명
 
@@ -181,7 +181,7 @@ server.listen(1337, '127.0.0.1');
 console.log('Fee delegate service started ...');
 ```
 
-이 서버는 `1337`번 포트에서 수신 대기중입니다.
+이 서버는 `1337`번 포트에서 수신 대기 중입니다.
 
 `data`가 들어오면 `feePayerPrivateKey`로 `data`를 서명하고 Klaytn 블록체인으로 전송할거에요. 이때 `data`는 `sender_client.js`로부터 전송받은 `senderRawTransaction`입니다.
 
@@ -198,7 +198,7 @@ $ node feepayer_server.js
 Fee delegate service started ...
 ```
 
-서버가 실행되고 1337번 포트에서 수신 대기중이네요.
+서버가 실행되고 1337번 포트에서 수신 대기 중이네요.
 
 ### 4.2 `sender_client.js` 실행
 
