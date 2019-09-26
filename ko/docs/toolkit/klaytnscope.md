@@ -1,8 +1,8 @@
 # Klaytnscope
 
-Klaytnscope는 Klaytn 네트워크의 블록 탐색기입니다. Klaytnscope는 네트워크 상태를 모니터링하고 다양한 통계를 제공하여 Klaytn 네트워크에 대한 깊은 이해를 하도록 도와줍니다. 또한 블록 및 트랜잭션 데이터와 Klaytn 네트워크의 스마트 컨트랙트 리스트도 탐색할 수 있습니다.
+Klaytnscope는 Klaytn 네트워크의 블록 탐색기입니다. Klaytnscope는 네트워크 상태를 모니터링하고 다양한 통계를 제공하여 Klaytn 네트워크에 대해 깊은 이해를 하도록 도와줍니다. 또한 블록 및 트랜잭션 데이터와 Klaytn 네트워크의 스마트 컨트랙트 리스트도 탐색할 수 있습니다.
 
-* Baobab 네트워크에 대한 자세한 내용은 <https://baobab.scope.klaytn.com>를 참고해주세요.
+* Baobab 네트워크에 대한 자세한 내용은 <https://baobab.scope.klaytn.com>을 참고해주세요.
 * 메인넷에 대한 자세한 내용은 <https://scope.klaytn.com>을 참고해주세요.
 
 ![](img/scope_01_main.png)
@@ -80,7 +80,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 * Block \#: 해당 트랜잭션을 담은 블록의 번호입니다. 번호를 클릭하여 해당 블록의 상세 보기 페이지로 이동할 수 있습니다.
 * Time: 트랜잭션 실행으로부터 지금까지 지난 시간입니다. 여기에 마우스 포인터를 가져가면 정확한 날짜와 시간을 볼 수 있습니다.
 * From -&gt; To: 트랜잭션 발신자와 수신자의 주소입니다. 이 주소를 클릭하여 상세 보기 페이지로 쉽게 이동할 수 있습니다. 주소 옆에 파일 아이콘이 표시되면 해당 주소는 컨트랙트의 주소입니다.
-* TX Type: 트랜잭션의 유형입니다. 필터를 적용하여 특정 유형의 트랜잭션을 조회할 수 있습니다. 자세한 내용은 [Transactions](../klaytn/design/transactions/README.md)을 참고해주세요.
+* TX Type: 트랜잭션의 유형입니다. 필터를 적용하여 특정 유형의 트랜잭션을 조회할 수 있습니다. 자세한 내용은 [Transactions](../klaytn/design/transactions/README.md)를 참고해주세요.
 * Amount: 트랜잭션을 통해 전송된 금액입니다.
 * TX Fee: 트랜잭션 처리에 소비된 실제 비용입니다.
 
