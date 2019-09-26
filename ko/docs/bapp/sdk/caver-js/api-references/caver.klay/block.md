@@ -226,7 +226,7 @@ Returns a block with consensus information matched by the given block hash or bl
 
 | Name                   | Type                 | Description                                                                                                |
 | ---------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------- |
-| blockHashOrBlockNumber | String &#124; Number | The block hash or block number. Or the string `"genesis"`, `"latest"` or `"pending"`.                      |
+| blockHashOrBlockNumber | String &#124; Number | The block hash or block number. Or the string `"genesis"` or `"latest"`.                                   |
 | callback               | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 
