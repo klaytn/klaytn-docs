@@ -24,7 +24,7 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kscnd[29636]: Sta
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Started (null).
 ```
 
-위 예시에서와 같이 `Active: active (running)` 등의 현재 상태를 확인할 수 있습니다.
+위 예시처럼 `Active: active (running)` 등의 현재 상태를 확인할 수 있습니다.
 
 ### kscnd
 
