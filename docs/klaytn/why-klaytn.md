@@ -57,7 +57,7 @@ This entails the following requirements to support application development.
 ### Rapid Development
 
 - The development of application on Klaytn must be straightforward, and the technologies used must follow the open standard to reduce the learning curve.
-- See [Solidity - Smart Contract Language], [Truffle], and [Migrating Ethereum App to Klaytn]. As Klaytn Virtual Machine (KLVM) supports Ethreum’s solidity contract, it becomes much easier to port PoC product on Ethereum to Klaytn for commercial use. It is much easier as well to find development tools and to get some help from the well-established developer community. 
+- See [Solidity - Smart Contract Language], [Truffle], and [Migrating Ethereum App to Klaytn]. As Klaytn Virtual Machine (KLVM) supports Ethereum’s Solidity contract, it becomes much easier to port PoC product on Ethereum to Klaytn for commercial use. It is much easier as well to find development tools and to get some help from the well-established developer community. 
 
 ### Service-specific Private Chains with Data Anchoring
 
@@ -66,7 +66,8 @@ This entails the following requirements to support application development.
 
 ### Application Service Layer
 
-- Klaytn provides an additional service layer, Klaytn API Service (KAS), to ease blockchain application development and operation. KAS has APIs that can be used without much blockchain knowledge and provides business intelligence insights through data analysis.    
+- Klaytn provides an additional off-chain service layer called Enterprise Proxy (EP) to ease blockchain application development and operation. Enterprise Proxy will reduce the technical hurdles in using blockchain, and support seamless integration with traditional database and security systems. 
+- One of the first EP product will launch in early 2020. It will have APIs that can be used without much blockchain knowledge and provide business intelligence insights through data analysis. 
 
 ### Contribution Reward
 
@@ -83,7 +84,7 @@ Klaytn does not sacrifice blockchain’s core characteristics to achieve the abo
 
 ### Transparency, Security and Decentralization
 
-- Everyone can request transactions and retrieve and validate every transaction execution results on the blockchain.
+- Everyone can request transactions and retrieve and validate every transaction execution result on the blockchain.
 - Klaytn is a decentralized network and no single malicious node breaks the data integrity.
 
 ### Governance by Enterprises
