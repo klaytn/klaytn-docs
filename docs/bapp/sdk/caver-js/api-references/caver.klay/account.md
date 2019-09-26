@@ -142,7 +142,7 @@ Returns a list of accounts that the node controls.
 caver.klay.getAccountKey(address [, defaultBlock] [, callback])
 ```
 
-Returns the account key of the Externally Owned Account (EOA) at a given address. If the account has AccountKeyLegacy or the account of the given address is a Smart Contract Account, it will return an empty key value. See [Account Key](../../../../../klaytn/design/accounts.md#account-key).
+Returns the account key of the Externally Owned Account (EOA) of the given address. If the account has AccountKeyLegacy or the account of the given address is a Smart Contract Account, it will return an empty key value. See [Account Key](../../../../../klaytn/design/accounts.md#account-key).
 
 **NOTE** getAccountKey returns the account key that exists on the network, so even if a key pair is created, null is returned if the account matching the address does not exist on the actual blockchain network.
 
