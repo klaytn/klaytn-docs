@@ -1,10 +1,10 @@
-# Governance
+# 거버넌스 (Governance)
 
 ## 개요
 
-### Klaytn Governance Council: Co-governed by Klaytn Contributors
+### Klaytn Governance Council: Klaytn 기여자와 함께 거버넌스를 운영
 
-Klaytn believes that its contributors who build and grow the platform with their interests aligned with the platform’s long-term development plans are the most qualified entities to undertake Klaytn governance. Service providers who support mass adoption by delivering new services to Klaytn, Ecosystem builders who introduce and promote Klaytn to the world, or contributors of any other kinds, are potential members of Klaytn Governance Council. In other words, Klaytn Governance Council is the governing body that will generate long-term growth of Klaytn. For detailed information on governance, please refer to Token Economy & Governance Paper \(to be made available on <https://www.klaytn.com/technology>\).
+Klaytn 플랫폼의 장기 개발 계획에 따라 자신의 이익을 고려하여 플랫폼을 구축하고 확장하는 기여자들이 Klaytn 거버넌스에 참여하기에 가장 적합한 주체라고 생각합니다. Klaytn에 새로운 서비스를 제공하여 블록체인 서비스 대중화를 지원하는 서비스 제공자, Klaytn을 세계에 소개하고 홍보하는 생태계 빌더 또는 다른 종류의 기여자는 Klaytn Governance Council의 잠재적인 멤버입니다. In other words, Klaytn Governance Council is the governing body that will generate long-term growth of Klaytn. For detailed information on governance, please refer to Token Economy & Governance Paper \(to be made available on <https://www.klaytn.com/technology>\).
 
 ### Bootstrapping
 
