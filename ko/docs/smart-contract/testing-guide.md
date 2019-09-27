@@ -1,68 +1,66 @@
 # 테스트 가이드
 
-In this section, we'll introduce how to test smart contracts. Because any transaction on the blockchain is not reversible, testing your smart contract is crucial before you deploy the contract.
+이 섹션에서는 스마트 컨트랙트를 테스트하는 방법을 소개합니다. 블록체인의 그 어떤 트랜잭션도 되돌릴 수 없으므로 스마트 컨트랙트를 배포하기 전에 테스트하는 것이 중요합니다.
 
-## Testing with Truffle
+## Truffle로 테스트하기
 
-Truffle provides an automated testing framework. This framework lets you write simple and manageable tests in two different ways:
+Truffle은 자동 테스트 프레임워크를 제공합니다. 이 프레임워크를 사용하여 간단하고 관리 가능한 테스트를 작성할 수 있는 방법이 두 가지 있습니다.
 
-* In `Javascript` and `TypeScript`, for exercising your contracts from the outside world, just like application.
-* In `Solidity`, for exercising your contracts in advances, bare-to-the-metal scenarios.
+* 어플리케이션과 같이 외부에서 컨트랙트를 실행할 때 `Javascript` 및 `TypeScript`를 활용
+* 베어 메탈 머신의 경우 미리 컨트랙트를 실행해볼 때 `Solidity`를 활용
 
-### 1) Getting started
+### 1) 시작하기
 
-We will follow the [Deployment Guide using Truffle](./deploy-guide.md#truffle) to create a contract and deploy it. But, before we deploy it, we will add a setter function `setGreet` to the contract for testing purpose. The source code is given below.
+[Truffle을 활용한 배포 가이드](./deploy-guide.md#truffle)를 따라 스마트 컨트랙트를 생성하고 배포하겠습니다. 아직 배포하기 전에 스마트 컨트랙트 테스트 목적을 위해 값 설정 함수 `setGreet` 함수를 추가합니다. 소스 코드는 아래와 같습니다.
 
-**NOTE:** We have made some modifications to the contract for testing.
+**참고:** 테스트를 위해 스마트 컨트랙트의 일부를 수정하였습니다.
 
-Below is KlaytnGreeting contract source code.
+아래는 KlaytnGreeting 컨트랙트의 소스 코드입니다.
 
     pragma solidity 0.5.6;
-    
     contract Mortal {
-        /* Define variable owner of the type address */
+        /* 주소 타입의 소유자(owner) 변수 정의 */
         address payable owner;
-        /* This function is executed at initialization and sets the owner of the contract */
+        /* 이 함수는 초기화 시점에 실행되어 컨트랙트 소유자를 설정합니다 */
         constructor () public { owner = msg.sender; }
-        /* Function to recover the funds on the contract */
+        /* 컨트랙트에서 자금을 회수하는 함수 */
         function kill() public payable { if (msg.sender == owner) selfdestruct(owner); }
     }
     
     contract KlaytnGreeter is Mortal {
-        /* Define variable greeting of the type string */
+        /* 문자열 타입의 변수 greeting 정의 */
         string greeting;
-    
-        /* This runs when the contract is executed */
+        /* 이 함수는 컨트랙트가 실행될 때 작동합니다 */
         constructor (string memory _greeting) public {
             greeting = _greeting;
         }
-    
-        /* Main function */
+        /* 주(Main) 함수 */
         function greet() public view returns (string memory) {
             return greeting;
         }
+    }
     
-        /* Newly added function for testing. */
+        /* 테스트를 위해 새로 추가된 함수입니다 */
         function setGreet(string memory _greeting) public {
-            // only owner can change greeting message
+            // 소유자(owner)만 greeting 메세지를 수정할 수 있습니다
             require(msg.sender == owner, "Only owner is allowed.");
             greeting = _greeting;
         }
     }
     
 
-We will test 1) `greet()` function whether it returns "Hello, Klaytn" message properly, 2) `setGreet()` function whether it set new greeting message properly and reverts when non-owner account attempts to update the greeting.
+1) `greet()` 함수가 "Hello, Klaytn"이라는 메세지를 잘 출력하는지, 2) `setGreet()` 함수가 새로 설정된 greeting 메세지를 잘 출력하고 소유자가 아닌 계정이 greeting을 업데이트하려고 할 때 revert를 하는지 테스트해보겠습니다.
 
-First, we will install the Chai assertions library (or any different assertions library you use) for generic assertions, and the truffle-assertions library for the smart contract assertions.
+먼저 일반적인 단언문(assertions)을 위해 Chai 단언문 라이브러리를 설치하고 (또는 사용하고 계신 다른 단언문 라이브러리도 괜찮습니다), 스마트 컨트랙트 단언문을 위해 truffle-assertions 라이브러리를 설치합니다.
 
     npm install --save-dev chai truffle-assertions
     
 
-### 2) Writing test in Solidity
+### 2) 솔리디티로 테스트 작성하기
 
-Testing with Solidity can be a little bit more intuitive than JavaScript tests. Solidity test contracts live alongside JavaScript tests as .sol files.
+솔리디티로 테스트하는 것은 자바스크립트로 테스트하는 것보다 조금 더 직관적일 수 있습니다. 솔리디티 테스트 컨트랙트는 자바스크립트 테스트와 함께 .sol 파일로 제공됩니다.
 
-Create a file called `TestKlaytnGreeting.sol` in the `test` folder. The Truffle suite provides us with helper libraries for testing, so we need to import those. Let's take a look at the example Solidity test:
+`test` 폴더에 `TestKlaytnGreeting.sol`이란 이름의 파일을 생성합니다. The Truffle suite provides us with helper libraries for testing, so we need to import those. Let's take a look at the example Solidity test:
 
     pragma solidity ^0.5.6;
     
