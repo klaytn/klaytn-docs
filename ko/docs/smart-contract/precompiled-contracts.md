@@ -28,7 +28,7 @@ function ripemd160(bytes data) returns (bytes32);
 
 ## 주소 0x04: datacopy\(data\) <a id="address-0x-04-datacopy-data"></a>
 
-0x04 주소는 datacopy \(즉, 항등 함수\)를 구현한 사전 컴파일된 컨트랙트입니다. datacopy 함수는 입력받은 데이터를 그대로 반환합니다. 이 사전 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 인라인 어셈블리가 있는 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
+0x04 주소는 datacopy \(즉, 항등함수\)를 구현한 사전 컴파일된 컨트랙트입니다. datacopy 함수는 입력받은 데이터를 그대로 반환합니다. 이 사전 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 인라인 어셈블리가 있는 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
 
 ```text
 function callDatacopy(bytes memory data) public returns (bytes memory) {
@@ -46,12 +46,12 @@ function callDatacopy(bytes memory data) public returns (bytes memory) {
 
 ## 주소 0x05: bigModExp\(base, exp, mod\)
 
-0x05 주소는 `base**exp % mod`라는 공식을 구현한 사전 컴파일된 컨트랙트입니다. 이 공식에 데이터를 입력하여 얻은 결과를 반환합니다. 이 사전 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다. 해당 컨트랙트는 실제로 임의의 길이의 입력을 받을 수 있지만, 아래 예제에서는 고정 길이의 입력으로 되어 있습니다.
+0x05 주소는 `base**exp % mod`라는 공식을 구현한 사전 컴파일된 컨트랙트입니다. 이 공식에 데이터를 입력하여 얻은 결과를 반환합니다. 이 사전 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다. 해당 컨트랙트는 실제로 임의 길이의 입력을 받을 수 있지만, 아래 예제에서는 고정 길이의 입력으로 되어 있습니다.
 
 ```text
 function callBigModExp(bytes32 base, bytes32 exponent, bytes32 modulus) public returns (bytes32 result) {
     assembly {
-        // 사용가능한 메모리 포인터
+        // 사용 가능한 메모리 포인터
         let memPtr := mload(0x40)
 
         // base, exponent, modulus의 길이
@@ -99,7 +99,7 @@ function callBn256Add(bytes32 ax, bytes32 ay, bytes32 bx, bytes32 by) public ret
 
 ## 주소 0x07: bn256ScalarMul\(x, y, scalar\) <a id="address-0x-07-bn-256-scalarmul-x-y-scalar"></a>
 
-0x07 주소는 스칼라 값의 타원 곡선 점 곱셈 연산을 구현한 사전 컴파일된 컨트랙트입니다. 해당 연산은 타원 곡선 bn256 상의 유효한 점 \(x, y\)을 입력받아 타원 곡선 위의 점 `scalar * (x, y)`를 결과로 반환합니다. 이 사전 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
+0x07 주소는 스칼라값의 타원 곡선 점 곱셈 연산을 구현한 사전 컴파일된 컨트랙트입니다. 해당 연산은 타원 곡선 bn256 상의 유효한 점 \(x, y\)을 입력받아 타원 곡선 위의 점 `scalar * (x, y)`를 결과로 반환합니다. 이 사전 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
 
 ```text
 function callBn256ScalarMul(bytes32 x, bytes32 y, bytes32 scalar) public returns (bytes32[2] memory result) {
@@ -172,9 +172,9 @@ function feePayer() internal returns (address addr) {
 
 * 공개키를 가져오는 데에 사용되는 발신자의 주소
 * 서명을 생성하는 데에 사용된 메세지의 해시
-* 메세지의 해시를 발신자의 개인키로 서명한 서명값
+* 메세지의 해시를 발신자의 개인키로 서명한 서명 값
 
-이 컨트랙트는 주어진 서명값이 발신자의 개인키로 올바르게 서명된 것인지 검증합니다. Klaytn은 기본적으로 다중 서명을 지원하여 여러 개의 서명이 있을 수도 있습니다. 각 서명의 길이는 65바이트이어야 합니다.
+이 컨트랙트는 주어진 서명 값이 발신자의 개인키로 올바르게 서명된 것인지 검증합니다. Klaytn은 기본적으로 다중 서명을 지원하여 여러 개의 서명이 있을 수도 있습니다. 각 서명의 길이는 65바이트이어야 합니다.
 
 ```text
 function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public returns (bool) {
