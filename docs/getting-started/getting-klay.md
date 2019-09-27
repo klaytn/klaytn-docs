@@ -9,7 +9,8 @@ The **testnet KLAY** faucet runs on the Baobab network. The faucet can be access
 
 ### KLAY Exchange List
 
-TBA
+Below is the inclusive but not exhaustive list of major KLAY exchanges.
 
+- [Upbit Indonesia](https://id.upbit.com/exchange?code=CRIX.UPBIT.IDR-KLAY)
 
 
