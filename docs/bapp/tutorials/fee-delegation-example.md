@@ -281,5 +281,5 @@ You can also find the above transaction on the [Klaytn scope](https://baobab.sco
 
 It shows that the transaction is `TxTypeFeeDelegatedValueTransfer` and `Fee payer` is `0x2645ba5be42ffee907ca8e9d88f6ee6dad8c1410` or `feepayerAddress` that you entered, while `From` is a different address which should be the `senderAddress` in above example.
 
-![Fee delegated Tx](./fee-delegation-example.png)
+![Fee delegated Tx](./img/fee-delegation-example.png)
 

@@ -1,6 +1,6 @@
 # Klaytn Wallet
 
-Klaytn Wallet is a browser-based account management tool for blockchain application \(BApp\) developers on Klaytn. It helps developers create new accounts or view existing account information directly through a web browser without having to run a Klaytn node locally. Klaytn Wallet also lets users transfer KLAY or Klaytn tokens to other accounts for testing purposes.
+Klaytn Wallet is a browser-based account management tool for blockchain application (BApp) developers on Klaytn. It helps developers create new accounts or view existing account information directly through a web browser without having to run a Klaytn node locally. Klaytn Wallet also lets users transfer KLAY or Klaytn tokens to other accounts for testing purposes.
 
 #### Important Notice on Security
 
@@ -27,7 +27,7 @@ Klaytn Wallet provides the following list of features.
 
 ## Create a New Account
 
-> If you already have a Klaytn ccount, you may choose to skip this process and go to [Access Existing Account](klaytn-wallet.md#access-existing-account).
+> If you already have a Klaytn ccount, you may choose to skip this process and go to [Access Existing Account](#access-existing-account).
 
 You can use Klaytn Wallet to create new Klaytn accounts. To create a new account, click the `Create Account` button on the menu bar on the left, and then follow the steps below.
 
@@ -52,7 +52,7 @@ When you click the password input form, a tooltip will appear above and it will 
 
 ### Step 2. Download the Keystore File
 
-In the second step, you download the keystore file that has been encrypted with the submitted password. Click the `Download & Next Step` button to immediately download the keystore file and move on to the last step. \(Note that if the downloaded keystore file gets lost, you can download a new keystore file in the `View Account Info` menu.\)
+In the second step, you download the keystore file that has been encrypted with the submitted password. Click the `Download & Next Step` button to immediately download the keystore file and move on to the last step. (Note that if the downloaded keystore file gets lost, you can download a new keystore file in the `View Account Info` menu.)
 
 ![](img/01-create-new-4.png)
 
@@ -68,7 +68,7 @@ For more in-depth information about Klaytn account, please visit Klaytn Docs and
 
 To check your account's balance of KLAY or Klay tokens, or to transfer tokens to another account, you need to access your account. Klaytn Wallet offers two ways to access your account.
 
-* **Using Klaytn Wallet Key or Private Key** A Klaytn Wallet Key is a string of 106 hexadecimal characters associated with an account, whereas a private key is a string of 64 hexadecimal characters \(the character count does not include the "0x" prefixes that indicate hexadecimal numbers; if we count them in, a Klaytn Wallet Key is 112 characters long, and a private key is 66 characters long\). Using one's private key should always be a last-ditch effort of access, only to be utilized when all else fails. This should not be the main method for anyone to access their accounts. Private keys are the most sensitive information because private keys allow complete access to an account. Therefore, it is extremely important to keep this information safe, secure, and secret.
+* **Using Klaytn Wallet Key or Private Key** A Klaytn Wallet Key is a string of 106 hexadecimal characters associated with an account, whereas a private key is a string of 64 hexadecimal characters (the character count does not include the "0x" prefixes that indicate hexadecimal numbers; if we count them in, a Klaytn Wallet Key is 112 characters long, and a private key is 66 characters long). Using one's private key should always be a last-ditch effort of access, only to be utilized when all else fails. This should not be the main method for anyone to access their accounts. Private keys are the most sensitive information because private keys allow complete access to an account. Therefore, it is extremely important to keep this information safe, secure, and secret.
 * **Keystore file and password** A keystore file is a JSON file that stores encrypted private key and account address information. This file is encrypted using the user-provided password.
 
 ### Access Existing Account Using Klaytn Wallet Key or Private Key
@@ -117,7 +117,7 @@ Klaytn Wallet supports KLAY and Klaytn tokens to be registered so that their bal
 
 ### Step 1. Access Existing Account's Information
 
-Go to your account page by following the steps of [Access Existing Account](klaytn-wallet.md#access-existing-account).
+Go to your account page by following the steps of [Access Existing Account](#access-existing-account).
 
 ### Step 2. Click the Add Token Button in the Balance Section
 
@@ -143,7 +143,7 @@ Either click the `Send KLAY & Token` button from the menu bar on the left, or th
 
 ### Step 2. Access Your Account
 
-In case you have not loaded your account into the wallet yet, do so by following the steps in [Access Existing Account](klaytn-wallet.md#access-existing-account).
+In case you have not loaded your account into the wallet yet, do so by following the steps in [Access Existing Account](#access-existing-account).
 
 ### Step 3. Select the Token to Send
 
@@ -153,7 +153,7 @@ Select the token to transfer in `Step 1. Select Tokens` area.
 
 ### Step 4. Select Token Transfer Information
 
-After selecting the token to send, move on to `Step 2. Enter the information` section and fill in the necessary information \(`To Address` and `Amount to Send`\), then click the `Send Transaction` button.
+After selecting the token to send, move on to `Step 2. Enter the information` section and fill in the necessary information (`To Address` and `Amount to Send`), then click the `Send Transaction` button.
 
 ![](img/06-send-4.png)
 
@@ -175,8 +175,8 @@ The testnet KLAY faucet runs on the Baobab network. The faucet can be accessed f
 
 To receive testnet KLAY, you should have a valid Klaytn account.
 
-* If you do not have an account, please create one by following the steps in [Create a New Account](klaytn-wallet.md#create-a-new-account).
-* Load your account into the wallet by following the steps in [Access Existing Account](klaytn-wallet.md#access-existing-account). Testnet KLAY will be sent to the loaded account. 
+* If you do not have an account, please create one by following the steps in [Create a New Account](#create-a-new-account).
+* Load your account into the wallet by following the steps in [Access Existing Account](#access-existing-account). Testnet KLAY will be sent to the loaded account. 
 
 ### Step 1. Go to the testnet KLAY Faucet
 
