@@ -32,13 +32,13 @@ There are three main features.
 3. **Transfer ownership** The owner of the photo can transfer ownership of the photo to another user, and the transaction will be shown in the ownership history.
 
 > **Source Code**  
-> Complete source code can be found on GitHub at [https://github.com/underbleu/klaystagram](https://github.com/underbleu/klaystagram)
+> Complete source code can be found on GitHub at [https://github.com/klaytn/klaystagram](https://github.com/klaytn/klaystagram)
 
 ## Intended Audience
 
 We will build a web application that interacts with smart contracts. To complete this tutorial, the audience is expected to be familiar with the following concepts.
 
-* Basic knowledge on [React](https://reactjs.org/) and [Redux](https://redux.js.org/). This course is not for absolute beginners.
+* We assume that you have basic knowledge on [React](https://reactjs.org/) and [Redux](https://redux.js.org/). This course is not for absolute beginners.
 * Basic knowledge and experience in [Solidity](https://solidity.readthedocs.io/en/v0.5.10/) development are recommended. However, any experienced SW developer should be able to complete the task by following the step-by-step guideline of this tutorial.
 * Anyone interested in [ERC-721 Tokens](http://erc721.org/).
 

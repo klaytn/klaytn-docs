@@ -21,13 +21,13 @@ This tutorial is intended to give a step by step guide to build a Klaytn BApp. N
 Any user who has a Klaytn account can increase and decrease the current value as shown in the above gif.
 
 > **Source Code**  
-> Complete source code can be found on GitHub at [https://github.com/underbleu/countbapp](https://github.com/underbleu/countbapp)
+> Complete source code can be found on GitHub at [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
 
 ## Intended Audience
 
 Anyone who wants to learn how to build a Blockchain Application on Klaytn. We will build a web application that interacts with smart contracts. To complete this tutorial, the audience is expected to be familiar with the following concepts.
 
-* Basic knowledge on [React](https://reactjs.org/) and [Redux](https://redux.js.org/). This course is not for absolute beginners.
+* We assume that you have basic knowledge on [React](https://reactjs.org/) and [Redux](https://redux.js.org/). This course is not for absolute beginners.
 * Basic knowledge and experience in Solidity development are recommended. However, any experienced SW developer should be able to complete the task by following the step-by-step guideline of this tutorial.
 
 ## Testing Environment
