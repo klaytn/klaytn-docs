@@ -1,4 +1,4 @@
-## Necessity of Enterprise Proxy
+## Enterprise Proxy의 필요성
 
 Klaytn Enterprise Proxy (EP) is an off-chain proxy that communicates with underlying Klaytn blockchain on behalf of businesses that operate blockchain applications (BApp) on Klaytn. EP offers a layer of managed convenience for its client in order to improve the Enterprise Experience (EX) aspect of Klaytn, handling the managerial complexities in communicating with the blockchain - including transaction preprocessing, injection of necessitated data, and running the smart contracts requested by the transaction.
 
