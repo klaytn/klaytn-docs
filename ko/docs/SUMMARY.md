@@ -4,6 +4,7 @@
 
 * [Klaytn Overview](klaytn/README.md)
   
+  * [Why Klaytn](klaytn/why-klaytn.md)
   * [Klaytn 디자인](klaytn/design/README.md)
   * [합의 메커니즘](klaytn/design/consensus-mechanism.md)
   * [계정](klaytn/design/accounts.md)
@@ -18,10 +19,11 @@
     * [Klaytn 가상머신](klaytn/design/computation/klaytn-virtual-machine.md)
   * [Storage](klaytn/design/storage.md)
   * [트랜잭션 비용](klaytn/design/transaction-fees.md)
-  * [Klaytn native coin - KLAY](klaytn/design/klaytn-native-coin-klay.md)
+  * [Klaytn 자체 코인 - KLAY](klaytn/design/klaytn-native-coin-klay.md)
   * [토큰 이코노미](klaytn/design/token-economy.md)
   * [거버넌스 (Governance)](klaytn/design/governance.md)
   * [Scaling Solutions](klaytn/scaling-solutions.md)
+  * [Enterprise Proxy](klaytn/enterprise-proxy.md)
 * [Getting Started](getting-started/README.md)
   
   * [Quick Start](getting-started/quick-start/README.md)
@@ -54,7 +56,7 @@
   * [ERC-721](smart-contract/sample-contracts/erc-721/README.md) 
     * [1. Writing ERC-721 Smart Contract](smart-contract/sample-contracts/erc-721/1-erc721.md)
     * [2. Deploying Smart Contract](smart-contract/sample-contracts/erc-721/2-erc721.md)
-  * [Testing Guide](smart-contract/testing-guide.md)
+  * [테스트 가이드](smart-contract/testing-guide.md)
   * [Deployment Guide](smart-contract/deploy-guide.md)
   * [Klaytn Compatible Tokens](smart-contract/token-standard.md)
   * [Porting Ethereum Contract](smart-contract/porting-ethereum-contract.md)
