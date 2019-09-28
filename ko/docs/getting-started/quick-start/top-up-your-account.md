@@ -39,7 +39,7 @@ UTC--2019-06-24T11-20-15.590879000Z--75a59b94889a05c03c66c3c84e9d2f8308ca4abd
 
 ## Klaytn 계정 잠금 해제 <a id="unlocking-the-klaytn-account"></a>
 
-생성된 계정을 잠금 해제하려면, 다음 명령을 실행합니다. 이는 300초 동안 계정을 잠금 해제합니다. **Note**: If you want to manually set the unlock duration, refer to this [link](../../bapp/json-rpc/api-references/personal.md#personal_unlockaccount). **`경고`**: 주의하지 않으면 계정 잠금을 해제하는 것은 매우 위험할 수 있습니다. EN이 해커에 의해 해킹되면, 해커가 토큰을 빼앗을 가능성이 있습니다. To use safer method, refer to this [deployment guide using private key](../../bapp/tutorials/count-bapp/6.-deploy-contract.md#deploy-method-1-by-private-key)
+생성된 계정을 잠금 해제하려면, 다음 명령을 실행합니다. 이는 300초 동안 계정을 잠금 해제합니다. **참고**: 잠금 해제 기간을 수동으로 설정하려면, 다음 [링크](../../bapp/json-rpc/api-references/personal.md#personal_unlockaccount)를 참조하세요. **`경고`**: 주의하지 않으면 계정 잠금을 해제하는 것은 매우 위험할 수 있습니다. EN이 해커에 의해 해킹되면, 해커가 토큰을 빼앗을 가능성이 있습니다. 보다 안전한 방법을 사용하려면, 다음의 [개인키를 사용하는 배포 가이드](../../bapp/tutorials/count-bapp/6.-deploy-contract.md#deploy-method-1-by-private-key)를 참조하세요.
 
 ```javascript
 > personal.unlockAccount('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # 잠금을 해제할 계정 주소
@@ -63,7 +63,7 @@ true
 
 계정의 잔액을 확인하려면, 다음 명령을 실행합니다.
 
-기본 단위는 peb \(1 KLAY = 10 ^ 18 peb\)입니다. More information about KLAY units can be found at [Units of KLAY](../../klaytn/design/klaytn-native-coin-klay.md#units-of-klay).
+기본 단위는 peb \(1 KLAY = 10 ^ 18 peb\)입니다. KLAY 단위에 대한 자세한 내용은 [Units of KLAY](../../klaytn/design/klaytn-native-coin-klay.md#units-of-klay)에서 확인할 수 있습니다.
 
 ```javascript
 > klay.getBalance('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # 계정 주소를 입력하세요
