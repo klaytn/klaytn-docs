@@ -9,6 +9,6 @@
 
 ### KLAY 거래소 목록
 
-Below is the inclusive but not exhaustive list of major KLAY exchanges.
+아래는 포괄적인, 그러나 전부는 아닌 주요 KLAY 거래소의 목록입니다.
 
-- [Upbit Indonesia](https://id.upbit.com/exchange?code=CRIX.UPBIT.IDR-KLAY)
+- [Upbit 인도네시아](https://id.upbit.com/exchange?code=CRIX.UPBIT.IDR-KLAY)
