@@ -1,14 +1,14 @@
 # 개요
 
-Klaytn is a highly optimized, BFT-based public blockchain that aims to meet the enterprise-grade reliability. Key design goals are;
+Klaytn은 엔터프라이즈급 안정성을 충족하는 것을 목표로 하는 최적화된 BFT 기반 퍼블릭 블록체인입니다. 주요 디자인 목표는 다음과 같습니다.
 
-- Immediate finality.
-- High TPS that meets real-world use cases.
-- Lower the cost of running Blockchain Applications.
-- Lower the barriers to entry for end-users.
-- Ease the technology adoption process for industry.
+- 즉각적인 완결성
+- 실제 사용 사례에서 문제 없는 높은 TPS
+- Blockchain 어플리케이션 실행 비용 절감
+- 사용자의 진입 장벽을 낮춤
+- 산업계에 블록체인 기술 도입 촉진
 
-Klaytn launched its mainnet, [Cypress](https://scope.klaytn.com/), on Jun/27/2019 with the following specifications.
+Klaytn은 2019년 6월 27일에 다음과 같은 사양을 가지는 메인넷 [Cypress](https://scope.klaytn.com/)을 출시했습니다.
 
 - 1-second block generation and confirmation time.
 - 4,000 transactions per second.
