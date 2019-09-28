@@ -60,7 +60,7 @@ Truffle은 자동 테스트 프레임워크를 제공합니다. 이 프레임워
 
 솔리디티로 테스트하는 것은 자바스크립트로 테스트하는 것보다 조금 더 직관적일 수 있습니다. 솔리디티 테스트 컨트랙트는 자바스크립트 테스트와 함께 .sol 파일로 제공됩니다.
 
-`test` 폴더에 `TestKlaytnGreeting.sol`이란 이름의 파일을 생성합니다. The Truffle suite provides us with helper libraries for testing, so we need to import those. Let's take a look at the example Solidity test:
+`test` 폴더에 `TestKlaytnGreeting.sol`이란 이름의 파일을 생성합니다. Truffle 제품군은 테스트를 위한 헬퍼(helper) 라이브러리를 제공하므로, 이들을 불러옵니다. 솔리디티 테스트 예시를 살펴봅시다.
 
     pragma solidity ^0.5.6;
     
@@ -69,10 +69,10 @@ Truffle은 자동 테스트 프레임워크를 제공합니다. 이 프레임워
     import "../contracts/HashMarket.sol";
     
 
-* Assert : It gives us access to various testing functions, like `Assert.equals()`, `Assert.greaterThan()`, etc.
-* DeployedAddresses : Every time you change your contract, you must redeploy it to a new address. You can get the deployed contract addresses through this library. 
+* Assert : `Assert.equals()`, `Assert.greaterThan()` 등과 같은 다양한 테스트 함수에 액세스할 수 있도록 합니다.
+* DeployedAddresses : 컨트랙트를 변경할 때마다, 반드시 새 주소로 재배포해야 합니다. 이 라이브러리를 통해 배포된 컨트랙트 주소를 얻을 수 있습니다. 
 
-Now, Let's wirte a test code.
+이제 테스트 코드를 작성해 봅시다.
 
     pragma solidity ^0.5.6;
     
@@ -83,7 +83,7 @@ Now, Let's wirte a test code.
     contract TestKlaytnGreeter {
     
         function testGreetingMessage() public {
-            // DeployedAddresses.KlaytnGreeter() handles contract address.
+            // DeployedAddresses.KlaytnGreeter()는 컨트랙트 주소를 다룹니다.
             KlaytnGreeter greeter = KlaytnGreeter(DeployedAddresses.KlaytnGreeter());
     
             string memory expectedGreet = "Hello Klaytn";
@@ -95,7 +95,7 @@ Now, Let's wirte a test code.
     }
     
 
-Run your solidity test code.
+솔리디티 테스트 코드를 실행하세요.
 
     $ truffle test
     # Output
@@ -130,8 +130,8 @@ Run your solidity test code.
           at process._tickCallback (internal/process/next_tick.js:68:7)
     
 
-Oops, we failed. Let's check the error message,`Error: greeting message should match (Tested: Hello, Klaytn, Against: Hello Klaytn)`. I can notice the missed `',(comma)'` at *string memory expectedGreet = "Hello Klaytn"*.  
-Fix the code and run the test again.
+앗, 실패했습니다. 오류 메시지 `Error: greeting message should match (Tested: Hello, Klaytn, Against: Hello Klaytn)`를 확인해봅시다. *string memory expectedGreet = "Hello Klaytn"*에서 `',(쉼표)'`가 누락되었음을 알 수 있습니다.  
+코드를 수정하고 테스트를 다시 실행해봅시다.
 
     $ truffle test
     # Output
@@ -151,35 +151,35 @@ Fix the code and run the test again.
       1 passing (5s)
     
 
-Congratulations! Your test has passed.
+축하합니다! 테스트가 통과되었습니다.
 
-### 3) Writing test in JavaScript
+### 3) 자바스크립트로 테스트 작성하기
 
-Truffle uses the [Mocha](https://mochajs.org/) testing framework and [Chai](https://www.chaijs.com/) assertion library to provide a solid framework for JavaScript test. JavaScript test gives you more flexibility and enables you to write more complex tests.
+Truffle은 자바스크립트 테스트를 위한 견고한 프레임워크를 제공하기 위해 [Mocha](https://mochajs.org/) 테스트 프레임워크 및 [Chai](https://www.chaijs.com/) 단언문 라이브러리를 사용합니다. 자바스크립트 테스트는 더 많은 유연성을 제공하며 더 복잡한 테스트를 작성할 수 있게 합니다.
 
-Let's create a file and name it `0_KlaytnGreeting.js` under `test` directory.  
-The test code is:
+`test` 경로 하에 파일을 생성하고 이름을 `0_KlaytnGreeting.js`이라 합시다.  
+테스트 코드는 다음과 같습니다:
 
 ```javascript
-// Interacting directly with KlaytnGreeter contract
+// KlaytnGreeter 컨트랙트와 직접 상호작용
 const KlaytnGreeter = artifacts.require("./KlaytnGreeter.sol");
 const truffleAssert = require('truffle-assertions');
 
 contract("KlaytnGreeter", async(accounts) => {
-    // store the contract instance at a higher level 
-    // to enable access from all functions.
+    // 컨트랙트 인스턴스를 상위 레벨에 저장해
+    // 모든 함수에서 접근할 수 있도록 합니다.
     var klaytnGreeterInstance;
     var owner = accounts[0];
     var greetMsg = "Hello, Klaytn";
 
-    // This will run before each test proceed.
+    // 각 테스트가 진행되기 전에 실행됩니다.
     before(async function() {
-        // set contract instnace into a variable
+        // 컨트랙트 인스턴스를 변수로 설정
         klaytnGreeterInstance = await KlaytnGreeter.new(greetMsg, {from:owner});
     })
 
     it("#1 check Greeting message", async function() {
-        // set the expected greeting messge
+        // 기대하는 인사말 메시지 설정
         var expectedGreeting = greetMsg;
         var greet= await klaytnGreeterInstance.greet();
         assert.equal(expectedGreeting, greet, "greeting message should match");
@@ -201,22 +201,22 @@ contract("KlaytnGreeter", async(accounts) => {
 });
 ```
 
-If you are unfamiliar with `Mocha` unit test, please check the [Mocha document](https://mochajs.org/#getting-started).
+만일 `Mocha` 유닛 테스트에 익숙하지 않다면, [Mocha 문서](https://mochajs.org/#getting-started)를 참조하시길 바랍니다.
 
-* Use contract() instead of describe()  
-    Structurally, the Truffle test code shouldn't be much different from the usual test code of Mocha. Your test should contain the code that Mocha will recognize it as an automated test. The difference between Mocha and Truffle test is the contract() function.  
-    **NOTE** the use of the `contract()` function, and the `accounts` array for specifying available Klaytn accounts.
+* describe() 대신 contract()를 사용하세요.  
+    구조적으로 Truffle 테스트 코드는 Mocha의 일반적인 테스트 코드와 크게 다르지 않아야 합니다. 테스트에는 Mocha가 자동화된 테스트임을 인지할 수 있도록 하는 코드가 포함되어야 합니다. Mocha와 Truffle 테스트의 차이는 contract() 함수입니다.  
+    **참고** `contract()` 함수의 사용, 그리고 사용 가능한 Klaytn 계정을 명시하기 위한 `accounts` 배열입니다.
 
-* Contract abstractions within your tests  
-    Since Truffle has no way of detecting which contract you'll need to interact with during test, you should specify the contract explicitly. One way to do this is by using the `artifacts.require()` method.
+* 테스트 내 컨트랙트 추상화  
+    Truffle은 테스트 중 어떤 컨트랙트와 상호작용해야 하는지 감지할 방법이 없기에, 컨트랙트를 명시적으로 지정해야 합니다. 이를 수행하는 한 방법은 `artifacts.require()` 메소드를 사용하는 것입니다.
 
-* `it` syntax  
-    This represents each test case with description. The description will print on the console on test-run.
+* `it` 구문  
+    각 테스트 사례를 설명과 함께 나타냅니다. 테스트 실행 시 콘솔에 설명이 출력됩니다.
 
-* `truffle-assertion` library  
-    This library allows you to easily test reverts or other failures by offering the `truffleAssert.reverts()` and `truffleAssert.fails()` functions.
+* `truffle-assertion` 라이브러리  
+    이 라이브러리는 `truffleAssert.reverts()` 및 `truffleAssert.fails()` 함수를 제공해 revert 및 기타 오류를 쉽게 테스트할 수 있도록 합니다.
 
-The output should like the following:
+출력은 다음과 같아야 합니다:
 
     Using network 'development'.
     
@@ -236,13 +236,13 @@ The output should like the following:
       3 passing (158ms)
     
 
-Congratulations! Your test has passed.
+축하합니다! 테스트가 통과되었습니다.
 
-### 4) Specifying test
+### 4) 테스트 지정하기
 
-You can choose the test file to be executed.
+실행할 테스트 파일을 선택할 수 있습니다.
 
     truffle test ./test/0_KlaytnGreeting.js
     
 
-For more details, please check [Truffle testing](https://www.trufflesuite.com/docs/truffle/testing/testing-your-contracts) and [Truffle commands](https://www.trufflesuite.com/docs/truffle/reference/truffle-commands#test) for details.
+자세한 내용은 [Truffle testing](https://www.trufflesuite.com/docs/truffle/testing/testing-your-contracts) 및 [Truffle commands](https://www.trufflesuite.com/docs/truffle/reference/truffle-commands#test)을 참조하시길 바랍니다.
