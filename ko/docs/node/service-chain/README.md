@@ -9,7 +9,7 @@
 
 Klaytn Service Chain provides the following features.
 
-- Immediate finality. 
+- 즉각적인 완결성 
 - Cross-chain token transfer.
 - Data anchoring to the main chain.
 - Multi-sig bridge contract to meet enterprise security requirements.
