@@ -21,13 +21,13 @@
 라는 기본적인 스마트 컨트랙트와 상호작용하는 웹 어플리케이션을 만들어볼 것인데요, 이 웹 어플리케이션은 위의 gif에서와 같이 Klaytn 계정의 COUNT 값을 늘리거나 줄일 수 있습니다.
 
 > **Source Code**  
-> 모든 소스 코드는 다음의 GitHub 링크에서 확인하실 수 있습니다.<https://github.com/underbleu/countbapp>
+> Complete source code can be found on GitHub at <https://github.com/klaytn/countbapp>
 
 ## 튜토리얼 대상
 
 본 튜토리얼은 Klaytn에서 블록체인 어플리케이션을 구축하는 방법을 배우고 싶으신 모든 분을 대상으로 합니다. 다만 스마트 컨트랙트와 상호작용하는 웹 어플리케이션을 구축할 것이기 때문에 다음의 개념들에 대해서 익숙하신 분들께 권장드립니다.
 
-* [React](https://reactjs.org/)와 [Redux](https://redux.js.org/)에 대한 기본 지식이 필요합니다. 이 과정은 초보자를 위한 기본적인 설명이 없습니다.
+* We assume that you have basic knowledge on [React](https://reactjs.org/) and [Redux](https://redux.js.org/). 이 과정은 초보자를 위한 기본적인 설명이 없습니다.
 * 솔리디티에 대한 기본 지식과 개발 경험이 있다면 좋습니다. However, any experienced SW developer should be able to complete the task by following the step-by-step guideline of this tutorial.
 
 ## 테스트 환경
