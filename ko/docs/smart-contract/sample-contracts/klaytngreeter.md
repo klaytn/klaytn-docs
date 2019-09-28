@@ -1,47 +1,47 @@
 # KlaytnGreeter
 
-`KlaytnGreeter` is a simple contract that returns a greeting message. Greeting message is set when the contract is deployed.
+`KlaytnGreeter`는 인사말 메시지를 반환하는 간단한 컨트랙트입니다. 컨트랙트가 배포될 때 인사말 메시지가 설정됩니다.
 
-## Writing KlaytnGreeter
+## KlaytnGreeter 작성
 
 ```text
 pragma solidity 0.5.6;
 contract Mortal {
-    /* Define variable owner of the type address */
+    /* 주소 타입의 소유자(owner) 변수 정의 */
     address payable owner;
-    /* This function is executed at initialization and sets the owner of the contract */
+    /* 이 함수는 초기화 시점에 실행되어 컨트랙트 소유자를 설정합니다 */
     constructor () public { owner = msg.sender; }
-    /* Function to recover the funds on the contract */
+    /* 컨트랙트에서 자금을 회수하는 함수 */
     function kill() public { if (msg.sender == owner) selfdestruct(owner); }
 }
 
 contract KlaytnGreeter is Mortal {
-    /* Define variable greeting of the type string */
+    /* 문자열 타입의 변수 greeting 정의 */
     string greeting;
-    /* This runs once when the contract is created */
+    /* 이 함수는 컨트랙트가 생성될 때 작동합니다 */
     constructor (string memory _greeting) public {
         greeting = _greeting;
     }
-    /* Main function */
+    /* 주(Main) 함수 */
     function greet() public view returns (string memory) {
         return greeting;
     }
 }
 ```
 
-## Deploying KlaytnGreeter using Klaytn IDE
+## Klaytn IDE를 사용하여 KlaytnGreeter 배포
 
-* Please visit the [Klaytn IDE website](https://ide.klaytn.com) and create a `KlaytnGreeter` contract. The complete source code was given in the above.
-* Prepare your account which will be used to deploy the contract. 
-  * If you do not have an account yet, create one at <https://baobab.wallet.klaytn.com/create>
-  * Get some test KLAY from the faucet - <https://baobab.wallet.klaytn.com/faucet>
-* Deploy the contract with initial parameter, a greeting message. 
-* After deploying, you can invoke `greet` from the IDE.
+* [Klaytn IDE 웹사이트](https://ide.klaytn.com)를 방문하고 `KlaytnGreeter` 컨트랙트를 생성합니다. 완전한 소스 코드는 위에서 주어졌습니다.
+* 컨트랙트를 배포하는 데 사용할 계정을 준비하세요. 
+  * 아직 계정이 없으면, <https://baobab.wallet.klaytn.com/create>에서 하나를 생성하세요.
+  * Faucet에서 테스트 KLAY를 받으세요 - <https://baobab.wallet.klaytn.com/faucet>
+* 인사말 메시지인 초기 파라미터와 함께 컨트랙트를 배포하세요. 
+* 배포 후 IDE에서 `greet`를 호출할 수 있습니다.
 
-## References
+## 참고
 
-For the details of contract deployment and the Klaytn IDE usage guideline, please refer to the following documents.
+컨트랙트 배포 및 Klaytn IDE 사용 가이드에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Klaytn IDE](../ide-and-tools/README.md#klaytn-ide)
 * [Truffle](../ide-and-tools/README.md#truffle)
-* [Deploy Guide](../deploy-guide.md)
+* [배포 가이드](../deploy-guide.md)
