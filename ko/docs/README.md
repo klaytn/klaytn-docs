@@ -1,14 +1,14 @@
-# Welcome
+# 환영합니다.
 
-KlaytnDocs introduces and explains [Klaytn](https://www.klaytn.com/), an enterprise-grade, service-centric platform that brings user-friendly blockchain experience to millions of users. In the following documents, we describe what Klaytn is and provide guidelines and instructions on how to use Klaytn as well as how to interact with the Klaytn network. To better understand Klaytn's vision, mission, and future plans briefly, please visit the [Klaytn Position Paper](https://www.klaytn.com/Klaytn_PositionPaper_V2.1.0.pdf) .
+KlaytnDocs는 수백만 사용자들에게 사용자 친화적인 블록체인 경험을 제공할 서비스 중심 엔터프라이즈급 플랫폼인 [Klaytn](https://www.klaytn.com/)을 소개하고 설명합니다. 다음 문서들에서는 Klaytn이 무엇인지 설명하고, Klaytn의 사용 방법과 Klaytn 네트워크와 상호작용하는 방법에 대한 가이드라인을 제공합니다. Klaytn의 비전, 미션, 미래 계획 등을 더 알고 싶으시면, [Klaytn Position Paper](https://www.klaytn.com/Klaytn_PositionPaper_V2.1.0.pdf)를 참고해주세요.
 
-| Document                                     | Description                                                                                                                                               |
-|:-------------------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Klaytn Overview](klaytn/README.md)          | Describes Klaytn key concepts and design principles.                                                                                                      |
-| [Getting Started](getting-started/README.md) | Provides guidelines for getting started with Klaytn.                                                                                                      |
-| [Smart Contract](smart-contract/README.md)   | Tools and resources for smart contract development.                                                                                                       |
-| [Installation & Operation](node/README.md)   | Illustrates how to set up and operate Endpoint Node (EN), Core Cell (CC) and Service Chain.                                                               |
-| [BApp Developers](bapp/README.md)            | Development resources and references for BApp developers. This section contains Klaytn API references and provides end-to-end BApp development tutorials. |
+| 문서                                   | 설명                                                                                          |
+|:------------------------------------ |:------------------------------------------------------------------------------------------- |
+| [Klaytn 개요](klaytn/README.md)        | Klaytn의 주요 개념 및 디자인 원칙을 설명합니다.                                                              |
+| [시작하기](getting-started/README.md)    | Klaytn을 처음 사용하기 위해 알아야 할 가이드라인을 제공합니다.                                                      |
+| [스마트 컨트랙트](smart-contract/README.md) | 스마트 컨트랙트 개발을 위해 필요한 툴들과 자원을 설명합니다.                                                          |
+| [설치 & 운영](node/README.md)            | 엔드포인트 노드(EN), 코어 셀(CC) 및 서비스 체인을 설정하고 운영하는 방법을 보여줍니다.                                       |
+| [BApp 개발자](bapp/README.md)           | BApp 개발자를 위한 개발 리소스 및 참조 자료를 제공합니다. 이 장에서는 Klaytn API 레퍼런스와 End-to-end BApp 개발 튜토리얼이 제공됩니다. |
 
 
 **Disclaimer**: Some notes are derived from Ethereum documents as the Klaytn source code was initiated from Ethereum’s Byzantium version. As Klaytn develops further, KlaytnDocs and the source code will continue to be updated. Reference websites are as follows:
