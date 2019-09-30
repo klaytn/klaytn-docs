@@ -241,7 +241,7 @@ Returns a transaction matching the given transaction hash.
 | from               | 20-byte DATA | Address of the sender.                                                                                                                                                                                       |
 | gas                | QUANTITY     | Gas provided by the sender.                                                                                                                                                                                  |
 | gasPrice           | QUANTITY     | Gas price provided by the sender in peb.                                                                                                                                                                     |
-| hash               | 32-byte DATA | Hash of the transaction.                                                                                                                                                                                     |
+| 해시                 | 32-byte DATA | Hash of the transaction.                                                                                                                                                                                     |
 | humanReadable      | Boolean      | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                              |
 | key                | String       | (optional) Key of the newly created account.                                                                                                                                                                 |
 | input              | DATA         | (optional) The data sent along with the transaction.                                                                                                                                                         |
@@ -311,7 +311,7 @@ Returns the information about the transaction identified by the given `senderTxH
 | from               | 20-byte DATA | Address of the sender.                                                                                                                                                                                                     |
 | gas                | QUANTITY     | Gas provided by the sender.                                                                                                                                                                                                |
 | gasPrice           | QUANTITY     | Gas price provided by the sender in peb.                                                                                                                                                                                   |
-| hash               | 32-byte DATA | Hash of the transaction.                                                                                                                                                                                                   |
+| 해시                 | 32-byte DATA | Hash of the transaction.                                                                                                                                                                                                   |
 | humanReadable      | Boolean      | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                            |
 | key                | String       | (optional) Key of the newly created account.                                                                                                                                                                               |
 | input              | DATA         | (optional) The data sent along with the transaction.                                                                                                                                                                       |
@@ -402,7 +402,7 @@ Returns the receipt of a transaction by transaction hash.
 
 | Name     | Type     | 설명                                                                                                         |
 | -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| hash     | String   | The transaction hash                                                                                       |
+| 해시       | String   | The transaction hash                                                                                       |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
