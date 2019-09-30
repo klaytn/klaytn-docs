@@ -15,7 +15,7 @@ The `traceBadBlock` method will return a full stack trace of all invoked opcodes
 
 | Name    | Type         | 설명                                       |
 | ------- | ------------ | ---------------------------------------- |
-| hash    | 32-byte DATA | Hash of a block.                         |
+| 해시      | 32-byte DATA | Hash of a block.                         |
 | options | object       | See [tracing options](#tracing-options). |
 
 **Return Value**
@@ -116,7 +116,7 @@ Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByHash` accepts a b
 
 | Name    | Type         | 설명                                       |
 | ------- | ------------ | ---------------------------------------- |
-| hash    | 32-byte DATA | Hash of a block.                         |
+| 해시      | 32-byte DATA | Hash of a block.                         |
 | options | object       | See [tracing options](#tracing-options). |
 
 **Return Value**
