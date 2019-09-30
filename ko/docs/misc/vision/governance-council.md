@@ -2,19 +2,19 @@ KGC는 Klaytn 노드를 운영하며, Klaytn 발전을 위한 의사결정에 �
 
 ### KGC 역할
 
-**Node setups and operation as CCO (Core Cell Operator)**: They need to set up and operate Core Cell (CC) that is the set of nodes that participate in consensus. 장애 대응과 업그레이드 등에 대해 Klaytn과 원활한 커뮤니케이션이 될 수 있도록 관리 인력을 확보해야 합니다. 그리고 노드 참여를 위해 최소 5백만 KLAY(Klaytn의 플랫폼 토큰)를 Staking해야 합니다.
+**CCO(Core Cell Operator)로서 노드 셋업과 운영**: Consensus에 참여하는 노드들의 셋인 Core Cell(CC)을 셋업하고 운영해야 합니다. 장애 대응과 업그레이드 등에 대해 Klaytn과 원활한 커뮤니케이션이 될 수 있도록 관리 인력을 확보해야 합니다. 그리고 노드 참여를 위해 최소 5백만 KLAY(Klaytn의 플랫폼 토큰)를 Staking해야 합니다.
 
-**Governance participation**: They get to participate in decision making for the operation and development of Klaytn. 거버넌스는 On-chain과 Off-chain이 혼합된 형태로 이루어 집니다. Governance Portal Service를 통해 온체인 투표에 참여하게 되고, 정기적인 Summit을 통해 중요한 사안에 대해 오프체인 의사결정에 참여합니다. 의사 결정 투표 시 기본 1표이며 기여도 및 KLAY Staking 양에 따라 최대 1표 추가 부여될 수 있습니다.
+**Governance 참여**: Klaytn의 운영과 개선을 위한 의사결정에 참여하게 됩니다. 거버넌스는 On-chain과 Off-chain이 혼합된 형태로 이루어 집니다. Governance Portal Service를 통해 온체인 투표에 참여하게 되고, 정기적인 Summit을 통해 중요한 사안에 대해 오프체인 의사결정에 참여합니다. 의사 결정 투표 시 기본 1표이며 기여도 및 KLAY Staking 양에 따라 최대 1표 추가 부여될 수 있습니다.
 
-**Klaytn business cooperation:** They cooperate with members of Klaytn and KGC for commercialization of blockchain based on Klaytn. 또한 Klaytn Service Partner들과 사업 협력을 모색하고 궁극적으로 Klaytn에서 유의미한 블록체인 사업을 런칭하도록 노력합니다.
+**Klaytn 사업 협력**: Klaytn 기반의 블록체인 사업화를 위해 Klaytn 및 KGC 멤버들과 협력합니다. 또한 Klaytn Service Partner들과 사업 협력을 모색하고 궁극적으로 Klaytn에서 유의미한 블록체인 사업을 런칭하도록 노력합니다.
 
 ### KGC 혜택
 
-**Mining compensation**: By operating Klaytn node, they get mining compensation for block production. KLAY Staking 한만큼 블록 생성 확률이 증가하여 마이닝 보상을 더 받게 되지만, 지니 계수를 적용하여 차이를 조정하여 독점하지 못하도록 합니다.
+**마이닝 보상**: Klaytn 노드를 운영함으로써 블록 생성에 대한 마이닝 보상을 받게 됩니다. KLAY Staking 한만큼 블록 생성 확률이 증가하여 마이닝 보상을 더 받게 되지만, 지니 계수를 적용하여 차이를 조정하여 독점하지 못하도록 합니다.
 
-**Participation in public blockchain operation**: They become the central operating party for important blockchain platform and by participating in governance they can earn the competence at blockchain market.
+**퍼블릭 블록체인 운영에 참여**: 주요한 블록체인 플랫폼의 운영 주체가 되고 거버넌스에 참여함으로써 블록체인 시장에서 경쟁력을 확보할 수 있습니다.
 
-**Opportunity for blockchain commercializing cooperation**: They provide an opportunity to interact with main participants of Klaytn like KGC member enterprises, Klaytn Service Partners and by sharing the cases and best practices of first applying blockchain, they help blockchain commercialization.
+**블록체인 사업화 협력 기회**: KGC 멤버 기업들, Klaytn Service Partner들 등 Klaytn의 주요 참가자들과 교류할 수 있는 기회를 제공하며, 블록체인을 선 적용한 사례와 Best Practice들을 공유받음으로써 블록체인 사업화를 돕습니다.
 
 ### Permissioned Network에서 Open Network으로 진화
 
