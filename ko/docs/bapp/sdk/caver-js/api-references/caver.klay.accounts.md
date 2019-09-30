@@ -391,7 +391,7 @@ Signs arbitrary data. This data is before UTF-8 HEX decoded and enveloped as fol
 
 | Name       | Type   | 설명                            |
 | ---------- | ------ | ----------------------------- |
-| data       | String | The data to sign.             |
+| 데이터        | String | The data to sign.             |
 | privateKey | String | The private key to sign with. |
 
 
