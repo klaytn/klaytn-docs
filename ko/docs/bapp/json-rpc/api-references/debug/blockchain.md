@@ -193,7 +193,7 @@ Returns the preimage for a sha3 hash, if known.
 
 | Name | Type   | 설명         |
 | ---- | ------ | ---------- |
-| hash | string | sha3 hash. |
+| 해시   | string | sha3 hash. |
 
 **Return Value**
 
