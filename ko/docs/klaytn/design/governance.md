@@ -14,9 +14,9 @@ Klaytn 플랫폼의 장기 개발 계획에 따라 자신의 이익을 고려하
 
 거버넌스 구조를 통해 결정할 수 있는 주요 사항은 다음과 같은 3가지이며, 추가 의사결정이 필요한 제안은 정기 회의나 임시 회의에서 검토될 수 있습니다. Klaytn Governance Council은 Klaytn의 성장에 가장 적합한 결정을 내려야 합니다.
 
-1. **Technology**: Matters related to the technical update of the platform. 여기에는 블록체인 기본 구조 \(예: Account Structure\), 새 기능 \(예: L2 Solution\) 또는 소프트웨어 업데이트 일정에 대한 사항이 포함됩니다.
-2. **Economy**: The additional issuance of KLAY and its distribution structure, change in transaction fees, changes in Proof-of-Contribution service evaluation methods, Klaytn Improvement Reserve spending approval, and more issues are included in this category.
-3. **Governing Rule**: The governance subjects and processes, as well as the rules for the responsibilities and rights of governing bodies, are included in this category.
+1. **기술**: 플랫폼의 기술 업데이트와 관련된 사항입니다. 여기에는 블록체인 기본 구조 \(예: Account Structure\), 새 기능 \(예: L2 Solution\) 또는 소프트웨어 업데이트 일정에 대한 사항이 포함됩니다.
+2. **이코노미**: KLAY 유통구조의 추가발행, 트래잭션 비용의 변경, 기여 증명 서비스 평가 방법의 변경, Klaytn 개선 준비금(Improvement Reserve) 지출 승인 등의 이슈들이 여기에 포함됩니다.
+3. **거버넌스 규칙**: 거버넌스 사항 및 프로세스, 거버넌스 기관의 책임과 권리 등에 대한 규칙이 이 범주에 포함됩니다.
 
 ## 거버넌스 프로세스
 
@@ -32,9 +32,9 @@ Klaytn은 주로 프로토콜 내\(온 체인\)에서 거버넌스 프로세스�
 
 Klaytn Governance Council 멤버들은 상정된 제안에 대해 투표할 권리가 있으며, 자문위원들의 의견서를 참고하여 최선이라고 생각되는 선택에 투표할 것입니다. 득표수가 기준 득표수를 넘으면 제안은 통과되고, 그렇지 않으면 기각됩니다. 승인된 제안에 대한 후속 조치는 의장(chairman)이 주도하게 되며, 의장은 임기 내에 의회에서 통과된 모든 안건을 수행할 책임이 있습니다. 구체적인 제안 투표 방식과 후속 조치는 아래에 설명된 절차를 따릅니다.
 
-* **Core Update**: These are proposals that suggest updates to Klaytn’s core code. 투표는 온라인에서 이루어집니다. 그러나 코드 업데이트 제안이 통과되더라도 소프트웨어 업데이트는 설정된 날짜에 수행됩니다. 이와 같이 소프트웨어 업데이트가 제안된 후, 통과되면 설정된 스케줄에 따라 코어 업데이트가 이루어집니다.
-* **Parameter Change**: This concerns the proposals that will be applied on the blockchain without any code updates.  가스값, 블록 보상 금액, 블록 보상 배분 비율, 투표 기간, 위원회 멤버 수 등의 이슈는 코드 업데이트 없이 결정할 수 있습니다. 제안자는 투표 절차를 시작할 수 있으며, 투표는 미리 정해진 투표 기간 동안 온체인에서 진행됩니다. 각 투표자의 선택은 블록 헤더에 저장되고, 투표 기간이 끝나면 투표는 자동으로 마감됩니다. 투표 후, 투표 기간과 같은 기간이 지나고 나면 결과는 자동으로 플랫폼에 반영됩니다. 따라서, 구체적인 후속 절차는 필요하지 않습니다.
-* **Standard Proposal**: This concerns proposals that request the approval of new standards for Klaytn, and the vote takes place online. 플랫폼에서 변경할 사항은 없으므로 승인된 제안은 Klaytn이 스탠다드 변경을 공식적으로 승인했다는 공식 발표에서만 볼 수 있습니다.
+* **코어 업데이트**: Klaytn의 핵심 코드 업데이트 관련 제안입니다. 투표는 온라인에서 이루어집니다. 그러나 코드 업데이트 제안이 통과되더라도 소프트웨어 업데이트는 설정된 날짜에 수행됩니다. 이와 같이 소프트웨어 업데이트가 제안된 후, 통과되면 설정된 스케줄에 따라 코어 업데이트가 이루어집니다.
+* **파라미터 변경**: 코드 업데이트 없이 블록체인에 적용될 제안과 관련이 있습니다.  가스값, 블록 보상 금액, 블록 보상 배분 비율, 투표 기간, 위원회 멤버 수 등의 이슈는 코드 업데이트 없이 결정할 수 있습니다. 제안자는 투표 절차를 시작할 수 있으며, 투표는 미리 정해진 투표 기간 동안 온체인에서 진행됩니다. 각 투표자의 선택은 블록 헤더에 저장되고, 투표 기간이 끝나면 투표는 자동으로 마감됩니다. 투표 후, 투표 기간과 같은 기간이 지나고 나면 결과는 자동으로 플랫폼에 반영됩니다. 따라서, 구체적인 후속 절차는 필요하지 않습니다.
+* **스탠다드 제안**: Klaytn에 대한 새로운 스탠다드의 승인을 요청하는 제안과 관련이 있으며, 투표는 온라인에서 이루어집니다. 플랫폼에서 변경할 사항은 없으므로 승인된 제안은 Klaytn이 스탠다드 변경을 공식적으로 승인했다는 공식 발표에서만 볼 수 있습니다.
 
 ### Klaytn 개선 준비금 거버넌스 프로세스(Klaytn Improvement Reserve Governance Process)
 
@@ -65,7 +65,7 @@ Klaytn Governance Council은 Klaytn이 장기적으로 성장할 수 있도록 K
 
 거버넌스 참여자는 단순히 개인의 이익만 고려하는 것이 아니라 Klaytn의 장기적인 이익을 고려하여 행동해야 하며, 투표 과정에 적극적으로 참여해야 합니다. 또한, Klaytn Governance Council 회원으로 네트워크에 참여하는 모든 참가자는 플랫폼 요구 사항보다 큰 컴퓨팅 리소스를 유지하고 자체 또는 써드파티의 일정량 KLAY를 보유해야합니다. 플랫폼 개발 및 안정화의 원활한 운영을 위해, Klaytn Pte. Ltd. 는 초기 개발 단계에서 거버넌스와 관련된 많은 역할들을 수행할 것입니다. 하지만, 앞으로는 다른 참여자들이 점진적으로 의사결정 과정에서 더 큰 역할을 하게 되고, 독립적으로 참여할 수 있는 권리를 갖게 됩니다.
 
-* **Development Phase**: The initial development phase after the mainnet launch must quickly see parameter adjustments, new feature developments, etc. 이를 위해 Klaytn Governance Council 멤버, 서비스 제공자, 커뮤니티 멤버들의 의견을 수렴하여 많은 사항들을 결정할 예정입니다. 초기 안정화를 위해서, Klaytn Pte. Ltd. 은 의사 결정 과정을 지원할 수 있습니다. 추가적으로, 결정된 모든 사항은 대중에게 투명하게 공유될 것입니다.
-* **Stabilization Phase**: The Klaytn Governance Council has voting rights on most proposals. 플랫폼 개발과 같은 특별한 문제에 대해서는 Klaytn Pte. Ltd. 이 포함될 수 있습니다. 이해 상충 가능성이 있는 특정 주제\(CCO 등에 대한 보상\)에 대해서는 별도의 기관이 Council에 조언합니다.
-* **Decentralization Phase**: Following the stabilization period, to gather additional opinions, more service providers and other bodies may additionally be brought into the decision-making process.
+* **개발 단계**: 메인넷 출시 후 초기 개발 단계에서는 파라미터 조정, 새로운 기능 개발 등을 신속하게 진행할 수 있어야 합니다. 이를 위해 Klaytn Governance Council 멤버, 서비스 제공자, 커뮤니티 멤버들의 의견을 수렴하여 많은 사항들을 결정할 예정입니다. 초기 안정화를 위해서, Klaytn Pte. Ltd. 은 의사 결정 과정을 지원할 수 있습니다. 추가적으로, 결정된 모든 사항은 대중에게 투명하게 공유될 것입니다.
+* **안정화 단계**: Klaytn Governance Council은 대부분의 제안에 대해 투표권을 가집니다. 플랫폼 개발과 같은 특별한 문제에 대해서는 Klaytn Pte. Ltd. 이 포함될 수 있습니다. 이해 상충 가능성이 있는 특정 주제\(CCO 등에 대한 보상\)에 대해서는 별도의 기관이 Council에 조언합니다.
+* **탈중앙화 단계**: 안정화 단계 이후, 추가적인 의견을 수렴하기 위해 더 많은 서비스 제공자와 다른 주체들이 의사 결정 과정에 추가로 참여할 수 있습니다.
 
