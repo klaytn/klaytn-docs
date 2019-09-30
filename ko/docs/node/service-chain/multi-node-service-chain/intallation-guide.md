@@ -1,2 +1,2 @@
-# Installation Guide
+# 설치 가이드
 
