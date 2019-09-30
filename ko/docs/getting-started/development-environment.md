@@ -1,4 +1,4 @@
-# Development Environment
+# 개발 환경
 
 **Klaytn 네트워크**
 
@@ -16,7 +16,7 @@
 * [Klaytn IDE](https://ide.klaytn.com/) - Klaytn 스마트 컨트랙트를 위한 브라우저 기반 컴파일러 및 IDE.
 * [Truffle](https://github.com/trufflesuite/truffle) - 솔리디티 스마트 컨트랙트 개발을 위한 오픈 소스 도구.
 
-**Klaytn SDKs**
+**Klaytn SDK**
 
 * [caver-js](../bapp/sdk/caver-js/README.md) : Klaytn JSON-RPC API를 구현하는 자바스크립트 라이브러리.
 * [caver-java](../bapp/sdk/caver-java/README.md) : Klaytn JSON-RPC API를 구현하는 자바 라이브러리.
