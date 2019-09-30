@@ -110,7 +110,7 @@ Returns information about a block by hash. This API works only on RPC call, not 
 | Name             | Type          | 설명                                                                                                 |
 | ---------------- | ------------- | -------------------------------------------------------------------------------------------------- |
 | number           | QUANTITY      | The block number. `null` when it is pending block.                                                 |
-| hash             | 32-byte DATA  | Hash of the block. `null` when it is pending block.                                                |
+| 해시               | 32-byte DATA  | Hash of the block. `null` when it is pending block.                                                |
 | parentHash       | 32-byte DATA  | Hash of the parent block.                                                                          |
 | logsBloom        | 256-byte DATA | The bloom filter for the logs of the block. `null` when it is pending block.                       |
 | transactionsRoot | 32-byte DATA  | The root of the transaction trie of the block.                                                     |
@@ -305,7 +305,7 @@ Returns a block with consensus information matched by the given hash.
 | totalBlockScore  | QUANTITY     | Integer of the total blockScore of the chain until this block.                                                                                        |
 | committee        | Array        | Array of addresses of committee members of this block. The committee is a subset of validators participated in the consensus protocol for this block. |
 | gasUsed          | QUANTITY     | The total used gas by all transactions in this block.                                                                                                 |
-| hash             | 32-byte DATA | Hash of the block. `null` when it is pending block.                                                                                                   |
+| 해시               | 32-byte DATA | Hash of the block. `null` when it is pending block.                                                                                                   |
 | number           | QUANTITY     | The block number. `null` when it is pending block.                                                                                                    |
 | parentHash       | 32-byte DATA | Hash of the parent block.                                                                                                                             |
 | proposer         | 20-byte DATA | The address of the block proposer.                                                                                                                    |
@@ -413,7 +413,7 @@ Returns a block with consensus information matched by the given block number.
 | totalBlockScore  | QUANTITY     | Integer of the total blockScore of the chain until this block.                                                                                        |
 | committee        | Array        | Array of addresses of committee members of this block. The committee is a subset of validators participated in the consensus protocol for this block. |
 | gasUsed          | QUANTITY     | The total used gas by all transactions in this block.                                                                                                 |
-| hash             | 32-byte DATA | Hash of the block. `null` when it is pending block.                                                                                                   |
+| 해시               | 32-byte DATA | Hash of the block. `null` when it is pending block.                                                                                                   |
 | number           | QUANTITY     | The block number. `null` when it is pending block.                                                                                                    |
 | parentHash       | 32-byte DATA | Hash of the parent block.                                                                                                                             |
 | proposer         | 20-byte DATA | The address of the block proposer.                                                                                                                    |
