@@ -6,11 +6,11 @@ In this page, we will connect the single-node Service Chain to the Main Chain.
 
 You should enable main-bridge by configuring `kend.conf`.
 
-### Update the Configuration File
+### 환경 설정 파일 업데이트
 
 The `kend.conf` contains the following main-bridge properties.
 
-| Name                   | 설명                                                                                                                     |
+| 명칭                     | 설명                                                                                                                     |
 |:---------------------- |:---------------------------------------------------------------------------------------------------------------------- |
 | MAIN_BRIDGE            | Enable bridge service as main bridge for service chain   1 to be enabled                                               |
 | MAIN_BRIDGE_PORT     | bridge listen port   e.g) default: 50505                                                                               |
