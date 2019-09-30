@@ -2,7 +2,7 @@
 
 It is time to check that Core Cell is successfully installed and it is working as expected after installation.
 
-## 프로세스 상태
+## Process Status
 
 It is possible to check the status of CN/PN's process using the status commands `systemctl` and `kcnd/kpnd`.
 
@@ -37,11 +37,11 @@ $ kcnd status
 kcnd is running
 ```
 
-## 로그
+## Logs
 
 The log is stored in `kcnd.out` (or `kpnd.out`) file located in the path defined in the `LOG_DIR` field of the `kcnd.conf` (or `kpnd.conf`) file. When the node works properly, you can see that each block is created per second as follows.
 
-예시:
+Example:
 
 ```bash
 $ tail kcnd.out
@@ -63,7 +63,7 @@ Klaytn provides a CLI client: `kcn console` (or `kpn console`). However, a CN/PN
 
 The IPC file `klay.ipc` is located in the `data` directory on a CN/PN.
 
-다음 명령을 실행하고 결과를 확인하세요.
+Please execute the following command and check out the result.
 
 In case of a CN,
 
