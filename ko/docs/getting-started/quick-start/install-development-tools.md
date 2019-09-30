@@ -1,4 +1,4 @@
-# Install Development Tools
+# 개발 도구 설치하기
 
 ## caver-js 설치 <a id="installing-caver-js"></a>
 
@@ -17,7 +17,7 @@ $ npm init # klaytn 프로젝트 디렉토리에서 npm 초기화
 $ npm install caver-js
 ```
 
-**NOTE**: If you already installed caver-js, please update it to the latest version.
+**참고**: caver-js를 이미 설치한 경우, 최신 버전으로 업데이트하시길 바랍니다.
 
 ```bash
 $ npm cache clean --force # npm 캐시 초기화
@@ -40,7 +40,7 @@ npm ERR!     /Users/username/.npm/_logs/2019-06-25T01_49_37_032Z-debug.log​
 $ rm /Users/username/klaytn/node_modules/websocket/.git
 ```
 
-**Note:** For all the function calls that begin with `web3.eth...` in web3.js, should be replaced with `caver.klay...`.
+**참고**: web3.js의 `web3.eth...`로 시작하는 모든 함수 호출은 `caver.klay...`로 대체되어야 합니다.
 
 `web3.eth.sendTransaction({ ... })` \(X\)
 
@@ -95,7 +95,7 @@ $ npm install -g @haechi-labs/vvisp
 $ yarn global add @haechi-labs/vvisp
 ```
 
-설치 시, vvisp 명령을 사용하여 제대로 설치되었는지 확인할 수 있습니다. **NOTE**: You should use version over **v2.1.0**.
+설치 시, vvisp 명령을 사용하여 제대로 설치되었는지 확인할 수 있습니다. **참고**: **v2.1.0** 이상의 버전을 사용해야 합니다.
 
 ```bash
 $ vvisp
