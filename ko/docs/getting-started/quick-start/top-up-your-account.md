@@ -1,4 +1,4 @@
-# Top up your Account
+# 계정에 자금 추가하기
 
 ## 콘솔에 연결하기 <a id="attaching-to-the-console"></a>
 
@@ -15,9 +15,9 @@ Welcome to the Klaytn JavaScript console
  >
 ```
 
-**NOTE**: You must wait until it downloads all the blocks. 콘솔에 `klay.blockNumber`를 입력하고 [여기](https://baobab.scope.klaytn.com/)의 현재 블록 번호와 일치하는지 확인하세요.
+**참고**: 모든 블록을 다운로드 할 때까지 기다려야 합니다. 콘솔에 `klay.blockNumber`를 입력하고 [여기](https://baobab.scope.klaytn.com/)의 현재 블록 번호와 일치하는지 확인하세요.
 
-**NOTE**: Type `klay` or `personal` to get the list of available functions.
+**참고**: `klay` 또는 `personal`을 입력해 사용 가능한 함수 목록을 가져옵니다.
 
 ## 새로운 Klaytn 계정 생성 <a id="creating-a-new-klaytn-account"></a>
 
@@ -39,7 +39,7 @@ UTC--2019-06-24T11-20-15.590879000Z--75a59b94889a05c03c66c3c84e9d2f8308ca4abd
 
 ## Klaytn 계정 잠금 해제 <a id="unlocking-the-klaytn-account"></a>
 
-생성된 계정을 잠금 해제하려면, 다음 명령을 실행합니다. 이는 300초 동안 계정을 잠금 해제합니다. **Note**: If you want to manually set the unlock duration, refer to this [link](../../bapp/json-rpc/api-references/personal.md#personal_unlockaccount). **`WARNING`**: Unlocking an account could be very dangerous if not done carefully. EN이 해커에 의해 해킹되면, 해커가 토큰을 빼앗을 가능성이 있습니다. 보다 안전한 방법을 사용하려면, 다음의 [개인키를 사용하는 배포 가이드](../../bapp/tutorials/count-bapp/6.-deploy-contract.md#deploy-method-1-by-private-key)를 참조하세요.
+생성된 계정을 잠금 해제하려면, 다음 명령을 실행합니다. 이는 300초 동안 계정을 잠금 해제합니다. **참고**: 잠금 해제 기간을 수동으로 설정하려면, 다음 [링크](../../bapp/json-rpc/api-references/personal.md#personal_unlockaccount)를 참조하세요. **`경고`**: 주의하지 않으면 계정 잠금을 해제하는 것은 매우 위험할 수 있습니다. EN이 해커에 의해 해킹되면, 해커가 토큰을 빼앗을 가능성이 있습니다. 보다 안전한 방법을 사용하려면, 다음의 [개인키를 사용하는 배포 가이드](../../bapp/tutorials/count-bapp/6.-deploy-contract.md#deploy-method-1-by-private-key)를 참조하세요.
 
 ```javascript
 > personal.unlockAccount('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # 잠금을 해제할 계정 주소
