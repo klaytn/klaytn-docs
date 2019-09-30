@@ -1,4 +1,4 @@
-# Configuration
+# 환경 설정
 
 This page explains the configuration of a single Service Chain Node (SCN).
 
