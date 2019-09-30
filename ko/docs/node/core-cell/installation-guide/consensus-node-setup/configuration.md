@@ -1,4 +1,4 @@
-# Configuration
+# 환경 설정
 
 The CN configuration is to create a data directory and set up several values in the configuration file `kcnd.conf`.
 
@@ -22,16 +22,16 @@ In order to operate a CN, a `nodekey` is required. The KCN binary will create a 
 $ cp nodekey /var/kcnd/data
 ```
 
-## Update the Configuration File
+## 환경 설정 파일 업데이트
 
-Configuration File Location:
+환경 설정 파일 위치는 다음과 같습니다.
 
 * For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kcn-linux-amd64/conf/`.
 * For the package distribution, the config directory defaults to `/etc/kcnd/conf/`.
 
-### Add Data Directory
+### 데이터 디렉토리 추가
 
-You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kcnd.conf`.
+환경 설정 파일 `kcnd.conf`의 데이터 디렉토리 환경 변수 `$DATA_DIR`를 업데이트해야 합니다.
 
 ```text
 ...
@@ -72,21 +72,21 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 
 Keep in mind that the keystore and the password that you created is significantly important, so you must be careful to manage them. See more details about `kcnd.conf` on the [Configuration File](../../operation-guide/configuration.md) section.
 
-## Fast Sync \(Optional\)
+## Fast Sync \(선택 사항\)
 
-Each CN maintains a copy of the network's chain data. If a node is out of sync, it can obtain this data from other nodes in the network -- a process known as syncing. When a new CN is first started, it must download the entire chain data from the network.
+Each CN maintains a copy of the network's chain data. 어떤 노드가 동기화되어 있지 않으면 네트워크의 다른 노드로부터 데이터를 받아옵니다 -- 동기화(syncing)라고 알려진 과정입니다. When a new CN is first started, it must download the entire chain data from the network.
 
 To accelerate this process, you may perform a fast sync by downloading a snapshot of the chain data before starting the CN. This can dramatically reduce the time the CN will spend syncing on first start.
 
-Download the latest chaindata snapshot from the [Cypress snapshot archive](http://packages.klaytn.net/cypress/chaindata/) or [Baobab snapshot archive](http://packages.klaytn.net/baobab/chaindata/). Before starting `kcnd`, extract the snapshot inside the DATA\_DIR you configured in `kcnd.conf`.
+[Cypress 스냅샷 아카이브](http://packages.klaytn.net/cypress/chaindata/) 또는 [Baobab 스냅샷 아카이브](http://packages.klaytn.net/baobab/chaindata/)에서 체인 데이터의 최신 스냅샷을 다운로드할 수 있습니다. Before starting `kcnd`, extract the snapshot inside the DATA\_DIR you configured in `kcnd.conf`.
 
-For example:
+예를 들어,
 
 ```bash
 $ tar -C ~/kcnd_home -xvf klaytn-cypress-chaindata-latest.tar.gz
 ```
 
-Or,
+또는
 
 ```bash
 $ tar -C ~/kcnd_home -xvf klaytn-baobab-chaindata-latest.tar.gz
