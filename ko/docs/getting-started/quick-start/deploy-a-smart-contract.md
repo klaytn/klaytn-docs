@@ -1,4 +1,4 @@
-# Deploy a Smart Contract
+# 스마트 컨트랙트 배포
 
 이제 Klaytn 스마트 컨트랙트를 개발하고 배포할 준비가 되었습니다!
 
@@ -79,7 +79,7 @@ module.exports = function(deployer) {
 
 truffle.js에 Klaytn의 네트워크 정보를 입력하세요.
 
-**`WARNING`**: Currently Klaytn Baobab network's gasPrice is fixed to 25 Gpeb \(**It returns an error if you attempt to use any other number**\).
+**`경고`**: 현재 Klaytn Baobab 네트워크의 가스 가격이 25 Gpeb으로 고정되어 있습니다. \(**다른 수치를 사용하려고 시도하면 오류가 반환됩니다**\).
 
 ```bash
 $ cd ..
@@ -111,9 +111,9 @@ module.exports = {
 
 다음 명령을 사용하여 계약을 배포하세요.
 
-**NOTE**: Use `--network` to select which network to deploy and `--reset` to overwrite.
+**참고**: 배포할 네트워크를 선택하기 위해 `--network`를, 덮어 쓰기위해 `--reset`을 사용하세요.
 
-**NOTE**: Make sure that your Klaytn node is running.
+**참고**: Klaytn 노드가 실행 중인지 확인하세요.
 
 컨트랙트 주소가 \`KlaytnGreeter: 뒤에 이어 표시됩니다.
 
@@ -132,7 +132,7 @@ Saving successful migration to network...
 Saving artifacts...
 ```
 
-**`WARNING`**: It returns an error when your account is locked.
+**`경고`**: 계정이 잠겨 있으면 오류를 반환합니다.
 
 ```bash
 Running migration: 1_initial_migration.js
