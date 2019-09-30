@@ -1,4 +1,4 @@
-# Testing the Installation
+# 설치 테스트
 
 Endpoint Node가 성공적으로 설치되어 잘 작동하는지 점검해보겠습니다.
 
@@ -75,7 +75,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  >
 ```
 
-You can check the usable commands on [API Document](../../../bapp/json-rpc/README.md)
+[API 문서](../../../bapp/json-rpc/README.md)를 보시면 유용한 명령어들을 확인할 수 있습니다.
 
 EN의 상태를 확인하는 유용한 API는 다음과 같습니다.
 
