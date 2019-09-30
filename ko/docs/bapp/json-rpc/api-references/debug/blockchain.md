@@ -13,17 +13,17 @@ Retrieves the state that corresponds to the block number and returns a list of a
 
 **Parameters**
 
-| Name   | Type   | 설명                                |
+| 명칭     | 형식     | 설명                                |
 | ------ | ------ | --------------------------------- |
 | number | string | The block number as a hex string. |
 
 **Return Value**
 
-| Type        | 설명                     |
+| 형식          | 설명                     |
 | ----------- | ---------------------- |
 | JSON string | The block information. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -76,17 +76,17 @@ References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
 **Parameters**
 
-| Name   | Type | 설명                |
-| ------ | ---- | ----------------- |
-| number | int  | The block number. |
+| 명칭     | 형식  | 설명                |
+| ------ | --- | ----------------- |
+| number | int | The block number. |
 
 **Return Value**
 
-| Type   | 설명                     |
+| 형식     | 설명                     |
 | ------ | ---------------------- |
 | string | The RLP-encoded block. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -112,18 +112,18 @@ Returns all accounts that have changed between the two blocks specified by their
 
 **Parameters**
 
-| Name           | Type         | 설명                              |
+| 명칭             | 형식           | 설명                              |
 | -------------- | ------------ | ------------------------------- |
 | startBlockHash | 32-byte DATA | Start block hash for the range. |
 | endBlockHash   | 32-byte DATA | End block hash for the range.   |
 
 **Return Value**
 
-| Type        | 설명                                                  |
+| 형식          | 설명                                                  |
 | ----------- | --------------------------------------------------- |
 | JSON string | The list of addresses modified between given range. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -152,18 +152,18 @@ Returns all accounts that have changed between the two blocks specified by their
 
 **Parameters**
 
-| Name          | Type | 설명                                |
-| ------------- | ---- | --------------------------------- |
-| startBlockNum | int  | Start block number for the range. |
-| endBlockNum   | int  | End block number for the range.   |
+| 명칭            | 형식  | 설명                                |
+| ------------- | --- | --------------------------------- |
+| startBlockNum | int | Start block number for the range. |
+| endBlockNum   | int | End block number for the range.   |
 
 **Return Value**
 
-| Type        | 설명                                                  |
+| 형식          | 설명                                                  |
 | ----------- | --------------------------------------------------- |
 | JSON string | The list of addresses modified between given range. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -191,17 +191,17 @@ Returns the preimage for a sha3 hash, if known.
 
 **Parameters**
 
-| Name | Type   | 설명         |
-| ---- | ------ | ---------- |
-| 해시   | string | sha3 hash. |
+| 명칭 | 형식     | 설명         |
+| -- | ------ | ---------- |
+| 해시 | string | sha3 hash. |
 
 **Return Value**
 
-| Name     | Type   | 설명                        |
+| 명칭       | 형식     | 설명                        |
 | -------- | ------ | ------------------------- |
 | preimage | string | Preimage for a sha3 hash. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -227,17 +227,17 @@ Retrieves a block and returns its pretty printed form.
 
 **Parameters**
 
-| Name   | Type | 설명                |
-| ------ | ---- | ----------------- |
-| number | int  | The block number. |
+| 명칭     | 형식  | 설명                |
+| ------ | --- | ----------------- |
+| number | int | The block number. |
 
 **Return Value**
 
-| Type   | 설명                      |
+| 형식     | 설명                      |
 | ------ | ----------------------- |
 | string | Dump of a block struct. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -268,7 +268,7 @@ Sets the current head of the local chain by block number.
 
 **Parameters**
 
-| Name   | Type   | 설명                                      |
+| 명칭     | 형식     | 설명                                      |
 | ------ | ------ | --------------------------------------- |
 | number | string | The block number in hexadecimal string. |
 
@@ -276,7 +276,7 @@ Sets the current head of the local chain by block number.
 
 None
 
-**Example**
+**예시**
 
 Console
 ```javascript
