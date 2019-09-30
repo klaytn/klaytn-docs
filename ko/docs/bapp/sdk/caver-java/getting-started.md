@@ -28,7 +28,7 @@ If you want to see details of the JSON-RPC requests and responses, please includ
 implementation "ch.qos.logback:logback-classic:1.2.3"
 ```
 
-### Installation
+### 설치
 
 If you want to generate transactions related with a smart contract, you need to install a Solidity compiler and caver-java commmand-line tool first.
 
@@ -83,7 +83,7 @@ Currently, we do not support other package managers. As another solution, we pro
   $ ./console/build/distributions/console-shadow-{version}/bin/caver-java
   ```
 
-## Managing Accounts
+## 계정 관리
 
 ### Creating an Account
 
@@ -130,7 +130,7 @@ You can use a Klaytn public EN \([https://api.baobab.klaytn.net:8651](https://ap
 Caver caver  = Caver.build(Caver.BAOBAB_URL);  // Caver.BAOBAB_URL = https://api.baobab.klaytn.net:8651
 ```
 
-### Sending a Value Transfer Transaction
+### 송금 트랜잭션 전송
 
 After you get a `Caver` instance and create an account which has some KLAY, you can send 1 peb to a certain address\(`0xe97f27e9a5765ce36a7b919b1cb6004c7209217e`\) with a gas limit `BigInteger.valueOf(100_000)` like below:
 
@@ -223,7 +223,7 @@ AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.cre
 Account.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendUpdateTransaction(accountUpdateTransaction).send();
 ```
 
-An account key represents the key structure associated with an account. To get more details and types about the Klaytn account key, please read [Account Key](../../../klaytn/design/accounts.md#account-key).
+계정 키는 계정과 연결된 키 구조를 나타냅니다. To get more details and types about the Klaytn account key, please read [Account Key](../../../klaytn/design/accounts.md#account-key).
 
 ### 스마트 컨트랙트
 
@@ -269,7 +269,7 @@ To call a smart contract:
 <type> result = contract.<someMethod>(<param1>, ...).send();
 ```
 
-#### Example
+#### 예시
 
 This section describes how to deploy and execute a smart contract on the Baobab testnet. In this example, we use a smart contract [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol). If contract deployment fails and an empty contract address is returned, it will throw RuntimeException.
 
@@ -312,7 +312,7 @@ BigInteger balance = erc20Mock.balanceOf(
 ).send();
 ```
 
-### Fee Delegation
+### 트랜잭션 비용 위임
 
 Klaytn provides [Fee Delegation](../../../klaytn/design/transactions/README.md#fee-delegation) feature which allows service providers to pay transaction fees instead of the users.
 
