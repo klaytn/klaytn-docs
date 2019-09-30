@@ -35,7 +35,7 @@ ENN은 주로 트랜잭션을 생성하고, RPC API 요청을 처리하며, 서�
 
 SCN은 블록체인 어플리케이션(BApp)에 의해 독립적으로 운영되는 보조 블록체인들로 구성된 Klaytn 서브네트워크입니다. 서비스 체인은 EN을 통해 메인 체인에 연결됩니다.
 
-**Core Cell Network** and **Endpoint Node Network** form a Klaytn main chain or mainnet. Blockchain Applications can run on the Klaytn main chain, Cypress, or can operate on their own blockchains called **Service Chains**. 높은 TPS와 설정 변경이 가능한 네트워크 정책을 가진 전용 실행 환경을 원한다면 서비스체인을 사용하는 것을 추천합니다.
+**코어 셀 네트워크**와 **엔드포인트 노드 네트워크**은 Klaytn 메인체인과 메인넷을 구성합니다. 블록체인 어플리케이션은 Klaytn 메인 체인인 Cypress에서 실행하거나 자체적인 블록체인인 **서비스 체인**에서 작동할 수 있습니다. 높은 TPS와 설정 변경이 가능한 네트워크 정책을 가진 전용 실행 환경을 원한다면 서비스체인을 사용하는 것을 추천합니다.
 
 > 어플리케이션을 위한 서비스체인을 구축하려면, [서비스체인의 설치 및 운영 가이드](../node/service-chain/README.md)를 읽어주세요.
 
@@ -49,7 +49,7 @@ Klaytn 메인체인 네트워크 토폴로지를 살펴보기 전에 다양한 �
 
 #### 코어 셀 (CC): 합의 노드 (CN) + 프록시 노드(PN)
 
-A Core Cell (CC) is composed of a single **Consensus Node (CN)** and two **Proxy Nodes (PNs)**. 합의 노드는 블록 생성 프로세서에 참여하고, 프록시 노드는 네트워크에 인터페이스를 제공합니다. PN은 트랜잭션 요청을 합의 노드로 전송하고 블록을 엔드포인트 노드로 전파합니다.
+코어 셀(CC)은 하나의 **합의 노드(CN)**과 두 개의 **프록시 노드(PNs)**로 이루어집니다. 합의 노드는 블록 생성 프로세서에 참여하고, 프록시 노드는 네트워크에 인터페이스를 제공합니다. PN은 트랜잭션 요청을 합의 노드로 전송하고 블록을 엔드포인트 노드로 전파합니다.
 
 > 만약 코어 셀 오퍼레이터가 되는 것에 관심이 있으시면 [코어 셀 설치 및 운영 가이드](../node/core-cell/README.md)를 참고해주세요.
 
@@ -59,7 +59,7 @@ EN은 Klaytn 네트워크상에서 RPC API 요청을 처리하고, 서비스 체
 
 > 어플리케이션을 위한 엔드포인트 노드를 구축하려면, [엔드포인트 노드의 설치 및 운영 가이드](../node/endpoint-node/README.md)를 읽어주세요.
 
-#### Bootnode
+#### 부트노드(Bootnode)
 
 부트노드는 Klaytn에서 운영하는 특수 유형의 노드입니다. 새로 참여하는 노드가 네트워크에 등록하고 연결할 다른 노드를 검색하는 것을 돕습니다. CN 부트노드는 CNN 내에 있으며 대중에게 노출되지 않고, PN 및 EN 부트노드는 공개적으로 표시됩니다.  PN 부트노드는 허용된 PN만 등록할 수 있도록 허용하며, 적합한 PN을 EN과 연결할 수 있도록 합니다.  EN 부트노드는 연결할 PN에 대한 정보를 EN에게 제공합니다.
 
