@@ -24,7 +24,7 @@ Default block parameters can be one of the following:
 
 Default is `"latest"`.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.defaultBlock;
@@ -44,7 +44,7 @@ Returns the current block number.
 
 **Parameters**
 
-| Name     | Type     | 설명                                                                                                         |
+| 명칭       | 형식       | 설명                                                                                                         |
 | -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -52,7 +52,7 @@ Returns the current block number.
 
 `Promise` returns `Number` - The number of the most recent block.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.getBlockNumber().then(console.log);
@@ -68,7 +68,7 @@ Returns a block matching the block hash or block number.
 
 **Parameters**
 
-| Name                     | Type                 | 설명                                                                                                                                                           |
+| 명칭                       | 형식                   | 설명                                                                                                                                                           |
 | ------------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | blockHashOrBlockNumber   | String &#124; Number | The block hash or block number. Or the string `"genesis"`, `"latest"` or `"pending"`.                                                                        |
 | returnTransactionObjects | Boolean              | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, if `false` it will only contains the transaction hashes. |
@@ -78,7 +78,7 @@ Returns a block matching the block hash or block number.
 
 `Promise` returns `Object` - The block object:
 
-| Name             | Type            | 설명                                                                                                                 |
+| 명칭               | 형식              | 설명                                                                                                                 |
 | ---------------- | --------------- | ------------------------------------------------------------------------------------------------------------------ |
 | blockScore       | QUANTITY        | Former difficulty. Always 1 in the BFT consensus engine                                                            |
 | extraData        | String          | The "extra data" field of this block.                                                                              |
@@ -89,17 +89,17 @@ Returns a block matching the block hash or block number.
 | number           | Number          | The block number. `null` when it is a pending block.                                                               |
 | parentHash       | 32-byte String  | Hash of the parent block.                                                                                          |
 | receiptsRoot     | 32-byte DATA    | The root of the receipts trie of the block.                                                                        |
-| reward           | 20-byte DATA    | The address of the beneficiary to whom the block rewards were given.                                               |
+| 보상               | 20-byte DATA    | The address of the beneficiary to whom the block rewards were given.                                               |
 | size             | Number          | Integer the size of this block in bytes.                                                                           |
 | stateRoot        | 32-byte String  | The root of the final state trie of the block.                                                                     |
 | timestamp        | Number          | The unix timestamp for when the block was collated.                                                                |
 | timestampFoS     | QUANTITY        | The fraction of a second of the timestamp for when the block was collated.                                         |
 | totalBlockScore  | QUANTITY        | Integer of the total blockScore of the chain until this block.                                                     |
-| transactions     | Array           | Array of transaction objects, or 32-byte transaction hashes depending on the `returnTransactionObjects` parameter. |
+| 트랜잭션             | Array           | Array of transaction objects, or 32-byte transaction hashes depending on the `returnTransactionObjects` parameter. |
 | transactionsRoot | 32-byte String  | The root of the transaction trie of the block.                                                                     |
 | voteData         | DATA            | RLP encoded governance vote of the proposer                                                                        |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.getBlock(19097).then(console.log);
@@ -134,7 +134,7 @@ Returns a list of transaction receipts included in a block identified by the giv
 
 **Parameters**
 
-| Name      | Type     | 설명                                                                                                         |
+| 명칭        | 형식       | 설명                                                                                                         |
 | --------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | blockHash | String   | Hash of a block.                                                                                           |
 | callback  | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
@@ -144,7 +144,7 @@ Returns a list of transaction receipts included in a block identified by the giv
 `Promise` returns `Array` - Receipts included in a block.  If the target block contains no transaction, an empty array `[]` is returned.
 
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.getBlockReceipts('0x6ccef34eb59fab927705d344f080f449b576c0626e4aa3e20f569feb8df6e283').then(console.log);
@@ -191,7 +191,7 @@ Returns the number of transaction in a given block.
 
 **Parameters**
 
-| Name                   | Type                 | 설명                                                                                                         |
+| 명칭                     | 형식                   | 설명                                                                                                         |
 | ---------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------- |
 | blockHashOrBlockNumber | String &#124; Number | The block number or hash. Or the string `"genesis"`, `"latest"` or `"pending"`.                            |
 | callback               | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
@@ -200,7 +200,7 @@ Returns the number of transaction in a given block.
 
 `Promise` returns `Number` - The number of transactions in the given block.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.getBlockTransactionCount("0x407d73d8a49eeb85d32cf465507dd71d507100c1").then(console.log);
@@ -218,7 +218,7 @@ Returns a block with consensus information matched by the given block hash or bl
 
 **Parameters**
 
-| Name                   | Type                 | 설명                                                                                                         |
+| 명칭                     | 형식                   | 설명                                                                                                         |
 | ---------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------- |
 | blockHashOrBlockNumber | String &#124; Number | The block hash or block number. Or the string `"genesis"` or `"latest"`.                                   |
 | callback               | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
@@ -227,7 +227,7 @@ Returns a block with consensus information matched by the given block hash or bl
 
 `Promise` returns `Object` - A block object with consensus information (a proposer and a list of committee members) The block object contains:
 
-| Name             | Type            | 설명                                                                                                                                                    |
+| 명칭               | 형식              | 설명                                                                                                                                                    |
 | ---------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | blockScore       | QUANTITY        | Former difficulty. Always 1 in the BFT consensus engine                                                                                               |
 | committee        | Array           | Array of addresses of committee members of this block. The committee is a subset of validators participated in the consensus protocol for this block. |
@@ -240,13 +240,13 @@ Returns a block with consensus information matched by the given block hash or bl
 | parentHash       | 32-byte DATA    | Hash of the parent block.                                                                                                                             |
 | proposer         | 20-byte DATA    | The address of the block proposer.                                                                                                                    |
 | receiptsRoot     | 32-byte DATA    | The root of the receipts trie of the block.                                                                                                           |
-| reward           | 20-byte DATA    | The address of the beneficiary to whom the block rewards were given.                                                                                  |
+| 보상               | 20-byte DATA    | The address of the beneficiary to whom the block rewards were given.                                                                                  |
 | size             | QUANTITY        | Integer the size of this block in bytes.                                                                                                              |
 | stateRoot        | 32-byte DATA    | The root of the final state trie of the block.                                                                                                        |
 | timestamp        | QUANTITY        | The unix timestamp for when the block was collated.                                                                                                   |
 | timestampFoS     | QUANTITY        | The fraction of a second of the timestamp for when the block was collated.                                                                            |
 | totalBlockScore  | QUANTITY        | Integer of the total blockScore of the chain until this block.                                                                                        |
-| transactions     | Array           | Array of transaction objects.                                                                                                                         |
+| 트랜잭션             | Array           | Array of transaction objects.                                                                                                                         |
 | transactionsRoot | 32-byte DATA    | The root of the transaction trie of the block.                                                                                                        |
 | voteData         | DATA            | RLP encoded governance vote of the proposer                                                                                                           |
 
@@ -318,7 +318,7 @@ Returns a list of all validators in the committee at the specified block. If the
 
 **Parameters**
 
-| Name         | Type                 | 설명                                                                                                                          |
+| 명칭           | 형식                   | 설명                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
 | callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                  |
@@ -327,7 +327,7 @@ Returns a list of all validators in the committee at the specified block. If the
 
 `Promise` returns `Array` - Addresses of all validators in the committee.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.getCommittee().then(console.log);
@@ -349,7 +349,7 @@ Returns the size of the committee at the specified block. If the parameter is no
 
 **Parameters**
 
-| Name         | Type                 | 설명                                                                                                                          |
+| 명칭           | 형식                   | 설명                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
 | callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                  |
@@ -358,7 +358,7 @@ Returns the size of the committee at the specified block. If the parameter is no
 
 `Promise` returns `Number` - The size of the committee.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.getCommitteeSize().then(console.log);
@@ -376,7 +376,7 @@ Returns a list of all validators of the council at the specified block. If the p
 
 **Parameters**
 
-| Name         | Type                 | 설명                                                                                                                          |
+| 명칭           | 형식                   | 설명                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
 | callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                  |
@@ -385,7 +385,7 @@ Returns a list of all validators of the council at the specified block. If the p
 
 `Promise` returns `Array` - Addresses of all validators of the council.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.getCouncil().then(console.log);
@@ -407,7 +407,7 @@ Returns the size of the council at the specified block. If the parameter is not 
 
 **Parameters**
 
-| Name         | Type                 | 설명                                                                                                                          |
+| 명칭           | 형식                   | 설명                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
 | callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                  |
@@ -416,7 +416,7 @@ Returns the size of the council at the specified block. If the parameter is not 
 
 `Promise` returns `Number` - The size of the council.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.getCouncilSize().then(console.log);
@@ -433,9 +433,9 @@ Gets the storage at a specific position of an address.
 
 **Parameters**
 
-| Name         | Type                 | 설명                                                                                                                          |
+| 명칭           | 형식                   | 설명                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address to get the storage from.                                                                                        |
+| 주소           | String               | The address to get the storage from.                                                                                        |
 | position     | Number               | The index position of the storage.                                                                                          |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
 | callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                  |
@@ -444,7 +444,7 @@ Gets the storage at a specific position of an address.
 
 `Promise` returns `String` - The value in storage at the given position.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.getStorageAt("0x407d73d8a49eeb85d32cf465507dd71d507100c1", 0).then(console.log);
@@ -462,7 +462,7 @@ Returns `true` if client is actively mining new blocks.
 
 **Parameters**
 
-| Name     | Type     | 설명                                                                                                         |
+| 명칭       | 형식       | 설명                                                                                                         |
 | -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -471,7 +471,7 @@ Returns `true` if client is actively mining new blocks.
 
 `Promise` returns `Boolean` - `true` if the client is mining, otherwise `false`.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.isMining().then(console.log);
@@ -488,7 +488,7 @@ Checks if the node is currently syncing and returns either a syncing object or `
 
 **Parameters**
 
-| Name     | Type     | 설명                                                                                                         |
+| 명칭       | 형식       | 설명                                                                                                         |
 | -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -497,7 +497,7 @@ Checks if the node is currently syncing and returns either a syncing object or `
 
 `Promise` returns `Object|Boolean` - A sync object when the node is currently syncing or `false`:
 
-| Name          | Type   | 설명                                                                          |
+| 명칭            | 형식     | 설명                                                                          |
 | ------------- | ------ | --------------------------------------------------------------------------- |
 | startingBlock | Number | The block number where the sync started.                                    |
 | currentBlock  | Number | The block number where at which block the node currently synced to already. |
@@ -505,7 +505,7 @@ Checks if the node is currently syncing and returns either a syncing object or `
 | knownStates   | Number | The estimated states to download.                                           |
 | pulledStates  | Number | The already downloaded states.                                              |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.isSyncing().then(console.log);
