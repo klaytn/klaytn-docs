@@ -8,7 +8,7 @@ Returns Keccak-256 (not the standardized SHA3-256) of the given data.
 
 | Name | Type | 설명                                    |
 | ---- | ---- | ------------------------------------- |
-| data | DATA | The data to convert into a SHA3 hash. |
+| 데이터  | DATA | The data to convert into a SHA3 hash. |
 
 **Return Value**
 
