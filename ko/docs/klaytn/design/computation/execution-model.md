@@ -4,7 +4,7 @@
 
 ## 실행 모델(Execution Model)
 
-트랜잭션은 플랫폼의 API(참고: [ Platform API Specification](../../../bapp/json-rpc/api-references/README.md))를 통해 생성될 수 있습니다. These transactions are sent to _Consensus Nodes \(CNs\)_ to be stored in a block. CN은 전송된 각 트랜잭션이 유효한지 검사합니다. 유효한 트랜잭션은 트랜잭션 풀에 저장되고, 그렇지 않다면 버려집니다. CN은 현재 블록의 트랜잭션 풀에서 실행 가능한 트랜잭션을 선택하고, 하나씩 실행합니다.
+트랜잭션은 플랫폼의 API(참고: [ Platform API Specification](../../../bapp/json-rpc/api-references/README.md))를 통해 생성될 수 있습니다. 이 트랜잭션들은 저장되기 위해 _합의 노드 \(CNs\)_로 보내집니다. CN은 전송된 각 트랜잭션이 유효한지 검사합니다. 유효한 트랜잭션은 트랜잭션 풀에 저장되고, 그렇지 않다면 버려집니다. CN은 현재 블록의 트랜잭션 풀에서 실행 가능한 트랜잭션을 선택하고, 하나씩 실행합니다.
 
 트랜잭션을 실행하려면 발신자가 일정량의 KLAY를 트랜잭션 비용으로 지불해야합니다. This transaction fee in KLAY is calculated based on gas and a multiplier, _i.e._, unit price. 가스는 연산의 기본적인 단위입니다. Klaytn 노드에서 실행되는 모든 연산은 미리 정의된 양의 가스를 소모합니다. 트랜잭션에 필요한 정확한 KLAY 양은 [트랜잭션 비용](../transaction-fees.md)에 설명된 공식으로 계산됩니다. 트랜잭션이 충분한 가스와 함께 보내지지 않는다면 트랜잭션은 일어나지 않습니다. 또한, 발신인의 잔고가 부족할 때도 트랜잭션이 보내지지 않습니다.
 
@@ -16,22 +16,22 @@
 
 Klaytn의 Baobab 및 Cypress 네트워크에는 현재 트랜잭션 실행에 관해 다음과 같은 제한이 있습니다.
 
-* A transaction must set its gas price to Klaytn's [unit price](../klaytn-native-coin-klay.md/#units-of-klay), _i.e._, 25 Gpeb.
+* 트랜잭션은 가스 가격을 Klaytn의 [단위 가격](../klaytn-native-coin-klay.md/#units-of-klay)으로 설정해야 합니다. _즉_, 25 Gpeb
 * 연산 비용 한도보다 실행 비용이 큰 트랜잭션은 버려집니다. [연산 비용](computation-cost.md)을 참고해주세요.
 
 ## 데이터 구조 (Data Structures)
 
-### Account
+### 계정 (Account)
 
 Klaytn의 계정(account)은 개인의 잔액이나 스마트 컨트랙트에 관한 정보를 포함하는 데이터 구조입니다. Klaytn은 계정 모델을 재설계하여 더 나은 DX 및 UX를 제공하도록 만들었습니다. 계정 모델에 대한 자세한 정보는 [여기](../accounts.md)서 찾을 수 있습니다.
 
-### Transaction
+### 트랜잭션 (Transaction)
 
 블록체인 플랫폼의 트랜잭션은 블록체인의 상태를 변경하는 노드간 전송되는 메시지입니다. Klaytn은 트랜잭션 모델 또한 재설계했습니다. 트랜잭션은 성능 최적화하고, 새로 설계된 계정 모델을 지원할 수 있도록 트랜잭션의 목적에 따라 여러 종류로 분류되었습니다.  계정 모델에 대한 자세한 정보는 [여기](../transactions/)서 찾을 수 있습니다.
 
 ### 상태 (State)
 
-Klaytn's **state** is a collection of account states. Klaytn의 노드들이 같은 블록들을 같은 순서대로 처리했다면 상태는 Klaytn 네트워크의 모든 노드에서 동일해야 합니다. 상태는 Klaytn 노드에서 트랜잭션이 실행될 때 변경됩니다.
+Klaytn의 **상태**는 계정 상태를 모은 것입니다. Klaytn의 노드들이 같은 블록들을 같은 순서대로 처리했다면 상태는 Klaytn 네트워크의 모든 노드에서 동일해야 합니다. 상태는 Klaytn 노드에서 트랜잭션이 실행될 때 변경됩니다.
 
 아래 표는 상태에 저장된 계정 데이터를 보여줍니다.
 
@@ -42,27 +42,27 @@ Klaytn's **state** is a collection of account states. Klaytn의 노드들이 같
 | StorageRoot | 계정에 저장된 모든 변수들의 값을 포함하는 Merkle Patricia trie 루트의 256비트 해시값입니다.                                                                      |
 | CodeHash    | 계정의 바이트코드의 해시값입니다.  이 값은 변경할 수 없으며, 스마트 컨트랙트가 생성 될 때만 설정됩니다.  계정이 EOA 또는 EA인 경우, 이 값은 null의 해시값으로 설정됩니다.                            |
 
-### Block
+### 블록
 
 블록체인은 문자 그대로 블록을 체인으로 연결한 것이기 때문에 블록은 Klaytn 블록체인의 아주 중요한 요소입니다. 아래 표는 블록의 구성 요소를 보여줍니다.
 
-| 구성요소         | 설명                                                                                                 |
-|:------------ |:-------------------------------------------------------------------------------------------------- |
-| ParentHash   | 부모 블록의 해시값                                                                                         |
-| Rewardbase   | 블록 보상을 받는 계정 주소                                                                                    |
-| Root         | 블록체인 상태의 Merkle Patricia Trie 루트의 해시값                                                              |
-| TxHash       | 블록에 포함된 트랜잭션들의 해시값                                                                                 |
-| ReceiptHash  | The hash of the receipts of transactions included in the block.                                    |
-| Bloom        | The Bloom filter value of the receipts.                                                            |
-| Number       | 이전 블록 수와 동일한 정숫값                                                                                   |
-| GasUsed      | 블록에서 트랜잭션을 처리하는 데 사용된 가스                                                                           |
-| Time         | 블록 생성시 Unix 타임스탬프와 동일한 정숫값                                                                         |
-| Extra        | RLP encoded string which includes validators list, proposer's seal and committed validators' seals |
-| Transactions | 블록에 포함된 트랜잭션들                                                                                      |
+| 구성요소        | 설명                                                                                                 |
+|:----------- |:-------------------------------------------------------------------------------------------------- |
+| ParentHash  | 부모 블록의 해시값                                                                                         |
+| Rewardbase  | 블록 보상을 받는 계정 주소                                                                                    |
+| Root        | 블록체인 상태의 Merkle Patricia Trie 루트의 해시값                                                              |
+| TxHash      | 블록에 포함된 트랜잭션들의 해시값                                                                                 |
+| ReceiptHash | The hash of the receipts of transactions included in the block.                                    |
+| Bloom       | The Bloom filter value of the receipts.                                                            |
+| Number      | 이전 블록 수와 동일한 정숫값                                                                                   |
+| GasUsed     | 블록에서 트랜잭션을 처리하는 데 사용된 가스                                                                           |
+| Time        | 블록 생성시 Unix 타임스탬프와 동일한 정숫값                                                                         |
+| Extra       | RLP encoded string which includes validators list, proposer's seal and committed validators' seals |
+| 트랜잭션        | 블록에 포함된 트랜잭션들                                                                                      |
 
 ## 스마트 컨트랙트
 
-A _smart contract_ consists of a collection of code \(functions\) and data \(state\) that resides at a specific address on the Klaytn blockchain. 컨트랙트 계정은 실질적으로 튜링 완전한 연산을 수행 할 뿐만 아니라 서로 간에 메시지를 전달할 수 있습니다. 스마트 컨트랙트는 블록체인 상에 클레이튼 고유의 바이너리 형식으로 존재합니다. 현재 Klaytn은 한가지 바이너리 형식 (Ethereum Virtual Machine \(EVM\) 바이트 코드)를 지원합니다. 하지만 다른 형식들도 미래에 지원될 것입니다.
+_스마트 컨트랙트_는 Klaytn 블록체인의 특정 주소에 있는 코드\(functions\)와 데이터 \(state\)의 모음입니다. 컨트랙트 계정은 실질적으로 튜링 완전한 연산을 수행 할 뿐만 아니라 서로 간에 메시지를 전달할 수 있습니다. 스마트 컨트랙트는 블록체인 상에 클레이튼 고유의 바이너리 형식으로 존재합니다. 현재 Klaytn은 한가지 바이너리 형식 (Ethereum Virtual Machine \(EVM\) 바이트 코드)를 지원합니다. 하지만 다른 형식들도 미래에 지원될 것입니다.
 
 ### 스마트 컨트랙트 작성
 
@@ -74,7 +74,7 @@ A _smart contract_ consists of a collection of code \(functions\) and data \(sta
 
 ### 스마트 컨트랙트 비활성화
 
-스마트 컨트랙트는 Klaytn 블록체인 상에 존재하기 때문에 삭제될 수 없습니다. 오직 비활성화 될 수만 있습니다. 현재 Klaytn 스마트 컨트랙트를 비활성화기 위해서는 이더리움에서 사용된 방식과 같은 방식을 이용할 수 있습니다. For example, the Klaytn smart contract for KLVM can be disabled by using the [`selfdestruct(address recipient)`](https://solidity.readthedocs.io/en/v0.5.6/introduction-to-smart-contracts.html#self-destruct) call in Solidity \(or the KLVM opcode `SELFDESTRUCT`\). Klaytn팀은 다른 실행 환경에서 스마트 컨트랙트를 비활성화하는 방법도 제공할 예정입니다.
+스마트 컨트랙트는 Klaytn 블록체인 상에 존재하기 때문에 삭제될 수 없습니다. 오직 비활성화 될 수만 있습니다. 현재 Klaytn 스마트 컨트랙트를 비활성화기 위해서는 이더리움에서 사용된 방식과 같은 방식을 이용할 수 있습니다. 예를 들어, Klaytn 스마트 컨트랙트는 솔리디티의 [`selfdestruct(address recipient)`](https://solidity.readthedocs.io/en/v0.5.6/introduction-to-smart-contracts.html#self-destruct) 호출이나 \(the KLVM opcode `SELFDESTRUCT`\)을 이용하여 비활성화 될 수 있습니다. Klaytn팀은 다른 실행 환경에서 스마트 컨트랙트를 비활성화하는 방법도 제공할 예정입니다.
 
 ### 스마트 컨트랙트 업그레이드
 
