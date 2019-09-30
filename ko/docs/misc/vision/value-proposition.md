@@ -1,4 +1,4 @@
-Klaytn은 대상 고객군을 세 가지로 구분합니다. 1) 일반 사용자, 2) 서비스 제공자, 3) 기업입니다. Klaytn’s Value Proposition that is provided to them is **Hassle-Free and Hybrid Blockchain Optimized for Services and Enterprises.** It is easy for ordinary users to use and, it provides the optimized blockchain environment to service and enterprises.
+Klaytn은 대상 고객군을 세 가지로 구분합니다. 1) 일반 사용자, 2) 서비스 제공자, 3) 기업입니다. 이들에게 제공하는 Klaytn의 Value Proposition은 **Hassle-Free and Hybrid Blockchain Optimized for Services and Enterprises** 입니다. 일반 사용자들이 사용하기 쉽고, 서비스와 기업들에게 최적화된 블록체인 환경을 제공하는 것입니다.
 
 ### 1) 일반 사용자 관점: 최초의 블록체인 경험을 제공해 주는 플랫폼
 
