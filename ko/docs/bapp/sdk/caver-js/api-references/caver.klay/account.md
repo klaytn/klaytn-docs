@@ -15,7 +15,7 @@ This default address is used as the default `from` property, if no `from` proper
 
 20-byte `String` - Any Klaytn address.  You should have the private key for that address in your node or keystore.  Default is `undefined`.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.defaultAccount;
@@ -37,9 +37,9 @@ Returns `true` if the account associated with the address is created. It returns
 
 **Parameters**
 
-| Name         | Type                 | 설명                                                                                                                                    |
+| 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address of the account you want to query to see if it has been created on the network.                                            |
+| 주소           | String               | The address of the account you want to query to see if it has been created on the network.                                            |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
 
@@ -47,7 +47,7 @@ Returns `true` if the account associated with the address is created. It returns
 
 `Promise` returns `Boolean` - The existence of an input address.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.accountCreated('0x7e6ea9e6f24567cd9edb92e6e2d9b94bdae8a47f').then(console.log);
@@ -69,9 +69,9 @@ Returns the account information of a given address. There are two different acco
 
 **Parameters**
 
-| Name         | Type                 | 설명                                                                                                                                    |
+| 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address of the account for which you want to get account information.                                                             |
+| 주소           | String               | The address of the account for which you want to get account information.                                                             |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
 
@@ -79,7 +79,7 @@ Returns the account information of a given address. There are two different acco
 
 `Promise` returns a JSON object - A JSON object that contains the account information.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.getAccount('0x52791fcf7900a64a6bcab8b89a78ae4cc60da01c').then(console.log);
@@ -118,7 +118,7 @@ Returns a list of accounts that the node controls.
 
 **Parameters**
 
-| Name     | Type     | 설명                                                                                                         |
+| 명칭       | 형식       | 설명                                                                                                         |
 | -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -126,7 +126,7 @@ Returns a list of accounts that the node controls.
 
 `Promise` returns `Array` - An array of addresses controlled by node.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.getAccounts().then(console.log);
@@ -146,9 +146,9 @@ Returns the account key of the Externally Owned Account (EOA) of the given addre
 
 **Parameters**
 
-| Name         | Type                 | 설명                                                                                                                                    |
+| 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address of the account for which you want to get accountKey.                                                                      |
+| 주소           | String               | The address of the account for which you want to get accountKey.                                                                      |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
 
@@ -156,7 +156,7 @@ Returns the account key of the Externally Owned Account (EOA) of the given addre
 
 `Promise` returns `Object` - The account key consist of public key(s) and a key type.
 
-**Example**
+**예시**
 
 ```javascript
 // AccountKey type: AccountKeyLegacy
@@ -251,9 +251,9 @@ Gets the balance of an address at a given block.
 
 **Parameters**
 
-| Name         | Type                 | 설명                                                                                                                                    |
+| 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address to get the balance of.                                                                                                    |
+| 주소           | String               | The address to get the balance of.                                                                                                    |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
 
@@ -261,7 +261,7 @@ Gets the balance of an address at a given block.
 
 `Promise` returns `String` - The current balance for the given address in peb.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.getBalance("0x407d73d8a49eeb85d32cf465507dd71d507100c1").then(console.log);
@@ -279,9 +279,9 @@ Gets the code at a specific address.
 
 **Parameters**
 
-| Name         | Type                 | 설명                                                                                                                                    |
+| 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address to get the code from.                                                                                                     |
+| 주소           | String               | The address to get the code from.                                                                                                     |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
 
@@ -289,7 +289,7 @@ Gets the code at a specific address.
 
 `Promise` returns `String` - The data at given address `address`.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.getCode("0xd5677cf67b5aa051bb40496e68ad359eb97cfbf8").then(console.log);
@@ -308,19 +308,19 @@ Gets the number of transactions sent from this address.
 
 **Parameters**
 
-| Name         | Type                 | 설명                                                                                                                                    |
+| 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address to get the number of transactions from.                                                                                   |
+| 주소           | String               | The address to get the number of transactions from.                                                                                   |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
 
 **Return Value**
 
-| Type   | 설명                                                      |
+| 형식     | 설명                                                      |
 | ------ | ------------------------------------------------------- |
 | Number | The number of transactions sent from the given address. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.getTransactionCount("0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe")
@@ -338,9 +338,9 @@ Returns `true` if an input account has a non-empty codeHash at the time of a spe
 
 **Parameters**
 
-| Name         | Type                 | 설명                                                                                                                                    |
+| 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address of the account you want to check for isContractAccount.                                                                   |
+| 주소           | String               | The address of the account you want to check for isContractAccount.                                                                   |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
 
@@ -348,7 +348,7 @@ Returns `true` if an input account has a non-empty codeHash at the time of a spe
 
 `Promise` returns `Boolean` - `true` means the input parameter is an existing smart contract address.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.isContractAccount('0x7e6ea9e6f24567cd9edb92e6e2d9b94bdae8a47f').then(console.log);
@@ -370,17 +370,17 @@ Generates signed data specific to the Klaytn network. Refer to [Klaytn Platform 
 
 **Parameters**
 
-| Name     | Type     | 설명                                                                                                         |
+| 명칭       | 형식       | 설명                                                                                                         |
 | -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | message  | String   | Message to sign.                                                                                           |
-| address  | String   | The address of the account to sign the message with.                                                       |
+| 주소       | String   | The address of the account to sign the message with.                                                       |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `String` - The message signature signed with the account's private key.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.sign('Message to sign', '0x1427ac5d0f1c3174ee6ea05d29a9b05fd31d7579').then(console.log)
