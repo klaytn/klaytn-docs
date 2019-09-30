@@ -1,8 +1,8 @@
-# Launch an Endpoint Node
+# Endpoint Node 실행
 
 ## Endpoint Node\(EN\) 다운로드 및 초기화
 
-Unzip the provided [ken binary package](../../node/endpoint-node/installation-guide/download.md) and copy the files into the klaytn folder. **Note**: Please download appropriate package starting with `ken`.
+제공된 [ken 바이너리 패키지](../../node/endpoint-node/installation-guide/download.md)의 압축을 해제하고 파일을 Klaytn 폴더에 복사합니다. **참고**: `ken`으로 시작하는 적절한 패키지를 다운로드하세요.
 
 Mac 사용자의 경우, 다음 명령으로 다운로드한 파일을 압축 해제합니다.
 
