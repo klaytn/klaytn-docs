@@ -16,7 +16,7 @@ An account in a typical blockchain platform is associated with a cryptographical
 
 Those are big hurdles that users cannot think of an address as an identifier in the blockchain platform. To clear this hurdle, Klaytn provides a feature that users can choose their addresses and key pairs. With this feature, users can choose addresses that they want and they can use multiple key pairs to increase security. The number of key pairs can be one or more, and the key pairs can have different roles. For details of multiple key pairs or role-based keys, please refer to [Multiple Key Pairs & Role-Based Keys](accounts.md#multiple-key-pairs-and-role-based-keys).
 
-It is worth noting that Klaytn also supports the old scheme that a key pair and an address is strongly coupled.
+It is worth noting that Klaytn also supports the old scheme that a key pair and an address are strongly coupled.
 
 ### Multiple Key Pairs and Role-Based Keys
 

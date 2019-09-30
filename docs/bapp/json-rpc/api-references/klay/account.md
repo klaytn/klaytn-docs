@@ -132,7 +132,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getAccountKey
 
-Returns the account key of the Externally Owned Account (EOA) at a given address. If the account has AccountKeyLegacy or the account of the given address is a Smart Contract Account, it will return an empty key value. See [Account Key](../../../../klaytn/design/accounts.md#account-key).
+Returns the account key of the Externally Owned Account (EOA) of a given address. If the account has AccountKeyLegacy or the account of the given address is a Smart Contract Account, it will return an empty key value. See [Account Key](../../../../klaytn/design/accounts.md#account-key).
 
 **Parameters**
 
