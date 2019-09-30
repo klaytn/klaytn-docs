@@ -24,7 +24,7 @@ Polling method for a filter, which returns an array of logs which occurred since
 | blockHash        | 32-byte DATA  | Hash of the block where this log was in. `null` when pending.                                                                                                                                                                                |
 | blockNumber      | QUANTITY      | The block number where this log was in. `null` when pending.                                                                                                                                                                                 |
 | address          | 20-byte DATA  | Address from which this log originated.                                                                                                                                                                                                      |
-| data             | DATA          | Contains the non-indexed arguments of the log.                                                                                                                                                                                               |
+| 데이터              | DATA          | Contains the non-indexed arguments of the log.                                                                                                                                                                                               |
 | topics           | Array of DATA | Array of 0 to 4 32-byte DATA of indexed log arguments. (In Solidity: The first topic is the hash of the signature of the event (*e.g.*, `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.). |
 
 **Example**
