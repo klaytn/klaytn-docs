@@ -84,7 +84,7 @@ Returns a block matching the block hash or block number.
 | extraData        | String          | The "extra data" field of this block.                                                                              |
 | gasUsed          | Number          | The total used gas by all transactions in this block.                                                              |
 | governanceData   | DATA            | RLP encoded governance configuration                                                                               |
-| hash             | 32-byte String  | Hash of the block. `null` when it is a pending block.                                                              |
+| 해시               | 32-byte String  | Hash of the block. `null` when it is a pending block.                                                              |
 | logsBloom        | 256-byte String | The bloom filter for the logs of the block. `null` when it is a pending block.                                     |
 | number           | Number          | The block number. `null` when it is a pending block.                                                               |
 | parentHash       | 32-byte String  | Hash of the parent block.                                                                                          |
@@ -234,7 +234,7 @@ Returns a block with consensus information matched by the given block hash or bl
 | extraData        | String          | The "extra data" field of this block.                                                                                                                 |
 | gasUsed          | QUANTITY        | The total used gas by all transactions in this block.                                                                                                 |
 | governanceData   | DATA            | RLP encoded governance configuration                                                                                                                  |
-| hash             | 32-byte DATA    | Hash of the block. `null` when it is a pending block.                                                                                                 |
+| 해시               | 32-byte DATA    | Hash of the block. `null` when it is a pending block.                                                                                                 |
 | logsBloom        | 256-byte String | The bloom filter for the logs of the block. `null` when it is a pending block.                                                                        |
 | number           | QUANTITY        | The block number. `null` when it is a pending block.                                                                                                  |
 | parentHash       | 32-byte DATA    | Hash of the parent block.                                                                                                                             |
