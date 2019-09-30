@@ -9,7 +9,7 @@ Returns the Keccak-256 hash (not the standardized SHA3-256) of the given data.
 
 **Parameters**
 
-| Name     | Type     | 설명                                                                                                         |
+| 명칭       | 형식       | 설명                                                                                                         |
 | -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | 데이터      | String   | The data to convert into a SHA3 hash.                                                                      |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
@@ -18,7 +18,7 @@ Returns the Keccak-256 hash (not the standardized SHA3-256) of the given data.
 
 `Promise` returns `String` - The SHA3 result of the given data.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.sha3("0x11223344").then(console.log);
