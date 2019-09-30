@@ -31,7 +31,7 @@ The options object contains the following:
 | from     | String | (optional) The address from which transactions should be made.                  |
 | gasPrice | String | (optional) The gas price in peb to use for transactions.                        |
 | gas      | Number | (optional) The maximum gas provided for a transaction (gas limit).              |
-| data     | String | (optional) The byte code of the contract. Used when the contract gets deployed. |
+| 데이터      | String | (optional) The byte code of the contract. Used when the contract gets deployed. |
 
 
 **Return Value**
@@ -69,7 +69,7 @@ The `options` object for the contract instance. `from`, `gas` and `gasPrice` are
 | ------------- | ------ | --------------------------------------------------------------------------------------------- |
 | address       | String | The address where the contract is deployed.  Also see [options.address](#optionsaddress).     |
 | jsonInterface | Array  | The JSON interface of the contract.  Also see [options.jsonInterface](#optionsjsoninterface). |
-| data          | String | The byte code of the contract. Used when the contract gets deployed.                          |
+| 데이터           | String | The byte code of the contract. Used when the contract gets deployed.                          |
 | from          | String | The address from which transactions should be made.                                           |
 | gasPrice      | String | The gas price in peb to use for transactions.                                                 |
 | gas           | Number | The maximum gas provided for a transaction (gas limit).                                       |
@@ -193,7 +193,7 @@ Deploys the contract to the Klaytn blockchain.  After successful deployment, the
 
 | Name      | Type   | 설명                                                                         |
 | --------- | ------ | -------------------------------------------------------------------------- |
-| data      | String | The byte code of the contract.                                             |
+| 데이터       | String | The byte code of the contract.                                             |
 | arguments | Array  | (optional) The arguments that get passed to the constructor on deployment. |
 
 **Return Value**
@@ -667,7 +667,7 @@ The options object can contain the following:
 
 | Name  | Type   | 설명                                                              |
 | ----- | ------ | --------------------------------------------------------------- |
-| data  | Object | Fires on each incoming event with the event object as argument. |
+| 데이터   | Object | Fires on each incoming event with the event object as argument. |
 | error | Object | Fires when an error in the subscription occurs.                 |
 
 The structure of the returned event `Object` looks as follows:
