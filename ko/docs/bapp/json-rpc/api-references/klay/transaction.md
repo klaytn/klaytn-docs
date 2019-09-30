@@ -18,7 +18,7 @@ Executes a new message call immediately without creating a transaction on the bl
 | gas      | QUANTITY     | (optional) Integer of the gas provided for the transaction execution. `klay_call` consumes zero gas, but this parameter may be needed by some executions. |
 | gasPrice | QUANTITY     | (optional) Integer of the gasPrice used for each paid gas.                                                                                                |
 | value    | QUANTITY     | (optional) Integer of the value sent with this transaction.                                                                                               |
-| data     | DATA         | (optional) Hash of the method signature and encoded parameters.                                                                                           |
+| 데이터      | DATA         | (optional) Hash of the method signature and encoded parameters.                                                                                           |
 
 **Return Value**
 
@@ -225,7 +225,7 @@ Returns the information about a transaction requested by transaction hash. This 
 | from               | 20-byte DATA | Address of the sender.                                                                                                                                                                                                  |
 | gas                | QUANTITY     | Gas provided by the sender.                                                                                                                                                                                             |
 | gasPrice           | QUANTITY     | Gas price provided by the sender in peb.                                                                                                                                                                                |
-| hash               | 32-byte DATA | Hash of the transaction.                                                                                                                                                                                                |
+| 해시                 | 32-byte DATA | Hash of the transaction.                                                                                                                                                                                                |
 | humanReadable      | Boolean      | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                         |
 | key                | String       | (optional) Key of the newly created account.                                                                                                                                                                            |
 | input              | DATA         | (optional) The data sent along with the transaction.                                                                                                                                                                    |
@@ -308,7 +308,7 @@ Returns the information about a transaction requested by sender transaction hash
 | from               | 20-byte DATA | Address of the sender.                                                                                                                                                                                                  |
 | gas                | QUANTITY     | Gas provided by the sender.                                                                                                                                                                                             |
 | gasPrice           | QUANTITY     | Gas price provided by the sender in peb.                                                                                                                                                                                |
-| hash               | 32-byte DATA | Hash of the transaction.                                                                                                                                                                                                |
+| 해시                 | 32-byte DATA | Hash of the transaction.                                                                                                                                                                                                |
 | humanReadable      | Boolean      | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                         |
 | key                | String       | (optional) Key of the newly created account.                                                                                                                                                                            |
 | input              | DATA         | (optional) The data sent along with the transaction.                                                                                                                                                                    |
@@ -601,7 +601,7 @@ Creates a new message call transaction or a contract creation if the data field 
 | gas      | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas. |
 | gasPrice | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                             |
 | value    | QUANTITY     | (optional) Integer of the value sent with this transaction.                                                      |
-| data     | DATA         | The compiled code of a contract or the hash of the invoked method signature and encoded parameters.              |
+| 데이터      | DATA         | The compiled code of a contract or the hash of the invoked method signature and encoded parameters.              |
 | nonce    | QUANTITY     | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce.   |
 
 **Return Value**
@@ -650,7 +650,7 @@ Creates a rawTransaction based on the give transaction information.
 | gas      | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas. |
 | gasPrice | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                             |
 | value    | QUANTITY     | (optional) Integer of the value sent with this transaction.                                                      |
-| data     | DATA         | The compiled code of a contract or the hash of the invoked method signature and encoded parameters.              |
+| 데이터      | DATA         | The compiled code of a contract or the hash of the invoked method signature and encoded parameters.              |
 | nonce    | QUANTITY     | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce.   |
 
 
