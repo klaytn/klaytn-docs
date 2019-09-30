@@ -34,7 +34,7 @@ $ mv nodekey ~/kcnd_home
 
 The created file `node_info.json` includes the following contents.
 
-| Key Name    | 설명                                   | Example                                                                                                                                                                 |
+| Key Name    | 설명                                   | 예시                                                                                                                                                                      |
 |:----------- |:------------------------------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | NodeAddress | an address of the associated node    | 0xc8a23d67f2471066fa1b07270651fea7e5c0cf78                                                                                                                              |
 | NodeKey     | the node key \(a.k.a private key\) | aaa7248dfdf19418ae9121a0f39db39c5c27a3e404ea7c1b8e020ca8dbe7e71a                                                                                                        |
