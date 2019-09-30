@@ -6,14 +6,14 @@ You can start/stop the Klaytn service with the following `systemctl` command.
 
 **Note**: This requires root privileges.
 
-**실행**
+**start**
 
 ```bash
 $ systemctl start kpnd.service
 
 ```
 
-**중지**
+**stop**
 
 ```bash
 $ systemctl stop kpnd.service
