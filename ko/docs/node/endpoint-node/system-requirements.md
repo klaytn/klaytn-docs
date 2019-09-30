@@ -14,7 +14,7 @@ EN에는 다음 사양을 권장합니다.
 |:------------------------ |:------ |:--------- |:---------- |:-------------- |:--------------- |:----------------- |
 | m5.2xlarge (recommended) | 8      | 32        | EBS 전용     | 3,500          | 최대 10           | 0.472             |
 
-The information above is from [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/) and [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/) and may be changed by AWS.
+위 정보의 출처는 [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/)과 [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/)이며, AWS에 의해 변경될 수도 있습니다.
 
 ### 베어 머신
 
@@ -26,5 +26,5 @@ Assuming 100 TPS in average,  300 bytes average transaction size, and 1-second b
 
 ## 운영 체제
 
-Recommended environment is [Amazon Linux 2](https://aws.amazon.com/ko/about-aws/whats-new/2017/12/introducing-amazon-linux-2/). Klaytn binaries are fully tested on Amazon Linux 2, but they should work on other linux-based environments as well. macOS binaries are also provided for development purpose. 
+[Amazon Linux 2](https://aws.amazon.com/ko/about-aws/whats-new/2017/12/introducing-amazon-linux-2/) 환경을 권장합니다. Klaytn 바이너리는 Amazon Linux 2에서 충분히 테스트 되었고, 리눅스 기반의 다른 환경에서도 가능합니다. 또한 개발 지원을 위해 macOS 용 바이너리도 제공하고 있습니다. 
 
