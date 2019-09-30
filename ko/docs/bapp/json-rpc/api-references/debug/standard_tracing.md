@@ -14,7 +14,7 @@ Similar to [debug_traceBadBlock](./tracing.md#debug_tracebadblock), `standardTra
 
 | Name    | Type         | 설명                                                         |
 | ------- | ------------ | ---------------------------------------------------------- |
-| hash    | 32-byte DATA | Hash of a block.                                           |
+| 해시      | 32-byte DATA | Hash of a block.                                           |
 | options | object       | See [standard tracing options](#standard-tracing-options). |
 
 **Return Value**
@@ -51,7 +51,7 @@ Similar to [debug_traceBlock](./tracing.md#debug_traceblock), `standardTraceBloc
 
 | Name    | Type         | 설명                                                         |
 | ------- | ------------ | ---------------------------------------------------------- |
-| hash    | 32-byte DATA | Hash of a block.                                           |
+| 해시      | 32-byte DATA | Hash of a block.                                           |
 | options | object       | See [standard tracing options](#standard-tracing-options). |
 
 **Return Value**
