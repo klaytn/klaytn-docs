@@ -103,7 +103,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 * Block Reward: 새로 발행된 KLAY \(9.6 KLAY\)와 블록에서 사용된 트랜잭션 비용의 합계입니다. 마우스 포인터를 가져가면 Klaytn Governance Council 보상, 기여증명, Klaytn 개선 준비금에 대한 자세한 정보를 확인할 수 있습니다. 블록 보상 분배 시스템에 대한 자세한 내용은 [Klaytn Token Economy](../klaytn/design/token-economy.md)를 참고하세요.
 * Block Size: 블록의 바이트 단위 크기입니다. 많은 트랜잭션이 담겨 있을수록 블록의 크기가 더 커집니다.
 
-#### Committee
+#### 위원회
 
 블록을 제안하고 검증하는 합의 노드의 목록입니다.
 
