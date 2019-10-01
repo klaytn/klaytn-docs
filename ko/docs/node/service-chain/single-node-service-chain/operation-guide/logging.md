@@ -1,16 +1,16 @@
-# Logging
+# 로깅
 
-## Log File Location
-
-
-
-## Log File Format
+## 로그 파일 위치
 
 
 
-## Log Levels
+## 로그 파일 형식
 
 
 
-## Error Logs
+## 로그 레벨
+
+
+
+## 에러 로그
 
