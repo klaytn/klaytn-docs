@@ -8,7 +8,7 @@ description: >-
 The `caver-klay` package allows you to interact with the Klaytn nodes.  The list below enumerates the API functions that are currently supported in `caver-js`.
 
 
-### [Account](./caver.klay/account.md)
+### [계정 (Account)](./caver.klay/account.md)
 - [defaultAccount](./caver.klay/account.md#defaultaccount)
 - [accountCreated](./caver.klay/account.md#accountcreated)
 - [getAccount](./caver.klay/account.md#getaccount)
@@ -21,7 +21,7 @@ The `caver-klay` package allows you to interact with the Klaytn nodes.  The list
 - [sign](./caver.klay/account.md#sign)
 
 
-### [Block](./caver.klay/block.md)
+### [블록](./caver.klay/block.md)
 - [defaultBlock](./caver.klay/block.md#defaultblock)
 - [getBlockNumber](./caver.klay/block.md#getblocknumber)
 - [getBlock](./caver.klay/block.md#getblock)
@@ -37,7 +37,7 @@ The `caver-klay` package allows you to interact with the Klaytn nodes.  The list
 - [isSyncing](./caver.klay/block.md#issyncing)
 
 
-### [Transaction](./caver.klay/transaction.md)
+### [트랜잭션 (Transaction)](./caver.klay/transaction.md)
 
 - [call](./caver.klay/transaction.md#call)
 - [estimateGas](./caver.klay/transaction.md#estimategas)
@@ -71,7 +71,7 @@ The `caver-klay` package allows you to interact with the Klaytn nodes.  The list
 - [signTransaction](./caver.klay/transaction.md#signtransaction)
 
 
-## [Configuration](./caver.klay/config.md)
+## [환경 설정](./caver.klay/config.md)
 - [gasPriceAt](./caver.klay/config.md#gaspriceat)
 - [getChainId](./caver.klay/config.md#getchainid)
 - [getGasPrice](./caver.klay/config.md#getgasprice)
