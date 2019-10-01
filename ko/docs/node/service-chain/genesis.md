@@ -29,7 +29,7 @@ The `config` field stores the information related to the chain.
 | istanbul, clique | The type of consensus engine.                                                      |
 | unitPrice        | Unit price.                                                                        |
 | deriveShaImpl    | Defines a method to generate transaction hash and receipt hash.                    |
-| 거버넌스             | Governance information of the network. See the section [Governance](#governance)   |
+| governance       | Governance information of the network. See the section [Governance](#governance)   |
 
 
 ## extraData
@@ -42,11 +42,11 @@ The field `extraData` is a concatenation of the proposer vanity and the RLP-enco
      - Seal: the proposer signature of the header. For `genesis.json`, it is a byte array initialized with 65 `0x0`.
      - CommittedSeal: the list of commitment signature seals as consensus proof. For `genesis.json`, it is an empty array.
 
-**Example**
-| Field         | Type                      | 값                                                                                       |
+**예시**
+| Field         | 형식                        | 값                                                                                       |
 | ------------- | ------------------------- | --------------------------------------------------------------------------------------- |
 | Vanity        | 32-byte hex string        | 0x0000000000000000000000000000000000000000000000000000000000000000                      |
-| Validators    | []address                 | [0x48009b4e20ec72aadf306577cbe2eaf54b0ebb16,0x089fcc42fd83baeee4831319375413b8bae3aceb] |
+| Validators    | []주소                      | [0x48009b4e20ec72aadf306577cbe2eaf54b0ebb16,0x089fcc42fd83baeee4831319375413b8bae3aceb] |
 | Seal          | byte array of 65 elements | [0x0,...,0x0]                                                                           |
 | CommittedSeal | [][]byte                  | []                                                                                      |
 
@@ -79,7 +79,7 @@ The `istanbul` field stores the configuration for Istanbul based sealing.
 | Fields | 설명                                                                                   |
 | ------ | ------------------------------------------------------------------------------------ |
 | epoch  | The number of blocks to reset votes to be a checkpoint.                              |
-| policy | The block proposer selection policy. [0: Round Robin, 1: Sticky, 2: Weighted Random] |
+| 정책     | The block proposer selection policy. [0: Round Robin, 1: Sticky, 2: Weighted Random] |
 | sub    | Committee size.                                                                      |
 
 # 거버넌스 (Governance)
@@ -90,7 +90,7 @@ The `governance` field stores governance information for a network.
 | -------------- | -------------------------------------------------------------------------------------- |
 | governingNode  | One of three governance modes. [`none`, `single`, `ballot`]                            |
 | governanceMode | Designated governing node's address. It only works if the governance mode is `single`. |
-| reward         | It stores the reward configuration. See the section [Reward](#reward).                 |
+| 보상             | It stores the reward configuration. See the section [Reward](#reward).                 |
 
 ## 보상
 
@@ -106,7 +106,7 @@ The `reward` field stores the information about the network's token economy.
 | proposerUpdateInterval | Time interval in block height to update proposer information.                                  |
 | minimumStake           | Minimum amount of peb to join Core Cell Operators.                                             |
 
-# Example
+# 예시
 
 ```
 {
