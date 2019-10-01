@@ -17,7 +17,7 @@ None
 
 None
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -48,7 +48,7 @@ None
 
 See [https://golang.org/pkg/runtime/debug/#GCStats](https://golang.org/pkg/runtime/debug/#GCStats) for information about the fields of the returned object.
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -86,7 +86,7 @@ None
 
 See [https://golang.org/pkg/runtime/#MemStats](https://golang.org/pkg/runtime/#MemStats) for information about the fields of the returned object.
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -129,17 +129,17 @@ Retrieves all the known system metrics collected by the node.
 
 **Parameters**
 
-| Name | Type | 설명                                                    |
-| ---- | ---- | ----------------------------------------------------- |
-| raw  | bool | `true` If raw data is output as it is, `false` If not |
+| 명칭  | 형식   | 설명                                                    |
+| --- | ---- | ----------------------------------------------------- |
+| raw | bool | `true` If raw data is output as it is, `false` If not |
 
 **Return Value**
 
-| Type        | 설명                                            |
+| 형식          | 설명                                            |
 | ----------- | --------------------------------------------- |
 | JSON string | The structured metrics collected by the node. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -210,13 +210,13 @@ Sets the garbage collection target percentage. It returns the previous setting. 
 
 **Parameters**
 
-| Name    | Type    | 설명                                    |
+| 명칭      | 형식      | 설명                                    |
 | ------- | ------- | ------------------------------------- |
 | Percent | integer | Garbage collection target percentage. |
 
 **Return Value**
 
-| Type    | 설명                                             |
+| 형식      | 설명                                             |
 | ------- | ---------------------------------------------- |
 | integer | Previous garbage collection target percentage. |
 
@@ -256,11 +256,11 @@ None
 
 **Return Value**
 
-| Type   | 설명                                       |
+| 형식     | 설명                                       |
 | ------ | ---------------------------------------- |
 | string | The stack information of all goroutines. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
