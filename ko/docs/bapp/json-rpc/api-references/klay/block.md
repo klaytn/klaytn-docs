@@ -20,11 +20,11 @@ None
 
 **Return Value**
 
-| Type     | 설명                                                    |
+| 형식       | 설명                                                    |
 | -------- | ----------------------------------------------------- |
 | QUANTITY | Integer of the current block number the client is on. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -45,7 +45,7 @@ Returns information about a block by block number. This API works only on RPC ca
 
 **Parameters**
 
-| Type                | 설명                                                                                                                                                   |
+| 형식                  | 설명                                                                                                                                                   |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](#the-default-block-parameter). |
 | Boolean             | If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.                                                   |
@@ -54,7 +54,7 @@ Returns information about a block by block number. This API works only on RPC ca
 
 See [klay_getBlockByHash](#klay_getblockbyhash)
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -98,7 +98,7 @@ Returns information about a block by hash. This API works only on RPC call, not 
 
 **Parameters**
 
-| Type         | 설명                                                                                                 |
+| 형식           | 설명                                                                                                 |
 | ------------ | -------------------------------------------------------------------------------------------------- |
 | 32-byte DATA | Hash of a block.                                                                                   |
 | Boolean      | If `true` it returns the full transaction objects, if `false` only the hashes of the transactions. |
@@ -107,7 +107,7 @@ Returns information about a block by hash. This API works only on RPC call, not 
 
 `Object` - A block object, or `null` when no block was found:
 
-| Name             | Type          | 설명                                                                                                 |
+| 명칭               | 형식            | 설명                                                                                                 |
 | ---------------- | ------------- | -------------------------------------------------------------------------------------------------- |
 | number           | QUANTITY      | The block number. `null` when it is pending block.                                                 |
 | 해시               | 32-byte DATA  | Hash of the block. `null` when it is pending block.                                                |
@@ -116,7 +116,7 @@ Returns information about a block by hash. This API works only on RPC call, not 
 | transactionsRoot | 32-byte DATA  | The root of the transaction trie of the block.                                                     |
 | stateRoot        | 32-byte DATA  | The root of the final state trie of the block.                                                     |
 | receiptsRoot     | 32-byte DATA  | The root of the receipts trie of the block.                                                        |
-| reward           | 20-byte DATA  | The address of the beneficiary to whom the block rewards were given.                               |
+| 보상               | 20-byte DATA  | The address of the beneficiary to whom the block rewards were given.                               |
 | blockScore       | QUANTITY      | Former difficulty. Always 1 in the BFT consensus engine                                            |
 | totalBlockScore  | QUANTITY      | Integer of the total blockScore of the chain until this block.                                     |
 | extraData        | DATA          | The "extra data" field of this block.                                                              |
@@ -124,11 +124,11 @@ Returns information about a block by hash. This API works only on RPC call, not 
 | gasUsed          | QUANTITY      | The total used gas by all transactions in this block.                                              |
 | timestamp        | QUANTITY      | The Unix timestamp for when the block was collated.                                                |
 | timestampFoS     | QUANTITY      | The fraction of a second of the timestamp for when the block was collated.                         |
-| transactions     | Array         | Array of transaction objects, or 32-byte transaction hashes depending on the last given parameter. |
+| 트랜잭션             | Array         | Array of transaction objects, or 32-byte transaction hashes depending on the last given parameter. |
 | governanceData   | DATA          | RLP encoded governance configuration                                                               |
 | voteData         | DATA          | RLP encoded governance vote of the proposer                                                        |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -171,7 +171,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 Returns receipts included in a block identified by block hash.
 
 **Parameters**
-| Type         | 설명         |
+| 형식           | 설명         |
 | ------------ | ---------- |
 | 32-byte DATA | Block hash |
 
@@ -179,7 +179,7 @@ Returns receipts included in a block identified by block hash.
 
 Receipts included in a block.  If the target block contains no transaction, an empty array `[]` is returned.
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -229,17 +229,17 @@ Returns the number of transactions in a block matching the given block number.
 
 **Parameters**
 
-| Type                | 설명                                                                                                                                                   |
+| 형식                  | 설명                                                                                                                                                   |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](#the-default-block-parameter). |
 
 **Return Value**
 
-| Type     | 설명                                                   |
+| 형식       | 설명                                                   |
 | -------- | ---------------------------------------------------- |
 | QUANTITY | Integer of the number of transactions in this block. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -260,17 +260,17 @@ Returns the number of transactions in a block from a block matching the given bl
 
 **Parameters**
 
-| Type         | 설명              |
+| 형식           | 설명              |
 | ------------ | --------------- |
 | 32-byte DATA | Hash of a block |
 
 **Return Value**
 
-| Type     | 설명                                                   |
+| 형식       | 설명                                                   |
 | -------- | ---------------------------------------------------- |
 | QUANTITY | Integer of the number of transactions in this block. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -291,7 +291,7 @@ Returns a block with consensus information matched by the given hash.
 
 **Parameters**
 
-| Type         | 설명               |
+| 형식           | 설명               |
 | ------------ | ---------------- |
 | 32-byte DATA | Hash of a block. |
 
@@ -299,7 +299,7 @@ Returns a block with consensus information matched by the given hash.
 
 `Object` - A block object with consensus information (a proposer and a list of committee members), or `null` when no block was found:
 
-| Name             | Type         | 설명                                                                                                                                                    |
+| 명칭               | 형식           | 설명                                                                                                                                                    |
 | ---------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | blockScore       | QUANTITY     | Former difficulty. Always 1 in the BFT consensus engine                                                                                               |
 | totalBlockScore  | QUANTITY     | Integer of the total blockScore of the chain until this block.                                                                                        |
@@ -314,10 +314,10 @@ Returns a block with consensus information matched by the given hash.
 | stateRoot        | 32-byte DATA | The root of the final state trie of the block.                                                                                                        |
 | timestamp        | QUANTITY     | The Unix timestamp for when the block was collated.                                                                                                   |
 | timestampFoS     | QUANTITY     | The fraction of a second of the timestamp for when the block was collated.                                                                            |
-| transactions     | Array        | Array of transaction objects.                                                                                                                         |
+| 트랜잭션             | Array        | Array of transaction objects.                                                                                                                         |
 | transactionsRoot | 32-byte DATA | The root of the transaction trie of the block.                                                                                                        |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -399,7 +399,7 @@ Returns a block with consensus information matched by the given block number.
 
 **Parameters**
 
-| Type                | 설명                                                                   |
+| 형식                  | 설명                                                                   |
 | ------------------- | -------------------------------------------------------------------- |
 | QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"` or `"latest"`. |
 
@@ -407,7 +407,7 @@ Returns a block with consensus information matched by the given block number.
 
 `Object` - A block object with consensus information (a proposer and a list of committee members), or `null` when no block was found:
 
-| Name             | Type         | 설명                                                                                                                                                    |
+| 명칭               | 형식           | 설명                                                                                                                                                    |
 | ---------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | blockScore       | QUANTITY     | Former difficulty. Always 1 in the BFT consensus engine                                                                                               |
 | totalBlockScore  | QUANTITY     | Integer of the total blockScore of the chain until this block.                                                                                        |
@@ -422,10 +422,10 @@ Returns a block with consensus information matched by the given block number.
 | stateRoot        | 32-byte DATA | The root of the final state trie of the block.                                                                                                        |
 | timestamp        | QUANTITY     | The Unix timestamp for when the block was collated.                                                                                                   |
 | timestampFoS     | QUANTITY     | The fraction of a second of the timestamp for when the block was collated.                                                                            |
-| transactions     | Array        | Array of transaction objects.                                                                                                                         |
+| 트랜잭션             | Array        | Array of transaction objects.                                                                                                                         |
 | transactionsRoot | 32-byte DATA | The root of the transaction trie of the block.                                                                                                        |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -506,7 +506,7 @@ Returns a list of all validators in the committee at the specified block. If the
 
 **Parameters**
 
-| Name                 | Type    | 설명                                                                              |
+| 명칭                   | 형식      | 설명                                                                              |
 | -------------------- | ------- | ------------------------------------------------------------------------------- |
 | QUANTITY  &#124; TAG | Integer | (optional) Integer of a block number, or the string `"earliest"` or `"latest"`. |
 
@@ -514,11 +514,11 @@ Returns a list of all validators in the committee at the specified block. If the
 
 `Array` - Array of addresses of all validators in the committee, or `null` when no committee was found:
 
-| Type                  | 설명                                            |
+| 형식                    | 설명                                            |
 | --------------------- | --------------------------------------------- |
 | Array of 20-byte DATA | Addresses of all validators in the committee. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -541,7 +541,7 @@ Returns the size of the committee at the specified block. If the parameter is no
 
 **Parameters**
 
-| Name                 | Type    | 설명                                                                              |
+| 명칭                   | 형식      | 설명                                                                              |
 | -------------------- | ------- | ------------------------------------------------------------------------------- |
 | QUANTITY  &#124; TAG | Integer | (optional) Integer of a block number, or the string `"earliest"` or `"latest"`. |
 
@@ -549,11 +549,11 @@ Returns the size of the committee at the specified block. If the parameter is no
 
 `Integer` - The size of the committee, or `-1` when no committee was found:
 
-| Type     | 설명                      |
+| 형식       | 설명                      |
 | -------- | ----------------------- |
 | QUANTITY | The size of the council |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -574,7 +574,7 @@ Returns a list of all validators of the council at the specified block. If the p
 
 **Parameters**
 
-| Name                 | Type    | 설명                                                                              |
+| 명칭                   | 형식      | 설명                                                                              |
 | -------------------- | ------- | ------------------------------------------------------------------------------- |
 | QUANTITY  &#124; TAG | Integer | (optional) Integer of a block number, or the string `"earliest"` or `"latest"`. |
 
@@ -582,11 +582,11 @@ Returns a list of all validators of the council at the specified block. If the p
 
 `Array` - Array of validator addresses of the council, or `null` when no council was found:
 
-| Type                  | 설명                                          |
+| 형식                    | 설명                                          |
 | --------------------- | ------------------------------------------- |
 | Array of 20-byte DATA | Addresses of all validators of the council. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -609,7 +609,7 @@ Returns the size of the council at the specified block. If the parameter is not 
 
 **Parameters**
 
-| Name                 | Type    | 설명                                                                              |
+| 명칭                   | 형식      | 설명                                                                              |
 | -------------------- | ------- | ------------------------------------------------------------------------------- |
 | QUANTITY  &#124; TAG | Integer | (optional) Integer of a block number, or the string `"earliest"` or `"latest"`. |
 
@@ -617,11 +617,11 @@ Returns the size of the council at the specified block. If the parameter is not 
 
 `Integer` - The size of the council, or `-1` when no council was found:
 
-| Type     | 설명                      |
+| 형식       | 설명                      |
 | -------- | ----------------------- |
 | QUANTITY | The size of the council |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -641,7 +641,7 @@ Returns the value from a storage position at a given address.
 
 **Parameters**
 
-| Type                | 설명                                                                                                                                            |
+| 형식                  | 설명                                                                                                                                            |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | 20-byte DATA        | Address of the storage.                                                                                                                       |
 | QUANTITY            | Integer of the position in the storage.                                                                                                       |
@@ -649,11 +649,11 @@ Returns the value from a storage position at a given address.
 
  **Return Value**
 
-| Type | 설명                                  |
+| 형식   | 설명                                  |
 | ---- | ----------------------------------- |
 | DATA | The value at this storage position. |
 
-**Example**
+**예시**
 
 Calculating the correct position depends on the storage to retrieve. Consider the following contract deployed at `0x295a70b2de5e3953354a6a8344e616ed314d7251` by address `0x391694e7e0b0cce554cb130d723a9d27458f9298`.
 
@@ -713,11 +713,11 @@ None
 
 **Return Value**
 
-| Type    | 설명                                                 |
+| 형식      | 설명                                                 |
 | ------- | -------------------------------------------------- |
 | Boolean | `true` if the client is mining, otherwise `false`. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -744,7 +744,7 @@ None
 
 `Object|Boolean`, an object with sync status data or `false` when not syncing:
 
-| Name          | Type     | 설명                                                                                                                 |
+| 명칭            | 형식       | 설명                                                                                                                 |
 | ------------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
 | startingBlock | QUANTITY | The block at which the import started (will only be reset, after the sync reached his head).                       |
 | currentBlock  | QUANTITY | The current block, same as `klay_blockNumber`.                                                                     |
@@ -752,7 +752,7 @@ None
 | pulledStates  | QUANTITY | The number of state entries processed until now.  If the sync mode is not "fast", zero is returned.                |
 | knownStates   | QUANTITY | The number of known state entries that still need to be pulled.  If the sync mode is not "fast", zero is returned. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
