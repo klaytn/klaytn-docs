@@ -8,7 +8,7 @@ description: >-
 The namespace `debug` gives you access to several non-standard RPC methods, which will allow you to inspect, debug and set certain debugging flags at run time.
 
 
-## [Logging](./debug/logging.md)
+## [로깅](./debug/logging.md)
 
 - [debug_backtraceAt](./debug/logging.md#debug_backtraceat)
 - [debug_setVMLogTarget](./debug/logging.md#debug_setvmlogtarget)
