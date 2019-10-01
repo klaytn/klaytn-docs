@@ -21,18 +21,18 @@ Returns the address of the imported account.
 
 **Parameters**
 
-| Name       | Type   | 설명                                                                                                                                                   |
+| 명칭         | 형식     | 설명                                                                                                                                                   |
 | ---------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | keydata    | string | The unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
 | passphrase | string | The pass phrase for encryption.                                                                                                                      |
 
 **Return Value**
 
-| Name    | Type   | 설명                                   |
-| ------- | ------ | ------------------------------------ |
-| address | string | The address of the imported account. |
+| 명칭 | 형식     | 설명                                   |
+| -- | ------ | ------------------------------------ |
+| 주소 | string | The address of the imported account. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -66,13 +66,13 @@ None
 
 **Return Value**
 
-| Type   | 설명                                           |
+| 형식     | 설명                                           |
 | ------ | -------------------------------------------- |
 | string | The list of all the Klaytn account addresses |
 
 None
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -99,17 +99,17 @@ At the Klaytn console, `newAccount` will prompt for a passphrase when it is not 
 
 **Parameters**
 
-| Name       | Type   | 설명                                              |
+| 명칭         | 형식     | 설명                                              |
 | ---------- | ------ | ----------------------------------------------- |
 | passphrase | string | (optional) the pass phrase used for encryption. |
 
 **Return Value**
 
-| Type   | 설명                              |
+| 형식     | 설명                              |
 | ------ | ------------------------------- |
 | string | The address of the new account. |
 
-**Example**
+**예시**
 
 Console
 ``` javascript
@@ -144,17 +144,17 @@ Removes the private key with a given address from memory. The account can no lon
 
 **Parameters**
 
-| Name    | Type   | 설명                           |
-| ------- | ------ | ---------------------------- |
-| address | string | The account address to lock. |
+| 명칭 | 형식     | 설명                           |
+| -- | ------ | ---------------------------- |
+| 주소 | string | The account address to lock. |
 
 **Return Value**
 
-| Type | 설명                                                                |
+| 형식   | 설명                                                                |
 | ---- | ----------------------------------------------------------------- |
 | bool | `true` if the account was successfully locked, `false` otherwise. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -185,19 +185,19 @@ The account can be used with `klay_sign` and `klay_sendTransaction` while it is 
 
 **Parameters**
 
-| Name       | Type   | 설명                                                       |
+| 명칭         | 형식     | 설명                                                       |
 | ---------- | ------ | -------------------------------------------------------- |
-| address    | string | The account address to unlock.                           |
+| 주소         | string | The account address to unlock.                           |
 | passphrase | string | the passphrase used for the encryption.                  |
 | duration   | int    | (optional) the unlock duration (default to 300 seconds). |
 
 **Return Value**
 
-| Type | 설명                                    |
+| 형식   | 설명                                    |
 | ---- | ------------------------------------- |
 | bool | `true` if unlocked, `false` otherwise |
 
-**Example**
+**예시**
 
 Console
 ``` javascript
@@ -241,7 +241,7 @@ Returns the address of the replaced account if successful.
 
 **Parameters**
 
-| Name          | Type   | 설명                                                                                                                                                   |
+| 명칭            | 형식     | 설명                                                                                                                                                   |
 | ------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | keydata       | string | The unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
 | oldPassphrase | string | The passphrase to decrypt the old private key.                                                                                                       |
@@ -249,11 +249,11 @@ Returns the address of the replaced account if successful.
 
 **Return Value**
 
-| Name    | Type   | 설명                                   |
-| ------- | ------ | ------------------------------------ |
-| address | string | The address of the replaced account. |
+| 명칭 | 형식     | 설명                                   |
+| -- | ------ | ------------------------------------ |
+| 주소 | string | The address of the replaced account. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -281,18 +281,18 @@ Validates the given passphrase and submits a [TxTypeAccountUpdate](../../../klay
 
 **Parameters**
 
-| Name       | Type   | 설명                                                        |
+| 명칭         | 형식     | 설명                                                        |
 | ---------- | ------ | --------------------------------------------------------- |
 | tx         | string | A transaction object. `from` and `key` must be specified. |
 | passphrase | string | The passphrase to decrypt the private key of `tx.from`.   |
 
 **Return Value**
 
-| Type           | 설명                                                              |
+| 형식             | 설명                                                              |
 | -------------- | --------------------------------------------------------------- |
 | 32-byte string | a transaction hash if succeeded. Otherwise, an error is raised. |
 
-**Example**
+**예시**
 
 Console
 ``` javascript
@@ -320,18 +320,18 @@ Validates the given passphrase and submits a [TxTypeLegacy](../../../klaytn/desi
 
 **Parameters**
 
-| Name       | Type   | 설명                                                                 |
+| 명칭         | 형식     | 설명                                                                 |
 | ---------- | ------ | ------------------------------------------------------------------ |
 | tx         | string | A transaction object. `from`, `to`, and `value` must be specified. |
 | passphrase | string | The passphrase to decrypt the private key of `tx.from`.            |
 
 **Return Value**
 
-| Type           | 설명                                                              |
+| 형식             | 설명                                                              |
 | -------------- | --------------------------------------------------------------- |
 | 32-byte string | a transaction hash if succeeded. Otherwise, an error is raised. |
 
-**Example**
+**예시**
 
 Console
 ``` javascript
@@ -359,18 +359,18 @@ Validates the given passphrase and submits a [TxTypeValueTransfer](../../../klay
 
 **Parameters**
 
-| Name       | Type   | 설명                                                                 |
+| 명칭         | 형식     | 설명                                                                 |
 | ---------- | ------ | ------------------------------------------------------------------ |
 | tx         | string | A transaction object. `from`, `to`, and `value` must be specified. |
 | passphrase | string | The passphrase to decrypt the private key of `tx.from`.            |
 
 **Return Value**
 
-| Type           | 설명                                                              |
+| 형식             | 설명                                                              |
 | -------------- | --------------------------------------------------------------- |
 | 32-byte string | a transaction hash if succeeded. Otherwise, an error is raised. |
 
-**Example**
+**예시**
 
 Console
 ``` javascript
@@ -402,19 +402,19 @@ See `personal_ecRecover` to verify the signature.
 
 **Parameters**
 
-| Name     | Type   | 설명                                           |
-| -------- | ------ | -------------------------------------------- |
-| message  | string | A message to sign.                           |
-| account  | string | The account address.                         |
-| password | string | (optional) the pass phrase used for signing. |
+| 명칭           | 형식     | 설명                                           |
+| ------------ | ------ | -------------------------------------------- |
+| message      | string | A message to sign.                           |
+| 계정 (Account) | string | The account address.                         |
+| password     | string | (optional) the pass phrase used for signing. |
 
 **Return Value**
 
-| Type   | 설명           |
+| 형식     | 설명           |
 | ------ | ------------ |
 | string | A signature. |
 
-**Example**
+**예시**
 
 Console
 ``` javascript
@@ -439,18 +439,18 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 **Parameters**
 
-| Name      | Type   | 설명             |
+| 명칭        | 형식     | 설명             |
 | --------- | ------ | -------------- |
 | message   | string | A message.     |
 | signature | string | The signature. |
 
 **Return Value**
 
-| Type   | 설명                   |
+| 형식     | 설명                   |
 | ------ | -------------------- |
 | string | The account address. |
 
-**Example**
+**예시**
 
 Console
 
