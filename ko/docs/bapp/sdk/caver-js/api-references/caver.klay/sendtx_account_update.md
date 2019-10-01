@@ -9,7 +9,7 @@ Sends an [Account Update](../../../../../klaytn/design/transactions/basic.md#txt
 
 **Parameters**
 
-| Name                                   | Type     | 설명                                                                                                                                                                                                                                                                                          |
+| 명칭                                     | 형식       | 설명                                                                                                                                                                                                                                                                                          |
 | -------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionObject                      | Object   | The transaction object to send.                                                                                                                                                                                                                                                             |
 | transactionObject.type                 | String   | The type of "ACCOUNT_UPDATE" transaction.                                                                                                                                                                                                                                                   |
@@ -35,7 +35,7 @@ The `callback` will return the 32-byte transaction hash.
 - `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
 - `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
-**Example**
+**예시**
 
 ```javascript
 const account = caver.klay.accounts.wallet.add('0x{private key}')
@@ -66,7 +66,7 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
 
 // Case 2: Updating account with fail key
 
@@ -94,7 +94,7 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
 
 // Case 3: Updating account with weighted-multisig
 
@@ -138,7 +138,7 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
 
 // Case 4: Updating account with role-based key
 
@@ -182,7 +182,7 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
 ```
 
 
@@ -195,7 +195,7 @@ Sends a [Fee Delegated Account Update](../../../../../klaytn/design/transactions
 
 **Parameters**
 
-| Name                                   | Type     | 설명                                                                                                                                                                                                                                                                                          |
+| 명칭                                     | 형식       | 설명                                                                                                                                                                                                                                                                                          |
 | -------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionObject                      | Object   | The transaction object to send.                                                                                                                                                                                                                                                             |
 | transactionObject.type                 | String   | The type of "FEE_DELEGATED_ACCOUNT_UPDATE" transaction.                                                                                                                                                                                                                                   |
@@ -223,7 +223,7 @@ The `callback` will return the 32-byte transaction hash.
 - `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
 - `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
-**Example**
+**예시**
 
 ```javascript
 const sender = caver.klay.accounts.wallet.add('0x{private key}')
@@ -264,7 +264,7 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
 ```
 
 
@@ -277,7 +277,7 @@ Sends a [Fee Delegated Account Update With Ratio](../../../../../klaytn/design/t
 
 **Parameters**
 
-| Name                                   | Type     | 설명                                                                                                                                                                                                                                                                                          |
+| 명칭                                     | 형식       | 설명                                                                                                                                                                                                                                                                                          |
 | -------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionObject                      | Object   | The transaction object to send.                                                                                                                                                                                                                                                             |
 | transactionObject.type                 | String   | The type of "FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO" transaction.                                                                                                                                                                                                                      |
@@ -306,7 +306,7 @@ The `callback` will return the 32-byte transaction hash.
 - `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
 - `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
-**Example**
+**예시**
 
 ```javascript
 const sender = caver.klay.accounts.wallet.add('0x{private key}')
@@ -349,6 +349,6 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
 ```
 
