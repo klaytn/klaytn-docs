@@ -6,18 +6,18 @@ Returns Keccak-256 (not the standardized SHA3-256) of the given data.
 
 **Parameters**
 
-| Name | Type | 설명                                    |
+| 명칭   | 형식   | 설명                                    |
 | ---- | ---- | ------------------------------------- |
-| 데이터  | DATA | The data to convert into a SHA3 hash. |
+| data | DATA | The data to convert into a SHA3 hash. |
 
 **Return Value**
 
-| Type         | 설명                                 |
+| 형식           | 설명                                 |
 | ------------ | ---------------------------------- |
 | 32-byte DATA | The SHA3 result of the given data. |
 
 
-**Example**
+**예시**
 
 ```shell
 // Request
