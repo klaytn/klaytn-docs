@@ -1,7 +1,6 @@
 files: [
  {
   "source" : "doc/",
-  "translation" : "%original_path%/%original_file_name%",
-  "content_segmentation": 0
+  "translation" : "%original_path%/%original_file_name%"
   }
 ]
