@@ -1,6 +1,6 @@
 # Klaytnscope
 
-Klaytnscope is the block explorer for the Klaytn Network. Klaytnscope는 네트워크 상태를 모니터링하고 다양한 통계를 제공하여 Klaytn 네트워크에 대해 깊은 이해를 하도록 도와줍니다. 또한 블록 및 트랜잭션 데이터와 Klaytn 네트워크의 스마트 컨트랙트 리스트도 탐색할 수 있습니다.
+Klaytnscope는 Klaytn 네트워크의 블록 탐색기입니다. Klaytnscope는 네트워크 상태를 모니터링하고 다양한 통계를 제공하여 Klaytn 네트워크에 대해 깊은 이해를 하도록 도와줍니다. 또한 블록 및 트랜잭션 데이터와 Klaytn 네트워크의 스마트 컨트랙트 리스트도 탐색할 수 있습니다.
 
 * Baobab 네트워크에 대한 자세한 내용은 [https://baobab.scope.klaytn.com](https://baobab.scope.klaytn.com)을 참고해주세요.
 * 메인넷에 대한 자세한 내용은 [https://scope.klaytn.com](https://scope.klaytn.com)을 참고해주세요.
@@ -70,7 +70,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 * Reward: 새로 발행된 KLAY \(9.6 KLAY\)와 블록에서 사용된 트랜잭션 비용의 합계입니다. 이 목록에서는 Klaytn Governance Council 보상, 기여증명, Klaytn 개선 준비금의 합계만 나타납니다. 상세 정보를 보려면 블록 상세 보기 페이지의 블록 보상 섹션에 마우스 포인터를 가져가세요. 블록 보상 분배 시스템에 대한 자세한 내용은 [Klaytn Token Economy](../klaytn/design/token-economy.md)를 참고하세요.
 * Size: 블록의 바이트 단위 크기입니다. 많은 트랜잭션이 담겨 있을수록 블록의 크기가 더 커집니다.
 
-### Transactions
+### 트랜잭션
 
 ![](img/scope_05_tx_list.png)
 
@@ -88,7 +88,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 
 이 페이지를 통해 블록, 트랜잭션, 계정, 컨트랙트 하나씩의 자세한 정보를 확인할 수 있습니다. 상세 보기로 이동하려면 검색 창에서 검색하거나 목록 보기에서 항목을 클릭하세요.
 
-### Block
+### 블록
 
 ![](img/scope_08_block_detail.png)
 
@@ -110,11 +110,11 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 * Block Proposer: 블록을 제안한 합의 노드입니다. 블록을 생성한 노드는 무작위적이지만 한편으론 결정론적으로 선택됩니다. 이 주소를 클릭하여 노드의 상세 보기 페이지로 쉽게 이동할 수 있습니다.
 * Validators: 블록을 검증하는 합의 노드입니다. 이 주소를 클릭하여 노드의 상세 보기 페이지로 쉽게 이동할 수 있습니다.
 
-#### Transactions
+#### 트랜잭션
 
 블록에 담긴 트랜잭션들의 목록입니다.
 
-### Transaction
+### 트랜잭션 (Transaction)
 
 ![](img/scope_09_tx_detail.png)
 
@@ -141,7 +141,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 
 트랜잭션 발신자나 컨트랙트에 의해 입력된 추가 데이터입니다.
 
-### Account
+### 계정 (Account)
 
 ![](img/scope_10_account_detail.png)
 
@@ -154,7 +154,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 * Total TXs: 계정이 보내거나 받은 트랜잭션의 총 개수입니다.
 * HRA: 계정 유형이 HRA인지 여부를 나타냅니다. \(TBD\)
 
-#### Transactions
+#### 트랜잭션
 
 계정과 관련된 트랜잭션의 목록입니다. 화살표의 색은 이 계정이 발신자인지 수신자인지 나타냅니다.
 
@@ -173,7 +173,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 * Contract Created TX: 컨트랙트를 배포한 트랜잭션입니다. 해시를 클릭하여 트랜잭션의 상세 보기 페이지로 이동할 수 있습니다.
 * HRA: 컨트랙트 계정의 유형이 HRA인지 여부를 나타냅니다. \(TBD\)
 
-#### Transactions
+#### 트랜잭션
 
 컨트랙트와 관련된 트랜잭션의 목록입니다.
 
@@ -196,7 +196,7 @@ Klaytnscope를 통해 계정, 컨트랙트, 트랜잭션, 블록에 대한 정�
 
 각 키워드의 특징은 다음과 같습니다.
 
-#### Block
+#### 블록
 
 * 10진수만 가능합니다. \[0~9\]
 
