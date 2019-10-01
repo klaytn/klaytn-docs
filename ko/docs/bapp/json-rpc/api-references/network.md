@@ -18,11 +18,11 @@ None
 
 **Return Value**
 
-| Type     | 설명                                                                                                                                                              |
+| 형식       | 설명                                                                                                                                                              |
 | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | QUANTITY | The integer of the network identifier.<br />    - `"1000"`: Klaytn Aspen testnet.<br />    - `"1001"`: Klaytn Baobab testnet. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -47,11 +47,11 @@ None
 
 **Return Value**
 
-| Type    | 설명                                        |
+| 형식      | 설명                                        |
 | ------- | ----------------------------------------- |
 | Boolean | `true` when listening, otherwise `false`. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -76,11 +76,11 @@ None
 
 **Return Value**
 
-| Type     | 설명                                        |
+| 형식       | 설명                                        |
 | -------- | ----------------------------------------- |
 | QUANTITY | Integer of the number of connected peers. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -104,11 +104,11 @@ None
 
 **Return Value**
 
-| Type        | 설명                                                                                    |
+| 형식          | 설명                                                                                    |
 | ----------- | ------------------------------------------------------------------------------------- |
 | JSON string | The number of connected peers by type as well as the total number of connected peers. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
