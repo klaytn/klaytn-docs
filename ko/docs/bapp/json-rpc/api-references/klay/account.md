@@ -4,18 +4,18 @@ Returns `true` if the account associated with the address is created. It returns
 
 **Parameters**
 
-| Name         | Type                | 설명                                                                                                                                                      |
+| 명칭           | 형식                  | 설명                                                                                                                                                      |
 | ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account      | 20-byte DATA        | 주소                                                                                                                                                      |
+| 계정 (Account) | 20-byte DATA        | 주소                                                                                                                                                      |
 | block number | QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
 
 **Return Value**
 
-| Type    | 설명                                |
+| 형식      | 설명                                |
 | ------- | --------------------------------- |
 | Boolean | The existence of an input address |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -40,11 +40,11 @@ None
 
 **Return Value**
 
-| Type                  | 설명                             |
+| 형식                    | 설명                             |
 | --------------------- | ------------------------------ |
 | Array of 20-byte DATA | Addresses owned by the client. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -65,18 +65,18 @@ Returns the account information of a given address. There are two different acco
 
 **Parameters**
 
-| Type                | 설명                                                                                                                                                      |
+| 형식                  | 설명                                                                                                                                                      |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 20-byte DATA        | 주소                                                                                                                                                      |
 | QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
 
 **Return Value**
 
-| Type    | 설명                                          |
-| ------- | ------------------------------------------- |
-| Account | Each account type has different attributes. |
+| 형식           | 설명                                          |
+| ------------ | ------------------------------------------- |
+| 계정 (Account) | Each account type has different attributes. |
 
-**Example**
+**예시**
 
 ```shell
 // Request (Account type: Externally Owned Account)
@@ -136,18 +136,18 @@ Returns the account key of the Externally Owned Account (EOA) of a given address
 
 **Parameters**
 
-| Type                | 설명                                                                                                                                                      |
+| 형식                  | 설명                                                                                                                                                      |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 20-byte DATA        | 주소                                                                                                                                                      |
 | QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
 
 **Return Value**
 
-| Type       | 설명                                                       |
+| 형식         | 설명                                                       |
 | ---------- | -------------------------------------------------------- |
 | AccountKey | The account key consist of public key(s) and a key type. |
 
-**Example**
+**예시**
 
 ```shell
 // Request (AccountKey type: AccountKeyPublic)
@@ -220,18 +220,18 @@ Returns the balance of the account of given address.
 
 **Parameters**
 
-| Type                | 설명                                                                                                                                                      |
+| 형식                  | 설명                                                                                                                                                      |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 20-byte DATA        | Address to check for balance.                                                                                                                           |
 | QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
 
 **Return Value**
 
-| Type     | 설명                                     |
+| 형식       | 설명                                     |
 | -------- | -------------------------------------- |
 | QUANTITY | Integer of the current balance in peb. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -251,18 +251,18 @@ Returns code at a given address.
 
 **Parameters**
 
-| Type                | 설명                                                                                                                                                      |
+| 형식                  | 설명                                                                                                                                                      |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 20-byte DATA        | 주소                                                                                                                                                      |
 | QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
 
 **Return Value**
 
-| Type | 설명                               |
+| 형식   | 설명                               |
 | ---- | -------------------------------- |
 | DATA | The code from the given address. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -283,18 +283,18 @@ Returns the number of transactions *sent* from an address.
 
 **Parameters**
 
-| Type                | 설명                                                                                                                                                      |
+| 형식                  | 설명                                                                                                                                                      |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 20-byte DATA        | 주소                                                                                                                                                      |
 | QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
 
 **Return Value**
 
-| Type     | 설명                                                            |
+| 형식       | 설명                                                            |
 | -------- | ------------------------------------------------------------- |
 | QUANTITY | Integer of the number of transactions send from this address. |
 
-**Example**
+**예시**
 
  ```shell
 // Request
@@ -317,18 +317,18 @@ Returns `true` if an input account has a non-empty codeHash at the time of a spe
 
 **Parameters**
 
-| Name         | Type                | 설명                                                                                                                                                      |
+| 명칭           | 형식                  | 설명                                                                                                                                                      |
 | ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account      | 20-byte DATA        | 주소                                                                                                                                                      |
+| 계정 (Account) | 20-byte DATA        | 주소                                                                                                                                                      |
 | block number | QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
 
 **Return Value**
 
-| Type    | 설명                                                                      |
+| 형식      | 설명                                                                      |
 | ------- | ----------------------------------------------------------------------- |
 | Boolean | `true` means the input parameter is an existing smart contract address. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -355,18 +355,18 @@ Adding a prefix to the message makes the calculated signature recognizable as a 
 
 **Parameters**
 
-| Name    | Type         | 설명              |
-| ------- | ------------ | --------------- |
-| account | 20-byte DATA | 주소              |
-| message | N-byte DATA  | Message to sign |
+| 명칭           | 형식           | 설명              |
+| ------------ | ------------ | --------------- |
+| 계정 (Account) | 20-byte DATA | 주소              |
+| message      | N-byte DATA  | Message to sign |
 
 **Return Value**
 
-| Type | 설명        |
+| 형식   | 설명        |
 | ---- | --------- |
 | DATA | Signature |
 
-**Example**
+**예시**
 
 ```shell
 // Request
