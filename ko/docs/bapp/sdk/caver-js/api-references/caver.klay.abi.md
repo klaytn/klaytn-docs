@@ -17,13 +17,13 @@ Encodes the function signature to its ABI signature, which are the first 4 bytes
 
 **Parameters**
 
-| Name              | Type                 | 설명                                                                                                                                                                                             |
+| 명칭                | 형식                   | 설명                                                                                                                                                                                             |
 | ----------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | functionSignature | String &#124; Object | The function signature or the JSON interface object of the function to encode. If String it has to be in the form `function(type,type,...)`, e.g: `myFunction(uint256,uint32[],bytes10,bytes)` |
 
 **Return Value**
 
-| Type   | 설명                                 |
+| 형식     | 설명                                 |
 | ------ | ---------------------------------- |
 | String | The ABI signature of the function. |
 
@@ -59,13 +59,13 @@ Encodes the event signature to its ABI signature, which is the sha3 hash of the 
 
 **Parameters**
 
-| Name           | Type                 | 설명                                                                                                                                                                                 |
+| 명칭             | 형식                   | 설명                                                                                                                                                                                 |
 | -------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | eventSignature | String &#124; Object | The event signature or the JSON interface object of the event to encode. If string it has to be in the form `event(type,type,...)`, e.g: `myEvent(uint256,uint32[],bytes10,bytes)` |
 
 **Return Value**
 
-| Type   | 설명                              |
+| 형식     | 설명                              |
 | ------ | ------------------------------- |
 | String | The ABI signature of the event. |
 
@@ -101,14 +101,14 @@ Encodes a parameter based on its type to its ABI representation.
 
 **Parameters**
 
-| Name      | Type                 | 설명                                                                                                                                      |
+| 명칭        | 형식                   | 설명                                                                                                                                      |
 | --------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| type      | String &#124; Object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)  for a list of types. |
+| 형식        | String &#124; Object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)  for a list of types. |
 | parameter | Mixed                | The actual parameter to encode.                                                                                                         |
 
 **Return Value**
 
-| Type   | 설명                         |
+| 형식     | 설명                         |
 | ------ | -------------------------- |
 | String | The ABI encoded parameter. |
 
@@ -138,14 +138,14 @@ Encodes function parameters based on its JSON interface object.
 
 **Parameters**
 
-| Name       | Type                                  | 설명                                                                                                                                                                 |
+| 명칭         | 형식                                    | 설명                                                                                                                                                                 |
 | ---------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | typesArray | Array<String&#124;Object>&#124;Object | An array with types or a JSON interface of a function. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
 | parameters | Array                                 | The parameters to encode.                                                                                                                                          |
 
 **Return Value**
 
-| Type   | 설명                          |
+| 형식     | 설명                          |
 | ------ | --------------------------- |
 | String | The ABI encoded parameters. |
 
@@ -169,14 +169,14 @@ Encodes a function call using its JSON interface object and given parameters.
 
 **Parameters**
 
-| Name          | Type   | 설명                                       |
+| 명칭            | 형식     | 설명                                       |
 | ------------- | ------ | ---------------------------------------- |
 | jsonInterface | Object | The JSON interface object of a function. |
 | parameters    | Array  | The parameters to encode.                |
 
 **Return Value**
 
-| Type   | 설명                                                                          |
+| 형식     | 설명                                                                          |
 | ------ | --------------------------------------------------------------------------- |
 | String | The ABI encoded function call, which means function signature + parameters. |
 
@@ -207,14 +207,14 @@ Decodes an ABI encoded parameter to its JavaScript type.
 
 **Parameters**
 
-| Name      | Type               | 설명                                                                                                                                     |
+| 명칭        | 형식                 | 설명                                                                                                                                     |
 | --------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
-| type      | String&#124;Object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
+| 형식        | String&#124;Object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
 | hexString | Array              | The ABI byte code to decode.                                                                                                           |
 
 **Return Value**
 
-| Type  | 설명                     |
+| 형식    | 설명                     |
 | ----- | ---------------------- |
 | Mixed | The decoded parameter. |
 
@@ -237,14 +237,14 @@ caver.klay.abi.decodeParameters(typesArray, hexString)
 Decodes ABI encoded parameters to its JavaScript types.
 
 **Parameters**
-| Name       | Type                                  | 설명                                                                                                                                                                 |
+| 명칭         | 형식                                    | 설명                                                                                                                                                                 |
 | ---------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | typesArray | Array<String&#124;Object>&#124;Object | An array with types or a JSON interface outputs array. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
 | hexString  | String                                | The ABI byte code to decode.                                                                                                                                       |
 
 **Return Value**
 
-| Type   | 설명                                                   |
+| 형식     | 설명                                                   |
 | ------ | ---------------------------------------------------- |
 | Object | The result object containing the decoded parameters. |
 
@@ -278,7 +278,7 @@ caver.klay.abi.decodeLog(inputs, hexString, topics)
 Decodes ABI encoded log data and indexed topic data.
 
 **Parameters**
-| Name      | Type   | 설명                                                                                                                                         |
+| 명칭        | 형식     | 설명                                                                                                                                         |
 | --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | inputs    | Array  | A JSON interface inputs array. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
 | hexString | String | The ABI byte code in the `data` field of a log.                                                                                            |
@@ -286,7 +286,7 @@ Decodes ABI encoded log data and indexed topic data.
 
 **Return Value**
 
-| Type   | 설명                                                   |
+| 형식     | 설명                                                   |
 | ------ | ---------------------------------------------------- |
 | Object | The result object containing the decoded parameters. |
 
@@ -326,7 +326,7 @@ caver.klay.abi.encodeContractDeploy(jsonInterface, hexString, params)
 Encode smart contract bytecode with the arguments of the constructor.
 
 **Parameters**
-| Name          | Type   | 설명                                           |
+| 명칭            | 형식     | 설명                                           |
 | ------------- | ------ | -------------------------------------------- |
 | jsonInterface | Array  | The JSON interface of the contract.          |
 | hexString     | String | A bytecode of smart contract to be deployed. |
@@ -334,7 +334,7 @@ Encode smart contract bytecode with the arguments of the constructor.
 
 **Return Value**
 
-| Type   | 설명                                                                                                       |
+| 형식     | 설명                                                                                                       |
 | ------ | -------------------------------------------------------------------------------------------------------- |
 | String | The ABI encoded smart contract deployment with constructor arguments, which means byteCode + parameters. |
 
