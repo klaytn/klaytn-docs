@@ -4,7 +4,7 @@ Polling method for a filter, which returns an array of logs which occurred since
 
 **Parameters**
 
-| Name     | Type   | 설명                                    |
+| 명칭       | 형식     | 설명                                    |
 | -------- | ------ | ------------------------------------- |
 | QUANTITY | string | The filter id (*e.g.*, "0x16" // 22). |
 
@@ -15,7 +15,7 @@ Polling method for a filter, which returns an array of logs which occurred since
 - For filters created with [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter), the return are transaction hashes (32-byte DATA), *e.g.*, `["0x6345343454645..."]`.
 - For filters created with [klay_newFilter](#klay_newfilter), logs are objects with following parameters:
 
-| Name             | Type          | 설명                                                                                                                                                                                                                                           |
+| 명칭               | 형식            | 설명                                                                                                                                                                                                                                           |
 | ---------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | removed          | TAG           | `true` when the log was removed, due to a chain reorganization. `false` if it is a valid log.                                                                                                                                                |
 | logIndex         | QUANTITY      | Integer of the log index position in the block. `null` when it is a pending log.                                                                                                                                                             |
@@ -23,11 +23,11 @@ Polling method for a filter, which returns an array of logs which occurred since
 | transactionHash  | 32-byte DATA  | Hash of the transactions this log was created from. `null` when pending.                                                                                                                                                                     |
 | blockHash        | 32-byte DATA  | Hash of the block where this log was in. `null` when pending.                                                                                                                                                                                |
 | blockNumber      | QUANTITY      | The block number where this log was in. `null` when pending.                                                                                                                                                                                 |
-| address          | 20-byte DATA  | Address from which this log originated.                                                                                                                                                                                                      |
-| 데이터              | DATA          | Contains the non-indexed arguments of the log.                                                                                                                                                                                               |
+| 주소               | 20-byte DATA  | Address from which this log originated.                                                                                                                                                                                                      |
+| data             | DATA          | Contains the non-indexed arguments of the log.                                                                                                                                                                                               |
 | topics           | Array of DATA | Array of 0 to 4 32-byte DATA of indexed log arguments. (In Solidity: The first topic is the hash of the signature of the event (*e.g.*, `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.). |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -59,7 +59,7 @@ Returns an array of all logs matching filter with given id, which has been obtai
 
 **Parameters**
 
-| Name     | Type   | 설명            |
+| 명칭       | 형식     | 설명            |
 | -------- | ------ | ------------- |
 | QUANTITY | string | The filter id |
 
@@ -67,7 +67,7 @@ Returns an array of all logs matching filter with given id, which has been obtai
 
 See [klay_getFilterChanges](#klay_getfilterchanges)
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -100,11 +100,11 @@ Returns an array of all logs matching a given filter object.
 
 `Object` - The filter options:
 
-| Name      | Type                      | 설명                                                                                                                                                                                                                                                                                                               |
+| 명칭        | 형식                        | 설명                                                                                                                                                                                                                                                                                                               |
 | --------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | fromBlock | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions.                                                                                                                                                        |
 | toBlock   | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions.                                                                                                                                                        |
-| address   | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate.                                                                                                                                                                                                                             |
+| 주소        | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate.                                                                                                                                                                                                                             |
 | topics    | Array of DATA             | (optional) Array of 32-byte DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with “or” options.                                                                                                                                                                                  |
 | blockHash | 32-byte DATA              | (optional) A filter option that restricts the logs returned to the single block with the 32-byte hash blockHash. Using blockHash is equivalent to fromBlock = toBlock = the block number with hash blockHash. If blockHash is present in in the filter criteria, then neither fromBlock nor toBlock are allowed. |
 
@@ -239,11 +239,11 @@ None
 
 **Return Value**
 
-| Type     | 설명           |
+| 형식       | 설명           |
 | -------- | ------------ |
 | QUANTITY | A filter id. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -275,20 +275,20 @@ Creates a filter object, based on filter options, to notify when the state chang
 
 `Object` - The filter options:
 
-| Name      | Type                      | 설명                                                                                                                                                        |
+| 명칭        | 형식                        | 설명                                                                                                                                                        |
 | --------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | fromBlock | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions. |
 | toBlock   | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions. |
-| address   | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate.                                                                      |
+| 주소        | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate.                                                                      |
 | topics    | Array of DATA             | (optional) Array of 32-byte DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options.                           |
 
 **Return Value**
 
-| Type     | 설명          |
+| 형식       | 설명          |
 | -------- | ----------- |
 | QUANTITY | A filter id |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -309,11 +309,11 @@ None
 
 **Return Value**
 
-| Type     | 설명           |
+| 형식       | 설명           |
 | -------- | ------------ |
 | QUANTITY | A filter id. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -334,17 +334,17 @@ Uninstalls a filter with given id. Should always be called when watch is no long
 
 **Parameters**
 
-| Name   | Type     | 설명           |
+| 명칭     | 형식       | 설명           |
 | ------ | -------- | ------------ |
 | filter | QUANTITY | A filter id. |
 
 **Return Value**
 
-| Type    | 설명                                                                    |
+| 형식      | 설명                                                                    |
 | ------- | --------------------------------------------------------------------- |
 | Boolean | `true` if the filter was successfully uninstalled, otherwise `false`. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
