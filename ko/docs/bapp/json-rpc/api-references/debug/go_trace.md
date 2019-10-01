@@ -11,7 +11,7 @@ Turns on Go runtime tracing for the given duration and writes trace data to disk
 
 **Parameters**
 
-| Name    | Type   | 설명                                 |
+| 명칭      | 형식     | 설명                                 |
 | ------- | ------ | ---------------------------------- |
 | file    | string | The filename for the trace output. |
 | seconds | int    | The tracing duration in seconds.   |
@@ -20,7 +20,7 @@ Turns on Go runtime tracing for the given duration and writes trace data to disk
 
 None
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -46,7 +46,7 @@ Starts writing a Go runtime trace to the given file.
 
 **Parameters**
 
-| Name | Type   | 설명                                   |
+| 명칭   | 형식     | 설명                                   |
 | ---- | ------ | ------------------------------------ |
 | file | string | The filename for the tracing output. |
 
@@ -54,7 +54,7 @@ Starts writing a Go runtime trace to the given file.
 
 None
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -85,7 +85,7 @@ None
 
 None
 
-**Example**
+**예시**
 
 Console
 ```javascript
