@@ -1,4 +1,4 @@
-# Testing the Installation
+# 설치 테스트
 
 ## 프로세스 상태
 
@@ -37,7 +37,7 @@ kscnd is running
 
 ## 로그
 
-The log is stored in `kscnd.out` file located in the path defined in the `LOG_DIR` field of the `kscnd.conf` file. 노드가 제대로 작동하면 다음과 같이 매초 블록을 가져오는 것을 볼 수 있습니다.
+로그는 `kscnd.out` 파일에 저장되어 있고, 이 파일은 `LOG_DIR` field of the `kscnd.conf` 파일의 <0>LOG_DIR</0> 필드에서 정의된 경로에 있습니다. 노드가 제대로 작동하면 다음과 같이 매초 블록을 가져오는 것을 볼 수 있습니다.
 
 예시:
 
@@ -74,7 +74,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
  >
 ```
 
-You can check the usable commands on [API Document](../../../../bapp/json-rpc/README.md)
+[API 문서](../../../../bapp/json-rpc/README.md)를 보시면 유용한 명령어들을 확인할 수 있습니다.
 
 The useful APIs to check the status of SCN:
 
