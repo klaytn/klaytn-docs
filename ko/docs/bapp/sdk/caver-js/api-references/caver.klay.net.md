@@ -30,7 +30,7 @@ Gets the current network ID.
 
 **Parameters**
 
-| Name     | Type     | 설명                                                                                                         |
+| 명칭       | 형식       | 설명                                                                                                         |
 | -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -38,7 +38,7 @@ Gets the current network ID.
 
 `Promise` returns `Number` - The network ID.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.net.getId().then(console.log);
@@ -56,7 +56,7 @@ Checks if the node is listening for peers.
 
 **Parameters**
 
-| Name     | Type     | 설명                                                                                                         |
+| 명칭       | 형식       | 설명                                                                                                         |
 | -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -64,7 +64,7 @@ Checks if the node is listening for peers.
 
 `Promise` returns `Boolean` - `true` if the node is listening for peers, `false` otherwise.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.net.isListening().then(console.log);
@@ -82,7 +82,7 @@ Gets the number of peers connected to.
 
 **Parameters**
 
-| Name     | Type     | 설명                                                                                                         |
+| 명칭       | 형식       | 설명                                                                                                         |
 | -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -90,7 +90,7 @@ Gets the number of peers connected to.
 
 `Promise` returns `Number` - The number of peers connected to.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.net.getPeerCount().then(console.log);
@@ -107,7 +107,7 @@ Returns the number of connected nodes by type and the total number of connected 
 
 **Parameters**
 
-| Name     | Type     | 설명                                                                                                         |
+| 명칭       | 형식       | 설명                                                                                                         |
 | -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -115,7 +115,7 @@ Returns the number of connected nodes by type and the total number of connected 
 
 `Promise` returns `Object` - The number of connected peers by type as well as the total number of connected peers.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.net.peerCountByType().then(console.log);
