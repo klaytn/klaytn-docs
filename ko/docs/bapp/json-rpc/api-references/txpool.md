@@ -25,11 +25,11 @@ None
 
 **Return Value**
 
-| Type        | 설명                                   |
+| 형식          | 설명                                   |
 | ----------- | ------------------------------------ |
 | JSON string | The content of the transaction pool. |
 
-**Example**
+**예시**
 
 Console
 
@@ -150,11 +150,11 @@ None
 
 **Return Value**
 
-| Type        | 설명                                         |
+| 형식          | 설명                                         |
 | ----------- | ------------------------------------------ |
 | JSON string | A list of pending and queued transactions. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -231,12 +231,12 @@ None
 
 **Return Value**
 
-| Name    | Type | 설명                                  |
-| ------- | ---- | ----------------------------------- |
-| pending | int  | The number of pending transactions. |
-| queued  | int  | The number of queued transactions.  |
+| 명칭      | 형식  | 설명                                  |
+| ------- | --- | ----------------------------------- |
+| pending | int | The number of pending transactions. |
+| queued  | int | The number of queued transactions.  |
 
-**Example**
+**예시**
 
 Console
 
