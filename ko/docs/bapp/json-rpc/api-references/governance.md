@@ -40,11 +40,11 @@ The `vote` method submits a new vote. If the node has the right to vote based on
 
 **Return Value**
 
-| Type   | 설명                        |
+| 형식     | 설명                        |
 | ------ | ------------------------- |
 | String | Result of vote submission |
 
-**Example**
+**예시**
 
 ```javascript
 > governance.vote ("governance.governancemode", "ballot")
@@ -94,11 +94,11 @@ None
 
 **Return Value**
 
-| Type  | 설명                                                |
+| 형식    | 설명                                                |
 | ----- | ------------------------------------------------- |
 | Tally | Each vote's value and approval rate in percentage |
 
-**Example**
+**예시**
 
 ```javascript
 > governance.showTally
@@ -124,11 +124,11 @@ None
 
 **Return Value**
 
-| Type  | 설명                                  |
+| 형식    | 설명                                  |
 | ----- | ----------------------------------- |
 | Float | Total Voting Power or error message |
 
-**Example**
+**예시**
 
 ```javascript
 // In "ballot" governance mode
@@ -151,11 +151,11 @@ None
 
 **Return Value**
 
-| Type  | 설명                                   |
+| 형식    | 설명                                   |
 | ----- | ------------------------------------ |
 | Float | Node's Voting Power or error message |
 
-**Example**
+**예시**
 
 ```javascript
 // In "ballot" governance mode
@@ -178,11 +178,11 @@ None
 
 **Return Value**
 
-| Type      | 설명                                                                                                                                                                                                                                                      |
+| 형식        | 설명                                                                                                                                                                                                                                                      |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Vote List | Node's Voting status in the epoch<br />- `BlockNum`: The block number that this vote is stored<br />- `Casted`: If this vote is stored in a block or not<br />- `Key/Value`: The content of the vote |
 
-**Example**
+**예시**
 
 ```javascript
 > governance.vote("governance.governancemode", "ballot")
@@ -209,11 +209,11 @@ None
 
 **Return Value**
 
-| Type | 설명                          |
+| 형식   | 설명                          |
 | ---- | --------------------------- |
 | JSON | Current chain configuration |
 
-**Example**
+**예시**
 
 ```javascript
 > governance.chainConfig
@@ -253,11 +253,11 @@ None
 
 **Return Value**
 
-| Type    | 설명                        |
+| 형식      | 설명                        |
 | ------- | ------------------------- |
 | ADDRESS | 20 BYTE address of a node |
 
-**Example**
+**예시**
 
 ```javascript
 > governance.nodeAddress
@@ -270,17 +270,17 @@ The `itemsAt` returns governance items at specific block. It is the result of pr
 
 **Parameters**
 
-| Type                | 설명                                                                                                                                                                  |
+| 형식                  | 설명                                                                                                                                                                  |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
 
 **Return Value**
 
-| Type | 설명               |
+| 형식   | 설명               |
 | ---- | ---------------- |
 | JSON | governance items |
 
-**Example**
+**예시**
 
 ```javascript
 > governance.itemsAt(89)
@@ -310,11 +310,11 @@ None
 
 **Return Value**
 
-| Type      | 설명                                                    |
+| 형식        | 설명                                                    |
 | --------- | ----------------------------------------------------- |
 | Vote List | Currently pending changes composed of keys and values |
 
-**Example**
+**예시**
 ```javascript
 > governance.pendingChanges
 {
@@ -333,11 +333,11 @@ None
 
 **Return Value**
 
-| Type      | 설명                                                        |
+| 형식        | 설명                                                        |
 | --------- | --------------------------------------------------------- |
 | Vote List | Current votes composed of keys, values and node addresses |
 
-**Example**
+**예시**
 ```javascript
 > governance.votes
 [{
@@ -360,11 +360,11 @@ None
 
 **Return Value**
 
-| Type         | 설명                                             |
+| 형식           | 설명                                             |
 | ------------ | ---------------------------------------------- |
 | uint64 array | Block numbers where governance change happened |
 
-**Example**
+**예시**
 ```javascript
 > governance.idxCache
 [0, 30]
@@ -379,11 +379,11 @@ None
 
 **Return Value**
 
-| Type         | 설명                                                   |
+| 형식           | 설명                                                   |
 | ------------ | ---------------------------------------------------- |
 | uint64 array | Every block numbers where governance change happened |
 
-**Example**
+**예시**
 ```javascript
 > governance.idxCacheFromDb
 [0, 30]
@@ -394,17 +394,17 @@ The `itemCacheFromDb` returns the governance information stored in the given blo
 
 **Parameters**
 
-| Type   | 설명                                                               |
+| 형식     | 설명                                                               |
 | ------ | ---------------------------------------------------------------- |
 | uint64 | A block number to query the governance change made in the block. |
 
 **Return Value**
 
-| Type | 설명                                             |
+| 형식   | 설명                                             |
 | ---- | ---------------------------------------------- |
 | JSON | Stored governance information at a given block |
 
-**Example**
+**예시**
 ```javascript
 > governance.itemCacheFromDb(0)
 {
