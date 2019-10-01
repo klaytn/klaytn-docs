@@ -8,7 +8,7 @@ description: >-
 The namespace `klay` provides functions related to accounts, blocks, transactions, configurations of networks or nodes, filters, and so on. The list below enumerates the API functions that are currently supported in Klaytn.
 
 
-### [Account](./klay/account.md)
+### [계정 (Account)](./klay/account.md)
 - [klay_accountCreated](./klay/account.md#klay_accountcreated)
 - [klay_accounts](./klay/account.md#klay_accounts)
 - [klay_getAccount](./klay/account.md#klay_getaccount)
@@ -20,7 +20,7 @@ The namespace `klay` provides functions related to accounts, blocks, transaction
 - [klay_sign](./klay/account.md#klay_sign)
 
 
-### [Block](./klay/block.md)
+### [블록](./klay/block.md)
 - [klay_blockNumber](./klay/block.md#klay_blocknumber)
 - [klay_getBlockByNumber](./klay/block.md#klay_getblockbynumber)
 - [klay_getBlockByHash](./klay/block.md#klay_getblockbyhash)
@@ -38,7 +38,7 @@ The namespace `klay` provides functions related to accounts, blocks, transaction
 - [klay_syncing](./klay/block.md#klay_syncing)
 
 
-### [Transaction](./klay/transaction.md)
+### [트랜잭션 (Transaction)](./klay/transaction.md)
 - [klay_call](./klay/transaction.md#klay_call)
 - [klay_estimateGas](./klay/transaction.md#klay_estimategas)
 - [klay_estimateComputationCost](./klay/transaction.md#klay_estimatecomputationcost)
@@ -53,7 +53,7 @@ The namespace `klay` provides functions related to accounts, blocks, transaction
 - [klay_signTransaction](./klay/transaction.md#klay_signtransaction)
 
 
-### [Configuration](./klay/config.md)
+### [환경 설정](./klay/config.md)
 - [klay_chainID](./klay/config.md#klay_chainid)
 - [klay_clientVersion](./klay/config.md#klay_clientVersion)
 - [klay_gasPrice](./klay/config.md#klay_gasprice)
