@@ -24,7 +24,7 @@ $ kscnd stop
 
 ```
 
-**status**
+**상태**
 
 ```bash
 ## when installed from rpm distribution 
