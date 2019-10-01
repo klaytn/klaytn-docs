@@ -17,17 +17,17 @@ The [randomHex](https://github.com/frozeman/randomHex) library to generate crypt
 
 **Parameters**
 
-| Name | Type   | 설명                                                                                                                        |
+| 명칭   | 형식     | 설명                                                                                                                        |
 | ---- | ------ | ------------------------------------------------------------------------------------------------------------------------- |
 | size | Number | The byte size for the HEX string, *e.g.*, `32` will result in a 32-byte HEX string with 64 characters preficed with "0x". |
 
 **Return Value**
 
-| Type   | 설명                               |
+| 형식     | 설명                               |
 | ------ | -------------------------------- |
 | String | The generated random HEX string. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.utils.randomHex(32);
@@ -57,7 +57,7 @@ The [underscore](http://underscorejs.org) library for many convenience JavaScrip
 
 See the [underscore API reference](http://underscorejs.org) for details.
 
-**Example**
+**예시**
 
 ```javascript
 > var _ = caver.utils._;
@@ -79,17 +79,17 @@ The [BN.js](https://github.com/indutny/bn.js/) library for calculating with big 
 
 **Parameters**
 
-| Name  | Type                 | 설명                                                               |
+| 명칭    | 형식                   | 설명                                                               |
 | ----- | -------------------- | ---------------------------------------------------------------- |
 | mixed | String &#124; Number | A number, number string or HEX string to convert to a BN object. |
 
 **Return Value**
 
-| Type   | 설명                                                       |
+| 형식     | 설명                                                       |
 | ------ | -------------------------------------------------------- |
 | Object | The [BN.js](https://github.com/indutny/bn.js/) instance. |
 
-**Example**
+**예시**
 
 ```javascript
 > var BN = caver.utils.BN;
@@ -116,17 +116,17 @@ Checks if a given value is a [BN.js](https://github.com/indutny/bn.js/) instance
 
 **Parameters**
 
-| Name | Type   | 설명                                                     |
-| ---- | ------ | ------------------------------------------------------ |
-| bn   | Object | A [BN.js](https://github.com/indutny/bn.js/) instance. |
+| 명칭 | 형식     | 설명                                                     |
+| -- | ------ | ------------------------------------------------------ |
+| bn | Object | A [BN.js](https://github.com/indutny/bn.js/) instance. |
 
 **Return Value**
 
-| Type    | 설명                                                                                |
+| 형식      | 설명                                                                                |
 | ------- | --------------------------------------------------------------------------------- |
 | Boolean | `true` if a given value is a [BN.js](https://github.com/indutny/bn.js/) instance. |
 
-**Example**
+**예시**
 
 ```javascript
 > var number = new BN(10);
@@ -146,17 +146,17 @@ Checks if a given value is a [BigNumber.js](http://mikemcl.github.io/bignumber.j
 
 **Parameters**
 
-| Name      | Type   | 설명                                                                 |
+| 명칭        | 형식     | 설명                                                                 |
 | --------- | ------ | ------------------------------------------------------------------ |
 | bignumber | Object | A [BigNumber.js](http://mikemcl.github.io/bignumber.js/) instance. |
 
 **Return Value**
 
-| Type    | 설명                                                    |
+| 형식      | 설명                                                    |
 | ------- | ----------------------------------------------------- |
 | Boolean | `true` if a given value is a `BigNumber.js` instance. |
 
-**Example**
+**예시**
 
 ```javascript
 > var number = new BigNumber(10);
@@ -177,17 +177,17 @@ Calculates the sha3 of the input.
 
 **Parameters**
 
-| Name   | Type   | 설명                |
+| 명칭     | 형식     | 설명                |
 | ------ | ------ | ----------------- |
 | string | String | A string to hash. |
 
 **Return Value**
 
-| Type   | 설명               |
+| 형식     | 설명               |
 | ------ | ---------------- |
 | String | The result hash. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.utils.sha3('234'); // taken as string
@@ -218,17 +218,17 @@ Calculates the sha3 of given input parameters in the same way solidity would. Th
 
 **Parameters**
 
-| Name   | Type  | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| 명칭     | 형식    | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ------ | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | paramX | Mixed | Any type, or an object with `{type: 'uint', value: '123456'}` or `{t: 'bytes', v: '0xfff456'}`. Basic types are autodetected as follows:<br /> - `String` non numerical UTF-8 string is interpreted as `string`.<br /> - `String|Number|BN|HEX` positive number is interpreted as `uint256`.<br /> - `String|Number|BN` negative number is interpreted as `int256`.<br /> - `Boolean` as `bool`.<br /> - `String` HEX string with leading `0x` is interpreted as `bytes`.<br /> - `HEX` HEX number representation is interpreted as `uint256`.<br /> |
 
 **Return Value**
 
-| Type   | 설명               |
+| 형식     | 설명               |
 | ------ | ---------------- |
 | String | The result hash. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.utils.soliditySha3('234564535', '0xfff23243', true, -10);
@@ -279,17 +279,17 @@ Checks if a given string is a HEX string.
 
 **Parameters**
 
-| Name | Type              | 설명                    |
-| ---- | ----------------- | --------------------- |
-| hex  | String &#124; HEX | The given HEX string. |
+| 명칭  | 형식                | 설명                    |
+| --- | ----------------- | --------------------- |
+| hex | String &#124; HEX | The given HEX string. |
 
 **Return Value**
 
-| Type    | 설명                                        |
+| 형식      | 설명                                        |
 | ------- | ----------------------------------------- |
 | Boolean | `true` if a given string is a HEX string. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.utils.isHex('0xc1912');
@@ -322,18 +322,18 @@ Checks if a given string is a HEX string. Difference to [caver.utils.isHex](#ish
 
 **Parameters**
 
-| Name | Type              | 설명                    |
-| ---- | ----------------- | --------------------- |
-| hex  | String &#124; HEX | The given HEX string. |
+| 명칭  | 형식                | 설명                    |
+| --- | ----------------- | --------------------- |
+| hex | String &#124; HEX | The given HEX string. |
 
 **Return Value**
 
-| Type    | 설명                                        |
+| 형식      | 설명                                        |
 | ------- | ----------------------------------------- |
 | Boolean | `true` if a given string is a HEX string. |
 
 
-**Example**
+**예시**
 
 ```javascript
 > caver.utils.isHexStrict('0xc1912');
@@ -365,13 +365,13 @@ Checks if a given string is a valid Klaytn address. It will also check the check
 
 **Parameters**
 
-| Name    | Type   | 설명                 |
-| ------- | ------ | ------------------ |
-| address | String | An address string. |
+| 명칭 | 형식     | 설명                 |
+| -- | ------ | ------------------ |
+| 주소 | String | An address string. |
 
 **Return Value**
 
-| Type    | 설명                                                  |
+| 형식      | 설명                                                  |
 | ------- | --------------------------------------------------- |
 | Boolean | `true` if a given string is a valid Klaytn address. |
 
@@ -404,13 +404,13 @@ Converts an upper or lowercase Klaytn address to a checksum address.
 
 **Parameters**
 
-| Name    | Type   | 설명                 |
-| ------- | ------ | ------------------ |
-| address | String | An address string. |
+| 명칭 | 형식     | 설명                 |
+| -- | ------ | ------------------ |
+| 주소 | String | An address string. |
 
 **Return Value**
 
-| Type   | 설명                    |
+| 형식     | 설명                    |
 | ------ | --------------------- |
 | String | The checksum address. |
 
@@ -434,13 +434,13 @@ Checks the checksum of a given address. Will also return `false` on non-checksum
 
 **Parameters**
 
-| Name    | Type   | 설명                 |
-| ------- | ------ | ------------------ |
-| address | String | An address string. |
+| 명칭 | 형식     | 설명                 |
+| -- | ------ | ------------------ |
+| 주소 | String | An address string. |
 
 **Return Value**
 
-| Type    | 설명                                                                                                                     |
+| 형식      | 설명                                                                                                                     |
 | ------- | ---------------------------------------------------------------------------------------------------------------------- |
 | Boolean | `true` when the checksum of the address is valid, `false` if it is not a checksum address, or the checksum is invalid. |
 
@@ -461,13 +461,13 @@ Converts any given value to HEX. Number strings will interpreted as numbers. Tex
 
 **Parameters**
 
-| Name  | Type                                            | 설명                           |
+| 명칭    | 형식                                              | 설명                           |
 | ----- | ----------------------------------------------- | ---------------------------- |
 | mixed | String &#124; Number &#124; BN &#124; BigNumber | The input to convert to HEX. |
 
 **Return Value**
 
-| Type   | 설명                        |
+| 형식     | 설명                        |
 | ------ | ------------------------- |
 | String | The resulting HEX string. |
 
@@ -503,13 +503,13 @@ Safely converts any given value (including [BigNumber.js](http://mikemcl.github.
 
 **Parameters**
 
-| Name   | Type                            | 설명                                 |
+| 명칭     | 형식                              | 설명                                 |
 | ------ | ------------------------------- | ---------------------------------- |
 | number | String &#124; Number &#124; HEX | Number to convert to a big number. |
 
 **Return Value**
 
-| Type   | 설명                                                       |
+| 형식     | 설명                                                       |
 | ------ | -------------------------------------------------------- |
 | Object | The [BN.js](https://github.com/indutny/bn.js/) instance. |
 
@@ -536,13 +536,13 @@ Returns the number representation of a given HEX value as a string.
 
 **Parameters**
 
-| Name      | Type       | 설명                            |
+| 명칭        | 형식         | 설명                            |
 | --------- | ---------- | ----------------------------- |
 | hexString | HEX String | A HEX string to be converted. |
 
 **Return Value**
 
-| Type   | 설명                      |
+| 형식     | 설명                      |
 | ------ | ----------------------- |
 | String | The number as a string. |
 
@@ -565,13 +565,13 @@ Returns the number representation of a given HEX value.
 
 **Parameters**
 
-| Name      | Type       | 설명                            |
+| 명칭        | 형식         | 설명                            |
 | --------- | ---------- | ----------------------------- |
 | hexString | HEX String | A HEX string to be converted. |
 
 **Return Value**
 
-| Type   | 설명                                              |
+| 형식     | 설명                                              |
 | ------ | ----------------------------------------------- |
 | Number | The number representation of a given HEX value. |
 
@@ -592,13 +592,13 @@ Returns the HEX representation of a given number value.
 
 **Parameters**
 
-| Name   | Type                                            | 설명                            |
+| 명칭     | 형식                                              | 설명                            |
 | ------ | ----------------------------------------------- | ----------------------------- |
 | number | String &#124; Number &#124; BN &#124; BigNumber | A number as string or number. |
 
 **Return Value**
 
-| Type   | 설명                                 |
+| 형식     | 설명                                 |
 | ------ | ---------------------------------- |
 | String | The HEX value of the given number. |
 
@@ -621,13 +621,13 @@ Returns the UTF-8 string representation of a given HEX value.
 
 **Parameters**
 
-| Name | Type   | 설명                                         |
-| ---- | ------ | ------------------------------------------ |
-| hex  | String | A HEX string to convert to a UTF-8 string. |
+| 명칭  | 형식     | 설명                                         |
+| --- | ------ | ------------------------------------------ |
+| hex | String | A HEX string to convert to a UTF-8 string. |
 
 **Return Value**
 
-| Type   | 설명                |
+| 형식     | 설명                |
 | ------ | ----------------- |
 | String | The UTF-8 string. |
 
@@ -649,13 +649,13 @@ Returns the ASCII string representation of a given HEX value.
 
 **Parameters**
 
-| Name | Type   | 설명                                         |
-| ---- | ------ | ------------------------------------------ |
-| hex  | String | A HEX string to convert to a ASCII string. |
+| 명칭  | 형식     | 설명                                         |
+| --- | ------ | ------------------------------------------ |
+| hex | String | A HEX string to convert to a ASCII string. |
 
 **Return Value**
 
-| Type   | 설명                |
+| 형식     | 설명                |
 | ------ | ----------------- |
 | String | The ASCII string. |
 
@@ -677,13 +677,13 @@ Returns the HEX representation of a given UTF-8 string.
 
 **Parameters**
 
-| Name   | Type   | 설명                                         |
+| 명칭     | 형식     | 설명                                         |
 | ------ | ------ | ------------------------------------------ |
 | string | String | A UTF-8 string to convert to a HEX string. |
 
 **Return Value**
 
-| Type   | 설명              |
+| 형식     | 설명              |
 | ------ | --------------- |
 | String | The HEX string. |
 
@@ -706,13 +706,13 @@ Returns the HEX representation of a given ASCII string.
 
 **Parameters**
 
-| Name   | Type   | 설명                                          |
+| 명칭     | 형식     | 설명                                          |
 | ------ | ------ | ------------------------------------------- |
 | string | String | An ASCII string to convert to a HEX string. |
 
 **Return Value**
 
-| Type   | 설명              |
+| 형식     | 설명              |
 | ------ | --------------- |
 | String | The HEX string. |
 
@@ -733,13 +733,13 @@ Returns a byte array from the given HEX string.
 
 **Parameters**
 
-| Name | Type       | 설명                            |
-| ---- | ---------- | ----------------------------- |
-| hex  | HEX String | A HEX string to be converted. |
+| 명칭  | 형식         | 설명                            |
+| --- | ---------- | ----------------------------- |
+| hex | HEX String | A HEX string to be converted. |
 
 **Return Value**
 
-| Type  | 설명              |
+| 형식    | 설명              |
 | ----- | --------------- |
 | Array | The byte array. |
 
@@ -760,13 +760,13 @@ Returns a HEX string from a byte array.
 
 **Parameters**
 
-| Name      | Type  | 설명                       |
+| 명칭        | 형식    | 설명                       |
 | --------- | ----- | ------------------------ |
 | byteArray | Array | A byte array to convert. |
 
 **Return Value**
 
-| Type   | 설명              |
+| 형식     | 설명              |
 | ------ | --------------- |
 | String | The HEX string. |
 
@@ -790,14 +790,14 @@ Converts any KLAY value into peb.
 
 **Parameters**
 
-| Name   | Type                           | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| 명칭     | 형식                             | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ------ | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | number | String &#124; Number &#124; BN | The value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| unit   | String                         | (optional, defaults to `"KLAY"`) KLAY to convert from. Possible units are:<br />- `peb`: '1' <br /> - `kpeb`: '1000' <br /> - `Mpeb`: '1000000' <br /> - `Gpeb`: '1000000000' <br /> - `Ston`: '1000000000' <br /> - `uKLAY`: '1000000000000' <br /> - `mKLAY`: '1000000000000000' <br /> - `KLAY`: '1000000000000000000' <br /> - `kKLAY`: '1000000000000000000000' <br /> - `MKLAY`: '1000000000000000000000000' <br /> - `GKLAY`: '1000000000000000000000000000' <br /> |
+| 단위     | String                         | (optional, defaults to `"KLAY"`) KLAY to convert from. Possible units are:<br />- `peb`: '1' <br /> - `kpeb`: '1000' <br /> - `Mpeb`: '1000000' <br /> - `Gpeb`: '1000000000' <br /> - `Ston`: '1000000000' <br /> - `uKLAY`: '1000000000000' <br /> - `mKLAY`: '1000000000000000' <br /> - `KLAY`: '1000000000000000000' <br /> - `kKLAY`: '1000000000000000000000' <br /> - `MKLAY`: '1000000000000000000000000' <br /> - `GKLAY`: '1000000000000000000000000000' <br /> |
 
 **Return Value**
 
-| Type             | 설명                                                                                                                             |
+| 형식               | 설명                                                                                                                             |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | String &#124; BN | If a number or a string is given, it returns a number string, otherwise a [BN.js](https://github.com/indutny/bn.js/) instance. |
 
@@ -819,14 +819,14 @@ caver.utils.fromPeb(number [, unit])
 
 **Parameters**
 
-| Name   | Type                           | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| 명칭     | 형식                             | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | ------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | number | String &#124; Number &#124; BN | The value in peb.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| unit   | String                         | (optional, defaults to `"KLAY"`) KLAY to convert to. Possible units are:<br />- `peb`: '1' <br /> - `kpeb`: '1000' <br /> - `Mpeb`: '1000000' <br /> - `Gpeb`: '1000000000' <br /> - `Ston`: '1000000000' <br /> - `uKLAY`: '1000000000000' <br /> - `mKLAY`: '1000000000000000' <br /> - `KLAY`: '1000000000000000000' <br /> - `kKLAY`: '1000000000000000000000' <br /> - `MKLAY`: '1000000000000000000000000' <br /> - `GKLAY`: '1000000000000000000000000000' <br /> |
+| 단위     | String                         | (optional, defaults to `"KLAY"`) KLAY to convert to. Possible units are:<br />- `peb`: '1' <br /> - `kpeb`: '1000' <br /> - `Mpeb`: '1000000' <br /> - `Gpeb`: '1000000000' <br /> - `Ston`: '1000000000' <br /> - `uKLAY`: '1000000000000' <br /> - `mKLAY`: '1000000000000000' <br /> - `KLAY`: '1000000000000000000' <br /> - `kKLAY`: '1000000000000000000000' <br /> - `MKLAY`: '1000000000000000000000000' <br /> - `GKLAY`: '1000000000000000000000000000' <br /> |
 
 **Return Value**
 
-| Type             | 설명                                                                                                                             |
+| 형식               | 설명                                                                                                                             |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | String &#124; BN | If a number or a string is given, it returns a number string, otherwise a [BN.js](https://github.com/indutny/bn.js/) instance. |
 
@@ -848,7 +848,7 @@ Shows all possible KLAY values and their amount in peb.
 
 **Return Value**
 
-| Type   | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| 형식     | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Object | With the following properties:<br />- `peb`: '1' <br /> - `kpeb`: '1000' <br /> - `Mpeb`: '1000000' <br /> - `Gpeb`: '1000000000' <br /> - `Ston`: '1000000000' <br /> - `uKLAY`: '1000000000000' <br /> - `mKLAY`: '1000000000000000' <br /> - `KLAY`: '1000000000000000000' <br /> - `kKLAY`: '1000000000000000000000' <br /> - `MKLAY`: '1000000000000000000000000' <br /> - `GKLAY`: '1000000000000000000000000000' <br /> |
 
@@ -887,7 +887,7 @@ Adds a padding on the left of a string. Useful for adding paddings to HEX string
 
 **Parameters**
 
-| Name            | Type   | 설명                                                       |
+| 명칭              | 형식     | 설명                                                       |
 | --------------- | ------ | -------------------------------------------------------- |
 | string          | String | The string to add padding on the left.                   |
 | characterAmount | Number | The number of characters the total string should have.   |
@@ -895,7 +895,7 @@ Adds a padding on the left of a string. Useful for adding paddings to HEX string
 
 **Return Value**
 
-| Type   | 설명                 |
+| 형식     | 설명                 |
 | ------ | ------------------ |
 | String | The padded string. |
 
@@ -924,7 +924,7 @@ Adds a padding on the right of a string, Useful for adding paddings to HEX strin
 
 **Parameters**
 
-| Name            | Type   | 설명                                                       |
+| 명칭              | 형식     | 설명                                                       |
 | --------------- | ------ | -------------------------------------------------------- |
 | string          | String | The string to add padding on the right.                  |
 | characterAmount | Number | The number of characters the total string should have.   |
@@ -932,7 +932,7 @@ Adds a padding on the right of a string, Useful for adding paddings to HEX strin
 
 **Return Value**
 
-| Type   | 설명                 |
+| 형식     | 설명                 |
 | ------ | ------------------ |
 | String | The padded string. |
 
@@ -961,13 +961,13 @@ Converts a negative numer into a two's complement.
 
 **Parameters**
 
-| Name   | Type                                  | 설명                     |
+| 명칭     | 형식                                    | 설명                     |
 | ------ | ------------------------------------- | ---------------------- |
 | number | Number &#124; String &#124; BigNumber | The number to convert. |
 
 **Return Value**
 
-| Type   | 설명                        |
+| 형식     | 설명                        |
 | ------ | ------------------------- |
 | String | The converted hex string. |
 
@@ -1001,13 +1001,13 @@ Returns `true` if the given transaction is a smart contract deploy transaction. 
 
 **Parameters**
 
-| Name              | Type   | 설명                                                                                             |
+| 명칭                | 형식     | 설명                                                                                             |
 | ----------------- | ------ | ---------------------------------------------------------------------------------------------- |
 | transactionObject | Object | Transaction object that you want to determine if the transaction is for smart contract deploy. |
 
 **Return Value**
 
-| Type    | 설명                                                                |
+| 형식      | 설명                                                                |
 | ------- | ----------------------------------------------------------------- |
 | Boolean | `true` means the transaction object is for smart contract deploy. |
 
@@ -1064,13 +1064,13 @@ Returns the x and y coordinates of the given publicKey. For more information on 
 
 **Parameters**
 
-| Name      | Type   | 설명                                   |
+| 명칭        | 형식     | 설명                                   |
 | --------- | ------ | ------------------------------------ |
 | publicKey | String | The publicKey to get x and y points. |
 
 **Return Value**
 
-| Type  | 설명                                                                             |
+| 형식    | 설명                                                                             |
 | ----- | ------------------------------------------------------------------------------ |
 | Array | An array storing x and y points. Index 0 has x point, and index 1 has y point. |
 
@@ -1095,13 +1095,13 @@ Returns `true` if input is a 0x-prefixed hex string, otherwise it returns `false
 
 **Parameters**
 
-| Name  | Type   | 설명                                                                            |
+| 명칭    | 형식     | 설명                                                                            |
 | ----- | ------ | ----------------------------------------------------------------------------- |
 | input | String | The value to be determined if the parameter is 0x-prefixed hex string or not. |
 
 **Return Value**
 
-| Type    | 설명                                                |
+| 형식      | 설명                                                |
 | ------- | ------------------------------------------------- |
 | Boolean | `true` means the input is 0x-prefixed hex string. |
 
@@ -1132,13 +1132,13 @@ Returns a 0x-prefixed hex string. If the input is already 0x-prefixed or a non-h
 
 **Parameters**
 
-| Name  | Type   | 설명                                   |
+| 명칭    | 형식     | 설명                                   |
 | ----- | ------ | ------------------------------------ |
 | input | String | String value to be prefixed with 0x. |
 
 **Return Value**
 
-| Type   | 설명                                  |
+| 형식     | 설명                                  |
 | ------ | ----------------------------------- |
 | String | 0x-prefixed hex string is returned. |
 
@@ -1163,13 +1163,13 @@ Returns the result with 0x prefix stripped from input.
 
 **Parameters**
 
-| Name  | Type   | 설명                          |
+| 명칭    | 형식     | 설명                          |
 | ----- | ------ | --------------------------- |
 | input | String | String to remove 0x prefix. |
 
 **Return Value**
 
-| Type   | 설명                                   |
+| 형식     | 설명                                   |
 | ------ | ------------------------------------ |
 | String | A string stripped of 0x is returned. |
 
@@ -1194,13 +1194,13 @@ This function converts the input to a [Buffer](https://nodejs.org/api/buffer.htm
 
 **Parameters**
 
-| Name  | Type                                                                    | 설명                                     |
+| 명칭    | 형식                                                                      | 설명                                     |
 | ----- | ----------------------------------------------------------------------- | -------------------------------------- |
 | input | Buffer &#124; String &#124; Number &#124; Array &#124; BN &#124; Object | The value to be converted to a Buffer. |
 
 **Return Value**
 
-| Type   | 설명                                              |
+| 형식     | 설명                                              |
 | ------ | ----------------------------------------------- |
 | Buffer | The value converted to Buffer type is returned. |
 
@@ -1246,13 +1246,13 @@ This function converts a number to a [Buffer](https://nodejs.org/api/buffer.html
 **NOTE** caver.klay.numberToBuffer is supported from **v1.1.0**. To use this feature, please install [v1.1.0](https://www.npmjs.com/package/caver-js/v/1.1.0) or higher.
 
 **Parameters**
-| Name  | Type                           | 설명                                    |
+| 명칭    | 형식                             | 설명                                    |
 | ----- | ------------------------------ | ------------------------------------- |
 | input | String &#124; Number &#124; BN | A number to be converted to a Buffer. |
 
 
 **Return Value**
-| Type   | 설명                                              |
+| 형식     | 설명                                              |
 | ------ | ----------------------------------------------- |
 | Buffer | The value converted to Buffer type is returned. |
 
@@ -1274,13 +1274,13 @@ This function converts a number to a [Buffer](https://nodejs.org/api/buffer.html
 caver.utils.isTxHash(input)
 ```
 Returns `true` if input is in transaction hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of a transaction hash. **NOTE** caver.klay.isTxHash is supported from **v1.2.0-rc.1**. To use this feature, please install [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) or higher. **Parameters**
-| Name  | Type   | 설명                                                                                       |
+| 명칭    | 형식     | 설명                                                                                       |
 | ----- | ------ | ---------------------------------------------------------------------------------------- |
 | input | String | The value to be determined if the parameter is in the format of transaction hash or not. |
 
 
 **Return Value**
-| Type    | 설명                                                       |
+| 형식      | 설명                                                       |
 | ------- | -------------------------------------------------------- |
 | Boolean | `true` means the input is in format of transaction hash. |
 
@@ -1301,13 +1301,13 @@ false
 caver.utils.isTxHashStrict(input)
 ```
 Returns `true` if input is in transaction hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of a transaction hash. Difference to [caver.utils.isTxHash](#istxhash) is that it expects HEX to be prefixed with `0x`. **NOTE** caver.klay.isTxHashStrict is supported from **v1.2.0-rc.1**. To use this feature, please install [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) or higher. **Parameters**
-| Name  | Type   | 설명                                                                                       |
+| 명칭    | 형식     | 설명                                                                                       |
 | ----- | ------ | ---------------------------------------------------------------------------------------- |
 | input | String | The value to be determined if the parameter is in the format of transaction hash or not. |
 
 
 **Return Value**
-| Type    | 설명                                                           |
+| 형식      | 설명                                                           |
 | ------- | ------------------------------------------------------------ |
 | Boolean | `true` means the input is in the format of transaction hash. |
 
