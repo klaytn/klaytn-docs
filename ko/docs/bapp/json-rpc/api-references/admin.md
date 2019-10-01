@@ -23,11 +23,11 @@ None
 
 **Return Value**
 
-| Type        | 설명                    |
+| 형식          | 설명                    |
 | ----------- | --------------------- |
 | JSON string | The node information. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -87,11 +87,11 @@ None
 
 **Return Value**
 
-| Type   | 설명                  |
+| 형식     | 설명                  |
 | ------ | ------------------- |
 | string | The `datadir` path. |
 
-**Example**
+**예시**
 
 Console
 
@@ -122,11 +122,11 @@ None
 
 **Return Value**
 
-| Type        | 설명                                         |
+| 형식          | 설명                                         |
 | ----------- | ------------------------------------------ |
 | JSON string | The information about all connected peers. |
 
-**Example**
+**예시**
 
 Console
 
@@ -195,17 +195,17 @@ The method accepts a single argument kni, which means "Klaytn Network Identifier
 
 **Parameters**
 
-| Name | Type   | 설명                |
-| ---- | ------ | ----------------- |
-| url  | string | Peer's `kni` URL. |
+| 명칭  | 형식     | 설명                |
+| --- | ------ | ----------------- |
+| url | string | Peer's `kni` URL. |
 
 **Return Value**
 
-| Type | 설명                                                  |
+| 형식   | 설명                                                  |
 | ---- | --------------------------------------------------- |
 | bool | `true` if the peer was accepted, `false` otherwise. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -233,17 +233,17 @@ The method accepts a single argument kni, which means "Klaytn Network Identifier
 
 **Parameters**
 
-| Name | Type   | 설명                |
-| ---- | ------ | ----------------- |
-| url  | string | Peer's `kni` URL. |
+| 명칭  | 형식     | 설명                |
+| --- | ------ | ----------------- |
+| url | string | Peer's `kni` URL. |
 
 **Return Value**
 
-| Type | 설명                                                  |
+| 형식   | 설명                                                  |
 | ---- | --------------------------------------------------- |
 | bool | `true` if the peer was accepted, `false` otherwise. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -271,7 +271,7 @@ The method returns a boolean flag specifying whether the HTTP RPC listener was o
 
 **Parameters**
 
-| Name | Type   | 설명                                                                                                                                      |
+| 명칭   | 형식     | 설명                                                                                                                                      |
 | ---- | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
 | host | string | (optional) network interface to open the listener socket on (default:  `"localhost"`).                                                  |
 | port | int    | (optional) network port to open the listener socket on (default:  `8551`).                                                              |
@@ -280,11 +280,11 @@ The method returns a boolean flag specifying whether the HTTP RPC listener was o
 
 **Return Value**
 
-| Type | 설명                                                          |
+| 형식   | 설명                                                          |
 | ---- | ----------------------------------------------------------- |
 | bool | `true` if the HTTP RPC listener was opened, `false` if not. |
 
-**Example**
+**예시**
 
 Console
 
@@ -314,11 +314,11 @@ None
 
 **Return Value**
 
-| Type | 설명                                                 |
+| 형식   | 설명                                                 |
 | ---- | -------------------------------------------------- |
 | bool | `true` if the endpoint was closed, `false` if not. |
 
-**Example**
+**예시**
 
 Console
 
@@ -346,7 +346,7 @@ The method returns a boolean flag specifying whether the WebSocket RPC listener 
 
 **Parameters**
 
-| Name | Type   | 설명                                                                                                                                      |
+| 명칭   | 형식     | 설명                                                                                                                                      |
 | ---- | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
 | host | string | (optional) network interface to open the listener socket on (default:  `"localhost"`).                                                  |
 | port | int    | (optional) network port to open the listener socket on (default:  `8552`).                                                              |
@@ -355,11 +355,11 @@ The method returns a boolean flag specifying whether the WebSocket RPC listener 
 
 **Return Value**
 
-| Type | 설명                                                               |
+| 형식   | 설명                                                               |
 | ---- | ---------------------------------------------------------------- |
 | bool | `true` if the WebSocket RPC listener was opened, `false` if not. |
 
-**Example**
+**예시**
 
 Console
 
@@ -389,11 +389,11 @@ None
 
 **Return Value**
 
-| Type | 설명                                                 |
+| 형식   | 설명                                                 |
 | ---- | -------------------------------------------------- |
 | bool | `true` if the endpoint was closed, `false` if not. |
 
-**Example**
+**예시**
 
 Console
 
@@ -419,17 +419,17 @@ The `exportChain` administrative method exports the blockahin to a file.
 
 **Parameters**
 
-| Name     | Type   | 설명                                                                          |
+| 명칭       | 형식     | 설명                                                                          |
 | -------- | ------ | --------------------------------------------------------------------------- |
 | fileName | string | the fully qualified path to the file where the blockchain must be exported. |
 
 **Return Value**
 
-| Type | 설명                                            |
+| 형식   | 설명                                            |
 | ---- | --------------------------------------------- |
 | bool | `true` if chain was exported, `false` if not. |
 
-**Example**
+**예시**
 
 Console
 
@@ -455,17 +455,17 @@ The `importChain` administrative method imports an exported chain from file into
 
 **Parameters**
 
-| Name     | Type   | 설명                                                                        |
+| 명칭       | 형식     | 설명                                                                        |
 | -------- | ------ | ------------------------------------------------------------------------- |
 | fileName | string | the fully qualified path to the file containing the chain to be imported. |
 
 **Return Value**
 
-| Type | 설명                                            |
+| 형식   | 설명                                            |
 | ---- | --------------------------------------------- |
 | bool | `true` if chain was imported, `false` if not. |
 
-**Example**
+**예시**
 
 Console
 
