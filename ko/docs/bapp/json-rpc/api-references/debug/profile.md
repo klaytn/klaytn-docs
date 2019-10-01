@@ -11,7 +11,7 @@ Turns on block profiling for the given duration and writes profile data to disk.
 
 **Parameters**
 
-| Name    | Type   | 설명                                     |
+| 명칭      | 형식     | 설명                                     |
 | ------- | ------ | -------------------------------------- |
 | file    | string | The filename for the profiling result. |
 | seconds | int    | The profiling duration in seconds.     |
@@ -20,7 +20,7 @@ Turns on block profiling for the given duration and writes profile data to disk.
 
 None
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -45,7 +45,7 @@ Turns on CPU profiling for the given duration and writes profile data to disk.
 
 **Parameters**
 
-| Name    | Type   | 설명                                     |
+| 명칭      | 형식     | 설명                                     |
 | ------- | ------ | -------------------------------------- |
 | file    | string | The filename for the profiling result. |
 | seconds | int    | The profiling duration in seconds.     |
@@ -54,7 +54,7 @@ Turns on CPU profiling for the given duration and writes profile data to disk.
 
 None
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -83,11 +83,11 @@ None
 
 **Return Value**
 
-| Type | 설명                                                                |
+| 형식   | 설명                                                                |
 | ---- | ----------------------------------------------------------------- |
 | bool | `true` if the pprof HTTP server is running and `false` otherwise. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -113,15 +113,15 @@ Sets the rate (in samples/sec) of goroutine block profile data collection. A non
 
 **Parameters**
 
-| Name | Type | 설명                                 |
-| ---- | ---- | ---------------------------------- |
-| rate | int  | The profiling rate in samples/sec. |
+| 명칭   | 형식  | 설명                                 |
+| ---- | --- | ---------------------------------- |
+| rate | int | The profiling rate in samples/sec. |
 
 **Return Value**
 
 None
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -146,7 +146,7 @@ Turns on CPU profiling indefinitely, writing to the given file.
 
 **Parameters**
 
-| Name | Type   | 설명                                     |
+| 명칭   | 형식     | 설명                                     |
 | ---- | ------ | -------------------------------------- |
 | file | string | The filename for the profiling output. |
 
@@ -154,7 +154,7 @@ Turns on CPU profiling indefinitely, writing to the given file.
 
 None
 
-**Example**
+**예시**
 
 Console
 
@@ -186,7 +186,7 @@ None
 
 None
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -214,16 +214,16 @@ Starts the pprof HTTP server.  The running pprof server can be accessed by (when
 
 **Parameters**
 
-| Name    | Type   | 설명                                                                       |
-| ------- | ------ | ------------------------------------------------------------------------ |
-| address | string | (optional) pprof HTTP server listening interface (default: "127.0.0.1"). |
-| port    | int    | (optional) pprof HTTP server listening port (default: 6060).             |
+| 명칭   | 형식     | 설명                                                                       |
+| ---- | ------ | ------------------------------------------------------------------------ |
+| 주소   | string | (optional) pprof HTTP server listening interface (default: "127.0.0.1"). |
+| port | int    | (optional) pprof HTTP server listening port (default: 6060).             |
 
 **Return Value**
 
 None
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -261,7 +261,7 @@ None
 
 None
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -287,7 +287,7 @@ Writes a goroutine blocking profile to the given file.
 
 **Parameters**
 
-| Name | Type   | 설명                                     |
+| 명칭   | 형식     | 설명                                     |
 | ---- | ------ | -------------------------------------- |
 | file | string | The filename for the profiling output. |
 
@@ -295,7 +295,7 @@ Writes a goroutine blocking profile to the given file.
 
 None
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -320,7 +320,7 @@ Writes an allocation profile to the given file.  Note that the profiling rate ca
 
 **Parameters**
 
-| Name | Type   | 설명                                     |
+| 명칭   | 형식     | 설명                                     |
 | ---- | ------ | -------------------------------------- |
 | file | string | The filename for the profiling output. |
 
@@ -328,7 +328,7 @@ Writes an allocation profile to the given file.  Note that the profiling rate ca
 
 None
 
-**Example**
+**예시**
 
 Console
 ```javascript
