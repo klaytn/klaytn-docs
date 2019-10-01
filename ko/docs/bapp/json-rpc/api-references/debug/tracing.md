@@ -13,18 +13,18 @@ The `traceBadBlock` method will return a full stack trace of all invoked opcodes
 
 **Parameters**
 
-| Name    | Type         | 설명                                       |
+| 명칭      | 형식           | 설명                                       |
 | ------- | ------------ | ---------------------------------------- |
 | 해시      | 32-byte DATA | Hash of a block.                         |
 | options | object       | See [tracing options](#tracing-options). |
 
 **Return Value**
 
-| Type        | 설명                                                        |
+| 형식          | 설명                                                        |
 | ----------- | --------------------------------------------------------- |
 | JSON string | The structured logs created during the execution of KLVM. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -70,18 +70,18 @@ References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
 **Parameters**
 
-| Name     | Type   | 설명                                       |
+| 명칭       | 형식     | 설명                                       |
 | -------- | ------ | ---------------------------------------- |
 | blockRlp | string | The RLP-encoded block.                   |
 | options  | object | See [tracing options](#tracing-options). |
 
 **Return Value**
 
-| Type        | 설명                                                        |
+| 형식          | 설명                                                        |
 | ----------- | --------------------------------------------------------- |
 | JSON string | The structured logs created during the execution of KLVM. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -114,18 +114,18 @@ Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByHash` accepts a b
 
 **Parameters**
 
-| Name    | Type         | 설명                                       |
+| 명칭      | 형식           | 설명                                       |
 | ------- | ------------ | ---------------------------------------- |
 | 해시      | 32-byte DATA | Hash of a block.                         |
 | options | object       | See [tracing options](#tracing-options). |
 
 **Return Value**
 
-| Type        | 설명                                                        |
+| 형식          | 설명                                                        |
 | ----------- | --------------------------------------------------------- |
 | JSON string | The structured logs created during the execution of KLVM. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -157,18 +157,18 @@ Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByNumber` accepts a
 
 **Parameters**
 
-| Name    | Type   | 설명                                       |
+| 명칭      | 형식     | 설명                                       |
 | ------- | ------ | ---------------------------------------- |
 | number  | int    | The block number.                        |
 | options | object | See [tracing options](#tracing-options). |
 
 **Return Value**
 
-| Type        | 설명                                                        |
+| 형식          | 설명                                                        |
 | ----------- | --------------------------------------------------------- |
 | JSON string | The structured logs created during the execution of KLVM. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -206,18 +206,18 @@ References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
 **Parameters**
 
-| Name     | Type   | 설명                                                 |
+| 명칭       | 형식     | 설명                                                 |
 | -------- | ------ | -------------------------------------------------- |
 | fileName | string | The file name which contains the RLP of the block. |
 | options  | object | See [tracing options](#tracing-options).           |
 
 **Return Value**
 
-| Type        | 설명                                                        |
+| 형식          | 설명                                                        |
 | ----------- | --------------------------------------------------------- |
 | JSON string | The structured logs created during the execution of KLVM. |
 
-**Example**
+**예시**
 
 The contents of the `block.rlp` file was printed on the running node as follows.
 ```
@@ -257,18 +257,18 @@ The `traceTransaction` debugging method will attempt to run the transaction in t
 
 **Parameters**
 
-| Name    | Type   | 설명                                       |
+| 명칭      | 형식     | 설명                                       |
 | ------- | ------ | ---------------------------------------- |
 | txHash  | string | The hash of the transaction.             |
 | options | object | See [tracing options](#tracing-options). |
 
 **Return Value**
 
-| Type        | 설명                                                        |
+| 형식          | 설명                                                        |
 | ----------- | --------------------------------------------------------- |
 | JSON string | The structured logs created during the execution of KLVM. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -372,7 +372,7 @@ You may give trace API function a secondary optional argument, which specifies t
 | revertTracer   | revertTracer outputs the error string of REVERT. If the execution is not reverted, it outputs an empty string.                                                                                                                        |
 
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -409,17 +409,17 @@ Specifying the `tracer` option in the second argument enables JavaScript-based t
 
 `log` has the following fields:
 
-| Field Name | Type           | 설명                                                          |
-| ---------- | -------------- | ----------------------------------------------------------- |
-| `pc`       | Number         | The current program counter.                                |
-| `op`       | Object         | An OpCode object representing the current opcode.           |
-| `gas`      | Number         | The amount of gas remaining.                                |
-| `gasPrice` | Number         | The cost in peb of each unit of gas.                        |
-| `memory`   | Object         | A structure representing the contract's memory space.       |
-| `stack`    | array[big.Int] | The KLVM execution stack.                                   |
-| `depth`    | Number         | The execution depth.                                        |
-| `account`  | String         | The address of the account executing the current operation. |
-| `err`      | String         | If an error occurred, information about the error.          |
+| Field Name     | 형식             | 설명                                                          |
+| -------------- | -------------- | ----------------------------------------------------------- |
+| `pc`           | Number         | The current program counter.                                |
+| `op`           | Object         | An OpCode object representing the current opcode.           |
+| `가스`           | Number         | The amount of gas remaining.                                |
+| `gasPrice`     | Number         | The cost in peb of each unit of gas.                        |
+| `memory`       | Object         | A structure representing the contract's memory space.       |
+| `stack`        | array[big.Int] | The KLVM execution stack.                                   |
+| `depth`        | Number         | The execution depth.                                        |
+| `계정 (Account)` | String         | The address of the account executing the current operation. |
+| `err`          | String         | If an error occurred, information about the error.          |
 
 If `err` is non-null, all other fields should be ignored.
 
