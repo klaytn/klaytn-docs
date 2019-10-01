@@ -8,11 +8,11 @@ None
 
 **Return Value**
 
-| Type     | 설명                                    |
+| 형식       | 설명                                    |
 | -------- | ------------------------------------- |
 | QUANTITY | Integer of the chain ID of the chain. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -37,11 +37,11 @@ None
 
 **Return Value**
 
-| Type   | 설명                                           |
+| 형식     | 설명                                           |
 | ------ | -------------------------------------------- |
 | String | The current client version of a Klaytn node. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -68,11 +68,11 @@ None
 
 **Return Value**
 
-| Type     | 설명                                       |
+| 형식       | 설명                                       |
 | -------- | ---------------------------------------- |
 | QUANTITY | Integer of the current gas price in peb. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -94,17 +94,17 @@ Returns the unit price of the given block in peb.
 
 **Parameters**
 
-| Type   | 설명                                                            |
+| 형식     | 설명                                                            |
 | ------ | ------------------------------------------------------------- |
 | NUMBER | Block number. If omitted, latest unit price will be retruned. |
 
 **Return Value**
 
-| Type     | 설명                                       |
+| 형식       | 설명                                       |
 | -------- | ---------------------------------------- |
 | QUANTITY | Integer of the current gas price in peb. |
 
-**Example**
+**예시**
 
 ```javascript
 // Request
@@ -128,11 +128,11 @@ None
 
 **Return Value**
 
-| Type    | 설명                                                                                                                                   |
+| 형식      | 설명                                                                                                                                   |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | Boolean | `true` means the node is writing blockchain data in parallel manner. It is `false` if the node is writing the data in serial manner. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -157,11 +157,11 @@ None
 
 **Return Value**
 
-| Type    | 설명                                                                                                 |
+| 형식      | 설명                                                                                                 |
 | ------- | -------------------------------------------------------------------------------------------------- |
 | Boolean | `true` means the node is indexing sender transaction hash to transaction hash mapping information. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -186,11 +186,11 @@ None
 
 **Return Value**
 
-| Type   | 설명                                       |
+| 형식     | 설명                                       |
 | ------ | ---------------------------------------- |
 | String | The Klaytn protocol version of the node. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -215,11 +215,11 @@ None
 
 **Return Value**
 
-| Type         | 설명       |
-| ------------ | -------- |
-| 20-byte DATA | Address. |
+| 형식           | 설명  |
+| ------------ | --- |
+| 20-byte DATA | 주소. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -254,11 +254,11 @@ None
 
 **Return Value**
 
-| Type    | 설명                                                    |
+| 형식      | 설명                                                    |
 | ------- | ----------------------------------------------------- |
 | Boolean | `true` means the node is using write through caching. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
