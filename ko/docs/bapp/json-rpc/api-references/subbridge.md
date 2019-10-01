@@ -17,11 +17,11 @@ None
 
 **Return Value**
 
-| Type        | 설명                           |
+| 형식          | 설명                           |
 | ----------- | ---------------------------- |
 | JSON string | the bridge node information. |
 
-**Example**
+**예시**
 
 ```javascript
 > subbridge.nodeInfo
@@ -62,17 +62,17 @@ The method accepts a single argument, the `kni` URL of the remote peer to start 
 
 **Parameters**
 
-| Name | Type   | 설명                 |
-| ---- | ------ | ------------------ |
-| url  | string | Peer's  `kni` URL. |
+| 명칭  | 형식     | 설명                 |
+| --- | ------ | ------------------ |
+| url | string | Peer's  `kni` URL. |
 
 **Return Value**
 
-| Type | 설명                                                  |
+| 형식   | 설명                                                  |
 | ---- | --------------------------------------------------- |
 | bool | `true` if the peer was accepted, `false` otherwise. |
 
-**Example**
+**예시**
 
 Console
 
@@ -94,17 +94,17 @@ The `removePeer` method disconnects and removes the remote node in the list of t
 
 **Parameters**
 
-| Name | Type   | 설명                 |
-| ---- | ------ | ------------------ |
-| url  | string | Peer's  `kni` URL. |
+| 명칭  | 형식     | 설명                 |
+| --- | ------ | ------------------ |
+| url | string | Peer's  `kni` URL. |
 
 **Return Value**
 
-| Type | 설명                                                 |
+| 형식   | 설명                                                 |
 | ---- | -------------------------------------------------- |
 | bool | `true` if the peer was removed, `false` otherwise. |
 
-**Example**
+**예시**
 
 Console
 
@@ -130,11 +130,11 @@ None
 
 **Return Value**
 
-| Type   | 설명                                                                        |
+| 형식     | 설명                                                                        |
 | ------ | ------------------------------------------------------------------------- |
 | Uint64 | the maximum number of pending transactions to pickup for sending at once. |
 
-**Example**
+**예시**
 
 ```javascript
 > subbridge.sendChainTxslimit
@@ -146,17 +146,17 @@ The `subbridge.anchoring` can enable/disable the anchoring feature of the servic
 
 **Parameters**
 
-| Name   | Type | 설명                                                         |
+| 명칭     | 형식   | 설명                                                         |
 | ------ | ---- | ---------------------------------------------------------- |
 | enable | Bool | `true` enables the anchoring feature, `false` disables it. |
 
 **Return Value**
 
-| Type | 설명                                                      |
+| 형식   | 설명                                                      |
 | ---- | ------------------------------------------------------- |
 | bool | `true` if the anchoring was enabled, `false` otherwise. |
 
-**Example**
+**예시**
 
 Console
 
@@ -185,11 +185,11 @@ None
 
 **Return Value**
 
-| Type   | 설명                                |
+| 형식     | 설명                                |
 | ------ | --------------------------------- |
 | Uint64 | The latest anchored block number. |
 
-**Example**
+**예시**
 
 ```javascript
 > subbridge.latestAnchoredBlockNumber
