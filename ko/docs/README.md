@@ -10,7 +10,7 @@ KlaytnDocs는 수백만 사용자들에게 사용자 친화적인 블록체인 �
 | [설치 & 운영](node/README.md)            | 엔드포인트 노드(EN), 코어 셀(CC) 및 서비스 체인을 설정하고 운영하는 방법을 보여줍니다.                                       |
 | [BApp 개발자](bapp/README.md)           | BApp 개발자를 위한 개발 리소스 및 참조 자료를 제공합니다. 이 장에서는 Klaytn API 레퍼런스와 End-to-end BApp 개발 튜토리얼이 제공됩니다. |
 
-**Disclaimer**: Some notes are derived from Ethereum documents as the Klaytn source code was initiated from Ethereum’s Byzantium version. Klaytn이 더 발전함에 따라 KlaytnDocs 및 소스 코드는 계속 업데이트됩니다. 참고한 웹사이트는 다음과 같습니다.
+**면책 고지**: Klaytn 소스 코드는 이더리움의 Byzantium 버전에서 시작되었으므로 일부 문서는 이더리움 문서에서 파생되었습니다. Klaytn이 더 발전함에 따라 KlaytnDocs 및 소스 코드는 계속 업데이트됩니다. 참고한 웹사이트는 다음과 같습니다.
 
 * [http://www.ethdocs.org/en/latest/](http://www.ethdocs.org/en/latest/)
 * [https://github.com/ethereum/go-ethereum/wiki](https://github.com/ethereum/go-ethereum/wiki)
