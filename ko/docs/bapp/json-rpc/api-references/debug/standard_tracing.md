@@ -12,18 +12,18 @@ Similar to [debug_traceBadBlock](./tracing.md#debug_tracebadblock), `standardTra
 
 **Parameters**
 
-| Name    | Type         | 설명                                                         |
+| 명칭      | 형식           | 설명                                                         |
 | ------- | ------------ | ---------------------------------------------------------- |
 | 해시      | 32-byte DATA | Hash of a block.                                           |
 | options | object       | See [standard tracing options](#standard-tracing-options). |
 
 **Return Value**
 
-| Type       | 설명                                                                                                                                                                                                                           |
+| 형식         | 설명                                                                                                                                                                                                                           |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | JSON array | A list of file names. Each represents a tracing result of a transaction. The format of a file name is `block_{first 4 bytes of the block hash}-{transaction index}-{first 4 bytes of the transaction hash}-{random string}`. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -49,18 +49,18 @@ Similar to [debug_traceBlock](./tracing.md#debug_traceblock), `standardTraceBloc
 
 **Parameters**
 
-| Name    | Type         | 설명                                                         |
+| 명칭      | 형식           | 설명                                                         |
 | ------- | ------------ | ---------------------------------------------------------- |
 | 해시      | 32-byte DATA | Hash of a block.                                           |
 | options | object       | See [standard tracing options](#standard-tracing-options). |
 
 **Return Value**
 
-| Type       | 설명                                                                                                                                                                                                                           |
+| 형식         | 설명                                                                                                                                                                                                                           |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | JSON array | A list of file names. Each represents a tracing result of a transaction. The format of a file name is `block_{first 4 bytes of the block hash}-{transaction index}-{first 4 bytes of the transaction hash}-{random string}`. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
