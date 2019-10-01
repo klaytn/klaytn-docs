@@ -2,9 +2,9 @@
 
 ## 목차
 
-* [1. Environment Setup](1.-environment-setup.md)
+* [1. 개발 환경 구성](1.-environment-setup.md)
 * [2. Count BApp 복제](2.-clone-count-bapp.md)
-* [3. Directory Structure](3.-directory-structure.md)
+* [3. 디렉토리 구조](3.-directory-structure.md)
 * [4. 스마트 컨트랙트 작성](4.-write-smart-contract.md)
 * [5. 프론트엔드 코드 개요](5.-frontend-code-overview/README.md)
   * [5-1. BlockNumber 컴포넌트](5.-frontend-code-overview/5-1.-blocknumber-component.md)
@@ -26,7 +26,7 @@
 본 튜토리얼은 Klaytn에서 블록체인 어플리케이션을 구축하는 방법을 배우고 싶으신 모든 분을 대상으로 합니다. 다만 스마트 컨트랙트와 상호작용하는 웹 어플리케이션을 구축할 것이기 때문에 다음의 개념들에 대해서 익숙하신 분들께 권장드립니다.
 
 * We assume that you have basic knowledge on [React](https://reactjs.org/) and [Redux](https://redux.js.org/). 이 과정은 초보자를 위한 기본적인 설명이 없습니다.
-* 솔리디티에 대한 기본 지식과 개발 경험이 있다면 좋습니다. However, any experienced SW developer should be able to complete the task by following the step-by-step guideline of this tutorial.
+* 솔리디티에 대한 기본 지식과 개발 경험이 있다면 좋습니다. 만약 솔리디티에 대해 잘 모르시더라도 소프트웨어 개발 경험이 어느 정도 있으시다면 튜토리얼의 단계별 가이드라인을 따라 수월하게 완료하실 수 있을 것입니다.
 
 ## 테스트 환경
 
