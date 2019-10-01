@@ -11,7 +11,7 @@ Returns the Keccak-256 hash (not the standardized SHA3-256) of the given data.
 
 | 명칭       | 형식       | 설명                                                                                                         |
 | -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| 데이터      | String   | The data to convert into a SHA3 hash.                                                                      |
+| data     | String   | The data to convert into a SHA3 hash.                                                                      |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
