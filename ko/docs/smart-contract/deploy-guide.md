@@ -155,7 +155,7 @@ module.exports = {
   }
 };
 ```
-*NOTE*: This example is not recommended for production use. 개인키를 다룰 때 많은 주의를 기울이세요.
+*참고*: 이 예제는 상업용으로 권장되지 않습니다. 개인키를 다룰 때 많은 주의를 기울이세요.
 
 - Klaytn 테스트넷에 배포.
 
@@ -255,7 +255,7 @@ caver.klay.sendTransaction({
   console.log(error);
 })
 ```
-*NOTE*: This example is not recommended for production use. 개인키를 다룰 때 많은 주의를 기울이세요.
+*참고*: 이 예제는 상업용으로 권장되지 않습니다. 개인키를 다룰 때 많은 주의를 기울이세요.
 
 - node 환경을 사용해 계약을 배포하세요.
 
