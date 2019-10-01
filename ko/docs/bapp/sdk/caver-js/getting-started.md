@@ -18,7 +18,7 @@ The following packages are required to use the caver-js library.
 
 If you are already using a different version of the Node \(for example, Node v12\), use the Node Version Manager\([NVM](https://github.com/nvm-sh/nvm)\) to install and use the version supported by caver-js.
 
-### Installation <a id="installation"></a>
+### 설치 <a id="installation"></a>
 
 To try it out, install caver-js with npm using the following command:
 
@@ -54,7 +54,7 @@ $ node
 > const caver = new Caver('http://localhost:8551/')
 ```
 
-## Managing Accounts <a id="managing-accounts"></a>
+## 계정 관리 <a id="managing-accounts"></a>
 
 ### Creating an Account <a id="creating-an-account"></a>
 
@@ -131,7 +131,7 @@ This section will show you how to send a KLAY using caver-js on the Baobab netwo
 
 If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the Klaytn Wallet using the private key or the keystore file and receive Baobab testnet KLAY via the faucet for testing.
 
-### Sending a Value Transfer Transaction
+### 송금 트랜잭션 전송
 
 트랜잭션 서명은 caver-js 지갑을 통해 할 수 있습니다. 만약 caver-js 지갑에 계정이 있다면, `caver.klay.sendTransaction`을 실행할 때 caver-js 지갑에 저장된 개인키로 서명이 생성됩니다. 이때 `caver.klay.sendTransaction`은 서명 생성과 트랜잭션 제출을 동시에 처리합니다.
 
@@ -171,7 +171,7 @@ caver-js 지갑 없이 해당 개인키로부터 서명을 직접 생성하고�
 
 먼저 트랜잭션을 서명하려면 아래와 같이 발신자, 수신자, 개인키를 지정하세요.
 
-**Note:** The sender should have enough amount of KLAY.
+**참고:** 발신자의 잔액은 송금하려는 KLAY보다 많아야 합니다.
 
 ```text
 > caver.klay.accounts.signTransaction({
@@ -275,7 +275,7 @@ You can get a RLP-encoded transaction \(`rawTransaction`\) using [caver.klay.acc
 
 Klaytn provides various transaction types for extensibility and performance. For more information, see [Transactions](https://docs.klaytn.com/klaytn/design/transactions). This section describes various examples that can be used with caver-js.
 
-### Fee Delegation
+### 트랜잭션 비용 위임
 
 Klaytn provides [Fee Delegation](../../../klaytn/design/transactions/README.md#fee-delegation) feature. Here's an example code.
 
