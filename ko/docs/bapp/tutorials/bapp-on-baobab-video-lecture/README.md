@@ -11,5 +11,5 @@
 5. [Klaytn 덧셈 게임 BApp의 프론트엔드 개발하기](5.-front-end-for-klaytn-addition-game-development.md)
 6. [정리](6.-summary.md)
 
-**NOTE**: The language on the lectures is Korean, but English captions are provided.
+**참고**: 모든 강의는 한국어로 진행되지만, 영어 자막 또한 제공됩니다.
 
