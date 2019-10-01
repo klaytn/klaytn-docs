@@ -17,11 +17,11 @@ None
 
 **Return Value**
 
-| Type        | 설명                           |
+| 형식          | 설명                           |
 | ----------- | ---------------------------- |
 | JSON string | the bridge node information. |
 
-**Example**
+**예시**
 
 ```javascript
 > mainbridge.nodeInfo
@@ -60,17 +60,17 @@ It Adds a new remote node to the peer list. The node will try to maintain connec
 
 **Parameters**
 
-| Name | Type   | 설명                 |
-| ---- | ------ | ------------------ |
-| url  | string | Peer's  `kni` URL. |
+| 명칭  | 형식     | 설명                 |
+| --- | ------ | ------------------ |
+| url | string | Peer's  `kni` URL. |
 
 **Return Value**
 
-| Type | 설명                                                  |
+| 형식   | 설명                                                  |
 | ---- | --------------------------------------------------- |
 | bool | `true` if the peer was accepted, `false` otherwise. |
 
-**Example**
+**예시**
 
 Console
 
@@ -92,17 +92,17 @@ The `removePeer` method disconnects and removes the remote node in the list of t
 
 **Parameters**
 
-| Name | Type   | 설명                 |
-| ---- | ------ | ------------------ |
-| url  | string | Peer's  `kni` URL. |
+| 명칭  | 형식     | 설명                 |
+| --- | ------ | ------------------ |
+| url | string | Peer's  `kni` URL. |
 
 **Return Value**
 
-| Type | 설명                                                 |
+| 형식   | 설명                                                 |
 | ---- | -------------------------------------------------- |
 | bool | `true` if the peer was removed, `false` otherwise. |
 
-**Example**
+**예시**
 
 Console
 
@@ -124,17 +124,17 @@ Returns the anchoring transaction hash of the given child chain block hash.
 
 **Parameters**
 
-| Type         | 설명                                                              |
+| 형식           | 설명                                                              |
 | ------------ | --------------------------------------------------------------- |
 | 32-byte DATA | The childchain block hash which included the anchoring tx hash. |
 
 **Return Value**
 
-| Type         | 설명                                                                                |
+| 형식           | 설명                                                                                |
 | ------------ | --------------------------------------------------------------------------------- |
 | 32-byte DATA | The transaction hash whilch including the childchain block anchoring inforamtion. |
 
-**Example**
+**예시**
 
 Console
 
