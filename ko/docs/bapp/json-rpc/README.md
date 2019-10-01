@@ -10,7 +10,7 @@ To offer the APIs over the Klaytn RPC endpoints, please specify them with the `-
 
 `ipc` offers all APIs over the unix socket \(Unix\) or named pipe \(Windows\) endpoint without any flag.
 
-You can launch a Klaytn node with specific APIs you want to add like the example below. But keep in mind that you can't change APIs once you launch the node.
+아래 예시처럼 추가하고자 하는 특정 API와 함께 Klaytn 노드를 실행할 수 있습니다. 하지만 노드를 시작한 이후에는 API를 변경할 수 없다는 점을 유의해주세요.
 
 Example\) launching a Klaytn node with `klay` and `net` modules enabled:
 
@@ -18,11 +18,11 @@ Example\) launching a Klaytn node with `klay` and `net` modules enabled:
 $ ken --rpcapi klay,net --rpc --{other options}
 ```
 
-The HTTP RPC interface must be explicitly enabled using the `--rpc` flag.
+HTTP RPC 인터페이스는 `--rpc` 플래그를 사용해 명시적으로 활성화해야 합니다.
 
 **NOTE**: Offering an API over the HTTP \(`rpc`\) or WebSocket \(`ws`\) interfaces will give everyone access to the APIs who can access this interface \(DApps, browser tabs, etc\). Be careful which APIs you enable. By default Klay enables all APIs over the IPC \(`ipc`\) interface but for `rpc` and `ws` required modules have to be explicitly enabled.
 
-To determine which APIs an interface provides, the `modules` JSON-RPC method can be invoked. For example over an `rpc` interface:
+`modules` JSON-RPC 메서드를 호출하여 인터페이스가 제공하는 API를 확인하세요. For example over an `rpc` interface:
 
 **IPC**
 
@@ -36,7 +36,7 @@ $ echo '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' | nc -U kla
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' http://localhost:8551
 ```
 
-will give all enabled modules including the version number:
+위 명령은 버전 번호를 포함하여 모든 활성화된 모듈을 제공합니다.
 
 ```text
 {
