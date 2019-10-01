@@ -1,4 +1,4 @@
-# Errors & Troubleshooting
+# 에러 & 문제 해결
 
 ## Where can I find a log file for the running Klaytn node using the Klaytn binary package?
 
