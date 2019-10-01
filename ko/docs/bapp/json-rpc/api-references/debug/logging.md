@@ -1,4 +1,4 @@
-# Logging
+# 로깅
 
 ## debug_backtraceAt
 
@@ -11,15 +11,15 @@ Sets the logging backtrace location. When a backtrace location is set and a log 
 
 **Parameters**
 
-| Name     | Type   | 설명                                                                           |
-| -------- | ------ | ---------------------------------------------------------------------------- |
-| location | string | The logging backtrace location specified as `<filename>:<line>`. |
+| 명칭 | 형식     | 설명                                                                           |
+| -- | ------ | ---------------------------------------------------------------------------- |
+| 위치 | string | The logging backtrace location specified as `<filename>:<line>`. |
 
 **Return Value**
 
 None
 
-**Example**
+**예시**
 
 ``` javascript
 > debug.backtraceAt("server.go:443")
@@ -45,17 +45,17 @@ Sets the output target of vmlog precompiled contract.  When the output target is
 
 **Parameters**
 
-| Name   | Type | 설명                                                                         |
-| ------ | ---- | -------------------------------------------------------------------------- |
-| target | int  | The output target (0: no output, 1: file, 2: stdout, 3: both) (default: 0) |
+| 명칭     | 형식  | 설명                                                                         |
+| ------ | --- | -------------------------------------------------------------------------- |
+| target | int | The output target (0: no output, 1: file, 2: stdout, 3: both) (default: 0) |
 
 **Return Value**
 
-| Type   | 설명                                                                       |
+| 형식     | 설명                                                                       |
 | ------ | ------------------------------------------------------------------------ |
 | string | The output target.  See the examples below for the actual return values. |
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -100,15 +100,15 @@ The verbosity of individual packages and source files can be raised using `debug
 
 **Parameters**
 
-| Name  | Type | 설명                           |
-| ----- | ---- | ---------------------------- |
-| level | int  | The logging verbosity level. |
+| 명칭    | 형식  | 설명                           |
+| ----- | --- | ---------------------------- |
+| level | int | The logging verbosity level. |
 
 **Return Value**
 
 None
 
-**Example**
+**예시**
 
 Console
 ```javascript
@@ -133,7 +133,7 @@ Sets the logging verbosity pattern.
 
 **Parameters**
 
-| Name   | Type   | 설명                           |
+| 명칭     | 형식     | 설명                           |
 | ------ | ------ | ---------------------------- |
 | module | string | The module name for logging. |
 
@@ -141,7 +141,7 @@ Sets the logging verbosity pattern.
 
 None
 
-**Example**
+**예시**
 
 Console
 
