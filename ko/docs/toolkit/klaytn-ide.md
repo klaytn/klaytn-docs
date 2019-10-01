@@ -89,12 +89,12 @@ Klaytn IDE는 모듈에는 Compile, Run, Analysis, Testing, Debugger, Settings �
 
 `"Environment"` 옵션을 클릭하면 하단으로 출력되는 네트워크 목록에서 하나를 선택하여 어떤 네트워크를 사용할 것인지 선택할 수 있습니다. Klaytn IDE는 기본적으로 다음 네트워크를 선택할 수 있습니다.
 
-1. **Baobab network** \(Klaytn testnet\)
-2. **Cypress network** \(Klaytn mainnet\)
+1. **Baobab 네트워크** \(Klaytn 테스트넷\)
+2. **Cypress 네트워크** \(Klaytn 메인넷\)
 
 그 외 사용자 정의 노드에 연결하려면 `"Caver provider"`를 선택하고 연결하려는 네트워크의 URL을 입력하세요. `HTTPS`가 아니라 `HTTP` 네트워크 프로토콜에 연결하려면 [http\://ide.klaytn.com](http://ide.klaytn.com)을 사용하세요.
 
-> 컨트랙트를 배포하려면 트랜잭션 수수료를 지불하기 위한 KLAY가 필요합니다. For the `Baobab network` \(Klaytn testnet\), you can get some **testnet KLAY** from the faucet \[[https://baobab.wallet.klaytn.com/faucet](https://baobab.wallet.klaytn.com/faucet)\]. After receiving **testnet KLAY** from the faucet, import the account to the Klaytn IDE in the `"Account"` selector.
+> 컨트랙트를 배포하려면 트랜잭션 수수료를 지불하기 위한 KLAY가 필요합니다. `Baobab 네트워크` \(Klaytn 테스트넷\)의 경우 **테스트넷 KLAY**를 Faucet \[[https://baobab.wallet.klaytn.com/faucet](https://baobab.wallet.klaytn.com/faucet)\]에서 얻을 수 있습니다. **테스트넷 KLAY**를 받으면 해당 계정을 Klaytn IDE의 `"Account"`에서 선택하여 연동하세요.
 
 #### Account \(계정 선택 옵션\)
 
@@ -150,7 +150,7 @@ With `Account Selector`, you can change your current account to another one. To 
 
 이 섹션에서는 트랜잭션을 디버깅할 수 있습니다. IDE에서 생성된 트랜잭션과 이미 채굴된 트랜잭션을 배포하는 데에 사용할 수 있습니다.
 
-> 필요한 기능을 현재 환경에서 제공하는 경우에만 디버깅이 작동합니다. For debugging, the **personal** API must be enabled in the EN node. `RPC_API` 옵션을 [EN 환경 설정 파일](../node/endpoint-node/operation-guide/configuration.md)에서 참고해주세요.
+> 필요한 기능을 현재 환경에서 제공하는 경우에만 디버깅이 작동합니다. 디버깅하려면 EN 노드에서 **개인** API가 활성화되어야 합니다. `RPC_API` 옵션을 [EN 환경 설정 파일](../node/endpoint-node/operation-guide/configuration.md)에서 참고해주세요.
 
 자세한 안내는 [Remix docs &gt; Debugger](https://remix-ide.readthedocs.io/en/latest/debugger.html)를 참고하세요.
 
