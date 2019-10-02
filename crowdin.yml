@@ -1,3 +1,6 @@
 files:
   - source: docs
+    ignore:
+      - img
+      - images
     translation: '%original_path%/%original_file_name%'
