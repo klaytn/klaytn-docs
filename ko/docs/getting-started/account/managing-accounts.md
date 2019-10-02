@@ -1,4 +1,4 @@
-# Managing Accounts
+# 계정 관리
 
 ## 계정 나열하기
 
@@ -15,7 +15,7 @@ Account #0: {bfc22a57999459b0c2ce6337deb9287e7a970e02} keystore:///Users/usernam
 Account #1: {47bd2e9565cbe1789454718d6cf1778d7ea557aa} keystore:///Users/username/kend_home/keystore/UTC--2019-03-26T07-04-44.840061000Z--47bd2e9565cbe1789454718d6cf1778d7ea557aa
 ```
 
-**NOTE**: This order of returned account list can change if you copy keystore files from other nodes or remove the files. 따라서 인덱스에 의존하지 않도록 하거나, 키스토어 파일을 복사하거나 제거하는 경우에는 스크립트의 계정 인덱스들을 확인하고 업데이트하세요.
+**참고**: 키스토어 파일을 다른 노드에서 복사하거나 파일을 제거하면 이 반환된 계정 목록의 순서가 달라질 수 있습니다. 따라서 인덱스에 의존하지 않도록 하거나, 키스토어 파일을 복사하거나 제거하는 경우에는 스크립트의 계정 인덱스들을 확인하고 업데이트하세요.
 
 ### 자바스크립트 콘솔
 
