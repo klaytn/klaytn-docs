@@ -1,4 +1,4 @@
-# Creating Accounts
+# 계정 생성
 
 ## 새로운 계정 생성 <a id="creating-a-new-account"></a>
 
@@ -20,7 +20,7 @@ $ ken account new --password <passwordfile> --datadir <DATADIR>
 $ ken account new --password <(echo $mypassword) --datadir <DATADIR>
 ```
 
-**`WARNING`**: Note that using a password file is meant to be used for testing only, it is a bad idea to save your password to a file or expose it in any other way. 비밀번호 파일에 비밀번호 플래그(flag)를 사용하는 경우, 파일을 본인 이외의 사람이 읽을 수 없거나 나열 할 수 없는지 확인하는 것이 좋습니다. 다음으로 이를 달성할 수 있습니다:
+**`경고`**: 암호 파일은 테스트 목적으로만 사용되므로, 암호를 파일에 저장하거나 다른 방법으로 노출시키는 것은 좋지 않습니다. 비밀번호 파일에 비밀번호 플래그(flag)를 사용하는 경우, 파일을 본인 이외의 사람이 읽을 수 없거나 나열 할 수 없는지 확인하는 것이 좋습니다. 다음으로 이를 달성할 수 있습니다:
 
 ```bash
 $ touch /path/to/password
@@ -38,7 +38,7 @@ I type my pass here
 > personal.newAccount("passphrase")
 ```
 
-계정은 암호화된 형식으로 저장됩니다. You **must** remember this passphrase to unlock your account in the future.
+계정은 암호화된 형식으로 저장됩니다. 앞으로 계정을 잠금 해제하려면 **반드시** 이 암호를 기억하세요.
 
 ## 계정 가져오기 <a id="importing-an-account"></a>
 
@@ -46,7 +46,7 @@ I type my pass here
 
 지정된 키파일에서 암호화되지 않은 개인키를 가져오고, 새 계정을 만들고, 데이터 디렉토리 아래에 키스토어 파일을 생성한 다음, 콘솔에서 주소를 인쇄합니다. 앞으로 계정을 잠금 해제하려면 반드시 암호를 기억하세요.
 
-**NOTE**: If you can directly copy your keystore files to another Klaytn instance, this import/export mechanism is not needed.
+**참고**: 키스토어 파일을 다른 Klaytn 인스턴스에 직접 복사 할 수 있으면, 이 가져오기/내보내기 메커니즘이 필요하지 않습니다.
 
 ### ken <a id="ken-1"></a>
 
