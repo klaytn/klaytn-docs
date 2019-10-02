@@ -1,25 +1,25 @@
 ## Enterprise Proxy의 필요성
 Klaytn Enterprise Proxy(EP)는 Klaytn에서 블록체인 어플리케이션(BApp)을 운영하는 사업체를 대신하여 Klaytn 블록체인과 통신하는 오프체인 프록시입니다. EP는 Klaytn의 기업 경험(Enterprise Experience, EX)을 개선하기 위해 만들어졌습니다. EP는 트랜잭션 전처리, 필수 데이터 입력, 트랜잭션에서 요청한 스마트 컨트랙트 실행 등 블록체인과의 커뮤니케이션에서 관리상 복잡한 부분을 해결합니다.
 
-EP는 주요 기존 자산과 툴의 원활한 결합을 통해 더 많은 혜택을 누릴 수 있는 엔터프라이즈 사용자 및 대규모 어플리케이션 공급자를 위한 애드온 서비스로 디자인되었습니다. 또한, 편의를 제공하면서도 블록체인의 가장 중요한 특징 중 하나인 '탈중앙화'에 부정적인 영향을 끼치지 않도록 설계되었습니다. In this regard, EP is a differentiation feature for Klaytn as it encompasses various offerings of useful tools for enterprise users, including Oracle, an application-specific dashboard. Further, EP enables enterprise users to use Klaytn blockchain with traditional database and security systems typically believed to be difficult to integrate with decentralized systems, such as access control layers (ACL), firewalls (FW), and fraud detection systems (FDS). At its onset, EP will be offered as a software framework that stands between the legacy backend systems and Klaytn. In this way, EP allows users without extensive knowledge about blockchain to easily sync blockchain data and relay transactions via a single configuration.
+EP는 주요 기존 자산과 툴의 원활한 결합을 통해 더 많은 혜택을 누릴 수 있는 엔터프라이즈 사용자 및 대규모 어플리케이션 공급자를 위한 애드온 서비스로 디자인되었습니다. 또한, 편의를 제공하면서도 블록체인의 가장 중요한 특징 중 하나인 '탈중앙화'에 부정적인 영향을 끼치지 않도록 설계되었습니다. EP는 엔터프라이즈 사용자들을 위해 오라클이나 어플리케이션별 대시보드 등을 제공하는 다른 플랫폼과 차별되는 기능입니다. 더욱이 EP를 통해 엔터프라이즈 사용자는 액세스 제어 계층(ACL), 방화벽(FW), 이상 거래 탐지 시스템(FDS)과 같이 탈중앙화 시스템과 결합이 어렵다고 여겨지는 기존 데이터베이스 및 보안 시스템과 함께 Klaytn Blockchain을 사용할 수 있습니다. 시작 시 EP는 기존 백엔드 시스템과 Klaytn 사이에 있는 소프트웨어 프레임워크로 제공됩니다. 이러한 방식으로 EP를 사용하면 블록체인에 대한 지식이 많지 않아도 single configuration을 통해 블록체인 데이터 및 릴레이 트랜잭션을 쉽게 동기화할 수 있습니다.
 
-EP provides BApp service providers with two main usages. First, EP functions as a **blockchain enabler** reduce the technical hurdles in tasks inevitable for using blockchain technology. Second, EP serves as a **legacy system integrator** that supports Klaytn blockchain integration with traditional database and security systems
+BApp 서비스 제공자는 EP를 크게 두 가지 용도로 사용할 수 있습니다. 첫째, EP 기능은 **blockchain enabler**로써 블록체인 기술을 사용할 때 피할 수 없는 기술적 장애를 줄여줍니다. 둘째, EP는 Klaytn 블록체인과 기존 데이터 베이스 및 보안 시스템을 통합하는 **legacy system integrator** 역할을 합니다.
 
 1. Blockchain Enabler
- - Event handler (WIP) : if users deploy smart contracts through EP, event subscriber will be generated automatically with abi of them
- - Transaction manager : the service providers will be able to manage transactions and accounts such as transaction throttling, nonce increasing and account authentication
- - Chain router : configuring multi-Klaytn clients used for BApp
+ - Event handler (WIP) : 사용자가 EP를 통해 스마트 컨트랙트를 배포할 경우 event subscriber는 해당 컨트랙트의 abi와 함께 자동으로 생성됩니다.
+ - Transaction manager: 서비스 제공자는 트랜잭션 쓰로틀링(throttling), nonce 증가, 계정 인증 등 트랜잭션과 계정 관리 기능을 이용할 수 있습니다.
+ - Chain router: BApp에 사용되는 multi-Klaytn clients 구성을 설정합니다.
 
 
 2. Legacy System Integrator
- - Requests transcoder : supporting various type of API including gRPC, RESTful API request
- - Request gateway : collecting client metrics for analytics
+ - Requests transcoder : gRPC, RESTful API 요청을 포함한 다양한 유형의 API 지원
+ - Request gateway : 분석을위한 클라이언트 메트릭 수집
 
 
 
  ## Blockchain Enabler
 
- From a service provider's perspective, blockchain can be a very unfamiliar technology unlike any other commercial solutions. For these groups of users, even the simplest value transfers or smart contract executions may require prohibitive amount of complexities and business logic considerations. To address this problem, Klaytn will address the fundamental complexity through provisioning of tools that make it easier to apply blockchain as easy-to-use essential elements readily applicable to existing services.
+ 서비스 제공자의 관점에서 블록체인은 다른 상용 솔루션들에 비해 낯선 기술일 수 있습니다. 이러한 사용자 그룹의 경우 가장 단순한 토큰 전송이나 스마트한 컨트랙트 실행도 엄청나게 복잡하고 비즈니스 로직 상 고려할 것이 많다고 느껴질 수 있습니다. 이 문제를 해결하기 위해, Klaytn은 블록체인을 쉽게 기존 서비스에 적용할 수 있도록 만들어 주는 툴 프로비져닝을 통해 기본적인 복잡성 줄였습니다.
 
 
  ### Event handler
