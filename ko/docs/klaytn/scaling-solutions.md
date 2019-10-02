@@ -1,4 +1,4 @@
-## 서비스체인
+## Service Chain
 Service chains in Klaytn are auxiliary blockchains independent from the Klaytn main chain, tailored for individual BApp requiring special node configurations, customized security levels, or exceptionally high throughput that makes deploying the BApp on the main chain inconvenient or economically infeasible.
 
 While there are fully-decentralized scaling solutions, due to their difficult interfaces such as challenge or exit and non-immediate finality, we take a different approach in Klaytn’s Service Chain by sacrificing the full decentralization for better usability, instant finality, high performance, and high availability.
