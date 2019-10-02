@@ -98,7 +98,7 @@ For more detail about `BlockNumber` component, see [CountBApp tutorial - Blocknu
 
 ## 5. Interact with the contract: `Count` component
 
-![count component](./count-bapp/images/count-component.gif)
+![count 컴포넌트](./count-bapp/images/count-component.gif)
 
 To interact with the contract, we need to create an instance of the deployed contract. With the instance, we can read and write the contract's data.
 
@@ -210,9 +210,9 @@ import './Count.scss'
 class Count extends Component {
   constructor() {
     super()
-    // ** 1. Create contract instance **
-    // ex:) new caver.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
-    // You can call contract method through this instance.
+    // ** 1. 컨트랙트 인스턴스 생성 **
+    // 예시: new caver.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
+    // 이 인스턴스를 통해 컨트랙트 메서드를 호출할 수 있습니다.
     // 이제 `this.countContract` 변수로 이 인스턴스에 접근할 수 있습니다.
     this.countContract = DEPLOYED_ABI
       && DEPLOYED_ADDRESS
@@ -245,7 +245,7 @@ class Count extends Component {
   setPlus = () => {
     const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
 
-    // Need to integrate wallet for calling contract method.
+    // 컨트랙트 메서드 호출을 위해 지갑을 연동해야 합니다.
     if (!walletInstance) return
 
     this.setState({ settingDirection: 'plus' })
