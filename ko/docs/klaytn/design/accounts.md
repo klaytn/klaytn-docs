@@ -32,7 +32,7 @@ Klaytn 계정의 역할 기반 키나 다중 키 기능을 이용하여, 사용�
 
 블록체인 플랫폼의 주소 체계 \(예 : "0x0fe2e20716753082222b52e753854f40afddffd2"\)는 계정 소유자의 개인 정보를 효율적으로 보호한다는 점에서 장점이 있지만, 사용자 경험 측면에서는 매우 불편합니다. 첫째, 인간의 두뇌는 이런 주소를 암기하거나 인식하기 어려워하기 때문에, 이런 주소 체계는 입력 실수 같은 다양한 인적 오류를 유발하여 중대한 재정적 손해를 입힐 수도 있습니다. 둘째, 이런 주소 체계는 사용자가 선호하는 사용하거나 기억하기 쉬운 주소를 선택할 기회를 뺏어갑니다. 이런 문제들은 더욱 간단하고, 쉬운 기존의 모바일 앱이나 서비스에 익숙한 사용자들이 BApp을 낯설고, 이해할 수 없으며, 불편하다고 생각하게 할 수 있습니다. 따라서 사용성에 큰 문제가 됩니다. 이전 버전과의 호환성을 제공하고, 대규모 아키텍쳐 변경 없이 이런 문제를 해결하기 위해 Klaytn은 20바이트 주소와 20바이트 문자열 매핑을 제공합니다. 이 문자열은 사용자가 지정할 수 있습니다. 이 기능은 human-readable address \(HRA\)라고 불립니다. 이 기능은 현재 개발 중이며 준비가 되면 더 많은 정보가 제공될 것입니다.
 
-#### Klaytn Wallet 키 형식
+### Klaytn Wallet Key Format
 
 Klaytn wallet 키 형식은 해당 주소와 함께 개인키를 쉽게 다룰 수 있도록 만들어졌습니다. 이는 사용자가 개인키를 주소와 함께 관리하기 쉽게 만듭니다. 이 형식은 `0x{private key}0x{type}0x{address in hex}`입니다. 16진법을 따르며, `{type}`은 `00`여야 합니다. 다른 값은 예약되어 있습니다. 예시는 다음과 같습니다.
 
@@ -42,11 +42,11 @@ Klaytn wallet 키 형식은 해당 주소와 함께 개인키를 쉽게 다룰 �
 
 이 형식은 현재 [Klaytn Wallet](../../toolkit/klaytn-wallet.md)에서 지원됩니다.
 
-### Klaytn 계정 유형
+### Klaytn Account Types
 
 Klaytn에는 두 가지 유형의 계정이 있습니다 : 외부 소유 계정 \(EOAs\) 및 스마트 컨트랙트 계정\(SCAs\)
 
-#### 외부 소유 계정 \(EOAs\)
+#### Externally Owned Accounts \(EOAs\)
 
 외부 소유 계정에는 논스(nonce) 및 잔고와 같은 정보가 있습니다. 이 유형의 계정에는 코드 또는 스토리지가 없습니다. EOA는 개인키로 제어되며 관련 코드를 가지지 않습니다. EOA는 키 페어를 사용하여 생성되고, 키 페어를 가진 어떤 사람이든 EOA를 제어 할 수 있습니다. 계정키는 [Account Key](accounts.md#account-key) 섹션에 설명되어있습니다.
 
@@ -60,7 +60,7 @@ Klaytn에는 두 가지 유형의 계정이 있습니다 : 외부 소유 계정 
 | humanReadable | bool \(Go\)                         | 계정이 Human-readable address와 연결되어있는지 알려주는 Boolean 값 [HRA](accounts.md#human-readable-address-hra)은 현재 개발중이므로, 이 값은 모든 계정에서 false로 지정되어있습니다.                                                                                                                                                                                                  |
 | key           | [AccountKey](accounts.md#account-key) | 이 계정과 연결된 키. 이 필드는 [AccountKeyLegacy](accounts.md#accountkeylegacy), [AccountKeyPublic](accounts.md#accountkeypublic), [AccountKeyFail](accounts.md#accountkeyfail), [AccountKeyWeightedMultisig](accounts.md#accountkeyweightedmultisig), [AccountKeyRoleBased](accounts.md#accountkeyrolebased) 중 어떤 것이라도 될 수 있습니다. 트랜잭션의 서명은 이 키로 검증됩니다. |
 
-#### 스마트 컨트랙트 계정 \(SCAs\)
+#### Smart Contract Accounts \(SCAs\)
 
 EOA와 달리 SCA에는 관련 코드가 있으며 해당 코드로 제어됩니다. SCA는 스마트 컨트랙트 배포(deployment) 트랜잭션에 의해 생성됩니다. 일단 배포되면 SCA는 자체적으로 새 트랜잭션을 시작할 수 없으며, EOA 또는 다른 SCA나 다른 계정에 의해 작동되어야합니다.
 
@@ -77,7 +77,7 @@ EOA와 달리 SCA에는 관련 코드가 있으며 해당 코드로 제어됩니
 | storageRoot   | \[32\]byte \(Go\)                 | 계정에 저장된 모든 변수들의 값을 포함하는 Merkle Patricia trie 루트의 256비트 해시값입니다.                                                                                                                                                                                                                                                                              |
 | codeFormat    | uint8 \(Go\)                        | 이 계정의 코드 형식입니다. 현재는 EVM\(0x00\)만 지원합니다.                                                                                                                                                                                                                                                                                                   |
 
-### Klaytn 계정 유형 ID
+### Klaytn Account Type ID
 아래는 각 계정 유형에 할당된 계정 유형 ID입니다.
 
 | 계정 유형                | 계정 유형 ID |
@@ -101,7 +101,7 @@ AccountKeyNil은 빈(empty) 키를 나타냅니다. 계정이 AccountKeyNil obje
 
 No attributes for AccountKeyNil.
 
-#### RLP 인코딩
+#### RLP Encoding
 
 `0x80`
 
@@ -119,7 +119,7 @@ AccountKeyLegacy는 해당 키 쌍에서 파생된 주소를 가진 계정에 �
 |:-- |:-------------- |:---------------------------------------------- |
 | 형식 | uint8 \(Go\) | AccountKeyLegacy의 type입니다. 이는 **0x01**이어야 합니다. |
 
-#### RLP 인코딩
+#### RLP Encoding
 
 `0x01c0`
 
@@ -137,7 +137,7 @@ AccountKeyPublic is used for accounts having one public key. If an account has a
 | 형식  | uint8 \(Go\)        | AccountKeyPublic의 type. 이는 **0x02**가 되어야 합니다. |
 | Key | \[33\]byte \(Go\) | 키는 S256 곡선에서 압축된 공개키여야 합니다.                   |
 
-#### RLP 인코딩
+#### RLP Encoding
 
 `0x02 + encode(CompressedPubKey)`
 
@@ -163,7 +163,7 @@ RLP: 0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8
 |:-- |:-------------- |:-------------------------------------------- |
 | 형식 | uint8 \(Go\) | AcccountKeyFail의 type. 이는 **0x03**가 되어야 합니다. |
 
-#### RLP 인코딩
+#### RLP Encoding
 
 `0x03c0`
 
@@ -179,7 +179,7 @@ AccountKeyWeightedMultiSig는 계정 키 타입입니다. 여기에는 threshold
 | Threshold          | uint \(Go\)                       | 검증 임계값(threshold) 유효한 거래가 되려면 서명의 가중치(weight) 합계가 임계값(threshold) 이상이어야합니다.                              |
 | WeightedPublicKeys | \[\]{uint, \[33\]byte} \(Go\) | 가중 공개키 목록(A list of weighted public keys). 가중 공개키(weighted public key)에는 압축된 공개키와 그 가중치(weight)가 포함됩니다. |
 
-#### RLP 인코딩
+#### RLP Encoding
 
 `0x04 + encode([threshold, [[weight, CompressedPubKey1], [weight2, CompressedPubKey2]]])`
 
@@ -214,7 +214,7 @@ AccountKeyRoleBased는 역할기반 키를 의미합니다. 역할은 [Roles](ac
 | 형식   | uint8 \(Go\)              | AccountKeyRoleBased의 type입니다. 이는 **0x05**이어야 합니다.                                                                |
 | Keys | \[\]{AccountKey} \(Go\) | 키 목록. 키는 AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail 및 AccountKeyWeightedMultiSig 중 하나입니다. |
 
-#### 역할
+#### Roles
 
 AccountKeyRoleBased의 역할은 다음과 같이 정의됩니다.
 
@@ -224,13 +224,13 @@ AccountKeyRoleBased의 역할은 다음과 같이 정의됩니다.
 | RoleAccountUpdate | Index 1. TxTypeAccountUpdate 트랜잭션은 이 키로 서명되어야 합니다. 이 키가 계정에 없으면, RoleTransaction 키를 사용하여 TxTypeAccountUpdate 트랜잭션의 유효성이 검사됩니다. |
 | RoleFeePayer      | Index 2. 이 계정이 발신자 대신 트랜잭션 수수료를 보내려면 이 키로 트랜잭션에 서명해야합니다.  이 키가 계정에 없으면 RoleTransaction 키를 사용하여 수수료 위임 트랜잭션의 유효성이 검사됩니다.        |
 
-#### RLP 인코딩
+#### RLP Encoding
 
 `0x05 + encode([key1, key2, key3])`
 
 참고: key1, key2 및 key3은 위의 키 (AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail 및 AccountKeyWeightedMultiSig\) 중 하나입니다.
 
-#### 생략할 수 있고 확장이 가능한 역할
+#### Omissible and Extendable Roles
 
 역할은 끝에서부터 생략할 수 있으며 생략된 역할은 첫 번째 역할에 매핑됩니다. 그러나, 중간에 있는 역할을 생략할 수 없으므로 RoleAccountUpdate 없이는 RoleTransaction 및 RoleFeePayer를 설정할 수 없습니다. 예를 들어, 역할기반 키가 `0x05 + encode([key1, key2])`로 설정되어있으면, RoleFeePayer는 `0x05 + encode ([key1, key2, key1])`로 설정되어있는 것처럼 작동합니다.
 
