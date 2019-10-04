@@ -213,13 +213,13 @@
 
 ## \--- <a id="misc"></a>
 
-* [Vision](misc/vision/README.md)
+* [비전](misc/vision/README.md)
   * [Klaytn BApp (Blockchain App)](misc/vision/bapps.md)
-  * [Value Proposition](misc/vision/value-proposition.md)
-  * [Governance Council](misc/vision/governance-council.md)
-  * [Service Partners](misc/vision/service-partners.md)
-  * [Klaytn Ecosystem Support](misc/vision/ecosystem.md)
-  * [Open Source](misc/vision/opensource.md)
+  * [제안하는 핵심 가치](misc/vision/value-proposition.md)
+  * [거버넌스 협의회](misc/vision/governance-council.md)
+  * [서비스 파트너](misc/vision/service-partners.md)
+  * [Klaytn 생태계 지원](misc/vision/ecosystem.md)
+  * [오픈 소스](misc/vision/opensource.md)
 * [Roadmap](misc/roadmap.md)
 * [FAQ](misc/faq.md)
 * [Glossary](misc/glossary.md)
