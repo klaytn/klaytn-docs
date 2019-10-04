@@ -16,7 +16,7 @@ Klaytn의 계정(account)은 개인의 잔액이나 스마트 계약에 관한 �
 
 이런 단점들은 블록체인 플랫폼에서 사용자가 주소를 식별자로 생각할 수 없게 만드는 큰 장애물입니다. 이 문제를 해결하기 위해 클레이튼은 사용자가 자신의 주소와 키 쌍을 선택할 수 있도록 하는 기능을 제공합니다. 이 기능으로 사용자는 원하는 주소를 선택할 수 있고, 다중 키 쌍을 사용하여 보안을 강화할 수 있습니다. 키 쌍의 수는 하나 이상이 될 수 있으며, 키 쌍은 각기 다른 역할을 할 수 있습니다. 다중 키 쌍과 역할기반 키에 대한 상세 내용은 [Multiple Key Pairs & Role-Based Keys를 참고해주세요.](accounts.md#multiple-key-pairs-and-role-based-keys)
 
-It is worth noting that Klaytn also supports the old scheme that a key pair and an address are strongly coupled.
+Klatn은 키 쌍과 주소가 강하게 결합되어 있는 전통적인 방식 또한 지원한다는 사실도 기억해주세요.
 
 ### 다중 키 쌍과 역할기반 키
 
@@ -32,7 +32,7 @@ Klaytn 계정의 역할 기반 키나 다중 키 기능을 이용하여, 사용�
 
 블록체인 플랫폼의 주소 체계 \(예 : "0x0fe2e20716753082222b52e753854f40afddffd2"\)는 계정 소유자의 개인 정보를 효율적으로 보호한다는 점에서 장점이 있지만, 사용자 경험 측면에서는 매우 불편합니다. 첫째, 인간의 두뇌는 이런 주소를 암기하거나 인식하기 어려워하기 때문에, 이런 주소 체계는 입력 실수 같은 다양한 인적 오류를 유발하여 중대한 재정적 손해를 입힐 수도 있습니다. 둘째, 이런 주소 체계는 사용자가 선호하는 사용하거나 기억하기 쉬운 주소를 선택할 기회를 뺏어갑니다. 이런 문제들은 더욱 간단하고, 쉬운 기존의 모바일 앱이나 서비스에 익숙한 사용자들이 BApp을 낯설고, 이해할 수 없으며, 불편하다고 생각하게 할 수 있습니다. 따라서 사용성에 큰 문제가 됩니다. 이전 버전과의 호환성을 제공하고, 대규모 아키텍쳐 변경 없이 이런 문제를 해결하기 위해 Klaytn은 20바이트 주소와 20바이트 문자열 매핑을 제공합니다. 이 문자열은 사용자가 지정할 수 있습니다. 이 기능은 human-readable address \(HRA\)라고 불립니다. 이 기능은 현재 개발 중이며 준비가 되면 더 많은 정보가 제공될 것입니다.
 
-### Klaytn Wallet Key Format
+### Klaytn Wallet 키 형식
 
 Klaytn wallet 키 형식은 해당 주소와 함께 개인키를 쉽게 다룰 수 있도록 만들어졌습니다. 이는 사용자가 개인키를 주소와 함께 관리하기 쉽게 만듭니다. 이 형식은 `0x{private key}0x{type}0x{address in hex}`입니다. 16진법을 따르며, `{type}`은 `00`여야 합니다. 다른 값은 예약되어 있습니다. 예시는 다음과 같습니다.
 
@@ -42,7 +42,7 @@ Klaytn wallet 키 형식은 해당 주소와 함께 개인키를 쉽게 다룰 �
 
 이 형식은 현재 [Klaytn Wallet](../../toolkit/klaytn-wallet.md)에서 지원됩니다.
 
-### Klaytn Account Types
+### Klaytn 계정 유형
 
 Klaytn에는 두 가지 유형의 계정이 있습니다 : 외부 소유 계정 \(EOAs\) 및 스마트 컨트랙트 계정\(SCAs\)
 
@@ -60,7 +60,7 @@ Klaytn에는 두 가지 유형의 계정이 있습니다 : 외부 소유 계정 
 | humanReadable | bool \(Go\)                         | 계정이 Human-readable address와 연결되어있는지 알려주는 Boolean 값 [HRA](accounts.md#human-readable-address-hra)은 현재 개발중이므로, 이 값은 모든 계정에서 false로 지정되어있습니다.                                                                                                                                                                                                  |
 | key           | [AccountKey](accounts.md#account-key) | 이 계정과 연결된 키. 이 필드는 [AccountKeyLegacy](accounts.md#accountkeylegacy), [AccountKeyPublic](accounts.md#accountkeypublic), [AccountKeyFail](accounts.md#accountkeyfail), [AccountKeyWeightedMultisig](accounts.md#accountkeyweightedmultisig), [AccountKeyRoleBased](accounts.md#accountkeyrolebased) 중 어떤 것이라도 될 수 있습니다. 트랜잭션의 서명은 이 키로 검증됩니다. |
 
-#### Smart Contract Accounts \(SCAs\)
+#### 스마트 컨트랙트 계정 \(SCAs\)
 
 EOA와 달리 SCA에는 관련 코드가 있으며 해당 코드로 제어됩니다. SCA는 스마트 컨트랙트 배포(deployment) 트랜잭션에 의해 생성됩니다. 일단 배포되면 SCA는 자체적으로 새 트랜잭션을 시작할 수 없으며, EOA 또는 다른 SCA나 다른 계정에 의해 작동되어야합니다.
 
