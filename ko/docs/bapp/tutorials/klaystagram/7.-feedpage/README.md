@@ -50,7 +50,7 @@ const FeedPage = () => (
 
 아래 세 단계에 걸쳐 컴포넌트가 컨트랙트와 상호작용하도록 합니다.
 
-**첫 번째**, 프론트엔드와 컨트랙트를 연결하는 `KlaystagramContract` 인스턴스를 생성합니다. **Second**, using `KlaystagramContract` instance, make API functions that interact with contract in `redux/actions` **Third**, call functions in each component
+**첫 번째**, 프론트엔드와 컨트랙트를 연결하는 `KlaystagramContract` 인스턴스를 생성합니다. **두 번째**, `KlaystagramContract` 인스턴스를 사용하여 `redux/actions`에서 상호작용하는 API 함수를 작성합니다. **세 번째**, 각 컴포넌트에서 해당 함수를 호출합니다.
 
 이제 구현해보죠!
 
