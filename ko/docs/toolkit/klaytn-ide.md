@@ -100,7 +100,7 @@ Klaytn IDE는 모듈에는 Compile, Run, Analysis, Testing, Debugger, Settings �
 
 ![](img/klaytn-ide/ide-from-account.png)
 
-With `Account Selector`, you can change your current account to another one. To import an account, click ![](img/klaytn-ide/ide-add-account-button.png) button and choose the import method either by private key or keystore.
+`계정 선택 옵션`을 통해 현재 계정을 다른 계정으로 변경할 수 있습니다. ![](img/klaytn-ide/ide-add-account-button.png) 버튼을 클릭하고, 개인키 또는 키스토어로 가져올 것인지 선택하여 계정을 가져올 수 있습니다.
 
 ![](img/klaytn-ide/ide-account-add-popup.png)
 
