@@ -10,9 +10,9 @@ EN에는 다음 사양을 권장합니다.
 
 #### AWS 권장 사양
 
-| 모델명                      | vCPU 수 | 메모리 (GiB) | 스토리지 (GiB) | EBS 대역폭 (Mbps) | 네트워크 대역폭 (Gbps) | 가격 (서울 지역, USD/h) |
-|:------------------------ |:------ |:--------- |:---------- |:-------------- |:--------------- |:----------------- |
-| m5.2xlarge (recommended) | 8      | 32        | EBS 전용     | 3,500          | 최대 10           | 0.472             |
+| 모델명             | vCPU 수 | 메모리 (GiB) | 스토리지 (GiB) | EBS 대역폭 (Mbps) | 네트워크 대역폭 (Gbps) | 가격 (서울 지역, USD/h) |
+|:--------------- |:------ |:--------- |:---------- |:-------------- |:--------------- |:----------------- |
+| m5.2xlarge (권장) | 8      | 32        | EBS 전용     | 3,500          | 최대 10           | 0.472             |
 
 위 정보의 출처는 [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/)과 [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/)이며, AWS에 의해 변경될 수도 있습니다.
 
@@ -22,7 +22,7 @@ EN에 대한 정확한 물리적 명세를 지정하지는 않지만, 클라우�
 
 ## 스토리지 요구사항
 
-Assuming 100 TPS in average,  300 bytes average transaction size, and 1-second block latency, the expected EN daily storage requirement is 2.5 GB/day (=300x100x86400).
+평균 100 TPS, 평균 트랜잭션 크기 300 바이트, 그리고 1초의 블록 생성 시간을 가정 할 때 예상되는 EN 스토리지 요구 사항은 2.5GB/1일 (= 300x100x86400) 입니다.
 
 ## 운영 체제
 
