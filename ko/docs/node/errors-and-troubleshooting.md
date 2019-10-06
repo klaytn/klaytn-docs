@@ -2,7 +2,7 @@
 
 ## Where can I find a log file for the running Klaytn node using the Klaytn binary package?
 
-**Answer**
+**답변**
 
 You can find a log file in data directory. For example, default location of a log for `kcnd` is `/var/log/kcnd/kcnd.out` when you install `kcnd` RPM package.
 
@@ -12,7 +12,7 @@ You can find a log file in data directory. For example, default location of a lo
 ERROR[01/27,17:11:33 +09] [33] Protocol istanbul/64 failed               id=b10697e43d4f8e30 conn=staticdial err="Genesis block mismatch - 81cf117d44f99b21 (!= 74647b98b9f06cb4)"
 ```
 
-**Answer**
+**답변**
 
 This error can happen when `genesis.json` is differ. Please stop Klaytn node and remove data directory. Then run `ken init` again using correct `genesis.json` as below.
 
@@ -42,7 +42,7 @@ Error: Returned error: The method net_version does not exist/is not available
     at process._tickCallback (internal/process/next_tick.js:63:19)
 ```
 
-**Answer**
+**답변**
 
 Enable `net` and other API for RPC console by editing `kend.conf` file as below.
 
@@ -58,7 +58,7 @@ After updating `kend.conf`, restart Klaytn node.
 Failed to start kcnd.service: Unit not found.
 ```
 
-**Answer**
+**답변**
 
 Please reload daemon as below.
 
@@ -74,7 +74,7 @@ INFO[02/20,12:35:34 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa
 INFO[02/20,12:35:38 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa1e3136fd16a3 addr=13.209.225.108:32323
 ```
 
-**Answer**
+**답변**
 
 This can be happend when `genesis.json` and nodekey/validator information differ. Please check nodekey/validator and `genesis.json` file again.
 
@@ -84,7 +84,7 @@ This can be happend when `genesis.json` and nodekey/validator information differ
 Fatal: Error starting protocol stack: listen unix /Users/username/some_directory/more_directories/klaytn/klaytn_client/my_test_klaytn/data/dd/klay.ipc: bind: invalid argument
 ```
 
-**Answer**
+**답변**
 
 If you see the above protocol stack error message in the log file, it means Klaytn failed to start because the full path name of current working directory is too long. Please launch a Klaytn node with a shorter full data directory. The maximum allowed length of path name depends on operating system.
 
@@ -95,7 +95,7 @@ If you see the above protocol stack error message in the log file, it means Klay
 ERROR[01/28,06:20:07 Z] [23] Protocol istanbul/64 failed id=845f596536450bad conn=staticdial err="InvalidPeerHierarchy - (PeerIsOnParentChain:false) == (OnChildChain:false)"
 ```
 
-**Answer**
+**답변**
 
 It could happen when genesis of mainchain and service chain differ. Please check genesis of both chain are same.
 
