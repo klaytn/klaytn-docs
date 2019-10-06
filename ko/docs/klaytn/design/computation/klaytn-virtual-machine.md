@@ -2,9 +2,9 @@
 
 ## 개요
 
-Klaytn 가상머신\(KLVM\)의 현재 버전은 이더리움 가상머신\(EVM\)에서 파생되었습니다. 이 장의 내용은 주로 [이더리움 Yellow Paper](https://github.com/ethereum/yellowpaper)를 기반으로 합니다. Klaytn 팀은 KLVM을 지속적으로 개선하고 있으므로, 이 문서도 자주 업데이트 될 수 있습니다. 이 문서는 KLVM 사양의 최종 버전이 아닙니다. Klaytn 포지션 페이퍼에서 설명한 것처럼 Klaytn 팀은 Klaytn 플랫폼의 기능과 성능을 향상하기 위해 다른 가상 머신이나 실행 환경도 적용할 계획입니다. 이 장에서는 KLVM과 EVM의 차이점과 KLVM 사양에 대해 설명합니다.
+Klaytn 가상머신\(KLVM\)의 현재 버전은 이더리움 가상머신\(EVM\)에서 파생되었습니다. 이 장의 내용은 주로 [이더리움 Yellow Paper](https://github.com/ethereum/yellowpaper)를 기반으로 합니다. Klaytn팀은 KLVM을 지속적으로 개선하고 있으므로, 이 문서도 자주 업데이트 될 수 있습니다. 이 문서는 KLVM 사양의 최종 버전이 아닙니다. Klaytn 포지션 페이퍼에서 설명한 것처럼 Klaytn 팀은 Klaytn 플랫폼의 기능과 성능을 향상하기 위해 다른 가상 머신이나 실행 환경도 적용할 계획입니다. 이 장에서는 KLVM과 EVM의 차이점 그리고 KLVM 사양에 대해 설명합니다.
 
-KLVM is a virtual state machine that formally specifies Klaytn's execution model. 실행 모델은 일련의 바이트 코드 명령어와 작은 튜플 환경 데이터가 제공될 때, 시스템 상태가 어떻게 변경될지 지정합니다. KLVM is a quasi-Turing-complete machine; the _quasi_ qualification stems from the fact that the computation is intrinsically bounded through a parameter, _gas_, which limits the total amount of computation performed.
+KLVM은 공식적으로 Klaytn의 실행 모델을 지칭합니다. 실행 모델은 일련의 바이트 코드 명령어와 작은 튜플 환경 데이터가 제공될 때, 시스템 상태가 어떻게 변경될지 지정합니다. KLVM은 준 튜링 완전 머신(quasi-Turing-complete machine)입니다. '준(quasi)'은 KLVM에서의 연산이 총 연산의 양을 제한할 수 있는 가스라는 매개변수의 제한을 받기 때문에 붙입니다.
 
 KLVM은 일련의 KLVM 명령어(or Klaytn bytecode)로 이루어진 Klaytn 가성 머신 코드를 실행합니다. KLVM 코드는 Klaytn 블록체인 상에 코드를 가지고 있는 계정을 위해 사용되는 프로그래밍 언어입니다. 계정과 연결된 KLVM 코드는 메시지가 해당 계정으로 전송될 때마다 실행되며, 이 코드는 스토리지 읽고 쓰기가 가능하고 메세지를 보낼 수 있습니다.
 
@@ -80,17 +80,17 @@ KLVM은 간단한 스택 기반 아키텍처입니다. 기계의 워드 크기(�
 
 머신은 스택 언더 플로우와 유효하지 않은 명령어를 포함하여 몇 가지 이유로 예외 코드를 실행할 수 있습니다. Out-of-gas exception과 유사하게, 이런 예외는 상태가 변경된 채로 두지 않습니다. 오히려, 가상 머신이 즉시 정지되고 실행 에이전트 \(트랜잭션 프로세서 또는 재귀적으로 실행 환경에\)에 문제를 보고합니다.
 
-### 트랜잭션 수수료 개요
+### 트랜잭션 비용 개요
 
-세 가지 상황에서 수수료(가스로 표시)가 부과되며, 세 가지 모두 운영 실행을 위한 필수 조건입니다. 첫 번째이자 가장 일반적인 수수료는 연산 자체에 부과되는 수수료입니다. 두 번째로, subordinate 메시지 호출이나 컨트랙트 생성 시 부과될 수 있습니다. 이러한 형태는 `CREATE`, `CALL`과 `CALLCODE`를 위한 수수료 지불입니다. 마지막으로, 가스는 메모리 사용이 늘었을 때 부과될 수 있습니다.
+세 가지 상황에서 비용(가스로 표시)이 부과되며, 세 가지 모두 운영 실행을 위한 필수 조건입니다. 첫 번째이자 가장 일반적인 비용은 연산 자체에 부과되는 비용입니다. 두 번째로, subordinate 메시지 호출이나 컨트랙트 생성 시 부과될 수 있습니다. 이러한 형태는 `CREATE`, `CALL`과 `CALLCODE`를 위한 비용 지불입니다. 마지막으로, 가스는 메모리 사용이 늘었을 때 부과될 수 있습니다.
 
 Over an account's execution, the total fee payable for memory-usage payable is proportional to the smallest multiple of 32 bytes that are required to include all memory indices \(whether for read or write\) in the range. This fee is paid on a just-in-time basis; consequently, referencing an area of memory at least 32 bytes greater than any previously indexed memory will result in an additional memory usage fee. 이 수수료 때문에, 주소가 32비트 범위를 초과할 가능성은 거의 없습니다. 즉, 구현할 때 이러한 만일의 사태를 관리할 수 있도록 고려하여야 합니다.
 
 스토리지 수수료에는 약간의 차이가 있습니다. To incentivize minimization of the use of storage \(which corresponds directly to a larger state database on all nodes\), the execution fee for an operation that clears an entry from storage is not only waived but also elicits a qualified refund; in fact, this refund is effectively paid in advance because the initial usage of a storage location costs substantially more than normal usage.
 
-#### Fee Schedule
+#### 비용표
 
-The fee schedule `G` is a tuple of 37 scalar values corresponding to the relative costs, in gas, of a number of abstract operations that a transaction may incur. `Precompiled contracts`와 `accounts` 같은 다른 표에 대해서는 이 [문서](../transaction-fees.md#klaytns-gas-table)를 참고하세요.
+비용표 `G`는 트랜잭션에서 발생할 수 있는 연산의 가스값 정보를 가지고 있는 37개 스칼라값을 가진 튜플(tuple)입니다. `Precompiled contracts`와 `accounts` 같은 다른 표에 대해서는 이 [문서](../transaction-fees.md#klaytns-gas-table)를 참고하세요.
 
 | 명칭                |     값 | 설명                                                                                                |
 |:----------------- | -----:|:------------------------------------------------------------------------------------------------- |
@@ -218,7 +218,7 @@ The fee schedule `G` is a tuple of 37 scalar values corresponding to the relativ
 
 ### 실행 환경
 
-실행 환경은 시스템 상태 `S_system`, 연산을 위해 남은 가스 `G_rem`, 실행 에이전트가 제공하는 정보 `I`으로 이루어져 있습니다. `I` is a tuple defined as shown below:
+실행 환경은 시스템 상태 `S_system`, 연산을 위해 남은 가스 `G_rem`, 실행 에이전트가 제공하는 정보 `I`으로 이루어져 있습니다. `I`는 다음과 같이 정의된 튜플입니다.
 
 `I := (B_header, T_code, T_depth, T_value, T_data, A_tx_sender, A_code_executor, A_code_owner, G_price, P_modify_state)`
 
@@ -267,7 +267,7 @@ where
 
 `X` is thus cycled \(recursively here, but implementations are generally expected to use a simple iterative loop\) until either `Z` becomes true, indicating that the present state is exceptional and that the machine must be halted and any changes are discarded, or until `H` becomes a series \(rather than the empty set\), indicating that the machine has reached a controlled halt.
 
-#### Machine State
+#### 머신 상태
 
 머신 상태 `S_machine`는 튜플 `(g, pc, memory, i, stack)`로 정의됩니다. 이는 사용 가능한 가스량, 프로그램 카운터 `pc` \(64-bit unsigned integer\), 메모리 컨텐츠(memory contents,), 현재 메모리에 있는 단어 수(position 0부터 계속 카운팅), 스택 컨텐츠(stack contents)를 의미합니다. 메모리 컨텐츠 `S_machine,memory`는 사이즈가 2^256이며 0으로 이루어진 series입니다.
 
