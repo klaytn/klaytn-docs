@@ -77,9 +77,9 @@ Welcome to the Klaytn JavaScript console
    console      대화형 자바스크립트 환경을 시작합니다
 ```
 
-### Module APIs
+### 모듈 API
 
-If you type the module name on the console prompt, you will see the available properties and functions of the module. For the details of functions, please see [Klaytn API](../../bapp/json-rpc/api-references/README.md).
+콘솔 프롬프트에 모듈명을 입력하면 해당 모듈에서 사용 가능한 프로퍼티와 함수 목록이 표시됩니다. 함수의 상세 명세는 [Klaytn API](../../bapp/json-rpc/api-references/README.md)를 참고해주세요.
 
 ```javascript
 > personal
