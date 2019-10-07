@@ -1,11 +1,11 @@
 ---
 description: >-
-  This document explains the key design principles of Klaytn and illustrates how Klaytn differentiates itself from others.
+  이 문서는 Klaytn의 주요 설계 원칙을 설명하고, Klaytn이 다른 블록체인 플랫폼들과 어떻게 차별화되는지 설명합니다.
 ---
 
-# Why Klaytn
+# 왜 Klaytn일까요?
 
-Ever since the first bitcoin transaction in 2009, numerous blockchain applications have been developed, but few of them gain meaningful traction in the market. The major roadblocks to blockchain adoption are;
+2009년 첫 비트코인 트랜잭션 이후 수많은 블록체인 어플리케이션이 개발됐지만, 시장에서 의미 있는 주목을 받은 경우는 거의 없습니다. 블록체인의 대중화에 있어 주요 장애물은 다음과 같습니다.
 
 - Difficulty of use: Blockchain applications force end-users to understand cryptographic terms and the inner workings of the system. There are too many steps in making transactions, and hex-strings pop up all over.
 - Poor user experience: The burden of technical immaturity is simply passed to the users. In many blockchain systems, a transaction is not confirmed until significant time passes. Use of application often requires password inputs repeatedly (while there are no password recoveries), and charges a fee for each interaction (where the amount of fee can be highly fluctuating each time).
