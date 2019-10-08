@@ -8,9 +8,27 @@ jobs:
       - checkout
       - run: ~/go/bin/liche -r ~/klaytn-docs -x "^http.*" --document-root ~/klaytn-docs/docs
 
+  sync_l10n:
+    docker:
+      - image: buildpack-deps
+    steps:
+      - checkout
+      - add_ssh_keys
+      - run: |
+          git config user.email "team.devops@groundx.xyz"
+          git config user.name "CircleCI"
+      - run: .circleci/subtree-merge.sh ko $L10N_KO_REPO dev
 
 workflows:
   version: 2
   job_check_link:
     jobs:
       - check_link
+
+  sync_l10n:
+    jobs:
+      - sync_l10n:
+          filters:
+            branches:
+              only:
+                - l10n
