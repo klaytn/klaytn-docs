@@ -92,45 +92,45 @@ Over an account's execution, the total fee payable for memory-usage payable is p
 
 비용표 `G`는 트랜잭션에서 발생할 수 있는 연산의 가스값 정보를 가지고 있는 37개 스칼라값을 가진 튜플(tuple)입니다. `Precompiled contracts`와 `accounts` 같은 다른 표에 대해서는 이 [문서](../transaction-fees.md#klaytns-gas-table)를 참고하세요.
 
-| 명칭                |     값 | 설명                                                                                                |
-|:----------------- | -----:|:------------------------------------------------------------------------------------------------- |
-| `G_zero`          |     0 | Set `W_zero` 연산을 위해 지불할 금액은 없음                                                                    |
-| `G_base`          |     2 | Set `W_base` 연산을 위해 지불하는 가스량                                                                      |
-| `G_verylow`       |     3 | Set `W_verylow` 연산을 위해 지불하는 가스량                                                                   |
-| `G_low`           |     5 | Set `W_low` 연산을 위해 지불하는 가스량                                                                       |
-| `G_mid`           |     8 | Set `W_mid` 연산을 위해 지불하는 가스량                                                                       |
-| `G_high`          |    10 | Set `W_high` 연산을 위해 지불하는 가스량                                                                      |
-| `G_blockhash`     |    20 | `BLOCKHASH` 연산을 위해 지불하는 가스량                                                                       |
-| `G_extcode`       |   700 | Set `W_extcode` 연산을 위해 지불하는 가스량                                                                   |
-| `G_balance`       |   400 | `BALANCE` 연산을 위해 지불하는 가스량                                                                         |
-| `G_sload`         |   200 | `SLOAD` 연산을 위해 지불하는 가스량                                                                           |
-| `G_jumpdest`      |     1 | `JUMPDEST` 연산을 위해 지불하는 가스량                                                                        |
-| `G_sset`          | 20000 | Storage value가 0에서 0이 아니도록 변경된 경우 `SSTORE` 연산을 위해 지불하는 가스량                                        |
-| `G_sreset`        |  5000 | Storage value가 0으로 남거나 0으로 바뀐 경우 `SSTORE` 연산을 위해 지불하는 가스량                                         |
-| `R_sclear`        | 15000 | Refund given \(added to the refund counter\) when the storage value is set to zero from nonzero |
-| `R_selfdestruct`  | 24000 | Refund given \(added to the refund counter\) for self-destructing an account                    |
-| `G_selfdestruct`  |  5000 | `SELFDESTRUCT` 연산을 위해 지불하는 가스량                                                                    |
-| `G_create`        | 32000 | `CREATE` 연산을 위해 지불하는 가스량                                                                          |
-| `G_codedeposit`   |   200 | Amount of gas paid per byte for a `CREATE` operation that succeeds in placing code into state     |
-| `G_call`          |   700 | `CALL` 연산을 위해 지불하는 가스량                                                                            |
-| `G_callvalue`     |  9000 | Amount of gas paid for a nonzero value transfer as part of a `CALL` operation                     |
-| `G_callstipend`   |  2300 | A stipend for the called contract subtracted from `G_callvalue` for a nonzero value transfer      |
-| `G_newaccount`    | 25000 | 계정을 생성하는 `SELFDESTRUCT`나 `CALL` 연산을 위해 지불하는 가스량                                                   |
-| `G_exp`           |    10 | Partial payment for an `EXP` operation                                                            |
-| `G_expbyte`       |    50 | Partial payment when multiplied by `ceil(log_256(exponent))` for an `EXP` operation               |
-| `G_memory`        |     3 | 메모리를 확장하는 모든 추가적인 단어를 위해 지불하는 가스량                                                                 |
-| `G_txcreate`      | 32000 | 모든 컨트랙트 생성 트랜잭션을 위해 지불하는 가스량                                                                      |
-| `G_txdatazero`    |     4 | Amount of gas paid for every zero byte of data or code for a transaction                          |
-| `G_txdatanonzero` |    68 | Amount of gas paid for every nonzero byte of data or code for a transaction                       |
-| `G_transaction`   | 21000 | 모든 트랜잭션에 지불하는 가스량                                                                                 |
-| `G_log`           |   375 | Partial payment for a `LOG` operation                                                             |
-| `G_logdata`       |     8 | Amount of gas paid for each byte in a `LOG` operation's data                                      |
-| `G_logtopic`      |   375 | Amount of gas paid for each topic of a `LOG` operation                                            |
-| `G_sha3`          |    30 | `SHA3` 연산 각각에 대해 지불하는 가스량                                                                         |
-| `G_sha3word`      |     6 | Amount of gas paid for each word \(rounded up\) for input data to a `SHA3` operation            |
-| `G_copy`          |     3 | Partial payment for `COPY` operations, multiplied by words copied, rounded up                     |
-| `G_extcodehash`   |   400 | Paid for getting `keccak256` hash of a contract's code                                            |
-| `G_create2`       | 32000 | Paid for opcode `CREATE2` which bahaves identically with CREATE but use different arguemnts       |
+| 명칭                |     값 | 설명                                                                                            |
+|:----------------- | -----:|:--------------------------------------------------------------------------------------------- |
+| `G_zero`          |     0 | Set `W_zero` 연산을 위해 지불할 금액은 없음                                                                |
+| `G_base`          |     2 | Set `W_base` 연산을 위해 지불하는 가스량                                                                  |
+| `G_verylow`       |     3 | Set `W_verylow` 연산을 위해 지불하는 가스량                                                               |
+| `G_low`           |     5 | Set `W_low` 연산을 위해 지불하는 가스량                                                                   |
+| `G_mid`           |     8 | Set `W_mid` 연산을 위해 지불하는 가스량                                                                   |
+| `G_high`          |    10 | Set `W_high` 연산을 위해 지불하는 가스량                                                                  |
+| `G_blockhash`     |    20 | `BLOCKHASH` 연산을 위해 지불하는 가스량                                                                   |
+| `G_extcode`       |   700 | Set `W_extcode` 연산을 위해 지불하는 가스량                                                               |
+| `G_balance`       |   400 | `BALANCE` 연산을 위해 지불하는 가스량                                                                     |
+| `G_sload`         |   200 | `SLOAD` 연산을 위해 지불하는 가스량                                                                       |
+| `G_jumpdest`      |     1 | `JUMPDEST` 연산을 위해 지불하는 가스량                                                                    |
+| `G_sset`          | 20000 | Storage value가 0에서 0이 아니도록 변경된 경우 `SSTORE` 연산을 위해 지불하는 가스량                                    |
+| `G_sreset`        |  5000 | Storage value가 0으로 남거나 0으로 바뀐 경우 `SSTORE` 연산을 위해 지불하는 가스량                                     |
+| `R_sclear`        | 15000 | 스토리지 값이 0이 아닌 경우에서 0으로 설정된 경우 반환되는 가스량(반환 카운터가 추가됨)                                           |
+| `R_selfdestruct`  | 24000 | 계정 self-destructing시 반환되는 가스량(반환 카운터가 추가됨)                                                    |
+| `G_selfdestruct`  |  5000 | `SELFDESTRUCT` 연산을 위해 지불하는 가스량                                                                |
+| `G_create`        | 32000 | `CREATE` 연산을 위해 지불하는 가스량                                                                      |
+| `G_codedeposit`   |   200 | Amount of gas paid per byte for a `CREATE` operation that succeeds in placing code into state |
+| `G_call`          |   700 | `CALL` 연산을 위해 지불하는 가스량                                                                        |
+| `G_callvalue`     |  9000 | Amount of gas paid for a nonzero value transfer as part of a `CALL` operation                 |
+| `G_callstipend`   |  2300 | A stipend for the called contract subtracted from `G_callvalue` for a nonzero value transfer  |
+| `G_newaccount`    | 25000 | 계정을 생성하는 `SELFDESTRUCT`나 `CALL` 연산을 위해 지불하는 가스량                                               |
+| `G_exp`           |    10 | Partial payment for an `EXP` operation                                                        |
+| `G_expbyte`       |    50 | Partial payment when multiplied by `ceil(log_256(exponent))` for an `EXP` operation           |
+| `G_memory`        |     3 | 메모리를 확장하는 모든 추가적인 단어를 위해 지불하는 가스량                                                             |
+| `G_txcreate`      | 32000 | 모든 컨트랙트 생성 트랜잭션을 위해 지불하는 가스량                                                                  |
+| `G_txdatazero`    |     4 | Amount of gas paid for every zero byte of data or code for a transaction                      |
+| `G_txdatanonzero` |    68 | Amount of gas paid for every nonzero byte of data or code for a transaction                   |
+| `G_transaction`   | 21000 | 모든 트랜잭션에 지불하는 가스량                                                                             |
+| `G_log`           |   375 | Partial payment for a `LOG` operation                                                         |
+| `G_logdata`       |     8 | Amount of gas paid for each byte in a `LOG` operation's data                                  |
+| `G_logtopic`      |   375 | Amount of gas paid for each topic of a `LOG` operation                                        |
+| `G_sha3`          |    30 | `SHA3` 연산 각각에 대해 지불하는 가스량                                                                     |
+| `G_sha3word`      |     6 | Amount of gas paid for each word \(rounded up\) for input data to a `SHA3` operation        |
+| `G_copy`          |     3 | Partial payment for `COPY` operations, multiplied by words copied, rounded up                 |
+| `G_extcodehash`   |   400 | Paid for getting `keccak256` hash of a contract's code                                        |
+| `G_create2`       | 32000 | Paid for opcode `CREATE2` which bahaves identically with CREATE but use different arguemnts   |
 
 다음과 같이 명령어의 subset을 정의합니다.
 
