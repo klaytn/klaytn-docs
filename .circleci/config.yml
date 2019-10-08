@@ -15,8 +15,8 @@ jobs:
       - checkout
       - add_ssh_keys
       - run: |
-          git config user.email "team.devops@groundx.xyz"
-          git config user.name "CircleCI"
+          git config user.email "$MERGE_AUTHOR_EMAIL"
+          git config user.name "$MERGE_AUTHOR_NAME"
       - run: .circleci/subtree-merge.sh ko $L10N_KO_REPO dev
 
 workflows:
