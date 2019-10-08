@@ -232,7 +232,7 @@ Returns a transaction matching the given transaction hash.
 
 **Return Value**
 
-`Promise` returns `Object` - A transaction object its hash `transactionHash`:
+`Promise` returns `Object` - A transaction object, or `null` when no transaction was found:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -413,7 +413,7 @@ Returns the receipt of a transaction by transaction hash.
 
 **Return Value**
 
-`Object` - A transaction receipt object, or `null` when no receipt was found:
+`Promise` returns `Object` - A transaction receipt object, or `null` when no receipt was found:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -498,7 +498,7 @@ This can be checked by calling [isSenderTxHashIndexingEnabled](./config.md#issen
 
 **Return Value**
 
-`Object` - A transaction receipt object, or `null` when no receipt was found:
+`Promise` returns `Object` - A transaction receipt object, or `null` when no receipt was found:
 
 | Name | Type | Description |
 | --- | --- | --- |
