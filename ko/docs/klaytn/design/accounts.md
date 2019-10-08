@@ -24,7 +24,7 @@ Klatn은 키 쌍과 주소가 강하게 결합되어 있는 전통적인 방식 
 
 * Klaytn 계정은 키 쌍과 연결되는데, 이 키 쌍은 변경될 수 있습니다.
 * Klaytn 계정은 다중 키 쌍을 지원하며, 각 키는 다른 목적을 가지도록 할 수 있습니다.
-* Klaytn account maintains compatibility with accounts having a single key that is strongly coupled with the address.
+* Klaytn 계정은 주소와 강하게 결합된 단일키를 가진 계정과 호환됩니다.
 
 Klaytn 계정의 역할 기반 키나 다중 키 기능을 이용하여, 사용자는 실생활에서 일어날 수 있는 개인키 노출 등 여러 보안 위협에 더욱 잘 대처할 수 있습니다. 예를 들어, 사용자가 자신의 개인키가 노출되었다는 것을 알게 되면 사용자는 자신의 계정에서 노출된 키 쌍을 제거하고 새키 쌍을 만들어 노출된 개인키와 간단히 교체 할 수 있습니다. 키 교체 작업을 위해서 미리 생성된 계정 정보 업데이트용 키를 이용할 수 있습니다. 이 키는 노출된 개인키와 따로 저장되어있어서 노출되지 않았어야 안전하게 이용할 수 있습니다.
 
@@ -99,9 +99,9 @@ AccountKeyNil은 빈(empty) 키를 나타냅니다. 계정이 AccountKeyNil obje
 
 #### 속성
 
-No attributes for AccountKeyNil.
+AccountKeyNil에 대한 속성이 없습니다.
 
-#### RLP Encoding
+#### RLP 인코딩
 
 `0x80`
 
@@ -119,13 +119,13 @@ AccountKeyLegacy는 해당 키 쌍에서 파생된 주소를 가진 계정에 �
 |:-- |:-------------- |:---------------------------------------------- |
 | 형식 | uint8 \(Go\) | AccountKeyLegacy의 type입니다. 이는 **0x01**이어야 합니다. |
 
-#### RLP Encoding
+#### RLP 인코딩
 
 `0x01c0`
 
 ### AccountKeyPublic
 
-AccountKeyPublic is used for accounts having one public key. If an account has an AccountKeyPublic object, the transaction validation process is done like below:
+AccountKeyPublic은 공개키를 하나 가진 계정에 사용됩니다. If an account has an AccountKeyPublic object, the transaction validation process is done like below:
 
 * `ecrecover(txhash, txsig)`로부터 파생된 공개키를 얻습니다.
 * 파생된 공개키가 해당 계정의 공개키와 같은지 확인합니다.
@@ -137,7 +137,7 @@ AccountKeyPublic is used for accounts having one public key. If an account has a
 | 형식  | uint8 \(Go\)        | AccountKeyPublic의 type. 이는 **0x02**가 되어야 합니다. |
 | Key | \[33\]byte \(Go\) | 키는 S256 곡선에서 압축된 공개키여야 합니다.                   |
 
-#### RLP Encoding
+#### RLP 인코딩
 
 `0x02 + encode(CompressedPubKey)`
 
@@ -163,7 +163,7 @@ RLP: 0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8
 |:-- |:-------------- |:-------------------------------------------- |
 | 형식 | uint8 \(Go\) | AcccountKeyFail의 type. 이는 **0x03**가 되어야 합니다. |
 
-#### RLP Encoding
+#### RLP 인코딩
 
 `0x03c0`
 
@@ -175,11 +175,11 @@ AccountKeyWeightedMultiSig는 계정 키 타입입니다. 여기에는 threshold
 
 | 속성                 | 형식                                  | 설명                                                                                                      |
 |:------------------ |:----------------------------------- |:------------------------------------------------------------------------------------------------------- |
-| 형식                 | uint8 \(Go\)                      | AccountKeyWeightedMultiSig의 type입니다. 이는 **0x04**이어야 합니다.                                                |
+| Type               | uint8 \(Go\)                      | AccountKeyWeightedMultiSig의 type입니다. 이는 **0x04**이어야 합니다.                                                |
 | Threshold          | uint \(Go\)                       | 검증 임계값(threshold) 유효한 거래가 되려면 서명의 가중치(weight) 합계가 임계값(threshold) 이상이어야합니다.                              |
 | WeightedPublicKeys | \[\]{uint, \[33\]byte} \(Go\) | 가중 공개키 목록(A list of weighted public keys). 가중 공개키(weighted public key)에는 압축된 공개키와 그 가중치(weight)가 포함됩니다. |
 
-#### RLP Encoding
+#### RLP 인코딩
 
 `0x04 + encode([threshold, [[weight, CompressedPubKey1], [weight2, CompressedPubKey2]]])`
 
@@ -211,7 +211,7 @@ AccountKeyRoleBased는 역할기반 키를 의미합니다. 역할은 [Roles](ac
 
 | 속성   | 형식                          | 설명                                                                                                               |
 |:---- |:--------------------------- |:---------------------------------------------------------------------------------------------------------------- |
-| 형식   | uint8 \(Go\)              | AccountKeyRoleBased의 type입니다. 이는 **0x05**이어야 합니다.                                                                |
+| type | uint8 \(Go\)              | AccountKeyRoleBased의 type입니다. 이는 **0x05**이어야 합니다.                                                                |
 | Keys | \[\]{AccountKey} \(Go\) | 키 목록. 키는 AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail 및 AccountKeyWeightedMultiSig 중 하나입니다. |
 
 #### Roles
@@ -224,13 +224,13 @@ AccountKeyRoleBased의 역할은 다음과 같이 정의됩니다.
 | RoleAccountUpdate | Index 1. TxTypeAccountUpdate 트랜잭션은 이 키로 서명되어야 합니다. 이 키가 계정에 없으면, RoleTransaction 키를 사용하여 TxTypeAccountUpdate 트랜잭션의 유효성이 검사됩니다. |
 | RoleFeePayer      | Index 2. 이 계정이 발신자 대신 트랜잭션 수수료를 보내려면 이 키로 트랜잭션에 서명해야합니다.  이 키가 계정에 없으면 RoleTransaction 키를 사용하여 수수료 위임 트랜잭션의 유효성이 검사됩니다.        |
 
-#### RLP Encoding
+#### RLP 인코딩
 
 `0x05 + encode([key1, key2, key3])`
 
 참고: key1, key2 및 key3은 위의 키 (AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail 및 AccountKeyWeightedMultiSig\) 중 하나입니다.
 
-#### Omissible and Extendable Roles
+#### 생략할 수 있고 확장이 가능한 역할
 
 역할은 끝에서부터 생략할 수 있으며 생략된 역할은 첫 번째 역할에 매핑됩니다. 그러나, 중간에 있는 역할을 생략할 수 없으므로 RoleAccountUpdate 없이는 RoleTransaction 및 RoleFeePayer를 설정할 수 없습니다. 예를 들어, 역할기반 키가 `0x05 + encode([key1, key2])`로 설정되어있으면, RoleFeePayer는 `0x05 + encode ([key1, key2, key1])`로 설정되어있는 것처럼 작동합니다.
 
