@@ -232,7 +232,7 @@ Returns a transaction matching the given transaction hash.
 
 **Return Value**
 
-`Promise` returns `Object` - A transaction object its hash `transactionHash`:
+`Promise` returns `Object` - A transaction object, or `null` when no transaction was found:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -399,7 +399,7 @@ Returns a transaction based on a block hash or number and the transactions index
 ## getTransactionReceipt
 
 ```javascript
-caver.klay.getTransactionReceipt(hash [, callback])
+caver.klay.getTransactionReceipt(transactionHash [, callback])
 ```
 Returns the receipt of a transaction by transaction hash.
 
@@ -408,12 +408,12 @@ Returns the receipt of a transaction by transaction hash.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| hash | String | The transaction hash |
+| transactionHash | String | The transaction hash |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
-`Object` - A transaction receipt object, or `null` when no receipt was found:
+`Promise` returns `Object` - A transaction receipt object, or `null` when no receipt was found:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -498,7 +498,7 @@ This can be checked by calling [isSenderTxHashIndexingEnabled](./config.md#issen
 
 **Return Value**
 
-`Object` - A transaction receipt object, or `null` when no receipt was found:
+`Promise` returns `Object` - A transaction receipt object, or `null` when no receipt was found:
 
 | Name | Type | Description |
 | --- | --- | --- |
