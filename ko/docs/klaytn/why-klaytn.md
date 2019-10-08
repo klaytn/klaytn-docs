@@ -5,90 +5,90 @@ description: >-
 
 # 왜 Klaytn일까요?
 
-2009년 첫 비트코인 트랜잭션 이후 수많은 블록체인 어플리케이션이 개발됐지만, 시장에서 의미 있는 주목을 받은 경우는 거의 없습니다. 블록체인의 대중화에 있어 주요 장애물은 다음과 같습니다.
+2009년 첫 비트코인 트랜잭션 이후 수많은 블록체인 어플리케이션이 개발됐지만, 시장에서 의미 있는 주목을 받은 경우는 거의 없습니다. 블록체인의 대중화를 막는 주요한 장애물들은 다음과 같습니다.
 
-- Difficulty of use: Blockchain applications force end-users to understand cryptographic terms and the inner workings of the system. There are too many steps in making transactions, and hex-strings pop up all over.
-- Poor user experience: The burden of technical immaturity is simply passed to the users. In many blockchain systems, a transaction is not confirmed until significant time passes. Use of application often requires password inputs repeatedly (while there are no password recoveries), and charges a fee for each interaction (where the amount of fee can be highly fluctuating each time).
-- Uncertain sustainability: Lack of long-term sustainable business models for public blockchains slows down enterprise adoption. The operation heavily relies on the token economy that incentivizes the stakeholders to act in a sustainable manner, but the model is not proven in commercial areas yet.
+- 어려운 사용법: 블록체인 어플리케이션은 사용자들이 암호학적 용어와 시스템의 내부작동 원리를 이해해야 사용할 수 있습니다. 트랜잭션을 보내려면 많은 단계를 거쳐야 하고, 16진법 문자열이 여기저기서 불쑥 나타납니다.
+- 형편없는 사용자 경험: 블록체인의 기술적 미성숙함은 사용자에게 부담을 줍니다. 많은 블록체인 시스템에서 트랜잭션은 상당한 시간이 지날때까지 확정되지 않습니다. 어플리케이션을 사용하려면 개인키를 반복적으로 입력해야하는 경우가 많으며(키 복구는 안되지만), 각 상호작용에 대해 변동이 심한 수수료를 지급해야합니다.
+- 불확실한 지속가능성: 블록체인에서 장기적으로 지속가능한 비즈니스 모델의 부재는 기업들이 블록체인 기술을 채택하는 속도를 지연시킵니다. 블록체인 플랫폼의 운영은 이해관계자들이 지속해서 활동하도록 인센티브를 제공하는 토큰 이코노미에 의존하고 있지만 이 모델은 상업적으로 증명되지 않았습니다.
 
-## Klaytn is aiming at Mass-adoption of Blockchain
+## Klaytn은 블록체인의 대중화를 목표로 합니다.
 
-The goal of Klaytn is blockchain mass adoption. The foremost design principle is;
+Klaytn은 블록체인 대중화가 목표입니다. 가장 중요한 디자인 원칙은 다음과 같습니다.
 
 {% hint style="success" %}
-Giving the same user experience that matches the expectation set on the web/mobile applications, eventually making the technology invisible to the users.
+웹/모바일 어플리케이션과 동일한 수준의 사용자 경험을 제공하여 사용자가 블록체인을 인식하지 못하도록 합니다.
 {% endhint %}
 
-As per this principle, Klaytn has been designed to meet the following requirements.
+이 원칙에 따라 Klaytn은 다음 요구 사항들을 충족하도록 설계되었습니다.
 
-### High Performance
+### 우수한 퍼포먼스
 
-- Main chain should handle at least 4,000 TPS.
-- Main chain should guarantee immediate transaction finality with one-second block generation time.
-- See [Consensus Mechanism](design/consensus-mechanism.md).
+- 메인체인은 최소 4,000 TPS 이상을 처리해야합니다.
+- 메인체인은 1초의 블록 생성 시간과 즉각적인 트랜잭션 완결성을 보장합니다.
+- [합의 메커니즘](design/consensus-mechanism.md)을 참고하세요.
 
-### Low Cost
+### 저렴한 비용
 
-- End-users should not be burdened with any higher transaction fee that is beyond the cost that the traditional systems require.
-- Transaction fee should be stable and be determined by the transaction complexity itself, not by surrounding factors.
-- See [Affordable Smart Contract Execution Cost](design/computation/klaytn-smart-contract.md#affordable-smart-contract-execution-cost) and [Transaction Fees](design/transaction-fees.md). At the time of writing, sending KLAY requires a fixed fee of 0.000625 KLAY.
+- 사용자는 기존 시스템 사용할 때 필요한 비용을 초과하는 높은 거래 수수료를 부담해서는 안됩니다.
+- 트랜잭션 비용은 안정적이어야 하고, 주변 요인이 아니라 트랜잭션의 복잡성 자체에 의해 결정되어야 합니다.
+- [저렴한 스마트 컨트랙트 실행 비용](design/computation/klaytn-smart-contract.md#affordable-smart-contract-execution-cost) 및 [트랜잭션 비용](design/transaction-fees.md)을 참고하세요. 현재 KLAY를 보내려면 고정 비용으로 0.000625 KLAY가 필요합니다.
 
-### Usability in User Account Management
+### 사용자 계정 관리의 사용성
 
-- User should be able to choose own account address in a human-readable format.
-- User can change the private key of an account without changing the address.
-- See [Human-Readable Address](design/accounts.md#human-readable-address-hra) and [Decoupling of Key Pairs from Addresses](design/accounts.md#decoupling-key-pairs-from-addresses).
+- 사용자는 사람이 읽을 수있는 형식의 주소를 자신의 계정 주소로 선택할 수 있어야합니다.
+- 사용자는 주소를 변경하지 않고 계정의 개인키를 변경할 수 있습니다.
+- [Human-Readable Address](design/accounts.md#human-readable-address-hra) 및 [주소로부터 키 쌍(key pairs) 분리하기](design/accounts.md#decoupling-key-pairs-from-addresses)를 참고해주세요.
 
-### Usability in Transaction
+### 트랜잭션의 사용성
 
-- Ability to delegate the user's transaction fee to the application operator.
-- See [Fee Delegation](design/transactions/README.md#fee-delegation). Application operator can decide the amount of subsidy for each transaction and can implement more flexible business models such as freemium or subscription. Fee delegation can effectively lower the user acquisition barrier.
+- 사용자의 트랜잭션 비용을 어플리케이션 운영자가 대신 지불하는 기능이 있어야 합니다.
+- [Fee Delegation](design/transactions/README.md#fee-delegation)을 참조해주세요. 어플리케이션 운영자는 각 트랜잭션에 대한 보조금의 양을 설정할 수 있어서 프리미엄(freemium)이나 구독 모델 같이 더욱 유연한 비즈니스 모델을 사용할 수 있습니다. Fee delegation은 사용자가 쉽게 유입될 수 있도록 합니다.
 
 ***
 
-Removing usability hurdles in the platform layer is not enough to drive the mass-adoption. To find attractive blockchain applications, fostering global developer communities along the strategic partnership with business owners is a crucial step.
+플랫폼 레이어에서 사용성을 저하하는 요인을 제거하는 것만으로는 블록체인 플랫폼의 대중화를 이룰 수 없습니다. 매력적인 블록체인 어플리케이션을 찾기 위해서는 서비스 제공자와의 전략적 제휴를 통해 글로벌 개발자 커뮤니티를 육성하는 것이 매우 중요합니다.
 
 {% hint style="success" %}
-Making a business-friendly environment to encourage the birth of compelling applications.
+매력적인 어플리케이션이 많이 만들어질 수 있도록 비즈니스 친화적인 환경 만들기.
 {% endhint %}
 
-This entails the following requirements to support application development.
+이를 위해 어플리케이션 개발을 지원하기 위한 다음과 같은 요구 사항이 있습니다.
 
-### Rapid Development
+### 쾌속 개발(Rapid Development)
 
-- The development of application on Klaytn must be straightforward, and the technologies used must follow the open standard to reduce the learning curve.
-- See [Solidity - Smart Contract Language], [Truffle](../toolkit/truffle.md), and [Migrating Ethereum App to Klaytn](../bapp/tutorials/migrating-ethereum-app-to-klaytn.md). As Klaytn Virtual Machine (KLVM) supports Ethereum’s Solidity contract, it becomes much easier to port PoC product on Ethereum to Klaytn for commercial use. It is much easier as well to find development tools and to get some help from the well-established developer community.
+- Klaytn의 어플리케이션 개발은 간단해야 하며, 사용되는 기술은 개방형 표준을 따라서 학습이 쉬워야 합니다.
+- [Solidity - Smart Contract Language], [Truffle](../toolkit/truffle.md)과 [Migrating Ethereum App to Klaytn](../bapp/tutorials/migrating-ethereum-app-to-klaytn.md)을 참고해주세요. Klaytn 가상머신(KLVM)은 이더리움의 솔리디티 컨트랙트를 지원하므로 이더리움의 PoC 제품을 Klaytn에 훨씬 쉽게 포팅(porting)하여 상업적으로 사용할 수 있습니다. 또한, 잘 구축된 개발자 커뮤니티에서 개발 도구를 찾고 도움을 쉽게 받을 수 있습니다.
 
-### Service-specific Private Chains with Data Anchoring
+### 데이터 앵커링을 사용하는 서비스별 프라이빗 체인
 
-- Klaytn should provide a dedicated solution for private blockchain. The private chain can have its own governance and connect to the Klaytn main chain for data anchoring and asset transfer.
-- See [Service Chain](scaling-solutions.md#service-chain). Enterprises often want to have their own dedicated execution environment to meet the SLA. With the service chain, an enterprise can maintain an isolated high-performing execution environment that is not affected by other blockchain applications, and also keep their business-sensitive data private.
+- Klaytn은 프라이빗 블록체인 전용 솔루션을 제공해야합니다. 프라이빗 체인은 자체 거버넌스를 보유하고 데이터 앵커링 및 자산 전송을 위해 Klaytn 메인체인에 연결할 수 있습니다.
+- [서비스 체인](scaling-solutions.md#service-chain)을 참고해주세요. 기업은 종종 SLA를 충족하기 위해 자체적인 전용 실행 환경을 원합니다. 서비스체인을 통해 기업은 다른 블록체인 어플리케이션의 영향을 받지 않는 격리된 고성능 실행 환경을 유지하고 비즈니스에서 민감한 데이터를 비공개로 유지할 수 있습니다.
 
-### Application Service Layer
+### 어플리케이션 서비스 레이어
 
-- Klaytn provides an additional off-chain service layer called Enterprise Proxy (EP) to ease blockchain application development and operation. Enterprise Proxy will reduce the technical hurdles in using blockchain, and support seamless integration with traditional database and security systems.
-- One of the first EP product will launch in early 2020. It will have APIs that can be used without much blockchain knowledge and provide business intelligence insights through data analysis.
-- See [Enterprise Proxy](enterprise-proxy.md) to learn about its strategic direction and the problems it aims to address.
+- Klaytn은 블록체인 애플리케이션 개발 및 운영을 용이하게 하기 위해 EP(Enter Enterprise Proxy)라는 추가 오프체인 서비스 레이어를 제공합니다. Enterprise Proxy는 블록체인 사용에 따른 기술적 장애를 줄이고 기존 데이터베이스 및 보안 시스템과의 완벽한 통합을 지원합니다.
+- EP 제품 중 하나가 2020년 초에 처음으로 출시될 예정입니다. 이 제품은 블록체인에 대한 지식 없이도 사용할 수 있는 API를 제공하고, 데이터 분석을 통해 비즈니스 인텔리전스 인사이트를 제공할 것입니다.
+- EP의 전략적 방향과 해결할 문제에 대해 알아보려면 [Enterprise Proxy](enterprise-proxy.md)을 참고해주세요.
 
-### Contribution Reward
+### 기여 보상
 
-- Applications that contribute to growing Klaytn ecosystem should be fairly rewarded.
-- See [Incentive Program](design/token-economy.md#incentive-programs).
+- Klaytn 생태계 성장에 기여하는 어플리케이션은 상당한 보상을 받아야합니다.
+- [Incentive Program](design/token-economy.md#incentive-programs)을 참조해주세요.
 
 ***
 
-Lastly, the grounding rules,
+마지막으로, 중요한 규칙은
 
 {% hint style="success" %}
-Klaytn does not sacrifice blockchain’s core characteristics to achieve the above-mentioned enhancement, and the platform stays stable with strongly committed stakeholders.
+Klaytn은 위에서 언급한 개선 사항을 달성하기 위해 블록체인의 핵심적인 특징은 희생하지 않으며, 플랫폼은 적극적으로 참여하는 이해 관계자들과 함께 안정적으로 유지됩니다.
 {% endhint %}
 
-### Transparency, Security and Decentralization
+### 투명성, 보안 및 탈중앙화
 
-- Everyone can request transactions and retrieve and validate every transaction execution result on the blockchain.
-- Klaytn is a decentralized network and no single malicious node breaks the data integrity.
+- 누구나 트랜잭션을 요청하고 블록체인에서 모든 트랜잭션 실행 결과를 검색하고 확인할 수 있습니다.
+- Klaytn은 탈중앙화된 네트워크이므로 하나의 악성 노드가 데이터 무결성을 손상시키지 않습니다.
 
-### Governance by Enterprises
+### 기업들에 의한 거버넌스
 
-- The development and use of Klaytn is backed by Kakao, the massaging giant in Korea. Trusted entities, global listed enterprises that manage the business of hundreds of thousands to billions of dollars, operate Klaytn node and participate in decision making for the development of Klaytn.
+- Klaytn의 개발 및 사용은 한국의 IT 대기업인 Kakao의 지원을 받습니다. 수천에서 수십억 달러를 다루는 신뢰받는 기관들과 세계적인 기업들이 Klaytn의 노드를 운영하고, Klaytn 개발을 위한 의사결정에 참여합니다.
 
