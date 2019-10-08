@@ -4,7 +4,7 @@
 
 **답변**
 
-You can find a log file in data directory. For example, default location of a log for `kcnd` is `/var/log/kcnd/kcnd.out` when you install `kcnd` RPM package.
+데이터 디렉토리에서 로그 파일을 찾을 수 있습니다. For example, default location of a log for `kcnd` is `/var/log/kcnd/kcnd.out` when you install `kcnd` RPM package.
 
 ## Klaytn node can not connect to network with `Protocol istanbul/64 failed` and `Genesis block mismatch` error message as below.
 
