@@ -224,3 +224,5 @@
 * [FAQ](misc/faq.md)
 * [Glossary](misc/glossary.md)
 * [Terms of Use](misc/terms-of-use.md)
+
+* [Languages](languages.md)
