@@ -68,7 +68,7 @@ Klaytn은 현재 단가를 이용하는 트랜잭션을 교체할 수 없습니�
 | G\_call         | 700   | CALL 연산을 위해 지불되는 가스량                                                                       |
 | G\_callvalue    | 9000  | CALL 연산의 일부로 0이 아닌 값 전송에 대해 지불되는 가스량                                                       |
 | G\_callstipend  | 2300  | A stipend for the called contract subtracted from Gcallvalue for a non-zero value transfer |
-| G\_newaccount   | 25000 | Paid for a CALL or SELFDESTRUCT operation which creates an account                         |
+| G\_newaccount   | 25000 | 계정을 생성하는 SELFDESTRUCT나 CALL 연산을 위해 지불하는 가스량                                                |
 | G\_exp          | 10    | EXP 연산에 대한 부분 지불                                                                           |
 | G\_expbyte      | 50    | Partial payment when multiplied by dlog256\(exponent\)e for the EXP operation            |
 | G\_memory       | 3     | 메모리를 확장하는 모든 추가적인 단어를 위해 지불하는 가스량                                                          |
@@ -119,7 +119,7 @@ ValidateSenderGas는 서명마다 지불해야 합니다.
 TotalGas = number of signatures * ValidateSenderGas
 ```
 
-### Account-related Gas Table <a id="account-related-gas-table"></a>
+### 계정 관련 가스 비용표<a id="account-related-gas-table"></a>
 
 | 항목                         | 가스    | 설명                          |
 |:-------------------------- |:----- |:--------------------------- |
