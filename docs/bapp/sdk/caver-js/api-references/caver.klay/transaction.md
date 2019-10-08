@@ -399,7 +399,7 @@ Returns a transaction based on a block hash or number and the transactions index
 ## getTransactionReceipt
 
 ```javascript
-caver.klay.getTransactionReceipt(hash [, callback])
+caver.klay.getTransactionReceipt(transactionHash [, callback])
 ```
 Returns the receipt of a transaction by transaction hash.
 
@@ -408,7 +408,7 @@ Returns the receipt of a transaction by transaction hash.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| hash | String | The transaction hash |
+| transactionHash | String | The transaction hash |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
