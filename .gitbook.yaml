@@ -9,3 +9,7 @@ redirects:
   klaytn/token_economy: ./klaytn/design/token-economy.md
   klaytn/token_economy#proof-of-contribution: ./klaytn/design/token-economy.md#proof-of-contribution
   vision: ./misc/vision/README.md
+  toolkit/ide: ./toolkit/klaytn-ide.md
+  toolkit/scope: ./toolkit/klaytnscope.md
+  toolkit/wallet: ./toolkit/klaytn-wallet.md
+  toolkit/truffle: ./toolkit/truffle.md
