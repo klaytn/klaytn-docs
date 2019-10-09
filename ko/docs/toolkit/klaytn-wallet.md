@@ -171,7 +171,7 @@ Klaytn Wallet을 사용하여 KLAY 또는 Klaytn 토큰을 다른 계정으로 �
 
 ## Baobab 테스트넷 KLAY 받기
 
-테스트넷 KLAY Faucet은 Baobab 네트워크에서 실행 중입니다. Faucet은 [Baobab Klaytn Wallet Klaytn Wallet](https://baobab.wallet.klaytn.com)에서 접근할 수 있습니다.
+테스트넷 KLAY Faucet은 Baobab 네트워크에서 실행 중입니다. Faucet은 [Baobab Klaytn Wallet](https://baobab.wallet.klaytn.com)에서 접근할 수 있습니다.
 
 테스트넷 KLAY를 받으려면, 유효한 Klaytn 계정이 있어야 합니다.
 
