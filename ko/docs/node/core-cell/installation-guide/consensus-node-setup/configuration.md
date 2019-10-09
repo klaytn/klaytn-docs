@@ -6,7 +6,7 @@ The CN configuration is to create a data directory and set up several values in 
 2. Install node key
 3. Configure the CN with `kcnd.conf`.
 
-## CN Data Directory Creation
+## CN 데이터 디렉토리 생성
 
 Considering the fact that the size of Klaytn blockchain data is always increased, it is recommended to use a big enough storage. You may need to create the directory on your desired path.
 
