@@ -228,7 +228,7 @@ Returns a transaction matching the given transaction hash.
 
 **Return Value**
 
-`Promise` returns `Object` - A transaction object its hash `transactionHash`:
+`Promise` returns `Object` - A transaction object, or `null` when no transaction was found:
 
 | 명칭                 | 형식           | 설명                                                                                                                                                                                                           |
 | ------------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -393,21 +393,21 @@ Returns a transaction based on a block hash or number and the transactions index
 ## getTransactionReceipt
 
 ```javascript
-caver.klay.getTransactionReceipt(hash [, callback])
+caver.klay.getTransactionReceipt(transactionHash [, callback])
 ```
 Returns the receipt of a transaction by transaction hash.
 
 
 **Parameters**
 
-| 명칭       | 형식       | 설명                                                                                                         |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| 해시       | String   | The transaction hash                                                                                       |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭              | 형식       | 설명                                                                                                         |
+| --------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| transactionHash | String   | The transaction hash                                                                                       |
+| callback        | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
-`Object` - A transaction receipt object, or `null` when no receipt was found:
+`Promise` returns `Object` - A transaction receipt object, or `null` when no receipt was found:
 
 | 명칭                 | 형식             | 설명                                                                                                                                                                                                                                               |
 | ------------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -490,7 +490,7 @@ Returns the receipt of a transaction identified by the given `senderTxHash`.
 
 **Return Value**
 
-`Object` - A transaction receipt object, or `null` when no receipt was found:
+`Promise` returns `Object` - A transaction receipt object, or `null` when no receipt was found:
 
 | 명칭                 | 형식             | 설명                                                                                                                                                                                                                                    |
 | ------------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
