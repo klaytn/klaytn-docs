@@ -1,8 +1,8 @@
-# 실행 모델(Execution Model)
+# 실행 모델 (Execution Model)
 
 이 장에서는 Klaytn 스마트 컨트랙트의 실행 모델, 데이터 구조 및 라이프 사이클에 관해 설명합니다.
 
-## 실행 모델(Execution Model)
+## 실행 모델 (Execution Model)
 
 트랜잭션은 플랫폼의 API(참고: [ Platform API Specification](../../../bapp/json-rpc/api-references/README.md))를 통해 생성될 수 있습니다. 이 트랜잭션들은 저장되기 위해 _합의 노드 \(CNs\)_로 보내집니다. CN은 전송된 각 트랜잭션이 유효한지 검사합니다. 유효한 트랜잭션은 트랜잭션 풀에 저장되고, 그렇지 않다면 버려집니다. CN은 현재 블록의 트랜잭션 풀에서 실행 가능한 트랜잭션을 선택하고, 하나씩 실행합니다.
 
