@@ -413,7 +413,7 @@ Specifying the `tracer` option in the second argument enables JavaScript-based t
 | -------------- | -------------- | ----------------------------------------------------------- |
 | `pc`           | Number         | The current program counter.                                |
 | `op`           | Object         | An OpCode object representing the current opcode.           |
-| `가스`           | Number         | The amount of gas remaining.                                |
+| `gas`          | Number         | The amount of gas remaining.                                |
 | `gasPrice`     | Number         | The cost in peb of each unit of gas.                        |
 | `memory`       | Object         | A structure representing the contract's memory space.       |
 | `stack`        | array[big.Int] | The KLVM execution stack.                                   |
