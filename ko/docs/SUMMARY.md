@@ -3,7 +3,7 @@
 * [환영합니다.](README.md)
 
 * [Klaytn 개요](klaytn/README.md)
-  * [Why Klaytn](klaytn/why-klaytn.md)
+  * [왜 Klaytn일까요?](klaytn/why-klaytn.md)
   * [Klaytn 디자인](klaytn/design/README.md)
     * [합의 메커니즘](klaytn/design/consensus-mechanism.md)
     * [계정](klaytn/design/accounts.md)
@@ -16,12 +16,12 @@
       * [실행 모델 (Execution Model)](klaytn/design/computation/execution-model.md)
       * [연산 비용 (Computation Cost)](klaytn/design/computation/computation-cost.md)
       * [Klaytn 가상머신](klaytn/design/computation/klaytn-virtual-machine.md)
-    * [Storage](klaytn/design/storage.md)
+    * [스토리지(Storage)](klaytn/design/storage.md)
     * [트랜잭션 비용](klaytn/design/transaction-fees.md)
     * [Klaytn 자체 코인 - KLAY](klaytn/design/klaytn-native-coin-klay.md)
     * [토큰 이코노미](klaytn/design/token-economy.md)
     * [거버넌스 (Governance)](klaytn/design/governance.md)
-  * [Scaling Solutions](klaytn/scaling-solutions.md)
+  * [확장성 솔루션](klaytn/scaling-solutions.md)
   * [Enterprise Proxy](klaytn/enterprise-proxy.md)
 
 * [시작하기](getting-started/README.md)
@@ -56,7 +56,7 @@
       * [1. ERC-721 스마트 컨트랙트 작성](smart-contract/sample-contracts/erc-721/1-erc721.md)
       * [2. 스마트 컨트랙트 배포](smart-contract/sample-contracts/erc-721/2-erc721.md)
   * [테스트 가이드](smart-contract/testing-guide.md)
-  * [Deployment Guide](smart-contract/deploy-guide.md)
+  * [배포 가이드](smart-contract/deploy-guide.md)
   * [Klaytn 호환 토큰](smart-contract/token-standard.md)
   * [이더리움 컨트랙트 이식](smart-contract/porting-ethereum-contract.md)
 
