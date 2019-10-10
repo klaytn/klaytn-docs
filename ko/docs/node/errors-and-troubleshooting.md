@@ -1,12 +1,12 @@
 # 에러 & 문제 해결
 
-## Where can I find a log file for the running Klaytn node using the Klaytn binary package?
+## Klaytn 바이너리 패키지를 사용하여 실행 중인 Klaytn 노드에 대한 로그 파일을 어디에서 찾을 수 있습니까?
 
 **답변**
 
-데이터 디렉토리에서 로그 파일을 찾을 수 있습니다. For example, default location of a log for `kcnd` is `/var/log/kcnd/kcnd.out` when you install `kcnd` RPM package.
+데이터 디렉토리에서 로그 파일을 찾을 수 있습니다. 예를 들어, `kcnd` RPM 패키지를 설치할 때 `kcnd`에 대한 로그의 기본 위치는 `/var/log/kcnd/kcnd.out`입니다.
 
-## Klaytn node can not connect to network with `Protocol istanbul/64 failed` and `Genesis block mismatch` error message as below.
+## Klaytn 노드가 아래와 같은 `Protocol istanbul/64 failed` 및 `Genesis block mismatch` 오류 메시지를 보이며 네트워크에 연결할 수 없습니다.
 
 ```
 ERROR[01/27,17:11:33 +09] [33] Protocol istanbul/64 failed               id=b10697e43d4f8e30 conn=staticdial err="Genesis block mismatch - 81cf117d44f99b21 (!= 74647b98b9f06cb4)"
@@ -14,9 +14,9 @@ ERROR[01/27,17:11:33 +09] [33] Protocol istanbul/64 failed               id=b106
 
 **답변**
 
-This error can happen when `genesis.json` is differ. Please stop Klaytn node and remove data directory. Then run `ken init` again using correct `genesis.json` as below.
+이 오류는 `genesis.json`이 다를 때 발생할 수 있습니다. Klaytn 노드를 중지하고 데이터 디렉토리를 제거하세요. 그런 다음 아래의 올바른 `genesis.json`을 이용해 `ken init`을 다시 실행하세요.
 
-For example, when data directory is `/var/kend/data`.
+예를 들어, 데이터 디렉토리가 `/var/kend/data`인 경우입니다.
 ```
 sudo kend stop
 sudo rm -rf /var/kend/data
@@ -25,7 +25,7 @@ sudo kend start
 ```
 
 
-## Can't deploy smart contract using truffle with following error message.
+## 다음 오류 메시지와 함께 Truffle을 사용하여 스마트 컨트랙트를 배포할 수 없습니다.
 
 ```
 Error: Returned error: The method net_version does not exist/is not available
@@ -44,15 +44,15 @@ Error: Returned error: The method net_version does not exist/is not available
 
 **답변**
 
-Enable `net` and other API for RPC console by editing `kend.conf` file as below.
+아래의 `kend.conf` 파일을 수정해 `net` 및 RPC 콘솔을 위한 다른 API를 활성화하세요.
 
 ```
 RPC_API="admin,debug,klay,miner,net,personal,rpc,txpool,web3" # available apis: admin,debug,klay,miner,net,personal,rpc,txpool,web3
 ```
-After updating `kend.conf`, restart Klaytn node.
+`kend.conf`를 업데이트한 후 Klaytn 노드를 다시 시작하세요.
 
 
-## Can't start Klaytn node with `Unit not found` error as below after installing binary package.
+## 바이너리 패키지를 설치한 후 아래와 같은 `Unit not found` 에러로 Klaytn 노드를 시작할 수 없습니다.
 
 ```
 Failed to start kcnd.service: Unit not found.
@@ -60,13 +60,13 @@ Failed to start kcnd.service: Unit not found.
 
 **답변**
 
-Please reload daemon as below.
+아래와 같이 데몬을 다시 로드하세요.
 
 ```
 sudo systemctl daemon-reload
 ```
 
-## CN can't connect to network with `Add dial candidate from static nodes` log message.
+## `Add dial candidate from static nodes` 로그 메시지와 함께 CN이 네트워크에 연결할 수 없습니다.
 
 ```
 INFO[02/20,12:35:34 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa1e3136fd16a3 addr=13.209.225.108:32323
@@ -76,9 +76,9 @@ INFO[02/20,12:35:38 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa
 
 **답변**
 
-This can be happend when `genesis.json` and nodekey/validator information differ. Please check nodekey/validator and `genesis.json` file again.
+이는 `genesis.json` 및 nodekey/validator 정보가 다를 때 발생할 수 있습니다. nodekey/validator 및 `genesis.json` 파일을 다시 확인하길 바랍니다.
 
-## Klaytn node can't start with following error log message.
+## Klaytn 노드가 다음 오류 로그 메시지로 시작할 수 없습니다.
 
 ```
 Fatal: Error starting protocol stack: listen unix /Users/username/some_directory/more_directories/klaytn/klaytn_client/my_test_klaytn/data/dd/klay.ipc: bind: invalid argument
@@ -86,10 +86,10 @@ Fatal: Error starting protocol stack: listen unix /Users/username/some_directory
 
 **답변**
 
-If you see the above protocol stack error message in the log file, it means Klaytn failed to start because the full path name of current working directory is too long. Please launch a Klaytn node with a shorter full data directory. The maximum allowed length of path name depends on operating system.
+만일 위 프로토콜 스택 에러 메시지를 확인할 수 있다면, 이는 현재 작업 디렉토리의 전체 경로 이름이 너무 길어서 Klaytn을 시작하지 못했음을 의미합니다. 전체 데이터 디렉토리가 더 짧게 Klaytn 노드를 시작하세요. 허용되는 경로 이름의 최대 길이는 운영 체제에 따라 다릅니다.
 
 
-## EN can't connect to CC with following log message.
+## EN은 다음과 같은 로그 메시지로 CC에 연결할 수 없습니다.
 
 ```
 ERROR[01/28,06:20:07 Z] [23] Protocol istanbul/64 failed id=845f596536450bad conn=staticdial err="InvalidPeerHierarchy - (PeerIsOnParentChain:false) == (OnChildChain:false)"
@@ -97,13 +97,13 @@ ERROR[01/28,06:20:07 Z] [23] Protocol istanbul/64 failed id=845f596536450bad con
 
 **답변**
 
-It could happen when genesis of mainchain and service chain differ. Please check genesis of both chain are same.
+메인체인과 서비스체인의 제네시스가 다를 때 발생할 수 있습니다. 두 체인의 제네시스가 동일한 지 확인하세요.
 
-## Head state missing error
+## 헤드 상태 누락 오류
 
 ```
 "ERROR[06/21,14:35:16 +09] [5] Head state missing, repairing chain       number=2955620 hash=66bba2…e15f8d
 Fatal: Error starting protocol stack: rewound to block number 0, but repair failed"
 ```
 
-**Answer** Due to a compatibility issue, we strongly recommend to upgrade EN's binary to v0.9.6 if you have been running an EN with older versions (<= v0.8.2). If it is your first time upgrading the EN to v0.9.x and want to migrate the data from the older version, you must specify the option `ADDITIONAL="--db.num-statetrie-partitions 1"` in the configuration file when you install the newer version.
+**답변** 호환성 문제로 인해 이전 버전 (<= v0.8.2)의 EN을 실행 중인 경우 EN의 바이너리를 v0.9.6으로 업그레이드하는 것을 강력하게 권장합니다. EN을 v0.9.x로 처음 업그레이드하고 이전 버전에서 데이터를 마이그레이션하려면 최신 버전을 설치할 때 환경 설정 파일에 `ADDITIONAL="--db.num-statetrie-partitions 1"` 옵션을 지정해야 합니다.
