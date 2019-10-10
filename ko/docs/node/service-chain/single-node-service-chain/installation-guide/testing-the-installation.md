@@ -2,11 +2,11 @@
 
 ## 프로세스 상태
 
-It is possible to check the status of SCN's process using the status commands `systemctl` and `kscnd`.
+상태 명령 `systemctl`과 `kscnd`을 사용하여 SCN의 프로세스 상태를 확인할 수 있습니다.
 
 ### systemctl
 
-`systemctl` is installed along with the RPM, and the status of SCN can be checked as follows.
+` systemctl `은 RPM과 함께 설치되며 SCN의 상태는 다음과 같이 확인할 수 있습니다.
 
 ```bash
 $ systemctl status kscnd.service
@@ -28,7 +28,7 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Start
 
 ### kscnd
 
-`kscnd` is installed along with the package, and the status of SCN can be checked as follows.
+`kscnd`은 패키지와 함께 설치되며 SCN의 상태는 다음과 같이 확인할 수 있습니다.
 
 ```bash
 $ kscnd status
@@ -57,9 +57,9 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work
 
 ## 쿼리
 
-### kscn console
+### kscn 콘솔
 
-Klaytn provides a CLI client: `kscn console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `data` directory on an SCN.
+Klaytn은 `kscn console`이라는 CLI 클라이언트를 제공합니다. 클라이언트를 사용하는 또 다른 방법은 IPC (inter-process communication)를 통해 프로세스에 연결하는 것입니다. `klay.ipc` IPC 파일은 SCN의 `data` 디렉토리에 있습니다.
 
 다음 명령을 실행하고 결과를 확인하세요.
 
@@ -76,7 +76,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
 
 [API 문서](../../../../bapp/json-rpc/README.md)를 보시면 유용한 명령어들을 확인할 수 있습니다.
 
-The useful APIs to check the status of SCN:
+SCN의 상태를 확인하는 유용한 API는 다음과 같습니다.
 
 * `klay.blockNumber` (to get the latest block number)
 * `net.peerCount` (to get the number of the connected Klaytn nodes currently)
@@ -97,7 +97,7 @@ The useful APIs to check the status of SCN:
 4
 ```
 
-The above command line returns the number of nodes that the SCN connects to  without EN in main chain..
+위 명령은 메인체인의 EN을 제외하고 SCN이 연결한 노드의 수를 반환합니다..
 
 
 
