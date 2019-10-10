@@ -22,7 +22,7 @@ Crowdin is a web service for collaborative translation. To contribute to localiz
 
 - Select the language you want to contribute. Can not find your language? Please write a line to the project owner to initiate a new language translation.
 
-- Join the translators team. Wait until one of the managers approves your request. 
+- Join the translator team. Wait until one of the managers approves your request. 
 
  ![](languages/images/crowdin-join-project.png)
 
@@ -30,7 +30,7 @@ Crowdin is a web service for collaborative translation. To contribute to localiz
 
  ![](languages/images/crowdin-open-file.png)
 
-- You can either submit your translation for a string, vote for a translation, or leave a comment. When you make a translation suggestion, please make sure your word choice conforms to the Klaytn Glossary. 
+- You can submit your translation for a string, vote for a translation, or leave a comment. When you submit a translation, please make sure your word choice conforms to the Klaytn Glossary. 
 
  ![](languages/images/crowdin-editor.png)
   
@@ -45,7 +45,7 @@ Join the [discussion board](https://crowdin.com/project/klaytn-docs/discussions)
 
 ### Leaderboard
 
-Huge thanks to our [top contributors](https://crowdin.com/project/klaytn-docs/reports)❤️.
+Huge thanks to our [top contributors](https://crowdin.com/project/klaytn-docs/reports)❤️
 
 ### Code of conduct
  
