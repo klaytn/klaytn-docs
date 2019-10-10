@@ -116,21 +116,21 @@ Over an account's execution, the total fee payable for memory-usage payable is p
 | `G_callvalue`     |  9000 | Amount of gas paid for a nonzero value transfer as part of a `CALL` operation                 |
 | `G_callstipend`   |  2300 | A stipend for the called contract subtracted from `G_callvalue` for a nonzero value transfer  |
 | `G_newaccount`    | 25000 | 계정을 생성하는 `SELFDESTRUCT`나 `CALL` 연산을 위해 지불하는 가스량                                               |
-| `G_exp`           |    10 | Partial payment for an `EXP` operation                                                        |
+| `G_exp`           |    10 | `EXP` 연산에 대한 부분 지불                                                                            |
 | `G_expbyte`       |    50 | Partial payment when multiplied by `ceil(log_256(exponent))` for an `EXP` operation           |
 | `G_memory`        |     3 | 메모리를 확장하는 모든 추가적인 단어를 위해 지불하는 가스량                                                             |
 | `G_txcreate`      | 32000 | 모든 컨트랙트 생성 트랜잭션을 위해 지불하는 가스량                                                                  |
-| `G_txdatazero`    |     4 | Amount of gas paid for every zero byte of data or code for a transaction                      |
-| `G_txdatanonzero` |    68 | Amount of gas paid for every nonzero byte of data or code for a transaction                   |
+| `G_txdatazero`    |     4 | 0바이트의 데이터 또는 트랜잭션 코드를 위해 지불하는 가스량                                                             |
+| `G_txdatanonzero` |    68 | 0바이트가 아닌 데이터 또는 트랜잭션 코드를 위해 지불하는 가스량                                                          |
 | `G_transaction`   | 21000 | 모든 트랜잭션에 지불하는 가스량                                                                             |
-| `G_log`           |   375 | Partial payment for a `LOG` operation                                                         |
-| `G_logdata`       |     8 | Amount of gas paid for each byte in a `LOG` operation's data                                  |
+| `G_log`           |   375 | `LOG` 연산에 대한 부분 지불하는 가스량                                                                      |
+| `G_logdata`       |     8 | `LOG` 연산의 데이터의 각 바이트마다 지불되는 가스량                                                               |
 | `G_logtopic`      |   375 | Amount of gas paid for each topic of a `LOG` operation                                        |
 | `G_sha3`          |    30 | `SHA3` 연산 각각에 대해 지불하는 가스량                                                                     |
 | `G_sha3word`      |     6 | Amount of gas paid for each word \(rounded up\) for input data to a `SHA3` operation        |
 | `G_copy`          |     3 | Partial payment for `COPY` operations, multiplied by words copied, rounded up                 |
-| `G_extcodehash`   |   400 | Paid for getting `keccak256` hash of a contract's code                                        |
-| `G_create2`       | 32000 | Paid for opcode `CREATE2` which bahaves identically with CREATE but use different arguemnts   |
+| `G_extcodehash`   |   400 | 컨트랙트 코드의 `keccak256` 해시값을 얻기 위해 지불하는 가스량                                                      |
+| `G_create2`       | 32000 | CREATE와 똑같이 작동하지만 다른 인수를 사용하는 `CREATE2` 연산자를 위해 지불하는 가스량                                      |
 
 다음과 같이 명령어의 subset을 정의합니다.
 
@@ -230,7 +230,7 @@ where we must remember that `A`, the accrued substate, is defined as the tuple o
 
 `A := (Set_suicide, L, Set_touched_accounts, G_refund)`
 
-### Execution Overview
+### 실행 개요
 
 In most practical implementations, `F_apply` will be modeled as an iterative progression of the pair comprising the full system state `S_system` and the machine state `S_machine`. Formally, we define it recursively with a function `X` that uses an iterator function `O` \(which defines the result of a single cycle of the state machine\) together with functions `Z`, which determines if the present state is an exceptional halted machine state, and `H`, which specifies the output data of an instruction if and only if the present state is a normal halted machine state.
 
