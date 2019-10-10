@@ -1,22 +1,22 @@
-# Connect to Main Chain
+# 메인체인에 연결하기
 
-In this page, we will connect the single-node Service Chain to the Main Chain.
+이 페이지에서는 단일 노드 서비스체인을 메인체인에 연결할 것입니다.
 
-## EN Configuration - Enable Main-bridge
+## EN 구성 - 메인 브리지 활성화
 
-You should enable main-bridge by configuring `kend.conf`.
+`kend.conf`를 구성하여 메인 브리지를 활성화해야 합니다.
 
 ### 환경 설정 파일 업데이트
 
 The `kend.conf` contains the following main-bridge properties.
 
-| 명칭                     | 설명                                                                                                                     |
-|:---------------------- |:---------------------------------------------------------------------------------------------------------------------- |
-| MAIN_BRIDGE            | Enable bridge service as main bridge for service chain   1 to be enabled                                               |
-| MAIN_BRIDGE_PORT     | bridge listen port   e.g) default: 50505                                                                               |
-| MAIN_BRIDGE_INDEXING | Enable storing transaction hash of service chain transaction for fast access to service chain data   e.g) 1 to enabled |
+| 명칭                     | 설명                                                               |
+|:---------------------- |:---------------------------------------------------------------- |
+| MAIN_BRIDGE            | 서비스체인 1을 사용할 수 있도록 브리지 서비스를 메인 브리지로 사용                           |
+| MAIN_BRIDGE_PORT     | 브리지 수신 포트 예) 기본값: 50505                                          |
+| MAIN_BRIDGE_INDEXING | 서비스체인 데이터에 빠르게 액세스하기 위해 서비스체인 트랜잭션의 트랜잭션 해시 저장 사용 예) 활성화를 위해서는 1 |
 
-To enable main-bridge on EN, you should do like below.
+EN에서 메인 브리지를 활성화하려면 다음을 수행합니다.
 
 * define `MAIN_BRIDGE`
 * enable RPC/WS.
@@ -53,7 +53,7 @@ MAIN_BRIDGE_INDEXING=1
 ```
 
 
-### Restart the EN
+### EN 다시 시작하기
 
 
 
