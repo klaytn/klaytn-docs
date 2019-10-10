@@ -21,7 +21,7 @@ Klaytn은 2019년 6월 27일에 다음과 같은 사양을 가지는 메인넷 [
 
 Klaytn은 역할 및 목적에 따라 세 개의 논리적 서브네트워크로 분할할 수 있습니다. 아래 그림은 Klaytn 생태계의 대략적인 구조를 보여줍니다.
 
-![Klaytn Ecosystem and its Logical Subnetworks (CCN, ENN, SCN)](images/klaytn_network_overview.png)
+![Klaytn 생태계 및 논리적 서브 네트워크 (CCN, ENN, SCN)](images/klaytn_network_overview.png)
 
 ### 코어 셀 네트워크(CCN)
 
@@ -69,7 +69,7 @@ CN, PN 및 EN은 각각 논리적 네트워크, 합의 노드 네트워크(CNN),
 
 아래 그림은 Klaytn 메인넷의 전반적인 토폴로지를 보여줍니다. 여기서 CCN(Core Cell Network)은 CNN(Consensus Node Network)과 PNN(Proxy Node Network)으로 더욱 세분됩니다. 엔드포인트 노드 네트워크(ENN)은 직접 PNN에 연결된 주변 네트워크로 볼 수 있습니다.
 
-![Klaytn Main Chain Physical Topology and Tiered Architecture (CNN, PNN, and ENN)](images/klaytn_network_node.png)
+![Klaytn 메인체인의 물리적 토폴로지 및 계층 구조 (CNN, PNN 및 ENN)](images/klaytn_network_node.png)
 
 
 #### 합의 노드 네트워크 (Consensus Node Network, CNN)
