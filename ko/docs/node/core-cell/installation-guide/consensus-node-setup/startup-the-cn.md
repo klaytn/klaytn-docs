@@ -1,10 +1,10 @@
-# Startup the CN
+# CN 실행
 
-## CN Start/Stop
+## CN 시작/중지
 
-You can start/stop the Klaytn service with the following `systemctl` command.
+다음 `systemctl` 명령을 사용하여 Klaytn 서비스를 시작/중지할 수 있습니다.
 
-**Note**: This requires root privileges.
+**참고**: 루트 권한이 필요합니다.
 
 **실행**
 
@@ -22,13 +22,13 @@ $ systemctl stop kcnd.service
 
 ## 문제 해결
 
-If you meet the following error,
+다음 오류가 발생하면,
 
 ```bash
 Failed to start kcnd.service: Unit not found.
 ```
 
-reload the systemd manager configuration with the following command.
+다음 명령으로 시스템 관리자 구성을 다시 로드하세요.
 
 ```bash
 $ systemctl daemon-reload
