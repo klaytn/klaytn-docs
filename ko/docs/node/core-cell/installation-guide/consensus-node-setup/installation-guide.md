@@ -1,6 +1,6 @@
 # 설치 가이드
 
-You can download the latest version of the `kcn`  on [Download](../download.md) page.
+`kcn`의 최신 버전은 [Download](../download.md) 페이지에서 다운로드할 수 있습니다.
 
 ## Linux 아카이브 배포
 
@@ -16,11 +16,11 @@ You can download the latest version of the `kcn`  on [Download](../download.md) 
   |- kcnd.conf
 ```
 
-| 파일명            | 파일 설명                            |
-|:-------------- |:-------------------------------- |
-| bin/kcn        | CN executable file               |
-| bin/kcnd       | CN start/termination script file |
-| conf/kcnd.conf | CN configuration file            |
+| 파일명            | 파일 설명              |
+|:-------------- |:------------------ |
+| bin/kcn        | CN 실행 파일           |
+| bin/kcnd       | CN 시작 및 종료 스크립트 파일 |
+| conf/kcnd.conf | CN 환경 설정 파일        |
 
 ### 설치
 
@@ -36,7 +36,7 @@ $ tar zxf kcn-vX.X.X-linux-amd64.tar.gz
 $ tar zxf kcn-baobab-vX.X.X-linux-amd64.tar.gz
 ```
 
-**Note**: it is recommended that the uncompressed directory `kcn-linux-amd64/bin` path should be added to the environment variable `$PATH` to run the `kcn` and `kcnd` globally. 예를 들어,
+**Note**: `kcn-linux-amd64/bin` 디렉토리의 경로를 `$PATH` 환경 변수에 추가하여 `kcn`와 `kcnd`를 전역적으로 실행할 수 있도록 하세요. 예를 들어,
 
 ```bash
 $ export PATH=$PATH:~/downloaded/path/kcn-linux-amd64/bin
@@ -62,7 +62,7 @@ $ yum install kcnd-baobab-vX.X.X.el7.x86_64.rpm
 
 ### Klaytn Yum 레포지토리에서 설치
 
-Alternatively, you can install `kcnd` from the Klaytn Yum repo, run:
+아래와 같이 Klaytn Yum 레포지토리에서도 `kcnd`를 설치할 수 있습니다.
 
 ```bash
 $ sudo curl -o /etc/yum.repos.d/klaytn.repo http://packages.klaytn.net/config/rhel/7/prod.repo && sudo yum install kcnd
