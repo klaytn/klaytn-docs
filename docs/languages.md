@@ -24,7 +24,7 @@ Crowdin is a web service for collaborative translation. To contribute to localiz
 
 - Join the translators team. Wait until one of the managers approves your request. 
 
-  ![](languages/images/crowdin-join-project.png)
+  [![](languages/images/crowdin-join-project.png)](languages/images/crowdin-join-project.png)
 
 - Choose the file you want to contribute. 
 
@@ -38,7 +38,7 @@ Crowdin is a web service for collaborative translation. To contribute to localiz
 For detailed usage guidelines for the online-editor, please refer to the official [Crowdin document](https://support.crowdin.com/online-editor/). 
 
 
-Translation suggestions will be reviewed and approved in a couple of days, then, will be made available to the web site. If you are interested in becoming a proofreader or a project manager, please contact one of the project managers. The web site for each language is listed above.
+Translation suggestions will be reviewed and approved by the managers in a couple of days, then, will be made available to the web site. The list of localized web sites are listed above.
 
 ### Discussion 
 Join the [discussion board](https://crowdin.com/project/klaytn-docs/discussions) and meet the fellow contributors.
