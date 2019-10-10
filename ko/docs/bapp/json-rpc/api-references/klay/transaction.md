@@ -15,9 +15,9 @@ Executes a new message call immediately without creating a transaction on the bl
 | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | from     | 20-byte DATA | (optional) The address the transaction is sent from.                                                                                                      |
 | to       | 20-byte DATA | The address the transaction is directed to.                                                                                                               |
-| 가스       | QUANTITY     | (optional) Integer of the gas provided for the transaction execution. `klay_call` consumes zero gas, but this parameter may be needed by some executions. |
+| gas      | QUANTITY     | (optional) Integer of the gas provided for the transaction execution. `klay_call` consumes zero gas, but this parameter may be needed by some executions. |
 | gasPrice | QUANTITY     | (optional) Integer of the gasPrice used for each paid gas.                                                                                                |
-| 값        | QUANTITY     | (optional) Integer of the value sent with this transaction.                                                                                               |
+| value    | QUANTITY     | (optional) Integer of the value sent with this transaction.                                                                                               |
 | data     | DATA         | (optional) Hash of the method signature and encoded parameters.                                                                                           |
 
 **Return Value**
@@ -223,7 +223,7 @@ Returns the information about a transaction requested by transaction hash. This 
 | feePayerSignatures | Array        | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.            |
 | feeRatio           | QUANTITY     | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                       |
 | from               | 20-byte DATA | Address of the sender.                                                                                                                                                                                                  |
-| 가스                 | QUANTITY     | Gas provided by the sender.                                                                                                                                                                                             |
+| gas                | QUANTITY     | Gas provided by the sender.                                                                                                                                                                                             |
 | gasPrice           | QUANTITY     | Gas price provided by the sender in peb.                                                                                                                                                                                |
 | 해시                 | 32-byte DATA | Hash of the transaction.                                                                                                                                                                                                |
 | humanReadable      | Boolean      | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                         |
@@ -234,9 +234,9 @@ Returns the information about a transaction requested by transaction hash. This 
 | signatures         | Array        | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                   |
 | to                 | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                             |
 | transactionIndex   | QUANTITY     | Integer of the transaction index position in the block. `null` when it is pending.                                                                                                                                      |
-| 형식                 | String       | A string representing the type of the transaction.                                                                                                                                                                      |
+| type               | String       | A string representing the type of the transaction.                                                                                                                                                                      |
 | typeInt            | QUANTITY     | An integer representing the type of the transaction.                                                                                                                                                                    |
-| 값                  | QUANTITY     | Value transferred in peb.                                                                                                                                                                                               |
+| value              | QUANTITY     | Value transferred in peb.                                                                                                                                                                                               |
 
 
 **예시**
@@ -306,7 +306,7 @@ Returns the information about a transaction requested by sender transaction hash
 | feePayerSignatures | Array        | An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                       |
 | feeRatio           | QUANTITY     | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                       |
 | from               | 20-byte DATA | Address of the sender.                                                                                                                                                                                                  |
-| 가스                 | QUANTITY     | Gas provided by the sender.                                                                                                                                                                                             |
+| gas                | QUANTITY     | Gas provided by the sender.                                                                                                                                                                                             |
 | gasPrice           | QUANTITY     | Gas price provided by the sender in peb.                                                                                                                                                                                |
 | 해시                 | 32-byte DATA | Hash of the transaction.                                                                                                                                                                                                |
 | humanReadable      | Boolean      | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                         |
@@ -317,9 +317,9 @@ Returns the information about a transaction requested by sender transaction hash
 | signatures         | Array        | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                   |
 | to                 | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                             |
 | transactionIndex   | QUANTITY     | Integer of the transaction index position in the block. `null` when it is pending.                                                                                                                                      |
-| 형식                 | String       | A string representing the type of the transaction.                                                                                                                                                                      |
+| type               | String       | A string representing the type of the transaction.                                                                                                                                                                      |
 | typeInt            | QUANTITY     | An integer representing the type of the transaction.                                                                                                                                                                    |
-| 값                  | QUANTITY     | Value transferred in peb.                                                                                                                                                                                               |
+| value              | QUANTITY     | Value transferred in peb.                                                                                                                                                                                               |
 
 **예시**
 
@@ -391,7 +391,7 @@ Returns the receipt of a transaction by transaction hash.
 | feePayerSignatures | Array                   | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 | feeRatio           | QUANTITY                | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                            |
 | from               | 20-byte DATA            | Address of the sender.                                                                                                                                                                                       |
-| 가스                 | QUANTITY                | Gas provided by the sender.                                                                                                                                                                                  |
+| gas                | QUANTITY                | Gas provided by the sender.                                                                                                                                                                                  |
 | gasPrice           | QUANTITY                | Gas price provided by the sender in peb.                                                                                                                                                                     |
 | gasUsed            | QUANTITY                | The amount of gas used by this specific transaction alone.                                                                                                                                                   |
 | humanReadable      | Boolean                 | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                              |
@@ -407,9 +407,9 @@ Returns the receipt of a transaction by transaction hash.
 | to                 | 20-byte DATA            | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                  |
 | transactionHash    | 32-byte DATA            | Hash of the transaction.                                                                                                                                                                                     |
 | transactionIndex   | QUANTITY                | Integer of the transaction index position in the block.                                                                                                                                                      |
-| 형식                 | String                  | A string representing the type of the transaction.                                                                                                                                                           |
+| type               | String                  | A string representing the type of the transaction.                                                                                                                                                           |
 | typeInt            | QUANTITY                | An integer representing the type of the transaction.                                                                                                                                                         |
-| 값                  | QUANTITY                | Value transferred in peb.                                                                                                                                                                                    |
+| value              | QUANTITY                | Value transferred in peb.                                                                                                                                                                                    |
 
 **예시**
 
@@ -486,7 +486,7 @@ Returns the receipt of a transaction by sender transaction hash.
 | feePayerSignatures | Array                   | An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 | feeRatio           | QUANTITY                | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                 |
 | from               | 20-byte DATA            | Address of the sender.                                                                                                                                                                            |
-| 가스                 | QUANTITY                | Gas provided by the sender.                                                                                                                                                                       |
+| gas                | QUANTITY                | Gas provided by the sender.                                                                                                                                                                       |
 | gasPrice           | QUANTITY                | Gas price provided by the sender in peb.                                                                                                                                                          |
 | gasUsed            | QUANTITY                | The amount of gas used by this specific transaction alone.                                                                                                                                        |
 | humanReadable      | Boolean                 | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                   |
@@ -502,9 +502,9 @@ Returns the receipt of a transaction by sender transaction hash.
 | to                 | 20-byte DATA            | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                       |
 | transactionHash    | 32-byte DATA            | Hash of the transaction.                                                                                                                                                                          |
 | transactionIndex   | QUANTITY                | Integer of the transaction index position in the block.                                                                                                                                           |
-| 형식                 | String                  | A string representing the type of the transaction.                                                                                                                                                |
+| type               | String                  | A string representing the type of the transaction.                                                                                                                                                |
 | typeInt            | QUANTITY                | An integer representing the type of the transaction.                                                                                                                                              |
-| 값                  | QUANTITY                | Value transferred in peb.                                                                                                                                                                         |
+| value              | QUANTITY                | Value transferred in peb.                                                                                                                                                                         |
 
 **예시**
 
@@ -598,9 +598,9 @@ Creates a new message call transaction or a contract creation if the data field 
 | -------- | ------------ | ---------------------------------------------------------------------------------------------------------------- |
 | from     | 20-byte DATA | The address from which the transaction is sent.                                                                  |
 | to       | 20-byte DATA | (optional when creating a new contract) The address to which the transaction is directed.                        |
-| 가스       | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas. |
+| gas      | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas. |
 | gasPrice | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                             |
-| 값        | QUANTITY     | (optional) Integer of the value sent with this transaction.                                                      |
+| value    | QUANTITY     | (optional) Integer of the value sent with this transaction.                                                      |
 | data     | DATA         | The compiled code of a contract or the hash of the invoked method signature and encoded parameters.              |
 | nonce    | QUANTITY     | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce.   |
 
@@ -647,9 +647,9 @@ Creates a rawTransaction based on the give transaction information.
 | -------- | ------------ | ---------------------------------------------------------------------------------------------------------------- |
 | from     | 20-byte DATA | The address from which the transaction is sent.                                                                  |
 | to       | 20-byte DATA | (optional when creating a new contract) The address to which the transaction is directed.                        |
-| 가스       | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas. |
+| gas      | QUANTITY     | (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas. |
 | gasPrice | QUANTITY     | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.                             |
-| 값        | QUANTITY     | (optional) Integer of the value sent with this transaction.                                                      |
+| value    | QUANTITY     | (optional) Integer of the value sent with this transaction.                                                      |
 | data     | DATA         | The compiled code of a contract or the hash of the invoked method signature and encoded parameters.              |
 | nonce    | QUANTITY     | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce.   |
 
