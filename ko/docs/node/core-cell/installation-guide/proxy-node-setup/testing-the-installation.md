@@ -1,3 +1,3 @@
 # 설치 테스트
 
-It is time to check that Proxy Node is successfully installed and it is working as expected after installation.
+Proxy Node가 성공적으로 설치되어 잘 작동하는지 점검해보겠습니다.
