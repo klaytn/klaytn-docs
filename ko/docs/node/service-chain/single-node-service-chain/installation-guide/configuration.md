@@ -1,31 +1,31 @@
 # 환경 설정
 
-This page explains the configuration of a single Service Chain Node (SCN).
+이 페이지에서는 단일 서비스체인 노드 (SCN)의 구성에 대해 설명합니다.
 
-## Creation of SCSigner Keystore / Password Files
+## SCSigner 키스토어 / 비밀번호 파일 생성
 
-When you run a service chain node, you need a keystore file and the associated password file for the scsigner. You can generate the files like the following.
+서비스체인 노드를 실행할 때, 키스토어 파일 및 SCSigner(SC서명자)에 관련된 비밀번호 파일이 필요합니다. 다음과 같은 파일을 생성할 수 있습니다.
 
-### Create Your Password File
+### 비밀번호 파일 만들기
 
-First you can generate the password file simply like below. This password file will be used to generate a keystore file and run the service chain node.
+먼저 아래와 같이 비밀번호 파일을 생성할 수 있습니다. 이 비밀번호 파일은 키스토어 파일을 생성하고 서비스체인 노드를 실행하는 데 사용됩니다.
 
 ```bash
 $ echo passwordString >> passwd
 ```
 
-### Create Your Keystore File
+### 키스토어 파일 만들기
 
-You can create the keystore file with your password file like below.
+아래와 같이 비밀번호 파일로 키스토어 파일을 생성할 수 있습니다.
 
 ```bash
 $ kscn account new --datadir "./" --password ./passwd
 Address: {c04ae62e6a8e084e8f00030d637380792db3dc26}
 ```
 
-_You should use the generated address for the scsigner in the genesis file._
+_제네시스 파일에서 scsigner에 대해 생성된 주소를 사용해야 합니다._
 
-Now, you can have the keystore file and password file like below.
+이제 아래와 같이 키스토어 파일 및 비밀번호 파일을 가집니다.
 
 ```bash
 $ tree
@@ -35,16 +35,16 @@ $ tree
 └── passwd
 ```
 
-After [Initialization of a Genesis Block](#initialization-of-a-genesis-block), you will copy these files to the data directory.
+[제네시스 블록 초기화](#initialization-of-a-genesis-block) 후, 이 파일들을 데이터 디렉토리에 복사합니다.
 
-## Creation of a Genesis File
+## 제네시스 파일 생성
 
-First, you should create new genesis file for your own service chain and initialize all service chain nodes with the same genesis file. The genesis file of the service chain is different with main chain. To create new genesis file, you should write the scsigner address of your service chain in `governingnode`, `extraData` and `alloc` field. The `unitPrice` is set to `0` in the example below, but you can change it to the value you want.
+먼저, 고유한 서비스체인에 대한 새 제네시스 파일을 생성하고 동일한 제네시스 파일로 모든 서비스체인 노드를 초기화해야 합니다. 서비스체인의 제네시스 파일은 메인체인과 다릅니다. 새 제네시스 파일을 만들려면 `governingnode`, `extraData`, `alloc` 필드에 서비스체인의 scsigner 주소를 기입해야 합니다. 아래 예시에서 `unitPrice`은 `0`으로 설정되었으나, 원하는 값으로 변경할 수 있습니다.
 
-The `genesis.json` examples follow. You can find more details in [Genesis JSON](../../genesis.md).
+`genesis.json` 예시는 다음과 같습니다. [Genesis JSON](../../genesis.md)에서 더 자세한 내용을 확인할 수 있습니다.
 
-* `geneis.json` example for a consensus node.
-  * The consensus node's scsigner is `c04ae62e6a8e084e8f00030d637380792db3dc26`.
+* 합의 노드를 위한 `geneis.json` 예시.
+  * 합의 노드의 scsigner는 `c04ae62e6a8e084e8f00030d637380792db3dc26`입니다.
 
 ```javascript
 {
@@ -68,28 +68,28 @@ The `genesis.json` examples follow. You can find more details in [Genesis JSON](
 }
 ```
 
-## SCN Data Directory Creation
+## SCN 데이터 디렉토리 생성
 
-Considering the fact that the size of Klaytn blockchain data is always increased, it is recommended to use a big enough storage. You may need to create the directory on your specific path.
+Klaytn 블록체인 데이터의 크기가 계속 증가됨을 고려하여, 충분히 큰 스토리지를 사용하는 것을 추천합니다. 특정 경로에 디렉토리를 생성할 수 있습니다.
 
 ```bash
 $ mkdir -p ~/kscnd_home
 ```
 
-### Initialization of a Genesis Block
+### 제네시스 블록의 초기화
 
-Before starting an service chain node, it is necessary to initialize the genesis block of the service chain network using `kscn` and `genesis.json`.
+서비스체인 노드를 시작하기 전에, `kscn` 및 `genesis.json`을 사용하여 서비스체인 네트워크의 제네시스 블록을 초기화해야 합니다.
 
 ```bash
 $ kscn init --datadir ~/kscnd_home genesis.json
 ...
 ```
 
-All required steps are done for launching an SCN.
+SCN을 시작하기 위해 필요한 모든 단계가 완료되었습니다.
 
-### **Install SCSigner Key / Password Files**
+### **SCSigner 키/비밀번호 파일 설치**
 
-To set scsigner for the service chain node, we need the right pair of scsigner keystore and password file. Copy the files like below. Keystore file needs a password file to unlock the account.
+서비스체인 노드에 대해 scsigner를 설정하려면, 올바른 scsigner 키스토어와 비밀번호 파일 쌍이 필요합니다. 아래와 같이 파일을 복사하세요. 키스토어 파일은 계정을 잠금 해제하기 위해 비밀번호 파일이 필요합니다.
 
 ```bash
 $ cp ./keystore/UTC--2019-...--ef28e51ef33fe0f487289c1c6e1ccdf5e571366b ~/kscnd_home/keystore
