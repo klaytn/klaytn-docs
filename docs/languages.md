@@ -24,11 +24,7 @@ Crowdin is a web service for collaborative translation. To contribute to localiz
 
 - Join the translator team. Wait until one of the managers approves your request. 
 
-![](languages/images/crowdin-join-project.png)
-
 - Choose the file you want to contribute. 
-
-![](languages/images/crowdin-open-file.png)
 
 - You can submit your translation for a string, vote for a translation, or leave a comment. When you submit a translation, please make sure your word choice conforms to the Klaytn Glossary. 
 
