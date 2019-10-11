@@ -8,13 +8,11 @@ KlaytnDocs is available in the following languages:
 
 ## Get involved!
 
-[![Crowdin](https://badges.crowdin.net/klaytn-docs/localized.svg)](https://crowdin.com/project/klaytn-docs)
-
 If you are native in a language and are willing to contribute to translate 
 or to improve the quality of the localized documents, 
 see [the list of languages currently being translated](https://crowdin.com/project/klaytn-docs).
 
-### How to contribute KlaytnDocs localization via Crowdin
+### How to contribute KlaytnDocs localization via Crowdin [![Crowdin](https://badges.crowdin.net/klaytn-docs/localized.svg)](https://crowdin.com/project/klaytn-docs)
 
 Crowdin is a web service for collaborative translation. To contribute to localization, please follow these steps: 
 
