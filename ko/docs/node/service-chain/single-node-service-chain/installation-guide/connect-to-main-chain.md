@@ -8,7 +8,7 @@
 
 ### 환경 설정 파일 업데이트
 
-The `kend.conf` contains the following main-bridge properties.
+`kend.conf`은 다음과 같은 메인 브리지 속성을 포함합니다.
 
 | 명칭                     | 설명                                                               |
 |:---------------------- |:---------------------------------------------------------------- |
@@ -18,9 +18,9 @@ The `kend.conf` contains the following main-bridge properties.
 
 EN에서 메인 브리지를 활성화하려면 다음을 수행합니다.
 
-* define `MAIN_BRIDGE`
-* enable RPC/WS.
-* add `mainbridge` API for RPC like the below example.
+* `MAIN_BRIDGE` 정의
+* RPC/WS 활성화
+* 아래 예제와 같이 RPC를 위한 `mainbridge` API 추가
 
 ```text
 # Configuration file for the kend
@@ -57,17 +57,17 @@ MAIN_BRIDGE_INDEXING=1
 
 
 
-## Connect SCN to the Main Chain
+## SCN을 메인체인에 연결하기
 
-You need to run an EN of the main chain as a main-bridge. And also you should determine which SCN (Service Chain Node) as a sub-bridge will connect with the EN.
+메인체인의 EN을 메인 브리지로 실행해야 합니다. 또한 서브 브리지로서 어떤 SCN(Service Chain Node)이 EN에 연결되는지 결정해야 합니다.
 
-### Check EN (Main-Bridge) information
+### EN (메인 브리지) 정보 확인하기
 
-#### Open EN Console
+#### EN 콘솔 열기
 
-There are different way to connect the EN process. You can check the usable commands on [ken CLI commands](../../../endpoint-node/ken-cli-commands.md). This page explains the way to connect the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the data directory on an EN/SCN.
+EN 프로세스를 연결하는 다른 방법이 있습니다. [ken CLI commands](../../../endpoint-node/ken-cli-commands.md)에서 사용 가능한 명령을 확인할 수 있습니다. 이 페이지는 IPC(inter-process communication)를 통해 프로세스에 연결하는 방법을 설명합니다. `klay.ipc` IPC 파일은 EN/SCN의 데이터 디렉토리에 있습니다.
 
-다음 명령을 실행하고 결과를 확인하세요. (If you added `mainbridge` API for RPC, you can check the bridge API like below. If there is no `mainbridge` API, you should check [EN Configuration - Enable Main-bridge](#en-configuration-enable-main-bridge) again. )
+다음 명령을 실행하고 결과를 확인하세요. (RPC를 위해 `mainbridge` API를 추가한 경우, 아래와 같이 브릿지 API를 확인할 수 있습니다. `mainbridge` API가 없는 경우, [EN Configuration - Enable Main-bridge](#en-configuration-enable-main-bridge)를 다시 확인해야 합니다. )
 
 ```bash
 $ ken attach ~/kend_home/klay.ipc
@@ -80,9 +80,9 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
  >
 ```
 
-#### Get the EN's KNI
+#### EN의 KNI 받기
 
-After connecting the process via IPC, you can check the EN's main-bridge KNI like below. You can refer to [Service Chain API](../../../../bapp/json-rpc/api-references/servicechain.md).
+IPC를 통해 프로세스를 연결한 후, 아래와 같이 EN의 메인 브리지 KNI를 확인할 수 있습니다. [Service Chain API](../../../../bapp/json-rpc/api-references/servicechain.md)를 참조할 수 있습니다.
 
 ```javascript
 > mainbridge.nodeInfo
@@ -114,13 +114,13 @@ After connecting the process via IPC, you can check the EN's main-bridge KNI lik
 }
 ```
 
-You should note main-bridge `kni` information of EN.
+EN의 메인 브리지 `kni` 정보에 유의해야합니다.
 
-### Connect to the Main Chain
+### 메인체인에 연결하기
 
-#### Open SCN Console
+#### SCN 콘솔 열기
 
-Likes EN case, you can connect the SCN process like below. (If you added `subbridge` API for RPC, you can check the bridge API like below. If there is no `subbridge` API, you should check [Setup Service Chain](https://docs.klaytn.com/node/sc/setup_servicechain#configuration-of-the-initial-file) again. )
+EN의 경우와 마찬가지로 SCN 프로세스를 아래와 같이 연결할 수 있습니다. (RPC를 위해 `subbridge` API를 추가한 경우, 아래와 같이 브릿지 API를 확인할 수 있습니다. `subbridge` API가 없는 경우, [Setup Service Chain](https://docs.klaytn.com/node/sc/setup_servicechain#configuration-of-the-initial-file)를 다시 확인해야 합니다. )
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
@@ -133,16 +133,16 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  >
 ```
 
-#### Connect SCN with EN
+#### SCN과 EN 연결하기
 
-You can add the EN peer on SCN via IPC like below. The kni is EN's KNI which you noted previously.
+아래와 같이 IPC를 통해 SCN에 EN 피어를 추가할 수 있습니다. kni는 앞에서 언급한 EN의 KNI입니다.
 
 ```javascript
  > subbridge.addPeer("kni://08b99d2297e0a27ddeb33f3a81b59ea1c065b9adbaff9fefab0d16f65b1a8db22939a104c24447e9aca521c158922ca912476b544baf48995a382d88886e0a37@[::]:50505?discport=0")
  true
 ```
 
-And then you can check the connected peers like below.
+그 후 아래와 같이 연결된 피어를 확인할 수 있습니다.
 
 ```javascript
  > subbridge.peers
@@ -166,13 +166,13 @@ And then you can check the connected peers like below.
  }]
 ```
 
-## Enable Anchoring
+## 앵커링 활성화하기
 
-This section shows how to enable the anchoring function. If it is enabled, SCN anchors periodically the service chain block data to the main chain to obtain the security of the service chain.
+이 장에서는 앵커링 함수를 활성화하는 방법을 보여줍니다. 활성화 된 경우, SCN은 주기적으로 서비스체인 블록 데이터를 메인체인에 앵커링하여 서비스체인의 보안을 확보합니다.
 
-### Check Chain account of SCN
+### SCN의 체인 계정 확인하기
 
-If you run SCN successfully, the main chain account is generated or set by `mainchainbridgekey` file. You can check the main chain account address vi RPC like the following.
+SCN을 성공적으로 실행하면 메인체인 계정이 생성되거나 `mainchainbridgekey` 파일에 의해 설정됩니다. 다음과 같이 RPC의 메인체인 계정 주소를 확인할 수 있습니다.
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
@@ -186,37 +186,37 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  "0x726e5C8705892989DAB1E9982FBE0B0A92eC84Bf"
 ```
 
-_This main chain account address is generated by `mainchainbridgekey` file in $dataDIR/klay directory._
+_이 메인체인 계정 주소는 $dataDIR/klay directory 디렉토리의 `mainchainbridgekey` 파일에 의해 생성됩니다._
 
-### Charging Chain address
+### 체인 주소 충전하기
 
-When SCN anchor the block data, SCN make an anchoring transaction by the chain account. Therefore the chain account need KLAY. You should charge enough KLAY to the chain account.
+SCN이 블록 데이터를 앵커링하면 SCN은 체인 계정으로 앵커링 트랜잭션을 수행합니다. 따라서 체인 계정에는 KLAY가 필요합니다. 체인 계정에 충분한 KLAY를 충전해야 합니다.
 
-### Enable Anchoring
+### 앵커링 활성화하기
 
-After charging KLAY, you can enable via RPC like below. You can refer to [Service Chain API](../../../../bapp/json-rpc/api-references/servicechain.md) for more details.
+KLAY를 충전한 후, 아래와 같이 RPC를 통해 활성화할 수 있습니다. 상세 사항을 위해 [Service Chain API](../../../../bapp/json-rpc/api-references/servicechain.md)를 참조할 수 있습니다.
 
 ```javascript
 > subbridge.anchoring(true)
 true
 ```
 
-## Check Anchoring
+## 앵커링 확인하기
 
-If the anchoring feature is enabled, SCN will anchor the block data to main chain. You can check the anchored data like below.
+앵커링 기능이 활성화되면 SCN은 블록 데이터를 메인체인에 앵커링합니다. 아래와 같이 앵커링된 데이터를 확인할 수 있습니다.
 
-### Main-Bridge
+### 메인 브리지
 
-In Main-Bridge, if chain indexing option is enabled, you can find the anchoring tx hash by a service chain block hash like below. You can refer to [Service Chain API](../../../../bapp/json-rpc/api-references/servicechain.md) for more details.
+메인 브리지에서 체인 인덱싱 옵션이 활성화 된 경우, 아래와 같이 서비스체인 블록 해시로 앵커링 tx 해시를 찾을 수 있습니다. 상세 사항을 위해 [Service Chain API](../../../../bapp/json-rpc/api-references/servicechain.md)를 참조할 수 있습니다.
 
 ```javascript
 > mainbridge.convertServiceChainBlockHashToMainChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
 "0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51"
 ```
 
-### Sub-Bridge
+### 서브 브리지
 
-In Sun-Bridge, You can check the last anchored block number like below. You can refer to [Service Chain API](../../../../bapp/json-rpc/api-references/servicechain.md) for more details.
+서브 브리지에서는 아래와 같이 마지막으로 앵커링된 블록 번호를 확인할 수 있습니다. 상세 사항을 위해 [Service Chain API](../../../../bapp/json-rpc/api-references/servicechain.md)를 참조할 수 있습니다.
 
 ```javascript
 > subbridge.latestAnchoredBlockNumber
