@@ -1,30 +1,30 @@
 # 환경 설정
 
-This document explains the configurable properties of the node. Klaytn 노드 패키지는 기본적으로 제공되며 별도의 환경 설정은 거의 필요하지 않습니다. 실행 중인 노드의 설정을 변경했다면 해당 노드를 재시작해야 변경 사항이 반영됩니다.
+본 문서는 Node 속성의 구성 설정에 대해 안내합니다. Klaytn 노드 패키지는 기본적으로 제공되며 별도의 구성 설정은 거의 필요하지 않습니다. 실행 중인 노드의 설정을 변경했다면 해당 노드를 재시작해야 변경 사항이 반영됩니다.
 
-## CN Configuration File location
+## CN 구성 파일 위치
 
-* `kcnd.conf` for configuring the Consensus Node
+* 합의 노드 구성을 위한 `kcnd.conf`
 
-이 환경 설정 파일은 `conf` 디렉토리에 있습니다. 해당 디렉토리의 위치는 아카이브 배포 \(`tar.gz`\)인지 또는 패키지 배포 \(RPM\)인지에 따라 기본 설정이 다릅니다.
+이 구성 파일은 `conf` 디렉토리에 있습니다. 해당 디렉토리의 위치는 아카이브 배포 \(`tar.gz`\)인지 또는 패키지 배포 \(RPM\)인지에 따라 기본 설정이 다릅니다.
 
-* For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kcn-linux-amd64/conf/`.
-* For the package distribution, the config directory defaults to `/etc/kcnd/conf/`.
+* 아카이브 배포의 경우 구성 디렉토리의 위치가 `$INSTALL_PATH/kcn-linux-amd64/conf/`으로 기본 설정되어 있습니다.
+* 패키지 배포의 경우 구성 디렉토리의 위치가 `/etc/kcnd/conf/`으로 기본 설정되어 있습니다.
 
-## PN Configuration File location
+## PN 구성 파일 위치
 
-* Proxy Node 환경 설정 시 `kpnd.conf`
+* Proxy Node 구성을 위한 `kpnd.conf`
 
-이 환경 설정 파일은 `conf` 디렉토리에 있습니다. 해당 디렉토리의 위치는 아카이브 배포 \(`tar.gz`\)인지 또는 패키지 배포 \(RPM\)인지에 따라 기본 설정이 다릅니다.
+이 구성 파일은 `conf` 디렉토리에 있습니다. 해당 디렉토리의 위치는 아카이브 배포 \(`tar.gz`\)인지 또는 패키지 배포 \(RPM\)인지에 따라 기본 설정이 다릅니다.
 
-* For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kpn-linux-amd64/conf/`.
-* For the package distribution, the config directory defaults to `/etc/kpnd/conf/`.
+* 아카이브 배포의 경우 구성 디렉토리의 위치가 `$INSTALL_PATH/kpn-linux-amd64/conf/`으로 기본 설정되어 있습니다.
+* 패키지 배포의 경우 구성 디렉토리의 위치가 `/etc/kpnd/conf/`으로 기본 설정되어 있습니다.
 
-## 환경 설정 파일 형식
+## 구성 파일 형식
 
-CN and PN have the same configuration file format and the properties.
+CN과 PN은 구성 파일 형식과 속성이 동일합니다.
 
-Below is a sample configuration file for the CN that participates in the `cypress` network and stores the blockchain data in the default location, which is `~/kcnd_home` with the archive distribution, `/var/kcnd/data` with the package distribution.
+다음은 CN의 구성 파일 샘플로, `cypress`네트워크에 참여하고 블록체인 데이터를 기본 설정 위치에 저장하게 되어 있습니다. 이때 기본으로 설정된 블록체인 데이터 저장 위치는 아카이브 배포의 경우 `~/kcnd_home`, 패키지 배포의 경우 `/var/kcnd/data`입니다.
 
 ```text
 # Configuration file for the kcnd
@@ -47,7 +47,7 @@ DATA_DIR=
 LOG_DIR=$DATA_DIR/logs
 ```
 
-The recommended txpool sizes for CN are as follows.
+아래와 같이 CN의 txpool 크기를 권장합니다.
 
 ```text
 TXPOOL_EXEC_SLOTS_ALL=16384
@@ -56,7 +56,7 @@ TXPOOL_EXEC_SLOTS_ACCOUNT=16384
 TXPOOL_NONEXEC_SLOTS_ACCOUNT=16384
 ```
 
-The recommended txpool sizes for PN are as follows.
+아래와 같이 PN의 txpool 크기를 권장합니다.
 
 ```text
 TXPOOL_EXEC_SLOTS_ALL=8192
@@ -67,7 +67,7 @@ TXPOOL_NONEXEC_SLOTS_ACCOUNT=8192
 
 ## 속성
 
-다음은 환경 설정 파일에서 설정할 수 있는 속성입니다. CN and PN configuration files have the same properties except `REWARDBASE.`
+다음은 구성 파일에서 설정할 수 있는 속성입니다. CN과 PN 구성 파일은 `REWARDBASE`를 제외하고는 동일한 속성을 갖습니다.
 
 <table>
   <thead>
@@ -140,8 +140,8 @@ TXPOOL_NONEXEC_SLOTS_ACCOUNT=8192
     </tr>
     <tr>
       <td style="text-align:left">REWARDBASE</td>
-      <td style="text-align:left">Account address that will receive block consensus rewards. This property
-        only applies to CN.</td>
+      <td style="text-align:left">블록 합의 보상을 받을 계정 주소. 이 속성
+        은 CN에만 적용됩니다.</td>
     </tr>
     <tr>
       <td style="text-align:left">TXPOOL_EXEC_SLOTS_ALL</td>
