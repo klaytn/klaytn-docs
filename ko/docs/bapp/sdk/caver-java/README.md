@@ -1,19 +1,19 @@
 # 소개
 
-`caver-java` is a lightweight, high modular, convenient Java and Android library to interact with clients \(nodes\) on the Klaytn network: This library is an interface which allows Java applications to easily communicate with [Klaytn](https://www.klaytn.com) network.
+`caver-java`는 Klaytn 네트워크의 클라이언트\(노드\)들과 상호작용할 수 있는 가볍고, 높은 모듈화 수준의, 편리한 Java 및 안드로이드 라이브러리입니다: 이 라이브러리는 자바 어플리케이션이 [Klaytn](https://www.klaytn.com) 네트워크와 쉽게 통신할 수 있도록 하는 인터페이스입니다.
 
-## Features
+## 주요 기능
 
-* Complete implementation of Klaytn’s JSON-RPC client API over HTTP and IPC
-* Support of Klaytn transaction, account, and account key types
-* Auto-generation of Java smart contract wrapper to deploy and execute a smart contract from native Java code
-* Creation of a new wallet and managing Klaytn wallets
-* Command line tools
-* Android compatible
+* HTTP 및 IPC를 통한 Klaytn의 JSON-RPC 클라이언트 API의 완전한 구현
+* Klaytn 트랜잭션, 계정 및 계정 키 유형 지원
+* 네이티브 Java 코드에서 스마트 컨트랙트를 배치하고 실행하기 위한 Java 스마트 컨트랙트 랩퍼(wrapper) 자동 생성
+* 새로운 지갑 생성 및 Klaytn Wallet 관리
+* 명령 줄 도구
+* 안드로이드 호환
 
-## Links
+## 링크
 
-* caver-java [GitHub repository](https://github.com/klaytn/caver-java)
+* caver-java [깃허브 레포지토리](https://github.com/klaytn/caver-java)
 * caver-java [Javadoc](https://javadoc.io/doc/com.klaytn.caver/core)
 * caver-java on [bintray](https://bintray.com/klaytn/maven/caver-java)
 
