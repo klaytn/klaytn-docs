@@ -1,8 +1,8 @@
 # 시작하기
 
-## Prerequisites
+## 준비 사항
 
-### Dependency
+### 의존성
 
 **maven**
 
@@ -20,9 +20,9 @@
 implementation 'com.klaytn.caver:core:1.0.1'
 ```
 
-If you want to use Android dependency, just append -android at the end of the version string. \(e.g. 1.0.1-android\)
+안드로이드 의존성을 사용하려면, 버전 문자열 끝에 -android를 추가하세요. \(가령 1.0.1-android\)
 
-If you want to see details of the JSON-RPC requests and responses, please include [LOGBack](https://logback.qos.ch/) dependency in your project. Below is a Gradle build file example. You can add the dependency to Maven as well. Since caver-java uses the [SLF4J](https://www.slf4j.org/) logging facade, you can switch to your preferred logging framework instead of LOGBack.
+JSON-RPC 요청 및 응답에 대한 세부 사항을 보려면, [LOGBack](https://logback.qos.ch/) 의존성을 프로젝트에 포함하세요. 아래는 Gradle 빌드 파일 예제입니다. Maven에도 의존성을 추가할 수 있습니다. caver-java가 [SLF4J](https://www.slf4j.org/) 로깅 퍼사드(logging facade)를 사용하기 때문에, LOGBack 대신 선호하는 로깅 프레임워크로 전환할 수 있습니다.
 
 ```groovy
 implementation "ch.qos.logback:logback-classic:1.2.3"
@@ -30,54 +30,54 @@ implementation "ch.qos.logback:logback-classic:1.2.3"
 
 ### 설치
 
-If you want to generate transactions related with a smart contract, you need to install a Solidity compiler and caver-java commmand-line tool first.
+스마트 컨트랙트와 관련된 트랜잭션을 생성하려면 먼저 솔리디티 컴파일러와 caver-java 명령 줄 도구를 설치해야 합니다.
 
-#### Solidity Compiler
+#### 솔리디티 컴파일러
 
-You can install the Solidity compiler locally, following the instructions as per [the project documentation](http://solidity.readthedocs.io/en/develop/installing-solidity.html). Klaytn recommends you to install Solidity version either 0.4.24 or 0.5.6. If you are a macOS user, you can install the versions via Homebrew:
+[프로젝트 문서](http://solidity.readthedocs.io/en/develop/installing-solidity.html)의 지침에 따라 솔리디티 컴파일러를 로컬로 설치할 수 있습니다. Klaytn은 솔리디티 버전을 0.4.24 또는 0.5.6으로 설치할 것을 권장합니다. macOS 사용자인 경우 Homebrew를 통해 버전을 지정해서 설치할 수 있습니다:
 
 ```text
 $ brew install klaytn/klaytn/solidity@0.4.24  # version 0.4.24
 $ brew install klaytn/klaytn/solidity@0.5.6   # version 0.5.6
 ```
 
-#### Command-line Tool
+#### 명령 줄 도구
 
-The command-line tool allows you to generate Solidity smart contract function wrappers from the command line.
+명령 줄 도구를 사용하면 명령 줄에서 솔리디티 스마트 컨트랙트 함수 래퍼를 생성할 수 있습니다.
 
-**Installation \(Homebrew\)**
+**설치 \(Homebrew\)**
 
-Java 1.8+ is required to install this.
+이를 설치하려면 Java 1.8 이상이 필요합니다.
 
 ```text
 $ brew tap klaytn/klaytn
 $ brew install caver-java
 ```
 
-After installation you can run command 'caver-java' like below:
+설치 후 아래와 같이 'caver-java' 명령을 실행할 수 있습니다:
 
 ```text
 $ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
 ```
 
-**Installation \(Other\)**
+**설치 \(기타\)**
 
-Currently, we do not support other package managers. As another solution, we provide a method to build the CLI below.
+현재 다른 패키지 관리자는 지원하지 않습니다. 다른 솔루션으로, 아래 CLI를 구축하는 방법을 제공합니다.
 
-* Download or fork caver-java.
-* Do task 'shadowDistZip' in the console module using Gradle. As a result, console/build/distributions/console-shadow-{version}.zip is generated.
+* caver-java를 다운로드하거나 포크(fork)하세요.
+* Gradle을 사용하여 콘솔 모듈에서 'shadowDistZip' 작업을 수행하세요. 그 결과 console/build/distributions/console-shadow-{version}.zip이 생성됩니다.
 
   ```text
   $ ./gradlew :console:shadowDistZip
   ```
 
-* Unzip the zip file in the build directory
+* 빌드 디렉토리에서 zip 파일을 압축 해제하세요.
 
   ```text
   $ unzip ./console/build/distributions/console-shadow-{version}.zip
   ```
 
-* Execute the binary file to run the command-line tool like below. You can find a shell script file for macOS users and a batch file for Window users.
+* 바이너리 파일을 실행하여 아래와 같이 명령 줄 도구를 실행하세요. macOS 사용자용 쉘 스크립트 파일과 Window 사용자용 배치 파일을 찾을 수 있습니다.
 
   ```text
   $ ./console/build/distributions/console-shadow-{version}/bin/caver-java
@@ -85,13 +85,13 @@ Currently, we do not support other package managers. As another solution, we pro
 
 ## 계정 관리
 
-### Creating an Account
+### 계정 생성
 
-In order to sign transactions, you need to have either an EC \(Elliptic Curve\) key pair or a Klaytn keystore file.
+트랜잭션에 서명하려면 EC \(Elliptic Curve\) 키 쌍 또는 Klaytn 키스토어 파일이 있어야 합니다.
 
-#### Using an EC Key Pair
+#### EC 키 쌍 사용
 
-You can create a Klaytn account using an EC key pair like below:
+아래와 같이 EC 키 쌍을 사용하여 Klaytn 계정을 만들 수 있습니다:
 
 ```java
 KlayCredentials credentials = KlayCredentials.create(Keys.createEcKeyPair());
@@ -99,9 +99,9 @@ String privateKey = Numeric.toHexStringWithPrefix(credentials.getEcKeyPair().get
 String address = credentials.getAddress();
 ```
 
-#### Using a Keystore File
+#### 키스토어 파일 사용
 
-If you want to create a new account with a keystore file (you can also create a new keystore file in [Klaytn Wallet](../../../toolkit/klaytn-wallet.md)):
+키스토어 파일로 새 계정을 작성하려는 경우 ([Klaytn Wallet](../../../toolkit/klaytn-wallet.md)에서 새 키스토어 파일을 작성할 수도 있습니다):
 
 ```java
 KlayWalletUtils.generateNewWalletFile(
@@ -110,21 +110,21 @@ KlayWalletUtils.generateNewWalletFile(
 );
 ```
 
-To load an account using a keystore file like below:
+아래와 같이 키스토어 파일을 사용하여 계정을 로드하려면:
 
 ```java
 KlayCredentials credentials = KlayWalletUtils.loadCredentials(<password>, <walletFilePath>);
 ```
 
-## Sending a Transaction
+## 트랜잭션 발신
 
-### Getting KLAY via Baobab Faucet
+### Baobab Faucet을 통해 KLAY 받기
 
-After creating an account, you can receive some Baobab testnet KLAY for the Baobab testnet via Baobab Faucet, available at [https://baobab.wallet.klaytn.com/](https://baobab.wallet.klaytn.com/). The received testnet KLAY will be used for transaction fee later.
+계정을 만든 후 [https://baobab.wallet.klaytn.com/](https://baobab.wallet.klaytn.com/)에 있는 Baobab Faucet을 통해 Baobab 테스트넷에 대한 약간의 Baobab 테스트넷 KLAY를 받을 수 있습니다. 수신된 테스트넷 KLAY는 나중에 트랜잭션 비용으로 사용될 것입니다.
 
-### Connecting to Baobab
+### Baobab 연결
 
-You can use a Klaytn public EN \([https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651)\) to connect to the Baobab testnet.
+Baobab 테스트넷에 연결하기 위해 Klaytn 공개 EN \([https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651)\)을 사용할 수 있습니다.
 
 ```java
 Caver caver  = Caver.build(Caver.BAOBAB_URL);  // Caver.BAOBAB_URL = https://api.baobab.klaytn.net:8651
@@ -132,7 +132,7 @@ Caver caver  = Caver.build(Caver.BAOBAB_URL);  // Caver.BAOBAB_URL = https://api
 
 ### 송금 트랜잭션 전송
 
-After you get a `Caver` instance and create an account which has some KLAY, you can send 1 peb to a certain address\(`0xe97f27e9a5765ce36a7b919b1cb6004c7209217e`\) with a gas limit `BigInteger.valueOf(100_000)` like below:
+`Caver` 인스턴스를 얻고 약간의 KLAY가 있는 계정을 만든 후, 아래처럼 가스 한도 `BigInteger.valueOf(100_000)`로 특정 주소\(`0xe97f27e9a5765ce36a7b919b1cb6004c7209217e`\)에게 1 peb를 보낼 수 있습니다.
 
 `TransactionManager` is introduced to hide the complexity of transaction types. For example, a `FeeDelegatedValueTransferTransaction` object can be transformed from a `ValueTransferTransaction` object. For more details, see [Fee Delegation](../../../klaytn/design/transactions/README.md#fee-delegation). In addition to Fee Delegation, `TransactionManager` can be used with `GetNonceProcessor`, `ErrorHandler`, and `TransactionReceiptProcessor`.
 
@@ -379,6 +379,6 @@ FeePayerManager feePayerManager = new FeePayerManager.Builder(caver, feePayer).b
 feePayerManager.executeTransaction(senderRawTransaction);
 ```
 
-## Thanks to
+## 감사를 표합니다
 
-The [web3j](https://github.com/web3j/web3j) project for the inspiration. 🙂
+영감을 준 [web3j](https://github.com/web3j/web3j) 프로젝트 🙂
