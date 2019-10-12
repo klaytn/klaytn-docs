@@ -2,34 +2,34 @@
 
 ## 하드웨어 사양
 
-The network performance is measured based on the worst hardware specification within the network. According to the blockchain network structure, it is only possible to be scaled up vertically \(increasing hardware capacity\). Hence, it is recommended that all the nodes within the network should have the best hardwares having the similar specifications with each other at least.
+네트워크 성능은 네트워크 내 최악의 하드웨어 사양에 따라 측정됩니다. 블록체인 네트워크 구조에 따르면, 수직적 확장\(하드웨어 용량 증가\)만 할 수 있습니다. 따라서 네트워크 내의 모든 노드는 적어도 서로 비슷한 사양을 가진 최상의 하드웨어를 가지는 것이 추천됩니다.
 
-The following sections show the recommended specifications for both CNs and PNs.
+다음 장에서는 CN 및 PN에 대한 권장 사양을 보여줍니다.
 
-### Bare-metal Server
+### 베어메탈 서버
 
-| Category | Specification                                                                            |
-|:-------- |:---------------------------------------------------------------------------------------- |
-| Server   | Intel® Server System R2312WFTZS                                                          |
-| CPU      | Intel® Xeon 6148 2.40 GHz \(20-core/40-thread\) \* 2EA \(total 40-core/80-thread\) |
-| Memory   | 256GB \(32GB \* 8\)                                                                  |
-| Storage  | 12TB \(1.92TB SSD \* 6, RAID 5\)                                                     |
+| 카테고리          | 사양                                                                                       |
+|:------------- |:---------------------------------------------------------------------------------------- |
+| 서버            | Intel® Server System R2312WFTZS                                                          |
+| CPU           | Intel® Xeon 6148 2.40 GHz \(20-core/40-thread\) \* 2EA \(total 40-core/80-thread\) |
+| 메모리           | 256GB \(32GB \* 8\)                                                                  |
+| 스토리지(Storage) | 12TB \(1.92TB SSD \* 6, RAID 5\)                                                     |
 
-Note that this is a recommended hardware specification for CNs and PNs, not an exact requirement. Any physical machine having similar hardware configuration would be sufficient to operate a CN or a PN.
+이는 CN 및 PN에 권장되는 하드웨어 사양이며, 정확한 요구 사항은 아닙니다. 하드웨어 구성이 비슷한 물리적 시스템은 CN 또는 PN을 작동시키기에 충분합니다.
 
 ### 클라우드 VM
 
 #### AWS 권장 사양
 
-| 모델명                           | vCPU 수 | Memory \(GiB\) | Storage \(GiB\)       | EBS Bandwidth \(Mbps\) | Network Bandwidth \(Gbps\) | Price \(Seoul region, USD/h\) |
-|:----------------------------- |:------ |:---------------- |:----------------------- |:------------------------ |:---------------------------- |:------------------------------- |
-| c5.18xlarge \(recommended\) | 72     | 144              | 500 (Minimum, EBS-Only) | 14,000                   | 25                           | 3.456                           |
+| 모델명                           | vCPU 수 | 메모리 \(GiB\) | 스토리지 \(GiB\)   | EBS 대역폭 \(Mbps\) | 네트워크 대역폭 \(Gbps\) | 가격 \(서울 지역, USD/h\) |
+|:----------------------------- |:------ |:------------- |:---------------- |:------------------ |:------------------- |:--------------------- |
+| c5.18xlarge \(recommended\) | 72     | 144           | 500 (최소, EBS 전용) | 14,000             | 25                  | 3.456                 |
 
 위 정보의 출처는 [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/)과 [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/)이며, AWS에 의해 변경될 수도 있습니다.
 
 ## 스토리지 요구사항
 
-Assuming 100 TPS in average,  300 bytes average transaction size, and 1-second block latency, the expected daily storage requirement is 2.5 GB/day \(=300x100x86400\).
+평균 100 TPS, 평균 트랜잭션 크기 300 바이트, 그리고 1초의 블록 생성 시간을 가정 할 때 예상되는 스토리지 요구 사항은 2.5GB/1일 \(= 300x100x86400\) 입니다.
 
 ## 운영 체제
 
