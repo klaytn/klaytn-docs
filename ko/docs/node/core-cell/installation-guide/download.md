@@ -16,7 +16,7 @@ Baobab 패키지
 - [kcn-baobab-v1.1.1-3-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/kcn-baobab-v1.1.1-3-linux-amd64.tar.gz)
 - [kpn-baobab-v1.1.1-3-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/kpn-baobab-v1.1.1-3-linux-amd64.tar.gz)
 
-Common Packages
+공통 패키지
 - [kgen-v1.1.1-3-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/kgen-v1.1.1-3-linux-amd64.tar.gz)
 
 
@@ -30,7 +30,7 @@ Baobab 패키지
 - [kcn-baobab-v1.1.1-3-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/kcn-baobab-v1.1.1-3-darwin-amd64.tar.gz)
 - [kpn-baobab-v1.1.1-3-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/kpn-baobab-v1.1.1-3-darwin-amd64.tar.gz)
 
-Common Packages
+공통 패키지
 - [kgen-v1.1.1-3-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/kgen-v1.1.1-3-darwin-amd64.tar.gz)
 
 
