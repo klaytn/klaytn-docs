@@ -37,7 +37,7 @@ kscnd is running
 
 ## 로그
 
-로그는 `kscnd.out` 파일에 저장되어 있고, 이 파일은 `LOG_DIR` field of the `kscnd.conf` 파일의 <0>LOG_DIR</0> 필드에서 정의된 경로에 있습니다. 노드가 제대로 작동하면 다음과 같이 매초 블록을 가져오는 것을 볼 수 있습니다.
+로그는 `kscnd.out` 파일에 저장되어 있고, 이 파일은 `kscnd.conf` 파일의 `LOG_DIR` 필드에서 정의된 경로에 있습니다. 노드가 제대로 작동하면 다음과 같이 매초 블록을 가져오는 것을 볼 수 있습니다.
 
 예시:
 
@@ -78,8 +78,8 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
 
 SCN의 상태를 확인하는 유용한 API는 다음과 같습니다.
 
-* `klay.blockNumber` (to get the latest block number)
-* `net.peerCount` (to get the number of the connected Klaytn nodes currently)
+* `klay.blockNumber` (최신 블록 번호를 가져옵니다)
+* `net.peerCount` (현재 연결된 Klaytn 노드의 수를 가져옵니다)
 
 ### klay.blockNumber
 
