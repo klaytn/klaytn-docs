@@ -224,3 +224,5 @@
 * [FAQ](misc/faq.md)
 * [용어집](misc/glossary.md)
 * [Terms of Use](misc/terms-of-use.md)
+
+* [Languages](languages.md)
