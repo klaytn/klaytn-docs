@@ -3,7 +3,7 @@ description: >-
   Klaytn is designed to center users and BApps. The roadmap is planned to realize it step by step as below.
 ---
 
-# Roadmap
+# 로드맵
 
 ## 2019 Infra buildup
 
