@@ -41,7 +41,7 @@ Returns `true` if the account associated with the address is created. It returns
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | 주소           | String               | The address of the account you want to query to see if it has been created on the network.                                            |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
 
 **Return Value**
 
@@ -73,7 +73,7 @@ Returns the account information of a given address. There are two different acco
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | 주소           | String               | The address of the account for which you want to get account information.                                                             |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
 
 **Return Value**
 
@@ -118,9 +118,9 @@ Returns a list of accounts that the node controls.
 
 **Parameters**
 
-| 명칭       | 형식       | 설명                                                                                                         |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **Return Value**
 
@@ -150,7 +150,7 @@ Returns the account key of the Externally Owned Account (EOA) of the given addre
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | 주소           | String               | The address of the account for which you want to get accountKey.                                                                      |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
 
 **Return Value**
 
@@ -255,7 +255,7 @@ Gets the balance of an address at a given block.
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | 주소           | String               | The address to get the balance of.                                                                                                    |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
 
 **Return Value**
 
@@ -283,7 +283,7 @@ Gets the code at a specific address.
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | 주소           | String               | The address to get the code from.                                                                                                     |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
 
 **Return Value**
 
@@ -312,7 +312,7 @@ Gets the number of transactions sent from this address.
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | 주소           | String               | The address to get the number of transactions from.                                                                                   |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
 
 **Return Value**
 
@@ -342,7 +342,7 @@ Returns `true` if an input account has a non-empty codeHash at the time of a spe
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | 주소           | String               | The address of the account you want to check for isContractAccount.                                                                   |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
 
 **Return Value**
 
@@ -370,11 +370,11 @@ Generates signed data specific to the Klaytn network. Refer to [Klaytn Platform 
 
 **Parameters**
 
-| 명칭       | 형식       | 설명                                                                                                         |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| message  | String   | Message to sign.                                                                                           |
-| 주소       | String   | The address of the account to sign the message with.                                                       |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| message  | String   | Message to sign.                                                     |
+| 주소       | String   | The address of the account to sign the message with.                 |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **Return Value**
 
