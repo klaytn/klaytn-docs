@@ -30,7 +30,7 @@ The options object contains the following:
 | -------- | ------ | ------------------------------------------------------------------------------- |
 | from     | String | (optional) The address from which transactions should be made.                  |
 | gasPrice | String | (optional) The gas price in peb to use for transactions.                        |
-| 가스       | Number | (optional) The maximum gas provided for a transaction (gas limit).              |
+| gas      | Number | (optional) The maximum gas provided for a transaction (gas limit).              |
 | data     | String | (optional) The byte code of the contract. Used when the contract gets deployed. |
 
 
@@ -72,7 +72,7 @@ The `options` object for the contract instance. `from`, `gas` and `gasPrice` are
 | data          | String | The byte code of the contract. Used when the contract gets deployed.                          |
 | from          | String | The address from which transactions should be made.                                           |
 | gasPrice      | String | The gas price in peb to use for transactions.                                                 |
-| 가스            | Number | The maximum gas provided for a transaction (gas limit).                                       |
+| gas           | Number | The maximum gas provided for a transaction (gas limit).                                       |
 
 
 **예시**
@@ -354,7 +354,7 @@ The options object can contain the following:
 | -------- | ------ | ---------------------------------------------------------------------------- |
 | from     | String | (optional) The address the call “transaction” should be made from.           |
 | gasPrice | String | (optional) The gas price in peb to use for this call "transaction".          |
-| 가스       | Number | (optional) The maximum gas provided for this call "transaction" (gas limit). |
+| gas      | Number | (optional) The maximum gas provided for this call "transaction" (gas limit). |
 
 **Return Value**
 
@@ -431,8 +431,8 @@ The options object can contain the following:
 | -------- | ----------------------------------------------- | --------------------------------------------------------------------- |
 | from     | String                                          | The address from which the transaction should be sent.                |
 | gasPrice | String                                          | (optional) The gas price in peb to use for this transaction.          |
-| 가스       | Number                                          | (optional) The maximum gas provided for this transaction (gas limit). |
-| 값        | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb.          |
+| gas      | Number                                          | (optional) The maximum gas provided for this transaction (gas limit). |
+| value    | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb.          |
 
 **Return Value**
 
@@ -525,11 +525,11 @@ Will estimate the gas that a method execution will take when executed in the Kla
 
 The options object can contain the following:
 
-| 명칭   | 형식                                              | 설명                                                                                                                                                                                           |
-| ---- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from | String                                          | (optional) The address from which the call "transaction" should be made.                                                                                                                     |
-| 가스   | Number                                          | (optional) The maximum gas provided for this call "transaction" (gas limit). Setting a specific value helps to detect out of gas errors. If all gas is used, it will return the same number. |
-| 값    | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the call "transaction" in peb.                                                                                                                          |
+| 명칭    | 형식                                              | 설명                                                                                                                                                                                           |
+| ----- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from  | String                                          | (optional) The address from which the call "transaction" should be made.                                                                                                                     |
+| gas   | Number                                          | (optional) The maximum gas provided for this call "transaction" (gas limit). Setting a specific value helps to detect out of gas errors. If all gas is used, it will return the same number. |
+| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the call "transaction" in peb.                                                                                                                          |
 
 **Return Value**
 
