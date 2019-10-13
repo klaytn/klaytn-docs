@@ -21,7 +21,7 @@ Note: Only the account having `AccountKeyLegacy` can send this transaction, on t
 | transactionObject.gasPrice | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                                        |
 | transactionObject.data     | String                                          | (optional) Either an [ABI byte string](http://solidity.readthedocs.io/en/latest/abi-spec.html) containing the data of the function call on a contract, or in the case of a contract-creation transaction the initialization code. |
 | transactionObject.nonce    | Number                                          | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                               |
-| callback                   | Function                                        | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                        |
+| callback                   | Function                                        | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                                                              |
 
 **Return Value**
 
