@@ -11,7 +11,7 @@ Executes a message call transaction, which is directly executed in the Klaytn Vi
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | callObject   | Object               | A transaction object with the difference that for calls the from property is optional as well. [An encoded function call](../caver.klay.abi.md#encodefunctioncall) must be set in the data field of the transaction object. |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock).                                                                                       |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                  |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                                                        |
 
 **Return Value**
 
@@ -41,7 +41,7 @@ Executes a message call or transaction and returns the amount of the gas used fo
 | 명칭         | 형식       | 설명                                                                                                                                                                                                                          |
 | ---------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | callObject | Object   | A transaction object with the difference that for calls the from property is optional as well. [An encoded function call](../caver.klay.abi.md#encodefunctioncall) must be set in the data field of the transaction object. |
-| callback   | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                  |
+| callback   | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                                                        |
 
 **Return Value**
 
@@ -72,7 +72,7 @@ Generates and returns an estimate of how much computation cost will be spent to 
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | callObject   | Object               | A transaction object with the difference that for calls the from property is optional as well. [An encoded function call](../caver.klay.abi.md#encodefunctioncall) must be set in the data field of the transaction object. |
 | defaultBlock | Number &#124; String | (optional) If you don't pass this parameter, the default block set by [caver.klay.defaultBlock](./block.md#defaultblock) will be used.                                                                                      |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                  |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                                                        |
 
 **Return Value**
 
@@ -221,10 +221,10 @@ Returns a transaction matching the given transaction hash.
 
 **Parameters**
 
-| 명칭              | 형식       | 설명                                                                                                         |
-| --------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| transactionHash | String   | The transaction hash.                                                                                      |
-| callback        | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭              | 형식       | 설명                                                                   |
+| --------------- | -------- | -------------------------------------------------------------------- |
+| transactionHash | String   | The transaction hash.                                                |
+| callback        | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **Return Value**
 
@@ -239,7 +239,7 @@ Returns a transaction matching the given transaction hash.
 | feePayerSignatures | Array        | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 | feeRatio           | QUANTITY     | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                            |
 | from               | 20-byte DATA | Address of the sender.                                                                                                                                                                                       |
-| 가스                 | QUANTITY     | Gas provided by the sender.                                                                                                                                                                                  |
+| gas                | QUANTITY     | Gas provided by the sender.                                                                                                                                                                                  |
 | gasPrice           | QUANTITY     | Gas price provided by the sender in peb.                                                                                                                                                                     |
 | 해시                 | 32-byte DATA | Hash of the transaction.                                                                                                                                                                                     |
 | humanReadable      | Boolean      | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                              |
@@ -250,9 +250,9 @@ Returns a transaction matching the given transaction hash.
 | signatures         | Array        | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                        |
 | to                 | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                  |
 | transactionIndex   | QUANTITY     | Integer of the transaction index position in the block. `null` when it is pending.                                                                                                                           |
-| 형식                 | String       | A string representing the type of the transaction.                                                                                                                                                           |
+| type               | String       | A string representing the type of the transaction.                                                                                                                                                           |
 | typeInt            | QUANTITY     | An integer representing the type of the transaction.                                                                                                                                                         |
-| 값                  | QUANTITY     | Value transferred in peb.                                                                                                                                                                                    |
+| value              | QUANTITY     | Value transferred in peb.                                                                                                                                                                                    |
 
 
 **예시**
@@ -294,7 +294,7 @@ Returns the information about the transaction identified by the given `senderTxH
 | 명칭           | 형식       | 설명                                                                                                                                             |
 | ------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | senderTxHash | String   | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash). |
-| callback     | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                     |
+| callback     | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                           |
 
 **Return Value**
 
@@ -309,7 +309,7 @@ Returns the information about the transaction identified by the given `senderTxH
 | feePayerSignatures | Array        | An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                          |
 | feeRatio           | QUANTITY     | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                          |
 | from               | 20-byte DATA | Address of the sender.                                                                                                                                                                                                     |
-| 가스                 | QUANTITY     | Gas provided by the sender.                                                                                                                                                                                                |
+| gas                | QUANTITY     | Gas provided by the sender.                                                                                                                                                                                                |
 | gasPrice           | QUANTITY     | Gas price provided by the sender in peb.                                                                                                                                                                                   |
 | 해시                 | 32-byte DATA | Hash of the transaction.                                                                                                                                                                                                   |
 | humanReadable      | Boolean      | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                            |
@@ -320,9 +320,9 @@ Returns the information about the transaction identified by the given `senderTxH
 | signatures         | Array        | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                      |
 | to                 | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                |
 | transactionIndex   | QUANTITY     | Integer of the transaction index position in the block. `null` when it is pending.                                                                                                                                         |
-| 형식                 | String       | A string representing the type of the transaction.                                                                                                                                                                         |
+| type               | String       | A string representing the type of the transaction.                                                                                                                                                                         |
 | typeInt            | QUANTITY     | An integer representing the type of the transaction.                                                                                                                                                                       |
-| 값                  | QUANTITY     | Value transferred in peb.                                                                                                                                                                                                  |
+| value              | QUANTITY     | Value transferred in peb.                                                                                                                                                                                                  |
 
 
 **예시**
@@ -373,11 +373,11 @@ Returns a transaction based on a block hash or number and the transactions index
 
 **Parameters**
 
-| 명칭                 | 형식       | 설명                                                                                                         |
-| ------------------ | -------- | ---------------------------------------------------------------------------------------------------------- |
-| hashStringOrNumber | String   | A block number or hash. Or the string `"genesis"`, `"latest"` or `"pending"`.                              |
-| indexNumber        | Number   | The transactions index position.                                                                           |
-| callback           | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭                 | 형식       | 설명                                                                            |
+| ------------------ | -------- | ----------------------------------------------------------------------------- |
+| hashStringOrNumber | String   | A block number or hash. Or the string `"genesis"`, `"latest"` or `"pending"`. |
+| indexNumber        | Number   | The transactions index position.                                              |
+| callback           | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.          |
 
 **Return Value**
 
@@ -400,10 +400,10 @@ Returns the receipt of a transaction by transaction hash.
 
 **Parameters**
 
-| 명칭              | 형식       | 설명                                                                                                         |
-| --------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| transactionHash | String   | The transaction hash                                                                                       |
-| callback        | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭              | 형식       | 설명                                                                   |
+| --------------- | -------- | -------------------------------------------------------------------- |
+| transactionHash | String   | The transaction hash                                                 |
+| callback        | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **Return Value**
 
@@ -419,7 +419,7 @@ Returns the receipt of a transaction by transaction hash.
 | feePayerSignatures | Array          | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                     |
 | feeRatio           | QUANTITY       | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                                                |
 | from               | 20-byte DATA   | Address of the sender.                                                                                                                                                                                                                           |
-| 가스                 | QUANTITY       | Gas provided by the sender.                                                                                                                                                                                                                      |
+| gas                | QUANTITY       | Gas provided by the sender.                                                                                                                                                                                                                      |
 | gasPrice           | QUANTITY       | Gas price provided by the sender in peb.                                                                                                                                                                                                         |
 | gasUsed            | QUANTITY       | The amount of gas used by this specific transaction alone.                                                                                                                                                                                       |
 | humanReadable      | Boolean        | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                                  |
@@ -435,9 +435,9 @@ Returns the receipt of a transaction by transaction hash.
 | to                 | 20-byte DATA   | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                                      |
 | transactionHash    | 32-byte DATA   | Hash of the transaction.                                                                                                                                                                                                                         |
 | transactionIndex   | QUANTITY       | Integer of the transaction index position in the block.                                                                                                                                                                                          |
-| 형식                 | String         | A string representing the type of the transaction.                                                                                                                                                                                               |
+| type               | String         | A string representing the type of the transaction.                                                                                                                                                                                               |
 | typeInt            | QUANTITY       | An integer representing the type of the transaction.                                                                                                                                                                                             |
-| 값                  | QUANTITY       | Value transferred in peb.                                                                                                                                                                                                                        |
+| value              | QUANTITY       | Value transferred in peb.                                                                                                                                                                                                                        |
 
 **예시**
 
@@ -486,7 +486,7 @@ Returns the receipt of a transaction identified by the given `senderTxHash`.
 | 명칭           | 형식       | 설명                                                                                                                                             |
 | ------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | senderTxHash | String   | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash). |
-| callback     | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                     |
+| callback     | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                           |
 
 **Return Value**
 
@@ -502,7 +502,7 @@ Returns the receipt of a transaction identified by the given `senderTxHash`.
 | feePayerSignatures | Array          | An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                     |
 | feeRatio           | QUANTITY       | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                                     |
 | from               | 20-byte DATA   | Address of the sender.                                                                                                                                                                                                                |
-| 가스                 | QUANTITY       | Gas provided by the sender.                                                                                                                                                                                                           |
+| gas                | QUANTITY       | Gas provided by the sender.                                                                                                                                                                                                           |
 | gasPrice           | QUANTITY       | Gas price provided by the sender in peb.                                                                                                                                                                                              |
 | gasUsed            | QUANTITY       | The amount of gas used by this specific transaction alone.                                                                                                                                                                            |
 | humanReadable      | Boolean        | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                       |
@@ -518,9 +518,9 @@ Returns the receipt of a transaction identified by the given `senderTxHash`.
 | to                 | 20-byte DATA   | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                           |
 | transactionHash    | 32-byte DATA   | Hash of the transaction.                                                                                                                                                                                                              |
 | transactionIndex   | QUANTITY       | Integer of the transaction index position in the block.                                                                                                                                                                               |
-| 형식                 | String         | A string representing the type of the transaction.                                                                                                                                                                                    |
+| type               | String         | A string representing the type of the transaction.                                                                                                                                                                                    |
 | typeInt            | QUANTITY       | An integer representing the type of the transaction.                                                                                                                                                                                  |
-| 값                  | QUANTITY       | Value transferred in peb.                                                                                                                                                                                                             |
+| value              | QUANTITY       | Value transferred in peb.                                                                                                                                                                                                             |
 
 **예시**
 
@@ -576,10 +576,10 @@ caver.klay.sendSignedTransaction(signedTransactionData [, callback])
 
 **Parameters**
 
-| 명칭                    | 형식       | 설명                                                                                                         |
-| --------------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| signedTransactionData | String   | Signed transaction data in HEX format.                                                                     |
-| callback              | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭                    | 형식       | 설명                                                                   |
+| --------------------- | -------- | -------------------------------------------------------------------- |
+| signedTransactionData | String   | Signed transaction data in HEX format.                               |
+| callback              | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **Return Value**
 
@@ -645,10 +645,10 @@ Signs a transaction. This account needs to be unlocked.
 
 **Parameters**
 
-| 명칭                | 형식       | 설명                                                                                                         |
-| ----------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| transactionObject | Object   | The transaction data to sign.                                                                              |
-| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭                | 형식       | 설명                                                                   |
+| ----------------- | -------- | -------------------------------------------------------------------- |
+| transactionObject | Object   | The transaction data to sign.                                        |
+| callback          | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **Return Value**
 
