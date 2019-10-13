@@ -134,7 +134,7 @@ Caver caver  = Caver.build(Caver.BAOBAB_URL);  // Caver.BAOBAB_URL = https://api
 
 `Caver` 인스턴스를 얻고 약간의 KLAY가 있는 계정을 만든 후, 아래처럼 가스 한도 `BigInteger.valueOf(100_000)`로 특정 주소\(`0xe97f27e9a5765ce36a7b919b1cb6004c7209217e`\)에게 1 peb를 보낼 수 있습니다.
 
-`TransactionManager` is introduced to hide the complexity of transaction types. For example, a `FeeDelegatedValueTransferTransaction` object can be transformed from a `ValueTransferTransaction` object. For more details, see [Fee Delegation](../../../klaytn/design/transactions/README.md#fee-delegation). In addition to Fee Delegation, `TransactionManager` can be used with `GetNonceProcessor`, `ErrorHandler`, and `TransactionReceiptProcessor`.
+`TransactionManager`는 트랜잭션 타입의 복잡성을 숨기기 위해 도입되었습니다. 예를 들어, `FeeDelegatedValueTransferTransaction` 객체는 `ValueTransferTransaction` 객체로 변환될 수 있습니다. 자세한 내용은 [Fee Delegation](../../../klaytn/design/transactions/README.md#fee-delegation)을 참조하세요. 수수료 위임 외에도 `TransactionManager`는 `GetNonceProcessor`, `ErrorHandler`, `TransactionReceiptProcessor`와 함께 사용될 수 있습니다.
 
 ```java
 TransactionManager transactionManager = new TransactionManager.Builder(caver, credentials)
@@ -154,7 +154,7 @@ TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransaction
 KlayTransactionReceipt.TransactionReceipt transactionReceipt = transactionReceiptProcessor.waitForTransactionReceipt(transactionHash);
 ```
 
-If you use `ValueTransfer` class, you can more easily compose and send a transaction. This is because `ValueTransfer` class makes the processes above simple like below:
+`ValueTransfer` 클래스를 사용하는 경우, 더 쉽게 트랜잭션을 구성하고 전송할 수 있습니다. 이는 `ValueTransfer` 클래스가 위와 같은 프로세스를 아래와 같이 간단하게 만들기 때문입니다:
 
 ```java
 KlayTransactionReceipt.TransactionReceipt transactionReceipt
@@ -167,9 +167,9 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt
             ).send();
 ```
 
-### Checking Receipts
+### 영수증 확인
 
-If you send a transaction via `sendFunds`, caver-java tries to get a transaction receipt by default. After you get a receipt, you can see the following log in the console.
+`sendFunds`을 통해 트랜잭션을 보내는 경우, caver-java는 기본적으로 트랜잭션 영수증을 받으려 합니다. 영수증을 받으면 콘솔에 다음 로그가 표시됩니다.
 
 ```javascript
 {
@@ -203,13 +203,13 @@ If you send a transaction via `sendFunds`, caver-java tries to get a transaction
 }
 ```
 
-In this receipt, you can check the status of the transaction execution. If the 'status' field in the receipt is "0x1", it means the transaction is processed successfully. If not, the transaction failed. The detailed error message is presented in the `txError` field. For more detail, see [txError](../../json-rpc/transaction-error-codes.md).
+이 영수증에서 트랜잭션 실행 상태를 확인할 수 있습니다. 영수증의 '상태'필드가 "0x1"이면 트랜잭션이 성공적으로 처리되었음을 의미합니다. 그렇지 않으면 트랜잭션이 실패한 것입니다. 자세한 오류 메시지는 `txError` 필드에 표시됩니다. 자세한 내용은 [txError](../../json-rpc/transaction-error-codes.md)를 참조하세요.
 
-## Sending Other Transaction Types
+## 다른 트랜잭션 타입 보내기
 
-### Account Update
+### 계정 업데이트
 
-If you want to update the key of the given account to a new [AccountKeyPublic](../../../klaytn/design/accounts.md#accountkeypublic) key:
+주어진 계정의 키를 새 [AccountKeyPublic](../../../klaytn/design/accounts.md#accountkeypublic)으로 업데이트하려는 경우:
 
 ```java
 AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.create(
@@ -223,23 +223,23 @@ AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.cre
 Account.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendUpdateTransaction(accountUpdateTransaction).send();
 ```
 
-계정 키는 계정과 연결된 키 구조를 나타냅니다. To get more details and types about the Klaytn account key, please read [Account Key](../../../klaytn/design/accounts.md#account-key).
+계정 키는 계정과 연결된 키 구조를 나타냅니다. Klaytn 계정 키에 대한 자세한 내용과 타입을 보려면 [Account Key](../../../klaytn/design/accounts.md#account-key)를 읽으세요.
 
 ### 스마트 컨트랙트
 
-caver-java supports auto-generation of smart contract wrapper code. Using the wrapper, you can easily deploy and execute a smart contract. Before generating a wrapper code, you need to compile the smart contract first. Note: This will only work if a Solidity compiler is installed in your computer. See [Solidity Compiler](#solidity-compiler).
+caver-java는 스마트 컨트랙트 래퍼 코드의 자동 생성을 지원합니다. 랩퍼를 사용하면 스마트 컨트랙트를 쉽게 배포하고 실행할 수 있습니다. 랩퍼 코드를 생성하기 전, 먼저 스마트 컨트랙트를 컴파일해야 합니다. 참고: 컴퓨터에 솔리디티 컴파일러가 설치된 경우에만 작동합니다. [Solidity Compiler](#solidity-compiler)를 참조하세요.
 
 ```text
 $ solc <contract>.sol --bin --abi --optimize -o <output-dir>/
 ```
 
-Then, generate the wrapper code using caver-java’s [command-line tool](#command-line-tool).
+그 후, caver-java의 [command-line tool](#command-line-tool)을 사용해 래퍼 코드를 생성하세요.
 
 ```text
 $ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
 ```
 
-Above command will output `<smartContract>`.java. After generating the wrapper code, you can deploy your smart contract like below:
+위의 명령은 `<smartContract>`.java를 출력할 것입니다. 랩퍼 코드를 생성 한 후, 다음과 같이 스마트 컨트랙트를 배포할 수 있습니다:
 
 ```java
 <smartContract> contract = <smartContract>.deploy(
@@ -247,7 +247,7 @@ Above command will output `<smartContract>`.java. After generating the wrapper c
         <param1>, ..., <paramN>).send();
 ```
 
-After the smart contract has been deployed, you can create a smart contract instance like below:
+스마트 컨트랙트가 배포된 후, 아래와 같이 스마트 컨트랙트 인스턴스를 만들 수 있습니다:
 
 ```java
 <smartContract> contract = <smartContract>.load(
@@ -255,7 +255,7 @@ After the smart contract has been deployed, you can create a smart contract inst
 );
 ```
 
-To transact with a smart contract:
+스마트 컨트랙트로 트랜잭션을 생성하려면:
 
 ```java
 KlayTransactionReceipt.TransactionReceipt transactionReceipt = contract.<someMethod>(
@@ -263,7 +263,7 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt = contract.<someMet
         ...).send();
 ```
 
-To call a smart contract:
+스마트 컨트랙트를 호출하려면:
 
 ```java
 <type> result = contract.<someMethod>(<param1>, ...).send();
@@ -271,7 +271,7 @@ To call a smart contract:
 
 #### 예시
 
-This section describes how to deploy and execute a smart contract on the Baobab testnet. In this example, we use a smart contract [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol). If contract deployment fails and an empty contract address is returned, it will throw RuntimeException.
+이 장에서는 Baobab 테스트넷에서 스마트 컨트랙트를 배포하고 실행하는 방법에 대해 설명합니다. 이 예제에서는 스마트 컨트랙트 [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol)을 사용합니다. 만일 컨트랙트 배포에 실패하고 빈 계약 주소가 반환되면 RuntimeException이 발생합니다.
 
 ```java
 ERC20Mock erc20Mock = ERC20Mock.deploy(
@@ -284,7 +284,7 @@ ERC20Mock erc20Mock = ERC20Mock.deploy(
 String deployedContractAddress = erc20Mock.getContractAddress();
 ```
 
-To create an instance of the deployed ERC20Mock contract:
+배포된 ERC20Mock 컨트랙트의 인스턴스를 작성하려면 다음을 수행하세요:
 
 ```java
 ERC20Mock erc20Mock = ERC20Mock.load(
@@ -295,7 +295,7 @@ ERC20Mock erc20Mock = ERC20Mock.load(
 );
 ```
 
-If you transfer 10 tokens to a specified address \(e.g., `0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a`\), use the following code:
+만일 10개의 토큰을 특정 주소\(가령 `0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a`\)로 전송하는 경우, 다음 코드를 사용하세요:
 
 ```java
 KlayTransactionReceipt.TransactionReceipt transactionReceipt = erc20Mock.transfer(
@@ -304,7 +304,7 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt = erc20Mock.transfe
 ).send();
 ```
 
-To check the balance of the recipient \(e.g., `0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a`\), use the code below:
+수신자\(가령 `0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a`\)의 잔액을 확인하려는 경우, 다음 코드를 사용하세요:
 
 ```java
 BigInteger balance = erc20Mock.balanceOf(
@@ -314,11 +314,11 @@ BigInteger balance = erc20Mock.balanceOf(
 
 ### 트랜잭션 비용 위임
 
-Klaytn provides [Fee Delegation](../../../klaytn/design/transactions/README.md#fee-delegation) feature which allows service providers to pay transaction fees instead of the users.
+Klaytn은 서비스 제공자가 사용자 대신 트랜잭션 수수료를 지불할 수 있는 기능인 [수수료 위임](../../../klaytn/design/transactions/README.md#fee-delegation)을 제공합니다.
 
-#### Value Transfer
+#### 밸류 트랜스퍼(Value Transfer)
 
-On the client side, client who initiates the transaction will generate a fee-delegated value transfer transaction as follows: A sender creates a default `ValueTransferTransaction` object, then [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.1/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) returns a signed `FeeDelegatedValueTransferTransaction` object if the second parameter is set to `true`.
+클라이언트 측에서, 트랜잭션을 발생시킨 클라이언트는 다음과 같이 수수료가 위임된 밸류 트랜스퍼를 생성합니다: 발신자가 기본 `ValueTransferTransaction` 객체를 생성하고, 만일 두 번째 매개변수가 `true`로 설정되어 있을 경우 [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.1/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-)가 서명된 `FeeDelegatedValueTransferTransaction` 객체를 반환합니다.
 
 ```java
 TransactionManager transactionManager = new TransactionManager.Builder(caver, credentials)
@@ -332,9 +332,9 @@ ValueTransferTransaction valueTransferTransaction = ValueTransferTransaction.cre
 String senderRawTransaction = transactionManager.sign(valueTransferTransaction, true).getValueAsString();  // isFeeDelegated : true
 ```
 
-A signed transaction, `senderRawTransaction`, is generated. Now the sender delivers the transaction to the fee payer who will pay for the transaction fee instead. Transferring transactions between the sender and the fee payer is not performed on the Klaytn network. The protocol should be defined by themselves.
+서명된 트랜잭션 `senderRawTransaction`이 생성됩니다. 이제 발신자는 트랜잭션을 트랜잭션 비용 대신 지불할 수수료 지불자에게 전달합니다. Klaytn 네트워크에서는 발신자와 수수료 지불자 간의 트랜잭션 전송이 수행되지 않습니다. 프로토콜이 스스로 정의해야 합니다.
 
-After the fee payer gets the transaction from the sender, the fee payer can send the transaction using the `FeePayerManager` class as follows. `FeePayerManager.executeTransaction()` will sign the received transaction with the fee payer's private key and send the transaction to the Klaytn network.
+수수료 지불자가 발신자로부터 트랜잭션을 받은 후, 수수료 지불자는 다음 `FeePayerManager` 클래스를 사용해 트랜잭션을 전송할 수 있습니다: `FeePayerManager.executeTransaction()`는 수신한 트랜잭션을 수수료 지불자의 개인키로 서명하고 트랜잭션을 Klaytn 네트워크로 전송합니다.
 
 ```java
 KlayCredentials feePayer = KlayWalletUtils.loadCredentials(<password>, <walletfilePath>);
@@ -344,9 +344,9 @@ FeePayerManager feePayerManager = new FeePayerManager.Builder(caver, feePayer)
 feePayerManager.executeTransaction(senderRawTransaction);
 ```
 
-#### Smart Contract Execution
+#### 스마트 컨트랙트 실행
 
-The difference between fee-delegated smart contract execution and fee-delegated value transfer above is that this needs input data to call a function of a smart contract. A sender can generate a fee-delegated smart contract execution transaction as shown below. Note that [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.1/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) returns a `TxTypeFeeDelegatedSmartContractExecution` object if you pass `true` to the second parameter. The example below invokes the `transfer` method of [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol) contract which is described in [Smart Contract](#smart-contract).
+수수료 위임 스마트 컨트랙트 실행과 위의 수수료 위임 벨류 트랜스퍼의 차이는 스마트 컨트랙트 함수를 호출하기 위해서는 입력 데이터가 필요하다는 것입니다. 발신자는 아래와 같이 수수료 위임 스마트 컨트랙트 실행 트랜잭션을 생성할 수 있습니다. 만일 두 번째 매개변수를 `true`로 전달하면 [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.1/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-)이 `TxTypeFeeDelegatedSmartContractExecution` 객체를 반환함에 유의하세요. 아래 예제는 [Smart Contract](#smart-contract)에 설명된 [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol) 컨트랙트의 `transfer` 메소드를 호출합니다.
 
 ```java
 String recipient = "0x34f773c84fcf4a0a9e2ef07c4615601d60c3442f";
@@ -371,7 +371,7 @@ SmartContractExecutionTransaction smartContractExecution =
 String senderRawTransaction = transactionManager.sign(smartContractExecution, true).getValueAsString();
 ```
 
-After you get `senderRawTransaction`, the rest of the process using `FeePayerManager` is the same way as you saw in [fee-delegated value transfer](#value-transfer) above:
+`senderRawTransaction`를 받은 후, `FeePayerManager`를 사용한 나머지 프로세스는 위 [수수료 위임 벨류 트랜스퍼](#value-transfer)에서와 동일한 방식입니다:
 
 ```java
 KlayCredentials feePayer = KlayWalletUtils.loadCredentials(<password>, <walletfilePath>);
