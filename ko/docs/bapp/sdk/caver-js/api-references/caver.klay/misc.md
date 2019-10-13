@@ -9,10 +9,10 @@ Returns the Keccak-256 hash (not the standardized SHA3-256) of the given data.
 
 **Parameters**
 
-| 명칭       | 형식       | 설명                                                                                                         |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| data     | String   | The data to convert into a SHA3 hash.                                                                      |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| data     | String   | The data to convert into a SHA3 hash.                                |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **Return Value**
 
