@@ -30,9 +30,9 @@ Gets the current network ID.
 
 **Parameters**
 
-| 명칭       | 형식       | 설명                                                                                                         |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **Return Value**
 
@@ -56,9 +56,9 @@ Checks if the node is listening for peers.
 
 **Parameters**
 
-| 명칭       | 형식       | 설명                                                                                                         |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **Return Value**
 
@@ -82,9 +82,9 @@ Gets the number of peers connected to.
 
 **Parameters**
 
-| 명칭       | 형식       | 설명                                                                                                         |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **Return Value**
 
@@ -107,9 +107,9 @@ Returns the number of connected nodes by type and the total number of connected 
 
 **Parameters**
 
-| 명칭       | 형식       | 설명                                                                                                         |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **Return Value**
 
