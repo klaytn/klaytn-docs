@@ -11,7 +11,7 @@ Returns the unit price of gas in peb that was effective at the given block heigh
 | 명칭           | 형식                   | 설명                                                                                                                                     |
 | ------------ | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number &#124; String | (optional) If you don't pass this parameter, the default block set by [caver.klay.defaultBlock](./block.md#defaultblock) will be used. |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                             |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                   |
 
 **Return Value**
 
@@ -38,9 +38,9 @@ Returns the chain ID of the chain.
 
 **Parameters**
 
-| 명칭       | 형식       | 설명                                                                                                         |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **Return Value**
 
@@ -63,9 +63,9 @@ Returns the unit price defined in the Klaytn network.
 
 **Parameters**
 
-| 명칭       | 형식       | 설명                                                                                                         |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **Return Value**
 
@@ -88,9 +88,9 @@ Returns the current client version of a Klaytn node.
 
 **Parameters**
 
-| 명칭       | 형식       | 설명                                                                                                         |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **Return Value**
 
@@ -114,9 +114,9 @@ Returns the Klaytn protocol version of the node.
 
 **Parameters**
 
-| 명칭       | 형식       | 설명                                                                                                         |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **Return Value**
 
@@ -166,9 +166,9 @@ Returns `true` if the node is writing blockchain data in parallel manner. It is 
 
 **Parameters**
 
-| 명칭       | 형식       | 설명                                                                                                         |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **Return Value**
 
@@ -193,9 +193,9 @@ Returns the rewardbase of the current node. Rewardbase is the address of the acc
 
 **Parameters**
 
-| 명칭       | 형식       | 설명                                                                                                         |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **Return Value**
 
@@ -217,9 +217,9 @@ Returns `true` if the node is using write-through caching. If enabled, block bod
 
 **Parameters**
 
-| 명칭       | 형식       | 설명                                                                                                         |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **Return Value**
 
