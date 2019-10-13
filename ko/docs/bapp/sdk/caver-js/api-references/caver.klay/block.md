@@ -44,9 +44,9 @@ Returns the current block number.
 
 **Parameters**
 
-| 명칭       | 형식       | 설명                                                                                                         |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **Return Value**
 
@@ -72,7 +72,7 @@ Returns a block matching the block hash or block number.
 | ------------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | blockHashOrBlockNumber   | String &#124; Number | The block hash or block number. Or the string `"genesis"`, `"latest"` or `"pending"`.                                                                        |
 | returnTransactionObjects | Boolean              | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, if `false` it will only contains the transaction hashes. |
-| callback                 | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                   |
+| callback                 | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                         |
 
 **Return Value**
 
@@ -134,10 +134,10 @@ Returns a list of transaction receipts included in a block identified by the giv
 
 **Parameters**
 
-| 명칭        | 형식       | 설명                                                                                                         |
-| --------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| blockHash | String   | Hash of a block.                                                                                           |
-| callback  | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭        | 형식       | 설명                                                                   |
+| --------- | -------- | -------------------------------------------------------------------- |
+| blockHash | String   | Hash of a block.                                                     |
+| callback  | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **Return Value**
 
@@ -191,10 +191,10 @@ Returns the number of transaction in a given block.
 
 **Parameters**
 
-| 명칭                     | 형식                   | 설명                                                                                                         |
-| ---------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------- |
-| blockHashOrBlockNumber | String &#124; Number | The block number or hash. Or the string `"genesis"`, `"latest"` or `"pending"`.                            |
-| callback               | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭                     | 형식                   | 설명                                                                              |
+| ---------------------- | -------------------- | ------------------------------------------------------------------------------- |
+| blockHashOrBlockNumber | String &#124; Number | The block number or hash. Or the string `"genesis"`, `"latest"` or `"pending"`. |
+| callback               | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.            |
 
 **Return Value**
 
@@ -218,10 +218,10 @@ Returns a block with consensus information matched by the given block hash or bl
 
 **Parameters**
 
-| 명칭                     | 형식                   | 설명                                                                                                         |
-| ---------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------- |
-| blockHashOrBlockNumber | String &#124; Number | The block hash or block number. Or the string `"genesis"` or `"latest"`.                                   |
-| callback               | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭                     | 형식                   | 설명                                                                       |
+| ---------------------- | -------------------- | ------------------------------------------------------------------------ |
+| blockHashOrBlockNumber | String &#124; Number | The block hash or block number. Or the string `"genesis"` or `"latest"`. |
+| callback               | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.     |
 
 **Return Value**
 
@@ -321,7 +321,7 @@ Returns a list of all validators in the committee at the specified block. If the
 | 명칭           | 형식                   | 설명                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                  |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
 
 **Return Value**
 
@@ -352,7 +352,7 @@ Returns the size of the committee at the specified block. If the parameter is no
 | 명칭           | 형식                   | 설명                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                  |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
 
 **Return Value**
 
@@ -379,7 +379,7 @@ Returns a list of all validators of the council at the specified block. If the p
 | 명칭           | 형식                   | 설명                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                  |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
 
 **Return Value**
 
@@ -410,7 +410,7 @@ Returns the size of the council at the specified block. If the parameter is not 
 | 명칭           | 형식                   | 설명                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                  |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
 
 **Return Value**
 
@@ -438,7 +438,7 @@ Gets the storage at a specific position of an address.
 | 주소           | String               | The address to get the storage from.                                                                                        |
 | position     | Number               | The index position of the storage.                                                                                          |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Function             | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                  |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
 
 **Return Value**
 
@@ -462,9 +462,9 @@ Returns `true` if client is actively mining new blocks.
 
 **Parameters**
 
-| 명칭       | 형식       | 설명                                                                                                         |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 
 **Return Value**
@@ -488,9 +488,9 @@ Checks if the node is currently syncing and returns either a syncing object or `
 
 **Parameters**
 
-| 명칭       | 형식       | 설명                                                                                                         |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 
 **Return Value**
