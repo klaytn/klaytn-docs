@@ -1,17 +1,17 @@
 # 시작하기
 
-## Prerequisites <a id="prerequisites"></a>
+## 준비 사항 <a id="prerequisites"></a>
 
-### Dependencies <a id="dependencies"></a>
+### 의존성 <a id="dependencies"></a>
 
-The following packages are required to use the caver-js library.
+caver-js 라이브러리를 사용하려면 다음 패키지가 필요합니다.
 
 * [Node.js](https://nodejs.org/en/download/)
 * [npm](https://www.npmjs.com/get-npm)
 * [gcc-c++](https://gcc.gnu.org/)
 * [Solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
-**Note** caver-js can run on Node.js versions 8 and 10, and the recommended versions are:
+**참고** caver-js는 Node.js 버전 8 및 10에서 실행할 수 있으며, 권장 버전은 다음과 같습니다:
 
 * lts/carbon \([8.16.0](https://nodejs.org/dist/latest-v8.x/)\)
 * lts/dubnium \([10.16.0](https://nodejs.org/dist/latest-v10.x/)\)
@@ -34,7 +34,7 @@ To install a specific version of caver-js, try the following command:
 $ npm install caver-js@X.X.X
 ```
 
-## Starting with caver-js <a id="starting-with-caver-js"></a>
+## caver-js로 시작하기 <a id="starting-with-caver-js"></a>
 
 Once you have finished installing caver-js, you can now connect caver-js with a Klaytn Node.
 
@@ -397,7 +397,7 @@ The deployed contract address can be found in `contractAddress` of the transacti
 
 One way to invoke a specific method of a smart contract is to use it with `caver.klay.Contract` or use [SMART_CONTRACT_EXECUTION](api-references/caver.klay/sendtx_smart_contract_execution.md).
 
-To transact with a smart contract:
+스마트 컨트랙트로 트랜잭션을 생성하려면:
 
 ```text
 // 아직 caver-js 지갑에 계정을 추가하지 않았다면 'caver.klay.accounts.wallet.add'를 실행하여 지갑에 계정을 추가하세요.
@@ -422,25 +422,25 @@ To transact with a smart contract:
 }
 ```
 
-To call a smart contract:
+스마트 컨트랙트를 호출하려면:
 
 ```text
 > contractInstance.methods.getBlockNumber().call().then(console.log)
 2194
 ```
 
-See [caver.klay.Contract](api-references/caver.klay.Contract.md) for details.
+자세한 내용은 [caver.klay.Contract](api-references/caver.klay.Contract.md)를 참조하세요.
 
-## Sample Projects <a id="sample-projects"></a>
+## 샘플 프로젝트 <a id="sample-projects"></a>
 
-The BApp \(Blockchain Application\) Development sample projects using caver-js are the following:
+caver-js를 사용한 BApp \(Blockchain Application\) 개발 샘플 프로젝트는 다음과 같습니다:
 
 * [Count BApp 개발하기](../../tutorials/count-bapp/README.md)
 * [Klaystagram](../../tutorials/klaystagram/README.md)
 
-## Links <a id="links"></a>
+## 링크 <a id="links"></a>
 
-* caver-js [GitHub repository](https://github.com/klaytn/caver-js)
+* caver-js [깃허브 레포지토리](https://github.com/klaytn/caver-js)
 * caver-js on [npm](https://www.npmjs.com/package/caver-js)
 
 
