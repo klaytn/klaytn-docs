@@ -6,14 +6,14 @@ EP is designed as an add-on service for enterprise users and larger application 
 EP provides BApp service providers with two main usages. First, EP functions as a **blockchain enabler** reduce the technical hurdles in tasks inevitable for using blockchain technology. Second, EP serves as a **legacy system integrator** that supports Klaytn blockchain integration with traditional database and security systems
 
 1. Blockchain Enabler
- - Event handler (WIP) : if users deploy smart contracts through EP, event subscriber will be generated automatically with abi of them
- - Transaction manager : the service providers will be able to manage transactions and accounts such as transaction throttling, nonce increasing and account authentication
- - Chain router : configuring multi-Klaytn clients used for BApp
+ - Event handler (WIP) : if users deploy smart contracts through EP, event subscriber will be generated automatically with abi of them.
+ - Transaction manager : the service providers will be able to manage transactions and accounts such as transaction throttling, nonce increasing and account authentication.
+ - Chain router : configuring multi-Klaytn clients used for BApp.
 
 
 2. Legacy System Integrator
- - Requests transcoder : supporting various type of API including gRPC, RESTful API request
- - Request gateway : collecting client metrics for analytics
+ - Requests transcoder : supporting various type of API including gRPC, RESTful API request.
+ - Request gateway : collecting client metrics for analytics.
 
 
  ## Blockchain Enabler
