@@ -57,7 +57,7 @@ This entails the following requirements to support application development.
 ### Rapid Development
 
 - The development of application on Klaytn must be straightforward, and the technologies used must follow the open standard to reduce the learning curve.
-- See [Solidity - Smart Contract Language], [Truffle], and [Migrating Ethereum App to Klaytn]. As Klaytn Virtual Machine (KLVM) supports Ethereum’s Solidity contract, it becomes much easier to port PoC product on Ethereum to Klaytn for commercial use. It is much easier as well to find development tools and to get some help from the well-established developer community. 
+- See [Solidity-Smart Contract Language], [Truffle], and [Migrating Ethereum App to Klaytn]. As Klaytn Virtual Machine (KLVM) supports Ethereum’s Solidity contract, it becomes much easier to port PoC product on Ethereum to Klaytn for commercial use. It is much easier as well to find development tools and to get some help from the well-established developer community. 
 
 ### Service-specific Private Chains with Data Anchoring
 
@@ -102,7 +102,7 @@ Klaytn does not sacrifice blockchain’s core characteristics to achieve the abo
 [Transaction Fees]: design/transaction-fees.md
 [Fee Delegation]: design/transactions/README.md#fee-delegation
 [Service Chain]: scaling-solutions.md#service-chain
-[Solidity - Smart Contract Language]: ../smart-contract/solidity-smart-contract-language.md
+[Solidity-Smart Contract Language]: ../smart-contract/solidity-smart-contract-language.md
 [Truffle]: ../toolkit/truffle.md
 [Migrating Ethereum App to Klaytn]: ../bapp/tutorials/migrating-ethereum-app-to-klaytn.md
 [Incentive Program]: design/token-economy.md#incentive-programs
