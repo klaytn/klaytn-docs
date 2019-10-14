@@ -26,7 +26,7 @@
 
 * [시작하기](getting-started/README.md)
   * [빠른 시작](getting-started/quick-start/README.md)
-    * [Endpoint Node를 실행합니다](getting-started/quick-start/launch-an-en.md)
+    * [Launch an Endpoint Node](getting-started/quick-start/launch-an-en.md)
     * [계정에 자금 추가하기](getting-started/quick-start/top-up-your-account.md)
     * [개발 도구 설치하기](getting-started/quick-start/install-development-tools.md)
     * [스마트 컨트랙트 배포](getting-started/quick-start/deploy-a-smart-contract.md)
