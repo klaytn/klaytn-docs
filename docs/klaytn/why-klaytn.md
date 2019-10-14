@@ -107,4 +107,3 @@ Klaytn does not sacrifice blockchain’s core characteristics to achieve the abo
 [Migrating Ethereum App to Klaytn]: ../bapp/tutorials/migrating-ethereum-app-to-klaytn.md
 [Incentive Program]: design/token-economy.md#incentive-programs
 [Enterprise Proxy]: enterprise-proxy.md
-
