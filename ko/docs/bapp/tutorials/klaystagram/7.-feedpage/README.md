@@ -4,7 +4,7 @@
 
 FeedPage는 `Klaystagram` 컨트랙트와 상호작용하는 3개의 주요 컴포넌트로 이루어져 있습니다.
 
-[7-2. `UploadPhoto` component](7-2.-uploadphoto-component.md) [7-3. `Feed` component](7-3.-feed-component.md) [7-4. `TransferOwnership` 컴포넌트](7-4.-transferownership-component.md)
+[7-2. `UploadPhoto` 컴포넌트](7-2.-uploadphoto-component.md) [7-3. `Feed` 컴포넌트](7-3.-feed-component.md) [7-4. `TransferOwnership` 컴포넌트](7-4.-transferownership-component.md)
 
 ```javascript
 // src/pages/FeedPage.js
