@@ -1,6 +1,6 @@
 # 5. 프론트엔드 코드 개요
 
-1\) `src/index.js` - Entry point of our app 2\) `public/index.html` - index.html 3\) `src/routes.js` - Contains route definition 4\) `src/App.js` - Root component of our app 5\) `src/klaytn/caver.js` - Makes a connection with a Klaytn node
+1\) `src/index.js` - 어플리케이션의 엔트리 포인트 2\) `public/index.html` - index.html 3\) `src/routes.js` - 라우팅 정의를 담고 있는 파일 4\) `src/App.js` - 어플리케이션의 루트 컴포넌트 5\) `src/klaytn/caver.js` - Klaytn 노드와의 연결을 담당
 
 ## 1\) `src/index.js`:
 
@@ -85,7 +85,7 @@ const renderRoutes = rootComponent => (
 export default renderRoutes
 ```
 
-`'routes.js'` contains the route definition for our tutorial app. As a root component, `'App.js'` component renders child components defined in `'route.js'` file. By above code, `'Count'` component would be rendered as a children of rootComponent when browser's URL path is `"/"`.
+`'routes.js'` 파일은 본 튜토리얼 어플리케이션의 라우팅 정의를 담고 있습니다. 루트 컴포넌트 `'App.js'`는 `'route.js'` 파일에 정의된 하위 컴포넌트들을 렌더링합니다. 위 코드를 보면, 브라우저의 URL 경로가 `"/"`일 때 `'Count'` 컴포넌트는 rootComponent의 하위 컴포넌트로서 렌더링될 것입니다.
 
 자세한 내용은 리액트 라우터의 github를 참고해주세요. [https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md](https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md)
 
@@ -146,7 +146,7 @@ render() {
 }
 ```
 
-It renders `BlockNumber`, `Auth` and `{this.props.children}` component. `{this.props.children}` will be populated according to `routes.js` file. If your browser's url path is `/`, it will render `<Count />` component.
+이는 `BlockNumber`, `Auth`, `{this.props.children}` 컴포넌트를 렌더링합니다. `{this.props.children}` 부분은 `routes.js` 파일에 따라 채웁니다. 브라우저의 URL 경로가 `/`이면, `<Count />` 컴포넌트를 렌더링하게 됩니다.
 
 ```javascript
 componentWillMount() {
@@ -167,7 +167,7 @@ componentWillMount() {
 }
 ```
 
-`componentWillMount` checks if there is a `walletInstance` session in the browser's sessionStorage. `walletInstance` session may not exist if you have never logged in our tutorial app. Otherwise, `walletInstance` session will exist as a JSON string, if so, it attempts to add the wallet instance to the caver's wallet. You can add a wallet instance to caver through `cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))`. For further information related `caver.klay.accounts.wallet.add`, see [caver.klay.accounts.wallet.add](../../../sdk/caver-js/api-references/caver.klay.accounts.md#wallet-add)
+`componentWillMount`는 브라우저의 sessionStorage에 `walletInstance` 세션이 있는지 확인합니다. 본 튜토리얼 어플리케이션에 한 번도 로그인하지 않았다면 `walletInstance` 세션은 없습니다. 그러나 로그인한 적이 있다면 `walletInstance` 세션이 JSON 문자열로 존재합니다. 이러한 경우 지갑 인스턴스를 caver 지갑에 추가합니다. 또한 `cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))`를 통해 caver에 지갑 인스턴스를 추가할 수도 있습니다. `caver.klay.accounts.wallet.add`에 대한 자세한 내용은 [caver.klay.accounts.wallet.add](../../../sdk/caver-js/api-references/caver.klay.accounts.md#wallet-add)를  참고해주세요.
 
 참고\) `walletInstance` 세션이 JSON 문자열로 저장되기 때문에 `JSON.parse`가 필요합니다.
 
@@ -192,7 +192,7 @@ export const cav = new Caver(config.rpcURL)
 export default cav
 ```
 
-`caver-js` library makes a connection to a Klaytn node. After the connection is made, you can get the current block number from the node and invoke contract methods.
+`caver-js` 라이브러리는 Klaytn 노드에 연결하도록 해줍니다. 연결이 되면, 연결된 노드로부터 현재 블록 번호를 가져와 컨트랙트 메서드를 호출할 수 있습니다.
 
 'rpcURL'에 특정 Klaytn 노드를 지정하여 연결할 수 있습니다.
 
