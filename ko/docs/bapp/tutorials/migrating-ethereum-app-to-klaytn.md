@@ -1,51 +1,51 @@
-# Migrating Ethereum App to Klaytn
+# 이더리움 어플리케이션을 Klaytn으로 이전하기
 
 ## 목차
 
 * [1. 소개](#1-introduction)
-* [2. Klaytn has Ethereum compatibility](#2-klaytn-has-ethereum-compatibility)
-* [3. Change node connection from Ethereum to Klaytn](#3-change-node-connection-from-ethereum-to-klaytn)
-* [4. Interact with Klaytn node: `BlockNumber` component](#4-interact-with-klaytn-node-blocknumber-component)
-* [5. Interact with the contract: `Count` component](#5-interact-with-the-contract-count-component)
-  * [5-1. Deploy Count contract on Klaytn](#5-1-deploy-count-contract-on-klaytn)
-  * [5-2. Create a contract instance](#5-2-create-a-contract-instance)
+* [2. Klaytn의 이더리움과의 호환성](#2-klaytn-has-ethereum-compatibility)
+* [3. 이더리움에서 Klaytn으로 노드 연결 변경](#3-change-node-connection-from-ethereum-to-klaytn)
+* [4. Klaytn 노드와의 상호작용: `BlockNumber` 컴포넌트](#4-interact-with-klaytn-node-blocknumber-component)
+* [5. 컨트랙트와의 상호작용: `Count` 컴포넌트](#5-interact-with-the-contract-count-component)
+  * [5-1. Klaytn에 Count 컨트랙트 배포](#5-1-deploy-count-contract-on-klaytn)
+  * [5-2. 컨트랙트 인스턴스 생성](#5-2-create-a-contract-instance)
   * [5-3. 컨트랙트와의 상호작용](#5-3-interact-with-contract)
 
 ## 1. 소개
 
-This tutorial is intended to give a guide to migrate an Ethereum App to Klaytn. No previous Klaytn experience is needed. A simple blockchain app will be used as a sample to show how to migrate an Ethereum App to Klaytn.
+본 튜토리얼은 이더리움 어플리케이션에서 Klaytn으로의 이전에 대한 가이드를 제공합니다. Klaytn 사용 경험은 없어도 괜찮습니다. 간단한 블록체인 어플리케이션을 통해 어떻게 이더리움 어플리케이션에서 Klaytn으로 이전하는지 보여드리도록 하겠습니다.
 
-We will focus only on the code modifications required to migrate an Ethereum App to Klaytn. If you need details on creating a Klaytn BApp, Please refer to [CountBApp Tutorial](https://docs.klaytn.com/bapp/tutorials/count-bapp).
+여기서는 이더리움 어플리케이션에서 Klaytn으로 이전하는 데에 필요한 코드 수정만을 중점적으로 다룰 것입니다. Klaytn BApp을 만드는 것에 대한 자세한 내용은 [CountBApp 튜토리얼](https://docs.klaytn.com/bapp/tutorials/count-bapp)을 참고하세요.
 
-> **Source Code** Complete source code can be found on GitHub at [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
+> **소스 코드** 온전한 소스 코드는 GitHub에서 확인할 수 있습니다. [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
 
 #### 튜토리얼 대상
 
-* We assume that you have basic knowledge on [React](https://reactjs.org/). Sample code is made with React.
-* Basic knowledge and experience in Blockchain app is required, but no previous Klaytn experience is needed.
+* 본 튜토리얼은 [React](https://reactjs.org/)에 대한 기본 지식이 있다고 가정하고 진행합니다. 샘플 코드는 리액트로 작성되어 있습니다.
+* 블록체인 어플리케이션에 대한 기본적인 지식과 경험이 필요하지만 Klaytn에 대한 사용 경험은 필요치 않습니다.
 
 #### 테스트 환경
-CountBApp is tested in the following environment.
+CountBApp은 다음의 환경에서 테스트 되었습니다.
 
 * MacOS Mojave 10.14.5
 * Node 10.16.0 \(LTS\)
 * npm 6.9.0
 * Python 2.7.10
 
-## 2. Klaytn has Ethereum compatibility
+## 2. Klaytn의 이더리움과의 호환성
 
-Klaytn runtime environment is compatible with Ethereum Virtual Machine and executes smart contracts written in Solidity. Klaytn's RPC APIs and other client libraries maintain almost identical API specifications with Ethereum's whenever available. Therefore, it is fairly straightforward to migrate Ethereum Apps to Klaytn. This helps developers easily move to a new blockchain platform.
+Klaytn의 런타임 환경은 이더리움 가상머신과 호환되어 솔리디티로 작성된 스마트 컨트랙트를 실행할 수 있습니다. Klaytn의 RPC API 및 기타 클라이언트 라이브러리들은 가능한 한 거의 동일하게 이더리움과 동일한 API 사양을 유지하고 있습니다. 따라서 이더리움 어플리케이션에서 Klaytn으로 이전하는 것은 매우 간단합니다. 이러한 점들은 개발자들이 새로운 블록체인 플랫폼으로 쉽게 옮길 수 있도록 합니다.
 
-## 3. Change node connection from Ethereum to Klaytn
+## 3. 이더리움에서 Klaytn으로 노드 연결 변경
 
-First, you need to change the library that makes a connection to the node. Then you will specify the node URL in 'rpcURL'.
+우선 노드에 연결하는 라이브러리를 변경해야 합니다. 그리고 'rpcURL'에 노드 URL을 지정합니다.
 
-- In Ethereum BApp example
-  - `web3` library connects to and communicates with Ethereum node.
-  - `Ropsten testnet` URL is assigned to 'rpcURL' .
-- In Klaytn BApp example
-  - `caver-js` library is used to connect to and communicate with Klaytn node.
-  - `Baobab testnet` URL is assigned to 'rpcURL'.
+- 이더리움 BApp 예시
+  - `web3` 라이브러리는 이더리움 노드에 연결하고 통신합니다.
+  - `Ropsten testnet` URL이 'rpcURL'에 할당되어 있습니다.
+- Klaytn BApp 예시
+  - `caver-js` 라이브러리는 Klaytn 노드에 연결하고 통신합니다.
+  - `Baobab testnet` URL이 'rpcURL'에 할당되어 있습니다.
 
 `src/klaytn/caver.js`
 
@@ -67,13 +67,13 @@ export default caver
 ```
 
 
-## 4. Interact with Klaytn node: `BlockNumber` component
-![blocknumber component](./count-bapp/images/blocknumber-component.gif)
+## 4. Klaytn 노드와의 상호작용: `BlockNumber` 컴포넌트
+![blocknumber 컴포넌트](./count-bapp/images/blocknumber-component.gif)
 
-BlockNumber component gets the current block number every 1 second (1000ms).
+BlockNumber 컴포넌트는 1초 (1000ms)마다 현재 블록 번호를 가져옵니다.
 
-By simply replacing the `web3` library with `caver-js`, you can sync Klaytn's BlockNumber in real-time instead of Ethereum's BlockNumber.
-> Ethereum: [`web3.eth.getBlockNumber()`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth.html#getblocknumber)  
+간단히 `web3` 라이브러리를 `caver-js`로 대체하여 이더리움 블록 번호 대신 Klaytn의 블록 번호로 실시간으로 동기화할 수 있습니다.
+> 이더리움: [`web3.eth.getBlockNumber()`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth.html#getblocknumber)  
 > Klaytn: [`caver.klay.getBlockNumber()`](https://docs.klaytn.com/bapp/sdk/caver-js/api-references/caver.klay/block#getblocknumber)
 
 ```js
@@ -94,28 +94,28 @@ class BlockNumber extends Component {
 
 export default BlockNumber
 ```
-For more detail about `BlockNumber` component, see [CountBApp tutorial - Blocknumber Component](https://docs.klaytn.com/bapp/tutorials/count-bapp/5.-frontend-code-overview/5-1.-blocknumber-component).
+`BlockNumber` 컴포넌트에 대한 자세한 내용은 [CountBApp 튜토리얼 - Blocknumber 컴포넌트](https://docs.klaytn.com/bapp/tutorials/count-bapp/5.-frontend-code-overview/5-1.-blocknumber-component)를 참고하세요.
 
-## 5. Interact with the contract: `Count` component
+## 5. 컨트랙트와의 상호작용: `Count` 컴포넌트
 
 ![count 컴포넌트](./count-bapp/images/count-component.gif)
 
-To interact with the contract, we need to create an instance of the deployed contract. With the instance, we can read and write the contract's data.
+스마트 컨트랙트와 상호작용하기 위해서는 배포된 컨트랙트의 인스턴스를 생성해야 합니다. 생성한 인스턴스를 통해 컨트랙트의 데이터를 읽어오거나 컨트랙트에 데이터를 쓸 수 있습니다.
 
-Let's learn step by step how to migrate `CountBApp` from Ethereum to Klaytn!
+이제 `CountBApp`을 이더리움에서 Klaytn으로 이전하는 방법을 차례차례 알아봐요!
 
-- 5-1. Deploy `Count` contract on Klaytn
-- 5-2. Create a contract instance
+- 5-1. Klaytn에 `Count` 컨트랙트 배포
+- 5-2. 컨트랙트 인스턴스 생성
 - 5-3. 컨트랙트와의 상호작용
 
-### 5-1. Deploy `Count` contract on Klaytn
+### 5-1. Klaytn에 `Count` 컨트랙트 배포
 
-The first step is deploying Count contract on Klaytn and get the contract address. Most of the cases, you can use Etherem contracts on Klaytn without modification. See [Porting Etherem Contract](../../smart-contract/porting-ethereum-contract.md). In this guide, we will use Truffle to deploy the contract.
+첫 번째 단계는 Count 컨트랙트를 Klaytn에 배포하고 컨트랙트 주소를 가져오는 것입니다. 대부분의 경우 Klaytn에서 이더리움 컨트랙트를 수정 없이 사용할 수 있습니다. 자세한 내용은 [이더리움 컨트랙트 이식](../../smart-contract/porting-ethereum-contract.md)을 참고하세요. 이 가이드에서는 Truffle을 사용하여 컨트랙트를 배포하겠습니다.
 
-1. Change network properties in `truffle-config.js` to deploy the contract on Klaytn.
-2. Top up your account using [KLAY faucet](https://baobab.wallet.klaytn.com/access?next=faucet).
-3. Type `$ truffle deploy --network baobab --reset`
-4. `Count` contract will be deployed on Baobab testnet, Klaytn.
+1. `truffle-config.js`의 네트워크 속성을 변경하여 Klaytn에 컨트랙트를 배포합니다.
+2. [KLAY faucet](https://baobab.wallet.klaytn.com/access?next=faucet)을 사용하여 계정에 KLAY를 충전하세요.
+3. `$ truffle deploy --network baobab --reset`를 입력하세요.
+4. `Count` 컨트랙트는 Klaytn의 Baobab 테스트넷에 배포됩니다.
 
 `truffle-config.js`
 ```js
@@ -156,13 +156,13 @@ module.exports = {
 }
 ```
 
-For more details about deploying contracts, See [CountBapp tutorial - Deploy Contract](https://docs.klaytn.com/bapp/tutorials/count-bapp/6.-deploy-contract).
+컨트랙트 배포에 대한 자세한 내용은 [CountBapp 튜토리얼 - 컨트랙트 배포](https://docs.klaytn.com/bapp/tutorials/count-bapp/6.-deploy-contract)를 참고하세요.
 
-### 5-2. Create a contract instance
+### 5-2. 컨트랙트 인스턴스 생성
 
-You can create a contract instance with the `caver-js` API. The contract instance creates a connection to `Count` contract. You can invoke contract methods through this instance.
+`caver-js` API를 사용하여 컨트랙트 인스턴스를 생성할 수 있습니다. 컨트랙트 인스턴스는 `Count` 컨트랙트와의 연결을 생성합니다. 즉 이 인스턴스를 통해 컨트랙트 메서드를 호출할 수 있습니다.
 
-> Ethereum : [`web3.eth.Contract(ABI, address)`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth-contract.html#new-contract) Klaytn : [`caver.klay.Contract(ABI, address)`](https://docs.klaytn.com/bapp/sdk/caver-js/api-references/caver.klay.contract#new-contract)
+> 이더리움 : [`web3.eth.Contract(ABI, address)`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth-contract.html#new-contract) Klaytn : [`caver.klay.Contract(ABI, address)`](https://docs.klaytn.com/bapp/sdk/caver-js/api-references/caver.klay.contract#new-contract)
 
 `src/components/Count.js`
 ```javascript
@@ -187,16 +187,16 @@ export default Count
 
 ### 5-3. 컨트랙트와의 상호작용
 
-The `ABI` \(Application Binary Interface\) used to create the Count contract instance allows the `caver-js` to invoke contract's methods as below. You can interact with Count contract as if it were a JavaScript object.
+Count 컨트랙트 인스턴스를 생성하는 데에 사용된 `ABI` \(Application Binary Interface\)는 아래와 같이 `caver-js`가 컨트랙트 메서드를 호출할 수 있도록 해줍니다. 자바스크립트 객체처럼 Count 컨트랙트와 상호작용할 수 있습니다.
 
-- Read data (call)  
+- 데이터 읽어오기 (call)  
   `CountContract.methods.count().call()`
-- Write data (send)  
+- 데이터 쓰기 (send)  
   `CountContract.methods.plus().send({ ... })` `CountContract.methods.minus().send({ ... })`
 
-Once you created a contract instance as in the previous step, you don't need to modify any code in using the contract methods afterward. BApp migration has been completed!
+이전 단계에서처럼 컨트랙트 인스턴스를 생성하면, 컨트랙트 메서드를 사용하여 코드를 수정할 필요가 없습니다. BApp 이전이 완료되었네요!
 
-#### Full code: `Count` component
+#### 전체 코드: `Count` 컴포넌트
 
 `src/components/Count.js`
 ```js
