@@ -214,10 +214,10 @@ Starts the pprof HTTP server.  The running pprof server can be accessed by (when
 
 **Parameters**
 
-| 명칭   | 형식     | 설명                                                                       |
-| ---- | ------ | ------------------------------------------------------------------------ |
-| 주소   | string | (optional) pprof HTTP server listening interface (default: "127.0.0.1"). |
-| port | int    | (optional) pprof HTTP server listening port (default: 6060).             |
+| 명칭      | 형식     | 설명                                                                       |
+| ------- | ------ | ------------------------------------------------------------------------ |
+| address | string | (optional) pprof HTTP server listening interface (default: "127.0.0.1"). |
+| port    | int    | (optional) pprof HTTP server listening port (default: 6060).             |
 
 **Return Value**
 
