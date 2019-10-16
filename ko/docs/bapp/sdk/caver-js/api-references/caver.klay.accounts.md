@@ -28,7 +28,7 @@ caver.klay.accounts.create([entropy])
 
 | 명칭                               | 형식       | 설명                                                                             |
 | -------------------------------- | -------- | ------------------------------------------------------------------------------ |
-| 주소                               | String   | 계정 주소.                                                                         |
+| address                          | String   | 계정 주소.                                                                         |
 | privateKey                       | String   | 계정 개인키. 로컬 저장소에 암호화되지 않은 상태로 공유하거나 저장해서는 안 됩니다! 또한 사용 후에는 메모리를 null로 설정하세요.    |
 | signTransaction(tx [, callback]) | Function | 트랜잭션에 서명하는 함수. [caver.klay.accounts.signTransaction](#signtransaction)를 참조하세요. |
 | sign(data)                       | Function | 트랜잭션에 서명하는 함수. [caver.klay.accounts.sign](#sign)를 참조하세요.                       |
@@ -327,9 +327,9 @@ caver.klay.accounts.recoverTransaction(rawTransaction)
 
 **리턴값**
 
-| 형식     | 설명                                                |
-| ------ | ------------------------------------------------- |
-| String | The Klaytn address used to sign this transaction. |
+| 형식     | 설명                               |
+| ------ | -------------------------------- |
+| String | 이 트랜잭션에 서명하는 데 사용된 Klaytn 주소입니다. |
 
 **예시**
 
@@ -345,24 +345,24 @@ caver.klay.accounts.recoverTransaction(rawTransaction)
 caver.klay.accounts.hashMessage(message)
 ```
 
-Hashes the given message in order for it to be passed to [caver.klay.accounts.recover](#recover). The data will be UTF-8 HEX decoded and enveloped as follows:
+주어진 메시지를 [caver.klay.accounts.recover](#recover)에 전달하기 위해 순서대로 해시를 취합니다. 데이터는 UTF-8 HEX 디코딩되며 다음과 같이 포함됩니다:
 ```
 "\x19Klaytn Signed Message:\n" + message.length + message
 ```
-and hashed using keccak256.
+keccak256로 해시를 취합니다.
 
-**Parameters**
+**매개변수**
 
-| 명칭      | 형식     | 설명                                                                         |
-| ------- | ------ | -------------------------------------------------------------------------- |
-| message | String | A message to hash.  If it is a HEX string, it will be UTF-8 decoded first. |
+| 명칭      | 형식     | 설명                                        |
+| ------- | ------ | ----------------------------------------- |
+| message | String | 해시를 취할 메시지.  HEX 문자열인 경우 먼저 UTF-8 디코딩됩니다. |
 
 
-**Return Value**
+**리턴값**
 
-| 형식     | 설명                 |
-| ------ | ------------------ |
-| String | The hashed message |
+| 형식     | 설명      |
+| ------ | ------- |
+| String | 해시된 메시지 |
 
 
 **예시**
@@ -382,31 +382,31 @@ and hashed using keccak256.
 ```javascript
 caver.klay.accounts.sign(data, privateKey)
 ```
-Signs arbitrary data. This data is before UTF-8 HEX decoded and enveloped as follows:
+임의의 데이터에 서명합니다. 데이터는 UTF-8 HEX 디코딩되기 전이며 다음과 같이 포함됩니다:
 ```
 "\x19Klaytn Signed Message:\n" + message.length + message
 ```
 
 **Parameters**
 
-| 명칭         | 형식     | 설명                            |
-| ---------- | ------ | ----------------------------- |
-| data       | String | The data to sign.             |
-| privateKey | String | The private key to sign with. |
+| 명칭         | 형식     | 설명       |
+| ---------- | ------ | -------- |
+| data       | String | 서명할 데이터. |
+| privateKey | String | 서명할 개인키. |
 
 
-**Return Value**
+**리턴값**
 
-`String|Object`: The signed data RLP encoded signature. The signature values as follows:
+`String|Object`: 서명된 데이터 RLP 인코딩된 서명. 서명값은 다음과 같습니다:
 
-| 명칭          | 형식     | 설명                       |
-| ----------- | ------ | ------------------------ |
-| message     | String | The given message.       |
-| messageHash | String | 주어진 메시지의 해시.             |
-| r           | String | 서명의 처음 32바이트.            |
-| s           | String | 서명의 다음 32바이트.            |
-| v           | String | Recovery value + 27      |
-| signature   | String | The generated signature. |
+| 명칭          | 형식     | 설명            |
+| ----------- | ------ | ------------- |
+| message     | String | 주어진 메시지.      |
+| messageHash | String | 주어진 메시지의 해시.  |
+| r           | String | 서명의 처음 32바이트. |
+| s           | String | 서명의 다음 32바이트. |
+| v           | String | 복구값 + 27      |
+| signature   | String | 생성된 서명.       |
 
 
 **예시**
@@ -431,32 +431,32 @@ caver.klay.accounts.recover(signatureObject)
 caver.klay.accounts.recover(message, signature [, preFixed])
 caver.klay.accounts.recover(message, v, r, s [, preFixed])
 ```
-Recovers the Klaytn address that was used to sign the given data.
+주어진 데이터에 서명하는 데 사용된 Klaytn 주소를 복구합니다.
 
-**Parameters**
+**매개변수**
 
-| 명칭                             | 형식                   | 설명                                                                                                                                                                                                                         |
-| ------------------------------ | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| message &#124; signatureObject | String &#124; Object | Either signed message or hash. For the details of the signature object, see the table below.                                                                                                                               |
-| messageHash                    | String               | 주어진 메시지의 해시.                                                                                                                                                                                                               |
-| signature                      | String               | The raw RLP encoded signature, OR parameter 2-4 as v, r, s values.                                                                                                                                                         |
-| preFixed                       | Boolean              | (optional, default: `false`) If the last parameter is `true`, the given message will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and assumed to be already prefixed. |
+| 명칭                             | 형식                   | 설명                                                                                                                                                   |
+| ------------------------------ | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| message &#124; signatureObject | String &#124; Object | 서명된 메시지 또는 해시. 서명 객체에 대한 자세한 내용은 아래 표를 참조하세요.                                                                                                        |
+| messageHash                    | String               | 주어진 메시지의 해시.                                                                                                                                         |
+| signature                      | String               | 원시(raw) RLP 인코딩된 서명, 또는 v, r, s 값인 매개변수 2-4.                                                                                                         |
+| preFixed                       | Boolean              | (선택 사항, 기본값: `false`) 마지막 매개 변수가 `true`이면, 제공된 메시지에 자동으로 `"\x19Klaytn Signed Message:\n" + message.length + message`접두사가 붙지 않으며 이미 접두사가 있다고 가정합니다. |
 
-The signature object has following values:
+서명 객체는 다음과 같은 값을 가집니다:
 
-| 명칭          | 형식     | 설명                                                                                                                 |
-| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------ |
-| messageHash | String | The hash of the given message already prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`. |
-| r           | String | 서명의 처음 32바이트.                                                                                                      |
-| s           | String | 서명의 다음 32바이트.                                                                                                      |
-| v           | String | Recovery value + 27                                                                                                |
+| 명칭          | 형식     | 설명                                                                                          |
+| ----------- | ------ | ------------------------------------------------------------------------------------------- |
+| messageHash | String | 주어진 메시지의 해시는 이미 `"\x19Klaytn Signed Message:\n" + message.length + message` 접두사가 붙어 있습니다. |
+| r           | String | 서명의 처음 32바이트.                                                                               |
+| s           | String | 서명의 다음 32바이트.                                                                               |
+| v           | String | 복구값 + 27                                                                                    |
 
 
-**Return Value**
+**리턴값**
 
-| 형식     | 설명                                         |
-| ------ | ------------------------------------------ |
-| String | The Klaytn address used to sign this data. |
+| 형식     | 설명                              |
+| ------ | ------------------------------- |
+| String | 이 데이터에 서명하는 데 사용된 Klaytn 주소입니다. |
 
 
 **예시**
@@ -485,25 +485,25 @@ The signature object has following values:
 ```javascript
 caver.klay.accounts.encrypt(privateKey, password [, options])
 ```
-Encrypts a private key to the Klaytn keystore v3 standard.
+Klaytn 키스토어 v3 표준으로 개인키를 암호화합니다.
 
-**Parameters**
+**매개변수**
 
-| 명칭         | 형식     | 설명                                                                                                                                                                                                              |
-| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| privateKey | String | A private key or a Klaytn wallet key to encrypt.                                                                                                                                                                |
-| password   | String | The password used for encryption.                                                                                                                                                                               |
-| options    | Object | (optional) The `options` parameter allows you to specify the values to use when using encrypt. You can also use the options object to encrypt decoupled accounts. See the example below for usage of `options`. |
+| 명칭         | 형식     | 설명                                                                                                                                     |
+| ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| privateKey | String | 암호화할 개인키 또는 Klaytn 지갑 키.                                                                                                               |
+| password   | String | 암호화에 사용되는 비밀번호.                                                                                                                        |
+| options    | Object | (선택 사항) `options` 매개변수를 사용하면 암호화 사용 시 사용할 값을 지정할 수 있습니다. options 객체를 사용하여 분리된(decoupled) 계정을 암호화할 수도 있습니다. `options`사용법은 아래 예시를 참조하세요. |
 
-**NOTE**: There are two ways to encrypt the private key when an account has a decoupled private key from the address.
-1. Use the [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format with the privateKey parameter.
-2. Use the `options.address` to send the address as a parameter.
+**참고**: 주소에서 개인키가 분리된 경우 개인키를 암호화하는 두 가지 방법이 있습니다.
+1. privateKey 매개변수와 함께 [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) 포맷을 사용하세요.
+2. 주소를 매개변수로 보내기 위해 `options.address`를 사용하세요.
 
-**Return Value**
+**리턴값**
 
-| 형식     | 설명                              |
-| ------ | ------------------------------- |
-| Object | The encrypted keystore v3 JSON. |
+| 형식     | 설명                 |
+| ------ | ------------------ |
+| Object | 암호화된 키스토어 v3 JSON. |
 
 
 **예시**
@@ -641,21 +641,21 @@ Encrypts a private key to the Klaytn keystore v3 standard.
 ```javascript
 caver.klay.accounts.decrypt(keystoreJsonV3, password)
 ```
-Decrypts a keystore v3 JSON and returns the decrypted account object.
+키스토어 v3 JSON을 복호화하고 복호화된 계정 객체를 반환합니다.
 
-**Parameters**
+**매개변수**
 
-| 명칭             | 형식     | 설명                                                           |
-| -------------- | ------ | ------------------------------------------------------------ |
-| keystoreJsonV3 | String | JSON string containing the encrypted private key to decrypt. |
-| password       | String | The password used for encryption.                            |
+| 명칭             | 형식     | 설명                           |
+| -------------- | ------ | ---------------------------- |
+| keystoreJsonV3 | String | 복호화할 암호화된 개인키가 포함된 JSON 문자열. |
+| password       | String | 암호화에 사용되는 비밀번호.              |
 
 
 **Return Value**
 
-| 형식     | 설명                     |
-| ------ | ---------------------- |
-| Object | The decrypted account. |
+| 형식     | 설명       |
+| ------ | -------- |
+| Object | 복호화된 계정. |
 
 
 **예시**
@@ -695,21 +695,21 @@ Decrypts a keystore v3 JSON and returns the decrypted account object.
 ```javascript
 caver.klay.accounts.isDecoupled(key, address)
 ```
-Determines if the key is decoupled from the address.
+키가 주소에서 분리되었는지 확인합니다.
 
-**Parameters**
+**매개변수**
 
-| 명칭  | 형식     | 설명                                                                                                                                                                          |
-| --- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| key | String | Key to determine if decoupled from address. Key can be a 32-byte string private key or a [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
-| 주소  | String | (optional) Address to be used to determine if decoupled. If no address is given, the address is derived from the key.                                                       |
+| 명칭      | 형식     | 설명                                                                                                                                |
+| ------- | ------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| key     | String | 주소에서 분리되었는지 확인하고자 하는 키. 키는 32바이트 문자열 개인키 또는 [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format)입니다. |
+| address | String | (선택 사항) 분리 여부를 확인하는 데 사용되는 주소. 주소가 주어지지 않으면, 주소는 키에서 파생됩니다.                                                                       |
 
 
-**Return Value**
+**리턴값**
 
-| 형식      | 설명                                                                               |
-| ------- | -------------------------------------------------------------------------------- |
-| Boolean | `true` if the key is decoupled from the address. `false` if it is not decoupled. |
+| 형식      | 설명                                         |
+| ------- | ------------------------------------------ |
+| Boolean | 키가 주소에서 분리되었으면 `true`. 분리되지 않은 경우 `false`. |
 
 
 **예시**
@@ -733,20 +733,20 @@ false
 ```javascript
 caver.klay.accounts.getLegacyAccount(key)
 ```
-Returns an account that has an address derived from the given private key. See [AccountKeyLegacy](../../../../klaytn/design/accounts.md#accountkeylegacy).
+주어진 개인키에서 파생된 주소를 가진 계정을 반환합니다. [AccountKeyLegacy](../../../../klaytn/design/accounts.md#accountkeylegacy)를 참조하세요.
 
-**Parameters**
+**매개변수**
 
-| 명칭  | 형식     | 설명                                                                                                                                                                                                                                                                                 |
-| --- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| key | String | The parameter used to get an account that has a legacy account key. Key can be a 32-byte string private key or a [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format). In KlaytnWalletKey, only the portion corresponding to the private key is used. |
+| 명칭  | 형식     | 설명                                                                                                                                                                                   |
+| --- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| key | String | 기존 계정 키가 있는 계정을 얻는 데 사용되는 매개변수입니다. 키는 32바이트 문자열 개인키 또는 [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format)입니다. KlaytnWalletKey에서는 개인키에 해당하는 부분만 사용됩니다. |
 
 
-**Return Value**
+**리턴값**
 
-| 형식     | 설명                                                                                                                                               |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Object | An account object with a legacy account key of the given value. If there is address information extracted from the key, it is returned together. |
+| 형식     | 설명                                                        |
+| ------ | --------------------------------------------------------- |
+| Object | 주어진 값의 기존 계정 키가 있는 계정 객체입니다. 키에서 추출된 주소 정보가 있으면 함께 반환됩니다. |
 
 
 **예시**
@@ -789,7 +789,7 @@ Returns an account that has an address derived from the given private key. See [
 ```javascript
 caver.klay.accounts.wallet
 ```
-Contains an in-memory wallet with multiple accounts.  These accounts can be used when using [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction).
+여러 계정이 있는 인메모리 지갑을 포함합니다.  이 계정들은 [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction)를 사용할 때 쓸 수 있습니다.
 
 **예시**
 
@@ -819,20 +819,20 @@ Wallet {
 ```javascript
 caver.klay.accounts.wallet.create([numberOfAccounts] [, entropy])
 ```
-Generates one or more accounts in the wallet with randomly generated key pairs. If wallets already exist, they will not be overridden.
+무작위로 생성된 키 쌍을 사용하여 지갑에 하나 이상의 계정을 생성합니다. 지갑이 이미 존재하면, 덮어쓰지 않습니다.
 
-**Parameters**
+**매개변수**
 
 | 명칭               | 형식     | 설명                                                                                                        |
 | ---------------- | ------ | --------------------------------------------------------------------------------------------------------- |
-| numberOfAccounts | Number | (optional) The number of accounts to create. Leave empty to create an empty wallet.                       |
+| numberOfAccounts | Number | (선택 사항) 생성할 계정 수. 빈 지갑을 만들려면 비워두세요.                                                                       |
 | entropy          | String | (선택 사항) 엔트로피를 증가시키는 임의의 문자열. 아무 것도 지정하지 않으면 [randomHex](./caver.utils.md#randomhex)를 사용하여 임의의 문자열이 생성됩니다. |
 
 **Return Value**
 
-| 형식     | 설명                 |
-| ------ | ------------------ |
-| Object | The wallet object. |
+| 형식     | 설명     |
+| ------ | ------ |
+| Object | 지갑 객체. |
 
 
 **예시**
@@ -855,25 +855,25 @@ Wallet {
 ```javascript
 caver.klay.accounts.wallet.add(account [, targetAddress])
 ```
-Adds an account using a private key or account object to the wallet.
+개인키 또는 계정 객체를 사용하여 계정을 지갑에 추가합니다.
 
-**NOTE**: If the same address exists inside the wallet, an error is returned. If you want to change the private key associated to an account in the wallet, please use [caver.klay.accounts.wallet.updatePrivateKey](#wallet-updateprivatekey).
+**참고**: 지갑에 동일한 주소가 있는 경우에는 오류가 반환됩니다. 지갑의 계정과 관련된 개인키를 변경하려면 [caver.klay.accounts.wallet.updatePrivateKey](#wallet-updateprivatekey)를 사용하세요.
 
 
-**Parameters**
+**매개변수**
 
-| 명칭            | 형식                   | 설명                                                                                  |
-| ------------- | -------------------- | ----------------------------------------------------------------------------------- |
-| 계정 (Account)  | String &#124; Object | A private key or account object created with [caver.klay.accounts.create](#create). |
-| targetAddress | String               | A target address which will be used with a given private key.                       |
+| 명칭            | 형식                   | 설명                                                       |
+| ------------- | -------------------- | -------------------------------------------------------- |
+| 계정 (Account)  | String &#124; Object | [caver.klay.accounts.create](#create)로 생성된 개인키 또는 계정 객체. |
+| targetAddress | String               | 주어진 개인키와 함께 사용될 목표 주소.                                   |
 
-**NOTE**: caver-js supports two types of private key formats. One is a raw private key format of a 32-byte string type and the other is the [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format).
+**참고**: caver-js는 두 가지 유형의 개인키 형식을 지원합니다. 하나는 32바이트 문자열 타입의 원시 개인키 형식이고 다른 하나는 [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format)입니다.
 
-**Return Value**
+**리턴값**
 
-| 형식     | 설명                 |
-| ------ | ------------------ |
-| Object | The added account. |
+| 형식     | 설명       |
+| ------ | -------- |
+| Object | 추가 된 계정. |
 
 
 **예시**
@@ -936,20 +936,20 @@ Adds an account using a private key or account object to the wallet.
 ```javascript
 caver.klay.accounts.wallet.remove(account)
 ```
-Removes an account from the wallet.
+지갑에서 계정을 제거합니다.
 
 **Parameters**
 
-| 명칭           | 형식                   | 설명                                              |
-| ------------ | -------------------- | ----------------------------------------------- |
-| 계정 (Account) | String &#124; Number | The account address or the index in the wallet. |
+| 명칭           | 형식                   | 설명                |
+| ------------ | -------------------- | ----------------- |
+| 계정 (Account) | String &#124; Number | 지갑의 계좌 주소 또는 인덱스. |
 
 
-**Return Value**
+**리턴값**
 
-| 형식      | 설명                                                                  |
-| ------- | ------------------------------------------------------------------- |
-| Boolean | `true` if the wallet was removed. `false` if it could not be found. |
+| 형식      | 설명                                   |
+| ------- | ------------------------------------ |
+| Boolean | 지갑이 제거된 경우 `true`. 찾을 수 없으면 `false`. |
 
 
 **예시**
@@ -979,17 +979,17 @@ false
 ```javascript
 caver.klay.accounts.wallet.clear()
 ```
-Securely empties the wallet and removes all its accounts.
+지갑을 안전하게 비우고 모든 계정을 제거합니다.
 
-**Parameters**
+**매개변수**
 
 None
 
 **Return Value**
 
-| 형식     | 설명                 |
-| ------ | ------------------ |
-| Object | The wallet object. |
+| 형식     | 설명     |
+| ------ | ------ |
+| Object | 지갑 객체. |
 
 **예시**
 
@@ -1008,20 +1008,20 @@ Wallet {
 ```javascript
 caver.klay.accounts.wallet.encrypt(password)
 ```
-Encrypts all wallet accounts and returns an array of encrypted keystore v3 objects.
+모든 지갑 계정을 암호화하고 암호화된 키스토어 v3 객체 배열을 반환합니다.
 
-**Parameters**
+**매개변수**
 
-| 명칭       | 형식     | 설명                                             |
-| -------- | ------ | ---------------------------------------------- |
-| password | String | The password that will be used for encryption. |
+| 명칭       | 형식     | 설명             |
+| -------- | ------ | -------------- |
+| password | String | 암호화에 사용될 비밀번호. |
 
 
-**Return Value**
+**리턴값**
 
-| 형식    | 설명                                 |
-| ----- | ---------------------------------- |
-| Array | The encrypted keystore v3 objects. |
+| 형식    | 설명                |
+| ----- | ----------------- |
+| Array | 암호화된 키스토어 v3 객체들. |
 
 
 **예시**
@@ -1076,21 +1076,21 @@ Encrypts all wallet accounts and returns an array of encrypted keystore v3 objec
 ```javascript
 caver.klay.accounts.wallet.decrypt(keystoreArray, password)
 ```
-Decrypts keystore v3 objects.
+키스토어 v3 객체들을 복호화합니다.
 
-**Parameters**
+**매개변수**
 
-| 명칭            | 형식     | 설명                                            |
-| ------------- | ------ | --------------------------------------------- |
-| keystoreArray | Array  | The encrypted keystore v3 objects to decrypt. |
-| password      | String | The password that was used for encryption.    |
+| 명칭            | 형식     | 설명                     |
+| ------------- | ------ | ---------------------- |
+| keystoreArray | Array  | 복호화할 암호화된 키스토어 v3 객체들. |
+| password      | String | 암호화에 사용된 비밀번호.         |
 
 
 **리턴값**
 
-| 형식     | 설명                 |
-| ------ | ------------------ |
-| Object | The wallet object. |
+| 형식     | 설명     |
+| ------ | ------ |
+| Object | 지갑 객체. |
 
 
 **예시**
@@ -1157,20 +1157,20 @@ Wallet {
 caver.klay.accounts.wallet.getKlaytnWalletKey(index)
 caver.klay.accounts.wallet.getKlaytnWalletKey(address)
 ```
-Return the Klaytn wallet key for the account on the wallet of caver-js.
+caver-js 지갑에 있는 계정에 대한 Klaytn 지갑 키를 반환합니다.
 
-**Parameters**
+**매개변수**
 
-| 명칭             | 형식                 | 설명                                                                                                                   |
-| -------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------- |
-| indexOrAddress | Number&#124;String | An index in the wallet address list, an address in hexadecimal. The given value should exist in the caver-js wallet. |
+| 명칭             | 형식                 | 설명                                                          |
+| -------------- | ------------------ | ----------------------------------------------------------- |
+| indexOrAddress | Number&#124;String | 지갑 주소 목록의 인덱스로, 16진수로 된 주소입니다. 주어진 값은 caver-js 지갑에 있어야 합니다. |
 
 
-**Return Value**
+**리턴값**
 
-| 형식     | 설명                                                                                       |
-| ------ | ---------------------------------------------------------------------------------------- |
-| String | KlaytnWalletKey that matches the account. This value allows you to log in to the wallet. |
+| 형식     | 설명                                                   |
+| ------ | ---------------------------------------------------- |
+| String | 계정과 일치하는 KlaytnWalletKey. 이 값을 사용하면 지갑에 로그인할 수 있습니다. |
 
 
 **예시**
@@ -1198,23 +1198,23 @@ Error: Failed to find account
 ```javascript
 caver.klay.accounts.wallet.updatePrivateKey(privateKey, address)
 ```
-Update the account's private key information stored in the wallet.
+지갑에 저장된 계정의 개인키 정보를 업데이트합니다.
 
-**NOTE**: This function only changes the information stored in the wallet of caver-js. This function has no effect on the key information stored on the Klaytn network. Keys in the Klaytn network can be changed by sending a ['ACCOUNT_UPDATE'](./caver.klay/sendtx_account_update.md#sendtransaction-account_update) transaction.
+**참고**: 이 함수는 caver-js의 지갑에 저장된 정보만을 변경합니다. 이 함수는 Klaytn 네트워크에 저장된 키 정보에는 영향을 미치지 않습니다. Klaytn 네트워크의 키는 ['ACCOUNT_UPDATE'](./caver.klay/sendtx_account_update.md#sendtransaction-account_update) 트랜잭션을 보내는 것으로 변경할 수 있습니다.
 
-**Parameters**
+**매개변수**
 
-| 명칭         | 형식     | 설명                                      |
-| ---------- | ------ | --------------------------------------- |
-| privateKey | String | New private key to be used for updates. |
-| 주소         | String | The account address in the wallet.      |
+| 명칭         | 형식     | 설명                 |
+| ---------- | ------ | ------------------ |
+| privateKey | String | 업데이트에 사용될 새로운 개인키. |
+| address    | String | 지갑의 계좌 주소.         |
 
 
-**Return Value**
+**리턴값**
 
-| 형식     | 설명                                                             |
-| ------ | -------------------------------------------------------------- |
-| Object | An object that contains information about the updated account. |
+| 형식     | 설명                       |
+| ------ | ------------------------ |
+| Object | 업데이트된 계정에 대한 정보가 포함된 객체. |
 
 
 **예시**
