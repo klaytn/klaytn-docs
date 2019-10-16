@@ -1,28 +1,28 @@
 ---
 description: >-
-  A caver-js object used to interact with a smart contract.
+  스마트 컨트랙트와 상호작용하는 데 사용되는 caver-js 객체입니다.
 ---
 
 # caver.klay.Contract
 
-The `caver.klay.Contract` object makes it easy to interact with smart contracts on the Klaytn blockchain.  When you create a new contract object, you give it the JSON interface of the respective smart contract and caver will auto convert all calls into low level ABI calls over RPC for you.
+`caver.klay.Contract` 객체는 Klaytn 블록체인의 스마트 컨트랙트와 상호작용하는 것을 쉽게합니다.  새 컨트랙트 객체를 생성할 때, 각 스마트 컨트랙트의 JSON 인터페이스를 제출하면 caver는 RPC를 통해 모든 호출을 저레벨 ABI 호출로 자동 변환할 것입니다.
 
-This allows you to interact with smart contracts as if they were JavaScript objects.
+이를 통해 스마트 컨트랙트가 마치 자바스크립트 객체인 것처럼 스마트 컨트랙트와 상호작용할 수 있습니다.
 
 ## new contract
 
 ```javascript
 new caver.klay.Contract(jsonInterface [, address] [, options])
 ```
-Creates a new contract instance with all its methods and events defined in its JSON interface object.
+JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로 새 컨트랙트 인스턴스를 생성합니다.
 
-**Parameters**
+**매개변수**
 
-| 명칭            | 형식     | 설명                                                                                                                       |
-| ------------- | ------ | ------------------------------------------------------------------------------------------------------------------------ |
-| jsonInterface | Object | The JSON interface for the contract to instantiate                                                                       |
-| 주소            | String | (optional) The address of the smart contract to call. Can be added later using `myContract.options.address = '0x1234..'` |
-| options       | Object | (optional) The options of the contract.  See the table below for the details.                                            |
+| 명칭            | 형식     | 설명                                                                                        |
+| ------------- | ------ | ----------------------------------------------------------------------------------------- |
+| jsonInterface | Object | 컨트랙트를 인스턴스화하기 위한 JSON 인터페이스                                                               |
+| address       | String | (선택 사항) 호출할 스마트 컨트랙트의 주소. `myContract.options.address = '0x1234..'`를 사용하여 나중에 추가할 수 있습니다. |
+| options       | Object | (선택 사항) 컨트랙트 옵션.  자세한 내용은 아래 표를 참조하세요.                                                    |
 
 The options object contains the following:
 
@@ -67,7 +67,7 @@ The `options` object for the contract instance. `from`, `gas` and `gasPrice` are
 
 | 명칭            | 형식     | 설명                                                                                            |
 | ------------- | ------ | --------------------------------------------------------------------------------------------- |
-| 주소            | String | The address where the contract is deployed.  Also see [options.address](#optionsaddress).     |
+| address       | String | The address where the contract is deployed.  Also see [options.address](#optionsaddress).     |
 | jsonInterface | Array  | The JSON interface of the contract.  Also see [options.jsonInterface](#optionsjsoninterface). |
 | data          | String | The byte code of the contract. Used when the contract gets deployed.                          |
 | from          | String | The address from which transactions should be made.                                           |
@@ -102,9 +102,9 @@ The address used for this contract instance `myContract`.  All transactions gene
 
 **Property**
 
-| 명칭 | 형식                   | 설명                                                            |
-| -- | -------------------- | ------------------------------------------------------------- |
-| 주소 | String &#124; `null` | The address for this contract or `null` if it is not yet set. |
+| 명칭      | 형식                   | 설명                                                            |
+| ------- | -------------------- | ------------------------------------------------------------- |
+| address | String &#124; `null` | The address for this contract or `null` if it is not yet set. |
 
 **예시**
 
@@ -345,7 +345,7 @@ Will call a "constant" method and execute its smart contract method in the Klayt
 
 | 명칭       | 형식       | 설명                                                                                                                                                                   |
 | -------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options  | Object   | (optional) The options used for calling.  See the table below for the details.                                                                                       |
+| options  | Object   | (optional) The options used for calling.  자세한 내용은 아래 표를 참조하세요.                                                                                                       |
 | callback | Function | (optional) This callback will be fired with the result of the smart contract method execution as the second argument, or with an error object as the first argument. |
 
 The options object can contain the following:
@@ -422,7 +422,7 @@ Will send a transaction to the smart contract and execute its method.  Note that
 
 | 명칭       | 형식       | 설명                                                                                                                      |
 | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------- |
-| options  | Object   | The options used for sending.  See the table below for the details.                                                     |
+| options  | Object   | The options used for sending.  자세한 내용은 아래 표를 참조하세요.                                                                     |
 | callback | Function | (optional) This callback will be fired first with the "transactionHash", or with an error object as the first argument. |
 
 The options object can contain the following:
@@ -520,7 +520,7 @@ Will estimate the gas that a method execution will take when executed in the Kla
 
 | 명칭       | 형식       | 설명                                                                                                                                                  |
 | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options  | Object   | (optional) The options used for calling.  See the table below for the details.                                                                      |
+| options  | Object   | (optional) The options used for calling.  자세한 내용은 아래 표를 참조하세요.                                                                                      |
 | callback | Function | (optional) This callback will be fired with the result of the gas estimation as the second argument, or with an error object as the first argument. |
 
 The options object can contain the following:
@@ -594,7 +594,7 @@ Subscribes to an event and unsubscribes immediately after the first event or err
 | 명칭       | 형식       | 설명                                                                                                                                                                                                  |
 | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | event    | String   | The name of the event in the contract, or `"allEvents"` to get all events.                                                                                                                          |
-| options  | Object   | (optional) The options used for deployment.  See the table below for the details.                                                                                                                   |
+| options  | Object   | (optional) The options used for deployment.  자세한 내용은 아래 표를 참조하세요.                                                                                                                                   |
 | callback | Function | This callback will be fired for the first event as the second argument, or an error as the first argument. See [getPastEvents return values](#getpastevents) for details about the event structure. |
 
 The options object can contain the following:
@@ -649,7 +649,7 @@ Subscribes to an event.
 
 | 명칭       | 형식       | 설명                                                                                                               |
 | -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
-| options  | Object   | (optional) The options used for deployment.  See the table below for the details.                                |
+| options  | Object   | (optional) The options used for deployment.  자세한 내용은 아래 표를 참조하세요.                                                |
 | callback | Function | (optional) This callback will be fired for each event as the second argument, or an error as the first argument. |
 
 The options object can contain the following:
@@ -676,7 +676,7 @@ The structure of the returned event `Object` looks as follows:
 | ---------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | event            | String               | The event name.                                                                                                                        |
 | signature        | String &#124; `null` | The event signature, `null` if it is an anonymous event.                                                                               |
-| 주소               | String               | Address which from this event originated.                                                                                              |
+| address          | String               | Address which from this event originated.                                                                                              |
 | returnValues     | Object               | The return values coming from the event, *e.g.*, `{myVar: 1, myVar2: '0x234...'}`.                                                     |
 | logIndex         | Number               | Integer of the event index position in the block.                                                                                      |
 | transactionIndex | Number               | Integer of the transaction's index position where the event was created.                                                               |
@@ -743,7 +743,7 @@ Gets past events for this contract.
 | 명칭       | 형식       | 설명                                                                                                                            |
 | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | event    | String   | The name of the event in the contract, or `"allEvents"` to get all events.                                                    |
-| options  | Object   | (optional) The options used for deployment.  See the table below for the details.                                             |
+| options  | Object   | (optional) The options used for deployment.  자세한 내용은 아래 표를 참조하세요.                                                             |
 | callback | Function | (optional) This callback will be fired with an array of event logs as the second argument, or an error as the first argument. |
 
 To options object can contain the following:
