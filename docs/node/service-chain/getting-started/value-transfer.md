@@ -1,0 +1,111 @@
+# Guide for the value transfer on a service chain
+
+## Prerequisites
+- Assume that EN (Baobab) and SCN are already set and connected ([link](en-scn-connection.md))
+- Code for contract deployment and transfer ([download](https://drive.google.com/file/d/14tNU-jOAv7JwfY5xZqJlckkpO16TuS2S/view?usp=sharing))
+- Install `Node.js` and `npm` ([How to install](https://nodejs.org/en/download/package-manager/))
+
+
+## ERC-20 Token Transfer
+
+## Step 1: Charge KLAY for the operators
+Connect to the SCN node and check the addresses to charge by executing `subbrige.parentOperator` and `subbridge.childOperator`.
+```
+$ ~/your_path/bin/kscn attach --datadir ~/your_path/data
+> subbridge.childOperator
+"0x10221f7f9355017cd0c11444e7eecb99621bacce"
+> subbridge.parentOperator
+"0x3ce216beeafc62d20547376396e89528e1d778ca"
+```
+
+Create a test account on a Baobab wallet([link](https://baobab.wallet.klaytn.com/)) and charge it with the faucet. Then send 1 KLAY to the `parentOperator`. `childOperator` has to be charged by using the test key generated from `homi` ([Refer to EN Setup and SCN Connection Guide](en-scn-connection.md)).
+
+```
+$ ~/your_path/bin/kscn account import --datadir ~/your_path/data homi-output/keys_test/testkey1
+Your new account is locked with a password. Please give a password. Do not forget this password.
+Passphrase:
+Repeat passphrase:
+Address: {80119c31cdae67c42c8296929bb4f89b2a52cec4}
+```
+```
+$ ~/your_path/bin/kscn attach --datadir ~/your_path/data
+> personal.unlockAccount("80119c31cdae67c42c8296929bb4f89b2a52cec4")
+Unlock account 80119c31cdae67c42c8296929bb4f89b2a52cec4
+Passphrase:
+True
+> klay.sendTransaction({from:"80119c31cdae67c42c8296929bb4f89b2a52cec4", to:subbridge.childOperator, value: web3.toPeb(1000, "KLAY")})
+"0x84caab84ebf0c4bb4ecf0a7849f1de3e479f1863a95f70c51047a7ca7bc64b33"
+```
+Check if the operator accounts have enough balance.
+```
+> klay.getBalance(subbridge.childOperator)
+1e+21
+> klay.getBalance(subbridge.parentOperator)
+1e+18
+```
+
+## Step 2: Deploy Contracts
+Connect to the SCN node and prepare the environment for contract deployment. Copy the downloaded `deploy_and_test.tar.gz` to node_project directory.
+```
+$ mkdir ~/your_path/node_project
+$ cd ~/your_path/node_project
+$ npm init
+$ npm install caver-js
+$ cp ~/your_downloads/deploy_and_test.tar.gz .
+$ tar xvfz deploy_and_test.tar.gz
+```
+
+On a text editor, edit the `deploy_conf.json` as below. 
+- Replace `ip`, `port` of `scn` section with the information of your SCN node. 
+- Replace `key` with `testkey1` generated from `homi`. 
+- Set `operator` as the `subbridge.childOperator` of the previous step. 
+- Replace `ip`, `port` of `en` section with the information of your EN node.
+- Replace `key` with the private key of the test account created from Baobab wallet([link](https://baobab.wallet.klaytn.com/)) at the previous step
+
+```
+{
+     "scn" : {
+         "ip": "192.168.0.1",
+         "port": "7551",
+         "key": "0x66cb283353589a10866b58d388e9d956e5a9c873a8c78fa4411d460c19c494ea",
+         "operator": "0x10221f7f9355017cd0c11444e7eecb99621bacce"
+     },
+     "en" : {
+         "ip": "192.168.0.5",
+         "port": "8551",
+         "key": "0x26f4b5ac42ceabcfd3b23a991fdbfc792d10ce700a99582fdf9185a8f163b790",
+         "operator": "0x3ce216beeafc62d20547376396e89528e1d778ca"
+     }
+ }
+```
+
+Perform token deployment with `node deploy.js` command. It will show an API list to perform at the next step.
+
+```
+$ node deploy.js
+subbridge.registerBridge("0x5f093de8a1b1d32Fc4cF6F40357DCcD24453BAb3", "0xD1C4808960Fb4581b9A5B3B217b9a67057D84c19")
+subbridge.subscribeBridge("0x5f093de8a1b1d32Fc4cF6F40357DCcD24453BAb3", "0xD1C4808960Fb4581b9A5B3B217b9a67057D84c19")
+subbridge.registerToken("0x5f093de8a1b1d32Fc4cF6F40357DCcD24453BAb3", "0xD1C4808960Fb4581b9A5B3B217b9a67057D84c19", "0x96272131600EC7c64c45CE139C32F4919fBFaDC8", "0xc7858a153376764208e8F6B6B55B4a0792B67c3E")
+```
+
+## Step 3: Register Bridge, Register Token and Subscribe Bridge
+At the console, execute he api list shown at the above step one by one.
+```
+$ ~/your_path/bin/kscn attach --datadir ~/your_path/data
+> subbridge.registerBridge("0x5f093de8a1b1d32Fc4cF6F40357DCcD24453BAb3", "0xD1C4808960Fb4581b9A5B3B217b9a67057D84c19")
+null
+> subbridge.subscribeBridge("0x5f093de8a1b1d32Fc4cF6F40357DCcD24453BAb3", "0xD1C4808960Fb4581b9A5B3B217b9a67057D84c19")
+null
+> subbridge.registerToken("0x5f093de8a1b1d32Fc4cF6F40357DCcD24453BAb3", "0xD1C4808960Fb4581b9A5B3B217b9a67057D84c19", "0x96272131600EC7c64c45CE139C32F4919fBFaDC8", "0xc7858a153376764208e8F6B6B55B4a0792B67c3E")
+null
+```
+
+## Step 4: Token transfer
+Perform token transfer with `node transfer.js` command.
+```
+$ node transfer.js
+requestValueTransfer..
+alice balance: 100
+```
+
+Check if the result is `alice balance: 100`.
