@@ -44,8 +44,8 @@
   * [IDE and Tools](smart-contract/ide-and-tools/README.md)
     * [Klaytn IDE](toolkit/klaytn-ide.md)
     * [Truffle](toolkit/truffle.md)
-    * [Klaytn Wallet](toolkit/klaytn-wallet.md)
-    * [Klaytnscope](toolkit/klaytnscope.md)
+    * <a href="/bapp/developer-tools/klaytn-wallet">Klaytn Wallet</a>
+    * <a href="/bapp/developer-tools/klaytnscope">Klaytnscope</a>
   * [Sample Contracts](smart-contract/sample-contracts/README.md)
     * [KlaytnGreeter](smart-contract/sample-contracts/klaytngreeter.md)
     * [ERC-20](smart-contract/sample-contracts/erc-20/README.md)
@@ -72,7 +72,7 @@
     * [Operation Guide](node/endpoint-node/operation-guide/README.md)
       * [Starting/Stopping EN](node/endpoint-node/operation-guide/starting-stopping-en.md)
       * [Configuration](node/endpoint-node/operation-guide/configuration.md)
-      * [Errors & Troubleshooting](node/errors-and-troubleshooting.md)
+      * <a href="/node/errors-and-troubleshooting">Errors & Troubleshooting</a>
     * [ken CLI commands](node/endpoint-node/ken-cli-commands.md)
     * [JSON-RPC APIs](node/endpoint-node/json-rpc-apis.md)
   * [Core Cell](node/core-cell/README.md)
@@ -93,7 +93,7 @@
     * [Operation Guide](node/core-cell/operation-guide/README.md)
       * [Starting/Stopping Core Cell](node/core-cell/operation-guide/starting-stopping-core-cell.md)
       * [Configuration](node/core-cell/operation-guide/configuration.md)
-      * [Errors & Troubleshooting](node/errors-and-troubleshooting.md)
+      * <a href="/node/errors-and-troubleshooting">Errors & Troubleshooting</a>
     * [Monitoring Setup](node/core-cell/monitoring-setup.md)
     * [H/A Setup](node/core-cell/h-a-setup.md)
   * [Service Chain](node/service-chain/README.md)
@@ -207,7 +207,7 @@
         * [7-4. TransferOwnership Component](bapp/tutorials/klaystagram/7.-feedpage/7-4.-transferownership-component.md)
       * [8. Run App](bapp/tutorials/klaystagram/8.-run-app.md)
     * [Migrating Ethereum App to Klaytn](bapp/tutorials/migrating-ethereum-app-to-klaytn.md)
-  * [Developer Tools](bapp/developer-tools/README.md)
+  * [Developer Tools](bapp/developer-tools/README.md) <a id="toolkit"></a>
     * [Klaytn Wallet](toolkit/klaytn-wallet.md)
     * [Klaytnscope](toolkit/klaytnscope.md)
 
