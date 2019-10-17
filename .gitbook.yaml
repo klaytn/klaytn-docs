@@ -13,6 +13,6 @@ redirects:
   toolkit/scope: ./toolkit/klaytnscope.md
   toolkit/wallet: ./toolkit/klaytn-wallet.md
   toolkit/truffle: ./toolkit/truffle.md
-  smart-contract/ide-and-tools/klaytn-wallet ./toolkit/klaytn-wallet.md
-  smart-contract/ide-and-tools/klaytnscope ./toolkit/klaytnscope.md
+  smart-contract/ide-and-tools/klaytn-wallet: ./toolkit/klaytn-wallet.md
+  smart-contract/ide-and-tools/klaytnscope: ./toolkit/klaytnscope.md
   
