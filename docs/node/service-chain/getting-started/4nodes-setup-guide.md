@@ -9,7 +9,7 @@
 ## Step 1: Create genesis.json and a key
 Copy execution binaries to a SCN node then execute homi on command line. Then copy the generated `~/your_path/homi-output` folder with execution binaries to other SCN nodes.
 ```
-$ ~/your_path/bin/homi setup local --cn-num 4 --test-num 1 --chainID 1000 --unitPrice 0 --p2p-port 30000 -o ~/your_path/homi-output
+$ ~/your_path/bin/homi setup local --cn-num 4 --test-num 1 --servicechain --p2p-port 30000 -o ~/your_path/homi-output
 ```
 
 ## Step 2: Node initialization
