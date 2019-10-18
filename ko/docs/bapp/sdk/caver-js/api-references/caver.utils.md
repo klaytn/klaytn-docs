@@ -365,9 +365,9 @@ Checks if a given string is a valid Klaytn address. It will also check the check
 
 **Parameters**
 
-| 명칭 | 형식     | 설명                 |
-| -- | ------ | ------------------ |
-| 주소 | String | An address string. |
+| 명칭      | 형식     | 설명                 |
+| ------- | ------ | ------------------ |
+| address | String | An address string. |
 
 **Return Value**
 
@@ -404,9 +404,9 @@ Converts an upper or lowercase Klaytn address to a checksum address.
 
 **Parameters**
 
-| 명칭 | 형식     | 설명                 |
-| -- | ------ | ------------------ |
-| 주소 | String | An address string. |
+| 명칭      | 형식     | 설명                 |
+| ------- | ------ | ------------------ |
+| address | String | An address string. |
 
 **Return Value**
 
@@ -434,9 +434,9 @@ Checks the checksum of a given address. Will also return `false` on non-checksum
 
 **Parameters**
 
-| 명칭 | 형식     | 설명                 |
-| -- | ------ | ------------------ |
-| 주소 | String | An address string. |
+| 명칭      | 형식     | 설명                 |
+| ------- | ------ | ------------------ |
+| address | String | An address string. |
 
 **Return Value**
 
