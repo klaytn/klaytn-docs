@@ -514,7 +514,7 @@ The printAccount above shows how to use the properties of the Account instance. 
 An explanation of the various AccountKey type structures is provided in the [AccountKey](#accountkey) part.
 
 ### AccountKey
-AccountKey is a structure that stores key of an account. An account can have one private key string or multiple private key strings to be used for signing. Account can also manage private keys by [role](https://docs.klaytn.com/klaytn/design/accounts#roles).
+AccountKey is a structure that stores keys of an account. An account can have one private key string or multiple private key strings to be used for signing. Account can also manage private keys by [roles](https://docs.klaytn.com/klaytn/design/accounts#roles).
 
 To support this structure, caver-js introduces new structures called AccountKeyPublic, AccountKeyMultiSig, and AccountKeyRoleBased.
 
