@@ -21,7 +21,7 @@ The structure of the returned log `Object` in the `Array` looks as follows:
 
 | 명칭               | 형식            | 설명                                                                                                                                                                                                                                           |
 | ---------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 주소               | 20-byte DATA  | Address from which this log originated.                                                                                                                                                                                                      |
+| address          | 20-byte DATA  | Address from which this log originated.                                                                                                                                                                                                      |
 | topics           | Array of DATA | Array of 0 to 4 32-byte DATA of indexed log arguments. (In Solidity: The first topic is the hash of the signature of the event (*e.g.*, `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.). |
 | data             | DATA          | Contains the non-indexed arguments of the log.                                                                                                                                                                                               |
 | blockNumber      | QUANTITY      | The block number where this log was in. `null` when pending.                                                                                                                                                                                 |
@@ -116,7 +116,7 @@ The structure of the returned event `Object` in the `Array` looks as follows:
 
 | 명칭               | 형식             | 설명                                                                                                                                     |
 | ---------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| 주소               | String         | From which this event originated from.                                                                                                 |
+| address          | String         | From which this event originated from.                                                                                                 |
 | data             | String         | The data containing non-indexed log parameter.                                                                                         |
 | topics           | Array          | An array with max 4 32-byte topics, topic 1-3 contains indexed parameters of the log.                                                  |
 | logIndex         | Number         | Integer of the event index position in the block.                                                                                      |
