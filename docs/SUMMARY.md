@@ -44,8 +44,8 @@
   * [IDE and Tools](smart-contract/ide-and-tools/README.md)
     * [Klaytn IDE](toolkit/klaytn-ide.md)
     * [Truffle](toolkit/truffle.md)
-    * <a href="/bapp/developer-tools/klaytn-wallet">Klaytn Wallet</a>
-    * <a href="/bapp/developer-tools/klaytnscope">Klaytnscope</a>
+    * [Klaytn Wallet](smart-contract/ide-and-tools/klaytn-wallet.md)
+    * [Klaytnscope](toolkit/klaytnscope.md)
   * [Sample Contracts](smart-contract/sample-contracts/README.md)
     * [KlaytnGreeter](smart-contract/sample-contracts/klaytngreeter.md)
     * [ERC-20](smart-contract/sample-contracts/erc-20/README.md)
@@ -72,7 +72,7 @@
     * [Operation Guide](node/endpoint-node/operation-guide/README.md)
       * [Starting/Stopping EN](node/endpoint-node/operation-guide/starting-stopping-en.md)
       * [Configuration](node/endpoint-node/operation-guide/configuration.md)
-      * <a href="/node/errors-and-troubleshooting">Errors & Troubleshooting</a>
+      * [Errors & Troubleshooting](node/endpoint-node/operation-guide/errors-and-troubleshooting.md)
     * [ken CLI commands](node/endpoint-node/ken-cli-commands.md)
     * [JSON-RPC APIs](node/endpoint-node/json-rpc-apis.md)
   * [Core Cell](node/core-cell/README.md)
@@ -93,7 +93,7 @@
     * [Operation Guide](node/core-cell/operation-guide/README.md)
       * [Starting/Stopping Core Cell](node/core-cell/operation-guide/starting-stopping-core-cell.md)
       * [Configuration](node/core-cell/operation-guide/configuration.md)
-      * <a href="/node/errors-and-troubleshooting">Errors & Troubleshooting</a>
+      * [Errors & Troubleshooting](node/core-cell/operation-guide/errors-and-troubleshooting.md)
     * [Monitoring Setup](node/core-cell/monitoring-setup.md)
     * [H/A Setup](node/core-cell/h-a-setup.md)
   * [Service Chain](node/service-chain/README.md)
