@@ -1,6 +1,6 @@
 ## klay_accountCreated
 
-Returns `true` if the account associated with the address is created. It returns `false` otherwise.
+입력된 주소의 계정이 존재하는 경우 `true`를 반환합니다. 해당 주소의 계정이 존재하지 않으면 `false`를 반환합니다.
 
 **Parameters**
 
