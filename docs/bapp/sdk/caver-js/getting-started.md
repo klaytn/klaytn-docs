@@ -442,12 +442,7 @@ $ touch test.js
 ```
 You can see the `test.js` file is created in the working directory.
 
-Practice the following examples in the `test.js` file and run it as follows.
-```text
-$ node ./test.js
-```
-
-Write the following in test.js and run it.
+Write the following in test.js.
 ```javascript
 // test.js file
 const Caver = require('caver-js')
@@ -460,6 +455,13 @@ async function testFunction() {
 
 testFunction()
 ```
+
+When you have finished writing the example in the test.js file, run the test.js file as shown below.
+
+```text
+$ node ./test.js
+```
+
 If you see the output of console.log, proceed with the steps below.
 
 **NOTE** Those structures are supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
