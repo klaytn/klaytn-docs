@@ -501,7 +501,7 @@ The printAccount above shows how to use the properties of the Account instance. 
 | Property Name | Description |
 | --- | --- |
 | address | The address of the account. |
-| privateKey | Default key string of accountKey that the account has. This property is left for compatibility. privateKey can only represent the default key value of accountKey, so using privateKey is not recommended. |
+| privateKey | Default key string of accountKey that the account has. This property is left for compatibility. privateKey can only represent the default key value of accountKey, so using privateKey is not recommended. Rather than using privateKey, it is recommended to use transactionKey, updateKey, or feePayerKey in context. |
 | accountKeyType | Type of accountKey the account has. |
 | accountKey | The key of the account. This is AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased. |
 | keys | All keys inside accountKey that Account has. |
