@@ -520,7 +520,7 @@ AccountKey is a structure that stores keys of an account. An account can have on
 
 To support this structure, caver-js introduces new structures called AccountKeyPublic, AccountKeyMultiSig, and AccountKeyRoleBased.
 
-To create an AccountKey, use `caver.klay.accounts.createAccountKey`. This function determines which AccountKey to generate based on the type of parameter. Creates AccountKeyPublic if a private key string comes as a parameter, or AccountKeyMultiSig if an array of private key strings comes. And if there is an object with different key setting for each role, create AccountKeyRoleBased.
+To create an AccountKey, use `caver.klay.accounts.createAccountKey`. This function determines which AccountKey to generate based on the type of the parameter. It creates AccountKeyPublic if a private key string comes as a parameter, or AccountKeyMultiSig if an array of private key strings comes. And if there is an object with different key setting for each role, it creates AccountKeyRoleBased.
 
 **NOTE** The structures for `AccountKey` defined here are structures for storing private keys for use in caver-js. It can be different from the accountKey in your account on Klaytn network.
 
