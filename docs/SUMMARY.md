@@ -44,8 +44,6 @@
   * [IDE and Tools](smart-contract/ide-and-tools/README.md)
     * [Klaytn IDE](toolkit/klaytn-ide.md)
     * [Truffle](toolkit/truffle.md)
-    * [Klaytn Wallet](smart-contract/ide-and-tools/klaytn-wallet.md)
-    * [Klaytnscope](toolkit/klaytnscope.md)
   * [Sample Contracts](smart-contract/sample-contracts/README.md)
     * [KlaytnGreeter](smart-contract/sample-contracts/klaytngreeter.md)
     * [ERC-20](smart-contract/sample-contracts/erc-20/README.md)
