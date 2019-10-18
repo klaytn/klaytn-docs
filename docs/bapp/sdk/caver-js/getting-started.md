@@ -551,7 +551,7 @@ const accountKey = caver.klay.accounts.createAccountKey(privateKey)
 
 const address = caver.klay.accounts.create().address
 
-// Create Account instance with private key string
+// Create an Account instance with a private key string
 const accountFromStringKey = caver.klay.accounts.createWithAccountKey(address, privateKey)
 
 // Create Account instance with AccountKeyPublic instance
