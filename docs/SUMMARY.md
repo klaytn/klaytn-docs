@@ -207,7 +207,7 @@
         * [7-4. TransferOwnership Component](bapp/tutorials/klaystagram/7.-feedpage/7-4.-transferownership-component.md)
       * [8. Run App](bapp/tutorials/klaystagram/8.-run-app.md)
     * [Migrating Ethereum App to Klaytn](bapp/tutorials/migrating-ethereum-app-to-klaytn.md)
-  * [Developer Tools](bapp/developer-tools/README.md) <a id="toolkit"></a>
+  * [Developer Tools](bapp/developer-tools/README.md)
     * [Klaytn Wallet](toolkit/klaytn-wallet.md)
     * [Klaytnscope](toolkit/klaytnscope.md)
 
