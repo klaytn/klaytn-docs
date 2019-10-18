@@ -273,7 +273,7 @@ The result of the transaction can be found through the status of the receipt. Fo
 
 ## Executing Other Transaction Types <a id="executing-other-transaction-types"></a>
 
-Klaytn provides various transaction types for extensibility and performance. For more information, see [Transactions](https://docs.klaytn.com/klaytn/design/transactions). This section describes various examples that can be used with caver-js.
+Klaytn provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../klaytn/design/transactions/README.md). This section describes various examples that can be used with caver-js.
 
 ### Fee Delegation
 
@@ -433,7 +433,7 @@ See [caver.klay.Contract] for details.
 
 ## Using various AccountKey Types <a id="using-various-accountkey-types"></a>
 
-caver-js introduces new structures to support the various types of [account key](https://docs.klaytn.com/klaytn/design/accounts#account-key) supported by the platform.
+caver-js introduces new structures to support the various types of [AccountKey] supported by the platform.
 
 The examples below describe the example in a Node.js file. To practice the examples, first create a test file in the working directory as shown below.
 
@@ -507,16 +507,16 @@ The printAccount above shows how to use the properties of the Account instance. 
 | accountKeyType | Type of accountKey the account has. |
 | accountKey | The key of the account. This is AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased. |
 | keys | All keys inside accountKey that Account has. |
-| transactionKey | Key corresponding to [RoleTransaction](https://docs.klaytn.com/klaytn/design/accounts#roles). AccountKeyPublic or AccountKeyMultiSig have no role for keys, so transactionKey is the same value as keys. |
-| updateKey | Key corresponding to [RoleAccountUpdate](https://docs.klaytn.com/klaytn/design/accounts#roles). AccountKeyPublic or AccountKeyMultiSig have no role for keys, so updateKey is the same value as keys. |
-| feePayerKey | Key corresponding to [RoleFeePayer](https://docs.klaytn.com/klaytn/design/accounts#roles). AccountKeyPublic or AccountKeyMultiSig have no role for keys, so feePayerKey is the same value as keys. |
+| transactionKey | Key corresponding to [RoleTransaction](../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig have no role for keys, so transactionKey is the same value as keys. |
+| updateKey | Key corresponding to [RoleAccountUpdate](../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig have no role for keys, so updateKey is the same value as keys. |
+| feePayerKey | Key corresponding to [RoleFeePayer](../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig have no role for keys, so feePayerKey is the same value as keys. |
 
 **NOTE** `transactionKey`, `updateKey`, and `feePayerKey` return private key strings or an array of private key strings that should be used for the role. So rather than using privateKey property, it is recommended that you use `transactionKey`, `updateKey` and `feePayerKey` as appropriate, without worrying about the accountKey type.
 
 An explanation of the various AccountKey type structures is provided in the [AccountKey](#accountkey) part.
 
 ### AccountKey
-AccountKey is a structure that stores keys of an account. An account can have one private key string or multiple private key strings to be used for signing. Account can also manage private keys by [roles](https://docs.klaytn.com/klaytn/design/accounts#roles).
+AccountKey is a structure that stores keys of an account. An account can have one private key string or multiple private key strings to be used for signing. Account can also manage private keys by [roles](../../../klaytn/design/accounts.md#roles).
 
 To support this structure, caver-js introduces new structures called AccountKeyPublic, AccountKeyMultiSig, and AccountKeyRoleBased.
 
@@ -974,6 +974,7 @@ The BApp \(Blockchain Application\) Development sample projects using caver-js a
 [getTransactionReceipt]: api-references/caver.klay/transaction.md#gettransactionreceipt 
 [txError: Detailed Information of Transaction Failures]: ../../json-rpc/transaction-error-codes.md
 [Fee Delegation]: ../../../klaytn/design/transactions/README.md#fee-delegation
+[AccountKey]: ../../../klaytn/design/accounts.md#account-key
 [Account Update]: api-references/caver.klay/sendtx_account_update.md
 [SMART_CONTRACT_DEPLOY]: api-references/caver.klay/sendtx_smart_contract_deploy.md
 [SMART_CONTRACT_EXECUTION]: api-references/caver.klay/sendtx_smart_contract_execution.md
