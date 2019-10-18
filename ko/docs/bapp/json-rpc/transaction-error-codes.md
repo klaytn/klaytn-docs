@@ -1,6 +1,6 @@
-# Transaction Error Codes
+# 트랜잭션 오류 코드
 
-Klaytn provides a field `txError` in the transaction receipt to give developers more information about the reason for the failed transaction execution. This field exists only if the transaction execution is failed. To save storage and network bandwidth, `txError` contains an integer value. The below table shows the meaning of the value in `txError`.
+Klaytn은 트랜잭션 영수증의 `txError` 필드를 통해 트랜잭션 실행이 실패한 원인을 개발자분들께 알려드립니다. This field exists only if the transaction execution is failed. To save storage and network bandwidth, `txError` contains an integer value. The below table shows the meaning of the value in `txError`.
 
 | Error Code | 설명                                                                        |
 |:---------- |:------------------------------------------------------------------------- |
@@ -12,11 +12,11 @@ Klaytn provides a field `txError` in the transaction receipt to give developers 
 | 0x07       | out of gas                                                                |
 | 0x08       | evm: write protection                                                     |
 | 0x09       | evm: execution reverted                                                   |
-| 0x0a       | reached the opcode computation cost limit \(100000000\) for tx          |
+| 0x0a       | 트랜잭션의 연산자 연산 비용의 한계가 \(100000000\)에 도달함                                 |
 | 0x0b       | account already exists                                                    |
-| 0x0c       | not a program account \(e.g., an account having code and storage\)      |
+| 0x0c       | 프로그램 계정\(예를 들어, 코드 및 스토리지를 갖고 있는 계정\)이 아님                               |
 | 0x0d       | Human-readable address is not supported now                               |
-| 0x0e       | fee ratio is out of range \[1, 99\]                                     |
+| 0x0e       | 트랜잭션 비용의 비율이 \[1, 99\] 범위를 벗어남                                          |
 | 0x0f       | AccountKeyFail is not updatable                                           |
 | 0x10       | different account key type                                                |
 | 0x11       | AccountKeyNil cannot be initialized to an account                         |
