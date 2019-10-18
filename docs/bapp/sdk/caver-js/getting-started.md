@@ -509,7 +509,7 @@ The printAccount above shows how to use the properties of the Account instance. 
 | updateKey | Key corresponding to [RoleAccountUpdate](https://docs.klaytn.com/klaytn/design/accounts#roles). AccountKeyPublic or AccountKeyMultiSig have no role for keys, so updateKey is the same value as keys. |
 | feePayerKey | Key corresponding to [RoleFeePayer](https://docs.klaytn.com/klaytn/design/accounts#roles). AccountKeyPublic or AccountKeyMultiSig have no role for keys, so feePayerKey is the same value as keys. |
 
-**NOTE** `transactionKey`, `updateKey`, and `feePayerKey` return private key strings or array of private key strings that should be used for the role. So rather than using privateKey property, it is recommended that you use `transactionKey`, `updateKey` and `feePayerKey` as appropriate, without worrying about the accountKey type.
+**NOTE** `transactionKey`, `updateKey`, and `feePayerKey` return private key strings or an array of private key strings that should be used for the role. So rather than using privateKey property, it is recommended that you use `transactionKey`, `updateKey` and `feePayerKey` as appropriate, without worrying about the accountKey type.
 
 An explanation of the various AccountKey type structures is provided in the [AccountKey](#accountkey) part.
 
