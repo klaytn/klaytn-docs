@@ -16,7 +16,7 @@
 
 이 튜토리얼의 첫 번째 부분에서는 EN을 시작하고, 새 계정을 만들고, Baobab Klaytn Wallet의 Faucet으로 계정에 자금을 추가하는 방법에 대해 설명합니다.
 
-* [Endpoint Node를 실행합니다](launch-an-en.md)
+* [Endpoint Node 실행](launch-an-en.md)
 * [계정에 자금 추가하기](top-up-your-account.md)
 
 ## 2. 스마트 컨트랙트 배포: KlaytnGreeter
