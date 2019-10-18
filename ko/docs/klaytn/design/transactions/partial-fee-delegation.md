@@ -310,7 +310,7 @@ TxTypeFeeDelegatedSmartContractDeployWithRatio deploys a smart contract. The giv
 1. The fee payer's balance decreases by the fee ratio of the amount of the transaction fee.
 2. The sender's balance decreases by the remaining transaction fee. e.g., If the `feeRatio` is 30, 30% of the fee will be paid by the fee payer, and the remaining 70% of the fee will be paid by the sender.
 3. 발신자의 nonce가 1 증가합니다.
-4. A smart contract is deployed with the code in `input`. The deployed address will be returned via `contractAddress` in the receipt.
+4. `input`에 기입된 코드로 스마트 컨트랙트가 배포됩니다. 배포된 주소는 영수증의 `contractAddress`를 통해 반환됩니다.
 5. `value` KLAY가 발산지로부터 수신자로 전송됩니다.
 
 ### 속성
@@ -325,9 +325,9 @@ TxTypeFeeDelegatedSmartContractDeployWithRatio deploys a smart contract. The giv
 | value              | \*big.Int \(Go\)                                   | The amount of KLAY in `peb` to be transferred.                                                                                                                                                                                  |
 | from               | common.Address \(Go\)                                | The address of the sender. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                              |
 | input              | \[\]byte \(Go\)                                    | Data attached to the transaction, used for transaction execution.                                                                                                                                                               |
-| humanReadable      | bool \(Go\)                                          | This must be false since human-readable address is not supported yet. If true, the transaction will be rejected.                                                                                                                |
+| humanReadable      | bool \(Go\)                                          | Human-readable address는 아직 지원되지 않으므로 이 값은 false여야 합니다. 이 값이 true라면 트랜잭션은 실패합니다.                                                                                                                                                 |
 | feeRatio           | uint8 \(Go\)                                         | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well.                                                                                             |
-| codeFormat         | uint8 \(Go\)                                         | The code format of smart contract code. The supported value for now is EVM\(0x00\) only.                                                                                                                                      |
+| codeFormat         | uint8 \(Go\)                                         | 스마트 컨트랙트 코드의 코드 형식입니다. 현재는 오직 EVM\(0x00\)만 지원됩니다.                                                                                                                                                                             |
 | txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
 | feePayer           | common.Address \(Go\)                                | The address of the fee payer.                                                                                                                                                                                                   |
 | feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                     |
@@ -467,11 +467,11 @@ SenderTxHash 57dfef9c923cba182cca00fa65d45aaf619613d843d585d3c4026a3bd0797366
 
 TxTypeFeeDelegatedSmartContractExecution executes a smart contract with the given data in `input`. TxTypeFeeDelegatedSmartContractExecutionWithRatio is accepted only if `to` is a smart contract account. To transfer KLAY to an externally owned account, use [TxTypeFeeDelegatedValueTransferWithRatio](partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio) instead. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
 
-1. If `to` is a smart contract account, the code is executed based on `input`. Otherwise, this transaction will be rejected.
+1. `to`가 스마트 컨트랙트라면 `input`을 이용하여 코드가 실행됩니다. 그렇지 않으면 트랜잭션은 거절됩니다.
 2. The fee payer's balance decreases by the fee ratio of the amount of the transaction fee.
 3. The sender's balance decreases by the remaining transaction fee. e.g., If the `feeRatio` is 30, 30% of the fee will be paid by the fee payer, and the remaining 70% of the fee will be paid by the sender.
 4. 발신자의 nonce가 1 증가합니다.
-5. If `value` was provided, `value` KLAY is transferred from the sender to the `to` smart contract. The contract should have a payable fallback function to receive KLAY.
+5. `value`에 값이 입력되었으면 발신자에서 `to`로`value` KLAY가 전송됩니다. 컨트랙트가 KLAY를 받기 위해서는 컨트랙트는 payable fallback function을 가져야 합니다.
 
 ### 속성
 
@@ -481,7 +481,7 @@ TxTypeFeeDelegatedSmartContractExecution executes a smart contract with the give
 | nonce              | uint64 \(Go\)                                        | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                              |
 | gasPrice           | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 비용으로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 비용은 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
 | gas                | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 비용입니다.                                                                                                                                                                                                 |
-| to                 | common.Address \(Go\)                                | The address of the smart contract account to be executed.                                                                                                                                                                       |
+| to                 | common.Address \(Go\)                                | 실행할 스마트 계약 컨트랙트의 주소입니다.                                                                                                                                                                                                         |
 | value              | \*big.Int \(Go\)                                   | The amount of KLAY in `peb` to be transferred.                                                                                                                                                                                  |
 | from               | common.Address \(Go\)                                | The address of the sender. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                              |
 | input              | \[\]byte \(Go\)                                    | Data attached to the transaction, used for transaction execution.                                                                                                                                                               |
@@ -620,7 +620,7 @@ TxTypeFeeDelegatedAccountUpdateWithRatio updates the key of the given account. T
 1. The fee payer's balance decreases by the fee ratio of the amount of the transaction fee.
 2. The sender's balance decreases by the remaining transaction fee. e.g., If the `feeRatio` is 30, 30% of the fee will be paid by the fee payer, and the remaining 70% of the fee will be paid by the sender.
 3. 발신자의 nonce가 1 증가합니다.
-4. The account's key is updated with `key`.
+4. 계정의 키는 `key`로 업데이트됩니다.
 5. Transactions sent from the account afterward will be validated with this `key`, once this transaction is executed.
 
 ### 속성
@@ -632,7 +632,7 @@ TxTypeFeeDelegatedAccountUpdateWithRatio updates the key of the given account. T
 | gasPrice           | \*big.Int \(Go\)                                   | A multiplier to get how much the sender will pay in tokens. The amount of tokens the sender will pay is calculated via `gas` \* `gasPrice`. For example, the sender will pay 10 KLAY for a transaction fee if gas is 10 and gasPrice is 10^18. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
 | gas                | uint64 \(Go\)                                        | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                                              |
 | from               | common.Address \(Go\)                                | The address of the sender. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                                                                                                    |
-| key                | AccountKey \(Go\)                                    | [AccountKey](../accounts.md#account-key) to be updated to the account.                                                                                                                                                                                                                                                |
+| key                | AccountKey \(Go\)                                    | 업데이트 될 [AccountKey](../accounts.md#account-key)입니다.                                                                                                                                                                                                                                                                   |
 | feeRatio           | uint8 \(Go\)                                         | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well.                                                                                                                                                                                   |
 | txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                                                                                                                   |
 | feePayer           | common.Address \(Go\)                                | The address of the fee payer.                                                                                                                                                                                                                                                                                         |
@@ -765,7 +765,7 @@ SenderTxHash e1d87538509549f4a1eb418f986bc53dc77b7eec3b2150f75cd787951d3e4b7f
 
 TxTypeFeeDelegatedCancelWithRatio cancels the execution of the transaction with the same nonce in the transaction pool. For more details, see [TxTypeCancel](basic.md#txtypecancel).
 
-The following changes will apply by this transaction type. 1. The fee payer's balance decreases by the given fee ratio of the amount of the transaction fee. 2. The sender's balance decreases by the remaining transaction fee. 3. 발신자의 nonce가 1 증가합니다.
+이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다. 1. The fee payer's balance decreases by the given fee ratio of the amount of the transaction fee. 2. The sender's balance decreases by the remaining transaction fee. 3. 발신자의 nonce가 1 증가합니다.
 
 ### 속성
 
