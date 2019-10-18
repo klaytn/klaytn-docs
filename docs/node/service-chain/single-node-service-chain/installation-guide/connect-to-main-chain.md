@@ -120,7 +120,7 @@ You should note main-bridge `kni` information of EN.
 
 #### Open SCN Console
 
-Likes EN case, you can connect the SCN process like below. (If you added `subbridge` API for RPC, you can check the bridge API like below. If there is no `subbridge` API, you should check [Setup Service Chain](https://docs.klaytn.com/node/sc/setup_servicechain#configuration-of-the-initial-file) again. )
+Likes EN case, you can connect the SCN process like below. (If you added `subbridge` API for RPC, you can check the bridge API like below. If there is no `subbridge` API, you should check [Configuration of the SCN](configuration.md#configuration-of-the-scn) again.)
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
