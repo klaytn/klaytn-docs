@@ -503,7 +503,7 @@ The printAccount above shows how to use the properties of the Account instance. 
 | address | The address of the account. |
 | privateKey | Default key string of accountKey that the account has. This property is left for compatibility. privateKey can only represent the default key value of accountKey, so using privateKey is not recommended. |
 | accountKeyType | Type of accountKey the account has. |
-| accountKey | The key of the account. This is AccountKeyPublic or AccountKeyMultiSig or AccountKeyRoleBased. |
+| accountKey | The key of the account. This is AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased. |
 | keys | All keys inside accountKey that Account has. |
 | transactionKey | Key corresponding to [RoleTransaction](https://docs.klaytn.com/klaytn/design/accounts#roles). AccountKeyPublic or AccountKeyMultiSig have no role for keys, so transactionKey is the same value as keys. |
 | updateKey | Key corresponding to [RoleAccountUpdate](https://docs.klaytn.com/klaytn/design/accounts#roles). AccountKeyPublic or AccountKeyMultiSig have no role for keys, so updateKey is the same value as keys. |
