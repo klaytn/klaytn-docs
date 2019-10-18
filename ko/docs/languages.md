@@ -32,14 +32,14 @@ Crowdin은 공동 번역을 위한 웹 서비스입니다. 문서의 현지화 �
 온라인 편집기의 자세한 사용법은 공식 [Crowdin 문서를 참조하세요](https://support.crowdin.com/online-editor/).
 
 
-번역 제안은 관리자의 검토와 승인을 거쳐 며칠 내에 웹 사이트에 게시됩니다. 현지화 된 웹 사이트 목록은 위에 나열되어 있습니다.
+번역 제안은 관리자의 검토와 승인을 거쳐 며칠 내에 웹 사이트에 게시됩니다. 현지화된 웹 사이트 목록은 위에 나열되어 있습니다.
 
 ### 논의
 [토론 게시판에 참여](https://crowdin.com/project/klaytn-docs/discussions)하여 다른 기여자들과 소통하세요.
 
 ### 리더보드
 
-[도와주신 분들에게 큰 감사를 드립니다](https://crowdin.com/project/klaytn-docs/reports)❤️
+[도와주신 모든 분들에게 진심으로 감사드립니다](https://crowdin.com/project/klaytn-docs/reports)❤️
 
 최고 기여자: 2019년 7월 30일 - 2019년10월 11일
 
