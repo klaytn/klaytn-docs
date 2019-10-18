@@ -97,7 +97,7 @@ $ cp ./keystore/UTC--2019-...--ef28e51ef33fe0f487289c1c6e1ccdf5e571366b ~/kscnd_
 $ cp ./passwd ~/kscnd_home/
 ```
 
-### Configuration of the SCN
+## Configuration of the SCN
 
 `kscnd.conf` is the configuration file for the SCN.
 
