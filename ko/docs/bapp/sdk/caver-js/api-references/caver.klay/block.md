@@ -13,7 +13,7 @@ The default block is used for certain methods.  You can override it by passing i
 - [caver.klay.call()](./transaction.md#call)
 - [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().call()](../caver.klay.Contract.md#methodsmymethodcall)
 
-**Property**
+**속성**
 
 Default block parameters can be one of the following:
 
@@ -435,7 +435,7 @@ Gets the storage at a specific position of an address.
 
 | 명칭           | 형식                   | 설명                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| 주소           | String               | The address to get the storage from.                                                                                        |
+| address      | String               | The address to get the storage from.                                                                                        |
 | position     | Number               | The index position of the storage.                                                                                          |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
