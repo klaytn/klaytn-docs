@@ -28,9 +28,9 @@ Returns the address of the imported account.
 
 **Return Value**
 
-| 명칭 | 형식     | 설명                                   |
-| -- | ------ | ------------------------------------ |
-| 주소 | string | The address of the imported account. |
+| 명칭      | 형식     | 설명                                   |
+| ------- | ------ | ------------------------------------ |
+| address | string | The address of the imported account. |
 
 **예시**
 
@@ -144,9 +144,9 @@ Removes the private key with a given address from memory. The account can no lon
 
 **Parameters**
 
-| 명칭 | 형식     | 설명                           |
-| -- | ------ | ---------------------------- |
-| 주소 | string | The account address to lock. |
+| 명칭      | 형식     | 설명                           |
+| ------- | ------ | ---------------------------- |
+| address | string | The account address to lock. |
 
 **Return Value**
 
@@ -187,7 +187,7 @@ The account can be used with `klay_sign` and `klay_sendTransaction` while it is 
 
 | 명칭         | 형식     | 설명                                                       |
 | ---------- | ------ | -------------------------------------------------------- |
-| 주소         | string | The account address to unlock.                           |
+| address    | string | The account address to unlock.                           |
 | passphrase | string | the passphrase used for the encryption.                  |
 | duration   | int    | (optional) the unlock duration (default to 300 seconds). |
 
@@ -249,9 +249,9 @@ Returns the address of the replaced account if successful.
 
 **Return Value**
 
-| 명칭 | 형식     | 설명                                   |
-| -- | ------ | ------------------------------------ |
-| 주소 | string | The address of the replaced account. |
+| 명칭      | 형식     | 설명                                   |
+| ------- | ------ | ------------------------------------ |
+| address | string | The address of the replaced account. |
 
 **예시**
 
