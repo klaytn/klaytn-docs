@@ -1,18 +1,18 @@
 # 소개
 
-This document explains how to use Klaytn APIs. Most APIs except Toolkit API support remote protocols \(RPC, Websocket\) and Klaytn JavaScript Console. This document is written with `ken` as an example but most of APIs can be used on `kcn` and `kpn` as well.
+본 장에서는 Klaytn API 사용법에 대해 알아봅니다. Toolkit API를 제외한 다른 대부분의 API들은 원격 프로토콜 \(RPC, Websocket\)과 Klaytn 자바스크립트 콘솔을 지원합니다. 본 내용은 `ken`을 예시로 들어 작성되었으나 대부분의 API는 `kcn`과 `kpn`에서도 마찬가지로 사용할 수 있습니다.
 
-**NOTE**: Since few APIs do not support both of remote protocols and Klaytn JavaScript console, APIs available in remote protocols are documented mainly. Rest of APIs will be documented later.
+**참고**: 몇몇 API가 원격 프로토콜과 Klaytn 자바스크립트 콘솔을 지원하지 않기 때문에 원격 프로토콜에서 사용 가능한 API를 위주로 다루고 있습니다. 그 외 API는 추후에 문서화될 예정입니다.
 
 ## API 활성화
 
-To offer the APIs over the Klaytn RPC endpoints, please specify them with the `--${interface}api` command line argument where `${interface}` can be `rpc` for the HTTP endpoint or `ws` for the WebSocket endpoint.
+Klaytn RPC 엔드포인트를 통해 API를 제공하려면 명령 줄의 `--${interface}api` 인자를 통해 지정해주세요. 즉 `${interface}`을 HTTP 엔드포인트의 경우 `rpc`으로, WebSocket 엔드포인트의 경우 `ws`로 설정해주세요.
 
-`ipc` offers all APIs over the unix socket \(Unix\) or named pipe \(Windows\) endpoint without any flag.
+`ipc`는 플래그 없이 unix 소켓 \(Unix\) 또는 명명된 파이프 \(Windows\) 엔드포인트를 통한 API를 제공합니다.
 
 아래 예시처럼 추가하고자 하는 특정 API와 함께 Klaytn 노드를 실행할 수 있습니다. 하지만 노드를 시작한 이후에는 API를 변경할 수 없다는 점을 유의해주세요.
 
-Example\) launching a Klaytn node with `klay` and `net` modules enabled:
+예시\) `klay`와 `net` 모듈을 활성화하며 Klaytn 노드 실행하기
 
 ```bash
 $ ken --rpcapi klay,net --rpc --{other options}
@@ -20,9 +20,9 @@ $ ken --rpcapi klay,net --rpc --{other options}
 
 HTTP RPC 인터페이스는 `--rpc` 플래그를 사용해 명시적으로 활성화해야 합니다.
 
-**NOTE**: Offering an API over the HTTP \(`rpc`\) or WebSocket \(`ws`\) interfaces will give everyone access to the APIs who can access this interface \(DApps, browser tabs, etc\). Be careful which APIs you enable. By default Klay enables all APIs over the IPC \(`ipc`\) interface but for `rpc` and `ws` required modules have to be explicitly enabled.
+**참고**: HTTP \(`rpc`\) 또는 WebSocket \(`ws`\) 인터페이스를 통한 API를 제공하는 것은 인터페이스 \(DApp, 브라우저 탭 등\)에 접근할 수 있는 누구에게나 API에 접근할 수 있도록 하는 것입니다. 활성화한 API들에 대해 주의하세요. 기본적으로 Klaytn에서는 IPC \(`ipc`\) 인터페이스를 통한 모든 API가 활성화되어 있지만, `rpc`와 `ws`의 경우 모듈을 직접 활성화해야 합니다.
 
-`modules` JSON-RPC 메서드를 호출하여 인터페이스가 제공하는 API를 확인하세요. For example over an `rpc` interface:
+`modules` JSON-RPC 메서드를 호출하여 인터페이스가 제공하는 API를 확인하세요. 예를 들어 `rpc` 인터페이스의 경우 다음과 같습니다.
 
 **IPC**
 
