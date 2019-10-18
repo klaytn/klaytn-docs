@@ -11,7 +11,7 @@ This default address is used as the default `from` property, if no `from` proper
 - [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().call()](../caver.klay.Contract.md#methodsmymethodcall)
 - [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().send()](../caver.klay.Contract.md#methodsmymethodsend)
 
-**Property**
+**속성**
 
 20-byte `String` - Any Klaytn address.  You should have the private key for that address in your node or keystore.  Default is `undefined`.
 
@@ -31,7 +31,7 @@ undefined
 caver.klay.accountCreated(address [, defaultBlock] [, callback])
 ```
 
-Returns `true` if the account associated with the address is created. It returns `false` otherwise.
+입력된 주소의 계정이 존재하는 경우 `true`를 반환합니다. 해당 주소의 계정이 존재하지 않으면 `false`를 반환합니다.
 
 **NOTE** accountCreated checks if the account exists on the network, so even if a key pair is created, false is returned if the account matching the address does not exist on the actual blockchain network.
 
@@ -39,7 +39,7 @@ Returns `true` if the account associated with the address is created. It returns
 
 | 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| 주소           | String               | The address of the account you want to query to see if it has been created on the network.                                            |
+| address      | String               | The address of the account you want to query to see if it has been created on the network.                                            |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
 
@@ -71,7 +71,7 @@ Returns the account information of a given address. There are two different acco
 
 | 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| 주소           | String               | The address of the account for which you want to get account information.                                                             |
+| address      | String               | The address of the account for which you want to get account information.                                                             |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
 
@@ -148,7 +148,7 @@ Returns the account key of the Externally Owned Account (EOA) of the given addre
 
 | 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| 주소           | String               | The address of the account for which you want to get accountKey.                                                                      |
+| address      | String               | The address of the account for which you want to get accountKey.                                                                      |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
 
@@ -253,7 +253,7 @@ Gets the balance of an address at a given block.
 
 | 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| 주소           | String               | The address to get the balance of.                                                                                                    |
+| address      | String               | The address to get the balance of.                                                                                                    |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
 
@@ -281,7 +281,7 @@ Gets the code at a specific address.
 
 | 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| 주소           | String               | The address to get the code from.                                                                                                     |
+| address      | String               | The address to get the code from.                                                                                                     |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
 
@@ -310,7 +310,7 @@ Gets the number of transactions sent from this address.
 
 | 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| 주소           | String               | The address to get the number of transactions from.                                                                                   |
+| address      | String               | The address to get the number of transactions from.                                                                                   |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
 
@@ -340,7 +340,7 @@ Returns `true` if an input account has a non-empty codeHash at the time of a spe
 
 | 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| 주소           | String               | The address of the account you want to check for isContractAccount.                                                                   |
+| address      | String               | The address of the account you want to check for isContractAccount.                                                                   |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
 
@@ -373,7 +373,7 @@ Generates signed data specific to the Klaytn network. Refer to [Klaytn Platform 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | message  | String   | Message to sign.                                                     |
-| 주소       | String   | The address of the account to sign the message with.                 |
+| address  | String   | The address of the account to sign the message with.                 |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **Return Value**
