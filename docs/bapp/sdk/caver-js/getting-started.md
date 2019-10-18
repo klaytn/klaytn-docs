@@ -541,7 +541,7 @@ console.log(`updateKey: ${accountKey.updateKey}`)
 console.log(`feePayerKey: ${accountKey.feePayerKey}`)
 ```
 
-Since AccountKeyPublic stores and manages one private key string, as the output shows, keys, transactionKey, updateKey and feePayerKey all represent the same private key string.
+AccountKeyPublic stores and manages a private key string, so if you run the example above, you will see that keys, transactionKey, updateKey and feePayerKey all represent the same private key string.
 
 See below for an example of creating an Account with AccountKeyPublic as accountKey.
 
@@ -561,7 +561,7 @@ const accountFromAccountKey = caver.klay.accounts.createWithAccountKey(address, 
 #### AccountKeyMultiSig
 AccountKeyMultiSig is a structure for storing and managing multiple private key strings.
 
-The following describes how to update an account with AccountKeyMultiSig. Write the following to testFunction and run it.
+The following describes how to update an account with AccountKeyMultiSig. Write the following into testFunction() and run it.
 
 ```javascript
 const privateKeyArray = [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey]
@@ -575,7 +575,7 @@ console.log(`updateKey: ${accountKey.updateKey}`)
 console.log(`feePayerKey: ${accountKey.feePayerKey}`)
 ```
 
-AccountKeyMultiSig stores and manages multiple private key strings, so as you can see from the results, keys, transactionKey, updateKey and feePayerKey all represent the same multiple private key strings. 
+AccountKeyMultiSig stores and manages multiple private key strings, so if you run the example above, you will see that keys, transactionKey, updateKey and feePayerKey all represent the same multiple private key strings. 
 
 If you do not specify a private key(or array of private key strings) to use when signing a transaction, caver-js will find an account from in-memory wallet that matches the `from` or `fee payer` and sign it. In this case, if your account has multiple private keys, sign transaction with all of those keys.
 
@@ -597,7 +597,7 @@ const accountFromAccountKey = caver.klay.accounts.createWithAccountKey(address, 
 #### AccountKeyRoleBased
 AccountKeyRoleBased is a structure for storing and managing keys for each role. Each role can have one private key string or multiple private key strings.
 
-The following describes how to update an account with AccountKeyRoleBased. Write the following to testFunction and run it.
+The following describes how to update an account with AccountKeyRoleBased. Write the following into testFunction() and run it.
 
 ```javascript
 const keyobject = {
@@ -615,8 +615,9 @@ console.log(`transactionKey: ${accountKey.transactionKey}`)
 console.log(`updateKey: ${accountKey.updateKey}`)
 console.log(`feePayerKey: ${accountKey.feePayerKey}`)
 ```
+AccountKeyPublic stores and manages a private key string, so if you run the example above, you will see that keys, transactionKey, updateKey and feePayerKey all represent the same private key string.
 
-AccountKeyRoleBased stores and manages keys by role, so if you look at the result of `keys`, you will see three roles defined: transactionKey, updateKey, feePayerKey. Therefore, different with other AccountKey([AccountKeyPublic](#accountkeypublic) or [AccountKeyMultiSig](#accountkeymultisig)), transactionKey, updateKey and feePayerKey each represent a different key.
+AccountKeyRoleBased stores and manages keys by role, so if you run the example above, you will see three roles(transactionKey, updateKey, feePayerKey) defined in `keys` property. Therefore, different with other AccountKey([AccountKeyPublic](#accountkeypublic) or [AccountKeyMultiSig](#accountkeymultisig)), transactionKey, updateKey and feePayerKey each represent a different key.
 
 See below for an example of creating an Account with AccountKeyRoleBased as accountKey.
 
