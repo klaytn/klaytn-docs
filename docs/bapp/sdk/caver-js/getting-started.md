@@ -527,7 +527,7 @@ To create an AccountKey, use `caver.klay.accounts.createAccountKey`. This functi
 #### AccountKeyPublic
 AccountKeyPublic is a structure for storing and managing a single private key string.
 
-The following describes how to update an account with AccountKeyPublic. Write the following to testFunction and run it.
+The following describes how to update an account with AccountKeyPublic. Write the following into testFunction() and run it.
 
 ```javascript
 const privateKey = caver.klay.accounts.create().privateKey
