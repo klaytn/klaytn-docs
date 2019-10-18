@@ -326,11 +326,11 @@ caver.klay.abi.encodeContractDeploy(jsonInterface, hexString, params)
 생성자의 인자를 포함한 스마트 컨트랙트 바이트코드를 인코딩합니다.
 
 **매개변수**
-| 명칭            | 형식     | 설명                                  |
-| ------------- | ------ | ----------------------------------- |
-| jsonInterface | Array  | The JSON interface of the contract. |
-| hexString     | String | 배포할 스마트 컨트랙트의 바이트코드.                |
-| params        | 복합     | 생성자에 전달할 인자.                        |
+| 명칭            | 형식     | 설명                   |
+| ------------- | ------ | -------------------- |
+| jsonInterface | Array  | 컨트랙트의 JSON 인터페이스.    |
+| hexString     | String | 배포할 스마트 컨트랙트의 바이트코드. |
+| params        | 복합     | 생성자에 전달할 인자.         |
 
 **Return Value**
 
