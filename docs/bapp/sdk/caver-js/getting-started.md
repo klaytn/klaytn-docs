@@ -431,7 +431,7 @@ To call a smart contract:
 
 See [caver.klay.Contract] for details.
 
-## Using various AccountKey Types <a id="using-various-accountkey-types"></a>
+## Using various AccountKey Types
 
 caver-js introduces new structures to support the various types of [account key](https://docs.klaytn.com/klaytn/design/accounts#account-key) supported by the platform.
 
