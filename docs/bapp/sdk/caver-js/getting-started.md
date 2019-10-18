@@ -465,9 +465,9 @@ If you see the output of console.log, proceed with the steps below.
 **NOTE** Those structures are supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 ### Account
-Account is a structure containing the address and key of an account. The Account has an [AccountKey](#accountkey), which can be of type [AccountKeyPublic](#accountkeypulbic), [AccountKeyMultiSig](#accountkeymultisig), or [AccountKeyRoleBased](#accountkeyrolebased).
+Account is a structure containing the address and key of an account. The Account has an [AccountKey](#accountkey), which can be of type [AccountKeyPublic](#accountkeypublic), [AccountKeyMultiSig](#accountkeymultisig), or [AccountKeyRoleBased](#accountkeyrolebased).
 
-The caver.klay.accounts package uses [AccountKeyPublic](#accountkeypulbic), which stores and manages a private key string by default.
+The caver.klay.accounts package uses [AccountKeyPublic](#accountkeypublic), which stores and manages a private key string by default.
 
 The following example creates an account with AccountKeyPublic as accountKey.
 ```javascript
@@ -522,7 +522,7 @@ To create an AccountKey, use `caver.klay.accounts.createAccountKey`. This functi
 
 **NOTE** The structures for `AccountKey` defined here are structures for storing private keys for use in caver-js. It can be different from the accountKey in your account on Klaytn network.
 
-#### AccountKeyPulbic
+#### AccountKeyPublic
 AccountKeyPublic is a structure for storing and managing a single private key string.
 
 The following describes how to update an account with AccountKeyPublic. Write the following to testFunction and run it.
@@ -614,7 +614,7 @@ console.log(`updateKey: ${accountKey.updateKey}`)
 console.log(`feePayerKey: ${accountKey.feePayerKey}`)
 ```
 
-AccountKeyRoleBased stores and manages keys by role, so if you look at the result of `keys`, you will see three roles defined: transactionKey, updateKey, feePayerKey. Therefore, different with other AccountKey([AccountKeyPublic](#accountkeypulbic) or [AccountKeyMultiSig](#accountkeymultisig)), transactionKey, updateKey and feePayerKey each represent a different key.
+AccountKeyRoleBased stores and manages keys by role, so if you look at the result of `keys`, you will see three roles defined: transactionKey, updateKey, feePayerKey. Therefore, different with other AccountKey([AccountKeyPublic](#accountkeypublic) or [AccountKeyMultiSig](#accountkeymultisig)), transactionKey, updateKey and feePayerKey each represent a different key.
 
 See below for an example of creating an Account with AccountKeyRoleBased as accountKey.
 
