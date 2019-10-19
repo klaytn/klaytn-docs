@@ -1,11 +1,11 @@
 ---
 description: >-
-  A JavaScript wrapper to Klaytn APIs around the namespace 'net'.
+  네임스페이스 'net' 일대 Klaytn API에 대한 자바스크립트 래퍼.
 ---
 
 # caver.klay.net
 
-The `caver-klay-net` package allows you to interact with the Klaytn nodes' network properties.
+`caver-klay` 패키지를 사용하면 Klaytn 노드의 네트워크 속성과 상호작용할 수 있습니다.
 
 ```javascript
 var Net = require('caver-klay-net');
@@ -26,17 +26,17 @@ var caver = new Caver(Caver.givenProvider || 'ws://some.local-or-remote.node:855
 caver.klay.net.getId([callback])
 ```
 
-Gets the current network ID.
+현재 네트워크 ID를 가져옵니다.
 
-**Parameters**
+**매개변수**
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
-**Return Value**
+**리턴값**
 
-`Promise` returns `Number` - The network ID.
+`프로미스`는 `Number`를 반환합니다 - 네트워크 ID.
 
 **예시**
 
@@ -52,17 +52,17 @@ Gets the current network ID.
 caver.klay.net.isListening([callback])
 ```
 
-Checks if the node is listening for peers.
+노드가 피어를 수신하고 있는지 확인합니다.
 
-**Parameters**
+**매개변수**
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
-**Return Value**
+**리턴값**
 
-`Promise` returns `Boolean` - `true` if the node is listening for peers, `false` otherwise.
+`Promise`는 `Boolean`을 반환합니다 - 만일 노드가 피어를 수신하고 있는 경우 `true`, 그렇지 않을 경우 `false`.
 
 **예시**
 
@@ -78,17 +78,17 @@ true
 caver.klay.net.getPeerCount([callback])
 ```
 
-Gets the number of peers connected to.
+연결된 피어 수를 구합니다.
 
-**Parameters**
+**매개변수**
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
-**Return Value**
+**리턴값**
 
-`Promise` returns `Number` - The number of peers connected to.
+`프로미스`는 `Number`를 반환합니다 - 연결된 피어의 수입니다.
 
 **예시**
 
@@ -105,15 +105,15 @@ caver.klay.net.peerCountByType([callback])
 
 Returns the number of connected nodes by type and the total number of connected nodes with key/value pairs.
 
-**Parameters**
+**매개변수**
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
-**Return Value**
+**리턴값**
 
-`Promise` returns `Object` - The number of connected peers by type as well as the total number of connected peers.
+`프로미스`는 `Object`를 반환합니다 - 타입에 따른 연결된 피어의 수뿐만 아니라 연결된 모든 피어의 수.
 
 **예시**
 
