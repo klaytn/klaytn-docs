@@ -29,11 +29,11 @@ Sends an [Account Update](../../../../../klaytn/design/transactions/basic.md#txt
 
 The `callback` will return the 32-byte transaction hash.
 
-`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
+`PromiEvent`: 프로미스(promise)가 조합된 이벤트 에미터(event emitter). Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
 - `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
 - `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
-- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- `"error"` returns `Error`: Is fired if an error occurs during sending. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
 
 **예시**
 
@@ -217,11 +217,11 @@ Sends a [Fee Delegated Account Update](../../../../../klaytn/design/transactions
 
 The `callback` will return the 32-byte transaction hash.
 
-`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
+`PromiEvent`: 프로미스(promise)가 조합된 이벤트 에미터(event emitter). Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
 - `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
 - `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
-- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- `"error"` returns `Error`: Is fired if an error occurs during sending. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
 
 **예시**
 
@@ -300,11 +300,11 @@ Sends a [Fee Delegated Account Update With Ratio](../../../../../klaytn/design/t
 
 The `callback` will return the 32-byte transaction hash.
 
-`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
+`PromiEvent`: 프로미스(promise)가 조합된 이벤트 에미터(event emitter). Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
 - `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
 - `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
-- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- `"error"` returns `Error`: Is fired if an error occurs during sending. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
 
 **예시**
 
