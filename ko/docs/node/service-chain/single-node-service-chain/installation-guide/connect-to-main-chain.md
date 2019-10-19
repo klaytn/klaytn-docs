@@ -120,7 +120,7 @@ EN의 메인 브리지 `kni` 정보에 유의해야합니다.
 
 #### SCN 콘솔 열기
 
-EN의 경우와 마찬가지로 SCN 프로세스를 아래와 같이 연결할 수 있습니다. (RPC를 위해 `subbridge` API를 추가한 경우, 아래와 같이 브릿지 API를 확인할 수 있습니다. `subbridge` API가 없는 경우, [Setup Service Chain](https://docs.klaytn.com/node/sc/setup_servicechain#configuration-of-the-initial-file)를 다시 확인해야 합니다. )
+EN의 경우와 마찬가지로 SCN 프로세스를 아래와 같이 연결할 수 있습니다. (RPC를 위해 `subbridge` API를 추가한 경우, 아래와 같이 브릿지 API를 확인할 수 있습니다. `subbridge` API가 없는 경우, [Configuration of the SCN](configuration.md#configuration-of-the-scn)를 다시 확인해야 합니다.)
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
