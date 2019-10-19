@@ -29,7 +29,7 @@ The structure of the returned log `Object` in the `Array` looks as follows:
 | transactionIndex | QUANTITY      | Integer. The index of the transaction that this log was created from. `null` when pending.                                                                                                                                                   |
 | blockHash        | 32-byte DATA  | Hash of the block where this log was in. `null` when pending.                                                                                                                                                                                |
 | logIndex         | QUANTITY      | Integer of the log index position in the block. `null` when it is a pending log.                                                                                                                                                             |
-| id               | String        | A log identifier. It is made by concatenating "log_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`                                                                                                            |
+| id               | String        | 로그 식별자. It is made by concatenating "log_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`                                                                                                                      |
 
 **예시**
 
@@ -114,17 +114,17 @@ Gets past logs, matching the given options.
 
 The structure of the returned event `Object` in the `Array` looks as follows:
 
-| 명칭               | 형식             | 설명                                                                                                                                     |
-| ---------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| address          | String         | From which this event originated from.                                                                                                 |
-| data             | String         | The data containing non-indexed log parameter.                                                                                         |
-| topics           | Array          | An array with max 4 32-byte topics, topic 1-3 contains indexed parameters of the log.                                                  |
-| logIndex         | Number         | Integer of the event index position in the block.                                                                                      |
-| transactionIndex | Number         | Integer of the transaction's index position, the event was created in.                                                                 |
-| transactionHash  | 32-byte String | Hash of the transaction this event was created in.                                                                                     |
-| blockHash        | 32-byte String | Hash of the block where this event was created in. `null` when its still pending.                                                      |
-| blockNumber      | Number         | The block number where this log was created in. `null` when still pending.                                                             |
-| id               | String         | A log identifier. It is made through concatenating "log_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
+| 명칭               | 형식             | 설명                                                                                                     |
+| ---------------- | -------------- | ------------------------------------------------------------------------------------------------------ |
+| address          | String         | From which this event originated from.                                                                 |
+| data             | String         | 색인화되지 않은 로그 매개변수를 포함하는 데이터.                                                                            |
+| topics           | Array          | An array with max 4 32-byte topics, topic 1-3 contains indexed parameters of the log.                  |
+| logIndex         | Number         | 블록에서 이벤트 인덱스 위치의 정수값.                                                                                  |
+| transactionIndex | Number         | Integer of the transaction's index position, the event was created in.                                 |
+| transactionHash  | 32-byte String | Hash of the transaction this event was created in.                                                     |
+| blockHash        | 32-byte String | Hash of the block where this event was created in. `null` when its still pending.                      |
+| blockNumber      | Number         | The block number where this log was created in. 아직 보류 중인 경우 `null`.                                    |
+| id               | String         | 로그 식별자. `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`을 사용하여 "log_" 문자열을 연결하여 작성됩니다. |
 
 **예시**
 
