@@ -1,11 +1,11 @@
 ---
 description: >-
-  A JavaScript wrapper to Klaytn APIs around the namespace 'klay'.
+  네임스페이스 'klay' 일대 Klaytn API에 대한 자바스크립트 래퍼.
 ---
 
 # caver.klay
 
-The `caver-klay` package allows you to interact with the Klaytn nodes.  The list below enumerates the API functions that are currently supported in `caver-js`.
+`caver-klay` 패키지를 사용하면 Klaytn 노드와 상호작용할 수 있습니다.  아래 목록은 `caver-js`에서 현재 지원되는 API의 기능을 열거합니다.
 
 
 ### [계정 (Account)](./caver.klay/account.md)
@@ -83,7 +83,7 @@ The `caver-klay` package allows you to interact with the Klaytn nodes.  The list
 - [writeThroughCaching](./caver.klay/config.md#writethroughcaching)
 
 
-## [Filter](./caver.klay/filter.md)
+## [필터](./caver.klay/filter.md)
 - [getFilterChanges](./caver.klay/filter.md#getfilterchanges)
 - [getFilterLogs](./caver.klay/filter.md#getfilterlogs)
 - [getPastLogs](./caver.klay/filter.md#getpastlogs)
@@ -92,5 +92,5 @@ The `caver-klay` package allows you to interact with the Klaytn nodes.  The list
 - [newPendingTransactionFilter](./caver.klay/filter.md#newpendingtransactionfilter)
 - [uninstallFilter](./caver.klay/filter.md#uninstallfilter)
 
-### [Miscellaneous](./caver.klay/misc.md)
+### [기타](./caver.klay/misc.md)
 - [sha3](./caver.klay/misc.md#sha3)
