@@ -45,7 +45,7 @@ Executes a message call or transaction and returns the amount of the gas used fo
 
 **Return Value**
 
-`Promise` returns `Number` - the used gas for the simulated call/transaction.
+`Promise`는 `Number`를 반환합니다 - 모의 호출/트랜잭션에 사용된 가스.
 
 **예시**
 
@@ -591,7 +591,7 @@ For PromiEvent, the following events are available:
 
 - `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
 - `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
-- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- `"error"` returns `Error`: Is fired if an error occurs during sending. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
 
 **예시**
 
