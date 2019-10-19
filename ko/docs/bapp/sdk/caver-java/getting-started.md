@@ -318,7 +318,7 @@ Klaytn은 서비스 제공자가 사용자 대신 트랜잭션 수수료를 지�
 
 #### 밸류 트랜스퍼(Value Transfer)
 
-클라이언트 측에서, 트랜잭션을 발생시킨 클라이언트는 다음과 같이 수수료가 위임된 밸류 트랜스퍼를 생성합니다: 발신자가 기본 `ValueTransferTransaction` 객체를 생성하고, 만일 두 번째 매개변수가 `true`로 설정되어 있을 경우 [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.1/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-)가 서명된 `FeeDelegatedValueTransferTransaction` 객체를 반환합니다.
+클라이언트 측에서, 트랜잭션을 발생시킨 클라이언트는 다음과 같이 수수료가 위임된 밸류 트랜스퍼를 생성합니다: 발신자가 기본 `ValueTransferTransaction` 객체를 생성하고, 만일 두 번째 매개변수가 `true`로 설정되어 있을 경우 [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.2/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-)가 서명된 `FeeDelegatedValueTransferTransaction` 객체를 반환합니다.
 
 ```java
 TransactionManager transactionManager = new TransactionManager.Builder(caver, credentials)
@@ -346,7 +346,7 @@ feePayerManager.executeTransaction(senderRawTransaction);
 
 #### 스마트 컨트랙트 실행
 
-수수료 위임 스마트 컨트랙트 실행과 위의 수수료 위임 벨류 트랜스퍼의 차이는 스마트 컨트랙트 함수를 호출하기 위해서는 입력 데이터가 필요하다는 것입니다. 발신자는 아래와 같이 수수료 위임 스마트 컨트랙트 실행 트랜잭션을 생성할 수 있습니다. 만일 두 번째 매개변수를 `true`로 전달하면 [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.1/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-)이 `TxTypeFeeDelegatedSmartContractExecution` 객체를 반환함에 유의하세요. 아래 예제는 [Smart Contract](#smart-contract)에 설명된 [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol) 컨트랙트의 `transfer` 메소드를 호출합니다.
+수수료 위임 스마트 컨트랙트 실행과 위의 수수료 위임 벨류 트랜스퍼의 차이는 스마트 컨트랙트 함수를 호출하기 위해서는 입력 데이터가 필요하다는 것입니다. 발신자는 아래와 같이 수수료 위임 스마트 컨트랙트 실행 트랜잭션을 생성할 수 있습니다. 만일 두 번째 매개변수를 `true`로 전달하면 [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.2/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-)이 `TxTypeFeeDelegatedSmartContractExecution` 객체를 반환함에 유의하세요. 아래 예제는 [Smart Contract](#smart-contract)에 설명된 [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol) 컨트랙트의 `transfer` 메소드를 호출합니다.
 
 ```java
 String recipient = "0x34f773c84fcf4a0a9e2ef07c4615601d60c3442f";
