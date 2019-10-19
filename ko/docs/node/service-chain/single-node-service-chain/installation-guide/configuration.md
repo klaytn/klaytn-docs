@@ -68,6 +68,7 @@ $ tree
 }
 ```
 
+
 ## SCN 데이터 디렉토리 생성
 
 Klaytn 블록체인 데이터의 크기가 계속 증가됨을 고려하여, 충분히 큰 스토리지를 사용하는 것을 추천합니다. 특정 경로에 디렉토리를 생성할 수 있습니다.
@@ -96,5 +97,80 @@ $ cp ./keystore/UTC--2019-...--ef28e51ef33fe0f487289c1c6e1ccdf5e571366b ~/kscnd_
 $ cp ./passwd ~/kscnd_home/
 ```
 
+## Configuration of the SCN
+
+`kscnd.conf` is the configuration file for the SCN.
+
+Assume that the participated SCN in Cypress (Network ID: 8217) uses the default port and mounts a large-scale partition onto `~/kscnd_home`.  The following configuration is an example.
+
+```
+# Configuration file for the kscnd
+
+SCSIGNER="c04ae62e6a8e084e8f00030d637380792db3dc26"
+SCSIGNER_PASSWD_FILE=~/kscnd_home/passwd   # Need to right password file path for the keystore file of the scsigner address
+
+NETWORK_ID=3000 # Set your own unique network ID which is different with known network(Klaytn Mainnet(1), Baobab(1000))
+
+PORT=22323 # if EN (main-bridge) and SCN (sub-bridge) on same instance, use different port with EN.(EN: 32323, SCN:22323)
+
+SERVER_TYPE="fasthttp"
+SYNCMODE="full"
+VERBOSITY=3
+
+# txpool options setting
+TXPOOL_EXEC_SLOTS_ALL=16384
+TXPOOL_NONEXEC_SLOTS_ALL=16384
+TXPOOL_EXEC_SLOTS_ACCOUNT=16384
+TXPOOL_NONEXEC_SLOTS_ACCOUNT=16384
+
+# rpc options setting
+RPC_ENABLE=1 # if this is set, the following options will be used
+RPC_API="klay,subbridge" # available apis: admin,debug,klay,miner,net,personal,rpc,txpool,web3,mainbridge,subbridge
+RPC_PORT=7551         # if main-bridge and sub-bridge on same instance, us different port with main-bridge.(main: 8551, sub:7551)
+RPC_ADDR="0.0.0.0"
+RPC_CORSDOMAIN="*"
+RPC_VHOSTS="*"
+
+# ws options setting
+WS_ENABLE=1 # if this is set, the following options will be used
+WS_API="klay"
+WS_ADDR="0.0.0.0"
+WS_PORT=7552    # if main-bridge and sub-bridge on same instance, us different port with main-bridge.(main: 8552, sub:7552)
+WS_ORIGINS="*"
+
+# service chain options setting
+MAIN_BRIDGE=0 # if this is set, the following options will be used.
+MAIN_BRIDGE_PORT=50505
+MAIN_INDEXING=1
+
+SC_SUB_BRIDGE=1
+SC_SUB_BRIDGE_PORT=50506    # if main-bridge and sub-bridge on same instance, us different port with main-bridge.(main: 50505, sub:50506)
+SC_TX_PERIOD=1
+SC_TX_LIMIT=1000
+SC_PARENT_CHAIN_WS="ws://0.0.0.0:8552"  # This url is the noted RPC web socket of main-bridge.
+
+# Setting 1 is to enable options, otherwise disabled.
+METRICS=1
+PROMETHEUS=1
+NO_DISCOVER=1
+DB_NO_PARALLEL_WRITE=0
+MULTICHANNEL=1
+SUBPORT=$((PORT + 1)) # used for multi channel option
+
+# Raw options e.g.) "--txpool.nolocals"
+ADDITIONAL=""
+
+DATA_DIR=~/kscnd_home
+LOG_DIR=$DATA_DIR/logs
+```
+
+The recommended txpool sizes based on SCN type is as follows:
+
+```
+TXPOOL_EXEC_SLOTS_ALL=16384
+TXPOOL_NONEXEC_SLOTS_ALL=16384
+TXPOOL_EXEC_SLOTS_ACCOUNT=16384
+TXPOOL_NONEXEC_SLOTS_ACCOUNT=16384
+```
 
 
