@@ -15,7 +15,7 @@ Sends a [Smart Contract Execution](../../../../../klaytn/design/transactions/bas
 | transactionObject.type     | String                                          | The type of "SMART_CONTRACT_EXECUTION" transaction.                                                                                                                                               |
 | transactionObject.from     | String                                          | The address of the sender.                                                                                                                                                                          |
 | transactionObject.to       | String                                          | the address of the deployed smart contract.                                                                                                                                                         |
-| transactionObject.value    | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. If omitted, it will be set to zero.                                                                                                    |
+| transactionObject.value    | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 의해 전송된 peb 단위의 값. If omitted, it will be set to zero.                                                                                                                                 |
 | transactionObject.gas      | Number                                          | The amount of gas to use for the transaction (unused gas is refunded).                                                                                                                              |
 | transactionObject.gasPrice | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                          |
 | transactionObject.nonce    | Number                                          | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
@@ -26,11 +26,11 @@ Sends a [Smart Contract Execution](../../../../../klaytn/design/transactions/bas
 
 The `callback` will return the 32-byte transaction hash.
 
-`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
+`PromiEvent`: 프로미스(promise)가 조합된 이벤트 에미터(event emitter). Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
 - `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
 - `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
-- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- `"error"` returns `Error`: Is fired if an error occurs during sending. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
 
 **예시**
 
@@ -86,7 +86,7 @@ Sends a [Fee Delegated Smart Contract Execution](../../../../../klaytn/design/tr
 | transactionObject.type                 | String                                          | The type of "FEE_DELEGATED_SMART_CONTRACT_EXECUTION" transaction.                                                                                                                               |
 | transactionObject.from                 | String                                          | The address of the sender.                                                                                                                                                                          |
 | transactionObject.to                   | String                                          | the address of the deployed smart contract.                                                                                                                                                         |
-| transactionObject.value                | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. If omitted, it will be set to zero.                                                                                                    |
+| transactionObject.value                | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 의해 전송된 peb 단위의 값. If omitted, it will be set to zero.                                                                                                                                 |
 | transactionObject.gas                  | Number                                          | The amount of gas to use for the transaction (unused gas is refunded).                                                                                                                              |
 | transactionObject.gasPrice             | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                          |
 | transactionObject.nonce                | Number                                          | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
@@ -99,11 +99,11 @@ Sends a [Fee Delegated Smart Contract Execution](../../../../../klaytn/design/tr
 
 The `callback` will return the 32-byte transaction hash.
 
-`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
+`PromiEvent`: 프로미스(promise)가 조합된 이벤트 에미터(event emitter). Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
 - `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
 - `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
-- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- `"error"` returns `Error`: Is fired if an error occurs during sending. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
 
 **예시**
 
@@ -168,7 +168,7 @@ Sends a [Fee Delegated Smart Contract Execution With Ratio](../../../../../klayt
 | transactionObject.type                 | String                                          | The type of "FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO" transaction.                                                                                                                                    |
 | transactionObject.from                 | String                                          | The address of the sender.                                                                                                                                                                                            |
 | transactionObject.to                   | String                                          | the address of the deployed smart contract.                                                                                                                                                                           |
-| transactionObject.value                | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. If omitted, it will be set to zero.                                                                                                                      |
+| transactionObject.value                | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 의해 전송된 peb 단위의 값. If omitted, it will be set to zero.                                                                                                                                                   |
 | transactionObject.gas                  | Number                                          | The amount of gas to use for the transaction (unused gas is refunded).                                                                                                                                                |
 | transactionObject.gasPrice             | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                            |
 | transactionObject.nonce                | Number                                          | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                   |
@@ -182,11 +182,11 @@ Sends a [Fee Delegated Smart Contract Execution With Ratio](../../../../../klayt
 
 The `callback` will return the 32-byte transaction hash.
 
-`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
+`PromiEvent`: 프로미스(promise)가 조합된 이벤트 에미터(event emitter). Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
 - `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
 - `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
-- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- `"error"` returns `Error`: Is fired if an error occurs during sending. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
 
 **예시**
 
