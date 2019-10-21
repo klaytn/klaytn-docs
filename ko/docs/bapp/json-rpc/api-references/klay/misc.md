@@ -6,9 +6,9 @@ Returns Keccak-256 (not the standardized SHA3-256) of the given data.
 
 **Parameters**
 
-| 명칭   | 형식   | 설명                                    |
-| ---- | ---- | ------------------------------------- |
-| data | DATA | The data to convert into a SHA3 hash. |
+| 명칭   | 형식       | 설명                                    |
+| ---- | -------- | ------------------------------------- |
+| data | 16진수 문자열 | The data to convert into a SHA3 hash. |
 
 **Return Value**
 
