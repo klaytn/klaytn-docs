@@ -156,8 +156,8 @@ caver.klay.accounts.signTransaction(tx, privateKey [, callback])
 | rawTransaction     | String         | caver.klay.sendSignedTransaction을 사용하여 전송할 준비가 된 RLP 인코딩된 트랜잭션.                                         |
 | txHash             | 32-byte String | 트랜잭션 해시.                                                                                                |
 | senderTxHash       | 32-byte String | 발신자만 서명한 트랜잭션 해시. [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash)를 참조하세요. |
-| signatures         | Array          | (선택 사항) 발신자의 서명(들)의 배열.                                                                                 |
-| feePayerSignatures | Array          | (선택 사항) 수수료 지불자의 서명(들)의 배열.                                                                             |
+| signatures         | 배열             | (선택 사항) 발신자의 서명(들)의 배열.                                                                                 |
+| feePayerSignatures | 배열             | (선택 사항) 수수료 지불자의 서명(들)의 배열.                                                                             |
 
 **참고** signatures 및 feePayerSignatures 속성은 caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3) 이후 추가되었습니다. 발신자가 트랜잭션에 서명하면, 서명 배열이 `signatures`로 반환됩니다. 수수료 지불자가 서명하면, 서명 배열이 `feePayerSignatures`로 반환됩니다.
 
@@ -353,9 +353,9 @@ keccak256로 해시를 취합니다.
 
 **매개변수**
 
-| 명칭      | 형식     | 설명                                        |
-| ------- | ------ | ----------------------------------------- |
-| message | String | 해시를 취할 메시지.  HEX 문자열인 경우 먼저 UTF-8 디코딩됩니다. |
+| 명칭  | 형식     | 설명                                        |
+| --- | ------ | ----------------------------------------- |
+| 메시지 | String | 해시를 취할 메시지.  HEX 문자열인 경우 먼저 UTF-8 디코딩됩니다. |
 
 
 **리턴값**
@@ -401,7 +401,7 @@ caver.klay.accounts.sign(data, privateKey)
 
 | 명칭          | 형식     | 설명            |
 | ----------- | ------ | ------------- |
-| message     | String | 주어진 메시지.      |
+| 메시지         | String | 주어진 메시지.      |
 | messageHash | String | 주어진 메시지의 해시.  |
 | r           | String | 서명의 처음 32바이트. |
 | s           | String | 서명의 다음 32바이트. |
@@ -440,7 +440,7 @@ caver.klay.accounts.recover(message, v, r, s [, preFixed])
 | message &#124; signatureObject | String &#124; Object | 서명된 메시지 또는 해시. 서명 객체에 대한 자세한 내용은 아래 표를 참조하세요.                                                                                                        |
 | messageHash                    | String               | 주어진 메시지의 해시.                                                                                                                                         |
 | signature                      | String               | 원시(raw) RLP 인코딩된 서명, 또는 v, r, s 값인 매개변수 2-4.                                                                                                         |
-| preFixed                       | Boolean              | (선택 사항, 기본값: `false`) 마지막 매개 변수가 `true`이면, 제공된 메시지에 자동으로 `"\x19Klaytn Signed Message:\n" + message.length + message`접두사가 붙지 않으며 이미 접두사가 있다고 가정합니다. |
+| preFixed                       | 불리언                  | (선택 사항, 기본값: `false`) 마지막 매개 변수가 `true`이면, 제공된 메시지에 자동으로 `"\x19Klaytn Signed Message:\n" + message.length + message`접두사가 붙지 않으며 이미 접두사가 있다고 가정합니다. |
 
 서명 객체는 다음과 같은 값을 가집니다:
 
@@ -707,9 +707,9 @@ caver.klay.accounts.isDecoupled(key, address)
 
 **리턴값**
 
-| 형식      | 설명                                         |
-| ------- | ------------------------------------------ |
-| Boolean | 키가 주소에서 분리되었으면 `true`. 분리되지 않은 경우 `false`. |
+| 형식  | 설명                                         |
+| --- | ------------------------------------------ |
+| 불리언 | 키가 주소에서 분리되었으면 `true`. 분리되지 않은 경우 `false`. |
 
 
 **예시**
@@ -947,9 +947,9 @@ caver.klay.accounts.wallet.remove(account)
 
 **리턴값**
 
-| 형식      | 설명                                   |
-| ------- | ------------------------------------ |
-| Boolean | 지갑이 제거된 경우 `true`. 찾을 수 없으면 `false`. |
+| 형식  | 설명                                   |
+| --- | ------------------------------------ |
+| 불리언 | 지갑이 제거된 경우 `true`. 찾을 수 없으면 `false`. |
 
 
 **예시**
@@ -1019,9 +1019,9 @@ caver.klay.accounts.wallet.encrypt(password)
 
 **리턴값**
 
-| 형식    | 설명                |
-| ----- | ----------------- |
-| Array | 암호화된 키스토어 v3 객체들. |
+| 형식 | 설명                |
+| -- | ----------------- |
+| 배열 | 암호화된 키스토어 v3 객체들. |
 
 
 **예시**
@@ -1082,7 +1082,7 @@ caver.klay.accounts.wallet.decrypt(keystoreArray, password)
 
 | 명칭            | 형식     | 설명                     |
 | ------------- | ------ | ---------------------- |
-| keystoreArray | Array  | 복호화할 암호화된 키스토어 v3 객체들. |
+| keystoreArray | 배열     | 복호화할 암호화된 키스토어 v3 객체들. |
 | password      | String | 암호화에 사용된 비밀번호.         |
 
 
