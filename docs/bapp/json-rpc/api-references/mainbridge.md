@@ -125,7 +125,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
-## mainbridge_convertServiceChainBlockHashToMainChainTxHash
+## mainbridge_getChildChainIndexingEnabled
+
+`mainbridge.getChildChainIndexingEnabled` returns if indexing anchoring transaction is enabled or not.
+
+**Parameters**
+
+none
+
+**Return Value**
+
+| Type   | Description                          |
+| ------ | ------------------------------------ |
+| bool | `true` if the indexing was enabled, `false` otherwise. |
+
+**Example**
+
+```javascript
+> mainbridge.getChildChainIndexingEnabled()
+true
+```
+
+## mainbridge_convertChildChainBlockHashToParentChainTxHash
 
 Returns the anchoring transaction hash of the given child chain block hash.
 
@@ -139,21 +160,21 @@ Returns the anchoring transaction hash of the given child chain block hash.
 
 | Type   | Description                          |
 | ------ | ------------------------------------ |
-| 32-byte DATA | The transaction hash whilch including the childchain block anchoring inforamtion.|
+| 32-byte DATA | The transaction hash whilch including the child chain block anchoring information.|
 
 **Example**
 
 Console
 
 ```javascript
-> mainbridge.convertServiceChainBlockHashToMainChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
+> mainbridge.convertChildChainBlockHashToParentChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
 "0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51"
 ```
 
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"mainbridge_convertServiceChainBlockHashToMainChainTxHash","params":["0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"mainbridge_convertChildChainBlockHashToParentChainTxHash","params":["0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880"],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":"0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51"}
 ```
 

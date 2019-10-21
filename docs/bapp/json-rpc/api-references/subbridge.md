@@ -127,6 +127,128 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
+## subbridge_parentOperator
+The `subbridge.parentOperator` returns the parent operator account address.
+
+**Parameters**
+
+none
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Account | parent chain operator account address
+
+**Example**
+
+```javascript
+> subbridge.parentOperator
+"0xA057995175B93Ee0D1bdfA54f078Ad0F0116130b"
+```
+
+## subbridge_childOperator
+The `bridge.childOperator` returns the child operator account address.
+
+**Parameters**
+
+none
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Account | child chain operator account address
+
+**Example**
+
+```javascript
+> subbridge.childOperator
+"0x5C1C757a6Cb6c6FcEFE398674D8209FDA2A74Df4"
+```
+
+## subbridge_parentOperatorNonce
+The `bridge.bridge_parentOperatorNonce` returns the nonce of the parent operator account address.
+
+**Parameters**
+
+none
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| QUANTITY | Integer of the number of transactions send from parent operator account. |
+
+**Example**
+
+```javascript
+> subbridge.parentOperatorNonce
+1348
+```
+
+## subbridge_childOperatorNonce
+The `bridge.childOperator` returns the child operator account address.
+
+**Parameters**
+
+none
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| QUANTITY | Integer of the number of transactions send from child operator account. |
+
+**Example**
+
+```javascript
+> subbridge.childOperatorNonce
+1024
+```
+
+## subbridge_parentOperatorBalance
+The `bridge.parentOperatorBalance` returns the balance of the parent operator account address.
+
+**Parameters**
+
+none
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| QUANTITY | Integer of the current balance of parent operator account. |
+
+**Example**
+
+```javascript
+> subbridge.parentOperatorBalance
+1e+50
+```
+
+## subbridge_childOperatorBalance
+The `bridge.childOperator` returns the balance of the child operator account address.
+
+**Parameters**
+
+none
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| QUANTITY | Integer of the current balance of child operator account. |
+
+**Example**
+
+```javascript
+> subbridge.childOperatorBalance
+1e+50
+```
+
+
+
 ## subbridge_sendChainTxslimit
 
 The `sendChainTxslimit` gets the maximum number of pending transactions to pick up for sending at once.
@@ -202,3 +324,380 @@ None
 > subbridge.latestAnchoredBlockNumber
 71025
 ```
+
+## subbridge_getReceiptFromParentChain
+The `subbridge.getReceiptFromParentChain` returns the receipt of the anchoring transactions.
+
+**Parameters**
+
+| Type   | Description                          |
+| ------ | ------------------------------------ |
+| 32-byte DATA | The childchain block hash which included the anchoring tx hash.  |
+
+
+**Return Value**
+
+`Object` - A transaction receipt object, or `null` when no receipt was found
+
+| Name | Type | Description |
+| --- | --- | --- |
+| contractAddress | DATA | The contract address created, if the transaction was a contract creation, otherwise `null`. (will be deprecated) |
+| gasUsed | QUANTITY | The amount of gas used by this specific transaction alone. |
+| logs | Array | Array of log objects, which this transaction generated. |
+| logsBloom | 256-byte DATA | Bloom filter for light clients to quickly retrieve related logs. |
+| status | QUANTITY | Either `1` (success) or `0` (failure). |
+| transactionHash | 32-byte DATA | Hash of the transaction. |
+
+**Example**
+
+```javascript
+> subbridge.getReceiptFromParentChain("0x4f300d6574e71d7940c88fe08f27d9ac45cbc7b81d45c17e848d3772f64377b5")
+{
+  contractAddress: "0x0000000000000000000000000000000000000000",
+  gasUsed: "0x9470",
+  logs: [],
+  logsBloom: "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  status: "0x1",
+  transactionHash: "0x3641f52359f44ef2a9941ea840aed4befbace5cac28d5cc8cacd94eae211fd1e"
+}
+```
+
+## subbridge_deployBridge
+The `subbridge.deployBridge` deploys/registers bridge contract of parent/child chain, and returns the address of deployed bridge contracts.
+
+**Parameters**
+
+none
+
+**Return Value**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| account | 20-byte DATA | Address of bridge contract on child chain. |
+| account | 20-byte DATA | Address of bridge contract on parent chain. |
+
+**Example**
+
+```javascript
+> bridge.deployBridge()
+["0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4"]
+```
+
+## subbridge_registerBridge
+The `subbridge.registerBridge` registers already deployed bridge contracts of parent/child chain.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| account | 20-byte DATA | Address of bridge contract on child chain. |
+| account | 20-byte DATA | Address of bridge contract on parent chain. |
+
+**Return Value**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| error | Error | `null` if the registering succeeds, some error otherwise. |
+
+**Example**
+
+```javascript
+> bridge.registerBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
+null
+
+> bridge.registerBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
+Error: bridge already exists
+```
+
+## subbridge_deregisterBridge
+The `subbridge.deregisterBridge` deregisters already registered bridge contracts of parent/child chain.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| account | 20-byte DATA | Address of bridge contract on child chain. |
+| account | 20-byte DATA | Address of bridge contract on parent chain. |
+
+**Return Value**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| error | Error | `null` if the deregistering succeeds, some error otherwise. |
+
+**Example**
+
+```javascript
+> bridge.deregisterBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
+null
+
+> bridge.deregisterBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
+Error: invalid bridge pair
+```
+
+## subbridge_subscribeBridge
+The `subbridge.subscribeBridge` subscribe already registered bridge contracts of parent/child chain.
+If bridge contract pair is subscribed, value transfer request can be handled automatically by sub-bridge.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| account | 20-byte DATA | Address of bridge contract on child chain. |
+| account | 20-byte DATA | Address of bridge contract on parent chain. |
+
+**Return Value**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| error | Error | `null` if the subscribing succeeds, some error otherwise. |
+
+**Example**
+
+```javascript
+> subbridge.subscribeBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
+null
+> subbridge.subscribeBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
+Error: already subscribed
+```
+
+## subbridge_unsubscribeBridge
+The `subbridge.unsubscribeBridge` unsubscribe already subscribed bridge contracts of parent/child chain.
+If bridge contract pair is unsubscribed, value transfer request can not be handled automatically by sub-bridge.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| account | 20-byte DATA | Address of bridge contract on child chain. |
+| account | 20-byte DATA | Address of bridge contract on parent chain. |
+
+**Return Value**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| error | Error | `null` if the unsubscribing succeeds, some error otherwise. |
+
+**Example**
+
+```javascript
+> subbridge.unsubscribeBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
+null
+```
+
+## subbridge_registerToken
+The `subbridge.registerToken` registers token contract (ERC20/721) pair on the bridge contracts.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| account | 20-byte DATA | Address of bridge contract on child chain. |
+| account | 20-byte DATA | Address of bridge contract on parent chain. |
+| account | 20-byte DATA | Address of token contract on child chain. |
+| account | 20-byte DATA | Address of token contract on parent chain. |
+
+**Return Value**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| error | Error | `null` if the registering succeeds, some error otherwise. |
+
+**Example**
+
+```javascript
+> subbridge.registerToken("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4","0xA4b0c6e12346426a09FaD70dAE0651E6Dbdd5198","0x865Cca53828C91663BFf0Ca9808827Bac552BAec")
+null
+> subbridge.registerToken("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4","0xA4b0c6e12346426a09FaD70dAE0651E6Dbdd5198","0x865Cca53828C91663BFf0Ca9808827Bac552BAec")
+Error: token already exists
+```
+
+## subbridge_deregisterToken
+The `subbridge.deregisterBridge` deregisters already registered token pair on the bridge contracts.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| account | 20-byte DATA | Address of bridge contract on child chain. |
+| account | 20-byte DATA | Address of bridge contract on parent chain. |
+| account | 20-byte DATA | Address of token contract on child chain. |
+| account | 20-byte DATA | Address of token contract on parent chain. |
+
+**Return Value**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| error | Error | `null` if the deregistering succeeds, some error otherwise. |
+
+**Example**
+
+```javascript
+> subbridge.deregisterToken("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4","0xA4b0c6e12346426a09FaD70dAE0651E6Dbdd5198","0x865Cca53828C91663BFf0Ca9808827Bac552BAec")
+null
+> subbridge.deregisterToken("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4","0xA4b0c6e12346426a09FaD70dAE0651E6Dbdd5198","0x865Cca53828C91663BFf0Ca9808827Bac552BAec")
+Error: invalid token pair
+```
+
+## subbridge_convertRequestTxHashToHandleTxHash
+The `subbridge.convertRequestTxHashToHandleTxHash` returns the correspond handle value transfer transaction in opposite chain of the given request value transfer transaction hash. 
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| Hash | 32-byte DATA | Hash of a request value transfer transaction. |
+
+
+**Return Value**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| Hash | 32-byte DATA | Hash of a handle value transfer transaction. zero hash means there is no correspond handle value transfer transaction.|
+
+
+**Example**
+
+```javascript
+> subbridge.convertRequestTxHashToHandleTxHash("0xae5604f8673098436ee4eaf1b453f1a395afccd6e8eb674c60edd63ebb047622")
+"0x97493d1a91d65c149763209be6535efdacf8f1b50c99daa22abf06502010b2ee"
+> subbridge.convertRequestTxHashToHandleTxHash("0xc585cfd1e7047b4faae69e62e77db192d8a339701b40d6ab4adb58453b934bec")
+"0x0000000000000000000000000000000000000000000000000000000000000000"
+```
+
+## subbridge_listBridge
+The `subbridge.listBridge` returns the list of all bridge contract pairs are registred (stored) in sub-bridge. 
+
+**Parameters**
+
+nonce
+
+**Return Value**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| localAddress | account | 20-byte DATA | Address of the bridge contract address on child (service) chain. |
+| localAddress | account | 20-byte DATA | Address of the bridge contract address on parent (main) chain. |
+| subscribed | bool | `true` if the pair of bridge contracts is subscribed, `false` otherwise. |
+
+**Example**
+
+```javascript
+> subbridge.listBridge
+[{
+    localAddress: "0x27caeba831d98b5fbb1d81ce0ed20801702f443a",
+    remoteAddress: "0x22c41ae528627b790233d2e59ea520be12350eb5",
+    subscribed: true
+}, {
+    localAddress: "0x376b72abe1b29cace831bd3f5acdfa967814c9cd",
+    remoteAddress: "0x53160735f7cc6ff75e48619f368bb94daff66a1b",
+    subscribed: false
+}, {
+    localAddress: "0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a",
+    remoteAddress: "0x23dab942822021bbd6d551ef51003208924877e4",
+    subscribed: false
+}]
+```
+
+## subbridge_getBridgeInformation
+The `subbridge.getBridgeInformation` returns the information of the given bridge contract. 
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| account | 20-byte DATA | Address of a bridge contract |
+
+
+**Return Value**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| counterPart | 20-byte DATA | Address of the counter part bridge contract address stored in the bridge contact. (Not supported yet) |
+| isRunning | bool | `true` if the bridge contract is running, `false` otherwise. |
+| isSubscribed | bool | `true` if the bridge contract is subscribed, `false` otherwise. |
+| onServiceChain | bool | `true` if the bridge contact is on child(service) chain, `false` otherwise. |
+| pendingEventSize | QUANTITY | Integer of the number of pending request value transfer event of the bridge contract on the sub-bridge. |
+| requestNonce | QUANTITY | Integer of the number of request nonce on the bridge contract. |
+| handleNonce | QUANTITY | Integer of the number of upper handle nonce on the bridge contract. |
+| lowerHandleNonce | QUANTITY | Integer of the number of lower handle nonce on the bridge contract. |
+
+
+**Example**
+
+```javascript
+> subbridge.getBridgeInformation("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")
+{
+  counterPart: "0x0000000000000000000000000000000000000000",
+  handleNonce: 0,
+  lowerHandleNonce: 0,
+  isRunning: true,
+  isSubscribed: true,
+  onServiceChain: true,
+  pendingEventSize: 0,
+  requestNonce: 0
+}
+```
+
+## subbridge_txPendingCount
+The `subbridge.txPendingCount` returns the count of pending transactions in bridge transaction pool.
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Uint64 | The number of pending transaction count in bridge transaction pool.
+
+**Example**
+
+```javascript
+> subbridge.txPendingCount
+2
+```
+
+## subbridge_txPending
+The `subbridge.txPendingCount` returns the list of pending transaction in bridge transaction pool.
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| JSON string | The content of the bridge transaction pool. |
+
+**Example**
+
+```javascript
+> subbridge.txPending
+{
+  0xa057995175b93ee0d1bdfa54f078ad0f0116130b: [{
+      from: "0xa057995175b93ee0d1bdfa54f078ad0f0116130b",
+      gas: "0x186a0",
+      gasPrice: "0x5d21dba00",
+      hash: "0x284c8f5bc82ef987c3a14fc8dac7933beb528777745987ff790014441f26ca03",
+      input: "0xf8a9a063f41a6ec8e2f8074c30fccf11f2b8479e7ebd8a0e5aa0c171623bc1f3812e33a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421a0f845557d8dc2175974f29c2e9d12b1a57f634acaafdf56ae7033201a0796bedea056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421a09109530b191b47ca3d91012faba70fcf307f13b030f19d932cab38f2c1ece7b78304157c",
+      nonce: "0x41589",
+      signatures: [{...}],
+      type: "TxTypeChainDataAnchoring",
+      typeInt: 72
+  }, {
+      from: "0xa057995175b93ee0d1bdfa54f078ad0f0116130b",
+      gas: "0x186a0",
+      gasPrice: "0x5d21dba00",
+      hash: "0x4dd093916a419608091da28b5d7ffc6e34d894ddaac96328f1904bfef93a4ad0",
+      input: "0xf8a9a05b0dd6cc938916e37b17b602690399987b4e8540a14a494626d85e947f721a10a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421a063f41a6ec8e2f8074c30fccf11f2b8479e7ebd8a0e5aa0c171623bc1f3812e33a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421a09109530b191b47ca3d91012faba70fcf307f13b030f19d932cab38f2c1ece7b78304157d",
+      nonce: "0x4158a",
+      signatures: [{...}],
+      type: "TxTypeChainDataAnchoring",
+      typeInt: 72
+  }]
+}
+```
+

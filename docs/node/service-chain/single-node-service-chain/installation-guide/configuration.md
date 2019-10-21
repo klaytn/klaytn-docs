@@ -2,69 +2,42 @@
 
 This page explains the configuration of a single Service Chain Node (SCN).
 
-## Creation of SCSigner Keystore / Password Files
-
-When you run a service chain node, you need a keystore file and the associated password file for the scsigner. You can generate the files like the following. 
-
-### Create Your Password File
-
-First you can generate the password file simply like below. This password file will be used to generate a keystore file and run the service chain node.
-
-```bash
-$ echo passwordString >> passwd
-```
-
-### Create Your Keystore File
-
-You can create the keystore file with your password file like below.
-
-```bash
-$ kscn account new --datadir "./" --password ./passwd
-Address: {c04ae62e6a8e084e8f00030d637380792db3dc26}
-```
-
-_You should use the generated address for the scsigner in the genesis file._
-
-Now, you can have the keystore file and password file like below.
-
-```bash
-$ tree
-.
-├── keystore
-│   └── UTC--2019-03-28T06-10-39.102092000Z--c04ae62e6a8e084e8f00030d637380792db3dc26
-└── passwd
-```
-
-After [Initialization of a Genesis Block](#initialization-of-a-genesis-block), you will copy these files to the data directory.
-
 ## Creation of a Genesis File
 
-First, you should create new genesis file for your own service chain and initialize all service chain nodes with the same genesis file. The genesis file of the service chain is different with main chain. To create new genesis file, you should write the scsigner address of your service chain in `governingnode`, `extraData` and `alloc` field. The `unitPrice` is set to `0` in the example below, but you can change it to the value you want.
+First, you should create new genesis file for your own service chain and initialize all service chain nodes with the same genesis file.
+The genesis file of the service chain is different with main chain.
+The `unitPrice` is set to `0` in the example below, but you can change it to the value you want.
 
-The `genesis.json` examples follow. You can find more details in [Genesis JSON](../../genesis.md).
+The `genesis.json` examples follow. You can find more details in [Genesis JSON](../genesis.md).
 
 * `geneis.json` example for a consensus node.
-  * The consensus node's scsigner is `c04ae62e6a8e084e8f00030d637380792db3dc26`.
+  * The consensus node key is `5d45c852383d12cdb38533cb7369db7ba6c298e4`.
 
-```javascript
+```json
 {
-     "config": {
-         "chainId": 3000,
-         "clique": {
-             "period": 1,
-             "epoch": 604800
-         },
-         "unitPrice": 0
-     },
-     "extraData": "0x0000000000000000000000000000000000000000000000000000000000000000c04ae62e6a8e084e8f00030d637380792db3dc260000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-     "alloc": {
-         "c04ae62e6a8e084e8f00030d637380792db3dc26": {
-             "balance": "0x446c3b15f9926687d2c40534fdb564000000000000"
-         }
-     },
-     "number": "0x0",
-     "gasUsed": "0x0",
-     "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "config": {
+        "chainId": 1000,
+        "istanbul": {
+            "epoch": 3600,
+            "policy": 0,
+            "sub": 22
+        },
+        "unitPrice": 0,
+        "deriveShaImpl": 2,
+        "governance": null
+    },
+    "timestamp": "0x5dad1614",
+    "extraData": "0x0000000000000000000000000000000000000000000000000000000000000000f85ad5945d45c852383d12cdb38533cb7369db7ba6c298e4b8410000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c0",
+    "governanceData": null,
+    "blockScore": "0x1",
+    "alloc": {
+        "5d45c852383d12cdb38533cb7369db7ba6c298e4": {
+            "balance": "0x2540be400"
+        }
+    },
+    "number": "0x0",
+    "gasUsed": "0x0",
+    "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
 }
 ```
 
@@ -88,15 +61,6 @@ $ kscn init --datadir ~/kscnd_home genesis.json
 
 All required steps are done for launching an SCN.
 
-### **Install SCSigner Key / Password Files**
-
-To set scsigner for the service chain node, we need the right pair of scsigner keystore and password file. Copy the files like below. Keystore file needs a password file to unlock the account.
-
-```bash
-$ cp ./keystore/UTC--2019-...--ef28e51ef33fe0f487289c1c6e1ccdf5e571366b ~/kscnd_home/keystore
-$ cp ./passwd ~/kscnd_home/
-```
-
 ## Configuration of the SCN <a id="configuration-of-the-scn"></a>
 
 `kscnd.conf` is the configuration file for the SCN.
@@ -108,8 +72,8 @@ configuration is an example.
 ```
 # Configuration file for the kscnd
 
-SCSIGNER="c04ae62e6a8e084e8f00030d637380792db3dc26"
-SCSIGNER_PASSWD_FILE=~/kscnd_home/passwd   # Need to right password file path for the keystore file of the scsigner address
+SCSIGNER="" #deprecated 
+SCSIGNER_PASSWD_FILE= #deprecated
 
 NETWORK_ID=3000 # Set your own unique network ID which is different with known network(Klaytn Mainnet(1), Baobab(1000))
 
@@ -158,6 +122,7 @@ NO_DISCOVER=1
 DB_NO_PARALLEL_WRITE=0
 MULTICHANNEL=1
 SUBPORT=$((PORT + 1)) # used for multi channel option
+VTRECOVERY=1 # value transfer recovery
 
 # Raw options e.g.) "--txpool.nolocals"
 ADDITIONAL=""
