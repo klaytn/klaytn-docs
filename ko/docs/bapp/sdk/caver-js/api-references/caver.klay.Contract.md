@@ -68,7 +68,7 @@ myContract.options
 | 명칭            | 형식     | 설명                                                                        |
 | ------------- | ------ | ------------------------------------------------------------------------- |
 | address       | String | 컨트랙트가 배포된 주소.  [options.address](#optionsaddress)를 참조하세요.                 |
-| jsonInterface | Array  | 컨트랙트의 JSON 인터페이스.  [options.jsonInterface](#optionsjsoninterface)를 참조하세요. |
+| jsonInterface | 배열     | 컨트랙트의 JSON 인터페이스.  [options.jsonInterface](#optionsjsoninterface)를 참조하세요. |
 | data          | String | 컨트랙트의 바이트 코드. 컨트랙트가 배포될 때 사용됩니다.                                          |
 | from          | String | 트랜잭션이 만들어진 송신자 주소.                                                        |
 | gasPrice      | String | 트랜잭션에 사용할 peb 단위의 가스 가격.                                                  |
@@ -126,9 +126,9 @@ myContract.options.jsonInterface
 
 **속성**
 
-| 명칭            | 형식    | 설명                                                         |
-| ------------- | ----- | ---------------------------------------------------------- |
-| jsonInterface | Array | 이 컨트랙트의 JSON 인터페이스. 이를 재설정하면 컨트랙트 인스턴스의 메소드 및 이벤트가 재생성됩니다. |
+| 명칭            | 형식 | 설명                                                         |
+| ------------- | -- | ---------------------------------------------------------- |
+| jsonInterface | 배열 | 이 컨트랙트의 JSON 인터페이스. 이를 재설정하면 컨트랙트 인스턴스의 메소드 및 이벤트가 재생성됩니다. |
 
 
 **예시**
@@ -194,7 +194,7 @@ myContract.deploy(options)
 | 명칭        | 형식     | 설명                         |
 | --------- | ------ | -------------------------- |
 | data      | String | 컨트랙트의 바이트 코드.              |
-| arguments | Array  | (선택 사항) 배포시 생성자에게 전달되는 인자. |
+| arguments | 배열     | (선택 사항) 배포시 생성자에게 전달되는 인자. |
 
 **리턴값**
 
@@ -202,7 +202,7 @@ myContract.deploy(options)
 
 | 형식       | 설명                                                                                           |
 | -------- | -------------------------------------------------------------------------------------------- |
-| Array    | arguments: 이전에 메소드에 전달되었던 인자. 이들은 변경될 수 있습니다.                                                |
+| 배열       | arguments: 이전에 메소드에 전달되었던 인자. 이들은 변경될 수 있습니다.                                                |
 | Function | [send](#methodsmymethodsend): 컨트랙트를 배포합니다. promise는 영수증(receipt) 대신 새 컨트랙트 인스턴스로 resolve됩니다. |
 | Function | [estimateGas](#methodsmymethodestimategas): 배포에 사용되는 가스를 추정합니다.                              |
 | Function | [encodeABI](#methodsmymethodencodeabi): 컨트랙트 데이터 + 생성자 매개변수인 배포 ABI를 암호화합니다.                 |
@@ -302,7 +302,7 @@ caver.utils.sha3('myMethod(uint256)').substr(0, 10)
 
 | 형식       | 설명                                                                                                                        |
 | -------- | ------------------------------------------------------------------------------------------------------------------------- |
-| Array    | arguments: 이전에 메소드에 전달되었던 인자. 이들은 변경될 수 있습니다.                                                                             |
+| 배열       | arguments: 이전에 메소드에 전달되었던 인자. 이들은 변경될 수 있습니다.                                                                             |
 | Function | [call](#methodsmymethodcall): "constant" 메소드를 호출하고 트랜잭션을 보내지 않고 Klaytn 가상머신에서 스마트 콘트랙트 메소드를 실행합니다(스마트 컨트랙트 상태를 변경할 수 없음). |
 | Function | [send](#methodsmymethodsend): 스마트 컨트랙트로 트랜잭션을 전송하고 그 메소드를 실행합니다(스마트 컨트랙트 상태를 변경할 수 있음).                                   |
 | Function | [estimateGas](#methodsmymethodestimategas): 블록체인에서 수행될 때 사용되는 가스를 추정합니다.                                                  |
@@ -602,7 +602,7 @@ myContract.once(event [, options], callback)
 | 명칭     | 형식     | 설명                                                                                                         |
 | ------ | ------ | ---------------------------------------------------------------------------------------------------------- |
 | filter | Object | (선택 사항) 인덱스 파라미터에 의해 이벤트를 필터링, *가령*, `{filter: {myNumber: [12,13]}}`는 "myNumber"가 12 또는 13안 모든 이벤트를 의미합니다. |
-| topics | Array  | (선택 사항) 이벤트 필터에 대한 주제를 수동으로 설정할 수 있습니다. 필터 특성 및 이벤트 서명이 제공되면, `topic[0]` 가 자동으로 설정되지 않습니다.                 |
+| topics | 배열     | (선택 사항) 이벤트 필터에 대한 주제를 수동으로 설정할 수 있습니다. 필터 특성 및 이벤트 서명이 제공되면, `topic[0]` 가 자동으로 설정되지 않습니다.                 |
 
 **리턴값**
 
@@ -658,7 +658,7 @@ myContract.events.MyEvent([options][, callback])
 | --------- | ------ | ---------------------------------------------------------------------------------------------------------- |
 | filter    | Object | (선택 사항) 인덱스 파라미터에 의해 이벤트를 필터링, *가령*, `{filter: {myNumber: [12,13]}}`는 "myNumber"가 12 또는 13안 모든 이벤트를 의미합니다. |
 | fromBlock | Number | (선택 사항) 이벤트를 가져올 시작 블록 번호.                                                                                 |
-| topics    | Array  | (선택 사항) 이벤트 필터에 대한 주제를 수동으로 설정할 수 있습니다. 필터 특성 및 이벤트 서명이 제공되면, `topic[0]` 가 자동으로 설정되지 않습니다.                 |
+| topics    | 배열     | (선택 사항) 이벤트 필터에 대한 주제를 수동으로 설정할 수 있습니다. 필터 특성 및 이벤트 서명이 제공되면, `topic[0]` 가 자동으로 설정되지 않습니다.                 |
 
 
 **Return Value**
@@ -684,7 +684,7 @@ myContract.events.MyEvent([options][, callback])
 | blockHash        | 32-byte String       | 이 이벤트가 생성된 블록의 해시. 아직 보류 중인 경우 `null`.                                                                 |
 | blockNumber      | Number               | 이 로그가 생성된 블록 번호. 아직 보류 중인 경우 `null`.                                                                   |
 | raw.data         | String               | 색인화되지 않은 로그 매개변수를 포함하는 데이터.                                                                            |
-| raw.topics       | Array                | 최대 4개의 32바이트 주제를 가진 배열, 주제 1-3은 이벤트의 색인화된 매개변수가 포함됩니다.                                                 |
+| raw.topics       | 배열                   | 최대 4개의 32바이트 주제를 가진 배열, 주제 1-3은 이벤트의 색인화된 매개변수가 포함됩니다.                                                 |
 | id               | String               | 로그 식별자. `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`을 사용하여 "log_" 문자열을 연결하여 작성됩니다. |
 
 **예시**
@@ -753,7 +753,7 @@ myContract.getPastEvents(event [, options] [, callback])
 | filter    | Object | (선택 사항) 인덱스 파라미터에 의해 이벤트를 필터링, *가령*, `{filter: {myNumber: [12,13]}}`는 "myNumber"가 12 또는 13안 모든 이벤트를 의미합니다. |
 | fromBlock | Number | (선택 사항) 이벤트를 가져올 시작 블록 번호.                                                                                 |
 | toBlock   | Number | (선택 사항) 이벤트를 가져올 끝 블록 번호(기본값은 `"latest"`).                                                                 |
-| topics    | Array  | (선택 사항) 이벤트 필터에 대한 주제를 수동으로 설정할 수 있습니다. 필터 특성 및 이벤트 서명이 제공되면, `topic[0]` 가 자동으로 설정되지 않습니다.                 |
+| topics    | 배열     | (선택 사항) 이벤트 필터에 대한 주제를 수동으로 설정할 수 있습니다. 필터 특성 및 이벤트 서명이 제공되면, `topic[0]` 가 자동으로 설정되지 않습니다.                 |
 
 **Return Value**
 
