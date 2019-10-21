@@ -4,16 +4,16 @@
 
 **Parameters**
 
-| 명칭           | 형식                  | 설명                                                                                                                                                      |
-| ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | 20-byte DATA        | 주소                                                                                                                                                      |
-| block number | QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
+| 명칭           | 형식                  | 설명                                                                                                                                                         |
+| ------------ | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 계정 (Account) | 20바이트 크기의 16진수 문자열  | 계정의 주소입니다.                                                                                                                                                 |
+| 블록 번호        | QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
 
-**Return Value**
+**리턴값**
 
-| 형식      | 설명                                |
-| ------- | --------------------------------- |
-| Boolean | The existence of an input address |
+| 형식  | 설명                           |
+| --- | ---------------------------- |
+| 불리언 | 입력으로 받은 주소가 존재하는지 여부를 반환합니다. |
 
 **예시**
 
@@ -32,7 +32,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_accounts
 
-Returns a list of addresses owned by client.
+클라이언트가 소유한 계정들의 주소 목록을 반환합니다.
 
 **Parameters**
 
@@ -40,9 +40,9 @@ None
 
 **Return Value**
 
-| 형식                    | 설명                             |
-| --------------------- | ------------------------------ |
-| Array of 20-byte DATA | Addresses owned by the client. |
+| 형식                | 설명                         |
+| ----------------- | -------------------------- |
+| 20바이트 크기의 16진수 배열 | 클라이언트가 소유한 계정의 주소들을 반환합니다. |
 
 **예시**
 
@@ -61,20 +61,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getAccount
 
-Returns the account information of a given address. There are two different account types in Klaytn: Externally Owned Account (EOA) and Smart Contract Account. See [Klaytn Accounts](../../../../klaytn/design/accounts.md#klaytn-accounts).
+입력으로 받은 주소의 계정 정보를 반환합니다. Klaytn에는 외부 소유 계정(EOA)와 스마트 컨트랙트 계정 등 두 가지 유형의 계정이 있습니다. 자세한 내용은  [Klaytn 계정](../../../../klaytn/design/accounts.md#klaytn-accounts)을 참고해주세요.
 
-**Parameters**
+**매개변수**
 
-| 형식                  | 설명                                                                                                                                                      |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20-byte DATA        | 주소                                                                                                                                                      |
-| QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
+| 형식                  | 설명                                                                                                                                                         |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20바이트 크기의 16진수 문자열  | 계정의 주소입니다.                                                                                                                                                 |
+| QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
 
 **Return Value**
 
-| 형식           | 설명                                          |
-| ------------ | ------------------------------------------- |
-| 계정 (Account) | Each account type has different attributes. |
+| 형식           | 설명                      |
+| ------------ | ----------------------- |
+| 계정 (Account) | 계정 유형에 따라 다른 속성을 반환합니다. |
 
 **예시**
 
@@ -132,20 +132,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getAccountKey
 
-Returns the account key of the Externally Owned Account (EOA) of a given address. If the account has AccountKeyLegacy or the account of the given address is a Smart Contract Account, it will return an empty key value. See [Account Key](../../../../klaytn/design/accounts.md#account-key).
+입력으로 받은 주소의 외부 소유 계정(EOA)에 해당하는 계정의 키를 반환합니다. 해당 계정이 AccountKeyLegacy이거나 입력으로 받은 주소의 계정이 스마트 컨트랙트 계정이면 빈 값을 반환합니다. 자세한 내용은 [계정 키](../../../../klaytn/design/accounts.md#account-key)를 참고해주세요.
 
 **Parameters**
 
-| 형식                  | 설명                                                                                                                                                      |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20-byte DATA        | 주소                                                                                                                                                      |
-| QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
+| 형식                  | 설명                                                                                                                                                         |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20바이트 크기의 16진수 문자열  | 계정의 주소입니다.                                                                                                                                                 |
+| QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
 
 **Return Value**
 
-| 형식         | 설명                                                       |
-| ---------- | -------------------------------------------------------- |
-| AccountKey | The account key consist of public key(s) and a key type. |
+| 형식         | 설명                           |
+| ---------- | ---------------------------- |
+| AccountKey | 계정 키는 공개키(들)와 키의 유형으로 구성됩니다. |
 
 **예시**
 
@@ -216,20 +216,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBalance
 
-Returns the balance of the account of given address.
+입력으로 받은 주소에 해당하는 계정의 잔액을 반환합니다.
 
 **Parameters**
 
-| 형식                  | 설명                                                                                                                                                      |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20-byte DATA        | Address to check for balance.                                                                                                                           |
-| QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
+| 형식                  | 설명                                                                                                                                                         |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20바이트 크기의 16진수 문자열  | 잔액을 확인할 계정의 주소입니다.                                                                                                                                         |
+| QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
 
 **Return Value**
 
-| 형식       | 설명                                     |
-| -------- | -------------------------------------- |
-| QUANTITY | Integer of the current balance in peb. |
+| 형식       | 설명                        |
+| -------- | ------------------------- |
+| QUANTITY | peb의 현재 잔액을 정수 형태로 반환합니다. |
 
 **예시**
 
@@ -247,20 +247,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getCode
 
-Returns code at a given address.
+입력으로 받은 주소의 코드를 반환합니다.
 
 **Parameters**
 
-| 형식                  | 설명                                                                                                                                                      |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20-byte DATA        | 주소                                                                                                                                                      |
-| QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
+| 형식                  | 설명                                                                                                                                                         |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20바이트 크기의 16진수 문자열  | 계정의 주소입니다.                                                                                                                                                 |
+| QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
 
 **Return Value**
 
-| 형식   | 설명                               |
-| ---- | -------------------------------- |
-| DATA | The code from the given address. |
+| 형식       | 설명                 |
+| -------- | ------------------ |
+| 16진수 문자열 | 입력으로 받은 주소의 코드입니다. |
 
 **예시**
 
@@ -279,20 +279,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionCount
 
-Returns the number of transactions *sent* from an address.
+어떤 주소의 계정에서 *발신된* 트랜잭션의 개수를 반환합니다.
 
 **Parameters**
 
-| 형식                  | 설명                                                                                                                                                      |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20-byte DATA        | 주소                                                                                                                                                      |
-| QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
+| 형식                  | 설명                                                                                                                                                         |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20바이트 크기의 16진수 문자열  | 계정의 주소입니다.                                                                                                                                                 |
+| QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
 
 **Return Value**
 
-| 형식       | 설명                                                            |
-| -------- | ------------------------------------------------------------- |
-| QUANTITY | Integer of the number of transactions send from this address. |
+| 형식       | 설명                                       |
+| -------- | ---------------------------------------- |
+| QUANTITY | 입력으로 받은 주소에서 발신한 트랜잭션의 개수를 정수 형태로 반환합니다. |
 
 **예시**
 
@@ -313,20 +313,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_isContractAccount
 
-Returns `true` if an input account has a non-empty codeHash at the time of a specific block number. It returns `false` if the account is an EOA or a smart contract account which doesn't have codeHash.
+특정 번호의 블록 시간에서 입력으로 받은 계정의 codeHash가 비어 있지 않은 경우 `true`를 반환합니다. 해당 계정이 EOA이거나 codeHash가 비어 있는 스마트 컨트랙트 계정이면 `false`를 반환합니다.
 
 **Parameters**
 
-| 명칭           | 형식                  | 설명                                                                                                                                                      |
-| ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | 20-byte DATA        | 주소                                                                                                                                                      |
-| block number | QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
+| 명칭           | 형식                  | 설명                                                                                                                                                         |
+| ------------ | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 계정 (Account) | 20바이트 크기의 16진수 문자열  | 계정의 주소입니다.                                                                                                                                                 |
+| 블록 번호        | QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
 
 **Return Value**
 
-| 형식      | 설명                                                                      |
-| ------- | ----------------------------------------------------------------------- |
-| Boolean | `true` means the input parameter is an existing smart contract address. |
+| 형식  | 설명                                 |
+| --- | ---------------------------------- |
+| 불리언 | `true`이면 매개변수가 스마트 컨트랙트 계정의 주소입니다. |
 
 **예시**
 
@@ -344,27 +344,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_sign
 
-The sign method calculates a Klaytn-specific signature with:
+sign 메서드는 다음을 사용하여 Klaytn만의 서명을 계산합니다.
 ```
 sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 ```
 
-Adding a prefix to the message makes the calculated signature recognizable as a Klaytn-specific signature. This prevents misuse where a malicious BApp can sign arbitrary data, *e.g.*, transaction, and use the signature to impersonate the victim.
+메시지에 접두사를 붙이면 계산된 서명 값이 Klaytn의 서명임을 알 수 있습니다. 이는 악성 BApp이 트랜잭션과 같은 임의의 데이터를 서명하여 누군가를 사칭할 수 없도록 방지합니다.
 
-**NOTE**: The address to sign with must be unlocked.
+**참고**: 서명하려는 계정은 잠금 해제되어 있어야 합니다.
 
 **Parameters**
 
-| 명칭           | 형식           | 설명              |
-| ------------ | ------------ | --------------- |
-| 계정 (Account) | 20-byte DATA | 주소              |
-| message      | N-byte DATA  | Message to sign |
+| 명칭           | 형식                 | 설명            |
+| ------------ | ------------------ | ------------- |
+| 계정 (Account) | 20바이트 크기의 16진수 문자열 | 계정의 주소입니다.    |
+| 메시지          | N 바이트 크기의 16진수 문자열 | 서명하려는 메시지입니다. |
 
 **Return Value**
 
-| 형식   | 설명        |
-| ---- | --------- |
-| DATA | Signature |
+| 형식       | 설명       |
+| -------- | -------- |
+| 16진수 문자열 | 서명 값입니다. |
 
 **예시**
 
