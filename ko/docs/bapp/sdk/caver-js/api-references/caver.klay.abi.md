@@ -141,7 +141,7 @@ JSON 인터페이스 객체를 기반으로 함수 매개변수를 인코딩합�
 | 명칭         | 형식                                    | 설명                                                                                                                      |
 | ---------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | typesArray | Array<String&#124;Object>&#124;Object | 타입 또는 함수의 JSON 인터페이스의 배열. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
-| parameters | Array                                 | 인코딩할 매개변수.                                                                                                              |
+| parameters | 배열                                    | 인코딩할 매개변수.                                                                                                              |
 
 **리턴값**
 
@@ -172,7 +172,7 @@ JSON 인터페이스 객체 및 주어진 매개변수를 사용하여 함수 �
 | 명칭            | 형식     | 설명                 |
 | ------------- | ------ | ------------------ |
 | jsonInterface | Object | 함수의 JSON 인터페이스 객체. |
-| parameters    | Array  | 인코딩할 매개변수.         |
+| parameters    | 배열     | 인코딩할 매개변수.         |
 
 **Return Value**
 
@@ -210,7 +210,7 @@ ABI 인코딩된 매개변수를 자바스크립트 타입으로 디코딩합니
 | 명칭        | 형식                 | 설명                                                                                                     |
 | --------- | ------------------ | ------------------------------------------------------------------------------------------------------ |
 | type      | String&#124;Object | 매개변수 타입, 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
-| hexString | Array              | 디코딩할 ABI 바이트 코드.                                                                                       |
+| hexString | 배열                 | 디코딩할 ABI 바이트 코드.                                                                                       |
 
 **리턴값**
 
@@ -280,9 +280,9 @@ ABI 인코딩된 로그 데이터 및 인덱싱된 토픽 데이터를 디코딩
 **매개변수**
 | 명칭        | 형식     | 설명                                                                                                              |
 | --------- | ------ | --------------------------------------------------------------------------------------------------------------- |
-| inputs    | Array  | JSON 인터페이스 입력 배열. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
+| inputs    | 배열     | JSON 인터페이스 입력 배열. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
 | hexString | String | 로그의 `data` 필드에 있는 ABI 바이트 코드.                                                                                   |
-| topics    | Array  | 만일 비-익명 이벤트일 경우 topic[0] 없이, 그렇지 않은 경우에는 topic[0]을 포함한 로그의 인덱스 매개변수 topics의 배열.                                 |
+| topics    | 배열     | 만일 비-익명 이벤트일 경우 topic[0] 없이, 그렇지 않은 경우에는 topic[0]을 포함한 로그의 인덱스 매개변수 topics의 배열.                                 |
 
 **리턴값**
 
@@ -328,7 +328,7 @@ caver.klay.abi.encodeContractDeploy(jsonInterface, hexString, params)
 **매개변수**
 | 명칭            | 형식     | 설명                   |
 | ------------- | ------ | -------------------- |
-| jsonInterface | Array  | 컨트랙트의 JSON 인터페이스.    |
+| jsonInterface | 배열     | 컨트랙트의 JSON 인터페이스.    |
 | hexString     | String | 배포할 스마트 컨트랙트의 바이트코드. |
 | params        | 복합     | 생성자에 전달할 인자.         |
 
