@@ -2,9 +2,10 @@
 
 ## Prerequisites
  - Preparing executables
-   - ken, kend [download](https://drive.google.com/a/groundx.xyz/file/d/1rroYOKDN3ulwC4sG2S0xB_B-AM2RcNQa/view?usp=sharing)
+   - ken, kend [download](https://docs.klaytn.com/node/download)
  - Minimal requirements for testing hardware
-     - CPU: 4-cores (Intel Xeon or equivalent), RAM: 8GB, HDD: 50GB
+     - CPU: 4-cores (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
+     - Pleaser refer to [here](https://docs.klaytn.com/node/endpoint-node/system-requirements) for detailed requirements
  - Assumption
      - SCN nodes are ready and set
      - EN connects to baobab testnet

@@ -3,7 +3,7 @@
 ## Prerequisites
 - Assume that EN (Baobab) and SCN are already set and connected ([link](en-scn-connection.md))
 - Code for contract deployment and transfer ([download](https://drive.google.com/file/d/14tNU-jOAv7JwfY5xZqJlckkpO16TuS2S/view?usp=sharing))
-- Install `Node.js` and `npm` ([How to install](https://nodejs.org/en/download/package-manager/))
+- Install `Node.js` (v10.60.0) and `npm` ([How to install](https://nodejs.org/en/download/package-manager/))
 
 
 ## ERC-20 Token Transfer

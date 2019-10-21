@@ -2,12 +2,14 @@
 
  ## Prerequisites
  - Preparing executables
-   - kscn, kscnd, homi [download](https://drive.google.com/open?id=1C65V0PW9xVI60NSYAlN6-uAg2sMX69Ak)
+   - kscn, kscnd, homi [download](https://docs.klaytn.com/node/download)
  - Minimal requirements for testing hardware
-     - CPU: 4-cores (Intel Xeon or equivalent), RAM: 8GB, HDD: 50GB
+     - CPU: 4-cores (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB 
+     - Pleaser refer to [here](https://docs.klaytn.com/node/endpoint-node/system-requirements) for detailed requirements
 
 ## Step 1: Create genesis.json and a key
 Copy execution binaries to a SCN node then execute homi on command line. Then copy the generated `~/your_path/homi-output` folder with execution binaries to other SCN nodes.
+Please change the `chainID` for your own number to prevent replay attack.
 ```
 $ ~/your_path/bin/homi setup local --cn-num 4 --test-num 1 --servicechain --p2p-port 30000 -o ~/your_path/homi-output
 ```
