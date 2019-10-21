@@ -1,4 +1,6 @@
  # Setup guide for 4 nodes SCN
+ This section covers how to setup minimum multi-node service chain.
+ You will download package and setup service chain with 4 SCN.
 
  ## Prerequisites
  - Preparing executables
