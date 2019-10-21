@@ -109,6 +109,7 @@
         * [Errors & Troubleshooting](node/errors-and-troubleshooting.md)
     * [Multi-Node Service Chain](node/service-chain/multi-node-service-chain/README.md)
     * [Genesis JSON](node/service-chain/genesis.md)
+    * [Anchoring](node/service-chain/anchoring.md)
   * [Errors & Troubleshooting](node/errors-and-troubleshooting.md)
   * [Download](node/download/README.md)
     * [v1.1.1 (latest)](node/download/v1.1.1.md)
