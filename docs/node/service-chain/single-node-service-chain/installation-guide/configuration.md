@@ -8,7 +8,7 @@ First, you should create new genesis file for your own service chain and initial
 The genesis file of the service chain is different with main chain.
 The `unitPrice` is set to `0` in the example below, but you can change it to the value you want.
 
-The `genesis.json` examples follow. You can find more details in [Genesis JSON](../genesis.md).
+The `genesis.json` examples follow. You can find more details in [Genesis JSON](../../genesis.md).
 
 * `geneis.json` example for a consensus node.
   * The consensus node key is `5d45c852383d12cdb38533cb7369db7ba6c298e4`.
