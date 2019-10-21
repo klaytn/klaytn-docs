@@ -35,7 +35,7 @@ After charging KLAY, you can check the balance like below.
 ```
 
 Then you can enable via RPC like below.
-You can refer to [Service Chain API](../../api/servicechain.md#anchoring) for more details.
+You can refer to [subbridge APIs](../../bapp/json-rpc/api-references/subbridge.md#subbridge_anchoring) for more details.
 ```
 > subbridge.anchoring(true)
 true
@@ -47,7 +47,7 @@ You can check the anchored data like below.
 
 ## Sub-Bridge
 In Sun-Bridge, You can check the last latest anchored block number like below.
-You can refer to [Service Chain API](../../api/servicechain.md#latestAnchoredBlockNumber) for more details.
+You can refer to [subbridge APIs](../../bapp/json-rpc/api-references/subbridge.md#subbridge_latestAnchoredBlockNumber) for more details.
 ```javascript
 > subbridge.latestAnchoredBlockNumber
 71025
@@ -61,7 +61,7 @@ And also, you can find the anchoring transaction hash by block number like below
 
 ## Main-Bridge
 In Main-Bridge, if chain indexing option is enabled, you can find the anchoring tx hash by a service chain block hash like below.
-You can refer to [Service Chain API](../../api/servicechain.md#convertChildChainBlockHashToParentChainTxHash) for more details.
+You can refer to [mainbridge APIs](../../bapp/json-rpc/api-references/mainbridge.md#mainbridge_convertServiceChainBlockHashToMainChainTxHash) for more details.
 
 ```javascript
 > mainbridge.convertServiceChainBlockHashToMainChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
