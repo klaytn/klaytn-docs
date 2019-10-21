@@ -94,7 +94,9 @@ $ ~/your_path/bin/kscn attach --datadir ~/your_path/data
 1
 ```
 
-## (Example) Anchoring Test
+## Anchoring 
+After setup EN and SCN, you can save Service Chain block information on parent chain via Anchoring.
+In this section, you will charge parent operator account, enable Anchoring, and check the anchored block number.
 
 ## Step 1: Charge KLAY to test anchoring
 To do an anchoring, SCN have to make an anchoring transaction at Baobab. So `subbridge.parentOperator` account should have some KLAY. Getting some KLAY from Baobab wallet faucet ([link](https://baobab.wallet.klaytn.com/)) and transfer 1 KLAY to the `subbridge.parentOperator`.
