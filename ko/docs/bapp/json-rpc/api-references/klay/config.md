@@ -1,6 +1,6 @@
 ## klay_chainID
 
-Returns the chain ID of the chain.
+체인 ID를 반환합니다.
 
 **Parameters**
 
@@ -8,9 +8,9 @@ None
 
 **Return Value**
 
-| 형식       | 설명                                    |
-| -------- | ------------------------------------- |
-| QUANTITY | Integer of the chain ID of the chain. |
+| 형식       | 설명                   |
+| -------- | -------------------- |
+| QUANTITY | 체인 ID를 정수 형태로 반환합니다. |
 
 **예시**
 
@@ -29,7 +29,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_clientVersion
 
-Returns the current client version of a Klaytn node.
+Klaytn 노드의 현재 클라이언트 버전을 반환합니다.
 
 **Parameters**
 
@@ -37,9 +37,9 @@ None
 
 **Return Value**
 
-| 형식     | 설명                                           |
-| ------ | -------------------------------------------- |
-| String | The current client version of a Klaytn node. |
+| 형식     | 설명                             |
+| ------ | ------------------------------ |
+| String | Klaytn 노드의 현재 클라이언트 버전을 반환합니다. |
 
 **예시**
 
@@ -58,9 +58,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_gasPrice
 
-Returns the current price per gas in peb.
+peb의 현재 가스 가격을 반환합니다.
 
-**NOTE**: This API has different behavior from Ethereum's and returns a gas price of Klaytn instead of suggesting a gas price as in Ethereum.
+**참고**: 이 API는 이더리움에서와 다르게 동작하여 이더리움에서는 추천 가스 가격을 반환하던 것과 달리 Klaytn에서는 현재 가스 가격을 반환합니다.
 
 **Parameters**
 
@@ -68,9 +68,9 @@ None
 
 **Return Value**
 
-| 형식       | 설명                                       |
-| -------- | ---------------------------------------- |
-| QUANTITY | Integer of the current gas price in peb. |
+| 형식       | 설명                           |
+| -------- | ---------------------------- |
+| QUANTITY | peb의 현재 가스 가격을 정수 형태로 반환합니다. |
 
 **예시**
 
@@ -88,21 +88,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_gasPriceAt
 
-Returns the unit price of the given block in peb.
+입력으로 받은 peb의 블록의 단가를 반환합니다.
 
-**NOTE**: This API has different behavior from Ethereum's and returns a gas price of Klaytn instead of suggesting a gas price as in Ethereum.
+**참고**: 이 API는 이더리움에서와 다르게 동작하여 이더리움에서는 추천 가스 가격을 반환하던 것과 달리 Klaytn에서는 현재 가스 가격을 반환합니다.
 
 **Parameters**
 
-| 형식     | 설명                                                            |
-| ------ | ------------------------------------------------------------- |
-| NUMBER | Block number. If omitted, latest unit price will be retruned. |
+| 형식     | 설명                              |
+| ------ | ------------------------------- |
+| NUMBER | 블록 번호입니다. 이를 생략하면 최신 단가가 반환됩니다. |
 
 **Return Value**
 
-| 형식       | 설명                                       |
-| -------- | ---------------------------------------- |
-| QUANTITY | Integer of the current gas price in peb. |
+| 형식       | 설명                           |
+| -------- | ---------------------------- |
+| QUANTITY | peb의 현재 가스 가격을 정수 형태로 반환합니다. |
 
 **예시**
 
@@ -120,7 +120,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_isParallelDBWrite
 
-Returns `true` if the node is writing blockchain data in parallel manner. It is enabled by default.
+노드가 병렬로 블록체인 데이터를 쓰고 있으면 `true`를 반환합니다. 이는 기본적으로 활성화되어 있습니다.
 
 **Parameters**
 
@@ -128,9 +128,9 @@ None
 
 **Return Value**
 
-| 형식      | 설명                                                                                                                                   |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Boolean | `true` means the node is writing blockchain data in parallel manner. It is `false` if the node is writing the data in serial manner. |
+| 형식  | 설명                                                                                 |
+| --- | ---------------------------------------------------------------------------------- |
+| 불리언 | `true`이면 노드가 병렬로 블록체인 데이터를 쓰고 있다는 것입니다. 노드가 순차적으로 블록체인 데이터를 쓰고 있으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -157,9 +157,9 @@ None
 
 **Return Value**
 
-| 형식      | 설명                                                                                                 |
-| ------- | -------------------------------------------------------------------------------------------------- |
-| Boolean | `true` means the node is indexing sender transaction hash to transaction hash mapping information. |
+| 형식  | 설명                                                                                                 |
+| --- | -------------------------------------------------------------------------------------------------- |
+| 불리언 | `true` means the node is indexing sender transaction hash to transaction hash mapping information. |
 
 **예시**
 
@@ -215,9 +215,9 @@ None
 
 **Return Value**
 
-| 형식           | 설명  |
-| ------------ | --- |
-| 20-byte DATA | 주소. |
+| 형식                 | 설명  |
+| ------------------ | --- |
+| 20바이트 크기의 16진수 문자열 | 주소. |
 
 **예시**
 
@@ -254,9 +254,9 @@ None
 
 **Return Value**
 
-| 형식      | 설명                                                    |
-| ------- | ----------------------------------------------------- |
-| Boolean | `true` means the node is using write through caching. |
+| 형식  | 설명                                                    |
+| --- | ----------------------------------------------------- |
+| 불리언 | `true` means the node is using write through caching. |
 
 **예시**
 
