@@ -433,7 +433,7 @@ See [caver.klay.Contract] for details.
 
 ## Using various AccountKey Types <a id="using-various-accountkey-types"></a>
 
-caver-js introduces new structures to support the various types of [AccountKey] supported by the platform.
+caver-js introduces new classes to support the various types of [AccountKey] supported by the platform.
 
 The examples below describe the example in a Node.js file. To practice the examples, first create a test file in the working directory as shown below.
 
@@ -464,10 +464,10 @@ $ node ./test.js
 
 If you see the output of console.log, proceed with the steps below.
 
-**NOTE** Those structures are supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**NOTE** Those classes are supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 ### Account
-Account is a structure containing the address and key of an account. The Account has an [AccountKey](#accountkey), which can be of type [AccountKeyPublic](#accountkeypublic), [AccountKeyMultiSig](#accountkeymultisig), or [AccountKeyRoleBased](#accountkeyrolebased).
+Account is a class containing the address and key of an account. The Account has an [AccountKey](#accountkey), which can be of type [AccountKeyPublic](#accountkeypublic), [AccountKeyMultiSig](#accountkeymultisig), or [AccountKeyRoleBased](#accountkeyrolebased).
 
 The caver.klay.accounts package uses [AccountKeyPublic](#accountkeypublic), which stores and manages a private key string by default.
 
@@ -513,19 +513,19 @@ The printAccount above shows how to use the properties of the Account instance. 
 
 **NOTE** `transactionKey`, `updateKey`, and `feePayerKey` return private key strings or an array of private key strings that should be used for the role. So rather than using privateKey property, it is recommended that you use `transactionKey`, `updateKey` and `feePayerKey` as appropriate, without worrying about the accountKey type.
 
-An explanation of the various AccountKey type structures is provided in the [AccountKey](#accountkey) part.
+An explanation of the various AccountKey classes is provided in the [AccountKey](#accountkey) part.
 
 ### AccountKey
-AccountKey is a structure that stores keys of an account. An account can have one private key string or multiple private key strings to be used for signing. Account can also manage private keys by [roles](../../../klaytn/design/accounts.md#roles).
+AccountKey is a data structure that stores keys of an account. An account can have one private key string or multiple private key strings to be used for signing. Account can also manage private keys by [roles](../../../klaytn/design/accounts.md#roles).
 
-To support this structure, caver-js introduces new structures called AccountKeyPublic, AccountKeyMultiSig, and AccountKeyRoleBased.
+To support this structure, caver-js introduces new classes called AccountKeyPublic, AccountKeyMultiSig, and AccountKeyRoleBased.
 
 To create an AccountKey, use `caver.klay.accounts.createAccountKey`. This function determines which AccountKey to generate based on the type of the parameter. It creates AccountKeyPublic if a private key string comes as a parameter, or AccountKeyMultiSig if an array of private key strings comes. And if there is an object with different key setting for each role, it creates AccountKeyRoleBased.
 
-**NOTE** The structures for `AccountKey` defined here are structures for storing private keys for use in caver-js. It can be different from the accountKey in your account on Klaytn network.
+**NOTE** The classes for `AccountKey` defined in caver-js are data structures for storing private keys for use in caver-js. It can be different from the accountKey in your account on Klaytn network.
 
 #### AccountKeyPublic
-AccountKeyPublic is a structure for storing and managing a single private key string.
+AccountKeyPublic is a class for storing and managing a single private key string.
 
 The following describes how to update an account with AccountKeyPublic. Write the following into testFunction() and run it.
 
@@ -559,7 +559,7 @@ const accountFromAccountKey = caver.klay.accounts.createWithAccountKey(address, 
 ```
 
 #### AccountKeyMultiSig
-AccountKeyMultiSig is a structure for storing and managing multiple private key strings.
+AccountKeyMultiSig is a class for storing and managing multiple private key strings.
 
 The following describes how to update an account with AccountKeyMultiSig. Write the following into testFunction() and run it.
 
@@ -595,7 +595,7 @@ const accountFromAccountKey = caver.klay.accounts.createWithAccountKey(address, 
 ```
 
 #### AccountKeyRoleBased
-AccountKeyRoleBased is a structure for storing and managing keys for each role. Each role can have one private key string or multiple private key strings.
+AccountKeyRoleBased is a class for storing and managing keys for each role. Each role can have one private key string or multiple private key strings.
 
 The following describes how to update an account with AccountKeyRoleBased. Write the following into testFunction() and run it.
 
@@ -646,9 +646,9 @@ The following [AccountForUpdate](#accountforupdate) explains how to update an ac
 
 ### AccountForUpdate
 
-AccountForUpdate is a structure designed to make it easier to use transactions for account update.
+AccountForUpdate is a class designed to make it easier to use transactions for account update.
 
-The AccountForUpdate structure contains only the structure of the public key to be used for account update and the address of the account to update.
+The AccountForUpdate contains only the public key to be used for account update and the address of the account to update.
 
 The examples below start with updating your account with accountKey. There must be enough KLAY in the account to be used for testing. Test KLAY for the Baobab network is available through [Baobab Faucet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
 
