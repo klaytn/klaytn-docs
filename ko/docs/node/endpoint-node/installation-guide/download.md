@@ -5,20 +5,20 @@
 ## Linux
 
 Cypress 패키지
-- [kend-v1.1.1-3.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.1.1/kend-v1.1.1-3.el7.x86_64.rpm)
-- [ken-v1.1.1-3-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/ken-v1.1.1-3-linux-amd64.tar.gz)
+- [kend-v1.2.0-4.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.2.0/kend-v1.2.0-4.el7.x86_64.rpm)
+- [ken-v1.2.0-4-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/ken-v1.2.0-4-linux-amd64.tar.gz)
 
 Baobab 패키지
-- [kend-baobab-v1.1.1-3.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.1.1/kend-baobab-v1.1.1-3.el7.x86_64.rpm)
-- [ken-baobab-v1.1.1-3-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/ken-baobab-v1.1.1-3-linux-amd64.tar.gz)
+- [kend-baobab-v1.2.0-4.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.2.0/kend-baobab-v1.2.0-4.el7.x86_64.rpm)
+- [ken-baobab-v1.2.0-4-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/ken-baobab-v1.2.0-4-linux-amd64.tar.gz)
 
 ## MacOS
 
 Cypress 패키지
-- [ken-v1.1.1-3-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/ken-v1.1.1-3-darwin-amd64.tar.gz)
+- [ken-v1.2.0-4-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/ken-v1.2.0-4-darwin-amd64.tar.gz)
 
 Baobab 패키지
-- [ken-baobab-v1.1.1-3-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.1.1/ken-baobab-v1.1.1-3-darwin-amd64.tar.gz)
+- [ken-baobab-v1.2.0-4-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/ken-baobab-v1.2.0-4-darwin-amd64.tar.gz)
 
 
 
