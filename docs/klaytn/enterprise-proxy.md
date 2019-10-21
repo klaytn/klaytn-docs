@@ -3,17 +3,17 @@ Klaytn Enterprise Proxy (EP) is an off-chain proxy that communicates with underl
 
 EP is designed as an add-on service for enterprise users and larger application providers who can benefit more from seamless integration with key legacy assets and tools without negatively impacting one of the most important quality of blockchain - decentralization. In this regard, EP is a differentiation feature for Klaytn as it encompasses various offerings of useful tools for enterprise users, including Oracle, an application-specific dashboard. Further, EP enables enterprise users to use Klaytn blockchain with traditional database and security systems typically believed to be difficult to integrate with decentralized systems, such as access control layers (ACL), firewalls (FW), and fraud detection systems (FDS). At its onset, EP will be offered as a software framework that stands between the legacy backend systems and Klaytn. In this way, EP allows users without extensive knowledge about blockchain to easily sync blockchain data and relay transactions via a single configuration.
 
-EP provides BApp service providers with two main usages. First, EP functions as a **blockchain enabler** reduce the technical hurdles in tasks inevitable for using blockchain technology. Second, EP serves as a **legacy system integrator** that supports Klaytn blockchain integration with traditional database and security systems
+EP provides BApp service providers with two main usages. First, EP functions as a **blockchain enabler** reduce the technical hurdles in tasks inevitable for using blockchain technology. Second, EP serves as a **legacy system integrator** that supports Klaytn blockchain integration with traditional database and security systems.
 
 1. Blockchain Enabler
- - Event handler (WIP) : if users deploy smart contracts through EP, event subscriber will be generated automatically with abi of them
- - Transaction manager : the service providers will be able to manage transactions and accounts such as transaction throttling, nonce increasing and account authentication
- - Chain router : configuring multi-Klaytn clients used for BApp
+ - Event handler (WIP) : if users deploy smart contracts through EP, event subscriber will be generated automatically with abi of them.
+ - Transaction manager : the service providers will be able to manage transactions and accounts such as transaction throttling, nonce increasing and account authentication.
+ - Chain router : configuring multi-Klaytn clients used for BApp.
 
 
 2. Legacy System Integrator
- - Requests transcoder : supporting various type of API including gRPC, RESTful API request
- - Request gateway : collecting client metrics for analytics
+ - Requests transcoder : supporting various type of API including gRPC, RESTful API request.
+ - Request gateway : collecting client metrics for analytics.
 
 
  ## Blockchain Enabler
