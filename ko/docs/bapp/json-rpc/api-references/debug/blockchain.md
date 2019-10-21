@@ -191,9 +191,9 @@ Returns the preimage for a sha3 hash, if known.
 
 **Parameters**
 
-| 명칭 | 형식     | 설명         |
-| -- | ------ | ---------- |
-| 해시 | string | sha3 hash. |
+| 명칭   | 형식     | 설명         |
+| ---- | ------ | ---------- |
+| hash | string | sha3 hash. |
 
 **Return Value**
 
