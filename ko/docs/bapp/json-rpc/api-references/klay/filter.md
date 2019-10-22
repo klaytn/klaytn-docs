@@ -1,31 +1,31 @@
 ## klay_getFilterChanges
 
-Polling method for a filter, which returns an array of logs which occurred since last poll.
+필터에 대한 폴링 방법으로, 최근 폴링 이후 발생한 로그를 배열의 형태로 반환합니다.
 
 **Parameters**
 
-| 명칭       | 형식     | 설명                                    |
-| -------- | ------ | ------------------------------------- |
-| QUANTITY | string | The filter id (*e.g.*, "0x16" // 22). |
+| 명칭       | 형식     | 설명                               |
+| -------- | ------ | -------------------------------- |
+| QUANTITY | string | 필터 ID(*예를 들어*, "0x16" // 22)입니다. |
 
 **Return Value**
 
-`Array` - Array of log objects, or an empty array if nothing has changed since last poll.
-- For filters created with [klay_newBlockFilter](#klay_newblockfilter), the return are block hashes (32-byte DATA), *e.g.*, `["0x3454645634534..."]`.
-- For filters created with [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter), the return are transaction hashes (32-byte DATA), *e.g.*, `["0x6345343454645..."]`.
-- For filters created with [klay_newFilter](#klay_newfilter), logs are objects with following parameters:
+`배열` - 로그 객체의 배열을 반환하거나 또는 최근 폴링 이후 변화가 없는 경우 빈 배열을 반환합니다.
+- [klay_newBlockFilter](#klay_newblockfilter)로 생성된 필터의 경우 블록 해시(32바이트 크기의 DATA)를 반환합니다. *예를 들어*, `["0x3454645634534..."]`.
+- [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter)로 생성된 필터의 경우 트랜잭션 해시(32바이트 크기의 DATA)를 반환합니다. *예를 들어*, `["0x6345343454645..."]`.
+- [klay_newFilter](#klay_newfilter)로 생성된 필터의 경우 다음의 매개변수가 있는 로그 객체를 반환합니다.
 
-| 명칭               | 형식            | 설명                                                                                                                                                                                                                                           |
-| ---------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| removed          | TAG           | `true` when the log was removed, due to a chain reorganization. `false` if it is a valid log.                                                                                                                                                |
-| logIndex         | QUANTITY      | Integer of the log index position in the block. `null` when it is a pending log.                                                                                                                                                             |
-| transactionIndex | QUANTITY      | Integer of the transactions index position log was created from. `null` when pending.                                                                                                                                                        |
-| transactionHash  | 32-byte DATA  | Hash of the transactions this log was created from. `null` when pending.                                                                                                                                                                     |
-| blockHash        | 32-byte DATA  | Hash of the block where this log was in. `null` when pending.                                                                                                                                                                                |
-| blockNumber      | QUANTITY      | The block number where this log was in. `null` when pending.                                                                                                                                                                                 |
-| address          | 20-byte DATA  | Address from which this log originated.                                                                                                                                                                                                      |
-| data             | DATA          | Contains the non-indexed arguments of the log.                                                                                                                                                                                               |
-| topics           | Array of DATA | Array of 0 to 4 32-byte DATA of indexed log arguments. (In Solidity: The first topic is the hash of the signature of the event (*e.g.*, `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.). |
+| 명칭               | 형식            | 설명                                                                                                                                                                                      |
+| ---------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| removed          | TAG           | 체인 재구성으로 로그가 제거된 경우 `true`입니다. 유효한 로그이면 `false`입니다.                                                                                                                                     |
+| logIndex         | QUANTITY      | 블록에서 로그 인덱스 위치의 정숫값입니다. 보류 중인 로그인 경우 `null`을 반환합니다.                                                                                                                                     |
+| transactionIndex | QUANTITY      | 로그가 생성된 트랜잭션의 인덱스 위치의 정숫값입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                   |
+| transactionHash  | 32-byte DATA  | 로그가 생성된 트랜잭션의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                            |
+| blockHash        | 32-byte DATA  | 로그가 생성된 블록의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                              |
+| blockNumber      | QUANTITY      | 로그가 속한 블록의 번호입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                               |
+| address          | 20바이트 크기 DATA | 로그를 발생시킨 주소입니다.                                                                                                                                                                         |
+| data             | DATA          | 로그 중 인덱스화되지 않은 인수를 담고 있습니다.                                                                                                                                                             |
+| topics           | DATA 배열       | 길이가 0부터 4까지인 배열로, 배열의 각 원소는 32바이트 크기 DATA 형태의 인덱스화된 로그 인수들입니다. (솔리디티의 경우 `anonymous` 지정자로 이벤트를 선언하지 않았다면 배열의 첫 번째 원소는 이벤트에 대한 서명의 해시입니다. (*예를 들어*, `Deposit(address,bytes32,uint256)`)) |
 
 **예시**
 
@@ -55,17 +55,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getFilterLogs
 
-Returns an array of all logs matching filter with given id, which has been obtained using [klay_newFilter](#klay_newfilter).  Note that filter ids returned by other filter creation functions, such as [klay_newBlockFilter](#klay_newblockfilter) or [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter), cannot be used with this function.
+입력으로 받은 필터 ID와 일치하는 모든 로그를 배열 형태로 반환합니다. 필터 Id는 [klay_newFilter](#klay_newfilter)를 통해 얻을 수 있습니다.  이때 [klay_newBlockFilter](#klay_newblockfilter), [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter)와 같은 다른 필터 생성 함수를 통해 얻은 필터 ID는 본 함수의 매개변수로 사용할 수 없습니다.
 
 **Parameters**
 
-| 명칭       | 형식     | 설명            |
-| -------- | ------ | ------------- |
-| QUANTITY | string | The filter id |
+| 명칭       | 형식     | 설명        |
+| -------- | ------ | --------- |
+| QUANTITY | string | 필터 ID입니다. |
 
 **Return Value**
 
-See [klay_getFilterChanges](#klay_getfilterchanges)
+자세한 내용은 [klay_getFilterChanges](#klay_getfilterchanges)를 참고하세요.
 
 **예시**
 
@@ -94,25 +94,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getLogs
 
-Returns an array of all logs matching a given filter object.
+입력으로 받은 필터 객체와 일치하는 모든 로그를 배열 형태로 반환합니다.
 
 **Parameters**
 
-`Object` - The filter options:
+`객체` - 필터 객체를 구성하는 옵션은 다음과 같습니다.
 
-| 명칭        | 형식                        | 설명                                                                                                                                                                                                                                                                                                               |
-| --------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions.                                                                                                                                                        |
-| toBlock   | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions.                                                                                                                                                        |
-| address   | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate.                                                                                                                                                                                                                             |
-| topics    | Array of DATA             | (optional) Array of 32-byte DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with “or” options.                                                                                                                                                                                  |
-| blockHash | 32-byte DATA              | (optional) A filter option that restricts the logs returned to the single block with the 32-byte hash blockHash. Using blockHash is equivalent to fromBlock = toBlock = the block number with hash blockHash. If blockHash is present in in the filter criteria, then neither fromBlock nor toBlock are allowed. |
+| 명칭        | 형식                       | 설명                                                                                                                                                                                            |
+| --------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | QUANTITY &#124; TAG      | (선택사항이며,  기본적으로 `"latest"`로 설정되어 있습니다.) 블록 번호 정숫값이거나 또는 마지막으로 채굴된 블록의 경우 `"latest"`, 아직 채굴되지 않은 트랜잭션의 경우 `"pending"`, `"earliest"` 문자열입니다.                                                    |
+| toBlock   | QUANTITY &#124; TAG      | (선택사항이며,  기본적으로 `"latest"`로 설정되어 있습니다.) 블록 번호 정숫값이거나 또는 마지막으로 채굴된 블록의 경우 `"latest"`, 아직 채굴되지 않은 트랜잭션의 경우 `"pending"`, `"earliest"` 문자열입니다.                                                    |
+| address   | 20바이트 크기의 DATA &#124; 배열 | (선택사항) 로그를 발생시킨 컨트랙트 주소 또는 주소들의 목록입니다.                                                                                                                                                        |
+| topics    | DATA 배열                  | (선택사항) 32바이트 크기 DATA 형태의 토픽으로 이루어진 배열입니다. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                                                                                              |
+| blockHash | 32-byte DATA             | (선택사항) 32바이트 길이의 해시 blockHash를 사용하여 한 블록으로 반환된 로그를 제한하는 필터 옵션입니다. blockHash를 사용하면, blockHash로 지정한 블록의 번호가 fromBlock, toBlock과 같아집니다. 따라서 필터 기준에 blockHash가 있으면 fromBlock과 toBlock이 허용되지 않습니다. |
 
 **Return Value**
 
-See [klay_getFilterChanges](#klay_getfilterchanges)
+자세한 내용은 [klay_getFilterChanges](#klay_getfilterchanges)를 참고하세요.
 
-**Examples**
+**예제**
 
 ```shell
 // Request
@@ -231,7 +231,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 
 ## klay_newBlockFilter
 
-Creates a filter in the node, to notify when a new block arrives. To check if the state has changed, call [klay_getFilterChanges](#klay_getfilterchanges).
+노드에 필터를 생성하여 새로운 블록이 도착하였음을 알립니다. 상태가 변경되었는지 확인하려면 [klay_getFilterChanges](#klay_getfilterchanges)를 호출하세요.
 
 **Parameters**
 
@@ -239,9 +239,9 @@ None
 
 **Return Value**
 
-| 형식       | 설명           |
-| -------- | ------------ |
-| QUANTITY | A filter id. |
+| 형식       | 설명        |
+| -------- | --------- |
+| QUANTITY | 필터 ID입니다. |
 
 **예시**
 
@@ -260,33 +260,33 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_newFilter
 
-Creates a filter object, based on filter options, to notify when the state changes (logs).
-- To check if the state has changed, call [klay_getFilterChanges](#klay_getfilterchanges).
-- To obtain all logs matching the filter created by `klay_newFilter`, call [klay_getFilterLogs](#klay_getfilterlogs).
+필터 옵션에 따라 필터 객체를 생성하여 상태가 변경되었음(로그)를 알립니다.
+- 상태가 변경되었는지 확인하려면 [klay_getFilterChanges](#klay_getfilterchanges)를 호출하세요.
+- `klay_newFilter`로 생성된 필터와 일치하는 모든 로그를 가져오려면 [klay_getFilterLogs](#klay_getfilterlogs)를 호출하세요.
 
-**A note on specifying topic filters:** Topics are order-dependent. A transaction with a log with topics `[A, B]` will be matched by the following topic filters:
-* `[]` "anything"
-* `[A]` "A in first position (and anything after)"
-* `[null, B]` "anything in first position AND B in second position (and anything after)"
-* `[A, B]` "A in first position AND B in second position (and anything after)"
-* `[[A, B], [A, B]]` "(A OR B) in first position AND (A OR B) in second position (and anything after)"
+**토픽 필터 지정 시 참고사항:** 토픽은 순서에 따라 다릅니다. `[A, B]`인 토픽인 로그가 있는 트랜잭션은 다음 토픽 필터에 대응됩니다.
+* `[]` "조건 없음"
+* `[A]` "A가 첫 번째 위치에 있음 (이후에는 무엇이든 있어도 됨)"
+* `[null, B]` "첫 번째 위치에 어떤 것이 있음 AND B가 두 번째 위치에 있음 (이후에는 무엇이든 있어도 됨)"
+* `[A, B]` "A가 첫 번째 위치에 있음 AND B가 두 번째 위치에 있음 (이후에는 무엇이든 있어도 됨)"
+* `[[A, B], [A, B]]` "(A 또는 B)가 첫 번째 위치에 있음 AND (A 또는 B)가 두 번째 위치에 있음 (이후에는 무엇이든 있어도 됨)"
 
 **Parameters**
 
-`Object` - The filter options:
+`객체` - 필터 객체를 구성하는 옵션은 다음과 같습니다.
 
-| 명칭        | 형식                        | 설명                                                                                                                                                        |
-| --------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions. |
-| toBlock   | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions. |
-| address   | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate.                                                                      |
-| topics    | Array of DATA             | (optional) Array of 32-byte DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options.                           |
+| 명칭        | 형식                       | 설명                                                                                                                                         |
+| --------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| fromBlock | QUANTITY &#124; TAG      | (선택사항이며,  기본적으로 `"latest"`로 설정되어 있습니다.) 블록 번호 정숫값이거나 또는 마지막으로 채굴된 블록의 경우 `"latest"`, 아직 채굴되지 않은 트랜잭션의 경우 `"pending"`, `"earliest"` 문자열입니다. |
+| toBlock   | QUANTITY &#124; TAG      | (선택사항이며,  기본적으로 `"latest"`로 설정되어 있습니다.) 블록 번호 정숫값이거나 또는 마지막으로 채굴된 블록의 경우 `"latest"`, 아직 채굴되지 않은 트랜잭션의 경우 `"pending"`, `"earliest"` 문자열입니다. |
+| address   | 20바이트 크기의 DATA &#124; 배열 | (선택사항) 로그를 발생시킨 컨트랙트 주소 또는 주소들의 목록입니다.                                                                                                     |
+| topics    | DATA 배열                  | (선택사항) 32바이트 크기 DATA 형태의 토픽으로 이루어진 배열입니다. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                                           |
 
 **Return Value**
 
-| 형식       | 설명          |
-| -------- | ----------- |
-| QUANTITY | A filter id |
+| 형식       | 설명       |
+| -------- | -------- |
+| QUANTITY | 필터 ID입니다 |
 
 **예시**
 
@@ -301,7 +301,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 
 ## klay_newPendingTransactionFilter
 
-Creates a filter in the node, to notify when new pending transactions arrive. To check if the state has changed, call [klay_getFilterChanges](#klay_getfilterchanges).
+노드에 필터를 생성하여 보류 상태인 새로운 트랜잭션이 도착하였음을 알립니다. 상태가 변경되었는지 확인하려면 [klay_getFilterChanges](#klay_getfilterchanges)를 호출하세요.
 
 **Parameters**
 
@@ -309,9 +309,9 @@ None
 
 **Return Value**
 
-| 형식       | 설명           |
-| -------- | ------------ |
-| QUANTITY | A filter id. |
+| 형식       | 설명        |
+| -------- | --------- |
+| QUANTITY | 필터 ID입니다. |
 
 **예시**
 
@@ -330,19 +330,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_uninstallFilter
 
-Uninstalls a filter with given id. Should always be called when watch is no longer needed. Additionally, filters timeout when they are not requested with [klay_getFilterChanges](#klay_getfilterchanges) for a period of time.
+입력으로 받은 ID를 가진 필터를 제거합니다. 더는 모니터링을 하지 않으면 호출해야 합니다. 또한, 일정 주기 동안 [klay_getFilterChanges](#klay_getfilterchanges)를 통해 요청되지 않으면 필터는 타임아웃 됩니다.
 
 **Parameters**
 
-| 명칭     | 형식       | 설명           |
-| ------ | -------- | ------------ |
-| filter | QUANTITY | A filter id. |
+| 명칭 | 형식       | 설명        |
+| -- | -------- | --------- |
+| 필터 | QUANTITY | 필터 ID입니다. |
 
 **Return Value**
 
-| 형식      | 설명                                                                    |
-| ------- | --------------------------------------------------------------------- |
-| Boolean | `true` if the filter was successfully uninstalled, otherwise `false`. |
+| 형식  | 설명                                                   |
+| --- | ---------------------------------------------------- |
+| 불리언 | 필터가 성공적으로 제거되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
