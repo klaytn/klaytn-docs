@@ -1,11 +1,11 @@
 ---
 description: >-
-  APIs related to accounts, blocks, transactions, and nodes.
+  계정, 블록, 트랜잭션, 노드 등과 관련된 API입니다.
 ---
 
 # Namespace klay
 
-The namespace `klay` provides functions related to accounts, blocks, transactions, configurations of networks or nodes, filters, and so on. The list below enumerates the API functions that are currently supported in Klaytn.
+`klay` namespace는 계정, 블록, 트랜잭션, 네트워크 또는 노드의 환경 설정, 필터 등과 관련한 함수를 제공합니다. 아래는 현재 Klaytn이 지원하는 API 함수들의 목록입니다.
 
 
 ### [계정 (Account)](./klay/account.md)
