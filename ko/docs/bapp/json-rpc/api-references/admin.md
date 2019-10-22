@@ -1,16 +1,16 @@
 ---
 description: >-
-  APIs to control Klaytn node.
+  Klaytn 노드를 제어하는 API입니다.
 ---
 
 # Namespace admin
 
-The namespace `admin` gives you access to several non-standard RPC methods, which will allow you to have fine-grained control over your Klaytn instance, including but not limited to network peer and RPC endpoint management.
+`admin` namespace를 사용하여 몇몇 비표준 RPC 메서드에 접근할 수 있으며, 이를 통해 네트워크 피어와 RPC 엔드포인트 관리를 포함하되 이에 국한되지 않는 Klaytn 인스턴스를 세밀하게 제어할 수 있습니다.
 
 
 ## admin_nodeInfo
 
-The `nodeInfo` administrative property can be queried for all the information known about the running Klaytn node at the networking granularity. These include general information about the node itself as a participant of the [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P overlay protocol, as well as specialized information added by each of the running application protocols, e.g., `klay`.
+`nodeInfo` 관리 속성을 조회하여 실행 중인 Klaytn 노드에 대해 알려진 모든 정보를 확인할 수 있습니다. These include general information about the node itself as a participant of the [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P overlay protocol, as well as specialized information added by each of the running application protocols, e.g., `klay`.
 
 | Client  | Method invocation              |
 |:-------:| ------------------------------ |
