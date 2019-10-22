@@ -107,26 +107,26 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 `객체` - 블록 객체로 반환하거나 또는 해당 블록을 찾을 수 없는 경우에는 `null`로 반환합니다.
 
-| 명칭               | 형식                  | 설명                                                         |
-| ---------------- | ------------------- | ---------------------------------------------------------- |
-| number           | QUANTITY            | The block number. 아직 보류 중인 블록이면 `null`입니다.                 |
-| hash             | 32-byte DATA        | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                        |
-| parentHash       | 32-byte DATA        | 이전 블록의 해시입니다.                                              |
-| logsBloom        | 256바이트 크기의 16진수 문자열 | 블록의 로그를 위한 블룸필터입니다. 아직 보류 중인 블록이면 `null`입니다.               |
-| transactionsRoot | 32-byte DATA        | 블록의 트랜잭션 트라이의 루트 해시입니다.                                    |
-| stateRoot        | 32-byte DATA        | 블록의 상태 트라이의 루트 해시입니다.                                      |
-| receiptsRoot     | 32-byte DATA        | 블록의 영수증 트라이의 루트 해시입니다.                                     |
-| reward           | 20바이트 크기의 16진수 문자열  | 블록 보상을 받을 수혜자의 주소입니다.                                      |
-| blockScore       | QUANTITY            | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                           |
-| totalBlockScore  | QUANTITY            | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                     |
-| extraData        | 16진수 문자열            | 블록의 "추가 데이터"를 위한 필드입니다.                                    |
-| size             | QUANTITY            | 블록의 바이트 크기의 정수 형태입니다.                                      |
-| gasUsed          | QUANTITY            | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                             |
-| timestamp        | QUANTITY            | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                |
-| timestampFoS     | QUANTITY            | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                           |
-| transactions     | 배열                  | 트랜잭션 객체의 배열이거나 또는 마지막으로 주어진 매개변수에 따라 32바이트 크기의 트랜잭션 해시입니다. |
-| governanceData   | 16진수 문자열            | RLP 인코딩된 거버넌스 설정입니다.                                       |
-| voteData         | 16진수 문자열            | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                  |
+| 명칭               | 형식             | 설명                                                         |
+| ---------------- | -------------- | ---------------------------------------------------------- |
+| number           | QUANTITY       | The block number. 아직 보류 중인 블록이면 `null`입니다.                 |
+| hash             | 32-byte DATA   | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                        |
+| parentHash       | 32-byte DATA   | 이전 블록의 해시입니다.                                              |
+| logsBloom        | 256바이트 크기 DATA | 블록의 로그를 위한 블룸필터입니다. 아직 보류 중인 블록이면 `null`입니다.               |
+| transactionsRoot | 32-byte DATA   | 블록의 트랜잭션 트라이의 루트 해시입니다.                                    |
+| stateRoot        | 32-byte DATA   | 블록의 상태 트라이의 루트 해시입니다.                                      |
+| receiptsRoot     | 32-byte DATA   | 블록의 영수증 트라이의 루트 해시입니다.                                     |
+| reward           | 20바이트 크기 DATA  | 블록 보상을 받을 수혜자의 주소입니다.                                      |
+| blockScore       | QUANTITY       | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                           |
+| totalBlockScore  | QUANTITY       | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                     |
+| extraData        | DATA           | 블록의 "추가 데이터"를 위한 필드입니다.                                    |
+| size             | QUANTITY       | 블록의 바이트 크기의 정수 형태입니다.                                      |
+| gasUsed          | QUANTITY       | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                             |
+| timestamp        | QUANTITY       | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                |
+| timestampFoS     | QUANTITY       | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                           |
+| transactions     | 배열             | 트랜잭션 객체의 배열이거나 또는 마지막으로 주어진 매개변수에 따라 32바이트 크기의 트랜잭션 해시입니다. |
+| governanceData   | DATA           | RLP 인코딩된 거버넌스 설정입니다.                                       |
+| voteData         | DATA           | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                  |
 
 **예시**
 
@@ -299,23 +299,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 `객체` - 합의에 대한 정보(제안자와 위원회 멤버의 목록)를 포함한 블록 객체를 반환하거나 또는 해당 블록이 없는 경우 `null`을 반환합니다.
 
-| 명칭               | 형식                 | 설명                                                                       |
-| ---------------- | ------------------ | ------------------------------------------------------------------------ |
-| blockScore       | QUANTITY           | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                         |
-| totalBlockScore  | QUANTITY           | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                   |
-| committee        | 배열                 | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
-| gasUsed          | QUANTITY           | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                           |
-| hash             | 32-byte DATA       | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                      |
-| number           | QUANTITY           | The block number. 아직 보류 중인 블록이면 `null`입니다.                               |
-| parentHash       | 32-byte DATA       | 이전 블록의 해시입니다.                                                            |
-| proposer         | 20바이트 크기의 16진수 문자열 | 블록 제안자의 주소입니다.                                                           |
-| receiptsRoot     | 32-byte DATA       | 블록의 영수증 트라이의 루트 해시입니다.                                                   |
-| size             | QUANTITY           | 블록의 바이트 크기의 정수 형태입니다.                                                    |
-| stateRoot        | 32-byte DATA       | 블록의 상태 트라이의 루트 해시입니다.                                                    |
-| timestamp        | QUANTITY           | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                              |
-| timestampFoS     | QUANTITY           | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                         |
-| transactions     | 배열                 | 트랜잭션 객체의 배열입니다.                                                          |
-| transactionsRoot | 32-byte DATA       | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                  |
+| 명칭               | 형식            | 설명                                                                       |
+| ---------------- | ------------- | ------------------------------------------------------------------------ |
+| blockScore       | QUANTITY      | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                         |
+| totalBlockScore  | QUANTITY      | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                   |
+| committee        | 배열            | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
+| gasUsed          | QUANTITY      | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                           |
+| hash             | 32-byte DATA  | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                      |
+| number           | QUANTITY      | The block number. 아직 보류 중인 블록이면 `null`입니다.                               |
+| parentHash       | 32-byte DATA  | 이전 블록의 해시입니다.                                                            |
+| proposer         | 20바이트 크기 DATA | 블록 제안자의 주소입니다.                                                           |
+| receiptsRoot     | 32-byte DATA  | 블록의 영수증 트라이의 루트 해시입니다.                                                   |
+| size             | QUANTITY      | 블록의 바이트 크기의 정수 형태입니다.                                                    |
+| stateRoot        | 32-byte DATA  | 블록의 상태 트라이의 루트 해시입니다.                                                    |
+| timestamp        | QUANTITY      | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                              |
+| timestampFoS     | QUANTITY      | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                         |
+| transactions     | 배열            | 트랜잭션 객체의 배열입니다.                                                          |
+| transactionsRoot | 32-byte DATA  | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                  |
 
 **예시**
 
@@ -407,23 +407,23 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 `객체` - 합의에 대한 정보(제안자와 위원회 멤버의 목록)를 포함한 블록 객체를 반환하거나 또는 해당 블록이 없는 경우 `null`을 반환합니다.
 
-| 명칭               | 형식                 | 설명                                                                       |
-| ---------------- | ------------------ | ------------------------------------------------------------------------ |
-| blockScore       | QUANTITY           | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                         |
-| totalBlockScore  | QUANTITY           | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                   |
-| committee        | 배열                 | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
-| gasUsed          | QUANTITY           | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                           |
-| hash             | 32-byte DATA       | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                      |
-| number           | QUANTITY           | The block number. 아직 보류 중인 블록이면 `null`입니다.                               |
-| parentHash       | 32-byte DATA       | 이전 블록의 해시입니다.                                                            |
-| proposer         | 20바이트 크기의 16진수 문자열 | 블록 제안자의 주소입니다.                                                           |
-| receiptsRoot     | 32-byte DATA       | 블록의 영수증 트라이의 루트 해시입니다.                                                   |
-| size             | QUANTITY           | 블록의 바이트 크기의 정수 형태입니다.                                                    |
-| stateRoot        | 32-byte DATA       | 블록의 상태 트라이의 루트 해시입니다.                                                    |
-| timestamp        | QUANTITY           | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                              |
-| timestampFoS     | QUANTITY           | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                         |
-| transactions     | 배열                 | 트랜잭션 객체의 배열입니다.                                                          |
-| transactionsRoot | 32-byte DATA       | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                  |
+| 명칭               | 형식            | 설명                                                                       |
+| ---------------- | ------------- | ------------------------------------------------------------------------ |
+| blockScore       | QUANTITY      | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                         |
+| totalBlockScore  | QUANTITY      | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                   |
+| committee        | 배열            | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
+| gasUsed          | QUANTITY      | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                           |
+| hash             | 32-byte DATA  | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                      |
+| number           | QUANTITY      | The block number. 아직 보류 중인 블록이면 `null`입니다.                               |
+| parentHash       | 32-byte DATA  | 이전 블록의 해시입니다.                                                            |
+| proposer         | 20바이트 크기 DATA | 블록 제안자의 주소입니다.                                                           |
+| receiptsRoot     | 32-byte DATA  | 블록의 영수증 트라이의 루트 해시입니다.                                                   |
+| size             | QUANTITY      | 블록의 바이트 크기의 정수 형태입니다.                                                    |
+| stateRoot        | 32-byte DATA  | 블록의 상태 트라이의 루트 해시입니다.                                                    |
+| timestamp        | QUANTITY      | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                              |
+| timestampFoS     | QUANTITY      | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                         |
+| transactions     | 배열            | 트랜잭션 객체의 배열입니다.                                                          |
+| transactionsRoot | 32-byte DATA  | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                  |
 
 **예시**
 
@@ -514,9 +514,9 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 `배열` - 위원회에 속한 검증자들의 주소를 배열로 반환하거나 또는 위원회를 찾을 수 없는 경우 `null`을 반환합니다.
 
-| 형식                | 설명                       |
-| ----------------- | ------------------------ |
-| 20바이트 크기의 16진수 배열 | 위원회에 속한 검증자들의 주소를 반환합니다. |
+| 형식            | 설명                       |
+| ------------- | ------------------------ |
+| 20바이트 크기 DATA | 위원회에 속한 검증자들의 주소를 반환합니다. |
 
 **예시**
 
@@ -582,9 +582,9 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 `배열` - council에 속한 검증자들의 주소를 배열로 반환하거나 또는 council을 찾을 수 없는 경우 `null`을 반환합니다.
 
-| 형식                | 설명                           |
-| ----------------- | ---------------------------- |
-| 20바이트 크기의 16진수 배열 | council에 속한 검증자들의 주소를 반환합니다. |
+| 형식            | 설명                           |
+| ------------- | ---------------------------- |
+| 20바이트 크기 DATA | council에 속한 검증자들의 주소를 반환합니다. |
 
 **예시**
 
@@ -643,15 +643,15 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 | 형식                  | 설명                                                                                                                                               |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 20바이트 크기의 16진수 문자열  | 스토리지의 주소입니다.                                                                                                                                     |
+| 20바이트 크기 DATA       | 스토리지의 주소입니다.                                                                                                                                     |
 | QUANTITY            | 스토리지의 위치의 정수 형태입니다.                                                                                                                              |
 | QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](#the-default-block-parameter)를 참고하세요. |
 
  **Return Value**
 
-| 형식       | 설명                         |
-| -------- | -------------------------- |
-| 16진수 문자열 | 입력으로 받은 스토리지 위치의 값을 반환합니다. |
+| 형식   | 설명                         |
+| ---- | -------------------------- |
+| DATA | 입력으로 받은 스토리지 위치의 값을 반환합니다. |
 
 **예시**
 
