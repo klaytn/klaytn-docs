@@ -1,8 +1,8 @@
-# Configuration
+# Configuration <a id="configuration"></a>
 
 This page explains the configuration of a single Service Chain Node (SCN).
 
-## Creation of a Genesis File
+## Creation of a Genesis File <a id="creation-of-a-genesis-file"></a>
 
 First, you should create new genesis file for your own service chain and initialize all service chain nodes with the same genesis file.
 The genesis file of the service chain is different with main chain.
@@ -42,7 +42,7 @@ The `genesis.json` examples follow. You can find more details in [Genesis JSON](
 ```
 
 
-## SCN Data Directory Creation
+## SCN Data Directory Creation <a id="scn-data-directory-creation"></a>
 
 Considering the fact that the size of Klaytn blockchain data is always increased, it is recommended to use a big enough storage. You may need to create the directory on your specific path.
 
@@ -50,7 +50,7 @@ Considering the fact that the size of Klaytn blockchain data is always increased
 $ mkdir -p ~/kscnd_home
 ```
 
-### Initialization of a Genesis Block
+### Initialization of a Genesis Block <a id="initialization-of-a-genesis-block"></a>
 
 Before starting an service chain node, it is necessary to initialize the genesis block of the service chain network using `kscn` and `genesis.json`.
 

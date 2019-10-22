@@ -3,12 +3,12 @@ description: >-
   APIs related to main chain ENs connected with a service chain.
 ---
 
-# Namespace mainbridge
+# Namespace mainbridge <a id="namespace-mainbridge"></a>
 
 The namespace `mainbridge` provides functions related to Service Chain.
 To use functions in this namespace, the option `mainbridge` should be enabled in the EN connected to the main chain (Mainnet or Baobab testnet).
 
-## mainbridge_nodeInfo
+## mainbridge_nodeInfo <a id="mainbridge_nodeInfo"></a>
 
 Returns bridge node information including the KNI (Klaytn Network Identifier) of the node.
 A mainbridge node can connect to a subbrige node via the KNI.
@@ -55,7 +55,7 @@ None
 }
 ```
 
-## mainbridge_addPeer
+## mainbridge_addPeer  <a id="mainbridge_addPeer"></a>
 Returns `true` if adding a subbridge peer is done successfully.
 
 It Adds a new remote node to the peer list.
@@ -90,7 +90,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
-## mainbridge_removePeer
+## mainbridge_removePeer <a id="mainbridge_removePeer"></a>
 Returns `true` if removing the peer is done successfully.
 
 The `removePeer` method disconnects and removes the remote node in the list of tracked static nodes.
@@ -125,7 +125,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
-## mainbridge_getChildChainIndexingEnabled
+## mainbridge_getChildChainIndexingEnabled <a id="mainbridge_getChildChainIndexingEnabled"></a>
 
 `mainbridge.getChildChainIndexingEnabled` returns if indexing anchoring transaction is enabled or not.
 
@@ -146,7 +146,7 @@ none
 true
 ```
 
-## mainbridge_convertChildChainBlockHashToParentChainTxHash
+## mainbridge_convertChildChainBlockHashToParentChainTxHash <a id="mainbridge_convertChildChainBlockHashToParentChainTxHash"></a>
 
 Returns the anchoring transaction hash of the given child chain block hash.
 

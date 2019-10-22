@@ -3,12 +3,12 @@ description: >-
   APIs related to service chain ENs.
 ---
 
-# Namespace subbridge
+# Namespace subbridge <a id="namespace-subbridge"></a>
 
 The namespace `subbridge` provides functions related to Service Chain.
 To use functions in this namespace, the option `subbridge` should be enabled in the SEN connected to the service chain.
 
-## subbridge_nodeInfo
+## subbridge_nodeInfo <a id="subbridge_nodeInfo"></a>
 
 Returns bridge node information including the KNI (Klaytn Network Identifier) of the node.
 A subbridge node can connect to a mainbridge node via the KNI.
@@ -55,7 +55,7 @@ None
 }
 ```
 
-## subbridge_addPeer
+## subbridge_addPeer <a id="subbridge_addPeer"></a>
 Returns `true` if adding a mainbridge peer is done successfully.
 
 The `addPeer` method adds a new remote node to the peer list.
@@ -92,7 +92,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
-## subbridge_removePeer
+## subbridge_removePeer <a id="subbridge_removePeer"></a>
 Returns `true` if removing the peer is done successfully.
 
 The `removePeer` method disconnects and removes the remote node in the list of tracked static nodes.
@@ -127,7 +127,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
-## subbridge_parentOperator
+## subbridge_parentOperator <a id="subbridge_parentOperator"></a>
 The `subbridge.parentOperator` returns the parent operator account address.
 
 **Parameters**
@@ -147,7 +147,7 @@ none
 "0xA057995175B93Ee0D1bdfA54f078Ad0F0116130b"
 ```
 
-## subbridge_childOperator
+## subbridge_childOperator <a id="subbridge_childOperator"></a>
 The `bridge.childOperator` returns the child operator account address.
 
 **Parameters**
@@ -167,7 +167,7 @@ none
 "0x5C1C757a6Cb6c6FcEFE398674D8209FDA2A74Df4"
 ```
 
-## subbridge_parentOperatorNonce
+## subbridge_parentOperatorNonce <a id="subbridge_parentOperatorNonce"></a>
 The `bridge.bridge_parentOperatorNonce` returns the nonce of the parent operator account address.
 
 **Parameters**
@@ -187,7 +187,7 @@ none
 1348
 ```
 
-## subbridge_childOperatorNonce
+## subbridge_childOperatorNonce <a id="subbridge_childOperatorNonce"></a>
 The `bridge.childOperator` returns the child operator account address.
 
 **Parameters**
@@ -207,7 +207,7 @@ none
 1024
 ```
 
-## subbridge_parentOperatorBalance
+## subbridge_parentOperatorBalance <a id="subbridge_parentOperatorBalance"></a>
 The `bridge.parentOperatorBalance` returns the balance of the parent operator account address.
 
 **Parameters**
@@ -227,7 +227,7 @@ none
 1e+50
 ```
 
-## subbridge_childOperatorBalance
+## subbridge_childOperatorBalance <a id="subbridge_childOperatorBalance"></a>
 The `bridge.childOperator` returns the balance of the child operator account address.
 
 **Parameters**
@@ -249,7 +249,7 @@ none
 
 
 
-## subbridge_sendChainTxslimit
+## subbridge_sendChainTxslimit <a id="subbridge_sendChainTxslimit"></a>
 
 The `sendChainTxslimit` gets the maximum number of pending transactions to pick up for sending at once.
 
@@ -270,7 +270,7 @@ None
 100
 ```
 
-## subbridge_anchoring
+## subbridge_anchoring <a id="subbridge_anchoring"></a>
 The `subbridge.anchoring` can enable/disable the anchoring feature of the service chain.
 
 **Parameters**
@@ -305,7 +305,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"su
 {"jsonrpc":"2.0","id":1,"result":false}
 ```
 
-## subbridge_latestAnchoredBlockNumber
+## subbridge_latestAnchoredBlockNumber <a id="subbridge_latestAnchoredBlockNumber"></a>
 The `subbridge.latestAnchoredBlockNumber` returns the latest anchored block number of the service chain.
 
 **Parameters**
@@ -325,7 +325,7 @@ None
 71025
 ```
 
-## subbridge_getReceiptFromParentChain
+## subbridge_getReceiptFromParentChain <a id="subbridge_getReceiptFromParentChain"></a>
 The `subbridge.getReceiptFromParentChain` returns the receipt of the anchoring transactions.
 
 **Parameters**
@@ -362,7 +362,7 @@ The `subbridge.getReceiptFromParentChain` returns the receipt of the anchoring t
 }
 ```
 
-## subbridge_deployBridge
+## subbridge_deployBridge <a id="subbridge_deployBridge"></a>
 The `subbridge.deployBridge` deploys/registers bridge contract of parent/child chain, and returns the address of deployed bridge contracts.
 
 **Parameters**
@@ -383,7 +383,7 @@ none
 ["0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4"]
 ```
 
-## subbridge_registerBridge
+## subbridge_registerBridge <a id="subbridge_registerBridge"></a>
 The `subbridge.registerBridge` registers already deployed bridge contracts of parent/child chain.
 
 **Parameters**
@@ -409,7 +409,7 @@ null
 Error: bridge already exists
 ```
 
-## subbridge_deregisterBridge
+## subbridge_deregisterBridge <a id="subbridge_deregisterBridge"></a>
 The `subbridge.deregisterBridge` deregisters already registered bridge contracts of parent/child chain.
 
 **Parameters**
@@ -435,7 +435,7 @@ null
 Error: invalid bridge pair
 ```
 
-## subbridge_subscribeBridge
+## subbridge_subscribeBridge <a id="subbridge_subscribeBridge"></a>
 The `subbridge.subscribeBridge` subscribe already registered bridge contracts of parent/child chain.
 If bridge contract pair is subscribed, value transfer request can be handled automatically by sub-bridge.
 
@@ -461,7 +461,7 @@ null
 Error: already subscribed
 ```
 
-## subbridge_unsubscribeBridge
+## subbridge_unsubscribeBridge <a id="subbridge_unsubscribeBridge"></a>
 The `subbridge.unsubscribeBridge` unsubscribe already subscribed bridge contracts of parent/child chain.
 If bridge contract pair is unsubscribed, value transfer request can not be handled automatically by sub-bridge.
 
@@ -485,7 +485,7 @@ If bridge contract pair is unsubscribed, value transfer request can not be handl
 null
 ```
 
-## subbridge_registerToken
+## subbridge_registerToken <a id="subbridge_registerToken"></a>
 The `subbridge.registerToken` registers token contract (ERC20/721) pair on the bridge contracts.
 
 **Parameters**
@@ -512,7 +512,7 @@ null
 Error: token already exists
 ```
 
-## subbridge_deregisterToken
+## subbridge_deregisterToken <a id="subbridge_deregisterToken"></a>
 The `subbridge.deregisterBridge` deregisters already registered token pair on the bridge contracts.
 
 **Parameters**
@@ -539,7 +539,7 @@ null
 Error: invalid token pair
 ```
 
-## subbridge_convertRequestTxHashToHandleTxHash
+## subbridge_convertRequestTxHashToHandleTxHash <a id="subbridge_convertRequestTxHashToHandleTxHash"></a>
 The `subbridge.convertRequestTxHashToHandleTxHash` returns the correspond handle value transfer transaction in opposite chain of the given request value transfer transaction hash. 
 
 **Parameters**
@@ -565,7 +565,7 @@ The `subbridge.convertRequestTxHashToHandleTxHash` returns the correspond handle
 "0x0000000000000000000000000000000000000000000000000000000000000000"
 ```
 
-## subbridge_listBridge
+## subbridge_listBridge <a id="subbridge_listBridge"></a>
 The `subbridge.listBridge` returns the list of all bridge contract pairs are registred (stored) in sub-bridge. 
 
 **Parameters**
@@ -599,7 +599,7 @@ nonce
 }]
 ```
 
-## subbridge_getBridgeInformation
+## subbridge_getBridgeInformation <a id="subbridge_getBridgeInformation"></a>
 The `subbridge.getBridgeInformation` returns the information of the given bridge contract. 
 
 **Parameters**
@@ -639,7 +639,7 @@ The `subbridge.getBridgeInformation` returns the information of the given bridge
 }
 ```
 
-## subbridge_txPendingCount
+## subbridge_txPendingCount <a id="subbridge_txPendingCount"></a>
 The `subbridge.txPendingCount` returns the count of pending transactions in bridge transaction pool.
 
 **Parameters**
@@ -659,7 +659,7 @@ None
 2
 ```
 
-## subbridge_txPending
+## subbridge_txPending <a id="subbridge_txPending"></a>
 The `subbridge.txPendingCount` returns the list of pending transaction in bridge transaction pool.
 
 **Parameters**
