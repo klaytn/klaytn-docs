@@ -1,16 +1,16 @@
 ---
 description: >-
-  APIs used to query network configuration.
+  네트워크 환경을 조회하는 데에 사용되는 API입니다.
 ---
 
 # Namespace net
 
-The namespace `net` provides functions related to the Klaytn networks.
+`net` namespace는 Klaytn 네트워크와 관련된 함수들을 제공합니다.
 
 
 ## net_networkID
 
-Returns the network identifier (network ID).
+네트워크 식별자(네트워크 ID)를 반환합니다.
 
 **Parameters**
 
@@ -18,9 +18,9 @@ None
 
 **Return Value**
 
-| 형식       | 설명                                                                                                                                                              |
-| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY | The integer of the network identifier.<br />    - `"1000"`: Klaytn Aspen testnet.<br />    - `"1001"`: Klaytn Baobab testnet. |
+| 형식       | 설명                                                                                                                                     |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY | 네트워크 식별자의 정숫값을 반환합니다.<br />    - `"1000"`: Klaytn Aspen 테스트넷<br />    - `"1001"`: Klaytn Baobab 테스트넷 |
 
 **예시**
 
@@ -39,7 +39,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 ## net_listening
 
-Returns `true` if the client is actively listening for network connections.
+클라이언트가 네트워크 연결을 수신하고 있으면 `true`를 반환합니다.
 
 **Parameters**
 
@@ -47,9 +47,9 @@ None
 
 **Return Value**
 
-| 형식      | 설명                                        |
-| ------- | ----------------------------------------- |
-| Boolean | `true` when listening, otherwise `false`. |
+| 형식  | 설명                                                      |
+| --- | ------------------------------------------------------- |
+| 불리언 | 클라이언트가 연결을 수신 중이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -68,7 +68,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 ## net_peerCount
 
-Returns the number of peers currently connected to the client.
+현재 클라이언트에 연결된 피어의 수를 반환합니다.
 
 **Parameters**
 
@@ -76,9 +76,9 @@ None
 
 **Return Value**
 
-| 형식       | 설명                                        |
-| -------- | ----------------------------------------- |
-| QUANTITY | Integer of the number of connected peers. |
+| 형식       | 설명                 |
+| -------- | ------------------ |
+| QUANTITY | 연결된 피어의 수의 정숫값입니다. |
 
 **예시**
 
@@ -96,7 +96,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 ## net_peerCountByType
 
-Returns the number of connected nodes by type and the total number of connected nodes with key/value pairs.
+유형별 연결된 노드의 수와 연결된 모든 노드 수를 키-밸류 쌍의 형태로 반환합니다.
 
 **Parameters**
 
@@ -104,9 +104,9 @@ None
 
 **Return Value**
 
-| 형식          | 설명                                                                                    |
-| ----------- | ------------------------------------------------------------------------------------- |
-| JSON string | The number of connected peers by type as well as the total number of connected peers. |
+| 형식          | 설명                                  |
+| ----------- | ----------------------------------- |
+| JSON string | 유형별 연결된 피어의 수와 연결된 모든 피어의 수를 반환합니다. |
 
 **예시**
 
