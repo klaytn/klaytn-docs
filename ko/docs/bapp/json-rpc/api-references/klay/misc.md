@@ -2,19 +2,19 @@
 
 ## klay_sha3
 
-Returns Keccak-256 (not the standardized SHA3-256) of the given data.
+입력으로 받은 데이터의 Keccak-256(이 해시 함수는 표준 SHA3-256가 아닙니다) 해시값을 반환합니다.
 
 **Parameters**
 
-| 명칭   | 형식       | 설명                                    |
-| ---- | -------- | ------------------------------------- |
-| data | 16진수 문자열 | The data to convert into a SHA3 hash. |
+| 명칭   | 형식   | 설명                   |
+| ---- | ---- | -------------------- |
+| data | DATA | SHA3 해시로 변환할 데이터입니다. |
 
 **Return Value**
 
-| 형식           | 설명                                 |
-| ------------ | ---------------------------------- |
-| 32-byte DATA | The SHA3 result of the given data. |
+| 형식           | 설명                          |
+| ------------ | --------------------------- |
+| 32-byte DATA | 입력으로 받은 데이터의 SHA3 해시 결과입니다. |
 
 
 **예시**
