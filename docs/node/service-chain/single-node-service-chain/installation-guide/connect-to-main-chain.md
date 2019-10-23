@@ -1,12 +1,12 @@
-# Connect to Main Chain
+# Connect to Main Chain <a id="connect-to-main-chain"></a>
 
 In this page, we will connect the single-node Service Chain to the Main Chain. 
 
-## EN Configuration - Enable Main-bridge
+## EN Configuration - Enable Main-bridge <a id="en-configuration-enable-main-bridge"></a>
 
 You should enable main-bridge by configuring `kend.conf`.
 
-### Update the Configuration File
+### Update the Configuration File <a id="update-the-configuration-file"></a>
 
 The `kend.conf` contains the following main-bridge properties.
 
@@ -52,18 +52,13 @@ MAIN_BRIDGE_INDEXING=1
 ...
 ```
 
-
-### Restart the EN
-
-
-
-## Connect SCN to the Main Chain
+## Connect SCN to the Main Chain <a id="connect-scn-to-the-main-chain"></a>
 
 You need to run an EN of the main chain as a main-bridge. And also you should determine which SCN (Service Chain Node) as a sub-bridge will connect with the EN.
 
-### Check EN (Main-Bridge) information
+### Check EN (Main-Bridge) information <a id="check-en-(main-bridge)-information"></a>
 
-#### Open EN Console
+#### Open EN Console <a id="open-en-console"></a>
 
 There are different way to connect the EN process. You can check the usable commands on [ken CLI commands](../../../endpoint-node/ken-cli-commands.md). This page explains the way to connect the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the data directory on an EN/SCN.
 
@@ -80,7 +75,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
  >
 ```
 
-#### Get the EN's KNI
+#### Get the EN's KNI <a id="get-the-en-s-kni"></a>
 
 After connecting the process via IPC, you can check the EN's main-bridge KNI like below. You can refer to [Service Chain API](../../../../bapp/json-rpc/api-references/servicechain.md).
 
@@ -116,9 +111,9 @@ After connecting the process via IPC, you can check the EN's main-bridge KNI lik
 
 You should note main-bridge `kni` information of EN.
 
-### Connect to the Main Chain
+### Connect to the Main Chain <a id="connect-to-the-main-chain"></a>
 
-#### Open SCN Console
+#### Open SCN Console <a id="open-scn-console"></a>
 
 Likes EN case, you can connect the SCN process like below. (If you added `subbridge` API for RPC, you can check the bridge API like below. If there is no `subbridge` API, you should check [Configuration of the SCN](configuration.md#configuration-of-the-scn) again.)
 
@@ -133,7 +128,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  >
 ```
 
-#### Connect SCN with EN
+#### Connect SCN with EN <a id="connect-scn-with-en"></a>
 
 You can add the EN peer on SCN via IPC like below. The kni is EN's KNI which you noted previously.
 
