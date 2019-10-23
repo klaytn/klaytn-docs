@@ -1,6 +1,6 @@
 ---
 description: >-
-  Try and get familiar with Klaytn Service Chain. This chapter is the starting point of your journey to Klaytn Service Chain.
+  Following this chapter, you will quickly set up and run a Service Chain, an independent blockchain connected to the Klaytn main chain.
 ---
 
 # Overview
