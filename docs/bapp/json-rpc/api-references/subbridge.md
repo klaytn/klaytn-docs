@@ -6,7 +6,7 @@ description: >-
 # Namespace subbridge <a id="namespace-subbridge"></a>
 
 The namespace `subbridge` provides functions related to Service Chain.
-To use functions in this namespace, the option `subbridge` should be enabled in the SEN connected to the service chain.
+To use the functions in this namespace, the option `subbridge` should be enabled in the SEN connected to the service chain.
 
 ## subbridge_nodeInfo <a id="subbridge_nodeInfo"></a>
 
