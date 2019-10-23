@@ -75,7 +75,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
  >
 ```
 
-#### Get the EN's KNI <a id="get-the-en-s-kni"></a>
+#### Get the EN's KNI <a id="get-the-ens-kni"></a>
 
 After connecting the process via IPC, you can check the EN's main-bridge KNI like below. You can refer to [Service Chain API](../../../../bapp/json-rpc/api-references/servicechain.md).
 
