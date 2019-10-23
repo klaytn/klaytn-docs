@@ -501,7 +501,7 @@ The `subbridge.registerToken` registers token contract (ERC20/721) pair on the b
 
 | Name | Type | Description |
 | --- | --- | --- |
-| error | Error | `null` if the registering succeeds, Error object otherwise. |
+| error | Error | `null` if the registration succeeds, Error object otherwise. |
 
 **Example**
 
@@ -540,20 +540,22 @@ Error: invalid token pair
 ```
 
 ## subbridge_convertRequestTxHashToHandleTxHash <a id="subbridge_convertRequestTxHashToHandleTxHash"></a>
-The `subbridge.convertRequestTxHashToHandleTxHash` returns the correspond handle value transfer transaction in opposite chain of the given request value transfer transaction hash. 
+The `subbridge.convertRequestTxHashToHandleTxHash` returns the corresponding "handle value transfer transaction" hash in the opposite chain for the given "request value transfer transaction" hash. 
+"Request value transfer transaction" is a transaction initiated by a user, requesting a cross-chain value transfer.
+"Handle value transfer transaction" is the transaction created by the sub-bridge to handle the value transfer request from the user.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| Hash | 32-byte DATA | Hash of a request value transfer transaction. |
+| Hash | 32-byte DATA | Hash of a "request value transfer" transaction. |
 
 
 **Return Value**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| Hash | 32-byte DATA | Hash of a handle value transfer transaction. zero hash means there is no correspond handle value transfer transaction.|
+| Hash | 32-byte DATA | Hash of a "handle value transfer" transaction. zero hash means there is no corresponding "handle value transfer" transaction. |
 
 
 **Example**
