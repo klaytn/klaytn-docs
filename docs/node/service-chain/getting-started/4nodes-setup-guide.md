@@ -5,9 +5,9 @@ This section covers how to set up a multi-node service chain. To tolerate byzant
  ## Prerequisites
  - Download the executables.
    - kscn, kscnd, homi [download](https://docs.klaytn.com/node/download)
- - Minimal requirements for testing hardware
+ - Minimal hardware requirements
      - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB 
-     - Please refer to the [endpoint node system requirements](../../node/endpoint-node/system-requirements.md) for more explanation.
+     - Please refer to the [endpoint node system requirements](../../endpoint-node/system-requirements.md) for more explanation.
 
 ## Step 1: Create genesis.json and a key
 Copy execution binaries to an SCN node then execute homi on the command line. Then copy the generated `~/your_path/homi-output` folder with the execution binaries to other SCN nodes.
