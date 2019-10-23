@@ -1,11 +1,11 @@
 ---
 description: >-
-  APIs used to inspect and debug node state and blockchain data at run time.
+  런타임 중 노드 상태와 블록체인 데이터를 검사하고 디버깅하는 API입니다.
 ---
 
 # Namespace debug
 
-The namespace `debug` gives you access to several non-standard RPC methods, which will allow you to inspect, debug and set certain debugging flags at run time.
+`debug` namespace는 몇몇 비표준 RPC 메서드에 접근하여 런타임 중의 특정 디버깅 플래그를 검사, 디버깅, 설정하도록 합니다.
 
 
 ## [로깅](./debug/logging.md)
@@ -55,15 +55,15 @@ The namespace `debug` gives you access to several non-standard RPC methods, whic
 - [debug_traceBlockByNumber](./debug/tracing.md#debug_traceblockbynumber)
 - [debug_traceBlockFromFile](./debug/tracing.md#debug_traceblockfromfile)
 - [debug_traceTransaction](./debug/tracing.md#debug_tracetransaction)
-- [Tracing Options](./debug/tracing.md#tracing-options)
-- [JavaScript-based Tracing](./debug/tracing.md#javascript-based-tracing)
+- [추적 옵션](./debug/tracing.md#tracing-options)
+- [자바스크립트 기반 추적](./debug/tracing.md#javascript-based-tracing)
 
 
 ## [VM Standard Tracing](./debug/standard_tracing.md)
 
 - [debug_standardTraceBadBlockToFile](./debug/standard_tracing.md#debug_standardtracebadblocktofile)
 - [debug_standardTraceBlockToFile](./debug/standard_tracing.md#debug_standardtraceblocktofile)
-- [Standard Tracing Options](./debug/standard_tracing.md#standard-tracing-options)
+- [표준 추적 옵션](./debug/standard_tracing.md#standard-tracing-options)
 
 
 ## [Blockchain Inspection](./debug/blockchain.md)
