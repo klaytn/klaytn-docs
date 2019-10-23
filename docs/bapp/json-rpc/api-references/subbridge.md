@@ -436,7 +436,7 @@ Error: invalid bridge pair
 ```
 
 ## subbridge_subscribeBridge <a id="subbridge_subscribeBridge"></a>
-The `subbridge.subscribeBridge` subscribe already registered bridge contracts of parent/child chain.
+The `subbridge.subscribeBridge` subscribes to the registered bridge contracts in the parent/child chain.
 If bridge contract pair is subscribed, value transfer request can be handled automatically by sub-bridge.
 
 **Parameters**
