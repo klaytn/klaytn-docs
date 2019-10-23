@@ -1,40 +1,40 @@
 ---
 description: >-
-  APIs to manage accounts and private keys in the node.
+  노드에서 계정과 개인키를 관리하는 API입니다.
 ---
 
 # Namespace personal
 
-The namespace `personal` manages private keys in the key store.
+`personal` namespace는 키스토어의 개인키를 관리합니다.
 
 
 ## personal_importRawKey
 
-Imports the given unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format) into the key store, encrypting it with the passphrase.
+암호화되지 않은 개인키(접두사 '0x'를 제거한 16진수 문자열) 또는 [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format)를 키스토어로 가져와 패스프레이즈로 암호화합니다.
 
-Returns the address of the imported account.
+가져온 계정의 주소를 반환합니다.
 
-| Client  | Method invocation                                                      |
-|:-------:| ---------------------------------------------------------------------- |
-| Console | `personal.importRawKey(keydata, passphrase)`                           |
-|   RPC   | `{"method": "personal_importRawKey", "params": [keydata, passphrase]}` |
+| 클라이언트 | 메서드 호출                                                                 |
+|:-----:| ---------------------------------------------------------------------- |
+|  콘솔   | `personal.importRawKey(keydata, passphrase)`                           |
+|  RPC  | `{"method": "personal_importRawKey", "params": [keydata, passphrase]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭         | 형식     | 설명                                                                                                                                                   |
-| ---------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keydata    | string | The unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
-| passphrase | string | The pass phrase for encryption.                                                                                                                      |
+| 명칭         | 형식  | 설명                                                                                                                            |
+| ---------- | --- | ----------------------------------------------------------------------------------------------------------------------------- |
+| keydata    | 문자열 | 암호화되지 않은 개인키 (접두사 '0x'를 제거한 16진수 문자열) 또는 [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format)입니다. |
+| passphrase | 문자열 | 암호화에 사용되는 패스프레이즈입니다.                                                                                                          |
 
-**Return Value**
+**리턴값**
 
-| 명칭      | 형식     | 설명                                   |
-| ------- | ------ | ------------------------------------ |
-| address | string | The address of the imported account. |
+| 명칭      | 형식  | 설명                 |
+| ------- | --- | ------------------ |
+| address | 문자열 | 가져온 계정의 주소를 반환합니다. |
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > personal.importRawKey('{private key}', 'mypassword')
 "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"
@@ -53,28 +53,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_listAccounts
 
-Returns all the Klaytn account addresses of all keys in the key store.
+키스토어에 있는 모든 키에 대해서 각 키의 Klaytn 계정 주소를 반환합니다.
 
-| Client  | Method invocation                                   |
-|:-------:| --------------------------------------------------- |
-| Console | `personal.listAccounts`                             |
-|   RPC   | `{"method": "personal_listAccounts", "params": []}` |
+| 클라이언트 | 메서드 호출                                              |
+|:-----:| --------------------------------------------------- |
+|  콘솔   | `personal.listAccounts`                             |
+|  RPC  | `{"method": "personal_listAccounts", "params": []}` |
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
-| 형식     | 설명                                           |
-| ------ | -------------------------------------------- |
-| string | The list of all the Klaytn account addresses |
+| 형식  | 설명                   |
+| --- | -------------------- |
+| 문자열 | Klaytn 계정 주소의 목록입니다. |
 
-None
+없음
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > personal.listAccounts
 ["0x5e97870f263700f46aa00d967821199b9bc5a120", "0x3d80b31a78c30fc628f20b2c89d7ddbf6e53cedc"]
@@ -88,30 +88,30 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_newAccount
 
-Generates a new private key and stores it in the key store directory. The key file is encrypted with the given passphrase. Returns the address of the new account.
+새 개인키를 생성하여 키스토어 디렉토리에 저장합니다. 입력으로 받은 패스프레이즈로 키 파일을 암호화합니다. 새로 생성된 계정의 주소를 반환합니다.
 
-At the Klaytn console, `newAccount` will prompt for a passphrase when it is not supplied as the argument.
+Klaytn 콘솔에서 패스프레이즈가 매개변수로 주어지지 않으면 `newAccount`가 패스프레이즈를 입력하도록 요구할 것입니다.
 
-| Client  | Method invocation                                           |
-|:-------:| ----------------------------------------------------------- |
-| Console | `personal.newAccount(passphrase)`                           |
-|   RPC   | `{"method": "personal_newAccount", "params": [passphrase]}` |
+| 클라이언트 | 메서드 호출                                                      |
+|:-----:| ----------------------------------------------------------- |
+|  콘솔   | `personal.newAccount(passphrase)`                           |
+|  RPC  | `{"method": "personal_newAccount", "params": [passphrase]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭         | 형식     | 설명                                              |
-| ---------- | ------ | ----------------------------------------------- |
-| passphrase | string | (optional) the pass phrase used for encryption. |
+| 명칭         | 형식  | 설명                          |
+| ---------- | --- | --------------------------- |
+| passphrase | 문자열 | (선택사항) 암호화에 사용되는 패스프레이즈입니다. |
 
-**Return Value**
+**리턴값**
 
-| 형식     | 설명                              |
-| ------ | ------------------------------- |
-| string | The address of the new account. |
+| 형식  | 설명                    |
+| --- | --------------------- |
+| 문자열 | 새로 생성된 계정의 주소를 반환합니다. |
 
 **예시**
 
-Console
+콘솔
 ``` javascript
 > personal.newAccount()
 Passphrase:
@@ -119,7 +119,7 @@ Repeat passphrase:
 "0x5e97870f263700f46aa00d967821199b9bc5a120"
 ```
 
-The passphrase can also be supplied as a string.
+패스프레이즈는 하나의 문자열로 입력할 수도 있습니다.
 
 ``` javascript
 > personal.newAccount("h4ck3r")
@@ -135,28 +135,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_lockAccount
 
-Removes the private key with a given address from memory. The account can no longer be used to send transactions.
+입력으로 받은 주소에 해당하는 개인키를 메모리에서 제거합니다. 이후 해당 계정을 사용하여 트랜잭션을 전송할 수 없습니다.
 
-| Client  | Method invocation                                         |
-|:-------:| --------------------------------------------------------- |
-| Console | `personal.lockAccount(address)`                           |
-|   RPC   | `{"method": "personal_lockAccount", "params": [address]}` |
+| 클라이언트 | 메서드 호출                                                    |
+|:-----:| --------------------------------------------------------- |
+|  콘솔   | `personal.lockAccount(address)`                           |
+|  RPC  | `{"method": "personal_lockAccount", "params": [address]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭      | 형식     | 설명                           |
-| ------- | ------ | ---------------------------- |
-| address | string | The account address to lock. |
+| 명칭      | 형식  | 설명            |
+| ------- | --- | ------------- |
+| address | 문자열 | 잠글 계정의 주소입니다. |
 
-**Return Value**
+**리턴값**
 
-| 형식   | 설명                                                                |
-| ---- | ----------------------------------------------------------------- |
-| bool | `true` if the account was successfully locked, `false` otherwise. |
+| 형식  | 설명                                                  |
+| --- | --------------------------------------------------- |
+| 불리언 | 계정이 성공적으로 잠기면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > personal.lockAccount("0xfa415bb3e6231f488ff39eb2897db0ef3636dd32")
 true
@@ -170,36 +170,36 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_unlockAccount
 
-Decrypts the key with the given address from the key store.
+입력으로 받은 주소에 해당하는 키를 키스토어로부터 복호화합니다.
 
-Both passphrase and unlock duration are optional when using the JavaScript console. If the passphrase is not supplied as an argument, the console will prompt for the passphrase interactively.
+passphrase와 duration 매개변수는 자바스트립트 콘솔일 때 사용하는 선택사항입니다. 패스프레이즈가 매개변수로 주어지지 않으면 콘솔에서 패스프레이즈를 입력하도록 요구할 것입니다.
 
-The unencrypted key will be held in memory until the unlock duration expires. If the unlock duration defaults to 300 seconds. An explicit duration of zero seconds unlocks the key until the Klaytn local node exits.
+잠금 해제 기간이 만료될 때까지 암호화되지 않은 키가 메모리에 남습니다. 잠금 해제 기간은 300초로 기본 설정되어 있습니다. 잠금 해제 기간을 0으로 설정하면 Klaytn 로컬 노드가 종료될 때까지 키를 잠금 해제합니다.
 
-The account can be used with `klay_sign` and `klay_sendTransaction` while it is unlocked.
+계정의 잠금이 해제된 동안 `klay_sign`와 `klay_sendTransaction`를 사용할 수 있습니다.
 
-| Client  | Method invocation                                                                 |
-|:-------:| --------------------------------------------------------------------------------- |
-| Console | `personal.unlockAccount(address, passphrase, duration)`                           |
-|   RPC   | `{"method": "personal_unlockAccount", "params": [address, passphrase, duration]}` |
+| 클라이언트 | 메서드 호출                                                                            |
+|:-----:| --------------------------------------------------------------------------------- |
+|  콘솔   | `personal.unlockAccount(address, passphrase, duration)`                           |
+|  RPC  | `{"method": "personal_unlockAccount", "params": [address, passphrase, duration]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭         | 형식     | 설명                                                       |
-| ---------- | ------ | -------------------------------------------------------- |
-| address    | string | The account address to unlock.                           |
-| passphrase | string | the passphrase used for the encryption.                  |
-| duration   | int    | (optional) the unlock duration (default to 300 seconds). |
+| 명칭         | 형식  | 설명                                    |
+| ---------- | --- | ------------------------------------- |
+| address    | 문자열 | 잠금 해제할 계정의 주소입니다.                     |
+| passphrase | 문자열 | 암호화에 사용되는 패스프레이즈입니다.                  |
+| duration   | int | (선택사항) 잠금 해제 기간입니다. (기본 설정은 300초입니다.) |
 
-**Return Value**
+**리턴값**
 
-| 형식   | 설명                                    |
-| ---- | ------------------------------------- |
-| bool | `true` if unlocked, `false` otherwise |
+| 형식  | 설명                                            |
+| --- | --------------------------------------------- |
+| 불리언 | 잠금 해제되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
-Console
+콘솔
 ``` javascript
 > personal.unlockAccount("0x5e97870f263700f46aa00d967821199b9bc5a120")
 Unlock account 0x5e97870f263700f46aa00d967821199b9bc5a120
@@ -207,14 +207,14 @@ Passphrase:
 true
 ```
 
-Supplying the passphrase and unlock duration as arguments:
+다음과 같이 패스프레이즈와 잠금 해제 기간을 매개변수로 제공할 수 있습니다.
 
 ``` javascript
 > personal.unlockAccount("0x5e97870f263700f46aa00d967821199b9bc5a120", "foo", 30)
 true
 ```
 
-If you want to type in the passphrase and still override the default unlock duration, pass `null` as the passphrase.
+패스프레이즈는 그대로 놔두고 잠금 해제 기간을 따로 설정하려면 passphrase 매개변수를 `null`로 입력하세요.
 
 ```
 > personal.unlockAccount("0x5e97870f263700f46aa00d967821199b9bc5a120", null, 30)
@@ -230,32 +230,32 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_replaceRawKey
 
-Replaces the encrypted key file in the key store with the given unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format), encrypting it with the new passphrase. It also receives the old passphrase to decrypt the old private key before replacement. If it is failed to decrypt, or can not find the matching account, it throws an error.
+암호화되지 않은 개인키(접두사 '0x'를 제거한 16진수 문자열) 또는 [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format)를 입력으로 받아 이에 해당하는 키 파일을 새 패스프레이즈로 암호화합니다. 또한 변경하기 전에 이전 패스프레이즈를 입력하여 이전 개인키를 복호화합니다. 복호화에 실패하거나 일치하는 계정을 찾을 수 없는 경우 오류가 발생합니다.
 
-Returns the address of the replaced account if successful.
+성공적으로 변경되면 변경된 계정의 주소를 반환합니다.
 
-| Client  | Method invocation                                                                         |
-|:-------:| ----------------------------------------------------------------------------------------- |
-| Console | `personal.replaceRawKey(keydata, oldPassphrase, newPassphrase)`                           |
-|   RPC   | `{"method": "personal_replaceRawKey", "params": [keydata, oldPassphrase, newPassphrase]}` |
+| 클라이언트 | 메서드 호출                                                                                    |
+|:-----:| ----------------------------------------------------------------------------------------- |
+|  콘솔   | `personal.replaceRawKey(keydata, oldPassphrase, newPassphrase)`                           |
+|  RPC  | `{"method": "personal_replaceRawKey", "params": [keydata, oldPassphrase, newPassphrase]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭            | 형식     | 설명                                                                                                                                                   |
-| ------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keydata       | string | The unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
-| oldPassphrase | string | The passphrase to decrypt the old private key.                                                                                                       |
-| newPassphrase | string | The passphrase to encrypt the new private key.                                                                                                       |
+| 명칭            | 형식  | 설명                                                                                                                            |
+| ------------- | --- | ----------------------------------------------------------------------------------------------------------------------------- |
+| keydata       | 문자열 | 암호화되지 않은 개인키 (접두사 '0x'를 제거한 16진수 문자열) 또는 [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format)입니다. |
+| oldPassphrase | 문자열 | 이전 개인키를 복호화하기 위한 패스프레이즈입니다.                                                                                                   |
+| newPassphrase | 문자열 | 새 개인키를 암호화하기 위한 패스프레이즈입니다.                                                                                                    |
 
-**Return Value**
+**리턴값**
 
-| 명칭      | 형식     | 설명                                   |
-| ------- | ------ | ------------------------------------ |
-| address | string | The address of the replaced account. |
+| 명칭      | 형식  | 설명                 |
+| ------- | --- | ------------------ |
+| address | 문자열 | 변경된 계정의 주소를 반환합니다. |
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > personal.replaceRawKey('{private key}', 'myoldpassword', 'mypassword')
 "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"
@@ -272,29 +272,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_sendAccountUpdate
 
-Validates the given passphrase and submits a [TxTypeAccountUpdate](../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) transaction. The transaction object must have fields `from` and `key`. Other fields such as `gas`, `gasPrice`, and `nonce` are set internally if unspecified. If the passphrase is able to decrypt the private key belonging to `tx.from` and the transaction is verified, the transaction is signed and submitted onto the network. The account is not unlocked globally in the node and cannot be used in other RPC calls.
+입력으로 받은 패스프레이즈를 검증하고 [TxTypeAccountUpdate](../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) 트랜잭션을 제출합니다. 이 트랜잭션 객체의 `from`와 `key` 필드는 필수적으로 값을 입력해야 합니다. `gas`, `gasPrice`, `nonce`와 같은 다른 필드는 값이 지정되지 않으면 내부적으로 설정이 됩니다. 입력받은 패스프레이즈로 `tx.from`의 개인키를 복호화할 수 있고 트랜잭션이 유효하면, 트랜잭션을 서명하여 네트워크에 제출합니다. 이때 계정은 노드에서 전역적으로 잠금 해제되지 않으며 다른 RPC 호출에 사용될 수도 없습니다.
 
-| Client  | Method invocation                                                      |
-|:-------:| ---------------------------------------------------------------------- |
-| Console | `personal.sendAccountUpdate(tx, passphrase)`                           |
-|   RPC   | `{"method": "personal_sendAccountUpdate", "params": [tx, passphrase]}` |
+| 클라이언트 | 메서드 호출                                                                 |
+|:-----:| ---------------------------------------------------------------------- |
+|  콘솔   | `personal.sendAccountUpdate(tx, passphrase)`                           |
+|  RPC  | `{"method": "personal_sendAccountUpdate", "params": [tx, passphrase]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭         | 형식     | 설명                                                        |
-| ---------- | ------ | --------------------------------------------------------- |
-| tx         | string | A transaction object. `from` and `key` must be specified. |
-| passphrase | string | The passphrase to decrypt the private key of `tx.from`.   |
+| 명칭         | 형식  | 설명                                             |
+| ---------- | --- | ---------------------------------------------- |
+| tx         | 문자열 | 트랜잭션 객체입니다. `from`과 `key` 필드는 반드시 값을 입력해야 합니다. |
+| passphrase | 문자열 | `tx.from`의 개인키를 복호화하기 위한 패스프레이즈입니다.            |
 
-**Return Value**
+**리턴값**
 
-| 형식             | 설명                                                              |
-| -------------- | --------------------------------------------------------------- |
-| 32-byte string | a transaction hash if succeeded. Otherwise, an error is raised. |
+| 형식        | 설명                                   |
+| --------- | ------------------------------------ |
+| 32바이트 문자열 | 성공하면 트랜잭션 해시를 반환합니다. 실패하면 오류가 발생합니다. |
 
 **예시**
 
-Console
+콘솔
 ``` javascript
 > var tx = {from: "0x391694e7e0b0cce554cb130d723a9d27458f9298", key:"0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8"}
 undefined
@@ -303,7 +303,7 @@ undefined
 ```
 HTTP RPC
 
-**NOTE**: The function `klay.toPeb()` is not excutable in HTTP RPC.
+**참고**: `klay.toPeb()` 함수는 HTTP RPC를 통해 실행할 수 없습니다.
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendAccountUpdate","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","key":"0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8"}, "passphrase"],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":"0x26a7a8ba619a5e3e4d742c217f55f49591a5616b200c976bd58a966a05e294b7"}
@@ -311,29 +311,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_sendTransaction
 
-Validates the given passphrase and submits a [TxTypeLegacy](../../../klaytn/design/transactions/basic.md#txtypelegacytransaction) transaction. The transaction object must have fields `from`, `to`, and `value`. Other fields such as `gas`, `gasPrice`, and `nonce` are set internally if unspecified. If the passphrase is able to decrypt the private key belonging to `tx.from` and the transaction is verified, the transaction is signed and submitted onto the network. The account is not unlocked globally in the node and cannot be used in other RPC calls.
+입력으로 받은 패스프레이즈를 검증하고 [TxTypeLegacy](../../../klaytn/design/transactions/basic.md#txtypelegacytransaction) 트랜잭션을 제출합니다. 이 트랜잭션 객체의 `from`, `to`, `value` 필드는 필수적으로 값을 입력해야 합니다. `gas`, `gasPrice`, `nonce`와 같은 다른 필드는 값이 지정되지 않으면 내부적으로 설정이 됩니다. 입력받은 패스프레이즈로 `tx.from`의 개인키를 복호화할 수 있고 트랜잭션이 유효하면, 트랜잭션을 서명하여 네트워크에 제출합니다. 이때 계정은 노드에서 전역적으로 잠금 해제되지 않으며 다른 RPC 호출에 사용될 수도 없습니다.
 
-| Client  | Method invocation                                                    |
-|:-------:| -------------------------------------------------------------------- |
-| Console | `personal.sendTransaction(tx, passphrase)`                           |
-|   RPC   | `{"method": "personal_sendTransaction", "params": [tx, passphrase]}` |
+| 클라이언트 | 메서드 호출                                                               |
+|:-----:| -------------------------------------------------------------------- |
+|  콘솔   | `personal.sendTransaction(tx, passphrase)`                           |
+|  RPC  | `{"method": "personal_sendTransaction", "params": [tx, passphrase]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭         | 형식     | 설명                                                                 |
-| ---------- | ------ | ------------------------------------------------------------------ |
-| tx         | string | A transaction object. `from`, `to`, and `value` must be specified. |
-| passphrase | string | The passphrase to decrypt the private key of `tx.from`.            |
+| 명칭         | 형식  | 설명                                                     |
+| ---------- | --- | ------------------------------------------------------ |
+| tx         | 문자열 | 트랜잭션 객체입니다. `from`, `to`, `value` 필드는 반드시 값을 입력해야 합니다. |
+| passphrase | 문자열 | `tx.from`의 개인키를 복호화하기 위한 패스프레이즈입니다.                    |
 
-**Return Value**
+**리턴값**
 
-| 형식             | 설명                                                              |
-| -------------- | --------------------------------------------------------------- |
-| 32-byte string | a transaction hash if succeeded. Otherwise, an error is raised. |
+| 형식        | 설명                                   |
+| --------- | ------------------------------------ |
+| 32바이트 문자열 | 성공하면 트랜잭션 해시를 반환합니다. 실패하면 오류가 발생합니다. |
 
 **예시**
 
-Console
+콘솔
 ``` javascript
 > var tx = {from: "0x391694e7e0b0cce554cb130d723a9d27458f9298", to: "0xafa3f8684e54059998bc3a7b0d2b0da075154d66", value: klay.toPeb(1.23, "KLAY")}
 undefined
@@ -342,7 +342,7 @@ undefined
 ```
 HTTP RPC
 
-**NOTE**: The function `klay.toPeb()` is not excutable in HTTP RPC.
+**참고**: `klay.toPeb()` 함수는 HTTP RPC를 통해 실행할 수 없습니다.
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendTransaction","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","to":"0xafa3f8684e54059998bc3a7b0d2b0da075154d66","value":"0x1230000000"},"passphrase"],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":"0x26a7a8ba619a5e3e4d742c217f55f49591a5616b200c976bd58a966a05e294b7"}
@@ -350,29 +350,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_sendValueTransfer
 
-Validates the given passphrase and submits a [TxTypeValueTransfer](../../../klaytn/design/transactions/basic.md#txtypevaluetransfer) transaction. The transaction object must have fields `from`, `to`, and `value`. Other fields such as `gas`, `gasPrice`, and `nonce` are set internally if unspecified. If the passphrase is able to decrypt the private key belonging to `tx.from` and the transaction is verified, the transaction is signed and submitted onto the network. The account is not unlocked globally in the node and cannot be used in other RPC calls.
+입력으로 받은 패스프레이즈를 검증하고 [TxTypeValueTransfer](../../../klaytn/design/transactions/basic.md#txtypevaluetransfer) 트랜잭션을 제출합니다. 이 트랜잭션 객체의 `from`, `to`, `value` 필드는 필수적으로 값을 입력해야 합니다. `gas`, `gasPrice`, `nonce`와 같은 다른 필드는 값이 지정되지 않으면 내부적으로 설정이 됩니다. 입력받은 패스프레이즈로 `tx.from`의 개인키를 복호화할 수 있고 트랜잭션이 유효하면, 트랜잭션을 서명하여 네트워크에 제출합니다. 이때 계정은 노드에서 전역적으로 잠금 해제되지 않으며 다른 RPC 호출에 사용될 수도 없습니다.
 
-| Client  | Method invocation                                                      |
-|:-------:| ---------------------------------------------------------------------- |
-| Console | `personal.sendValueTransfer(tx, passphrase)`                           |
-|   RPC   | `{"method": "personal_sendValueTransfer", "params": [tx, passphrase]}` |
+| 클라이언트 | 메서드 호출                                                                 |
+|:-----:| ---------------------------------------------------------------------- |
+|  콘솔   | `personal.sendValueTransfer(tx, passphrase)`                           |
+|  RPC  | `{"method": "personal_sendValueTransfer", "params": [tx, passphrase]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭         | 형식     | 설명                                                                 |
-| ---------- | ------ | ------------------------------------------------------------------ |
-| tx         | string | A transaction object. `from`, `to`, and `value` must be specified. |
-| passphrase | string | The passphrase to decrypt the private key of `tx.from`.            |
+| 명칭         | 형식  | 설명                                                     |
+| ---------- | --- | ------------------------------------------------------ |
+| tx         | 문자열 | 트랜잭션 객체입니다. `from`, `to`, `value` 필드는 반드시 값을 입력해야 합니다. |
+| passphrase | 문자열 | `tx.from`의 개인키를 복호화하기 위한 패스프레이즈입니다.                    |
 
-**Return Value**
+**리턴값**
 
-| 형식             | 설명                                                              |
-| -------------- | --------------------------------------------------------------- |
-| 32-byte string | a transaction hash if succeeded. Otherwise, an error is raised. |
+| 형식        | 설명                                   |
+| --------- | ------------------------------------ |
+| 32바이트 문자열 | 성공하면 트랜잭션 해시를 반환합니다. 실패하면 오류가 발생합니다. |
 
 **예시**
 
-Console
+콘솔
 ``` javascript
 > var tx = {from: "0x391694e7e0b0cce554cb130d723a9d27458f9298", to: "0xafa3f8684e54059998bc3a7b0d2b0da075154d66", value: klay.toPeb(1.23, "KLAY")}
 undefined
@@ -381,7 +381,7 @@ undefined
 ```
 HTTP RPC
 
-**NOTE**: The function `klay.toPeb()` is not excutable in HTTP RPC.
+**참고**: `klay.toPeb()` 함수는 HTTP RPC를 통해 실행할 수 없습니다.
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendValueTransfer","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","to":"0xafa3f8684e54059998bc3a7b0d2b0da075154d66","value":"0x1230000000"},"passphrase"],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":"0x26a7a8ba619a5e3e4d742c217f55f49591a5616b200c976bd58a966a05e294b7"}
@@ -389,34 +389,34 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_sign
 
-The `sign` method calculates a Klaytn-specific signature with: `sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))`
+`sign` 메서드는 다음과 같이 Klaytn만의 서명을 계산합니다. `sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))`
 
-Adding a prefix to the message makes the calculated signature recognizable as a Klaytn-specific signature. This prevents misuse where a malicious DApp can sign arbitrary data (*e.g.*, transaction) and use the signature to impersonate the victim.
+메시지에 접두사를 붙이면 계산된 서명 값이 Klaytn의 서명임을 알 수 있습니다. 이는 악성 DApp이 트랜잭션과 같은 임의의 데이터를 서명하여 누군가를 사칭할 수 없도록 방지합니다.
 
-See `personal_ecRecover` to verify the signature.
+서명 검증에 대한 자세한 내용은 `personal_ecRecover`를 참고하세요.
 
-| Client  | Method invocation                                                     |
-|:-------:| --------------------------------------------------------------------- |
-| Console | `personal.sign(message, account, password)`                           |
-|   RPC   | `{"method": "personal_sign", "params": [message, account, password]}` |
+| 클라이언트 | 메서드 호출                                                                |
+|:-----:| --------------------------------------------------------------------- |
+|  콘솔   | `personal.sign(message, account, password)`                           |
+|  RPC  | `{"method": "personal_sign", "params": [message, account, password]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭           | 형식     | 설명                                           |
-| ------------ | ------ | -------------------------------------------- |
-| message      | string | A message to sign.                           |
-| 계정 (Account) | string | The account address.                         |
-| password     | string | (optional) the pass phrase used for signing. |
+| 명칭           | 형식  | 설명                         |
+| ------------ | --- | -------------------------- |
+| message      | 문자열 | 서명할 메시지입니다.                |
+| 계정 (Account) | 문자열 | 계정의 주소입니다.                 |
+| password     | 문자열 | (선택사항) 서명에 사용되는 패스프레이즈입니다. |
 
-**Return Value**
+**리턴값**
 
-| 형식     | 설명           |
-| ------ | ------------ |
-| string | A signature. |
+| 형식  | 설명        |
+| --- | --------- |
+| 문자열 | 서명 결과입니다. |
 
 **예시**
 
-Console
+콘솔
 ``` javascript
 > personal.sign("0xdeadbeaf", "0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "")
 "0xa3f20717a250c2b0b729b7e5becbff67fdaef7e0699da4de7ca5895b02a170a12d887fd3b17bfdce3481f10bea41f45ba9f709d39ce8325427b57afcfc994cee1b"
@@ -430,29 +430,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_ecRecover
 
-`ecRecover` returns the address associated with the private key that was used to calculate the signature in `personal_sign`.
+`ecRecover`는 `personal_sign`에서 서명을 계산하는 데에 사용된 개인키에 해당하는 주소를 반환합니다.
 
-| Client  | Method invocation                                                  |
-|:-------:| ------------------------------------------------------------------ |
-| Console | `personal.ecRecover(message, signature)`                           |
-|   RPC   | `{"method": "personal_ecRecover", "params": [message, signature]}` |
+| 클라이언트 | 메서드 호출                                                             |
+|:-----:| ------------------------------------------------------------------ |
+|  콘솔   | `personal.ecRecover(message, signature)`                           |
+|  RPC  | `{"method": "personal_ecRecover", "params": [message, signature]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭        | 형식     | 설명             |
-| --------- | ------ | -------------- |
-| message   | string | A message.     |
-| signature | string | The signature. |
+| 명칭        | 형식  | 설명          |
+| --------- | --- | ----------- |
+| message   | 문자열 | 서명한 메시지입니다. |
+| signature | 문자열 | 서명입니다.      |
 
-**Return Value**
+**리턴값**
 
-| 형식     | 설명                   |
-| ------ | -------------------- |
-| string | The account address. |
+| 형식  | 설명         |
+| --- | ---------- |
+| 문자열 | 계정의 주소입니다. |
 
 **예시**
 
-Console
+콘솔
 
 ``` javascript
 > personal.sign("0xdeadbeaf", "0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "")
