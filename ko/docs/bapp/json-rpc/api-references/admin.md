@@ -10,26 +10,26 @@ description: >-
 
 ## admin_nodeInfo
 
-`nodeInfo` 관리 속성을 조회하여 실행 중인 Klaytn 노드에 대해 알려진 모든 정보를 확인할 수 있습니다. These include general information about the node itself as a participant of the [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P overlay protocol, as well as specialized information added by each of the running application protocols, e.g., `klay`.
+`nodeInfo` 관리 속성을 조회하여 실행 중인 Klaytn 노드에 대해 알려진 모든 세밀한 정보를 확인할 수 있습니다.  `klay`와 같은 실행 중인 어플리케이션 프로토콜에 의해 추가된 세부적인 정보뿐만 아니라 [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P 오버레이 프로토콜에 참여하는 노드 자신의 일반적인 정보도 확인할 수 있습니다.
 
-| Client  | Method invocation              |
-|:-------:| ------------------------------ |
-| Console | `admin.nodeInfo`               |
-|   RPC   | `{"method": "admin_nodeInfo"}` |
+| 클라이언트 | 메서드 호출                         |
+|:-----:| ------------------------------ |
+|  콘솔   | `admin.nodeInfo`               |
+|  RPC  | `{"method": "admin_nodeInfo"}` |
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
-| 형식          | 설명                    |
-| ----------- | --------------------- |
-| JSON string | The node information. |
+| 형식       | 설명            |
+| -------- | ------------- |
+| JSON 문자열 | 노드에 대한 정보입니다. |
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > admin.nodeInfo
 {
@@ -74,26 +74,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_datadir
 
-The `datadir` administrative property can be queried for the absolute path the running Klaytn node currently uses to store all its databases. The default path is different depending on the node types (kcn, kpn, and ken) and the OS type.
+`datadir` 관리 속성을 조회하여 실행 중인 Klaytn 노드가 현재 데이터베이스를 저장하는 데에 사용하는 절대 경로를 확인할 수 있습니다. 기본으로 설정된 경로는 노드 유형(kcn, kpn, ken)과 운영체제에 따라 다릅니다.
 
-| Client  | Method invocation             |
-|:-------:| ----------------------------- |
-| Console | `admin.datadir`               |
-|   RPC   | `{"method": "admin_datadir"}` |
+| 클라이언트 | 메서드 호출                        |
+|:-----:| ----------------------------- |
+|  콘솔   | `admin.datadir`               |
+|  RPC  | `{"method": "admin_datadir"}` |
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
-| 형식     | 설명                  |
-| ------ | ------------------- |
-| string | The `datadir` path. |
+| 형식  | 설명                |
+| --- | ----------------- |
+| 문자열 | `datadir`의 경로입니다. |
 
 **예시**
 
-Console
+콘솔
 
 ```javascript
 > admin.datadir
@@ -109,26 +109,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_peers
 
-The `peers` administrative property can be queried for all the information known about the connected remote nodes at the networking granularity. These include general information about the nodes themselves as participants of the [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P overlay protocol, as well as specialized information added by each of the running application protocols.
+`peers` 관리 속성을 조회하여 연결된 원격 노드에 대한 세밀한 정보를 확인할 수 있습니다. 실행 중인 어플리케이션 프로토콜에 의해 추가된 세부적인 정보뿐만 아니라 [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P 오버레이 프로토콜에 참여하는 노드 자신의 일반적인 정보도 확인할 수 있습니다.
 
-| Client  | Method invocation           |
-|:-------:| --------------------------- |
-| Console | `admin.peers`               |
-|   RPC   | `{"method": "admin_peers"}` |
+| 클라이언트 | 메서드 호출                      |
+|:-----:| --------------------------- |
+|  콘솔   | `admin.peers`               |
+|  RPC  | `{"method": "admin_peers"}` |
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
-| 형식          | 설명                                         |
-| ----------- | ------------------------------------------ |
-| JSON string | The information about all connected peers. |
+| 형식       | 설명                   |
+| -------- | -------------------- |
+| JSON 문자열 | 연결된 모든 피어에 대한 정보입니다. |
 
 **예시**
 
-Console
+콘솔
 
 ```javascript
 > admin.peers
@@ -174,7 +174,7 @@ Console
 ```
 HTTP RPC
 
-**NOTE**: All IP addresses below are shown as examples. Please replace them with the actual IP addresses in your execution environment.
+**참고**: 아래 IP 주소들은 예시입니다. 실행 환경에서의 실제 IP 주소로 바꿔주세요.
 
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_peers","id":1}' http://localhost:8551
@@ -184,30 +184,30 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admi
 
 ## admin_addPeer
 
-The `addPeer` administrative method requests adding a new remote node to the list of tracked static nodes. The node will try to maintain connectivity to these nodes at all times, reconnecting every once in a while if the remote connection goes down.
+`addPeer` 관리 메서드는 추적된 정적 노드들의 목록에 새로운 원격 노드를 추가하도록 요청합니다. 각 노드는 목록의 노드들과의 연결을 항상 유지하고자 하고, 만약 원격 가끔씩 연결이 끊어지면 다시 연결합니다.
 
-The method accepts a single argument kni, which means "Klaytn Network Identifier". It is similar to the [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) concept in the geth. It is URL of the remote peer to start tracking and returns a `BOOL` indicating whether the peer was accepted for tracking or some error occurred.
+이 메서드는 한 매개변수 kni(Klaytn Network Identifier)만을 입력으로 받습니다. 이는 geth의 [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) 개념과 유사합니다. 메서드의 입력으로 받을 kni는 추적할 원격 피어의 URL이며, 해당 피어의 추적이 허용되었는지 또는 어떤 오류가 발생했는지에 따라 `BOOL`을 반환합니다.
 
-| Client  | Method invocation                              |
-|:-------:| ---------------------------------------------- |
-| Console | `admin.addPeer(url)`                           |
-|   RPC   | `{"method": "admin_addPeer", "params": [url]}` |
+| 클라이언트 | 메서드 호출                                         |
+|:-----:| ---------------------------------------------- |
+|  콘솔   | `admin.addPeer(url)`                           |
+|  RPC  | `{"method": "admin_addPeer", "params": [url]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭  | 형식     | 설명                |
-| --- | ------ | ----------------- |
-| url | string | Peer's `kni` URL. |
+| 명칭  | 형식  | 설명                |
+| --- | --- | ----------------- |
+| url | 문자열 | 피어의 `kni` URL입니다. |
 
-**Return Value**
+**리턴값**
 
-| 형식   | 설명                                                  |
-| ---- | --------------------------------------------------- |
-| bool | `true` if the peer was accepted, `false` otherwise. |
+| 형식  | 설명                                                |
+| --- | ------------------------------------------------- |
+| 불리언 | 피어 추적이 허용되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > admin.addPeer("kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:32323") //This is an example address.
 true
@@ -222,30 +222,30 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_removePeer
 
-The `removePeer` administrative method requests removing a node from the list of tracked static nodes.
+`removePeer` 관리 메서드는 추적된 정적 노드들의 목록에서 노드를 제거하도록 요청합니다.
 
-The method accepts a single argument kni, which means "Klaytn Network Identifier". It is similar to the [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) concept in the geth. It is URL of the remote peer to be removed from a list and returns a `BOOL` indicating whether the peer was remove or some error occurred.
+이 메서드는 한 매개변수 kni(Klaytn Network Identifier)만을 입력으로 받습니다. 이는 geth의 [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) 개념과 유사합니다. 메서드의 입력으로 받을 kni는 목록에서 제거할 피어의 URL이며, 해당 피어가 제거되었는지 또는 어떤 오류가 발생했는지에 따라 `BOOL`을 반환합니다.
 
-| Client  | Method invocation                                 |
-|:-------:| ------------------------------------------------- |
-| Console | `admin.removePeer(url)`                           |
-|   RPC   | `{"method": "admin_removePeer", "params": [url]}` |
+| 클라이언트 | 메서드 호출                                            |
+|:-----:| ------------------------------------------------- |
+|  콘솔   | `admin.removePeer(url)`                           |
+|  RPC  | `{"method": "admin_removePeer", "params": [url]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭  | 형식     | 설명                |
-| --- | ------ | ----------------- |
-| url | string | Peer's `kni` URL. |
+| 명칭  | 형식  | 설명                |
+| --- | --- | ----------------- |
+| url | 문자열 | 피어의 `kni` URL입니다. |
 
-**Return Value**
+**리턴값**
 
-| 형식   | 설명                                                  |
-| ---- | --------------------------------------------------- |
-| bool | `true` if the peer was accepted, `false` otherwise. |
+| 형식  | 설명                                                |
+| --- | ------------------------------------------------- |
+| 불리언 | 피어 제거가 완료되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > admin.removePeer("kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:32323") //This is an example address.
 true
@@ -260,33 +260,33 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startRPC
 
-The `startRPC` administrative method starts an HTTP based [JSON RPC](http://www.jsonrpc.org/specification) API webserver to handle client requests.
+`startRPC` 관리 메서드는 HTTP 기반의 [JSON RPC](http://www.jsonrpc.org/specification) API 웹서버를 시작하여 클라이언트 요청을 처리하도록 합니다.
 
-The method returns a boolean flag specifying whether the HTTP RPC listener was opened or not. Please note, only one HTTP endpoint is allowed to be active at any time.
+이 메서드는 HTTP RPC 리스너가 열려있는지 여부를 나타내는 불리언 플래그를 반환합니다. 동시에 하나의 HTTP 엔드포인트만이 활성화될 수 있음을 참고해주세요.
 
-| Client  | Method invocation                                                  |
-|:-------:| ------------------------------------------------------------------ |
-| Console | `admin.startRPC(host, port, cors, apis)`                           |
-|   RPC   | `{"method": "admin_startRPC", "params": [host, port, cors, apis]}` |
+| 클라이언트 | 메서드 호출                                                             |
+|:-----:| ------------------------------------------------------------------ |
+|  콘솔   | `admin.startRPC(host, port, cors, apis)`                           |
+|  RPC  | `{"method": "admin_startRPC", "params": [host, port, cors, apis]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭   | 형식     | 설명                                                                                                                                      |
-| ---- | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| host | string | (optional) network interface to open the listener socket on (default:  `"localhost"`).                                                  |
-| port | int    | (optional) network port to open the listener socket on (default:  `8551`).                                                              |
-| cors | string | (optional) [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) header to use (default:  `""`). |
-| apis | string | (optional) API modules to offer over this interface (default:  `"klay,net,personal"`).                                                  |
+| 명칭   | 형식  | 설명                                                                                                                            |
+| ---- | --- | ----------------------------------------------------------------------------------------------------------------------------- |
+| host | 문자열 | (선택사항) 리스너 소켓이 열려있는 네트워크 인터페이스입니다. (기본 설정:  `"localhost"`)                                                                    |
+| port | int | (선택사항) 리스너 소켓이 열려있는 네트워크 포트입니다. (기본 설정:  `8551`)                                                                              |
+| cors | 문자열 | (선택사항) 사용할 [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 헤더입니다. (기본 설정:  `""`) |
+| apis | 문자열 | (선택사항) 이 인터페이스를 통해 제공할 API 모듈입니다. (기본 설정:  `"klay,net,personal"`)                                                             |
 
-**Return Value**
+**리턴값**
 
-| 형식   | 설명                                                          |
-| ---- | ----------------------------------------------------------- |
-| bool | `true` if the HTTP RPC listener was opened, `false` if not. |
+| 형식  | 설명                                                      |
+| --- | ------------------------------------------------------- |
+| 불리언 | HTTP RPC 리스너가 열리면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
-Console
+콘솔
 
 ```javascript
 > admin.startRPC("127.0.0.1", 8551)
@@ -301,26 +301,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stopRPC
 
-The `stopRPC` administrative method closes the currently open HTTP RPC endpoint. As the node can only have a single HTTP endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
+`stopRPC` 관리 메서드는 현재 열려있는 HTTP RPC 엔드포인트를 닫습니다. 노드는 하나의 HTTP 엔드포인트를 실행할 수 있기 때문에 이 메서드에 매개변수는 필요하지 않으며, 엔드포인트가 닫혔는지 여부에 따라 불리언으로 결과를 반환합니다.
 
-| Client  | Method invocation             |
-|:-------:| ----------------------------- |
-| Console | `admin.stopRPC()`             |
-|   RPC   | `{"method": "admin_stopRPC"}` |
+| 클라이언트 | 메서드 호출                        |
+|:-----:| ----------------------------- |
+|  콘솔   | `admin.stopRPC()`             |
+|  RPC  | `{"method": "admin_stopRPC"}` |
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
-| 형식   | 설명                                                 |
-| ---- | -------------------------------------------------- |
-| bool | `true` if the endpoint was closed, `false` if not. |
+| 형식  | 설명                                               |
+| --- | ------------------------------------------------ |
+| 불리언 | 엔드포인트가 닫히면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
-Console
+콘솔
 
 ```javascript
 > admin.stopRPC()
@@ -335,33 +335,33 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startWS
 
-The `startWS` administrative method starts an WebSocket based [JSON RPC](http://www.jsonrpc.org/specification) API webserver to handle client requests.
+`startWS` 관리 메서드는 Websocket 기반의 [JSON RPC](http://www.jsonrpc.org/specification) API 웹서버를 시작하여 클라이언트 요청을 처리하도록 합니다.
 
-The method returns a boolean flag specifying whether the WebSocket RPC listener was opened or not. Please note, only one WebSocket endpoint is allowed to be active at any time.
+이 메서드는 Websocket RPC 리스너가 열려있는지 여부를 나타내는 불리언 플래그를 반환합니다. 동시에 하나의 Websocket 엔드포인트만이 활성화될 수 있음을 참고해주세요.
 
-| Client  | Method invocation                                                 |
-|:-------:| ----------------------------------------------------------------- |
-| Console | `admin.startWS(host, port, cors, apis)`                           |
-|   RPC   | `{"method": "admin_startWS", "params": [host, port, cors, apis]}` |
+| 클라이언트 | 메서드 호출                                                            |
+|:-----:| ----------------------------------------------------------------- |
+|  콘솔   | `admin.startWS(host, port, cors, apis)`                           |
+|  RPC  | `{"method": "admin_startWS", "params": [host, port, cors, apis]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭   | 형식     | 설명                                                                                                                                      |
-| ---- | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| host | string | (optional) network interface to open the listener socket on (default:  `"localhost"`).                                                  |
-| port | int    | (optional) network port to open the listener socket on (default:  `8552`).                                                              |
-| cors | string | (optional) [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) header to use (default:  `""`). |
-| apis | string | (optional) API modules to offer over this interface (default:  `"klay,net,personal"`).                                                  |
+| 명칭   | 형식  | 설명                                                                                                                            |
+| ---- | --- | ----------------------------------------------------------------------------------------------------------------------------- |
+| host | 문자열 | (선택사항) 리스너 소켓이 열려있는 네트워크 인터페이스입니다. (기본 설정:  `"localhost"`)                                                                    |
+| port | int | (선택사항) 리스너 소켓이 열려있는 네트워크 포트입니다. (기본 설정:  `8552`)                                                                              |
+| cors | 문자열 | (선택사항) 사용할 [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 헤더입니다. (기본 설정:  `""`) |
+| apis | 문자열 | (선택사항) 이 인터페이스를 통해 제공할 API 모듈입니다. (기본 설정:  `"klay,net,personal"`)                                                             |
 
-**Return Value**
+**리턴값**
 
-| 형식   | 설명                                                               |
-| ---- | ---------------------------------------------------------------- |
-| bool | `true` if the WebSocket RPC listener was opened, `false` if not. |
+| 형식  | 설명                                                           |
+| --- | ------------------------------------------------------------ |
+| 불리언 | Websocket RPC 리스너가 열리면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
-Console
+콘솔
 
 ```javascript
 > admin.startWS("127.0.0.1", 8552)
@@ -376,26 +376,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stopWS
 
-The `stopWS` administrative method closes the currently open WebSocket RPC endpoint. As the node can only have a single WebSocket endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
+`stopWS` 관리 메서드는 현재 열려있는 Websocket RPC 엔드포인트를 닫습니다. 노드는 하나의 Websocket 엔드포인트를 실행할 수 있기 때문에 이 메서드에 매개변수는 필요하지 않으며, 엔드포인트가 닫혔는지 여부에 따라 불리언으로 결과를 반환합니다.
 
-| Client  | Method invocation            |
-|:-------:| ---------------------------- |
-| Console | `admin.stopWS()`             |
-|   RPC   | `{"method": "admin_stopWS"}` |
+| 클라이언트 | 메서드 호출                       |
+|:-----:| ---------------------------- |
+|  콘솔   | `admin.stopWS()`             |
+|  RPC  | `{"method": "admin_stopWS"}` |
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
-| 형식   | 설명                                                 |
-| ---- | -------------------------------------------------- |
-| bool | `true` if the endpoint was closed, `false` if not. |
+| 형식  | 설명                                               |
+| --- | ------------------------------------------------ |
+| 불리언 | 엔드포인트가 닫히면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
-Console
+콘솔
 
 ```javascript
 > admin.stopWS()
@@ -410,28 +410,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_exportChain
 
-The `exportChain` administrative method exports the blockahin to a file.
+`exportChain` 관리 메서드는 블록체인을 파일로 내보냅니다.
 
-| Client  | Method invocation                                        |
-|:-------:| -------------------------------------------------------- |
-| Console | `admin.exportChain(fileName)`                            |
-|   RPC   | `{"method": "admin_importChain"}, "params": [fileName]}` |
+| 클라이언트 | 메서드 호출                                                   |
+|:-----:| -------------------------------------------------------- |
+|  콘솔   | `admin.exportChain(fileName)`                            |
+|  RPC  | `{"method": "admin_importChain"}, "params": [fileName]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭       | 형식     | 설명                                                                          |
-| -------- | ------ | --------------------------------------------------------------------------- |
-| fileName | string | the fully qualified path to the file where the blockchain must be exported. |
+| 명칭       | 형식  | 설명                       |
+| -------- | --- | ------------------------ |
+| fileName | 문자열 | 블록체인을 내보낼 파일의 명확한 경로입니다. |
 
-**Return Value**
+**리턴값**
 
-| 형식   | 설명                                            |
-| ---- | --------------------------------------------- |
-| bool | `true` if chain was exported, `false` if not. |
+| 형식  | 설명                                               |
+| --- | ------------------------------------------------ |
+| 불리언 | 블록체인을 내보내면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
-Console
+콘솔
 
 ```javascript
 > admin.exportChain("/tmp/chain.txt")
@@ -446,28 +446,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_importChain
 
-The `importChain` administrative method imports an exported chain from file into node. This only works if no chain already exists: it does not delete any existing data.
+`importChain` 관리 메서드는 내보낸 블록체인을 파일에서 노드로 가져옵니다. 이 메서드는 노드에 블록체인이 존재하지 않는 경우에만 작동합니다. 즉 기존의 데이터를 삭제하지 않습니다.
 
-| Client  | Method invocation                                        |
-|:-------:| -------------------------------------------------------- |
-| Console | `admin.importChain(fileName)`                            |
-|   RPC   | `{"method": "admin_importChain"}, "params": [fileName]}` |
+| 클라이언트 | 메서드 호출                                                   |
+|:-----:| -------------------------------------------------------- |
+|  콘솔   | `admin.importChain(fileName)`                            |
+|  RPC  | `{"method": "admin_importChain"}, "params": [fileName]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭       | 형식     | 설명                                                                        |
-| -------- | ------ | ------------------------------------------------------------------------- |
-| fileName | string | the fully qualified path to the file containing the chain to be imported. |
+| 명칭       | 형식  | 설명                             |
+| -------- | --- | ------------------------------ |
+| fileName | 문자열 | 가져올 블록체인을 담고 있는 파일의 명확한 경로입니다. |
 
-**Return Value**
+**리턴값**
 
-| 형식   | 설명                                            |
-| ---- | --------------------------------------------- |
-| bool | `true` if chain was imported, `false` if not. |
+| 형식  | 설명                                               |
+| --- | ------------------------------------------------ |
+| 불리언 | 블록체인을 가져오면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
-Console
+콘솔
 
 ```javascript
 > admin.importChain("/tmp/chain.txt")
