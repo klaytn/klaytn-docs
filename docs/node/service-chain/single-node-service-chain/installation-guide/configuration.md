@@ -1,14 +1,14 @@
 # Configuration <a id="configuration"></a>
 
-This page explains the configuration of a single Service Chain Node (SCN).
+This page explains the configuration of a node in a single-node Service Chain.
 
 ## Creation of a Genesis File <a id="creation-of-a-genesis-file"></a>
 
-First, you should create new genesis file for your own service chain and initialize all service chain nodes with the same genesis file.
+First, you should create a new genesis file for your own service chain and initialize all service chain nodes with the same genesis file.
 The genesis file of the service chain is different with main chain.
 The `unitPrice` is set to `0` in the example below, but you can change it to the value you want.
 
-The `genesis.json` examples follow. You can find more details in [Genesis JSON](../../genesis.md).
+The `genesis.json` example is given below. You can find more details in [Genesis JSON](../../genesis.md).
 
 * `geneis.json` example for a consensus node.
   * The consensus node key is `5d45c852383d12cdb38533cb7369db7ba6c298e4`.
@@ -44,7 +44,7 @@ The `genesis.json` examples follow. You can find more details in [Genesis JSON](
 
 ## SCN Data Directory Creation <a id="scn-data-directory-creation"></a>
 
-Considering the fact that the size of Klaytn blockchain data is always increased, it is recommended to use a big enough storage. You may need to create the directory on your specific path.
+Considering the fact that the size of Klaytn blockchain data keeps increasing, it is recommended to use a big enough storage. You can create the data directory on your desired path.
 
 ```bash
 $ mkdir -p ~/kscnd_home
@@ -52,7 +52,7 @@ $ mkdir -p ~/kscnd_home
 
 ### Initialization of a Genesis Block <a id="initialization-of-a-genesis-block"></a>
 
-Before starting an service chain node, it is necessary to initialize the genesis block of the service chain network using `kscn` and `genesis.json`.
+Before starting a service chain node, it is necessary to initialize the genesis block of the service chain network using `kscn` and `genesis.json`.
 
 ```bash
 $ kscn init --datadir ~/kscnd_home genesis.json
@@ -75,7 +75,7 @@ configuration is an example.
 SCSIGNER="" #deprecated 
 SCSIGNER_PASSWD_FILE= #deprecated
 
-NETWORK_ID=3000 # Set your own unique network ID which is different with known network(Klaytn Mainnet(1), Baobab(1000))
+NETWORK_ID=3000 # Set your own unique network ID which should be different from the known networks (Klaytn Mainnet(1), Baobab(1000))
 
 PORT=22323 # if EN (main-bridge) and SCN (sub-bridge) on same instance, use different port with EN.(EN: 32323, SCN:22323)
 

@@ -160,7 +160,7 @@ Returns the anchoring transaction hash of the given child chain block hash.
 
 | Type   | Description                          |
 | ------ | ------------------------------------ |
-| 32-byte DATA | The transaction hash whilch including the child chain block anchoring information.|
+| 32-byte DATA | The anchoring transaction hash that includes the child chain block information.|
 
 **Example**
 

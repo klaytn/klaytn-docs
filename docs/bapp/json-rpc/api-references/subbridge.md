@@ -138,7 +138,7 @@ none
 
 | Type | Description |
 | --- | --- |
-| Account | parent chain operator account address
+| Account | Parent chain operator account address. |
 
 **Example**
 
@@ -158,7 +158,7 @@ none
 
 | Type | Description |
 | --- | --- |
-| Account | child chain operator account address
+| Account | Child chain operator account address. |
 
 **Example**
 
@@ -178,7 +178,7 @@ none
 
 | Type | Description |
 | --- | --- |
-| QUANTITY | Integer of the number of transactions send from parent operator account. |
+| QUANTITY | Integer of the number of transactions sent from the parent operator account. |
 
 **Example**
 
@@ -198,7 +198,7 @@ none
 
 | Type | Description |
 | --- | --- |
-| QUANTITY | Integer of the number of transactions send from child operator account. |
+| QUANTITY | Integer of the number of transactions sent from the child operator account. |
 
 **Example**
 
@@ -208,7 +208,7 @@ none
 ```
 
 ## subbridge_parentOperatorBalance <a id="subbridge_parentOperatorBalance"></a>
-The `bridge.parentOperatorBalance` returns the balance of the parent operator account address.
+The `bridge.parentOperatorBalance` returns the balance of the parent operator account.
 
 **Parameters**
 
@@ -218,7 +218,7 @@ none
 
 | Type | Description |
 | --- | --- |
-| QUANTITY | Integer of the current balance of parent operator account. |
+| QUANTITY | Integer of the current balance of the parent operator account. |
 
 **Example**
 
@@ -228,7 +228,7 @@ none
 ```
 
 ## subbridge_childOperatorBalance <a id="subbridge_childOperatorBalance"></a>
-The `bridge.childOperator` returns the balance of the child operator account address.
+The `bridge.childOperatorBalance` returns the balance of the child operator account.
 
 **Parameters**
 
@@ -238,7 +238,7 @@ none
 
 | Type | Description |
 | --- | --- |
-| QUANTITY | Integer of the current balance of child operator account. |
+| QUANTITY | Integer of the current balance of the child operator account. |
 
 **Example**
 
@@ -326,18 +326,18 @@ None
 ```
 
 ## subbridge_getReceiptFromParentChain <a id="subbridge_getReceiptFromParentChain"></a>
-The `subbridge.getReceiptFromParentChain` returns the receipt of the anchoring transactions.
+The `subbridge.getReceiptFromParentChain` returns the receipt of the anchoring transaction.
 
 **Parameters**
 
 | Type   | Description                          |
 | ------ | ------------------------------------ |
-| 32-byte DATA | The childchain block hash which included the anchoring tx hash.  |
+| 32-byte DATA | The child chain block hash that was included the anchoring tx hash.  |
 
 
 **Return Value**
 
-`Object` - A transaction receipt object, or `null` when no receipt was found
+`Object` - A transaction receipt object, or `null` when no receipt was found.
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -363,7 +363,7 @@ The `subbridge.getReceiptFromParentChain` returns the receipt of the anchoring t
 ```
 
 ## subbridge_deployBridge <a id="subbridge_deployBridge"></a>
-The `subbridge.deployBridge` deploys/registers bridge contract of parent/child chain, and returns the address of deployed bridge contracts.
+The `subbridge.deployBridge` deploys/registers a bridge contract to the parent/child chain, and returns the address of deployed bridge contracts.
 
 **Parameters**
 
@@ -384,7 +384,7 @@ none
 ```
 
 ## subbridge_registerBridge <a id="subbridge_registerBridge"></a>
-The `subbridge.registerBridge` registers already deployed bridge contracts of parent/child chain.
+The `subbridge.registerBridge` registers already deployed bridge contracts in the parent/child chain.
 
 **Parameters**
 
@@ -397,7 +397,7 @@ The `subbridge.registerBridge` registers already deployed bridge contracts of pa
 
 | Name | Type | Description |
 | --- | --- | --- |
-| error | Error | `null` if the registering succeeds, some error otherwise. |
+| error | Error | `null` if the registration succeeds, Error object otherwise. |
 
 **Example**
 
@@ -410,7 +410,7 @@ Error: bridge already exists
 ```
 
 ## subbridge_deregisterBridge <a id="subbridge_deregisterBridge"></a>
-The `subbridge.deregisterBridge` deregisters already registered bridge contracts of parent/child chain.
+The `subbridge.deregisterBridge` deregisters already registered bridge contracts in the parent/child chain.
 
 **Parameters**
 
@@ -423,7 +423,7 @@ The `subbridge.deregisterBridge` deregisters already registered bridge contracts
 
 | Name | Type | Description |
 | --- | --- | --- |
-| error | Error | `null` if the deregistering succeeds, some error otherwise. |
+| error | Error | `null` if the deregistering succeeds, Error object otherwise. |
 
 **Example**
 
@@ -450,7 +450,7 @@ If bridge contract pair is subscribed, value transfer request can be handled aut
 
 | Name | Type | Description |
 | --- | --- | --- |
-| error | Error | `null` if the subscribing succeeds, some error otherwise. |
+| error | Error | `null` if the subscribing succeeds, Error object otherwise. |
 
 **Example**
 
@@ -476,7 +476,7 @@ If bridge contract pair is unsubscribed, value transfer request can not be handl
 
 | Name | Type | Description |
 | --- | --- | --- |
-| error | Error | `null` if the unsubscribing succeeds, some error otherwise. |
+| error | Error | `null` if the unsubscribing succeeds, Error object otherwise. |
 
 **Example**
 
@@ -501,7 +501,7 @@ The `subbridge.registerToken` registers token contract (ERC20/721) pair on the b
 
 | Name | Type | Description |
 | --- | --- | --- |
-| error | Error | `null` if the registering succeeds, some error otherwise. |
+| error | Error | `null` if the registering succeeds, Error object otherwise. |
 
 **Example**
 
@@ -528,7 +528,7 @@ The `subbridge.deregisterBridge` deregisters already registered token pair on th
 
 | Name | Type | Description |
 | --- | --- | --- |
-| error | Error | `null` if the deregistering succeeds, some error otherwise. |
+| error | Error | `null` if the deregistering succeeds, Error object otherwise. |
 
 **Example**
 
@@ -566,7 +566,7 @@ The `subbridge.convertRequestTxHashToHandleTxHash` returns the correspond handle
 ```
 
 ## subbridge_listBridge <a id="subbridge_listBridge"></a>
-The `subbridge.listBridge` returns the list of all bridge contract pairs are registred (stored) in sub-bridge. 
+The `subbridge.listBridge` returns the list of all bridge contract pairs that are registered (stored) in the sub-bridge. 
 
 **Parameters**
 
@@ -576,8 +576,8 @@ nonce
 
 | Name | Type | Description |
 | --- | --- | --- |
-| localAddress | account | 20-byte DATA | Address of the bridge contract address on child (service) chain. |
-| localAddress | account | 20-byte DATA | Address of the bridge contract address on parent (main) chain. |
+| localAddress | account | 20-byte DATA | Address of the bridge contract on child (service) chain. |
+| localAddress | account | 20-byte DATA | Address of the bridge contract on parent (main) chain. |
 | subscribed | bool | `true` if the pair of bridge contracts is subscribed, `false` otherwise. |
 
 **Example**
@@ -613,7 +613,7 @@ The `subbridge.getBridgeInformation` returns the information of the given bridge
 
 | Name | Type | Description |
 | --- | --- | --- |
-| counterPart | 20-byte DATA | Address of the counter part bridge contract address stored in the bridge contact. (Not supported yet) |
+| counterPart | 20-byte DATA | Address of the counterpart bridge contract stored in the bridge contact. (Not supported yet) |
 | isRunning | bool | `true` if the bridge contract is running, `false` otherwise. |
 | isSubscribed | bool | `true` if the bridge contract is subscribed, `false` otherwise. |
 | onServiceChain | bool | `true` if the bridge contact is on child(service) chain, `false` otherwise. |
@@ -640,7 +640,7 @@ The `subbridge.getBridgeInformation` returns the information of the given bridge
 ```
 
 ## subbridge_txPendingCount <a id="subbridge_txPendingCount"></a>
-The `subbridge.txPendingCount` returns the count of pending transactions in bridge transaction pool.
+The `subbridge.txPendingCount` returns the count of pending transactions in the bridge transaction pool.
 
 **Parameters**
 
@@ -650,7 +650,7 @@ None
 
 | Type | Description |
 | --- | --- |
-| Uint64 | The number of pending transaction count in bridge transaction pool.
+| Uint64 | The number of pending transaction count in the bridge transaction pool. |
 
 **Example**
 
@@ -660,7 +660,7 @@ None
 ```
 
 ## subbridge_txPending <a id="subbridge_txPending"></a>
-The `subbridge.txPendingCount` returns the list of pending transaction in bridge transaction pool.
+The `subbridge.txPendingCount` returns the list of pending transactions in the bridge transaction pool.
 
 **Parameters**
 
@@ -670,7 +670,7 @@ None
 
 | Type | Description |
 | --- | --- |
-| JSON string | The content of the bridge transaction pool. |
+| JSON string | List of pending transactions in the bridge transaction pool. |
 
 **Example**
 
