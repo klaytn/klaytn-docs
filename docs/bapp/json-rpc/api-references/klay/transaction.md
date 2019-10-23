@@ -739,7 +739,7 @@ The below table shows the meaning of the value in `txError`.
 |0x1d|not supported|
 |0x1e|smart contract code format is invalid|
 
-## klay_getDecodedAnchoringTransactionByHash
+## klay_getDecodedAnchoringTransactionByHash <a id="klay_getDecodedAnchoringTransactionByHash"></a>
 
 Returns the decoded information of an anchoring transaction requested by transaction hash.
 
