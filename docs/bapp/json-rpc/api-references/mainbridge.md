@@ -154,7 +154,7 @@ Returns the anchoring transaction hash of the given child chain block hash.
 
 | Type   | Description                          |
 | ------ | ------------------------------------ |
-| 32-byte DATA | The childchain block hash which included the anchoring tx hash.  |
+| 32-byte DATA | The child chain block hash.  |
 
 **Return Value**
 
