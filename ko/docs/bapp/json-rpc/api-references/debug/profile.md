@@ -2,27 +2,27 @@
 
 ## debug_blockProfile
 
-Turns on block profiling for the given duration and writes profile data to disk. It uses a profile rate of 1 for most accurate information. If a different rate is desired, set the rate and write the profile manually using [debug_writeBlockProfile](#debug_writeblockprofile).
+입력으로 받은 기간 동안의 블록 프로파일링을 설정하고 프로파일 데이터를 디스크에 씁니다. 가장 정확한 정보를 위해 프로파일 속도는 1입니다. 속도를 다르게 설정하려면, [debug_writeBlockProfile](#debug_writeblockprofile)를 사용하여 속도를 설정하고 프로파일을 수동으로 작성합니다.
 
-| Client  | Method Invocation                                              |
-|:-------:| -------------------------------------------------------------- |
-| Console | `debug.blockProfile(file, seconds)`                            |
-|   RPC   | `{"method": "debug_blockProfile", "params": [string, number]}` |
+| 클라이언트 | Method Invocation                                              |
+|:-----:| -------------------------------------------------------------- |
+|  콘솔   | `debug.blockProfile(file, seconds)`                            |
+|  RPC  | `{"method": "debug_blockProfile", "params": [string, number]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭      | 형식     | 설명                                     |
-| ------- | ------ | -------------------------------------- |
-| file    | string | The filename for the profiling result. |
-| seconds | int    | The profiling duration in seconds.     |
+| 명칭      | 형식  | 설명                     |
+| ------- | --- | ---------------------- |
+| file    | 문자열 | 프로파일링 결과 파일의 이름입니다.    |
+| seconds | int | 초 단위로 표현된 프로파일링 기간입니다. |
 
-**Return Value**
+**리턴값**
 
-None
+없음
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.blockProfile("block.profile", 10)
 null
@@ -36,27 +36,27 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_cpuProfile
 
-Turns on CPU profiling for the given duration and writes profile data to disk.
+입력으로 받은 기간 동안의 CPU 프로파일링을 설정하고 프로파일 데이터를 디스크에 씁니다.
 
-| Client  | Method Invocation                                            |
-|:-------:| ------------------------------------------------------------ |
-| Console | `debug.cpuProfile(file, seconds)`                            |
-|   RPC   | `{"method": "debug_cpuProfile", "params": [string, number]}` |
+| 클라이언트 | Method Invocation                                            |
+|:-----:| ------------------------------------------------------------ |
+|  콘솔   | `debug.cpuProfile(file, seconds)`                            |
+|  RPC  | `{"method": "debug_cpuProfile", "params": [string, number]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭      | 형식     | 설명                                     |
-| ------- | ------ | -------------------------------------- |
-| file    | string | The filename for the profiling result. |
-| seconds | int    | The profiling duration in seconds.     |
+| 명칭      | 형식  | 설명                     |
+| ------- | --- | ---------------------- |
+| file    | 문자열 | 프로파일링 결과 파일의 이름입니다.    |
+| seconds | int | 초 단위로 표현된 프로파일링 기간입니다. |
 
-**Return Value**
+**리턴값**
 
-None
+없음
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.cpuProfile("block.profile", 10)
 null
@@ -70,26 +70,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_isPProfRunning
 
-Returns `true` if the pprof HTTP server is running and `false` otherwise.
+pprof HTTP 서버가 실행 중이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.
 
-| Client  | Method Invocation                                  |
-|:-------:| -------------------------------------------------- |
-| Console | `debug.isPProfRunning()`                           |
-|   RPC   | `{"method": "debug_isPProfRunning", "params": []}` |
+| 클라이언트 | Method Invocation                                  |
+|:-----:| -------------------------------------------------- |
+|  콘솔   | `debug.isPProfRunning()`                           |
+|  RPC  | `{"method": "debug_isPProfRunning", "params": []}` |
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
-| 형식   | 설명                                                                |
-| ---- | ----------------------------------------------------------------- |
-| bool | `true` if the pprof HTTP server is running and `false` otherwise. |
+| 형식  | 설명                                                          |
+| --- | ----------------------------------------------------------- |
+| 불리언 | pprof HTTP 서버가 실행 중이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.isPProfRunning()
 false
@@ -104,26 +104,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_setBlockProfileRate
 
-Sets the rate (in samples/sec) of goroutine block profile data collection. A non-zero rate enables block profiling, setting it to zero stops the profile. Collected profile data can be written using [debug_writeBlockProfile](#debug_writeblockprofile).
+Go루틴 블록 프로파일 데이터 수집 속도(샘플/초)를 설정합니다. 0이 아닌 값으로 설정하면 블록 프로파일링을 활성화하고, 0으로 설정하면 중단합니다. [debug_writeBlockProfile](#debug_writeblockprofile)을 사용하여 수집한 프로파일 데이터를 쓸 수 있습니다.
 
-| Client  | Method Invocation                                             |
-|:-------:| ------------------------------------------------------------- |
-| Console | `debug.setBlockProfileRate(rate)`                             |
-|   RPC   | `{"method": "debug_setBlockProfileRate", "params": [number]}` |
+| 클라이언트 | Method Invocation                                             |
+|:-----:| ------------------------------------------------------------- |
+|  콘솔   | `debug.setBlockProfileRate(rate)`                             |
+|  RPC  | `{"method": "debug_setBlockProfileRate", "params": [number]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭   | 형식  | 설명                                 |
-| ---- | --- | ---------------------------------- |
-| rate | int | The profiling rate in samples/sec. |
+| 명칭   | 형식  | 설명                       |
+| ---- | --- | ------------------------ |
+| rate | int | (샘플/초)로 표현된 프로파일링 속도입니다. |
 
-**Return Value**
+**리턴값**
 
-None
+없음
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.setBlockProfileRate(1)
 null
@@ -137,26 +137,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startCPUProfile
 
-Turns on CPU profiling indefinitely, writing to the given file.
+무기한으로 CPU 프로파일링을 진행하고, 입력으로 받은 파일에 그 결과를 작성합니다.
 
-| Client  | Method Invocation                                         |
-|:-------:| --------------------------------------------------------- |
-| Console | `debug.startCPUProfile(file)`                             |
-|   RPC   | `{"method": "debug_startCPUProfile", "params": [string]}` |
+| 클라이언트 | Method Invocation                                         |
+|:-----:| --------------------------------------------------------- |
+|  콘솔   | `debug.startCPUProfile(file)`                             |
+|  RPC  | `{"method": "debug_startCPUProfile", "params": [string]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭   | 형식     | 설명                                     |
-| ---- | ------ | -------------------------------------- |
-| file | string | The filename for the profiling output. |
+| 명칭   | 형식  | 설명                  |
+| ---- | --- | ------------------- |
+| file | 문자열 | 프로파일링 출력 파일의 이름입니다. |
 
-**Return Value**
+**리턴값**
 
-None
+없음
 
 **예시**
 
-Console
+콘솔
 
 ```javascript
 > debug.startCPUProfile("cpu.profile")
@@ -171,24 +171,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_stopCPUProfile
 
-Turns off CPU profiling.
+CPU 프로파일링을 중단합니다.
 
-| Client  | Method Invocation                                  |
-|:-------:| -------------------------------------------------- |
-| Console | `debug.stopCPUProfile()`                           |
-|   RPC   | `{"method": "debug_stopCPUProfile", "params": []}` |
+| 클라이언트 | Method Invocation                                  |
+|:-----:| -------------------------------------------------- |
+|  콘솔   | `debug.stopCPUProfile()`                           |
+|  RPC  | `{"method": "debug_stopCPUProfile", "params": []}` |
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
-None
+없음
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.stopCPUProfile()
 null
@@ -202,30 +202,30 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startPProf
 
-Starts the pprof HTTP server.  The running pprof server can be accessed by (when the default configuration, i.e., localhost:6060, is used):
-- http://localhost:6060/debug/pprof (for the pprof results)
-- http://localhost:6060/memsize/ (for the memory size reports)
-- http://localhost:6060/debug/vars (for the metrics)
+pprof HTTP 서버를 시작합니다.  실행 중인 pprof 서버는 아래를 통해 접근할 수 있습니다. (기본 설정, 즉 localhost:6060인 경우입니다.)
+- http://localhost:6060/debug/pprof (pprof 결과)
+- http://localhost:6060/memsize/ (메모리 크기 리포트)
+- http://localhost:6060/debug/vars (측정 수치)
 
-| Client  | Method Invocation                                            |
-|:-------:| ------------------------------------------------------------ |
-| Console | `debug.startPProf(address, port)`                            |
-|   RPC   | `{"method": "debug_startPProf", "params": [string, number]}` |
+| 클라이언트 | Method Invocation                                            |
+|:-----:| ------------------------------------------------------------ |
+|  콘솔   | `debug.startPProf(address, port)`                            |
+|  RPC  | `{"method": "debug_startPProf", "params": [string, number]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭      | 형식     | 설명                                                                       |
-| ------- | ------ | ------------------------------------------------------------------------ |
-| address | string | (optional) pprof HTTP server listening interface (default: "127.0.0.1"). |
-| port    | int    | (optional) pprof HTTP server listening port (default: 6060).             |
+| 명칭      | 형식  | 설명                                                       |
+| ------- | --- | -------------------------------------------------------- |
+| address | 문자열 | (선택사항) pprof HTTP 서버의 리스너 인터페이스입니다. (기본 설정: "127.0.0.1") |
+| port    | int | (선택사항) pprof HTTP 서버의 리스너 포트입니다. (기본 설정: 6060)           |
 
-**Return Value**
+**리턴값**
 
-None
+없음
 
 **예시**
 
-Console
+콘솔
 ```javascript
 # To start the pprof server at 127.0.0.1:6060
 > debug.startPProf()
@@ -246,24 +246,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_stopPProf
 
-Stops the pprof HTTP server.
+pprof HTTP 서버를 중단합니다.
 
-| Client  | Method Invocation                             |
-|:-------:| --------------------------------------------- |
-| Console | `debug.stopPProf()`                           |
-|   RPC   | `{"method": "debug_stopPProf", "params": []}` |
+| 클라이언트 | Method Invocation                             |
+|:-----:| --------------------------------------------- |
+|  콘솔   | `debug.stopPProf()`                           |
+|  RPC  | `{"method": "debug_stopPProf", "params": []}` |
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
-None
+없음
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.stopPProf()
 null
@@ -278,26 +278,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_writeBlockProfile
 
-Writes a goroutine blocking profile to the given file.
+입력으로 받은 파일에 go루틴 블록 프로파일링을 작성합니다.
 
-| Client  | Method Invocation                                           |
-|:-------:| ----------------------------------------------------------- |
-| Console | `debug.writeBlockProfile(file)`                             |
-|   RPC   | `{"method": "debug_writeBlockProfile", "params": [string]}` |
+| 클라이언트 | Method Invocation                                           |
+|:-----:| ----------------------------------------------------------- |
+|  콘솔   | `debug.writeBlockProfile(file)`                             |
+|  RPC  | `{"method": "debug_writeBlockProfile", "params": [string]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭   | 형식     | 설명                                     |
-| ---- | ------ | -------------------------------------- |
-| file | string | The filename for the profiling output. |
+| 명칭   | 형식  | 설명                  |
+| ---- | --- | ------------------- |
+| file | 문자열 | 프로파일링 출력 파일의 이름입니다. |
 
-**Return Value**
+**리턴값**
 
-None
+없음
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.writeBlockProfile("block.profile")
 null
@@ -311,26 +311,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_writeMemProfile
 
-Writes an allocation profile to the given file.  Note that the profiling rate cannot be set through the API, it must be set on the command line using the `--memprofilerate` flag.
+입력으로 받은 파일에 메모리 사용량 프로파일을 작성합니다.  프로파일링 속도는 이 API로 설정할 수 없으며, 명령 줄에서 `--memprofilerate` 플래그를 사용하여 설정해야 합니다.
 
-| Client  | Method Invocation                                         |
-|:-------:| --------------------------------------------------------- |
-| Console | `debug.writeMemProfile(file)`                             |
-|   RPC   | `{"method": "debug_writeMemProfile", "params": [string]}` |
+| 클라이언트 | Method Invocation                                         |
+|:-----:| --------------------------------------------------------- |
+|  콘솔   | `debug.writeMemProfile(file)`                             |
+|  RPC  | `{"method": "debug_writeMemProfile", "params": [string]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭   | 형식     | 설명                                     |
-| ---- | ------ | -------------------------------------- |
-| file | string | The filename for the profiling output. |
+| 명칭   | 형식  | 설명                  |
+| ---- | --- | ------------------- |
+| file | 문자열 | 프로파일링 출력 파일의 이름입니다. |
 
-**Return Value**
+**리턴값**
 
-None
+없음
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.writeMemProfile("mem.profile")
 null
