@@ -6,26 +6,26 @@ Retrieves the state that corresponds to the block number and returns a list of a
 
 **NOTE**: This function returns the state correctly for some latest block numbers.  On the other hand, old block numbers that can be used to retrieve the state may be restricted depending on the value set for the `klay` command-line option `--state.block-interval` (default: 128).  This means that the function will perform the state retrieval against only the block numbers, which are a multiple of state.block-interval value.  For example, when the value of state.block-interval is 128, this function returns the state correctly for the block numbers such as "0x0", "0x80", "0x100", "0x180", and so on.  If the block number is not a multiple of state.block-interval value, it will return 'missing trie node' error.
 
-| Client  | Method Invocation                                   |
-|:-------:| --------------------------------------------------- |
-| Console | `debug.dumpBlock(number)`                           |
-|   RPC   | `{"method": "debug_dumpBlock", "params": [number]}` |
+| 클라이언트 | Method Invocation                                   |
+|:-----:| --------------------------------------------------- |
+|  콘솔   | `debug.dumpBlock(number)`                           |
+|  RPC  | `{"method": "debug_dumpBlock", "params": [number]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭     | 형식     | 설명                                |
-| ------ | ------ | --------------------------------- |
-| number | string | The block number as a hex string. |
+| 명칭     | 형식  | 설명                                |
+| ------ | --- | --------------------------------- |
+| number | 문자열 | The block number as a hex string. |
 
-**Return Value**
+**리턴값**
 
-| 형식          | 설명                     |
-| ----------- | ---------------------- |
-| JSON string | The block information. |
+| 형식       | 설명                     |
+| -------- | ---------------------- |
+| JSON 문자열 | The block information. |
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.dumpBlock("0x80")
 {
@@ -67,28 +67,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Retrieves and returns the RLP-encoded block by the block number.
 
-| Client  | Method Invocation                                     |
-|:-------:| ----------------------------------------------------- |
-| Console | `debug.getBlockRlp(number)`                           |
-|   RPC   | `{"method": "debug_getBlockRlp", "params": [number]}` |
+| 클라이언트 | Method Invocation                                     |
+|:-----:| ----------------------------------------------------- |
+|  콘솔   | `debug.getBlockRlp(number)`                           |
+|  RPC  | `{"method": "debug_getBlockRlp", "params": [number]}` |
 
 References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
-**Parameters**
+**매개변수**
 
 | 명칭     | 형식  | 설명                |
 | ------ | --- | ----------------- |
 | number | int | The block number. |
 
-**Return Value**
+**리턴값**
 
-| 형식     | 설명                     |
-| ------ | ---------------------- |
-| string | The RLP-encoded block. |
+| 형식  | 설명                     |
+| --- | ---------------------- |
+| 문자열 | The RLP-encoded block. |
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.getBlockRlp(100)
 "f90399f90394a05a825207c8396b848fefc73e442db004adee6596309af27630871b6a3d424758a01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347940000000000000000000000000000000000000000940000000000000000000000000000000000000000a0b2ff1e4173123faa241fb93d83860e09f9e1ca1cfaf24c40c9e963e65c0b0317a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016485e8d4a50fff80845bb9e92eb90187d7820401846b6c617988676f312e31302e33856c696e75780000000000000000f90164f854943b215ed129645b949722d4efbd9c749838d85bf0947050164b7718c667c9661afd924f6c0c5e5d4a01947f303b360063efc575e99cf2f7602efa034e832e94f38624dba0e106aa6a79335f77d3fd6409f9e4d8b84126d1ae355905704d8ffcc50599a8a051ac7c50ed6fc6d7caf6510cf0329b56cf3e3babfe45cc95143074ca0385627ea3b6ac3f6ad7961b60f23e32965d3b0c2900f8c9b841c3423ecb41ee86b193dbb98bf74e0c1b8e0c475503a8f5ef37ef7566af34443c77b492a1f92e5a7411c36efeae08ebc698d02353c38f07a3d5c32168243ab7e901b841ec6558f4e5d123b9dc240e77db493f1e5e2f55f108d3c4f9b39e10dbca39ad7b3fc2dd5d27a7a3d92938ad4245bef5a914377fb2b92cbe342067a9963ab121b700b841f34ed94f29cd0aefd841cc8aba9dcc9d4c2fe14795f3a661e8ce92c2014c2099327e5f4285e1d1821e55f297cf5252bafed521ab49906b9b596a3187ce1e529c00a063746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365880000000000000000c0c0"
@@ -105,27 +105,27 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 Returns all accounts that have changed between the two blocks specified by their block hashes. A change is defined as a difference in nonce, balance, code hash, or storage hash.
 
 
-| Client  | Method Invocation                                                                           |
-|:-------:| ------------------------------------------------------------------------------------------- |
-| Console | `debug.getModifiedAccountsByNumber(startBlockHash, endBlockHash)`                           |
-|   RPC   | `{"method": "debug_getModifiedAccountsByNumber", "params": [startBlockHash, endBlockHash]}` |
+| 클라이언트 | Method Invocation                                                                           |
+|:-----:| ------------------------------------------------------------------------------------------- |
+|  콘솔   | `debug.getModifiedAccountsByNumber(startBlockHash, endBlockHash)`                           |
+|  RPC  | `{"method": "debug_getModifiedAccountsByNumber", "params": [startBlockHash, endBlockHash]}` |
 
-**Parameters**
+**매개변수**
 
 | 명칭             | 형식           | 설명                              |
 | -------------- | ------------ | ------------------------------- |
 | startBlockHash | 32-byte DATA | Start block hash for the range. |
 | endBlockHash   | 32-byte DATA | End block hash for the range.   |
 
-**Return Value**
+**리턴값**
 
-| 형식          | 설명                                                  |
-| ----------- | --------------------------------------------------- |
-| JSON string | The list of addresses modified between given range. |
+| 형식       | 설명                                                  |
+| -------- | --------------------------------------------------- |
+| JSON 문자열 | The list of addresses modified between given range. |
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.getModifiedAccountsByHash("0x583a02df4222c82d4ffe5d3658d0f7ac233f4dc5de83f6430d74199038b606b6", "0x69833f0fc012dc36be910aa6909f5395cd35136dbeae29ed2170a7d4162a009c")
 
@@ -145,27 +145,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 Returns all accounts that have changed between the two blocks specified by their block numbers. A change is defined as a difference in nonce, balance, code hash, or storage hash.
 
 
-| Client  | Method Invocation                                                                         |
-|:-------:| ----------------------------------------------------------------------------------------- |
-| Console | `debug.getModifiedAccountsByNumber(startBlockNum, endBlockNum)`                           |
-|   RPC   | `{"method": "debug_getModifiedAccountsByNumber", "params": [startBlockNum, endBlockNum]}` |
+| 클라이언트 | Method Invocation                                                                         |
+|:-----:| ----------------------------------------------------------------------------------------- |
+|  콘솔   | `debug.getModifiedAccountsByNumber(startBlockNum, endBlockNum)`                           |
+|  RPC  | `{"method": "debug_getModifiedAccountsByNumber", "params": [startBlockNum, endBlockNum]}` |
 
-**Parameters**
+**매개변수**
 
 | 명칭            | 형식  | 설명                                |
 | ------------- | --- | --------------------------------- |
 | startBlockNum | int | Start block number for the range. |
 | endBlockNum   | int | End block number for the range.   |
 
-**Return Value**
+**리턴값**
 
-| 형식          | 설명                                                  |
-| ----------- | --------------------------------------------------- |
-| JSON string | The list of addresses modified between given range. |
+| 형식       | 설명                                                  |
+| -------- | --------------------------------------------------- |
+| JSON 문자열 | The list of addresses modified between given range. |
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.getModifiedAccountsByNumber(171904, 172160)
 ["0x31b93ca83b5ad17582e886c400667c6f698b8ccd", "0xb7fe15c42e66bd71835b07dc6e7daee7729f6235", "0xe31a0edb11357dba71377e625fc6174da4ef4321", "0x16b11cf9c2186a117b0da38315b42b1eaa03bbe5", "0xd3ec3c7e4cad042dbdcb6a7e0fdbc55a92276f12", "0xa4e0d726ce51572e66295756ad93206592c43a59", "0xf65e07b6626ab43ecea744803fa46bd4a89bfdb6", "0xaac56dfe44f9894d4f536cd17acfbc44bf81a843", "0x3855407fa65c4c5104648b3a9e495072df62b585", "0x61a7cbdd597848494fa85cbb76f9c63ad9c06cad", "0xa4845491cb0dad5bd6707a33c02af0d9db435c15", "0x026e8f70a26b6e5c8bec25e23869846edfdd6728", "0x3cf3e8caea91501321feee0f0692fcd98f1c6292", "0x18822790d7baf2fa6bbca6ad8baa46985abeb81b"]
@@ -183,27 +183,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 Returns the preimage for a sha3 hash, if known.
 
-| Client  | Method Invocation                                |
-|:-------:| ------------------------------------------------ |
-| Console | `debug.preimage(hash)`                           |
-|   RPC   | `{"method": "debug_preimage", "params": [hash]}` |
+| 클라이언트 | Method Invocation                                |
+|:-----:| ------------------------------------------------ |
+|  콘솔   | `debug.preimage(hash)`                           |
+|  RPC  | `{"method": "debug_preimage", "params": [hash]}` |
 
 
-**Parameters**
+**매개변수**
 
-| 명칭   | 형식     | 설명         |
-| ---- | ------ | ---------- |
-| hash | string | sha3 hash. |
+| 명칭   | 형식  | 설명         |
+| ---- | --- | ---------- |
+| hash | 문자열 | sha3 hash. |
 
-**Return Value**
+**리턴값**
 
-| 명칭       | 형식     | 설명                        |
-| -------- | ------ | ------------------------- |
-| preimage | string | Preimage for a sha3 hash. |
+| 명칭       | 형식  | 설명                        |
+| -------- | --- | ------------------------- |
+| preimage | 문자열 | Preimage for a sha3 hash. |
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.preimage("0xaf953a2d01f55cfe080c0c94150a60105e8ac3d51153058a1f03dd239dd08586")
 "0xdd738d9a7d987a98798123b2322d389470328420bb3d84023a8405a5523cc532235ba325235243242cb9a4758609a8604 ...  98bbd743053d0cbadaaccd4865cc0348685460ada874506ad984506ad80458ad69038fd6f908340fd9af68faf903760"
@@ -220,26 +220,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Retrieves a block and returns its pretty printed form.
 
-| Client  | Method Invocation                                    |
-|:-------:| ---------------------------------------------------- |
-| Console | `debug.printBlock(number)`                           |
-|   RPC   | `{"method": "debug_printBlock", "params": [number]}` |
+| 클라이언트 | Method Invocation                                    |
+|:-----:| ---------------------------------------------------- |
+|  콘솔   | `debug.printBlock(number)`                           |
+|  RPC  | `{"method": "debug_printBlock", "params": [number]}` |
 
-**Parameters**
+**매개변수**
 
 | 명칭     | 형식  | 설명                |
 | ------ | --- | ----------------- |
 | number | int | The block number. |
 
-**Return Value**
+**리턴값**
 
-| 형식     | 설명                      |
-| ------ | ----------------------- |
-| string | Dump of a block struct. |
+| 형식  | 설명                      |
+| --- | ----------------------- |
+| 문자열 | Dump of a block struct. |
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.printBlock(65120)
 "(*types.Block)(0xc436fad3b0)(Block(#65120): Size: 2.95 kB {\nMinerHash: 7a5f8d37d34be6d9d19c5f161756d607da62227bb725ddb2f372682d7a9f1445\nHeader(e96d6477acfeba8ba865c315020471dcf751aa1bddca77f469334ab0492d218f):\n[\n\tParentHash:      e768b5b7eeb1005fe130c26da744d47e042e9227cee675fa70c89ede38653aea\n\tCoinbase:         0000000000000000000000000000000000000000\n\tRewardbase:       0000000000000000000000000000000000000000\n\tRoot: ... 0xc3be927ae5c0c48a0c83a1dbdf2df737c4a708eb6dae0ccb4a7eb042ea0a6ebf\n\tS:       0x53d8bed6357f88c8bab1f3d83942aa53c14269e58016e284656b12996a5d759a\n\tHex:      f863829d9280825208949619a83fcefc5647736cfd28845fcc4f716ff53b8080820fe7a0c3be927ae5c0c48a0c83a1dbdf2df737c4a708eb6dae0ccb4a7eb042ea0a6ebfa053d8bed6357f88c8bab1f3d83942aa53c14269e58016e284656b12996a5d759a\n]\n}\n)\n"
@@ -260,25 +260,25 @@ Sets the current head of the local chain by block number.
 
 **NOTE**: This is a destructive action and may severely damage your chain. Use with *extreme* caution.
 
-| Client  | Method Invocation                                 |
-|:-------:| ------------------------------------------------- |
-| Console | `debug.setHead(number)`                           |
-|   RPC   | `{"method": "debug_setHead", "params": [number]}` |
+| 클라이언트 | Method Invocation                                 |
+|:-----:| ------------------------------------------------- |
+|  콘솔   | `debug.setHead(number)`                           |
+|  RPC  | `{"method": "debug_setHead", "params": [number]}` |
 
 
-**Parameters**
+**매개변수**
 
-| 명칭     | 형식     | 설명                                      |
-| ------ | ------ | --------------------------------------- |
-| number | string | The block number in hexadecimal string. |
+| 명칭     | 형식  | 설명                                      |
+| ------ | --- | --------------------------------------- |
+| number | 문자열 | The block number in hexadecimal string. |
 
-**Return Value**
+**리턴값**
 
-None
+없음
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.setHead("0x100")
 null
