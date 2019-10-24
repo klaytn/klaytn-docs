@@ -7,14 +7,14 @@ caver.klay.sha3(data[, callback])
 Returns the Keccak-256 hash (not the standardized SHA3-256) of the given data.
 
 
-**Parameters**
+**매개변수**
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
-| data     | String   | The data to convert into a SHA3 hash.                                |
+| data     | 문자열      | SHA3 해시로 변환할 데이터입니다.                                                 |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `String` - The SHA3 result of the given data.
 
