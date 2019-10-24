@@ -95,6 +95,7 @@
     * [Monitoring Setup](node/core-cell/monitoring-setup.md)
     * [H/A Setup](node/core-cell/h-a-setup.md)
   * [Service Chain](node/service-chain/README.md)
+    * [Getting Started](node/service-chain/getting-started/README.md)
     * [Single-Node Service Chain](node/service-chain/single-node-service-chain/README.md)
       * [System Requirements](node/service-chain/single-node-service-chain/system-requirements.md)
       * [Installation Guide](node/service-chain/single-node-service-chain/installation-guide/README.md)
