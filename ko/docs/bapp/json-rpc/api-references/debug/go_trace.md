@@ -1,28 +1,28 @@
-# Go Runtime Tracing
+# Go 런타임 추적
 
 ## debug_goTrace
 
-Turns on Go runtime tracing for the given duration and writes trace data to disk.
+입력으로 받은 기간 동안 Go 런타임 추적을 진행하고 추적 데이터를 디스크에 씁니다.
 
-| Client  | Method Invocation                                         |
-|:-------:| --------------------------------------------------------- |
-| Console | `debug.goTrace(file, seconds)`                            |
-|   RPC   | `{"method": "debug_goTrace", "params": [string, number]}` |
+| 클라이언트 | Method Invocation                                         |
+|:-----:| --------------------------------------------------------- |
+|  콘솔   | `debug.goTrace(file, seconds)`                            |
+|  RPC  | `{"method": "debug_goTrace", "params": [string, number]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭      | 형식     | 설명                                 |
-| ------- | ------ | ---------------------------------- |
-| file    | string | The filename for the trace output. |
-| seconds | int    | The tracing duration in seconds.   |
+| 명칭      | 형식  | 설명                  |
+| ------- | --- | ------------------- |
+| file    | 문자열 | 추적 결과 파일의 이름입니다.    |
+| seconds | int | 초 단위로 표현된 추적 기간입니다. |
 
-**Return Value**
+**리턴값**
 
-None
+없음
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.goTrace("go.trace", 5)
 null
@@ -37,26 +37,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startGoTrace
 
-Starts writing a Go runtime trace to the given file.
+입력으로 받은 파일에 Go 런타임 추적 결과를 씁니다.
 
-| Client  | Method Invocation                                      |
-|:-------:| ------------------------------------------------------ |
-| Console | `debug.startGoTrace(file)`                             |
-|   RPC   | `{"method": "debug_startGoTrace", "params": [string]}` |
+| 클라이언트 | Method Invocation                                      |
+|:-----:| ------------------------------------------------------ |
+|  콘솔   | `debug.startGoTrace(file)`                             |
+|  RPC  | `{"method": "debug_startGoTrace", "params": [string]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭   | 형식     | 설명                                   |
-| ---- | ------ | ------------------------------------ |
-| file | string | The filename for the tracing output. |
+| 명칭   | 형식  | 설명                  |
+| ---- | --- | ------------------- |
+| file | 문자열 | 추적 결과를 쓸 파일의 이름입니다. |
 
-**Return Value**
+**리턴값**
 
-None
+없음
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.startGoTrace("go.trace")
 null
@@ -70,24 +70,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_stopGoTrace
 
-Stops writing the Go runtime trace.
+Go 런타임 추적을 중지합니다.
 
-| Client  | Method Invocation                               |
-|:-------:| ----------------------------------------------- |
-| Console | `debug.stopGoTrace()`                           |
-|   RPC   | `{"method": "debug_stopGoTrace", "params": []}` |
+| 클라이언트 | Method Invocation                               |
+|:-----:| ----------------------------------------------- |
+|  콘솔   | `debug.stopGoTrace()`                           |
+|  RPC  | `{"method": "debug_stopGoTrace", "params": []}` |
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
-None
+없음
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.stopGoTrace()
 null
