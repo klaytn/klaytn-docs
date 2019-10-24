@@ -2,31 +2,31 @@
 
 ## debug_traceBadBlock
 
-The `traceBadBlock` method will return a full stack trace of all invoked opcodes of all transactions that were included in this block.
+`traceBadBlock` 메서드는 블록에 포함된 모든 트랜잭션에 대해서 모든 호출된 연산자의 풀 스택 추적을 반환합니다.
 
-**NOTE**: the parent of this block must be present or it will fail.
+**참고**: 이 블록의 이전 블록이 존재해야 합니다. 존재하지 않으면 실패합니다.
 
-| Client  | Method Invocation                                         |
-|:-------:| --------------------------------------------------------- |
-| Console | `debug.traceBadBlock(hash, [options])`                    |
-|   RPC   | `{"method": "debug_traceBadBlock", "params": [hash, {}]}` |
+| 클라이언트 | Method Invocation                                         |
+|:-----:| --------------------------------------------------------- |
+|  콘솔   | `debug.traceBadBlock(hash, [options])`                    |
+|  RPC  | `{"method": "debug_traceBadBlock", "params": [hash, {}]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭      | 형식           | 설명                                       |
-| ------- | ------------ | ---------------------------------------- |
-| hash    | 32-byte DATA | Hash of a block.                         |
-| options | object       | See [tracing options](#tracing-options). |
+| 명칭      | 형식           | 설명                                |
+| ------- | ------------ | --------------------------------- |
+| hash    | 32-byte DATA | Hash of a block.                  |
+| options | object       | [추적 옵션](#tracing-options)을 참고하세요. |
 
-**Return Value**
+**리턴값**
 
-| 형식          | 설명                                                        |
-| ----------- | --------------------------------------------------------- |
-| JSON string | The structured logs created during the execution of KLVM. |
+| 형식       | 설명                          |
+| -------- | --------------------------- |
+| JSON 문자열 | KLVM 실행 중에 생성된, 구조화된 로그입니다. |
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.traceBadBlock("0x1d5ba00e313a81ae6d409d459c153327072665d9ea2f47608369722baf0cfbb6")
 [{
@@ -57,33 +57,33 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlock
 
-The `traceBlock` method will return a full stack trace of all invoked opcodes of all transactions that were included in this block.
+`traceBlock` 메서드는 블록에 포함된 모든 트랜잭션에 대해서 모든 호출된 연산자의 풀 스택 추적을 반환합니다.
 
-**NOTE**: the parent of this block must be present or it will fail.
+**참고**: 이 블록의 이전 블록이 존재해야 합니다. 존재하지 않으면 실패합니다.
 
-| Client  | Method Invocation                                          |
-|:-------:| ---------------------------------------------------------- |
-| Console | `debug.traceBlock(blockRlp, [options])`                    |
-|   RPC   | `{"method": "debug_traceBlock", "params": [blockRlp, {}]}` |
+| 클라이언트 | Method Invocation                                          |
+|:-----:| ---------------------------------------------------------- |
+|  콘솔   | `debug.traceBlock(blockRlp, [options])`                    |
+|  RPC  | `{"method": "debug_traceBlock", "params": [blockRlp, {}]}` |
 
 References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
-**Parameters**
+**매개변수**
 
-| 명칭       | 형식     | 설명                                       |
-| -------- | ------ | ---------------------------------------- |
-| blockRlp | string | The RLP-encoded block.                   |
-| options  | object | See [tracing options](#tracing-options). |
+| 명칭       | 형식     | 설명                                |
+| -------- | ------ | --------------------------------- |
+| blockRlp | 문자열    | The RLP-encoded block.            |
+| options  | object | [추적 옵션](#tracing-options)을 참고하세요. |
 
-**Return Value**
+**리턴값**
 
-| 형식          | 설명                                                        |
-| ----------- | --------------------------------------------------------- |
-| JSON string | The structured logs created during the execution of KLVM. |
+| 형식       | 설명                          |
+| -------- | --------------------------- |
+| JSON 문자열 | KLVM 실행 중에 생성된, 구조화된 로그입니다. |
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.traceBlock("0xblock_rlp")
 [{
@@ -105,29 +105,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 
 ## debug_traceBlockByHash
-Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByHash` accepts a block hash and will replay the block that is already present in the database.
+[debug_traceBlock](#debug_traceblock)과 유사하게 `traceBlockByHash`는 블록 해시를 받아 데이터베이스에 존재하는 해당 블록을 재실행합니다.
 
-| Client  | Method Invocation                                            |
-|:-------:| ------------------------------------------------------------ |
-| Console | `debug.traceBlockByHash(hash, [options])`                    |
-|   RPC   | `{"method": "debug_traceBlockByHash", "params": [hash, {}]}` |
+| 클라이언트 | Method Invocation                                            |
+|:-----:| ------------------------------------------------------------ |
+|  콘솔   | `debug.traceBlockByHash(hash, [options])`                    |
+|  RPC  | `{"method": "debug_traceBlockByHash", "params": [hash, {}]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭      | 형식           | 설명                                       |
-| ------- | ------------ | ---------------------------------------- |
-| hash    | 32-byte DATA | Hash of a block.                         |
-| options | object       | See [tracing options](#tracing-options). |
+| 명칭      | 형식           | 설명                                |
+| ------- | ------------ | --------------------------------- |
+| hash    | 32-byte DATA | Hash of a block.                  |
+| options | object       | [추적 옵션](#tracing-options)을 참고하세요. |
 
-**Return Value**
+**리턴값**
 
-| 형식          | 설명                                                        |
-| ----------- | --------------------------------------------------------- |
-| JSON string | The structured logs created during the execution of KLVM. |
+| 형식       | 설명                          |
+| -------- | --------------------------- |
+| JSON 문자열 | KLVM 실행 중에 생성된, 구조화된 로그입니다. |
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.traceBlockByHash("0x244acf3f11f0999b93616cb156dc1b43ee87e27c9625a7170cf6de447189d890")
 [{
@@ -148,29 +148,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 
 ## debug_traceBlockByNumber
-Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByNumber` accepts a block number and will replay the block that is already present in the database.
+[debug_traceBlock](#debug_traceblock)과 유사하게 `traceBlockByNumber`는 블록 번호를 받아 데이터베이스에 존재하는 해당 블록을 재실행합니다.
 
-| Client  | Method Invocation                                                |
-|:-------:| ---------------------------------------------------------------- |
-| Console | `debug.traceBlockByNumber(number, [options])`                    |
-|   RPC   | `{"method": "debug_traceBlockByNumber", "params": [number, {}]}` |
+| 클라이언트 | Method Invocation                                                |
+|:-----:| ---------------------------------------------------------------- |
+|  콘솔   | `debug.traceBlockByNumber(number, [options])`                    |
+|  RPC  | `{"method": "debug_traceBlockByNumber", "params": [number, {}]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭      | 형식     | 설명                                       |
-| ------- | ------ | ---------------------------------------- |
-| number  | int    | The block number.                        |
-| options | object | See [tracing options](#tracing-options). |
+| 명칭      | 형식     | 설명                                |
+| ------- | ------ | --------------------------------- |
+| number  | int    | The block number.                 |
+| options | object | [추적 옵션](#tracing-options)을 참고하세요. |
 
-**Return Value**
+**리턴값**
 
-| 형식          | 설명                                                        |
-| ----------- | --------------------------------------------------------- |
-| JSON string | The structured logs created during the execution of KLVM. |
+| 형식       | 설명                          |
+| -------- | --------------------------- |
+| JSON 문자열 | KLVM 실행 중에 생성된, 구조화된 로그입니다. |
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.traceBlockByNumber(1449)
 [{
@@ -193,39 +193,39 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlockFromFile
 
-Similar to [debug_traceBlock](#debug_traceblock), `traceBlockFromFile` accepts a file containing the RLP of the block.
+[debug_traceBlock](#debug_traceblock)와 유사하게 `traceBlockFromFile`은 블록의 RLP를 담고 있는 파일을 입력으로 받습니다.
 
-**NOTE**: the file must include the associated hexadecimal string without `0x`.
+**참고**: 해당 파일은 `0x`를 제거한 16진수 문자열을 담고 있어야 합니다.
 
-| Client  | Method Invocation                                                  |
-|:-------:| ------------------------------------------------------------------ |
-| Console | `debug.traceBlockFromFile(fileName, [options])`                    |
-|   RPC   | `{"method": "debug_traceBlockFromFile", "params": [fileName, {}]}` |
+| 클라이언트 | Method Invocation                                                  |
+|:-----:| ------------------------------------------------------------------ |
+|  콘솔   | `debug.traceBlockFromFile(fileName, [options])`                    |
+|  RPC  | `{"method": "debug_traceBlockFromFile", "params": [fileName, {}]}` |
 
 References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
-**Parameters**
+**매개변수**
 
-| 명칭       | 형식     | 설명                                                 |
-| -------- | ------ | -------------------------------------------------- |
-| fileName | string | The file name which contains the RLP of the block. |
-| options  | object | See [tracing options](#tracing-options).           |
+| 명칭       | 형식     | 설명                                |
+| -------- | ------ | --------------------------------- |
+| fileName | 문자열    | 블록의 RLP를 담고 있는 파일의 이름입니다.         |
+| options  | object | [추적 옵션](#tracing-options)을 참고하세요. |
 
-**Return Value**
+**리턴값**
 
-| 형식          | 설명                                                        |
-| ----------- | --------------------------------------------------------- |
-| JSON string | The structured logs created during the execution of KLVM. |
+| 형식       | 설명                          |
+| -------- | --------------------------- |
+| JSON 문자열 | KLVM 실행 중에 생성된, 구조화된 로그입니다. |
 
 **예시**
 
-The contents of the `block.rlp` file was printed on the running node as follows.
+다음과 같이 실행 중인 노드에 `block.rlp` 파일의 내용이 출력됩니다.
 ```
 $ cat block.rlp
 f90399f90394a05a825207c8396b848fefc73e442db004adee6596309af27630871b6a3d424758a01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347940000000000000000000000000000000000000000940000000000000000000000000000000000000000a0b2ff1e4173123faa241fb93d83860e09f9e1ca1cfaf24c40c9e963e65c0b0317a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016485e8d4a50fff80845bb9e92eb90187d7820401846b6c617988676f312e31302e33856c696e75780000000000000000f90164f854943b215ed129645b949722d4efbd9c749838d85bf0947050164b7718c667c9661afd924f6c0c5e5d4a01947f303b360063efc575e99cf2f7602efa034e832e94f38624dba0e106aa6a79335f77d3fd6409f9e4d8b84126d1ae355905704d8ffcc50599a8a051ac7c50ed6fc6d7caf6510cf0329b56cf3e3babfe45cc95143074ca0385627ea3b6ac3f6ad7961b60f23e32965d3b0c2900f8c9b841c3423ecb41ee86b193dbb98bf74e0c1b8e0c475503a8f5ef37ef7566af34443c77b492a1f92e5a7411c36efeae08ebc698d02353c38f07a3d5c32168243ab7e901b841ec6558f4e5d123b9dc240e77db493f1e5e2f55f108d3c4f9b39e10dbca39ad7b3fc2dd5d27a7a3d92938ad4245bef5a914377fb2b92cbe342067a9963ab121b700b841f34ed94f29cd0aefd841cc8aba9dcc9d4c2fe14795f3a661e8ce92c2014c2099327e5f4285e1d1821e55f297cf5252bafed521ab49906b9b596a3187ce1e529c00a063746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365880000000000000000c0c0
 ```
 
-Console
+콘솔
 ```javascript
 > debug.traceBlockFromFile("block.rlp")
 [{
@@ -248,29 +248,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceTransaction
 
-The `traceTransaction` debugging method will attempt to run the transaction in the exact same manner as it was executed on the network. It will replay any transaction that may have been executed prior to this one before it will finally attempt to execute the transaction that corresponds to the given hash.
+`traceTransaction` 디버깅 메서드는 네트워크에서 실행되었던 그대로 트랜잭션을 실행합니다. 입력으로 받은 트랜잭션 해시에 대응되는 트랜잭션 이전에 실행되었던 트랜잭션들을 재실행합니다.
 
-| Client  | Method Invocation                                              |
-|:-------:| -------------------------------------------------------------- |
-| Console | `debug.traceTransaction(txHash, [options])`                    |
-|   RPC   | `{"method": "debug_traceTransaction", "params": [txHash, {}]}` |
+| 클라이언트 | Method Invocation                                              |
+|:-----:| -------------------------------------------------------------- |
+|  콘솔   | `debug.traceTransaction(txHash, [options])`                    |
+|  RPC  | `{"method": "debug_traceTransaction", "params": [txHash, {}]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭      | 형식     | 설명                                       |
-| ------- | ------ | ---------------------------------------- |
-| txHash  | string | The hash of the transaction.             |
-| options | object | See [tracing options](#tracing-options). |
+| 명칭      | 형식     | 설명                                |
+| ------- | ------ | --------------------------------- |
+| txHash  | 문자열    | 트랜잭션의 해시입니다.                      |
+| options | object | [추적 옵션](#tracing-options)을 참고하세요. |
 
-**Return Value**
+**리턴값**
 
-| 형식          | 설명                                                        |
-| ----------- | --------------------------------------------------------- |
-| JSON string | The structured logs created during the execution of KLVM. |
+| 형식       | 설명                          |
+| -------- | --------------------------- |
+| JSON 문자열 | KLVM 실행 중에 생성된, 구조화된 로그입니다. |
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.traceTransaction("0x07f6057bc93aca52e53cdbfac9b9830f6a9cae2b3f48f0b47e4cb54959143d09")
 {
@@ -351,30 +351,30 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## Tracing Options
+## 추적 옵션
 
 You may give trace API function a secondary optional argument, which specifies the options for this specific call. The possible options are:
 
 - `disableStorage`: `BOOL`. Setting this to true will disable storage capture (default = false).
 - `disableMemory`: `BOOL`. Setting this to true will disable memory capture (default = false).
 - `disableStack`: `BOOL`. Setting this to true will disable stack capture (default = false).
-- `timeout`: `STRING`. Overrides the default timeout of 5 seconds for JavaScript-based tracing calls. Valid values are described [here](https://golang.org/pkg/time/#ParseDuration).
-- `tracer`: `STRING`. Setting this will enable JavaScript-based transaction tracing, described in the [next section](#javascript-based-tracing). If set, the previous four arguments will be ignored. The predefined tracers can also be used as the following table.
+- `timeout`: `STRING`. 자바스크립트 기반 추적 호출 타임아웃으로 기본 설정된 5초를 변경합니다. 유효한 값은 [여기](https://golang.org/pkg/time/#ParseDuration)를 참고해주세요.
+- `tracer`: `STRING`. 이 옵션을 설정하면 자바스크립트 기반 트랜잭션 추적을 활성화합니다. 자세한 내용은 [다음 섹션](#javascript-based-tracing)을 참고해주세요. 이 옵션을 설정하면 앞선 4개의 매개변수는 모두 무시됩니다. 다음 표와 같이 사전 정의된 추적 툴을 사용할 수도 있습니다.
 
-| Tracer Name    | 설명                                                                                                                                                                                                                                    |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 4byteTracer    | 4byteTracer searches for 4byte-identifiers, and collects them for post-processing. It collects the methods identifiers along with the size of the supplied data, so a reversed signature can be matched against the size of the data. |
-| callTracer     | callTracer is a full-blown transaction tracer that extracts and reports all the internal calls made by a transaction, along with any useful information.                                                                              |
-| evmdisTracer   | evmdisTracer returns sufficient information from a trace to perform evmdis-style disassembly.                                                                                                                                         |
-| noopTracer     | noopTracer is just the barebone boilerplate code required from a JavaScript object to be usable as a transaction tracer.                                                                                                              |
-| opcountTracer  | opcountTracer is a sample tracer that just counts the number of instructions executed by the KLVM before the transaction terminated.                                                                                                  |
-| prestateTracer | prestateTracer outputs sufficient information to create a local execution of the transaction from a custom assembled genesis block.                                                                                                   |
-| revertTracer   | revertTracer outputs the error string of REVERT. If the execution is not reverted, it outputs an empty string.                                                                                                                        |
+| 추적 툴 이름        | 설명                                                                                                          |
+| -------------- | ----------------------------------------------------------------------------------------------------------- |
+| 4byteTracer    | 4byteTracer는 4바이트 식별자를 검색하여 사후 처리를 위해 수집합니다. 제공된 데이터의 크기와 함께 메서드 식별자를 수집하므로 역으로 된 서명을 데이터 크기에 대응시킬 수도 있습니다. |
+| callTracer     | callTracer는 트랜잭션에서 생성된 내부 호출과 기타 유용한 정보들을 추출하고 보고하는 모든 기능을 갖춘 트랜잭션 추적 툴입니다.                                 |
+| evmdisTracer   | evmdisTracer는 evmdis 형식의 디스어셈블러에서 얻은 정보를 반환합니다.                                                             |
+| noopTracer     | noopTracer는 자바스크립트 객체에서 트랜잭션 추적 시 사용하기 위해 필요한 기본 상용구 코드입니다.                                                 |
+| opcountTracer  | opcountTracer는 트랜잭션이 종료되기 전에 KLVM이 실행한 연산 수를 세는 샘플 추적 툴입니다.                                                 |
+| prestateTracer | prestateTracer는 맞춤 조립된 제네시스 블록으로부터 트랜잭션 로컬 실행을 생성하기에 충분한 정보를 출력합니다.                                         |
+| revertTracer   | revertTracer는 REVERT의 오류 문자열을 출력합니다. 실행이 번복되지 않으면 빈 문자열을 출력합니다.                                             |
 
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.traceTransaction("0x07f6057bc93aca52e53cdbfac9b9830f6a9cae2b3f48f0b47e4cb54959143d09", {tracer: "callTracer"})
 {
@@ -402,28 +402,28 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 ```
 
 
-## JavaScript-based Tracing
-Specifying the `tracer` option in the second argument enables JavaScript-based tracing. In this mode, `tracer` is interpreted as a JavaScript expression that is expected to evaluate to an object with (at least) two methods, named `step` and `result`.
+## 자바스크립트 기반 추적
+`tracer` 옵션의 두 번째 매개변수를 지정하여 자바스크립트 기반 추적을 활성화합니다. 이 모드에서 `tracer`는 (최소한) `step`과 `result` 등 두 메서드가 있는 객체라고 생각되는 자바스크립트 표현 식으로 해석(interpret)됩니다.
 
-`step` is a function that takes two arguments, `log` and `db`, and is called for each step of the KLVM, or when an error occurs, as the specified transaction is traced.
+`step`은 두 매개변수 `log`와 `db`를 매개변수로 받는 함수이고, KLVM의 트랜잭션을 추적하는 스텝마다 또는 오류가 발생할 때 호출됩니다.
 
-`log` has the following fields:
+`log`는 다음의 필드를 갖고 있습니다.
 
-| Field Name     | 형식             | 설명                                                          |
-| -------------- | -------------- | ----------------------------------------------------------- |
-| `pc`           | Number         | The current program counter.                                |
-| `op`           | Object         | An OpCode object representing the current opcode.           |
-| `gas`          | Number         | The amount of gas remaining.                                |
-| `gasPrice`     | Number         | The cost in peb of each unit of gas.                        |
-| `memory`       | Object         | A structure representing the contract's memory space.       |
-| `stack`        | array[big.Int] | The KLVM execution stack.                                   |
-| `depth`        | Number         | The execution depth.                                        |
-| `계정 (Account)` | String         | The address of the account executing the current operation. |
-| `err`          | String         | If an error occurred, information about the error.          |
+| 필드명            | 형식             | 설명                         |
+| -------------- | -------------- | -------------------------- |
+| `pc`           | Number         | 현재 프로그램 카운터입니다.            |
+| `op`           | 객체             | 현재 연산자를 나타내는 연산자 객체입니다.    |
+| `gas`          | Number         | 남은 가스양입니다.                 |
+| `gasPrice`     | Number         | peb에서 가스당 가격입니다.           |
+| `memory`       | 객체             | 컨트랙트의 메모리 공간을 나타내는 구조체입니다. |
+| `stack`        | array[big.Int] | KLVM 실행 스택입니다.             |
+| `depth`        | Number         | 실행 뎁스입니다.                  |
+| `계정 (Account)` | 문자열            | 현재 연산을 실행하는 계정의 주소입니다.     |
+| `err`          | 문자열            | 발생한 오류에 대한 정보입니다.          |
 
-If `err` is non-null, all other fields should be ignored.
+`err` 필드가 null이 아니면 다른 모든 필드의 정보는 무시되어야 합니다.
 
-For efficiency, the same `log` object is reused on each execution step, updated with current values; make sure to copy values you want to preserve beyond the current call. For instance, this step function will not work:
+효율성을 위해 동일한 `log` 객체를 각 실행 단계에서 재사용하며 현재 값으로 업데이트합니다. 따라서 현재 호출 이후에도 보존하려는 값은 복사해놓아야 합니다. 예를 들어 아래와 같은 함수는 작동하지 않습니다.
 
 ```javascript
 function(log) {
@@ -431,7 +431,7 @@ function(log) {
 }
 ```
 
-But this step function will:
+하지만 아래의 경우 작동합니다.
 
 ```javascript
 function(log) {
@@ -439,45 +439,45 @@ function(log) {
 }
 ```
 
-`log.op` has the following methods:
+`log.op`는 다음의 메서드를 갖고 있습니다.
 
-| Method Name  | 설명                                               |
-| ------------ | ------------------------------------------------ |
-| `isPush()`   | Returns true if the opcode is a `PUSHn`.         |
-| `toString()` | Returns the string representation of the opcode. |
-| `toNumber()` | Returns the opcode's number.                     |
+| 메서드 이름       | 설명                          |
+| ------------ | --------------------------- |
+| `isPush()`   | 연산자가 `PUSHn`이면 true를 반환합니다. |
+| `toString()` | 연산자의 문자열 표현을 반환합니다.         |
+| `toNumber()` | 연산자의 번호를 반환합니다.             |
 
-`log.memory` has the following methods:
+`log.memory`는 다음의 메서드를 갖고 있습니다.
 
-| Method Name          | 설명                                                       |
-| -------------------- | -------------------------------------------------------- |
-| `slice(start, stop)` | Returns the specified segment of memory as a byte slice. |
-| `length()`           | Returns the length of the memory.                        |
+| 메서드 이름               | 설명                         |
+| -------------------- | -------------------------- |
+| `slice(start, stop)` | 지정된 메모리 부분을 바이트 단위로 반환합니다. |
+| `length()`           | 메모리의 길이를 반환합니다.            |
 
-`log.stack` has the following methods:
+`log.stack`는 다음의 메서드를 갖고 있습니다.
 
-| Method Name | 설명                                                                                              |
-| ----------- | ----------------------------------------------------------------------------------------------- |
-| `peek(idx)` | Returns the idx-th element from the top of the stack (0 is the topmost element) as a `big.Int`. |
-| `length()`  | Returns the number of elements in the stack.                                                    |
+| 메서드 이름      | 설명                                                             |
+| ----------- | -------------------------------------------------------------- |
+| `peek(idx)` | idx번째 요소를 스택의 맨 위에서 가져와 `big.Int`로 반환합니다. (0이 가장 위에 있는 요소입니다.) |
+| `length()`  | 스택에 있는 요소의 수를 반환합니다.                                           |
 
-`db` has the following methods:
+`db`는 다음의 메서드를 갖고 있습니다.
 
-| Method Name               | 설명                                                                        |
-| ------------------------- | ------------------------------------------------------------------------- |
-| `getBalance(address)`     | Returns a `big.Int` with the specified account's balance.                 |
-| `getNonce(address)`       | Returns a Number with the specified account's nonce.                      |
-| `getCode(address)`        | Returns a byte slice with the code for the specified account.             |
-| `getState(address, hash)` | Returns the state value for the specified account and the specified hash. |
-| `exists(address)`         | Returns true if the specified address exists.                             |
+| 메서드 이름                    | 설명                                |
+| ------------------------- | --------------------------------- |
+| `getBalance(address)`     | 입력으로 받은 계정의 잔액을 `big.Int`로 반환합니다. |
+| `getNonce(address)`       | 입력으로 받은 계정의 nonce를 Number로 반환합니다. |
+| `getCode(address)`        | 입력으로 받은 계정의 코드를 바이트 단위로 반환합니다.    |
+| `getState(address, hash)` | 입력으로 받은 계정과 해시의 상태 값을 반환합니다.      |
+| `exists(address)`         | 입력으로 받은 계정이 존재하면 true를 반환합니다.     |
 
-The second function, `result`, takes no arguments, and is expected to return a JSON-serializable value to return to the RPC caller.
+두 번째 함수 `result`는 받는 매개변수가 없고, JSON 직렬화 값을 RPC 호출자에게 반환합니다.
 
-If the `step` function throws an exception or executes an illegal operation at any point, it will not be called on any further VM steps, and the error will be returned to the caller.
+언제라도 `step` 함수가 예외를 발생시키거나 잘못된 연산을 수행하면, 더는 VM 스텝에서 호출되지 않고 호출자에게는 에러가 반환됩니다.
 
-Note that several values are Golang `big.Int` objects, not JavaScript numbers or JS bigints. As such, they have the same interface as described in the godocs. Their default serialization to JSON is as a Javascript number; to serialize large numbers accurately call `.String()` on them. For convenience, `big.NewInt(x)` is provided, and will convert a uint to a Golang `big.Int`.
+몇몇 값은 자바스크립트 number나 JS bigints가 아니라 Go언어의 `big.Int` 객체입니다. 따라서 그러한 값들은 godocs에서 설명된 것과 같이 동일한 인터페이스를 갖습니다. 기본적인 JSON으로의 직렬화는 자바스크립트 number로 진행되므로 큰 숫자를 직렬화하려면 `.String()`을 호출해야 합니다. 편의를 위해 `big.NewInt(x)`가 제공되어 uint를 Go언어의 `big.Int`로 변환합니다.
 
-As an usage example below, it returns the top element of the stack at each CALL opcode only:
+사용 예제는 아래와 같으며, 각 CALL 연산자에서만 스택의 가장 위에 있는 요소를 반환합니다.
 
 ```javascript
 debug.traceTransaction(txhash, {tracer: '{data: [], step: function(log) { if(log.op.toString() == "CALL") this.data.push(log.stack.peek(0)); }, result: function() { return this.data; }}'});
