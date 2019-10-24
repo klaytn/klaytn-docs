@@ -504,7 +504,7 @@ The printAccount above shows how to use the properties of the Account instance. 
 | --- | --- |
 | address | The address of the account. |
 | privateKey | Default key string of accountKey that the account has. This property is left for backward compatibility. privateKey only represents the default key of accountKey, so using privateKey to sign or send a transaction is not recommended. It is recommended to use transactionKey, updateKey, or feePayerKey in context. |
-| accountKeyType | Type of accountKey the account has. |
+| accountKeyType | Type of accountKey the account has. This can be `AccountKeyPublic`, `AccountKeyMultiSig`, or `AccountKeyRoleBased` |
 | accountKey | The key of the account. This is AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased. |
 | keys | All keys inside accountKey that the account has. |
 | transactionKey | Key used for the [RoleTransaction](../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys. |
@@ -615,7 +615,6 @@ console.log(`transactionKey: ${accountKey.transactionKey}`)
 console.log(`updateKey: ${accountKey.updateKey}`)
 console.log(`feePayerKey: ${accountKey.feePayerKey}`)
 ```
-AccountKeyPublic stores and manages a private key string, so if you run the example above, you will see that keys, transactionKey, updateKey and feePayerKey all represent the same private key string.
 
 AccountKeyRoleBased stores and manages keys by role, so if you run the example above, you will see three roles (transactionKey, updateKey, feePayerKey) defined in `keys` property. Therefore, unlike other AccountKey ([AccountKeyPublic](#accountkeypublic) or [AccountKeyMultiSig](#accountkeymultisig)), transactionKey, updateKey and feePayerKey each represents a different key.
 
