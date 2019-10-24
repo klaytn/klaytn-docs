@@ -437,7 +437,7 @@ caver-js introduces new classes to support the various types of [AccountKey] sup
 
 The examples below describe the example in a Node.js file. To practice the examples, first create a test file in the working directory as shown below.
 
-```text
+```bash
 $ touch test.js
 ```
 You can see the `test.js` file is created in the working directory.
