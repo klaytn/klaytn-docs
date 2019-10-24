@@ -507,27 +507,27 @@ The printAccount above shows how to use the properties of the Account instance. 
 | accountKeyType | Type of accountKey the account has. |
 | accountKey | The key of the account. This is AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased. |
 | keys | All keys inside accountKey that the account has. |
-| transactionKey | Key corresponding to [RoleTransaction](../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig have no role for keys, so transactionKey is the same value as keys. |
-| updateKey | Key corresponding to [RoleAccountUpdate](../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig have no role for keys, so updateKey is the same value as keys. |
-| feePayerKey | Key corresponding to [RoleFeePayer](../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig have no role for keys, so feePayerKey is the same value as keys. |
+| transactionKey | Key used for the [RoleTransaction](../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys. |
+| updateKey | Key used for the [RoleAccountUpdate](../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys. |
+| feePayerKey | Key used for [RoleFeePayer](../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys. |
 
-**NOTE** `transactionKey`, `updateKey`, and `feePayerKey` return private key strings or an array of private key strings that should be used for the role. So rather than using privateKey property, it is recommended that you use `transactionKey`, `updateKey` and `feePayerKey` as appropriate, without worrying about the accountKey type.
+**NOTE** `transactionKey`, `updateKey`, and `feePayerKey` return a private key string or an array of private key strings that should be used for the role. So rather than using privateKey property, it is recommended that you use `transactionKey`, `updateKey` and `feePayerKey` as appropriate, without worrying about the accountKey type.
 
 An explanation of the various AccountKey classes is provided in the [AccountKey](#accountkey) part.
 
-### AccountKey
-AccountKey is a data structure that stores keys of an account. An account can have one private key string or multiple private key strings to be used for signing. Account can also manage private keys by [roles](../../../klaytn/design/accounts.md#roles).
+### AccountKey  <a id="accountkey"></a>
+AccountKey is a data structure that stores the keys of an account. An account can have one private key string or multiple private key strings to be used for signing. Account can also manage the private keys by [roles](../../../klaytn/design/accounts.md#roles).
 
 To support this structure, caver-js introduces new classes called AccountKeyPublic, AccountKeyMultiSig, and AccountKeyRoleBased.
 
-To create an AccountKey, use `caver.klay.accounts.createAccountKey`. This function determines which AccountKey to generate based on the type of the parameter. It creates AccountKeyPublic if a private key string comes as a parameter, or AccountKeyMultiSig if an array of private key strings comes. And if there is an object with different key setting for each role, it creates AccountKeyRoleBased.
+To create an AccountKey, use `caver.klay.accounts.createAccountKey`. This function determines which AccountKey to generate based on the type of the parameter. It creates AccountKeyPublic if a private key string comes as a parameter, or AccountKeyMultiSig if an array of private key strings comes. And if there is an object with a different key for each role, it creates AccountKeyRoleBased.
 
 **NOTE** The classes for `AccountKey` defined in caver-js are data structures for storing private keys for use in caver-js. It can be different from the accountKey in your account on Klaytn network.
 
-#### AccountKeyPublic
+#### AccountKeyPublic  <a id="accountkeypublic"></a>
 AccountKeyPublic is a class for storing and managing a single private key string.
 
-The following describes how to update an account with AccountKeyPublic. Write the following into testFunction() and run it.
+The following describes how to update an account with AccountKeyPublic. Write the following code into testFunction() and run it.
 
 ```javascript
 const privateKey = caver.klay.accounts.create().privateKey
@@ -541,9 +541,9 @@ console.log(`updateKey: ${accountKey.updateKey}`)
 console.log(`feePayerKey: ${accountKey.feePayerKey}`)
 ```
 
-AccountKeyPublic stores and manages a private key string, so if you run the example above, you will see that keys, transactionKey, updateKey and feePayerKey all represent the same private key string.
+AccountKeyPublic stores and manages a private key string, so if you run the example above, you will see that `keys`, `transactionKey`, `updateKey` and `feePayerKey` all represent the same private key string.
 
-See below for an example of creating an Account with AccountKeyPublic as accountKey.
+See below for an example of creating an Account with AccountKeyPublic as its accountKey.
 
 ```javascript
 const privateKey = caver.klay.accounts.create().privateKey
@@ -558,10 +558,10 @@ const accountFromStringKey = caver.klay.accounts.createWithAccountKey(address, p
 const accountFromAccountKey = caver.klay.accounts.createWithAccountKey(address, accountKey)
 ```
 
-#### AccountKeyMultiSig
+#### AccountKeyMultiSig  <a id="accountkeymultisig"></a>
 AccountKeyMultiSig is a class for storing and managing multiple private key strings.
 
-The following describes how to update an account with AccountKeyMultiSig. Write the following into testFunction() and run it.
+The following describes how to update an account with AccountKeyMultiSig. Write the following code into testFunction() and run it.
 
 ```javascript
 const privateKeyArray = [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey]
@@ -575,11 +575,11 @@ console.log(`updateKey: ${accountKey.updateKey}`)
 console.log(`feePayerKey: ${accountKey.feePayerKey}`)
 ```
 
-AccountKeyMultiSig stores and manages multiple private key strings, so if you run the example above, you will see that keys, transactionKey, updateKey and feePayerKey all represent the same multiple private key strings. 
+AccountKeyMultiSig stores and manages multiple private key strings, so if you run the example above, you will see that `keys`, `transactionKey`, `updateKey` and `feePayerKey` all represent the same multiple private key strings. 
 
-If you do not specify a private key(or array of private key strings) to use when signing a transaction, caver-js will find an account from in-memory wallet that matches the `from` or `fee payer` and sign it. In this case, if your account has multiple private keys, sign transaction with all of those keys.
+If you do not specify a private key (or an array of private key strings) to use when signing a transaction, caver-js will find an account from the in-memory wallet that matches the `from` or `fee payer` and sign with it. In this case, if your account has multiple private keys, caver-js will sign the transaction with all of those keys.
 
-See below for an example of creating an Account with AccountKeyMultiSig as accountKey.
+See below for an example of creating an Account with AccountKeyMultiSig as its accountKey.
 
 ```javascript
 const privateKeyArray = [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey]
@@ -594,10 +594,10 @@ const accountFromStringKey = caver.klay.accounts.createWithAccountKey(address, p
 const accountFromAccountKey = caver.klay.accounts.createWithAccountKey(address, accountKey)
 ```
 
-#### AccountKeyRoleBased
+#### AccountKeyRoleBased  <a id="accountkeyrolebased"></a>
 AccountKeyRoleBased is a class for storing and managing keys for each role. Each role can have one private key string or multiple private key strings.
 
-The following describes how to update an account with AccountKeyRoleBased. Write the following into testFunction() and run it.
+The following describes how to update an account with AccountKeyRoleBased. Write the following code into testFunction() and run it.
 
 ```javascript
 const keyobject = {
@@ -617,9 +617,9 @@ console.log(`feePayerKey: ${accountKey.feePayerKey}`)
 ```
 AccountKeyPublic stores and manages a private key string, so if you run the example above, you will see that keys, transactionKey, updateKey and feePayerKey all represent the same private key string.
 
-AccountKeyRoleBased stores and manages keys by role, so if you run the example above, you will see three roles(transactionKey, updateKey, feePayerKey) defined in `keys` property. Therefore, different with other AccountKey([AccountKeyPublic](#accountkeypublic) or [AccountKeyMultiSig](#accountkeymultisig)), transactionKey, updateKey and feePayerKey each represent a different key.
+AccountKeyRoleBased stores and manages keys by role, so if you run the example above, you will see three roles (transactionKey, updateKey, feePayerKey) defined in `keys` property. Therefore, unlike other AccountKey ([AccountKeyPublic](#accountkeypublic) or [AccountKeyMultiSig](#accountkeymultisig)), transactionKey, updateKey and feePayerKey each represents a different key.
 
-See below for an example of creating an Account with AccountKeyRoleBased as accountKey.
+See below for an example of creating an Account with AccountKeyRoleBased as its accountKey.
 
 ```javascript
 const keyobject = {
@@ -640,22 +640,22 @@ const accountFromAccountKey = caver.klay.accounts.createWithAccountKey(address, 
 
 Through the above examples you will see how to use Account and various AccountKey types in caver-js.
 
-However, these examples do not actually affect the Klaytn network. If you want to use your account with a different type of accountKey, such as AccountKeyPublic, AccountKeyMultiSig, or AccountKeyRoleBased, you must send a transaction for account update to the Klaytn network.
+Note that these examples do not affect the Klaytn network. If you want to use your account with a specific account key type, such as AccountKeyPublic, AccountKeyMultiSig, or AccountKeyRoleBased, you must send an account update transaction to the Klaytn network.
 
 The following [AccountForUpdate](#accountforupdate) explains how to update an account by sending a transaction to the Klaytn network.
 
-### AccountForUpdate
+### AccountForUpdate  <a id="accountforupdate"></a>
 
-AccountForUpdate is a class designed to make it easier to use transactions for account update.
+AccountForUpdate is a class designed to make it easier to use transactions for account updates.
 
 The AccountForUpdate contains only the public key to be used for account update and the address of the account to update.
 
 The examples below start with updating your account with accountKey. There must be enough KLAY in the account to be used for testing. Test KLAY for the Baobab network is available through [Baobab Faucet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
 
-#### Create an AccountForUpdate
-Start by creating an AccountForUpdate. 
+#### Create an AccountForUpdate  <a id="create-an-accountforupdate"></a>
+Let's start by creating an AccountForUpdate. 
 
-Create by calling the address of account you want to update and the new key you want to update.
+You can create it by calling `createAccountForUpdate()` with the target account address and the new key you want to use.
 
 ```javascript
 const account = caver.klay.accounts.create()
@@ -687,15 +687,15 @@ const accountForUpdateForFailKey = caver.klay.accounts.createAccountForUpdateWit
 
 **NOTE** If you want to update with multiple private key strings, you must define thresholds and weights in the options object.
 
-#### Account update with AccountForUpdate
+#### Account update with AccountForUpdate  <a id="account-update-with-accountforupdate"></a>
 
-You can easily create a transaction to update your account using AccountForUpdate created above.
+You can easily create an account update transaction using AccountForUpdate created above.
 
-There are three kinds of transactions for updating Account: `ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE` and `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`.
+There are three types of transactions used to update an account: `ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE` and `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`.
 
-In the example below, account is an account that has enough KLAY you own, and accountForUpdate is an AccountForUpdate instance that contains the new key and the address of the account to update created using `caver.klay.accounts.createAccountForUpdate`.
+In the example below, `account` is an account that has enough KLAY balance, and `accountForUpdate` is an AccountForUpdate instance that contains the new key and the target account address. `accountForUpdate is created using `caver.klay.accounts.createAccountForUpdate`.
 
-The example below demonstrates how to create a transaction and send it to the Klaytn network using AccountForUpdate.
+The example below demonstrates how to create a transaction using AccountForUpdate and send it to the Klaytn network.
 
 ```javascript
 const updateTx = {
@@ -717,7 +717,7 @@ const updatedKey = await caver.klay.getAccountKey(account.address)
 console.log(updatedKey)
 ```
 
-If you want to use `FEE_DELEGATED_ACCOUNT_UPDATE` type transaction, see the example below.
+If you want to use `FEE_DELEGATED_ACCOUNT_UPDATE` transaction, see the example below.
 
 ```javascript
 const updateTx = {
@@ -744,7 +744,7 @@ console.log(updatedKey)
 
 **NOTE** `caver.klay.accounts.feePayerSignTransaction` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-If you want to use `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` type transaction, define updateTx in the above example as:
+If you want to use `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` transaction, define `updateTx` in the above example as:
 
 ```javascript
 const updateTx = {
@@ -756,16 +756,16 @@ const updateTx = {
 }
 ```
 
-If your account has been updated successfully, the old key can no longer be used. Update the accountKey of the account defined in caver-js as follows.
+If your account has been updated successfully, the old key can no longer be used. Update the `accountKey` of the account stored in caver-js as follows.
 
-When accessing and updating the `accountKey` property of an account directly, the parameter must be an instance of AccountKeyPublic, AccountKeyMultiSig, or AccountKeyRoleBased.
+When updating the `accountKey` property of an account directly, the assigning value must be an instance of AccountKeyPublic, AccountKeyMultiSig, or AccountKeyRoleBased.
 
 ```javascript
 const accountKey = caver.klay.accounts.createAccountKey(newKey)
 account.accountKey = accountKey
 ```
 
-If your account is in the in-memory wallet of caver-js, please update as below.
+If your account is in the caver-js in-memory wallet, please update it as below.
 
 ```javascript
 // Add account to in-memory wallet
@@ -780,12 +780,12 @@ You are now ready to use the updated account in caver-js.
 
 If the account's accountKey is AccountKeyMultiSig or AccountKeyRoleBased, the person who manages each key can be different.
 
-This section describes how to collect the signatures or feePayerSignature and send the transaction if there are multiple signers.
+This section describes how to collect signatures and send the transaction if there are multiple signers.
 
-### Sequential sign
+### Sequential sign <a id="sequential-sign"></a>
 The result object of [caver.klay.accounts.signTransaction] has a rawTransaction field. 
 
-The rawTransaction value is an RLP encoded transaction that contains both signatures and feePayerSignatures(Included only if fee delegated transaction).
+The `rawTransaction` has an RLP encoded transaction that contains both `signatures` and `feePayerSignatures`. `feePayerSignature` is included only when the transaction is a fee delegated transaction.
 
 The following example shows how to sign a transaction sequentially with multiple private keys.
 Assume the account's transactionKey has two private key strings.
@@ -809,7 +809,7 @@ const receipt = await caver.klay.sendSignedTransaction(user2Signed)
 console.log(receipt)
 ```
 
-See the example below for signing with a fee payer that has an AccountKeyRoleBased of accontKey. The fee payer is assumed to have three private key strings for feePayerKey.
+See the example below for signing with a fee payer's key whose type is an AccountKeyRoleBased. The fee payer is assumed to have three private key strings in feePayerKey.
 
 ```javascript
 const tx = {
@@ -835,7 +835,7 @@ console.log(receipt)
 
 **NOTE** `caver.klay.accounts.feePayerSignTransaction` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-If the account you use exists in the in-memory wallet of caver-js, you do not need to send the key parameter to signTransaction or feePayerSignTransaction as shown below.
+If the account you use exists in the caver-js in-memory wallet, you do not need to pass the key(s) to `signTransaction` or `feePayerSignTransaction`. See the example below.
 
 ```javascript
 const tx = {
