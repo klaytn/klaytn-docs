@@ -458,7 +458,7 @@ testFunction()
 
 When you have finished writing the example in the test.js file, run the test.js file as shown below.
 
-```text
+```bash
 $ node ./test.js
 ```
 
