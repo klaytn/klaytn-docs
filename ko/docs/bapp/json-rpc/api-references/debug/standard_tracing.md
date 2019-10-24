@@ -5,19 +5,19 @@
 Similar to [debug_traceBadBlock](./tracing.md#debug_tracebadblock), `standardTraceBadBlockToFile` accepts a bad block hash and will replay the bad block. It returns a list of file names containing tracing result. Note that the files will be stored in the machine that serves this API.
 
 
-| Client  | Method Invocation                                                       |
-|:-------:| ----------------------------------------------------------------------- |
-| Console | `debug.standardTraceBadBlockToFile(hash, [options])`                    |
-|   RPC   | `{"method": "debug_standardTraceBadBlockToFile", "params": [hash, {}]}` |
+| 클라이언트 | Method Invocation                                                       |
+|:-----:| ----------------------------------------------------------------------- |
+|  콘솔   | `debug.standardTraceBadBlockToFile(hash, [options])`                    |
+|  RPC  | `{"method": "debug_standardTraceBadBlockToFile", "params": [hash, {}]}` |
 
-**Parameters**
+**매개변수**
 
 | 명칭      | 형식           | 설명                                                         |
 | ------- | ------------ | ---------------------------------------------------------- |
 | hash    | 32-byte DATA | Hash of a block.                                           |
 | options | object       | See [standard tracing options](#standard-tracing-options). |
 
-**Return Value**
+**리턴값**
 
 | 형식         | 설명                                                                                                                                                                                                                           |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -25,7 +25,7 @@ Similar to [debug_traceBadBlock](./tracing.md#debug_tracebadblock), `standardTra
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.standardTraceBadBlockToFile("0x1d5ba00e313a81ae6d409d459c153327072665d9ea2f47608369722baf0cfbb6")
 ["/var/folders/v9/z3vq7j4d42b2jq_vxsv0km6h0000gn/T/block_0x1d5ba00e-0-0xae6f8ed4-701973544", "/var/folders/v9/z3vq7j4d42b2jq_vxsv0km6h0000gn/T/block_0x1d5ba00e-1-0x2e37321f-918920039"]
@@ -42,19 +42,19 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 Similar to [debug_traceBlock](./tracing.md#debug_traceblock), `standardTraceBlockToFile` accepts a block hash and will replay the block that is already present in the database. It returns a list of file names containing tracing result. Note that the files will be stored in the machine that serves this API.
 
-| Client  | Method Invocation                                                    |
-|:-------:| -------------------------------------------------------------------- |
-| Console | `debug.standardTraceBlockToFile(hash, [options])`                    |
-|   RPC   | `{"method": "debug_standardTraceBlockToFile", "params": [hash, {}]}` |
+| 클라이언트 | Method Invocation                                                    |
+|:-----:| -------------------------------------------------------------------- |
+|  콘솔   | `debug.standardTraceBlockToFile(hash, [options])`                    |
+|  RPC  | `{"method": "debug_standardTraceBlockToFile", "params": [hash, {}]}` |
 
-**Parameters**
+**매개변수**
 
 | 명칭      | 형식           | 설명                                                         |
 | ------- | ------------ | ---------------------------------------------------------- |
 | hash    | 32-byte DATA | Hash of a block.                                           |
 | options | object       | See [standard tracing options](#standard-tracing-options). |
 
-**Return Value**
+**리턴값**
 
 | 형식         | 설명                                                                                                                                                                                                                           |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -62,7 +62,7 @@ Similar to [debug_traceBlock](./tracing.md#debug_traceblock), `standardTraceBloc
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.standardTraceBlockToFile("0x485fff444481ee28debe50639f312f44e0a09342161a8906a99cf325cc2512a4")
 ["/var/folders/v9/z3vq7j4d42b2jq_vxsv0km6h0000gn/T/block_0x485fff44-0-0xfe8210fc-141224302"]
@@ -75,7 +75,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## Standard Tracing Options
+## 표준 추적 옵션
 
 You may give trace API function a secondary optional argument, which specifies the options for this specific call. The possible options are:
 
