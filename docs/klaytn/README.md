@@ -189,4 +189,3 @@ being selected as the proposer is influenced by the amount of KLAY staked by
 the CN, implying that a CN with more KLAY invested in the platform will
 probabilistically receive more rewards. Details of block reward distribution
 can be found in the [Klaytn Token Economy](design/token-economy.md) section.
-
