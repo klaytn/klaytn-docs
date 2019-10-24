@@ -442,7 +442,7 @@ $ touch test.js
 ```
 You can see the `test.js` file created in the working directory.
 
-Write the following in test.js.
+Write the following code in test.js.
 ```javascript
 // test.js file
 const Caver = require('caver-js')
