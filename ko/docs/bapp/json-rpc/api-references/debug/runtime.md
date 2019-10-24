@@ -2,24 +2,24 @@
 
 ## debug_freeOSMemory
 
-Returns unused memory to the OS.
+사용하지 않는 메모리를 운영체제에 반환합니다.
 
-| Client  | Method Invocation                  |
-|:-------:| ---------------------------------- |
-| Console | `debug.freeOSMemory()`             |
-|   RPC   | `{"method": "debug_freeOSMemory"}` |
+| 클라이언트 | Method Invocation                  |
+|:-----:| ---------------------------------- |
+|  콘솔   | `debug.freeOSMemory()`             |
+|  RPC  | `{"method": "debug_freeOSMemory"}` |
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
-None
+없음
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.freeOSMemory()
 null
@@ -33,24 +33,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_gcStats
 
-Returns GC statistics.
+GC 통계를 반환합니다.
 
-| Client  | Method Invocation                           |
-|:-------:| ------------------------------------------- |
-| Console | `debug.gcStats()`                           |
-|   RPC   | `{"method": "debug_gcStats", "params": []}` |
+| 클라이언트 | Method Invocation                           |
+|:-----:| ------------------------------------------- |
+|  콘솔   | `debug.gcStats()`                           |
+|  RPC  | `{"method": "debug_gcStats", "params": []}` |
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
-See [https://golang.org/pkg/runtime/debug/#GCStats](https://golang.org/pkg/runtime/debug/#GCStats) for information about the fields of the returned object.
+반환되는 객체의 각 필드에 관한 내용은 [https://golang.org/pkg/runtime/debug/#GCStats](https://golang.org/pkg/runtime/debug/#GCStats)를 참고해주세요.
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.gcStats()
 {
@@ -71,24 +71,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_memStats
 
-Returns detailed runtime memory statistics.
+런타임 메모리 통계를 반환합니다.
 
-| Client  | Method Invocation                            |
-|:-------:| -------------------------------------------- |
-| Console | `debug.memStats()`                           |
-|   RPC   | `{"method": "debug_memStats", "params": []}` |
+| 클라이언트 | Method Invocation                            |
+|:-----:| -------------------------------------------- |
+|  콘솔   | `debug.memStats()`                           |
+|  RPC  | `{"method": "debug_memStats", "params": []}` |
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
-See [https://golang.org/pkg/runtime/#MemStats](https://golang.org/pkg/runtime/#MemStats) for information about the fields of the returned object.
+반환되는 객체의 각 필드에 관한 내용은 [https://golang.org/pkg/runtime/#MemStats](https://golang.org/pkg/runtime/#MemStats)를 참고해주세요.
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.memStats()
 {
@@ -120,28 +120,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_metrics
 
-Retrieves all the known system metrics collected by the node.
+노드가 수집한 시스템의 측정 수치들을 검색합니다.
 
-| Client  | Method Invocation                              |
-|:-------:| ---------------------------------------------- |
-| Console | `debug.metrics(raw)`                           |
-|   RPC   | `{"method": "debug_metrics", "params": [raw]}` |
+| 클라이언트 | Method Invocation                              |
+|:-----:| ---------------------------------------------- |
+|  콘솔   | `debug.metrics(raw)`                           |
+|  RPC  | `{"method": "debug_metrics", "params": [raw]}` |
 
-**Parameters**
+**매개변수**
 
-| 명칭  | 형식   | 설명                                                    |
-| --- | ---- | ----------------------------------------------------- |
-| raw | bool | `true` If raw data is output as it is, `false` If not |
+| 명칭  | 형식  | 설명                                                     |
+| --- | --- | ------------------------------------------------------ |
+| raw | 불리언 | raw 데이터 자체로 출력하면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**Return Value**
+**리턴값**
 
-| 형식          | 설명                                            |
-| ----------- | --------------------------------------------- |
-| JSON string | The structured metrics collected by the node. |
+| 형식       | 설명                      |
+| -------- | ----------------------- |
+| JSON 문자열 | 노드가 수집한, 구조화된 측정 수치입니다. |
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.metrics(true)
 debug.metrics(true)
@@ -206,21 +206,21 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_setGCPercent
 
-Sets the garbage collection target percentage. It returns the previous setting. A negative value disables GC.
+GC 비율을 설정합니다. 이전 설정값을 반환합니다. 음수로 설정하면 GC를 비활성화합니다.
 
-**Parameters**
+**매개변수**
 
-| 명칭      | 형식      | 설명                                    |
-| ------- | ------- | ------------------------------------- |
-| Percent | integer | Garbage collection target percentage. |
+| 명칭      | 형식 | 설명            |
+| ------- | -- | ------------- |
+| Percent | 정수 | 설정할 GC 비율입니다. |
 
-**Return Value**
+**리턴값**
 
-| 형식      | 설명                                             |
-| ------- | ---------------------------------------------- |
-| integer | Previous garbage collection target percentage. |
+| 형식 | 설명                |
+| -- | ----------------- |
+| 정수 | 이전에 설정된 GC 비율입니다. |
 
-**Example** Console
+**예제** 콘솔
 ```javascript
 > debug.setGCPercent(50)
 100
@@ -243,26 +243,26 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 ## debug_stacks
 
-Returns a printed representation of the stacks of all goroutines.
+모든 go루틴의 스택을 반환합니다.
 
-| Client  | Method Invocation                          |
-|:-------:| ------------------------------------------ |
-| Console | `debug.stacks()`                           |
-|   RPC   | `{"method": "debug_stacks", "params": []}` |
+| 클라이언트 | Method Invocation                          |
+|:-----:| ------------------------------------------ |
+|  콘솔   | `debug.stacks()`                           |
+|  RPC  | `{"method": "debug_stacks", "params": []}` |
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
-| 형식     | 설명                                       |
-| ------ | ---------------------------------------- |
-| string | The stack information of all goroutines. |
+| 형식  | 설명                 |
+| --- | ------------------ |
+| 문자열 | 모든 go루틴의 스택 정보입니다. |
 
 **예시**
 
-Console
+콘솔
 ```javascript
 > debug.stacks()
 goroutine 163577 [running]:
