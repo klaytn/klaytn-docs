@@ -466,7 +466,7 @@ If you see the output of console.log, proceed with the steps below.
 
 **NOTE** Those classes are supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-### Account
+### Account <a id="account"></a>
 Account is a class containing the address and key of an account. The Account has an [AccountKey](#accountkey), which can be of type [AccountKeyPublic](#accountkeypublic), [AccountKeyMultiSig](#accountkeymultisig), or [AccountKeyRoleBased](#accountkeyrolebased).
 
 The caver.klay.accounts package uses [AccountKeyPublic](#accountkeypublic), which stores and manages a private key string by default.
