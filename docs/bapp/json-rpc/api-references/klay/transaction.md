@@ -750,19 +750,16 @@ Returns the decoded information of an anchoring transaction requested by transac
 | 32-byte DATA | Hash of a transaction. |
 
 **Return Value**
-
-`Object` - A transaction object, or `null` when no transaction was found:
-
 | Name | Type | Description |
 | --- | --- | --- |
 | BlockHash | 32-byte DATA | Hash of the block. |
-| BlockNumber | QUANTITY | The number of blocks that this anchoring transaction contains. |
+| BlockNumber | QUANTITY | The number of block that this anchoring transaction contains. |
 | ParentHash | 32-byte DATA | Hash of the parent block. |
-| TxRoot | 32-byte DATA | The root of the transaction trie of the block. |
+| TxHash | 32-byte DATA | The root of the transaction trie of the block. |
 | StateRootHash | 32-byte DATA | The root of the final state trie of the block. |
-| ReceiptsRoot | 32-byte DATA | The root of the receipts trie of the block. |
-| BlockCount | QUANTITY | The number of blocks that this anchoring transaction counts. |
-| TxCount | QUANTITY | The number of transactions that this anchoring transaction counts. |
+| ReceiptHash| 32-byte DATA | The root of the receipts trie of the block. |
+| BlockCount | QUANTITY | The number of recent blocks up to `BlockNumber` where the number of transactions was calculated. |
+| TxCount | QUANTITY | The number of transactions contained in the last `BlockCount` blocks. |
 
 **Example**
 
