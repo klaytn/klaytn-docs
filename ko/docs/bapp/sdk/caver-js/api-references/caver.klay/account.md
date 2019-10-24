@@ -35,15 +35,15 @@ caver.klay.accountCreated(address [, defaultBlock] [, callback])
 
 **NOTE** accountCreated checks if the account exists on the network, so even if a key pair is created, false is returned if the account matching the address does not exist on the actual blockchain network.
 
-**Parameters**
+**매개변수**
 
 | 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address of the account you want to query to see if it has been created on the network.                                            |
+| address      | 문자열                  | The address of the account you want to query to see if it has been created on the network.                                            |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `Boolean` - The existence of an input address.
 
@@ -63,19 +63,19 @@ false
 caver.klay.getAccount(address[, defaultBlock] [, callback])
 ```
 
-Returns the account information of a given address. There are two different account types in Klaytn: Externally Owned Account (EOA) and Smart Contract Account. See [Klaytn Accounts](../../../../../klaytn/design/accounts.md#klaytn-accounts).
+입력으로 받은 주소의 계정 정보를 반환합니다. Klaytn에는 외부 소유 계정(EOA)와 스마트 컨트랙트 계정 등 두 가지 유형의 계정이 있습니다. See [Klaytn Accounts](../../../../../klaytn/design/accounts.md#klaytn-accounts).
 
 **NOTE** getAccount returns the account that exists on the network, so even if a key pair is created, null is returned if the account matching the address does not exist on the actual blockchain network.
 
-**Parameters**
+**매개변수**
 
 | 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address of the account for which you want to get account information.                                                             |
+| address      | 문자열                  | The address of the account for which you want to get account information.                                                             |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns a JSON object - A JSON object that contains the account information.
 
@@ -116,13 +116,13 @@ caver.klay.getAccounts([callback])
 
 Returns a list of accounts that the node controls.
 
-**Parameters**
+**매개변수**
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `Array` - An array of addresses controlled by node.
 
@@ -140,19 +140,19 @@ Returns a list of accounts that the node controls.
 caver.klay.getAccountKey(address [, defaultBlock] [, callback])
 ```
 
-Returns the account key of the Externally Owned Account (EOA) of the given address. If the account has AccountKeyLegacy or the account of the given address is a Smart Contract Account, it will return an empty key value. See [Account Key](../../../../../klaytn/design/accounts.md#account-key).
+Returns the account key of the Externally Owned Account (EOA) of the given address. 해당 계정이 AccountKeyLegacy이거나 입력으로 받은 주소의 계정이 스마트 컨트랙트 계정이면 빈 값을 반환합니다. See [Account Key](../../../../../klaytn/design/accounts.md#account-key).
 
 **NOTE** getAccountKey returns the account key if the account exists on the network, so even if a key pair is created, null is returned if the account matching the address does not exist on the actual blockchain network.
 
-**Parameters**
+**매개변수**
 
 | 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address of the account for which you want to get accountKey.                                                                      |
+| address      | 문자열                  | The address of the account for which you want to get accountKey.                                                                      |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `Object` - The account key consist of public key(s) and a key type.
 
@@ -249,15 +249,15 @@ caver.klay.getBalance(address [, defaultBlock] [, callback])
 ```
 Gets the balance of an address at a given block.
 
-**Parameters**
+**매개변수**
 
 | 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address to get the balance of.                                                                                                    |
+| address      | 문자열                  | The address to get the balance of.                                                                                                    |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `String` - The current balance for the given address in peb.
 
@@ -277,15 +277,15 @@ caver.klay.getCode(address [, defaultBlock] [, callback])
 ```
 Gets the code at a specific address.
 
-**Parameters**
+**매개변수**
 
 | 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address to get the code from.                                                                                                     |
+| address      | 문자열                  | The address to get the code from.                                                                                                     |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `String` - The data at given address `address`.
 
@@ -306,15 +306,15 @@ caver.klay.getTransactionCount(address [, defaultBlock] [, callback])
 ```
 Gets the number of transactions sent from this address.
 
-**Parameters**
+**매개변수**
 
 | 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address to get the number of transactions from.                                                                                   |
+| address      | 문자열                  | The address to get the number of transactions from.                                                                                   |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
 
-**Return Value**
+**리턴값**
 
 | 형식     | 설명                                                      |
 | ------ | ------------------------------------------------------- |
@@ -334,17 +334,17 @@ Gets the number of transactions sent from this address.
 caver.klay.isContractAccount(address [, defaultBlock] [, callback])
 ```
 
-Returns `true` if an input account has a non-empty codeHash at the time of a specific block number. It returns `false` if the account is an EOA or a smart contract account which doesn't have codeHash.
+특정 번호의 블록 시간에서 입력으로 받은 계정의 codeHash가 비어 있지 않은 경우 `true`를 반환합니다. 해당 계정이 EOA이거나 codeHash가 비어 있는 스마트 컨트랙트 계정이면 `false`를 반환합니다.
 
-**Parameters**
+**매개변수**
 
 | 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address of the account you want to check for isContractAccount.                                                                   |
+| address      | 문자열                  | The address of the account you want to check for isContractAccount.                                                                   |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `Boolean` - `true` means the input parameter is an existing smart contract address.
 
@@ -368,15 +368,15 @@ Generates signed data specific to the Klaytn network. Refer to [Klaytn Platform 
 
 **NOTE**: This API provides the function to sign a message using an account that exists in your node. The account in the node must be unlocked to sign the message. To sign a transaction, use [caver.klay.signTransaction](./transaction.md#signtransaction).
 
-**Parameters**
+**매개변수**
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
-| message  | String   | Message to sign.                                                     |
-| address  | String   | The address of the account to sign the message with.                 |
+| 메시지      | 문자열      | Message to sign.                                                     |
+| address  | 문자열      | The address of the account to sign the message with.                 |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `String` - The message signature signed with the account's private key.
 
