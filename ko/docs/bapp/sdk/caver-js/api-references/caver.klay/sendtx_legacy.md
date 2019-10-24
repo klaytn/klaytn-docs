@@ -9,21 +9,21 @@ Sends a transaction to the network.
 
 Note: Only the account having `AccountKeyLegacy` can send this transaction, on the other hand, externally owned account(EOA) created from `ACCOUNT_CREATION` transaction can't send a legacy transaction.
 
-**Parameters**
+**매개변수**
 
 | 명칭                         | 형식                                              | 설명                                                                                                                                                                                                                                |
 | -------------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionObject          | Object                                          | The transaction object to send.                                                                                                                                                                                                   |
-| transactionObject.from     | String                                          | The sender address of the transaction.                                                                                                                                                                                            |
-| transactionObject.to       | String                                          | (optional) The destination address of the message, left undefined for a contract-creation transaction.                                                                                                                            |
+| transactionObject          | 객체                                              | The transaction object to send.                                                                                                                                                                                                   |
+| transactionObject.from     | 문자열                                             | The sender address of the transaction.                                                                                                                                                                                            |
+| transactionObject.to       | 문자열                                             | (optional) The destination address of the message, left undefined for a contract-creation transaction.                                                                                                                            |
 | transactionObject.value    | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb, also the endowment if it's a contract-creation transaction.                                                                                                          |
 | transactionObject.gas      | Number                                          | The amount of gas to use for the transaction (unused gas is refunded).                                                                                                                                                            |
 | transactionObject.gasPrice | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                                        |
-| transactionObject.data     | String                                          | (optional) Either an [ABI byte string](http://solidity.readthedocs.io/en/latest/abi-spec.html) containing the data of the function call on a contract, or in the case of a contract-creation transaction the initialization code. |
-| transactionObject.nonce    | Number                                          | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                               |
+| transactionObject.data     | 문자열                                             | (optional) Either an [ABI byte string](http://solidity.readthedocs.io/en/latest/abi-spec.html) containing the data of the function call on a contract, or in the case of a contract-creation transaction the initialization code. |
+| transactionObject.nonce    | Number                                          | (선택사항) nonce의 정숫값입니다. 이를 통해 같은 nonce를 사용하는 보류 중인 트랜잭션을 덮어쓸 수 있습니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                           |
 | callback                   | Function                                        | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                                                              |
 
-**Return Value**
+**리턴값**
 
 The `callback` will return the 32-byte transaction hash.
 
