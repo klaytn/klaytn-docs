@@ -440,7 +440,7 @@ The examples below describe the example in a Node.js file. To practice the examp
 ```bash
 $ touch test.js
 ```
-You can see the `test.js` file is created in the working directory.
+You can see the `test.js` file created in the working directory.
 
 Write the following in test.js.
 ```javascript
