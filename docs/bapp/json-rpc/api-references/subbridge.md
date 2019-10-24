@@ -423,7 +423,7 @@ The `subbridge.deregisterBridge` deregisters already registered bridge contracts
 
 | Name | Type | Description |
 | --- | --- | --- |
-| error | Error | `null` if the deregistering succeeds, Error object otherwise. |
+| error | Error | `null` if the deregistration succeeds, Error object otherwise. |
 
 **Example**
 
@@ -437,7 +437,7 @@ Error: invalid bridge pair
 
 ## subbridge_subscribeBridge <a id="subbridge_subscribeBridge"></a>
 The `subbridge.subscribeBridge` subscribes to the registered bridge contracts in the parent/child chain.
-If bridge contract pair is subscribed, value transfer request can be handled automatically by sub-bridge.
+If the sub-bridge node is subscribed to the bridge contract pair, cross-chain value-transfer requests are handled automatically by the sub-bridge.
 
 **Parameters**
 
@@ -486,7 +486,7 @@ null
 ```
 
 ## subbridge_registerToken <a id="subbridge_registerToken"></a>
-The `subbridge.registerToken` registers token contract (ERC20/721) pair on the bridge contracts.
+The `subbridge.registerToken` registers a pair of ERC-20 or 721 tokens to the bridge contracts.
 
 **Parameters**
 
@@ -513,7 +513,7 @@ Error: token already exists
 ```
 
 ## subbridge_deregisterToken <a id="subbridge_deregisterToken"></a>
-The `subbridge.deregisterBridge` deregisters already registered token pair on the bridge contracts.
+The `subbridge.deregisterBridge` deregisters already registered token pair from the bridge contracts.
 
 **Parameters**
 
@@ -528,7 +528,7 @@ The `subbridge.deregisterBridge` deregisters already registered token pair on th
 
 | Name | Type | Description |
 | --- | --- | --- |
-| error | Error | `null` if the deregistering succeeds, Error object otherwise. |
+| error | Error | `null` if the deregistration succeeds, Error object otherwise. |
 
 **Example**
 
