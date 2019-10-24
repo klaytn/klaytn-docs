@@ -446,6 +446,57 @@ AccountKeyRoleBased {
 }
 ```
 
+## accountKeyToPublicKey <a id="accountkeytopublickey"></a>
+
+```javascript
+caver.klay.accounts.accountKeyToPublicKey(accountKey)
+```
+This function converts the private key of AccountKey to public key.
+
+**NOTE** `caver.klay.accounts.accountKeyToPublicKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| accountKey | String &#124; Array &#124; Object | An instance of AccountKey(AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased) or key(a private key string, an array of private key strings or an object defines key by roles) to convert to public key. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| String &#124; Array &#124; Object | If the parameter is an AccountKeyPublic instance or one private key string, one public key string is returned. If the parameter is an AccountKeyMultiSig instance or an array of private key strings, an array of public key strings is returned. If the parameter is an AccountKeyRoleBased instance or an object with a key (a private key string or an array of private key strings) defined for each role, an object with a public key (a public key string or an array of public key strings) defined for each role. Is returned. |
+
+
+**Example**
+
+```javascript
+// Convert a private key string
+> caver.klay.accounts.accountKeyToPublicKey('0x{private key}')
+'0x67f20d1198abcdc036a4d8f3ea0cf837527716c90f71d0b0410dfe3e1b405eded9ea818eedd5e8ad79658b2cdf4862ab0956a6f7fd0a4886afe6110b2e9803a4'
+
+// Convert an array of private key strings
+> caver.klay.accounts.accountKeyToPublicKey(['0x{private key}', '0x2d90b102bbb2a66d6cbd002099aeb83073bd98880a56d3b94ad2844a74ac9cbc'])
+[
+    '0x67f20d1198abcdc036a4d8f3ea0cf837527716c90f71d0b0410dfe3e1b405eded9ea818eedd5e8ad79658b2cdf4862ab0956a6f7fd0a4886afe6110b2e9803a4',
+    '0x7c5415f99628618b3fe78e14606c83a22488769b3361e3758c7c98a204a23b615cf07af65490895d70a7b7e7e885fc2f597d65ea69ed586c7ae7cb0241656036'
+]
+
+// Convert an object defines key by roles
+> caver.klay.accounts.accountKeyToPublicKey({transactionKey: ['0x{private key}', '0x{private key}'], updateKey: '0x{private key}', feePayerKey: ['0x{private key}', '0x{private key}']})
+{ 
+    transactionKey: [
+        '0x67f20d1198abcdc036a4d8f3ea0cf837527716c90f71d0b0410dfe3e1b405eded9ea818eedd5e8ad79658b2cdf4862ab0956a6f7fd0a4886afe6110b2e9803a4',
+        '0x7c5415f99628618b3fe78e14606c83a22488769b3361e3758c7c98a204a23b615cf07af65490895d70a7b7e7e885fc2f597d65ea69ed586c7ae7cb0241656036'
+    ],
+    updateKey: '0x21aa42e0232e6c7607a0028bcbd690400b92574c44b17af8b036f3f4f01b0586f90578976a040debf6aecef4a5d00b5315b8c82e999ed8e5fbacd5fcbee82080',
+    feePayerKey: [
+        '0xb82bb74e902b1fa3594c7cc8bd33a727eb1c85a9bfc991327a0215fc413eafe0b3723cc7f3c6e79981b409e82b8bf7033fed2d2878c26502bea64f84d592b167',
+        '0x39acd887f32ccecd1b13c890854d2dfd0016f0be477155d81a848e971ff59412b0e4c0b5bfc1fd548b971f98cd9ef19367309d0475033fda3c8028ba9df27734'
+    ]
+}
+```
+
 ## privateKeyToAccount
 
 ```javascript
