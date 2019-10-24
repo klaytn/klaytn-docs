@@ -83,7 +83,7 @@ Creates an instance of Account with specific AccountKey. Account is for managing
 | Name | Type | Description |
 | --- | --- | --- |
 | address | String | Address of an Account. |
-| accountKey | String &#124; Array &#124; Object | An instance of AccountKey or key(a private key string, an array of private key strings or an object defines key by roles) to create an AccountKey. If accountKey is not an AccountKey instance, call [caver.klay.accounts.createAccountKey](#createaccountkey) with accountKey as a parameter to create an AccountKey instance. |
+| accountKey | String &#124; Array &#124; Object | An AccountKey instance(`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or key(a private key string, an array of private key strings or an object defines key by roles) to create an AccountKey. If accountKey is not an AccountKey instance, call [caver.klay.accounts.createAccountKey](#createaccountkey) with accountKey as a parameter to create an AccountKey instance. |
 
 
 **Return Value**
@@ -163,7 +163,7 @@ Creates an instance of Account with AccountKeyPublic.
 | Name | Type | Description |
 | --- | --- | --- |
 | address | String | Address of an Account. |
-| accountKey | String &#124; Object | An instance of AccountKeyPublic or a private key string. If accountKey is not an AccountKey instance, call [caver.klay.accounts.createAccountKey](#createaccountkey) with accountKey as a parameter to create an AccountKeyPublic instance. |
+| accountKey | String &#124; Object | An AccountKeyPublic instance or a private key string. If accountKey is not an AccountKey instance, call [caver.klay.accounts.createAccountKey](#createaccountkey) with accountKey as a parameter to create an AccountKeyPublic instance. |
 
 
 **Return Value**
@@ -199,7 +199,7 @@ Creates an instance of Account with AccountKeyMultiSig.
 | Name | Type | Description |
 | --- | --- | --- |
 | address | String | Address of an Account. |
-| accountKey | String &#124; Object | An instance of AccountKeyMultiSig or a private key string. If accountKey is not an AccountKey instance, call [caver.klay.accounts.createAccountKey](#createaccountkey) with accountKey as a parameter to create an AccountKeyMultiSig instance. |
+| accountKey | String &#124; Object | An AccountKeyMultiSig instance or a private key string. If accountKey is not an AccountKey instance, call [caver.klay.accounts.createAccountKey](#createaccountkey) with accountKey as a parameter to create an AccountKeyMultiSig instance. |
 
 
 **Return Value**
@@ -235,7 +235,7 @@ Creates an instance of Account with AccountKeyRoleBased.
 | Name | Type | Description |
 | --- | --- | --- |
 | address | String | Address of an Account. |
-| accountKey | String &#124; Object | An instance of AccountKeyRoleBased or a private key string. If accountKey is not an AccountKey instance, call [caver.klay.accounts.createAccountKey](#createaccountkey) with accountKey as a parameter to create an AccountKeyRoleBased instance. |
+| accountKey | String &#124; Object | An AccountKeyRoleBased instance or a private key string. If accountKey is not an AccountKey instance, call [caver.klay.accounts.createAccountKey](#createaccountkey) with accountKey as a parameter to create an AccountKeyRoleBased instance. |
 
 
 **Return Value**
@@ -459,7 +459,7 @@ This function converts the private key of AccountKey to public key.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| accountKey | String &#124; Array &#124; Object | An instance of AccountKey(AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased) or key(a private key string, an array of private key strings or an object defines key by roles) to convert to public key. |
+| accountKey | String &#124; Array &#124; Object | An AccountKey instance(`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or key(a private key string, an array of private key strings or an object defines key by roles) to convert to public key. |
 
 **Return Value**
 
