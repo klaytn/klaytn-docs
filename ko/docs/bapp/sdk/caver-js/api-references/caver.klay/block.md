@@ -42,13 +42,13 @@ caver.klay.getBlockNumber([callback])
 
 Returns the current block number.
 
-**Parameters**
+**매개변수**
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `Number` - The number of the most recent block.
 
@@ -66,38 +66,38 @@ caver.klay.getBlock(blockHashOrBlockNumber [, returnTransactionObjects] [, callb
 ```
 Returns a block matching the block hash or block number.
 
-**Parameters**
+**매개변수**
 
 | 명칭                       | 형식                   | 설명                                                                                                                                                           |
 | ------------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | blockHashOrBlockNumber   | String &#124; Number | The block hash or block number. Or the string `"genesis"`, `"latest"` or `"pending"`.                                                                        |
-| returnTransactionObjects | Boolean              | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, if `false` it will only contains the transaction hashes. |
+| returnTransactionObjects | 불리언                  | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, if `false` it will only contains the transaction hashes. |
 | callback                 | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                         |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `Object` - The block object:
 
 | 명칭               | 형식              | 설명                                                                                                                 |
 | ---------------- | --------------- | ------------------------------------------------------------------------------------------------------------------ |
-| blockScore       | QUANTITY        | Former difficulty. Always 1 in the BFT consensus engine                                                            |
-| extraData        | String          | The "extra data" field of this block.                                                                              |
-| gasUsed          | Number          | The total used gas by all transactions in this block.                                                              |
-| governanceData   | DATA            | RLP encoded governance configuration                                                                               |
-| 해시               | 32-byte String  | Hash of the block. `null` when it is a pending block.                                                              |
-| logsBloom        | 256-byte String | The bloom filter for the logs of the block. `null` when it is a pending block.                                     |
+| blockScore       | QUANTITY        | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                                                                   |
+| extraData        | 문자열             | 블록의 "추가 데이터"를 위한 필드입니다.                                                                                            |
+| gasUsed          | Number          | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                                                                     |
+| governanceData   | DATA            | RLP 인코딩된 거버넌스 설정입니다.                                                                                               |
+| hash             | 32-byte String  | 블록의 해시입니다. `null` when it is a pending block.                                                                      |
+| logsBloom        | 256-byte String | 블록의 로그를 위한 블룸필터입니다. `null` when it is a pending block.                                                             |
 | number           | Number          | The block number. `null` when it is a pending block.                                                               |
-| parentHash       | 32-byte String  | Hash of the parent block.                                                                                          |
-| receiptsRoot     | 32-byte DATA    | The root of the receipts trie of the block.                                                                        |
-| 보상               | 20-byte DATA    | The address of the beneficiary to whom the block rewards were given.                                               |
-| size             | Number          | Integer the size of this block in bytes.                                                                           |
-| stateRoot        | 32-byte String  | The root of the final state trie of the block.                                                                     |
+| parentHash       | 32-byte String  | 이전 블록의 해시입니다.                                                                                                      |
+| receiptsRoot     | 32-byte DATA    | 블록의 영수증 트라이의 루트 해시입니다.                                                                                             |
+| reward           | 20바이트 크기 DATA   | 블록 보상을 받을 수혜자의 주소입니다.                                                                                              |
+| size             | Number          | 블록의 바이트 크기의 정수 형태입니다.                                                                                              |
+| stateRoot        | 32-byte String  | 블록의 상태 트라이의 루트 해시입니다.                                                                                              |
 | timestamp        | Number          | The unix timestamp for when the block was collated.                                                                |
-| timestampFoS     | QUANTITY        | The fraction of a second of the timestamp for when the block was collated.                                         |
-| totalBlockScore  | QUANTITY        | Integer of the total blockScore of the chain until this block.                                                     |
-| 트랜잭션             | Array           | Array of transaction objects, or 32-byte transaction hashes depending on the `returnTransactionObjects` parameter. |
-| transactionsRoot | 32-byte String  | The root of the transaction trie of the block.                                                                     |
-| voteData         | DATA            | RLP encoded governance vote of the proposer                                                                        |
+| timestampFoS     | QUANTITY        | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                                                                   |
+| totalBlockScore  | QUANTITY        | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                                                             |
+| transactions     | 배열              | Array of transaction objects, or 32-byte transaction hashes depending on the `returnTransactionObjects` parameter. |
+| transactionsRoot | 32-byte String  | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                                                            |
+| voteData         | DATA            | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                                                                          |
 
 **예시**
 
@@ -132,14 +132,14 @@ caver.klay.getBlockReceipts(blockHash [, callback])
 ```
 Returns a list of transaction receipts included in a block identified by the given block hash.
 
-**Parameters**
+**매개변수**
 
 | 명칭        | 형식       | 설명                                                                   |
 | --------- | -------- | -------------------------------------------------------------------- |
-| blockHash | String   | Hash of a block.                                                     |
+| blockHash | 문자열      | Hash of a block.                                                     |
 | callback  | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `Array` - Receipts included in a block.  If the target block contains no transaction, an empty array `[]` is returned.
 
@@ -189,14 +189,14 @@ caver.klay.getBlockTransactionCount(blockHashOrBlockNumber [, callback])
 ```
 Returns the number of transaction in a given block.
 
-**Parameters**
+**매개변수**
 
 | 명칭                     | 형식                   | 설명                                                                              |
 | ---------------------- | -------------------- | ------------------------------------------------------------------------------- |
 | blockHashOrBlockNumber | String &#124; Number | The block number or hash. Or the string `"genesis"`, `"latest"` or `"pending"`. |
 | callback               | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.            |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `Number` - The number of transactions in the given block.
 
@@ -216,41 +216,41 @@ caver.klay.getBlockWithConsensusInfo(blockHashOrBlockNumber [, callback])
 
 Returns a block with consensus information matched by the given block hash or block number.
 
-**Parameters**
+**매개변수**
 
 | 명칭                     | 형식                   | 설명                                                                       |
 | ---------------------- | -------------------- | ------------------------------------------------------------------------ |
 | blockHashOrBlockNumber | String &#124; Number | The block hash or block number. Or the string `"genesis"` or `"latest"`. |
 | callback               | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.     |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `Object` - A block object with consensus information (a proposer and a list of committee members) The block object contains:
 
-| 명칭               | 형식              | 설명                                                                                                                                                    |
-| ---------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockScore       | QUANTITY        | Former difficulty. Always 1 in the BFT consensus engine                                                                                               |
-| committee        | Array           | Array of addresses of committee members of this block. The committee is a subset of validators participated in the consensus protocol for this block. |
-| extraData        | String          | The "extra data" field of this block.                                                                                                                 |
-| gasUsed          | QUANTITY        | The total used gas by all transactions in this block.                                                                                                 |
-| governanceData   | DATA            | RLP encoded governance configuration                                                                                                                  |
-| 해시               | 32-byte DATA    | Hash of the block. `null` when it is a pending block.                                                                                                 |
-| logsBloom        | 256-byte String | The bloom filter for the logs of the block. `null` when it is a pending block.                                                                        |
-| number           | QUANTITY        | The block number. `null` when it is a pending block.                                                                                                  |
-| parentHash       | 32-byte DATA    | Hash of the parent block.                                                                                                                             |
-| proposer         | 20-byte DATA    | The address of the block proposer.                                                                                                                    |
-| receiptsRoot     | 32-byte DATA    | The root of the receipts trie of the block.                                                                                                           |
-| 보상               | 20-byte DATA    | The address of the beneficiary to whom the block rewards were given.                                                                                  |
-| size             | QUANTITY        | Integer the size of this block in bytes.                                                                                                              |
-| stateRoot        | 32-byte DATA    | The root of the final state trie of the block.                                                                                                        |
-| timestamp        | QUANTITY        | The unix timestamp for when the block was collated.                                                                                                   |
-| timestampFoS     | QUANTITY        | The fraction of a second of the timestamp for when the block was collated.                                                                            |
-| totalBlockScore  | QUANTITY        | Integer of the total blockScore of the chain until this block.                                                                                        |
-| 트랜잭션             | Array           | Array of transaction objects.                                                                                                                         |
-| transactionsRoot | 32-byte DATA    | The root of the transaction trie of the block.                                                                                                        |
-| voteData         | DATA            | RLP encoded governance vote of the proposer                                                                                                           |
+| 명칭               | 형식              | 설명                                                                       |
+| ---------------- | --------------- | ------------------------------------------------------------------------ |
+| blockScore       | QUANTITY        | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                         |
+| committee        | 배열              | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
+| extraData        | 문자열             | 블록의 "추가 데이터"를 위한 필드입니다.                                                  |
+| gasUsed          | QUANTITY        | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                           |
+| governanceData   | DATA            | RLP 인코딩된 거버넌스 설정입니다.                                                     |
+| hash             | 32-byte DATA    | 블록의 해시입니다. `null` when it is a pending block.                            |
+| logsBloom        | 256-byte String | 블록의 로그를 위한 블룸필터입니다. `null` when it is a pending block.                   |
+| number           | QUANTITY        | The block number. `null` when it is a pending block.                     |
+| parentHash       | 32-byte DATA    | 이전 블록의 해시입니다.                                                            |
+| proposer         | 20바이트 크기 DATA   | 블록 제안자의 주소입니다.                                                           |
+| receiptsRoot     | 32-byte DATA    | 블록의 영수증 트라이의 루트 해시입니다.                                                   |
+| reward           | 20바이트 크기 DATA   | 블록 보상을 받을 수혜자의 주소입니다.                                                    |
+| size             | QUANTITY        | 블록의 바이트 크기의 정수 형태입니다.                                                    |
+| stateRoot        | 32-byte DATA    | 블록의 상태 트라이의 루트 해시입니다.                                                    |
+| timestamp        | QUANTITY        | The unix timestamp for when the block was collated.                      |
+| timestampFoS     | QUANTITY        | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                         |
+| totalBlockScore  | QUANTITY        | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                   |
+| transactions     | 배열              | 트랜잭션 객체의 배열입니다.                                                          |
+| transactionsRoot | 32-byte DATA    | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                  |
+| voteData         | DATA            | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                                |
 
-**Examples**
+**예제**
 ```javascript
 > caver.klay.getBlockWithConsensusInfo(19097).then(console.log);
 { 
@@ -314,16 +314,16 @@ Returns a block with consensus information matched by the given block hash or bl
 caver.klay.getCommittee([defaultBlock] [, callback])
 ```
 
-Returns a list of all validators in the committee at the specified block. If the parameter is not set, returns a list of all validators in the committee at the latest block.
+어떤 블록 시간에서 위원회에 속한 검증자 목록을 반환합니다. 매개변수를 설정하지 않으면 최신 블록에서 위원회에 속한 검증자 목록을 반환합니다.
 
-**Parameters**
+**매개변수**
 
 | 명칭           | 형식                   | 설명                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `Array` - Addresses of all validators in the committee.
 
@@ -345,16 +345,16 @@ Returns a list of all validators in the committee at the specified block. If the
 caver.klay.getCommitteeSize([defaultBlock] [, callback])
 ```
 
-Returns the size of the committee at the specified block. If the parameter is not set, returns the size of the committee at the latest block.
+어떤 블록 시간에서 위원회의 구성원 수를 반환합니다. 매개변수를 설정하지 않으면 최신 블록에서의 위원회 구성원 수를 반환합니다.
 
-**Parameters**
+**매개변수**
 
 | 명칭           | 형식                   | 설명                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `Number` - The size of the committee.
 
@@ -372,16 +372,16 @@ Returns the size of the committee at the specified block. If the parameter is no
 caver.klay.getCouncil([defaultBlock] [, callback])
 ```
 
-Returns a list of all validators of the council at the specified block. If the parameter is not set, returns a list of all validators of the council at the latest block.
+어떤 블록 시간에서 council에 속한 검증자 목록을 반환합니다. 매개변수를 설정하지 않으면 최신 블록에서 council에 속한 검증자 목록을 반환합니다.
 
-**Parameters**
+**매개변수**
 
 | 명칭           | 형식                   | 설명                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `Array` - Addresses of all validators of the council.
 
@@ -403,16 +403,16 @@ Returns a list of all validators of the council at the specified block. If the p
 caver.klay.getCouncilSize([defaultBlock] [, callback])
 ```
 
-Returns the size of the council at the specified block. If the parameter is not set, returns the size of the council at the latest block.
+어떤 블록 시간에서 council의 구성원 수를 반환합니다. 매개변수를 설정하지 않으면 최신 블록에서의 council 구성원 수를 반환합니다.
 
-**Parameters**
+**매개변수**
 
 | 명칭           | 형식                   | 설명                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `Number` - The size of the council.
 
@@ -431,16 +431,16 @@ caver.klay.getStorageAt(address, position [, defaultBlock] [, callback])
 ```
 Gets the storage at a specific position of an address.
 
-**Parameters**
+**매개변수**
 
 | 명칭           | 형식                   | 설명                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address to get the storage from.                                                                                        |
+| address      | 문자열                  | The address to get the storage from.                                                                                        |
 | position     | Number               | The index position of the storage.                                                                                          |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `String` - The value in storage at the given position.
 
@@ -458,16 +458,16 @@ Gets the storage at a specific position of an address.
 caver.klay.isMining([callback])
 ```
 
-Returns `true` if client is actively mining new blocks.
+클라이언트가 새로운 블록을 채굴하고 있으면 `true`를 반환합니다.
 
-**Parameters**
+**매개변수**
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `Boolean` - `true` if the client is mining, otherwise `false`.
 
@@ -486,14 +486,14 @@ caver.klay.isSyncing([callback])
 
 Checks if the node is currently syncing and returns either a syncing object or `false`.
 
-**Parameters**
+**매개변수**
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `Object|Boolean` - A sync object when the node is currently syncing or `false`:
 
