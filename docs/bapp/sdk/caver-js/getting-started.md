@@ -912,7 +912,7 @@ const tx = {
 const { signatures } = await caver.klay.accounts.signTransaction(tx)
 
 // Fee payer signs transaction with feePayerKey[0], feePayerKey[1] and feePayerKey[2]
-const { feePayerSignatures } = await caver.klay.accounts.feePayerSignTransaction(userSigned.rawTransaction, feePayer.address)
+const { feePayerSignatures } = await caver.klay.accounts.feePayerSignTransaction(tx, feePayer.address)
 
 // Fill in the missing information in the tx object.
 tx.signatures = signatures
@@ -939,7 +939,7 @@ const tx = {
 const { signatures } = await caver.klay.accounts.signTransaction(tx)
 
 // Fee payer signs transaction with feePayerKey[0], feePayerKey[1] and feePayerKey[2]
-const { feePayerSignatures } = await caver.klay.accounts.feePayerSignTransaction(userSigned.rawTransaction, feePayer.address)
+const { feePayerSignatures } = await caver.klay.accounts.feePayerSignTransaction(tx, feePayer.address)
 
 // Fill in the missing information in the tx object.
 tx.signatures = signatures
