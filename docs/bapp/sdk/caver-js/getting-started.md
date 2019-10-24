@@ -275,7 +275,7 @@ The result of the transaction can be found through the status of the receipt. Fo
 
 Klaytn provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../klaytn/design/transactions/README.md). This section describes various examples that can be used with caver-js.
 
-### Fee Delegation
+### Fee Delegation <a id="fee-delegation"></a>
 
 Klaytn provides [Fee Delegation] feature. Here's an example code.
 
