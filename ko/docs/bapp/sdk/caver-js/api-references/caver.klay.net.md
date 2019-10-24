@@ -103,7 +103,7 @@ caver.klay.net.getPeerCount([callback])
 caver.klay.net.peerCountByType([callback])
 ```
 
-Returns the number of connected nodes by type and the total number of connected nodes with key/value pairs.
+유형별 연결된 노드의 수와 연결된 모든 노드 수를 키-밸류 쌍의 형태로 반환합니다.
 
 **매개변수**
 
