@@ -456,7 +456,7 @@ async function testFunction() {
 testFunction()
 ```
 
-When you have finished writing the example in the test.js file, run the test.js file as shown below.
+Save the file and run it in your console.
 
 ```bash
 $ node ./test.js
