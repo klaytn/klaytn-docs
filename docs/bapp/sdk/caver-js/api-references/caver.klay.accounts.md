@@ -83,7 +83,7 @@ Creates an instance of Account with specific AccountKey. Account is for managing
 | Name | Type | Description |
 | --- | --- | --- |
 | address | String | Address of an Account. |
-| accountKey | String &#124; Array &#124; Object | An instance of AccountKey or a value to create an AccountKey. If accountKey is not an AccountKey instance, call [caver.klay.accounts.createAccountKey](#createaccountkey) with accountKey as a parameter to create an AccountKey instance. |
+| accountKey | String &#124; Array &#124; Object | An instance of AccountKey or key(a private key string, an array of private key strings or an object defines key by roles) to create an AccountKey. If accountKey is not an AccountKey instance, call [caver.klay.accounts.createAccountKey](#createaccountkey) with accountKey as a parameter to create an AccountKey instance. |
 
 
 **Return Value**
@@ -93,18 +93,17 @@ Creates an instance of Account with specific AccountKey. Account is for managing
 | Name | Type | Description |
 | --- | --- | --- |
 | address | String | The address of the account. |
-| privateKey | String | Default key string of accountKey that the account has. This property is left for compatibility. privateKey can only represent the default key value of accountKey, so using privateKey is not recommended. Rather than using privateKey, it is recommended to use transactionKey, updateKey, or feePayerKey in context. |
-| accountKeyType | String | Type of accountKey the account has. |
+| privateKey | String | Default key string of accountKey that the account has. This property is left for backward compatibility. privateKey only represents the default key of accountKey, so using privateKey to sign or send a transaction is not recommended. It is recommended to use transactionKey, updateKey, or feePayerKey in context. |
+| accountKeyType | String | Type of accountKey the account has. This can be `AccountKeyPublic`, `AccountKeyMultiSig`, or `AccountKeyRoleBased` |
 | accountKey | Object | The key of the account. This is AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased. |
 | keys | String &#124; Array &#124; Object | All keys inside accountKey that Account has. For AccountKeyPublic, this is a single private key string; for AccountKeyMultiSig, it is returned as an array containing all the defined private key strings. In the case of AccountKeyRoleBased, the object whose key is defined for each role is returned. |
-| transactionKey | String &#124; Array | Key corresponding to [RoleTransaction](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig have no role for keys, so transactionKey is the same value as keys. |
-| updateKey | String &#124; Array | Key corresponding to [RoleAccountUpdate](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig have no role for keys, so updateKey is the same value as keys. |
-| feePayerKey | String &#124; Array | Key corresponding to [RoleFeePayer](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig have no role for keys, so feePayerKey is the same value as keys. |
+| transactionKey | String &#124; Array | Key used for the [RoleTransaction](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys. |
+| updateKey | String &#124; Array | Key used for the [RoleAccountUpdate](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys. |
+| feePayerKey | String &#124; Array | Key used for [RoleFeePayer](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys. |
 | signTransaction(tx [, callback]) | Function | The function to sign transactions. See [caver.klay.accounts.signTransaction](#signtransaction). |
 | sign(data) | Function | The function to sign transactions. See [caver.klay.accounts.sign](#sign). |
 | encrypt | Function | The function to encrypt an Account with given password. |
 | getKlaytnWalletKey | Function | The function to get [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format. |
-
 
 **Example**
 
@@ -289,10 +288,9 @@ AccountKey is a data structure for managing keys in caver-js. Use AccountKeyPubl
 | type | String | The type of AccountKey instance. |
 | defaultKey | String | Default private key of AccountKey. The default private key represents a single private key string defined for AccountKeyPublic, and a private key string for the zeroth index of the array if AccountKeyMultiSig. For AccountKeyRoleBased, it represents the defaultKey of the role where the key is defined. |
 | keys | String &#124; Array &#124; Object | All private keys defined inside the AccountKey instance. For AccountKeyPublic, this is a single private key string; for AccountKeyMultiSig, it is returned as an array containing all the defined private key strings. In the case of AccountKeyRoleBased, the object whose key is defined for each role is returned. |
-| transactionKey | String &#124; Array | Key corresponding to [RoleTransaction](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig have no role for keys, so transactionKey is the same value as keys. |
-| updateKey | String &#124; Array | Key corresponding to [RoleAccountUpdate](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig have no role for keys, so updateKey is the same value as keys. |
-| feePayerKey | String &#124; Array | Key corresponding to [RoleFeePayer](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig have no role for keys, so feePayerKey is the same value as keys. |
-
+| transactionKey | String &#124; Array | Key used for the [RoleTransaction](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys. |
+| updateKey | String &#124; Array | Key used for the [RoleAccountUpdate](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys. |
+| feePayerKey | String &#124; Array | Key used for [RoleFeePayer](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys. |
 
 **Example**
 
