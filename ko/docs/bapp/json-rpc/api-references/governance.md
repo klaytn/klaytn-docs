@@ -17,7 +17,7 @@ In Klaytn, there are three different governance modes.
 
 The `vote` method submits a new vote. If the node has the right to vote based on governance mode, the vote can be placed. If not, an error message will be returned and the vote will be ignored.
 
-**Parameters**
+**매개변수**
 
 - `Key` : Name of the configuration setting to be changed. Key has the form of `domain.field`
 - `Value` : Various types of value for each key.
@@ -38,11 +38,11 @@ The `vote` method submits a new vote. If the node has the right to vote based on
 | `"reward.minimumstake"`        | `STRING`. Amount of Klay required to be a CN (Consensus Node). Double quotation marks are needed for a value. e.g., `"5000000"`                                                                                                           |
 
 
-**Return Value**
+**리턴값**
 
-| 형식     | 설명                        |
-| ------ | ------------------------- |
-| String | Result of vote submission |
+| 형식  | 설명                        |
+| --- | ------------------------- |
+| 문자열 | Result of vote submission |
 
 **예시**
 
@@ -88,11 +88,11 @@ The `vote` method submits a new vote. If the node has the right to vote based on
 
 The `showTally` property provides the current tally of governance votes. It shows the aggregated approval rate in percentage. When it goes over 50%, the vote passes.
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
 | 형식    | 설명                                                |
 | ----- | ------------------------------------------------- |
@@ -118,11 +118,11 @@ None
 
 The `totalVotingPower` property provides the sum of all voting power that CNs have. Each CN has 1.0 ~ 2.0 voting power. In `"none"`, `"single"` governance mode, `totalVotingPower` don't provide any information.
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
 | 형식    | 설명                                  |
 | ----- | ----------------------------------- |
@@ -145,11 +145,11 @@ None
 
 The `myVotingPower` property provides the voting power of the node. The voting power can be 1.0 ~ 2.0. In `"none"`, `"single"` governance mode, `totalVotingPower` don't provide any information.
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
 | 형식    | 설명                                   |
 | ----- | ------------------------------------ |
@@ -172,11 +172,11 @@ None
 
 The `myVotes` property provides my vote information in the epoch. Each vote is stored in a block when the user's node generates a new block. After current epoch ends, this information is cleared.
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
 | 형식        | 설명                                                                                                                                                                                                                                                      |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -203,11 +203,11 @@ None
 
 The `chainConfig` property provides the initial chain configuration. Because it just stores the initial configuration, if there were changes in the governance made by voting, the result of `chainConfig` will differ from the current states. To see the current information, please use `itemsAt`.
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
 | 형식   | 설명                          |
 | ---- | --------------------------- |
@@ -247,11 +247,11 @@ None
 
 The `nodeAddress` property provides the address of the node that a user is using. It is derived from the nodekey and used to sign consensus messages. And the value of `"governingnode"` has to be one of validator's node address.
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
 | 형식      | 설명                        |
 | ------- | ------------------------- |
@@ -268,13 +268,13 @@ None
 
 The `itemsAt` returns governance items at specific block. It is the result of previous voting of the block and used as configuration for chain at the given block number.
 
-**Parameters**
+**매개변수**
 
 | 형식                  | 설명                                                                                                                                                                  |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
 
-**Return Value**
+**리턴값**
 
 | 형식   | 설명               |
 | ---- | ---------------- |
@@ -304,11 +304,11 @@ The `itemsAt` returns governance items at specific block. It is the result of pr
 
 The `pendingChanges` returns the list of items that have received enough number of votes but not yet finalized. At the end of the current epoch, these changes will be finalized and the result will be in effect from the epoch after next epoch.
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
 | 형식        | 설명                                                    |
 | --------- | ----------------------------------------------------- |
@@ -327,11 +327,11 @@ None
 
 The `votes` returns the votes from all nodes in the epoch. These votes are gathered from the header of each block.
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
 | 형식        | 설명                                                        |
 | --------- | --------------------------------------------------------- |
@@ -354,11 +354,11 @@ None
 ## governance_idxCache
 The `idxCache` property returns an array of current idxCache in the memory cache. idxCache contains the block numbers where governance change happened. The cache can have up to 1000 block numbers in memory by default.
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
 | 형식           | 설명                                             |
 | ------------ | ---------------------------------------------- |
@@ -373,11 +373,11 @@ None
 ## governance_idxCacheFromDb
 The `idxCacheFromDb` returns an array that contains all block numbers on which a governance change ever happened. The result of `idxCacheFromDb` is the same or longer than that of `idxCache`
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
 | 형식           | 설명                                                   |
 | ------------ | ---------------------------------------------------- |
@@ -392,13 +392,13 @@ None
 ## governance_itemCacheFromDb
 The `itemCacheFromDb` returns the governance information stored in the given block. If no changes were stored in the given block, the function returns `null`.
 
-**Parameters**
+**매개변수**
 
 | 형식     | 설명                                                               |
 | ------ | ---------------------------------------------------------------- |
 | uint64 | A block number to query the governance change made in the block. |
 
-**Return Value**
+**리턴값**
 
 | 형식   | 설명                                             |
 | ---- | ---------------------------------------------- |
