@@ -506,7 +506,7 @@ The printAccount above shows how to use the properties of the Account instance. 
 | privateKey | Default key string of accountKey that the account has. This property is left for backward compatibility. privateKey only represents the default key of accountKey, so using privateKey to sign or send a transaction is not recommended. It is recommended to use transactionKey, updateKey, or feePayerKey in context. |
 | accountKeyType | Type of accountKey the account has. |
 | accountKey | The key of the account. This is AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased. |
-| keys | All keys inside accountKey that Account has. |
+| keys | All keys inside accountKey that the account has. |
 | transactionKey | Key corresponding to [RoleTransaction](../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig have no role for keys, so transactionKey is the same value as keys. |
 | updateKey | Key corresponding to [RoleAccountUpdate](../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig have no role for keys, so updateKey is the same value as keys. |
 | feePayerKey | Key corresponding to [RoleFeePayer](../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig have no role for keys, so feePayerKey is the same value as keys. |
