@@ -897,7 +897,7 @@ console.log(receipt)
 
 ### Send transaction object with Signatures and FeePayerSignatures <a id="send-transaction-object-with-signatures-and-feepayersignatures"></a>
 
-If you only receive signatures or feePayerSignatures from multiple signers, you can send a transaction as follows:
+If you only receive `signatures` or `feePayerSignatures` from multiple signers, you can send a transaction as follows:
 
 ```javascript
 const tx = {
