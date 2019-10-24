@@ -522,7 +522,7 @@ To support this structure, caver-js introduces new classes called AccountKeyPubl
 
 To create an AccountKey, use `caver.klay.accounts.createAccountKey`. This function determines which AccountKey to generate based on the type of the parameter. It creates AccountKeyPublic if a private key string comes as a parameter, or AccountKeyMultiSig if an array of private key strings comes. And if there is an object with a different key for each role, it creates AccountKeyRoleBased.
 
-**NOTE** The classes for `AccountKey` defined in caver-js are data structures for storing private keys for use in caver-js. It can be different from the accountKey in your account on Klaytn network.
+**NOTE** The classes for `AccountKey` defined in caver-js are data structures for storing private keys for use in caver-js. It can be different from the key in your account on Klaytn network.
 
 #### AccountKeyPublic  <a id="accountkeypublic"></a>
 AccountKeyPublic is a class for storing and managing a single private key string.
