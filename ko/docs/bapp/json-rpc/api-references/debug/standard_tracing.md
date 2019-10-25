@@ -2,26 +2,26 @@
 
 ## debug_standardTraceBadBlockToFile
 
-Similar to [debug_traceBadBlock](./tracing.md#debug_tracebadblock), `standardTraceBadBlockToFile` accepts a bad block hash and will replay the bad block. It returns a list of file names containing tracing result. Note that the files will be stored in the machine that serves this API.
+[debug_traceBadBlock](./tracing.md#debug_tracebadblock)과 유사하게 `standardTraceBadBlockToFile`는 잘못된 블록 해시를 입력으로 받아 해당 잘못된 블록을 재실행합니다. 추적 결과가 포함된 파일명 목록을 반환합니다. 이 파일들은 API를 제공하는 머신에 저장이 됩니다.
 
 
-| 클라이언트 | Method Invocation                                                       |
+| 클라이언트 | 메서드 호출                                                                  |
 |:-----:| ----------------------------------------------------------------------- |
 |  콘솔   | `debug.standardTraceBadBlockToFile(hash, [options])`                    |
 |  RPC  | `{"method": "debug_standardTraceBadBlockToFile", "params": [hash, {}]}` |
 
 **매개변수**
 
-| 명칭      | 형식           | 설명                                                         |
-| ------- | ------------ | ---------------------------------------------------------- |
-| hash    | 32-byte DATA | Hash of a block.                                           |
-| options | object       | See [standard tracing options](#standard-tracing-options). |
+| 명칭      | 형식            | 설명                                         |
+| ------- | ------------- | ------------------------------------------ |
+| hash    | 32바이트 크기 DATA | 블록의 해시입니다.                                 |
+| options | 객체            | [추적 옵션](#standard-tracing-options)을 참고하세요. |
 
 **리턴값**
 
-| 형식         | 설명                                                                                                                                                                                                                           |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| JSON array | A list of file names. Each represents a tracing result of a transaction. The format of a file name is `block_{first 4 bytes of the block hash}-{transaction index}-{first 4 bytes of the transaction hash}-{random string}`. |
+| 형식      | 설명                                                                                                                                                                     |
+| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| JSON 배열 | 파일명의 목록입니다. 각 파일은 트랜잭션 추적 결과를 나타냅니다. 파일명 형식은 `block_{first 4 bytes of the block hash}-{transaction index}-{first 4 bytes of the transaction hash}-{random string}`입니다. |
 
 **예시**
 
@@ -40,25 +40,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 ## debug_standardTraceBlockToFile
 
-Similar to [debug_traceBlock](./tracing.md#debug_traceblock), `standardTraceBlockToFile` accepts a block hash and will replay the block that is already present in the database. It returns a list of file names containing tracing result. Note that the files will be stored in the machine that serves this API.
+[debug_traceBlock](./tracing.md#debug_traceblock)과 유사하게 `standardTraceBlockToFile`는 블록 해시를 받아 데이터베이스에 존재하는 해당 블록을 재실행합니다. 추적 결과가 포함된 파일명 목록을 반환합니다. 이 파일들은 API를 제공하는 머신에 저장이 됩니다.
 
-| 클라이언트 | Method Invocation                                                    |
+| 클라이언트 | 메서드 호출                                                               |
 |:-----:| -------------------------------------------------------------------- |
 |  콘솔   | `debug.standardTraceBlockToFile(hash, [options])`                    |
 |  RPC  | `{"method": "debug_standardTraceBlockToFile", "params": [hash, {}]}` |
 
 **매개변수**
 
-| 명칭      | 형식           | 설명                                                         |
-| ------- | ------------ | ---------------------------------------------------------- |
-| hash    | 32-byte DATA | Hash of a block.                                           |
-| options | object       | See [standard tracing options](#standard-tracing-options). |
+| 명칭      | 형식            | 설명                                         |
+| ------- | ------------- | ------------------------------------------ |
+| hash    | 32바이트 크기 DATA | 블록의 해시입니다.                                 |
+| options | 객체            | [추적 옵션](#standard-tracing-options)을 참고하세요. |
 
 **리턴값**
 
-| 형식         | 설명                                                                                                                                                                                                                           |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| JSON array | A list of file names. Each represents a tracing result of a transaction. The format of a file name is `block_{first 4 bytes of the block hash}-{transaction index}-{first 4 bytes of the transaction hash}-{random string}`. |
+| 형식      | 설명                                                                                                                                                                     |
+| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| JSON 배열 | 파일명의 목록입니다. 각 파일은 트랜잭션 추적 결과를 나타냅니다. 파일명 형식은 `block_{first 4 bytes of the block hash}-{transaction index}-{first 4 bytes of the transaction hash}-{random string}`입니다. |
 
 **예시**
 
@@ -77,11 +77,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## 표준 추적 옵션
 
-You may give trace API function a secondary optional argument, which specifies the options for this specific call. The possible options are:
+추적 API 함수에 보조적으로 필수적이지 않은 매개변수를 전달할 수도 있습니다. 이들은 특정 호출을 지정하는 옵션 역할을 합니다. 다음의 옵션들을 사용할 수 있습니다.
 
-- `disableStorage`: `BOOL`. Setting this to true will disable storage capture (default = false).
-- `disableMemory`: `BOOL`. Setting this to true will disable memory capture (default = false).
-- `disableStack`: `BOOL`. Setting this to true will disable stack capture (default = false).
-- `txHash`: `string`. Setting this value will trace only the specified transaction.
+- `disableStorage`: `BOOL`. 이 옵션을 true로 설정하면 스토리지 캡처가 비활성화됩니다. (기본 설정: false)
+- `disableMemory`: `BOOL`. 이 옵션을 true로 설정하면 메모리 캡처가 비활성화됩니다. (기본 설정: false)
+- `disableStack`: `BOOL`. 이 옵션을 true로 설정하면 스택 캡처가 비활성화됩니다. (기본 설정: false)
+- `txHash`: `string`. 이 옵션으로 설정한 트랜잭션만 추적합니다.
 
 
