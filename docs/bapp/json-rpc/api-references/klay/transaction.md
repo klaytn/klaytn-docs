@@ -752,8 +752,8 @@ Returns the decoded anchoring transaction for the given transaction hash.
 **Return Value**
 | Name | Type | Description |
 | --- | --- | --- |
-| BlockHash | 32-byte DATA | Hash of the block. |
-| BlockNumber | QUANTITY | The number of block that this anchoring transaction contains. |
+| BlockHash | 32-byte DATA | Hash of the child chain block that this anchoring transaction was performed. |
+| BlockNumber | QUANTITY | The child chain block number that this anchoring transaction was performed. |
 | ParentHash | 32-byte DATA | Hash of the parent block. |
 | TxHash | 32-byte DATA | The root of the transaction trie of the block. |
 | StateRootHash | 32-byte DATA | The root of the final state trie of the block. |
