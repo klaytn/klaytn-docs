@@ -11,15 +11,15 @@ The namespace `subbridge` provides functions related to Service Chain. To use fu
 
 Returns bridge node information including the KNI (Klaytn Network Identifier) of the node. A subbridge node can connect to a mainbridge node via the KNI.
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
-| 형식          | 설명                           |
-| ----------- | ---------------------------- |
-| JSON string | the bridge node information. |
+| 형식       | 설명                           |
+| -------- | ---------------------------- |
+| JSON 문자열 | the bridge node information. |
 
 **예시**
 
@@ -56,25 +56,25 @@ None
 ## subbridge_addPeer
 Returns `true` if adding a mainbridge peer is done successfully.
 
-The `addPeer` method adds a new remote node to the peer list. The node will try to maintain connectivity to these nodes at all times, reconnecting every once in a while if the remote connection goes down.
+The `addPeer` method adds a new remote node to the peer list. 각 노드는 목록의 노드들과의 연결을 항상 유지하고자 하고, 만약 원격 가끔씩 연결이 끊어지면 다시 연결합니다.
 
 The method accepts a single argument, the `kni` URL of the remote peer to start tracking and returns a `BOOL` indicating whether the peer was accepted for tracking or some error occurred.
 
-**Parameters**
+**매개변수**
 
-| 명칭  | 형식     | 설명                 |
-| --- | ------ | ------------------ |
-| url | string | Peer's  `kni` URL. |
+| 명칭  | 형식  | 설명                 |
+| --- | --- | ------------------ |
+| url | 문자열 | Peer's  `kni` URL. |
 
-**Return Value**
+**리턴값**
 
-| 형식   | 설명                                                  |
-| ---- | --------------------------------------------------- |
-| bool | `true` if the peer was accepted, `false` otherwise. |
+| 형식  | 설명                                                |
+| --- | ------------------------------------------------- |
+| 불리언 | 피어 추적이 허용되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
-Console
+콘솔
 
 ```javascript
 > mainbridge.addPeer("kni://a979fb...1163c@10.0.0.1:50505") // or 'subbridge.addPeer'
@@ -92,21 +92,21 @@ Returns `true` if removing the peer is done successfully.
 
 The `removePeer` method disconnects and removes the remote node in the list of tracked static nodes. The method accepts a single argument, the `kni` URL of the remote peer to start tracking and returns a `BOOL` indicating whether the peer was accepted for tracking or some error occurred.
 
-**Parameters**
+**매개변수**
 
-| 명칭  | 형식     | 설명                 |
-| --- | ------ | ------------------ |
-| url | string | Peer's  `kni` URL. |
+| 명칭  | 형식  | 설명                 |
+| --- | --- | ------------------ |
+| url | 문자열 | Peer's  `kni` URL. |
 
-**Return Value**
+**리턴값**
 
-| 형식   | 설명                                                 |
-| ---- | -------------------------------------------------- |
-| bool | `true` if the peer was removed, `false` otherwise. |
+| 형식  | 설명                                                 |
+| --- | -------------------------------------------------- |
+| 불리언 | `true` if the peer was removed, `false` otherwise. |
 
 **예시**
 
-Console
+콘솔
 
 ```javascript
 > mainbridge.removePeer("kni://a979fb...1163c@10.0.0.1:50505") // or 'subbridge.removePeer'
@@ -124,11 +124,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 
 The `sendChainTxslimit` gets the maximum number of pending transactions to pick up for sending at once.
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
 | 형식     | 설명                                                                        |
 | ------ | ------------------------------------------------------------------------- |
@@ -144,21 +144,21 @@ None
 ## subbridge_anchoring
 The `subbridge.anchoring` can enable/disable the anchoring feature of the service chain.
 
-**Parameters**
+**매개변수**
 
 | 명칭     | 형식   | 설명                                                         |
 | ------ | ---- | ---------------------------------------------------------- |
 | enable | Bool | `true` enables the anchoring feature, `false` disables it. |
 
-**Return Value**
+**리턴값**
 
-| 형식   | 설명                                                      |
-| ---- | ------------------------------------------------------- |
-| bool | `true` if the anchoring was enabled, `false` otherwise. |
+| 형식  | 설명                                                      |
+| --- | ------------------------------------------------------- |
+| 불리언 | `true` if the anchoring was enabled, `false` otherwise. |
 
 **예시**
 
-Console
+콘솔
 
 ```javascript
 > subbridge.anchoring(true)
@@ -179,11 +179,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"su
 ## subbridge_latestAnchoredBlockNumber
 The `subbridge.latestAnchoredBlockNumber` returns the latest anchored block number of the service chain.
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
 | 형식     | 설명                                |
 | ------ | --------------------------------- |
