@@ -14,11 +14,11 @@ Klaytn 상태상에서의 어떤 행위에 대한 요청이 있을 때 마지막
 
 가장 최근의 블록 번호를 반환합니다.
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
 | 형식       | 설명                            |
 | -------- | ----------------------------- |
@@ -43,14 +43,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 블록 번호로 조회한 블록의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
 
-**Parameters**
+**매개변수**
 
 | 형식                  | 설명                                                                                                                                                |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는  `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](#the-default-block-parameter)를 참고하세요. |
 | 불리언                 | `true`이면 트랜잭션 객체 전체를 반환하고, `false`이면 트랜잭션의 해시만을 반환합니다.                                                                                            |
 
-**Return Value**
+**리턴값**
 
 자세한 내용은 [klay_getBlockByHash](#klay_getblockbyhash)를 참고하세요.
 
@@ -96,26 +96,26 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 블록 해시로 조회한 블록의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
 
-**Parameters**
+**매개변수**
 
-| 형식           | 설명                                                     |
-| ------------ | ------------------------------------------------------ |
-| 32-byte DATA | Hash of a block.                                       |
-| 불리언          | `true`이면 트랜잭션 객체 전체를 반환하고, `false`이면 트랜잭션의 해시만을 반환합니다. |
+| 형식            | 설명                                                     |
+| ------------- | ------------------------------------------------------ |
+| 32바이트 크기 DATA | 블록의 해시입니다.                                             |
+| 불리언           | `true`이면 트랜잭션 객체 전체를 반환하고, `false`이면 트랜잭션의 해시만을 반환합니다. |
 
-**Return Value**
+**리턴값**
 
 `객체` - 블록 객체로 반환하거나 또는 해당 블록을 찾을 수 없는 경우에는 `null`로 반환합니다.
 
 | 명칭               | 형식             | 설명                                                         |
 | ---------------- | -------------- | ---------------------------------------------------------- |
-| number           | QUANTITY       | The block number. 아직 보류 중인 블록이면 `null`입니다.                 |
-| hash             | 32-byte DATA   | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                        |
-| parentHash       | 32-byte DATA   | 이전 블록의 해시입니다.                                              |
+| number           | QUANTITY       | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                         |
+| hash             | 32바이트 크기 DATA  | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                        |
+| parentHash       | 32바이트 크기 DATA  | 이전 블록의 해시입니다.                                              |
 | logsBloom        | 256바이트 크기 DATA | 블록의 로그를 위한 블룸필터입니다. 아직 보류 중인 블록이면 `null`입니다.               |
-| transactionsRoot | 32-byte DATA   | 블록의 트랜잭션 트라이의 루트 해시입니다.                                    |
-| stateRoot        | 32-byte DATA   | 블록의 상태 트라이의 루트 해시입니다.                                      |
-| receiptsRoot     | 32-byte DATA   | 블록의 영수증 트라이의 루트 해시입니다.                                     |
+| transactionsRoot | 32바이트 크기 DATA  | 블록의 트랜잭션 트라이의 루트 해시입니다.                                    |
+| stateRoot        | 32바이트 크기 DATA  | 블록의 상태 트라이의 루트 해시입니다.                                      |
+| receiptsRoot     | 32바이트 크기 DATA  | 블록의 영수증 트라이의 루트 해시입니다.                                     |
 | reward           | 20바이트 크기 DATA  | 블록 보상을 받을 수혜자의 주소입니다.                                      |
 | blockScore       | QUANTITY       | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                           |
 | totalBlockScore  | QUANTITY       | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                     |
@@ -170,12 +170,12 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 블록 해시로 조회한 블록에 포함된 영수증을 반환합니다.
 
-**Parameters**
-| 형식           | 설명         |
-| ------------ | ---------- |
-| 32-byte DATA | 블록의 해시입니다. |
+**매개변수**
+| 형식            | 설명         |
+| ------------- | ---------- |
+| 32바이트 크기 DATA | 블록의 해시입니다. |
 
-**Return Value**
+**리턴값**
 
 해당 블록에 포함된 영수증을 반환합니다.  조회하고자 하는 블록이 트랜잭션을 담고 있지 않으면 빈 배열 `[]`이 반환됩니다.
 
@@ -227,13 +227,13 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 블록 번호로 조회한 블록에 담긴 트랜잭션의 개수를 반환합니다.
 
-**Parameters**
+**매개변수**
 
 | 형식                  | 설명                                                                                                                                                |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는  `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](#the-default-block-parameter)를 참고하세요. |
 
-**Return Value**
+**리턴값**
 
 | 형식       | 설명                               |
 | -------- | -------------------------------- |
@@ -258,13 +258,13 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 블록 해시로 조회한 블록에 담긴 트랜잭션의 개수를 반환합니다.
 
-**Parameters**
+**매개변수**
 
-| 형식           | 설명         |
-| ------------ | ---------- |
-| 32-byte DATA | 블록의 해시입니다. |
+| 형식            | 설명         |
+| ------------- | ---------- |
+| 32바이트 크기 DATA | 블록의 해시입니다. |
 
-**Return Value**
+**리턴값**
 
 | 형식       | 설명                               |
 | -------- | -------------------------------- |
@@ -289,13 +289,13 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 블록 해시로 조회한 블록을 합의에 대한 정보와 함께 반환합니다.
 
-**Parameters**
+**매개변수**
 
-| 형식           | 설명               |
-| ------------ | ---------------- |
-| 32-byte DATA | Hash of a block. |
+| 형식            | 설명         |
+| ------------- | ---------- |
+| 32바이트 크기 DATA | 블록의 해시입니다. |
 
-**Return Value**
+**리턴값**
 
 `객체` - 합의에 대한 정보(제안자와 위원회 멤버의 목록)를 포함한 블록 객체를 반환하거나 또는 해당 블록이 없는 경우 `null`을 반환합니다.
 
@@ -305,17 +305,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | totalBlockScore  | QUANTITY      | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                   |
 | committee        | 배열            | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
 | gasUsed          | QUANTITY      | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                           |
-| hash             | 32-byte DATA  | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                      |
-| number           | QUANTITY      | The block number. 아직 보류 중인 블록이면 `null`입니다.                               |
-| parentHash       | 32-byte DATA  | 이전 블록의 해시입니다.                                                            |
+| hash             | 32바이트 크기 DATA | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                      |
+| number           | QUANTITY      | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                                       |
+| parentHash       | 32바이트 크기 DATA | 이전 블록의 해시입니다.                                                            |
 | proposer         | 20바이트 크기 DATA | 블록 제안자의 주소입니다.                                                           |
-| receiptsRoot     | 32-byte DATA  | 블록의 영수증 트라이의 루트 해시입니다.                                                   |
+| receiptsRoot     | 32바이트 크기 DATA | 블록의 영수증 트라이의 루트 해시입니다.                                                   |
 | size             | QUANTITY      | 블록의 바이트 크기의 정수 형태입니다.                                                    |
-| stateRoot        | 32-byte DATA  | 블록의 상태 트라이의 루트 해시입니다.                                                    |
+| stateRoot        | 32바이트 크기 DATA | 블록의 상태 트라이의 루트 해시입니다.                                                    |
 | timestamp        | QUANTITY      | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                              |
 | timestampFoS     | QUANTITY      | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                         |
 | transactions     | 배열            | 트랜잭션 객체의 배열입니다.                                                          |
-| transactionsRoot | 32-byte DATA  | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                  |
+| transactionsRoot | 32바이트 크기 DATA | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                  |
 
 **예시**
 
@@ -397,13 +397,13 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ## klay_getBlockWithConsensusInfoByNumber
 블록 번호로 조회한 블록을 합의에 대한 정보와 함께 반환합니다.
 
-**Parameters**
+**매개변수**
 
 | 형식                  | 설명                                           |
 | ------------------- | -------------------------------------------- |
 | QUANTITY &#124; TAG | 블록 번호 또는 `"earliest"`, `"latest"` 등의 문자열입니다. |
 
-**Return Value**
+**리턴값**
 
 `객체` - 합의에 대한 정보(제안자와 위원회 멤버의 목록)를 포함한 블록 객체를 반환하거나 또는 해당 블록이 없는 경우 `null`을 반환합니다.
 
@@ -413,17 +413,17 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 | totalBlockScore  | QUANTITY      | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                   |
 | committee        | 배열            | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
 | gasUsed          | QUANTITY      | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                           |
-| hash             | 32-byte DATA  | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                      |
-| number           | QUANTITY      | The block number. 아직 보류 중인 블록이면 `null`입니다.                               |
-| parentHash       | 32-byte DATA  | 이전 블록의 해시입니다.                                                            |
+| hash             | 32바이트 크기 DATA | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                      |
+| number           | QUANTITY      | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                                       |
+| parentHash       | 32바이트 크기 DATA | 이전 블록의 해시입니다.                                                            |
 | proposer         | 20바이트 크기 DATA | 블록 제안자의 주소입니다.                                                           |
-| receiptsRoot     | 32-byte DATA  | 블록의 영수증 트라이의 루트 해시입니다.                                                   |
+| receiptsRoot     | 32바이트 크기 DATA | 블록의 영수증 트라이의 루트 해시입니다.                                                   |
 | size             | QUANTITY      | 블록의 바이트 크기의 정수 형태입니다.                                                    |
-| stateRoot        | 32-byte DATA  | 블록의 상태 트라이의 루트 해시입니다.                                                    |
+| stateRoot        | 32바이트 크기 DATA | 블록의 상태 트라이의 루트 해시입니다.                                                    |
 | timestamp        | QUANTITY      | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                              |
 | timestampFoS     | QUANTITY      | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                         |
 | transactions     | 배열            | 트랜잭션 객체의 배열입니다.                                                          |
-| transactionsRoot | 32-byte DATA  | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                  |
+| transactionsRoot | 32바이트 크기 DATA | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                  |
 
 **예시**
 
@@ -504,13 +504,13 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ## klay_getCommittee
 어떤 블록 시간에서 위원회에 속한 검증자 목록을 반환합니다. 매개변수를 설정하지 않으면 최신 블록에서 위원회에 속한 검증자 목록을 반환합니다.
 
-**Parameters**
+**매개변수**
 
 | 명칭                   | 형식 | 설명                                                  |
 | -------------------- | -- | --------------------------------------------------- |
 | QUANTITY  &#124; TAG | 정수 | (선택사항) 블록 번호 또는 `"earliest"`, `"latest"` 등의 문자열입니다. |
 
-**Return Value**
+**리턴값**
 
 `배열` - 위원회에 속한 검증자들의 주소를 배열로 반환하거나 또는 위원회를 찾을 수 없는 경우 `null`을 반환합니다.
 
@@ -539,13 +539,13 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ## klay_getCommitteeSize
 어떤 블록 시간에서 위원회의 구성원 수를 반환합니다. 매개변수를 설정하지 않으면 최신 블록에서의 위원회 구성원 수를 반환합니다.
 
-**Parameters**
+**매개변수**
 
 | 명칭                   | 형식 | 설명                                                  |
 | -------------------- | -- | --------------------------------------------------- |
 | QUANTITY  &#124; TAG | 정수 | (선택사항) 블록 번호 또는 `"earliest"`, `"latest"` 등의 문자열입니다. |
 
-**Return Value**
+**리턴값**
 
 `정수` - 위원회의 구성원 수를 반환하거나 또는 위원회를 찾을 수 없는 경우 `-1`을 반환합니다.
 
@@ -572,13 +572,13 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **참고**: `klay_getValidators`은 이 메서드로 대체되어 더 이상 지원하지 않습니다.
 
-**Parameters**
+**매개변수**
 
 | 명칭                   | 형식 | 설명                                                  |
 | -------------------- | -- | --------------------------------------------------- |
 | QUANTITY  &#124; TAG | 정수 | (선택사항) 블록 번호 또는 `"earliest"`, `"latest"` 등의 문자열입니다. |
 
-**Return Value**
+**리턴값**
 
 `배열` - council에 속한 검증자들의 주소를 배열로 반환하거나 또는 council을 찾을 수 없는 경우 `null`을 반환합니다.
 
@@ -607,13 +607,13 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ## klay_getCouncilSize
 어떤 블록 시간에서 council의 구성원 수를 반환합니다. 매개변수를 설정하지 않으면 최신 블록에서의 council 구성원 수를 반환합니다.
 
-**Parameters**
+**매개변수**
 
 | 명칭                   | 형식 | 설명                                                  |
 | -------------------- | -- | --------------------------------------------------- |
 | QUANTITY  &#124; TAG | 정수 | (선택사항) 블록 번호 또는 `"earliest"`, `"latest"` 등의 문자열입니다. |
 
-**Return Value**
+**리턴값**
 
 `정수` - council의 구성원 수를 반환하거나 또는 council을 찾을 수 없는 경우 `-1`을 반환합니다.
 
@@ -639,7 +639,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 입력으로 받은 주소의 스토리지 위치에서 값을 반환합니다.
 
-**Parameters**
+**매개변수**
 
 | 형식                  | 설명                                                                                                                                               |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -647,7 +647,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 | QUANTITY            | 스토리지의 위치의 정수 형태입니다.                                                                                                                              |
 | QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](#the-default-block-parameter)를 참고하세요. |
 
- **Return Value**
+ **리턴값**
 
 | 형식   | 설명                         |
 | ---- | -------------------------- |
@@ -707,11 +707,11 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "kl
 
 **참고**: 현재는 트랜잭션을 재전송하기 위해 모든 노드가 기본적으로 채굴 모드입니다. 실질적인 "채굴" 과정은 합의 노드(CN)만이 하고 있음을 참고해주시기 바랍니다.
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
 | 형식  | 설명                                                  |
 | --- | --------------------------------------------------- |
@@ -736,11 +736,11 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 동기화 상태에 대한 데이터가 있는 객체를 반환하거나 `false`를 반환합니다.
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
 `Object|Boolean`, 동기화 상태에 대한 데이터 객체를 반환하거나 또는 동기화하고 있지 않으면 `false` 를 반환합니다.
 
