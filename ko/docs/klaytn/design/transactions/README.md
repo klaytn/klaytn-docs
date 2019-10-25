@@ -16,21 +16,21 @@
 
 ## Klaytn 트랜잭션
 
-While typical Blockchain platforms provide a single transaction type, Klaytn provides multiple transaction types that empower transactions with new capabilities and optimizations for memory footprint and performance.
+일반적인 블록체인 플랫폼은 하나의 트랜잭션 유형만 제공합니다. 하지만, Klaytn은 새로운 기능을 제공하고, 메모리 풋 프린트와 퍼포먼스를 최적화하기 위해 여러 가지 트랜잭션 유형을 제공합니다.
 
 ### 트랜잭션의 서명 검증
 
-In typical blockchain platforms, the address is derived from the public key which is derived again from the transaction signature. This is possible only if the address and the key pair are strongly coupled.
+일반적인 블록체인 플랫폼에서 주소는 공개키에서 파생되며, 공개키는 트랜잭션 서명에서 다시 파생됩니다. 이런 방식은 주소와 키 쌍이 강력하게 연결된 경우에만 가능합니다.
 
-Since a key pair is decoupled from the address in Klaytn, the sender address cannot be derived using the transaction signature. This is why Klaytn transaction types except TxTypeLegacyTransaction have the field `from`. In Klaytn, to validate a transaction, the [AccountKey](../accounts.md#account-key) of `from` is obtained, and the obtained key is used to validate the transaction signature.
+클레이튼에서 키 쌍은 Klaytn의 주소와 분리되어 있으므로 발신자 주소는 트랜잭션 서명을 사용하여 파생되지 않습니다. 이것이 TxTypeLegacyTransaction을 제외한 다른 Klaytn 트랜잭션 유형의 필드에 `from`이 있는 이유입니다. 트랜잭션을 검증하기 위해 클레이튼에서 `from`의 [AccountKey](../accounts.md#account-key)가 사용됩니다.
 
 ### 트랜잭션 비용 위임
 
-To provide businesses with the necessary flexibility in their business model design, Klaytn provides a number of fee-delegated versions for its basic transaction types. These variants enable service providers to subsidize their end-user activities by paying for their transaction fees instead. Transaction fee subsidization can be further detailed by using transactions with the Ratio parameter, letting service providers designate the percentage of fees they would cover. Fee-delegation transactions require at least two signatures: one from the sender, and another from the fee payer.
+Klaytn은 비즈니스 모델 디자인에 유연성을 제공하기 위해 기본 트랜잭션 유형들에 대한 여러 가지 수수료 위임 버전을 제공합니다. 이러한 변형을 통해 서비스 제공자가 대신 트랜잭션 수수료를 지불하여 최종 사용자 활동에 보조금을 지급할 수 있습니다. 트랜잭션 비용 보조금은 Ration parameter를 조정하여 서비스 제공자가 커버할 비용의 비율을 정할 수 있습니다. 수수료-위임 트랜잭션은 적어도 두 개의 서명이 필요하다. 하나는 발신자로부터, 또 다른 하나는 수수료 지불인으로부터의 서명이다.
 
 ### SenderTxHash
 
-SenderTxHash는 트랜잭션 비용 지불자의 주소와 서명이 없는 트랜잭션의 해시입니다. The transaction hash of a fee-delegated transaction is not determined yet until the fee payer signs the transaction. To track a fee-delegated transaction, the sender should get the transaction hash derived from the complete transaction containing the signatures from both the sender and the fee payer. Since it is very hard for the sender to get the transaction hash, Klaytn provides a SenderTxHash as well as the transaction hash. To find the complete fee-delegated transaction in the Klaytn network, the sender generates the SenderTxHash and requests a transaction object via [klay_getTransactionBySenderTxHash](../../../bapp/json-rpc/api-references/klay/transaction.md#klay_gettransactionbysendertxhash). How to get the SenderTxHash depends on each transaction type, which is described in the description of each transaction type.
+SenderTxHash는 트랜잭션 비용 지불자의 주소와 서명이 없는 트랜잭션의 해시입니다. 수수료 위임 트랜잭션의 트랜잭션 해시는 수수료 지급인이 그 거래에 서명할 때까지 결정되지 않는다. To track a fee-delegated transaction, the sender should get the transaction hash derived from the complete transaction containing the signatures from both the sender and the fee payer. Since it is very hard for the sender to get the transaction hash, Klaytn provides a SenderTxHash as well as the transaction hash. To find the complete fee-delegated transaction in the Klaytn network, the sender generates the SenderTxHash and requests a transaction object via [klay_getTransactionBySenderTxHash](../../../bapp/json-rpc/api-references/klay/transaction.md#klay_gettransactionbysendertxhash). How to get the SenderTxHash depends on each transaction type, which is described in the description of each transaction type.
 
 각 트랜잭션 유형을 자세하게 살펴보면 다음과 같습니다.
 
