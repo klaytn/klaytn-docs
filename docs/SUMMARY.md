@@ -98,7 +98,7 @@
     * [Getting Started](node/service-chain/getting-started/README.md)
       * [Setting up a 4-node Service Chain](node/service-chain/getting-started/4nodes-setup-guide.md)
       * [Connecting to Baobab](node/service-chain/getting-started/en-scn-connection.md)
-      * [Cross-chain Value Transfer](node/service-chain/getting-started/value-transfer.md)
+      * [Cross-Chain Value Transfer](node/service-chain/getting-started/value-transfer.md)
     * [Single-Node Service Chain](node/service-chain/single-node-service-chain/README.md)
       * [System Requirements](node/service-chain/single-node-service-chain/system-requirements.md)
       * [Installation Guide](node/service-chain/single-node-service-chain/installation-guide/README.md)

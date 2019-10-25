@@ -12,7 +12,7 @@ Then you will register the contract address on SCN. And you will test an ERC20 v
 
 ## ERC-20 Token Transfer
 
-## Step 1: Add KLAY to the operator accounts.
+### Step 1: Add KLAY to the operator accounts.
 Connect to the SCN and check the account addresses by executing `subbrige.parentOperator` and `subbridge.childOperator`.
 ```
 $ ~/your_path/bin/kscn attach --datadir ~/your_path/data
@@ -48,7 +48,7 @@ Check if the operator accounts have enough balance.
 1e+18
 ```
 
-## Step 2: Deploy Contracts
+### Step 2: Deploy Contracts
 Connect to the SCN and prepare the environment for contract deployment. Copy the downloaded `deploy_and_test.tar.gz` to node_project directory.
 ```
 $ mkdir ~/your_path/node_project
@@ -93,7 +93,7 @@ subbridge.subscribeBridge("0x5f093de8a1b1d32Fc4cF6F40357DCcD24453BAb3", "0xD1C48
 subbridge.registerToken("0x5f093de8a1b1d32Fc4cF6F40357DCcD24453BAb3", "0xD1C4808960Fb4581b9A5B3B217b9a67057D84c19", "0x96272131600EC7c64c45CE139C32F4919fBFaDC8", "0xc7858a153376764208e8F6B6B55B4a0792B67c3E")
 ```
 
-## Step 3: Register Bridge, Subscribe Bridge and Register Token
+### Step 3: Register Bridge, Subscribe Bridge and Register Token
 On the console, execute the APIs shown above one by one.
 ```
 $ ~/your_path/bin/kscn attach --datadir ~/your_path/data
@@ -105,7 +105,7 @@ null
 null
 ```
 
-## Step 4: Token transfer
+### Step 4: Token transfer
 Perform token transfer with `node transfer.js` command.
 ```
 $ node transfer.js
