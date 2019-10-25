@@ -6,14 +6,14 @@ caver.klay.gasPriceAt([defaultBlock] [, callback])
 
 Returns the unit price of gas in peb that was effective at the given block height.
 
-**Parameters**
+**매개변수**
 
 | 명칭           | 형식                   | 설명                                                                                                                                     |
 | ------------ | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number &#124; String | (optional) If you don't pass this parameter, the default block set by [caver.klay.defaultBlock](./block.md#defaultblock) will be used. |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                   |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `String` - A numeric string of the gas price in peb.
 
@@ -34,15 +34,15 @@ Returns the unit price of gas in peb that was effective at the given block heigh
 caver.klay.getChainId([callback])
 ```
 
-Returns the chain ID of the chain.
+체인 ID를 반환합니다.
 
-**Parameters**
+**매개변수**
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `Number` - Integer of the chain ID of the chain.
 
@@ -61,13 +61,13 @@ caver.klay.getGasPrice([callback])
 
 Returns the unit price defined in the Klaytn network.
 
-**Parameters**
+**매개변수**
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `String` - Number string of the current unit price in peb.
 
@@ -84,15 +84,15 @@ Returns the unit price defined in the Klaytn network.
 caver.klay.getNodeInfo([callback])
 ```
 
-Returns the current client version of a Klaytn node.
+Klaytn 노드의 현재 클라이언트 버전을 반환합니다.
 
-**Parameters**
+**매개변수**
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `String` - The current client version of a Klaytn node.
 
@@ -110,15 +110,15 @@ Klaytn/v0.10.1+fc5c37064e/linux-amd64/go1.11.2
 caver.klay.getProtocolVersion([callback])
 ```
 
-Returns the Klaytn protocol version of the node.
+노드의 Klaytn 프로토콜 버전을 반환합니다.
 
-**Parameters**
+**매개변수**
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `String` - The Klaytn protocol version of the node.
 
@@ -136,15 +136,15 @@ Returns the Klaytn protocol version of the node.
 caver.klay.isSenderTxHashIndexingEnabled([callback])
 ```
 
-Returns `true` if the node is indexing sender transaction hash to transaction hash mapping information.
+노드가 트랜잭션 해시 맵핑 정보를 SenderTxHash로 색인화하고 있으면 `true`를 반환합니다.
 
-**Parameters**
+**매개변수**
 
 | 명칭       | 형식       | 설명                                                                                                                                     |
 | -------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | Function | (optional) Optional callback function. The callback is fired with an error object as the first parameter and the result as the second. |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `Boolean` - `true` means the node is indexing the sender transaction hash to find the fee-payer-signed transaction. For detailed information, please see [Klaytn Platform API - klay_getTransactionBySenderTxHash](../../../../json-rpc/api-references/klay/transaction.md#klay_gettransactionbysendertxhash) and [Klaytn Transactions - Fee Delegation and SenderTxHash](../../../../../klaytn/design/transactions/README.md#fee-delegation).
 
@@ -162,15 +162,15 @@ true
 caver.klay.isParallelDBWrite([callback])
 ```
 
-Returns `true` if the node is writing blockchain data in parallel manner. It is enabled by default.
+노드가 병렬로 블록체인 데이터를 쓰고 있으면 `true`를 반환합니다. 이는 기본적으로 활성화되어 있습니다.
 
-**Parameters**
+**매개변수**
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `Boolean` - `true` means the node is writing blockchain data in a parallel manner. Returns `false` if the node is writing the data in a serial manner.
 
@@ -188,16 +188,16 @@ true
 caver.klay.rewardbase([callback])
 ```
 
-Returns the rewardbase of the current node. Rewardbase is the address of the account where the block reward goes to. Only the Klaytn Consensus Nodes (CN) have the rewardbase in their configuration. See [Configuration File](../../../../../node/core-cell/operation-guide/configuration.md).
+현재 노드의 Rewardbase를 반환합니다. Rewardbase is the address of the account where the block reward goes to. Only the Klaytn Consensus Nodes (CN) have the rewardbase in their configuration. See [Configuration File](../../../../../node/core-cell/operation-guide/configuration.md).
 
 
-**Parameters**
+**매개변수**
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `String` - The rewardbase of the current node.
 
@@ -213,15 +213,15 @@ Returns the rewardbase of the current node. Rewardbase is the address of the acc
 ```javascript
 caver.klay.writeThroughCaching([callback])
 ```
-Returns `true` if the node is using write-through caching. If enabled, block bodies and receipts are cached to increase the read performance when they are written to persistent storage. It is `false` by default.
+Returns `true` if the node is using write-through caching. If enabled, block bodies and receipts are cached to increase the read performance when they are written to persistent storage. 기본적으로는 `false`로 설정되어 있습니다.
 
-**Parameters**
+**매개변수**
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
-**Return Value**
+**리턴값**
 
 `Promise` returns `Boolean` - `true` means the node is using write through caching.
 
