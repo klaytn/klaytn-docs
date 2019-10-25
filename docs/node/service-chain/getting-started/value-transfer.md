@@ -1,4 +1,3 @@
-# Guide for the value transfer between parent chain and service chain
 This section will explain how to enable ERC20 value transfer between Baobab network and your service chain with the provided test code.
 You will add KLAY to the operator account and deploy bridge and ERC20 contracts. 
 Then you will register the contract address on SCN. And you will test an ERC20 value transferring.

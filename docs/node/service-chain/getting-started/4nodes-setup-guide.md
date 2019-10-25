@@ -1,4 +1,3 @@
- # Setting up a 4-node Service Chain
 This section covers how to set up a multi-node service chain. To tolerate byzantine faults, at least four nodes are required. This document gives a step by step guide of setting up a 4-node service chain.
  You will download the packages and set up a service chain with 4 SCN.
 

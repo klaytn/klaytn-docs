@@ -1,4 +1,3 @@
-# Guide for EN Setup and SCN connection
 This section covers how to set up an EN for Baobab network and connect the EN with SCN.
 You will set up an EN and connect the EN with SCN. Then you will enable the Anchoring feature to write Service Chain block information on Baobab network.
 
