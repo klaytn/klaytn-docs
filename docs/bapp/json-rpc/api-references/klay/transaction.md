@@ -741,7 +741,7 @@ The below table shows the meaning of the value in `txError`.
 
 ## klay_getDecodedAnchoringTransactionByHash <a id="klay_getDecodedAnchoringTransactionByHash"></a>
 
-Returns the decoded anchoring transaction for the given transaction hash.
+Returns the decoded anchored data in the transaction for the given transaction hash.
 
 **Parameters**
 
