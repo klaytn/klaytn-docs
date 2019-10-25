@@ -1164,6 +1164,233 @@ The signature object has following values:
 '0x2c7536E3605D9C16a7a3D7b1898e529396a65c23'
 ```
 
+## combineSignatures
+
+```javascript
+caver.klay.accounts.combineSignatures(rawTransactions)
+```
+
+Combines all RLP encoded transaction strings into a single RLP encoded transaction string. The RLP encoded transaction strings that you want to combine must all be RLP encoded signed transaction strings that have signed the same transaction.
+
+combineSignatures removes duplicate signatures or feePayerSignatures and returns a result.
+
+**NOTE** `caver.klay.accounts.combineSignatures` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| rawTransactions | Array | An array of RLP encoded transaction strings (rawTransaction). |
+
+**Return Value**
+
+`Promise` returning `Object`: The RLP encoded transaction. The object properties are as follows:
+
+| Name | Type | Description |
+| --- | --- | --- |
+| rawTransaction | String | The RLP encoded transaction, ready to be send using caver.klay.sendSignedTransaction. |
+| txHash | 32-byte String | Hash of the transaction. |
+| senderTxHash | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash) |
+| signatures | Array | (optional) All signatures contained in RLP encoded transaction (rawTransaction). If no signatures are included, the `signatures` property is not returned in the result object. |
+| feePayerSignatures | Array | (optional) All feePayerSignatures contained in RLP encoded transaction (rawTransaction). If no feePayerSignatures are included, the `feePayerSignatures` property is not returned in the result object. |
+
+**NOTE** The `txHash` and `senderTxHash` contained in the result object may not be final values. If the signature of the sender is added, txHash and senderTxHash will be different. If the signature of the fee payer is added, the txHash will be different.
+
+**Example**
+
+```javascript
+> caver.klay.accounts.combineSignatures([
+    '0x39f8b6128505d21dba00830dbba094596c3b874dc5775c3969b09a3115f453c20a59abf88ef845824e44a0f530749561d1cf87571b2c3050ded6acc94621eb984335129f4057e843109e30a0738aef5227c29c022167d9e95f4090b9a49ef550d5deaaa25c1f6298ea3a5292f845824e43a01fa5a80bb06f5787b1ac81d8b48578627be7a3b725d2e3722a85b0e31f71a445a003dff23bb2947d1819ec91eb695e8bc8b96bc591a2b855fa1495f5bbf896b91780c4c3018080',
+    '0x39f90155128505d21dba00830dbba094596c3b874dc5775c3969b09a3115f453c20a59abf88ef845824e44a0f530749561d1cf87571b2c3050ded6acc94621eb984335129f4057e843109e30a0738aef5227c29c022167d9e95f4090b9a49ef550d5deaaa25c1f6298ea3a5292f845824e44a06a28576af9368a2056ba61d21390f484b487eba2210ee99b76615441a78f375da05d39f38e05d2ea80c2c1150374ca77d46b119d040101ebfc593f2a1963da409694120d8dc88b44fd8aa4dfab82c4078c7a7ee6c1edf88ef845824e44a00ca8405f35535cf82105a0596fcbd5c4cf228ce0d269c760246f9e10d6820566a02f905e44a2db94fe985158f81979cbcb7ba138cb1f2fb82bc9bd043701ec2025f845824e44a0feb42d7ed1519f93ddbc3093834934c6c7a15d843dfc8e7d14f78ecf3aa1d848a0271a2e8caf98d6ab79f9f4f6fdbe1c01e85aeea503b350ec69c6580320d53b06',
+]).then(console.log)
+{
+    rawTransaction: '0x39f9019c128505d21dba00830dbba094596c3b874dc5775c3969b09a3115f453c20a59abf8d5f845824e44a0f530749561d1cf87571b2c3050ded6acc94621eb984335129f4057e843109e30a0738aef5227c29c022167d9e95f4090b9a49ef550d5deaaa25c1f6298ea3a5292f845824e43a01fa5a80bb06f5787b1ac81d8b48578627be7a3b725d2e3722a85b0e31f71a445a003dff23bb2947d1819ec91eb695e8bc8b96bc591a2b855fa1495f5bbf896b917f845824e44a06a28576af9368a2056ba61d21390f484b487eba2210ee99b76615441a78f375da05d39f38e05d2ea80c2c1150374ca77d46b119d040101ebfc593f2a1963da409694120d8dc88b44fd8aa4dfab82c4078c7a7ee6c1edf88ef845824e44a00ca8405f35535cf82105a0596fcbd5c4cf228ce0d269c760246f9e10d6820566a02f905e44a2db94fe985158f81979cbcb7ba138cb1f2fb82bc9bd043701ec2025f845824e44a0feb42d7ed1519f93ddbc3093834934c6c7a15d843dfc8e7d14f78ecf3aa1d848a0271a2e8caf98d6ab79f9f4f6fdbe1c01e85aeea503b350ec69c6580320d53b06',
+    txHash: '0x3dac67978ffca834e6ff188e5937d81daab0669a7871f6ffae4ede53fb2a20ac',
+    senderTxHash: '0xbb29f73faca65b39b1d33d94e23343f48f22a05531989d031f557460b08f27d4',
+    signatures: [
+        [
+            '0x4e44',
+            '0xf530749561d1cf87571b2c3050ded6acc94621eb984335129f4057e843109e30',
+            '0x738aef5227c29c022167d9e95f4090b9a49ef550d5deaaa25c1f6298ea3a5292',
+        ],
+        [
+            '0x4e43',
+            '0x1fa5a80bb06f5787b1ac81d8b48578627be7a3b725d2e3722a85b0e31f71a445',
+            '0x03dff23bb2947d1819ec91eb695e8bc8b96bc591a2b855fa1495f5bbf896b917',
+        ],
+        [
+            '0x4e44',
+            '0x6a28576af9368a2056ba61d21390f484b487eba2210ee99b76615441a78f375d',
+            '0x5d39f38e05d2ea80c2c1150374ca77d46b119d040101ebfc593f2a1963da4096',
+        ],
+    ],
+    feePayerSignatures: [
+        [
+            '0x4e44',
+            '0x0ca8405f35535cf82105a0596fcbd5c4cf228ce0d269c760246f9e10d6820566',
+            '0x2f905e44a2db94fe985158f81979cbcb7ba138cb1f2fb82bc9bd043701ec2025',
+        ],
+        [
+            '0x4e44',
+            '0xfeb42d7ed1519f93ddbc3093834934c6c7a15d843dfc8e7d14f78ecf3aa1d848',
+            '0x271a2e8caf98d6ab79f9f4f6fdbe1c01e85aeea503b350ec69c6580320d53b06',
+        ],
+    ],
+}
+```
+
+## getRawTransactionWithSignatures
+
+```javascript
+caver.klay.accounts.getRawTransactionWithSignatures(tx [, callback])
+```
+
+Returns an RLP encoded transaction string that contains signatures and feePayerSignatures defined on the objects in the transaction.
+
+**NOTE** `caver.klay.accounts.getRawTransactionWithSignatures` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| tx | Object | The transaction object includes signatures and feePayerSignatures. The fields of the transaction object are different for each transaction type. For a description of each transaction, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
+
+**Return Value**
+
+`Promise` returning `Object`: The RLP encoded transaction. The object properties are as follows:
+
+| Name | Type | Description |
+| --- | --- | --- |
+| rawTransaction | String | The RLP encoded transaction, ready to be send using caver.klay.sendSignedTransaction. |
+| txHash | 32-byte String | Hash of the transaction. |
+| senderTxHash | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash) |
+| signatures | Array | (optional) All signatures contained in RLP encoded transaction (rawTransaction). If no signatures are included, the `signatures` property is not returned in the result object. |
+| feePayerSignatures | Array | (optional) All feePayerSignatures contained in RLP encoded transaction (rawTransaction). If no feePayerSignatures are included, the `feePayerSignatures` property is not returned in the result object. |
+
+**NOTE** The `txHash` and `senderTxHash` contained in the result object may not be final values. If the signature of the sender is added, txHash and senderTxHash will be different. If the signature of the fee payer is added, the txHash will be different.
+
+**Example**
+
+```javascript
+// get rawTransaction with signatures
+> caver.klay.accounts.getRawTransactionWithSignatures({
+    type: 'FEE_DELEGATED_SMART_CONTRACT_EXECUTION',
+    from: '0x85fd20bcbd1dcf73073c0abfa72afbde5e8c9a79',
+    to: '0x6757d85d8b636044ef3bd2904daf8883cd2e3381',
+    data: '0xd14e62b80000000000000000000000000000000000000000000000000000000000000005',
+    gas: '0xdbba0',
+    chainId: '0x2710',
+    gasPrice: '0x5d21dba00',
+    nonce: '0xf',
+    humanReadable: false,
+    signatures: [
+        [
+            '0x4e43',
+            '0x9610d4f6d6f55e44f5f29f1a08538c9871d39c7295834db5a28b7358cf23a8a6',
+            '0x6dc41f04c570a08a20aadc8eb4801aa3ee68b11f280e14d0e458f97f8c708175',
+        ],
+        [
+            '0x4e44',
+            '0x35cc2637cd68799f9a71c8e79fb5171351dd3cb5402dc0a3f291728527c9db48',
+            '0x7e3ac1ac64094ebc49c41ff6cb57b8f8eae18f5d7f2db0900117d816a1e30594',
+        ],
+        [
+            '0x4e44',
+            '0xfc4fe6436212d35a2417e3414119608f626400bd265fba0417f80a7cf9694a20',
+            '0x7d0f996f41355b18781833a6e227356db03bcec71d0c16a4d7249eaa3fe89507',
+        ],
+    ],
+}).then(console.log)
+{
+    rawTransaction: '0x31f901380f8505d21dba00830dbba0946757d85d8b636044ef3bd2904daf8883cd2e3381809485fd20bcbd1dcf73073c0abfa72afbde5e8c9a79a4d14e62b80000000000000000000000000000000000000000000000000000000000000005f8d5f845824e43a09610d4f6d6f55e44f5f29f1a08538c9871d39c7295834db5a28b7358cf23a8a6a06dc41f04c570a08a20aadc8eb4801aa3ee68b11f280e14d0e458f97f8c708175f845824e44a035cc2637cd68799f9a71c8e79fb5171351dd3cb5402dc0a3f291728527c9db48a07e3ac1ac64094ebc49c41ff6cb57b8f8eae18f5d7f2db0900117d816a1e30594f845824e44a0fc4fe6436212d35a2417e3414119608f626400bd265fba0417f80a7cf9694a20a07d0f996f41355b18781833a6e227356db03bcec71d0c16a4d7249eaa3fe8950780c4c3018080',
+    txHash: '0x94e6edb47fa258671745a433f1a08f5546b18a634f43e854c2bec1a40a7e8df0',
+    senderTxHash: '0xcb1138abbef61a42cc846957b72a27329e80395911593f201f49c70c06408385',
+    signatures: [
+        [
+            '0x4e43',
+            '0x9610d4f6d6f55e44f5f29f1a08538c9871d39c7295834db5a28b7358cf23a8a6',
+            '0x6dc41f04c570a08a20aadc8eb4801aa3ee68b11f280e14d0e458f97f8c708175',
+        ],
+        [
+            '0x4e44',
+            '0x35cc2637cd68799f9a71c8e79fb5171351dd3cb5402dc0a3f291728527c9db48',
+            '0x7e3ac1ac64094ebc49c41ff6cb57b8f8eae18f5d7f2db0900117d816a1e30594',
+        ],
+        [
+            '0x4e44',
+            '0xfc4fe6436212d35a2417e3414119608f626400bd265fba0417f80a7cf9694a20',
+            '0x7d0f996f41355b18781833a6e227356db03bcec71d0c16a4d7249eaa3fe89507',
+        ],
+    ],
+}
+
+// get rawTransaction with signatures and feePayerSignatures
+> caver.klay.accounts.getRawTransactionWithSignatures({
+    type: 'FEE_DELEGATED_SMART_CONTRACT_EXECUTION',
+    from: '0x85fd20bcbd1dcf73073c0abfa72afbde5e8c9a79',
+    to: '0x6757d85d8b636044ef3bd2904daf8883cd2e3381',
+    data: '0xd14e62b80000000000000000000000000000000000000000000000000000000000000005',
+    gas: '0xdbba0',
+    chainId: '0x2710',
+    gasPrice: '0x5d21dba00',
+    nonce: '0xf',
+    humanReadable: false,
+    signatures: [
+        [
+            '0x4e43',
+            '0x9610d4f6d6f55e44f5f29f1a08538c9871d39c7295834db5a28b7358cf23a8a6',
+            '0x6dc41f04c570a08a20aadc8eb4801aa3ee68b11f280e14d0e458f97f8c708175',
+        ],
+        [
+            '0x4e44',
+            '0x35cc2637cd68799f9a71c8e79fb5171351dd3cb5402dc0a3f291728527c9db48',
+            '0x7e3ac1ac64094ebc49c41ff6cb57b8f8eae18f5d7f2db0900117d816a1e30594',
+        ],
+        [
+            '0x4e44',
+            '0xfc4fe6436212d35a2417e3414119608f626400bd265fba0417f80a7cf9694a20',
+            '0x7d0f996f41355b18781833a6e227356db03bcec71d0c16a4d7249eaa3fe89507',
+        ],
+    ],
+    feePayer: '0x918f31cce0d9582882663fe9099226d3912c9d13',
+    feePayerSignatures: [
+        [
+            '0x4e44',
+            '0x5991f915a32ad719da138efecdcc3d169ad71fde31eba03be91991681d53f881',
+            '0x3653c82d6d99839699c3dfea470fcc777cda5b6185a1678c19d5fd7605c04a97',
+        ],
+    ],
+}).then(console.log)
+{
+    rawTransaction: '0x31f901900f8505d21dba00830dbba0946757d85d8b636044ef3bd2904daf8883cd2e3381809485fd20bcbd1dcf73073c0abfa72afbde5e8c9a79a4d14e62b80000000000000000000000000000000000000000000000000000000000000005f8d5f845824e43a09610d4f6d6f55e44f5f29f1a08538c9871d39c7295834db5a28b7358cf23a8a6a06dc41f04c570a08a20aadc8eb4801aa3ee68b11f280e14d0e458f97f8c708175f845824e44a035cc2637cd68799f9a71c8e79fb5171351dd3cb5402dc0a3f291728527c9db48a07e3ac1ac64094ebc49c41ff6cb57b8f8eae18f5d7f2db0900117d816a1e30594f845824e44a0fc4fe6436212d35a2417e3414119608f626400bd265fba0417f80a7cf9694a20a07d0f996f41355b18781833a6e227356db03bcec71d0c16a4d7249eaa3fe8950794918f31cce0d9582882663fe9099226d3912c9d13f847f845824e44a05991f915a32ad719da138efecdcc3d169ad71fde31eba03be91991681d53f881a03653c82d6d99839699c3dfea470fcc777cda5b6185a1678c19d5fd7605c04a97',
+    txHash: '0xf015dd519c909a80c111219ab2c5139d01a2e4121f801e8f45e519eafd421db6',
+    senderTxHash: '0xcb1138abbef61a42cc846957b72a27329e80395911593f201f49c70c06408385',
+    signatures: [
+        [
+            '0x4e43',
+            '0x9610d4f6d6f55e44f5f29f1a08538c9871d39c7295834db5a28b7358cf23a8a6',
+            '0x6dc41f04c570a08a20aadc8eb4801aa3ee68b11f280e14d0e458f97f8c708175',
+        ],
+        [
+            '0x4e44',
+            '0x35cc2637cd68799f9a71c8e79fb5171351dd3cb5402dc0a3f291728527c9db48',
+            '0x7e3ac1ac64094ebc49c41ff6cb57b8f8eae18f5d7f2db0900117d816a1e30594',
+        ],
+        [
+            '0x4e44',
+            '0xfc4fe6436212d35a2417e3414119608f626400bd265fba0417f80a7cf9694a20',
+            '0x7d0f996f41355b18781833a6e227356db03bcec71d0c16a4d7249eaa3fe89507',
+        ],
+    ],
+    feePayerSignatures: [
+        [
+            '0x4e44',
+            '0x5991f915a32ad719da138efecdcc3d169ad71fde31eba03be91991681d53f881',
+            '0x3653c82d6d99839699c3dfea470fcc777cda5b6185a1678c19d5fd7605c04a97',
+        ],
+    ],
+}
+```
 
 ## encrypt <a id="encrypt"></a>
 
