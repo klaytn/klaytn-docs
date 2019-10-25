@@ -2,26 +2,26 @@
 
 ## debug_dumpBlock
 
-Retrieves the state that corresponds to the block number and returns a list of accounts (including storage and code).
+블록 번호에 해당하는 상태를 검색하고 계정(스토리지와 코드를 포함)의 목록을 반환합니다.
 
-**NOTE**: This function returns the state correctly for some latest block numbers.  On the other hand, old block numbers that can be used to retrieve the state may be restricted depending on the value set for the `klay` command-line option `--state.block-interval` (default: 128).  This means that the function will perform the state retrieval against only the block numbers, which are a multiple of state.block-interval value.  For example, when the value of state.block-interval is 128, this function returns the state correctly for the block numbers such as "0x0", "0x80", "0x100", "0x180", and so on.  If the block number is not a multiple of state.block-interval value, it will return 'missing trie node' error.
+**참고**: 이 함수는 최근 블록들의 번호에 해당하는 상태를 반환합니다.  반면, 오래된 블록 번호를 사용하여 상태를 검색하는 것은 `klay` 명령 줄의 `--state.block-interval` 옵션으로 어떤 값을 설정하는지에 따라 제한될 수 있습니다. (기본 설정은 128입니다.)  즉 state.block-interval 값의 배수인 블록 번호에 대해서만 상태 검색을 할 수 있다는 것입니다.  예를 들어, state.block-interval 값이 128이면 이 함수는 "0x0", "0x80", "0x100", "0x180" 등과 같은 블록 번호에 해당하는 상태를 올바르게 반환합니다.  블록 번호가 state.block-interval 값의 배수가 아니면, 'missing trie node' 오류를 반환합니다.
 
-| 클라이언트 | Method Invocation                                   |
+| 클라이언트 | 메서드 호출                                              |
 |:-----:| --------------------------------------------------- |
 |  콘솔   | `debug.dumpBlock(number)`                           |
 |  RPC  | `{"method": "debug_dumpBlock", "params": [number]}` |
 
 **매개변수**
 
-| 명칭     | 형식  | 설명                                |
-| ------ | --- | --------------------------------- |
-| number | 문자열 | The block number as a hex string. |
+| 명칭     | 형식  | 설명                     |
+| ------ | --- | ---------------------- |
+| number | 문자열 | 16진수 문자열 형태의 블록 번호입니다. |
 
 **리턴값**
 
-| 형식       | 설명                     |
-| -------- | ---------------------- |
-| JSON 문자열 | The block information. |
+| 형식       | 설명        |
+| -------- | --------- |
+| JSON 문자열 | 블록 정보입니다. |
 
 **예시**
 
@@ -65,26 +65,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_getBlockRlp
 
-Retrieves and returns the RLP-encoded block by the block number.
+블록 번호를 통해 RLP 인코딩된 블록을 검색하고 반환합니다.
 
-| 클라이언트 | Method Invocation                                     |
+| 클라이언트 | 메서드 호출                                                |
 |:-----:| ----------------------------------------------------- |
 |  콘솔   | `debug.getBlockRlp(number)`                           |
 |  RPC  | `{"method": "debug_getBlockRlp", "params": [number]}` |
 
-References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
+[RLP](https://github.com/ethereum/wiki/wiki/RLP)를 참고하세요.
 
 **매개변수**
 
-| 명칭     | 형식  | 설명                |
-| ------ | --- | ----------------- |
-| number | int | The block number. |
+| 명칭     | 형식  | 설명        |
+| ------ | --- | --------- |
+| number | int | 블록 번호입니다. |
 
 **리턴값**
 
-| 형식  | 설명                     |
-| --- | ---------------------- |
-| 문자열 | The RLP-encoded block. |
+| 형식  | 설명              |
+| --- | --------------- |
+| 문자열 | RLP 인코딩된 블록입니다. |
 
 **예시**
 
@@ -102,26 +102,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_getModifiedAccountsByHash
 
-Returns all accounts that have changed between the two blocks specified by their block hashes. A change is defined as a difference in nonce, balance, code hash, or storage hash.
+블록 해시로 입력받은 두 블록 사이에 변경된 모든 계정을 반환합니다. 이때 변경이란 nonce, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
 
 
-| 클라이언트 | Method Invocation                                                                           |
+| 클라이언트 | 메서드 호출                                                                                      |
 |:-----:| ------------------------------------------------------------------------------------------- |
 |  콘솔   | `debug.getModifiedAccountsByNumber(startBlockHash, endBlockHash)`                           |
 |  RPC  | `{"method": "debug_getModifiedAccountsByNumber", "params": [startBlockHash, endBlockHash]}` |
 
 **매개변수**
 
-| 명칭             | 형식           | 설명                              |
-| -------------- | ------------ | ------------------------------- |
-| startBlockHash | 32-byte DATA | Start block hash for the range. |
-| endBlockHash   | 32-byte DATA | End block hash for the range.   |
+| 명칭             | 형식            | 설명                          |
+| -------------- | ------------- | --------------------------- |
+| startBlockHash | 32바이트 크기 DATA | 지정할 범위의 시작에 해당하는 블록의 해시입니다. |
+| endBlockHash   | 32바이트 크기 DATA | 지정할 범위의 끝에 해당하는 블록의 해시입니다.  |
 
 **리턴값**
 
-| 형식       | 설명                                                  |
-| -------- | --------------------------------------------------- |
-| JSON 문자열 | The list of addresses modified between given range. |
+| 형식       | 설명                                   |
+| -------- | ------------------------------------ |
+| JSON 문자열 | 지정한 두 블록 사이에 변경이 이루어진 계정들의 주소 목록입니다. |
 
 **예시**
 
@@ -142,26 +142,26 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 ## debug_getModifiedAccountsByNumber
 
-Returns all accounts that have changed between the two blocks specified by their block numbers. A change is defined as a difference in nonce, balance, code hash, or storage hash.
+블록 번호로 입력받은 두 블록 사이에 변경된 모든 계정을 반환합니다. 이때 변경이란 nonce, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
 
 
-| 클라이언트 | Method Invocation                                                                         |
+| 클라이언트 | 메서드 호출                                                                                    |
 |:-----:| ----------------------------------------------------------------------------------------- |
 |  콘솔   | `debug.getModifiedAccountsByNumber(startBlockNum, endBlockNum)`                           |
 |  RPC  | `{"method": "debug_getModifiedAccountsByNumber", "params": [startBlockNum, endBlockNum]}` |
 
 **매개변수**
 
-| 명칭            | 형식  | 설명                                |
-| ------------- | --- | --------------------------------- |
-| startBlockNum | int | Start block number for the range. |
-| endBlockNum   | int | End block number for the range.   |
+| 명칭            | 형식  | 설명                          |
+| ------------- | --- | --------------------------- |
+| startBlockNum | int | 지정할 범위의 시작에 해당하는 블록의 번호입니다. |
+| endBlockNum   | int | 지정할 범위의 끝에 해당하는 블록의 번호입니다.  |
 
 **리턴값**
 
-| 형식       | 설명                                                  |
-| -------- | --------------------------------------------------- |
-| JSON 문자열 | The list of addresses modified between given range. |
+| 형식       | 설명                                   |
+| -------- | ------------------------------------ |
+| JSON 문자열 | 지정한 두 블록 사이에 변경이 이루어진 계정들의 주소 목록입니다. |
 
 **예시**
 
@@ -181,9 +181,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 ## debug_preimage
 
-Returns the preimage for a sha3 hash, if known.
+입력으로 받은 sha3 해시의 역상이 알려져 있다면 그 역상을 반환합니다.
 
-| 클라이언트 | Method Invocation                                |
+| 클라이언트 | 메서드 호출                                           |
 |:-----:| ------------------------------------------------ |
 |  콘솔   | `debug.preimage(hash)`                           |
 |  RPC  | `{"method": "debug_preimage", "params": [hash]}` |
@@ -191,15 +191,15 @@ Returns the preimage for a sha3 hash, if known.
 
 **매개변수**
 
-| 명칭   | 형식  | 설명         |
-| ---- | --- | ---------- |
-| hash | 문자열 | sha3 hash. |
+| 명칭   | 형식  | 설명          |
+| ---- | --- | ----------- |
+| hash | 문자열 | sha3 해시입니다. |
 
 **리턴값**
 
-| 명칭       | 형식  | 설명                        |
-| -------- | --- | ------------------------- |
-| preimage | 문자열 | Preimage for a sha3 hash. |
+| 명칭       | 형식  | 설명                      |
+| -------- | --- | ----------------------- |
+| preimage | 문자열 | 입력으로 받은 sha3 해시의 역상입니다. |
 
 **예시**
 
@@ -218,24 +218,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_printBlock
 
-Retrieves a block and returns its pretty printed form.
+블록을 검색하여 출력된 양식대로 반환합니다.
 
-| 클라이언트 | Method Invocation                                    |
+| 클라이언트 | 메서드 호출                                               |
 |:-----:| ---------------------------------------------------- |
 |  콘솔   | `debug.printBlock(number)`                           |
 |  RPC  | `{"method": "debug_printBlock", "params": [number]}` |
 
 **매개변수**
 
-| 명칭     | 형식  | 설명                |
-| ------ | --- | ----------------- |
-| number | int | The block number. |
+| 명칭     | 형식  | 설명        |
+| ------ | --- | --------- |
+| number | int | 블록 번호입니다. |
 
 **리턴값**
 
-| 형식  | 설명                      |
-| --- | ----------------------- |
-| 문자열 | Dump of a block struct. |
+| 형식  | 설명             |
+| --- | -------------- |
+| 문자열 | 블록 구조체의 덤프입니다. |
 
 **예시**
 
@@ -254,13 +254,13 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_setHead
 
-**`WARNING`**: This API is not yet implemented and always returns "not yet implemented API" error.
+**`경고`**: 이 API는 아직 구현되지 않았으며 호출 시 "not yet implemented API" 오류를 반환합니다.
 
-Sets the current head of the local chain by block number.
+로컬 체인의 현재 헤드를 입력받은 블록의 번호로 설정합니다.
 
-**NOTE**: This is a destructive action and may severely damage your chain. Use with *extreme* caution.
+**참고**: 이 행동은 블록체인에 심각한 손상을 줄 수 있습니다. *매우* 주의하여 사용하세요.
 
-| 클라이언트 | Method Invocation                                 |
+| 클라이언트 | 메서드 호출                                            |
 |:-----:| ------------------------------------------------- |
 |  콘솔   | `debug.setHead(number)`                           |
 |  RPC  | `{"method": "debug_setHead", "params": [number]}` |
@@ -268,9 +268,9 @@ Sets the current head of the local chain by block number.
 
 **매개변수**
 
-| 명칭     | 형식  | 설명                                      |
-| ------ | --- | --------------------------------------- |
-| number | 문자열 | The block number in hexadecimal string. |
+| 명칭     | 형식  | 설명                     |
+| ------ | --- | ---------------------- |
+| number | 문자열 | 16진수 문자열 형태의 블록 번호입니다. |
 
 **리턴값**
 
