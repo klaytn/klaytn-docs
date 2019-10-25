@@ -4,7 +4,7 @@
 
 사용하지 않는 메모리를 운영체제에 반환합니다.
 
-| 클라이언트 | Method Invocation                  |
+| 클라이언트 | 메서드 호출                             |
 |:-----:| ---------------------------------- |
 |  콘솔   | `debug.freeOSMemory()`             |
 |  RPC  | `{"method": "debug_freeOSMemory"}` |
@@ -35,7 +35,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 GC 통계를 반환합니다.
 
-| 클라이언트 | Method Invocation                           |
+| 클라이언트 | 메서드 호출                                      |
 |:-----:| ------------------------------------------- |
 |  콘솔   | `debug.gcStats()`                           |
 |  RPC  | `{"method": "debug_gcStats", "params": []}` |
@@ -73,7 +73,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 런타임 메모리 통계를 반환합니다.
 
-| 클라이언트 | Method Invocation                            |
+| 클라이언트 | 메서드 호출                                       |
 |:-----:| -------------------------------------------- |
 |  콘솔   | `debug.memStats()`                           |
 |  RPC  | `{"method": "debug_memStats", "params": []}` |
@@ -122,7 +122,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 노드가 수집한 시스템의 측정 수치들을 검색합니다.
 
-| 클라이언트 | Method Invocation                              |
+| 클라이언트 | 메서드 호출                                         |
 |:-----:| ---------------------------------------------- |
 |  콘솔   | `debug.metrics(raw)`                           |
 |  RPC  | `{"method": "debug_metrics", "params": [raw]}` |
@@ -245,7 +245,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 모든 go루틴의 스택을 반환합니다.
 
-| 클라이언트 | Method Invocation                          |
+| 클라이언트 | 메서드 호출                                     |
 |:-----:| ------------------------------------------ |
 |  콘솔   | `debug.stacks()`                           |
 |  RPC  | `{"method": "debug_stacks", "params": []}` |
