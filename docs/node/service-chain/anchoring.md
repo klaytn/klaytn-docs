@@ -5,7 +5,7 @@ If it is enabled, SCN anchors periodically the child chain block data to the par
 # Enable Anchoring <a id="enable-anchoring"></a>
 
 ## Check Parent Operator of SCN <a id="check-parent-operator-of-scn"></a>
-If you run SCN successfully, the parent chain operator account is generated or set by a keystore file.
+If you have installed and run an SCN successfully, the parent chain operator account should be generated. You can provide a keystore file that you want to use as a parent operator, or if not provided, the SCN will generate the key for you. 
 You can check the parent operator address via RPC API, `subbridge.parentOperator`.
 
 ```
