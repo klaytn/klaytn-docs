@@ -4,7 +4,7 @@
 
 입력으로 받은 기간 동안 Go 런타임 추적을 진행하고 추적 데이터를 디스크에 씁니다.
 
-| 클라이언트 | Method Invocation                                         |
+| 클라이언트 | 메서드 호출                                                    |
 |:-----:| --------------------------------------------------------- |
 |  콘솔   | `debug.goTrace(file, seconds)`                            |
 |  RPC  | `{"method": "debug_goTrace", "params": [string, number]}` |
@@ -39,7 +39,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 입력으로 받은 파일에 Go 런타임 추적 결과를 씁니다.
 
-| 클라이언트 | Method Invocation                                      |
+| 클라이언트 | 메서드 호출                                                 |
 |:-----:| ------------------------------------------------------ |
 |  콘솔   | `debug.startGoTrace(file)`                             |
 |  RPC  | `{"method": "debug_startGoTrace", "params": [string]}` |
@@ -72,7 +72,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Go 런타임 추적을 중지합니다.
 
-| 클라이언트 | Method Invocation                               |
+| 클라이언트 | 메서드 호출                                          |
 |:-----:| ----------------------------------------------- |
 |  콘솔   | `debug.stopGoTrace()`                           |
 |  RPC  | `{"method": "debug_stopGoTrace", "params": []}` |
