@@ -4,7 +4,7 @@
 
 입력으로 받은 기간 동안의 블록 프로파일링을 설정하고 프로파일 데이터를 디스크에 씁니다. 가장 정확한 정보를 위해 프로파일 속도는 1입니다. 속도를 다르게 설정하려면, [debug_writeBlockProfile](#debug_writeblockprofile)를 사용하여 속도를 설정하고 프로파일을 수동으로 작성합니다.
 
-| 클라이언트 | Method Invocation                                              |
+| 클라이언트 | 메서드 호출                                                         |
 |:-----:| -------------------------------------------------------------- |
 |  콘솔   | `debug.blockProfile(file, seconds)`                            |
 |  RPC  | `{"method": "debug_blockProfile", "params": [string, number]}` |
@@ -38,7 +38,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 입력으로 받은 기간 동안의 CPU 프로파일링을 설정하고 프로파일 데이터를 디스크에 씁니다.
 
-| 클라이언트 | Method Invocation                                            |
+| 클라이언트 | 메서드 호출                                                       |
 |:-----:| ------------------------------------------------------------ |
 |  콘솔   | `debug.cpuProfile(file, seconds)`                            |
 |  RPC  | `{"method": "debug_cpuProfile", "params": [string, number]}` |
@@ -72,7 +72,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 pprof HTTP 서버가 실행 중이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.
 
-| 클라이언트 | Method Invocation                                  |
+| 클라이언트 | 메서드 호출                                             |
 |:-----:| -------------------------------------------------- |
 |  콘솔   | `debug.isPProfRunning()`                           |
 |  RPC  | `{"method": "debug_isPProfRunning", "params": []}` |
@@ -106,7 +106,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Go루틴 블록 프로파일 데이터 수집 속도(샘플/초)를 설정합니다. 0이 아닌 값으로 설정하면 블록 프로파일링을 활성화하고, 0으로 설정하면 중단합니다. [debug_writeBlockProfile](#debug_writeblockprofile)을 사용하여 수집한 프로파일 데이터를 쓸 수 있습니다.
 
-| 클라이언트 | Method Invocation                                             |
+| 클라이언트 | 메서드 호출                                                        |
 |:-----:| ------------------------------------------------------------- |
 |  콘솔   | `debug.setBlockProfileRate(rate)`                             |
 |  RPC  | `{"method": "debug_setBlockProfileRate", "params": [number]}` |
@@ -139,7 +139,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 무기한으로 CPU 프로파일링을 진행하고, 입력으로 받은 파일에 그 결과를 작성합니다.
 
-| 클라이언트 | Method Invocation                                         |
+| 클라이언트 | 메서드 호출                                                    |
 |:-----:| --------------------------------------------------------- |
 |  콘솔   | `debug.startCPUProfile(file)`                             |
 |  RPC  | `{"method": "debug_startCPUProfile", "params": [string]}` |
@@ -173,7 +173,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 CPU 프로파일링을 중단합니다.
 
-| 클라이언트 | Method Invocation                                  |
+| 클라이언트 | 메서드 호출                                             |
 |:-----:| -------------------------------------------------- |
 |  콘솔   | `debug.stopCPUProfile()`                           |
 |  RPC  | `{"method": "debug_stopCPUProfile", "params": []}` |
@@ -207,7 +207,7 @@ pprof HTTP 서버를 시작합니다.  실행 중인 pprof 서버는 아래를 �
 - http://localhost:6060/memsize/ (메모리 크기 리포트)
 - http://localhost:6060/debug/vars (측정 수치)
 
-| 클라이언트 | Method Invocation                                            |
+| 클라이언트 | 메서드 호출                                                       |
 |:-----:| ------------------------------------------------------------ |
 |  콘솔   | `debug.startPProf(address, port)`                            |
 |  RPC  | `{"method": "debug_startPProf", "params": [string, number]}` |
@@ -248,7 +248,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 pprof HTTP 서버를 중단합니다.
 
-| 클라이언트 | Method Invocation                             |
+| 클라이언트 | 메서드 호출                                        |
 |:-----:| --------------------------------------------- |
 |  콘솔   | `debug.stopPProf()`                           |
 |  RPC  | `{"method": "debug_stopPProf", "params": []}` |
@@ -280,7 +280,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 입력으로 받은 파일에 go루틴 블록 프로파일링을 작성합니다.
 
-| 클라이언트 | Method Invocation                                           |
+| 클라이언트 | 메서드 호출                                                      |
 |:-----:| ----------------------------------------------------------- |
 |  콘솔   | `debug.writeBlockProfile(file)`                             |
 |  RPC  | `{"method": "debug_writeBlockProfile", "params": [string]}` |
@@ -313,7 +313,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 입력으로 받은 파일에 메모리 사용량 프로파일을 작성합니다.  프로파일링 속도는 이 API로 설정할 수 없으며, 명령 줄에서 `--memprofilerate` 플래그를 사용하여 설정해야 합니다.
 
-| 클라이언트 | Method Invocation                                         |
+| 클라이언트 | 메서드 호출                                                    |
 |:-----:| --------------------------------------------------------- |
 |  콘솔   | `debug.writeMemProfile(file)`                             |
 |  RPC  | `{"method": "debug_writeMemProfile", "params": [string]}` |
