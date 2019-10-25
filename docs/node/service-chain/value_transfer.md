@@ -1,7 +1,13 @@
-As explained in Design section, Service Chain supports value (KLAY, ERC20, and ERC721) transferring between parent chain & child chain.
-This page shows how to setup value transferring feature in SCN.
+As explained in the Klaytn design section, Service Chain supports value (KLAY, ERC-20, and ERC-721) transfer between parent chain & child chain.
+This page shows how to enable the value-transfer feature in SCN.
 
-After setup EN/SCN, the following brief procedure are needed to support value transferring between chains.
+After setting up the EN and SCN, the following procedure is required to enable value-transfer between chains.
+
+1. Check the addresses of the bridge operator accounts and add KLAY to the bridge operator accounts.
+2. Deploy the bridge contract to the parent/child chains.
+3. Deploy a token (ERC-20 or 721) contract to the parent/child chains. (If you just need KLAY-transfer, you can skip step 3 & 4.)
+4. Register the token contracts with the bridge contracts on the parent/child chains.
+5. Subscribe to the bridge contracts on the parent/child chains.
 
 1. Check bridge operator account address and Charge bridge operator accounts.
 2. Deploy bridge contracts on parent/child chain
@@ -9,29 +15,30 @@ After setup EN/SCN, the following brief procedure are needed to support value tr
 4. Register token(ERC20/721) contracts on sub-bridge of SCN.
 5. Subscribe bridge contracts on sub-bridge of SCN.
 
-To explain the procedure, system architecture is introduced in the next section.
+Before we follow the steps, let's take a look at the high-level system architecture to understand the behind of the mechanism.
 
-# System architecture
-Figure 1 shows the system architecture of Service Chain with bridge/token contracts, and bridge nodes.
+# System Architecture <a id="system-architecture"></a>
+Figure 1 shows the system architecture of the Service Chain with bridge/token contracts and bridge nodes.
 
-Below contracts communicate with each other via main/sub-bridge to process user's value transfer requests. 
-- bridge contract
-- ERC20 contract (if needed)
-- ERC721 contract (if needed)
+Below contracts communicate with each other via main/sub-bridge to process user's value transfer requests.
+- Bridge contract 
+- ERC-20 contract (if needed)
+- ERC-721 contract (if needed)
 
 ![Figure 1. Service chain architecture](./images/sc_arch.png)
 
-# Bridge operator account
-For Service Chain, there are two operator accounts : parent chain account, service chain account. Each bridge operator is used to sign transactions for each chain.
-When user makes request value transfer transactions, Sub-Bridge node makes handle value transfer transactions by signed bridge operator.
-Therefore, parent chain bridge operator needs balance for gas fee of handle transactions. 
-If service chain gas price is not zero, service chain bridge operator also needs the balance for gas fee.
-  
-## keystore and password file
-When SCN is booted, parent/child operator keystore files and password files are automatically generated if keys don't exist. 
-But if you want to set specific account key, you can set the below files before booting. 
+# Bridge Operator Account <a id="bridge-operator-account"></a>
+For Service Chain, there are two operator accounts: parent chain bridge operator account, service chain bridge operator account. Each operator account is used to sign transactions.
+If the transaction moves the value to the parent chain, the parent chain bridge operator account signs the transaction. To the child chain, the child chain bridge operator account is used.
+If a user submits a "request value transfer" transaction, the Sub-bridge creates a "handle value transfer" transaction signed by the bridge operator account.
+Therefore, the parent chain bridge operator needs enough KLAY in their balance to pay the transaction fee to the parent chain. 
+If the service chain's gas price is set to non-zero, the service chain bridge operator should have KLAY in their balance as well. 
+ 
+## Keystore and Password file <a id="keystore-and-password-file"></a>
+When SCN is booted, the keystore files and password files for the parent/child operators are automatically generated if their keys don't exist. 
+If you want to use a specific account as an operator, you can provide the key. Place the below files in the designated path before booting the SCN. 
 The password file should have a password string of the keystore file.
-The password file name is the account address of the corresponded keystore file. 
+The password file name should be the account address of the corresponding keystore file. 
 
 **files**
 - keystore file : ```UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b```
@@ -42,21 +49,21 @@ The password file name is the account address of the corresponded keystore file.
 - Child chain bridge operator : $datadir/child_bridge_account
 
 ```javascript
->pwd
+> pwd
 /$dataDIR/child_bridge_account
 
->ls
+> ls
 0x2eD72a9D7fe5da7672fD21567e07302431649B0B                                    
 UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b
 
 > cat 0x2eD72a9D7fe5da7672fD21567e07302431649B0B 
 %S~f5qqM38cB47jL% 
 
-cat UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b 
+> cat UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b 
 {"address":"2ed72a9d7fe5da7672fd21567e07302431649b0b","crypto":{"cipher":"aes-128-ctr","ciphertext":"6486509e8158bf4984608cbc5562cf2c9a27cd988a98e543731b39251144e633","cipherparams":{"iv":"96d7e5b6a936278c0797faae6cb3d903"},"kdf":"scrypt","kdfparams":{"dklen":32,"n":262144,"p":1,"r":8,"salt":"8928ba41b8228af19390ec881c51452fa3ea973ad2c253ca0f5bc9197a8b24c4"},"mac":"9c8ec63694c20a473e0ea33840e7d16e9f1a20afc52b3244b703a3ac0a66cfa3"},"id":"9ae10527-7fd3-4aae-a4eb-316af211494e","version":3}
 ```
-## Check bridge operator addresses
-If you run SCN successfully, you can check the parent/child chain bridge operator address vi RPC like the following.
+## Check Bridge Operator Addresses <a id="check-bridge-operator-addresses"></a>
+If you run SCN successfully, you can check the parent/child chain bridge operator address using RPC API like the following.
 
 ```
 $ kscn attach ~/kscnd_home/klay.ipc
@@ -66,19 +73,20 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
 
  datadir: ~/kscnd_home
  modules: admin:1.0 bridge:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 servicechain:1.0 txpool:1.0
- > bridge.parentOperator
- "0xA057995175B93Ee0D1bdfA54f078Ad0F0116130b"
- > bridge.childOperator
- "0x5C1C757a6Cb6c6FcEFE398674D8209FDA2A74Df4"
+
+> bridge.parentOperator
+"0xA057995175B93Ee0D1bdfA54f078Ad0F0116130b"
+> bridge.childOperator
+"0x5C1C757a6Cb6c6FcEFE398674D8209FDA2A74Df4"
 ```
 
-You can refer [subbridge API](../../bapp/json-rpc/api-references/subbridge.md#subbridge_parentOperator) more details.
+You can refer to the [subbridge API](../../bapp/json-rpc/api-references/subbridge.md#subbridge_parentOperator) for more details.
   
-## Charge KLAY to bridge operators
-Like anchoring feature, you need to charge KLAY to parent chain bridge operator.
-If your service chain gas price is not zero, you should also charge KLAY to service chain bridge operator,
+## Send KLAY to Bridge Operators <a id="send-klay-to-bridge-operators"></a>
+Like anchoring, the parent chain bridge operator needs KLAY to make a value-transfer transaction.
+If the service chain's gas price is set to non-zero, the service chain bridge operator should have KLAY in their balance as well.
 
-After charging you can check the balance of parent/child chain bridge operator like below.
+After topping up the operator accounts, you can check their balances like below.
 
 **Parent chain bridge operator**
 ```
@@ -106,14 +114,14 @@ Welcome to the Klaytn JavaScript console!
 1e+50
 ```
   
-# Bridge contract
-For value transferring, parent/child chain bridge contract should be deployed on each parent/child chain.
-Users can request KLAY transfer to each bridge contract to send their KLAY to opposite chain.
-Also, if token contracts are registered on the bridge contract, bridge contracts support token transferring between parent/child chain. 
+# Bridge Contract <a=id="bridge-contract"></a>
+For the cross-chain value transfer, a bridge contract should be deployed to the parent/child chains.
+Users can request a KLAY transfer to the bridge contract to send their KLAY to the other chain.
+Additionally, if token contracts are registered in the bridge contracts, bridge contracts can handle the token transfer between parent and child chains. 
 
-## Deployment
-Sub-bridge provides the bridge contract deploy API. You can deploy bridge contracts on both chain once via RPC like below.
-Before this, you should connected main-bridge and sub-bridge first. Please check [Connection](./single-node-service-chain/installation-guide/connect-to-main-chain.md) again.
+## Deployment <a=id="deployment"></a>
+Sub-bridge provides a bridge contract deployment API. You can deploy bridge contracts to both chains using a single RPC call as below.
+Before doing this, you should have connected main-bridge and sub-bridge. Please refer to [Connect to Main Chain](./single-node-service-chain/installation-guide/connect-to-main-chain.md) to get detailed guideline.
 
 ```javascript
 $ kscn attach ~/kscnd_home/klay.ipc
@@ -134,13 +142,13 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
     subscribed: false
 }]
 ```
-You can refer [subbridge API](../../bapp/json-rpc/api-references/subbridge.md#deployBridge) more details.
+You can refer to the [subbridge API](../../bapp/json-rpc/api-references/subbridge.md#subbridge_deployBridge) for more details.
 
-Then, you can get the service/parent chain bridge contract address and check the status.
-Sub-bridge save the list of bridge contract address on a file and after rebooting, it can reload the bridge contract list.  
+`bridge_listBridge` shows the bridge contract addresses and their subscription status. 
+Sub-bridge saves the list of bridge contract addresses in a file. On reboot, sub-bridge reloads the bridge contract list from the file. 
 
-## Subscribing
-After deploying bridge contract, you should subscribe the deployed bridge contracts via RPC API to enable value transferring like below.
+## Subscribing <a id="subscribing"></a>
+After deploying the bridge contract, you should make the sub-bridge subscribe to the deployed bridge contracts to enable value transfer. This can be done using another RPC API call, `bridge_subscribeBridge`. 
 
 ```javascript
 > bridge.subscribeBridge("0x27caeba831d98b5fbb1d81ce0ed20801702f443a", "0x22c41ae528627b790233d2e59ea520be12350eb5")
@@ -154,22 +162,23 @@ null
 }]
 ```
 
-## Checking Status
-After subscribing bridge contract pair, SCN can procedure user's request value transfer transactions automatically.
-This section explain how to check the bridge contract status.
+## Checking Status <a id="checking-status"></a>
+Once subscribed, SCN processes users' "request value transfer" transactions automatically.
+This section explains how to check the bridge contract status.
 
-In a bridge contact, there are two nonces. Each nonce means like below.
-- requestNonce : the request count number of user's value transfer request to this bridge contract from this chain to the opposite chain.
-- lowerHandleNonce : the lower handle nonce of this bridge contract. It is the minimum nonce that the sub-bridge will handle.
-- handleNonce : the upper handle count number of this bridge contract. It is the maximum handle nonce that the sub-bridge handled. 
+In a bridge contact, there are two nonces, `requestNonce` and `handleNonce`.
+Unlike in-chain transactions, the sub-bridge can handle a higher nonce request before the lower ones. 
+- requestNonce : the number of user's "cross-chain value transfer" requests made to this bridge contract.
+- handleNonce : the highest nonce that the sub-bridge handled. 
+- lowerHandleNonce : the lowest nonce that the sub-bridge should handle.
 
-Therefore, if nonces are updated like below, value transfer feature works well. 
-- parent chain bridge contract's handle / lower handle nonce chase the request nonce of child chain bridge contract.
-- child chain bridge contract's handle / lower handle nonce chase the request nonce of parent chain bridge contract.  
+Therefore, if nonces are updated as follows, we can say the cross-chain value-transfers are processed correctly. 
+- "handleNonce" and "lowerHandleNonce" of the parent chain bridge contract keep approaching to the "requestNonce" of the child chain bridge contract.
+- "handleNonce" and "lowerHandleNonce" keep approaching to the "requestNonce" of the parent chain bridge contract.  
 
-If a handle nonce is same with a request nonce of opposite bridge contract, all users' requests was processed.
+If "handleNonce" equals to the "requestNonce" of the counterpart bridge contract, and the "lowerHandleNonce" is greater than "handleNonce" by 1, then users' requests were all processed.
  
-### Log
+### Log <a id="log"></a>
 SCN log shows the status like below.
 
 ```
@@ -185,9 +194,9 @@ INFO[05/31,18:32:20 +09] [45] Bridge(Main -> Service Chain)             bridge=0
 INFO[05/31,18:32:20 +09] [45] Bridge(Service -> Main Chain)             bridge=0x22c41Ae528627B790233D2e59Ea520be12350EB5 requestNonce=0 lowerHandleNonce=0 handleNonce=0 diffNonce=0
 ```
 
-### RPC API 
-You can check the status of a bridge contract by RPC API like below.
-You can refer [subbridge API](../../bapp/json-rpc/api-references/subbridge.md#getBridgeInformation) more details.
+### RPC API <a id="rpc-api"></a> 
+You can check the status of a bridge contract like below.
+You can refer to the [subbridge API](../../bapp/json-rpc/api-references/subbridge.md#subbridge_getBridgeInformation) for more details.
 
 ```javascript
 > bridge.getBridgeInformation("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")
@@ -202,91 +211,93 @@ You can refer [subbridge API](../../bapp/json-rpc/api-references/subbridge.md#ge
 }
 ``` 
 
-# Token contract (ERC20/721)
-Service Chain supports also ERC20/721 value transferring. 
-To support them, service chain compatible ERC20/721 token contracts should be deployed on parent/child chain.
-For more detail the service chain compatible ERC20/721 token contract code, 
-you can refer [Token standard](../../smart-contract/token-standard.md). 
+# Token Contract (ERC-20/721) <a id="token-contract-erc-20-721"></a>
+Service Chain supports ERC-20/721 value transfer as well. 
+To support them, service chain compatible ERC-20/721 token contracts should be deployed on both parent and child chains.
+For the ERC-20/721 token contract code,
+you can refer to the [Token standard](../../smart-contract/token-standard.md). 
 
 ## Deployment 
-SCN does not support to deploy ERC20/721 contract yet. But you can deploy service chain compatible ERC20/721 via Caver-js.
-When you deploy service chain compatible ERC20/721, you should set the right bridge operator address to each token contracts.
-If a token contract has wrong bridge contract address, value transferring will not work and you need to deploy right token contract again. 
+SCN does not support an API to deploy ERC-20/721 tokens yet. You need to deploy the tokens via caver-js.
+When you deploy an ERC-20/721 contract, you should use the correct bridge operator account. Use the parent operator account for the main chain deploy, and the child operator for the service chain deploy.
+If a token contract was deployed with a wrong account, value transferring will not work and you need to deploy the token contract again with the correct account. 
 
 ## Register 
-After deployment token contracts, you can register token contracts on sub-bridge via RPC like below.
+After deploying token contracts, you should register the token contracts with the bridge contracts on the parent/child chains like below.
 ```javascript
 > bridge.registerToken("0x27caeba831d98b5fbb1d81ce0ed20801702f443a", "0x22c41ae528627b790233d2e59ea520be12350eb5", "0x376b72abe1b29cace831bd3f5acdfa967814c9cd", "0x53160735f7cc6ff75e48619f368bb94daff66a1b")
 null
 ```
 
-This command registers child chain token ("0x376b72abe1b29cace831bd3f5acdfa967814c9cd") and parent chain token ("0x53160735f7cc6ff75e48619f368bb94daff66a1b") to child chain bridge contract ("0x27caeba831d98b5fbb1d81ce0ed20801702f443a") parent chain bridge contract ("0x22c41ae528627b790233d2e59ea520be12350eb5").
+This command registers the child chain token ("0x376b72abe1b29cace831bd3f5acdfa967814c9cd") with the child chain bridge contract ("0x27caeba831d98b5fbb1d81ce0ed20801702f443a"). And the parent chain token ("0x53160735f7cc6ff75e48619f368bb94daff66a1b") with the parent chain bridge contract ("0x22c41ae528627b790233d2e59ea520be12350eb5").
 
-You can refer [Service Chain API](../../bapp/json-rpc/api-references/subbridge.md#registerToken) more details.
+You can refer to the [Service Chain API](../../bapp/json-rpc/api-references/subbridge.md#subbridge_registerToken) for more details.
 
-# Request Value transfer
-This section explains the method of contract for user to request value transfer.
-All request transaction does not allow zero value (KLAY/ERC20).
+# Request Value Transfer <a id="request-value-transfer"></a>
+This section explains the contract methods that will be invoked by a user to request a value transfer.
+Request transaction does not allow zero value (KLAY/ERC-20).
 
-## KLAY transfer
-User can make request value transfer transaction to **bridge contract** by below methods.
+## KLAY transfer <a id="klay-transfer"></a>
+Users can make a "request value transfer" transaction to the **bridge contract** using the below methods.
 
-### fallback
- 
-If user call the fallback function of bridge, this request KLAY transfer to same account address of user in opposite chain.
+### fallback <a id="fallback"></a>
+
+If a user calls the fallback function of the bridge, this requests a KLAY transfer to the same account address as the requesting user in the counterpart chain.
 
 ```solidity
 function () external payable;
 ```
 
-### requestKLAYTransfer
+### requestKLAYTransfer <a id="requestklaytransfer"></a>
 
-If user call this bridge contract function with `_to`, this request KLAY transfer to `_to` address in opposite chain.
+If a user calls this function with `_to`, this requests a KLAY transfer to `_to` address in the counterpart chain.
 
 ```solidity
 function requestKLAYTransfer(address _to, uint256 _value, bytes calldata _extraData) external payable
 ```
 
-## ERC20 transfer
+## ERC-20 transfer <a id="erc-20-transfer"></a>
 
 ### 2-Step request via Bridge contract
-User can make request value transfer transaction to Bridge contract by below method after approving the token to Bridge contract.
+Users can make a "request value transfer" transaction to the Bridge contract using the below method after [approving](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#approve) the token to the Bridge contract.
+
 ```solidity
 function requestERC20Transfer(address _tokenAddress, address _to, uint256 _value,uint256 _feeLimit,bytes memory _extraData) external
 ```
 
-### 1-Step request via ERC20 contract
-User can make request value transfer transaction to **compatible ERC20 contract** by below methods without approving.
-But to use this method, the ERC20 contract has the function. 
+### 1-Step request via ERC-20 contract
+Users can make a "request value transfer" transaction directly to the **ERC-20 contract** using the below method without approving.
+The ERC-20 contract should implement the function, then.
 
 ```solidity
 function requestValueTransfer(uint256 _amount, address _to, uint256 _feeLimit, bytes calldata _extraData) external
 ```
 
-## ERC721 transfer
+## ERC-721 transfer <a id="erc-721-transfer"></a>
 
 ### 2-Step request via Bridge contract
-User can make request value transfer transaction to Bridge contract by below method after approving the token to Bridge contract.
+Users can make a "request value transfer" transaction to the Bridge contract using the below method after [approving](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#approve) the token to the Bridge contract.
+
 ```solidity
 function requestERC721Transfer(address _tokenAddress, address _to, uint256 _tokenId, bytes memory _extraData) external
 ```
 
-### 1-Step request via ERC721 contract
-User can make request value transfer transaction to **compatible ERC721 contract** by below methods without approving.
-But to use this method, the ERC20 contract has the function.
+### 1-Step request via ERC-721 contract
+Users can make a "request value transfer" transaction directly to the **ERC-721 contract** using the below method without approving.
+The ERC-721 contract should implement the function, then.
 
 ```solidity
 function requestValueTransfer(uint256 _uid, address _to) external
 ```
 
-# Collecting Fee for KLAY/ERC20 transfer
-In Service Chain, there is collecting fee feature for KLAY/ERC20 transfer. 
+# Collecting Fee for KLAY/ERC-20 transfer
+In Service Chain, there is a fee collecting feature for the KLAY/ERC-20 transfer. 
 
 **It will be updated soon.**  
 
-# Customizing your Bridge contract 
-In Service Chain, you can use your own customized Bridge contract inherited by original Bridge contract for your own unique service.
-This section explain how to customize Bridge contract and show the example.
+# Customizing your Bridge Contract  <a id="customizing-your-bridge-contract"></a>
+In Service Chain, you can use your own customized Bridge contract that inherits from the original Bridge contract for your own unique service.
+This section explains how to customize the Bridge contract and presents the example code.
 
 **It will be updated soon.**
   
