@@ -127,7 +127,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 
 ## mainbridge_getChildChainIndexingEnabled <a id="mainbridge_getChildChainIndexingEnabled"></a>
 
-`mainbridge.getChildChainIndexingEnabled` returns if indexing anchoring transaction is enabled or not.
+`mainbridge_getChildChainIndexingEnabled` returns if indexing anchoring transaction is enabled or not.
 
 **Parameters**
 
