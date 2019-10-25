@@ -6,17 +6,17 @@
 
 **참고**: 이 블록의 이전 블록이 존재해야 합니다. 존재하지 않으면 실패합니다.
 
-| 클라이언트 | Method Invocation                                         |
+| 클라이언트 | 메서드 호출                                                    |
 |:-----:| --------------------------------------------------------- |
 |  콘솔   | `debug.traceBadBlock(hash, [options])`                    |
 |  RPC  | `{"method": "debug_traceBadBlock", "params": [hash, {}]}` |
 
 **매개변수**
 
-| 명칭      | 형식           | 설명                                |
-| ------- | ------------ | --------------------------------- |
-| hash    | 32-byte DATA | Hash of a block.                  |
-| options | object       | [추적 옵션](#tracing-options)을 참고하세요. |
+| 명칭      | 형식            | 설명                                |
+| ------- | ------------- | --------------------------------- |
+| hash    | 32바이트 크기 DATA | 블록의 해시입니다.                        |
+| options | 객체            | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -61,19 +61,19 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **참고**: 이 블록의 이전 블록이 존재해야 합니다. 존재하지 않으면 실패합니다.
 
-| 클라이언트 | Method Invocation                                          |
+| 클라이언트 | 메서드 호출                                                     |
 |:-----:| ---------------------------------------------------------- |
 |  콘솔   | `debug.traceBlock(blockRlp, [options])`                    |
 |  RPC  | `{"method": "debug_traceBlock", "params": [blockRlp, {}]}` |
 
-References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
+[RLP](https://github.com/ethereum/wiki/wiki/RLP)를 참고하세요.
 
 **매개변수**
 
-| 명칭       | 형식     | 설명                                |
-| -------- | ------ | --------------------------------- |
-| blockRlp | 문자열    | The RLP-encoded block.            |
-| options  | object | [추적 옵션](#tracing-options)을 참고하세요. |
+| 명칭       | 형식  | 설명                                |
+| -------- | --- | --------------------------------- |
+| blockRlp | 문자열 | RLP 인코딩된 블록입니다.                   |
+| options  | 객체  | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -107,17 +107,17 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ## debug_traceBlockByHash
 [debug_traceBlock](#debug_traceblock)과 유사하게 `traceBlockByHash`는 블록 해시를 받아 데이터베이스에 존재하는 해당 블록을 재실행합니다.
 
-| 클라이언트 | Method Invocation                                            |
+| 클라이언트 | 메서드 호출                                                       |
 |:-----:| ------------------------------------------------------------ |
 |  콘솔   | `debug.traceBlockByHash(hash, [options])`                    |
 |  RPC  | `{"method": "debug_traceBlockByHash", "params": [hash, {}]}` |
 
 **매개변수**
 
-| 명칭      | 형식           | 설명                                |
-| ------- | ------------ | --------------------------------- |
-| hash    | 32-byte DATA | Hash of a block.                  |
-| options | object       | [추적 옵션](#tracing-options)을 참고하세요. |
+| 명칭      | 형식            | 설명                                |
+| ------- | ------------- | --------------------------------- |
+| hash    | 32바이트 크기 DATA | 블록의 해시입니다.                        |
+| options | 객체            | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -150,17 +150,17 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ## debug_traceBlockByNumber
 [debug_traceBlock](#debug_traceblock)과 유사하게 `traceBlockByNumber`는 블록 번호를 받아 데이터베이스에 존재하는 해당 블록을 재실행합니다.
 
-| 클라이언트 | Method Invocation                                                |
+| 클라이언트 | 메서드 호출                                                           |
 |:-----:| ---------------------------------------------------------------- |
 |  콘솔   | `debug.traceBlockByNumber(number, [options])`                    |
 |  RPC  | `{"method": "debug_traceBlockByNumber", "params": [number, {}]}` |
 
 **매개변수**
 
-| 명칭      | 형식     | 설명                                |
-| ------- | ------ | --------------------------------- |
-| number  | int    | The block number.                 |
-| options | object | [추적 옵션](#tracing-options)을 참고하세요. |
+| 명칭      | 형식  | 설명                                |
+| ------- | --- | --------------------------------- |
+| number  | int | 블록 번호입니다.                         |
+| options | 객체  | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -197,19 +197,19 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **참고**: 해당 파일은 `0x`를 제거한 16진수 문자열을 담고 있어야 합니다.
 
-| 클라이언트 | Method Invocation                                                  |
+| 클라이언트 | 메서드 호출                                                             |
 |:-----:| ------------------------------------------------------------------ |
 |  콘솔   | `debug.traceBlockFromFile(fileName, [options])`                    |
 |  RPC  | `{"method": "debug_traceBlockFromFile", "params": [fileName, {}]}` |
 
-References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
+[RLP](https://github.com/ethereum/wiki/wiki/RLP)를 참고하세요.
 
 **매개변수**
 
-| 명칭       | 형식     | 설명                                |
-| -------- | ------ | --------------------------------- |
-| fileName | 문자열    | 블록의 RLP를 담고 있는 파일의 이름입니다.         |
-| options  | object | [추적 옵션](#tracing-options)을 참고하세요. |
+| 명칭       | 형식  | 설명                                |
+| -------- | --- | --------------------------------- |
+| fileName | 문자열 | 블록의 RLP를 담고 있는 파일의 이름입니다.         |
+| options  | 객체  | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -250,17 +250,17 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 `traceTransaction` 디버깅 메서드는 네트워크에서 실행되었던 그대로 트랜잭션을 실행합니다. 입력으로 받은 트랜잭션 해시에 대응되는 트랜잭션 이전에 실행되었던 트랜잭션들을 재실행합니다.
 
-| 클라이언트 | Method Invocation                                              |
+| 클라이언트 | 메서드 호출                                                         |
 |:-----:| -------------------------------------------------------------- |
 |  콘솔   | `debug.traceTransaction(txHash, [options])`                    |
 |  RPC  | `{"method": "debug_traceTransaction", "params": [txHash, {}]}` |
 
 **매개변수**
 
-| 명칭      | 형식     | 설명                                |
-| ------- | ------ | --------------------------------- |
-| txHash  | 문자열    | 트랜잭션의 해시입니다.                      |
-| options | object | [추적 옵션](#tracing-options)을 참고하세요. |
+| 명칭      | 형식  | 설명                                |
+| ------- | --- | --------------------------------- |
+| txHash  | 문자열 | 트랜잭션의 해시입니다.                      |
+| options | 객체  | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -353,11 +353,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## 추적 옵션
 
-You may give trace API function a secondary optional argument, which specifies the options for this specific call. The possible options are:
+추적 API 함수에 보조적으로 필수적이지 않은 매개변수를 전달할 수도 있습니다. 이들은 특정 호출을 지정하는 옵션 역할을 합니다. 다음의 옵션들을 사용할 수 있습니다.
 
-- `disableStorage`: `BOOL`. Setting this to true will disable storage capture (default = false).
-- `disableMemory`: `BOOL`. Setting this to true will disable memory capture (default = false).
-- `disableStack`: `BOOL`. Setting this to true will disable stack capture (default = false).
+- `disableStorage`: `BOOL`. 이 옵션을 true로 설정하면 스토리지 캡처가 비활성화됩니다. (기본 설정: false)
+- `disableMemory`: `BOOL`. 이 옵션을 true로 설정하면 메모리 캡처가 비활성화됩니다. (기본 설정: false)
+- `disableStack`: `BOOL`. 이 옵션을 true로 설정하면 스택 캡처가 비활성화됩니다. (기본 설정: false)
 - `timeout`: `STRING`. 자바스크립트 기반 추적 호출 타임아웃으로 기본 설정된 5초를 변경합니다. 유효한 값은 [여기](https://golang.org/pkg/time/#ParseDuration)를 참고해주세요.
 - `tracer`: `STRING`. 이 옵션을 설정하면 자바스크립트 기반 트랜잭션 추적을 활성화합니다. 자세한 내용은 [다음 섹션](#javascript-based-tracing)을 참고해주세요. 이 옵션을 설정하면 앞선 4개의 매개변수는 모두 무시됩니다. 다음 표와 같이 사전 정의된 추적 툴을 사용할 수도 있습니다.
 
