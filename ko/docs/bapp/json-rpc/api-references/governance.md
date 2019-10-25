@@ -1,48 +1,48 @@
 ---
 description: >-
-  APIs related to the Klaytn Governance.
+  Klaytn 거버넌스와 관련한 API입니다.
 ---
 
 # Namespace governance
 
-For the governance of the network, Klaytn provides the following APIs under `governance` namespace.
+네트워크 거버넌스를 위해 Klaytn은 다음과 같이 `governance` namespace의 API를 제공합니다.
 
-In Klaytn, there are three different governance modes.
-* `none`: All nodes participating in the network have the right to change the configuration.
-* `single`: Only one designated node has the right to change the configuration.
-* `ballot`: All nodes which have voting power can vote for a change. When more than half of total voting power gathered, the vote passes.
+Klaytn에는 세 가지 거버넌스 모드가 있습니다.
+* `none`: 네트워크에 참여하는 모든 노드는 환경 설정을 변경할 권리가 있습니다.
+* `single`: 오직 하나의 특정 노드가 환경 설정을 변경할 권리를 가집니다.
+* `ballot`: 의결권이 있는 모든 노드가 환경 설정 변경에 투표할 수 있습니다. 전체 의결권 중 절반 이상이 모이면 해당 의제는 통과됩니다.
 
 
 ## governance_vote
 
-The `vote` method submits a new vote. If the node has the right to vote based on governance mode, the vote can be placed. If not, an error message will be returned and the vote will be ignored.
+`vote` 메서드는 새로운 투표를 제출합니다. 거버넌스 모드에 의거하여 노드가 의결권을 가지면 투표할 수 있습니다. 그렇지 않으면 오류 메시지가 반환되고 투표 행위가 무시됩니다.
 
 **매개변수**
 
-- `Key` : Name of the configuration setting to be changed. Key has the form of `domain.field`
-- `Value` : Various types of value for each key.
+- `Key` : 변경하고자 하는 환경 설정의 이름입니다. 키는 `domain.field`의 형식으로 되어 있습니다.
+- `Value` : 각 키에 대한 다양한 형태의 값입니다.
 
-| Key                            | 설명                                                                                                                                                                                                                                        |
-| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"governance.governancemode"`  | `STRING`. One of the three governance modes. `"none"`, `"single"`, `"ballot"`                                                                                                                                                             |
-| `"governance.governingnode"`   | `ADDRESS`. Designated governing node's address. It only works if the governance mode is `"single"` e.g.,`"0xe733cb4d279da696f30d470f8c04decb54fcb0d2"`                                                                                    |
-| `"governance.unitprice"`       | `NUMBER`. Price of unit gas. e.g., `25000000000`                                                                                                                                                                                          |
-| `"governance.addvalidator"`    | `ADDRESS`. Address of a new validator candidate. e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                       |
-| `"governance.removevalidator"` | `ADDRESS`. Address of a current validator which need to be removed. e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                    |
-| `"istanbul.epoch"`             | `NUMBER`. A period in which votes are gathered in blocks. When an epoch end, all votes which haven't been passed will be cleared. e.g., `86400`                                                                                           |
-| `"istanbul.committeesize"`     | `NUMBER`. The number of validators in a committee.(`sub` in chain configuration) e.g., `7`                                                                                                                                                |
-| `"reward.mintingamount"`       | `STRING`. Amount of Peb minted when a block is generated. Double quotation marks are needed for a value. e.g., `"9600000000000000000"`                                                                                                    |
-| `"reward.ratio"`               | `STRING`. Distribution rate for a CN/PoC/KIR separated by `"/"`. The sum of all values has to be `100`. e.g., `"34/54/12"` meaning CN 34%, PoC 54%, KiR 12%                                                                               |
-| `"reward.useginicoeff"`        | `BOOL`. Use the Gini coefficient or not. `true`, `false`                                                                                                                                                                                  |
-| `"reward.deferredtxfee"`       | `BOOL`. The way of giving transaction fee to a proposer. If true, it means the tx fee will be summed up with block reward and distributed to the proposer, KIR and PoC. If not, all tx fee will be given to the proposer. `true`, `false` |
-| `"reward.minimumstake"`        | `STRING`. Amount of Klay required to be a CN (Consensus Node). Double quotation marks are needed for a value. e.g., `"5000000"`                                                                                                           |
+| 키                              | 설명                                                                                                                                            |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"governance.governancemode"`  | `STRING`. 세 거버넌스 모드 중 하나입니다. `"none"`, `"single"`, `"ballot"` 등 세 가지 모드 중 하나를 선택합니다.                                                          |
+| `"governance.governingnode"`   | `ADDRESS`. 거버넌스를 통제하는 특정 노드의 주소입니다. 거버넌스 모드가 `"single"`인 경우에만 해당합니다. 예를 들어, `"0xe733cb4d279da696f30d470f8c04decb54fcb0d2"`입니다.                |
+| `"governance.unitprice"`       | `NUMBER`. 가스당 가격입니다. 예를 들어, `25000000000`입니다.                                                                                                 |
+| `"governance.addvalidator"`    | `ADDRESS`. 새로운 검증자 후보의 주소입니다. 예를 들어, `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`입니다.                                                         |
+| `"governance.removevalidator"` | `ADDRESS`. 제거될 검증자의 주소입니다. 예를 들어, `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`입니다.                                                            |
+| `"istanbul.epoch"`             | `NUMBER`. 표를 수집할 블록 단위의 시간입니다. 투표 기간이 종료되면 기간을 넘긴 투표는 무효가 됩니다. 예를 들어, `86400`입니다.                                                             |
+| `"istanbul.committeesize"`     | `NUMBER`. 위원회의 검증자 수입니다. (체인 환경 설정에서 `sub`입니다.) 예를 들어, `7`입니다.                                                                                |
+| `"reward.mintingamount"`       | `STRING`. 블록이 생성될 때 발행되는 peb의 양입니다. 값에는 큰따옴표가 필요합니다. 예를 들어, `"9600000000000000000"`입니다.                                                       |
+| `"reward.ratio"`               | `STRING`. `"/"`으로 구분되는 <0>CN/KIR/PoC</0>의 분포 비율입니다. 각 값의 합은 `100`이어야 합니다. 예를 들어, `"34/54/12"`은 CN이 34%, PoC이 54%, KIR이 12%를 차지하고 있다는 것입니다.    |
+| `"reward.useginicoeff"`        | `BOOL`. 지니(GINI) 계수 사용 여부입니다 `true` 또는 `false`로 설정합니다.                                                                                        |
+| `"reward.deferredtxfee"`       | `BOOL`. 트랜잭션 비용을 제안자에게 지급하는 방법입니다. true이면 트랜잭션 비용은 블록 보상과 합산되어 제안자, KIR, PoC에게 분배됩니다. false이면 트랜잭션 비용이 제안자에게 지급됩니다. `true` 또는 `false`로 설정합니다. |
+| `"reward.minimumstake"`        | `STRING`. CN(합의 노드)가 되는 데 필요한 Klay 양입니다. 값에는 큰따옴표가 필요합니다. 예를 들어, `"5000000"`입니다.                                                              |
 
 
 **리턴값**
 
-| 형식  | 설명                        |
-| --- | ------------------------- |
-| 문자열 | Result of vote submission |
+| 형식  | 설명           |
+| --- | ------------ |
+| 문자열 | 투표 제출 결과입니다. |
 
 **예시**
 
@@ -86,7 +86,7 @@ The `vote` method submits a new vote. If the node has the right to vote based on
 
 ## governance_showTally
 
-The `showTally` property provides the current tally of governance votes. It shows the aggregated approval rate in percentage. When it goes over 50%, the vote passes.
+`showTally` 속성은 거버넌스 투표의 현재 집계를 제공합니다. 집계된 찬성률을 백분율로 나타냅니다. 50%가 넘으면 해당 의제는 통과됩니다.
 
 **매개변수**
 
@@ -94,9 +94,9 @@ The `showTally` property provides the current tally of governance votes. It show
 
 **리턴값**
 
-| 형식    | 설명                                                |
-| ----- | ------------------------------------------------- |
-| Tally | Each vote's value and approval rate in percentage |
+| 형식    | 설명                         |
+| ----- | -------------------------- |
+| Tally | 각 표의 가중치를 고려한 찬성률의 백분율입니다. |
 
 **예시**
 
@@ -116,7 +116,7 @@ The `showTally` property provides the current tally of governance votes. It show
 
 ## governance_totalVotingPower
 
-The `totalVotingPower` property provides the sum of all voting power that CNs have. Each CN has 1.0 ~ 2.0 voting power. In `"none"`, `"single"` governance mode, `totalVotingPower` don't provide any information.
+`totalVotingPower` 속성은 CN들이 보유한 의결권 합계를 나타냅니다. 각 CN은 1.0 ~ 2.0의 의결권을 가집니다. `"none"`, `"single"` 거버넌스 모드에서는 `totalVotingPower` 속성을 통해 제공하는 정보가 없습니다.
 
 **매개변수**
 
@@ -124,9 +124,9 @@ The `totalVotingPower` property provides the sum of all voting power that CNs ha
 
 **리턴값**
 
-| 형식    | 설명                                  |
-| ----- | ----------------------------------- |
-| Float | Total Voting Power or error message |
+| 형식    | 설명                      |
+| ----- | ----------------------- |
+| Float | 총 의결권 또는 오류 메시지를 반환합니다. |
 
 **예시**
 
@@ -143,7 +143,7 @@ The `totalVotingPower` property provides the sum of all voting power that CNs ha
 
 ## governance_myVotingPower
 
-The `myVotingPower` property provides the voting power of the node. The voting power can be 1.0 ~ 2.0. In `"none"`, `"single"` governance mode, `totalVotingPower` don't provide any information.
+`myVotingPower` 속성은 나의 노드가 보유한 의결권을 나타냅니다. 한 노드당 1.0 ~ 2.0의 의결권을 가집니다. `"none"`, `"single"` 거버넌스 모드에서는 `totalVotingPower` 속성을 통해 제공하는 정보가 없습니다.
 
 **매개변수**
 
@@ -151,9 +151,9 @@ The `myVotingPower` property provides the voting power of the node. The voting p
 
 **리턴값**
 
-| 형식    | 설명                                   |
-| ----- | ------------------------------------ |
-| Float | Node's Voting Power or error message |
+| 형식    | 설명                        |
+| ----- | ------------------------- |
+| Float | 노드의 의결권 또는 오류 메시지를 반환합니다. |
 
 **예시**
 
@@ -170,7 +170,7 @@ The `myVotingPower` property provides the voting power of the node. The voting p
 
 ## governance_myVotes
 
-The `myVotes` property provides my vote information in the epoch. Each vote is stored in a block when the user's node generates a new block. After current epoch ends, this information is cleared.
+`myVotes` 속성은 투표 기간 동안의 나의 투표 정보를 나타냅니다. 사용자의 노드가 새로운 블록을 생성할 때 각 투표가 블록에 저장됩니다. 현재 투표 기간이 종료되면 이 정보는 사라집니다.
 
 **매개변수**
 
@@ -178,9 +178,9 @@ The `myVotes` property provides my vote information in the epoch. Each vote is s
 
 **리턴값**
 
-| 형식        | 설명                                                                                                                                                                                                                                                      |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Vote List | Node's Voting status in the epoch<br />- `BlockNum`: The block number that this vote is stored<br />- `Casted`: If this vote is stored in a block or not<br />- `Key/Value`: The content of the vote |
+| 형식        | 설명                                                                                                                                                                                  |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Vote List | 투표 기간 동안 노드의 투표 상태는 다음과 같습니다.<br />- `BlockNum`: 투표가 저장된 블록 번호<br />- `Casted`: 이 투표가 블록에 저장이 되었는지 여부<br />- `Key/Value`: 투표의 내용 |
 
 **예시**
 
@@ -201,7 +201,7 @@ The `myVotes` property provides my vote information in the epoch. Each vote is s
 
 ## governance_chainConfig
 
-The `chainConfig` property provides the initial chain configuration. Because it just stores the initial configuration, if there were changes in the governance made by voting, the result of `chainConfig` will differ from the current states. To see the current information, please use `itemsAt`.
+`chainConfig` 속성은 초기 체인 환경 설정을 나타냅니다. 이 속성은 초기 환경 설정만 저장하기 때문에 투표에 의해 거버넌스에 변경 사항이 있다면 `chainConfig`의 결과는 현재 상태와 달라질 것입니다. 현재 정보를 확인하려면 `itemsAt`을 사용하세요.
 
 **매개변수**
 
@@ -209,9 +209,9 @@ The `chainConfig` property provides the initial chain configuration. Because it 
 
 **리턴값**
 
-| 형식   | 설명                          |
-| ---- | --------------------------- |
-| JSON | Current chain configuration |
+| 형식   | 설명               |
+| ---- | ---------------- |
+| JSON | 현재 체인의 환경 설정입니다. |
 
 **예시**
 
@@ -245,7 +245,7 @@ The `chainConfig` property provides the initial chain configuration. Because it 
 
 ## governance_nodeAddress
 
-The `nodeAddress` property provides the address of the node that a user is using. It is derived from the nodekey and used to sign consensus messages. And the value of `"governingnode"` has to be one of validator's node address.
+`nodeAddress` 속성은 사용자가 사용하고 있는 노드의 주소를 나타냅니다. nodekey에서 파생되어 합의 메시지를 서명하는 데에 사용됩니다. 그리고 `"governingnode"`의 값은 검증자의 노드 중 하나의 주소가 되어야 합니다.
 
 **매개변수**
 
@@ -253,9 +253,9 @@ The `nodeAddress` property provides the address of the node that a user is using
 
 **리턴값**
 
-| 형식      | 설명                        |
-| ------- | ------------------------- |
-| ADDRESS | 20 BYTE address of a node |
+| 형식      | 설명                  |
+| ------- | ------------------- |
+| ADDRESS | 노드의 20바이트 길이 주소입니다. |
 
 **예시**
 
@@ -266,19 +266,19 @@ The `nodeAddress` property provides the address of the node that a user is using
 
 ## governance_itemsAt
 
-The `itemsAt` returns governance items at specific block. It is the result of previous voting of the block and used as configuration for chain at the given block number.
+`itemsAt`은 특정 블록에서의 거버넌스 항목을 반환합니다. 이는 해당 블록의 이전 투표 결과이며, 입력으로 받은 블록 번호에서 체인의 환경 설정을 하는 데에 사용됩니다.
 
 **매개변수**
 
-| 형식                  | 설명                                                                                                                                                                  |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
+| 형식                  | 설명                                                                                                                                                               |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는  `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./klay/block.md#the-default-block-parameter)를 참고하세요. |
 
 **리턴값**
 
-| 형식   | 설명               |
-| ---- | ---------------- |
-| JSON | governance items |
+| 형식   | 설명           |
+| ---- | ------------ |
+| JSON | 거버넌스 항목들입니다. |
 
 **예시**
 
@@ -302,7 +302,7 @@ The `itemsAt` returns governance items at specific block. It is the result of pr
 ```
 ## governance_pendingChanges
 
-The `pendingChanges` returns the list of items that have received enough number of votes but not yet finalized. At the end of the current epoch, these changes will be finalized and the result will be in effect from the epoch after next epoch.
+`pendingChanges`은 충분한 표를 받았지만, 아직 확정되지 않은 항목들의 목록을 반환합니다. 현재 투표 기간이 끝날 때 이 항목들은 확정되어 그 결과가 다음 투표 기간 이후의 투표 기간부터 적용됩니다.
 
 **매개변수**
 
@@ -310,9 +310,9 @@ The `pendingChanges` returns the list of items that have received enough number 
 
 **리턴값**
 
-| 형식        | 설명                                                    |
-| --------- | ----------------------------------------------------- |
-| Vote List | Currently pending changes composed of keys and values |
+| 형식        | 설명                          |
+| --------- | --------------------------- |
+| Vote List | 현재 보류 중인 변경 항목들의 키-밸류 쌍입니다. |
 
 **예시**
 ```javascript
@@ -325,7 +325,7 @@ The `pendingChanges` returns the list of items that have received enough number 
 
 ## governance_votes
 
-The `votes` returns the votes from all nodes in the epoch. These votes are gathered from the header of each block.
+`votes`는 투표 기간 중 모든 노드의 투표 상태를 반환합니다. 각 블록의 헤더로부터 이러한 정보가 수집됩니다.
 
 **매개변수**
 
@@ -333,9 +333,9 @@ The `votes` returns the votes from all nodes in the epoch. These votes are gathe
 
 **리턴값**
 
-| 형식        | 설명                                                        |
-| --------- | --------------------------------------------------------- |
-| Vote List | Current votes composed of keys, values and node addresses |
+| 형식        | 설명                            |
+| --------- | ----------------------------- |
+| Vote List | 키, 값, 노드 주소로 구성된 현재 투표 정보입니다. |
 
 **예시**
 ```javascript
@@ -352,7 +352,7 @@ The `votes` returns the votes from all nodes in the epoch. These votes are gathe
 ```
 
 ## governance_idxCache
-The `idxCache` property returns an array of current idxCache in the memory cache. idxCache contains the block numbers where governance change happened. The cache can have up to 1000 block numbers in memory by default.
+`idxCache` 속성은 메모리 캐시 내의 현재 idxCache 배열을 반환합니다. idxCache는 거버넌스 내용이 변경되었던 블록 번호를 담고 있습니다. 캐시는 최대 1,000개의 블록 번호까지 담을 수 있도록 기본 설정되어 있습니다.
 
 **매개변수**
 
@@ -360,9 +360,9 @@ The `idxCache` property returns an array of current idxCache in the memory cache
 
 **리턴값**
 
-| 형식           | 설명                                             |
-| ------------ | ---------------------------------------------- |
-| uint64 array | Block numbers where governance change happened |
+| 형식        | 설명                        |
+| --------- | ------------------------- |
+| uint64 배열 | 거버넌스 내용이 변경되었던 블록의 번호입니다. |
 
 **예시**
 ```javascript
@@ -371,7 +371,7 @@ The `idxCache` property returns an array of current idxCache in the memory cache
 ```
 
 ## governance_idxCacheFromDb
-The `idxCacheFromDb` returns an array that contains all block numbers on which a governance change ever happened. The result of `idxCacheFromDb` is the same or longer than that of `idxCache`
+`idxCacheFromDb`는 거버넌스 내용 변경이 이루어졌던 모든 블록의 번호를 배열로 반환합니다. `idxCacheFromDb`의 결과의 길이는 `idxCache`의 그것 이상입니다.
 
 **매개변수**
 
@@ -379,9 +379,9 @@ The `idxCacheFromDb` returns an array that contains all block numbers on which a
 
 **리턴값**
 
-| 형식           | 설명                                                   |
-| ------------ | ---------------------------------------------------- |
-| uint64 array | Every block numbers where governance change happened |
+| 형식        | 설명                           |
+| --------- | ---------------------------- |
+| uint64 배열 | 거버넌스 내용이 변경되었던 모든 블록의 번호입니다. |
 
 **예시**
 ```javascript
@@ -390,19 +390,19 @@ The `idxCacheFromDb` returns an array that contains all block numbers on which a
 ```
 
 ## governance_itemCacheFromDb
-The `itemCacheFromDb` returns the governance information stored in the given block. If no changes were stored in the given block, the function returns `null`.
+`itemCacheFromDb`는 입력으로 받은 블록에 저장된 거버넌스 정보를 반환합니다. 해당 블록에 변경 사항이 저장되어 있지 않다면 함수는 `null`을 반환합니다.
 
 **매개변수**
 
-| 형식     | 설명                                                               |
-| ------ | ---------------------------------------------------------------- |
-| uint64 | A block number to query the governance change made in the block. |
+| 형식     | 설명                                |
+| ------ | --------------------------------- |
+| uint64 | 거버넌스 내용 변경이 이루어졌는지 확인할 블록의 번호입니다. |
 
 **리턴값**
 
-| 형식   | 설명                                             |
-| ---- | ---------------------------------------------- |
-| JSON | Stored governance information at a given block |
+| 형식   | 설명                          |
+| ---- | --------------------------- |
+| JSON | 입력으로 받은 블록에 저장된 거버넌스 정보입니다. |
 
 **예시**
 ```javascript
