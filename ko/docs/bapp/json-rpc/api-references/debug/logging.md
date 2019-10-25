@@ -4,7 +4,7 @@
 
 로깅 백트레이스 위치를 설정합니다. 백트레이스 위치가 설정되고 해당 위치에서 로그 메시지가 발생하면, 해당 로그문을 실행하던 go루틴의 스택이 `stderr`에 출력됩니다.
 
-| 클라이언트 | Method Invocation                                     |
+| 클라이언트 | 메서드 호출                                                |
 |:-----:| ----------------------------------------------------- |
 |  콘솔   | `debug.backtraceAt(location)`                         |
 |  RPC  | `{"method": "debug_backtraceAt", "params": [string]}` |
@@ -38,7 +38,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 사전 컴파일된 컨트랙트 vmlog의 출력 형태를 설정합니다.  출력 형태가 파일이면, 스마트 컨트랙트에서의 `vmlog` 호출에서 발생한 로그는 `DATADIR/log/vm.log`에 쓰입니다.  `DATADIR`는 `klay`를 실행할 때 `--datadir`를 통해 지정된 디렉토리입니다.  출력 형태가 `stdout`이면, 표준 출력의 디버깅 메시지와 같이 로그가 출력됩니다.
 
-| 클라이언트 | Method Invocation                                        |
+| 클라이언트 | 메서드 호출                                                   |
 |:-----:| -------------------------------------------------------- |
 |  콘솔   | `debug.setVMLogTarget(target)`                           |
 |  RPC  | `{"method": "debug_setVMLogTarget", "params": [number]}` |
@@ -93,7 +93,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 `debug_vmodule`을 사용하여 각 패키지와 소스 파일의 상세 정도를 높일 수 있습니다.
 
-| 클라이언트 | Method Invocation                                 |
+| 클라이언트 | 메서드 호출                                            |
 |:-----:| ------------------------------------------------- |
 |  콘솔   | `debug.verbosity(level)`                          |
 |  RPC  | `{"method": "debug_vmodule", "params": [number]}` |
@@ -126,7 +126,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 로깅의 상세 출력 패턴을 설정합니다.
 
-| 클라이언트 | Method Invocation                                 |
+| 클라이언트 | 메서드 호출                                            |
 |:-----:| ------------------------------------------------- |
 |  콘솔   | `debug.vmodule(module)`                           |
 |  RPC  | `{"method": "debug_vmodule", "params": [string]}` |
