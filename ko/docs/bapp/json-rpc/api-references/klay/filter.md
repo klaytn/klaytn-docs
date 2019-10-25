@@ -2,13 +2,13 @@
 
 필터에 대한 폴링 방법으로, 최근 폴링 이후 발생한 로그를 배열의 형태로 반환합니다.
 
-**Parameters**
+**매개변수**
 
-| 명칭       | 형식     | 설명                               |
-| -------- | ------ | -------------------------------- |
-| QUANTITY | string | 필터 ID(*예를 들어*, "0x16" // 22)입니다. |
+| 명칭       | 형식  | 설명                               |
+| -------- | --- | -------------------------------- |
+| QUANTITY | 문자열 | 필터 ID(*예를 들어*, "0x16" // 22)입니다. |
 
-**Return Value**
+**리턴값**
 
 `배열` - 로그 객체의 배열을 반환하거나 또는 최근 폴링 이후 변화가 없는 경우 빈 배열을 반환합니다.
 - [klay_newBlockFilter](#klay_newblockfilter)로 생성된 필터의 경우 블록 해시(32바이트 크기의 DATA)를 반환합니다. *예를 들어*, `["0x3454645634534..."]`.
@@ -20,8 +20,8 @@
 | removed          | TAG           | 체인 재구성으로 로그가 제거된 경우 `true`입니다. 유효한 로그이면 `false`입니다.                                                                                                                                     |
 | logIndex         | QUANTITY      | 블록에서 로그 인덱스 위치의 정숫값입니다. 보류 중인 로그인 경우 `null`을 반환합니다.                                                                                                                                     |
 | transactionIndex | QUANTITY      | 로그가 생성된 트랜잭션의 인덱스 위치의 정숫값입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                   |
-| transactionHash  | 32-byte DATA  | 로그가 생성된 트랜잭션의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                            |
-| blockHash        | 32-byte DATA  | 로그가 생성된 블록의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                              |
+| transactionHash  | 32바이트 크기 DATA | 로그가 생성된 트랜잭션의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                            |
+| blockHash        | 32바이트 크기 DATA | 로그가 생성된 블록의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                              |
 | blockNumber      | QUANTITY      | 로그가 속한 블록의 번호입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                               |
 | address          | 20바이트 크기 DATA | 로그를 발생시킨 주소입니다.                                                                                                                                                                         |
 | data             | DATA          | 로그 중 인덱스화되지 않은 인수를 담고 있습니다.                                                                                                                                                             |
@@ -57,13 +57,13 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 입력으로 받은 필터 ID와 일치하는 모든 로그를 배열 형태로 반환합니다. 필터 Id는 [klay_newFilter](#klay_newfilter)를 통해 얻을 수 있습니다.  이때 [klay_newBlockFilter](#klay_newblockfilter), [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter)와 같은 다른 필터 생성 함수를 통해 얻은 필터 ID는 본 함수의 매개변수로 사용할 수 없습니다.
 
-**Parameters**
+**매개변수**
 
-| 명칭       | 형식     | 설명        |
-| -------- | ------ | --------- |
-| QUANTITY | string | 필터 ID입니다. |
+| 명칭       | 형식  | 설명        |
+| -------- | --- | --------- |
+| QUANTITY | 문자열 | 필터 ID입니다. |
 
-**Return Value**
+**리턴값**
 
 자세한 내용은 [klay_getFilterChanges](#klay_getfilterchanges)를 참고하세요.
 
@@ -96,7 +96,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 입력으로 받은 필터 객체와 일치하는 모든 로그를 배열 형태로 반환합니다.
 
-**Parameters**
+**매개변수**
 
 `객체` - 필터 객체를 구성하는 옵션은 다음과 같습니다.
 
@@ -106,9 +106,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | toBlock   | QUANTITY &#124; TAG      | (선택사항이며,  기본적으로 `"latest"`로 설정되어 있습니다.) 블록 번호 정숫값이거나 또는 마지막으로 채굴된 블록의 경우 `"latest"`, 아직 채굴되지 않은 트랜잭션의 경우 `"pending"`, `"earliest"` 문자열입니다.                                                    |
 | address   | 20바이트 크기의 DATA &#124; 배열 | (선택사항) 로그를 발생시킨 컨트랙트 주소 또는 주소들의 목록입니다.                                                                                                                                                        |
 | topics    | DATA 배열                  | (선택사항) 32바이트 크기 DATA 형태의 토픽으로 이루어진 배열입니다. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                                                                                              |
-| blockHash | 32-byte DATA             | (선택사항) 32바이트 길이의 해시 blockHash를 사용하여 한 블록으로 반환된 로그를 제한하는 필터 옵션입니다. blockHash를 사용하면, blockHash로 지정한 블록의 번호가 fromBlock, toBlock과 같아집니다. 따라서 필터 기준에 blockHash가 있으면 fromBlock과 toBlock이 허용되지 않습니다. |
+| blockHash | 32바이트 크기 DATA            | (선택사항) 32바이트 길이의 해시 blockHash를 사용하여 한 블록으로 반환된 로그를 제한하는 필터 옵션입니다. blockHash를 사용하면, blockHash로 지정한 블록의 번호가 fromBlock, toBlock과 같아집니다. 따라서 필터 기준에 blockHash가 있으면 fromBlock과 toBlock이 허용되지 않습니다. |
 
-**Return Value**
+**리턴값**
 
 자세한 내용은 [klay_getFilterChanges](#klay_getfilterchanges)를 참고하세요.
 
@@ -233,11 +233,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 
 노드에 필터를 생성하여 새로운 블록이 도착하였음을 알립니다. 상태가 변경되었는지 확인하려면 [klay_getFilterChanges](#klay_getfilterchanges)를 호출하세요.
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
 | 형식       | 설명        |
 | -------- | --------- |
@@ -271,7 +271,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 * `[A, B]` "A가 첫 번째 위치에 있음 AND B가 두 번째 위치에 있음 (이후에는 무엇이든 있어도 됨)"
 * `[[A, B], [A, B]]` "(A 또는 B)가 첫 번째 위치에 있음 AND (A 또는 B)가 두 번째 위치에 있음 (이후에는 무엇이든 있어도 됨)"
 
-**Parameters**
+**매개변수**
 
 `객체` - 필터 객체를 구성하는 옵션은 다음과 같습니다.
 
@@ -282,7 +282,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | address   | 20바이트 크기의 DATA &#124; 배열 | (선택사항) 로그를 발생시킨 컨트랙트 주소 또는 주소들의 목록입니다.                                                                                                     |
 | topics    | DATA 배열                  | (선택사항) 32바이트 크기 DATA 형태의 토픽으로 이루어진 배열입니다. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                                           |
 
-**Return Value**
+**리턴값**
 
 | 형식       | 설명       |
 | -------- | -------- |
@@ -303,11 +303,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 
 노드에 필터를 생성하여 보류 상태인 새로운 트랜잭션이 도착하였음을 알립니다. 상태가 변경되었는지 확인하려면 [klay_getFilterChanges](#klay_getfilterchanges)를 호출하세요.
 
-**Parameters**
+**매개변수**
 
-None
+없음
 
-**Return Value**
+**리턴값**
 
 | 형식       | 설명        |
 | -------- | --------- |
@@ -332,13 +332,13 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 입력으로 받은 ID를 가진 필터를 제거합니다. 더는 모니터링을 하지 않으면 호출해야 합니다. 또한, 일정 주기 동안 [klay_getFilterChanges](#klay_getfilterchanges)를 통해 요청되지 않으면 필터는 타임아웃 됩니다.
 
-**Parameters**
+**매개변수**
 
 | 명칭 | 형식       | 설명        |
 | -- | -------- | --------- |
 | 필터 | QUANTITY | 필터 ID입니다. |
 
-**Return Value**
+**리턴값**
 
 | 형식  | 설명                                                   |
 | --- | ---------------------------------------------------- |
