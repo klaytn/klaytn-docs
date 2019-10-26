@@ -995,21 +995,21 @@ caver.utils.toTwosComplement(number)
 ```javascript
 caver.utils.isContractDeployment(transactionObject)
 ```
-주어진 트랜잭션이 스마트 컨트랙트 배포 트랜잭션인 경우 `true`를 반환합니다. 주어진 트랜잭션이 스마트 컨트랙트 배포 트랜잭션이 아닌 경우 `flase`를 반환합니다. The result is determined by the values of the parameters in the `transactionObject`. Make sure all the mandatory parameters are set correctly.
+주어진 트랜잭션이 스마트 컨트랙트 배포 트랜잭션인 경우 `true`를 반환합니다. 주어진 트랜잭션이 스마트 컨트랙트 배포 트랜잭션이 아닌 경우 `flase`를 반환합니다. 결과는 `transactionObject`의 매개변수 값에 의해 결정됩니다. 모든 필수 매개변수가 올바르게 설정되었는지 확인하세요.
 
-**NOTE** caver.klay.isContractDeployment is supported from **v1.0.1-rc.8**. To use this feature, please install [v1.0.1-rc.8](https://www.npmjs.com/package/caver-js/v/1.0.1-rc.8) or higher.
+**참고** caver.klay.isContractDeployment는 **v1.0.1-rc.8**에서 지원됩니다. 이 기능을 사용하려면 [v1.0.1-rc.8](https://www.npmjs.com/package/caver-js/v/8.1.1-rc.8) 또는 그 이상을 설치하세요.
 
 **매개변수**
 
-| 명칭                | 형식 | 설명                                                                                             |
-| ----------------- | -- | ---------------------------------------------------------------------------------------------- |
-| transactionObject | 객체 | Transaction object that you want to determine if the transaction is for smart contract deploy. |
+| 명칭                | 형식 | 설명                                  |
+| ----------------- | -- | ----------------------------------- |
+| transactionObject | 객체 | 트랜잭션이 스마트 컨트랙트 배포용인지 확인하려는 트랜잭션 객체. |
 
 **리턴값**
 
-| 형식  | 설명                                                                |
-| --- | ----------------------------------------------------------------- |
-| 불리언 | `true` means the transaction object is for smart contract deploy. |
+| 형식  | 설명                                     |
+| --- | -------------------------------------- |
+| 불리언 | `true`는 트랜잭션 객체가 스마트 컨트랙트 배포용임을 의미합니다. |
 
 **예제**
 
@@ -1058,21 +1058,21 @@ false
 ```javascript
 caver.utils.xyPointFromPublicKey(publicKey)
 ```
-Returns the x and y coordinates of the given publicKey. For more information on key cryptography, see [Elliptic-curve cryptography](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography).
+주어진 공개키의 x와 y 좌표를 반환합니다. 키 암호화에 대한 자세한 내용은 [타원 곡선 암호화](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography)를 참조하세요.
 
-**NOTE** This function does not contain any logic to check whether the public key is valid. The function only split the input publicKey into x and y points by length.
+**참고** 이 함수에는 공개키가 유효한지 확인하는 로직이 없습니다. 이 함수는 단지 입력한 공개키를 길이에 따라 x와 y 좌표로만 나눕니다.
 
 **매개변수**
 
-| 명칭        | 형식  | 설명                                   |
-| --------- | --- | ------------------------------------ |
-| publicKey | 문자열 | The publicKey to get x and y points. |
+| 명칭        | 형식  | 설명                   |
+| --------- | --- | -------------------- |
+| publicKey | 문자열 | x와 y 좌표를 얻고자 하는 공개키. |
 
 **리턴값**
 
-| 형식 | 설명                                                                             |
-| -- | ------------------------------------------------------------------------------ |
-| 배열 | An array storing x and y points. Index 0 has x point, and index 1 has y point. |
+| 형식 | 설명                                                  |
+| -- | --------------------------------------------------- |
+| 배열 | x 및 y 좌표를 저장하는 배열. 인덱스 0에는 x 점을, 인덱스 1에는 y 점을 가집니다. |
 
 **예제**
 
@@ -1089,21 +1089,21 @@ Returns the x and y coordinates of the given publicKey. For more information on 
 ```javascript
 caver.utils.isHexPrefixed(input)
 ```
-Returns `true` if input is a 0x-prefixed hex string, otherwise it returns `false`.
+입력이 0x 접두사가 있는 16진수 문자열이면 `true`, 그렇지 않으면 `false`를 반환합니다.
 
-**NOTE** caver.klay.isHexPrefixed is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
+**참고** caver.klay.isHexPrefixed는 **v1.0.1**에서 지원됩니다. 이 기능을 사용하려면 [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) 또는 그 이상을 설치하세요.
 
 **매개변수**
 
-| 명칭    | 형식  | 설명                                                                            |
-| ----- | --- | ----------------------------------------------------------------------------- |
-| input | 문자열 | The value to be determined if the parameter is 0x-prefixed hex string or not. |
+| 명칭    | 형식  | 설명                               |
+| ----- | --- | -------------------------------- |
+| input | 문자열 | 0x 접두사가 있는 16진수 문자열인지 여부를 판별할 값. |
 
 **리턴값**
 
-| 형식  | 설명                                                |
-| --- | ------------------------------------------------- |
-| 불리언 | `true` means the input is 0x-prefixed hex string. |
+| 형식  | 설명                                       |
+| --- | ---------------------------------------- |
+| 불리언 | `true`은 입력이 0x 접두사가 있는 16진수 문자열임을 의미합니다. |
 
 **예제**
 
@@ -1126,21 +1126,21 @@ false
 ```javascript
 caver.utils.addHexPrefix(input)
 ```
-Returns a 0x-prefixed hex string. If the input is already 0x-prefixed or a non-hex string, the input value is returned as-is.
+0x 접두사가 있는 16진수 문자열을 반환합니다. 입력이 이미 0x 접두사 꼴이거나 또는 16진수 문자열이 아닌 경우, 입력 값은 그대로 반환됩니다.
 
-**NOTE** caver.klay.addHexPrefix is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
+**참고** caver.klay.addHexPrefix는 **v1.0.1**에서 지원됩니다. 이 기능을 사용하려면 [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) 또는 그 이상을 설치하세요.
 
 **매개변수**
 
-| 명칭    | 형식  | 설명                                   |
-| ----- | --- | ------------------------------------ |
-| input | 문자열 | String value to be prefixed with 0x. |
+| 명칭    | 형식  | 설명                |
+| ----- | --- | ----------------- |
+| input | 문자열 | 0x 접두사를 더할 문자열 값. |
 
 **리턴값**
 
-| 형식  | 설명                                  |
-| --- | ----------------------------------- |
-| 문자열 | 0x-prefixed hex string is returned. |
+| 형식  | 설명                          |
+| --- | --------------------------- |
+| 문자열 | 0x 접두사가 있는 16진수 문자열이 반환됩니다. |
 
 **예제**
 
@@ -1157,21 +1157,21 @@ Returns a 0x-prefixed hex string. If the input is already 0x-prefixed or a non-h
 ```javascript
 caver.utils.stripHexPrefix(input)
 ```
-Returns the result with 0x prefix stripped from input.
+입력에서 0x 접두사가 제거된 결과를 반환합니다.
 
-**NOTE** caver.klay.stripHexPrefix is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
+**참고** caver.klay.stripHexPrefix는 **v1.0.1**에서 지원됩니다. 이 기능을 사용하려면 [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) 또는 그 이상을 설치하세요.
 
 **매개변수**
 
-| 명칭    | 형식  | 설명                          |
-| ----- | --- | --------------------------- |
-| input | 문자열 | String to remove 0x prefix. |
+| 명칭    | 형식  | 설명               |
+| ----- | --- | ---------------- |
+| input | 문자열 | 접두사 0x를 제거할 문자열. |
 
 **리턴값**
 
-| 형식  | 설명                                   |
-| --- | ------------------------------------ |
-| 문자열 | A string stripped of 0x is returned. |
+| 형식  | 설명                  |
+| --- | ------------------- |
+| 문자열 | 0x가 제거된 문자열이 반환됩니다. |
 
 **예제**
 
@@ -1188,21 +1188,21 @@ Returns the result with 0x prefix stripped from input.
 ```javascript
 caver.utils.toBuffer(input)
 ```
-This function converts the input to a [Buffer](https://nodejs.org/api/buffer.html). To convert an Object into a Buffer using `toBuffer`, the Object must implement **toArray** function. For String type input, this function only works with a **0x-prefixed hex string**.
+이 함수는 입력을 [버퍼](https://nodejs.org/api/buffer.html)로 변환합니다. `toBuffer`을 사용하여 객체를 버퍼로 변환하려면, 객체는 반드시 **toArray** 함수를 구현해야 합니다. 문자열 유형 입력의 경우, 이 함수는 **0x 접두사가 있는 16진수 문자열**에서만 작동합니다.
 
-**NOTE** caver.klay.toBuffer is supported from **v1.1.0**. To use this feature, please install [v1.1.0](https://www.npmjs.com/package/caver-js/v/1.1.0) or higher.
+**참고** caver.klay.toBuffer는 **v1.1.0**에서 지원됩니다. 이 기능을 사용하려면 [v1.1.0](https://www.npmjs.com/package/caver-js/v/1.1.0) 또는 그 이상을 설치하세요.
 
 **매개변수**
 
-| 명칭    | 형식                                                                      | 설명                                     |
-| ----- | ----------------------------------------------------------------------- | -------------------------------------- |
-| input | Buffer &#124; String &#124; Number &#124; Array &#124; BN &#124; Object | The value to be converted to a Buffer. |
+| 명칭    | 형식                                                                      | 설명         |
+| ----- | ----------------------------------------------------------------------- | ---------- |
+| input | Buffer &#124; String &#124; Number &#124; Array &#124; BN &#124; Object | 버퍼로 변환할 값. |
 
 **리턴값**
 
-| 형식     | 설명                                              |
-| ------ | ----------------------------------------------- |
-| Buffer | The value converted to Buffer type is returned. |
+| 형식     | 설명                    |
+| ------ | --------------------- |
+| Buffer | 버퍼 유형으로 변환된 값이 반환됩니다. |
 
 **예제**
 
@@ -1241,20 +1241,20 @@ Error: To convert an object to a buffer, the toArray function must be implemente
 ```javascript
 caver.utils.numberToBuffer(input)
 ```
-This function converts a number to a [Buffer](https://nodejs.org/api/buffer.html). The [caver.utils.toBuffer](#tobuffer) has the same behavior as this function when the input is a number.
+이 함수는 숫자를 [버퍼](https://nodejs.org/api/buffer.html)로 변환합니다. 입력이 숫자인 경우 [caver.utils.toBuffer](#tobuffer)는 이 함수와 동일하게 동작합니다.
 
-**NOTE** caver.klay.numberToBuffer is supported from **v1.1.0**. To use this feature, please install [v1.1.0](https://www.npmjs.com/package/caver-js/v/1.1.0) or higher.
+**참고** caver.klay.numberToBuffer는 **v1.1.0**에서 지원됩니다. 이 기능을 사용하려면 [v1.1.0](https://www.npmjs.com/package/caver-js/v/1.1.0) 또는 그 이상을 설치하세요.
 
 **매개변수**
-| 명칭    | 형식                             | 설명                                    |
-| ----- | ------------------------------ | ------------------------------------- |
-| input | String &#124; Number &#124; BN | A number to be converted to a Buffer. |
+| 명칭    | 형식                             | 설명          |
+| ----- | ------------------------------ | ----------- |
+| input | String &#124; Number &#124; BN | 버퍼로 변환할 숫자. |
 
 
 **리턴값**
-| 형식     | 설명                                              |
-| ------ | ----------------------------------------------- |
-| Buffer | The value converted to Buffer type is returned. |
+| 형식     | 설명                    |
+| ------ | --------------------- |
+| Buffer | 버퍼 유형으로 변환된 값이 반환됩니다. |
 
 
 **예제**
@@ -1273,16 +1273,16 @@ This function converts a number to a [Buffer](https://nodejs.org/api/buffer.html
 ```javascript
 caver.utils.isTxHash(input)
 ```
-Returns `true` if input is in transaction hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of a transaction hash. **NOTE** caver.klay.isTxHash is supported from **v1.2.0-rc.1**. To use this feature, please install [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) or higher. **Parameters**
-| 명칭    | 형식  | 설명                                                                                       |
-| ----- | --- | ---------------------------------------------------------------------------------------- |
-| input | 문자열 | The value to be determined if the parameter is in the format of transaction hash or not. |
+입력이 트랜잭션 해시 형식이면 `true`, 그렇지 않으면 `false`를 반환합니다. 이 함수는 입력값만 보고 트랜잭션 해시 형식인지를 판별합니다. **참고** caver.klay.isTxHash는 **v1.2.0-rc.1**에서 지원됩니다. 이 기능을 사용하려면 [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) 또는 그 이상을 설치하세요. **매개변수**
+| 명칭    | 형식  | 설명                                 |
+| ----- | --- | ---------------------------------- |
+| input | 문자열 | 매개변수가 트랜잭션 해시 형식인지 여부를 판별하고자 하는 값. |
 
 
 **리턴값**
-| 형식  | 설명                                                       |
-| --- | -------------------------------------------------------- |
-| 불리언 | `true` means the input is in format of transaction hash. |
+| 형식  | 설명                               |
+| --- | -------------------------------- |
+| 불리언 | `true`는 입력값이 트랜잭션 해시 형식임을 의미합니다. |
 
 
 **예제**
