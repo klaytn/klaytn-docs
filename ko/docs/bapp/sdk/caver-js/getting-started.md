@@ -431,18 +431,18 @@ Contract JSON ABI
 
 자세한 내용은 [caver.klay.Contract](api-references/caver.klay.Contract.md)를 참조하세요.
 
-## Using various AccountKey Types <a id="using-various-accountkey-types"></a>
+## 다양한 AccountKey 타입 사용 <a id="using-various-accountkey-types"></a>
 
-caver-js introduces new classes to support the various types of [AccountKey](../../../klaytn/design/accounts.md#account-key) supported by the platform.
+caver-js는 플랫폼 지원으로 다양한 유형의 [AccountKey](../../../klaytn/design/accounts.md#account-key)를 지원하는 새로운 클래스를 도입했습니다.
 
-The examples below describe the example in a Node.js file. To practice the examples, first create a test file in the working directory as shown below.
+아래 예제는 Node.js 파일에서의 예시를 설명합니다. 예제를 실습하려면, 먼저 아래처럼 작업 디렉토리에 테스트 파일을 생성하세요.
 
 ```bash
 $ touch test.js
 ```
-You can see the `test.js` file created in the working directory.
+작업 디렉토리에 생성된 `test.js` 파일을 확인할 수 있을 것입니다.
 
-Write the following code in test.js.
+test.js에 다음 코드를 작성하세요.
 ```javascript
 // test.js file
 const Caver = require('caver-js')
@@ -456,22 +456,22 @@ async function testFunction() {
 testFunction()
 ```
 
-Save the file and run it in your console.
+파일을 저장하고 콘솔에서 실행하세요.
 
 ```bash
 $ node ./test.js
 ```
 
-If you see the output of console.log, proceed with the steps below.
+console.log 출력을 확인했다면, 아래 단계로 진행하세요.
 
-**NOTE** Those classes are supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**참고** caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 이러한 클래스가 지원됩니다.
 
 ### Account <a id="account"></a>
-Account is a class containing the address and key of an account. The Account has an [AccountKey](#accountkey), which can be of type [AccountKeyPublic](#accountkeypublic), [AccountKeyMultiSig](#accountkeymultisig), or [AccountKeyRoleBased](#accountkeyrolebased).
+Account는 계정의 주소와 키를 포함하는 클래스입니다. 계정에는 [AccountKeyPublic](#accountkeypublic), [AccountKeyMultiSig](#accountkeymultisig), 또는 [AccountKeyRoleBased](#accountkeyrolebased) 유형이 될 수 있는 [AccountKey](#accountkey)가 있습니다.
 
-The caver.klay.accounts package uses [AccountKeyPublic](#accountkeypublic), which stores and manages a private key string by default.
+caver.klay.accounts 패키지는 기본으로 개인키를 저장하고 관리하는 [AccountKeyPublic](#accountkeypublic)을 사용합니다.
 
-The following example creates an account with AccountKeyPublic as accountKey.
+다음 예제는 AccountKeyPublic을 AccountKey로 계정을 만듭니다.
 ```javascript
 // test.js file
 async function testFunction() {
@@ -498,36 +498,36 @@ function printAccount(account) {
 }
 ```
 
-The printAccount above shows how to use the properties of the Account instance. The properties inside Account are as follows.
+위의 printAccount는 계정 인스턴스의 속성을 사용하는 방법을 보여줍니다. 계정 내부의 속성은 다음과 같습니다.
 
-| Property Name  | 설명                                                                                                                                                                                                                                                                                                                      |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address        | The address of the account.                                                                                                                                                                                                                                                                                             |
-| privateKey     | Default key string of accountKey that the account has. This property is left for backward compatibility. privateKey only represents the default key of accountKey, so using privateKey to sign or send a transaction is not recommended. It is recommended to use transactionKey, updateKey, or feePayerKey in context. |
-| accountKeyType | Type of accountKey the account has. This can be `AccountKeyPublic`, `AccountKeyMultiSig`, or `AccountKeyRoleBased`                                                                                                                                                                                                      |
-| accountKey     | The key of the account. This is AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased.                                                                                                                                                                                                                            |
-| keys           | All keys inside accountKey that the account has.                                                                                                                                                                                                                                                                        |
-| transactionKey | Key used for the [RoleTransaction](../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys.                                                                                                                        |
-| updateKey      | Key used for the [RoleAccountUpdate](../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys.                                                                                                                           |
-| feePayerKey    | Key used for [RoleFeePayer](../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys.                                                                                                                                  |
+| 속성명            | 설명                                                                                                                                                                                                   |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address        | 계정 주소.                                                                                                                                                                                               |
+| privateKey     | 계정에 있는 accountKey의 기본 키 문자열. 이 속성은 이전 버전과의 호환성을 위해 남겨졌습니다. privateKey는 accountKey의 기본 키만 나타내므로, privateKey를 사용하여 서명하거나 트랜잭션을 보내지 않는 편이 좋습니다. transactionKey, updateKey 또는 feePayerKey를 사용하는 것이 좋습니다. |
+| accountKeyType | 계정이 가진 accountKey의 유형. `AccountKeyPublic`, `AccountKeyMultiSig`, 또는 `AccountKeyRoleBased`일 수 있습니다.                                                                                                   |
+| accountKey     | 계정의 키. AccountKeyPublic, AccountKeyMultiSig 또는 AccountKeyRoleBased입니다.                                                                                                                               |
+| keys           | 계정이 가진 accountKey의 모든 키.                                                                                                                                                                             |
+| transactionKey | [RoleTransaction](../../../klaytn/design/accounts.md#roles)에 사용되는 키. AccountKeyPublic 또는 AccountKeyMultiSig는 어떤 역할에도 묶이지 않으므로, transactionKey는 키와 동일한 값을 가집니다.                                       |
+| updateKey      | [RoleAccountUpdate](../../../klaytn/design/accounts.md#roles)에 사용되는 키. AccountKeyPublic 또는 AccountKeyMultiSig는 어떤 역할에도 묶이지 않으므로, updateKey는 키와 동일한 값을 가집니다.                                          |
+| feePayerKey    | [RoleFeePayer](../../../klaytn/design/accounts.md#roles)에 사용되는 키. AccountKeyPublic 또는 AccountKeyMultiSig는 어떤 역할에도 묶이지 않으므로, feePayerKey는 키와 동일한 값을 가집니다.                                             |
 
-**NOTE** `transactionKey`, `updateKey`, and `feePayerKey` return a private key string or an array of private key strings that should be used for the role. So rather than using privateKey property, it is recommended that you use `transactionKey`, `updateKey` and `feePayerKey` as appropriate, without worrying about the accountKey type.
+**참고** `transactionKey`, `updateKey`, 그리고 `feePayerKey`는 역할에 사용해야 하는 개인키 문자열 또는 개인키 문자열 배열을 반환합니다. 따라서 privateKey 속성을 사용하는 대신, accountKey 유형에 대한 걱정 없이 `transactionKey`, `updateKey` 그리고 `feePayerKey`를 적절하게 사용하는 것이 권장됩니다.
 
-An explanation of the various AccountKey classes is provided in the [AccountKey](#accountkey) part.
+다양한 AccountKey 클래스에 대한 설명은 [AccountKey](#accountkey) 부분에서 제공됩니다.
 
 ### AccountKey  <a id="accountkey"></a>
-AccountKey is a data structure that stores the keys of an account. An account can have one private key string or multiple private key strings to be used for signing. Account can also manage the private keys by [roles](../../../klaytn/design/accounts.md#roles).
+AccountKey는 계정의 키를 저장하는 데이터 구조입니다. 계정에는 서명에 사용할 하나의 개인키 문자열 또는 여러 개인키 문자열이 있을 수 있습니다. 계정은 [역할들](../../../klaytn/design/accounts.md#roles)로 개인키를 관리할 수도 있습니다.
 
-To support this structure, caver-js introduces new classes called AccountKeyPublic, AccountKeyMultiSig, and AccountKeyRoleBased.
+이 구조를 지원하기 위해, caver-js는 AccountKeyPublic, AccountKeyMultiSig 및 AccountKeyRoleBased라는 새로운 클래스를 도입했습니다.
 
-To create an AccountKey, use `caver.klay.accounts.createAccountKey`. This function determines which AccountKey to generate based on the type of the parameter. It creates AccountKeyPublic if a private key string comes as a parameter, or AccountKeyMultiSig if an array of private key strings comes. And if there is an object with a different key for each role, it creates AccountKeyRoleBased.
+AccountKey를 만들려면 `caver.klay.accounts.createAccountKey`를 사용하세요. 이 함수는 매개변수 유형에 따라 생성할 AccountKey를 결정합니다. 개인키 문자열이 매개변수로 제공되면 AccountKeyPublic을 생성하고, 개인키 문자열 배열이 제공되면 AccountKeyMultiSig를 생성합니다. 각 역할마다 다른 키를 가진 객체가 있으면 AccountKeyRoleBased를 생성합니다.
 
-**NOTE** The classes for `AccountKey` defined in caver-js are data structures for storing private keys for use in caver-js. It can be different from the key in your account on Klaytn network.
+**참고** caver-js에서 정의된 `AccountKey`에 대한 클래스는 caver-js에서 개인키를 저장하기 위한 데이터 구조입니다. Klaytn 네트워크 계정의 키와 다를 수 있습니다.
 
 #### AccountKeyPublic  <a id="accountkeypublic"></a>
-AccountKeyPublic is a class for storing and managing a single private key string.
+AccountKeyPublic은 하나의 개인키 문자열을 저장하고 관리하기 위한 클래스입니다.
 
-The following describes how to update an account with AccountKeyPublic. Write the following code into testFunction() and run it.
+다음은 AccountKeyPublic으로 계정을 업데이트하는 방법에 대해 설명합니다. 다음 코드를 testFunction()에 작성하고 실행하세요.
 
 ```javascript
 const privateKey = caver.klay.accounts.create().privateKey
@@ -541,9 +541,9 @@ console.log(`updateKey: ${accountKey.updateKey}`)
 console.log(`feePayerKey: ${accountKey.feePayerKey}`)
 ```
 
-AccountKeyPublic stores and manages a private key string, so if you run the example above, you will see that `keys`, `transactionKey`, `updateKey` and `feePayerKey` all represent the same private key string.
+AccountKeyPublic는 개인키 문자열을 저장하고 관리하므로, 위의 예제를 실행하면, `keys`, `transactionKey`, `updateKey` 그리고 `feePayerKey` 모두 동일한 개인키 문자열을 나타내는 것을 볼 수 있을 것입니다.
 
-See below for an example of creating an Account with AccountKeyPublic as its accountKey.
+AccountKeyPublic을 accountKey로 계정을 생성하는 예제는 아래를 참조하세요.
 
 ```javascript
 const privateKey = caver.klay.accounts.create().privateKey
@@ -559,9 +559,9 @@ const accountFromAccountKey = caver.klay.accounts.createWithAccountKey(address, 
 ```
 
 #### AccountKeyMultiSig  <a id="accountkeymultisig"></a>
-AccountKeyMultiSig is a class for storing and managing multiple private key strings.
+AccountKeyPublic은 여러 개인키 문자열을 저장하고 관리하기 위한 클래스입니다.
 
-The following describes how to update an account with AccountKeyMultiSig. Write the following code into testFunction() and run it.
+다음은 AccountKeyMultiSig으로 계정을 업데이트하는 방법에 대해 설명합니다. 다음 코드를 testFunction()에 작성하고 실행하세요.
 
 ```javascript
 const privateKeyArray = [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey]
@@ -575,11 +575,11 @@ console.log(`updateKey: ${accountKey.updateKey}`)
 console.log(`feePayerKey: ${accountKey.feePayerKey}`)
 ```
 
-AccountKeyMultiSig stores and manages multiple private key strings, so if you run the example above, you will see that `keys`, `transactionKey`, `updateKey` and `feePayerKey` all represent the same multiple private key strings.
+AccountKeyPublic는 여러 개인키 문자열을 저장하고 관리하므로, 위의 예제를 실행하면, `keys`, `transactionKey`, `updateKey` 그리고 `feePayerKey` 모두 동일한 여러 개인키 문자열을 나타내는 것을 볼 수 있을 것입니다.
 
-If you do not specify a private key (or an array of private key strings) to use when signing a transaction, caver-js will find an account from the in-memory wallet that matches the `from` or `fee payer` and sign with it. In this case, if your account has multiple private keys, caver-js will sign the transaction with all of those keys.
+만일 트랜잭션을 서명할 때 사용할 개인키(또는 개인키 문자열의 배열)를 명시하지 않았다면, caver-js는 인메모리 지갑에서 `from` 또는 `fee payer`와 일치하는 계정을 찾아 서명합니다. 이 경우, 계정에 여러 개의 개인키가 있는 경우, caver-js는 모든 해당하는 키로 트랜잭션에 서명합니다.
 
-See below for an example of creating an Account with AccountKeyMultiSig as its accountKey.
+AccountKeyMultiSig을 accountKey로 계정을 생성하는 예제는 아래를 참조하세요.
 
 ```javascript
 const privateKeyArray = [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey]
@@ -595,9 +595,9 @@ const accountFromAccountKey = caver.klay.accounts.createWithAccountKey(address, 
 ```
 
 #### AccountKeyRoleBased  <a id="accountkeyrolebased"></a>
-AccountKeyRoleBased is a class for storing and managing keys for each role. Each role can have one private key string or multiple private key strings.
+AccountKeyRoleBased는 각 역할의 키를 저장하고 관리하기 위한 클래스입니다. 각 역할은 하나의 개인키 문자열 또는 여러 개인키 문자열을 가질 수 있습니다.
 
-The following describes how to update an account with AccountKeyRoleBased. Write the following code into testFunction() and run it.
+다음은 AccountKeyRoleBased으로 계정을 업데이트하는 방법에 대해 설명합니다. 다음 코드를 testFunction()에 작성하고 실행하세요.
 
 ```javascript
 const keyobject = {
@@ -616,9 +616,9 @@ console.log(`updateKey: ${accountKey.updateKey}`)
 console.log(`feePayerKey: ${accountKey.feePayerKey}`)
 ```
 
-AccountKeyRoleBased stores and manages keys by role, so if you run the example above, you will see three roles (transactionKey, updateKey, feePayerKey) defined in `keys` property. Therefore, unlike other AccountKey ([AccountKeyPublic](#accountkeypublic) or [AccountKeyMultiSig](#accountkeymultisig)), transactionKey, updateKey and feePayerKey each represents a different key.
+AccountKeyRoleBased는 역할별로 키를 저장하고 관리하므로, 위의 예제를 실행하면, `keys` 속성에 정의된 세 가지 역할(transactionKey, updateKey, feePayerKey)을 확인할 수 있습니다. 따라서, 다른 AccountKey([AccountKeyPublic](#accountkeypublic) 또는 [AccountKeyMultiSig](#accountkeymultisig))와 달리, transactionKey, updateKey 및 feePayerKey는 각각 다른 키를 나타냅니다.
 
-See below for an example of creating an Account with AccountKeyRoleBased as its accountKey.
+AccountKeyRoleBased을 accountKey로 계정을 생성하는 예제는 아래를 참조하세요.
 
 ```javascript
 const keyobject = {
@@ -637,11 +637,11 @@ const accountFromStringKey = caver.klay.accounts.createWithAccountKey(address, k
 const accountFromAccountKey = caver.klay.accounts.createWithAccountKey(address, accountKey)
 ```
 
-Through the above examples you will see how to use Account and various AccountKey types in caver-js.
+위의 예제를 통해 caver-js에서 계정 및 다양한 AccountKey 유형을 사용하는 방법을 볼 수 있습니다.
 
-Note that these examples do not affect the Klaytn network. If you want to use your account with a specific account key type, such as AccountKeyPublic, AccountKeyMultiSig, or AccountKeyRoleBased, you must send an account update transaction to the Klaytn network.
+이 예제는 Klaytn 네트워크에 영향을 미치지 않음을 유의하세요. AccountKeyPublic, AccountKeyMultiSig 또는 AccountKeyRoleBased와 같은 특정 계정 키 유형으로 계정을 사용하려면, Klaytn 네트워크에 계정 업데이트 트랜잭션을 보내야합니다.
 
-The following [AccountForUpdate](#accountforupdate) explains how to update an account by sending a transaction to the Klaytn network.
+다음 [AccountForUpdate](#accountforupdate)는 Klaytn 네트워크에 트랜잭션을 보내 계정을 업데이트하는 방법에 대해 설명합니다.
 
 ### AccountForUpdate  <a id="accountforupdate"></a>
 
