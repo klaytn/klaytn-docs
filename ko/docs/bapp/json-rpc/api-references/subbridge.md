@@ -1,15 +1,15 @@
 ---
 description: >-
-  APIs related to service chain ENs.
+  서비스체인 EN과 관련된 API.
 ---
 
-# Namespace subbridge
+# 네임스페이스 서브브리지
 
-The namespace `subbridge` provides functions related to Service Chain. To use functions in this namespace, the option `subbridge` should be enabled in the SEN connected to the service chain.
+네임스페이스 `subbridge`는 서비스체인과 관련된 함수를 제공합니다. 이 네임스페이스에서 함수를 사용하려면, 서비스체인에 연결된 SEN에서 `subbridge` 옵션이 활성화되어 있어야 합니다.
 
 ## subbridge_nodeInfo
 
-Returns bridge node information including the KNI (Klaytn Network Identifier) of the node. A subbridge node can connect to a mainbridge node via the KNI.
+노드의 KNI (Klaytn Network Identifier)를 포함하여 브리지 노드 정보를 반환합니다. 서브브리지 노드는 KNI를 통해 메인브리지 노드에 연결할 수 있습니다.
 
 **매개변수**
 
@@ -17,9 +17,9 @@ Returns bridge node information including the KNI (Klaytn Network Identifier) of
 
 **리턴값**
 
-| 형식       | 설명                           |
-| -------- | ---------------------------- |
-| JSON 문자열 | the bridge node information. |
+| 형식       | 설명             |
+| -------- | -------------- |
+| JSON 문자열 | 브리지 노드에 대한 정보. |
 
 **예시**
 
@@ -54,17 +54,17 @@ Returns bridge node information including the KNI (Klaytn Network Identifier) of
 ```
 
 ## subbridge_addPeer
-Returns `true` if adding a mainbridge peer is done successfully.
+메인브리지 피어 추가가 성공적으로 완료되면 `true`을 반환합니다.
 
-The `addPeer` method adds a new remote node to the peer list. 각 노드는 목록의 노드들과의 연결을 항상 유지하고자 하고, 만약 원격 가끔씩 연결이 끊어지면 다시 연결합니다.
+`addPeer` 메소드는 새 원격 노드를 피어 목록에 추가합니다. 각 노드는 목록의 노드들과의 연결을 항상 유지하고자 하고, 만약 원격 가끔씩 연결이 끊어지면 다시 연결합니다.
 
-The method accepts a single argument, the `kni` URL of the remote peer to start tracking and returns a `BOOL` indicating whether the peer was accepted for tracking or some error occurred.
+이 메소드는 추적을 시작하기 위해 하나의 인자로 원격 피어의 `kni` URL를 받고, 피어 추적이 허용되었는지 또는 어떤 오류가 발생했는지를 나타내는 `BOOL`을 반환합니다.
 
 **매개변수**
 
-| 명칭  | 형식  | 설명                 |
-| --- | --- | ------------------ |
-| url | 문자열 | Peer's  `kni` URL. |
+| 명칭  | 형식  | 설명             |
+| --- | --- | -------------- |
+| url | 문자열 | 피어의 `kni` URL. |
 
 **리턴값**
 
@@ -88,21 +88,21 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 ```
 
 ## subbridge_removePeer
-Returns `true` if removing the peer is done successfully.
+피어 제거가 성공적으로 완료되면 `true`을 반환합니다.
 
-The `removePeer` method disconnects and removes the remote node in the list of tracked static nodes. The method accepts a single argument, the `kni` URL of the remote peer to start tracking and returns a `BOOL` indicating whether the peer was accepted for tracking or some error occurred.
+`removePeer` 메소드는 추적된 정적 노드 목록에서 원격 노드의 연결을 끊고 제거합니다. 이 메소드는 추적을 시작하기 위해 하나의 인자로 원격 피어의 `kni` URL를 받고, 피어 추적이 허용되었는지 또는 어떤 오류가 발생했는지를 나타내는 `BOOL`을 반환합니다.
 
 **매개변수**
 
-| 명칭  | 형식  | 설명                 |
-| --- | --- | ------------------ |
-| url | 문자열 | Peer's  `kni` URL. |
+| 명칭  | 형식  | 설명             |
+| --- | --- | -------------- |
+| url | 문자열 | 피어의 `kni` URL. |
 
 **리턴값**
 
-| 형식  | 설명                                                 |
-| --- | -------------------------------------------------- |
-| 불리언 | `true` if the peer was removed, `false` otherwise. |
+| 형식  | 설명                                             |
+| --- | ---------------------------------------------- |
+| 불리언 | 피어가 제거되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -122,7 +122,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 
 ## subbridge_sendChainTxslimit
 
-The `sendChainTxslimit` gets the maximum number of pending transactions to pick up for sending at once.
+`sendChainTxslimit`은 한 번에 보내기 위해 대기 중인 보류 트랜잭션 수의 최댓값을 가져옵니다.
 
 **매개변수**
 
@@ -130,9 +130,9 @@ The `sendChainTxslimit` gets the maximum number of pending transactions to pick 
 
 **리턴값**
 
-| 형식     | 설명                                                                        |
-| ------ | ------------------------------------------------------------------------- |
-| Uint64 | the maximum number of pending transactions to pickup for sending at once. |
+| 형식     | 설명                                |
+| ------ | --------------------------------- |
+| Uint64 | 한 번에 보내기 위해 대기 중인 보류 트랜잭션 수의 최대값. |
 
 **예시**
 
@@ -142,19 +142,19 @@ The `sendChainTxslimit` gets the maximum number of pending transactions to pick 
 ```
 
 ## subbridge_anchoring
-The `subbridge.anchoring` can enable/disable the anchoring feature of the service chain.
+`subbridge.anchoring`은 서비스체인의 앵커 기능을 활성화/비활성화할 수 있습니다.
 
 **매개변수**
 
-| 명칭     | 형식   | 설명                                                         |
-| ------ | ---- | ---------------------------------------------------------- |
-| enable | Bool | `true` enables the anchoring feature, `false` disables it. |
+| 명칭     | 형식   | 설명                                       |
+| ------ | ---- | ---------------------------------------- |
+| enable | Bool | `true`는 앵커링 기능을 활성화하고, `false`는 비활성화합니다. |
 
 **리턴값**
 
-| 형식  | 설명                                                      |
-| --- | ------------------------------------------------------- |
-| 불리언 | `true` if the anchoring was enabled, `false` otherwise. |
+| 형식  | 설명                                            |
+| --- | --------------------------------------------- |
+| 불리언 | 앵커링이 활성화될 경우 `true`를, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -177,7 +177,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"su
 ```
 
 ## subbridge_latestAnchoredBlockNumber
-The `subbridge.latestAnchoredBlockNumber` returns the latest anchored block number of the service chain.
+`subbridge.latestAnchoredBlockNumber`는 서비스체인의 가장 최근에 앵커링된 블록 번호를 반환합니다.
 
 **매개변수**
 
@@ -185,9 +185,9 @@ The `subbridge.latestAnchoredBlockNumber` returns the latest anchored block numb
 
 **리턴값**
 
-| 형식     | 설명                                |
-| ------ | --------------------------------- |
-| Uint64 | The latest anchored block number. |
+| 형식     | 설명                 |
+| ------ | ------------------ |
+| Uint64 | 가장 최근에 앵커링된 블록 번호. |
 
 **예시**
 
