@@ -125,7 +125,7 @@ AccountKeyLegacy는 해당 키 쌍에서 파생된 주소를 가진 계정에 �
 
 ### AccountKeyPublic
 
-AccountKeyPublic은 공개키를 하나 가진 계정에 사용됩니다. If an account has an AccountKeyPublic object, the transaction validation process is done like below:
+AccountKeyPublic은 공개키를 하나 가진 계정에 사용됩니다. 계정에 AccountKeyPublic 객체가 있는 경우, 트랜잭션 유효성 검사 프로세스는 다음과 같이 수행됩니다:
 
 * `ecrecover(txhash, txsig)`로부터 파생된 공개키를 얻습니다.
 * 파생된 공개키가 해당 계정의 공개키와 같은지 확인합니다.
@@ -214,7 +214,7 @@ AccountKeyRoleBased는 역할기반 키를 의미합니다. 역할은 [Roles](ac
 | type | uint8 \(Go\)              | AccountKeyRoleBased의 type입니다. 이는 **0x05**이어야 합니다.                                                                |
 | Keys | \[\]{AccountKey} \(Go\) | 키 목록. 키는 AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail 및 AccountKeyWeightedMultiSig 중 하나입니다. |
 
-#### Roles
+#### 역할
 
 AccountKeyRoleBased의 역할은 다음과 같이 정의됩니다.
 
