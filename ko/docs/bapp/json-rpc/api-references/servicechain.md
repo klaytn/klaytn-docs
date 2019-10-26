@@ -1,5 +1,5 @@
 ---
 description: >-
-  Namespaces related to "Service Chain".
+  "서비스체인"과 관련된 네임스페이스.
 ---
 
