@@ -9,12 +9,6 @@ After setting up the EN and SCN, the following procedure is required to enable v
 4. Register the token contracts with the bridge contracts on the parent/child chains.
 5. Subscribe to the bridge contracts on the parent/child chains.
 
-1. Check bridge operator account address and Charge bridge operator accounts.
-2. Deploy bridge contracts on parent/child chain
-3. Deploy token(ERC20/721) contract on parent/child chain (if needed)
-4. Register token(ERC20/721) contracts on sub-bridge of SCN.
-5. Subscribe bridge contracts on sub-bridge of SCN.
-
 Before we follow the steps, let's take a look at the high-level system architecture to understand the behind of the mechanism.
 
 # System Architecture <a id="system-architecture"></a>
