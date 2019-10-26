@@ -97,11 +97,11 @@ $ cp ./keystore/UTC--2019-...--ef28e51ef33fe0f487289c1c6e1ccdf5e571366b ~/kscnd_
 $ cp ./passwd ~/kscnd_home/
 ```
 
-## Configuration of the SCN
+## SCN 구성
 
-`kscnd.conf` is the configuration file for the SCN.
+`kscnd.conf`는 SCN의 구성 파일입니다.
 
-Assume that the participated SCN in Cypress (Network ID: 8217) uses the default port and mounts a large-scale partition onto `~/kscnd_home`.  The following configuration is an example.
+Cypress (Network ID: 8217)에 참여한 SCN이 기본 포트를 사용하고 대규모 파티션을 `~/kscnd_home`에 마운트한다고 가정합니다.  다음은 예시 구성입니다.
 
 ```
 # Configuration file for the kscnd
@@ -164,7 +164,7 @@ DATA_DIR=~/kscnd_home
 LOG_DIR=$DATA_DIR/logs
 ```
 
-The recommended txpool sizes based on SCN type is as follows:
+아래와 같이 SCN 타입에 따라 권장되는 txpool 크기는 다음과 같습니다:
 
 ```
 TXPOOL_EXEC_SLOTS_ALL=16384
