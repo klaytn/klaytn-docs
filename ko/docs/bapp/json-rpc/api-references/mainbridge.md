@@ -1,15 +1,15 @@
 ---
 description: >-
-  APIs related to main chain ENs connected with a service chain.
+  서비스체인과 연결된 메인체인 EN과 관련된 API.
 ---
 
-# Namespace mainbridge
+# 네임스페이스 메인브리지
 
-The namespace `mainbridge` provides functions related to Service Chain. To use functions in this namespace, the option `mainbridge` should be enabled in the EN connected to the main chain (Mainnet or Baobab testnet).
+네임스페이스 `mainbridge`는 서비스체인과 관련된 함수를 제공합니다. 이 네임스페이스에서 함수를 사용하려면, 메인체인(메인넷 또는 Baobab 테스트넷)에 연결된 EN에서 `mainbridge` 옵션이 활성화되어 있어야 합니다).
 
 ## mainbridge_nodeInfo
 
-Returns bridge node information including the KNI (Klaytn Network Identifier) of the node. A mainbridge node can connect to a subbrige node via the KNI.
+노드의 KNI (Klaytn Network Identifier)를 포함하여 브리지 노드 정보를 반환합니다. 메인브리지 노드는 KNI를 통해 서브브리지 노드에 연결할 수 있습니다.
 
 **매개변수**
 
@@ -17,9 +17,9 @@ Returns bridge node information including the KNI (Klaytn Network Identifier) of
 
 **리턴값**
 
-| 형식       | 설명                           |
-| -------- | ---------------------------- |
-| JSON 문자열 | the bridge node information. |
+| 형식       | 설명             |
+| -------- | -------------- |
+| JSON 문자열 | 브리지 노드에 대한 정보. |
 
 **예시**
 
@@ -54,15 +54,15 @@ Returns bridge node information including the KNI (Klaytn Network Identifier) of
 ```
 
 ## mainbridge_addPeer
-Returns `true` if adding a subbridge peer is done successfully.
+서브브리지 피어 추가가 성공적으로 완료되면 `true`을 반환합니다.
 
-It Adds a new remote node to the peer list. 각 노드는 목록의 노드들과의 연결을 항상 유지하고자 하고, 만약 원격 가끔씩 연결이 끊어지면 다시 연결합니다. The method accepts a single argument, the `kni` URL of the remote peer to start tracking and returns a `BOOL` indicating whether the peer was accepted for tracking or some error occurred.
+피어 목록에 새 원격 노드를 추가합니다. 각 노드는 목록의 노드들과의 연결을 항상 유지하고자 하고, 만약 원격 가끔씩 연결이 끊어지면 다시 연결합니다. 이 메소드는 추적을 시작하기 위해 하나의 인자로 원격 피어의 `kni` URL를 받고, 피어 추적이 허용되었는지 또는 어떤 오류가 발생했는지를 나타내는 `BOOL`을 반환합니다.
 
 **매개변수**
 
-| 명칭  | 형식  | 설명                 |
-| --- | --- | ------------------ |
-| url | 문자열 | Peer's  `kni` URL. |
+| 명칭  | 형식  | 설명             |
+| --- | --- | -------------- |
+| url | 문자열 | 피어의 `kni` URL. |
 
 **리턴값**
 
@@ -86,21 +86,21 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 ```
 
 ## mainbridge_removePeer
-Returns `true` if removing the peer is done successfully.
+피어 제거가 성공적으로 완료되면 `true`을 반환합니다.
 
-The `removePeer` method disconnects and removes the remote node in the list of tracked static nodes. The method accepts a single argument, the `kni` URL of the remote peer to start tracking and returns a `BOOL` indicating whether the peer was accepted for tracking or some error occurred.
+`removePeer` 메소드는 추적된 정적 노드 목록에서 원격 노드의 연결을 끊고 제거합니다. 이 메소드는 추적을 시작하기 위해 하나의 인자로 원격 피어의 `kni` URL를 받고, 피어 추적이 허용되었는지 또는 어떤 오류가 발생했는지를 나타내는 `BOOL`을 반환합니다.
 
 **매개변수**
 
-| 명칭  | 형식  | 설명                 |
-| --- | --- | ------------------ |
-| url | 문자열 | Peer's  `kni` URL. |
+| 명칭  | 형식  | 설명             |
+| --- | --- | -------------- |
+| url | 문자열 | 피어의 `kni` URL. |
 
 **리턴값**
 
-| 형식  | 설명                                                 |
-| --- | -------------------------------------------------- |
-| 불리언 | `true` if the peer was removed, `false` otherwise. |
+| 형식  | 설명                                             |
+| --- | ---------------------------------------------- |
+| 불리언 | 피어가 제거되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -120,19 +120,19 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 
 ## mainbridge_convertServiceChainBlockHashToMainChainTxHash
 
-Returns the anchoring transaction hash of the given child chain block hash.
+주어진 하위 체인 블록 해시의 앵커링 트랜잭션 해시를 반환합니다.
 
 **매개변수**
 
-| 형식            | 설명                                                              |
-| ------------- | --------------------------------------------------------------- |
-| 32바이트 크기 DATA | The childchain block hash which included the anchoring tx hash. |
+| 형식            | 설명                             |
+| ------------- | ------------------------------ |
+| 32바이트 크기 DATA | 앵커링 트랜잭션 해시를 포함하는 하위 체인 블록 해시. |
 
 **리턴값**
 
-| 형식            | 설명                                                                                |
-| ------------- | --------------------------------------------------------------------------------- |
-| 32바이트 크기 DATA | The transaction hash whilch including the childchain block anchoring inforamtion. |
+| 형식            | 설명                             |
+| ------------- | ------------------------------ |
+| 32바이트 크기 DATA | 하위 체인 블록 앵커링 정보를 포함하는 트랜잭션 해시. |
 
 **예시**
 
