@@ -1,4 +1,3 @@
-# Guide for EN Setup and SCN connection
 This section covers how to set up an EN for Baobab network and connect the EN with SCN. You will set up an EN and connect the EN with SCN. Then you will enable the Anchoring feature to write Service Chain block information on Baobab network.
 
 ## 준비 사항
@@ -95,7 +94,7 @@ $ ~/your_path/bin/kscn attach --datadir ~/your_path/data
 ## Anchoring
 After finishing the EN and SCN connection, you can log Service Chain block information on the parent chain via Anchoring. In this section, you will top up a parent operator account, enable Anchoring, and check the anchored block number.
 
-## Step 1: Get KLAY to test anchoring
+### Step 1: Get KLAY to test anchoring
 To do an anchoring, SCN has to make an anchoring transaction to Baobab. So `subbridge.parentOperator` account should have KLAY to pay the transaction fee. Get some KLAY from Baobab wallet faucet ([link](https://baobab.wallet.klaytn.com/)) and transfer 1 KLAY to the `subbridge.parentOperator`.
 ```
 $ ~/your_path/bin/kscn attach --datadir ~/your_path/data
@@ -103,7 +102,7 @@ $ ~/your_path/bin/kscn attach --datadir ~/your_path/data
 "0x3ce216beeafc62d20547376396e89528e1d778ca"
 ```
 
-## Step 2: Start Anchoring
+### Step 2: Start Anchoring
 ```
 $ ~/your_path/bin/kscn attach --datadir ~/your_path/data
 > subbridge.anchoring(true)
