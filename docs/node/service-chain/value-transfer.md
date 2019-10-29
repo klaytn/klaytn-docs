@@ -196,6 +196,7 @@ You can refer to the [subbridge API](../../bapp/json-rpc/api-references/subbridg
 {
   counterPart: "0x22c41ae528627b790233d2e59ea520be12350eb5",
   handleNonce: 0,
+  lowerHandle: 0,
   isRunning: true,
   isSubscribed: true,
   onServiceChain: true,
