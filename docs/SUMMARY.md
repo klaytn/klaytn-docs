@@ -114,7 +114,7 @@
     * [Multi-Node Service Chain](node/service-chain/multi-node-service-chain/README.md)
     * [Genesis JSON](node/service-chain/genesis.md)
     * [Anchoring](node/service-chain/anchoring.md)
-    * [Value Transfer](node/service-chain/value_transfer.md)
+    * [Value Transfer](node/service-chain/value-transfer.md)
   * [Errors & Troubleshooting](node/errors-and-troubleshooting.md)
   * [Download](node/download/README.md)
     * [v1.2.0 (latest)](node/download/v1.2.0.md)

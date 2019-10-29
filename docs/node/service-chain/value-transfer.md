@@ -174,19 +174,18 @@ If "handleNonce" equals to the "requestNonce" of the counterpart bridge contract
  
 ### Log <a id="log"></a>
 SCN log shows the status like below.
+Every 1 seconds, the value transfer log will be printed like below.
+```
+INFO[10/16,19:37:40 +09] [45] VT : Parent -> Child Chain                request=8699 handle=4826 lowerHandle=4826 pending=3873
+INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=7894 handle=4207 lowerHandle=4207 pending=3687  
+```
+This log show the total request, handle, lowerHandle, and pending nonce.
+Each value means like below
 
-```
-INFO[05/31,18:32:19 +09] [45] broadcastServiceChainTx ServiceChainTxData  len(txs)=3    len(peers)=1
-INFO[05/31,18:32:19 +09] [45] Bridge(Main -> Service Chain)             bridge=0x27caEbA831d98b5FBb1D81ce0Ed20801702f443A requestNonce=0 lowerHandleNonce=0 handleNonce=0 diffNonce=0
-INFO[05/31,18:32:19 +09] [45] Bridge(Service -> Main Chain)             bridge=0x22c41Ae528627B790233D2e59Ea520be12350EB5 requestNonce=0 lowerHandleNonce=0 handleNonce=0 diffNonce=0
-INFO[05/31,18:32:20 +09] [49] Successfully sealed new block             number=15009 hash=4a3085…dc1094
-INFO[05/31,18:32:20 +09] [49] Successfully wrote mined block            num=15009 hash=4a3085…dc1094 txs=0
-INFO[05/31,18:32:20 +09] [45] blockAnchoringManager: Success to generate anchoring txs  successCnt=1    startBlockNumber=15009 latestBlockNum=15009
-INFO[05/31,18:32:20 +09] [49] Commit new mining work                    number=15010 txs=0 elapsed=867.499µs
-INFO[05/31,18:32:20 +09] [45] broadcastServiceChainTx ServiceChainTxData  len(txs)=3    len(peers)=1
-INFO[05/31,18:32:20 +09] [45] Bridge(Main -> Service Chain)             bridge=0x27caEbA831d98b5FBb1D81ce0Ed20801702f443A requestNonce=0 lowerHandleNonce=0 handleNonce=0 diffNonce=0
-INFO[05/31,18:32:20 +09] [45] Bridge(Service -> Main Chain)             bridge=0x22c41Ae528627B790233D2e59Ea520be12350EB5 requestNonce=0 lowerHandleNonce=0 handleNonce=0 diffNonce=0
-```
+- request : the total value transfer request count of all subscribed bridge contract.
+- handle : the total upper handle nonce of all subscribed bridge contract.
+- lowerHandle : the total lower handle nonce of all subscribed bridge contract.
+- pending : the difference between `request` and `lowerHandle`.
 
 ### RPC API <a id="rpc-api"></a> 
 You can check the status of a bridge contract like below.
