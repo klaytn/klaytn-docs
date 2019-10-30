@@ -138,7 +138,7 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
 ```
 You can refer to the [subbridge API](../../bapp/json-rpc/api-references/subbridge.md#subbridge_deployBridge) for more details.
 
-`bridge_listBridge` shows the bridge contract addresses and their subscription status. 
+`subbridge_listBridge` shows the bridge contract addresses and their subscription status. 
 Sub-bridge saves the list of bridge contract addresses in a file. On reboot, sub-bridge reloads the bridge contract list from the file. 
 
 ## Subscribing <a id="subscribing"></a>
@@ -173,18 +173,18 @@ Therefore, if nonces are updated as follows, we can say the cross-chain value-tr
 If "handleNonce" equals to the "requestNonce" of the counterpart bridge contract, and the "lowerHandleNonce" is greater than "handleNonce" by 1, then users' requests were all processed.
  
 ### Log <a id="log"></a>
-SCN log shows the status like below.
-Every 1 seconds, the value transfer log will be printed like below.
+Below is a typical log output from SCN during normal operation. 
+Every 1 second, the status of bridge contracts are printed.
 ```
 INFO[10/16,19:37:40 +09] [45] VT : Parent -> Child Chain                request=8699 handle=4826 lowerHandle=4826 pending=3873
 INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=7894 handle=4207 lowerHandle=4207 pending=3687  
 ```
-This log show the total request, handle, lowerHandle, and pending nonce.
+This log shows the request, handle, lowerHandle, and pending nonces.
 Each value means like below
 
 - request : the total value transfer request count of all subscribed bridge contract.
-- handle : the total upper handle nonce of all subscribed bridge contract.
-- lowerHandle : the total lower handle nonce of all subscribed bridge contract.
+- handle : the total upper handle nonce(s) of all subscribed bridge contract(s).
+- lowerHandle : the total lower handle nonce(s) of all subscribed bridge contract(s).
 - pending : the difference between `request` and `lowerHandle`.
 
 ### RPC API <a id="rpc-api"></a> 
@@ -192,11 +192,11 @@ You can check the status of a bridge contract like below.
 You can refer to the [subbridge API](../../bapp/json-rpc/api-references/subbridge.md#subbridge_getBridgeInformation) for more details.
 
 ```javascript
-> bridge.getBridgeInformation("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")
+> subbridge.getBridgeInformation("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")
 {
   counterPart: "0x22c41ae528627b790233d2e59ea520be12350eb5",
   handleNonce: 0,
-  lowerHandle: 0,
+  lowerHandleNonce: 0,
   isRunning: true,
   isSubscribed: true,
   onServiceChain: true,
