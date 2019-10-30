@@ -462,8 +462,8 @@ Error: already subscribed
 ```
 
 ## subbridge_unsubscribeBridge <a id="subbridge_unsubscribeBridge"></a>
-The `subbridge.unsubscribeBridge` unsubscribe already subscribed bridge contracts of parent/child chain.
-If bridge contract pair is unsubscribed, value transfer request can not be handled automatically by sub-bridge.
+The `subbridge.unsubscribeBridge` unsubscribe the sub-bridge from the bridge contracts in parent/child chains.
+If the sub-bridge is unsubscribed from the bridge contract, cross-chain value transfer requests can not be handled by the sub-bridge.
 
 **Parameters**
 
