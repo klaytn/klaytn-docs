@@ -68,9 +68,9 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
  modules: admin:1.0 bridge:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 servicechain:1.0 txpool:1.0
 
-> bridge.parentOperator
+> subbridge.parentOperator
 "0xA057995175B93Ee0D1bdfA54f078Ad0F0116130b"
-> bridge.childOperator
+> subbridge.childOperator
 "0x5C1C757a6Cb6c6FcEFE398674D8209FDA2A74Df4"
 ```
 
@@ -126,10 +126,10 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
  modules: admin:1.0 bridge:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 servicechain:1.0 txpool:1.0
  
-> bridge.deployBridge()
+> subbridge.deployBridge()
 ["0x27caeba831d98b5fbb1d81ce0ed20801702f443a", "0x22c41ae528627b790233d2e59ea520be12350eb5"]
 
-> bridge.listBridge
+> subbridge.listBridge
 [{
     localAddress: "0x27caeba831d98b5fbb1d81ce0ed20801702f443a",
     remoteAddress: "0x22c41ae528627b790233d2e59ea520be12350eb5",
@@ -145,10 +145,10 @@ Sub-bridge saves the list of bridge contract addresses in a file. On reboot, sub
 After deploying the bridge contract, you should make the sub-bridge subscribe to the deployed bridge contracts to enable value transfer. This can be done using another RPC API call, `bridge_subscribeBridge`. 
 
 ```javascript
-> bridge.subscribeBridge("0x27caeba831d98b5fbb1d81ce0ed20801702f443a", "0x22c41ae528627b790233d2e59ea520be12350eb5")
+> subbridge.subscribeBridge("0x27caeba831d98b5fbb1d81ce0ed20801702f443a", "0x22c41ae528627b790233d2e59ea520be12350eb5")
 null
 
-> bridge.listBridge
+> subbridge.listBridge
 [{
     localAddress: "0x27caeba831d98b5fbb1d81ce0ed20801702f443a",
     remoteAddress: "0x22c41ae528627b790233d2e59ea520be12350eb5",
@@ -219,7 +219,7 @@ If a token contract was deployed with a wrong account, value transferring will n
 ## Register 
 After deploying token contracts, you should register the token contracts with the bridge contracts on the parent/child chains like below.
 ```javascript
-> bridge.registerToken("0x27caeba831d98b5fbb1d81ce0ed20801702f443a", "0x22c41ae528627b790233d2e59ea520be12350eb5", "0x376b72abe1b29cace831bd3f5acdfa967814c9cd", "0x53160735f7cc6ff75e48619f368bb94daff66a1b")
+> subbridge.registerToken("0x27caeba831d98b5fbb1d81ce0ed20801702f443a", "0x22c41ae528627b790233d2e59ea520be12350eb5", "0x376b72abe1b29cace831bd3f5acdfa967814c9cd", "0x53160735f7cc6ff75e48619f368bb94daff66a1b")
 null
 ```
 
