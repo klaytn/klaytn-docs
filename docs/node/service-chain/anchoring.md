@@ -8,7 +8,7 @@ This ensures the security and credibility of the service chain.
 ## Check Parent Operator of SCN <a id="check-parent-operator-of-scn"></a>
 If you have installed and run an SCN successfully, the parent chain operator account should be generated. 
 You can provide a keystore file that you want to use as a parent operator, or if not provided, the SCN will generate the key for you. 
-You can check the parent operator address via RPC API, `subbridge.parentOperator`.
+You can check the parent operator address via RPC API, `subbridge_parentOperator`.
 
 ```
 $ kscn attach ~/kscnd_home/klay.ipc
