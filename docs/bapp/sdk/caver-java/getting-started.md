@@ -28,6 +28,8 @@ If you want to see details of the JSON-RPC requests and responses, please includ
 implementation "ch.qos.logback:logback-classic:1.2.3"
 ```
 
+**Note**: In the central repository, the RC, Android, and Java versions are listed together. If you use wildcards to get a version, you may be using a version that is not appropriate for your platform.
+
 ### Installation
 
 If you want to generate transactions related with a smart contract, you need to install a Solidity compiler and caver-java commmand-line tool first.
@@ -387,7 +389,7 @@ The [web3j](https://github.com/web3j/web3j) project for the inspiration. 🙂
 [Klaytn Wallet]: ../../../toolkit/klaytn-wallet.md
 [txError]: ../../json-rpc/transaction-error-codes.md
 [AccountKeyPublic]: ../../../klaytn/design/accounts.md#accountkeypublic
-[Account Key]: ../../../klaytn/design/accounts.md#account-key 
+[Account Key]: ../../../klaytn/design/accounts.md#account-key
 [Solidity Compiler]: #solidity-compiler
 [command-line tool]: #command-line-tool
 [Fee Delegation]: ../../../klaytn/design/transactions/README.md#fee-delegation
