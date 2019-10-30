@@ -1,11 +1,13 @@
 As explained in the design section, Service Chain supports the data anchoring feature.
 This page shows how to enable the anchoring function.
-If it is enabled, SCN anchors periodically the child chain block data to the parent chain as proof of existence and immutability. This ensures the security and credibility of the service chain.
+If it is enabled, SCN anchors periodically the child chain block data to the parent chain as proof of existence and immutability. 
+This ensures the security and credibility of the service chain.
 
 # Enable Anchoring <a id="enable-anchoring"></a>
 
 ## Check Parent Operator of SCN <a id="check-parent-operator-of-scn"></a>
-If you have installed and run an SCN successfully, the parent chain operator account should be generated. You can provide a keystore file that you want to use as a parent operator, or if not provided, the SCN will generate the key for you. 
+If you have installed and run an SCN successfully, the parent chain operator account should be generated. 
+You can provide a keystore file that you want to use as a parent operator, or if not provided, the SCN will generate the key for you. 
 You can check the parent operator address via RPC API, `subbridge.parentOperator`.
 
 ```
