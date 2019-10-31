@@ -486,7 +486,7 @@ null
 ```
 
 ## subbridge_registerToken <a id="subbridge_registerToken"></a>
-The `subbridge.registerToken` registers a pair of ERC-20 or 721 tokens with the bridge contracts.
+The `subbridge_registerToken` registers a pair of ERC-20 or 721 tokens with the bridge contracts.
 
 **Parameters**
 
