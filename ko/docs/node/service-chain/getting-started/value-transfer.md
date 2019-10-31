@@ -10,7 +10,7 @@ This section will explain how to enable ERC20 value transfer between Baobab netw
 ## ERC-20 Token Transfer
 
 ### Step 1: Add KLAY to the operator accounts.
-Connect to the SCN and check the account addresses by executing `subbrige.parentOperator` and `subbridge.childOperator`.
+Connect to the SCN and check the account addresses by executing `subbridge.parentOperator` and `subbridge.childOperator`.
 ```
 $ ~/your_path/bin/kscn attach --datadir ~/your_path/data
 > subbridge.childOperator
