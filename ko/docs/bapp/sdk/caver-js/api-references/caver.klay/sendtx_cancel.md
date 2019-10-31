@@ -9,7 +9,7 @@ Sends a [Cancel](../../../../../klaytn/design/transactions/basic.md#txtypecancel
 
 **매개변수**
 
-| 명칭                         | 형식       | 설명                                                                                                                                                      |
+| 명칭                         | Type     | 설명                                                                                                                                                      |
 | -------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionObject          | 객체       | The transaction object to send.                                                                                                                         |
 | transactionObject.type     | 문자열      | The type of "CANCEL" transaction.                                                                                                                       |
@@ -71,7 +71,7 @@ Sends a [Fee Delegated Cancel](../../../../../klaytn/design/transactions/fee-del
 
 **매개변수**
 
-| 명칭                                     | 형식       | 설명                                                                                                                                                      |
+| 명칭                                     | Type     | 설명                                                                                                                                                      |
 | -------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionObject                      | 객체       | The transaction object to send.                                                                                                                         |
 | transactionObject.type                 | 문자열      | The type of "FEE_DELEGATED_CANCEL" transaction.                                                                                                       |
@@ -146,7 +146,7 @@ Sends a [Fee Delegated Cancel With Ratio](../../../../../klaytn/design/transacti
 
 **매개변수**
 
-| 명칭                                     | 형식       | 설명                                                                                                                                                                                                |
+| 명칭                                     | Type     | 설명                                                                                                                                                                                                |
 | -------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionObject                      | 객체       | The transaction object to send.                                                                                                                                                                   |
 | transactionObject.type                 | 문자열      | The type of "FEE_DELEGATED_CANCEL_WITH_RATIO" transaction.                                                                                                                                    |
