@@ -8,7 +8,7 @@ Returns the unit price of gas in peb that was effective at the given block heigh
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                                                                                                                     |
+| 명칭           | Type                 | 설명                                                                                                                                     |
 | ------------ | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number &#124; String | (optional) If you don't pass this parameter, the default block set by [caver.klay.defaultBlock](./block.md#defaultblock) will be used. |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                   |
@@ -38,7 +38,7 @@ caver.klay.getChainId([callback])
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                   |
+| 명칭       | Type     | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
@@ -63,7 +63,7 @@ Returns the unit price defined in the Klaytn network.
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                   |
+| 명칭       | Type     | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
@@ -88,7 +88,7 @@ Klaytn 노드의 현재 클라이언트 버전을 반환합니다.
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                   |
+| 명칭       | Type     | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
@@ -114,7 +114,7 @@ caver.klay.getProtocolVersion([callback])
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                   |
+| 명칭       | Type     | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
@@ -140,7 +140,7 @@ caver.klay.isSenderTxHashIndexingEnabled([callback])
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                                                                                     |
+| 명칭       | Type     | 설명                                                                                                                                     |
 | -------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | Function | (optional) Optional callback function. The callback is fired with an error object as the first parameter and the result as the second. |
 
@@ -166,7 +166,7 @@ caver.klay.isParallelDBWrite([callback])
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                   |
+| 명칭       | Type     | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
@@ -193,7 +193,7 @@ caver.klay.rewardbase([callback])
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                   |
+| 명칭       | Type     | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
@@ -217,7 +217,7 @@ Returns `true` if the node is using write-through caching. If enabled, block bod
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                   |
+| 명칭       | Type     | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
