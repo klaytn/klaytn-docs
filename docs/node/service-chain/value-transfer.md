@@ -182,9 +182,9 @@ INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=
 This log shows the request, handle, lowerHandle, and pending nonces.
 Each value means like below
 
-- request : the total value transfer request count of all subscribed bridge contract.
-- handle : the total upper handle nonce(s) of all subscribed bridge contract(s).
-- lowerHandle : the total lower handle nonce(s) of all subscribed bridge contract(s).
+- request : the sum of value-transfer request nonce(s) of all subscribed bridge contract(s).
+- handle : the sum of upper handle nonce(s) of all subscribed bridge contract(s).
+- lowerHandle : the sum of lower handle nonce(s) of all subscribed bridge contract(s).
 - pending : the difference between `request` and `lowerHandle`.
 
 ### RPC API <a id="rpc-api"></a> 
