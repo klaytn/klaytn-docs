@@ -113,6 +113,8 @@
         * [에러 & 문제 해결](node/errors-and-troubleshooting.md)
     * [다중 노드 서비스체인](node/service-chain/multi-node-service-chain/README.md)
     * [Genesis JSON](node/service-chain/genesis.md)
+    * [Anchoring](node/service-chain/anchoring.md)
+    * [Value Transfer](node/service-chain/value-transfer.md)
   * [에러 & 문제 해결](node/errors-and-troubleshooting.md)
   * [다운로드](node/download/README.md)
     * [v1.2.0 (latest)](node/download/v1.2.0.md)
