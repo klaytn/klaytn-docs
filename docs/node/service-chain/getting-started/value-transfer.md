@@ -12,7 +12,7 @@ Then you will register the contract address on SCN. And you will test an ERC20 v
 ## ERC-20 Token Transfer
 
 ### Step 1: Add KLAY to the operator accounts.
-Connect to the SCN and check the account addresses by executing `subbrige.parentOperator` and `subbridge.childOperator`.
+Connect to the SCN and check the account addresses by executing `subbridge.parentOperator` and `subbridge.childOperator`.
 ```
 $ ~/your_path/bin/kscn attach --datadir ~/your_path/data
 > subbridge.childOperator
