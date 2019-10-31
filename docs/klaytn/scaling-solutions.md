@@ -39,4 +39,3 @@ To help the service providers (SPs) to easily migrate service users and values a
 transferring tokens, such as KLAY (Klaytn's native unit of value) and Klaytn tokens issued by BApps, between different chains can be enabled.
 Users can easily request to transfer tokens to other chains by sending a transaction to a special contract, called bridge contract.
 
-Note that value transfer is currently under development and will be available in the future Klaytn update.
