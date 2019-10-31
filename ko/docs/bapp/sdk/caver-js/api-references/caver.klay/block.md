@@ -44,7 +44,7 @@ Returns the current block number.
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                   |
+| 명칭       | Type     | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
@@ -68,7 +68,7 @@ Returns a block matching the block hash or block number.
 
 **매개변수**
 
-| 명칭                       | 형식                   | 설명                                                                                                                                                           |
+| 명칭                       | Type                 | 설명                                                                                                                                                           |
 | ------------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | blockHashOrBlockNumber   | String &#124; Number | The block hash or block number. Or the string `"genesis"`, `"latest"` or `"pending"`.                                                                        |
 | returnTransactionObjects | 불리언                  | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, if `false` it will only contains the transaction hashes. |
@@ -78,7 +78,7 @@ Returns a block matching the block hash or block number.
 
 `Promise` returns `Object` - The block object:
 
-| 명칭               | 형식              | 설명                                                                                                                 |
+| 명칭               | Type            | 설명                                                                                                                 |
 | ---------------- | --------------- | ------------------------------------------------------------------------------------------------------------------ |
 | blockScore       | QUANTITY        | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                                                                   |
 | extraData        | 문자열             | 블록의 "추가 데이터"를 위한 필드입니다.                                                                                            |
@@ -134,7 +134,7 @@ Returns a list of transaction receipts included in a block identified by the giv
 
 **매개변수**
 
-| 명칭        | 형식       | 설명                                                                   |
+| 명칭        | Type     | 설명                                                                   |
 | --------- | -------- | -------------------------------------------------------------------- |
 | blockHash | 문자열      | 블록의 해시입니다.                                                           |
 | callback  | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
@@ -191,7 +191,7 @@ Returns the number of transaction in a given block.
 
 **매개변수**
 
-| 명칭                     | 형식                   | 설명                                                                              |
+| 명칭                     | Type                 | 설명                                                                              |
 | ---------------------- | -------------------- | ------------------------------------------------------------------------------- |
 | blockHashOrBlockNumber | String &#124; Number | The block number or hash. Or the string `"genesis"`, `"latest"` or `"pending"`. |
 | callback               | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.            |
@@ -218,7 +218,7 @@ Returns a block with consensus information matched by the given block hash or bl
 
 **매개변수**
 
-| 명칭                     | 형식                   | 설명                                                                       |
+| 명칭                     | Type                 | 설명                                                                       |
 | ---------------------- | -------------------- | ------------------------------------------------------------------------ |
 | blockHashOrBlockNumber | String &#124; Number | The block hash or block number. Or the string `"genesis"` or `"latest"`. |
 | callback               | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.     |
@@ -227,7 +227,7 @@ Returns a block with consensus information matched by the given block hash or bl
 
 `Promise` returns `Object` - A block object with consensus information (a proposer and a list of committee members) The block object contains:
 
-| 명칭               | 형식              | 설명                                                                       |
+| 명칭               | Type            | 설명                                                                       |
 | ---------------- | --------------- | ------------------------------------------------------------------------ |
 | blockScore       | QUANTITY        | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                         |
 | committee        | 배열              | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
@@ -318,7 +318,7 @@ caver.klay.getCommittee([defaultBlock] [, callback])
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                                                                                                          |
+| 명칭           | Type                 | 설명                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
@@ -349,7 +349,7 @@ caver.klay.getCommitteeSize([defaultBlock] [, callback])
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                                                                                                          |
+| 명칭           | Type                 | 설명                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
@@ -376,7 +376,7 @@ caver.klay.getCouncil([defaultBlock] [, callback])
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                                                                                                          |
+| 명칭           | Type                 | 설명                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
@@ -407,7 +407,7 @@ caver.klay.getCouncilSize([defaultBlock] [, callback])
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                                                                                                          |
+| 명칭           | Type                 | 설명                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
@@ -433,7 +433,7 @@ Gets the storage at a specific position of an address.
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                                                                                                          |
+| 명칭           | Type                 | 설명                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | address      | 문자열                  | The address to get the storage from.                                                                                        |
 | position     | Number               | The index position of the storage.                                                                                          |
@@ -462,7 +462,7 @@ caver.klay.isMining([callback])
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                   |
+| 명칭       | Type     | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
@@ -488,7 +488,7 @@ Checks if the node is currently syncing and returns either a syncing object or `
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                   |
+| 명칭       | Type     | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
@@ -497,7 +497,7 @@ Checks if the node is currently syncing and returns either a syncing object or `
 
 `Promise` returns `Object|Boolean` - A sync object when the node is currently syncing or `false`:
 
-| 명칭            | 형식     | 설명                                                                          |
+| 명칭            | Type   | 설명                                                                          |
 | ------------- | ------ | --------------------------------------------------------------------------- |
 | startingBlock | Number | The block number where the sync started.                                    |
 | currentBlock  | Number | The block number where at which block the node currently synced to already. |
