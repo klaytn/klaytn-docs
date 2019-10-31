@@ -379,7 +379,7 @@ none
 **Example**
 
 ```javascript
-> bridge.deployBridge()
+> subbridge.deployBridge()
 ["0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4"]
 ```
 
@@ -402,10 +402,10 @@ The `subbridge_registerBridge` registers already deployed bridge contracts in th
 **Example**
 
 ```javascript
-> bridge.registerBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
+> subbridge.registerBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
 null
 
-> bridge.registerBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
+> subbridge.registerBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
 Error: bridge already exists
 ```
 
