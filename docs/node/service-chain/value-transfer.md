@@ -66,7 +66,7 @@ Welcome to the Klaytn JavaScript console!
 instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
 
  datadir: ~/kscnd_home
- modules: admin:1.0 bridge:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 servicechain:1.0 txpool:1.0
+ modules: admin:1.0 subbridge:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 servicechain:1.0 txpool:1.0
 
 > subbridge.parentOperator
 "0xA057995175B93Ee0D1bdfA54f078Ad0F0116130b"
@@ -89,7 +89,7 @@ Welcome to the Klaytn JavaScript console!
 
  instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
- modules: admin:1.0 bridge:1.0 debug:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
+ modules: admin:1.0 subbridge:1.0 debug:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
 > subbridge.parentOperatorBalance
 1e+50
@@ -102,7 +102,7 @@ Welcome to the Klaytn JavaScript console!
 
  instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
- modules: admin:1.0 bridge:1.0 debug:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
+ modules: admin:1.0 subbridge:1.0 debug:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
 > subbridge.childOperatorBalance
 1e+50
@@ -124,7 +124,7 @@ Welcome to the Klaytn JavaScript console!
 instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
 
  datadir: ~/kscnd_home
- modules: admin:1.0 bridge:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 servicechain:1.0 txpool:1.0
+ modules: admin:1.0 subbridge:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 servicechain:1.0 txpool:1.0
  
 > subbridge.deployBridge()
 ["0x27caeba831d98b5fbb1d81ce0ed20801702f443a", "0x22c41ae528627b790233d2e59ea520be12350eb5"]
