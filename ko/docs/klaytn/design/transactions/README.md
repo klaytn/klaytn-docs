@@ -26,11 +26,11 @@
 
 ### 트랜잭션 비용 위임
 
-Klaytn은 비즈니스 모델 디자인에 유연성을 제공하기 위해 기본 트랜잭션 유형들에 대한 여러 가지 수수료 위임 버전을 제공합니다. 이러한 변형을 통해 서비스 제공자가 대신 트랜잭션 수수료를 지불하여 최종 사용자 활동에 보조금을 지급할 수 있습니다. 트랜잭션 비용 보조금은 Ration parameter를 조정하여 서비스 제공자가 커버할 비용의 비율을 정할 수 있습니다. 수수료-위임 트랜잭션은 적어도 두 개의 서명이 필요하다. 하나는 발신자로부터, 또 다른 하나는 수수료 지불인으로부터의 서명이다.
+Klaytn은 비즈니스 모델 디자인에 유연성을 제공하기 위해 기본 트랜잭션 유형들에 대한 여러 가지 비용 위임 버전을 제공합니다. 이러한 변형을 통해 서비스 제공자가 대신 트랜잭션 비용을 지불하여 최종 사용자 활동에 보조금을 지급할 수 있습니다. 트랜잭션 비용 보조금은 Ratio parameter를 조정하여 서비스 제공자가 커버할 비용의 비율을 정할 수 있습니다. 트랜잭션 비용 위임 트랜잭션은 적어도 두 개의 서명이 필요하다. 하나는 발신자로부터, 또 다른 하나는 트랜잭션 비용 지불인으로부터의 서명이다.
 
 ### SenderTxHash
 
-SenderTxHash는 트랜잭션 비용 지불자의 주소와 서명이 없는 트랜잭션의 해시입니다. 수수료 위임 트랜잭션의 트랜잭션 해시는 수수료 지급인이 그 거래에 서명할 때까지 결정되지 않습니다. To track a fee-delegated transaction, the sender should get the transaction hash derived from the complete transaction containing the signatures from both the sender and the fee payer. Since it is very hard for the sender to get the transaction hash, Klaytn provides a SenderTxHash as well as the transaction hash. To find the complete fee-delegated transaction in the Klaytn network, the sender generates the SenderTxHash and requests a transaction object via [klay_getTransactionBySenderTxHash](../../../bapp/json-rpc/api-references/klay/transaction.md#klay_gettransactionbysendertxhash). How to get the SenderTxHash depends on each transaction type, which is described in the description of each transaction type.
+SenderTxHash는 트랜잭션 비용 지불자의 주소와 서명이 없는 트랜잭션의 해시입니다. 트랜잭션 비용 위임 트랜잭션의 트랜잭션 해시는 비용 지불인이 그 거래에 서명할 때까지 결정되지 않는다. 비용 위임 트랜잭션을 찾으려면 발신자는 발신자와 트랜잭션 비용 지불인 모두의 서명이 담긴 완전한 트랜잭션으로부터 파생된 트랜잭션 해시를 얻어야 합니다. 발신자가 트랜잭션 해시를 얻는 것이 매우 어렵기 때문에 Klaytn은 트랜잭션 해시뿐만 아니라 SenderTxHash를 제공합니다. Klaytn 네트워크에서 완전한 비용 위임 트랜잭션을 찾으려면 발신자는 SenderTxHash을 만들고 트랜잭션 오브젝트를 [klay_getTransactionBySenderTxHash](../../../bapp/json-rpc/api-references/klay/transaction.md#klay_gettransactionbysendertxhash)로 요청해야 합니다. SenderTxHash를 얻기 위한 방법은 트랜잭션 유형에 따라 다릅니다. 관련 내용은 각 트랜잭션 유형의 설명을 참고하세요.
 
 각 트랜잭션 유형을 자세하게 살펴보면 다음과 같습니다.
 
