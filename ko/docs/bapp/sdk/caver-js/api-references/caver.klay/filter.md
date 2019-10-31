@@ -8,7 +8,7 @@ Polling method for a filter, which returns an array of logs since the last poll.
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                   |
+| 명칭       | Type     | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | filterId | 문자열      | The filter id.                                                       |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
@@ -19,7 +19,7 @@ Polling method for a filter, which returns an array of logs since the last poll.
 
 The structure of the returned log `Object` in the `Array` looks as follows:
 
-| 명칭               | 형식            | 설명                                                                                                                                                                                      |
+| 명칭               | Type          | 설명                                                                                                                                                                                      |
 | ---------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address          | 20바이트 크기 DATA | 로그를 발생시킨 주소입니다.                                                                                                                                                                         |
 | topics           | DATA 배열       | 길이가 0부터 4까지인 배열로, 배열의 각 원소는 32바이트 크기 DATA 형태의 인덱스화된 로그 인수들입니다. (솔리디티의 경우 `anonymous` 지정자로 이벤트를 선언하지 않았다면 배열의 첫 번째 원소는 이벤트에 대한 서명의 해시입니다. (*예를 들어*, `Deposit(address,bytes32,uint256)`)) |
@@ -60,7 +60,7 @@ Returns an array of all logs matching the filter with the given id. The filter o
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                   |
+| 명칭       | Type     | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | filterId | 문자열      | The filter id.                                                       |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
@@ -99,7 +99,7 @@ Gets past logs, matching the given options.
 
 **매개변수**
 
-| 명칭                | 형식                   | 설명                                                                                                                                                                                                                                                                                    |
+| 명칭                | Type                 | 설명                                                                                                                                                                                                                                                                                    |
 | ----------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | options           | 객체                   | The filter options.                                                                                                                                                                                                                                                                   |
 | options.fromBlock | Number &#124; String | (optional) The number of the earliest block to get the logs. (`"latest"` means the most recent block and `"pending"` means currently mining block.) The default value is `"latest"`.                                                                                                  |
@@ -114,7 +114,7 @@ Gets past logs, matching the given options.
 
 The structure of the returned event `Object` in the `Array` looks as follows:
 
-| 명칭               | 형식             | 설명                                                                                                     |
+| 명칭               | Type           | 설명                                                                                                     |
 | ---------------- | -------------- | ------------------------------------------------------------------------------------------------------ |
 | address          | 문자열            | From which this event originated from.                                                                 |
 | data             | 문자열            | 색인화되지 않은 로그 매개변수를 포함하는 데이터.                                                                            |
@@ -158,7 +158,7 @@ Creates a filter in the node to receive the information about new block arrival.
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                                                                            |
+| 명칭       | Type     | 설명                                                                                                                            |
 | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | callback | Function | (optional) Optional callback. The callback is fired with an error object as its first parameter and the result as the second. |
 
@@ -188,7 +188,7 @@ For detailed information about topic filters, please see [Klaytn Platform API - 
 
 **매개변수**
 
-| 명칭                | 형식                   | 설명                                                                                                                                                                                                                                                                                  |
+| 명칭                | Type                 | 설명                                                                                                                                                                                                                                                                                  |
 | ----------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | options           | 객체                   | The filter options.                                                                                                                                                                                                                                                                 |
 | options.fromBlock | Number &#124; String | (optional) The number of the earliest block height to query the events. (There are special tags, `"latest"` means the most recent block and `"pending"` means currently mining block). The default value is `"latest"`.                                                             |
@@ -222,7 +222,7 @@ Creates a filter in the node, to receive the information about new pending trans
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                   |
+| 명칭       | Type     | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
@@ -247,7 +247,7 @@ Removes the filter with the given id. It is strongly recommended to immediately 
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                   |
+| 명칭       | Type     | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | filterId | 문자열      | The filter id.                                                       |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
