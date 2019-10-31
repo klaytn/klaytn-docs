@@ -9,7 +9,7 @@ Sends a [Value Transfer](../../../../../klaytn/design/transactions/basic.md#txty
 
 **매개변수**
 
-| 명칭                         | 형식                                              | 설명                                                                                                                                                      |
+| 명칭                         | Type                                            | 설명                                                                                                                                                      |
 | -------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionObject          | 객체                                              | The transaction object to send.                                                                                                                         |
 | transactionObject.type     | 문자열                                             | The type of "VALUE_TRANSFER" transaction.                                                                                                               |
@@ -75,7 +75,7 @@ Sends a [Fee Delegated Value Transfer](../../../../../klaytn/design/transactions
 
 **매개변수**
 
-| 명칭                                     | 형식                                              | 설명                                                                                                                                                      |
+| 명칭                                     | Type                                            | 설명                                                                                                                                                      |
 | -------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionObject                      | 객체                                              | The transaction object to send.                                                                                                                         |
 | transactionObject.type                 | 문자열                                             | The type of "FEE_DELEGATED_VALUE_TRANSFER" transaction.                                                                                               |
@@ -153,7 +153,7 @@ Sends a [Fee Delegated Value Transfer With Ratio](../../../../../klaytn/design/t
 
 **매개변수**
 
-| 명칭                                     | 형식                                              | 설명                                                                                                                                                                                                |
+| 명칭                                     | Type                                            | 설명                                                                                                                                                                                                |
 | -------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionObject                      | 객체                                              | The transaction object to send.                                                                                                                                                                   |
 | transactionObject.type                 | 문자열                                             | The type of "FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO" transaction.                                                                                                                            |
