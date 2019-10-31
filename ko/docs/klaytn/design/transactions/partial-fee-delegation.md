@@ -4,14 +4,14 @@
 
 TxTypeFeeDelegatedValueTransferWithRatio는 사용자가 토큰을 보내려고 할 때 사용됩니다. As Klaytn provides multiple transaction types to make each transaction type serve a single purpose, TxTypeFeeDelegatedValueTransferWithRatio is limited to send tokens to an externally owned account. Therefore, TxTypeFeeDelegatedValueTransferWithRatio is accepted only if `to` is an externally owned account. To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecutionWithRatio](partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) instead. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
 
-1. 수수료 지불자의 잔고는 주어진 거래 수수료 비율(fee ratio)에 따라 감소합니다.
+1. 수수료 납부자의 잔고는 주어진 거래 수수료 비율(fee ratio)에 따라 감소합니다.
 2. The sender's balance decreases by the remaining transaction fee. e.g., If the `feeRatio` is 30, 30% of the fee will be paid by the fee payer, and the remaining 70% of the fee will be paid by the sender.
 3. 발신자의 nonce가 1 증가합니다.
 4. `value` KLAY가 발산지로부터 수신자로 전송됩니다.
 
 ### 속성
 
-| 속성                 | 형식                                                     | 설명                                                                                                                                                                                                                              |
+| 속성                 | Type                                                   | 설명                                                                                                                                                                                                                              |
 |:------------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | type               | uint8 \(Go\)                                         | The type of TxTypeFeeDelegatedValueTransferWithRatio. This must be 0x0a.                                                                                                                                                        |
 | nonce              | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                |
@@ -22,8 +22,8 @@ TxTypeFeeDelegatedValueTransferWithRatio는 사용자가 토큰을 보내려고 
 | from               | common.Address \(Go\)                                | The address of the sender. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                              |
 | feeRatio           | uint8 \(Go\)                                         | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well.                                                                                             |
 | txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
-| feePayer           | common.Address \(Go\)                                | The address of the fee payer.                                                                                                                                                                                                   |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                     |
+| feePayer           | common.Address \(Go\)                                | 트랜잭션 비용 지불자의 주소입니다.                                                                                                                                                                                                             |
+| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 트랜잭션 비용 지불자의 서명입니다.                                                                                                                                                                                                             |
 
 ### 발신자의 서명을 위한 RLP 인코딩
 
@@ -161,7 +161,7 @@ TxTypeFeeDelegatedValueTransferMemoWithRatio is used when a user wants to send t
 
 ### 속성
 
-| 속성                 | 설명                                                     | 형식                                                                                                                                                                                                                              |
+| 속성                 | 설명                                                     | Type                                                                                                                                                                                                                            |
 |:------------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | type               | uint8 \(Go\)                                         | The type of TxTypeFeeDelegatedValueTransferMemoWithRatio. This must be 0x12.                                                                                                                                                    |
 | nonce              | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                |
@@ -173,8 +173,8 @@ TxTypeFeeDelegatedValueTransferMemoWithRatio is used when a user wants to send t
 | input              | \[\]byte \(Go\)                                    | 트랜잭션에 첨부되는 데이터입니다. 메시지는 이 속성으로 전달되어야 합니다.                                                                                                                                                                                       |
 | feeRatio           | uint8 \(Go\)                                         | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well.                                                                                             |
 | txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
-| feePayer           | common.Address \(Go\)                                | The address of the fee payer.                                                                                                                                                                                                   |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                     |
+| feePayer           | common.Address \(Go\)                                | 트랜잭션 비용 지불자의 주소입니다.                                                                                                                                                                                                             |
+| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 트랜잭션 비용 지불자의 서명입니다.                                                                                                                                                                                                             |
 
 ### 발신자의 서명을 위한 RLP 인코딩
 
@@ -315,7 +315,7 @@ TxTypeFeeDelegatedSmartContractDeployWithRatio deploys a smart contract. The giv
 
 ### 속성
 
-| 속성                 | 형식                                                     | 설명                                                                                                                                                                                                                              |
+| 속성                 | Type                                                   | 설명                                                                                                                                                                                                                              |
 |:------------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | type               | uint8 \(Go\)                                         | The type of TxTypeFeeDelegatedSmartContractDeployWithRatio. This must be 0x2a.                                                                                                                                                  |
 | nonce              | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                |
@@ -329,8 +329,8 @@ TxTypeFeeDelegatedSmartContractDeployWithRatio deploys a smart contract. The giv
 | feeRatio           | uint8 \(Go\)                                         | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well.                                                                                             |
 | codeFormat         | uint8 \(Go\)                                         | 스마트 컨트랙트 코드의 코드 형식입니다. 현재는 오직 EVM\(0x00\)만 지원됩니다.                                                                                                                                                                             |
 | txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
-| feePayer           | common.Address \(Go\)                                | The address of the fee payer.                                                                                                                                                                                                   |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                     |
+| feePayer           | common.Address \(Go\)                                | 트랜잭션 비용 지불자의 주소입니다.                                                                                                                                                                                                             |
+| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 트랜잭션 비용 지불자의 서명입니다.                                                                                                                                                                                                             |
 
 ### 발신자의 서명을 위한 RLP 인코딩
 
@@ -465,7 +465,7 @@ SenderTxHash 57dfef9c923cba182cca00fa65d45aaf619613d843d585d3c4026a3bd0797366
 
 ## TxTypeFeeDelegatedSmartContractExecutionWithRatio
 
-TxTypeFeeDelegatedSmartContractExecution executes a smart contract with the given data in `input`. TxTypeFeeDelegatedSmartContractExecutionWithRatio is accepted only if `to` is a smart contract account. To transfer KLAY to an externally owned account, use [TxTypeFeeDelegatedValueTransferWithRatio](partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio) instead. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
+TxTypeFeeDelegatedSmartContractExecution는 스마트 컨트랙트를 실행하고, `input`에 입력된 데이터를 이용합니다. TxTypeFeeDelegatedSmartContractExecutionWithRatio is accepted only if `to` is a smart contract account. To transfer KLAY to an externally owned account, use [TxTypeFeeDelegatedValueTransferWithRatio](partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio) instead. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
 
 1. `to`가 스마트 컨트랙트라면 `input`을 이용하여 코드가 실행됩니다. 그렇지 않으면 트랜잭션은 거절됩니다.
 2. The fee payer's balance decreases by the fee ratio of the amount of the transaction fee.
@@ -475,7 +475,7 @@ TxTypeFeeDelegatedSmartContractExecution executes a smart contract with the give
 
 ### 속성
 
-| 속성                 | 형식                                                     | 설명                                                                                                                                                                                                                              |
+| 속성                 | Type                                                   | 설명                                                                                                                                                                                                                              |
 |:------------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | type               | uint8 \(Go\)                                         | The type of TxTypeFeeDelegatedSmartContractExecutionWithRatio. This must be 0x32.                                                                                                                                               |
 | nonce              | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                |
@@ -487,8 +487,8 @@ TxTypeFeeDelegatedSmartContractExecution executes a smart contract with the give
 | input              | \[\]byte \(Go\)                                    | 트랜잭션 실행에 이용되며 트랜잭션에 첨부되는 데이터입니다.                                                                                                                                                                                                |
 | feeRatio           | uint8 \(Go\)                                         | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well.                                                                                             |
 | txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
-| feePayer           | common.Address \(Go\)                                | The address of the fee payer.                                                                                                                                                                                                   |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                     |
+| feePayer           | common.Address \(Go\)                                | 트랜잭션 비용 지불자의 주소입니다.                                                                                                                                                                                                             |
+| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 트랜잭션 비용 지불자의 서명입니다.                                                                                                                                                                                                             |
 
 ### 발신자의 서명을 위한 RLP 인코딩
 
@@ -615,7 +615,7 @@ SenderTxHash d5e22319cbf020d422d8ba3a07da9d99b9300826637af85b4e061805dcb2c1b0
 
 ## TxTypeFeeDelegatedAccountUpdateWithRatio
 
-TxTypeFeeDelegatedAccountUpdateWithRatio updates the key of the given account. The given ratio of the transaction fee is paid by the fee payer. The following changes will take place by this transaction type.
+TxTypeFeeDelegatedAccountUpdateWithRatio updates the key of the given account. The given ratio of the transaction fee is paid by the fee payer. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
 
 1. The fee payer's balance decreases by the fee ratio of the amount of the transaction fee.
 2. The sender's balance decreases by the remaining transaction fee. e.g., If the `feeRatio` is 30, 30% of the fee will be paid by the fee payer, and the remaining 70% of the fee will be paid by the sender.
@@ -625,7 +625,7 @@ TxTypeFeeDelegatedAccountUpdateWithRatio updates the key of the given account. T
 
 ### 속성
 
-| 속성                 | 형식                                                     | 설명                                                                                                                                                                                                                                   |
+| 속성                 | Type                                                   | 설명                                                                                                                                                                                                                                   |
 |:------------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | type               | uint8 \(Go\)                                         | The type of TxTypeFeeDelegatedAccountUpdateWithRatio. This must be 0x22.                                                                                                                                                             |
 | nonce              | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                     |
@@ -633,10 +633,10 @@ TxTypeFeeDelegatedAccountUpdateWithRatio updates the key of the given account. T
 | gas                | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 비용입니다.                                                                                                                                                                                                      |
 | from               | common.Address \(Go\)                                | The address of the sender. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                   |
 | key                | AccountKey \(Go\)                                    | 업데이트 될 [AccountKey](../accounts.md#account-key)입니다.                                                                                                                                                                                  |
-| feeRatio           | uint8 \(Go\)                                         | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well.                                                                                                  |
+| feeRatio           | uint8 \(Go\)                                         | 트랜잭션 비용 납부자의 부담 비율입니다. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well.                                                                                                       |
 | txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                                  |
-| feePayer           | common.Address \(Go\)                                | The address of the fee payer.                                                                                                                                                                                                        |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                          |
+| feePayer           | common.Address \(Go\)                                | 트랜잭션 비용 지불자의 주소입니다.                                                                                                                                                                                                                  |
+| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 트랜잭션 비용 지불자의 서명입니다.                                                                                                                                                                                                                  |
 
 ### 발신자의 서명을 위한 RLP 인코딩
 
@@ -763,23 +763,23 @@ SenderTxHash e1d87538509549f4a1eb418f986bc53dc77b7eec3b2150f75cd787951d3e4b7f
 
 ## TxTypeFeeDelegatedCancelWithRatio
 
-TxTypeFeeDelegatedCancelWithRatio cancels the execution of the transaction with the same nonce in the transaction pool. For more details, see [TxTypeCancel](basic.md#txtypecancel).
+TxTypeFeeDelegatedCancelWithRatio는 트랜잭션 풀에서 같은 논스를 가진 트랜잭션을 취소합니다. 자세한 내용은 [TxTypeCancel](basic.md#txtypecancel)를 참조하세요.
 
-이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다. 1. The fee payer's balance decreases by the given fee ratio of the amount of the transaction fee. 2. The sender's balance decreases by the remaining transaction fee. 3. 발신자의 nonce가 1 증가합니다.
+이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다. 1. 트랜잭션 비용 납부자의 잔액은 트랜잭션 비용의 주어진 비용 부담 비율만큼 감소합니다. 2. 발신자의 잔고는 남은 트랜잭션 비용만큼 줄어듭니다. 3. 발신자의 nonce가 1 증가합니다.
 
 ### 속성
 
-| 속성                 | 설명                                                     | 형식                                                                                                                                                                                                                              |
+| 속성                 | 설명                                                     | Type                                                                                                                                                                                                                            |
 |:------------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type               | uint8 \(Go\)                                         | The type of TxTypeFeeDelegatedCancelWithRatio. This must be 0x3a.                                                                                                                                                               |
+| type               | uint8 \(Go\)                                         | TxTypeFeeDelegatedCancelWithRatio의 type입니다. 이는 0x3a이어야 합니다.                                                                                                                                                                     |
 | nonce              | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                |
 | gasPrice           | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 비용으로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 비용은 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
 | gas                | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 비용입니다.                                                                                                                                                                                                 |
-| from               | common.Address \(Go\)                                | The address of the sender. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                              |
-| feeRatio           | uint8 \(Go\)                                         | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well.                                                                                             |
+| from               | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
+| feeRatio           | uint8 \(Go\)                                         | 트랜잭션 비용 납부자의 부담 비율입니다. 유효한 범위는 1에서 99 사이입니다. 영\(0\)은 허용되지 않습니다. 100 이상 또한 허용되지 않습니다.                                                                                                                                          |
 | txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
-| feePayer           | common.Address \(Go\)                                | The address of the fee payer.                                                                                                                                                                                                   |
-| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                     |
+| feePayer           | common.Address \(Go\)                                | 트랜잭션 비용 지불자의 주소입니다.                                                                                                                                                                                                             |
+| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 트랜잭션 비용 지불자의 서명입니다.                                                                                                                                                                                                             |
 
 ### 발신자의 서명을 위한 RLP 인코딩
 
