@@ -97,7 +97,7 @@ $ cp ./keystore/UTC--2019-...--ef28e51ef33fe0f487289c1c6e1ccdf5e571366b ~/kscnd_
 $ cp ./passwd ~/kscnd_home/
 ```
 
-## SCN 구성
+## Configuration of the SCN <a id="configuration-of-the-scn"></a>
 
 `kscnd.conf`는 SCN의 구성 파일입니다.
 
