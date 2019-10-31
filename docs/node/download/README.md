@@ -1,7 +1,9 @@
 # Download
 
 ## Get the Packages
-You can get the Linux and MacOS packages for CN, PN, EN and SCN.
+You can get the Linux and MacOS packages for CN, PN, EN, SCN, SPN and SEN.
+(`homi` will be update soon.)
+
 - [v1.2.0 (latest)](v1.2.0.md)
 - [v1.1.1](v1.1.1.md)
 - [v1.0.0](v1.0.0.md)
