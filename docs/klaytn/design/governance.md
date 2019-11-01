@@ -45,7 +45,7 @@ KIR’s proposal introduction methods are the following two.
 1. The financial commission, which votes on Klaytn’s financial issues and is composed of the finance commission members, can introduce a new proposal.
 2. A proposal passed by the House of Representatives, a system that evaluates different proposals through the votes of all users, is automatically introduced as a new proposal.
 
-The KIR’s final spending proposal will be determined through the votes of the Klaytn Financial Commision members. The goal is to automatically implement approved proposals on-chain as soon as it is passed, but in the early days following Klaytn’s launch, this process may be handled manually.
+The KIR’s final spending proposal will be determined through the votes of the Klaytn Financial Commission members. The goal is to automatically implement approved proposals on-chain as soon as it is passed, but in the early days following Klaytn’s launch, this process may be handled manually.
 
 ## Duties and Rights of the Governing Body
 
