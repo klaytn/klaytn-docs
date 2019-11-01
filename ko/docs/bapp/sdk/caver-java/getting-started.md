@@ -225,8 +225,7 @@ Account.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendUpdateTransaction
 
 계정 키는 계정과 연결된 키 구조를 나타냅니다. Klaytn 계정 키에 대한 자세한 내용과 타입을 보려면 [Account Key](../../../klaytn/design/accounts.md#account-key)를 읽으세요.
 
-### 스마트  
-컨트랙트
+### 스마트 컨트랙트
 
 caver-java는 스마트 컨트랙트 래퍼 코드의 자동 생성을 지원합니다. 랩퍼를 사용하면 스마트 컨트랙트를 쉽게 배포하고 실행할 수 있습니다. 랩퍼 코드를 생성하기 전, 먼저 스마트 컨트랙트를 컴파일해야 합니다. 참고: 컴퓨터에 솔리디티 컴파일러가 설치된 경우에만 작동합니다. [Solidity Compiler](#solidity-compiler)를 참조하세요.
 
