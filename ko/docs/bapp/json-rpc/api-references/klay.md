@@ -8,7 +8,7 @@ description: >-
 `klay` namespace는 계정, 블록, 트랜잭션, 네트워크 또는 노드의 환경 설정, 필터 등과 관련한 함수를 제공합니다. 아래는 현재 Klaytn이 지원하는 API 함수들의 목록입니다.
 
 
-### [계정 (Account)](./klay/account.md)
+### [계정(Account)](./klay/account.md)
 - [klay_accountCreated](./klay/account.md#klay_accountcreated)
 - [klay_accounts](./klay/account.md#klay_accounts)
 - [klay_getAccount](./klay/account.md#klay_getaccount)
@@ -38,7 +38,7 @@ description: >-
 - [klay_syncing](./klay/block.md#klay_syncing)
 
 
-### [트랜잭션 (Transaction)](./klay/transaction.md)
+### [트랜잭션(Transaction)](./klay/transaction.md)
 - [klay_call](./klay/transaction.md#klay_call)
 - [klay_estimateGas](./klay/transaction.md#klay_estimategas)
 - [klay_estimateComputationCost](./klay/transaction.md#klay_estimatecomputationcost)
