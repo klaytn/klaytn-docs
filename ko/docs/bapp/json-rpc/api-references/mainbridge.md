@@ -3,11 +3,11 @@ description: >-
   서비스체인과 연결된 메인체인 EN과 관련된 API.
 ---
 
-# 네임스페이스 메인브리지
+# Namespace mainbridge <a id="namespace-mainbridge"></a>
 
 네임스페이스 `mainbridge`는 서비스체인과 관련된 함수를 제공합니다. 이 네임스페이스에서 함수를 사용하려면, 메인체인(메인넷 또는 Baobab 테스트넷)에 연결된 EN에서 `mainbridge` 옵션이 활성화되어 있어야 합니다).
 
-## mainbridge_nodeInfo
+## mainbridge_nodeInfo <a id="mainbridge_nodeInfo"></a>
 
 노드의 KNI (Klaytn Network Identifier)를 포함하여 브리지 노드 정보를 반환합니다. 메인브리지 노드는 KNI를 통해 서브브리지 노드에 연결할 수 있습니다.
 
@@ -53,7 +53,7 @@ description: >-
 }
 ```
 
-## mainbridge_addPeer
+## mainbridge_addPeer  <a id="mainbridge_addPeer"></a>
 서브브리지 피어 추가가 성공적으로 완료되면 `true`을 반환합니다.
 
 피어 목록에 새 원격 노드를 추가합니다. 각 노드는 목록의 노드들과의 연결을 항상 유지하고자 하고, 만약 원격 가끔씩 연결이 끊어지면 다시 연결합니다. 이 메소드는 추적을 시작하기 위해 하나의 인자로 원격 피어의 `kni` URL를 받고, 피어 추적이 허용되었는지 또는 어떤 오류가 발생했는지를 나타내는 `BOOL`을 반환합니다.
@@ -85,7 +85,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
-## mainbridge_removePeer
+## mainbridge_removePeer <a id="mainbridge_removePeer"></a>
 피어 제거가 성공적으로 완료되면 `true`을 반환합니다.
 
 `removePeer` 메소드는 추적된 정적 노드 목록에서 원격 노드의 연결을 끊고 제거합니다. 이 메소드는 추적을 시작하기 위해 하나의 인자로 원격 피어의 `kni` URL를 받고, 피어 추적이 허용되었는지 또는 어떤 오류가 발생했는지를 나타내는 `BOOL`을 반환합니다.
@@ -118,35 +118,56 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
-## mainbridge_convertServiceChainBlockHashToMainChainTxHash
+## mainbridge_getChildChainIndexingEnabled <a id="mainbridge_getChildChainIndexingEnabled"></a>
 
-주어진 하위 체인 블록 해시의 앵커링 트랜잭션 해시를 반환합니다.
+`mainbridge_getChildChainIndexingEnabled` returns if indexing anchoring transaction is enabled or not.
 
 **매개변수**
 
-| Type          | 설명                             |
-| ------------- | ------------------------------ |
-| 32바이트 크기 DATA | 앵커링 트랜잭션 해시를 포함하는 하위 체인 블록 해시. |
+none
 
 **리턴값**
 
-| Type          | 설명                             |
-| ------------- | ------------------------------ |
-| 32바이트 크기 DATA | 하위 체인 블록 앵커링 정보를 포함하는 트랜잭션 해시. |
+| Type | 설명                                                     |
+| ---- | ------------------------------------------------------ |
+| 불리언  | `true` if the indexing was enabled, `false` otherwise. |
+
+**예시**
+
+```javascript
+> mainbridge.getChildChainIndexingEnabled()
+true
+```
+
+## mainbridge_convertChildChainBlockHashToParentChainTxHash <a id="mainbridge_convertChildChainBlockHashToParentChainTxHash"></a>
+
+Returns the anchoring transaction hash of the given child chain block hash.
+
+**매개변수**
+
+| Type          | 설명                          |
+| ------------- | --------------------------- |
+| 32바이트 크기 DATA | The child chain block hash. |
+
+**리턴값**
+
+| Type          | 설명                                                                              |
+| ------------- | ------------------------------------------------------------------------------- |
+| 32바이트 크기 DATA | The anchoring transaction hash that includes the child chain block information. |
 
 **예시**
 
 콘솔
 
 ```javascript
-> mainbridge.convertServiceChainBlockHashToMainChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
+> mainbridge.convertChildChainBlockHashToParentChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
 "0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51"
 ```
 
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"mainbridge_convertServiceChainBlockHashToMainChainTxHash","params":["0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"mainbridge_convertChildChainBlockHashToParentChainTxHash","params":["0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880"],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":"0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51"}
 ```
 
