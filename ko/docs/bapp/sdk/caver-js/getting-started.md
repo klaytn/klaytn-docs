@@ -336,8 +336,7 @@ Klaytn은 [트랜잭션 비용 위임](../../../klaytn/design/transactions/READM
 }).then(console.log);
 ```
 
-### 스마트  
-컨트랙트
+### 스마트 컨트랙트
 
 [caver.klay.Contract](api-references/caver.klay.Contract.md) 패키지를 사용하면 Klaytn의 스마트 컨트랙트와 쉽게 상호작용할 수 있습니다. 저수준 ABI\(Application Binary Interface\)가 주어지면 스마트 컨트랙트의 모든 메소드를 자동으로 자바스크립트 호출로 변환합니다. 이를 통해 스마트 컨트랙트가 마치 자바스크립트 객체인 것처럼 스마트 컨트랙트와 상호작용할 수 있습니다.
 
