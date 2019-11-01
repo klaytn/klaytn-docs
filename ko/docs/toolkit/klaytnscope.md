@@ -114,7 +114,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 
 블록에 담긴 트랜잭션들의 목록입니다.
 
-### 트랜잭션 (Transaction)
+### 트랜잭션(Transaction)
 
 ![](img/scope_09_tx_detail.png)
 
@@ -141,7 +141,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 
 트랜잭션 발신자나 컨트랙트에 의해 입력된 추가 데이터입니다.
 
-### 계정 (Account)
+### 계정(Account)
 
 ![](img/scope_10_account_detail.png)
 
