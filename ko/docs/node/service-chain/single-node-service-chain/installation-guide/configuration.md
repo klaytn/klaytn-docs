@@ -1,115 +1,77 @@
-# 환경 설정
+# Configuration <a id="configuration"></a>
 
-이 페이지에서는 단일 서비스체인 노드 (SCN)의 구성에 대해 설명합니다.
+This page explains the configuration of a node in a single-node Service Chain.
 
-## SCSigner 키스토어 / 비밀번호 파일 생성
+## Creation of a Genesis File <a id="creation-of-a-genesis-file"></a>
 
-서비스체인 노드를 실행할 때, 키스토어 파일 및 SCSigner(SC서명자)에 관련된 비밀번호 파일이 필요합니다. 다음과 같은 파일을 생성할 수 있습니다.
+First, you should create a new genesis file for your own service chain and initialize all service chain nodes with the same genesis file. The genesis file of the service chain is different with main chain. The `unitPrice` is set to `0` in the example below, but you can change it to the value you want.
 
-### 비밀번호 파일 만들기
-
-먼저 아래와 같이 비밀번호 파일을 생성할 수 있습니다. 이 비밀번호 파일은 키스토어 파일을 생성하고 서비스체인 노드를 실행하는 데 사용됩니다.
-
-```bash
-$ echo passwordString >> passwd
-```
-
-### 키스토어 파일 만들기
-
-아래와 같이 비밀번호 파일로 키스토어 파일을 생성할 수 있습니다.
-
-```bash
-$ kscn account new --datadir "./" --password ./passwd
-Address: {c04ae62e6a8e084e8f00030d637380792db3dc26}
-```
-
-_제네시스 파일에서 scsigner에 대해 생성된 주소를 사용해야 합니다._
-
-이제 아래와 같이 키스토어 파일 및 비밀번호 파일을 가집니다.
-
-```bash
-$ tree
-.
-├── keystore
-│   └── UTC--2019-03-28T06-10-39.102092000Z--c04ae62e6a8e084e8f00030d637380792db3dc26
-└── passwd
-```
-
-[제네시스 블록 초기화](#initialization-of-a-genesis-block) 후, 이 파일들을 데이터 디렉토리에 복사합니다.
-
-## 제네시스 파일 생성
-
-먼저, 고유한 서비스체인에 대한 새 제네시스 파일을 생성하고 동일한 제네시스 파일로 모든 서비스체인 노드를 초기화해야 합니다. 서비스체인의 제네시스 파일은 메인체인과 다릅니다. 새 제네시스 파일을 만들려면 `governingnode`, `extraData`, `alloc` 필드에 서비스체인의 scsigner 주소를 기입해야 합니다. 아래 예시에서 `unitPrice`은 `0`으로 설정되었으나, 원하는 값으로 변경할 수 있습니다.
-
-`genesis.json` 예시는 다음과 같습니다. [Genesis JSON](../../genesis.md)에서 더 자세한 내용을 확인할 수 있습니다.
+The `genesis.json` example is given below. You can find more details in [Genesis JSON](../../genesis.md).
 
 * 합의 노드를 위한 `geneis.json` 예시.
-  * 합의 노드의 scsigner는 `c04ae62e6a8e084e8f00030d637380792db3dc26`입니다.
+  * The consensus node key is `5d45c852383d12cdb38533cb7369db7ba6c298e4`.
 
-```javascript
+```json
 {
-     "config": {
-         "chainId": 3000,
-         "clique": {
-             "period": 1,
-             "epoch": 604800
-         },
-         "unitPrice": 0
-     },
-     "extraData": "0x0000000000000000000000000000000000000000000000000000000000000000c04ae62e6a8e084e8f00030d637380792db3dc260000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-     "alloc": {
-         "c04ae62e6a8e084e8f00030d637380792db3dc26": {
-             "balance": "0x446c3b15f9926687d2c40534fdb564000000000000"
-         }
-     },
-     "number": "0x0",
-     "gasUsed": "0x0",
-     "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "config": {
+        "chainId": 1000,
+        "istanbul": {
+            "epoch": 3600,
+            "policy": 0,
+            "sub": 22
+        },
+        "unitPrice": 0,
+        "deriveShaImpl": 2,
+        "governance": null
+    },
+    "timestamp": "0x5dad1614",
+    "extraData": "0x0000000000000000000000000000000000000000000000000000000000000000f85ad5945d45c852383d12cdb38533cb7369db7ba6c298e4b8410000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c0",
+    "governanceData": null,
+    "blockScore": "0x1",
+    "alloc": {
+        "5d45c852383d12cdb38533cb7369db7ba6c298e4": {
+            "balance": "0x2540be400"
+        }
+    },
+    "number": "0x0",
+    "gasUsed": "0x0",
+    "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
 }
 ```
 
 
-## SCN 데이터 디렉토리 생성
+## SCN Data Directory Creation <a id="scn-data-directory-creation"></a>
 
-Klaytn 블록체인 데이터의 크기가 계속 증가됨을 고려하여, 충분히 큰 스토리지를 사용하는 것을 추천합니다. 특정 경로에 디렉토리를 생성할 수 있습니다.
+Klaytn 블록체인 데이터의 크기가 계속 증가한다는 사실을 고려하면 충분히 큰 스토리지를 사용하는 것이 좋습니다. You can create the data directory on your desired path.
 
 ```bash
 $ mkdir -p ~/kscnd_home
 ```
 
-### 제네시스 블록의 초기화
+### Initialization of a Genesis Block <a id="initialization-of-a-genesis-block"></a>
 
-서비스체인 노드를 시작하기 전에, `kscn` 및 `genesis.json`을 사용하여 서비스체인 네트워크의 제네시스 블록을 초기화해야 합니다.
+Before starting a service chain node, it is necessary to initialize the genesis block of the service chain network using `kscn` and `genesis.json`.
 
 ```bash
 $ kscn init --datadir ~/kscnd_home genesis.json
 ...
 ```
 
-SCN을 시작하기 위해 필요한 모든 단계가 완료되었습니다.
-
-### **SCSigner 키/비밀번호 파일 설치**
-
-서비스체인 노드에 대해 scsigner를 설정하려면, 올바른 scsigner 키스토어와 비밀번호 파일 쌍이 필요합니다. 아래와 같이 파일을 복사하세요. 키스토어 파일은 계정을 잠금 해제하기 위해 비밀번호 파일이 필요합니다.
-
-```bash
-$ cp ./keystore/UTC--2019-...--ef28e51ef33fe0f487289c1c6e1ccdf5e571366b ~/kscnd_home/keystore
-$ cp ./passwd ~/kscnd_home/
-```
+All required steps are done for launching an SCN.
 
 ## Configuration of the SCN <a id="configuration-of-the-scn"></a>
 
-`kscnd.conf`는 SCN의 구성 파일입니다.
+`kscnd.conf` is the configuration file for the SCN.
 
-Cypress (Network ID: 8217)에 참여한 SCN이 기본 포트를 사용하고 대규모 파티션을 `~/kscnd_home`에 마운트한다고 가정합니다.  다음은 예시 구성입니다.
+Assume that the participated SCN in Cypress (Network ID: 8217) uses the default port and mounts a large-scale partition onto `~/kscnd_home`.  The following configuration is an example.
 
 ```
 # Configuration file for the kscnd
 
-SCSIGNER="c04ae62e6a8e084e8f00030d637380792db3dc26"
-SCSIGNER_PASSWD_FILE=~/kscnd_home/passwd   # Need to right password file path for the keystore file of the scsigner address
+SCSIGNER="" #deprecated 
+SCSIGNER_PASSWD_FILE= #deprecated
 
-NETWORK_ID=3000 # Set your own unique network ID which is different with known network(Klaytn Mainnet(1), Baobab(1000))
+NETWORK_ID=3000 # Set your own unique network ID which should be different from the known networks (Klaytn Mainnet(1), Baobab(1000))
 
 PORT=22323 # if EN (main-bridge) and SCN (sub-bridge) on same instance, use different port with EN.(EN: 32323, SCN:22323)
 
@@ -156,6 +118,7 @@ NO_DISCOVER=1
 DB_NO_PARALLEL_WRITE=0
 MULTICHANNEL=1
 SUBPORT=$((PORT + 1)) # used for multi channel option
+VTRECOVERY=1 # value transfer recovery
 
 # Raw options e.g.) "--txpool.nolocals"
 ADDITIONAL=""
@@ -164,7 +127,7 @@ DATA_DIR=~/kscnd_home
 LOG_DIR=$DATA_DIR/logs
 ```
 
-아래와 같이 SCN 타입에 따라 권장되는 txpool 크기는 다음과 같습니다:
+The recommended txpool sizes based on SCN type is as follows:
 
 ```
 TXPOOL_EXEC_SLOTS_ALL=16384
