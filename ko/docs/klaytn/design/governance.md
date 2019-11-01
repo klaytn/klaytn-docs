@@ -1,4 +1,4 @@
-# 거버넌스 (Governance)
+# 거버넌스(Governance)
 
 ## 개요
 
@@ -45,7 +45,7 @@ KIR의 제안 상정 방법은 다음과 같습니다.
 1. Financial Commision은 새로운 제안을 상정하고 투표할 수 있는 Financial Commision 멤버들로 이루어진 그룹입니다.
 2. 모든 사용자들의 투표를 통해 여러 제안들을 평가하는 시스템인 하원 의원들(House of Representatives)에 의해 통과된 제안은 자동으로 새로운 제안으로 상정됩니다.
 
-KIR의 최종 지출 제안은 Klaytn Financial Commision 멤버들의 투표를 통해 결정됩니다. 제안이 승인되는 즉시 온체인(on-chain)에서 자동으로 제안을 이행하는 것이 목표이지만, Klaytn이 출범한 후 초기에는 이 프로세스가 수동으로 처리될 수 있습니다.
+The KIR’s final spending proposal will be determined through the votes of the Klaytn Financial Commission members. 제안이 승인되는 즉시 온체인(on-chain)에서 자동으로 제안을 이행하는 것이 목표이지만, Klaytn이 출범한 후 초기에는 이 프로세스가 수동으로 처리될 수 있습니다.
 
 ## 거버넌스 참여자들의 의무와 권리
 
