@@ -82,7 +82,7 @@ Klaytn 네트워크에 사용 가능한 합의 엔진은 Clique와 Istanbul입�
 | policy | 블록 제안자 선출 정책. [0: 라운드 로빈, 1: 고정, 2: 가중 랜덤] |
 | sub    | 위원회 규모.                                    |
 
-# 거버넌스 (Governance)
+# 거버넌스(Governance)
 
 `governance` 필드는 네트워크를 위한 거버넌스 정보를 저장합니다.
 
