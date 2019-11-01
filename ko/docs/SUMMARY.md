@@ -2,8 +2,7 @@
 
 * [환영합니다.](README.md)
 
-* [Klaytn  
-  개요](klaytn/README.md)
+* [Klaytn 개요](klaytn/README.md)
   * [왜 Klaytn일까요?](klaytn/why-klaytn.md)
   * [Klaytn 디자인](klaytn/design/README.md)
     * [합의 메커니즘](klaytn/design/consensus-mechanism.md)
@@ -39,8 +38,7 @@
   * [KLAY 받기](getting-started/getting-klay.md)
   * [Cypress Mainnet 초기 설정 요청](getting-started/request-for-initial-setup-on-cypress-mainnet.md)
 
-* [스마트  
-  컨트랙트](smart-contract/README.md)
+* [스마트 컨트랙트](smart-contract/README.md)
   * [솔리디티 - 스마트 컨트랙트 언어](smart-contract/solidity-smart-contract-language.md)
   * [미리 컴파일된 컨트랙트(Precompiled Contracts)](smart-contract/precompiled-contracts.md)
   * [IDE 및 도구](smart-contract/ide-and-tools/README.md)
@@ -60,8 +58,7 @@
   * [Klaytn 호환 토큰](smart-contract/token-standard.md)
   * [이더리움 컨트랙트 이식](smart-contract/porting-ethereum-contract.md)
 
-* [설치 &   
-  운영](node/README.md)
+* [설치 & 운영](node/README.md)
   * [Endpoint Node](node/endpoint-node/README.md)
     * [시스템 요구사항](node/endpoint-node/system-requirements.md)
     * [설치 가이드](node/endpoint-node/installation-guide/README.md)
@@ -126,8 +123,7 @@
     * [v0.9.6](node/download/v0.9.6.md)
     * [v0.8.2](node/download/v0.8.2.md)
 
-* [BApp  
-  개발자](bapp/README.md)
+* [BApp 개발자](bapp/README.md)
   * [JSON-RPC APIs](bapp/json-rpc/README.md)
     * [API references](bapp/json-rpc/api-references/README.md)
       * [klay](bapp/json-rpc/api-references/klay.md)
