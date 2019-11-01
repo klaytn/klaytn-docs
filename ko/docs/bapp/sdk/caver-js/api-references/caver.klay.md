@@ -8,7 +8,7 @@ description: >-
 `caver-klay` 패키지를 사용하면 Klaytn 노드와 상호작용할 수 있습니다.  아래 목록은 `caver-js`에서 현재 지원되는 API의 기능을 열거합니다.
 
 
-### [계정 (Account)](./caver.klay/account.md)
+### [계정(Account)](./caver.klay/account.md)
 - [defaultAccount](./caver.klay/account.md#defaultaccount)
 - [accountCreated](./caver.klay/account.md#accountcreated)
 - [getAccount](./caver.klay/account.md#getaccount)
@@ -37,7 +37,7 @@ description: >-
 - [isSyncing](./caver.klay/block.md#issyncing)
 
 
-### [트랜잭션 (Transaction)](./caver.klay/transaction.md)
+### [트랜잭션(Transaction)](./caver.klay/transaction.md)
 
 - [call](./caver.klay/transaction.md#call)
 - [estimateGas](./caver.klay/transaction.md#estimategas)
