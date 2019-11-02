@@ -11,7 +11,7 @@ Note: Only the account having `AccountKeyLegacy` can send this transaction, on t
 
 **매개변수**
 
-| 명칭                         | Type                                            | 설명                                                                                                                                                                                                                                |
+| 명칭                         | 형식                                              | 설명                                                                                                                                                                                                                                |
 | -------------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionObject          | 객체                                              | The transaction object to send.                                                                                                                                                                                                   |
 | transactionObject.from     | 문자열                                             | The sender address of the transaction.                                                                                                                                                                                            |
