@@ -7,7 +7,7 @@ Executes a message call transaction, which is directly executed in the Klaytn Vi
 
 **매개변수**
 
-| 명칭           | Type                 | 설명                                                                                                                                                                                                                          |
+| 명칭           | 형식                   | 설명                                                                                                                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | callObject   | 객체                   | A transaction object with the difference that for calls the from property is optional as well. [An encoded function call](../caver.klay.abi.md#encodefunctioncall) must be set in the data field of the transaction object. |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock).                                                                                       |
@@ -38,7 +38,7 @@ Executes a message call or transaction and returns the amount of the gas used fo
 
 **매개변수**
 
-| 명칭         | Type     | 설명                                                                                                                                                                                                                          |
+| 명칭         | 형식       | 설명                                                                                                                                                                                                                          |
 | ---------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | callObject | 객체       | A transaction object with the difference that for calls the from property is optional as well. [An encoded function call](../caver.klay.abi.md#encodefunctioncall) must be set in the data field of the transaction object. |
 | callback   | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                                                        |
@@ -68,7 +68,7 @@ caver.klay.estimateComputationCost(callObject [, defaultBlock] [, callback])
 
 **매개변수**
 
-| 명칭           | Type                 | 설명                                                                                                                                                                                                                          |
+| 명칭           | 형식                   | 설명                                                                                                                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | callObject   | 객체                   | A transaction object with the difference that for calls the from property is optional as well. [An encoded function call](../caver.klay.abi.md#encodefunctioncall) must be set in the data field of the transaction object. |
 | defaultBlock | Number &#124; String | (optional) If you don't pass this parameter, the default block set by [caver.klay.defaultBlock](./block.md#defaultblock) will be used.                                                                                      |
@@ -108,15 +108,15 @@ Returns a transaction object containing all decoded values from the given `rawTr
 
 **매개변수**
 
-| 명칭             | Type | 설명                            |
-| -------------- | ---- | ----------------------------- |
-| rawTransaction | 문자열  | RLP encoded transaction data. |
+| 명칭             | 형식  | 설명                            |
+| -------------- | --- | ----------------------------- |
+| rawTransaction | 문자열 | RLP encoded transaction data. |
 
 **리턴값**
 
-| Type | 설명                                                                                                                                                                                                              |
-| ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 객체   | 트랜잭션 객체입니다. Depending on the transaction type, the returned transaction object has different properties. For the list of properties included in each transaction type, see [SendTransaction](#sendtransaction). |
+| 형식 | 설명                                                                                                                                                                                                              |
+| -- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 객체 | 트랜잭션 객체입니다. Depending on the transaction type, the returned transaction object has different properties. For the list of properties included in each transaction type, see [SendTransaction](#sendtransaction). |
 
 **예시**
 
@@ -221,7 +221,7 @@ Returns a transaction matching the given transaction hash.
 
 **매개변수**
 
-| 명칭              | Type     | 설명                                                                   |
+| 명칭              | 형식       | 설명                                                                   |
 | --------------- | -------- | -------------------------------------------------------------------- |
 | transactionHash | 문자열      | The transaction hash.                                                |
 | callback        | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
@@ -230,7 +230,7 @@ Returns a transaction matching the given transaction hash.
 
 `Promise` returns `Object` - A transaction object, or `null` when no transaction was found:
 
-| 명칭                 | Type          | 설명                                                                                                                                                                |
+| 명칭                 | 형식            | 설명                                                                                                                                                                |
 | ------------------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | blockHash          | 32바이트 크기 DATA | 트랜잭션이 담긴 블록의 해시입니다. 보류 중인 상태이면 `null`을 반환합니다.                                                                                                                     |
 | blockNumber        | QUANTITY      | 트랜잭션이 담긴 블록의 번호입니다. 보류 중인 상태이면 `null`을 반환합니다.                                                                                                                     |
@@ -291,7 +291,7 @@ Returns the information about the transaction identified by the given `senderTxH
 
 **매개변수**
 
-| 명칭           | Type     | 설명                                                                                                               |
+| 명칭           | 형식       | 설명                                                                                                               |
 | ------------ | -------- | ---------------------------------------------------------------------------------------------------------------- |
 | senderTxHash | 문자열      | 트랜잭션 발신자만 서명한 트랜잭션의 해시입니다. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash). |
 | callback     | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                             |
@@ -300,7 +300,7 @@ Returns the information about the transaction identified by the given `senderTxH
 
 `Promise` returns `Object` - A transaction object, or `null` when no transaction was found:
 
-| 명칭                 | Type          | 설명                                                                                                                                                           |
+| 명칭                 | 형식            | 설명                                                                                                                                                           |
 | ------------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | blockHash          | 32바이트 크기 DATA | 트랜잭션이 담긴 블록의 해시입니다. 보류 중인 상태이면 `null`을 반환합니다.                                                                                                                |
 | blockNumber        | QUANTITY      | 트랜잭션이 담긴 블록의 번호입니다. 보류 중인 상태이면 `null`을 반환합니다.                                                                                                                |
@@ -373,7 +373,7 @@ Returns a transaction based on a block hash or number and the transactions index
 
 **매개변수**
 
-| 명칭                 | Type     | 설명                                                                            |
+| 명칭                 | 형식       | 설명                                                                            |
 | ------------------ | -------- | ----------------------------------------------------------------------------- |
 | hashStringOrNumber | 문자열      | A block number or hash. Or the string `"genesis"`, `"latest"` or `"pending"`. |
 | indexNumber        | Number   | The transactions index position.                                              |
@@ -400,7 +400,7 @@ caver.klay.getTransactionReceipt(transactionHash [, callback])
 
 **매개변수**
 
-| 명칭              | Type     | 설명                                                                   |
+| 명칭              | 형식       | 설명                                                                   |
 | --------------- | -------- | -------------------------------------------------------------------- |
 | transactionHash | 문자열      | The transaction hash                                                 |
 | callback        | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
@@ -409,7 +409,7 @@ caver.klay.getTransactionReceipt(transactionHash [, callback])
 
 `Promise` returns `Object` - A transaction receipt object, or `null` when no receipt was found:
 
-| 명칭                 | Type           | 설명                                                                                                                                                                                                                                               |
+| 명칭                 | 형식             | 설명                                                                                                                                                                                                                                               |
 | ------------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | blockHash          | 32-byte String | 트랜잭션이 담긴 블록의 해시입니다.                                                                                                                                                                                                                              |
 | blockNumber        | Number         | 트랜잭션이 담긴 블록의 번호입니다.                                                                                                                                                                                                                              |
@@ -483,7 +483,7 @@ Returns the receipt of a transaction identified by the given `senderTxHash`.
 
 **매개변수**
 
-| 명칭           | Type     | 설명                                                                                                               |
+| 명칭           | 형식       | 설명                                                                                                               |
 | ------------ | -------- | ---------------------------------------------------------------------------------------------------------------- |
 | senderTxHash | 문자열      | 트랜잭션 발신자만 서명한 트랜잭션의 해시입니다. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash). |
 | callback     | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                             |
@@ -492,7 +492,7 @@ Returns the receipt of a transaction identified by the given `senderTxHash`.
 
 `Promise` returns `Object` - A transaction receipt object, or `null` when no receipt was found:
 
-| 명칭                 | Type           | 설명                                                                                                                                                                                                      |
+| 명칭                 | 형식             | 설명                                                                                                                                                                                                      |
 | ------------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | blockHash          | 32-byte String | 트랜잭션이 담긴 블록의 해시입니다.                                                                                                                                                                                     |
 | blockNumber        | Number         | 트랜잭션이 담긴 블록의 번호입니다.                                                                                                                                                                                     |
@@ -576,14 +576,14 @@ caver.klay.sendSignedTransaction(signedTransactionData [, callback])
 
 **매개변수**
 
-| 명칭                    | Type     | 설명                                                                   |
+| 명칭                    | 형식       | 설명                                                                   |
 | --------------------- | -------- | -------------------------------------------------------------------- |
 | signedTransactionData | 문자열      | Signed transaction data in HEX format.                               |
 | callback              | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
-| Type       | 설명                                                                                            |
+| 형식         | 설명                                                                                            |
 | ---------- | --------------------------------------------------------------------------------------------- |
 | PromiEvent | A promise combined event emitter. Will be resolved when the transaction receipt is available. |
 
@@ -645,7 +645,7 @@ Signs a transaction. This account needs to be unlocked.
 
 **매개변수**
 
-| 명칭                | Type     | 설명                                                                   |
+| 명칭                | 형식       | 설명                                                                   |
 | ----------------- | -------- | -------------------------------------------------------------------- |
 | transactionObject | 객체       | The transaction data to sign.                                        |
 | callback          | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
