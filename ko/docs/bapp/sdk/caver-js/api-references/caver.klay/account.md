@@ -37,7 +37,7 @@ caver.klay.accountCreated(address [, defaultBlock] [, callback])
 
 **매개변수**
 
-| 명칭           | Type                 | 설명                                                                                                                                    |
+| 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | address      | 문자열                  | The address of the account you want to query to see if it has been created on the network.                                            |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
@@ -69,7 +69,7 @@ caver.klay.getAccount(address[, defaultBlock] [, callback])
 
 **매개변수**
 
-| 명칭           | Type                 | 설명                                                                                                                                    |
+| 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | address      | 문자열                  | The address of the account for which you want to get account information.                                                             |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
@@ -118,7 +118,7 @@ Returns a list of accounts that the node controls.
 
 **매개변수**
 
-| 명칭       | Type     | 설명                                                                   |
+| 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
@@ -146,7 +146,7 @@ Returns the account key of the Externally Owned Account (EOA) of the given addre
 
 **매개변수**
 
-| 명칭           | Type                 | 설명                                                                                                                                    |
+| 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | address      | 문자열                  | The address of the account for which you want to get accountKey.                                                                      |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
@@ -251,7 +251,7 @@ Gets the balance of an address at a given block.
 
 **매개변수**
 
-| 명칭           | Type                 | 설명                                                                                                                                    |
+| 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | address      | 문자열                  | The address to get the balance of.                                                                                                    |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
@@ -279,7 +279,7 @@ Gets the code at a specific address.
 
 **매개변수**
 
-| 명칭           | Type                 | 설명                                                                                                                                    |
+| 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | address      | 문자열                  | The address to get the code from.                                                                                                     |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
@@ -308,7 +308,7 @@ Gets the number of transactions sent from this address.
 
 **매개변수**
 
-| 명칭           | Type                 | 설명                                                                                                                                    |
+| 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | address      | 문자열                  | The address to get the number of transactions from.                                                                                   |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
@@ -316,7 +316,7 @@ Gets the number of transactions sent from this address.
 
 **리턴값**
 
-| Type   | 설명                                                      |
+| 형식     | 설명                                                      |
 | ------ | ------------------------------------------------------- |
 | Number | The number of transactions sent from the given address. |
 
@@ -338,7 +338,7 @@ caver.klay.isContractAccount(address [, defaultBlock] [, callback])
 
 **매개변수**
 
-| 명칭           | Type                 | 설명                                                                                                                                    |
+| 명칭           | 형식                   | 설명                                                                                                                                    |
 | ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | address      | 문자열                  | The address of the account you want to check for isContractAccount.                                                                   |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
@@ -370,7 +370,7 @@ Generates signed data specific to the Klaytn network. Refer to [Klaytn Platform 
 
 **매개변수**
 
-| 명칭       | Type     | 설명                                                                   |
+| 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | 메시지      | 문자열      | Message to sign.                                                     |
 | address  | 문자열      | The address of the account to sign the message with.                 |
