@@ -17,7 +17,7 @@ description: >-
 
 **리턴값**
 
-| Type     | 설명             |
+| 형식       | 설명             |
 | -------- | -------------- |
 | JSON 문자열 | 브리지 노드에 대한 정보. |
 
@@ -62,15 +62,15 @@ description: >-
 
 **매개변수**
 
-| 명칭  | Type | 설명             |
-| --- | ---- | -------------- |
-| url | 문자열  | 피어의 `kni` URL. |
+| 명칭  | 형식  | 설명             |
+| --- | --- | -------------- |
+| url | 문자열 | 피어의 `kni` URL. |
 
 **리턴값**
 
-| Type | 설명                                                |
-| ---- | ------------------------------------------------- |
-| 불리언  | 피어 추적이 허용되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+| 형식  | 설명                                                |
+| --- | ------------------------------------------------- |
+| 불리언 | 피어 추적이 허용되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -94,15 +94,15 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 
 **매개변수**
 
-| 명칭  | Type | 설명             |
-| --- | ---- | -------------- |
-| url | 문자열  | 피어의 `kni` URL. |
+| 명칭  | 형식  | 설명             |
+| --- | --- | -------------- |
+| url | 문자열 | 피어의 `kni` URL. |
 
 **리턴값**
 
-| Type | 설명                                             |
-| ---- | ---------------------------------------------- |
-| 불리언  | 피어가 제거되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+| 형식  | 설명                                             |
+| --- | ---------------------------------------------- |
+| 불리언 | 피어가 제거되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -129,7 +129,7 @@ none
 
 **리턴값**
 
-| Type        | 설명                                     |
+| 형식          | 설명                                     |
 | ----------- | -------------------------------------- |
 | 계정(Account) | Parent chain operator account address. |
 
@@ -149,7 +149,7 @@ none
 
 **리턴값**
 
-| Type        | 설명                                    |
+| 형식          | 설명                                    |
 | ----------- | ------------------------------------- |
 | 계정(Account) | Child chain operator account address. |
 
@@ -169,7 +169,7 @@ none
 
 **리턴값**
 
-| Type     | 설명                                                                           |
+| 형식       | 설명                                                                           |
 | -------- | ---------------------------------------------------------------------------- |
 | QUANTITY | Integer of the number of transactions sent from the parent operator account. |
 
@@ -189,7 +189,7 @@ none
 
 **리턴값**
 
-| Type     | 설명                                                                          |
+| 형식       | 설명                                                                          |
 | -------- | --------------------------------------------------------------------------- |
 | QUANTITY | Integer of the number of transactions sent from the child operator account. |
 
@@ -209,7 +209,7 @@ none
 
 **리턴값**
 
-| Type     | 설명                                                             |
+| 형식       | 설명                                                             |
 | -------- | -------------------------------------------------------------- |
 | QUANTITY | Integer of the current balance of the parent operator account. |
 
@@ -229,7 +229,7 @@ none
 
 **리턴값**
 
-| Type     | 설명                                                            |
+| 형식       | 설명                                                            |
 | -------- | ------------------------------------------------------------- |
 | QUANTITY | Integer of the current balance of the child operator account. |
 
@@ -252,7 +252,7 @@ The `sendChainTxslimit` gets the maximum number of pending transactions to pick 
 
 **리턴값**
 
-| Type   | 설명                                                                        |
+| 형식     | 설명                                                                        |
 | ------ | ------------------------------------------------------------------------- |
 | Uint64 | the maximum number of pending transactions to pickup for sending at once. |
 
@@ -268,15 +268,15 @@ The `subbridge_anchoring` can enable/disable the anchoring feature of the servic
 
 **매개변수**
 
-| 명칭     | Type | 설명                                                         |
+| 명칭     | 형식   | 설명                                                         |
 | ------ | ---- | ---------------------------------------------------------- |
 | enable | Bool | `true` enables the anchoring feature, `false` disables it. |
 
 **리턴값**
 
-| Type | 설명                                                      |
-| ---- | ------------------------------------------------------- |
-| 불리언  | `true` if the anchoring was enabled, `false` otherwise. |
+| 형식  | 설명                                                      |
+| --- | ------------------------------------------------------- |
+| 불리언 | `true` if the anchoring was enabled, `false` otherwise. |
 
 **예시**
 
@@ -307,7 +307,7 @@ The `subbridge_latestAnchoredBlockNumber` returns the latest anchored block numb
 
 **리턴값**
 
-| Type   | 설명                                |
+| 형식     | 설명                                |
 | ------ | --------------------------------- |
 | Uint64 | The latest anchored block number. |
 
@@ -323,7 +323,7 @@ The `subbridge_getReceiptFromParentChain` returns the receipt of the anchoring t
 
 **매개변수**
 
-| Type          | 설명                                                                  |
+| 형식            | 설명                                                                  |
 | ------------- | ------------------------------------------------------------------- |
 | 32바이트 크기 DATA | The child chain block hash that was included the anchoring tx hash. |
 
@@ -332,7 +332,7 @@ The `subbridge_getReceiptFromParentChain` returns the receipt of the anchoring t
 
 `Object` - A transaction receipt object, or `null` when no receipt was found.
 
-| 명칭              | Type           | 설명                                                                                          |
+| 명칭              | 형식             | 설명                                                                                          |
 | --------------- | -------------- | ------------------------------------------------------------------------------------------- |
 | contractAddress | DATA           | 컨트랙트 생성 트랜잭션이면 생성된 컨트랙트의 주소를 반환합니다. 컨트랙트 생성 트랜잭션이 아닌 경우 `null`을 반환합니다. (will be deprecated) |
 | gasUsed         | QUANTITY       | 이 트랜잭션에서만 사용된 가스양입니다.                                                                       |
@@ -364,7 +364,7 @@ none
 
 **리턴값**
 
-| 명칭           | Type          | 설명                                          |
+| 명칭           | 형식            | 설명                                          |
 | ------------ | ------------- | ------------------------------------------- |
 | 계정 (Account) | 20바이트 크기 DATA | Address of bridge contract on child chain.  |
 | 계정 (Account) | 20바이트 크기 DATA | Address of bridge contract on parent chain. |
@@ -381,16 +381,16 @@ The `subbridge_registerBridge` registers already deployed bridge contracts in th
 
 **매개변수**
 
-| 명칭           | Type          | 설명                                          |
+| 명칭           | 형식            | 설명                                          |
 | ------------ | ------------- | ------------------------------------------- |
 | 계정 (Account) | 20바이트 크기 DATA | Address of bridge contract on child chain.  |
 | 계정 (Account) | 20바이트 크기 DATA | Address of bridge contract on parent chain. |
 
 **리턴값**
 
-| 명칭    | Type | 설명                                                           |
-| ----- | ---- | ------------------------------------------------------------ |
-| error | 에러   | `null` if the registration succeeds, Error object otherwise. |
+| 명칭    | 형식 | 설명                                                           |
+| ----- | -- | ------------------------------------------------------------ |
+| error | 에러 | `null` if the registration succeeds, Error object otherwise. |
 
 **예시**
 
@@ -407,16 +407,16 @@ The `subbridge.deregisterBridge` deregisters already registered bridge contracts
 
 **매개변수**
 
-| 명칭           | Type          | 설명                                          |
+| 명칭           | 형식            | 설명                                          |
 | ------------ | ------------- | ------------------------------------------- |
 | 계정 (Account) | 20바이트 크기 DATA | Address of bridge contract on child chain.  |
 | 계정 (Account) | 20바이트 크기 DATA | Address of bridge contract on parent chain. |
 
 **리턴값**
 
-| 명칭    | Type | 설명                                                             |
-| ----- | ---- | -------------------------------------------------------------- |
-| error | 에러   | `null` if the deregistration succeeds, Error object otherwise. |
+| 명칭    | 형식 | 설명                                                             |
+| ----- | -- | -------------------------------------------------------------- |
+| error | 에러 | `null` if the deregistration succeeds, Error object otherwise. |
 
 **예시**
 
@@ -433,16 +433,16 @@ The `subbridge_subscribeBridge` subscribes to the registered bridge contracts in
 
 **매개변수**
 
-| 명칭           | Type          | 설명                                          |
+| 명칭           | 형식            | 설명                                          |
 | ------------ | ------------- | ------------------------------------------- |
 | 계정 (Account) | 20바이트 크기 DATA | Address of bridge contract on child chain.  |
 | 계정 (Account) | 20바이트 크기 DATA | Address of bridge contract on parent chain. |
 
 **리턴값**
 
-| 명칭    | Type | 설명                                                          |
-| ----- | ---- | ----------------------------------------------------------- |
-| error | 에러   | `null` if the subscribing succeeds, Error object otherwise. |
+| 명칭    | 형식 | 설명                                                          |
+| ----- | -- | ----------------------------------------------------------- |
+| error | 에러 | `null` if the subscribing succeeds, Error object otherwise. |
 
 **예시**
 
@@ -458,16 +458,16 @@ The `subbridge_unsubscribeBridge` unsubscribes the sub-bridge from the bridge co
 
 **매개변수**
 
-| 명칭           | Type          | 설명                                          |
+| 명칭           | 형식            | 설명                                          |
 | ------------ | ------------- | ------------------------------------------- |
 | 계정 (Account) | 20바이트 크기 DATA | Address of bridge contract on child chain.  |
 | 계정 (Account) | 20바이트 크기 DATA | Address of bridge contract on parent chain. |
 
 **리턴값**
 
-| 명칭    | Type | 설명                                                            |
-| ----- | ---- | ------------------------------------------------------------- |
-| error | 에러   | `null` if the unsubscribing succeeds, Error object otherwise. |
+| 명칭    | 형식 | 설명                                                            |
+| ----- | -- | ------------------------------------------------------------- |
+| error | 에러 | `null` if the unsubscribing succeeds, Error object otherwise. |
 
 **예시**
 
@@ -481,7 +481,7 @@ The `subbridge_registerToken` registers a pair of ERC-20 or 721 tokens with the 
 
 **매개변수**
 
-| 명칭           | Type          | 설명                                          |
+| 명칭           | 형식            | 설명                                          |
 | ------------ | ------------- | ------------------------------------------- |
 | 계정 (Account) | 20바이트 크기 DATA | Address of bridge contract on child chain.  |
 | 계정 (Account) | 20바이트 크기 DATA | Address of bridge contract on parent chain. |
@@ -490,9 +490,9 @@ The `subbridge_registerToken` registers a pair of ERC-20 or 721 tokens with the 
 
 **리턴값**
 
-| 명칭    | Type | 설명                                                           |
-| ----- | ---- | ------------------------------------------------------------ |
-| error | 에러   | `null` if the registration succeeds, Error object otherwise. |
+| 명칭    | 형식 | 설명                                                           |
+| ----- | -- | ------------------------------------------------------------ |
+| error | 에러 | `null` if the registration succeeds, Error object otherwise. |
 
 **예시**
 
@@ -508,7 +508,7 @@ The `subbridge_deregisterBridge` deregisters already registered token pair from 
 
 **매개변수**
 
-| 명칭           | Type          | 설명                                          |
+| 명칭           | 형식            | 설명                                          |
 | ------------ | ------------- | ------------------------------------------- |
 | 계정 (Account) | 20바이트 크기 DATA | Address of bridge contract on child chain.  |
 | 계정 (Account) | 20바이트 크기 DATA | Address of bridge contract on parent chain. |
@@ -517,9 +517,9 @@ The `subbridge_deregisterBridge` deregisters already registered token pair from 
 
 **리턴값**
 
-| 명칭    | Type | 설명                                                             |
-| ----- | ---- | -------------------------------------------------------------- |
-| error | 에러   | `null` if the deregistration succeeds, Error object otherwise. |
+| 명칭    | 형식 | 설명                                                             |
+| ----- | -- | -------------------------------------------------------------- |
+| error | 에러 | `null` if the deregistration succeeds, Error object otherwise. |
 
 **예시**
 
@@ -535,14 +535,14 @@ The `subbridge_convertRequestTxHashToHandleTxHash` returns the corresponding "ha
 
 **매개변수**
 
-| 명칭 | Type          | 설명                                              |
+| 명칭 | 형식            | 설명                                              |
 | -- | ------------- | ----------------------------------------------- |
 | 해시 | 32바이트 크기 DATA | Hash of a "request value transfer" transaction. |
 
 
 **리턴값**
 
-| 명칭 | Type          | 설명                                                                                                                            |
+| 명칭 | 형식            | 설명                                                                                                                            |
 | -- | ------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | 해시 | 32바이트 크기 DATA | Hash of a "handle value transfer" transaction. zero hash means there is no corresponding "handle value transfer" transaction. |
 
@@ -565,7 +565,7 @@ nonce
 
 **리턴값**
 
-| 명칭           | Type         | 설명                                                                       |
+| 명칭           | 형식           | 설명                                                                       |
 | ------------ | ------------ | ------------------------------------------------------------------------ |
 | localAddress | 계정 (Account) | 20-byte DATA | Address of the bridge contract on child (service) chain.  |
 | localAddress | 계정 (Account) | 20-byte DATA | Address of the bridge contract on parent (main) chain.    |
@@ -595,14 +595,14 @@ The `subbridge_getBridgeInformation` returns the information of the given bridge
 
 **매개변수**
 
-| 명칭           | Type          | 설명                           |
+| 명칭           | 형식            | 설명                           |
 | ------------ | ------------- | ---------------------------- |
 | 계정 (Account) | 20바이트 크기 DATA | Address of a bridge contract |
 
 
 **리턴값**
 
-| 명칭               | Type          | 설명                                                                                                                      |
+| 명칭               | 형식            | 설명                                                                                                                      |
 | ---------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | counterPart      | 20바이트 크기 DATA | Address of the counterpart bridge contract. (Not supported yet)                                                         |
 | isRunning        | 불리언           | `true` if the bridge contract is running, `false` otherwise.                                                            |
@@ -639,7 +639,7 @@ The `subbridge_txPendingCount` returns the number of pending transactions in the
 
 **리턴값**
 
-| Type   | 설명                                                                 |
+| 형식     | 설명                                                                 |
 | ------ | ------------------------------------------------------------------ |
 | Uint64 | The number of pending transactions in the bridge transaction pool. |
 
@@ -659,7 +659,7 @@ The `subbridge_txPending` returns the list of pending transactions in the bridge
 
 **리턴값**
 
-| Type     | 설명                                                           |
+| 형식       | 설명                                                           |
 | -------- | ------------------------------------------------------------ |
 | JSON 문자열 | List of pending transactions in the bridge transaction pool. |
 
