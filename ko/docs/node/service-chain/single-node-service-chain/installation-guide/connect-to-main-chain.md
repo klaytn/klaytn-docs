@@ -1,12 +1,12 @@
-# Connect to Main Chain <a id="connect-to-main-chain"></a>
+# 메인체인에 연결하기 <a id="connect-to-main-chain"></a>
 
 이 페이지에서는 단일 노드 서비스체인을 메인체인에 연결할 것입니다.
 
-## EN Configuration - Enable Main-bridge <a id="en-configuration-enable-main-bridge"></a>
+## EN 설정 - 메인 브리지 활성화 <a id="en-configuration-enable-main-bridge"></a>
 
-`kend.conf`를 구성하여 메인 브리지를 활성화해야 합니다.
+`kend.conf`를 설정하여 메인 브리지를 활성화해야 합니다.
 
-### Update the Configuration File <a id="update-the-configuration-file"></a>
+### 환경 설정 파일 업데이트 <a id="update-the-configuration-file"></a>
 
 `kend.conf`은 다음과 같은 메인 브리지 속성을 포함합니다.
 
@@ -52,13 +52,13 @@ MAIN_BRIDGE_INDEXING=1
 ...
 ```
 
-## Connect SCN to the Main Chain <a id="connect-scn-to-the-main-chain"></a>
+## SCN을 메인체인에 연결하기 <a id="connect-scn-to-the-main-chain"></a>
 
 메인체인의 EN을 메인 브리지로 실행해야 합니다. 또한 서브 브리지로서 어떤 SCN(Service Chain Node)이 EN에 연결되는지 결정해야 합니다.
 
-### Check EN (Main-Bridge) information <a id="check-en-(main-bridge)-information"></a>
+### EN(메인 브리지) 정보 확인하기 <a id="check-en-(main-bridge)-information"></a>
 
-#### Open EN Console <a id="open-en-console"></a>
+#### EN 콘솔 열기 <a id="open-en-console"></a>
 
 There are different ways to attach to the EN process. [ken CLI commands](../../../endpoint-node/ken-cli-commands.md)에서 사용 가능한 명령을 확인할 수 있습니다. This page explains the way to attach to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the data directory on the node.
 
@@ -113,7 +113,7 @@ You should take note of the main-bridge `kni`.
 
 ### Connect to the Main Chain <a id="connect-to-the-main-chain"></a>
 
-#### Open SCN Console <a id="open-scn-console"></a>
+#### SCN 콘솔 열기 <a id="open-scn-console"></a>
 
 Attach to the SCN process like below. You should have enabled `subbridge` API for RPC, you can find the subbridge module in the output. `subbridge` API가 없는 경우, [Configuration of the SCN](configuration.md#configuration-of-the-scn)를 다시 확인해야 합니다.)
 
@@ -128,7 +128,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  >
 ```
 
-#### Connect SCN with EN <a id="connect-scn-with-en"></a>
+#### SCN과 EN 연결하기 <a id="connect-scn-with-en"></a>
 
 아래와 같이 IPC를 통해 SCN에 EN 피어를 추가할 수 있습니다. kni는 앞에서 언급한 EN의 KNI입니다.
 
