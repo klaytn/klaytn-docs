@@ -582,15 +582,15 @@ This can be checked by calling [isSenderTxHashIndexingEnabled](./config.md#issen
 caver.klay.sendSignedTransaction(signedTransactionData [, callback])
 ```
 
-Sends an already signed transaction, generated using `caver.klay.accounts.signTransaction`
+Sends an already signed transaction, generated using `caver.klay.accounts.signTransaction`.
 
-**NOTE** `caver.klay.sendSignedTransaction` can accepts an object as a parameter since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0). The object should include at least one of RLP encoded transaction string or signatures/feePayerSignatures (In this case signedTransactionData parameter should be in the format of transaction object that includes signatures and feePayerSignatures). You can pass the returning object from caver.klay.accounts.signTransaction, caver.klay.accounts.feePayerSignTransaction, caver.klay.accounts.getRawTransactionWithSignatures or caver.klay.accounts.combineSignatures.
+**NOTE** `caver.klay.sendSignedTransaction` can accepts an object as a parameter since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0). The object should include an RLP-encoded transaction string or should be an unencoded transaction object with signatures/feePayerSignatures. You can pass the returning object from caver.klay.accounts.signTransaction, caver.klay.accounts.feePayerSignTransaction, caver.klay.accounts.getRawTransactionWithSignatures or caver.klay.accounts.combineSignatures.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| signedTransactionData | String &#124; Object | RLP encoded signed transaction string, an object that includes RLP encoded signed transaction string with rawTransaction property or transaction object that includes signatures/feePayerSignatures. |
+| signedTransactionData | String &#124; Object | An RLP-encoded signed transaction string, an object that has the RLP-encoded signed transaction string in its `rawTransaction` property, or an unencoded transaction object with signatures/feePayerSignatures attached to it. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -631,7 +631,7 @@ caver.klay.sendSignedTransaction({
     ...
 })
 
-// sendSignedTransaction using promise with a transaction object that defines signatures
+// sendSignedTransaction using promise with a transaction object that has signatures
 caver.klay.sendSignedTransaction({
     type: 'LEGACY',
     from: '0x73647c5fd1a66fac0dbf2af2e5cc7f593a015441',
@@ -649,7 +649,7 @@ caver.klay.sendSignedTransaction({
     ...
 })
 
-// sendSignedTransaction using promise with a fee delegated transaction object that defines signatures and feePayerSignatures
+// sendSignedTransaction using promise with a fee delegated transaction object that has signatures and feePayerSignatures
 caver.klay.sendSignedTransaction({
     type: 'FEE_DELEGATED_VALUE_TRANSFER',
     from: '0x73647c5fd1a66fac0dbf2af2e5cc7f593a015441',
@@ -679,7 +679,7 @@ caver.klay.sendSignedTransaction({
     ...
 })
 
-// sendSignedTransaction using event emitter
+// sendSignedTransaction using event emitter with RLP encoded signed transaction string
 > caver.klay.sendSignedTransaction('0xf867068505d21dba0083015f90940fd7697a8b9a46b0f770a3986e8a10b6ad6fffe10180824e44a0e591e4cbf4bdada2e559ce5b9c7b604c50d3b1d7d5a29939091bcc8ad4208aa3a01ef917ec539aa79b32a043b452e81840ea012796895cd5925273fd8df139595f')
 .on('transactionHash', function(hash){
     ...
