@@ -1220,7 +1220,7 @@ Update the account's private key information stored in the wallet.
 
 | Type | Description |
 | --- | --- |
-| Object | Account instance with the updated accountKey inside caver-js in-memory wallet. |
+| Object | Account instance with the new accountKey. The Account instance lives in-memory caver-js wallet. |
 
 
 **Example**
@@ -1244,7 +1244,7 @@ Account {
 ```javascript
 caver.klay.accounts.wallet.updateAccountKey(address, accountKey)
 ```
-Update the account's account key information stored in the wallet. When you update your account's accountKey, privateKey represents the updated accountKey's defaultKey.
+Update the account's account key information stored in the wallet. When you update your account's accountKey, privateKey is updated as well to the defaultKey of the new accountKey.
 
 If the accountKey parameter is a single private key string, the account's accountKey is updated with an `AccountKeyPublic` instance. If the accountKey parameter is an array with multiple private key strings, the account's accountKey is updated with an `AccountKeyMultiSig` instance. If the accountKey parameter is an object whose keys are defined by roles, the account's accountKey is updated with an `AccountKeyRoleBased` instance.
 
@@ -1257,14 +1257,14 @@ If the accountKey parameter is a single private key string, the account's accoun
 | Name | Type | Description |
 | --- | --- | --- |
 | address | String | The account address in the wallet. |
-| accountKey | String &#124; Array &#124; Object | An AccountKey instance(`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or key(a private key string, an array of private key strings or an object defines key by roles) to create an AccountKey instance. |
+| accountKey | String &#124; Array &#124; Object | An AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or a data structure that contains the key info (a private key string, an array of private key strings or an object that defines the key for each role). |
 
 
 **Return Value**
 
 | Type | Description |
 | --- | --- |
-| Object | Account instance with the updated accountKey inside caver-js in-memory wallet. |
+| Object | Account instance with the new accountKey. The Account instance lives in-memory caver-js wallet. |
 
 
 **Example**
