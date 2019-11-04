@@ -758,8 +758,8 @@ Returns the decoded anchored data in the transaction for the given transaction h
 | TxHash | 32-byte DATA | The root of the transaction trie of the block. |
 | StateRootHash | 32-byte DATA | The root of the final state trie of the block. |
 | ReceiptHash| 32-byte DATA | The root of the receipts trie of the block. |
-| BlockCount | QUANTITY | The number of recent blocks up to `BlockNumber` where the number of transactions was calculated. |
-| TxCount | QUANTITY | The number of transactions contained in the last `BlockCount` blocks. |
+| BlockCount | QUANTITY | The number of blocks generated during this anchoring period. In most cases, this number is equal to the child chain's `SC_TX_PERIOD`, with the exception of the case that this transaction was the first anchoring tx after turning on the anchoring. |
+| TxCount | QUANTITY | The number of transactions generated in the child chain during this anchoring period. |
 
 **Example**
 
