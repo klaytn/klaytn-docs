@@ -476,7 +476,7 @@ This function converts the private key of AccountKey to public key.
 '0x67f20d1198abcdc036a4d8f3ea0cf837527716c90f71d0b0410dfe3e1b405eded9ea818eedd5e8ad79658b2cdf4862ab0956a6f7fd0a4886afe6110b2e9803a4'
 
 // Convert an array of private key strings
-> caver.klay.accounts.accountKeyToPublicKey(['0x{private key}', '0x2d90b102bbb2a66d6cbd002099aeb83073bd98880a56d3b94ad2844a74ac9cbc'])
+> caver.klay.accounts.accountKeyToPublicKey(['0x{private key}', '0x{private key}'])
 [
     '0x67f20d1198abcdc036a4d8f3ea0cf837527716c90f71d0b0410dfe3e1b405eded9ea818eedd5e8ad79658b2cdf4862ab0956a6f7fd0a4886afe6110b2e9803a4',
     '0x7c5415f99628618b3fe78e14606c83a22488769b3361e3758c7c98a204a23b615cf07af65490895d70a7b7e7e885fc2f597d65ea69ed586c7ae7cb0241656036'
