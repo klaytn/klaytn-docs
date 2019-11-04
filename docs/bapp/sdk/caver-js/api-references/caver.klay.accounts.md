@@ -411,7 +411,7 @@ Creates an instance of `AccountKeyRoleBased` with the given keys associated with
 
 | Name | Type | Description |
 | --- | --- | --- |
-| keyObject | Object | An object whose keys are defined for each role. The keys for each role can be one private key string or arrays of private key strings. |
+| keyObject | Object | An object with role-key pairs. A key for each role can be a private key string or an array of private key strings. |
 
 
 **Return Value**
