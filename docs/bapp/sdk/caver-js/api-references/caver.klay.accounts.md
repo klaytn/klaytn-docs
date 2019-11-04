@@ -1006,7 +1006,7 @@ See [Sending a Transaction with multiple signer](../getting-started.md#sending-a
 }
 ```
 
-## feePayerSignTransaction
+## feePayerSignTransaction <a id="feepayersigntransaction"></a>
 
 ```javascript
 caver.klay.accounts.feePayerSignTransaction(tx, feePayerAddress [, privateKey] [, callback])
