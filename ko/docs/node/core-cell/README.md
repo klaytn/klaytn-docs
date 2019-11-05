@@ -3,7 +3,7 @@
 ## 튜토리얼 대상
 
 - 코어 셀 연산자
-- Klaytn에서 블록체인 어플리케이션을 만들고 실행하는 데 관심이 있다면, 코어 셀을 유지할 필요가 없습니다. 대신 어플리케이션이 Klaytn 네트워크와 상호작용하도록 [Endpoint Node](../endpoint-node/README.md)를 실행해야 합니다.
+- Klaytn에서 블록체인 애플리케이션을 만들고 실행하는 데 관심이 있다면, 코어 셀을 유지할 필요가 없습니다. 대신 애플리케이션이 Klaytn 네트워크와 상호작용하도록 [Endpoint Node](../endpoint-node/README.md)를 실행해야 합니다.
 
 
 ## 코어 셀 개요
