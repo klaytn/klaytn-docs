@@ -1,8 +1,8 @@
-# Getting Started
+# Getting Started <a id="getting-started"></a>
 
-## Prerequisites
+## Prerequisites <a id="prerequisites"></a>
 
-### Dependency
+### Dependency <a id="dependency"></a>
 
 **maven**
 
@@ -28,11 +28,11 @@ If you want to see details of the JSON-RPC requests and responses, please includ
 implementation "ch.qos.logback:logback-classic:1.2.3"
 ```
 
-### Installation
+### Installation <a id="installation"></a>
 
 If you want to generate transactions related with a smart contract, you need to install a Solidity compiler and caver-java commmand-line tool first.
 
-#### Solidity Compiler
+#### Solidity Compiler <a id="solidity-compiler"></a>
 
 You can install the Solidity compiler locally, following the instructions as per [the project documentation](http://solidity.readthedocs.io/en/develop/installing-solidity.html). Klaytn recommends you to install Solidity version either 0.4.24 or 0.5.6. If you are a macOS user, you can install the versions via Homebrew:
 
@@ -41,7 +41,7 @@ $ brew install klaytn/klaytn/solidity@0.4.24  # version 0.4.24
 $ brew install klaytn/klaytn/solidity@0.5.6   # version 0.5.6
 ```
 
-#### Command-line Tool
+#### Command-line Tool <a id="command-line-tool"></a>
 
 The command-line tool allows you to generate Solidity smart contract function wrappers from the command line.
 
@@ -83,13 +83,13 @@ Currently, we do not support other package managers. As another solution, we pro
   $ ./console/build/distributions/console-shadow-{version}/bin/caver-java
   ```
 
-## Managing Accounts
+## Managing Accounts <a id="managing-accounts"></a>
 
-### Creating an Account
+### Creating an Account <a id="creating-an-account"></a>
 
 In order to sign transactions, you need to have either an EC \(Elliptic Curve\) key pair or a Klaytn keystore file.
 
-#### Using an EC Key Pair
+#### Using an EC Key Pair <a id="using-an-ec-key-pair"></a>
 
 You can create a Klaytn account using an EC key pair like below:
 
@@ -99,7 +99,7 @@ String privateKey = Numeric.toHexStringWithPrefix(credentials.getEcKeyPair().get
 String address = credentials.getAddress();
 ```
 
-#### Using a Keystore File
+#### Using a Keystore File <a id="using-a-keystore-file"></a>
 
 If you want to create a new account with a keystore file (you can also create a new keystore file in [Klaytn Wallet]):
 
@@ -116,13 +116,13 @@ To load an account using a keystore file like below:
 KlayCredentials credentials = KlayWalletUtils.loadCredentials(<password>, <walletFilePath>);
 ```
 
-## Sending a Transaction
+## Sending a Transaction <a id="sending-a-transaction"></a>
 
-### Getting KLAY via Baobab Faucet
+### Getting KLAY via Baobab Faucet <a id="getting-klay-via-baobab-faucet"></a>
 
 After creating an account, you can receive some Baobab testnet KLAY for the Baobab testnet via Baobab Faucet, available at [https://baobab.wallet.klaytn.com/](https://baobab.wallet.klaytn.com/). The received testnet KLAY will be used for transaction fee later.
 
-### Connecting to Baobab
+### Connecting to Baobab <a id="connecting-to-baobab"></a>
 
 You can use a Klaytn public EN \([https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651)\) to connect to the Baobab testnet.
 
@@ -130,7 +130,7 @@ You can use a Klaytn public EN \([https://api.baobab.klaytn.net:8651](https://ap
 Caver caver  = Caver.build(Caver.BAOBAB_URL);  // Caver.BAOBAB_URL = https://api.baobab.klaytn.net:8651
 ```
 
-### Sending a Value Transfer Transaction
+### Sending a Value Transfer Transaction <a id="sending-a-value-transfer-transaction"></a>
 
 After you get a `Caver` instance and create an account which has some KLAY, you can send 1 peb to a certain address\(`0xe97f27e9a5765ce36a7b919b1cb6004c7209217e`\) with a gas limit `BigInteger.valueOf(100_000)` like below:
 
@@ -167,7 +167,7 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt
             ).send();
 ```
 
-### Checking Receipts
+### Checking Receipts <a id="checking-receipts"></a>
 
 If you send a transaction via `sendFunds`, caver-java tries to get a transaction receipt by default. After you get a receipt, you can see the following log in the console.
 
@@ -205,9 +205,9 @@ If you send a transaction via `sendFunds`, caver-java tries to get a transaction
 
 In this receipt, you can check the status of the transaction execution. If the 'status' field in the receipt is "0x1", it means the transaction is processed successfully. If not, the transaction failed. The detailed error message is presented in the `txError` field. For more detail, see [txError].
 
-## Sending Other Transaction Types
+## Sending Other Transaction Types <a id="sending-other-transaction-types"></a>
 
-### Account Update
+### Account Update <a id="account-update"></a>
 
 If you want to update the key of the given account to a new [AccountKeyPublic] key:
 
@@ -225,7 +225,7 @@ Account.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendUpdateTransaction
 
 An account key represents the key structure associated with an account. To get more details and types about the Klaytn account key, please read [Account Key].
 
-### Smart Contract
+### Smart Contract <a id="smart-contract"></a>
 
 caver-java supports auto-generation of smart contract wrapper code. Using the wrapper, you can easily deploy and execute a smart contract. Before generating a wrapper code, you need to compile the smart contract first. Note: This will only work if a Solidity compiler is installed in your computer. See [Solidity Compiler].
 
@@ -269,7 +269,7 @@ To call a smart contract:
 <type> result = contract.<someMethod>(<param1>, ...).send();
 ```
 
-#### Example
+#### Example <a id="example"></a>
 
 This section describes how to deploy and execute a smart contract on the Baobab testnet. In this example, we use a smart contract [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol). If contract deployment fails and an empty contract address is returned, it will throw RuntimeException.
 
@@ -312,11 +312,11 @@ BigInteger balance = erc20Mock.balanceOf(
 ).send();
 ```
 
-### Fee Delegation
+### Fee Delegation <a id="fee-delegation"></a>
 
 Klaytn provides [Fee Delegation] feature which allows service providers to pay transaction fees instead of the users.
 
-#### Value Transfer
+#### Value Transfer <a id="value-transfer"></a>
 
 On the client side, client who initiates the transaction will generate a fee-delegated value transfer transaction as follows: A sender creates a default `ValueTransferTransaction` object, then [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.2/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) returns a signed `FeeDelegatedValueTransferTransaction` object if the second parameter is set to `true`.
 
@@ -344,7 +344,7 @@ FeePayerManager feePayerManager = new FeePayerManager.Builder(caver, feePayer)
 feePayerManager.executeTransaction(senderRawTransaction);
 ```
 
-#### Smart Contract Execution
+#### Smart Contract Execution <a id="smart-contract-execution"></a>
 
 The difference between fee-delegated smart contract execution and fee-delegated value transfer above is that this needs input data to call a function of a smart contract. A sender can generate a fee-delegated smart contract execution transaction as shown below. Note that [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.2/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) returns a `TxTypeFeeDelegatedSmartContractExecution` object if you pass `true` to the second parameter. The example below invokes the `transfer` method of [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol) contract which is described in [Smart Contract].
 
@@ -379,7 +379,7 @@ FeePayerManager feePayerManager = new FeePayerManager.Builder(caver, feePayer).b
 feePayerManager.executeTransaction(senderRawTransaction);
 ```
 
-## Thanks to
+## Thanks to <a id="thanks-to"></a>
 
 The [web3j](https://github.com/web3j/web3j) project for the inspiration. 🙂
 

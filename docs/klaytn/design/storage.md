@@ -1,6 +1,6 @@
-# Storage Layer
+# Storage Layer <a id="storage-layer"></a>
 
-## Block archiving
+## Block archiving <a id="block-archiving"></a>
 
 The high throughput of Klaytn should result in high storage costs. Klaytn plans
 to perform block-archiving to ease storage burdens of participating nodes. With

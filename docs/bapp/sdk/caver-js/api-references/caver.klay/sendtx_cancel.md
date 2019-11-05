@@ -1,6 +1,6 @@
-# Cancel Transaction
+# Cancel Transaction <a id="cancel-transaction"></a>
 
-## sendTransaction (CANCEL)
+## sendTransaction (CANCEL) <a id="sendtransaction-cancel"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
@@ -62,7 +62,7 @@ caver.klay.sendTransaction({
 ```
 
 
-## sendTransaction (FEE_DELEGATED_CANCEL)
+## sendTransaction (FEE_DELEGATED_CANCEL) <a id="sendtransaction-fee_delegated_cancel"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
@@ -137,7 +137,7 @@ caver.klay.sendTransaction({
 ```
 
 
-## sendTransaction (FEE_DELEGATED_CANCEL_WITH_RATIO)
+## sendTransaction (FEE_DELEGATED_CANCEL_WITH_RATIO) <a id="sendtransaction-fee_delegated_cancel_with_ratio"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])

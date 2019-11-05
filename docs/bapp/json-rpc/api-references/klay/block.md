@@ -1,4 +1,4 @@
-## The Default Block Parameter
+## The Default Block Parameter <a id="the-default-block-parameter"></a>
 
 When requests are made that act on the state of Klaytn, the last default block
 parameter determines the height of the block.
@@ -11,7 +11,7 @@ The following options are possible for the `defaultBlock` parameter:
 - `String "pending"` - for the pending state/transactions
 
 
-## klay_blockNumber
+## klay_blockNumber <a id="klay_blocknumber"></a>
 
 Returns the number of most recent block.
 
@@ -40,7 +40,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getBlockByNumber
+## klay_getBlockByNumber <a id="klay_getblockbynumber"></a>
 
 Returns information about a block by block number.
 This API works only on RPC call, not on Javascript console.
@@ -94,7 +94,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getBlockByHash
+## klay_getBlockByHash <a id="klay_getblockbyhash"></a>
 
 Returns information about a block by hash.
 This API works only on RPC call, not on Javascript console.
@@ -169,7 +169,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getBlockReceipts
+## klay_getBlockReceipts <a id="klay_getblockreceipts"></a>
 
 Returns receipts included in a block identified by block hash.
 
@@ -227,7 +227,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ```
 
 
-## klay_getBlockTransactionCountByNumber
+## klay_getBlockTransactionCountByNumber <a id="klay_getblocktransactioncountbynumber"></a>
 
 Returns the number of transactions in a block matching the given block number.
 
@@ -258,7 +258,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getBlockTransactionCountByHash
+## klay_getBlockTransactionCountByHash <a id="klay_getblocktransactioncountbyhash"></a>
 
 Returns the number of transactions in a block from a block matching the given block hash.
 
@@ -289,7 +289,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getBlockWithConsensusInfoByHash
+## klay_getBlockWithConsensusInfoByHash <a id="klay_getblockwithconsensusinfobyhash"></a>
 
 Returns a block with consensus information matched by the given hash.
 
@@ -398,7 +398,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ```
 
 
-## klay_getBlockWithConsensusInfoByNumber
+## klay_getBlockWithConsensusInfoByNumber <a id="klay_getblockwithconsensusinfobynumber"></a>
 Returns a block with consensus information matched by the given block number.
 
 **Parameters**
@@ -505,7 +505,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-## klay_getCommittee
+## klay_getCommittee <a id="klay_getcommittee"></a>
 Returns a list of all validators in the committee at the specified block. If the parameter is not set, returns a list of all validators in the committee at the latest block.
 
 **Parameters**
@@ -540,7 +540,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-## klay_getCommitteeSize
+## klay_getCommitteeSize <a id="klay_getcommitteesize"></a>
 Returns the size of the committee at the specified block. If the parameter is not set, returns the size of the committee at the latest block.
 
 **Parameters**
@@ -571,7 +571,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ```
 
 
-## klay_getCouncil
+## klay_getCouncil <a id="klay_getcouncil"></a>
 Returns a list of all validators of the council at the specified block. If the parameter is not set, returns a list of all validators of the council at the latest block.
 
 **NOTE**: `klay_getValidators` is replaced with this method and is not supported anymore.
@@ -608,7 +608,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-## klay_getCouncilSize
+## klay_getCouncilSize <a id="klay_getcouncilsize"></a>
 Returns the size of the council at the specified block. If the parameter is not set, returns the size of the council at the latest block.
 
 **Parameters**
@@ -639,7 +639,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ```
 
 
-## klay_getStorageAt
+## klay_getStorageAt <a id="klay_getstorageat"></a>
 
 Returns the value from a storage position at a given address.
 
@@ -705,7 +705,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "kl
 ```
 
 
-## klay_mining
+## klay_mining <a id="klay_mining"></a>
 
 Returns `true` if client is actively mining new blocks.
 
@@ -736,7 +736,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_syncing
+## klay_syncing <a id="klay_syncing"></a>
 
 Returns an object with data about the sync status or `false`.
 

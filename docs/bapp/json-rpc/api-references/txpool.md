@@ -3,14 +3,14 @@ description: >-
   APIs to inspect transaction pools in the node.
 ---
 
-# Namespace txpool
+# Namespace txpool <a id="namespace-txpool"></a>
 
 The namespace `txpool` API gives you access to several non-standard RPC methods to inspect the contents of the
 transaction pool containing all the currently pending transactions as well as the ones queued for
 future processing.
 
 
-## txpool_content
+## txpool_content <a id="txpool_content"></a>
 
 The `content` inspection property can be queried to list the exact details of all the transactions
 currently pending for inclusion in the next block(s), as well as the ones that are being scheduled
@@ -139,7 +139,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"tx
 ```
 
 
-## txpool_inspect
+## txpool_inspect <a id="txpool_inspect"></a>
 
 The `inspect` inspection property can be queried to list a textual summary of all the transactions
 currently pending for inclusion in the next block(s), as well as the ones that are being scheduled
@@ -225,7 +225,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"tx
 ```
 
 
-## txpool_status
+## txpool_status <a id="txpool_status"></a>
 
 The `status` inspection property can be queried for the number of transactions currently pending for
 inclusion in the next block(s), as well as the ones that are being scheduled for future execution only.

@@ -1,6 +1,6 @@
 This page describes the details of `genesis.json` file.
 
-# Genesis JSON File Structure
+# Genesis JSON File Structure <a id="genesis-json-file-structure"></a>
 
 The `genesis.json` file structure is described in the following table.
 
@@ -19,7 +19,7 @@ The `genesis.json` file structure is described in the following table.
 | gasUsed                        | The amount of the gas which used for a block. |
 | parentHash                     | The hash value of the previous block. |
 
-## Config
+## Config <a id="config"></a>
 
 The `config` field stores the information related to the chain.
 
@@ -32,7 +32,7 @@ The `config` field stores the information related to the chain.
 | governance                     | Governance information of the network. See the section [Governance](#governance) |
 
 
-## extraData
+## extraData <a id="extradata"></a>
 
 The field `extraData` is a concatenation of the proposer vanity and the RLP-encoded istanbul extra data:
 
@@ -59,11 +59,11 @@ where `concat` is a string concatenation function, and `RLPEncode` is a function
 With this function, the output `extraData` for this example is 0x0000000000000000000000000000000000000000000000000000000000000000f86fea9448009b4e20ec72aadf306577cbe2eaf54b0ebb1694089fcc42fd83baeee4831319375413b8bae3acebb8410000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c0.
 
 
-# Consensus Engine
+# Consensus Engine <a id="consensus-engine"></a>
 
 The available consensus engines for Klaytn network are Clique and Istanbul. Each engine is explained as follows.
 
-## Clique
+## Clique <a id="clique"></a>
 
 The `clique` field stores the configuration for Proof-Of-Authority (POA) based sealing.
 
@@ -72,7 +72,7 @@ The `clique` field stores the configuration for Proof-Of-Authority (POA) based s
 | period                  | The minimum time interval between the consecutive blocks (unit: second). |
 | epoch                   | The number of blocks to reset votes and marked as a checkpoint. |
 
-## Istanbul
+## Istanbul <a id="istanbul"></a>
 
 The `istanbul` field stores the configuration for Istanbul based sealing.
 
@@ -82,7 +82,7 @@ The `istanbul` field stores the configuration for Istanbul based sealing.
 | policy                  | The block proposer selection policy. [0: Round Robin, 1: Sticky, 2: Weighted Random] |
 | sub                     | Committee size. |
 
-# Governance
+# Governance <a id="governance"></a>
 
 The `governance` field stores governance information for a network.
 
@@ -92,7 +92,7 @@ The `governance` field stores governance information for a network.
 | governanceMode          | Designated governing node's address. It only works if the governance mode is `single`.  |
 | reward                  | It stores the reward configuration. See the section [Reward](#reward).  |
 
-## Reward
+## Reward <a id="reward"></a>
 
 The `reward` field stores the information about the network's token economy.
 
@@ -106,7 +106,7 @@ The `reward` field stores the information about the network's token economy.
 | proposerUpdateInterval  | Time interval in block height to update proposer information. |
 | minimumStake            | Minimum amount of peb to join Core Cell Operators. |
 
-# Example
+# Example <a id="example"></a>
 
 ```
 {

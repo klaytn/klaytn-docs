@@ -1,6 +1,6 @@
-# Value Transfer Transaction
+# Value Transfer Transaction <a id="value-transfer-transaction"></a>
 
-## sendTransaction (VALUE_TRANSFER)
+## sendTransaction (VALUE_TRANSFER) <a id="sendtransaction-value_transfer"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
@@ -66,7 +66,7 @@ caver.klay.sendTransaction({
 ```
 
 
-## sendTransaction (FEE_DELEGATED_VALUE_TRANSFER)
+## sendTransaction (FEE_DELEGATED_VALUE_TRANSFER) <a id="sendtransaction-fee_delegated_value_transfer"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
@@ -144,7 +144,7 @@ caver.klay.sendTransaction({
 .on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 ```
 
-## sendTransaction (FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO)
+## sendTransaction (FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO) <a id="sendtransaction-fee_delegated_value_transfer_with_ratio"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])

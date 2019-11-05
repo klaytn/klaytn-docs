@@ -1,6 +1,6 @@
-# Go Runtime Tracing
+# Go Runtime Tracing <a id="go-runtime-tracing"></a>
 
-## debug_goTrace
+## debug_goTrace <a id="debug_gotrace"></a>
 
 Turns on Go runtime tracing for the given duration and writes
 trace data to disk.
@@ -36,7 +36,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_startGoTrace
+## debug_startGoTrace <a id="debug_startgotrace"></a>
 
 Starts writing a Go runtime trace to the given file.
 
@@ -69,7 +69,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_stopGoTrace
+## debug_stopGoTrace <a id="debug_stopgotrace"></a>
 
 Stops writing the Go runtime trace.
 

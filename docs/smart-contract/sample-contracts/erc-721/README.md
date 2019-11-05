@@ -1,6 +1,6 @@
-# ERC-721 Example
+# ERC-721 Example <a id="erc-721-example"></a>
 
-## Introduction
+## Introduction <a id="introduction"></a>
 
 This tutorial helps you to create an example ERC-721 compatible token that conforms to [Klaytn Token Standards](../../token-standard.md), especially [Non-fungible Token Standard (ERC-721)](../../token-standard.md#non-fungible-token-standard-erc-721).
 

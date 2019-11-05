@@ -1,4 +1,4 @@
-# Single-Node Service Chain
+# Single-Node Service Chain <a id="single-node-service-chain"></a>
 
 This chapter covers how to set up the simplest form of service chain.
 

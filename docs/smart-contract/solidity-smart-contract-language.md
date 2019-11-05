@@ -1,8 +1,8 @@
-# Solidity - Smart Contract Language
+# Solidity - Smart Contract Language <a id="solidity-smart-contract-language"></a>
 
 This chapter describes only the high-level concepts, development processes, and examples written in Solidity because Solidity is already well documented on its official websites. For language specifications or implementations, please refer to the [References](#references) below. The content of this chapter is based on various websites listed in the [References](#references).
 
-## Solidity and Klaytn
+## Solidity and Klaytn <a id="solidity-and-klaytn"></a>
 
 [Solidity](https://github.com/ethereum/solidity) is a high-level, statically typed, contract-oriented language for implementing smart contracts on the Ethereum platform. Although Solidity was originally designed for Ethereum, it is general enough to write smart contracts; therefore, it can also be used for other blockchain platforms, such as Klaytn.
 
@@ -25,7 +25,7 @@ Other materials that are useful for getting started with Solidity include the fo
 
 * [Top Solidity tutorials](https://medium.com/coinmonks/top-solidity-tutorials-4e7adcacced8)
 
-## How to Write a Smart Contract
+## How to Write a Smart Contract <a id="how-to-write-a-smart-contract"></a>
 
 This section presents an example of Solidity source code to provide readers with an idea of how smart contracts look and how to write a contract. Note that the code included here is provided solely for explanatory purposes; it is not intended for production purposes. In the code, `(require)` means that the line is required for any Solidity source file while `(optional)` indicates that the line is not always needed. The symbol `Ln:` is not part of the Solidity code and is included here only to show the line numbers. Please do not include these symbols in source code intended for real use.
 
@@ -63,7 +63,7 @@ The above code should be self-explanatory; thus people familiar with any other p
 
 For more information concerning the syntax and semantics of the Solidity language, please refer to the [Solidity documentation v0.4.24](https://solidity.readthedocs.io/en/v0.4.24/solidity-in-depth.html) or [Solidity documentation v0.5.6](https://solidity.readthedocs.io/en/v0.5.6/solidity-in-depth.html).
 
-## How to Compile, Deploy, and Execute
+## How to Compile, Deploy, and Execute <a id="how-to-compile-deploy-and-execute"></a>
 
 One way to compile Solidity code is to use the command-line compiler _solc_. This compiler can produce various outputs, ranging from simple binaries and assembly to an abstract syntax tree \(parse tree\). Assuming that the code above is saved in `UserStorage.sol` \(`L03` is excluded in the source file shown above\), some examples of compiling the file `UserStorage.sol` are as follows.
 
@@ -97,7 +97,7 @@ Some resources for compiling, deploying, and executing smart contracts are liste
 
 NOTE: This section will be updated in the future.
 
-## Debugging Smart Contracts
+## Debugging Smart Contracts <a id="debugging-smart-contracts"></a>
 
 It is more difficult to debug Solidity code than to debug code written in other programming languages due to the lack of mature debugging tools. Below, we list some resources for Solidity debugging.
 
@@ -107,7 +107,7 @@ It is more difficult to debug Solidity code than to debug code written in other 
 
 NOTE: This section will be updated in the future.
 
-## Smart Contract Best Practices
+## Smart Contract Best Practices <a id="smart-contract-best-practices"></a>
 
 To eliminate security concerns and code quality issues from your smart contract, it is important to study and follow best practices in Solidity programming. Here, we show a reference for Solidity best practices.
 
@@ -115,7 +115,7 @@ To eliminate security concerns and code quality issues from your smart contract,
 
 NOTE: This section will be updated in the future.
 
-## References
+## References <a id="references"></a>
 
 * [Solidity GitHub site](https://github.com/ethereum/solidity)
 * [Solidity v0.4.24 documentation](https://solidity.readthedocs.io/en/v0.4.24/index.html)

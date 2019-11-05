@@ -1,4 +1,4 @@
-# Klaytn Smart Contract
+# Klaytn Smart Contract <a id="klaytn-smart-contract"></a>
 
 Smart contracts in Klaytn are programs that implement business logics, games, libraries, token transfers, or any type of code interacting with the Klaytn blockchain. When conditions described in the smart contract are met, the contract executes immediately. The terms within smart contracts are described in programming language; their contents data are stored as their state.
 
@@ -6,14 +6,14 @@ Klaytn provides several ways to write and execute smart contracts on the Klaytn 
 
 In the future, Klaytn plans to accommodate smart contracts written in various programming languages, in order to extend support to a broader range of potential developers and provide them with development experience they feel they're most familiar with. Going forward, Klaytn will continue to explore various programming languages that developers find interesting.
 
-## Affordable Smart Contract Execution Cost
+## Affordable Smart Contract Execution Cost <a id="affordable-smart-contract-execution-cost"></a>
 
 One of the reasons that blockchains charge fees on smart contract executions is to utilize limited resources efficiently by preventing poorly or maliciously written contracts from running. That is, a blockchain platform increases the financial cost of running smart contracts intentionally \(1\) to induce developers to write efficient code, and \(2\) to deter adversaries in launching attacks by minimizing the expected financial gains. With a successful strategy, the fees charged on normal executions should be small, although the fees from malicious executions should be large. Although Ethereum’s opcode-based fee model is useful in discouraging wasting of resources, it may also dampen ordinary smart contract executions due to high gas prices on some opcodes \(e.g., state write\), hindering the adoption of blockchain technologies. To address this problem, Klaytn plans to use an opcode-based fixed fee model with \(1\) low unit cost per opcode and \(2\) a metered pricing model.
 
 1. Opcode cost is directly related to the amount of resources that the platform can use. The Ethereum state write cost is high since the storage, and the network bandwidth required to record and propagate the changed states are limited. Conversely, if a blockchain has abundant resources \(e.g., CPU time, storage, network bandwidth\), then the unit cost per opcode can be substantially lower than that of Ethereum, and the cost difference between opcodes can be minimized. Klaytn aims to lower opcode unit cost by vertically scaling each CN node \(i.e., acquiring high-end hardware\), parallelizing computation \(i.e., logical scaling via service chain\), and horizontally scaling physical clusters.
 2. The Ethereum smart contract fees are determined by the sum of gasses required to execute opcodes. Although such a strategy is intuitive and effective, as the resulting cost is directly proportional to the number of executed opcodes, a small change in a smart contract can increase the execution cost significantly. To address this problem, Klaytn suggests a metered pricing model that adjusts the execution cost to the same level for a prescribed range of opcode execution. With a low unit cost per opcode and the metered model, most of \(relatively\) short smart contract executions can be performed at a lower, stable cost.
 
-## Low price volatility
+## Low price volatility <a id="low-price-volatility"></a>
 
 The reason Ethereum has chosen a complex gas-based fee model is to distribute computing resources efficiently and to minimize the impact of cryptocurrency fluctuation by avoiding direct mapping between ETH and fiat currency. Klaytn will also adopt this model with some modifications to decouple the cost of smart contract execution from the exchange rate of KLAY.
 

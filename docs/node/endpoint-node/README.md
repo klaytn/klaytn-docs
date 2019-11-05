@@ -1,11 +1,11 @@
-# Endpoint Node
+# Endpoint Node <a id="endpoint-node"></a>
 
-## Intended Audience
+## Intended Audience <a id="intended-audience"></a>
 
 - Anyone who wants to send transactions or query the state of Klaytn network using [Klaytn APIs](../../bapp/json-rpc/README.md) needs to do so via an Endpoint Node.
 - Endpoint Nodes are the interface to the Klaytn Network.  
 
-## Endpoint Node Overview
+## Endpoint Node Overview <a id="endpoint-node-overview"></a>
 
 An Endpoint Node has the following roles and functions.
 

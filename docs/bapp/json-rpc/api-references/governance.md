@@ -3,7 +3,7 @@ description: >-
   APIs related to the Klaytn Governance.
 ---
 
-# Namespace governance
+# Namespace governance <a id="namespace-governance"></a>
 
 For the governance of the network, Klaytn provides the following APIs under `governance` namespace.
 
@@ -13,7 +13,7 @@ In Klaytn, there are three different governance modes.
 * `ballot`: All nodes which have voting power can vote for a change. When more than half of total voting power gathered, the vote passes.
 
 
-## governance_vote
+## governance_vote <a id="governance_vote"></a>
 
 The `vote` method submits a new vote. If the node has the right to vote based on governance mode, the vote can be placed. If not, an error message will be returned and the vote will be ignored.
 
@@ -84,7 +84,7 @@ The `vote` method submits a new vote. If the node has the right to vote based on
 ```
 
 
-## governance_showTally
+## governance_showTally <a id="governance_showtally"></a>
 
 The `showTally` property provides the current tally of governance votes. It shows the aggregated approval rate in percentage. When it goes over 50%, the vote passes. 
 
@@ -114,7 +114,7 @@ None
 ```
 
 
-## governance_totalVotingPower
+## governance_totalVotingPower <a id="governance_totalvotingpower"></a>
 
 The `totalVotingPower` property provides the sum of all voting power that CNs have. Each CN has 1.0 ~ 2.0 voting power.
 In `"none"`, `"single"` governance mode, `totalVotingPower` don't provide any information. 
@@ -142,7 +142,7 @@ None
 ```
 
 
-## governance_myVotingPower
+## governance_myVotingPower <a id="governance_myvotingpower"></a>
 
 The `myVotingPower` property provides the voting power of the node. The voting power can be 1.0 ~ 2.0.
 In `"none"`, `"single"` governance mode, `totalVotingPower` don't provide any information. 
@@ -170,7 +170,7 @@ None
 ```
 
 
-## governance_myVotes
+## governance_myVotes <a id="governance_myvotes"></a>
 
 The `myVotes` property provides my vote information in the epoch. Each vote is stored in a block when the user's node generates a new block. After current epoch ends, this information is cleared.
 
@@ -201,7 +201,7 @@ None
 ```
 
 
-## governance_chainConfig
+## governance_chainConfig <a id="governance_chainconfig"></a>
 
 The `chainConfig` property provides the initial chain configuration. Because it just stores the initial configuration, if there were changes in the governance made by voting, the result of `chainConfig` will differ from the current states. To see the current information, please use `itemsAt`.
 
@@ -245,7 +245,7 @@ None
 ```
 
 
-## governance_nodeAddress
+## governance_nodeAddress <a id="governance_nodeaddress"></a>
 
 The `nodeAddress` property provides the address of the node that a user is using. It is derived from the nodekey and used to sign consensus messages. And the value of `"governingnode"` has to be one of validator's node address.
 
@@ -266,7 +266,7 @@ None
 "0xe733cb4d279da696f30d470f8c04decb54fcb0d2"
 ```
 
-## governance_itemsAt
+## governance_itemsAt <a id="governance_itemsat"></a>
 
 The `itemsAt` returns governance items at specific block. It is the result of previous voting of the block and used as configuration for chain at the given block number.
 
@@ -302,7 +302,7 @@ The `itemsAt` returns governance items at specific block. It is the result of pr
  reward.useginicoeff: true
 }
 ```
-## governance_pendingChanges
+## governance_pendingChanges <a id="governance_pendingchanges"></a>
 
 The `pendingChanges` returns the list of items that have received enough number of votes but not yet finalized. At the end of the current epoch, these changes will be finalized and the result will be in effect from the epoch after next epoch. 
 
@@ -325,7 +325,7 @@ None
 }
 ```
 
-## governance_votes
+## governance_votes <a id="governance_votes"></a>
 
 The `votes` returns the votes from all nodes in the epoch. These votes are gathered from the header of each block.
 
@@ -353,7 +353,7 @@ None
 }]
 ```
 
-## governance_idxCache
+## governance_idxCache <a id="governance_idxcache"></a>
 The `idxCache` property returns an array of current idxCache in the memory cache. idxCache contains the block numbers where governance change happened. The cache can have up to 1000 block numbers in memory by default.
 
 **Parameters**
@@ -372,7 +372,7 @@ None
 [0, 30]
 ```
 
-## governance_idxCacheFromDb
+## governance_idxCacheFromDb <a id="governance_idxcachefromdb"></a>
 The `idxCacheFromDb` returns an array that contains all block numbers on which a governance change ever happened. The result of `idxCacheFromDb` is the same or longer than that of `idxCache`
 
 **Parameters**
@@ -391,7 +391,7 @@ None
 [0, 30]
 ```
 
-## governance_itemCacheFromDb
+## governance_itemCacheFromDb <a id="governance_itemcachefromdb"></a>
 The `itemCacheFromDb` returns the governance information stored in the given block. If no changes were stored in the given block, the function returns `null`.
 
 **Parameters**

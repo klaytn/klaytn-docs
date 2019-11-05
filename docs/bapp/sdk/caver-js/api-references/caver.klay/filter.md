@@ -1,4 +1,4 @@
-## getFilterChanges
+## getFilterChanges <a id="getfilterchanges"></a>
 
 ```javascript
 caver.klay.getFilterChanges(filterId [, callback])
@@ -50,7 +50,7 @@ The structure of the returned log ``Object`` in the ``Array`` looks as follows:
 ]
 ```
 
-## getFilterLogs
+## getFilterLogs <a id="getfilterlogs"></a>
 
 ```javascript
 caver.klay.getFilterLogs(filterId [, callback])
@@ -91,7 +91,7 @@ See [getFilterChanges](#getfilterchanges)
 ```
 
 
-## getPastLogs
+## getPastLogs <a id="getpastlogs"></a>
 
 ```javascript
 caver.klay.getPastLogs(options [, callback])
@@ -150,7 +150,7 @@ The structure of the returned event ``Object`` in the ``Array`` looks as follows
 },{...}]
 ```
 
-## newBlockFilter
+## newBlockFilter <a id="newblockfilter"></a>
 
 ```javascript
 caver.klay.newBlockFilter([callback])
@@ -176,7 +176,7 @@ To check if the state has changed, call [getFilterChanges](#getfilterchanges).
 0x9ca049dc8b0788ee05724e45fc4137f1
 ```
 
-## newFilter
+## newFilter <a id="newfilter"></a>
 
 ```javascript
 caver.klay.newFilter(options [, callback])
@@ -215,7 +215,7 @@ For detailed information about topic filters, please see [Klaytn Platform API - 
 0xd165cbf31b9d60346aada33dbefe01b
 ```
 
-## newPendingTransactionFilter
+## newPendingTransactionFilter <a id="newpendingtransactionfilter"></a>
 
 ```javascript
 caver.klay.newPendingTransactionFilter([callback])
@@ -241,7 +241,7 @@ To check if the state has changed, call [getFilterChanges](#getfilterchanges).
 0x1426438ffdae5abf43edf4159c5b013b
 ```
 
-## uninstallFilter
+## uninstallFilter <a id="uninstallfilter"></a>
 
 ```javascript
 caver.klay.uninstallFilter(filterId [, callback])

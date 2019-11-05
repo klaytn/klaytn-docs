@@ -1,4 +1,4 @@
-## klay_accountCreated
+## klay_accountCreated <a id="klay_accountcreated"></a>
 
 Returns `true` if the account associated with the address is created. It returns `false` otherwise.
 
@@ -30,7 +30,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_accounts
+## klay_accounts <a id="klay_accounts"></a>
 
 Returns a list of addresses owned by client.
 
@@ -59,7 +59,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getAccount
+## klay_getAccount <a id="klay_getaccount"></a>
 
 Returns the account information of a given address. There are two different account types in Klaytn: Externally Owned Account (EOA) and Smart Contract Account. See [Klaytn Accounts](../../../../klaytn/design/accounts.md#klaytn-accounts).
 
@@ -130,7 +130,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getAccountKey
+## klay_getAccountKey <a id="klay_getaccountkey"></a>
 
 Returns the account key of the Externally Owned Account (EOA) of a given address. If the account has AccountKeyLegacy or the account of the given address is a Smart Contract Account, it will return an empty key value. See [Account Key](../../../../klaytn/design/accounts.md#account-key).
 
@@ -214,7 +214,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getBalance
+## klay_getBalance <a id="klay_getbalance"></a>
 
 Returns the balance of the account of given address.
 
@@ -245,7 +245,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getCode
+## klay_getCode <a id="klay_getcode"></a>
 
 Returns code at a given address.
 
@@ -277,7 +277,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getTransactionCount
+## klay_getTransactionCount <a id="klay_gettransactioncount"></a>
 
 Returns the number of transactions *sent* from an address.
 
@@ -311,7 +311,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 
 
-## klay_isContractAccount
+## klay_isContractAccount <a id="klay_iscontractaccount"></a>
 
 Returns `true` if an input account has a non-empty codeHash at the time of a specific block number. It returns `false` if the account is an EOA or a smart contract account which doesn't have codeHash.
 
@@ -342,7 +342,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay_sign
+## klay_sign <a id="klay_sign"></a>
 
 The sign method calculates a Klaytn-specific signature with:
 ```

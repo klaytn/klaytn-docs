@@ -1,4 +1,4 @@
-# Table of contents
+# Table of contents <a id="table-of-contents"></a>
 
 * [Welcome](README.md)
 

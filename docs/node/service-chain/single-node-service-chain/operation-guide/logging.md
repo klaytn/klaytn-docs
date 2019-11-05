@@ -1,16 +1,16 @@
-# Logging
+# Logging <a id="logging"></a>
 
-## Log File Location
-
-
-
-## Log File Format
+## Log File Location <a id="log-file-location"></a>
 
 
 
-## Log Levels
+## Log File Format <a id="log-file-format"></a>
 
 
 
-## Error Logs
+## Log Levels <a id="log-levels"></a>
+
+
+
+## Error Logs <a id="error-logs"></a>
 

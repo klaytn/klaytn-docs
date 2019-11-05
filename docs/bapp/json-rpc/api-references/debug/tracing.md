@@ -1,6 +1,6 @@
-# VM Tracing
+# VM Tracing <a id="vm-tracing"></a>
 
-## debug_traceBadBlock
+## debug_traceBadBlock <a id="debug_tracebadblock"></a>
 
 The `traceBadBlock` method will return a full stack trace of all invoked
 opcodes of all transactions that were included in this block.
@@ -56,7 +56,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_traceBlock
+## debug_traceBlock <a id="debug_traceblock"></a>
 
 The `traceBlock` method will return a full stack trace of all invoked opcodes
 of all transactions that were included in this block.
@@ -106,7 +106,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_traceBlockByHash
+## debug_traceBlockByHash <a id="debug_traceblockbyhash"></a>
 Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByHash` accepts a
 block hash and will replay the block that is already present in the database.
 
@@ -150,7 +150,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_traceBlockByNumber
+## debug_traceBlockByNumber <a id="debug_traceblockbynumber"></a>
 Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByNumber` accepts
 a block number and will replay the block that is already present in the
 database.
@@ -196,7 +196,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_traceBlockFromFile
+## debug_traceBlockFromFile <a id="debug_traceblockfromfile"></a>
 
 Similar to [debug_traceBlock](#debug_traceblock), `traceBlockFromFile` accepts
 a file containing the RLP of the block.
@@ -252,7 +252,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_traceTransaction
+## debug_traceTransaction <a id="debug_tracetransaction"></a>
 
 The `traceTransaction` debugging method will attempt to run the transaction in
 the exact same manner as it was executed on the network. It will replay any
@@ -360,7 +360,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## Tracing Options
+## Tracing Options <a id="tracing-options"></a>
 
 You may give trace API function a secondary optional argument, which specifies
 the options for this specific call. The possible options are:
@@ -412,7 +412,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 ```
 
 
-## JavaScript-based Tracing
+## JavaScript-based Tracing <a id="javascript-based-tracing"></a>
 Specifying the `tracer` option in the second argument enables JavaScript-based
 tracing. In this mode, `tracer` is interpreted as a JavaScript expression that
 is expected to evaluate to an object with (at least) two methods, named `step`

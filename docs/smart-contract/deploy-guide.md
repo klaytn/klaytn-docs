@@ -1,8 +1,8 @@
-# Deploy Guide
+# Deploy Guide <a id="deploy-guide"></a>
 
 There are various ways of deploying a smart contract to Klaytn. This document provides a step-by-step guide to deploy a sample contract using various tools. We assume that you have a Klaytn account with enough KLAY to pay the transaction fee. To create an account, please refer to [Klaytn Wallet](../toolkit/klaytn-wallet.md).
 
-## Klaytn IDE
+## Klaytn IDE <a id="klaytn-ide"></a>
 
 Open up your internet browser and go to https://ide.klaytn.com  
 
@@ -65,7 +65,7 @@ contract KlaytnGreeter is Mortal {
 
 For more details refer to this [link](../toolkit/klaytn-ide.md).
 
-## Truffle 
+## Truffle  <a id="truffle"></a>
 
 Truffle is the most popular framework for smart contract deployment and execution. 
 
@@ -173,11 +173,11 @@ $ truffle deploy --network mainnet
 
 For more details refer to this [link](../toolkit/truffle.md).
 
-## VVISP
+## VVISP <a id="vvisp"></a>
 vvisp is an easy-to-use CLI tool/framework for developing smart contracts, provided by HEACHI LABS. You can easily set environment, deploy and execute Klaytn smart contracts with a single command. Refer to the following link for more details. 
 - https://henesis.gitbook.io/vvisp/deploying-smart-contracts
 
-## solc & caver-js
+## solc & caver-js <a id="solc-caver-js"></a>
 
 Another way to deploy contracts is manually compiling contracts with solc and deploying them with caver-js.
 
