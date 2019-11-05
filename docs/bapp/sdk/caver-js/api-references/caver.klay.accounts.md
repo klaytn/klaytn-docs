@@ -286,7 +286,7 @@ AccountKey is a data structure for managing keys in caver-js. Use AccountKeyPubl
 | Name | Type | Description |
 | --- | --- | --- |
 | type | String | The type of AccountKey instance. |
-| defaultKey | String | Default private key of AccountKey. The default private key represents a single private key string defined for AccountKeyPublic, and a private key string for the zeroth index of the array if AccountKeyMultiSig. For AccountKeyRoleBased, it represents the defaultKey of the role where the key is defined. |
+| defaultKey | String | Default private key of AccountKey. The default private key represents a single private key string defined for AccountKeyPublic, and a private key string in the zeroth index of the array if AccountKeyMultiSig. For AccountKeyRoleBased, it represents the defaultKey of the first found AccountKey, where the AccountKey is searched in the following order: transactionkey, updateKey, feePayerKey.  |
 | keys | String &#124; Array &#124; Object | All private keys defined inside the AccountKey instance. For AccountKeyPublic, this is a single private key string; for AccountKeyMultiSig, this returns an array containing all the private key strings. In the case of AccountKeyRoleBased, an object with keys associated with each role is returned. |
 | transactionKey | String &#124; Array | Key used for the [RoleTransaction](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys. |
 | updateKey | String &#124; Array | Key used for the [RoleAccountUpdate](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys. |
