@@ -494,11 +494,11 @@ Encrypts an account to the Klaytn keystore standard.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| encryptTarget | String &#124; Array &#124; Object | A private key or a Klaytn wallet key to encrypt. Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), encryptTarget also can be an instance of Account or AccountKey (AccountKeyPublic, AccountKeyMultiSig, or AccountKeyRoleBased), an array of private key strings or an object that defines keys by roles. |
+| encryptTarget | String &#124; Array &#124; Object | A private key or a Klaytn wallet key to encrypt. Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), encryptTarget also can be an instance of Account or AccountKey (AccountKeyPublic, AccountKeyMultiSig, or AccountKeyRoleBased), an array of private key strings or an object that defines the keys by role. |
 | password | String | The password used for encryption. |
 | options | Object | (optional) The `options` parameter allows you to specify the values to use when using encrypt. You can also use the options object to encrypt decoupled accounts. See the example below for usage of `options`. |
 
-**NOTE** If the address cannot be extracted from encryptTarget (AccountKeyMultiSig, AccountKeyRoleBased, an array of private key strings or an object defines keys by roles) or if the account's private key is decoupled from address, you must define the address separately in the options object.
+**NOTE** If account address cannot be extracted from encryptTarget (when AccountKeyMultiSig, AccountKeyRoleBased, an array of private key strings or an object that defines the keys by role) or if the account's private key is decoupled from address, you must specify the address in the options object.
 
 **NOTE**: There are two ways to encrypt the private key when an account has a decoupled private key from the address.
 1. Use the [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format with the privateKey parameter.
@@ -508,7 +508,7 @@ Encrypts an account to the Klaytn keystore standard.
 
 | Type | Description |
 | --- | --- |
-| Object | The encrypted keystore JSON. Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), keystore v4 is used, and before that, keystore v3 is used. The example below illustrates both the results of keystore v3 and the results of keystore v4. |
+| Object | The encrypted keystore JSON. Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), keystore v4 is used. The example below illustrates both keystore v3 and v4. |
 
 
 **Example**
@@ -699,7 +699,7 @@ Encrypts an account to the Klaytn keystore standard.
     ],
 }
 
-// encrypt to keystore v3 JSON. (If you want to encrypt with keystore v3, use a version earlier than caver-js v1.2.0.)
+// encrypt to keystore v3 JSON. (If you want to encrypt to keystore v3, use a version earlier than caver-js v1.2.0.)
 // Encrypt with a private key string
 > caver.klay.accounts.encrypt('0x{private key}', 'test!')
 {
@@ -745,7 +745,7 @@ Decrypts a keystore v3 or v4 JSON and returns the decrypted account object.
 **Example**
 
 ```javascript
-// Decrypt keystroe v4 JSON
+// Decrypt keystore v4 JSON
 > caver.klay.accounts.decrypt({
     version: 4,
     id: '6b4c9eb2-9dc6-46d4-88b6-bb1fa511ead1',
