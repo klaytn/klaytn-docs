@@ -645,8 +645,8 @@ Encrypts an account to the Klaytn keystore standard.
     ],
 }
 
-// Using options objects with encryption option values
-> caver.klay.accounts.encrypt('0xeae5da9e9623ccaac7db7a6743f2828afca6fc78ce6091a5f15da360a602d131', 'test', {
+// Using options objects with encryption option values (scrypt)
+> caver.klay.accounts.encrypt('0x{private key}', 'test', {
     salt: '776ad46fde47572c58ba5b9616a661a1fbc4b9ff918300faeba04bb9ff5be04c',
     iv: Buffer.from('b62ef75e39fa396de62c51c4734b69a2', 'hex'),
     kdf: 'scrypt',
@@ -673,7 +673,7 @@ Encrypts an account to the Klaytn keystore standard.
     ],
 }
 
-// Using options objects with encryption option values
+// Using options objects with encryption option values (pbkdf2)
 > caver.klay.accounts.encrypt('0x{private key}', 'test', {
     salt: '776ad46fde47572c58ba5b9616a661a1fbc4b9ff918300faeba04bb9ff5be04c',
     iv: Buffer.from('b62ef75e39fa396de62c51c4734b69a2', 'hex'),
