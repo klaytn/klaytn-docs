@@ -99,10 +99,10 @@ Welcome to the Klaytn JavaScript console!
 1e+50
 ```
 
-# Bridge Contract <a=id="bridge-contract"></a>
+# Bridge Contract <a id="bridge-contract"></a>
 For the cross-chain value transfer, a bridge contract should be deployed to the parent/child chains. Users can request a KLAY transfer to the bridge contract to send their KLAY to the other chain. Additionally, if token contracts are registered in the bridge contracts, bridge contracts can handle the token transfer between parent and child chains.
 
-## Deployment <a=id="deployment"></a>
+## Deployment <a id="deployment"></a>
 Sub-bridge provides a bridge contract deployment API. You can deploy bridge contracts to both chains using a single RPC call as below. Before doing this, you should have connected main-bridge and sub-bridge. Please refer to [Connect to Main Chain](./single-node-service-chain/installation-guide/connect-to-main-chain.md) to get detailed guideline.
 
 ```javascript
