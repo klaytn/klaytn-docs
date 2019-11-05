@@ -561,7 +561,7 @@ caver.klay.accounts.createAccountForUpdate(address, accountKey, options)
 ```
 Creates an instance of `AccountForUpdate`. AccountForUpdate contains the address of the account and the new public key to update. 
 
-`AccountForUpdate` can be set at `key` field in account update transaction object(`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`). If you want to know how to use `AccountForUpdate` with a transaction, see [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate).
+`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate).
 
 **NOTE** `caver.klay.accounts.createAccountForUpdate` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
@@ -570,17 +570,17 @@ Creates an instance of `AccountForUpdate`. AccountForUpdate contains the address
 | Name | Type | Description |
 | --- | --- | --- |
 | address | String | Address of an Account. |
-| accountKey | String &#124; Array &#124; Object | An AccountKey instance(`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or key(a private key string, an array of private key strings or an object defines key by roles) to create an AccountKey. If accountKey parameter is not an AccountKey instance, call [caver.klay.accounts.createAccountKey](#createaccountkey) with accountKey as a parameter to create an AccountKey instance. |
-| options |  Object | An object containing the threshold and weight needed to update to AccountKeyMultiSig. This is necessary to update to AccountKeyMultiSig using multiple private keys. If you want to use key as AccountKeyMultiSig for each role of AccountKeyRoleBased, define that role inside options as object with threshold and weight defined. The usage is shown in the example below. |
+| accountKey | String &#124; Array &#124; Object | AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or the equivalent key info (a private key string, an array of private key strings or an object defining key(s) with role(s)). If accountKey is not an AccountKey instance, this method internally calls [caver.klay.accounts.createAccountKey](#createaccountkey) to create an AccountKey instance from the given key info. |
+| options |  Object | An optional object containing the threshold and weight. This is required when using AccountKeyMultiSig. The usage is shown in the example below. |
 
 **Return Value**
 
-`Object` - An AccountKey instance is returned, with the following properties:
+`Object` - An AccountForUpdate instance is returned, with the following properties:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | String | The type of AccountKey instance. |
-| keyForUpdate | Object | An object containing the new public key to update to be used in transactions for account updates. The input accountKey is converted to public key, and it is converted and stored in the form used for transaction. |
+| address | String | Address of the account to be updated. |
+| keyForUpdate | Object | An object containing the new public key derived from the given accountKey. |
 
 
 **Example**
@@ -664,7 +664,7 @@ caver.klay.accounts.createAccountForUpdateWithPublicKey(address, keyForUpdate, o
 ```
 Creates an instance of `AccountForUpdate` with the public key of the new key to update.
 
-`AccountForUpdate` can be set at `key` field in account update transaction object(`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`). If you want to know how to use `AccountForUpdate` with a transaction, see [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate).
+`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate).
 
 **NOTE** `caver.klay.accounts.createAccountForUpdateWithPublicKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
@@ -673,12 +673,12 @@ Creates an instance of `AccountForUpdate` with the public key of the new key to 
 | Name | Type | Description |
 | --- | --- | --- |
 | address | String | Address of an Account. |
-| keyForUpdate | String &#124; Array &#124; Object | The public key of the new key to update. When updating with AccountKeyPublic, this is a single public key string. When updating with AccountKeyMultiSig, this is an array containing multiple public key strings. When updating to AccountKeyRoleBased, the object has a public key defined for each role. If AccountKeyRoleBased, each role in the object is a public key string, or an array containing multiple public key strings. |
-| options |  Object | An object containing the threshold and weight needed to update to AccountKeyMultiSig. This is necessary to update to AccountKeyMultiSig using multiple private keys. If you want to use key as AccountKeyMultiSig for each role of AccountKeyRoleBased, define that role inside options as object with threshold and weight defined. The usage is shown in the example below. |
+| keyForUpdate | String &#124; Array &#124; Object | The public-key of the new key to update. This value is a single public-key string when the key is AccountKeyPublic, an array of public-key strings when AccountKeyMultiSig, an object when the key is AccountKeyRoleBased. |
+| options |  Object | An optional object containing the threshold and weight. This is required when using AccountKeyMultiSig. If you use AccountkeyMultiSig as one of the keys in AccountKeyRoleBased, specify the role of the threshold and weight. The usage is shown in the example below. |
 
 **Return Value**
 
-`Object` - An AccountForUpdate instance, see [caver.klay.accounts.createAccountForUpdate](#createaccountforupdate)
+`Object` - An AccountForUpdate instance, see [caver.klay.accounts.createAccountForUpdate](#createaccountforupdate).
 
 
 **Example**
@@ -751,7 +751,7 @@ caver.klay.accounts.createAccountForUpdateWithLegacyKey(address)
 ```
 Creates an AccountForUpdate instance to update the account's key with [AccountKeyLegacy](../../../../klaytn/design/accounts.md#accountkeylegacy). Make sure you have a private key that matches your account address before updating to AccountKeyLegacy.
 
-`AccountForUpdate` can be set at `key` field in account update transaction object(`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`). If you want to know how to use `AccountForUpdate` with a transaction, see [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate).
+`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate).
 
 **NOTE** `caver.klay.accounts.createAccountForUpdateWithLegacyKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
@@ -763,7 +763,7 @@ Creates an AccountForUpdate instance to update the account's key with [AccountKe
 
 **Return Value**
 
-`Object` - An AccountForUpdate instance, see [caver.klay.accounts.createAccountForUpdate](#createaccountforupdate)
+`Object` - An AccountForUpdate instance, see [caver.klay.accounts.createAccountForUpdate](#createaccountforupdate).
 
 
 **Example**
@@ -784,7 +784,7 @@ caver.klay.accounts.createAccountForUpdateWithFailKey(address)
 ```
 Creates an AccountForUpdate instance to update the account's key with [AccountKeyFail](../../../../klaytn/design/accounts.md#accountkeyfail). Transactions sent by an account with AccountKeyFail always fail in the validation process.
 
-`AccountForUpdate` can be set at `key` field in account update transaction object(`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`). If you want to know how to use `AccountForUpdate` with a transaction, see [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate).
+`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate).
 
 **NOTE** `caver.klay.accounts.createAccountForUpdateWithFailKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
@@ -796,7 +796,7 @@ Creates an AccountForUpdate instance to update the account's key with [AccountKe
 
 **Return Value**
 
-`Object` - An AccountForUpdate instance, see [caver.klay.accounts.createAccountForUpdate](#createaccountforupdate)
+`Object` - An AccountForUpdate instance, see [caver.klay.accounts.createAccountForUpdate](#createaccountforupdate).
 
 
 **Example**
