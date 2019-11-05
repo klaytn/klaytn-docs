@@ -785,7 +785,7 @@ Returns an account that has an address derived from the given private key. See [
 ```
 
 
-## wallet
+## wallet <a id="wallet"></a>
 
 ```javascript
 caver.klay.accounts.wallet
@@ -816,7 +816,7 @@ Wallet {
 ```
 
 
-## wallet.create
+## wallet.create  <a id="wallet-create"></a>
 
 ```javascript
 caver.klay.accounts.wallet.create([numberOfAccounts] [, entropy])
@@ -852,7 +852,7 @@ Wallet {
 ```
 
 
-## wallet.add
+## wallet.add <a id="wallet-add"></a>
 
 ```javascript
 caver.klay.accounts.wallet.add(account [, targetAddress])
@@ -935,7 +935,7 @@ One is a raw private key format of a 32-byte string type and the other is the [K
 ```
 
 
-## wallet.remove
+## wallet.remove <a id="wallet-remove"></a>
 
 ```javascript
 caver.klay.accounts.wallet.remove(account)
@@ -978,7 +978,7 @@ false
 ```
 
 
-## wallet.clear
+## wallet.clear <a id="wallet-clear"></a>
 
 ```javascript
 caver.klay.accounts.wallet.clear()
@@ -1007,7 +1007,7 @@ Wallet {
 ```
 
 
-## wallet.encrypt
+## wallet.encrypt <a id="wallet-encrypt"></a>
 
 ```javascript
 caver.klay.accounts.wallet.encrypt(password)
@@ -1075,7 +1075,7 @@ Encrypts all wallet accounts and returns an array of encrypted keystore v3 objec
 ```
 
 
-## wallet.decrypt
+## wallet.decrypt <a id="wallet-decrypt"></a>
 
 ```javascript
 caver.klay.accounts.wallet.decrypt(keystoreArray, password)
@@ -1155,7 +1155,7 @@ Wallet {
 }
 ```
 
-## wallet.getKlaytnWalletKey
+## wallet.getKlaytnWalletKey <a id="wallet-getklaytnwalletkey"></a>
 
 ```javascript
 caver.klay.accounts.wallet.getKlaytnWalletKey(index)
@@ -1197,7 +1197,7 @@ Return the Klaytn wallet key for the account on the wallet of caver-js.
 Error: Failed to find account
 ```
 
-## wallet.updatePrivateKey
+## wallet.updatePrivateKey <a id="wallet-updateprivatekey"></a>
 
 ```javascript
 caver.klay.accounts.wallet.updatePrivateKey(privateKey, address)
@@ -1205,6 +1205,9 @@ caver.klay.accounts.wallet.updatePrivateKey(privateKey, address)
 Update the account's private key information stored in the wallet.
 
 **NOTE**: This function only changes the information stored in the wallet of caver-js. This function has no effect on the key information stored on the Klaytn network. Keys in the Klaytn network can be changed by sending a ['ACCOUNT_UPDATE'](./caver.klay/sendtx_account_update.md#sendtransaction-account_update) transaction.
+
+**NOTE** `updatePrivateKey` only works if the account's accountKey is AccountKeyPublic. 
+Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0) supports AccountKeys (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased), `privateKey` becomes a read-only property referencing the defaultKey of the accountKey. This method does not directly update the `privateKey`, instead update the accountKey. This method is maintained for backward-compatibility. It is now recommended to use more generic [caver.utils.updateAccountKey](#wallet-updateaccountkey).
 
 **Parameters**
 
@@ -1218,20 +1221,96 @@ Update the account's private key information stored in the wallet.
 
 | Type | Description |
 | --- | --- |
-| Object | An object that contains information about the updated account. |
+| Object | Account instance with the new accountKey. The Account instance lives in-memory caver-js wallet. |
 
 
 **Example**
 
 ```javascript
-> caver.klay.accounts.wallet.updatePrivateKey('{private key}', '0xf2e2565629c7763dc0b595e8e531a31371a95f95');
-{ 
-    address: '0xf2e2565629c7763dc0b595e8e531a31371a95f95',
-    privateKey: '0x{private key}',
+> caver.klay.accounts.wallet.updatePrivateKey('0x{private key}', '0xf2e2565629c7763dc0b595e8e531a31371a95f95');
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
     getKlaytnWalletKey: [Function: getKlaytnWalletKey],
-    index: 0 
+    index: 0
+}
+```
+
+## wallet.updateAccountKey <a id="wallet-updateaccountkey"></a>
+
+```javascript
+caver.klay.accounts.wallet.updateAccountKey(address, accountKey)
+```
+Update the account's account key information stored in the wallet. When you update your account's accountKey, privateKey is updated as well to the defaultKey of the new accountKey.
+
+If the accountKey parameter is a single private key string, the account's accountKey is updated with an `AccountKeyPublic` instance. If the accountKey parameter is an array with multiple private key strings, the account's accountKey is updated with an `AccountKeyMultiSig` instance. If the accountKey parameter is an object whose keys are defined by roles, the account's accountKey is updated with an `AccountKeyRoleBased` instance.
+
+**NOTE**: This function only changes the information stored in the wallet of caver-js. This function has no effect on the key information stored on the Klaytn network. Keys in the Klaytn network can be changed by sending a ['ACCOUNT_UPDATE'](./caver.klay/sendtx_account_update.md#sendtransaction-account_update) transaction.
+
+**NOTE** `caver.klay.accounts.wallet.updateAccountKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| address | String | The account address in the wallet. |
+| accountKey | String &#124; Array &#124; Object | An AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or a data structure that contains the key info (a private key string, an array of private key strings or an object that defines the key for each role). |
+
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Object | Account instance with the new accountKey. The Account instance lives in-memory caver-js wallet. |
+
+
+**Example**
+
+```javascript
+// Update to AccountKeyPublic with a private key string
+> caver.klay.accounts.wallet.updateAccountKey('0xf2e2565629c7763dc0b595e8e531a31371a95f95', '0x{private key}')
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
+    signTransaction: [Function: signTransaction],
+    sign: [Function: sign],
+    encrypt: [Function: encrypt],
+    getKlaytnWalletKey: [Function: getKlaytnWalletKey],
+    index: 0
+}
+
+// Update to AccountKeyMultiSig with an array of private key strings
+> caver.klay.accounts.wallet.updateAccountKey('0xf2e2565629c7763dc0b595e8e531a31371a95f95', ['0x{private key}', '0x{private key}', '0x{private key}'])
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
+    signTransaction: [Function: signTransaction],
+    sign: [Function: sign],
+    encrypt: [Function: encrypt],
+    getKlaytnWalletKey: [Function: getKlaytnWalletKey],
+    index: 0
+}
+
+// Update to AccountKeyRoleBased with an object that defines keys by roles
+> caver.klay.accounts.wallet.updateAccountKey('0x2F66043C35e2389dA0B5401c3C592b2002d60bAc', {
+    transactionKey: '0x1e9c7960af2f1ed4b4ceff012b1eb2c1d31e57c9d52c5e9814d35a71726f02ed',
+    updateKey: ['0x3ceef924ce849bc243f2df92ae2ac7105182a4ccfcab5df6978280643dad5f3b', '0x655594f750be408b44582d36362e364565644c5974a8eba44e00f91f7274329e'],
+    feePayerKey: '0xf0089574637af59838755588f622ac12e7e8c1156aae928e1a1af2cd62736924'
+})
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
+    signTransaction: [Function: signTransaction],
+    sign: [Function: sign],
+    encrypt: [Function: encrypt],
+    getKlaytnWalletKey: [Function: getKlaytnWalletKey],
+    index: 0
 }
 ```
