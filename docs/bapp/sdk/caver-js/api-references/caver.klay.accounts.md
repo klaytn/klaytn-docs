@@ -68,6 +68,434 @@ Generates an account object with private key and public key.
 }
 ```
 
+## createWithAccountKey <a id="createwithaccountkey"></a>
+
+```javascript
+caver.klay.accounts.createWithAccountKey(address, accountKey)
+```
+Creates an instance of Account with the given AccountKey. Account is for managing an account's address and AccountKey. 
+
+**NOTE** This is merely a data structure used in caver-js. This method does not create or update an account in the Klaytn network.
+**NOTE** `caver.klay.accounts.createWithAccountKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| address | String | Address of an Account. |
+| accountKey | String &#124; Array &#124; Object | An AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or a data structure that contains the key info (a private key string, an array of private key strings or an object that defines the key for each role). |
+
+
+**Return Value**
+
+`Object` - An Account instance is returned, with the following properties:
+
+| Name | Type | Description |
+| --- | --- | --- |
+| address | String | The address of the account. |
+| privateKey | String | Default key string of accountKey that the account has. This property is left for backward compatibility. privateKey only represents the default key of accountKey, so using privateKey to sign or send a transaction is not recommended. It is recommended to use transactionKey, updateKey, or feePayerKey in context. |
+| accountKeyType | String | Type of accountKey the account has. This can be `AccountKeyPublic`, `AccountKeyMultiSig`, or `AccountKeyRoleBased` |
+| accountKey | Object | The key of the account. This is AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased. |
+| keys | String &#124; Array &#124; Object | All keys inside accountKey that the Account has. For AccountKeyPublic, this is a single private key string; for AccountKeyMultiSig, this returns an array containing all the private key strings. In the case of AccountKeyRoleBased, an object with keys associated with each role is returned. |
+| transactionKey | String &#124; Array | Key used for the [RoleTransaction](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys. |
+| updateKey | String &#124; Array | Key used for the [RoleAccountUpdate](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys. |
+| feePayerKey | String &#124; Array | Key used for [RoleFeePayer](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys. |
+| signTransaction(tx [, callback]) | Function | The function to sign transactions. See [caver.klay.accounts.signTransaction](#signtransaction). |
+| sign(data) | Function | The function to sign transactions. See [caver.klay.accounts.sign](#sign). |
+| encrypt | Function | The function to encrypt an Account with given password. |
+| getKlaytnWalletKey | Function | The function to get [Klaytn Wallet Key](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
+
+**Example**
+
+```javascript
+// Create an Account with AccountKeyPublic
+> caver.klay.accounts.createWithAccountKey('0x62ca8964610a9d447e1a64753a09fc8b3d40b405', '0x{private key}')
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
+    signTransaction: [Function: signTransaction],
+    sign: [Function: sign],
+    encrypt: [Function: encrypt],
+    getKlaytnWalletKey: [Function: getKlaytnWalletKey] 
+}
+
+// Create an Account with AccountKeyMultiSig
+> caver.klay.accounts.createWithAccountKey('0x62ca8964610a9d447e1a64753a09fc8b3d40b405', ['0x{private key}', '0x{private key}'])
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
+    signTransaction: [Function: signTransaction],
+    sign: [Function: sign],
+    encrypt: [Function: encrypt],
+    getKlaytnWalletKey: [Function: getKlaytnWalletKey] 
+}
+
+// Create an Account with AccountKeyRoleBased
+> caver.klay.accounts.createWithAccountKey('0x62ca8964610a9d447e1a64753a09fc8b3d40b405', {
+    transactionKey: ['0x{private key}', '0x{private key}'], '0x{private key}',
+    updateKey: ['0x{private key}', '0x{private key}', '0x{private key}'],
+    feePayerKey: ['0x{private key}', '0x{private key}', '0x{private key}']
+})
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
+    signTransaction: [Function: signTransaction],
+    sign: [Function: sign],
+    encrypt: [Function: encrypt],
+    getKlaytnWalletKey: [Function: getKlaytnWalletKey] 
+}
+```
+
+## createWithAccountKeyPublic <a id="createwithaccountkeypublic"></a>
+
+```javascript
+caver.klay.accounts.createWithAccountKeyPublic(address, accountKey)
+```
+Creates an instance of Account with AccountKeyPublic.
+
+**NOTE** `caver.klay.accounts.createWithAccountKeyPublic` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| address | String | Address of an Account. |
+| accountKey | String &#124; Object | An AccountKeyPublic instance or a private key string.  |
+
+
+**Return Value**
+
+`Object` - An Account instance, see [caver.klay.accounts.createWithAccountKey](#createwithaccountkey).
+
+**Example**
+
+```javascript
+> caver.klay.accounts.createWithAccountKeyPublic('0x62ca8964610a9d447e1a64753a09fc8b3d40b405', '0x{private key}')
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
+    signTransaction: [Function: signTransaction],
+    sign: [Function: sign],
+    encrypt: [Function: encrypt],
+    getKlaytnWalletKey: [Function: getKlaytnWalletKey] 
+}
+```
+
+## createWithAccountKeyMultiSig <a id="createwithaccountkeymultisig"></a>
+
+```javascript
+caver.klay.accounts.createWithAccountKeyMultiSig(address, accountKey)
+```
+Creates an instance of Account with AccountKeyMultiSig.
+
+**NOTE** `caver.klay.accounts.createWithAccountKeyMultiSig` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| address | String | Address of an Account. |
+| accountKey | String &#124; Object | An AccountKeyMultiSig instance or an array of private key strings.  |
+
+
+**Return Value**
+
+`Object` - An Account instance, see [caver.klay.accounts.createWithAccountKey](#createwithaccountkey).
+
+**Example**
+
+```javascript
+> caver.klay.accounts.createWithAccountKeyMultiSig('0x62ca8964610a9d447e1a64753a09fc8b3d40b405', ['0x{private key}', '0x{private key}'])
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
+    signTransaction: [Function: signTransaction],
+    sign: [Function: sign],
+    encrypt: [Function: encrypt],
+    getKlaytnWalletKey: [Function: getKlaytnWalletKey] 
+}
+```
+
+## createWithAccountKeyRoleBased <a id="createwithaccountkeyrolebased"></a>
+
+```javascript
+caver.klay.accounts.createWithAccountKeyRoleBased(address, accountKey)
+```
+Creates an instance of Account with AccountKeyRoleBased.
+
+**NOTE** `caver.klay.accounts.createWithAccountKeyRoleBased` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| address | String | Address of an Account. |
+| accountKey | String &#124; Object | An AccountKeyRoleBased instance or an object that defines the key for each role. |
+
+
+**Return Value**
+
+`Object` - An Account instance, see [caver.klay.accounts.createWithAccountKey](#createwithaccountkey).
+
+**Example**
+
+```javascript
+> caver.klay.accounts.createWithAccountKeyRoleBased('0x62ca8964610a9d447e1a64753a09fc8b3d40b405', {
+    transactionKey: ['0x{private key}', '0x{private key}', '0x{private key}'],
+    updateKey: ['0x{private key}', '0x{private key}', '0x{private key}'],
+    feePayerKey: ['0x{private key}', '0x{private key}', '0x{private key}']
+})
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
+    signTransaction: [Function: signTransaction],
+    sign: [Function: sign],
+    encrypt: [Function: encrypt],
+    getKlaytnWalletKey: [Function: getKlaytnWalletKey] 
+}
+```
+
+## createAccountKey <a id="createaccountkey"></a>
+
+```javascript
+caver.klay.accounts.createAccountKey(key)
+```
+Creates an instance of `AccountKeyPublic`, `AccountKeyMultiSig`, or `AccountKeyRoleBased` depending on the type of parameter. 
+
+AccountKey is a data structure for managing keys in caver-js. Use AccountKeyPublic if you want to use a single private key, AccountKeyMultiSig if you want to use multiple private keys, or AccountKeyRoleBased if you want to use a different key for each role.
+
+**NOTE** `caver.klay.accounts.createAccountKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| key | String &#124; Array &#124; Object | Key for generating AccountKey. If `key` is a single private key string, an AccountKeyPublic instance is created. If `key` is an array containing multiple private key strings, an AccountKeyMultiSig instance is created. If `key` is an object defining a key (a private key string or an array of private key strings) for each role, an AccountKeyRoleBased instance is created. AccountKeyRoleBased instance can have AccountKeyPublic or AccountKeyMultiSig for each role. |
+
+
+**Return Value**
+
+`Object` - An AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased instance is returned with the following properties:
+
+| Name | Type | Description |
+| --- | --- | --- |
+| type | String | The type of AccountKey instance. |
+| defaultKey | String | Default private key of AccountKey. The default private key represents a single private key string defined for AccountKeyPublic, and a private key string in the zeroth index of the array if AccountKeyMultiSig. For AccountKeyRoleBased, it represents the defaultKey of the first found AccountKey, where the AccountKey is searched in the following order: transactionkey, updateKey, feePayerKey.  |
+| keys | String &#124; Array &#124; Object | All private keys defined inside the AccountKey instance. For AccountKeyPublic, this is a single private key string; for AccountKeyMultiSig, this returns an array containing all the private key strings. In the case of AccountKeyRoleBased, an object with keys associated with each role is returned. |
+| transactionKey | String &#124; Array | Key used for the [RoleTransaction](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys. |
+| updateKey | String &#124; Array | Key used for the [RoleAccountUpdate](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys. |
+| feePayerKey | String &#124; Array | Key used for [RoleFeePayer](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys. |
+
+**Example**
+
+```javascript
+// Create an AccountKeyPublic
+> caver.klay.accounts.createAccountKey('0x{private key}')
+AccountKeyPublic {
+    _key: '0x{private key}'
+}
+
+// Create an AccountKeyMultiSig
+> caver.klay.accounts.createAccountKey(['0x{private key}', '0x{private key}'])
+AccountKeyMultiSig {
+    _keys: [ 
+      '0x{private key}',
+      '0x{private key}'
+    ]
+}
+
+// Create an AccountKeyRoleBased
+> caver.klay.accounts.createAccountKey({
+    transactionKey: '0x{private key}',
+    updateKey: ['0x{private key}', '0x{private key}'],
+    feePayerKey: '0x{private key}'
+})
+AccountKeyRoleBased {
+    _transactionKey:
+        AccountKeyPublic {
+            _key: '0x{private key}'
+        },
+    _updateKey:
+        AccountKeyMultiSig {
+            _keys: [
+                '0x{private key}',
+                '0x{private key}'
+            ] 
+        },
+    _feePayerKey:
+        AccountKeyPublic {
+            _key: '0x{private key}' 
+        }
+}
+```
+
+## createAccountKeyPublic <a id="createaccountkeypublic"></a>
+
+```javascript
+caver.klay.accounts.createAccountKeyPublic(key)
+```
+Creates an instance of `AccountKeyPublic` with the given private key string.
+
+**NOTE** `caver.klay.accounts.createAccountKeyPublic` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| key | String | A string of private key for generating AccountKeyPublic. |
+
+
+**Return Value**
+
+`Object` - An AccountKeyPublic instance, see [caver.klay.accounts.createAccountKey](#createaccountkey).
+
+
+**Example**
+
+```javascript
+> caver.klay.accounts.createAccountKeyPublic('0x{private key}')
+AccountKeyPublic {
+    _key: '0x{private key}'
+}
+```
+
+## createAccountKeyMultiSig <a id="createaccountkeymultisig"></a>
+
+```javascript
+caver.klay.accounts.createAccountKeyMultiSig(keys)
+```
+Creates an instance of `AccountKeyMultiSig` with the given multiple private keys.
+
+**NOTE** `caver.klay.accounts.createAccountKeyMultiSig` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| keys | Array | An array of private key strings for generating AccountKeyMultiSig. |
+
+
+**Return Value**
+
+`Object` - An AccountKeyMultiSig instance, see [caver.klay.accounts.createAccountKey](#createaccountkey).
+
+
+**Example**
+
+```javascript
+> caver.klay.accounts.createAccountKeyMultiSig(['0x{private key}', '0x{private key}'])
+AccountKeyMultiSig {
+    _keys: [ 
+      '0x{private key}',
+      '0x{private key}'
+    ]
+}
+```
+
+## createAccountKeyRoleBased <a id="createaccountkeyrolebased"></a>
+
+```javascript
+caver.klay.accounts.createAccountKeyRoleBased(keyObject)
+```
+Creates an instance of `AccountKeyRoleBased` with the given keys associated with each role.
+
+**NOTE** `caver.klay.accounts.createAccountKeyRoleBased` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| keyObject | Object | An object with role-key pairs. A key for each role can be a private key string or an array of private key strings. |
+
+
+**Return Value**
+
+`Object` - An AccountKeyRoleBased instance, see [caver.klay.accounts.createAccountKey](#createaccountkey).
+
+
+**Example**
+
+```javascript
+> caver.klay.accounts.createAccountKeyRoleBased({
+    transactionKey: '0x{private key}',
+    updateKey: ['0x{private key}', '0x{private key}'],
+    feePayerKey: '0x{private key}'
+})
+AccountKeyRoleBased {
+    _transactionKey:
+        AccountKeyPublic {
+            _key: '0x{private key}'
+        },
+    _updateKey:
+        AccountKeyMultiSig {
+            _keys: [
+                '0x{private key}',
+                '0x{private key}'
+            ] 
+        },
+    _feePayerKey:
+        AccountKeyPublic {
+            _key: '0x{private key}' 
+        }
+}
+```
+
+## accountKeyToPublicKey <a id="accountkeytopublickey"></a>
+
+```javascript
+caver.klay.accounts.accountKeyToPublicKey(accountKey)
+```
+This function converts the private key of AccountKey to public key.
+
+**NOTE** `caver.klay.accounts.accountKeyToPublicKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| accountKey | String &#124; Array &#124; Object | An AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or a data structure that contains the key info (a private key string, an array of private key strings or an object that defines the key for each role). |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| String &#124; Array &#124; Object | If the parameter is an AccountKeyPublic instance or a private key string, a public key string is returned. If the parameter is an AccountKeyMultiSig instance or an array of private key strings, an array of public-key strings is returned. If the parameter is an AccountKeyRoleBased instance or an object defining a key (a private key string or an array of private key strings) for each role, an object with role and public-key (a public-key string or an array of public-key strings) pairs is returned. |
+
+
+**Example**
+
+```javascript
+// Convert a private key string
+> caver.klay.accounts.accountKeyToPublicKey('0x{private key}')
+'0x67f20d1198abcdc036a4d8f3ea0cf837527716c90f71d0b0410dfe3e1b405eded9ea818eedd5e8ad79658b2cdf4862ab0956a6f7fd0a4886afe6110b2e9803a4'
+
+// Convert an array of private key strings
+> caver.klay.accounts.accountKeyToPublicKey(['0x{private key}', '0x{private key}'])
+[
+    '0x67f20d1198abcdc036a4d8f3ea0cf837527716c90f71d0b0410dfe3e1b405eded9ea818eedd5e8ad79658b2cdf4862ab0956a6f7fd0a4886afe6110b2e9803a4',
+    '0x7c5415f99628618b3fe78e14606c83a22488769b3361e3758c7c98a204a23b615cf07af65490895d70a7b7e7e885fc2f597d65ea69ed586c7ae7cb0241656036'
+]
+
+// Convert a role-based key
+> caver.klay.accounts.accountKeyToPublicKey({transactionKey: ['0x{private key}', '0x{private key}'], updateKey: '0x{private key}', feePayerKey: ['0x{private key}', '0x{private key}']})
+{ 
+    transactionKey: [
+        '0x67f20d1198abcdc036a4d8f3ea0cf837527716c90f71d0b0410dfe3e1b405eded9ea818eedd5e8ad79658b2cdf4862ab0956a6f7fd0a4886afe6110b2e9803a4',
+        '0x7c5415f99628618b3fe78e14606c83a22488769b3361e3758c7c98a204a23b615cf07af65490895d70a7b7e7e885fc2f597d65ea69ed586c7ae7cb0241656036'
+    ],
+    updateKey: '0x21aa42e0232e6c7607a0028bcbd690400b92574c44b17af8b036f3f4f01b0586f90578976a040debf6aecef4a5d00b5315b8c82e999ed8e5fbacd5fcbee82080',
+    feePayerKey: [
+        '0xb82bb74e902b1fa3594c7cc8bd33a727eb1c85a9bfc991327a0215fc413eafe0b3723cc7f3c6e79981b409e82b8bf7033fed2d2878c26502bea64f84d592b167',
+        '0x39acd887f32ccecd1b13c890854d2dfd0016f0be477155d81a848e971ff59412b0e4c0b5bfc1fd548b971f98cd9ef19367309d0475033fda3c8028ba9df27734'
+    ]
+}
+```
 
 ## privateKeyToAccount
 
