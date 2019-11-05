@@ -1,10 +1,10 @@
 # 소개
 
-`caver-js`는 개발자가 HTTP 또는 Websocket 연결을 사용하여 Klaytn 노드와 상호작용할 수 있도록 하는 자바스크립트 API 라이브러리입니다. [npm](https://www.npmjs.com/package/caver-js) 이용이 가능합니다.
+`caver-js`는 개발자가 HTTP 또는 웹소켓 연결을 사용하여 Klaytn 노드와 상호작용할 수 있도록 하는 자바스크립트 API 라이브러리입니다. [npm](https://www.npmjs.com/package/caver-js) 이용이 가능합니다.
 
 ## 주요 기능 <a id="features"></a>
 
-* HTTP 및 Websocket을 통한 Klaytn의 JSON-RPC 클라이언트 API의 완전한 구현
+* HTTP 및 웹소켓을 통한 Klaytn의 JSON-RPC 클라이언트 API의 완전한 구현
 * Klaytn 트랜잭션, 계정 및 계정 키 유형 지원
 * Klaytn 네트워크에서 스마트 컨트랙트를 배포하고 실행하기위한 자바스크립트 스마트 컨트랙트 패키지
 * Klaytn 계정 관리를 위한 인메모리 지갑
@@ -12,7 +12,7 @@
 * Klaytn Wallet 키 형식 지원
 * RLP에서 트랜잭션 오브젝트의 인코딩/디코딩
 * 트랜잭션 객체의 서명
-* web3-js 어플리케이션을 caver-js로 쉽게 포팅
+* web3-js 애플리케이션을 caver-js로 쉽게 포팅
 
 ## caver-js의 패키지 <a id="packages-in-caver-js"></a>
 
