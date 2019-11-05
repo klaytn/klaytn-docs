@@ -10,7 +10,7 @@ description: >-
 
 ## admin_nodeInfo
 
-`nodeInfo` 관리 속성을 조회하여 실행 중인 Klaytn 노드에 대해 알려진 모든 세밀한 정보를 확인할 수 있습니다.  `klay`와 같은 실행 중인 어플리케이션 프로토콜에 의해 추가된 세부적인 정보뿐만 아니라 [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P 오버레이 프로토콜에 참여하는 노드 자신의 일반적인 정보도 확인할 수 있습니다.
+`nodeInfo` 관리 속성을 조회하여 실행 중인 Klaytn 노드에 대해 알려진 모든 세밀한 정보를 확인할 수 있습니다.  `klay`와 같은 실행 중인 애플리케이션 프로토콜에 의해 추가된 세부적인 정보뿐만 아니라 [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P 오버레이 프로토콜에 참여하는 노드 자신의 일반적인 정보도 확인할 수 있습니다.
 
 | 클라이언트 | 메서드 호출                         |
 |:-----:| ------------------------------ |
@@ -109,7 +109,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_peers
 
-`peers` 관리 속성을 조회하여 연결된 원격 노드에 대한 세밀한 정보를 확인할 수 있습니다. 실행 중인 어플리케이션 프로토콜에 의해 추가된 세부적인 정보뿐만 아니라 [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P 오버레이 프로토콜에 참여하는 노드 자신의 일반적인 정보도 확인할 수 있습니다.
+`peers` 관리 속성을 조회하여 연결된 원격 노드에 대한 세밀한 정보를 확인할 수 있습니다. 실행 중인 애플리케이션 프로토콜에 의해 추가된 세부적인 정보뿐만 아니라 [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P 오버레이 프로토콜에 참여하는 노드 자신의 일반적인 정보도 확인할 수 있습니다.
 
 | 클라이언트 | 메서드 호출                      |
 |:-----:| --------------------------- |
@@ -335,9 +335,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startWS
 
-`startWS` 관리 메서드는 Websocket 기반의 [JSON RPC](http://www.jsonrpc.org/specification) API 웹서버를 시작하여 클라이언트 요청을 처리하도록 합니다.
+`startWS` 관리 메서드는 웹소켓 기반의 [JSON RPC](http://www.jsonrpc.org/specification) API 웹서버를 시작하여 클라이언트 요청을 처리하도록 합니다.
 
-이 메서드는 Websocket RPC 리스너가 열려있는지 여부를 나타내는 불리언 플래그를 반환합니다. 동시에 하나의 Websocket 엔드포인트만이 활성화될 수 있음을 참고해주세요.
+이 메서드는 웹소켓 RPC 리스너가 열려있는지 여부를 나타내는 불리언 플래그를 반환합니다. 동시에 하나의 웹소켓 엔드포인트만이 활성화될 수 있음을 참고해주세요.
 
 | 클라이언트 | 메서드 호출                                                            |
 |:-----:| ----------------------------------------------------------------- |
@@ -355,9 +355,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **리턴값**
 
-| 형식  | 설명                                                           |
-| --- | ------------------------------------------------------------ |
-| 불리언 | Websocket RPC 리스너가 열리면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+| 형식  | 설명                                                     |
+| --- | ------------------------------------------------------ |
+| 불리언 | 웹소켓 RPC 리스너가 열리면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -376,7 +376,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stopWS
 
-`stopWS` 관리 메서드는 현재 열려있는 Websocket RPC 엔드포인트를 닫습니다. 노드는 하나의 Websocket 엔드포인트를 실행할 수 있기 때문에 이 메서드에 매개변수는 필요하지 않으며, 엔드포인트가 닫혔는지 여부에 따라 불리언으로 결과를 반환합니다.
+`stopWS` 관리 메서드는 현재 열려있는 웹소켓 RPC 엔드포인트를 닫습니다. 노드는 하나의 웹소켓 엔드포인트를 실행할 수 있기 때문에 이 메서드에 매개변수는 필요하지 않으며, 엔드포인트가 닫혔는지 여부에 따라 불리언으로 결과를 반환합니다.
 
 | 클라이언트 | 메서드 호출                       |
 |:-----:| ---------------------------- |
