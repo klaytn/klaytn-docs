@@ -1,4 +1,4 @@
-## 기본 블록 매개변수
+## 기본 블록 매개변수 <a id="the-default-block-parameter"></a>
 
 Klaytn 상태상에서의 어떤 행위에 대한 요청이 있을 때 마지막의 기본 블록 매개변수가 블록의 번호를 결정합니다.
 
@@ -10,7 +10,7 @@ Klaytn 상태상에서의 어떤 행위에 대한 요청이 있을 때 마지막
 - `"pending" 문자열` - 보류 중인 상태/트랜잭션입니다.
 
 
-## klay_blockNumber
+## klay_blockNumber <a id="klay_blocknumber"></a>
 
 가장 최근의 블록 번호를 반환합니다.
 
@@ -39,7 +39,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getBlockByNumber
+## klay_getBlockByNumber <a id="klay_getblockbynumber"></a>
 
 블록 번호로 조회한 블록의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
 
@@ -92,7 +92,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getBlockByHash
+## klay_getBlockByHash <a id="klay_getblockbyhash"></a>
 
 블록 해시로 조회한 블록의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
 
@@ -166,7 +166,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getBlockReceipts
+## klay_getBlockReceipts <a id="klay_getblockreceipts"></a>
 
 블록 해시로 조회한 블록에 포함된 영수증을 반환합니다.
 
@@ -223,7 +223,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ```
 
 
-## klay_getBlockTransactionCountByNumber
+## klay_getBlockTransactionCountByNumber <a id="klay_getblocktransactioncountbynumber"></a>
 
 블록 번호로 조회한 블록에 담긴 트랜잭션의 개수를 반환합니다.
 
@@ -254,7 +254,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getBlockTransactionCountByHash
+## klay_getBlockTransactionCountByHash <a id="klay_getblocktransactioncountbyhash"></a>
 
 블록 해시로 조회한 블록에 담긴 트랜잭션의 개수를 반환합니다.
 
@@ -285,7 +285,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getBlockWithConsensusInfoByHash
+## klay_getBlockWithConsensusInfoByHash <a id="klay_getblockwithconsensusinfobyhash"></a>
 
 블록 해시로 조회한 블록을 합의에 대한 정보와 함께 반환합니다.
 
@@ -394,7 +394,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ```
 
 
-## klay_getBlockWithConsensusInfoByNumber
+## klay_getBlockWithConsensusInfoByNumber <a id="klay_getblockwithconsensusinfobynumber"></a>
 블록 번호로 조회한 블록을 합의에 대한 정보와 함께 반환합니다.
 
 **매개변수**
@@ -501,7 +501,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-## klay_getCommittee
+## klay_getCommittee <a id="klay_getcommittee"></a>
 어떤 블록 시간에서 위원회에 속한 검증자 목록을 반환합니다. 매개변수를 설정하지 않으면 최신 블록에서 위원회에 속한 검증자 목록을 반환합니다.
 
 **매개변수**
@@ -536,7 +536,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-## klay_getCommitteeSize
+## klay_getCommitteeSize <a id="klay_getcommitteesize"></a>
 어떤 블록 시간에서 위원회의 구성원 수를 반환합니다. 매개변수를 설정하지 않으면 최신 블록에서의 위원회 구성원 수를 반환합니다.
 
 **매개변수**
@@ -567,7 +567,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ```
 
 
-## klay_getCouncil
+## klay_getCouncil <a id="klay_getcouncil"></a>
 어떤 블록 시간에서 council에 속한 검증자 목록을 반환합니다. 매개변수를 설정하지 않으면 최신 블록에서 council에 속한 검증자 목록을 반환합니다.
 
 **참고**: `klay_getValidators`은 이 메서드로 대체되어 더 이상 지원하지 않습니다.
@@ -604,7 +604,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-## klay_getCouncilSize
+## klay_getCouncilSize <a id="klay_getcouncilsize"></a>
 어떤 블록 시간에서 council의 구성원 수를 반환합니다. 매개변수를 설정하지 않으면 최신 블록에서의 council 구성원 수를 반환합니다.
 
 **매개변수**
@@ -635,7 +635,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ```
 
 
-## klay_getStorageAt
+## klay_getStorageAt <a id="klay_getstorageat"></a>
 
 입력으로 받은 주소의 스토리지 위치에서 값을 반환합니다.
 
@@ -701,11 +701,11 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "kl
 ```
 
 
-## klay_mining
+## klay_mining <a id="klay_mining"></a>
 
 클라이언트가 새로운 블록을 채굴하고 있으면 `true`를 반환합니다.
 
-**참고**: 현재는 트랜잭션을 재전송하기 위해 모든 노드가 기본적으로 채굴 모드입니다. 실질적인 "채굴" 과정은 합의 노드(CN)만이 하고 있음을 참고해주시기 바랍니다.
+**참고**: 현재는 트랜잭션을 재전송하기 위해 모든 노드가 기본적으로 채굴 모드입니다. 실질적인 "채굴" 과정은 컨센서스 노드(CN)만이 하고 있음을 참고해주시기 바랍니다.
 
 **매개변수**
 
@@ -732,7 +732,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_syncing
+## klay_syncing <a id="klay_syncing"></a>
 
 동기화 상태에 대한 데이터가 있는 객체를 반환하거나 `false`를 반환합니다.
 
