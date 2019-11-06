@@ -1,4 +1,4 @@
-# 서비스체인 시작/중지
+# 서비스체인 시작/중지 <a id="starting-stopping-service-chain"></a>
 
 설치 유형에 따라 다음 `systemctl`  또는 `kscnd` 명령을 사용하여 Klaytn 서비스를 시작/중지할 수 있습니다.
 
