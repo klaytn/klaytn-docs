@@ -295,7 +295,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 Returns the information about a transaction requested by sender transaction hash.
 This API works only on RPC call, not on Javascript console.
 Please note that this API returns correct result only if indexing feature is enabled by `--sendertxhashindexing`.
-This can be checked by call [klay_isSenderTxHashIndexingEnabled](config.md#klay_isSenderTxHashIndexingEnabled).
+This can be checked by call [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled).
 
 **Parameters**
 

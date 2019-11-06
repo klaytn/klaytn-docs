@@ -9,8 +9,8 @@ property is specified in parameters of the following methods:
 
 - [caver.klay.sendTransaction()](./sendtx_legacy.md#sendtransaction-legacy)
 - [caver.klay.call()](./transaction.md#call)
-- [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().call()](../caver.klay.Contract.md#methodsmymethodcall)
-- [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().send()](../caver.klay.Contract.md#methodsmymethodsend)
+- [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().call()](../caver.klay.Contract.md#methods-mymethod-call)
+- [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().send()](../caver.klay.Contract.md#methods-mymethod-send)
 
 **Property**
 

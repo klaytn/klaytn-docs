@@ -57,7 +57,7 @@ The list below enumerates the API functions that are currently supported in Klay
 
 ### [Configuration](./klay/config.md) <a id="configuration"></a>
 - [klay_chainID](./klay/config.md#klay_chainid)
-- [klay_clientVersion](./klay/config.md#klay_clientVersion)
+- [klay_clientVersion](./klay/config.md#klay_clientversion)
 - [klay_gasPrice](./klay/config.md#klay_gasprice)
 - [klay_gasPriceAt](./klay/config.md#klay_gaspriceat)
 - [klay_isParallelDBWrite](./klay/config.md#klay_isparalleldbwrite)
