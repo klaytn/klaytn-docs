@@ -3,7 +3,7 @@ description: >-
   네임스페이스 'net' 일대 Klaytn API에 대한 자바스크립트 래퍼.
 ---
 
-# caver.klay.net
+# caver.klay.net <a id="caver-klay-net"></a>
 
 `caver-klay` 패키지를 사용하면 Klaytn 노드의 네트워크 속성과 상호작용할 수 있습니다.
 
@@ -20,7 +20,7 @@ var caver = new Caver(Caver.givenProvider || 'ws://some.local-or-remote.node:855
 ```
 
 
-## getId
+## getId <a id="getid"></a>
 
 ```javascript
 caver.klay.net.getId([callback])
@@ -46,7 +46,7 @@ caver.klay.net.getId([callback])
 ```
 
 
-## isListening
+## isListening <a id="islistening"></a>
 
 ```javascript
 caver.klay.net.isListening([callback])
@@ -72,7 +72,7 @@ true
 ```
 
 
-## getPeerCount
+## getPeerCount <a id="getpeercount"></a>
 
 ```javascript
 caver.klay.net.getPeerCount([callback])
@@ -97,7 +97,7 @@ caver.klay.net.getPeerCount([callback])
 10
 ```
 
-## peerCountByType
+## peerCountByType <a id="peercountbytype"></a>
 
 ```javascript
 caver.klay.net.peerCountByType([callback])
