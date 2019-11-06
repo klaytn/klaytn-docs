@@ -1,15 +1,15 @@
 This section will explain how to enable ERC20 value transfer between Baobab network and your service chain with the provided test code. You will add KLAY to the operator account and deploy bridge and ERC20 contracts. Then you will register the contract address on SCN. And you will test an ERC20 value transferring.
 
 
-## 준비 사항
+## 준비 사항 <a id="prerequisites"></a>
 - We assume that you installed the service chain, and connected the service chain to the Baobab EN ([link](en-scn-connection.md)).
 - Download the code for contract deployment and transfer. ([download](https://drive.google.com/file/d/14tNU-jOAv7JwfY5xZqJlckkpO16TuS2S/view?usp=sharing))
 - Install `Node.js` (v10.60.0) and `npm` ([How to install](https://nodejs.org/en/download/package-manager/))
 
 
-## ERC-20 Token Transfer
+## ERC-20 Token Transfer <a id="erc-20-token-transfer"></a>
 
-### Step 1: Add KLAY to the operator accounts.
+### Step 1: Add KLAY to the operator accounts. <a id="step-1-add-klay-to-the-operator-accounts"></a>
 Connect to the SCN and check the account addresses by executing `subbridge.parentOperator` and `subbridge.childOperator`.
 ```
 $ ~/your_path/bin/kscn attach --datadir ~/your_path/data
@@ -45,7 +45,7 @@ Check if the operator accounts have enough balance.
 1e+18
 ```
 
-### Step 2: Deploy Contracts
+### Step 2: Deploy Contracts <a id="step-2-deploy-contracts"></a>
 Connect to the SCN and prepare the environment for contract deployment. Copy the downloaded `deploy_and_test.tar.gz` to node_project directory.
 ```
 $ mkdir ~/your_path/node_project
@@ -90,7 +90,7 @@ subbridge.subscribeBridge("0x5f093de8a1b1d32Fc4cF6F40357DCcD24453BAb3", "0xD1C48
 subbridge.registerToken("0x5f093de8a1b1d32Fc4cF6F40357DCcD24453BAb3", "0xD1C4808960Fb4581b9A5B3B217b9a67057D84c19", "0x96272131600EC7c64c45CE139C32F4919fBFaDC8", "0xc7858a153376764208e8F6B6B55B4a0792B67c3E")
 ```
 
-### Step 3: Register Bridge, Subscribe Bridge and Register Token
+### Step 3: Register Bridge, Subscribe Bridge and Register Token <a id="step-3-register-bridge-subscribe-bridge-and-register-token"></a>
 On the console, execute the APIs shown above one by one.
 ```
 $ ~/your_path/bin/kscn attach --datadir ~/your_path/data
@@ -102,7 +102,7 @@ null
 null
 ```
 
-### Step 4: Token transfer
+### Step 4: Token transfer <a id="step-4-token-transfer"></a>
 Perform token transfer with `node transfer.js` command.
 ```
 $ node transfer.js
