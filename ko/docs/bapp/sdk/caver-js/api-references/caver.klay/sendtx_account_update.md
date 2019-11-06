@@ -1,6 +1,6 @@
-# Account Update Transaction
+# Account Update Transaction <a id="account-update-transaction"></a>
 
-## sendTransaction (ACCOUNT_UPDATE)
+## sendTransaction (ACCOUNT_UPDATE) <a id="sendtransaction-account_update"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
@@ -16,7 +16,7 @@ Sends an [Account Update](../../../../../klaytn/design/transactions/basic.md#txt
 | transactionObject.from                 | 문자열      | The address which will be updated.                                                                                                                                                                                                                                                          |
 | transactionObject.gas                  | Number   | The amount of gas to use for the transaction (unused gas is refunded).                                                                                                                                                                                                                      |
 | transactionObject.gasPrice             | Number   | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                                                                                                  |
-| transactionObject.nonce                | Number   | (선택사항) nonce의 정숫값입니다. 이를 통해 같은 nonce를 사용하는 보류 중인 트랜잭션을 덮어쓸 수 있습니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                                                                     |
+| transactionObject.nonce                | Number   | (선택사항) 논스의 정숫값입니다. 이를 통해 같은 논스를 사용하는 보류 중인 트랜잭션을 덮어쓸 수 있습니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                                                                           |
 | transactionObject.publicKey            | 문자열      | (optional) if updating account with public key, write down 64 bytes of public key.                                                                                                                                                                                                          |
 | transactionObject.multisig             | 문자열      | (optional) if updating account with multisig key, write down multisig with multiple public keys. The public keys that make up multisig have their own weight. For transactions signed with multisig, the sum of the weights of the signature must be larger than or equal to the threshold. |
 | transactionObject.roleTransactionKey   | 문자열      | (optional) if updating account with role based key, write down roleTransactionKey with public key or multisig key. This roleTransactionKey is used when sign the transaction.                                                                                                               |
@@ -29,7 +29,7 @@ Sends an [Account Update](../../../../../klaytn/design/transactions/basic.md#txt
 
 The `callback` will return the 32-byte transaction hash.
 
-`PromiEvent`: 프로미스(promise)가 조합된 이벤트 에미터(event emitter). Will be resolved when the transaction receipt is available. Additionally the following events are available:
+`PromiEvent`: 프로미스(promise)가 조합된 이벤트 이미터(event emitter). Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
 - `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
 - `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
@@ -186,7 +186,7 @@ caver.klay.sendTransaction({
 ```
 
 
-## sendTransaction (FEE_DELEGATED_ACCOUNT_UPDATE)
+## sendTransaction (FEE_DELEGATED_ACCOUNT_UPDATE) <a id="sendtransaction-fee_delegated_account_update"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
@@ -202,7 +202,7 @@ Sends a [Fee Delegated Account Update](../../../../../klaytn/design/transactions
 | transactionObject.from                 | 문자열      | The address which will be updated.                                                                                                                                                                                                                                                          |
 | transactionObject.gas                  | Number   | The amount of gas to use for the transaction (unused gas is refunded).                                                                                                                                                                                                                      |
 | transactionObject.gasPrice             | Number   | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                                                                                                  |
-| transactionObject.nonce                | Number   | (선택사항) nonce의 정숫값입니다. 이를 통해 같은 nonce를 사용하는 보류 중인 트랜잭션을 덮어쓸 수 있습니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                                                                     |
+| transactionObject.nonce                | Number   | (선택사항) 논스의 정숫값입니다. 이를 통해 같은 논스를 사용하는 보류 중인 트랜잭션을 덮어쓸 수 있습니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                                                                           |
 | transactionObject.publicKey            | 문자열      | (optional) if updating account with public key, write down 64 bytes of public key.                                                                                                                                                                                                          |
 | transactionObject.multisig             | 문자열      | (optional) if updating account with multisig key, write down multisig with multiple public keys. The public keys that make up multisig have their own weight. For transactions signed with multisig, the sum of the weights of the signature must be larger than or equal to the threshold. |
 | transactionObject.roleTransactionKey   | 문자열      | (optional) if updating account with role based key, write down roleTransactionKey with public key or multisig key. This roleTransactionKey is used when sign the transaction.                                                                                                               |
@@ -217,7 +217,7 @@ Sends a [Fee Delegated Account Update](../../../../../klaytn/design/transactions
 
 The `callback` will return the 32-byte transaction hash.
 
-`PromiEvent`: 프로미스(promise)가 조합된 이벤트 에미터(event emitter). Will be resolved when the transaction receipt is available. Additionally the following events are available:
+`PromiEvent`: 프로미스(promise)가 조합된 이벤트 이미터(event emitter). Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
 - `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
 - `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
@@ -268,7 +268,7 @@ caver.klay.sendTransaction({
 ```
 
 
-## sendTransaction (FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO)
+## sendTransaction (FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO) <a id="sendtransaction-fee_delegated_account_update_with_ratio"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
@@ -284,7 +284,7 @@ Sends a [Fee Delegated Account Update With Ratio](../../../../../klaytn/design/t
 | transactionObject.from                 | 문자열      | The address which will be updated.                                                                                                                                                                                                                                                          |
 | transactionObject.gas                  | Number   | The amount of gas to use for the transaction (unused gas is refunded).                                                                                                                                                                                                                      |
 | transactionObject.gasPrice             | Number   | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                                                                                                  |
-| transactionObject.nonce                | Number   | (선택사항) nonce의 정숫값입니다. 이를 통해 같은 nonce를 사용하는 보류 중인 트랜잭션을 덮어쓸 수 있습니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                                                                     |
+| transactionObject.nonce                | Number   | (선택사항) 논스의 정숫값입니다. 이를 통해 같은 논스를 사용하는 보류 중인 트랜잭션을 덮어쓸 수 있습니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                                                                           |
 | transactionObject.publicKey            | 문자열      | (optional) if updating account with public key, write down 64 bytes of public key.                                                                                                                                                                                                          |
 | transactionObject.multisig             | 문자열      | (optional) if updating account with multisig key, write down multisig with multiple public keys. The public keys that make up multisig have their own weight. For transactions signed with multisig, the sum of the weights of the signature must be larger than or equal to the threshold. |
 | transactionObject.roleTransactionKey   | 문자열      | (optional) if updating account with role based key, write down roleTransactionKey with public key or multisig key. This roleTransactionKey is used when sign the transaction.                                                                                                               |
@@ -300,7 +300,7 @@ Sends a [Fee Delegated Account Update With Ratio](../../../../../klaytn/design/t
 
 The `callback` will return the 32-byte transaction hash.
 
-`PromiEvent`: 프로미스(promise)가 조합된 이벤트 에미터(event emitter). Will be resolved when the transaction receipt is available. Additionally the following events are available:
+`PromiEvent`: 프로미스(promise)가 조합된 이벤트 이미터(event emitter). Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
 - `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
 - `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
