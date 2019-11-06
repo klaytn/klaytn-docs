@@ -1,8 +1,8 @@
-# Configuration
+# Configuration <a id="configuration"></a>
 
 This document explains the configurable properties of the Endpoint Node. Klaytn node package ships with good defaults and requires very little configuration. If you changed any settings of a running node, you must restart the node to reflect the changes.
 
-## Configuration File location
+## Configuration File location <a id="configuration-file-location"></a>
 
 * `kend.conf` for configuring the Proxy Node
 
@@ -11,7 +11,7 @@ The configuration file is located in the `conf` directory, whose default locatio
 * For the archive distribution, the config directory location defaults to `$INSTALL_PATH/ken-linux-amd64/conf/`.
 * For the package distribution, the config directory defaults to `/etc/kend/conf/`.
 
-## Configuration File Format 
+## Configuration File Format  <a id="configuration-file-format"></a>
 
 Below is a sample configuration file for the EN that participates in the `cypress` network and stores the blockchain data in the default location, which is `~/kend_home` with the archive distribution, `/var/kend/data` with the package distribution.
 
@@ -44,7 +44,7 @@ TXPOOL_EXEC_SLOTS_ACCOUNT=4096
 TXPOOL_NONEXEC_SLOTS_ACCOUNT=4096
 ```
 
-## Properties
+## Properties <a id="properties"></a>
 
 The configuration file has the following configurable properties. 
 

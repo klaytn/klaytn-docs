@@ -1,4 +1,4 @@
-# Configuration
+# Configuration <a id="configuration"></a>
 
 The EN configuration is to create a data directory and to set up the environment variables on the configuration file `kend.conf`.
 
@@ -13,14 +13,14 @@ Considering the fact that the size of Klaytn blockchain data keeps increasing, i
 $ sudo mkdir -p /var/kend/data
 ```
 
-## Update the Configuration File
+## Update the Configuration File <a id="update-the-configuration-file"></a>
 
 Configuration File Location:
 
 * For the archive distribution, the config directory location defaults to `$INSTALL_PATH/ken-linux-amd64/conf/`.
 * For the package distribution, the config directory defaults to `/etc/kend/conf/`.
 
-### Add Data Directory 
+### Add Data Directory  <a id="add-data-directory"></a>
 
 You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kend.conf`.
 
@@ -28,7 +28,7 @@ You should update the the data directory environment variable `$DATA_DIR` on the
 DATA_DIR=/var/kend/data
 ```
 
-## Fast Sync \(Optional\)
+## Fast Sync \(Optional\) <a id="fast-sync-optional"></a>
 
 Each EN maintains a copy of the network's chain data. If a node is out of sync, it can obtain this data from other nodes in the network -- a process known as syncing. When a new EN is first started, it must download the entire chain data from the network.
 

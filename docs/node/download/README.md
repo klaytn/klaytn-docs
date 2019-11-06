@@ -1,6 +1,6 @@
-# Download
+# Download <a id="download"></a>
 
-## Get the Packages
+## Get the Packages <a id="get-the-packages"></a>
 You can get the Linux and MacOS packages for CN, PN, EN, SCN, SPN and SEN.
 (`homi` will be update soon.)
 
@@ -9,7 +9,7 @@ You can get the Linux and MacOS packages for CN, PN, EN, SCN, SPN and SEN.
 - [v1.0.0](v1.0.0.md)
 - [v0.9.6](v0.9.6.md)
 
-## Get the Sources
+## Get the Sources <a id="get-the-sources"></a>
 You can retrieve the source code through Git. Documentation is hosted on GoDoc.
 
 - [github/klaytn](https://github.com/klaytn/klaytn)

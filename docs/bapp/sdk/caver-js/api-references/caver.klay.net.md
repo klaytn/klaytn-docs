@@ -3,7 +3,7 @@ description: >-
   A JavaScript wrapper to Klaytn APIs around the namespace 'net'.
 ---
 
-# caver.klay.net
+# caver.klay.net <a id="caver-klay-net"></a>
 
 The `caver-klay-net` package allows you to interact with the Klaytn nodes'
 network properties.
@@ -21,7 +21,7 @@ var caver = new Caver(Caver.givenProvider || 'ws://some.local-or-remote.node:855
 ```
 
 
-## getId
+## getId <a id="getid"></a>
 
 ```javascript
 caver.klay.net.getId([callback])
@@ -47,7 +47,7 @@ Gets the current network ID.
 ```
 
 
-## isListening
+## isListening <a id="islistening"></a>
 
 ```javascript
 caver.klay.net.isListening([callback])
@@ -74,7 +74,7 @@ true
 ```
 
 
-## getPeerCount
+## getPeerCount <a id="getpeercount"></a>
 
 ```javascript
 caver.klay.net.getPeerCount([callback])
@@ -99,7 +99,7 @@ Gets the number of peers connected to.
 10
 ```
 
-## peerCountByType
+## peerCountByType <a id="peercountbytype"></a>
 
 ```javascript
 caver.klay.net.peerCountByType([callback])

@@ -1,4 +1,4 @@
-# Glossary
+# Glossary <a id="glossary"></a>
 
 | Term | Description |
 | :--- | :--- |

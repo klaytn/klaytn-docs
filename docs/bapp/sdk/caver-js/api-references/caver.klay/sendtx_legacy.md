@@ -1,6 +1,6 @@
-# Legacy Transaction
+# Legacy Transaction <a id="legacy-transaction"></a>
 
-## sendTransaction (Legacy)
+## sendTransaction (Legacy) <a id="sendtransaction-legacy"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])

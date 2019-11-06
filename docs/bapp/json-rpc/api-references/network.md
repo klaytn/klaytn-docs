@@ -3,12 +3,12 @@ description: >-
   APIs used to query network configuration.
 ---
 
-# Namespace net
+# Namespace net <a id="namespace-net"></a>
 
 The namespace `net` provides functions related to the Klaytn networks.
 
 
-## net_networkID
+## net_networkID <a id="net_networkid"></a>
 
 Returns the network identifier (network ID).
 
@@ -37,7 +37,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 ```
 
 
-## net_listening
+## net_listening <a id="net_listening"></a>
 
 Returns `true` if the client is actively listening for network connections.
 
@@ -66,7 +66,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 ```
 
 
-## net_peerCount
+## net_peerCount <a id="net_peercount"></a>
 
 Returns the number of peers currently connected to the client.
 
@@ -94,7 +94,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 }
 ```
 
-## net_peerCountByType
+## net_peerCountByType <a id="net_peercountbytype"></a>
 
 Returns the number of connected nodes by type and the total number of connected nodes with key/value pairs.
 

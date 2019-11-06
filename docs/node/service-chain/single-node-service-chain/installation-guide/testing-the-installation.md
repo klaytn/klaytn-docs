@@ -1,10 +1,10 @@
-# Testing the Installation
+# Testing the Installation <a id="testing-the-installation"></a>
 
-## Process Status
+## Process Status <a id="process-status"></a>
 
 It is possible to check the status of SCN's process using the status commands `systemctl` and `kscnd`.
 
-### systemctl
+### systemctl <a id="systemctl"></a>
 
 `systemctl` is installed along with the RPM, and the status of SCN can be checked as follows.
 
@@ -26,7 +26,7 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Start
 
 You can check the current status such as `Active: active (running)` in the example above.
 
-### kscnd
+### kscnd <a id="kscnd"></a>
 
 `kscnd` is installed along with the package, and the status of SCN can be checked as follows.
 
@@ -35,7 +35,7 @@ $ kscnd status
 kscnd is running
 ```
 
-## Logs
+## Logs <a id="logs"></a>
 
 The log is stored in `kscnd.out` file located in the path defined in the `LOG_DIR` field of the `kscnd.conf` file. When the node works properly, you can see that each block is imported per second as follows.
 
@@ -55,9 +55,9 @@ INFO[02/13,07:02:27 Z] [5] Imported new chain segment                blocks=1 tx
 INFO[02/13,07:02:27 Z] [35] Commit new mining work      
 ```
 
-## Queries
+## Queries <a id="queries"></a>
 
-### kscn console
+### kscn console <a id="kscn-console"></a>
 
 Klaytn provides a CLI client: `kscn console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `data` directory on an SCN.
 
@@ -81,7 +81,7 @@ The useful APIs to check the status of SCN:
 * `klay.blockNumber` (to get the latest block number)
 * `net.peerCount` (to get the number of the connected Klaytn nodes currently)
 
-### klay.blockNumber
+### klay.blockNumber <a id="klay-blocknumber"></a>
 
 You can get the latest block number to see if blocks are propagated properly.
 
@@ -90,7 +90,7 @@ You can get the latest block number to see if blocks are propagated properly.
 11573819
 ```
 
-### net.peerCount
+### net.peerCount <a id="net-peercount"></a>
 
 ```text
 > net.peerCount

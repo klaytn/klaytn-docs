@@ -1,12 +1,12 @@
-# System Requirements
+# System Requirements <a id="system-requirements"></a>
 
-## H/W Specification
+## H/W Specification <a id="h-w-specification"></a>
 
 The network performance is measured based on the worst hardware specification within the network. According to the blockchain network structure, it is only possible to be scaled up vertically \(increasing hardware capacity\). Hence, it is recommended that all the nodes within the network should have the best hardwares having the similar specifications with each other at least.
 
 The following sections show the recommended specifications for both CNs and PNs.
 
-### Bare-metal Server
+### Bare-metal Server <a id="bare-metal-server"></a>
 
 | Category | Specification |
 | :--- | :--- |
@@ -17,9 +17,9 @@ The following sections show the recommended specifications for both CNs and PNs.
 
 Note that this is a recommended hardware specification for CNs and PNs, not an exact requirement. Any physical machine having similar hardware configuration would be sufficient to operate a CN or a PN.
 
-### Cloud VM
+### Cloud VM <a id="cloud-vm"></a>
 
-#### Recommended Specification Based on AWS
+#### Recommended Specification Based on AWS <a id="recommended-specification-based-on-aws"></a>
 
 | Model | vCPU | Memory \(GiB\) | Storage \(GiB\) | EBS Bandwidth \(Mbps\) | Network Bandwidth \(Gbps\) | Price \(Seoul region, USD/h\) |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -27,11 +27,11 @@ Note that this is a recommended hardware specification for CNs and PNs, not an e
 
 The information above is from [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/) and [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/) and may be changed by AWS.
 
-## Storage Requirements
+## Storage Requirements <a id="storage-requirements"></a>
 
 Assuming 100 TPS in average,  300 bytes average transaction size, and 1-second block latency, the expected daily storage requirement is 2.5 GB/day \(=300x100x86400\).
 
-## Operating System
+## Operating System <a id="operating-system"></a>
 
 Recommended environment is [Amazon Linux 2](https://aws.amazon.com/ko/about-aws/whats-new/2017/12/introducing-amazon-linux-2/).
 Klaytn binaries are fully tested on Amazon Linux 2, but they should work on other linux-based environments as well.

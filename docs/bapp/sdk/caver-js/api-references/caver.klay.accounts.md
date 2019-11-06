@@ -3,12 +3,12 @@ description: >-
   caver-js APIs related to managing accounts.
 ---
 
-# caver.klay.accounts
+# caver.klay.accounts <a id="caver-klay-accounts"></a>
 
 `caver.klay.accounts` contains functions to generate Klaytn accounts and sign transactions and data.
 
 
-## create
+## create <a id="create"></a>
 
 ```javascript
 caver.klay.accounts.create([entropy])
@@ -497,7 +497,7 @@ This function converts the private key of AccountKey to public key.
 }
 ```
 
-## privateKeyToAccount
+## privateKeyToAccount <a id="privatekeytoaccount"></a>
 
 ```javascript
 caver.klay.accounts.privateKeyToAccount(privateKey)
@@ -529,7 +529,7 @@ Creates an account object from a private key.
 }
 ```
 
-## privateKeyToPublicKey
+## privateKeyToPublicKey <a id="privatekeytopublickey"></a>
 
 ```javascript
 caver.klay.accounts.privateKeyToPublicKey(privateKey)
@@ -554,7 +554,7 @@ Gets public key from a given private key
 '0xbb1846722a4c27e71196e1a44611ee7174276a6c51c4830fb810cac64b0725f217cb8783625a809d1303adeeec2cf036ab74098a77a6b7f1003486e173b29aa7'
 ```
 
-## signTransaction
+## signTransaction <a id="signtransaction"></a>
 
 ```javascript
 caver.klay.accounts.signTransaction(tx, privateKey [, callback])
@@ -740,7 +740,7 @@ Signs a Klaytn transaction with a given private key.
 ```
 
 
-## recoverTransaction
+## recoverTransaction <a id="recovertransaction"></a>
 
 ```javascript
 caver.klay.accounts.recoverTransaction(rawTransaction)
@@ -767,7 +767,7 @@ Recovers the Klaytn address that was used to sign the given RLP encoded transact
 ```
 
 
-## hashMessage
+## hashMessage <a id="hashmessage"></a>
 
 ```javascript
 caver.klay.accounts.hashMessage(message)
@@ -806,7 +806,7 @@ and hashed using keccak256.
 ```
 
 
-## sign
+## sign <a id="sign"></a>
 
 ```javascript
 caver.klay.accounts.sign(data, privateKey)
@@ -853,7 +853,7 @@ Signs arbitrary data. This data is before UTF-8 HEX decoded and enveloped as fol
 ```
 
 
-## recover
+## recover <a id="recover"></a>
 
 ```javascript
 caver.klay.accounts.recover(signatureObject)
@@ -909,7 +909,7 @@ The signature object has following values:
 ```
 
 
-## encrypt
+## encrypt <a id="encrypt"></a>
 
 ```javascript
 caver.klay.accounts.encrypt(encryptTarget, password [, options])
@@ -1146,7 +1146,7 @@ Encrypts an account to the Klaytn keystore standard.
 ```
 
 
-## decrypt
+## decrypt <a id="decrypt"></a>
 
 ```javascript
 caver.klay.accounts.decrypt(keystoreJsonV3, password)
@@ -1230,7 +1230,7 @@ Account {
 }
 ```
 
-## isDecoupled
+## isDecoupled <a id="isdecoupled"></a>
 
 ```javascript
 caver.klay.accounts.isDecoupled(key, address)
@@ -1268,7 +1268,7 @@ false
 false
 ```
 
-## getLegacyAccount
+## getLegacyAccount <a id="getlegacyaccount"></a>
 
 ```javascript
 caver.klay.accounts.getLegacyAccount(key)

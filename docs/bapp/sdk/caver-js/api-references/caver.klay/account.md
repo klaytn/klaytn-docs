@@ -1,4 +1,4 @@
-## defaultAccount
+## defaultAccount <a id="defaultaccount"></a>
 
 ```javascript
 caver.klay.defaultAccount
@@ -9,8 +9,8 @@ property is specified in parameters of the following methods:
 
 - [caver.klay.sendTransaction()](./sendtx_legacy.md#sendtransaction-legacy)
 - [caver.klay.call()](./transaction.md#call)
-- [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().call()](../caver.klay.Contract.md#methodsmymethodcall)
-- [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().send()](../caver.klay.Contract.md#methodsmymethodsend)
+- [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().call()](../caver.klay.Contract.md#methods-mymethod-call)
+- [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().send()](../caver.klay.Contract.md#methods-mymethod-send)
 
 **Property**
 
@@ -27,7 +27,7 @@ undefined
 > caver.klay.defaultAccount = '0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe';
 ```
 
-## accountCreated
+## accountCreated <a id="accountcreated"></a>
 
 ```javascript
 caver.klay.accountCreated(address [, defaultBlock] [, callback])
@@ -59,7 +59,7 @@ true
 false
 ```
 
-## getAccount
+## getAccount <a id="getaccount"></a>
 
 ```javascript
 caver.klay.getAccount(address[, defaultBlock] [, callback])
@@ -110,7 +110,7 @@ Returns the account information of a given address. There are two different acco
 ```
 
 
-## getAccounts
+## getAccounts <a id="getaccounts"></a>
 
 ```javascript
 caver.klay.getAccounts([callback])
@@ -136,7 +136,7 @@ Returns a list of accounts that the node controls.
 ```
 
 
-## getAccountKey
+## getAccountKey <a id="getaccountkey"></a>
 
 ```javascript
 caver.klay.getAccountKey(address [, defaultBlock] [, callback])
@@ -244,7 +244,7 @@ Returns the account key of the Externally Owned Account (EOA) of the given addre
 }
 ```
 
-## getBalance
+## getBalance <a id="getbalance"></a>
 
 ```javascript
 caver.klay.getBalance(address [, defaultBlock] [, callback])
@@ -272,7 +272,7 @@ Gets the balance of an address at a given block.
 
 
 
-## getCode
+## getCode <a id="getcode"></a>
 
 ```javascript
 caver.klay.getCode(address [, defaultBlock] [, callback])
@@ -301,7 +301,7 @@ Gets the code at a specific address.
 
 
 
-## getTransactionCount
+## getTransactionCount <a id="gettransactioncount"></a>
 
 ```javascript
 caver.klay.getTransactionCount(address [, defaultBlock] [, callback])
@@ -330,7 +330,7 @@ Gets the number of transactions sent from this address.
 1
 ```
 
-## isContractAccount
+## isContractAccount <a id="iscontractaccount"></a>
 
 ```javascript
 caver.klay.isContractAccount(address [, defaultBlock] [, callback])
@@ -360,7 +360,7 @@ true
 false
 ```
 
-## sign
+## sign <a id="sign"></a>
 
 ```javascript
 caver.klay.sign(message, address [, callback])

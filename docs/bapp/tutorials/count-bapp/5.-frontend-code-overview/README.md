@@ -1,4 +1,4 @@
-# 5. Frontend Code Overview
+# 5. Frontend Code Overview <a id="5-frontend-code-overview"></a>
 
 1\) `src/index.js` - Entry point of our app  
 2\) `public/index.html` - index.html  
@@ -6,7 +6,7 @@
 4\) `src/App.js` - Root component of our app  
 5\) `src/klaytn/caver.js` - Makes a connection with a Klaytn node
 
-## 1\) `src/index.js`:
+## 1\) `src/index.js`: <a id="1-src-index-js"></a>
 
 ```javascript
 import ReactDOM from 'react-dom'
@@ -36,7 +36,7 @@ if (module.hot) {
 
 It uses 'react-dom' library to render a React element into the DOM in the supplied container\('\#root'\) and return a reference to the component. In short, through 'react-dom' our tutorial app's DOM will be populated to `<div id="root"></div>` in `public/index.html` file.
 
-## 2\) `public/index.html`:
+## 2\) `public/index.html`: <a id="2-public-index-html"></a>
 
 ```markup
 <!DOCTYPE html>
@@ -70,7 +70,7 @@ It uses 'react-dom' library to render a React element into the DOM in the suppli
 
 For further information, visit React official site [https://reactjs.org/docs/react-dom.html\#render](https://reactjs.org/docs/react-dom.html#render)
 
-## 3\) `src/routes.js`:
+## 3\) `src/routes.js`: <a id="3-src-routes-js"></a>
 
 ```javascript
 import React from 'react'
@@ -95,7 +95,7 @@ By above code, `'Count'` component would be rendered as a children of rootCompon
 
 For further information, visit React router github [https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md](https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md)
 
-## 4\) `src/App.js`:
+## 4\) `src/App.js`: <a id="4-src-app-js"></a>
 
 ```javascript
 import React, { Component } from 'react'
@@ -187,7 +187,7 @@ For further information related `caver.klay.accounts.wallet.add`, see [caver.kla
 
 cf\) `JSON.parse` is needed since `walletInstance` session is stored as a JSON string.
 
-## 5\) `src/klaytn/caver.js`:
+## 5\) `src/klaytn/caver.js`: <a id="5-src-klaytn-caver-js"></a>
 
 ```javascript
 /**

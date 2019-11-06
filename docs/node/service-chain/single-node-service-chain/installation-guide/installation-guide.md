@@ -1,8 +1,8 @@
-# Installation Guide
+# Installation Guide <a id="installation-guide"></a>
 
 This chapter explains the **Service Chain Node \(SCN\)** installation. You need an Endpoint Node \(EN\) that connects to the Main Chain as well. For the EN installation, read the [EN Installation Guide](../../../endpoint-node/installation-guide/).
 
-## Linux Archive Distribution
+## Linux Archive Distribution <a id="linux-archive-distribution"></a>
 
 The archive file consists of the executable binary and the configuration file structured as follows.
 
@@ -20,7 +20,7 @@ The archive file consists of the executable binary and the configuration file st
 | bin/kscnd | SCN start/termination script file |
 | conf/kscnd.conf | SCN configuration file |
 
-### Installation
+### Installation <a id="installation"></a>
 
 The installation is the uncompression of the downloaded package.
 
@@ -30,7 +30,7 @@ $ tar zxf kscn-vX.X.X-XXXXX-amd64.tar.gz
 
 ## RPM Distribution \(RHEL/CentOS/Fedora\) <a id="rpm-rhel-centos-fedora"></a>
 
-### Installation
+### Installation <a id="installation"></a>
 
 You can install the downloaded RPM file with the following `yum` command.
 

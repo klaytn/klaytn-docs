@@ -3,14 +3,14 @@ description: >-
   APIs related to accounts, blocks, transactions, and nodes. 
 ---
 
-# Namespace klay
+# Namespace klay <a id="namespace-klay"></a>
 
 The namespace `klay` provides functions related to accounts, blocks, transactions,
 configurations of networks or nodes, filters, and so on.
 The list below enumerates the API functions that are currently supported in Klaytn.
 
 
-### [Account](./klay/account.md)
+### [Account](./klay/account.md) <a id="account"></a>
 - [klay_accountCreated](./klay/account.md#klay_accountcreated)
 - [klay_accounts](./klay/account.md#klay_accounts)
 - [klay_getAccount](./klay/account.md#klay_getaccount)
@@ -22,7 +22,7 @@ The list below enumerates the API functions that are currently supported in Klay
 - [klay_sign](./klay/account.md#klay_sign)
 
 
-### [Block](./klay/block.md)
+### [Block](./klay/block.md) <a id="block"></a>
 - [klay_blockNumber](./klay/block.md#klay_blocknumber)
 - [klay_getBlockByNumber](./klay/block.md#klay_getblockbynumber)
 - [klay_getBlockByHash](./klay/block.md#klay_getblockbyhash)
@@ -40,7 +40,7 @@ The list below enumerates the API functions that are currently supported in Klay
 - [klay_syncing](./klay/block.md#klay_syncing)
 
 
-### [Transaction](./klay/transaction.md)
+### [Transaction](./klay/transaction.md) <a id="transaction"></a>
 - [klay_call](./klay/transaction.md#klay_call)
 - [klay_estimateGas](./klay/transaction.md#klay_estimategas)
 - [klay_estimateComputationCost](./klay/transaction.md#klay_estimatecomputationcost)
@@ -55,9 +55,9 @@ The list below enumerates the API functions that are currently supported in Klay
 - [klay_signTransaction](./klay/transaction.md#klay_signtransaction)
 
 
-### [Configuration](./klay/config.md)
+### [Configuration](./klay/config.md) <a id="configuration"></a>
 - [klay_chainID](./klay/config.md#klay_chainid)
-- [klay_clientVersion](./klay/config.md#klay_clientVersion)
+- [klay_clientVersion](./klay/config.md#klay_clientversion)
 - [klay_gasPrice](./klay/config.md#klay_gasprice)
 - [klay_gasPriceAt](./klay/config.md#klay_gaspriceat)
 - [klay_isParallelDBWrite](./klay/config.md#klay_isparalleldbwrite)
@@ -67,7 +67,7 @@ The list below enumerates the API functions that are currently supported in Klay
 - [klay_writeThroughCaching](./klay/config.md#klay_writethroughcaching)
 
 
-### [Filter](./klay/filter.md)
+### [Filter](./klay/filter.md) <a id="filter"></a>
 - [klay_getFilterChanges](./klay/filter.md#klay_getfilterchanges)
 - [klay_getFilterLogs](./klay/filter.md#klay_getfilterlogs)
 - [klay_getLogs](./klay/filter.md#klay_getlogs)
@@ -77,5 +77,5 @@ The list below enumerates the API functions that are currently supported in Klay
 - [klay_uninstallFilter](./klay/filter.md#klay_uninstallfilter)
 
 
-### [Miscellaneous](./klay/misc.md)
+### [Miscellaneous](./klay/misc.md) <a id="miscellaneous"></a>
 - [klay_sha3](./klay/misc.md#klay_sha3)
