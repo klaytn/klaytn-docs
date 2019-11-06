@@ -1,6 +1,6 @@
-# 코어 셀 시작/중지
+# Starting/Stopping Core Cell <a id="starting-stopping-core-cell"></a>
 
-## CN 시작/중지
+## CN 시작/중지  <a id="cn-start-stop"></a>
 
 다음 `systemctl` 명령을 사용하여 Klaytn 서비스를 시작/중지할 수 있습니다.
 
@@ -27,7 +27,7 @@ $ systemctl status kcnd.service
 
 ```
 
-## PN 시작/중지
+## PN 시작/중지  <a id="pn-start-stop"></a>
 
 다음 `systemctl` 명령을 사용하여 Klaytn 서비스를 시작/중지할 수 있습니다.
 
@@ -54,7 +54,7 @@ $ systemctl status kpnd.service
 
 ```
 
-## 문제 해결
+## 문제 해결 <a id="troubleshooting"></a>
 
 다음 오류가 발생하면,
 
