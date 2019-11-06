@@ -1,4 +1,4 @@
-## klay_chainID
+## klay_chainID <a id="klay_chainid"></a>
 
 체인 ID를 반환합니다.
 
@@ -27,7 +27,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_clientVersion
+## klay_clientVersion <a id="klay_clientversion"></a>
 
 Klaytn 노드의 현재 클라이언트 버전을 반환합니다.
 
@@ -56,7 +56,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_gasPrice
+## klay_gasPrice <a id="klay_gasprice"></a>
 
 peb의 현재 가스 가격을 반환합니다.
 
@@ -86,7 +86,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay_gasPriceAt
+## klay_gasPriceAt <a id="klay_gaspriceat"></a>
 
 입력으로 받은 peb의 블록의 단가를 반환합니다.
 
@@ -118,7 +118,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay_isParallelDBWrite
+## klay_isParallelDBWrite <a id="klay_isparalleldbwrite"></a>
 
 노드가 병렬로 블록체인 데이터를 쓰고 있으면 `true`를 반환합니다. 이는 기본적으로 활성화되어 있습니다.
 
@@ -147,7 +147,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_isSenderTxHashIndexingEnabled
+## klay_isSenderTxHashIndexingEnabled <a id="klay_issendertxhashindexingenabled"></a>
 
 노드가 트랜잭션 해시 맵핑 정보를 SenderTxHash로 색인화하고 있으면 `true`를 반환합니다. 이 설정은 기본적으로 비활성화되어 있으며 `--sendertxhashindexing`으로 활성화할 수 있습니다.
 
@@ -176,7 +176,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_protocolVersion
+## klay_protocolVersion <a id="klay_protocolversion"></a>
 
 노드의 Klaytn 프로토콜 버전을 반환합니다.
 
@@ -205,9 +205,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_rewardbase
+## klay_rewardbase <a id="klay_rewardbase"></a>
 
-현재 노드의 Rewardbase를 반환합니다. Rewardbase는 블록 보상을 받은 계정의 주소입니다. 합의 노드(CN)의 경우에만 해당합니다.
+현재 노드의 Rewardbase를 반환합니다. Rewardbase는 블록 보상을 받은 계정의 주소입니다. 컨센서스 노드(CN)의 경우에만 해당합니다.
 
 **매개변수**
 
@@ -244,7 +244,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_writeThroughCaching
+## klay_writeThroughCaching <a id="klay_writethroughcaching"></a>
 
 노드가 write-through 캐싱을 사용하고 있으면 `true`를 반환합니다. write-through 캐싱을 활성화하면 블록 바디와 영수증이 영구적인 스토리지에 저장될 때까지 이들을 캐싱합니다. 기본적으로는 `false`로 설정되어 있습니다.
 
