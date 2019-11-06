@@ -1,6 +1,6 @@
-# Account Creation Transaction
+# Account Creation Transaction <a id="account-creation-transaction"></a>
 
-## sendTransaction (ACCOUNT_CREATION)
+## sendTransaction (ACCOUNT_CREATION) <a id="sendtransaction-account_creation"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
@@ -18,7 +18,7 @@ Sends an [Account Creation](../../../../../klaytn/design/transactions/basic.md) 
 | transactionObject.value                | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the newly-created account in peb.                                                                                                                                                                                                                                 |
 | transactionObject.gas                  | Number                                          | The amount of gas to use for the transaction (unused gas is refunded).                                                                                                                                                                                                                      |
 | transactionObject.gasPrice             | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                                                                                                  |
-| transactionObject.nonce                | Number                                          | (선택사항) nonce의 정숫값입니다. 이를 통해 같은 nonce를 사용하는 보류 중인 트랜잭션을 덮어쓸 수 있습니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                                                                     |
+| transactionObject.nonce                | Number                                          | (선택사항) 논스의 정숫값입니다. 이를 통해 같은 논스를 사용하는 보류 중인 트랜잭션을 덮어쓸 수 있습니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                                                                           |
 | transactionObject.publicKey            | 문자열                                             | (optional) if creating account with public key, write down 64 bytes of public key.                                                                                                                                                                                                          |
 | transactionObject.multisig             | 문자열                                             | (optional) if creating account with multisig key, write down multisig with multiple public keys. The public keys that make up multisig have their own weight. For transactions signed with multisig, the sum of the weights of the signature must be larger than or equal to the threshold. |
 | transactionObject.roleTransactionKey   | 문자열                                             | (optional) if creating account with role based key, write down roleTransactionKey with public key or multisig key. This roleTransactionKey is used when sign the transaction.                                                                                                               |
@@ -31,7 +31,7 @@ Sends an [Account Creation](../../../../../klaytn/design/transactions/basic.md) 
 
 The `callback` will return the 32-byte transaction hash.
 
-`PromiEvent`: 프로미스(promise)가 조합된 이벤트 에미터(event emitter). Will be resolved when the transaction receipt is available. Additionally the following events are available:
+`PromiEvent`: 프로미스(promise)가 조합된 이벤트 이미터(event emitter). Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
 - `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
 - `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
