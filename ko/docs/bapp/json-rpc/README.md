@@ -1,10 +1,10 @@
-# 소개
+# 소개 <a id="introduction"></a>
 
-본 장에서는 Klaytn API 사용법에 대해 알아봅니다. Toolkit API를 제외한 다른 대부분의 API들은 원격 프로토콜 \(RPC, Websocket\)과 Klaytn 자바스크립트 콘솔을 지원합니다. 본 내용은 `ken`을 예시로 들어 작성되었으나 대부분의 API는 `kcn`과 `kpn`에서도 마찬가지로 사용할 수 있습니다.
+본 장에서는 Klaytn API 사용법에 대해 알아봅니다. Toolkit API를 제외한 다른 대부분의 API들은 원격 프로토콜 \(RPC, 웹소켓\)과 Klaytn 자바스크립트 콘솔을 지원합니다. 본 내용은 `ken`을 예시로 들어 작성되었으나 대부분의 API는 `kcn`과 `kpn`에서도 마찬가지로 사용할 수 있습니다.
 
 **참고**: 몇몇 API가 원격 프로토콜과 Klaytn 자바스크립트 콘솔을 지원하지 않기 때문에 원격 프로토콜에서 사용 가능한 API를 위주로 다루고 있습니다. 그 외 API는 추후에 문서화될 예정입니다.
 
-## API 활성화
+## API 활성화 <a id="enabling-apis"></a>
 
 Klaytn RPC 엔드포인트를 통해 API를 제공하려면 명령 줄의 `--${interface}api` 인자를 통해 지정해주세요. 즉 `${interface}`을 HTTP 엔드포인트의 경우 `rpc`으로, WebSocket 엔드포인트의 경우 `ws`로 설정해주세요.
 
