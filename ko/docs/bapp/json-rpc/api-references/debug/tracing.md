@@ -1,6 +1,6 @@
-# VM Tracing
+# VM Tracing <a id="vm-tracing"></a>
 
-## debug_traceBadBlock
+## debug_traceBadBlock <a id="debug_tracebadblock"></a>
 
 `traceBadBlock` 메서드는 블록에 포함된 모든 트랜잭션에 대해서 모든 호출된 연산자의 풀 스택 추적을 반환합니다.
 
@@ -55,7 +55,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_traceBlock
+## debug_traceBlock <a id="debug_traceblock"></a>
 
 `traceBlock` 메서드는 블록에 포함된 모든 트랜잭션에 대해서 모든 호출된 연산자의 풀 스택 추적을 반환합니다.
 
@@ -104,7 +104,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_traceBlockByHash
+## debug_traceBlockByHash <a id="debug_traceblockbyhash"></a>
 [debug_traceBlock](#debug_traceblock)과 유사하게 `traceBlockByHash`는 블록 해시를 받아 데이터베이스에 존재하는 해당 블록을 재실행합니다.
 
 | 클라이언트 | 메서드 호출                                                       |
@@ -147,7 +147,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_traceBlockByNumber
+## debug_traceBlockByNumber <a id="debug_traceblockbynumber"></a>
 [debug_traceBlock](#debug_traceblock)과 유사하게 `traceBlockByNumber`는 블록 번호를 받아 데이터베이스에 존재하는 해당 블록을 재실행합니다.
 
 | 클라이언트 | 메서드 호출                                                           |
@@ -191,7 +191,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_traceBlockFromFile
+## debug_traceBlockFromFile <a id="debug_traceblockfromfile"></a>
 
 [debug_traceBlock](#debug_traceblock)와 유사하게 `traceBlockFromFile`은 블록의 RLP를 담고 있는 파일을 입력으로 받습니다.
 
@@ -246,7 +246,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_traceTransaction
+## debug_traceTransaction <a id="debug_tracetransaction"></a>
 
 `traceTransaction` 디버깅 메서드는 네트워크에서 실행되었던 그대로 트랜잭션을 실행합니다. 입력으로 받은 트랜잭션 해시에 대응되는 트랜잭션 이전에 실행되었던 트랜잭션들을 재실행합니다.
 
@@ -351,7 +351,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## 추적 옵션
+## 추적 옵션 <a id="tracing-options"></a>
 
 추적 API 함수에 보조적으로 필수적이지 않은 매개변수를 전달할 수도 있습니다. 이들은 특정 호출을 지정하는 옵션 역할을 합니다. 다음의 옵션들을 사용할 수 있습니다.
 
@@ -402,7 +402,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 ```
 
 
-## 자바스크립트 기반 추적
+## 자바스크립트 기반 추적 <a id="javascript-based-tracing"></a>
 `tracer` 옵션의 두 번째 매개변수를 지정하여 자바스크립트 기반 추적을 활성화합니다. 이 모드에서 `tracer`는 (최소한) `step`과 `result` 등 두 메서드가 있는 객체라고 생각되는 자바스크립트 표현 식으로 해석(interpret)됩니다.
 
 `step`은 두 매개변수 `log`와 `db`를 매개변수로 받는 함수이고, KLVM의 트랜잭션을 추적하는 스텝마다 또는 오류가 발생할 때 호출됩니다.
@@ -466,7 +466,7 @@ function(log) {
 | 메서드 이름                    | 설명                                |
 | ------------------------- | --------------------------------- |
 | `getBalance(address)`     | 입력으로 받은 계정의 잔액을 `big.Int`로 반환합니다. |
-| `getNonce(address)`       | 입력으로 받은 계정의 nonce를 Number로 반환합니다. |
+| `getNonce(address)`       | 입력으로 받은 계정의 논스를 Number로 반환합니다.    |
 | `getCode(address)`        | 입력으로 받은 계정의 코드를 바이트 단위로 반환합니다.    |
 | `getState(address, hash)` | 입력으로 받은 계정과 해시의 상태 값을 반환합니다.      |
 | `exists(address)`         | 입력으로 받은 계정이 존재하면 true를 반환합니다.     |
