@@ -3,12 +3,12 @@ description: >-
   런타임 중 노드 상태와 블록체인 데이터를 검사하고 디버깅하는 API입니다.
 ---
 
-# Namespace debug
+# Namespace debug <a id="namespace-debug"></a>
 
 `debug` namespace는 몇몇 비표준 RPC 메서드에 접근하여 런타임 중의 특정 디버깅 플래그를 검사, 디버깅, 설정하도록 합니다.
 
 
-## [로깅](./debug/logging.md)
+## [Logging](./debug/logging.md) <a id="logging"></a>
 
 - [debug_backtraceAt](./debug/logging.md#debug_backtraceat)
 - [debug_setVMLogTarget](./debug/logging.md#debug_setvmlogtarget)
@@ -16,7 +16,7 @@ description: >-
 - [debug_vmodule](./debug/logging.md#debug_vmodule)
 
 
-## [Profiling](./debug/profile.md)
+## [Profiling](./debug/profile.md) <a id="profiling"></a>
 
 - [debug_blockProfile](./debug/profile.md#debug_blockprofile)
 - [debug_cpuProfile](./debug/profile.md#debug_cpuprofile)
@@ -30,14 +30,14 @@ description: >-
 - [debug_writeMemProfile](./debug/profile.md#debug_writememprofile)
 
 
-## [Runtime Tracing](./debug/go_trace.md)
+## [Runtime Tracing](./debug/go_trace.md) <a id="runtime-tracing"></a>
 
 - [debug_goTrace](./debug/go_trace.md#debug_gotrace)
 - [debug_startGoTrace](./debug/go_trace.md#debug_startgotrace)
 - [debug_stopGoTrace](./debug/go_trace.md#debug_stopgotrace)
 
 
-## [Runtime Debugging](./debug/runtime.md)
+## [Runtime Debugging](./debug/runtime.md) <a id="runtime-debugging"></a>
 
 - [debug_freeOSMemory](./debug/runtime.md#debug_freeosmemory)
 - [debug_gcStats](./debug/runtime.md#debug_gcstats)
@@ -47,7 +47,7 @@ description: >-
 - [debug_stacks](./debug/runtime.md#debug_stacks)
 
 
-## [VM Tracing](./debug/tracing.md)
+## [VM Tracing](./debug/tracing.md) <a id="vm-tracing"></a>
 
 - [debug_traceBadBlock](./debug/tracing.md#debug_tracebadblock)
 - [debug_traceBlock](./debug/tracing.md#debug_traceblock)
@@ -59,14 +59,14 @@ description: >-
 - [자바스크립트 기반 추적](./debug/tracing.md#javascript-based-tracing)
 
 
-## [VM Standard Tracing](./debug/standard_tracing.md)
+## [VM Standard Tracing](./debug/standard_tracing.md) <a id="vm-standard-tracing"></a>
 
 - [debug_standardTraceBadBlockToFile](./debug/standard_tracing.md#debug_standardtracebadblocktofile)
 - [debug_standardTraceBlockToFile](./debug/standard_tracing.md#debug_standardtraceblocktofile)
 - [표준 추적 옵션](./debug/standard_tracing.md#standard-tracing-options)
 
 
-## [Blockchain Inspection](./debug/blockchain.md)
+## [Blockchain Inspection](./debug/blockchain.md) <a id="blockchain-inspection"></a>
 
 - [debug_dumpBlock](./debug/blockchain.md#debug_dumpblock)
 - [debug_getBlockRlp](./debug/blockchain.md#debug_getblockrlp)
