@@ -1,6 +1,6 @@
-# Blockchain Inspection
+# Blockchain Inspection <a id="blockchain-inspection"></a>
 
-## debug_dumpBlock
+## debug_dumpBlock <a id="debug_dumpblock"></a>
 
 블록 번호에 해당하는 상태를 검색하고 계정(스토리지와 코드를 포함)의 목록을 반환합니다.
 
@@ -63,7 +63,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_getBlockRlp
+## debug_getBlockRlp <a id="debug_getblockrlp"></a>
 
 블록 번호를 통해 RLP 인코딩된 블록을 검색하고 반환합니다.
 
@@ -100,9 +100,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_getModifiedAccountsByHash
+## debug_getModifiedAccountsByHash <a id="debug_getmodifiedaccountsbyhash"></a>
 
-블록 해시로 입력받은 두 블록 사이에 변경된 모든 계정을 반환합니다. 이때 변경이란 nonce, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
+블록 해시로 입력받은 두 블록 사이에 변경된 모든 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
 
 
 | 클라이언트 | 메서드 호출                                                                                      |
@@ -140,9 +140,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 ```
 
 
-## debug_getModifiedAccountsByNumber
+## debug_getModifiedAccountsByNumber <a id="debug_getmodifiedaccountsbynumber"></a>
 
-블록 번호로 입력받은 두 블록 사이에 변경된 모든 계정을 반환합니다. 이때 변경이란 nonce, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
+블록 번호로 입력받은 두 블록 사이에 변경된 모든 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
 
 
 | 클라이언트 | 메서드 호출                                                                                    |
@@ -179,7 +179,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 ```
 
 
-## debug_preimage
+## debug_preimage <a id="debug_preimage"></a>
 
 입력으로 받은 sha3 해시의 역상이 알려져 있다면 그 역상을 반환합니다.
 
@@ -216,7 +216,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_printBlock
+## debug_printBlock <a id="debug_printblock"></a>
 
 블록을 검색하여 출력된 양식대로 반환합니다.
 
@@ -252,7 +252,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_setHead
+## debug_setHead <a id="debug_sethead"></a>
 
 **`경고`**: 이 API는 아직 구현되지 않았으며 호출 시 "not yet implemented API" 오류를 반환합니다.
 
