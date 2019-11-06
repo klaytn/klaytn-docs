@@ -1,6 +1,6 @@
-# 다운로드
+# 다운로드 <a id="download"></a>
 
-## 패키지 받기
+## 패키지 받기 <a id="get-the-packages"></a>
 You can get the Linux and MacOS packages for CN, PN, EN, SCN, SPN and SEN. (`homi` will be update soon.)
 
 - [v1.2.0 (latest)](v1.2.0.md)
@@ -8,7 +8,7 @@ You can get the Linux and MacOS packages for CN, PN, EN, SCN, SPN and SEN. (`hom
 - [v1.0.0](v1.0.0.md)
 - [v0.9.6](v0.9.6.md)
 
-## 소스코드 받기
+## 소스코드 받기 <a id="get-the-sources"></a>
 Git을 통해 소스 코드를 받을 수 있습니다. 문서는 GoDoc에서 호스팅됩니다.
 
 - [github/klaytn](https://github.com/klaytn/klaytn)
