@@ -1,4 +1,4 @@
-# 지원 언어
+# 지원 언어 <a id="languages"></a>
 
 KlaytnDocs는 다음 언어로 제공됩니다.
 
@@ -6,11 +6,11 @@ KlaytnDocs는 다음 언어로 제공됩니다.
 - [한국어](https://ko.docs.klaytn.com)
 
 
-## 함께 참여하세요!
+## 함께 참여하세요! <a id="get-involved"></a>
 
 당신의 모국어로 문서를 번역하거나 이미 번역된 문서의 품질 향상에 기여하고 싶으면 [현재 번역 중인 언어 목록을 확인해주세요](https://crowdin.com/project/klaytn-docs).
 
-### Crowdin을 통해 KlaytnDocs 지역화에 기여하는 방법 [![Crowdin](https://badges.crowdin.net/klaytn-docs/localized.svg)](https://crowdin.com/project/klaytn-docs)
+### Crowdin을 통해 KlaytnDocs 지역화에 기여하는 방법 [![Crowdin](https://badges.crowdin.net/klaytn-docs/localized.svg)](https://crowdin.com/project/klaytn-docs) <a id="how-to-contribute-klaytndocs-localization-via-crowdin-crowdin-https-badges-crowd"></a>
 
 Crowdin은 공동 번역을 위한 웹 서비스입니다. 문서의 현지화 작업에 기여하려면 다음 단계를 따라주세요.
 
@@ -34,10 +34,10 @@ Crowdin은 공동 번역을 위한 웹 서비스입니다. 문서의 현지화 �
 
 번역 제안은 관리자의 검토와 승인을 거쳐 며칠 내에 웹 사이트에 게시됩니다. 현지화된 웹 사이트 목록은 위에 나열되어 있습니다.
 
-### 논의
+### 논의  <a id="discussion"></a>
 [토론 게시판에 참여](https://crowdin.com/project/klaytn-docs/discussions)하여 다른 기여자들과 소통하세요.
 
-### 리더보드
+### 리더보드 <a id="leaderboard"></a>
 
 [도와주신 모든 분들에게 진심으로 감사드립니다](https://crowdin.com/project/klaytn-docs/reports)❤️
 
@@ -52,7 +52,7 @@ Crowdin은 공동 번역을 위한 웹 서비스입니다. 문서의 현지화 �
 | [김정현(Colin) (colin.kim)](https://crowdin.com/profile/colin.kim)          | 한국어   | 36     | 29    | 0      | 0   |
 
 
-### 운영 규정
+### 운영 규정 <a id="code-of-conduct"></a>
 
 커뮤니티에 참여하는 모든 사람을 존중해주세요. 프로젝트 관리자는 공격적인 게시물이나 의견을 사전 통지없이 삭제하고 회원 자격을 취소할 수 있습니다.  
 
