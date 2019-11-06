@@ -1,8 +1,8 @@
-# Miscellaneous
+# 기타 <a id="miscellaneous"></a>
 
-## klay_sha3
+## klay_sha3 <a id="klay_sha3"></a>
 
-입력으로 받은 데이터의 Keccak-256(이 해시 함수는 표준 SHA3-256가 아닙니다) 해시값을 반환합니다.
+입력으로 받은 데이터의 Keccak-256(이 해시 함수는 표준 SHA3-256가 아닙니다) 해시를 반환합니다.
 
 **매개변수**
 
