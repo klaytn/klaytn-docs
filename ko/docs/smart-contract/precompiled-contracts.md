@@ -1,4 +1,4 @@
-# 사전 컴파일된 컨트랙트 \(Precompiled Contracts\)
+# 미리 컴파일된 컨트랙트(Precompiled Contracts) <a id="precompiled-contracts"></a>
 
 Klaytn은 몇 가지 유용한 사전 컴파일된 컨트랙트를 제공합니다. 이러한 컨트랙트들은 플랫폼 자체에서 기본 구현되어 있습니다. 사전 컴파일된 컨트랙트 중 주소 0x01부터 0x08까지의 컨트랙트는 이더리움에서 구현된 것과 동일합니다. 여기에 추가로 Klaytn은 이더리움에 없는 새로운 기능을 지원하기 위해 주소 0x09부터 0x0B까지의 사전 컴파일된 컨트랙트를 제공합니다.
 
@@ -44,7 +44,7 @@ function callDatacopy(bytes memory data) public returns (bytes memory) {
 }     
 ```
 
-## 주소 0x05: bigModExp\(base, exp, mod\)
+## 주소 0x05: bigModExp\(base, exp, mod\) <a id="address-0x05-bigmodexp-base-exp-mod"></a>
 
 0x05 주소는 `base**exp % mod`라는 공식을 구현한 사전 컴파일된 컨트랙트입니다. 이 공식에 데이터를 입력하여 얻은 결과를 반환합니다. 이 사전 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다. 해당 컨트랙트는 실제로 임의 길이의 입력을 받을 수 있지만, 아래 예제에서는 고정 길이의 입력으로 되어 있습니다.
 
