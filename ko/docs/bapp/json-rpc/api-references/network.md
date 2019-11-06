@@ -3,12 +3,12 @@ description: >-
   네트워크 환경을 조회하는 데에 사용되는 API입니다.
 ---
 
-# Namespace net
+# Namespace net <a id="namespace-net"></a>
 
 `net` namespace는 Klaytn 네트워크와 관련된 함수들을 제공합니다.
 
 
-## net_networkID
+## net_networkID <a id="net_networkid"></a>
 
 네트워크 식별자(네트워크 ID)를 반환합니다.
 
@@ -37,7 +37,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 ```
 
 
-## net_listening
+## net_listening <a id="net_listening"></a>
 
 클라이언트가 네트워크 연결을 수신하고 있으면 `true`를 반환합니다.
 
@@ -66,7 +66,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 ```
 
 
-## net_peerCount
+## net_peerCount <a id="net_peercount"></a>
 
 현재 클라이언트에 연결된 피어의 수를 반환합니다.
 
@@ -94,7 +94,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 }
 ```
 
-## net_peerCountByType
+## net_peerCountByType <a id="net_peercountbytype"></a>
 
 유형별 연결된 노드의 수와 연결된 모든 노드 수를 키-밸류 쌍의 형태로 반환합니다.
 
