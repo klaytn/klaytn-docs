@@ -1,6 +1,6 @@
-# Truffle
+# Truffle <a id="truffle"></a>
 
-## Truffle과의 호환성
+## Truffle과의 호환성 <a id="compatibility-with-truffle"></a>
 
 Klaytn에서는 솔리디티로 작성된 스마트 컨트랙트를 Truffle을 통해 컴파일하고 배포할 수 있습니다. 현재 Klaytn은 Truffle 최신 버전인 v5.0.26까지 지원합니다. Truffle에 대한 자세한 내용은 아래 웹 사이트를 참고해주세요.
 
@@ -17,7 +17,7 @@ $ sudo npm install -g truffle
 
 원격 EN 노드로 배포하려면 [truffle-hdwallet-provider-klaytn](https://www.npmjs.com/package/truffle-hdwallet-provider-klaytn)을 사용해야 합니다.
 
-## truffle-hdwallet-provider-klaytn 환경 설정
+## truffle-hdwallet-provider-klaytn 환경 설정 <a id="configuring-truffle-hdwallet-provider-klaytn"></a>
 
 truffle-hdwallet-provider-klaytn은 truffle-hdwallet-provider에서 파생된 자바스크립트 HD 지갑 제공자입니다.
 
@@ -29,7 +29,7 @@ $ npm install truffle-hdwallet-provider-klaytn
 
 아래와 같이 `truffle-config.js`를 설정하세요.
 
-### 니모닉 사용
+### 니모닉 사용 <a id="using-a-mnemonic"></a>
 
 ```javascript
 const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
@@ -59,7 +59,7 @@ module.exports = {
 };
 ```
 
-### 개인키 사용
+### 개인키 사용 <a id="using-a-private-key"></a>
 
 ```javascript
 const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
