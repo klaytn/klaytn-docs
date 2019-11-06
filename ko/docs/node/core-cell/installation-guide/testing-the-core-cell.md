@@ -1,12 +1,12 @@
-# 코어 셀 테스트
+# 코어 셀 테스트 <a id="testing-the-core-cell"></a>
 
 코어 셀이 성공적으로 설치되어 잘 작동하는지 점검해보겠습니다.
 
-## 프로세스 상태
+## 프로세스 상태 <a id="process-status"></a>
 
 상태 명령 `systemctl`과 `kcnd/kpnd`를 사용하여 CN/PN의 프로세스 상태를 확인할 수 있습니다.
 
-### systemctl
+### systemctl <a id="systemctl"></a>
 
 `systemctl`은 RPM과 함께 설치되며 CN/PN의 상태는 다음과 같이 확인할 수 있습니다.
 
@@ -28,7 +28,7 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Start
 
 위 예시처럼 `Active: active (running)` 등의 현재 상태를 확인할 수 있습니다.
 
-### kcnd (kpnd)
+### kcnd (kpnd) <a id="kcnd-kpnd"></a>
 
 `kcnd` (또는 `kpnd`)는 패키지와 함께 설치되며 CN/PN의 상태는 다음과 같이 확인할 수 있습니다.
 
@@ -37,7 +37,7 @@ $ kcnd status
 kcnd is running
 ```
 
-## 로그
+## 로그 <a id="logs"></a>
 
 로그는 `kscnd.out` (또는 `kpnd.out`) 파일에 저장되어 있고, 이 파일은 `kscnd.conf` (또는 `kpnd.conf`) 파일의 `LOG_DIR` 필드에서 정의된 경로에 있습니다. 노드가 제대로 작동하면 다음과 같이 매초 블록이 생성되는 것을 볼 수 있습니다.
 
@@ -57,7 +57,7 @@ INFO[02/13,07:02:27 Z] [5] Imported new chain segment                blocks=1 tx
 INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=11572927 txs=0 elapsed=483.436µs
 ```
 
-## kcn 콘솔 (kpn 콘솔)
+## kcn 콘솔 (kpn 콘솔) <a id="kcn-console-kpn-console"></a>
 
 Klaytn은 CLI 클라이언트를 제공합니다: `kcn console` (또는 `kpn console` ). 그러나 CN/PN은 보안상의 이유로 클라이언트의 RPC 인터페이스를 비활성화할 수 있습니다. 클라이언트를 사용하는 또 다른 방법은 IPC(inter-process communication)를 통해 프로세스에 연결하는 것입니다.
 
@@ -98,7 +98,7 @@ CN/PN의 상태를 확인하는 유용한 API는 다음과 같습니다.
 * `klay.blockNumber` (최신 블록 번호를 가져옵니다)
 * `net.peerCount` (현재 연결된 Klaytn 노드의 수를 가져옵니다)
 
-### klay.blockNumber
+### klay.blockNumber  <a id="klay-blocknumber"></a>
 
 노드 유형에 따라 (CN에 대해) 블록이 생성되었는지 또는 (CN 및 PN에 대해) 올바르게 전파되는지 확인하기 위해 최신 블록 번호를 얻을 수 있습니다.
 
@@ -107,7 +107,7 @@ CN/PN의 상태를 확인하는 유용한 API는 다음과 같습니다.
 11573819
 ```
 
-### net.peerCount
+### net.peerCount  <a id="net-peercount"></a>
 
 ```javascript
 > net.peerCount
