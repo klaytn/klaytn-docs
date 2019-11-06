@@ -1,4 +1,4 @@
-## gasPriceAt
+## gasPriceAt <a id="gaspriceat"></a>
 
 ```javascript
 caver.klay.gasPriceAt([defaultBlock] [, callback])
@@ -28,7 +28,7 @@ Returns the unit price of gas in peb that was effective at the given block heigh
 0x5d21dba00
 ```
 
-## getChainId
+## getChainId <a id="getchainid"></a>
 
 ```javascript
 caver.klay.getChainId([callback])
@@ -53,7 +53,7 @@ caver.klay.getChainId([callback])
 1001
 ```
 
-## getGasPrice
+## getGasPrice <a id="getgasprice"></a>
 
 ```javascript
 caver.klay.getGasPrice([callback])
@@ -78,7 +78,7 @@ Returns the unit price defined in the Klaytn network.
 "25000000000"
 ```
 
-## getNodeInfo
+## getNodeInfo <a id="getnodeinfo"></a>
 
 ```javascript
 caver.klay.getNodeInfo([callback])
@@ -104,7 +104,7 @@ Klaytn 노드의 현재 클라이언트 버전을 반환합니다.
 Klaytn/v0.10.1+fc5c37064e/linux-amd64/go1.11.2
 ```
 
-## getProtocolVersion
+## getProtocolVersion <a id="getprotocolversion"></a>
 
 ```javascript
 caver.klay.getProtocolVersion([callback])
@@ -130,7 +130,7 @@ caver.klay.getProtocolVersion([callback])
 0x40
 ```
 
-## isSenderTxHashIndexingEnabled
+## isSenderTxHashIndexingEnabled <a id="issendertxhashindexingenabled"></a>
 
 ```javascript
 caver.klay.isSenderTxHashIndexingEnabled([callback])
@@ -156,7 +156,7 @@ caver.klay.isSenderTxHashIndexingEnabled([callback])
 true
 ```
 
-## isParallelDBWrite
+## isParallelDBWrite <a id="isparalleldbwrite"></a>
 
 ```javascript
 caver.klay.isParallelDBWrite([callback])
@@ -182,7 +182,7 @@ caver.klay.isParallelDBWrite([callback])
 true
 ```
 
-## rewardbase
+## rewardbase <a id="rewardbase"></a>
 
 ```javascript
 caver.klay.rewardbase([callback])
@@ -208,7 +208,7 @@ caver.klay.rewardbase([callback])
 0xed9d108be2a9a7ea5f180ace80f31b66ea107283
 ```
 
-## writeThroughCaching
+## writeThroughCaching <a id="writethroughcaching"></a>
 
 ```javascript
 caver.klay.writeThroughCaching([callback])
