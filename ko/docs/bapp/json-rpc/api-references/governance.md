@@ -3,7 +3,7 @@ description: >-
   Klaytn 거버넌스와 관련한 API입니다.
 ---
 
-# Namespace governance
+# Namespace governance <a id="namespace-governance"></a>
 
 네트워크 거버넌스를 위해 Klaytn은 다음과 같이 `governance` namespace의 API를 제공합니다.
 
@@ -13,7 +13,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 * `ballot`: 의결권이 있는 모든 노드가 환경 설정 변경에 투표할 수 있습니다. 전체 의결권 중 절반 이상이 모이면 해당 의제는 통과됩니다.
 
 
-## governance_vote
+## governance_vote <a id="governance_vote"></a>
 
 `vote` 메서드는 새로운 투표를 제출합니다. 거버넌스 모드에 의거하여 노드가 의결권을 가지면 투표할 수 있습니다. 그렇지 않으면 오류 메시지가 반환되고 투표 행위가 무시됩니다.
 
@@ -35,7 +35,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 | `"reward.ratio"`               | `STRING`. `"/"`으로 구분되는 <0>CN/KIR/PoC</0>의 분포 비율입니다. 각 값의 합은 `100`이어야 합니다. 예를 들어, `"34/54/12"`은 CN이 34%, PoC이 54%, KIR이 12%를 차지하고 있다는 것입니다.    |
 | `"reward.useginicoeff"`        | `BOOL`. 지니(GINI) 계수 사용 여부입니다 `true` 또는 `false`로 설정합니다.                                                                                        |
 | `"reward.deferredtxfee"`       | `BOOL`. 트랜잭션 비용을 제안자에게 지급하는 방법입니다. true이면 트랜잭션 비용은 블록 보상과 합산되어 제안자, KIR, PoC에게 분배됩니다. false이면 트랜잭션 비용이 제안자에게 지급됩니다. `true` 또는 `false`로 설정합니다. |
-| `"reward.minimumstake"`        | `STRING`. CN(합의 노드)가 되는 데 필요한 Klay 양입니다. 값에는 큰따옴표가 필요합니다. 예를 들어, `"5000000"`입니다.                                                              |
+| `"reward.minimumstake"`        | `STRING`. CN(컨센서스 노드)가 되는 데 필요한 Klay 양입니다. 값에는 큰따옴표가 필요합니다. 예를 들어, `"5000000"`입니다.                                                            |
 
 
 **리턴값**
@@ -84,7 +84,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 ```
 
 
-## governance_showTally
+## governance_showTally <a id="governance_showtally"></a>
 
 `showTally` 속성은 거버넌스 투표의 현재 집계를 제공합니다. 집계된 찬성률을 백분율로 나타냅니다. 50%가 넘으면 해당 의제는 통과됩니다.
 
@@ -114,7 +114,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 ```
 
 
-## governance_totalVotingPower
+## governance_totalVotingPower <a id="governance_totalvotingpower"></a>
 
 `totalVotingPower` 속성은 CN들이 보유한 의결권 합계를 나타냅니다. 각 CN은 1.0 ~ 2.0의 의결권을 가집니다. `"none"`, `"single"` 거버넌스 모드에서는 `totalVotingPower` 속성을 통해 제공하는 정보가 없습니다.
 
@@ -141,7 +141,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 ```
 
 
-## governance_myVotingPower
+## governance_myVotingPower <a id="governance_myvotingpower"></a>
 
 `myVotingPower` 속성은 나의 노드가 보유한 의결권을 나타냅니다. 한 노드당 1.0 ~ 2.0의 의결권을 가집니다. `"none"`, `"single"` 거버넌스 모드에서는 `totalVotingPower` 속성을 통해 제공하는 정보가 없습니다.
 
@@ -168,7 +168,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 ```
 
 
-## governance_myVotes
+## governance_myVotes <a id="governance_myvotes"></a>
 
 `myVotes` 속성은 투표 기간 동안의 나의 투표 정보를 나타냅니다. 사용자의 노드가 새로운 블록을 생성할 때 각 투표가 블록에 저장됩니다. 현재 투표 기간이 종료되면 이 정보는 사라집니다.
 
@@ -199,7 +199,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 ```
 
 
-## governance_chainConfig
+## governance_chainConfig <a id="governance_chainconfig"></a>
 
 `chainConfig` 속성은 초기 체인 환경 설정을 나타냅니다. 이 속성은 초기 환경 설정만 저장하기 때문에 투표에 의해 거버넌스에 변경 사항이 있다면 `chainConfig`의 결과는 현재 상태와 달라질 것입니다. 현재 정보를 확인하려면 `itemsAt`을 사용하세요.
 
@@ -243,7 +243,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 ```
 
 
-## governance_nodeAddress
+## governance_nodeAddress <a id="governance_nodeaddress"></a>
 
 `nodeAddress` 속성은 사용자가 사용하고 있는 노드의 주소를 나타냅니다. nodekey에서 파생되어 합의 메시지를 서명하는 데에 사용됩니다. 그리고 `"governingnode"`의 값은 검증자의 노드 중 하나의 주소가 되어야 합니다.
 
@@ -264,7 +264,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 "0xe733cb4d279da696f30d470f8c04decb54fcb0d2"
 ```
 
-## governance_itemsAt
+## governance_itemsAt <a id="governance_itemsat"></a>
 
 `itemsAt`은 특정 블록에서의 거버넌스 항목을 반환합니다. 이는 해당 블록의 이전 투표 결과이며, 입력으로 받은 블록 번호에서 체인의 환경 설정을 하는 데에 사용됩니다.
 
@@ -300,7 +300,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
  reward.useginicoeff: true
 }
 ```
-## governance_pendingChanges
+## governance_pendingChanges <a id="governance_pendingchanges"></a>
 
 `pendingChanges`은 충분한 표를 받았지만, 아직 확정되지 않은 항목들의 목록을 반환합니다. 현재 투표 기간이 끝날 때 이 항목들은 확정되어 그 결과가 다음 투표 기간 이후의 투표 기간부터 적용됩니다.
 
@@ -323,7 +323,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 }
 ```
 
-## governance_votes
+## governance_votes <a id="governance_votes"></a>
 
 `votes`는 투표 기간 중 모든 노드의 투표 상태를 반환합니다. 각 블록의 헤더로부터 이러한 정보가 수집됩니다.
 
@@ -351,7 +351,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 }]
 ```
 
-## governance_idxCache
+## governance_idxCache <a id="governance_idxcache"></a>
 `idxCache` 속성은 메모리 캐시 내의 현재 idxCache 배열을 반환합니다. idxCache는 거버넌스 내용이 변경되었던 블록 번호를 담고 있습니다. 캐시는 최대 1,000개의 블록 번호까지 담을 수 있도록 기본 설정되어 있습니다.
 
 **매개변수**
@@ -370,7 +370,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 [0, 30]
 ```
 
-## governance_idxCacheFromDb
+## governance_idxCacheFromDb <a id="governance_idxcachefromdb"></a>
 `idxCacheFromDb`는 거버넌스 내용 변경이 이루어졌던 모든 블록의 번호를 배열로 반환합니다. `idxCacheFromDb`의 결과의 길이는 `idxCache`의 그것 이상입니다.
 
 **매개변수**
@@ -389,7 +389,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 [0, 30]
 ```
 
-## governance_itemCacheFromDb
+## governance_itemCacheFromDb <a id="governance_itemcachefromdb"></a>
 `itemCacheFromDb`는 입력으로 받은 블록에 저장된 거버넌스 정보를 반환합니다. 해당 블록에 변경 사항이 저장되어 있지 않다면 함수는 `null`을 반환합니다.
 
 **매개변수**
