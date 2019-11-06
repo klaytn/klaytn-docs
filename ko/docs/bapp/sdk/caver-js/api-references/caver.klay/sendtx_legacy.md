@@ -1,6 +1,6 @@
-# Legacy Transaction
+# Legacy Transaction <a id="legacy-transaction"></a>
 
-## sendTransaction (Legacy)
+## sendTransaction (Legacy) <a id="sendtransaction-legacy"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
@@ -20,14 +20,14 @@ Note: Only the account having `AccountKeyLegacy` can send this transaction, on t
 | transactionObject.gas      | Number                                          | The amount of gas to use for the transaction (unused gas is refunded).                                                                                                                                                            |
 | transactionObject.gasPrice | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                                        |
 | transactionObject.data     | 문자열                                             | (optional) Either an [ABI byte string](http://solidity.readthedocs.io/en/latest/abi-spec.html) containing the data of the function call on a contract, or in the case of a contract-creation transaction the initialization code. |
-| transactionObject.nonce    | Number                                          | (선택사항) nonce의 정숫값입니다. 이를 통해 같은 nonce를 사용하는 보류 중인 트랜잭션을 덮어쓸 수 있습니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                           |
+| transactionObject.nonce    | Number                                          | (선택사항) 논스의 정숫값입니다. 이를 통해 같은 논스를 사용하는 보류 중인 트랜잭션을 덮어쓸 수 있습니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                 |
 | callback                   | Function                                        | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                                                              |
 
 **리턴값**
 
 The `callback` will return the 32-byte transaction hash.
 
-`PromiEvent`: 프로미스(promise)가 조합된 이벤트 에미터(event emitter). Will be resolved when the transaction receipt is available. Additionally the following events are available:
+`PromiEvent`: 프로미스(promise)가 조합된 이벤트 이미터(event emitter). Will be resolved when the transaction receipt is available. Additionally the following events are available:
 
 - `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
 - `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
