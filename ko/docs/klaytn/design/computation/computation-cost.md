@@ -1,4 +1,4 @@
-# 연산 비용 (Computation Cost)
+# 연산 비용 (Computation Cost)<a id="computation-cost"></a>
 
 Klaytn은 초당 1블록 생성을 목표로 하기 때문에, 각 트랜잭션의 실행시간을 관리하여야 합니다. 이를 위해 우리는 세 가지 방법을 고려했습니다. 1. 트랜잭션의 가스 한도를 제한합니다. 2. 트랜잭션의 실행 시간을 제한합니다. 3. 트랜잭션의 연산 비용을 제한합니다.
 
@@ -10,7 +10,7 @@ Klaytn은 초당 1블록 생성을 목표로 하기 때문에, 각 트랜잭션�
 
 따라서, 우리는 세 번째 해결책을 선택하여 Klaytn에서 구현했습니다. 현재는 실행 비용 한도는 100,000,000으로 설정되어 있습니다. 비용 제한은 플랫폼에 의해 결정되므로 개발자들은 트랜잭션의 연산 비용을 알아야합니다. 트랜잭션의 연산 비용을 알 수 있도록 Klaytn은 [ klay_estimateComputationCost](../../../bapp/json-rpc/api-references/klay/transaction.md#klay_estimatecomputationcost)를 제공합니다. 사용법은 [klay_estimateGas](../../../bapp/json-rpc/api-references/klay/transaction.md#klay_estimategas)와 거의 같습니다.
 
-## 연산자의 연산 비용
+## 연산자의 연산 비용 <a id="computation-cost-of-opcodes"></a>
 
 아래 표는 EVM 연산자의 연산 비용을 보여줍니다. 연산 비용은 시뮬레이션을 통해 결정되었습니다.
 
