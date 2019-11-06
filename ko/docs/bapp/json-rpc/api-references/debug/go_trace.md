@@ -1,6 +1,6 @@
-# Go 런타임 추적
+# Go 런타임 추적 <a id="go-runtime-tracing"></a>
 
-## debug_goTrace
+## debug_goTrace <a id="debug_gotrace"></a>
 
 입력으로 받은 기간 동안 Go 런타임 추적을 진행하고 추적 데이터를 디스크에 씁니다.
 
@@ -35,7 +35,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_startGoTrace
+## debug_startGoTrace <a id="debug_startgotrace"></a>
 
 입력으로 받은 파일에 Go 런타임 추적 결과를 씁니다.
 
@@ -68,7 +68,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_stopGoTrace
+## debug_stopGoTrace <a id="debug_stopgotrace"></a>
 
 Go 런타임 추적을 중지합니다.
 
