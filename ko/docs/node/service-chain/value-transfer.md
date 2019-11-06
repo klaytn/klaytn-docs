@@ -190,10 +190,10 @@ You can check the status of a bridge contract like below. You can refer to the [
 # Token Contract (ERC-20/721) <a id="token-contract-erc-20-721"></a>
 Service Chain supports ERC-20/721 value transfer as well. To support them, service chain compatible ERC-20/721 token contracts should be deployed on both parent and child chains. For the ERC-20/721 token contract code, you can refer to the [Token standard](../../smart-contract/token-standard.md).
 
-## Deployment
+## Deployment  <a id="deployment"></a>
 SCN does not support an API to deploy ERC-20/721 tokens yet. You need to deploy the tokens via caver-js. When you deploy an ERC-20/721 contract, you should use the correct bridge operator account. Use the parent operator account for the main chain deploy, and the child operator for the service chain deploy. If a token contract was deployed with a wrong account, value transferring will not work and you need to deploy the token contract again with the correct account.
 
-## Register
+## Register  <a id="register"></a>
 After deploying token contracts, you should register the token contracts with the bridge contracts on the parent/child chains like below.
 ```javascript
 > subbridge.registerToken("0x27caeba831d98b5fbb1d81ce0ed20801702f443a", "0x22c41ae528627b790233d2e59ea520be12350eb5", "0x376b72abe1b29cace831bd3f5acdfa967814c9cd", "0x53160735f7cc6ff75e48619f368bb94daff66a1b")
@@ -228,14 +228,14 @@ function requestKLAYTransfer(address _to, uint256 _value, bytes calldata _extraD
 
 ## ERC-20 transfer <a id="erc-20-transfer"></a>
 
-### 2-Step request via Bridge contract
+### 2-Step request via Bridge contract <a id="2-step-request-via-bridge-contract"></a>
 Users can make a "request value transfer" transaction to the Bridge contract using the below method after [approving](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#approve) the token to the Bridge contract.
 
 ```solidity
 function requestERC20Transfer(address _tokenAddress, address _to, uint256 _value,uint256 _feeLimit,bytes memory _extraData) external
 ```
 
-### 1-Step request via ERC-20 contract
+### 1-Step request via ERC-20 contract <a id="1-step-request-via-erc-20-contract"></a>
 Users can make a "request value transfer" transaction directly to the **ERC-20 contract** using the below method without approving. The ERC-20 contract should implement the function, then.
 
 ```solidity
@@ -244,21 +244,21 @@ function requestValueTransfer(uint256 _amount, address _to, uint256 _feeLimit, b
 
 ## ERC-721 transfer <a id="erc-721-transfer"></a>
 
-### 2-Step request via Bridge contract
+### 2-Step request via Bridge contract <a id="2-step-request-via-bridge-contract"></a>
 Users can make a "request value transfer" transaction to the Bridge contract using the below method after [approving](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#approve) the token to the Bridge contract.
 
 ```solidity
 function requestERC721Transfer(address _tokenAddress, address _to, uint256 _tokenId, bytes memory _extraData) external
 ```
 
-### 1-Step request via ERC-721 contract
+### 1-Step request via ERC-721 contract <a id="1-step-request-via-erc-721-contract"></a>
 Users can make a "request value transfer" transaction directly to the **ERC-721 contract** using the below method without approving. The ERC-721 contract should implement the function, then.
 
 ```solidity
 function requestValueTransfer(uint256 _uid, address _to) external
 ```
 
-# Collecting Fee for KLAY/ERC-20 transfer
+# Collecting Fee for KLAY/ERC-20 transfer <a id="collecting-fee-for-klay-erc-20-transfer"></a>
 In Service Chain, there is a fee collecting feature for the KLAY/ERC-20 transfer.
 
 **It will be updated soon.**
