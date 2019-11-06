@@ -1,4 +1,4 @@
-## klay_call
+## klay_call <a id="klay_call"></a>
 
 블록체인에 트랜잭션을 생성하지 않고 즉시 새 메시지 호출을 합니다. 결과 데이터를 반환하거나 또는 에러가 발생하면 JSON RPC의 에러 객체를 반환합니다.
 
@@ -43,7 +43,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 ```
 
 
-## klay_estimateGas
+## klay_estimateGas <a id="klay_estimategas"></a>
 
 트랜잭션 실행을 완료하는 데에 필요한 가스양의 추정치를 생성하여 반환합니다. 이때 발생한 트랜잭션은 블록체인에 추가되지 않습니다. Klaytn 가상머신의 메커니즘, 노드 성능 등의 다양한 원인에 의해 추정치가 실제 사용된 가스양보다 훨씬 클 수도 있습니다.
 
@@ -70,7 +70,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay_estimateComputationCost
+## klay_estimateComputationCost <a id="klay_estimatecomputationcost"></a>
 
 트랜잭션을 실행하는 데에 들 연산 비용의 추정치를 생성하여 반환합니다. Klaytn은 한 트랜잭션을 실행하는 데에 너무 많은 시간이 걸리지 않도록 하기 위해 현재 트랜잭션당 연산 비용을 `100000000`으로 제한합니다. 이때 발생한 트랜잭션은 [klay_estimateGas](#klay_estimategas)와 마찬가지로 블록체인에 추가되지 않습니다.
 
@@ -96,7 +96,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay_getTransactionByBlockHashAndIndex
+## klay_getTransactionByBlockHashAndIndex <a id="klay_gettransactionbyblockhashandindex"></a>
 
 블록 해시와 트랜잭션 인덱스 위치로 조회한 트랜잭션의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
 
@@ -148,7 +148,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getTransactionByBlockNumberAndIndex
+## klay_getTransactionByBlockNumberAndIndex <a id="klay_gettransactionbyblocknumberandindex"></a>
 
 블록 번호와 트랜잭션 인덱스 위치로 조회한 트랜잭션의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
 
@@ -200,7 +200,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getTransactionByHash
+## klay_getTransactionByHash <a id="klay_gettransactionbyhash"></a>
 
 트랜잭션 해시로 조회한 트랜잭션의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
 
@@ -283,9 +283,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getTransactionBySenderTxHash
+## klay_getTransactionBySenderTxHash <a id="klay_gettransactionbysendertxhash"></a>
 
-SenderTxHash로 조회한 트랜잭션의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다. 이 API는 `--sendertxhashindexing`에 의해 인덱싱 기능이 활성화되어 있을 때만 올바른 결과를 반환합니다. [klay_isSenderTxHashIndexingEnabled](config.md#klay_isSenderTxHashIndexingEnabled)를 호출하여 인덱싱 기능이 활성화되어 있는지 확인할 수 있습니다.
+SenderTxHash로 조회한 트랜잭션의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다. 이 API는 `--sendertxhashindexing`에 의해 인덱싱 기능이 활성화되어 있을 때만 올바른 결과를 반환합니다. [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled)를 호출하여 인덱싱 기능이 활성화되어 있는지 확인할 수 있습니다.
 
 **매개변수**
 
@@ -365,7 +365,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getTransactionReceipt
+## klay_getTransactionReceipt <a id="klay_gettransactionreceipt"></a>
 
 트랜잭션 해시로 조회한 트랜잭션의 영수증을 반환합니다.
 
@@ -460,7 +460,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getTransactionReceiptBySenderTxHash
+## klay_getTransactionReceiptBySenderTxHash <a id="klay_gettransactionreceiptbysendertxhash"></a>
 
 SenderTxHash로 조회한 트랜잭션의 영수증을 반환합니다.
 
@@ -555,7 +555,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_sendRawTransaction
+## klay_sendRawTransaction <a id="klay_sendrawtransaction"></a>
 
 새 메시지 호출 트랜잭션을 생성하거나 또는 서명된 트랜잭션을 입력으로 받으면 컨트랙트를 생성합니다.
 
@@ -588,7 +588,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_sendTransaction
+## klay_sendTransaction <a id="klay_sendtransaction"></a>
 
 새 메시지 호출을 생성하거나 또는 data 필드에 코드가 있으면 컨트랙트를 생성합니다.
 
@@ -602,7 +602,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | gasPrice | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스당 가격의 정숫값입니다.                        |
 | value    | QUANTITY      | (선택사항) 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                       |
 | data     | DATA          | 컨트랙트의 컴파일된 코드이거나 호출된 메서드의 식별자와 인코딩된 매개변수들의 해시입니다.                           |
-| nonce    | QUANTITY      | (선택사항) nonce의 정숫값입니다. 이를 통해 같은 nonce를 사용하는 보류 중인 트랜잭션을 덮어쓸 수 있습니다.          |
+| nonce    | QUANTITY      | (선택사항) 논스의 정숫값입니다. 이를 통해 같은 논스를 사용하는 보류 중인 트랜잭션을 덮어쓸 수 있습니다.                |
 
 **리턴값**
 
@@ -637,7 +637,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_signTransaction
+## klay_signTransaction <a id="klay_signtransaction"></a>
 입력으로 받은 트랜잭션 정보를 바탕으로 rawTransaction을 생성합니다.
 
 **참고**: 서명하려는 계정은 잠금 해제되어 있어야 합니다.
@@ -651,7 +651,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | gasPrice | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스당 가격의 정숫값입니다.                        |
 | value    | QUANTITY      | (선택사항) 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                       |
 | data     | DATA          | 컨트랙트의 컴파일된 코드이거나 호출된 메서드의 식별자와 인코딩된 매개변수들의 해시입니다.                           |
-| nonce    | QUANTITY      | (선택사항) nonce의 정숫값입니다. 이를 통해 같은 nonce를 사용하는 보류 중인 트랜잭션을 덮어쓸 수 있습니다.          |
+| nonce    | QUANTITY      | (선택사항) 논스의 정숫값입니다. 이를 통해 같은 논스를 사용하는 보류 중인 트랜잭션을 덮어쓸 수 있습니다.                |
 
 
 **리턴값**
@@ -687,7 +687,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-## txError: 트랜잭션 실행 실패에 대한 상세한 설명
+## txError: 트랜잭션 실행 실패에 대한 상세한 설명 <a id="txerror-detailed-information-of-transaction-failures"></a>
 
 Klaytn은 트랜잭션 영수증의 `txError` 필드를 통해 트랜잭션 실행이 실패한 원인을 개발자분들께 알려드립니다. 이 필드는 트랜잭션 실행이 실패한 경우에만 존재합니다. 스토리지와 네트워크 대역폭을 절약하기 위해 `txError`는 정숫값으로 표현됩니다. 아래 표는 각 `txError` 값의 의미를 안내합니다.
 
@@ -722,3 +722,62 @@ Klaytn은 트랜잭션 영수증의 `txError` 필드를 통해 트랜잭션 실�
 | 0x1c  | 더는 지원하지 않는 기능입니다.                          |
 | 0x1d  | 지원하지 않습니다.                                 |
 | 0x1e  | 스마트 컨트랙트 코드 형식이 잘못되었습니다.                   |
+
+## klay_getDecodedAnchoringTransactionByHash <a id="klay_getDecodedAnchoringTransactionByHash"></a>
+
+Returns the decoded anchored data in the transaction for the given transaction hash.
+
+**매개변수**
+
+| 형식            | 설명          |
+| ------------- | ----------- |
+| 32바이트 크기 DATA | 트랜잭션 해시입니다. |
+
+**리턴값**
+| 명칭            | 형식            | 설명                                                                                                                                                                                                                                                    |
+| ------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| BlockHash     | 32바이트 크기 DATA | Hash of the child chain block that this anchoring transaction was performed.                                                                                                                                                                          |
+| BlockNumber   | QUANTITY      | The child chain block number that this anchoring transaction was performed.                                                                                                                                                                           |
+| ParentHash    | 32바이트 크기 DATA | 이전 블록의 해시입니다.                                                                                                                                                                                                                                         |
+| TxHash        | 32바이트 크기 DATA | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                                                                                                                                                                                               |
+| StateRootHash | 32바이트 크기 DATA | 블록의 상태 트라이의 루트 해시입니다.                                                                                                                                                                                                                                 |
+| ReceiptHash   | 32바이트 크기 DATA | 블록의 영수증 트라이의 루트 해시입니다.                                                                                                                                                                                                                                |
+| BlockCount    | QUANTITY      | The number of blocks generated during this anchoring period. In most cases, this number is equal to the child chain's `SC_TX_PERIOD`, with the exception of the case that this transaction was the first anchoring tx after turning on the anchoring. |
+| TxCount       | QUANTITY      | The number of transactions generated in the child chain during this anchoring period.                                                                                                                                                                 |
+
+**예시**
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getDecodedAnchoringTransactionByHash","params":["0x499350bc5e2f6fee1ba78b4d40a7a1db0a64f3c091112e6798a02ed9a4140084"],"id":1}' http://localhost:8551
+
+// Result
+{
+   "jsonrpc":"2.0",
+   "id":1,
+   "result":{
+      "BlockCount":1,
+      "BlockHash":"0xcf5f591836d70a1da8e6bb8e5b2c5739329ca0e535b91e239b332af2e1b7f1f4",
+      "BlockNumber":1055,
+      "ParentHash":"0x70f6115a5b597f29791d3b5e3f129df54778f69ae669842cc81ec8c432fee37c",
+      "ReceiptHash":"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+      "StateRootHash":"0x654773348f77a6788c76c93946340323c9b39399d0aa173f6b23fe082848d056",
+      "TxCount":0,
+      "TxHash":"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"
+   }
+}
+```
+
+```javascript
+> klay.getDecodedAnchoringTransactionByHash("0x499350bc5e2f6fee1ba78b4d40a7a1db0a64f3c091112e6798a02ed9a4140084")
+{
+  BlockCount: 1,
+  BlockHash: "0xcf5f591836d70a1da8e6bb8e5b2c5739329ca0e535b91e239b332af2e1b7f1f4",
+  BlockNumber: 1055,
+  ParentHash: "0x70f6115a5b597f29791d3b5e3f129df54778f69ae669842cc81ec8c432fee37c",
+  ReceiptHash: "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+  StateRootHash: "0x654773348f77a6788c76c93946340323c9b39399d0aa173f6b23fe082848d056",
+  TxCount: 0,
+  TxHash: "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"
+}
+```
