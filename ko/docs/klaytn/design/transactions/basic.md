@@ -1,17 +1,17 @@
-# 기본
+# 기본 <a id="basic"></a>
 
-## TxTypeLegacyTransaction
+## TxTypeLegacyTransaction <a id="txtypelegacytransaction"></a>
 
 TxTypeLegacyTransaction은 이전에 Klaytn에 존재했던 트랜잭션 유형을 의미합니다. 이 트랜잭션 유형은 호환성을 위해 존재하므로 [AccountKeyLegacy](../accounts.md#accountkeylegacy)와 연결된 EOA와만 사용할 수 있습니다. 다른 계정 키 유형과 연결된 EOA는 TxTypeValueTransfer, TxTypeSmartContractExecution 같은 다른 트랜잭션 유형을 사용해야 합니다. 이 유형의 트랜잭션은 계정 생성, 토큰 전송, 스마트 컨트랙트 배포, 스마트 컨트랙트 실행 또는 앞에서 언급한 것들을 혼합하여 실행할 수 있습니다. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
 
 1. 발신자의 잔고는 트랜잭션 비용만큼 줄어듭니다.
-2. 발신자의 nonce가 1 증가합니다.
+2. 발신자의 논스가 1 증가합니다.
 3. 만약 `to`가 Klaytn에 존재하지 않으면 [AccountKeyLegacy](../accounts.md#accountkeylegacy)와 연결된 EOA를 만듭니다.
 4. `value` KLAY가 발산지로부터 수신자로 전송됩니다.
 5. `to`가 nil이라면 스마트컨 트랙트 배포를 위한 트랜잭션으로 간주됩니다. 스마트 컨트랙트 코드는 `input`을 통해 전달되어야 합니다.
 6. `to`가 스마트 컨트랙트라면 `input`에 명시된 스마트 컨트랙트 함수가 실행됩니다.
 
-### 속성
+### 속성 <a id="attributes"></a>
 
 | 속성       | 형식                          | 설명                                                                                                                                                                                                                                   |
 |:-------- |:--------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -19,11 +19,11 @@ TxTypeLegacyTransaction은 이전에 Klaytn에 존재했던 트랜잭션 유형�
 | to       | \*common.Address \(Go\) | 전송된 값을 받을 계정 주소입니다.                                                                                                                                                                                                                  |
 | input    | \[\]byte \(Go\)         | 트랜잭션 실행에 이용되며 트랜잭션에 첨부되는 데이터입니다.                                                                                                                                                                                                     |
 | v, r, s  | \*big.Int \(Go\)        | 수신자가 발신자의 주소를 받을 수 있게 발신자에 의해 발생된 암호학적 서명입니다.                                                                                                                                                                                        |
-| nonce    | uint64 \(Go\)             | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                     |
+| nonce    | uint64 \(Go\)             | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                        |
 | gas      | uint64 \(Go\)             | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 비용입니다.                                                                                                                                                                                                      |
 | gasPrice | \*big.Int \(Go\)        | 발신자가 얼마나 가스비를 지급해야하는지 알 수 있도록 곱하는 값입니다. 발신자가 지급해야할 비용은 `gas` \* `gasPrice`로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
 
-### 서명 RLP 인코딩
+### 서명 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
 이 트랜잭션 유형의 서명을 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -33,7 +33,7 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <private key>)
 ```
 
-### SenderTxHash를 위한 RLP 인코딩
+### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
 SenderTxHash를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -42,7 +42,7 @@ SenderTxHashRLP = encode([nonce, gasPrice, gas, to, value, input, v, r, s])
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### 트랜잭션 해시를 위한 RLP 인코딩
+### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
 트랜잭션 해시를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -51,7 +51,7 @@ TxHashRLP = encode([nonce, gasPrice, gas, to, value, input, v, r, s])
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP 인코딩 \(예시\)
+### RLP 인코딩 \(예시\) <a id="rlp-encoding-example"></a>
 
 다음은 RLP serialization의 결과와 트랜잭션 오브젝트를 보여줍니다.
 
@@ -83,7 +83,7 @@ SenderTxHash e434257753bf31a130c839fec0bd34fc6ea4aa256b825288ee82db31c2ed7524
     Hex:      f8668204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a843132333425a0b2a5a15550ec298dc7dddde3774429ed75f864c82caeb5ee24399649ad731be9a029da1014d16f2011b3307f7bbe1035b6e699a4204fc416c763def6cefd976567
 ```
 
-### RPC Output \(예시\)
+### RPC Output \(예시\) <a id="rpc-output-example"></a>
 
 다음은 JSON RPC를 통해 반환된 트랜잭션 오브젝트를 보여줍니다.
 
@@ -118,20 +118,20 @@ SenderTxHash e434257753bf31a130c839fec0bd34fc6ea4aa256b825288ee82db31c2ed7524
 }
 ```
 
-## TxTypeValueTransfer
+## TxTypeValueTransfer <a id="txtypevaluetransfer"></a>
 
 TxTypeValueTransfer는 사용자가 토큰을 전송할 때 사용됩니다. Klaytn은 각 목적에 맞는 여러가지 트랜잭션 유형들을 제공하는데, TxTypeValueTransfer는 토큰을 EOA에 전송할 때 사용하는 기능입니다. 따라서 TxTypeValueTransfer는 `to`가 EOA일때만 작동합니다. KLAY를 스마트 컨트랙트로 전송하려면 [TxTypeSmartContractExecution](basic.md#txtypesmartcontractexecution)를 대신 사용하여야 합니다. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
 
 1. 발신자의 잔고는 트랜잭션 비용만큼 줄어듭니다.
-2. 발신자의 nonce가 1 증가합니다.
+2. 발신자의 논스가 1 증가합니다.
 3. `value` KLAY가 발산지로부터 수신자로 전송됩니다.
 
-### 속성
+### 속성 <a id="attributes"></a>
 
 | 속성           | 형식                                                     | 설명                                                                                                                                                                                                                              |
 |:------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | type         | uint8 \(Go\)                                         | TxTypeValueTransfer의 type입니다. 이는 0x08이어야 합니다.                                                                                                                                                                                   |
-| nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                |
+| nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                   |
 | gasPrice     | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 비용으로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 비용은 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
 | gas          | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 비용입니다.                                                                                                                                                                                                 |
 | to           | common.Address \(Go\)                                | 전송되는 KLAY를 받을 계정 주소입니다.                                                                                                                                                                                                         |
@@ -139,7 +139,7 @@ TxTypeValueTransfer는 사용자가 토큰을 전송할 때 사용됩니다. Kla
 | from         | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
 | txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
 
-### 서명 RLP 인코딩
+### 서명 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
 트랜잭션 서명을 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -149,7 +149,7 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <private key>)
 ```
 
-### SenderTxHash를 위한 RLP 인코딩
+### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
 SenderTxHash를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -160,7 +160,7 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, txSignat
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### 트랜잭션 해시를 위한 RLP 인코딩
+### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
 트랜잭션 해시를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -171,7 +171,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, txSignatures])
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP 인코딩 \(예시\)
+### RLP 인코딩 \(예시\) <a id="rlp-encoding-example"></a>
 
 다음은 주어진 인수에 대한 RLP serialization의 결과와 트랜잭션 오브젝트의 정보를 보여줍니다.
 
@@ -200,7 +200,7 @@ SenderTxHash 762f130342569e9669a4d8547f1248bd2554fbbf3062d63a97ce28bfa97aa9d7
     Hex:           08f87a8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0bf845f84325a0f3d0cd43661cabf53425535817c5058c27781f478cb5459874feaa462ed3a29aa06748abe186269ff10b8100a4b7d7fea274b53ea2905acbf498dc8b5ab1bf4fbc
 ```
 
-### RPC Output \(예시\)
+### RPC Output \(예시\) <a id="rpc-output-example"></a>
 
 다음은 JSON RPC를 통해 반환된 트랜잭션 오브젝트를 보여줍니다.
 
@@ -234,20 +234,20 @@ SenderTxHash 762f130342569e9669a4d8547f1248bd2554fbbf3062d63a97ce28bfa97aa9d7
 }
 ```
 
-## TxTypeValueTransferMemo
+## TxTypeValueTransferMemo <a id="txtypevaluetransfermemo"></a>
 
 TxTypeValueTransferMemo는 사용자가 특정 메시지와 함께 토큰을 보내려고 할 때 사용됩니다. 따라서 TxTypeValueTransferMemo는 `to`가 EOA일때만 작동합니다. KLAY를 스마트 컨트랙트로 전송하려면 [TxTypeSmartContractExecution](basic.md#txtypesmartcontractexecution)를 대신 사용하여야 합니다. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
 
 1. 발신자의 잔고는 트랜잭션 비용만큼 줄어듭니다.
-2. 발신자의 nonce가 1 증가합니다.
+2. 발신자의 논스가 1 증가합니다.
 3. `value` KLAY가 발산지로부터 수신자로 전송됩니다.
 
-### 속성
+### 속성 <a id="attributes"></a>
 
 | 속성           | 형식                                                     | 설명                                                                                                                                                                                                                              |
 |:------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | type         | uint8 \(Go\)                                         | The type of TxTypeValueTransferMemo의 type입니다. 이는 0x10이어야 합니다.                                                                                                                                                                   |
-| nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                |
+| nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                   |
 | gasPrice     | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 비용으로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 비용은 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
 | gas          | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 비용입니다.                                                                                                                                                                                                 |
 | to           | common.Address \(Go\)                                | 전송되는 KLAY를 받을 계정 주소입니다.                                                                                                                                                                                                         |
@@ -256,7 +256,7 @@ TxTypeValueTransferMemo는 사용자가 특정 메시지와 함께 토큰을 보
 | input        | \[\]byte \(Go\)                                    | 트랜잭션에 첨부되는 데이터입니다. 메시지는 이 속성으로 전달되어야 합니다.                                                                                                                                                                                       |
 | txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
 
-### 서명 RLP 인코딩
+### 서명 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
 트랜잭션 서명을 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -266,7 +266,7 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <private key>)
 ```
 
-### SenderTxHash를 위한 RLP 인코딩
+### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
 SenderTxHash를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -277,7 +277,7 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, t
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### 트랜잭션 해시를 위한 RLP 인코딩
+### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
 트랜잭션 해시를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -288,7 +288,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, txSigna
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP 인코딩 \(예시\)
+### RLP 인코딩 \(예시\) <a id="rlp-encoding-example"></a>
 
 다음은 RLP serialization의 결과와 트랜잭션 오브젝트를 보여줍니다.
 
@@ -318,7 +318,7 @@ SenderTxHash 6c7ee543c24e5b928b638a9f4502c1eca69103f5467ed4b6a2ed0ea5aede2e6b
     Hex:           10f8808204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0b8568656c6c6ff845f84325a07d2b0c89ee8afa502b3186413983bfe9a31c5776f4f820210cffe44a7d568d1ca02b1cbd587c73b0f54969f6b76ef2fd95cea0c1bb79256a75df9da696278509f3
 ```
 
-### RPC Output \(예시\)
+### RPC Output \(예시\) <a id="rpc-output-example"></a>
 
 다음은 JSON RPC를 통해 반환된 트랜잭션 오브젝트를 보여줍니다.
 
@@ -353,21 +353,21 @@ SenderTxHash 6c7ee543c24e5b928b638a9f4502c1eca69103f5467ed4b6a2ed0ea5aede2e6b
 }
 ```
 
-## TxTypeSmartContractDeploy
+## TxTypeSmartContractDeploy <a id="txtypesmartcontractdeploy"></a>
 
 TxTypeSmartContractDeploy는 지정된 주소에 스마트 계약을 배포합니다. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
 
 1. 발신자의 잔고는 트랜잭션 비용만큼 줄어듭니다.
-2. 발신자의 nonce가 1 증가합니다.
+2. 발신자의 논스가 1 증가합니다.
 3. `input`에 기입된 코드로 스마트 컨트랙트가 배포됩니다. 배포된 주소는 영수증의 `contractAddress`를 통해 반환됩니다.
 4. `value` KLAY가 발산지로부터 수신자로 전송됩니다.
 
-### 속성
+### 속성 <a id="attributes"></a>
 
 | 속성            | 형식                                                     | 설명                                                                                                                                                                                                                              |
 |:------------- |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | type          | uint8 \(Go\)                                         | TxTypeSmartContractDeploy의 type입니다. 이는 0x28이어야 합니다.                                                                                                                                                                             |
-| nonce         | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                |
+| nonce         | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                   |
 | gasPrice      | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 비용으로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 비용은 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
 | gas           | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 비용입니다.                                                                                                                                                                                                 |
 | to            | \*common.Address \(Go\)                            | 전송되는 KLAY를 받을 계정 주소입니다. 현재 이 값은 nil이어야합니다. 특정 주소를 지정하는 기능은 향후 지원될 예정입니다.                                                                                                                                                        |
@@ -378,7 +378,7 @@ TxTypeSmartContractDeploy는 지정된 주소에 스마트 계약을 배포합�
 | codeFormat    | uint8 \(Go\)                                         | 스마트 컨트랙트 코드의 코드 형식입니다. 현재는 오직 EVM\(0x00\)만 지원됩니다.                                                                                                                                                                             |
 | txSignatures  | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
 
-### 서명 RLP 인코딩
+### 서명 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
 이 트랜잭션 유형의 서명을 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -388,7 +388,7 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <private key>)
 ```
 
-### SenderTxHash를 위한 RLP 인코딩
+### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
 SenderTxHash를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -399,7 +399,7 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, h
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### 트랜잭션 해시를 위한 RLP 인코딩
+### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
 수수료 지불자의 서명을 만들려면 RLP serialization를 다음과 같이 수행해야합니다.
 
@@ -410,7 +410,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, humanRe
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP 인코딩 \(예시\)
+### RLP 인코딩 \(예시\) <a id="rlp-encoding-example"></a>
 
 다음은 RLP serialization의 결과와 트랜잭션 오브젝트를 보여줍니다.
 
@@ -442,7 +442,7 @@ SenderTxHash e983f38b814891990f3ca57028c2230dc7e907eb313c827e7c99fadcc9b4c58b
     Hex:           28f9027d8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0bb901fe608060405234801561001057600080fd5b506101de806100206000396000f3006080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a72305820627ca46bb09478a015762806cc00c431230501118c7c26c30ac58c4e09e51c4f00290180f845f84325a0fcd107738fb47750ba727610aefd6d5f51ac8163d62ce500e7ab7e15defe7088a0383d68220d0266490ea4173c1d7847f22fcbe22f8c8125e1c0589189845c902a
 ```
 
-### RPC Output \(예시\)
+### RPC Output \(예시\) <a id="rpc-output-example"></a>
 
 다음은 JSON RPC를 통해 반환된 트랜잭션 오브젝트를 보여줍니다.
 
@@ -479,21 +479,21 @@ SenderTxHash e983f38b814891990f3ca57028c2230dc7e907eb313c827e7c99fadcc9b4c58b
 }
 ```
 
-## TxTypeSmartContractExecution
+## TxTypeSmartContractExecution <a id="txtypesmartcontractexecution"></a>
 
 TxTypeSmartContractExecution는 스마트 컨트랙트를 실행하고, `input`에 입력된 데이터를 이용합니다. TxTypeSmartContractExecution는 `to`가 스마트 컨트랙트 계정일 때만 실행됩니다. KLAY를 외부 소유 계정으로 전송하려면 [TxTypeValueTransfer](basic.md#txtypevaluetransfer)를 대신 사용하십시오. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
 
 1. `to`가 스마트 컨트랙트라면 `input`을 이용하여 코드가 실행됩니다. 그렇지 않으면 트랜잭션은 거절됩니다.
 2. 발신자의 잔고는 트랜잭션 비용만큼 줄어듭니다.
-3. 발신자의 nonce가 1 증가합니다.
+3. 발신자의 논스가 1 증가합니다.
 4. `value`에 값이 입력되었으면 발신자에서 `to`로`value` KLAY가 전송됩니다. 컨트랙트가 KLAY를 받기 위해서는 컨트랙트는 payable fallback function을 가져야 합니다.
 
-### 속성
+### 속성 <a id="attributes"></a>
 
 | 속성           | 형식                                                     | 설명                                                                                                                                                                                                                              |
 |:------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | type         | uint8 \(Go\)                                         | TxTypeSmartContractExecution의 type입니다. 이는 0x30이어야 합니다.                                                                                                                                                                          |
-| nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                |
+| nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                   |
 | gasPrice     | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 비용으로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 비용은 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
 | gas          | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 비용입니다.                                                                                                                                                                                                 |
 | to           | common.Address \(Go\)                                | 실행할 스마트 계약 컨트랙트의 주소입니다.                                                                                                                                                                                                         |
@@ -502,7 +502,7 @@ TxTypeSmartContractExecution는 스마트 컨트랙트를 실행하고, `input`�
 | input        | \[\]byte \(Go\)                                    | 트랜잭션 실행에 이용되며 트랜잭션에 첨부되는 데이터입니다.                                                                                                                                                                                                |
 | txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
 
-### 서명 RLP 인코딩
+### 서명 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
 이 트랜잭션 유형의 서명을 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -512,7 +512,7 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <private key>)
 ```
 
-### SenderTxHash를 위한 RLP 인코딩
+### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
 SenderTxHash를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -523,7 +523,7 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, t
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### 트랜잭션 해시를 위한 RLP 인코딩
+### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
 트랜잭션 해시를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -534,7 +534,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, txSigna
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP 인코딩 \(예시\)
+### RLP 인코딩 \(예시\) <a id="rlp-encoding-example"></a>
 
 다음은 RLP serialization의 결과와 트랜잭션 오브젝트를 보여줍니다.
 
@@ -564,7 +564,7 @@ SenderTxHash 23bb192bd58d56527843eb63225c5213f3aded95e4c9776f1ff0bdd8ee0b6826
     Hex:           30f89f8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0ba46353586b000000000000000000000000bc5951f055a85f41a3b62fd6f68ab7de76d299b2f845f84326a0e4276df1a779274fbb04bc18a0184809eec1ce9770527cebb3d64f926dc1810ba04103b828a0671a48d64fe1a3879eae229699f05a684d9c5fd939015dcdd9709b
 ```
 
-### RPC Output \(예시\)
+### RPC Output \(예시\) <a id="rpc-output-example"></a>
 
 다음은 JSON RPC를 통해 반환된 트랜잭션 오브젝트를 보여줍니다.
 
@@ -599,28 +599,28 @@ SenderTxHash 23bb192bd58d56527843eb63225c5213f3aded95e4c9776f1ff0bdd8ee0b6826
 }
 ```
 
-## TxTypeAccountUpdate
+## TxTypeAccountUpdate <a id="txtypeaccountupdate"></a>
 
 TxTypeAccountUpdate는 해당 계정의 키를 업데이트합니다. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
 
 1. 발신자의 잔고는 트랜잭션 비용만큼 줄어듭니다.
-2. 발신자의 nonce가 1 증가합니다.
+2. 발신자의 논스가 1 증가합니다.
 3. 계정의 키는 `key`로 업데이트됩니다.
 4. 이 유형의 트랜잭션이 실행되고 나면 계정에서 전송된 트랜잭션은 새 `key`로 검증됩니다.
 
-### 속성
+### 속성 <a id="attributes"></a>
 
 | 속성           | 형식                                                     | 설명                                                                                                                                                                                                                                   |
 |:------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | type         | uint8 \(Go\)                                         | TxTypeAccountUpdate의 type입니다. 이는 0x20이어야 합니다.                                                                                                                                                                                        |
-| nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                     |
+| nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                        |
 | gasPrice     | \*big.Int \(Go\)                                   | 발신자가 얼마나 가스비를 지급해야하는지 알 수 있도록 곱하는 값입니다. 발신자가 지급해야할 비용은 `gas` \* `gasPrice`로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
 | gas          | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 비용입니다.                                                                                                                                                                                                      |
 | from         | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                                  |
 | key          | AccountKey \(Go\)                                    | 업데이트 될 [AccountKey](../accounts.md#account-key)입니다.                                                                                                                                                                                  |
 | txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                                  |
 
-### 서명 RLP 인코딩
+### 서명 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
 이 트랜잭션 유형의 서명을 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -630,7 +630,7 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <private key>)
 ```
 
-### SenderTxHash를 위한 RLP 인코딩
+### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
 SenderTxHash를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -641,7 +641,7 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, from, rlpEncodedKey, txSi
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### 트랜잭션 해시를 위한 RLP 인코딩
+### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
 트랜잭션 해시를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -652,7 +652,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, from, rlpEncodedKey, txSignatur
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP 인코딩 \(예시\)
+### RLP 인코딩 \(예시\) <a id="rlp-encoding-example"></a>
 
 다음은 RLP serialization의 결과와 트랜잭션 오브젝트를 보여줍니다.
 
@@ -680,7 +680,7 @@ SenderTxHash 8c70627d6b637c7d033ead083fc5e43e5cad10c704a86dd9bda7ac104a0e5ad0
     Hex:           20f8888204d219830f424094a94f5374fce5edbc8e2a8697c15331677e6ebf0ba302a1033a514176466fa815ed481ffad09110a2d344f6c9b78c1d14afc351c3a51be33df845f84325a0f7d479628f05f51320f0842193e3f7ae55a5b49d3645bf55c35bee1e8fd2593aa04de8eab5338fdc86e96f8c49ed516550f793fc2c4007614ce3d2a6b33cf9e451
 ```
 
-### RPC Output \(예시\)
+### RPC Output \(예시\) <a id="rpc-output-example"></a>
 
 다음은 JSON RPC를 통해 반환된 트랜잭션 오브젝트를 보여줍니다.
 
@@ -713,28 +713,28 @@ SenderTxHash 8c70627d6b637c7d033ead083fc5e43e5cad10c704a86dd9bda7ac104a0e5ad0
 }
 ```
 
-## TxTypeCancel
+## TxTypeCancel <a id="txtypecancel"></a>
 
-TxTypeCancel는 트랜잭션 풀에서 같은 논스를 가진 트랜잭션을 취소합니다. 이 트랜잭션 유형은 제출된 트랜잭션이 일정 시간 동안 처리되지 않은 것으로 보일 때 유용합니다. 트랜잭션이 처리되지 않은 것처럼 보이는 경우가 몇 가지 있습니다: 1. 트랜잭션이 어딘가에서 손실되어 합의 노드에 도달하지 못하는 경우 2. 어떤 합의 노드에서도 아직 트랜잭션이 처리되지 않은 경우 3. 트랜잭션이 처리되었지만 트랜잭션이 포함된 블록이 전달되지 않은 경우
+TxTypeCancel는 트랜잭션 풀에서 같은 논스를 가진 트랜잭션을 취소합니다. 이 트랜잭션 유형은 제출된 트랜잭션이 일정 시간 동안 처리되지 않은 것으로 보일 때 유용합니다. 트랜잭션이 처리되지 않은 것처럼 보이는 경우가 몇 가지 있습니다: 1. 트랜잭션이 어딘가에서 손실되어 컨센서스 노드에 도달하지 못하는 경우 2. 어떤 컨센서스 노드에서도 아직 트랜잭션이 처리되지 않은 경우 3. 트랜잭션이 처리되었지만 트랜잭션이 포함된 블록이 전달되지 않은 경우
 
-클라이언트 쪽에서는 정확한 원인을 파악하기가 매우 어렵습니다. 이유를 파악하려면 모든 합의 노드를 살펴봐야 합니다. 단, 일반 사람들이 컨센서스 노드에 연결하는 것은 금지됩니다. 이러한 상황에서 일반적인 블록체인 플랫폼에서는 사용자가 이전 트랜잭션을 대체하기 위해 다른 트랜잭션을 더 높은 가스 가격으로 제출하는 경우가 많습니다. 다만, Klaytn에서는 가스 가격이 고정돼 있기 때문에, 기존 트랜잭션을 더 높은 가스 가격으로 대체하는 것은 불가능합니다.
+클라이언트 쪽에서는 정확한 원인을 파악하기가 매우 어렵습니다. 이유를 파악하려면 모든 컨센서스 노드를 살펴봐야 합니다. 단, 일반 사람들이 컨센서스 노드에 연결하는 것은 금지됩니다. 이러한 상황에서 일반적인 블록체인 플랫폼에서는 사용자가 이전 트랜잭션을 대체하기 위해 다른 트랜잭션을 더 높은 가스 가격으로 제출하는 경우가 많습니다. 다만, Klaytn에서는 가스 가격이 고정돼 있기 때문에, 기존 트랜잭션을 더 높은 가스 가격으로 대체하는 것은 불가능합니다.
 
-트랜잭션이 처리되지 않은 상태로 유지되는 경우, 더 높은 nonce를 가진 다른 트랜잭션이 처리될 수 없습니다. nonce로 트랜잭션 실행 순서가 결정되기 때문입니다.
+트랜잭션이 처리되지 않은 상태로 유지되는 경우, 더 높은 논스를 가진 다른 트랜잭션이 처리될 수 없습니다. 논스로 트랜잭션 실행 순서가 결정되기 때문입니다.
 
 이 문제를 해결하기 위해 Klaytn은 트랜잭션 유형 TxTypeCancel을 제공합니다. 사용자는 이러한 상황에 직면하면 TxTypeCancel 트랜잭션을 전송할 수 있습니다.
 
-위의 각 상황은 다음과 같이 처리됩니다. 1. 이전 트랜잭션이 손실된 경우 TxTypeCancel 트랜잭션이 실행되어 블록에 포함됩니다. 2. 이전 트랜잭션이 아직 처리되지 않은 경우 TxTypeCancel은 이전 트랜잭션을 대체합니다. 그런 다음 실행되어 블록에 포함됩니다. 3. 이전 트랜잭션이 이미 실행된 경우, nonce가 증가했으므로 TxTypeCancel 트랜잭션은 nonce가 낮아서 삭제됩니다.
+위의 각 상황은 다음과 같이 처리됩니다. 1. 이전 트랜잭션이 손실된 경우 TxTypeCancel 트랜잭션이 실행되어 블록에 포함됩니다. 2. 이전 트랜잭션이 아직 처리되지 않은 경우 TxTypeCancel은 이전 트랜잭션을 대체합니다. 그런 다음 실행되어 블록에 포함됩니다. 3. 이전 트랜잭션이 이미 실행된 경우, 논스가 증가했으므로 TxTypeCancel 트랜잭션은 논스가 낮아서 삭제됩니다.
 
-TxTypeCancel 트랜잭션은 동일한 nonce의 트랜잭션을 대체 할 수 있는 유일한 트랜잭션입니다. 다른 트랜잭션 유형은동일한 nonce의 트랜잭션으로 바꿀 수 없습니다.
+TxTypeCancel 트랜잭션은 동일한 논스의 트랜잭션을 대체 할 수 있는 유일한 트랜잭션입니다. 다른 트랜잭션 유형은동일한 논스의 트랜잭션으로 바꿀 수 없습니다.
 
-이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다. 1. 발신자의 잔고는 트랜잭션 비용만큼 줄어듭니다. 2. 발신자의 nonce가 1 증가합니다.
+이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다. 1. 발신자의 잔고는 트랜잭션 비용만큼 줄어듭니다. 2. 발신자의 논스가 1 증가합니다.
 
-### 속성
+### 속성 <a id="attributes"></a>
 
 | 속성           | 형식                                                     | 설명                                                                                                                                                                                                                              |
 |:------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | type         | uint8 \(Go\)                                         | TxTypeCancel의 type입니다. 이는 0x38이어야 합니다.                                                                                                                                                                                          |
-| nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.  `TxTypeCancel`을 사용할 때 이 값은 취소할 타겟 트랜잭션의 논스 값과 같아야 합니다.                                                                                        |
+| nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.  `TxTypeCancel`을 사용할 때 이 값은 취소할 타겟 트랜잭션의 논스 값과 같아야 합니다.                                                                                           |
 | gasPrice     | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 비용으로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 비용은 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
 | gas          | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 비용입니다.                                                                                                                                                                                                 |
 | from         | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
@@ -742,11 +742,11 @@ TxTypeCancel 트랜잭션은 동일한 nonce의 트랜잭션을 대체 할 수 �
 
 결과:
 
-1. 같은 논스값을 가진 트랜잭션이 있으면, 이 취소 트랜잭션으로 대체됩니다.
-2. 만약 같은 논스값이 없으면 이 트랜잭션은 보통 트랜잭션으로 삽입됩니다.
+1. 같은 논스를 가진 트랜잭션이 있으면, 이 취소 트랜잭션으로 대체됩니다.
+2. 만약 같은 논스가 없으면 이 트랜잭션은 보통 트랜잭션으로 삽입됩니다.
 3. 취소 트랜잭션은 다른 트랜잭션 유형으로 대체되지 않습니다.
 
-### 서명 RLP 인코딩
+### 서명 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
 트랜잭션 서명을 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -756,7 +756,7 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <private key>)
 ```
 
-### SenderTxHash를 위한 RLP 인코딩
+### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
 SenderTxHash를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -767,7 +767,7 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, from, txSignatures])
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### 트랜잭션 해시를 위한 RLP 인코딩
+### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
 트랜잭션 해시를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -778,7 +778,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, from, txSignatures])
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP 인코딩 \(예시\)
+### RLP 인코딩 \(예시\) <a id="rlp-encoding-example"></a>
 
 다음은 RLP serialization의 결과와 트랜잭션 오브젝트를 보여줍니다.
 
@@ -805,7 +805,7 @@ SenderTxHash 10d135d590cb587cc45c1f94f4a0e3b8c24d24a6e4243f09ca395fb4e2450413
     Hex:           38f8648204d219830f424094a94f5374fce5edbc8e2a8697c15331677e6ebf0bf845f84325a0fb2c3d53d2f6b7bb1deb5a09f80366a5a45429cc1e3956687b075a9dcad20434a05c6187822ee23b1001e9613d29a5d6002f990498d2902904f7f259ab3358216e
 ```
 
-### RPC Output \(예시\)
+### RPC Output \(예시\) <a id="rpc-output-example"></a>
 
 다음은 JSON RPC를 통해 반환된 트랜잭션 오브젝트를 보여줍니다.
 
@@ -837,23 +837,23 @@ SenderTxHash 10d135d590cb587cc45c1f94f4a0e3b8c24d24a6e4243f09ca395fb4e2450413
 }
 ```
 
-## TxTypeChainDataAnchoring
+## TxTypeChainDataAnchoring <a id="txtypechaindataanchoring"></a>
 
-TxTypeChainDataAnchoring 트랜잭션은 서비스체인에서 사용되는 트랜잭션입니다. 서비스체인은 서비스체인의 데이터 무결성(integrity)을 증명하기 위해 주기적으로 클레이튼 메인체인에 이 트랜잭션을 전송합니다. 서비스체인의 자세한 내용을 보려면 [Service Chain Network]을 참고해주세요. RPC를 통해 이 트랜잭션을 전송하는 것은 제한됩니다. 현재 구현에서는 보안상의 이유로 프라이빗 p2p 채널을 사용하여 TxTypeChainDataAnchoring 트랜잭션을 보냅니다. 이 트랜잭션 유형은 발신자의 논스값을 1씩 증가시키는 것을 제외하고는 Klaytn 블록 체인의 상태를 변경하지 않습니다.
+TxTypeChainDataAnchoring 트랜잭션은 서비스체인에서 사용되는 트랜잭션입니다. 서비스체인은 서비스체인의 데이터 무결성(integrity)을 증명하기 위해 주기적으로 클레이튼 메인체인에 이 트랜잭션을 전송합니다. 서비스체인의 자세한 내용을 보려면 [Service Chain Network]을 참고해주세요. RPC를 통해 이 트랜잭션을 전송하는 것은 제한됩니다. 현재 구현에서는 보안상의 이유로 프라이빗 p2p 채널을 사용하여 TxTypeChainDataAnchoring 트랜잭션을 보냅니다. 이 트랜잭션 유형은 발신자의 논스를 1씩 증가시키는 것을 제외하고는 Klaytn 블록 체인의 상태를 변경하지 않습니다.
 
-### 속성
+### 속성 <a id="attributes"></a>
 
 | 속성           | 형식                                                     | 설명                                                                                                                                                                                                                              |
 |:------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | type         | uint8 \(Go\)                                         | TxTypeChainDataAnchoringTransaction의 type입니다. 이는 0x48이어야 합니다.                                                                                                                                                                   |
-| nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                |
+| nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                   |
 | gasPrice     | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 비용으로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 비용은 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
 | gas          | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 비용입니다.                                                                                                                                                                                                 |
 | from         | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
 | input        | \[\]byte \(Go\)                                    | 서비스체인의 데이터입니다.                                                                                                                                                                                                                  |
 | txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
 
-### 서명 RLP 인코딩
+### 서명 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
 이 트랜잭션 유형의 서명을 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -863,7 +863,7 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <private key>)
 ```
 
-### SenderTxHash를 위한 RLP 인코딩
+### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
 SenderTxHash를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -874,7 +874,7 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, from, anchoredData, txSig
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### 트랜잭션 해시를 위한 RLP 인코딩
+### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
 트랜잭션 해시를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
 
@@ -885,7 +885,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, from, anchoredData, txSignature
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP 인코딩 \(예시\)
+### RLP 인코딩 \(예시\) <a id="rlp-encoding-example"></a>
 
 다음은 RLP serialization의 결과와 트랜잭션 오브젝트를 보여줍니다.
 
@@ -913,7 +913,7 @@ SenderTxHash 4aad85735e777795d24aa3eab51be959d8ebdf9683083d85b66f70b7170f2ea3
     AnchoredData:  f8a6a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a0000000000000000000000000000000000000000000000000000000000000000405
 ```
 
-### RPC Output \(예시\)
+### RPC Output \(예시\) <a id="rpc-output-example"></a>
 
 다음은 JSON RPC를 통해 반환된 트랜잭션 오브젝트를 보여줍니다.
 
