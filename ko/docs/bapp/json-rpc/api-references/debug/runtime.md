@@ -1,6 +1,6 @@
-# Runtime Debugging
+# Runtime Debugging <a id="runtime-debugging"></a>
 
-## debug_freeOSMemory
+## debug_freeOSMemory <a id="debug_freeosmemory"></a>
 
 사용하지 않는 메모리를 운영체제에 반환합니다.
 
@@ -31,7 +31,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_gcStats
+## debug_gcStats <a id="debug_gcstats"></a>
 
 GC 통계를 반환합니다.
 
@@ -69,7 +69,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_memStats
+## debug_memStats <a id="debug_memstats"></a>
 
 런타임 메모리 통계를 반환합니다.
 
@@ -118,7 +118,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_metrics
+## debug_metrics <a id="debug_metrics"></a>
 
 노드가 수집한 시스템의 측정 수치들을 검색합니다.
 
@@ -129,9 +129,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 명칭  | 형식  | 설명                                                     |
-| --- | --- | ------------------------------------------------------ |
-| raw | 불리언 | raw 데이터 자체로 출력하면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+| 명칭  | 형식   | 설명                                                     |
+| --- | ---- | ------------------------------------------------------ |
+| raw | bool | raw 데이터 자체로 출력하면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **리턴값**
 
@@ -204,7 +204,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_setGCPercent
+## debug_setGCPercent <a id="debug_setgcpercent"></a>
 
 GC 비율을 설정합니다. 이전 설정값을 반환합니다. 음수로 설정하면 GC를 비활성화합니다.
 
@@ -241,7 +241,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ```
 
 
-## debug_stacks
+## debug_stacks <a id="debug_stacks"></a>
 
 모든 go루틴의 스택을 반환합니다.
 
