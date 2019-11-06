@@ -1,4 +1,4 @@
-# 트랜잭션 비용
+# 트랜잭션 비용 <a id="transaction-fees"></a>
 
 현재 Klaytn 가상머신\(KLVM\)의 트랜잭션 비용은 다음과 같이 계산됩니다.
 
@@ -11,35 +11,35 @@
 
 이 계산된 트랜잭션 비용은 트랜잭션에 따라 발신자 또는 기업 계좌 잔액에서 차감됩니다.
 
-## 가스 및 단가 개요
+## 가스 및 단가 개요 <a id="gas-and-unit-price-overview"></a>
 
-### 가스
+### 가스 <a id="gas"></a>
 
 블록체인 상태를 변경하는 모든 행동에는 가스가 필요합니다. 노드가 KLAY 전송, ERC-20 토큰 사용 또는 컨트랙트 실행과 같은 사용자의 트랜잭션을 처리할 때 사용자는 연산 및 스토리지 사용 비용을 지불해야 합니다. 지불 금액은 필요한 `gas`양으로 정합니다.
 
 `가스`는 사용자의 트랜잭션을 처리하는 데 어느 정도의 연산이 필요한지를 나타내는 측정 단위입니다.
 
-### 단가(Unit Price)
+### 단가(Unit Price)<a id="unit-price"></a>
 
 `단가`는 가스당 가격입니다. 단가 \(`가스 가격`\라고도 함)는 거버넌스에 의해 시스템에 설정되어 있습니다. 현재는 가스당 25 Gpeb\(_즉_, 25 x 10^9 peb\)로 설정되어있으며, 사용자에 의해 바뀔 수 없습니다. 현재의 단가 정보는 `klay.gasPrice` API를 호출하여 얻을 수 있습니다.
 
-이더리움에서 사용자는 각 트랜잭션에 대한 가스 가격을 설정하고, 마이너들은 보상을 극대화하기 위해 특정 거래를 그들의 블록에 포함시킬 수 있습니다. 이는 한정된 자원을 얻기 위한 경매와 같습니다. 이 접근 방식은 시장을 기반으로 하므로 작동합니다. 하지만, 트랜잭션 비용의 변동이 심하고 실행을 보장할 수 없을 정도로 자주 너무 높아집니다.
+이더리움에서 사용자는 각 트랜잭션에 대한 가스 가격을 설정하고, 채굴자들은 보상을 극대화하기 위해 특정 트랜잭션을 그들의 블록에 포함시킬 수 있습니다. 이는 한정된 자원을 얻기 위한 경매와 같습니다. 이 접근 방식은 시장을 기반으로 하므로 작동합니다. 하지만, 트랜잭션 비용의 변동이 심하고 실행을 보장할 수 없을 정도로 자주 너무 높아집니다.
 
 이 문제를 해결하기 위해 Klaytn은 고정된 단가를 사용하고 있으며 가격은 governance council에서 조정할 수 있습니다. 이 정책은 모든 트랜잭션이 동일하게 처리되고 실행되도록 보장합니다. 따라서, 사용자는 적절한 단가를 결정하기 위해 애쓸 필요가 없습니다.
 
-#### 단가에 대한 트랜잭션 검증
+#### 단가에 대한 트랜잭션 검증 <a id="transaction-validation-against-unit-price"></a>
 
 Klaytn은 유저가 Klaytn의 단가와 같도록 설정한 가스비를 포함한 트랜잭션만 받습니다. Klaytn의 단가와 다른 가스 가격의 트랜잭션은 거부됩니다.
 
-#### 단가 오류(Unit Price Error)
+#### 단가 오류(Unit Price Error)<a id="unit-price-error"></a>
 
 트랜잭션의 가스 가격이 Klaytn의 단가(Unit price)와 같지 않을 때, 에러 메시지인 `invalid unit price`가 반환됩니다.
 
-### 트랜잭션 교체
+### 트랜잭션 교체 <a id="transaction-replacement"></a>
 
-Klaytn은 현재 단가를 이용하는 트랜잭션을 교체할 수 없습니다. 하지만 향후 트랜잭션 교체를 위한 방법이 지원될 것입니다. 이더리움에서는 주어진 nonce를 가진 트랜잭션이 더 높은 가스 가격으로 설정된 트랜잭션에 의해 교체될 수 있습니다.
+Klaytn은 현재 단가를 이용하는 트랜잭션을 교체할 수 없습니다. 하지만 향후 트랜잭션 교체를 위한 방법이 지원될 것입니다. 이더리움에서는 주어진 논스를 가진 트랜잭션이 더 높은 가스 가격으로 설정된 트랜잭션에 의해 교체될 수 있습니다.
 
-## Klaytn의 가스표
+## Klaytn의 가스표  <a id="klaytns-gas-table"></a>
 
 기본적으로 Klaytn은 이더리움과 호환성을 유지합니다. 그래서 Klaytn의 가스표는 이더리움과 매우 유사합니다. 하지만 Klaytn의 고유한 기능이 있기 때문에, 그런 기능들을 위한 다른 수치들이 있습니다.
 
@@ -81,7 +81,7 @@ Klaytn은 현재 단가를 이용하는 트랜잭션을 교체할 수 없습니�
 | G\_sha3word     | 6     | SHA3 연산에 대한 입력 데이터의 각 단어(반올림)에 대해 지불하는 가스량                                                 |
 | G\_copy         | 3     | \*COPY 연산에 대한 부분 지불량. 복사된 단어에 곱하고, 반올림 됨.                                                |
 | G\_blockhash    | 20    | BLOCKHASH 연산을 위해 지불하는 가스량                                                                  |
-| G\_extcodehash  | 400   | 컨트랙트 코드의 keccak256 해시값을 얻기 위해 지불하는 가스량                                                     |
+| G\_extcodehash  | 400   | 컨트랙트 코드의 keccak256 해시를 얻기 위해 지불하는 가스량                                                      |
 | G\_create2      | 32000 | CREATE와 똑같이 작동하지만 다른 인수를 사용하는 CREATE2 연산자를 위해 지불하는 가스량.                                    |
 
 ### 미리 컴파일된 컨트랙트(Precompiled Contracts) <a id="precompiled-contracts"></a>
@@ -121,17 +121,17 @@ TotalGas = number of signatures * ValidateSenderGas
 
 ### 계정 관련 가스 비용표<a id="account-related-gas-table"></a>
 
-| 항목                         | 가스    | 설명                          |
-|:-------------------------- |:----- |:--------------------------- |
-| TxAccountCreationGasPerKey | 20000 | 키 페어 생성에 필요한 가스             |
-| TxValidationGasPerKey      | 15000 | 키 검증(validation)에 필요한 가스    |
-| TxGasAccountUpdate         | 21000 | 계정 업데이트에 필요한 가스             |
-| TxGasFeeDelegated          | 10000 | 트랜잭션 비용 위임에 필요한 가스          |
-| TxGasFeeDelegatedWithRatio | 15000 | Ratio 트랜잭션 비용 위임에 필요한 가스    |
-| TxGasCancel                | 21000 | nonce가 같은 거래를 취소하는 데 필요한 가스 |
-| TxGasValueTransfer         | 21000 | KLAY 전송에 필요한 가스             |
-| TxGasContractExecution     | 21000 | 컨트랙트 실행을 위한 기본 가스           |
-| TxDataGas                  | 100   | 트랜잭션의 단일 바이트 당 필요한 가스       |
+| 항목                         | 가스    | 설명                         |
+|:-------------------------- |:----- |:-------------------------- |
+| TxAccountCreationGasPerKey | 20000 | 키 페어 생성에 필요한 가스            |
+| TxValidationGasPerKey      | 15000 | 키 검증(validation)에 필요한 가스   |
+| TxGasAccountUpdate         | 21000 | 계정 업데이트에 필요한 가스            |
+| TxGasFeeDelegated          | 10000 | 트랜잭션 비용 위임에 필요한 가스         |
+| TxGasFeeDelegatedWithRatio | 15000 | Ratio 트랜잭션 비용 위임에 필요한 가스   |
+| TxGasCancel                | 21000 | 논스가 같은 트랜잭션을 취소하는 데 필요한 가스 |
+| TxGasValueTransfer         | 21000 | KLAY 전송에 필요한 가스            |
+| TxGasContractExecution     | 21000 | 컨트랙트 실행을 위한 기본 가스          |
+| TxDataGas                  | 100   | 트랜잭션의 단일 바이트 당 필요한 가스      |
 
 페이로드 데이터는 아래와 같이 계산됩니다.
 
