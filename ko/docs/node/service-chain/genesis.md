@@ -1,6 +1,6 @@
 이 페이지는 `genesis.json`의 세부 사항을 설명합니다.
 
-# Genesis JSON 파일 구조
+# Genesis JSON 파일 구조 <a id="genesis-json-file-structure"></a>
 
 `genesis.json` 파일 구조는 다음 표에 설명되어 있습니다.
 
@@ -13,13 +13,13 @@
 | gasLimit   | 블록에 사용된 최대 가스량.                                                                               |
 | difficulty | (더 이상 사용되지 않음) 이 필드는 이더리움으로부터 파생되었지만, Klaytn에서는 사용되지 않습니다.                                    |
 | mixhash    | (더 이상 사용되지 않음) 이 필드는 이더리움으로부터 파생되었지만, Klaytn에서는 사용되지 않습니다.                                    |
-| coinbase   | 마이너가 보상을 받는 주소. 이 필드는 Clique 컨센서스 엔진에서만 사용됩니다.                                                |
+| coinbase   | 채굴자가 보상을 받는 주소. 이 필드는 Clique 컨센서스 엔진에서만 사용됩니다.                                                |
 | alloc      | 사전 정의된 계정.                                                                                    |
 | number     | 블록 번호 필드.                                                                                     |
 | gasUsed    | 블록에서 사용된 가스량.                                                                                 |
 | parentHash | 이전 블록의 해시값.                                                                                   |
 
-## Config
+## Config <a id="config"></a>
 
 `config` 필드는 체인과 관련된 정보를 저장합니다.
 
@@ -32,7 +32,7 @@
 | governance       | 네트워크의 거버넌스 정보. [Governance](#governance) 섹션을 참조하세요. |
 
 
-## extraData
+## extraData <a id="extradata"></a>
 
 `extraData` 필드는 제안자 베니티와 RLP-인코딩된 이스탄불 추가 데이터의 통합입니다:
 
@@ -59,11 +59,11 @@ concat('0x',Vanity,RLPEncode({Validators,Seal,CommittedSeal}))
 이 함수로부터 예제의 출력 `extraData`는 0x0000000000000000000000000000000000000000000000000000000000000000f86fea9448009b4e20ec72aadf306577cbe2eaf54b0ebb1694089fcc42fd83baeee4831319375413b8bae3acebb8410000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c0입니다.
 
 
-# 합의 엔진
+# 합의 엔진 <a id="consensus-engine"></a>
 
 Klaytn 네트워크에 사용 가능한 합의 엔진은 Clique와 Istanbul입니다. 각 엔진은 다음과 같이 설명됩니다.
 
-## Clique
+## Clique <a id="clique"></a>
 
 `clique` 필드는 Proof-Of-Authority(POA) 기반 씰링을 위한 구성을 저장합니다.
 
@@ -72,7 +72,7 @@ Klaytn 네트워크에 사용 가능한 합의 엔진은 Clique와 Istanbul입�
 | period | 연속된 블록 사이의 최소 시간 간격(단위: 초). |
 | epoch  | 투표를 재설정하고 체크포인트로 표시될 블록의 수  |
 
-## Istanbul
+## Istanbul <a id="istanbul"></a>
 
 `istanbul` 필드는 이스탄불 기반 씰링을 위한 구성을 저장합니다.
 
@@ -82,7 +82,7 @@ Klaytn 네트워크에 사용 가능한 합의 엔진은 Clique와 Istanbul입�
 | policy | 블록 제안자 선출 정책. [0: 라운드 로빈, 1: 고정, 2: 가중 랜덤] |
 | sub    | 위원회 규모.                                    |
 
-# 거버넌스(Governance)
+# 거버넌스(Governance)<a id="governance"></a>
 
 `governance` 필드는 네트워크를 위한 거버넌스 정보를 저장합니다.
 
@@ -92,7 +92,7 @@ Klaytn 네트워크에 사용 가능한 합의 엔진은 Clique와 Istanbul입�
 | governanceMode | 지정된 관리 노드의 주소. 거버넌스 모드가 `single` 인 경우에만 작동합니다.     |
 | reward         | 보상 구성을 저장합니다. [Reward](#reward) 섹션을 확인하세요.         |
 
-## 보상
+## 보상 <a id="reward"></a>
 
 `reward` 필드는 네트워크의 토큰 이코노미에 대한 정보를 저장합니다.
 
@@ -106,7 +106,7 @@ Klaytn 네트워크에 사용 가능한 합의 엔진은 Clique와 Istanbul입�
 | proposerUpdateInterval | 제안자 정보를 업데이트하기 위한 블록 높이의 시간 간격.                   |
 | minimumStake           | 코어 셀 운영자에 참여하기 위한 최소량의 peb.                       |
 
-# 예시
+# 예시 <a id="example"></a>
 
 ```
 {
