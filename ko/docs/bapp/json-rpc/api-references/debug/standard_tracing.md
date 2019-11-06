@@ -1,6 +1,6 @@
-# VM Standard Tracing
+# VM Standard Tracing <a id="vm-standard-tracing"></a>
 
-## debug_standardTraceBadBlockToFile
+## debug_standardTraceBadBlockToFile <a id="debug_standardtracebadblocktofile"></a>
 
 [debug_traceBadBlock](./tracing.md#debug_tracebadblock)과 유사하게 `standardTraceBadBlockToFile`는 잘못된 블록 해시를 입력으로 받아 해당 잘못된 블록을 재실행합니다. 추적 결과가 포함된 파일명 목록을 반환합니다. 이 파일들은 API를 제공하는 머신에 저장이 됩니다.
 
@@ -38,7 +38,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 ```
 
 
-## debug_standardTraceBlockToFile
+## debug_standardTraceBlockToFile <a id="debug_standardtraceblocktofile"></a>
 
 [debug_traceBlock](./tracing.md#debug_traceblock)과 유사하게 `standardTraceBlockToFile`는 블록 해시를 받아 데이터베이스에 존재하는 해당 블록을 재실행합니다. 추적 결과가 포함된 파일명 목록을 반환합니다. 이 파일들은 API를 제공하는 머신에 저장이 됩니다.
 
@@ -75,7 +75,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## 표준 추적 옵션
+## 표준 추적 옵션 <a id="standard-tracing-options"></a>
 
 추적 API 함수에 보조적으로 필수적이지 않은 매개변수를 전달할 수도 있습니다. 이들은 특정 호출을 지정하는 옵션 역할을 합니다. 다음의 옵션들을 사용할 수 있습니다.
 
