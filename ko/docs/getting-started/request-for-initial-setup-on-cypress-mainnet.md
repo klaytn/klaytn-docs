@@ -1,4 +1,4 @@
-# Cypress Mainnet 초기 설정 요청
+# Cypress Mainnet 초기 설정 요청 <a id="request-for-initial-setup-on-cypress-mainnet"></a>
 
 **참고**: 만일 서비스가 Baobab\(testnet\)에서 완전히 테스트되었고 바로 시작할 수 있는 경우, [Klaytn Proof of Contribution Incentive Program](https://docs.klaytn.com/klaytn/design/token-economy#incentive-programs)을 신청할 수 있습니다.
 
