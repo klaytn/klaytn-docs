@@ -1,12 +1,12 @@
-# 환경 설정
+# 설정<a id="configuration"></a>
 
 CN 환경 설정은 데이터 디렉토리를 생성하고 환경 설정 파일 `kcnd.conf`의 여러 변수를 설정합니다.
 
 1. CN 데이터 디렉토리 생성
-2. node key 설치
+2. 노드 키 설치
 3. `kcnd.conf`으로 CN 환경을 설정합니다.
 
-## CN 데이터 디렉토리 생성
+## CN 데이터 디렉토리 생성 <a id="cn-data-directory-creation"></a>
 
 Klaytn 블록체인 데이터의 크기가 계속 증가됨을 고려하여, 충분히 큰 스토리지를 사용하는 것을 추천합니다. 원하는 경로에 디렉토리를 생성할 수 있습니다.
 
@@ -14,7 +14,7 @@ Klaytn 블록체인 데이터의 크기가 계속 증가됨을 고려하여, 충
 $ mkdir -p /var/kcnd/data
 ```
 
-## node key 설치
+## 노드 키 설치 <a id="install-node-key"></a>
 
 CN을 작동시키기 위해 `nodekey`가 필요합니다. 만일 소유하지 않은 경우에는 KCN 바이너리가 새로 생성해 줄 것입니다. 만일 이미 가지고 있다면 `nodekey`를 CN 데이터 디렉토리에 넣으세요. `nodekey`를 생성하는 방법은 '[Before You Install](../before-you-install.md)' 섹션에 설명되어 있습니다. 다음 명령 줄은 `nodekey`를 CN 데이터 디렉토리에 복사합니다.
 
@@ -22,14 +22,14 @@ CN을 작동시키기 위해 `nodekey`가 필요합니다. 만일 소유하지 �
 $ cp nodekey /var/kcnd/data
 ```
 
-## 환경 설정 파일 업데이트
+## 환경 설정 파일 업데이트 <a id="update-the-configuration-file"></a>
 
 환경 설정 파일 위치는 다음과 같습니다.
 
 * 아카이브 배포의 경우 환경 설정 디렉토리의 위치가 `$INSTALL_PATH/kcn-linux-amd64/conf/`으로 기본 설정되어 있습니다.
 * 패키지 배포의 경우 환경 설정 디렉토리의 위치가 `/etc/kcnd/conf/`으로 기본 설정되어 있습니다.
 
-### 데이터 디렉토리 추가
+### 데이터 디렉토리 추가  <a id="add-data-directory"></a>
 
 환경 설정 파일 `kcnd.conf`의 데이터 디렉토리 환경 변수 `$DATA_DIR`를 업데이트해야 합니다.
 
@@ -39,7 +39,7 @@ DATA_DIR=/var/kcnd/data
 ...
 ```
 
-### Rewardbase 설정
+### Rewardbase 설정 <a id="setup-rewardbase"></a>
 
 Klaytn 네트워크 컨센서스에 참여한 것에 대한 보상으로, CN 운영자는 KLAY를 받습니다. 이러한 이유로 환경 설정 파일 `kcnd.conf`에 주소를 설정해야 합니다.
 
@@ -72,11 +72,11 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 
 생성한 키스토어와 비밀번호는 매우 중요하므로 관리에 주의해야 합니다. `kcnd.conf`에 대한 자세한 내용은 [Configuration File](../../operation-guide/configuration.md) 섹션을 참조하세요.
 
-## Fast Sync \(선택 사항\)
+## 패스트 싱크 \(선택 사항\) <a id="fast-sync-optional"></a>
 
 각 CN은 네트워크의 체인 데이터 사본을 갖고 있습니다. 어떤 노드가 동기화되어 있지 않으면 네트워크의 다른 노드로부터 데이터를 받아옵니다 -- 동기화(syncing)라고 알려진 과정입니다. 새로운 CN이 처음 시작되면 네트워크로부터 전체 체인 데이터를 다운로드받아와야 합니다.
 
-이 과정을 더 빠르게 하기 위해 CN을 시작하기 전에 체인 데이터의 스냅샷을 다운로드하여 Fast Sync를 실행할 수 있습니다. Fast Sync는 CN이 처음 시작할 때 동기화하는 데에 드는 시간을 크게 줄일 수 있습니다.
+이 과정을 더 빠르게 하기 위해 CN을 시작하기 전에 체인 데이터의 스냅샷을 다운로드하여 패스트 싱크를 실행할 수 있습니다. 패스트 싱크는 CN이 처음 시작할 때 동기화하는 데에 드는 시간을 크게 줄일 수 있습니다.
 
 [Cypress 스냅샷 아카이브](http://packages.klaytn.net/cypress/chaindata/) 또는 [Baobab 스냅샷 아카이브](http://packages.klaytn.net/baobab/chaindata/)에서 체인 데이터의 최신 스냅샷을 다운로드할 수 있습니다. `kcnd`을 시작하기 전에 `kcnd.conf`에서 설정한 DATA\_DIR 내의 스냅샷을 추출하세요.
 
