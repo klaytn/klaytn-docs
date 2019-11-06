@@ -1,6 +1,6 @@
-# 트랜잭션 비용 위임 예시
+# 트랜잭션 비용 위임 예시 <a id="fee-delegation-example"></a>
 
-## 목차
+## 목차 <a id="table-of-contents"></a>
 
 * [1. 소개](#1-introduction)
 * [2. 트랜잭션 비용 위임 작동 방식](#2-how-fee-delegation-works)
@@ -15,22 +15,22 @@
   * 4.3 `feepayer_server.js` 확인
   * 4.4  Klaytnscope
 
-## 1. 소개
+## 1. 소개 <a id="1-introduction"></a>
 
 본 튜토리얼은 caver-js SDK를 활용하여 간단한 서버-클라이언트를 예제를 구축할 수 있도록 함으로써 Klaytn에서 어떻게 트랜잭션 비용이 위임된 송금 트랜잭션이 작동되는지 보여줍니다. 튜토리얼과 예제의 코드는 Baobab 테스트넷을 사용하고 있습니다.
 
-## 2. 트랜잭션 비용 위임 작동 방식
+## 2. 트랜잭션 비용 위임 작동 방식 <a id="2-how-fee-delegation-works"></a>
 
 트랜잭션 비용 위임이 어떻게 이루어지는지 살펴보겠습니다.
 
-### 2.1 트랜잭션 발신자에 의한 서명
+### 2.1 트랜잭션 발신자에 의한 서명 <a id="2-1-transaction-signing-by-the-sender"></a>
 
 `Sender`\(트랜잭션 발신자\)는 트랜잭션을 전송하기 전에 항상 트랜잭션을 서명해야 합니다.
 
 트랜잭션을 서명하려면 개인키로 트랜잭션 서명을 하는 [signTransaction](../sdk/caver-js/api-references/caver.klay.accounts.md#signtransaction)을 실행하세요.
 
 ```text
-// 이벤트 에미터 사용
+// 이벤트 이미터 사용
 const senderPrivateKey = "PRIVATE_KEY"
 
 const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
@@ -46,7 +46,7 @@ const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signT
 
 이제 트랜잭션 비용 납부자에게 `senderRawTransaction`를 전송해야 합니다. 이것을 전송하는 방법에는 여러 가지가 있어요. 여기서는 `senderRawTransaction`를 트랜잭션 비용 납부자에게 전송하는 예제로 간단한 서버-클라이언트 코드를 드릴게요.
 
-### 2.2 트랜잭션 비용 납부자에 의한 서명
+### 2.2 트랜잭션 비용 납부자에 의한 서명 <a id="2-2-transaction-signing-by-the-fee-payer"></a>
 
 `fee payer`\(트랜잭션 비용 납부자\)가 `senderRawTransaction`를 받으면, `fee payer`\(트랜잭션 비용 납부자\)는 본인의 개인키로 한번 더 `senderRawTransaction`를 서명한 후 Klaytn에 전송합니다. 다음의 코드 스니펫은 위 과정을 구현한 것이에요. `klay.sendTransaction` 메서드는 트랜잭션을 전송하기 전에 지정한 계정의 개인키로 트랜잭션을 서명합니다. 아래 코드를 실행하기 전에 `"FEEPAYER_ADDRESS"`와 `"PRIVATE_KEY"`는 각각 트랜잭션 비용 납부자의 주소와 납부자의 개인키로 바꿔주세요.
 
@@ -71,11 +71,11 @@ caver.klay.sendTransaction({
 .on('error', console.error); // 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
 ```
 
-## 3. 트랜잭션 비용 위임을 위한 간단한 서버와 클라이언트
+## 3. 트랜잭션 비용 위임을 위한 간단한 서버와 클라이언트 <a id="3-simple-server-and-client-for-fee-delegation"></a>
 
 위의 트랜잭션 비용 위임 코드를 활용하여 간단한 서버와 클라이언트를 구축해보겠습니다.
 
-### 3.1 환경 설정
+### 3.1 환경 설정 <a id="3-1-environment-setup"></a>
 
 위 예제의 환경 설정을 위해 `npm`과 [caver-js](../sdk/caver-js/README.md)을 사용하여 아래와 같이 설정합니다.
 
@@ -86,7 +86,7 @@ $ npm init
 $ npm install caver-js@latest
 ```
 
-### 3.1 트랜잭션 발신자의 클라이언트
+### 3.1 트랜잭션 발신자의 클라이언트 <a id="3-1-sender-s-client"></a>
 
 먼저 다음과 같이 `sender_client.js`를 작성해주세요.
 
@@ -132,7 +132,7 @@ sendFeeDelegateTx();{ rawTransaction: senderRawTransaction }
 
 위 코드에서는 `senderPrivateKey`를 통해 트랜잭션 비용이 위임된 송금 트랜잭션을 서명한 후 IP 주소 `127.0.0.1`\(로컬호스트\)의 `1337`번 포트에 있는 트랜잭션 비용 납부자의 서버로 서명된 `senderRawTranscation`를 전송하고 있습니다.
 
-### 3.2 트랜잭션 비용 납부자의 서버
+### 3.2 트랜잭션 비용 납부자의 서버 <a id="3-2-fee-payer-s-server"></a>
 
 이제 트랜잭션 비용 납부자의 서버인 `feepayer_server.js`를 작성해봅시다. 이 서버는 수신한 `senderRawTransaction`를 `feePayerPrivateKey`로 서명한 후 Baobab 테스트넷에 전송합니다.
 
@@ -185,11 +185,11 @@ console.log('Fee delegate service started ...');
 
 `data`가 들어오면 `feePayerPrivateKey`로 `data`를 서명하고 Klaytn 블록체인으로 전송할거에요. 이때 `data`는 `sender_client.js`로부터 전송받은 `senderRawTransaction`입니다.
 
-## 4. 예제 실행
+## 4. 예제 실행 <a id="4-run-example"></a>
 
 `sender_client.js`를 실행할 터미널과 `feepayer_server.js`를 실행할 터미널, 총 두 개의 터미널을 준비해주세요.
 
-### 4.1 `feepayer_server.js` 실행
+### 4.1 `feepayer_server.js` 실행 <a id="4-1-run-feepayer_server-js"></a>
 
 아래 명령어는 트랜잭션 비용 납부자의 서버를 실행시킵니다.
 
@@ -200,7 +200,7 @@ Fee delegate service started ...
 
 서버가 실행되고 1337번 포트에서 수신 대기 중이네요.
 
-### 4.2 `sender_client.js` 실행
+### 4.2 `sender_client.js` 실행 <a id="4-2-run-sender_client-js"></a>
 
 이제 `sender_client.js`를 실행하여 트랜잭션 비용이 위임된 트랜잭션을 전송해봅시다.
 
@@ -215,9 +215,9 @@ Received data from server: Tx hash is 0xd99086aa8188255d4ee885d9f1933b6cc062085c
 Received data from server: Sender Tx hash is 0xe1f630547f287177a0e92198b1c67212b24fc1ad5a1f0b1f94fd6f980281fdba
 ```
 
-`sender`\(트랜잭션 발신자\)의 개인키로 트랜잭션을 서명한 후 트랜잭션 비용 위임 서비스\(예를 들면 트랜잭션 비용 납부자의 서버\)로 서명된 트랜잭션을 전송합니다. 이후 트랜잭션 비용 위임 서비스로부터 `Fee payer`\(트랜잭션 비용 납부자\) 의 주소, `Tx hash`, `Sender Tx hash`가 포함된 응답을 받습니다. 이때 `Tx hash`는 Klaytn 네트워크에 제출된 트랜잭션의 해시값이고, `Sender Tx hash`는 트랜잭션 비용 납부자의 주소와 서명을 제외한 나머지 부분에 대한 해시값입니다. 더 자세한 내용은 [SenderTxHash](../../klaytn/design/transactions/README.md#sendertxhash)를 참고해주세요.
+`sender`\(트랜잭션 발신자\)의 개인키로 트랜잭션을 서명한 후 트랜잭션 비용 위임 서비스\(예를 들면 트랜잭션 비용 납부자의 서버\)로 서명된 트랜잭션을 전송합니다. 이후 트랜잭션 비용 위임 서비스로부터 `Fee payer`\(트랜잭션 비용 납부자\) 의 주소, `Tx hash`, `Sender Tx hash`가 포함된 응답을 받습니다. 이때 `Tx hash`는 Klaytn 네트워크에 제출된 트랜잭션의 해시이고, `Sender Tx hash`는 트랜잭션 비용 납부자의 주소와 서명을 제외한 나머지 부분에 대한 해시입니다. 더 자세한 내용은 [SenderTxHash](../../klaytn/design/transactions/README.md#sendertxhash)를 참고해주세요.
 
-### 4.3 `feepayer_server.js` 확인
+### 4.3 `feepayer_server.js` 확인 <a id="4-3-check-feepayer_server-js"></a>
 
 트랜잭션 비용 납부자의 서버를 구동중인 콘솔에서 아래와 같은 출력을 확인할 수 있습니다. Klaytn에서의 트랜잭션 영수증을 출력하는 것이에요.
 
@@ -275,7 +275,7 @@ receipt { blockHash:
   value: '0x9184e72a000' }
 ```
 
-### 4.4  Klaytnscope
+### 4.4  Klaytnscope <a id="4-4-klaytn-scope"></a>
 
 위 트랜잭션은 [Klaytnscope](https://baobab.scope.klaytn.com)에서 확인하실 수도 있어요.
 
