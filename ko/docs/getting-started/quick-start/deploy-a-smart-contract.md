@@ -1,8 +1,8 @@
-# 스마트 컨트랙트 배포
+# 스마트 컨트랙트 배포 <a id="deploy-a-smart-contract"></a>
 
 이제 Klaytn 스마트 컨트랙트를 개발하고 배포할 준비가 되었습니다!
 
-## 프로젝트 디렉토리 생성
+## 프로젝트 디렉토리 생성 <a id="creating-a-project-directory"></a>
 
 우선, 소스 코드가 위치할 디렉토리를 생성하세요.
 
@@ -11,7 +11,7 @@ $ mkdir klaytn-testboard
 $ cd klaytn-testboard
 ```
 
-## Truffle 초기화
+## Truffle 초기화 <a id="initializing-truffle"></a>
 
 컨트랙트 배포를 위해 Truffle을 초기화하세요.
 
@@ -19,7 +19,7 @@ $ cd klaytn-testboard
 $ truffle init
 ```
 
-## 간단한 솔리디티 스마트 컨트랙트 작성
+## 간단한 솔리디티 스마트 컨트랙트 작성 <a id="writing-a-simple-smart-contract-in-solidity"></a>
 
 `klaytn-testboard/contracts` 디렉토리에 `KlaytnGreeter.sol`를 생성합니다.
 
@@ -56,7 +56,7 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-## 마이그레이션(Migration) 스크립트 수정
+## 마이그레이션(Migration) 스크립트 수정 <a id="modifying-the-migration-script"></a>
 
 ```bash
 $ cd ..
@@ -75,7 +75,7 @@ module.exports = function(deployer) {
 };
 ```
 
-## Truffle을 사용하여 스마트 컨트랙트 배포
+## Truffle을 사용하여 스마트 컨트랙트 배포 <a id="deploying-a-smart-contract-using-truffle"></a>
 
 truffle.js에 Klaytn의 네트워크 정보를 입력하세요.
 
