@@ -3,12 +3,12 @@ description: >-
   네임스페이스 'klay' 일대 Klaytn API에 대한 자바스크립트 래퍼.
 ---
 
-# caver.klay
+# caver.klay <a id="caver-klay"></a>
 
 `caver-klay` 패키지를 사용하면 Klaytn 노드와 상호작용할 수 있습니다.  아래 목록은 `caver-js`에서 현재 지원되는 API의 기능을 열거합니다.
 
 
-### [계정(Account)](./caver.klay/account.md)
+### [Account](./caver.klay/account.md) <a id="account"></a>
 - [defaultAccount](./caver.klay/account.md#defaultaccount)
 - [accountCreated](./caver.klay/account.md#accountcreated)
 - [getAccount](./caver.klay/account.md#getaccount)
@@ -21,7 +21,7 @@ description: >-
 - [sign](./caver.klay/account.md#sign)
 
 
-### [블록](./caver.klay/block.md)
+### [Block](./caver.klay/block.md) <a id="block"></a>
 - [defaultBlock](./caver.klay/block.md#defaultblock)
 - [getBlockNumber](./caver.klay/block.md#getblocknumber)
 - [getBlock](./caver.klay/block.md#getblock)
@@ -37,7 +37,7 @@ description: >-
 - [isSyncing](./caver.klay/block.md#issyncing)
 
 
-### [트랜잭션(Transaction)](./caver.klay/transaction.md)
+### [Transaction](./caver.klay/transaction.md) <a id="transaction"></a>
 
 - [call](./caver.klay/transaction.md#call)
 - [estimateGas](./caver.klay/transaction.md#estimategas)
@@ -71,7 +71,7 @@ description: >-
 - [signTransaction](./caver.klay/transaction.md#signtransaction)
 
 
-## [환경 설정](./caver.klay/config.md)
+## [Configuration](./caver.klay/config.md) <a id="configuration"></a>
 - [gasPriceAt](./caver.klay/config.md#gaspriceat)
 - [getChainId](./caver.klay/config.md#getchainid)
 - [getGasPrice](./caver.klay/config.md#getgasprice)
@@ -83,7 +83,7 @@ description: >-
 - [writeThroughCaching](./caver.klay/config.md#writethroughcaching)
 
 
-## [필터](./caver.klay/filter.md)
+## [Filter](./caver.klay/filter.md) <a id="filter"></a>
 - [getFilterChanges](./caver.klay/filter.md#getfilterchanges)
 - [getFilterLogs](./caver.klay/filter.md#getfilterlogs)
 - [getPastLogs](./caver.klay/filter.md#getpastlogs)
@@ -92,5 +92,5 @@ description: >-
 - [newPendingTransactionFilter](./caver.klay/filter.md#newpendingtransactionfilter)
 - [uninstallFilter](./caver.klay/filter.md#uninstallfilter)
 
-### [기타](./caver.klay/misc.md)
+### [Miscellaneous](./caver.klay/misc.md) <a id="miscellaneous"></a>
 - [sha3](./caver.klay/misc.md#sha3)
