@@ -1,13 +1,13 @@
-# ken CLI 명령어
+# ken CLI 명령어 <a id="ken-cli-commands"></a>
 
-`ken` Klaytn Endpoint Node의 명령 줄 인터페이스(CLI)입니다.
+`ken` Klaytn 엔드포인트 노드의 명령 줄 인터페이스(CLI)입니다.
 
 ```bash
 USAGE:
    ken [options] command [command options] [arguments...]
 ```
 
-## 명령어
+## 명령어 <a id="commands"></a>
 
 `ken`에는 다음의 명령어들이 있습니다.
 
@@ -55,9 +55,9 @@ participating.
  ...
 ```
 
-## 자바스크립트 콘솔
+## 자바스크립트 콘솔 <a id="javascript-console"></a>
 
-Klaytn Endpoint Node는 자바스크립트 콘솔과 함께 제공됩니다. 콘솔 명령 행에서 EN을 향한 Klaytn API 호출의 일부를 시작할 수 있습니다. 자바스크립트 콘솔에 연결하려면 다음 명령을 실행하세요.
+Klaytn 엔드포인트 노드는 자바스크립트 콘솔과 함께 제공됩니다. 콘솔 명령 행에서 EN을 향한 Klaytn API 호출의 일부를 시작할 수 있습니다. 자바스크립트 콘솔에 연결하려면 다음 명령을 실행하세요.
 
 ```bash
 $ ken attach ~/kend_home/klay.ipc
@@ -77,7 +77,7 @@ Welcome to the Klaytn JavaScript console
    console      대화형 자바스크립트 환경을 시작합니다
 ```
 
-### 모듈 API
+### 모듈 API <a id="module-apis"></a>
 
 콘솔 프롬프트에 모듈명을 입력하면 해당 모듈에서 사용 가능한 프로퍼티와 함수 목록이 표시됩니다. 함수의 상세 명세는 [Klaytn API](../../bapp/json-rpc/api-references/README.md)를 참고해주세요.
 
