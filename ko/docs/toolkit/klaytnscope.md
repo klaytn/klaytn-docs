@@ -1,4 +1,4 @@
-# Klaytnscope
+# Klaytnscope <a id="klaytnscope"></a>
 
 Klaytnscope는 Klaytn 네트워크의 블록 탐색기입니다. Klaytnscope는 네트워크 상태를 모니터링하고 다양한 통계를 제공하여 Klaytn 네트워크에 대해 깊은 이해를 하도록 도와줍니다. 또한 블록 및 트랜잭션 데이터와 Klaytn 네트워크의 스마트 컨트랙트 리스트도 탐색할 수 있습니다.
 
@@ -7,7 +7,7 @@ Klaytnscope는 Klaytn 네트워크의 블록 탐색기입니다. Klaytnscope는 
 
 ![](img/scope_01_main.png)
 
-## 주요 기능
+## 주요 기능 <a id="major-features"></a>
 
 일부 기능은 아직 개발 중입니다.
 
@@ -20,9 +20,9 @@ Klaytnscope는 Klaytn 네트워크의 블록 탐색기입니다. Klaytnscope는 
 
 이후 섹션에서는 Klaytnscope의 스크린샷과 함께 주요 기능들을 살펴보겠습니다. 기능들은 대시보드, 목록 보기, 상세 보기, 검색 등 네 개의 카테고리로 분류됩니다.
 
-## 대시보드
+## 대시보드 <a id="dashboard"></a>
 
-대시보드에는 네트워크 정보가 나타납니다. 즉 평균 블록 생성 시간, 블록당 평균 트랜잭션 수, 합의 노드의 개수, 트랜잭션의 최근 추세를 제공합니다.
+대시보드에는 네트워크 정보가 나타납니다. 즉 평균 블록 생성 시간, 블록당 평균 트랜잭션 수, 컨센서스 노드의 개수, 트랜잭션의 최근 추세를 제공합니다.
 
 ![](img/scope_02_main_indicator.png)
 
@@ -34,13 +34,13 @@ Klaytnscope는 Klaytn 네트워크의 블록 탐색기입니다. Klaytnscope는 
   * Avg TX Per Block \(24 hours\): 지난 24시간 동안 한 블록에 담긴 트랜잭션의 평균 개수입니다.
 * Transaction History \(14 days\): 지난 14일 동안 하루에 발생한 트랜잭션의 개수 그래프입니다. 지난 2주 동안 발생한 트랜잭션의 양에 대한 추세를 확인할 수 있습니다.
 
-### Recent Blocks & Transactions
+### Recent Blocks & Transactions <a id="recent-blocks-transactions"></a>
 
 이 목록들은 각각 최근에 생성된 블록과 트랜잭션을 나타냅니다. 우측 상단의 새로 고침 버튼을 클릭하여 최신 정보를 가져올 수 있습니다. 목록의 하단에 있는 ‘view all’ 버튼을 클릭하여 [목록 보기](klaytnscope.md#list-view)로 이동할 수 있습니다.
 
 ![](img/scope_03_main_list.png)
 
-### 네트워크 상태 표시기 & 네트워크 선택 탭
+### 네트워크 상태 표시기 & 네트워크 선택 탭 <a id="network-status-network-selector"></a>
 
 ![](img/network_status.gif)
 
@@ -53,11 +53,11 @@ Klaytnscope는 Klaytn 네트워크의 블록 탐색기입니다. Klaytnscope는 
 * 네트워크 선택 탭
   * 이 메뉴에서 Klaytn 메인넷과 Baobab 테스트넷을 선택할 수 있습니다.
 
-## 목록 보기
+## 목록 보기 <a id="list-view"></a>
 
 Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 트랜잭션 목록을 확인하세요. 목록 페이지로 이동하려면 화면 왼쪽의 탐색 모음에서 버튼을 클릭하세요.
 
-### Blocks
+### Blocks <a id="blocks"></a>
 
 ![](img/scope_04_block_list.png)
 
@@ -66,11 +66,11 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 * Block: 블록의 고유 번호입니다. 0\(the genesis block\)부터 시작하여 블록이 생성될 때마다 순차적으로 부여받습니다.
 * Time: 블록이 생성된 때부터 지금까지 지난 시간입니다. 여기에 마우스 포인터를 가져가면 정확한 날짜와 시간을 볼 수 있습니다.
 * Total TXs: 블록에 담긴 트랜잭션의 개수입니다.
-* Block Proposer: 블록을 제안한 합의 노드입니다. 블록을 생성한 노드는 무작위적이지만 한편으론 결정론적으로 선택됩니다. 이 주소를 클릭하여 상세 보기 페이지로 쉽게 이동할 수 있습니다.
+* Block Proposer: 블록을 제안한 컨센서스 노드입니다. 블록을 생성한 노드는 무작위적이지만 한편으론 결정론적으로 선택됩니다. 이 주소를 클릭하여 상세 보기 페이지로 쉽게 이동할 수 있습니다.
 * Reward: 새로 발행된 KLAY \(9.6 KLAY\)와 블록에서 사용된 트랜잭션 비용의 합계입니다. 이 목록에서는 Klaytn Governance Council 보상, 기여증명, Klaytn 개선 준비금의 합계만 나타납니다. 상세 정보를 보려면 블록 상세 보기 페이지의 블록 보상 섹션에 마우스 포인터를 가져가세요. 블록 보상 분배 시스템에 대한 자세한 내용은 [Klaytn Token Economy](../klaytn/design/token-economy.md)를 참고하세요.
 * Size: 블록의 바이트 단위 크기입니다. 많은 트랜잭션이 담겨 있을수록 블록의 크기가 더 커집니다.
 
-### 트랜잭션
+### Transactions <a id="transactions"></a>
 
 ![](img/scope_05_tx_list.png)
 
@@ -84,15 +84,15 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 * Amount: 트랜잭션을 통해 전송된 금액입니다.
 * TX Fee: 트랜잭션 처리에 소비된 실제 비용입니다.
 
-## 상세 보기
+## 상세 보기 <a id="detail-view"></a>
 
 이 페이지를 통해 블록, 트랜잭션, 계정, 컨트랙트 하나씩의 자세한 정보를 확인할 수 있습니다. 상세 보기로 이동하려면 검색 창에서 검색하거나 목록 보기에서 항목을 클릭하세요.
 
-### 블록
+### Block <a id="block"></a>
 
 ![](img/scope_08_block_detail.png)
 
-#### 개요
+#### Overview <a id="overview"></a>
 
 블록에 대한 전반적인 정보입니다.
 
@@ -103,22 +103,22 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 * Block Reward: 새로 발행된 KLAY \(9.6 KLAY\)와 블록에서 사용된 트랜잭션 비용의 합계입니다. 마우스 포인터를 가져가면 Klaytn Governance Council 보상, 기여증명, Klaytn 개선 준비금에 대한 자세한 정보를 확인할 수 있습니다. 블록 보상 분배 시스템에 대한 자세한 내용은 [Klaytn Token Economy](../klaytn/design/token-economy.md)를 참고하세요.
 * Block Size: 블록의 바이트 단위 크기입니다. 많은 트랜잭션이 담겨 있을수록 블록의 크기가 더 커집니다.
 
-#### 위원회
+#### Committee <a id="committee"></a>
 
-블록을 제안하고 검증하는 합의 노드의 목록입니다.
+블록을 제안하고 검증하는 컨센서스 노드의 목록입니다.
 
-* Block Proposer: 블록을 제안한 합의 노드입니다. 블록을 생성한 노드는 무작위적이지만 한편으론 결정론적으로 선택됩니다. 이 주소를 클릭하여 노드의 상세 보기 페이지로 쉽게 이동할 수 있습니다.
-* Validators: 블록을 검증하는 합의 노드입니다. 이 주소를 클릭하여 노드의 상세 보기 페이지로 쉽게 이동할 수 있습니다.
+* Block Proposer: 블록을 제안한 컨센서스 노드입니다. 블록을 생성한 노드는 무작위적이지만 한편으론 결정론적으로 선택됩니다. 이 주소를 클릭하여 노드의 상세 보기 페이지로 쉽게 이동할 수 있습니다.
+* Validators: 블록을 검증하는 컨센서스 노드입니다. 이 주소를 클릭하여 노드의 상세 보기 페이지로 쉽게 이동할 수 있습니다.
 
-#### 트랜잭션
+#### Transactions <a id="transactions"></a>
 
 블록에 담긴 트랜잭션들의 목록입니다.
 
-### 트랜잭션(Transaction)
+### 트랜잭션(Transaction)<a id="transaction"></a>
 
 ![](img/scope_09_tx_detail.png)
 
-#### 개요
+#### Overview <a id="overview"></a>
 
 트랜잭션에 대한 전반적인 정보입니다.
 
@@ -137,15 +137,15 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 * TX Fee by Sender: 트랜잭션의 비용이 부분적으로 위임된 트랜잭션의 경우 표시됩니다. 트랜잭션 비용 중 트랜잭션 발신자가 지불한 몫입니다.
 * TX Fee by Fee Payer: 트랜잭션의 비용이 부분적으로 위임된 트랜잭션의 경우 표시됩니다. 트랜잭션 비용 중 트랜잭션 비용 납부자가 지불한 몫입니다.
 
-#### Input Data
+#### Input Data <a id="input-data"></a>
 
 트랜잭션 발신자나 컨트랙트에 의해 입력된 추가 데이터입니다.
 
-### 계정(Account)
+### Account <a id="account"></a>
 
 ![](img/scope_10_account_detail.png)
 
-#### 개요
+#### Overview <a id="overview"></a>
 
 계정에 대한 전반적인 정보입니다.
 
@@ -154,15 +154,15 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 * Total TXs: 계정이 보내거나 받은 트랜잭션의 총 개수입니다.
 * HRA: 계정 유형이 HRA인지 여부를 나타냅니다. \(TBD\)
 
-#### 트랜잭션
+#### Transactions <a id="transactions"></a>
 
 계정과 관련된 트랜잭션의 목록입니다. 화살표의 색은 이 계정이 발신자인지 수신자인지 나타냅니다.
 
-### Contract
+### Contract <a id="contract"></a>
 
 ![](img/scope_11_contract_detail.png)
 
-#### 개요
+#### Overview <a id="overview"></a>
 
 컨트랙트에 대한 전반적인 정보입니다.
 
@@ -173,17 +173,17 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 * Contract Created TX: 컨트랙트를 배포한 트랜잭션입니다. 해시를 클릭하여 트랜잭션의 상세 보기 페이지로 이동할 수 있습니다.
 * HRA: 컨트랙트 계정의 유형이 HRA인지 여부를 나타냅니다. \(TBD\)
 
-#### 트랜잭션
+#### Transactions <a id="transactions"></a>
 
 컨트랙트와 관련된 트랜잭션의 목록입니다.
 
-## 검색
+## 검색 <a id="search"></a>
 
 Klaytnscope를 통해 계정, 컨트랙트, 트랜잭션, 블록에 대한 정보를 검색할 수 있습니다. 모든 페이지에 검색 창이 있어 쉽게 접근할 수 있습니다. 검색 대상의 키워드가 잘 입력되었다면 검색 대상의 상세 보기 페이지로 이동합니다.
 
 ![](img/scope_06_search.png)
 
-### 검색 키워드
+### 검색 키워드 <a id="search-keyword"></a>
 
 메인넷 버전에서 검색 가능한 키워드는 다음과 같습니다.
 
@@ -192,44 +192,44 @@ Klaytnscope를 통해 계정, 컨트랙트, 트랜잭션, 블록에 대한 정�
 * 주소 \(계정, 컨트랙트\)
 * Human Readable Address \(.klaytn\) \(TBD\)
 
-### 키워드 형식
+### 키워드 형식 <a id="keyword-format"></a>
 
 각 키워드의 특징은 다음과 같습니다.
 
-#### 블록
+#### 블록 <a id="block"></a>
 
 * 10진수만 가능합니다. \[0~9\]
 
-#### 트랜잭션 해시
+#### 트랜잭션 해시 <a id="tx-hash"></a>
 
 * 66자입니다.
 * `0x`로 시작합니다.
 * 16진수만 가능합니다. \[0~9, a~f\]
 
-#### 계정의 주소입니다.
+#### 계정의 주소입니다.<a id="address"></a>
 
 * 42자입니다.
 * `0x`로 시작합니다.
 * 16진수만 가능합니다. \[0~9, a~f\]
 
-#### Human Readable Address \(TBD\)
+#### Human Readable Address \(TBD\) <a id="human-readable-address-tbd"></a>
 
 * 12~20자입니다.
 * `.klaytn`으로 끝납니다.
 
-### 검색 오류
+### 검색 오류 <a id="search-errors"></a>
 
 ![](img/scope_07_noresult.png)
 
 지정된 형식에 맞지 않는 키워드를 검색하거나 검색한 내용에 해당하는 결과가 없는 경우 검색 결과가 나타나지 않습니다.
 
-#### 잘못된 형식 \(트랜잭션 해시 / 주소\)
+#### 잘못된 형식 \(트랜잭션 해시 / 주소\) <a id="wrong-format-tx-hash-address"></a>
 
 * 검색한 키워드의 글자 수가 잘못된 경우
 * 검색 키워드가 `0x`로 시작하지 않은 경우
 * 검색 키워드에 특수 문자나 16진수가 아닌 문자가 포함된 경우 \[g~z\]
 
-#### 검색 결과 없음
+#### 검색 결과 없음 <a id="doesn-t-exist"></a>
 
 * 검색 키워드에 해당하는 블록이 아직 생성되지 않은 경우 \(검색한 블록 번호가 현재 블록 번호보다 더 이후인 경우\)
 * 검색 키워드가 존재하지 않는 트랜잭션 해시인 경우
