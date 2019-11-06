@@ -1,12 +1,12 @@
-# 시스템 요구사항
+# 시스템 요구사항 <a id="system-requirements"></a>
 
-## 하드웨어 사양
+## 하드웨어 사양 <a id="h-w-specification"></a>
 
 네트워크 성능은 네트워크 내 최악의 하드웨어 사양에 따라 측정됩니다. 블록체인 네트워크 구조에 따르면, 수직적 확장\(하드웨어 용량 증가\)만 할 수 있습니다. 따라서 네트워크 내의 모든 노드는 적어도 서로 비슷한 사양을 가진 최상의 하드웨어를 가지는 것이 추천됩니다.
 
 다음 장에서는 CN 및 PN에 대한 권장 사양을 보여줍니다.
 
-### 베어메탈 서버
+### 베어메탈 서버 <a id="bare-metal-server"></a>
 
 | 카테고리          | 사양                                                                                       |
 |:------------- |:---------------------------------------------------------------------------------------- |
@@ -17,9 +17,9 @@
 
 이는 CN 및 PN에 권장되는 하드웨어 사양이며, 정확한 요구 사항은 아닙니다. 하드웨어 구성이 비슷한 물리적 시스템은 CN 또는 PN을 작동시키기에 충분합니다.
 
-### 클라우드 VM
+### 클라우드 VM <a id="cloud-vm"></a>
 
-#### AWS 권장 사양
+#### AWS 권장 사양 <a id="recommended-specification-based-on-aws"></a>
 
 | 모델명                           | vCPU 수 | 메모리 \(GiB\) | 스토리지 \(GiB\)   | EBS 대역폭 \(Mbps\) | 네트워크 대역폭 \(Gbps\) | 가격 \(서울 지역, USD/h\) |
 |:----------------------------- |:------ |:------------- |:---------------- |:------------------ |:------------------- |:--------------------- |
@@ -27,10 +27,10 @@
 
 위 정보의 출처는 [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/)과 [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/)이며, AWS에 의해 변경될 수도 있습니다.
 
-## 스토리지 요구사항
+## 스토리지 요구사항 <a id="storage-requirements"></a>
 
 평균 100 TPS, 평균 트랜잭션 크기 300 바이트, 그리고 1초의 블록 생성 시간을 가정 할 때 예상되는 스토리지 요구 사항은 2.5GB/1일 \(= 300x100x86400\) 입니다.
 
-## 운영 체제
+## 운영 체제 <a id="operating-system"></a>
 
 [Amazon Linux 2](https://aws.amazon.com/ko/about-aws/whats-new/2017/12/introducing-amazon-linux-2/) 환경을 권장합니다. Klaytn 바이너리는 Amazon Linux 2에서 충분히 테스트 되었고, 리눅스 기반의 다른 환경에서도 가능합니다. 또한 개발 지원을 위해 macOS 용 바이너리도 제공하고 있습니다.
