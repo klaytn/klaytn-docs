@@ -3,13 +3,13 @@ description: >-
   스마트 컨트랙트와 상호작용하는 데 사용되는 caver-js 객체입니다.
 ---
 
-# caver.klay.Contract
+# caver.klay.Contract <a id="caver-klay-contract"></a>
 
 `caver.klay.Contract` 객체는 Klaytn 블록체인의 스마트 컨트랙트와 상호작용하는 것을 쉽게합니다.  새 컨트랙트 객체를 생성할 때, 각 스마트 컨트랙트의 JSON 인터페이스를 제출하면 caver는 RPC를 통해 모든 호출을 저레벨 ABI 호출로 자동 변환할 것입니다.
 
 이를 통해 스마트 컨트랙트가 마치 자바스크립트 객체인 것처럼 스마트 컨트랙트와 상호작용할 수 있습니다.
 
-## new contract
+## new contract <a id="new-contract"></a>
 
 ```javascript
 new caver.klay.Contract(jsonInterface [, address] [, options])
@@ -56,7 +56,7 @@ var myContract = new caver.klay.Contract([...], 'myContract', {
 ```
 
 
-## options
+## options <a id="options"></a>
 
 ```javascript
 myContract.options
@@ -93,7 +93,7 @@ myContract.options
 ```
 
 
-## options.address
+## options.address <a id="options-address"></a>
 
 ```javascript
 myContract.options.address
@@ -117,7 +117,7 @@ myContract.options.address
 ```
 
 
-## options.jsonInterface
+## options.jsonInterface <a id="options-jsoninterface"></a>
 
 ```javascript
 myContract.options.jsonInterface
@@ -151,7 +151,7 @@ myContract.options.jsonInterface
 ```
 
 
-## clone
+## clone <a id="clone"></a>
 
 ```javascript
 myContract.clone()
@@ -180,7 +180,7 @@ true
 ```
 
 
-## deploy
+## deploy <a id="deploy"></a>
 
 ```javascript
 myContract.deploy(options)
@@ -262,7 +262,7 @@ myContract.deploy(options)
 ```
 
 
-## methods
+## methods <a id="methods"></a>
 
 ```javascript
 myContract.methods.myMethod([param1 [, param2 [, ...]]])
@@ -278,7 +278,7 @@ myContract.methods.myMethod([param1 [, param2 [, ...]]])
 이를 통해 자바스크립트 컨트랙트 객체로부터 이름은 같지만 매개변수가 다른 함수를 호출할 수 있습니다.
 
 
-## 비교) \*함수 서명 (함수 선택자)
+## cf) \*Function signature (Function selector)   <a id="cf-function-signature-function-selector"></a>
 함수 호출에 대한 호출 데이터의 처음 4바이트는 호출할 함수를 지정합니다. 함수 서명의 Keccak-256 (SHA-3) 해시의 첫 번째 (왼쪽, 빅-인디언의 높은 순) 4바이트입니다.
 
 함수 서명은 두 가지 방법으로 만들 수 있습니다. `1. caver.klay.abi.encodeFunctionSignature('funcName(paramType1,paramType2,...)')` `2. caver.utils.sha3('funcName(paramType1,paramType2,...)').substr(0, 10)`
@@ -334,7 +334,7 @@ caver.utils.sha3('myMethod(uint256)').substr(0, 10)
 ```
 
 
-## methods.myMethod.call
+## methods.myMethod.call <a id="methods-mymethod-call"></a>
 
 ```javascript
 myContract.methods.myMethod([param1 [, param2 [, ...]]]).call(options [, callback])
@@ -411,7 +411,7 @@ contract MyContract {
 ```
 
 
-## methods.myMethod.send
+## methods.myMethod.send <a id="methods-mymethod-send"></a>
 
 ```javascript
 myContract.methods.myMethod([param1 [, param2 [, ...]]]).send(options [, callback])
@@ -438,7 +438,7 @@ myContract.methods.myMethod([param1 [, param2 [, ...]]]).send(options [, callbac
 
 `callback`은 32바이트 트랜잭션 해시를 반환합니다.
 
-`PromiEvent`: 프로미스(promise)가 조합된 이벤트 에미터(event emitter).  트랜잭션 영수증을 사용할 수 있을 때, 또는 이 `send()`가 `someContract.deploy()`에서 호출될 경우, 프로미스는 새로운 컨트랙트 인스턴스와 함께 해결(resolve)됩니다.  추가로 다음과 같은 이벤트를 사용할 수 있습니다:
+`PromiEvent`: 프로미스(promise)가 조합된 이벤트 이미터(event emitter).  트랜잭션 영수증을 사용할 수 있을 때, 또는 이 `send()`가 `someContract.deploy()`에서 호출될 경우, 프로미스는 새로운 컨트랙트 인스턴스와 함께 해결(resolve)됩니다.  추가로 다음과 같은 이벤트를 사용할 수 있습니다:
 
 | 명칭              | 형식  | 설명                                                                                                                                                                                  |
 | --------------- | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -509,7 +509,7 @@ myContract.methods.myMethod([param1 [, param2 [, ...]]]).send(options [, callbac
 ```
 
 
-## methods.myMethod.estimateGas
+## methods.myMethod.estimateGas <a id="methods-mymethod-estimategas"></a>
 
 ```javascript
 myContract.methods.myMethod([param1 [, param2 [, ...]]]).estimateGas(options [, callback])
@@ -555,7 +555,7 @@ Klaytn 가상머신에서 실행될 때 메소드 실행에 걸리는 가스를 
 ```
 
 
-## methods.myMethod.encodeABI
+## methods.myMethod.encodeABI <a id="methods-mymethod-encodeabi"></a>
 
 ```javascript
 myContract.methods.myMethod([param1 [, param2[, ...]]]).encodeABI()
@@ -582,7 +582,7 @@ myContract.methods.myMethod([param1 [, param2[, ...]]]).encodeABI()
 ```
 
 
-## once
+## once <a id="once"></a>
 
 ```javascript
 myContract.once(event [, options], callback)
@@ -638,7 +638,7 @@ myContract.once(event [, options], callback)
 ```
 
 
-## events
+## events <a id="events"></a>
 
 ```javascript
 myContract.events.MyEvent([options][, callback])
@@ -663,7 +663,7 @@ myContract.events.MyEvent([options][, callback])
 
 **리턴값**
 
-`EventEmitter`: 이벤트 에미터는 다음 이벤트를 가집니다:
+`EventEmitter`: 이벤트 이미터는 다음 이벤트를 가집니다:
 
 | 명칭    | 형식 | 설명                           |
 | ----- | -- | ---------------------------- |
@@ -723,7 +723,7 @@ myContract.events.MyEvent([options][, callback])
 ```
 
 
-## events.allEvents
+## events.allEvents <a id="events-allevents"></a>
 
 ```javascript
 myContract.events.allEvents([options] [, callback])
@@ -731,7 +731,7 @@ myContract.events.allEvents([options] [, callback])
 [events](#events)와 동일하지만 이 스마트 컨트랙트에서 모든 이벤트를 수신합니다. 선택적으로 filter 속성은 해당 이벤트를 필터링할 수 있습니다.
 
 
-## getPastEvents
+## getPastEvents <a id="getpastevents"></a>
 
 ```javascript
 myContract.getPastEvents(event [, options] [, callback])
