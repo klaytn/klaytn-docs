@@ -3,12 +3,12 @@ description: >-
   caver-js 유틸리티 API.
 ---
 
-# caver.utils
+# caver.utils <a id="caver-utils"></a>
 
 `caver.utils`는 유틸리티 함수를 제공합니다.
 
 
-## randomHex
+## randomHex <a id="randomhex"></a>
 
 ```javascript
 caver.utils.randomHex(size)
@@ -47,7 +47,7 @@ caver.utils.randomHex(size)
 ```
 
 
-## _
+## _ <a id="_"></a>
 
 ```javascript
 caver.utils._()
@@ -70,7 +70,7 @@ caver.utils._()
 ```
 
 
-## BN
+## BN <a id="bn"></a>
 
 ```javascript
 caver.utils.BN(mixed)
@@ -105,7 +105,7 @@ caver.utils.BN(mixed)
 ```
 
 
-## isBN
+## isBN <a id="isbn"></a>
 
 ```javascript
 caver.utils.isBN(bn)
@@ -135,7 +135,7 @@ true
 ```
 
 
-## isBigNumber
+## isBigNumber <a id="isbignumber"></a>
 
 ```javascript
 caver.utils.isBigNumber(bignumber)
@@ -165,7 +165,7 @@ true
 ```
 
 
-## sha3
+## sha3 <a id="sha3"></a>
 
 ```javascript
 caver.utils.sha3(string)
@@ -207,7 +207,7 @@ null
 ```
 
 
-## soliditySha3
+## soliditySha3 <a id="soliditysha3"></a>
 
 
 ```javascript
@@ -270,7 +270,7 @@ caver.utils.soliditySha3(param1 [, param2, ...])
 ```
 
 
-## isHex
+## isHex <a id="ishex"></a>
 
 ```javascript
 caver.utils.isHex(hex)
@@ -312,7 +312,7 @@ false
 ```
 
 
-## isHexStrict
+## isHexStrict <a id="ishexstrict"></a>
 
 
 ```javascript
@@ -356,7 +356,7 @@ false
 ```
 
 
-## isAddress
+## isAddress <a id="isaddress"></a>
 
 ```javascript
 caver.utils.isAddress(address)
@@ -395,7 +395,7 @@ false // wrong checksum
 ```
 
 
-## toChecksumAddress
+## toChecksumAddress <a id="tochecksumaddress"></a>
 
 ```javascript
 caver.utils.toChecksumAddress(address)
@@ -425,7 +425,7 @@ caver.utils.toChecksumAddress(address)
 ```
 
 
-## checkAddressChecksum
+## checkAddressChecksum <a id="checkaddresschecksum"></a>
 
 ```javascript
 caver.utils.checkAddressChecksum(address)
@@ -452,7 +452,7 @@ true
 ```
 
 
-## toHex
+## toHex <a id="tohex"></a>
 
 ```javascript
 caver.utils.toHex(mixed)
@@ -491,7 +491,7 @@ caver.utils.toHex(mixed)
 ```
 
 
-## toBN
+## toBN <a id="tobn"></a>
 
 ```javascript
 caver.utils.toBN(number)
@@ -527,7 +527,7 @@ caver.utils.toBN(number)
 ```
 
 
-## hexToNumberString
+## hexToNumberString <a id="hextonumberstring"></a>
 
 ```javascript
 caver.utils.hexToNumberString(hex)
@@ -554,7 +554,7 @@ caver.utils.hexToNumberString(hex)
 ```
 
 
-## hexToNumber
+## hexToNumber <a id="hextonumber"></a>
 
 ```javascript
 caver.utils.hexToNumber(hex)
@@ -583,7 +583,7 @@ caver.utils.hexToNumber(hex)
 ```
 
 
-## numberToHex
+## numberToHex <a id="numbertohex"></a>
 
 ```javascript
 caver.utils.numberToHex(number)
@@ -610,7 +610,7 @@ caver.utils.numberToHex(number)
 ```
 
 
-## hexToUtf8
+## hexToUtf8 <a id="hextoutf8"></a>
 
 ```javascript
 caver.utils.hexToUtf8(hex)
@@ -639,7 +639,7 @@ caver.utils.hexToString(hex) // ALIAS
 ```
 
 
-## hexToAscii
+## hexToAscii <a id="hextoascii"></a>
 
 ```javascript
 caver.utils.hexToAscii(hex)
@@ -666,7 +666,7 @@ caver.utils.hexToAscii(hex)
 "I have 100!"
 ```
 
-## utf8ToHex
+## utf8ToHex <a id="utf8tohex"></a>
 
 ```javascript
 caver.utils.utf8ToHex(string)
@@ -695,7 +695,7 @@ caver.utils.stringToHex(string) // ALIAS
 ```
 
 
-## asciiToHex
+## asciiToHex <a id="asciitohex"></a>
 
 ```javascript
 caver.utils.asciiToHex(string)
@@ -724,7 +724,7 @@ caver.utils.asciiToHex(string)
 ```
 
 
-## hexToBytes
+## hexToBytes <a id="hextobytes"></a>
 
 ```javascript
 caver.utils.hexToBytes(hex)
@@ -751,7 +751,7 @@ caver.utils.hexToBytes(hex)
 ```
 
 
-## bytesToHex
+## bytesToHex <a id="bytestohex"></a>
 
 ```javascript
 caver.utils.bytesToHex(byteArray)
@@ -778,7 +778,7 @@ caver.utils.bytesToHex(byteArray)
 ```
 
 
-## toPeb
+## toPeb <a id="topeb"></a>
 
 ```javascript
 caver.utils.toPeb(number [, unit])
@@ -809,7 +809,7 @@ caver.utils.toPeb(number [, unit])
 ```
 
 
-## fromPeb
+## fromPeb <a id="frompeb"></a>
 
 ```javascript
 caver.utils.fromPeb(number [, unit])
@@ -838,7 +838,7 @@ caver.utils.fromPeb(number [, unit])
 ```
 
 
-## unitMap
+## unitMap <a id="unitmap"></a>
 
 ```javascript
 caver.utils.unitMap
@@ -875,7 +875,7 @@ caver.utils.unitMap
 ```
 
 
-## padLeft
+## padLeft <a id="padleft"></a>
 
 ```javascript
 caver.utils.padLeft(string, characterAmount [, sign])
@@ -913,7 +913,7 @@ caver.utils.leftPad(string, characterAmount [, sign]) // ALIAS
 ```
 
 
-## padRight
+## padRight <a id="padright"></a>
 
 ```javascript
 caver.utils.padRight(string, characterAmount [, sign])
@@ -950,7 +950,7 @@ caver.utils.rightPad(string, characterAmount [, sign]) // ALIAS
 ```
 
 
-## toTwosComplement
+## toTwosComplement <a id="totwoscomplement"></a>
 
 ```javascript
 caver.utils.toTwosComplement(number)
@@ -990,7 +990,7 @@ caver.utils.toTwosComplement(number)
 "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
 ```
 
-## isContractDeployment
+## isContractDeployment <a id="iscontractdeployment"></a>
 
 ```javascript
 caver.utils.isContractDeployment(transactionObject)
@@ -1053,7 +1053,7 @@ true
 false
 ```
 
-## xyPointFromPublicKey
+## xyPointFromPublicKey <a id="xypointfrompublickey"></a>
 
 ```javascript
 caver.utils.xyPointFromPublicKey(publicKey)
@@ -1084,7 +1084,7 @@ caver.utils.xyPointFromPublicKey(publicKey)
 ]
 ```
 
-## isHexPrefixed
+## isHexPrefixed <a id="ishexprefixed"></a>
 
 ```javascript
 caver.utils.isHexPrefixed(input)
@@ -1121,7 +1121,7 @@ false
 false
 ```
 
-## addHexPrefix
+## addHexPrefix <a id="addhexprefix"></a>
 
 ```javascript
 caver.utils.addHexPrefix(input)
@@ -1152,7 +1152,7 @@ caver.utils.addHexPrefix(input)
 '0xa5b0cd8c87e77879d64cc064ee239ed6f71cacf9'
 ```
 
-## stripHexPrefix
+## stripHexPrefix <a id="striphexprefix"></a>
 
 ```javascript
 caver.utils.stripHexPrefix(input)
@@ -1183,7 +1183,7 @@ caver.utils.stripHexPrefix(input)
 'a5b0cd8c87e77879d64cc064ee239ed6f71cacf9'
 ```
 
-## toBuffer
+## toBuffer <a id="tobuffer"></a>
 
 ```javascript
 caver.utils.toBuffer(input)
@@ -1237,7 +1237,7 @@ Error: Failed to convert string to Buffer. 'toBuffer' function only supports 0x-
 > caver.utils.toBuffer({})
 Error: To convert an object to a buffer, the toArray function must be implemented inside the object
 ```
-## numberToBuffer
+## numberToBuffer <a id="numbertobuffer"></a>
 ```javascript
 caver.utils.numberToBuffer(input)
 ```
@@ -1269,7 +1269,7 @@ caver.utils.numberToBuffer(input)
 <Buffer 04>
 ```
 
-## isTxHash
+## isTxHash <a id="istxhash"></a>
 ```javascript
 caver.utils.isTxHash(input)
 ```
@@ -1296,7 +1296,7 @@ true
 > caver.utils.isTxHash('0x1')
 false
 ```
-## isTxHashStrict
+## isTxHashStrict <a id="istxhashstrict"></a>
 ```javascript
 caver.utils.isTxHashStrict(input)
 ```
