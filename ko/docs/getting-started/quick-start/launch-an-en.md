@@ -1,6 +1,6 @@
-# Endpoint Node 실행
+# 엔드포인트 노드 실행 <a id="launch-an-endpoint-node"></a>
 
-## Endpoint Node\(EN\) 다운로드 및 초기화
+## 엔드포인트 노드\(EN\) 다운로드 및 초기화<a id="download-and-initialize-an-endpoint-node-en"></a>
 
 제공된 [ken 바이너리 패키지](../../node/endpoint-node/installation-guide/download.md)의 압축을 해제하고 파일을 Klaytn 폴더에 복사합니다. **참고**: `ken`으로 시작하는 적절한 패키지를 다운로드하세요.
 
@@ -24,7 +24,7 @@ $ export PATH=$PATH:$PWD/ken-linux-amd64/bin
 $ mkdir -p ~/kend_home
 ```
 
-## EN 구성
+## EN 구성 <a id="configuring-the-en"></a>
 
 구성 파일인 `kend.conf`는 `ken-xxxxx-amd64/conf/`에 위치합니다. 구성 가능한 매개 변수에 대한 자세한 내용은 [EN 구성 가이드](../../node/endpoint-node/operation-guide/configuration.md)를 참조하시면 됩니다. Baobab 테스트넷의 EN을 실행하려면, 다음과 같이 `kend.conf` 파일을 업데이트하시기 바랍니다.
 
@@ -39,7 +39,7 @@ RPC_API="klay,net" # 추후 truffle을 위해 net 모듈을 열어야 합니다.
 DATA_DIR=~/kend_home
 ```
 
-## EN 실행
+## EN 실행 <a id="launching-the-en"></a>
 
 EN을 시작하려면 다음 명령을 실행합니다.
 
@@ -48,7 +48,7 @@ $ kend start
  Starting kend: OK
 ```
 
-## EN 확인
+## EN 확인 <a id="checking-the-en"></a>
 
 EN이 구동 중인지 확인하려면 다음 명령을 실행합니다.
 
@@ -57,7 +57,7 @@ $ kend status
 kend is running
 ```
 
-## EN의 로그 확인
+## EN의 로그 확인 <a id="checking-the-log-of-the-en"></a>
 
 EN의 로그를 확인하려면 다음 명령을 실행합니다.
 
@@ -68,6 +68,6 @@ INFO[03/26,15:37:49 +09] [5] Imported new chain segment                blocks=1 
 ...
 ```
 
-## 문제 해결
+## 문제 해결 <a id="troubleshooting"></a>
 
-Klaytn Endpoint Node 실행에 문제가 있는 경우, [문제 해결](../../node/errors-and-troubleshooting.md)을 참고하시기 바랍니다.
+Klaytn 엔드포인트 노드 실행에 문제가 있는 경우, [문제 해결](../../node/errors-and-troubleshooting.md)을 참고하시기 바랍니다.
