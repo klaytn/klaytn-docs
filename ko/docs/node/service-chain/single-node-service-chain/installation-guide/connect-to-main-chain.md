@@ -75,7 +75,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
  >
 ```
 
-#### Get the EN's KNI <a id="get-the-ens-kni"></a>
+#### EN의 KNI 받기 <a id="get-the-ens-kni"></a>
 
 After attaching to the process via IPC, you can check the EN's main-bridge KNI like below. [Service Chain API](../../../../bapp/json-rpc/api-references/servicechain.md)를 참조할 수 있습니다.
 
@@ -111,7 +111,7 @@ After attaching to the process via IPC, you can check the EN's main-bridge KNI l
 
 You should take note of the main-bridge `kni`.
 
-### Connect to the Main Chain <a id="connect-to-the-main-chain"></a>
+### 메인체인에 연결하기 <a id="connect-to-the-main-chain"></a>
 
 #### SCN 콘솔 열기 <a id="open-scn-console"></a>
 
