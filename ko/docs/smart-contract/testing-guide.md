@@ -1,12 +1,12 @@
-# 테스트 가이드
+# 테스트 가이드 <a id="testing-guide"></a>
 이 섹션에서는 스마트 컨트랙트를 테스트하는 방법을 소개합니다. 블록체인의 그 어떤 트랜잭션도 되돌릴 수 없으므로 스마트 컨트랙트를 배포하기 전에 테스트하는 것이 중요합니다.
 
-## Truffle로 테스트하기
+## Truffle로 테스트하기 <a id="testing-with-truffle"></a>
 Truffle은 자동 테스트 프레임워크를 제공합니다. 이 프레임워크를 사용하여 간단하고 관리 가능한 테스트를 작성할 수 있는 방법이 두 가지 있습니다.
-* 어플리케이션과 같이 외부에서 컨트랙트를 실행할 때 `Javascript` 및 `TypeScript`를 활용
+* 애플리케이션과 같이 외부에서 컨트랙트를 실행할 때 `Javascript` 및 `TypeScript`를 활용
 * 베어 메탈 머신의 경우 미리 컨트랙트를 실행해볼 때 `Solidity`를 활용
 
-### 1) 시작하기
+### 1) 시작하기 <a id="1-getting-started"></a>
 [Truffle을 활용한 배포 가이드](./deploy-guide.md#truffle)를 따라 스마트 컨트랙트를 생성하고 배포하겠습니다. 아직 배포하기 전에 스마트 컨트랙트 테스트 목적을 위해 값 설정 함수 `setGreet` 함수를 추가합니다. 소스 코드는 아래와 같습니다.
 
 
@@ -48,11 +48,11 @@ contract KlaytnGreeter is Mortal {
 
 1) `greet()` 함수가 "Hello, Klaytn"이라는 메세지를 잘 출력하는지, 2) `setGreet()` 함수가 새로 설정된 greeting 메세지를 잘 출력하고 소유자가 아닌 계정이 greeting을 업데이트하려고 할 때 revert를 하는지 테스트해보겠습니다.
 
-먼저 일반적인 단언문(assertions)을 위해  Chai 단언문 라이브러리를 설치하고 (또는 사용하고 계신 다른 단언문 라이브러리도 괜찮습니다), 스마트 컨트랙트 단언문을 위해 truffle-assertions 라이브러리를 설치합니다.
+먼저 일반적인 어설션(assertions)을 위해  Chai 어설션 라이브러리를 설치하고 (또는 사용하고 계신 다른 어설션 라이브러리도 괜찮습니다), 스마트 컨트랙트 어설션을 위해 truffle-assertions 라이브러리를 설치합니다.
 ```
 npm install --save-dev chai truffle-assertions
 ```
-### 2) 솔리디티로 테스트 작성하기
+### 2) 솔리디티로 테스트 작성하기 <a id="2-writing-test-in-solidity"></a>
 솔리디티로 테스트하는 것은 자바스크립트로 테스트하는 것보다 조금 더 직관적일 수 있습니다. 솔리디티 테스트 컨트랙트는 자바스크립트 테스트와 함께 .sol 파일로 제공됩니다.
 
 `test` 폴더에 `TestKlaytnGreeting.sol`이란 이름의 파일을 생성합니다. Truffle 제품군은 테스트를 위한 헬퍼(helper) 라이브러리를 제공하므로, 이들을 불러옵니다. 솔리디티 테스트 예시를 살펴봅시다.
@@ -144,8 +144,8 @@ Compiling your contracts...
 ```
 축하합니다! 테스트가 통과되었습니다.
 
-### 3) 자바스크립트로 테스트 작성하기
-Truffle은 자바스크립트 테스트를 위한 견고한 프레임워크를 제공하기 위해 [Mocha](https://mochajs.org/) 테스트 프레임워크 및 [Chai](https://www.chaijs.com/) 단언문 라이브러리를 사용합니다. 자바스크립트 테스트는 더 많은 유연성을 제공하며 더 복잡한 테스트를 작성할 수 있게 합니다.
+### 3) 자바스크립트로 테스트 작성하기 <a id="3-writing-test-in-javascript"></a>
+Truffle은 자바스크립트 테스트를 위한 견고한 프레임워크를 제공하기 위해 [Mocha](https://mochajs.org/) 테스트 프레임워크 및 [Chai](https://www.chaijs.com/) 어설션 라이브러리를 사용합니다. 자바스크립트 테스트는 더 많은 유연성을 제공하며 더 복잡한 테스트를 작성할 수 있게 합니다.
 
 `test` 경로 하에 파일을 생성하고 이름을 `0_KlaytnGreeting.js`이라 합시다. 테스트 코드는 다음과 같습니다:
 ```javascript
@@ -223,7 +223,7 @@ Compiling your contracts...
 ```
 축하합니다! 테스트가 통과되었습니다.
 
-### 4) 테스트 지정하기
+### 4) 테스트 지정하기 <a id="4-specifying-test"></a>
 실행할 테스트 파일을 선택할 수 있습니다.
 ```
 truffle test ./test/0_KlaytnGreeting.js
