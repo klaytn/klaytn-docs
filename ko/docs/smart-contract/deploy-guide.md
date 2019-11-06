@@ -1,8 +1,8 @@
-# 배포 가이드
+# 배포 가이드 <a id="deploy-guide"></a>
 
 Klaytn에 스마트 컨트랙트를 배포하는 방법에는 여러 가지가 있습니다. 이 문서는 다양한 도구를 사용하여 샘플 컨트랙트를 배포하기 위한 단계별 가이드를 제공합니다. 트랜잭션 비용을 지불하기에 충분한 KLAY가 있는 Klaytn 계정이 있다고 가정합니다. 계정을 만들려면 [Klaytn Wallet](../toolkit/klaytn-wallet.md)을 참조하세요.
 
-## Klaytn IDE
+## Klaytn IDE <a id="klaytn-ide"></a>
 
 인터넷 브라우저를 열고 https://ide.klaytn.com으로 이동하세요.
 
@@ -64,7 +64,7 @@ contract KlaytnGreeter is Mortal {
 
 자세한 내용은 이 [링크](../toolkit/klaytn-ide.md)를 참조하세요.
 
-## Truffle
+## Truffle  <a id="truffle"></a>
 
 Truffle은 스마트 컨트랙트 배포 및 실행에 가장 널리 사용되는 프레임워크입니다.
 
@@ -171,11 +171,11 @@ $ truffle deploy --network mainnet
 
 자세한 내용은 이 [링크](../toolkit/truffle.md)를 참조하세요.
 
-## VVISP
+## VVISP <a id="vvisp"></a>
 vvisp은 HEACHI LABS에서 제공하는 스마트 컨트랙트 개발을 위한 사용하기 쉬운 CLI 도구/프레임워크입니다. 단일 명령만으로 환경을 쉽게 설정하고, Klaytn 스마트 컨트랙트를 배포 및 실행할 수 있습니다. 자세한 내용을 위해 다음 링크를 참조하세요.
 - https://henesis.gitbook.io/vvisp/deploying-smart-contracts
 
-## solc & caver-js
+## solc & caver-js <a id="solc-caver-js"></a>
 
 컨트랙트를 배포하는 또 다른 방법은 solc로 컨트랙트를 수동으로 컴파일하고 caver-js로 컨트랙트를 배포하는 것입니다.
 
