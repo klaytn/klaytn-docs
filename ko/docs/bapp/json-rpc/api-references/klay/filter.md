@@ -1,4 +1,4 @@
-## klay_getFilterChanges
+## klay_getFilterChanges <a id="klay_getfilterchanges"></a>
 
 필터에 대한 폴링 방법으로, 최근 폴링 이후 발생한 로그를 배열의 형태로 반환합니다.
 
@@ -53,7 +53,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getFilterLogs
+## klay_getFilterLogs <a id="klay_getfilterlogs"></a>
 
 입력으로 받은 필터 ID와 일치하는 모든 로그를 배열 형태로 반환합니다. 필터 Id는 [klay_newFilter](#klay_newfilter)를 통해 얻을 수 있습니다.  이때 [klay_newBlockFilter](#klay_newblockfilter), [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter)와 같은 다른 필터 생성 함수를 통해 얻은 필터 ID는 본 함수의 매개변수로 사용할 수 없습니다.
 
@@ -92,7 +92,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getLogs
+## klay_getLogs <a id="klay_getlogs"></a>
 
 입력으로 받은 필터 객체와 일치하는 모든 로그를 배열 형태로 반환합니다.
 
@@ -229,7 +229,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 ```
 
 
-## klay_newBlockFilter
+## klay_newBlockFilter <a id="klay_newblockfilter"></a>
 
 노드에 필터를 생성하여 새로운 블록이 도착하였음을 알립니다. 상태가 변경되었는지 확인하려면 [klay_getFilterChanges](#klay_getfilterchanges)를 호출하세요.
 
@@ -258,7 +258,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_newFilter
+## klay_newFilter <a id="klay_newfilter"></a>
 
 필터 옵션에 따라 필터 객체를 생성하여 상태가 변경되었음(로그)를 알립니다.
 - 상태가 변경되었는지 확인하려면 [klay_getFilterChanges](#klay_getfilterchanges)를 호출하세요.
@@ -299,7 +299,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 ```
 
 
-## klay_newPendingTransactionFilter
+## klay_newPendingTransactionFilter <a id="klay_newpendingtransactionfilter"></a>
 
 노드에 필터를 생성하여 보류 상태인 새로운 트랜잭션이 도착하였음을 알립니다. 상태가 변경되었는지 확인하려면 [klay_getFilterChanges](#klay_getfilterchanges)를 호출하세요.
 
@@ -328,7 +328,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_uninstallFilter
+## klay_uninstallFilter <a id="klay_uninstallfilter"></a>
 
 입력으로 받은 ID를 가진 필터를 제거합니다. 더는 모니터링을 하지 않으면 호출해야 합니다. 또한, 일정 주기 동안 [klay_getFilterChanges](#klay_getfilterchanges)를 통해 요청되지 않으면 필터는 타임아웃 됩니다.
 
