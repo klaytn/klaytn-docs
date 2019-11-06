@@ -3,12 +3,12 @@ description: >-
   계정 관리와 관련된 caver-js API.
 ---
 
-# caver.klay.accounts
+# caver.klay.accounts <a id="caver-klay-accounts"></a>
 
 `caver.klay.accounts`는 Klaytn 계정과 서명 트랜잭션과 데이터를 생성하는 함수를 포함합니다.
 
 
-## create
+## create <a id="create"></a>
 
 ```javascript
 caver.klay.accounts.create([entropy])
@@ -496,7 +496,7 @@ This function converts the private key of AccountKey to public key.
 }
 ```
 
-## privateKeyToAccount
+## privateKeyToAccount <a id="privatekeytoaccount"></a>
 
 ```javascript
 caver.klay.accounts.privateKeyToAccount(privateKey)
@@ -528,7 +528,7 @@ Creates an account object from a private key.
 }
 ```
 
-## privateKeyToPublicKey
+## privateKeyToPublicKey <a id="privatekeytopublickey"></a>
 
 ```javascript
 caver.klay.accounts.privateKeyToPublicKey(privateKey)
@@ -553,7 +553,263 @@ Gets public key from a given private key
 '0xbb1846722a4c27e71196e1a44611ee7174276a6c51c4830fb810cac64b0725f217cb8783625a809d1303adeeec2cf036ab74098a77a6b7f1003486e173b29aa7'
 ```
 
-## signTransaction
+## createAccountForUpdate <a id="createaccountforupdate"></a>
+
+```javascript
+caver.klay.accounts.createAccountForUpdate(address, accountKey, options)
+```
+Creates an instance of `AccountForUpdate`. AccountForUpdate contains the address of the account and the new public key to update.
+
+`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate).
+
+**NOTE** `caver.klay.accounts.createAccountForUpdate` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**매개변수**
+
+| 명칭         | 형식                                | 설명                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ---------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address    | 문자열                               | Address of an Account.                                                                                                                                                                                                                                                                                                                                                                                              |
+| accountKey | String &#124; Array &#124; Object | AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or the equivalent key info (a private key string, an array of private key strings or an object defining key(s) with role(s)). If accountKey is not an AccountKey instance, this method internally calls [caver.klay.accounts.createAccountKey](#createaccountkey) to create an AccountKey instance from the given key info. |
+| options    | 객체                                | An optional object containing the threshold and weight. This is required when using AccountKeyMultiSig. The usage is shown in the example below.                                                                                                                                                                                                                                                                    |
+
+**리턴값**
+
+`Object` - An AccountForUpdate instance is returned, with the following properties:
+
+| 명칭           | 형식  | 설명                                                                         |
+| ------------ | --- | -------------------------------------------------------------------------- |
+| address      | 문자열 | Address of the account to be updated.                                      |
+| keyForUpdate | 객체  | An object containing the new public key derived from the given accountKey. |
+
+
+**예시**
+
+```javascript
+// Create AccountForUpdate for AccountKeyPublic
+> caver.klay.accounts.createAccountForUpdate('0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef', '0x{private key}')
+AccountForUpdate {
+    address: '0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef',
+    keyForUpdate: { 
+        publicKey: '0x24c32ee4f908ceed89e7501de2980fcb1d2add69080d3921f86c49de863eb2d507e24d9aaf91328b7f7cef2a94b538cb33b3f8cdd64925855ce0a4bf6e11f3db'
+    }
+}
+
+// Create AccountForUpdate for AccountKeyMultiSig with an options object
+> caver.klay.accounts.createAccountForUpdate('0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef', ['0x{private key}', '0x{private key}'], { threshold: 2, weight: [1,1] })
+AccountForUpdate {
+    address: '0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef',
+    keyForUpdate: {
+        multisig: {
+            threshold: 2,
+            keys: [
+                {
+                    weight: 1, 
+                    publicKey: '0xc89f551ce9c569cf978f4f64833e447f177a83eda4f1883d770360ab35002dbdeb2d502cd33217238add013ea1c4ff5055ceda46473569824e336d0d64e9eeb2'
+                },
+                {
+                    weight: 1, 
+                    publicKey: '0xab0837fa3d61cf33dc4f3af4aca692d8c939566e1abbca0036fa3b29cd55b38a387f73baf59510d96680062bd129dd2bb8dcbb5ea5ed16c881f83a3251f73600'
+                }
+            ]
+        }
+    }
+}
+
+// Create AccountForUpdate for AccountKeyRoleBased with an options object
+> caver.klay.accounts.createAccountForUpdate('0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef', { transactionKey: '0x{private key}', updateKey: ['0x{private key}', '0x{private key}'], feePayerKey: '0x{private key}' }, { updateKey: { threshold: 2, weight: [1,1] } })
+AccountForUpdate {
+    address: '0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef',
+    keyForUpdate: { 
+        roleTransactionKey: { 
+            publicKey: '0x2b4a1d4ca1ee828f17e8c4c0ac0c0c46cf08f4b27fafc01e4b3481a4fe0891cacf315ed10b1df85bfd6797ea6c5ebafac437a7564eff355b11ad1e3d6e6c43a7'
+        },
+        roleAccountUpdateKey: { 
+            multisig: { 
+                threshold: 2,
+                keys: [
+                    { 
+                        weight: 1,
+                        publicKey: '0x26156615c8e503d96cd332a2fba6aab88b6156b983c89f586bcfc0443c0a7f2372d892d73c66d30f726f8269c75920a082eb2e57f6662d855389bb922ee263f3'
+                    },
+                    {
+                        weight: 1,
+                        publicKey: '0xafc139d2bcace02fa3d4b12926f976cf672f35a6ea2bc0f7e2e6d2ada0dd28f672acb8dcaedc694d6134a2f6c4aae472c9d67d30f760e16e742e01758c4daf83'
+                    }
+                ]
+            }
+        },
+        roleFeePayerKey: {
+            publicKey: '0xe55d39e147a0d5542d4bb965aeaa01e918c81a332ce47e0d3173179fe5b68c8c9264bec516d50bea0a7da7c3d8f98e124761a9b27434221d138ff8e22d932a0a'
+        }
+    }
+}
+
+// Create AccountForUpdate for AccountKeyRoleBased with legacy key or fail key
+// When updating the key used for a specific role in AccountKeyRoleBased to AccountKeyLegacy or AccountKeyFailKey, define the role to update as follows.
+> caver.klay.accounts.createAccountForUpdate('0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef', { transactionKey: 'legacyKey', updateKey: 'failKey' })
+AccountForUpdate {
+    address: '0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef',
+    keyForUpdate: {
+        roleTransactionKey: { legacyKey: true },
+        roleAccountUpdateKey: { failKey: true }
+    }
+}
+```
+
+## createAccountForUpdateWithPublicKey <a id="createaccountforupdatewithpublickey"></a>
+
+```javascript
+caver.klay.accounts.createAccountForUpdateWithPublicKey(address, keyForUpdate, options)
+```
+Creates an instance of `AccountForUpdate` with the public key of the new key to update.
+
+`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate).
+
+**NOTE** `caver.klay.accounts.createAccountForUpdateWithPublicKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**매개변수**
+
+| 명칭           | 형식                                | 설명                                                                                                                                                                                                                                                                      |
+| ------------ | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address      | 문자열                               | Address of an Account.                                                                                                                                                                                                                                                  |
+| keyForUpdate | String &#124; Array &#124; Object | The public-key of the new key to update. This value is a single public-key string when the key is AccountKeyPublic, an array of public-key strings when AccountKeyMultiSig, an object when the key is AccountKeyRoleBased.                                              |
+| options      | 객체                                | An optional object containing the threshold and weight. This is required when using AccountKeyMultiSig. If you use AccountkeyMultiSig as one of the keys in AccountKeyRoleBased, specify the role of the threshold and weight. The usage is shown in the example below. |
+
+**리턴값**
+
+`Object` - An AccountForUpdate instance, see [caver.klay.accounts.createAccountForUpdate](#createaccountforupdate).
+
+
+**예시**
+
+```javascript
+// Create AccountForUpdate for AccountKeyPublic
+> caver.klay.accounts.createAccountForUpdateWithPublicKey('0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef', '0x24c32ee4f908ceed89e7501de2980fcb1d2add69080d3921f86c49de863eb2d507e24d9aaf91328b7f7cef2a94b538cb33b3f8cdd64925855ce0a4bf6e11f3db')
+AccountForUpdate {
+    address: '0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef',
+    keyForUpdate: { 
+        publicKey: '0x24c32ee4f908ceed89e7501de2980fcb1d2add69080d3921f86c49de863eb2d507e24d9aaf91328b7f7cef2a94b538cb33b3f8cdd64925855ce0a4bf6e11f3db'
+    }
+}
+
+// Create AccountForUpdate for AccountKeyMultiSig with an options object
+> caver.klay.accounts.createAccountForUpdateWithPublicKey('0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef', ['0xc89f551ce9c569cf978f4f64833e447f177a83eda4f1883d770360ab35002dbdeb2d502cd33217238add013ea1c4ff5055ceda46473569824e336d0d64e9eeb2', '0xab0837fa3d61cf33dc4f3af4aca692d8c939566e1abbca0036fa3b29cd55b38a387f73baf59510d96680062bd129dd2bb8dcbb5ea5ed16c881f83a3251f73600'], { threshold: 2, weight: [1,1] })
+AccountForUpdate {
+    address: '0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef',
+    keyForUpdate: {
+        multisig: {
+            threshold: 2,
+            keys: [
+                {
+                    weight: 1, 
+                    publicKey: '0xc89f551ce9c569cf978f4f64833e447f177a83eda4f1883d770360ab35002dbdeb2d502cd33217238add013ea1c4ff5055ceda46473569824e336d0d64e9eeb2'
+                },
+                {
+                    weight: 1, 
+                    publicKey: '0xab0837fa3d61cf33dc4f3af4aca692d8c939566e1abbca0036fa3b29cd55b38a387f73baf59510d96680062bd129dd2bb8dcbb5ea5ed16c881f83a3251f73600'
+                }
+            ]
+        }
+    }
+}
+
+// Create AccountForUpdate for AccountKeyRoleBased with an options object
+> caver.klay.accounts.createAccountForUpdateWithPublicKey('0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef', { transactionKey: '0x2b4a1d4ca1ee828f17e8c4c0ac0c0c46cf08f4b27fafc01e4b3481a4fe0891cacf315ed10b1df85bfd6797ea6c5ebafac437a7564eff355b11ad1e3d6e6c43a7', updateKey: ['0x26156615c8e503d96cd332a2fba6aab88b6156b983c89f586bcfc0443c0a7f2372d892d73c66d30f726f8269c75920a082eb2e57f6662d855389bb922ee263f3', '0xafc139d2bcace02fa3d4b12926f976cf672f35a6ea2bc0f7e2e6d2ada0dd28f672acb8dcaedc694d6134a2f6c4aae472c9d67d30f760e16e742e01758c4daf83'], feePayerKey: '0xe55d39e147a0d5542d4bb965aeaa01e918c81a332ce47e0d3173179fe5b68c8c9264bec516d50bea0a7da7c3d8f98e124761a9b27434221d138ff8e22d932a0a' }, { updateKey: { threshold: 2, weight: [1,1] } })
+AccountForUpdate {
+    address: '0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef',
+    keyForUpdate: { 
+        roleTransactionKey: { 
+            publicKey: '0x2b4a1d4ca1ee828f17e8c4c0ac0c0c46cf08f4b27fafc01e4b3481a4fe0891cacf315ed10b1df85bfd6797ea6c5ebafac437a7564eff355b11ad1e3d6e6c43a7'
+        },
+        roleAccountUpdateKey: { 
+            multisig: { 
+                threshold: 2,
+                keys: [
+                    { 
+                        weight: 1,
+                        publicKey: '0x26156615c8e503d96cd332a2fba6aab88b6156b983c89f586bcfc0443c0a7f2372d892d73c66d30f726f8269c75920a082eb2e57f6662d855389bb922ee263f3'
+                    },
+                    {
+                        weight: 1,
+                        publicKey: '0xafc139d2bcace02fa3d4b12926f976cf672f35a6ea2bc0f7e2e6d2ada0dd28f672acb8dcaedc694d6134a2f6c4aae472c9d67d30f760e16e742e01758c4daf83'
+                    }
+                ]
+            }
+        },
+        roleFeePayerKey: {
+            publicKey: '0xe55d39e147a0d5542d4bb965aeaa01e918c81a332ce47e0d3173179fe5b68c8c9264bec516d50bea0a7da7c3d8f98e124761a9b27434221d138ff8e22d932a0a'
+        }
+    }
+}
+```
+
+## createAccountForUpdateWithLegacyKey <a id="createaccountforupdatewithlegacykey"></a>
+
+```javascript
+caver.klay.accounts.createAccountForUpdateWithLegacyKey(address)
+```
+Creates an AccountForUpdate instance to update the account's key with [AccountKeyLegacy](../../../../klaytn/design/accounts.md#accountkeylegacy). Make sure you have a private key that matches your account address before updating to AccountKeyLegacy.
+
+`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate).
+
+**NOTE** `caver.klay.accounts.createAccountForUpdateWithLegacyKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**매개변수**
+
+| 명칭      | 형식  | 설명                     |
+| ------- | --- | ---------------------- |
+| address | 문자열 | Address of an Account. |
+
+**리턴값**
+
+`Object` - An AccountForUpdate instance, see [caver.klay.accounts.createAccountForUpdate](#createaccountforupdate).
+
+
+**예시**
+
+```javascript
+// Create AccountForUpdate for AccountKeyLegacy
+> caver.klay.accounts.createAccountForUpdateWithLegacyKey('0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef')
+AccountForUpdate {
+    address: '0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef',
+    keyForUpdate: { legacyKey: true } 
+}
+```
+
+## createAccountForUpdateWithFailKey <a id="createaccountforupdatewithfailkey"></a>
+
+```javascript
+caver.klay.accounts.createAccountForUpdateWithFailKey(address)
+```
+Creates an AccountForUpdate instance to update the account's key with [AccountKeyFail](../../../../klaytn/design/accounts.md#accountkeyfail). Transactions sent by an account with AccountKeyFail always fail in the validation process.
+
+`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate).
+
+**NOTE** `caver.klay.accounts.createAccountForUpdateWithFailKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**매개변수**
+
+| 명칭      | 형식  | 설명                     |
+| ------- | --- | ---------------------- |
+| address | 문자열 | Address of an Account. |
+
+**리턴값**
+
+`Object` - An AccountForUpdate instance, see [caver.klay.accounts.createAccountForUpdate](#createaccountforupdate).
+
+
+**예시**
+
+```javascript
+// Create AccountForUpdate for AccountKeyFail
+> caver.klay.accounts.createAccountForUpdateWithFailKey('0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef')
+AccountForUpdate {
+    address: '0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef',
+    keyForUpdate: { failKey: true } 
+}
+```
+
+## signTransaction <a id="signtransaction"></a>
 
 ```javascript
 caver.klay.accounts.signTransaction(tx, privateKey [, callback])
@@ -739,7 +995,7 @@ Signs a Klaytn transaction with a given private key.
 ```
 
 
-## recoverTransaction
+## recoverTransaction <a id="recovertransaction"></a>
 
 ```javascript
 caver.klay.accounts.recoverTransaction(rawTransaction)
@@ -766,7 +1022,7 @@ Recovers the Klaytn address that was used to sign the given RLP encoded transact
 ```
 
 
-## hashMessage
+## hashMessage <a id="hashmessage"></a>
 
 ```javascript
 caver.klay.accounts.hashMessage(message)
@@ -780,9 +1036,9 @@ and hashed using keccak256.
 
 **매개변수**
 
-| 명칭  | 형식  | 설명                                                                         |
-| --- | --- | -------------------------------------------------------------------------- |
-| 메시지 | 문자열 | A message to hash.  If it is a HEX string, it will be UTF-8 decoded first. |
+| 명칭      | 형식  | 설명                                                                         |
+| ------- | --- | -------------------------------------------------------------------------- |
+| message | 문자열 | A message to hash.  If it is a HEX string, it will be UTF-8 decoded first. |
 
 
 **리턴값**
@@ -804,7 +1060,7 @@ and hashed using keccak256.
 ```
 
 
-## sign
+## sign <a id="sign"></a>
 
 ```javascript
 caver.klay.accounts.sign(data, privateKey)
@@ -828,7 +1084,7 @@ Signs arbitrary data. This data is before UTF-8 HEX decoded and enveloped as fol
 
 | 명칭          | 형식  | 설명                               |
 | ----------- | --- | -------------------------------- |
-| 메시지         | 문자열 | The given message.               |
+| message     | 문자열 | The given message.               |
 | messageHash | 문자열 | The hash of the given message.   |
 | r           | 문자열 | First 32 bytes of the signature. |
 | s           | 문자열 | Next 32 bytes of the signature.  |
@@ -851,7 +1107,7 @@ Signs arbitrary data. This data is before UTF-8 HEX decoded and enveloped as fol
 ```
 
 
-## recover
+## recover <a id="recover"></a>
 
 ```javascript
 caver.klay.accounts.recover(signatureObject)
@@ -907,7 +1163,7 @@ The signature object has following values:
 ```
 
 
-## encrypt
+## encrypt <a id="encrypt"></a>
 
 ```javascript
 caver.klay.accounts.encrypt(encryptTarget, password [, options])
@@ -1144,7 +1400,7 @@ Encrypts an account to the Klaytn keystore standard.
 ```
 
 
-## decrypt
+## decrypt <a id="decrypt"></a>
 
 ```javascript
 caver.klay.accounts.decrypt(keystoreJsonV3, password)
@@ -1228,7 +1484,7 @@ Account {
 }
 ```
 
-## isDecoupled
+## isDecoupled <a id="isdecoupled"></a>
 
 ```javascript
 caver.klay.accounts.isDecoupled(key, address)
@@ -1266,7 +1522,7 @@ false
 false
 ```
 
-## getLegacyAccount
+## getLegacyAccount <a id="getlegacyaccount"></a>
 
 ```javascript
 caver.klay.accounts.getLegacyAccount(key)
