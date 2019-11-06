@@ -3,12 +3,12 @@ description: >-
   Klaytn 노드를 제어하는 API입니다.
 ---
 
-# Namespace admin
+# Namespace admin <a id="namespace-admin"></a>
 
 `admin` namespace를 사용하여 몇몇 비표준 RPC 메서드에 접근할 수 있으며, 이를 통해 네트워크 피어와 RPC 엔드포인트 관리를 포함하되 이에 국한되지 않는 Klaytn 인스턴스를 세밀하게 제어할 수 있습니다.
 
 
-## admin_nodeInfo
+## admin_nodeInfo <a id="admin_nodeinfo"></a>
 
 `nodeInfo` 관리 속성을 조회하여 실행 중인 Klaytn 노드에 대해 알려진 모든 세밀한 정보를 확인할 수 있습니다.  `klay`와 같은 실행 중인 애플리케이션 프로토콜에 의해 추가된 세부적인 정보뿐만 아니라 [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P 오버레이 프로토콜에 참여하는 노드 자신의 일반적인 정보도 확인할 수 있습니다.
 
@@ -72,7 +72,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_datadir
+## admin_datadir <a id="admin_datadir"></a>
 
 `datadir` 관리 속성을 조회하여 실행 중인 Klaytn 노드가 현재 데이터베이스를 저장하는 데에 사용하는 절대 경로를 확인할 수 있습니다. 기본으로 설정된 경로는 노드 유형(kcn, kpn, ken)과 운영체제에 따라 다릅니다.
 
@@ -107,7 +107,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_peers
+## admin_peers <a id="admin_peers"></a>
 
 `peers` 관리 속성을 조회하여 연결된 원격 노드에 대한 세밀한 정보를 확인할 수 있습니다. 실행 중인 애플리케이션 프로토콜에 의해 추가된 세부적인 정보뿐만 아니라 [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P 오버레이 프로토콜에 참여하는 노드 자신의 일반적인 정보도 확인할 수 있습니다.
 
@@ -182,7 +182,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admi
 ```
 
 
-## admin_addPeer
+## admin_addPeer <a id="admin_addpeer"></a>
 
 `addPeer` 관리 메서드는 추적된 정적 노드들의 목록에 새로운 원격 노드를 추가하도록 요청합니다. 각 노드는 목록의 노드들과의 연결을 항상 유지하고자 하고, 만약 원격 가끔씩 연결이 끊어지면 다시 연결합니다.
 
@@ -201,9 +201,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admi
 
 **리턴값**
 
-| 형식  | 설명                                                |
-| --- | ------------------------------------------------- |
-| 불리언 | 피어 추적이 허용되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+| 형식   | 설명                                                |
+| ---- | ------------------------------------------------- |
+| bool | 피어 추적이 허용되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -220,7 +220,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_removePeer
+## admin_removePeer <a id="admin_removepeer"></a>
 
 `removePeer` 관리 메서드는 추적된 정적 노드들의 목록에서 노드를 제거하도록 요청합니다.
 
@@ -239,9 +239,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **리턴값**
 
-| 형식  | 설명                                                |
-| --- | ------------------------------------------------- |
-| 불리언 | 피어 제거가 완료되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+| 형식   | 설명                                                |
+| ---- | ------------------------------------------------- |
+| bool | 피어 제거가 완료되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -258,7 +258,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_startRPC
+## admin_startRPC <a id="admin_startrpc"></a>
 
 `startRPC` 관리 메서드는 HTTP 기반의 [JSON RPC](http://www.jsonrpc.org/specification) API 웹서버를 시작하여 클라이언트 요청을 처리하도록 합니다.
 
@@ -280,9 +280,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **리턴값**
 
-| 형식  | 설명                                                      |
-| --- | ------------------------------------------------------- |
-| 불리언 | HTTP RPC 리스너가 열리면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+| 형식   | 설명                                                      |
+| ---- | ------------------------------------------------------- |
+| bool | HTTP RPC 리스너가 열리면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -299,7 +299,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_stopRPC
+## admin_stopRPC <a id="admin_stoprpc"></a>
 
 `stopRPC` 관리 메서드는 현재 열려있는 HTTP RPC 엔드포인트를 닫습니다. 노드는 하나의 HTTP 엔드포인트를 실행할 수 있기 때문에 이 메서드에 매개변수는 필요하지 않으며, 엔드포인트가 닫혔는지 여부에 따라 불리언으로 결과를 반환합니다.
 
@@ -314,9 +314,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **리턴값**
 
-| 형식  | 설명                                               |
-| --- | ------------------------------------------------ |
-| 불리언 | 엔드포인트가 닫히면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+| 형식   | 설명                                               |
+| ---- | ------------------------------------------------ |
+| bool | 엔드포인트가 닫히면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -333,7 +333,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_startWS
+## admin_startWS <a id="admin_startws"></a>
 
 `startWS` 관리 메서드는 웹소켓 기반의 [JSON RPC](http://www.jsonrpc.org/specification) API 웹서버를 시작하여 클라이언트 요청을 처리하도록 합니다.
 
@@ -355,9 +355,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **리턴값**
 
-| 형식  | 설명                                                     |
-| --- | ------------------------------------------------------ |
-| 불리언 | 웹소켓 RPC 리스너가 열리면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+| 형식   | 설명                                                     |
+| ---- | ------------------------------------------------------ |
+| bool | 웹소켓 RPC 리스너가 열리면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -374,7 +374,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_stopWS
+## admin_stopWS <a id="admin_stopws"></a>
 
 `stopWS` 관리 메서드는 현재 열려있는 웹소켓 RPC 엔드포인트를 닫습니다. 노드는 하나의 웹소켓 엔드포인트를 실행할 수 있기 때문에 이 메서드에 매개변수는 필요하지 않으며, 엔드포인트가 닫혔는지 여부에 따라 불리언으로 결과를 반환합니다.
 
@@ -389,9 +389,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **리턴값**
 
-| 형식  | 설명                                               |
-| --- | ------------------------------------------------ |
-| 불리언 | 엔드포인트가 닫히면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+| 형식   | 설명                                               |
+| ---- | ------------------------------------------------ |
+| bool | 엔드포인트가 닫히면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -408,7 +408,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_exportChain
+## admin_exportChain <a id="admin_exportchain"></a>
 
 `exportChain` 관리 메서드는 블록체인을 파일로 내보냅니다.
 
@@ -425,9 +425,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **리턴값**
 
-| 형식  | 설명                                               |
-| --- | ------------------------------------------------ |
-| 불리언 | 블록체인을 내보내면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+| 형식   | 설명                                               |
+| ---- | ------------------------------------------------ |
+| bool | 블록체인을 내보내면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -444,7 +444,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_importChain
+## admin_importChain <a id="admin_importchain"></a>
 
 `importChain` 관리 메서드는 내보낸 블록체인을 파일에서 노드로 가져옵니다. 이 메서드는 노드에 블록체인이 존재하지 않는 경우에만 작동합니다. 즉 기존의 데이터를 삭제하지 않습니다.
 
@@ -461,9 +461,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **리턴값**
 
-| 형식  | 설명                                               |
-| --- | ------------------------------------------------ |
-| 불리언 | 블록체인을 가져오면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+| 형식   | 설명                                               |
+| ---- | ------------------------------------------------ |
+| bool | 블록체인을 가져오면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
