@@ -1,6 +1,6 @@
-# 로깅
+# 로깅 <a id="logging"></a>
 
-## debug_backtraceAt
+## debug_backtraceAt <a id="debug_backtraceat"></a>
 
 로깅 백트레이스 위치를 설정합니다. 백트레이스 위치가 설정되고 해당 위치에서 로그 메시지가 발생하면, 해당 로그문을 실행하던 go루틴의 스택이 `stderr`에 출력됩니다.
 
@@ -34,7 +34,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_setVMLogTarget
+## debug_setVMLogTarget <a id="debug_setvmlogtarget"></a>
 
 사전 컴파일된 컨트랙트 vmlog의 출력 형태를 설정합니다.  출력 형태가 파일이면, 스마트 컨트랙트에서의 `vmlog` 호출에서 발생한 로그는 `DATADIR/log/vm.log`에 쓰입니다.  `DATADIR`는 `klay`를 실행할 때 `--datadir`를 통해 지정된 디렉토리입니다.  출력 형태가 `stdout`이면, 표준 출력의 디버깅 메시지와 같이 로그가 출력됩니다.
 
@@ -85,7 +85,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_verbosity
+## debug_verbosity <a id="debug_verbosity"></a>
 
 로깅의 상세 정도 상한을 설정합니다. 어느 레벨 이하로 로그 메시지를 출력할 것인지 반환합니다.
 
@@ -122,7 +122,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_vmodule
+## debug_vmodule <a id="debug_vmodule"></a>
 
 로깅의 상세 출력 패턴을 설정합니다.
 
