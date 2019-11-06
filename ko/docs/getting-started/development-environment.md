@@ -1,14 +1,14 @@
-# 개발 환경
+# 개발 환경 <a id="development-environment"></a>
 
 **Klaytn 네트워크**
 
 * Baobab 테스트넷
 * Cypress 메인넷
 
-**Endpoint Node**
+**엔드포인트 노드**
 
-* [Endpoint Node](../node/endpoint-node/README.md)는 Klaytn 네트워크에 연결하고 API 호출을 발행하거나 트랜잭션을 전송하는 데 필요합니다.
-* `ken`은 Klaytn Endpoint Node 바이너리입니다. `ken`은 [command-line 인터페이스](../node/endpoint-node/ken-cli-commands.md)와 [JSON-RPC API](../bapp/json-rpc/README.md)의 두 인터페이스를 제공합니다. `ken`은 Linux와 MacOS에서 실행됩니다.
+* [엔드포인트 노드](../node/endpoint-node/README.md)는 Klaytn 네트워크에 연결하고 API 호출을 발행하거나 트랜잭션을 전송하는 데 필요합니다.
+* `ken`은 Klaytn 엔드포인트 노드 바이너리입니다. `ken`은 [command-line 인터페이스](../node/endpoint-node/ken-cli-commands.md)와 [JSON-RPC API](../bapp/json-rpc/README.md)의 두 인터페이스를 제공합니다. `ken`은 Linux와 MacOS에서 실행됩니다.
 * `ken` CLI에는 여러 유틸리티 및 노드 관리 기능이 제공됩니다.
 
 **스마트 컨트랙트 개발**
