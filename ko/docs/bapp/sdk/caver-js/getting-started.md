@@ -1,4 +1,4 @@
-# 시작하기
+# 시작하기 <a id="getting-started"></a>
 
 ## 준비 사항 <a id="prerequisites"></a>
 
@@ -71,7 +71,7 @@ $ node
 
 **참고**: [caver.klay.accounts](api-references/caver.klay.accounts.md)와 관련된 함수들은 실제 Klaytn 네트워크에는 영향을 미치지 않습니다.
 
-### caver-js에 계정 추가하기
+### caver-js에 계정 추가하기 <a id="add-accounts-to-caver-js"></a>
 
 caver-js에서 제공하는 인메모리 지갑을 사용하면 쉽게 계정을 사용할 수 있습니다. 다음 예시는 계정 객체 및 Klaytn Wallet이 생성한 키스토어 파일을 사용해 지갑에 계정을 추가하는 방법을 보여줍니다.
 
@@ -131,7 +131,7 @@ caver-js 지갑에 추가된 계정은 `sendTransaction`에 사용될 수 있습
 
 테스트를 위해 KLAY가 필요한 경우 [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에서 Baobab testnet KLAY를 얻을 수 있습니다. 개인키 또는 키스토어 파일을 사용하여 Klaytn Wallet에 로그인하고 테스트를 위해 faucet을 통해 Baobab 테스트넷 KLAY를 받습니다.
 
-### 송금 트랜잭션 전송
+### 송금 트랜잭션 전송 <a id="sending-a-value-transfer-transaction"></a>
 
 트랜잭션 서명은 caver-js 지갑을 통해 할 수 있습니다. 만약 caver-js 지갑에 계정이 있다면, `caver.klay.sendTransaction`을 실행할 때 caver-js 지갑에 저장된 개인키로 서명이 생성됩니다. 이때 `caver.klay.sendTransaction`은 서명 생성과 트랜잭션 제출을 동시에 처리합니다.
 
@@ -192,13 +192,13 @@ caver-js 지갑 없이 해당 개인키로부터 서명을 직접 생성하고�
 0xac418c96f7386a3343d149eeb29e48e28905525dda2e5afe55b0661f9ab01aca
 ```
 
-위 예시처럼 `.on(‘transactionHash’, console.log)`를 호출하여 제출한 트랜잭션의 해시값을 요청하고 이벤트 에미터(event emitter)로 받아올 수 있어요.
+위 예시처럼 `.on(‘transactionHash’, console.log)`를 호출하여 제출한 트랜잭션의 해시를 요청하고 이벤트 이미터(event emitter)로 받아올 수 있어요.
 
 ### 영수증 확인<a id="checking-receipts"></a>
 
-[caver.klay.sendSignedTransaction](api-references/caver.klay/transaction.md#sendsignedtransaction) 또는 [caver.klay.sendTransaction](api-references/caver.klay/transaction.md#sendtransaction)을 통해 트랜잭션을 전송할 때 프로미스(promise)나 이벤트 에미터(event emitter)를 사용하여 트랜잭션의 영수증을 받아올 수 있습니다.
+[caver.klay.sendSignedTransaction](api-references/caver.klay/transaction.md#sendsignedtransaction) 또는 [caver.klay.sendTransaction](api-references/caver.klay/transaction.md#sendtransaction)을 통해 트랜잭션을 전송할 때 프로미스(promise)나 이벤트 이미터(event emitter)를 사용하여 트랜잭션의 영수증을 받아올 수 있습니다.
 
-다음 예시는 프로미스(promise) 및 이벤트 에미터(event emitter)를 사용하여 영수증을 받는 과정입니다.
+다음 예시는 프로미스(promise) 및 이벤트 이미터(event emitter)를 사용하여 영수증을 받는 과정입니다.
 
 ```text
 // 프로미스(promise) 사용
@@ -218,7 +218,7 @@ caver-js 지갑 없이 해당 개인키로부터 서명을 직접 생성하고�
     value: '0xde0b6b3a7640000' 
 }
 
-// 이벤트 에미터(event emitter) 사용
+// 이벤트 이미터(event emitter) 사용
 > caver.klay.sendSignedTransaction(rawTransaction).on('receipt', console.log)
 { 
     blockHash: '0x6ccef34eb59fab927705d344f080f449b576c0626e4aa3e20f569feb8df6e283',
@@ -236,7 +236,7 @@ caver-js 지갑 없이 해당 개인키로부터 서명을 직접 생성하고�
 }
 ```
 
-위 예시와 같이 프로미스(promise)와 이벤트 에미터(event emitter)를 통해 트랜잭션을 전송한 결과를 가져올 수 있습니다. 또한 트랜잭션의 해시값을 알고 있다면 [caver.klay.getTransactionReceipt](api-references/caver.klay/transaction.md#gettransactionreceipt) RPC 호출을 하여 트랜잭션 영수증을 요청할 수도 있습니다. 아래 예시는 [caver.klay.getTransactionReceipt](api-references/caver.klay/transaction.md#gettransactionreceipt) RPC 호출을 사용하여 영수증을 받는 방법을 보여줍니다.
+위 예시와 같이 프로미스(promise)와 이벤트 이미터(event emitter)를 통해 트랜잭션을 전송한 결과를 가져올 수 있습니다. 또한 트랜잭션의 해시를 알고 있다면 [caver.klay.getTransactionReceipt](api-references/caver.klay/transaction.md#gettransactionreceipt) RPC 호출을 하여 트랜잭션 영수증을 요청할 수도 있습니다. 아래 예시는 [caver.klay.getTransactionReceipt](api-references/caver.klay/transaction.md#gettransactionreceipt) RPC 호출을 사용하여 영수증을 받는 방법을 보여줍니다.
 
 ```text
 > caver.klay.getTransactionReceipt('0xbad4dd6d80beda6c04d90f1db7e4179557ab48423d4f14295b33e38a9418e59f').then(console.log)
@@ -275,7 +275,7 @@ caver-js 지갑 없이 해당 개인키로부터 서명을 직접 생성하고�
 
 Klaytn은 확장성과 성능을 위한 다양한 트랜잭션 타입을 제공합니다. For more information, see [Transactions](../../../klaytn/design/transactions/README.md). 이 장에서는 caver-js와 함께 사용할 수 있는 다양한 예시를 설명합니다.
 
-### Fee Delegation <a id="fee-delegation"></a>
+### 트랜잭션 비용 위임 <a id="fee-delegation"></a>
 
 Klaytn은 [트랜잭션 비용 위임](../../../klaytn/design/transactions/README.md#fee-delegation) 기능을 제공합니다. 예제 코드는 다음과 같습니다.
 
@@ -319,7 +319,7 @@ Klaytn은 [트랜잭션 비용 위임](../../../klaytn/design/transactions/READM
 
 **참고**: 트랜잭션 비용 지불자의 계정은 caver-js 지갑에 있어야 합니다.
 
-### 계정 업데이트
+### 계정 업데이트 <a id="account-update"></a>
 
 계정의 키를 변경하려면 아래와 같은 트랜잭션을 보내세요. 키 타입에 따른 트랜잭션 필드에 대한 [계정 업데이트](api-references/caver.klay/sendtx_account_update.md)를 확인하세요.
 
@@ -336,7 +336,7 @@ Klaytn은 [트랜잭션 비용 위임](../../../klaytn/design/transactions/READM
 }).then(console.log);
 ```
 
-### 스마트 컨트랙트
+### 스마트 컨트랙트 <a id="smart-contract"></a>
 
 [caver.klay.Contract](api-references/caver.klay.Contract.md) 패키지를 사용하면 Klaytn의 스마트 컨트랙트와 쉽게 상호작용할 수 있습니다. 저수준 ABI\(Application Binary Interface\)가 주어지면 스마트 컨트랙트의 모든 메소드를 자동으로 자바스크립트 호출로 변환합니다. 이를 통해 스마트 컨트랙트가 마치 자바스크립트 객체인 것처럼 스마트 컨트랙트와 상호작용할 수 있습니다.
 
@@ -951,7 +951,7 @@ console.log(rawTransaction)
 
 **NOTE** `caver.klay.accounts.getRawTransactionWithSignatures` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-## Sample Projects <a id="sample-projects"></a>
+## 샘플 프로젝트 <a id="sample-projects"></a>
 
 The BApp \(Blockchain Application\) Development sample projects using caver-js are the following:
 
