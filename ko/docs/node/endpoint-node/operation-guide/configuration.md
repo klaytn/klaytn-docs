@@ -1,8 +1,8 @@
-# 환경 설정
+# 설정<a id="configuration"></a>
 
-본 문서는 Endpoint Node 속성의 환경 설정에 대해 안내합니다. Klaytn 노드 패키지는 기본적으로 제공되며 별도의 구성 설정은 거의 필요하지 않습니다. 실행 중인 노드의 설정을 변경했다면 해당 노드를 재시작해야 변경 사항이 반영됩니다.
+본 문서는 엔드포인트 노드 속성의 환경 설정에 대해 안내합니다. Klaytn 노드 패키지는 기본적으로 제공되며 별도의 구성 설정은 거의 필요하지 않습니다. 실행 중인 노드의 설정을 변경했다면 해당 노드를 재시작해야 변경 사항이 반영됩니다.
 
-## 환경 설정 파일 위치
+## 환경 설정 파일 위치 <a id="configuration-file-location"></a>
 
 * Proxy Node 환경 설정 시 `kend.conf`
 
@@ -11,7 +11,7 @@
 * 아카이브 배포의 경우 환경 설정 디렉토리의 위치가 `$INSTALL_PATH/ken-linux-amd64/conf/`으로 기본 설정되어 있습니다.
 * 패키지 배포의 경우 환경 설정 디렉토리의 위치가 `/etc/kend/conf/`으로 기본 설정되어 있습니다.
 
-## 구성 파일 형식
+## Configuration File Format  <a id="configuration-file-format"></a>
 
 다음은 EN의 환경설정 파일 샘플로, `cypress`네트워크에 참여하고 블록체인 데이터를 기본 설정 위치에 저장하게 되어 있습니다. 이때 기본으로 설정된 블록체인 데이터 저장 위치는 아카이브 배포의 경우 `~/kend_home`, 패키지 배포의 경우 `/var/kend/data`입니다.
 
@@ -44,7 +44,7 @@ TXPOOL_EXEC_SLOTS_ACCOUNT=4096
 TXPOOL_NONEXEC_SLOTS_ACCOUNT=4096
 ```
 
-## 속성
+## Properties <a id="properties"></a>
 
 다음은 구성 파일에서 설정할 수 있는 속성입니다. 
 
@@ -241,3 +241,4 @@ TXPOOL_NONEXEC_SLOTS_ACCOUNT=4096
     </tr>
   </tbody>
 </table>
+
