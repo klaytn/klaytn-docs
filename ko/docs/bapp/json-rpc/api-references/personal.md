@@ -3,12 +3,12 @@ description: >-
   노드에서 계정과 개인키를 관리하는 API입니다.
 ---
 
-# Namespace personal
+# Namespace personal <a id="namespace-personal"></a>
 
 `personal` namespace는 키스토어의 개인키를 관리합니다.
 
 
-## personal_importRawKey
+## personal_importRawKey <a id="personal_importrawkey"></a>
 
 암호화되지 않은 개인키(접두사 '0x'를 제거한 16진수 문자열) 또는 [Klaytn 지갑 키](../../../klaytn/design/accounts.md#klaytn-wallet-key-format)를 키스토어로 가져와 패스프레이즈로 암호화합니다.
 
@@ -51,7 +51,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 {"jsonrpc":"2.0","id":1,"result":"0xda04fb00e2cb5745cef7d8c4464378202a1673ef"}
 ```
 
-## personal_listAccounts
+## personal_listAccounts <a id="personal_listaccounts"></a>
 
 키스토어에 있는 모든 키에 대해서 각 키의 Klaytn 계정 주소를 반환합니다.
 
@@ -86,7 +86,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 ```
 
 
-## personal_newAccount
+## personal_newAccount <a id="personal_newaccount"></a>
 
 새 개인키를 생성하여 키스토어 디렉토리에 저장합니다. 입력으로 받은 패스프레이즈로 키 파일을 암호화합니다. 새로 생성된 계정의 주소를 반환합니다.
 
@@ -133,7 +133,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 ```
 
 
-## personal_lockAccount
+## personal_lockAccount <a id="personal_lockaccount"></a>
 
 입력으로 받은 주소에 해당하는 개인키를 메모리에서 제거합니다. 이후 해당 계정을 사용하여 트랜잭션을 전송할 수 없습니다.
 
@@ -150,9 +150,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 **리턴값**
 
-| 형식  | 설명                                                  |
-| --- | --------------------------------------------------- |
-| 불리언 | 계정이 성공적으로 잠기면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+| 형식   | 설명                                                  |
+| ---- | --------------------------------------------------- |
+| bool | 계정이 성공적으로 잠기면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -168,7 +168,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 ```
 
 
-## personal_unlockAccount
+## personal_unlockAccount <a id="personal_unlockaccount"></a>
 
 입력으로 받은 주소에 해당하는 키를 키스토어로부터 복호화합니다.
 
@@ -193,9 +193,9 @@ passphrase와 duration 매개변수는 자바스트립트 콘솔일 때 사용�
 
 **리턴값**
 
-| 형식  | 설명                                            |
-| --- | --------------------------------------------- |
-| 불리언 | 잠금 해제되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+| 형식   | 설명                                            |
+| ---- | --------------------------------------------- |
+| bool | 잠금 해제되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -228,7 +228,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
-## personal_replaceRawKey
+## personal_replaceRawKey <a id="personal_replacerawkey"></a>
 
 암호화되지 않은 개인키(접두사 '0x'를 제거한 16진수 문자열) 또는 [Klaytn 지갑 키](../../../klaytn/design/accounts.md#klaytn-wallet-key-format)를 입력으로 받아 이에 해당하는 키 파일을 새 패스프레이즈로 암호화합니다. 또한 변경하기 전에 이전 패스프레이즈를 입력하여 이전 개인키를 복호화합니다. 복호화에 실패하거나 일치하는 계정을 찾을 수 없는 경우 오류가 발생합니다.
 
@@ -270,9 +270,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 {"jsonrpc":"2.0","id":1,"result":"0xda04fb00e2cb5745cef7d8c4464378202a1673ef"}
 ```
 
-## personal_sendAccountUpdate
+## personal_sendAccountUpdate <a id="personal_sendaccountupdate"></a>
 
-입력으로 받은 패스프레이즈를 검증하고 [TxTypeAccountUpdate](../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) 트랜잭션을 제출합니다. 이 트랜잭션 객체의 `from`와 `key` 필드는 필수적으로 값을 입력해야 합니다. `gas`, `gasPrice`, `nonce`와 같은 다른 필드는 값이 지정되지 않으면 내부적으로 설정이 됩니다. 입력받은 패스프레이즈로 `tx.from`의 개인키를 복호화할 수 있고 트랜잭션이 유효하면, 트랜잭션을 서명하여 네트워크에 제출합니다. 이때 계정은 노드에서 전역적으로 잠금 해제되지 않으며 다른 RPC 호출에 사용될 수도 없습니다.
+입력으로 받은 패스프레이즈를 검증하고 [TxTypeAccountUpdate](../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) 트랜잭션을 제출합니다. 이 트랜잭션 객체의 `from`와 `key` 필드는 필수적으로 값을 입력해야 합니다. `gas`, `gasPrice`, `논스`와 같은 다른 필드는 값이 지정되지 않으면 내부적으로 설정이 됩니다. 입력받은 패스프레이즈로 `tx.from`의 개인키를 복호화할 수 있고 트랜잭션이 유효하면, 트랜잭션을 서명하여 네트워크에 제출합니다. 이때 계정은 노드에서 전역적으로 잠금 해제되지 않으며 다른 RPC 호출에 사용될 수도 없습니다.
 
 | 클라이언트 | 메서드 호출                                                                 |
 |:-----:| ---------------------------------------------------------------------- |
@@ -309,9 +309,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 {"jsonrpc":"2.0","id":1,"result":"0x26a7a8ba619a5e3e4d742c217f55f49591a5616b200c976bd58a966a05e294b7"}
 ```
 
-## personal_sendTransaction
+## personal_sendTransaction <a id="personal_sendtransaction"></a>
 
-입력으로 받은 패스프레이즈를 검증하고 [TxTypeLegacy](../../../klaytn/design/transactions/basic.md#txtypelegacytransaction) 트랜잭션을 제출합니다. 이 트랜잭션 객체의 `from`, `to`, `value` 필드는 필수적으로 값을 입력해야 합니다. `gas`, `gasPrice`, `nonce`와 같은 다른 필드는 값이 지정되지 않으면 내부적으로 설정이 됩니다. 입력받은 패스프레이즈로 `tx.from`의 개인키를 복호화할 수 있고 트랜잭션이 유효하면, 트랜잭션을 서명하여 네트워크에 제출합니다. 이때 계정은 노드에서 전역적으로 잠금 해제되지 않으며 다른 RPC 호출에 사용될 수도 없습니다.
+입력으로 받은 패스프레이즈를 검증하고 [TxTypeLegacy](../../../klaytn/design/transactions/basic.md#txtypelegacytransaction) 트랜잭션을 제출합니다. 이 트랜잭션 객체의 `from`, `to`, `value` 필드는 필수적으로 값을 입력해야 합니다. `gas`, `gasPrice`, `논스`와 같은 다른 필드는 값이 지정되지 않으면 내부적으로 설정이 됩니다. 입력받은 패스프레이즈로 `tx.from`의 개인키를 복호화할 수 있고 트랜잭션이 유효하면, 트랜잭션을 서명하여 네트워크에 제출합니다. 이때 계정은 노드에서 전역적으로 잠금 해제되지 않으며 다른 RPC 호출에 사용될 수도 없습니다.
 
 | 클라이언트 | 메서드 호출                                                               |
 |:-----:| -------------------------------------------------------------------- |
@@ -348,9 +348,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 {"jsonrpc":"2.0","id":1,"result":"0x26a7a8ba619a5e3e4d742c217f55f49591a5616b200c976bd58a966a05e294b7"}
 ```
 
-## personal_sendValueTransfer
+## personal_sendValueTransfer <a id="personal_sendvaluetransfer"></a>
 
-입력으로 받은 패스프레이즈를 검증하고 [TxTypeValueTransfer](../../../klaytn/design/transactions/basic.md#txtypevaluetransfer) 트랜잭션을 제출합니다. 이 트랜잭션 객체의 `from`, `to`, `value` 필드는 필수적으로 값을 입력해야 합니다. `gas`, `gasPrice`, `nonce`와 같은 다른 필드는 값이 지정되지 않으면 내부적으로 설정이 됩니다. 입력받은 패스프레이즈로 `tx.from`의 개인키를 복호화할 수 있고 트랜잭션이 유효하면, 트랜잭션을 서명하여 네트워크에 제출합니다. 이때 계정은 노드에서 전역적으로 잠금 해제되지 않으며 다른 RPC 호출에 사용될 수도 없습니다.
+입력으로 받은 패스프레이즈를 검증하고 [TxTypeValueTransfer](../../../klaytn/design/transactions/basic.md#txtypevaluetransfer) 트랜잭션을 제출합니다. 이 트랜잭션 객체의 `from`, `to`, `value` 필드는 필수적으로 값을 입력해야 합니다. `gas`, `gasPrice`, `논스`와 같은 다른 필드는 값이 지정되지 않으면 내부적으로 설정이 됩니다. 입력받은 패스프레이즈로 `tx.from`의 개인키를 복호화할 수 있고 트랜잭션이 유효하면, 트랜잭션을 서명하여 네트워크에 제출합니다. 이때 계정은 노드에서 전역적으로 잠금 해제되지 않으며 다른 RPC 호출에 사용될 수도 없습니다.
 
 | 클라이언트 | 메서드 호출                                                                 |
 |:-----:| ---------------------------------------------------------------------- |
@@ -387,7 +387,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 {"jsonrpc":"2.0","id":1,"result":"0x26a7a8ba619a5e3e4d742c217f55f49591a5616b200c976bd58a966a05e294b7"}
 ```
 
-## personal_sign
+## personal_sign <a id="personal_sign"></a>
 
 `sign` 메서드는 다음과 같이 Klaytn만의 서명을 계산합니다. `sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))`
 
@@ -428,7 +428,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 ```
 
 
-## personal_ecRecover
+## personal_ecRecover <a id="personal_ecrecover"></a>
 
 `ecRecover`는 `personal_sign`에서 서명을 계산하는 데에 사용된 개인키에 해당하는 주소를 반환합니다.
 
