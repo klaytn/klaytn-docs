@@ -1,6 +1,6 @@
-# Porting from web3j
+# web3j에서 포팅하기 <a id="porting-from-web3j"></a>
 
-이식성을 위해 caver-java를 [web3j](https://github.com/web3j/web3j)와 최대한 비슷하게 만들었습니다. 아래 코드 스니펫은 web3j로 작성된 어플리케이션을 caver-java로 이식하는 방법을 보여줍니다.
+이식성을 위해 caver-java를 [web3j](https://github.com/web3j/web3j)와 최대한 비슷하게 만들었습니다. 아래 코드 스니펫은 web3j로 작성된 애플리케이션을 caver-java로 이식하는 방법을 보여줍니다.
 
 ```java
 /* start a client */
@@ -28,5 +28,5 @@ TransactionReceipt transactionReceipt = Transfer.sendFunds(...),send(); // Web3j
 KlayTransactionReceipt.TransactionReceipt transactionReceipt = ValueTransfer.sendFunds().send(); // caver-java
 ```
 
-## 
+## <a id=""></a>
 
