@@ -1,8 +1,8 @@
-# 계정에 자금 추가하기
+# 계정에 자금 추가하기 <a id="top-up-your-account"></a>
 
 ## 콘솔에 연결하기 <a id="attaching-to-the-console"></a>
 
-Klaytn Endpoint Node는 자바스크립트 콘솔과 함께 제공됩니다. 콘솔 명령 행에서 EN을 향한 Klaytn API 호출의 일부를 시작할 수 있습니다. 자바스크립트 콘솔에 연결하려면 다음 명령을 실행하세요.
+Klaytn 엔드포인트 노드는 자바스크립트 콘솔과 함께 제공됩니다. 콘솔 명령 행에서 EN을 향한 Klaytn API 호출의 일부를 시작할 수 있습니다. 자바스크립트 콘솔에 연결하려면 다음 명령을 실행하세요.
 
 ```bash
 $ ken attach ~/kend_home/klay.ipc
