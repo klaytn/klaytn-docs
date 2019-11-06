@@ -1,8 +1,8 @@
-# 솔리디티 - 스마트 컨트랙트 언어
+# 솔리디티 - 스마트 컨트랙트 언어 <a id="solidity-smart-contract-language"></a>
 
 솔리디티가 공식 웹 사이트에 이미 문서화되어 있으므로 이 장에서는 추상적인 개념, 개발 프로세스, 솔리디티로 작성된 예제만을 설명토록 하겠습니다. 솔리디티에 대한 스펙과 구현에 대해서는 아래 [참조](#references)를 참고해주세요. 이 장의 내용은 [참조](#references)의 웹 사이트들을 기반으로 합니다.
 
-## 솔리디티와 Klaytn
+## 솔리디티와 Klaytn <a id="solidity-and-klaytn"></a>
 
 [솔리디티](https://github.com/ethereum/solidity)는 이더리움 플랫폼의 스마트 컨트랙트를 구현하기 위한 언어로, 고수준이고 정적인 컨트랙트 지향 언어입니다. 원래 솔리디티가 이더리움을 위해 설계되었지만 일반적인 스마트 컨트랙트를 작성하기에도 적합합니다. 따라서 Klaytn과 같은 블록체인 플랫폼에서도 사용할 수 있습니다.
 
@@ -25,7 +25,7 @@
 
 * [최고의 솔리디티 튜토리얼들](https://medium.com/coinmonks/top-solidity-tutorials-4e7adcacced8)
 
-## 스마트 컨트랙트 작성하기
+## 스마트 컨트랙트 작성하기 <a id="how-to-write-a-smart-contract"></a>
 
 이 섹션에서는 솔리디티 소스 코드의 예제를 통해 스마트 컨트랙트가 어떤 형태이고 이를 어떻게 작성할 수 있는지 보여드릴게요. 여기서 제시된 코드는 실제로 사용되기보다는 단순히 설명을 목적으로 제공된 코드입니다. 코드 중 `(require)`라고 주석이 달려있는 행은 솔리디티 파일에서 필수로 포함되어야 하는 부분이고, `(optional)`라고 주석이 있는 행은 항상 필요한 것이 아님을 의미합니다. `Ln:`은 실제 솔리디티 코드가 아니라 행 번호를 표시하기 위해 편의상 추가한 심볼입니다. 실제 사용 시에는 이 심볼들은 제외하세요.
 
@@ -63,7 +63,7 @@ L20: }
 
 솔리디티 언어의 구문과 문법에 대한 자세한 내용은 [Solidity documentation v0.4.24](https://solidity.readthedocs.io/en/v0.4.24/solidity-in-depth.html) 또는 [Solidity documentation v0.5.6](https://solidity.readthedocs.io/en/v0.5.6/solidity-in-depth.html)을 참고해주세요.
 
-## 컴파일, 배포, 실행하기
+## 컴파일, 배포, 실행하기 <a id="how-to-compile-deploy-and-execute"></a>
 
 솔리디티 코드를 컴파일하는 방법 중 하나는 명령 줄 컴파일러인 _solc_를 사용하는 것입니다. 이 컴파일러는 간단한 바이너리와 어셈블리부터 추상 구문 트리 \(파스 트리\)에 이르기까지 다양한 결과물을 생성합니다. 위의 코드를 `UserStorage.sol`라고 저장한다고 할 때 \(위 예제에서 `L03`는 제외하였습니다\), `UserStorage.sol`을 컴파일하는 예제는 다음과 같습니다.
 
@@ -97,7 +97,7 @@ solc --optimize --bin UserStorage.sol
 
 참고: 이 장은 나중에 업데이트 될 예정입니다.
 
-## 스마트 컨트랙트 디버깅
+## 스마트 컨트랙트 디버깅 <a id="debugging-smart-contracts"></a>
 
 완성도 높은 디버깅 도구가 별로 없기 때문에 다른 프로그래밍 언어로 작성된 코드보다 솔리디티로 작성된 코드를 디버깅 하는 것이 더 까다롭습니다. 솔리디티 디버깅에 대한 참고 자료는 아래와 같습니다.
 
@@ -107,7 +107,7 @@ solc --optimize --bin UserStorage.sol
 
 참고: 이 장은 나중에 업데이트 될 예정입니다.
 
-## 스마트 컨트랙트 모범 사례
+## 스마트 컨트랙트 모범 사례 <a id="smart-contract-best-practices"></a>
 
 스마트 컨트랙트의 보안 문제와 코드 품질 문제를 해결하려면 솔리디티 프로그래밍의 모범 사례를 연구하고 참고하는 것이 중요합니다. 솔리디티 모범 사례에 대한 참고 자료는 아래와 같습니다.
 
@@ -115,7 +115,7 @@ solc --optimize --bin UserStorage.sol
 
 참고: 이 장은 나중에 업데이트 될 예정입니다.
 
-## 참고
+## 참고 <a id="references"></a>
 
 * [솔리디티 깃허브 사이트](https://github.com/ethereum/solidity)
 * [솔리디티 v0.4.24 문서](https://solidity.readthedocs.io/en/v0.4.24/index.html)
