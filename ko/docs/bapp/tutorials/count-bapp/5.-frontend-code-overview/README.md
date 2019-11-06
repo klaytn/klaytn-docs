@@ -1,8 +1,8 @@
-# 5. 프론트엔드 코드 개요
+# 5. 프론트엔드 코드 개요 <a id="5-frontend-code-overview"></a>
 
-1\) `src/index.js` - 어플리케이션의 엔트리 포인트 2\) `public/index.html` - index.html 3\) `src/routes.js` - 라우팅 정의를 담고 있는 파일 4\) `src/App.js` - 어플리케이션의 루트 컴포넌트 5\) `src/klaytn/caver.js` - Klaytn 노드와의 연결을 담당
+1\) `src/index.js` - 애플리케이션의 엔트리 포인트 2\) `public/index.html` - index.html 3\) `src/routes.js` - 라우팅 정의를 담고 있는 파일 4\) `src/App.js` - 애플리케이션의 루트 컴포넌트 5\) `src/klaytn/caver.js` - Klaytn 노드와의 연결을 담당
 
-## 1\) `src/index.js`:
+## 1\) `src/index.js`: <a id="1-src-index-js"></a>
 
 ```javascript
 import ReactDOM from 'react-dom'
@@ -28,11 +28,11 @@ if (module.hot) {
 }
 ```
 
-`'index.js'`가 튜토리얼 어플리케이션의 메인 자바스크립트 파일이며, 어플리케이션의 엔트리 포인트입니다.
+`'index.js'`가 튜토리얼 애플리케이션의 메인 자바스크립트 파일이며, 애플리케이션의 엔트리 포인트입니다.
 
-'react-dom' 라이브러리를 사용하여 컨테이너('\#root'\)에서 리액트의 구성 요소들을 DOM으로 렌더링하고 해당 컴포넌트에 대한 참조를 반환합니다. 즉 'react-dom'을 통해 튜토리얼 어플리케이션의 DOM을 `public/index.html` 파일의 `<div id="root"></div>`로 채우게 됩니다.
+'react-dom' 라이브러리를 사용하여 컨테이너('\#root'\)에서 리액트의 구성 요소들을 DOM으로 렌더링하고 해당 컴포넌트에 대한 참조를 반환합니다. 즉 'react-dom'을 통해 튜토리얼 애플리케이션의 DOM을 `public/index.html` 파일의 `<div id="root"></div>`로 채우게 됩니다.
 
-## 2\) `public/index.html`:
+## 2\) `public/index.html`: <a id="2-public-index-html"></a>
 
 ```markup
 <!DOCTYPE html>
@@ -62,11 +62,11 @@ if (module.hot) {
 </html>
 ```
 
-`index.html`은 튜토리얼 어플리케이션을 렌더링하기 위한 HTML 파일입니다.
+`index.html`은 튜토리얼 애플리케이션을 렌더링하기 위한 HTML 파일입니다.
 
 자세한 내용은 리액트 공식 사이트를 참고해주세요. [https://reactjs.org/docs/react-dom.html\#render](https://reactjs.org/docs/react-dom.html#render)
 
-## 3\) `src/routes.js`:
+## 3\) `src/routes.js`: <a id="3-src-routes-js"></a>
 
 ```javascript
 import React from 'react'
@@ -85,11 +85,11 @@ const renderRoutes = rootComponent => (
 export default renderRoutes
 ```
 
-`'routes.js'` 파일은 본 튜토리얼 어플리케이션의 라우팅 정의를 담고 있습니다. 루트 컴포넌트 `'App.js'`는 `'route.js'` 파일에 정의된 하위 컴포넌트들을 렌더링합니다. 위 코드를 보면, 브라우저의 URL 경로가 `"/"`일 때 `'Count'` 컴포넌트는 rootComponent의 하위 컴포넌트로서 렌더링될 것입니다.
+`'routes.js'` 파일은 본 튜토리얼 애플리케이션의 라우팅 정의를 담고 있습니다. 루트 컴포넌트 `'App.js'`는 `'route.js'` 파일에 정의된 하위 컴포넌트들을 렌더링합니다. 위 코드를 보면, 브라우저의 URL 경로가 `"/"`일 때 `'Count'` 컴포넌트는 rootComponent의 하위 컴포넌트로서 렌더링될 것입니다.
 
 자세한 내용은 리액트 라우터의 github를 참고해주세요. [https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md](https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md)
 
-## 4\) `src/App.js`:
+## 4\) `src/App.js`: <a id="4-src-app-js"></a>
 
 ```javascript
 import React, { Component } from 'react'
@@ -132,7 +132,7 @@ class App extends Component {
 export default App
 ```
 
-`'App.js'`는 본 튜토리얼 어플리케이션의 루트 컴포넌트입니다.
+`'App.js'`는 본 튜토리얼 애플리케이션의 루트 컴포넌트입니다.
 
 ```javascript
 render() {
@@ -167,11 +167,11 @@ componentWillMount() {
 }
 ```
 
-`componentWillMount`는 브라우저의 sessionStorage에 `walletInstance` 세션이 있는지 확인합니다. 본 튜토리얼 어플리케이션에 한 번도 로그인하지 않았다면 `walletInstance` 세션은 없습니다. 그러나 로그인한 적이 있다면 `walletInstance` 세션이 JSON 문자열로 존재합니다. 이러한 경우 지갑 인스턴스를 caver 지갑에 추가합니다. 또한 `cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))`를 통해 caver에 지갑 인스턴스를 추가할 수도 있습니다. `caver.klay.accounts.wallet.add`에 대한 자세한 내용은 [caver.klay.accounts.wallet.add](../../../sdk/caver-js/api-references/caver.klay.accounts.md#wallet-add)를  참고해주세요.
+`componentWillMount`는 브라우저의 sessionStorage에 `walletInstance` 세션이 있는지 확인합니다. 본 튜토리얼 애플리케이션에 한 번도 로그인하지 않았다면 `walletInstance` 세션은 없습니다. 그러나 로그인한 적이 있다면 `walletInstance` 세션이 JSON 문자열로 존재합니다. 이러한 경우 지갑 인스턴스를 caver 지갑에 추가합니다. 또한 `cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))`를 통해 caver에 지갑 인스턴스를 추가할 수도 있습니다. `caver.klay.accounts.wallet.add`에 대한 자세한 내용은 [caver.klay.accounts.wallet.add](../../../sdk/caver-js/api-references/caver.klay.accounts.md#wallet-add)를  참고해주세요.
 
 참고\) `walletInstance` 세션이 JSON 문자열로 저장되기 때문에 `JSON.parse`가 필요합니다.
 
-## 5\) `src/klaytn/caver.js`:
+## 5\) `src/klaytn/caver.js`: <a id="5-src-klaytn-caver-js"></a>
 
 ```javascript
 /**
