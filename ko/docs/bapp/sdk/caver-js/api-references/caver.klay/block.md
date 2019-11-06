@@ -1,4 +1,4 @@
-## defaultBlock
+## defaultBlock <a id="defaultblock"></a>
 
 ```javascript
 caver.klay.defaultBlock
@@ -34,7 +34,7 @@ Default is `"latest"`.
 > caver.klay.defaultBlock = 1000;
 ```
 
-## getBlockNumber
+## getBlockNumber <a id="getblocknumber"></a>
 
 ```javascript
 caver.klay.getBlockNumber([callback])
@@ -59,7 +59,7 @@ Returns the current block number.
 2744
 ```
 
-## getBlock
+## getBlock <a id="getblock"></a>
 
 ```javascript
 caver.klay.getBlock(blockHashOrBlockNumber [, returnTransactionObjects] [, callback])
@@ -125,7 +125,7 @@ Returns a block matching the block hash or block number.
 }
 ```
 
-## getBlockReceipts
+## getBlockReceipts <a id="getblockreceipts"></a>
 
 ```javascript
 caver.klay.getBlockReceipts(blockHash [, callback])
@@ -182,7 +182,7 @@ Returns a list of transaction receipts included in a block identified by the giv
 []
 ```
 
-## getBlockTransactionCount
+## getBlockTransactionCount <a id="getblocktransactioncount"></a>
 
 ```javascript
 caver.klay.getBlockTransactionCount(blockHashOrBlockNumber [, callback])
@@ -208,7 +208,7 @@ Returns the number of transaction in a given block.
 ```
 
 
-## getBlockWithConsensusInfo
+## getBlockWithConsensusInfo <a id="getblockwithconsensusinfo"></a>
 
 ```javascript
 caver.klay.getBlockWithConsensusInfo(blockHashOrBlockNumber [, callback])
@@ -308,7 +308,7 @@ Returns a block with consensus information matched by the given block hash or bl
 }
 ```
 
-## getCommittee
+## getCommittee <a id="getcommittee"></a>
 
 ```javascript
 caver.klay.getCommittee([defaultBlock] [, callback])
@@ -339,7 +339,7 @@ caver.klay.getCommittee([defaultBlock] [, callback])
 ]
 ```
 
-## getCommitteeSize
+## getCommitteeSize <a id="getcommitteesize"></a>
 
 ```javascript
 caver.klay.getCommitteeSize([defaultBlock] [, callback])
@@ -365,7 +365,7 @@ caver.klay.getCommitteeSize([defaultBlock] [, callback])
 4
 ```
 
-## getCouncil
+## getCouncil <a id="getcouncil"></a>
 **NOTE**: `getValidators` is replaced with this method and is not supported anymore.
 
 ```javascript
@@ -397,7 +397,7 @@ caver.klay.getCouncil([defaultBlock] [, callback])
 ]
 ```
 
-## getCouncilSize
+## getCouncilSize <a id="getcouncilsize"></a>
 
 ```javascript
 caver.klay.getCouncilSize([defaultBlock] [, callback])
@@ -424,7 +424,7 @@ caver.klay.getCouncilSize([defaultBlock] [, callback])
 ```
 
 
-## getStorageAt
+## getStorageAt <a id="getstorageat"></a>
 
 ```javascript
 caver.klay.getStorageAt(address, position [, defaultBlock] [, callback])
@@ -452,7 +452,7 @@ Gets the storage at a specific position of an address.
 ```
 
 
-## isMining
+## isMining <a id="ismining"></a>
 
 ```javascript
 caver.klay.isMining([callback])
@@ -478,7 +478,7 @@ caver.klay.isMining([callback])
 true
 ```
 
-## isSyncing
+## isSyncing <a id="issyncing"></a>
 
 ```javascript
 caver.klay.isSyncing([callback])
