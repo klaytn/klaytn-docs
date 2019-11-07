@@ -36,7 +36,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_setVMLogTarget <a id="debug_setvmlogtarget"></a>
 
-사전 컴파일된 컨트랙트 vmlog의 출력 형태를 설정합니다.  출력 형태가 파일이면, 스마트 컨트랙트에서의 `vmlog` 호출에서 발생한 로그는 `DATADIR/log/vm.log`에 쓰입니다.  `DATADIR`는 `klay`를 실행할 때 `--datadir`를 통해 지정된 디렉토리입니다.  출력 형태가 `stdout`이면, 표준 출력의 디버깅 메시지와 같이 로그가 출력됩니다.
+미리 컴파일된 컨트랙트 vmlog의 출력 형태를 설정합니다.  출력 형태가 파일이면, 스마트 컨트랙트에서의 `vmlog` 호출에서 발생한 로그는 `DATADIR/log/vm.log`에 쓰입니다.  `DATADIR`는 `klay`를 실행할 때 `--datadir`를 통해 지정된 디렉토리입니다.  출력 형태가 `stdout`이면, 표준 출력의 디버깅 메시지와 같이 로그가 출력됩니다.
 
 | 클라이언트 | 메서드 호출                                                   |
 |:-----:| -------------------------------------------------------- |
