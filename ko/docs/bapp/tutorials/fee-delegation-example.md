@@ -75,9 +75,9 @@ caver.klay.sendTransaction({
 
 위의 트랜잭션 비용 위임 코드를 활용하여 간단한 서버와 클라이언트를 구축해보겠습니다.
 
-### 3.1 환경 설정 <a id="3-1-environment-setup"></a>
+### 3.1 환경설정 <a id="3-1-environment-setup"></a>
 
-위 예제의 환경 설정을 위해 `npm`과 [caver-js](../sdk/caver-js/README.md)을 사용하여 아래와 같이 설정합니다.
+위 예제의 환경설정을 위해 `npm`과 [caver-js](../sdk/caver-js/README.md)을 사용하여 아래와 같이 설정합니다.
 
 ```text
 $ mkdir example
