@@ -1164,15 +1164,15 @@ The signature object has following values:
 '0x2c7536E3605D9C16a7a3D7b1898e529396a65c23'
 ```
 
-## combineSignatures
+## combineSignatures <a id="combinesignatures"></a>
 
 ```javascript
 caver.klay.accounts.combineSignatures(rawTransactions)
 ```
 
-Combines all RLP encoded transaction strings into a single RLP encoded transaction string. The RLP encoded transaction strings that you want to combine must all be RLP encoded signed transaction strings that have signed the same transaction.
+Combines the array of RLP encoded transaction strings into a single RLP encoded transaction string. RLP encoded transaction string that you want to combine must all have signed the same transaction.
 
-combineSignatures removes duplicate signatures or feePayerSignatures and returns a result.
+combineSignatures removes duplicates in signatures or feePayerSignatures.
 
 **NOTE** `caver.klay.accounts.combineSignatures` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
@@ -1184,17 +1184,17 @@ combineSignatures removes duplicate signatures or feePayerSignatures and returns
 
 **Return Value**
 
-`Promise` returning `Object`: The RLP encoded transaction. The object properties are as follows:
+`Promise` returning `Object`: An RLP encoded transaction. The object properties are as follows:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| rawTransaction | String | The RLP encoded transaction, ready to be send using caver.klay.sendSignedTransaction. |
+| rawTransaction | String | An RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction. |
 | txHash | 32-byte String | Hash of the transaction. |
 | senderTxHash | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash) |
-| signatures | Array | (optional) All signatures contained in RLP encoded transaction (rawTransaction). If no signatures are included, the `signatures` property is not returned in the result object. |
+| signatures | Array | (optional) All signatures in the combined RLP encoded transaction (rawTransaction). If there are no signatures, the `signatures` property is not returned in the result object. |
 | feePayerSignatures | Array | (optional) All feePayerSignatures contained in RLP encoded transaction (rawTransaction). If no feePayerSignatures are included, the `feePayerSignatures` property is not returned in the result object. |
 
-**NOTE** The `txHash` and `senderTxHash` contained in the result object may not be final values. If the signature of the sender is added, txHash and senderTxHash will be different. If the signature of the fee payer is added, the txHash will be different.
+**NOTE** The `txHash` and `senderTxHash` in the result object may not be the final values. If another sender signature is added, txHash and senderTxHash will change. If a fee-payer signature is added, txHash will change.
 
 **Example**
 
@@ -1239,13 +1239,13 @@ combineSignatures removes duplicate signatures or feePayerSignatures and returns
 }
 ```
 
-## getRawTransactionWithSignatures
+## getRawTransactionWithSignatures <a id="getrawtransactionwithsignatures"></a>
 
 ```javascript
 caver.klay.accounts.getRawTransactionWithSignatures(tx [, callback])
 ```
 
-Returns an RLP encoded transaction string that contains signatures and feePayerSignatures defined on the objects in the transaction.
+Returns a signed RLP encoded transaction string from a given transaction object. The transaction object should provide the signatures and feePayerSignatures.
 
 **NOTE** `caver.klay.accounts.getRawTransactionWithSignatures` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
@@ -1253,19 +1253,19 @@ Returns an RLP encoded transaction string that contains signatures and feePayerS
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tx | Object | The transaction object includes signatures and feePayerSignatures. The fields of the transaction object are different for each transaction type. For a description of each transaction, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
+| tx | Object | A transaction object that includes signatures and feePayerSignatures. The properties of a transaction object varies depending on the transaction type. For the description of each transaction type, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
 
 **Return Value**
 
-`Promise` returning `Object`: The RLP encoded transaction. The object properties are as follows:
+`Promise` returning `Object`: An RLP encoded transaction. The object properties are as follows:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| rawTransaction | String | The RLP encoded transaction, ready to be send using caver.klay.sendSignedTransaction. |
+| rawTransaction | String | An RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction. |
 | txHash | 32-byte String | Hash of the transaction. |
 | senderTxHash | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash) |
-| signatures | Array | (optional) All signatures contained in RLP encoded transaction (rawTransaction). If no signatures are included, the `signatures` property is not returned in the result object. |
-| feePayerSignatures | Array | (optional) All feePayerSignatures contained in RLP encoded transaction (rawTransaction). If no feePayerSignatures are included, the `feePayerSignatures` property is not returned in the result object. |
+| signatures | Array | (optional) All signatures in the RLP encoded transaction (rawTransaction). If there are no signatures, the `signatures` property is not returned in the result object. |
+| feePayerSignatures | Array | (optional) All feePayerSignatures in the RLP encoded transaction (rawTransaction). If there are no feePayerSignatures, the `feePayerSignatures` property is not returned in the result object. |
 
 **NOTE** The `txHash` and `senderTxHash` contained in the result object may not be final values. If the signature of the sender is added, txHash and senderTxHash will be different. If the signature of the fee payer is added, the txHash will be different.
 
