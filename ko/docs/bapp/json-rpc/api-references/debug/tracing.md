@@ -2,7 +2,7 @@
 
 ## debug_traceBadBlock <a id="debug_tracebadblock"></a>
 
-`traceBadBlock` 메서드는 블록에 포함된 모든 트랜잭션에 대해서 모든 호출된 연산자의 풀 스택 추적을 반환합니다.
+`traceBadBlock` 메서드는 블록에 포함된 모든 트랜잭션에 대해서 모든 호출된 Opcode의 풀 스택 추적을 반환합니다.
 
 **참고**: 이 블록의 이전 블록이 존재해야 합니다. 존재하지 않으면 실패합니다.
 
@@ -57,7 +57,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlock <a id="debug_traceblock"></a>
 
-`traceBlock` 메서드는 블록에 포함된 모든 트랜잭션에 대해서 모든 호출된 연산자의 풀 스택 추적을 반환합니다.
+`traceBlock` 메서드는 블록에 포함된 모든 트랜잭션에 대해서 모든 호출된 Opcode의 풀 스택 추적을 반환합니다.
 
 **참고**: 이 블록의 이전 블록이 존재해야 합니다. 존재하지 않으면 실패합니다.
 
@@ -409,17 +409,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 `log`는 다음의 필드를 갖고 있습니다.
 
-| 필드명            | 형식             | 설명                         |
-| -------------- | -------------- | -------------------------- |
-| `pc`           | Number         | 현재 프로그램 카운터입니다.            |
-| `op`           | 객체             | 현재 연산자를 나타내는 연산자 객체입니다.    |
-| `gas`          | Number         | 남은 가스양입니다.                 |
-| `gasPrice`     | Number         | peb에서 가스당 가격입니다.           |
-| `memory`       | 객체             | 컨트랙트의 메모리 공간을 나타내는 구조체입니다. |
-| `stack`        | array[big.Int] | KLVM 실행 스택입니다.             |
-| `depth`        | Number         | 실행 뎁스입니다.                  |
-| `계정 (Account)` | 문자열            | 현재 연산을 실행하는 계정의 주소입니다.     |
-| `err`          | 문자열            | 발생한 오류에 대한 정보입니다.          |
+| 필드명            | 형식             | 설명                            |
+| -------------- | -------------- | ----------------------------- |
+| `pc`           | Number         | 현재 프로그램 카운터입니다.               |
+| `op`           | 객체             | 현재 Opcode를 나타내는 Opcode 객체입니다. |
+| `gas`          | Number         | 남은 가스양입니다.                    |
+| `gasPrice`     | Number         | peb에서 가스당 가격입니다.              |
+| `memory`       | 객체             | 컨트랙트의 메모리 공간을 나타내는 구조체입니다.    |
+| `stack`        | array[big.Int] | KLVM 실행 스택입니다.                |
+| `depth`        | Number         | 실행 뎁스입니다.                     |
+| `계정 (Account)` | 문자열            | 현재 연산을 실행하는 계정의 주소입니다.        |
+| `err`          | 문자열            | 발생한 오류에 대한 정보입니다.             |
 
 `err` 필드가 null이 아니면 다른 모든 필드의 정보는 무시되어야 합니다.
 
@@ -441,11 +441,11 @@ function(log) {
 
 `log.op`는 다음의 메서드를 갖고 있습니다.
 
-| 메서드 이름       | 설명                          |
-| ------------ | --------------------------- |
-| `isPush()`   | 연산자가 `PUSHn`이면 true를 반환합니다. |
-| `toString()` | 연산자의 문자열 표현을 반환합니다.         |
-| `toNumber()` | 연산자의 번호를 반환합니다.             |
+| 메서드 이름       | 설명                             |
+| ------------ | ------------------------------ |
+| `isPush()`   | Opcode가 `PUSHn`이면 true를 반환합니다. |
+| `toString()` | Opcode의 문자열 표현을 반환합니다.         |
+| `toNumber()` | Opcode의 번호를 반환합니다.             |
 
 `log.memory`는 다음의 메서드를 갖고 있습니다.
 
@@ -477,7 +477,7 @@ function(log) {
 
 몇몇 값은 자바스크립트 number나 JS bigints가 아니라 Go언어의 `big.Int` 객체입니다. 따라서 그러한 값들은 godocs에서 설명된 것과 같이 동일한 인터페이스를 갖습니다. 기본적인 JSON으로의 직렬화는 자바스크립트 number로 진행되므로 큰 숫자를 직렬화하려면 `.String()`을 호출해야 합니다. 편의를 위해 `big.NewInt(x)`가 제공되어 uint를 Go언어의 `big.Int`로 변환합니다.
 
-사용 예제는 아래와 같으며, 각 CALL 연산자에서만 스택의 가장 위에 있는 요소를 반환합니다.
+사용 예제는 아래와 같으며, 각 CALL Opcode에서만 스택의 가장 위에 있는 요소를 반환합니다.
 
 ```javascript
 debug.traceTransaction(txhash, {tracer: '{data: [], step: function(log) { if(log.op.toString() == "CALL") this.data.push(log.stack.peek(0)); }, result: function() { return this.data; }}'});
