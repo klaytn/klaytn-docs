@@ -25,7 +25,7 @@ TxTypeLegacyTransaction은 이전에 Klaytn에 존재했던 트랜잭션 유형�
 
 ### 서명 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
-이 트랜잭션 유형의 서명을 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+이 트랜잭션 유형의 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 SigRLP = encode([nonce, gasPrice, gas, to, value, input, chainid, 0, 0])
@@ -35,7 +35,7 @@ Signature = sign(SigHash, <private key>)
 
 ### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHash를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+SenderTxHash를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 SenderTxHashRLP = encode([nonce, gasPrice, gas, to, value, input, v, r, s])
@@ -44,7 +44,7 @@ SenderTxHash = keccak256(SenderTxHashRLP)
 
 ### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-트랜잭션 해시를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 TxHashRLP = encode([nonce, gasPrice, gas, to, value, input, v, r, s])
@@ -53,7 +53,7 @@ TxHash = keccak256(TxHashRLP)
 
 ### RLP 인코딩 \(예시\) <a id="rlp-encoding-example"></a>
 
-다음은 RLP serialization의 결과와 트랜잭션 오브젝트를 보여줍니다.
+다음은 RLP 직렬화의 결과와 트랜잭션 오브젝트를 보여줍니다.
 
 ```javascript
 ChainID 0x1
@@ -141,7 +141,7 @@ TxTypeValueTransfer는 사용자가 토큰을 전송할 때 사용됩니다. Kla
 
 ### 서명 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
-트랜잭션 서명을 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+트랜잭션 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from]), chainid, 0, 0])
@@ -151,7 +151,7 @@ Signature = sign(SigHash, <private key>)
 
 ### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHash를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+SenderTxHash를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -162,7 +162,7 @@ SenderTxHash = keccak256(SenderTxHashRLP)
 
 ### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-트랜잭션 해시를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -173,7 +173,7 @@ TxHash = keccak256(TxHashRLP)
 
 ### RLP 인코딩 \(예시\) <a id="rlp-encoding-example"></a>
 
-다음은 주어진 인수에 대한 RLP serialization의 결과와 트랜잭션 오브젝트의 정보를 보여줍니다.
+다음은 주어진 인수에 대한 RLP 직렬화의 결과와 트랜잭션 오브젝트의 정보를 보여줍니다.
 
 ```javascript
 ChainID 0x1
@@ -258,7 +258,7 @@ TxTypeValueTransferMemo는 사용자가 특정 메시지와 함께 토큰을 보
 
 ### 서명 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
-트랜잭션 서명을 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+트랜잭션 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input]), chainid, 0, 0])
@@ -268,7 +268,7 @@ Signature = sign(SigHash, <private key>)
 
 ### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHash를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+SenderTxHash를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -279,7 +279,7 @@ SenderTxHash = keccak256(SenderTxHashRLP)
 
 ### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-트랜잭션 해시를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -290,7 +290,7 @@ TxHash = keccak256(TxHashRLP)
 
 ### RLP 인코딩 \(예시\) <a id="rlp-encoding-example"></a>
 
-다음은 RLP serialization의 결과와 트랜잭션 오브젝트를 보여줍니다.
+다음은 RLP 직렬화의 결과와 트랜잭션 오브젝트를 보여줍니다.
 
 ```javascript
 ChainID 0x1
@@ -380,7 +380,7 @@ TxTypeSmartContractDeploy는 지정된 주소에 스마트 계약을 배포합�
 
 ### 서명 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
-이 트랜잭션 유형의 서명을 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+이 트랜잭션 유형의 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input, humanReadable, codeFormat]), chainid, 0, 0])
@@ -390,7 +390,7 @@ Signature = sign(SigHash, <private key>)
 
 ### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHash를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+SenderTxHash를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -401,7 +401,7 @@ SenderTxHash = keccak256(SenderTxHashRLP)
 
 ### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-수수료 지불자의 서명을 만들려면 RLP serialization를 다음과 같이 수행해야합니다.
+수수료 지불자의 서명을 만들려면 RLP 직렬화를 다음과 같이 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -412,7 +412,7 @@ TxHash = keccak256(TxHashRLP)
 
 ### RLP 인코딩 \(예시\) <a id="rlp-encoding-example"></a>
 
-다음은 RLP serialization의 결과와 트랜잭션 오브젝트를 보여줍니다.
+다음은 RLP 직렬화의 결과와 트랜잭션 오브젝트를 보여줍니다.
 
 ```javascript
 ChainID 0x1
@@ -504,7 +504,7 @@ TxTypeSmartContractExecution는 스마트 컨트랙트를 실행하고, `input`�
 
 ### 서명 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
-이 트랜잭션 유형의 서명을 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+이 트랜잭션 유형의 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input]), chainid, 0, 0])
@@ -514,7 +514,7 @@ Signature = sign(SigHash, <private key>)
 
 ### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHash를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+SenderTxHash를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -525,7 +525,7 @@ SenderTxHash = keccak256(SenderTxHashRLP)
 
 ### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-트랜잭션 해시를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -536,7 +536,7 @@ TxHash = keccak256(TxHashRLP)
 
 ### RLP 인코딩 \(예시\) <a id="rlp-encoding-example"></a>
 
-다음은 RLP serialization의 결과와 트랜잭션 오브젝트를 보여줍니다.
+다음은 RLP 직렬화의 결과와 트랜잭션 오브젝트를 보여줍니다.
 
 ```javascript
 ChainID 0x1
@@ -622,7 +622,7 @@ TxTypeAccountUpdate는 해당 계정의 키를 업데이트합니다. 이 트랜
 
 ### 서명 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
-이 트랜잭션 유형의 서명을 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+이 트랜잭션 유형의 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, from, rlpEncodedKey]), chainid, 0, 0])
@@ -632,7 +632,7 @@ Signature = sign(SigHash, <private key>)
 
 ### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHash를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+SenderTxHash를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -643,7 +643,7 @@ SenderTxHash = keccak256(SenderTxHashRLP)
 
 ### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-트랜잭션 해시를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -654,7 +654,7 @@ TxHash = keccak256(TxHashRLP)
 
 ### RLP 인코딩 \(예시\) <a id="rlp-encoding-example"></a>
 
-다음은 RLP serialization의 결과와 트랜잭션 오브젝트를 보여줍니다.
+다음은 RLP 직렬화의 결과와 트랜잭션 오브젝트를 보여줍니다.
 
 ```javascript
 ChainID 0x1
@@ -748,7 +748,7 @@ TxTypeCancel 트랜잭션은 동일한 논스의 트랜잭션을 대체 할 수 
 
 ### 서명 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
-트랜잭션 서명을 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+트랜잭션 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, from]), chainid, 0, 0])
@@ -758,7 +758,7 @@ Signature = sign(SigHash, <private key>)
 
 ### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHash를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+SenderTxHash를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -769,7 +769,7 @@ SenderTxHash = keccak256(SenderTxHashRLP)
 
 ### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-트랜잭션 해시를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -780,7 +780,7 @@ TxHash = keccak256(TxHashRLP)
 
 ### RLP 인코딩 \(예시\) <a id="rlp-encoding-example"></a>
 
-다음은 RLP serialization의 결과와 트랜잭션 오브젝트를 보여줍니다.
+다음은 RLP 직렬화의 결과와 트랜잭션 오브젝트를 보여줍니다.
 
 ```javascript
 ChainID 0x1
@@ -855,7 +855,7 @@ TxTypeChainDataAnchoring 트랜잭션은 서비스체인에서 사용되는 트�
 
 ### 서명 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
-이 트랜잭션 유형의 서명을 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+이 트랜잭션 유형의 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, from, anchoredData]), chainid, 0, 0])
@@ -865,7 +865,7 @@ Signature = sign(SigHash, <private key>)
 
 ### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHash를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+SenderTxHash를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -876,7 +876,7 @@ SenderTxHash = keccak256(SenderTxHashRLP)
 
 ### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-트랜잭션 해시를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -887,7 +887,7 @@ TxHash = keccak256(TxHashRLP)
 
 ### RLP 인코딩 \(예시\) <a id="rlp-encoding-example"></a>
 
-다음은 RLP serialization의 결과와 트랜잭션 오브젝트를 보여줍니다.
+다음은 RLP 직렬화의 결과와 트랜잭션 오브젝트를 보여줍니다.
 
 ```javascript
 ChainID 0x1
