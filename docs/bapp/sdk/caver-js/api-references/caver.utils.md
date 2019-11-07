@@ -1439,7 +1439,7 @@ caver.utils.isEmptySig(sig)
 ```
 Returns `true` if sig is in the format of empty signature (`[['0x01', '0x', '0x']]` or `['0x01', '0x', '0x']`), otherwise it returns `false`. 
 
-When RLP encodating a transaction in caver-js, if the signatures or feePayerSignatures are empty, the values representing the empty signatures, `[['0x01', '0x', '0x']]` are used to fill in the empty signatures to get RLP encoded transaction (rawTransaction). This function checks whether the input signatures is `[['0x01', '0x', '0x']]` (or `['0x01', '0x', '0x']` to handle 'LEGACY' transaction).
+When RLP-encoding a transaction in caver-js, if signatures or feePayerSignatures is empty, the value representing an empty signature, `[['0x01', '0x', '0x']]`, is returned for the property. This function is used to check whether the given signature is `[['0x01', '0x', '0x']]` (or `['0x01', '0x', '0x']` in the 'LEGACY' transaction).
 
 **NOTE** `caver.utils.isEmptySig` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
