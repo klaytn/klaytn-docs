@@ -1192,7 +1192,7 @@ combineSignatures removes duplicates in signatures or feePayerSignatures.
 | txHash | 32-byte String | Hash of the transaction. |
 | senderTxHash | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash) |
 | signatures | Array | (optional) All signatures in the combined RLP encoded transaction (rawTransaction). If there are no signatures, the `signatures` property is not returned in the result object. |
-| feePayerSignatures | Array | (optional) All feePayerSignatures contained in RLP encoded transaction (rawTransaction). If no feePayerSignatures are included, the `feePayerSignatures` property is not returned in the result object. |
+| feePayerSignatures | Array | (optional) All feePayerSignatures in the combined RLP encoded transaction (rawTransaction). If there are no feePayerSignatures, the `feePayerSignatures` property is not returned in the result object. |
 
 **NOTE** The `txHash` and `senderTxHash` in the result object may not be the final values. If another sender signature is added, txHash and senderTxHash will change. If a fee-payer signature is added, txHash will change.
 
