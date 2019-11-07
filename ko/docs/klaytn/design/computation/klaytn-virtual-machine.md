@@ -130,7 +130,7 @@ Over an account's execution, the total fee payable for memory-usage payable is p
 | `G_sha3word`      |     6 | Amount of gas paid for each word \(rounded up\) for input data to a `SHA3` operation        |
 | `G_copy`          |     3 | Partial payment for `COPY` operations, multiplied by words copied, rounded up                 |
 | `G_extcodehash`   |   400 | 컨트랙트 코드의 `keccak256` 해시를 얻기 위해 지불하는 가스량                                                       |
-| `G_create2`       | 32000 | CREATE와 똑같이 작동하지만 다른 인수를 사용하는 `CREATE2` 연산자를 위해 지불하는 가스량                                      |
+| `G_create2`       | 32000 | CREATE와 똑같이 작동하지만 다른 인수를 사용하는 `CREATE2` Opcode를 위해 지불하는 가스량                                   |
 
 다음과 같이 명령어의 subset을 정의합니다.
 
