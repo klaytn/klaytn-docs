@@ -2,7 +2,7 @@
 
 ## 목차 <a id="table-of-contents"></a>
 
-* [1. 환경 설정](1.-environment-setup.md)
+* [1. 환경설정](1.-environment-setup.md)
 * [2. Count BApp 복제](2.-clone-count-bapp.md)
 * [3. 디렉토리 구조](3.-directory-structure.md)
 * [4. 스마트 컨트랙트 작성](4.-write-smart-contract.md)
