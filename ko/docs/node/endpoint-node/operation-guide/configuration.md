@@ -1,22 +1,22 @@
 # 설정<a id="configuration"></a>
 
-본 문서는 엔드포인트 노드 속성의 환경 설정에 대해 안내합니다. Klaytn 노드 패키지는 기본적으로 제공되며 별도의 구성 설정은 거의 필요하지 않습니다. 실행 중인 노드의 설정을 변경했다면 해당 노드를 재시작해야 변경 사항이 반영됩니다.
+본 문서는 엔드포인트 노드 속성의 환경설정에 대해 안내합니다. Klaytn 노드 패키지는 기본적으로 제공되며 별도의 환경설정은 거의 필요하지 않습니다. 실행 중인 노드의 설정을 변경했다면 해당 노드를 재시작해야 변경 사항이 반영됩니다.
 
-## 환경 설정 파일 위치 <a id="configuration-file-location"></a>
+## 환경설정 파일 위치 <a id="configuration-file-location"></a>
 
-* Proxy Node 환경 설정 시 `kend.conf`
+* 프록시 노드 환경설정 시 `kend.conf`
 
-이 구성 파일은 `conf` 디렉토리에 있습니다. 해당 디렉토리의 위치는 아카이브 배포 \(`tar.gz`\)인지 또는 패키지 배포 \(RPM\)인지에 따라 기본 설정이 다릅니다.
+이 설정 파일은 `conf` 디렉토리에 있습니다. 해당 디렉토리의 위치는 아카이브 배포 \(`tar.gz`\)인지 또는 패키지 배포 \(RPM\)인지에 따라 기본 설정이 다릅니다.
 
-* 아카이브 배포의 경우 환경 설정 디렉토리의 위치가 `$INSTALL_PATH/ken-linux-amd64/conf/`으로 기본 설정되어 있습니다.
-* 패키지 배포의 경우 환경 설정 디렉토리의 위치가 `/etc/kend/conf/`으로 기본 설정되어 있습니다.
+* 아카이브 배포의 경우 환경설정 디렉토리의 위치가 `$INSTALL_PATH/ken-linux-amd64/conf/`으로 기본 설정되어 있습니다.
+* 패키지 배포의 경우 환경설정 디렉토리의 위치가 `/etc/kend/conf/`으로 기본 설정되어 있습니다.
 
 ## Configuration File Format  <a id="configuration-file-format"></a>
 
 다음은 EN의 환경설정 파일 샘플로, `cypress`네트워크에 참여하고 블록체인 데이터를 기본 설정 위치에 저장하게 되어 있습니다. 이때 기본으로 설정된 블록체인 데이터 저장 위치는 아카이브 배포의 경우 `~/kend_home`, 패키지 배포의 경우 `/var/kend/data`입니다.
 
 ```text
-# kend의 환경 설정 파일입니다.
+# kend의 환경설정 파일입니다.
 
 # NETWORK_ID를 지정하지 않으면 cypress와 baobab만을 사용할 수 있습니다.
 NETWORK = "cypress"
@@ -46,7 +46,7 @@ TXPOOL_NONEXEC_SLOTS_ACCOUNT=4096
 
 ## Properties <a id="properties"></a>
 
-다음은 구성 파일에서 설정할 수 있는 속성입니다. 
+다음은 설정 파일에서 설정할 수 있는 속성입니다. 
 
 <table>
   <thead>
@@ -189,7 +189,7 @@ TXPOOL_NONEXEC_SLOTS_ACCOUNT=4096
     </tr>
     <tr>
       <td style="text-align:left">SC_MAIN_BRIDGE</td>
-      <td style="text-align:left">1로 설정하면 Main bridge 서비스를 활성화합니다. 서비스체인 구성에 사용됩니다.</td>
+      <td style="text-align:left">1로 설정하면 Main bridge 서비스를 활성화합니다. 서비스체인 환경설정에 사용됩니다.</td>
     </tr>
     <tr>
       <td style="text-align:left">SC_MAIN_BRIDGE_PORT</td>
