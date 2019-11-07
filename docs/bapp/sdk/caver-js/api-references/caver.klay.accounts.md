@@ -820,21 +820,21 @@ Signs a Klaytn transaction with a given private key.
 
 Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0) sender can sign a transaction with the transaction object or RLP encoded transaction (rawTransaction) as a parameter. But fee payer can sign a transaction with only a fee payer transaction format (object defines sendRawTransaction and feePayer) with signTransaction function. If you want to sign a transaction with transaction object or RLP encoded transaction as a fee payer, then use [caver.klay.accounts.feePayerSignTransaction](#feepayersigntransaction).
 
-Also since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0) signTransaction works by keeping signatures or feePayerSignatures in the transaction passed as a parameter and appending the signatures of the signer(sender or fee payer).
+Also since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), signTransaction keeps the existing signatures/feePayerSignatures in the input transaction and appends the signature(s) of the signer to it.
 
-See [Sending a Transaction with multiple signer](../getting-started.md#sending-a-transaction-with-multiple-signer) for how to combine the results of multiple users' signatures.
+See [Sending a Transaction with multiple signer](../getting-started.md#sending-a-transaction-with-multiple-signer) for how to combine multiple users' signatures into a single rawTransaction.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tx | String &#124; Object | The transaction object or RLP encoded transaction string(rawTransaction). The fields of the transaction object are different for each transaction type. For a description of each transaction, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
+| tx | String &#124; Object | Transaction object or RLP-encoded transaction string (rawTransaction). The properties of a transaction object varies depending on the transaction type. For the description of each transaction type, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
 | privateKey | String &#124; Array  | (optional) The private key to sign with. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **NOTE** The `privateKey` parameter has been changed to an `optional parameter` since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). Also, privateKey parameter supports `array` of private key strings since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). If you do not pass a privateKey, either `from` or `feePayer` account must exist in caver.klay.accounts.wallet to sign the transaction. If an array of privateKeys are provided, the transaction is signed with all the keys inside the array.
 
-**NOTE** The `tx` parameter can handle RLP encoded transaction since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**NOTE** The `tx` parameter accepts an RLP-encoded transaction since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 **Return Value**
 
@@ -854,7 +854,7 @@ See [Sending a Transaction with multiple signer](../getting-started.md#sending-a
 
 **NOTE** The signatures and feePayerSignatures properties have been added since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). If the sender signs the transaction, the signature array is returned in `signatures`. If the fee payer signs, the signature array is returned in `feePayerSignatures`.
 
-**NOTE** The `txHash` and `senderTxHash` contained in the result object may not be final values. If the signature of the sender is added, txHash and senderTxHash will be different. If the signature of the fee payer is added, the txHash will be different.
+**NOTE** The `txHash` and `senderTxHash` in the result object may not be the final values. If another sender signature is added, txHash and senderTxHash will change. If a fee-payer signature is added, txHash will change.
 
 **Example**
 
@@ -1016,11 +1016,11 @@ Signs a transaction as a fee payer.
 
 Fee payers can sign a transaction with the transaction object or RLP encoded transaction (rawTransaction) as a parameter, without having to create a fee payer transaction format (object defines sendRawTransaction and feePayer).
 
-If the privateKay is not passed as a parameter to feePayerSignTransaction, the feePayerKey of the fee payer's account inside the caver-js in-memory wallet is used.
+If privateKay is not given, feePayerKey of the fee payer's account inside the caver-js in-memory wallet is used.
 
-feePayerSignTransaction works by keeping signatures or feePayerSignatures in the transaction passed as a parameter and appending the signatures of the fee payer.
+feePayerSignTransaction keeps the existing signatures/feePayerSignatures in the input transaction and appends the fee-payer signature(s) to it.
 
-See [Sending a Transaction with multiple signer](../getting-started.md#sending-a-transaction-with-multiple-signer) for how to combine the results of multiple users' signatures.
+See [Sending a Transaction with multiple signer](../getting-started.md#sending-a-transaction-with-multiple-signer) for how to combine multiple users' signatures into a single rawTransaction.
 
 **NOTE** `caver.klay.accounts.feePayerSignTransaction` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
@@ -1029,7 +1029,7 @@ See [Sending a Transaction with multiple signer](../getting-started.md#sending-a
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tx | String &#124; Object | The transaction object or RLP encoded transaction string(rawTransaction). The fields of the transaction object are different for each transaction type. For a description of each transaction, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
+| tx | String &#124; Object | Transaction object or RLP-encoded transaction string (rawTransaction). The properties of a transaction object varies depending on the transaction type. For the description of each transaction type, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
 | feePayerAddress | String | The address of fee payer.  |
 | privateKey | String &#124; Array | (optional) The private key to sign with. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
@@ -1044,12 +1044,12 @@ See [Sending a Transaction with multiple signer](../getting-started.md#sending-a
 | v | String | Recovery value + 27. |
 | r | String | First 32 bytes of the signature. |
 | s | String | Next 32 bytes of the signature. |
-| rawTransaction | String | The RLP encoded transaction, ready to be send using caver.klay.sendSignedTransaction. |
+| rawTransaction | String | The RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction. |
 | txHash | 32-byte String | Hash of the transaction. |
 | senderTxHash | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash) |
 | feePayerSignatures | Array | An array of the fee payer's signature(s). |
 
-**NOTE** The `txHash` and `senderTxHash` contained in the result object may not be final values. If the signature of the sender is added, txHash and senderTxHash will be different. If the signature of the fee payer is added, the txHash will be different.
+**NOTE** The `txHash` and `senderTxHash` in the result object may not be the final values. If another sender signature is added, txHash and senderTxHash will change. If a fee-payer signature is added, txHash will change.
 
 **Example**
 
