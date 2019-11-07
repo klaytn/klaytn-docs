@@ -150,7 +150,7 @@ Klaytn IDE는 모듈에는 Compile, Run, Analysis, Testing, Debugger, Settings �
 
 이 섹션에서는 트랜잭션을 디버깅할 수 있습니다. IDE에서 생성된 트랜잭션과 이미 채굴된 트랜잭션을 배포하는 데에 사용할 수 있습니다.
 
-> 필요한 기능을 현재 환경에서 제공하는 경우에만 디버깅이 작동합니다. 디버깅하려면 EN 노드에서 **개인** API가 활성화되어야 합니다. `RPC_API` 옵션을 [EN 환경 설정 파일](../node/endpoint-node/operation-guide/configuration.md)에서 참고해주세요.
+> 필요한 기능을 현재 환경에서 제공하는 경우에만 디버깅이 작동합니다. 디버깅하려면 EN 노드에서 **개인** API가 활성화되어야 합니다. `RPC_API` 옵션을 [EN 환경설정 파일](../node/endpoint-node/operation-guide/configuration.md)에서 참고해주세요.
 
 자세한 안내는 [Remix docs &gt; Debugger](https://remix-ide.readthedocs.io/en/latest/debugger.html)를 참고하세요.
 
