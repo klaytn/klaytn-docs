@@ -1,6 +1,6 @@
 # Errors & Troubleshooting <a id="errors-troubleshooting"></a>
 
-## Where can I find a log file for the running Klaytn node using the Klaytn binary package? <a id="where-can-i-find-a-log-file-for-the-running-klaytn-node-using-the-klaytn-binary"></a>
+## Klaytn 바이너리 패키지를 사용하여 실행 중인 Klaytn 노드에 대한 로그 파일을 어디에서 찾을 수 있습니까? <a id="where-can-i-find-a-log-file-for-the-running-klaytn-node-using-the-klaytn-binary"></a>
 
 **답변**
 
@@ -25,7 +25,7 @@ sudo kend start
 ```
 
 
-## Can't deploy smart contract using truffle with following error message. <a id="can-t-deploy-smart-contract-using-truffle-with-following-error-message"></a>
+## 다음 오류 메시지와 함께 Truffle을 사용하여 스마트 컨트랙트를 배포할 수 없습니다. <a id="can-t-deploy-smart-contract-using-truffle-with-following-error-message"></a>
 
 ```
 Error: Returned error: The method net_version does not exist/is not available
@@ -106,4 +106,4 @@ ERROR[01/28,06:20:07 Z] [23] Protocol istanbul/64 failed id=845f596536450bad con
 Fatal: Error starting protocol stack: rewound to block number 0, but repair failed"
 ```
 
-**답변** 호환성 문제로 인해 이전 버전 (<= v0.8.2)의 EN을 실행 중인 경우 EN의 바이너리를 v0.9.6으로 업그레이드하는 것을 강력하게 권장합니다. EN을 v0.9.x로 처음 업그레이드하고 이전 버전에서 데이터를 마이그레이션하려면 최신 버전을 설치할 때 환경 설정 파일에 `ADDITIONAL="--db.num-statetrie-partitions 1"` 옵션을 지정해야 합니다.
+**답변** 호환성 문제로 인해 이전 버전 (<= v0.8.2)의 EN을 실행 중인 경우 EN의 바이너리를 v0.9.6으로 업그레이드하는 것을 강력하게 권장합니다. EN을 v0.9.x로 처음 업그레이드하고 이전 버전에서 데이터를 마이그레이션하려면 최신 버전을 설치할 때 환경설정 파일에 `ADDITIONAL="--db.num-statetrie-partitions 1"` 옵션을 지정해야 합니다.
