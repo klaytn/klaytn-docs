@@ -82,7 +82,7 @@ Klaytn은 현재 단가를 이용하는 트랜잭션을 교체할 수 없습니�
 | G\_copy         | 3     | \*COPY 연산에 대한 부분 지불량. 복사된 단어에 곱하고, 반올림 됨.                                                |
 | G\_blockhash    | 20    | BLOCKHASH 연산을 위해 지불하는 가스량                                                                  |
 | G\_extcodehash  | 400   | 컨트랙트 코드의 keccak256 해시를 얻기 위해 지불하는 가스량                                                      |
-| G\_create2      | 32000 | CREATE와 똑같이 작동하지만 다른 인수를 사용하는 CREATE2 연산자를 위해 지불하는 가스량.                                    |
+| G\_create2      | 32000 | CREATE와 똑같이 작동하지만 다른 인수를 사용하는 CREATE2 Opcode를 위해 지불하는 가스량.                                 |
 
 ### 미리 컴파일된 컨트랙트(Precompiled Contracts) <a id="precompiled-contracts"></a>
 
