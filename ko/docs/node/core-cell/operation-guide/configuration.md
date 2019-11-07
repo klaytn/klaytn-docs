@@ -1,30 +1,30 @@
 # 설정<a id="configuration"></a>
 
-본 문서는 Node 속성의 구성 설정에 대해 안내합니다. Klaytn 노드 패키지는 기본적으로 제공되며 별도의 구성 설정은 거의 필요하지 않습니다. 실행 중인 노드의 설정을 변경했다면 해당 노드를 재시작해야 변경 사항이 반영됩니다.
+본 문서는 Node 속성의 환경설정에 대해 안내합니다. Klaytn 노드 패키지는 기본적으로 제공되며 별도의 환경설정은 거의 필요하지 않습니다. 실행 중인 노드의 설정을 변경했다면 해당 노드를 재시작해야 변경 사항이 반영됩니다.
 
 ## CN Configuration File location <a id="cn-configuration-file-location"></a>
 
-* 컨센서스 노드 구성을 위한 `kcnd.conf`
+* 컨센서스 노드 환경설정을 위한 `kcnd.conf`
 
-이 구성 파일은 `conf` 디렉토리에 있습니다. 해당 디렉토리의 위치는 아카이브 배포 \(`tar.gz`\)인지 또는 패키지 배포 \(RPM\)인지에 따라 기본 설정이 다릅니다.
+이 설정 파일은 `conf` 디렉토리에 있습니다. 해당 디렉토리의 위치는 아카이브 배포 \(`tar.gz`\)인지 또는 패키지 배포 \(RPM\)인지에 따라 기본 설정이 다릅니다.
 
-* 아카이브 배포의 경우 구성 디렉토리의 위치가 `$INSTALL_PATH/kcn-linux-amd64/conf/`으로 기본 설정되어 있습니다.
-* 패키지 배포의 경우 구성 디렉토리의 위치가 `/etc/kcnd/conf/`으로 기본 설정되어 있습니다.
+* 아카이브 배포의 경우 환경설정 디렉토리의 위치가 `$INSTALL_PATH/kcn-linux-amd64/conf/`으로 기본 설정되어 있습니다.
+* 패키지 배포의 경우 환경설정 디렉토리의 위치가 `/etc/kcnd/conf/`으로 기본 설정되어 있습니다.
 
 ## PN Configuration File location <a id="pn-configuration-file-location"></a>
 
-* Proxy Node 구성을 위한 `kpnd.conf`
+* 프록시 노드 환경설정을 위한 `kpnd.conf`
 
-이 구성 파일은 `conf` 디렉토리에 있습니다. 해당 디렉토리의 위치는 아카이브 배포 \(`tar.gz`\)인지 또는 패키지 배포 \(RPM\)인지에 따라 기본 설정이 다릅니다.
+이 설정 파일은 `conf` 디렉토리에 있습니다. 해당 디렉토리의 위치는 아카이브 배포 \(`tar.gz`\)인지 또는 패키지 배포 \(RPM\)인지에 따라 기본 설정이 다릅니다.
 
-* 아카이브 배포의 경우 구성 디렉토리의 위치가 `$INSTALL_PATH/kpn-linux-amd64/conf/`으로 기본 설정되어 있습니다.
-* 패키지 배포의 경우 구성 디렉토리의 위치가 `/etc/kpnd/conf/`으로 기본 설정되어 있습니다.
+* 아카이브 배포의 경우 환경설정 디렉토리의 위치가 `$INSTALL_PATH/kpn-linux-amd64/conf/`으로 기본 설정되어 있습니다.
+* 패키지 배포의 경우 환경설정 디렉토리의 위치가 `/etc/kpnd/conf/`으로 기본 설정되어 있습니다.
 
 ## Configuration File Format  <a id="configuration-file-format"></a>
 
-CN과 PN은 구성 파일 형식과 속성이 동일합니다.
+CN과 PN은 설정 파일 형식과 속성이 동일합니다.
 
-다음은 CN의 구성 파일 샘플로, `cypress`네트워크에 참여하고 블록체인 데이터를 기본 설정 위치에 저장하게 되어 있습니다. 이때 기본으로 설정된 블록체인 데이터 저장 위치는 아카이브 배포의 경우 `~/kcnd_home`, 패키지 배포의 경우 `/var/kcnd/data`입니다.
+다음은 CN의 설정 파일 샘플로, `cypress`네트워크에 참여하고 블록체인 데이터를 기본 설정 위치에 저장하게 되어 있습니다. 이때 기본으로 설정된 블록체인 데이터 저장 위치는 아카이브 배포의 경우 `~/kcnd_home`, 패키지 배포의 경우 `/var/kcnd/data`입니다.
 
 ```text
 # Configuration file for the kcnd
@@ -67,7 +67,7 @@ TXPOOL_NONEXEC_SLOTS_ACCOUNT=8192
 
 ## Properties <a id="properties"></a>
 
-다음은 구성 파일에서 설정할 수 있는 속성입니다. CN과 PN 구성 파일은 `REWARDBASE`를 제외하고는 동일한 속성을 갖습니다.
+다음은 설정 파일에서 설정할 수 있는 속성입니다. CN과 PN 설정 파일은 `REWARDBASE`를 제외하고는 동일한 속성을 갖습니다.
 
 <table>
   <thead>
@@ -215,7 +215,7 @@ TXPOOL_NONEXEC_SLOTS_ACCOUNT=8192
     </tr>
     <tr>
       <td style="text-align:left">SC_MAIN_BRIDGE</td>
-      <td style="text-align:left">1로 설정하면 Main bridge 서비스를 활성화합니다. 서비스체인 구성에 사용됩니다.</td>
+      <td style="text-align:left">1로 설정하면 Main bridge 서비스를 활성화합니다. 서비스체인 환경설정에 사용됩니다.</td>
     </tr>
     <tr>
       <td style="text-align:left">SC_MAIN_BRIDGE_PORT</td>
