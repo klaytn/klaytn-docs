@@ -21,7 +21,7 @@
 
 ## 2. 스마트 컨트랙트 배포: KlaytnGreeter <a id="2-deploying-a-smart-contract-klaytngreeter"></a>
 
-이 가이드의 두 번째 부분은 스마트 컨트랙트를 생성하고 이를 Klaytn Baobab 네트워크에 배포하는 방법을 보입니다. 스마트 컨트랙트를 개발하기 전에, 개발 도구를 설정하고 caver-js 및 Truffle을 설치해야 합니다.
+이 가이드의 두 번째 부분은 스마트 컨트랙트를 생성하고 이를 Klaytn Baobab 네트워크에 배포하는 방법을 보입니다. 스마트 컨트랙트를 개발하기 전에, 개발 도구를 설정하고 caver-js 및 트러플을 설치해야 합니다.
 
 * [개발 도구 설치하기](install-development-tools.md)
 * [스마트 컨트랙트 배포](deploy-a-smart-contract.md)
