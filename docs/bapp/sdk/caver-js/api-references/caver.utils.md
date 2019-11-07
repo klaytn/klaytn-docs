@@ -1321,7 +1321,7 @@ false
 false
 ```
 
-## isValidPrivateKey
+## isValidPrivateKey <a id="isvalidprivatekey"></a>
 
 ```javascript
 caver.utils.isValidPrivateKey(privateKey)
@@ -1353,7 +1353,7 @@ true
 false
 ```
 
-## isValidPublicKey
+## isValidPublicKey <a id="isvalidpublickey"></a>
 
 ```javascript
 caver.utils.isValidPublicKey(publicKey)
@@ -1395,12 +1395,12 @@ false
 false
 ```
 
-## isValidRole
+## isValidRole <a id="isvalidrole"></a>
 
 ```javascript
 caver.utils.isValidRole(role)
 ```
-Returns `true` if role is valid, otherwise it returns `false`. Roles that can currently be defined for AccountKeyRoleBased are `transactionKey`,` updateKey`, and `feePayerKey`.
+Returns `true` if role is valid, otherwise it returns `false`. Roles that are currently defined for AccountKeyRoleBased are `transactionKey`,` updateKey`, and `feePayerKey`.
 
 **NOTE** `caver.utils.isValidRole` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
@@ -1432,12 +1432,12 @@ true
 false
 ```
 
-## isEmptySig
+## isEmptySig <a id="isemptysig"></a>
 
 ```javascript
 caver.utils.isEmptySig(sig)
 ```
-Returns `true` if sig is in the format of empty signatures (`[['0x01', '0x', '0x']]` or `['0x01', '0x', '0x']`), otherwise it returns `false`. 
+Returns `true` if sig is in the format of empty signature (`[['0x01', '0x', '0x']]` or `['0x01', '0x', '0x']`), otherwise it returns `false`. 
 
 When RLP encodating a transaction in caver-js, if the signatures or feePayerSignatures are empty, the values representing the empty signatures, `[['0x01', '0x', '0x']]` are used to fill in the empty signatures to get RLP encoded transaction (rawTransaction). This function checks whether the input signatures is `[['0x01', '0x', '0x']]` (or `['0x01', '0x', '0x']` to handle 'LEGACY' transaction).
 
