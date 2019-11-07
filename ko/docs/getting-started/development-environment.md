@@ -14,7 +14,7 @@
 **스마트 컨트랙트 개발**
 
 * [Klaytn IDE](https://ide.klaytn.com/) - Klaytn 스마트 컨트랙트를 위한 브라우저 기반 컴파일러 및 IDE.
-* [Truffle](https://github.com/trufflesuite/truffle) - 솔리디티 스마트 컨트랙트 개발을 위한 오픈 소스 도구.
+* [트러플](https://github.com/trufflesuite/truffle) - 솔리디티 스마트 컨트랙트 개발을 위한 오픈 소스 도구.
 
 **Klaytn SDK**
 
