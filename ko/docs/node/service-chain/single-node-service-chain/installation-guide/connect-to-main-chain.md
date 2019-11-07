@@ -6,7 +6,7 @@
 
 `kend.conf`를 설정하여 메인 브리지를 활성화해야 합니다.
 
-### 환경 설정 파일 업데이트 <a id="update-the-configuration-file"></a>
+### 환경설정 파일 업데이트 <a id="update-the-configuration-file"></a>
 
 `kend.conf`은 다음과 같은 메인 브리지 속성을 포함합니다.
 
