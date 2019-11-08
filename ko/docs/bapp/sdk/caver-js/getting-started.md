@@ -275,9 +275,9 @@ caver-js 지갑 없이 해당 개인키로부터 서명을 직접 생성하고�
 
 Klaytn은 확장성과 성능을 위한 다양한 트랜잭션 타입을 제공합니다. For more information, see [Transactions](../../../klaytn/design/transactions/README.md). 이 장에서는 caver-js와 함께 사용할 수 있는 다양한 예시를 설명합니다.
 
-### 트랜잭션 비용 위임 <a id="fee-delegation"></a>
+### 트랜잭션 수수료 위임 <a id="fee-delegation"></a>
 
-Klaytn은 [트랜잭션 비용 위임](../../../klaytn/design/transactions/README.md#fee-delegation) 기능을 제공합니다. 예제 코드는 다음과 같습니다.
+Klaytn은 [트랜잭션 수수료 위임](../../../klaytn/design/transactions/README.md#fee-delegation) 기능을 제공합니다. 예제 코드는 다음과 같습니다.
 
 발신인인 경우 아래 코드를 사용하여 RLP로 인코딩된 트랜잭션 객체를 만드세요:
 
@@ -294,10 +294,10 @@ Klaytn은 [트랜잭션 비용 위임](../../../klaytn/design/transactions/READM
 '0x09f88d038505d21dba00830493e094ef5cd886c7f8d85fbe8023291761341acbb4da01880de0b6b3a7640000943bd32d55e64d6cbe54bec4f5200e678ee8d1a990f847f8458207f5a0a48374bbf227fbbdcb28f3360d0cc1f5e36922be409a3edd8b0c6fa5aa5c57dda07e15ebe1c9dd78d1c0f36a5f7970e578c2e57d9360cd25928674d1c05d7e161d80c4c3018080'
 ```
 
-서명된 RLP 인코딩된 트랜잭션 객체 \(`rawTransaction`\)으로 트랜잭션 비용 지불자는 서명을 첨부한 후 트랜잭션을 보낼 수 있습니다. 트랜잭션 비용 지불자는 senderRawTransaction에 `rawTransaction`를 설정하고 아래 예시와 같이 트랜잭션 비용 지불자의 주소로 서명합니다.
+서명된 RLP 인코딩된 트랜잭션 객체 \(`rawTransaction`\)으로 트랜잭션 수수료 납부자는 서명을 첨부한 후 트랜잭션을 보낼 수 있습니다. 트랜잭션 수수료 납부자는 senderRawTransaction에 `rawTransaction`를 설정하고 아래 예시와 같이 트랜잭션 수수료 납부자의 주소로 서명합니다.
 
 ```text
-// 아직 caver-js 지갑에 트랜잭션 비용 지불자의 계정을 추가하지 않았다면, 'caver.klay.accounts.wallet.add'를 실행하여 지갑에 계정을 추가하세요.
+// 아직 caver-js 지갑에 트랜잭션 수수료 납부자의 계정을 추가하지 않았다면, 'caver.klay.accounts.wallet.add'를 실행하여 지갑에 계정을 추가하세요.
 // 이미 계정이 지갑에 추가된 경우 'Error: Account exists with {hex in address}'가 출력됩니다. 이 경우 `feePayer.address` 대신 계정 주소를 사용하세요.
 > const feePayer = caver.klay.accounts.wallet.add('0x{private key}')
 
@@ -317,7 +317,7 @@ Klaytn은 [트랜잭션 비용 위임](../../../klaytn/design/transactions/READM
 }
 ```
 
-**참고**: 트랜잭션 비용 지불자의 계정은 caver-js 지갑에 있어야 합니다.
+**참고**: 트랜잭션 수수료 납부자의 계정은 caver-js 지갑에 있어야 합니다.
 
 ### 계정 업데이트 <a id="account-update"></a>
 
