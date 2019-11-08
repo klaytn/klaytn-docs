@@ -24,9 +24,9 @@ $ export PATH=$PATH:$PWD/ken-linux-amd64/bin
 $ mkdir -p ~/kend_home
 ```
 
-## EN 구성 <a id="configuring-the-en"></a>
+## EN 환경설정 <a id="configuring-the-en"></a>
 
-구성 파일인 `kend.conf`는 `ken-xxxxx-amd64/conf/`에 위치합니다. 구성 가능한 매개 변수에 대한 자세한 내용은 [EN 구성 가이드](../../node/endpoint-node/operation-guide/configuration.md)를 참조하시면 됩니다. Baobab 테스트넷의 EN을 실행하려면, 다음과 같이 `kend.conf` 파일을 업데이트하시기 바랍니다.
+설정 파일인 `kend.conf`는 `ken-xxxxx-amd64/conf/`에 위치합니다. 환경설정 가능한 매개 변수에 대한 자세한 내용은 [EN 환경설정 가이드](../../node/endpoint-node/operation-guide/configuration.md)를 참조하시면 됩니다. Baobab 테스트넷의 EN을 실행하려면, 다음과 같이 `kend.conf` 파일을 업데이트하시기 바랍니다.
 
 ```text
 # cypress, baobab은 NETWORK_ID를 명시하지 않은 경우에만 사용할 수 있습니다.
@@ -39,7 +39,7 @@ RPC_API="klay,net" # 추후 truffle을 위해 net 모듈을 열어야 합니다.
 DATA_DIR=~/kend_home
 ```
 
-## EN 실행 <a id="launching-the-en"></a>
+## EN 실행하기 <a id="launching-the-en"></a>
 
 EN을 시작하려면 다음 명령을 실행합니다.
 
@@ -48,7 +48,7 @@ $ kend start
  Starting kend: OK
 ```
 
-## EN 확인 <a id="checking-the-en"></a>
+## EN 확인하기<a id="checking-the-en"></a>
 
 EN이 구동 중인지 확인하려면 다음 명령을 실행합니다.
 
