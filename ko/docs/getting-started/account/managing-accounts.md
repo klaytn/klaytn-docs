@@ -6,7 +6,7 @@
 
 ### ken <a id="ken"></a>
 
-명령 행에서, 다음을 사용하여 CLI를 호출하세요:
+명령행에서, 다음을 사용하여 CLI를 호출하세요:
 
 ```bash
 $ ken account list --datadir <DATADIR>
@@ -32,7 +32,7 @@ Account #1: {47bd2e9565cbe1789454718d6cf1778d7ea557aa} keystore:///Users/usernam
 
 ### ken <a id="ken"></a>
 
-명령 행에서 쉼표로 구분 된 계정(16진수 또는 인덱스) 목록인 `--unlock "{address},{address}"` 옵션을 인수로 사용하여 프로그래밍 방식으로 한 세션에 대해 계정을 잠금 해제하고 EN을 시작할 수 있습니다. RPC를 통해 BApp의 계정을 사용하려는 경우에 유용합니다. `--unlock`은 목록에서 첫 번째 계정을 잠금 해제합니다. 이는 프로그래밍 방식으로 계정을 생성할 때 유용합니다. 잠금을 해제하기 위해 실제 계정을 알 필요는 없습니다.
+명령 행에서 쉼표로 구분된 계정(16진수 또는 인덱스) 목록인 `--unlock "{address},{address}"` 옵션을 인수로 사용하여 프로그래밍 방식으로 한 세션에 대해 계정을 잠금 해제하고 EN을 시작할 수 있습니다. 이는 RPC를 통해 BApp의 계정을 사용하려는 경우에 유용합니다. `--unlock`은 목록에서 첫 번째 계정을 잠금 해제합니다. 이는 프로그래밍 방식으로 계정을 생성할 때 유용합니다. 잠금을 해제하기 위해 실제 계정을 알 필요는 없습니다.
 
 계정을 생성하고 잠금이 해제된 계정과 함께 노드를 시작하세요.
 
@@ -49,7 +49,7 @@ $ ken --unlock "2" --datadir <DATADIR>
 $ ken --unlock "bfc22a57999459b0c2ce6337deb9287e7a970e02" --datadir <DATADIR>
 ```
 
-명령 행을 사용하면 여러 계정을 잠금 해제 할 수 있습니다. 이 경우 잠금 해제할 인수는 쉼표로 구분 된 계정 주소 또는 인덱스 목록입니다.
+명령행을 사용하면 여러 계정을 잠금 해제 할 수 있습니다. 이 경우 잠금 해제할 인수는 쉼표로 구분된 계정 주소 또는 인덱스 목록입니다.
 
 ```bash
 $ ken --unlock "0x407d73d8a49eeb85d32cf465507dd71d507100c1,0,5,e470b1a7d2c9c5c6f03bbaa8fa20db6d404a0c32" --datadir <DATADIR>
@@ -65,7 +65,7 @@ $ ken --unlock "0x407d73d8a49eeb85d32cf465507dd71d507100c1,0,5,e470b1a7d2c9c5c6f
 > personal.unlockAccount(address, "password", 300)
 ```
 
-콘솔 히스토리가 기록되므로 암호 인자를 사용하지 않는 것이 좋습니다. 이에 따라 계정이 위협받을 수 있습니다. 주의하세요.
+콘솔 히스토리가 기록되므로 암호 인자를 사용하지 않는 것이 좋습니다. 계정의 보안이 위협 받을 수 있습니다. 주의해주세요.
 
 ## 계정 잔액 확인 <a id="check-account-balance"></a>
 
@@ -111,14 +111,14 @@ klay.accounts[2]: 0xe470b1a7d2c9c5c6f03bbaa8fa20db6d404a0c32  balance: 1 KLAY
 klay.accounts[3]: 0xf4dd5c3794f1fd0cdc0327a83aa472609c806e99  balance: 6 KLAY
 ```
 
-`ken`을 다시 시작하면 이 함수가 사라지기 때문에, 나중에 호출할 일반적으로 사용되는 함수를 저장하면 도움이 됩니다.
+`ken`을 다시 시작하면 이 함수가 사라지기 때문에, 자주 사용할 함수를 저장해놓으면 도움이 됩니다.
 
-우선, `checkAllBalances()` 함수를 파일로 저장하세요. 예를 들어, `/Users/username/klayload.js`와 같습니다. 그런 다음 대화식 콘솔에서 파일을 로드(load)합니다:
+우선, `checkAllBalances()` 함수를 파일로 저장하세요. 예를 들면 `/Users/username/klayload.js`입니다. 그런 다음 대화식 콘솔에서 파일을 로드(load)합니다:
 
 ```javascript
 > loadScript("/Users/username/klayload.js")
 true
 ```
 
-이 파일은 명령을 수동으로 입력 한 것처럼 자바스크립트 환경을 수정할 것입니다. 자유롭게 시도해 보세요!
+이 파일은 명령을 수동으로 입력한 것처럼 자바스크립트 환경을 수정할 것입니다. 자유롭게 시도해 보세요!
 
