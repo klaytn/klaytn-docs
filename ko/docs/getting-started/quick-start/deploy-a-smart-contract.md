@@ -11,9 +11,9 @@ $ mkdir klaytn-testboard
 $ cd klaytn-testboard
 ```
 
-## Truffle 초기화 <a id="initializing-truffle"></a>
+## 트러플 초기화 <a id="initializing-truffle"></a>
 
-컨트랙트 배포를 위해 Truffle을 초기화하세요.
+컨트랙트 배포를 위해 트러플을 초기화하세요.
 
 ```bash
 $ truffle init
@@ -75,7 +75,7 @@ module.exports = function(deployer) {
 };
 ```
 
-## Truffle을 사용하여 스마트 컨트랙트 배포 <a id="deploying-a-smart-contract-using-truffle"></a>
+## 트러플을 사용하여 스마트 컨트랙트 배포 <a id="deploying-a-smart-contract-using-truffle"></a>
 
 truffle.js에 Klaytn의 네트워크 정보를 입력하세요.
 
@@ -86,7 +86,7 @@ $ cd ..
 $ vi truffle-config.js
 ```
 
-아래와 같이 구성을 수정합니다.
+아래와 같이 환경설정을 수정합니다.
 
 ```javascript
 // truffle-config.js
@@ -142,7 +142,7 @@ Error encountered, bailing. Network state unknown. Review successful transaction
 Error: authentication needed: password or unlock
 ```
 
-계정은 다음과 같이 잠금 해제합니다.
+다음은 계정을 잠금 해제하는 방법입니다.
 
 ```javascript
 > personal.unlockAccount('0x775a59b94889a05c03c66c3c84e9d2f8308ca4abd')
@@ -151,5 +151,5 @@ Passphrase:
 true
 ```
 
-이제 나아갈 준비가 되었습니다. 다시 배포해보세요.
+다음으로 갈 차례입니다. 다시 배포해보세요.
 
