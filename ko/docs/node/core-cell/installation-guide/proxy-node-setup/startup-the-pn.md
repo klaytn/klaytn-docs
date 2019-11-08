@@ -28,7 +28,7 @@ $ systemctl stop kpnd.service
 Failed to start kpnd.service: Unit not found.
 ```
 
-다음 명령으로 시스템 관리자 구성을 다시 로드하세요.
+다음 명령으로 시스템 관리자 환경설정을 다시 로드하세요.
 
 ```bash
 $ systemctl daemon-reload
