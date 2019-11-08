@@ -1,6 +1,6 @@
 Klaytn은 대상 고객군을 세 가지로 구분합니다. 1) 일반 사용자, 2) 서비스 제공자, 3) 기업입니다. 이들에게 제공하는 Klaytn의 Value Proposition은 **Hassle-Free and Hybrid Blockchain Optimized for Services and Enterprises** 입니다. 일반 사용자들이 사용하기 쉽고, 서비스와 기업들에게 최적화된 블록체인 환경을 제공하는 것입니다.
 
-### 1) 일반 사용자 관점: 최초의 블록체인 경험을 제공해 주는 플랫폼 <a id="1-ordinary-users-point-of-view-platform-that-provides-the-first-blockchain-exper"></a>
+### 1) 일반 사용자 관점: 최초의 블록체인 경험을 제공해주는 플랫폼 <a id="1-ordinary-users-point-of-view-platform-that-provides-the-first-blockchain-exper"></a>
 
 Klaytn은 블록체인과 암호화폐에 경험이 있는 크립토 사용자를 넘어서, 일반 사용자에 초점을 맞추고 있습니다. 블록체인이 그 자체로 사용자에게 가치를 주는 것이 아니고 애플리케이션을 통해 가치를 제공하기 때문에 최종 사용자에게는 블록체인 기술이 보이지 않아야 합니다. 하지만, 현재의 블록체인 사용자 경험은 일반인들이 접근하기엔 진입장벽이 높습니다.
 
