@@ -22,20 +22,20 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 - `Key` : 변경하고자 하는 환경설정의 이름입니다. 키는 `domain.field`의 형식으로 되어 있습니다.
 - `Value` : 각 키에 대한 다양한 형태의 값입니다.
 
-| Key                            | 설명                                                                                                                                            |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"governance.governancemode"`  | `STRING`. 세 거버넌스 모드 중 하나입니다. `"none"`, `"single"`, `"ballot"` 등 세 가지 모드 중 하나를 선택합니다.                                                          |
-| `"governance.governingnode"`   | `ADDRESS`. 거버넌스를 통제하는 특정 노드의 주소입니다. 거버넌스 모드가 `"single"`인 경우에만 해당합니다. 예를 들어, `"0xe733cb4d279da696f30d470f8c04decb54fcb0d2"`입니다.                |
-| `"governance.unitprice"`       | `NUMBER`. 가스당 가격입니다. 예를 들어, `25000000000`입니다.                                                                                                 |
-| `"governance.addvalidator"`    | `ADDRESS`. 새로운 검증자 후보의 주소입니다. 예를 들어, `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`입니다.                                                         |
-| `"governance.removevalidator"` | `ADDRESS`. 제거될 검증자의 주소입니다. 예를 들어, `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`입니다.                                                            |
-| `"istanbul.epoch"`             | `NUMBER`. 표를 수집할 블록 단위의 시간입니다. 투표 기간이 종료되면 기간을 넘긴 투표는 무효가 됩니다. 예를 들어, `86400`입니다.                                                             |
-| `"istanbul.committeesize"`     | `NUMBER`. 위원회의 검증자 수입니다. (체인 환경설정에서 `sub`입니다.) 예를 들어, `7`입니다.                                                                                 |
-| `"reward.mintingamount"`       | `STRING`. 블록이 생성될 때 발행되는 peb의 양입니다. 값에는 큰따옴표가 필요합니다. 예를 들어, `"9600000000000000000"`입니다.                                                       |
-| `"reward.ratio"`               | `STRING`. `"/"`으로 구분되는 <0>CN/KIR/PoC</0>의 분포 비율입니다. 각 값의 합은 `100`이어야 합니다. 예를 들어, `"34/54/12"`은 CN이 34%, PoC이 54%, KIR이 12%를 차지하고 있다는 것입니다.    |
-| `"reward.useginicoeff"`        | `BOOL`. 지니(GINI) 계수 사용 여부입니다 `true` 또는 `false`로 설정합니다.                                                                                        |
-| `"reward.deferredtxfee"`       | `BOOL`. 트랜잭션 비용을 제안자에게 지급하는 방법입니다. true이면 트랜잭션 비용은 블록 보상과 합산되어 제안자, KIR, PoC에게 분배됩니다. false이면 트랜잭션 비용이 제안자에게 지급됩니다. `true` 또는 `false`로 설정합니다. |
-| `"reward.minimumstake"`        | `STRING`. CN(컨센서스 노드)가 되는 데 필요한 Klay 양입니다. 값에는 큰따옴표가 필요합니다. 예를 들어, `"5000000"`입니다.                                                            |
+| Key                            | 설명                                                                                                                                               |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `"governance.governancemode"`  | `STRING`. 세 거버넌스 모드 중 하나입니다. `"none"`, `"single"`, `"ballot"` 등 세 가지 모드 중 하나를 선택합니다.                                                             |
+| `"governance.governingnode"`   | `ADDRESS`. 거버넌스를 통제하는 특정 노드의 주소입니다. 거버넌스 모드가 `"single"`인 경우에만 해당합니다. 예를 들어, `"0xe733cb4d279da696f30d470f8c04decb54fcb0d2"`입니다.                   |
+| `"governance.unitprice"`       | `NUMBER`. 가스당 가격입니다. 예를 들어, `25000000000`입니다.                                                                                                    |
+| `"governance.addvalidator"`    | `ADDRESS`. 새로운 검증자 후보의 주소입니다. 예를 들어, `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`입니다.                                                            |
+| `"governance.removevalidator"` | `ADDRESS`. 제거될 검증자의 주소입니다. 예를 들어, `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`입니다.                                                               |
+| `"istanbul.epoch"`             | `NUMBER`. 표를 수집할 블록 단위의 시간입니다. 투표 기간이 종료되면 기간을 넘긴 투표는 무효가 됩니다. 예를 들어, `86400`입니다.                                                                |
+| `"istanbul.committeesize"`     | `NUMBER`. 위원회의 검증자 수입니다. (체인 환경설정에서 `sub`입니다.) 예를 들어, `7`입니다.                                                                                    |
+| `"reward.mintingamount"`       | `STRING`. 블록이 생성될 때 발행되는 peb의 양입니다. 값에는 큰따옴표가 필요합니다. 예를 들어, `"9600000000000000000"`입니다.                                                          |
+| `"reward.ratio"`               | `STRING`. `"/"`으로 구분되는 <0>CN/KIR/PoC</0>의 분포 비율입니다. 각 값의 합은 `100`이어야 합니다. 예를 들어, `"34/54/12"`은 CN이 34%, PoC이 54%, KIR이 12%를 차지하고 있다는 것입니다.       |
+| `"reward.useginicoeff"`        | `BOOL`. 지니(GINI) 계수 사용 여부입니다 `true` 또는 `false`로 설정합니다.                                                                                           |
+| `"reward.deferredtxfee"`       | `BOOL`. 트랜잭션 수수료를 제안자에게 지급하는 방법입니다. true이면 트랜잭션 수수료는 블록 보상과 합산되어 제안자, KIR, PoC에게 분배됩니다. false이면 트랜잭션 수수료가 제안자에게 지급됩니다. `true` 또는 `false`로 설정합니다. |
+| `"reward.minimumstake"`        | `STRING`. CN(컨센서스 노드)가 되는 데 필요한 Klay 양입니다. 값에는 큰따옴표가 필요합니다. 예를 들어, `"5000000"`입니다.                                                               |
 
 
 **리턴값**
