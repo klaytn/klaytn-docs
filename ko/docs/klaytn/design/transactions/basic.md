@@ -4,7 +4,7 @@
 
 TxTypeLegacyTransaction은 이전에 Klaytn에 존재했던 트랜잭션 유형을 의미합니다. 이 트랜잭션 유형은 호환성을 위해 존재하므로 [AccountKeyLegacy](../accounts.md#accountkeylegacy)와 연결된 EOA와만 사용할 수 있습니다. 다른 계정 키 유형과 연결된 EOA는 TxTypeValueTransfer, TxTypeSmartContractExecution 같은 다른 트랜잭션 유형을 사용해야 합니다. 이 유형의 트랜잭션은 계정 생성, 토큰 전송, 스마트 컨트랙트 배포, 스마트 컨트랙트 실행 또는 앞에서 언급한 것들을 혼합하여 실행할 수 있습니다. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
 
-1. 발신자의 잔고는 트랜잭션 비용만큼 줄어듭니다.
+1. 발신자의 잔고는 트랜잭션 수수료만큼 줄어듭니다.
 2. 발신자의 논스가 1 증가합니다.
 3. 만약 `to`가 Klaytn에 존재하지 않으면 [AccountKeyLegacy](../accounts.md#accountkeylegacy)와 연결된 EOA를 만듭니다.
 4. `value` KLAY가 발산지로부터 수신자로 전송됩니다.
@@ -20,7 +20,7 @@ TxTypeLegacyTransaction은 이전에 Klaytn에 존재했던 트랜잭션 유형�
 | input    | \[\]byte \(Go\)         | 트랜잭션 실행에 이용되며 트랜잭션에 첨부되는 데이터입니다.                                                                                                                                                                                                     |
 | v, r, s  | \*big.Int \(Go\)        | 수신자가 발신자의 주소를 받을 수 있게 발신자에 의해 발생된 암호학적 서명입니다.                                                                                                                                                                                        |
 | nonce    | uint64 \(Go\)             | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                        |
-| gas      | uint64 \(Go\)             | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 비용입니다.                                                                                                                                                                                                      |
+| gas      | uint64 \(Go\)             | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                                                                                     |
 | gasPrice | \*big.Int \(Go\)        | 발신자가 얼마나 가스비를 지급해야하는지 알 수 있도록 곱하는 값입니다. 발신자가 지급해야할 비용은 `gas` \* `gasPrice`로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
 
 ### 서명 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
@@ -122,22 +122,22 @@ SenderTxHash e434257753bf31a130c839fec0bd34fc6ea4aa256b825288ee82db31c2ed7524
 
 TxTypeValueTransfer는 사용자가 토큰을 전송할 때 사용됩니다. Klaytn은 각 목적에 맞는 여러가지 트랜잭션 유형들을 제공하는데, TxTypeValueTransfer는 토큰을 EOA에 전송할 때 사용하는 기능입니다. 따라서 TxTypeValueTransfer는 `to`가 EOA일때만 작동합니다. KLAY를 스마트 컨트랙트로 전송하려면 [TxTypeSmartContractExecution](basic.md#txtypesmartcontractexecution)를 대신 사용하여야 합니다. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
 
-1. 발신자의 잔고는 트랜잭션 비용만큼 줄어듭니다.
+1. 발신자의 잔고는 트랜잭션 수수료만큼 줄어듭니다.
 2. 발신자의 논스가 1 증가합니다.
 3. `value` KLAY가 발산지로부터 수신자로 전송됩니다.
 
 ### 속성 <a id="attributes"></a>
 
-| 속성           | 형식                                                     | 설명                                                                                                                                                                                                                              |
-|:------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type         | uint8 \(Go\)                                         | TxTypeValueTransfer의 type입니다. 이는 0x08이어야 합니다.                                                                                                                                                                                   |
-| nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                   |
-| gasPrice     | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 비용으로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 비용은 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
-| gas          | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 비용입니다.                                                                                                                                                                                                 |
-| to           | common.Address \(Go\)                                | 전송되는 KLAY를 받을 계정 주소입니다.                                                                                                                                                                                                         |
-| value        | \*big.Int \(Go\)                                   | 명시된 양의 KLAY(단위: peb)가 전송됩니다.                                                                                                                                                                                                    |
-| from         | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
+| 속성           | 형식                                                     | 설명                                                                                                                                                                                                                               |
+|:------------ |:------------------------------------------------------ |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type         | uint8 \(Go\)                                         | TxTypeValueTransfer의 type입니다. 이는 0x08이어야 합니다.                                                                                                                                                                                    |
+| nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                    |
+| gasPrice     | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 수수료로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 수수료는 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
+| gas          | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                                                                                 |
+| to           | common.Address \(Go\)                                | 전송되는 KLAY를 받을 계정 주소입니다.                                                                                                                                                                                                          |
+| value        | \*big.Int \(Go\)                                   | 명시된 양의 KLAY(단위: peb)가 전송됩니다.                                                                                                                                                                                                     |
+| from         | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                              |
+| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                              |
 
 ### 서명 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
@@ -238,23 +238,23 @@ SenderTxHash 762f130342569e9669a4d8547f1248bd2554fbbf3062d63a97ce28bfa97aa9d7
 
 TxTypeValueTransferMemo는 사용자가 특정 메시지와 함께 토큰을 보내려고 할 때 사용됩니다. 따라서 TxTypeValueTransferMemo는 `to`가 EOA일때만 작동합니다. KLAY를 스마트 컨트랙트로 전송하려면 [TxTypeSmartContractExecution](basic.md#txtypesmartcontractexecution)를 대신 사용하여야 합니다. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
 
-1. 발신자의 잔고는 트랜잭션 비용만큼 줄어듭니다.
+1. 발신자의 잔고는 트랜잭션 수수료만큼 줄어듭니다.
 2. 발신자의 논스가 1 증가합니다.
 3. `value` KLAY가 발산지로부터 수신자로 전송됩니다.
 
 ### 속성 <a id="attributes"></a>
 
-| 속성           | 형식                                                     | 설명                                                                                                                                                                                                                              |
-|:------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type         | uint8 \(Go\)                                         | The type of TxTypeValueTransferMemo의 type입니다. 이는 0x10이어야 합니다.                                                                                                                                                                   |
-| nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                   |
-| gasPrice     | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 비용으로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 비용은 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
-| gas          | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 비용입니다.                                                                                                                                                                                                 |
-| to           | common.Address \(Go\)                                | 전송되는 KLAY를 받을 계정 주소입니다.                                                                                                                                                                                                         |
-| value        | \*big.Int \(Go\)                                   | 명시된 양의 Klay(단위: peb)가 전송됩니다.                                                                                                                                                                                                    |
-| from         | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
-| input        | \[\]byte \(Go\)                                    | 트랜잭션에 첨부되는 데이터입니다. 메시지는 이 속성으로 전달되어야 합니다.                                                                                                                                                                                       |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
+| 속성           | 형식                                                     | 설명                                                                                                                                                                                                                               |
+|:------------ |:------------------------------------------------------ |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type         | uint8 \(Go\)                                         | The type of TxTypeValueTransferMemo의 type입니다. 이는 0x10이어야 합니다.                                                                                                                                                                    |
+| nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                    |
+| gasPrice     | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 수수료로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 수수료는 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
+| gas          | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                                                                                 |
+| to           | common.Address \(Go\)                                | 전송되는 KLAY를 받을 계정 주소입니다.                                                                                                                                                                                                          |
+| value        | \*big.Int \(Go\)                                   | 명시된 양의 Klay(단위: peb)가 전송됩니다.                                                                                                                                                                                                     |
+| from         | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                              |
+| input        | \[\]byte \(Go\)                                    | 트랜잭션에 첨부되는 데이터입니다. 메시지는 이 속성으로 전달되어야 합니다.                                                                                                                                                                                        |
+| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                              |
 
 ### 서명 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
@@ -357,26 +357,26 @@ SenderTxHash 6c7ee543c24e5b928b638a9f4502c1eca69103f5467ed4b6a2ed0ea5aede2e6b
 
 TxTypeSmartContractDeploy는 지정된 주소에 스마트 계약을 배포합니다. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
 
-1. 발신자의 잔고는 트랜잭션 비용만큼 줄어듭니다.
+1. 발신자의 잔고는 트랜잭션 수수료만큼 줄어듭니다.
 2. 발신자의 논스가 1 증가합니다.
 3. `input`에 기입된 코드로 스마트 컨트랙트가 배포됩니다. 배포된 주소는 영수증의 `contractAddress`를 통해 반환됩니다.
 4. `value` KLAY가 발산지로부터 수신자로 전송됩니다.
 
 ### 속성 <a id="attributes"></a>
 
-| 속성            | 형식                                                     | 설명                                                                                                                                                                                                                              |
-|:------------- |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type          | uint8 \(Go\)                                         | TxTypeSmartContractDeploy의 type입니다. 이는 0x28이어야 합니다.                                                                                                                                                                             |
-| nonce         | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                   |
-| gasPrice      | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 비용으로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 비용은 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
-| gas           | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 비용입니다.                                                                                                                                                                                                 |
-| to            | \*common.Address \(Go\)                            | 전송되는 KLAY를 받을 계정 주소입니다. 현재 이 값은 nil이어야합니다. 특정 주소를 지정하는 기능은 향후 지원될 예정입니다.                                                                                                                                                        |
-| value         | \*big.Int \(Go\)                                   | 명시된 양의 Klay(단위: peb)가 전송됩니다.                                                                                                                                                                                                    |
-| from          | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
-| input         | \[\]byte \(Go\)                                    | 트랜잭션 실행에 이용되며 트랜잭션에 첨부되는 데이터입니다.                                                                                                                                                                                                |
-| humanReadable | bool \(Go\)                                          | Human-readable address는 아직 지원되지 않으므로 이 값은 false여야 합니다. 이 값이 true라면 트랜잭션은 실패합니다.                                                                                                                                                 |
-| codeFormat    | uint8 \(Go\)                                         | 스마트 컨트랙트 코드의 코드 형식입니다. 현재는 오직 EVM\(0x00\)만 지원됩니다.                                                                                                                                                                             |
-| txSignatures  | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
+| 속성            | 형식                                                     | 설명                                                                                                                                                                                                                               |
+|:------------- |:------------------------------------------------------ |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type          | uint8 \(Go\)                                         | TxTypeSmartContractDeploy의 type입니다. 이는 0x28이어야 합니다.                                                                                                                                                                              |
+| nonce         | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                    |
+| gasPrice      | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 수수료로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 수수료는 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
+| gas           | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                                                                                 |
+| to            | \*common.Address \(Go\)                            | 전송되는 KLAY를 받을 계정 주소입니다. 현재 이 값은 nil이어야합니다. 특정 주소를 지정하는 기능은 향후 지원될 예정입니다.                                                                                                                                                         |
+| value         | \*big.Int \(Go\)                                   | 명시된 양의 Klay(단위: peb)가 전송됩니다.                                                                                                                                                                                                     |
+| from          | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                              |
+| input         | \[\]byte \(Go\)                                    | 트랜잭션 실행에 이용되며 트랜잭션에 첨부되는 데이터입니다.                                                                                                                                                                                                 |
+| humanReadable | bool \(Go\)                                          | Human-readable address는 아직 지원되지 않으므로 이 값은 false여야 합니다. 이 값이 true라면 트랜잭션은 실패합니다.                                                                                                                                                  |
+| codeFormat    | uint8 \(Go\)                                         | 스마트 컨트랙트 코드의 코드 형식입니다. 현재는 오직 EVM\(0x00\)만 지원됩니다.                                                                                                                                                                              |
+| txSignatures  | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                              |
 
 ### 서명 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
@@ -401,7 +401,7 @@ SenderTxHash = keccak256(SenderTxHashRLP)
 
 ### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-수수료 지불자의 서명을 만들려면 RLP 직렬화를 다음과 같이 수행해야합니다.
+수수료 납부자의 서명을 만들려면 RLP 직렬화를 다음과 같이 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -484,23 +484,23 @@ SenderTxHash e983f38b814891990f3ca57028c2230dc7e907eb313c827e7c99fadcc9b4c58b
 TxTypeSmartContractExecution는 스마트 컨트랙트를 실행하고, `input`에 입력된 데이터를 이용합니다. TxTypeSmartContractExecution는 `to`가 스마트 컨트랙트 계정일 때만 실행됩니다. KLAY를 외부 소유 계정으로 전송하려면 [TxTypeValueTransfer](basic.md#txtypevaluetransfer)를 대신 사용하십시오. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
 
 1. `to`가 스마트 컨트랙트라면 `input`을 이용하여 코드가 실행됩니다. 그렇지 않으면 트랜잭션은 거절됩니다.
-2. 발신자의 잔고는 트랜잭션 비용만큼 줄어듭니다.
+2. 발신자의 잔고는 트랜잭션 수수료만큼 줄어듭니다.
 3. 발신자의 논스가 1 증가합니다.
 4. `value`에 값이 입력되었으면 발신자에서 `to`로`value` KLAY가 전송됩니다. 컨트랙트가 KLAY를 받기 위해서는 컨트랙트는 payable fallback function을 가져야 합니다.
 
 ### 속성 <a id="attributes"></a>
 
-| 속성           | 형식                                                     | 설명                                                                                                                                                                                                                              |
-|:------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type         | uint8 \(Go\)                                         | TxTypeSmartContractExecution의 type입니다. 이는 0x30이어야 합니다.                                                                                                                                                                          |
-| nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                   |
-| gasPrice     | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 비용으로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 비용은 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
-| gas          | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 비용입니다.                                                                                                                                                                                                 |
-| to           | common.Address \(Go\)                                | 실행할 스마트 계약 컨트랙트의 주소입니다.                                                                                                                                                                                                         |
-| value        | \*big.Int \(Go\)                                   | 명시된 양의 Klay(단위: peb)가 전송됩니다.                                                                                                                                                                                                    |
-| from         | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
-| input        | \[\]byte \(Go\)                                    | 트랜잭션 실행에 이용되며 트랜잭션에 첨부되는 데이터입니다.                                                                                                                                                                                                |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
+| 속성           | 형식                                                     | 설명                                                                                                                                                                                                                               |
+|:------------ |:------------------------------------------------------ |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type         | uint8 \(Go\)                                         | TxTypeSmartContractExecution의 type입니다. 이는 0x30이어야 합니다.                                                                                                                                                                           |
+| nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                    |
+| gasPrice     | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 수수료로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 수수료는 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
+| gas          | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                                                                                 |
+| to           | common.Address \(Go\)                                | 실행할 스마트 계약 컨트랙트의 주소입니다.                                                                                                                                                                                                          |
+| value        | \*big.Int \(Go\)                                   | 명시된 양의 Klay(단위: peb)가 전송됩니다.                                                                                                                                                                                                     |
+| from         | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                              |
+| input        | \[\]byte \(Go\)                                    | 트랜잭션 실행에 이용되며 트랜잭션에 첨부되는 데이터입니다.                                                                                                                                                                                                 |
+| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                              |
 
 ### 서명 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
@@ -603,7 +603,7 @@ SenderTxHash 23bb192bd58d56527843eb63225c5213f3aded95e4c9776f1ff0bdd8ee0b6826
 
 TxTypeAccountUpdate는 해당 계정의 키를 업데이트합니다. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
 
-1. 발신자의 잔고는 트랜잭션 비용만큼 줄어듭니다.
+1. 발신자의 잔고는 트랜잭션 수수료만큼 줄어듭니다.
 2. 발신자의 논스가 1 증가합니다.
 3. 계정의 키는 `key`로 업데이트됩니다.
 4. 이 유형의 트랜잭션이 실행되고 나면 계정에서 전송된 트랜잭션은 새 `key`로 검증됩니다.
@@ -615,7 +615,7 @@ TxTypeAccountUpdate는 해당 계정의 키를 업데이트합니다. 이 트랜
 | type         | uint8 \(Go\)                                         | TxTypeAccountUpdate의 type입니다. 이는 0x20이어야 합니다.                                                                                                                                                                                        |
 | nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                        |
 | gasPrice     | \*big.Int \(Go\)                                   | 발신자가 얼마나 가스비를 지급해야하는지 알 수 있도록 곱하는 값입니다. 발신자가 지급해야할 비용은 `gas` \* `gasPrice`로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
-| gas          | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 비용입니다.                                                                                                                                                                                                      |
+| gas          | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                                                                                     |
 | from         | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                                  |
 | key          | AccountKey \(Go\)                                    | 업데이트 될 [AccountKey](../accounts.md#account-key)입니다.                                                                                                                                                                                  |
 | txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                                  |
@@ -727,18 +727,18 @@ TxTypeCancel는 트랜잭션 풀에서 같은 논스를 가진 트랜잭션을 �
 
 TxTypeCancel 트랜잭션은 동일한 논스의 트랜잭션을 대체 할 수 있는 유일한 트랜잭션입니다. 다른 트랜잭션 유형은동일한 논스의 트랜잭션으로 바꿀 수 없습니다.
 
-이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다. 1. 발신자의 잔고는 트랜잭션 비용만큼 줄어듭니다. 2. 발신자의 논스가 1 증가합니다.
+이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다. 1. 발신자의 잔고는 트랜잭션 수수료만큼 줄어듭니다. 2. 발신자의 논스가 1 증가합니다.
 
 ### 속성 <a id="attributes"></a>
 
-| 속성           | 형식                                                     | 설명                                                                                                                                                                                                                              |
-|:------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type         | uint8 \(Go\)                                         | TxTypeCancel의 type입니다. 이는 0x38이어야 합니다.                                                                                                                                                                                          |
-| nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.  `TxTypeCancel`을 사용할 때 이 값은 취소할 타겟 트랜잭션의 논스 값과 같아야 합니다.                                                                                           |
-| gasPrice     | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 비용으로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 비용은 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
-| gas          | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 비용입니다.                                                                                                                                                                                                 |
-| from         | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
+| 속성           | 형식                                                     | 설명                                                                                                                                                                                                                               |
+|:------------ |:------------------------------------------------------ |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type         | uint8 \(Go\)                                         | TxTypeCancel의 type입니다. 이는 0x38이어야 합니다.                                                                                                                                                                                           |
+| nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.  `TxTypeCancel`을 사용할 때 이 값은 취소할 타겟 트랜잭션의 논스 값과 같아야 합니다.                                                                                            |
+| gasPrice     | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 수수료로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 수수료는 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
+| gas          | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                                                                                 |
+| from         | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                              |
+| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                              |
 
 결과:
 
@@ -843,15 +843,15 @@ TxTypeChainDataAnchoring 트랜잭션은 서비스체인에서 사용되는 트�
 
 ### 속성 <a id="attributes"></a>
 
-| 속성           | 형식                                                     | 설명                                                                                                                                                                                                                              |
-|:------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type         | uint8 \(Go\)                                         | TxTypeChainDataAnchoringTransaction의 type입니다. 이는 0x48이어야 합니다.                                                                                                                                                                   |
-| nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                   |
-| gasPrice     | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 비용으로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 비용은 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
-| gas          | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 비용입니다.                                                                                                                                                                                                 |
-| from         | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
-| input        | \[\]byte \(Go\)                                    | 서비스체인의 데이터입니다.                                                                                                                                                                                                                  |
-| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                             |
+| 속성           | 형식                                                     | 설명                                                                                                                                                                                                                               |
+|:------------ |:------------------------------------------------------ |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type         | uint8 \(Go\)                                         | TxTypeChainDataAnchoringTransaction의 type입니다. 이는 0x48이어야 합니다.                                                                                                                                                                    |
+| nonce        | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                    |
+| gasPrice     | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 수수료로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 수수료는 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [Unit of KLAY](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
+| gas          | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                                                                                 |
+| from         | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                              |
+| input        | \[\]byte \(Go\)                                    | 서비스체인의 데이터입니다.                                                                                                                                                                                                                   |
+| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                              |
 
 ### 서명 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
