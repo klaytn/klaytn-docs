@@ -133,7 +133,7 @@ Klaytn Wallet은 KLAY 및 Klaytn 토큰 등록을 지원하여 잔액을 확인�
 
 ## KLAY 및 토큰 전송하기 <a id="how-to-send-klay-and-tokens"></a>
 
-Klaytn Wallet을 사용하여 KLAY 또는 Klaytn 토큰을 다른 계정으로 보낼 수 있습니다. KLAY 또는 토큰을 보낼 때 해당 계정에 최소한의 트랜잭션 비용을 지불할 KLAY가 있어야 합니다.
+Klaytn Wallet을 사용하여 KLAY 또는 Klaytn 토큰을 다른 계정으로 보낼 수 있습니다. KLAY 또는 토큰을 보낼 때 해당 계정에 최소한의 트랜잭션 수수료를 지불할 KLAY가 있어야 합니다.
 
 ### 1단계: 'Send KLAY & Tokens' 메뉴로 이동하세요. <a id="step-1-go-to-send-klay-tokens-menu"></a>
 
