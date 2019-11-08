@@ -1,8 +1,8 @@
-# 계정에 자금 추가하기 <a id="top-up-your-account"></a>
+# 계정에 토큰 채우기<a id="top-up-your-account"></a>
 
 ## 콘솔에 연결하기 <a id="attaching-to-the-console"></a>
 
-Klaytn 엔드포인트 노드는 자바스크립트 콘솔과 함께 제공됩니다. 콘솔 명령 행에서 EN을 향한 Klaytn API 호출의 일부를 시작할 수 있습니다. 자바스크립트 콘솔에 연결하려면 다음 명령을 실행하세요.
+Klaytn 엔드포인트 노드는 자바스크립트 콘솔과 함께 제공됩니다. 콘솔 명령행에서 EN을 향한 Klaytn API 호출 중 일부를 시작할 수 있습니다. 자바스크립트 콘솔에 연결하려면 다음 명령을 실행하세요.
 
 ```bash
 $ ken attach ~/kend_home/klay.ipc
@@ -21,7 +21,7 @@ Welcome to the Klaytn JavaScript console
 
 ## 새로운 Klaytn 계정 생성 <a id="creating-a-new-klaytn-account"></a>
 
-자바스크립트 콘솔에서 새 Klaytn 계정을 생성하려면 다음 명령을 실행하세요. 개인키는 입력한 암호로 암호화됩니다.
+자바스크립트 콘솔에서 새 Klaytn 계정을 생성하려면 다음 명령을 실행하세요. 개인키는 입력한 패스프레이즈로 암호화됩니다.
 
 ```javascript
 > personal.newAccount()
@@ -39,7 +39,7 @@ UTC--2019-06-24T11-20-15.590879000Z--75a59b94889a05c03c66c3c84e9d2f8308ca4abd
 
 ## Klaytn 계정 잠금 해제 <a id="unlocking-the-klaytn-account"></a>
 
-생성된 계정을 잠금 해제하려면, 다음 명령을 실행합니다. 이는 300초 동안 계정을 잠금 해제합니다. **참고**: 잠금 해제 기간을 수동으로 설정하려면, 다음 [링크](../../bapp/json-rpc/api-references/personal.md#personal_unlockaccount)를 참조하세요. **`경고`**: 주의하지 않으면 계정 잠금을 해제하는 것은 매우 위험할 수 있습니다. EN이 해커에 의해 해킹되면, 해커가 토큰을 빼앗을 가능성이 있습니다. 보다 안전한 방법을 사용하려면, 다음의 [개인키를 사용하는 배포 가이드](../../bapp/tutorials/count-bapp/6.-deploy-contract.md#deploy-method-1-by-private-key)를 참조하세요.
+생성된 계정을 잠금 해제하려면, 다음 명령을 실행합니다. 이는 300초 동안 계정을 잠금 해제합니다. **참고**: 잠금 해제 기간을 수동으로 설정하려면, 다음 [링크](../../bapp/json-rpc/api-references/personal.md#personal_unlockaccount)를 참조하세요. **`경고`**: 계정 잠금 해제는 조심해서 하지 않으면 매우 위험할 수 있습니다. EN이 해커에 의해 해킹되면, 해커가 토큰을 빼앗을 가능성이 있습니다. 보다 안전한 방법을 사용하려면, 다음의 [개인키를 사용하는 배포 가이드](../../bapp/tutorials/count-bapp/6.-deploy-contract.md#deploy-method-1-by-private-key)를 참조하세요.
 
 ```javascript
 > personal.unlockAccount('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # 잠금을 해제할 계정 주소
@@ -53,17 +53,17 @@ true
 * KlaytnWallet의 Baobab Faucet 사용하기
 * [https://baobab.wallet.klaytn.com](https://baobab.wallet.klaytn.com/) 접근하기
 * 지갑에 로그인하기 위하여 지갑에서 새 계정을 만들거나 위의 EN 자바스크립트 콘솔에서 생성한 키스토어 파일을 사용할 수 있습니다.
-* 왼쪽 창 메뉴에서 "KLAY Faucet"으로 이동해, "Run Faucet" 버튼을 클릭해 5 KLAY를 얻습니다.
+* 왼쪽 창 메뉴에서 "KLAY Faucet"으로 이동하고, "Run Faucet" 버튼을 클릭해 5 KLAY를 얻습니다.
 
   KLAY Faucet를 24시간마다 한 번씩 실행할 수 있습니다.
 
-* KLAY를 얻기 위해 새 계정을 만든 경우, KLAY를 EN의 생성된 계정으로 보냅니다.
+* KLAY를 얻기 위해 새 계정을 만들었다면 EN의 생성된 계정으로 KLAY 보냅니다.
 
 ## 계정 잔액 확인 <a id="checking-the-balance-in-your-account"></a>
 
 계정의 잔액을 확인하려면, 다음 명령을 실행합니다.
 
-기본 단위는 peb \(1 KLAY = 10 ^ 18 peb\)입니다. KLAY 단위에 대한 자세한 내용은 [Units of KLAY](../../klaytn/design/klaytn-native-coin-klay.md#units-of-klay)에서 확인할 수 있습니다.
+기본 단위는 peb \(1 KLAY = 10 ^ 18 peb\)입니다. KLAY 단위에 대한 자세한 내용은 [KLAY의 단위](../../klaytn/design/klaytn-native-coin-klay.md#units-of-klay)에서 확인할 수 있습니다.
 
 ```javascript
 > klay.getBalance('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # 계정 주소를 입력하세요
