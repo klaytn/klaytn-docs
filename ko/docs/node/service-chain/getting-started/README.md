@@ -4,6 +4,6 @@ description: >-
 ---
 
 This section provides step-by-step guides for setting up a service chain and connecting it with Klaytn Baobab network. You can see the following articles in this section.
-- [Setting up a 4-node Service Chain](./4nodes-setup-guide.md)
+- [4-노드 서비스 체인 설정](./4nodes-setup-guide.md)
 - [Baobab 연결](./en-scn-connection.md)
 - [Cross-chain Value Transfer](value-transfer.md)
