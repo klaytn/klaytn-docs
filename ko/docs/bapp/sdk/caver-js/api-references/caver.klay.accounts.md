@@ -812,19 +812,28 @@ AccountForUpdate {
 ## signTransaction <a id="signtransaction"></a>
 
 ```javascript
-caver.klay.accounts.signTransaction(tx, privateKey [, callback])
+caver.klay.accounts.signTransaction(tx [, privateKey] [, callback])
 ```
+
 Signs a Klaytn transaction with a given private key.
+
+Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), this method takes an RLP-encoded transaction as an input as well as a plain transaction object. See [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction) for the various types of transaction object. This method basically signs as a sender. If you want to sign as a fee-payer, we recommend to use [caver.klay.accounts.feePayerSignTransaction](#feepayersigntransaction). But, fee-payers can still sign using this method by passing an object, `{senderRawTransction: rawTransaction, feePayer: feePayerAddress}`, as `tx`. senderRawTransaction must be a FEE_DELEGATED_ type transaction.
+
+Also since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), signTransaction keeps the existing signatures/feePayerSignatures in the input transaction and appends the signature(s) of the signer to it.
+
+See [Sending a Transaction with multiple signer](../getting-started.md#sending-a-transaction-with-multiple-signer) for how to combine multiple users' signatures into a single rawTransaction.
 
 **매개변수**
 
-| 명칭         | 형식                  | 설명                                                                                                                                                                                                                           |
-| ---------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tx         | 객체                  | The transaction object.  The fields of the transaction object are different for each transaction type. For a description of each transaction, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
-| privateKey | String &#124; Array | (optional) The private key to sign with.                                                                                                                                                                                     |
-| callback   | Function            | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                                                         |
+| 명칭         | 형식                   | 설명                                                                                                                                                                                                                                                                                   |
+| ---------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| tx         | String &#124; Object | Transaction object or RLP-encoded transaction string (rawTransaction). The properties of a transaction object varies depending on the transaction type. For the description of each transaction type, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
+| privateKey | String &#124; Array  | (optional) The private key to sign with.                                                                                                                                                                                                                                             |
+| callback   | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                                                                                                                 |
 
 **NOTE** The `privateKey` parameter has been changed to an `optional parameter` since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). Also, privateKey parameter supports `array` of private key strings since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). If you do not pass a privateKey, either `from` or `feePayer` account must exist in caver.klay.accounts.wallet to sign the transaction. If an array of privateKeys are provided, the transaction is signed with all the keys inside the array.
+
+**NOTE** The `tx` parameter accepts an RLP-encoded transaction since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 **리턴값**
 
@@ -843,6 +852,8 @@ Signs a Klaytn transaction with a given private key.
 | feePayerSignatures | 배열             | (optional) An array of the fee payer's signature(s).                                                         |
 
 **NOTE** The signatures and feePayerSignatures properties have been added since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). If the sender signs the transaction, the signature array is returned in `signatures`. If the fee payer signs, the signature array is returned in `feePayerSignatures`.
+
+**NOTE** The `txHash` and `senderTxHash` in the result object may not be the final values. If another sender signature is added, txHash and senderTxHash will change. If a fee-payer signature is added, txHash will change.
 
 **예시**
 
@@ -994,6 +1005,161 @@ Signs a Klaytn transaction with a given private key.
 }
 ```
 
+## feePayerSignTransaction <a id="feepayersigntransaction"></a>
+
+```javascript
+caver.klay.accounts.feePayerSignTransaction(tx, feePayerAddress [, privateKey] [, callback])
+```
+
+Signs a transaction as a fee payer.
+
+Fee payers can sign on a FEE_DELEGATED_ transaction. A transaction object or an RLP-encoded transaction can be passed as an argument.
+
+If privateKay is not given, feePayerKey of the fee payer's account inside the caver-js in-memory wallet is used.
+
+feePayerSignTransaction keeps the existing signatures/feePayerSignatures in the input transaction and appends the fee-payer signature(s) to it.
+
+See [Sending a Transaction with multiple signer](../getting-started.md#sending-a-transaction-with-multiple-signer) for how to combine multiple users' signatures into a single rawTransaction.
+
+**NOTE** `caver.klay.accounts.feePayerSignTransaction` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**매개변수**
+
+
+| 명칭              | 형식                   | 설명                                                                                                                                                                                                                                                                                   |
+| --------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| tx              | String &#124; Object | Transaction object or RLP-encoded transaction string (rawTransaction). The properties of a transaction object varies depending on the transaction type. For the description of each transaction type, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
+| feePayerAddress | 문자열                  | The address of fee payer.                                                                                                                                                                                                                                                            |
+| privateKey      | String &#124; Array  | (optional) The private key to sign with.                                                                                                                                                                                                                                             |
+| callback        | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                                                                                                                 |
+
+**리턴값**
+
+`Promise` returning `Object`: The RLP encoded signed transaction. The object properties are as follows:
+
+| 명칭                 | 형식             | 설명                                                                                                           |
+| ------------------ | -------------- | ------------------------------------------------------------------------------------------------------------ |
+| messageHash        | 문자열            | The hash of the given message.                                                                               |
+| v                  | 문자열            | Recovery value + 27.                                                                                         |
+| r                  | 문자열            | First 32 bytes of the signature.                                                                             |
+| s                  | 문자열            | Next 32 bytes of the signature.                                                                              |
+| rawTransaction     | 문자열            | The RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction.                           |
+| txHash             | 32-byte String | 트랜잭션의 해시입니다.                                                                                                 |
+| senderTxHash       | 32-byte String | 트랜잭션 발신자만 서명한 트랜잭션의 해시입니다. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash) |
+| feePayerSignatures | 배열             | An array of the fee payer's signature(s).                                                                    |
+
+**NOTE** The `txHash` and `senderTxHash` in the result object may not be the final values. If another sender signature is added, txHash and senderTxHash will change. If a fee-payer signature is added, txHash will change.
+
+**예시**
+
+```javascript
+// feePayerSignTransaction with transaction obejct
+> caver.klay.accounts.feePayerSignTransaction({
+    type: 'FEE_DELEGATED_VALUE_TRANSFER',
+    from: '0x9230c09295dd8b9c02b6ae138ffe3133b58b25c1',
+    to: '0x715139255d5e300b431722ec9666ac2350cbf523',
+    value: 1,
+    gas: 900000,
+}, '0x2e4351e950d8d43444ac789cc9e87ba35340ad52', '0x90300d268bb2bad69f5b24e2ac1409a9416cc814254b356ce96b3f75c4364716').then(console.log)
+{
+    messageHash: '0x4cc0a423199d374d412cd3f92777a8f82bfc47b701d0df1f82b0d932802c955e',
+    v: '0x4e44',
+    r: '0x2a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730',
+    s: '0x4fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7',
+    rawTransaction: '0x09f899808505d21dba00830dbba094715139255d5e300b431722ec9666ac2350cbf52301949230c09295dd8b9c02b6ae138ffe3133b58b25c1c4c3018080942e4351e950d8d43444ac789cc9e87ba35340ad52f847f845824e44a02a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730a04fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7',
+    txHash: '0xead2cdf961090d014044de7ac78e3f9522b430edcd0ea4d3299811464ed636ea',
+    senderTxHash: '0x5e0bfce81dca4d6ec5ebeaff8a55fe5dd6d77e6292ee0548c12d7a7aaaff1300',
+    feePayerSignatures: [
+        [
+            '0x4e44',
+            '0x2a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730',
+            '0x4fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7'
+        ]
+    ]
+}
+
+// feePayerSignTransaction with transaction obejct defines signatures
+// rawTransaction in result will include signatures
+> caver.klay.accounts.feePayerSignTransaction({
+    type: 'FEE_DELEGATED_VALUE_TRANSFER',
+    from: '0x9230c09295dd8b9c02b6ae138ffe3133b58b25c1',
+    to: '0x715139255d5e300b431722ec9666ac2350cbf523',
+    value: 1,
+    gas: 900000,
+    signatures: [['0x4e44', '0xd31041fe47da32fe03cf644186f50f39beaa969f73deb189d1a51706715215ec', '0x335961d9b38027a01d6b97842c036725a8d4781b5010c47ddb85756687c2def9']]
+}, '0x2e4351e950d8d43444ac789cc9e87ba35340ad52', '0x90300d268bb2bad69f5b24e2ac1409a9416cc814254b356ce96b3f75c4364716').then(console.log)
+{
+    messageHash: '0x4cc0a423199d374d412cd3f92777a8f82bfc47b701d0df1f82b0d932802c955e',
+    v: '0x4e44',
+    r: '0x2a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730',
+    s: '0x4fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7',
+    rawTransaction: '0x09f8dd808505d21dba00830dbba094715139255d5e300b431722ec9666ac2350cbf52301949230c09295dd8b9c02b6ae138ffe3133b58b25c1f847f845824e44a0d31041fe47da32fe03cf644186f50f39beaa969f73deb189d1a51706715215eca0335961d9b38027a01d6b97842c036725a8d4781b5010c47ddb85756687c2def9942e4351e950d8d43444ac789cc9e87ba35340ad52f847f845824e44a02a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730a04fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7',
+    txHash: '0x19006aa7228aa50000bab00ecccde8232516b8e1dce6835528d57561a79b5d3d',
+    senderTxHash: '0x7aa6d0b4146020ae38c07c2c9efc26030bd667b9256981379b8cbc86acfd5b27',
+    feePayerSignatures: [
+        [
+            '0x4e44',
+            '0x2a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730',
+            '0x4fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7'
+        ]
+    ]
+}
+
+// feePayerSignTransaction with transaction obejct defines feePayerSignatures
+> caver.klay.accounts.feePayerSignTransaction({
+    type: 'FEE_DELEGATED_VALUE_TRANSFER',
+    from: '0x9230c09295dd8b9c02b6ae138ffe3133b58b25c1',
+    to: '0x715139255d5e300b431722ec9666ac2350cbf523',
+    value: 1,
+    gas: 900000,
+    feePayerSignatures: [['0x4e44', '0x2a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730', '0x4fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7']]
+}, '0x2e4351e950d8d43444ac789cc9e87ba35340ad52', ['0xa39599bb66c9f2346f789398d72232e9f218a0ec37e7bcf61cf40e52d860e3f7', '0x8d4c1ffd743faefc711e72f17ff370419ece777c6be2e6a84ac1986806fd57ea']).then(console.log)
+{
+    messageHash: '0x4cc0a423199d374d412cd3f92777a8f82bfc47b701d0df1f82b0d932802c955e',
+    v: '0x4e44',
+    r: '0x2a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730',
+    s: '0x4fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7',
+    rawTransaction: '0x09f90127808505d21dba00830dbba094715139255d5e300b431722ec9666ac2350cbf52301949230c09295dd8b9c02b6ae138ffe3133b58b25c1c4c3018080942e4351e950d8d43444ac789cc9e87ba35340ad52f8d5f845824e44a02a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730a04fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7f845824e44a0ec9ab57810b1f02960f2150b7931aefde5d8df9333b436ff11bc9666783358e3a055602d262c0b0ead09359ab0f00138dd7b5754d02694b4ee118bc99c9d8c44adf845824e44a030afe3d18d5a9e2b54d30326de856dbf9cf797e7ade2317d53675913129f863ca0711ab4c6cd60935c0b633679aac55f58443becd4194317f69746d2e829ad881c',
+    txHash: '0x2226428e0ca7221ba091d34efbb6e1575e90affc3901550850b479fbfe00f084',
+    senderTxHash: '0x5e0bfce81dca4d6ec5ebeaff8a55fe5dd6d77e6292ee0548c12d7a7aaaff1300',
+    feePayerSignatures: [
+        [
+            '0x4e44',
+            '0x2a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730',
+            '0x4fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7'
+        ],
+        [
+            '0x4e44',
+            '0xec9ab57810b1f02960f2150b7931aefde5d8df9333b436ff11bc9666783358e3',
+            '0x55602d262c0b0ead09359ab0f00138dd7b5754d02694b4ee118bc99c9d8c44ad'
+        ],
+        [
+            '0x4e44',
+            '0x30afe3d18d5a9e2b54d30326de856dbf9cf797e7ade2317d53675913129f863c',
+            '0x711ab4c6cd60935c0b633679aac55f58443becd4194317f69746d2e829ad881c'
+        ]
+    ]
+}
+
+// feePayerSignTransaction with RLP encoded transaction string(rawTransaction)
+> caver.klay.accounts.feePayerSignTransaction('0x09f885808505d21dba00830dbba094715139255d5e300b431722ec9666ac2350cbf52301949230c09295dd8b9c02b6ae138ffe3133b58b25c1f847f845824e44a0d31041fe47da32fe03cf644186f50f39beaa969f73deb189d1a51706715215eca0335961d9b38027a01d6b97842c036725a8d4781b5010c47ddb85756687c2def980c4c3018080', '0x2e4351e950d8d43444ac789cc9e87ba35340ad52', '0x90300d268bb2bad69f5b24e2ac1409a9416cc814254b356ce96b3f75c4364716').then(console.log)
+{
+    messageHash: '0x4cc0a423199d374d412cd3f92777a8f82bfc47b701d0df1f82b0d932802c955e',
+    v: '0x4e44',
+    r: '0x2a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730',
+    s: '0x4fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7',
+    rawTransaction: '0x09f8dd808505d21dba00830dbba094715139255d5e300b431722ec9666ac2350cbf52301949230c09295dd8b9c02b6ae138ffe3133b58b25c1f847f845824e44a0d31041fe47da32fe03cf644186f50f39beaa969f73deb189d1a51706715215eca0335961d9b38027a01d6b97842c036725a8d4781b5010c47ddb85756687c2def9942e4351e950d8d43444ac789cc9e87ba35340ad52f847f845824e44a02a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730a04fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7',
+    txHash: '0x19006aa7228aa50000bab00ecccde8232516b8e1dce6835528d57561a79b5d3d',
+    senderTxHash: '0x7aa6d0b4146020ae38c07c2c9efc26030bd667b9256981379b8cbc86acfd5b27',
+    feePayerSignatures: [
+        [
+            '0x4e44',
+            '0x2a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730',
+            '0x4fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7'
+        ]
+    ]
+}
+```
 
 ## recoverTransaction <a id="recovertransaction"></a>
 
@@ -1036,9 +1202,9 @@ and hashed using keccak256.
 
 **매개변수**
 
-| 명칭      | 형식  | 설명                                                                         |
-| ------- | --- | -------------------------------------------------------------------------- |
-| message | 문자열 | A message to hash.  If it is a HEX string, it will be UTF-8 decoded first. |
+| 명칭  | 형식  | 설명                                                                         |
+| --- | --- | -------------------------------------------------------------------------- |
+| 메시지 | 문자열 | A message to hash.  If it is a HEX string, it will be UTF-8 decoded first. |
 
 
 **리턴값**
@@ -1084,7 +1250,7 @@ Signs arbitrary data. This data is before UTF-8 HEX decoded and enveloped as fol
 
 | 명칭          | 형식  | 설명                               |
 | ----------- | --- | -------------------------------- |
-| message     | 문자열 | The given message.               |
+| 메시지         | 문자열 | The given message.               |
 | messageHash | 문자열 | The hash of the given message.   |
 | r           | 문자열 | First 32 bytes of the signature. |
 | s           | 문자열 | Next 32 bytes of the signature.  |
@@ -1162,6 +1328,233 @@ The signature object has following values:
 '0x2c7536E3605D9C16a7a3D7b1898e529396a65c23'
 ```
 
+## combineSignatures <a id="combinesignatures"></a>
+
+```javascript
+caver.klay.accounts.combineSignatures(rawTransactions)
+```
+
+Combines the array of RLP encoded transaction strings into a single RLP encoded transaction string. RLP encoded transaction string that you want to combine must all have signed the same transaction.
+
+combineSignatures removes duplicates in signatures or feePayerSignatures.
+
+**NOTE** `caver.klay.accounts.combineSignatures` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**매개변수**
+
+| 명칭              | 형식 | 설명                                                            |
+| --------------- | -- | ------------------------------------------------------------- |
+| rawTransactions | 배열 | An array of RLP encoded transaction strings (rawTransaction). |
+
+**리턴값**
+
+`Promise` returning `Object`: An RLP encoded transaction. The object properties are as follows:
+
+| 명칭                 | 형식             | 설명                                                                                                                                                                                                      |
+| ------------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| rawTransaction     | 문자열            | An RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction.                                                                                                                       |
+| txHash             | 32-byte String | 트랜잭션의 해시입니다.                                                                                                                                                                                            |
+| senderTxHash       | 32-byte String | 트랜잭션 발신자만 서명한 트랜잭션의 해시입니다. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash)                                                                                            |
+| signatures         | 배열             | (optional) All signatures in the combined RLP encoded transaction (rawTransaction). If there are no signatures, the `signatures` property is not returned in the result object.                         |
+| feePayerSignatures | 배열             | (optional) All feePayerSignatures in the combined RLP encoded transaction (rawTransaction). If there are no feePayerSignatures, the `feePayerSignatures` property is not returned in the result object. |
+
+**NOTE** The `txHash` and `senderTxHash` in the result object may not be the final values. If another sender signature is added, txHash and senderTxHash will change. If a fee-payer signature is added, txHash will change.
+
+**예시**
+
+```javascript
+> caver.klay.accounts.combineSignatures([
+    '0x39f8b6128505d21dba00830dbba094596c3b874dc5775c3969b09a3115f453c20a59abf88ef845824e44a0f530749561d1cf87571b2c3050ded6acc94621eb984335129f4057e843109e30a0738aef5227c29c022167d9e95f4090b9a49ef550d5deaaa25c1f6298ea3a5292f845824e43a01fa5a80bb06f5787b1ac81d8b48578627be7a3b725d2e3722a85b0e31f71a445a003dff23bb2947d1819ec91eb695e8bc8b96bc591a2b855fa1495f5bbf896b91780c4c3018080',
+    '0x39f90155128505d21dba00830dbba094596c3b874dc5775c3969b09a3115f453c20a59abf88ef845824e44a0f530749561d1cf87571b2c3050ded6acc94621eb984335129f4057e843109e30a0738aef5227c29c022167d9e95f4090b9a49ef550d5deaaa25c1f6298ea3a5292f845824e44a06a28576af9368a2056ba61d21390f484b487eba2210ee99b76615441a78f375da05d39f38e05d2ea80c2c1150374ca77d46b119d040101ebfc593f2a1963da409694120d8dc88b44fd8aa4dfab82c4078c7a7ee6c1edf88ef845824e44a00ca8405f35535cf82105a0596fcbd5c4cf228ce0d269c760246f9e10d6820566a02f905e44a2db94fe985158f81979cbcb7ba138cb1f2fb82bc9bd043701ec2025f845824e44a0feb42d7ed1519f93ddbc3093834934c6c7a15d843dfc8e7d14f78ecf3aa1d848a0271a2e8caf98d6ab79f9f4f6fdbe1c01e85aeea503b350ec69c6580320d53b06',
+]).then(console.log)
+{
+    rawTransaction: '0x39f9019c128505d21dba00830dbba094596c3b874dc5775c3969b09a3115f453c20a59abf8d5f845824e44a0f530749561d1cf87571b2c3050ded6acc94621eb984335129f4057e843109e30a0738aef5227c29c022167d9e95f4090b9a49ef550d5deaaa25c1f6298ea3a5292f845824e43a01fa5a80bb06f5787b1ac81d8b48578627be7a3b725d2e3722a85b0e31f71a445a003dff23bb2947d1819ec91eb695e8bc8b96bc591a2b855fa1495f5bbf896b917f845824e44a06a28576af9368a2056ba61d21390f484b487eba2210ee99b76615441a78f375da05d39f38e05d2ea80c2c1150374ca77d46b119d040101ebfc593f2a1963da409694120d8dc88b44fd8aa4dfab82c4078c7a7ee6c1edf88ef845824e44a00ca8405f35535cf82105a0596fcbd5c4cf228ce0d269c760246f9e10d6820566a02f905e44a2db94fe985158f81979cbcb7ba138cb1f2fb82bc9bd043701ec2025f845824e44a0feb42d7ed1519f93ddbc3093834934c6c7a15d843dfc8e7d14f78ecf3aa1d848a0271a2e8caf98d6ab79f9f4f6fdbe1c01e85aeea503b350ec69c6580320d53b06',
+    txHash: '0x3dac67978ffca834e6ff188e5937d81daab0669a7871f6ffae4ede53fb2a20ac',
+    senderTxHash: '0xbb29f73faca65b39b1d33d94e23343f48f22a05531989d031f557460b08f27d4',
+    signatures: [
+        [
+            '0x4e44',
+            '0xf530749561d1cf87571b2c3050ded6acc94621eb984335129f4057e843109e30',
+            '0x738aef5227c29c022167d9e95f4090b9a49ef550d5deaaa25c1f6298ea3a5292',
+        ],
+        [
+            '0x4e43',
+            '0x1fa5a80bb06f5787b1ac81d8b48578627be7a3b725d2e3722a85b0e31f71a445',
+            '0x03dff23bb2947d1819ec91eb695e8bc8b96bc591a2b855fa1495f5bbf896b917',
+        ],
+        [
+            '0x4e44',
+            '0x6a28576af9368a2056ba61d21390f484b487eba2210ee99b76615441a78f375d',
+            '0x5d39f38e05d2ea80c2c1150374ca77d46b119d040101ebfc593f2a1963da4096',
+        ],
+    ],
+    feePayerSignatures: [
+        [
+            '0x4e44',
+            '0x0ca8405f35535cf82105a0596fcbd5c4cf228ce0d269c760246f9e10d6820566',
+            '0x2f905e44a2db94fe985158f81979cbcb7ba138cb1f2fb82bc9bd043701ec2025',
+        ],
+        [
+            '0x4e44',
+            '0xfeb42d7ed1519f93ddbc3093834934c6c7a15d843dfc8e7d14f78ecf3aa1d848',
+            '0x271a2e8caf98d6ab79f9f4f6fdbe1c01e85aeea503b350ec69c6580320d53b06',
+        ],
+    ],
+}
+```
+
+## getRawTransactionWithSignatures <a id="getrawtransactionwithsignatures"></a>
+
+```javascript
+caver.klay.accounts.getRawTransactionWithSignatures(tx [, callback])
+```
+
+Returns a signed RLP encoded transaction string from a given transaction object. The transaction object should provide the signatures and feePayerSignatures.
+
+**NOTE** `caver.klay.accounts.getRawTransactionWithSignatures` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**매개변수**
+
+| 명칭 | 형식 | 설명                                                                                                                                                                                                                                                                                  |
+| -- | -- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tx | 객체 | A transaction object that includes signatures and feePayerSignatures. The properties of a transaction object varies depending on the transaction type. For the description of each transaction type, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
+
+**리턴값**
+
+`Promise` returning `Object`: An RLP encoded transaction. The object properties are as follows:
+
+| 명칭                 | 형식             | 설명                                                                                                                                                                                             |
+| ------------------ | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| rawTransaction     | 문자열            | An RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction.                                                                                                              |
+| txHash             | 32-byte String | 트랜잭션의 해시입니다.                                                                                                                                                                                   |
+| senderTxHash       | 32-byte String | 트랜잭션 발신자만 서명한 트랜잭션의 해시입니다. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash)                                                                                   |
+| signatures         | 배열             | (optional) All signatures in the RLP encoded transaction (rawTransaction). If there are no signatures, the `signatures` property is not returned in the result object.                         |
+| feePayerSignatures | 배열             | (optional) All feePayerSignatures in the RLP encoded transaction (rawTransaction). If there are no feePayerSignatures, the `feePayerSignatures` property is not returned in the result object. |
+
+**NOTE** The `txHash` and `senderTxHash` contained in the result object may not be final values. If the signature of the sender is added, txHash and senderTxHash will be different. If the signature of the fee payer is added, the txHash will be different.
+
+**예시**
+
+```javascript
+// get rawTransaction with signatures
+> caver.klay.accounts.getRawTransactionWithSignatures({
+    type: 'FEE_DELEGATED_SMART_CONTRACT_EXECUTION',
+    from: '0x85fd20bcbd1dcf73073c0abfa72afbde5e8c9a79',
+    to: '0x6757d85d8b636044ef3bd2904daf8883cd2e3381',
+    data: '0xd14e62b80000000000000000000000000000000000000000000000000000000000000005',
+    gas: '0xdbba0',
+    chainId: '0x2710',
+    gasPrice: '0x5d21dba00',
+    nonce: '0xf',
+    humanReadable: false,
+    signatures: [
+        [
+            '0x4e43',
+            '0x9610d4f6d6f55e44f5f29f1a08538c9871d39c7295834db5a28b7358cf23a8a6',
+            '0x6dc41f04c570a08a20aadc8eb4801aa3ee68b11f280e14d0e458f97f8c708175',
+        ],
+        [
+            '0x4e44',
+            '0x35cc2637cd68799f9a71c8e79fb5171351dd3cb5402dc0a3f291728527c9db48',
+            '0x7e3ac1ac64094ebc49c41ff6cb57b8f8eae18f5d7f2db0900117d816a1e30594',
+        ],
+        [
+            '0x4e44',
+            '0xfc4fe6436212d35a2417e3414119608f626400bd265fba0417f80a7cf9694a20',
+            '0x7d0f996f41355b18781833a6e227356db03bcec71d0c16a4d7249eaa3fe89507',
+        ],
+    ],
+}).then(console.log)
+{
+    rawTransaction: '0x31f901380f8505d21dba00830dbba0946757d85d8b636044ef3bd2904daf8883cd2e3381809485fd20bcbd1dcf73073c0abfa72afbde5e8c9a79a4d14e62b80000000000000000000000000000000000000000000000000000000000000005f8d5f845824e43a09610d4f6d6f55e44f5f29f1a08538c9871d39c7295834db5a28b7358cf23a8a6a06dc41f04c570a08a20aadc8eb4801aa3ee68b11f280e14d0e458f97f8c708175f845824e44a035cc2637cd68799f9a71c8e79fb5171351dd3cb5402dc0a3f291728527c9db48a07e3ac1ac64094ebc49c41ff6cb57b8f8eae18f5d7f2db0900117d816a1e30594f845824e44a0fc4fe6436212d35a2417e3414119608f626400bd265fba0417f80a7cf9694a20a07d0f996f41355b18781833a6e227356db03bcec71d0c16a4d7249eaa3fe8950780c4c3018080',
+    txHash: '0x94e6edb47fa258671745a433f1a08f5546b18a634f43e854c2bec1a40a7e8df0',
+    senderTxHash: '0xcb1138abbef61a42cc846957b72a27329e80395911593f201f49c70c06408385',
+    signatures: [
+        [
+            '0x4e43',
+            '0x9610d4f6d6f55e44f5f29f1a08538c9871d39c7295834db5a28b7358cf23a8a6',
+            '0x6dc41f04c570a08a20aadc8eb4801aa3ee68b11f280e14d0e458f97f8c708175',
+        ],
+        [
+            '0x4e44',
+            '0x35cc2637cd68799f9a71c8e79fb5171351dd3cb5402dc0a3f291728527c9db48',
+            '0x7e3ac1ac64094ebc49c41ff6cb57b8f8eae18f5d7f2db0900117d816a1e30594',
+        ],
+        [
+            '0x4e44',
+            '0xfc4fe6436212d35a2417e3414119608f626400bd265fba0417f80a7cf9694a20',
+            '0x7d0f996f41355b18781833a6e227356db03bcec71d0c16a4d7249eaa3fe89507',
+        ],
+    ],
+}
+
+// get rawTransaction with signatures and feePayerSignatures
+> caver.klay.accounts.getRawTransactionWithSignatures({
+    type: 'FEE_DELEGATED_SMART_CONTRACT_EXECUTION',
+    from: '0x85fd20bcbd1dcf73073c0abfa72afbde5e8c9a79',
+    to: '0x6757d85d8b636044ef3bd2904daf8883cd2e3381',
+    data: '0xd14e62b80000000000000000000000000000000000000000000000000000000000000005',
+    gas: '0xdbba0',
+    chainId: '0x2710',
+    gasPrice: '0x5d21dba00',
+    nonce: '0xf',
+    humanReadable: false,
+    signatures: [
+        [
+            '0x4e43',
+            '0x9610d4f6d6f55e44f5f29f1a08538c9871d39c7295834db5a28b7358cf23a8a6',
+            '0x6dc41f04c570a08a20aadc8eb4801aa3ee68b11f280e14d0e458f97f8c708175',
+        ],
+        [
+            '0x4e44',
+            '0x35cc2637cd68799f9a71c8e79fb5171351dd3cb5402dc0a3f291728527c9db48',
+            '0x7e3ac1ac64094ebc49c41ff6cb57b8f8eae18f5d7f2db0900117d816a1e30594',
+        ],
+        [
+            '0x4e44',
+            '0xfc4fe6436212d35a2417e3414119608f626400bd265fba0417f80a7cf9694a20',
+            '0x7d0f996f41355b18781833a6e227356db03bcec71d0c16a4d7249eaa3fe89507',
+        ],
+    ],
+    feePayer: '0x918f31cce0d9582882663fe9099226d3912c9d13',
+    feePayerSignatures: [
+        [
+            '0x4e44',
+            '0x5991f915a32ad719da138efecdcc3d169ad71fde31eba03be91991681d53f881',
+            '0x3653c82d6d99839699c3dfea470fcc777cda5b6185a1678c19d5fd7605c04a97',
+        ],
+    ],
+}).then(console.log)
+{
+    rawTransaction: '0x31f901900f8505d21dba00830dbba0946757d85d8b636044ef3bd2904daf8883cd2e3381809485fd20bcbd1dcf73073c0abfa72afbde5e8c9a79a4d14e62b80000000000000000000000000000000000000000000000000000000000000005f8d5f845824e43a09610d4f6d6f55e44f5f29f1a08538c9871d39c7295834db5a28b7358cf23a8a6a06dc41f04c570a08a20aadc8eb4801aa3ee68b11f280e14d0e458f97f8c708175f845824e44a035cc2637cd68799f9a71c8e79fb5171351dd3cb5402dc0a3f291728527c9db48a07e3ac1ac64094ebc49c41ff6cb57b8f8eae18f5d7f2db0900117d816a1e30594f845824e44a0fc4fe6436212d35a2417e3414119608f626400bd265fba0417f80a7cf9694a20a07d0f996f41355b18781833a6e227356db03bcec71d0c16a4d7249eaa3fe8950794918f31cce0d9582882663fe9099226d3912c9d13f847f845824e44a05991f915a32ad719da138efecdcc3d169ad71fde31eba03be91991681d53f881a03653c82d6d99839699c3dfea470fcc777cda5b6185a1678c19d5fd7605c04a97',
+    txHash: '0xf015dd519c909a80c111219ab2c5139d01a2e4121f801e8f45e519eafd421db6',
+    senderTxHash: '0xcb1138abbef61a42cc846957b72a27329e80395911593f201f49c70c06408385',
+    signatures: [
+        [
+            '0x4e43',
+            '0x9610d4f6d6f55e44f5f29f1a08538c9871d39c7295834db5a28b7358cf23a8a6',
+            '0x6dc41f04c570a08a20aadc8eb4801aa3ee68b11f280e14d0e458f97f8c708175',
+        ],
+        [
+            '0x4e44',
+            '0x35cc2637cd68799f9a71c8e79fb5171351dd3cb5402dc0a3f291728527c9db48',
+            '0x7e3ac1ac64094ebc49c41ff6cb57b8f8eae18f5d7f2db0900117d816a1e30594',
+        ],
+        [
+            '0x4e44',
+            '0xfc4fe6436212d35a2417e3414119608f626400bd265fba0417f80a7cf9694a20',
+            '0x7d0f996f41355b18781833a6e227356db03bcec71d0c16a4d7249eaa3fe89507',
+        ],
+    ],
+    feePayerSignatures: [
+        [
+            '0x4e44',
+            '0x5991f915a32ad719da138efecdcc3d169ad71fde31eba03be91991681d53f881',
+            '0x3653c82d6d99839699c3dfea470fcc777cda5b6185a1678c19d5fd7605c04a97',
+        ],
+    ],
+}
+```
 
 ## encrypt <a id="encrypt"></a>
 
