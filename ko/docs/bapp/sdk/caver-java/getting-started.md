@@ -120,7 +120,7 @@ KlayCredentials credentials = KlayWalletUtils.loadCredentials(<password>, <walle
 
 ### Baobab Faucet을 통해 KLAY 받기 <a id="getting-klay-via-baobab-faucet"></a>
 
-계정을 만든 후 [https://baobab.wallet.klaytn.com/](https://baobab.wallet.klaytn.com/)에 있는 Baobab Faucet을 통해 Baobab 테스트넷에 대한 약간의 Baobab 테스트넷 KLAY를 받을 수 있습니다. 수신된 테스트넷 KLAY는 나중에 트랜잭션 비용으로 사용될 것입니다.
+계정을 만든 후 [https://baobab.wallet.klaytn.com/](https://baobab.wallet.klaytn.com/)에 있는 Baobab Faucet을 통해 Baobab 테스트넷에 대한 약간의 Baobab 테스트넷 KLAY를 받을 수 있습니다. 수신된 테스트넷 KLAY는 나중에 트랜잭션 수수료로 사용될 것입니다.
 
 ### Baobab 연결 <a id="connecting-to-baobab"></a>
 
@@ -312,7 +312,7 @@ BigInteger balance = erc20Mock.balanceOf(
 ).send();
 ```
 
-### 트랜잭션 비용 위임 <a id="fee-delegation"></a>
+### 트랜잭션 수수료 위임 <a id="fee-delegation"></a>
 
 Klaytn은 서비스 제공자가 사용자 대신 트랜잭션 수수료를 지불할 수 있는 기능인 [수수료 위임](../../../klaytn/design/transactions/README.md#fee-delegation)을 제공합니다.
 
@@ -332,9 +332,9 @@ ValueTransferTransaction valueTransferTransaction = ValueTransferTransaction.cre
 String senderRawTransaction = transactionManager.sign(valueTransferTransaction, true).getValueAsString();  // isFeeDelegated : true
 ```
 
-서명된 트랜잭션 `senderRawTransaction`이 생성됩니다. 이제 발신자는 트랜잭션을 트랜잭션 비용 대신 지불할 수수료 지불자에게 전달합니다. Klaytn 네트워크에서는 발신자와 수수료 지불자 간의 트랜잭션 전송이 수행되지 않습니다. 프로토콜이 스스로 정의해야 합니다.
+서명된 트랜잭션 `senderRawTransaction`이 생성됩니다. 이제 발신자는 트랜잭션을 트랜잭션 수수료 대신 지불할 수수료 납부자에게 전달합니다. Klaytn 네트워크에서는 발신자와 수수료 납부자 간의 트랜잭션 전송이 수행되지 않습니다. 프로토콜이 스스로 정의해야 합니다.
 
-수수료 지불자가 발신자로부터 트랜잭션을 받은 후, 수수료 지불자는 다음 `FeePayerManager` 클래스를 사용해 트랜잭션을 전송할 수 있습니다: `FeePayerManager.executeTransaction()`는 수신한 트랜잭션을 수수료 지불자의 개인키로 서명하고 트랜잭션을 Klaytn 네트워크로 전송합니다.
+수수료 납부자가 발신자로부터 트랜잭션을 받은 후, 수수료 납부자는 다음 `FeePayerManager` 클래스를 사용해 트랜잭션을 전송할 수 있습니다: `FeePayerManager.executeTransaction()`는 수신한 트랜잭션을 수수료 납부자의 개인키로 서명하고 트랜잭션을 Klaytn 네트워크로 전송합니다.
 
 ```java
 KlayCredentials feePayer = KlayWalletUtils.loadCredentials(<password>, <walletfilePath>);
