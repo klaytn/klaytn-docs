@@ -16,7 +16,7 @@ USAGE:
    account     계정을 관리합니다
    attach      대화형 자바스크립트 환경을 시작합니다 (노드에 연결합니다)
    console     대화형 자바스크립트 환경을 시작합니다
-   dumpconfig  환경 설정값을 나타냅니다
+   dumpconfig  환경설정값을 나타냅니다
    init        제네시스 블록을 부트스트랩하고 초기화합니다
    version     버전 번호를 나타냅니다
    help, h     명령어 리스트 또는 명령어에 대한 도움말을 나타냅니다
@@ -57,7 +57,7 @@ participating.
 
 ## 자바스크립트 콘솔 <a id="javascript-console"></a>
 
-Klaytn 엔드포인트 노드는 자바스크립트 콘솔과 함께 제공됩니다. 콘솔 명령 행에서 EN을 향한 Klaytn API 호출의 일부를 시작할 수 있습니다. 자바스크립트 콘솔에 연결하려면 다음 명령을 실행하세요.
+Klaytn 엔드포인트 노드는 자바스크립트 콘솔과 함께 제공됩니다. 콘솔 명령행에서 EN을 향한 Klaytn API 호출 중 일부를 시작할 수 있습니다. 자바스크립트 콘솔에 연결하려면 다음 명령을 실행하세요.
 
 ```bash
 $ ken attach ~/kend_home/klay.ipc
