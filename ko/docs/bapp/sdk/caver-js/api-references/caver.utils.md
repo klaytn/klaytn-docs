@@ -1323,3 +1323,150 @@ false
 > caver.utils.isTxHashStrict('0x1')
 false
 ```
+
+## isValidPrivateKey <a id="isvalidprivatekey"></a>
+
+```javascript
+caver.utils.isValidPrivateKey(privateKey)
+```
+Returns `true` if privateKey is valid, otherwise it returns `false`.
+
+**매개변수**
+
+| 명칭         | 형식  | 설명                                |
+| ---------- | --- | --------------------------------- |
+| privateKey | 문자열 | A private key string to validate. |
+
+**리턴값**
+
+| 형식  | 설명                                    |
+| --- | ------------------------------------- |
+| 불리언 | `true` means the privateKey is valid. |
+
+**예제**
+
+```javascript
+> caver.utils.isValidPrivateKey('0x{private key}')
+true
+
+> caver.utils.isValidPrivateKey('{private key}')
+true
+
+> caver.utils.isValidPrivateKey('a5b0cd8c87e77879d64cc064ee239ed6f71cacf9')
+false
+```
+
+## isValidPublicKey <a id="isvalidpublickey"></a>
+
+```javascript
+caver.utils.isValidPublicKey(publicKey)
+```
+Returns `true` if publicKey is valid, otherwise it returns `false`.
+
+**NOTE** `caver.utils.isValidPublicKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**매개변수**
+
+| 명칭        | 형식  | 설명                               |
+| --------- | --- | -------------------------------- |
+| publicKey | 문자열 | A public key string to validate. |
+
+**리턴값**
+
+| 형식  | 설명                                   |
+| --- | ------------------------------------ |
+| 불리언 | `true` means the publicKey is valid. |
+
+**예제**
+
+```javascript
+// validation with uncompressed public key
+> caver.utils.isValidPublicKey('0xbd6405a7f14f57ecea4a6ffe774ee26d051f7eed13257c9a574055b20e42bab0e8beba92e2e675101eb2a55ba4693080d0bf14548beae7bc93b18b72d10dd350')
+true
+
+// validation with compressed public key
+> caver.utils.isValidPublicKey('0x02bd6405a7f14f57ecea4a6ffe774ee26d051f7eed13257c9a574055b20e42bab0')
+true
+
+> caver.utils.isValidPublicKey('{private key}')
+false
+
+> caver.utils.isValidPublicKey('0x{private key}')
+false
+
+> caver.utils.isValidPublicKey('a5b0cd8c87e77879d64cc064ee239ed6f71cacf9')
+false
+```
+
+## isValidRole <a id="isvalidrole"></a>
+
+```javascript
+caver.utils.isValidRole(role)
+```
+Returns `true` if role is valid, otherwise it returns `false`. Roles that are currently defined for AccountKeyRoleBased are `transactionKey`,`updateKey`, and `feePayerKey`.
+
+**NOTE** `caver.utils.isValidRole` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**매개변수**
+
+| 명칭   | 형식  | 설명                         |
+| ---- | --- | -------------------------- |
+| role | 문자열 | A role string to validate. |
+
+**리턴값**
+
+| 형식  | 설명                              |
+| --- | ------------------------------- |
+| 불리언 | `true` means the role is valid. |
+
+**예제**
+
+```javascript
+> caver.utils.isValidRole('transactionKey')
+true
+
+> caver.utils.isValidRole('updateKey')
+true
+
+> caver.utils.isValidRole('feePayerKey')
+true
+
+> caver.utils.isValidRole('role')
+false
+```
+
+## isEmptySig <a id="isemptysig"></a>
+
+```javascript
+caver.utils.isEmptySig(sig)
+```
+Returns `true` if sig is in the format of empty signature (`[['0x01', '0x', '0x']]` or `['0x01', '0x', '0x']`), otherwise it returns `false`.
+
+When RLP-encoding a transaction in caver-js, if signatures or feePayerSignatures is empty, the value representing an empty signature, `[['0x01', '0x', '0x']]`, is returned for the property. This function is used to check whether the given signature is `[['0x01', '0x', '0x']]` (or `['0x01', '0x', '0x']` in the 'LEGACY' transaction).
+
+**NOTE** `caver.utils.isEmptySig` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**매개변수**
+
+| 명칭  | 형식 | 설명                                            |
+| --- | -- | --------------------------------------------- |
+| sig | 배열 | An array of signatures to check empty or not. |
+
+**리턴값**
+
+| 형식  | 설명                                                                          |
+| --- | --------------------------------------------------------------------------- |
+| 불리언 | `true` means the sig is `[['0x01', '0x', '0x']]` or `['0x01', '0x', '0x']`. |
+
+**예제**
+
+```javascript
+> caver.utils.isEmptySig([['0x01', '0x', '0x']])
+true
+
+> caver.utils.isEmptySig(['0x01', '0x', '0x'])
+true
+
+> caver.utils.isValidRole([['0x25', '0xf3d0cd43661cabf53425535817c5058c27781f478cb5459874feaa462ed3a29a', '0x6748abe186269ff10b8100a4b7d7fea274b53ea2905acbf498dc8b5ab1bf4fbc']])
+false
+```
