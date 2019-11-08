@@ -46,14 +46,14 @@ $ rm /Users/username/klaytn/node_modules/websocket/.git
 
 `caver.klay.sendTransaction({ ... })` \(O\)
 
-## Truffle 설치 <a id="installing-truffle"></a>
+## 트러플 설치 <a id="installing-truffle"></a>
 
-이 튜토리얼에서, Truffle은 솔리디티로 작성된 스마트 컨트랙트를 컴파일하고 배포하는 데 사용됩니다. 현재 Klaytn은 Truffle 버전 4.1.15를 지원합니다. Truffle에 대한 자세한 내용은 다음 사이트를 참조하세요:
+이 튜토리얼에서 트러플은 솔리디티로 작성된 스마트 컨트랙트를 컴파일하고 배포하는 데 사용됩니다. 현재 Klaytn은 트러플 버전 4.1.15를 지원합니다. 트러플에 대한 자세한 내용은 다음 사이트를 참조하세요:
 
-* Truffle 레포지토리 - [https://github.com/trufflesuite/truffle](https://github.com/trufflesuite/truffle)​
-* Truffle 문서 - [https://truffleframework.com/docs](https://truffleframework.com/docs)
+* 트러플 저장소 - [https://github.com/trufflesuite/truffle](https://github.com/trufflesuite/truffle)​
+* 트러플 문서 - [https://truffleframework.com/docs](https://truffleframework.com/docs)
 
-Truffle은 다음 방법들로 설치 가능합니다:
+트러플은 다음 방법들로 설치 가능합니다:
 
 1\) 다음 명령을 실행하여 npm을 전역(global)으로 사용할 수 있습니다:
 
@@ -80,11 +80,11 @@ $ export PATH=`pwd`:$PATH
 
 ## vvisp 설치 <a id="installing-vvisp"></a>
 
-vvisp은 [HEACHI LABS](https://henesis.io/)에서 제공하는 스마트 컨트랙트 개발을 위한 사용하기 쉬운 cli 도구/프레임워크입니다. 단일 명령만으로 환경을 쉽게 설정하고, Klaytn 스마트 컨트랙트를 배포 및 실행할 수 있습니다. Truffle 프레임워크를 지원하므로, Truffle에 익숙한 개발자는 어려움 없이 vvisp을 사용할 수 있습니다.
+vvisp은 스마트 컨트랙트 개발을 위해 [HEACHI LABS](https://henesis.io/)에서 제공하는 사용하기 쉬운 cli 도구/프레임워크입니다. 단일 명령만으로 환경을 쉽게 설정하고, Klaytn 스마트 컨트랙트를 배포 및 실행할 수 있습니다. 트러플 프레임워크를 지원하므로, 트러플에 익숙한 개발자는 어려움 없이 vvisp을 사용할 수 있습니다.
 
 여기에서는 vvisp을 설치하고, 이를 사용하여 Klaytn Bapp 개발 환경을 설정하는 방법을 소개합니다.
 
-* vvisp 레포지토리 - [https://github.com/HAECHI-LABS/vvisp](https://github.com/HAECHI-LABS/vvisp)
+* vvisp 저장소 - [https://github.com/HAECHI-LABS/vvisp](https://github.com/HAECHI-LABS/vvisp)
 * vvisp 문서 - [https://github.com/HAECHI-LABS/vvisp/blob/dev/README\_KLAYTN.md](https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md)
 
 npm 또는 yarn이 존재하는 경우 다음 명령을 실행하여 vvisp을 쉽게 설치할 수 있습니다:
@@ -95,7 +95,7 @@ $ npm install -g @haechi-labs/vvisp
 $ yarn global add @haechi-labs/vvisp
 ```
 
-설치 시, vvisp 명령을 사용하여 제대로 설치되었는지 확인할 수 있습니다. **참고**: **v2.1.0** 이상의 버전을 사용해야 합니다.
+설치 시 vvisp 명령을 사용하여 제대로 설치되었는지 확인할 수 있습니다. **참고**: **v2.1.0** 이상의 버전을 사용해야 합니다.
 
 ```bash
 $ vvisp
