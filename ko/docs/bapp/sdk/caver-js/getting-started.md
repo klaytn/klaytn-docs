@@ -466,7 +466,7 @@ console.log 출력을 확인했다면, 아래 단계로 진행하세요.
 
 **참고** caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 이러한 클래스가 지원됩니다.
 
-### Account <a id="account"></a>
+### 계정 <a id="account"></a>
 Account는 계정의 주소와 키를 포함하는 클래스입니다. 계정에는 [AccountKeyPublic](#accountkeypublic), [AccountKeyMultiSig](#accountkeymultisig), 또는 [AccountKeyRoleBased](#accountkeyrolebased) 유형이 될 수 있는 [AccountKey](#accountkey)가 있습니다.
 
 caver.klay.accounts 패키지는 기본으로 개인키를 저장하고 관리하는 [AccountKeyPublic](#accountkeypublic)을 사용합니다.
