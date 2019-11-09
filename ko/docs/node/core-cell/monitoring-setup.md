@@ -11,7 +11,7 @@ Klaytn 팀은 [http://cypress.klaytn.net](http://cypress.klaytn.net)에서 Klayt
 설치 과정은 다음과 같습니다.
 
 1. CN/PN에서 `telegraf` 설치하기
-2. `telegraf` 구성하기
+2. `telegraf` 환경설정하기
 3. `telegraf` 시작하기
 
 ### Telegraf Installation <a id="telegraf-installation"></a>
@@ -55,9 +55,9 @@ $ netstat -ntap | grep 61001
 tcp        0      0 :::61001        :::*       LISTEN      8989/kcn
 ```
 
-**Telegraf 서비스 구성**
+**Telegraf 서비스 환경설정**
 
-다음 파일을 `telegraf` 구성 디렉토리 (`/etc/telegraf/telegraf.d/`\)에 복사하고, `nodetype`, `instance`, `hostname`를 각 노드에 적합하게 수정하세요.
+다음 파일을 `telegraf` 환경설정 디렉토리 (`/etc/telegraf/telegraf.d/`\)에 복사하고, `nodetype`, `instance`, `hostname`를 각 노드에 적합하게 수정하세요.
 
 ```text
 [global_tags]
@@ -91,7 +91,7 @@ $ systemctl restart telegraf
 
 ### Grafana <a id="grafana"></a>
 
-각 CN/PN이 위의 구성 및 에이전트를 가진 경우, 다음 URL에서 지표들을 확인할 수 있습니다.
+각 CN/PN이 위의 환경설정 및 에이전트를 가진 경우, 다음 URL에서 지표들을 확인할 수 있습니다.
 
 [http://cypress.klaytn.net](http://cypress.klaytn.net)
 
