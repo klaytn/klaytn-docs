@@ -355,9 +355,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 추적 API 함수에 보조적으로 필수적이지 않은 매개변수를 전달할 수도 있습니다. 이들은 특정 호출을 지정하는 옵션 역할을 합니다. 다음의 옵션들을 사용할 수 있습니다.
 
-- `disableStorage`: `BOOL`. 이 옵션을 true로 설정하면 스토리지 캡처가 비활성화됩니다. (기본 설정: false)
-- `disableMemory`: `BOOL`. 이 옵션을 true로 설정하면 메모리 캡처가 비활성화됩니다. (기본 설정: false)
-- `disableStack`: `BOOL`. 이 옵션을 true로 설정하면 스택 캡처가 비활성화됩니다. (기본 설정: false)
+- `disableStorage`: `BOOL`. 이 옵션을 true로 설정하면 스토리지 캡처가 비활성화됩니다.(기본 설정: false)
+- `disableMemory`: `BOOL`. 이 옵션을 true로 설정하면 메모리 캡처가 비활성화됩니다.(기본 설정: false)
+- `disableStack`: `BOOL`. 이 옵션을 true로 설정하면 스택 캡처가 비활성화됩니다.(기본 설정: false)
 - `timeout`: `STRING`. 자바스크립트 기반 추적 호출 타임아웃으로 기본 설정된 5초를 변경합니다. 유효한 값은 [여기](https://golang.org/pkg/time/#ParseDuration)를 참고해주세요.
 - `tracer`: `STRING`. 이 옵션을 설정하면 자바스크립트 기반 트랜잭션 추적을 활성화합니다. 자세한 내용은 [다음 섹션](#javascript-based-tracing)을 참고해주세요. 이 옵션을 설정하면 앞선 4개의 매개변수는 모두 무시됩니다. 다음 표와 같이 사전 정의된 추적 툴을 사용할 수도 있습니다.
 
@@ -403,7 +403,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 
 ## 자바스크립트 기반 추적 <a id="javascript-based-tracing"></a>
-`tracer` 옵션의 두 번째 매개변수를 지정하여 자바스크립트 기반 추적을 활성화합니다. 이 모드에서 `tracer`는 (최소한) `step`과 `result` 등 두 메서드가 있는 객체라고 생각되는 자바스크립트 표현 식으로 해석(interpret)됩니다.
+`tracer` 옵션의 두 번째 매개변수를 지정하여 자바스크립트 기반 추적을 활성화합니다. 이 모드에서 `tracer`는(최소한) `step`과 `result` 등 두 메서드가 있는 객체라고 생각되는 자바스크립트 표현 식으로 해석(interpret)됩니다.
 
 `step`은 두 매개변수 `log`와 `db`를 매개변수로 받는 함수이고, KLVM의 트랜잭션을 추적하는 스텝마다 또는 오류가 발생할 때 호출됩니다.
 
