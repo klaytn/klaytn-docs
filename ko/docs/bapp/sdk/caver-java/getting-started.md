@@ -271,7 +271,7 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt = contract.<someMet
 
 #### 예시 <a id="example"></a>
 
-이 장에서는 Baobab 테스트넷에서 스마트 컨트랙트를 배포하고 실행하는 방법에 대해 설명합니다. 이 예제에서는 스마트 컨트랙트 [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol)을 사용합니다. 만일 컨트랙트 배포에 실패하고 빈 계약 주소가 반환되면 RuntimeException이 발생합니다.
+이 장에서는 Baobab 테스트넷에서 스마트 컨트랙트를 배포하고 실행하는 방법에 대해 설명합니다. 이 예제에서는 스마트 컨트랙트 [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol)을 사용합니다. 만일 컨트랙트 배포에 실패하고 빈 컨트랙트 주소가 반환되면 RuntimeException이 발생합니다.
 
 ```java
 ERC20Mock erc20Mock = ERC20Mock.deploy(
