@@ -738,7 +738,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 | 명칭            | 형식       | 설명                                                        |
 | ------------- | -------- | --------------------------------------------------------- |
-| startingBlock | QUANTITY | 가져오기 시작하는 블록입니다. (동기화가 완료되면 재설정됩니다.)                      |
+| startingBlock | QUANTITY | 가져오기 시작하는 블록입니다.(동기화가 완료되면 재설정됩니다.)                       |
 | currentBlock  | QUANTITY | 현재 블록 번호로 `klay_blockNumber`와 동일합니다.                      |
 | highestBlock  | QUANTITY | 예상되는 최신 블록 번호입니다.                                         |
 | pulledStates  | QUANTITY | 지금부터 처리된 상태 항목의 개수입니다.  동기화 모드가 "fast"가 아니면 0이 반환됩니다.     |
