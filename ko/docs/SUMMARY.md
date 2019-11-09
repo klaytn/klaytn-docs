@@ -14,7 +14,7 @@
     * [연산](klaytn/design/computation/README.md)
       * [Klaytn 스마트 컨트랙트](klaytn/design/computation/klaytn-smart-contract.md)
       * [실행 모델(Execution Model)](klaytn/design/computation/execution-model.md)
-      * [연산 비용 (Computation Cost)](klaytn/design/computation/computation-cost.md)
+      * [연산 비용(Computation Cost)](klaytn/design/computation/computation-cost.md)
       * [Klaytn 가상머신](klaytn/design/computation/klaytn-virtual-machine.md)
     * [스토리지(Storage)](klaytn/design/storage.md)
     * [트랜잭션 수수료](klaytn/design/transaction-fees.md)
