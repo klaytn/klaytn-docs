@@ -496,7 +496,7 @@ caver.utils.toHex(mixed)
 ```javascript
 caver.utils.toBN(number)
 ```
-자바스크립트에서 큰 숫자를 처리하기 위해 ([BigNumber.js](http://mikemcl.github.io/bignumber.js/)를 포함해) 주어진 값을 [BN.js](https://github.com/indutny/bn.js/) 인스턴스로 안전하게 변환합니다.
+자바스크립트에서 큰 숫자를 처리하기 위해([BigNumber.js](http://mikemcl.github.io/bignumber.js/)를 포함해) 주어진 값을 [BN.js](https://github.com/indutny/bn.js/) 인스턴스로 안전하게 변환합니다.
 
 **참고**: [BN.js](https://github.com/indutny/bn.js/) 클래스의 경우 [caver.utils.BN](#bn)를 사용합니다.
 
