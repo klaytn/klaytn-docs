@@ -2,7 +2,7 @@
 
 ## 개요 <a id="overview"></a>
 
-Klaytn 가상머신\(KLVM\)의 현재 버전은 이더리움 가상머신\(EVM\)에서 파생되었습니다. 이 장의 내용은 주로 [이더리움 Yellow Paper](https://github.com/ethereum/yellowpaper)를 기반으로 합니다. Klaytn팀은 KLVM을 지속적으로 개선하고 있으므로, 이 문서도 자주 업데이트 될 수 있습니다. 이 문서는 KLVM 사양의 최종 버전이 아닙니다. Klaytn 포지션 페이퍼에서 설명한 것처럼 Klaytn 팀은 Klaytn 플랫폼의 기능과 성능을 향상하기 위해 다른 가상 머신이나 실행 환경도 적용할 계획입니다. 이 장에서는 KLVM과 EVM의 차이점 그리고 KLVM 사양에 대해 설명합니다.
+Klaytn 가상머신\(KLVM\)의 현재 버전은 이더리움 가상머신\(EVM\)에서 파생되었습니다. 이 장의 내용은 주로 [이더리움 Yellow Paper](https://github.com/ethereum/yellowpaper)를 기반으로 합니다. Klaytn팀은 KLVM을 지속적으로 개선하고 있으므로, 이 문서도 자주 업데이트 될 수 있습니다. 이 문서는 KLVM 사양의 최종 버전이 아닙니다. Klaytn 포지션 페이퍼에서 설명한 것처럼 Klaytn 팀은 Klaytn 플랫폼의 기능과 성능을 향상하기 위해 다른 가상 머신이나 실행 환경도 쓸 수 있도록 할 계획입니다. 이 장에서는 KLVM과 EVM의 차이점 그리고 KLVM 사양에 대해 설명합니다.
 
 KLVM은 공식적으로 Klaytn의 실행 모델을 지칭합니다. 실행 모델은 일련의 바이트 코드 명령어와 작은 튜플 환경 데이터가 제공될 때, 시스템 상태가 어떻게 변경될지 지정합니다. KLVM은 준 튜링 완전 머신(quasi-Turing-complete machine)입니다. '준(quasi)'은 KLVM에서의 연산이 총 연산의 양을 제한할 수 있는 가스라는 매개변수의 제한을 받기 때문에 붙입니다.
 
@@ -20,7 +20,7 @@ KLVM은 일련의 KLVM 명령어(or Klaytn bytecode)로 이루어진 Klaytn 가�
 
 ### 기호 <a id="symbols"></a>
 
-다음 표는 KLVM 사양에 사용된 기호를 요약 한 것입니다.
+다음 표는 KLVM 사양에 사용된 기호를 요약한 것입니다.
 
 #### 블록체인 관련 기호 <a id="blockchain-related-symbols"></a>
 
@@ -30,26 +30,26 @@ KLVM은 일련의 KLVM 명령어(or Klaytn bytecode)로 이루어진 Klaytn 가�
 | `B`        | 블록           |
 | `B_header` | 현재 블록의 블록 헤더 |
 
-#### 상태 관련 기호 (State-Related Symbols)<a id="state-related-symbols"></a>
+#### 상태 관련 기호(State-Related Symbols)<a id="state-related-symbols"></a>
 
-| 기호               | 설명         |
-|:---------------- |:---------- |
-| `S`              | 상태 (State) |
-| `S_system`       | 시스템 상태     |
-| `S_machine`      | 머신 상태      |
-| `P_modify_state` | 상태 수정 권한   |
+| 기호               | 설명        |
+|:---------------- |:--------- |
+| `S`              | 상태(State) |
+| `S_system`       | 시스템 상태    |
+| `S_machine`      | 머신 상태     |
+| `P_modify_state` | 상태 수정 권한  |
 
-#### 트랜잭션 관련 기호 (Transaction-related symbols)<a id="transaction-related-symbols"></a>
+#### 트랜잭션 관련 기호(Transaction-related symbols)<a id="transaction-related-symbols"></a>
 
-| 기호        | 설명                                                                         |
-|:--------- |:-------------------------------------------------------------------------- |
-| `T`       | 트랜잭션(Transaction)                                                          |
-| `T_code`  | 실행할 머신 코드를 포함하는 바이트 배열(byte array)                                         |
-| `T_data`  | 입력 데이터를 포함하는 바이트 배열. 실행 에이전트(execution agent)가 트랜잭션인 경우, 이것은 트랜잭션 데이터가됩니다. |
-| `T_value` | Pep 단위로 표기된 값이 실행 과정 중에 계정을 전달됩니다. 만약 실행 에이전트가 트랙잭션이라면 이 값은 트랜잭션 값이 됩니다.   |
-| `T_depth` | 현재 메시지 호출 또는 컨트랙트 작성 스택의 깊이 \(_즉,_ 현재 `호출` 또는 `실행` 횟수\)                  |
+| 기호        | 설명                                                                          |
+|:--------- |:--------------------------------------------------------------------------- |
+| `T`       | 트랜잭션(Transaction)                                                           |
+| `T_code`  | 실행할 머신 코드를 포함하는 바이트 배열(byte array)                                          |
+| `T_data`  | 입력 데이터를 포함하는 바이트 배열. 실행 에이전트(execution agent)가 트랜잭션인 경우, 이것은 트랜잭션 데이터가 됩니다. |
+| `T_value` | Pep 단위로 표기된 값이 실행 과정 중에 계정을 전달됩니다. 만약 실행 에이전트가 트랙잭션이라면 이 값은 트랜잭션 값이 됩니다.    |
+| `T_depth` | 현재 메시지 호출 또는 컨트랙트 작성 스택의 깊이 \(_즉,_ 현재 `호출` 또는 `실행` 횟수\)                   |
 
-#### 가스 관련 기호 (Gas-Related Symbols)<a id="gas-related-symbols"></a>
+#### 가스 관련 기호(Gas-Related Symbols)<a id="gas-related-symbols"></a>
 
 | 기호        | 설명                   |
 |:--------- |:-------------------- |
@@ -57,11 +57,11 @@ KLVM은 일련의 KLVM 명령어(or Klaytn bytecode)로 이루어진 Klaytn 가�
 | `G_rem`   | 연산에 사용하기 위한 남은 잔여 가스 |
 | `G_price` | 실행 시작한 트랜잭션의 가스 가격   |
 
-#### 주소 관련 기호 (Adress-Related Symbols)<a id="address-related-symbols"></a>
+#### 주소 관련 기호(Adress-Related Symbols)<a id="address-related-symbols"></a>
 
 | 기호                | 설명                                                                       |
 |:----------------- |:------------------------------------------------------------------------ |
-| `A`               | 계정의 주소입니다.                                                               |
+| `A`               | 주소                                                                       |
 | `A_code_owner`    | 실행 코드를 소유한 계정의 주소                                                        |
 | `A_tx_sender`     | 현재 실행을 시작한 트랜잭션의 발신자 주소                                                  |
 | `A_code_executor` | 코드를 실행한 계정의 주소. 실행 에이전트가 트랜잭션이라면, 이는 트랜잭션 발신자(transaction sender) 가 됩니다. |
@@ -74,7 +74,7 @@ KLVM은 일련의 KLVM 명령어(or Klaytn bytecode)로 이루어진 Klaytn 가�
 
 ### 기본 사항 <a id="basics"></a>
 
-KLVM은 간단한 스택 기반 아키텍처입니다. 기계의 워드 크기(또는 스택 항목의 크기)는 256 비트입니다. 이것은 Keccak-256 해시 체계와 타원 곡선 계산을 쉽게 하기 위해 선택되었습니다. 메모리 모델은 간단한 word-addressed byte array입니다. 스택의 최대 크기는 1024입니다. 머신에는 독립 스토리지 모델도 있습니다. 이것은 개념적으로 메모리와 유사하지만 byte array가 아니라 word-addressable word array입니다. 휘발성인 메모리와 달리 스토리지는 비휘발성이며 시스템 상태의 일부로 유지됩니다. 스토리지와 메모리의 모든 위치는 처음에 0으로 정의되어 있습니다.
+KLVM은 간단한 스택 기반 아키텍처입니다. 머신의 워드 크기(또는 스택 항목의 크기)는 256 비트입니다. 이것은 Keccak-256 해시 체계와 타원 곡선 계산을 쉽게 하기 위해 선택되었습니다. 메모리 모델은 간단한 word-addressed byte array입니다. 스택의 최대 크기는 1024입니다. 머신에는 독립 스토리지 모델도 있습니다. 이것은 개념적으로 메모리와 유사하지만 byte array가 아니라 word-addressable word array입니다. 휘발성인 메모리와 달리 스토리지는 비휘발성이며 시스템 상태의 일부로 유지됩니다. 스토리지와 메모리의 모든 위치는 처음에 0으로 정의되어 있습니다.
 
 머신은 표준 폰 노이만 아키텍처를 따르지 않습니다. 일반적으로 액세스 가능한 메모리나 스토리지에 프로그램 코드를 저장하는 대신 코드는 가상 읽기 전용 메모리(virtual read-only memory)에 별도로 저장되며 특수한 명령을 통해서만 상호 작용할 수 있습니다.
 
@@ -82,7 +82,7 @@ KLVM은 간단한 스택 기반 아키텍처입니다. 기계의 워드 크기(�
 
 ### 트랜잭션 수수료 개요 <a id="fees-overview"></a>
 
-세 가지 상황에서 비용(가스로 표시)이 부과되며, 세 가지 모두 운영 실행을 위한 필수 조건입니다. 첫 번째이자 가장 일반적인 비용은 연산 자체에 부과되는 비용입니다. 두 번째로, subordinate 메시지 호출이나 컨트랙트 생성 시 부과될 수 있습니다. 이러한 형태는 `CREATE`, `CALL`과 `CALLCODE`를 위한 비용 지불입니다. 마지막으로, 가스는 메모리 사용이 늘었을 때 부과될 수 있습니다.
+세 가지 상황에서 비용(가스로 표시)이 부과되며, 세 가지 모두 연산 실행을 위한 필수 조건입니다. 첫 번째이자 가장 일반적인 비용은 연산 자체에 부과되는 비용입니다. 두 번째로, subordinate 메시지 호출이나 컨트랙트 생성 시 부과될 수 있습니다. 이러한 형태는 `CREATE`, `CALL`과 `CALLCODE`를 위한 비용 지불입니다. 마지막으로, 가스는 메모리 사용이 늘었을 때 부과될 수 있습니다.
 
 Over an account's execution, the total fee payable for memory-usage payable is proportional to the smallest multiple of 32 bytes that are required to include all memory indices \(whether for read or write\) in the range. This fee is paid on a just-in-time basis; consequently, referencing an area of memory at least 32 bytes greater than any previously indexed memory will result in an additional memory usage fee. 이 수수료 때문에, 주소가 32비트 범위를 초과할 가능성은 거의 없습니다. 즉, 구현할 때 이러한 만일의 사태를 관리할 수 있도록 고려하여야 합니다.
 
@@ -107,13 +107,13 @@ Over an account's execution, the total fee payable for memory-usage payable is p
 | `G_jumpdest`      |     1 | `JUMPDEST` 연산을 위해 지불하는 가스량                                                                    |
 | `G_sset`          | 20000 | Storage value가 0에서 0이 아니도록 변경된 경우 `SSTORE` 연산을 위해 지불하는 가스량                                    |
 | `G_sreset`        |  5000 | Storage value가 0으로 남거나 0으로 바뀐 경우 `SSTORE` 연산을 위해 지불하는 가스량                                     |
-| `R_sclear`        | 15000 | 스토리지 값이 0이 아닌 경우에서 0으로 설정된 경우 반환되는 가스량(반환 카운터가 추가됨)                                           |
+| `R_sclear`        | 15000 | 스토리지 값이 0이 아닌 경우에서 0으로 설정된 경우 반환되는 양(반환 카운터가 추가됨)                                             |
 | `R_selfdestruct`  | 24000 | 계정 self-destructing시 반환되는 가스량(반환 카운터가 추가됨)                                                    |
 | `G_selfdestruct`  |  5000 | `SELFDESTRUCT` 연산을 위해 지불하는 가스량                                                                |
 | `G_create`        | 32000 | `CREATE` 연산을 위해 지불하는 가스량                                                                      |
 | `G_codedeposit`   |   200 | Amount of gas paid per byte for a `CREATE` operation that succeeds in placing code into state |
 | `G_call`          |   700 | `CALL` 연산을 위해 지불하는 가스량                                                                        |
-| `G_callvalue`     |  9000 | Amount of gas paid for a nonzero value transfer as part of a `CALL` operation                 |
+| `G_callvalue`     |  9000 | 0가 아닌 값을 전송할 때 `CALL` 연산의 일부로 지불되는 가스량                                                        |
 | `G_callstipend`   |  2300 | A stipend for the called contract subtracted from `G_callvalue` for a nonzero value transfer  |
 | `G_newaccount`    | 25000 | 계정을 생성하는 `SELFDESTRUCT`나 `CALL` 연산을 위해 지불하는 가스량                                               |
 | `G_exp`           |    10 | `EXP` 연산에 대한 부분 지불                                                                            |
@@ -125,10 +125,10 @@ Over an account's execution, the total fee payable for memory-usage payable is p
 | `G_transaction`   | 21000 | 모든 트랜잭션에 지불하는 가스량                                                                             |
 | `G_log`           |   375 | `LOG` 연산에 대한 부분 지불하는 가스량                                                                      |
 | `G_logdata`       |     8 | `LOG` 연산의 데이터의 각 바이트마다 지불되는 가스량                                                               |
-| `G_logtopic`      |   375 | Amount of gas paid for each topic of a `LOG` operation                                        |
+| `G_logtopic`      |   375 | `LOG` 연산의 각 topic마다 지불되는 가스량                                                                  |
 | `G_sha3`          |    30 | `SHA3` 연산 각각에 대해 지불하는 가스량                                                                     |
-| `G_sha3word`      |     6 | Amount of gas paid for each word \(rounded up\) for input data to a `SHA3` operation        |
-| `G_copy`          |     3 | Partial payment for `COPY` operations, multiplied by words copied, rounded up                 |
+| `G_sha3word`      |     6 | `SHA3` 연산에 대한 입력 데이터의 각 단어(반올림)에 대해 지불하는 가스량                                                  |
+| `G_copy`          |     3 | `COPY` 연산에 대한 부분 지불량. 복사된 단어에 곱하고, 반올림 됨.                                                     |
 | `G_extcodehash`   |   400 | 컨트랙트 코드의 `keccak256` 해시를 얻기 위해 지불하는 가스량                                                       |
 | `G_create2`       | 32000 | CREATE와 똑같이 작동하지만 다른 인수를 사용하는 `CREATE2` Opcode를 위해 지불하는 가스량                                   |
 
