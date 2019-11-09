@@ -6,9 +6,9 @@
 
 [솔리디티](https://github.com/ethereum/solidity)는 이더리움 플랫폼의 스마트 컨트랙트를 구현하기 위한 언어로, 고수준이고 정적인 컨트랙트 지향 언어입니다. 원래 솔리디티가 이더리움을 위해 설계되었지만 일반적인 스마트 컨트랙트를 작성하기에도 적합합니다. 따라서 Klaytn과 같은 블록체인 플랫폼에서도 사용할 수 있습니다.
 
-공식적으로 Klaytn은 솔리디티 [v0.4.24](https://github.com/ethereum/solidity/releases/tag/v0.4.24) 버전과 [v0.5.6](https://github.com/ethereum/solidity/releases/tag/v0.5.6) 버전을 지원합니다. 이는 v0.4.24 또는 v0.5.6의 솔리디티 컴파일러로 생성된 바이트코드는 Klaytn 네트워크에서 배포되고 실행될 수 있다는 것입니다. 또한 Klaytn의 스마트 컨트랙트를 개발할 때 [Remix](https://remix.ethereum.org/) \(브라우저 기반 IDE\)와 [Truffle](https://github.com/trufflesuite/truffle) \(개발 프레임워크\)을 활용할 수 있습니다. Klaytn 팀은 이더리움 개발 도구와 Klaytn 개발 도구의 호환성을 유지하고자 하지만, 필요에 따라 이더리움 도구보다 향상되거나 업데이트된 버전의 도구를 Klaytn 스마트 컨트랙트 개발자들에게 제공할 수도 있습니다.
+공식적으로 Klaytn은 솔리디티 [v0.4.24](https://github.com/ethereum/solidity/releases/tag/v0.4.24) 버전과 [v0.5.6](https://github.com/ethereum/solidity/releases/tag/v0.5.6) 버전을 지원합니다. 이는 v0.4.24 또는 v0.5.6의 솔리디티 컴파일러로 생성된 바이트코드는 Klaytn 네트워크에서 배포되고 실행될 수 있다는 것입니다. 또한 Klaytn의 스마트 컨트랙트를 개발할 때 [Remix](https://remix.ethereum.org/) \(브라우저 기반 IDE\)와 [트러플](https://github.com/trufflesuite/truffle) \(개발 프레임워크\)을 활용할 수 있습니다. Klaytn 팀은 이더리움 개발 도구와 Klaytn 개발 도구의 호환성을 유지하고자 하지만, 필요에 따라 이더리움 도구보다 향상되거나 업데이트된 버전의 도구를 Klaytn 스마트 컨트랙트 개발자들에게 제공할 수도 있습니다.
 
-스마트 컨트랙트를 개발할 때 Remix 또는 Truffle을 활용하는 것이 편리하지만, 아래 웹 페이지들의 안내에 따라 솔리디티 컴파일러를 빌드하거나 설치하여 로컬로 사용할 수도 있습니다.
+스마트 컨트랙트를 개발할 때 Remix 또는 트러플을 활용하는 것이 편리하지만, 아래 웹 페이지들의 안내에 따라 솔리디티 컴파일러를 빌드하거나 설치하여 로컬로 사용할 수도 있습니다.
 
 * [솔리디티 컴파일러 v0.4.24 설치](https://solidity.readthedocs.io/en/v0.4.24/installing-solidity.html)
 * [솔리디티 컴파일러 v0.5.6 설치](https://solidity.readthedocs.io/en/v0.5.6/installing-solidity.html)
@@ -92,8 +92,8 @@ solc --optimize --bin UserStorage.sol
 * [Remix를 사용하여 스마트 컨트랙트 컴파일하기](https://remix.readthedocs.io/en/latest/compile_tab.html)
 * [Remix로 트랜잭션 실행하기](https://remix.readthedocs.io/en/latest/run_tab.html)
 * [Remix로 스마트 컨트랙트 구축하기](https://remix.readthedocs.io/en/latest/workshop_Building_smart_contracts_with_Remix.html)
-* [Truffle로 컨트랙트 컴파일하기](https://truffleframework.com/docs/truffle/getting-started/compiling-contracts)
-* [Truffle로 컨트랙트 배포하기](https://truffleframework.com/docs/truffle/getting-started/running-migrations)
+* [트러플로 컨트랙트 컴파일하기](https://truffleframework.com/docs/truffle/getting-started/compiling-contracts)
+* [트러플로 컨트랙트 배포하기](https://truffleframework.com/docs/truffle/getting-started/running-migrations)
 
 참고: 이 장은 나중에 업데이트 될 예정입니다.
 
@@ -103,7 +103,7 @@ solc --optimize --bin UserStorage.sol
 
 * [Remix로 트랜잭션 디버깅하기](https://remix-ide.readthedocs.io/en/latest/debugger.html)
 * [Remix 트랜잭션 디버깅 튜토리얼](https://remix-ide.readthedocs.io/en/latest/tutorial_debug.html)
-* [Truffle로 컨트랙트 디버깅하기](https://truffleframework.com/docs/truffle/getting-started/debugging-your-contracts)
+* [트러플로 컨트랙트 디버깅하기](https://truffleframework.com/docs/truffle/getting-started/debugging-your-contracts)
 
 참고: 이 장은 나중에 업데이트 될 예정입니다.
 
@@ -121,5 +121,5 @@ solc --optimize --bin UserStorage.sol
 * [솔리디티 v0.4.24 문서](https://solidity.readthedocs.io/en/v0.4.24/index.html)
 * [솔리디티 v0.5.6 문서](https://solidity.readthedocs.io/en/v0.5.6/index.html)
 * [Remix 문서](https://remix-ide.readthedocs.io/en/latest/)
-* [Truffle 문서](https://truffleframework.com/docs/truffle/overview)
+* [트러플 문서](https://truffleframework.com/docs/truffle/overview)
 
