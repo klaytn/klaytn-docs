@@ -9,31 +9,31 @@ Sends an [Account Update](../../../../../klaytn/design/transactions/basic.md#txt
 
 **Parameters**
 
-The parameters of sendTransaction are transaction obejct and callback function.
+The parameters of sendTransaction are a transaction object and a callback function.
 
 | Name | Type | Description |
 | --- | --- | --- |
 | transactionObject | Object | The transaction object to send. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-The plain transaction object type of a `ACCOUNT_UPDATE` transaction has the following structure:
+A transaction object of type`ACCOUNT_UPDATE` has the following structure:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| type | String | The type of "ACCOUNT_UPDATE" transaction. |
-| from | String | The address which will be updated. |
-| gas | Number | The amount of gas to use for the transaction (unused gas is refunded). |
+| type | String | Transaction type. "ACCOUNT_UPDATE" |
+| from | String | Address of this transaction sender. This account will be updated by this transaction. |
+| gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
 | nonce | Number | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | key | Object | (optional) An `AccountForUpdate` instance containing the address and key to be used when updating the account. For instructions on how to create an AccountForUpdate instance for each key type, see [caver.klay.accounts.createAccountForUpdate](../caver.klay.accounts.md#createaccountforupdate). |
-| publicKey | String | (optional) if updating account with public key, write down 64 bytes of public key. |
+| publicKey | String | (optional) if updating the account with a public key, write down the 64 bytes public key. |
 | multisig | String | (optional) if updating account with multisig key, write down multisig with multiple public keys. The public keys that make up multisig have their own weight. For transactions signed with multisig, the sum of the weights of the signature must be larger than or equal to the threshold. |
 | roleTransactionKey | String | (optional) if updating account with role based key, write down roleTransactionKey with public key or multisig key. This roleTransactionKey is used when sign the transaction. |
 | roleAccountUpdateKey | String | (optional) if updating account with role based key, write down roleAccountUpdateKey with public key or multisig key. This roleAccountUpdateKey is used when sign an AccountUpdate transaction. |
 | roleFeePayerKey | String | (optional) if updating account with role based key, write down roleFeePayerKey with public key or multisig key. This roleFeePayerKey is used when sign the transaction as a feePayer. |
 | failKey | Bool | (optional) if updating account with fail key, set it true |
 
-If you call `caver.klay.sendTransaction` with a plain transaction of type `ACCOUNT_UPDATE` in the above structure, caver-js will send it to the network after signing with the key of the sender account inside the in-memory wallet.
+If you call `caver.klay.sendTransaction` with a transaction object of type `ACCOUNT_UPDATE` as in the above, caver-js will send it to the network after signing with the key of the sender account (`from`) inside the in-memory wallet.
 
 **Return Value**
 
