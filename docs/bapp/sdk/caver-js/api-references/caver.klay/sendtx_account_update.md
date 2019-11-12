@@ -17,7 +17,7 @@ The parameters of sendTransaction are a transaction object and a callback functi
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 A transaction object of type `ACCOUNT_UPDATE` has the following structure:
-Note that when you provide the new key, you should provide just one of the below depending on the key type. If more than one are given, you will receive a 'duplicated key` error. From caver-js v1.2.0, using `key` with `AccountForUpdate` instance is recommended. 
+Note that when you provide the new key, you should provide just one of the below depending on the key type. If more than one are given, you will receive a 'duplicated key' error. From caver-js v1.2.0, using `key` with `AccountForUpdate` instance is recommended. 
 - key
 - legacyKey
 - publicKey
@@ -33,13 +33,13 @@ Note that when you provide the new key, you should provide just one of the below
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | key | Object | (optional) An `AccountForUpdate` instance containing the address and key to be used when updating the account. For instructions on how to create an AccountForUpdate instance for each key type, see [caver.klay.accounts.createAccountForUpdate](../caver.klay.accounts.md#createaccountforupdate). |
-| legacyKey | Bool | (optional) if updating the account to have a legacy key, set this true |
+| legacyKey | Bool | (optional) if updating the account to have a legacy key, set this true. |
 | publicKey | String | (optional) if updating the account to have a public key, write down the 64 bytes public key. |
 | multisig | Object | (optional) if updating the account to have a multisig key, write down the list of weighted public keys that make up the multisig. multisig also defines the threshold. When signing a transaction, the sum of the weights of the signatures must be larger than or equal to the threshold. |
 | roleTransactionKey | Object | (optional) if updating the account to have a role-based key, write down roleTransactionKey. roleTransactionKey can be a public key or a multisig key. This roleTransactionKey will be used when signing a transaction. |
 | roleAccountUpdateKey | Object | (optional) if updating the account to have a role-based key, write down roleAccountUpdateKey. roleAccountUpdateKey can be a public key or a multisig key. This roleAccountUpdateKey will be used when signing an AccountUpdate transaction. |
 | roleFeePayerKey | Object | (optional) if updating the account to have a role-based key, write down roleFeePayerKey. roleFeePayerKey can be a public key or a multisig key. This roleFeePayerKey will be used when signing a transaction as a feePayer. |
-| failKey | Bool | (optional) if updating the account to have a fail key, set this true |
+| failKey | Bool | (optional) if updating the account to have a fail key, set this true. |
 
 If you call `caver.klay.sendTransaction` with a transaction object of type `ACCOUNT_UPDATE` as in the above, caver-js will send it to the network after signing with the key of the sender account (`from`) inside the in-memory wallet.
 
@@ -269,9 +269,9 @@ caver.klay.sendTransaction(transactionObject [, callback])
 ```
 Sends a [Fee Delegated Account Update](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate) transaction to the network.
 
-There are in two ways fee payer sign a transaction and send it to the network.
+There are two ways for a fee payer to sign a transaction and send it to the network.
 
-1. Call `caver.klay.sendTransaction` with fee payer transaction format (An object that defines `senderRawTransaction` and `feepayer`). In this case, a fee payer account must exist in the in-memory wallet of caver-js.
+1. Call `caver.klay.sendTransaction` with an object, `{senderRawTransaction: rawTransaction, feePayer: feePayerAddress}`, a transaction format used for fee payers. In this case, the fee payer account must exist in the in-memory caver-js wallet.
 2. Sign with [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) and send to network via [caver.klay.sendSignedTransaction](./transaction.md#sendsignedtransaction)
 
 The example here only describes how to use `caver.klay.sendTransaction`.
@@ -280,30 +280,30 @@ For information on how to send using `caver.klay.accounts.feePayerSignTransactio
 
 **Parameters**
 
-The parameters of sendTransaction are transaction obejct and callback function.
+The parameters of sendTransaction are a transaction object and a callback function.
 
 | Name | Type | Description |
 | --- | --- | --- |
 | transactionObject | Object | The transaction object to send. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-The plain transaction object type of a `FEE_DELEGATED_ACCOUNT_UPDATE` transaction has the following structure:
+A transaction object of type `FEE_DELEGATED_ACCOUNT_UPDATE` has the following structure:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| type | String | The type of "FEE_DELEGATED_ACCOUNT_UPDATE" transaction. |
+| type | String | Transaction Type. "FEE_DELEGATED_ACCOUNT_UPDATE"  |
 | from | String | Address of this transaction sender. This account will be updated by this transaction. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | key | Object | (optional) An `AccountForUpdate` instance containing the address and key to be used when updating the account. For instructions on how to create an AccountForUpdate instance for each key type, see [caver.klay.accounts.createAccountForUpdate](../caver.klay.accounts.md#createaccountforupdate). |
-| legacyKey | Bool | (optional) if updating the account to have a legacy key, set this true |
+| legacyKey | Bool | (optional) if updating the account to have a legacy key, set this true. |
 | publicKey | String | (optional) if updating the account to have a public key, write down the 64 bytes public key. |
 | multisig | Object | (optional) if updating the account to have a multisig key, write down the list of weighted public keys that make up the multisig. multisig also defines the threshold. When signing a transaction, the sum of the weights of the signatures must be larger than or equal to the threshold. |
 | roleTransactionKey | Object | (optional) if updating the account to have a role-based key, write down roleTransactionKey. roleTransactionKey can be a public key or a multisig key. This roleTransactionKey will be used when signing a transaction. |
 | roleAccountUpdateKey | Object | (optional) if updating the account to have a role-based key, write down roleAccountUpdateKey. roleAccountUpdateKey can be a public key or a multisig key. This roleAccountUpdateKey will be used when signing an AccountUpdate transaction. |
 | roleFeePayerKey | Object | (optional) if updating the account to have a role-based key, write down roleFeePayerKey. roleFeePayerKey can be a public key or a multisig key. This roleFeePayerKey will be used when signing a transaction as a feePayer. |
-| failKey | Bool | (optional) if updating the account to have a fail key, set this true |
+| failKey | Bool | (optional) if updating the account to have a fail key, set this true. |
 
 
 
@@ -407,13 +407,13 @@ The plain transaction object type of a `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | key | Object | (optional) An `AccountForUpdate` instance containing the address and key to be used when updating the account. For instructions on how to create an AccountForUpdate instance for each key type, see [caver.klay.accounts.createAccountForUpdate](../caver.klay.accounts.md#createaccountforupdate). |
-| legacyKey | Bool | (optional) if updating the account to have a legacy key, set this true |
+| legacyKey | Bool | (optional) if updating the account to have a legacy key, set this true. |
 | publicKey | String | (optional) if updating the account to have a public key, write down the 64 bytes public key. |
 | multisig | Object | (optional) if updating the account to have a multisig key, write down the list of weighted public keys that make up the multisig. multisig also defines the threshold. When signing a transaction, the sum of the weights of the signatures must be larger than or equal to the threshold. |
 | roleTransactionKey | Object | (optional) if updating the account to have a role-based key, write down roleTransactionKey. roleTransactionKey can be a public key or a multisig key. This roleTransactionKey will be used when signing a transaction. |
 | roleAccountUpdateKey | Object | (optional) if updating the account to have a role-based key, write down roleAccountUpdateKey. roleAccountUpdateKey can be a public key or a multisig key. This roleAccountUpdateKey will be used when signing an AccountUpdate transaction. |
 | roleFeePayerKey | Object | (optional) if updating the account to have a role-based key, write down roleFeePayerKey. roleFeePayerKey can be a public key or a multisig key. This roleFeePayerKey will be used when signing a transaction as a feePayer. |
-| failKey | Bool | (optional) if updating the account to have a fail key, set this true |
+| failKey | Bool | (optional) if updating the account to have a fail key, set this true. |
 
 Plain transaction objects of type `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` with the above structure or `RLP-encoded transactions` of type `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` can be used as parameters in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
 
