@@ -1,6 +1,6 @@
 ---
 description: >-
-  이 페이지는 Klaytn의 스마트 컨트랙트 개발을 돕는 개발 도구 목록이 포함되어 있습니다.
+  이 페이지는 Klaytn의 스마트 컨트랙트 개발을 돕는 개발 도구 목록을 보여줍니다.
 ---
 
 # IDE 및 도구 <a id="ide-and-tools"></a>
@@ -11,7 +11,7 @@ description: >-
 
 #### [Truffle](../../toolkit/truffle.md)  <a id="truffle"></a>
 
-* 솔리디티로 작성된 Klaytn 스마트 컨트랙트를 Truffle을 통해 컴파일하고 배포할 수 있습니다. 현재, Klaytn은 최대 Truffle v5.0.26을 지원합니다.
+* 솔리디티로 작성된 Klaytn 스마트 컨트랙트를 트러플을 통해 컴파일하고 배포할 수 있습니다. 현재, Klaytn은 트러플 v5.0.26까지 지원합니다.
 
 #### [Klaytn Wallet](../../toolkit/klaytn-wallet.md)  <a id="klaytn-wallet"></a>
 
