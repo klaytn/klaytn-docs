@@ -11,6 +11,9 @@ $ systemctl start kscnd.service
 ## when installed using linux archive
 $ kscnd start
 
+## when installed the uncompression of the downloaded package.
+$ cd bin
+$ ./kscnd start
 ```
 
 **stop**
@@ -22,6 +25,9 @@ $ systemctl stop kscnd.service
 ## when installed using linux archive
 $ kscnd stop
 
+## when installed the uncompression of the downloaded package.
+$ cd bin
+$ ./kscnd stop
 ```
 
 

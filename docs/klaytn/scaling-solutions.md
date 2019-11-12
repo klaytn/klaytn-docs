@@ -24,7 +24,7 @@ with Klaytn main chain to expand the Klaytn network.
 
 ![Figure 2. Main Chain and Service Chain Connection using Main/Sub-Bridge Model](images/sc_connection.png)
 
-Figure 2 shows an example of SCN (Service Chain Node) connected directly with Klaytn main chain’s EN (Endpoint Node)
+Figure 2 shows an example of SCN (Service Chain Consensus Node) connected directly with Klaytn main chain’s EN (Endpoint Node)
 using a main/sub-bridge model in using the service chain’s features.
  
 ## Features <a id="features"></a>
