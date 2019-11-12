@@ -1,11 +1,11 @@
 엔드포인트 노드는 JSON-RPC API로 접근할 수 있습니다. 다음과 같이 API를 활성화하거나 비활성화할 수 있습니다. API 스펙에 대한 자세한 내용은 [JSON-RPC APIs](../../bapp/json-rpc/api-references/README.md)를 참고해주세요.
 
-**NOTE**: HTTP (`rpc`) 또는 WebSocket (`ws`) 인터페이스를 통한 API를 제공하는 것은 인터페이스 (DApp, 브라우저 탭 등)에 접근할 수 있는 누구에게나 API에 접근할 수 있도록 하는 것입니다. 활성화한 API들에 대해 주의하세요. 기본적으로 Klaytn에서는 IPC (`ipc`) 인터페이스를 통한 모든 API가 활성화되어 있지만, `rpc`와 `ws`의 경우 모듈을 직접 활성화해야 합니다.
+**NOTE**: HTTP (`rpc`) 또는 웹소켓 (`ws`) 인터페이스를 통한 API를 제공하는 것은 인터페이스 (DApp, 브라우저 탭 등)에 접근할 수 있는 누구에게나 API에 접근할 수 있도록 하는 것입니다. 활성화한 API들에 대해 주의하세요. 기본적으로 Klaytn에서는 IPC (`ipc`) 인터페이스를 통한 모든 API가 활성화되어 있지만, `rpc`와 `ws`의 경우 모듈을 직접 활성화해야 합니다.
 
 ## API 활성화  <a id="enabling-apis"></a>
 
 ### 커맨드라인을 통한 활성화 <a id="from-commandline"></a>
-Klaytn RPC 엔드포인트를 통해 API를 제공하려면 명령 줄의 `--${interface}api` 인자를 통해 지정해주세요. 즉 `${interface}`을 HTTP 엔드포인트의 경우 `rpc`으로, WebSocket 엔드포인트의 경우 `ws`로 설정해주세요.
+Klaytn RPC 엔드포인트를 통해 API를 제공하려면 커맨드라인의 `--${interface}api` 인자를 통해 지정해주세요. 즉 `${interface}`을 HTTP 엔드포인트의 경우 `rpc`으로, 웹소켓 엔드포인트의 경우 `ws`로 설정해주세요.
 
 `ipc`는 플래그 없이 unix 소켓 (Unix) 또는 명명된 파이프 (Windows) 엔드포인트를 통한 API를 제공합니다.
 
@@ -19,9 +19,9 @@ $ ken --rpcapi klay,net --rpc --{other options}
 
 HTTP RPC 인터페이스는 `--rpc` 플래그를 사용해 명시적으로 활성화해야 합니다.
 
-### 환경 설정을 통한 활성화 <a id="using-configuration"></a>
+### 환경설정을 통한 활성화 <a id="using-configuration"></a>
 
-`RPC_ENABLE`, `RPC_API`, `WS_ENABLE`, `WS_API` 속성을 [환경 설정 파일](operation-guide/configuration.md)에서 업데이트하세요.
+`RPC_ENABLE`, `RPC_API`, `WS_ENABLE`, `WS_API` 속성을 [환경설정 파일](operation-guide/configuration.md)에서 업데이트하세요.
 
 ## 활성화된 API 조회 <a id="querying-enabled-apis"></a>
 
