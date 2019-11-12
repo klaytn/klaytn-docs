@@ -16,7 +16,7 @@ Sends a [Smart Contract Deploy](../../../../../klaytn/design/transactions/basic.
 | transactionObject.from | String | The address of the sender. |
 | transactionObject.gas | Number | The amount of gas to use for the transaction (unused gas is refunded). |
 | transactionObject.gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
-| transactionObject.nonce | Number | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
+| transactionObject.nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | transactionObject.data | String | A bytecode of smart contract to be deployed. If you need to pass an argument to the constructor of a smart contract, you must set to data in the form of compiled byte code + arguments. If the compiled bytecode is '0x123 ... 321', if you need to pass 1 to the constructor, you must pass '0x123 ... 321' + '00000000000000000000000000000000000000000000000000000000000001' to data in this form. Use [caver.klay.abi.encodeContractDeploy](../caver.klay.abi.md#encodecontractdeploy) to get the byte code and parameter values of the constructor encoded together. |
 | transactionObject.value  | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for transaction. If contract's modifier is not payable, value must be zero. |
 | transactionObject.codeFormat  | String | (optional, default: `"EVM"`) The code format of smart contract code. |
@@ -126,7 +126,7 @@ Sends a [Fee Delegated Smart Contract Deploy](../../../../../klaytn/design/trans
 | transactionObject.from | String | The address of the sender. |
 | transactionObject.gas | Number | The amount of gas to use for the transaction (unused gas is refunded). |
 | transactionObject.gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
-| transactionObject.nonce | Number | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
+| transactionObject.nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | transactionObject.data | String | A bytecode of smart contract to be deployed. If you need to pass an argument to the constructor of a smart contract, you must set to data in the form of compiled byte code + arguments. If the compiled bytecode is '0x123 ... 321', if you need to pass 1 to the constructor, you must pass '0x123 ... 321' + '00000000000000000000000000000000000000000000000000000000000001' to data in this form. Use [caver.klay.abi.encodeContractDeploy](../caver.klay.abi.md#encodeContractDeploy) to get the byte code and parameter values of the constructor encoded together. |
 | transactionObject.value  | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for transaction. If contract's modifier is not payable, value must be zero. |
 | transactionObject.codeFormat  | String | (optional, default: `"EVM"`) The code format of smart contract code. |
@@ -228,7 +228,7 @@ Sends a [Fee Delegated Smart Contract Deploy With Ratio](../../../../../klaytn/d
 | transactionObject.from | String | The address of the sender. |
 | transactionObject.gas | Number | The amount of gas to use for the transaction (unused gas is refunded). |
 | transactionObject.gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
-| transactionObject.nonce | Number | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
+| transactionObject.nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | transactionObject.data | String | A bytecode of smart contract to be deployed. If you need to pass an argument to the constructor of a smart contract, you must set to data in the form of compiled byte code + arguments. If the compiled bytecode is '0x123 ... 321', if you need to pass 1 to the constructor, you must pass '0x123 ... 321' + '00000000000000000000000000000000000000000000000000000000000001' to data in this form. Use [caver.klay.abi.encodeContractDeploy](../caver.klay.abi.md#encodeContractDeploy) to get the byte code and parameter values of the constructor encoded together. |
 | transactionObject.value  | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for transaction. If contract's modifier is not payable, value must be zero. |
 | transactionObject.codeFormat  | String | (optional, default: `"EVM"`) The code format of smart contract code. |

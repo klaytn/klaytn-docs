@@ -24,7 +24,7 @@ A transaction object of type`ACCOUNT_UPDATE` has the following structure:
 | from | String | Address of this transaction sender. This account will be updated by this transaction. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
-| nonce | Number | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
+| nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | key | Object | (optional) An `AccountForUpdate` instance containing the address and key to be used when updating the account. For instructions on how to create an AccountForUpdate instance for each key type, see [caver.klay.accounts.createAccountForUpdate](../caver.klay.accounts.md#createaccountforupdate). |
 | publicKey | String | (optional) if updating the account with a public key, write down the 64 bytes public key. |
 | multisig | String | (optional) if updating account with multisig key, write down multisig with multiple public keys. The public keys that make up multisig have their own weight. For transactions signed with multisig, the sum of the weights of the signature must be larger than or equal to the threshold. |
@@ -259,7 +259,7 @@ The plain transaction object type of a `FEE_DELEGATED_ACCOUNT_UPDATE` transactio
 | from | String | The address which will be updated. |
 | gas | Number | The amount of gas to use for the transaction (unused gas is refunded). |
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
-| nonce | Number | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
+| nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | key | Object | (optional) An `AccountForUpdate` instance containing the address and key to be used when updating the account. For instructions on how to create an AccountForUpdate instance for each key type, see [caver.klay.accounts.createAccountForUpdate](../caver.klay.accounts.md#createaccountforupdate). |
 | publicKey | String | (optional) if updating account with public key, write down 64 bytes of public key. |
 | multisig | String | (optional) if updating account with multisig key, write down multisig with multiple public keys. The public keys that make up multisig have their own weight. For transactions signed with multisig, the sum of the weights of the signature must be larger than or equal to the threshold. |
@@ -367,7 +367,7 @@ The plain transaction object type of a `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`
 | gas | Number | The amount of gas to use for the transaction (unused gas is refunded). |
 | feeRatio | Number | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted. |
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
-| nonce | Number | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
+| nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | key | Object | (optional) An `AccountForUpdate` instance containing the address and key to be used when updating the account. For instructions on how to create an AccountForUpdate instance for each key type, see [caver.klay.accounts.createAccountForUpdate](../caver.klay.accounts.md#createaccountforupdate). |
 | publicKey | String | (optional) if updating account with public key, write down 64 bytes of public key. |
 | multisig | String | (optional) if updating account with multisig key, write down multisig with multiple public keys. The public keys that make up multisig have their own weight. For transactions signed with multisig, the sum of the weights of the signature must be larger than or equal to the threshold. |

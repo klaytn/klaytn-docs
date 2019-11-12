@@ -614,7 +614,7 @@ Creates a new message call transaction or a contract creation if the data field 
 | gasPrice | QUANTITY | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas. |
 | value | QUANTITY | (optional) Integer of the value sent with this transaction. |
 | data | DATA | The compiled code of a contract or the hash of the invoked method signature and encoded parameters. |
-| nonce | QUANTITY | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. |
+| nonce | QUANTITY | (optional) Integer of a nonce. |
 
 **Return Value**
 
@@ -663,7 +663,7 @@ Creates a rawTransaction based on the give transaction information.
 | gasPrice | QUANTITY | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas. |
 | value | QUANTITY | (optional) Integer of the value sent with this transaction. |
 | data | DATA | The compiled code of a contract or the hash of the invoked method signature and encoded parameters. |
-| nonce | QUANTITY | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. |
+| nonce | QUANTITY | (optional) Integer of a nonce. |
 
 
 **Return Value**

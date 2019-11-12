@@ -18,7 +18,7 @@ Sends an [Account Creation](../../../../../klaytn/design/transactions/basic.md) 
 | transactionObject.value | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the newly-created account in peb. |
 | transactionObject.gas | Number | The amount of gas to use for the transaction (unused gas is refunded). |
 | transactionObject.gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
-| transactionObject.nonce | Number | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
+| transactionObject.nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | transactionObject.publicKey | String | (optional) if creating account with public key, write down 64 bytes of public key. |
 | transactionObject.multisig | String | (optional) if creating account with multisig key, write down multisig with multiple public keys. The public keys that make up multisig have their own weight. For transactions signed with multisig, the sum of the weights of the signature must be larger than or equal to the threshold. |
 | transactionObject.roleTransactionKey | String | (optional) if creating account with role based key, write down roleTransactionKey with public key or multisig key. This roleTransactionKey is used when sign the transaction. |
