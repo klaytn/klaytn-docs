@@ -19,7 +19,7 @@
 
 본 튜토리얼은 Klaytn BApp을 구축하기 위한 단계별 가이드를 제공합니다. Klaytn을 다뤄본 경험이 전혀 없으시더라도 괜찮습니다. `Count`라는 기본적인 스마트 컨트랙트와 상호작용하는 간단한 웹 애플리케이션을 만들어볼 것입니다. Klaytn 계정이 있는 누구나 위의 gif처럼 현재 값을 늘리거나 줄일 수 있습니다.
 
-> **소스 코드** 온전한 소스 코드는 GitHub에서 확인할 수 있습니다. [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
+> **소스 코드** 전체 소스 코드는 GitHub에서 확인할 수 있습니다. [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
 
 ## 튜토리얼 대상 <a id="intended-audience"></a>
 
