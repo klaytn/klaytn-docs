@@ -311,7 +311,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_writeMemProfile <a id="debug_writememprofile"></a>
 
-입력으로 받은 파일에 메모리 사용량 프로파일을 작성합니다.  프로파일링 속도는 이 API로 설정할 수 없으며, 명령 줄에서 `--memprofilerate` 플래그를 사용하여 설정해야 합니다.
+입력으로 받은 파일에 메모리 사용량 프로파일을 작성합니다.  프로파일링 속도는 이 API로 설정할 수 없으며, 커맨드라인에서 `--memprofilerate` 플래그를 사용하여 설정해야 합니다.
 
 | 클라이언트 | 메서드 호출                                                    |
 |:-----:| --------------------------------------------------------- |
