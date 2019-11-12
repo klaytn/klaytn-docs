@@ -1,6 +1,6 @@
 # ken CLI 명령어 <a id="ken-cli-commands"></a>
 
-`ken` Klaytn 엔드포인트 노드의 명령 줄 인터페이스(CLI)입니다.
+`ken` Klaytn 엔드포인트 노드의 커맨드라인 인터페이스(CLI)입니다.
 
 ```bash
 USAGE:
