@@ -602,7 +602,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | gasPrice | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스당 가격의 정숫값입니다.                        |
 | value    | QUANTITY      | (선택사항) 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                       |
 | data     | DATA          | 컨트랙트의 컴파일된 코드이거나 호출된 메서드의 식별자와 인코딩된 매개변수들의 해시입니다.                           |
-| nonce    | QUANTITY      | (선택사항) 논스의 정숫값입니다. 이를 통해 같은 논스를 사용하는 보류 중인 트랜잭션을 덮어쓸 수 있습니다.                |
+| nonce    | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                          |
 
 **리턴값**
 
@@ -651,7 +651,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | gasPrice | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스당 가격의 정숫값입니다.                        |
 | value    | QUANTITY      | (선택사항) 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                       |
 | data     | DATA          | 컨트랙트의 컴파일된 코드이거나 호출된 메서드의 식별자와 인코딩된 매개변수들의 해시입니다.                           |
-| nonce    | QUANTITY      | (선택사항) 논스의 정숫값입니다. 이를 통해 같은 논스를 사용하는 보류 중인 트랜잭션을 덮어쓸 수 있습니다.                |
+| nonce    | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                          |
 
 
 **리턴값**
