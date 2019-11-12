@@ -1,10 +1,10 @@
 # 솔리디티 - 스마트 컨트랙트 언어 <a id="solidity-smart-contract-language"></a>
 
-솔리디티가 공식 웹 사이트에 이미 문서화되어 있으므로 이 장에서는 추상적인 개념, 개발 프로세스, 솔리디티로 작성된 예제만을 설명토록 하겠습니다. 솔리디티에 대한 스펙과 구현에 대해서는 아래 [참조](#references)를 참고해주세요. 이 장의 내용은 [참조](#references)의 웹 사이트들을 기반으로 합니다.
+솔리디티가 공식 웹 사이트에 이미 문서화되어 있으므로 이 장에서는 상위 개념, 개발 프로세스, 솔리디티로 작성된 예제만을 설명토록 하겠습니다. 솔리디티 언어 스펙과 구현에 대해서는 아래 [참조](#references)를 참고해주세요. 이 장의 내용은 [참조](#references)의 웹 사이트들을 기반으로 합니다.
 
 ## 솔리디티와 Klaytn <a id="solidity-and-klaytn"></a>
 
-[솔리디티](https://github.com/ethereum/solidity)는 이더리움 플랫폼의 스마트 컨트랙트를 구현하기 위한 언어로, 고수준이고 정적인 컨트랙트 지향 언어입니다. 원래 솔리디티가 이더리움을 위해 설계되었지만 일반적인 스마트 컨트랙트를 작성하기에도 적합합니다. 따라서 Klaytn과 같은 블록체인 플랫폼에서도 사용할 수 있습니다.
+[솔리디티](https://github.com/ethereum/solidity)는 이더리움 플랫폼의 스마트 컨트랙트를 구현하기 위한 언어로, 고수준이고 정적인 컨트랙트 지향 언어입니다. 솔리디티는 원래 이더리움을 위해 설계되었지만 스마트 컨트랙트 작성을 위한 일반적인 언어로도 적합합니다. 따라서 Klaytn과 같은 블록체인 플랫폼에서도 사용할 수 있습니다.
 
 공식적으로 Klaytn은 솔리디티 [v0.4.24](https://github.com/ethereum/solidity/releases/tag/v0.4.24) 버전과 [v0.5.6](https://github.com/ethereum/solidity/releases/tag/v0.5.6) 버전을 지원합니다. 이는 v0.4.24 또는 v0.5.6의 솔리디티 컴파일러로 생성된 바이트코드는 Klaytn 네트워크에서 배포되고 실행될 수 있다는 것입니다. 또한 Klaytn의 스마트 컨트랙트를 개발할 때 [Remix](https://remix.ethereum.org/) \(브라우저 기반 IDE\)와 [트러플](https://github.com/trufflesuite/truffle) \(개발 프레임워크\)을 활용할 수 있습니다. Klaytn 팀은 이더리움 개발 도구와 Klaytn 개발 도구의 호환성을 유지하고자 하지만, 필요에 따라 이더리움 도구보다 향상되거나 업데이트된 버전의 도구를 Klaytn 스마트 컨트랙트 개발자들에게 제공할 수도 있습니다.
 
@@ -13,13 +13,13 @@
 * [솔리디티 컴파일러 v0.4.24 설치](https://solidity.readthedocs.io/en/v0.4.24/installing-solidity.html)
 * [솔리디티 컴파일러 v0.5.6 설치](https://solidity.readthedocs.io/en/v0.5.6/installing-solidity.html)
 
-명령 줄 솔리디티 컴파일러는 두 가지가 있습니다.
+커맨드라인 솔리디티 컴파일러는 두 가지가 있습니다.
 
 * _solc_: 모든 기능을 갖춘 컴파일러입니다.
   * 솔리디티 문서에서도 안내하고 있습니다.
 * _solcjs_: _solc_의 자바스크립트 버전입니다.
   * [solc-js](https://github.com/ethereum/solc-js)라는 별도의 프로젝트로 있습니다.
-  * _solcjs_의 명령 줄 옵션은 _solc_의 옵션과 호환되지 않습니다.
+  * _solcjs_의 커맨드라인 옵션은 _solc_의 옵션과 호환되지 않습니다.
 
 솔리디티를 시작하는 데에 유용한 기타 안내는 아래를 참고해주세요.
 
@@ -57,15 +57,15 @@ L20: }
 * 이중 슬래시 \(`//`\)로 시작하는 부분은 코드가 아니라 주석입니다. 코드의 특정 부분에 주석을 달아 설명을 첨부하는 데에 사용됩니다.  컴파일러는 이러한 주석을 무시합니다.
 * `L01`의 `pragma`는 최소 컴파일러 버전을 나타냅니다.  - `L03`의 `import`는 "`filename`"으로부터 모든 전역 심볼을 임포트합니다.  `filename`은 실제 파일 이름이어야 합니다.
 * `L05` - `L20`은 `UserStorage`라는 스마트 컨트랙트를 정의하는 부분입니다.  `contract` 키워드는 컨트랙트의 이름 앞에 위치하여 이 코드가 스마트 컨트랙트임을 나타냅니다.  솔리디티의 컨트랙트는 객체 지향 언어의 클래스와 유사합니다.  컨트랙트는 상태 변수, 함수, 함수 변경자(modifier), 이벤트, 구조체 자료형, 열거식 자료형에 대한 선언을 포함할 수 있습니다.  또한 컨트랙트는 다른 컨트랙트로부터 상속될 수도 있습니다.  위 예제 코드에는 하나의 컨트랙트만 있지만, 한 솔리디티 파일에 여러 개의 컨트랙트가 정의될 수도 있습니다.
-* `L07`의 `userData` 맵핑 자료형의 상태 변수입니다.  상태 변수는 컨트랙트 스토리지에 영구적으로 저장됩니다.  상태 변수 `userData`는 `address`와 `uint` 값을 맵핑합니다.  `address` 자료형은 20바이트 길이의 주소입니다 \(Klaytn은 이더리움과 같이 20바이트 길이의 주소를 사용합니다\).
+* `L07`의 `userData`는 맵핑 자료형의 상태 변수입니다.  상태 변수는 컨트랙트 스토리지에 영구적으로 저장됩니다.  상태 변수 `userData`는 `address`와 `uint` 값을 맵핑합니다.  `address` 자료형은 20바이트 길이의 주소입니다 \(Klaytn은 이더리움과 같이 20바이트 길이의 주소를 사용합니다\).
 * `L09`에서는 `x`를 메세지 발신자의 `userData`에 저장하는 퍼블릭 함수 `set`를 정의합니다.  `msg.sender` 변수는 솔리디티에서 정의된 특별한 변수로 메세지 \(_즉_ current call\) 발신자의 주소를 나타냅니다.  `public` 키워드는 이 함수가 컨트랙트 인터페이스의 일부이며 내외부적으로\(externally or internally\) 호출될 수 있음을 나타냅니다.
-* `L13`의 `get` 함수와 `L17`의 `getUserData` 함수는 `view`로 선언되었습니다. 이는 이 함수들의 상태 변수가 수정되면 안 된다는 것을 의미합니다.  이 함수들의 선언 부에는 `returns (uint)`가 있습니다. 이는 함수가 반환하는 값의 자료형이 `uint` 임을 의미합니다.
+* `L13`의 `get` 함수와 `L17`의 `getUserData` 함수는 `view`로 선언되었습니다. 이는 이 함수들의 상태 변수가 수정되면 안 된다는 것을 의미합니다.  이 함수들의 선언부에는 `returns (uint)`가 있습니다. 이는 함수가 반환하는 값의 자료형이 `uint`임을 의미합니다.
 
 솔리디티 언어의 구문과 문법에 대한 자세한 내용은 [Solidity documentation v0.4.24](https://solidity.readthedocs.io/en/v0.4.24/solidity-in-depth.html) 또는 [Solidity documentation v0.5.6](https://solidity.readthedocs.io/en/v0.5.6/solidity-in-depth.html)을 참고해주세요.
 
 ## 컴파일, 배포, 실행하기 <a id="how-to-compile-deploy-and-execute"></a>
 
-솔리디티 코드를 컴파일하는 방법 중 하나는 명령 줄 컴파일러인 _solc_를 사용하는 것입니다. 이 컴파일러는 간단한 바이너리와 어셈블리부터 추상 구문 트리 \(파스 트리\)에 이르기까지 다양한 결과물을 생성합니다. 위의 코드를 `UserStorage.sol`라고 저장한다고 할 때 \(위 예제에서 `L03`는 제외하였습니다\), `UserStorage.sol`을 컴파일하는 예제는 다음과 같습니다.
+솔리디티 코드를 컴파일하는 방법 중 하나는 커맨드라인 컴파일러인 _solc_를 사용하는 것입니다. 이 컴파일러는 간단한 바이너리와 어셈블리부터 추상 구문 트리 \(구문 분석 트리, parse tree\)에 이르기까지 다양한 결과물을 생성합니다. 위의 코드를 `UserStorage.sol`로 저장한다고 할 때 \(위 예제에서 `L03`는 제외하였습니다\), `UserStorage.sol`을 컴파일하는 예제는 다음과 같습니다.
 
 ```bash
 $ solc --bin UserStorage.sol
@@ -85,10 +85,10 @@ solc --optimize --bin UserStorage.sol
 
 * 더 나은 성능을 위해 `--optimize` 플래그를 사용하여 컴파일 과정을 최적화할 수도 있습니다.
 
-스마트 컨트랙트를 컴파일, 배포, 실행하는 데에 참고할 수 있는 자료는 아래와 같습니다.
+스마트 컨트랙트를 컴파일, 배포, 실행하는데 참고할 수 있는 자료는 아래와 같습니다.
 
-* [솔리디티 명령 줄 컴파일러 v0.4.24 사용하기](https://solidity.readthedocs.io/en/v0.4.24/using-the-compiler.html)
-* [솔리디티 명령 줄 컴파일러 v0.5.6 사용하기](https://solidity.readthedocs.io/en/v0.5.6/using-the-compiler.html)
+* [솔리디티 커맨드라인 컴파일러 v0.4.24 사용하기](https://solidity.readthedocs.io/en/v0.4.24/using-the-compiler.html)
+* [솔리디티 커맨드라인 컴파일러 v0.5.6 사용하기](https://solidity.readthedocs.io/en/v0.5.6/using-the-compiler.html)
 * [Remix를 사용하여 스마트 컨트랙트 컴파일하기](https://remix.readthedocs.io/en/latest/compile_tab.html)
 * [Remix로 트랜잭션 실행하기](https://remix.readthedocs.io/en/latest/run_tab.html)
 * [Remix로 스마트 컨트랙트 구축하기](https://remix.readthedocs.io/en/latest/workshop_Building_smart_contracts_with_Remix.html)
