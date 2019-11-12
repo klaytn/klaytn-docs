@@ -96,7 +96,7 @@
     * [H/A 설정](node/core-cell/h-a-setup.md)
   * [서비스체인](node/service-chain/README.md)
     * [시작하기](node/service-chain/getting-started/README.md)
-      * [4-노드 서비스 체인 설정](node/service-chain/getting-started/4nodes-setup-guide.md)
+      * [4-노드 서비스체인 설정](node/service-chain/getting-started/4nodes-setup-guide.md)
       * [Baobab 연결](node/service-chain/getting-started/en-scn-connection.md)
       * [크로스-체인 토큰 전송](node/service-chain/getting-started/value-transfer.md)
     * [단일 노드 서비스체인](node/service-chain/single-node-service-chain/README.md)
@@ -146,7 +146,7 @@
       * [personal](bapp/json-rpc/api-references/personal.md)
       * [txpool](bapp/json-rpc/api-references/txpool.md)
       * [governance](bapp/json-rpc/api-references/governance.md)
-    * [서비스 체인 API 참조](bapp/json-rpc/api-references/servicechain.md)
+    * [서비스체인 API 참조](bapp/json-rpc/api-references/servicechain.md)
       * [mainbridge](bapp/json-rpc/api-references/mainbridge.md)
       * [subbridge](bapp/json-rpc/api-references/subbridge.md)
     * [트랜잭션 오류 코드](bapp/json-rpc/transaction-error-codes.md)
@@ -216,7 +216,7 @@
     * [Klaytn Wallet](toolkit/klaytn-wallet.md)
     * [Klaytnscope](toolkit/klaytnscope.md)
 
-## \--- <a id="misc"></a>
+## --- <a id="misc"></a>
 
 * [비전](misc/vision/README.md)
   * [Klaytn BApp (Blockchain App)](misc/vision/bapps.md)
