@@ -1,6 +1,6 @@
 # Klaytnscope <a id="klaytnscope"></a>
 
-Klaytnscope는 Klaytn 네트워크의 블록 탐색기입니다. Klaytnscope는 네트워크 상태를 모니터링하고 다양한 통계를 제공하여 Klaytn 네트워크에 대해 깊은 이해를 하도록 도와줍니다. 또한 블록 및 트랜잭션 데이터와 Klaytn 네트워크의 스마트 컨트랙트 리스트도 탐색할 수 있습니다.
+Klaytnscope는 Klaytn 네트워크의 블록 탐색기입니다. Klaytnscope는 네트워크 상태를 모니터링하고 다양한 통계를 제공하여 Klaytn 네트워크에 대해 이해할 수 있게 도와줍니다. 또한 블록 및 트랜잭션 데이터와 Klaytn 네트워크의 스마트 컨트랙트 리스트도 탐색할 수 있습니다.
 
 * Baobab 네트워크에 대한 자세한 내용은 [https://baobab.scope.klaytn.com](https://baobab.scope.klaytn.com)을 참고해주세요.
 * 메인넷에 대한 자세한 내용은 [https://scope.klaytn.com](https://scope.klaytn.com)을 참고해주세요.
@@ -47,7 +47,7 @@ Klaytnscope는 Klaytn 네트워크의 블록 탐색기입니다. Klaytnscope는 
 우측 상단에 네트워크 상태 표시기와 네트워크를 선택할 수 있는 탭이 있습니다.
 
 * 네트워크 상태 표시기
-  * Network is healthy: Klaytnscope가 정상적으로 작동하는 상태입니다. 네트워크 상태에는 이상이 없습니다.
+  * Network is healthy: Klaytnscope가 정상적으로 작동하는 상태입니다. 네트워크 상태는 정상입니다.
   * Data latency: Klaytnscope가 시스템 유지 관리 중입니다. 데이터가 지연되고 있는 상태입니다.
   * Data accuracy: Klaytnscope가 데이터를 동기화하고 있는 상태이므로 잠시만 기다려주세요.
 * 네트워크 선택 탭
