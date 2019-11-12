@@ -16,7 +16,14 @@ The parameters of sendTransaction are a transaction object and a callback functi
 | transactionObject | Object | The transaction object to send. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-A transaction object of type`ACCOUNT_UPDATE` has the following structure:
+A transaction object of type `ACCOUNT_UPDATE` has the following structure:
+Note that when you provide the new key, you should provide just one of the below depending on the key type. If more than one are given, you will receive a 'duplicated key` error. From caver-js v1.2.0, using `key` with `AccountForUpdate` instance is recommended. 
+- key
+- legacyKey
+- publicKey
+- multisig
+- roleTransactionKey, roleAccountUpdateKey, roleFeePayerKey
+- failKey
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -27,11 +34,11 @@ A transaction object of type`ACCOUNT_UPDATE` has the following structure:
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | key | Object | (optional) An `AccountForUpdate` instance containing the address and key to be used when updating the account. For instructions on how to create an AccountForUpdate instance for each key type, see [caver.klay.accounts.createAccountForUpdate](../caver.klay.accounts.md#createaccountforupdate). |
 | publicKey | String | (optional) if updating the account with a public key, write down the 64 bytes public key. |
-| multisig | String | (optional) if updating account with multisig key, write down multisig with multiple public keys. The public keys that make up multisig have their own weight. For transactions signed with multisig, the sum of the weights of the signature must be larger than or equal to the threshold. |
-| roleTransactionKey | String | (optional) if updating account with role based key, write down roleTransactionKey with public key or multisig key. This roleTransactionKey is used when sign the transaction. |
-| roleAccountUpdateKey | String | (optional) if updating account with role based key, write down roleAccountUpdateKey with public key or multisig key. This roleAccountUpdateKey is used when sign an AccountUpdate transaction. |
-| roleFeePayerKey | String | (optional) if updating account with role based key, write down roleFeePayerKey with public key or multisig key. This roleFeePayerKey is used when sign the transaction as a feePayer. |
-| failKey | Bool | (optional) if updating account with fail key, set it true |
+| multisig | String | (optional) if updating the account to have a multisig key, write down the list of weighted public keys that make up the multisig. multisig also defines the threshold. When signing a transaction, the sum of the weights of the signatures must be larger than or equal to the threshold. |
+| roleTransactionKey | String | (optional) if updating the account to have a role-based key, write down roleTransactionKey. roleTransactionKey can be a public key or a multisig key. This roleTransactionKey will be used when signing a transaction. |
+| roleAccountUpdateKey | String | (optional) if updating the account to have a role-based key, write down roleAccountUpdateKey. roleAccountUpdateKey can be a public key or a multisig key. This roleAccountUpdateKey will be used when signing an AccountUpdate transaction. |
+| roleFeePayerKey | String | (optional) if updating the account to have a role-based key, write down roleFeePayerKey. roleFeePayerKey can be a public key or a multisig key. This roleFeePayerKey will be used when signing a transaction as a feePayer. |
+| failKey | Bool | (optional) if updating the account to have a fail key, set this true |
 
 If you call `caver.klay.sendTransaction` with a transaction object of type `ACCOUNT_UPDATE` as in the above, caver-js will send it to the network after signing with the key of the sender account (`from`) inside the in-memory wallet.
 
