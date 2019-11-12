@@ -1,6 +1,6 @@
 # 설정<a id="configuration"></a>
 
-CN 환경 설정은 데이터 디렉토리를 생성하고 환경 설정 파일 `kcnd.conf`의 여러 변수를 설정합니다.
+CN 환경설정은 데이터 디렉토리를 생성하고 환경설정 파일 `kcnd.conf`의 여러 변수를 설정합니다.
 
 1. CN 데이터 디렉토리 생성
 2. 노드 키 설치
@@ -16,22 +16,22 @@ $ mkdir -p /var/kcnd/data
 
 ## 노드 키 설치 <a id="install-node-key"></a>
 
-CN을 작동시키기 위해 `nodekey`가 필요합니다. 만일 소유하지 않은 경우에는 KCN 바이너리가 새로 생성해 줄 것입니다. 만일 이미 가지고 있다면 `nodekey`를 CN 데이터 디렉토리에 넣으세요. `nodekey`를 생성하는 방법은 '[Before You Install](../before-you-install.md)' 섹션에 설명되어 있습니다. 다음 명령 줄은 `nodekey`를 CN 데이터 디렉토리에 복사합니다.
+CN을 작동시키기 위해 `nodekey`가 필요합니다. 만일 소유하지 않은 경우에는 KCN 바이너리가 새로 생성해 줄 것입니다. 만일 이미 가지고 있다면 `nodekey`를 CN 데이터 디렉토리에 넣으세요. `nodekey`를 생성하는 방법은 '[Before You Install](../before-you-install.md)' 섹션에 설명되어 있습니다. 다음 커맨드라인은 `nodekey`를 CN 데이터 디렉토리에 복사합니다.
 
 ```bash
 $ cp nodekey /var/kcnd/data
 ```
 
-## 환경 설정 파일 업데이트 <a id="update-the-configuration-file"></a>
+## 환경설정 파일 업데이트 <a id="update-the-configuration-file"></a>
 
-환경 설정 파일 위치는 다음과 같습니다.
+환경설정 파일 위치는 다음과 같습니다.
 
-* 아카이브 배포의 경우 환경 설정 디렉토리의 위치가 `$INSTALL_PATH/kcn-linux-amd64/conf/`으로 기본 설정되어 있습니다.
-* 패키지 배포의 경우 환경 설정 디렉토리의 위치가 `/etc/kcnd/conf/`으로 기본 설정되어 있습니다.
+* 아카이브 배포의 경우 환경설정 디렉토리의 위치가 `$INSTALL_PATH/kcn-linux-amd64/conf/`으로 기본 설정되어 있습니다.
+* 패키지 배포의 경우 환경설정 디렉토리의 위치가 `/etc/kcnd/conf/`으로 기본 설정되어 있습니다.
 
 ### 데이터 디렉토리 추가  <a id="add-data-directory"></a>
 
-환경 설정 파일 `kcnd.conf`의 데이터 디렉토리 환경 변수 `$DATA_DIR`를 업데이트해야 합니다.
+환경설정 파일 `kcnd.conf`의 데이터 디렉토리 환경 변수 `$DATA_DIR`를 업데이트해야 합니다.
 
 ```text
 ...
@@ -41,7 +41,7 @@ DATA_DIR=/var/kcnd/data
 
 ### Rewardbase 설정 <a id="setup-rewardbase"></a>
 
-Klaytn 네트워크 컨센서스에 참여한 것에 대한 보상으로, CN 운영자는 KLAY를 받습니다. 이러한 이유로 환경 설정 파일 `kcnd.conf`에 주소를 설정해야 합니다.
+Klaytn 네트워크 컨센서스에 참여한 것에 대한 보상으로, CN 운영자는 KLAY를 받습니다. 이러한 이유로 환경설정 파일 `kcnd.conf`에 주소를 설정해야 합니다.
 
 새 계정을 만드는 방법은 다양하지만, `kcn`도 본 기능을 제공합니다. 다음 명령으로 도움말 메시지를 확인할 수 있습니다.
 
