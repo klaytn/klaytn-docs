@@ -1,11 +1,11 @@
 # 설정<a id="configuration"></a>
 
-PN 환경 설정은 데이터 디렉토리를 생성하고 환경 설정 파일 `kpnd.conf`의 여러 변수를 설정합니다.
+PN 환경설정은 데이터 디렉토리를 생성하고 환경설정 파일 `kpnd.conf`의 여러 변수를 설정합니다.
 
 1. PN 데이터 디렉토리 생성하기
 2. 노드 키 설치
 3. `static-node.json` 설치하기
-4. `kpnd.conf`으로 PN 환경 설정하기
+4. `kpnd.conf`으로 PN 환경설정하기
 
 ## PN 데이터 디렉토리 생성 <a id="pn-data-directory-creation"></a>
 
@@ -17,7 +17,7 @@ $ mkdir -p /var/kpnd/data
 
 ## 노드 키 설치 <a id="install-node-key"></a>
 
-PN을 작동시키기 위해 `nodekey`가 필요합니다. 만일 소유하지 않은 경우에는 KPN 바이너리가 새로 생성해 줄 것입니다. 만일 이미 가지고 있다면 `nodekey`를 PN 데이터 디렉토리에 넣으세요. `nodekey`를 생성하는 방법은 "[Before You Install](../before-you-install.md)" 장에 설명되어 있습니다. 다음 명령 줄은 `nodekey`를 PN 데이터 디렉토리에 복사합니다.
+PN을 작동시키기 위해 `nodekey`가 필요합니다. 만일 소유하지 않은 경우에는 KPN 바이너리가 새로 생성해 줄 것입니다. 만일 이미 가지고 있다면 `nodekey`를 PN 데이터 디렉토리에 넣으세요. `nodekey`를 생성하는 방법은 "[Before You Install](../before-you-install.md)" 장에 설명되어 있습니다. 다음 커맨드라인은 `nodekey`를 PN 데이터 디렉토리에 복사합니다.
 
 ```bash
 $ cp nodekey /var/kpnd/data
@@ -25,7 +25,7 @@ $ cp nodekey /var/kpnd/data
 
 ## `static-nodes.json` 설치하기 <a id="install-static-nodes-json"></a>
 
-`static-nodes.json`은 PN 운영자로부터 생성되어야 합니다. PN이 연결된 주소들이 포함되어 있습니다. CN 및 다른 코어 셀의 PN을 포함해 주소를 추가하는 것이 좋습니다. 자세한 내용은 Klaytn 공식 이메일로 문의하세요. (Cypress 문의는 `bootstrap@klaytn.com` 또는 Baobab 문의는 `baobab@klaytn.com`\).
+`static-nodes.json`은 PN 운영자로부터 생성되어야 합니다. PN이 연결된 주소들이 포함되어 있습니다. CN 및 다른 코어 셀의 PN을 포함해 주소를 추가하는 것이 좋습니다. 자세한 내용은 Klaytn 공식 이메일로 문의하세요.(Cypress 문의는 `bootstrap@klaytn.com` 또는 Baobab 문의는 `baobab@klaytn.com`\).
 
 **static-nodes.json**
 
@@ -36,22 +36,22 @@ $ cp nodekey /var/kpnd/data
 ]
 ```
 
-PN의 노드 URI는 "[Before You Install](../before-you-install.md)" 장에 있습니다. \(참고: 이 IP 주소는 CN 공개 IP와 다릅니다.\) 다음 명령 줄은 `static-nodes.json` 파일을 PN 데이터 디렉토리에 복사합니다.
+PN의 노드 URI는 "[Before You Install](../before-you-install.md)" 장에 있습니다. \(참고: 이 IP 주소는 CN 공개 IP와 다릅니다.\) 다음 커맨드라인은 `static-nodes.json` 파일을 PN 데이터 디렉토리에 복사합니다.
 
 ```bash
 $ cp static-nodes.json /var/kpnd/data
 ```
 
-## 환경 설정 파일 업데이트 <a id="update-the-configuration-file"></a>
+## 환경설정 파일 업데이트 <a id="update-the-configuration-file"></a>
 
-환경 설정 파일 위치는 다음과 같습니다.
+환경설정 파일 위치는 다음과 같습니다.
 
-* 아카이브 배포의 경우 환경 설정 디렉토리의 위치가 `$INSTALL_PATH/kpn-linux-amd64/conf/`으로 기본 설정되어 있습니다.
-* 패키지 배포의 경우 환경 설정 디렉토리의 위치가 `/etc/kpnd/conf/`으로 기본 설정되어 있습니다.
+* 아카이브 배포의 경우 환경설정 디렉토리의 위치가 `$INSTALL_PATH/kpn-linux-amd64/conf/`으로 기본 설정되어 있습니다.
+* 패키지 배포의 경우 환경설정 디렉토리의 위치가 `/etc/kpnd/conf/`으로 기본 설정되어 있습니다.
 
 ### 데이터 디렉토리 추가  <a id="add-data-directory"></a>
 
-환경 설정 파일 `kpnd.conf`의 데이터 디렉토리 환경 변수 `$DATA_DIR`를 업데이트해야 합니다.
+환경설정 파일 `kpnd.conf`의 데이터 디렉토리 환경 변수 `$DATA_DIR`를 업데이트해야 합니다.
 
 ```text
 ...
