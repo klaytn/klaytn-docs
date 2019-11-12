@@ -33,11 +33,12 @@ Note that when you provide the new key, you should provide just one of the below
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | key | Object | (optional) An `AccountForUpdate` instance containing the address and key to be used when updating the account. For instructions on how to create an AccountForUpdate instance for each key type, see [caver.klay.accounts.createAccountForUpdate](../caver.klay.accounts.md#createaccountforupdate). |
+| legacyKey | Bool | (optional) if updating the account to have a legacy key, set this true |
 | publicKey | String | (optional) if updating the account with a public key, write down the 64 bytes public key. |
-| multisig | String | (optional) if updating the account to have a multisig key, write down the list of weighted public keys that make up the multisig. multisig also defines the threshold. When signing a transaction, the sum of the weights of the signatures must be larger than or equal to the threshold. |
-| roleTransactionKey | String | (optional) if updating the account to have a role-based key, write down roleTransactionKey. roleTransactionKey can be a public key or a multisig key. This roleTransactionKey will be used when signing a transaction. |
-| roleAccountUpdateKey | String | (optional) if updating the account to have a role-based key, write down roleAccountUpdateKey. roleAccountUpdateKey can be a public key or a multisig key. This roleAccountUpdateKey will be used when signing an AccountUpdate transaction. |
-| roleFeePayerKey | String | (optional) if updating the account to have a role-based key, write down roleFeePayerKey. roleFeePayerKey can be a public key or a multisig key. This roleFeePayerKey will be used when signing a transaction as a feePayer. |
+| multisig | Object | (optional) if updating the account to have a multisig key, write down the list of weighted public keys that make up the multisig. multisig also defines the threshold. When signing a transaction, the sum of the weights of the signatures must be larger than or equal to the threshold. |
+| roleTransactionKey | Object | (optional) if updating the account to have a role-based key, write down roleTransactionKey. roleTransactionKey can be a public key or a multisig key. This roleTransactionKey will be used when signing a transaction. |
+| roleAccountUpdateKey | Object | (optional) if updating the account to have a role-based key, write down roleAccountUpdateKey. roleAccountUpdateKey can be a public key or a multisig key. This roleAccountUpdateKey will be used when signing an AccountUpdate transaction. |
+| roleFeePayerKey | Object | (optional) if updating the account to have a role-based key, write down roleFeePayerKey. roleFeePayerKey can be a public key or a multisig key. This roleFeePayerKey will be used when signing a transaction as a feePayer. |
 | failKey | Bool | (optional) if updating the account to have a fail key, set this true |
 
 If you call `caver.klay.sendTransaction` with a transaction object of type `ACCOUNT_UPDATE` as in the above, caver-js will send it to the network after signing with the key of the sender account (`from`) inside the in-memory wallet.
@@ -263,17 +264,20 @@ The plain transaction object type of a `FEE_DELEGATED_ACCOUNT_UPDATE` transactio
 | Name | Type | Description |
 | --- | --- | --- |
 | type | String | The type of "FEE_DELEGATED_ACCOUNT_UPDATE" transaction. |
-| from | String | The address which will be updated. |
-| gas | Number | The amount of gas to use for the transaction (unused gas is refunded). |
+| from | String | Address of this transaction sender. This account will be updated by this transaction. |
+| gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | key | Object | (optional) An `AccountForUpdate` instance containing the address and key to be used when updating the account. For instructions on how to create an AccountForUpdate instance for each key type, see [caver.klay.accounts.createAccountForUpdate](../caver.klay.accounts.md#createaccountforupdate). |
-| publicKey | String | (optional) if updating account with public key, write down 64 bytes of public key. |
-| multisig | String | (optional) if updating account with multisig key, write down multisig with multiple public keys. The public keys that make up multisig have their own weight. For transactions signed with multisig, the sum of the weights of the signature must be larger than or equal to the threshold. |
-| roleTransactionKey | String | (optional) if updating account with role based key, write down roleTransactionKey with public key or multisig key. This roleTransactionKey is used when sign the transaction. |
-| roleAccountUpdateKey | String | (optional) if updating account with role based key, write down roleAccountUpdateKey with public key or multisig key. This roleAccountUpdateKey is used when sign an AccountUpdate transaction. |
-| roleFeePayerKey | String | (optional) if updating account with role based key, write down roleFeePayerKey with public key or multisig key. This roleFeePayerKey is used when sign the transaction as a feePayer. |
-| failKey | Bool | (optional) if updating account with fail key, set it true |
+| legacyKey | Bool | (optional) if updating the account to have a legacy key, set this true |
+| publicKey | String | (optional) if updating the account with a public key, write down the 64 bytes public key. |
+| multisig | Object | (optional) if updating the account to have a multisig key, write down the list of weighted public keys that make up the multisig. multisig also defines the threshold. When signing a transaction, the sum of the weights of the signatures must be larger than or equal to the threshold. |
+| roleTransactionKey | Object | (optional) if updating the account to have a role-based key, write down roleTransactionKey. roleTransactionKey can be a public key or a multisig key. This roleTransactionKey will be used when signing a transaction. |
+| roleAccountUpdateKey | Object | (optional) if updating the account to have a role-based key, write down roleAccountUpdateKey. roleAccountUpdateKey can be a public key or a multisig key. This roleAccountUpdateKey will be used when signing an AccountUpdate transaction. |
+| roleFeePayerKey | Object | (optional) if updating the account to have a role-based key, write down roleFeePayerKey. roleFeePayerKey can be a public key or a multisig key. This roleFeePayerKey will be used when signing a transaction as a feePayer. |
+| failKey | Bool | (optional) if updating the account to have a fail key, set this true |
+
+
 
 Plain transaction objects of type `FEE_DELEGATED_ACCOUNT_UPDATE` with the above structure or `RLP-encoded transactions` of type `FEE_DELEGATED_ACCOUNT_UPDATE` can be used as parameters in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
 
@@ -370,18 +374,18 @@ The plain transaction object type of a `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`
 | Name | Type | Description |
 | --- | --- | --- |
 | type | String | The type of "FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO" transaction. |
-| from | String | The address which will be updated. |
-| gas | Number | The amount of gas to use for the transaction (unused gas is refunded). |
-| feeRatio | Number | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted. |
+| from | String | Address of this transaction sender. This account will be updated by this transaction. |
+| gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | key | Object | (optional) An `AccountForUpdate` instance containing the address and key to be used when updating the account. For instructions on how to create an AccountForUpdate instance for each key type, see [caver.klay.accounts.createAccountForUpdate](../caver.klay.accounts.md#createaccountforupdate). |
-| publicKey | String | (optional) if updating account with public key, write down 64 bytes of public key. |
-| multisig | String | (optional) if updating account with multisig key, write down multisig with multiple public keys. The public keys that make up multisig have their own weight. For transactions signed with multisig, the sum of the weights of the signature must be larger than or equal to the threshold. |
-| roleTransactionKey | String | (optional) if updating account with role based key, write down roleTransactionKey with public key or multisig key. This roleTransactionKey is used when sign the transaction. |
-| roleAccountUpdateKey | String | (optional) if updating account with role based key, write down roleAccountUpdateKey with public key or multisig key. This roleAccountUpdateKey is used when sign an AccountUpdate transaction. |
-| roleFeePayerKey | String | (optional) if updating account with role based key, write down roleFeePayerKey with public key or multisig key. This roleFeePayerKey is used when sign the transaction as a feePayer. |
-| failKey | Bool | (optional) if updating account with fail key, set it true |
+| legacyKey | Bool | (optional) if updating the account to have a legacy key, set this true |
+| publicKey | String | (optional) if updating the account with a public key, write down the 64 bytes public key. |
+| multisig | Object | (optional) if updating the account to have a multisig key, write down the list of weighted public keys that make up the multisig. multisig also defines the threshold. When signing a transaction, the sum of the weights of the signatures must be larger than or equal to the threshold. |
+| roleTransactionKey | Object | (optional) if updating the account to have a role-based key, write down roleTransactionKey. roleTransactionKey can be a public key or a multisig key. This roleTransactionKey will be used when signing a transaction. |
+| roleAccountUpdateKey | Object | (optional) if updating the account to have a role-based key, write down roleAccountUpdateKey. roleAccountUpdateKey can be a public key or a multisig key. This roleAccountUpdateKey will be used when signing an AccountUpdate transaction. |
+| roleFeePayerKey | Object | (optional) if updating the account to have a role-based key, write down roleFeePayerKey. roleFeePayerKey can be a public key or a multisig key. This roleFeePayerKey will be used when signing a transaction as a feePayer. |
+| failKey | Bool | (optional) if updating the account to have a fail key, set this true |
 
 Plain transaction objects of type `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` with the above structure or `RLP-encoded transactions` of type `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` can be used as parameters in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
 
