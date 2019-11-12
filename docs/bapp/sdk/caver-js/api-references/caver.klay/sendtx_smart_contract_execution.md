@@ -18,7 +18,7 @@ Sends a [Smart Contract Execution](../../../../../klaytn/design/transactions/bas
 | transactionObject.value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. If omitted, it will be set to zero. |
 | transactionObject.gas | Number | The amount of gas to use for the transaction (unused gas is refunded). |
 | transactionObject.gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
-| transactionObject.nonce | Number | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
+| transactionObject.nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | transactionObject.data | String | An input data of the smart contract. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -89,7 +89,7 @@ Sends a [Fee Delegated Smart Contract Execution](../../../../../klaytn/design/tr
 | transactionObject.value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. If omitted, it will be set to zero. |
 | transactionObject.gas | Number | The amount of gas to use for the transaction (unused gas is refunded). |
 | transactionObject.gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
-| transactionObject.nonce | Number | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
+| transactionObject.nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | transactionObject.data | String | An input data of the smart contract. |
 | transactionObject.feePayer | String | (for fee payer) The fee payer address of the transaction. |
 | transactionObject.senderRawTransaction | String | (for fee payer) The raw transaction of a sender. |
@@ -171,7 +171,7 @@ Sends a [Fee Delegated Smart Contract Execution With Ratio](../../../../../klayt
 | transactionObject.value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. If omitted, it will be set to zero. |
 | transactionObject.gas | Number | The amount of gas to use for the transaction (unused gas is refunded). |
 | transactionObject.gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
-| transactionObject.nonce | Number | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
+| transactionObject.nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | transactionObject.data | String | An input data of the smart contract. |
 | transactionObject.feeRatio | Number | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted. |
 | transactionObject.feePayer | String | (for fee payer) The fee payer address of the transaction. |
