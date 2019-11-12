@@ -9,18 +9,18 @@ Sends a [Smart Contract Execution](../../../../../klaytn/design/transactions/bas
 
 **매개변수**
 
-| 명칭                         | 형식                                              | 설명                                                                                                                                                |
-| -------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionObject          | 객체                                              | The transaction object to send.                                                                                                                   |
-| transactionObject.type     | 문자열                                             | The type of "SMART_CONTRACT_EXECUTION" transaction.                                                                                             |
-| transactionObject.from     | 문자열                                             | The address of the sender.                                                                                                                        |
-| transactionObject.to       | 문자열                                             | the address of the deployed smart contract.                                                                                                       |
-| transactionObject.value    | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 의해 전송된 peb 단위의 값. If omitted, it will be set to zero.                                                                               |
-| transactionObject.gas      | Number                                          | The amount of gas to use for the transaction (unused gas is refunded).                                                                            |
-| transactionObject.gasPrice | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                        |
-| transactionObject.nonce    | Number                                          | (선택사항) 논스의 정숫값입니다. 이를 통해 같은 논스를 사용하는 보류 중인 트랜잭션을 덮어쓸 수 있습니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
-| transactionObject.data     | 문자열                                             | An input data of the smart contract.                                                                                                              |
-| callback                   | Function                                        | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                              |
+| 명칭                         | 형식                                              | 설명                                                                                                                         |
+| -------------------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| transactionObject          | 객체                                              | The transaction object to send.                                                                                            |
+| transactionObject.type     | 문자열                                             | The type of "SMART_CONTRACT_EXECUTION" transaction.                                                                      |
+| transactionObject.from     | 문자열                                             | The address of the sender.                                                                                                 |
+| transactionObject.to       | 문자열                                             | the address of the deployed smart contract.                                                                                |
+| transactionObject.value    | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 의해 전송된 peb 단위의 값. If omitted, it will be set to zero.                                                        |
+| transactionObject.gas      | Number                                          | The amount of gas to use for the transaction (unused gas is refunded).                                                     |
+| transactionObject.gasPrice | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
+| transactionObject.nonce    | Number                                          | (선택사항) 논스의 정숫값입니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                    |
+| transactionObject.data     | 문자열                                             | An input data of the smart contract.                                                                                       |
+| callback                   | Function                                        | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                       |
 
 **리턴값**
 
@@ -80,20 +80,20 @@ Sends a [Fee Delegated Smart Contract Execution](../../../../../klaytn/design/tr
 
 **매개변수**
 
-| 명칭                                     | 형식                                              | 설명                                                                                                                                                |
-| -------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionObject                      | 객체                                              | The transaction object to send.                                                                                                                   |
-| transactionObject.type                 | 문자열                                             | The type of "FEE_DELEGATED_SMART_CONTRACT_EXECUTION" transaction.                                                                             |
-| transactionObject.from                 | 문자열                                             | The address of the sender.                                                                                                                        |
-| transactionObject.to                   | 문자열                                             | the address of the deployed smart contract.                                                                                                       |
-| transactionObject.value                | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 의해 전송된 peb 단위의 값. If omitted, it will be set to zero.                                                                               |
-| transactionObject.gas                  | Number                                          | The amount of gas to use for the transaction (unused gas is refunded).                                                                            |
-| transactionObject.gasPrice             | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                        |
-| transactionObject.nonce                | Number                                          | (선택사항) 논스의 정숫값입니다. 이를 통해 같은 논스를 사용하는 보류 중인 트랜잭션을 덮어쓸 수 있습니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
-| transactionObject.data                 | 문자열                                             | An input data of the smart contract.                                                                                                              |
-| transactionObject.feePayer             | 문자열                                             | (for fee payer) The fee payer address of the transaction.                                                                                         |
-| transactionObject.senderRawTransaction | 문자열                                             | (for fee payer) The raw transaction of a sender.                                                                                                  |
-| callback                               | Function                                        | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                              |
+| 명칭                                     | 형식                                              | 설명                                                                                                                         |
+| -------------------------------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| transactionObject                      | 객체                                              | The transaction object to send.                                                                                            |
+| transactionObject.type                 | 문자열                                             | The type of "FEE_DELEGATED_SMART_CONTRACT_EXECUTION" transaction.                                                      |
+| transactionObject.from                 | 문자열                                             | The address of the sender.                                                                                                 |
+| transactionObject.to                   | 문자열                                             | the address of the deployed smart contract.                                                                                |
+| transactionObject.value                | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 의해 전송된 peb 단위의 값. If omitted, it will be set to zero.                                                        |
+| transactionObject.gas                  | Number                                          | The amount of gas to use for the transaction (unused gas is refunded).                                                     |
+| transactionObject.gasPrice             | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
+| transactionObject.nonce                | Number                                          | (선택사항) 논스의 정숫값입니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                    |
+| transactionObject.data                 | 문자열                                             | An input data of the smart contract.                                                                                       |
+| transactionObject.feePayer             | 문자열                                             | (for fee payer) The fee payer address of the transaction.                                                                  |
+| transactionObject.senderRawTransaction | 문자열                                             | (for fee payer) The raw transaction of a sender.                                                                           |
+| callback                               | Function                                        | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                       |
 
 **리턴값**
 
@@ -171,7 +171,7 @@ Sends a [Fee Delegated Smart Contract Execution With Ratio](../../../../../klayt
 | transactionObject.value                | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 의해 전송된 peb 단위의 값. If omitted, it will be set to zero.                                                                                                                                 |
 | transactionObject.gas                  | Number                                          | The amount of gas to use for the transaction (unused gas is refunded).                                                                                                                              |
 | transactionObject.gasPrice             | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                          |
-| transactionObject.nonce                | Number                                          | (선택사항) 논스의 정숫값입니다. 이를 통해 같은 논스를 사용하는 보류 중인 트랜잭션을 덮어쓸 수 있습니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                   |
+| transactionObject.nonce                | Number                                          | (선택사항) 논스의 정숫값입니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                             |
 | transactionObject.data                 | 문자열                                             | An input data of the smart contract.                                                                                                                                                                |
 | transactionObject.feeRatio             | Number                                          | Fee ratio of the fee payer. 이 값이 30이면, 트랜잭션 수수료의 30%를 트랜잭션 수수료 납부자가 지불합니다. 나머지 70%는 트랜잭션 발신자가 지불합니다. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted. |
 | transactionObject.feePayer             | 문자열                                             | (for fee payer) The fee payer address of the transaction.                                                                                                                                           |
