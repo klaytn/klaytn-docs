@@ -17,7 +17,7 @@
 
 여기서는 이더리움 애플리케이션에서 Klaytn으로 이전하는 데에 필요한 코드 수정만을 중점적으로 다룰 것입니다. Klaytn BApp을 만드는 것에 대한 자세한 내용은 [CountBApp 튜토리얼](https://docs.klaytn.com/bapp/tutorials/count-bapp)을 참고하세요.
 
-> **소스 코드** 온전한 소스 코드는 GitHub에서 확인할 수 있습니다. [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
+> **소스 코드** 전체 소스 코드는 GitHub에서 확인할 수 있습니다. [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
 
 #### 튜토리얼 대상 <a id="intended-audience"></a>
 
