@@ -88,7 +88,35 @@ caver.klay.sendTransaction({
 })
 .on('error', console.error)
 
-// Case 2: Updating account with public key
+// Case 2: Updating account with legacy key
+
+// using the promise
+caver.klay.sendTransaction({
+    type: 'ACCOUNT_UPDATE',
+    from: account.address,
+    legacyKey: true,
+    gas: '300000',
+})
+.then(function(receipt){
+    ...
+});
+
+// using the event emitter
+caver.klay.sendTransaction({
+    type: 'ACCOUNT_UPDATE',
+    from: account.address,
+    legacyKey: true,
+    gas: '300000',
+})
+.on('transactionHash', function(hash){
+    ...
+})
+.on('receipt', function(receipt){
+    ...
+})
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+
+// Case 3: Updating account with public key
 
 // using the promise
 caver.klay.sendTransaction({
@@ -116,7 +144,7 @@ caver.klay.sendTransaction({
 })
 .on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 
-// Case 3: Updating account with fail key
+// Case 4: Updating account with fail key
 
 // using the promise
 caver.klay.sendTransaction({
@@ -144,7 +172,7 @@ caver.klay.sendTransaction({
 })
 .on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 
-// Case 4: Updating account with weighted-multisig
+// Case 5: Updating account with weighted-multisig
 
 // using the promise
 caver.klay.sendTransaction({
@@ -188,7 +216,7 @@ caver.klay.sendTransaction({
 })
 .on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 
-// Case 5: Updating account with role-based key
+// Case 6: Updating account with role-based key
 
 // using the promise
 caver.klay.sendTransaction({
