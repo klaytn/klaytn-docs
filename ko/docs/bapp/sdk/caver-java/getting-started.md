@@ -30,7 +30,7 @@ implementation "ch.qos.logback:logback-classic:1.2.3"
 
 ### 설치 <a id="installation"></a>
 
-스마트 컨트랙트와 관련된 트랜잭션을 생성하려면 먼저 솔리디티 컴파일러와 caver-java 명령 줄 도구를 설치해야 합니다.
+스마트 컨트랙트와 관련된 트랜잭션을 생성하려면 먼저 솔리디티 컴파일러와 caver-java 커맨드라인 도구를 설치해야 합니다.
 
 #### 솔리디티 컴파일러 <a id="solidity-compiler"></a>
 
@@ -41,9 +41,9 @@ $ brew install klaytn/klaytn/solidity@0.4.24  # version 0.4.24
 $ brew install klaytn/klaytn/solidity@0.5.6   # version 0.5.6
 ```
 
-#### 명령 줄 도구 <a id="command-line-tool"></a>
+#### 커맨드라인 도구<a id="command-line-tool"></a>
 
-명령 줄 도구를 사용하면 명령 줄에서 솔리디티 스마트 컨트랙트 함수 래퍼를 생성할 수 있습니다.
+커맨드라인 도구를 사용하면 커맨드라인에서 솔리디티 스마트 컨트랙트 함수 래퍼를 생성할 수 있습니다.
 
 **설치 \(Homebrew\)**
 
@@ -77,7 +77,7 @@ $ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -
   $ unzip ./console/build/distributions/console-shadow-{version}.zip
   ```
 
-* 바이너리 파일을 실행하여 아래와 같이 명령 줄 도구를 실행하세요. macOS 사용자용 쉘 스크립트 파일과 Window 사용자용 배치 파일을 찾을 수 있습니다.
+* 바이너리 파일을 실행하여 아래와 같이 커맨드라인 도구를 실행하세요. macOS 사용자용 쉘 스크립트 파일과 Window 사용자용 배치 파일을 찾을 수 있습니다.
 
   ```text
   $ ./console/build/distributions/console-shadow-{version}/bin/caver-java
@@ -134,7 +134,7 @@ Caver caver  = Caver.build(Caver.BAOBAB_URL);  // Caver.BAOBAB_URL = https://api
 
 `Caver` 인스턴스를 얻고 약간의 KLAY가 있는 계정을 만든 후, 아래처럼 가스 한도 `BigInteger.valueOf(100_000)`로 특정 주소\(`0xe97f27e9a5765ce36a7b919b1cb6004c7209217e`\)에게 1 peb를 보낼 수 있습니다.
 
-`TransactionManager`는 트랜잭션 타입의 복잡성을 숨기기 위해 도입되었습니다. 예를 들어, `FeeDelegatedValueTransferTransaction` 객체는 `ValueTransferTransaction` 객체로 변환될 수 있습니다. 자세한 내용은 [Fee Delegation](../../../klaytn/design/transactions/README.md#fee-delegation)을 참조하세요. 수수료 위임 외에도 `TransactionManager`는 `GetNonceProcessor`, `ErrorHandler`, `TransactionReceiptProcessor`와 함께 사용될 수 있습니다.
+`TransactionManager`는 트랜잭션 타입의 복잡성을 숨기기 위해 도입되었습니다. 예를 들어, `FeeDelegatedValueTransferTransaction` 객체는 `ValueTransferTransaction` 객체로 변환될 수 있습니다. 자세한 내용은 [수수료 위임](../../../klaytn/design/transactions/README.md#fee-delegation)을 참조하세요. 수수료 위임 외에도 `TransactionManager`는 `GetNonceProcessor`, `ErrorHandler`, `TransactionReceiptProcessor`와 함께 사용될 수 있습니다.
 
 ```java
 TransactionManager transactionManager = new TransactionManager.Builder(caver, credentials)
@@ -233,7 +233,7 @@ caver-java는 스마트 컨트랙트 래퍼 코드의 자동 생성을 지원합
 $ solc <contract>.sol --bin --abi --optimize -o <output-dir>/
 ```
 
-그 후, caver-java의 [command-line tool](#command-line-tool)을 사용해 래퍼 코드를 생성하세요.
+그 후, caver-java의 [커맨드라인 도구](#command-line-tool)를 사용해 래퍼 코드를 생성하세요.
 
 ```text
 $ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
@@ -332,7 +332,7 @@ ValueTransferTransaction valueTransferTransaction = ValueTransferTransaction.cre
 String senderRawTransaction = transactionManager.sign(valueTransferTransaction, true).getValueAsString();  // isFeeDelegated : true
 ```
 
-서명된 트랜잭션 `senderRawTransaction`이 생성됩니다. 이제 발신자는 트랜잭션을 트랜잭션 수수료 대신 지불할 수수료 납부자에게 전달합니다. Klaytn 네트워크에서는 발신자와 수수료 납부자 간의 트랜잭션 전송이 수행되지 않습니다. 프로토콜이 스스로 정의해야 합니다.
+서명된 트랜잭션 `senderRawTransaction`이 생성됩니다. 이제 발신자는 트랜잭션을 트랜잭션 수수료를 대신 지불할 수수료 납부자에게 전달합니다. Klaytn 네트워크에서는 발신자와 수수료 납부자 간의 트랜잭션 전송이 수행되지 않습니다. 프로토콜이 스스로 정의해야 합니다.
 
 수수료 납부자가 발신자로부터 트랜잭션을 받은 후, 수수료 납부자는 다음 `FeePayerManager` 클래스를 사용해 트랜잭션을 전송할 수 있습니다: `FeePayerManager.executeTransaction()`는 수신한 트랜잭션을 수수료 납부자의 개인키로 서명하고 트랜잭션을 Klaytn 네트워크로 전송합니다.
 
