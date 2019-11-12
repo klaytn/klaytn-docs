@@ -270,7 +270,7 @@ The plain transaction object type of a `FEE_DELEGATED_ACCOUNT_UPDATE` transactio
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | key | Object | (optional) An `AccountForUpdate` instance containing the address and key to be used when updating the account. For instructions on how to create an AccountForUpdate instance for each key type, see [caver.klay.accounts.createAccountForUpdate](../caver.klay.accounts.md#createaccountforupdate). |
 | legacyKey | Bool | (optional) if updating the account to have a legacy key, set this true |
-| publicKey | String | (optional) if updating the account with a public key, write down the 64 bytes public key. |
+| publicKey | String | (optional) if updating the account to have a public key, write down the 64 bytes public key. |
 | multisig | Object | (optional) if updating the account to have a multisig key, write down the list of weighted public keys that make up the multisig. multisig also defines the threshold. When signing a transaction, the sum of the weights of the signatures must be larger than or equal to the threshold. |
 | roleTransactionKey | Object | (optional) if updating the account to have a role-based key, write down roleTransactionKey. roleTransactionKey can be a public key or a multisig key. This roleTransactionKey will be used when signing a transaction. |
 | roleAccountUpdateKey | Object | (optional) if updating the account to have a role-based key, write down roleAccountUpdateKey. roleAccountUpdateKey can be a public key or a multisig key. This roleAccountUpdateKey will be used when signing an AccountUpdate transaction. |
@@ -380,7 +380,7 @@ The plain transaction object type of a `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | key | Object | (optional) An `AccountForUpdate` instance containing the address and key to be used when updating the account. For instructions on how to create an AccountForUpdate instance for each key type, see [caver.klay.accounts.createAccountForUpdate](../caver.klay.accounts.md#createaccountforupdate). |
 | legacyKey | Bool | (optional) if updating the account to have a legacy key, set this true |
-| publicKey | String | (optional) if updating the account with a public key, write down the 64 bytes public key. |
+| publicKey | String | (optional) if updating the account to have a public key, write down the 64 bytes public key. |
 | multisig | Object | (optional) if updating the account to have a multisig key, write down the list of weighted public keys that make up the multisig. multisig also defines the threshold. When signing a transaction, the sum of the weights of the signatures must be larger than or equal to the threshold. |
 | roleTransactionKey | Object | (optional) if updating the account to have a role-based key, write down roleTransactionKey. roleTransactionKey can be a public key or a multisig key. This roleTransactionKey will be used when signing a transaction. |
 | roleAccountUpdateKey | Object | (optional) if updating the account to have a role-based key, write down roleAccountUpdateKey. roleAccountUpdateKey can be a public key or a multisig key. This roleAccountUpdateKey will be used when signing an AccountUpdate transaction. |
