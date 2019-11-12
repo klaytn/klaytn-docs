@@ -4,7 +4,7 @@
 
 ## Linux 아카이브 배포 <a id="linux-archive-distribution"></a>
 
-아카이브 파일은 아래와 같이 바이너리 실행 파일과 환경 설정 파일로 구성되어 있습니다.
+아카이브 파일은 아래와 같이 바이너리 실행 파일과 환경설정 파일로 구성되어 있습니다.
 
 ```text
 - bin
@@ -18,7 +18,7 @@
 |:--------------- |:------------------- |
 | bin/kscn        | SCN 실행 파일           |
 | bin/kscnd       | SCN 시작 및 종료 스크립트 파일 |
-| conf/kscnd.conf | SCN 환경 설정 파일        |
+| conf/kscnd.conf | SCN 환경설정 파일         |
 
 ### 설치 <a id="installation"></a>
 
@@ -40,7 +40,7 @@ $ yum install kscnd-vX.X.X.el7.x86_64.rpm
 
 ### 설치 위치 <a id="scn-configuration"></a>
 
-Klaytn Linux 패키지는 아래와 같이 바이너리 실행 파일과 환경 설정 파일로 구성되어 있습니다.
+Klaytn Linux 패키지는 아래와 같이 바이너리 실행 파일과 환경설정 파일로 구성되어 있습니다.
 
 | 파일명        | 위치                         |
 |:---------- |:-------------------------- |
