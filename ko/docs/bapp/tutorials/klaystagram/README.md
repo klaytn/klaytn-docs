@@ -31,7 +31,7 @@ Klaystagram에는 세 가지 주요 기능이 있습니다.
 2. **Feed** 사용자는 블록체인에 업로드된 모든 사진을 볼 수 있습니다.
 3. **Transfer ownership** 사진에 대한 소유권은 다른 사람에게 양도될 수 있고, 이러한 소유권 양도 기록은 트랜잭션을 통해 확인할 수 있습니다.
 
-> **소스 코드** 온전한 소스 코드는 GitHub에서 확인할 수 있습니다. [https://github.com/klaytn/klaystagram](https://github.com/klaytn/klaystagram)
+> **소스 코드** 전체 소스 코드는 GitHub에서 확인할 수 있습니다. [https://github.com/klaytn/klaystagram](https://github.com/klaytn/klaystagram)
 
 ## 튜토리얼 대상 <a id="intended-audience"></a>
 
