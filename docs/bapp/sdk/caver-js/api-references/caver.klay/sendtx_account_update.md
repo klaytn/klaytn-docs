@@ -313,8 +313,8 @@ In order for the fee payer to sign an RLP encoded transaction signed by the send
 
 | Name | Type | Description |
 | --- | --- | --- |
-| transactionObject.feePayer | String | The fee payer address of the transaction. |
-| transactionObject.senderRawTransaction | String | The RLP-encoded transaction signed by sender. |
+| feePayer | String | The fee payer address of the transaction. |
+| senderRawTransaction | String | The RLP-encoded transaction signed by sender. |
 
 **Return Value**
 
@@ -421,8 +421,8 @@ In order for the fee payer to sign an RLP encoded transaction signed by the send
 
 | Name | Type | Description |
 | --- | --- | --- |
-| transactionObject.feePayer | String | The fee payer address of the transaction. |
-| transactionObject.senderRawTransaction | String | The RLP-encoded transaction signed by sender. |
+| feePayer | String | The fee payer address of the transaction. |
+| senderRawTransaction | String | The RLP-encoded transaction signed by sender. |
 
 **Return Value**
 
