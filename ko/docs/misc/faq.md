@@ -40,11 +40,11 @@ EP provides the following features:
 
 * Blockchain Enabler
   * Event handler : if users deploy smart contracts through EP, event subscriber will be generated automatically with abi of them
-  * Transaction manager: 서비스 제공자는 트랜잭션 쓰로틀링(throttling), 논스 증가, 계정 인증 등 트랜잭션과 계정 관리 기능을 이용할 수 있습니다.
-  * Chain router: BApp에 사용되는 multi-Klaytn clients 구성을 설정합니다.
+  * 트랜잭션 매니저(Transaction manager): 서비스 제공자는 트랜잭션 쓰로틀링(throttling), 논스 증가, 계정 인증 등 트랜잭션과 계정 관리 기능을 이용할 수 있습니다.
+  * 체인 라우터(Chain router): BApp에 사용되는 multi-Klaytn clients 환경설정을 설정합니다.
 * Legacy System Integrator
   * Requests transcoder : gRPC, RESTful API 요청을 포함한 다양한 유형의 API 지원
-  * Request gateway : 분석을위한 클라이언트 메트릭 수집
+  * 리퀘스트 게이트웨이(Request gateway) : 분석을 위한 클라이언트 메트릭 수집
 
 By adding EP concept on our platform, we are expecting to offer more practical service and enterprise-friendly platform which can help users to improve UX and increase the quality of services on Klaytn network as well.
 
