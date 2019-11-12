@@ -1,6 +1,6 @@
 # 배포 가이드 <a id="deploy-guide"></a>
 
-Klaytn에 스마트 컨트랙트를 배포하는 방법에는 여러 가지가 있습니다. 이 문서는 다양한 도구를 사용하여 샘플 컨트랙트를 배포하기 위한 단계별 가이드를 제공합니다. 트랜잭션 비용을 지불하기에 충분한 KLAY가 있는 Klaytn 계정이 있다고 가정합니다. 계정을 만들려면 [Klaytn Wallet](../toolkit/klaytn-wallet.md)을 참조하세요.
+Klaytn에 스마트 컨트랙트를 배포하는 방법에는 여러 가지가 있습니다. 이 문서는 다양한 도구를 사용하여 샘플 컨트랙트를 배포하기 위한 단계별 가이드를 제공합니다. 트랜잭션 수수료를 지불하기에 충분한 KLAY가 있는 Klaytn 계정이 있다고 가정합니다. 계정을 만들려면 [Klaytn Wallet](../toolkit/klaytn-wallet.md)을 참조하세요.
 
 ## Klaytn IDE <a id="klaytn-ide"></a>
 
@@ -43,7 +43,7 @@ contract KlaytnGreeter is Mortal {
 ![](img/deploy-with-ide/deploy-with-ide.002.png)
 
 
-- 실행(Run) 탭을 클릭하세요. `환경(Environment)` 드롭다운에서 컨트랙트를 배포할 대상 네트워크를 선택할 수 있습니다. (Baobab은 테스트 네트워크이고 Cypress는 기본 네트워크입니다.)
+- 실행(Run) 탭을 클릭하세요. `환경(Environment)` 드롭다운에서 컨트랙트를 배포할 대상 네트워크를 선택할 수 있습니다. (Baobab은 테스트 네트워크이고 Cypress는 메인 네트워크입니다.)
 
 ![](img/deploy-with-ide/deploy-with-ide.003.png)
 
@@ -58,7 +58,7 @@ contract KlaytnGreeter is Mortal {
 
 ![](img/deploy-with-ide/deploy-with-ide.005.png)
 
-- 함수 버튼을 클릭하여 컨트랙트와 상호작용할 수 있습니다. 진한 파란색 버튼은 블록체인의 상태를 변경하고 가스를 소비하는 `전송(send)` 함수입니다. 하늘색 버튼은 상태를 변경하지 않고 트랜잭션 비용을 요구하지 않는 `호출(call)` 함수입니다.
+- 함수 버튼을 클릭하여 컨트랙트와 상호작용할 수 있습니다. 진한 파란색 버튼은 블록체인의 상태를 변경하고 가스를 소비하는 `전송(send)` 함수입니다. 하늘색 버튼은 상태를 변경하지 않고 트랜잭션 수수료를 요구하지 않는 `호출(call)` 함수입니다.
 
 ![](img/deploy-with-ide/deploy-with-ide.006.png)
 
@@ -66,7 +66,7 @@ contract KlaytnGreeter is Mortal {
 
 ## Truffle  <a id="truffle"></a>
 
-Truffle은 스마트 컨트랙트 배포 및 실행에 가장 널리 사용되는 프레임워크입니다.
+트러플은 스마트 컨트랙트 배포 및 실행에 가장 널리 사용되는 프레임워크입니다.
 
 - 다음 명령을 통해 설치하세요.
 
@@ -172,7 +172,7 @@ $ truffle deploy --network mainnet
 자세한 내용은 이 [링크](../toolkit/truffle.md)를 참조하세요.
 
 ## VVISP <a id="vvisp"></a>
-vvisp은 HEACHI LABS에서 제공하는 스마트 컨트랙트 개발을 위한 사용하기 쉬운 CLI 도구/프레임워크입니다. 단일 명령만으로 환경을 쉽게 설정하고, Klaytn 스마트 컨트랙트를 배포 및 실행할 수 있습니다. 자세한 내용을 위해 다음 링크를 참조하세요.
+vvisp은 스마트 컨트랙트 개발을 위해 HEACHI LABS에서 제공하는 사용하기 쉬운 cli 도구/프레임워크입니다. 단일 명령만으로 환경을 쉽게 설정하고, Klaytn 스마트 컨트랙트를 배포 및 실행할 수 있습니다. 자세한 내용을 위해 다음 링크를 참조하세요.
 - https://henesis.gitbook.io/vvisp/deploying-smart-contracts
 
 ## solc & caver-js <a id="solc-caver-js"></a>
@@ -257,7 +257,7 @@ caver.klay.sendTransaction({
 ```
 *참고*: 이 예제는 상업용으로 권장되지 않습니다. 개인키를 다룰 때 많은 주의를 기울이세요.
 
-- node 환경을 사용해 계약을 배포하세요.
+- node 환경을 사용해 컨트랙트를 배포하세요.
 
 ```
 $ node deploy.js
