@@ -25,9 +25,9 @@ A transaction object of type `SMART_CONTRACT_DEPLOY` has the following structure
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
-| data | String | A bytecode of smart contract to be deployed. If you need to pass an argument to the constructor of a smart contract, you must set to data in the form of compiled byte code + arguments. If the compiled bytecode is '0x123 ... 321', if you need to pass 1 to the constructor, you must pass '0x123 ... 321' + '00000000000000000000000000000000000000000000000000000000000001' to data in this form. Use [caver.klay.abi.encodeContractDeploy](../caver.klay.abi.md#encodecontractdeploy) to get the byte code and parameter values of the constructor encoded together. |
-| value  | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for transaction. If contract's modifier is not payable, value must be zero. |
-| codeFormat  | String | (optional, default: `"EVM"`) The code format of smart contract code. |
+| data | String | A bytecode of smart contract to be deployed. If you need to pass an argument to the constructor of the smart contract, you must set data in the format of "compiled byte code + arguments". If the compiled bytecode is '0x123 ... 321' and you need to pass 1 to the constructor, you must set '0x123 ... 321' + '00000000000000000000000000000000000000000000000000000000000001'. Use [caver.klay.abi.encodeContractDeploy](../caver.klay.abi.md#encodecontractdeploy) to get the encoded value of the byte code with the parameters. |
+| value  | Number &#124; String &#124; BN &#124; BigNumber | The value that will be transferred to the contract with this deployment. If the contract modifier is not payable, value must be zero. |
+| codeFormat  | String | (optional, default: `"EVM"`) The code format of smart contract. |
 
 **Return Value**
 
@@ -142,11 +142,11 @@ A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_DEPLOY` has the follo
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
-| data | String | A bytecode of smart contract to be deployed. If you need to pass an argument to the constructor of a smart contract, you must set to data in the form of compiled byte code + arguments. If the compiled bytecode is '0x123 ... 321', if you need to pass 1 to the constructor, you must pass '0x123 ... 321' + '00000000000000000000000000000000000000000000000000000000000001' to data in this form. Use [caver.klay.abi.encodeContractDeploy](../caver.klay.abi.md#encodecontractdeploy) to get the byte code and parameter values of the constructor encoded together. |
-| value  | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for transaction. If contract's modifier is not payable, value must be zero. |
-| codeFormat  | String | (optional, default: `"EVM"`) The code format of smart contract code. |
+| data | String | A bytecode of smart contract to be deployed. If you need to pass an argument to the constructor of the smart contract, you must set data in the format of "compiled byte code + arguments". If the compiled bytecode is '0x123 ... 321' and you need to pass 1 to the constructor, you must set '0x123 ... 321' + '00000000000000000000000000000000000000000000000000000000000001'. Use [caver.klay.abi.encodeContractDeploy](../caver.klay.abi.md#encodecontractdeploy) to get the encoded value of the byte code with the parameters. |
+| value  | Number &#124; String &#124; BN &#124; BigNumber | The value that will be transferred to the contract with this deployment. If the contract modifier is not payable, value must be zero. |
+| codeFormat  | String | (optional, default: `"EVM"`) The code format of smart contract. |
 
-Plain transaction objects of type `FEE_DELEGATED_SMART_CONTRACT_DEPLOY` with the above structure or `RLP-encoded transactions` of type `FEE_DELEGATED_SMART_CONTRACT_DEPLOY` can be used as parameters in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
+A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_DEPLOY` with the above structure or an `RLP-encoded transaction` of type `FEE_DELEGATED_SMART_CONTRACT_DEPLOY` can be used as a parameter in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and in [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
 
 In order for the fee payer to sign an RLP encoded transaction signed by the sender and send it to the network, define an object with the following structure and call `caver.klay.sendTransaction`.
 
@@ -258,12 +258,12 @@ A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_DEPLOY_WITH_RATIO` ha
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
-| data | String | A bytecode of smart contract to be deployed. If you need to pass an argument to the constructor of a smart contract, you must set to data in the form of compiled byte code + arguments. If the compiled bytecode is '0x123 ... 321', if you need to pass 1 to the constructor, you must pass '0x123 ... 321' + '00000000000000000000000000000000000000000000000000000000000001' to data in this form. Use [caver.klay.abi.encodeContractDeploy](../caver.klay.abi.md#encodecontractdeploy) to get the byte code and parameter values of the constructor encoded together. |
-| value  | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for transaction. If contract's modifier is not payable, value must be zero. |
-| codeFormat  | String | (optional, default: `"EVM"`) The code format of smart contract code. |
+| data | String | A bytecode of smart contract to be deployed. If you need to pass an argument to the constructor of the smart contract, you must set data in the format of "compiled byte code + arguments". If the compiled bytecode is '0x123 ... 321' and you need to pass 1 to the constructor, you must set '0x123 ... 321' + '00000000000000000000000000000000000000000000000000000000000001'. Use [caver.klay.abi.encodeContractDeploy](../caver.klay.abi.md#encodecontractdeploy) to get the encoded value of the byte code with the parameters. |
+| value  | Number &#124; String &#124; BN &#124; BigNumber | The value that will be transferred to the contract with this deployment. If the contract modifier is not payable, value must be zero. |
+| codeFormat  | String | (optional, default: `"EVM"`) The code format of smart contract. |
 | feeRatio | Number | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted. |
 
-Plain transaction objects of type `FEE_DELEGATED_SMART_CONTRACT_DEPLOY_WITH_RATIO` with the above structure or `RLP-encoded transactions` of type `FEE_DELEGATED_SMART_CONTRACT_DEPLOY_WITH_RATIO` can be used as parameters in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
+A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_DEPLOY_WITH_RATIO` with the above structure or an `RLP-encoded transaction` of type `FEE_DELEGATED_SMART_CONTRACT_DEPLOY_WITH_RATIO` can be used as a parameters in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and in [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
 
 In order for the fee payer to sign an RLP encoded transaction signed by the sender and send it to the network, define an object with the following structure and call `caver.klay.sendTransaction`.
 
