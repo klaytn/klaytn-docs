@@ -105,7 +105,7 @@ A transaction object of type `FEE_DELEGATED_VALUE_TRANSFER_MEMO` has the followi
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 
-Plain transaction objects of type `FEE_DELEGATED_VALUE_TRANSFER_MEMO` with the above structure or `RLP-encoded transactions` of type `FEE_DELEGATED_VALUE_TRANSFER_MEMO` can be used as parameters in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
+A transaction object of type `FEE_DELEGATED_VALUE_TRANSFER_MEMO` with the above structure or an `RLP-encoded transaction` of type `FEE_DELEGATED_VALUE_TRANSFER_MEMO` can be used as a parameter in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and in [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
 
 In order for the fee payer to sign an RLP encoded transaction signed by the sender and send it to the network, define an object with the following structure and call `caver.klay.sendTransaction`.
 
