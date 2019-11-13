@@ -1,8 +1,8 @@
 # 설정<a id="configuration"></a>
 
-본 문서는 Node 속성의 환경설정에 대해 안내합니다. Klaytn 노드 패키지는 기본적으로 제공되며 별도의 환경설정은 거의 필요하지 않습니다. 실행 중인 노드의 설정을 변경했다면 해당 노드를 재시작해야 변경 사항이 반영됩니다.
+본 문서는 Node 속성의 환경설정에 대해 설명합니다. Klaytn 노드 패키지는 기본적으로 제공되며 별도의 환경설정은 거의 필요하지 않습니다. 실행 중인 노드의 설정을 변경했다면 해당 노드를 재시작해야 변경 사항이 반영됩니다.
 
-## CN Configuration File location <a id="cn-configuration-file-location"></a>
+## CN 환경설정 파일 위치 <a id="cn-configuration-file-location"></a>
 
 * 컨센서스 노드 환경설정을 위한 `kcnd.conf`
 
@@ -11,7 +11,7 @@
 * 아카이브 배포의 경우 환경설정 디렉토리의 위치가 `$INSTALL_PATH/kcn-linux-amd64/conf/`으로 기본 설정되어 있습니다.
 * 패키지 배포의 경우 환경설정 디렉토리의 위치가 `/etc/kcnd/conf/`으로 기본 설정되어 있습니다.
 
-## PN Configuration File location <a id="pn-configuration-file-location"></a>
+## PN 환경설정 파일 위치 <a id="pn-configuration-file-location"></a>
 
 * 프록시 노드 환경설정을 위한 `kpnd.conf`
 
@@ -20,7 +20,7 @@
 * 아카이브 배포의 경우 환경설정 디렉토리의 위치가 `$INSTALL_PATH/kpn-linux-amd64/conf/`으로 기본 설정되어 있습니다.
 * 패키지 배포의 경우 환경설정 디렉토리의 위치가 `/etc/kpnd/conf/`으로 기본 설정되어 있습니다.
 
-## Configuration File Format  <a id="configuration-file-format"></a>
+## 환경 설정 파일 형식  <a id="configuration-file-format"></a>
 
 CN과 PN은 설정 파일 형식과 속성이 동일합니다.
 
