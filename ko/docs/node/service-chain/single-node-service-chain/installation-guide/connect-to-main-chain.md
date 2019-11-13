@@ -60,7 +60,7 @@ MAIN_BRIDGE_INDEXING=1
 
 #### EN 콘솔 열기 <a id="open-en-console"></a>
 
-There are different ways to attach to the EN process. [ken CLI commands](../../../endpoint-node/ken-cli-commands.md)에서 사용 가능한 명령을 확인할 수 있습니다. This page explains the way to attach to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the data directory on the node.
+EN 프로세스를 연결하는 다른 방법이 있습니다. [ken CLI commands](../../../endpoint-node/ken-cli-commands.md)에서 사용 가능한 명령을 확인할 수 있습니다. 이 페이지는 IPC(inter-process communication)를 통해 프로세스에 연결하는 방법을 설명합니다. `klay.ipc` IPC 파일은 EN/SCN의 데이터 디렉토리에 있습니다.
 
 다음 명령을 실행하고 결과를 확인하세요. (RPC를 위해 `mainbridge` API를 추가한 경우, 아래와 같이 브릿지 API를 확인할 수 있습니다. `mainbridge` API가 없는 경우, [EN Configuration - Enable Main-bridge](#en-configuration-enable-main-bridge)를 다시 확인해야 합니다. )
 
@@ -77,7 +77,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
 
 #### EN의 KNI 받기 <a id="get-the-ens-kni"></a>
 
-After attaching to the process via IPC, you can check the EN's main-bridge KNI like below. [Service Chain API](../../../../bapp/json-rpc/api-references/servicechain.md)를 참조할 수 있습니다.
+IPC를 통해 프로세스를 연결한 후, 아래와 같이 EN의 메인 브리지 KNI를 확인할 수 있습니다. [Service Chain API](../../../../bapp/json-rpc/api-references/servicechain.md)를 참조할 수 있습니다.
 
 ```javascript
 > mainbridge.nodeInfo
@@ -109,7 +109,7 @@ After attaching to the process via IPC, you can check the EN's main-bridge KNI l
 }
 ```
 
-You should take note of the main-bridge `kni`.
+메인 브리지 `kni`를 참고해주세요.
 
 ### 메인체인에 연결하기 <a id="connect-to-the-main-chain"></a>
 
