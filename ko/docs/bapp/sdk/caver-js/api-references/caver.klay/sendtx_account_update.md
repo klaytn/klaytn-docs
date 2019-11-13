@@ -304,16 +304,14 @@ A transaction object of type `FEE_DELEGATED_ACCOUNT_UPDATE` has the following st
 | roleFeePayerKey      | 객체     | (optional) if updating the account to have a role-based key, write down roleFeePayerKey. roleFeePayerKey can be a public key or a multisig key. This roleFeePayerKey will be used when signing a transaction as a feePayer.                                                                          |
 | failKey              | Bool   | (optional) if updating the account to have a fail key, set this true.                                                                                                                                                                                                                                |
 
-
-
-Plain transaction objects of type `FEE_DELEGATED_ACCOUNT_UPDATE` with the above structure or `RLP-encoded transactions` of type `FEE_DELEGATED_ACCOUNT_UPDATE` can be used as parameters in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
+A transaction object of type `FEE_DELEGATED_ACCOUNT_UPDATE` with the above structure or an `RLP-encoded transaction` of type `FEE_DELEGATED_ACCOUNT_UPDATE` can be used as a parameter in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and in [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
 
 In order for the fee payer to sign an RLP encoded transaction signed by the sender and send it to the network, define an object with the following structure and call `caver.klay.sendTransaction`.
 
-| 명칭                                     | 형식  | 설명                                            |
-| -------------------------------------- | --- | --------------------------------------------- |
-| transactionObject.feePayer             | 문자열 | The fee payer address of the transaction.     |
-| transactionObject.senderRawTransaction | 문자열 | The RLP-encoded transaction signed by sender. |
+| 명칭                   | 형식  | 설명                                            |
+| -------------------- | --- | --------------------------------------------- |
+| feePayer             | 문자열 | The fee payer address of the transaction.     |
+| senderRawTransaction | 문자열 | The RLP-encoded transaction signed by sender. |
 
 **리턴값**
 
@@ -414,14 +412,14 @@ The plain transaction object type of a `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`
 | roleFeePayerKey      | 객체     | (optional) if updating the account to have a role-based key, write down roleFeePayerKey. roleFeePayerKey can be a public key or a multisig key. This roleFeePayerKey will be used when signing a transaction as a feePayer.                                                                          |
 | failKey              | Bool   | (optional) if updating the account to have a fail key, set this true.                                                                                                                                                                                                                                |
 
-Plain transaction objects of type `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` with the above structure or `RLP-encoded transactions` of type `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` can be used as parameters in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
+A transaction object of type `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` with the above structure or an `RLP-encoded transaction` of type `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` can be used as a parameter in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and in [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
 
 In order for the fee payer to sign an RLP encoded transaction signed by the sender and send it to the network, define an object with the following structure and call `caver.klay.sendTransaction`.
 
-| 명칭                                     | 형식  | 설명                                            |
-| -------------------------------------- | --- | --------------------------------------------- |
-| transactionObject.feePayer             | 문자열 | The fee payer address of the transaction.     |
-| transactionObject.senderRawTransaction | 문자열 | The RLP-encoded transaction signed by sender. |
+| 명칭                   | 형식  | 설명                                            |
+| -------------------- | --- | --------------------------------------------- |
+| feePayer             | 문자열 | The fee payer address of the transaction.     |
+| senderRawTransaction | 문자열 | The RLP-encoded transaction signed by sender. |
 
 **리턴값**
 
