@@ -1,6 +1,6 @@
-# 이더리움 컨트랙트 이식 <a id="porting-ethereum-contract"></a>
+# 이더리움 컨트랙트 포팅 <a id="porting-ethereum-contract"></a>
 
-대부분의 경우 Klaytn에서 이더리움 컨트랙트를 수정 없이 사용할 수 있습니다. 그러나 다음 두 가지 문제에 유의하세요.
+대부분의 경우 Klaytn에서 이더리움 컨트랙트를 수정 없이 사용할 수 있습니다. 그러나 다음 두 가지 문제에 유의하셔야 합니다.
 
 ## 솔리디티 버전 <a id="solidity-version"></a>
 
