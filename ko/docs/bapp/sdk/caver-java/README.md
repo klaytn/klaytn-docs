@@ -7,7 +7,7 @@
 * HTTP 및 IPC를 통한 Klaytn의 JSON-RPC 클라이언트 API의 완전한 구현
 * Klaytn 트랜잭션, 계정 및 계정 키 유형 지원
 * 네이티브 Java 코드에서 스마트 컨트랙트를 배치하고 실행하기 위한 Java 스마트 컨트랙트 랩퍼(wrapper) 자동 생성
-* 새로운 지갑 생성 및 Klaytn Wallet 관리
+* 새로운 지갑 생성 및 Klaytn 지갑 관리
 * 커맨드라인 도구
 * 안드로이드 호환
 
