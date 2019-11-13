@@ -1,6 +1,6 @@
-# Miscellaneous
+# Miscellaneous <a id="miscellaneous"></a>
 
-## klay_sha3
+## klay_sha3 <a id="klay_sha3"></a>
 
 Returns Keccak-256 (not the standardized SHA3-256) of the given data.
 

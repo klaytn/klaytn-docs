@@ -1,8 +1,8 @@
-# Configuration
+# Configuration <a id="configuration"></a>
 
 This document explains the configurable properties of the node. Klaytn node package ships with good defaults and requires very little configuration. If you changed any settings of a running node, you must restart the node to reflect the changes.
 
-## CN Configuration File location
+## CN Configuration File location <a id="cn-configuration-file-location"></a>
 
 * `kcnd.conf` for configuring the Consensus Node
 
@@ -11,7 +11,7 @@ The configuration file is located in the `conf` directory, whose default locatio
 * For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kcn-linux-amd64/conf/`.
 * For the package distribution, the config directory defaults to `/etc/kcnd/conf/`.
 
-## PN Configuration File location
+## PN Configuration File location <a id="pn-configuration-file-location"></a>
 
 * `kpnd.conf` for configuring the Proxy Node
 
@@ -20,7 +20,7 @@ The configuration file is located in the `conf` directory, whose default locatio
 * For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kpn-linux-amd64/conf/`.
 * For the package distribution, the config directory defaults to `/etc/kpnd/conf/`.
 
-## Configuration File Format 
+## Configuration File Format  <a id="configuration-file-format"></a>
 
 CN and PN have the same configuration file format and the properties. 
 
@@ -65,7 +65,7 @@ TXPOOL_EXEC_SLOTS_ACCOUNT=8192
 TXPOOL_NONEXEC_SLOTS_ACCOUNT=8192
 ```
 
-## Properties
+## Properties <a id="properties"></a>
 
 The configuration file has the following configurable properties. CN and PN configuration files have the same properties except `REWARDBASE.`
 

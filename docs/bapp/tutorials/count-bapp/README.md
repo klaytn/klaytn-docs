@@ -1,6 +1,6 @@
-# Count BApp
+# Count BApp <a id="count-bapp"></a>
 
-## Table of Contents
+## Table of Contents <a id="table-of-contents"></a>
 
 * [1. Environment Setup](1.-environment-setup.md)
 * [2. Clone Count BApp](2.-clone-count-bapp.md)
@@ -13,7 +13,7 @@
 * [6. Deploy Contract](6.-deploy-contract.md)
 * [7. Run App](7.-run-app.md)
 
-## Introduction
+## Introduction <a id="introduction"></a>
 
 ![intro](images/tutorial-1intro.gif)
 
@@ -23,14 +23,14 @@ Any user who has a Klaytn account can increase and decrease the current value as
 > **Source Code**  
 > Complete source code can be found on GitHub at [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
 
-## Intended Audience
+## Intended Audience <a id="intended-audience"></a>
 
 Anyone who wants to learn how to build a Blockchain Application on Klaytn. We will build a web application that interacts with smart contracts. To complete this tutorial, the audience is expected to be familiar with the following concepts.
 
 * We assume that you have basic knowledge on [React](https://reactjs.org/) and [Redux](https://redux.js.org/). This course is not for absolute beginners.
 * Basic knowledge and experience in Solidity development are recommended. However, any experienced SW developer should be able to complete the task by following the step-by-step guideline of this tutorial.
 
-## Testing Environment
+## Testing Environment <a id="testing-environment"></a>
 
 Count BApp is tested in the following environment.
 

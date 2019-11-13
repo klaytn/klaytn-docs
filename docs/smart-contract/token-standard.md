@@ -1,4 +1,4 @@
-# Klaytn Compatible Tokens
+# Klaytn Compatible Tokens <a id="klaytn-compatible-tokens"></a>
 
 Klaytn Compatible Token (KCT) is a special type of smart contract that implements certain technical specifications. Everyone who wants to issue tokens on top of Klaytn must follow the specification.  
 
@@ -6,7 +6,7 @@ Klaytn supports Ethereum token standards, specifically ERC20 and ERC721. These s
 
 Nevertheless, note that Klaytn embraces new features that Ethereum does not provide, such as role-based accounts, fee delegation. These new features, or any other features that Klaytn will provide in the future, may require their own standards. For these reasons, Klaytn team is planning to provide various ways \(such as developers' portal and Github issues\) for developers to actively discuss ideas and propose new standards.
 
-## Fungible Token Standard \(ERC-20\)
+## Fungible Token Standard \(ERC-20\) <a id="fungible-token-standard-erc-20"></a>
 
 Fungible tokens are tokens that have properties of uniformity and divisibility. Every fungible token is interchangeable as each unit of token possesses the same value. Just like every dollar bill has the same value of one dollar. Since fungibility is essential feature to crypto currency in most cases, large proportion of blockchain tokens are fungible tokens.
 
@@ -33,7 +33,7 @@ For more information, refer to official [ERC-20 documentation](https://eips.ethe
 
 * An example implementation is available at [OpenZeppelin's ERC20.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/9b3710465583284b8c4c5d2245749246bb2e0094/contracts/token/ERC20/ERC20.sol) on Github.
 
-## Non-fungible Token Standard \(ERC-721\)
+## Non-fungible Token Standard \(ERC-721\) <a id="non-fungible-token-standard-erc-721"></a>
 
 Non-fungible token \(NFT\) is a special type of token that represents a unique asset. As the name non-fungible implies, every single token is unique and non-divisible. This uniqueness of non-fungible token opens up new horizons of asset digitization. For example, it can be used to represent digital art, game items, or any kind of unique assets and allow people to trade them.
 
@@ -64,7 +64,7 @@ For more information, refer to official [ERC-721 documentation](https://eips.eth
 
 * An example implementation is available at [OpenZeppelin's ERC721.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/token/ERC721/ERC721.sol) on Github.
 
-## Token Standards for Klaytn Service Chain
+## Token Standards for Klaytn Service Chain <a id="token-standards-for-klaytn-service-chain"></a>
 
 Service chain refers to Klaytn's side chain that anchors to Klaytn's main blockchain network. When implementing a service chain, special type of contracts are used to support value transfer between the main chain and the service chain. These contracts are currently under development, and when they are ready, the token specifications for Klaytn service chain will be provided on KlaytnDocs.
 

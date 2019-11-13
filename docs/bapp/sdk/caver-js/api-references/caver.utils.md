@@ -3,12 +3,12 @@ description: >-
   caver-js utility APIs.
 ---
 
-# caver.utils
+# caver.utils <a id="caver-utils"></a>
 
 `caver.utils` provides utility functions.
 
 
-## randomHex
+## randomHex <a id="randomhex"></a>
 
 ```javascript
 caver.utils.randomHex(size)
@@ -47,7 +47,7 @@ The [randomHex](https://github.com/frozeman/randomHex) library to generate crypt
 ```
 
 
-## _
+## _ <a id="_"></a>
 
 ```javascript
 caver.utils._()
@@ -70,7 +70,7 @@ See the [underscore API reference](http://underscorejs.org) for details.
 ```
 
 
-## BN
+## BN <a id="bn"></a>
 
 ```javascript
 caver.utils.BN(mixed)
@@ -106,7 +106,7 @@ See the [BN.js documentation](https://github.com/indutny/bn.js/) for details.
 ```
 
 
-## isBN
+## isBN <a id="isbn"></a>
 
 ```javascript
 caver.utils.isBN(bn)
@@ -136,7 +136,7 @@ true
 ```
 
 
-## isBigNumber
+## isBigNumber <a id="isbignumber"></a>
 
 ```javascript
 caver.utils.isBigNumber(bignumber)
@@ -166,7 +166,7 @@ true
 ```
 
 
-## sha3
+## sha3 <a id="sha3"></a>
 
 ```javascript
 caver.utils.sha3(string)
@@ -208,7 +208,7 @@ null
 ```
 
 
-## soliditySha3
+## soliditySha3 <a id="soliditysha3"></a>
 
 
 ```javascript
@@ -272,7 +272,7 @@ This means arguments will be ABI converted and tightly packed before being hashe
 ```
 
 
-## isHex
+## isHex <a id="ishex"></a>
 
 ```javascript
 caver.utils.isHex(hex)
@@ -314,7 +314,7 @@ false
 ```
 
 
-## isHexStrict
+## isHexStrict <a id="ishexstrict"></a>
 
 
 ```javascript
@@ -358,7 +358,7 @@ false
 ```
 
 
-## isAddress
+## isAddress <a id="isaddress"></a>
 
 ```javascript
 caver.utils.isAddress(address)
@@ -398,7 +398,7 @@ false // wrong checksum
 ```
 
 
-## toChecksumAddress
+## toChecksumAddress <a id="tochecksumaddress"></a>
 
 ```javascript
 caver.utils.toChecksumAddress(address)
@@ -428,7 +428,7 @@ Converts an upper or lowercase Klaytn address to a checksum address.
 ```
 
 
-## checkAddressChecksum
+## checkAddressChecksum <a id="checkaddresschecksum"></a>
 
 ```javascript
 caver.utils.checkAddressChecksum(address)
@@ -455,7 +455,7 @@ true
 ```
 
 
-## toHex
+## toHex <a id="tohex"></a>
 
 ```javascript
 caver.utils.toHex(mixed)
@@ -496,7 +496,7 @@ Text strings will be interpreted as UTF-8 strings.
 ```
 
 
-## toBN
+## toBN <a id="tobn"></a>
 
 ```javascript
 caver.utils.toBN(number)
@@ -532,7 +532,7 @@ Safely converts any given value (including [BigNumber.js](http://mikemcl.github.
 ```
 
 
-## hexToNumberString
+## hexToNumberString <a id="hextonumberstring"></a>
 
 ```javascript
 caver.utils.hexToNumberString(hex)
@@ -559,7 +559,7 @@ Returns the number representation of a given HEX value as a string.
 ```
 
 
-## hexToNumber
+## hexToNumber <a id="hextonumber"></a>
 
 ```javascript
 caver.utils.hexToNumber(hex)
@@ -588,7 +588,7 @@ Returns the number representation of a given HEX value.
 ```
 
 
-## numberToHex
+## numberToHex <a id="numbertohex"></a>
 
 ```javascript
 caver.utils.numberToHex(number)
@@ -615,7 +615,7 @@ Returns the HEX representation of a given number value.
 ```
 
 
-## hexToUtf8
+## hexToUtf8 <a id="hextoutf8"></a>
 
 ```javascript
 caver.utils.hexToUtf8(hex)
@@ -644,7 +644,7 @@ Returns the UTF-8 string representation of a given HEX value.
 ```
 
 
-## hexToAscii
+## hexToAscii <a id="hextoascii"></a>
 
 ```javascript
 caver.utils.hexToAscii(hex)
@@ -671,7 +671,7 @@ Returns the ASCII string representation of a given HEX value.
 "I have 100!"
 ```
 
-## utf8ToHex
+## utf8ToHex <a id="utf8tohex"></a>
 
 ```javascript
 caver.utils.utf8ToHex(string)
@@ -700,7 +700,7 @@ Returns the HEX representation of a given UTF-8 string.
 ```
 
 
-## asciiToHex
+## asciiToHex <a id="asciitohex"></a>
 
 ```javascript
 caver.utils.asciiToHex(string)
@@ -729,7 +729,7 @@ Returns the HEX representation of a given ASCII string.
 ```
 
 
-## hexToBytes
+## hexToBytes <a id="hextobytes"></a>
 
 ```javascript
 caver.utils.hexToBytes(hex)
@@ -756,7 +756,7 @@ Returns a byte array from the given HEX string.
 ```
 
 
-## bytesToHex
+## bytesToHex <a id="bytestohex"></a>
 
 ```javascript
 caver.utils.bytesToHex(byteArray)
@@ -783,7 +783,7 @@ Returns a HEX string from a byte array.
 ```
 
 
-## toPeb
+## toPeb <a id="topeb"></a>
 
 ```javascript
 caver.utils.toPeb(number [, unit])
@@ -814,7 +814,7 @@ Converts any KLAY value into peb.
 ```
 
 
-## fromPeb
+## fromPeb <a id="frompeb"></a>
 
 ```javascript
 caver.utils.fromPeb(number [, unit])
@@ -843,7 +843,7 @@ caver.utils.fromPeb(number [, unit])
 ```
 
 
-## unitMap
+## unitMap <a id="unitmap"></a>
 
 ```javascript
 caver.utils.unitMap
@@ -880,7 +880,7 @@ Shows all possible KLAY values and their amount in peb.
 ```
 
 
-## padLeft
+## padLeft <a id="padleft"></a>
 
 ```javascript
 caver.utils.padLeft(string, characterAmount [, sign])
@@ -918,7 +918,7 @@ Adds a padding on the left of a string. Useful for adding paddings to HEX string
 ```
 
 
-## padRight
+## padRight <a id="padright"></a>
 
 ```javascript
 caver.utils.padRight(string, characterAmount [, sign])
@@ -955,7 +955,7 @@ Adds a padding on the right of a string, Useful for adding paddings to HEX strin
 ```
 
 
-## toTwosComplement
+## toTwosComplement <a id="totwoscomplement"></a>
 
 ```javascript
 caver.utils.toTwosComplement(number)
@@ -995,7 +995,7 @@ Converts a negative numer into a two's complement.
 "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
 ```
 
-## isContractDeployment
+## isContractDeployment <a id="iscontractdeployment"></a>
 
 ```javascript
 caver.utils.isContractDeployment(transactionObject)
@@ -1058,7 +1058,7 @@ true
 false
 ```
 
-## xyPointFromPublicKey
+## xyPointFromPublicKey <a id="xypointfrompublickey"></a>
 
 ```javascript
 caver.utils.xyPointFromPublicKey(publicKey)
@@ -1089,7 +1089,7 @@ Returns the x and y coordinates of the given publicKey. For more information on 
 ]
 ```
 
-## isHexPrefixed
+## isHexPrefixed <a id="ishexprefixed"></a>
 
 ```javascript
 caver.utils.isHexPrefixed(input)
@@ -1126,7 +1126,7 @@ false
 false
 ```
 
-## addHexPrefix
+## addHexPrefix <a id="addhexprefix"></a>
 
 ```javascript
 caver.utils.addHexPrefix(input)
@@ -1157,7 +1157,7 @@ Returns a 0x-prefixed hex string. If the input is already 0x-prefixed or a non-h
 '0xa5b0cd8c87e77879d64cc064ee239ed6f71cacf9'
 ```
 
-## stripHexPrefix
+## stripHexPrefix <a id="striphexprefix"></a>
 
 ```javascript
 caver.utils.stripHexPrefix(input)
@@ -1188,7 +1188,7 @@ Returns the result with 0x prefix stripped from input.
 'a5b0cd8c87e77879d64cc064ee239ed6f71cacf9'
 ```
 
-## toBuffer
+## toBuffer <a id="tobuffer"></a>
 
 ```javascript
 caver.utils.toBuffer(input)
@@ -1242,7 +1242,7 @@ Error: Failed to convert string to Buffer. 'toBuffer' function only supports 0x-
 > caver.utils.toBuffer({})
 Error: To convert an object to a buffer, the toArray function must be implemented inside the object
 ```
-## numberToBuffer
+## numberToBuffer <a id="numbertobuffer"></a>
 ```javascript
 caver.utils.numberToBuffer(input)
 ```
@@ -1270,7 +1270,7 @@ This function converts a number to a [Buffer](https://nodejs.org/api/buffer.html
 <Buffer 04>
 ```
 
-## isTxHash
+## isTxHash <a id="istxhash"></a>
 ```javascript
 caver.utils.isTxHash(input)
 ```
@@ -1295,7 +1295,7 @@ true
 > caver.utils.isTxHash('0x1')
 false
 ```
-## isTxHashStrict
+## isTxHashStrict <a id="istxhashstrict"></a>
 ```javascript
 caver.utils.isTxHashStrict(input)
 ```
@@ -1318,5 +1318,152 @@ true
 > caver.utils.isTxHashStrict('e9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550')
 false
 > caver.utils.isTxHashStrict('0x1')
+false
+```
+
+## isValidPrivateKey <a id="isvalidprivatekey"></a>
+
+```javascript
+caver.utils.isValidPrivateKey(privateKey)
+```
+Returns `true` if privateKey is valid, otherwise it returns `false`. 
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| privateKey | String | A private key string to validate. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Boolean | `true` means the privateKey is valid. |
+
+**Examples**
+
+```javascript
+> caver.utils.isValidPrivateKey('0x{private key}')
+true
+
+> caver.utils.isValidPrivateKey('{private key}')
+true
+
+> caver.utils.isValidPrivateKey('a5b0cd8c87e77879d64cc064ee239ed6f71cacf9')
+false
+```
+
+## isValidPublicKey <a id="isvalidpublickey"></a>
+
+```javascript
+caver.utils.isValidPublicKey(publicKey)
+```
+Returns `true` if publicKey is valid, otherwise it returns `false`. 
+
+**NOTE** `caver.utils.isValidPublicKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| publicKey | String | A public key string to validate. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Boolean | `true` means the publicKey is valid. |
+
+**Examples**
+
+```javascript
+// validation with uncompressed public key
+> caver.utils.isValidPublicKey('0xbd6405a7f14f57ecea4a6ffe774ee26d051f7eed13257c9a574055b20e42bab0e8beba92e2e675101eb2a55ba4693080d0bf14548beae7bc93b18b72d10dd350')
+true
+
+// validation with compressed public key
+> caver.utils.isValidPublicKey('0x02bd6405a7f14f57ecea4a6ffe774ee26d051f7eed13257c9a574055b20e42bab0')
+true
+
+> caver.utils.isValidPublicKey('{private key}')
+false
+
+> caver.utils.isValidPublicKey('0x{private key}')
+false
+
+> caver.utils.isValidPublicKey('a5b0cd8c87e77879d64cc064ee239ed6f71cacf9')
+false
+```
+
+## isValidRole <a id="isvalidrole"></a>
+
+```javascript
+caver.utils.isValidRole(role)
+```
+Returns `true` if role is valid, otherwise it returns `false`. Roles that are currently defined for AccountKeyRoleBased are `transactionKey`,` updateKey`, and `feePayerKey`.
+
+**NOTE** `caver.utils.isValidRole` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| role | String | A role string to validate. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Boolean | `true` means the role is valid. |
+
+**Examples**
+
+```javascript
+> caver.utils.isValidRole('transactionKey')
+true
+
+> caver.utils.isValidRole('updateKey')
+true
+
+> caver.utils.isValidRole('feePayerKey')
+true
+
+> caver.utils.isValidRole('role')
+false
+```
+
+## isEmptySig <a id="isemptysig"></a>
+
+```javascript
+caver.utils.isEmptySig(sig)
+```
+Returns `true` if sig is in the format of empty signature (`[['0x01', '0x', '0x']]` or `['0x01', '0x', '0x']`), otherwise it returns `false`. 
+
+When RLP-encoding a transaction in caver-js, if signatures or feePayerSignatures is empty, the value representing an empty signature, `[['0x01', '0x', '0x']]`, is returned for the property. This function is used to check whether the given signature is `[['0x01', '0x', '0x']]` (or `['0x01', '0x', '0x']` in the 'LEGACY' transaction).
+
+**NOTE** `caver.utils.isEmptySig` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| sig | Array | An array of signatures to check empty or not. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Boolean | `true` means the sig is `[['0x01', '0x', '0x']]` or `['0x01', '0x', '0x']`. |
+
+**Examples**
+
+```javascript
+> caver.utils.isEmptySig([['0x01', '0x', '0x']])
+true
+
+> caver.utils.isEmptySig(['0x01', '0x', '0x'])
+true
+
+> caver.utils.isValidRole([['0x25', '0xf3d0cd43661cabf53425535817c5058c27781f478cb5459874feaa462ed3a29a', '0x6748abe186269ff10b8100a4b7d7fea274b53ea2905acbf498dc8b5ab1bf4fbc']])
 false
 ```

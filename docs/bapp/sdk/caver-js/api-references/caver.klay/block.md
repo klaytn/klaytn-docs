@@ -1,4 +1,4 @@
-## defaultBlock
+## defaultBlock <a id="defaultblock"></a>
 
 ```javascript
 caver.klay.defaultBlock
@@ -35,7 +35,7 @@ Default is `"latest"`.
 > caver.klay.defaultBlock = 1000;
 ```
 
-## getBlockNumber
+## getBlockNumber <a id="getblocknumber"></a>
 
 ```javascript
 caver.klay.getBlockNumber([callback])
@@ -60,7 +60,7 @@ Returns the current block number.
 2744
 ```
 
-## getBlock
+## getBlock <a id="getblock"></a>
 
 ```javascript
 caver.klay.getBlock(blockHashOrBlockNumber [, returnTransactionObjects] [, callback])
@@ -126,7 +126,7 @@ Returns a block matching the block hash or block number.
 }
 ```
 
-## getBlockReceipts
+## getBlockReceipts <a id="getblockreceipts"></a>
 
 ```javascript
 caver.klay.getBlockReceipts(blockHash [, callback])
@@ -183,7 +183,7 @@ Returns a list of transaction receipts included in a block identified by the giv
 []
 ```
 
-## getBlockTransactionCount
+## getBlockTransactionCount <a id="getblocktransactioncount"></a>
 
 ```javascript
 caver.klay.getBlockTransactionCount(blockHashOrBlockNumber [, callback])
@@ -209,7 +209,7 @@ Returns the number of transaction in a given block.
 ```
 
 
-## getBlockWithConsensusInfo
+## getBlockWithConsensusInfo <a id="getblockwithconsensusinfo"></a>
 
 ```javascript
 caver.klay.getBlockWithConsensusInfo(blockHashOrBlockNumber [, callback])
@@ -310,7 +310,7 @@ The block object contains:
 }
 ```
 
-## getCommittee
+## getCommittee <a id="getcommittee"></a>
 
 ```javascript
 caver.klay.getCommittee([defaultBlock] [, callback])
@@ -341,7 +341,7 @@ Returns a list of all validators in the committee at the specified block. If the
 ]
 ```
 
-## getCommitteeSize
+## getCommitteeSize <a id="getcommitteesize"></a>
 
 ```javascript
 caver.klay.getCommitteeSize([defaultBlock] [, callback])
@@ -367,7 +367,7 @@ Returns the size of the committee at the specified block. If the parameter is no
 4
 ```
 
-## getCouncil
+## getCouncil <a id="getcouncil"></a>
 **NOTE**: `getValidators` is replaced with this method and is not supported anymore.
 
 ```javascript
@@ -399,7 +399,7 @@ Returns a list of all validators of the council at the specified block. If the p
 ]
 ```
 
-## getCouncilSize
+## getCouncilSize <a id="getcouncilsize"></a>
 
 ```javascript
 caver.klay.getCouncilSize([defaultBlock] [, callback])
@@ -426,7 +426,7 @@ Returns the size of the council at the specified block. If the parameter is not 
 ```
 
 
-## getStorageAt
+## getStorageAt <a id="getstorageat"></a>
 
 ```javascript
 caver.klay.getStorageAt(address, position [, defaultBlock] [, callback])
@@ -454,7 +454,7 @@ Gets the storage at a specific position of an address.
 ```
 
 
-## isMining
+## isMining <a id="ismining"></a>
 
 ```javascript
 caver.klay.isMining([callback])
@@ -480,7 +480,7 @@ Returns `true` if client is actively mining new blocks.
 true
 ```
 
-## isSyncing
+## isSyncing <a id="issyncing"></a>
 
 ```javascript
 caver.klay.isSyncing([callback])

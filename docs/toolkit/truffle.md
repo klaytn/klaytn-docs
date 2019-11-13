@@ -1,6 +1,6 @@
-# Truffle
+# Truffle <a id="truffle"></a>
 
-## Compatibility with Truffle
+## Compatibility with Truffle <a id="compatibility-with-truffle"></a>
 
 In Klaytn, a smart contract written in Solidity can be compiled and deployed via Truffle. At the moment, Klaytn supports up to Truffle v5.0.26, the latest version at the time of writing. Please find details about Truffle on the websites below.
 
@@ -17,7 +17,7 @@ If you have a local EN running, you can deploy contracts directly with truffle f
 
 If you want to deploy with a remote EN node, you should use [truffle-hdwallet-provider-klaytn](https://www.npmjs.com/package/truffle-hdwallet-provider-klaytn).
 
-## Configuring truffle-hdwallet-provider-klaytn
+## Configuring truffle-hdwallet-provider-klaytn <a id="configuring-truffle-hdwallet-provider-klaytn"></a>
 
 truffle-hdwallet-provider-klaytn is a JavaScript HD wallet provider forked from truffle-hdwallet-provider.
 
@@ -29,7 +29,7 @@ $ npm install truffle-hdwallet-provider-klaytn
 
 Set `truffle-config.js` as below.
 
-### Using a mnemonic
+### Using a mnemonic <a id="using-a-mnemonic"></a>
 
 ```javascript
 const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
@@ -59,7 +59,7 @@ module.exports = {
 };
 ```
 
-### Using a private key
+### Using a private key <a id="using-a-private-key"></a>
 
 ```javascript
 const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");

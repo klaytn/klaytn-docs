@@ -3,12 +3,12 @@ description: >-
   caver-js APIs related to managing accounts.
 ---
 
-# caver.klay.accounts
+# caver.klay.accounts <a id="caver-klay-accounts"></a>
 
 `caver.klay.accounts` contains functions to generate Klaytn accounts and sign transactions and data.
 
 
-## create
+## create <a id="create"></a>
 
 ```javascript
 caver.klay.accounts.create([entropy])
@@ -68,8 +68,436 @@ Generates an account object with private key and public key.
 }
 ```
 
+## createWithAccountKey <a id="createwithaccountkey"></a>
 
-## privateKeyToAccount
+```javascript
+caver.klay.accounts.createWithAccountKey(address, accountKey)
+```
+Creates an instance of Account with the given AccountKey. Account is for managing an account's address and AccountKey. 
+
+**NOTE** This is merely a data structure used in caver-js. This method does not create or update an account in the Klaytn network.
+**NOTE** `caver.klay.accounts.createWithAccountKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| address | String | Address of an Account. |
+| accountKey | String &#124; Array &#124; Object | An AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or a data structure that contains the key info (a private key string, an array of private key strings or an object that defines the key for each role). |
+
+
+**Return Value**
+
+`Object` - An Account instance is returned, with the following properties:
+
+| Name | Type | Description |
+| --- | --- | --- |
+| address | String | The address of the account. |
+| privateKey | String | Default key string of accountKey that the account has. This property is left for backward compatibility. privateKey only represents the default key of accountKey, so using privateKey to sign or send a transaction is not recommended. It is recommended to use transactionKey, updateKey, or feePayerKey in context. |
+| accountKeyType | String | Type of accountKey the account has. This can be `AccountKeyPublic`, `AccountKeyMultiSig`, or `AccountKeyRoleBased` |
+| accountKey | Object | The key of the account. This is AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased. |
+| keys | String &#124; Array &#124; Object | All keys inside accountKey that the Account has. For AccountKeyPublic, this is a single private key string; for AccountKeyMultiSig, this returns an array containing all the private key strings. In the case of AccountKeyRoleBased, an object with keys associated with each role is returned. |
+| transactionKey | String &#124; Array | Key used for the [RoleTransaction](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys. |
+| updateKey | String &#124; Array | Key used for the [RoleAccountUpdate](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys. |
+| feePayerKey | String &#124; Array | Key used for [RoleFeePayer](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys. |
+| signTransaction(tx [, callback]) | Function | The function to sign transactions. See [caver.klay.accounts.signTransaction](#signtransaction). |
+| sign(data) | Function | The function to sign transactions. See [caver.klay.accounts.sign](#sign). |
+| encrypt | Function | The function to encrypt an Account with given password. |
+| getKlaytnWalletKey | Function | The function to get [Klaytn Wallet Key](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
+
+**Example**
+
+```javascript
+// Create an Account with AccountKeyPublic
+> caver.klay.accounts.createWithAccountKey('0x62ca8964610a9d447e1a64753a09fc8b3d40b405', '0x{private key}')
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
+    signTransaction: [Function: signTransaction],
+    sign: [Function: sign],
+    encrypt: [Function: encrypt],
+    getKlaytnWalletKey: [Function: getKlaytnWalletKey] 
+}
+
+// Create an Account with AccountKeyMultiSig
+> caver.klay.accounts.createWithAccountKey('0x62ca8964610a9d447e1a64753a09fc8b3d40b405', ['0x{private key}', '0x{private key}'])
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
+    signTransaction: [Function: signTransaction],
+    sign: [Function: sign],
+    encrypt: [Function: encrypt],
+    getKlaytnWalletKey: [Function: getKlaytnWalletKey] 
+}
+
+// Create an Account with AccountKeyRoleBased
+> caver.klay.accounts.createWithAccountKey('0x62ca8964610a9d447e1a64753a09fc8b3d40b405', {
+    transactionKey: ['0x{private key}', '0x{private key}'], '0x{private key}',
+    updateKey: ['0x{private key}', '0x{private key}', '0x{private key}'],
+    feePayerKey: ['0x{private key}', '0x{private key}', '0x{private key}']
+})
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
+    signTransaction: [Function: signTransaction],
+    sign: [Function: sign],
+    encrypt: [Function: encrypt],
+    getKlaytnWalletKey: [Function: getKlaytnWalletKey] 
+}
+```
+
+## createWithAccountKeyPublic <a id="createwithaccountkeypublic"></a>
+
+```javascript
+caver.klay.accounts.createWithAccountKeyPublic(address, accountKey)
+```
+Creates an instance of Account with AccountKeyPublic.
+
+**NOTE** `caver.klay.accounts.createWithAccountKeyPublic` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| address | String | Address of an Account. |
+| accountKey | String &#124; Object | An AccountKeyPublic instance or a private key string.  |
+
+
+**Return Value**
+
+`Object` - An Account instance, see [caver.klay.accounts.createWithAccountKey](#createwithaccountkey).
+
+**Example**
+
+```javascript
+> caver.klay.accounts.createWithAccountKeyPublic('0x62ca8964610a9d447e1a64753a09fc8b3d40b405', '0x{private key}')
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
+    signTransaction: [Function: signTransaction],
+    sign: [Function: sign],
+    encrypt: [Function: encrypt],
+    getKlaytnWalletKey: [Function: getKlaytnWalletKey] 
+}
+```
+
+## createWithAccountKeyMultiSig <a id="createwithaccountkeymultisig"></a>
+
+```javascript
+caver.klay.accounts.createWithAccountKeyMultiSig(address, accountKey)
+```
+Creates an instance of Account with AccountKeyMultiSig.
+
+**NOTE** `caver.klay.accounts.createWithAccountKeyMultiSig` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| address | String | Address of an Account. |
+| accountKey | String &#124; Object | An AccountKeyMultiSig instance or an array of private key strings.  |
+
+
+**Return Value**
+
+`Object` - An Account instance, see [caver.klay.accounts.createWithAccountKey](#createwithaccountkey).
+
+**Example**
+
+```javascript
+> caver.klay.accounts.createWithAccountKeyMultiSig('0x62ca8964610a9d447e1a64753a09fc8b3d40b405', ['0x{private key}', '0x{private key}'])
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
+    signTransaction: [Function: signTransaction],
+    sign: [Function: sign],
+    encrypt: [Function: encrypt],
+    getKlaytnWalletKey: [Function: getKlaytnWalletKey] 
+}
+```
+
+## createWithAccountKeyRoleBased <a id="createwithaccountkeyrolebased"></a>
+
+```javascript
+caver.klay.accounts.createWithAccountKeyRoleBased(address, accountKey)
+```
+Creates an instance of Account with AccountKeyRoleBased.
+
+**NOTE** `caver.klay.accounts.createWithAccountKeyRoleBased` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| address | String | Address of an Account. |
+| accountKey | String &#124; Object | An AccountKeyRoleBased instance or an object that defines the key for each role. |
+
+
+**Return Value**
+
+`Object` - An Account instance, see [caver.klay.accounts.createWithAccountKey](#createwithaccountkey).
+
+**Example**
+
+```javascript
+> caver.klay.accounts.createWithAccountKeyRoleBased('0x62ca8964610a9d447e1a64753a09fc8b3d40b405', {
+    transactionKey: ['0x{private key}', '0x{private key}', '0x{private key}'],
+    updateKey: ['0x{private key}', '0x{private key}', '0x{private key}'],
+    feePayerKey: ['0x{private key}', '0x{private key}', '0x{private key}']
+})
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
+    signTransaction: [Function: signTransaction],
+    sign: [Function: sign],
+    encrypt: [Function: encrypt],
+    getKlaytnWalletKey: [Function: getKlaytnWalletKey] 
+}
+```
+
+## createAccountKey <a id="createaccountkey"></a>
+
+```javascript
+caver.klay.accounts.createAccountKey(key)
+```
+Creates an instance of `AccountKeyPublic`, `AccountKeyMultiSig`, or `AccountKeyRoleBased` depending on the type of parameter. 
+
+AccountKey is a data structure for managing keys in caver-js. Use AccountKeyPublic if you want to use a single private key, AccountKeyMultiSig if you want to use multiple private keys, or AccountKeyRoleBased if you want to use a different key for each role.
+
+**NOTE** `caver.klay.accounts.createAccountKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| key | String &#124; Array &#124; Object | Key for generating AccountKey. If `key` is a single private key string, an AccountKeyPublic instance is created. If `key` is an array containing multiple private key strings, an AccountKeyMultiSig instance is created. If `key` is an object defining a key (a private key string or an array of private key strings) for each role, an AccountKeyRoleBased instance is created. AccountKeyRoleBased instance can have AccountKeyPublic or AccountKeyMultiSig for each role. |
+
+
+**Return Value**
+
+`Object` - An AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased instance is returned with the following properties:
+
+| Name | Type | Description |
+| --- | --- | --- |
+| type | String | The type of AccountKey instance. |
+| defaultKey | String | Default private key of AccountKey. The default private key represents a single private key string defined for AccountKeyPublic, and a private key string in the zeroth index of the array if AccountKeyMultiSig. For AccountKeyRoleBased, it represents the defaultKey of the first found AccountKey, where the AccountKey is searched in the following order: transactionkey, updateKey, feePayerKey.  |
+| keys | String &#124; Array &#124; Object | All private keys defined inside the AccountKey instance. For AccountKeyPublic, this is a single private key string; for AccountKeyMultiSig, this returns an array containing all the private key strings. In the case of AccountKeyRoleBased, an object with keys associated with each role is returned. |
+| transactionKey | String &#124; Array | Key used for the [RoleTransaction](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys. |
+| updateKey | String &#124; Array | Key used for the [RoleAccountUpdate](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys. |
+| feePayerKey | String &#124; Array | Key used for [RoleFeePayer](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys. |
+
+**Example**
+
+```javascript
+// Create an AccountKeyPublic
+> caver.klay.accounts.createAccountKey('0x{private key}')
+AccountKeyPublic {
+    _key: '0x{private key}'
+}
+
+// Create an AccountKeyMultiSig
+> caver.klay.accounts.createAccountKey(['0x{private key}', '0x{private key}'])
+AccountKeyMultiSig {
+    _keys: [ 
+      '0x{private key}',
+      '0x{private key}'
+    ]
+}
+
+// Create an AccountKeyRoleBased
+> caver.klay.accounts.createAccountKey({
+    transactionKey: '0x{private key}',
+    updateKey: ['0x{private key}', '0x{private key}'],
+    feePayerKey: '0x{private key}'
+})
+AccountKeyRoleBased {
+    _transactionKey:
+        AccountKeyPublic {
+            _key: '0x{private key}'
+        },
+    _updateKey:
+        AccountKeyMultiSig {
+            _keys: [
+                '0x{private key}',
+                '0x{private key}'
+            ] 
+        },
+    _feePayerKey:
+        AccountKeyPublic {
+            _key: '0x{private key}' 
+        }
+}
+```
+
+## createAccountKeyPublic <a id="createaccountkeypublic"></a>
+
+```javascript
+caver.klay.accounts.createAccountKeyPublic(key)
+```
+Creates an instance of `AccountKeyPublic` with the given private key string.
+
+**NOTE** `caver.klay.accounts.createAccountKeyPublic` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| key | String | A string of private key for generating AccountKeyPublic. |
+
+
+**Return Value**
+
+`Object` - An AccountKeyPublic instance, see [caver.klay.accounts.createAccountKey](#createaccountkey).
+
+
+**Example**
+
+```javascript
+> caver.klay.accounts.createAccountKeyPublic('0x{private key}')
+AccountKeyPublic {
+    _key: '0x{private key}'
+}
+```
+
+## createAccountKeyMultiSig <a id="createaccountkeymultisig"></a>
+
+```javascript
+caver.klay.accounts.createAccountKeyMultiSig(keys)
+```
+Creates an instance of `AccountKeyMultiSig` with the given multiple private keys.
+
+**NOTE** `caver.klay.accounts.createAccountKeyMultiSig` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| keys | Array | An array of private key strings for generating AccountKeyMultiSig. |
+
+
+**Return Value**
+
+`Object` - An AccountKeyMultiSig instance, see [caver.klay.accounts.createAccountKey](#createaccountkey).
+
+
+**Example**
+
+```javascript
+> caver.klay.accounts.createAccountKeyMultiSig(['0x{private key}', '0x{private key}'])
+AccountKeyMultiSig {
+    _keys: [ 
+      '0x{private key}',
+      '0x{private key}'
+    ]
+}
+```
+
+## createAccountKeyRoleBased <a id="createaccountkeyrolebased"></a>
+
+```javascript
+caver.klay.accounts.createAccountKeyRoleBased(keyObject)
+```
+Creates an instance of `AccountKeyRoleBased` with the given keys associated with each role.
+
+**NOTE** `caver.klay.accounts.createAccountKeyRoleBased` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| keyObject | Object | An object with role-key pairs. A key for each role can be a private key string or an array of private key strings. |
+
+
+**Return Value**
+
+`Object` - An AccountKeyRoleBased instance, see [caver.klay.accounts.createAccountKey](#createaccountkey).
+
+
+**Example**
+
+```javascript
+> caver.klay.accounts.createAccountKeyRoleBased({
+    transactionKey: '0x{private key}',
+    updateKey: ['0x{private key}', '0x{private key}'],
+    feePayerKey: '0x{private key}'
+})
+AccountKeyRoleBased {
+    _transactionKey:
+        AccountKeyPublic {
+            _key: '0x{private key}'
+        },
+    _updateKey:
+        AccountKeyMultiSig {
+            _keys: [
+                '0x{private key}',
+                '0x{private key}'
+            ] 
+        },
+    _feePayerKey:
+        AccountKeyPublic {
+            _key: '0x{private key}' 
+        }
+}
+```
+
+## accountKeyToPublicKey <a id="accountkeytopublickey"></a>
+
+```javascript
+caver.klay.accounts.accountKeyToPublicKey(accountKey)
+```
+This function converts the private key of AccountKey to public key.
+
+**NOTE** `caver.klay.accounts.accountKeyToPublicKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| accountKey | String &#124; Array &#124; Object | An AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or a data structure that contains the key info (a private key string, an array of private key strings or an object that defines the key for each role). |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| String &#124; Array &#124; Object | If the parameter is an AccountKeyPublic instance or a private key string, a public key string is returned. If the parameter is an AccountKeyMultiSig instance or an array of private key strings, an array of public-key strings is returned. If the parameter is an AccountKeyRoleBased instance or an object defining a key (a private key string or an array of private key strings) for each role, an object with role and public-key (a public-key string or an array of public-key strings) pairs is returned. |
+
+
+**Example**
+
+```javascript
+// Convert a private key string
+> caver.klay.accounts.accountKeyToPublicKey('0x{private key}')
+'0x67f20d1198abcdc036a4d8f3ea0cf837527716c90f71d0b0410dfe3e1b405eded9ea818eedd5e8ad79658b2cdf4862ab0956a6f7fd0a4886afe6110b2e9803a4'
+
+// Convert an array of private key strings
+> caver.klay.accounts.accountKeyToPublicKey(['0x{private key}', '0x{private key}'])
+[
+    '0x67f20d1198abcdc036a4d8f3ea0cf837527716c90f71d0b0410dfe3e1b405eded9ea818eedd5e8ad79658b2cdf4862ab0956a6f7fd0a4886afe6110b2e9803a4',
+    '0x7c5415f99628618b3fe78e14606c83a22488769b3361e3758c7c98a204a23b615cf07af65490895d70a7b7e7e885fc2f597d65ea69ed586c7ae7cb0241656036'
+]
+
+// Convert a role-based key
+> caver.klay.accounts.accountKeyToPublicKey({transactionKey: ['0x{private key}', '0x{private key}'], updateKey: '0x{private key}', feePayerKey: ['0x{private key}', '0x{private key}']})
+{ 
+    transactionKey: [
+        '0x67f20d1198abcdc036a4d8f3ea0cf837527716c90f71d0b0410dfe3e1b405eded9ea818eedd5e8ad79658b2cdf4862ab0956a6f7fd0a4886afe6110b2e9803a4',
+        '0x7c5415f99628618b3fe78e14606c83a22488769b3361e3758c7c98a204a23b615cf07af65490895d70a7b7e7e885fc2f597d65ea69ed586c7ae7cb0241656036'
+    ],
+    updateKey: '0x21aa42e0232e6c7607a0028bcbd690400b92574c44b17af8b036f3f4f01b0586f90578976a040debf6aecef4a5d00b5315b8c82e999ed8e5fbacd5fcbee82080',
+    feePayerKey: [
+        '0xb82bb74e902b1fa3594c7cc8bd33a727eb1c85a9bfc991327a0215fc413eafe0b3723cc7f3c6e79981b409e82b8bf7033fed2d2878c26502bea64f84d592b167',
+        '0x39acd887f32ccecd1b13c890854d2dfd0016f0be477155d81a848e971ff59412b0e4c0b5bfc1fd548b971f98cd9ef19367309d0475033fda3c8028ba9df27734'
+    ]
+}
+```
+
+## privateKeyToAccount <a id="privatekeytoaccount"></a>
 
 ```javascript
 caver.klay.accounts.privateKeyToAccount(privateKey)
@@ -101,7 +529,7 @@ Creates an account object from a private key.
 }
 ```
 
-## privateKeyToPublicKey
+## privateKeyToPublicKey <a id="privatekeytopublickey"></a>
 
 ```javascript
 caver.klay.accounts.privateKeyToPublicKey(privateKey)
@@ -126,22 +554,294 @@ Gets public key from a given private key
 '0xbb1846722a4c27e71196e1a44611ee7174276a6c51c4830fb810cac64b0725f217cb8783625a809d1303adeeec2cf036ab74098a77a6b7f1003486e173b29aa7'
 ```
 
-## signTransaction
+## createAccountForUpdate <a id="createaccountforupdate"></a>
 
 ```javascript
-caver.klay.accounts.signTransaction(tx, privateKey [, callback])
+caver.klay.accounts.createAccountForUpdate(address, accountKey, options)
 ```
-Signs a Klaytn transaction with a given private key.
+Creates an instance of `AccountForUpdate`. AccountForUpdate contains the address of the account and the new public key to update. 
+
+`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate).
+
+The accountKey parameter of caver.klay.accounts.createAccountForUpdate must be a private key. 
+
+You can create an AccountForUpdate instance using the public key with [caver.klay.accounts.createAccountForUpdateWithPublicKey](#createaccountforupdatewithpublickey). 
+
+You can also use [caver.klay.accounts.createAccountForUpdateWithLegacyKey](#createaccountforupdatewithlegacykey) to create an AccountForUpdate instance for updating to [AccountKeyLegacy](../../../../klaytn/design/accounts.md#accountkeylegacy), and [caver.klay.accounts.createAccountForUpdateWithFailKey](#createaccountforupdatewithfailkey) to create an AccountForUpdate instance for updating to [AccountKeyFail](../../../../klaytn/design/accounts.md#accountkeyfail).
+
+**NOTE** `caver.klay.accounts.createAccountForUpdate` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tx | Object | The transaction object.  The fields of the transaction object are different for each transaction type. For a description of each transaction, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
-| privateKey | String &#124; Array | (optional) The private key to sign with. |
+| address | String | Address of an Account. |
+| accountKey | String &#124; Array &#124; Object | AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or the equivalent key info (a private key string, an array of private key strings or an object defining key(s) with role(s)). If accountKey is not an AccountKey instance, this method internally calls [caver.klay.accounts.createAccountKey](#createaccountkey) to create an AccountKey instance from the given key info. |
+| options |  Object | An optional object containing the threshold and weight. This is required when using AccountKeyMultiSig. The usage is shown in the example below. |
+
+**Return Value**
+
+`Object` - An AccountForUpdate instance is returned, with the following properties:
+
+| Name | Type | Description |
+| --- | --- | --- |
+| address | String | Address of the account to be updated. |
+| keyForUpdate | Object | An object containing the new public key derived from the given accountKey. |
+
+
+**Example**
+
+```javascript
+// Create AccountForUpdate for AccountKeyPublic
+> caver.klay.accounts.createAccountForUpdate('0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef', '0x{private key}')
+AccountForUpdate {
+    address: '0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef',
+    keyForUpdate: { 
+        publicKey: '0x24c32ee4f908ceed89e7501de2980fcb1d2add69080d3921f86c49de863eb2d507e24d9aaf91328b7f7cef2a94b538cb33b3f8cdd64925855ce0a4bf6e11f3db'
+    }
+}
+
+// Create AccountForUpdate for AccountKeyMultiSig with an options object
+> caver.klay.accounts.createAccountForUpdate('0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef', ['0x{private key}', '0x{private key}'], { threshold: 2, weight: [1,1] })
+AccountForUpdate {
+    address: '0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef',
+    keyForUpdate: {
+        multisig: {
+            threshold: 2,
+            keys: [
+                {
+                    weight: 1, 
+                    publicKey: '0xc89f551ce9c569cf978f4f64833e447f177a83eda4f1883d770360ab35002dbdeb2d502cd33217238add013ea1c4ff5055ceda46473569824e336d0d64e9eeb2'
+                },
+                {
+                    weight: 1, 
+                    publicKey: '0xab0837fa3d61cf33dc4f3af4aca692d8c939566e1abbca0036fa3b29cd55b38a387f73baf59510d96680062bd129dd2bb8dcbb5ea5ed16c881f83a3251f73600'
+                }
+            ]
+        }
+    }
+}
+
+// Create AccountForUpdate for AccountKeyRoleBased with an options object
+> caver.klay.accounts.createAccountForUpdate('0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef', { transactionKey: '0x{private key}', updateKey: ['0x{private key}', '0x{private key}'], feePayerKey: '0x{private key}' }, { updateKey: { threshold: 2, weight: [1,1] } })
+AccountForUpdate {
+    address: '0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef',
+    keyForUpdate: { 
+        roleTransactionKey: { 
+            publicKey: '0x2b4a1d4ca1ee828f17e8c4c0ac0c0c46cf08f4b27fafc01e4b3481a4fe0891cacf315ed10b1df85bfd6797ea6c5ebafac437a7564eff355b11ad1e3d6e6c43a7'
+        },
+        roleAccountUpdateKey: { 
+            multisig: { 
+                threshold: 2,
+                keys: [
+                    { 
+                        weight: 1,
+                        publicKey: '0x26156615c8e503d96cd332a2fba6aab88b6156b983c89f586bcfc0443c0a7f2372d892d73c66d30f726f8269c75920a082eb2e57f6662d855389bb922ee263f3'
+                    },
+                    {
+                        weight: 1,
+                        publicKey: '0xafc139d2bcace02fa3d4b12926f976cf672f35a6ea2bc0f7e2e6d2ada0dd28f672acb8dcaedc694d6134a2f6c4aae472c9d67d30f760e16e742e01758c4daf83'
+                    }
+                ]
+            }
+        },
+        roleFeePayerKey: {
+            publicKey: '0xe55d39e147a0d5542d4bb965aeaa01e918c81a332ce47e0d3173179fe5b68c8c9264bec516d50bea0a7da7c3d8f98e124761a9b27434221d138ff8e22d932a0a'
+        }
+    }
+}
+
+// Create AccountForUpdate for AccountKeyRoleBased with legacy key or fail key
+// When updating the key used for a specific role in AccountKeyRoleBased to AccountKeyLegacy or AccountKeyFailKey, define the role to update as follows.
+> caver.klay.accounts.createAccountForUpdate('0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef', { transactionKey: 'legacyKey', updateKey: 'failKey' })
+AccountForUpdate {
+    address: '0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef',
+    keyForUpdate: {
+        roleTransactionKey: { legacyKey: true },
+        roleAccountUpdateKey: { failKey: true }
+    }
+}
+```
+
+## createAccountForUpdateWithPublicKey <a id="createaccountforupdatewithpublickey"></a>
+
+```javascript
+caver.klay.accounts.createAccountForUpdateWithPublicKey(address, keyForUpdate, options)
+```
+Creates an instance of `AccountForUpdate` with the public key of the new key to update.
+
+`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate).
+
+**NOTE** `caver.klay.accounts.createAccountForUpdateWithPublicKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| address | String | Address of an Account. |
+| keyForUpdate | String &#124; Array &#124; Object | The public-key of the new key to update. This value is a single public-key string when the key is AccountKeyPublic, an array of public-key strings when AccountKeyMultiSig, an object when the key is AccountKeyRoleBased. |
+| options |  Object | An optional object containing the threshold and weight. This is required when using AccountKeyMultiSig. If you use AccountkeyMultiSig as one of the keys in AccountKeyRoleBased, specify the role of the threshold and weight. The usage is shown in the example below. |
+
+**Return Value**
+
+`Object` - An AccountForUpdate instance, see [caver.klay.accounts.createAccountForUpdate](#createaccountforupdate).
+
+
+**Example**
+
+```javascript
+// Create AccountForUpdate for AccountKeyPublic
+> caver.klay.accounts.createAccountForUpdateWithPublicKey('0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef', '0x24c32ee4f908ceed89e7501de2980fcb1d2add69080d3921f86c49de863eb2d507e24d9aaf91328b7f7cef2a94b538cb33b3f8cdd64925855ce0a4bf6e11f3db')
+AccountForUpdate {
+    address: '0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef',
+    keyForUpdate: { 
+        publicKey: '0x24c32ee4f908ceed89e7501de2980fcb1d2add69080d3921f86c49de863eb2d507e24d9aaf91328b7f7cef2a94b538cb33b3f8cdd64925855ce0a4bf6e11f3db'
+    }
+}
+
+// Create AccountForUpdate for AccountKeyMultiSig with an options object
+> caver.klay.accounts.createAccountForUpdateWithPublicKey('0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef', ['0xc89f551ce9c569cf978f4f64833e447f177a83eda4f1883d770360ab35002dbdeb2d502cd33217238add013ea1c4ff5055ceda46473569824e336d0d64e9eeb2', '0xab0837fa3d61cf33dc4f3af4aca692d8c939566e1abbca0036fa3b29cd55b38a387f73baf59510d96680062bd129dd2bb8dcbb5ea5ed16c881f83a3251f73600'], { threshold: 2, weight: [1,1] })
+AccountForUpdate {
+    address: '0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef',
+    keyForUpdate: {
+        multisig: {
+            threshold: 2,
+            keys: [
+                {
+                    weight: 1, 
+                    publicKey: '0xc89f551ce9c569cf978f4f64833e447f177a83eda4f1883d770360ab35002dbdeb2d502cd33217238add013ea1c4ff5055ceda46473569824e336d0d64e9eeb2'
+                },
+                {
+                    weight: 1, 
+                    publicKey: '0xab0837fa3d61cf33dc4f3af4aca692d8c939566e1abbca0036fa3b29cd55b38a387f73baf59510d96680062bd129dd2bb8dcbb5ea5ed16c881f83a3251f73600'
+                }
+            ]
+        }
+    }
+}
+
+// Create AccountForUpdate for AccountKeyRoleBased with an options object
+> caver.klay.accounts.createAccountForUpdateWithPublicKey('0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef', { transactionKey: '0x2b4a1d4ca1ee828f17e8c4c0ac0c0c46cf08f4b27fafc01e4b3481a4fe0891cacf315ed10b1df85bfd6797ea6c5ebafac437a7564eff355b11ad1e3d6e6c43a7', updateKey: ['0x26156615c8e503d96cd332a2fba6aab88b6156b983c89f586bcfc0443c0a7f2372d892d73c66d30f726f8269c75920a082eb2e57f6662d855389bb922ee263f3', '0xafc139d2bcace02fa3d4b12926f976cf672f35a6ea2bc0f7e2e6d2ada0dd28f672acb8dcaedc694d6134a2f6c4aae472c9d67d30f760e16e742e01758c4daf83'], feePayerKey: '0xe55d39e147a0d5542d4bb965aeaa01e918c81a332ce47e0d3173179fe5b68c8c9264bec516d50bea0a7da7c3d8f98e124761a9b27434221d138ff8e22d932a0a' }, { updateKey: { threshold: 2, weight: [1,1] } })
+AccountForUpdate {
+    address: '0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef',
+    keyForUpdate: { 
+        roleTransactionKey: { 
+            publicKey: '0x2b4a1d4ca1ee828f17e8c4c0ac0c0c46cf08f4b27fafc01e4b3481a4fe0891cacf315ed10b1df85bfd6797ea6c5ebafac437a7564eff355b11ad1e3d6e6c43a7'
+        },
+        roleAccountUpdateKey: { 
+            multisig: { 
+                threshold: 2,
+                keys: [
+                    { 
+                        weight: 1,
+                        publicKey: '0x26156615c8e503d96cd332a2fba6aab88b6156b983c89f586bcfc0443c0a7f2372d892d73c66d30f726f8269c75920a082eb2e57f6662d855389bb922ee263f3'
+                    },
+                    {
+                        weight: 1,
+                        publicKey: '0xafc139d2bcace02fa3d4b12926f976cf672f35a6ea2bc0f7e2e6d2ada0dd28f672acb8dcaedc694d6134a2f6c4aae472c9d67d30f760e16e742e01758c4daf83'
+                    }
+                ]
+            }
+        },
+        roleFeePayerKey: {
+            publicKey: '0xe55d39e147a0d5542d4bb965aeaa01e918c81a332ce47e0d3173179fe5b68c8c9264bec516d50bea0a7da7c3d8f98e124761a9b27434221d138ff8e22d932a0a'
+        }
+    }
+}
+```
+
+## createAccountForUpdateWithLegacyKey <a id="createaccountforupdatewithlegacykey"></a>
+
+```javascript
+caver.klay.accounts.createAccountForUpdateWithLegacyKey(address)
+```
+Creates an AccountForUpdate instance to update the account's key with [AccountKeyLegacy](../../../../klaytn/design/accounts.md#accountkeylegacy). Make sure you have a private key that matches your account address before updating to AccountKeyLegacy.
+
+`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate).
+
+**NOTE** `caver.klay.accounts.createAccountForUpdateWithLegacyKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| address | String | Address of an Account. |
+
+**Return Value**
+
+`Object` - An AccountForUpdate instance, see [caver.klay.accounts.createAccountForUpdate](#createaccountforupdate).
+
+
+**Example**
+
+```javascript
+// Create AccountForUpdate for AccountKeyLegacy
+> caver.klay.accounts.createAccountForUpdateWithLegacyKey('0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef')
+AccountForUpdate {
+    address: '0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef',
+    keyForUpdate: { legacyKey: true } 
+}
+```
+
+## createAccountForUpdateWithFailKey <a id="createaccountforupdatewithfailkey"></a>
+
+```javascript
+caver.klay.accounts.createAccountForUpdateWithFailKey(address)
+```
+Creates an AccountForUpdate instance to update the account's key with [AccountKeyFail](../../../../klaytn/design/accounts.md#accountkeyfail). Transactions sent by an account with AccountKeyFail always fail in the validation process.
+
+`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate).
+
+**NOTE** `caver.klay.accounts.createAccountForUpdateWithFailKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| address | String | Address of an Account. |
+
+**Return Value**
+
+`Object` - An AccountForUpdate instance, see [caver.klay.accounts.createAccountForUpdate](#createaccountforupdate).
+
+
+**Example**
+
+```javascript
+// Create AccountForUpdate for AccountKeyFail
+> caver.klay.accounts.createAccountForUpdateWithFailKey('0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef')
+AccountForUpdate {
+    address: '0x5B4EF8e2417DdE1b9B80BcfC35d1bfeF3D7234ef',
+    keyForUpdate: { failKey: true } 
+}
+```
+
+## signTransaction <a id="signtransaction"></a>
+
+```javascript
+caver.klay.accounts.signTransaction(tx [, privateKey] [, callback])
+```
+
+Signs a Klaytn transaction with a given private key.
+
+Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), this method takes an RLP-encoded transaction as an input as well as a plain transaction object. See [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction) for the various types of transaction object. This method basically signs as a sender. 
+If you want to sign as a fee-payer, we recommend to use [caver.klay.accounts.feePayerSignTransaction](#feepayersigntransaction). But, fee-payers can still sign using this method by passing an object, `{senderRawTransaction: rawTransaction, feePayer: feePayerAddress}`, as `tx`. senderRawTransaction must be a FEE_DELEGATED_ type transaction.
+
+Also since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), signTransaction keeps the existing signatures/feePayerSignatures in the input transaction and appends the signature(s) of the signer to it.
+
+See [Sending a Transaction with multiple signer](../getting-started.md#sending-a-transaction-with-multiple-signer) for how to combine multiple users' signatures into a single rawTransaction.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| tx | String &#124; Object | Transaction object or RLP-encoded transaction string (rawTransaction). The properties of a transaction object varies depending on the transaction type. For the description of each transaction type, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
+| privateKey | String &#124; Array  | (optional) The private key to sign with. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **NOTE** The `privateKey` parameter has been changed to an `optional parameter` since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). Also, privateKey parameter supports `array` of private key strings since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). If you do not pass a privateKey, either `from` or `feePayer` account must exist in caver.klay.accounts.wallet to sign the transaction. If an array of privateKeys are provided, the transaction is signed with all the keys inside the array.
+
+**NOTE** The `tx` parameter accepts an RLP-encoded transaction since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 **Return Value**
 
@@ -160,6 +860,8 @@ Signs a Klaytn transaction with a given private key.
 | feePayerSignatures | Array | (optional) An array of the fee payer's signature(s). |
 
 **NOTE** The signatures and feePayerSignatures properties have been added since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3). If the sender signs the transaction, the signature array is returned in `signatures`. If the fee payer signs, the signature array is returned in `feePayerSignatures`.
+
+**NOTE** The `txHash` and `senderTxHash` in the result object may not be the final values. If another sender signature is added, txHash and senderTxHash will change. If a fee-payer signature is added, txHash will change.
 
 **Example**
 
@@ -311,8 +1013,163 @@ Signs a Klaytn transaction with a given private key.
 }
 ```
 
+## feePayerSignTransaction <a id="feepayersigntransaction"></a>
 
-## recoverTransaction
+```javascript
+caver.klay.accounts.feePayerSignTransaction(tx, feePayerAddress [, privateKey] [, callback])
+```
+
+Signs a transaction as a fee payer.
+
+Fee payers can sign on a FEE_DELEGATED_ transaction. A transaction object or an RLP-encoded transaction can be passed as an argument.
+
+If privateKay is not given, feePayerKey of the fee payer's account inside the caver-js in-memory wallet is used.
+
+feePayerSignTransaction keeps the existing signatures/feePayerSignatures in the input transaction and appends the fee-payer signature(s) to it.
+
+See [Sending a Transaction with multiple signer](../getting-started.md#sending-a-transaction-with-multiple-signer) for how to combine multiple users' signatures into a single rawTransaction.
+
+**NOTE** `caver.klay.accounts.feePayerSignTransaction` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+
+| Name | Type | Description |
+| --- | --- | --- |
+| tx | String &#124; Object | Transaction object or RLP-encoded transaction string (rawTransaction). The properties of a transaction object varies depending on the transaction type. For the description of each transaction type, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
+| feePayerAddress | String | The address of fee payer.  |
+| privateKey | String &#124; Array | (optional) The private key to sign with. |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+
+**Return Value**
+
+`Promise` returning `Object`: The RLP encoded signed transaction. The object properties are as follows:
+
+| Name | Type | Description |
+| --- | --- | --- |
+| messageHash | String | The hash of the given message. |
+| v | String | Recovery value + 27. |
+| r | String | First 32 bytes of the signature. |
+| s | String | Next 32 bytes of the signature. |
+| rawTransaction | String | The RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction. |
+| txHash | 32-byte String | Hash of the transaction. |
+| senderTxHash | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash) |
+| feePayerSignatures | Array | An array of the fee payer's signature(s). |
+
+**NOTE** The `txHash` and `senderTxHash` in the result object may not be the final values. If another sender signature is added, txHash and senderTxHash will change. If a fee-payer signature is added, txHash will change.
+
+**Example**
+
+```javascript
+// feePayerSignTransaction with transaction obejct
+> caver.klay.accounts.feePayerSignTransaction({
+    type: 'FEE_DELEGATED_VALUE_TRANSFER',
+    from: '0x9230c09295dd8b9c02b6ae138ffe3133b58b25c1',
+    to: '0x715139255d5e300b431722ec9666ac2350cbf523',
+    value: 1,
+    gas: 900000,
+}, '0x2e4351e950d8d43444ac789cc9e87ba35340ad52', '0x90300d268bb2bad69f5b24e2ac1409a9416cc814254b356ce96b3f75c4364716').then(console.log)
+{
+    messageHash: '0x4cc0a423199d374d412cd3f92777a8f82bfc47b701d0df1f82b0d932802c955e',
+    v: '0x4e44',
+    r: '0x2a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730',
+    s: '0x4fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7',
+    rawTransaction: '0x09f899808505d21dba00830dbba094715139255d5e300b431722ec9666ac2350cbf52301949230c09295dd8b9c02b6ae138ffe3133b58b25c1c4c3018080942e4351e950d8d43444ac789cc9e87ba35340ad52f847f845824e44a02a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730a04fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7',
+    txHash: '0xead2cdf961090d014044de7ac78e3f9522b430edcd0ea4d3299811464ed636ea',
+    senderTxHash: '0x5e0bfce81dca4d6ec5ebeaff8a55fe5dd6d77e6292ee0548c12d7a7aaaff1300',
+    feePayerSignatures: [
+        [
+            '0x4e44',
+            '0x2a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730',
+            '0x4fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7'
+        ]
+    ]
+}
+
+// feePayerSignTransaction with transaction obejct defines signatures
+// rawTransaction in result will include signatures
+> caver.klay.accounts.feePayerSignTransaction({
+    type: 'FEE_DELEGATED_VALUE_TRANSFER',
+    from: '0x9230c09295dd8b9c02b6ae138ffe3133b58b25c1',
+    to: '0x715139255d5e300b431722ec9666ac2350cbf523',
+    value: 1,
+    gas: 900000,
+    signatures: [['0x4e44', '0xd31041fe47da32fe03cf644186f50f39beaa969f73deb189d1a51706715215ec', '0x335961d9b38027a01d6b97842c036725a8d4781b5010c47ddb85756687c2def9']]
+}, '0x2e4351e950d8d43444ac789cc9e87ba35340ad52', '0x90300d268bb2bad69f5b24e2ac1409a9416cc814254b356ce96b3f75c4364716').then(console.log)
+{
+    messageHash: '0x4cc0a423199d374d412cd3f92777a8f82bfc47b701d0df1f82b0d932802c955e',
+    v: '0x4e44',
+    r: '0x2a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730',
+    s: '0x4fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7',
+    rawTransaction: '0x09f8dd808505d21dba00830dbba094715139255d5e300b431722ec9666ac2350cbf52301949230c09295dd8b9c02b6ae138ffe3133b58b25c1f847f845824e44a0d31041fe47da32fe03cf644186f50f39beaa969f73deb189d1a51706715215eca0335961d9b38027a01d6b97842c036725a8d4781b5010c47ddb85756687c2def9942e4351e950d8d43444ac789cc9e87ba35340ad52f847f845824e44a02a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730a04fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7',
+    txHash: '0x19006aa7228aa50000bab00ecccde8232516b8e1dce6835528d57561a79b5d3d',
+    senderTxHash: '0x7aa6d0b4146020ae38c07c2c9efc26030bd667b9256981379b8cbc86acfd5b27',
+    feePayerSignatures: [
+        [
+            '0x4e44',
+            '0x2a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730',
+            '0x4fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7'
+        ]
+    ]
+}
+
+// feePayerSignTransaction with transaction obejct defines feePayerSignatures
+> caver.klay.accounts.feePayerSignTransaction({
+    type: 'FEE_DELEGATED_VALUE_TRANSFER',
+    from: '0x9230c09295dd8b9c02b6ae138ffe3133b58b25c1',
+    to: '0x715139255d5e300b431722ec9666ac2350cbf523',
+    value: 1,
+    gas: 900000,
+    feePayerSignatures: [['0x4e44', '0x2a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730', '0x4fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7']]
+}, '0x2e4351e950d8d43444ac789cc9e87ba35340ad52', ['0xa39599bb66c9f2346f789398d72232e9f218a0ec37e7bcf61cf40e52d860e3f7', '0x8d4c1ffd743faefc711e72f17ff370419ece777c6be2e6a84ac1986806fd57ea']).then(console.log)
+{
+    messageHash: '0x4cc0a423199d374d412cd3f92777a8f82bfc47b701d0df1f82b0d932802c955e',
+    v: '0x4e44',
+    r: '0x2a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730',
+    s: '0x4fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7',
+    rawTransaction: '0x09f90127808505d21dba00830dbba094715139255d5e300b431722ec9666ac2350cbf52301949230c09295dd8b9c02b6ae138ffe3133b58b25c1c4c3018080942e4351e950d8d43444ac789cc9e87ba35340ad52f8d5f845824e44a02a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730a04fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7f845824e44a0ec9ab57810b1f02960f2150b7931aefde5d8df9333b436ff11bc9666783358e3a055602d262c0b0ead09359ab0f00138dd7b5754d02694b4ee118bc99c9d8c44adf845824e44a030afe3d18d5a9e2b54d30326de856dbf9cf797e7ade2317d53675913129f863ca0711ab4c6cd60935c0b633679aac55f58443becd4194317f69746d2e829ad881c',
+    txHash: '0x2226428e0ca7221ba091d34efbb6e1575e90affc3901550850b479fbfe00f084',
+    senderTxHash: '0x5e0bfce81dca4d6ec5ebeaff8a55fe5dd6d77e6292ee0548c12d7a7aaaff1300',
+    feePayerSignatures: [
+        [
+            '0x4e44',
+            '0x2a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730',
+            '0x4fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7'
+        ],
+        [
+            '0x4e44',
+            '0xec9ab57810b1f02960f2150b7931aefde5d8df9333b436ff11bc9666783358e3',
+            '0x55602d262c0b0ead09359ab0f00138dd7b5754d02694b4ee118bc99c9d8c44ad'
+        ],
+        [
+            '0x4e44',
+            '0x30afe3d18d5a9e2b54d30326de856dbf9cf797e7ade2317d53675913129f863c',
+            '0x711ab4c6cd60935c0b633679aac55f58443becd4194317f69746d2e829ad881c'
+        ]
+    ]
+}
+
+// feePayerSignTransaction with RLP encoded transaction string(rawTransaction)
+> caver.klay.accounts.feePayerSignTransaction('0x09f885808505d21dba00830dbba094715139255d5e300b431722ec9666ac2350cbf52301949230c09295dd8b9c02b6ae138ffe3133b58b25c1f847f845824e44a0d31041fe47da32fe03cf644186f50f39beaa969f73deb189d1a51706715215eca0335961d9b38027a01d6b97842c036725a8d4781b5010c47ddb85756687c2def980c4c3018080', '0x2e4351e950d8d43444ac789cc9e87ba35340ad52', '0x90300d268bb2bad69f5b24e2ac1409a9416cc814254b356ce96b3f75c4364716').then(console.log)
+{
+    messageHash: '0x4cc0a423199d374d412cd3f92777a8f82bfc47b701d0df1f82b0d932802c955e',
+    v: '0x4e44',
+    r: '0x2a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730',
+    s: '0x4fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7',
+    rawTransaction: '0x09f8dd808505d21dba00830dbba094715139255d5e300b431722ec9666ac2350cbf52301949230c09295dd8b9c02b6ae138ffe3133b58b25c1f847f845824e44a0d31041fe47da32fe03cf644186f50f39beaa969f73deb189d1a51706715215eca0335961d9b38027a01d6b97842c036725a8d4781b5010c47ddb85756687c2def9942e4351e950d8d43444ac789cc9e87ba35340ad52f847f845824e44a02a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730a04fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7',
+    txHash: '0x19006aa7228aa50000bab00ecccde8232516b8e1dce6835528d57561a79b5d3d',
+    senderTxHash: '0x7aa6d0b4146020ae38c07c2c9efc26030bd667b9256981379b8cbc86acfd5b27',
+    feePayerSignatures: [
+        [
+            '0x4e44',
+            '0x2a2cdce5dd2fea8e717f94457700ca9cfa43fd5b09b57b1c8dc9cd2e73ac2730',
+            '0x4fdf1e4483f8c07c5ea180eea1af11fcd7fc32f6b6dded39eb8cb4a1f2e9f5a7'
+        ]
+    ]
+}
+```
+
+## recoverTransaction <a id="recovertransaction"></a>
 
 ```javascript
 caver.klay.accounts.recoverTransaction(rawTransaction)
@@ -339,7 +1196,7 @@ Recovers the Klaytn address that was used to sign the given RLP encoded transact
 ```
 
 
-## hashMessage
+## hashMessage <a id="hashmessage"></a>
 
 ```javascript
 caver.klay.accounts.hashMessage(message)
@@ -378,7 +1235,7 @@ and hashed using keccak256.
 ```
 
 
-## sign
+## sign <a id="sign"></a>
 
 ```javascript
 caver.klay.accounts.sign(data, privateKey)
@@ -425,7 +1282,7 @@ Signs arbitrary data. This data is before UTF-8 HEX decoded and enveloped as fol
 ```
 
 
-## recover
+## recover <a id="recover"></a>
 
 ```javascript
 caver.klay.accounts.recover(signatureObject)
@@ -480,21 +1337,252 @@ The signature object has following values:
 '0x2c7536E3605D9C16a7a3D7b1898e529396a65c23'
 ```
 
-
-## encrypt
+## combineSignatures <a id="combinesignatures"></a>
 
 ```javascript
-caver.klay.accounts.encrypt(privateKey, password [, options])
+caver.klay.accounts.combineSignatures(rawTransactions)
 ```
-Encrypts a private key to the Klaytn keystore v3 standard.
+
+Combines the array of RLP encoded transaction strings into a single RLP encoded transaction string. RLP encoded transaction string that you want to combine must all have signed the same transaction.
+
+combineSignatures removes duplicates in signatures or feePayerSignatures.
+
+**NOTE** `caver.klay.accounts.combineSignatures` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| privateKey | String | A private key or a Klaytn wallet key to encrypt. |
+| rawTransactions | Array | An array of RLP encoded transaction strings (rawTransaction). |
+
+**Return Value**
+
+`Promise` returning `Object`: An RLP encoded transaction. The object properties are as follows:
+
+| Name | Type | Description |
+| --- | --- | --- |
+| rawTransaction | String | An RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction. |
+| txHash | 32-byte String | Hash of the transaction. |
+| senderTxHash | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash) |
+| signatures | Array | (optional) All signatures in the combined RLP encoded transaction (rawTransaction). If there are no signatures, the `signatures` property is not returned in the result object. |
+| feePayerSignatures | Array | (optional) All feePayerSignatures in the combined RLP encoded transaction (rawTransaction). If there are no feePayerSignatures, the `feePayerSignatures` property is not returned in the result object. |
+
+**NOTE** The `txHash` and `senderTxHash` in the result object may not be the final values. If another sender signature is added, txHash and senderTxHash will change. If a fee-payer signature is added, txHash will change.
+
+**Example**
+
+```javascript
+> caver.klay.accounts.combineSignatures([
+    '0x39f8b6128505d21dba00830dbba094596c3b874dc5775c3969b09a3115f453c20a59abf88ef845824e44a0f530749561d1cf87571b2c3050ded6acc94621eb984335129f4057e843109e30a0738aef5227c29c022167d9e95f4090b9a49ef550d5deaaa25c1f6298ea3a5292f845824e43a01fa5a80bb06f5787b1ac81d8b48578627be7a3b725d2e3722a85b0e31f71a445a003dff23bb2947d1819ec91eb695e8bc8b96bc591a2b855fa1495f5bbf896b91780c4c3018080',
+    '0x39f90155128505d21dba00830dbba094596c3b874dc5775c3969b09a3115f453c20a59abf88ef845824e44a0f530749561d1cf87571b2c3050ded6acc94621eb984335129f4057e843109e30a0738aef5227c29c022167d9e95f4090b9a49ef550d5deaaa25c1f6298ea3a5292f845824e44a06a28576af9368a2056ba61d21390f484b487eba2210ee99b76615441a78f375da05d39f38e05d2ea80c2c1150374ca77d46b119d040101ebfc593f2a1963da409694120d8dc88b44fd8aa4dfab82c4078c7a7ee6c1edf88ef845824e44a00ca8405f35535cf82105a0596fcbd5c4cf228ce0d269c760246f9e10d6820566a02f905e44a2db94fe985158f81979cbcb7ba138cb1f2fb82bc9bd043701ec2025f845824e44a0feb42d7ed1519f93ddbc3093834934c6c7a15d843dfc8e7d14f78ecf3aa1d848a0271a2e8caf98d6ab79f9f4f6fdbe1c01e85aeea503b350ec69c6580320d53b06',
+]).then(console.log)
+{
+    rawTransaction: '0x39f9019c128505d21dba00830dbba094596c3b874dc5775c3969b09a3115f453c20a59abf8d5f845824e44a0f530749561d1cf87571b2c3050ded6acc94621eb984335129f4057e843109e30a0738aef5227c29c022167d9e95f4090b9a49ef550d5deaaa25c1f6298ea3a5292f845824e43a01fa5a80bb06f5787b1ac81d8b48578627be7a3b725d2e3722a85b0e31f71a445a003dff23bb2947d1819ec91eb695e8bc8b96bc591a2b855fa1495f5bbf896b917f845824e44a06a28576af9368a2056ba61d21390f484b487eba2210ee99b76615441a78f375da05d39f38e05d2ea80c2c1150374ca77d46b119d040101ebfc593f2a1963da409694120d8dc88b44fd8aa4dfab82c4078c7a7ee6c1edf88ef845824e44a00ca8405f35535cf82105a0596fcbd5c4cf228ce0d269c760246f9e10d6820566a02f905e44a2db94fe985158f81979cbcb7ba138cb1f2fb82bc9bd043701ec2025f845824e44a0feb42d7ed1519f93ddbc3093834934c6c7a15d843dfc8e7d14f78ecf3aa1d848a0271a2e8caf98d6ab79f9f4f6fdbe1c01e85aeea503b350ec69c6580320d53b06',
+    txHash: '0x3dac67978ffca834e6ff188e5937d81daab0669a7871f6ffae4ede53fb2a20ac',
+    senderTxHash: '0xbb29f73faca65b39b1d33d94e23343f48f22a05531989d031f557460b08f27d4',
+    signatures: [
+        [
+            '0x4e44',
+            '0xf530749561d1cf87571b2c3050ded6acc94621eb984335129f4057e843109e30',
+            '0x738aef5227c29c022167d9e95f4090b9a49ef550d5deaaa25c1f6298ea3a5292',
+        ],
+        [
+            '0x4e43',
+            '0x1fa5a80bb06f5787b1ac81d8b48578627be7a3b725d2e3722a85b0e31f71a445',
+            '0x03dff23bb2947d1819ec91eb695e8bc8b96bc591a2b855fa1495f5bbf896b917',
+        ],
+        [
+            '0x4e44',
+            '0x6a28576af9368a2056ba61d21390f484b487eba2210ee99b76615441a78f375d',
+            '0x5d39f38e05d2ea80c2c1150374ca77d46b119d040101ebfc593f2a1963da4096',
+        ],
+    ],
+    feePayerSignatures: [
+        [
+            '0x4e44',
+            '0x0ca8405f35535cf82105a0596fcbd5c4cf228ce0d269c760246f9e10d6820566',
+            '0x2f905e44a2db94fe985158f81979cbcb7ba138cb1f2fb82bc9bd043701ec2025',
+        ],
+        [
+            '0x4e44',
+            '0xfeb42d7ed1519f93ddbc3093834934c6c7a15d843dfc8e7d14f78ecf3aa1d848',
+            '0x271a2e8caf98d6ab79f9f4f6fdbe1c01e85aeea503b350ec69c6580320d53b06',
+        ],
+    ],
+}
+```
+
+## getRawTransactionWithSignatures <a id="getrawtransactionwithsignatures"></a>
+
+```javascript
+caver.klay.accounts.getRawTransactionWithSignatures(tx [, callback])
+```
+
+Returns a signed RLP encoded transaction string from a given transaction object. The transaction object should provide the signatures and feePayerSignatures.
+
+**NOTE** `caver.klay.accounts.getRawTransactionWithSignatures` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| tx | Object | A transaction object that includes signatures and feePayerSignatures. The properties of a transaction object varies depending on the transaction type. For the description of each transaction type, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
+
+**Return Value**
+
+`Promise` returning `Object`: An RLP encoded transaction. The object properties are as follows:
+
+| Name | Type | Description |
+| --- | --- | --- |
+| rawTransaction | String | An RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction. |
+| txHash | 32-byte String | Hash of the transaction. |
+| senderTxHash | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash) |
+| signatures | Array | (optional) All signatures in the RLP encoded transaction (rawTransaction). If there are no signatures, the `signatures` property is not returned in the result object. |
+| feePayerSignatures | Array | (optional) All feePayerSignatures in the RLP encoded transaction (rawTransaction). If there are no feePayerSignatures, the `feePayerSignatures` property is not returned in the result object. |
+
+**NOTE** The `txHash` and `senderTxHash` contained in the result object may not be final values. If the signature of the sender is added, txHash and senderTxHash will be different. If the signature of the fee payer is added, the txHash will be different.
+
+**Example**
+
+```javascript
+// get rawTransaction with signatures
+> caver.klay.accounts.getRawTransactionWithSignatures({
+    type: 'FEE_DELEGATED_SMART_CONTRACT_EXECUTION',
+    from: '0x85fd20bcbd1dcf73073c0abfa72afbde5e8c9a79',
+    to: '0x6757d85d8b636044ef3bd2904daf8883cd2e3381',
+    data: '0xd14e62b80000000000000000000000000000000000000000000000000000000000000005',
+    gas: '0xdbba0',
+    chainId: '0x2710',
+    gasPrice: '0x5d21dba00',
+    nonce: '0xf',
+    humanReadable: false,
+    signatures: [
+        [
+            '0x4e43',
+            '0x9610d4f6d6f55e44f5f29f1a08538c9871d39c7295834db5a28b7358cf23a8a6',
+            '0x6dc41f04c570a08a20aadc8eb4801aa3ee68b11f280e14d0e458f97f8c708175',
+        ],
+        [
+            '0x4e44',
+            '0x35cc2637cd68799f9a71c8e79fb5171351dd3cb5402dc0a3f291728527c9db48',
+            '0x7e3ac1ac64094ebc49c41ff6cb57b8f8eae18f5d7f2db0900117d816a1e30594',
+        ],
+        [
+            '0x4e44',
+            '0xfc4fe6436212d35a2417e3414119608f626400bd265fba0417f80a7cf9694a20',
+            '0x7d0f996f41355b18781833a6e227356db03bcec71d0c16a4d7249eaa3fe89507',
+        ],
+    ],
+}).then(console.log)
+{
+    rawTransaction: '0x31f901380f8505d21dba00830dbba0946757d85d8b636044ef3bd2904daf8883cd2e3381809485fd20bcbd1dcf73073c0abfa72afbde5e8c9a79a4d14e62b80000000000000000000000000000000000000000000000000000000000000005f8d5f845824e43a09610d4f6d6f55e44f5f29f1a08538c9871d39c7295834db5a28b7358cf23a8a6a06dc41f04c570a08a20aadc8eb4801aa3ee68b11f280e14d0e458f97f8c708175f845824e44a035cc2637cd68799f9a71c8e79fb5171351dd3cb5402dc0a3f291728527c9db48a07e3ac1ac64094ebc49c41ff6cb57b8f8eae18f5d7f2db0900117d816a1e30594f845824e44a0fc4fe6436212d35a2417e3414119608f626400bd265fba0417f80a7cf9694a20a07d0f996f41355b18781833a6e227356db03bcec71d0c16a4d7249eaa3fe8950780c4c3018080',
+    txHash: '0x94e6edb47fa258671745a433f1a08f5546b18a634f43e854c2bec1a40a7e8df0',
+    senderTxHash: '0xcb1138abbef61a42cc846957b72a27329e80395911593f201f49c70c06408385',
+    signatures: [
+        [
+            '0x4e43',
+            '0x9610d4f6d6f55e44f5f29f1a08538c9871d39c7295834db5a28b7358cf23a8a6',
+            '0x6dc41f04c570a08a20aadc8eb4801aa3ee68b11f280e14d0e458f97f8c708175',
+        ],
+        [
+            '0x4e44',
+            '0x35cc2637cd68799f9a71c8e79fb5171351dd3cb5402dc0a3f291728527c9db48',
+            '0x7e3ac1ac64094ebc49c41ff6cb57b8f8eae18f5d7f2db0900117d816a1e30594',
+        ],
+        [
+            '0x4e44',
+            '0xfc4fe6436212d35a2417e3414119608f626400bd265fba0417f80a7cf9694a20',
+            '0x7d0f996f41355b18781833a6e227356db03bcec71d0c16a4d7249eaa3fe89507',
+        ],
+    ],
+}
+
+// get rawTransaction with signatures and feePayerSignatures
+> caver.klay.accounts.getRawTransactionWithSignatures({
+    type: 'FEE_DELEGATED_SMART_CONTRACT_EXECUTION',
+    from: '0x85fd20bcbd1dcf73073c0abfa72afbde5e8c9a79',
+    to: '0x6757d85d8b636044ef3bd2904daf8883cd2e3381',
+    data: '0xd14e62b80000000000000000000000000000000000000000000000000000000000000005',
+    gas: '0xdbba0',
+    chainId: '0x2710',
+    gasPrice: '0x5d21dba00',
+    nonce: '0xf',
+    humanReadable: false,
+    signatures: [
+        [
+            '0x4e43',
+            '0x9610d4f6d6f55e44f5f29f1a08538c9871d39c7295834db5a28b7358cf23a8a6',
+            '0x6dc41f04c570a08a20aadc8eb4801aa3ee68b11f280e14d0e458f97f8c708175',
+        ],
+        [
+            '0x4e44',
+            '0x35cc2637cd68799f9a71c8e79fb5171351dd3cb5402dc0a3f291728527c9db48',
+            '0x7e3ac1ac64094ebc49c41ff6cb57b8f8eae18f5d7f2db0900117d816a1e30594',
+        ],
+        [
+            '0x4e44',
+            '0xfc4fe6436212d35a2417e3414119608f626400bd265fba0417f80a7cf9694a20',
+            '0x7d0f996f41355b18781833a6e227356db03bcec71d0c16a4d7249eaa3fe89507',
+        ],
+    ],
+    feePayer: '0x918f31cce0d9582882663fe9099226d3912c9d13',
+    feePayerSignatures: [
+        [
+            '0x4e44',
+            '0x5991f915a32ad719da138efecdcc3d169ad71fde31eba03be91991681d53f881',
+            '0x3653c82d6d99839699c3dfea470fcc777cda5b6185a1678c19d5fd7605c04a97',
+        ],
+    ],
+}).then(console.log)
+{
+    rawTransaction: '0x31f901900f8505d21dba00830dbba0946757d85d8b636044ef3bd2904daf8883cd2e3381809485fd20bcbd1dcf73073c0abfa72afbde5e8c9a79a4d14e62b80000000000000000000000000000000000000000000000000000000000000005f8d5f845824e43a09610d4f6d6f55e44f5f29f1a08538c9871d39c7295834db5a28b7358cf23a8a6a06dc41f04c570a08a20aadc8eb4801aa3ee68b11f280e14d0e458f97f8c708175f845824e44a035cc2637cd68799f9a71c8e79fb5171351dd3cb5402dc0a3f291728527c9db48a07e3ac1ac64094ebc49c41ff6cb57b8f8eae18f5d7f2db0900117d816a1e30594f845824e44a0fc4fe6436212d35a2417e3414119608f626400bd265fba0417f80a7cf9694a20a07d0f996f41355b18781833a6e227356db03bcec71d0c16a4d7249eaa3fe8950794918f31cce0d9582882663fe9099226d3912c9d13f847f845824e44a05991f915a32ad719da138efecdcc3d169ad71fde31eba03be91991681d53f881a03653c82d6d99839699c3dfea470fcc777cda5b6185a1678c19d5fd7605c04a97',
+    txHash: '0xf015dd519c909a80c111219ab2c5139d01a2e4121f801e8f45e519eafd421db6',
+    senderTxHash: '0xcb1138abbef61a42cc846957b72a27329e80395911593f201f49c70c06408385',
+    signatures: [
+        [
+            '0x4e43',
+            '0x9610d4f6d6f55e44f5f29f1a08538c9871d39c7295834db5a28b7358cf23a8a6',
+            '0x6dc41f04c570a08a20aadc8eb4801aa3ee68b11f280e14d0e458f97f8c708175',
+        ],
+        [
+            '0x4e44',
+            '0x35cc2637cd68799f9a71c8e79fb5171351dd3cb5402dc0a3f291728527c9db48',
+            '0x7e3ac1ac64094ebc49c41ff6cb57b8f8eae18f5d7f2db0900117d816a1e30594',
+        ],
+        [
+            '0x4e44',
+            '0xfc4fe6436212d35a2417e3414119608f626400bd265fba0417f80a7cf9694a20',
+            '0x7d0f996f41355b18781833a6e227356db03bcec71d0c16a4d7249eaa3fe89507',
+        ],
+    ],
+    feePayerSignatures: [
+        [
+            '0x4e44',
+            '0x5991f915a32ad719da138efecdcc3d169ad71fde31eba03be91991681d53f881',
+            '0x3653c82d6d99839699c3dfea470fcc777cda5b6185a1678c19d5fd7605c04a97',
+        ],
+    ],
+}
+```
+
+## encrypt <a id="encrypt"></a>
+
+```javascript
+caver.klay.accounts.encrypt(encryptTarget, password [, options])
+```
+Encrypts an account to the Klaytn keystore standard. 
+
+**NOTE** Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), `caver.klay.accounts.encrypt` encrypts using the keystore v4 standard to encrypt various AccountKey types (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| encryptTarget | String &#124; Array &#124; Object | A private key or a Klaytn wallet key to encrypt. Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), encryptTarget also can be an instance of Account or AccountKey (AccountKeyPublic, AccountKeyMultiSig, or AccountKeyRoleBased), an array of private key strings or an object that defines the keys by role. |
 | password | String | The password used for encryption. |
 | options | Object | (optional) The `options` parameter allows you to specify the values to use when using encrypt. You can also use the options object to encrypt decoupled accounts. See the example below for usage of `options`. |
+
+**NOTE** If account address cannot be extracted from encryptTarget (when AccountKeyMultiSig, AccountKeyRoleBased, an array of private key strings or an object that defines the keys by role) or if the account's private key is decoupled from address, you must specify the address in the options object.
 
 **NOTE**: There are two ways to encrypt the private key when an account has a decoupled private key from the address.
 1. Use the [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format with the privateKey parameter.
@@ -504,13 +1592,200 @@ Encrypts a private key to the Klaytn keystore v3 standard.
 
 | Type | Description |
 | --- | --- |
-| Object | The encrypted keystore v3 JSON. |
+| Object | The encrypted keystore JSON. Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), keystore v4 is used. The example below illustrates both keystore v3 and v4. |
 
 
 **Example**
 
 ```javascript
-> caver.klay.accounts.encrypt('0x{private key}', 'test!');
+// encrypt to keystore v4 JSON.
+// Encrypt with a private key string
+> caver.klay.accounts.encrypt('0x{private key}', 'test')
+{
+    version: 4,
+    id: '6b4c9eb2-9dc6-46d4-88b6-bb1fa511ead1',
+    address: '0x5aac93bcce8834c02600c2df7f031bc76f37276c',
+    keyring: [
+        {
+            ciphertext: 'eda10e7b55de386aeb212f99644cdbfa52b96bf07747e74e5e60bd6c39fa88aa',
+            cipherparams: { iv: 'd626fa3c140c93b27fb995264bee9c4e' },
+            cipher: 'aes-128-ctr',
+            kdf: 'scrypt',
+            kdfparams: { dklen: 32, salt: 'e85fd7a0801ed5221a769844a225a3663886e0e235fbc972c31a129df5cadb6c', n: 4096, r: 8, p: 1 },
+            mac: 'bc19774bf5db92919273ca72f8f3137019d658e7850e31ff454635db4a1d5dbe',
+        },
+    ],
+}
+
+// Encrypt with an array of private key strings
+> caver.klay.accounts.encrypt(['0x{private key}', '0x{private key}'], 'test', { address: '0xe1d711ee2ac2dfec5b1e6ea583c8270b7575702a' })
+{
+    version: 4,
+    id: 'ae5e94fc-0ab4-4a54-8655-4fab51b92e4a',
+    address: '0xe1d711ee2ac2dfec5b1e6ea583c8270b7575702a',
+    keyring: [
+        {
+            ciphertext: 'd84db9f8cd5206cf9dae524fbb15f4c09c93f447352cb3a6ac3ef182f9056686',
+            cipherparams: { iv: '7a7bc290306bf39db79b425a5fe7333b' },
+            cipher: 'aes-128-ctr',
+            kdf: 'scrypt',
+            kdfparams: { dklen: 32, salt: '35cc3deab2a096ae1d2d62a2c1cb7d0c5481d9127cae3c35b1540be2b9fc2175', n: 4096, r: 8, p: 1 },
+            mac: '87eecd98c857e4c416b63a3731fcf811cb055adf2967d5272e4aa77974dbf2a6',
+        },
+        {
+            ciphertext: '8d6c3036fecbd6976734711ec69068180b4e5ec90e06797d92be8243eae35f19',
+            cipherparams: { iv: '191fcc2402b82d7039bd651b29f42cbc' },
+            cipher: 'aes-128-ctr',
+            kdf: 'scrypt',
+            kdfparams: { dklen: 32, salt: 'cbf12acbba50120783aa0ad4ff35f11daa8972dcb728e11445dd1ec38be2e091', n: 4096, r: 8, p: 1 },
+            mac: '216b8a04022234d8127eafb9bdb3a72b18f6c94a05469d9bbd76d26e67cb63a2',
+        },
+    ],
+}
+
+// Encrypt with an object
+> caver.klay.accounts.encrypt({ transactionKey: ['0x{private key}', '0x{private key}'], updateKey: '0x{private key}', feePayerKey: '0x{private key}'}, 'test', { address: '0xe1d711ee2ac2dfec5b1e6ea583c8270b7575702a' })
+{
+    version: 4,
+    id: '99d27cfe-8e3f-427c-bd4c-e4e3cd43955b',
+    address: '0xe1d711ee2ac2dfec5b1e6ea583c8270b7575702a',
+    keyring: [
+        [
+            {
+                ciphertext: '07a3d8c1c6a01734e429bb4ea88d282b3547fa422653f9547c0544bfca011af0',
+                cipherparams: { iv: '707177c48b5bfc1f88e91f10eb327b1b' },
+                cipher: 'aes-128-ctr',
+                kdf: 'scrypt',
+                kdfparams: { dklen: 32, salt: '452f3e41d9e58b42d348b326319fc27b29ed5f5177e063087f8cb272c6b73fe3', n: 4096, r: 8, p: 1 },
+                mac: 'bccd141b9056f7ee26b8e9a4ef52d231403162ed2593df8f2e6b2f2d26a737d2',
+            },
+            {
+                ciphertext: 'c94defa5049b910eb57d46125e3dbdb9d32bfb85f3915aa96e25e75d2346970f',
+                cipherparams: { iv: 'fae425c4a44c881e629ccdc0fcf53916' },
+                cipher: 'aes-128-ctr',
+                kdf: 'scrypt',
+                kdfparams: { dklen: 32, salt: '37302d0a0625321193e482da55e19a0a51ac250cf4857ecb13112b8c88cbdf44', n: 4096, r: 8, p: 1 },
+                mac: '04f7b2879b7e9604356fd4db532c981b4eaa95078c25694e591e7cc2a5c613f1',
+            },
+        ],
+
+        [
+            {
+                ciphertext: '015ef2deab867b887fa29c866941512af848e4b547d74a39f44cc4c9ef204b5f',
+                cipherparams: { iv: '230271676c4501a860b19b325b1850a6' },
+                cipher: 'aes-128-ctr',
+                kdf: 'scrypt',
+                kdfparams: { dklen: 32, salt: 'eb73f9cacea4e0b38634679102ab5b8f0e84464c2fa3ca07d11ebcdfb7a95519', n: 4096, r: 8, p: 1 },
+                mac: 'd76a0f22b2f5a23dac30be820260b3fc738083b797d5c608b23bce8a69f63256',
+            },
+        ],
+
+        [
+            {
+                ciphertext: '70870f4dd813fc7c0c4ef64ebba03f15c81677d2558d646b3d143ab8e0d27ec2',
+                cipherparams: { iv: '841be9a25127fca0cc79740763ec3e55' },
+                cipher: 'aes-128-ctr',
+                kdf: 'scrypt',
+                kdfparams: { dklen: 32, salt: '089ef66590b699c347caddafa592c8f074948b0ca6e2957bae45d005cd55a874', n: 4096, r: 8, p: 1 },
+                mac: '6e1ad546d9e3ad1f3c3419ace4c9daf34a310001875b1a3228dbfd1891030bff',
+            },
+        ],
+    ],
+}
+
+// Encrypt decoupled account - 1. Use the KlaytnWalletKey format with the privateKey parameter.
+> caver.klay.accounts.encrypt('0x{private key}0x{type}0x{address in hex}', 'test')
+{
+    version: 4,
+    id: 'f320306e-4d67-4982-b1a9-7b455c744579',
+    address: '0x7d46813010aee975946d6ee9c7fb887eef6b318d',
+    keyring: [
+        {
+            ciphertext: '745d306663b7cc09dbe6f3dbbf76d252bd5cb53613c6369e7e481edbf0bb31d1',
+            cipherparams: { iv: '0c502b449247166e6f3338346b82ea3d' },
+            cipher: 'aes-128-ctr',
+            kdf: 'scrypt',
+            kdfparams: { dklen: 32, salt: '171efaa9c12aa03d488c547651a3d1b2c745e305dffcaf4ad658ed1ae18882d8', n: 4096, r: 8, p: 1 },
+            mac: '8cb52aff70971b9fd2b467b47aa493ae90e8823f4ff5cfafcf7c2e06a5aa2298',
+        },
+    ],
+}
+
+// Encrypt decoupled account - 2. Use the options to send the address as a parameter.
+> caver.klay.accounts.encrypt('0x{private key}', 'test', { address: '0x7d46813010aee975946d6ee9c7fb887eef6b318d' })
+{
+    version: 4,
+    id: '2675a321-9054-48ae-97d8-bafa22ec07f5',
+    address: '0x7d46813010aee975946d6ee9c7fb887eef6b318d',
+    keyring: [
+        {
+            ciphertext: 'aa51496d861a129c91e2fb92807afb7603156336b4681a6bf1569634fb51d330',
+            cipherparams: { iv: 'cc4fda2a72f2904a7bd342318cc9a61f' },
+            cipher: 'aes-128-ctr',
+            kdf: 'scrypt',
+            kdfparams: { dklen: 32, salt: '672160453667bbe34c9a3adf997e92d1bd734ab28f6078807cad902b5b47fd92', n: 4096, r: 8, p: 1 },
+            mac: '51ec88d578f94f1307f0d025cac4b0e6c0544498baa05266f0114d06c57155b4',
+        },
+    ],
+}
+
+// Using options objects with encryption option values (scrypt)
+> caver.klay.accounts.encrypt('0x{private key}', 'test', {
+    salt: '776ad46fde47572c58ba5b9616a661a1fbc4b9ff918300faeba04bb9ff5be04c',
+    iv: Buffer.from('b62ef75e39fa396de62c51c4734b69a2', 'hex'),
+    kdf: 'scrypt',
+    dklen: 32,
+    n: 262144,
+    r: 8,
+    p: 1,
+    cipher: 'aes-128-cbc',
+    uuid: Buffer.from('f0b40ab7d69fdd9606e2a5242dddd813', 'hex'),
+})
+{
+    version: 4,
+    id: 'f0b40ab7-d69f-4d96-86e2-a5242dddd813',
+    address: '0x5aac93bcce8834c02600c2df7f031bc76f37276c',
+    keyring: [
+        {
+            ciphertext: 'd73c42f72b6c46c352442db20d04ea7bf571df29a01641e028ab97891069fad191a93b0082650ac4c951c75f400cc545',
+            cipherparams: { iv: 'b62ef75e39fa396de62c51c4734b69a2' },
+            cipher: 'aes-128-cbc',
+            kdf: 'scrypt',
+            kdfparams: { dklen: 32, salt: '776ad46fde47572c58ba5b9616a661a1fbc4b9ff918300faeba04bb9ff5be04c', n: 262144, r: 8, p: 1 },
+            mac: '9a200c73ef48129a33ffef7c7246e8a08c4bcd308b18e341f25199f4f974dcd0',
+        },
+    ],
+}
+
+// Using options objects with encryption option values (pbkdf2)
+> caver.klay.accounts.encrypt('0x{private key}', 'test', {
+    salt: '776ad46fde47572c58ba5b9616a661a1fbc4b9ff918300faeba04bb9ff5be04c',
+    iv: Buffer.from('b62ef75e39fa396de62c51c4734b69a2', 'hex'),
+    kdf: 'pbkdf2',
+    dklen: 32,
+    c: 262144,
+    cipher: 'aes-128-cbc',
+    uuid: Buffer.from('f0b40ab7d69fdd9606e2a5242dddd813', 'hex'),
+})
+{
+    version: 4,
+    id: 'f0b40ab7-d69f-4d96-86e2-a5242dddd813',
+    address: '0x5aac93bcce8834c02600c2df7f031bc76f37276c',
+    keyring: [
+        {
+            ciphertext: '58802ef723041431ec089041c23ae0d4b6b4d8fe56c920f587296b95b7645df439c3917da4f8a119ee0300609f4448d0',
+            cipherparams: { iv: 'b62ef75e39fa396de62c51c4734b69a2' },
+            cipher: 'aes-128-cbc',
+            kdf: 'pbkdf2',
+            kdfparams: { dklen: 32, salt: '776ad46fde47572c58ba5b9616a661a1fbc4b9ff918300faeba04bb9ff5be04c', c: 262144, prf: 'hmac-sha256' },
+            mac: '2cac2a4dccb9127c6f7335135cfc5a8dda6c58cd4429cd3466b89d5d506f5930',
+        },
+    ],
+}
+
+// encrypt to keystore v3 JSON. (If you want to encrypt to keystore v3, use a version earlier than caver-js v1.2.0.)
+// Encrypt with a private key string
+> caver.klay.accounts.encrypt('0x{private key}', 'test!')
 {
     version: 3,
     id: '04e9bcbb-96fa-497b-94d1-14df4cd20af6',
@@ -520,135 +1795,27 @@ Encrypts a private key to the Klaytn keystore v3 standard.
         cipherparams: { iv: '2885df2b63f7ef247d753c82fa20038a' },
         cipher: 'aes-128-ctr',
         kdf: 'scrypt',
-        kdfparams: {
-            dklen: 32,
-            salt: '4531b3c174cc3ff32a6a7a85d6761b410db674807b2d216d022318ceee50be10',
-            n: 262144,
-            r: 8,
-            p: 1
-        },
+        kdfparams: { dklen: 32, salt: '4531b3c174cc3ff32a6a7a85d6761b410db674807b2d216d022318ceee50be10', n: 262144, r: 8, p: 1 },
         mac: 'b8b010fff37f9ae5559a352a185e86f9b9c1d7f7a9f1bd4e82a5dd35468fc7f6'
     }
-}
-
-// Encrypt decoupled account - 1. Use the KlaytnWalletKey format with the privateKey parameter.
-> caver.klay.accounts.encrypt('0x{private key}0x{type}0x{address in hex}', 'test');
-{ 
-    version: 3,
-    id: '432b16f6-bf4e-4a10-af79-d6ad644b9d84',
-    address: '0x3bd32d55e64d6cbe54bec4f5200e678ee8d1a990',  
-    crypto: { 
-        ciphertext: 'a82029d303ad21218bb51d215a88cad0ed08ee5b10016b8caf8d72163bfa6ef4',
-        cipherparams: { iv: '0699a7176af8def3dc5d403c4e03f1e4' },
-        cipher: 'aes-128-ctr',
-        kdf: 'scrypt',
-        kdfparams: { 
-            dklen: 32,
-            salt: '4654e7e4827221bfb7d963259f5491ecc2fced50cd24378de647a7087757c3ab', 
-            n: 4096,
-            r: 8,
-            p: 1 
-        },
-        mac: '6bbc9ac1f558ae769d1977f03c6c7f71e83485bd3373866122c456be1744fddf' 
-    } 
-}
-
-// Encrypt decoupled account - 2. Use the options to send the address as a parameter.
-> caver.klay.accounts.encrypt('0x{private key}', 'test', { address: '0x7d46813010aee975946d6ee9c7fb887eef6b318d' });
-{ 
-    version: 3,
-    id: '47a3ab30-d50e-4db6-8763-d91c0bfe029b',
-    address: '0x7d46813010aee975946d6ee9c7fb887eef6b318d',
-    crypto: { 
-        ciphertext: '92b585bfd5c50634910e83e38261445036b3262d35f1ed5128be0ece69ca9d66',
-        cipherparams: { iv: 'd97d47ed3a8dd5ecf3944b254729dc5f' },
-        cipher: 'aes-128-ctr',
-        kdf: 'scrypt',
-        kdfparams: { 
-            dklen: 32,
-            salt: 'f736b6a1c32e602f910717e198e7da9a3bd7e39fa6962b3c3f5ade8027ebbab4',
-            n: 4096,
-            r: 8,
-            p: 1 
-        },
-        mac: '8cdca022bfd580d72d250f4e296035339faa8c4d9eaa1f29d8cd441bec3f205b' 
-    } 
-}
-
-// Using options objects with encryption option values
-> caver.klay.accounts.encrypt('0x{private key}', 'test', {
-      salt: '776ad46fde47572c58ba5b9616a661a1fbc4b9ff918300faeba04bb9ff5be04c',
-      iv: Buffer.from('b62ef75e39fa396de62c51c4734b69a2', 'hex'),
-      kdf: 'scrypt',
-      dklen: 32,
-      n: 262144,
-      r: 8,
-      p: 1,
-      cipher: 'aes-128-cbc',
-      uuid: Buffer.from('f0b40ab7d69fdd9606e2a5242dddd813', 'hex'),
-    })
-{ 
-    version: 3,
-    id: 'f0b40ab7-d69f-4d96-86e2-a5242dddd813',
-    address: '0xdac9f72e27f05eca08df7a2ea2d044b3ed3a6e54',
-    crypto: { 
-        ciphertext: 'de3199afd50051ecef60675b3cc60170670e84945a5571cb2ec414b628a28c71844f7144c02301db9b41044c1f262562',
-        cipherparams: { iv: 'b62ef75e39fa396de62c51c4734b69a2' },
-        cipher: 'aes-128-cbc',
-        kdf: 'scrypt',
-        kdfparams: { 
-            dklen: 32,
-            salt: '776ad46fde47572c58ba5b9616a661a1fbc4b9ff918300faeba04bb9ff5be04c',
-            n: 262144,
-            r: 8,
-            p: 1 
-        },
-        mac: 'a3c3bbc90b5c8f0ae019e428a4081c39f91876adf8441d51cafbbe37ca839b8c' 
-    } 
-}
-
-> caver.klay.accounts.encrypt('0x{private key}', 'test', {
-      salt: '776ad46fde47572c58ba5b9616a661a1fbc4b9ff918300faeba04bb9ff5be04c',
-      iv: Buffer.from('b62ef75e39fa396de62c51c4734b69a2', 'hex'),
-      kdf: 'pbkdf2',
-      dklen: 32,
-      c: 262144,
-      cipher: 'aes-128-cbc',
-      uuid: Buffer.from('f0b40ab7d69fdd9606e2a5242dddd813', 'hex'),
-    })
-{ 
-    version: 3,
-    id: 'f0b40ab7-d69f-4d96-86e2-a5242dddd813',
-    address: '0xdac9f72e27f05eca08df7a2ea2d044b3ed3a6e54',
-    crypto: { 
-        ciphertext: '8b4b480b003af59210ba8c8815425955274c395b27e5354f7eef870f3e8ddc0e4c97bd4a30e8b60337aea2fdbbd50009',
-        cipherparams: { iv: 'b62ef75e39fa396de62c51c4734b69a2' },
-        cipher: 'aes-128-cbc',
-        kdf: 'pbkdf2',
-        kdfparams: { 
-            dklen: 32,
-            salt: '776ad46fde47572c58ba5b9616a661a1fbc4b9ff918300faeba04bb9ff5be04c',
-            c: 262144,
-            prf: 'hmac-sha256' 
-        },
-        mac: 'c19e889b887812920d2453bbcb87640a6246e49fc513f2d927954edab73fefab' 
-    } 
 }
 ```
 
 
-## decrypt
+## decrypt <a id="decrypt"></a>
 
 ```javascript
 caver.klay.accounts.decrypt(keystoreJsonV3, password)
 ```
-Decrypts a keystore v3 JSON and returns the decrypted account object.
+Decrypts a keystore v3 or v4 JSON and returns the decrypted account object.
+
+**NOTE** Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), `caver.klay.accounts.decrypt` can decrypt the keystore v4.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| keystoreJsonV3 | String | JSON string containing the encrypted private key to decrypt. |
+| keystoreJson | String | JSON string containing the encrypted account to decrypt. |
 | password | String | The password used for encryption. |
 
 
@@ -662,6 +1829,33 @@ Decrypts a keystore v3 JSON and returns the decrypted account object.
 **Example**
 
 ```javascript
+// Decrypt keystore v4 JSON
+> caver.klay.accounts.decrypt({
+    version: 4,
+    id: '6b4c9eb2-9dc6-46d4-88b6-bb1fa511ead1',
+    address: '0x5aac93bcce8834c02600c2df7f031bc76f37276c',
+    keyring: [
+        {
+            ciphertext: 'eda10e7b55de386aeb212f99644cdbfa52b96bf07747e74e5e60bd6c39fa88aa',
+            cipherparams: { iv: 'd626fa3c140c93b27fb995264bee9c4e' },
+            cipher: 'aes-128-ctr',
+            kdf: 'scrypt',
+            kdfparams: { dklen: 32, salt: 'e85fd7a0801ed5221a769844a225a3663886e0e235fbc972c31a129df5cadb6c', n: 4096, r: 8, p: 1 },
+            mac: 'bc19774bf5db92919273ca72f8f3137019d658e7850e31ff454635db4a1d5dbe',
+        },
+    ],
+}, 'test')
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
+    signTransaction: [Function: signTransaction],
+    sign: [Function: sign],
+    encrypt: [Function: encrypt],
+    getKlaytnWalletKey: [Function: getKlaytnWalletKey]
+}
+
+// Decrypt keystroe v3 JSON
 > caver.klay.accounts.decrypt({
      version: 3,
      id: '04e9bcbb-96fa-497b-94d1-14df4cd20af6',
@@ -680,10 +1874,11 @@ Decrypts a keystore v3 JSON and returns the decrypted account object.
          },
          mac: 'b8b010fff37f9ae5559a352a185e86f9b9c1d7f7a9f1bd4e82a5dd35468fc7f6'
      }
-  }, 'test!');
-{ 
-    address: '2c7536e3605d9c16a7a3d7b1898e529396a65c23',
-    privateKey: '0x{private key}',
+  }, 'test!')
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
@@ -691,7 +1886,7 @@ Decrypts a keystore v3 JSON and returns the decrypted account object.
 }
 ```
 
-## isDecoupled
+## isDecoupled <a id="isdecoupled"></a>
 
 ```javascript
 caver.klay.accounts.isDecoupled(key, address)
@@ -729,7 +1924,7 @@ false
 false
 ```
 
-## getLegacyAccount
+## getLegacyAccount <a id="getlegacyaccount"></a>
 
 ```javascript
 caver.klay.accounts.getLegacyAccount(key)
@@ -785,7 +1980,7 @@ Returns an account that has an address derived from the given private key. See [
 ```
 
 
-## wallet
+## wallet <a id="wallet"></a>
 
 ```javascript
 caver.klay.accounts.wallet
@@ -816,7 +2011,7 @@ Wallet {
 ```
 
 
-## wallet.create
+## wallet.create  <a id="wallet-create"></a>
 
 ```javascript
 caver.klay.accounts.wallet.create([numberOfAccounts] [, entropy])
@@ -852,7 +2047,7 @@ Wallet {
 ```
 
 
-## wallet.add
+## wallet.add <a id="wallet-add"></a>
 
 ```javascript
 caver.klay.accounts.wallet.add(account [, targetAddress])
@@ -935,7 +2130,7 @@ One is a raw private key format of a 32-byte string type and the other is the [K
 ```
 
 
-## wallet.remove
+## wallet.remove <a id="wallet-remove"></a>
 
 ```javascript
 caver.klay.accounts.wallet.remove(account)
@@ -978,7 +2173,7 @@ false
 ```
 
 
-## wallet.clear
+## wallet.clear <a id="wallet-clear"></a>
 
 ```javascript
 caver.klay.accounts.wallet.clear()
@@ -1007,7 +2202,7 @@ Wallet {
 ```
 
 
-## wallet.encrypt
+## wallet.encrypt <a id="wallet-encrypt"></a>
 
 ```javascript
 caver.klay.accounts.wallet.encrypt(password)
@@ -1075,7 +2270,7 @@ Encrypts all wallet accounts and returns an array of encrypted keystore v3 objec
 ```
 
 
-## wallet.decrypt
+## wallet.decrypt <a id="wallet-decrypt"></a>
 
 ```javascript
 caver.klay.accounts.wallet.decrypt(keystoreArray, password)
@@ -1155,7 +2350,7 @@ Wallet {
 }
 ```
 
-## wallet.getKlaytnWalletKey
+## wallet.getKlaytnWalletKey <a id="wallet-getklaytnwalletkey"></a>
 
 ```javascript
 caver.klay.accounts.wallet.getKlaytnWalletKey(index)
@@ -1197,7 +2392,7 @@ Return the Klaytn wallet key for the account on the wallet of caver-js.
 Error: Failed to find account
 ```
 
-## wallet.updatePrivateKey
+## wallet.updatePrivateKey <a id="wallet-updateprivatekey"></a>
 
 ```javascript
 caver.klay.accounts.wallet.updatePrivateKey(privateKey, address)
@@ -1205,6 +2400,9 @@ caver.klay.accounts.wallet.updatePrivateKey(privateKey, address)
 Update the account's private key information stored in the wallet.
 
 **NOTE**: This function only changes the information stored in the wallet of caver-js. This function has no effect on the key information stored on the Klaytn network. Keys in the Klaytn network can be changed by sending a ['ACCOUNT_UPDATE'](./caver.klay/sendtx_account_update.md#sendtransaction-account_update) transaction.
+
+**NOTE** `updatePrivateKey` only works if the account's accountKey is AccountKeyPublic. 
+Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0) supports AccountKeys (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased), `privateKey` becomes a read-only property referencing the defaultKey of the accountKey. This method does not directly update the `privateKey`, instead update the accountKey. This method is maintained for backward-compatibility. It is now recommended to use more generic [caver.klay.accounts.wallet.updateAccountKey](#wallet-updateaccountkey).
 
 **Parameters**
 
@@ -1218,20 +2416,96 @@ Update the account's private key information stored in the wallet.
 
 | Type | Description |
 | --- | --- |
-| Object | An object that contains information about the updated account. |
+| Object | Account instance with the new accountKey. The Account instance lives in-memory caver-js wallet. |
 
 
 **Example**
 
 ```javascript
-> caver.klay.accounts.wallet.updatePrivateKey('{private key}', '0xf2e2565629c7763dc0b595e8e531a31371a95f95');
-{ 
-    address: '0xf2e2565629c7763dc0b595e8e531a31371a95f95',
-    privateKey: '0x{private key}',
+> caver.klay.accounts.wallet.updatePrivateKey('0x{private key}', '0xf2e2565629c7763dc0b595e8e531a31371a95f95');
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
     getKlaytnWalletKey: [Function: getKlaytnWalletKey],
-    index: 0 
+    index: 0
+}
+```
+
+## wallet.updateAccountKey <a id="wallet-updateaccountkey"></a>
+
+```javascript
+caver.klay.accounts.wallet.updateAccountKey(address, accountKey)
+```
+Update the account's account key information stored in the wallet. When you update your account's accountKey, privateKey is updated as well to the defaultKey of the new accountKey.
+
+If the accountKey parameter is a single private key string, the account's accountKey is updated with an `AccountKeyPublic` instance. If the accountKey parameter is an array with multiple private key strings, the account's accountKey is updated with an `AccountKeyMultiSig` instance. If the accountKey parameter is an object whose keys are defined by roles, the account's accountKey is updated with an `AccountKeyRoleBased` instance.
+
+**NOTE**: This function only changes the information stored in the wallet of caver-js. This function has no effect on the key information stored on the Klaytn network. Keys in the Klaytn network can be changed by sending a ['ACCOUNT_UPDATE'](./caver.klay/sendtx_account_update.md#sendtransaction-account_update) transaction.
+
+**NOTE** `caver.klay.accounts.wallet.updateAccountKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| address | String | The account address in the wallet. |
+| accountKey | String &#124; Array &#124; Object | An AccountKey instance (`AccountKeyPublic`, `AccountKeyMultiSig` or `AccountKeyRoleBased`) or a data structure that contains the key info (a private key string, an array of private key strings or an object that defines the key for each role). |
+
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Object | Account instance with the new accountKey. The Account instance lives in-memory caver-js wallet. |
+
+
+**Example**
+
+```javascript
+// Update to AccountKeyPublic with a private key string
+> caver.klay.accounts.wallet.updateAccountKey('0xf2e2565629c7763dc0b595e8e531a31371a95f95', '0x{private key}')
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
+    signTransaction: [Function: signTransaction],
+    sign: [Function: sign],
+    encrypt: [Function: encrypt],
+    getKlaytnWalletKey: [Function: getKlaytnWalletKey],
+    index: 0
+}
+
+// Update to AccountKeyMultiSig with an array of private key strings
+> caver.klay.accounts.wallet.updateAccountKey('0xf2e2565629c7763dc0b595e8e531a31371a95f95', ['0x{private key}', '0x{private key}', '0x{private key}'])
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
+    signTransaction: [Function: signTransaction],
+    sign: [Function: sign],
+    encrypt: [Function: encrypt],
+    getKlaytnWalletKey: [Function: getKlaytnWalletKey],
+    index: 0
+}
+
+// Update to AccountKeyRoleBased with an object that defines keys by roles
+> caver.klay.accounts.wallet.updateAccountKey('0x2F66043C35e2389dA0B5401c3C592b2002d60bAc', {
+    transactionKey: '0x1e9c7960af2f1ed4b4ceff012b1eb2c1d31e57c9d52c5e9814d35a71726f02ed',
+    updateKey: ['0x3ceef924ce849bc243f2df92ae2ac7105182a4ccfcab5df6978280643dad5f3b', '0x655594f750be408b44582d36362e364565644c5974a8eba44e00f91f7274329e'],
+    feePayerKey: '0xf0089574637af59838755588f622ac12e7e8c1156aae928e1a1af2cd62736924'
+})
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
+    signTransaction: [Function: signTransaction],
+    sign: [Function: sign],
+    encrypt: [Function: encrypt],
+    getKlaytnWalletKey: [Function: getKlaytnWalletKey],
+    index: 0
 }
 ```

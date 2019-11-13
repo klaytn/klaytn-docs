@@ -1,4 +1,4 @@
-## klay_call
+## klay_call <a id="klay_call"></a>
 
 Executes a new message call immediately without creating a transaction on the block chain. It returns data or an error object of JSON RPC if error occurs.
 
@@ -44,7 +44,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 ```
 
 
-## klay_estimateGas
+## klay_estimateGas <a id="klay_estimategas"></a>
 
 Generates and returns an estimate of how much gas is necessary to allow the transaction to complete. The transaction will not be added to the blockchain. Note that the estimate may be significantly more than the amount of gas actually used by the transaction, for a variety of reasons including Klaytn Virtual Machine mechanics and node performance.
 
@@ -71,7 +71,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay_estimateComputationCost
+## klay_estimateComputationCost <a id="klay_estimatecomputationcost"></a>
 
 Generates and returns an estimate of how much computation cost will be spent to execute the transaction.
 Klaytn limits the computation cost of a transaction to `100000000` currently not to take too much time by a single transaction.
@@ -100,7 +100,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay_getTransactionByBlockHashAndIndex
+## klay_getTransactionByBlockHashAndIndex <a id="klay_gettransactionbyblockhashandindex"></a>
 
 Returns information about a transaction by block hash and transaction index position.
 This API works only on RPC call, not on Javascript console.
@@ -153,7 +153,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getTransactionByBlockNumberAndIndex
+## klay_getTransactionByBlockNumberAndIndex <a id="klay_gettransactionbyblocknumberandindex"></a>
 
 Returns information about a transaction by block number and transaction index position.
 This API works only on RPC call, not on Javascript console.
@@ -206,7 +206,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getTransactionByHash
+## klay_getTransactionByHash <a id="klay_gettransactionbyhash"></a>
 
 Returns the information about a transaction requested by transaction hash.
 This API works only on RPC call, not on Javascript console.
@@ -290,12 +290,12 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getTransactionBySenderTxHash
+## klay_getTransactionBySenderTxHash <a id="klay_gettransactionbysendertxhash"></a>
 
 Returns the information about a transaction requested by sender transaction hash.
 This API works only on RPC call, not on Javascript console.
 Please note that this API returns correct result only if indexing feature is enabled by `--sendertxhashindexing`.
-This can be checked by call [klay_isSenderTxHashIndexingEnabled](config.md#klay_isSenderTxHashIndexingEnabled).
+This can be checked by call [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled).
 
 **Parameters**
 
@@ -375,7 +375,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getTransactionReceipt
+## klay_getTransactionReceipt <a id="klay_gettransactionreceipt"></a>
 
 Returns the receipt of a transaction by transaction hash.
 
@@ -470,7 +470,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getTransactionReceiptBySenderTxHash
+## klay_getTransactionReceiptBySenderTxHash <a id="klay_gettransactionreceiptbysendertxhash"></a>
 
 Returns the receipt of a transaction by sender transaction hash.
 
@@ -567,7 +567,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_sendRawTransaction
+## klay_sendRawTransaction <a id="klay_sendrawtransaction"></a>
 
 Creates a new message call transaction or a contract creation for signed transactions.
 
@@ -600,7 +600,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_sendTransaction
+## klay_sendTransaction <a id="klay_sendtransaction"></a>
 
 Creates a new message call transaction or a contract creation if the data field contains code.
 
@@ -614,7 +614,7 @@ Creates a new message call transaction or a contract creation if the data field 
 | gasPrice | QUANTITY | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas. |
 | value | QUANTITY | (optional) Integer of the value sent with this transaction. |
 | data | DATA | The compiled code of a contract or the hash of the invoked method signature and encoded parameters. |
-| nonce | QUANTITY | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. |
+| nonce | QUANTITY | (optional) Integer of a nonce. |
 
 **Return Value**
 
@@ -649,7 +649,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_signTransaction
+## klay_signTransaction <a id="klay_signtransaction"></a>
 Creates a rawTransaction based on the give transaction information.
 
 **NOTE**: The address to sign with must be unlocked.
@@ -663,7 +663,7 @@ Creates a rawTransaction based on the give transaction information.
 | gasPrice | QUANTITY | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas. |
 | value | QUANTITY | (optional) Integer of the value sent with this transaction. |
 | data | DATA | The compiled code of a contract or the hash of the invoked method signature and encoded parameters. |
-| nonce | QUANTITY | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. |
+| nonce | QUANTITY | (optional) Integer of a nonce. |
 
 
 **Return Value**
@@ -699,7 +699,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-## txError: Detailed Information of Transaction Failures
+## txError: Detailed Information of Transaction Failures <a id="txerror-detailed-information-of-transaction-failures"></a>
 
 Klaytn provides a field `txError` in the transaction receipt
 to give developers more information about the reason for the failed transaction execution.
@@ -738,3 +738,62 @@ The below table shows the meaning of the value in `txError`.
 |0x1c|deprecated feature|
 |0x1d|not supported|
 |0x1e|smart contract code format is invalid|
+
+## klay_getDecodedAnchoringTransactionByHash <a id="klay_getDecodedAnchoringTransactionByHash"></a>
+
+Returns the decoded anchored data in the transaction for the given transaction hash.
+
+**Parameters**
+
+| Type | Description |
+| --- | --- |
+| 32-byte DATA | Hash of a transaction. |
+
+**Return Value**
+| Name | Type | Description |
+| --- | --- | --- |
+| BlockHash | 32-byte DATA | Hash of the child chain block that this anchoring transaction was performed. |
+| BlockNumber | QUANTITY | The child chain block number that this anchoring transaction was performed. |
+| ParentHash | 32-byte DATA | Hash of the parent block. |
+| TxHash | 32-byte DATA | The root of the transaction trie of the block. |
+| StateRootHash | 32-byte DATA | The root of the final state trie of the block. |
+| ReceiptHash| 32-byte DATA | The root of the receipts trie of the block. |
+| BlockCount | QUANTITY | The number of blocks generated during this anchoring period. In most cases, this number is equal to the child chain's `SC_TX_PERIOD`, with the exception of the case that this transaction was the first anchoring tx after turning on the anchoring. |
+| TxCount | QUANTITY | The number of transactions generated in the child chain during this anchoring period. |
+
+**Example**
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getDecodedAnchoringTransactionByHash","params":["0x499350bc5e2f6fee1ba78b4d40a7a1db0a64f3c091112e6798a02ed9a4140084"],"id":1}' http://localhost:8551
+
+// Result
+{
+   "jsonrpc":"2.0",
+   "id":1,
+   "result":{
+      "BlockCount":1,
+      "BlockHash":"0xcf5f591836d70a1da8e6bb8e5b2c5739329ca0e535b91e239b332af2e1b7f1f4",
+      "BlockNumber":1055,
+      "ParentHash":"0x70f6115a5b597f29791d3b5e3f129df54778f69ae669842cc81ec8c432fee37c",
+      "ReceiptHash":"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+      "StateRootHash":"0x654773348f77a6788c76c93946340323c9b39399d0aa173f6b23fe082848d056",
+      "TxCount":0,
+      "TxHash":"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"
+   }
+}
+```
+
+```javascript
+> klay.getDecodedAnchoringTransactionByHash("0x499350bc5e2f6fee1ba78b4d40a7a1db0a64f3c091112e6798a02ed9a4140084")
+{
+  BlockCount: 1,
+  BlockHash: "0xcf5f591836d70a1da8e6bb8e5b2c5739329ca0e535b91e239b332af2e1b7f1f4",
+  BlockNumber: 1055,
+  ParentHash: "0x70f6115a5b597f29791d3b5e3f129df54778f69ae669842cc81ec8c432fee37c",
+  ReceiptHash: "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+  StateRootHash: "0x654773348f77a6788c76c93946340323c9b39399d0aa173f6b23fe082848d056",
+  TxCount: 0,
+  TxHash: "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"
+}
+```

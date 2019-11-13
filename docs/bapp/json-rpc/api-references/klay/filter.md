@@ -1,4 +1,4 @@
-## klay_getFilterChanges
+## klay_getFilterChanges <a id="klay_getfilterchanges"></a>
 
 Polling method for a filter, which returns an array of logs which occurred since last poll.
 
@@ -55,7 +55,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getFilterLogs
+## klay_getFilterLogs <a id="klay_getfilterlogs"></a>
 
 Returns an array of all logs matching filter with given id, which has been
 obtained using [klay_newFilter](#klay_newfilter).  Note that filter ids
@@ -98,7 +98,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getLogs
+## klay_getLogs <a id="klay_getlogs"></a>
 
 Returns an array of all logs matching a given filter object.
 
@@ -235,7 +235,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 ```
 
 
-## klay_newBlockFilter
+## klay_newBlockFilter <a id="klay_newblockfilter"></a>
 
 Creates a filter in the node, to notify when a new block arrives.
 To check if the state has changed, call [klay_getFilterChanges](#klay_getfilterchanges).
@@ -265,7 +265,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_newFilter
+## klay_newFilter <a id="klay_newfilter"></a>
 
 Creates a filter object, based on filter options, to notify when the state changes (logs).
 - To check if the state has changed, call [klay_getFilterChanges](#klay_getfilterchanges).
@@ -308,7 +308,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 ```
 
 
-## klay_newPendingTransactionFilter
+## klay_newPendingTransactionFilter <a id="klay_newpendingtransactionfilter"></a>
 
 Creates a filter in the node, to notify when new pending transactions arrive.
 To check if the state has changed, call [klay_getFilterChanges](#klay_getfilterchanges).
@@ -338,7 +338,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_uninstallFilter
+## klay_uninstallFilter <a id="klay_uninstallfilter"></a>
 
 Uninstalls a filter with given id. Should always be called when watch is no longer needed.
 Additionally, filters timeout when they are not requested with [klay_getFilterChanges](#klay_getfilterchanges) for a period of time.

@@ -1,12 +1,12 @@
-# Klaytn native coin - KLAY
+# Klaytn native coin - KLAY <a id="klaytn-native-coin-klay"></a>
 
-## KLAY
+## KLAY <a id="klay"></a>
 
 KLAY is the main internal transferable cryptocurrency of Klaytn and is used to pay transaction fees when creating or executing smart contracts or when transferring KLAY.
 
 KLAY is a necessary element--a fuel--for operating the Klaytn distributed application platform. It is a form of payment made by the clients of the platform to the consensus nodes \(CNs\) executing the requested operations. To put it another way, KLAY is an incentive; it ensures that developers write high-quality applications \(wasteful code costs more\) and that the network remains healthy \(CNs and RNs are compensated for the resources they contribute\).
 
-## Units of KLAY
+## Units of KLAY <a id="units-of-klay"></a>
 
 Klaytn uses the following unit system for KLAY.
 
@@ -29,7 +29,7 @@ Klaytn uses the following unit system for KLAY.
 | GKLAY | 10^27 peb | 1,000,000,000,000,000,000,000,000,000 |
 | TKLAY | 10^30 peb | 1,000,000,000,000,000,000,000,000,000,000 |
 
-#### APIs Related to KLAY Units
+#### APIs Related to KLAY Units <a id="apis-related-to-klay-units"></a>
 
 `klay.toPeb` and `klay.fromPeb` are convenient APIs for converting between KLAY units.
 

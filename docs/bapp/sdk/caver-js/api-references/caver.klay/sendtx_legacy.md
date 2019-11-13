@@ -1,27 +1,34 @@
-# Legacy Transaction
+# Legacy Transaction <a id="legacy-transaction"></a>
 
-## sendTransaction (Legacy)
+## sendTransaction (Legacy) <a id="sendtransaction-legacy"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
 Sends a transaction to the network.
 
-Note: Only the account having `AccountKeyLegacy` can send this transaction, on the other hand, externally owned account(EOA) created from `ACCOUNT_CREATION` transaction can't send a legacy transaction.
+Note: Only the account having `AccountKeyLegacy` can send this transaction.
 
 **Parameters**
+
+The parameters of sendTransaction are a transaction object and a callback function.
 
 | Name | Type | Description |
 | --- | --- | --- |
 | transactionObject | Object | The transaction object to send. |
-| transactionObject.from | String | The sender address of the transaction. |
-| transactionObject.to | String | (optional) The destination address of the message, left undefined for a contract-creation transaction. |
-| transactionObject.value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb, also the endowment if it's a contract-creation transaction. |
-| transactionObject.gas | Number | The amount of gas to use for the transaction (unused gas is refunded). |
-| transactionObject.gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
-| transactionObject.data | String | (optional) Either an [ABI byte string](http://solidity.readthedocs.io/en/latest/abi-spec.html) containing the data of the function call on a contract, or in the case of a contract-creation transaction the initialization code. |
-| transactionObject.nonce | Number | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+
+A transaction object of type `LEGACY` has the following structure:
+
+| Name | Type | Description |
+| --- | --- | --- |
+| from | String | Address of this transaction sender. |
+| to | String | (optional) The destination address of the message, left undefined for a contract-creation transaction. |
+| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb, also the endowment if it's a contract-creation transaction. |
+| gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
+| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
+| data | String | (optional) Either an [ABI byte string](http://solidity.readthedocs.io/en/latest/abi-spec.html) containing the data of the function call on a contract, or in the case of a contract-creation transaction the initialization code. |
+| nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 
 **Return Value**
 

@@ -3,14 +3,14 @@ description: >-
   APIs to control Klaytn node.
 ---
 
-# Namespace admin
+# Namespace admin <a id="namespace-admin"></a>
 
 The namespace `admin` gives you access to several non-standard RPC methods, which will allow you to have
 fine-grained control over your Klaytn instance, including but not limited to network peer and RPC
 endpoint management.
 
 
-## admin_nodeInfo
+## admin_nodeInfo <a id="admin_nodeinfo"></a>
 
 The `nodeInfo` administrative property can be queried for all the information known about the running
 Klaytn node at the networking granularity. These include general information about the node itself as a
@@ -78,7 +78,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_datadir
+## admin_datadir <a id="admin_datadir"></a>
 
 The `datadir` administrative property can be queried for the absolute path the running Klaytn node
 currently uses to store all its databases. The default path is different depending on the node types
@@ -115,7 +115,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_peers
+## admin_peers <a id="admin_peers"></a>
 
 The `peers` administrative property can be queried for all the information known about the connected
 remote nodes at the networking granularity. These include general information about the nodes themselves
@@ -194,7 +194,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admi
 ```
 
 
-## admin_addPeer
+## admin_addPeer <a id="admin_addpeer"></a>
 
 The `addPeer` administrative method requests adding a new remote node to the list of tracked static
 nodes. The node will try to maintain connectivity to these nodes at all times, reconnecting every
@@ -237,7 +237,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_removePeer
+## admin_removePeer <a id="admin_removepeer"></a>
 
 The `removePeer` administrative method requests removing a node from the list of tracked static
 nodes.
@@ -278,7 +278,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_startRPC
+## admin_startRPC <a id="admin_startrpc"></a>
 
 The `startRPC` administrative method starts an HTTP based [JSON RPC](http://www.jsonrpc.org/specification)
 API webserver to handle client requests.
@@ -320,7 +320,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_stopRPC
+## admin_stopRPC <a id="admin_stoprpc"></a>
 
 The `stopRPC` administrative method closes the currently open HTTP RPC endpoint. As the node can only have a single HTTP endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
 
@@ -354,7 +354,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_startWS
+## admin_startWS <a id="admin_startws"></a>
 
 The `startWS` administrative method starts an WebSocket based [JSON RPC](http://www.jsonrpc.org/specification)
 API webserver to handle client requests.
@@ -396,7 +396,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_stopWS
+## admin_stopWS <a id="admin_stopws"></a>
 
 The `stopWS` administrative method closes the currently open WebSocket RPC endpoint. As the node can only have a single WebSocket endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
 
@@ -430,7 +430,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_exportChain
+## admin_exportChain <a id="admin_exportchain"></a>
 
 The `exportChain` administrative method exports the blockahin to a file.
 
@@ -466,7 +466,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_importChain
+## admin_importChain <a id="admin_importchain"></a>
 
 The `importChain` administrative method imports an exported chain from file into node. This only works if no chain already exists: it does not delete any existing data.
 

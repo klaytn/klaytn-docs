@@ -1,4 +1,4 @@
-## call
+## call <a id="call"></a>
 
 ```javascript
 caver.klay.call(callObject [, defaultBlock] [, callback])
@@ -30,7 +30,7 @@ Virtual Machine of the node, but never mined into the blockchain.
 "0x000000000000000000000000000000000000000000000000000000000000000a"
 ```
 
-## estimateGas
+## estimateGas <a id="estimategas"></a>
 
 ```javascript
 caver.klay.estimateGas(callObject [, callback])
@@ -60,7 +60,7 @@ Executes a message call or transaction and returns the amount of the gas used fo
 40
 ```
 
-## estimateComputationCost
+## estimateComputationCost <a id="estimatecomputationcost"></a>
 
 ```javascript
 caver.klay.estimateComputationCost(callObject [, defaultBlock] [, callback])
@@ -98,7 +98,7 @@ The transaction will not be added to the blockchain.
 0x5773
 ```
 
-## decodeTransaction
+## decodeTransaction <a id="decodetransaction"></a>
 
 ```javascript
 caver.klay.decodeTransaction(rawTransaction)
@@ -216,7 +216,7 @@ Since all transaction types except for legacy transaction can have multiple sign
 }
 ```
 
-## getTransaction
+## getTransaction <a id="gettransaction"></a>
 
 ```javascript
 caver.klay.getTransaction(transactionHash [, callback])
@@ -286,7 +286,7 @@ Returns a transaction matching the given transaction hash.
 }
 ```
 
-## getTransactionBySenderTxHash
+## getTransactionBySenderTxHash <a id="gettransactionbysendertxhash"></a>
 
 ```javascript
 caver.klay.getTransactionBySenderTxHash(senderTxHash [, callback])
@@ -369,7 +369,7 @@ Use [isSenderTxHashIndexingEnabled](./config.md#issendertxhashindexingenabled) t
 }
 ```
 
-## getTransactionFromBlock
+## getTransactionFromBlock <a id="gettransactionfromblock"></a>
 
 ```javascript
 caver.klay.getTransactionFromBlock(hashStringOrNumber, indexNumber [, callback])
@@ -396,7 +396,7 @@ Returns a transaction based on a block hash or number and the transactions index
 // see caver.klay.getTransaction
 ```
 
-## getTransactionReceipt
+## getTransactionReceipt <a id="gettransactionreceipt"></a>
 
 ```javascript
 caver.klay.getTransactionReceipt(transactionHash [, callback])
@@ -477,7 +477,7 @@ Returns the receipt of a transaction by transaction hash.
 }
 ```
 
-## getTransactionReceiptBySenderTxHash
+## getTransactionReceiptBySenderTxHash <a id="gettransactionreceiptbysendertxhash"></a>
 
 ```javascript
 caver.klay.getTransactionReceiptBySenderTxHash(senderTxHash [, callback])
@@ -576,17 +576,21 @@ This can be checked by calling [isSenderTxHashIndexingEnabled](./config.md#issen
 ```
 
 
-## sendSignedTransaction
-Sends an already signed transaction, generated using `caver.klay.accounts.signTransaction`
+## sendSignedTransaction <a id="sendsignedtransaction"></a>
+
 ```javascript
 caver.klay.sendSignedTransaction(signedTransactionData [, callback])
 ```
+
+Sends an already signed transaction, generated using `caver.klay.accounts.signTransaction`.
+
+**NOTE** `caver.klay.sendSignedTransaction` can accepts an object as a parameter since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0). The object should include an RLP-encoded transaction string or should be an unencoded transaction object with signatures/feePayerSignatures. You can pass the returning object from caver.klay.accounts.signTransaction, caver.klay.accounts.feePayerSignTransaction, caver.klay.accounts.getRawTransactionWithSignatures or caver.klay.accounts.combineSignatures.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| signedTransactionData | String | Signed transaction data in HEX format. |
+| signedTransactionData | String &#124; Object | An RLP-encoded signed transaction string, an object that has the RLP-encoded signed transaction string in its `rawTransaction` property, or an unencoded transaction object with signatures/feePayerSignatures attached to it. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -604,25 +608,90 @@ For PromiEvent, the following events are available:
 **Example**
 
 ```javascript
-const privateKey = "PRIVATE_KEY";
+// sendSignedTransaction using promise with RLP encoded signed transaction string
+caver.klay.sendSignedTransaction('0xf867808505d21dba0083015f9094247f2b7e9a9c51ebcc9449c7d9e7575f9baac36e0180824e43a02e50f5c4d279e17a80c3fe98327de7e48878e9d8141d26759ef64adcf66e6aa0a02ae9e8beac1ba8d5d215d87c33f9e05263b0bad163706c9dd7a563ee1e028f41').then(function(receipt){
+    ...
+})
 
-const txObject = {
-  gasPrice: '25000000000',
-  gasLimit: '30000',
-  to: '0x0000000000000000000000000000000000000000',
-  data: '0xff',
-  value: caver.utils.toPeb(1, 'KLAY'),
-};
+// sendSignedTransaction using promise with returning object from caver.klay.accounts.signTransaction
+caver.klay.sendSignedTransaction({
+    messageHash: '0x2378aeb6439f43597e30df4937f59eb13c98e502bb03babcebb39bf602cd8d73',
+    v: '0x4e43',
+    r: '0x9fc6cfd3d7c35794ab373c8d7f15746f1f4fa94c80e31270eea31977f20aaa9a',
+    s: '0x762343c55f7c1de87e5877887b9d10ed93b16666f4bdbc525aeee1f23fb53457',
+    rawTransaction: '0xf867018505d21dba0083015f9094cdba9992ffd79b12ce68905db40bf5e873b1a43e0180824e43a09fc6cfd3d7c35794ab373c8d7f15746f1f4fa94c80e31270eea31977f20aaa9aa0762343c55f7c1de87e5877887b9d10ed93b16666f4bdbc525aeee1f23fb53457',
+    txHash: '0x3d598805e1565ba5c4a1d2b708aff9825562d903bef4301ef22564253c6779bf',
+    senderTxHash: '0x3d598805e1565ba5c4a1d2b708aff9825562d903bef4301ef22564253c6779bf',
+    signatures: [
+        '0x4e43',
+        '0x9fc6cfd3d7c35794ab373c8d7f15746f1f4fa94c80e31270eea31977f20aaa9a',
+        '0x762343c55f7c1de87e5877887b9d10ed93b16666f4bdbc525aeee1f23fb53457',
+    ],
+}).then(function(receipt){
+    ...
+})
 
-caver.klay.accounts.signTransaction(txObject, privateKey)
-  .then(({ rawTransaction }) => {
-    caver.klay.sendSignedTransaction(rawTransaction)
-      .on('receipt', console.log)
-  });
+// sendSignedTransaction using promise with a transaction object that has signatures
+caver.klay.sendSignedTransaction({
+    type: 'LEGACY',
+    from: '0x73647c5fd1a66fac0dbf2af2e5cc7f593a015441',
+    to: '0x82c5b8f3ae5c08eeb64a1af0ce89cb5233b05c6c',
+    value: '0x1',
+    gas: '0x15f90',
+    gasPrice: '0x5d21dba00',
+    nonce: '0x2',
+    signatures: [
+        '0x4e43',
+        '0x077b0ec1dd5dd66ffbf7d779b08bed6166ec1b0269d85a3901dbfb55331216de',
+        '0x23b7565fa994ba3f88290de9b7f6b6b975f2ad9c19ce1ffc4752ecbc51b6c274',
+    ],
+}).then(function(receipt){
+    ...
+})
+
+// sendSignedTransaction using promise with a fee delegated transaction object that has signatures and feePayerSignatures
+caver.klay.sendSignedTransaction({
+    type: 'FEE_DELEGATED_VALUE_TRANSFER',
+    from: '0x73647c5fd1a66fac0dbf2af2e5cc7f593a015441',
+    to: '0x73f9b11bd22fde3ec543f3fcbdc39fc40a942bf7',
+    value: '0x1',
+    gas: '0x15f90',
+    gasPrice: '0x5d21dba00',
+    chainId: '0x2710',
+    nonce: '0x3',
+    humanReadable: false,
+    feePayer: '0xebcd0271c4f8d2a84a33e073a5c9bcdb6bafc556',
+    signatures: [
+        [
+            '0x4e44',
+            '0x41dfab76e0fdcdb5c4cd4dbe39861029d8c7f156f9dd10e8292625492943e689',
+            '0x789f1bfc42a96366ea0bdc6727410a661fe8300cdf57889316c25aa873a5b85c',
+        ],
+    ],
+    feePayerSignatures: [
+        [
+            '0x4e44',
+            '0x833031cb1d709a408f1c3b83cea88671d9d86f7550101e4e7221507a39dcd462',
+            '0x03f1d8003513b038195c6d798623d5bb132a93e7f2f0a2c302079b92858ea8e7',
+        ],
+    ],
+}).then(function(receipt){
+    ...
+})
+
+// sendSignedTransaction using event emitter with RLP encoded signed transaction string
+> caver.klay.sendSignedTransaction('0xf867068505d21dba0083015f90940fd7697a8b9a46b0f770a3986e8a10b6ad6fffe10180824e44a0e591e4cbf4bdada2e559ce5b9c7b604c50d3b1d7d5a29939091bcc8ad4208aa3a01ef917ec539aa79b32a043b452e81840ea012796895cd5925273fd8df139595f')
+.on('transactionHash', function(hash){
+    ...
+})
+.on('receipt', function(receipt){
+    ...
+})
+.on('error', console.error)
 ```
 
 
-## sendTransaction
+## sendTransaction <a id="sendtransaction"></a>
 - [sendTransaction (Legacy)](./sendtx_legacy.md#sendtransaction-legacy)
 - [sendTransaction (VALUE_TRANSFER)](./sendtx_value_transfer.md#sendtransaction-value_transfer)
 - [sendTransaction (FEE_DELEGATED_VALUE_TRANSFER)](./sendtx_value_transfer.md#sendtransaction-fee_delegated_value_transfer)
@@ -644,7 +713,7 @@ caver.klay.accounts.signTransaction(txObject, privateKey)
 - [sendTransaction (FEE_DELEGATED_CANCEL_WITH_RATIO)](./sendtx_cancel.md#sendtransaction-fee_delegated_cancel_with_ratio)
 
 
-## signTransaction
+## signTransaction <a id="signtransaction"></a>
 
 ```javascript
 caver.klay.signTransaction(transactionObject [, callback])

@@ -1,6 +1,6 @@
-# Blockchain Inspection
+# Blockchain Inspection <a id="blockchain-inspection"></a>
 
-## debug_dumpBlock
+## debug_dumpBlock <a id="debug_dumpblock"></a>
 
 Retrieves the state that corresponds to the block number and returns a list of
 accounts (including storage and code).
@@ -73,7 +73,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_getBlockRlp
+## debug_getBlockRlp <a id="debug_getblockrlp"></a>
 
 Retrieves and returns the RLP-encoded block by the block number.
 
@@ -110,7 +110,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_getModifiedAccountsByHash
+## debug_getModifiedAccountsByHash <a id="debug_getmodifiedaccountsbyhash"></a>
 
 Returns all accounts that have changed between the two blocks specified by
 their block hashes. A change is defined as a difference in nonce, balance, code
@@ -152,7 +152,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 ```
 
 
-## debug_getModifiedAccountsByNumber
+## debug_getModifiedAccountsByNumber <a id="debug_getmodifiedaccountsbynumber"></a>
 
 Returns all accounts that have changed between the two blocks specified by
 their block numbers. A change is defined as a difference in nonce, balance,
@@ -193,7 +193,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 ```
 
 
-## debug_preimage
+## debug_preimage <a id="debug_preimage"></a>
 
 Returns the preimage for a sha3 hash, if known.
 
@@ -230,7 +230,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_printBlock
+## debug_printBlock <a id="debug_printblock"></a>
 
 Retrieves a block and returns its pretty printed form.
 
@@ -266,7 +266,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_setHead
+## debug_setHead <a id="debug_sethead"></a>
 
 **`WARNING`**: This API is not yet implemented and always returns "not yet implemented API" error.
 
