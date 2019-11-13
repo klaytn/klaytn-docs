@@ -9,17 +9,24 @@ Sends a [Value Transfer](../../../../../klaytn/design/transactions/basic.md#txty
 
 **매개변수**
 
-| 명칭                         | 형식                                              | 설명                                                                                                                         |
-| -------------------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| transactionObject          | 객체                                              | The transaction object to send.                                                                                            |
-| transactionObject.type     | 문자열                                             | The type of "VALUE_TRANSFER" transaction.                                                                                  |
-| transactionObject.from     | 문자열                                             | The sender address of the transaction.                                                                                     |
-| transactionObject.to       | 문자열                                             | The destination address of the transaction.                                                                                |
-| transactionObject.value    | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the transaction in peb.                                                                          |
-| transactionObject.gas      | Number                                          | The amount of gas to use for the transaction (unused gas is refunded).                                                     |
-| transactionObject.gasPrice | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
-| transactionObject.nonce    | Number                                          | (선택사항) 논스의 정숫값입니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                    |
-| callback                   | Function                                        | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                       |
+The parameters of sendTransaction are a transaction object and a callback function.
+
+| 명칭                | 형식       | 설명                                                                   |
+| ----------------- | -------- | -------------------------------------------------------------------- |
+| transactionObject | 객체       | The transaction object to send.                                      |
+| callback          | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
+
+A transaction object of type `VALUE_TRANSFER` has the following structure:
+
+| 명칭       | 형식                                              | 설명                                                                                                                         |
+| -------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| type     | 문자열                                             | Transaction Type. "VALUE_TRANSFER"                                                                                         |
+| from     | 문자열                                             | Address of this transaction sender.                                                                                        |
+| to       | 문자열                                             | The destination address of the transaction.                                                                                |
+| value    | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the transaction in peb.                                                                          |
+| gas      | Number                                          | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                     |
+| gasPrice | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
+| nonce    | Number                                          | (선택사항) 논스의 정숫값입니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                    |
 
 **리턴값**
 
@@ -75,19 +82,33 @@ Sends a [Fee Delegated Value Transfer](../../../../../klaytn/design/transactions
 
 **매개변수**
 
-| 명칭                                     | 형식                                              | 설명                                                                                                                         |
-| -------------------------------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| transactionObject                      | 객체                                              | The transaction object to send.                                                                                            |
-| transactionObject.type                 | 문자열                                             | The type of "FEE_DELEGATED_VALUE_TRANSFER" transaction.                                                                  |
-| transactionObject.from                 | 문자열                                             | The sender address of the transaction.                                                                                     |
-| transactionObject.to                   | 문자열                                             | The destination address of the transaction.                                                                                |
-| transactionObject.value                | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the transaction in peb.                                                                          |
-| transactionObject.gas                  | Number                                          | The amount of gas to use for the transaction (unused gas is refunded).                                                     |
-| transactionObject.gasPrice             | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
-| transactionObject.nonce                | Number                                          | (선택사항) 논스의 정숫값입니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                    |
-| transactionObject.feePayer             | 문자열                                             | (for fee payer) The fee payer address of the transaction.                                                                  |
-| transactionObject.senderRawTransaction | 문자열                                             | (for fee payer) The raw transaction of a sender.                                                                           |
-| callback                               | Function                                        | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                       |
+The parameters of sendTransaction are a transaction object and a callback function.
+
+| 명칭                | 형식       | 설명                                                                   |
+| ----------------- | -------- | -------------------------------------------------------------------- |
+| transactionObject | 객체       | The transaction object to send.                                      |
+| callback          | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
+
+A transaction object of type `FEE_DELEGATED_VALUE_TRANSFER` has the following structure:
+
+| 명칭       | 형식                                              | 설명                                                                                                                         |
+| -------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| type     | 문자열                                             | Transaction Type. "FEE_DELEGATED_VALUE_TRANSFER"                                                                         |
+| from     | 문자열                                             | Address of this transaction sender.                                                                                        |
+| to       | 문자열                                             | The destination address of the transaction.                                                                                |
+| value    | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the transaction in peb.                                                                          |
+| gas      | Number                                          | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                     |
+| gasPrice | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
+| nonce    | Number                                          | (선택사항) 논스의 정숫값입니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                    |
+
+A transaction object of type `FEE_DELEGATED_VALUE_TRANSFER` with the above structure or an `RLP-encoded transaction` of type `FEE_DELEGATED_VALUE_TRANSFER` can be used as a parameter in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and in [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
+
+In order for the fee payer to sign an RLP encoded transaction signed by the sender and send it to the network, define an object with the following structure and call `caver.klay.sendTransaction`.
+
+| 명칭                   | 형식  | 설명                                            |
+| -------------------- | --- | --------------------------------------------- |
+| feePayer             | 문자열 | The fee payer address of the transaction.     |
+| senderRawTransaction | 문자열 | The RLP-encoded transaction signed by sender. |
 
 **리턴값**
 
@@ -153,20 +174,34 @@ Sends a [Fee Delegated Value Transfer With Ratio](../../../../../klaytn/design/t
 
 **매개변수**
 
-| 명칭                                     | 형식                                              | 설명                                                                                                                                                                                                  |
-| -------------------------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionObject                      | 객체                                              | The transaction object to send.                                                                                                                                                                     |
-| transactionObject.type                 | 문자열                                             | The type of "FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO" transaction.                                                                                                                              |
-| transactionObject.from                 | 문자열                                             | The sender address of the transaction.                                                                                                                                                              |
-| transactionObject.to                   | 문자열                                             | The destination address of the transaction.                                                                                                                                                         |
-| transactionObject.value                | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the transaction in peb.                                                                                                                                                   |
-| transactionObject.gas                  | Number                                          | The amount of gas to use for the transaction (unused gas is refunded).                                                                                                                              |
-| transactionObject.gasPrice             | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                          |
-| transactionObject.nonce                | Number                                          | (선택사항) 논스의 정숫값입니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                             |
-| transactionObject.feeRatio             | Number                                          | Fee ratio of the fee payer. 이 값이 30이면, 트랜잭션 수수료의 30%를 트랜잭션 수수료 납부자가 지불합니다. 나머지 70%는 트랜잭션 발신자가 지불합니다. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted. |
-| transactionObject.feePayer             | 문자열                                             | (for fee payer) The fee payer address of the transaction.                                                                                                                                           |
-| transactionObject.senderRawTransaction | 문자열                                             | (for fee payer) The raw transaction of a sender.                                                                                                                                                    |
-| callback                               | Function                                        | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                                |
+The parameters of sendTransaction are a transaction object and a callback function.
+
+| 명칭                | 형식       | 설명                                                                   |
+| ----------------- | -------- | -------------------------------------------------------------------- |
+| transactionObject | 객체       | The transaction object to send.                                      |
+| callback          | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
+
+A transaction object of type `FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO` has the following structure:
+
+| 명칭       | 형식                                              | 설명                                                                                                                                                                                              |
+| -------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type     | 문자열                                             | Transaction Type. "FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO"                                                                                                                                 |
+| from     | 문자열                                             | Address of this transaction sender.                                                                                                                                                             |
+| to       | 문자열                                             | The destination address of the transaction.                                                                                                                                                     |
+| value    | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the transaction in peb.                                                                                                                                               |
+| gas      | Number                                          | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                          |
+| gasPrice | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                      |
+| nonce    | Number                                          | (선택사항) 논스의 정숫값입니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                         |
+| feeRatio | Number                                          | 트랜잭션 수수료 납부자의 부담 비율입니다. 이 값이 30이면, 트랜잭션 수수료의 30%를 트랜잭션 수수료 납부자가 지불합니다. 나머지 70%는 트랜잭션 발신자가 지불합니다. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted. |
+
+A transaction object of type `FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO` with the above structure or an `RLP-encoded transaction` of type `FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO` can be used as a parameter in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and in [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
+
+In order for the fee payer to sign an RLP encoded transaction signed by the sender and send it to the network, define an object with the following structure and call `caver.klay.sendTransaction`.
+
+| 명칭                   | 형식  | 설명                                            |
+| -------------------- | --- | --------------------------------------------- |
+| feePayer             | 문자열 | The fee payer address of the transaction.     |
+| senderRawTransaction | 문자열 | The RLP-encoded transaction signed by sender. |
 
 **리턴값**
 
