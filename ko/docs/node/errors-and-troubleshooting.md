@@ -1,4 +1,4 @@
-# Errors & Troubleshooting <a id="errors-troubleshooting"></a>
+# 에러 & 문제 해결 <a id="errors-troubleshooting"></a>
 
 ## Klaytn 바이너리 패키지를 사용하여 실행 중인 Klaytn 노드에 대한 로그 파일을 어디에서 찾을 수 있습니까? <a id="where-can-i-find-a-log-file-for-the-running-klaytn-node-using-the-klaytn-binary"></a>
 
@@ -25,7 +25,7 @@ sudo kend start
 ```
 
 
-## 다음 오류 메시지와 함께 Truffle을 사용하여 스마트 컨트랙트를 배포할 수 없습니다. <a id="can-t-deploy-smart-contract-using-truffle-with-following-error-message"></a>
+## 다음 오류 메시지가 표시되며 트러플을 사용하여 스마트 컨트랙트를 배포할 수 없습니다. <a id="can-t-deploy-smart-contract-using-truffle-with-following-error-message"></a>
 
 ```
 Error: Returned error: The method net_version does not exist/is not available
