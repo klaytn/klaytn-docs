@@ -311,7 +311,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_sendTransaction <a id="personal_sendtransaction"></a>
 
-입력으로 받은 패스프레이즈를 검증하고 [TxTypeLegacy](../../../klaytn/design/transactions/basic.md#txtypelegacytransaction) 트랜잭션을 제출합니다. 이 트랜잭션 객체의 `from`, `to`, `value` 필드는 필수적으로 값을 입력해야 합니다. `gas`, `gasPrice`, `논스`와 같은 다른 필드는 값이 지정되지 않으면 내부적으로 설정이 됩니다. 입력받은 패스프레이즈로 `tx.from`의 개인키를 복호화할 수 있고 트랜잭션이 유효하면, 트랜잭션을 서명하여 네트워크에 제출합니다. 이때 계정은 노드에서 전역적으로 잠금 해제되지 않으며 다른 RPC 호출에 사용될 수도 없습니다.
+입력으로 받은 패스프레이즈를 검증하고 [TxTypeLegacy](../../../klaytn/design/transactions/basic.md#txtypelegacytransaction) 트랜잭션을 제출합니다. The transaction object must have `from` and `to` except the case of contract deployment. `to` should be omitted if the transaction deploys a smart contract. If `value` is not specified, it will be set to zero internally. Other fields such as `gas`, `gasPrice`, and `nonce` are set to appropriate values internally if unspecified. If the passphrase is able to decrypt the private key belonging to `tx.from` and the transaction is verified, the transaction is signed and submitted onto the network. 이때 계정은 노드에서 전역적으로 잠금 해제되지 않으며 다른 RPC 호출에 사용될 수도 없습니다.
 
 | 클라이언트 | 메서드 호출                                                               |
 |:-----:| -------------------------------------------------------------------- |
@@ -320,10 +320,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 **매개변수**
 
-| 명칭         | 형식  | 설명                                                     |
-| ---------- | --- | ------------------------------------------------------ |
-| tx         | 문자열 | 트랜잭션 객체입니다. `from`, `to`, `value` 필드는 반드시 값을 입력해야 합니다. |
-| passphrase | 문자열 | `tx.from`의 개인키를 복호화하기 위한 패스프레이즈입니다.                    |
+| 명칭         | 형식  | 설명                                                                                                        |
+| ---------- | --- | --------------------------------------------------------------------------------------------------------- |
+| tx         | 문자열 | 트랜잭션 객체입니다. `from` is a required field. `to`, `value`, `gas`, `gasPrice` and `nonce` are optional fields. |
+| passphrase | 문자열 | `tx.from`의 개인키를 복호화하기 위한 패스프레이즈입니다.                                                                       |
 
 **리턴값**
 
