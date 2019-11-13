@@ -18,3 +18,7 @@ KlaytnDocs introduces and explains [Klaytn](https://www.klaytn.com/), an enterpr
 * [https://web3js.readthedocs.io/en/1.0/](https://web3js.readthedocs.io/en/1.0/)
 
 
+**Credit**: Icons used in the following pages are made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/).
+
+* [Klaytn Overview](klaytn/README.md)
+* [Consensus Mechanism](klaytn/design/consensus-mechanism.md)
