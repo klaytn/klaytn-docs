@@ -330,9 +330,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 ## personal_sendTransaction <a id="personal_sendtransaction"></a>
 
 Validates the given passphrase and submits a [TxTypeLegacy](../../../klaytn/design/transactions/basic.md#txtypelegacytransaction) transaction.
-The transaction object must have field `from` and optionally has fields `to` and `value`. Other fields such as `gas`, `gasPrice`, and `nonce` are set internally if unspecified.
-If the passphrase is able to decrypt the private key belonging to `tx.from` and the transaction is verified,
-the transaction is signed and submitted onto the network.
+The transaction object must have `from` and `to` except the case of contract deployment. 
+`to` should be omitted if the transaction deploys a smart contract. 
+If `value` is not specified, it will be set to zero internally. 
+Other fields such as `gas`, `gasPrice`, and `nonce` are set to appropriate values internally if unspecified.
+If the passphrase is able to decrypt the private key belonging to `tx.from` and the transaction is verified, the transaction is signed and submitted onto the network.
 The account is not unlocked globally in the node and cannot be used in other RPC calls.
 
 | Client    | Method invocation                                                |
