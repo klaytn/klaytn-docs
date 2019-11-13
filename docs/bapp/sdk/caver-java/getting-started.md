@@ -557,7 +557,7 @@ FeePayerManager feePayerManager_bob = new FeePayerManager.Builder(caver, feePaye
 
 //// 2. Charlie signs the received transaction and sends it to Klaytn EN.
 //// Charlie Side
-            FeePayerManager feePayerManager_charlie = new FeePayerManager.Builder(caver, feePayerCredentials_charlie)
+FeePayerManager feePayerManager_charlie = new FeePayerManager.Builder(caver, feePayerCredentials_charlie)
                     .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
                     .setChainId(LOCAL_CHAIN_ID)
                     .build();
