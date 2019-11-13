@@ -8,7 +8,7 @@ CN 환경설정은 데이터 디렉토리를 생성하고 환경설정 파일 `k
 
 ## CN 데이터 디렉토리 생성 <a id="cn-data-directory-creation"></a>
 
-Klaytn 블록체인 데이터의 크기가 계속 증가됨을 고려하여, 충분히 큰 스토리지를 사용하는 것을 추천합니다. 원하는 경로에 디렉토리를 생성할 수 있습니다.
+Klaytn 블록체인 데이터의 크기는 계속 증가하므로, 충분히 큰 스토리지를 사용하는 것을 추천합니다. 원하는 경로에 디렉토리를 생성할 수 있습니다.
 
 ```bash
 $ mkdir -p /var/kcnd/data
@@ -16,7 +16,7 @@ $ mkdir -p /var/kcnd/data
 
 ## 노드 키 설치 <a id="install-node-key"></a>
 
-CN을 작동시키기 위해 `nodekey`가 필요합니다. 만일 소유하지 않은 경우에는 KCN 바이너리가 새로 생성해 줄 것입니다. 만일 이미 가지고 있다면 `nodekey`를 CN 데이터 디렉토리에 넣으세요. `nodekey`를 생성하는 방법은 '[Before You Install](../before-you-install.md)' 섹션에 설명되어 있습니다. 다음 커맨드라인은 `nodekey`를 CN 데이터 디렉토리에 복사합니다.
+CN을 작동시키기 위해 `nodekey`가 필요합니다. 만일 nodekey가 없다면 KCN 바이너리가 새로 생성해 줄 것입니다. 만일 이미 가지고 있다면 `nodekey`를 CN 데이터 디렉토리에 넣으세요. `nodekey`를 생성하는 방법은 '[Before You Install](../before-you-install.md)' 장에 설명되어 있습니다. 다음 커맨드라인은 `nodekey`를 CN 데이터 디렉토리에 복사합니다.
 
 ```bash
 $ cp nodekey /var/kcnd/data
@@ -43,7 +43,7 @@ DATA_DIR=/var/kcnd/data
 
 Klaytn 네트워크 컨센서스에 참여한 것에 대한 보상으로, CN 운영자는 KLAY를 받습니다. 이러한 이유로 환경설정 파일 `kcnd.conf`에 주소를 설정해야 합니다.
 
-새 계정을 만드는 방법은 다양하지만, `kcn`도 본 기능을 제공합니다. 다음 명령으로 도움말 메시지를 확인할 수 있습니다.
+새 계정을 만드는 방법은 다양하지만, `kcn`도 본 기능을 제공합니다. 다음 명령으로 도움말을 확인할 수 있습니다.
 
 ```bash
 $ kcn account new --help
@@ -62,7 +62,7 @@ Repeat passphrase:
 Address: {d13f7da0032b1204f77029dc1ecbf4dae2f04241}
 ```
 
-결과로 사용자가 정의한 경로에 연관된 키스토어가 생성됩니다. 다음으로, 생성된 주소를 다음과 같이 `kcnd.conf` 파일에 입력해야 합니다.
+결과적으로 사용자가 정의한 경로에 연관된 키스토어가 생성됩니다. 다음으로, 생성된 주소를 다음과 같이 `kcnd.conf` 파일에 입력해야 합니다.
 
 ```text
 ...
@@ -70,7 +70,7 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 ...
 ```
 
-생성한 키스토어와 비밀번호는 매우 중요하므로 관리에 주의해야 합니다. `kcnd.conf`에 대한 자세한 내용은 [Configuration File](../../operation-guide/configuration.md) 섹션을 참조하세요.
+생성한 키스토어와 비밀번호는 매우 중요하므로 관리에 주의해야 합니다. `kcnd.conf`에 대한 자세한 내용은 [Configuration File](../../operation-guide/configuration.md) 장을 참조하세요.
 
 ## 패스트 싱크 \(선택 사항\) <a id="fast-sync-optional"></a>
 
