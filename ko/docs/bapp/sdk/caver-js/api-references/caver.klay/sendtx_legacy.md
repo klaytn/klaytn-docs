@@ -7,21 +7,28 @@ caver.klay.sendTransaction(transactionObject [, callback])
 ```
 Sends a transaction to the network.
 
-Note: Only the account having `AccountKeyLegacy` can send this transaction, on the other hand, externally owned account(EOA) created from `ACCOUNT_CREATION` transaction can't send a legacy transaction.
+Note: Only the account having `AccountKeyLegacy` can send this transaction.
 
 **매개변수**
 
-| 명칭                         | 형식                                              | 설명                                                                                                                                                                                                                                |
-| -------------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionObject          | 객체                                              | The transaction object to send.                                                                                                                                                                                                   |
-| transactionObject.from     | 문자열                                             | The sender address of the transaction.                                                                                                                                                                                            |
-| transactionObject.to       | 문자열                                             | (optional) The destination address of the message, left undefined for a contract-creation transaction.                                                                                                                            |
-| transactionObject.value    | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb, also the endowment if it's a contract-creation transaction.                                                                                                          |
-| transactionObject.gas      | Number                                          | The amount of gas to use for the transaction (unused gas is refunded).                                                                                                                                                            |
-| transactionObject.gasPrice | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                                        |
-| transactionObject.data     | 문자열                                             | (optional) Either an [ABI byte string](http://solidity.readthedocs.io/en/latest/abi-spec.html) containing the data of the function call on a contract, or in the case of a contract-creation transaction the initialization code. |
-| transactionObject.nonce    | Number                                          | (선택사항) 논스의 정숫값입니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                                                           |
-| callback                   | Function                                        | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                                                              |
+The parameters of sendTransaction are a transaction object and a callback function.
+
+| 명칭                | 형식       | 설명                                                                   |
+| ----------------- | -------- | -------------------------------------------------------------------- |
+| transactionObject | 객체       | The transaction object to send.                                      |
+| callback          | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
+
+A transaction object of type `LEGACY` has the following structure:
+
+| 명칭       | 형식                                              | 설명                                                                                                                                                                                                                                |
+| -------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from     | 문자열                                             | Address of this transaction sender.                                                                                                                                                                                               |
+| to       | 문자열                                             | (optional) The destination address of the message, left undefined for a contract-creation transaction.                                                                                                                            |
+| value    | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb, also the endowment if it's a contract-creation transaction.                                                                                                          |
+| gas      | Number                                          | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                                                            |
+| gasPrice | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                                        |
+| data     | 문자열                                             | (optional) Either an [ABI byte string](http://solidity.readthedocs.io/en/latest/abi-spec.html) containing the data of the function call on a contract, or in the case of a contract-creation transaction the initialization code. |
+| nonce    | Number                                          | (선택사항) 논스의 정숫값입니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                                                           |
 
 **리턴값**
 
