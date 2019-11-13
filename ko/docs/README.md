@@ -18,3 +18,7 @@ KlaytnDocs는 수백만 사용자들에게 사용자 친화적인 블록체인 �
 * [https://web3js.readthedocs.io/en/1.0/](https://web3js.readthedocs.io/en/1.0/)
 
 
+**Credit**: Icons used in the following pages are made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/).
+
+* [Klaytn 개요](klaytn/README.md)
+* [합의 메커니즘](klaytn/design/consensus-mechanism.md)
