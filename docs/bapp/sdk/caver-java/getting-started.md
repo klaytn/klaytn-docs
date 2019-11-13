@@ -470,7 +470,7 @@ newAccountKey = AccountKeyRoleBased.create(roleBasedAccountKeyList);
 
 To use Account updated with `AccountKeyRoleBased`,` KlayCredentials` can be created and used as follows:
 
-```
+```java
 List<ECKeyPair> transactionECKeyPairList = Arrays.asList(newKeyPair1);
 List<ECKeyPair> updateECKeyPairList = Arrays.asList(newKeyPair2);
 List<ECKeyPair> feePayerECKeyPairList = Arrays.asList(newKeyPair3);
