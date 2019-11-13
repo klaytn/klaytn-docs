@@ -480,7 +480,7 @@ KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList
 
 If you don't have a key for a specific role, pass an empty List as an argument.
 
-```
+```java
 List<ECKeyPair> transactionECKeyPairList = Collections.emptyList();
 List<ECKeyPair> updateECKeyPairList = Arrays.asList(newKeyPair2);
 List<ECKeyPair> feePayerECKeyPairList = Collections.emptyList();
