@@ -1,12 +1,12 @@
 # 모니터링 설정 <a id="monitoring-setup"></a>
 
-> 하드 포크로 인해 Klaytn 바이너리의 최신 버전 \(&gt;= v0.5.9\)을 다운로드하세요.
+> 하드 포크 때문에 Klaytn 바이너리의 최신 버전 \(&gt;= v0.5.9\)을 다운로드해주세요.
 
 ## 모니터링 설정 <a id="monitoring-setup"></a>
 
 ### 개요 <a id="overview"></a>
 
-Klaytn 팀은 [http://cypress.klaytn.net](http://cypress.klaytn.net)에서 Klaytn CCN을 모니터링할 수 있는 사이트를 제공합니다. `telegraf` 모니터링 에이전트는 CC의 각 CN/PN에 설치되어 지표를 수집하고 이를 모니터링 서버로 보냅니다. 일단 설치되면 모니터링 사이트를 방문하여 Klaytn CC의 지표들을 볼 수 있습니다.
+Klaytn 팀은 Klaytn CCN을 모니터링할 수 있는 사이트([http://cypress.klaytn.net](http://cypress.klaytn.net))를 제공합니다. `telegraf` 모니터링 에이전트는 CC의 각 CN/PN에 설치되어 지표를 수집하고 이를 모니터링 서버로 보냅니다. 일단 설치되면 모니터링 사이트를 방문하여 Klaytn CC의 지표들을 볼 수 있습니다.
 
 설치 과정은 다음과 같습니다.
 
@@ -14,7 +14,7 @@ Klaytn 팀은 [http://cypress.klaytn.net](http://cypress.klaytn.net)에서 Klayt
 2. `telegraf` 환경설정하기
 3. `telegraf` 시작하기
 
-### Telegraf Installation <a id="telegraf-installation"></a>
+### Telegraf 설치 <a id="telegraf-installation"></a>
 
 Telegraf 설치 안내서 \(Amazon Linux 2 사용자, 아래 참조\): [https://docs.influxdata.com/telegraf/latest/introduction/installation/](https://docs.influxdata.com/telegraf/latest/introduction/installation/)
 
@@ -33,9 +33,9 @@ gpgkey = https://repos.influxdata.com/influxdb.key
 EOF
 ```
 
-### Telegraf Setup <a id="telegraf-setup"></a>
+### Telegraf 설정 <a id="telegraf-setup"></a>
 
-#### Enable monitoring in kcnd/kpnd <a id="enable-monitoring-in-kcnd-kpnd"></a>
+#### kcnd/kpnd에서 모니터링 활성화 <a id="enable-monitoring-in-kcnd-kpnd"></a>
 
 /etc/kcnd/conf/kcnd.conf
 
@@ -81,7 +81,7 @@ tcp        0      0 :::61001        :::*       LISTEN      8989/kcn
 
 `/etc/telegraf/telegraf.conf`에서 다음을 변경하세요:
 
-* `[[outputs.influxdb]]` 장을 주석처리 하세요.
+* `[[outputs.influxdb]]` 장을 주석 처리 하세요.
 
 **Telegraf 시작하기**
 
@@ -95,5 +95,5 @@ $ systemctl restart telegraf
 
 [http://cypress.klaytn.net](http://cypress.klaytn.net)
 
-CC 운영자는 슬랙 채널에 회사 이름과 이메일 주소를 제공하여 계정을 요청할 수 있습니다. CC 운영자만이 Grafana 계정을 요청할 수 있음에 유의하세요.
+CC 운영자는 슬랙 채널에 회사 이름과 이메일 주소를 제공하시고 계정을 요청할 수 있습니다. CC 운영자만이 Grafana 계정을 요청할 수 있습니다.
 
