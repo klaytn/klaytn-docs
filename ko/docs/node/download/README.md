@@ -1,7 +1,7 @@
 # 다운로드 <a id="download"></a>
 
 ## 패키지 받기 <a id="get-the-packages"></a>
-You can get the Linux and MacOS packages for CN, PN, EN, SCN, SPN and SEN. (`homi` will be update soon.)
+CN, PN, EN, SCN, SPN 및 SEN 용 Linux 및 MacOS 패키지를 받을 수 있습니다. (`homi`는 곧 업데이트 됩니다.)
 
 - [v1.2.0 (latest)](v1.2.0.md)
 - [v1.1.1](v1.1.1.md)
