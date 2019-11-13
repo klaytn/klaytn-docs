@@ -2,18 +2,18 @@
 
 This page explains the configuration of a node in a single-node Service Chain.
 
-If you installed Linux Archive Distribution, you can execute like below in the path where the package is extracted. 
+If you installed archive distribution, you can find the binaries and the config file in the directories you extracted the archives. Below is an example of execution commands.
 ```bash
 $ homi-darwin-amd64/bin/homi setup ...
 $ kscn-darwin-amd64/bin/kscnd start
 $ vi kscn-darwin-amd64/conf/kscnd.conf
 ```
 
-This page omits certain command paths for convenience.
+In this tutorial, we will not always specify the full path to the command.
  
 ## Creation of a Genesis File <a id="creation-of-a-genesis-file"></a>
 
-First, you should create a new genesis file and a nodekey file by homi for your own service chain like below.
+First, you should create a genesis file and a nodekey file for your own service chain. You can create them using homi like below.
 ```bash
 $ homi setup local --cn-num 1 --servicechain -o ./homi-output
 Created :  homi-output/keys/passwd1
@@ -25,7 +25,7 @@ Created :  homi-output/Klaytn.json
 Created :  homi-output/Klaytn_txpool.json
 ```
  
-This is an example of genesis file and a node key.
+Below are examples of genesis file and nodekey file.
 ```bash
 $ cat homi-output/scripts/genesis.json
 {
@@ -56,28 +56,28 @@ $ cat homi-output/scripts/genesis.json
 ```
 
 ```bash      
-$ cat homi-output/keys/nodekey1                                                                                                                                  ➜  ~ cat homi-output/keys/nodekey1
+$ cat homi-output/keys/nodekey1                                                                                                                                 
 0c28c77ce5c2ca9e495b860f190ed7dfe7bd5c1a2e5f816587eb4d3d9566df44
 ```
 
-Please change the chainID in your genesis file with your own number to prevent a replay attack.
-(Do not use same chainID with Klaytn Cypress (8217) and Baobab (1001))
+Please change the chainID in the genesis file. Use your own number to prevent a replay attack.
+(Do not use the same chainID with Klaytn Cypress (8217) and Baobab (1001))
 
-If you want, you can change the default account balance in `"alloc"` field of the genesis file.
+If you want, you can change the pre-funded addresses by editing `"alloc"` in the genesis file.
 (You can find more details in [Genesis JSON](../../genesis.md).)
 
 ## SCN Data Directory Creation <a id="scn-data-directory-creation"></a>
 
 Considering the fact that the size of Klaytn blockchain data keeps increasing, it is recommended to use a big enough storage. 
 You can create the data directory on your desired path.
-In this documents, `~/kscnd_home` is a data directory. 
+In this document, we create `~/kscnd_home` as a data directory. 
 
 ```bash
 $ mkdir -p ~/kscnd_home
 ```
 
 ### Initialization of a Genesis Block <a id="initialization-of-a-genesis-block"></a>
-After that, you can initialize a data directory with the genesis file.
+After that, you can initialize the data directory with the genesis file.
 Before starting a service chain node, it is necessary to initialize the genesis block of the service chain network using `kscn` and `genesis.json`.
 
 ```bash
@@ -103,7 +103,7 @@ $ kscn init --datadir ~/kscnd_home homi-output/scripts/genesis.json
 ```
 
 ### Install nodekey <a id="install_nodekey"></a>
-Copy `homi-output/keys/nodekey1` to the `klay` directory in SCN's data directory like below. 
+Copy `homi-output/keys/nodekey1` to the `klay` directory in the SCN's data directory like below. 
 
 ```bash
 $ cp homi-output/keys/nodekey1  ~/kscnd_home/klay/nodekey
@@ -114,7 +114,7 @@ $ cp homi-output/keys/nodekey1  ~/kscnd_home/klay/nodekey
 `kscnd.conf` is the configuration file for the SCN.
 
 Assume that the SCN uses the default port and mounts a large-scale partition onto `~/kscnd_home`.
-In default `kscnd.conf` file, `SC_SUB_BRIDGE` option is disabled and there is no `DATA_DIR`.
+In the default `kscnd.conf` file, `SC_SUB_BRIDGE` option is disabled and `DATA_DIR` is empty.
 ```
 # Configuration file for the kscnd
 ...
@@ -124,7 +124,7 @@ DATA_DIR=
 ...
 ```
   
-You can enable `SC_SUB_BRIDGE` for Anchroing/Value transfer feature.
+You can enable `SC_SUB_BRIDGE` to use the Anchoring/Value transfer feature.
 Also you should set the DATA_DIR like below. 
 
 ```
@@ -136,7 +136,7 @@ DATA_DIR=~/kscnd_home
 ...
 ```
 
-If you want you can modify other options for you own customized Service Chain.
-But if you don't modify anything, you can run default Servive Chain.
+If you want, you can further modify other options to customize your Service Chain.
+Otherwise, now you can finish the configuration and you are ready to run the service chain using the default configuration.
 
 
