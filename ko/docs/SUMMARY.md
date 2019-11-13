@@ -56,7 +56,7 @@
   * [테스트 가이드](smart-contract/testing-guide.md)
   * [배포 가이드](smart-contract/deploy-guide.md)
   * [Klaytn 호환 토큰](smart-contract/token-standard.md)
-  * [이더리움 컨트랙트 이식](smart-contract/porting-ethereum-contract.md)
+  * [이더리움 컨트랙트 포팅](smart-contract/porting-ethereum-contract.md)
 
 * [설치 & 운영](node/README.md)
   * [엔드포인트 노드](node/endpoint-node/README.md)
