@@ -9,10 +9,7 @@ Depending on your installation type, you can start/stop the Klaytn service with 
 $ systemctl start kscnd.service
 
 ## when installed using linux archive
-$ kscnd start
-
-## when installed the uncompression of the downloaded package.
-$ cd bin
+$ cd <install_path>/bin$
 $ ./kscnd start
 ```
 
@@ -23,10 +20,7 @@ $ ./kscnd start
 $ systemctl stop kscnd.service
 
 ## when installed using linux archive
-$ kscnd stop
-
-## when installed the uncompression of the downloaded package.
-$ cd bin
+$ cd <install_path>/bin$
 $ ./kscnd stop
 ```
 
