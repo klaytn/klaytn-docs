@@ -561,7 +561,7 @@ The `subbridge_listBridge` returns the list of all bridge contract pairs that ar
 
 **매개변수**
 
-nonce
+논스
 
 **리턴값**
 
