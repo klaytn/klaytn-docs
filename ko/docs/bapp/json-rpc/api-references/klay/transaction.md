@@ -229,7 +229,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | humanReadable      | 불리언           | (선택사항) Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.                                                                                                      |
 | key                | 문자열           | (선택사항) 새로 생성된 계정의 키입니다.                                                                                                                                                    |
 | input              | DATA          | (선택사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                                |
-| nonce              | QUANTITY      | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                                                    |
+| 논스                 | QUANTITY      | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                                                    |
 | senderTxHash       | 32바이트 크기 DATA | 트랜잭션 발신자만 서명한 트랜잭션의 해시입니다. 이에 대한 자세한 내용은 [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash)를 참고하세요. 이 값은 수수료 위임된 트랜잭션이 아닌 경우의 `hash`와 항상 동일합니다. |
 | signatures         | 배열            | 서명 객체의 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                                                      |
 | to                 | 20바이트 크기 DATA | 트랜잭션 수신자의 주소입니다. 컨트랙트 생성 트랜잭션이면 `null`을 반환합니다.                                                                                                                             |
@@ -312,7 +312,7 @@ SenderTxHash로 조회한 트랜잭션의 정보를 반환합니다. 이 API는 
 | humanReadable      | 불리언           | (선택사항) Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.                                                                                                      |
 | key                | 문자열           | (선택사항) 새로 생성된 계정의 키입니다.                                                                                                                                                    |
 | input              | DATA          | (선택사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                                |
-| nonce              | QUANTITY      | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                                                    |
+| 논스                 | QUANTITY      | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                                                    |
 | senderTxHash       | 32바이트 크기 DATA | 트랜잭션 발신자만 서명한 트랜잭션의 해시입니다. 이에 대한 자세한 내용은 [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash)를 참고하세요. 이 값은 수수료 위임된 트랜잭션이 아닌 경우의 `hash`와 항상 동일합니다. |
 | signatures         | 배열            | 서명 객체의 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                                                      |
 | to                 | 20바이트 크기 DATA | 트랜잭션 수신자의 주소입니다. 컨트랙트 생성 트랜잭션이면 `null`을 반환합니다.                                                                                                                             |
@@ -399,7 +399,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | input              | DATA                 | (선택사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                      |
 | logs               | 배열                   | 이 트랜잭션이 발생시킨 로그 객체들의 배열입니다.                                                                                                                      |
 | logsBloom          | 256바이트 크기 DATA       | 라이트 클라이언트가 관련된 로그를 빠르게 검색할 수 있도록 하는 블룸필터입니다.                                                                                                     |
-| nonce              | QUANTITY             | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                          |
+| 논스                 | QUANTITY             | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                          |
 | senderTxHash       | (선택사항) 32바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소와 서명이 없는 트랜잭션 해시입니다. 이 값은 수수료 위임된 트랜잭션이 아닌 경우의 transactionHash의 값과 항상 동일합니다.                                                     |
 | signature          | 배열                   | 서명 객체의 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                            |
 | status             | QUANTITY             | `1` (성공) 또는 `0` (실패)를 나타냅니다.                                                                                                                     |
@@ -494,7 +494,7 @@ SenderTxHash로 조회한 트랜잭션의 영수증을 반환합니다.
 | input              | DATA                 | (선택사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                                               |
 | logs               | 배열                   | 이 트랜잭션이 발생시킨 로그 객체들의 배열입니다.                                                                                                               |
 | logsBloom          | 256바이트 크기 DATA       | 라이트 클라이언트가 관련된 로그를 빠르게 검색할 수 있도록 하는 블룸필터입니다.                                                                                              |
-| nonce              | QUANTITY             | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                   |
+| 논스                 | QUANTITY             | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                   |
 | senderTxHash       | (선택사항) 32바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소와 서명이 없는 트랜잭션 해시입니다. 이 값은 수수료 위임된 트랜잭션이 아닌 경우의 transactionHash의 값과 항상 동일합니다.                                              |
 | signature          | 배열                   | 서명 객체의 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                     |
 | status             | QUANTITY             | `1` (성공) 또는 `0` (실패)를 나타냅니다.                                                                                                              |
@@ -602,7 +602,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | gasPrice | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스당 가격의 정숫값입니다.                        |
 | value    | QUANTITY      | (선택사항) 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                       |
 | data     | DATA          | 컨트랙트의 컴파일된 코드이거나 호출된 메서드의 식별자와 인코딩된 매개변수들의 해시입니다.                           |
-| nonce    | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                          |
+| 논스       | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                          |
 
 **리턴값**
 
@@ -651,7 +651,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | gasPrice | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스당 가격의 정숫값입니다.                        |
 | value    | QUANTITY      | (선택사항) 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                       |
 | data     | DATA          | 컨트랙트의 컴파일된 코드이거나 호출된 메서드의 식별자와 인코딩된 매개변수들의 해시입니다.                           |
-| nonce    | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                          |
+| 논스       | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                          |
 
 
 **리턴값**
