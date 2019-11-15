@@ -10,7 +10,7 @@ Polling method for a filter, which returns an array of logs since the last poll.
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
-| filterId | 문자열      | The filter id.                                                       |
+| filterId | String   | The filter id.                                                       |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
@@ -29,7 +29,7 @@ The structure of the returned log `Object` in the `Array` looks as follows:
 | transactionIndex | QUANTITY      | Integer. The index of the transaction that this log was created from. 보류 중인 경우 `null`을 반환합니다.                                                                                           |
 | blockHash        | 32바이트 크기 DATA | 로그가 생성된 블록의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                              |
 | logIndex         | QUANTITY      | 블록에서 로그 인덱스 위치의 정숫값입니다. 보류 중인 로그인 경우 `null`을 반환합니다.                                                                                                                                     |
-| id               | 문자열           | 로그 식별자. It is made by concatenating "log_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`                                                                 |
+| id               | String        | 로그 식별자. It is made by concatenating "log_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`                                                                 |
 
 **예시**
 
@@ -62,7 +62,7 @@ Returns an array of all logs matching the filter with the given id. The filter o
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
-| filterId | 문자열      | The filter id.                                                       |
+| filterId | String   | The filter id.                                                       |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
@@ -116,15 +116,15 @@ The structure of the returned event `Object` in the `Array` looks as follows:
 
 | 명칭               | 형식             | 설명                                                                                                     |
 | ---------------- | -------------- | ------------------------------------------------------------------------------------------------------ |
-| address          | 문자열            | From which this event originated from.                                                                 |
-| data             | 문자열            | 색인화되지 않은 로그 매개변수를 포함하는 데이터.                                                                            |
+| address          | String         | From which this event originated from.                                                                 |
+| data             | String         | 색인화되지 않은 로그 매개변수를 포함하는 데이터.                                                                            |
 | topics           | 배열             | An array with max 4 32-byte topics, topic 1-3 contains indexed parameters of the log.                  |
 | logIndex         | Number         | 블록에서 이벤트 인덱스 위치의 정수값.                                                                                  |
 | transactionIndex | Number         | Integer of the transaction's index position, the event was created in.                                 |
 | transactionHash  | 32-byte String | Hash of the transaction this event was created in.                                                     |
 | blockHash        | 32-byte String | Hash of the block where this event was created in. `null` when its still pending.                      |
 | blockNumber      | Number         | The block number where this log was created in. 아직 보류 중인 경우 `null`.                                    |
-| id               | 문자열            | 로그 식별자. `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`을 사용하여 "log_" 문자열을 연결하여 작성됩니다. |
+| id               | String         | 로그 식별자. `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`을 사용하여 "log_" 문자열을 연결하여 작성됩니다. |
 
 **예시**
 
@@ -249,7 +249,7 @@ Removes the filter with the given id. It is strongly recommended to immediately 
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
-| filterId | 문자열      | The filter id.                                                       |
+| filterId | String   | The filter id.                                                       |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
