@@ -20,11 +20,11 @@ A transaction object of type `VALUE_TRANSFER_MEMO` has the following structure:
 
 | 명칭       | 형식                                              | 설명                                                                                                                         |
 | -------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| type     | 문자열                                             | Transaction Type. "VALUE_TRANSFER_MEMO"                                                                                  |
-| from     | 문자열                                             | Address of this transaction sender.                                                                                        |
-| to       | 문자열                                             | The destination address of the transaction.                                                                                |
+| type     | String                                          | Transaction Type. "VALUE_TRANSFER_MEMO"                                                                                  |
+| from     | String                                          | Address of this transaction sender.                                                                                        |
+| to       | String                                          | The destination address of the transaction.                                                                                |
 | value    | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the transaction in peb.                                                                          |
-| data     | 문자열                                             | The message to send with.                                                                                                  |
+| data     | String                                          | The message to send with.                                                                                                  |
 | gas      | Number                                          | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                     |
 | gasPrice | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
 | 논스       | Number                                          | (선택사항) 논스의 정숫값입니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                    |
@@ -96,11 +96,11 @@ A transaction object of type `FEE_DELEGATED_VALUE_TRANSFER_MEMO` has the followi
 
 | 명칭       | 형식                                              | 설명                                                                                                                         |
 | -------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| type     | 문자열                                             | Transaction Type. "FEE_DELEGATED_VALUE_TRANSFER_MEMO"                                                                  |
-| from     | 문자열                                             | Address of this transaction sender.                                                                                        |
-| to       | 문자열                                             | The destination address of the transaction.                                                                                |
+| type     | String                                          | Transaction Type. "FEE_DELEGATED_VALUE_TRANSFER_MEMO"                                                                  |
+| from     | String                                          | Address of this transaction sender.                                                                                        |
+| to       | String                                          | The destination address of the transaction.                                                                                |
 | value    | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the transaction in peb.                                                                          |
-| data     | 문자열                                             | The message to send with.                                                                                                  |
+| data     | String                                          | The message to send with.                                                                                                  |
 | gas      | Number                                          | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                     |
 | gasPrice | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
 | 논스       | Number                                          | (선택사항) 논스의 정숫값입니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                    |
@@ -109,10 +109,10 @@ A transaction object of type `FEE_DELEGATED_VALUE_TRANSFER_MEMO` with the above 
 
 In order for the fee payer to sign an RLP encoded transaction signed by the sender and send it to the network, define an object with the following structure and call `caver.klay.sendTransaction`.
 
-| 명칭                   | 형식  | 설명                                            |
-| -------------------- | --- | --------------------------------------------- |
-| feePayer             | 문자열 | The fee payer address of the transaction.     |
-| senderRawTransaction | 문자열 | The RLP-encoded transaction signed by sender. |
+| 명칭                   | 형식     | 설명                                            |
+| -------------------- | ------ | --------------------------------------------- |
+| feePayer             | String | The fee payer address of the transaction.     |
+| senderRawTransaction | String | The RLP-encoded transaction signed by sender. |
 
 **리턴값**
 
@@ -192,11 +192,11 @@ A transaction object of type `FEE_DELEGATED_VALUE_TRANSFER_MEMO_WITH_RATIO` has 
 
 | 명칭       | 형식                                              | 설명                                                                                                                                                                                              |
 | -------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type     | 문자열                                             | Transaction Type. "FEE_DELEGATED_VALUE_TRANSFER_MEMO_WITH_RATIO"                                                                                                                          |
-| from     | 문자열                                             | Address of this transaction sender.                                                                                                                                                             |
-| to       | 문자열                                             | The destination address of the transaction.                                                                                                                                                     |
+| type     | String                                          | Transaction Type. "FEE_DELEGATED_VALUE_TRANSFER_MEMO_WITH_RATIO"                                                                                                                          |
+| from     | String                                          | Address of this transaction sender.                                                                                                                                                             |
+| to       | String                                          | The destination address of the transaction.                                                                                                                                                     |
 | value    | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the transaction in peb.                                                                                                                                               |
-| data     | 문자열                                             | The message to send with.                                                                                                                                                                       |
+| data     | String                                          | The message to send with.                                                                                                                                                                       |
 | gas      | Number                                          | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                          |
 | gasPrice | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                      |
 | 논스       | Number                                          | (선택사항) 논스의 정숫값입니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                         |
@@ -206,10 +206,10 @@ A transaction object of type `FEE_DELEGATED_VALUE_TRANSFER_MEMO_WITH_RATIO` with
 
 In order for the fee payer to sign an RLP encoded transaction signed by the sender and send it to the network, define an object with the following structure and call `caver.klay.sendTransaction`.
 
-| 명칭                   | 형식  | 설명                                            |
-| -------------------- | --- | --------------------------------------------- |
-| feePayer             | 문자열 | The fee payer address of the transaction.     |
-| senderRawTransaction | 문자열 | The RLP-encoded transaction signed by sender. |
+| 명칭                   | 형식     | 설명                                            |
+| -------------------- | ------ | --------------------------------------------- |
+| feePayer             | String | The fee payer address of the transaction.     |
+| senderRawTransaction | String | The RLP-encoded transaction signed by sender. |
 
 **리턴값**
 
