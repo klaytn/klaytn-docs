@@ -2,7 +2,7 @@
 
 ## debug_standardTraceBadBlockToFile <a id="debug_standardtracebadblocktofile"></a>
 
-[debug_traceBadBlock](./tracing.md#debug_tracebadblock)과 유사하게 `standardTraceBadBlockToFile`는 잘못된 블록 해시를 입력으로 받아 해당 잘못된 블록을 재실행합니다. 추적 결과가 포함된 파일명 목록을 반환합니다. 이 파일들은 API를 제공하는 머신에 저장이 됩니다.
+[debug_traceBadBlock](./tracing.md#debug_tracebadblock)과 유사하게 `standardTraceBadBlockToFile`는 잘못된 블록 해시를 입력으로 받아 잘못된 해당 블록을 재실행합니다. 추적 결과가 포함된 파일명 목록을 반환합니다. 이 파일들은 API를 제공하는 머신에 저장이 됩니다.
 
 
 | 클라이언트 | 메서드 호출                                                                  |
