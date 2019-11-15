@@ -71,7 +71,7 @@ Returns a block matching the block hash or block number.
 | 명칭                       | 형식                   | 설명                                                                                                                                                           |
 | ------------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | blockHashOrBlockNumber   | String &#124; Number | The block hash or block number. Or the string `"genesis"`, `"latest"` or `"pending"`.                                                                        |
-| returnTransactionObjects | 불리언                  | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, if `false` it will only contains the transaction hashes. |
+| returnTransactionObjects | Boolean              | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, if `false` it will only contains the transaction hashes. |
 | callback                 | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                         |
 
 **리턴값**
@@ -81,7 +81,7 @@ Returns a block matching the block hash or block number.
 | 명칭               | 형식              | 설명                                                                                                                 |
 | ---------------- | --------------- | ------------------------------------------------------------------------------------------------------------------ |
 | blockScore       | QUANTITY        | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                                                                   |
-| extraData        | 문자열             | 블록의 "추가 데이터"를 위한 필드입니다.                                                                                            |
+| extraData        | String          | 블록의 "추가 데이터"를 위한 필드입니다.                                                                                            |
 | gasUsed          | Number          | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                                                                     |
 | governanceData   | DATA            | RLP 인코딩된 거버넌스 설정입니다.                                                                                               |
 | hash             | 32-byte String  | 블록의 해시입니다. `null` when it is a pending block.                                                                      |
@@ -136,7 +136,7 @@ Returns a list of transaction receipts included in a block identified by the giv
 
 | 명칭        | 형식       | 설명                                                                   |
 | --------- | -------- | -------------------------------------------------------------------- |
-| blockHash | 문자열      | 블록의 해시입니다.                                                           |
+| blockHash | String   | 블록의 해시입니다.                                                           |
 | callback  | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
@@ -231,7 +231,7 @@ Returns a block with consensus information matched by the given block hash or bl
 | ---------------- | --------------- | ------------------------------------------------------------------------ |
 | blockScore       | QUANTITY        | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                         |
 | committee        | 배열              | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
-| extraData        | 문자열             | 블록의 "추가 데이터"를 위한 필드입니다.                                                  |
+| extraData        | String          | 블록의 "추가 데이터"를 위한 필드입니다.                                                  |
 | gasUsed          | QUANTITY        | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                           |
 | governanceData   | DATA            | RLP 인코딩된 거버넌스 설정입니다.                                                     |
 | hash             | 32바이트 크기 DATA   | 블록의 해시입니다. `null` when it is a pending block.                            |
@@ -435,7 +435,7 @@ Gets the storage at a specific position of an address.
 
 | 명칭           | 형식                   | 설명                                                                                                                          |
 | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| address      | 문자열                  | The address to get the storage from.                                                                                        |
+| address      | String               | The address to get the storage from.                                                                                        |
 | position     | Number               | The index position of the storage.                                                                                          |
 | defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
 | callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
