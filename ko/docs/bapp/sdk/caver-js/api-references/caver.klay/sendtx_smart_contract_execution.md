@@ -20,14 +20,14 @@ A transaction object of type `SMART_CONTRACT_EXECUTION` has the following struct
 
 | 명칭       | 형식                                              | 설명                                                                                                                                                                                   |
 | -------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| type     | 문자열                                             | Transaction Type. "SMART_CONTRACT_EXECUTION"                                                                                                                                       |
-| from     | 문자열                                             | Address of this transaction sender.                                                                                                                                                  |
-| to       | 문자열                                             | The address of the deployed smart contract.                                                                                                                                          |
+| type     | String                                          | Transaction Type. "SMART_CONTRACT_EXECUTION"                                                                                                                                       |
+| from     | String                                          | Address of this transaction sender.                                                                                                                                                  |
+| to       | String                                          | The address of the deployed smart contract.                                                                                                                                          |
 | value    | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 의해 전송된 peb 단위의 값. To accept the value transfer, the contract function that will be executed by this transaction must be 'payable'. If omitted, it will be set to zero. |
 | gas      | Number                                          | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                               |
 | gasPrice | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                           |
 | 논스       | Number                                          | (선택사항) 논스의 정숫값입니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                              |
-| data     | 문자열                                             | An input data of the smart contract.                                                                                                                                                 |
+| data     | String                                          | An input data of the smart contract.                                                                                                                                                 |
 
 **리턴값**
 
@@ -98,23 +98,23 @@ A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_EXECUTION` has the fo
 
 | 명칭       | 형식                                              | 설명                                                                                                                                                                                   |
 | -------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| type     | 문자열                                             | Transaction Type. "FEE_DELEGATED_SMART_CONTRACT_EXECUTION"                                                                                                                       |
-| from     | 문자열                                             | Address of this transaction sender.                                                                                                                                                  |
-| to       | 문자열                                             | The address of the deployed smart contract.                                                                                                                                          |
+| type     | String                                          | Transaction Type. "FEE_DELEGATED_SMART_CONTRACT_EXECUTION"                                                                                                                       |
+| from     | String                                          | Address of this transaction sender.                                                                                                                                                  |
+| to       | String                                          | The address of the deployed smart contract.                                                                                                                                          |
 | value    | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 의해 전송된 peb 단위의 값. To accept the value transfer, the contract function that will be executed by this transaction must be 'payable'. If omitted, it will be set to zero. |
 | gas      | Number                                          | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                               |
 | gasPrice | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                           |
 | 논스       | Number                                          | (선택사항) 논스의 정숫값입니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                              |
-| data     | 문자열                                             | An input data of the smart contract.                                                                                                                                                 |
+| data     | String                                          | An input data of the smart contract.                                                                                                                                                 |
 
 A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_EXECUTION` with the above structure or an `RLP-encoded transaction` of type `FEE_DELEGATED_SMART_CONTRACT_EXECUTION` can be used as a parameter in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and in [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
 
 In order for the fee payer to sign an RLP encoded transaction signed by the sender and send it to the network, define an object with the following structure and call `caver.klay.sendTransaction`.
 
-| 명칭                   | 형식  | 설명                                            |
-| -------------------- | --- | --------------------------------------------- |
-| feePayer             | 문자열 | The fee payer address of the transaction.     |
-| senderRawTransaction | 문자열 | The RLP-encoded transaction signed by sender. |
+| 명칭                   | 형식     | 설명                                            |
+| -------------------- | ------ | --------------------------------------------- |
+| feePayer             | String | The fee payer address of the transaction.     |
+| senderRawTransaction | String | The RLP-encoded transaction signed by sender. |
 
 **리턴값**
 
@@ -194,24 +194,24 @@ A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO`
 
 | 명칭       | 형식                                              | 설명                                                                                                                                                                                              |
 | -------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type     | 문자열                                             | Transaction Type. "FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO"                                                                                                                     |
-| from     | 문자열                                             | Address of this transaction sender.                                                                                                                                                             |
-| to       | 문자열                                             | The address of the deployed smart contract.                                                                                                                                                     |
+| type     | String                                          | Transaction Type. "FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO"                                                                                                                     |
+| from     | String                                          | Address of this transaction sender.                                                                                                                                                             |
+| to       | String                                          | The address of the deployed smart contract.                                                                                                                                                     |
 | value    | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 의해 전송된 peb 단위의 값. To accept the value transfer, the contract function that will be executed by this transaction must be 'payable'. If omitted, it will be set to zero.            |
 | gas      | Number                                          | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                          |
 | gasPrice | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                      |
 | 논스       | Number                                          | (선택사항) 논스의 정숫값입니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                         |
-| data     | 문자열                                             | An input data of the smart contract.                                                                                                                                                            |
+| data     | String                                          | An input data of the smart contract.                                                                                                                                                            |
 | feeRatio | Number                                          | 트랜잭션 수수료 납부자의 부담 비율입니다. 이 값이 30이면, 트랜잭션 수수료의 30%를 트랜잭션 수수료 납부자가 지불합니다. 나머지 70%는 트랜잭션 발신자가 지불합니다. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted. |
 
 A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO` with the above structure or an `RLP-encoded transaction` of type `FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO` can be used as a parameter in [caver.klay.accounts.signTransaction](../caver.klay.accounts.md#signtransaction) for sender and in [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
 
 In order for the fee payer to sign an RLP encoded transaction signed by the sender and send it to the network, define an object with the following structure and call `caver.klay.sendTransaction`.
 
-| 명칭                   | 형식  | 설명                                            |
-| -------------------- | --- | --------------------------------------------- |
-| feePayer             | 문자열 | The fee payer address of the transaction.     |
-| senderRawTransaction | 문자열 | The RLP-encoded transaction signed by sender. |
+| 명칭                   | 형식     | 설명                                            |
+| -------------------- | ------ | --------------------------------------------- |
+| feePayer             | String | The fee payer address of the transaction.     |
+| senderRawTransaction | String | The RLP-encoded transaction signed by sender. |
 
 **리턴값**
 
