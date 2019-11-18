@@ -13,15 +13,15 @@
 ## What is Cypress, what is Baobab? <a id="what-is-cypress-what-is-baobab"></a>
 
 Cypress is the Klaytn mainnet, Baobab is a testnet. 
-Below are the information of each network. 
+Below is the information of each network. 
 
-Cypress: 
+Cypress mainnet: 
 - EN download : Choose the Cypress package from the [download page](../node/endpoint-node/installation-guide/download.md).
 - Public EN : https://api.cypress.klaytn.net:8651
 - Klaytnscope : https://scope.klaytn.com
 - Klaytn Wallet : https://wallet.klaytn.com
 
-Baobab:
+Baobab testnet:
 - EN download : Choose the Baobab package from the [download page](../node/endpoint-node/installation-guide/download.md).
 - Public EN : https://api.baobab.klaytn.net:8651
 - Klaytnscope : https://baobab.scope.klaytn.com
@@ -52,12 +52,12 @@ KAS (Klatyn API Service), similar to Infura for Ethereum, will be released in 20
 
 
 
-## I am running EN, and node data sync is too slow. <a id="node-data-sync-is-too-slow"></a>
+## I am running an EN, and node data sync is too slow. <a id="node-data-sync-is-too-slow"></a>
 
-First, check if your HW specification meets the [system requirement](../node/endpoint-node/system-requirements.md). 
+First, check if your HW specification meets the [system requirements](../node/endpoint-node/system-requirements.md). 
 
 Check the [fast sync](../node/endpoint-node/installation-guide/configuration.md#fast-sync-optional) option.
-Klaytn publishes the [chain data]() everyday. Download the lasted chain data for the fast sync.
+Klaytn publishes the chain data everyday. Download the lasted chain data for the fast sync.
 
 
 
@@ -65,7 +65,7 @@ Klaytn publishes the [chain data]() everyday. Download the lasted chain data for
 
 Yes. Klaytn Virtual Machine (KLVM) is compatible with EVM bytecode. [ERC-20](../smart-contract/sample-contracts/erc-20/README.md) and [ERC-721](../smart-contract/sample-contracts/erc-20/README.md) written in Solidity for Etherem can be deployed and executed on Klaytn. 
 
-Further Klatyn-specific token standard can be defined. Follow the [KIP (Klaytn Improvement Proposal)]() and join the discussion. 
+Further Klatyn-specific token standards can be defined. Follow the [KIP (Klaytn Improvement Proposal)]() and join the discussion. 
 
 
 
@@ -77,7 +77,7 @@ See [Truffle](../toolkit/truffle.md) and follow the configuration guideline.
 If you are new to Truffle, see [Testing Guide](../smart-contract/testing-guide.md) and [Deployment Guide](../smart-contract/deploy-guide.md) to get a rough guideline on what you can do with Truffle.
 
 
-## Where can I get a browser extension wallet like Metamask for Klaytn? <a id="where-can-i-get-a-browser-extension-wallet"></a>
+## Where can I get a browser extension wallet like Metamask? <a id="where-can-i-get-a-browser-extension-wallet"></a>
 
 No official browser wallets at the moment. 
 
@@ -85,15 +85,15 @@ Kaikas, a browser extension wallet of Klaytn will be released in ___.
 
 
 
-## Why is fee-payer account address not derived from the key provided? <a id="account-address-is-not-derived-from-the-key"></a>
+## Why is my fee-payer account address not derived from the key provided? <a id="account-address-is-not-derived-from-the-key"></a>
 
-In Klaytn, [account address can be decoupled from the key pair](../klaytn/design/accounts.md##decoupling-key-pairs-from-addresses). 
+In Klaytn, [account address can be decoupled from the key pair](../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses). 
 
 Common use cases are as follows. 
 - The account owner wants to change the key for security reason.
 - The account has a weighted-multisig or a role-base key that allows having multiple key pairs to control the account. 
 
-Fee-payer account usually has a [role-based key](../klaytn/design/accounts.md#accountkeyrolebased). In most of the cases, the account address is not be derived from the RoleFeePayer key.
+Fee-payer account usually has a [role-based key](../klaytn/design/accounts.md#accountkeyrolebased). In most cases, the account address is not derived from the RoleFeePayer key.
 
 
 
