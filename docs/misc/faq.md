@@ -48,7 +48,7 @@ There are public ENs you can simply connect to. Note that they are provided as a
 - Cypress Public EN : https://api.cypress.klaytn.net:8651
 - Baobab Public EN : https://api.baobab.klaytn.net:8651
 
-KAS (Klatyn API Service), similar to Infura for Ethereum, will be released in 2020.1Q. With KAS, you can use Klaytn without running own Endpoint Node.
+KAS (Klaytn API Service), similar to Infura for Ethereum, will be released in 2020.1Q. With KAS, you can use Klaytn without running own Endpoint Node.
 
 
 
@@ -57,7 +57,7 @@ KAS (Klatyn API Service), similar to Infura for Ethereum, will be released in 20
 First, check if your HW specification meets the [system requirements](../node/endpoint-node/system-requirements.md). 
 
 Check the [fast sync](../node/endpoint-node/installation-guide/configuration.md#fast-sync-optional) option.
-Klaytn publishes the chain data everyday. Download the lasted chain data for the fast sync.
+Klaytn publishes the chain data every day. Download the lasted chain data for the fast sync.
 
 
 
@@ -65,7 +65,7 @@ Klaytn publishes the chain data everyday. Download the lasted chain data for the
 
 Yes. Klaytn Virtual Machine (KLVM) is compatible with EVM bytecode. [ERC-20](../smart-contract/sample-contracts/erc-20/README.md) and [ERC-721](../smart-contract/sample-contracts/erc-20/README.md) written in Solidity for Etherem can be deployed and executed on Klaytn. 
 
-Further Klatyn-specific token standards can be defined. Follow the [KIP (Klaytn Improvement Proposal)]() and join the discussion. 
+Further Klaytn-specific token standards can be defined. Follow the [KIP (Klaytn Improvement Proposal)]() and join the discussion. 
 
 
 
@@ -87,13 +87,13 @@ Kaikas, a browser extension wallet of Klaytn will be released in ___.
 
 ## Why is my fee-payer account address not derived from the key provided? <a id="account-address-is-not-derived-from-the-key"></a>
 
-In Klaytn, [account address can be decoupled from the key pair](../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses). 
+In Klaytn, [the account address can be decoupled from the key pair](../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses). 
 
 Common use cases are as follows. 
-- The account owner wants to change the key for security reason.
-- The account has a weighted-multisig or a role-base key that allows having multiple key pairs to control the account. 
+- The account owner wants to change the key for security reasons.
+- The account has a weighted-multisig or a role-based key that allows having multiple key pairs to control the account. 
 
-Fee-payer account usually has a [role-based key](../klaytn/design/accounts.md#accountkeyrolebased). In most cases, the account address is not derived from the RoleFeePayer key.
+Fee-payer accounts usually have a [role-based key](../klaytn/design/accounts.md#accountkeyrolebased). In most cases, the account address is not derived from the RoleFeePayer key.
 
 
 
