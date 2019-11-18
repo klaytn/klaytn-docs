@@ -2,18 +2,18 @@
 
 - [What is Cypress, what is Baobab?](#what-is-cypress-what-is-baobab)
 - [Are there any Klaytn SDKs? In what languages?](#klaytn-sdks)
-- [Do I must install and run own EN (Endpoint Node) to use Klaytn?](#do-i-must-install-and-run-en) 
+- [Must I install and run an EN (Endpoint Node) to use Klaytn?](#must-i-install-and-run-en) 
 - [I am running EN, and node data sync is too slow.](#node-data-sync-is-too-slow)
 - [Can I use ERC-20 and ERC-721 contracts on Klaytn?](#can-i-use-erc-20-and-erc-721)
 - [Can I use Truffle for the smart contract development on Klaytn?](#can-i-use-truffle)
-- [Where can I get a browser extension wallet like Metamask for Klaytn?](#where-can-i-get-a-browser-extension-wallet)
-- [Why is fee-payer account address not derived from the key provided?](#account-address-is-not-derived-from-the-key)
+- [Where can I get a browser extension wallet like Metamask?](#where-can-i-get-a-browser-extension-wallet)
+- [Why is my fee-payer account address not derived from the key provided?](#account-address-is-not-derived-from-the-key)
 
 
 ## What is Cypress, what is Baobab? <a id="what-is-cypress-what-is-baobab"></a>
 
 Cypress is the Klaytn mainnet, Baobab is a testnet. 
-Below is the information of each network. 
+Below is information relating to each network. 
 
 Cypress mainnet: 
 - EN download : Choose the Cypress package from the [download page](../node/endpoint-node/installation-guide/download.md).
@@ -36,11 +36,11 @@ See [caver-js](../bapp/sdk/caver-js/README.md) and [caver-java](../bapp/sdk/cave
 
 To learn about how to build BApp using Klaytn SDK, see [Tutorials](../bapp/tutorials/README.md).  
 
-Also, check the porting guidelines [from web3.js](../bapp/sdk/caver-js/porting-from-web3.js.md) and [from web3j](../bapp/sdk/caver-java/porting-from-web3j.md). Because the syntactic of caver-js and caver-java are very similar to web3.js and web3j, porting should be minimal and very straightforward. But, no, you can not use web3.js or web3j against Klaytn.  
+Also, check the porting guidelines [from web3.js](../bapp/sdk/caver-js/porting-from-web3.js.md) and [from web3j](../bapp/sdk/caver-java/porting-from-web3j.md). Because the syntactic of caver-js and caver-java are very similar to web3.js and web3j, porting should be minimal and very straightforward. But, no, you can not use web3.js or web3j to make a request against Klaytn.  
 
 
 
-## Do I must install and run own EN (Endpoint Node) to use Klaytn? <a id="do-i-must-install-and-run-en"></a>
+## Must I install and run an EN (Endpoint Node) to use Klaytn? <a id="must-i-install-and-run-en"></a>
 
 Yes and No.
 There are public ENs you can simply connect to. Note that they are provided as a testing purpose without SLA. Do not use them in production.
@@ -48,7 +48,7 @@ There are public ENs you can simply connect to. Note that they are provided as a
 - Cypress Public EN : https://api.cypress.klaytn.net:8651
 - Baobab Public EN : https://api.baobab.klaytn.net:8651
 
-KAS (Klaytn API Service), similar to Infura for Ethereum, will be released in 2020.1Q. With KAS, you can use Klaytn without running own Endpoint Node.
+KAS (Klaytn API Service), similar to Infura for Ethereum, will be released in 1Q 2020. With KAS, you can use Klaytn without running own Endpoint Node.
 
 
 
