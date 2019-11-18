@@ -1,19 +1,18 @@
 # FAQ <a id="faq"></a>
 
-- [What is Cypress, what is Baobab?](#)
-- [Are there any Klaytn SDKs? In what languages?](#)
-- [Do I must install and run own EN (Endpoint Node) to use Klaytn?](#) 
-- [I am running EN, and node data sync is too slow.](#)
-- [Can I use ERC-20 and ERC-721 contracts on Klaytn?)(#)
-- [Can I use Truffle for the smart contract development on Klaytn?](#)
-- [Where can I get a browser extension wallet like Metamask for Klaytn?](#)
-- [Why is fee-payer account address not derived from the key provided?](#)
+- [What is Cypress, what is Baobab?](#what-is-cypress-what-is-baobab)
+- [Are there any Klaytn SDKs? In what languages?](#klaytn-sdks)
+- [Do I must install and run own EN (Endpoint Node) to use Klaytn?](#do-i-must-install-and-run-en) 
+- [I am running EN, and node data sync is too slow.](#node-data-sync-is-too-slow)
+- [Can I use ERC-20 and ERC-721 contracts on Klaytn?](#can-i-use-erc-20-and-erc-721)
+- [Can I use Truffle for the smart contract development on Klaytn?](#can-i-use-truffle)
+- [Where can I get a browser extension wallet like Metamask for Klaytn?](#where-can-i-get-a-browser-extension-wallet)
+- [Why is fee-payer account address not derived from the key provided?](#account-address-is-not-derived-from-the-key)
 
 
-### What is Cypress, what is Baobab? <a id=""></a>
+## What is Cypress, what is Baobab? <a id="what-is-cypress-what-is-baobab"></a>
 
 Cypress is the Klaytn mainnet, Baobab is a testnet. 
-
 Below are the information of each network. 
 
 Cypress: 
@@ -30,7 +29,7 @@ Baobab:
 - Baobab Faucet : https://baobab.wallet.klaytn.com/faucet
 
 
-### Are there any Klaytn SDKs? In what languages? <a id=""></a>
+## Are there any Klaytn SDKs? In what languages? <a id="klaytn-sdks"></a>
 
 Official Klaytn SDKs are provided in JavaScript and Java.
 See [caver-js](../bapp/sdk/caver-js/README.md) and [caver-java](../bapp/sdk/caver-java/README.md). Community contributions are always welcome in providing [Klaytn APIs](../bapp/json-rpc/README.md) in other languages.
@@ -41,10 +40,9 @@ Also, check the porting guidelines [from web3.js](../bapp/sdk/caver-js/porting-f
 
 
 
-### Do I must install and run own EN (Endpoint Node) to use Klaytn? <a id=""></a>
+## Do I must install and run own EN (Endpoint Node) to use Klaytn? <a id="do-i-must-install-and-run-en"></a>
 
 Yes and No.
-
 There are public ENs you can simply connect to. Note that they are provided as a testing purpose without SLA. Do not use them in production.
 
 - Cypress Public EN : https://api.cypress.klaytn.net:8651
@@ -54,15 +52,16 @@ KAS (Klatyn API Service), similar to Infura for Ethereum, will be released in 20
 
 
 
-### I am running EN, and node data sync is too slow. <a id=""></a>
+## I am running EN, and node data sync is too slow. <a id="node-data-sync-is-too-slow"></a>
 
 First, check if your HW specification meets the [system requirement](../node/endpoint-node/system-requirements.md). 
 
-Check the [fast sync](../node/endpoint-node/installation-guide/configuration.md#fast-sync-optional) option. Klaytn publishes the [chain data]() everyday. Download the lasted chain data for the fast sync.
+Check the [fast sync](../node/endpoint-node/installation-guide/configuration.md#fast-sync-optional) option.
+Klaytn publishes the [chain data]() everyday. Download the lasted chain data for the fast sync.
 
 
 
-### Can I use ERC-20 and ERC-721 contracts on Klaytn? <a id=""></a>
+## Can I use ERC-20 and ERC-721 contracts on Klaytn? <a id="can-i-use-erc-20-and-erc-721"></a>
 
 Yes. Klaytn Virtual Machine (KLVM) is compatible with EVM bytecode. [ERC-20](../smart-contract/sample-contracts/erc-20/README.md) and [ERC-721](../smart-contract/sample-contracts/erc-20/README.md) written in Solidity for Etherem can be deployed and executed on Klaytn. 
 
@@ -70,17 +69,15 @@ Further Klatyn-specific token standard can be defined. Follow the [KIP (Klaytn I
 
 
 
-### Can I use Truffle for the smart contract development on Klaytn? <a id=""></a>
+## Can I use Truffle for the smart contract development on Klaytn? <a id="can-i-use-truffle"></a>
 
 Yes. Truffle can be used in developing smart contracts on Klaytn with [truffle-hdwallet-provider-klaytn](https://www.npmjs.com/package/truffle-hdwallet-provider-klaytn). 
-
 See [Truffle](../toolkit/truffle.md) and follow the configuration guideline.
-
 
 If you are new to Truffle, see [Testing Guide](../smart-contract/testing-guide.md) and [Deployment Guide](../smart-contract/deploy-guide.md) to get a rough guideline on what you can do with Truffle.
 
 
-### Where can I get a browser extension wallet like Metamask for Klaytn? <a id=""></a>
+## Where can I get a browser extension wallet like Metamask for Klaytn? <a id="where-can-i-get-a-browser-extension-wallet"></a>
 
 No official browser wallets at the moment. 
 
@@ -88,7 +85,7 @@ Kaikas, a browser extension wallet of Klaytn will be released in ___.
 
 
 
-### Account address is not derived from the key provided for the fee-delegation. <a id=""></a>
+## Why is fee-payer account address not derived from the key provided? <a id="account-address-is-not-derived-from-the-key"></a>
 
 In Klaytn, [account address can be decoupled from the key pair](../klaytn/design/accounts.md##decoupling-key-pairs-from-addresses). 
 
