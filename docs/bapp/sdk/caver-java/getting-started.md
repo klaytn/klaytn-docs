@@ -378,16 +378,16 @@ KlayCredentials feePayer = KlayWalletUtils.loadCredentials(<password>, <walletfi
 FeePayerManager feePayerManager = new FeePayerManager.Builder(caver, feePayer).build();
 feePayerManager.executeTransaction(senderRawTransaction);
 ```
-## Using various AccountKey Types
+## Using various AccountKey Types <a id="using-various-account-key-type"></a>
 
-caver-java introduces new classes to support the various types of [AccountKey]() supported by the platform.
+caver-java introduces new classes to support the various types of [AccountKey](https://docs.klaytn.com/klaytn/design/accounts#account-key) supported by the platform. This feature is supported starting with version 1.2.0.
 
-### AccountKey
+### AccountKey  <a id="account-key"></a>
 
 To update the account key on the Klaytn platform, caver-java provides the `AccountKey` Interface. The following describes `AccountKey` implementations, `AccountKeyPublic`, `AccountKeyWeightedMultiSig`, and `AccountKeyRolebased`.
 See [Account Update](#accountupdate) for how to update an Account.
 
-### AccountKeyPublic
+### AccountKeyPublic <a id="account-key-public"></a>
 
 `AccountKeyPublic` is an implementation of `AccountKey` with one public key.
 You can create it like this:
@@ -406,7 +406,7 @@ KlayCredentials validCredentails = KlayCredentials.create(newKeyPair, oldCredent
 KlayCredentials invalidCredentails = KlayCredentials.create(newKeyPair);
 ```
 
-### AccountKeyWeightedMultiSig
+### AccountKeyWeightedMultiSig <a id="account-key-weighted-multi-sig"></a>
 
 `AccountKeyWeightedMultiSig` is an account key that contains multiple public keys with varying weights. `AccountKeyWeightedMultiSig` also defines the threshold, the sum of the weights of the keys that must be signed in order to use the account. The maximum number of keys supported is 10. You can create `AccountKeyWeightedMultiSig` as below:
 
@@ -449,20 +449,20 @@ transactionECKeyPairList.add(ecKeyPair2);
 KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList, address);
 ```
 
-### AccountKeyRoleBased
+### AccountKeyRoleBased <a id="account-key-role-based"></a>
 
 `AccountKeyRoleBased` is a list of `AccountKey`. Each `AccountKey` is assigned to a specific role according to its position. AccountKey can be `AccountKeyPublic`,` AccountKeyWeightedMultiSig`, or `AccountKeyFail`. If `AccountKeyNil` is used for a specific role, the key will not be updated for that role and the existing AccountKey will be used. If `AccountKeyFail` is used, signing for the role will fail always, so be careful using AccountKeyFail.
 
 ```java
 List<AccountKey> roleBasedAccountKeyList = new ArrayList<>();
 
-ECKeyPair newKeyPair1 = Keys.createEcKeyPair();
+ECKeyPair newKeyPair1 = Keys.createEcKeyPair(); // for RoleTransaction
 roleBasedAccountKeyList.add(AccountKeyPublic.create(newKeyPair1.getPublicKey()));
 
-ECKeyPair newKeyPair2 = Keys.createEcKeyPair();
+ECKeyPair newKeyPair2 = Keys.createEcKeyPair(); // for RoleAccountUpdate
 roleBasedAccountKeyList.add(AccountKeyPublic.create(newKeyPair2.getPublicKey()));
 
-ECKeyPair newKeyPair3 = Keys.createEcKeyPair();
+ECKeyPair newKeyPair3 = Keys.createEcKeyPair(); // for RoleFeePayer
 roleBasedAccountKeyList.add(AccountKeyPublic.create(newKeyPair3.getPublicKey()));
 
 newAccountKey = AccountKeyRoleBased.create(roleBasedAccountKeyList);
@@ -498,13 +498,13 @@ List<ECKeyPair> feePayerECKeyPairList = Collections.emptyList();
 KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList, updateECKeyPairList, feePayerECKeyPairList, address);
 ```
 
-## Sending a Transaction with Multiple Signers
+## Sending a Transaction with Multiple Signers <a id="sending-a-transaction-with-multiple-signers"></a>
 
 If an account has AccountKeyMultiSig or AccountKeyRoleBased, each key can be managed by different people.
 
 This section describes how to collect signatures and send the transaction if there are multiple signers.
 
-### Sequential sender signing
+### Sequential sender signing <a id="sequential-sender-signing"></a>
 
 The `rawTransaction` has an RLP encoded transaction that contains both `txSignatures` and `feePayerSignatures`. `feePayerSignature` is included only when the transaction is a fee delegated transaction.
 
@@ -541,7 +541,7 @@ TransactionManager transactionManager_charlie = new TransactionManager.Builder(c
 KlayTransactionReceipt.TransactionReceipt transactionReceipt = transactionManager_charlie.executeTransaction(rawTransaction_signed_alice_and_bob);
 ```
 
-### Sequential fee-payer signing
+### Sequential fee-payer signing <a id="sequential-fee-payer-signing"></a>
 
 Fee-payer signature(s) can also be added sequentially. Signing with `FeePayerManager` accumulates `feePayerSignatures` in the transaction. The signing order is not important. If you sign with `TransactionManager`, the `txSignature` is added. If you sign with `FeePayerManger`, the `feePayerSignatures` is added to the raw transaction.
 
@@ -573,7 +573,7 @@ The [web3j](https://github.com/web3j/web3j) project for the inspiration. 🙂
 [Klaytn Wallet]: ../../../toolkit/klaytn-wallet.md
 [txError]: ../../json-rpc/transaction-error-codes.md
 [AccountKeyPublic]: ../../../klaytn/design/accounts.md#accountkeypublic
-[Account Key]: ../../../klaytn/design/accounts.md#account-key 
+[Account Key]: ../../../klaytn/design/accounts.md#account-key
 [Solidity Compiler]: #solidity-compiler
 [command-line tool]: #command-line-tool
 [Fee Delegation]: ../../../klaytn/design/transactions/README.md#fee-delegation
