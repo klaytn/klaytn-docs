@@ -48,7 +48,7 @@ There are public ENs you can simply connect to. Note that they are provided as a
 - Cypress Public EN : https://api.cypress.klaytn.net:8651
 - Baobab Public EN : https://api.baobab.klaytn.net:8651
 
-KAS (Klaytn API Service), similar to Infura for Ethereum, will be released in 1Q 2020. With KAS, you can use Klaytn without running own Endpoint Node.
+KAS (Klaytn API Service), similar to Infura for Ethereum, will be released in 1H 2020. With KAS, you can use Klaytn without running own Endpoint Node.
 
 
 
@@ -74,14 +74,14 @@ Further Klaytn-specific token standards can be defined. Follow the [KIP (Klaytn 
 Yes. Truffle can be used in developing smart contracts on Klaytn with [truffle-hdwallet-provider-klaytn](https://www.npmjs.com/package/truffle-hdwallet-provider-klaytn). 
 See [Truffle](../toolkit/truffle.md) and follow the configuration guideline.
 
-If you are new to Truffle, see [Testing Guide](../smart-contract/testing-guide.md) and [Deployment Guide](../smart-contract/deploy-guide.md) to get a rough guideline on what you can do with Truffle.
+If you are new to Truffle, see [Testing Guide](../smart-contract/testing-guide.md) and [Deployment Guide](../smart-contract/deploy-guide.md) to get a rough idea on what you can do with Truffle.
 
 
 ## Where can I get a browser extension wallet like Metamask? <a id="where-can-i-get-a-browser-extension-wallet"></a>
 
 No official browser wallets at the moment. 
 
-Kaikas, a browser extension wallet of Klaytn will be released in ___. 
+Kaikas, a browser extension wallet of Klaytn will be released in 1H 2020. 
 
 
 
