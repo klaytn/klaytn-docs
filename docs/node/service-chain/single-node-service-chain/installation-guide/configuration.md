@@ -2,7 +2,7 @@
 
 This page explains the configuration of a node in a single-node Service Chain.
 
-If you installed archive distribution, you can find the binaries and the config file in the directories you extracted the archives. Below is an example of execution commands.
+If you installed archive distribution, you can find the binaries and the config file in the directories you extracted the archives. Below is an example of command execution.
 ```bash
 $ homi-darwin-amd64/bin/homi setup ...
 $ kscn-darwin-amd64/bin/kscnd start

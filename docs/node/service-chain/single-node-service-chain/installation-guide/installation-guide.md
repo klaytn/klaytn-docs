@@ -2,12 +2,12 @@
 
 This chapter explains the **Service Chain Consensus Node \(SCN\)** installation. 
 If you want to use Anchroing/Value transfer features,
-you need an Endpoint Node \(EN\) that connects to the Main Chain as well. 
+you need an Endpoint Node (EN) that connects to the Main Chain. 
 For the EN installation, read the [EN Installation Guide](../../../endpoint-node/installation-guide/).
 
 ## Linux Archive Distribution <a id="linux-archive-distribution"></a>
 
-The archive file for Service Chain Consensus Node consists of the executable binary and the configuration file structured as follows.
+The archive file for Service Chain Consensus Node has the following directory layout.
 
 | File Name | File Description |
 | :--- | :--- |
@@ -15,7 +15,8 @@ The archive file for Service Chain Consensus Node consists of the executable bin
 | <install_path>/bin/kscnd | SCN start/termination script file |
 | <install_path>/conf/kscnd.conf | SCN configuration file |
 
-The archive file for homi binary consists of the executable binary like below.
+The archive file for homi binary has the following directory layout.
+<homi_home> is the directory created when unpacking the archive. 
 
 | File Name | File Description |
 | :--- | :--- |
