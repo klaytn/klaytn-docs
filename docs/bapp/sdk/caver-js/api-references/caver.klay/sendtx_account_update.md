@@ -388,7 +388,7 @@ For information on how to send using `caver.klay.accounts.feePayerSignTransactio
 
 **Parameters**
 
-The parameters of sendTransaction are transaction obejct and callback function.
+The parameters of sendTransaction are transaction object and callback function.
 
 | Name | Type | Description |
 | --- | --- | --- |

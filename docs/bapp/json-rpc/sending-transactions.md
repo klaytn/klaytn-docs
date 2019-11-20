@@ -1,6 +1,6 @@
 # Sending Transactions <a id="sending-transactions"></a>
 
-This page gives an explaination about how to send transactions using JSON-RPC APIs.
+This page gives an explanation about how to send transactions using JSON-RPC APIs.
 
 ## Legacy Transactions <a id="legacy-transactions"></a>
 

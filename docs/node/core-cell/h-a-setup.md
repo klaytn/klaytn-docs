@@ -42,7 +42,7 @@ Use any of the CC's PN nodes to obtain a chaindata snapshot:
 Create a new CN using the base CN image and the chaindata image:
 
 1. Create an instance using the CN image \(created in "Setup" above\).
-2. Attach a volume created from the snaphot of the PN's `$DATA_DIR`.
+2. Attach a volume created from the snapshot of the PN's `$DATA_DIR`.
 3. Remove all files from the volume except `$DATA_DIR/klay/chaindata`. Confirm that the `DATA_DIR` set in `kcnd.conf` matches the directory containing the chaindata. It may be necessary to rename the directory if the name is different.
 4. Copy the `nodekey` of the failed CN to `$DATA_DIR/klay/nodekey`.
 5. Reassign the IP address of the failed CN to the replacement.

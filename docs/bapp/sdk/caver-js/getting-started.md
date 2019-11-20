@@ -351,7 +351,7 @@ Contract JSON ABI
 [{"constant":true,"inputs":[],"name":"count","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBlockNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_count","type":"uint256"}],"name":"setCount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
 ```
 
-**NOTE**: To compile a smart contract, you must have a solidity complier installed.
+**NOTE**: To compile a smart contract, you must have a solidity compiler installed.
 
 For smart contract deployment, you can use [caver.klay.Contract] to deploy it, or you can deploy it using [SMART_CONTRACT_DEPLOY] transaction. Here is an example of using [caver.klay.Contract].
 

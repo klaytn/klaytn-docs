@@ -38,7 +38,7 @@ In Klaytn, there are three types of nodes, CN (Consensus Node), PN (Proxy Node) 
 
 ![Network topology](../images/klaytn_network_node.png)
 
-Klaytn achieves fast finality by adopting and improving Istanbul BFT. Because validation and consensus are done for each block there is no fork and the block's finality is guaranted instantly as soon as the consensus is made. 
+Klaytn achieves fast finality by adopting and improving Istanbul BFT. Because validation and consensus are done for each block there is no fork and the block's finality is guaranteed instantly as soon as the consensus is made. 
 
 And also the issue of increasing communication volume in the BFT algorithm is solved by utilizing randomly selected `Committee`. CNs collectively form a `Council` and on each block generation, part of them are selected as a member of `Committee` using a VRF (Verifiable Random Function).
 

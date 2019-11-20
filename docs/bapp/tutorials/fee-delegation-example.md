@@ -219,7 +219,7 @@ It will sign a transaction with the `sender` private key and send the signed tra
 
 ### 4.3 Check `feepayer_server.js` <a id="4-3-check-feepayer_server-js"></a>
 
-On the server's console, you will see below outputs. It prints the trasaction receipt from the Klaytn.
+On the server's console, you will see below outputs. It prints the transaction receipt from the Klaytn.
 
 ```text
 $ node feepayer_server.js
