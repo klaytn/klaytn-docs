@@ -8,6 +8,7 @@
 - [Can I use Truffle for the smart contract development on Klaytn?](#can-i-use-truffle)
 - [Where can I get a browser extension wallet like Metamask?](#where-can-i-get-a-browser-extension-wallet)
 - [Why is my fee-payer account address not derived from the key provided?](#account-address-is-not-derived-from-the-key)
+- [Where can I find complete working samples of fee-delegation?](#fee-delegation-samples)
 
 
 ## What is Cypress, what is Baobab? <a id="what-is-cypress-what-is-baobab"></a>
@@ -96,4 +97,14 @@ Common use cases are as follows.
 Fee-payer accounts usually have a [role-based key](../klaytn/design/accounts.md#accountkeyrolebased). In most cases, the account address is not derived from the RoleFeePayer key.
 
 
+## Where can I find complete working samples of fee-delegation? <a id="fee-delegation-samples"></a
+
+Check [fee-delegation-example](../bapp/tutorials/fee-delegation-example.md) to get a complete working code of value transfer.
+
+[Sending a transaction with multiple signer](../bapp/sdk/caver-js/getting-started.md#sending-a-transaction-with-multiple-signer) gives a good explanation about two different ways of collecting signatures. 
+
+Relevant caver-js APIs are as follows. Take a look at the code examples in the API description. 
+- [caver.klay.accounts.signTransaction](../bapp/sdk/caver-js/api-references/caver.klay.accounts.md#signtransaction)
+- [caver.klay.accounts.feePayerSignTransaction](../bapp/sdk/caver-js/api-references/caver.klay.accounts.md#feepayersigntransaction)
+- [caver.klay.accounts.combinesignatures](../bapp/sdk/caver-js/api-references/caver.klay.accounts.md#combinesignatures)
 
