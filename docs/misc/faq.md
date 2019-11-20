@@ -57,7 +57,7 @@ KAS (Klaytn API Service), similar to Infura for Ethereum, will be released in 1H
 First, check if your HW specification meets the [system requirements](../node/endpoint-node/system-requirements.md).
 
 Check the [fast sync](../node/endpoint-node/installation-guide/configuration.md#fast-sync-optional).
-Klaytn publishes the chain data every day. Download the lasted chain data for the fast sync.
+Klaytn publishes the chain data every day. Chain data is a database snapshot that stores every block generated since the genesis. Download the lasted chain data for the fast sync.
 
 
 
