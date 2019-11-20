@@ -44,7 +44,8 @@ Also, check the porting guidelines [from web3.js](../bapp/sdk/caver-js/porting-f
 ## Must I install and run an EN (Endpoint Node) to use Klaytn? <a id="must-i-install-and-run-en"></a>
 
 Yes and No.
-There are public ENs you can simply connect to. Note that they are provided as a testing purpose without SLA. Do not use them in production.
+Endpoint node validates the blocks and exposes RPC APIs to the outer world. EN is always needed for your application to interact with the Klaytn network.
+For those who simply want to try Klaytn APIs, there are public ENs you can connect to. Note that they are provided as a testing purpose without SLA. Do not use them in production.
 
 - Cypress Public EN : https://api.cypress.klaytn.net:8651
 - Baobab Public EN : https://api.baobab.klaytn.net:8651
