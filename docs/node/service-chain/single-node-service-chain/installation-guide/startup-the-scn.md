@@ -9,8 +9,8 @@ Depending on your installation type, you can start/stop the Klaytn service with 
 $ systemctl start kscnd.service
 
 ## when installed using linux archive
-$ kscnd start
-
+$ cd <install_path>/bin
+$ ./kscnd start
 ```
 
 **stop**
@@ -20,8 +20,8 @@ $ kscnd start
 $ systemctl stop kscnd.service
 
 ## when installed using linux archive
-$ kscnd stop
-
+$ cd <install_path>/bin
+$ ./kscnd stop
 ```
 
 

@@ -54,7 +54,7 @@ MAIN_BRIDGE_INDEXING=1
 
 ## Connect SCN to the Main Chain <a id="connect-scn-to-the-main-chain"></a>
 
-You need to run an EN of the main chain as a main-bridge. And also you should determine which SCN (Service Chain Node) as a sub-bridge will connect with the EN.
+You need to run an EN of the main chain as a main-bridge. And also you should determine which SCN (Service Chain Consensus Node) as a sub-bridge will connect with the EN.
 
 ### Check EN (Main-Bridge) information <a id="check-en-(main-bridge)-information"></a>
 
