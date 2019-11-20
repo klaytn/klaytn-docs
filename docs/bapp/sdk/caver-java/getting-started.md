@@ -32,7 +32,7 @@ implementation "ch.qos.logback:logback-classic:1.2.3"
 
 ### Installation <a id="installation"></a>
 
-If you want to generate transactions related with a smart contract, you need to install a Solidity compiler and caver-java commmand-line tool first.
+If you want to generate transactions related with a smart contract, you need to install a Solidity compiler and caver-java command-line tool first.
 
 #### Solidity Compiler <a id="solidity-compiler"></a>
 

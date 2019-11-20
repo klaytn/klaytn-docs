@@ -82,7 +82,7 @@ Basically, Klaytn is keeping compatibility with Ethereum. So Klaytn's gas table 
 | G\_copy | 3 | Partial payment for \*COPY operations, multiplied by words copied, rounded up |
 | G\_blockhash | 20 | Payment for BLOCKHASH operation |
 | G\_extcodehash | 400 | Paid for getting keccak256 hash of a contract's code |
-| G\_create2 | 32000 | Paid for opcode CREATE2 which bahaves identically with CREATE but use different arguemnts |
+| G\_create2 | 32000 | Paid for opcode CREATE2 which bahaves identically with CREATE but use different arguments |
 
 ### Precompiled Contracts <a id="precompiled-contracts"></a>
 
@@ -90,7 +90,7 @@ Precompiled contracts are special kind of contracts which usually perform comple
 
 | Item | Gas | Description |
 | :--- | :--- | :--- |
-| EcrecoverGas | 3000 | Perform ECRecover operaton |
+| EcrecoverGas | 3000 | Perform ECRecover operation |
 | Sha256BaseGas | 60 | Perform sha256 hash operation |
 | Sha256PerWordGas | 12 | ​ |
 | Ripemd160BaseGas | 600 | Perform Ripemd160 operation |
@@ -107,7 +107,7 @@ Precompiled contracts are special kind of contracts which usually perform comple
 | FeePayerGas | 300 | Get feePayer's address - Klaytn only |
 | ValidateSenderGas | 5000 per signature | Validate the sender's address and signature - Klaytn only |
 
-Total gas of those items which has XXXBaseGas and XXXPerWordGas \(e.g. Sha256BaseGas, Sha256PerWordGas\) are calcluated as
+Total gas of those items which has XXXBaseGas and XXXPerWordGas \(e.g. Sha256BaseGas, Sha256PerWordGas\) are calculated as
 
 ```text
 TotalGas = XXXBaseGas + (number of words * XXXPerWordGas)

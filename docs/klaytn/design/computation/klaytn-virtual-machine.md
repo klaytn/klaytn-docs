@@ -6,7 +6,7 @@ The current version of the Klaytn Virtual Machine \(KLVM\) is derived from the E
 
 KLVM is a virtual state machine that formally specifies Klaytn's execution model. The execution model specifies how the system state is altered given a series of bytecode instructions and a small tuple of environmental data. KLVM is a quasi-Turing-complete machine; the _quasi_ qualification stems from the fact that the computation is intrinsically bounded through a parameter, _gas_, which limits the total amount of computation performed.
 
-KLVM executes Klaytn virtual machine code \(or Klaytn bytecode\) which consits of a sequence of KLVM instructions. The KLVM code is the programming language used for accounts on the Klaytn blockchain that contain code. The KLVM code associated with an account is executed every time a message is sent to that account; this code has the ability to read/write from/to storage and send messages.
+KLVM executes Klaytn virtual machine code \(or Klaytn bytecode\) which consists of a sequence of KLVM instructions. The KLVM code is the programming language used for accounts on the Klaytn blockchain that contain code. The KLVM code associated with an account is executed every time a message is sent to that account; this code has the ability to read/write from/to storage and send messages.
 
 ## KLVM Specification <a id="klvm-specification"></a>
 
@@ -130,7 +130,7 @@ The fee schedule `G` is a tuple of 37 scalar values corresponding to the relativ
 | `G_sha3word` | 6 | Amount of gas paid for each word \(rounded up\) for input data to a `SHA3` operation |
 | `G_copy` | 3 | Partial payment for `COPY` operations, multiplied by words copied, rounded up |
 | `G_extcodehash` | 400 | Paid for getting `keccak256` hash of a contract's code |
-| `G_create2` | 32000 | Paid for opcode `CREATE2` which bahaves identically with CREATE but use different arguemnts |
+| `G_create2` | 32000 | Paid for opcode `CREATE2` which bahaves identically with CREATE but use different arguments |
 
 We define the following subsets of instructions:
 

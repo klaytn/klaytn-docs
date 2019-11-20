@@ -961,7 +961,7 @@ Adds a padding on the right of a string, Useful for adding paddings to HEX strin
 caver.utils.toTwosComplement(number)
 ```
 
-Converts a negative numer into a two's complement.
+Converts a negative number into a two's complement.
 
 
 **Parameters**

@@ -96,7 +96,7 @@ Returns the unit price of the given block in peb.
 
 | Type          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
-| NUMBER | Block number. If omitted, latest unit price will be retruned.       |
+| NUMBER | Block number. If omitted, latest unit price will be returned.       |
 
 **Return Value**
 

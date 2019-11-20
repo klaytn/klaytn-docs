@@ -69,7 +69,7 @@ import "../contracts/HashMarket.sol";
 * Assert : It gives us access to various testing functions, like `Assert.equals()`, `Assert.greaterThan()`, etc.
 * DeployedAddresses : Every time you change your contract, you must redeploy it to a new address. You can get the deployed contract addresses through this library. 
 
-Now, Let's wirte a test code.
+Now, Let's write a test code.
 ```
 pragma solidity ^0.5.6;
 
@@ -168,12 +168,12 @@ contract("KlaytnGreeter", async(accounts) => {
 
     // This will run before each test proceed.
     before(async function() {
-        // set contract instnace into a variable
+        // set contract instance into a variable
         klaytnGreeterInstance = await KlaytnGreeter.new(greetMsg, {from:owner});
     })
 
     it("#1 check Greeting message", async function() {
-        // set the expected greeting messge
+        // set the expected greeting message
         var expectedGreeting = greetMsg;
         var greet= await klaytnGreeterInstance.greet();
         assert.equal(expectedGreeting, greet, "greeting message should match");

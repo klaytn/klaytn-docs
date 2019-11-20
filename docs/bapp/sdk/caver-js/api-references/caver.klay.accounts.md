@@ -1061,7 +1061,7 @@ See [Sending a Transaction with multiple signer](../getting-started.md#sending-a
 **Example**
 
 ```javascript
-// feePayerSignTransaction with transaction obejct
+// feePayerSignTransaction with transaction object
 > caver.klay.accounts.feePayerSignTransaction({
     type: 'FEE_DELEGATED_VALUE_TRANSFER',
     from: '0x9230c09295dd8b9c02b6ae138ffe3133b58b25c1',
@@ -1086,7 +1086,7 @@ See [Sending a Transaction with multiple signer](../getting-started.md#sending-a
     ]
 }
 
-// feePayerSignTransaction with transaction obejct defines signatures
+// feePayerSignTransaction with transaction object defines signatures
 // rawTransaction in result will include signatures
 > caver.klay.accounts.feePayerSignTransaction({
     type: 'FEE_DELEGATED_VALUE_TRANSFER',
@@ -1113,7 +1113,7 @@ See [Sending a Transaction with multiple signer](../getting-started.md#sending-a
     ]
 }
 
-// feePayerSignTransaction with transaction obejct defines feePayerSignatures
+// feePayerSignTransaction with transaction object defines feePayerSignatures
 > caver.klay.accounts.feePayerSignTransaction({
     type: 'FEE_DELEGATED_VALUE_TRANSFER',
     from: '0x9230c09295dd8b9c02b6ae138ffe3133b58b25c1',

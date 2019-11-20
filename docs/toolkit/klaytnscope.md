@@ -168,7 +168,7 @@ Overall information about the contract.
 
 * Account \(Hex\): The unique address of the contract.
 * Balance: The total amount of KLAY that this contract has.
-* Contract Creator: The account that deployed this contract. By clicking the address, you can go to the detail view of the accont.
+* Contract Creator: The account that deployed this contract. By clicking the address, you can go to the detail view of the account.
 * Total TXs: The total number of transactions that this contract received.
 * Contract Created TX: The transaction that deployed this contract. Clicking on the hash takes you to the detail view of the transaction.
 * HRA: It informs whether the contract account type is HRA or not. \(TBD\)
