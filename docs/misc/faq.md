@@ -97,14 +97,14 @@ Common use cases are as follows.
 Fee-payer accounts usually have a [role-based key](../klaytn/design/accounts.md#accountkeyrolebased). In most cases, the account address is not derived from the RoleFeePayer key.
 
 
-## Where can I find complete working samples of fee-delegation? <a id="fee-delegation-samples"></a
+## Where can I find complete working samples of fee-delegation? <a id="fee-delegation-samples"></a>
 
 Check [fee-delegation-example](../bapp/tutorials/fee-delegation-example.md) to get a complete working code of value transfer.
 
-[Sending a transaction with multiple signer](../bapp/sdk/caver-js/getting-started.md#sending-a-transaction-with-multiple-signer) gives a good explanation about two different ways of collecting signatures. 
+[Sending a transaction with multiple signer](../bapp/sdk/caver-js/getting-started.md#sending-a-transaction-with-multiple-signer) gives a good explanation about two different ways of collecting signatures.
 
-Relevant caver-js APIs are as follows. Take a look at the code examples in the API description. 
+Relevant caver-js APIs are as follows. Take a look at the code examples in the API description.
 - [caver.klay.accounts.signTransaction](../bapp/sdk/caver-js/api-references/caver.klay.accounts.md#signtransaction)
 - [caver.klay.accounts.feePayerSignTransaction](../bapp/sdk/caver-js/api-references/caver.klay.accounts.md#feepayersigntransaction)
 - [caver.klay.accounts.combinesignatures](../bapp/sdk/caver-js/api-references/caver.klay.accounts.md#combinesignatures)
-
+- [caver.klay.sendSignedTransaction](../bapp/sdk/caver-js/api-references/caver.klay/transaction.md#sendsignedtransaction)
