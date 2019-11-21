@@ -66,7 +66,7 @@ import "../contracts/HashMarket.sol";
 * Assert : `Assert.equals()`, `Assert.greaterThan()` 등과 같은 다양한 테스트 함수에 액세스할 수 있도록 합니다.
 * DeployedAddresses : 컨트랙트를 변경할 때마다, 반드시 새 주소로 재배포해야 합니다. 이 라이브러리를 통해 배포된 컨트랙트 주소를 얻을 수 있습니다.
 
-Now, Let's write a test code.
+이제 테스트 코드를 작성해 봅시다.
 ```
 pragma solidity ^0.5.6;
 
