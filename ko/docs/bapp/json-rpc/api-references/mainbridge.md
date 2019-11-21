@@ -141,7 +141,7 @@ true
 
 ## mainbridge_convertChildChainBlockHashToParentChainTxHash <a id="mainbridge_convertChildChainBlockHashToParentChainTxHash"></a>
 
-Returns the anchoring transaction hash of the given child chain block hash.
+주어진 하위 체인 블록 해시의 앵커링 트랜잭션 해시를 반환합니다.
 
 **매개변수**
 
