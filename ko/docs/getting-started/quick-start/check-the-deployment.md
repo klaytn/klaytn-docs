@@ -33,7 +33,7 @@ $ node test-klaytn.js
 
 자바스크립트를 사용하여 컨트랙트의 `greet()`를 호출하세요.
 
-**참고**: 스마트 컨트랙트에서 특정 함수를 호출하려면, ABI \(Application Binary Interface\) 파일이 필요합니다. 트러플이 계약을 배포하면, `./build/contracts/`에 `abi` 속성을 포함하는 .json 파일이 자동으로 생성됩니다.
+**참고**: 스마트 컨트랙트에서 특정 함수를 호출하려면, ABI \(Application Binary Interface\) 파일이 필요합니다. 트러플이 컨트랙트를 배포하면, `./build/contracts/`에 `abi` 속성을 포함하는 .json 파일이 자동으로 생성됩니다.
 
 위에서 작성한 테스트 코드에 다음 행을 추가하세요.
 
