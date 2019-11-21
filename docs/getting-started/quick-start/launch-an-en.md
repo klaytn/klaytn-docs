@@ -71,5 +71,5 @@ INFO[03/26,15:37:49 +09] [5] Imported new chain segment                blocks=1 
 
 ## Troubleshooting
 
-Please refer to the [Troubleshooting](../../node/endpoint-node/operation-guide/errors-and-troubleshooting.md) if you have trouble in launching the Klaytn Endpoint Node.
+Please refer to the [Troubleshooting](https://github.com/ground-x/klaytn-docs/tree/c095d2611494def7d58a7a36a869cda04e824ee8/docs/node/endpoint-node/operation-guide/errors-and-troubleshooting.md) if you have trouble in launching the Klaytn Endpoint Node.
 

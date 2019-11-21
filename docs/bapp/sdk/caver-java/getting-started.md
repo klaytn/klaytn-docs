@@ -101,7 +101,7 @@ String address = credentials.getAddress();
 
 #### Using a Keystore File
 
-If you want to create a new account with a keystore file \(you can also create a new keystore file in [Klaytn Wallet]()\):
+If you want to create a new account with a keystore file \(you can also create a new keystore file in [Klaytn Wallet](getting-started.md)\):
 
 ```java
 KlayWalletUtils.generateNewWalletFile(
@@ -134,7 +134,7 @@ Caver caver  = Caver.build(Caver.BAOBAB_URL);  // Caver.BAOBAB_URL = https://api
 
 After you get a `Caver` instance and create an account which has some KLAY, you can send 1 peb to a certain address\(`0xe97f27e9a5765ce36a7b919b1cb6004c7209217e`\) with a gas limit `BigInteger.valueOf(100_000)` like below:
 
-`TransactionManager` is introduced to hide the complexity of transaction types. For example, a `FeeDelegatedValueTransferTransaction` object can be transformed from a `ValueTransferTransaction` object. For more details, see [Fee Delegation](). In addition to Fee Delegation, `TransactionManager` can be used with `GetNonceProcessor`, `ErrorHandler`, and `TransactionReceiptProcessor`.
+`TransactionManager` is introduced to hide the complexity of transaction types. For example, a `FeeDelegatedValueTransferTransaction` object can be transformed from a `ValueTransferTransaction` object. For more details, see [Fee Delegation](getting-started.md). In addition to Fee Delegation, `TransactionManager` can be used with `GetNonceProcessor`, `ErrorHandler`, and `TransactionReceiptProcessor`.
 
 ```java
 TransactionManager transactionManager = new TransactionManager.Builder(caver, credentials)
@@ -203,13 +203,13 @@ If you send a transaction via `sendFunds`, caver-java tries to get a transaction
 }
 ```
 
-In this receipt, you can check the status of the transaction execution. If the 'status' field in the receipt is "0x1", it means the transaction is processed successfully. If not, the transaction failed. The detailed error message is presented in the `txError` field. For more detail, see [txError]().
+In this receipt, you can check the status of the transaction execution. If the 'status' field in the receipt is "0x1", it means the transaction is processed successfully. If not, the transaction failed. The detailed error message is presented in the `txError` field. For more detail, see [txError](getting-started.md).
 
 ## Sending Other Transaction Types
 
 ### Account Update
 
-If you want to update the key of the given account to a new [AccountKeyPublic]() key:
+If you want to update the key of the given account to a new [AccountKeyPublic](getting-started.md) key:
 
 ```java
 AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.create(
@@ -223,17 +223,17 @@ AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.cre
 Account.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendUpdateTransaction(accountUpdateTransaction).send();
 ```
 
-An account key represents the key structure associated with an account. To get more details and types about the Klaytn account key, please read [Account Key]().
+An account key represents the key structure associated with an account. To get more details and types about the Klaytn account key, please read [Account Key](getting-started.md).
 
 ### Smart Contract
 
-caver-java supports auto-generation of smart contract wrapper code. Using the wrapper, you can easily deploy and execute a smart contract. Before generating a wrapper code, you need to compile the smart contract first \(Note: This will only work if a Solidity compiler is installed in your computer. See [Solidity Compiler]().
+caver-java supports auto-generation of smart contract wrapper code. Using the wrapper, you can easily deploy and execute a smart contract. Before generating a wrapper code, you need to compile the smart contract first \(Note: This will only work if a Solidity compiler is installed in your computer. See [Solidity Compiler](getting-started.md).
 
 ```text
 $ solc <contract>.sol --bin --abi --optimize -o <output-dir>/
 ```
 
-Then, generate the wrapper code using caver-java’s [command-line tool]().
+Then, generate the wrapper code using caver-java’s [command-line tool](getting-started.md).
 
 ```text
 $ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
@@ -314,7 +314,7 @@ BigInteger balance = erc20Mock.balanceOf(
 
 ### Fee Delegation
 
-Klaytn provides [Fee Delegation]() feature which allows service providers to pay transaction fees instead of the users.
+Klaytn provides [Fee Delegation](getting-started.md) feature which allows service providers to pay transaction fees instead of the users.
 
 #### Value Transfer
 
@@ -346,7 +346,7 @@ feePayerManager.executeTransaction(senderRawTransaction);
 
 #### Smart Contract Execution
 
-The difference between fee-delegated smart contract execution and fee-delegated value transfer above is that this needs input data to call a function of a smart contract. A sender can generate a fee-delegated smart contract execution transaction as shown below. Note that [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.1/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) returns a `TxTypeFeeDelegatedSmartContractExecution` object if you pass `true` to the second parameter. The example below invokes the `transfer` method of [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol) contract which is described in [Smart Contract]().
+The difference between fee-delegated smart contract execution and fee-delegated value transfer above is that this needs input data to call a function of a smart contract. A sender can generate a fee-delegated smart contract execution transaction as shown below. Note that [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.1/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) returns a `TxTypeFeeDelegatedSmartContractExecution` object if you pass `true` to the second parameter. The example below invokes the `transfer` method of [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol) contract which is described in [Smart Contract](getting-started.md).
 
 ```java
 String recipient = "0x34f773c84fcf4a0a9e2ef07c4615601d60c3442f";
@@ -371,7 +371,7 @@ SmartContractExecutionTransaction smartContractExecution =
 String senderRawTransaction = transactionManager.sign(smartContractExecution, true).getValueAsString();
 ```
 
-After you get `senderRawTransaction`, the rest of the process using `FeePayerManager` is the same way as you saw in [fee-delegated value transfer]() above:
+After you get `senderRawTransaction`, the rest of the process using `FeePayerManager` is the same way as you saw in [fee-delegated value transfer](getting-started.md) above:
 
 ```java
 KlayCredentials feePayer = KlayWalletUtils.loadCredentials(<password>, <walletfilePath>);

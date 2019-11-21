@@ -4,7 +4,7 @@ This page explains the configuration of a single Service Chain Node \(SCN\).
 
 ## Creation of SCSigner Keystore / Password Files
 
-When you run a service chain node, you need a keystore file and the associated password file for the scsigner. You can generate the files like the following. 
+When you run a service chain node, you need a keystore file and the associated password file for the scsigner. You can generate the files like the following.
 
 ### Create Your Password File
 
@@ -35,13 +35,13 @@ $ tree
 └── passwd
 ```
 
-After [Initialization of a Genesis Block](), you will copy these files to the data directory.
+After [Initialization of a Genesis Block](configuration.md), you will copy these files to the data directory.
 
 ## Creation of a Genesis File
 
 First, you should create new genesis file for your own service chain and initialize all service chain nodes with the same genesis file. The genesis file of the service chain is different with main chain. To create new genesis file, you should write the scsigner address of your service chain in `governingnode`, `extraData` and `alloc` field. The `unitPrice` is set to `0` in the example below, but you can change it to the value you want.
 
-The `genesis.json` examples follow. You can find more details in [Genesis JSON]().
+The `genesis.json` examples follow. You can find more details in [Genesis JSON](configuration.md).
 
 * `geneis.json` example for a consensus node.
   * The consensus node's scsigner is `c04ae62e6a8e084e8f00030d637380792db3dc26`.
@@ -95,6 +95,4 @@ To set scsigner for the service chain node, we need the right pair of scsigner k
 $ cp ./keystore/UTC--2019-...--ef28e51ef33fe0f487289c1c6e1ccdf5e571366b ~/kscnd_home/keystore
 $ cp ./passwd ~/kscnd_home/
 ```
-
-
 

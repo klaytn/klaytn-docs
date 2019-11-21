@@ -29,7 +29,7 @@ Configuration File Location:
 * For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kcn-linux-amd64/conf/`.
 * For the package distribution, the config directory defaults to `/etc/kcnd/conf/`.
 
-### Add Data Directory 
+### Add Data Directory
 
 You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kcnd.conf`.
 
@@ -70,7 +70,7 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 ...
 ```
 
-Keep in mind that the keystore and the password that you created is significantly important, so you must be careful to manage them. See more details about `kcnd.conf` on the [Configuration File]() section.
+Keep in mind that the keystore and the password that you created is significantly important, so you must be careful to manage them. See more details about `kcnd.conf` on the [Configuration File](configuration.md) section.
 
 ## Fast Sync \(Optional\)
 

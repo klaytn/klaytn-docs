@@ -49,7 +49,7 @@ Configuration File Location:
 * For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kpn-linux-amd64/conf/`.
 * For the package distribution, the config directory defaults to `/etc/kpnd/conf/`.
 
-### Add Data Directory 
+### Add Data Directory
 
 You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kpnd.conf`.
 

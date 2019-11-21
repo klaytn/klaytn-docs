@@ -213,9 +213,9 @@ After the connection is made, you can get the current block number from the node
 
 You can connect to a specific Klaytn node by specifying it in the 'rpcURL'.
 
-* If you are running a Klaytn full node, you can set rpcURL to your node's URL.  
+* If you are running a Klaytn full node, you can set rpcURL to your node's URL.
 
-  for example, `rpcURL: 'http://localhost:8551'`  
+  for example, `rpcURL: 'http://localhost:8551'`
 
 * If not, default rpcURL is `'https://api.baobab.klaytn.net:8651'`.
 

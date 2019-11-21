@@ -22,3 +22,4 @@ Shutting down kend: Killed
 $ kend status
 kend is running
 ```
+

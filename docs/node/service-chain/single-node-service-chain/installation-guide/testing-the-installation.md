@@ -52,7 +52,7 @@ INFO[02/13,07:02:26 Z] [5] Imported new chain segment                blocks=1 tx
 INFO[02/13,07:02:26 Z] [35] Commit new mining work                    number=11572926 txs=0 elapsed=458.665µs
 INFO[02/13,07:02:27 Z] [14] Committed                                 address=0x1d4E05BB72677cB8fa576149c945b57d13F855e4 hash=60b9aa…94f648 number=11572926
 INFO[02/13,07:02:27 Z] [5] Imported new chain segment                blocks=1 txs=0 mgas=0.000     elapsed=1.783ms   mgasps=0.000       number=11572926 hash=60b9aa…94f648 cache=1.59mB
-INFO[02/13,07:02:27 Z] [35] Commit new mining work      
+INFO[02/13,07:02:27 Z] [35] Commit new mining work
 ```
 
 ## Queries
@@ -74,7 +74,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
  >
 ```
 
-You can check the usable commands on [API Document]()
+You can check the usable commands on [API Document](testing-the-installation.md)
 
 The useful APIs to check the status of SCN:
 
@@ -97,7 +97,5 @@ You can get the latest block number to see if blocks are propagated properly.
 4
 ```
 
-The above command line returns the number of nodes that the SCN connects to  without EN in main chain..
-
-
+The above command line returns the number of nodes that the SCN connects to without EN in main chain..
 

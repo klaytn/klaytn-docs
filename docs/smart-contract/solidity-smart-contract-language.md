@@ -1,6 +1,6 @@
 # Solidity - Smart Contract Language
 
-This chapter describes only the high-level concepts, development processes, and examples written in Solidity because Solidity is already well documented on its official websites. For language specifications or implementations, please refer to the [References](#references) below. The content of this chapter is based on various websites listed in the [References](#references).
+This chapter describes only the high-level concepts, development processes, and examples written in Solidity because Solidity is already well documented on its official websites. For language specifications or implementations, please refer to the [References](solidity-smart-contract-language.md#references) below. The content of this chapter is based on various websites listed in the [References](solidity-smart-contract-language.md#references).
 
 ## Solidity and Klaytn
 

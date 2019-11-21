@@ -20,9 +20,9 @@ The configuration file is located in the `conf` directory, whose default locatio
 * For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kpn-linux-amd64/conf/`.
 * For the package distribution, the config directory defaults to `/etc/kpnd/conf/`.
 
-## Configuration File Format 
+## Configuration File Format
 
-CN and PN have the same configuration file format and the properties. 
+CN and PN have the same configuration file format and the properties.
 
 Below is a sample configuration file for the CN that participates in the `cypress` network and stores the blockchain data in the default location, which is `~/kcnd_home` with the archive distribution, `/var/kcnd/data` with the package distribution.
 
@@ -47,7 +47,7 @@ DATA_DIR=
 LOG_DIR=$DATA_DIR/logs
 ```
 
-The recommended txpool sizes for CN are as follows. 
+The recommended txpool sizes for CN are as follows.
 
 ```text
 TXPOOL_EXEC_SLOTS_ALL=16384

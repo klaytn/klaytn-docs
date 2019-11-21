@@ -1,6 +1,6 @@
 # Installation Guide
 
-You can download the latest version of the `ken` on [Download](download.md) page. 
+You can download the latest version of the `ken` on [Download](download.md) page.
 
 ## Linux Archive Distribution
 
@@ -76,6 +76,4 @@ The installed files are located as follows.
 | :--- | :--- |
 | ken | /usr/bin/ken |
 | kend.conf | /etc/kend/conf/kend.conf |
-
-
 

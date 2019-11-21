@@ -28,5 +28,3 @@ TransactionReceipt transactionReceipt = Transfer.sendFunds(...),send(); // Web3j
 KlayTransactionReceipt.TransactionReceipt transactionReceipt = ValueTransfer.sendFunds().send(); // caver-java
 ```
 
-## 
-

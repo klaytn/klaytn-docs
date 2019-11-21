@@ -6,7 +6,7 @@
 * [2. Clone Count BApp](2.-clone-count-bapp.md)
 * [3. Directory Structure](3.-directory-structure.md)
 * [4. Write Smart Contract](4.-write-smart-contract.md)
-* [5. Frontend Code Overview](5.-frontend-code-overview/README.md)
+* [5. Frontend Code Overview](5.-frontend-code-overview/)
   * [5-1. BlockNumber Component](5.-frontend-code-overview/5-1.-blocknumber-component.md)
   * [5-2. Auth Component](5.-frontend-code-overview/5-2.-auth-component.md)
   * [5-3. Count Component](5.-frontend-code-overview/5-3.-count-component.md)
@@ -14,8 +14,6 @@
 * [7. Run App](7.-run-app.md)
 
 ## Introduction
-
-![intro](images/tutorial-1intro.gif)
 
 This tutorial is intended to give a step by step guide to build a Klaytn BApp. No previous Klaytn experience is needed. We will make a simple web app interacting with a basic smart contract, `Count`.  
 Any user who has a Klaytn account can increase and decrease the current value as shown in the above gif.

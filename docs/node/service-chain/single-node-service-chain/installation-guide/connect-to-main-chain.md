@@ -1,6 +1,6 @@
 # Connect to Main Chain
 
-In this page, we will connect the single-node Service Chain to the Main Chain. 
+In this page, we will connect the single-node Service Chain to the Main Chain.
 
 ## EN Configuration - Enable Main-bridge
 
@@ -52,11 +52,9 @@ MAIN_BRIDGE_INDEXING=1
 ...
 ```
 
-_You should note the `WS_PORT` to use for `SC_MAIN_CHAIN_WS` in_ [_Setup Service Chain_]()_._
+_You should note the `WS_PORT` to use for `SC_MAIN_CHAIN_WS` in_ [_Setup Service Chain_](connect-to-main-chain.md)_._
 
 ### Restart the EN
-
-
 
 ## Connect SCN to the Main Chain
 
@@ -195,7 +193,7 @@ When SCN anchor the block data, SCN make an anchoring transaction by the chain a
 
 ### Enable Anchoring
 
-After charging KLAY, you can enable via RPC like below. You can refer to [Service Chain API]() for more details.
+After charging KLAY, you can enable via RPC like below. You can refer to [Service Chain API](connect-to-main-chain.md) for more details.
 
 ```javascript
 > subbridge.anchoring(true)
@@ -208,7 +206,7 @@ If the anchoring feature is enabled, SCN will anchor the block data to main chai
 
 ### Main-Bridge
 
-In Main-Bridge, if chain indexing option is enabled, you can find the anchoring tx hash by a service chain block hash like below. You can refer to [Service Chain API]() for more details.
+In Main-Bridge, if chain indexing option is enabled, you can find the anchoring tx hash by a service chain block hash like below. You can refer to [Service Chain API](connect-to-main-chain.md) for more details.
 
 ```javascript
 > mainbridge.convertServiceChainBlockHashToMainChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
@@ -217,14 +215,10 @@ In Main-Bridge, if chain indexing option is enabled, you can find the anchoring 
 
 ### Sub-Bridge
 
-In Sun-Bridge, You can check the last anchored block number like below. You can refer to [Service Chain API]() for more details.
+In Sun-Bridge, You can check the last anchored block number like below. You can refer to [Service Chain API](connect-to-main-chain.md) for more details.
 
 ```javascript
 > subbridge.latestAnchoredBlockNumber
 71025
 ```
-
-
-
-
 

@@ -4,11 +4,11 @@ KlaytnDocs introduces and explains [Klaytn](https://www.klaytn.com/), an enterpr
 
 | Document | Description |
 | :--- | :--- |
-| [Klaytn Overview](klaytn/README.md) | Describes Klaytn key concepts and design principles. |
-| [Getting Started](getting-started/README.md) | Provides guidelines for getting started with Klaytn. |
-| [Smart Contract](smart-contract/README.md) | Tools and resources for smart contract development. |
-| [Installation & Operation](node/README.md) | Illustrates how to set up and operate Endpoint Node (EN), Core Cell (CC) and Service Chain. |
-| [BApp Developers](bapp/README.md) | Development resources and references for BApp developers. This section contains Klaytn API references and provides end-to-end BApp development tutorials. |
+| [Klaytn Overview](klaytn/) | Describes Klaytn key concepts and design principles. |
+| [Getting Started](getting-started/) | Provides guidelines for getting started with Klaytn. |
+| [Smart Contract](smart-contract/) | Tools and resources for smart contract development. |
+| [Installation & Operation](node/) | Illustrates how to set up and operate Endpoint Node \(EN\), Core Cell \(CC\) and Service Chain. |
+| [BApp Developers](bapp/) | Development resources and references for BApp developers. This section contains Klaytn API references and provides end-to-end BApp development tutorials. |
 
 **Disclaimer**: Some notes are derived from Ethereum documents as the Klaytn source code was initiated from Ethereum’s Byzantium version. As Klaytn develops further, KlaytnDocs and the source code will continue to be updated. Reference websites are as follows:
 
@@ -16,5 +16,4 @@ KlaytnDocs introduces and explains [Klaytn](https://www.klaytn.com/), an enterpr
 * [https://github.com/ethereum/go-ethereum/wiki](https://github.com/ethereum/go-ethereum/wiki)
 * [https://truffleframework.com/docs](https://truffleframework.com/docs)
 * [https://web3js.readthedocs.io/en/1.0/](https://web3js.readthedocs.io/en/1.0/)
-
 

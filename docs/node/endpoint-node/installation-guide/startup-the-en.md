@@ -16,4 +16,3 @@ $ kend stop
 Shutting down kend: Killed
 ```
 
-

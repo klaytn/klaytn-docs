@@ -40,7 +40,7 @@ Klaytn wallet key format is provided to easily handle a private key along with t
 0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d80x000xa94f5374fce5edbc8e2a8697c15331677e6ebf0b
 ```
 
-This format is currently supported in [Klaytn Wallet](../../toolkit/klaytn-wallet.md).
+This format is currently supported in [Klaytn Wallet]().
 
 ### Klaytn Account Types
 
@@ -78,12 +78,13 @@ In contrast to EOAs, SCAs have code associated with them and are controlled by t
 | codeFormat | uint8 \(Go\) | A format of the code in this account. Currently, it supports EVM\(0x00\) only. |
 
 ### Klaytn Account Type ID
+
 Below are the Account Type ID assigned to each Account Type.
 
 | Account Type | Account Type ID |
-|---|---|
-| Externally Owned Account (EOA) | 0x1 |
-| Smart Contract Account (SCA) | 0x2 |
+| :--- | :--- |
+| Externally Owned Account \(EOA\) | 0x1 |
+| Smart Contract Account \(SCA\) | 0x2 |
 
 ## Account Key
 
@@ -261,12 +262,14 @@ RLP: 0x05f898a302a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf0
 ```
 
 ## Account Key Type ID
+
 Below are the Account Key Type ID assigned to each Account Key Type.
 
 | Account Key Type | Account Key Type ID |
-|---|---|
+| :--- | :--- |
 | AccountKeyLegacy | 0x01 |
 | AccountKeyPublic | 0x02 |
 | AccountKeyFail | 0x03 |
 | AccountKeyWeightedMultiSig | 0x04 |
 | AccountKeyRoleBased | 0x05 |
+

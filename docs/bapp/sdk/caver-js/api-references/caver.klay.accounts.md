@@ -1,37 +1,35 @@
 ---
-description: >-
-  caver-js APIs related to managing accounts.
+description: caver-js APIs related to managing accounts.
 ---
 
 # caver.klay.accounts
 
 `caver.klay.accounts` contains functions to generate Klaytn accounts and sign transactions and data.
 
-
 ## create
 
 ```javascript
 caver.klay.accounts.create([entropy])
 ```
+
 Generates an account object with private key and public key.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| entropy | String | (optional) A random string to increase entropy. If none is given, a random string will be generated using [randomHex](./caver.utils.md#randomhex). |
-
+| :--- | :--- | :--- |
+| entropy | String | \(optional\) A random string to increase entropy. If none is given, a random string will be generated using [randomHex](caver.utils.md#randomhex). |
 
 **Return Value**
 
-``Object`` - The account object with the following structure:
+`Object` - The account object with the following structure:
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | address | String | The account address. |
 | privateKey | String | The accounts private key. This should never be shared or stored unencrypted in local storage! Also make sure to null the memory after usage. |
-| signTransaction(tx [, callback]) | Function | The function to sign transactions. See [caver.klay.accounts.signTransaction](#signtransaction). |
-| sign(data) | Function | The function to sign transactions. See [caver.klay.accounts.sign](#sign). |
+| signTransaction\(tx \[, callback\]\) | Function | The function to sign transactions. See [caver.klay.accounts.signTransaction](caver.klay.accounts.md#signtransaction). |
+| sign\(data\) | Function | The function to sign transactions. See [caver.klay.accounts.sign](caver.klay.accounts.md#sign). |
 | encrypt | Function | The function to encrypt private key with given password. |
 
 **Example**
@@ -68,24 +66,23 @@ Generates an account object with private key and public key.
 }
 ```
 
-
 ## privateKeyToAccount
 
 ```javascript
 caver.klay.accounts.privateKeyToAccount(privateKey)
 ```
+
 Creates an account object from a private key.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | privateKey | string | The private key to convert. |
-
 
 **Return Value**
 
-``Object`` - The account object
+`Object` - The account object
 
 **Example**
 
@@ -106,18 +103,18 @@ Creates an account object from a private key.
 ```javascript
 caver.klay.accounts.privateKeyToPublicKey(privateKey)
 ```
+
 Gets public key from a given private key
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | privateKey | string | The private key to convert. |
-
 
 **Return Value**
 
-``String`` - The public key (64 bytes)
+`String` - The public key \(64 bytes\)
 
 **Example**
 
@@ -131,30 +128,30 @@ Gets public key from a given private key
 ```javascript
 caver.klay.accounts.signTransaction(tx, privateKey [, callback])
 ```
+
 Signs a Klaytn transaction with a given private key.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| tx | Object | The transaction object.  The fields of the transaction object are different for each transaction type. For a description of each transaction, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
+| :--- | :--- | :--- |
+| tx | Object | The transaction object.  The fields of the transaction object are different for each transaction type. For a description of each transaction, see [caver.klay.sendTransaction](caver.klay/transaction/#sendtransaction). |
 | privateKey | String | The private key to sign with. |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
-``Promise`` returning ``Object``: The signed data RLP encoded transaction, or if ``returnSignature`` is ``true`` the signature values as follows:
+`Promise` returning `Object`: The signed data RLP encoded transaction, or if `returnSignature` is `true` the signature values as follows:
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | messageHash | String | The hash of the given message. |
 | r | String | First 32 bytes of the signature. |
 | s | String | Next 32 bytes of the signature. |
 | v | String | Recovery value + 27. |
 | rawTransaction | String | The RLP encoded transaction, ready to be send using caver.klay.sendSignedTransaction. |
 | txHash | 32-byte String | Hash of the transaction. |
-| senderTxHash | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash) |
-
+| senderTxHash | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/#sendertxhash) |
 
 **Example**
 
@@ -175,36 +172,34 @@ Signs a Klaytn transaction with a given private key.
      txHash: '0x55547ac7620ba718e911aa4db745424e8bd280f063f6c59dc4ff3769f45f501f',
      senderTxHash: '0x55547ac7620ba718e911aa4db745424e8bd280f063f6c59dc4ff3769f45f501f'
 }
-
 ```
-
 
 ## recoverTransaction
 
 ```javascript
 caver.klay.accounts.recoverTransaction(rawTransaction)
 ```
+
 Recovers the Klaytn address that was used to sign the given RLP encoded transaction.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | signature | String | The RLP encoded transaction. |
 
 **Return Value**
 
 | Type | Description |
-| --- | --- |
+| :--- | :--- |
 | String | The Klaytn address used to sign this transaction. |
 
 **Example**
 
-```js
+```javascript
 > caver.klay.accounts.recoverTransaction('0xf86180808401ef364594f0109fc8df283027b6285cc889f5aa624eac1f5580801ca031573280d608f75137e33fc14655f097867d691d5c4c44ebe5ae186070ac3d5ea0524410802cdc025034daefcdfa08e7d2ee3f0b9d9ae184b2001fe0aff07603d9');
 '0xF0109fC8DF283027b6285cc889F5aA624EaC1F55'
 ```
-
 
 ## hashMessage
 
@@ -212,26 +207,25 @@ Recovers the Klaytn address that was used to sign the given RLP encoded transact
 caver.klay.accounts.hashMessage(message)
 ```
 
-Hashes the given message in order for it to be passed to [caver.klay.accounts.recover](#recover).
-The data will be UTF-8 HEX decoded and enveloped as follows:
-```
+Hashes the given message in order for it to be passed to [caver.klay.accounts.recover](caver.klay.accounts.md#recover). The data will be UTF-8 HEX decoded and enveloped as follows:
+
+```text
 "\x19Klaytn Signed Message:\n" + message.length + message
 ```
+
 and hashed using keccak256.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | message | String | A message to hash.  If it is a HEX string, it will be UTF-8 decoded first. |
-
 
 **Return Value**
 
 | Type | Description |
-| --- | --- |
+| :--- | :--- |
 | String | The hashed message |
-
 
 **Example**
 
@@ -244,38 +238,37 @@ and hashed using keccak256.
 '0xf334bf277b674260e85f1a3d2565d76463d63d29549ef4fa6d6833207576b5ba'
 ```
 
-
 ## sign
 
 ```javascript
 caver.klay.accounts.sign(data, privateKey)
 ```
+
 Signs arbitrary data. This data is before UTF-8 HEX decoded and enveloped as follows:
-```
+
+```text
 "\x19Klaytn Signed Message:\n" + message.length + message
 ```
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | data | String | The data to sign. |
 | privateKey | String | The private key to sign with. |
 
-
 **Return Value**
 
-``String|Object``: The signed data RLP encoded signature. The signature values as follows:
+`String|Object`: The signed data RLP encoded signature. The signature values as follows:
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | message | String | The given message. |
 | messageHash | String | The hash of the given message. |
 | r | String | First 32 bytes of the signature. |
 | s | String | Next 32 bytes of the signature. |
 | v | String | Recovery value + 27 |
 | signature | String | The generated signature. |
-
 
 **Example**
 
@@ -291,7 +284,6 @@ Signs arbitrary data. This data is before UTF-8 HEX decoded and enveloped as fol
 }
 ```
 
-
 ## recover
 
 ```javascript
@@ -299,33 +291,32 @@ caver.klay.accounts.recover(signatureObject)
 caver.klay.accounts.recover(message, signature [, preFixed])
 caver.klay.accounts.recover(message, v, r, s [, preFixed])
 ```
+
 Recovers the Klaytn address that was used to sign the given data.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| message &#124; signatureObject | String &#124; Object | Either signed message or hash. For the details of the signature object, see the table below. |
+| :--- | :--- | :--- |
+| message \| signatureObject | String \| Object | Either signed message or hash. For the details of the signature object, see the table below. |
 | messageHash | String | The hash of the given message. |
 | signature | String | The raw RLP encoded signature, OR parameter 2-4 as v, r, s values. |
-| preFixed | Boolean | (optional, default: ``false``) If the last parameter is ``true``, the given message will NOT automatically be prefixed with ``"\x19Klaytn Signed Message:\n" + message.length + message``, and assumed to be already prefixed. |
+| preFixed | Boolean | \(optional, default: `false`\) If the last parameter is `true`, the given message will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and assumed to be already prefixed. |
 
 The signature object has following values:
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | messageHash | String | The hash of the given message already prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`. |
 | r | String | First 32 bytes of the signature. |
 | s | String | Next 32 bytes of the signature. |
 | v | String | Recovery value + 27 |
 
-
 **Return Value**
 
 | Type | Description |
-| --- | --- |
+| :--- | :--- |
 | String | The Klaytn address used to sign this data. |
-
 
 **Example**
 
@@ -347,32 +338,29 @@ The signature object has following values:
 '0x2c7536E3605D9C16a7a3D7b1898e529396a65c23'
 ```
 
-
 ## encrypt
 
 ```javascript
 caver.klay.accounts.encrypt(privateKey, password [, options])
 ```
+
 Encrypts a private key to the Klaytn keystore v3 standard.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | privateKey | String | A private key or a Klaytn wallet key to encrypt. |
 | password | String | The password used for encryption. |
-| options | Object | (optional) The `options` parameter allows you to specify the values to use when using encrypt. You can also use the options object to encrypt decoupled accounts. See the example below for usage of `options`. |
+| options | Object | \(optional\) The `options` parameter allows you to specify the values to use when using encrypt. You can also use the options object to encrypt decoupled accounts. See the example below for usage of `options`. |
 
-**NOTE**: There are two ways to encrypt the private key when an account has a decoupled private key from the address.
-1. Use the [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format with the privateKey parameter.
-2. Use the `options.address` to send the address as a parameter.
+**NOTE**: There are two ways to encrypt the private key when an account has a decoupled private key from the address. 1. Use the [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format with the privateKey parameter. 2. Use the `options.address` to send the address as a parameter.
 
 **Return Value**
 
 | Type | Description |
-| --- | --- |
+| :--- | :--- |
 | Object | The encrypted keystore v3 JSON. |
-
 
 **Example**
 
@@ -503,28 +491,26 @@ Encrypts a private key to the Klaytn keystore v3 standard.
 }
 ```
 
-
 ## decrypt
 
 ```javascript
 caver.klay.accounts.decrypt(keystoreJsonV3, password)
 ```
+
 Decrypts a keystore v3 JSON and returns the decrypted account object.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | keystoreJsonV3 | String | JSON string containing the encrypted private key to decrypt. |
 | password | String | The password used for encryption. |
-
 
 **Return Value**
 
 | Type | Description |
-| --- | --- |
+| :--- | :--- |
 | Object | The decrypted account. |
-
 
 **Example**
 
@@ -558,14 +544,13 @@ Decrypts a keystore v3 JSON and returns the decrypted account object.
 }
 ```
 
-
 ## wallet
 
 ```javascript
 caver.klay.accounts.wallet
 ```
-Contains an in-memory wallet with multiple accounts.  These accounts can be used
-when using [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction).
+
+Contains an in-memory wallet with multiple accounts. These accounts can be used when using [caver.klay.sendTransaction](caver.klay/transaction/#sendtransaction).
 
 **Example**
 
@@ -589,27 +574,26 @@ Wallet {
 }
 ```
 
-
 ## wallet.create
 
 ```javascript
 caver.klay.accounts.wallet.create([numberOfAccounts] [, entropy])
 ```
+
 Generates one or more accounts in the wallet with randomly generated key pairs. If wallets already exist, they will not be overridden.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| numberOfAccounts | Number | (optional) The number of accounts to create. Leave empty to create an empty wallet. |
-| entropy | String | (optional) A random string to increase entropy. If none is given, a random string will be generated using [randomHex](./caver.utils.md#randomhex). |
+| :--- | :--- | :--- |
+| numberOfAccounts | Number | \(optional\) The number of accounts to create. Leave empty to create an empty wallet. |
+| entropy | String | \(optional\) A random string to increase entropy. If none is given, a random string will be generated using [randomHex](caver.utils.md#randomhex). |
 
 **Return Value**
 
 | Type | Description |
-| --- | --- |
+| :--- | :--- |
 | Object | The wallet object. |
-
 
 **Example**
 
@@ -625,34 +609,30 @@ Wallet {
   '0xC89cDD4258e17471fBaf75283b6A952451Eb7f54': { ... }
 ```
 
-
 ## wallet.add
 
 ```javascript
 caver.klay.accounts.wallet.add(account [, targetAddress])
 ```
+
 Adds an account using a private key or account object to the wallet.
 
-**NOTE**: If the same address exists inside the wallet, an error is returned. 
-If you want to change the private key associated to an account in the wallet, please use [caver.klay.accounts.wallet.updatePrivateKey](#wallet-updateprivatekey).
-
+**NOTE**: If the same address exists inside the wallet, an error is returned. If you want to change the private key associated to an account in the wallet, please use [caver.klay.accounts.wallet.updatePrivateKey](caver.klay.accounts.md#wallet-updateprivatekey).
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| account | String &#124; Object | A private key or account object created with [caver.klay.accounts.create](#create). |
+| :--- | :--- | :--- |
+| account | String \| Object | A private key or account object created with [caver.klay.accounts.create](caver.klay.accounts.md#create). |
 | targetAddress | String | A target address which will be used with a given private key. |
 
-**NOTE**: caver-js supports two types of private key formats.
-One is a raw private key format of a 32-byte string type and the other is the [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format).
+**NOTE**: caver-js supports two types of private key formats. One is a raw private key format of a 32-byte string type and the other is the [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format).
 
 **Return Value**
 
 | Type | Description |
-| --- | --- |
+| :--- | :--- |
 | Object | The added account. |
-
 
 **Example**
 
@@ -708,27 +688,25 @@ One is a raw private key format of a 32-byte string type and the other is the [K
 }
 ```
 
-
 ## wallet.remove
 
 ```javascript
 caver.klay.accounts.wallet.remove(account)
 ```
+
 Removes an account from the wallet.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| account | String &#124; Number | The account address or the index in the wallet. |
-
+| :--- | :--- | :--- |
+| account | String \| Number | The account address or the index in the wallet. |
 
 **Return Value**
 
 | Type | Description |
-| --- | --- |
-| Boolean | ``true`` if the wallet was removed. ``false`` if it could not be found. |
-
+| :--- | :--- |
+| Boolean | `true` if the wallet was removed. `false` if it could not be found. |
 
 **Example**
 
@@ -751,12 +729,12 @@ true
 false
 ```
 
-
 ## wallet.clear
 
 ```javascript
 caver.klay.accounts.wallet.clear()
 ```
+
 Securely empties the wallet and removes all its accounts.
 
 **Parameters**
@@ -766,7 +744,7 @@ None
 **Return Value**
 
 | Type | Description |
-| --- | --- |
+| :--- | :--- |
 | Object | The wallet object. |
 
 **Example**
@@ -780,27 +758,25 @@ Wallet {
 }
 ```
 
-
 ## wallet.encrypt
 
 ```javascript
 caver.klay.accounts.wallet.encrypt(password)
 ```
+
 Encrypts all wallet accounts and returns an array of encrypted keystore v3 objects.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | password | String | The password that will be used for encryption. |
-
 
 **Return Value**
 
 | Type | Description |
-| --- | --- |
+| :--- | :--- |
 | Array | The encrypted keystore v3 objects. |
-
 
 **Example**
 
@@ -848,28 +824,26 @@ Encrypts all wallet accounts and returns an array of encrypted keystore v3 objec
 ]
 ```
 
-
 ## wallet.decrypt
 
 ```javascript
 caver.klay.accounts.wallet.decrypt(keystoreArray, password)
 ```
+
 Decrypts keystore v3 objects.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | keystoreArray | Array | The encrypted keystore v3 objects to decrypt. |
 | password | String | The password that was used for encryption. |
-
 
 **Return Value**
 
 | Type | Description |
-| --- | --- |
+| :--- | :--- |
 | Object | The wallet object. |
-
 
 **Example**
 
@@ -935,21 +909,20 @@ Wallet {
 caver.klay.accounts.wallet.getKlaytnWalletKey(index)
 caver.klay.accounts.wallet.getKlaytnWalletKey(address)
 ```
+
 Return the Klaytn wallet key for the account on the wallet of caver-js.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| indexOrAddress | Number&#124;String | An index in the wallet address list, an address in hexadecimal. The given value should exist in the caver-js wallet. |
-
+| :--- | :--- | :--- |
+| indexOrAddress | Number\|String | An index in the wallet address list, an address in hexadecimal. The given value should exist in the caver-js wallet. |
 
 **Return Value**
 
 | Type | Description |
-| --- | --- |
+| :--- | :--- |
 | String | KlaytnWalletKey that matches the account. This value allows you to log in to the wallet. |
-
 
 **Example**
 
@@ -976,24 +949,23 @@ Error: Failed to find account
 ```javascript
 caver.klay.accounts.wallet.updatePrivateKey(privateKey, address)
 ```
+
 Update the account's private key information stored in the wallet.
 
-**NOTE**: This function only changes the information stored in the wallet of caver-js. This function has no effect on the key information stored on the Klaytn network. Keys in the Klaytn network can be changed by sending a ['ACCOUNT_UPDATE'](./caver.klay/sendtx_account_update.md#sendtransaction-account_update) transaction.
+**NOTE**: This function only changes the information stored in the wallet of caver-js. This function has no effect on the key information stored on the Klaytn network. Keys in the Klaytn network can be changed by sending a ['ACCOUNT\_UPDATE'](caver.klay/transaction/sendtx_account_update.md#sendtransaction-account_update) transaction.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | privateKey | String | New private key to be used for updates. |
 | address | String | The account address in the wallet. |
-
 
 **Return Value**
 
 | Type | Description |
-| --- | --- |
+| :--- | :--- |
 | Object | An object that contains information about the updated account. |
-
 
 **Example**
 
@@ -1009,3 +981,4 @@ Update the account's private key information stored in the wallet.
     index: 0 
 }
 ```
+

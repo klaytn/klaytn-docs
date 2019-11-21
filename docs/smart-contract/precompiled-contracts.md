@@ -41,7 +41,7 @@ function callDatacopy(bytes memory data) public returns (bytes memory) {
     }
 
     return ret;
-}     
+}
 ```
 
 ## Address 0x05: bigModExp\(base, exp, mod\)
@@ -202,6 +202,6 @@ function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public retu
 }
 ```
 
-[  
+[    
 ](https://docs.klaytn.com/klaytn/design/computation/language)
 

@@ -48,13 +48,13 @@ EP provides the following features:
 
 By adding EP concept on our platform, we are expecting to offer more practical service and enterprise-friendly platform which can help users to improve UX and increase the quality of services on Klaytn network as well.
 
-For more details, see [Enterprise Proxy]().
+For more details, see [Enterprise Proxy](faq.md).
 
 ## How can we implement the fee-delegation scheme as a service provider?
 
 Fee-delegated transaction types require at least two signatures: one from the sender and the other from the fee payer. The service provider usually takes a role of the fee payer, and the user takes a role of the sender. In this scenario, the user creates a transaction and signs the transaction. Then, the user sends the RLP-encoded transaction to the service provider. Note that the service provider is responsible for the transaction transfer between the user and the service provider. The Klaytn network is not involved in this transfer.
 
-The transaction RLP-encoding scheme is defined in the description of each transaction type. For more details, see [Transactions](). This transaction is not complete since the fee payer's address and signatures are not set properly. If this transaction is submitted into the Klaytn network, this transaction will be rejected because the fee payer's signature is invalid. Although this transaction is incomplete, the sender can track the transaction via [SenderTxHash]().
+The transaction RLP-encoding scheme is defined in the description of each transaction type. For more details, see [Transactions](faq.md). This transaction is not complete since the fee payer's address and signatures are not set properly. If this transaction is submitted into the Klaytn network, this transaction will be rejected because the fee payer's signature is invalid. Although this transaction is incomplete, the sender can track the transaction via [SenderTxHash](faq.md).
 
 When the service provider receives the transaction, it attaches the fee payer's address and signatures into the transaction after validation of the transaction. If the fee payer's address and signatures are filled properly, it is ready to be submitted into the Klaytn network. When the Klaytn network receives the transaction, it will charge the transaction fee to the fee payer.
 

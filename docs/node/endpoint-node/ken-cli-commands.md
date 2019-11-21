@@ -9,7 +9,7 @@ USAGE:
 
 ## Commands
 
-`ken` has the following commands. 
+`ken` has the following commands.
 
 ```bash
 COMMANDS:
@@ -70,7 +70,7 @@ Welcome to the Klaytn JavaScript console
  >
 ```
 
-`attach` command connects to the running node, while `console` command launches a node and connects to it.  
+`attach` command connects to the running node, while `console` command launches a node and connects to it.
 
 ```bash
    attach      Start an interactive JavaScript environment (connect to node)
@@ -79,6 +79,5 @@ Welcome to the Klaytn JavaScript console
 
 ### JavaScript APIs
 
-For the list of JavaScript Klaytn APIs, please see the [caver-js API references](../../bapp/sdk/caver-js/api-references/README.md).  
+For the list of JavaScript Klaytn APIs, please see the [caver-js API references](../../bapp/sdk/caver-js/api-references/).
 
-  

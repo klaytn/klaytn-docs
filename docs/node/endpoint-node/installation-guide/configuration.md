@@ -20,7 +20,7 @@ Configuration File Location:
 * For the archive distribution, the config directory location defaults to `$INSTALL_PATH/ken-linux-amd64/conf/`.
 * For the package distribution, the config directory defaults to `/etc/kend/conf/`.
 
-### Add Data Directory 
+### Add Data Directory
 
 You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kend.conf`.
 
@@ -49,6 +49,4 @@ $ tar -C ~/kend_home -xvf klaytn-baobab-chaindata-latest.tar.gz
 ```
 
 After the data is extracted, you may start the EN normally.
-
-##  <a id="en-start-stop-status"></a>
 

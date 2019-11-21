@@ -66,5 +66,3 @@ $ ken account import --password <passwordfile> <keyfile> --datadir <DATADIR>
 "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"
 ```
 
-
-

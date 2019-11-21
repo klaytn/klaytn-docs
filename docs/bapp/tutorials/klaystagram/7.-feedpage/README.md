@@ -1,7 +1,5 @@
 # 7. FeedPage
 
-![FeedPage](../images/klaystagram-feedpage.png)
-
 FeedPage is consisted of 3 main components that interact with `Klaystagram` contract.
 
 [7-2. `UploadPhoto` component](7-2.-uploadphoto-component.md)  
