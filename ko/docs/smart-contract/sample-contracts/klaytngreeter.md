@@ -7,7 +7,7 @@
 ```text
 pragma solidity 0.5.6;
 contract Mortal {
-    /* 주소 타입의 소유자(owner) 변수 정의 */
+    /* address 타입의 owner변수 정의 */
     address payable owner;
     /* 이 함수는 초기화 시점에 실행되어 컨트랙트 소유자를 설정합니다 */
     constructor () public { owner = msg.sender; }
@@ -16,9 +16,9 @@ contract Mortal {
 }
 
 contract KlaytnGreeter is Mortal {
-    /* 문자열 타입의 변수 greeting 정의 */
+    /* string 타입의 변수 greeting 정의 */
     string greeting;
-    /* 이 함수는 컨트랙트가 생성될 때 작동합니다 */
+    /* 이 함수는 컨트랙트가 생성될 딱 한번 실행됩니다 */
     constructor (string memory _greeting) public {
         greeting = _greeting;
     }
@@ -35,7 +35,7 @@ contract KlaytnGreeter is Mortal {
 * 컨트랙트를 배포하는 데 사용할 계정을 준비하세요.
   * 아직 계정이 없으면, [https://baobab.wallet.klaytn.com/create](https://baobab.wallet.klaytn.com/create)에서 하나를 생성하세요.
   * Faucet에서 테스트 KLAY를 받으세요 - [https://baobab.wallet.klaytn.com/faucet](https://baobab.wallet.klaytn.com/faucet)
-* 인사말 메시지인 초기 파라미터와 함께 컨트랙트를 배포하세요.
+* 초기 파라미터에 인사말 메시지를 넣어 컨트랙트를 배포하세요.
 * 배포 후 IDE에서 `greet`를 호출할 수 있습니다.
 
 ## 참고 <a id="references"></a>
