@@ -2,7 +2,7 @@
 
 이 장에서는 가장 간단한 형태의 서비스체인을 설정하는 방법에 대해 다룹니다.
 
-You will install a single Service Chain Consensus Node (SCN) that will act as a proprietary blockchain network handling your application's transaction requests and creating blocks.
+서비스체인 컨센서스 노드(SCN) 한 개를 설치하여 애플리케이션의 트랜잭션 요청을 처리하고 블록을 생성하는 전용 블록체인 네트워크를 구성합니다.
 
 그 후, EN의 메인 브리지를 활성화하여 SCN을 메인체인에 연결합니다. SCN은 EN을 통해 정기적으로 앵커링 트랜잭션을 메인체인에 보냅니다. 
 
