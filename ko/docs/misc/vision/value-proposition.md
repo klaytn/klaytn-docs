@@ -26,4 +26,4 @@ Data privacy 때문에 퍼블릭 블록체인 사용을 꺼리는 기업들을 �
 
 #### Governance by Enterprises: 기업 수준의 안정적인 컨센서스와 거버넌스 <a id="governance-by-enterprises-enterprise-level-stable-consensus-and-governance"></a>
 
-Klaytn의 노드는 Trusted Entities들, 주로 글로벌 상장기업들이 운영합니다. 이들은 또한 Klaytn Governance Council(KGC)에 속하여 Klaytn 발전을 위한 의사결정에 참여 합니다. 그들은 대부분 수천억에서 수조원대의 사업을 영위하는 기업들이라 평판이 매우 중요합니다. 따라서 평판 리스크를 감수하며 악의적인 행동을 할 가능성이 매우 낮습니다. KGC는 모두 블록체인 사업에 관심이 많기 때문에 노드 운영과 거버넌스 참여 이외에도 Klaytn 기반으로 사업화를 위해 함께 협력할 파트너들입니다.
+Klaytn의 노드는 Trusted Entities들, 주로 글로벌 상장기업들이 운영합니다. 이들은 또한 Klaytn 거버넌스 카운슬(KGC)에 속하여 Klaytn 발전을 위한 의사결정에 참여 합니다. 그들은 대부분 수천억에서 수조원대의 사업을 영위하는 기업들이라 평판이 매우 중요합니다. 따라서 평판 리스크를 감수하며 악의적인 행동을 할 가능성이 매우 낮습니다. KGC는 모두 블록체인 사업에 관심이 많기 때문에 노드 운영과 거버넌스 참여 이외에도 Klaytn 기반으로 사업화를 위해 함께 협력할 파트너들입니다.
