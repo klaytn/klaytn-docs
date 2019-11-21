@@ -66,14 +66,14 @@ If you want, you can change the pre-funded addresses by editing `"alloc"` in the
 
 ## SCN 데이터 디렉토리 생성 <a id="scn-data-directory-creation"></a>
 
-Klaytn 블록체인 데이터의 크기가 계속 증가한다는 사실을 고려하면 충분히 큰 스토리지를 사용하는 것이 좋습니다. You can create the data directory on your desired path. In this document, we create `~/kscnd_home` as a data directory.
+Klaytn 블록체인 데이터의 크기가 계속 증가한다는 사실을 고려하면 충분히 큰 스토리지를 사용하는 것이 좋습니다. 원하는 경로에 데이터 디렉토리를 생성합니다. In this document, we create `~/kscnd_home` as a data directory.
 
 ```bash
 $ mkdir -p ~/kscnd_home
 ```
 
 ### 제네시스 블록의 초기화 <a id="initialization-of-a-genesis-block"></a>
-After that, you can initialize the data directory with the genesis file. Before starting a service chain node, it is necessary to initialize the genesis block of the service chain network using `kscn` and `genesis.json`.
+After that, you can initialize the data directory with the genesis file. 서비스체인 노드를 시작하기 전에, `kscn` 및 `genesis.json`을 사용하여 서비스체인 네트워크의 제네시스 블록을 초기화해야 합니다.
 
 ```bash
 $ kscn init --datadir ~/kscnd_home homi-output/scripts/genesis.json
@@ -106,7 +106,7 @@ $ cp homi-output/keys/nodekey1  ~/kscnd_home/klay/nodekey
 
 ## SCN 설정 <a id="configuration-of-the-scn"></a>
 
-`kscnd.conf` is the configuration file for the SCN.
+`kscnd.conf`는 SCN의 구성 파일입니다.
 
 Assume that the SCN uses the default port and mounts a large-scale partition onto `~/kscnd_home`. In the default `kscnd.conf` file, `SC_SUB_BRIDGE` option is disabled and `DATA_DIR` is empty.
 ```
