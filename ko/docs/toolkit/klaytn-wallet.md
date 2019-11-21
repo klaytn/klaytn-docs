@@ -60,7 +60,7 @@ Klaytn Wallet을 사용하여 새로운 Klaytn 계정을 생성할 수 있습니
 
 마지막 단계에서는 새로 생성한 지갑의 키와 개인키를 확인할 수 있습니다. 인터넷이 연결되지 않는 별도의 스토리지에 키를 저장하기를 권장합니다.
 
-Klaytn 계정에 대한 자세한 내용은 Klaytn Docs의 [계정](../klaytn/design/accounts.md) 섹션을 참고해주세요.
+Klaytn 계정에 대한 자세한 내용은 Klaytn Docs의 [계정](../klaytn/design/accounts.md) 장을 참고해주세요.
 
 ![](img/01-create-new-5.png)
 
@@ -68,7 +68,7 @@ Klaytn 계정에 대한 자세한 내용은 Klaytn Docs의 [계정](../klaytn/de
 
 계정의 KLAY 또는 Klaytn 토큰의 잔액을 확인하거나 다른 계정으로 토큰을 전송하려면 계정에 접속해야 합니다. Klaytn Wallet은 계정에 접속하는 두 가지 방법을 제공합니다.
 
-* **Klaytn 지갑 키 또는 개인키 사용** Klaytn 지갑 키는 계정과 관련된 16진수 106자의 문자열이지만, 개인키는 16진수 64자의 문자열입니다. ("0x" 접두사는 문자 개수에 포함되지 않았습니다. 접두사까지 센다면 Klaytn 지갑 키는 112자, 개인키는 66자입니다.) 개인키를 사용하는 것은 다른 모든 시도가 실패할 시 어쩔 수 없는 최후의 접속 방법이어야 합니다. 계정에 접속하는 주된 방법이 되어서는 안 됩니다. 개인키는 계정에 대해 완전히 접속을 허용하기 때문에 가장 민감하게 다뤄줘야 하는 정보임을 명심하세요. 그러므로 개인키를 안전하게 보관하고 비밀로 유지하는 것이 매우 중요합니다.
+* **Using Klaytn Wallet Key or Private Key** A Klaytn Wallet Key is a string of 106 hexadecimal characters associated with an account, whereas a private key is a string of 64 hexadecimal characters (the character count does not include the "0x" prefixes that indicate hexadecimal numbers; if we count them in, a Klaytn Wallet Key is 112 characters long, and a private key is 66 characters long). 개인키를 사용하는 것은 다른 모든 시도가 실패할 시 어쩔 수 없는 최후의 접속 방법이어야 합니다. 계정에 접속하는 주된 방법이 되어서는 안 됩니다. 개인키는 계정에 대해 완전히 접속을 허용하기 때문에 가장 민감하게 다뤄줘야 하는 정보임을 명심하세요. 그러므로 개인키를 안전하게 보관하고 비밀로 유지하는 것이 매우 중요합니다.
 * **키스토어 파일과 비밀번호** 키스토어 파일은 암호화된 개인키와 계정의 주소 정보가 저장된 JSON 파일입니다. 이 파일은 사용자가 설정한 비밀번호로 암호화되어 있습니다.
 
 ### Klaytn 지갑 키 또는 개인키를 사용하여 기존 계정 접속 <a id="access-existing-account-using-klaytn-wallet-key-or-private-key"></a>
@@ -117,17 +117,17 @@ Klaytn Wallet은 KLAY 및 Klaytn 토큰 등록을 지원하여 잔액을 확인�
 
 ### 1단계: 기존 계정 정보에 접속하세요. <a id="step-1-access-existing-account-s-information"></a>
 
-[기존 계정 접속하기](#access-existing-account)의 단계에 따라 계정 페이지로 이동하세요.
+Go to your account page by following the steps of [Access Existing Account](#access-existing-account).
 
-### 2단계: 잔액 확인 섹션에서 토큰 추가 버튼을 클릭하세요. <a id="step-2-click-the-add-token-button-in-the-balance-section"></a>
+### 2단계: 잔액 확인 장에서 토큰 추가 버튼을 클릭하세요. <a id="step-2-click-the-add-token-button-in-the-balance-section"></a>
 
-`Balance` 섹션의 우측 하단에 있는 '+' 버튼을 클릭하세요.
+`Balance` 장의 우측 하단에 있는 '+' 버튼을 클릭하세요.
 
 ![](img/05-addtoken-3.png)
 
 ### 3단계: 토큰 정보를 입력하세요. <a id="step-3-enter-token-information"></a>
 
-`Token Symbol`, `Token Contract Address`, `Decimals`를 입력하세요. `Save` 버튼을 클릭한 후 계정 잔액 섹션에 추가한 토큰이 나타납니다.
+`Token Symbol`, `Token Contract Address`, `Decimals`를 입력하세요. `Save` 버튼을 클릭한 후 계정 잔액 장에 추가한 토큰이 나타납니다.
 
 ![](img/05-addtoken-4.png)
 
@@ -143,7 +143,7 @@ Klaytn Wallet을 사용하여 KLAY 또는 Klaytn 토큰을 다른 계정으로 �
 
 ### 2단계: 계정에 접속하세요. <a id="step-2-access-your-account"></a>
 
-아직 지갑에 계정을 불러오지 않은 경우 [기존 계정 접속하기](#access-existing-account)를 따라 완료해주세요.
+In case you have not loaded your account into the wallet yet, do so by following the steps in [Access Existing Account](#access-existing-account).
 
 ### 3단계: 전송할 토큰을 선택하세요. <a id="step-3-select-the-token-to-send"></a>
 
@@ -153,7 +153,7 @@ Klaytn Wallet을 사용하여 KLAY 또는 Klaytn 토큰을 다른 계정으로 �
 
 ### 4단계: 토큰 전송 정보를 입력하세요. <a id="step-4-select-token-transfer-information"></a>
 
-전송할 토큰을 선택한 후 `Step 2. Enter the information` 부분으로 이동하여 필요한 정보 (`To Address`, `Amount to Send`)를 입력하고 `Send Transaction` 버튼을 클릭하세요.
+전송할 토큰을 선택한 후 `Step 2. Enter the information` section and fill in the necessary information (`To Address` and `Amount to Send`), then click the `Send Transaction` button.
 
 ![](img/06-send-4.png)
 
@@ -175,8 +175,8 @@ Klaytn Wallet을 사용하여 KLAY 또는 Klaytn 토큰을 다른 계정으로 �
 
 테스트넷 KLAY를 받으려면, 유효한 Klaytn 계정이 있어야 합니다.
 
-* 계정이 없다면 [새 계정 생성하기](#create-a-new-account)를 따라 계정을 만들어주세요.
-* [기존 계정 접속하기](#access-existing-account)를 따라 지갑에 계정을 로드하세요. 테스트넷 KLAY는 로드된 계정으로 전송됩니다.
+* If you do not have an account, please create one by following the steps in [Create a New Account](#create-a-new-account).
+* Load your account into the wallet by following the steps in [Access Existing Account](#access-existing-account). 테스트넷 KLAY는 로드된 계정으로 전송됩니다.
 
 ### 1단계: 테스트넷 KLAY Faucet으로 이동하세요. <a id="step-1-go-to-the-testnet-klay-faucet"></a>
 
