@@ -59,7 +59,7 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=115
 
 ## kcn 콘솔 (kpn 콘솔) <a id="kcn-console-kpn-console"></a>
 
-Klaytn은 CLI 클라이언트를 제공합니다: `kcn console` (또는 `kpn console` ). 그러나 CN/PN은 보안상의 이유로 클라이언트의 RPC 인터페이스를 비활성화할 수 있습니다. 클라이언트를 사용하는 또 다른 방법은 IPC(inter-process communication)를 통해 프로세스에 연결하는 것입니다.
+Klaytn은 CLI 클라이언트를 제공합니다: `kcn console` (또는 `kpn console` ). 그러나 CN/PN은 보안상의 이유로 클라이언트의 RPC 인터페이스를 비활성화할 수 있습니다. 클라이언트를 사용하는 또 다른 방법은 IPC (inter-process communication)를 통해 프로세스에 연결하는 것입니다.
 
 `klay.ipc` IPC 파일은 CN/PN의 `data` 디렉토리에 있습니다.
 
