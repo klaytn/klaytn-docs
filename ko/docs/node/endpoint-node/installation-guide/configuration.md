@@ -15,7 +15,7 @@ $ sudo mkdir -p /var/kend/data
 
 ## 환경설정 파일 업데이트 <a id="update-the-configuration-file"></a>
 
-환경설정 파일 위치는 다음과 같습니다.
+환경 설정 파일 위치는 다음과 같습니다.
 
 * 아카이브 배포의 경우 환경설정 디렉토리의 위치가 `$INSTALL_PATH/ken-linux-amd64/conf/`으로 기본 설정되어 있습니다.
 * 패키지 배포의 경우 환경설정 디렉토리의 위치가 `/etc/kend/conf/`으로 기본 설정되어 있습니다.
