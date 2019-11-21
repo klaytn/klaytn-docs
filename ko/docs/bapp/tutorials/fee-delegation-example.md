@@ -219,7 +219,7 @@ Received data from server: Sender Tx hash is 0xe1f630547f287177a0e92198b1c67212b
 
 ### 4.3 `feepayer_server.js` 확인 <a id="4-3-check-feepayer_server-js"></a>
 
-트랜잭션 수수료 납부자의 서버를 구동중인 콘솔에서 아래와 같은 출력을 확인할 수 있습니다. Klaytn에서의 트랜잭션 영수증을 출력하는 것이에요.
+트랜잭션 수수료 납부자의 서버를 구동중인 콘솔에서 아래와 같은 출력을 확인할 수 있습니다. It prints the transaction receipt from the Klaytn.
 
 ```text
 $ node feepayer_server.js
