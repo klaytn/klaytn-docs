@@ -38,7 +38,7 @@ Klaytn에는 컨센서스 노드(CN), 프록시 노드(PN) 및 엔드포인트 �
 
 ![Network topology](../images/klaytn_network_node.png)
 
-Klaytn은 Istanbul BFT를 채택하고, 개선함으로써 빠른 완결성을 보장합니다. 각 블록에 대해 검증 및 합의가 수행되므로 포크가 없고, 합의가 이루어지면 블록의 완결성이 즉시 보장되기 때문입니다.
+Klaytn은 Istanbul BFT를 채택하고, 개선함으로써 빠른 완결성을 보장합니다. Because validation and consensus are done for each block there is no fork and the block's finality is guaranteed instantly as soon as the consensus is made.
 
 또한, BFT 알고리즘의 통신량 증가 문제는 임의로 선택된 `위원회(Committee)`를 활용하여 해결됩니다. CN은 함께 `카운슬`을 구성하고, 각 블록 생성시 VRF(Verifiable Random Function)을 이용하여 위원회의 멤버로 선택됩니다.
 
