@@ -321,7 +321,7 @@ Klaytn은 [트랜잭션 수수료 위임](../../../klaytn/design/transactions/RE
 
 ### 계정 업데이트 <a id="account-update"></a>
 
-계정의 키를 변경하려면 아래와 같은 트랜잭션을 보내세요. 키 타입에 따른 트랜잭션 필드에 대한 [계정 업데이트](api-references/caver.klay/sendtx_account_update.md)를 확인하세요.
+계정의 키를 변경하려면 아래와 같은 트랜잭션을 보내세요. 키 타입에 따른 트랜잭션 필드는 [계정 업데이트](api-references/caver.klay/sendtx_account_update.md)를 확인하세요.
 
 ```text
 // 아직 caver-js 지갑에 계정을 추가하지 않았다면 'caver.klay.accounts.wallet.add'를 실행하여 지갑에 계정을 추가하세요.
@@ -353,7 +353,7 @@ Contract JSON ABI
 
 **참고**: 스마트 컨트랙트를 컴파일하려면 솔리디티 컴파일러가 설치되어 있어야 합니다.
 
-스마트 컨트랙트 배포에 [caver.klay.Contract](api-references/caver.klay.Contract.md)를 사용하거나, [SMART_CONTRACT_DEPLOY](api-references/caver.klay/sendtx_smart_contract_deploy.md) 트랜잭션을 사용하여 배포할 수 있습니다. 다음은 [caver.klay.Contract](api-references/caver.klay.Contract.md)를 사용하는 예시입니다.
+스마트 컨트랙트 배포는 [caver.klay.Contract](api-references/caver.klay.Contract.md)를 사용하거나, [SMART_CONTRACT_DEPLOY](api-references/caver.klay/sendtx_smart_contract_deploy.md) 트랜잭션으로 배포할 수 있습니다. 다음은 [caver.klay.Contract](api-references/caver.klay.Contract.md)를 사용하는 예시입니다.
 
 컨트랙트 인스턴스가 생성되면, 아래와 같이 바이트코드를 `data` 필드에 전달하는 것으로 배포할 수 있습니다:
 
@@ -467,11 +467,11 @@ console.log 출력을 확인했다면, 아래 단계로 진행하세요.
 **참고** caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 이러한 클래스가 지원됩니다.
 
 ### 계정 <a id="account"></a>
-Account는 계정의 주소와 키를 포함하는 클래스입니다. 계정에는 [AccountKeyPublic](#accountkeypublic), [AccountKeyMultiSig](#accountkeymultisig), 또는 [AccountKeyRoleBased](#accountkeyrolebased) 유형이 될 수 있는 [AccountKey](#accountkey)가 있습니다.
+Account는 계정의 주소와 키를 포함하는 클래스입니다. Account에는 [AccountKeyPublic](#accountkeypublic), [AccountKeyMultiSig](#accountkeymultisig), 또는 [AccountKeyRoleBased](#accountkeyrolebased) 중 하나인  [AccountKey](#accountkey)가 있습니다.
 
-caver.klay.accounts 패키지는 기본으로 개인키를 저장하고 관리하는 [AccountKeyPublic](#accountkeypublic)을 사용합니다.
+caver.klay.accounts 패키지는 개인키를 저장하고 관리하는 [AccountKeyPublic](#accountkeypublic)을 기본으로 사용합니다.
 
-다음 예제는 AccountKeyPublic을 AccountKey로 계정을 만듭니다.
+다음 예제는 AccountKeyPublic을 AccountKey로 가지는 계정을 만듭니다.
 ```javascript
 // test.js file
 async function testFunction() {
