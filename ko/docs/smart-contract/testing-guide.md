@@ -1,5 +1,5 @@
 # 테스트 가이드 <a id="testing-guide"></a>
-이 섹션에서는 스마트 컨트랙트를 테스트하는 방법을 소개합니다. 블록체인의 트랜잭션은 되돌릴 수 없으므로 스마트 컨트랙트를 배포하기 전에 테스트하는 것이 매우 중요합니다.
+이 장에서는 스마트 컨트랙트를 테스트하는 방법을 소개합니다. 블록체인의 트랜잭션은 되돌릴 수 없으므로 스마트 컨트랙트를 배포하기 전에 테스트하는 것이 매우 중요합니다.
 
 ## 트러플(Truffle)로 테스트하기 <a id="testing-with-truffle"></a>
 트러플은 자동 테스트 프레임워크를 제공합니다. 이 프레임워크를 사용하여 간단하고 관리 가능한 테스트를 작성할 수 있는 방법이 두 가지 있습니다.
@@ -66,7 +66,7 @@ import "../contracts/HashMarket.sol";
 * Assert : `Assert.equals()`, `Assert.greaterThan()` 등과 같은 다양한 테스트 함수에 액세스할 수 있도록 합니다.
 * DeployedAddresses : 컨트랙트를 변경할 때마다, 반드시 새 주소로 재배포해야 합니다. 이 라이브러리를 통해 배포된 컨트랙트 주소를 얻을 수 있습니다.
 
-이제 테스트 코드를 작성해 봅시다.
+Now, Let's write a test code.
 ```
 pragma solidity ^0.5.6;
 
@@ -162,12 +162,12 @@ contract("KlaytnGreeter", async(accounts) => {
 
     // 각 테스트가 진행되기 전에 실행됩니다.
     before(async function() {
-        // 컨트랙트 인스턴스를 변수로 설정
+        // set contract instance into a variable
         klaytnGreeterInstance = await KlaytnGreeter.new(greetMsg, {from:owner});
     })
 
     it("#1 check Greeting message", async function() {
-        // 기대하는 인사말 메시지 설정
+        // set the expected greeting message
         var expectedGreeting = greetMsg;
         var greet= await klaytnGreeterInstance.greet();
         assert.equal(expectedGreeting, greet, "greeting message should match");
