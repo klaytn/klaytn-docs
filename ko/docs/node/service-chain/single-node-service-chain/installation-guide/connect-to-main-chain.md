@@ -54,7 +54,7 @@ MAIN_BRIDGE_INDEXING=1
 
 ## SCN을 메인체인에 연결하기 <a id="connect-scn-to-the-main-chain"></a>
 
-메인체인의 EN을 메인 브리지로 실행해야 합니다. 또한 서브 브리지로서 어떤 SCN(Service Chain Node)이 EN에 연결되는지 결정해야 합니다.
+메인체인의 EN을 메인 브리지로 실행해야 합니다. And also you should determine which SCN (Service Chain Consensus Node) as a sub-bridge will connect with the EN.
 
 ### EN(메인 브리지) 정보 확인하기 <a id="check-en-(main-bridge)-information"></a>
 
