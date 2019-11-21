@@ -82,7 +82,7 @@ Klaytn은 현재 단가를 이용하는 트랜잭션을 교체할 수 없습니�
 | G\_copy         | 3     | \*COPY 연산에 대한 부분 지불량. 복사된 단어에 곱하고, 반올림 됨.                                                |
 | G\_blockhash    | 20    | BLOCKHASH 연산을 위해 지불하는 가스량                                                                  |
 | G\_extcodehash  | 400   | 컨트랙트 코드의 keccak256 해시를 얻기 위해 지불하는 가스량                                                      |
-| G\_create2      | 32000 | Paid for opcode CREATE2 which bahaves identically with CREATE but use different arguments  |
+| G\_create2      | 32000 | CREATE와 똑같이 작동하지만 다른 인수를 사용하는 CREATE2 Opcode를 위해 지불하는 가스량.                                 |
 
 ### 미리 컴파일된 컨트랙트(Precompiled Contracts) <a id="precompiled-contracts"></a>
 
@@ -90,7 +90,7 @@ Klaytn은 현재 단가를 이용하는 트랜잭션을 교체할 수 없습니�
 
 | 항목                      | 가스                 | 설명                           |
 |:----------------------- |:------------------ |:---------------------------- |
-| EcrecoverGas            | 3000               | Perform ECRecover operation  |
+| EcrecoverGas            | 3000               | ECRecover 연산 수행              |
 | Sha256BaseGas           | 60                 | sha256 hash 연산 수행            |
 | Sha256PerWordGas        | 12                 | ​                            |
 | Ripemd160BaseGas        | 600                | Ripemd160 연산 수행              |
@@ -107,7 +107,7 @@ Klaytn은 현재 단가를 이용하는 트랜잭션을 교체할 수 없습니�
 | FeePayerGas             | 300                | feePayer의 주소 획득 - Klaytn 전용  |
 | ValidateSenderGas       | 5000 per signature | 발신자의 주소와 서명 검증 - Klaytn 전용   |
 
-Total gas of those items which has XXXBaseGas and XXXPerWordGas \(e.g. Sha256BaseGas, Sha256PerWordGas\) are calculated as
+XXXBaseGas와 XXXPerWordGas \(e.g. Sha256BaseGas, Sha256PerWordGas\)등을 포함한 항목들의 총 가스량은 다음과 같이 계산됩니다.
 
 ```text
 TotalGas = XXXBaseGas + (number of words * XXXPerWordGas)
