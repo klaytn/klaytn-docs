@@ -244,7 +244,7 @@ none
 
 ## subbridge_sendChainTxslimit <a id="subbridge_sendChainTxslimit"></a>
 
-The `sendChainTxslimit` gets the maximum number of pending transactions to pick up for sending at once.
+`sendChainTxslimit`은 한 번에 보내기 위해 대기 중인 보류 트랜잭션 수의 최댓값을 가져옵니다.
 
 **매개변수**
 
@@ -252,9 +252,9 @@ The `sendChainTxslimit` gets the maximum number of pending transactions to pick 
 
 **리턴값**
 
-| 형식     | 설명                                                                        |
-| ------ | ------------------------------------------------------------------------- |
-| Uint64 | the maximum number of pending transactions to pickup for sending at once. |
+| 형식     | 설명                                |
+| ------ | --------------------------------- |
+| Uint64 | 한 번에 보내기 위해 대기 중인 보류 트랜잭션 수의 최대값. |
 
 **예시**
 
@@ -268,15 +268,15 @@ The `subbridge_anchoring` can enable/disable the anchoring feature of the servic
 
 **매개변수**
 
-| 명칭     | 형식   | 설명                                                         |
-| ------ | ---- | ---------------------------------------------------------- |
-| enable | Bool | `true` enables the anchoring feature, `false` disables it. |
+| 명칭     | 형식   | 설명                                       |
+| ------ | ---- | ---------------------------------------- |
+| enable | Bool | `true`는 앵커링 기능을 활성화하고, `false`는 비활성화합니다. |
 
 **리턴값**
 
-| 형식   | 설명                                                      |
-| ---- | ------------------------------------------------------- |
-| bool | `true` if the anchoring was enabled, `false` otherwise. |
+| 형식   | 설명                                            |
+| ---- | --------------------------------------------- |
+| bool | 앵커링이 활성화될 경우 `true`를, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -307,9 +307,9 @@ The `subbridge_latestAnchoredBlockNumber` returns the latest anchored block numb
 
 **리턴값**
 
-| 형식     | 설명                                |
-| ------ | --------------------------------- |
-| Uint64 | The latest anchored block number. |
+| 형식     | 설명                 |
+| ------ | ------------------ |
+| Uint64 | 가장 최근에 앵커링된 블록 번호. |
 
 **예시**
 
