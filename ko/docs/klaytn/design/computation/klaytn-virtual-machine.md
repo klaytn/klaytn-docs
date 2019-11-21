@@ -6,7 +6,7 @@ Klaytn 가상머신\(KLVM\)의 현재 버전은 이더리움 가상머신\(EVM\)
 
 KLVM은 공식적으로 Klaytn의 실행 모델을 지칭합니다. 실행 모델은 일련의 바이트 코드 명령어와 작은 튜플 환경 데이터가 제공될 때, 시스템 상태가 어떻게 변경될지 지정합니다. KLVM은 준 튜링 완전 머신(quasi-Turing-complete machine)입니다. '준(quasi)'은 KLVM에서의 연산이 총 연산의 양을 제한할 수 있는 가스라는 매개변수의 제한을 받기 때문에 붙입니다.
 
-KLVM executes Klaytn virtual machine code \(or Klaytn bytecode\) which consists of a sequence of KLVM instructions. KLVM 코드는 Klaytn 블록체인 상에 코드를 가지고 있는 계정을 위해 사용되는 프로그래밍 언어입니다. 계정과 연결된 KLVM 코드는 메시지가 해당 계정으로 전송될 때마다 실행되며, 이 코드는 스토리지 읽고 쓰기가 가능하고 메세지를 보낼 수 있습니다.
+KLVM은 일련의 KLVM 명령어(or Klaytn bytecode)로 이루어진 Klaytn 가상 머신 코드를 실행합니다. KLVM 코드는 Klaytn 블록체인 상에 코드를 가지고 있는 계정을 위해 사용되는 프로그래밍 언어입니다. 계정과 연결된 KLVM 코드는 메시지가 해당 계정으로 전송될 때마다 실행되며, 이 코드는 스토리지 읽고 쓰기가 가능하고 메세지를 보낼 수 있습니다.
 
 ## KLVM 사양 <a id="klvm-specification"></a>
 
@@ -130,7 +130,7 @@ Over an account's execution, the total fee payable for memory-usage payable is p
 | `G_sha3word`      |     6 | `SHA3` 연산에 대한 입력 데이터의 각 단어(반올림)에 대해 지불하는 가스량                                                  |
 | `G_copy`          |     3 | `COPY` 연산에 대한 부분 지불량. 복사된 단어에 곱하고, 반올림 됨.                                                     |
 | `G_extcodehash`   |   400 | 컨트랙트 코드의 `keccak256` 해시를 얻기 위해 지불하는 가스량                                                       |
-| `G_create2`       | 32000 | Paid for opcode `CREATE2` which bahaves identically with CREATE but use different arguments   |
+| `G_create2`       | 32000 | CREATE와 똑같이 작동하지만 다른 인수를 사용하는 `CREATE2` Opcode를 위해 지불하는 가스량                                   |
 
 다음과 같이 명령어의 subset을 정의합니다.
 
