@@ -303,7 +303,7 @@ undefined
 ```
 HTTP RPC
 
-**NOTE**: The function `klay.toPeb()` is not executable in HTTP RPC.
+**참고**: `klay.toPeb()` 함수는 HTTP RPC를 통해 실행할 수 없습니다.
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendAccountUpdate","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","key":"0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8"}, "passphrase"],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":"0x26a7a8ba619a5e3e4d742c217f55f49591a5616b200c976bd58a966a05e294b7"}
@@ -342,7 +342,7 @@ undefined
 ```
 HTTP RPC
 
-**NOTE**: The function `klay.toPeb()` is not executable in HTTP RPC.
+**참고**: `klay.toPeb()` 함수는 HTTP RPC를 통해 실행할 수 없습니다.
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendTransaction","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","to":"0xafa3f8684e54059998bc3a7b0d2b0da075154d66","value":"0x1230000000"},"passphrase"],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":"0x26a7a8ba619a5e3e4d742c217f55f49591a5616b200c976bd58a966a05e294b7"}
@@ -381,7 +381,7 @@ undefined
 ```
 HTTP RPC
 
-**NOTE**: The function `klay.toPeb()` is not executable in HTTP RPC.
+**참고**: `klay.toPeb()` 함수는 HTTP RPC를 통해 실행할 수 없습니다.
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendValueTransfer","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","to":"0xafa3f8684e54059998bc3a7b0d2b0da075154d66","value":"0x1230000000"},"passphrase"],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":"0x26a7a8ba619a5e3e4d742c217f55f49591a5616b200c976bd58a966a05e294b7"}
