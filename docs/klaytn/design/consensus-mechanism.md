@@ -29,7 +29,7 @@ In the PoW algorithm stated above, though each node receives and validates block
 
 The communication between nodes basically progresses as shown below. But there are some variants which reflect each system's characteristics.
 
-![PBFT message flow](../../.gitbook/assets/pbft.png)
+![PBFT message flow](../../.gitbook/assets/pbft%20%281%29.png)
 
 As shown above, a participating node in PBFT basically communicates with all nodes in the network in several phases. This characteristic limits the number of nodes because the communication volume increases exponentially as the number of nodes increases.
 

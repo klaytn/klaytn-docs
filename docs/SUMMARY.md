@@ -225,5 +225,4 @@
 * [Glossary](misc/glossary.md)
 * [Terms of Use](misc/terms-of-use.md)
 * [Languages](misc/languages.md)
-* [github.com/klaytn](https://github.com/klaytn)
 
