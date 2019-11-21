@@ -1,6 +1,6 @@
 # 에러 & 문제 해결 <a id="errors-troubleshooting"></a>
 
-## Klaytn 바이너리 패키지를 사용하여 실행 중인 Klaytn 노드에 대한 로그 파일을 어디에서 찾을 수 있습니까? <a id="where-can-i-find-a-log-file-for-the-running-klaytn-node-using-the-klaytn-binary"></a>
+## Klaytn 바이너리 패키지를 사용하여 실행 중인 Klaytn 노드의 로그 파일을 어디에서 찾을 수 있나요? <a id="where-can-i-find-a-log-file-for-the-running-klaytn-node-using-the-klaytn-binary"></a>
 
 **답변**
 
@@ -76,7 +76,7 @@ INFO[02/20,12:35:38 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa
 
 **답변**
 
-This can happen when `genesis.json` and nodekey/validator information differ. nodekey/validator 및 `genesis.json` 파일을 다시 확인하길 바랍니다.
+이는 `genesis.json`과 nodekey/validator 정보가 다를 때 발생할 수 있습니다. nodekey/validator 및 `genesis.json` 파일을 다시 확인하길 바랍니다.
 
 ## Klaytn node can't start with following error log message. <a id="klaytn-node-can-t-start-with-following-error-log-message"></a>
 
