@@ -1,4 +1,4 @@
-# System Requirements <a id="system-requirements"></a>
+# System Requirements
 
 ## H/W Specification <a id="h-w-specification"></a>
 
@@ -23,16 +23,15 @@ Note that this is a recommended hardware specification for CNs and PNs, not an e
 
 | Model | vCPU | Memory \(GiB\) | Storage \(GiB\) | EBS Bandwidth \(Mbps\) | Network Bandwidth \(Gbps\) | Price \(Seoul region, USD/h\) |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| c5.18xlarge \(recommended\) | 72 | 144 | 500 (Minimum, EBS-Only) | 14,000 | 25 | 3.456 |
+| c5.18xlarge \(recommended\) | 72 | 144 | 500 \(Minimum, EBS-Only\) | 14,000 | 25 | 3.456 |
 
 The information above is from [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/) and [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/) and may be changed by AWS.
 
 ## Storage Requirements <a id="storage-requirements"></a>
 
-Assuming 100 TPS in average,  300 bytes average transaction size, and 1-second block latency, the expected daily storage requirement is 2.5 GB/day \(=300x100x86400\).
+Assuming 100 TPS in average, 300 bytes average transaction size, and 1-second block latency, the expected daily storage requirement is 2.5 GB/day \(=300x100x86400\).
 
 ## Operating System <a id="operating-system"></a>
 
-Recommended environment is [Amazon Linux 2](https://aws.amazon.com/ko/about-aws/whats-new/2017/12/introducing-amazon-linux-2/).
-Klaytn binaries are fully tested on Amazon Linux 2, but they should work on other linux-based environments as well.
-macOS binaries are also provided for development purpose.
+Recommended environment is [Amazon Linux 2](https://aws.amazon.com/ko/about-aws/whats-new/2017/12/introducing-amazon-linux-2/). Klaytn binaries are fully tested on Amazon Linux 2, but they should work on other linux-based environments as well. macOS binaries are also provided for development purpose.
+

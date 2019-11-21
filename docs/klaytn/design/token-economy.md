@@ -1,4 +1,4 @@
-# Token Economy <a id="token-economy"></a>
+# Token Economy
 
 ## Overview <a id="overview"></a>
 
@@ -75,8 +75,8 @@ Only once service onboarding begins can users join the platform. Therefore, we w
 
 |  | 1. BApp Reward | 2. KLAY BApp Reward |
 | :--- | :--- | :--- |
-| Requirements | • Implementation of TX fee delegation<br>• Smart contract implementation | • Implementation of TX fee delegation<br>• Smart contract implementation<br>• Accepts KLAY payments |
-| Reward | Top N services will be rewarded. BApps are ranked based on the following two metrics:<br> • Average daily active users \(DAU\)<br> • Delegated transaction fee amount | Top M services will be rewarded. KLAY BApps are ranked based on the following three metrics:<br> • Average daily active users \(DAU\)<br> • Delegated transaction fee amount<br> • KLAY transaction volume |
+| Requirements | • Implementation of TX fee delegation • Smart contract implementation | • Implementation of TX fee delegation • Smart contract implementation • Accepts KLAY payments |
+| Reward | Top N services will be rewarded. BApps are ranked based on the following two metrics:  • Average daily active users \(DAU\)  • Delegated transaction fee amount | Top M services will be rewarded. KLAY BApps are ranked based on the following three metrics:  • Average daily active users \(DAU\)  • Delegated transaction fee amount  • KLAY transaction volume |
 
 #### 1. BApp Reward <a id="1-bapp-reward"></a>
 

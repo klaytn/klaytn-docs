@@ -1,4 +1,4 @@
-# Monitoring Setup <a id="monitoring-setup"></a>
+# Monitoring Setup
 
 > Please download the latest version of Klaytn binaries \(&gt;= v0.5.9\) due to the hard fork.
 

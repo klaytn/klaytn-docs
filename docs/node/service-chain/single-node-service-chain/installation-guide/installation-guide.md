@@ -1,9 +1,6 @@
-# Installation Guide <a id="installation-guide"></a>
+# Installation Guide
 
-This chapter explains the **Service Chain Consensus Node \(SCN\)** installation.
-If you want to use Anchroing/Value transfer features,
-you need an Endpoint Node (EN) that connects to the Main Chain.
-For the EN installation, read the [EN Installation Guide](../../../endpoint-node/installation-guide/).
+This chapter explains the **Service Chain Consensus Node \(SCN\)** installation. If you want to use Anchroing/Value transfer features, you need an Endpoint Node \(EN\) that connects to the Main Chain. For the EN installation, read the [EN Installation Guide](../../../endpoint-node/installation-guide/).
 
 ## Linux Archive Distribution <a id="linux-archive-distribution"></a>
 
@@ -50,5 +47,4 @@ The Klaytn Linux package consists of the executable binary and the configuration
 | kscn | /usr/bin/kscn |
 | kscnd.conf | /etc/kscnd/conf/kscnd.conf |
 | homi | /usr/bin/homi |
-
 
