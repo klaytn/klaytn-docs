@@ -50,7 +50,7 @@ $ rm /Users/username/klaytn/node_modules/websocket/.git
 
 이 튜토리얼에서 트러플은 솔리디티로 작성된 스마트 컨트랙트를 컴파일하고 배포하는 데 사용됩니다. 현재 Klaytn은 트러플 버전 4.1.15를 지원합니다. 트러플에 대한 자세한 내용은 다음 사이트를 참조하세요:
 
-* 트러플 저장소 - [https://github.com/trufflesuite/truffle](https://github.com/trufflesuite/truffle)​
+* 트러플 스토리지 - [https://github.com/trufflesuite/truffle](https://github.com/trufflesuite/truffle)​
 * 트러플 문서 - [https://truffleframework.com/docs](https://truffleframework.com/docs)
 
 트러플은 다음 방법들로 설치 가능합니다:
@@ -84,7 +84,7 @@ vvisp은 스마트 컨트랙트 개발을 위해 [HEACHI LABS](https://henesis.i
 
 여기에서는 vvisp을 설치하고, 이를 사용하여 Klaytn Bapp 개발 환경을 설정하는 방법을 소개합니다.
 
-* vvisp 저장소 - [https://github.com/HAECHI-LABS/vvisp](https://github.com/HAECHI-LABS/vvisp)
+* vvisp 스토리지 - [https://github.com/HAECHI-LABS/vvisp](https://github.com/HAECHI-LABS/vvisp)
 * vvisp 문서 - [https://github.com/HAECHI-LABS/vvisp/blob/dev/README\_KLAYTN.md](https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md)
 
 npm 또는 yarn이 존재하는 경우 다음 명령을 실행하여 vvisp을 쉽게 설치할 수 있습니다:
