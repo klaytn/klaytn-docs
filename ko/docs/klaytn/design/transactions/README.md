@@ -1,4 +1,4 @@
-# 트랜잭션 <a id="transactions"></a>
+# Transactions <a id="transactions"></a>
 
 ## 트랜잭션 개요 <a id="transactions-overview"></a>
 
