@@ -351,7 +351,7 @@ Contract JSON ABI
 [{"constant":true,"inputs":[],"name":"count","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBlockNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_count","type":"uint256"}],"name":"setCount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
 ```
 
-**참고**: 스마트 컨트랙트를 작성하려면 솔리디티 컴파일러가 설치되어 있어야 합니다.
+**참고**: 스마트 컨트랙트를 컴파일하려면 솔리디티 컴파일러가 설치되어 있어야 합니다.
 
 스마트 컨트랙트 배포에 [caver.klay.Contract](api-references/caver.klay.Contract.md)를 사용하거나, [SMART_CONTRACT_DEPLOY](api-references/caver.klay/sendtx_smart_contract_deploy.md) 트랜잭션을 사용하여 배포할 수 있습니다. 다음은 [caver.klay.Contract](api-references/caver.klay.Contract.md)를 사용하는 예시입니다.
 
@@ -953,7 +953,7 @@ console.log(rawTransaction)
 
 ## 샘플 프로젝트 <a id="sample-projects"></a>
 
-The BApp \(Blockchain Application\) Development sample projects using caver-js are the following:
+caver-js를 사용한 BApp \(Blockchain Application\) 개발 샘플 프로젝트는 다음과 같습니다:
 
 * [Count BApp 개발하기](../../tutorials/count-bapp/README.md)
 * [Klaystagram](../../tutorials/klaystagram/README.md)
