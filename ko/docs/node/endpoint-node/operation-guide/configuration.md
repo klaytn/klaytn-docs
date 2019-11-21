@@ -11,7 +11,7 @@
 * 아카이브 배포의 경우 환경설정 디렉토리의 위치가 `$INSTALL_PATH/ken-linux-amd64/conf/`으로 기본 설정되어 있습니다.
 * 패키지 배포의 경우 환경설정 디렉토리의 위치가 `/etc/kend/conf/`으로 기본 설정되어 있습니다.
 
-## 환경 설정 파일 형식  <a id="configuration-file-format"></a>
+## 환경설정 파일 형식  <a id="configuration-file-format"></a>
 
 다음은 EN의 환경설정 파일 샘플로, `cypress`네트워크에 참여하고 블록체인 데이터를 기본 설정 위치에 저장하게 되어 있습니다. 이때 기본으로 설정된 블록체인 데이터 저장 위치는 아카이브 배포의 경우 `~/kend_home`, 패키지 배포의 경우 `/var/kend/data`입니다.
 
@@ -46,7 +46,7 @@ TXPOOL_NONEXEC_SLOTS_ACCOUNT=4096
 
 ## Properties <a id="properties"></a>
 
-다음은 설정 파일에서 설정할 수 있는 속성입니다. 
+다음은 환경 설정 파일에서 설정할 수 있는 속성입니다. 
 
 <table>
   <thead>
@@ -189,7 +189,7 @@ TXPOOL_NONEXEC_SLOTS_ACCOUNT=4096
     </tr>
     <tr>
       <td style="text-align:left">SC_MAIN_BRIDGE</td>
-      <td style="text-align:left">1로 설정하면 Main bridge 서비스를 활성화합니다. 서비스체인 환경설정에 사용됩니다.</td>
+      <td style="text-align:left">1로 설정하면 Main bridge 서비스를 활성화합니다. 서비스체인 구성에 사용됩니다.</td>
     </tr>
     <tr>
       <td style="text-align:left">SC_MAIN_BRIDGE_PORT</td>
