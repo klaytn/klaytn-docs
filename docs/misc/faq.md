@@ -102,6 +102,8 @@ Fee-payer accounts usually have a [role-based key](../klaytn/design/accounts.md#
 
 Check [fee-delegation-example](../bapp/tutorials/fee-delegation-example.md) to get a complete working code of value transfer.
 
+See the [JavaScript code snippet](https://gist.github.com/w3kim/64a3cf5da58250474f046d4dd7f85cc8) for deploying a contract with fee-delegation. Note that you can not use Truffle for the contract deployment with fee-delegation.
+
 [Sending a transaction with multiple signer](../bapp/sdk/caver-js/getting-started.md#sending-a-transaction-with-multiple-signer) gives a good explanation about two different ways of collecting signatures.
 
 Relevant caver-js APIs are as follows. Take a look at the code examples in the API description.
