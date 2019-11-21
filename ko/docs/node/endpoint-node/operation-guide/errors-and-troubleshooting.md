@@ -76,7 +76,7 @@ INFO[02/20,12:35:38 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa
 
 **답변**
 
-이는 `genesis.json` 및 nodekey/validator 정보가 다를 때 발생할 수 있습니다. nodekey/validator 및 `genesis.json` 파일을 다시 확인하길 바랍니다.
+This can happen when `genesis.json` and nodekey/validator information differ. nodekey/validator 및 `genesis.json` 파일을 다시 확인하길 바랍니다.
 
 ## Klaytn node can't start with following error log message. <a id="klaytn-node-can-t-start-with-following-error-log-message"></a>
 
