@@ -5,7 +5,7 @@ Klaytnscope is the block explorer for the Klaytn Network. Klaytnscope gives you 
 * For the Baobab network, visit [https://baobab.scope.klaytn.com](https://baobab.scope.klaytn.com)
 * For the Mainnet, visit [https://scope.klaytn.com](https://scope.klaytn.com)
 
-![](../../.gitbook/assets/scope_01_main.png)
+![](../../.gitbook/assets/scope_01_main%20%281%29.png)
 
 ## Major Features
 
@@ -90,7 +90,7 @@ Detailed information about single Block, Transaction, Account, and Contract can 
 
 ### Block
 
-![](../../.gitbook/assets/scope_08_block_detail.png)
+![](../../.gitbook/assets/scope_08_block_detail%20%281%29.png)
 
 #### Overview
 
@@ -160,7 +160,7 @@ The list of transactions related to this account. The color of the arrow indicat
 
 ### Contract
 
-![](../../.gitbook/assets/scope_11_contract_detail.png)
+![](../../.gitbook/assets/scope_11_contract_detail%20%281%29.png)
 
 #### Overview
 
