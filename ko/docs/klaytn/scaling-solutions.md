@@ -10,11 +10,11 @@ Klaytn 메인체인에 연결된 서비스체인들을 통칭하여 서비스체
 
 ![그림 1. Klaytn 메인체인과 서비스체인](images/mainchain_servicechain.png)
 
-그림 1은 다양한 비즈니스 요구를 충족하기 위해 사용되고, Klaytn 메인체인과 연결되어 Klaytn 네트워크를 확장하는 서비스체인들의 네트워크 토폴로지를 보여줍니다.
+그림 1은 다양한 비즈니스 요구를 충족하기 위해 사용되는, Klaytn 메인체인과 연결되어 Klaytn 네트워크를 확장하는 서비스체인들의 네트워크 토폴로지를 보여줍니다.
 
 ![그림 2. Main/Sub-Bridge Model을 이용해 연결된 메인체인과 서비스체인](images/sc_connection.png)
 
-Figure 2 shows an example of SCN (Service Chain Consensus Node) connected directly with Klaytn main chain’s EN (Endpoint Node) using a main/sub-bridge model in using the service chain’s features.
+그림 2는 서비스체인의 기능인 main/sub-bridge 모델을 이용하여 Klaytn 메인체인의 EN(Endpoint Node)과 직접적으로 연결되어있는 SCN(Service Chain Consensus Node)의 예를 보여줍니다.
 
 ## 주요 기능 <a id="features"></a>
 서비스체인은 데이터 무결성 메커니즘을 제공하고, 서로 다른 체인 간의 토큰 전송을 지원함으로써 Klaytn을 확장합니다.
