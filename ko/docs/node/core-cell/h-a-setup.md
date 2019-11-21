@@ -42,7 +42,7 @@ CC의 PN 노드 중 하나를 사용하여 체인데이터 스냅샷을 얻으�
 기본 CN 이미지 및 체인데이터 이미지를 사용하여 새 CN을 생성하세요.
 
 1. CN 이미지를 사용하여(\위의 "설정"에서 생성한) 인스턴스를 만듭니다.
-2. PN의 `$DATA_DIR` 스냅샷에서 생성된 볼륨을 연결하세요.
+2. Attach a volume created from the snapshot of the PN's `$DATA_DIR`.
 3. `$DATA_DIR/klay/chaindata`를 제외한 볼륨의 모든 파일을 제거하세요. `kcnd.conf`에 설정된 `DATA_DIR`이 체인데이터를 포함하는 디렉토리와 일치하는지 확인하세요. 이름이 다른 경우 디렉토리 이름을 바꿔야 할 수도 있습니다.
 4. 장애가 발생한 CN의 `nodekey`를 `$DATA_DIR/klay/nodekey`에 복사하세요.
 5. 장애가 발생한 CN의 IP 주소를 대체재로 재지정하세요.
