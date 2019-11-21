@@ -604,7 +604,7 @@ The `subbridge_getBridgeInformation` returns the information of the given bridge
 
 | 명칭               | 형식            | 설명                                                                                                                      |
 | ---------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| counterPart      | 20바이트 크기 DATA | Address of the counterpart bridge contract. (Not supported yet)                                                         |
+| counterPart      | 20바이트 크기 DATA | Address of the counterpart bridge contract. (아직 지원하지 않음)                                                                |
 | isRunning        | bool          | `true` if the bridge contract is running, `false` otherwise.                                                            |
 | isSubscribed     | bool          | `true` if the bridge contract is subscribed, `false` otherwise.                                                         |
 | onServiceChain   | bool          | `true` if the bridge contact is on child (service) chain, `false` otherwise.                                            |
