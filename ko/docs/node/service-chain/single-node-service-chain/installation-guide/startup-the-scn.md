@@ -9,8 +9,8 @@
 $ systemctl start kscnd.service
 
 ## when installed using linux archive
-$ kscnd start
-
+$ cd <install_path>/bin
+$ ./kscnd start
 ```
 
 **중지**
@@ -20,8 +20,8 @@ $ kscnd start
 $ systemctl stop kscnd.service
 
 ## when installed using linux archive
-$ kscnd stop
-
+$ cd <install_path>/bin
+$ ./kscnd stop
 ```
 
 
