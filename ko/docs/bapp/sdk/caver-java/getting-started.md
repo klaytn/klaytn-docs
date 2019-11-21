@@ -32,7 +32,7 @@ implementation "ch.qos.logback:logback-classic:1.2.3"
 
 ### 설치 <a id="installation"></a>
 
-If you want to generate transactions related with a smart contract, you need to install a Solidity compiler and caver-java commmand-line tool first.
+If you want to generate transactions related with a smart contract, you need to install a Solidity compiler and caver-java command-line tool first.
 
 #### 솔리디티 컴파일러 <a id="solidity-compiler"></a>
 
@@ -380,8 +380,192 @@ KlayCredentials feePayer = KlayWalletUtils.loadCredentials(<password>, <walletfi
 FeePayerManager feePayerManager = new FeePayerManager.Builder(caver, feePayer).build();
 feePayerManager.executeTransaction(senderRawTransaction);
 ```
+## 다양한 AccountKey 타입 사용 <a id="using-various-account-key-type"></a>
 
-## 감사를 표합니다 <a id="thanks-to"></a>
+caver-java introduces new classes to support the various types of [AccountKey](https://docs.klaytn.com/klaytn/design/accounts#account-key) supported by the platform. This feature is supported starting with version 1.2.0.
+
+### AccountKey  <a id="account-key"></a>
+
+To update the account key on the Klaytn platform, caver-java provides the `AccountKey` interface. The following describes `AccountKey` implementations, `AccountKeyPublic`, `AccountKeyWeightedMultiSig`, and `AccountKeyRoleBased`. See [Account Update](#accountupdate) for how to update an Account.
+
+### AccountKeyPublic <a id="account-key-public"></a>
+
+`AccountKeyPublic` is an implementation of `AccountKey` with one public key. You can create it like this:
+
+```java
+ECKeyPair newKeyPair = Keys.createEcKeyPair();
+AccountKeyPublic newAccountKey = AccountKeyPublic.create(newKeyPair.getPublicKey());
+```
+
+To use the account updated with `AccountKeyPublic`, you need to create `KlayCredentials` as follows:
+
+```java
+KlayCredentials validCredentails = KlayCredentials.create(newKeyPair, oldCredentials.getAddress());
+
+// Because the account address is decoupled from the AccountKeyPublic (public key), you can't use the account if you create the credentials without address as below.
+KlayCredentials invalidCredentails = KlayCredentials.create(newKeyPair);
+```
+
+### AccountKeyWeightedMultiSig <a id="account-key-weighted-multi-sig"></a>
+
+`AccountKeyWeightedMultiSig` is an account key that contains multiple public keys with varying weights. `AccountKeyWeightedMultiSig` also defines the threshold, the sum of the weights of the keys that must be signed in order to use the account. The maximum number of keys supported is 10. You can create `AccountKeyWeightedMultiSig` as below:
+
+```java
+List<AccountKeyWeightedMultiSig.WeightedPublicKey> weightedTransactionPublicKeys = new ArrayList<>();
+
+int weight1 = 10;
+int weight2 = 30;
+
+ECKeyPair ecKeyPair1 = Keys.createEcKeyPair();
+ECKeyPair ecKeyPair2 = Keys.createEcKeyPair();
+
+AccountKeyWeightedMultiSig.WeightedPublicKey weightedPublicKey1 = AccountKeyWeightedMultiSig.WeightedPublicKey.create(
+                BigInteger.valueOf(weight1),
+                AccountKeyPublic.create(ecKeyPair1.getPublicKey())
+);
+
+AccountKeyWeightedMultiSig.WeightedPublicKey weightedPublicKey2 = AccountKeyWeightedMultiSig.WeightedPublicKey.create(
+                BigInteger.valueOf(weight2),
+                AccountKeyPublic.create(ecKeyPair2.getPublicKey())
+);
+
+weightedTransactionPublicKeys.add(weightedPublicKey1);
+weightedTransactionPublicKeys.add(weightedPublicKey2);
+
+AccountKeyWeightedMultiSig newAccountKey = AccountKeyWeightedMultiSig.create(
+                BigInteger.valueOf(weight1 + weight2),
+                weightedTransactionPublicKeys
+);
+```
+
+To use the account updated with `AccountKeyWeightedMultiSig`, you can create `KlayCredentials` as follows:
+
+```java
+List<ECKeyPair> transactionECKeyPairList = new ArrayList<>();
+
+transactionECKeyPairList.add(ecKeyPair1);
+transactionECKeyPairList.add(ecKeyPair2);
+
+KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList, address);
+```
+
+### AccountKeyRoleBased <a id="account-key-role-based"></a>
+
+`AccountKeyRoleBased` is a list of `AccountKey`. Each `AccountKey` is assigned to a specific role according to its position. AccountKey can be `AccountKeyPublic`,`AccountKeyWeightedMultiSig`, or `AccountKeyFail`. If `AccountKeyNil` is used for a specific role, the key will not be updated for that role and the existing AccountKey will be used. If `AccountKeyFail` is used, signing for the role will fail always, so be careful using AccountKeyFail.
+
+```java
+List<AccountKey> roleBasedAccountKeyList = new ArrayList<>();
+
+ECKeyPair newKeyPair1 = Keys.createEcKeyPair(); // for RoleTransaction
+roleBasedAccountKeyList.add(AccountKeyPublic.create(newKeyPair1.getPublicKey()));
+
+ECKeyPair newKeyPair2 = Keys.createEcKeyPair(); // for RoleAccountUpdate
+roleBasedAccountKeyList.add(AccountKeyPublic.create(newKeyPair2.getPublicKey()));
+
+ECKeyPair newKeyPair3 = Keys.createEcKeyPair(); // for RoleFeePayer
+roleBasedAccountKeyList.add(AccountKeyPublic.create(newKeyPair3.getPublicKey()));
+
+newAccountKey = AccountKeyRoleBased.create(roleBasedAccountKeyList);
+```
+
+To use the account updated with `AccountKeyRoleBased`, you can create `KlayCredentials` as follows:
+
+```java
+List<ECKeyPair> transactionECKeyPairList = Arrays.asList(newKeyPair1);
+List<ECKeyPair> updateECKeyPairList = Arrays.asList(newKeyPair2);
+List<ECKeyPair> feePayerECKeyPairList = Arrays.asList(newKeyPair3);
+
+KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList, updateECKeyPairList, feePayerECKeyPairList, address);
+```
+
+If the account does not have a key for a specific role, pass an empty List as an argument.
+
+```java
+List<ECKeyPair> transactionECKeyPairList = Collections.emptyList();
+List<ECKeyPair> updateECKeyPairList = Arrays.asList(newKeyPair2);
+List<ECKeyPair> feePayerECKeyPairList = Collections.emptyList();
+
+KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList, updateECKeyPairList, feePayerECKeyPairList, address);
+```
+
+If the account has multiple keys for a specific role, you can pass the multiple keys as follows.
+
+```java
+List<ECKeyPair> transactionECKeyPairList = Collections.emptyList();
+List<ECKeyPair> updateECKeyPairList = Arrays.asList(newKeyPair2-1, newKeyPair2-2, newKeyPair2-3);
+List<ECKeyPair> feePayerECKeyPairList = Collections.emptyList();
+
+KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList, updateECKeyPairList, feePayerECKeyPairList, address);
+```
+
+## Sending a Transaction with Multiple Signers <a id="sending-a-transaction-with-multiple-signers"></a>
+
+If an account has AccountKeyMultiSig or AccountKeyRoleBased, each key can be managed by different people.
+
+This section describes how to collect signatures and send the transaction if there are multiple signers.
+
+### Sequential sender signing <a id="sequential-sender-signing"></a>
+
+The `rawTransaction` has an RLP encoded transaction that contains both `txSignatures` and `feePayerSignatures`. `feePayerSignature` is included only when the transaction is a fee delegated transaction.
+
+In the absence of a fee payer, the process of repeatedly signing and executing a transaction can be divided into three parts. 1. RLP-encode the transaction and send it to the signer in the form of rawTransaction. 2. Signer signs with its own key for the received rawTransaction. 3. Sending the signed rawTransaction to EN. Step 2 can be repeated if there are multiple signers.
+
+```java
+//// 1. Alice creates a transaction, signs it, and sends it to Bob.
+//// Alice Side
+ValueTransferTransaction transactionTransformer = ValueTransferTransaction.create(from, to, BigInteger.ONE, GAS_LIMIT);
+
+TransactionManager transactionManager_alice = new TransactionManager.Builder(caver, senderCredential_alice)
+                    .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
+                    .setChaindId(LOCAL_CHAIN_ID)
+                    .build();
+
+String rawTransaction_signed_alice = transactionManager_alice.sign(transactionTransformer).getValueAsString();
+
+//// 2. Bob signs the received transaction and sends it to Charlie.
+//// Bob Side
+            TransactionManager transactionManager_bob = new TransactionManager.Builder(caver, senderCredential_bob)
+                    .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
+                    .setChaindId(LOCAL_CHAIN_ID)
+                    .build();
+
+String rawTransaction_signed_alice_and_bob = transactionManager_bob.sign(rawTransaction_signed_alice).getValueAsString();
+
+//// 3. Charlie signs the received transaction and sends it to Klaytn EN.
+//// Charlie Side
+TransactionManager transactionManager_charlie = new TransactionManager.Builder(caver, senderCredential_charlie)
+                    .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
+                    .setChaindId(LOCAL_CHAIN_ID)
+                    .build();
+
+KlayTransactionReceipt.TransactionReceipt transactionReceipt = transactionManager_charlie.executeTransaction(rawTransaction_signed_alice_and_bob);
+```
+
+### Sequential fee-payer signing <a id="sequential-fee-payer-signing"></a>
+
+Fee-payer signature(s) can also be added sequentially. Signing with `FeePayerManager` accumulates `feePayerSignatures` in the transaction. The signing order is not important. If you sign with `TransactionManager`, the `txSignature` is added. If you sign with `FeePayerManger`, the `feePayerSignatures` is added to the raw transaction.
+
+```java
+//// 1. Bob receives a transaction from Alice and signs the transaction as a fee payer.
+//// Bob Side
+FeePayerManager feePayerManager_bob = new FeePayerManager.Builder(caver, feePayerCredentials_bob)
+                    .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
+                    .setChainId(LOCAL_CHAIN_ID)
+                    .build();
+
+String rawTransaction_signed_alice_and_bob = feePayerManager_bob.sign(rawTransaction_signed_alice).getValueAsString();
+
+//// 2. Charlie signs the received transaction and sends it to Klaytn EN.
+//// Charlie Side
+FeePayerManager feePayerManager_charlie = new FeePayerManager.Builder(caver, feePayerCredentials_charlie)
+                    .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
+                    .setChainId(LOCAL_CHAIN_ID)
+                    .build();
+
+KlayTransactionReceipt.TransactionReceipt transactionReceipt =  feePayerManager_charlie.executeTransaction(rawTransaction_signed_alice_and_bob);
+```
+
+## Thanks to <a id="thanks-to"></a>
 
 The [web3j](https://github.com/web3j/web3j) project for the inspiration. 🙂
 
