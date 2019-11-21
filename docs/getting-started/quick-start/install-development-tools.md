@@ -1,4 +1,4 @@
-# Install Development Tools
+# Install Development Tools <a id="install-development-tools"></a>
 
 ## Installing caver-js <a id="installing-caver-js"></a>
 
@@ -10,7 +10,7 @@ $ mkdir $HOME/klaytn
 
 > You need `npm` and `node.js` installed to proceed. Please refer to [get-npm](https://www.npmjs.com/get-npm) and [node.js](https://nodejs.org/en/) for installation on your system.
 
-​[caver-js](../../bapp/sdk/caver-js/) is a JSON RPC framework for the Klaytn network \(equivalent to web3.js in Ethereum\). Before installing caver-js, you must generate `package.json` file via `npm init` command, and then type `npm install caver-js` to install caver-js.
+​[caver-js](../../bapp/sdk/caver-js/README.md) is a JSON RPC framework for the Klaytn network \(equivalent to web3.js in Ethereum\). Before installing caver-js, you must generate `package.json` file via `npm init` command, and then type `npm install caver-js` to install caver-js.
 
 ```bash
 $ npm init # initialize npm at the klaytn project directory
@@ -42,7 +42,7 @@ $ rm /Users/username/klaytn/node_modules/websocket/.git
 
 **Note:** For all the function calls that begin with `web3.eth...` in web3.js, should be replaced with `caver.klay...`.
 
-`web3.eth.sendTransaction({ ... })` \(X\)
+`web3.eth.sendTransaction({ ... })` \(X\) 
 
 `caver.klay.sendTransaction({ ... })` \(O\)
 
@@ -127,4 +127,6 @@ Commands:
 $ vvisp --version
 v2.1.0
 ```
+
+
 

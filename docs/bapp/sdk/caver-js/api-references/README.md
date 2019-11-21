@@ -1,6 +1,4 @@
 ---
-description: Packages provided by caver-js.
+description: >-
+  Packages provided by caver-js.
 ---
-
-# API references
-

@@ -1,6 +1,6 @@
-# Starting/Stopping Core Cell
+# Starting/Stopping Core Cell <a id="starting-stopping-core-cell"></a>
 
-## CN Start/Stop <a id="cn-start-stop"></a>
+## CN Start/Stop  <a id="cn-start-stop"></a>
 
 You can start/stop the Klaytn service with the following `systemctl` command.
 
@@ -10,21 +10,24 @@ You can start/stop the Klaytn service with the following `systemctl` command.
 
 ```bash
 $ systemctl start kcnd.service
+
 ```
 
 **stop**
 
 ```bash
 $ systemctl stop kcnd.service
+
 ```
 
 **status**
 
 ```bash
 $ systemctl status kcnd.service
+
 ```
 
-## PN Start/Stop <a id="pn-start-stop"></a>
+## PN Start/Stop  <a id="pn-start-stop"></a>
 
 You can start/stop the Klaytn service with the following `systemctl` command.
 
@@ -34,18 +37,21 @@ You can start/stop the Klaytn service with the following `systemctl` command.
 
 ```bash
 $ systemctl start kpnd.service
+
 ```
 
 **stop**
 
 ```bash
 $ systemctl stop kpnd.service
+
 ```
 
 **status**
 
 ```bash
 $ systemctl status kpnd.service
+
 ```
 
 ## Troubleshooting <a id="troubleshooting"></a>
@@ -62,4 +68,5 @@ reload the systemd manager configuration with the following command.
 ```bash
 $ systemctl daemon-reload
 ```
+
 

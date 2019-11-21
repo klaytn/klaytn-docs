@@ -1,36 +1,31 @@
-# Setting up a 4-node Service Chain
+This section covers how to set up a multi-node service chain. To tolerate byzantine faults, at least four nodes are required. This document gives a step by step guide of setting up a 4-node service chain.
+ You will download the packages and set up a service chain with 4 SCN.
 
-This section covers how to set up a multi-node service chain. To tolerate byzantine faults, at least four nodes are required. This document gives a step by step guide of setting up a 4-node service chain. You will download the packages and set up a service chain with 4 SCN.
-
-## Prerequisites
-
-* Download the executables.
-  * kscn, kscnd, homi [download](https://docs.klaytn.com/node/download)
-* Minimal hardware requirements
-  * CPU: 4-core \(Intel Xeon or equivalent\), RAM: 16GB, HDD: 50GB 
-  * Please refer to the [endpoint node system requirements](../../endpoint-node/system-requirements.md) for more explanation.
+ ## Prerequisites
+ - Download the executables.
+   - kscn, kscnd, homi [download](https://docs.klaytn.com/node/download)
+ - Minimal hardware requirements
+     - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB 
+     - Please refer to the [endpoint node system requirements](../../endpoint-node/system-requirements.md) for more explanation.
 
 ## Step 1: Create genesis.json and a key <a id="step-1-create-genesis-json-and-a-key"></a>
-
-Copy execution binaries to an SCN node then execute homi on the command line. Then copy the generated `~/your_path/homi-output` folder with the execution binaries to other SCN nodes. Please change the `chainID` with your own number to prevent a replay attack.
-
-```text
+Copy execution binaries to an SCN node then execute homi on the command line. Then copy the generated `~/your_path/homi-output` folder with the execution binaries to other SCN nodes.
+Please change the `chainID` with your own number to prevent a replay attack.
+```
 $ ~/your_path/bin/homi setup local --cn-num 4 --test-num 1 --servicechain --p2p-port 30000 -o ~/your_path/homi-output
 ```
 
 ## Step 2: Node initialization <a id="step-2-node-initialization"></a>
-
 The directory where chain data and logs will be stored can be assigned by using the `--datadir` directive as shown below.
 
-```text
+```
 $ ~/your_path/bin/kscn --datadir ~/your_path/data init ~/your_path/homi-output/scripts/genesis.json
 ```
 
 ## Step 3: Customize and Copy static-nodes.json <a id="step-3-customize-and-copy-static-nodes-json"></a>
-
 Open `./your_path/homi-output/scripts/static-nodes.json` in a text editor then change the IP address and port. Repeat for all the 4 nodes. Note the port you assigned here, the value will be used later in step 5.
 
-```text
+```
 [
     "kni://38693ad4b17ff778b3f7bcbe6ee7fbc9a51999c443b3952e3e0838e63792f358235ccbf97a1f787f78c2558315ee3709903837f160d222ab7c4061bd9af23153@192.168.0.1:30000?discport=0\u0026ntype=cn",
      "kni://f36d969b16f7337b6f3f13ab9b0b3352ecca987cfaf744fa712b235ea3d9e14ac4e3d53de5c76c91d9b957fdfec4f48b062ce90a98695248c61a822e82c1329b@192.168.0.2:30000?discport=0\u0026ntype=cn",
@@ -38,26 +33,21 @@ Open `./your_path/homi-output/scripts/static-nodes.json` in a text editor then c
      "kni://0973e792a421c1d1bedaccaf873f087ae118d895270f9cb3a81f1a31fcd21d62fd0928b9b6e56badf3c0690f67b9c7036c329103b716e6dcf9b92a4619fbbd71@192.168.0.4:30000?discport=0\u0026ntype=cn"
 ]
 ```
-
 After you update `static-nodes.json` in one node, you can simply copy the file to other SCN's `datadir` directory.
-
-```text
+```
 $ cp ~/your_path/homi-output/scripts/static-nodes.json ~/your_path/data/
 ```
 
 ## Step 4: Install nodekey <a id="step-4-install-nodekey"></a>
-
 Copy `~/your_path/homi-output/keys/nodekey{1..4}` to each SCN's data directory in turn. For example, copy nodekey1 to 192.168.0.1 node and copy nodekey 2,3 and 4 to 192.168.0.2, 192.168.0.3 and 192.168.0.4 respectively.
 
-```text
+```
 $ cp ~/your_path/homi-output/keys/nodekey{1..4} ~/your_path/data/klay/nodekey
 ```
 
 ## Step 5 : Configure nodes <a id="step-5-configure-nodes"></a>
-
 Edit `~/your_path/conf/kscnd.conf` on a text editor.
-
-```text
+```
 ...
 PORT=30000
 ...
@@ -68,31 +58,24 @@ DATA_DIR=~/your_path/data
 ```
 
 ## Step 6: Start nodes <a id="step-6-start-nodes"></a>
-
-```text
+```
 $ ~/your_path/bin/kscnd start
 Starting kscnd: OK
 ```
-
 You can check block generation status by watching `klay.blockNumber`. If this number is not 0, the node is working fine.
-
-```text
+```
 $ ~/your_path/bin/kscn attach --datadir ~/your_path/data
 > klay.blockNumber
 10
 ```
-
 If you want to stop a node, you can use the command `kscnd stop`
 
-## \(Example\) Creation and confirmation of a value transfer transaction <a id="example-creation-and-confirmation-of-a-value-transfer-transaction"></a>
-
+## (Example) Creation and confirmation of a value transfer transaction <a id="example-creation-and-confirmation-of-a-value-transfer-transaction"></a>
 Now the 4-node service chain is running up. We will execute a value transfer transaction in the service chain to confirm the installation.
 
 ### Step 1: Create a test account <a id="step-1-create-a-test-account"></a>
-
 `testkey1` was automatically generated by `homi` in step 1. KLAY is allocated to the test account as described in the `genesis.json` which was also generated by `homi`
-
-```text
+```
 $ ~/your_path/bin/kscn account import --datadir ~/your_path/data ~/your_path/homi-output/keys_test/testkey1
 Your new account is locked with a password. Please give a password. Do not forget this password.
 Passphrase:
@@ -101,8 +84,7 @@ Address: {80119c31cdae67c42c8296929bb4f89b2a52cec4}
 ```
 
 ### Step 2: Unlock the account <a id="step-2-unlock-the-account"></a>
-
-```text
+```
 $ ~/your_path/bin/kscn attach --datadir ~/your_path/data
 > personal.unlockAccount("80119c31cdae67c42c8296929bb4f89b2a52cec4")
 Unlock account 80119c31cdae67c42c8296929bb4f89b2a52cec4
@@ -111,11 +93,9 @@ true
 ```
 
 ### Step 3: Send a transaction and check the balance <a id="step-3-send-a-transaction-and-check-the-balance"></a>
-
-```text
+```
 > klay.sendTransaction({from: "80119c31cdae67c42c8296929bb4f89b2a52cec4", to: "305c6cc464d5fe1e624679695a20d641a01688e1", value: 10})
 "0xa0e7102e8f14200cec8d964aacc1c9ed7c22271078b2b213170c64333cbca8a3"
 > klay.getBalance("305c6cc464d5fe1e624679695a20d641a01688e1")
 10
 ```
-

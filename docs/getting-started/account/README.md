@@ -1,4 +1,4 @@
-# Account Management
+# Account Management <a id="account-management"></a>
 
 **`WARNING`**: Remember your password. If you lose the password of your account, you will not be able to access that account. **There is no** _**forgot my password**_ **option here. Never forget it.**
 

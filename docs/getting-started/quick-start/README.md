@@ -1,4 +1,4 @@
-# Quick Start
+# Quick Start <a id="quick-start"></a>
 
 Before you start, let's get familiar with several Klaytn-specific terms.
 

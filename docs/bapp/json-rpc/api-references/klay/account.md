@@ -1,25 +1,23 @@
-# Account
-
-## klay\_accountCreated <a id="klay_accountcreated"></a>
+## klay_accountCreated <a id="klay_accountcreated"></a>
 
 Returns `true` if the account associated with the address is created. It returns `false` otherwise.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | account | 20-byte DATA | Address |
-| block number | QUANTITY \| TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](block.md#the-default-block-parameter). |
+| block number | QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
 
 **Return Value**
 
-| Type | Description |
-| :--- | :--- |
-| Boolean | The existence of an input address |
+| Type     | Description                                           |
+| -------- | ----------------------------------------------------- |
+| Boolean | The existence of an input address  |
 
 **Example**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_accountCreated","params":["0xa4f42d4d2a3a13874406435500950c9bf2d783db","latest"],"id":1}' http://localhost:8551
 
@@ -31,7 +29,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_accounts <a id="klay_accounts"></a>
+
+## klay_accounts <a id="klay_accounts"></a>
 
 Returns a list of addresses owned by client.
 
@@ -41,13 +40,13 @@ None
 
 **Return Value**
 
-| Type | Description |
-| :--- | :--- |
+| Type          | Description                              |
+| ------------- | ---------------------------------------- |
 | Array of 20-byte DATA | Addresses owned by the client. |
 
 **Example**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_accounts","params":[],"id":1}' http://localhost:8551
 
@@ -59,26 +58,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_getAccount <a id="klay_getaccount"></a>
 
-Returns the account information of a given address. There are two different account types in Klaytn: Externally Owned Account \(EOA\) and Smart Contract Account. See [Klaytn Accounts](../../../../klaytn/design/accounts.md#klaytn-accounts).
+## klay_getAccount <a id="klay_getaccount"></a>
+
+Returns the account information of a given address. There are two different account types in Klaytn: Externally Owned Account (EOA) and Smart Contract Account. See [Klaytn Accounts](../../../../klaytn/design/accounts.md#klaytn-accounts).
 
 **Parameters**
 
-| Type | Description |
-| :--- | :--- |
-| 20-byte DATA | Address |
-| QUANTITY \| TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](block.md#the-default-block-parameter). |
+| Type          | Description                                                  |
+| ------------- | ------------------------------------------------------------ |
+| 20-byte DATA | Address                                                      |
+| QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
 
 **Return Value**
 
-| Type | Description |
-| :--- | :--- |
+| Type | Description                      |
+| ---- | -------------------------------- |
 | Account | Each account type has different attributes. |
 
 **Example**
 
-```text
+```shell
 // Request (Account type: Externally Owned Account)
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getAccount","params":["0x3111a0577f322e8fb54f78d9982a26ae7ca0f722", "latest"],"id":1}' http://localhost:8551
 
@@ -103,8 +103,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
   }
 }
 ```
-
-```text
+```shell
 // Request (Account type: Smart Contract Account)
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getAccount","params":["0x3111a0577f322e8fb54f78d9982a26ae7ca0f722", "latest"],"id":1}' http://localhost:8551
 
@@ -130,26 +129,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_getAccountKey <a id="klay_getaccountkey"></a>
 
-Returns the account key of the Externally Owned Account \(EOA\) of a given address. If the account has AccountKeyLegacy or the account of the given address is a Smart Contract Account, it will return an empty key value. See [Account Key](../../../../klaytn/design/accounts.md#account-key).
+## klay_getAccountKey <a id="klay_getaccountkey"></a>
+
+Returns the account key of the Externally Owned Account (EOA) of a given address. If the account has AccountKeyLegacy or the account of the given address is a Smart Contract Account, it will return an empty key value. See [Account Key](../../../../klaytn/design/accounts.md#account-key).
 
 **Parameters**
 
-| Type | Description |
-| :--- | :--- |
-| 20-byte DATA | Address |
-| QUANTITY \| TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](block.md#the-default-block-parameter). |
+| Type          | Description                                                  |
+| ------------- | ------------------------------------------------------------ |
+| 20-byte DATA | Address                                                      |
+| QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
 
 **Return Value**
 
-| Type | Description |
-| :--- | :--- |
-| AccountKey | The account key consist of public key\(s\) and a key type. |
+| Type | Description                      |
+| ---- | -------------------------------- |
+| AccountKey | The account key consist of public key(s) and a key type. |
 
 **Example**
 
-```text
+```shell
 // Request (AccountKey type: AccountKeyPublic)
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getAccountKey","params":["0x3111a0577f322e8fb54f78d9982a26ae7ca0f722", "latest"],"id":1}' http://localhost:8551
 
@@ -166,8 +166,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
   }
 }
 ```
-
-```text
+```shell
 // Request (AccountKey type: AccountKeyRoleBased)
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getAccountKey","params":["0x68756d616e616161000000000000000000000000", "latest"],"id":1}' http://localhost:8551
 
@@ -199,8 +198,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
   }
 }
 ```
-
-```text
+```shell
 // Request (AccountKey type: AccountKeyLegacy)
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getAccountKey","params":["0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "latest"],"id":1}' http://localhost:8551
 
@@ -215,26 +213,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_getBalance <a id="klay_getbalance"></a>
+
+## klay_getBalance <a id="klay_getbalance"></a>
 
 Returns the balance of the account of given address.
 
 **Parameters**
 
-| Type | Description |
-| :--- | :--- |
-| 20-byte DATA | Address to check for balance. |
-| QUANTITY \| TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](block.md#the-default-block-parameter). |
+| Type           | Description                                                  |
+| -------------- | ------------------------------------------------------------ |
+| 20-byte DATA | Address to check for balance.                               |
+| QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
 
 **Return Value**
 
-| Type | Description |
-| :--- | :--- |
+| Type     | Description                            |
+| -------- | -------------------------------------- |
 | QUANTITY | Integer of the current balance in peb. |
 
 **Example**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getBalance","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f", "latest"],"id":1}' http://localhost:8551
 
@@ -245,26 +244,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_getCode <a id="klay_getcode"></a>
+
+## klay_getCode <a id="klay_getcode"></a>
 
 Returns code at a given address.
 
 **Parameters**
 
-| Type | Description |
-| :--- | :--- |
-| 20-byte DATA | Address |
-| QUANTITY \| TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](block.md#the-default-block-parameter). |
+| Type          | Description                                                  |
+| ------------- | ------------------------------------------------------------ |
+| 20-byte DATA | Address                                                      |
+| QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
 
 **Return Value**
 
-| Type | Description |
-| :--- | :--- |
+| Type | Description                      |
+| ---- | -------------------------------- |
 | DATA | The code from the given address. |
 
 **Example**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getCode","params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"],"id":1}' http://localhost:8551
 
@@ -276,26 +276,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_getTransactionCount <a id="klay_gettransactioncount"></a>
 
-Returns the number of transactions _sent_ from an address.
+## klay_getTransactionCount <a id="klay_gettransactioncount"></a>
+
+Returns the number of transactions *sent* from an address.
 
 **Parameters**
 
-| Type | Description |
-| :--- | :--- |
-| 20-byte DATA | Address |
-| QUANTITY \| TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](block.md#the-default-block-parameter). |
+| Type          | Description                                                  |
+| ------------- | ------------------------------------------------------------ |
+| 20-byte DATA | Address                                                      |
+| QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
 
 **Return Value**
 
-| Type | Description |
-| :--- | :--- |
+| Type     | Description                                                  |
+| -------- | ------------------------------------------------------------ |
 | QUANTITY | Integer of the number of transactions send from this address. |
 
 **Example**
 
-```text
+ ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getTransactionCount","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f","latest"],"id":1}' http://localhost:8551
 
@@ -305,28 +306,31 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
   "id":1,
   "result": "0x1" // 1
 }
-```
+ ```
 
-## klay\_isContractAccount <a id="klay_iscontractaccount"></a>
+
+
+
+## klay_isContractAccount <a id="klay_iscontractaccount"></a>
 
 Returns `true` if an input account has a non-empty codeHash at the time of a specific block number. It returns `false` if the account is an EOA or a smart contract account which doesn't have codeHash.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | account | 20-byte DATA | Address |
-| block number | QUANTITY \| TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](block.md#the-default-block-parameter). |
+| block number | QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
 
 **Return Value**
 
-| Type | Description |
-| :--- | :--- |
+| Type     | Description                                           |
+| -------- | ----------------------------------------------------- |
 | Boolean | `true` means the input parameter is an existing smart contract address. |
 
 **Example**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_isContractAccount","params":["0x2f07d5b3fa1051460099dc9ea0c2975b6ea67776", "latest"],"id":1}' http://localhost:8551
 
@@ -338,34 +342,33 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_sign <a id="klay_sign"></a>
+## klay_sign <a id="klay_sign"></a>
 
 The sign method calculates a Klaytn-specific signature with:
-
-```text
+```
 sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 ```
 
-Adding a prefix to the message makes the calculated signature recognizable as a Klaytn-specific signature. This prevents misuse where a malicious BApp can sign arbitrary data, _e.g._, transaction, and use the signature to impersonate the victim.
+Adding a prefix to the message makes the calculated signature recognizable as a Klaytn-specific signature. This prevents misuse where a malicious BApp can sign arbitrary data, *e.g.*, transaction, and use the signature to impersonate the victim.
 
 **NOTE**: The address to sign with must be unlocked.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | account | 20-byte DATA | Address |
 | message | N-byte DATA | Message to sign |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | DATA | Signature |
 
 **Example**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_sign","params":["0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "0xdeadbeaf"],"id":1}' http://localhost:8551
 
@@ -376,4 +379,3 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
   "result": "0xa3f20717a250c2b0b729b7e5becbff67fdaef7e0699da4de7ca5895b02a170a12d887fd3b17bfdce3481f10bea41f45ba9f709d39ce8325427b57afcfc994cee1b"
 }
 ```
-

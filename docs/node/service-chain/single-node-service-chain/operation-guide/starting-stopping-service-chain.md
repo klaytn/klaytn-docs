@@ -1,6 +1,6 @@
-# Starting/Stopping Service Chain
+# Starting/Stopping Service Chain <a id="starting-stopping-service-chain"></a>
 
-Depending on your installation type, you can start/stop the Klaytn service with the following `systemctl` or `kscnd` command.
+Depending on your installation type, you can start/stop the Klaytn service with the following `systemctl`  or `kscnd` command.
 
 **start**
 
@@ -10,6 +10,7 @@ $ systemctl start kscnd.service
 
 ## when installed using linux archive
 $ kscnd start
+
 ```
 
 **stop**
@@ -20,6 +21,7 @@ $ systemctl stop kscnd.service
 
 ## when installed using linux archive
 $ kscnd stop
+
 ```
 
 **status**
@@ -30,5 +32,7 @@ $ systemctl status kscnd.service
 
 ## when installed using linux archive
 $ kscnd status
+
 ```
+
 

@@ -1,31 +1,24 @@
-# Filter
-
-## klay\_getFilterChanges <a id="klay_getfilterchanges"></a>
+## klay_getFilterChanges <a id="klay_getfilterchanges"></a>
 
 Polling method for a filter, which returns an array of logs which occurred since last poll.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| QUANTITY | string | The filter id \(_e.g._, "0x16" // 22\). |
+| --- | --- | ---|
+| QUANTITY | string | The filter id (*e.g.*, "0x16" // 22). |
 
 **Return Value**
 
 `Array` - Array of log objects, or an empty array if nothing has changed since last poll.
-
-* For filters created with [klay\_newBlockFilter](filter.md#klay_newblockfilter), the return are block hashes \(32-byte DATA\),
-
-  _e.g._, `["0x3454645634534..."]`.
-
-* For filters created with [klay\_newPendingTransactionFilter](filter.md#klay_newpendingtransactionfilter), the return are transaction
-
-  hashes \(32-byte DATA\), _e.g._, `["0x6345343454645..."]`.
-
-* For filters created with [klay\_newFilter](filter.md#klay_newfilter), logs are objects with following parameters:
+- For filters created with [klay_newBlockFilter](#klay_newblockfilter), the return are block hashes (32-byte DATA),
+  *e.g.*, `["0x3454645634534..."]`.
+- For filters created with [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter), the return are transaction
+  hashes (32-byte DATA), *e.g.*, `["0x6345343454645..."]`.
+- For filters created with [klay_newFilter](#klay_newfilter), logs are objects with following parameters:
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | removed | TAG | `true` when the log was removed, due to a chain reorganization. `false` if it is a valid log. |
 | logIndex | QUANTITY | Integer of the log index position in the block. `null` when it is a pending log. |
 | transactionIndex | QUANTITY | Integer of the transactions index position log was created from. `null` when pending. |
@@ -34,11 +27,11 @@ Polling method for a filter, which returns an array of logs which occurred since
 | blockNumber | QUANTITY | The block number where this log was in. `null` when pending. |
 | address | 20-byte DATA | Address from which this log originated. |
 | data | DATA | Contains the non-indexed arguments of the log. |
-| topics | Array of DATA | Array of 0 to 4 32-byte DATA of indexed log arguments. \(In Solidity: The first topic is the hash of the signature of the event \(_e.g._, `Deposit(address,bytes32,uint256)`\), except you declared the event with the `anonymous` specifier.\). |
+| topics | Array of DATA | Array of 0 to 4 32-byte DATA of indexed log arguments. (In Solidity: The first topic is the hash of the signature of the event (*e.g.*, `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.). |
 
 **Example**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getFilterChanges","params":["0x16"],"id":73}' http://localhost:8551
 
@@ -61,23 +54,28 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_getFilterLogs <a id="klay_getfilterlogs"></a>
 
-Returns an array of all logs matching filter with given id, which has been obtained using [klay\_newFilter](filter.md#klay_newfilter). Note that filter ids returned by other filter creation functions, such as [klay\_newBlockFilter](filter.md#klay_newblockfilter) or [klay\_newPendingTransactionFilter](filter.md#klay_newpendingtransactionfilter), cannot be used with this function.
+## klay_getFilterLogs <a id="klay_getfilterlogs"></a>
+
+Returns an array of all logs matching filter with given id, which has been
+obtained using [klay_newFilter](#klay_newfilter).  Note that filter ids
+returned by other filter creation functions, such as [klay_newBlockFilter](#klay_newblockfilter)
+or [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter),
+cannot be used with this function.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | ---|
 | QUANTITY | string | The filter id |
 
 **Return Value**
 
-See [klay\_getFilterChanges](filter.md#klay_getfilterchanges)
+See [klay_getFilterChanges](#klay_getfilterchanges)
 
 **Example**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getFilterLogs","params":["0xd32fd16b6906e67f6e2b65dcf48fc272"],"id":1}' http://localhost:8551
 
@@ -99,7 +97,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_getLogs <a id="klay_getlogs"></a>
+
+## klay_getLogs <a id="klay_getlogs"></a>
 
 Returns an array of all logs matching a given filter object.
 
@@ -108,20 +107,20 @@ Returns an array of all logs matching a given filter object.
 `Object` - The filter options:
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| fromBlock | QUANTITY \| TAG | \(optional, default: `"latest"`\) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions. |
-| toBlock | QUANTITY \| TAG | \(optional, default: `"latest"`\) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions. |
-| address | 20-byte DATA \| Array | \(optional\) Contract address or a list of addresses from which logs should originate. |
-| topics | Array of DATA | \(optional\) Array of 32-byte DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with “or” options. |
-| blockHash | 32-byte DATA | \(optional\) A filter option that restricts the logs returned to the single block with the 32-byte hash blockHash. Using blockHash is equivalent to fromBlock = toBlock = the block number with hash blockHash. If blockHash is present in in the filter criteria, then neither fromBlock nor toBlock are allowed. |
+| --- | --- | ---|
+| fromBlock | QUANTITY &#124; TAG | (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions. |
+| toBlock | QUANTITY &#124; TAG | (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions. |
+| address | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate. |
+| topics | Array of DATA | (optional) Array of 32-byte DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with “or” options. |
+| blockHash | 32-byte DATA | (optional) A filter option that restricts the logs returned to the single block with the 32-byte hash blockHash. Using blockHash is equivalent to fromBlock = toBlock = the block number with hash blockHash. If blockHash is present in in the filter criteria, then neither fromBlock nor toBlock are allowed. |
 
 **Return Value**
 
-See [klay\_getFilterChanges](filter.md#klay_getfilterchanges)
+See [klay_getFilterChanges](#klay_getfilterchanges)
 
 **Examples**
 
-```text
+```shell
 // Request
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getLogs","params":[{"fromBlock":"0x1","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b"}],"id":1}' http://localhost:8551
 
@@ -178,7 +177,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 }
 ```
 
-```text
+```shell
 // Request
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getLogs","params":[{"fromBlock":"earliest","toBlock":"latest","topics":["0xc7b359b1e189b7d721be7f0765a8d745be718566b8e67cbd2728dae5d6fd64b6"]}],"id":2}' http://localhost:8551
 
@@ -235,9 +234,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 }
 ```
 
-## klay\_newBlockFilter <a id="klay_newblockfilter"></a>
 
-Creates a filter in the node, to notify when a new block arrives. To check if the state has changed, call [klay\_getFilterChanges](filter.md#klay_getfilterchanges).
+## klay_newBlockFilter <a id="klay_newblockfilter"></a>
+
+Creates a filter in the node, to notify when a new block arrives.
+To check if the state has changed, call [klay_getFilterChanges](#klay_getfilterchanges).
 
 **Parameters**
 
@@ -246,12 +247,12 @@ None
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | QUANTITY | A filter id. |
 
 **Example**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_newBlockFilter","params":[],"id":73}' http://localhost:8551
 
@@ -263,43 +264,42 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_newFilter <a id="klay_newfilter"></a>
 
-Creates a filter object, based on filter options, to notify when the state changes \(logs\).
+## klay_newFilter <a id="klay_newfilter"></a>
 
-* To check if the state has changed, call [klay\_getFilterChanges](filter.md#klay_getfilterchanges).
-* To obtain all logs matching the filter created by `klay_newFilter`, call
+Creates a filter object, based on filter options, to notify when the state changes (logs).
+- To check if the state has changed, call [klay_getFilterChanges](#klay_getfilterchanges).
+- To obtain all logs matching the filter created by `klay_newFilter`, call
+  [klay_getFilterLogs](#klay_getfilterlogs).
 
-  [klay\_getFilterLogs](filter.md#klay_getfilterlogs).
-
-**A note on specifying topic filters:** Topics are order-dependent. A transaction with a log with topics `[A, B]` will be matched by the following topic filters:
-
+**A note on specifying topic filters:**
+Topics are order-dependent. A transaction with a log with topics `[A, B]` will be matched by the following topic filters:
 * `[]` "anything"
-* `[A]` "A in first position \(and anything after\)"
-* `[null, B]` "anything in first position AND B in second position \(and anything after\)"
-* `[A, B]` "A in first position AND B in second position \(and anything after\)"
-* `[[A, B], [A, B]]` "\(A OR B\) in first position AND \(A OR B\) in second position \(and anything after\)"
+* `[A]` "A in first position (and anything after)"
+* `[null, B]` "anything in first position AND B in second position (and anything after)"
+* `[A, B]` "A in first position AND B in second position (and anything after)"
+* `[[A, B], [A, B]]` "(A OR B) in first position AND (A OR B) in second position (and anything after)"
 
 **Parameters**
 
 `Object` - The filter options:
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| fromBlock | QUANTITY \| TAG | \(optional, default: `"latest"`\) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions. |
-| toBlock | QUANTITY \| TAG | \(optional, default: `"latest"`\) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions. |
-| address | 20-byte DATA \| Array | \(optional\) Contract address or a list of addresses from which logs should originate. |
-| topics | Array of DATA | \(optional\) Array of 32-byte DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options. |
+| --- | --- | --- |
+| fromBlock | QUANTITY &#124; TAG | (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions. |
+| toBlock | QUANTITY &#124; TAG | (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions. |
+| address | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate. |
+| topics | Array of DATA | (optional) Array of 32-byte DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | QUANTITY | A filter id |
 
 **Example**
 
-```text
+```shell
 // Request
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_newFilter","params":[{"fromBlock":"earliest","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b","topics":["0xd596fdad182d29130ce218f4c1590c4b5ede105bee36690727baa6592bd2bfc8"]}],"id":1}' http://localhost:8551
 
@@ -307,9 +307,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 {"jsonrpc":"2.0","id":1,"result":"0xd32fd16b6906e67f6e2b65dcf48fc272"}
 ```
 
-## klay\_newPendingTransactionFilter <a id="klay_newpendingtransactionfilter"></a>
 
-Creates a filter in the node, to notify when new pending transactions arrive. To check if the state has changed, call [klay\_getFilterChanges](filter.md#klay_getfilterchanges).
+## klay_newPendingTransactionFilter <a id="klay_newpendingtransactionfilter"></a>
+
+Creates a filter in the node, to notify when new pending transactions arrive.
+To check if the state has changed, call [klay_getFilterChanges](#klay_getfilterchanges).
 
 **Parameters**
 
@@ -318,12 +320,12 @@ None
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | QUANTITY | A filter id. |
 
 **Example**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_newPendingTransactionFilter","params":[],"id":73}' http://localhost:8551
 
@@ -335,25 +337,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_uninstallFilter <a id="klay_uninstallfilter"></a>
 
-Uninstalls a filter with given id. Should always be called when watch is no longer needed. Additionally, filters timeout when they are not requested with [klay\_getFilterChanges](filter.md#klay_getfilterchanges) for a period of time.
+## klay_uninstallFilter <a id="klay_uninstallfilter"></a>
+
+Uninstalls a filter with given id. Should always be called when watch is no longer needed.
+Additionally, filters timeout when they are not requested with [klay_getFilterChanges](#klay_getfilterchanges) for a period of time.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | filter | QUANTITY | A filter id. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | Boolean | `true` if the filter was successfully uninstalled, otherwise `false`. |
 
 **Example**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_uninstallFilter","params":["0xb"],"id":73}' http://localhost:8551
 
@@ -364,4 +368,3 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
   "result": true
 }
 ```
-
