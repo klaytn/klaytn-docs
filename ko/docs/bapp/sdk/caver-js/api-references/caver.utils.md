@@ -1329,7 +1329,7 @@ false
 ```javascript
 caver.utils.isValidPrivateKey(privateKey)
 ```
-Returns `true` if privateKey is valid, otherwise it returns `false`.
+privateKey가 유효하면 `true`, 그렇지 않으면 `false`리턴합니다.
 
 **매개변수**
 
