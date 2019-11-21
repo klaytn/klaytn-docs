@@ -15,7 +15,7 @@ Baobab 패키지
 공통 패키지
 - [kscnd-v1.2.0-4.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.2.0/kscnd-v1.2.0-4.el7.x86_64.rpm)
 - [kscn-v1.2.0-4-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/kscn-v1.2.0-4-linux-amd64.tar.gz)
-
+- [homi-v1.2.0-4-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/homi-v1.2.0-4-linux-amd64.tar.gz)
 
 ## MacOS <a id="macos"></a>
 
@@ -27,5 +27,6 @@ Baobab 패키지
 
 공통 패키지
 - [kscn-v1.2.0-4-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/kscn-v1.2.0-4-darwin-amd64.tar.gz)
+- [homi-v1.2.0-4-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/homi-v1.2.0-4-darwin-amd64.tar.gz)
 
 
