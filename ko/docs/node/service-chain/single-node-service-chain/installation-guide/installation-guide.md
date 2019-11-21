@@ -1,10 +1,10 @@
 # 설치 가이드 <a id="installation-guide"></a>
 
-This chapter explains the **Service Chain Consensus Node \(SCN\)** installation. If you want to use Anchroing/Value transfer features, you need an Endpoint Node (EN) that connects to the Main Chain. EN 설치에 대해서는 [EN Installation Guide](../../../endpoint-node/installation-guide/)를 읽으세요.
+이 장에서는 **서비스체인 컨센서스 노드 \(SCN\)** 설치에 대해 설명합니다. 앵커링/밸류 트랜스퍼 기능을 사용하려면 메인체인과 연결된 엔드포인트 노드(EN)가 필요합니다. EN 설치에 대해서는 [EN Installation Guide](../../../endpoint-node/installation-guide/)를 읽으세요.
 
 ## Linux 아카이브 배포 <a id="linux-archive-distribution"></a>
 
-The archive file for Service Chain Consensus Node has the following directory layout.
+서비스체인 컨센서스 노드의 아카이브 파일은 다음과 같은 디렉토리 레이아웃을 가집니다.
 
 | 파일명             | 파일 설명               |
 |:--------------- |:------------------- |
@@ -12,7 +12,7 @@ The archive file for Service Chain Consensus Node has the following directory la
 | bin/kscnd       | SCN 시작 및 종료 스크립트 파일 |
 | conf/kscnd.conf | SCN 환경설정 파일         |
 
-The archive file for homi binary has the following directory layout.
+homi 바이너리의 아카이브 파일은 다음과 같은 디렉토리 레이아웃을 가집니다.
 
 | 파일명      | 파일 설명                |
 |:-------- |:-------------------- |
