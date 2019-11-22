@@ -45,7 +45,7 @@ SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 
 ### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHash를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+SenderTxHash를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -56,7 +56,7 @@ SenderTxHash = keccak256(SenderTxHashRLP)
 
 ### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-트랜잭션 해시를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -192,7 +192,7 @@ SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 
 ### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHash를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+SenderTxHash를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -203,7 +203,7 @@ SenderTxHash = keccak256(SenderTxHashRLP)
 
 ### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-트랜잭션 해시를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -344,7 +344,7 @@ SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 
 ### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHash를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+SenderTxHash를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -355,7 +355,7 @@ SenderTxHash = keccak256(SenderTxHashRLP)
 
 ### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-트랜잭션 해시를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -498,7 +498,7 @@ SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 
 ### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHash를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+SenderTxHash를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -509,7 +509,7 @@ SenderTxHash = keccak256(SenderTxHashRLP)
 
 ### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-트랜잭션 해시를 만들려면 다음과 같이 RLP serialization를 수행해야합니다.
+트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
