@@ -3,7 +3,7 @@
 - [What is Cypress, what is Baobab?](#what-is-cypress-what-is-baobab)
 - [Are there any Klaytn SDKs? In what languages?](#klaytn-sdks)
 - [Must I install and run an EN (Endpoint Node) to use Klaytn?](#must-i-install-and-run-en)
-- [I am running EN, and node data sync is too slow.](#node-data-sync-is-too-slow)
+- [I am running an EN, and node data sync is too slow.](#node-data-sync-is-too-slow)
 - [Can I use ERC-20 and ERC-721 contracts on Klaytn?](#can-i-use-erc-20-and-erc-721)
 - [Can I use Truffle for the smart contract development on Klaytn?](#can-i-use-truffle)
 - [Where can I get a browser extension wallet like Metamask?](#where-can-i-get-a-browser-extension-wallet)
