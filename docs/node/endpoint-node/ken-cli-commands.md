@@ -1,6 +1,6 @@
 # ken CLI commands <a id="ken-cli-commands"></a>
 
-`ken` is a command-line interface for Klayrn Endpoint Node.
+`ken` is a command-line interface for Klaytn Endpoint Node.
 
 ```bash
 USAGE:
