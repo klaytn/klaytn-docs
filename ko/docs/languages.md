@@ -41,14 +41,14 @@ Crowdin은 공동 번역을 위한 웹 서비스입니다. 문서의 현지화 �
 
 [도와주신 모든 분들에게 진심으로 감사드립니다](https://crowdin.com/project/klaytn-docs/reports)❤️
 
-최고 기여자: 2019년 7월 30일 - 2019년10월 11일
+최고 기여자 : ~ 2019/11
 
 | 명칭                                                                       | 지원 언어 | 번역한 단어 | 대상 단어 | 승인한 단어 | 추천수 |
 | ------------------------------------------------------------------------ | ----- | ------ | ----- | ------ | --- |
-| [최준우 (guillaez)](https://crowdin.com/profile/guillaez)                   | 한국어   | 20361  | 16044 | 0      | 1   |
-| [박상현 / 학생 / 전기·정보공학부 (twodude)](https://crowdin.com/profile/twodude)     | 한국어   | 18147  | 14255 | 0      | 0   |
-| [Kyle Jung (universale0723)](https://crowdin.com/profile/universale0723) | 한국어   | 16507  | 12035 | 50     | 0   |
-| [Tina (tina.kim)](https://crowdin.com/profile/tina.kim)                  | 한국어   | 6378   | 4618  | 3963   | 0   |
+| [Guillaez (guillaez)](https://crowdin.com/profile/guillaez)              | 한국어   | 31939  | 25028 | 61     | 1   |
+| [박상현 / 학생 / 전기·정보공학부 (twodude)](https://crowdin.com/profile/twodude)     | 한국어   | 28276  | 21756 | 0      | 0   |
+| [Tina (tina.kim)](https://crowdin.com/profile/tina.kim)                  | 한국어   | 27046  | 20434 | 13422  | 0   |
+| [Kyle Jung (universale0723)](https://crowdin.com/profile/universale0723) | 한국어   | 22074  | 15907 | 64490  | 0   |
 | [김정현(Colin) (colin.kim)](https://crowdin.com/profile/colin.kim)          | 한국어   | 36     | 29    | 0      | 0   |
 
 
