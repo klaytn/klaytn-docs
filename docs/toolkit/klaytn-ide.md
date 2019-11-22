@@ -174,29 +174,29 @@ At the bottom of the code editor, compiled outputs, compiler errors, deployment 
 
 If you click on the transaction output, detailed information will be shown. If debugging is supported, debugging the transaction will work on the Debug tab.
 
-## Develop with OpenZepplin <a id="develop-with-openzepplin"></a>
+## Develop with OpenZeppelin <a id="develop-with-openzeppelin"></a>
 
 OpenZeppelin is a library for secure smart contract development. It provides implementations of standards like ERC20 and ERC721 which you can deploy as-is or extend to suit your needs, as well as Solidity components to build custom contracts and more complex decentralized systems.
 
-The OpenZepplin library is available after connecting to localhost via remixd. This requires the installation of remixd.
+The OpenZeppelin library is available after connecting to localhost via remixd. This requires the installation of remixd.
 
 ### Install Remixd <a id="install-remixd"></a>
 
 Remixd is a tool that is intended to be used with Remix IDE \(aka. Browser-Solidity\). It allows a websocket connection between Remix IDE \(web application\) and the local computer. Get more details at: [remixd document](https://remix-ide.readthedocs.io/en/latest/remixd.html?highlight=remixd).
 
-`remixd` can be globally installed using the following command: After installation, start `remixd`. `-s` option gives the IDE access to the given folder. In the given folder, you will install OpenZepplin and place your contract source code.
+`remixd` can be globally installed using the following command: After installation, start `remixd`. `-s` option gives the IDE access to the given folder. In the given folder, you will install OpenZeppelin and place your contract source code.
 
 \`\`\`bash $ remixd -s  --remix-ide [http://ide.klaytn.com](http://ide.klaytn.com)
 
-For example, `remixd -s ~/temp/openzepplin --remix-ide http://ide.klaytn.com`
+For example, `remixd -s ~/temp/openzeppelin --remix-ide http://ide.klaytn.com`
 
 Then, you will see the following messages in your terminal.
 
 ![](img/klaytn-ide/ide-launch-remixd.png)
 
-### Install OpenZepplin <a id="install-openzepplin"></a>
+### Install OpenZeppelin <a id="install-openzepplin"></a>
 
-Go to the shared folder, and install OpenZepplin.
+Go to the shared folder, and install OpenZeppelin.
 
 \`\`\`bash $ cd  $ npm install openzeppelin-solidity
 
@@ -214,7 +214,7 @@ localhost directory will appear in the file browser.
 
 ![](img/klaytn-ide/ide-connection-localhost.png)
 
-In your contract source file, import the required solidity contract from the OpenZepplin.
+In your contract source file, import the required solidity contract from the OpenZeppelin.
 
 ![](img/klaytn-ide/ide-import-openzepplin.png)
 
