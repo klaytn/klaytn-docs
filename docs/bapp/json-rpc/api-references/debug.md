@@ -5,8 +5,7 @@ description: >-
 
 # Namespace debug <a id="namespace-debug"></a>
 
-The namespace `debug` gives you access to several non-standard RPC methods, which
-will allow you to inspect, debug and set certain debugging flags at run time.
+The namespace `debug` gives you access to several non-standard RPC methods, which will allow you to inspect, debug and set certain debugging flags at run time.
 
 
 ## [Logging](./debug/logging.md) <a id="logging"></a>
