@@ -173,29 +173,29 @@ Klaytn IDE는 모듈에는 Compile, Run, Analysis, Testing, Debugger, Settings �
 
 트랜잭션 결과를 클릭하여 자세한 정보를 확인할 수 있습니다. 디버깅이 가능한 경우 Debug 탭에서 트랜잭션 디버깅을 할 수 있습니다.
 
-## Develop with OpenZeppelin <a id="develop-with-openzeppelin"></a>
+## OpenZeppelin으로 개발하기<a id="develop-with-openzeppelin"></a>
 
 OpenZeppelin은 안전한 스마트 컨트랙트 개발을 위한 라이브러리입니다. OpenZeppelin은 ERC20과 ERC721과 같은 표준 구현체를 제공하여 이를 그대로 배포하거나 필요에 따라 확장할 수 있습니다. 그뿐만 아니라 맞춤형 컨트랙트와 더 복잡한 탈중앙화된 시스템을 구축할 수 있도록 솔리디티 컴포넌트를 제공합니다.
 
-The OpenZeppelin library is available after connecting to localhost via remixd. 따라서 remixd의 설치가 필요합니다.
+OpenZeppelin 라이브러리는 remixd를 통해 로컬 호스트에 연결한 후 사용할 수 있습니다. 따라서 remixd의 설치가 필요합니다.
 
 ### Remixd 설치 <a id="install-remixd"></a>
 
 Remixd는 Remix IDE \( 브라우저 솔리디티\)에서 사용하기 위한 도구입니다. Remixd는 Remix IDE \(web application\)와 로컬 컴퓨터 간 웹소켓 연결을 하도록 합니다. 자세한 내용은 [remixd 문서](https://remix-ide.readthedocs.io/en/latest/remixd.html?highlight=remixd)를 참고해주세요.
 
-`remixd`는 다음 명령어를 사용하여 전역적으로 설치할 수 있습니다. 설치 후 `remixd`를 입력하여 실행하세요. `-s` 옵션은 IDE가 주어진 폴더에 접근할 수 있도록 합니다. In the given folder, you will install OpenZeppelin and place your contract source code.
+`remixd`는 다음 명령어를 사용하여 전역적으로 설치할 수 있습니다. 설치 후 `remixd`를 입력하여 실행하세요. `-s` 옵션은 IDE가 주어진 폴더에 접근할 수 있도록 합니다. 해당 폴더에는 OpenZeppelin을 설치하고 컨트랙트 소스 코드들을 넣을 것입니다.
 
 \`\`\`bash $ remixd -s  --remix-ide [http://ide.klaytn.com](http://ide.klaytn.com)
 
-For example, `remixd -s ~/temp/openzeppelin --remix-ide http://ide.klaytn.com`
+예를 들어, `remixd -s ~/temp/openzeppelin --remix-ide http://ide.klaytn.com`
 
 터미널에서 다음과 같은 메세지를 확인할 수 있습니다.
 
 ![](img/klaytn-ide/ide-launch-remixd.png)
 
-### Install OpenZeppelin <a id="install-openzepplin"></a>
+### OpenZeppelin 설치 <a id="install-openzepplin"></a>
 
-Go to the shared folder, and install OpenZeppelin.
+공유 폴더로 이동하여 OpenZeppelin을 설치하세요.
 
 \`\`\`bash $ cd  $ npm install openzeppelin-solidity
 
@@ -213,7 +213,7 @@ Connect 버튼을 클릭하세요.
 
 ![](img/klaytn-ide/ide-connection-localhost.png)
 
-In your contract source file, import the required solidity contract from the OpenZeppelin.
+OpenZeppelin에서 필요한 솔리디티 컨트랙트 파일을 가져오세요.
 
 ![](img/klaytn-ide/ide-import-openzepplin.png)
 
