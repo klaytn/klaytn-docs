@@ -3,7 +3,7 @@
 - [Cypress, Baobab이 무엇인가요?](#what-is-cypress-what-is-baobab)
 - [Klaytn SDK가 있나요? 어떤 언어를 지원하나요?](#klaytn-sdks)
 - [Klaytn을 사용하려면 엔드포인트 노드(Endpoint Node, EN)를 반드시 설치하고 실행해야하나요?](#must-i-install-and-run-en)
-- [EN을 실행하는데 노드 데이터 동기화가 너무 느립니다. ](#node-data-sync-is-too-slow)
+- [EN을 실행하는데 노드 데이터 동기화가 너무 느립니다.](#node-data-sync-is-too-slow)
 - [Klaytn에서 ERC-20 및 ERC-721 컨트랙트를 사용할 수 있나요?](#can-i-use-erc-20-and-erc-721)
 - [Klaytn의 스마트 컨트랙트 개발에 트러플(Truflle)을 사용할 수 있나요?](#can-i-use-truffle)
 - [Metamask와 같은 브라우저 확장 지갑은 어디서 구할 수 있나요?](#where-can-i-get-a-browser-extension-wallet)
@@ -62,7 +62,7 @@ Klaytn SDK를 사용하여 BApp을 구축하는 방법에 대한 자세한 내�
 
 예. Klaytn은 스마트 컨트랙트 언어로 솔리디티(Solidity)를 지원합니다. 이더리움에서 솔리디티로 작성한 [ERC-20](../smart-contract/sample-contracts/erc-20/README.md) 및 [ERC-721](../smart-contract/sample-contracts/erc-20/README.md)는 Klaytn에 그대로 배포하여 실행할 수 있습니다.
 
-Klaytn에 특화된 토큰 표준이 추가로 정의될 수 있습니다.  [KIP(Klaytn Improvement Proposal)]()을 구독하고 토론에 참여하세요.
+Klaytn에 특화된 토큰 표준이 추가로 정의될 수 있습니다. [KIP(Klaytn Improvement Proposal)]()을 구독하고 토론에 참여하세요.
 
 
 
