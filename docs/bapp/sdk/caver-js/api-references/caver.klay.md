@@ -9,7 +9,7 @@ The `caver-klay` package allows you to interact with the Klaytn nodes.  The list
 enumerates the API functions that are currently supported in `caver-js`.
 
 
-### [Account](./caver.klay/account.md) <a id="account"></a>
+## [Account](./caver.klay/account.md) <a id="account"></a>
 - [defaultAccount](./caver.klay/account.md#defaultaccount)
 - [accountCreated](./caver.klay/account.md#accountcreated)
 - [getAccount](./caver.klay/account.md#getaccount)
@@ -22,7 +22,7 @@ enumerates the API functions that are currently supported in `caver-js`.
 - [sign](./caver.klay/account.md#sign)
 
 
-### [Block](./caver.klay/block.md) <a id="block"></a>
+## [Block](./caver.klay/block.md) <a id="block"></a>
 - [defaultBlock](./caver.klay/block.md#defaultblock)
 - [getBlockNumber](./caver.klay/block.md#getblocknumber)
 - [getBlock](./caver.klay/block.md#getblock)
@@ -38,7 +38,7 @@ enumerates the API functions that are currently supported in `caver-js`.
 - [isSyncing](./caver.klay/block.md#issyncing)
 
 
-### [Transaction](./caver.klay/transaction.md) <a id="transaction"></a>
+## [Transaction](./caver.klay/transaction.md) <a id="transaction"></a>
 
 - [call](./caver.klay/transaction.md#call)
 - [estimateGas](./caver.klay/transaction.md#estimategas)
@@ -93,5 +93,5 @@ enumerates the API functions that are currently supported in `caver-js`.
 - [newPendingTransactionFilter](./caver.klay/filter.md#newpendingtransactionfilter)
 - [uninstallFilter](./caver.klay/filter.md#uninstallfilter)
 
-### [Miscellaneous](./caver.klay/misc.md) <a id="miscellaneous"></a>
+## [Miscellaneous](./caver.klay/misc.md) <a id="miscellaneous"></a>
 - [sha3](./caver.klay/misc.md#sha3)
