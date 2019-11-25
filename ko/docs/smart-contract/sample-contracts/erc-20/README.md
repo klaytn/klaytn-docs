@@ -2,7 +2,7 @@
 
 ## 소개 <a id="introduction"></a>
 
-This tutorial helps you to create an example ERC-20 compatible token that conforms to the [Klaytn Token Standards](../../token-standard.md), especially [Fungible Token Standard \(ERC-20\)](../../token-standard.md#fungible-token-standard-erc-20).
+이 튜토리얼은 [Klaytn 토큰 표준](../../token-standard.md)을 따르는 ERC-20 호환 토큰 예제, 특히 [대체 가능한 토큰 표준\(ERC-20\)](../../token-standard.md#fungible-token-standard-erc-20)을 생성하는 것을 돕습니다.
 
 [ERC-20 토큰 표준](https://eips.ethereum.org/EIPS/eip-20)은 다음과 같이 2개의 이벤트와 9개의 메소드\(3개의 선택적 메소드\)를 정의합니다. ERC-20-호환 토큰은 다음의 인터페이스를 구현하기 위한 토큰 컨트랙트입니다.
 
