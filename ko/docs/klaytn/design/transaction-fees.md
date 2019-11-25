@@ -103,7 +103,7 @@ Klaytn은 현재 단가를 이용하는 트랜잭션을 교체할 수 없습니�
 | Bn256PairingBaseGas     | 100000             | ​                            |
 | Bn256PairingPerPointGas | 80000              | ​                            |
 | VMLogBaseGas            | 100                | 노드의 로그 파일에 로그 쓰기 - Klaytn 전용 |
-| VMLogPerByteGas         | 20                 | Klaytn only                  |
+| VMLogPerByteGas         | 20                 | Klaytn 전용                    |
 | FeePayerGas             | 300                | feePayer의 주소 획득 - Klaytn 전용  |
 | ValidateSenderGas       | 5000 per signature | 발신자의 주소와 서명 검증 - Klaytn 전용   |
 
