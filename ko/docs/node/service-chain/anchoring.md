@@ -1,9 +1,9 @@
-As explained in the design section, Service Chain supports the data anchoring feature. This page shows how to enable the anchoring function. If it is enabled, SCN anchors periodically the child chain block data to the parent chain as proof of existence and immutability. This ensures the security and credibility of the service chain.
+디자인 장에 설명된대로 서비스체인은 데이터 앵커링 기능을 지원합니다. 이 페이지는 앵커링 기능을 활성화하는 방법을 보여줍니다. 활성화된 경우 SCN은 데이터의 존재 및 불변성의 증거로 자식 체인 블록 데이터를 부모 체인에 주기적으로 앵커링합니다. 이는 서비스체인의 보안과 신뢰성을 보장합니다.
 
-# Enable Anchoring <a id="enable-anchoring"></a>
+# 앵커링 활성화하기<a id="enable-anchoring"></a>
 
-## Check Parent Operator of SCN <a id="check-parent-operator-of-scn"></a>
-If you have installed and run an SCN successfully, the parent chain operator account should be generated. You can provide a keystore file that you want to use as a parent operator, or if not provided, the SCN will generate the key for you. You can check the parent operator address via RPC API, `subbridge_parentOperator`.
+## SCN의 부모 오퍼레이터(Parent Operator) 확인 <a id="check-parent-operator-of-scn"></a>
+SCN을 성공적으로 설치하고 실행했다면 부모 체인 오퍼레이터 계정이 생성되었을 겁니다. 부모 오퍼레이터로 사용하려는 키스토어 파일을 지정할 수도 있고 지정되지 않은 경우 SCN이 키를 생성합니다. `subbridge_parentOperator` RPC API를 통해 부모 오퍼레이터 주소를 확인할 수 있습니다.
 
 ```
 $ kscn attach ~/kscnd_home/klay.ipc
@@ -17,50 +17,50 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  "0x726e5C8705892989DAB1E9982FBE0B0A92eC84Bf"
 
 ```
-*This parent operator account address is derived from a keystore file in `$dataDIR/parent_bridge_account` directory.*
+*이 부모 오퍼레이터 계정의 주소는 `$dataDIR/parent_bridge_account` 디렉토리에 있는  키스토어 파일로부터 도출됩니다.*
 
 
-## Add KLAY to Parent Operator account<a id="add-klay-to-parent-operator-account"></a>
-When SCN anchors the block data, SCN makes an anchoring transaction as a parent operator. Therefore the account needs KLAY to pay the transaction fee. You should add enough KLAY to the parent operator account.
+## 부모 오퍼레이터(Parent Operator) 계정에 KLAY 추가하기<a id="add-klay-to-parent-operator-account"></a>
+SCN이 블록 데이터를 앵커링할 때 SCN은 부모 오페레이터 계정으로 앵커링 트랜잭션을 만듭니다. 따라서 계정은 트랜잭션 수수료를 지불할 KLAY가 필요합니다. 부모 오퍼레이터 계정에 충분한 KLAY를 추가해야 합니다.
 
-## Enable Anchoring <a id="enable-anchoring"></a>
-After sending KLAY, you can check the balance like below.
+## 앵커링 활성화하기<a id="enable-anchoring"></a>
+KLAY를 보낸 후 아래와 같이 잔액을 확인할 수 있습니다.
 ```javascript
 > subbridge.parentOperatorBalance
 1e+50
 ```
 
-Then you can enable anchoring via RPC API, `subbridge.anchoring`, like below. You can refer to [subbridge APIs](../../bapp/json-rpc/api-references/subbridge.md#subbridge_anchoring) for more details.
+그리고 `subbridge.anchoring` RPC API를 통해 아래와 같이 앵커링을 활성화 할 수 있습니다. 상세 사항은 [subbridge API](../../bapp/json-rpc/api-references/subbridge.md#subbridge_anchoring)를 참조하세요.
 ```
 > subbridge.anchoring(true)
 true
 ```
 
-# Check Anchoring Data <a id="check-anchoring-data"></a>
-If the anchoring feature is enabled, SCN will periodically anchor the block data to the main chain. You can check the anchored data like below.
+# 앵커링 데이터 확인하기<a id="check-anchoring-data"></a>
+앵커링 기능이 활성화되면 SCN은 블록 데이터를 주기적으로 메인체인에 앵커링합니다. 아래와 같이 앵커링된 데이터를 확인할 수 있습니다.
 
-## Sub-Bridge <a id="sub-bridge"></a>
-In Sub-Bridge, You can check the latest anchored block number like below. You can refer to [subbridge APIs](../../bapp/json-rpc/api-references/subbridge.md#subbridge_latestAnchoredBlockNumber) for more details.
+## 서브 브리지(Sub-Bridge)<a id="sub-bridge"></a>
+서브 브리지에서는 아래와 같이 가장 최근에 앵커링된 블록 번호를 확인할 수 있습니다. 상세 사항은 [subbridge API](../../bapp/json-rpc/api-references/subbridge.md#subbridge_latestAnchoredBlockNumber)를 참조하세요.
 ```javascript
 > subbridge.latestAnchoredBlockNumber
 71025
 ```
 
-Also, you can find the anchoring transaction hash by the service chain block number like below.
+또한 아래와 같이 서비스체인 블록 번호로 앵커링 트랜잭션 해시를 찾을 수 있습니다.
 ```javascript
 > subbridge.getAnchoringTxHashByBlockNumber(1055)
 "0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51"
 ```
 
-## Main-Bridge <a id="sub-bridge"></a>
-In Main-Bridge, if chain indexing option is enabled, you can find the anchoring tx hash by a service chain block hash like below. You can refer to [mainbridge APIs](../../bapp/json-rpc/api-references/mainbridge.md#mainbridge_convertServiceChainBlockHashToMainChainTxHash) for more details.
+## 메인 브리지(Main-Bridge)<a id="sub-bridge"></a>
+메인 브리지에서 체인 인덱싱 옵션이 활성화된 경우 아래와 같이 서비스체인 블록 해시로 앵커링 트랜잭션 해시를 찾을 수 있습니다. 상세 사항은 [mainbridge API](../../bapp/json-rpc/api-references/mainbridge.md#mainbridge_convertServiceChainBlockHashToMainChainTxHash)를 참조하세요.
 
 ```javascript
 > mainbridge.convertServiceChainBlockHashToMainChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
 "0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51"
 ```
 
-You can get the decoded anchoring data by anchoring transaction hash like below.
+아래와 같이 앵커링 트랜잭션 해시로 디코딩된 앵커링 데이터를 얻을 수 있습니다.
 ```javascript
 > klay.getDecodedAnchoringTransactionByHash("0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51")
 {
