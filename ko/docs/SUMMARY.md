@@ -98,7 +98,7 @@
     * [시작하기](node/service-chain/getting-started/README.md)
       * [4-노드 서비스체인 설정](node/service-chain/getting-started/4nodes-setup-guide.md)
       * [Baobab 연결](node/service-chain/getting-started/en-scn-connection.md)
-      * [크로스-체인 토큰 전송](node/service-chain/getting-started/value-transfer.md)
+      * [체인 간 밸류 트랜스퍼](node/service-chain/getting-started/value-transfer.md)
     * [단일 노드 서비스체인](node/service-chain/single-node-service-chain/README.md)
       * [시스템 요구사항](node/service-chain/single-node-service-chain/system-requirements.md)
       * [설치 가이드](node/service-chain/single-node-service-chain/installation-guide/README.md)
