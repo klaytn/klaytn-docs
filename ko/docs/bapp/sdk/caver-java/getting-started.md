@@ -28,11 +28,11 @@ JSON-RPC 요청 및 응답에 대한 세부 사항을 보려면, [LOGBack](https
 implementation "ch.qos.logback:logback-classic:1.2.3"
 ```
 
-**Note**: In the central repository, the RC, Android, and Java versions are listed together. If you use wildcards to get a version, you may be using a version that is not appropriate for your platform.
+**참고**: 중앙 저장소에는 RC, Android 및 Java 버전이 함께 나열됩니다. 와일드 카드를 사용하여 버전을 얻어오면 플랫폼에 적합하지 않은 버전을 사용하게 될 수 있습니다.
 
 ### 설치 <a id="installation"></a>
 
-If you want to generate transactions related with a smart contract, you need to install a Solidity compiler and caver-java command-line tool first.
+스마트 컨트랙트와 관련된 트랜잭션을 생성하려면 먼저 솔리디티 컴파일러와 caver-java 커맨드라인 도구를 설치해야 합니다.
 
 #### 솔리디티 컴파일러 <a id="solidity-compiler"></a>
 
@@ -382,22 +382,22 @@ feePayerManager.executeTransaction(senderRawTransaction);
 ```
 ## 다양한 AccountKey 타입 사용 <a id="using-various-account-key-type"></a>
 
-caver-java introduces new classes to support the various types of [AccountKey](https://docs.klaytn.com/klaytn/design/accounts#account-key) supported by the platform. This feature is supported starting with version 1.2.0.
+caver-java는 플랫폼에서 제공하는 다양한 [AccountKey](https://docs.klaytn.com/klaytn/design/accounts#account-key) 타입을 지원하기 위해 새로운 클래스를 도입했습니다. 이 기능은 버전 1.2.0부터 지원됩니다.
 
 ### AccountKey  <a id="account-key"></a>
 
-To update the account key on the Klaytn platform, caver-java provides the `AccountKey` interface. The following describes `AccountKey` implementations, `AccountKeyPublic`, `AccountKeyWeightedMultiSig`, and `AccountKeyRoleBased`. See [Account Update](#accountupdate) for how to update an Account.
+Klaytn 플랫폼에서 계정 키를 업데이트하기 위해 caver-java는 `AccountKey` 인터페이스를 제공합니다.. 다음은 `AccountKey`의 구현체인 `AccountKeyPublic`, `AccountKeyWeightedMultiSig` 그리고 `AccountKeyRoleBased`를 설명합니다. 계정을 업데이트하는 방법은 [계정 업데이트](#account-update)를 참조하세요.
 
 ### AccountKeyPublic <a id="account-key-public"></a>
 
-`AccountKeyPublic` is an implementation of `AccountKey` with one public key. You can create it like this:
+`AccountKeyPublic`은 `AccountKey`의 구현체로 하나의 공개키를 가지고 있습니다. 생성 방법은 다음과 같습니다.
 
 ```java
 ECKeyPair newKeyPair = Keys.createEcKeyPair();
 AccountKeyPublic newAccountKey = AccountKeyPublic.create(newKeyPair.getPublicKey());
 ```
 
-To use the account updated with `AccountKeyPublic`, you need to create `KlayCredentials` as follows:
+`AccountKeyPublic`으로 업데이트한 계정을 사용하려면 `KlayCredentials`를 아래와 같이 생성하여야 합니다.
 
 ```java
 KlayCredentials validCredentails = KlayCredentials.create(newKeyPair, oldCredentials.getAddress());
@@ -408,7 +408,7 @@ KlayCredentials invalidCredentails = KlayCredentials.create(newKeyPair);
 
 ### AccountKeyWeightedMultiSig <a id="account-key-weighted-multi-sig"></a>
 
-`AccountKeyWeightedMultiSig` is an account key that contains multiple public keys with varying weights. `AccountKeyWeightedMultiSig` also defines the threshold, the sum of the weights of the keys that must be signed in order to use the account. The maximum number of keys supported is 10. You can create `AccountKeyWeightedMultiSig` as below:
+`AccountKeyWeightedMultiSig`는 여러 개의 가중 공개키를 가진 계정 키입니다. `AccountKeyWeightedMultiSig`는 또한 임계 값을 정의하는데, 계정을 사용하기 위해서는 서명한 키의 가중치 합이 해당 임계값을 넘어야 합니다.  최대 10개의 키를 가질 수 있습니다. `AccountKeyWeightedMultiSig`는 아래와 같이 생성할 수 있습니다.
 
 ```java
 List<AccountKeyWeightedMultiSig.WeightedPublicKey> weightedTransactionPublicKeys = new ArrayList<>();
@@ -438,7 +438,7 @@ AccountKeyWeightedMultiSig newAccountKey = AccountKeyWeightedMultiSig.create(
 );
 ```
 
-To use the account updated with `AccountKeyWeightedMultiSig`, you can create `KlayCredentials` as follows:
+`AccountKeyWeightedMultiSig`으로 업데이트한 계정을 사용하려면 `KlayCredentials`를 아래와 같이 생성하여야 합니다.
 
 ```java
 List<ECKeyPair> transactionECKeyPairList = new ArrayList<>();
@@ -451,7 +451,7 @@ KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList
 
 ### AccountKeyRoleBased <a id="account-key-role-based"></a>
 
-`AccountKeyRoleBased` is a list of `AccountKey`. Each `AccountKey` is assigned to a specific role according to its position. AccountKey can be `AccountKeyPublic`,`AccountKeyWeightedMultiSig`, or `AccountKeyFail`. If `AccountKeyNil` is used for a specific role, the key will not be updated for that role and the existing AccountKey will be used. If `AccountKeyFail` is used, signing for the role will fail always, so be careful using AccountKeyFail.
+`AccountKeyRoleBased`는 `AccountKey`의 리스트입니다. 각 `AccountKey`는 위치에 따라 특정 역할(Role)에 배정됩니다. AccountKey는 `AccountKeyPublic`, `AccountKeyWeightedMultiSig` 또는 `AccountKeyFail`이 될 수 있습니다. `AccountKeyNil`이 특정 역할(Role)에 지정된 경우 해당 역할이 주어진 키로 업데이트 되는 것이 아니라 기존의 AccountKey가 사용됩니다. `AccountKeyFail`이 사용된 경우, 해당 역할로 서명한 것은 언제나 실패하므로 AccountKeyFail을 사용할때는 주의가 필요합니다.
 
 ```java
 List<AccountKey> roleBasedAccountKeyList = new ArrayList<>();
@@ -468,7 +468,7 @@ roleBasedAccountKeyList.add(AccountKeyPublic.create(newKeyPair3.getPublicKey()))
 newAccountKey = AccountKeyRoleBased.create(roleBasedAccountKeyList);
 ```
 
-To use the account updated with `AccountKeyRoleBased`, you can create `KlayCredentials` as follows:
+`AccountKeyRoleBased`로 업데이트한 계정을 사용하려면 `KlayCredentials`를 아래와 같이 생성하여야 합니다.
 
 ```java
 List<ECKeyPair> transactionECKeyPairList = Arrays.asList(newKeyPair1);
@@ -478,7 +478,7 @@ List<ECKeyPair> feePayerECKeyPairList = Arrays.asList(newKeyPair3);
 KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList, updateECKeyPairList, feePayerECKeyPairList, address);
 ```
 
-If the account does not have a key for a specific role, pass an empty List as an argument.
+계정에 특정 역할에 대한 키가 없으면 빈 리스트를 인수로 전달하세요.
 
 ```java
 List<ECKeyPair> transactionECKeyPairList = Collections.emptyList();
@@ -488,7 +488,7 @@ List<ECKeyPair> feePayerECKeyPairList = Collections.emptyList();
 KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList, updateECKeyPairList, feePayerECKeyPairList, address);
 ```
 
-If the account has multiple keys for a specific role, you can pass the multiple keys as follows.
+계정에 특정 역할에 대한 키가 여러 개 있는 경우 다음과 같이 여러 개의 키를 전달할 수 있습니다.
 
 ```java
 List<ECKeyPair> transactionECKeyPairList = Collections.emptyList();
@@ -498,20 +498,20 @@ List<ECKeyPair> feePayerECKeyPairList = Collections.emptyList();
 KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList, updateECKeyPairList, feePayerECKeyPairList, address);
 ```
 
-## Sending a Transaction with Multiple Signers <a id="sending-a-transaction-with-multiple-signers"></a>
+## 다중 서명된 트랜잭션 보내기<a id="sending-a-transaction-with-multiple-signers"></a>
 
-If an account has AccountKeyMultiSig or AccountKeyRoleBased, each key can be managed by different people.
+AccountKeyMultiSig 또는 AccountKeyRoleBased를 가지고 있는 계정은 각 키를 다른 사람이 관리하고 있을 수 있습니다.
 
-This section describes how to collect signatures and send the transaction if there are multiple signers.
+이 장에서는 서명하는 사람이 여럿인 경우 서명을 수집하고 트랜잭션을 보내는 방법에 대해 설명합니다.
 
-### Sequential sender signing <a id="sequential-sender-signing"></a>
+### 순차적 발신자(Sender) 서명<a id="sequential-sender-signing"></a>
 
-The `rawTransaction` has an RLP encoded transaction that contains both `txSignatures` and `feePayerSignatures`. `feePayerSignature` is included only when the transaction is a fee delegated transaction.
+`rawTransaction`은 RLP 인코딩된 트랜잭션으로 `txSignatures`와 `feePayerSignatures`를 가지고 있습니다. `feePayerSignature`는 수수료 위임 트랜잭션이 경우에만 포함됩니다.
 
-In the absence of a fee payer, the process of repeatedly signing and executing a transaction can be divided into three parts. 1. RLP-encode the transaction and send it to the signer in the form of rawTransaction. 2. Signer signs with its own key for the received rawTransaction. 3. Sending the signed rawTransaction to EN. Step 2 can be repeated if there are multiple signers.
+수수료 납부자가 없는 경우, 트랜잭션에 반복적으로 서명하고 실행하는 절차는 세 부분으로 나눌 수 있습니다. 1. 트랜잭션을 RLP 인코딩하여 rawTransaction 형식으로 서명자에게 보냅니다. 2. 서명자는 수신한 rawTransaction을 자신의 키로 서명합니다. 3. 서명한 rawTransaction을 EN으로 보냅니다. 서명자가 여럿인 경우 2단계를 반복할 수 있습니다.
 
 ```java
-//// 1. Alice creates a transaction, signs it, and sends it to Bob.
+//// 1. Alice는 트랜잭션을 생성하고 서명한 후 Bob에게 보냅니다.
 //// Alice Side
 ValueTransferTransaction transactionTransformer = ValueTransferTransaction.create(from, to, BigInteger.ONE, GAS_LIMIT);
 
@@ -522,7 +522,7 @@ TransactionManager transactionManager_alice = new TransactionManager.Builder(cav
 
 String rawTransaction_signed_alice = transactionManager_alice.sign(transactionTransformer).getValueAsString();
 
-//// 2. Bob signs the received transaction and sends it to Charlie.
+//// 2. Bob은 받은 트랜잭션에 서명하고 이를 Charlie에게 보냅니다.
 //// Bob Side
             TransactionManager transactionManager_bob = new TransactionManager.Builder(caver, senderCredential_bob)
                     .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
@@ -531,7 +531,7 @@ String rawTransaction_signed_alice = transactionManager_alice.sign(transactionTr
 
 String rawTransaction_signed_alice_and_bob = transactionManager_bob.sign(rawTransaction_signed_alice).getValueAsString();
 
-//// 3. Charlie signs the received transaction and sends it to Klaytn EN.
+//// 3. Charlie는 받은 트랜잭션에 서명하고 Klaytn EN으로 보냅니다.
 //// Charlie Side
 TransactionManager transactionManager_charlie = new TransactionManager.Builder(caver, senderCredential_charlie)
                     .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
@@ -541,12 +541,12 @@ TransactionManager transactionManager_charlie = new TransactionManager.Builder(c
 KlayTransactionReceipt.TransactionReceipt transactionReceipt = transactionManager_charlie.executeTransaction(rawTransaction_signed_alice_and_bob);
 ```
 
-### Sequential fee-payer signing <a id="sequential-fee-payer-signing"></a>
+### 순차적 수수료 납부자(Fee Payer) 서명<a id="sequential-fee-payer-signing"></a>
 
-Fee-payer signature(s) can also be added sequentially. Signing with `FeePayerManager` accumulates `feePayerSignatures` in the transaction. The signing order is not important. If you sign with `TransactionManager`, the `txSignature` is added. If you sign with `FeePayerManger`, the `feePayerSignatures` is added to the raw transaction.
+수수료 납부자 서명도 순차적으로 추가할 수 있습니다. `FeePayerManager`로 서명하면 트랜잭션의 `feePayerSignatures`가 누적됩니다. 서명 순서는 중요하지 않습니다. `TransactionManager`로 서명하면 `txSignature`에 추가됩니다. `FeePayerManger`로 서명하면 raw transaction의  `feePayerSignatures`에 추가됩니다.
 
 ```java
-//// 1. Bob receives a transaction from Alice and signs the transaction as a fee payer.
+//// 1. Bob은 Alice로부터 트랜잭션을 받아 수수료 납부자로 서명합니다.
 //// Bob Side
 FeePayerManager feePayerManager_bob = new FeePayerManager.Builder(caver, feePayerCredentials_bob)
                     .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
@@ -555,7 +555,7 @@ FeePayerManager feePayerManager_bob = new FeePayerManager.Builder(caver, feePaye
 
 String rawTransaction_signed_alice_and_bob = feePayerManager_bob.sign(rawTransaction_signed_alice).getValueAsString();
 
-//// 2. Charlie signs the received transaction and sends it to Klaytn EN.
+//// 2. Charlie는 받은 트랜잭션에 서명하고 Klaytn EN으로 보냅니다.
 //// Charlie Side
 FeePayerManager feePayerManager_charlie = new FeePayerManager.Builder(caver, feePayerCredentials_charlie)
                     .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
