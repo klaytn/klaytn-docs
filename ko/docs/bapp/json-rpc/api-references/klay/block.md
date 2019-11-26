@@ -110,7 +110,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | 명칭               | 형식             | 설명                                                         |
 | ---------------- | -------------- | ---------------------------------------------------------- |
 | number           | QUANTITY       | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                         |
-| hash             | 32바이트 크기 DATA  | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                        |
+| 해시               | 32바이트 크기 DATA  | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                        |
 | parentHash       | 32바이트 크기 DATA  | 이전 블록의 해시입니다.                                              |
 | logsBloom        | 256바이트 크기 DATA | 블록의 로그를 위한 블룸필터입니다. 아직 보류 중인 블록이면 `null`입니다.               |
 | transactionsRoot | 32바이트 크기 DATA  | 블록의 트랜잭션 트라이의 루트 해시입니다.                                    |
@@ -305,7 +305,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | totalBlockScore  | QUANTITY      | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                   |
 | committee        | 배열            | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
 | gasUsed          | QUANTITY      | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                           |
-| hash             | 32바이트 크기 DATA | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                      |
+| 해시               | 32바이트 크기 DATA | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                      |
 | number           | QUANTITY      | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                                       |
 | parentHash       | 32바이트 크기 DATA | 이전 블록의 해시입니다.                                                            |
 | proposer         | 20바이트 크기 DATA | 블록 제안자의 주소입니다.                                                           |
@@ -409,7 +409,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 | totalBlockScore  | QUANTITY      | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                   |
 | committee        | 배열            | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
 | gasUsed          | QUANTITY      | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                           |
-| hash             | 32바이트 크기 DATA | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                      |
+| 해시               | 32바이트 크기 DATA | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                      |
 | number           | QUANTITY      | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                                       |
 | parentHash       | 32바이트 크기 DATA | 이전 블록의 해시입니다.                                                            |
 | proposer         | 20바이트 크기 DATA | 블록 제안자의 주소입니다.                                                           |
