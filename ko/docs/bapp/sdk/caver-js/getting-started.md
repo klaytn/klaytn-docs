@@ -786,7 +786,7 @@ The result object of [caver.klay.accounts.signTransaction](api-references/caver.
 
 The `rawTransaction` has an RLP encoded transaction that contains both `signatures` and `feePayerSignatures`. `feePayerSignature` is included only when the transaction is a fee delegated transaction.
 
-The following example shows how to sign a transaction sequentially with multiple private keys. Assume the account's transactionKey has two private key strings.
+The following example shows how to sign a transaction sequentially with multiple private keys. 계정의 transactionKey에 두 개의 개인키 문자열이 있다고 가정해보죠.
 
 ```javascript
 const tx = {
@@ -833,7 +833,7 @@ console.log(receipt)
 
 **NOTE** `caver.klay.accounts.feePayerSignTransaction` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-If the account you use exists in the caver-js in-memory wallet, you do not need to pass the key(s) to `signTransaction` or `feePayerSignTransaction`. See the example below.
+If the account you use exists in the caver-js in-memory wallet, you do not need to pass the key(s) to `signTransaction` or `feePayerSignTransaction`. 아래 예제를 참조하세요.
 
 ```javascript
 const tx = {
@@ -859,7 +859,7 @@ console.log(receipt)
 
 If you receive the result object of the `caver.klay.accounts.signTransaction` or `caver.klay.accounts.feePayerSignTransaction` from several people, you can create a single RLP encoded transaction that contains all the signature information.
 
-The example below shows how to combine and send the RLP encoded transactions.
+아래 예제는 RLP 인코딩된 트랜잭션을 결합하고 보내는 방법을 보여줍니다.
 ```javascript
 const tx = {
     type: 'FEE_DELEGATED_VALUE_TRANSFER',
@@ -891,7 +891,7 @@ const receipt = await caver.klay.sendSignedTransaction(combined)
 console.log(receipt)
 ```
 
-**NOTE** `caver.klay.accounts.combineSignatures` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**참고** `caver.klay.accounts.combineSignatures`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
 ### Send transaction object with Signatures and FeePayerSignatures <a id="send-transaction-object-with-signatures-and-feepayersignatures"></a>
 
@@ -949,7 +949,7 @@ const { rawTransaction } = await caver.klay.accounts.getRawTransactionWithSignat
 console.log(rawTransaction)
 ```
 
-**NOTE** `caver.klay.accounts.getRawTransactionWithSignatures` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**참고** `caver.klay.accounts.getRawTransactionWithSignatures`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
 ## 샘플 프로젝트 <a id="sample-projects"></a>
 
