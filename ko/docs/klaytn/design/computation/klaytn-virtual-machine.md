@@ -84,9 +84,9 @@ KLVM은 간단한 스택 기반 아키텍처입니다. 머신의 워드 크기(�
 
 세 가지 상황에서 비용(가스로 표시)이 부과되며, 세 가지 모두 연산 실행을 위한 필수 조건입니다. 첫 번째이자 가장 일반적인 비용은 연산 자체에 부과되는 비용입니다. 두 번째로, subordinate 메시지 호출이나 컨트랙트 생성 시 부과될 수 있습니다. 이러한 형태는 `CREATE`, `CALL`과 `CALLCODE`를 위한 비용 지불입니다. 마지막으로, 가스는 메모리 사용이 늘었을 때 부과될 수 있습니다.
 
-Over an account's execution, the total fee payable for memory-usage payable is proportional to the smallest multiple of 32 bytes that are required to include all memory indices \(whether for read or write\) in the range. This fee is paid on a just-in-time basis; consequently, referencing an area of memory at least 32 bytes greater than any previously indexed memory will result in an additional memory usage fee. 이 수수료 때문에, 주소가 32비트 범위를 초과할 가능성은 거의 없습니다. 즉, 구현할 때 이러한 만일의 사태를 관리할 수 있도록 고려하여야 합니다.
+계정 실행시 메모리 사용 가능 지불(memory-usage payable)에 대해 지불해야하는 총 비용은 해당 범위의 모든 메모리 인덱스(읽기 또는 쓰기)를 포함하는데 필요한 32 바이트의 최소 배수에 비례합니다. 이 수수료는 실행 시점에 지불됩니다. 따라서 이전에 색인된 메모리보다 최소 32 바이트 더 큰 메모리 영역을 참조하면 추가 메모리 사용 요금이 발생합니다. 이 수수료 때문에, 주소가 32비트 범위를 초과할 가능성은 거의 없습니다. 즉, 구현할 때 이러한 만일의 사태를 관리할 수 있도록 고려하여야 합니다.
 
-스토리지 수수료에는 약간의 차이가 있습니다. To incentivize minimization of the use of storage \(which corresponds directly to a larger state database on all nodes\), the execution fee for an operation that clears an entry from storage is not only waived but also elicits a qualified refund; in fact, this refund is effectively paid in advance because the initial usage of a storage location costs substantially more than normal usage.
+스토리지 수수료에는 약간의 차이가 있습니다. 스토리지 사용을 최소화하는 것을 장려하기 위해 (스토리지를 많이 사용한다는 것은 모든 노드에서 더 큰 상태 데이터베이스가 있어야 한다는 의미) 스토리지에서 항목을 지우는 작업은 실행 수수료를 면제할 뿐만 아니라 정책에 따라 환불을 받을 수도 있습니다. 저장 위치의 최초 사용이 일반적인 사용보다 실질적으로 많은 비용이 들기 때문에 이 환불은 사실상 사전에 지불됩니다.
 
 #### 비용표 <a id="fee-schedule"></a>
 
@@ -222,17 +222,17 @@ Over an account's execution, the total fee payable for memory-usage payable is p
 
 `I := (B_header, T_code, T_depth, T_value, T_data, A_tx_sender, A_code_executor, A_code_owner, G_price, P_modify_state)`
 
-The execution model defines the function `F_apply`, which can compute the resultant state `S_system'`, the remaining gas `G_rem'`, the accrued substate `A` and the resultant output `O_result` when given these definitions. 현재는 다음과 같이 정의합니다.
+실행 모델은 `F_apply` 함수를 정의하는데, 이로 결과로 나온 상태 `S_system'`, 잔류 가스 `G_rem '` , 발생한 하위 상태 `A` 및 결과적인 출력 `O_result `를 계산할 수 있습니다. 현재는 다음과 같이 정의합니다.
 
 `(S_system', G_rem', A, O_result) = F_apply(S_system, G_rem, I)`
 
-where we must remember that `A`, the accrued substate, is defined as the tuple of the suicides set `Set_suicide`, the log series `L`, the touched accounts `Set_touched_accounts` and the refunds `G_refund`:
+여기서 우리는 발생된 하위 상태인 `A`는 suicides 집합인 `Set_suicide`, 로그 시리즈 `L`, 접근한 계정의 집합 `Set_touched_accounts `, 그리고 환불 `G_refund`의 튜플로 정의된다는 것을 기억해야 합니다.
 
 `A := (Set_suicide, L, Set_touched_accounts, G_refund)`
 
 ### 실행 개요 <a id="execution-overview"></a>
 
-In most practical implementations, `F_apply` will be modeled as an iterative progression of the pair comprising the full system state `S_system` and the machine state `S_machine`. Formally, we define it recursively with a function `X` that uses an iterator function `O` \(which defines the result of a single cycle of the state machine\) together with functions `Z`, which determines if the present state is an exceptional halted machine state, and `H`, which specifies the output data of an instruction if and only if the present state is a normal halted machine state.
+대부분의 실제 구현에서 `F_apply`는 전체 시스템 상태 `S_system`과 머신 상태 `S_machine` 쌍의 반복적인 진행으로 모델링됩니다. 형태적으로, 우리는 상태 머신에서 하나의 사이클의 결과값을 정의하는 이터레이터 함수 `O`와 현재 상태가 예외적으로 중단된 머신 상태인지 확인하는 함수 `Z`, 그리고 현재 상태가 정상적으로 중단된 머신 상태일 경우에만 명령어의 출력 데이터를 지정하는 `H`를 사용하는 함수 `X`를 이용하여 재귀적으로 정의합니다.
 
 The empty sequence, denoted as `()`, is not equal to the empty set, denoted as `Set_empty`; this is important when interpreting the output of `H`, which evaluates to `Set_empty` when execution is to continue but to a series \(potentially empty\) when execution should halt.
 
@@ -259,11 +259,11 @@ where
 
   `S_machine,g' := S_machine,g - C(S_system, S_machine, I)`
 
-  * This means that when we evaluate `F_apply`, we
+  * 이는 `F_apply`를 계산할 때
 
-    extract the remaining gas `S_machine,g'` from the
+    남은 가스 `S_machine,g'`를
 
-    resultant machine state `S_machine'`.
+    결과로 남은 머신 상태 `S_machine'`에서 차감한다는 의미입니다.
 
 `X` is thus cycled \(recursively here, but implementations are generally expected to use a simple iterative loop\) until either `Z` becomes true, indicating that the present state is exceptional and that the machine must be halted and any changes are discarded, or until `H` becomes a series \(rather than the empty set\), indicating that the machine has reached a controlled halt.
 
