@@ -16,6 +16,7 @@ workflows:
       - readability/check-readability:
           pr-only-changed: true
           check-regular-commits: false
+          path-exclude-regex: SUMMARY.md
 
 orbs:
-  readability: ground-x/readability@0.3.0
+  readability: ground-x/readability@0.4.0
