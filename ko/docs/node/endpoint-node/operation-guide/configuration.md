@@ -44,7 +44,7 @@ TXPOOL_EXEC_SLOTS_ACCOUNT=4096
 TXPOOL_NONEXEC_SLOTS_ACCOUNT=4096
 ```
 
-## Properties <a id="properties"></a>
+## 속성<a id="properties"></a>
 
 다음은 환경 설정 파일에서 설정할 수 있는 속성입니다. 
 
