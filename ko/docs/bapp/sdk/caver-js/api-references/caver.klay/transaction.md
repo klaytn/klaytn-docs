@@ -241,7 +241,7 @@ Returns a transaction matching the given transaction hash.
 | from               | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                  |
 | gas                | QUANTITY      | 트랜잭션 발신자에 의해 설정된 가스양입니다.                                                                                                                                          |
 | gasPrice           | QUANTITY      | peb에서 트랜잭션 발신자에 의해 설정된 가스 가격입니다.                                                                                                                                  |
-| hash               | 32바이트 크기 DATA | 트랜잭션의 해시입니다.                                                                                                                                                      |
+| 해시                 | 32바이트 크기 DATA | 트랜잭션의 해시입니다.                                                                                                                                                      |
 | humanReadable      | Boolean       | (선택사항) Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.                                                                                             |
 | key                | String        | (선택사항) 새로 생성된 계정의 키입니다.                                                                                                                                           |
 | input              | DATA          | (선택사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                       |
@@ -311,7 +311,7 @@ Returns the information about the transaction identified by the given `senderTxH
 | from               | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                             |
 | gas                | QUANTITY      | 트랜잭션 발신자에 의해 설정된 가스양입니다.                                                                                                                                     |
 | gasPrice           | QUANTITY      | peb에서 트랜잭션 발신자에 의해 설정된 가스 가격입니다.                                                                                                                             |
-| hash               | 32바이트 크기 DATA | 트랜잭션의 해시입니다.                                                                                                                                                 |
+| 해시                 | 32바이트 크기 DATA | 트랜잭션의 해시입니다.                                                                                                                                                 |
 | humanReadable      | Boolean       | (선택사항) Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.                                                                                        |
 | key                | String        | (선택사항) 새로 생성된 계정의 키입니다.                                                                                                                                      |
 | input              | DATA          | (선택사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                  |
