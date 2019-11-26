@@ -45,44 +45,44 @@ Klaytn은 현재 단가를 이용하는 트랜잭션을 교체할 수 없습니�
 
 ### 공통 비용<a id="common-fee"></a>
 
-| 항목                | 가스    | 설명                                                                                         |
-|:----------------- |:----- |:------------------------------------------------------------------------------------------ |
-| G\_zero         | 0     | Set Wzero 연산을 위해 지불할 금액은 없음                                                                |
-| G\_base         | 2     | Set Wbase 연산을 위해 지불하는 가스량                                                                  |
-| G\_verylow      | 3     | Set Wverylow 연산을 위해 지불하는 가스량                                                               |
-| G\_low          | 5     | Set Wlow 연산을 위해 지불하는 가스량                                                                   |
-| G\_mid          | 8     | Set Wmid 연산을 위해 지불하는 가스량                                                                   |
-| G\_high         | 10    | Set Whigh 연산을 위해 지불하는 가스량                                                                  |
-| G\_blockhash    | 20    | BLOCKHASH 연산을 위해 지불하는 가스량                                                                  |
-| G\_extcode      | 700   | Set Wextcode 연산을 위해 지불하는 가스량                                                               |
-| G\_balance      | 400   | BALANCE 연산을 위해 지불하는 가스량                                                                    |
-| G\_sload        | 200   | SLOAD 연산을 위해 지불되는 가스량                                                                      |
-| G\_jumpdest     | 1     | JUMPDEST 연산을 위해 지불되는 가스량                                                                   |
-| G\_sset         | 20000 | Storage value가 0에서 0이 아니도록 변경된 경우 SSTORE 연산을 위해 지불하는 가스량                                   |
-| G\_sreset       | 5000  | Storage value가 0이 유지되거나 0으로 바뀐 경우 SSTORE 연산을 위해 지불하는 가스량                                   |
-| G\_sclear       | 15000 | 스토리지 값이 0이 아닌 경우에서 0으로 설정된 경우 반환되는 양(반환 카운터가 추가됨)                                          |
-| R\_selfdestruct | 24000 | 계정 self-destructing시 반환되는 양(반환 카운터가 추가됨)                                                   |
-| G\_selfdestruct | 5000  | SELFDESTRUCT 연산을 위해 지불하는 가스량                                                               |
-| G\_create       | 32000 | CREATE 연산을 위해 지불되는 가스량                                                                     |
-| G\_codedeposit  | 200   | CREATE 연산이 코드를 상태에 배치하는 데 바이트당 지불하는 가스량                                                    |
-| G\_call         | 700   | CALL 연산을 위해 지불되는 가스량                                                                       |
-| G\_callvalue    | 9000  | CALL 연산의 일부로 0이 아닌 값 전송에 대해 지불되는 가스량                                                       |
-| G\_callstipend  | 2300  | A stipend for the called contract subtracted from Gcallvalue for a non-zero value transfer |
-| G\_newaccount   | 25000 | 계정을 생성하는 SELFDESTRUCT나 CALL 연산을 위해 지불하는 가스량                                                |
-| G\_exp          | 10    | EXP 연산에 대한 부분 지불                                                                           |
-| G\_expbyte      | 50    | EXP 연산에서 dlog256\(exponent\)e가 곱해질 때 부분 지불하는 가스량                                         |
-| G\_memory       | 3     | 메모리를 확장하는 모든 추가적인 단어를 위해 지불하는 가스량                                                          |
-| G\_txcreate     | 32000 | 모든 컨트랙트 생성 트랜잭션을 위해 지불하는 가스량                                                               |
-| G\_transaction  | 21000 | 모든 트랜잭션에 대해 지불하는 가스량                                                                       |
-| G\_log          | 375   | LOG 연산에 대한 부분 지불하는 가스량                                                                     |
-| G\_logdata      | 8     | LOG 연산 데이터의 각 바이트에 대해 지불하는 가스량                                                             |
-| G\_logtopic     | 375   | LOG 연산의 각 topic마다 지불되는 가스량                                                                 |
-| G\_sha3         | 30    | SHA3 연산을 위해 지불되는 가스량                                                                       |
-| G\_sha3word     | 6     | SHA3 연산에 대한 입력 데이터의 각 단어(반올림)에 대해 지불하는 가스량                                                 |
-| G\_copy         | 3     | \*COPY 연산에 대한 부분 지불량. 복사된 단어에 곱하고, 반올림 됨.                                                |
-| G\_blockhash    | 20    | BLOCKHASH 연산을 위해 지불하는 가스량                                                                  |
-| G\_extcodehash  | 400   | 컨트랙트 코드의 keccak256 해시를 얻기 위해 지불하는 가스량                                                      |
-| G\_create2      | 32000 | CREATE와 똑같이 작동하지만 다른 인수를 사용하는 CREATE2 Opcode를 위해 지불하는 가스량.                                 |
+| 항목                | 가스    | 설명                                                         |
+|:----------------- |:----- |:---------------------------------------------------------- |
+| G\_zero         | 0     | Set Wzero 연산을 위해 지불할 금액은 없음                                |
+| G\_base         | 2     | Set Wbase 연산을 위해 지불하는 가스량                                  |
+| G\_verylow      | 3     | Set Wverylow 연산을 위해 지불하는 가스량                               |
+| G\_low          | 5     | Set Wlow 연산을 위해 지불하는 가스량                                   |
+| G\_mid          | 8     | Set Wmid 연산을 위해 지불하는 가스량                                   |
+| G\_high         | 10    | Set Whigh 연산을 위해 지불하는 가스량                                  |
+| G\_blockhash    | 20    | BLOCKHASH 연산을 위해 지불하는 가스량                                  |
+| G\_extcode      | 700   | Set Wextcode 연산을 위해 지불하는 가스량                               |
+| G\_balance      | 400   | BALANCE 연산을 위해 지불하는 가스량                                    |
+| G\_sload        | 200   | SLOAD 연산을 위해 지불되는 가스량                                      |
+| G\_jumpdest     | 1     | JUMPDEST 연산을 위해 지불되는 가스량                                   |
+| G\_sset         | 20000 | Storage value가 0에서 0이 아니도록 변경된 경우 SSTORE 연산을 위해 지불하는 가스량   |
+| G\_sreset       | 5000  | Storage value가 0이 유지되거나 0으로 바뀐 경우 SSTORE 연산을 위해 지불하는 가스량   |
+| G\_sclear       | 15000 | 스토리지 값이 0이 아닌 경우에서 0으로 설정된 경우 반환되는 양(반환 카운터가 추가됨)          |
+| R\_selfdestruct | 24000 | 계정 self-destructing시 반환되는 양(반환 카운터가 추가됨)                   |
+| G\_selfdestruct | 5000  | SELFDESTRUCT 연산을 위해 지불하는 가스량                               |
+| G\_create       | 32000 | CREATE 연산을 위해 지불되는 가스량                                     |
+| G\_codedeposit  | 200   | CREATE 연산이 코드를 상태에 배치하는 데 바이트당 지불하는 가스량                    |
+| G\_call         | 700   | CALL 연산을 위해 지불되는 가스량                                       |
+| G\_callvalue    | 9000  | CALL 연산의 일부로 0이 아닌 값 전송에 대해 지불되는 가스량                       |
+| G\_callstipend  | 2300  | 0이 아닌 값 전송을 위해 호출된 컨트랙트에 지불하는 비용으로 Gcallvalue에서 차감된 금액     |
+| G\_newaccount   | 25000 | 계정을 생성하는 SELFDESTRUCT나 CALL 연산을 위해 지불하는 가스량                |
+| G\_exp          | 10    | EXP 연산에 대한 부분 지불                                           |
+| G\_expbyte      | 50    | EXP 연산에서 dlog256\(exponent\)e가 곱해질 때 부분 지불하는 가스량         |
+| G\_memory       | 3     | 메모리를 확장하는 모든 추가적인 단어를 위해 지불하는 가스량                          |
+| G\_txcreate     | 32000 | 모든 컨트랙트 생성 트랜잭션을 위해 지불하는 가스량                               |
+| G\_transaction  | 21000 | 모든 트랜잭션에 대해 지불하는 가스량                                       |
+| G\_log          | 375   | LOG 연산에 대한 부분 지불하는 가스량                                     |
+| G\_logdata      | 8     | LOG 연산 데이터의 각 바이트에 대해 지불하는 가스량                             |
+| G\_logtopic     | 375   | LOG 연산의 각 topic마다 지불되는 가스량                                 |
+| G\_sha3         | 30    | SHA3 연산을 위해 지불되는 가스량                                       |
+| G\_sha3word     | 6     | SHA3 연산에 대한 입력 데이터의 각 단어(반올림)에 대해 지불하는 가스량                 |
+| G\_copy         | 3     | \*COPY 연산에 대한 부분 지불량. 복사된 단어에 곱하고, 반올림 됨.                |
+| G\_blockhash    | 20    | BLOCKHASH 연산을 위해 지불하는 가스량                                  |
+| G\_extcodehash  | 400   | 컨트랙트 코드의 keccak256 해시를 얻기 위해 지불하는 가스량                      |
+| G\_create2      | 32000 | CREATE와 똑같이 작동하지만 다른 인수를 사용하는 CREATE2 Opcode를 위해 지불하는 가스량. |
 
 ### 미리 컴파일된 컨트랙트(Precompiled Contracts) <a id="precompiled-contracts"></a>
 
