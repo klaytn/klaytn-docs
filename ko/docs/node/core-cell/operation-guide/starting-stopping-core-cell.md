@@ -1,4 +1,4 @@
-# Starting/Stopping Core Cell <a id="starting-stopping-core-cell"></a>
+# 코어 셀 시작/중지<a id="starting-stopping-core-cell"></a>
 
 ## CN 시작/중지  <a id="cn-start-stop"></a>
 
