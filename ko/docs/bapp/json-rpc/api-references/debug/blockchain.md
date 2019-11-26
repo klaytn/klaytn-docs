@@ -1,4 +1,4 @@
-# Blockchain Inspection <a id="blockchain-inspection"></a>
+# 블록체인 인스펙션<a id="blockchain-inspection"></a>
 
 ## debug_dumpBlock <a id="debug_dumpblock"></a>
 
@@ -191,9 +191,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 **매개변수**
 
-| 명칭   | 형식  | 설명          |
-| ---- | --- | ----------- |
-| hash | 문자열 | sha3 해시입니다. |
+| 명칭 | 형식  | 설명          |
+| -- | --- | ----------- |
+| 해시 | 문자열 | sha3 해시입니다. |
 
 **리턴값**
 
