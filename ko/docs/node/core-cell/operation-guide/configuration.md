@@ -65,7 +65,7 @@ TXPOOL_EXEC_SLOTS_ACCOUNT=8192
 TXPOOL_NONEXEC_SLOTS_ACCOUNT=8192
 ```
 
-## Properties <a id="properties"></a>
+## 속성<a id="properties"></a>
 
 다음은 설정 파일에서 설정할 수 있는 속성입니다. CN과 PN 설정 파일은 `REWARDBASE`를 제외하고는 동일한 속성을 갖습니다.
 
