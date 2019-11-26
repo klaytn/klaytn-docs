@@ -8,7 +8,7 @@ description: >-
 `klay` namespace는 계정, 블록, 트랜잭션, 네트워크 또는 노드의 환경설정, 필터 등과 관련한 함수를 제공합니다. 아래는 현재 Klaytn이 지원하는 API 함수들의 목록입니다.
 
 
-### [Account](./klay/account.md) <a id="account"></a>
+### [계정(Account)](./klay/account.md) <a id="account"></a>
 - [klay_accountCreated](./klay/account.md#klay_accountcreated)
 - [klay_accounts](./klay/account.md#klay_accounts)
 - [klay_getAccount](./klay/account.md#klay_getaccount)
@@ -20,7 +20,7 @@ description: >-
 - [klay_sign](./klay/account.md#klay_sign)
 
 
-### [Block](./klay/block.md) <a id="block"></a>
+### [블록](./klay/block.md) <a id="block"></a>
 - [klay_blockNumber](./klay/block.md#klay_blocknumber)
 - [klay_getBlockByNumber](./klay/block.md#klay_getblockbynumber)
 - [klay_getBlockByHash](./klay/block.md#klay_getblockbyhash)
@@ -38,7 +38,7 @@ description: >-
 - [klay_syncing](./klay/block.md#klay_syncing)
 
 
-### [Transaction](./klay/transaction.md) <a id="transaction"></a>
+### [트랜잭션(Transaction)](./klay/transaction.md) <a id="transaction"></a>
 - [klay_call](./klay/transaction.md#klay_call)
 - [klay_estimateGas](./klay/transaction.md#klay_estimategas)
 - [klay_estimateComputationCost](./klay/transaction.md#klay_estimatecomputationcost)
@@ -53,7 +53,7 @@ description: >-
 - [klay_signTransaction](./klay/transaction.md#klay_signtransaction)
 
 
-### [Configuration](./klay/config.md) <a id="configuration"></a>
+### [환경설정](./klay/config.md) <a id="configuration"></a>
 - [klay_chainID](./klay/config.md#klay_chainid)
 - [klay_clientVersion](./klay/config.md#klay_clientversion)
 - [klay_gasPrice](./klay/config.md#klay_gasprice)
@@ -65,7 +65,7 @@ description: >-
 - [klay_writeThroughCaching](./klay/config.md#klay_writethroughcaching)
 
 
-### [Filter](./klay/filter.md) <a id="filter"></a>
+### [필터](./klay/filter.md) <a id="filter"></a>
 - [klay_getFilterChanges](./klay/filter.md#klay_getfilterchanges)
 - [klay_getFilterLogs](./klay/filter.md#klay_getfilterlogs)
 - [klay_getLogs](./klay/filter.md#klay_getlogs)
@@ -75,5 +75,6 @@ description: >-
 - [klay_uninstallFilter](./klay/filter.md#klay_uninstallfilter)
 
 
-### [Miscellaneous](./klay/misc.md) <a id="miscellaneous"></a>
+### [기타](./klay/misc.md) <a id="miscellaneous"></a>
 - [klay_sha3](./klay/misc.md#klay_sha3)
+
