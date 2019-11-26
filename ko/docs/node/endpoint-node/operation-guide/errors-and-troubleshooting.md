@@ -78,7 +78,7 @@ INFO[02/20,12:35:38 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa
 
 이는 `genesis.json`과 nodekey/validator 정보가 다를 때 발생할 수 있습니다. nodekey/validator 및 `genesis.json` 파일을 다시 확인하길 바랍니다.
 
-## Klaytn node can't start with following error log message. <a id="klaytn-node-can-t-start-with-following-error-log-message"></a>
+## 다음 에러 로그와 함께 Klaytn 노드가 실행되지 않습니다.<a id="klaytn-node-can-t-start-with-following-error-log-message"></a>
 
 ```
 Fatal: Error starting protocol stack: listen unix /Users/username/some_directory/more_directories/klaytn/klaytn_client/my_test_klaytn/data/dd/klay.ipc: bind: invalid argument
@@ -89,7 +89,7 @@ Fatal: Error starting protocol stack: listen unix /Users/username/some_directory
 만일 위 프로토콜 스택 에러 메시지를 확인할 수 있다면, 이는 현재 작업 디렉토리의 전체 경로 이름이 너무 길어서 Klaytn을 시작하지 못했음을 의미합니다. 전체 데이터 디렉토리가 더 짧게 Klaytn 노드를 시작하세요. 허용되는 경로 이름의 최대 길이는 운영 체제에 따라 다릅니다.
 
 
-## EN can't connect to CC with following log message. <a id="en-can-t-connect-to-cc-with-following-log-message"></a>
+## 다음 에러 로그와 함께 EN이 CC에 연결되지 않습니다.<a id="en-can-t-connect-to-cc-with-following-log-message"></a>
 
 ```
 ERROR[01/28,06:20:07 Z] [23] Protocol istanbul/64 failed id=845f596536450bad conn=staticdial err="InvalidPeerHierarchy - (PeerIsOnParentChain:false) == (OnChildChain:false)"
@@ -99,7 +99,7 @@ ERROR[01/28,06:20:07 Z] [23] Protocol istanbul/64 failed id=845f596536450bad con
 
 메인체인과 서비스체인의 제네시스가 다를 때 발생할 수 있습니다. 두 체인의 제네시스가 동일한 지 확인하세요.
 
-## Head state missing error <a id="head-state-missing-error"></a>
+## Head state missing 에러<a id="head-state-missing-error"></a>
 
 ```
 "ERROR[06/21,14:35:16 +09] [5] Head state missing, repairing chain       number=2955620 hash=66bba2…e15f8d
