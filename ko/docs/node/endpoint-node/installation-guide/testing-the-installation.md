@@ -57,7 +57,7 @@ INFO[02/13,07:02:27 Z] [5] Imported new chain segment                blocks=1 tx
 INFO[02/13,07:02:27 Z] [35] Commit new mining work      
 ```
 
-## Queries <a id="queries"></a>
+## 조회<a id="queries"></a>
 
 ### ken 콘솔 <a id="ken-console"></a>
 
