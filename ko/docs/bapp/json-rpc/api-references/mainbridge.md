@@ -120,17 +120,17 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 
 ## mainbridge_getChildChainIndexingEnabled <a id="mainbridge_getChildChainIndexingEnabled"></a>
 
-`mainbridge_getChildChainIndexingEnabled` returns if indexing anchoring transaction is enabled or not.
+`mainbridge_getChildChainIndexingEnabled`는 앵커링 트랜잭션의 인덱싱이 활성화되어 있는지 여부를 반환합니다.
 
 **매개변수**
 
-none
+없음
 
 **리턴값**
 
-| 형식   | 설명                                                     |
-| ---- | ------------------------------------------------------ |
-| bool | `true` if the indexing was enabled, `false` otherwise. |
+| 형식   | 설명                                            |
+| ---- | --------------------------------------------- |
+| bool | 인덱싱이 활성화된 경우 `true`를, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -145,15 +145,15 @@ true
 
 **매개변수**
 
-| 형식            | 설명                          |
-| ------------- | --------------------------- |
-| 32바이트 크기 DATA | The child chain block hash. |
+| 형식            | 설명            |
+| ------------- | ------------- |
+| 32바이트 크기 DATA | 자식 체인의 블록 해시. |
 
 **리턴값**
 
-| 형식            | 설명                                                                              |
-| ------------- | ------------------------------------------------------------------------------- |
-| 32바이트 크기 DATA | The anchoring transaction hash that includes the child chain block information. |
+| 형식            | 설명                             |
+| ------------- | ------------------------------ |
+| 32바이트 크기 DATA | 자식 체인의 블록 정보가 포함된 앵커링 트랜잭션 해시. |
 
 **예시**
 
