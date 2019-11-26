@@ -995,7 +995,7 @@ caver.utils.toTwosComplement(number)
 ```javascript
 caver.utils.isContractDeployment(transactionObject)
 ```
-주어진 트랜잭션이 스마트 컨트랙트 배포 트랜잭션인 경우 `true`를 반환합니다. 주어진 트랜잭션이 스마트 컨트랙트 배포 트랜잭션이 아닌 경우 `flase`를 반환합니다. 결과는 `transactionObject`의 매개변수 값에 의해 결정됩니다. 모든 필수 매개변수가 올바르게 설정되었는지 확인하세요.
+주어진 트랜잭션이 스마트 컨트랙트 배포 트랜잭션인 경우 `true`를 반환합니다. 주어진 트랜잭션이 스마트 컨트랙트 배포 트랜잭션이 아닌 경우 `false`를 반환합니다. 결과는 `transactionObject`의 매개변수 값에 의해 결정됩니다. 모든 필수 매개변수가 올바르게 설정되었는지 확인하세요.
 
 **참고** caver.klay.isContractDeployment는 **v1.0.1-rc.8**에서 지원됩니다. 이 기능을 사용하려면 [v1.0.1-rc.8](https://www.npmjs.com/package/caver-js/v/8.1.1-rc.8) 또는 그 이상을 설치하세요.
 
@@ -1329,19 +1329,19 @@ false
 ```javascript
 caver.utils.isValidPrivateKey(privateKey)
 ```
-privateKey가 유효하면 `true`, 그렇지 않으면 `false`리턴합니다.
+privateKey가 유효하면 `true`, 그렇지 않으면 `false`를 반환합니다.
 
 **매개변수**
 
-| 명칭         | 형식     | 설명                                |
-| ---------- | ------ | --------------------------------- |
-| privateKey | String | A private key string to validate. |
+| 명칭         | 형식     | 설명                   |
+| ---------- | ------ | -------------------- |
+| privateKey | String | 유효성을 검사할 개인키 문자열입니다. |
 
 **리턴값**
 
-| 형식      | 설명                                    |
-| ------- | ------------------------------------- |
-| Boolean | `true` means the privateKey is valid. |
+| 형식      | 설명                              |
+| ------- | ------------------------------- |
+| Boolean | `true`는 privateKey가 유효함을 의미합니다. |
 
 **예제**
 
@@ -1361,21 +1361,21 @@ false
 ```javascript
 caver.utils.isValidPublicKey(publicKey)
 ```
-Returns `true` if publicKey is valid, otherwise it returns `false`.
+publicKey가 유효하면 `true`, 그렇지 않으면 `false`를 반환합니다.
 
-**NOTE** `caver.utils.isValidPublicKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**참고** `caver.utils.isValidPublicKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
 **매개변수**
 
-| 명칭        | 형식     | 설명                               |
-| --------- | ------ | -------------------------------- |
-| publicKey | String | A public key string to validate. |
+| 명칭        | 형식     | 설명                   |
+| --------- | ------ | -------------------- |
+| publicKey | String | 유효성을 검사할 공개키 문자열입니다. |
 
 **리턴값**
 
-| 형식      | 설명                                   |
-| ------- | ------------------------------------ |
-| Boolean | `true` means the publicKey is valid. |
+| 형식      | 설명                             |
+| ------- | ------------------------------ |
+| Boolean | `true`는 publicKey가 유효함을 의미합니다. |
 
 **예제**
 
@@ -1403,21 +1403,21 @@ false
 ```javascript
 caver.utils.isValidRole(role)
 ```
-Returns `true` if role is valid, otherwise it returns `false`. Roles that are currently defined for AccountKeyRoleBased are `transactionKey`,`updateKey`, and `feePayerKey`.
+role이 유효하면 `true`, 그렇지 않으면 `false`를 반환합니다. AccountKeyRoleBased에서 사용되는 현재 정의된 role은 `transactionKey`,`updateKey`및 `feePayerKey`입니다.
 
-**NOTE** `caver.utils.isValidRole` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**참고** `caver.utils.isValidRole`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
 **매개변수**
 
-| 명칭   | 형식     | 설명                         |
-| ---- | ------ | -------------------------- |
-| role | String | A role string to validate. |
+| 명칭   | 형식     | 설명                    |
+| ---- | ------ | --------------------- |
+| role | String | 유효성을 검사할 role 문자열입니다. |
 
 **리턴값**
 
-| 형식      | 설명                              |
-| ------- | ------------------------------- |
-| Boolean | `true` means the role is valid. |
+| 형식      | 설명                        |
+| ------- | ------------------------- |
+| Boolean | `true`는 role이 유효함을 의미합니다. |
 
 **예제**
 
@@ -1440,23 +1440,23 @@ false
 ```javascript
 caver.utils.isEmptySig(sig)
 ```
-Returns `true` if sig is in the format of empty signature (`[['0x01', '0x', '0x']]` or `['0x01', '0x', '0x']`), otherwise it returns `false`.
+sig가 빈 서명 형식인 경우 (`[[ '0x01', '0x', '0x']]` 또는 `[ '0x01', '0x', '0x']`) `true`, 그렇지 않은 경우 `false`를 반환합니다.
 
-When RLP-encoding a transaction in caver-js, if signatures or feePayerSignatures is empty, the value representing an empty signature, `[['0x01', '0x', '0x']]`, is returned for the property. This function is used to check whether the given signature is `[['0x01', '0x', '0x']]` (or `['0x01', '0x', '0x']` in the 'LEGACY' transaction).
+caver-js에서 트랜잭션을 RLP 인코딩할 때 signatures 또는 feePayerSignatures가 비어있는 경우, 해당 프로퍼티에는 빈 서명을 나타내는 `[[ '0x01', '0x', '0x']]` 값이 반환됩니다. 이 함수는 주어진 서명이 `[[ '0x01', '0x', '0x']]`인지 ('legacy' 트랜잭션인 경우는 `[ '0x01', '0x', '0x']`) 확인하고자 할 때 사용합니다.
 
-**NOTE** `caver.utils.isEmptySig` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**참고** `caver.utils.isEmptySig`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
 **매개변수**
 
-| 명칭  | 형식 | 설명                                            |
-| --- | -- | --------------------------------------------- |
-| sig | 배열 | An array of signatures to check empty or not. |
+| 명칭  | 형식 | 설명                |
+| --- | -- | ----------------- |
+| sig | 배열 | 비어있는지 확인할 서명의 배열. |
 
 **리턴값**
 
-| 형식      | 설명                                                                          |
-| ------- | --------------------------------------------------------------------------- |
-| Boolean | `true` means the sig is `[['0x01', '0x', '0x']]` or `['0x01', '0x', '0x']`. |
+| 형식      | 설명                                                                         |
+| ------- | -------------------------------------------------------------------------- |
+| Boolean | `true`는 sig가 `[[ '0x01', '0x', '0x']]` 또는 `[ '0x01', '0x', '0x']`임을 의미합니다. |
 
 **예제**
 
