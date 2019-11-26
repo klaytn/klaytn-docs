@@ -115,7 +115,7 @@ IPC를 통해 프로세스를 연결한 후, 아래와 같이 EN의 메인 브�
 
 #### SCN 콘솔 열기 <a id="open-scn-console"></a>
 
-Attach to the SCN process like below. You should have enabled `subbridge` API for RPC, you can find the subbridge module in the output. `subbridge` API가 없는 경우, [Configuration of the SCN](configuration.md#configuration-of-the-scn)를 다시 확인해야 합니다.)
+아래와 같이 SCN 프로세스에 연결하세요. `subbridge` RPC API가 활성화되어 있어야 하며, 출력에서 subbridge 모듈을 확인할 수 있습니다. `subbridge` API가 없는 경우, [Configuration of the SCN](configuration.md#configuration-of-the-scn)를 다시 확인해야 합니다.)
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
