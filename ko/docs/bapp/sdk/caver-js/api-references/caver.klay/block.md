@@ -84,7 +84,7 @@ Returns a block matching the block hash or block number.
 | extraData        | String          | 블록의 "추가 데이터"를 위한 필드입니다.                                                                                            |
 | gasUsed          | Number          | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                                                                     |
 | governanceData   | DATA            | RLP 인코딩된 거버넌스 설정입니다.                                                                                               |
-| hash             | 32-byte String  | 블록의 해시입니다. `null` when it is a pending block.                                                                      |
+| 해시               | 32-byte String  | 블록의 해시입니다. `null` when it is a pending block.                                                                      |
 | logsBloom        | 256-byte String | 블록의 로그를 위한 블룸필터입니다. `null` when it is a pending block.                                                             |
 | number           | Number          | 블록 번호입니다. `null` when it is a pending block.                                                                       |
 | parentHash       | 32-byte String  | 이전 블록의 해시입니다.                                                                                                      |
@@ -234,7 +234,7 @@ Returns a block with consensus information matched by the given block hash or bl
 | extraData        | String          | 블록의 "추가 데이터"를 위한 필드입니다.                                                  |
 | gasUsed          | QUANTITY        | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                           |
 | governanceData   | DATA            | RLP 인코딩된 거버넌스 설정입니다.                                                     |
-| hash             | 32바이트 크기 DATA   | 블록의 해시입니다. `null` when it is a pending block.                            |
+| 해시               | 32바이트 크기 DATA   | 블록의 해시입니다. `null` when it is a pending block.                            |
 | logsBloom        | 256-byte String | 블록의 로그를 위한 블룸필터입니다. `null` when it is a pending block.                   |
 | number           | QUANTITY        | 블록 번호입니다. `null` when it is a pending block.                             |
 | parentHash       | 32바이트 크기 DATA   | 이전 블록의 해시입니다.                                                            |
