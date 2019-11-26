@@ -142,7 +142,7 @@ You can refer to the [subbridge API](../../bapp/json-rpc/api-references/subbridg
 Sub-bridge saves the list of bridge contract addresses in a file. On reboot, sub-bridge reloads the bridge contract list from the file. 
 
 ## Subscribing <a id="subscribing"></a>
-After deploying the bridge contract, you should make the sub-bridge subscribe to the deployed bridge contracts to enable value transfer. This can be done using another RPC API call, `bridge_subscribeBridge`. 
+After deploying the bridge contract, you should make the sub-bridge subscribe to the deployed bridge contracts to enable value transfer. This can be done using another RPC API call, `subbridge_subscribeBridge`. 
 
 ```javascript
 > subbridge.subscribeBridge("0x27caeba831d98b5fbb1d81ce0ed20801702f443a", "0x22c41ae528627b790233d2e59ea520be12350eb5")
