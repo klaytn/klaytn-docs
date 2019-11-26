@@ -225,7 +225,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | from               | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                           |
 | gas                | QUANTITY      | 트랜잭션 발신자에 의해 설정된 가스양입니다.                                                                                                                                                   |
 | gasPrice           | QUANTITY      | peb에서 트랜잭션 발신자에 의해 설정된 가스 가격입니다.                                                                                                                                           |
-| hash               | 32바이트 크기 DATA | 트랜잭션의 해시입니다.                                                                                                                                                               |
+| 해시                 | 32바이트 크기 DATA | 트랜잭션의 해시입니다.                                                                                                                                                               |
 | humanReadable      | Boolean       | (선택사항) Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.                                                                                                      |
 | key                | String        | (선택사항) 새로 생성된 계정의 키입니다.                                                                                                                                                    |
 | input              | DATA          | (선택사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                                |
@@ -308,7 +308,7 @@ SenderTxHash로 조회한 트랜잭션의 정보를 반환합니다. 이 API는 
 | from               | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                           |
 | gas                | QUANTITY      | 트랜잭션 발신자에 의해 설정된 가스양입니다.                                                                                                                                                   |
 | gasPrice           | QUANTITY      | peb에서 트랜잭션 발신자에 의해 설정된 가스 가격입니다.                                                                                                                                           |
-| hash               | 32바이트 크기 DATA | 트랜잭션의 해시입니다.                                                                                                                                                               |
+| 해시                 | 32바이트 크기 DATA | 트랜잭션의 해시입니다.                                                                                                                                                               |
 | humanReadable      | Boolean       | (선택사항) Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.                                                                                                      |
 | key                | String        | (선택사항) 새로 생성된 계정의 키입니다.                                                                                                                                                    |
 | input              | DATA          | (선택사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                                |
@@ -725,7 +725,7 @@ Klaytn은 트랜잭션 영수증의 `txError` 필드를 통해 트랜잭션 실�
 
 ## klay_getDecodedAnchoringTransactionByHash <a id="klay_getDecodedAnchoringTransactionByHash"></a>
 
-Returns the decoded anchored data in the transaction for the given transaction hash.
+주어진 트랜잭션 해시에 대응하는 트랜잭션의 앵커링 데이터를 디코딩하여 반환합니다.
 
 **매개변수**
 
@@ -734,16 +734,16 @@ Returns the decoded anchored data in the transaction for the given transaction h
 | 32바이트 크기 DATA | 트랜잭션 해시입니다. |
 
 **리턴값**
-| 명칭            | 형식            | 설명                                                                                                                                                                                                                                                    |
-| ------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| BlockHash     | 32바이트 크기 DATA | Hash of the child chain block that this anchoring transaction was performed.                                                                                                                                                                          |
-| BlockNumber   | QUANTITY      | The child chain block number that this anchoring transaction was performed.                                                                                                                                                                           |
-| ParentHash    | 32바이트 크기 DATA | 이전 블록의 해시입니다.                                                                                                                                                                                                                                         |
-| TxHash        | 32바이트 크기 DATA | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                                                                                                                                                                                               |
-| StateRootHash | 32바이트 크기 DATA | 블록의 상태 트라이의 루트 해시입니다.                                                                                                                                                                                                                                 |
-| ReceiptHash   | 32바이트 크기 DATA | 블록의 영수증 트라이의 루트 해시입니다.                                                                                                                                                                                                                                |
-| BlockCount    | QUANTITY      | The number of blocks generated during this anchoring period. In most cases, this number is equal to the child chain's `SC_TX_PERIOD`, with the exception of the case that this transaction was the first anchoring tx after turning on the anchoring. |
-| TxCount       | QUANTITY      | The number of transactions generated in the child chain during this anchoring period.                                                                                                                                                                 |
+| 명칭            | 형식            | 설명                                                                                                             |
+| ------------- | ------------- | -------------------------------------------------------------------------------------------------------------- |
+| BlockHash     | 32바이트 크기 DATA | 이 앵커링 트랜잭션이 수행된 자식 체인의 블록 해시입니다.                                                                               |
+| BlockNumber   | QUANTITY      | 이 앵커링 트랜잭션이 수행된 자식 체인의 블록 번호입니다.                                                                               |
+| ParentHash    | 32바이트 크기 DATA | 이전 블록의 해시입니다.                                                                                                  |
+| TxHash        | 32바이트 크기 DATA | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                                                        |
+| StateRootHash | 32바이트 크기 DATA | 블록의 상태 트라이의 루트 해시입니다.                                                                                          |
+| ReceiptHash   | 32바이트 크기 DATA | 블록의 영수증 트라이의 루트 해시입니다.                                                                                         |
+| BlockCount    | QUANTITY      | 이 앵커링 주기 동안 생성된 블록 수입니다. 대부분의 경우 이 숫자는 자식 체인의 `SC_TX_PERIOD`와 같은데, 다만 이 트랜잭션이 앵커링을 활성화한 후 첫번째 트랜잭션인 경우만 예외입니다. |
+| TxCount       | QUANTITY      | 이 앵커링 주기 동안 자식 체인에서 생성된 트랜잭션 수 입니다.                                                                            |
 
 **예시**
 
