@@ -11,9 +11,9 @@ $ vi kscn-darwin-amd64/conf/kscnd.conf
 
 이 튜토리얼에서 명령어의 전체 경로는 생략할 수 있습니다.
 
-## 제네시스 파일 생성 <a id="creation-of-a-genesis-file"></a>
+## Genesis 파일 생성 <a id="creation-of-a-genesis-file"></a>
 
-First, you should create a genesis file and a nodekey file for your own service chain. You can create them using homi like below.
+먼저, 서비스체인을 위한 genesis 파일과 nodekey 파일을 만들어야 합니다. 아래와 같이 homi를 사용하여 만들 수 있습니다.
 ```bash
 $ homi setup local --cn-num 1 --servicechain -o ./homi-output
 Created :  homi-output/keys/passwd1
@@ -25,7 +25,7 @@ Created :  homi-output/Klaytn.json
 Created :  homi-output/Klaytn_txpool.json
 ```
 
-Below are examples of genesis file and nodekey file.
+아래는 genesis 파일 및 nodekey 파일의 예입니다.
 ```bash
 $ cat homi-output/scripts/genesis.json
 {
@@ -60,9 +60,9 @@ $ cat homi-output/keys/nodekey1
 0c28c77ce5c2ca9e495b860f190ed7dfe7bd5c1a2e5f816587eb4d3d9566df44
 ```
 
-Please change the chainID in the genesis file. Use your own number to prevent a replay attack. (Do not use the same chainID with Klaytn Cypress (8217) and Baobab (1001))
+genesis 파일에서 chainID를 변경하세요. Replay attack을 방지하기 위해 독자적인 숫자를 사용하세요. (Klaytn Cypress(8217) 및 Baobab(1001)과 동일한 chainID를 사용하지 마세요.)
 
-If you want, you can change the pre-funded addresses by editing `"alloc"` in the genesis file. (You can find more details in [Genesis JSON](../../genesis.md).)
+필요하다면 genesis 파일에서 `"alloc"`을 편집하여 pre-funded 계정을 변경할 수 있습니다. ([Genesis JSON](../../genesis.md)에서 더 자세한 내용을 확인할 수 있습니다.)
 
 ## SCN 데이터 디렉토리 생성 <a id="scn-data-directory-creation"></a>
 
@@ -97,7 +97,7 @@ $ kscn init --datadir ~/kscnd_home homi-output/scripts/genesis.json
   INFO[11/12,10:13:59 +09] [46] Database closed                           path=/Users/ethan/kscnd_home/klay/lightchaindata/bridgeservice
 ```
 
-### Install nodekey <a id="install_nodekey"></a>
+### nodekey 설치<a id="install_nodekey"></a>
 `homi-output/keys/nodekey1`를 SCN의 데이터 디렉토리 아래에 있는 `klay` 디렉토리에 아래와 같이 복사합니다.
 
 ```bash
