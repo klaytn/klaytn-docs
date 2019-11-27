@@ -2,7 +2,7 @@ This section covers how to set up a multi-node service chain. To tolerate byzant
 
  ## Prerequisites
  - Download the executables.
-   - kscn, kscnd, homi [download](https://docs.klaytn.com/node/download)
+   - kscn, kscnd, homi [download](../../download/README.md)
  - Minimal hardware requirements
      - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
      - Please refer to the [endpoint node system requirements](../../endpoint-node/system-requirements.md) for more explanation.
@@ -43,7 +43,7 @@ Copy `~/your_path/homi-output/keys/nodekey{1..4}` to each SCN's data directory i
 $ cp ~/your_path/homi-output/keys/nodekey{1..4} ~/your_path/data/klay/nodekey
 ```
 
-## Step 5 : Configure nodes <a id="step-5-configure-nodes"></a>
+## Step 5: Configure nodes <a id="step-5-configure-nodes"></a>
 Edit `~/your_path/conf/kscnd.conf` on a text editor.
 ```
 ...
