@@ -15,7 +15,7 @@
 
 This tutorial is intended to give a guide to migrate an Ethereum App to Klaytn. No previous Klaytn experience is needed. A simple blockchain app will be used as a sample to show how to migrate an Ethereum App to Klaytn.  
 
-We will focus only on the code modifications required to migrate an Ethereum App to Klaytn. If you need details on creating a Klaytn BApp, Please refer to [CountBApp Tutorial](https://docs.klaytn.com/bapp/tutorials/count-bapp).
+We will focus only on the code modifications required to migrate an Ethereum App to Klaytn. If you need details on creating a Klaytn BApp, Please refer to [CountBApp Tutorial](count-bapp/README.md).
 
 > **Source Code**  
 > Complete source code can be found on GitHub at [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
@@ -76,7 +76,7 @@ BlockNumber component gets the current block number every 1 second (1000ms).
 By simply replacing the `web3` library with `caver-js`, you can sync Klaytn's BlockNumber in real-time instead of Ethereum's BlockNumber.
 
 >Ethereum: [`web3.eth.getBlockNumber()`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth.html#getblocknumber)  
->Klaytn: [`caver.klay.getBlockNumber()`](https://docs.klaytn.com/bapp/sdk/caver-js/api-references/caver.klay/block#getblocknumber)
+>Klaytn: [`caver.klay.getBlockNumber()`](../sdk/caver-js/api-references/caver.klay/block.md#getblocknumber)
 
 ```js
 // import web3 from 'ethereum/web3'
@@ -96,7 +96,7 @@ class BlockNumber extends Component {
 
 export default BlockNumber
 ```
-For more detail about `BlockNumber` component, see [CountBApp tutorial - Blocknumber Component](https://docs.klaytn.com/bapp/tutorials/count-bapp/5.-frontend-code-overview/5-1.-blocknumber-component).
+For more detail about `BlockNumber` component, see [CountBApp tutorial - Blocknumber Component](count-bapp/5.-frontend-code-overview/5-1.-blocknumber-component.md).
 
 ## 5. Interact with the contract: `Count` component <a id="5-interact-with-the-contract-count-component"></a>
 
@@ -158,14 +158,14 @@ module.exports = {
 }
 ```
 
-For more details about deploying contracts, See [CountBapp tutorial - Deploy Contract](https://docs.klaytn.com/bapp/tutorials/count-bapp/6.-deploy-contract).
+For more details about deploying contracts, See [CountBapp tutorial - Deploy Contract](count-bapp/6.-deploy-contract.md).
 
 ### 5-2. Create a contract instance <a id="5-2-create-a-contract-instance"></a>
 
 You can create a contract instance with the `caver-js` API. The contract instance creates a connection to `Count` contract. You can invoke contract methods through this instance.
 
 > Ethereum : [`web3.eth.Contract(ABI, address)`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth-contract.html#new-contract)  
-> Klaytn : [`caver.klay.Contract(ABI, address)`](https://docs.klaytn.com/bapp/sdk/caver-js/api-references/caver.klay.contract#new-contract)
+> Klaytn : [`caver.klay.Contract(ABI, address)`](../sdk/caver-js/api-references/caver.klay.contract.md#new-contract)
 
 `src/components/Count.js`
 ```javascript

@@ -225,7 +225,7 @@ AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.cre
 Account.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendUpdateTransaction(accountUpdateTransaction).send();
 ```
 
-An account key represents the key structure associated with an account. To get more details and types about the Klaytn account key, please read [Account Key].
+An account key represents the key structure associated with an account. To get more details and types about the Klaytn account key, please read [AccountKey].
 
 ### Smart Contract <a id="smart-contract"></a>
 
@@ -382,7 +382,7 @@ feePayerManager.executeTransaction(senderRawTransaction);
 ```
 ## Using various AccountKey Types <a id="using-various-account-key-type"></a>
 
-caver-java introduces new classes to support the various types of [AccountKey](https://docs.klaytn.com/klaytn/design/accounts#account-key) supported by the platform. This feature is supported starting with version 1.2.0.
+caver-java introduces new classes to support the various types of [AccountKey] supported by the platform. This feature is supported starting with version 1.2.0.
 
 ### AccountKey  <a id="account-key"></a>
 
@@ -575,7 +575,7 @@ The [web3j](https://github.com/web3j/web3j) project for the inspiration. 🙂
 [Klaytn Wallet]: ../../../toolkit/klaytn-wallet.md
 [txError]: ../../json-rpc/transaction-error-codes.md
 [AccountKeyPublic]: ../../../klaytn/design/accounts.md#accountkeypublic
-[Account Key]: ../../../klaytn/design/accounts.md#account-key
+[AccountKey]: ../../../klaytn/design/accounts.md#account-key
 [Solidity Compiler]: #solidity-compiler
 [command-line tool]: #command-line-tool
 [Fee Delegation]: ../../../klaytn/design/transactions/README.md#fee-delegation

@@ -3,10 +3,10 @@ You will set up an EN and connect the EN with SCN. Then you will enable the Anch
 
 ## Prerequisites <a id="prerequisites"></a>
  - Download executables.
-   - ken, kend [download](https://docs.klaytn.com/node/download)
+   - ken, kend [download](../../download/README.md)
  - Minimum hardware requirements for testing
      - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
-     - Please refer to the [endpoint node system requirements](https://docs.klaytn.com/node/endpoint-node/system-requirements) for more explanation.
+     - Please refer to the [endpoint node system requirements](../../endpoint-node/system-requirements.md) for more explanation.
      - Service Chain is installed and running.
  - Assumptions and Limitations
      - EN connects to Baobab testnet.
