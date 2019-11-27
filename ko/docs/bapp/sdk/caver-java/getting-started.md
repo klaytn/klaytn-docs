@@ -225,7 +225,7 @@ AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.cre
 Account.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendUpdateTransaction(accountUpdateTransaction).send();
 ```
 
-계정 키는 계정과 연결된 키 구조를 나타냅니다. Klaytn 계정 키에 대한 자세한 내용과 타입을 보려면 [Account Key](../../../klaytn/design/accounts.md#account-key)를 읽으세요.
+계정 키는 계정과 연결된 키 구조를 나타냅니다. Klaytn 계정 키에 대한 자세한 내용과 타입을 보려면 [AccountKey](../../../klaytn/design/accounts.md#account-key)를 읽으세요.
 
 ### 스마트 컨트랙트 <a id="smart-contract"></a>
 
@@ -382,7 +382,7 @@ feePayerManager.executeTransaction(senderRawTransaction);
 ```
 ## 다양한 AccountKey 타입 사용 <a id="using-various-account-key-type"></a>
 
-caver-java는 플랫폼에서 제공하는 다양한 [AccountKey](https://docs.klaytn.com/klaytn/design/accounts#account-key) 타입을 지원하기 위해 새로운 클래스를 도입했습니다. 이 기능은 버전 1.2.0부터 지원됩니다.
+caver-java는 플랫폼에서 제공하는 다양한 [AccountKey](../../../klaytn/design/accounts.md#account-key) 타입을 지원하기 위해 새로운 클래스를 도입했습니다. 이 기능은 버전 1.2.0부터 지원됩니다.
 
 ### AccountKey  <a id="account-key"></a>
 
@@ -506,7 +506,7 @@ AccountKeyMultiSig 또는 AccountKeyRoleBased를 가지고 있는 계정은 각 
 
 ### 순차적 발신자(Sender) 서명<a id="sequential-sender-signing"></a>
 
-`rawTransaction`은 RLP 인코딩된 트랜잭션으로 `txSignatures`와 `feePayerSignatures`를 가지고 있습니다. `feePayerSignature`는 수수료 위임 트랜잭션이 경우에만 포함됩니다.
+`rawTransaction`은 RLP 인코딩된 트랜잭션으로 `txSignatures`와 `feePayerSignatures`를 가지고 있습니다. `feePayerSignature`는 수수료 위임 트랜잭션인 경우에만 포함됩니다.
 
 수수료 납부자가 없는 경우, 트랜잭션에 반복적으로 서명하고 실행하는 절차는 세 부분으로 나눌 수 있습니다. 1. 트랜잭션을 RLP 인코딩하여 rawTransaction 형식으로 서명자에게 보냅니다. 2. 서명자는 수신한 rawTransaction을 자신의 키로 서명합니다. 3. 서명한 rawTransaction을 EN으로 보냅니다. 서명자가 여럿인 경우 2단계를 반복할 수 있습니다.
 
