@@ -1027,7 +1027,7 @@ feePayerSignTransaction keeps the existing signatures/feePayerSignatures in the 
 
 See [Sending a Transaction with multiple signer](../getting-started.md#sending-a-transaction-with-multiple-signer) for how to combine multiple users' signatures into a single rawTransaction.
 
-**NOTE** `caver.klay.accounts.feePayerSignTransaction` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**참고** `caver.klay.accounts.feePayerSignTransaction`은 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
 **매개변수**
 
@@ -2407,9 +2407,9 @@ caver.klay.accounts.wallet.updatePrivateKey(privateKey, address)
 
 **리턴값**
 
-| 형식 | 설명                                                                                              |
-| -- | ----------------------------------------------------------------------------------------------- |
-| 객체 | Account instance with the new accountKey. The Account instance lives in-memory caver-js wallet. |
+| 형식 | 설명                                                                              |
+| -- | ------------------------------------------------------------------------------- |
+| 객체 | Account instance with the new accountKey. Account 객체는 caver-js의 인메모리 지갑에 존재합니다. |
 
 
 **예시**
@@ -2433,7 +2433,7 @@ Account {
 ```javascript
 caver.klay.accounts.wallet.updateAccountKey(address, accountKey)
 ```
-Update the account's account key information stored in the wallet. When you update your account's accountKey, privateKey is updated as well to the defaultKey of the new accountKey.
+지갑에 저장된 계정의 계정 키 정보를 업데이트합니다. 계정의 accountKey를 업데이트하면 privateKey 또한 accountKey의 defaultKey로 업데이트됩니다.
 
 If the accountKey parameter is a single private key string, the account's accountKey is updated with an `AccountKeyPublic` instance. If the accountKey parameter is an array with multiple private key strings, the account's accountKey is updated with an `AccountKeyMultiSig` instance. If the accountKey parameter is an object whose keys are defined by roles, the account's accountKey is updated with an `AccountKeyRoleBased` instance.
 
@@ -2451,9 +2451,9 @@ If the accountKey parameter is a single private key string, the account's accoun
 
 **리턴값**
 
-| 형식 | 설명                                                                                              |
-| -- | ----------------------------------------------------------------------------------------------- |
-| 객체 | Account instance with the new accountKey. The Account instance lives in-memory caver-js wallet. |
+| 형식 | 설명                                                                              |
+| -- | ------------------------------------------------------------------------------- |
+| 객체 | Account instance with the new accountKey. Account 객체는 caver-js의 인메모리 지갑에 존재합니다. |
 
 
 **예시**
