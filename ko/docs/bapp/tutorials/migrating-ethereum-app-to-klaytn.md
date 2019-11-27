@@ -15,7 +15,7 @@
 
 본 튜토리얼은 이더리움 애플리케이션에서 Klaytn으로의 이전에 대한 가이드를 제공합니다. Klaytn 사용 경험은 없어도 괜찮습니다. 간단한 블록체인 애플리케이션을 통해 어떻게 이더리움 애플리케이션에서 Klaytn으로 이전하는지 보여드리도록 하겠습니다.
 
-여기서는 이더리움 애플리케이션에서 Klaytn으로 이전하는 데에 필요한 코드 수정만을 중점적으로 다룰 것입니다. Klaytn BApp을 만드는 것에 대한 자세한 내용은 [CountBApp 튜토리얼](https://docs.klaytn.com/bapp/tutorials/count-bapp)을 참고하세요.
+여기서는 이더리움 애플리케이션에서 Klaytn으로 이전하는 데에 필요한 코드 수정만을 중점적으로 다룰 것입니다. Klaytn BApp을 만드는 것에 대한 자세한 내용은 [CountBApp 튜토리얼](count-bapp/README.md)을 참고하세요.
 
 > **소스 코드** 전체 소스 코드는 GitHub에서 확인할 수 있습니다. [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
 
@@ -74,7 +74,7 @@ BlockNumber 컴포넌트는 1초(1000ms)마다 현재 블록 번호를 가져옵
 
 간단히 `web3` 라이브러리를 `caver-js`로 대체하여 이더리움 블록 번호 대신 Klaytn의 블록 번호로 실시간으로 동기화할 수 있습니다.
 > 이더리움: [`web3.eth.getBlockNumber()`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth.html#getblocknumber)  
-> Klaytn: [`caver.klay.getBlockNumber()`](https://docs.klaytn.com/bapp/sdk/caver-js/api-references/caver.klay/block#getblocknumber)
+> Klaytn: [`caver.klay.getBlockNumber()`](../sdk/caver-js/api-references/caver.klay/block.md#getblocknumber)
 
 ```js
 // import web3 from 'ethereum/web3'
@@ -94,7 +94,7 @@ class BlockNumber extends Component {
 
 export default BlockNumber
 ```
-`BlockNumber` 컴포넌트에 대한 자세한 내용은 [CountBApp 튜토리얼 - Blocknumber 컴포넌트](https://docs.klaytn.com/bapp/tutorials/count-bapp/5.-frontend-code-overview/5-1.-blocknumber-component)를 참고하세요.
+`BlockNumber` 컴포넌트에 대한 자세한 내용은 [CountBApp 튜토리얼 - Blocknumber 컴포넌트](count-bapp/5.-frontend-code-overview/5-1.-blocknumber-component.md)를 참고하세요.
 
 ## 5. 컨트랙트와의 상호작용: `Count` 컴포넌트 <a id="5-interact-with-the-contract-count-component"></a>
 
@@ -156,13 +156,13 @@ module.exports = {
 }
 ```
 
-컨트랙트 배포에 대한 자세한 내용은 [CountBapp 튜토리얼 - 컨트랙트 배포](https://docs.klaytn.com/bapp/tutorials/count-bapp/6.-deploy-contract)를 참고하세요.
+컨트랙트 배포에 대한 자세한 내용은 [CountBapp 튜토리얼 - 컨트랙트 배포](count-bapp/6.-deploy-contract.md)를 참고하세요.
 
 ### 5-2. 컨트랙트 인스턴스 생성 <a id="5-2-create-a-contract-instance"></a>
 
 `caver-js` API를 사용하여 컨트랙트 인스턴스를 생성할 수 있습니다. 컨트랙트 인스턴스는 `Count` 컨트랙트와의 연결을 생성합니다. 즉 이 인스턴스를 통해 컨트랙트 메서드를 호출할 수 있습니다.
 
-> 이더리움 : [`web3.eth.Contract(ABI, address)`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth-contract.html#new-contract) Klaytn : [`caver.klay.Contract(ABI, address)`](https://docs.klaytn.com/bapp/sdk/caver-js/api-references/caver.klay.contract#new-contract)
+> 이더리움 : [`web3.eth.Contract(ABI, address)`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth-contract.html#new-contract) Klaytn : [`caver.klay.Contract(ABI, address)`](../sdk/caver-js/api-references/caver.klay.Contract.md#new-contract)
 
 `src/components/Count.js`
 ```javascript
