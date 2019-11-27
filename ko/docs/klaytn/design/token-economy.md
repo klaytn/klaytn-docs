@@ -12,7 +12,7 @@ Klaytn의 펀딩 구조는 Klaytn 네트워크의 블록 생성과 함께 지속
 * 기여증명 \(PoC\) : 54 %
 * Klaytn 개선 준비금 \(KIR\) : 12 %
 
-Klaytn 메인넷 출시 시점에는 블록당 9.6 KLAY가 발행됩니다. 따라서, 매년 약 3억개의 KLAY가 발행될 것으로 예상할 수 있습니다. 이는 처음에 발행된 100억 KLAY 대비 연간 3 %의 인플레이션이 일어나는 것과 같습니다(연간 인플레이션율은 Klaytn Governance Process를 통해 변경 될 수 있습니다). 트랜잭션 수수료는 OPcode당 부과되며, 트랜잭션 수수료 표에 따라 책정됩니다. 트랜잭션 수수료 표에 대해서 더 많은 정보가 필요하면 Klaytn Docs \([https://docs.klaytn.com/](https://docs.klaytn.com/)\)를 참고해주세요.
+Klaytn 메인넷 출시 시점에는 블록당 9.6 KLAY가 발행됩니다. 따라서, 매년 약 3억개의 KLAY가 발행될 것으로 예상할 수 있습니다. 이는 처음에 발행된 100억 KLAY 대비 연간 3 %의 인플레이션이 일어나는 것과 같습니다(연간 인플레이션율은 Klaytn Governance Process를 통해 변경 될 수 있습니다). 트랜잭션 수수료는 OPcode당 부과되며, 트랜잭션 수수료 표에 따라 책정됩니다. 트랜잭션 수수료 표에 대해서 더 많은 정보가 필요하면 [트랜잭션 수수료](transaction-fees.md)를 참고해주세요.
 
 ## Klaytn 거버넌스 카운슬 보상 <a id="klaytn-governance-council-reward"></a>
 
