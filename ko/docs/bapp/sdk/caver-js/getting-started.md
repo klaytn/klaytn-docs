@@ -645,16 +645,16 @@ const accountFromAccountKey = caver.klay.accounts.createWithAccountKey(address, 
 
 ### AccountForUpdate  <a id="accountforupdate"></a>
 
-AccountForUpdate is a class designed to make it easier to use transactions for account updates.
+AccountForUpdate는 계정 업데이트를 위한 트랜잭션을 보다 쉽게 사용할 수 있도록 설계한 클래스입니다.
 
-The AccountForUpdate contains only the public key to be used for account update and the address of the account to update.
+AccountForUpdate는 계정 업데이트에 사용할 공개키와 업데이트 할 계정의 주소만 가지고 있습니다.
 
-The examples below start with updating your account with accountKey. There must be enough KLAY in the account to be used for testing. Test KLAY for the Baobab network is available through [Baobab Faucet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
+아래 예제는 accountKey로 계정을 업데이트하는 것으로 시작합니다. 계정에 테스트에 사용하기 충분한 KLAY가 있어야 합니다. Baobab 네트워크에서 사용할 테스트 KLAY는 [Baobab Faucet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에서 얻을 수 있습니다.
 
-#### Create an AccountForUpdate  <a id="create-an-accountforupdate"></a>
-Let's start by creating an AccountForUpdate.
+#### AccountForUpdate 생성하기<a id="create-an-accountforupdate"></a>
+AccountForUpdate를 생성하는 것으로 시작하겠습니다.
 
-You can create it by calling `createAccountForUpdate()` with the target account address and the new key you want to use.
+업데이트할 계정 주소와 사용할 새로운 키로 `createAccountForUpdate()`를 호출하여 생성할 수 있습니다.
 
 ```javascript
 const account = caver.klay.accounts.create()
@@ -684,17 +684,17 @@ const accountForUpdateForLegacyKey = caver.klay.accounts.createAccountForUpdateW
 const accountForUpdateForFailKey = caver.klay.accounts.createAccountForUpdateWithFailKey(account.address)
 ```
 
-**NOTE** If you want to update with multiple private key strings, you must define thresholds and weights in the options object.
+**참고** 개인키 문자열 여러 개를 가지도록 업데이트 할 때는 option 개체에 임계 값과 가중치를 정의해야 합니다.
 
-#### Account update with AccountForUpdate  <a id="account-update-with-accountforupdate"></a>
+#### AccountForUpdate로 계정 업데이트<a id="account-update-with-accountforupdate"></a>
 
-You can easily create an account update transaction using AccountForUpdate created above.
+위에서 만든 AccountForUpdate를 사용하여 계정 업데이트 트랜잭션을 쉽게 만들 수 있습니다.
 
-There are three types of transactions used to update an account: `ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE` and `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`.
+계정을 업데이트 하는데 사용하는 트랜잭션은 세 종류가 있습니다 : `ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE` 그리고 `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`.
 
-In the example below, `account` is an account that has enough KLAY balance, and `accountForUpdate` is an AccountForUpdate instance that contains the new key and the target account address. `accountForUpdate is created using`caver.klay.accounts.createAccountForUpdate`.
+아래 예에서 `account`는 KLAY 잔액이 충분한 계정이며 `accountForUpdate`는 새로운 키와 변경하고자 하는 계정 주소를 가진 AccountForUpdate 객체입니다. `accountForUpdate`는 caver.klay.accounts.createAccountForUpdate를 사용하여 생성됩니다.
 
-The example below demonstrates how to create a transaction using AccountForUpdate and send it to the Klaytn network.
+아래 예는 AccountForUpdate를 사용하여 트랜잭션을 생성하고 Klaytn 네트워크로 전송하는 방법을 보여줍니다.
 
 ```javascript
 const updateTx = {
@@ -716,7 +716,7 @@ const updatedKey = await caver.klay.getAccountKey(account.address)
 console.log(updatedKey)
 ```
 
-If you want to use `FEE_DELEGATED_ACCOUNT_UPDATE` transaction, see the example below.
+`FEE_DELEGATED_ACCOUNT_UPDATE` 트랜잭션을 사용하는 방법은 아래 예를 참조하세요.
 
 ```javascript
 const updateTx = {
@@ -741,9 +741,9 @@ const updatedKey = await caver.klay.getAccountKey(account.address)
 console.log(updatedKey)
 ```
 
-**NOTE** `caver.klay.accounts.feePayerSignTransaction` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**참고** `caver.klay.accounts.feePayerSignTransaction`은 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-If you want to use `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` transaction, define `updateTx` in the above example as:
+`FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` 트랜잭션을 사용하려는경우 위의 예제에 `updateTx`를 아래와 같이 정의하세요.
 
 ```javascript
 const updateTx = {
@@ -755,16 +755,16 @@ const updateTx = {
 }
 ```
 
-If your account has been updated successfully, the old key can no longer be used. Update the `accountKey` of the account stored in caver-js as follows.
+계정이 성공적으로 업데이트되면 이전 키를 더 이상 사용할 수 없습니다. caver-js에 저장된 계정의 `accountKey`를 아래와 같이 업데이트 하세요.
 
-When updating the `accountKey` property of an account directly, the assigning value must be an instance of AccountKeyPublic, AccountKeyMultiSig, or AccountKeyRoleBased.
+계정의 `accountKey` 프로퍼티를 직접적으로 변경하고자 할 때, 할당하는 값은 AccountKeyPublic, AccountKeyMultiSig, 또는 AccountKeyRoleBased의 객체이어야만 합니다.
 
 ```javascript
 const accountKey = caver.klay.accounts.createAccountKey(newKey)
 account.accountKey = accountKey
 ```
 
-If your account is in the caver-js in-memory wallet, please update it as below.
+계정이 caver-js의 인메모리 지갑에 있는 경우, 아래와 같이 업데이트하세요.
 
 ```javascript
 // Add account to in-memory wallet
@@ -773,20 +773,20 @@ caver.klay.accounts.wallet.add(account)
 caver.klay.accounts.wallet.updateAccountKey(account.address, newKey)
 ```
 
-You are now ready to use the updated account in caver-js.
+이제 caver-js에서 업데이트된 계정을 사용할 준비가 되었습니다.
 
-## Sending a Transaction with multiple signer<a id="sending-a-transaction-with-multiple-signer"></a>
+## 다중 서명된 트랜잭션 보내기<a id="sending-a-transaction-with-multiple-signer"></a>
 
-If the account's accountKey is AccountKeyMultiSig or AccountKeyRoleBased, the person who manages each key can be different.
+계정의 accountKey가 AccountKeyMultiSig 또는 AccountKeyRoleBased인 경우 각 키를 관리하는 사람이 다를 수 있습니다.
 
-This section describes how to collect signatures and send the transaction if there are multiple signers.
+이 장에서는 서명하는 사람이 여럿인 경우 서명을 수집하고 트랜잭션을 보내는 방법에 대해 설명합니다.
 
-### Sequential sign <a id="sequential-sign"></a>
-The result object of [caver.klay.accounts.signTransaction](api-references/caver.klay.accounts.md#signtransaction) has a rawTransaction field.
+### 순차적 서명<a id="sequential-sign"></a>
+[caver.klay.accounts.signTransaction](api-references/caver.klay.accounts.md#signtransaction)의 결과로 반환되는 객체에는 rawTransaction 필드가 있습니다.
 
-The `rawTransaction` has an RLP encoded transaction that contains both `signatures` and `feePayerSignatures`. `feePayerSignature` is included only when the transaction is a fee delegated transaction.
+`rawTransaction`은 RLP 인코딩된 트랜잭션으로 `signatures`와 `feePayerSignatures`를 가지고 있습니다. `feePayerSignature`는 수수료 위임 트랜잭션인 경우에만 포함됩니다.
 
-The following example shows how to sign a transaction sequentially with multiple private keys. 계정의 transactionKey에 두 개의 개인키 문자열이 있다고 가정해보죠.
+다음 예제는 여러 개인 키를 사용하여 트랜잭션에 순차적으로 서명하는 방법을 보여줍니다. 계정의 transactionKey에 두 개의 개인키 문자열이 있다고 가정해보죠.
 
 ```javascript
 const tx = {
@@ -807,7 +807,7 @@ const receipt = await caver.klay.sendSignedTransaction(user2Signed)
 console.log(receipt)
 ```
 
-See the example below for signing with a fee payer's key whose type is an AccountKeyRoleBased. The fee payer is assumed to have three private key strings in feePayerKey.
+AccountKeyRoleBased 타입의 수수료 납부자 키로 서명하려면 아래 예를 참조하십시오. 수수료 납부자는 feePayerKey에 3개의 개인키 문자열이 있다고 가정합니다.
 
 ```javascript
 const tx = {
@@ -831,9 +831,9 @@ const receipt = await caver.klay.sendSignedTransaction(feePayer2Signed)
 console.log(receipt)
 ```
 
-**NOTE** `caver.klay.accounts.feePayerSignTransaction` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**참고** `caver.klay.accounts.feePayerSignTransaction`은 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-If the account you use exists in the caver-js in-memory wallet, you do not need to pass the key(s) to `signTransaction` or `feePayerSignTransaction`. 아래 예제를 참조하세요.
+사용하는 계정이 caver-js의 인메모리 지갑에 있으면 키를 `signTransaction` 또는 `feePayerSignTransaction`에 전달할 필요가 없습니다. 아래 예제를 참조하세요.
 
 ```javascript
 const tx = {
@@ -855,11 +855,11 @@ const receipt = await caver.klay.sendSignedTransaction(feePayerSigned)
 console.log(receipt)
 ```
 
-### Combine signatures from RawTransaction <a id="combine-signatures-from-rawtransaction"></a>
+### RawTransaction의 서명을 통합하기 <a id="combine-signatures-from-rawtransaction"></a>
 
-If you receive the result object of the `caver.klay.accounts.signTransaction` or `caver.klay.accounts.feePayerSignTransaction` from several people, you can create a single RLP encoded transaction that contains all the signature information.
+여러 사람으로부터 `caver.klay.accounts.signTransaction` 또는 `caver.klay.accounts.feePayerSignTransaction`이 반환하는 오브젝트를 전달받은 경우, 모든 서명 정보를 포함한 하나의 RLP 인코딩된 트랜잭션을 생성할 수 있습니다.
 
-아래 예제는 RLP 인코딩된 트랜잭션을 결합하고 보내는 방법을 보여줍니다.
+아래 예제는 RLP 인코딩된 트랜잭션들을 하나로 통합하고 전송하는 방법을 보여줍니다.
 ```javascript
 const tx = {
     type: 'FEE_DELEGATED_VALUE_TRANSFER',
@@ -893,9 +893,9 @@ console.log(receipt)
 
 **참고** `caver.klay.accounts.combineSignatures`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-### Send transaction object with Signatures and FeePayerSignatures <a id="send-transaction-object-with-signatures-and-feepayersignatures"></a>
+### Signatures 및 FeePayerSignatures와 함께 트랜잭션 오브젝트 전송하기 <a id="send-transaction-object-with-signatures-and-feepayersignatures"></a>
 
-If you only receive `signatures` or `feePayerSignatures` from multiple signers, you can send a transaction as follows:
+여러 서명인로부터 `signatures` 또는 `feePayerSignatures`만을 전달받는 경우, 아래와 같이 트랜잭션을 전송할 수 있습니다.
 
 ```javascript
 const tx = {
@@ -922,7 +922,7 @@ const receipt = await caver.klay.sendSignedTransaction(tx)
 console.log(receipt)
 ```
 
-You can also call `caver.klay.accounts.getRawTransactionWithSignatures` to get an RLP encoded transaction containing the signatures and feePayerSignatures of the transaction object.
+또한, `caver.klay.accounts.getRawTransactionWithSignatures`을 호출하여 트랜잭션 오브젝트의 signatures와 feePayerSignatures를 포함한 RLP 인코딩된 트랜잭션을 얻을 수 있습니다.
 
 ```javascript
 const tx = {
