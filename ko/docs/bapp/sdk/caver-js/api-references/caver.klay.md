@@ -8,7 +8,7 @@ description: >-
 `caver-klay` 패키지를 사용하면 Klaytn 노드와 상호작용할 수 있습니다.  아래 목록은 `caver-js`에서 현재 지원하는 API의 함수를 열거합니다.
 
 
-## [Account](./caver.klay/account.md) <a id="account"></a>
+## [계정(Account)](./caver.klay/account.md) <a id="account"></a>
 - [defaultAccount](./caver.klay/account.md#defaultaccount)
 - [accountCreated](./caver.klay/account.md#accountcreated)
 - [getAccount](./caver.klay/account.md#getaccount)
