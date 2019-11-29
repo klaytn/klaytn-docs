@@ -19,7 +19,7 @@ Below contracts communicate with each other via main/sub-bridge to process user'
 - ERC-20 contract (if needed)
 - ERC-721 contract (if needed)
 
-![Figure 1. Service chain architecture](./images/sc_arch.png)
+![Figure 1. Service chain architecture](../images/sc_arch.png)
 
 # Bridge Operator Account <a id="bridge-operator-account"></a>
 For Service Chain, there are two operator accounts: parent chain bridge operator account, service chain bridge operator account. Each operator account is used to sign transactions.
