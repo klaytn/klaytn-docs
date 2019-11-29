@@ -64,7 +64,7 @@ Please change the chainID in the genesis file. Use your own number to prevent a 
 (Do not use the same chainID with Klaytn Cypress (8217) and Baobab (1001))
 
 If you want, you can change the pre-funded addresses by editing `"alloc"` in the genesis file.
-(You can find more details in [Genesis JSON](../../genesis.md).)
+(You can find more details in [Genesis JSON](genesis.md).)
 
 ## SCN Data Directory Creation <a id="scn-data-directory-creation"></a>
 
@@ -388,4 +388,83 @@ The configuration file has the following configurable properties.
     </tr>
   </tbody>
 </table>
+
+| Name | Description |
+| --- | --- |
+| Name | Description |
+| NETWORK | 
+        Network name that this node will join.
+        This value is used when NETWORK_ID is not defined.
+        ("cypress", "baobab")
+       |
+| NETWORK_ID | 
+        Klaytn network ID.
+        If you create a local private network, you will define the network ID
+          for your own.
+        Following IDs are reserved for pre-configured networks.
+        8217 : Cypress (Main network)
+        1000 : Aspen test network
+        1001 : Baobab test network
+       |
+| PORT | P2P port. |
+| SERVER_TYPE | 
+        JSON RPC server type.
+        ("http", "fasthttp")
+       |
+| SYNCMODE | 
+        Blockchain sync mode.
+        ("fast", "full")
+       |
+| VERBOSITY | 
+        Logging verbosity.
+        (0=silent, 1=error, 2=warn, 3=info, 4=debug, 5=detail)
+       |
+| MAXCONNECTIONS | 
+        Maximum number of physical connections.
+        All single-channel peers can have up to MAXCONNECTIONS peers.
+        All multi-channel peers can have up to MAXCONNECTIONS/2 peers.
+        Network connection is disabled if it is set to 0.
+       |
+| LDBCACHESIZE | Size of in-memory cache in LevelDB (MiB). |
+| REWARDBASE | Account address that will receive block consensus rewards. This property
+        only applies to CN. |
+| TXPOOL_EXEC_SLOTS_ALL | Maximum number of executable transaction slots for all accounts. |
+| TXPOOL_NONEXEC_SLOTS_ALL | Maximum number of non-executable transaction slots for all accounts. |
+| TXPOOL_EXEC_SLOTS_ACCOUNT | Number of executable transaction slots guaranteed per account. |
+| TXPOOL_NONEXEC_SLOTS_ACCOUNT | Maximum number of non-executable transaction slots guaranteed per account. |
+| TXPOOL_LIFE_TIME | Maximum amount of time non-executable transactions is queued. |
+| RPC_ENABLE | Enable the HTTP-RPC server if it is set to 1. |
+| RPC_API | 
+        Comma-separated list of APIs offered over the HTTP-RPC interface.
+        (admin, debug, klay, miner, net, personal, rpc, txpool, web3)
+       |
+| RPC_PORT | HTTP-RPC server listening port. |
+| RPC_ADDR | HTTP-RPC server listening interface. |
+| RPC_CORSDOMAIN | Comma-separated list of domains from which to accept cross-origin requests
+        (browser enforced) |
+| RPC_VHOSTS | Comma-separated list of virtual hostnames from which to accept requests
+        (server enforced). Accepts '*' wildcard. |
+| WS_ENABLE | Enable the WS-RPC server if it is set to 1. |
+| WS_API | 
+        APIs offered over the WS-RPC interface.
+        (admin, debug, klay, miner, net, personal, rpc, txpool, web3)
+       |
+| WS_ADDR | WS-RPC server listening interface. |
+| WS_PORT | WS-RPC server listening port. |
+| WS_ORIGINS | Origins from which to accept websockets requests. |
+| SC_MAIN_BRIDGE | Enable main bridge service if it is set to 1. Used for service chain configuration. |
+| SC_MAIN_BRIDGE_PORT | Main bridge listens on this port. |
+| SC_MAIN_BRIDGE_INDEXING | Enable storing transaction hash of child chain transactions for fast access
+        to child chain data if it is set to 1. |
+| METRICS | Enable metrics collection and reporting if it is set to 1. |
+| PROMETHEUS | Enable prometheus exporter if it is set to 1. |
+| DB_NO_PARALLEL_WRITE | Disable parallel writes of block data to persistent database if it is
+        set to 1. |
+| MULTICHANNEL | Create a dedicated channel for block propagation if it is set to 1. |
+| SUBPORT | Listening sub port number if multichannel option is enabled. |
+| NO_DISCOVER | Turn off the discovery option if it is set to 1. |
+| BOOTNODES | Comma-separated kni addresses of bootstrap nodes. |
+| ADDITIONAL | For additional command-line options. e.g) --txpool.nolocals |
+| DATA_DIR | Klaytn blockchain data folder path. |
+| LOG_DIR | Log folder path. |
 

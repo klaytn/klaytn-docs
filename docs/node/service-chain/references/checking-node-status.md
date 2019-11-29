@@ -98,7 +98,6 @@ You can get the latest block number to see if blocks are propagated properly.
 4
 ```
 
-The above command line returns the number of nodes that the SCN connects to  without EN in main chain..
-
+The above command line returns the number of nodes that the SCN connects to except the EN in the main chain.
 
 
