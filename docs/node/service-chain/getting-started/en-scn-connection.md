@@ -2,15 +2,14 @@ This section covers how to set up an EN for Baobab network and connect the EN wi
 You will set up an EN and connect the EN with SCN. Then you will enable the Anchoring feature to write Service Chain block information on Baobab network.
 
 ## Prerequisites <a id="prerequisites"></a>
- - Download executables.
+ - Download the Baobab EN executable. For a full list of downloadables, see [Download](../../download/README.md).
    - Linux
       - [ken-baobab-v1.2.0-4-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/ken-baobab-v1.2.0-4-linux-amd64.tar.gz)
    - MacOS
       - [ken-baobab-v1.2.0-4-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/ken-baobab-v1.2.0-4-darwin-amd64.tar.gz)
-   - See [download](../../download/README.md) for the full downloadable list.
  - Minimum hardware requirements for testing
    - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
-   - Please refer to the [endpoint node system requirements](../../endpoint-node/system-requirements.md) for more explanation.
+   - Please refer to the [System Requirements](../references/system-requirements.md) for more explanation.
    - Service Chain is installed and running.
  - Assumptions and Limitations
    - EN connects to Baobab testnet.

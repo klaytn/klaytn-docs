@@ -1,9 +1,6 @@
 # Installation Guide <a id="installation-guide"></a>
 
 This chapter explains the **Service Chain Consensus Node \(SCN\)** installation.
-If you want to use Anchroing/Value transfer features,
-you need an Endpoint Node (EN) that connects to the Main Chain.
-For the EN installation, read the [EN Installation Guide](../../../endpoint-node/installation-guide/).
 
 ## Linux Archive Distribution <a id="linux-archive-distribution"></a>
 
