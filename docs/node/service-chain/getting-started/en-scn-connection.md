@@ -3,15 +3,19 @@ You will set up an EN and connect the EN with SCN. Then you will enable the Anch
 
 ## Prerequisites <a id="prerequisites"></a>
  - Download executables.
-   - ken, kend [download](../../download/README.md)
+   - Linux
+      - [ken-baobab-v1.2.0-4-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/ken-baobab-v1.2.0-4-linux-amd64.tar.gz)
+   - MacOS
+      - [ken-baobab-v1.2.0-4-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/ken-baobab-v1.2.0-4-darwin-amd64.tar.gz)
+   - See [download](../../download/README.md) for the full downloadable list.
  - Minimum hardware requirements for testing
-     - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
-     - Please refer to the [endpoint node system requirements](../../endpoint-node/system-requirements.md) for more explanation.
-     - Service Chain is installed and running.
+   - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
+   - Please refer to the [endpoint node system requirements](../../endpoint-node/system-requirements.md) for more explanation.
+   - Service Chain is installed and running.
  - Assumptions and Limitations
-     - EN connects to Baobab testnet.
-     - Only one SCN can connect to the EN.
-     - Not every SCN has to connect to the EN.
+   - EN connects to Baobab testnet.
+   - Only one SCN can connect to the EN.
+   - Not every SCN has to connect to the EN.
 
 ## Step 1: Preparing genesis.json <a id="step-1-preparing-genesis-json"></a>
 Connect to the EN server then download the `genesis.json` for `Baobab` network. Copy executable binaries also to the EN server.
