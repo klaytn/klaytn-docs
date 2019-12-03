@@ -271,7 +271,7 @@ where
 
 머신 상태 `S_machine`는 튜플 `(g, pc, memory, i, stack)`로 정의됩니다. 이는 사용 가능한 가스량, 프로그램 카운터 `pc` \(64-bit unsigned integer\), 메모리 컨텐츠(memory contents,), 현재 메모리에 있는 단어 수(position 0부터 계속 카운팅), 스택 컨텐츠(stack contents)를 의미합니다. 메모리 컨텐츠 `S_machine,memory`는 사이즈가 2^256이며 0으로 이루어진 series입니다.
 
-For ease of reading, the instruction mnemonics written in small-caps \(_e.g._, `ADD`\) should be interpreted as their numeric equivalents; the full table of instructions and their specifics is given in the [Instruction Set](klaytn-virtual-machine.md#instruction-set) section.
+읽기 쉽도록 작은 대문자로 작성된 명령어 니모닉\(_eg_, `ADD`\)은 동등한 숫자로 해석되어야 합니다. 전체 명령어과 세부 사항은 [명령어 세트(Instruction Set)](klaytn-virtual-machine.md#instruction-set)에 나와 있습니다.
 
 `Z`, `H`와 `O`를 정의하기 위해, `w`를 실행할 현재 연산으로 정의합니다.
 
