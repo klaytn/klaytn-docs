@@ -1,6 +1,6 @@
 # Bridge Configuration 
 
-In this page, we will describe the steps of connecting a Service Chain Consensus Node to the Main Chain. 
+In this page, we will describe the steps of connecting a Service Chain to the Main Chain. 
 
 ## EN Configuration - Enable Main-bridge <a id="en-configuration-enable-main-bridge"></a>
 

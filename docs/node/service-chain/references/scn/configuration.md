@@ -1,6 +1,6 @@
 # Configuration <a id="configuration"></a>
 
-This page explains the configuration of a SCN.
+This page explains the configuration of SCNs to form a consensus network.
 
 If you installed archive distribution, you can find the binaries and the config file in the directories you extracted the archives. Below is an example of command execution.
 ```bash
