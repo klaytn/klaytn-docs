@@ -115,7 +115,7 @@ You should take note of the main-bridge `kni`.
 
 #### Open SCN Console <a id="open-scn-console"></a>
 
-Attach to the SCN process like below. You should have enabled `subbridge` API for RPC, you can find the subbridge module in the output. If there is no `subbridge` API, you should check [Configuration of the SCN](configuration.md#configuration-of-the-scn) again.)
+Attach to the SCN process like below. You should have enabled `subbridge` API for RPC, you can find the subbridge module in the output. If there is no `subbridge` API, you should check [Configuration of the SCN](scn/configuration.md#configuration-of-the-scn) again.)
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc

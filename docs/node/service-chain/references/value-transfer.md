@@ -115,7 +115,7 @@ Additionally, if token contracts are registered in the bridge contracts, bridge 
 
 ## Deployment <a id="deployment"></a>
 Sub-bridge provides a bridge contract deployment API. You can deploy bridge contracts to both chains using a single RPC call as below.
-Before doing this, you should have connected main-bridge and sub-bridge. Please refer to [Connect to Main Chain](./single-node-service-chain/installation-guide/connect-to-main-chain.md) to get detailed guideline.
+Before doing this, you should have connected main-bridge and sub-bridge. Please refer to [Bridge Configuration](bridge-configuration.md) to get detailed guideline.
 
 ```javascript
 $ kscn attach ~/kscnd_home/klay.ipc

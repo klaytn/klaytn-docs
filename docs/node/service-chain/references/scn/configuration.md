@@ -64,7 +64,7 @@ Please change the chainID in the genesis file. Use your own number to prevent a 
 (Do not use the same chainID with Klaytn Cypress (8217) and Baobab (1001))
 
 If you want, you can change the pre-funded addresses by editing `"alloc"` in the genesis file.
-(You can find more details in [Genesis JSON](genesis.md).)
+(You can find more details in [Genesis JSON](../genesis.md).)
 
 ## SCN Data Directory Creation <a id="scn-data-directory-creation"></a>
 
