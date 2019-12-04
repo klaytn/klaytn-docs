@@ -9,7 +9,7 @@ This section covers how to set up a multi-node service chain. To tolerate byzant
       - Service Chain Consensus Node: [kscn-v1.2.0-4-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/kscn-v1.2.0-4-darwin-amd64.tar.gz)
       - homi utility: [homi-v1.2.0-4-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/homi-v1.2.0-4-darwin-amd64.tar.gz)
  - 4 Linux or MacOS servers
- - Minimal hardware requirements
+ - Minimum hardware requirements
    - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB 
    - Please refer to the [System Requirements](../references/system-requirements.md) for more explanation.
 
