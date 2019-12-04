@@ -2,7 +2,7 @@ This section covers how to connect your 4-node service chain to the Baobab netwo
 You will set up a Baobab EN and connect the EN with one of your SCNs. Then you will enable the Anchoring feature to write service chain block information on Baobab network.
 
 ## Prerequisites <a id="prerequisites"></a>
- - Download the Baobab EN executable. For a full list of downloadables, see [Download](../../download/README.md).
+ - Download the Baobab EN executable below. For the full list of downloadables, see [Download](../../download/README.md).
    - Linux
       - [ken-baobab-v1.2.0-4-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/ken-baobab-v1.2.0-4-linux-amd64.tar.gz)
    - MacOS
