@@ -59,7 +59,7 @@ Starting kscnd: OK
 ```
 You can check block sync status by watching `klay.blockNumber`. If this number is not 0, the node is working fine. To download all blocks of the Baobab network, it will take about two hours though it can vary due to network condition and hardware performance.
 ```
-$ ken attach 
+$ ken attach --datadir ~/data
 > klay.blockNumber
 21073
 ```
@@ -69,7 +69,7 @@ If you want to stop a node, you can use the command `kend stop`
 Take note of EN's KNI which is the information used to connect from an SCN node. This value will be used in the next step when generating `main-bridges.json`
 ```
 
-$ ken attach
+$ ken attach --datadir ~/data
 > mainbridge.nodeInfo.kni
 "kni://0f7aa6499553cdfeb8f21df10c656252ca6039047242eb86278689a87d57a41f9f004720180d1921e9f7632a4c6476f1775a2c381568d8e8c3c9c4a8cfe25bae@[::]:50505?discport=0"
 ```
@@ -103,7 +103,7 @@ Starting kscnd: OK
 
 Check if the SCN is connected to the EN by checking `subbridge.peers.length`
 ```
-$ kscn attach
+$ kscn attach --datadir ~/data
 > subbridge.peers.length
 1
 ```
@@ -115,20 +115,20 @@ In this section, you will top up a parent operator account, enable Anchoring, an
 ### Step 1: Get KLAY to test anchoring <a id="step-1-get-klay-to-test-anchoring"></a>
 To do an anchoring, SCN has to make an anchoring transaction to Baobab. So `subbridge.parentOperator` account should have KLAY to pay the transaction fee. Get some KLAY from Baobab wallet faucet ([link](https://baobab.wallet.klaytn.com/)) and transfer 1 KLAY to the `subbridge.parentOperator`.
 ```
-$ kscn attach
+$ kscn attach --datadir ~/data
 > subbridge.parentOperator
 "0x3ce216beeafc62d20547376396e89528e1d778ca"
 ```
 
 ### Step 2: Start Anchoring <a id="step-2-start-anchoring"></a>
 ```
-$ kscn attach
+$ kscn attach --datadir ~/data
 > subbridge.anchoring(true)
 true
 ```
 After anchoring starts, you can check the latest block anchored to Baobab by using `subbridge.latestAnchoredBlockNumber`. Please note that this only works after the EN already followed up on the latest block of Baobab. By default, SCN tries anchoring on every block from the block on which anchoring is turned on. The anchoring period can be set by changing SC_TX_PERIOD. If the value is set to 10, the node tries anchoring when the block number is a multiple of 10.
 ```
-$ kscn attach
+$ kscn attach --datadir ~/data
 > subbridge.latestAnchoredBlockNumber
 100
 ```

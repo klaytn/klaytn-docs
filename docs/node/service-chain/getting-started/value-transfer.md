@@ -14,7 +14,7 @@ Then you will register the contract address on SCN. And you will test an ERC20 v
 ### Step 1: Add KLAY to the operator accounts. <a id="step-1-add-klay-to-the-operator-accounts"></a>
 Connect to the SCN and check the account addresses by executing `subbridge.parentOperator` and `subbridge.childOperator`.
 ```
-$ kscn attach 
+$ kscn attach --datadir ~/data
 > subbridge.childOperator
 "0x10221f7f9355017cd0c11444e7eecb99621bacce"
 > subbridge.parentOperator
@@ -31,7 +31,7 @@ Repeat passphrase:
 Address: {80119c31cdae67c42c8296929bb4f89b2a52cec4}
 ```
 ```
-$ kscn attach 
+$ kscn attach --datadir ~/data
 > personal.unlockAccount("80119c31cdae67c42c8296929bb4f89b2a52cec4")
 Unlock account 80119c31cdae67c42c8296929bb4f89b2a52cec4
 Passphrase:
@@ -96,7 +96,7 @@ subbridge.registerToken("0x5f093de8a1b1d32Fc4cF6F40357DCcD24453BAb3", "0xD1C4808
 ### Step 3: Register Bridge, Subscribe Bridge and Register Token <a id="step-3-register-bridge-subscribe-bridge-and-register-token"></a>
 On the console, execute the APIs shown above one by one.
 ```
-$ kscn attach
+$ kscn attach --datadir ~/data
 > subbridge.registerBridge("0x5f093de8a1b1d32Fc4cF6F40357DCcD24453BAb3", "0xD1C4808960Fb4581b9A5B3B217b9a67057D84c19")
 null
 > subbridge.subscribeBridge("0x5f093de8a1b1d32Fc4cF6F40357DCcD24453BAb3", "0xD1C4808960Fb4581b9A5B3B217b9a67057D84c19")

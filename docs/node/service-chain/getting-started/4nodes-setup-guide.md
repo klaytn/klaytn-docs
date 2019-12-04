@@ -140,7 +140,7 @@ Starting kscnd: OK
 ```
 You can check block generation status by watching `klay.blockNumber`. If this number is not 0, the node is working fine.
 ```console
-$ kscn attach --datadir ~/your_path/data
+$ kscn attach --datadir ~/data
 > klay.blockNumber
 10
 ```
