@@ -113,7 +113,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ## debug_getModifiedAccountsByHash <a id="debug_getmodifiedaccountsbyhash"></a>
 
 Returns all accounts that have changed between the two blocks specified by
-their block hashes. A change is defined as a difference in nonce, balance, code
+their block hashes. If a block hash is given, it returns accounts changed in the block. A change is defined as a difference in nonce, balance, code
 hash, or storage hash.
 
 
@@ -126,8 +126,8 @@ hash, or storage hash.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| startBlockHash | 32-byte DATA | Start block hash for the range. |
-| endBlockHash | 32-byte DATA | End block hash for the range. |
+| startBlockHash | 32-byte DATA | Start block hash for the range or block hash to check. |
+| endBlockHash | 32-byte DATA | (optional)End block hash for the range. |
 
 **Return Value**
 
@@ -155,7 +155,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 ## debug_getModifiedAccountsByNumber <a id="debug_getmodifiedaccountsbynumber"></a>
 
 Returns all accounts that have changed between the two blocks specified by
-their block numbers. A change is defined as a difference in nonce, balance,
+their block numbers. If a block number is given, it returns accounts changed in the block. A change is defined as a difference in nonce, balance,
 code hash, or storage hash.
 
 
@@ -168,8 +168,8 @@ code hash, or storage hash.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| startBlockNum | int | Start block number for the range. |
-| endBlockNum | int | End block number for the range. |
+| startBlockNum | int | Start block number for the range or block number to check. |
+| endBlockNum | int | (optional)End block number for the range. |
 
 **Return Value**
 
