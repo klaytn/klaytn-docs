@@ -155,7 +155,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 ## debug_getModifiedAccountsByNumber <a id="debug_getmodifiedaccountsbynumber"></a>
 
 Returns all accounts that have changed between the two blocks specified by
-their block numbers. If a block number is given, it returns accounts changed in the block. A change is defined as a difference in nonce, balance,
+their block numbers. If `endBlockNum` is not given, it returns the accounts modified in the `startBlockNum`. A change is defined as a difference in nonce, balance,
 code hash, or storage hash.
 
 
