@@ -12,7 +12,7 @@ performs the state retrieval against only the block numbers that are
 multiples of state.block-interval.  For example, when 
 state.block-interval is 128, this function returns the state for the
 block numbers "0x0", "0x80", "0x100", "0x180", and so on.  If the block
-number is not a multiple of state.block-interval, it will return 'missing
+number is not a multiple of state.block-interval, it returns 'missing
 trie node' error.
 
 | Client  | Method Invocation                                   |
