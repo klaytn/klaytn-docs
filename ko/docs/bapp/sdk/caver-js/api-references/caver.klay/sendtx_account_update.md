@@ -1,11 +1,11 @@
-# Account Update Transaction <a id="account-update-transaction"></a>
+# 계정 업데이트 트랜잭션<a id="account-update-transaction"></a>
 
 ## sendTransaction (ACCOUNT_UPDATE) <a id="sendtransaction-account_update"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends an [Account Update](../../../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) transaction to the network.
+[Account Update](../../../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) 트랜잭션을 네트워크에 전송합니다.
 
 **매개변수**
 
