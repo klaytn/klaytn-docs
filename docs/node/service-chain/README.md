@@ -3,7 +3,7 @@
 ## Intended Audience <a id="intended-audience"></a>
 
 - BApp operators who need high TPS, minimal transaction fees, or data privacy.  
-- Anyone who want to build a local private network or a ledge database for testing.
+- Anyone who wants to build a local private network or a ledger database for testing.
 
 ## Service Chain Overview <a id="service-chain-overview"></a>
 

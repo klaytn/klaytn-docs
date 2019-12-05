@@ -1,33 +1,33 @@
-# Configuration <a id="configuration"></a>
+# Configuration Files
 
-This document explains the configurable properties of the Endpoint Node. Klaytn node package ships with good defaults and requires very little configuration. If you changed any settings of a running node, you must restart the node to reflect the changes.
+This document explains the configurable properties of the node. Klaytn node package ships with good defaults and requires very little configuration. If you changed any settings of a running node, you must restart the node to reflect the changes.
 
-## Configuration File location <a id="configuration-file-location"></a>
+## SCN Configuration File location <a id="scn-configuration-file-location"></a>
 
-* `kend.conf` for configuring the Proxy Node
+* `kscnd.conf` for configuring the Service Chain Consensus Node
 
 The configuration file is located in the `conf` directory, whose default location depends on whether or not the installation is from an archive distribution \(`tar.gz`\) or a package distribution \(RPM\).
 
-* For the archive distribution, the config directory location defaults to `$INSTALL_PATH/ken-linux-amd64/conf/`.
-* For the package distribution, the config directory defaults to `/etc/kend/conf/`.
+* For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kscn-linux-amd64/conf/`.
+* For the package distribution, the config directory defaults to `/etc/kscnd/conf/`.
 
 ## Configuration File Format  <a id="configuration-file-format"></a>
 
-Below is a sample configuration file for the EN that participates in the `cypress` network and stores the blockchain data in the default location, which is `~/kend_home` with the archive distribution, `/var/kend/data` with the package distribution.
+Below is a sample configuration file for the SCN that stores the blockchain data in the default location, which is `~/kscnd_home` with the archive distribution, `/var/kscnd/data` with the package distribution.
 
 ```text
-# Configuration file for the kend
+# Configuration file for the kcnd
 
-# cypress, baobab is only available if you don't specify NETWORK_ID.
-NETWORK="cypress"
+NETWORK=
 # if you specify NETWORK_ID, a private network is created.
 NETWORK_ID=
 PORT=32323
 SERVER_TYPE="fasthttp"
 SYNCMODE="full"
 VERBOSITY=3
-MAXCONNECTIONS=10
+MAXCONNECTIONS=100
 # LDBCACHESIZE=10240
+REWARDBASE="0x0"
 
 ...
 
@@ -35,31 +35,31 @@ DATA_DIR=
 LOG_DIR=$DATA_DIR/logs
 ```
 
-The recommended txpool sizes for EN are as follows. 
+The recommended txpool sizes for SCN are as follows.
 
 ```text
-TXPOOL_EXEC_SLOTS_ALL=4096
-TXPOOL_NONEXEC_SLOTS_ALL=4096
-TXPOOL_EXEC_SLOTS_ACCOUNT=4096
-TXPOOL_NONEXEC_SLOTS_ACCOUNT=4096
+TXPOOL_EXEC_SLOTS_ALL=16384
+TXPOOL_NONEXEC_SLOTS_ALL=16384
+TXPOOL_EXEC_SLOTS_ACCOUNT=16384
+TXPOOL_NONEXEC_SLOTS_ACCOUNT=16384
 ```
 
 ## Properties <a id="properties"></a>
 
-The configuration file has the following configurable properties. 
-
+The configuration file has the following configurable properties. SCN, SPN and SEN configuration files have the same properties.
 
 | Name | Description |
 | --- | --- |
 | Name | Description |
 | NETWORK | Network name that this node will join.  This value is used when NETWORK_ID is not defined.  ("cypress", "baobab") |
-| NETWORK_ID | Klaytn network ID.  If you create a local private network, you will define the network ID for your own.  Following IDs are reserved for pre-configured networks. <br>8217 : Cypress (Main network) <br>1000 : Aspen test network <br>1001 : Baobab test network |
+| NETWORK_ID | Klaytn network ID.  If you create a local private network, you will define the network ID for your own.  Following IDs are reserved for pre-configured networks.  <br>8217 : Cypress (Main network) <br>1000 : Aspen test network <br>1001 : Baobab test network |
 | PORT | P2P port. |
 | SERVER_TYPE | JSON RPC server type.  ("http", "fasthttp") |
 | SYNCMODE | Blockchain sync mode.  ("fast", "full") |
 | VERBOSITY | Logging verbosity.  (0=silent, 1=error, 2=warn, 3=info, 4=debug, 5=detail) |
 | MAXCONNECTIONS | Maximum number of physical connections.  All single-channel peers can have up to MAXCONNECTIONS peers.  All multi-channel peers can have up to MAXCONNECTIONS/2 peers.  Network connection is disabled if it is set to 0.  |
 | LDBCACHESIZE | Size of in-memory cache in LevelDB (MiB). |
+| REWARDBASE | Account address that will receive block consensus rewards. This property only applies to CN. |
 | TXPOOL_EXEC_SLOTS_ALL | Maximum number of executable transaction slots for all accounts. |
 | TXPOOL_NONEXEC_SLOTS_ALL | Maximum number of non-executable transaction slots for all accounts. |
 | TXPOOL_EXEC_SLOTS_ACCOUNT | Number of executable transaction slots guaranteed per account. |
@@ -89,4 +89,5 @@ The configuration file has the following configurable properties.
 | ADDITIONAL | For additional command-line options. e.g) --txpool.nolocals |
 | DATA_DIR | Klaytn blockchain data folder path. |
 | LOG_DIR | Log folder path. |
+
 

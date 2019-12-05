@@ -1,6 +1,6 @@
-# Connect to Main Chain <a id="connect-to-main-chain"></a>
+# Bridge Configuration 
 
-In this page, we will connect the single-node Service Chain to the Main Chain. 
+In this page, we will describe the steps of connecting a Service Chain to the Main Chain. 
 
 ## EN Configuration - Enable Main-bridge <a id="en-configuration-enable-main-bridge"></a>
 
@@ -60,7 +60,7 @@ You need to run an EN of the main chain as a main-bridge. And also you should de
 
 #### Open EN Console <a id="open-en-console"></a>
 
-There are different ways to attach to the EN process. You can check the usable commands on [ken CLI commands](../../../endpoint-node/ken-cli-commands.md). This page explains the way to attach to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the data directory on the node.
+There are different ways to attach to the EN process. You can check the usable commands on [ken CLI commands](../../endpoint-node/ken-cli-commands.md). This page explains the way to attach to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the data directory on the node.
 
 Please execute the following command and check out the result. (If you added `mainbridge` API for RPC, you can check the bridge API like below. If there is no `mainbridge` API, you should check [EN Configuration - Enable Main-bridge](#en-configuration-enable-main-bridge) again. )
 
@@ -77,7 +77,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
 
 #### Get the EN's KNI <a id="get-the-ens-kni"></a>
 
-After attaching to the process via IPC, you can check the EN's main-bridge KNI like below. You can refer to [Service Chain API](../../../../bapp/json-rpc/api-references/servicechain.md).
+After attaching to the process via IPC, you can check the EN's main-bridge KNI like below. You can refer to [Service Chain API](../../../bapp/json-rpc/api-references/servicechain.md).
 
 ```javascript
 > mainbridge.nodeInfo
@@ -115,7 +115,7 @@ You should take note of the main-bridge `kni`.
 
 #### Open SCN Console <a id="open-scn-console"></a>
 
-Attach to the SCN process like below. You should have enabled `subbridge` API for RPC, you can find the subbridge module in the output. If there is no `subbridge` API, you should check [Configuration of the SCN](configuration.md#configuration-of-the-scn) again.)
+Attach to the SCN process like below. You should have enabled `subbridge` API for RPC, you can find the subbridge module in the output. If there is no `subbridge` API, you should check [Configuration of the SCN](scn/configuration.md#configuration-of-the-scn) again.)
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
