@@ -5,7 +5,7 @@ description: >-
 
 # Namespace admin <a id="namespace-admin"></a>
 
-The namespace `admin` gives you access to several non-standard RPC methods, which will allow you to have
+The namespace `admin` gives you access to several non-standard RPC methods. They will allow you to have
 fine-grained control over your Klaytn instance, including but not limited to network peer and RPC
 endpoint management.
 
