@@ -5,7 +5,7 @@ description: >-
 
 # Namespace admin <a id="namespace-admin"></a>
 
-The namespace `admin` gives you access to several non-standard RPC methods, which will allow you to have
+The namespace `admin` gives you access to several non-standard RPC methods. They will allow you to have
 fine-grained control over your Klaytn instance, including but not limited to network peer and RPC
 endpoint management.
 
@@ -297,7 +297,7 @@ The method returns a boolean flag specifying whether the HTTP RPC listener was o
 | host | string | (optional) network interface to open the listener socket on (default:  `"localhost"`). |
 | port | int | (optional) network port to open the listener socket on (default:  `8551`). |
 | cors | string | (optional) [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) header to use (default:  `""`). |
-| apis | string | (optional) API modules to offer over this interface (default:  `"klay,net,personal"`). |
+| apis | string | (optional) API modules to offer over this interface (default:  `"klay,net,rpc"`). |
 
 **Return Value**
 
