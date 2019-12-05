@@ -5,9 +5,9 @@
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends a transaction to the network.
+트랜잭션을 네트워크로 보냅니다.
 
-Note: Only the account having `AccountKeyLegacy` can send this transaction.
+참고: ` AccountKeyLegacy` 가 있는 계정 만, sendTransaction 이 가능합니다.
 
 **매개변수**
 
@@ -18,7 +18,7 @@ The parameters of sendTransaction are a transaction object and a callback functi
 | transactionObject | 객체       | The transaction object to send.                                      |
 | callback          | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
-A transaction object of type `LEGACY` has the following structure:
+` LEGACY`  유형의 트랜잭션 오브젝트의 구조는 다음과 같습니다.
 
 | 명칭       | 형식                                              | 설명                                                                                                                                                                                                                                |
 | -------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
