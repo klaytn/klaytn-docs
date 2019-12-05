@@ -5,15 +5,14 @@
 Retrieves the state that corresponds to the block number and returns a list of
 accounts (including storage and code).
 
-**NOTE**: This function returns the state correctly for some latest block
-numbers.  On the other hand, old block numbers that can be used to retrieve the
-state may be restricted depending on the value set for the `klay` command-line
+**NOTE**: This function correctly returns the state for a few latest, currently 4, block
+numbers.  Retrieving older block state is restricted depending on the value set for the command-line
 option `--state.block-interval` (default: 128).  This means that the function
-will perform the state retrieval against only the block numbers, which are a
-multiple of state.block-interval value.  For example, when the value of
-state.block-interval is 128, this function returns the state correctly for the
-block numbers such as "0x0", "0x80", "0x100", "0x180", and so on.  If the block
-number is not a multiple of state.block-interval value, it will return 'missing
+performs the state retrieval against only the block numbers that are
+multiples of state.block-interval.  For example, when 
+state.block-interval is 128, this function returns the state for the
+block numbers "0x0", "0x80", "0x100", "0x180", and so on.  If the block
+number is not a multiple of state.block-interval, it will return 'missing
 trie node' error.
 
 | Client  | Method Invocation                                   |
