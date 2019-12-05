@@ -3,7 +3,7 @@
 ## 튜토리얼 대상 <a id="intended-audience"></a>
 
 - 높은 TPS, 최소한의 트랜잭션 수수와 데이터 개인정보 보호가 필요한 BApp 운영자.
-- 테스트를 위해 로컬 개인 네트워크 또는 원장 데이터베이스를 구축하려는 사람.
+- Anyone who wants to build a local private network or a ledger database for testing.
 
 ## 서비스체인 개요 <a id="service-chain-overview"></a>
 
