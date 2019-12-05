@@ -5,7 +5,7 @@ description: >-
 
 # Namespace admin <a id="namespace-admin"></a>
 
-`admin` namespace를 사용하여 몇몇 비표준 RPC 메서드에 접근할 수 있으며, 이를 통해 네트워크 피어와 RPC 엔드포인트 관리를 포함하되 이에 국한되지 않는 Klaytn 인스턴스를 세밀하게 제어할 수 있습니다.
+The namespace `admin` gives you access to several non-standard RPC methods. They will allow you to have fine-grained control over your Klaytn instance, including but not limited to network peer and RPC endpoint management.
 
 
 ## admin_nodeInfo <a id="admin_nodeinfo"></a>
@@ -276,7 +276,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 | host | 문자열 | (선택사항) 리스너 소켓이 열려있는 네트워크 인터페이스입니다. (기본 설정:  `"localhost"`)                                                                    |
 | port | int | (선택사항) 리스너 소켓이 열려있는 네트워크 포트입니다. (기본 설정:  `8551`)                                                                              |
 | cors | 문자열 | (선택사항) 사용할 [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 헤더입니다. (기본 설정:  `""`) |
-| apis | 문자열 | (선택사항) 이 인터페이스를 통해 제공할 API 모듈입니다. (기본 설정:  `"klay,net,personal"`)                                                             |
+| apis | 문자열 | (optional) API modules to offer over this interface (default:  `"klay,net,rpc"`).                                             |
 
 **리턴값**
 
