@@ -1,12 +1,12 @@
-# Checking Node Status <a id="checking-node-status"></a>
+# 노드 상태 확인<a id="checking-node-status"></a>
 
 ## 프로세스 상태 <a id="process-status"></a>
 
-It is possible to check the status of SCN's process using the status commands `systemctl` and `kscnd`.
+`systemctl`과 `kscnd`의 status 명령어를 사용하여 SCN의 프로세스 상태를 확인할 수 있습니다.
 
 ### systemctl <a id="systemctl"></a>
 
-`systemctl` is installed along with the RPM, and the status of SCN can be checked as follows.
+`systemctl`은 RPM과 함께 설치되며 SCN의 상태는 다음과 같이 확인할 수 있습니다.
 
 ```bash
 $ systemctl status kscnd.service
@@ -28,7 +28,7 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Start
 
 ### kscnd <a id="kscnd"></a>
 
-`kscnd` is installed along with the package, and the status of SCN can be checked as follows.
+`kscnd`는 패키지와 함께 설치되며 SCN의 상태는 다음과 같이 확인할 수 있습니다.
 
 ```bash
 $ kscnd status
@@ -37,7 +37,7 @@ kscnd is running
 
 ## 로그 <a id="logs"></a>
 
-The log is stored in `kscnd.out` file located in the path defined in the `LOG_DIR` field of the `kscnd.conf` file. When the node works properly, you can see that each block is imported per second as follows.
+로그는 `kscnd.out`에 저장되는데, 이 파일의 위치는 `kscnd.conf`의 `LOG_DIR`에 정의되어 있습니다. 노드가 정상적으로 동작할 때, 아래와 같이 1초마다 블록을 생성하는 것을 볼 수 있습니다.
 
 예시:
 
@@ -60,7 +60,7 @@ $ tail -F ~/kscnd_home/logs/kscnd.out
 
 ### kscn console <a id="kscn-console"></a>
 
-Klaytn provides a CLI client: `kscn console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `data` directory on an SCN.
+Klaytn은 CLI 클라이언트를 제공합니다: `kscn console`. 클라이언트를 사용하는 또 다른 방법은 IPC(프로세스 간 통신)를 통해 프로세스에 연결하는 것입니다. IPC 파일 `klay.ipc`는 SCN의 `data` 디렉토리에 있습니다.
 
 다음 명령을 실행하고 결과를 확인하세요.
 
@@ -75,9 +75,9 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
  >
 ```
 
-You can check the usable commands on [API Document](../../../../bapp/json-rpc/README.md)
+[API 문서](../../../../bapp/json-rpc/README.md)에서 사용가능한 명령어를 확인할 수 있습니다.
 
-The useful APIs to check the status of SCN:
+SCN의 상태를 확인하기 위해 다음의 API를 사용할 수 있습니다.
 
 * `klay.blockNumber` (최신 블록 번호를 가져옵니다)
 * `net.peerCount` (현재 연결된 Klaytn 노드의 수를 가져옵니다)
@@ -98,6 +98,6 @@ The useful APIs to check the status of SCN:
 4
 ```
 
-The above command line returns the number of nodes that the SCN connects to except the EN in the main chain.
+위 명령은 메인체인의 EN을 제외하고 SCN이 연결한 노드의 수를 반환합니다.
 
 
