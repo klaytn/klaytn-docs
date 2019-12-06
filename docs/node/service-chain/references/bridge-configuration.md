@@ -12,9 +12,9 @@ The `kend.conf` contains the following main-bridge properties.
 
 | Name | Description |
 | :--- | :--- |
-| MAIN_BRIDGE | Enable bridge service as main bridge for service chain   1 to be enabled |
-| MAIN_BRIDGE_PORT | bridge listen port   e.g) default: 50505 |
-| MAIN_BRIDGE_INDEXING | Enable storing transaction hash of service chain transaction for fast access to service chain data   e.g) 1 to enabled |
+| MAIN_BRIDGE | Enable bridge service as main bridge for service chain. 1 to enable. |
+| MAIN_BRIDGE_PORT | Bridge listen port. Default: 50505 |
+| MAIN_BRIDGE_INDEXING | Enable indexing of service chain transaction hash for fast access to the service chain data. 1 to enable. |
 
 To enable main-bridge on EN, you should do like below.
 
