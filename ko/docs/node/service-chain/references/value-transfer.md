@@ -66,7 +66,7 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
 "0x5C1C757a6Cb6c6FcEFE398674D8209FDA2A74Df4"
 ```
 
-You can refer to the [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_parentOperator) for more details.
+상세 사항은 [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_parentOperator)를 참조하세요.
 
 ## 브리지 오퍼레이터에게 KLAY 보내기 <a id="send-klay-to-bridge-operators"></a>
 앵커링과 마찬가지로 부모 체인 브리지 오퍼레이터는 밸류 트랜스퍼 트랜잭션을 생성하기 위해 KLAY가 필요합니다. 서비스체인의 가스 가격이 0이 아니면 서비스체인 브리지 오퍼레이터도 KLAY 잔고를 유지해야 합니다.
@@ -103,7 +103,7 @@ Welcome to the Klaytn JavaScript console!
 체인 간 밸류 트랜스퍼를 위해서는 브리지 컨트랙트를 부모/자식 체인에 배포해야 합니다. 사용자는 브리지 컨트랙트에 KLAY 전송을 요청하여 KLAY를 다른 체인으로 보낼 수 있습니다. 또한 토큰 컨트랙트가 브리지 컨트랙트에 등록된 경우 브리지 컨트랙트는 부모 체인과 자식 체인 간의 토큰 전송을 처리할 수 있습니다.
 
 ## 배포<a id="deployment"></a>
-Sub-bridge provides a bridge contract deployment API. You can deploy bridge contracts to both chains using a single RPC call as below. Before doing this, you should have connected main-bridge and sub-bridge. Please refer to [Bridge Configuration](bridge-configuration.md) to get detailed guideline.
+서브 브리지는 브리지 컨트랙트 배포 API를 제공합니다. 아래와 같이 단일 RPC 호출을 사용하여 브리지 컨트랙트를 두 체인에 모두 배포할 수 있습니다. 이 일을 하기 전에 메인 브리지와 서브 브리지가 연결되어 있어야 합니다. 자세한 가이드라인은 [브리지 설정](bridge-configuration.md)을 참조하세요.
 
 ```javascript
 $ kscn attach ~/kscnd_home/klay.ipc
@@ -124,7 +124,7 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
     subscribed: false
 }]
 ```
-You can refer to the [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_deployBridge) for more details.
+상세 사항은 [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_deployBridge)를 참조하세요.
 
 `subbridge_listBridge`는 브리지 컨트랙트 주소 및 구독 상태를 보여줍니다. 서브 브리지는 브리지 컨트랙트 주소 목록을 파일에 저장합니다. 재부팅시 서브 브리지는 파일에서 브리지 컨트랙트 목록을 다시 로드합니다.
 
@@ -171,7 +171,7 @@ INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=
 - pending : `request`와 ` lowerHandle`의 차이.
 
 ### RPC API <a id="rpc-api"></a>
-You can check the status of a bridge contract like below. You can refer to the [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_getBridgeInformation) for more details.
+다음과 같이 브리지 컨트랙트의 상태를 확인할 수 있습니다. 자세한 내용은 [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_getBridgeInformation)를 참조하세요.
 
 ```javascript
 > subbridge.getBridgeInformation("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")
@@ -188,7 +188,7 @@ You can check the status of a bridge contract like below. You can refer to the [
 ```
 
 # 토큰 컨트랙트(ERC-20/721) <a id="token-contract-erc-20-721"></a>
-Service Chain supports ERC-20/721 value transfer as well. To support them, service chain compatible ERC-20/721 token contracts should be deployed on both parent and child chains. For the ERC-20/721 token contract code, you can refer to the [Token standard](../../../smart-contract/token-standard.md).
+서비스체인은 ERC-20/721 전송도 지원합니다. 이를 지원하기 위해 서비스체인 호환 ERC-20/721토큰 컨트랙트를 부모/자식 체인에 모두 배포해야 합니다. ERC-20/721 토큰 컨트랙트 코드는 [Klaytn 호환 토큰](../../../smart-contract/token-standard.md)을 참조하세요.
 
 ## 배포<a id="deployment"></a>
 SCN은 아직 ERC-20/721 토큰을 배포하는 API를 지원하지 않습니다. caver-js를 통해 토큰을 배포해야 합니다. ERC-20/721 컨트랙트를 배포할 때 올바른 브리지 오퍼레이터 계정을 사용해야 합니다. 부모 체인에 배포할 때는 부모 오퍼레이터 계정을 사용하고 자식 체인에 배포할 때는 자식 오퍼레이터 계정을 사용하세요. 잘못된 계정으로 토큰 컨트랙트를 배포한 경우 밸류 트랜스퍼가 작동하지 않으며 올바른 계정으로 토큰 컨트랙트를 다시 배포해야 합니다.
@@ -202,7 +202,7 @@ null
 
 이 명령은 자식 체인 토큰("0x376b72abe1b29cace831bd3f5acdfa967814c9cd")을 자식 체인 브리지 컨트랙트("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")에 등록합니다. 그리고 부모 체인 토큰("0x53160735f7cc6ff75e48619f368bb94daff66a1b")을 부모 체인 브리지 컨트랙트("0x22c41ae528627b790233d2e59ea520be12350eb5")에 등록합니다.
 
-You can refer to the [Service Chain API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_registerToken) for more details.
+상세 사항은 [Service Chain API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_registerToken)를 참조하세요.
 
 # 밸류 트랜스퍼 요청<a id="request-value-transfer"></a>
 이 장에서는 사용자가 밸류 트랜스퍼를 요청하기 위해 컨트랙트 메서드를 호출하는 방법에 대해 설명합니다. 0값 (KLAY/ERC-20) 전송 요청은 허용하지 않습니다.
