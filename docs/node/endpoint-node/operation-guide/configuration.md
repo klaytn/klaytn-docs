@@ -4,7 +4,7 @@ This document explains the configurable properties of the Endpoint Node. Klaytn 
 
 ## Configuration File location <a id="configuration-file-location"></a>
 
-* `kend.conf` for configuring the Proxy Node
+* `kend.conf` for configuring the Endpoint Node
 
 The configuration file is located in the `conf` directory, whose default location depends on whether or not the installation is from an archive distribution \(`tar.gz`\) or a package distribution \(RPM\).
 
