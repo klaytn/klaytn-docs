@@ -30,7 +30,7 @@ KLAY를 보낸 후 아래와 같이 잔액을 확인할 수 있습니다.
 1e+50
 ```
 
-Then you can enable anchoring via RPC API, `subbridge.anchoring`, like below. You can refer to [subbridge APIs](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_anchoring) for more details.
+그리고 `subbridge.anchoring` RPC API를 통해 아래와 같이 앵커링을 활성화 할 수 있습니다. 상세 사항은 [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_anchoring)를 참조하세요.
 ```
 > subbridge.anchoring(true)
 true
@@ -40,7 +40,7 @@ true
 앵커링 기능이 활성화되면 SCN은 블록 데이터를 주기적으로 메인체인에 앵커링합니다. 아래와 같이 앵커링된 데이터를 확인할 수 있습니다.
 
 ## 서브 브리지(Sub-Bridge)<a id="sub-bridge"></a>
-In Sub-Bridge, You can check the latest anchored block number like below. You can refer to [subbridge APIs](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_latestAnchoredBlockNumber) for more details.
+서브 브리지에서는 아래와 같이 가장 최근에 앵커링된 블록 번호를 확인할 수 있습니다. 상세 사항은 [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_latestAnchoredBlockNumber)를 참조하세요.
 ```javascript
 > subbridge.latestAnchoredBlockNumber
 71025
@@ -53,7 +53,7 @@ In Sub-Bridge, You can check the latest anchored block number like below. You ca
 ```
 
 ## 메인 브리지(Main-Bridge)<a id="sub-bridge"></a>
-In Main-Bridge, if chain indexing option is enabled, you can find the anchoring tx hash by a service chain block hash like below. You can refer to [mainbridge APIs](../../../bapp/json-rpc/api-references/mainbridge.md#mainbridge_convertServiceChainBlockHashToMainChainTxHash) for more details.
+메인 브리지에서 체인 인덱싱 옵션이 활성화된 경우 아래와 같이 서비스체인 블록 해시로 앵커링 트랜잭션 해시를 찾을 수 있습니다. 상세 사항은 [mainbridge API](../../../bapp/json-rpc/api-references/mainbridge.md#mainbridge_convertServiceChainBlockHashToMainChainTxHash)를 참조하세요.
 
 ```javascript
 > mainbridge.convertServiceChainBlockHashToMainChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
