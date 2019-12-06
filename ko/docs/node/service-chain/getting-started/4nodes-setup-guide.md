@@ -1,15 +1,15 @@
 This section covers how to set up a multi-node service chain. To tolerate byzantine faults, at least four nodes are required. We will set up a 4-consensus-node service chain.
 
  ## Prerequisites
- - Download the executables below. For the full list of downloadables, see [Download](../../download/README.md).
+ - 아래 실행 파일을 다운로드하세요. 다운로드 가능한 전체 목록은 [다운로드](../../download/README.md) 페이지를 참조하세요.
    - Linux
-      - Service Chain Consensus Node: [kscn-v1.2.0-4-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/kscn-v1.2.0-4-linux-amd64.tar.gz)
-      - homi utility: [homi-v1.2.0-4-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/homi-v1.2.0-4-linux-amd64.tar.gz)
+      - 서비스체인 컨센서스 노드(SCN): [kscn-v1.2.0-4-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/kscn-v1.2.0-4-linux-amd64.tar.gz)
+      - homi 유틸리티: [homi-v1.2.0-4-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/homi-v1.2.0-4-linux-amd64.tar.gz)
    - MacOS
-      - Service Chain Consensus Node: [kscn-v1.2.0-4-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/kscn-v1.2.0-4-darwin-amd64.tar.gz)
-      - homi utility: [homi-v1.2.0-4-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/homi-v1.2.0-4-darwin-amd64.tar.gz)
- - 4 Linux or MacOS servers
- - Minimum hardware requirements
+      - 서비스체인 컨센서스 노드(SCN): [kscn-v1.2.0-4-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/kscn-v1.2.0-4-darwin-amd64.tar.gz)
+      - homi 유틸리티: [homi-v1.2.0-4-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/homi-v1.2.0-4-darwin-amd64.tar.gz)
+ - 4대의 Linux 또는 MacOS 서버
+ - 최소 하드웨어 요구 사항
    - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
    - Please refer to the [System Requirements](../references/system-requirements.md) for more explanation.
 
