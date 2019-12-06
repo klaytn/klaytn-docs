@@ -6,15 +6,15 @@ This section covers how to connect your 4-node service chain to the Baobab netwo
       - [ken-baobab-v1.2.0-4-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/ken-baobab-v1.2.0-4-linux-amd64.tar.gz)
    - MacOS
       - [ken-baobab-v1.2.0-4-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/ken-baobab-v1.2.0-4-darwin-amd64.tar.gz)
- - 1 Linux or MacOS server for EN
- - Minimum hardware requirements for testing
+ - EN용 Linux 또는 MacOS 서버 1대
+ - 테스트를 위한 최소 하드웨어 요구 사항
    - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
    - Please refer to the [System Requirements](../references/system-requirements.md) for more explanation.
-   - Service Chain is installed and running.
- - Assumptions and Limitations
-   - EN connects to Baobab testnet.
-   - Only one SCN can connect to the EN.
-   - Not every SCN has to connect to the EN.
+   - 서비스체인이 설치되어 실행 중입니다.
+ - 가정 및 제약
+   - EN은 Baobab 테스트넷에 연결됩니다.
+   - 하나의 SCN만 EN에 연결할 수 있습니다.
+   - 모든 SCN이 EN에 연결될 필요는 없습니다.
 
 ## Step 0: Install Baobab EN <a id="install-baobab-en"></a>
 The installation is the uncompression of the downloaded package. Extract the archive on the EN server.
