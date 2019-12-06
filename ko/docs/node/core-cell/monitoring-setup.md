@@ -11,7 +11,7 @@ Klaytn 팀은 Klaytn CCN을 모니터링할 수 있는 사이트([http://cypress
 2. `telegraf` 환경설정하기
 3. `telegraf` 시작하기
 
-## Telegraf Installation <a id="telegraf-installation"></a>
+## Telegraf 설치 <a id="telegraf-installation"></a>
 
 Telegraf 설치 안내서 \(Amazon Linux 2 사용자, 아래 참조\): [https://docs.influxdata.com/telegraf/latest/introduction/installation/](https://docs.influxdata.com/telegraf/latest/introduction/installation/)
 
@@ -30,9 +30,9 @@ gpgkey = https://repos.influxdata.com/influxdb.key
 EOF
 ```
 
-## Telegraf Setup <a id="telegraf-setup"></a>
+## Telegraf 설정<a id="telegraf-setup"></a>
 
-### Enable monitoring in kcnd/kpnd <a id="enable-monitoring-in-kcnd-kpnd"></a>
+### kcnd/kpnd에서 모니터링 활성화<a id="enable-monitoring-in-kcnd-kpnd"></a>
 
 /etc/kcnd/conf/kcnd.conf
 
