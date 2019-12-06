@@ -1,14 +1,14 @@
 # 브리지 설정
 
-In this page, we will describe the steps of connecting a Service Chain to the Main Chain.
+이 페이지는 서비스체인을 메인체인에 연결하는 방법을 설명합니다.
 
-## EN Configuration - Enable Main-bridge <a id="en-configuration-enable-main-bridge"></a>
+## EN 설정 - 메인 브리지 활성화 <a id="en-configuration-enable-main-bridge"></a>
 
-You should enable main-bridge by configuring `kend.conf`.
+`kend.conf`를 설정하여 메인 브리지를 활성화해야 합니다.
 
 ### 환경설정 파일 업데이트 <a id="update-the-configuration-file"></a>
 
-The `kend.conf` contains the following main-bridge properties.
+`kend.conf`은 다음과 같은 메인 브리지 속성을 포함합니다.
 
 | 명칭                     | 설명                                                                                                                     |
 |:---------------------- |:---------------------------------------------------------------------------------------------------------------------- |
@@ -52,13 +52,13 @@ MAIN_BRIDGE_INDEXING=1
 ...
 ```
 
-## Connect SCN to the Main Chain <a id="connect-scn-to-the-main-chain"></a>
+## SCN을 메인체인에 연결하기<a id="connect-scn-to-the-main-chain"></a>
 
 You need to run an EN of the main chain as a main-bridge. And also you should determine which SCN (Service Chain Consensus Node) as a sub-bridge will connect with the EN.
 
-### Check EN (Main-Bridge) information <a id="check-en-(main-bridge)-information"></a>
+### EN(메인 브리지) 정보 확인하기<a id="check-en-(main-bridge)-information"></a>
 
-#### Open EN Console <a id="open-en-console"></a>
+#### EN 콘솔 열기<a id="open-en-console"></a>
 
 There are different ways to attach to the EN process. You can check the usable commands on [ken CLI commands](../../endpoint-node/ken-cli-commands.md). This page explains the way to attach to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the data directory on the node.
 
@@ -111,9 +111,9 @@ After attaching to the process via IPC, you can check the EN's main-bridge KNI l
 
 You should take note of the main-bridge `kni`.
 
-### Connect to the Main Chain <a id="connect-to-the-main-chain"></a>
+### 메인체인에 연결하기<a id="connect-to-the-main-chain"></a>
 
-#### Open SCN Console <a id="open-scn-console"></a>
+#### SCN 콘솔 열기<a id="open-scn-console"></a>
 
 Attach to the SCN process like below. You should have enabled `subbridge` API for RPC, you can find the subbridge module in the output. If there is no `subbridge` API, you should check [Configuration of the SCN](scn/configuration.md#configuration-of-the-scn) again.)
 
@@ -128,7 +128,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  >
 ```
 
-#### Connect SCN with EN <a id="connect-scn-with-en"></a>
+#### SCN과 EN 연결하기<a id="connect-scn-with-en"></a>
 
 You can add the EN peer on SCN via IPC like below. The kni is EN's KNI which you noted previously.
 
