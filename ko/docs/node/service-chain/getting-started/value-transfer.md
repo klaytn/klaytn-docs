@@ -7,7 +7,7 @@ This section will explain how to enable ERC20 value transfer between Baobab netw
 - Install `Node.js` (v10.60.0) and `npm` ([How to install](https://nodejs.org/en/download/package-manager/))
 
 
-## ERC-20 Token Transfer <a id="erc-20-token-transfer"></a>
+## ERC-20 토큰 전송<a id="erc-20-token-transfer"></a>
 
 ### Step 1: Add KLAY to the operator accounts. <a id="step-1-add-klay-to-the-operator-accounts"></a>
 Connect to the SCN and check the account addresses by executing `subbridge.parentOperator` and `subbridge.childOperator`.
