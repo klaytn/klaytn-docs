@@ -1,10 +1,10 @@
 # 설정<a id="configuration"></a>
 
-본 문서는 엔드포인트 노드 속성의 환경설정에 대해 안내합니다. Klaytn 노드 패키지는 기본적으로 제공되며 별도의 환경설정은 거의 필요하지 않습니다. 실행 중인 노드의 설정을 변경했다면 해당 노드를 재시작해야 변경 사항이 반영됩니다.
+본 문서는 엔드포인트 노드 설정시 변경할 수 있는 항목에 대해 설명합니다. Klaytn 노드 패키지는 기본값을 제공하며 별도의 환경설정은 거의 필요하지 않습니다. 실행 중인 노드의 설정을 변경했다면 해당 노드를 재시작해야 변경 사항이 반영됩니다.
 
 ## 환경설정 파일 위치 <a id="configuration-file-location"></a>
 
-* 프록시 노드 환경설정 시 `kend.conf`
+* 엔드포인트 노드 환경설정을 위한 `kend.conf`
 
 이 환경설정 파일은 `conf` 디렉토리에 있습니다. 해당 디렉토리의 위치는 아카이브 배포 \(`tar.gz`\)인지 또는 패키지 배포 \(RPM\)인지에 따라 기본 설정이 다릅니다.
 
@@ -58,7 +58,7 @@ TXPOOL_NONEXEC_SLOTS_ACCOUNT=4096
 | SERVER_TYPE                    | JSON RPC 서버 유형  ("http", "fasthttp")                                                                                                                                                                                            |
 | SYNCMODE                       | 블록체인 동기화 모드  ("fast", "full")                                                                                                                                                                                                   |
 | VERBOSITY                      | 로그 상세 레벨.  (0=silent, 1=error, 2=warn, 3=info, 4=debug, 5=detail)                                                                                                                                                               |
-| MAXCONNECTIONS                 | 최대로 가능한 물리적 연결 수  단일 채널 피어는 MAXCONNECTIONS 만큼의 피어와 연결할 수 있습니다.  다중 채널 피어는 MAXCONNECTIONS/2 만큼의 피어와 연결할 수 있습니다.  0으로 설정하면 네트워크 연결이 비활성화됩니다.                                                                                      |
+| MAXCONNECTIONS                 | 최대로 가능한 물리적 연결 수.  단일 채널 피어는 MAXCONNECTIONS 만큼의 피어와 연결할 수 있습니다.  다중 채널 피어는 MAXCONNECTIONS/2 만큼의 피어와 연결할 수 있습니다.  0으로 설정하면 네트워크 연결이 비활성화됩니다.                                                                                     |
 | LDBCACHESIZE                   | LevelDB의 메모리 내 캐시 크기 (MiB).                                                                                                                                                                                                     |
 | TXPOOL_EXEC_SLOTS_ALL        | 모든 계정에 대해 실행 가능한 트랜잭션 슬롯의 최대 개수                                                                                                                                                                                                 |
 | TXPOOL_NONEXEC_SLOTS_ALL     | 모든 계정에 대해 실행 불가능한 트랜잭션 슬롯의 최대 개수                                                                                                                                                                                                |
@@ -69,7 +69,7 @@ TXPOOL_NONEXEC_SLOTS_ACCOUNT=4096
 | RPC_API                        | 쉼표로 구분된 API 목록으로 HTTP-RPC 인터페이스를 통해 제공됩니다.  (admin, debug, klay, miner, net, personal, rpc, txpool, web3)                                                                                                                       |
 | RPC_PORT                       | HTTP-RPC 서버 수신 포트                                                                                                                                                                                                               |
 | RPC_ADDR                       | HTTP-RPC 서버 수신 인터페이스                                                                                                                                                                                                            |
-| RPC_CORSDOMAIN                 | Comma-separated list of domains from which to accept cross-origin requests (browser enforced)                                                                                                                                   |
+| RPC_CORSDOMAIN                 | 쉼표로 구분된, (브라우저에서 시행된) cross-origin 요청을 수락할 도메인 목록입니다.                                                                                                                                                                           |
 | RPC_VHOSTS                     | 쉼표로 구분된, (서버에서 시행된) 요청을 수락할 가상 호스트 이름의 목록입니다. '*' 와일드 카드를 허용합니다.                                                                                                                                                                |
 | WS_ENABLE                      | 1로 설정하면 WS-RPC 서버를 활성화합니다.                                                                                                                                                                                                      |
 | WS_API                         | WS-RPC 인터페이스를 통해 제공되는 API  (admin, debug, klay, miner, net, personal, rpc, txpool, web3)                                                                                                                                        |
@@ -78,10 +78,10 @@ TXPOOL_NONEXEC_SLOTS_ACCOUNT=4096
 | WS_ORIGINS                     | 웹 소켓 요청을 수락할 Origin                                                                                                                                                                                                             |
 | SC_MAIN_BRIDGE               | 1로 설정하면 Main bridge 서비스를 활성화합니다. 서비스체인 구성에 사용됩니다.                                                                                                                                                                               |
 | SC_MAIN_BRIDGE_PORT          | Main bridge 수신 포트                                                                                                                                                                                                               |
-| SC_MAIN_BRIDGE_INDEXING      | Enable storing transaction hash of child chain transactions for fast access to child chain data if it is set to 1.                                                                                                              |
+| SC_MAIN_BRIDGE_INDEXING      | 1로 설정하면 하위 체인 데이터에 빠르게 접근할 수 있도록 하위 체인 트랜잭션의 해시를 저장합니다.                                                                                                                                                                         |
 | METRICS                        | 1로 설정하면 지표 수집 및 보고를 할 수 있습니다.                                                                                                                                                                                                   |
 | PROMETHEUS                     | 1로 설정하면 Prometheus Exporter를 활성화합니다.                                                                                                                                                                                            |
-| DB_NO_PARALLEL_WRITE         | Disable parallel writes of block data to persistent database if it is set to 1.                                                                                                                                                 |
+| DB_NO_PARALLEL_WRITE         | 1로 설정하면 퍼시스턴트 데이터베이스에 블록 데이터의 병렬 쓰기가 비활성화됩니다.                                                                                                                                                                                   |
 | MULTICHANNEL                   | 1로 설정하면 블록 전파를 위한 전용 채널이 생성됩니다.                                                                                                                                                                                                 |
 | SUBPORT                        | MULTICHANNEL 옵션이 활성화되었을 때 보조 수신 포트 번호입니다.                                                                                                                                                                                       |
 | NO_DISCOVER                    | 1로 설정되면 discovery 옵션을 비활성화합니다.                                                                                                                                                                                                  |
