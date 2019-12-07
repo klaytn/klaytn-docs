@@ -1,15 +1,15 @@
 This section covers how to connect your 4-node service chain to the Baobab network. You will set up a Baobab EN and connect the EN with one of your SCNs. Then you will enable the Anchoring feature to write service chain block information on Baobab network.
 
 ## 준비 사항 <a id="prerequisites"></a>
- - Download the Baobab EN executable below. For the full list of downloadables, see [Download](../../download/README.md).
+ - 아래 Baobab EN 실행 파일을 다운로드하세요. 다운로드 가능한 전체 목록은 [다운로드](../../download/README.md) 페이지를 참조하세요.
    - Linux
       - [ken-baobab-v1.2.0-4-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/ken-baobab-v1.2.0-4-linux-amd64.tar.gz)
    - MacOS
       - [ken-baobab-v1.2.0-4-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/ken-baobab-v1.2.0-4-darwin-amd64.tar.gz)
  - EN용 Linux 또는 MacOS 서버 1대
  - 테스트를 위한 최소 하드웨어 요구 사항
-   - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
-   - Please refer to the [System Requirements](../references/system-requirements.md) for more explanation.
+   - CPU: 4코어(Intel Xeon 또는 동급), RAM: 16GB, HDD: 50GB
+   - 자세한 설명은 [시스템 요구사항](../references/system-requirements.md)을 참조하세요.
    - 서비스체인이 설치되어 실행 중입니다.
  - 가정 및 제약
    - EN은 Baobab 테스트넷에 연결됩니다.
