@@ -16,27 +16,27 @@ This section covers how to connect your 4-node service chain to the Baobab netwo
    - 하나의 SCN만 EN에 연결할 수 있습니다.
    - 모든 SCN이 EN에 연결될 필요는 없습니다.
 
-## Step 0: Install Baobab EN <a id="install-baobab-en"></a>
+## 0 단계 : Baobab EN 설치하기 <a id="install-baobab-en"></a>
 The installation is the uncompression of the downloaded package. Extract the archive on the EN server.
 
 ```bash
 $ tar xvf ken-baobab-vX.X.X-XXXXX-amd64.tar.gz
 ```
 
-## Step 1: Preparing genesis.json <a id="step-1-preparing-genesis-json"></a>
+## 1 단계 : genesis.json 준비하기 <a id="step-1-preparing-genesis-json"></a>
 From the EN server, download the `genesis.json` for `Baobab` network.
 ```
 $ curl -X GET http://packages.klaytn.net/baobab/genesis.json -o ~/genesis.json
 ```
 
-## Step 2: EN Node Initialization <a id="step-2-en-node-initialization"></a>
+## 2 단계 : EN 노드 초기화<a id="step-2-en-node-initialization"></a>
 Now, we will initialize the EN node using the genesis file. Execute the following command. It will create the data folder storing the chain data and logs on your home directory. You can change the data folder using the `--datadir` directive.
 
 ```
 $ ken --datadir ~/data init ~/genesis.json
 ```
 
-## Step 3: Configure the EN Node <a id="step-3-configure-the-en-node"></a>
+## 3 단계 : EN 노드 설정<a id="step-3-configure-the-en-node"></a>
 Go to the ken installation folder and edit `conf/kend.conf` as follows.
 
 ```
@@ -49,7 +49,7 @@ DATA_DIR=~/data
 ...
 ```
 
-## Step 4: Start the EN Node <a id="step-4-start-the-en-node"></a>
+## 4 단계 : EN 노드 시작<a id="step-4-start-the-en-node"></a>
 ```
 $ kend start
 Starting kscnd: OK
@@ -62,7 +62,7 @@ $ ken attach --datadir ~/data
 ```
 If you want to stop a node, you can use the command `kend stop`
 
-## Step 5: Check KNI of EN Node <a id="step-5-check-kni-of-en-node"></a>
+## 5 단계 : EN 노드의 KNI 확인<a id="step-5-check-kni-of-en-node"></a>
 Take note of EN's KNI which is the information used to connect from an SCN node. This value will be used in the next step when generating `main-bridges.json`
 ```
 
@@ -71,13 +71,13 @@ $ ken attach --datadir ~/data
 "kni://0f7aa6499553cdfeb8f21df10c656252ca6039047242eb86278689a87d57a41f9f004720180d1921e9f7632a4c6476f1775a2c381568d8e8c3c9c4a8cfe25bae@[::]:50505?discport=0"
 ```
 
-## Step 6: Create main-bridges.json <a id="step-6-create-main-bridges-json"></a>
+## 6 단계 : main-bridges.json 생성<a id="step-6-create-main-bridges-json"></a>
 Log on to an SCN (note: not the EN node) and create `main-bridges.json` on `~/data`. Replace `[::]` located after `@` letter with EN node's IP address.
 ```
 $ echo '["kni://0f7aa6499553cdfeb8f21df10c656252ca6039047242eb86278689a87d57a41f9f004720180d1921e9f7632a4c6476f1775a2c381568d8e8c3c9c4a8cfe25bae@192.168.0.5:50505?discport=0"]' > ~/data/main-bridges.json
 ```
 
-## Step 7: Configure SCN then Reboot <a id="step-7-configure-scn-then-reboot"></a>
+## 7 단계 : SCN 설정 후 재부팅<a id="step-7-configure-scn-then-reboot"></a>
 From the SCN node's shell, edit `kscn-XXXXX-amd64/conf/kscnd.conf`. `SC_TX_PERIOD` is the parameter that decides the period to send an anchoring tx to the main chain. By setting the value to 10, you configure the node to perform anchoring every 10 blocks. The default value is 1.
 ```
 ...
@@ -107,7 +107,7 @@ $ kscn attach --datadir ~/data
 ## Anchoring  <a id="anchoring"></a>
 After finishing the EN and SCN connection, you can log Service Chain block information on the parent chain via Anchoring. In this section, you will top up a parent operator account, enable Anchoring, and check the anchored block number.
 
-### Step 1: Get KLAY to test anchoring <a id="step-1-get-klay-to-test-anchoring"></a>
+### 1 단계 : 앵커링 테스트를 위한 KLAY 얻기 <a id="step-1-get-klay-to-test-anchoring"></a>
 To do an anchoring, SCN has to make an anchoring transaction to Baobab. So `subbridge.parentOperator` account should have KLAY to pay the transaction fee. Get some KLAY from Baobab wallet faucet ([link](https://baobab.wallet.klaytn.com/)) and transfer 1 KLAY to the `subbridge.parentOperator`.
 ```
 $ kscn attach --datadir ~/data
@@ -115,7 +115,7 @@ $ kscn attach --datadir ~/data
 "0x3ce216beeafc62d20547376396e89528e1d778ca"
 ```
 
-### Step 2: Start Anchoring <a id="step-2-start-anchoring"></a>
+### 2 단계 : 앵커링 시작 <a id="step-2-start-anchoring"></a>
 ```
 $ kscn attach --datadir ~/data
 > subbridge.anchoring(true)
