@@ -168,7 +168,7 @@ code hash, or storage hash.
 | Name | Type | Description |
 | --- | --- | --- |
 | startBlockNum | int | The first block number of the range to check. |
-| endBlockNum | int | (optional)End block number for the range. |
+| endBlockNum | int | (optional) The last block number of the range. |
 
 **Return Value**
 
