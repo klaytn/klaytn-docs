@@ -1,19 +1,19 @@
 # 설정<a id="configuration"></a>
 
-이 페이지는 컨센서스 네트워크를 구성하기 위해 SCN를 설정하는 방법을 설명합니다.
+This page explains the configuration of SCNs to form a consensus network.
 
-아카이브 배포를 설치한 경우 아카이브를 풀어놓은 디렉토리에서 실행 바이너리 및 설정 파일을 찾을 수 있습니다.
+If you installed archive distribution, you can find the binaries and the config file in the directories you extracted the archives. Below is an example of command execution.
 ```bash
 $ homi-darwin-amd64/bin/homi setup ...
 $ kscn-darwin-amd64/bin/kscnd start
 $ vi kscn-darwin-amd64/conf/kscnd.conf
 ```
 
-이 후 예제에서 명령어의 전체 경로를 항상 명시하지는 않습니다.
+In this tutorial, we will not always specify the full path to the command.
 
-## 제네시스 파일 생성<a id="creation-of-a-genesis-file"></a>
+## Creation of a Genesis File <a id="creation-of-a-genesis-file"></a>
 
-먼저 서비스체인의 genesis 파일과 nodekey 파일을 만들어야 합니다. 아래와 같이 homi를 사용하여 만들 수 있습니다.
+First, you should create a genesis file and a nodekey file for your own service chain. You can create them using homi like below.
 ```bash
 $ homi setup local --cn-num 1 --servicechain -o ./homi-output
 Created :  homi-output/keys/passwd1
@@ -25,7 +25,7 @@ Created :  homi-output/Klaytn.json
 Created :  homi-output/Klaytn_txpool.json
 ```
 
-아래는 genesis 파일 및 nodekey 파일의 예입니다.
+Below are examples of genesis file and nodekey file.
 ```bash
 $ cat homi-output/scripts/genesis.json
 {
@@ -60,20 +60,20 @@ $ cat homi-output/keys/nodekey1
 0c28c77ce5c2ca9e495b860f190ed7dfe7bd5c1a2e5f816587eb4d3d9566df44
 ```
 
-genesis 파일에서 chainID를 변경하세요. Replay attach을 방지하기 위해 고유의 번호를 사용하세요. (Klaytn Cypress(8217) 및 Baobab(1001)과 동일한 chainID를 사용하지 마세요.)
+Please change the chainID in the genesis file. Use your own number to prevent a replay attack. (Do not use the same chainID with Klaytn Cypress (8217) and Baobab (1001))
 
-필요하면, genesis 파일에서 `"alloc"` 필드를 편집하여 미리 KLAY를 할당할 계정 주소를 변경할 수 있습니다. ([Genesis JSON](../genesis.md)에서 자세한 내용을 확인할 수 있습니다.)
+If you want, you can change the pre-funded addresses by editing `"alloc"` in the genesis file. (You can find more details in [Genesis JSON](../genesis.md).)
 
-## SCN 데이터 디렉토리 생성<a id="scn-data-directory-creation"></a>
+## SCN Data Directory Creation <a id="scn-data-directory-creation"></a>
 
-Klaytn 블록체인 데이터의 크기가 계속 증가한다는 사실을 고려하여 충분히 큰 스토리지를 사용하는 것이 좋습니다. 원하는 경로에 데이터 디렉토리를 생성할 수 있습니다. 이 문서에서는 `~/kscnd_home`을 데이터 디렉토리로 생성합니다.
+Klaytn 블록체인 데이터의 크기가 계속 증가한다는 사실을 고려하면 충분히 큰 스토리지를 사용하는 것이 좋습니다. You can create the data directory on your desired path. In this document, we create `~/kscnd_home` as a data directory.
 
 ```bash
 $ mkdir -p ~/kscnd_home
 ```
 
-### 제네시스 블록의 초기화<a id="initialization-of-a-genesis-block"></a>
-이어서 genesis 파일로 데이터 디렉토리를 초기화할 수 있습니다. 서비스체인 노드를 시작하기 전에 `kscn`과 `genesis.json`을 사용하여 서비스체인 네트워크의 genesis 블록을 초기화해야 합니다.
+### Initialization of a Genesis Block <a id="initialization-of-a-genesis-block"></a>
+After that, you can initialize the data directory with the genesis file. Before starting a service chain node, it is necessary to initialize the genesis block of the service chain network using `kscn` and `genesis.json`.
 
 ```bash
 $ kscn init --datadir ~/kscnd_home homi-output/scripts/genesis.json
@@ -97,18 +97,18 @@ $ kscn init --datadir ~/kscnd_home homi-output/scripts/genesis.json
   INFO[11/12,10:13:59 +09] [46] Database closed                           path=/Users/ethan/kscnd_home/klay/lightchaindata/bridgeservice
 ```
 
-### nodekey 설치<a id="install_nodekey"></a>
-`homi-output/keys/nodekey1`를 SCN의 데이터 디렉토리 아래에 있는 `klay` 디렉토리에 아래와 같이 복사합니다.
+### Install nodekey <a id="install_nodekey"></a>
+Copy `homi-output/keys/nodekey1` to the `klay` directory in the SCN's data directory like below.
 
 ```bash
 $ cp homi-output/keys/nodekey1  ~/kscnd_home/klay/nodekey
 ```
 
-## SCN 설정 <a id="configuration-of-the-scn"></a>
+## Configuration of the SCN <a id="configuration-of-the-scn"></a>
 
-`kscnd.conf`는 SCN의 설정 파일입니다.
+`kscnd.conf` is the configuration file for the SCN.
 
-SCN이 기본 포트를 사용하고 대규모 파티션을 `~/kscnd_home`에 마운트한다고 가정해 봅시다. 기본 `kscnd.conf` 파일은 `SC_SUB_BRIDGE` 옵션이 비활성화되어 있고 `DATA_DIR`는 비워져 있습니다.
+Assume that the SCN uses the default port and mounts a large-scale partition onto `~/kscnd_home`. In the default `kscnd.conf` file, `SC_SUB_BRIDGE` option is disabled and `DATA_DIR` is empty.
 ```
 # Configuration file for the kscnd
 ...
@@ -118,7 +118,7 @@ DATA_DIR=
 ...
 ```
 
-`SC_SUB_BRIDGE`를 활성화하면 앵커링/밸류 트랜스퍼 기능을 사용할 수 있습니다. 또한 아래와 같이 DATA_DIR을 설정해야합니다.
+You can enable `SC_SUB_BRIDGE` to use the Anchoring/Value transfer feature. Also you should set the DATA_DIR like below.
 
 ```
 # Configuration file for the kscnd
@@ -129,6 +129,6 @@ DATA_DIR=~/kscnd_home
 ...
 ```
 
-필요하면 다른 옵션을 추가로 수정하여 서비스체인을 변경할 수 있습니다. 그렇지 않으면 이제 설정을 완료하고 기본 설정에 따라 서비스체인을 실행할 준비가 되었습니다.
+If you want, you can further modify other options to customize your Service Chain. Otherwise, now you can finish the configuration and you are ready to run the service chain using the default configuration.
 
 
