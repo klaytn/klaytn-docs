@@ -9,7 +9,7 @@ This section will explain how to enable ERC20 value transfer between Baobab netw
 
 ## ERC-20 토큰 전송<a id="erc-20-token-transfer"></a>
 
-### Step 1: Add KLAY to the operator accounts. <a id="step-1-add-klay-to-the-operator-accounts"></a>
+### 1 단계 : 운영자 계정에 KLAY 추가하기<a id="step-1-add-klay-to-the-operator-accounts"></a>
 Connect to the SCN and check the account addresses by executing `subbridge.parentOperator` and `subbridge.childOperator`.
 ```
 $ kscn attach --datadir ~/data
@@ -45,7 +45,7 @@ Check if the operator accounts have enough balance.
 1e+18
 ```
 
-### Step 2: Deploy Contracts <a id="step-2-deploy-contracts"></a>
+### 2 단계 : 컨트랙트 배포 <a id="step-2-deploy-contracts"></a>
 Connect to the SCN and prepare the node environment for contract deployment. [Download `deploy_and_test.tar.gz`](https://drive.google.com/file/d/14tNU-jOAv7JwfY5xZqJlckkpO16TuS2S/view?usp=sharing) and extract it to node_project directory.
 
 ```bash
@@ -90,7 +90,7 @@ subbridge.subscribeBridge("0x5f093de8a1b1d32Fc4cF6F40357DCcD24453BAb3", "0xD1C48
 subbridge.registerToken("0x5f093de8a1b1d32Fc4cF6F40357DCcD24453BAb3", "0xD1C4808960Fb4581b9A5B3B217b9a67057D84c19", "0x96272131600EC7c64c45CE139C32F4919fBFaDC8", "0xc7858a153376764208e8F6B6B55B4a0792B67c3E")
 ```
 
-### Step 3: Register Bridge, Subscribe Bridge and Register Token <a id="step-3-register-bridge-subscribe-bridge-and-register-token"></a>
+### 3 단계 : 브리지 등록, 브리지 구독, 토큰 등록 <a id="step-3-register-bridge-subscribe-bridge-and-register-token"></a>
 On the console, execute the APIs shown above one by one.
 ```
 $ kscn attach --datadir ~/data
@@ -102,7 +102,7 @@ null
 null
 ```
 
-### Step 4: Token transfer <a id="step-4-token-transfer"></a>
+### 4 단계 : 토큰 전송<a id="step-4-token-transfer"></a>
 Perform token transfer with `node transfer.js` command.
 ```
 $ node transfer.js
@@ -110,4 +110,4 @@ requestValueTransfer..
 alice balance: 100
 ```
 
-Check if the result is `alice balance: 100`.
+결과가 `alice balance: 100`인지 확인하세요.
