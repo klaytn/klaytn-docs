@@ -112,7 +112,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ## debug_getModifiedAccountsByHash <a id="debug_getmodifiedaccountsbyhash"></a>
 
 Returns all accounts that have changed between the two blocks specified by
-their block hashes. Changes made in `endBlockHash' are included, but changes in`startBlockHash` are not. If `endBlockHash` is not given, it returns the accounts modified in the `startBlockHash`. A change is defined as a difference in nonce, balance, code
+their block hashes. Changes made in `endBlockHash' are included, but changes made in `startBlockHash` are not. If `endBlockHash` is not given, it returns the accounts modified in the `startBlockHash`. A change is defined as a difference in nonce, balance, code
 hash, or storage hash.
 
 
