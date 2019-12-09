@@ -1,6 +1,6 @@
-This section covers how to set up a multi-node service chain. To tolerate byzantine faults, at least four nodes are required. We will set up a 4-consensus-node service chain.
+이 장에서는 다중 노드 서비스 체인을 설정하는 방법에 대해 설명합니다. 비잔틴 결함을 허용하려면 최소 4개의 노드가 필요합니다. 우리는 4개의 컨센서스 노드로 구성된 서비스 체인을 설정해볼 것입니다.
 
- ## Prerequisites
+ ## 준비 사항
  - 아래 실행 파일을 다운로드하세요. 다운로드 가능한 전체 목록은 [다운로드](../../download/README.md) 페이지를 참조하세요.
    - Linux
       - 서비스체인 컨센서스 노드(SCN): [kscn-v1.2.0-4-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/kscn-v1.2.0-4-linux-amd64.tar.gz)
@@ -13,8 +13,8 @@ This section covers how to set up a multi-node service chain. To tolerate byzant
    - CPU: 4코어(Intel Xeon 또는 동급), RAM: 16GB, HDD: 50GB
    - 자세한 설명은 [시스템 요구사항](../references/system-requirements.md)을 참조하세요.
 
-## Step 0: Install SCN on all nodes <a id="install-scn"></a>
-The installation is the uncompression of the downloaded package. Extract the SCN archive on each server.
+## 0 단계 : 모든 노드에 SCN 설치하기 <a id="install-scn"></a>
+설치는 다운로드 한 패키지의 압축을 해제하기만 하면 됩니다. 각 서버에서 SCN 아카이브를 압축 해제하세요.
 
 ```console
 $ tar xvf kscn-vX.X.X-XXXXX-amd64.tar.gz 
@@ -33,9 +33,9 @@ $ export PATH=$PATH:~/path/to/kscn-XXXXX-amd64/bin
 
 ## 1 단계: genesis.json 및 nodekey 생성 <a id="step-1-create-genesis-json-and-a-key"></a>
 
-We will use homi utility to generate the needful files. You can execute homi from any Linux/Mac PC.
+우리는 homi 유틸리티를 사용하여 필요한 파일을 생성할 것입니다. homi는 아무 Linux/Mac PC에서나 실행하면 됩니다.
 
-First, extract the homi archive you downloaded.
+먼저 다운로드 한 homi 아카이브를 추출하십시오.
 ```console
 $ tar xvf homi-vX.X.X-XXXXX-amd64.tar.gz 
 x homi-XXXXX-amd64/
@@ -43,7 +43,7 @@ x homi-XXXXX-amd64/bin/
 x homi-XXXXX-amd64/bin/homi
 ```
 
-Go to the `bin` folder and execute `homi` with following options to generate the files. `homi setup local --cn-num 4 --test-num 1 --servicechain --p2p-port 30000 -o homi-output`
+`bin` 폴더로 이동하여 `homi`를 다음 옵션과 함께 실행하면 필요한 파일을 생성할 수 있습니다. `homi setup local --cn-num 4 --test-num 1 --servicechain --p2p-port 30000 -o homi-output`
 
 ```console
 $ ./homi setup local --cn-num 4 --test-num 1 --servicechain --p2p-port 30000 -o homi-output
@@ -67,12 +67,12 @@ Created :  homi-output/Klaytn.json
 Created :  homi-output/Klaytn_txpool.json
 ```
 
-Among the outputs, we will use `nodeky*`, `genesis.json` and `static-nodes.json` in the subsequent steps.
+결과물 중 이어지는 단계에서 우리가 사용할 파일은 `nodeky*`, `genesis.json` 그리고 `static-nodes.json`입니다.
 
 
 ## 2 단계: static-nodes.json 수정 <a id="step-2-customize-static-nodes-json"></a>
 
-Open `homi-output/scripts/static-nodes.json` in a text editor then update the IP addresses and ports with the actual values of your nodes. Note the port you assigned here, the value will be used later in step 4.
+`homi-output/scripts/static-nodes.json`을 텍스트 편집기 열고, IP 주소와 포트를 실제 노드 값으로 업데이트하세요. 여기에서 사용한 포트 값을 기억하세요. 이 값은 나중에 4 단계에서 사용됩니다.
 
 ```json
 [
@@ -83,14 +83,14 @@ Open `homi-output/scripts/static-nodes.json` in a text editor then update the IP
 ]
 ```
 
-After you update `static-nodes.json`, upload the output folders to all SCNs.
+`static-nodes.json`을 업데이트한 후, 결과 폴더(homi_output)를 모든 SCN에 업로드하세요.
 
 ```console
 $ scp -r path/to/homi-output/ user@192.168.0.1:~/ 
 ```
 
 ## 3 단계: 노드 초기화 <a id="step-3-node-initialization"></a>
-Now, we will initialize each node using the genesis file. On each node, execute the following command. It will create the data folder storing the chain data and logs on your home directory. You can change the data folder using the `--datadir` directive.
+이제, genesis 파일을 사용하여 각 노드를 초기화합니다. 각 노드에서 다음 명령을 실행하세요. 이 명령어는 체인 데이터와 로그를 저장하는 데이터 폴더를 홈 디렉토리에 생성합니다. `-datadir` 지시어로 데이터 폴더 위치를 변경할 수 있습니다.
 
 ```console
 $ kscn --datadir ~/data init ~/homi-output/scripts/genesis.json
@@ -102,19 +102,19 @@ keystore    klay        kscn
 
 ## 4 단계: `nodekey` 및 `static-nodes.json` 설치 <a id="step-4-install-nodekey"></a>
 
-On every SCNs, copy `static-nodes.json` to the data folder.
+모든 SCN에서 `static-nodes.json`을 데이터 폴더에 복사하세요.
 ```console
 $ cp ~/homi-output/scripts/static-nodes.json ~/data/
 ```
 
-In step 1, we generated 4 nodekeys. Assign each node key to the SCN and copy the matching nodekey to each SCN's data folder. For example, use nodekey1 for 192.168.0.1 node and use nodekey 2, 3 and 4 for 192.168.0.2, 192.168.0.3 and 192.168.0.4 respectively.
+1 단계에서 4개의 nodekey를 생성했습니다. 각 nodekey를 SCN에 하나씩 할당하고 각 SCN의 데이터 폴더에 맞는 것을 복사하세요. 예를 들어, 192.168.0.1 노드에는 nodekey1을 사용하고 192.168.0.2, 192.168.0.3, 192.168.0.4에는 nodekey 2, 3, 4를 사용하는거죠.
 ```console
 $ cp ~/homi-output/keys/nodekey{1..4} ~/data/klay/nodekey
 ```
 
 ## 5 단계: 노드 설정 <a id="step-5-configure-nodes"></a>
 
-On every SCNs, go to the kscn installation folder and edit `conf/kscnd.conf` as follows.
+모든 SCN에서 kscn 설치 폴더로 이동하여 `conf/kscnd.conf`를 다음과 같이 편집하세요.
 ```
 ...
 PORT=30000
