@@ -5,15 +5,14 @@
 Retrieves the state that corresponds to the block number and returns a list of
 accounts (including storage and code).
 
-**NOTE**: This function returns the state correctly for some latest block
-numbers.  On the other hand, old block numbers that can be used to retrieve the
-state may be restricted depending on the value set for the `klay` command-line
+**NOTE**: This function correctly returns the state for a few latest, currently 4, block
+numbers.  Retrieving older block state is restricted depending on the value set for the command-line
 option `--state.block-interval` (default: 128).  This means that the function
-will perform the state retrieval against only the block numbers, which are a
-multiple of state.block-interval value.  For example, when the value of
-state.block-interval is 128, this function returns the state correctly for the
-block numbers such as "0x0", "0x80", "0x100", "0x180", and so on.  If the block
-number is not a multiple of state.block-interval value, it will return 'missing
+performs the state retrieval against only the block numbers that are
+multiples of state.block-interval.  For example, when 
+state.block-interval is 128, this function returns the state for the
+block numbers "0x0", "0x80", "0x100", "0x180", and so on.  If the block
+number is not a multiple of state.block-interval, it returns 'missing
 trie node' error.
 
 | Client  | Method Invocation                                   |
@@ -113,7 +112,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ## debug_getModifiedAccountsByHash <a id="debug_getmodifiedaccountsbyhash"></a>
 
 Returns all accounts that have changed between the two blocks specified by
-their block hashes. A change is defined as a difference in nonce, balance, code
+their block hashes. Changes made in `endBlockHash' are included, but changes made in `startBlockHash` are not. If `endBlockHash` is not given, it returns the accounts modified in the `startBlockHash`. A change is defined as a difference in nonce, balance, code
 hash, or storage hash.
 
 
@@ -126,8 +125,8 @@ hash, or storage hash.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| startBlockHash | 32-byte DATA | Start block hash for the range. |
-| endBlockHash | 32-byte DATA | End block hash for the range. |
+| startBlockHash | 32-byte DATA | The first block hash of the range to check. |
+| endBlockHash | 32-byte DATA | (optional) The last block hash of the range. |
 
 **Return Value**
 
@@ -155,7 +154,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 ## debug_getModifiedAccountsByNumber <a id="debug_getmodifiedaccountsbynumber"></a>
 
 Returns all accounts that have changed between the two blocks specified by
-their block numbers. A change is defined as a difference in nonce, balance,
+their block numbers. Changes made in `endBlockNum' are included, but changes made in `startBlockNum` are not. If `endBlockNum` is not given, it returns the accounts modified in the `startBlockNum`. A change is defined as a difference in nonce, balance,
 code hash, or storage hash.
 
 
@@ -168,8 +167,8 @@ code hash, or storage hash.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| startBlockNum | int | Start block number for the range. |
-| endBlockNum | int | End block number for the range. |
+| startBlockNum | int | The first block number of the range to check. |
+| endBlockNum | int | (optional) The last block number of the range. |
 
 **Return Value**
 
@@ -303,4 +302,3 @@ HTTP RPC
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_setHead","params":["0x100"],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
-
