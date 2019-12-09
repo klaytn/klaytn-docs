@@ -1,6 +1,6 @@
 This section covers how to set up a multi-node service chain. To tolerate byzantine faults, at least four nodes are required. We will set up a 4-consensus-node service chain.
 
- ## Prerequisites
+## Prerequisites <a id="prerequisites"></a>
  - Download the executables below. For the full list of downloadables, see [Download](../../download/README.md).
    - Linux
       - Service Chain Consensus Node: [kscn-v1.2.0-4-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/kscn-v1.2.0-4-linux-amd64.tar.gz)
