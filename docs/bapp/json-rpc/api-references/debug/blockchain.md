@@ -126,7 +126,7 @@ hash, or storage hash.
 | Name | Type | Description |
 | --- | --- | --- |
 | startBlockHash | 32-byte DATA | The first block hash of the range to check. |
-| endBlockHash | 32-byte DATA | (optional)End block hash for the range. |
+| endBlockHash | 32-byte DATA | (optional) The last block hash of the range. |
 
 **Return Value**
 
