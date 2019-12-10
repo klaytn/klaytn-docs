@@ -4,7 +4,7 @@
 
 블록 번호에 해당하는 상태를 검색하고 계정(스토리지와 코드를 포함)의 목록을 반환합니다.
 
-**참고**: 이 함수는 최근 블록들의 번호에 해당하는 상태를 반환합니다.  반면, 오래된 블록 번호를 사용하여 상태를 검색하는 것은 `klay` 커맨드라인의 `--state.block-interval` 옵션으로 어떤 값을 설정하는지에 따라 제한될 수 있습니다. (기본 설정은 128입니다.)  즉 state.block-interval 값의 배수인 블록 번호에 대해서만 상태 검색을 할 수 있다는 것입니다.  예를 들어, state.block-interval 값이 128이면 이 함수는 "0x0", "0x80", "0x100", "0x180" 등과 같은 블록 번호에 해당하는 상태를 올바르게 반환합니다.  블록 번호가 state.block-interval 값의 배수가 아니면, 'missing trie node' 오류를 반환합니다.
+**참고**: 이 함수는 최근 블록(현재 설정으로는 최신 4개)의 상태는 모두 올바르게 반환합니다.  이보다 오래된 블록의 상태를 조회하는 것은 커맨드라인 옵션 `--state.block-interval`에 설정된 값(기본값: 128)에 따라 제한됩니다.  이는 state.block-interval 값의 배수인 블록 번호에 대해서만 상태 검색을 할 수 있다는 의미입니다.  예를 들어, state.block-interval 값이 128이면 이 함수는 "0x0", "0x80", "0x100", "0x180" 등과 같은 블록 번호에 해당하는 상태를 올바르게 반환합니다.  블록 번호가 state.block-interval 값의 배수가 아니면, 'missing trie node' 오류를 반환합니다.
 
 | 클라이언트 | 메서드 호출                                              |
 |:-----:| --------------------------------------------------- |
@@ -102,7 +102,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_getModifiedAccountsByHash <a id="debug_getmodifiedaccountsbyhash"></a>
 
-블록 해시로 입력받은 두 블록 사이에 변경된 모든 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
+블록 해시로 입력받은 두 블록 사이에 변경된 모든 계정을 반환합니다. `endBlockHash`에서 변경한 사항은 포함되지만 `startBlockHash`에서 변경한 사항은 포함되지 않습니다. `endBlockHash`가 주어지지 않으면, 이 함수는 `startBlockHash`에서 변경된 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
 
 
 | 클라이언트 | 메서드 호출                                                                                      |
@@ -112,10 +112,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 명칭             | 형식            | 설명                          |
-| -------------- | ------------- | --------------------------- |
-| startBlockHash | 32바이트 크기 DATA | 지정할 범위의 시작에 해당하는 블록의 해시입니다. |
-| endBlockHash   | 32바이트 크기 DATA | 지정할 범위의 끝에 해당하는 블록의 해시입니다.  |
+| 명칭             | 형식            | 설명                    |
+| -------------- | ------------- | --------------------- |
+| startBlockHash | 32바이트 크기 DATA | 확인할 범위의 첫 번째 블록 해시.   |
+| endBlockHash   | 32바이트 크기 DATA | (선택사항) 범위의 마지막 블록 해시. |
 
 **리턴값**
 
@@ -142,7 +142,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 ## debug_getModifiedAccountsByNumber <a id="debug_getmodifiedaccountsbynumber"></a>
 
-블록 번호로 입력받은 두 블록 사이에 변경된 모든 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
+블록 번호로 입력받은 두 블록 사이에 변경된 모든 계정을 반환합니다. `endBlockNum`에서 변경한 사항은 포함되지만 `startBlockNum`에서 변경한 사항은 포함되지 않습니다. `endBlockNum`이 주어지지 않으면, 이 함수는 `startBlockNum`에서 변경된 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
 
 
 | 클라이언트 | 메서드 호출                                                                                    |
@@ -152,10 +152,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 **매개변수**
 
-| 명칭            | 형식  | 설명                          |
-| ------------- | --- | --------------------------- |
-| startBlockNum | int | 지정할 범위의 시작에 해당하는 블록의 번호입니다. |
-| endBlockNum   | int | 지정할 범위의 끝에 해당하는 블록의 번호입니다.  |
+| 명칭            | 형식  | 설명                    |
+| ------------- | --- | --------------------- |
+| startBlockNum | int | 확인할 범위의 첫 번째 블록 넘버.   |
+| endBlockNum   | int | (선택사항) 범위의 마지막 블록 넘버. |
 
 **리턴값**
 
@@ -288,4 +288,3 @@ HTTP RPC
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_setHead","params":["0x100"],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
-
