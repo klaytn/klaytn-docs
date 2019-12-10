@@ -1,6 +1,6 @@
 이 장에서는 다중 노드 서비스 체인을 설정하는 방법에 대해 설명합니다. 비잔틴 결함을 허용하려면 최소 4개의 노드가 필요합니다. 우리는 4개의 컨센서스 노드로 구성된 서비스 체인을 설정해볼 것입니다.
 
- ## 준비 사항
+## 준비 사항 <a id="prerequisites"></a>
  - 아래 실행 파일을 다운로드하세요. 다운로드 가능한 전체 목록은 [다운로드](../../download/README.md) 페이지를 참조하세요.
    - Linux
       - 서비스체인 컨센서스 노드(SCN): [kscn-v1.2.0-4-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/kscn-v1.2.0-4-linux-amd64.tar.gz)
@@ -13,7 +13,7 @@
    - CPU: 4코어(Intel Xeon 또는 동급), RAM: 16GB, HDD: 50GB
    - 자세한 설명은 [시스템 요구사항](../references/system-requirements.md)을 참조하세요.
 
-## 0 단계 : 모든 노드에 SCN 설치하기 <a id="install-scn"></a>
+## 0 단계: 모든 노드에 SCN 설치하기 <a id="install-scn"></a>
 설치는 다운로드 한 패키지의 압축을 해제하기만 하면 됩니다. 각 서버에서 SCN 아카이브를 압축 해제하세요.
 
 ```console
@@ -26,16 +26,16 @@ x kscn-XXXXX-amd64/bin/kscnd
 x kscn-XXXXX-amd64/bin/kscn
 ```
 
-편의를 위해 바이너리 경로를 $PATH에 추가합니다. 노드에 있는 실제 경로를 사용하세요.
+편의를 위해 바이너리 경로를 $PATH에 추가합니다. 각 노드에 있는 실제 경로를 사용하세요.
 ```console
 $ export PATH=$PATH:~/path/to/kscn-XXXXX-amd64/bin
 ```
 
 ## 1 단계: genesis.json 및 nodekey 생성 <a id="step-1-create-genesis-json-and-a-key"></a>
 
-우리는 homi 유틸리티를 사용하여 필요한 파일을 생성할 것입니다. homi는 아무 Linux/Mac PC에서나 실행하면 됩니다.
+우리는 homi 유틸리티를 사용하여 필요한 파일을 생성할 것입니다. homi 실행은 어디에서 하든 Linux/Mac PC이기만 하면 상관 없습니다.
 
-먼저 다운로드 한 homi 아카이브를 추출하십시오.
+먼저 다운로드 한 homi 아카이브를 추출하세요.
 ```console
 $ tar xvf homi-vX.X.X-XXXXX-amd64.tar.gz 
 x homi-XXXXX-amd64/
@@ -72,7 +72,7 @@ Created :  homi-output/Klaytn_txpool.json
 
 ## 2 단계: static-nodes.json 수정 <a id="step-2-customize-static-nodes-json"></a>
 
-`homi-output/scripts/static-nodes.json`을 텍스트 편집기 열고, IP 주소와 포트를 실제 노드 값으로 업데이트하세요. 여기에서 사용한 포트 값을 기억하세요. 이 값은 나중에 4 단계에서 사용됩니다.
+`homi-output/scripts/static-nodes.json`을 텍스트 편집기에서 열고, IP 주소와 포트를 실제 노드 값으로 업데이트하세요. 여기에서 사용한 포트 값을 기억하세요. 이 값은 나중에 4 단계에서 사용됩니다.
 
 ```json
 [
@@ -131,7 +131,7 @@ DATA_DIR=~/data
 $ kscnd start
 Starting kscnd: OK
 ```
-You can check block generation status by watching `klay.blockNumber`. If this number is not 0, the node is working fine.
+`klay.blockNumber`로 블록 생성 상태를 확인할 수 있습니다. 이 숫자가 0이 아니면 노드가 제대로 동작하는 것입니다.
 ```console
 $ kscn attach --datadir ~/data
 > klay.blockNumber
@@ -140,10 +140,10 @@ $ kscn attach --datadir ~/data
 노드를 중지하려면 `kscnd stop` 명령어를 사용하세요.
 
 ## (예) 밸류 트랜스퍼 트랜잭션 생성 및 확인 <a id="example-creation-and-confirmation-of-a-value-transfer-transaction"></a>
-이제 4-노드 서비스체인이 실행 중입니다. 서비스 체인에서 밸류 트랜스퍼 트랜잭션을 실행하여 설치가 정상적으로 되었는지 확인해보죠.
+이제 4-노드 서비스체인이 실행 중입니다. 서비스체인에서 밸류 트랜스퍼 트랜잭션을 실행하여 설치가 정상적으로 되었는지 확인해보죠.
 
 ### 1 단계: 테스트 계정 가져오기 <a id="step-1-import-the-test-account"></a>
-`testkey1`은 1 단계에서 `homi`에 의해 자동으로 생성되었습니다. ` genesis.json`에 지정된대로 KLAY가 테스트 계정에 할당되는데, 이 역시 `homi`에 의해 자동 생성되었습니다.
+`testkey1`은 1 단계에서 `homi`에 의해 자동으로 생성되었습니다. `genesis.json`에 지정된 대로 KLAY가 테스트 계정에 할당되는데, 이 역시 `homi`에 의해 자동 생성되었습니다.
 ```console
 $ kscn account import --datadir ~/data ~/homi-output/keys_test/testkey1
 Your new account is locked with a password. Please give a password. Do not forget this password.
