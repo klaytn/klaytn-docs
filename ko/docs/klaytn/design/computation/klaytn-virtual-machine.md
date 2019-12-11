@@ -114,7 +114,7 @@ KLVM은 간단한 스택 기반 아키텍처입니다. 머신의 워드 크기(�
 | `G_codedeposit`   |   200 | Amount of gas paid per byte for a `CREATE` operation that succeeds in placing code into state |
 | `G_call`          |   700 | `CALL` 연산을 위해 지불하는 가스량                                                                        |
 | `G_callvalue`     |  9000 | 0가 아닌 값을 전송할 때 `CALL` 연산의 일부로 지불되는 가스량                                                        |
-| `G_callstipend`   |  2300 | A stipend for the called contract subtracted from `G_callvalue` for a nonzero value transfer  |
+| `G_callstipend`   |  2300 | 0이 아닌 값 전송을 위해 호출된 컨트랙트에 지불하는 비용으로 `G_callvalue`에서 차감된 금액                                     |
 | `G_newaccount`    | 25000 | 계정을 생성하는 `SELFDESTRUCT`나 `CALL` 연산을 위해 지불하는 가스량                                               |
 | `G_exp`           |    10 | `EXP` 연산에 대한 부분 지불                                                                            |
 | `G_expbyte`       |    50 | Partial payment when multiplied by `ceil(log_256(exponent))` for an `EXP` operation           |
