@@ -70,7 +70,7 @@ Returns a block matching the block hash or block number.
 
 | 명칭                       | 형식                   | 설명                                                                                                                                                           |
 | ------------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockHashOrBlockNumber   | String &#124; Number | The block hash or block number. Or the string `"genesis"`, `"latest"` or `"pending"`.                                                                        |
+| blockHashOrBlockNumber   | String &#124; Number | 블록 해시 또는 블록 번호. 또는 `"genesis"`, `"latest"`, `"pending"` 문자열 중 하나.                                                                                            |
 | returnTransactionObjects | Boolean              | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, if `false` it will only contains the transaction hashes. |
 | callback                 | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                         |
 
@@ -78,26 +78,26 @@ Returns a block matching the block hash or block number.
 
 `Promise` returns `Object` - The block object:
 
-| 명칭               | 형식              | 설명                                                                                                                 |
-| ---------------- | --------------- | ------------------------------------------------------------------------------------------------------------------ |
-| blockScore       | QUANTITY        | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                                                                   |
-| extraData        | String          | 블록의 "추가 데이터"를 위한 필드입니다.                                                                                            |
-| gasUsed          | Number          | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                                                                     |
-| governanceData   | DATA            | RLP 인코딩된 거버넌스 설정입니다.                                                                                               |
-| 해시               | 32-byte String  | 블록의 해시입니다. `null` when it is a pending block.                                                                      |
-| logsBloom        | 256-byte String | 블록의 로그를 위한 블룸필터입니다. `null` when it is a pending block.                                                             |
-| number           | Number          | 블록 번호입니다. `null` when it is a pending block.                                                                       |
-| parentHash       | 32-byte String  | 이전 블록의 해시입니다.                                                                                                      |
-| receiptsRoot     | 32바이트 크기 DATA   | 블록의 영수증 트라이의 루트 해시입니다.                                                                                             |
-| reward           | 20바이트 크기 DATA   | 블록 보상을 받을 수혜자의 주소입니다.                                                                                              |
-| size             | Number          | 블록의 바이트 크기의 정수 형태입니다.                                                                                              |
-| stateRoot        | 32-byte String  | 블록의 상태 트라이의 루트 해시입니다.                                                                                              |
-| timestamp        | Number          | The unix timestamp for when the block was collated.                                                                |
-| timestampFoS     | QUANTITY        | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                                                                   |
-| totalBlockScore  | QUANTITY        | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                                                             |
-| transactions     | 배열              | Array of transaction objects, or 32-byte transaction hashes depending on the `returnTransactionObjects` parameter. |
-| transactionsRoot | 32-byte String  | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                                                            |
-| voteData         | DATA            | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                                                                          |
+| 명칭               | 형식             | 설명                                                                                                                 |
+| ---------------- | -------------- | ------------------------------------------------------------------------------------------------------------------ |
+| blockScore       | QUANTITY       | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                                                                   |
+| extraData        | String         | 블록의 "추가 데이터"를 위한 필드입니다.                                                                                            |
+| gasUsed          | Number         | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                                                                     |
+| governanceData   | DATA           | RLP 인코딩된 거버넌스 설정입니다.                                                                                               |
+| 해시               | 32-byte String | 블록의 해시입니다. `null` when it is a pending block.                                                                      |
+| logsBloom        | 256 바이트 문자열    | 블록의 로그를 위한 블룸필터입니다. `null` when it is a pending block.                                                             |
+| number           | Number         | 블록 번호입니다. `null` when it is a pending block.                                                                       |
+| parentHash       | 32-byte String | 이전 블록의 해시입니다.                                                                                                      |
+| receiptsRoot     | 32바이트 크기 DATA  | 블록의 영수증 트라이의 루트 해시입니다.                                                                                             |
+| reward           | 20바이트 크기 DATA  | 블록 보상을 받을 수혜자의 주소입니다.                                                                                              |
+| size             | Number         | 블록의 바이트 크기의 정수 형태입니다.                                                                                              |
+| stateRoot        | 32-byte String | 블록의 상태 트라이의 루트 해시입니다.                                                                                              |
+| timestamp        | Number         | The unix timestamp for when the block was collated.                                                                |
+| timestampFoS     | QUANTITY       | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                                                                   |
+| totalBlockScore  | QUANTITY       | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                                                             |
+| transactions     | 배열             | Array of transaction objects, or 32-byte transaction hashes depending on the `returnTransactionObjects` parameter. |
+| transactionsRoot | 32-byte String | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                                                            |
+| voteData         | DATA           | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                                                                          |
 
 **예시**
 
@@ -191,10 +191,10 @@ Returns the number of transaction in a given block.
 
 **매개변수**
 
-| 명칭                     | 형식                   | 설명                                                                              |
-| ---------------------- | -------------------- | ------------------------------------------------------------------------------- |
-| blockHashOrBlockNumber | String &#124; Number | The block number or hash. Or the string `"genesis"`, `"latest"` or `"pending"`. |
-| callback               | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.            |
+| 명칭                     | 형식                   | 설명                                                                   |
+| ---------------------- | -------------------- | -------------------------------------------------------------------- |
+| blockHashOrBlockNumber | String &#124; Number | 블록 번호 또는 해시. 또는 `"genesis"`, `"latest"`, `"pending"` 문자열 중 하나.       |
+| callback               | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
@@ -218,37 +218,37 @@ Returns a block with consensus information matched by the given block hash or bl
 
 **매개변수**
 
-| 명칭                     | 형식                   | 설명                                                                       |
-| ---------------------- | -------------------- | ------------------------------------------------------------------------ |
-| blockHashOrBlockNumber | String &#124; Number | The block hash or block number. Or the string `"genesis"` or `"latest"`. |
-| callback               | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.     |
+| 명칭                     | 형식                   | 설명                                                                   |
+| ---------------------- | -------------------- | -------------------------------------------------------------------- |
+| blockHashOrBlockNumber | String &#124; Number | 블록 해시 또는 블록 번호. Or the string `"genesis"` or `"latest"`.             |
+| callback               | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
 `Promise` returns `Object` - A block object with consensus information (a proposer and a list of committee members) The block object contains:
 
-| 명칭               | 형식              | 설명                                                                       |
-| ---------------- | --------------- | ------------------------------------------------------------------------ |
-| blockScore       | QUANTITY        | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                         |
-| committee        | 배열              | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
-| extraData        | String          | 블록의 "추가 데이터"를 위한 필드입니다.                                                  |
-| gasUsed          | QUANTITY        | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                           |
-| governanceData   | DATA            | RLP 인코딩된 거버넌스 설정입니다.                                                     |
-| 해시               | 32바이트 크기 DATA   | 블록의 해시입니다. `null` when it is a pending block.                            |
-| logsBloom        | 256-byte String | 블록의 로그를 위한 블룸필터입니다. `null` when it is a pending block.                   |
-| number           | QUANTITY        | 블록 번호입니다. `null` when it is a pending block.                             |
-| parentHash       | 32바이트 크기 DATA   | 이전 블록의 해시입니다.                                                            |
-| proposer         | 20바이트 크기 DATA   | 블록 제안자의 주소입니다.                                                           |
-| receiptsRoot     | 32바이트 크기 DATA   | 블록의 영수증 트라이의 루트 해시입니다.                                                   |
-| reward           | 20바이트 크기 DATA   | 블록 보상을 받을 수혜자의 주소입니다.                                                    |
-| size             | QUANTITY        | 블록의 바이트 크기의 정수 형태입니다.                                                    |
-| stateRoot        | 32바이트 크기 DATA   | 블록의 상태 트라이의 루트 해시입니다.                                                    |
-| timestamp        | QUANTITY        | The unix timestamp for when the block was collated.                      |
-| timestampFoS     | QUANTITY        | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                         |
-| totalBlockScore  | QUANTITY        | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                   |
-| transactions     | 배열              | 트랜잭션 객체의 배열입니다.                                                          |
-| transactionsRoot | 32바이트 크기 DATA   | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                  |
-| voteData         | DATA            | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                                |
+| 명칭               | 형식            | 설명                                                                       |
+| ---------------- | ------------- | ------------------------------------------------------------------------ |
+| blockScore       | QUANTITY      | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                         |
+| committee        | 배열            | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
+| extraData        | String        | 블록의 "추가 데이터"를 위한 필드입니다.                                                  |
+| gasUsed          | QUANTITY      | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                           |
+| governanceData   | DATA          | RLP 인코딩된 거버넌스 설정입니다.                                                     |
+| 해시               | 32바이트 크기 DATA | 블록의 해시입니다. `null` when it is a pending block.                            |
+| logsBloom        | 256 바이트 문자열   | 블록의 로그를 위한 블룸필터입니다. `null` when it is a pending block.                   |
+| number           | QUANTITY      | 블록 번호입니다. `null` when it is a pending block.                             |
+| parentHash       | 32바이트 크기 DATA | 이전 블록의 해시입니다.                                                            |
+| proposer         | 20바이트 크기 DATA | 블록 제안자의 주소입니다.                                                           |
+| receiptsRoot     | 32바이트 크기 DATA | 블록의 영수증 트라이의 루트 해시입니다.                                                   |
+| reward           | 20바이트 크기 DATA | 블록 보상을 받을 수혜자의 주소입니다.                                                    |
+| size             | QUANTITY      | 블록의 바이트 크기의 정수 형태입니다.                                                    |
+| stateRoot        | 32바이트 크기 DATA | 블록의 상태 트라이의 루트 해시입니다.                                                    |
+| timestamp        | QUANTITY      | The unix timestamp for when the block was collated.                      |
+| timestampFoS     | QUANTITY      | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                         |
+| totalBlockScore  | QUANTITY      | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                   |
+| transactions     | 배열            | 트랜잭션 객체의 배열입니다.                                                          |
+| transactionsRoot | 32바이트 크기 DATA | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                  |
+| voteData         | DATA          | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                                |
 
 **예제**
 ```javascript
