@@ -4,18 +4,18 @@
 caver.klay.getFilterChanges(filterId [, callback])
 ```
 
-Polling method for a filter, which returns an array of logs since the last poll.
+필터에 대한 폴링 방법으로, 마지막 폴링 이후 발생한 로그를 배열의 형태로 반환합니다.
 
 **매개변수**
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
-| filterId | String   | The filter id.                                                       |
+| filterId | String   | 필터 ID입니다.                                                            |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
-`Promise` returns `Array` - Array of log objects, or an empty array if nothing has changed since last poll.
+`프로미스`는 `배열`을 반환합니다 - 로그 객체의 배열을 반환하거나 또는 최근 폴링 이후 변화가 없는 경우 빈 배열을 반환합니다.
 
 The structure of the returned log `Object` in the `Array` looks as follows:
 
@@ -25,8 +25,8 @@ The structure of the returned log `Object` in the `Array` looks as follows:
 | topics           | DATA 배열       | 길이가 0부터 4까지인 배열로, 배열의 각 원소는 32바이트 크기 DATA 형태의 인덱스화된 로그 인수들입니다. (솔리디티의 경우 `anonymous` 지정자로 이벤트를 선언하지 않았다면 배열의 첫 번째 원소는 이벤트에 대한 서명의 해시입니다. (*예를 들어*, `Deposit(address,bytes32,uint256)`)) |
 | data             | DATA          | 로그 중 인덱스화되지 않은 인수를 담고 있습니다.                                                                                                                                                             |
 | blockNumber      | QUANTITY      | 로그가 속한 블록의 번호입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                               |
-| transactionHash  | 32바이트 크기 DATA | Hash of the transaction that this log was created from. `null` when pending, an edge case when the transaction has been executed, but the block has not been confirmed.                 |
-| transactionIndex | QUANTITY      | Integer. The index of the transaction that this log was created from. 보류 중인 경우 `null`을 반환합니다.                                                                                           |
+| transactionHash  | 32바이트 크기 DATA | 이 로그를 생성한 트랜잭션의 해시입니다. `null` when pending, an edge case when the transaction has been executed, but the block has not been confirmed.                                                  |
+| transactionIndex | QUANTITY      | 정수. 이 로그를 생성한 트랜잭션의 인덱스입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                     |
 | blockHash        | 32바이트 크기 DATA | 로그가 생성된 블록의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                              |
 | logIndex         | QUANTITY      | 블록에서 로그 인덱스 위치의 정숫값입니다. 보류 중인 로그인 경우 `null`을 반환합니다.                                                                                                                                     |
 | id               | String        | 로그 식별자. It is made by concatenating "log_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`                                                                 |
@@ -56,18 +56,18 @@ The structure of the returned log `Object` in the `Array` looks as follows:
 caver.klay.getFilterLogs(filterId [, callback])
 ```
 
-Returns an array of all logs matching the filter with the given id. The filter object should be obtained using [newFilter](#newfilter). Note that filter ids returned by other filter creation functions, such as [newBlockFilter](#newblockfilter) or [newPendingTransactionFilter](#newpendingtransactionfilter), cannot be used with this function.
+Returns an array of all logs matching the filter with the given id. The filter object should be obtained using [newFilter](#newfilter). 이때 [newBlockFilter](#newblockfilter), [newPendingTransactionFilter](#newpendingtransactionfilter)와 같은 다른 필터 생성 함수를 통해 얻은 필터 ID는 본 함수의 매개변수로 사용할 수 없습니다.
 
 **매개변수**
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
-| filterId | String   | The filter id.                                                       |
+| filterId | String   | 필터 ID입니다.                                                            |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
-See [getFilterChanges](#getfilterchanges)
+[klay_getFilterChanges](#getfilterchanges)를 참고하세요.
 
 **예시**
 
@@ -101,7 +101,7 @@ Gets past logs, matching the given options.
 
 | 명칭                | 형식                   | 설명                                                                                                                                                                                                                                                                                    |
 | ----------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options           | 객체                   | The filter options.                                                                                                                                                                                                                                                                   |
+| options           | Object               | 필터 옵션.                                                                                                                                                                                                                                                                                |
 | options.fromBlock | Number &#124; String | (optional) The number of the earliest block to get the logs. (`"latest"` means the most recent block and `"pending"` means currently mining block.) The default value is `"latest"`.                                                                                                  |
 | options.toBlock   | Number &#124; String | (optional) The number of the last block to get the logs. (`"latest"` means the most recent block and `"pending"` means currently mining block.). The default value is `"latest"`.                                                                                                     |
 | options.address   | String &#124; Array  | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned.                                                                                                                                                                    |
@@ -121,9 +121,9 @@ The structure of the returned event `Object` in the `Array` looks as follows:
 | topics           | 배열             | An array with max 4 32-byte topics, topic 1-3 contains indexed parameters of the log.                  |
 | logIndex         | Number         | 블록에서 이벤트 인덱스 위치의 정수값.                                                                                  |
 | transactionIndex | Number         | Integer of the transaction's index position, the event was created in.                                 |
-| transactionHash  | 32-byte String | Hash of the transaction this event was created in.                                                     |
-| blockHash        | 32-byte String | Hash of the block where this event was created in. `null` when its still pending.                      |
-| blockNumber      | Number         | The block number where this log was created in. 아직 보류 중인 경우 `null`.                                    |
+| transactionHash  | 32-byte String | 이 이벤트가 생성된 트랜잭션의 해시.                                                                                   |
+| blockHash        | 32-byte String | 이 이벤트가 생성된 블록의 해시. `null` when its still pending.                                                      |
+| blockNumber      | Number         | 이 로그가 생성된 블록 번호. 아직 보류 중인 경우 `null`.                                                                   |
 | id               | String         | 로그 식별자. `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`을 사용하여 "log_" 문자열을 연결하여 작성됩니다. |
 
 **예시**
@@ -190,7 +190,7 @@ For detailed information about topic filters, please see [Klaytn Platform API - 
 
 | 명칭                | 형식                   | 설명                                                                                                                                                                                                                                                                                  |
 | ----------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options           | 객체                   | The filter options.                                                                                                                                                                                                                                                                 |
+| options           | Object               | 필터 옵션.                                                                                                                                                                                                                                                                              |
 | options.fromBlock | Number &#124; String | (optional) The number of the earliest block height to query the events. (There are special tags, `"latest"` means the most recent block and `"pending"` means currently mining block). The default value is `"latest"`.                                                             |
 | options.toBlock   | Number &#124; String | (optional) The number of the last block height to query the events (There are special tags,`"latest"` means the most recent confirmed block and `"pending"` means currently mining block). The default value is `"latest"`.                                                         |
 | options.address   | String &#124; Array  | (optional) An address or a list of addresses to get logs generated inside the given contract(s).                                                                                                                                                                                    |
@@ -243,13 +243,13 @@ Creates a filter in the node, to receive the information about new pending trans
 caver.klay.uninstallFilter(filterId [, callback])
 ```
 
-Removes the filter with the given id. It is strongly recommended to immediately remove the filter if monitoring is no longer needed. A filter will be removed if the filter has not been invoked through [getFilterChanges](#getfilterchanges) for more than the timeout value set in the node. The default configuration is 5 minutes.
+주어진 ID를 가진 필터를 제거합니다. It is strongly recommended to immediately remove the filter if monitoring is no longer needed. A filter will be removed if the filter has not been invoked through [getFilterChanges](#getfilterchanges) for more than the timeout value set in the node. 기본 설정은 5분 입니다.
 
 **매개변수**
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
-| filterId | String   | The filter id.                                                       |
+| filterId | String   | 필터 ID입니다.                                                            |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
