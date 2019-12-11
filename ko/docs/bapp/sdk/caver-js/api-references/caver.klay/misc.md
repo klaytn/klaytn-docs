@@ -4,7 +4,7 @@
 caver.klay.sha3(data[, callback])
 ```
 
-Returns the Keccak-256 hash (not the standardized SHA3-256) of the given data.
+입력으로 받은 데이터의 Keccak-256(이 해시 함수는 표준 SHA3-256가 아닙니다) 해시를 반환합니다.
 
 
 **매개변수**
