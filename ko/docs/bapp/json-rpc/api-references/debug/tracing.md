@@ -16,7 +16,7 @@
 | 명칭      | 형식            | 설명                                |
 | ------- | ------------- | --------------------------------- |
 | 해시      | 32바이트 크기 DATA | 블록의 해시입니다.                        |
-| options | 객체            | [추적 옵션](#tracing-options)을 참고하세요. |
+| options | object        | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -70,10 +70,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 명칭       | 형식  | 설명                                |
-| -------- | --- | --------------------------------- |
-| blockRlp | 문자열 | RLP 인코딩된 블록입니다.                   |
-| options  | 객체  | [추적 옵션](#tracing-options)을 참고하세요. |
+| 명칭       | 형식     | 설명                                |
+| -------- | ------ | --------------------------------- |
+| blockRlp | 문자열    | RLP 인코딩된 블록입니다.                   |
+| options  | object | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -117,7 +117,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 | 명칭      | 형식            | 설명                                |
 | ------- | ------------- | --------------------------------- |
 | 해시      | 32바이트 크기 DATA | 블록의 해시입니다.                        |
-| options | 객체            | [추적 옵션](#tracing-options)을 참고하세요. |
+| options | object        | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -157,10 +157,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 명칭      | 형식  | 설명                                |
-| ------- | --- | --------------------------------- |
-| number  | int | 블록 번호입니다.                         |
-| options | 객체  | [추적 옵션](#tracing-options)을 참고하세요. |
+| 명칭      | 형식     | 설명                                |
+| ------- | ------ | --------------------------------- |
+| number  | int    | 블록 번호입니다.                         |
+| options | object | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -206,10 +206,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 명칭       | 형식  | 설명                                |
-| -------- | --- | --------------------------------- |
-| fileName | 문자열 | 블록의 RLP를 담고 있는 파일의 이름입니다.         |
-| options  | 객체  | [추적 옵션](#tracing-options)을 참고하세요. |
+| 명칭       | 형식     | 설명                                |
+| -------- | ------ | --------------------------------- |
+| fileName | 문자열    | 블록의 RLP를 담고 있는 파일의 이름입니다.         |
+| options  | object | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -257,10 +257,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 명칭      | 형식  | 설명                                |
-| ------- | --- | --------------------------------- |
-| txHash  | 문자열 | 트랜잭션의 해시입니다.                      |
-| options | 객체  | [추적 옵션](#tracing-options)을 참고하세요. |
+| 명칭      | 형식     | 설명                                |
+| ------- | ------ | --------------------------------- |
+| txHash  | 문자열    | 트랜잭션의 해시입니다.                      |
+| options | object | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -412,10 +412,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 | 필드명            | 형식             | 설명                            |
 | -------------- | -------------- | ----------------------------- |
 | `pc`           | Number         | 현재 프로그램 카운터입니다.               |
-| `op`           | 객체             | 현재 Opcode를 나타내는 Opcode 객체입니다. |
+| `op`           | Object         | 현재 Opcode를 나타내는 Opcode 객체입니다. |
 | `gas`          | Number         | 남은 가스양입니다.                    |
 | `gasPrice`     | Number         | peb에서 가스당 가격입니다.              |
-| `memory`       | 객체             | 컨트랙트의 메모리 공간을 나타내는 구조체입니다.    |
+| `memory`       | Object         | 컨트랙트의 메모리 공간을 나타내는 구조체입니다.    |
 | `stack`        | array[big.Int] | KLVM 실행 스택입니다.                |
 | `depth`        | Number         | 실행 뎁스입니다.                     |
 | `계정 (Account)` | String         | 현재 연산을 실행하는 계정의 주소입니다.        |
