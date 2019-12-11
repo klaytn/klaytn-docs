@@ -1,41 +1,41 @@
-# Account Creation Transaction <a id="account-creation-transaction"></a>
+# 계정 생성 트랜잭션<a id="account-creation-transaction"></a>
 
 ## sendTransaction (ACCOUNT_CREATION) <a id="sendtransaction-account_creation"></a>
 
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends an [Account Creation](../../../../../klaytn/design/transactions/basic.md) transaction to the network.
+[Account Creation](../../../../../klaytn/design/transactions/basic.md) 트랜잭션을 네트워크에 전송합니다.
 
 **매개변수**
 
-| 명칭                                     | 형식                                              | 설명                                                                                                                                                                                                                                                                                          |
-| -------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionObject                      | 객체                                              | The transaction object to send.                                                                                                                                                                                                                                                             |
-| transactionObject.type                 | String                                          | The type of "ACCOUNT_CREATION" transaction.                                                                                                                                                                                                                                                 |
-| transactionObject.from                 | String                                          | The sender address of the transaction.                                                                                                                                                                                                                                                      |
-| transactionObject.to                   | String                                          | The address which will be created newly.                                                                                                                                                                                                                                                    |
-| transactionObject.value                | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the newly-created account in peb.                                                                                                                                                                                                                                 |
-| transactionObject.gas                  | Number                                          | The amount of gas to use for the transaction (unused gas is refunded).                                                                                                                                                                                                                      |
-| transactionObject.gasPrice             | Number                                          | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                                                                                                  |
-| transactionObject.nonce                | Number                                          | (선택사항) 논스의 정숫값입니다. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                                                                                                                     |
-| transactionObject.publicKey            | String                                          | (optional) if creating account with public key, write down 64 bytes of public key.                                                                                                                                                                                                          |
-| transactionObject.multisig             | String                                          | (optional) if creating account with multisig key, write down multisig with multiple public keys. The public keys that make up multisig have their own weight. For transactions signed with multisig, the sum of the weights of the signature must be larger than or equal to the threshold. |
-| transactionObject.roleTransactionKey   | String                                          | (optional) if creating account with role based key, write down roleTransactionKey with public key or multisig key. This roleTransactionKey is used when sign the transaction.                                                                                                               |
-| transactionObject.roleAccountUpdateKey | String                                          | (optional) if creating account with role based key, write down roleAccountUpdateKey with public key or multisig key. This roleAccountUpdateKey is used when sign an AccountUpdate transaction.                                                                                              |
-| transactionObject.roleFeePayerKey      | String                                          | (optional) if creating account with role based key, write down roleFeePayerKey with public key or multisig key. This roleFeePayerKey is used when sign the transaction as a feePayer.                                                                                                       |
-| transactionObject.failKey              | Bool                                            | (optional) if creating account with fail key, set it true                                                                                                                                                                                                                                   |
-| callback                               | Function                                        | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                                                                                                                        |
+| 명칭                                     | 형식                                              | 설명                                                                                                                                            |
+| -------------------------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| transactionObject                      | Object                                          | 전송하려는 트랜잭션 객체.                                                                                                                                |
+| transactionObject.type                 | String                                          | "ACCOUNT_CREATION" 트랜잭션 타입.                                                                                                                   |
+| transactionObject.from                 | String                                          | 트랜잭션 발신자의 주소.                                                                                                                                 |
+| transactionObject.to                   | String                                          | 새로 생성될 주소.                                                                                                                                    |
+| transactionObject.value                | Number &#124; String &#124; BN &#124; BigNumber | 새로 생성될 어카운트에 전송할 값으로 단위는 peb.                                                                                                                 |
+| transactionObject.gas                  | Number                                          | 트랜잭션에 사용할 가스량(사용하지 않은 가스는 환불됨).                                                                                                               |
+| transactionObject.gasPrice             | Number                                          | (선택사항) 트랜잭션 발신자가 설정한 가스 가격으로 단위는 peb입니다. gasPrice는 Klaytn 노드에 설정된 unitPrice와 같아야 합니다.                                                         |
+| transactionObject.nonce                | Number                                          | (선택사항) 논스의 정숫값입니다. 생략하면 `caver.klay.getTransactionCount` 값으로 caver-js가 설정합니다.                                                                 |
+| transactionObject.publicKey            | String                                          | (선택사항) 공개키로 계정을 생성하는 경우 64 바이트의 공개키를 입력하세요.                                                                                                   |
+| transactionObject.multisig             | String                                          | (선택사항) 다중 서명 키로 계정을 생성하는 경우 multisig에 여러 개의 공개키를 입력하세요. 다중 서명 키를 구성하는 공개키는 각자 가중치를 가집니다. multisig로 서명된 트랜잭션의 경우 서명 가중치의 합이 임계값보다 크거나 같아야 합니다. |
+| transactionObject.roleTransactionKey   | String                                          | (선택사항) 역할 기반 키를 가지는 계정을 생성하는 경우 roleTransactionKey에  공개키 또는 다중 서명 키를 입력하세요. 이 roleTransactionKey는 트랜잭션에 서명할 때 사용됩니다.                          |
+| transactionObject.roleAccountUpdateKey | String                                          | (선택사항) 역할 기반 키를 가지는 계정을 생성하는 경우 roleAccountUpdateKey에  공개키 또는 다중 서명 키를 입력하세요. 이 roleAccountUpdateKey는 AccountUpdate 트랜잭션에 서명할 때 사용됩니다.        |
+| transactionObject.roleFeePayerKey      | String                                          | (선택사항) 역할 기반 키를 가지는 계정을 생성하는 경우 rroleFeePayerKey에  공개키 또는 다중 서명 키를 입력하세요. 이 roleFeePayerKey는 feePayer로 트랜잭션에 서명할 때 사용됩니다.                     |
+| transactionObject.failKey              | Bool                                            | (선택사항) fail key를 가지는 계정을 생성하는 경우 true로 설정하세요.                                                                                                 |
+| callback                               | Function                                        | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                          |
 
 **리턴값**
 
-The `callback` will return the 32-byte transaction hash.
+`callback`은 32바이트 트랜잭션 해시를 반환합니다.
 
-`PromiEvent`: 프로미스(promise)가 조합된 이벤트 이미터(event emitter). Will be resolved when the transaction receipt is available. Additionally the following events are available:
+`PromiEvent`: 프로미스(promise)가 조합된 이벤트 이미터(event emitter). 트랜잭션 영수증이 준비되면 resolve 됩니다. 추가로 다음 이벤트가 발생할 수 있습니다.
 
-- `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
-- `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
-- `"error"` returns `Error`: Is fired if an error occurs during sending. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
+- `"transactionHash"`는 `String`를 반환: 트랜잭션을 보내고 트랜잭션 해시가 준비된 직후에 발생.
+- `"receipt"`는 `Object`를 반환: 트랜잭션 영수중이 중비되면 발생.
+- `"error"`는 `Error`를 반환: 전송 중 에러가 발생하면 발생. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
 
 **예시**
 
