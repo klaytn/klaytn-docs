@@ -172,7 +172,7 @@ caver.klay.isParallelDBWrite([callback])
 
 **리턴값**
 
-`Promise` returns `Boolean` - `true` means the node is writing blockchain data in a parallel manner. Returns `false` if the node is writing the data in a serial manner.
+`Promise` returns `Boolean` - `true` means the node is writing blockchain data in a parallel manner. 노드가 순차적으로 블록체인 데이터를 쓰고 있으면 `false`를 반환합니다.
 
 
 **예시**
@@ -213,7 +213,7 @@ caver.klay.rewardbase([callback])
 ```javascript
 caver.klay.writeThroughCaching([callback])
 ```
-Returns `true` if the node is using write-through caching. If enabled, block bodies and receipts are cached to increase the read performance when they are written to persistent storage. 기본적으로는 `false`로 설정되어 있습니다.
+노드가 write-through 캐싱을 사용하고 있으면 `true`를 반환합니다. 활성화하면, 블록 바디와 영수증을 퍼시스턴트 스토리지에 저장할 때 읽기 성능을 향상시키기 위해 캐슁됩니다. 기본적으로는 `false`로 설정되어 있습니다.
 
 **매개변수**
 
