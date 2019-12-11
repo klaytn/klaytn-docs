@@ -1,11 +1,11 @@
 ---
 description: >-
-  네임스페이스 'net' 일대 Klaytn API에 대한 자바스크립트 래퍼.
+  Klaytn API 중 'net' namespace에 해당하는 자바스크립트 래퍼.
 ---
 
 # caver.klay.net <a id="caver-klay-net"></a>
 
-`caver-klay` 패키지를 사용하면 Klaytn 노드의 네트워크 속성과 상호작용할 수 있습니다.
+`caver-klay` 패키지를 사용하면 Klaytn 노드의 네트워크 속성 값을 얻어올 수 있습니다.
 
 ```javascript
 var Net = require('caver-klay-net');
