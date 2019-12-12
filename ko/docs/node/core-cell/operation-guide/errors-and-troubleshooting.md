@@ -6,7 +6,7 @@
 
 데이터 디렉토리에서 로그 파일을 찾을 수 있습니다. 예를 들어, `kcnd` RPM 패키지를 설치할 때 `kcnd`에 대한 로그의 기본 위치는 `/var/log/kcnd/kcnd.out`입니다.
 
-## Klaytn 노드가 아래와 같은 `Protocol istanbul/64 failed` 및 `Genesis block mismatch` 오류 메시지를 보이며 네트워크에 연결할 수 없습니다. <a id="klaytn-node-can-not-connect-to-network-with-protocol-istanbul-64-failed-and-gene"></a>
+## Klaytn 노드가 아래와 같이 `Protocol istanbul/64 failed` 및 `Genesis block mismatch` 오류 메시지를 보이며 네트워크에 연결하지 못합니다. <a id="klaytn-node-can-not-connect-to-network-with-protocol-istanbul-64-failed-and-gene"></a>
 
 ```
 ERROR[01/27,17:11:33 +09] [33] Protocol istanbul/64 failed               id=b10697e43d4f8e30 conn=staticdial err="Genesis block mismatch - 81cf117d44f99b21 (!= 74647b98b9f06cb4)"
@@ -66,7 +66,7 @@ Failed to start kcnd.service: Unit not found.
 sudo systemctl daemon-reload
 ```
 
-## `Add dial candidate from static nodes` 로그 메시지와 함께 CN이 네트워크에 연결할 수 없습니다. <a id="cn-can-t-connect-to-network-with-add-dial-candidate-from-static-nodes-log-messag"></a>
+## `Add dial candidate from static nodes` 로그 메시지와 함께 CN이 네트워크에 연결하지 못합니다. <a id="cn-can-t-connect-to-network-with-add-dial-candidate-from-static-nodes-log-messag"></a>
 
 ```
 INFO[02/20,12:35:34 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa1e3136fd16a3 addr=13.209.225.108:32323
