@@ -4,7 +4,7 @@
 caver.klay.defaultAccount
 ```
 
-This default address is used as the default `from` property, if no `from` property is specified in parameters of the following methods:
+이 주소는 다음 메서드에서 `from` 프로퍼티가 정의되지 않았을 경우 `from` 프로퍼티의 기본 값으로 사용됩니다.
 
 - [caver.klay.sendTransaction()](./sendtx_legacy.md#sendtransaction-legacy)
 - [caver.klay.call()](./transaction.md#call)
@@ -63,9 +63,9 @@ false
 caver.klay.getAccount(address[, defaultBlock] [, callback])
 ```
 
-입력으로 받은 주소의 계정 정보를 반환합니다. Klaytn에는 외부 소유 계정(EOA)와 스마트 컨트랙트 계정 등 두 가지 유형의 계정이 있습니다. See [Klaytn Accounts](../../../../../klaytn/design/accounts.md#klaytn-accounts).
+입력으로 받은 주소의 계정 정보를 반환합니다. Klaytn에는 외부 소유 계정(EOA)와 스마트 컨트랙트 계정 등 두 가지 유형의 계정이 있습니다. 자세한 내용은  [Klaytn 계정](../../../../../klaytn/design/accounts.md#klaytn-accounts)을 참고해주세요.
 
-**NOTE** getAccount returns the account that exists on the network, so even if a key pair is created, null is returned if the account matching the address does not exist on the actual blockchain network.
+**참고** getAccount는 계정이 네트워크에 있는 경우에만 계정을 반환하므로 키 쌍이 생성 되었다 하더라도 주소와 일치하는 계정이 실제 블록체인 네트워크에 존재하지 않으면 null이 반환됩니다.
 
 **매개변수**
 
@@ -114,7 +114,7 @@ caver.klay.getAccount(address[, defaultBlock] [, callback])
 caver.klay.getAccounts([callback])
 ```
 
-Returns a list of accounts that the node controls.
+노드에 생성된 계정 목록을 반환합니다.
 
 **매개변수**
 
@@ -140,9 +140,9 @@ Returns a list of accounts that the node controls.
 caver.klay.getAccountKey(address [, defaultBlock] [, callback])
 ```
 
-Returns the account key of the Externally Owned Account (EOA) of the given address. 해당 계정이 AccountKeyLegacy이거나 입력으로 받은 주소의 계정이 스마트 컨트랙트 계정이면 빈 값을 반환합니다. See [Account Key](../../../../../klaytn/design/accounts.md#account-key).
+외부 소유 계정(EOA)의 주소를 입력으로 받아 해당 계정의 계정 키를 반환합니다. 해당 계정의 키가 AccountKeyLegacy이거나 입력으로 받은 주소의 계정이 스마트 컨트랙트 계정이면 빈 값을 반환합니다. 자세한 내용은 [계정 키](../../../../../klaytn/design/accounts.md#account-key)를 참고해주세요.
 
-**NOTE** getAccountKey returns the account key if the account exists on the network, so even if a key pair is created, null is returned if the account matching the address does not exist on the actual blockchain network.
+**참고** getAccountKey는 계정이 네트워크에 있는 경우에만 계정 키를 반환하므로 키 쌍이 생성 되었다 하더라도 주소와 일치하는 계정이 실제 블록체인 네트워크에 존재하지 않으면 null이 반환됩니다.
 
 **매개변수**
 
