@@ -4,9 +4,9 @@ You will set up a Baobab EN and connect the EN with one of your SCNs. Then you w
 ## Prerequisites <a id="prerequisites"></a>
  - Download the Baobab EN executable below. For the full list of downloadables, see [Download](../../download/README.md).
    - Linux
-      - [ken-baobab-v1.2.0-4-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/ken-baobab-v1.2.0-4-linux-amd64.tar.gz)
+      - [ken-baobab-v1.3.0-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.3.0/ken-baobab-v1.3.0-0-linux-amd64.tar.gz)
    - MacOS
-      - [ken-baobab-v1.2.0-4-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.2.0/ken-baobab-v1.2.0-4-darwin-amd64.tar.gz)
+      - [ken-baobab-v1.3.0-0-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.3.0/ken-baobab-v1.3.0-0-darwin-amd64.tar.gz)
  - 1 Linux or MacOS server for EN
  - Minimum hardware requirements for testing
    - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
