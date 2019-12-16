@@ -15,10 +15,10 @@ Baobab Packages
 ## MacOS <a id="macos"></a>
 
 Cypress Packages
-- [ken-v1.3.0-0-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.3.0/ken-v1.3.0-0-darwin-amd64.tar.gz)
+- [ken-v1.3.0-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.3.0/ken-v1.3.0-0-darwin-10.10-amd64.tar.gz)
 
 Baobab Packages
-- [ken-baobab-v1.3.0-0-darwin-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.3.0/ken-baobab-v1.3.0-0-darwin-amd64.tar.gz)
+- [ken-baobab-v1.3.0-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.3.0/ken-baobab-v1.3.0-0-darwin-10.10-amd64.tar.gz)
 
 
 
