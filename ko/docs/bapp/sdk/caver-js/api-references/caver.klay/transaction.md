@@ -217,7 +217,7 @@ Returns a transaction object containing all decoded values from the given `rawTr
 ```javascript
 caver.klay.getTransaction(transactionHash [, callback])
 ```
-Returns a transaction matching the given transaction hash.
+주어진 트랜잭션 해시에 대응하는 트랜잭션을 반환합니다.
 
 **매개변수**
 
@@ -287,7 +287,7 @@ Returns a transaction matching the given transaction hash.
 ```javascript
 caver.klay.getTransactionBySenderTxHash(senderTxHash [, callback])
 ```
-Returns the information about the transaction identified by the given `senderTxHash`. 이 API는 `--sendertxhashindexing`에 의해 인덱싱 기능이 노드에서 활성화되어 있을 때만 올바른 결과를 반환합니다. Use [isSenderTxHashIndexingEnabled](./config.md#issendertxhashindexingenabled) to check if the indexing feature is enabled or not.
+주어진 `senderTxHash`에 대응하는 트랜잭션의 정보를 반환합니다. 이 API는 `--sendertxhashindexing`에 의해 인덱싱 기능이 노드에서 활성화되어 있을 때만 올바른 결과를 반환합니다. Use [isSenderTxHashIndexingEnabled](./config.md#issendertxhashindexingenabled) to check if the indexing feature is enabled or not.
 
 **매개변수**
 
@@ -476,7 +476,7 @@ caver.klay.getTransactionReceipt(transactionHash [, callback])
 ```javascript
 caver.klay.getTransactionReceiptBySenderTxHash(senderTxHash [, callback])
 ```
-Returns the receipt of a transaction identified by the given `senderTxHash`.
+주어진 `senderTxHash`에 대응하는 트랜잭션의 영수증를 반환합니다.
 
 **참고**: 보류 상태의 트랜잭션은 영수증을 확인할 수 없습니다. 이 API는 `--sendertxhashindexing`에 의해 인덱싱 기능이 노드에서 활성화되어 있을 때만 올바른 결과를 반환합니다. This can be checked by calling [isSenderTxHashIndexingEnabled](./config.md#issendertxhashindexingenabled).
 
@@ -716,7 +716,7 @@ caver.klay.signTransaction(transactionObject [, callback])
 
 | 명칭                | 형식       | 설명                                                                   |
 | ----------------- | -------- | -------------------------------------------------------------------- |
-| transactionObject | Object   | The transaction data to sign.                                        |
+| transactionObject | Object   | 서명하려는 트랜잭션 데이터.                                                      |
 | callback          | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
