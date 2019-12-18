@@ -47,7 +47,7 @@ Top Members: ~ 2019/12/18
 
 | Name                           | Languages | Translated Words | Target Words | Approved Words | Votes | 
 |--------------------------------|-----------|--------------------|--------------|------------------|-------| 
-| [Chris (tina.kim)](https://crowdin.com/profile/tina.kim)     | Korean    | 46106     | 34980     | 15561       | 0  | 
+| [Chris (klaytn.docs)](https://crowdin.com/profile/klaytn.docs)     | Korean    | 46106     | 34980     | 15561       | 0  | 
 | [Guillaez (guillaez)](https://crowdin.com/profile/guillaez)   | Korean    | 31939    | 25028    | 61   | 1     | 
 | [박상현 / 학생 / 전기·정보공학부 (twodude)](https://crowdin.com/profile/twodude) | Korean  | 28276 | 21756  | 0  | 0  | 
 | [Kyle Jung (universale0723)](https://crowdin.com/profile/universale0723)  | Korean  | 22074 | 15907  | 64490 | 0  | 
