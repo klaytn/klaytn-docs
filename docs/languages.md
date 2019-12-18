@@ -43,15 +43,17 @@ Join the [discussion board](https://crowdin.com/project/klaytn-docs/discussions)
 
 Huge thanks to our [top contributors](https://crowdin.com/project/klaytn-docs/reports)❤️
 
-Top Members: ~ 2019/11
+Top Members: ~ 2019/12/18
 
 | Name                           | Languages | Translated Words | Target Words | Approved Words | Votes | 
 |--------------------------------|-----------|--------------------|--------------|------------------|-------| 
+| [Chris (tina.kim)](https://crowdin.com/profile/tina.kim)     | Korean    | 46106     | 34980     | 15561       | 0  | 
 | [Guillaez (guillaez)](https://crowdin.com/profile/guillaez)   | Korean    | 31939    | 25028    | 61   | 1     | 
 | [박상현 / 학생 / 전기·정보공학부 (twodude)](https://crowdin.com/profile/twodude) | Korean  | 28276 | 21756  | 0  | 0  | 
-| [Tina (tina.kim)](https://crowdin.com/profile/tina.kim)     | Korean    | 27046     | 20434     | 13422       | 0  | 
 | [Kyle Jung (universale0723)](https://crowdin.com/profile/universale0723)  | Korean  | 22074 | 15907  | 64490 | 0  | 
+| [Blue (skqksh)](https://crowdin.com/profile/skqksh)     | Korean    | 198     | 140     | 0       | 0  | 
 | [김정현(Colin) (colin.kim)](https://crowdin.com/profile/colin.kim) | Korean    | 36    | 29     | 0       | 0  | 
+| [SeBae](https://crowdin.com/profile/Sebae)     | Korean    | 16     | 14     | 0       | 0  | 
 
 
 ### Code of conduct <a id="code-of-conduct"></a>
