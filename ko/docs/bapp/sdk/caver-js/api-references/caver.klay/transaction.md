@@ -114,9 +114,9 @@ Returns a transaction object containing all decoded values from the given `rawTr
 
 **리턴값**
 
-| 형식     | 설명                                                                                                                                                                                                              |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Object | 트랜잭션 객체입니다. Depending on the transaction type, the returned transaction object has different properties. For the list of properties included in each transaction type, see [SendTransaction](#sendtransaction). |
+| 형식     | 설명                                                                                                              |
+| ------ | --------------------------------------------------------------------------------------------------------------- |
+| Object | 트랜잭션 객체입니다. 반환되는 트랜잭션 객체가 가지는 속성은 트랜잭션 타입에 따라 다릅니다. 각 트랜잭션 타입의 속성은 [ SendTransaction](#sendtransaction)을 참조하세요. |
 
 **예시**
 
@@ -478,7 +478,7 @@ caver.klay.getTransactionReceiptBySenderTxHash(senderTxHash [, callback])
 ```
 주어진 `senderTxHash`에 대응하는 트랜잭션의 영수증를 반환합니다.
 
-**참고**: 보류 상태의 트랜잭션은 영수증을 확인할 수 없습니다. 이 API는 `--sendertxhashindexing`에 의해 인덱싱 기능이 노드에서 활성화되어 있을 때만 올바른 결과를 반환합니다. This can be checked by calling [isSenderTxHashIndexingEnabled](./config.md#issendertxhashindexingenabled).
+**참고**: 보류 상태의 트랜잭션은 영수증을 확인할 수 없습니다. 이 API는 `--sendertxhashindexing`에 의해 인덱싱 기능이 노드에서 활성화되어 있을 때만 올바른 결과를 반환합니다. [isSenderTxHashIndexingEnabled](./config.md#issendertxhashindexingenabled)를 호출하여 인덱싱 기능이 활성화되어 있는지 확인할 수 있습니다.
 
 
 **매개변수**
