@@ -761,7 +761,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_sendTransaction <a id="klay_sendtransaction"></a>
 
-Creates a new message call transaction or a contract creation if the data field contains code. Usage examples are provided in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
+Constructs a transaction with given parameters, signs the transaction with a sender's private key and propagates the transaction to Klaytn network. 
+
+**NOTE**: The address to sign with must be unlocked.
 
 **Parameters**
 
@@ -808,9 +810,61 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_signTransaction <a id="klay_signtransaction"></a>
-Creates a rawTransaction based on the given transaction information. Usage examples are provided in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
+## klay_sendTransactionAsFeePayer <a id="klay_sendtransactionasfeepayer"></a>
 
+Constructs a transaction with given parameters, signs the transaction with a fee payer's private key and propagate the transaction to Klaytn network. 
+This API supports only fee delegation type (including partial fee delegation type) transactions.
+
+**NOTE**: The fee payer address to sign with must be unlocked.
+
+**Parameters**
+Required parameters are different depends on the transaction type. 
+Check the proper parameters in [Transaction Type Supports](./transaction/transaction-type-support).
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| 32-byte DATA | The transaction hash, or the zero hash if the transaction is not yet available. |
+
+Use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address, after the transaction was mined, when you created a contract.
+
+**Example**
+
+```shell
+params: [{
+  "typeInt": 18,
+  "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d",
+  "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075",
+  "gas": "0x4a380",
+  "gasPrice": "0x5d21dba00",
+  "nonce": "0x2c",
+  "value": "0xf4",
+  "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001",
+  "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d",
+  "feeRatio": 30,
+  "signatures": [{
+    "V": "0x4e43", 
+    "R": "0xd3ff5ca7bdd0120d79e8aa875593d05022fe74ce2b7a0594218d53c0fdca7fa9", 
+    "S": "0x2c100e69d2455afc9393e017514063da18b18db6f7e811d0aeaf6002515b58ef"
+  }]
+}]
+```
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_sendTransactionAsFeePayer","params":[{see above}],"id":1}' http://localhost:8551
+
+// Result
+{
+  "jsonrpc": "2.0","id":1,
+  "result": "0x77ec2d910d0b96585373e2d6508f2b2d8c2af7d0060d2012e1cb2f0ee9d74830"
+}
+```
+
+## klay_signTransaction <a id="klay_signtransaction"></a>
+Constructs a transaction with given parameters and signs the transaction with a sender's private key. 
+The returns values include a signed raw transaction as well as a sender signature.
 **NOTE**: The address to sign with must be unlocked.
 
 **Parameters**
@@ -829,7 +883,7 @@ Creates a rawTransaction based on the given transaction information. Usage examp
 | Type | Description |
 | --- | --- |
 | raw | Signed raw transaction |
-| tx | Transaction information including hash |
+| tx | Transaction information including the sender's signature |
 
 **Example**
 ```shell
@@ -857,6 +911,60 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
   }
 }
 ```
+
+
+## klay_signTransactionAsFeePayer <a id="klay_signtransactionasfeepayer"></a>
+Constructs a transaction with given parameters and signs the transaction with a fee payer's private key. 
+The returns values include a signed raw transaction as well as a fee payer signature, however the raw transaction is invalid if `signatures` parameter is not specified.
+This API supports only fee delegation type (including partial fee delegation type) transactions.
+**NOTE**: The fee payer address to sign with must be unlocked.
+
+**Parameters**
+Required parameters are different depends on the transaction type. 
+Check the proper parameters in [Transaction Type Supports](./transaction/transaction-type-support).
+
+**Return Value**
+| Type | Description |
+| --- | --- |
+| raw | Signed raw transaction |
+| tx | Transaction information including the fee payer's signature |
+
+**Example**
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransactionAsFeePayer", "params": [{"typeInt": 17, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x76c0", "gasPrice": "0x5d21dba00", "value": "0xf4", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d"}], "id": 83}' http://127.0.0.1:8551
+
+// Result
+{
+    "id": 83,
+    "jsonrpc": "2.0",
+    "result": {
+        "raw": "0x11f8ba358505d21dba008276c09444711e89b0c23845b5b2ed9d3716ba42b8a3e07581f494cd01b2b44584fb143824c1ea0231bebaea826b9da4b3f98adc0000000000000000000000000000000000000000000000000000000000000001c094cd01b2b44584fb143824c1ea0231bebaea826b9df847f845824e43a0b34470d1bb588a6afe8f170333ca147e805727aa1911353ed544c31ad4863beca020322c2727091ff79458a87a424b53a4b08cc3d7d485e002e8bf0add13974507",
+        "tx": {
+            "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d",
+            "feePayerSignatures": [
+                {
+                    "R": "0xb34470d1bb588a6afe8f170333ca147e805727aa1911353ed544c31ad4863bec",
+                    "S": "0x20322c2727091ff79458a87a424b53a4b08cc3d7d485e002e8bf0add13974507",
+                    "V": "0x4e43"
+                }
+            ],
+            "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d",
+            "gas": "0x76c0",
+            "gasPrice": "0x5d21dba00",
+            "hash": "0x9e76f754b884d7853814a39c0e51fcefcef6f55b872f00ddad9724c9638128b3",
+            "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001",
+            "nonce": "0x35",
+            "signatures": [],
+            "to": "0x44711e89b0c23845b5b2ed9d3716ba42b8a3e075",
+            "type": "TxTypeFeeDelegatedValueTransferMemo",
+            "typeInt": 17,
+            "value": "0xf4"
+        }
+    }
+}
+```
+
 
 ## txError: Detailed Information of Transaction Failures <a id="txerror-detailed-information-of-transaction-failures"></a>
 
