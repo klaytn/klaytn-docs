@@ -45,7 +45,7 @@ Crowdin은 공동 번역을 위한 웹 서비스입니다. 문서의 현지화 �
 
 | 명칭                                                                       | 지원 언어 | 번역한 단어 | 대상 단어 | 승인한 단어 | 추천수 |
 | ------------------------------------------------------------------------ | ----- | ------ | ----- | ------ | --- |
-| [Chris (tina.kim)](https://crowdin.com/profile/tina.kim)                 | 한국어   | 46106  | 34980 | 15561  | 0   |
+| [Chris (klaytn.docs)](https://crowdin.com/profile/klaytn.docs)           | 한국어   | 46106  | 34980 | 15561  | 0   |
 | [Guillaez (guillaez)](https://crowdin.com/profile/guillaez)              | 한국어   | 31939  | 25028 | 61     | 1   |
 | [박상현 / 학생 / 전기·정보공학부 (twodude)](https://crowdin.com/profile/twodude)     | 한국어   | 28276  | 21756 | 0      | 0   |
 | [Kyle Jung (universale0723)](https://crowdin.com/profile/universale0723) | 한국어   | 22074  | 15907 | 64490  | 0   |
