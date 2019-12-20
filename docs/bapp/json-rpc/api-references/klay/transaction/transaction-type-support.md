@@ -241,7 +241,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeValueTransferMemo <a id="txtypevaluetransfermemo"></a>
 
-TxTypeValueTransferMemo is used when a user wants to send tokens with a specific message. 
+TxTypeValueTransferMemo is used when a user wants to send KLAY with a specific message. 
 For more information, see [TxTypeValueTransferMemo](../../../../../klaytn/design/transactions/basic#txtypevaluetransfermemo).
 
 **Parameters**
