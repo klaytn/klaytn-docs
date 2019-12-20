@@ -1,23 +1,24 @@
 # Transaction Type Support 
 Klaytn has various types of transaction and each type of transaction consists of different fields. 
-Therefore, users should specify the proper parameters for the transaction to use Klaytn transaction type supported APIs: `klay_signTransaction`, `klay_sendTransaction`, `klay_signTransactionAsFeePayer`, `klay_sendTransactionAsFeePayer`, `personal_signTransaction`, `personal_sendTransaction`.     
+Therefore, users should specify the proper parameters for the transaction to use Klaytn transaction types.
+Supported APIs: `klay_signTransaction`, `klay_sendTransaction`, `klay_signTransactionAsFeePayer`, `klay_sendTransactionAsFeePayer`, `personal_signTransaction`, `personal_sendTransaction`.     
 
 
 ## TxTypeLegacyTransaction
 
-TxTypeLegacyTransaction represents a type of transactions existed previously in Klaytn. 
+TxTypeLegacyTransaction represents a type of transaction existed previously in Klaytn. 
 This transaction type exists to support compatibility. 
-For more information, see [TxTypeLegacyTransaction](../../../../..//klaytn/design/transactions/basic#txtypelegacytransaction).
+For more information, see [TxTypeLegacyTransaction](../../../../../klaytn/design/transactions/basic#txtypelegacytransaction).
 
 **Parameters**
 | Name | Type | Description |
 | --- | --- | --- |
 | from | 20-byte DATA | The address from which the transaction is sent. |
 | to | 20-byte DATA | (optional when creating a new contract) The address to which the transaction is directed. |
-| gas | QUANTITY | (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas. |
-| gasPrice | QUANTITY | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas. |
+| gas | QUANTITY | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted. |
+| gasPrice | QUANTITY | (optional, default: 25000000000 Peb) Integer of the gasPrice. The transaction fee is calculated by the multiplication of gas and gasPrice. |
 | value | QUANTITY | (optional) Integer of the value sent with this transaction. |
-| data | DATA | The compiled code of a contract or the hash of the invoked method signature and encoded parameters. |
+| data | DATA | The compiled byte code of a contract to deploy or data (function indicator and parameter values) required to call a contract. |
 | nonce | QUANTITY | (optional) Integer of a nonce. |
 
 **Example**
@@ -50,8 +51,8 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 ## TxTypeValueTransfer
 
-TxTypeValueTransfer is used when a user wants to send tokens. 
-For more information, see [TxTypeValueTransfer](../../../../..//klaytn/design/transactions/basic#txtypevaluetransfer).
+TxTypeValueTransfer is used when a user wants to send KLAY. 
+For more information, see [TxTypeValueTransfer](../../../../../klaytn/design/transactions/basic#txtypevaluetransfer).
 
 **Parameters**
 | Name | Type | Description |
@@ -59,8 +60,8 @@ For more information, see [TxTypeValueTransfer](../../../../..//klaytn/design/tr
 | typeInt | Integer | The integer indicating TxTypeValueTransfer: 8 |
 | from | 20-byte DATA | The address from which the transaction is sent. |
 | to | 20-byte DATA | The address to which the transaction is directed. |
-| gas | QUANTITY | (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas. |
-| gasPrice | QUANTITY | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas. |
+| gas | QUANTITY | (optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted. |
+| gasPrice | QUANTITY | (optional, default: 25000000000 Peb) Integer of the gasPrice. The transaction fee is calculated by the multiplication of gas and gasPrice. |
 | nonce | QUANTITY | (optional) Integer of a nonce. |
 | value | QUANTITY | Integer of the value sent with this transaction. |
 
@@ -100,8 +101,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedValueTransfer
 
-Fee delegation version of TxTypeValueTransfer.
-For more information, see [TxTypeFeeDelegatedValueTransfer](../../../../..//klaytn/design/transactions/fee-delegation#txtypefeedelegatedvaluetransfer).
+Fee delegating version of TxTypeValueTransfer.
+For more information, see [TxTypeFeeDelegatedValueTransfer](../../../../../klaytn/design/transactions/fee-delegation#txtypefeedelegatedvaluetransfer).
 
 **Parameters**
 | Name | Type | Description |
@@ -110,7 +111,7 @@ For more information, see [TxTypeFeeDelegatedValueTransfer](../../../../..//klay
 | from | 20-byte DATA | The address from which the transaction is sent. |
 | to | 20-byte DATA | The address to which the transaction is directed. |
 | gas | QUANTITY | (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas. |
-| gasPrice | QUANTITY | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas. |
+| gasPrice | QUANTITY | (optional, default: 25000000000 Peb) Integer of the gasPrice. The transaction fee is calculated by the multiplication of gas and gasPrice. |
 | nonce | QUANTITY | (optional) Integer of a nonce. |
 | value | QUANTITY | Integer of the value sent with this transaction. |
 | feePayer | 20-byte DATA | The address which pays the transaction fee. |
@@ -167,7 +168,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedValueTransferWithRatio
 
-Partial fee delegation version of TxTypeValueTransfer.
+Partial fee delegating version of TxTypeValueTransfer.
 For more information, see [TxTypeFeeDelegatedValueTransferWithRatio](../../../../..//klaytn/design/transactions/partial-fee-delegation#txtypefeedelegatedvaluetransferwithratio).
 
 **Parameters**
@@ -544,7 +545,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## TxTypeFeeDelegatedAccountUpdateWithRatio
 
-Partial fee delegation version of TxTypeAccountUpdate.
+Partial fee delegating version of TxTypeAccountUpdate.
 For more information, see [TxTypeFeeDelegatedAccountUpdateWithRatio](../../../../..//klaytn/design/transactions/partial-fee-delegation#txtypefeedelegatedaccountupdatewithratio).
 
 
