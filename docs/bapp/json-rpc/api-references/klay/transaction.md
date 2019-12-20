@@ -781,7 +781,7 @@ Constructs a transaction with given parameters, signs the transaction with a sen
 
 | Type | Description |
 | --- | --- |
-| 32-byte DATA | The transaction hash, or the zero hash if the transaction is not yet available. |
+| 32-byte DATA | The transaction hash. |
 
 If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
 
@@ -826,7 +826,7 @@ Check the proper parameters in [Transaction Type Supports](./transaction/transac
 
 | Type | Description |
 | --- | --- |
-| 32-byte DATA | The transaction hash, or the zero hash if the transaction is not yet available. |
+| 32-byte DATA | The transaction hash. |
 
 If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
 
@@ -887,7 +887,7 @@ The returns values include a signed raw transaction as well as a sender signatur
 | Type | Description |
 | --- | --- |
 | raw | Signed raw transaction |
-| tx | Transaction object including the sender's signature |gig
+| tx | Transaction object including the sender's signature |
 
 **Example**
 ```shell
