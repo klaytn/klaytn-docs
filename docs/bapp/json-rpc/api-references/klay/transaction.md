@@ -602,7 +602,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_sendTransaction <a id="klay_sendtransaction"></a>
 
-Creates a new message call transaction or a contract creation if the data field contains code. This API supports Klaytn transaction types and the usage is described in [Transaction Type Supports](./transaction/transaction-type-support.md).
+Creates a new message call transaction or a contract creation if the data field contains code. Usage examples are provided in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
 
 **Parameters**
 
@@ -650,7 +650,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 
 ## klay_signTransaction <a id="klay_signtransaction"></a>
-Creates a rawTransaction based on the give transaction information. This API supports Klaytn transaction types and the usage is described in [Transaction Type Supports](./transaction/transaction-type-support.md).
+Creates a rawTransaction based on the given transaction information. Usage examples are provided in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
 
 **NOTE**: The address to sign with must be unlocked.
 
