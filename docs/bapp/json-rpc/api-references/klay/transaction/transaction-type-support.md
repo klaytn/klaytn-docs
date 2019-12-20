@@ -1,7 +1,7 @@
 # Transaction Type Support <a id="transactiontypesupport"></a>
 Klaytn has various types of transaction and each type of transaction consists of different fields. 
-Therefore, users should specify the proper parameters for the transaction to use Klaytn transaction types.
-Supported APIs: `klay_signTransaction`, `klay_sendTransaction`, `klay_signTransactionAsFeePayer`, `klay_sendTransactionAsFeePayer`, `personal_signTransaction`, `personal_sendTransaction`.     
+Therefore, users should understand the transaction types and specify the correct one when sending and signing a transaction.
+Related APIs: `klay_signTransaction`, `klay_sendTransaction`, `klay_signTransactionAsFeePayer`, `klay_sendTransactionAsFeePayer`, `personal_signTransaction`, `personal_sendTransaction`.     
 
 
 ## TxTypeLegacyTransaction <a id="txtypelegacytransaction"></a>
