@@ -820,7 +820,7 @@ This API supports only fee delegated type (including partial fee delegated type)
 **Parameters**
 
 The required parameters depend on the transaction type. 
-Check the proper parameters in [Transaction Type Supports](./transaction/transaction-type-support.md).
+Check the proper parameters in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
 
 **Return Value**
 
@@ -919,15 +919,16 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 ## klay_signTransactionAsFeePayer <a id="klay_signtransactionasfeepayer"></a>
 
-Constructs a transaction with given parameters and signs the transaction with a fee payer's private key. 
-The return values include a fee-payer-signed raw transaction (`raw`) as well as a plain transaction object (`tx`). Note that the raw transaction is invalid if the sender's signature is not attached (that is, `signatures` in `tx` is empty.) .
-This API supports only fee delegated type (including partial fee delegated type) transactions.
+Constructs a transaction with given parameters and signs the transaction with a fee payer's private key.
+This method can be used either to generate a fee payer signature or to make a final raw transaction that is ready to submit to Klaytn network.
+In case you just want to extract the fee-payer signature, simply take the `feePayerSignatures` from the result.
+Note that the `raw` transaction is not final if the sender's signature is not attached (that is, `signatures` in `tx` is empty.)
 **NOTE**: The fee payer address to sign with must be unlocked.
 
 **Parameters**
 
 The required parameters depend on the transaction type. 
-Check the proper parameters in [Transaction Type Supports](./transaction/transaction-type-support.md).
+Check the proper parameters in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
 
 **Return Value**
 
