@@ -774,7 +774,7 @@ Check the proper parameters in [Working with Klaytn Transaction Types](./transac
 
 | Type | Description |
 | --- | --- |
-| 32-byte DATA | The transaction hash. |
+| 32-byte DATA | The transaction hash |
 
 If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
 
@@ -819,7 +819,7 @@ Check the proper parameters in [Working with Klaytn Transaction Types](./transac
 
 | Type | Description |
 | --- | --- |
-| 32-byte DATA | The transaction hash. |
+| 32-byte DATA | The transaction hash |
 
 If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
 
