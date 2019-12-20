@@ -920,7 +920,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ## klay_signTransactionAsFeePayer <a id="klay_signtransactionasfeepayer"></a>
 
 Constructs a transaction with given parameters and signs the transaction with a fee payer's private key. 
-The return values include a signed raw transaction as well as a fee payer signature, however the raw transaction is invalid if the sender's signature (`signatures` parameter) is not specified.
+The return values include a fee-payer-signed raw transaction (`raw`) as well as a plain transaction object (`tx`). Note that the raw transaction is invalid if the sender's signature is not attached (that is, `signatures` in `tx` is empty.) .
 This API supports only fee delegated type (including partial fee delegated type) transactions.
 **NOTE**: The fee payer address to sign with must be unlocked.
 
