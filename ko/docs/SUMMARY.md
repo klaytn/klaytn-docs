@@ -137,6 +137,7 @@
         * [계정(Account)](bapp/json-rpc/api-references/klay/account.md)
         * [블록(Block)](bapp/json-rpc/api-references/klay/block.md)
         * [트랜잭션(Transaction)](bapp/json-rpc/api-references/klay/transaction.md)
+          * [Working with Klaytn Transaction Types](bapp/json-rpc/api-references/klay/transaction/transaction-type-support.md)
         * [환경설정](bapp/json-rpc/api-references/klay/config.md)
         * [필터](bapp/json-rpc/api-references/klay/filter.md)
         * [기타](bapp/json-rpc/api-references/klay/misc.md)
