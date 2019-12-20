@@ -26,7 +26,7 @@ Executes a new message call immediately without creating a transaction on the bl
 | --- | --- |
 | DATA | The return value of executed contract. |
 
-Use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address, after the transaction was mined, when you created a contract.
+If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
 
 **Error**
 
@@ -742,7 +742,7 @@ Creates a new message call transaction or a contract creation for signed transac
 | --- | --- |
 | 32-byte DATA | The transaction hash or the zero hash if the transaction is not yet available. |
 
-Use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address, after the transaction was mined, when you created a contract.
+If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
 
 **Example**
 
@@ -783,7 +783,7 @@ Constructs a transaction with given parameters, signs the transaction with a sen
 | --- | --- |
 | 32-byte DATA | The transaction hash, or the zero hash if the transaction is not yet available. |
 
-Use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address, after the transaction was mined, when you created a contract.
+If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
 
 **Example**
 
@@ -812,14 +812,15 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_sendTransactionAsFeePayer <a id="klay_sendtransactionasfeepayer"></a>
 
-Constructs a transaction with given parameters, signs the transaction with a fee payer's private key and propagate the transaction to Klaytn network. 
-This API supports only fee delegation type (including partial fee delegation type) transactions.
+Constructs a transaction with given parameters, signs the transaction with a fee payer's private key and propagates the transaction to Klaytn network. 
+This API supports only fee delegated type (including partial fee delegated type) transactions.
 
 **NOTE**: The fee payer address to sign with must be unlocked.
 
 **Parameters**
-Required parameters are different depends on the transaction type. 
-Check the proper parameters in [Transaction Type Supports](./transaction/transaction-type-support).
+
+The required parameters depend on the transaction type. 
+Check the proper parameters in [Transaction Type Supports](./transaction/transaction-type-support.md).
 
 **Return Value**
 
@@ -827,7 +828,7 @@ Check the proper parameters in [Transaction Type Supports](./transaction/transac
 | --- | --- |
 | 32-byte DATA | The transaction hash, or the zero hash if the transaction is not yet available. |
 
-Use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address, after the transaction was mined, when you created a contract.
+If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
 
 **Example**
 
@@ -863,11 +864,13 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 ## klay_signTransaction <a id="klay_signtransaction"></a>
+
 Constructs a transaction with given parameters and signs the transaction with a sender's private key. 
 The returns values include a signed raw transaction as well as a sender signature.
 **NOTE**: The address to sign with must be unlocked.
 
 **Parameters**
+
 | Name | Type | Description |
 | --- | --- | --- |
 | from | 20-byte DATA | The address from which the transaction is sent. |
@@ -880,10 +883,11 @@ The returns values include a signed raw transaction as well as a sender signatur
 
 
 **Return Value**
+
 | Type | Description |
 | --- | --- |
 | raw | Signed raw transaction |
-| tx | Transaction information including the sender's signature |
+| tx | Transaction object including the sender's signature |gig
 
 **Example**
 ```shell
@@ -914,20 +918,23 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 
 ## klay_signTransactionAsFeePayer <a id="klay_signtransactionasfeepayer"></a>
+
 Constructs a transaction with given parameters and signs the transaction with a fee payer's private key. 
 The returns values include a signed raw transaction as well as a fee payer signature, however the raw transaction is invalid if `signatures` parameter is not specified.
-This API supports only fee delegation type (including partial fee delegation type) transactions.
+This API supports only fee delegated type (including partial fee delegated type) transactions.
 **NOTE**: The fee payer address to sign with must be unlocked.
 
 **Parameters**
-Required parameters are different depends on the transaction type. 
-Check the proper parameters in [Transaction Type Supports](./transaction/transaction-type-support).
+
+The required parameters depend on the transaction type. 
+Check the proper parameters in [Transaction Type Supports](./transaction/transaction-type-support.md).
 
 **Return Value**
+
 | Type | Description |
 | --- | --- |
 | raw | Signed raw transaction |
-| tx | Transaction information including the fee payer's signature |
+| tx | Transaction object including the fee payer's signature |
 
 **Example**
 ```shell
@@ -1017,6 +1024,7 @@ Returns the decoded anchored data in the transaction for the given transaction h
 | 32-byte DATA | Hash of a transaction. |
 
 **Return Value**
+
 | Name | Type | Description |
 | --- | --- | --- |
 | BlockHash | 32-byte DATA | Hash of the child chain block that this anchoring transaction was performed. |
