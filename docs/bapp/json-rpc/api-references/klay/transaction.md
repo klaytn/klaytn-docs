@@ -767,15 +767,8 @@ Constructs a transaction with given parameters, signs the transaction with a sen
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| from | 20-byte DATA | The address from which the transaction is sent. |
-| to | 20-byte DATA | (optional when creating a new contract) The address to which the transaction is directed. |
-| gas | QUANTITY | (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas. |
-| gasPrice | QUANTITY | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas. |
-| value | QUANTITY | (optional) Integer of the value sent with this transaction. |
-| data | DATA | The compiled code of a contract or the hash of the invoked method signature and encoded parameters. |
-| nonce | QUANTITY | (optional) Integer of a nonce. |
+The required parameters depend on the transaction type. 
+Check the proper parameters in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
 
 **Return Value**
 
@@ -866,21 +859,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ## klay_signTransaction <a id="klay_signtransaction"></a>
 
 Constructs a transaction with given parameters and signs the transaction with a sender's private key. 
-The return values include a signed raw transaction as well as a sender signature.
+This method can be used either to generate a sender signature or to make a final raw transaction that is ready to submit to Klaytn network.
+
 **NOTE**: The address to sign with must be unlocked.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| from | 20-byte DATA | The address from which the transaction is sent. |
-| to | 20-byte DATA | (optional when creating a new contract) The address to which the transaction is directed. |
-| gas | QUANTITY | (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas. |
-| gasPrice | QUANTITY | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas. |
-| value | QUANTITY | (optional) Integer of the value sent with this transaction. |
-| data | DATA | The compiled code of a contract or the hash of the invoked method signature and encoded parameters. |
-| nonce | QUANTITY | (optional) Integer of a nonce. |
-
+The required parameters depend on the transaction type. 
+Check the proper parameters in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
 
 **Return Value**
 
@@ -922,7 +908,8 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 Constructs a transaction with given parameters and signs the transaction with a fee payer's private key.
 This method can be used either to generate a fee payer signature or to make a final raw transaction that is ready to submit to Klaytn network.
 In case you just want to extract the fee-payer signature, simply take the `feePayerSignatures` from the result.
-Note that the `raw` transaction is not final if the sender's signature is not attached (that is, `signatures` in `tx` is empty.)
+Note that the `raw` transaction is not final if the sender's signature is not attached (that is, `signatures` in `tx` is empty).
+
 **NOTE**: The fee payer address to sign with must be unlocked.
 
 **Parameters**
