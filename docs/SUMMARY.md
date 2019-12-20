@@ -137,6 +137,7 @@
         * [Account](bapp/json-rpc/api-references/klay/account.md)
         * [Block](bapp/json-rpc/api-references/klay/block.md)
         * [Transaction](bapp/json-rpc/api-references/klay/transaction.md)
+          * [Transaction Type Support](bapp/json-rpc/api-references/klay/transaction/transaction-type-support.md)
         * [Configuration](bapp/json-rpc/api-references/klay/config.md)
         * [Filter](bapp/json-rpc/api-references/klay/filter.md)
         * [Miscellaneous](bapp/json-rpc/api-references/klay/misc.md)
