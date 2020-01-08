@@ -2,7 +2,7 @@
 
 ## TxTypeFeeDelegatedValueTransferWithRatio <a id="txtypefeedelegatedvaluetransferwithratio"></a>
 
-TxTypeFeeDelegatedValueTransferWithRatio is used when a user wants to send tokens. As Klaytn provides multiple transaction types to make each transaction type serve a single purpose, TxTypeFeeDelegatedValueTransferWithRatio is limited to send tokens to an externally owned account. Therefore, TxTypeFeeDelegatedValueTransferWithRatio is accepted only if `to` is an externally owned account. To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecutionWithRatio](partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) instead. The following changes will be made by this transaction type.
+TxTypeFeeDelegatedValueTransferWithRatio is used when a user wants to send KLAY. As Klaytn provides multiple transaction types to make each transaction type serve a single purpose, TxTypeFeeDelegatedValueTransferWithRatio is limited to send KLAY to an externally owned account. Therefore, TxTypeFeeDelegatedValueTransferWithRatio is accepted only if `to` is an externally owned account. To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecutionWithRatio](partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) instead. The following changes will be made by this transaction type.
 
 1. The fee payer's balance decreases by the given ratio of the transaction fee.
 2. The sender's balance decreases by the remaining transaction fee. e.g., If the `feeRatio` is 30, 30% of the fee will be paid by the fee payer, and the remaining 70% of the fee will be paid by the sender.
@@ -152,7 +152,7 @@ The following shows a transaction object returned via JSON RPC.
 
 ## TxTypeFeeDelegatedValueTransferMemoWithRatio <a id="txtypefeedelegatedvaluetransfermemowithratio"></a>
 
-TxTypeFeeDelegatedValueTransferMemoWithRatio is used when a user wants to send tokens with a specific message. TxTypeFeeDelegatedValueTransferMemoWithRatio is accepted only if `to` is an externally owned account. To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecutionWithRatio](partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) instead. The following changes will be made by this transaction type.
+TxTypeFeeDelegatedValueTransferMemoWithRatio is used when a user wants to send KLAY with a specific message. TxTypeFeeDelegatedValueTransferMemoWithRatio is accepted only if `to` is an externally owned account. To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecutionWithRatio](partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) instead. The following changes will be made by this transaction type.
 
 1. The fee payer's balance decreases by the fee ratio of the amount of the transaction fee.
 2. The sender's balance decreases by the remaining transaction fee. e.g., If the `feeRatio` is 30, 30% of the fee will be paid by the fee payer, and the remaining 70% of the fee will be paid by the sender.k

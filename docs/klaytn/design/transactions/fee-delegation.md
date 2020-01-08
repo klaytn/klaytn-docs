@@ -2,7 +2,7 @@
 
 ## TxTypeFeeDelegatedValueTransfer <a id="txtypefeedelegatedvaluetransfer"></a>
 
-TxTypeFeeDelegatedValueTransfer is used when a user wants to send tokens. As Klaytn provides multiple transaction types to make each transaction type serve a single purpose, TxTypeFeeDelegatedValueTransfer is limited to send tokens to an externally owned account. Therefore, TxTypeFeeDelegatedValueTransfer is accepted only if `to` is an externally owned account. To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecution](fee-delegation.md#txtypefeedelegatedsmartcontractexecution) instead. The following changes will be made by this transaction type.
+TxTypeFeeDelegatedValueTransfer is used when a user wants to send KLAY. As Klaytn provides multiple transaction types to make each transaction type serve a single purpose, TxTypeFeeDelegatedValueTransfer is limited to send KLAY to an externally owned account. Therefore, TxTypeFeeDelegatedValueTransfer is accepted only if `to` is an externally owned account. To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecution](fee-delegation.md#txtypefeedelegatedsmartcontractexecution) instead. The following changes will be made by this transaction type.
 
 1. The fee payer's balance decreases by the amount of the transaction fee.
 2. The sender's nonce increases by one.
@@ -148,7 +148,7 @@ The following shows a transaction object returned via JSON RPC.
 
 ## TxTypeFeeDelegatedValueTransferMemo <a id="txtypefeedelegatedvaluetransfermemo"></a>
 
-TxTypeFeeDelegatedValueTransferMemo is used when a user wants to send tokens with a specific message. TxTypeFeeDelegatedValueTransferMemo is accepted only if `to` is an externally owned account. To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecution](fee-delegation.md#txtypefeedelegatedsmartcontractexecution) instead. The following changes will be made by this transaction type.
+TxTypeFeeDelegatedValueTransferMemo is used when a user wants to send KLAY with a specific message. TxTypeFeeDelegatedValueTransferMemo is accepted only if `to` is an externally owned account. To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecution](fee-delegation.md#txtypefeedelegatedsmartcontractexecution) instead. The following changes will be made by this transaction type.
 
 1. The fee payer's balance decreases by the amount of the transaction fee.
 2. The sender's nonce increases by one.
