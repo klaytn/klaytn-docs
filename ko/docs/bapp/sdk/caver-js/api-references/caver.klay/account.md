@@ -372,7 +372,7 @@ Generates signed data specific to the Klaytn network. Refer to [Klaytn Platform 
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
-| 메시지      | String   | Message to sign.                                                     |
+| message  | String   | Message to sign.                                                     |
 | address  | String   | The address of the account to sign the message with.                 |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
