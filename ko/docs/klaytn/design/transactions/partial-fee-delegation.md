@@ -2,7 +2,7 @@
 
 ## TxTypeFeeDelegatedValueTransferWithRatio <a id="txtypefeedelegatedvaluetransferwithratio"></a>
 
-TxTypeFeeDelegatedValueTransferWithRatio는 사용자가 토큰을 보내려고 할 때 사용됩니다. Klaytn은 각 목적에 맞는 여러가지 트랜잭션 유형들을 제공하는데, TxTypeFeeDelegatedValueTransferWithRatio는 토큰을 EOA에 전송할 때 사용하는 기능입니다. 따라서 TxTypeFeeDelegatedValueTransferWithRatio는 `to`가 EOA일때만 작동합니다. KLAY를 스마트 컨트랙트로 전송하려면 [TxTypeFeeDelegatedSmartContractExecutionWithRatio](partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio)를 대신 사용하여야 합니다. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
+TxTypeFeeDelegatedValueTransferWithRatio is used when a user wants to send KLAY. As Klaytn provides multiple transaction types to make each transaction type serve a single purpose, TxTypeFeeDelegatedValueTransferWithRatio is limited to send KLAY to an externally owned account. 따라서 TxTypeFeeDelegatedValueTransferWithRatio는 `to`가 EOA일때만 작동합니다. KLAY를 스마트 컨트랙트로 전송하려면 [TxTypeFeeDelegatedSmartContractExecutionWithRatio](partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio)를 대신 사용하여야 합니다. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
 
 1. 수수료 납부자의 잔고는 주어진 트랜잭션 수수료 비율(fee ratio)에 따라 감소합니다.
 2. 발신자의 잔고는 남은 트랜잭션 수수료만큼 줄어듭니다. 예를 들어 만약 `feeRatio`가 30이라면 30%의 트랜잭션 수수료가 수수료 납부자에 의해서 지불되고, 남은 70%는 발신자에 의해서 지불됩니다.
@@ -152,7 +152,7 @@ SenderTxHash 4711ed4023e821425968342c1d50063b6bc3176b1792b7075cfeee3656d450f6
 
 ## TxTypeFeeDelegatedValueTransferMemoWithRatio <a id="txtypefeedelegatedvaluetransfermemowithratio"></a>
 
-TxTypeFeeDelegatedValueTransferMemoWithRatio는 사용자가 특정 메시지와 함께 토큰을 보내려고 할 때 사용됩니다. 따라서 TxTypeFeeDelegatedValueTransferMemoWithRatio는 `to`가 EOA일때만 작동합니다. KLAY를 스마트 컨트랙트로 전송하려면 [TxTypeFeeDelegatedSmartContractExecutionWithRatio](partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio)를 대신 사용하여야 합니다. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
+TxTypeFeeDelegatedValueTransferMemoWithRatio is used when a user wants to send KLAY with a specific message. 따라서 TxTypeFeeDelegatedValueTransferMemoWithRatio는 `to`가 EOA일때만 작동합니다. KLAY를 스마트 컨트랙트로 전송하려면 [TxTypeFeeDelegatedSmartContractExecutionWithRatio](partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio)를 대신 사용하여야 합니다. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
 
 1. 트랜잭션 수수료 납부자의 잔액은 트랜잭션 수수료의 수수료 부담 비율만큼 감소합니다.
 2. 발신자의 잔고는 남은 트랜잭션 수수료만큼 줄어듭니다. 예를 들어 만약 `feeRatio`가 30이라면 30%의 트랜잭션 수수료가 수수료 납부자에 의해서 지불되고, 남은 70%는 발신자에 의해서 지불됩니다.
