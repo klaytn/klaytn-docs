@@ -1833,7 +1833,7 @@ Encrypts an account to the Klaytn keystore v3 standard.
 
 ```javascript
 // encrypt to keystore v3 JSON with single private key string.
-> caver.klay.accounts.encrypt('0x{private key}', 'test!')
+> caver.klay.accounts.encryptV3('0x{private key}', 'test!')
 {
     version: 3,
     id: 'ff07b774-b572-4c76-a925-9e7650fb0488',
@@ -1849,7 +1849,7 @@ Encrypts an account to the Klaytn keystore v3 standard.
 }
 
 // encrypt to keystore v3 JSON with KlaytnWalletKey.
-> caver.klay.accounts.encrypt('0x{private key}0x{type}0x{address in hex}', 'test!')
+> caver.klay.accounts.encryptV3('0x{private key}0x{type}0x{address in hex}', 'test!')
 {
     version: 3,
     id: 'ff07b774-b572-4c76-a925-9e7650fb0488',
@@ -1865,7 +1865,7 @@ Encrypts an account to the Klaytn keystore v3 standard.
 }
 
 // encrypt to keystore v3 JSON with address field in options.
-> caver.klay.accounts.encrypt('0x{private key}', 'test!', { address: '0x4abe737d3c57dce9152988c714e9e4b341647650' })
+> caver.klay.accounts.encryptV3('0x{private key}', 'test!', { address: '0x4abe737d3c57dce9152988c714e9e4b341647650' })
 {
     version: 3,
     id: 'ff07b774-b572-4c76-a925-9e7650fb0488',
