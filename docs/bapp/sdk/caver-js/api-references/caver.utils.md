@@ -1501,3 +1501,34 @@ true
 > caver.utils.isKlaytnWalletKey('0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d8')
 false
 ```
+
+## bufferToHex <a id="buffertohex"></a>
+
+```javascript
+caver.utils.bufferToHex(buffer)
+```
+Converts buffer to 0x-prefixed hex string.
+
+**NOTE** `caver.utils.bufferToHex` is supported since caver-js [v1.3.2-rc.1](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.1).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| buffer | Buffer | A buffer to convert to hex string. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| String | The 0x-prefixed hex string. |
+
+**Examples**
+
+```javascript
+> caver.utils.bufferToHex(Buffer.from('5b9ac8', 'hex'))
+'0x5b9ac8'
+
+> caver.utils.bufferToHex(Buffer.alloc(0))
+'0x'
+```
