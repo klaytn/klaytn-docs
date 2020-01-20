@@ -850,9 +850,9 @@ See [Sending a Transaction with multiple signer](../getting-started.md#sending-a
 | Name | Type | Description |
 | --- | --- | --- |
 | messageHash | String | The hash of the given message. |
-| r | String | First 32 bytes of the signature. |
-| s | String | Next 32 bytes of the signature. |
-| v | String | Recovery value + 27. |
+| r | String | ECDSA signature r. |
+| s | String | ECDSA signature s. |
+| v | String | ECDSA recovery id. |
 | rawTransaction | String | The RLP encoded transaction, ready to be send using caver.klay.sendSignedTransaction. |
 | txHash | 32-byte String | Hash of the transaction. |
 | senderTxHash | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash) |
@@ -1013,6 +1013,90 @@ See [Sending a Transaction with multiple signer](../getting-started.md#sending-a
 }
 ```
 
+## signTransactionWithHash <a id="signtransactionwithhash"></a>
+
+```javascript
+caver.klay.accounts.signTransactionWithHash(txHash, privateKeys [, chainId] [, callback])
+```
+
+Signs a Klaytn transaction with given hash of transaction and private key.
+
+**NOTE** `caver.klay.accounts.signTransactionWithHash` is supported since caver-js [v1.3.2-rc.2](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.2).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| txHash | String | The hash of the transaction to sign. |
+| privateKeys | String &#124; Array  | The private key to sign with. |
+| chainId | String &#124; Number | (optional) The chainId of the chain. If omitted, it will be set by caver-js via callling [caver.klay.getChainId](./caver.klay/config.md#getchainid) |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+
+**Return Value**
+
+`Promise` returning `Array`: An array of signatures
+
+Each signature object in the array has the following values:
+| Name | Type | Description |
+| --- | --- | --- |
+| V | String | ECDSA recovery id. |
+| R | String | ECDSA signature r. |
+| S | String | ECDSA signature s. |
+
+**Example**
+
+```javascript
+// sign transaction with single private key and chain id
+> caver.klay.accounts.signTransactionWithHash('0x583d887614e1ce674c05fcd050a661f0631c23ed1f95fa43fefcc25e6383bca1', '0x{priavte key}', '0x3e9').then(console.log)
+[
+    {
+        V: '0x07f5',
+        R: '0x66eb2dbb90295b7541de72f2d34002bac3f00a94501453b310b25a0da62446a5',
+        S: '0x1c7c3aefabc042b055489f5b899df55439fe1851858d61e8eb6c4b44be35c227'
+    }
+]
+
+// sign transaction with single private key
+> caver.klay.accounts.signTransactionWithHash('0x583d887614e1ce674c05fcd050a661f0631c23ed1f95fa43fefcc25e6383bca1', '0x{priavte key}').then(console.log)
+[
+    {
+        V: '0x07f5',
+        R: '0x66eb2dbb90295b7541de72f2d34002bac3f00a94501453b310b25a0da62446a5',
+        S: '0x1c7c3aefabc042b055489f5b899df55439fe1851858d61e8eb6c4b44be35c227'
+    }
+]
+
+// sign transaction with mulitple private keys and chain id
+> caver.klay.accounts.signTransactionWithHash('0x583d887614e1ce674c05fcd050a661f0631c23ed1f95fa43fefcc25e6383bca1', ['0x{priavte key}', '0x{priavte key}'], '0x3e9').then(console.log)
+[
+    {
+        V: '0x07f5',
+        R: '0x66eb2dbb90295b7541de72f2d34002bac3f00a94501453b310b25a0da62446a5',
+        S: '0x1c7c3aefabc042b055489f5b899df55439fe1851858d61e8eb6c4b44be35c227'
+    },
+    {
+        V: '0x07f6',
+        R: '0x946ce0288ee98b56160fadae8ec38e36828cf764f897f68f93157a2dc286d4aa',
+        S: '0x049ab3f5e91cec831124bdb10782e38de3a02a803ca2dd61a50da81cf5c4f8ef'
+    }
+]
+
+// sign transaction with mulitple private keys
+> caver.klay.accounts.signTransactionWithHash('0x583d887614e1ce674c05fcd050a661f0631c23ed1f95fa43fefcc25e6383bca1', ['0x{priavte key}', '0x{priavte key}']).then(console.log)
+[
+    {
+        V: '0x07f5',
+        R: '0x66eb2dbb90295b7541de72f2d34002bac3f00a94501453b310b25a0da62446a5',
+        S: '0x1c7c3aefabc042b055489f5b899df55439fe1851858d61e8eb6c4b44be35c227'
+    },
+    {
+        V: '0x07f6',
+        R: '0x946ce0288ee98b56160fadae8ec38e36828cf764f897f68f93157a2dc286d4aa',
+        S: '0x049ab3f5e91cec831124bdb10782e38de3a02a803ca2dd61a50da81cf5c4f8ef'
+    }
+]
+```
+
 ## feePayerSignTransaction <a id="feepayersigntransaction"></a>
 
 ```javascript
@@ -1048,9 +1132,9 @@ See [Sending a Transaction with multiple signer](../getting-started.md#sending-a
 | Name | Type | Description |
 | --- | --- | --- |
 | messageHash | String | The hash of the given message. |
-| v | String | Recovery value + 27. |
-| r | String | First 32 bytes of the signature. |
-| s | String | Next 32 bytes of the signature. |
+| v | String | ECDSA recovery id. |
+| r | String | ECDSA signature r. |
+| s | String | ECDSA signature s. |
 | rawTransaction | String | The RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction. |
 | txHash | 32-byte String | Hash of the transaction. |
 | senderTxHash | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash) |
@@ -1261,9 +1345,9 @@ Signs arbitrary data. This data is before UTF-8 HEX decoded and enveloped as fol
 | --- | --- | --- |
 | message | String | The given message. |
 | messageHash | String | The hash of the given message. |
-| r | String | First 32 bytes of the signature. |
-| s | String | Next 32 bytes of the signature. |
-| v | String | Recovery value + 27 |
+| r | String | ECDSA signature r. |
+| s | String | ECDSA signature s. |
+| v | String | ECDSA recovery id. |
 | signature | String | The generated signature. |
 
 
@@ -1305,9 +1389,9 @@ The signature object has following values:
 | Name | Type | Description |
 | --- | --- | --- |
 | messageHash | String | The hash of the given message already prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`. |
-| r | String | First 32 bytes of the signature. |
-| s | String | Next 32 bytes of the signature. |
-| v | String | Recovery value + 27 |
+| r | String | ECDSA signature r. |
+| s | String | ECDSA signature s. |
+| v | String | ECDSA recovery id. |
 
 
 **Return Value**
