@@ -850,9 +850,9 @@ See [Sending a Transaction with multiple signer](../getting-started.md#sending-a
 | Name | Type | Description |
 | --- | --- | --- |
 | messageHash | String | The hash of the given message. |
-| r | String | First 32 bytes of the signature. |
-| s | String | Next 32 bytes of the signature. |
-| v | String | Recovery value + 27. |
+| r | String | ECDSA signature r. |
+| s | String | ECDSA signature s. |
+| v | String | ECDSA recovery id. |
 | rawTransaction | String | The RLP encoded transaction, ready to be send using caver.klay.sendSignedTransaction. |
 | txHash | 32-byte String | Hash of the transaction. |
 | senderTxHash | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash) |
@@ -1039,9 +1039,9 @@ Signs a Klaytn transaction with given hash of transaction and private key.
 Each signature object in the array has the following values:
 | Name | Type | Description |
 | --- | --- | --- |
-| V | String | Recovery value + 27. |
-| R | String | First 32 bytes of the signature. |
-| S | String | Next 32 bytes of the signature. |
+| V | String | ECDSA recovery id. |
+| R | String | ECDSA signature r. |
+| S | String | ECDSA signature s. |
 
 **Example**
 
@@ -1132,9 +1132,9 @@ See [Sending a Transaction with multiple signer](../getting-started.md#sending-a
 | Name | Type | Description |
 | --- | --- | --- |
 | messageHash | String | The hash of the given message. |
-| v | String | Recovery value + 27. |
-| r | String | First 32 bytes of the signature. |
-| s | String | Next 32 bytes of the signature. |
+| v | String | ECDSA recovery id. |
+| r | String | ECDSA signature r. |
+| s | String | ECDSA signature s. |
 | rawTransaction | String | The RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction. |
 | txHash | 32-byte String | Hash of the transaction. |
 | senderTxHash | 32-byte String | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash) |
@@ -1345,9 +1345,9 @@ Signs arbitrary data. This data is before UTF-8 HEX decoded and enveloped as fol
 | --- | --- | --- |
 | message | String | The given message. |
 | messageHash | String | The hash of the given message. |
-| r | String | First 32 bytes of the signature. |
-| s | String | Next 32 bytes of the signature. |
-| v | String | Recovery value + 27 |
+| r | String | ECDSA signature r. |
+| s | String | ECDSA signature s. |
+| v | String | ECDSA recovery id. |
 | signature | String | The generated signature. |
 
 
@@ -1389,9 +1389,9 @@ The signature object has following values:
 | Name | Type | Description |
 | --- | --- | --- |
 | messageHash | String | The hash of the given message already prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`. |
-| r | String | First 32 bytes of the signature. |
-| s | String | Next 32 bytes of the signature. |
-| v | String | Recovery value + 27 |
+| r | String | ECDSA signature r. |
+| s | String | ECDSA signature s. |
+| v | String | ECDSA recovery id. |
 
 
 **Return Value**
