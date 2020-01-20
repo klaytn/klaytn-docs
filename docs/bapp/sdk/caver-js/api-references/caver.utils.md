@@ -1492,13 +1492,13 @@ Returns `true` if key is in the format of [KlaytnWalletKey](../../../../klaytn/d
 **Examples**
 
 ```javascript
-> caver.utils.isKlaytnWalletKey('0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d80x000xa94f5374fce5edbc8e2a8697c15331677e6ebf0b')
+> caver.utils.isKlaytnWalletKey('0x{private key}0x{type}0x{address in hex}')
 true
 
-> caver.utils.isKlaytnWalletKey('45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d80x000xa94f5374fce5edbc8e2a8697c15331677e6ebf0b')
+> caver.utils.isKlaytnWalletKey('{private key}0x{type}0x{address in hex}')
 true
 
-> caver.utils.isKlaytnWalletKey('0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d8')
+> caver.utils.isKlaytnWalletKey('0x{private key}')
 false
 ```
 
