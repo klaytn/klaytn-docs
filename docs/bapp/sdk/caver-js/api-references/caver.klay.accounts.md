@@ -1572,7 +1572,7 @@ caver.klay.accounts.encrypt(encryptTarget, password [, options])
 ```
 Encrypts an account to the Klaytn keystore standard. 
 
-**NOTE** Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), `caver.klay.accounts.encrypt` encrypts using the keystore v4 standard to encrypt various AccountKey types (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased).
+**NOTE** Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), `caver.klay.accounts.encrypt` encrypts using the keystore v4 standard to encrypt various AccountKey types (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased). If you want to encrypt to keystore v3, use a [caver.klay.accounts.encryptV3](#encryptv3).
 
 **Parameters**
 
@@ -1798,6 +1798,86 @@ Encrypts an account to the Klaytn keystore standard.
         kdfparams: { dklen: 32, salt: '4531b3c174cc3ff32a6a7a85d6761b410db674807b2d216d022318ceee50be10', n: 262144, r: 8, p: 1 },
         mac: 'b8b010fff37f9ae5559a352a185e86f9b9c1d7f7a9f1bd4e82a5dd35468fc7f6'
     }
+}
+```
+
+## encryptV3 <a id="encryptv3"></a>
+
+```javascript
+caver.klay.accounts.encryptV3(encryptTarget, password [, options])
+```
+Encrypts an account to the Klaytn keystore v3 standard. 
+
+**NOTE** `caver.klay.accounts.encryptV3` is supported since caver-js [v1.3.2-rc.1](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.1).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| encryptTarget | String &#124; Object | A private key, a Klaytn wallet key, or an instance of Account or AccountKeyPublic to encrypt. |
+| password | String | The password used for encryption. |
+| options | Object | (optional) The `options` parameter allows you to specify the values to use when using encrypt. You can also use the options object to encrypt decoupled accounts. See the example below for usage of `options`. |
+
+**NOTE**: There are two ways to encrypt the private key when an account has a decoupled private key from the address.
+1. Use the [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format with the privateKey parameter.
+2. Use the `options.address` to send the address as a parameter.
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Object | The encrypted keystore v3 JSON. |
+
+
+**Example**
+
+```javascript
+// encrypt to keystore v3 JSON with single private key string.
+> caver.klay.accounts.encrypt('0x{private key}', 'test!')
+{
+    version: 3,
+    id: 'ff07b774-b572-4c76-a925-9e7650fb0488',
+    address: '0x4abe737d3c57dce9152988c714e9e4b341647650',
+    crypto: {
+        ciphertext: '5a1c898fd89a7521e0034d297a46f029def59632416aef724a1f466f3c416958',
+        cipherparams: { iv: '8304ad468f10db5529fa480bfc170df7' },
+        cipher: 'aes-128-ctr',
+        kdf: 'scrypt',
+        kdfparams: { dklen: 32, salt: '3a98ebac3da3ad0edf7f1f237c86a3dd71a77002e4908991579ed52910c6f082', n: 4096, r: 8, p: 1 },
+        mac: 'a5ed79b91ffe30baa22b2622bffbab97ea5cf893ba96249c7854e2d19295cc3d',
+    },
+}
+
+// encrypt to keystore v3 JSON with KlaytnWalletKey.
+> caver.klay.accounts.encrypt('0x{private key}0x{type}0x{address in hex}', 'test!')
+{
+    version: 3,
+    id: 'ff07b774-b572-4c76-a925-9e7650fb0488',
+    address: '0x4abe737d3c57dce9152988c714e9e4b341647650',
+    crypto: {
+        ciphertext: '5a1c898fd89a7521e0034d297a46f029def59632416aef724a1f466f3c416958',
+        cipherparams: { iv: '8304ad468f10db5529fa480bfc170df7' },
+        cipher: 'aes-128-ctr',
+        kdf: 'scrypt',
+        kdfparams: { dklen: 32, salt: '3a98ebac3da3ad0edf7f1f237c86a3dd71a77002e4908991579ed52910c6f082', n: 4096, r: 8, p: 1 },
+        mac: 'a5ed79b91ffe30baa22b2622bffbab97ea5cf893ba96249c7854e2d19295cc3d',
+    },
+}
+
+// encrypt to keystore v3 JSON with address field in options.
+> caver.klay.accounts.encrypt('0x{private key}', 'test!', { address: '0x4abe737d3c57dce9152988c714e9e4b341647650' })
+{
+    version: 3,
+    id: 'ff07b774-b572-4c76-a925-9e7650fb0488',
+    address: '0x4abe737d3c57dce9152988c714e9e4b341647650',
+    crypto: {
+        ciphertext: '5a1c898fd89a7521e0034d297a46f029def59632416aef724a1f466f3c416958',
+        cipherparams: { iv: '8304ad468f10db5529fa480bfc170df7' },
+        cipher: 'aes-128-ctr',
+        kdf: 'scrypt',
+        kdfparams: { dklen: 32, salt: '3a98ebac3da3ad0edf7f1f237c86a3dd71a77002e4908991579ed52910c6f082', n: 4096, r: 8, p: 1 },
+        mac: 'a5ed79b91ffe30baa22b2622bffbab97ea5cf893ba96249c7854e2d19295cc3d',
+    },
 }
 ```
 
