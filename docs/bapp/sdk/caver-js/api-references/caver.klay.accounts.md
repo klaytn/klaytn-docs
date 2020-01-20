@@ -1019,7 +1019,7 @@ See [Sending a Transaction with multiple signer](../getting-started.md#sending-a
 caver.klay.accounts.signTransactionWithHash(txHash, privateKeys [, chainId] [, callback])
 ```
 
-Signs a Klaytn transaction with given hash of transaciton and private key.
+Signs a Klaytn transaction with given hash of transaction and private key.
 
 **NOTE** `caver.klay.accounts.signTransactionWithHash` is supported since caver-js [v1.3.2-rc.2](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.2).
 
@@ -1027,7 +1027,7 @@ Signs a Klaytn transaction with given hash of transaciton and private key.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| txHash | String | The Hash of transaction to sign. |
+| txHash | String | The hash of the transaction to sign. |
 | privateKeys | String &#124; Array  | The private key to sign with. |
 | chainId | String &#124; Number | (optional) The chainId of the chain. If omitted, it will be set by caver-js via callling [caver.klay.getChainId](./caver.klay/config.md#getchainid) |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
