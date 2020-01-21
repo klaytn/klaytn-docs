@@ -1470,3 +1470,68 @@ true
 > caver.utils.isValidRole([['0x25', '0xf3d0cd43661cabf53425535817c5058c27781f478cb5459874feaa462ed3a29a', '0x6748abe186269ff10b8100a4b7d7fea274b53ea2905acbf498dc8b5ab1bf4fbc']])
 false
 ```
+
+## isKlaytnWalletKey <a id="isklaytnwalletkey"></a>
+
+```javascript
+caver.utils.isKlaytnWalletKey(key)
+```
+Returns `true` if key is in the format of [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format), otherwise it returns `false`.
+
+**NOTE** `caver.utils.isKlaytnWalletKey` has added logic for more accurate return value since caver-js [v1.3.2-rc.3](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.3).
+
+**매개변수**
+
+| 명칭  | 형식     | 설명                                                             |
+| --- | ------ | -------------------------------------------------------------- |
+| key | String | A key string to check in the format of KlaytnWalletKey or not. |
+
+**리턴값**
+
+| 형식      | 설명                                                                                                                |
+| ------- | ----------------------------------------------------------------------------------------------------------------- |
+| Boolean | `true` means the key is `0x{private key}0x{type}0x{address in hex}` or `{private key}0x{type}0x{address in hex}`. |
+
+**예제**
+
+```javascript
+> caver.utils.isKlaytnWalletKey('0x{private key}0x{type}0x{address in hex}')
+true
+
+> caver.utils.isKlaytnWalletKey('{private key}0x{type}0x{address in hex}')
+true
+
+> caver.utils.isKlaytnWalletKey('0x{private key}')
+false
+```
+
+## bufferToHex <a id="buffertohex"></a>
+
+```javascript
+caver.utils.bufferToHex(buffer)
+```
+Converts buffer to 0x-prefixed hex string.
+
+**NOTE** `caver.utils.bufferToHex` is supported since caver-js [v1.3.2-rc.1](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.1).
+
+**매개변수**
+
+| 명칭     | 형식     | 설명                                 |
+| ------ | ------ | ---------------------------------- |
+| buffer | Buffer | A buffer to convert to hex string. |
+
+**리턴값**
+
+| 형식     | 설명                          |
+| ------ | --------------------------- |
+| String | The 0x-prefixed hex string. |
+
+**예제**
+
+```javascript
+> caver.utils.bufferToHex(Buffer.from('5b9ac8', 'hex'))
+'0x5b9ac8'
+
+> caver.utils.bufferToHex(Buffer.alloc(0))
+'0x'
+```
