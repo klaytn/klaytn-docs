@@ -1572,7 +1572,7 @@ caver.klay.accounts.encrypt(encryptTarget, password [, options])
 ```
 Encrypts an account to the Klaytn keystore standard. 
 
-**NOTE** Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), `caver.klay.accounts.encrypt` encrypts using the keystore v4 standard to encrypt various AccountKey types (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased). If you want to encrypt to keystore v3, use a [caver.klay.accounts.encryptV3](#encryptv3).
+**NOTE** Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), `caver.klay.accounts.encrypt` encrypts using the keystore v4 standard to encrypt various AccountKey types (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased). If you want to encrypt an account using keystore v3, please use a [caver.klay.accounts.encryptV3](#encryptv3).
 
 **Parameters**
 
