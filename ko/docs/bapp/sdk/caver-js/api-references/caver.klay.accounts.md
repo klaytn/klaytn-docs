@@ -1651,9 +1651,9 @@ Returns a signed RLP encoded transaction string from a given transaction object.
 ```javascript
 caver.klay.accounts.encrypt(encryptTarget, password [, options])
 ```
-Encrypts an account to the Klaytn keystore standard.
+Encrypts an account to the Klaytn keystore standard. For more information, please refer to [KIP-3](https://klaytn.github.io/kips/KIPs/kip-3-keystore-format-v4).
 
-**NOTE** Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), `caver.klay.accounts.encrypt` encrypts using the keystore v4 standard to encrypt various AccountKey types (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased).
+**NOTE** Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), `caver.klay.accounts.encrypt` encrypts using the keystore v4 standard to encrypt various AccountKey types (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased). If you want to encrypt an account using keystore v3, please use a [caver.klay.accounts.encryptV3](#encryptv3).
 
 **매개변수**
 
@@ -1879,6 +1879,86 @@ Encrypts an account to the Klaytn keystore standard.
         kdfparams: { dklen: 32, salt: '4531b3c174cc3ff32a6a7a85d6761b410db674807b2d216d022318ceee50be10', n: 262144, r: 8, p: 1 },
         mac: 'b8b010fff37f9ae5559a352a185e86f9b9c1d7f7a9f1bd4e82a5dd35468fc7f6'
     }
+}
+```
+
+## encryptV3 <a id="encryptv3"></a>
+
+```javascript
+caver.klay.accounts.encryptV3(encryptTarget, password [, options])
+```
+Encrypts an account to the Klaytn keystore v3 standard.
+
+**NOTE** `caver.klay.accounts.encryptV3` is supported since caver-js [v1.3.2-rc.1](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.1).
+
+**매개변수**
+
+| 명칭            | 형식                   | 설명                                                                                                                                                                                                                      |
+| ------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| encryptTarget | String &#124; Object | A private key, a Klaytn wallet key, or an instance of Account or AccountKeyPublic to encrypt.                                                                                                                           |
+| password      | String               | The password used for encryption.                                                                                                                                                                                       |
+| options       | Object               | (optional) The `options` parameter allows you to specify the values to use when using encrypt. You can also use the `options` object to encrypt decoupled accounts. See the third example below for usage of `options`. |
+
+**NOTE**: There are two ways to encrypt the private key when an account has a decoupled private key from the address.
+1. privateKey 매개변수와 함께 [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) 포맷을 사용하세요.
+2. 주소를 매개변수로 보내기 위해 `options.address`를 사용하세요.
+
+**리턴값**
+
+| 형식     | 설명                              |
+| ------ | ------------------------------- |
+| Object | The encrypted keystore v3 JSON. |
+
+
+**예시**
+
+```javascript
+// encrypt to keystore v3 JSON with single private key string.
+> caver.klay.accounts.encryptV3('0x{private key}', 'test!')
+{
+    version: 3,
+    id: 'ff07b774-b572-4c76-a925-9e7650fb0488',
+    address: '0x4abe737d3c57dce9152988c714e9e4b341647650',
+    crypto: {
+        ciphertext: '5a1c898fd89a7521e0034d297a46f029def59632416aef724a1f466f3c416958',
+        cipherparams: { iv: '8304ad468f10db5529fa480bfc170df7' },
+        cipher: 'aes-128-ctr',
+        kdf: 'scrypt',
+        kdfparams: { dklen: 32, salt: '3a98ebac3da3ad0edf7f1f237c86a3dd71a77002e4908991579ed52910c6f082', n: 4096, r: 8, p: 1 },
+        mac: 'a5ed79b91ffe30baa22b2622bffbab97ea5cf893ba96249c7854e2d19295cc3d',
+    },
+}
+
+// encrypt to keystore v3 JSON with KlaytnWalletKey.
+> caver.klay.accounts.encryptV3('0x{private key}0x{type}0x{address in hex}', 'test!')
+{
+    version: 3,
+    id: 'ff07b774-b572-4c76-a925-9e7650fb0488',
+    address: '0x4abe737d3c57dce9152988c714e9e4b341647650',
+    crypto: {
+        ciphertext: '5a1c898fd89a7521e0034d297a46f029def59632416aef724a1f466f3c416958',
+        cipherparams: { iv: '8304ad468f10db5529fa480bfc170df7' },
+        cipher: 'aes-128-ctr',
+        kdf: 'scrypt',
+        kdfparams: { dklen: 32, salt: '3a98ebac3da3ad0edf7f1f237c86a3dd71a77002e4908991579ed52910c6f082', n: 4096, r: 8, p: 1 },
+        mac: 'a5ed79b91ffe30baa22b2622bffbab97ea5cf893ba96249c7854e2d19295cc3d',
+    },
+}
+
+// encrypt to keystore v3 JSON with address field in options.
+> caver.klay.accounts.encryptV3('0x{private key}', 'test!', { address: '0x4abe737d3c57dce9152988c714e9e4b341647650' })
+{
+    version: 3,
+    id: 'ff07b774-b572-4c76-a925-9e7650fb0488',
+    address: '0x4abe737d3c57dce9152988c714e9e4b341647650',
+    crypto: {
+        ciphertext: '5a1c898fd89a7521e0034d297a46f029def59632416aef724a1f466f3c416958',
+        cipherparams: { iv: '8304ad468f10db5529fa480bfc170df7' },
+        cipher: 'aes-128-ctr',
+        kdf: 'scrypt',
+        kdfparams: { dklen: 32, salt: '3a98ebac3da3ad0edf7f1f237c86a3dd71a77002e4908991579ed52910c6f082', n: 4096, r: 8, p: 1 },
+        mac: 'a5ed79b91ffe30baa22b2622bffbab97ea5cf893ba96249c7854e2d19295cc3d',
+    },
 }
 ```
 
@@ -2477,7 +2557,7 @@ caver.klay.accounts.wallet.updatePrivateKey(privateKey, address)
 ```
 Update the account's private key information stored in the wallet.
 
-**참고**: 이 함수는 caver-js의 지갑에 저장된 정보만을 변경합니다. 이 함수는 Klaytn 네트워크에 저장된 키 정보에는 영향을 미치지 않습니다. Klaytn 네트워크의 키는 ['ACCOUNT_UPDATE'](./caver.klay/sendtx_account_update.md#sendtransaction-account_update) 트랜잭션을 보내는 것으로 변경할 수 있습니다.
+**NOTE**: This function only changes the information stored in the wallet of caver-js. This function has no effect on the key information stored on the Klaytn network. Keys in the Klaytn network can be changed by sending a ['ACCOUNT_UPDATE'](./caver.klay/sendtx_account_update.md#sendtransaction-account_update) transaction.
 
 **NOTE** `updatePrivateKey` only works if the account's accountKey is AccountKeyPublic. Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0) supports AccountKeys (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased), `privateKey` becomes a read-only property referencing the defaultKey of the accountKey. This method does not directly update the `privateKey`, instead update the accountKey. This method is maintained for backward-compatibility. It is now recommended to use more generic [caver.klay.accounts.wallet.updateAccountKey](#wallet-updateaccountkey).
 
@@ -2521,7 +2601,7 @@ Update the account's account key information stored in the wallet. When you upda
 
 If the accountKey parameter is a single private key string, the account's accountKey is updated with an `AccountKeyPublic` instance. If the accountKey parameter is an array with multiple private key strings, the account's accountKey is updated with an `AccountKeyMultiSig` instance. If the accountKey parameter is an object whose keys are defined by roles, the account's accountKey is updated with an `AccountKeyRoleBased` instance.
 
-**참고**: 이 함수는 caver-js의 지갑에 저장된 정보만을 변경합니다. 이 함수는 Klaytn 네트워크에 저장된 키 정보에는 영향을 미치지 않습니다. Klaytn 네트워크의 키는 ['ACCOUNT_UPDATE'](./caver.klay/sendtx_account_update.md#sendtransaction-account_update) 트랜잭션을 보내는 것으로 변경할 수 있습니다.
+**NOTE**: This function only changes the information stored in the wallet of caver-js. This function has no effect on the key information stored on the Klaytn network. Keys in the Klaytn network can be changed by sending a ['ACCOUNT_UPDATE'](./caver.klay/sendtx_account_update.md#sendtransaction-account_update) transaction.
 
 **NOTE** `caver.klay.accounts.wallet.updateAccountKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
