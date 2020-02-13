@@ -444,7 +444,7 @@ false
 ## kip7Instance.approve <a id="kip7instance-approve"></a>
 
 ```javascript
-kip7Instance.approve(spender, amount, [sendParam])
+kip7Instance.approve(spender, amount [, sendParam])
 ```
 Sets amount as the `allowance` of `spender` over the caller’s tokens. 
 
@@ -458,7 +458,7 @@ Note that approve method will be executed through sending a transaction to the K
 | amount | Number | The amount of tokens the spender allows to use on behalf of the owner. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
-The sendParam object must contain the following:
+The sendParam object can contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -523,7 +523,7 @@ The sendParam object must contain the following:
 ## kip7Instance.transfer <a id="kip7instance-transfer"></a>
 
 ```javascript
-kip7Instance.transfer(recipient, amount, [sendParam])
+kip7Instance.transfer(recipient, amount [, sendParam])
 ```
 Moves amount tokens from the caller’s account to recipient.
 
@@ -537,12 +537,12 @@ Note that transfer method will be executed through sending a transaction to the 
 | amount | Number | The amount of tokens you want to transfer. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
-The sendParam object must contain the following:
+The sendParam object can contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
 | from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, amount).estimateGas({from})`. |
+| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.transfer(recipient, amount).estimateGas({from})`. |
 | gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
 | value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 
@@ -602,7 +602,7 @@ The sendParam object must contain the following:
 ## kip7Instance.transferFrom <a id="kip7instance-transferfrom"></a>
 
 ```javascript
-kip7Instance.transferFrom(sender, recipient, amount, [sendParam])
+kip7Instance.transferFrom(sender, recipient, amount [, sendParam])
 ```
 Moves amount tokens from sender to recipient using the allowance mechanism. amount is then deducted from the caller’s allowance.
 
@@ -617,12 +617,12 @@ Note that transferFrom method will be executed through sending a transaction to 
 | amount | Number | The amount of tokens you want to transfer. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
-The sendParam object must contain the following:
+The sendParam object can contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
 | from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, amount).estimateGas({from})`. |
+| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.transferFrom(sender, recipient, amount).estimateGas({from})`. |
 | gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
 | value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 
@@ -705,7 +705,7 @@ The sendParam object must contain the following:
 ## kip7Instance.increaseAllowance <a id="kip7instance-increaseallowance"></a>
 
 ```javascript
-kip7Instance.increaseAllowance(spender, addedValue, [sendParam])
+kip7Instance.increaseAllowance(spender, addedValue [, sendParam])
 ```
 Atomically increases the allowance granted to spender by the caller.
 
@@ -719,12 +719,12 @@ Note that increaseAllowance method will be executed through sending a transactio
 | addedValue | Number | The amount of allowance you want to increase. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
-The sendParam object must contain the following:
+The sendParam object can contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
 | from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, amount).estimateGas({from})`. |
+| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.increaseAllowance(spender, addedValue).estimateGas({from})`. |
 | gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
 | value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 
@@ -784,7 +784,7 @@ The sendParam object must contain the following:
 ## kip7Instance.decreaseAllowance <a id="kip7instance-decreaseallowance"></a>
 
 ```javascript
-kip7Instance.decreaseAllowance(spender, subtractedValue, [sendParam])
+kip7Instance.decreaseAllowance(spender, subtractedValue [, sendParam])
 ```
 Atomically decreases the allowance granted to spender by the caller.
 
@@ -798,12 +798,12 @@ Note that decreaseAllowance method will be executed through sending a transactio
 | subtractedValue | Number | The amount of allowance you want to decrease. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
-The sendParam object must contain the following:
+The sendParam object can contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
 | from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, amount).estimateGas({from})`. |
+| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.decreaseAllowance(spender, subtractedValue).estimateGas({from})`. |
 | gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
 | value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 
@@ -863,7 +863,7 @@ The sendParam object must contain the following:
 ## kip7Instance.mint <a id="kip7instance-mint"></a>
 
 ```javascript
-kip7Instance.mint(account, amount, [sendParam])
+kip7Instance.mint(account, amount [, sendParam])
 ```
 Creates amount tokens and assigns them to account, increasing the total supply.
 
@@ -877,12 +877,12 @@ Note that mint method will be executed through sending a transaction to the KIP7
 | amount | Number | The amount of tokens to mint. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
-The sendParam object must contain the following:
+The sendParam object can contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
 | from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, amount).estimateGas({from})`. |
+| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.mint(account, amount).estimateGas({from})`. |
 | gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
 | value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 
@@ -944,7 +944,7 @@ The sendParam object must contain the following:
 ## kip7Instance.addMinter <a id="kip7instance-addminter"></a>
 
 ```javascript
-kip7Instance.addMinter(account, [sendParam])
+kip7Instance.addMinter(account [, sendParam])
 ```
 Adds an account as a minter that has the permission of MinterRole and can mint.
 
@@ -957,12 +957,12 @@ Note that addMinter method will be executed through sending a transaction to the
 | account | String | The address of account to add as minter. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
-The sendParam object must contain the following:
+The sendParam object can contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
 | from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, amount).estimateGas({from})`. |
+| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.addMinter(account).estimateGas({from})`. |
 | gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
 | value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 
@@ -1032,12 +1032,12 @@ Note that renounceMinter method will be executed through sending a transaction t
 | --- | --- | --- |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
-The sendParam object must contain the following:
+The sendParam object can contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
 | from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, amount).estimateGas({from})`. |
+| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.renounceMinter().estimateGas({from})`. |
 | gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
 | value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 
@@ -1095,7 +1095,7 @@ The sendParam object must contain the following:
 ## kip7Instance.burn <a id="kip7instance-burn"></a>
 
 ```javascript
-kip7Instance.burn(amount, [sendParam])
+kip7Instance.burn(amount [, sendParam])
 ```
 Destroys amount tokens from the caller.
 
@@ -1108,12 +1108,12 @@ Note that burn method will be executed through sending a transaction to the KIP7
 | amount | Number | The amount of tokens to destroy. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
-The sendParam object must contain the following:
+The sendParam object can contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
 | from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, amount).estimateGas({from})`. |
+| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.burn(amount).estimateGas({from})`. |
 | gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
 | value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 
@@ -1173,7 +1173,7 @@ The sendParam object must contain the following:
 ## kip7Instance.burnFrom <a id="kip7instance-burnfrom"></a>
 
 ```javascript
-kip7Instance.burnFrom(account, amount, [sendParam])
+kip7Instance.burnFrom(account, amount [, sendParam])
 ```
 Destroys amount tokens from account is then deducted from the caller’s allowance.
 
@@ -1187,12 +1187,12 @@ Note that burnFrom method will be executed through sending a transaction to the 
 | amount | Number | The amount of tokens to destroy. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
-The sendParam object must contain the following:
+The sendParam object can contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
 | from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, amount).estimateGas({from})`. |
+| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.burnFrom(account, amount).estimateGas({from})`. |
 | gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
 | value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 
@@ -1275,7 +1275,7 @@ The sendParam object must contain the following:
 ## kip7Instance.addPauser <a id="kip7instance-addpauser"></a>
 
 ```javascript
-kip7Instance.addPauser(account, [sendParam])
+kip7Instance.addPauser(account [, sendParam])
 ```
 Adds an account as a pauser that has the permission of PauserRole and can pause.
 
@@ -1288,12 +1288,12 @@ Note that addPauser method will be executed through sending a transaction to the
 | account | String | The address of account to add as pauser. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
-The sendParam object must contain the following:
+The sendParam object can contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
 | from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, amount).estimateGas({from})`. |
+| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.addPauser(account).estimateGas({from})`. |
 | gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
 | value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 
@@ -1363,12 +1363,12 @@ Note that renouncePauser method will be executed through sending a transaction t
 | --- | --- | --- |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
-The sendParam object must contain the following:
+The sendParam object can contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
 | from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, amount).estimateGas({from})`. |
+| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.renouncePauser().estimateGas({from})`. |
 | gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
 | value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 
@@ -1438,12 +1438,12 @@ Note that pause method will be executed through sending a transaction to the KIP
 | --- | --- | --- |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
-The sendParam object must contain the following:
+The sendParam object can contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
 | from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, amount).estimateGas({from})`. |
+| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.pause().estimateGas({from})`. |
 | gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
 | value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 
@@ -1503,7 +1503,7 @@ The sendParam object must contain the following:
 ```javascript
 kip7Instance.unpause([sendParam])
 ```
-Returns normal status from the paused state where token transmission was stopped.
+Sets normal status from the paused state where token transmission was stopped.
 
 Note that unpause method will be executed through sending a transaction to the KIP7 token contract.
 
@@ -1513,12 +1513,12 @@ Note that unpause method will be executed through sending a transaction to the K
 | --- | --- | --- |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
-The sendParam object must contain the following:
+The sendParam object can contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
 | from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, amount).estimateGas({from})`. |
+| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.unpause().estimateGas({from})`. |
 | gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
 | value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 
