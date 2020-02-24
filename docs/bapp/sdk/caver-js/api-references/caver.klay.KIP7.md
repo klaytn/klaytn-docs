@@ -39,7 +39,9 @@ The tokenInfo object must contain the following:
 | name | String | The name of the token. |
 | symbol | String | The symbol of the token. |
 | decimals | Number | The number of decimals the token uses. |
-| initialSupply | BigNumber &#124; String | The total token supply. |
+| initialSupply | BigNumber &#124; String &#124; Number | The total token supply. |
+
+**NOTE** It also supports the Number type as a parameter, but an error occurs if the input parameter is out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER). It is recommended to use `BigNumber` for the parameter corresponding to `uint256`.
 
 **Return Value**
 
