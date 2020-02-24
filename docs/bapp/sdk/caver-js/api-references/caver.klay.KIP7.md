@@ -39,7 +39,7 @@ The tokenInfo object must contain the following:
 | name | String | The name of the token. |
 | symbol | String | The symbol of the token. |
 | decimals | Number | The number of decimals the token uses. |
-| initialSupply | Number &#124; String | The total token supply. |
+| initialSupply | BigNumber &#124; String | The total token supply. |
 
 **Return Value**
 
@@ -59,7 +59,7 @@ The tokenInfo object must contain the following:
     name: 'Jasmine',
     symbol: 'JAS',
     decimals: 18,
-    initialSupply: 100000,
+    initialSupply: '100000',
 }, '0x{address in hex}').then(console.log)
 KIP7 {
 	...
@@ -85,7 +85,7 @@ KIP7 {
     name: 'Jasmine',
     symbol: 'JAS',
     decimals: 18,
-    initialSupply: 100000,
+    initialSupply: '100000',
 }, '0x{address in hex}')
 .on('error', function(error) { ... })
 .on('transactionHash', function(transactionHash) { ... })
