@@ -1,19 +1,19 @@
 ---
 description: >-
-  A caver-js object used to interact with a smart contract for KIP-7.
+  A caver-js object used to interact with a smart contract for KIP7.
 ---
 
 # caver.klay.KIP7 <a id="caver-klay-kip7"></a>
 
-The `caver.klay.KIP7` makes it easy to interact with smart contract that implements KIP7 on the Klaytn blockchain. 
+The `caver.klay.KIP7` makes it easy to interact with smart contract that implements KIP-7 on the Klaytn blockchain. 
 
-This allows you to interact with smart contract that implements KIP7 as if they were JavaScript objects.
+This allows you to interact with smart contract that implements KIP-7 as if they were JavaScript objects.
 
-The `caver.klay.KIP7` inherits [caver.klay.Contract](caver.klay.Contract.md) and is implemented for KIP7 token contracts. This section describes only the additional implementations of the caver.klay.KIP7 for ease usage.
+The `caver.klay.KIP7` inherits [caver.klay.Contract](caver.klay.Contract.md) and is implemented for KIP-7 token contracts. This section describes only the additional implementations of the caver.klay.KIP7 for ease usage.
 
 The abi and bytecode used in the caver.klay.KIP7 were implemented using the example of [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20).
 
-For more information about KIP7, see [Klaytn Improvement Proposals](https://klaytn.github.io/kips/token).
+For more information about KIP-7, see [Klaytn Improvement Proposals](https://klaytn.github.io/kips/token).
 
 
 ## caver.klay.KIP7.deploy <a id="caver-klay-kip7-deploy"></a>
@@ -21,7 +21,7 @@ For more information about KIP7, see [Klaytn Improvement Proposals](https://klay
 ```javascript
 caver.klay.KIP7.deploy(tokenInfo, deployer)
 ```
-Deploys the KIP7 token contract to the Klaytn blockchain. A contract deployed using caver.klay.KIP7.deploy is a fungible token that follows the KIP7 standard. 
+Deploys the KIP-7 token contract to the Klaytn blockchain. A contract deployed using caver.klay.KIP7.deploy is a fungible token that follows the KIP-7 standard. 
 
 After successful deployment, the promise will resolve with a new KIP7 instance.
 
@@ -29,8 +29,8 @@ After successful deployment, the promise will resolve with a new KIP7 instance.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenInfo | Object | The informations needed to deploy KIP7 token contract on the Klyatn blockchain. |
-| deployer | String | The address of the account to which you want to deploy the KIP7 token contract. This account must have enough KLAY to deploy. |
+| tokenInfo | Object | The informations needed to deploy KIP-7 token contract on the Klyatn blockchain. |
+| deployer | String | The address of the account to which you want to deploy the KIP-7 token contract. This account must have enough KLAY to deploy. |
 
 The tokenInfo object must contain the following:
 
@@ -112,9 +112,9 @@ Creates a new KIP7 instance with all its methods and events.
 | Name | Type | Description |
 | --- | --- | --- |
 | tokenAddress | String | (optional) The address of the smart contract to call. Can be added later using `kip7Instance.options.address = '0x1234..'` |
-| jsonInterface | Object | (optional) The JSON interface for the fungible token contract to instantiate. The caver.klay.KIP7 operates by default based on the jsonInterface of the specification defined in KIP7. |
+| jsonInterface | Object | (optional) The JSON interface for the fungible token contract to instantiate. The caver.klay.KIP7 operates by default based on the jsonInterface of the specification defined in KIP-7. |
 
-**NOTE** If you send a jsonInterface as a parameter that is not an implementation of KIP7, you will get an error when using the methods of the class.
+**NOTE** If you send a jsonInterface as a parameter that is not an implementation of KIP-7, you will get an error when using the methods of the class.
 
 **Return Value**
 
@@ -450,7 +450,7 @@ kip7Instance.approve(spender, amount [, sendParam])
 ```
 Sets amount as the `allowance` of `spender` over the caller’s tokens. 
 
-Note that approve method will be executed through sending a transaction to the KIP7 token contract.
+Note that approve method will be executed through sending a transaction to the KIP-7 token contract.
 
 **Parameters**
 
@@ -473,7 +473,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
 
 **Example**
 
@@ -531,7 +531,7 @@ kip7Instance.transfer(recipient, amount [, sendParam])
 ```
 Moves amount tokens from the caller’s account to recipient.
 
-Note that transfer method will be executed through sending a transaction to the KIP7 token contract.
+Note that transfer method will be executed through sending a transaction to the KIP-7 token contract.
 
 **Parameters**
 
@@ -554,7 +554,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
 
 **Example**
 
@@ -612,7 +612,7 @@ kip7Instance.transferFrom(sender, recipient, amount [, sendParam])
 ```
 Moves amount tokens from sender to recipient using the allowance mechanism. amount is then deducted from the caller’s allowance.
 
-Note that transferFrom method will be executed through sending a transaction to the KIP7 token contract.
+Note that transferFrom method will be executed through sending a transaction to the KIP-7 token contract.
 
 **Parameters**
 
@@ -636,7 +636,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
 
 **Example**
 
@@ -717,7 +717,7 @@ kip7Instance.mint(account, amount [, sendParam])
 ```
 Creates amount tokens and assigns them to account, increasing the total supply.
 
-Note that mint method will be executed through sending a transaction to the KIP7 token contract.
+Note that mint method will be executed through sending a transaction to the KIP-7 token contract.
 
 **Parameters**
 
@@ -742,7 +742,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
 
 **Example**
 
@@ -800,7 +800,7 @@ kip7Instance.addMinter(account [, sendParam])
 ```
 Adds an account as a minter that has the permission of MinterRole and can mint.
 
-Note that addMinter method will be executed through sending a transaction to the KIP7 token contract.
+Note that addMinter method will be executed through sending a transaction to the KIP-7 token contract.
 
 **Parameters**
 
@@ -822,7 +822,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
 
 **Example**
 
@@ -876,7 +876,7 @@ kip7Instance.renounceMinter([sendParam])
 ```
 Renounces privilege of MinterRole. Only address that is Minter can renounce itself from Minter role, no one else. 
 
-Note that renounceMinter method will be executed through sending a transaction to the KIP7 token contract.
+Note that renounceMinter method will be executed through sending a transaction to the KIP-7 token contract.
 
 **Parameters**
 
@@ -897,7 +897,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
 
 **Example**
 
@@ -951,7 +951,7 @@ kip7Instance.burn(amount [, sendParam])
 ```
 Destroys amount tokens from the caller.
 
-Note that burn method will be executed through sending a transaction to the KIP7 token contract.
+Note that burn method will be executed through sending a transaction to the KIP-7 token contract.
 
 **Parameters**
 
@@ -973,7 +973,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
 
 **Example**
 
@@ -1031,7 +1031,7 @@ kip7Instance.burnFrom(account, amount [, sendParam])
 ```
 Destroys amount tokens from account is then deducted from the caller’s allowance.
 
-Note that burnFrom method will be executed through sending a transaction to the KIP7 token contract.
+Note that burnFrom method will be executed through sending a transaction to the KIP-7 token contract.
 
 **Parameters**
 
@@ -1054,7 +1054,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
 
 **Example**
 
@@ -1135,7 +1135,7 @@ kip7Instance.addPauser(account [, sendParam])
 ```
 Adds an account as a pauser that has the permission of PauserRole and can pause.
 
-Note that addPauser method will be executed through sending a transaction to the KIP7 token contract.
+Note that addPauser method will be executed through sending a transaction to the KIP-7 token contract.
 
 **Parameters**
 
@@ -1157,7 +1157,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
 
 **Example**
 
@@ -1211,7 +1211,7 @@ kip7Instance.renouncePauser([sendParam])
 ```
 Renounces privilege of PauserRole. Only address that is Pauser can renounce itself from Pauser role, no one else. 
 
-Note that renouncePauser method will be executed through sending a transaction to the KIP7 token contract.
+Note that renouncePauser method will be executed through sending a transaction to the KIP-7 token contract.
 
 **Parameters**
 
@@ -1232,7 +1232,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
 
 **Example**
 
@@ -1286,7 +1286,7 @@ kip7Instance.pause([sendParam])
 ```
 Triggers stopped state that stops sending tokens in emergency situation.
 
-Note that pause method will be executed through sending a transaction to the KIP7 token contract.
+Note that pause method will be executed through sending a transaction to the KIP-7 token contract.
 
 **Parameters**
 
@@ -1307,7 +1307,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
 
 **Example**
 
@@ -1361,7 +1361,7 @@ kip7Instance.unpause([sendParam])
 ```
 Sets normal status from the paused state where token transmission was stopped.
 
-Note that unpause method will be executed through sending a transaction to the KIP7 token contract.
+Note that unpause method will be executed through sending a transaction to the KIP-7 token contract.
 
 **Parameters**
 
@@ -1382,7 +1382,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. Receipts from KIP7 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
 
 **Example**
 
