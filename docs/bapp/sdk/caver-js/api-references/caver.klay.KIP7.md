@@ -41,7 +41,7 @@ The tokenInfo object must contain the following:
 | decimals | Number | The number of decimals the token uses. |
 | initialSupply | BigNumber &#124; String &#124; Number | The total token supply. |
 
-**NOTE** It also supports the Number type as a parameter, but an error occurs if the input parameter is out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER). It is recommended to use `BigNumber` for the parameter corresponding to `uint256`.
+**NOTE** It also supports `Number` types as parameters for initialSupply. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
 
 **Return Value**
 
@@ -274,7 +274,7 @@ None
 
 **Return Value**
 
-`Promise` returns `String`: The number of decimals the token uses.
+`Promise` returns `Number`: The number of decimals the token uses.
 
 **Example**
 
@@ -297,7 +297,7 @@ None
 
 **Return Value**
 
-`Promise` returns `String`: The total token supply.
+`Promise` returns `BigNumber`: The total token supply.
 
 **Example**
 
@@ -322,7 +322,7 @@ Returns the account balance of another account with address.
 
 **Return Value**
 
-`Promise` returns `String`: The account balance.
+`Promise` returns `BigNumber`: The account balance.
 
 **Example**
 
@@ -343,12 +343,12 @@ Returns the amount which spender is still allowed to withdraw from owner.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| owner | String | The address of the account that approved to allow the spender to spend on behalf of the owner. |
+| owner | String | The address of the account that set the spender to use the money on behalf of the owner. |
 | spender | String | The address of the account that received the approve amount that can be used on behalf of the owner. |
 
 **Return Value**
 
-`Promise` returns `String`: The remaining number of tokens that spender will be allowed to spend on behalf of owner.
+`Promise` returns `BigNumber`: The remaining number of tokens that spender will be allowed to spend on behalf of owner.
 
 **Example**
 
@@ -457,8 +457,10 @@ Note that approve method will be executed through sending a transaction to the K
 | Name | Type | Description |
 | --- | --- | --- |
 | spender | String | The address of the account to use on behalf of owner for the amount to be set in allowance. |
-| amount | Number | The amount of tokens the spender allows to use on behalf of the owner. |
+| amount | BigNumber &#124; String &#124; Number | The amount of tokens the spender allows to use on behalf of the owner. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
+
+**NOTE** It also supports `Number` types as parameters for amount. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
 
 The sendParam object can contain the following:
 
@@ -536,8 +538,10 @@ Note that transfer method will be executed through sending a transaction to the 
 | Name | Type | Description |
 | --- | --- | --- |
 | recipient | String | The address of the account to receive the token. |
-| amount | Number | The amount of tokens you want to transfer. |
+| amount | BigNumber &#124; String &#124; Number | The amount of tokens you want to transfer. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
+
+**NOTE** It also supports `Number` types as parameters for amount. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
 
 The sendParam object can contain the following:
 
@@ -616,8 +620,10 @@ Note that transferFrom method will be executed through sending a transaction to 
 | --- | --- | --- |
 | sender | String | The address of the account that owns the token to be sent with allowance mechanism. |
 | recipient | String | The address of the account to receive the token. |
-| amount | Number | The amount of tokens you want to transfer. |
+| amount | BigNumber &#124; String &#124; Number | The amount of tokens you want to transfer. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
+
+**NOTE** It also supports `Number` types as parameters for amount. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
 
 The sendParam object can contain the following:
 
@@ -718,8 +724,10 @@ Note that mint method will be executed through sending a transaction to the KIP7
 | Name | Type | Description |
 | --- | --- | --- |
 | account | String | The address of the account to which the minted token will be allocated. |
-| amount | Number | The amount of tokens to mint. |
+| amount | BigNumber &#124; String &#124; Number | The amount of tokens to mint. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
+
+**NOTE** It also supports `Number` types as parameters for amount. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
 
 The sendParam object can contain the following:
 
@@ -949,8 +957,10 @@ Note that burn method will be executed through sending a transaction to the KIP7
 
 | Name | Type | Description |
 | --- | --- | --- |
-| amount | Number | The amount of tokens to destroy. |
+| amount | BigNumber &#124; String &#124; Number | The amount of tokens to destroy. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
+
+**NOTE** It also supports `Number` types as parameters for amount. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
 
 The sendParam object can contain the following:
 
@@ -1028,8 +1038,10 @@ Note that burnFrom method will be executed through sending a transaction to the 
 | Name | Type | Description |
 | --- | --- | --- |
 | account | String | The address of the account that owns the token to be burned with allowance mechanism. |
-| amount | Number | The amount of tokens to destroy. |
+| amount | BigNumber &#124; String &#124; Number | The amount of tokens to destroy. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
+
+**NOTE** It also supports `Number` types as parameters for amount. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
 
 The sendParam object can contain the following:
 
