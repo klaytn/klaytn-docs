@@ -1,6 +1,6 @@
 ---
 description: >-
-  A caver-js object used to interact with a smart contract for KIP7.
+  A caver-js object used to interact with a smart contract for KIP-7.
 ---
 
 # caver.klay.KIP7 <a id="caver-klay-kip7"></a>
