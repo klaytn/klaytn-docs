@@ -317,6 +317,8 @@ Returns the URI for a given token id.
 | --- | --- | --- |
 | tokenId | BigNumber &#124; String &#124; Number | The id of the token. |
 
+**NOTE** It also supports `Number` types as parameters for tokenId. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+
 **Return Value**
 
 `Promise` returns `String`: The URI of the given token.
@@ -343,6 +345,8 @@ Returns the token id at a given index of the tokens list of the requested owner.
 | owner | String | The address of the account whose token you want to query. |
 | index | BigNumber &#124; String &#124; Number | The index of the token to be searched among the tokens owned by a owner account. |
 
+**NOTE** It also supports `Number` types as parameters for index. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+
 **Return Value**
 
 `Promise` returns `BigNumber`: The id of the token.
@@ -367,6 +371,8 @@ Returns the token id at a given index of all the tokens in this contract. Revert
 | Name | Type | Description |
 | --- | --- | --- |
 | index | BigNumber &#124; String &#124; Number | The index of the token to query. |
+
+**NOTE** It also supports `Number` types as parameters for index. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
 
 **Return Value**
 
@@ -418,6 +424,8 @@ Returns the owner of the specified token id.
 | --- | --- | --- |
 | tokenId | BigNumber &#124; String &#124; Number | The id of the token. |
 
+**NOTE** It also supports `Number` types as parameters for tokenId. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+
 **Return Value**
 
 `Promise` returns `String`: The address of the account that owns the given token.
@@ -442,6 +450,8 @@ Returns the approved address for a token id, or zero if no address set. Reverts 
 | Name | Type | Description |
 | --- | --- | --- |
 | tokenId | BigNumber &#124; String &#124; Number | The id of the token. |
+
+**NOTE** It also supports `Number` types as parameters for tokenId. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
 
 **Return Value**
 
@@ -587,6 +597,8 @@ Note that approve method will be executed through sending a transaction to the K
 | to | String | The address of the account to use on behalf of owner for the tokenId. |
 | tokenId | BigNumber &#124; String &#124; Number | The id of token the spender allows to use on behalf of the owner. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
+
+**NOTE** It also supports `Number` types as parameters for tokenId. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
 
 The sendParam object can contain the following:
 
@@ -747,6 +759,8 @@ Note that transferFrom method will be executed through sending a transaction to 
 | tokenId | BigNumber &#124; String &#124; Number | The id of token you want to transfer. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
+**NOTE** It also supports `Number` types as parameters for tokenId. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+
 The sendParam object can contain the following:
 
 | Name | Type | Description |
@@ -827,6 +841,8 @@ Note that safeTransferFrom method will be executed through sending a transaction
 | tokenId | BigNumber &#124; String &#124; Number | The id of token you want to transfer. |
 | data | Buffer &#124; String &#124; Number | (optional) The optional data to send along with the call. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
+
+**NOTE** It also supports `Number` types as parameters for tokenId. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
 
 The sendParam object can contain the following:
 
@@ -1062,6 +1078,8 @@ Note that mintWithTokenURI method will be executed through sending a transaction
 | tokenURI | Number | The uri of token to mint. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
+**NOTE** It also supports `Number` types as parameters for tokenId. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+
 The sendParam object can contain the following:
 
 | Name | Type | Description |
@@ -1141,6 +1159,8 @@ Note that burn method will be executed through sending a transaction to the KIP-
 | --- | --- | --- |
 | tokenId | BigNumber &#124; String &#124; Number | The id of token to destroy. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
+
+**NOTE** It also supports `Number` types as parameters for tokenId. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
 
 The sendParam object can contain the following:
 
