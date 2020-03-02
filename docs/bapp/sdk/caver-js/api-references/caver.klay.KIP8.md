@@ -5,15 +5,15 @@ description: >-
 
 # caver.klay.KIP8 <a id="caver-klay-kip8"></a>
 
-The `caver.klay.KIP8` makes it easy to interact with smart contract that implements KIP8 on the Klaytn blockchain. 
+The `caver.klay.KIP8` makes it easy to interact with smart contract that implements KIP-8 on the Klaytn blockchain. 
 
-This allows you to interact with smart contract that implements KIP8 as if they were JavaScript objects.
+This allows you to interact with smart contract that implements KIP-8 as if they were JavaScript objects.
 
-The `caver.klay.KIP8` inherits [caver.klay.Contract](caver.klay.Contract.md) and is implemented for KIP8 token contracts. This section describes only the additional implementations of the caver.klay.KIP8 for ease usage.
+The `caver.klay.KIP8` inherits [caver.klay.Contract](caver.klay.Contract.md) and is implemented for KIP-8 token contracts. This section describes only the additional implementations of the caver.klay.KIP8 for ease usage.
 
 The abi and bytecode used in the caver.klay.KIP8 were implemented using the example of [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC721).
 
-For more information about KIP8, see [Klaytn Improvement Proposals](https://klaytn.github.io/kips/token).
+For more information about KIP-8, see [Klaytn Improvement Proposals](https://klaytn.github.io/kips/token).
 
 
 ## caver.klay.KIP8.deploy <a id="caver-klay-kip8-deploy"></a>
@@ -21,7 +21,7 @@ For more information about KIP8, see [Klaytn Improvement Proposals](https://klay
 ```javascript
 caver.klay.KIP8.deploy(tokenInfo, deployer)
 ```
-Deploys the KIP8 token contract to the Klaytn blockchain. A contract deployed using caver.klay.KIP8.deploy is a non fungible token that follows the KIP8 standard. 
+Deploys the KIP-8 token contract to the Klaytn blockchain. A contract deployed using caver.klay.KIP8.deploy is a non fungible token that follows the KIP-8 standard. 
 
 After successful deployment, the promise will resolve with a new KIP8 instance.
 
@@ -29,8 +29,8 @@ After successful deployment, the promise will resolve with a new KIP8 instance.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenInfo | Object | The informations needed to deploy KIP8 token contract on the Klyatn blockchain. |
-| deployer | String | The address of the account to which you want to deploy the KIP8 token contract. This account must have enough KLAY to deploy. |
+| tokenInfo | Object | The informations needed to deploy KIP-8 token contract on the Klyatn blockchain. |
+| deployer | String | The address of the account to which you want to deploy the KIP-8 token contract. This account must have enough KLAY to deploy. |
 
 The tokenInfo object must contain the following:
 
@@ -104,9 +104,9 @@ Creates a new KIP8 instance with all its methods and events.
 | Name | Type | Description |
 | --- | --- | --- |
 | tokenAddress | String | (optional) The address of the smart contract to call. Can be added later using `kip8Instance.options.address = '0x1234..'` |
-| jsonInterface | Object | (optional) The JSON interface for the non fungible token contract to instantiate. The caver.klay.KIP8 operates by default based on the jsonInterface of the specification defined in KIP8. |
+| jsonInterface | Object | (optional) The JSON interface for the non fungible token contract to instantiate. The caver.klay.KIP8 operates by default based on the jsonInterface of the specification defined in KIP-8. |
 
-**NOTE** If you send a jsonInterface as a parameter that is not an implementation of KIP8, you will get an error when using the methods of the class.
+**NOTE** If you send a jsonInterface as a parameter that is not an implementation of KIP-8, you will get an error when using the methods of the class.
 
 **Return Value**
 
@@ -385,7 +385,7 @@ Returns the token id at a given index of all the tokens in this contract. Revert
 ```javascript
 kip8Instance.balanceOf(address)
 ```
-Returns the balance of the specified address. The balance of an account in KIP8 means that the total number of NFT(Non Fungible Token) owned by the account.
+Returns the balance of the specified address. The balance of an account in KIP-8 means that the total number of NFT(Non Fungible Token) owned by the account.
 
 **Parameters**
 
@@ -578,7 +578,7 @@ kip8Instance.approve(to, tokenId [, sendParam])
 ```
 Approves another address to transfer the given token id. The zero address indicates there is no approved address. There can only be one approved address per token at a given time. Can only be called by the token owner or an approved operator.
 
-Note that approve method will be executed through sending a transaction to the KIP8 token contract.
+Note that approve method will be executed through sending a transaction to the KIP-8 token contract.
 
 **Parameters**
 
@@ -599,7 +599,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP8 token contract. Receipts from KIP8 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
 
 **Example**
 
@@ -657,7 +657,7 @@ kip8Instance.setApprovalForAll(to, approved [, sendParam])
 ```
 Sets or unsets the approval of a given operator. An operator is allowed to transfer all tokens of the sender on their behalf.
 
-Note that setApprovalForAll method will be executed through sending a transaction to the KIP8 token contract.
+Note that setApprovalForAll method will be executed through sending a transaction to the KIP-8 token contract.
 
 **Parameters**
 
@@ -678,7 +678,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP8 token contract. Receipts from KIP8 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
 
 **Example**
 
@@ -736,7 +736,7 @@ kip8Instance.transferFrom(from, to, tokenId [, sendParam])
 ```
 Transfers the ownership of a given token id to another address. Usage of this method is discouraged, use [safeTransferFrom](#kip8instance-safetransferfrom) whenever possible.
 
-Note that transferFrom method will be executed through sending a transaction to the KIP8 token contract.
+Note that transferFrom method will be executed through sending a transaction to the KIP-8 token contract.
 
 **Parameters**
 
@@ -758,7 +758,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP8 token contract. Receipts from KIP8 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
 
 **Example**
 
@@ -816,7 +816,7 @@ kip8Instance.safeTransferFrom(from, to, tokenId [, data] [, sendParam])
 ```
 Safely transfers the ownership of a given token id to another address. If the target address is a contract, it must implement IERC721Receiver.onERC721Received, which is called upon a safe transfer, and return the magic value bytes4(keccak256("onERC721Received(address,address,uint256,bytes)")); otherwise, the transfer is reverted.
 
-Note that safeTransferFrom method will be executed through sending a transaction to the KIP8 token contract.
+Note that safeTransferFrom method will be executed through sending a transaction to the KIP-8 token contract.
 
 **Parameters**
 
@@ -839,7 +839,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP8 token contract. Receipts from KIP8 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
 
 **Example**
 
@@ -900,7 +900,7 @@ kip8Instance.addMinter(account [, sendParam])
 ```
 Adds an account as a minter that has the permission of MinterRole and can mint.
 
-Note that addMinter method will be executed through sending a transaction to the KIP8 token contract.
+Note that addMinter method will be executed through sending a transaction to the KIP-8 token contract.
 
 **Parameters**
 
@@ -922,7 +922,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP8 token contract. Receipts from KIP8 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
 
 **Example**
 
@@ -976,7 +976,7 @@ kip8Instance.renounceMinter([sendParam])
 ```
 Renounces privilege of MinterRole. Only address that is Minter can renounce itself from Minter role, no one else. 
 
-Note that renounceMinter method will be executed through sending a transaction to the KIP8 token contract.
+Note that renounceMinter method will be executed through sending a transaction to the KIP-8 token contract.
 
 **Parameters**
 
@@ -997,7 +997,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP8 token contract. Receipts from KIP8 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
 
 **Example**
 
@@ -1051,7 +1051,7 @@ kip8Instance.mintWithTokenURI(to, tokenId, tokenURI [, sendParam])
 ```
 Creates token with uri and assigns them to account, increasing the total supply.
 
-Note that mintWithTokenURI method will be executed through sending a transaction to the KIP8 token contract.
+Note that mintWithTokenURI method will be executed through sending a transaction to the KIP-8 token contract.
 
 **Parameters**
 
@@ -1075,7 +1075,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP8 token contract. Receipts from KIP8 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
 
 **Example**
 
@@ -1131,9 +1131,9 @@ The sendParam object can contain the following:
 ```javascript
 kip8Instance.burn(tokenId [, sendParam])
 ```
-Destroys a specific KIP8 token.
+Destroys a specific KIP-8 token.
 
-Note that burn method will be executed through sending a transaction to the KIP8 token contract.
+Note that burn method will be executed through sending a transaction to the KIP-8 token contract.
 
 **Parameters**
 
@@ -1153,7 +1153,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP8 token contract. Receipts from KIP8 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
 
 **Example**
 
@@ -1211,7 +1211,7 @@ kip8Instance.pause([sendParam])
 ```
 Triggers stopped state that stops sending tokens in emergency situation.
 
-Note that pause method will be executed through sending a transaction to the KIP8 token contract.
+Note that pause method will be executed through sending a transaction to the KIP-8 token contract.
 
 **Parameters**
 
@@ -1232,7 +1232,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP8 token contract. Receipts from KIP8 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
 
 **Example**
 
@@ -1286,7 +1286,7 @@ kip8Instance.unpause([sendParam])
 ```
 Sets normal status from the paused state where token transmission was stopped.
 
-Note that unpause method will be executed through sending a transaction to the KIP8 token contract.
+Note that unpause method will be executed through sending a transaction to the KIP-8 token contract.
 
 **Parameters**
 
@@ -1307,7 +1307,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP8 token contract. Receipts from KIP8 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
 
 **Example**
 
@@ -1361,7 +1361,7 @@ kip8Instance.addPauser(account [, sendParam])
 ```
 Adds an account as a pauser that has the permission of PauserRole and can pause.
 
-Note that addPauser method will be executed through sending a transaction to the KIP8 token contract.
+Note that addPauser method will be executed through sending a transaction to the KIP-8 token contract.
 
 **Parameters**
 
@@ -1383,7 +1383,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP8 token contract. Receipts from KIP8 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
 
 **Example**
 
@@ -1437,7 +1437,7 @@ kip8Instance.renouncePauser([sendParam])
 ```
 Renounces privilege of PauserRole. Only address that is Pauser can renounce itself from Pauser role, no one else. 
 
-Note that renouncePauser method will be executed through sending a transaction to the KIP8 token contract.
+Note that renouncePauser method will be executed through sending a transaction to the KIP-8 token contract.
 
 **Parameters**
 
@@ -1458,7 +1458,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP8 token contract. Receipts from KIP8 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object.
+`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
 
 **Example**
 
