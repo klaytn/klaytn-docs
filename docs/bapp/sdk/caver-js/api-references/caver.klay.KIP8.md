@@ -294,7 +294,7 @@ None
 
 **Return Value**
 
-`Promise` returns `String`: The total amount of tokens.
+`Promise` returns `BigNumber`: The total amount of tokens.
 
 **Example**
 
@@ -315,7 +315,7 @@ Returns the URI for a given token id.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenId | Number &#124; String | The id of the token. |
+| tokenId | BigNumber &#124; String &#124; Number | The id of the token. |
 
 **Return Value**
 
@@ -341,11 +341,11 @@ Returns the token id at a given index of the tokens list of the requested owner.
 | Name | Type | Description |
 | --- | --- | --- |
 | owner | String | The address of the account whose token you want to query. |
-| index | Number | The index of the token to be searched among the tokens owned by a owner account. |
+| index | BigNumber &#124; String &#124; Number | The index of the token to be searched among the tokens owned by a owner account. |
 
 **Return Value**
 
-`Promise` returns `String`: The id of the token.
+`Promise` returns `BigNumber`: The id of the token.
 
 **Example**
 
@@ -366,11 +366,11 @@ Returns the token id at a given index of all the tokens in this contract. Revert
 
 | Name | Type | Description |
 | --- | --- | --- |
-| index | String | The index of the token to query. |
+| index | BigNumber &#124; String &#124; Number | The index of the token to query. |
 
 **Return Value**
 
-`Promise` returns `String`: The id of the token.
+`Promise` returns `BigNumber`: The id of the token.
 
 **Example**
 
@@ -395,7 +395,7 @@ Returns the balance of the specified address. The balance of an account in KIP8 
 
 **Return Value**
 
-`Promise` returns `String`: The account balance.
+`Promise` returns `BigNumber`: The account balance.
 
 **Example**
 
@@ -416,7 +416,7 @@ Returns the owner of the specified token id.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenId | Number &#124; String | The id of the token. |
+| tokenId | BigNumber &#124; String &#124; Number | The id of the token. |
 
 **Return Value**
 
@@ -441,7 +441,7 @@ Returns the approved address for a token id, or zero if no address set. Reverts 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenId | Number &#124; String | The id of the token. |
+| tokenId | BigNumber &#124; String &#124; Number | The id of the token. |
 
 **Return Value**
 
@@ -585,7 +585,7 @@ Note that approve method will be executed through sending a transaction to the K
 | Name | Type | Description |
 | --- | --- | --- |
 | to | String | The address of the account to use on behalf of owner for the tokenId. |
-| tokenId | Number &#124; String | The id of token the spender allows to use on behalf of the owner. |
+| tokenId | BigNumber &#124; String &#124; Number | The id of token the spender allows to use on behalf of the owner. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
 The sendParam object can contain the following:
@@ -744,7 +744,7 @@ Note that transferFrom method will be executed through sending a transaction to 
 | --- | --- | --- |
 | from | String | The address of the owner or approved of the given token. |
 | to | String | The address of the account to receive the token. |
-| tokenId | Number &#124; String | The id of token you want to transfer. |
+| tokenId | BigNumber &#124; String &#124; Number | The id of token you want to transfer. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
 The sendParam object can contain the following:
@@ -824,7 +824,7 @@ Note that safeTransferFrom method will be executed through sending a transaction
 | --- | --- | --- |
 | from | String | The address of the owner or approved of the given token. |
 | to | String | The address of the account to receive the token. |
-| tokenId | Number &#124; String | The id of token you want to transfer. |
+| tokenId | BigNumber &#124; String &#124; Number | The id of token you want to transfer. |
 | data | Buffer &#124; String &#124; Number | (optional) The optional data to send along with the call. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
@@ -1058,7 +1058,7 @@ Note that mintWithTokenURI method will be executed through sending a transaction
 | Name | Type | Description |
 | --- | --- | --- |
 | to | String | The address of the account to which the minted token will be allocated. |
-| tokenId | Number &#124; String | The id of token to mint. |
+| tokenId | BigNumber &#124; String &#124; Number | The id of token to mint. |
 | tokenURI | Number | The uri of token to mint. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
@@ -1139,7 +1139,7 @@ Note that burn method will be executed through sending a transaction to the KIP8
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenId | Number &#124; String | The id of token to destroy. |
+| tokenId | BigNumber &#124; String &#124; Number | The id of token to destroy. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
 The sendParam object can contain the following:
