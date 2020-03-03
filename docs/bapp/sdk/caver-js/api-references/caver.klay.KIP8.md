@@ -397,7 +397,7 @@ Returns the balance of the specified address. The balance of an account in KIP-8
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | String | The number of NFT tokens owned by the account. |
+| address | String | The address of the account whose number of tokens you want to see. |
 
 **Return Value**
 
