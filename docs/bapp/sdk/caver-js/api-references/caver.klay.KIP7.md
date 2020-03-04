@@ -555,7 +555,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -637,7 +637,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -743,7 +743,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -823,7 +823,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -898,7 +898,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -974,7 +974,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1055,7 +1055,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1158,7 +1158,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1233,7 +1233,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1308,7 +1308,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1383,7 +1383,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-7 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
