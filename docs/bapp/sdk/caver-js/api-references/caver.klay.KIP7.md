@@ -519,7 +519,7 @@ The sendParam object can contain the following:
 
 // Set from in kip7Instance.options.from
 // If the value of kip7Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip7Instance instance.
+// unless you specify `from` in sendParam object when sending a transaction with a kip7Instance instance.
 > kip7Instance.options.from = '0x{address in hex}'
 > kip7Instance.approve('0x{address in hex}', 10).then(console.log)
 ```
@@ -530,7 +530,7 @@ The sendParam object can contain the following:
 ```javascript
 kip7Instance.transfer(recipient, amount [, sendParam])
 ```
-Moves amount tokens from the caller’s account to recipient.
+Moves the given `amount` of tokens from the caller’s account to `recipient`.
 
 Note that the transfer method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -539,7 +539,7 @@ Note that the transfer method will submit a transaction to the Klaytn network, w
 | Name | Type | Description |
 | --- | --- | --- |
 | recipient | String | The address of the account to receive the token. |
-| amount | BigNumber &#124; String &#124; Number | The amount of tokens you want to transfer. |
+| amount | BigNumber &#124; String &#124; Number | The amount of tokens to transfer. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
 **NOTE** It also supports `Number` types as parameters for amount. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
