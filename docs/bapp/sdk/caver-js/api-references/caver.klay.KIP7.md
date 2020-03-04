@@ -980,7 +980,7 @@ The sendParam object can contain the following:
 ```javascript
 kip7Instance.burnFrom(account, amount [, sendParam])
 ```
-Destroys amount tokens from account is then deducted from the caller’s allowance.
+Destroys the given amount of tokens from `account`, then the amount is deducted from the caller’s allowance.
 
 Note that the burnFrom method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
