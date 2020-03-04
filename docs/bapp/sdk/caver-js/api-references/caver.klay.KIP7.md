@@ -401,11 +401,11 @@ Returns `true` if the given account is a pauser which has permission to suspend 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | String | The address of the account you want to check pausing permission. |
+| address | String | The address of the account to check permission to suspend transferring tokens. |
 
 **Return Value**
 
-`Promise` returns `Boolean`: `true` if the account of address is pauser.
+`Promise` returns `Boolean`: `true` if the account is a pauser.
 
 **Example**
 
@@ -423,7 +423,7 @@ false
 ```javascript
 kip7Instance.paused()
 ```
-Returns `true` if the contract is paused state, and `false` otherwise.
+Returns `true` if the contract is in the paused state, and `false` otherwise.
 
 **Parameters**
 
@@ -449,7 +449,7 @@ false
 ```javascript
 kip7Instance.approve(spender, amount [, sendParam])
 ```
-Sets amount as the `allowance` of `spender` over the caller’s tokens. 
+Sets `amount` as the allowance of `spender` over the caller’s tokens. 
 
 Note that approve method will be executed through sending a transaction to the KIP-7 token contract.
 
