@@ -113,7 +113,7 @@ Creates a new KIP7 instance with all its methods and events.
 | Name | Type | Description |
 | --- | --- | --- |
 | tokenAddress | String | (optional) The address of the smart contract to call, which can be assigned later through `kip7Instance.options.address = '0x1234..'` |
-| jsonInterface | Object | (optional) The JSON interface for the fungible token contract to instantiate. The caver.klay.KIP7 operates by default based on the jsonInterface of the specification defined in KIP-7. |
+| abi | Object | (optional) The custom ABI in the JSON format for the fungible token contract. If omitted, it uses ABI described in the specification of KIP-7. |
 
 **NOTE** If you send a jsonInterface as a parameter that is not an implementation of KIP-7, you will get an error when using the methods of the class.
 
@@ -127,13 +127,13 @@ Creates a new KIP7 instance with all its methods and events.
 **Example**
 
 ```javascript
-// Create KIP7 instance without parameter
+// Create a KIP7 instance without parameter
 > const kip7Instance = new caver.klay.KIP7()
 
-// Create KIP7 instance with token address
+// Create a KIP7 instance with token address
 > const kip7Instance = new caver.klay.KIP7('0x{address in hex}')
 
-// Create KIP7 instance with jsonInterface(abi)
+// Create a KIP7 instance with jsonInterface(abi)
 > const kip7Instance = new caver.klay.KIP7([
     {
         constant: true,
@@ -157,7 +157,7 @@ Creates a new KIP7 instance with all its methods and events.
     },
 ])
 
-// Create KIP7 instance with token address and jsonInterface(abi)
+// Create a KIP7 instance with token address and ABI
 > const kip7Instance = new caver.klay.KIP7('0x{address in hex}', [
     {
         constant: true,
