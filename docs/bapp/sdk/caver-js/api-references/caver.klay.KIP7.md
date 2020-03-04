@@ -73,8 +73,8 @@ KIP7 {
 			anonymous: false,
 			inputs: [
 				{ indexed: true, name: 'owner', type: 'address' },
-     			{ indexed: true, name: 'approved', type: 'address' },
-     			{ indexed: true, name: 'tokenId', type: 'uint256' }
+     				{ indexed: true, name: 'approved', type: 'address' },
+     				{ indexed: true, name: 'tokenId', type: 'uint256' }
 			],
 			name: 'Approval',
 			type: 'event',
@@ -338,14 +338,14 @@ Returns the balance of the given account address.
 ```javascript
 kip7Instance.allowance(owner, spender)
 ```
-Returns the amount which spender is still allowed to withdraw from owner.
+Returns the amount which `spender` is still allowed to withdraw from `owner`.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| owner | String | The address of the account that set the spender to use the money on behalf of the owner. |
-| spender | String | The address of the account that received the approve amount that can be used on behalf of the owner. |
+| owner | String | The address of the account that set the spender to use the tokens on behalf of the owner. |
+| spender | String | The address of the account approved the amount that can be used on behalf of the owner. |
 
 **Return Value**
 
