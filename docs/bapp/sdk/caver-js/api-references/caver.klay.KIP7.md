@@ -451,14 +451,14 @@ kip7Instance.approve(spender, amount [, sendParam])
 ```
 Sets `amount` as the allowance of `spender` over the caller’s tokens. 
 
-Note that approve method will be executed through sending a transaction to the KIP-7 token contract.
+Note that the approve method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| spender | String | The address of the account to use on behalf of owner for the amount to be set in allowance. |
-| amount | BigNumber &#124; String &#124; Number | The amount of tokens the spender allows to use on behalf of the owner. |
+| spender | String | The address of the account to spend tokens on behalf of the owner. |
+| amount | BigNumber &#124; String &#124; Number | The amount of tokens the spender allows to use. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
 **NOTE** It also supports `Number` types as parameters for amount. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
