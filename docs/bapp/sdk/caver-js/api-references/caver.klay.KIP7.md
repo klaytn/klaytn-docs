@@ -532,7 +532,7 @@ kip7Instance.transfer(recipient, amount [, sendParam])
 ```
 Moves amount tokens from the caller’s account to recipient.
 
-Note that transfer method will be executed through sending a transaction to the KIP-7 token contract.
+Note that the transfer method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
