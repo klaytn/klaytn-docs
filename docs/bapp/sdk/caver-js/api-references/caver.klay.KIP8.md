@@ -41,7 +41,7 @@ The tokenInfo object must contain the following:
 
 **Return Value**
 
-`PromiEvent`: A promise combined event emitter.  Will be resolved with new KIP8 instance. Additionally, the following events are available:
+`PromiEvent`: A promise combined event emitter, which is resolved with a new KIP7 instance. Additionally, the following events are available:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -185,7 +185,7 @@ Clones the current KIP8 instance.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenAddress | String | (optional) The address of the new non fungible token contract to call. If omitted, it will be set by `this.options.address`. |
+| tokenAddress | String | (optional) The address of the new fungible token contract to call. If omitted, it will be set to the address in the original instance (e.g., `kip7Instance`). |
 
 **Return Value**
 
@@ -611,12 +611,12 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
-// Send via a sendParam object with a from field defined 
+// Send via a sendParam object with the from field given 
 > kip8Instance.approve('0x{address in hex}', 10, { from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0x3875c3f3120c1773c3adeb97260808c8a385bf8427bc203d10cbc5d262f67dbc',
@@ -690,12 +690,12 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
-// Send via a sendParam object with a from field defined 
+// Send via a sendParam object with the from field given 
 > kip8Instance.setApprovalForAll('0x{address in hex}', false, { from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0x34379ac5b71f16f41d5171d021ca2945e02c60d9fb7f85fc0127262c2ce72b47',
@@ -772,12 +772,12 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
-// Send via a sendParam object with a from field defined 
+// Send via a sendParam object with the from field given 
 > kip8Instance.transferFrom('0x{address in hex}', '0x{address in hex}', 2, { from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0x9cae3aa93d327804f333674a77d5d01d8c7908c49749b0d747b6391faa232b58',
@@ -817,7 +817,7 @@ The sendParam object can contain the following:
 
 // Set from in kip8Instance.options.from
 // If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip8Instance instance.
+// unless you specify `from` in sendParam object when sending a transaction with a kip7Instance instance.
 > kip8Instance.options.from = '0x{address in hex}'
 > kip8Instance.transferFrom('0x{address in hex}', '0x{address in hex}', 2).then(console.log)
 ```
@@ -855,12 +855,12 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
-// Send via a sendParam object with a from field defined (without data)
+// Send via a sendParam object with the from field given (without data)
 > kip8Instance.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 9, { from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0x14c5bebc2be86081d8375ba11edba0e541be1df24c1beced1a9e82e3083a8035',
@@ -898,7 +898,7 @@ The sendParam object can contain the following:
 	},
 }
 
-// Send via a sendParam object with a from field defined (with data)
+// Send via a sendParam object with the from field given (with data)
 > kip8Instance.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 11, '0x1234', { from: '0x{address in hex}' }).then(console.log)
 
 // Set from in kip8Instance.options.from
@@ -938,12 +938,12 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
-// Send via a sendParam object with a from field defined 
+// Send via a sendParam object with the from field given 
 > kip8Instance.addMinter('0x{address in hex}', { from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0xecd0fb45a32323d5cb14558d1d9299393022d5e7284519598dbd8b14c4c55930',
@@ -1013,12 +1013,12 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
-// Send via a sendParam object with a from field defined 
+// Send via a sendParam object with the from field given 
 > kip8Instance.renounceMinter({ from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0xe130d7ee71a2c55b3cf4e2bce9ea26e7c2cde556c7f8288abac60121b27c26c8',
@@ -1093,12 +1093,12 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
-// Send via a sendParam object with a from field defined 
+// Send via a sendParam object with the from field given 
 > kip8Instance.mintWithTokenURI('0x{address in hex}', 18, tokenURI, { from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0xd2473b9853ad33c5fa0a75187e65733614ed4f8c937d06e239768a5ca32d7c7f',
@@ -1173,12 +1173,12 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
-// Send via a sendParam object with a from field defined 
+// Send via a sendParam object with the from field given 
 > kip8Instance.burn(14, { from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0x09d8ed5582fdd1c39b0f19f14f065659fe275a60856d86a1840535f6df1a2d51',
@@ -1252,12 +1252,12 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
-// Send via a sendParam object with a from field defined 
+// Send via a sendParam object with the from field given 
 > kip8Instance.pause({ from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0xd73c026474b2077a04808ed0ce6713821eaa8afaed476b19d22b28e483747e04',
@@ -1327,12 +1327,12 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
-// Send via a sendParam object with a from field defined 
+// Send via a sendParam object with the from field given 
 > kip8Instance.unpause({ from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0x6a9fc0c70853e696e687b119ba95971a42d91616a040ec17afe1fd4803f5a6cb',
@@ -1403,12 +1403,12 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
-// Send via a sendParam object with a from field defined 
+// Send via a sendParam object with the from field given 
 > kip8Instance.addPauser('0x{address in hex}', { from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0xd9f18912c9666a67a2e7445af0abe5140212955b3d35c491e5475d512fdee7d5',
@@ -1478,12 +1478,12 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of executing a transaction to execute a KIP-8 token contract. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
-// Send via a sendParam object with a from field defined 
+// Send via a sendParam object with the from field given 
 > kip8Instance.renouncePauser({ from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0x32bb338ca23846478934416d1b1f4152b69a49411d61b316cff8b3a7d62ca91e',
