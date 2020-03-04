@@ -114,7 +114,6 @@ Creates a new KIP7 instance with all its methods and events.
 | --- | --- | --- |
 | tokenAddress | String | (optional) The address of the smart contract to call, which can be assigned later through `kip7Instance.options.address = '0x1234..'` |
 
-**NOTE** If you send a jsonInterface as a parameter that is not an implementation of KIP-7, you will get an error when using the methods of the class.
 
 **Return Value**
 
