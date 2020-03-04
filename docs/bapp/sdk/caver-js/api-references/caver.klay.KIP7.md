@@ -206,12 +206,12 @@ Clones the current KIP7 instance.
 **Example**
 
 ```javascript
-// Clone without parameter
 > const kip7Instance = new caver.klay.KIP7(address)
+
+// Clone without a parameter
 > const cloned = kip7Instance.clone()
 
-// Clone with the address of new token contract
-> const kip7Instance = new caver.klay.KIP7(address)
+// Clone with the address of the new token contract
 > const cloned = kip7Instance.clone('0x{address in hex}')
 ```
 
@@ -298,7 +298,7 @@ None
 
 **Return Value**
 
-`Promise` returns `BigNumber`: The total token supply.
+`Promise` returns `BigNumber`: The total number of tokens.
 
 **Example**
 
