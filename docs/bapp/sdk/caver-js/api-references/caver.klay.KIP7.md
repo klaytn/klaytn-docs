@@ -112,7 +112,7 @@ Creates a new KIP7 instance with all its methods and events.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenAddress | String | (optional) The address of the smart contract to call. Can be added later using `kip7Instance.options.address = '0x1234..'` |
+| tokenAddress | String | (optional) The address of the smart contract to call, which can be assigned later through `kip7Instance.options.address = '0x1234..'` |
 | jsonInterface | Object | (optional) The JSON interface for the fungible token contract to instantiate. The caver.klay.KIP7 operates by default based on the jsonInterface of the specification defined in KIP-7. |
 
 **NOTE** If you send a jsonInterface as a parameter that is not an implementation of KIP-7, you will get an error when using the methods of the class.
