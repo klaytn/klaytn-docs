@@ -29,8 +29,8 @@ After successful deployment, the promise will resolve with a new KIP8 instance.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenInfo | Object | The informations needed to deploy KIP-8 token contract on the Klyatn blockchain. |
-| deployer | String | The address of the account to which you want to deploy the KIP-8 token contract. This account must have enough KLAY to deploy. |
+| tokenInfo | Object | The information needed to deploy KIP-8 token contract on the Klaytn blockchain. See below table to find the description. |
+| deployer | String | The address of the account to deploy the KIP-7 token contract. This account must have enough KLAY to deploy. |
 
 The tokenInfo object must contain the following:
 
@@ -45,9 +45,9 @@ The tokenInfo object must contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| transactionHash | String | Is fired right after the transaction is sent and a transaction hash is available. |
-| receipt | Object | Is fired when the transaction receipt is available. Receipts from KIP8 instance will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.Contract.md#getpastevents) for details about the returned event object. |
-| error | Error | Is fired if an error occurs during sending. |
+| transactionHash | String | Fired right after the transaction is sent and a transaction hash is available. |
+| receipt | Object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
+| error | Error | Fired if an error occurs during sending. |
 
 **Example**
 
@@ -103,8 +103,8 @@ Creates a new KIP8 instance with all its methods and events.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenAddress | String | (optional) The address of the smart contract to call. Can be added later using `kip8Instance.options.address = '0x1234..'` |
-| jsonInterface | Object | (optional) The JSON interface for the non fungible token contract to instantiate. The caver.klay.KIP8 operates by default based on the jsonInterface of the specification defined in KIP-8. |
+| tokenAddress | String | (optional) The address of the smart contract to call, which can be assigned later through `kip7Instance.options.address = '0x1234..'` |
+| jsonInterface | Object | (optional) The custom JSON interface for the fungible token contract. If omitted, it uses jsonInterface of the specification defined in KIP-8. |
 
 **NOTE** If you send a jsonInterface as a parameter that is not an implementation of KIP-8, you will get an error when using the methods of the class.
 
@@ -118,13 +118,13 @@ Creates a new KIP8 instance with all its methods and events.
 **Example**
 
 ```javascript
-// Create KIP8 instance without parameter
+// Create a KIP8 instance without parameter
 > const kip8Instance = new caver.klay.KIP8()
 
-// Create KIP8 instance with token address
+// Create a KIP8 instance with token address
 > const kip8Instance = new caver.klay.KIP8('0x{address in hex}')
 
-// Create KIP8 instance with jsonInterface(abi)
+// Create a KIP8 instance with jsonInterface(abi)
 > const kip8Instance = new caver.klay.KIP8([
     {
         constant: true,
@@ -148,7 +148,7 @@ Creates a new KIP8 instance with all its methods and events.
     },
 ])
 
-// Create KIP8 instance with token address and jsonInterface(abi)
+// Create a KIP8 instance with token address and ABI
 > const kip8Instance = new caver.klay.KIP8('0x{address in hex}', [
     {
         constant: true,
@@ -197,12 +197,12 @@ Clones the current KIP8 instance.
 **Example**
 
 ```javascript
-// Clone without parameter
 > const kip8Instance = new caver.klay.KIP8(address)
+
+// Clone without a parameter
 > const cloned = kip8Instance.clone()
 
-// Clone with the address of new token contract
-> const kip8Instance = new caver.klay.KIP8(address)
+// Clone with the address of the new token contract
 > const cloned = kip8Instance.clone('0x{address in hex}')
 ```
 
@@ -286,7 +286,7 @@ JAS
 ```javascript
 kip8Instance.totalSupply()
 ```
-Returns the total amount of tokens stored by the contract.
+Returns the total number of tokens stored by the contract.
 
 **Parameters**
 
@@ -294,7 +294,7 @@ None
 
 **Return Value**
 
-`Promise` returns `BigNumber`: The total amount of tokens.
+`Promise` returns `BigNumber`: The total number of tokens.
 
 **Example**
 
@@ -391,13 +391,13 @@ Returns the token id at a given index of all the tokens in this contract. Revert
 ```javascript
 kip8Instance.balanceOf(address)
 ```
-Returns the balance of the specified address. The balance of an account in KIP-8 means that the total number of NFT(Non Fungible Token) owned by the account.
+Returns the balance of the given account address. The balance of an account in KIP-8 means that the total number of NFT(Non Fungible Token) owned by the account.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | String | The address of the account whose number of tokens you want to see. |
+| address | String | The address of the account to check the balance. |
 
 **Return Value**
 
@@ -504,17 +504,17 @@ true
 ```javascript
 kip8Instance.isMinter(address)
 ```
-Returns `true` if an input account is minter which have permission to mint.
+Returns `true` if the given account is a minter which has permission to mint.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | String | The address of the account you want to check minting permission. |
+| address | String | The address of the account to check minting permission. |
 
 **Return Value**
 
-`Promise` returns `Boolean`: `true` if the account of address is minter.
+`Promise` returns `Boolean`: `true` if the account is a minter.
 
 **Example**
 
@@ -532,7 +532,7 @@ false
 ```javascript
 kip8Instance.paused()
 ```
-Returns `true` if the contract is paused state, and `false` otherwise.
+Returns `true` if the contract is in the paused state, and `false` otherwise.
 
 **Parameters**
 
@@ -558,17 +558,17 @@ false
 ```javascript
 kip8Instance.isPauser(address)
 ```
-Returns `true` if an input account is pauser which have permission to pause.
+Returns `true` if the given account is a pauser which has permission to suspend transferring tokens.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | String | The address of the account you want to check pausing permission. |
+| address | String | The address of the account to check permission to suspend transferring tokens. |
 
 **Return Value**
 
-`Promise` returns `Boolean`: `true` if the account of address is pauser.
+`Promise` returns `Boolean`: `true` if the account is a pauser.
 
 **Example**
 
@@ -588,14 +588,14 @@ kip8Instance.approve(to, tokenId [, sendParam])
 ```
 Approves another address to transfer the given token id. The zero address indicates there is no approved address. There can only be one approved address per token at a given time. Can only be called by the token owner or an approved operator.
 
-Note that approve method will be executed through sending a transaction to the KIP-8 token contract.
+Note that the approve method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| to | String | The address of the account to use on behalf of owner for the tokenId. |
-| tokenId | BigNumber &#124; String &#124; Number | The id of token the spender allows to use on behalf of the owner. |
+| to | String | The address of the account to spend tokens on behalf of the owner. |
+| tokenId | BigNumber &#124; String &#124; Number | The id of token the spender allows to use. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
 **NOTE** It also supports `Number` types as parameters for tokenId. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
@@ -669,7 +669,7 @@ kip8Instance.setApprovalForAll(to, approved [, sendParam])
 ```
 Sets or unsets the approval of a given operator. An operator is allowed to transfer all tokens of the sender on their behalf.
 
-Note that setApprovalForAll method will be executed through sending a transaction to the KIP-8 token contract.
+Note that the setApprovalForAll method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -748,7 +748,7 @@ kip8Instance.transferFrom(from, to, tokenId [, sendParam])
 ```
 Transfers the ownership of a given token id to another address. Usage of this method is discouraged, use [safeTransferFrom](#kip8instance-safetransferfrom) whenever possible.
 
-Note that transferFrom method will be executed through sending a transaction to the KIP-8 token contract.
+Note that the transferFrom method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -830,7 +830,7 @@ kip8Instance.safeTransferFrom(from, to, tokenId [, data] [, sendParam])
 ```
 Safely transfers the ownership of a given token id to another address. If the target address is a contract, it must implement IERC721Receiver.onERC721Received, which is called upon a safe transfer, and return the magic value bytes4(keccak256("onERC721Received(address,address,uint256,bytes)")); otherwise, the transfer is reverted.
 
-Note that safeTransferFrom method will be executed through sending a transaction to the KIP-8 token contract.
+Note that the safeTransferFrom method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -916,7 +916,7 @@ kip8Instance.addMinter(account [, sendParam])
 ```
 Adds an account as a minter that has the permission of MinterRole and can mint.
 
-Note that addMinter method will be executed through sending a transaction to the KIP-8 token contract.
+Note that the addMinter method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -992,7 +992,7 @@ kip8Instance.renounceMinter([sendParam])
 ```
 Renounces privilege of MinterRole. Only address that is Minter can renounce itself from Minter role, no one else. 
 
-Note that renounceMinter method will be executed through sending a transaction to the KIP-8 token contract.
+Note that the renounceMinter method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1067,7 +1067,7 @@ kip8Instance.mintWithTokenURI(to, tokenId, tokenURI [, sendParam])
 ```
 Creates token with uri and assigns them to account, increasing the total supply.
 
-Note that mintWithTokenURI method will be executed through sending a transaction to the KIP-8 token contract.
+Note that the mintWithTokenURI method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1151,7 +1151,7 @@ kip8Instance.burn(tokenId [, sendParam])
 ```
 Destroys a specific KIP-8 token.
 
-Note that burn method will be executed through sending a transaction to the KIP-8 token contract.
+Note that the burn method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1231,7 +1231,7 @@ kip8Instance.pause([sendParam])
 ```
 Triggers stopped state that stops sending tokens in emergency situation.
 
-Note that pause method will be executed through sending a transaction to the KIP-8 token contract.
+Note that the pause method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1306,7 +1306,7 @@ kip8Instance.unpause([sendParam])
 ```
 Sets normal status from the paused state where token transmission was stopped.
 
-Note that unpause method will be executed through sending a transaction to the KIP-8 token contract.
+Note that the unpause method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1381,7 +1381,7 @@ kip8Instance.addPauser(account [, sendParam])
 ```
 Adds an account as a pauser that has the permission of PauserRole and can pause.
 
-Note that addPauser method will be executed through sending a transaction to the KIP-8 token contract.
+Note that the addPauser method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1457,7 +1457,7 @@ kip8Instance.renouncePauser([sendParam])
 ```
 Renounces privilege of PauserRole. Only address that is Pauser can renounce itself from Pauser role, no one else. 
 
-Note that renouncePauser method will be executed through sending a transaction to the KIP-8 token contract.
+Note that the renouncePauser method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
