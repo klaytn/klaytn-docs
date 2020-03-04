@@ -313,7 +313,7 @@ None
 ```javascript
 kip7Instance.balanceOf(address)
 ```
-Returns the account balance of another account with address.
+Returns the balance of the given account address.
 
 **Parameters**
 
