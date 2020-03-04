@@ -304,7 +304,7 @@ None
 
 ```javascript
 > kip7Instance.totalSupply().then(console.log)
-100000
+100000000000000000000
 ```
 
 
