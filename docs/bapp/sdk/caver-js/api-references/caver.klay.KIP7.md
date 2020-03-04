@@ -749,7 +749,7 @@ The sendParam object can contain the following:
 ```javascript
 kip7Instance.addMinter(account [, sendParam])
 ```
-Adds an account as a minter that has the permission of MinterRole and can mint.
+Adds an account as a minter that has the permission related to minting tokens.
 
 Note that the addMinter method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -757,7 +757,7 @@ Note that the addMinter method will submit a transaction to the Klaytn network, 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| account | String | The address of account to add as minter. |
+| account | String | The address of account to add as a minter. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
 The sendParam object can contain the following:
@@ -769,7 +769,7 @@ The sendParam object can contain the following:
 | gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
 | value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 
-**NOTE** The from account sending the transaction must be minter with permission of MinterRole.
+**NOTE** The from account sending the transaction must be a minter.
 
 **Return Value**
 
