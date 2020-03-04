@@ -988,7 +988,7 @@ Note that the burnFrom method will submit a transaction to the Klaytn network, w
 
 | Name | Type | Description |
 | --- | --- | --- |
-| account | String | The address of the account that owns the token to be burned with allowance mechanism. |
+| account | String | The address of the account that owns the given amount of tokens to be burned with allowance mechanism. |
 | amount | BigNumber &#124; String &#124; Number | The amount of tokens to destroy. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
@@ -1084,7 +1084,7 @@ The sendParam object can contain the following:
 ```javascript
 kip7Instance.addPauser(account [, sendParam])
 ```
-Adds an account as a pauser that has the permission of PauserRole and can pause.
+Adds an account as a pauser that has the permission related to suspending the contract.
 
 Note that the addPauser method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -1092,7 +1092,7 @@ Note that the addPauser method will submit a transaction to the Klaytn network, 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| account | String | The address of account to add as pauser. |
+| account | String | The address of account to be a new pauser. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
 The sendParam object can contain the following:
@@ -1160,7 +1160,7 @@ The sendParam object can contain the following:
 ```javascript
 kip7Instance.renouncePauser([sendParam])
 ```
-Renounces privilege of PauserRole. Only address that is Pauser can renounce itself from Pauser role, no one else. 
+Renounces the permission related to pausing the contract. Only address that is a pauser can renounce itself.
 
 Note that the renouncePauser method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -1235,7 +1235,7 @@ The sendParam object can contain the following:
 ```javascript
 kip7Instance.pause([sendParam])
 ```
-Triggers stopped state that stops sending tokens in emergency situation.
+Suspends functions related to sending tokens.
 
 Note that the pause method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
