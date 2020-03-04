@@ -104,9 +104,6 @@ Creates a new KIP8 instance with all its methods and events.
 | Name | Type | Description |
 | --- | --- | --- |
 | tokenAddress | String | (optional) The address of the smart contract to call, which can be assigned later through `kip7Instance.options.address = '0x1234..'` |
-| jsonInterface | Object | (optional) The custom JSON interface for the fungible token contract. If omitted, it uses jsonInterface of the specification defined in KIP-8. |
-
-**NOTE** If you send a jsonInterface as a parameter that is not an implementation of KIP-8, you will get an error when using the methods of the class.
 
 **Return Value**
 
@@ -123,54 +120,6 @@ Creates a new KIP8 instance with all its methods and events.
 
 // Create a KIP8 instance with token address
 > const kip8Instance = new caver.klay.KIP8('0x{address in hex}')
-
-// Create a KIP8 instance with jsonInterface(abi)
-> const kip8Instance = new caver.klay.KIP8([
-    {
-        constant: true,
-        inputs: [{ name: 'interfaceId', type: 'bytes4' }],
-        name: 'supportsInterface',
-        outputs: [{ name: '', type: 'bool' }],
-        payable: false,
-        stateMutability: 'view',
-        type: 'function',
-    },
-	...
-    {
-        anonymous: false,
-        inputs: [
-            { indexed: true, name: 'owner', type: 'address' },
-            { indexed: true, name: 'operator', type: 'address' },
-            { indexed: false, name: 'approved', type: 'bool' },
-        ],
-        name: 'ApprovalForAll',
-        type: 'event',
-    },
-])
-
-// Create a KIP8 instance with token address and ABI
-> const kip8Instance = new caver.klay.KIP8('0x{address in hex}', [
-    {
-        constant: true,
-        inputs: [{ name: 'interfaceId', type: 'bytes4' }],
-        name: 'supportsInterface',
-        outputs: [{ name: '', type: 'bool' }],
-        payable: false,
-        stateMutability: 'view',
-        type: 'function',
-    },
-	...
-    {
-        anonymous: false,
-        inputs: [
-            { indexed: true, name: 'owner', type: 'address' },
-            { indexed: true, name: 'operator', type: 'address' },
-            { indexed: false, name: 'approved', type: 'bool' },
-        ],
-        name: 'ApprovalForAll',
-        type: 'event',
-    },
-])
 ```
 
 
