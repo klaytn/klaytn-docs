@@ -194,7 +194,7 @@ Clones the current KIP7 instance.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenAddress | String | (optional) The address of the new fungible token contract to call. If omitted, it will be set by `this.options.address`. |
+| tokenAddress | String | (optional) The address of the new fungible token contract to call. If omitted, it will be set to the address in the original instance (e.g., `kip7Instance`). |
 
 **Return Value**
 
