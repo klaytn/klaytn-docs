@@ -1310,7 +1310,7 @@ The sendParam object can contain the following:
 ```javascript
 kip7Instance.unpause([sendParam])
 ```
-Sets normal status from the paused state where token transmission was stopped.
+Resumes the paused state of the contract.
 
 Note that the unpause method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
