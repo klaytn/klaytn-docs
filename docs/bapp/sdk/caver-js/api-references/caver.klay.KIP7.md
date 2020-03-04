@@ -319,7 +319,7 @@ Returns the balance of the given account address.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | String | The address of the account you want to get balance. |
+| address | String | The address of the account to check the balance. |
 
 **Return Value**
 
