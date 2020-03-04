@@ -95,7 +95,7 @@ KIP8 {
 ## new KIP8 <a id="new-kip8"></a>
 
 ```javascript
-new caver.klay.KIP8([tokenAddress] [, jsonInterface])
+new caver.klay.KIP8([tokenAddress])
 ```
 Creates a new KIP8 instance with all its methods and events.
 
@@ -115,10 +115,10 @@ Creates a new KIP8 instance with all its methods and events.
 **Example**
 
 ```javascript
-// Create a KIP8 instance without parameter
+// Create a KIP8 instance without a parameter
 > const kip8Instance = new caver.klay.KIP8()
 
-// Create a KIP8 instance with token address
+// Create a KIP8 instance with a token address
 > const kip8Instance = new caver.klay.KIP8('0x{address in hex}')
 ```
 
