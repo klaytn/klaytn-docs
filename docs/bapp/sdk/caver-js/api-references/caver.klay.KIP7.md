@@ -613,7 +613,7 @@ kip7Instance.transferFrom(sender, recipient, amount [, sendParam])
 ```
 Moves amount tokens from sender to recipient using the allowance mechanism. amount is then deducted from the caller’s allowance.
 
-Note that transferFrom method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that the transferFrom method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -718,7 +718,7 @@ kip7Instance.mint(account, amount [, sendParam])
 ```
 Creates amount tokens and assigns them to account, increasing the total supply.
 
-Note that mint method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that the mint method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -801,7 +801,7 @@ kip7Instance.addMinter(account [, sendParam])
 ```
 Adds an account as a minter that has the permission of MinterRole and can mint.
 
-Note that addMinter method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that the addMinter method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -877,7 +877,7 @@ kip7Instance.renounceMinter([sendParam])
 ```
 Renounces privilege of MinterRole. Only address that is Minter can renounce itself from Minter role, no one else. 
 
-Note that renounceMinter method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that the renounceMinter method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -952,7 +952,7 @@ kip7Instance.burn(amount [, sendParam])
 ```
 Destroys amount tokens from the caller.
 
-Note that burn method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that the burn method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1032,7 +1032,7 @@ kip7Instance.burnFrom(account, amount [, sendParam])
 ```
 Destroys amount tokens from account is then deducted from the caller’s allowance.
 
-Note that burnFrom method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that the burnFrom method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1136,7 +1136,7 @@ kip7Instance.addPauser(account [, sendParam])
 ```
 Adds an account as a pauser that has the permission of PauserRole and can pause.
 
-Note that addPauser method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that the addPauser method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1212,7 +1212,7 @@ kip7Instance.renouncePauser([sendParam])
 ```
 Renounces privilege of PauserRole. Only address that is Pauser can renounce itself from Pauser role, no one else. 
 
-Note that renouncePauser method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that the renouncePauser method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1287,7 +1287,7 @@ kip7Instance.pause([sendParam])
 ```
 Triggers stopped state that stops sending tokens in emergency situation.
 
-Note that pause method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that the pause method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1362,7 +1362,7 @@ kip7Instance.unpause([sendParam])
 ```
 Sets normal status from the paused state where token transmission was stopped.
 
-Note that unpause method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that the unpause method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
