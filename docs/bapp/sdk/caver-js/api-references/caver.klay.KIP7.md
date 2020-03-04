@@ -642,7 +642,7 @@ The sendParam object can contain the following:
 **Example**
 
 ```javascript
-// Send via a sendParam object with a from field defined 
+// Send via a sendParam object with the from field given
 > kip7Instance.transferFrom('0x{address in hex}', '0x{address in hex}', 10000, { from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0x3adec238e06a9e8d5fa09fc1e1d7c8748b64d07e89678d27e8a379a12a34974f',
