@@ -603,9 +603,9 @@ The sendParam object can contain the following:
 	},
 }
 
-// Set from in kip8Instance.options.from
+// Using kip8Instance.options.from
 // If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip8Instance instance.
+// unless you specify `from` in the sendParam object when sending a transaction with a kip8Instance instance.
 > kip8Instance.options.from = '0x{address in hex}'
 > kip8Instance.approve('0x{address in hex}', 10).then(console.log)
 ```
@@ -682,9 +682,9 @@ The sendParam object can contain the following:
 	},
 }
 
-// Set from in kip8Instance.options.from
+// Using kip8Instance.options.from
 // If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip8Instance instance.
+// unless you specify `from` in the sendParam object when sending a transaction with a kip8Instance instance.
 > kip8Instance.options.from = '0x{address in hex}'
 > kip8Instance.setApprovalForAll('0x{address in hex}', true).then(console.log)
 ```
@@ -764,7 +764,7 @@ The sendParam object can contain the following:
 	},
 }
 
-// Set from in kip8Instance.options.from
+// Using kip8Instance.options.from
 // If the value of kip8Instance.options.from is set, this value is used as the default value 
 // unless you specify `from` in sendParam object when sending a transaction with a kip7Instance instance.
 > kip8Instance.options.from = '0x{address in hex}'
@@ -850,9 +850,9 @@ The sendParam object can contain the following:
 // Send via a sendParam object with the from field given (with data)
 > kip8Instance.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 11, '0x1234', { from: '0x{address in hex}' }).then(console.log)
 
-// Set from in kip8Instance.options.from
+// Using kip8Instance.options.from
 // If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip8Instance instance.
+// unless you specify `from` in the sendParam object when sending a transaction with a kip8Instance instance.
 > kip8Instance.options.from = '0x{address in hex}'
 > kip8Instance.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 11).then(console.log)
 ```
@@ -863,7 +863,7 @@ The sendParam object can contain the following:
 ```javascript
 kip8Instance.addMinter(account [, sendParam])
 ```
-Adds an account as a minter that has the permission of MinterRole and can mint.
+Adds an account as a minter that has the permission related to minting tokens.
 
 Note that the addMinter method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -871,7 +871,7 @@ Note that the addMinter method will submit a transaction to the Klaytn network, 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| account | String | The address of account to add as minter. |
+| account | String | The address of account to add as a minter. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
 The sendParam object can contain the following:
@@ -883,7 +883,7 @@ The sendParam object can contain the following:
 | gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
 | value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 
-**NOTE** The from account sending the transaction must be minter with permission of MinterRole.
+**NOTE** The from account sending the transaction must be a minter.
 
 **Return Value**
 
@@ -926,9 +926,9 @@ The sendParam object can contain the following:
 	},
 }
 
-// Set from in kip8Instance.options.from
+// Using kip8Instance.options.from
 // If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip8Instance instance.
+// unless you specify `from` in the sendParam object when sending a transaction with a kip8Instance instance.
 > kip8Instance.options.from = '0x{address in hex}'
 > kip8Instance.addMinter('0x{address in hex}').then(console.log)
 ```
@@ -939,7 +939,8 @@ The sendParam object can contain the following:
 ```javascript
 kip8Instance.renounceMinter([sendParam])
 ```
-Renounces privilege of MinterRole. Only address that is Minter can renounce itself from Minter role, no one else. 
+
+Renounces the permission related to minting tokens. Only address that is a minter can renounce itself. 
 
 Note that the renounceMinter method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -1001,9 +1002,9 @@ The sendParam object can contain the following:
 	},
 }
 
-// Set from in kip8Instance.options.from
+// Using kip8Instance.options.from
 // If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip8Instance instance.
+// unless you specify `from` in the sendParam object when sending a transaction with a kip8Instance instance.
 > kip8Instance.options.from = '0x{address in hex}'
 > kip8Instance.renounceMinter().then(console.log)
 ```
@@ -1085,9 +1086,9 @@ The sendParam object can contain the following:
 	},
 }
 
-// Set from in kip8Instance.options.from
+// Using kip8Instance.options.from
 // If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip8Instance instance.
+// unless you specify `from` in the sendParam object when sending a transaction with a kip8Instance instance.
 > kip8Instance.options.from = '0x{address in hex}'
 > kip8Instance.mintWithTokenURI('0x{address in hex}', 18, tokenURI).then(console.log)
 ```
@@ -1165,9 +1166,9 @@ The sendParam object can contain the following:
 	},
 }
 
-// Set from in kip8Instance.options.from
+// Using kip8Instance.options.from
 // If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip8Instance instance.
+// unless you specify `from` in the sendParam object when sending a transaction with a kip8Instance instance.
 > kip8Instance.options.from = '0x{address in hex}'
 > kip8Instance.burn(14).then(console.log)
 ```
@@ -1240,9 +1241,9 @@ The sendParam object can contain the following:
 	},
 }
 
-// Set from in kip8Instance.options.from
+// Using kip8Instance.options.from
 // If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip8Instance instance.
+// unless you specify `from` in the sendParam object when sending a transaction with a kip8Instance instance.
 > kip8Instance.options.from = '0x{address in hex}'
 > kip8Instance.pause().then(console.log)
 ```
@@ -1315,9 +1316,9 @@ The sendParam object can contain the following:
 	},
 }
 
-// Set from in kip8Instance.options.from
+// Using kip8Instance.options.from
 // If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip8Instance instance.
+// unless you specify `from` in the sendParam object when sending a transaction with a kip8Instance instance.
 > kip8Instance.options.from = '0x{address in hex}'
 > kip8Instance.unpause().then(console.log)
 ```
@@ -1391,9 +1392,9 @@ The sendParam object can contain the following:
 	},
 }
 
-// Set from in kip8Instance.options.from
+// Using kip8Instance.options.from
 // If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip8Instance instance.
+// unless you specify `from` in the sendParam object when sending a transaction with a kip8Instance instance.
 > kip8Instance.options.from = '0x{address in hex}'
 > kip8Instance.addPauser('0x{address in hex}').then(console.log)
 ```
@@ -1466,9 +1467,9 @@ The sendParam object can contain the following:
 	},
 }
 
-// Set from in kip8Instance.options.from
+// Using kip8Instance.options.from
 // If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip8Instance instance.
+// unless you specify `from` in the sendParam object when sending a transaction with a kip8Instance instance.
 > kip8Instance.options.from = '0x{address in hex}'
 > kip8Instance.renouncePauser().then(console.log)
 ```
