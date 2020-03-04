@@ -46,7 +46,7 @@ The tokenInfo object must contain the following:
 
 **Return Value**
 
-`PromiEvent`: A promise combined event emitter.  Will be resolved with new KIP7 instance. Additionally, the following events are available:
+`PromiEvent`: A promise combined event emitter, which is resolved with a new KIP7 instance. Additionally, the following events are available:
 
 | Name | Type | Description |
 | --- | --- | --- |
