@@ -30,8 +30,8 @@ After successful deployment, the promise will resolve with a new KIP7 instance.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenInfo | Object | The informations needed to deploy KIP-7 token contract on the Klyatn blockchain. |
-| deployer | String | The address of the account to which you want to deploy the KIP-7 token contract. This account must have enough KLAY to deploy. |
+| tokenInfo | Object | The information needed to deploy KIP-7 token contract on the Klaytn blockchain. See below table to find the description. |
+| deployer | String | The address of the account to deploy the KIP-7 token contract. This account must have enough KLAY to deploy. |
 
 The tokenInfo object must contain the following:
 
@@ -40,7 +40,7 @@ The tokenInfo object must contain the following:
 | name | String | The name of the token. |
 | symbol | String | The symbol of the token. |
 | decimals | Number | The number of decimals the token uses. |
-| initialSupply | BigNumber &#124; String &#124; Number | The total token supply. |
+| initialSupply | BigNumber &#124; String &#124; Number | The total number of tokens at the deployment. |
 
 **NOTE** It also supports `Number` types as parameters for initialSupply. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
 
@@ -50,9 +50,9 @@ The tokenInfo object must contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| transactionHash | String | Is fired right after the transaction is sent and a transaction hash is available. |
-| receipt | Object | Is fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see the description of the return field of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
-| error | Error | Is fired if an error occurs during sending. |
+| transactionHash | String | Fired right after the transaction is sent and a transaction hash is available. |
+| receipt | Object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
+| error | Error | Fired if an error occurs during sending. |
 
 **Example**
 
