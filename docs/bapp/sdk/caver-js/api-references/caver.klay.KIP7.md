@@ -62,7 +62,7 @@ The tokenInfo object must contain the following:
     name: 'Jasmine',
     symbol: 'JAS',
     decimals: 18,
-    initialSupply: '100000',
+    initialSupply: '100000000000000000000',
 }, '0x{address in hex}').then(console.log)
 KIP7 {
 	...
