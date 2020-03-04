@@ -113,7 +113,6 @@ Creates a new KIP7 instance with all its methods and events.
 | Name | Type | Description |
 | --- | --- | --- |
 | tokenAddress | String | (optional) The address of the smart contract to call, which can be assigned later through `kip7Instance.options.address = '0x1234..'` |
-| abi | Object | (optional) The custom ABI in the JSON format for the fungible token contract. If omitted, it uses ABI described in the specification of KIP-7. |
 
 **NOTE** If you send a jsonInterface as a parameter that is not an implementation of KIP-7, you will get an error when using the methods of the class.
 
@@ -132,54 +131,6 @@ Creates a new KIP7 instance with all its methods and events.
 
 // Create a KIP7 instance with token address
 > const kip7Instance = new caver.klay.KIP7('0x{address in hex}')
-
-// Create a KIP7 instance with jsonInterface(abi)
-> const kip7Instance = new caver.klay.KIP7([
-    {
-        constant: true,
-        inputs: [],
-        name: 'name',
-        outputs: [{ name: '', type: 'string' }],
-        payable: false,
-        stateMutability: 'view',
-        type: 'function',
-    },
-	...
-    {
-        anonymous: false,
-        inputs: [
-            { indexed: true, name: 'owner', type: 'address' },
-            { indexed: true, name: 'spender', type: 'address' },
-            { indexed: false, name: 'value', type: 'uint256' },
-        ],
-        name: 'Approval',
-        type: 'event',
-    },
-])
-
-// Create a KIP7 instance with token address and ABI
-> const kip7Instance = new caver.klay.KIP7('0x{address in hex}', [
-    {
-        constant: true,
-        inputs: [],
-        name: 'name',
-        outputs: [{ name: '', type: 'string' }],
-        payable: false,
-        stateMutability: 'view',
-        type: 'function',
-    },
-	...
-    {
-        anonymous: false,
-        inputs: [
-            { indexed: true, name: 'owner', type: 'address' },
-            { indexed: true, name: 'spender', type: 'address' },
-            { indexed: false, name: 'value', type: 'uint256' },
-        ],
-        name: 'Approval',
-        type: 'event',
-    },
-])
 ```
 
 
