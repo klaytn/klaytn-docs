@@ -548,9 +548,9 @@ The sendParam object can contain the following:
 	},
 }
 
-// Set from in kip7Instance.options.from
+// Using kip7Instance.options.from
 // If the value of kip7Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip7Instance instance.
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7Instance instance.
 > kip7Instance.options.from = '0x{address in hex}'
 > kip7Instance.transfer('0x{address in hex}', 10).then(console.log)
 ```
@@ -653,9 +653,9 @@ The sendParam object can contain the following:
 	},
 }
 
-// Set from in kip7Instance.options.from
+// Using kip7Instance.options.from
 // If the value of kip7Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip7Instance instance.
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7Instance instance.
 > kip7Instance.options.from = '0x{address in hex}'
 > kip7Instance.transferFrom('0x{address in hex}', '0x{address in hex}', 10000).then(console.log)
 ```
@@ -736,9 +736,9 @@ The sendParam object can contain the following:
 	},
 }
 
-// Set from in kip7Instance.options.from
+// Using kip7Instance.options.from
 // If the value of kip7Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip7Instance instance.
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7Instance instance.
 > kip7Instance.options.from = '0x{address in hex}'
 > kip7Instance.mint('0x{address in hex}', 10000).then(console.log)
 ```
@@ -812,9 +812,9 @@ The sendParam object can contain the following:
 	},
 }
 
-// Set from in kip7Instance.options.from
+// Using kip7Instance.options.from
 // If the value of kip7Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip7Instance instance.
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7Instance instance.
 > kip7Instance.options.from = '0x{address in hex}'
 > kip7Instance.addMinter('0x{address in hex}').then(console.log)
 ```
@@ -887,9 +887,9 @@ The sendParam object can contain the following:
 	},
 }
 
-// Set from in kip7Instance.options.from
+// Using kip7Instance.options.from
 // If the value of kip7Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip7Instance instance.
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7Instance instance.
 > kip7Instance.options.from = '0x{address in hex}'
 > kip7Instance.renounceMinter().then(console.log)
 ```
@@ -967,9 +967,9 @@ The sendParam object can contain the following:
 	},
 }
 
-// Set from in kip7Instance.options.from
+// Using kip7Instance.options.from
 // If the value of kip7Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip7Instance instance.
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7Instance instance.
 > kip7Instance.options.from = '0x{address in hex}'
 > kip7Instance.burn(1000).then(console.log)
 ```
@@ -1071,9 +1071,9 @@ The sendParam object can contain the following:
 	},
 }
 
-// Set from in kip7Instance.options.from
+// Using kip7Instance.options.from
 // If the value of kip7Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip7Instance instance.
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7Instance instance.
 > kip7Instance.options.from = '0x{address in hex}'
 > kip7Instance.burnFrom('0x{address in hex}', 1000).then(console.log)
 ```
@@ -1147,9 +1147,9 @@ The sendParam object can contain the following:
 	},
 }
 
-// Set from in kip7Instance.options.from
+// Using kip7Instance.options.from
 // If the value of kip7Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip7Instance instance.
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7Instance instance.
 > kip7Instance.options.from = '0x{address in hex}'
 > kip7Instance.addPauser('0x{address in hex}').then(console.log)
 ```
@@ -1222,9 +1222,9 @@ The sendParam object can contain the following:
 	},
 }
 
-// Set from in kip7Instance.options.from
+// Using kip7Instance.options.from
 // If the value of kip7Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip7Instance instance.
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7Instance instance.
 > kip7Instance.options.from = '0x{address in hex}'
 > kip7Instance.renouncePauser().then(console.log)
 ```
@@ -1297,9 +1297,9 @@ The sendParam object can contain the following:
 	},
 }
 
-// Set from in kip7Instance.options.from
+// Using kip7Instance.options.from
 // If the value of kip7Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip7Instance instance.
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7Instance instance.
 > kip7Instance.options.from = '0x{address in hex}'
 > kip7Instance.pause().then(console.log)
 ```
@@ -1372,9 +1372,9 @@ The sendParam object can contain the following:
 	},
 }
 
-// Set from in kip7Instance.options.from
+// Using kip7Instance.options.from
 // If the value of kip7Instance.options.from is set, this value is used as the default value 
-// unless you specify from address in sendParam object when sending transaction with kip7Instance instance.
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7Instance instance.
 > kip7Instance.options.from = '0x{address in hex}'
 > kip7Instance.unpause().then(console.log)
 ```
