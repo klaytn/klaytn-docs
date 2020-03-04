@@ -825,7 +825,7 @@ The sendParam object can contain the following:
 ```javascript
 kip7Instance.renounceMinter([sendParam])
 ```
-Renounces privilege of MinterRole. Only address that is Minter can renounce itself from Minter role, no one else. 
+Renounces the permission related to minting tokens. Only address that is a minter can renounce itself. 
 
 Note that the renounceMinter method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
