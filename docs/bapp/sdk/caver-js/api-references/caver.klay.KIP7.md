@@ -367,17 +367,17 @@ Returns the amount which `spender` is still allowed to withdraw from `owner`.
 ```javascript
 kip7Instance.isMinter(address)
 ```
-Returns `true` if an input account is minter which have permission to mint.
+Returns `true` if the given account is a minter which has permission to mint.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | String | The address of the account you want to check minting permission. |
+| address | String | The address of the account to check minting permission. |
 
 **Return Value**
 
-`Promise` returns `Boolean`: `true` if the account of address is minter.
+`Promise` returns `Boolean`: `true` if the account is a minter.
 
 **Example**
 
@@ -395,7 +395,7 @@ false
 ```javascript
 kip7Instance.isPauser(address)
 ```
-Returns `true` if an input account is pauser which have permission to pause.
+Returns `true` if the given account is a pauser which has permission to suspend transferring tokens.
 
 **Parameters**
 
