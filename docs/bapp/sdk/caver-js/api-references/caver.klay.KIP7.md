@@ -490,18 +490,9 @@ Note that the transfer method will submit a transaction to the Klaytn network, w
 | --- | --- | --- |
 | recipient | String | The address of the account to receive the token. |
 | amount | BigNumber &#124; String &#124; Number | The amount of tokens to transfer. |
-| sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **NOTE** It also supports `Number` types as parameters for amount. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
-
-The sendParam object can contain the following:
-
-| Name | Type | Description |
-| --- | --- | --- |
-| from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.transfer(recipient, amount).estimateGas({from})`. |
-| gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 
 **Return Value**
 
@@ -572,18 +563,9 @@ Note that the transferFrom method will submit a transaction to the Klaytn networ
 | sender | String | The address of the account that owns the token to be sent with allowance mechanism. |
 | recipient | String | The address of the account to receive the token. |
 | amount | BigNumber &#124; String &#124; Number | The amount of tokens you want to transfer. |
-| sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **NOTE** It also supports `Number` types as parameters for amount. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
-
-The sendParam object can contain the following:
-
-| Name | Type | Description |
-| --- | --- | --- |
-| from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.transferFrom(sender, recipient, amount).estimateGas({from})`. |
-| gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 
 **Return Value**
 
@@ -676,18 +658,9 @@ Note that the mint method will submit a transaction to the Klaytn network, which
 | --- | --- | --- |
 | account | String | The address of the account to which the minted token will be allocated. |
 | amount | BigNumber &#124; String &#124; Number | The amount of tokens to mint. |
-| sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **NOTE** It also supports `Number` types as parameters for amount. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
-
-The sendParam object can contain the following:
-
-| Name | Type | Description |
-| --- | --- | --- |
-| from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.mint(account, amount).estimateGas({from})`. |
-| gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 
 **NOTE** The from account sending the transaction must be minter with permission of MinterRole.
 
@@ -758,16 +731,7 @@ Note that the addMinter method will submit a transaction to the Klaytn network, 
 | Name | Type | Description |
 | --- | --- | --- |
 | account | String | The address of account to add as a minter. |
-| sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
-
-The sendParam object can contain the following:
-
-| Name | Type | Description |
-| --- | --- | --- |
-| from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.addMinter(account).estimateGas({from})`. |
-| gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **NOTE** The from account sending the transaction must be a minter.
 
@@ -833,16 +797,7 @@ Note that the renounceMinter method will submit a transaction to the Klaytn netw
 
 | Name | Type | Description |
 | --- | --- | --- |
-| sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
-
-The sendParam object can contain the following:
-
-| Name | Type | Description |
-| --- | --- | --- |
-| from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.renounceMinter().estimateGas({from})`. |
-| gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **NOTE** The from account sending the transaction must be minter with permission of MinterRole.
 
@@ -909,18 +864,9 @@ Note that the burn method will submit a transaction to the Klaytn network, which
 | Name | Type | Description |
 | --- | --- | --- |
 | amount | BigNumber &#124; String &#124; Number | The amount of tokens to destroy. |
-| sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **NOTE** It also supports `Number` types as parameters for amount. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
-
-The sendParam object can contain the following:
-
-| Name | Type | Description |
-| --- | --- | --- |
-| from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.burn(amount).estimateGas({from})`. |
-| gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 
 **Return Value**
 
@@ -990,18 +936,9 @@ Note that the burnFrom method will submit a transaction to the Klaytn network, w
 | --- | --- | --- |
 | account | String | The address of the account that owns the given amount of tokens to be burned with allowance mechanism. |
 | amount | BigNumber &#124; String &#124; Number | The amount of tokens to destroy. |
-| sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **NOTE** It also supports `Number` types as parameters for amount. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
-
-The sendParam object can contain the following:
-
-| Name | Type | Description |
-| --- | --- | --- |
-| from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.burnFrom(account, amount).estimateGas({from})`. |
-| gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 
 **Return Value**
 
@@ -1093,16 +1030,7 @@ Note that the addPauser method will submit a transaction to the Klaytn network, 
 | Name | Type | Description |
 | --- | --- | --- |
 | account | String | The address of account to be a new pauser. |
-| sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
-
-The sendParam object can contain the following:
-
-| Name | Type | Description |
-| --- | --- | --- |
-| from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.addPauser(account).estimateGas({from})`. |
-| gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **NOTE** The from account sending the transaction must be pauser with permission of PauserRole.
 
@@ -1168,16 +1096,7 @@ Note that the renouncePauser method will submit a transaction to the Klaytn netw
 
 | Name | Type | Description |
 | --- | --- | --- |
-| sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
-
-The sendParam object can contain the following:
-
-| Name | Type | Description |
-| --- | --- | --- |
-| from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.renouncePauser().estimateGas({from})`. |
-| gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **NOTE** The from account sending the transaction must be pauser with permission of PauserRole.
 
@@ -1243,16 +1162,7 @@ Note that the pause method will submit a transaction to the Klaytn network, whic
 
 | Name | Type | Description |
 | --- | --- | --- |
-| sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
-
-The sendParam object can contain the following:
-
-| Name | Type | Description |
-| --- | --- | --- |
-| from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.pause().estimateGas({from})`. |
-| gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **NOTE** The from account sending the transaction must be pauser with permission of PauserRole.
 
@@ -1318,16 +1228,7 @@ Note that the unpause method will submit a transaction to the Klaytn network, wh
 
 | Name | Type | Description |
 | --- | --- | --- |
-| sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
-
-The sendParam object can contain the following:
-
-| Name | Type | Description |
-| --- | --- | --- |
-| from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
-| gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.unpause().estimateGas({from})`. |
-| gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **NOTE** The from account sending the transaction must be pauser with permission of PauserRole.
 
