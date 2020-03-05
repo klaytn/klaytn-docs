@@ -1,35 +1,35 @@
 ---
 description: >-
-  A caver-js object used to interact with a smart contract for KIP8.
+  A caver-js object used to interact with a smart contract for KIP17.
 ---
 
-# caver.klay.KIP8 <a id="caver-klay-kip8"></a>
+# caver.klay.KIP17 <a id="caver-klay-kip8"></a>
 
-The `caver.klay.KIP8` makes it easy to interact with smart contract that implements KIP-8 on the Klaytn blockchain. 
+The `caver.klay.KIP17` makes it easy to interact with smart contract that implements KIP-17 on the Klaytn blockchain. 
 
-This allows you to interact with smart contract that implements KIP-8 as if they were JavaScript objects.
+This allows you to interact with smart contract that implements KIP-17 as if they were JavaScript objects.
 
-The `caver.klay.KIP8` inherits [caver.klay.Contract](caver.klay.Contract.md) and is implemented for KIP-8 token contracts. This section describes only the additional implementations of the caver.klay.KIP8 for ease usage.
+The `caver.klay.KIP17` inherits [caver.klay.Contract](caver.klay.Contract.md) and is implemented for KIP-17 token contracts. This section describes only the additional implementations of the caver.klay.KIP17 for ease usage.
 
-The abi and bytecode used in the caver.klay.KIP8 were implemented using the example of [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC721).
+The abi and bytecode used in the caver.klay.KIP17 were implemented using the example of [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC721).
 
-For more information about KIP-8, see [Klaytn Improvement Proposals](https://klaytn.github.io/kips/token).
+For more information about KIP-17, see [Klaytn Improvement Proposals](https://klaytn.github.io/kips/token).
 
 
-## caver.klay.KIP8.deploy <a id="caver-klay-kip8-deploy"></a>
+## caver.klay.KIP17.deploy <a id="caver-klay-kip17-deploy"></a>
 
 ```javascript
-caver.klay.KIP8.deploy(tokenInfo, deployer)
+caver.klay.KIP17.deploy(tokenInfo, deployer)
 ```
-Deploys the KIP-8 token contract to the Klaytn blockchain. A contract deployed using caver.klay.KIP8.deploy is a non fungible token that follows the KIP-8 standard. 
+Deploys the KIP-17 token contract to the Klaytn blockchain. A contract deployed using caver.klay.KIP17.deploy is a non fungible token that follows the KIP-17 standard. 
 
-After successful deployment, the promise will resolve with a new KIP8 instance.
+After successful deployment, the promise will resolve with a new KIP17 instance.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenInfo | Object | The information needed to deploy KIP-8 token contract on the Klaytn blockchain. See below table to find the description. |
+| tokenInfo | Object | The information needed to deploy KIP-17 token contract on the Klaytn blockchain. See below table to find the description. |
 | deployer | String | The address of the account to deploy the KIP-7 token contract. This account must have enough KLAY to deploy. |
 
 The tokenInfo object must contain the following:
@@ -53,11 +53,11 @@ The tokenInfo object must contain the following:
 
 ```javascript
 // using the promise
-> caver.klay.KIP8.deploy({
+> caver.klay.KIP17.deploy({
     name: 'Jasmine',
     symbol: 'JAS',
 }, '0x{address in hex}').then(console.log)
-KIP8 {
+KIP17 {
 	...
 	_address: '0xfA7D967f414468083aDAd85257a2cBD6019693C2',
 	_jsonInterface: [
@@ -77,7 +77,7 @@ KIP8 {
 }
 
 // using event emitter and promise
-> caver.klay.KIP8.deploy({
+> caver.klay.KIP17.deploy({
     name: 'Jasmine',
     symbol: 'JAS',
 }, '0x{address in hex}')
@@ -86,18 +86,18 @@ KIP8 {
 .on('receipt', function(receipt) {
 	console.log(receipt.contractAddress) // contains the new token contract address
 })
-.then(function(newKIP8Instance) {
-	console.log(newKIP8Instance.options.address) // instance with the new token contract address
+.then(function(newKIP17Instance) {
+	console.log(newKIP17Instance.options.address) // instance with the new token contract address
 })
 ```
 
 
-## new KIP8 <a id="new-kip8"></a>
+## new KIP17 <a id="new-kip17"></a>
 
 ```javascript
-new caver.klay.KIP8([tokenAddress])
+new caver.klay.KIP17([tokenAddress])
 ```
-Creates a new KIP8 instance with all its methods and events.
+Creates a new KIP17 instance with all its methods and events.
 
 **Parameters**
 
@@ -109,26 +109,26 @@ Creates a new KIP8 instance with all its methods and events.
 
 | Type | Description |
 | --- | --- |
-| Object | The KIP8 instance with all its methods and events. |
+| Object | The KIP17 instance with all its methods and events. |
 
 
 **Example**
 
 ```javascript
-// Create a KIP8 instance without a parameter
-> const kip8Instance = new caver.klay.KIP8()
+// Create a KIP17 instance without a parameter
+> const kip17Instance = new caver.klay.KIP17()
 
-// Create a KIP8 instance with a token address
-> const kip8Instance = new caver.klay.KIP8('0x{address in hex}')
+// Create a KIP17 instance with a token address
+> const kip17Instance = new caver.klay.KIP17('0x{address in hex}')
 ```
 
 
-## kip8Instance.clone <a id="kip8instance-clone"></a>
+## kip17Instance.clone <a id="kip17instance-clone"></a>
 
 ```javascript
-kip8Instance.clone([tokenAddress])
+kip17Instance.clone([tokenAddress])
 ```
-Clones the current KIP8 instance.
+Clones the current KIP17 instance.
 
 **Parameters**
 
@@ -140,26 +140,26 @@ Clones the current KIP8 instance.
 
 | Type | Description |
 | --- | --- |
-| Object | The new cloned KIP8 instance. |
+| Object | The new cloned KIP17 instance. |
 
 
 **Example**
 
 ```javascript
-> const kip8Instance = new caver.klay.KIP8(address)
+> const kip17Instance = new caver.klay.KIP17(address)
 
 // Clone without a parameter
-> const cloned = kip8Instance.clone()
+> const cloned = kip17Instance.clone()
 
 // Clone with the address of the new token contract
-> const cloned = kip8Instance.clone('0x{address in hex}')
+> const cloned = kip17Instance.clone('0x{address in hex}')
 ```
 
 
-## kip8Instance.supportsInterface <a id="kip8instance-supportsinterface"></a>
+## kip17Instance.supportsInterface <a id="kip17instance-supportsinterface"></a>
 
 ```javascript
-kip8Instance.supportsInterface(interfaceId)
+kip17Instance.supportsInterface(interfaceId)
 ```
 Returns `true` if this contract implements the interface defined by interfaceId.
 
@@ -176,18 +176,18 @@ Returns `true` if this contract implements the interface defined by interfaceId.
 **Example**
 
 ```javascript
-> kip8Instance.supportsInterface('0x80ac58cd').then(console.log)
+> kip17Instance.supportsInterface('0x80ac58cd').then(console.log)
 true
 
-> kip8Instance.supportsInterface('0xa22cb465').then(console.log)
+> kip17Instance.supportsInterface('0xa22cb465').then(console.log)
 false
 ```
 
 
-## kip8Instance.name <a id="kip8instance-name"></a>
+## kip17Instance.name <a id="kip17instance-name"></a>
 
 ```javascript
-kip8Instance.name()
+kip17Instance.name()
 ```
 Returns the name of the token.
 
@@ -202,15 +202,15 @@ None
 **Example**
 
 ```javascript
-> kip8Instance.name().then(console.log)
+> kip17Instance.name().then(console.log)
 Jasmine
 ```
 
 
-## kip8Instance.symbol <a id="kip8instance-symbol"></a>
+## kip17Instance.symbol <a id="kip17instance-symbol"></a>
 
 ```javascript
-kip8Instance.symbol()
+kip17Instance.symbol()
 ```
 Returns the symbol of the token.
 
@@ -225,15 +225,15 @@ None
 **Example**
 
 ```javascript
-> kip8Instance.symbol().then(console.log)
+> kip17Instance.symbol().then(console.log)
 JAS
 ```
 
 
-## kip8Instance.totalSupply <a id="kip8instance-totalsupply"></a>
+## kip17Instance.totalSupply <a id="kip17instance-totalsupply"></a>
 
 ```javascript
-kip8Instance.totalSupply()
+kip17Instance.totalSupply()
 ```
 Returns the total number of tokens stored by the contract.
 
@@ -248,15 +248,15 @@ None
 **Example**
 
 ```javascript
-> kip8Instance.totalSupply().then(console.log)
+> kip17Instance.totalSupply().then(console.log)
 10
 ```
 
 
-## kip8Instance.tokenURI <a id="kip8instance-tokenuri"></a>
+## kip17Instance.tokenURI <a id="kip17instance-tokenuri"></a>
 
 ```javascript
-kip8Instance.tokenURI(tokenId)
+kip17Instance.tokenURI(tokenId)
 ```
 Returns the URI for a given token id.
 
@@ -275,15 +275,15 @@ Returns the URI for a given token id.
 **Example**
 
 ```javascript
-> kip8Instance.tokenURI(0).then(console.log)
-https://kip8.example/uri-ex-caver.json
+> kip17Instance.tokenURI(0).then(console.log)
+https://kip17.example/uri-ex-caver.json
 ```
 
 
-## kip8Instance.tokenOfOwnerByIndex <a id="kip8instance-tokenofownerbyindex"></a>
+## kip17Instance.tokenOfOwnerByIndex <a id="kip17instance-tokenofownerbyindex"></a>
 
 ```javascript
-kip8Instance.tokenOfOwnerByIndex(owner, index)
+kip17Instance.tokenOfOwnerByIndex(owner, index)
 ```
 Returns the token id at a given index of the tokens list of the requested owner.
 
@@ -303,15 +303,15 @@ Returns the token id at a given index of the tokens list of the requested owner.
 **Example**
 
 ```javascript
-> kip8Instance.tokenOfOwnerByIndex('0x{address in hex}', 5).then(console.log)
+> kip17Instance.tokenOfOwnerByIndex('0x{address in hex}', 5).then(console.log)
 5
 ```
 
 
-## kip8Instance.tokenByIndex <a id="kip8instance-tokenbyindex"></a>
+## kip17Instance.tokenByIndex <a id="kip17instance-tokenbyindex"></a>
 
 ```javascript
-kip8Instance.tokenByIndex(index)
+kip17Instance.tokenByIndex(index)
 ```
 Returns the token id at a given index of all the tokens in this contract. Reverts if the index is greater or equal to the total number of tokens.
 
@@ -330,17 +330,17 @@ Returns the token id at a given index of all the tokens in this contract. Revert
 **Example**
 
 ```javascript
-> kip8Instance.tokenByIndex(1).then(console.log)
+> kip17Instance.tokenByIndex(1).then(console.log)
 1
 ```
 
 
-## kip8Instance.balanceOf <a id="kip8instance-balanceof"></a>
+## kip17Instance.balanceOf <a id="kip17instance-balanceof"></a>
 
 ```javascript
-kip8Instance.balanceOf(address)
+kip17Instance.balanceOf(address)
 ```
-Returns the balance of the given account address. The balance of an account in KIP-8 means that the total number of NFT(Non Fungible Token) owned by the account.
+Returns the balance of the given account address. The balance of an account in KIP-17 means that the total number of NFT(Non Fungible Token) owned by the account.
 
 **Parameters**
 
@@ -355,15 +355,15 @@ Returns the balance of the given account address. The balance of an account in K
 **Example**
 
 ```javascript
-> kip8Instance.balanceOf('0x{address in hex}').then(console.log)
+> kip17Instance.balanceOf('0x{address in hex}').then(console.log)
 9
 ```
 
 
-## kip8Instance.ownerOf <a id="kip8instance-ownerof"></a>
+## kip17Instance.ownerOf <a id="kip17instance-ownerof"></a>
 
 ```javascript
-kip8Instance.ownerOf(tokenId)
+kip17Instance.ownerOf(tokenId)
 ```
 Returns the owner of the specified token id.
 
@@ -382,15 +382,15 @@ Returns the owner of the specified token id.
 **Example**
 
 ```javascript
-> kip8Instance.ownerOf(8).then(console.log)
+> kip17Instance.ownerOf(8).then(console.log)
 0x0e0E95426343d97CC7BB913C7D7DBea065A31814
 ```
 
 
-## kip8Instance.getApproved <a id="kip8instance-getapproved"></a>
+## kip17Instance.getApproved <a id="kip17instance-getapproved"></a>
 
 ```javascript
-kip8Instance.getApproved(tokenId)
+kip17Instance.getApproved(tokenId)
 ```
 Returns the approved address for a token id, or zero if no address set. Reverts if the token id does not exist.
 
@@ -410,19 +410,19 @@ Returns the approved address for a token id, or zero if no address set. Reverts 
 
 ```javascript
 // If approved address is set
-> kip8Instance.getApproved(10).then(console.log)
+> kip17Instance.getApproved(10).then(console.log)
 0x23D8E9cae17b22d3DAC65b4F7D2C737C6A7b865d
 
 // If approved address is not set
-> kip8Instance.getApproved(3).then(console.log)
+> kip17Instance.getApproved(3).then(console.log)
 0x0000000000000000000000000000000000000000
 ```
 
 
-## kip8Instance.isApprovedForAll <a id="kip8instance-isapprovedforall"></a>
+## kip17Instance.isApprovedForAll <a id="kip17instance-isapprovedforall"></a>
 
 ```javascript
-kip8Instance.isApprovedForAll(owner, operator)
+kip17Instance.isApprovedForAll(owner, operator)
 ```
 Returns `true` if an operator is approved by a given owner.
 
@@ -440,18 +440,18 @@ Returns `true` if an operator is approved by a given owner.
 **Example**
 
 ```javascript
-> kip8Instance.isApprovedForAll('0x{address in hex}', '0x{address in hex}').then(console.log)
+> kip17Instance.isApprovedForAll('0x{address in hex}', '0x{address in hex}').then(console.log)
 false
 
-> kip8Instance.isApprovedForAll('0x{address in hex}', '0x{address in hex}').then(console.log)
+> kip17Instance.isApprovedForAll('0x{address in hex}', '0x{address in hex}').then(console.log)
 true
 ```
 
 
-## kip8Instance.isMinter <a id="kip8instance-isminter"></a>
+## kip17Instance.isMinter <a id="kip17instance-isminter"></a>
 
 ```javascript
-kip8Instance.isMinter(address)
+kip17Instance.isMinter(address)
 ```
 Returns `true` if the given account is a minter which has permission to mint.
 
@@ -468,18 +468,18 @@ Returns `true` if the given account is a minter which has permission to mint.
 **Example**
 
 ```javascript
-> kip8Instance.isMinter('0x{address in hex}').then(console.log)
+> kip17Instance.isMinter('0x{address in hex}').then(console.log)
 true
 
-> kip8Instance.isMinter('0x{address in hex}').then(console.log)
+> kip17Instance.isMinter('0x{address in hex}').then(console.log)
 false
 ```
 
 
-## kip8Instance.paused <a id="kip8instance-paused"></a>
+## kip17Instance.paused <a id="kip17instance-paused"></a>
 
 ```javascript
-kip8Instance.paused()
+kip17Instance.paused()
 ```
 Returns `true` if the contract is in the paused state, and `false` otherwise.
 
@@ -494,18 +494,18 @@ None
 **Example**
 
 ```javascript
-> kip8Instance.paused().then(console.log)
+> kip17Instance.paused().then(console.log)
 true
 
-> kip8Instance.paused().then(console.log)
+> kip17Instance.paused().then(console.log)
 false
 ```
 
 
-## kip8Instance.isPauser <a id="kip8instance-ispauser"></a>
+## kip17Instance.isPauser <a id="kip17instance-ispauser"></a>
 
 ```javascript
-kip8Instance.isPauser(address)
+kip17Instance.isPauser(address)
 ```
 Returns `true` if the given account is a pauser which has permission to suspend transferring tokens.
 
@@ -522,18 +522,18 @@ Returns `true` if the given account is a pauser which has permission to suspend 
 **Example**
 
 ```javascript
-> kip8Instance.isPauser('0x{address in hex}').then(console.log)
+> kip17Instance.isPauser('0x{address in hex}').then(console.log)
 true
 
-> kip8Instance.isPauser('0x{address in hex}').then(console.log)
+> kip17Instance.isPauser('0x{address in hex}').then(console.log)
 false
 ```
 
 
-## kip8Instance.approve <a id="kip8instance-approve"></a>
+## kip17Instance.approve <a id="kip17instance-approve"></a>
 
 ```javascript
-kip8Instance.approve(to, tokenId [, sendParam])
+kip17Instance.approve(to, tokenId [, sendParam])
 ```
 Approves another address to transfer the given token id. The zero address indicates there is no approved address. There can only be one approved address per token at a given time. Can only be called by the token owner or an approved operator.
 
@@ -560,13 +560,13 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
-> kip8Instance.approve('0x{address in hex}', 10, { from: '0x{address in hex}' }).then(console.log)
+> kip17Instance.approve('0x{address in hex}', 10, { from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0x3875c3f3120c1773c3adeb97260808c8a385bf8427bc203d10cbc5d262f67dbc',
 	blockNumber: 2650,
@@ -603,18 +603,18 @@ The sendParam object can contain the following:
 	},
 }
 
-// Using kip8Instance.options.from
-// If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip8Instance instance.
-> kip8Instance.options.from = '0x{address in hex}'
-> kip8Instance.approve('0x{address in hex}', 10).then(console.log)
+// Using kip17Instance.options.from
+// If the value of kip17Instance.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip17Instance instance.
+> kip17Instance.options.from = '0x{address in hex}'
+> kip17Instance.approve('0x{address in hex}', 10).then(console.log)
 ```
 
 
-## kip8Instance.setApprovalForAll <a id="kip8instance-setApprovalforall"></a>
+## kip17Instance.setApprovalForAll <a id="kip17instance-setApprovalforall"></a>
 
 ```javascript
-kip8Instance.setApprovalForAll(to, approved [, sendParam])
+kip17Instance.setApprovalForAll(to, approved [, sendParam])
 ```
 Sets or unsets the approval of a given operator. An operator is allowed to transfer all tokens of the sender on their behalf.
 
@@ -626,17 +626,17 @@ Note that the setApprovalForAll method will submit a transaction to the Klaytn n
 | --- | --- | --- |
 | to | String | The address of an account to allow/forbid for transfer of all tokens owned by the owner on behalf of the owner. |
 | approved | Boolean | Whether to allow sending tokens on behalf of the owner. If approved is true, the to account is allowed to transfer tokens on behalf of the owner; if false, not. |
-| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip8instance-approve). |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip17instance-approve). |
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
-> kip8Instance.setApprovalForAll('0x{address in hex}', false, { from: '0x{address in hex}' }).then(console.log)
+> kip17Instance.setApprovalForAll('0x{address in hex}', false, { from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0x34379ac5b71f16f41d5171d021ca2945e02c60d9fb7f85fc0127262c2ce72b47',
 	blockNumber: 3340,
@@ -673,20 +673,20 @@ Note that the setApprovalForAll method will submit a transaction to the Klaytn n
 	},
 }
 
-// Using kip8Instance.options.from
-// If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip8Instance instance.
-> kip8Instance.options.from = '0x{address in hex}'
-> kip8Instance.setApprovalForAll('0x{address in hex}', true).then(console.log)
+// Using kip17Instance.options.from
+// If the value of kip17Instance.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip17Instance instance.
+> kip17Instance.options.from = '0x{address in hex}'
+> kip17Instance.setApprovalForAll('0x{address in hex}', true).then(console.log)
 ```
 
 
-## kip8Instance.transferFrom <a id="kip8instance-transferfrom"></a>
+## kip17Instance.transferFrom <a id="kip17instance-transferfrom"></a>
 
 ```javascript
-kip8Instance.transferFrom(from, to, tokenId [, sendParam])
+kip17Instance.transferFrom(from, to, tokenId [, sendParam])
 ```
-Transfers the ownership of a given token id to another address. Usage of this method is discouraged, use [safeTransferFrom](#kip8instance-safetransferfrom) whenever possible.
+Transfers the ownership of a given token id to another address. Usage of this method is discouraged, use [safeTransferFrom](#kip17instance-safetransferfrom) whenever possible.
 
 Note that the transferFrom method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -697,19 +697,19 @@ Note that the transferFrom method will submit a transaction to the Klaytn networ
 | from | String | The address of the owner or approved of the given token. |
 | to | String | The address of the account to receive the token. |
 | tokenId | BigNumber &#124; String &#124; Number | The id of token you want to transfer. |
-| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip8instance-approve). |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip17instance-approve). |
 
 **NOTE** It also supports `Number` types as parameters for tokenId. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
-> kip8Instance.transferFrom('0x{address in hex}', '0x{address in hex}', 2, { from: '0x{address in hex}' }).then(console.log)
+> kip17Instance.transferFrom('0x{address in hex}', '0x{address in hex}', 2, { from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0x9cae3aa93d327804f333674a77d5d01d8c7908c49749b0d747b6391faa232b58',
 	blockNumber: 3592,
@@ -746,18 +746,18 @@ Note that the transferFrom method will submit a transaction to the Klaytn networ
 	},
 }
 
-// Using kip8Instance.options.from
-// If the value of kip8Instance.options.from is set, this value is used as the default value 
+// Using kip17Instance.options.from
+// If the value of kip17Instance.options.from is set, this value is used as the default value 
 // unless you specify `from` in sendParam object when sending a transaction with a kip7Instance instance.
-> kip8Instance.options.from = '0x{address in hex}'
-> kip8Instance.transferFrom('0x{address in hex}', '0x{address in hex}', 2).then(console.log)
+> kip17Instance.options.from = '0x{address in hex}'
+> kip17Instance.transferFrom('0x{address in hex}', '0x{address in hex}', 2).then(console.log)
 ```
 
 
-## kip8Instance.safeTransferFrom <a id="kip8instance-safetransferfrom"></a>
+## kip17Instance.safeTransferFrom <a id="kip17instance-safetransferfrom"></a>
 
 ```javascript
-kip8Instance.safeTransferFrom(from, to, tokenId [, data] [, sendParam])
+kip17Instance.safeTransferFrom(from, to, tokenId [, data] [, sendParam])
 ```
 Safely transfers the ownership of a given token id to another address. If the target address is a contract, it must implement IERC721Receiver.onERC721Received, which is called upon a safe transfer, and return the magic value bytes4(keccak256("onERC721Received(address,address,uint256,bytes)")); otherwise, the transfer is reverted.
 
@@ -771,19 +771,19 @@ Note that the safeTransferFrom method will submit a transaction to the Klaytn ne
 | to | String | The address of the account to receive the token. |
 | tokenId | BigNumber &#124; String &#124; Number | The id of token you want to transfer. |
 | data | Buffer &#124; String &#124; Number | (optional) The optional data to send along with the call. |
-| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip8instance-approve). |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip17instance-approve). |
 
 **NOTE** It also supports `Number` types as parameters for tokenId. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
 // Send via a sendParam object with the from field given (without data)
-> kip8Instance.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 9, { from: '0x{address in hex}' }).then(console.log)
+> kip17Instance.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 9, { from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0x14c5bebc2be86081d8375ba11edba0e541be1df24c1beced1a9e82e3083a8035',
 	blockNumber: 6260,
@@ -821,20 +821,20 @@ Note that the safeTransferFrom method will submit a transaction to the Klaytn ne
 }
 
 // Send via a sendParam object with the from field given (with data)
-> kip8Instance.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 11, '0x1234', { from: '0x{address in hex}' }).then(console.log)
+> kip17Instance.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 11, '0x1234', { from: '0x{address in hex}' }).then(console.log)
 
-// Using kip8Instance.options.from
-// If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip8Instance instance.
-> kip8Instance.options.from = '0x{address in hex}'
-> kip8Instance.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 11).then(console.log)
+// Using kip17Instance.options.from
+// If the value of kip17Instance.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip17Instance instance.
+> kip17Instance.options.from = '0x{address in hex}'
+> kip17Instance.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 11).then(console.log)
 ```
 
 
-## kip8Instance.addMinter <a id="kip8instance-addminter"></a>
+## kip17Instance.addMinter <a id="kip17instance-addminter"></a>
 
 ```javascript
-kip8Instance.addMinter(account [, sendParam])
+kip17Instance.addMinter(account [, sendParam])
 ```
 Adds an account as a minter that has the permission related to minting tokens.
 
@@ -845,19 +845,19 @@ Note that the addMinter method will submit a transaction to the Klaytn network, 
 | Name | Type | Description |
 | --- | --- | --- |
 | account | String | The address of account to add as a minter. |
-| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip8instance-approve). |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip17instance-approve). |
 
 **NOTE** The from account sending the transaction must be a minter.
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
-> kip8Instance.addMinter('0x{address in hex}', { from: '0x{address in hex}' }).then(console.log)
+> kip17Instance.addMinter('0x{address in hex}', { from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0xecd0fb45a32323d5cb14558d1d9299393022d5e7284519598dbd8b14c4c55930',
 	blockNumber: 8307,
@@ -890,18 +890,18 @@ Note that the addMinter method will submit a transaction to the Klaytn network, 
 	},
 }
 
-// Using kip8Instance.options.from
-// If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip8Instance instance.
-> kip8Instance.options.from = '0x{address in hex}'
-> kip8Instance.addMinter('0x{address in hex}').then(console.log)
+// Using kip17Instance.options.from
+// If the value of kip17Instance.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip17Instance instance.
+> kip17Instance.options.from = '0x{address in hex}'
+> kip17Instance.addMinter('0x{address in hex}').then(console.log)
 ```
 
 
-## kip8Instance.renounceMinter <a id="kip8instance-renounceminter"></a>
+## kip17Instance.renounceMinter <a id="kip17instance-renounceminter"></a>
 
 ```javascript
-kip8Instance.renounceMinter([sendParam])
+kip17Instance.renounceMinter([sendParam])
 ```
 
 Renounces the permission related to minting tokens. Only address that is a minter can renounce itself. 
@@ -912,19 +912,19 @@ Note that the renounceMinter method will submit a transaction to the Klaytn netw
 
 | Name | Type | Description |
 | --- | --- | --- |
-| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip8instance-approve). |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip17instance-approve). |
 
 **NOTE** The from account sending the transaction must be minter with permission of MinterRole.
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
-> kip8Instance.renounceMinter({ from: '0x{address in hex}' }).then(console.log)
+> kip17Instance.renounceMinter({ from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0xe130d7ee71a2c55b3cf4e2bce9ea26e7c2cde556c7f8288abac60121b27c26c8',
 	blockNumber: 8542,
@@ -957,18 +957,18 @@ Note that the renounceMinter method will submit a transaction to the Klaytn netw
 	},
 }
 
-// Using kip8Instance.options.from
-// If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip8Instance instance.
-> kip8Instance.options.from = '0x{address in hex}'
-> kip8Instance.renounceMinter().then(console.log)
+// Using kip17Instance.options.from
+// If the value of kip17Instance.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip17Instance instance.
+> kip17Instance.options.from = '0x{address in hex}'
+> kip17Instance.renounceMinter().then(console.log)
 ```
 
 
-## kip8Instance.mintWithTokenURI <a id="kip8instance-mintwithtokenuri"></a>
+## kip17Instance.mintWithTokenURI <a id="kip17instance-mintwithtokenuri"></a>
 
 ```javascript
-kip8Instance.mintWithTokenURI(to, tokenId, tokenURI [, sendParam])
+kip17Instance.mintWithTokenURI(to, tokenId, tokenURI [, sendParam])
 ```
 Creates token with uri and assigns them to account, increasing the total supply.
 
@@ -981,7 +981,7 @@ Note that the mintWithTokenURI method will submit a transaction to the Klaytn ne
 | to | String | The address of the account to which the minted token will be allocated. |
 | tokenId | BigNumber &#124; String &#124; Number | The id of token to mint. |
 | tokenURI | Number | The uri of token to mint. |
-| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip8instance-approve). |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip17instance-approve). |
 
 **NOTE** It also supports `Number` types as parameters for tokenId. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
 
@@ -989,13 +989,13 @@ Note that the mintWithTokenURI method will submit a transaction to the Klaytn ne
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
-> kip8Instance.mintWithTokenURI('0x{address in hex}', 18, tokenURI, { from: '0x{address in hex}' }).then(console.log)
+> kip17Instance.mintWithTokenURI('0x{address in hex}', 18, tokenURI, { from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0xd2473b9853ad33c5fa0a75187e65733614ed4f8c937d06e239768a5ca32d7c7f',
 	blockNumber: 9313,
@@ -1032,20 +1032,20 @@ Note that the mintWithTokenURI method will submit a transaction to the Klaytn ne
 	},
 }
 
-// Using kip8Instance.options.from
-// If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip8Instance instance.
-> kip8Instance.options.from = '0x{address in hex}'
-> kip8Instance.mintWithTokenURI('0x{address in hex}', 18, tokenURI).then(console.log)
+// Using kip17Instance.options.from
+// If the value of kip17Instance.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip17Instance instance.
+> kip17Instance.options.from = '0x{address in hex}'
+> kip17Instance.mintWithTokenURI('0x{address in hex}', 18, tokenURI).then(console.log)
 ```
 
 
-## kip8Instance.burn <a id="kip8instance-burn"></a>
+## kip17Instance.burn <a id="kip17instance-burn"></a>
 
 ```javascript
-kip8Instance.burn(tokenId [, sendParam])
+kip17Instance.burn(tokenId [, sendParam])
 ```
-Destroys a specific KIP-8 token.
+Destroys a specific KIP-17 token.
 
 Note that the burn method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -1054,19 +1054,19 @@ Note that the burn method will submit a transaction to the Klaytn network, which
 | Name | Type | Description |
 | --- | --- | --- |
 | tokenId | BigNumber &#124; String &#124; Number | The id of token to destroy. |
-| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip8instance-approve). |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip17instance-approve). |
 
 **NOTE** It also supports `Number` types as parameters for tokenId. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
-> kip8Instance.burn(14, { from: '0x{address in hex}' }).then(console.log)
+> kip17Instance.burn(14, { from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0x09d8ed5582fdd1c39b0f19f14f065659fe275a60856d86a1840535f6df1a2d51',
 	blockNumber: 18237,
@@ -1103,18 +1103,18 @@ Note that the burn method will submit a transaction to the Klaytn network, which
 	},
 }
 
-// Using kip8Instance.options.from
-// If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip8Instance instance.
-> kip8Instance.options.from = '0x{address in hex}'
-> kip8Instance.burn(14).then(console.log)
+// Using kip17Instance.options.from
+// If the value of kip17Instance.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip17Instance instance.
+> kip17Instance.options.from = '0x{address in hex}'
+> kip17Instance.burn(14).then(console.log)
 ```
 
 
-## kip8Instance.pause <a id="kip8instance-pause"></a>
+## kip17Instance.pause <a id="kip17instance-pause"></a>
 
 ```javascript
-kip8Instance.pause([sendParam])
+kip17Instance.pause([sendParam])
 ```
 Suspends functions related to sending tokens.
 
@@ -1124,19 +1124,19 @@ Note that the pause method will submit a transaction to the Klaytn network, whic
 
 | Name | Type | Description |
 | --- | --- | --- |
-| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip8instance-approve). |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip17instance-approve). |
 
 **NOTE** The from account sending the transaction must be pauser with permission of PauserRole.
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
-> kip8Instance.pause({ from: '0x{address in hex}' }).then(console.log)
+> kip17Instance.pause({ from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0xd73c026474b2077a04808ed0ce6713821eaa8afaed476b19d22b28e483747e04',
 	blockNumber: 19826,
@@ -1169,18 +1169,18 @@ Note that the pause method will submit a transaction to the Klaytn network, whic
 	},
 }
 
-// Using kip8Instance.options.from
-// If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip8Instance instance.
-> kip8Instance.options.from = '0x{address in hex}'
-> kip8Instance.pause().then(console.log)
+// Using kip17Instance.options.from
+// If the value of kip17Instance.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip17Instance instance.
+> kip17Instance.options.from = '0x{address in hex}'
+> kip17Instance.pause().then(console.log)
 ```
 
 
-## kip8Instance.unpause <a id="kip8instance-unpause"></a>
+## kip17Instance.unpause <a id="kip17instance-unpause"></a>
 
 ```javascript
-kip8Instance.unpause([sendParam])
+kip17Instance.unpause([sendParam])
 ```
 Resumes the paused state of the contract.
 
@@ -1190,19 +1190,19 @@ Note that the unpause method will submit a transaction to the Klaytn network, wh
 
 | Name | Type | Description |
 | --- | --- | --- |
-| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip8instance-approve). |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip17instance-approve). |
 
 **NOTE** The from account sending the transaction must be pauser with permission of PauserRole.
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
-> kip8Instance.unpause({ from: '0x{address in hex}' }).then(console.log)
+> kip17Instance.unpause({ from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0x6a9fc0c70853e696e687b119ba95971a42d91616a040ec17afe1fd4803f5a6cb',
 	blockNumber: 19845,
@@ -1235,18 +1235,18 @@ Note that the unpause method will submit a transaction to the Klaytn network, wh
 	},
 }
 
-// Using kip8Instance.options.from
-// If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip8Instance instance.
-> kip8Instance.options.from = '0x{address in hex}'
-> kip8Instance.unpause().then(console.log)
+// Using kip17Instance.options.from
+// If the value of kip17Instance.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip17Instance instance.
+> kip17Instance.options.from = '0x{address in hex}'
+> kip17Instance.unpause().then(console.log)
 ```
 
 
-## kip8Instance.addPauser <a id="kip8instance-addpauser"></a>
+## kip17Instance.addPauser <a id="kip17instance-addpauser"></a>
 
 ```javascript
-kip8Instance.addPauser(account [, sendParam])
+kip17Instance.addPauser(account [, sendParam])
 ```
 Adds an account as a pauser that has the permission related to suspending the contract.
 
@@ -1257,19 +1257,19 @@ Note that the addPauser method will submit a transaction to the Klaytn network, 
 | Name | Type | Description |
 | --- | --- | --- |
 | account | String | The address of account to be a new pauser. |
-| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip8instance-approve). |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip17instance-approve). |
 
 **NOTE** The from account sending the transaction must be pauser with permission of PauserRole.
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
-> kip8Instance.addPauser('0x{address in hex}', { from: '0x{address in hex}' }).then(console.log)
+> kip17Instance.addPauser('0x{address in hex}', { from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0xd9f18912c9666a67a2e7445af0abe5140212955b3d35c491e5475d512fdee7d5',
 	blockNumber: 20502,
@@ -1302,18 +1302,18 @@ Note that the addPauser method will submit a transaction to the Klaytn network, 
 	},
 }
 
-// Using kip8Instance.options.from
-// If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip8Instance instance.
-> kip8Instance.options.from = '0x{address in hex}'
-> kip8Instance.addPauser('0x{address in hex}').then(console.log)
+// Using kip17Instance.options.from
+// If the value of kip17Instance.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip17Instance instance.
+> kip17Instance.options.from = '0x{address in hex}'
+> kip17Instance.addPauser('0x{address in hex}').then(console.log)
 ```
 
 
-## kip8Instance.renouncePauser <a id="kip8instance-renouncepauser"></a>
+## kip17Instance.renouncePauser <a id="kip17instance-renouncepauser"></a>
 
 ```javascript
-kip8Instance.renouncePauser([sendParam])
+kip17Instance.renouncePauser([sendParam])
 ```
 Renounces the permission related to pausing the contract. Only address that is a pauser can renounce itself.
 
@@ -1323,19 +1323,19 @@ Note that the renouncePauser method will submit a transaction to the Klaytn netw
 
 | Name | Type | Description |
 | --- | --- | --- |
-| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip8instance-approve). |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip17instance-approve). |
 
 **NOTE** The from account sending the transaction must be pauser with permission of PauserRole.
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP8 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
-> kip8Instance.renouncePauser({ from: '0x{address in hex}' }).then(console.log)
+> kip17Instance.renouncePauser({ from: '0x{address in hex}' }).then(console.log)
 {
 	blockHash: '0x32bb338ca23846478934416d1b1f4152b69a49411d61b316cff8b3a7d62ca91e',
 	blockNumber: 20512,
@@ -1368,9 +1368,9 @@ Note that the renouncePauser method will submit a transaction to the Klaytn netw
 	},
 }
 
-// Using kip8Instance.options.from
-// If the value of kip8Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip8Instance instance.
-> kip8Instance.options.from = '0x{address in hex}'
-> kip8Instance.renouncePauser().then(console.log)
+// Using kip17Instance.options.from
+// If the value of kip17Instance.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip17Instance instance.
+> kip17Instance.options.from = '0x{address in hex}'
+> kip17Instance.renouncePauser().then(console.log)
 ```
