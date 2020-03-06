@@ -5,9 +5,7 @@ description: >-
 
 # caver.klay.KIP17 <a id="caver-klay-kip8"></a>
 
-The `caver.klay.KIP17` makes it easy to interact with a smart contract that implements [KIP-17](https://klaytn.github.io/kips/KIPs/kip-17-non_fungible_token) on the Klaytn blockchain. 
-
-This allows you to interact with smart contract that implements KIP-17 as if they were JavaScript objects.
+The `caver.klay.KIP17`, a javascript object, makes it easy to interact with a smart contract that implements [KIP-17](https://klaytn.github.io/kips/KIPs/kip-17-non_fungible_token) on the Klaytn blockchain. 
 
 The `caver.klay.KIP17` inherits [caver.klay.Contract](caver.klay.Contract.md) and is implemented for KIP-17 token contracts. This section describes only the additional implementations of the caver.klay.KIP17 for easy to use.
 
