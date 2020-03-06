@@ -535,7 +535,7 @@ false
 ```javascript
 kip17Instance.approve(to, tokenId [, sendParam])
 ```
-Approves another address to transfer the given token id. The zero address indicates there is no approved address. There can only be one approved address per token at a given time. Can only be called by the token owner or an approved operator.
+Approves another address to transfer the given token id. The zero address indicates there is no approved address. There can only be one approved address per token at a given time. This method is allowed to call only by the token owner or an approved operator.
 
 Note that the approve method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
