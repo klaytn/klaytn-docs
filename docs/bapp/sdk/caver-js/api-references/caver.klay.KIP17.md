@@ -13,6 +13,7 @@ The code that implements KIP-17 for caver-js is available on the [caver-js Githu
 
 For more information about KIP-17, see [Klaytn Improvement Proposals](https://klaytn.github.io/kips/KIPs/kip-17-non_fungible_token).
 
+**NOTE** `caver.klay.KIP17` is supported since caver-js [v1.4.0](https://www.npmjs.com/package/caver-js/v/1.4.0).
 
 ## caver.klay.KIP17.deploy <a id="caver-klay-kip17-deploy"></a>
 
