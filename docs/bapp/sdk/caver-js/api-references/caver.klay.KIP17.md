@@ -30,7 +30,7 @@ After successful deployment, the promise will resolve with a new KIP17 instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | tokenInfo | Object | The information needed to deploy a KIP-17 token contract on the Klaytn blockchain. See the below table to find the description. |
-| deployer | String | The address of the account to deploy the KIP-7 token contract. This account must have enough KLAY to deploy. |
+| deployer | String | The address of the account to deploy the KIP-17 token contract. This account must have enough KLAY to deploy. |
 
 The tokenInfo object must contain the following:
 
