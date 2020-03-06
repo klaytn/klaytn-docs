@@ -970,7 +970,7 @@ Note that the renounceMinter method will submit a transaction to the Klaytn netw
 ```javascript
 kip17Instance.mintWithTokenURI(to, tokenId, tokenURI [, sendParam])
 ```
-Creates token with uri and assigns them to account, increasing the total supply.
+Creates a token with given uri and assigns them to the given account, increasing the total supply.
 
 Note that the mintWithTokenURI method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
