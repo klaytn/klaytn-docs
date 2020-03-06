@@ -3,7 +3,7 @@ description: >-
   A caver-js object used to interact with a smart contract for KIP17.
 ---
 
-# caver.klay.KIP17 <a id="caver-klay-kip8"></a>
+# caver.klay.KIP17 <a id="caver-klay-kip17"></a>
 
 The `caver.klay.KIP17`, a javascript object, makes it easy to interact with a smart contract that implements [KIP-17](https://klaytn.github.io/kips/KIPs/kip-17-non_fungible_token) on the Klaytn blockchain. 
 
