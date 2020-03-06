@@ -340,7 +340,7 @@ Returns the token id at a given index of all the tokens in this contract. It rev
 ```javascript
 kip17Instance.balanceOf(address)
 ```
-Returns the balance of the given account address. The balance of an account in KIP-17 means that the total number of NFTs(Non -Fungible Tokens) owned by the account.
+Returns the balance of the given account address. The balance of an account in KIP-17 means that the total number of NFTs (Non-Fungible Tokens) owned by the account.
 
 **Parameters**
 
