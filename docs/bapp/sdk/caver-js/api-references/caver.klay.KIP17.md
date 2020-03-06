@@ -5,15 +5,15 @@ description: >-
 
 # caver.klay.KIP17 <a id="caver-klay-kip8"></a>
 
-The `caver.klay.KIP17` makes it easy to interact with smart contract that implements KIP-17 on the Klaytn blockchain. 
+The `caver.klay.KIP17` makes it easy to interact with a smart contract that implements [KIP-17](https://klaytn.github.io/kips/KIPs/kip-17-non_fungible_token) on the Klaytn blockchain. 
 
 This allows you to interact with smart contract that implements KIP-17 as if they were JavaScript objects.
 
-The `caver.klay.KIP17` inherits [caver.klay.Contract](caver.klay.Contract.md) and is implemented for KIP-17 token contracts. This section describes only the additional implementations of the caver.klay.KIP17 for ease usage.
+The `caver.klay.KIP17` inherits [caver.klay.Contract](caver.klay.Contract.md) and is implemented for KIP-17 token contracts. This section describes only the additional implementations of the caver.klay.KIP17 for easy to use.
 
 The abi and bytecode used in the caver.klay.KIP17 were implemented using the example of [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC721).
 
-For more information about KIP-17, see [Klaytn Improvement Proposals](https://klaytn.github.io/kips/token).
+For more information about KIP-17, see [Klaytn Improvement Proposals](https://klaytn.github.io/kips/KIPs/kip-17-non_fungible_token).
 
 
 ## caver.klay.KIP17.deploy <a id="caver-klay-kip17-deploy"></a>
@@ -21,7 +21,7 @@ For more information about KIP-17, see [Klaytn Improvement Proposals](https://kl
 ```javascript
 caver.klay.KIP17.deploy(tokenInfo, deployer)
 ```
-Deploys the KIP-17 token contract to the Klaytn blockchain. A contract deployed using caver.klay.KIP17.deploy is a non fungible token that follows the KIP-17 standard. 
+Deploys the KIP-17 token contract to the Klaytn blockchain. A contract deployed using caver.klay.KIP17.deploy is a non-fungible token that follows the KIP-17 standard. 
 
 After successful deployment, the promise will resolve with a new KIP17 instance.
 
@@ -29,7 +29,7 @@ After successful deployment, the promise will resolve with a new KIP17 instance.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenInfo | Object | The information needed to deploy KIP-17 token contract on the Klaytn blockchain. See below table to find the description. |
+| tokenInfo | Object | The information needed to deploy a KIP-17 token contract on the Klaytn blockchain. See the below table to find the description. |
 | deployer | String | The address of the account to deploy the KIP-7 token contract. This account must have enough KLAY to deploy. |
 
 The tokenInfo object must contain the following:
@@ -41,12 +41,12 @@ The tokenInfo object must contain the following:
 
 **Return Value**
 
-`PromiEvent`: A promise combined event emitter, which is resolved with a new KIP7 instance. Additionally, the following events are available:
+`PromiEvent`: A promise combined event emitter, which is resolved with a new KIP17 instance. Additionally, the following events are available:
 
 | Name | Type | Description |
 | --- | --- | --- |
 | transactionHash | String | Fired right after the transaction is sent and a transaction hash is available. |
-| receipt | Object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
+| receipt | Object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
 | error | Error | Fired if an error occurs during sending. |
 
 **Example**
@@ -103,7 +103,7 @@ Creates a new KIP17 instance with all its methods and events.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenAddress | String | (optional) The address of the smart contract to call, which can be assigned later through `kip7Instance.options.address = '0x1234..'` |
+| tokenAddress | String | (optional) The address of the smart contract to call, which can be assigned later through `kip17Instance.options.address = '0x1234..'` |
 
 **Return Value**
 
@@ -134,7 +134,7 @@ Clones the current KIP17 instance.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenAddress | String | (optional) The address of the new fungible token contract to call. If omitted, it will be set to the address in the original instance (e.g., `kip7Instance`). |
+| tokenAddress | String | (optional) The address of the new fungible token contract to call. If omitted, it will be set to the address in the original instance (i.e., `kip17Instance`). |
 
 **Return Value**
 
@@ -313,7 +313,7 @@ Returns the token id at a given index of the tokens list of the requested owner.
 ```javascript
 kip17Instance.tokenByIndex(index)
 ```
-Returns the token id at a given index of all the tokens in this contract. Reverts if the index is greater or equal to the total number of tokens.
+Returns the token id at a given index of all the tokens in this contract. It reverts if the index is greater or equal to the total number of tokens.
 
 **Parameters**
 
@@ -340,7 +340,7 @@ Returns the token id at a given index of all the tokens in this contract. Revert
 ```javascript
 kip17Instance.balanceOf(address)
 ```
-Returns the balance of the given account address. The balance of an account in KIP-17 means that the total number of NFT(Non Fungible Token) owned by the account.
+Returns the balance of the given account address. The balance of an account in KIP-17 means that the total number of NFTs(Non -Fungible Tokens) owned by the account.
 
 **Parameters**
 
@@ -392,7 +392,7 @@ Returns the owner of the specified token id.
 ```javascript
 kip17Instance.getApproved(tokenId)
 ```
-Returns the approved address for a token id, or zero if no address set. Reverts if the token id does not exist.
+Returns the approved address for a token id, or zero if no address set. It reverts if the token id does not exist.
 
 **Parameters**
 
@@ -431,7 +431,7 @@ Returns `true` if an operator is approved by a given owner.
 | Name | Type | Description |
 | --- | --- | --- |
 | owner | String | The address of an account that owns the token and has allowed the operator to transfer the token on behalf of the owner. |
-| operator | String | The address of account allowed to send token on behalf of owner. |
+| operator | String | The address of account allowed to send token on behalf of the owner. |
 
 **Return Value**
 
@@ -748,7 +748,7 @@ Note that the transferFrom method will submit a transaction to the Klaytn networ
 
 // Using kip17Instance.options.from
 // If the value of kip17Instance.options.from is set, this value is used as the default value 
-// unless you specify `from` in sendParam object when sending a transaction with a kip7Instance instance.
+// unless you specify `from` in sendParam object when sending a transaction with a kip17Instance instance.
 > kip17Instance.options.from = '0x{address in hex}'
 > kip17Instance.transferFrom('0x{address in hex}', '0x{address in hex}', 2).then(console.log)
 ```
