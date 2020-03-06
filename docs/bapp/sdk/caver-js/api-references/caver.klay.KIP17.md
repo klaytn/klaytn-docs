@@ -11,7 +11,7 @@ This allows you to interact with smart contract that implements KIP-17 as if the
 
 The `caver.klay.KIP17` inherits [caver.klay.Contract](caver.klay.Contract.md) and is implemented for KIP-17 token contracts. This section describes only the additional implementations of the caver.klay.KIP17 for easy to use.
 
-The abi and bytecode used in the caver.klay.KIP17 were implemented using the example of [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC721).
+The code that implements KIP-17 for caver-js is available on the [caver-js Github Repo](https://github.com/klaytn/caver-js/tree/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP17).
 
 For more information about KIP-17, see [Klaytn Improvement Proposals](https://klaytn.github.io/kips/KIPs/kip-17-non_fungible_token).
 
@@ -134,7 +134,7 @@ Clones the current KIP17 instance.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenAddress | String | (optional) The address of the new fungible token contract to call. If omitted, it will be set to the address in the original instance (i.e., `kip17Instance`). |
+| tokenAddress | String | (optional) The address of the new non-fungible token contract to call. If omitted, it will be set to the address in the original instance (i.e., `kip17Instance`). |
 
 **Return Value**
 
