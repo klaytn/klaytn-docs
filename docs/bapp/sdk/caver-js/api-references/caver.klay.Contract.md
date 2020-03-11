@@ -71,8 +71,8 @@ The `options` object for the contract instance. `from`, `gas` and
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | String | The address where the contract is deployed.  Also see [options.address](#optionsaddress). |
-| jsonInterface | Array | The JSON interface of the contract.  Also see [options.jsonInterface](#optionsjsoninterface). |
+| address | String | The address where the contract is deployed.  Also see [options.address](#options-address). |
+| jsonInterface | Array | The JSON interface of the contract.  Also see [options.jsonInterface](#options-jsoninterface). |
 | data | String | The byte code of the contract. Used when the contract gets deployed. |
 | from | String | The address from which transactions should be made. |
 | gasPrice | String | The gas price in peb to use for transactions. |
@@ -210,9 +210,9 @@ the promise will resolve with a new contract instance.
 | Type | Description |
 | --- | --- |
 | Array | arguments: The arguments passed to the method before. They can be changed. |
-| Function | [send](#methodsmymethodsend): Will deploy the contract. The promise will resolve with the new contract instance, instead of the receipt. |
-| Function | [estimateGas](#methodsmymethodestimategas): Will estimate the gas used for the deployment. |
-| Function | [encodeABI](#methodsmymethodencodeabi): Encodes the ABI of the deployment, which is contract data + constructor parameters. |
+| Function | [send](#methods-mymethod-send): Will deploy the contract. The promise will resolve with the new contract instance, instead of the receipt. |
+| Function | [estimateGas](#methods-mymethod-estimategas): Will estimate the gas used for the deployment. |
+| Function | [encodeABI](#methods-mymethod-encodeabi): Encodes the ABI of the deployment, which is contract data + constructor parameters. |
 
 **Example**
 
@@ -313,10 +313,10 @@ Parameters of any method depend on the smart contracts methods, defined in the J
 | Type | Description |
 | --- | --- |
 | Array | arguments: The arguments passed to the method before. They can be changed. |
-| Function | [call](#methodsmymethodcall): Will call the "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
-| Function | [send](#methodsmymethodsend): Will send a transaction to the smart contract and execute its method (can alter the smart contract state). |
-| Function | [estimateGas](#methodsmymethodestimategas): Will estimate the gas used when the method would be executed on the blockchain. |
-| Function | [encodeABI](#methodsmymethodencodeabi): Encodes the ABI for this method. This can be sent using a transaction, calling the method or passing into another smart contract method as argument. |
+| Function | [call](#methods-mymethod-call): Will call the "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
+| Function | [send](#methods-mymethod-send): Will send a transaction to the smart contract and execute its method (can alter the smart contract state). |
+| Function | [estimateGas](#methods-mymethod-estimategas): Will estimate the gas used when the method would be executed on the blockchain. |
+| Function | [encodeABI](#methods-mymethod-encodeabi): Encodes the ABI for this method. This can be sent using a transaction, calling the method or passing into another smart contract method as argument. |
 
 **Example**
 

@@ -12,7 +12,7 @@ KlaytnDocs introduces and explains [Klaytn](https://www.klaytn.com/), an enterpr
 
 **Disclaimer**: Some notes are derived from Ethereum documents as the Klaytn source code was initiated from Ethereum’s Byzantium version. As Klaytn develops further, KlaytnDocs and the source code will continue to be updated. Reference websites are as follows:
 
-* [http://www.ethdocs.org/en/latest/](http://www.ethdocs.org/en/latest/)
+* [https://ethereum.org/developers/](https://ethereum.org/developers/)
 * [https://github.com/ethereum/go-ethereum/wiki](https://github.com/ethereum/go-ethereum/wiki)
 * [https://truffleframework.com/docs](https://truffleframework.com/docs)
 * [https://web3js.readthedocs.io/en/1.0/](https://web3js.readthedocs.io/en/1.0/)

@@ -89,9 +89,9 @@ Some resources for compiling, deploying, and executing smart contracts are liste
 
 * [Using the Solidity command-line compiler v0.4.24](https://solidity.readthedocs.io/en/v0.4.24/using-the-compiler.html)
 * [Using the Solidity command-line compiler v0.5.6](https://solidity.readthedocs.io/en/v0.5.6/using-the-compiler.html)
-* [Compiling contracts using Remix](https://remix.readthedocs.io/en/latest/compile_tab.html)
-* [Running transactions with Remix](https://remix.readthedocs.io/en/latest/run_tab.html)
-* [Building smart contracts with Remix](https://remix.readthedocs.io/en/latest/workshop_Building_smart_contracts_with_Remix.html)
+* [Compiling contracts using Remix](https://remix.readthedocs.io/en/stable/compile_tab.html)
+* [Running transactions with Remix](https://remix.readthedocs.io/en/stable/run_tab.html)
+* [Building smart contracts with Remix](https://remix.readthedocs.io/en/stable/workshop_Building_smart_contracts_with_Remix.html)
 * [Compiling contracts with Truffle](https://truffleframework.com/docs/truffle/getting-started/compiling-contracts)
 * [Deploying contracts with Truffle](https://truffleframework.com/docs/truffle/getting-started/running-migrations)
 
