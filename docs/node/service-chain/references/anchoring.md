@@ -63,10 +63,10 @@ Also, you can find the anchoring transaction hash by the service chain block num
 
 ## Main-Bridge <a id="sub-bridge"></a>
 In Main-Bridge, if chain indexing option is enabled, you can find the anchoring tx hash by a service chain block hash like below.
-You can refer to [mainbridge APIs](../../../bapp/json-rpc/api-references/mainbridge.md#mainbridge_convertServiceChainBlockHashToMainChainTxHash) for more details.
+You can refer to [mainbridge APIs](../../../bapp/json-rpc/api-references/mainbridge.md#mainbridge_convertChildChainBlockHashToParentChainTxHash) for more details.
 
 ```javascript
-> mainbridge.convertServiceChainBlockHashToMainChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
+> mainbridge.convertChildChainBlockHashToParentChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
 "0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51"
 ```
 
