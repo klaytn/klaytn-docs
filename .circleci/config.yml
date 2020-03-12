@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   check_link:
     docker:
-      - image: kjhman21/liche-klaytn-docs
+      - image: kjhman21/liche
     working_directory: ~/klaytn-docs
     steps:
       - checkout
