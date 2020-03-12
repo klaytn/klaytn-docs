@@ -13,7 +13,7 @@ The `caver.klay.KIP7` inherits [caver.klay.Contract](caver.klay.Contract.md) and
 
 The abi and bytecode used in the caver.klay.KIP7 were implemented using the example of [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20).
 
-For more information about KIP-7, see [Klaytn Improvement Proposals](https://klaytn.github.io/kips/KIPs/kip-7-fungible_token).
+For more information about KIP-7, see [Klaytn Improvement Proposals](http://kips.klaytn.com/KIPs/kip-7-fungible_token).
 
 **NOTE** `caver.klay.KIP7` is supported since caver-js [v1.4.0](https://www.npmjs.com/package/caver-js/v/1.4.0).
 
