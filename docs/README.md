@@ -14,7 +14,7 @@ KlaytnDocs introduces and explains [Klaytn](https://www.klaytn.com/), an enterpr
 
 * [https://ethereum.org/developers/](https://ethereum.org/developers/)
 * [https://github.com/ethereum/go-ethereum/wiki](https://github.com/ethereum/go-ethereum/wiki)
-* [https://truffleframework.com/docs](https://truffleframework.com/docs)
+* [https://trufflesuite.com/docs](https://trufflesuite.com/docs)
 * [https://web3js.readthedocs.io/en/1.0/](https://web3js.readthedocs.io/en/1.0/)
 
 

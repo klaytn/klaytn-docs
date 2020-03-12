@@ -4,7 +4,7 @@
 
 In Klaytn, a smart contract written in Solidity can be compiled and deployed via Truffle. At the moment, Klaytn supports up to Truffle v5.0.26, the latest version at the time of writing. Please find details about Truffle on the websites below.
 
-* [Truffle overview](https://truffleframework.com/docs/truffle/overview)
+* [Truffle overview](https://trufflesuite.com/docs/truffle/overview)
 * [Truffle repository](https://github.com/trufflesuite/truffle)
 
 You can install Truffle as the following:
