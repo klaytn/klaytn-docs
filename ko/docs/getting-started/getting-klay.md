@@ -12,5 +12,6 @@
 아래는 주요 KLAY 거래소의 목록입니다.
 
 - [Upbit 인도네시아](https://id.upbit.com/exchange?code=CRIX.UPBIT.IDR-KLAY)
-
+- [Upbit Singapore](https://sg.upbit.com/exchange?code=CRIX.UPBIT.BTC-KLAY)
+- [Liquid](https://app.liquid.com/exchange/KLAYBTC)
 
