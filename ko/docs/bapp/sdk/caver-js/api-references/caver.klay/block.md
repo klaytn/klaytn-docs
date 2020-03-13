@@ -8,10 +8,10 @@ The default block is used for certain methods.  You can override it by passing i
 
 - [caver.klay.getBalance()](./account.md#getbalance)
 - [caver.klay.getCode()](./account.md#getcode)
-- [caver.klay.getTransactionCount()](./transaction.md#gettransactioncount)
+- [caver.klay.getTransactionCount()](./account.md#gettransactioncount)
 - [caver.klay.getStorageAt()](#getstorageat)
 - [caver.klay.call()](./transaction.md#call)
-- [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().call()](../caver.klay.Contract.md#methodsmymethodcall)
+- [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().call()](../caver.klay.Contract.md#methods-mymethod-call)
 
 **속성**
 
