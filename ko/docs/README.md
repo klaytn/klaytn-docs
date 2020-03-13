@@ -12,9 +12,9 @@ KlaytnDocs는 수백만 사용자들에게 사용자 친화적인 블록체인 �
 
 **면책 고지**: Klaytn 소스 코드는 이더리움의 Byzantium 버전에서 시작되었으므로 일부 문서는 이더리움 문서에서 파생되었습니다. Klaytn이 더 발전함에 따라 KlaytnDocs 및 소스 코드는 계속 업데이트됩니다. 참고한 웹사이트는 다음과 같습니다.
 
-* [http://www.ethdocs.org/en/latest/](http://www.ethdocs.org/en/latest/)
+* [https://ethereum.org/developers/](https://ethereum.org/developers/)
 * [https://github.com/ethereum/go-ethereum/wiki](https://github.com/ethereum/go-ethereum/wiki)
-* [https://truffleframework.com/docs](https://truffleframework.com/docs)
+* [https://trufflesuite.com/docs](https://trufflesuite.com/docs)
 * [https://web3js.readthedocs.io/en/1.0/](https://web3js.readthedocs.io/en/1.0/)
 
 
