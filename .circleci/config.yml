@@ -6,7 +6,7 @@ jobs:
     working_directory: ~/klaytn-docs
     steps:
       - checkout
-      - run: /liche -r ~/klaytn-docs -x "^http[s]://localhost.*" --document-root ~/klaytn-docs/docs
+      - run: /liche -c 1 -t 10 -x "http[s]?://localhost" -r ~/klaytn-docs/ --document-root ~/klaytn-docs/docs
 
 workflows:
   version: 2
