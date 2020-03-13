@@ -4,7 +4,7 @@
 
 Klaytn에서는 솔리디티로 작성된 스마트 컨트랙트를 트러플을 통해 컴파일하고 배포할 수 있습니다. 현재 Klaytn은 트러플 최신 버전인 v5.0.26까지 지원합니다. 트러플에 대한 자세한 내용은 아래 웹 사이트를 참고해주세요.
 
-* [트러플 개요](https://truffleframework.com/docs/truffle/overview)
+* [트러플 개요](https://trufflesuite.com/docs/truffle/overview)
 * [트러플 레포지토리](https://github.com/trufflesuite/truffle)
 
 다음과 같이 트러플을 설치할 수 있습니다.
