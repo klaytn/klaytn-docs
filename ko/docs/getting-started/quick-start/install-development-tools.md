@@ -51,7 +51,7 @@ $ rm /Users/username/klaytn/node_modules/websocket/.git
 이 튜토리얼에서 트러플은 솔리디티로 작성된 스마트 컨트랙트를 컴파일하고 배포하는 데 사용됩니다. 현재 Klaytn은 트러플 버전 4.1.15를 지원합니다. 트러플에 대한 자세한 내용은 다음 사이트를 참조하세요:
 
 * 트러플 스토리지 - [https://github.com/trufflesuite/truffle](https://github.com/trufflesuite/truffle)​
-* 트러플 문서 - [https://truffleframework.com/docs](https://truffleframework.com/docs)
+* Truffle documents - [https://trufflesuite.com/docs](https://trufflesuite.com/docs)​
 
 트러플은 다음 방법들로 설치 가능합니다:
 
