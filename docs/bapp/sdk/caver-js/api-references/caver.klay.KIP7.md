@@ -15,7 +15,7 @@ The abi and bytecode used in the caver.klay.KIP7 were implemented using the exam
 
 For more information about KIP-7, see [Klaytn Improvement Proposals](http://kips.klaytn.com/KIPs/kip-7-fungible_token).
 
-**NOTE** `caver.klay.KIP7` is supported since caver-js [v1.4.0](https://www.npmjs.com/package/caver-js/v/1.4.0).
+**NOTE** `caver.klay.KIP7` is supported since caver-js [v1.4.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.4.0-rc.1).
 
 ## caver.klay.KIP7.deploy <a id="caver-klay-kip7-deploy"></a>
 

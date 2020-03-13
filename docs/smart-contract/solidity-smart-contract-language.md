@@ -89,11 +89,11 @@ Some resources for compiling, deploying, and executing smart contracts are liste
 
 * [Using the Solidity command-line compiler v0.4.24](https://solidity.readthedocs.io/en/v0.4.24/using-the-compiler.html)
 * [Using the Solidity command-line compiler v0.5.6](https://solidity.readthedocs.io/en/v0.5.6/using-the-compiler.html)
-* [Compiling contracts using Remix](https://remix.readthedocs.io/en/latest/compile_tab.html)
-* [Running transactions with Remix](https://remix.readthedocs.io/en/latest/run_tab.html)
-* [Building smart contracts with Remix](https://remix.readthedocs.io/en/latest/workshop_Building_smart_contracts_with_Remix.html)
-* [Compiling contracts with Truffle](https://truffleframework.com/docs/truffle/getting-started/compiling-contracts)
-* [Deploying contracts with Truffle](https://truffleframework.com/docs/truffle/getting-started/running-migrations)
+* [Compiling contracts using Remix](https://remix.readthedocs.io/en/stable/compile_tab.html)
+* [Running transactions with Remix](https://remix.readthedocs.io/en/stable/run_tab.html)
+* [Building smart contracts with Remix](https://remix.readthedocs.io/en/stable/workshop_Building_smart_contracts_with_Remix.html)
+* [Compiling contracts with Truffle](https://trufflesuite.com/docs/truffle/getting-started/compiling-contracts)
+* [Deploying contracts with Truffle](https://trufflesuite.com/docs/truffle/getting-started/running-migrations)
 
 NOTE: This section will be updated in the future.
 
@@ -103,7 +103,7 @@ It is more difficult to debug Solidity code than to debug code written in other 
 
 * [Debugging a transaction with Remix](https://remix-ide.readthedocs.io/en/latest/debugger.html)
 * [Tutorial on debugging transactions with Remix](https://remix-ide.readthedocs.io/en/latest/tutorial_debug.html)
-* [Debugging contracts with Truffle](https://truffleframework.com/docs/truffle/getting-started/debugging-your-contracts)
+* [Debugging contracts with Truffle](https://trufflesuite.com/docs/truffle/getting-started/debugging-your-contracts)
 
 NOTE: This section will be updated in the future.
 
@@ -121,5 +121,5 @@ NOTE: This section will be updated in the future.
 * [Solidity v0.4.24 documentation](https://solidity.readthedocs.io/en/v0.4.24/index.html)
 * [Solidity v0.5.6 documentation](https://solidity.readthedocs.io/en/v0.5.6/index.html)
 * [Remix documentation](https://remix-ide.readthedocs.io/en/latest/)
-* [Truffle documentation](https://truffleframework.com/docs/truffle/overview)
+* [Truffle documentation](https://trufflesuite.com/docs/truffle/overview)
 
