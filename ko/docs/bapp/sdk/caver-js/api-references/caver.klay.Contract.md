@@ -65,14 +65,14 @@ myContract.options
 
 **속성**
 
-| 명칭            | 형식     | 설명                                                                        |
-| ------------- | ------ | ------------------------------------------------------------------------- |
-| address       | String | 컨트랙트가 배포된 주소.  [options.address](#optionsaddress)를 참조하세요.                 |
-| jsonInterface | 배열     | 컨트랙트의 JSON 인터페이스.  [options.jsonInterface](#optionsjsoninterface)를 참조하세요. |
-| data          | String | 컨트랙트의 바이트 코드. 컨트랙트가 배포될 때 사용됩니다.                                          |
-| from          | String | 트랜잭션이 만들어진 송신자 주소.                                                        |
-| gasPrice      | String | 트랜잭션에 사용할 peb 단위의 가스 가격.                                                  |
-| gas           | Number | 트랜잭션에 제공된 최대 가스 (가스 제한).                                                  |
+| 명칭            | 형식     | 설명                                                                           |
+| ------------- | ------ | ---------------------------------------------------------------------------- |
+| address       | String | 컨트랙트가 배포된 주소.  Also see [options.address](#options-address).                 |
+| jsonInterface | 배열     | 컨트랙트의 JSON 인터페이스.  Also see [options.jsonInterface](#options-jsoninterface). |
+| data          | String | 컨트랙트의 바이트 코드. 컨트랙트가 배포될 때 사용됩니다.                                             |
+| from          | String | 트랜잭션이 만들어진 송신자 주소.                                                           |
+| gasPrice      | String | 트랜잭션에 사용할 peb 단위의 가스 가격.                                                     |
+| gas           | Number | 트랜잭션에 제공된 최대 가스 (가스 제한).                                                     |
 
 
 **예시**
@@ -200,12 +200,12 @@ myContract.deploy(options)
 
 `Object`: 트랜잭션 객체:
 
-| 형식       | 설명                                                                                           |
-| -------- | -------------------------------------------------------------------------------------------- |
-| 배열       | arguments: 이전에 메소드에 전달되었던 인자. 이들은 변경될 수 있습니다.                                                |
-| Function | [send](#methodsmymethodsend): 컨트랙트를 배포합니다. promise는 영수증(receipt) 대신 새 컨트랙트 인스턴스로 resolve됩니다. |
-| Function | [estimateGas](#methodsmymethodestimategas): 배포에 사용되는 가스를 추정합니다.                              |
-| Function | [encodeABI](#methodsmymethodencodeabi): 컨트랙트 데이터 + 생성자 매개변수인 배포 ABI를 암호화합니다.                 |
+| 형식       | 설명                                                                                                                            |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| 배열       | arguments: 이전에 메소드에 전달되었던 인자. 이들은 변경될 수 있습니다.                                                                                 |
+| Function | [send](#methods-mymethod-send): Will deploy the contract. promise는 영수증(receipt) 대신 새 컨트랙트 인스턴스로 resolve됩니다.                   |
+| Function | [estimateGas](#methods-mymethod-estimategas): Will estimate the gas used for the deployment.                                  |
+| Function | [encodeABI](#methods-mymethod-encodeabi): Encodes the ABI of the deployment, which is contract data + constructor parameters. |
 
 **예시**
 
@@ -300,13 +300,13 @@ caver.utils.sha3('myMethod(uint256)').substr(0, 10)
 
 `Object`: 트랜잭션 객체:
 
-| 형식       | 설명                                                                                                                        |
-| -------- | ------------------------------------------------------------------------------------------------------------------------- |
-| 배열       | arguments: 이전에 메소드에 전달되었던 인자. 이들은 변경될 수 있습니다.                                                                             |
-| Function | [call](#methodsmymethodcall): "constant" 메소드를 호출하고 트랜잭션을 보내지 않고 Klaytn 가상머신에서 스마트 콘트랙트 메소드를 실행합니다(스마트 컨트랙트 상태를 변경할 수 없음). |
-| Function | [send](#methodsmymethodsend): 스마트 컨트랙트로 트랜잭션을 전송하고 그 메소드를 실행합니다(스마트 컨트랙트 상태를 변경할 수 있음).                                   |
-| Function | [estimateGas](#methodsmymethodestimategas): 블록체인에서 수행될 때 사용되는 가스를 추정합니다.                                                  |
-| Function | [encodeABI](#methodsmymethodencodeabi): 이 메소드에 대한 ABI를 인코딩합니다. 트랜잭션을 사용하여 메소드를 호출하거나 인수로써 다른 스마트 컨트랙트 메소드에 전달될 수 있습니다.    |
+| 형식       | 설명                                                                                                                                                                                                         |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 배열       | arguments: 이전에 메소드에 전달되었던 인자. 이들은 변경될 수 있습니다.                                                                                                                                                              |
+| Function | [call](#methods-mymethod-call): Will call the "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
+| Function | [send](#methods-mymethod-send): Will send a transaction to the smart contract and execute its method (can alter the smart contract state).                                                                 |
+| Function | [estimateGas](#methods-mymethod-estimategas): Will estimate the gas used when the method would be executed on the blockchain.                                                                              |
+| Function | [encodeABI](#methods-mymethod-encodeabi): Encodes the ABI for this method. 트랜잭션을 사용하여 메소드를 호출하거나 인수로써 다른 스마트 컨트랙트 메소드에 전달될 수 있습니다.                                                                         |
 
 **예시**
 
