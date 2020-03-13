@@ -89,11 +89,11 @@ solc --optimize --bin UserStorage.sol
 
 * [솔리디티 커맨드라인 컴파일러 v0.4.24 사용하기](https://solidity.readthedocs.io/en/v0.4.24/using-the-compiler.html)
 * [솔리디티 커맨드라인 컴파일러 v0.5.6 사용하기](https://solidity.readthedocs.io/en/v0.5.6/using-the-compiler.html)
-* [Remix를 사용하여 스마트 컨트랙트 컴파일하기](https://remix.readthedocs.io/en/latest/compile_tab.html)
-* [Remix로 트랜잭션 실행하기](https://remix.readthedocs.io/en/latest/run_tab.html)
-* [Remix로 스마트 컨트랙트 구축하기](https://remix.readthedocs.io/en/latest/workshop_Building_smart_contracts_with_Remix.html)
-* [트러플로 컨트랙트 컴파일하기](https://truffleframework.com/docs/truffle/getting-started/compiling-contracts)
-* [트러플로 컨트랙트 배포하기](https://truffleframework.com/docs/truffle/getting-started/running-migrations)
+* [Remix를 사용하여 스마트 컨트랙트 컴파일하기](https://remix.readthedocs.io/en/stable/compile_tab.html)
+* [Remix로 트랜잭션 실행하기](https://remix.readthedocs.io/en/stable/run_tab.html)
+* [Remix로 스마트 컨트랙트 구축하기](https://remix.readthedocs.io/en/stable/workshop_Building_smart_contracts_with_Remix.html)
+* [트러플로 컨트랙트 컴파일하기](https://trufflesuite.com/docs/truffle/getting-started/compiling-contracts)
+* [트러플로 컨트랙트 배포하기](https://trufflesuite.com/docs/truffle/getting-started/running-migrations)
 
 참고: 이 장은 나중에 업데이트 될 예정입니다.
 
@@ -103,7 +103,7 @@ solc --optimize --bin UserStorage.sol
 
 * [Remix로 트랜잭션 디버깅하기](https://remix-ide.readthedocs.io/en/latest/debugger.html)
 * [Remix 트랜잭션 디버깅 튜토리얼](https://remix-ide.readthedocs.io/en/latest/tutorial_debug.html)
-* [트러플로 컨트랙트 디버깅하기](https://truffleframework.com/docs/truffle/getting-started/debugging-your-contracts)
+* [트러플로 컨트랙트 디버깅하기](https://trufflesuite.com/docs/truffle/getting-started/debugging-your-contracts)
 
 참고: 이 장은 나중에 업데이트 될 예정입니다.
 
@@ -121,5 +121,5 @@ solc --optimize --bin UserStorage.sol
 * [솔리디티 v0.4.24 문서](https://solidity.readthedocs.io/en/v0.4.24/index.html)
 * [솔리디티 v0.5.6 문서](https://solidity.readthedocs.io/en/v0.5.6/index.html)
 * [Remix 문서](https://remix-ide.readthedocs.io/en/latest/)
-* [트러플 문서](https://truffleframework.com/docs/truffle/overview)
+* [트러플 문서](https://trufflesuite.com/docs/truffle/overview)
 
