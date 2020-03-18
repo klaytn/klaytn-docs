@@ -6,6 +6,9 @@ description: >-
 
 # Developer Tools <a id="developer-tools"></a>
 
+#### Kaikas <a id="kaikas"></a>
+
+* Kaikas is a browser extension wallet for the Klaytn Network. With Kaikas, you are able to store and transact with your KLAY and Klaytn-based tokens. You can also sign requests from web-based Klaytn BApps in real-time.
 
 #### Klaytn Wallet  <a id="klaytn-wallet"></a>
 
