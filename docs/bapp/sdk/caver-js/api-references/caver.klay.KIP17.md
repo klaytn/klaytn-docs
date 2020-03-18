@@ -758,7 +758,7 @@ Note that the transferFrom method will submit a transaction to the Klaytn networ
 ```javascript
 kip17Instance.safeTransferFrom(from, to, tokenId [, data] [, sendParam])
 ```
-Safely transfers the ownership of a given token id to another address. If the target address is a contract, it must implement [IKIP17Receiver.onKIP17Received](https://klaytn.github.io/kips/KIPs/kip-17-non_fungible_token#wallet-interface). otherwise, the transfer is reverted.
+Safely transfers the ownership of a given token id to another address. If the target address is a contract, it must implement [IKIP17Receiver.onKIP17Received](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token#wallet-interface). otherwise, the transfer is reverted.
 
 Note that the safeTransferFrom method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
