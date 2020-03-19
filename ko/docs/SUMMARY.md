@@ -221,6 +221,7 @@
       * [8. 애플리케이션 실행](bapp/tutorials/klaystagram/8.-run-app.md)
     * [이더리움 애플리케이션을 Klaytn으로 이전하기](bapp/tutorials/migrating-ethereum-app-to-klaytn.md)
   * [개발자 도구](bapp/developer-tools/README.md)
+    * [Kaikas](toolkit/kaikas.md)
     * [Klaytn Wallet](toolkit/klaytn-wallet.md)
     * [Klaytnscope](toolkit/klaytnscope.md)
 
