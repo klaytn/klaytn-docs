@@ -221,6 +221,7 @@
       * [8. Run App](bapp/tutorials/klaystagram/8.-run-app.md)
     * [Migrating Ethereum App to Klaytn](bapp/tutorials/migrating-ethereum-app-to-klaytn.md)
   * [Developer Tools](bapp/developer-tools/README.md)
+    * [Kaikas](toolkit/kaikas.md)
     * [Klaytn Wallet](toolkit/klaytn-wallet.md)
     * [Klaytnscope](toolkit/klaytnscope.md)
 
