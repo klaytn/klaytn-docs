@@ -10,7 +10,7 @@ Other KCTs can be defined to meet certain technical specifications. If anyone wh
 
 Fungible tokens are tokens that have properties of uniformity and divisibility. Every fungible token is interchangeable as each unit of token possesses the same value. Just like every dollar bill has the same value of one dollar. Since fungibility is essential feature to crypto currency in most cases, large proportion of blockchain tokens are fungible tokens.
 
-To implement these properties with smart contracts, KIP-7 token standard can be used. KIP-7-compatible tokens are token contracts that implements the following interface.
+To implement these properties with smart contracts, KIP-7 token standard can be used. KIP-7-compatible tokens are token contracts that implements the following interface. Please note that [KIP-13](http://kips.klaytn.com/KIPs/kip-13-interface_query_standard) must be implemented together. For wallet applications, [wallet interface](http://kips.klaytn.com/KIPs/kip-7-fungible_token#wallet-interface) can be implemented.
 
 ```text
 // IKIP7
@@ -67,7 +67,7 @@ Non-fungible token \(NFT\) is a special type of token that represents a unique a
 
 For example, a blockchain collection game [Cryptokitties](https://www.cryptokitties.co/) implements non-fungible token to represent different kitties that have different genetic information. Every kitty is unique and non-interchangeable, resulting in different values for different kitty tokens.
 
-To implement non-fungible token, [KIP-17](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token) can be used. KIP-17 token contracts are contracts that implements the following interface.
+To implement non-fungible token, [KIP-17](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token) can be used. KIP-17 token contracts are contracts that implements the following interface. Please note that [KIP-13](http://kips.klaytn.com/KIPs/kip-13-interface_query_standard) must be implemented together. For wallet applications, [wallet interface](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token#wallet-interface) can be implemented.
 
 ```text
 // IKIP17
