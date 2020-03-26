@@ -2,7 +2,7 @@
 
 ## 소개 <a id="introduction"></a>
 
-이 튜토리얼은 [Klaytn 토큰 표준](../../token-standard.md)을 따르는 ERC-721 호환 토큰 예제, 특히 [대체 불가능한 토큰 표준\(ERC-721\)](../../token-standard.md#non-fungible-token-standard-erc-721)을 생성하는 것을 돕기 위해 만들어졌습니다.
+This tutorial helps you to create an example ERC-721 compatible token that conforms to [Klaytn Token Standards](../../token-standard.md), especially [Non-fungible Token Standard (ERC-721)](../../token-standard.md#non-fungible-token-standard-kip-17).
 
 [ERC-721 대체 불가능한 토큰 표준](https://eips.ethereum.org/EIPS/eip-721)은 아래와 같은 3개의 이벤트와 10개의 메소드를 정의합니다. ERC-721의 `supportsInterface`는 [ERC-165 표준 인터페이스 검출](https://eips.ethereum.org/EIPS/eip-165)에서 파생되었으며 ERC-165는 ERC-721의 일부분입니다. ERC-721 호환 토큰은 ERC-721 및 ERC-165 인터페이스를 구현한 토큰 컨트랙트입니다.
 
