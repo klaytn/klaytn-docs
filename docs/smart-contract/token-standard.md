@@ -133,5 +133,5 @@ Service chain refers to Klaytn's side chain that anchors to Klaytn's main blockc
 
 ## Notes on ERC-20 and ERC-721 <a id="notes-on-erc-20-and-erc-721"></a>
 Since Klaytn published KIP-7 and KIP-17 as its token standards, it is recommended to implement fungible and non-fungible token contracts according to KIP-7 and KIP-17, respectively, rather than following ERC-20 and ERC-721.
-KIP-7 and KIP-17 are based on ERC-20 and ERC-721, but they are tailored for Klaytn and thus more suitable on Klaytn. However, Klaytn will keep supporting ERC-20 and ERC-721 as before for backward compatibility.
+KIP-7 and KIP-17 are based on ERC-20 and ERC-721, but they are tailored for Klaytn and thus more suitable on Klaytn ecosystem. ERC-20 and ERC-721 are still available on Klaytn network. However, they may not be supported on other tools involved in Klaytn ecosystem. 
 For more information about the differences on token standards, please visit [KIP-7](http://kips.klaytn.com/KIPs/kip-7-fungible_token#differences-with-erc-20) and [KIP-17](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token#differences-from-erc-721).
