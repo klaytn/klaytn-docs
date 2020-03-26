@@ -12,7 +12,7 @@ Fungible tokens are tokens that have properties of uniformity and divisibility. 
 
 To implement these properties with smart contracts, KIP-7 token standard can be used. KIP-7-compatible tokens implement the following interface. Please note that [KIP-13](http://kips.klaytn.com/KIPs/kip-13-interface_query_standard) must be implemented together. For wallet applications, [wallet interface](http://kips.klaytn.com/KIPs/kip-7-fungible_token#wallet-interface) can be implemented.
 
-```text
+```solidity
 // IKIP7
 event Transfer(address indexed from, address indexed to, uint256 value);
 event Approval(address indexed owner, address indexed spender, uint256 value);
@@ -69,7 +69,7 @@ For example, a blockchain collection game [Cryptokitties](https://www.cryptokitt
 
 To implement non-fungible token, [KIP-17](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token) can be used. KIP-17 token contracts implement the following interface. Please note that [KIP-13](http://kips.klaytn.com/KIPs/kip-13-interface_query_standard) must be implemented together. For wallet applications, [wallet interface](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token#wallet-interface) can be implemented.
 
-```text
+```solidity
 // IKIP17
 event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);
 event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);
@@ -130,3 +130,9 @@ For more information, refer to official [KIP-17 documentation](http://kips.klayt
 ## Token Standards for Klaytn Service Chain <a id="token-standards-for-klaytn-service-chain"></a>
 
 Service chain refers to Klaytn's side chain that anchors to Klaytn's main blockchain network. When implementing a service chain, special type of contracts are used to support value transfer between the main chain and the service chain. These contracts are currently under development, and when they are ready, the token specifications for Klaytn service chain will be provided on KlaytnDocs.
+
+## Updates <a id="updates"></a>
+Previously, ERC-20 and ERC-721 were supported in Klaytn.
+Since Klaytn published KIP-7 and KIP-17 as its token standards, it is recommended to implement a fungible token contract using KIP-7 and a non-fungible token contract using KIP-17.
+Note that KIP-7 and KIP-17 are advanced versions of ERC-20 and ERC-721, respectively, and ERC-20 and ERC-721 are supported as before in order to keep continuously supporting previous smart contract implementations on Klaytn.
+For more information about the differences, please visit [KIP-7](http://kips.klaytn.com/KIPs/kip-7-fungible_token#differences-with-erc-20) and [KIP-17](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token#differences-from-erc-721).
