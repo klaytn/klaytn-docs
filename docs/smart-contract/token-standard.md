@@ -131,8 +131,7 @@ For more information, refer to official [KIP-17 documentation](http://kips.klayt
 
 Service chain refers to Klaytn's side chain that anchors to Klaytn's main blockchain network. When implementing a service chain, special type of contracts are used to support value transfer between the main chain and the service chain. These contracts are currently under development, and when they are ready, the token specifications for Klaytn service chain will be provided on KlaytnDocs.
 
-## Updates <a id="updates"></a>
-Previously, ERC-20 and ERC-721 were supported in Klaytn.
-Since Klaytn published KIP-7 and KIP-17 as its token standards, it is recommended to implement a fungible token contract using KIP-7 and a non-fungible token contract using KIP-17.
-Note that KIP-7 and KIP-17 are advanced versions of ERC-20 and ERC-721, respectively, and ERC-20 and ERC-721 are supported as before in order to keep continuously supporting previous smart contract implementations on Klaytn.
-For more information about the differences, please visit [KIP-7](http://kips.klaytn.com/KIPs/kip-7-fungible_token#differences-with-erc-20) and [KIP-17](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token#differences-from-erc-721).
+## Notes on ERC-20 and ERC-721 <a id="notes-on-erc-20-and-erc-721"></a>
+Since Klaytn published KIP-7 and KIP-17 as its token standards, it is recommended to implement fungible and non-fungible token contracts according to KIP-7 and KIP-17, respectively, rather than following ERC-20 and ERC-721.
+KIP-7 and KIP-17 are based on ERC-20 and ERC-721, but they are tailored for Klaytn and thus more suitable on Klaytn. However, Klaytn will keep supporting ERC-20 and ERC-721 as before for backward compatibility.
+For more information about the differences on token standards, please visit [KIP-7](http://kips.klaytn.com/KIPs/kip-7-fungible_token#differences-with-erc-20) and [KIP-17](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token#differences-from-erc-721).
