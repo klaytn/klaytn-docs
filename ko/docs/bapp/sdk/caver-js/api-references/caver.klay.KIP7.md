@@ -15,7 +15,7 @@ The abi and bytecode used in the caver.klay.KIP7 were implemented using the exam
 
 For more information about KIP-7, see [Klaytn Improvement Proposals](http://kips.klaytn.com/KIPs/kip-7-fungible_token).
 
-**NOTE** `caver.klay.KIP7` is supported since caver-js [v1.4.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.4.0-rc.1).
+**NOTE** `caver.klay.KIP7` is supported since caver-js [v1.4.0](https://www.npmjs.com/package/caver-js/v/1.4.0).
 
 ## caver.klay.KIP7.deploy <a id="caver-klay-kip7-deploy"></a>
 
@@ -73,8 +73,8 @@ KIP7 {
             anonymous: false,
             inputs: [
                 { indexed: true, name: 'owner', type: 'address' },
-                    { indexed: true, name: 'approved', type: 'address' },
-                    { indexed: true, name: 'tokenId', type: 'uint256' }
+                    { indexed: true, name: 'spender', type: 'address' },
+                    { indexed: false, name: 'value', type: 'uint256' }
             ],
             name: 'Approval',
             type: 'event',
@@ -163,6 +163,32 @@ Clones the current KIP7 instance.
 
 // Clone with the address of the new token contract
 > const cloned = kip7Instance.clone('0x{address in hex}')
+```
+
+## kip7Instance.supportsInterface <a id="kip7instance-supportsinterface"></a>
+
+```javascript
+kip7Instance.supportsInterface(interfaceId)
+```
+Returns `true` if this contract implements the interface defined by interfaceId.
+
+**매개변수**
+
+| 명칭          | 형식     | 설명                                  |
+| ----------- | ------ | ----------------------------------- |
+| interfaceId | String | The interfaceId to check supported. |
+
+**리턴값**
+
+`Promise` returns `Boolean`: `true` if the account of address is minter.
+
+**예시**
+
+```javascript
+> kip7Instance.supportsInterface('0x65787371').then(console.log)
+true
+> kip7Instance.supportsInterface('0x3a2820fe').then(console.log)
+false
 ```
 
 
@@ -546,6 +572,81 @@ Note that the transfer method will submit a transaction to the Klaytn network, w
 > kip7Instance.transfer('0x{address in hex}', 10).then(console.log)
 ```
 
+## kip7Instance.safeTransfer <a id="kip7instance-safetransfer"></a>
+
+```javascript
+kip7Instance.safeTransfer(recipient, amount [, data] [, sendParam])
+```
+Safely transfers amount tokens from sender to recipient. If the target address is a contract, it must implement [IKIP7Receiver.onKIP7Received](http://kips.klaytn.com/KIPs/kip-7-fungible_token#wallet-interface). otherwise, the transfer is reverted.
+
+Note that the safeTransfer method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+
+**매개변수**
+
+| 명칭        | 형식                                    | 설명                                                                                                                                                                                    |
+| --------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| recipient | String                                | The address of the account to receive the token.                                                                                                                                      |
+| amount    | BigNumber &#124; String &#124; Number | The amount of tokens you want to transfer.                                                                                                                                            |
+| data      | Buffer &#124; String &#124; Number    | (optional) The optional data to send along with the call.                                                                                                                             |
+| sendParam | Object                                | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
+
+**NOTE** It also supports `Number` types as parameters for amount. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+
+**리턴값**
+
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+
+**예시**
+
+```javascript
+// Send via a sendParam object with the from field given (without data)
+> kip7Instance.safeTransfer('0x{address in hex}', 10, { from: '0x{address in hex}' }).then(console.log)
+{
+    blockHash: '0x208cd64b95bbd91420fc6b1a7b514a8d3051d09333d79244b6b74ff2f7f3eee4',
+    blockNumber: 2384,
+    contractAddress: null,
+    from: '0xc2c84328845a36fe0c4dcef370d24ec80cf85221',
+    ...
+    status: true,
+    to: '0xe4aeba6306b0df023aa4b765960fa59dbe925950',
+    ...
+    events: {
+            Transfer: {
+                    address: '0xe4AeBa6306b0Df023AA4b765960fA59dbE925950',
+                    blockNumber: 2384,
+                    transactionHash: '0x47bb085947c282722c1ceab1f4f0380d911ce464a47a19f1e7bddfe08a13563d',
+                    transactionIndex: 0,
+                    blockHash: '0x208cd64b95bbd91420fc6b1a7b514a8d3051d09333d79244b6b74ff2f7f3eee4',
+                    logIndex: 0,
+                    id: 'log_58e5e06d',
+                    returnValues: {
+                            '0': '0xC2C84328845A36Fe0c4DcEf370d24ec80cF85221',
+                            '1': '0x67B092d09B5e94fed58609777cc7Ac9193553B73',
+                            '2': '10',
+                            from: '0xC2C84328845A36Fe0c4DcEf370d24ec80cF85221',
+                            to: '0x67B092d09B5e94fed58609777cc7Ac9193553B73',
+                            value: '10',
+                    },
+                    event: 'Transfer',
+                    signature: '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef',
+                    raw: {
+                            data: '0x000000000000000000000000000000000000000000000000000000000000000a',
+                            topics: [ '0xddf25...', '0x00...221', '0x00...b73' ],
+                    },
+            },
+    },
+}
+
+// Send via a sendParam object with the from field given (with data)
+> kip7Instance.safeTransfer('0x{address in hex}', 11, '0x1234', { from: '0x{address in hex}' }).then(console.log)
+
+// Using kip7Instance.options.from
+// If the value of kip7Instance.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7Instance instance.
+> kip7Instance.options.from = '0x{address in hex}'
+> kip7Instance.safeTransfer('0x{address in hex}', 11).then(console.log)
+```
+
 
 ## kip7Instance.transferFrom <a id="kip7instance-transferfrom"></a>
 
@@ -642,6 +743,104 @@ Note that the transferFrom method will submit a transaction to the Klaytn networ
 > kip7Instance.transferFrom('0x{address in hex}', '0x{address in hex}', 10000).then(console.log)
 ```
 
+## kip7Instance.safeTransferFrom <a id="kip7instance-safetransferfrom"></a>
+
+```javascript
+kip7Instance.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
+```
+Safely transfers amount tokens from sender to recipient using the allowance mechanism. If the target address is a contract, it must implement [IKIP7Receiver.onKIP7Received](http://kips.klaytn.com/KIPs/kip-7-fungible_token#wallet-interface). otherwise, the transfer is reverted.
+
+Note that the safeTransferFrom method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+
+**매개변수**
+
+| 명칭        | 형식                                    | 설명                                                                                                                                                                                    |
+| --------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sender    | String                                | The address of the account that owns the token to be sent with allowance mechanism.                                                                                                   |
+| recipient | String                                | The address of the account to receive the token.                                                                                                                                      |
+| amount    | BigNumber &#124; String &#124; Number | The amount of tokens you want to transfer.                                                                                                                                            |
+| data      | Buffer &#124; String &#124; Number    | (optional) The optional data to send along with the call.                                                                                                                             |
+| sendParam | Object                                | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
+
+**NOTE** It also supports `Number` types as parameters for amount. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+
+**리턴값**
+
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+
+**예시**
+
+```javascript
+// Send via a sendParam object with the from field given (without data)
+> kip7Instance.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 10000, { from: '0x{address in hex}' }).then(console.log)
+{
+    blockHash: '0x0d641b9cebb032f10348288623898f8aa319faa0845c5b3b7a59ac397a6a218b',
+    blockNumber: 2404,
+    contractAddress: null,
+    from: '0x090937f5c9b83d961da29149a3c37104bc5e71b3',
+    ...
+    status: true,
+    to: '0xe4aeba6306b0df023aa4b765960fa59dbe925950',
+    ...
+    events: {
+            Transfer: {
+                    address: '0xe4AeBa6306b0Df023AA4b765960fA59dbE925950',
+                    blockNumber: 2404,
+                    transactionHash: '0xed8c33facaea963f57c268134aaab48fa765e7298fd70d4bc796b1e93c12ad45',
+                    transactionIndex: 0,
+                    blockHash: '0x0d641b9cebb032f10348288623898f8aa319faa0845c5b3b7a59ac397a6a218b',
+                    logIndex: 0,
+                    id: 'log_5eaef2c3',
+                    returnValues: {
+                            '0': '0xC2C84328845A36Fe0c4DcEf370d24ec80cF85221',
+                            '1': '0x67B092d09B5e94fed58609777cc7Ac9193553B73',
+                            '2': '10000',
+                            from: '0xC2C84328845A36Fe0c4DcEf370d24ec80cF85221',
+                            to: '0x67B092d09B5e94fed58609777cc7Ac9193553B73',
+                            value: '10000',
+                    },
+                    event: 'Transfer',
+                    signature: '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef',
+                    raw: {
+                            data: '0x0000000000000000000000000000000000000000000000000000000000002710',
+                            topics: [ '0xddf25...', '0x00...221', '0x00...b73' ],
+                    },
+            },
+            Approval: {
+                    address: '0xe4AeBa6306b0Df023AA4b765960fA59dbE925950',
+                    blockNumber: 2404,
+                    transactionHash: '0xed8c33facaea963f57c268134aaab48fa765e7298fd70d4bc796b1e93c12ad45',
+                    transactionIndex: 0,
+                    blockHash: '0x0d641b9cebb032f10348288623898f8aa319faa0845c5b3b7a59ac397a6a218b',
+                    logIndex: 1,
+                    id: 'log_3f3aedf8',
+                    returnValues: {
+                            '0': '0xC2C84328845A36Fe0c4DcEf370d24ec80cF85221',
+                            '1': '0x090937f5C9B83d961da29149a3C37104Bc5e71B3',
+                            '2': '0',
+                            owner: '0xC2C84328845A36Fe0c4DcEf370d24ec80cF85221',
+                            spender: '0x090937f5C9B83d961da29149a3C37104Bc5e71B3',
+                            value: '0',
+                    },
+                    event: 'Approval',
+                    signature: '0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925',
+                    raw: {
+                            data: '0x0000000000000000000000000000000000000000000000000000000000000000',
+                            topics: [ '0x8c5be...', '0x00...221', '0x00...1b3' ],
+                    },
+            },
+    },
+}
+
+// Send via a sendParam object with the from field given (with data)
+> kip7Instance.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 11, '0x1234', { from: '0x{address in hex}' }).then(console.log)
+
+// Using kip7Instance.options.from
+// If the value of kip7Instance.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7Instance instance.
+> kip7Instance.options.from = '0x{address in hex}'
+> kip7Instance.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 11).then(console.log)
+```
 
 ## kip7Instance.mint <a id="kip7instance-mint"></a>
 
