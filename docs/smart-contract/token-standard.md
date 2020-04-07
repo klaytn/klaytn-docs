@@ -2,7 +2,7 @@
 
 Klaytn Compatible Token (KCT) is a special type of smart contract that implements certain technical specifications. Everyone who wants to issue tokens on top of Klaytn must follow the specification.  
 
-Token standards are defined in Klaytn such as [KIP-7](http://kips.klaytn.com/KIPs/kip-7-fungible_token) and [KIP-17](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token).
+Token standards are defined in Klaytn such as [KIP-7](http://kips.klaytn.com/KIPs/kip-7) and [KIP-17](http://kips.klaytn.com/KIPs/kip-17).
 
 Other KCTs can be defined to meet certain technical specifications. If anyone who needs another token standards, please visit [Klaytn Improvement Proposal](https://github.com/klaytn/KIPs) and propose a new token standard.
 
@@ -10,7 +10,7 @@ Other KCTs can be defined to meet certain technical specifications. If anyone wh
 
 Fungible tokens are tokens that have properties of uniformity and divisibility. Every fungible token is interchangeable as each unit of token possesses the same value. Just like every dollar bill has the same value of one dollar. Since fungibility is essential feature to crypto currency in most cases, large proportion of blockchain tokens are fungible tokens.
 
-To implement these properties with smart contracts, KIP-7 token standard can be used. KIP-7-compatible tokens implement the following interface. Please note that [KIP-13](http://kips.klaytn.com/KIPs/kip-13-interface_query_standard) must be implemented together. For wallet applications, [wallet interface](http://kips.klaytn.com/KIPs/kip-7-fungible_token#wallet-interface) can be implemented.
+To implement these properties with smart contracts, KIP-7 token standard can be used. KIP-7-compatible tokens implement the following interface. Please note that [KIP-13](http://kips.klaytn.com/KIPs/kip-13) must be implemented together. For wallet applications, [wallet interface](http://kips.klaytn.com/KIPs/kip-7#wallet-interface) can be implemented.
 
 ```solidity
 // IKIP7
@@ -57,7 +57,7 @@ function renouncePauser() external;
 
 Based on above interface, developers may customize tokens by adding new features and logics, and deploy them on Klaytn network.
 
-For more information, refer to official [KIP-7 documentation](http://kips.klaytn.com/KIPs/kip-7-fungible_token).
+For more information, refer to official [KIP-7 documentation](http://kips.klaytn.com/KIPs/kip-7).
 
 * An example implementation is available at [https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP7/KIP7.sol](https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP7/KIP7.sol) on Github.
 
@@ -67,7 +67,7 @@ Non-fungible token \(NFT\) is a special type of token that represents a unique a
 
 For example, a blockchain collection game [Cryptokitties](https://www.cryptokitties.co/) implements non-fungible token to represent different kitties that have different genetic information. Every kitty is unique and non-interchangeable, resulting in different values for different kitty tokens.
 
-To implement non-fungible token, [KIP-17](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token) can be used. KIP-17 token contracts implement the following interface. Please note that [KIP-13](http://kips.klaytn.com/KIPs/kip-13-interface_query_standard) must be implemented together. For wallet applications, [wallet interface](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token#wallet-interface) can be implemented.
+To implement non-fungible token, [KIP-17](http://kips.klaytn.com/KIPs/kip-17) can be used. KIP-17 token contracts implement the following interface. Please note that [KIP-13](http://kips.klaytn.com/KIPs/kip-13) must be implemented together. For wallet applications, [wallet interface](http://kips.klaytn.com/KIPs/kip-17#wallet-interface) can be implemented.
 
 ```solidity
 // IKIP17
@@ -123,7 +123,7 @@ function renouncePauser() public;
 
 Based on above interface, developers may customize tokens by adding new features and logics, and deploy them on Klaytn network.
 
-For more information, refer to official [KIP-17 documentation](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token).
+For more information, refer to official [KIP-17 documentation](http://kips.klaytn.com/KIPs/kip-17).
 
 * An example implementation is available at [https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP17/KIP17.sol](https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP17/KIP17.sol) on Github.
 
@@ -134,4 +134,4 @@ Service chain refers to Klaytn's side chain that anchors to Klaytn's main blockc
 ## Notes on ERC-20 and ERC-721 <a id="notes-on-erc-20-and-erc-721"></a>
 Since Klaytn published KIP-7 and KIP-17 as its token standards, it is recommended to implement fungible and non-fungible token contracts according to KIP-7 and KIP-17, respectively, rather than following ERC-20 and ERC-721.
 KIP-7 and KIP-17 are based on ERC-20 and ERC-721, but they are tailored for Klaytn and thus more suitable on Klaytn ecosystem. ERC-20 and ERC-721 are still available on Klaytn network. However, they may not be supported on other tools involved in Klaytn ecosystem. 
-For more information about the differences on token standards, please visit [KIP-7](http://kips.klaytn.com/KIPs/kip-7-fungible_token#differences-with-erc-20) and [KIP-17](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token#differences-from-erc-721).
+For more information about the differences on token standards, please visit [KIP-7](http://kips.klaytn.com/KIPs/kip-7#differences-with-erc-20) and [KIP-17](http://kips.klaytn.com/KIPs/kip-17#differences-from-erc-721).
