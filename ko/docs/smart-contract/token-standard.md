@@ -2,7 +2,7 @@
 
 Klaytn 호환 토큰(KCT, Klaytn Compatible Token)는 특정 기술 스펙을 구현한 특별한 타입의 스마트 컨트랙트입니다. Klaytn에서 토큰을 발행하려는 모든 사람들은 스펙을 따라야 합니다.
 
-Token standards are defined in Klaytn such as [KIP-7](http://kips.klaytn.com/KIPs/kip-7-fungible_token) and [KIP-17](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token).
+Token standards are defined in Klaytn such as [KIP-7](https://kips.klaytn.com/KIPs/kip-7) and [KIP-17](https://kips.klaytn.com/KIPs/kip-17).
 
 Other KCTs can be defined to meet certain technical specifications. If anyone who needs another token standards, please visit [Klaytn Improvement Proposal](https://github.com/klaytn/KIPs) and propose a new token standard.
 
@@ -10,7 +10,7 @@ Other KCTs can be defined to meet certain technical specifications. If anyone wh
 
 대체 가능한 토큰은 균등성과 가분(可分)성을 가진 토큰입니다. 각 토큰 단위는 동일한 가치를 가지므로 모든 가용 토큰은 서로 호환됩니다. 모든 달러 지폐가 동일하게 1달러 가치인 것과 같습니다. 대부분의 경우 대체 가능성은 암호 화폐에 필수적인 기능이기 때문에, 블록체인 토큰 중 많은 비율이 대체 가능한 토큰입니다.
 
-To implement these properties with smart contracts, KIP-7 token standard can be used. KIP-7-compatible tokens implement the following interface. Please note that [KIP-13](http://kips.klaytn.com/KIPs/kip-13-interface_query_standard) must be implemented together. For wallet applications, [wallet interface](http://kips.klaytn.com/KIPs/kip-7-fungible_token#wallet-interface) can be implemented.
+To implement these properties with smart contracts, KIP-7 token standard can be used. KIP-7-compatible tokens implement the following interface. Please note that [KIP-13](https://kips.klaytn.com/KIPs/kip-13) must be implemented together. For wallet applications, [wallet interface](https://kips.klaytn.com/KIPs/kip-7#wallet-interface) can be implemented.
 
 ```solidity
 // IKIP7
@@ -57,7 +57,7 @@ function renouncePauser() external;
 
 Based on above interface, developers may customize tokens by adding new features and logics, and deploy them on Klaytn network.
 
-For more information, refer to official [KIP-7 documentation](http://kips.klaytn.com/KIPs/kip-7-fungible_token).
+For more information, refer to official [KIP-7 documentation](https://kips.klaytn.com/KIPs/kip-7).
 
 * An example implementation is available at [https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP7/KIP7.sol](https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP7/KIP7.sol) on Github.
 
@@ -67,7 +67,7 @@ For more information, refer to official [KIP-7 documentation](http://kips.klaytn
 
 예를 들어, 블록체인 수집 게임인 [크립토키티](https://www.cryptokitties.co/)는 다른 유전 정보를 가진 고양이를 표현하기 위해 대체 불가능한 토큰을 구현합니다. 모든 고양이는 고유하고 상호 교환이 불가능하며, 그 결과 고양이 토큰마다 다른 가치를 가집니다.
 
-To implement non-fungible token, [KIP-17](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token) can be used. KIP-17 token contracts implement the following interface. Please note that [KIP-13](http://kips.klaytn.com/KIPs/kip-13-interface_query_standard) must be implemented together. For wallet applications, [wallet interface](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token#wallet-interface) can be implemented.
+To implement non-fungible token, [KIP-17](https://kips.klaytn.com/KIPs/kip-17) can be used. KIP-17 token contracts implement the following interface. Please note that [KIP-13](https://kips.klaytn.com/KIPs/kip-13) must be implemented together. For wallet applications, [wallet interface](https://kips.klaytn.com/KIPs/kip-17#wallet-interface) can be implemented.
 
 ```solidity
 // IKIP17
@@ -123,7 +123,7 @@ function renouncePauser() public;
 
 Based on above interface, developers may customize tokens by adding new features and logics, and deploy them on Klaytn network.
 
-For more information, refer to official [KIP-17 documentation](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token).
+For more information, refer to official [KIP-17 documentation](https://kips.klaytn.com/KIPs/kip-17).
 
 * An example implementation is available at [https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP17/KIP17.sol](https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP17/KIP17.sol) on Github.
 
@@ -132,4 +132,4 @@ For more information, refer to official [KIP-17 documentation](http://kips.klayt
 서비스체인은 Klaytn의 메인 블록체인 네트워크에 기반을 두는 Klaytn의 사이드체인을 의미합니다. 서비스체인을 구현할 때, 주 체인과 서비스체인간의 가치 전송을 지원하기 위해 특별한 유형의 컨트랙트가 사용됩니다. 이 컨트랙트는 현재 개발 중에 있으며, 준비가 완료되면 Klaytn 서비스체인을 위한 토큰 스펙이 KlaytnDocs에 제공될 것입니다.
 
 ## Notes on ERC-20 and ERC-721 <a id="notes-on-erc-20-and-erc-721"></a>
-Since Klaytn published KIP-7 and KIP-17 as its token standards, it is recommended to implement fungible and non-fungible token contracts according to KIP-7 and KIP-17, respectively, rather than following ERC-20 and ERC-721. KIP-7 and KIP-17 are based on ERC-20 and ERC-721, but they are tailored for Klaytn and thus more suitable on Klaytn ecosystem. ERC-20 and ERC-721 are still available on Klaytn network. However, they may not be supported on other tools involved in Klaytn ecosystem. For more information about the differences on token standards, please visit [KIP-7](http://kips.klaytn.com/KIPs/kip-7-fungible_token#differences-with-erc-20) and [KIP-17](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token#differences-from-erc-721).
+Since Klaytn published KIP-7 and KIP-17 as its token standards, it is recommended to implement fungible and non-fungible token contracts according to KIP-7 and KIP-17, respectively, rather than following ERC-20 and ERC-721. KIP-7 and KIP-17 are based on ERC-20 and ERC-721, but they are tailored for Klaytn and thus more suitable on Klaytn ecosystem. ERC-20 and ERC-721 are still available on Klaytn network. However, they may not be supported on other tools involved in Klaytn ecosystem. For more information about the differences on token standards, please visit [KIP-7](https://kips.klaytn.com/KIPs/kip-7#differences-with-erc-20) and [KIP-17](https://kips.klaytn.com/KIPs/kip-17#differences-from-erc-721).
