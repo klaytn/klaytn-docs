@@ -13,7 +13,7 @@ The `caver.klay.KIP7` inherits [caver.klay.Contract](caver.klay.Contract.md) and
 
 The abi and bytecode used in the caver.klay.KIP7 were implemented using the example of [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20).
 
-For more information about KIP-7, see [Klaytn Improvement Proposals](http://kips.klaytn.com/KIPs/kip-7-fungible_token).
+For more information about KIP-7, see [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-7).
 
 **NOTE** `caver.klay.KIP7` is supported since caver-js [v1.4.0](https://www.npmjs.com/package/caver-js/v/1.4.0).
 
@@ -577,7 +577,7 @@ Note that the transfer method will submit a transaction to the Klaytn network, w
 ```javascript
 kip7Instance.safeTransfer(recipient, amount [, data] [, sendParam])
 ```
-Safely transfers amount tokens from sender to recipient. If the target address is a contract, it must implement [IKIP7Receiver.onKIP7Received](http://kips.klaytn.com/KIPs/kip-7-fungible_token#wallet-interface). otherwise, the transfer is reverted.
+Safely transfers amount tokens from sender to recipient. If the target address is a contract, it must implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface). otherwise, the transfer is reverted.
 
 Note that the safeTransfer method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -748,7 +748,7 @@ Note that the transferFrom method will submit a transaction to the Klaytn networ
 ```javascript
 kip7Instance.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
 ```
-Safely transfers amount tokens from sender to recipient using the allowance mechanism. If the target address is a contract, it must implement [IKIP7Receiver.onKIP7Received](http://kips.klaytn.com/KIPs/kip-7-fungible_token#wallet-interface). otherwise, the transfer is reverted.
+Safely transfers amount tokens from sender to recipient using the allowance mechanism. If the target address is a contract, it must implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface). otherwise, the transfer is reverted.
 
 Note that the safeTransferFrom method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
