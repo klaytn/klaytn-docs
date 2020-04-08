@@ -5,13 +5,13 @@ description: >-
 
 # caver.klay.KIP17 <a id="caver-klay-kip17"></a>
 
-The `caver.klay.KIP17`, a javascript object, makes it easy to interact with a smart contract that implements [KIP-17](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token) on the Klaytn blockchain.
+The `caver.klay.KIP17`, a javascript object, makes it easy to interact with a smart contract that implements [KIP-17](https://kips.klaytn.com/KIPs/kip-17) on the Klaytn blockchain.
 
 The `caver.klay.KIP17` inherits [caver.klay.Contract](caver.klay.Contract.md) and is implemented for KIP-17 token contracts. This section describes only the additional implementations of the caver.klay.KIP17 for easy to use.
 
 The code that implements KIP-17 for caver-js is available on the [caver-js Github Repo](https://github.com/klaytn/caver-js/tree/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP17).
 
-For more information about KIP-17, see [Klaytn Improvement Proposals](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token).
+For more information about KIP-17, see [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-17).
 
 **NOTE** `caver.klay.KIP17` is supported since caver-js [v1.4.0](https://www.npmjs.com/package/caver-js/v/1.4.0).
 
@@ -758,7 +758,7 @@ Note that the transferFrom method will submit a transaction to the Klaytn networ
 ```javascript
 kip17Instance.safeTransferFrom(from, to, tokenId [, data] [, sendParam])
 ```
-Safely transfers the ownership of a given token id to another address. If the target address is a contract, it must implement [IKIP17Receiver.onKIP17Received](http://kips.klaytn.com/KIPs/kip-17-non_fungible_token#wallet-interface). otherwise, the transfer is reverted.
+Safely transfers the ownership of a given token id to another address. If the target address is a contract, it must implement [IKIP17Receiver.onKIP17Received](https://kips.klaytn.com/KIPs/kip-17#wallet-interface). otherwise, the transfer is reverted.
 
 Note that the safeTransferFrom method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
