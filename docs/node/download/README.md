@@ -3,7 +3,9 @@
 ## Get the Packages <a id="get-the-packages"></a>
 You can get the Linux and MacOS packages for CN, PN, EN, SCN, SPN and SEN.
 
-- [v1.4.0 (latest)](v1.4.0.md)
+- [v1.4.2 (latest)](v1.4.2.md)
+- [v1.4.1](v1.4.1.md)
+- [v1.4.0](v1.4.0.md)
 - [v1.3.0](v1.3.0.md)
 - [v1.2.0](v1.2.0.md)
 - [v1.1.1](v1.1.1.md)
