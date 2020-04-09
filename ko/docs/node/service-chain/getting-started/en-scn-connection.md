@@ -3,9 +3,9 @@
 ## 준비 사항 <a id="prerequisites"></a>
  - 아래 Baobab EN 실행 파일을 다운로드하세요. 다운로드 가능한 전체 목록은 [다운로드](../../download/README.md) 페이지를 참조하세요.
    - Linux
-      - [ken-baobab-v1.4.0-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.4.0/ken-baobab-v1.4.0-0-linux-amd64.tar.gz)
+      - [ken-baobab-v1.4.2-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.4.2/ken-baobab-v1.4.2-0-linux-amd64.tar.gz)
    - MacOS
-      - [ken-baobab-v1.4.0-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.4.0/ken-baobab-v1.4.0-0-darwin-10.10-amd64.tar.gz)
+      - [ken-baobab-v1.4.2-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.4.2/ken-baobab-v1.4.2-0-darwin-10.10-amd64.tar.gz)
  - EN용 Linux 또는 MacOS 서버 1대
  - 테스트를 위한 최소 하드웨어 요구 사항
    - CPU: 4코어(Intel Xeon 또는 동급), RAM: 16GB, HDD: 50GB
