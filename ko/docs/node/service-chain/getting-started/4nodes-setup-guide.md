@@ -3,11 +3,11 @@
 ## 준비 사항 <a id="prerequisites"></a>
  - 아래 실행 파일을 다운로드하세요. 다운로드 가능한 전체 목록은 [다운로드](../../download/README.md) 페이지를 참조하세요.
    - Linux
-      - Service Chain Consensus Node: [kscn-v1.4.0-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.4.0/kscn-v1.4.0-0-linux-amd64.tar.gz)
-      - homi utility: [homi-v1.4.0-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.4.0/homi-v1.4.0-0-linux-amd64.tar.gz)
+      - Service Chain Consensus Node: [kscn-v1.4.2-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.4.2/kscn-v1.4.2-0-linux-amd64.tar.gz)
+      - homi utility: [homi-v1.4.2-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.4.2/homi-v1.4.2-0-linux-amd64.tar.gz)
    - MacOS
-      - Service Chain Consensus Node: [kscn-v1.4.0-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.4.0/kscn-v1.4.0-0-darwin-10.10-amd64.tar.gz)
-      - homi utility: [homi-v1.4.0-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.4.0/homi-v1.4.0-0-darwin-10.10-amd64.tar.gz)
+      - Service Chain Consensus Node: [kscn-v1.4.2-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.4.2/kscn-v1.4.2-0-darwin-10.10-amd64.tar.gz)
+      - homi utility: [homi-v1.4.2-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.4.2/homi-v1.4.2-0-darwin-10.10-amd64.tar.gz)
  - 4대의 Linux 또는 MacOS 서버
  - 최소 하드웨어 요구 사항
    - CPU: 4코어(Intel Xeon 또는 동급), RAM: 16GB, HDD: 50GB
