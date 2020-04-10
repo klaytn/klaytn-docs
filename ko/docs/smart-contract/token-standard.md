@@ -2,7 +2,7 @@
 
 Klaytn 호환 토큰(KCT, Klaytn Compatible Token)는 특정 기술 스펙을 구현한 특별한 타입의 스마트 컨트랙트입니다. Klaytn에서 토큰을 발행하려는 모든 사람들은 스펙을 따라야 합니다.
 
-Token standards are defined in Klaytn such as [KIP-7](https://kips.klaytn.com/KIPs/kip-7) and [KIP-17](https://kips.klaytn.com/KIPs/kip-17).
+Klaytn 토큰 표준은 [KIP-7](https://kips.klaytn.com/KIPs/kip-7), [KIP-17](https://kips.klaytn.com/KIPs/kip-17)과 같이 정의되어 있습니다.
 
 Other KCTs can be defined to meet certain technical specifications. If anyone who needs another token standards, please visit [Klaytn Improvement Proposal](https://github.com/klaytn/KIPs) and propose a new token standard.
 
