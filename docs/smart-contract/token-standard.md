@@ -55,7 +55,7 @@ function addPauser(address _account) external;
 function renouncePauser() external;
 ```
 
-Based on above interface, developers may customize tokens by adding new features and logics, and deploy them on Klaytn network.
+Based on the interface above, developers may customize tokens by adding new features and logics, and deploy them on Klaytn network.
 
 For more information, refer to official [KIP-7 documentation](https://kips.klaytn.com/KIPs/kip-7).
 
