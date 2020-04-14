@@ -182,6 +182,8 @@
         * [caver.klay.net](bapp/sdk/caver-js/api-references/caver.klay.net.md)
         * [caver.klay.accounts](bapp/sdk/caver-js/api-references/caver.klay.accounts.md)
         * [caver.klay.Contract](bapp/sdk/caver-js/api-references/caver.klay.Contract.md)
+        * [caver.klay.KIP7](bapp/sdk/caver-js/api-references/caver.klay.KIP7.md)
+        * [caver.klay.KIP17](bapp/sdk/caver-js/api-references/caver.klay.KIP17.md)
         * [caver.klay.abi](bapp/sdk/caver-js/api-references/caver.klay.abi.md)
         * [caver.utils](bapp/sdk/caver-js/api-references/caver.utils.md)
       * [web3.js에서 포팅하기](bapp/sdk/caver-js/porting-from-web3.js.md)
