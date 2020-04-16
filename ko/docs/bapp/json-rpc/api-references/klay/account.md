@@ -6,8 +6,8 @@
 
 | 명칭           | 형식                  | 설명                                                                                                                                                         |
 | ------------ | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | 20바이트 크기 DATA       | 주소                                                                                                                                                         |
-| 블록 번호        | QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
+| Account      | 20바이트 크기 DATA       | 주소                                                                                                                                                         |
+| Block Number | QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
 
 **리턴값**
 
@@ -40,9 +40,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **리턴값**
 
-| 형식            | 설명                         |
-| ------------- | -------------------------- |
-| 20바이트 크기 DATA | 클라이언트가 소유한 계정의 주소들을 반환합니다. |
+| 형식                    | 설명                         |
+| --------------------- | -------------------------- |
+| Array of 20-byte DATA | 클라이언트가 소유한 계정의 주소들을 반환합니다. |
 
 **예시**
 
@@ -61,7 +61,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_encodeAccountKey <a id="klay_encodeaccountkey"></a>
 
-Encodes an account key using the Recursive Length Prefix (RLP) encoding scheme.
+계정 키를 RLP(Recursive Length Prefix)를 사용해 인코딩합니다.
 
 **매개변수**
 
@@ -479,7 +479,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | 명칭           | 형식                  | 설명                                                                                                                                                         |
 | ------------ | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 계정 (Account) | 20바이트 크기 DATA       | 주소                                                                                                                                                         |
-| 블록 번호        | QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
+| Block Number | QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
 
 **리턴값**
 
