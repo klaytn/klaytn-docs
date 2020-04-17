@@ -65,16 +65,16 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 명칭      | 형식        | 설명                                                                                                                                                       |
-| ------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keytype | QUANTITY  | Integer value indicating account key type. For the value of each account key type, see [Account Key](../../../../klaytn/design/accounts.md#account-key). |
-| key     | JSON DATA | Account key object                                                                                                                                       |
+| 명칭      | 형식        | 설명                                                                                                                     |
+| ------- | --------- | ---------------------------------------------------------------------------------------------------------------------- |
+| keytype | QUANTITY  | 계정 키 타입을 의미하는 정수값입니다. 각 계정 키 타입에 관한 자세한 정보는  [Account Key](../../../../klaytn/design/accounts.md#account-key)에서 확인하세요. |
+| key     | JSON DATA | 계정 키 객체                                                                                                                |
 
 **리턴값**
 
-| 형식   | 설명                      |
-| ---- | ----------------------- |
-| DATA | RLP encoded account key |
+| 형식   | 설명             |
+| ---- | -------------- |
+| DATA | RLP로 인코딩된 계정 키 |
 
 
 **예시**
@@ -149,20 +149,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## klay_decodeAccountKey <a id="klay_decodeaccountkey"></a>
 
-Decodes an RLP encoded account key.
+RLP 인코딩된 계정 키를 디코딩 합니다.
 
 **매개변수**
 
-| 형식   | 설명                      |
-| ---- | ----------------------- |
-| DATA | RLP encoded account key |
+| 형식   | 설명             |
+| ---- | -------------- |
+| DATA | RLP로 인코딩된 계정 키 |
 
 **리턴값**
 
-| 명칭      | 형식        | 설명                                         |
-| ------- | --------- | ------------------------------------------ |
-| keytype | QUANTITY  | Integer value indicating account key type. |
-| key     | JSON DATA | Account key object                         |
+| 명칭      | 형식        | 설명                    |
+| ------- | --------- | --------------------- |
+| keytype | QUANTITY  | 계정 키 타입을 의미하는 정수값입니다. |
+| key     | JSON DATA | 계정 키 객체               |
 
 **예시**
 
@@ -220,20 +220,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## klay_getAccount <a id="klay_getaccount"></a>
 
-입력으로 받은 주소의 계정 정보를 반환합니다. Klaytn에는 외부 소유 계정(EOA)와 스마트 컨트랙트 계정 등 두 가지 유형의 계정이 있습니다. See [Klaytn Accounts](../../../../klaytn/design/accounts.md#klaytn-accounts).
+입력으로 받은 주소의 계정 정보를 반환합니다. Klaytn에는 외부 소유 계정(EOA)와 스마트 컨트랙트 계정 등 두 가지 유형의 계정이 있습니다. 자세한 사항은 [Klaytn Accounts](../../../../klaytn/design/accounts.md#klaytn-accounts)를 확인하십시오.
 
 **매개변수**
 
 | 형식                  | 설명                                                                                                                                                         |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA       | 주소                                                                                                                                                         |
+| 20-byte DATA        | 주소                                                                                                                                                         |
 | QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
 
 **리턴값**
 
-| 형식          | 설명                                          |
-| ----------- | ------------------------------------------- |
-| 계정(Account) | Each account type has different attributes. |
+| 형식      | 설명                           |
+| ------- | ---------------------------- |
+| Account | 각 계정 타입은 서로 다른 속성을 지니고 있습니다. |
 
 **예시**
 
@@ -291,7 +291,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getAccountKey <a id="klay_getaccountkey"></a>
 
-Returns the account key of the Externally Owned Account (EOA) of a given address. 해당 계정의 키가 AccountKeyLegacy이거나 입력으로 받은 주소의 계정이 스마트 컨트랙트 계정이면 빈 값을 반환합니다. See [Account Key](../../../../klaytn/design/accounts.md#account-key).
+입력으로 받은 주소의 외부 소유 계정(EOA)에 해당하는 계정의 키를 반환합니다. 해당 계정의 키가 AccountKeyLegacy이거나 입력으로 받은 주소의 계정이 스마트 컨트랙트 계정이면 빈 값을 반환합니다. 자세한 내용은 [Account Key](../../../../klaytn/design/accounts.md#account-key)를 참조하세요.
 
 **매개변수**
 
@@ -302,9 +302,9 @@ Returns the account key of the Externally Owned Account (EOA) of a given address
 
 **리턴값**
 
-| 형식         | 설명                                                       |
-| ---------- | -------------------------------------------------------- |
-| AccountKey | The account key consist of public key(s) and a key type. |
+| 형식         | 설명                                  |
+| ---------- | ----------------------------------- |
+| AccountKey | 계정 키는 1개 이상의 공개키와 1가지 키 타입으로 구성됩니다. |
 
 **예시**
 
@@ -375,20 +375,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBalance <a id="klay_getbalance"></a>
 
-Returns the balance of the account of given address.
+입력 받은 주소에 존재하는 계정 잔고를 반환합니다.
 
 **매개변수**
 
 | 형식                  | 설명                                                                                                                                                         |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA       | Address to check for balance.                                                                                                                              |
+| 20-byte DATA        | 잔액을 확인할 계정의 주소입니다.                                                                                                                                         |
 | QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
 
 **리턴값**
 
-| 형식       | 설명                                     |
-| -------- | -------------------------------------- |
-| QUANTITY | Integer of the current balance in peb. |
+| 형식       | 설명                               |
+| -------- | -------------------------------- |
+| QUANTITY | peb으로 환산된 현재 잔액입니다. 정수 형태를 지닙니다. |
 
 **예시**
 
@@ -406,20 +406,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getCode <a id="klay_getcode"></a>
 
-Returns code at a given address.
+입력으로 받은 주소의 코드를 반환합니다.
 
 **매개변수**
 
 | 형식                  | 설명                                                                                                                                                         |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA       | 주소                                                                                                                                                         |
+| 20-byte DATA        | 주소                                                                                                                                                         |
 | QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
 
 **리턴값**
 
-| 형식   | 설명                               |
-| ---- | -------------------------------- |
-| DATA | The code from the given address. |
+| 형식   | 설명                 |
+| ---- | ------------------ |
+| DATA | 입력으로 받은 주소의 코드입니다. |
 
 **예시**
 
@@ -438,20 +438,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionCount <a id="klay_gettransactioncount"></a>
 
-Returns the number of transactions *sent* from an address.
+어떤 주소의 계정에서 *전송한* 트랜잭션 개수를 반환합니다.
 
 **매개변수**
 
 | 형식                  | 설명                                                                                                                                                         |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA       | 주소                                                                                                                                                         |
+| 20-byte DATA        | 주소                                                                                                                                                         |
 | QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
 
 **리턴값**
 
-| 형식       | 설명                                                            |
-| -------- | ------------------------------------------------------------- |
-| QUANTITY | Integer of the number of transactions send from this address. |
+| 형식       | 설명                                      |
+| -------- | --------------------------------------- |
+| QUANTITY | 입력으로 받은 주소에서 전송한 트랜잭션 개수를 정수 형태로 반환합니다. |
 
 **예시**
 
@@ -478,14 +478,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 | 명칭           | 형식                  | 설명                                                                                                                                                         |
 | ------------ | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | 20바이트 크기 DATA       | 주소                                                                                                                                                         |
+| Account      | 20-byte DATA        | 주소                                                                                                                                                         |
 | Block Number | QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
 
 **리턴값**
 
-| 형식      | 설명                                                                      |
-| ------- | ----------------------------------------------------------------------- |
-| Boolean | `true` means the input parameter is an existing smart contract address. |
+| 형식      | 설명                                            |
+| ------- | --------------------------------------------- |
+| Boolean | 리턴값이 `true`이면 매개변수가 기존에 있는 스마트 컨트랙트 계정 주소입니다. |
 
 **예시**
 
@@ -503,27 +503,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_sign <a id="klay_sign"></a>
 
-The sign method calculates a Klaytn-specific signature with:
+서명 메서드는 다음과 같이 Klaytn 전용 서명을 계산합니다:
 ```
 sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 ```
 
-메시지에 접두사를 붙이면 계산된 서명 값이 Klaytn의 서명임을 알 수 있습니다. This prevents misuse where a malicious BApp can sign arbitrary data, *e.g.*, transaction, and use the signature to impersonate the victim.
+메시지에 접두사를 붙이면 계산된 서명 값이 Klaytn의 서명임을 알 수 있습니다. 이는 악성 BApp이 임의의 데이터(트랜잭션)에 서명하여 누군가를 사칭하는 것을 방지합니다.
 
 **참고**: 서명하려는 계정은 잠금 해제되어 있어야 합니다.
 
 **매개변수**
 
-| 명칭           | 형식            | 설명              |
-| ------------ | ------------- | --------------- |
-| 계정 (Account) | 20바이트 크기 DATA | 주소              |
-| message      | N-byte DATA   | Message to sign |
+| 명칭      | 형식           | 설명            |
+| ------- | ------------ | ------------- |
+| Account | 20-byte DATA | 주소            |
+| Message | N-byte DATA  | 서명하려는 메시지입니다. |
 
 **리턴값**
 
-| 형식   | 설명        |
-| ---- | --------- |
-| DATA | Signature |
+| 형식   | 설명       |
+| ---- | -------- |
+| DATA | 서명 값입니다. |
 
 **예시**
 
