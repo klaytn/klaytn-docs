@@ -26,7 +26,7 @@
 | ---- | ----------------- |
 | DATA | 실행된 컨트랙트의 리턴값입니다. |
 
-If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
+컨트랙트를 배포했다면 [klay_getTransactionReceipt](#klay_gettransactionreceipt)를 사용해 컨트랙트 주소를 확인하십시오.
 
 **에러**
 
@@ -570,7 +570,7 @@ Creates a new message call transaction or a contract creation for signed transac
 | ------------- | ------------------------------------------------------------------------------ |
 | 32바이트 크기 DATA | The transaction hash or the zero hash if the transaction is not yet available. |
 
-If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
+컨트랙트를 배포했다면 [klay_getTransactionReceipt](#klay_gettransactionreceipt)를 사용해 컨트랙트 주소를 확인하십시오.
 
 **예시**
 
@@ -603,7 +603,7 @@ The required parameters depend on the transaction type. Check the proper paramet
 | ------------- | ------- |
 | 32바이트 크기 DATA | 트랜잭션 해시 |
 
-If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
+컨트랙트를 배포했다면 [klay_getTransactionReceipt](#klay_gettransactionreceipt)를 사용해 컨트랙트 주소를 확인하십시오.
 
 **예시**
 
@@ -646,7 +646,7 @@ The required parameters depend on the transaction type. Check the proper paramet
 | ------------- | ------- |
 | 32바이트 크기 DATA | 트랜잭션 해시 |
 
-If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
+컨트랙트를 배포했다면 [klay_getTransactionReceipt](#klay_gettransactionreceipt)를 사용해 컨트랙트 주소를 확인하십시오.
 
 **예시**
 
