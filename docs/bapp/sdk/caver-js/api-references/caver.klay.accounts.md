@@ -1656,7 +1656,7 @@ caver.klay.accounts.encrypt(encryptTarget, password [, options])
 ```
 Encrypts an account to the Klaytn keystore standard. For more information, please refer to [KIP-3](https://kips.klaytn.com/KIPs/kip-3).
 
-**NOTE** Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), `caver.klay.accounts.encrypt` encrypts using the keystore v4 standard to encrypt various AccountKey types (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased). If you want to encrypt an account using keystore v3, please use a [caver.klay.accounts.encryptV3](#encryptv3).
+**NOTE** Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), `caver.klay.accounts.encrypt` encrypts using the keystore v4 standard to encrypt various AccountKey types (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased). If you want to encrypt an account using keystore v3, please use [caver.klay.accounts.encryptV3](#encryptv3).
 
 **Parameters**
 
@@ -1903,8 +1903,8 @@ Encrypts an account to the Klaytn keystore v3 standard.
 | options | Object | (optional) The `options` parameter allows you to specify the values to use when using encrypt. You can also use the `options` object to encrypt decoupled accounts. See the third example below for usage of `options`. |
 
 **NOTE**: There are two ways to encrypt the private key when an account has a decoupled private key from the address.
-1. Use the [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format with the privateKey parameter.
-2. Use the `options.address` to send the address as a parameter.
+1. Use the [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) as `encryptTarget` parameter.
+2. Use the address as `options.address` parameter to send the address as one of the parameters. See the third example below for the usage.
 
 **Return Value**
 
