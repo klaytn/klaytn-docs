@@ -1017,7 +1017,7 @@ caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터, 이 메
 caver.klay.accounts.signTransactionWithHash(txHash, privateKeys [, chainId] [, callback])
 ```
 
-Signs a Klaytn transaction with given hash of transaction and private key.
+Signs a Klaytn transaction with the given transaction hash and private key.
 
 **NOTE** `caver.klay.accounts.signTransactionWithHash` is supported since caver-js [v1.3.2-rc.2](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.2).
 
@@ -1653,7 +1653,7 @@ caver.klay.accounts.encrypt(encryptTarget, password [, options])
 ```
 Encrypts an account to the Klaytn keystore standard. For more information, please refer to [KIP-3](https://kips.klaytn.com/KIPs/kip-3).
 
-**NOTE** Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), `caver.klay.accounts.encrypt` encrypts using the keystore v4 standard to encrypt various AccountKey types (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased). If you want to encrypt an account using keystore v3, please use a [caver.klay.accounts.encryptV3](#encryptv3).
+**NOTE** Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), `caver.klay.accounts.encrypt` encrypts using the keystore v4 standard to encrypt various AccountKey types (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased). If you want to encrypt an account using keystore v3, please use [caver.klay.accounts.encryptV3](#encryptv3).
 
 **매개변수**
 
@@ -1900,8 +1900,8 @@ Encrypts an account to the Klaytn keystore v3 standard.
 | options       | Object               | (optional) The `options` parameter allows you to specify the values to use when using encrypt. You can also use the `options` object to encrypt decoupled accounts. See the third example below for usage of `options`. |
 
 **NOTE**: There are two ways to encrypt the private key when an account has a decoupled private key from the address.
-1. privateKey 매개변수와 함께 [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) 포맷을 사용하세요.
-2. 주소를 매개변수로 보내기 위해 `options.address`를 사용하세요.
+1. Use the [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) as `encryptTarget` parameter.
+2. Use the address as `options.address` parameter to send the address as one of the parameters. See the third example below for the usage.
 
 **리턴값**
 
