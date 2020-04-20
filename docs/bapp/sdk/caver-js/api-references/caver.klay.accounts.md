@@ -1019,7 +1019,7 @@ See [Sending a Transaction with multiple signer](../getting-started.md#sending-a
 caver.klay.accounts.signTransactionWithHash(txHash, privateKeys [, chainId] [, callback])
 ```
 
-Signs a Klaytn transaction with given hash of transaction and private key.
+Signs a Klaytn transaction with the given transaction hash and private key.
 
 **NOTE** `caver.klay.accounts.signTransactionWithHash` is supported since caver-js [v1.3.2-rc.2](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.2).
 
