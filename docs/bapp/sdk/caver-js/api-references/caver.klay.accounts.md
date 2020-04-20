@@ -1904,7 +1904,7 @@ Encrypts an account to the Klaytn keystore v3 standard.
 
 **NOTE**: There are two ways to encrypt the private key when an account has a decoupled private key from the address.
 1. Use the [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) as `encryptTarget` parameter.
-2. Use the address as `options` parameter to send the address as one of the parameters. See the third example below for usage of `options`.
+2. Use the address as `options.address` parameter to send the address as one of the parameters. See the third example below for the usage.
 
 **Return Value**
 
