@@ -40,7 +40,7 @@ The tokenInfo object must contain the following:
 | decimals | Number | The number of decimal places the token uses. |
 | initialSupply | BigNumber &#124; String &#124; Number | The total quantity of tokens to be supplied initially. |
 
-**NOTE** This function also accepts `Number`/`BigNumber` types as parameters for initialSupply. But if out of the range declared in JavaScript Number(Number.MAX_SAFE_INTEGER), they might not work properly or cause an error. It is recommended to use `BigNumber` type for a `uint256` sized numeric input value.
+**NOTE** The initialSupply parameter also accepts `BigNumber` types in case your Number type feeding were out of the range declared in JavaScript Number(Number.MAX_SAFE_INTEGER), which might cause an unexpected result or error. Therefore, it is recommended to use `BigNumber` type for a `uint256` sized numeric input value.
 
 **Return Value**
 
