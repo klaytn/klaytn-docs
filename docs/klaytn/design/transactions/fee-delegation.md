@@ -886,7 +886,9 @@ The following shows a transaction object returned via JSON RPC.
 
 ## TxTypeFeeDelegatedChainDataAnchoring <a id="txtypefeedelegatedchaindataanchoring"></a>
 
-TxTypeFeeDelegatedChainDataAnchoring is a transaction type that will be used by service chains. Service chains periodically send a transaction of this type onto the Klaytn mainchain in order to prove the data integrity of service chains. For more details about service chains, see [Service Chain](../../scaling-solutions.md#service-chain). Submitting transactions of this type via RPC is prohibited. Current implementation uses private p2p channels to send a TxTypeFeeDelegatedChainDataAnchoring transaction for security reasons. This transaction type does not change the state of the Klaytn blockchain except the sender's nonce being increased by one.
+TxTypeFeeDelegatedChainDataAnchoring is a fee-delegated transaction type that will be used by service chains. The transaction fee is charged to the fee payer.
+
+Service chains periodically send a transaction of this type onto the Klaytn mainchain in order to prove the data integrity of service chains. For more details about service chains, see [Service Chain](../../scaling-solutions.md#service-chain). Submitting transactions of this type via RPC is prohibited. Current implementation uses private p2p channels to send a TxTypeFeeDelegatedChainDataAnchoring transaction for security reasons. This transaction type does not change the state of the Klaytn blockchain except the sender's nonce being increased by one.
 
 ### Attributes <a id="attributes"></a>
 
