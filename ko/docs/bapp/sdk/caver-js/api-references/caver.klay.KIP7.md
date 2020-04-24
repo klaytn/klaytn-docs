@@ -5,9 +5,7 @@ description: >-
 
 # caver.klay.KIP7 <a id="caver-klay-kip7"></a>
 
-The `caver.klay.KIP7` makes it easy to interact with smart contract that implements KIP-7 on the Klaytn blockchain.
-
-This allows you to interact with smart contract that implements KIP-7 as if it is a JavaScript object.
+The `caver.klay.KIP7` helps you handle a smart contract that implements KIP-7 as a JavaScript object on the Klaytn blockchain.
 
 The `caver.klay.KIP7` inherits [caver.klay.Contract](caver.klay.Contract.md) and implements KIP-7 token contracts. This section describes only the additional implementations of the caver.klay.KIP7 for ease to use.
 
@@ -24,35 +22,35 @@ caver.klay.KIP7.deploy(tokenInfo, deployer)
 ```
 Deploys the KIP-7 token contract to the Klaytn blockchain. A contract deployed using caver.klay.KIP7.deploy is a fungible token that follows the KIP-7 standard.
 
-After successful deployment, the promise will resolve with a new KIP7 instance.
+After successful deployment, the promise will be resolved with a new KIP7 instance.
 
 **매개변수**
 
-| 명칭        | 형식     | 설명                                                                                                                       |
-| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------ |
-| tokenInfo | Object | The information needed to deploy KIP-7 token contract on the Klaytn blockchain. See below table to find the description. |
-| deployer  | String | The address of the account to deploy the KIP-7 token contract. This account must have enough KLAY to deploy.             |
+| 명칭        | 형식     | 설명                                                                                                                   |
+| --------- | ------ | -------------------------------------------------------------------------------------------------------------------- |
+| tokenInfo | Object | The information needed to deploy KIP-7 token contract on the Klaytn blockchain. See the below table for the details. |
+| deployer  | String | The address of the account to deploy the KIP-7 token contract. This account must have enough KLAY to deploy.         |
 
 The tokenInfo object must contain the following:
 
-| 명칭            | 형식                                    | 설명                                            |
-| ------------- | ------------------------------------- | --------------------------------------------- |
-| name          | String                                | The name of the token.                        |
-| symbol        | String                                | The symbol of the token.                      |
-| decimals      | Number                                | The number of decimals the token uses.        |
-| initialSupply | BigNumber &#124; String &#124; Number | The total number of tokens at the deployment. |
+| 명칭            | 형식                                    | 설명                                                     |
+| ------------- | ------------------------------------- | ------------------------------------------------------ |
+| name          | String                                | The name of the token.                                 |
+| symbol        | String                                | The symbol of the token.                               |
+| decimals      | Number                                | The number of decimal places the token uses.           |
+| initialSupply | BigNumber &#124; String &#124; Number | The total quantity of tokens to be supplied initially. |
 
-**NOTE** It also supports `Number` types as parameters for initialSupply. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+**NOTE** The `initialSupply` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **리턴값**
 
-`PromiEvent`: A promise combined event emitter, which is resolved with a new KIP7 instance. 추가로 다음과 같은 이벤트를 사용할 수 있습니다:
+`PromiEvent`: A promise combined event emitter, which is resolved with a new KIP7 instance. Additionally, the following events can occur:
 
-| 명칭              | 형식     | 설명                                                                                                                                                                                                                                                                                                                            |
-| --------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | String | Fired right after the transaction is sent and a transaction hash is available.                                                                                                                                                                                                                                                |
-| receipt         | Object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
-| error           | 에러     | Fired if an error occurs during sending.                                                                                                                                                                                                                                                                                      |
+| 명칭              | 형식     | 설명                                                                                                                                                                                                                                                                                                         |
+| --------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| transactionHash | String | Fired right after the transaction is sent and a transaction hash is available.                                                                                                                                                                                                                             |
+| receipt         | Object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
+| error           | 에러     | Fired if an error occurs during sending.                                                                                                                                                                                                                                                                   |
 
 **예시**
 
