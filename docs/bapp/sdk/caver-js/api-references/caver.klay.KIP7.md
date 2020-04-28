@@ -7,7 +7,7 @@ description: >-
 
 The `caver.klay.KIP7` helps you easily handle a smart contract that implements KIP-7 as a JavaScript object on the Klaytn blockchain. 
 
-The `caver.klay.KIP7` inherits [caver.klay.Contract](caver.klay.Contract.md) to implement the KIP-7 token contract. The `caver.klay.KIP7` holds the same properties of ```caver.klay.Contract```  whereas there is some additional implementation through the added methods. This section only introduces the newly added bound methods of the `caver.klay.KIP7`.
+The `caver.klay.KIP7` inherits [caver.klay.Contract](caver.klay.Contract.md) to implement the KIP-7 token contract. The `caver.klay.KIP7` holds the same properties of `caver.klay.Contract`  whereas there is some additional implementation through the added methods. This section only introduces the newly added bound methods of the `caver.klay.KIP7`.
 
 The abi and bytecode used in the caver.klay.KIP7 were implemented using the example of [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20).
 
