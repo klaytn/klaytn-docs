@@ -506,7 +506,7 @@ kip7Instance.transfer(recipient, amount [, sendParam])
 ```
 Moves the given `amount` of tokens from the caller’s account to `recipient`.
 
-Note that the transfer method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -516,7 +516,7 @@ Note that the transfer method will submit a transaction to the Klaytn network, w
 | amount | BigNumber &#124; String &#124; Number | The amount of tokens to transfer. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
-**NOTE** It also supports `Number` types as parameters for amount. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
@@ -577,7 +577,7 @@ kip7Instance.safeTransfer(recipient, amount [, data] [, sendParam])
 ```
 Safely transfers amount tokens from sender to recipient. If the target address is a contract, it must implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface). otherwise, the transfer is reverted.
 
-Note that the safeTransfer method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -588,7 +588,7 @@ Note that the safeTransfer method will submit a transaction to the Klaytn networ
 | data | Buffer &#124; String &#124; Number | (optional) The optional data to send along with the call. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
-**NOTE** It also supports `Number` types as parameters for amount. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
@@ -653,7 +653,7 @@ kip7Instance.transferFrom(sender, recipient, amount [, sendParam])
 ```
 Moves amount tokens from sender to recipient using the allowance mechanism. amount is then deducted from the caller’s allowance.
 
-Note that the transferFrom method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -664,7 +664,7 @@ Note that the transferFrom method will submit a transaction to the Klaytn networ
 | amount | BigNumber &#124; String &#124; Number | The amount of tokens you want to transfer. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
-**NOTE** It also supports `Number` types as parameters for amount. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
@@ -748,7 +748,7 @@ kip7Instance.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
 ```
 Safely transfers amount tokens from sender to recipient using the allowance mechanism. If the target address is a contract, it must implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface). otherwise, the transfer is reverted.
 
-Note that the safeTransferFrom method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -760,7 +760,7 @@ Note that the safeTransferFrom method will submit a transaction to the Klaytn ne
 | data | Buffer &#124; String &#124; Number | (optional) The optional data to send along with the call. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
-**NOTE** It also supports `Number` types as parameters for amount. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
@@ -847,7 +847,7 @@ kip7Instance.mint(account, amount [, sendParam])
 ```
 Creates amount tokens and assigns them to account, increasing the total supply.
 
-Note that the mint method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -857,7 +857,7 @@ Note that the mint method will submit a transaction to the Klaytn network, which
 | amount | BigNumber &#124; String &#124; Number | The amount of tokens to mint. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
-**NOTE** It also supports `Number` types as parameters for amount. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **NOTE** The from account sending the transaction must be minter with permission of MinterRole.
 
@@ -921,7 +921,7 @@ kip7Instance.addMinter(account [, sendParam])
 ```
 Adds an account as a minter that has the permission related to minting tokens.
 
-Note that the addMinter method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -988,7 +988,7 @@ kip7Instance.renounceMinter([sendParam])
 ```
 Renounces the permission related to minting tokens. Only address that is a minter can renounce itself. 
 
-Note that the renounceMinter method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1054,7 +1054,7 @@ kip7Instance.burn(amount [, sendParam])
 ```
 Destroys amount tokens from the caller.
 
-Note that the burn method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1063,7 +1063,7 @@ Note that the burn method will submit a transaction to the Klaytn network, which
 | amount | BigNumber &#124; String &#124; Number | The amount of tokens to destroy. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
-**NOTE** It also supports `Number` types as parameters for amount. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
@@ -1125,7 +1125,7 @@ kip7Instance.burnFrom(account, amount [, sendParam])
 ```
 Destroys the given amount of tokens from `account`, then the amount is deducted from the caller’s allowance.
 
-Note that the burnFrom method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1135,7 +1135,7 @@ Note that the burnFrom method will submit a transaction to the Klaytn network, w
 | amount | BigNumber &#124; String &#124; Number | The amount of tokens to destroy. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
-**NOTE** It also supports `Number` types as parameters for amount. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
@@ -1220,7 +1220,7 @@ kip7Instance.addPauser(account [, sendParam])
 ```
 Adds an account as a pauser that has the permission related to suspending the contract.
 
-Note that the addPauser method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1287,7 +1287,7 @@ kip7Instance.renouncePauser([sendParam])
 ```
 Renounces the permission related to pausing the contract. Only address that is a pauser can renounce itself.
 
-Note that the renouncePauser method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1353,7 +1353,7 @@ kip7Instance.pause([sendParam])
 ```
 Suspends functions related to sending tokens.
 
-Note that the pause method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1419,7 +1419,7 @@ kip7Instance.unpause([sendParam])
 ```
 Resumes the paused state of the contract.
 
-Note that the unpause method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
