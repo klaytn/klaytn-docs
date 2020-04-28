@@ -5,7 +5,7 @@ description: >-
 
 # caver.klay.KIP7 <a id="caver-klay-kip7"></a>
 
-The `caver.klay.KIP7` helps you handle a smart contract that implements KIP-7 as a JavaScript object on the Klaytn blockchain. 
+The `caver.klay.KIP7` helps you easily handle a smart contract that implements KIP-7 as a JavaScript object on the Klaytn blockchain. 
 
 The `caver.klay.KIP7` inherits [caver.klay.Contract](caver.klay.Contract.md) and implements the KIP-7 token contract. The properties are not changed and only the methods are implemented additionaly. This section describes only the additional implementations of the caver.klay.KIP7 for ease to use.
 
