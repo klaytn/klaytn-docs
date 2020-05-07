@@ -13,7 +13,7 @@ The code that implements KIP-17 for caver-js is available on the [caver-js Githu
 
 For more information about KIP-17, see [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-17).
 
-**NOTE** `caver.klay.KIP17` is supported since caver-js [v1.4.1](https://www.npmjs.com/package/caver-js/v/1.4.1).
+**참고** `caver.klay.KIP17`는 caver-js [v1.4.1](https://www.npmjs.com/package/caver-js/v/1.4.1)부터 지원됩니다.
 
 ## caver.klay.KIP17.deploy <a id="caver-klay-kip17-deploy"></a>
 
