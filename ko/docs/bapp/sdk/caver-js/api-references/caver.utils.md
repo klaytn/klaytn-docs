@@ -1476,7 +1476,7 @@ false
 ```javascript
 caver.utils.isKlaytnWalletKey(key)
 ```
-키가 [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format)포맷이면 `true`을 반환하고, 그렇지 않으면 `false`를 반환합니다.
+키가 [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) 포맷이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.
 
 **참고**`caver.utils.isKlaytnWalletKey`는 caver-js [v1.3.2-rc.3](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.3)부터 더 정확한 결과를 제공하기 위해 업데이트되었습니다.
 
