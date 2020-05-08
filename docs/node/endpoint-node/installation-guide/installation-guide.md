@@ -1,6 +1,6 @@
 # Installation Guide <a id="installation-guide"></a>
 
-You can download the latest version of the `ken` on [Download](download.md) page. 
+You can download the latest version of the `ken` on [Download](download.md) page.
 
 ## Linux Archive Distribution <a id="linux-archive-distribution"></a>
 
@@ -65,7 +65,7 @@ $ yum install kend-baobab-vX.X.X.el7.x86_64.rpm
 Alternatively, you can install `kend` from the Klaytn Yum repo, run:
 
 ```text
-$ sudo curl -o /etc/yum.repos.d/klaytn.repo http://packages.klaytn.net/config/rhel/7/prod.repo && sudo yum install kend
+$ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo && sudo yum install kend
 ```
 
 ### Installed Location <a id="installed-location"></a>
