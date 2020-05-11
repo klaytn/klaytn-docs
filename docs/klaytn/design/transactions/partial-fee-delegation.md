@@ -904,13 +904,13 @@ The following shows a transaction object returned via JSON RPC.
 
 ## TxTypeFeeDelegatedChainDataAnchoringWithRatio <a id="txtypefeedelegatedchaindataanchoringwithratio"></a>
 
-TxTypeFeeDelegatedChainDataAnchoringWithRatio is a fee-delegated transaction type that will be used by service chains.
+TxTypeFeeDelegatedChainDataAnchoringWithRatio is a fee-delegated transaction, with the ratio, that anchors service chain data to the Klaytn mainchain.
+Service chains periodically send this type of transaction to the Klaytn mainchain to ensure its security and credibility of data.
 For more details about the data anchoring, see [Anchoring](../../../node/service-chain/references/anchoring.md).
-The given ratio of the transaction fee is charged to the fee payer. The remaining transaction fee is charged to the sender.
-Service chains periodically send a transaction of this type onto the Klaytn mainchain in order to prove the data integrity of service chains.
-Submitting transactions of this type via RPC is prohibited.
-Current implementation uses private p2p channels to send a TxTypeFeeDelegatedChainDataAnchoringWithRatio transaction for security reasons.
-This transaction type does not change the state of the Klaytn blockchain except the sender's nonce being increased by one.
+As it is a fee-delegated transaction with the given ratio as well, the fee payer bears only the given portion of the transaction fee based on the given ratio and the sender pays the rest.
+Be mindful that it is not allowed to send this transaction via RPC.
+Currently, this transaction is executed through private p2p channels for security reasons.
+This transaction does not change the state of the Klaytn blockchain except the sender's nonce being increased by one.
 
 ### Attributes <a id="attributes"></a>
 
