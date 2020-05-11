@@ -65,7 +65,7 @@ $ yum install kpnd-baobab-vX.X.X.el7.x86_64.rpm
 아래와 같이 Klaytn Yum 레포지토리에서도 `kpnd`를 설치할 수 있습니다.
 
 ```bash
-$ sudo curl -o /etc/yum.repos.d/klaytn.repo http://packages.klaytn.net/config/rhel/7/prod.repo && sudo yum install kpnd
+$ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo && sudo yum install kpnd
 ```
 
 ### 설치 위치 <a id="installed-location"></a>
