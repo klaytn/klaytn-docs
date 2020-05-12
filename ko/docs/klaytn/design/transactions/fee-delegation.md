@@ -883,3 +883,141 @@ SenderTxHash cc6c2673398903b3d906a3023b41636fc08bd1bddd5aa1602116091638f48447
   "typeInt": 57
 }
 ```
+
+## TxTypeFeeDelegatedChainDataAnchoring <a id="txtypefeedelegatedchaindataanchoring"></a>
+
+TxTypeFeeDelegatedChainDataAnchoring is a fee-delegated transaction that anchors service chain data to the Klaytn mainchain. Service chains periodically send this type of transaction to the Klaytn mainchain to ensure its security and credibility of data. For more details about the data anchoring, see [Anchoring](../../../node/service-chain/references/anchoring.md). As it is a fee-delegated transaction as well, its transaction fee is charged to the fee payer. Be mindful that it is not allowed to send this transaction via RPC. Currently, this transaction is executed through private p2p channels for security reasons. This transaction does not change the state of the Klaytn blockchain except the sender's nonce being increased by one.
+
+### 속성 <a id="attributes"></a>
+
+| 속성                 | 형식                                                     | 설명                                                                                                                                                                                                                           |
+|:------------------ |:------------------------------------------------------ |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type               | uint8 \(Go\)                                         | The type of TxTypeFeeDelegatedChainDataAnchoring. This must be 0x49.                                                                                                                                                         |
+| 논스                 | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                |
+| gasPrice           | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 수수료로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 수수료는 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [KLAY의 단위](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
+| gas                | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                                                                             |
+| from               | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                          |
+| input              | \[\]byte \(Go\)                                    | 서비스체인의 데이터입니다.                                                                                                                                                                                                               |
+| txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                          |
+| feePayer           | common.Address \(Go\)                                | 트랜잭션 수수료 납부자의 주소입니다.                                                                                                                                                                                                         |
+| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 트랜잭션 수수료 납부자의 서명입니다.                                                                                                                                                                                                         |
+
+### 발신자의 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-sender"></a>
+
+발신자의 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
+
+```javascript
+SigRLP = encode([encode([type, nonce, gasPrice, gas, from, anchoredData]), chainid, 0, 0])
+SigHash = keccak256(SigRLP)
+Signature = sign(SigHash, <private key>)
+```
+
+### 수수료 납부자의 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
+
+수수료 납부자의 서명을 만들려면 RLP 직렬화를 다음과 같이 수행해야합니다.
+
+```javascript
+SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gas, from, anchoredData]), feePayer, chainid, 0, 0])
+SigFeePayerHash = keccak256(SigFeePayerRLP)
+SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
+```
+
+### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
+
+SenderTxHash를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
+
+```javascript
+txSignatures (a single signature) = [[v, r, s]]
+txSignatures (two signatures) = [[v1, r1, s1], [v2, r2, s2]]
+SenderTxHashRLP = type + encode([nonce, gasPrice, gas, from, anchoredData, txSignatures])
+SenderTxHash = keccak256(SenderTxHashRLP)
+```
+
+### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
+
+트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
+
+```javascript
+txSignatures (a single signature) = [[v, r, s]]
+txSignatures (two signatures) = [[v1, r1, s1], [v2, r2, s2]]
+feePayerSignatures (a single signature) = [[v, r, s]]
+feePayerSignatures (two signatures) = [[v1, r1, s1], [v2, r2, s2]]
+TxHashRLP = type + encode([nonce, gasPrice, gas, from, anchoredData, txSignatures, feePayer, feePayerSignatures])
+TxHash = keccak256(TxHashRLP)
+```
+
+### RLP 인코딩 \(예시\) <a id="rlp-encoding-example"></a>
+
+다음은 RLP 직렬화의 결과와 트랜잭션 오브젝트를 보여줍니다.
+
+```javascript
+ChainID 0x01
+PrivateKey 0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d8
+PublicKey.X 0x3a514176466fa815ed481ffad09110a2d344f6c9b78c1d14afc351c3a51be33d
+PublicKey.Y 0x8072e77939dc03ba44790779b7a1025baf3003f6732430e20cd9b76d953391b3
+SigRLP 0xf8dbb8d6f8d449118505d21dba0085174876e80094a94f5374fce5edbc8e2a8697c15331677e6ebf0bb8aff8ad80b8aaf8a8a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a00000000000000000000000000000000000000000000000000000000000000004058006018080
+SigHash 0x92e385b4a162170ee87b2b2e598f686b1d16f385d98ad626147305624abec0b3
+Signature 0xf845f84326a0afe41edc9cce1185ab9065ca7dbfb89ab5c7bde3602a659aa258324124644142a0317848698248ba7cc057b8f0dd19a27b52ef904d29cb72823100f1ed18ba2bb3
+FeePayerPublicKey.X 0x327434d4cfc66ef8857d431419e9deebdc53a3e415edcc55382e2d417b8dd102
+FeePayerPublicKey.Y 0x65fc97045707faf7b8f81ac65089d4cc71f69ad0bf1bc8559bc24f13fc284ced
+SigRLPFeePayer 0xf8f0b8d6f8d449118505d21dba0085174876e80094a94f5374fce5edbc8e2a8697c15331677e6ebf0bb8aff8ad80b8aaf8a8a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a000000000000000000000000000000000000000000000000000000000000000040580069433f524631e573329a550296f595c820d6c65213f018080
+SigHashFeePayer 0x4d58fdf276fde1e221b6bab8c6621ae1639b00a7a70d2bd0a114001692a3a7d1
+SignatureFeePayer 0xf845f84325a0309e46db21a1bf7bfdae24d9192aca69516d6a341ecce8971fc69cff481cee76a04b939bf7384c4f919880307323a5e36d4d6e029bae1887a43332710cdd48f174
+TxHashRLP 0x49f90176118505d21dba0085174876e80094a94f5374fce5edbc8e2a8697c15331677e6ebf0bb8aff8ad80b8aaf8a8a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a00000000000000000000000000000000000000000000000000000000000000004058006f845f84326a0afe41edc9cce1185ab9065ca7dbfb89ab5c7bde3602a659aa258324124644142a0317848698248ba7cc057b8f0dd19a27b52ef904d29cb72823100f1ed18ba2bb39433f524631e573329a550296f595c820d6c65213ff845f84325a0309e46db21a1bf7bfdae24d9192aca69516d6a341ecce8971fc69cff481cee76a04b939bf7384c4f919880307323a5e36d4d6e029bae1887a43332710cdd48f174
+TxHash 0xecf1ec12937065617f9b3cd07570452bfdb75dc36404c4f37f78995c6dc462af
+SenderTxHashRLP 0x49f9011a118505d21dba0085174876e80094a94f5374fce5edbc8e2a8697c15331677e6ebf0bb8aff8ad80b8aaf8a8a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a00000000000000000000000000000000000000000000000000000000000000004058006f845f84326a0afe41edc9cce1185ab9065ca7dbfb89ab5c7bde3602a659aa258324124644142a0317848698248ba7cc057b8f0dd19a27b52ef904d29cb72823100f1ed18ba2bb3
+SenderTxHash 0x4f5c00ea8f6346baa7d4400dfefd72efa5ec219561ebcebed7be8a2b79d52bcd
+
+    TX(ecf1ec12937065617f9b3cd07570452bfdb75dc36404c4f37f78995c6dc462af)
+    Type:          TxTypeFeeDelegatedChainDataAnchoring
+    From:          0xa94f5374Fce5edBC8E2a8697C15331677e6EbF0B
+    Nonce:         17
+    GasPrice:      0x5d21dba00
+    GasLimit:      0x174876e800
+    AnchoredData:  f8ad80b8aaf8a8a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a00000000000000000000000000000000000000000000000000000000000000004058006
+    Signature:     [{"V":"0x26","R":"0xafe41edc9cce1185ab9065ca7dbfb89ab5c7bde3602a659aa258324124644142","S":"0x317848698248ba7cc057b8f0dd19a27b52ef904d29cb72823100f1ed18ba2bb3"}]
+    FeePayer:      0x33f524631e573329a550296F595c820D6c65213f
+    FeePayerSig:   [{"V":"0x25","R":"0x309e46db21a1bf7bfdae24d9192aca69516d6a341ecce8971fc69cff481cee76","S":"0x4b939bf7384c4f919880307323a5e36d4d6e029bae1887a43332710cdd48f174"}]
+    Hex:           49f90176118505d21dba0085174876e80094a94f5374fce5edbc8e2a8697c15331677e6ebf0bb8aff8ad80b8aaf8a8a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a00000000000000000000000000000000000000000000000000000000000000004058006f845f84326a0afe41edc9cce1185ab9065ca7dbfb89ab5c7bde3602a659aa258324124644142a0317848698248ba7cc057b8f0dd19a27b52ef904d29cb72823100f1ed18ba2bb39433f524631e573329a550296f595c820d6c65213ff845f84325a0309e46db21a1bf7bfdae24d9192aca69516d6a341ecce8971fc69cff481cee76a04b939bf7384c4f919880307323a5e36d4d6e029bae1887a43332710cdd48f174
+```
+
+### RPC Output \(예시\) <a id="rpc-output-example"></a>
+
+다음은 JSON RPC를 통해 반환된 트랜잭션 오브젝트를 보여줍니다.
+
+```javascript
+{
+    "blockHash": "0x170a32e16b6fdced144d5104f5aecf753878bd9f1a7d87ddccc2e6d2ba27354c",
+    "blockNumber": "0x2",
+    "contractAddress": null,
+    "feePayer": "0x33f524631e573329a550296f595c820d6c65213f",
+    "feePayerSignatures": [
+        {
+            "V": "0x25",
+            "R": "0x309e46db21a1bf7bfdae24d9192aca69516d6a341ecce8971fc69cff481cee76",
+            "S": "0x4b939bf7384c4f919880307323a5e36d4d6e029bae1887a43332710cdd48f174"
+        }
+    ],
+    "from": "0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b",
+    "gas": "0x174876e800",
+    "gasPrice": "0x5d21dba00",
+    "gasUsed": "0xbd74",
+    "input": "0xf8ad80b8aaf8a8a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a00000000000000000000000000000000000000000000000000000000000000004058006",
+    "logs": [],
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "nonce": "0x11",
+    "senderTxHash": "0x4f5c00ea8f6346baa7d4400dfefd72efa5ec219561ebcebed7be8a2b79d52bcd",
+    "signatures": [
+        {
+            "V": "0x26",
+            "R": "0xafe41edc9cce1185ab9065ca7dbfb89ab5c7bde3602a659aa258324124644142",
+            "S": "0x317848698248ba7cc057b8f0dd19a27b52ef904d29cb72823100f1ed18ba2bb3"
+        }
+    ],
+    "status": "0x1",
+    "transactionHash": "0xecf1ec12937065617f9b3cd07570452bfdb75dc36404c4f37f78995c6dc462af",
+    "transactionIndex": "0xa",
+    "type": "TxTypeFeeDelegatedChainDataAnchoring",
+    "typeInt": 73
+}
+```
