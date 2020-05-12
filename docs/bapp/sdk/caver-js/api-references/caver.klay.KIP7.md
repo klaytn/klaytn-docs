@@ -40,7 +40,7 @@ The tokenInfo object must contain the following:
 | decimals | Number | The number of decimal places the token uses. |
 | initialSupply | BigNumber &#124; String &#124; Number | The total quantity of tokens to be supplied initially. |
 
-**NOTE** The `initialSupply` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `initialSupply` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
@@ -110,7 +110,7 @@ Creates a new KIP7 instance with its bound methods and events.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenAddress | String | (optional) The address of the smart contract to call, which can be assigned later through `kip7Instance.options.address = '0x1234..'` |
+| tokenAddress | String | (optional) The address of the smart contract that deployed a KIP7 token, which can be assigned later through `kip7Instance.options.address = '0x1234..'` |
 
 
 **Return Value**
@@ -142,13 +142,13 @@ Clones the current KIP7 instance.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenAddress | String | (optional) The address of the new fungible token contract to call. If omitted, it will be set to the address in the original instance (e.g., `kip7Instance`). |
+| tokenAddress | String | (optional) The address of the smart contract that deployed another KIP7 token. If omitted, it will be set to the contract address in the original instance. |
 
 **Return Value**
 
 | Type | Description |
 | --- | --- |
-| Object | The new cloned KIP7 instance. |
+| Object | The clone of the original KIP7 instance. |
 
 
 **Example**
@@ -168,17 +168,17 @@ Clones the current KIP7 instance.
 ```javascript
 kip7Instance.supportsInterface(interfaceId)
 ```
-Returns `true` if this contract implements the interface defined by interfaceId.
+Returns `true` if this contract implements the interface defined by `interfaceId`.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| interfaceId | String | The interfaceId to check supported. |
+| interfaceId | String | The interfaceId to be checked. |
 
 **Return Value**
 
-`Promise` returns `Boolean`: `true` if this contract implements the interface defined by interfaceId.
+`Promise` returns `Boolean`: `true` if this contract implements the interface defined by `interfaceId`.
 
 **Example**
 
@@ -293,7 +293,7 @@ Returns the balance of the given account address.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | String | The address of the account to check the balance. |
+| address | String | The address of the account to be checked for its balance. |
 
 **Return Value**
 
@@ -312,18 +312,18 @@ Returns the balance of the given account address.
 ```javascript
 kip7Instance.allowance(owner, spender)
 ```
-Returns the amount which `spender` is still allowed to withdraw from `owner`.
+Returns the number of tokens that `spender` is allowed to withdraw from `owner`.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| owner | String | The address of the account that set the spender to use the tokens on behalf of the owner. |
-| spender | String | The address of the account allowed to use tokens on behalf of the owner. |
+| owner | String | The address of the account who leaves tokens with the spender. |
+| spender | String | The address of the account that spends tokens in place of the owner. |
 
 **Return Value**
 
-`Promise` returns `BigNumber`: The remaining number of tokens that spender is allowed to spend on behalf of the owner.
+`Promise` returns `BigNumber`: The remaining number of tokens that spender is allowed to spend in place of the owner.
 
 **Example**
 
@@ -369,7 +369,7 @@ false
 ```javascript
 kip7Instance.isPauser(address)
 ```
-Returns `true` if the given account is a pauser who has a right to suspend transferring tokens.
+Returns `true` if the given account is a pauser who can suspend transferring tokens.
 
 **Parameters**
 
@@ -423,7 +423,7 @@ false
 ```javascript
 kip7Instance.approve(spender, amount [, sendParam])
 ```
-Set the `amount` of caller's token allowed to be spent by `spender`. 
+Set the `amount` of caller's tokens to be spent by the `spender`. 
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -431,18 +431,18 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 
 | Name | Type | Description |
 | --- | --- | --- |
-| spender | String | The address of the account who spends tokens on behalf of the owner. |
-| amount | BigNumber &#124; String &#124; Number | The amount of tokens the spender is allowed to use. |
+| spender | String | The address of the account who spends tokens in place of the owner. |
+| amount | BigNumber &#124; String &#124; Number | The number of tokens the spender is allowed to use. |
 | sendParam | Object | (optional) An object holding parameters that are required for sending a transaction. |
 
-**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use `BigNumber` type, especially for a `uint256` sized numeric input value. 
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value. 
 
 The `sendParam` object contains the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If neither of `from` nor `this.options.from` were not provided in `sendParam` object, an error would occur. |
-| gas | Number &#124; String | (optional) The maximum amount of gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, amount).estimateGas({from})`. |
+| from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If neither of `from` in `sendParam` object nor `this.options.from` were not provided, an error would occur. |
+| gas | Number &#124; String | (optional) The maximum number of gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, amount).estimateGas({from})`. |
 | gasPrice | Number &#124; String | (optional) The gas price in peb for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
 | value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value to be transferred in peb. |
 
@@ -504,7 +504,7 @@ The `sendParam` object contains the following:
 ```javascript
 kip7Instance.transfer(recipient, amount [, sendParam])
 ```
-Moves the given `amount` of tokens from the caller’s account to `recipient`.
+Transfers the given `amount` of token to `recipient`. Without `sendParam` nor `kip7Instance.options.from` being provided, the caller of this method will be the sender.  
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -512,11 +512,11 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 
 | Name | Type | Description |
 | --- | --- | --- |
-| recipient | String | The address of the account to receive the token. |
-| amount | BigNumber &#124; String &#124; Number | The amount of tokens to transfer. |
+| recipient | String | The address of the account to receive token. |
+| amount | BigNumber &#124; String &#124; Number | The number of tokens to transfer. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
-**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
@@ -575,7 +575,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 ```javascript
 kip7Instance.safeTransfer(recipient, amount [, data] [, sendParam])
 ```
-Safely transfers amount tokens from sender to recipient. If the target address is a contract, it must implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface). otherwise, the transfer is reverted.
+Safely transfers the given `amount` of token to `recipient`. Without `sendParam.from` nor `kip7Instance.options.from` being provided, the caller of this method will be the sender. If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface). Otherwise, the transfer is reverted.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -584,11 +584,11 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | Name | Type | Description |
 | --- | --- | --- |
 | recipient | String | The address of the account to receive the token. |
-| amount | BigNumber &#124; String &#124; Number | The amount of tokens you want to transfer. |
+| amount | BigNumber &#124; String &#124; Number | The number of tokens you want to transfer. |
 | data | Buffer &#124; String &#124; Number | (optional) The optional data to send along with the call. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
-**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
@@ -651,7 +651,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 ```javascript
 kip7Instance.transferFrom(sender, recipient, amount [, sendParam])
 ```
-Moves amount tokens from sender to recipient using the allowance mechanism. amount is then deducted from the caller’s allowance.
+Transfers the `amount` of token from the `sender` to the `recipient` using the allowance mechanism. The caller’s allowance is reduced alongside the balance of `sender`.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -661,10 +661,10 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | --- | --- | --- |
 | sender | String | The address of the account that owns the token to be sent with allowance mechanism. |
 | recipient | String | The address of the account to receive the token. |
-| amount | BigNumber &#124; String &#124; Number | The amount of tokens you want to transfer. |
+| amount | BigNumber &#124; String &#124; Number | The number of tokens you want to transfer. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
-**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
@@ -746,7 +746,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 ```javascript
 kip7Instance.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
 ```
-Safely transfers amount tokens from sender to recipient using the allowance mechanism. If the target address is a contract, it must implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface). otherwise, the transfer is reverted.
+Safely transfers the `amount` of token from the `sender` to the `recipient` using the allowance mechanism. The caller’s allowance is reduced alongside the balance of `sender`. If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface). Otherwise, the transfer is reverted.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -756,11 +756,11 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | --- | --- | --- |
 | sender | String | The address of the account that owns the token to be sent with allowance mechanism. |
 | recipient | String | The address of the account to receive the token. |
-| amount | BigNumber &#124; String &#124; Number | The amount of tokens you want to transfer. |
+| amount | BigNumber &#124; String &#124; Number | The number of tokens you want to transfer. |
 | data | Buffer &#124; String &#124; Number | (optional) The optional data to send along with the call. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
-**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
@@ -845,7 +845,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 ```javascript
 kip7Instance.mint(account, amount [, sendParam])
 ```
-Creates amount tokens and assigns them to account, increasing the total supply.
+Creates the `amount` of token and issues it to the `account`, increasing the total supply of token.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -853,13 +853,13 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 
 | Name | Type | Description |
 | --- | --- | --- |
-| account | String | The address of the account to which the minted token will be allocated. |
-| amount | BigNumber &#124; String &#124; Number | The amount of tokens to mint. |
+| account | String | The address of the account to which the minted token will be issued. |
+| amount | BigNumber &#124; String &#124; Number | The number of tokens to mint. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
-**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
-**NOTE** The from account sending the transaction must be minter with permission of MinterRole.
+**NOTE** If `sendParam.from` or `kip7Instance.options.from` were given, it should be a minter with MinterRole.
 
 **Return Value**
 
@@ -919,7 +919,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 ```javascript
 kip7Instance.addMinter(account [, sendParam])
 ```
-Adds an account as a minter that has the permission related to minting tokens.
+Adds an account as a minter, who are permitted to mint tokens.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -927,10 +927,10 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 
 | Name | Type | Description |
 | --- | --- | --- |
-| account | String | The address of account to add as a minter. |
+| account | String | The address of the account to be added as a minter. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
-**NOTE** The from account sending the transaction must be a minter.
+**NOTE** If `sendParam.from` or `kip7Instance.options.from` were given, it should be a minter.
 
 **Return Value**
 
@@ -1060,10 +1060,10 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 
 | Name | Type | Description |
 | --- | --- | --- |
-| amount | BigNumber &#124; String &#124; Number | The amount of tokens to destroy. |
+| amount | BigNumber &#124; String &#124; Number | The number of tokens to destroy. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
-**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
@@ -1123,7 +1123,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 ```javascript
 kip7Instance.burnFrom(account, amount [, sendParam])
 ```
-Destroys the given amount of tokens from `account`, then the amount is deducted from the caller’s allowance.
+Destroys the given number of tokens from `account`, then the amount is deducted from the caller’s allowance.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -1131,11 +1131,11 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 
 | Name | Type | Description |
 | --- | --- | --- |
-| account | String | The address of the account that owns the given amount of tokens to be burned with allowance mechanism. |
-| amount | BigNumber &#124; String &#124; Number | The amount of tokens to destroy. |
+| account | String | The address of the account that owns the given number of tokens to be burned with allowance mechanism. |
+| amount | BigNumber &#124; String &#124; Number | The number of tokens to destroy. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
-**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
