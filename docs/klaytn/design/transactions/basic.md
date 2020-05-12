@@ -839,7 +839,7 @@ The following shows a transaction object returned via JSON RPC.
 
 ## TxTypeChainDataAnchoring <a id="txtypechaindataanchoring"></a>
 
-TxTypeChainDataAnchoringTransaction is a transaction type that will be used by service chains. Service chains periodically send a transaction of this type onto the Klaytn mainchain in order to prove the data integrity of service chains. For more details about service chains, see [Service Chain Network]. Submitting transactions of this type via RPC is prohibited. Current implementation uses private p2p channels to send a TxTypeChainDataAnchoring transaction for security reasons. This transaction type does not change the state of the Klaytn blockchain except the sender's nonce being increased by one.
+TxTypeChainDataAnchoringTransaction is a transaction that anchors service chain data to the Klaytn mainchain. Service chains periodically send this type of transaction to the Klaytn mainchain to ensure its security and credibility of data. For more details about the data anchoring, see [Anchoring](../../../node/service-chain/references/anchoring.md). Be mindful that it is not allowed to send this transaction via RPC. Currently, this transaction is executed through private p2p channels for security reasons. This transaction does not change the state of the Klaytn blockchain except the sender's nonce being increased by one.
 
 ### Attributes <a id="attributes"></a>
 
@@ -950,4 +950,3 @@ The following shows a transaction object returned via JSON RPC.
 [Unit of KLAY]: ../klaytn-native-coin-klay.md#units-of-klay
 [AccountKeyLegacy]: ../accounts.md#accountkeylegacy
 [AccountKey]: ../accounts.md#account-key
-

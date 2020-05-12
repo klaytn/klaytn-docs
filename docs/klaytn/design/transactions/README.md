@@ -43,5 +43,6 @@ Each transaction type is described in detail:
 | SmartContractExecution | [TxTypeSmartContractExecution](basic.md#txtypesmartcontractexecution) | [TxTypeFeeDelegatedSmartContractExecution](fee-delegation.md#txtypefeedelegatedsmartcontractexecution) | [TxTypeFeeDelegatedSmartContractExecutionWithRatio](partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) |
 | AccountUpdate | [TxTypeAccountUpdate](basic.md#txtypeaccountupdate) | [TxTypeFeeDelegatedAccountUpdate](fee-delegation.md#txtypefeedelegatedaccountupdate) | [TxTypeFeeDelegatedAccountUpdateWithRatio](partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio) |
 | Cancel | [TxTypeCancel](basic.md#txtypecancel) | [TxTypeFeeDelegatedCancel](fee-delegation.md#txtypefeedelegatedcancel) | [TxTypeFeeDelegatedCancelWithRatio](partial-fee-delegation.md#txtypefeedelegatedcancelwithratio) |
-| ChainDataAnchoring | [TxTypeChainDataAnchoring](basic.md#txtypechaindataanchoring) | N/A | N/A |
+| ChainDataAnchoring | [TxTypeChainDataAnchoring](basic.md#txtypechaindataanchoring) | [TxTypeFeeDelegatedChainDataAnchoring](fee-delegation.md#txtypefeedelegatedchaindataanchoring) | [TxTypeFeeDelegatedChainDataAnchoringWithRatio](partial-fee-delegation.md#txtypefeedelegatedchaindataanchoringwithratio)|
+
 
