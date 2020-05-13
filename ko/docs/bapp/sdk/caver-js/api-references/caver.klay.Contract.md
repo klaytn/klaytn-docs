@@ -185,7 +185,7 @@ true
 ```javascript
 myContract.deploy(options)
 ```
-컨트랙트를 Klaytn 블록체인에 배포합니다.  성공적으로 배포한 후, promise는 새로운 컨트랙트 인스턴스로 resolve될 것입니다.
+컨트랙트를 Klaytn 블록체인에 배포합니다.  After successful deployment, the promise will be resolved with a new contract instance.
 
 **매개변수**
 
@@ -200,12 +200,12 @@ myContract.deploy(options)
 
 `Object`: 트랜잭션 객체:
 
-| 형식       | 설명                                                                                                                            |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| 배열       | arguments: 이전에 메소드에 전달되었던 인자. 이들은 변경될 수 있습니다.                                                                                 |
-| Function | [send](#methods-mymethod-send): Will deploy the contract. promise는 영수증(receipt) 대신 새 컨트랙트 인스턴스로 resolve됩니다.                   |
-| Function | [estimateGas](#methods-mymethod-estimategas): Will estimate the gas used for the deployment.                                  |
-| Function | [encodeABI](#methods-mymethod-encodeabi): Encodes the ABI of the deployment, which is contract data + constructor parameters. |
+| 형식       | 설명                                                                                                                                             |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| 배열       | arguments: 이전에 메소드에 전달되었던 인자. 이들은 변경될 수 있습니다.                                                                                                  |
+| Function | [send](#methods-mymethod-send): Will deploy the contract. The promise will be resolved with the new contract instance, instead of the receipt. |
+| Function | [estimateGas](#methods-mymethod-estimategas): Will estimate the gas used for the deployment.                                                   |
+| Function | [encodeABI](#methods-mymethod-encodeabi): Encodes the ABI of the deployment, which is contract data + constructor parameters.                  |
 
 **예시**
 
@@ -438,7 +438,7 @@ myContract.methods.myMethod([param1 [, param2 [, ...]]]).send(options [, callbac
 
 `callback`은 32바이트 트랜잭션 해시를 반환합니다.
 
-`PromiEvent`: 프로미스(promise)가 조합된 이벤트 이미터(event emitter).  트랜잭션 영수증을 사용할 수 있을 때, 또는 이 `send()`가 `someContract.deploy()`에서 호출될 경우, 프로미스는 새로운 컨트랙트 인스턴스와 함께 해결(resolve)됩니다.  추가로 다음과 같은 이벤트를 사용할 수 있습니다:
+`PromiEvent`: 프로미스(promise)가 조합된 이벤트 이미터(event emitter).  Will be resolved when the transaction receipt is available, or if this `send()` is called from a `someContract.deploy()`, then the promise will be resolved with the new contract instance.  추가로 다음과 같은 이벤트를 사용할 수 있습니다:
 
 | 명칭              | 형식     | 설명                                                                                                                                                                                  |
 | --------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
