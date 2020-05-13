@@ -513,7 +513,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | Name | Type | Description |
 | --- | --- | --- |
 | recipient | String | The address of the account to receive token. |
-| amount | BigNumber &#124; String &#124; Number | The number of tokens to transfer. |
+| amount | BigNumber &#124; String &#124; Number | The number of tokens to be transferred. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
@@ -854,7 +854,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | Name | Type | Description |
 | --- | --- | --- |
 | account | String | The address of the account to which the minted token will be issued. |
-| amount | BigNumber &#124; String &#124; Number | The number of tokens to mint. |
+| amount | BigNumber &#124; String &#124; Number | The number of tokens to be minted. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
@@ -986,7 +986,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 ```javascript
 kip7Instance.renounceMinter([sendParam])
 ```
-Renounces the permission related to minting tokens. Only address that is a minter can renounce itself. 
+Renounces the right to mint tokens. Only a minter address can renounce the minting right. 
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -996,7 +996,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | --- | --- | --- |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
-**NOTE** The from account sending the transaction must be minter with permission of MinterRole.
+**NOTE** If `sendParam.from` or `kip7Instance.options.from` were given, it should be a minter with MinterRole.
 
 **Return Value**
 
@@ -1052,7 +1052,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 ```javascript
 kip7Instance.burn(amount [, sendParam])
 ```
-Destroys amount tokens from the caller.
+Destroys the `amount` of tokens in the sender's balance. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur.  
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -1060,7 +1060,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 
 | Name | Type | Description |
 | --- | --- | --- |
-| amount | BigNumber &#124; String &#124; Number | The number of tokens to destroy. |
+| amount | BigNumber &#124; String &#124; Number | The number of tokens to be destroyed. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
@@ -1123,7 +1123,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 ```javascript
 kip7Instance.burnFrom(account, amount [, sendParam])
 ```
-Destroys the given number of tokens from `account`, then the amount is deducted from the caller’s allowance.
+Destroys the given number of tokens from `account`. The allowance of the sender specified in `sendParam.from` or `kip7Instance.options.from` is reduced alongside the balance of `account`.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -1131,8 +1131,8 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 
 | Name | Type | Description |
 | --- | --- | --- |
-| account | String | The address of the account that owns the given number of tokens to be burned with allowance mechanism. |
-| amount | BigNumber &#124; String &#124; Number | The number of tokens to destroy. |
+| account | String | The address of the account that owns tokens to be burned with allowance mechanism. |
+| amount | BigNumber &#124; String &#124; Number | The number of tokens to be destroyed. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
@@ -1218,7 +1218,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 ```javascript
 kip7Instance.addPauser(account [, sendParam])
 ```
-Adds an account as a pauser that has the permission related to suspending the contract.
+Adds an account as a pauser that has the right to suspend the contract.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -1229,7 +1229,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | account | String | The address of account to be a new pauser. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
-**NOTE** The from account sending the transaction must be pauser with permission of PauserRole.
+**NOTE** If `sendParam.from` or `kip7Instance.options.from` were given, it should be a pauser with PauserRole.
 
 **Return Value**
 
@@ -1285,7 +1285,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 ```javascript
 kip7Instance.renouncePauser([sendParam])
 ```
-Renounces the permission related to pausing the contract. Only address that is a pauser can renounce itself.
+Renounces the right to pause the contract. Only a pauser address can renounce the pausing right. 
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -1295,7 +1295,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | --- | --- | --- |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
-**NOTE** The from account sending the transaction must be pauser with permission of PauserRole.
+**NOTE** If `sendParam.from` or `kip7Instance.options.from` were given, it should be a pauser with PauserRole.
 
 **Return Value**
 
@@ -1361,7 +1361,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | --- | --- | --- |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
-**NOTE** The from account sending the transaction must be pauser with permission of PauserRole.
+**NOTE** If `sendParam.from` or `kip7Instance.options.from` were given, it should be a pauser with PauserRole.
 
 **Return Value**
 
@@ -1417,7 +1417,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 ```javascript
 kip7Instance.unpause([sendParam])
 ```
-Resumes the paused state of the contract.
+Resumes the paused contract.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -1427,7 +1427,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | --- | --- | --- |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
-**NOTE** The from account sending the transaction must be pauser with permission of PauserRole.
+**NOTE** If `sendParam.from` or `kip7Instance.options.from` were given, it should be a pauser with PauserRole.
 
 **Return Value**
 
