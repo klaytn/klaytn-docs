@@ -192,7 +192,7 @@ true
 myContract.deploy(options)
 ```
 Deploys the contract to the Klaytn blockchain.  After successful deployment,
-the promise will resolve with a new contract instance.
+the promise will be resolved with a new contract instance.
 
 **Parameters**
 
@@ -210,7 +210,7 @@ the promise will resolve with a new contract instance.
 | Type | Description |
 | --- | --- |
 | Array | arguments: The arguments passed to the method before. They can be changed. |
-| Function | [send](#methods-mymethod-send): Will deploy the contract. The promise will resolve with the new contract instance, instead of the receipt. |
+| Function | [send](#methods-mymethod-send): Will deploy the contract. The promise will be resolved with the new contract instance, instead of the receipt. |
 | Function | [estimateGas](#methods-mymethod-estimategas): Will estimate the gas used for the deployment. |
 | Function | [encodeABI](#methods-mymethod-encodeabi): Encodes the ABI of the deployment, which is contract data + constructor parameters. |
 
@@ -455,7 +455,7 @@ The options object can contain the following:
 
 `PromiEvent`: A promise combined event emitter.  Will be resolved when the
 transaction receipt is available, or if this `send()` is called from a
-`someContract.deploy()`, then the promise will resolve with the new contract
+`someContract.deploy()`, then the promise will be resolved with the new contract
 instance.  Additionally, the following events are available:
 
 | Name | Type | Description |
