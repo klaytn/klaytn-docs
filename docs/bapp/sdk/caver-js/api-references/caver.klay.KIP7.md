@@ -110,7 +110,7 @@ Creates a new KIP7 instance with its bound methods and events.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenAddress | String | (optional) The address of the smart contract that deployed a KIP7 token, which can be assigned later through `kip7Instance.options.address = '0x1234..'` |
+| tokenAddress | String | (optional) The address of the KIP-7 token contract, which can be assigned later through `kip7Instance.options.address = '0x1234..'` |
 
 
 **Return Value**
