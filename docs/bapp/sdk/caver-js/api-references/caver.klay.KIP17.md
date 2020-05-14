@@ -5,9 +5,9 @@ description: >-
 
 # caver.klay.KIP17 <a id="caver-klay-kip17"></a>
 
-The `caver.klay.KIP17`, a javascript object, makes it easy to interact with a smart contract that implements [KIP-17](https://kips.klaytn.com/KIPs/kip-17) on the Klaytn blockchain. 
+The `caver.klay.KIP7` helps you easily handle a smart contract that implements [KIP-17](https://kips.klaytn.com/KIPs/kip-17) as a JavaScript object on the Klaytn blockchain. 
 
-The `caver.klay.KIP17` inherits [caver.klay.Contract](caver.klay.Contract.md) and is implemented for KIP-17 token contracts. This section describes only the additional implementations of the caver.klay.KIP17 for easy to use.
+The `caver.klay.KIP7` inherits [caver.klay.Contract](caver.klay.Contract.md) to implement the KIP-7 token contract. The `caver.klay.KIP7` holds the same properties of `caver.klay.Contract` whereas additional methods to implement extra features. This section only introduces the newly added bound methods of the `caver.klay.KIP7`.
 
 The code that implements KIP-17 for caver-js is available on the [caver-js Github Repo](https://github.com/klaytn/caver-js/tree/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP17).
 
@@ -28,7 +28,7 @@ After successful deployment, the promise will be resolved with a new KIP17 insta
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenInfo | Object | The information needed to deploy a KIP-17 token contract on the Klaytn blockchain. See the below table to find the description. |
+| tokenInfo | Object | The information needed to deploy KIP-17 token contract on the Klaytn blockchain. See the below table for the details. |
 | deployer | String | The address of the account to deploy the KIP-17 token contract. This account must have enough KLAY to deploy. |
 
 The tokenInfo object must contain the following:
@@ -40,12 +40,12 @@ The tokenInfo object must contain the following:
 
 **Return Value**
 
-`PromiEvent`: A promise combined event emitter, which is resolved with a new KIP17 instance. Additionally, the following events are available:
+`PromiEvent`: A promise combined event emitter, which is resolved with a new KIP17 instance. Additionally, the following events can occur:
 
 | Name | Type | Description |
 | --- | --- | --- |
 | transactionHash | String | Fired right after the transaction is sent and a transaction hash is available. |
-| receipt | Object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
+| receipt | Object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
 | error | Error | Fired if an error occurs during sending. |
 
 **Example**
@@ -96,19 +96,19 @@ KIP17 {
 ```javascript
 new caver.klay.KIP17([tokenAddress])
 ```
-Creates a new KIP17 instance with all its methods and events.
+Creates a new KIP17 instance with its bound methods and events.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenAddress | String | (optional) The address of the smart contract to call, which can be assigned later through `kip17Instance.options.address = '0x1234..'` |
+| tokenAddress | String | (optional) The address of the KIP-7 token contract, which can be assigned later through `kip17Instance.options.address = '0x1234..'` |
 
 **Return Value**
 
 | Type | Description |
 | --- | --- |
-| Object | The KIP17 instance with all its methods and events. |
+| Object | The KIP17 instance with its bound methods and events. |
 
 
 **Example**
@@ -133,13 +133,13 @@ Clones the current KIP17 instance.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenAddress | String | (optional) The address of the new non-fungible token contract to call. If omitted, it will be set to the address in the original instance (i.e., `kip17Instance`). |
+| tokenAddress | String | (optional) The address of the smart contract that deployed another KIP7 token. If omitted, it will be set to the contract address in the original instance. |
 
 **Return Value**
 
 | Type | Description |
 | --- | --- |
-| Object | The new cloned KIP17 instance. |
+| Object | The clone of the original KIP7 instance. |
 
 
 **Example**
@@ -160,17 +160,17 @@ Clones the current KIP17 instance.
 ```javascript
 kip17Instance.supportsInterface(interfaceId)
 ```
-Returns `true` if this contract implements the interface defined by interfaceId.
+Returns `true` if this contract implements the interface defined by `interfaceId`.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| interfaceId | String | The interfaceId to check supported. |
+| interfaceId | String | The interfaceId to be checked. |
 
 **Return Value**
 
-`Promise` returns `Boolean`: `true` if the account of address is minter.
+`Promise` returns `Boolean`: `true` if this contract implements the interface defined by `interfaceId`.
 
 **Example**
 
@@ -234,7 +234,7 @@ JAS
 ```javascript
 kip17Instance.totalSupply()
 ```
-Returns the total number of tokens stored by the contract.
+Returns the total number of tokens minted by the contract.
 
 **Parameters**
 
@@ -265,7 +265,7 @@ Returns the URI for a given token id.
 | --- | --- | --- |
 | tokenId | BigNumber &#124; String &#124; Number | The id of the token. |
 
-**NOTE** It also supports `Number` types as parameters for tokenId. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+**NOTE** The `tokenId` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value. 
 
 **Return Value**
 
@@ -284,16 +284,16 @@ https://kip17.example/uri-ex-caver.json
 ```javascript
 kip17Instance.tokenOfOwnerByIndex(owner, index)
 ```
-Returns the token id at a given index of the tokens list of the requested owner.
+Returns the token id of an indexed token that belongs to the `owner`.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| owner | String | The address of the account whose token you want to query. |
-| index | BigNumber &#124; String &#124; Number | The index of the token to be searched among the tokens owned by a owner account. |
+| owner | String | The address of the account who owns an indexed token. |
+| index | BigNumber &#124; String &#124; Number | The index of a token in owner's token list. |
 
-**NOTE** It also supports `Number` types as parameters for index. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+**NOTE** The `index` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value. 
 
 **Return Value**
 
@@ -312,15 +312,15 @@ Returns the token id at a given index of the tokens list of the requested owner.
 ```javascript
 kip17Instance.tokenByIndex(index)
 ```
-Returns the token id at a given index of all the tokens in this contract. It reverts if the index is greater or equal to the total number of tokens.
+Returns the token id of an indexed token among all tokens generated by this token contract. It reverts if the index is greater or equal to the total number of tokens.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| index | BigNumber &#124; String &#124; Number | The index of the token to query. |
+| index | BigNumber &#124; String &#124; Number | The index of a token to be queried. |
 
-**NOTE** It also supports `Number` types as parameters for index. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+**NOTE** The `index` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value. 
 
 **Return Value**
 
@@ -339,13 +339,13 @@ Returns the token id at a given index of all the tokens in this contract. It rev
 ```javascript
 kip17Instance.balanceOf(address)
 ```
-Returns the balance of the given account address. The balance of an account in KIP-17 means that the total number of NFTs (Non-Fungible Tokens) owned by the account.
+Returns the balance of the given account address. The balance of an account in KIP-17 is the total number of NFTs (Non-Fungible Tokens) owned by the account.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | String | The address of the account to check the balance. |
+| address | String | The address of the account to be checked for its balance. |
 
 **Return Value**
 
@@ -364,7 +364,7 @@ Returns the balance of the given account address. The balance of an account in K
 ```javascript
 kip17Instance.ownerOf(tokenId)
 ```
-Returns the owner of the specified token id.
+Returns the address of the owner of the specified token id.
 
 **Parameters**
 
@@ -372,7 +372,7 @@ Returns the owner of the specified token id.
 | --- | --- | --- |
 | tokenId | BigNumber &#124; String &#124; Number | The id of the token. |
 
-**NOTE** It also supports `Number` types as parameters for tokenId. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+**NOTE** The `tokenId` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
@@ -399,7 +399,7 @@ Returns the approved address for a token id, or zero if no address set. It rever
 | --- | --- | --- |
 | tokenId | BigNumber &#124; String &#124; Number | The id of the token. |
 
-**NOTE** It also supports `Number` types as parameters for tokenId. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+**NOTE** The `tokenId` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
