@@ -318,7 +318,7 @@ Returns the number of tokens that `spender` is allowed to withdraw from `owner`.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| owner | String | The address of the account who leaves tokens with the spender. |
+| owner | String | The address of the account who allowed the spender to use its token  |
 | spender | String | The address of the account that spends tokens in place of the owner. |
 
 **Return Value**
