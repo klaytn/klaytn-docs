@@ -391,7 +391,7 @@ Returns the address of the owner of the specified token id.
 ```javascript
 kip17Instance.getApproved(tokenId)
 ```
-Returns the approved address for a token id, or zero if no address set. It reverts if the token id does not exist.
+Returns the address who was permitted to transfer this token, or zero, if no address was approved. It reverts if the given token id does not exist.
 
 **Parameters**
 
@@ -403,16 +403,16 @@ Returns the approved address for a token id, or zero if no address set. It rever
 
 **Return Value**
 
-`Promise` returns `String`: The address of the account that owns the given token.
+`Promise` returns `String`: The address of the account that has the right to transfer the given token.
 
 **Example**
 
 ```javascript
-// If approved address is set
+// If an approved address exists
 > kip17Instance.getApproved(10).then(console.log)
 0x23D8E9cae17b22d3DAC65b4F7D2C737C6A7b865d
 
-// If approved address is not set
+// If no approved address exists
 > kip17Instance.getApproved(3).then(console.log)
 0x0000000000000000000000000000000000000000
 ```
@@ -423,18 +423,18 @@ Returns the approved address for a token id, or zero if no address set. It rever
 ```javascript
 kip17Instance.isApprovedForAll(owner, operator)
 ```
-Returns `true` if an operator is approved by a given owner.
+Returns `true` if an `operator` is approved to transfer all tokens that belongs to the `owner`.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| owner | String | The address of an account that owns the token and has allowed the operator to transfer the token on behalf of the owner. |
-| operator | String | The address of account allowed to send token on behalf of the owner. |
+| owner | String | The address of an account that owns tokens and has allowed the operator to send all its tokens. |
+| operator | String | The address of the account approved to send all owner's tokens in place of the owner. |
 
 **Return Value**
 
-`Promise` returns `Boolean`: The address of the account that owns the given token.
+`Promise` returns `Boolean`: `true` if an `operator` is approved to send all tokens that belongs to the `owner`.
 
 **Example**
 
@@ -452,13 +452,13 @@ true
 ```javascript
 kip17Instance.isMinter(address)
 ```
-Returns `true` if the given account is a minter which has permission to mint.
+Returns `true` if the given account is a minter who can issue new KIP7 tokens.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | String | The address of the account to check minting permission. |
+| address | String | The address of the account to be checked for having the minting right. |
 
 **Return Value**
 
@@ -480,7 +480,7 @@ false
 ```javascript
 kip17Instance.paused()
 ```
-Returns `true` if the contract is in the paused state, and `false` otherwise.
+Returns `true` if the contract is paused, and `false` otherwise.
 
 **Parameters**
 
@@ -512,7 +512,7 @@ Returns `true` if the given account is a pauser which has permission to suspend 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | String | The address of the account to check permission to suspend transferring tokens. |
+| address | String | The address of the account to be checked for having the right to suspend transferring tokens. |
 
 **Return Value**
 
@@ -843,7 +843,7 @@ Note that the addMinter method will submit a transaction to the Klaytn network, 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| account | String | The address of account to add as a minter. |
+| account | String | The address of the account to add as a minter. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip17instance-approve). |
 
 **NOTE** The from account sending the transaction must be a minter.
@@ -1255,7 +1255,7 @@ Note that the addPauser method will submit a transaction to the Klaytn network, 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| account | String | The address of account to be a new pauser. |
+| account | String | The address of the account to be a new pauser. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip17instance-approve). |
 
 **NOTE** The from account sending the transaction must be pauser with permission of PauserRole.
