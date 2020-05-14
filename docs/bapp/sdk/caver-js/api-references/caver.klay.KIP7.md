@@ -504,7 +504,7 @@ The `sendParam` object contains the following:
 ```javascript
 kip7Instance.transfer(recipient, amount [, sendParam])
 ```
-Transfers the given `amount` of token to `recipient`. Without `sendParam` nor `kip7Instance.options.from` being provided, the caller of this method will be the sender.  
+Transfers the given `amount` of token to `recipient`. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur.  
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
