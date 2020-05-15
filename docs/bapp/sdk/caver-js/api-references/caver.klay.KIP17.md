@@ -391,7 +391,7 @@ Returns the address of the owner of the specified token id.
 ```javascript
 kip17Instance.getApproved(tokenId)
 ```
-Returns the address who was permitted to transfer this token, or zero, if no address was approved. It reverts if the given token id does not exist.
+Returns the address who was permitted to transfer this token, or 'zero' address, if no address was approved. It reverts if the given token id does not exist.
 
 **Parameters**
 
@@ -430,7 +430,7 @@ Returns `true` if an `operator` is approved to transfer all tokens that belongs 
 | Name | Type | Description |
 | --- | --- | --- |
 | owner | String | The address of an account that owns tokens and has allowed the operator to send all its tokens. |
-| operator | String | The address of the account approved to send all owner's tokens in place of the owner. |
+| operator | String | The address of the account approved to send owner's all tokens in place of the owner. |
 
 **Return Value**
 
@@ -506,7 +506,7 @@ false
 ```javascript
 kip17Instance.isPauser(address)
 ```
-Returns `true` if the given account is a pauser which has permission to suspend transferring tokens.
+Returns `true` if the given account is a pauser who can suspend transferring tokens.
 
 **Parameters**
 
@@ -534,28 +534,28 @@ false
 ```javascript
 kip17Instance.approve(to, tokenId [, sendParam])
 ```
-Approves another address to transfer the given token id. The zero address indicates there is no approved address. There can only be one approved address per token at a given time. This method is allowed to call only by the token owner or an approved operator.
+Approves another address to transfer a token of the given token id. The zero address indicates there is no approved address. There can only be one approved address per token. This method is allowed to call only by the token owner or an approved operator.
 
-Note that the approve method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| to | String | The address of the account to spend tokens on behalf of the owner. |
-| tokenId | BigNumber &#124; String &#124; Number | The id of token the spender allows to use. |
+| to | String | The address of the account who spends tokens in place of the owner. |
+| tokenId | BigNumber &#124; String &#124; Number | The id of token the spender is allowed to use. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. |
 
-**NOTE** It also supports `Number` types as parameters for tokenId. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+**NOTE** The `tokenId` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value. 
 
 The sendParam object can contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
+| from | String | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If neither of `from` in `sendParam` object nor `this.options.from` were not provided, an error would occur. |
 | gas | Number &#124; String | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, tokenId).estimateGas({from})`. |
 | gasPrice | Number &#124; String | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
+| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value to be transferred in peb. |
 
 **Return Value**
 
@@ -615,7 +615,7 @@ The sendParam object can contain the following:
 ```javascript
 kip17Instance.setApprovalForAll(to, approved [, sendParam])
 ```
-Sets or unsets the approval of a given operator. An operator is allowed to transfer all tokens of the sender on their behalf.
+Approve the given operator, or revoke the approval, to transfer all tokens of the owner.
 
 Note that the setApprovalForAll method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -623,8 +623,8 @@ Note that the setApprovalForAll method will submit a transaction to the Klaytn n
 
 | Name | Type | Description |
 | --- | --- | --- |
-| to | String | The address of an account to allow/forbid for transfer of all tokens owned by the owner on behalf of the owner. |
-| approved | Boolean | Whether to allow sending tokens on behalf of the owner. If approved is true, the to account is allowed to transfer tokens on behalf of the owner; if false, not. |
+| to | String | The address of an account to be approved/prohibited to transfer the owner's all tokens. |
+| approved | Boolean | `true` if this operator will be approved, or `false` if the made approval will be reverted. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip17instance-approve). |
 
 **Return Value**
@@ -685,7 +685,7 @@ Note that the setApprovalForAll method will submit a transaction to the Klaytn n
 ```javascript
 kip17Instance.transferFrom(from, to, tokenId [, sendParam])
 ```
-Transfers the ownership of a given token id to another address. Usage of this method is discouraged, use [safeTransferFrom](#kip17instance-safetransferfrom) whenever possible.
+Transfers the token of the given token id from the owner or operator to another address. It is recommended to use [safeTransferFrom](#kip17instance-safetransferfrom) whenever possible instead of this method.
 
 Note that the transferFrom method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -693,12 +693,12 @@ Note that the transferFrom method will submit a transaction to the Klaytn networ
 
 | Name | Type | Description |
 | --- | --- | --- |
-| from | String | The address of the owner or approved of the given token. |
+| from | String | The address of the owner or the approved operator of the given token. |
 | to | String | The address of the account to receive the token. |
 | tokenId | BigNumber &#124; String &#124; Number | The id of token you want to transfer. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip17instance-approve). |
 
-**NOTE** It also supports `Number` types as parameters for tokenId. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+**NOTE** The `tokenId` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
@@ -758,7 +758,7 @@ Note that the transferFrom method will submit a transaction to the Klaytn networ
 ```javascript
 kip17Instance.safeTransferFrom(from, to, tokenId [, data] [, sendParam])
 ```
-Safely transfers the ownership of a given token id to another address. If the target address is a contract, it must implement [IKIP17Receiver.onKIP17Received](https://kips.klaytn.com/KIPs/kip-17#wallet-interface). otherwise, the transfer is reverted.
+Safely transfers the token of the given token id from the owner or operator to another address. If the `to` is a contract address, it must implement [IKIP17Receiver.onKIP17Received](https://kips.klaytn.com/KIPs/kip-17#wallet-interface). otherwise, the transfer is reverted.
 
 Note that the safeTransferFrom method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -766,13 +766,13 @@ Note that the safeTransferFrom method will submit a transaction to the Klaytn ne
 
 | Name | Type | Description |
 | --- | --- | --- |
-| from | String | The address of the owner or approved of the given token. |
+| from | String | The address of the owner or the approved operator of the given token. |
 | to | String | The address of the account to receive the token. |
 | tokenId | BigNumber &#124; String &#124; Number | The id of token you want to transfer. |
 | data | Buffer &#124; String &#124; Number | (optional) The optional data to send along with the call. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip17instance-approve). |
 
-**NOTE** It also supports `Number` types as parameters for tokenId. But if the input parameters are out of the range supported by JavaScript Number(Number.MAX_SAFE_INTEGER), they may not work properly or may cause an error. It is recommended to use a variable of type `BigNumber` for a parameter of type `uint256`.
+**NOTE** The `tokenId` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
