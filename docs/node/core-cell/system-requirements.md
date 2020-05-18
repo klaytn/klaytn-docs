@@ -21,7 +21,7 @@ Note that this is a recommended hardware specification for CNs and PNs, not an e
 
 #### Recommended Specification Based on AWS <a id="recommended-specification-based-on-aws"></a>
 
-| Node Type | Model | vCPU | Memory \(GiB\) | Storage \(GiB\) | Storage \(IOPS\) | Price \(Seoul region, USD/h\) |
+| Node Type | Model | vCPU | Memory \(GiB\) | Storage size \(GiB\) | Storage speed \(IOPS\) | Price \(Seoul region, USD/h\) |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | CN | c5.18xlarge  | 72 | 144 | 1,000 (Minimum) | 3,000 (Minimum) | 3.456 |
 | PN | m5.8xlarge  | 32 | 128 | 1,000 (Minimum) | 3,000 (Minimum)  | 1.888 |
