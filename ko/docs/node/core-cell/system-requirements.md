@@ -8,12 +8,12 @@
 
 ### 베어메탈 서버 <a id="bare-metal-server"></a>
 
-| 카테고리          | 사양                                                                                       |
-|:------------- |:---------------------------------------------------------------------------------------- |
-| 서버            | Intel® Server System R2312WFTZS                                                          |
-| CPU           | Intel® Xeon 6148 2.40 GHz \(20-core/40-thread\) \* 2EA \(total 40-core/80-thread\) |
-| 메모리           | 256GB \(32GB \* 8\)                                                                  |
-| 스토리지(Storage) | 12TB \(1.92TB SSD \* 6, RAID 5\)                                                     |
+| 카테고리          | 사양                                                                                                                                                                               |
+|:------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 서버            | Intel® Server System R2312WFTZS                                                                                                                                                  |
+| CPU           | Intel® Xeon 6148 2.40 GHz \(20-core/40-thread\) \* 2EA \(total 40-core/80-thread\)                                                                                         |
+| 메모리           | 256GB \(32GB \* 8\)                                                                                                                                                          |
+| 스토리지(Storage) | 1TB (or larger size) SSD (The preferred storage size and configuration could differ depending on the chain data size. Please consult with the Klaytn team for more information.) |
 
 이는 CN 및 PN에 권장되는 하드웨어 사양이며, 정확히 필요한 요구 사항은 아닙니다. 하드웨어 환경설정이 비슷하면 어떤 물리적 시스템이라도 CN 또는 PN을 작동시키기에 충분합니다.
 
@@ -21,15 +21,18 @@
 
 #### AWS 권장 사양 <a id="recommended-specification-based-on-aws"></a>
 
-| 모델명                           | vCPU 수 | 메모리 \(GiB\) | 스토리지 \(GiB\)   | EBS 대역폭 \(Mbps\) | 네트워크 대역폭 \(Gbps\) | 가격 \(서울 지역, USD/h\) |
-|:----------------------------- |:------ |:------------- |:---------------- |:------------------ |:------------------- |:--------------------- |
-| c5.18xlarge \(recommended\) | 72     | 144           | 500 (최소, EBS 전용) | 14,000             | 25                  | 3.456                 |
+| Node Type |     모델명     | vCPU 수 | Memory \(GiB\) | Storage size \(GiB\) | Storage speed \(IOPS\) | 가격 \(서울 지역, USD/h\) |
+|:---------:|:-----------:|:------:|:----------------:|:----------------------:|:------------------------:|:---------------------:|
+|    CN     | c5.18xlarge |   72   |       144        |    1,000 (Minimum)     |     3,000 (Minimum)      |         3.456         |
+|    PN     | m5.8xlarge  |   32   |       128        |    1,000 (Minimum)     |     3,000 (Minimum)      |         1.888         |
+
+This storage specification is derived from AWS EBS SSD (gp2) specification.
 
 위 정보의 출처는 [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/)과 [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/)이며, AWS에 의해 변경될 수도 있습니다.
 
 ## 스토리지 요구사항 <a id="storage-requirements"></a>
 
-평균 100 TPS, 평균 트랜잭션 크기 300 바이트, 그리고 1초의 블록 생성 시간을 가정 할 때 예상되는 스토리지 요구 사항은 2.5GB/1일 \(= 300x100x86400\) 입니다.
+Assuming 100 TPS in average,  300 bytes average transaction size, and 1-second block latency, the expected daily storage requirement is 2.5 GB/day \(=300x100x86400\).
 
 ## 운영 체제 <a id="operating-system"></a>
 
