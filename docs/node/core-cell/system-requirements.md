@@ -21,10 +21,12 @@ Note that this is a recommended hardware specification for CNs and PNs, not an e
 
 #### Recommended Specification Based on AWS <a id="recommended-specification-based-on-aws"></a>
 
-| Node Type | Model | vCPU | Memory \(GiB\) | Storage \(GiB\) | EBS Bandwidth \(Mbps\) | Network Bandwidth \(Gbps\) | Price \(Seoul region, USD/h\) |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| CN | c5.18xlarge  | 72 | 144 | 1000 (Minimum, EBS-Only) | 14,000 | 25 | 3.456 |
-| PN | m5.8xlarge  | 32 | 128 | 1000 (Minimum, EBS-Only) | 6,800 | 10 | 1.888 |
+| Node Type | Model | vCPU | Memory \(GiB\) | Storage \(GiB\) | Storage \(IOPS\) | Price \(Seoul region, USD/h\) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| CN | c5.18xlarge  | 72 | 144 | 1,000 (Minimum) | 3,000 (Minimum) | 3.456 |
+| PN | m5.8xlarge  | 32 | 128 | 1,000 (Minimum) | 3,000 (Minimum)  | 1.888 |
+
+This storage specification is derived from AWS EBS SSD (gp2). 
 
 The information above is from [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/) and [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/) and may be changed by AWS.
 
