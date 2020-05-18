@@ -13,7 +13,7 @@ The following sections show the recommended specifications for both CNs and PNs.
 | Server | Intel® Server System R2312WFTZS |
 | CPU | Intel® Xeon 6148 2.40 GHz \(20-core/40-thread\) \* 2EA \(total 40-core/80-thread\) |
 | Memory | 256GB \(32GB \* 8\) |
-| Storage | 12TB \(1.92TB SSD \* 6, RAID 5\) |
+| Storage | 1TB (or larger size) SSD (Preferred storage size and configuration could differ depending on the chain data size. Please consult with the Klaytn team for more information.) |
 
 Note that this is a recommended hardware specification for CNs and PNs, not an exact requirement. Any physical machine having similar hardware configuration would be sufficient to operate a CN or a PN.
 
@@ -21,9 +21,10 @@ Note that this is a recommended hardware specification for CNs and PNs, not an e
 
 #### Recommended Specification Based on AWS <a id="recommended-specification-based-on-aws"></a>
 
-| Model | vCPU | Memory \(GiB\) | Storage \(GiB\) | EBS Bandwidth \(Mbps\) | Network Bandwidth \(Gbps\) | Price \(Seoul region, USD/h\) |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| c5.18xlarge \(recommended\) | 72 | 144 | 500 (Minimum, EBS-Only) | 14,000 | 25 | 3.456 |
+| Node Type | Model | vCPU | Memory \(GiB\) | Storage \(GiB\) | EBS Bandwidth \(Mbps\) | Network Bandwidth \(Gbps\) | Price \(Seoul region, USD/h\) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| CN | c5.18xlarge  | 72 | 144 | 1000 (Minimum, EBS-Only) | 14,000 | 25 | 3.456 |
+| PN | m5.8xlarge  | 32 | 128 | 1000 (Minimum, EBS-Only) | 6,800 | 10 | 1.888 |
 
 The information above is from [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/) and [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/) and may be changed by AWS.
 
