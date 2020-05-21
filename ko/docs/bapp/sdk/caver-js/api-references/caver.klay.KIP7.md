@@ -9,18 +9,18 @@ The `caver.klay.KIP7` helps you easily handle a smart contract that implements K
 
 The `caver.klay.KIP7` inherits [caver.klay.Contract](caver.klay.Contract.md) to implement the KIP-7 token contract. The `caver.klay.KIP7` holds the same properties of `caver.klay.Contract` whereas additional methods to implement extra features. This section only introduces the newly added bound methods of the `caver.klay.KIP7`.
 
-The abi and bytecode used in the caver.klay.KIP7 were implemented using the example of [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20).
+caver.klay.KIP7에서 사용된 abi와 바이트 코드는 [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20) 예시를 사용하여 구현되었습니다.
 
-For more information about KIP-7, see [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-7).
+KIP-7에 관한 자세한 정보는 [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-7)를 참조하십시오.
 
-**NOTE** `caver.klay.KIP7` is supported since caver-js [v1.4.0](https://www.npmjs.com/package/caver-js/v/1.4.0).
+**참고** `caver.klay.KIP7`는 caver-js[v1.4.0](https://www.npmjs.com/package/caver-js/v/1.4.0)부터 지원됩니다.
 
 ## caver.klay.KIP7.deploy <a id="caver-klay-kip7-deploy"></a>
 
 ```javascript
 caver.klay.KIP7.deploy(tokenInfo, deployer)
 ```
-Deploys the KIP-7 token contract to the Klaytn blockchain. A contract deployed using caver.klay.KIP7.deploy is a fungible token that follows the KIP-7 standard.
+KIP-7 토큰 컨트랙트를 Klaytn 블록체인에 배포합니다. A contract deployed using caver.klay.KIP7.deploy is a fungible token that follows the KIP-7 standard.
 
 After successful deployment, the promise will be resolved with a new KIP7 instance.
 
