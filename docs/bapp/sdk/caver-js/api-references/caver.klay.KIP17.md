@@ -284,7 +284,7 @@ https://kip17.example/uri-ex-caver.json
 ```javascript
 kip17Instance.tokenOfOwnerByIndex(owner, index)
 ```
-Returns the token id of an indexed token that belongs to the `owner`.
+Search the `owner`'s token list for the given index, and returns the token id of a token positioned at the matched index in the list if there is a match.
 
 **Parameters**
 
