@@ -423,9 +423,9 @@ false
 ```javascript
 kip7Instance.approve(spender, amount [, sendParam])
 ```
-Set the `amount` of caller's tokens to be spent by the `spender`. 
+Set the `amount` of the tokens of the token owner to be spent by the `spender`.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction from the owner to the Klaytn network, which will charge the transaction fee to the owner.
 
 **Parameters**
 
@@ -504,9 +504,9 @@ The `sendParam` object contains the following:
 ```javascript
 kip7Instance.transfer(recipient, amount [, sendParam])
 ```
-Transfers the given `amount` of token to `recipient`. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur.  
+Transfers the given `amount` of token from the sender of the token to the `recipient`. The token owner is the sender of the token and also the sender of this transaction (`sendParam.from` or `kip7Instance.options.from`). Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur.  
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction from the sender of the token to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -575,9 +575,11 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 ```javascript
 kip7Instance.safeTransfer(recipient, amount [, data] [, sendParam])
 ```
-Safely transfers the given `amount` of token to `recipient`. Without `sendParam.from` nor `kip7Instance.options.from` being provided, the caller of this method will be the sender. If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface). Otherwise, the transfer is reverted.
+Safely transfers the given `amount` of token from the sender of the token to the `recipient`. The token owner is the sender of the token and also the sender of this transaction (`sendParam.from` or `kip7Instance.options.from`). Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur.  
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface). Otherwise, the transfer is reverted.  
+
+Note that this method will submit a transaction from the sender of the token to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -651,9 +653,9 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 ```javascript
 kip7Instance.transferFrom(sender, recipient, amount [, sendParam])
 ```
-Transfers the `amount` of token from the `sender` to the `recipient` using the allowance mechanism. The caller’s allowance is reduced alongside the balance of `sender`.
+Transfers the given `amount` of token from the `sender` to the `recipient`, by the transaction sent from the address (`sendParam.from` or `kip7Instance.options.from`) approved to spend the owner's token. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur.  
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction from the spender, not the token owner, to the Klaytn network, which will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
@@ -746,9 +748,11 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 ```javascript
 kip7Instance.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
 ```
-Safely transfers the `amount` of token from the `sender` to the `recipient` using the allowance mechanism. The caller’s allowance is reduced alongside the balance of `sender`. If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface). Otherwise, the transfer is reverted.
+Safely transfers the given `amount` of token from the `sender` to the `recipient`, by the transaction sent from the address (`sendParam.from` or `kip7Instance.options.from`) approved to spend the owner's token. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur.  
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface). Otherwise, the transfer is reverted.  
+
+Note that this method will submit a transaction from the spender, not the token owner, to the Klaytn network, which will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
