@@ -38,7 +38,7 @@ The tokenInfo object must contain the following:
 | name | String | The name of the token. |
 | symbol | String | The symbol of the token. |
 | decimals | Number | The number of decimal places the token uses. |
-| initialSupply | BigNumber &#124; String &#124; Number | The total quantity of tokens to be supplied initially. |
+| initialSupply | BigNumber &#124; String &#124; Number | The total amount of token to be supplied initially. |
 
 **NOTE** The `initialSupply` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
@@ -312,7 +312,7 @@ Returns the balance of the given account address.
 ```javascript
 kip7Instance.allowance(owner, spender)
 ```
-Returns the number of tokens that `spender` is allowed to withdraw from `owner`.
+Returns the amount of token that `spender` is allowed to withdraw from `owner`.
 
 **Parameters**
 
@@ -432,7 +432,7 @@ Note that this method will submit a transaction from the owner to the Klaytn net
 | Name | Type | Description |
 | --- | --- | --- |
 | spender | String | The address of the account who spends tokens in place of the owner. |
-| amount | BigNumber &#124; String &#124; Number | The number of tokens the spender is allowed to use. |
+| amount | BigNumber &#124; String &#124; Number | the amount of token the spender is allowed to use. |
 | sendParam | Object | (optional) An object holding parameters that are required for sending a transaction. |
 
 **NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value. 
@@ -513,7 +513,7 @@ Note that this method will submit a transaction from the sender of the token to 
 | Name | Type | Description |
 | --- | --- | --- |
 | recipient | String | The address of the account to receive token. |
-| amount | BigNumber &#124; String &#124; Number | The number of tokens to be transferred. |
+| amount | BigNumber &#124; String &#124; Number | the amount of token to be transferred. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
@@ -586,7 +586,7 @@ Note that this method will submit a transaction from the sender of the token to 
 | Name | Type | Description |
 | --- | --- | --- |
 | recipient | String | The address of the account to receive the token. |
-| amount | BigNumber &#124; String &#124; Number | The number of tokens you want to transfer. |
+| amount | BigNumber &#124; String &#124; Number | the amount of token you want to transfer. |
 | data | Buffer &#124; String &#124; Number | (optional) The optional data to send along with the call. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
@@ -663,7 +663,7 @@ Note that this method will submit a transaction from the spender, not the token 
 | --- | --- | --- |
 | sender | String | The address of the account that owns the token to be sent with allowance mechanism. |
 | recipient | String | The address of the account to receive the token. |
-| amount | BigNumber &#124; String &#124; Number | The number of tokens you want to transfer. |
+| amount | BigNumber &#124; String &#124; Number | the amount of token you want to transfer. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
@@ -760,7 +760,7 @@ Note that this method will submit a transaction from the spender, not the token 
 | --- | --- | --- |
 | sender | String | The address of the account that owns the token to be sent with allowance mechanism. |
 | recipient | String | The address of the account to receive the token. |
-| amount | BigNumber &#124; String &#124; Number | The number of tokens you want to transfer. |
+| amount | BigNumber &#124; String &#124; Number | the amount of token you want to transfer. |
 | data | Buffer &#124; String &#124; Number | (optional) The optional data to send along with the call. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
@@ -858,7 +858,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | Name | Type | Description |
 | --- | --- | --- |
 | account | String | The address of the account to which the minted token will be issued. |
-| amount | BigNumber &#124; String &#124; Number | The number of tokens to be minted. |
+| amount | BigNumber &#124; String &#124; Number | the amount of token to be minted. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
@@ -1064,7 +1064,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 
 | Name | Type | Description |
 | --- | --- | --- |
-| amount | BigNumber &#124; String &#124; Number | The number of tokens to be destroyed. |
+| amount | BigNumber &#124; String &#124; Number | the amount of token to be destroyed. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
@@ -1136,7 +1136,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | Name | Type | Description |
 | --- | --- | --- |
 | account | String | The address of the account that owns tokens to be burned with allowance mechanism. |
-| amount | BigNumber &#124; String &#124; Number | The number of tokens to be destroyed. |
+| amount | BigNumber &#124; String &#124; Number | the amount of token to be destroyed. |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
