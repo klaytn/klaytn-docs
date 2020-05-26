@@ -839,7 +839,7 @@ SenderTxHash 10d135d590cb587cc45c1f94f4a0e3b8c24d24a6e4243f09ca395fb4e2450413
 
 ## TxTypeChainDataAnchoring <a id="txtypechaindataanchoring"></a>
 
-TxTypeChainDataAnchoringTransaction is a transaction that anchors service chain data to the Klaytn mainchain. Service chains periodically send this type of transaction to the Klaytn mainchain to ensure its security and credibility of data. For more details about the data anchoring, see [Anchoring](../../../node/service-chain/references/anchoring.md). Be mindful that it is not allowed to send this transaction via RPC. Currently, this transaction is executed through private p2p channels for security reasons. This transaction does not change the state of the Klaytn blockchain except the sender's nonce being increased by one.
+TxTypeChainDataAnchoringTransaction는 서비스체인 데이터를 Klaytn 메인체인에 앵커링하는 트랜잭션입니다. 서비스체인은 주기적으로 이러한 종류의 트랜잭션을 Klaytn 메인체인에 보내어 자신의 데이터 보안과 신뢰성을 검증받습니다. 데이터 앵커링에 관한 더 자세한 내용은 [Anchoring](../../../node/service-chain/references/anchoring.md)을 참조하시기 바랍니다. 이 트랜잭션은 RPC 호출로 전송하시면 안 된다는 점을 유의하시기 바랍니다. 현재 이 트랜잭션은 보안상의 이유로 비공개 p2p 채널을 통해 실행됩니다. 이 트랜잭션은 발신자의 논스를 1씩 증가시키는 것을 제외하고는 Klaytn 블록 체인의 상태를 변경하지 않습니다.
 
 ### 속성 <a id="attributes"></a>
 
