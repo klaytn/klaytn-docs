@@ -22,7 +22,7 @@ caver.klay.KIP17.deploy(tokenInfo, deployer)
 ```
 Deploys the KIP-17 token contract to the Klaytn blockchain. A contract deployed using caver.klay.KIP17.deploy is a non-fungible token that follows the KIP-17 standard.
 
-After successful deployment, the promise will be resolved with a new KIP17 instance.
+성공적으로 배포된 후, 프로미스는 새로운 KIP17 인스턴스를 반환할 것입니다.
 
 **매개변수**
 
