@@ -8,10 +8,10 @@ Returns the unit price of gas in peb that was effective at the given block heigh
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                                                                                                                     |
-| ------------ | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| defaultBlock | Number &#124; String | (optional) If you don't pass this parameter, the default block set by [caver.klay.defaultBlock](./block.md#defaultblock) will be used. |
-| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                   |
+| 명칭           | 형식                   | 설명                                                                                                |
+| ------------ | -------------------- | ------------------------------------------------------------------------------------------------- |
+| defaultBlock | Number &#124; String | (선택 사항) 이 파라미터에 값을 전달하지 않으면 [caver.klay.defaultBlock](./block.md#defaultblock)에 설정된 기본 블록을 사용합니다. |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                              |
 
 **리턴값**
 
