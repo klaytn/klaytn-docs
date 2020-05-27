@@ -28,8 +28,8 @@ caver.klay.accounts.create([entropy])
 
 | 명칭                               | 형식       | 설명                                                                             |
 | -------------------------------- | -------- | ------------------------------------------------------------------------------ |
-| address                          | 문자열      | 계정 주소.                                                                         |
-| privateKey                       | 문자열      | 계정 개인키. 로컬 스토리지에 암호화되지 않은 상태로 공유하거나 저장해서는 안 됩니다! 또한 사용 후에는 메모리를 null로 설정하세요.   |
+| address                          | String   | 계정 주소.                                                                         |
+| privateKey                       | String   | 계정 개인키. 로컬 스토리지에 암호화되지 않은 상태로 공유하거나 저장해서는 안 됩니다! 또한 사용 후에는 메모리를 null로 설정하세요.   |
 | signTransaction(tx [, callback]) | Function | 트랜잭션에 서명하는 함수. [caver.klay.accounts.signTransaction](#signtransaction)를 참조하세요. |
 | sign(data)                       | Function | 트랜잭션에 서명하는 함수. [caver.klay.accounts.sign](#sign)를 참조하세요.                       |
 | encrypt                          | Function | 주어진 비밀번호로 개인키를 암호화하는 함수입니다.                                                    |
@@ -91,10 +91,10 @@ caver.klay.accounts.createWithAccountKey(address, accountKey)
 
 | 명칭                               | 형식                                | 설명                                                                                                                                                                                                   |
 | -------------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address                          | 문자열                               | 계정 주소.                                                                                                                                                                                               |
+| address                          | String                            | 계정 주소.                                                                                                                                                                                               |
 | privateKey                       | String                            | 계정에 있는 accountKey의 기본 키 문자열. 이 속성은 이전 버전과의 호환성을 위해 남겨졌습니다. privateKey는 accountKey의 기본 키만 나타내므로, privateKey를 사용하여 서명하거나 트랜잭션을 보내지 않는 편이 좋습니다. transactionKey, updateKey 또는 feePayerKey를 사용하는 것이 좋습니다. |
-| accountKeyType                   | 문자열                               | 계정이 가진 accountKey의 유형. `AccountKeyPublic`, `AccountKeyMultiSig`, 또는 `AccountKeyRoleBased`일 수 있습니다.                                                                                                   |
-| accountKey                       | 객체                                | 계정의 키. AccountKeyPublic, AccountKeyMultiSig 또는 AccountKeyRoleBased입니다.                                                                                                                               |
+| accountKeyType                   | String                            | 계정이 가진 accountKey의 유형. `AccountKeyPublic`, `AccountKeyMultiSig`, 또는 `AccountKeyRoleBased`일 수 있습니다.                                                                                                   |
+| accountKey                       | Object                            | 계정의 키. AccountKeyPublic, AccountKeyMultiSig 또는 AccountKeyRoleBased입니다.                                                                                                                               |
 | keys                             | String &#124; Array &#124; Object | 계정이 가진 accountKey의 모든 키. AccountKeyPublic의 경우 단일 개인키 문자열입니다. AccountKeyMultiSig의 경우 모든 개인키 문자열이 포함된 배열을 반환합니다. AccountKeyRoleBased의 경우 각 역할에 연계된 키를 가지는 객체가 반환됩니다.                                   |
 | transactionKey                   | String &#124; Array               | [RoleTransaction](../../../../klaytn/design/accounts.md#roles)에 사용되는 키. AccountKeyPublic 또는 AccountKeyMultiSig는 어떤 역할에도 묶이지 않으므로, transactionKey는 키와 동일한 값을 가집니다.                                    |
 | updateKey                        | String &#124; Array               | [RoleAccountUpdate](../../../../klaytn/design/accounts.md#roles)에 사용되는 키. AccountKeyPublic 또는 AccountKeyMultiSig는 어떤 역할에도 묶이지 않으므로, updateKey는 키와 동일한 값을 가집니다.                                       |
