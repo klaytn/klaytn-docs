@@ -3,19 +3,19 @@
 ```javascript
 caver.klay.call(callObject [, defaultBlock] [, callback])
 ```
-Executes a message call transaction, which is directly executed in the Klaytn Virtual Machine of the node, but never mined into the blockchain.
+메시지 호출 트랜잭션을 실행합니다. 이 트랜잭션은 노드의 Klaytn 가상머신에서 직접 실행되지만 블록체인에 기록되지 않습니다.
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                                                                                                                                                                                                          |
-| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callObject   | Object               | A transaction object with the difference that for calls the from property is optional as well. [An encoded function call](../caver.klay.abi.md#encodefunctioncall) must be set in the data field of the transaction object. |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock).                                                                                       |
-| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                                                        |
+| 명칭           | 형식                   | 설명                                                                                                                     |
+| ------------ | -------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| callObject   | Object               | 호출 시 from 속성도 선택 사항인 트랜잭션 객체입니다. [인코딩된 함수 호출](../caver.klay.abi.md#encodefunctioncall)이 반드시 트랜잭션 객체의 데이터 필드에 주어져야 합니다. |
+| defaultBlock | Number &#124; String | (선택 사항) 이 파라미터에 값을 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)에 설정된 기본 블록을 사용하지 않습니다..                     |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                   |
 
 **리턴값**
 
-`Promise` returns `String`: The returned data of the call, *e.g.*, a smart contract functions return value.
+`프로미스`는 `String`을 반환합니다: 스마트 컨트랙트 함수 리턴값과 같이 호출의 결과로 리턴된 값입니다.
 
 **예시**
 
@@ -34,14 +34,14 @@ Executes a message call transaction, which is directly executed in the Klaytn Vi
 ```javascript
 caver.klay.estimateGas(callObject [, callback])
 ```
-Executes a message call or transaction and returns the amount of the gas used for the simulated call/transaction.
+메세지 호출 혹은 트랜잭션을 실행하고 모의 호출/트랜잭션에 사용된 가스를 반환합니다.
 
 **매개변수**
 
-| 명칭         | 형식       | 설명                                                                                                                                                                                                                          |
-| ---------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callObject | Object   | A transaction object with the difference that for calls the from property is optional as well. [An encoded function call](../caver.klay.abi.md#encodefunctioncall) must be set in the data field of the transaction object. |
-| callback   | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                                                        |
+| 명칭         | 형식       | 설명                                                                                                                     |
+| ---------- | -------- | ---------------------------------------------------------------------------------------------------------------------- |
+| callObject | Object   | 호출 시 from 속성도 선택 사항인 트랜잭션 객체입니다. [인코딩된 함수 호출](../caver.klay.abi.md#encodefunctioncall)이 반드시 트랜잭션 객체의 데이터 필드에 주어져야 합니다. |
+| callback   | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                   |
 
 **리턴값**
 
@@ -68,11 +68,11 @@ caver.klay.estimateComputationCost(callObject [, defaultBlock] [, callback])
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                                                                                                                                                                                                          |
-| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callObject   | Object               | A transaction object with the difference that for calls the from property is optional as well. [An encoded function call](../caver.klay.abi.md#encodefunctioncall) must be set in the data field of the transaction object. |
-| defaultBlock | Number &#124; String | (optional) If you don't pass this parameter, the default block set by [caver.klay.defaultBlock](./block.md#defaultblock) will be used.                                                                                      |
-| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                                                        |
+| 명칭           | 형식                   | 설명                                                                                                                     |
+| ------------ | -------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| callObject   | Object               | 호출 시 from 속성도 선택 사항인 트랜잭션 객체입니다. [인코딩된 함수 호출](../caver.klay.abi.md#encodefunctioncall)이 반드시 트랜잭션 객체의 데이터 필드에 주어져야 합니다. |
+| defaultBlock | Number &#124; String | (선택 사항) 이 파라미터에 값을 전달하지 않으면 [caver.klay.defaultBlock](./block.md#defaultblock)에 설정된 기본 블록을 사용합니다.                      |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                   |
 
 **리턴값**
 
@@ -100,7 +100,7 @@ caver.klay.estimateComputationCost(callObject [, defaultBlock] [, callback])
 ```javascript
 caver.klay.decodeTransaction(rawTransaction)
 ```
-Returns a transaction object containing all decoded values from the given `rawTransaction`, an RLP-encoded transaction. Since all transaction types except for legacy transaction can have multiple signatures of sender and fee payer, the existing returned fields v, r, s and payerV, payerR, payerS are the 0th signature of sender and fee payer.
+RLP-encoded 트랜잭션인 주어진 `rawTransaction`의 모든 값을 디코딩한 트랜잭션 객체를 반환합니다. 레거시 트랜잭션을 제외한 모든 트랜잭션 타입이 트랜잭션 발신자와 트랜잭션 수수료 납부자의 다중 서명을 가질 수 있으므로, 기존에 리턴된 v, r, s 필드들과 payerV, payerR, payerS는 발신자외 트랜잭션 수수료 납부자의 0번째 서명입니다.
 
 **참고** caver.klay.decodeTransaction는 **v1.0.1-rc.8**부터 지원됩니다.  이 기능을 사용하려면 [v1.0.1-rc.8](https://www.npmjs.com/package/caver-js/v/8.1.1-rc.8) 또는 그 이상을 설치하세요.
 
@@ -287,7 +287,7 @@ caver.klay.getTransaction(transactionHash [, callback])
 ```javascript
 caver.klay.getTransactionBySenderTxHash(senderTxHash [, callback])
 ```
-주어진 `senderTxHash`에 대응하는 트랜잭션의 정보를 반환합니다. 이 API는 `--sendertxhashindexing`에 의해 인덱싱 기능이 노드에서 활성화되어 있을 때만 올바른 결과를 반환합니다. Use [isSenderTxHashIndexingEnabled](./config.md#issendertxhashindexingenabled) to check if the indexing feature is enabled or not.
+주어진 `senderTxHash`에 대응하는 트랜잭션의 정보를 반환합니다. 이 API는 `--sendertxhashindexing`에 의해 인덱싱 기능이 노드에서 활성화되어 있을 때만 올바른 결과를 반환합니다. [isSenderTxHashIndexingEnabled](./config.md#issendertxhashindexingenabled)을 사용해 인덱싱 기능이 활성화되었는지 아닌지를 확인합니다.
 
 **매개변수**
 
@@ -369,7 +369,7 @@ caver.klay.getTransactionBySenderTxHash(senderTxHash [, callback])
 caver.klay.getTransactionFromBlock(hashStringOrNumber, indexNumber [, callback])
 ```
 
-Returns a transaction based on a block hash or number and the transactions index position.
+블록 해시 또는 블록 넘버, 그리고 트랜잭션 인덱스 위치를 통해 트랜잭션을 반환합니다.
 
 **매개변수**
 
