@@ -55,7 +55,7 @@ function addPauser(address _account) external;
 function renouncePauser() external;
 ```
 
-위의 인터페이스를 기반으로 개발자는 새로운 기능과 논리를 추가하여 토큰을 사용자 정의하고, Klaytn 네트워크에 배포할 수 있습니다.
+위의 인터페이스를 기반으로 개발자는 새로운 기능과 논리를 추가하여 토큰을 커스토마이징하고, Klaytn 네트워크에 배포할 수 있습니다.
 
 자세한 내용은 [KIP-7 documentation](https://kips.klaytn.com/KIPs/kip-7) 공식 문서를 참조하세요.
 
