@@ -37,11 +37,11 @@ caver.klay.accountCreated(address [, defaultBlock] [, callback])
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                                                                                                                    |
-| ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address of the account you want to query to see if it has been created on the network.                                            |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
+| 명칭           | 형식                   | 설명                                                                                                 |
+| ------------ | -------------------- | -------------------------------------------------------------------------------------------------- |
+| address      | String               | The address of the account you want to query to see if it has been created on the network.         |
+| defaultBlock | Number &#124; String | (선택 사항) 이 파라미터에 값을 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)에 설정된 기본 블록을 사용하지 않습니다.. |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                               |
 
 **리턴값**
 
@@ -69,11 +69,11 @@ caver.klay.getAccount(address[, defaultBlock] [, callback])
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                                                                                                                    |
-| ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address of the account for which you want to get account information.                                                             |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
+| 명칭           | 형식                   | 설명                                                                                                 |
+| ------------ | -------------------- | -------------------------------------------------------------------------------------------------- |
+| address      | String               | The address of the account for which you want to get account information.                          |
+| defaultBlock | Number &#124; String | (선택 사항) 이 파라미터에 값을 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)에 설정된 기본 블록을 사용하지 않습니다.. |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                               |
 
 **리턴값**
 
@@ -146,11 +146,11 @@ caver.klay.getAccountKey(address [, defaultBlock] [, callback])
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                                                                                                                    |
-| ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address of the account for which you want to get accountKey.                                                                      |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
+| 명칭           | 형식                   | 설명                                                                                                 |
+| ------------ | -------------------- | -------------------------------------------------------------------------------------------------- |
+| address      | String               | The address of the account for which you want to get accountKey.                                   |
+| defaultBlock | Number &#124; String | (선택 사항) 이 파라미터에 값을 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)에 설정된 기본 블록을 사용하지 않습니다.. |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                               |
 
 **리턴값**
 
@@ -251,11 +251,11 @@ Gets the balance of an address at a given block.
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                                                                                                                    |
-| ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address to get the balance of.                                                                                                    |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
+| 명칭           | 형식                   | 설명                                                                                                 |
+| ------------ | -------------------- | -------------------------------------------------------------------------------------------------- |
+| address      | String               | The address to get the balance of.                                                                 |
+| defaultBlock | Number &#124; String | (선택 사항) 이 파라미터에 값을 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)에 설정된 기본 블록을 사용하지 않습니다.. |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                               |
 
 **리턴값**
 
@@ -279,11 +279,11 @@ Gets the code at a specific address.
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                                                                                                                    |
-| ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address to get the code from.                                                                                                     |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
+| 명칭           | 형식                   | 설명                                                                                                 |
+| ------------ | -------------------- | -------------------------------------------------------------------------------------------------- |
+| address      | String               | The address to get the code from.                                                                  |
+| defaultBlock | Number &#124; String | (선택 사항) 이 파라미터에 값을 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)에 설정된 기본 블록을 사용하지 않습니다.. |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                               |
 
 **리턴값**
 
@@ -308,11 +308,11 @@ Gets the number of transactions sent from this address.
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                                                                                                                    |
-| ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address to get the number of transactions from.                                                                                   |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
+| 명칭           | 형식                   | 설명                                                                                                 |
+| ------------ | -------------------- | -------------------------------------------------------------------------------------------------- |
+| address      | String               | The address to get the number of transactions from.                                                |
+| defaultBlock | Number &#124; String | (선택 사항) 이 파라미터에 값을 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)에 설정된 기본 블록을 사용하지 않습니다.. |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                               |
 
 **리턴값**
 
@@ -338,11 +338,11 @@ caver.klay.isContractAccount(address [, defaultBlock] [, callback])
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                                                                                                                    |
-| ------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address of the account you want to check for isContractAccount.                                                                   |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                  |
+| 명칭           | 형식                   | 설명                                                                                                 |
+| ------------ | -------------------- | -------------------------------------------------------------------------------------------------- |
+| address      | String               | The address of the account you want to check for isContractAccount.                                |
+| defaultBlock | Number &#124; String | (선택 사항) 이 파라미터에 값을 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)에 설정된 기본 블록을 사용하지 않습니다.. |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                               |
 
 **리턴값**
 
