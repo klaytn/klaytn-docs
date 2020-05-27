@@ -1,10 +1,10 @@
-# Working with Klaytn Transaction Types <a id="working-with-klaytn-transaction-types"></a>
-Klaytn has various types of transaction and each type of transaction consists of different fields. Therefore, users should understand the transaction types and specify the correct one when sending and signing a transaction. Related APIs: `klay_signTransaction`, `klay_sendTransaction`, `klay_signTransactionAsFeePayer`, `klay_sendTransactionAsFeePayer`, `personal_signTransaction`, `personal_sendTransaction`.
+# 다양한 Klaytn 트랜잭션 타입 활용하기<a id="working-with-klaytn-transaction-types"></a>
+Klaytn은 다양한 트랜잭션 타입을 지원하며 각 트랜잭션은 서로 다른 필드를 가집니다. 따라서 사용자들은 트랜잭션 타입을 꼭 이해한 다음 트랜잭션  전송 및 서명 시 올바른 타입을 사용해야 합니다. 관련 APIs: `klay_signTransaction`, `klay_sendTransaction`, `klay_signTransactionAsFeePayer`, `klay_sendTransactionAsFeePayer`, `personal_signTransaction`, `personal_sendTransaction`.
 
 
 ## TxTypeLegacyTransaction <a id="txtypelegacytransaction"></a>
 
-TxTypeLegacyTransaction represents a type of transaction existed previously in Klaytn. This transaction type exists to support compatibility. For more information, see [TxTypeLegacyTransaction](../../../../../klaytn/design/transactions/basic.md#txtypelegacytransaction).
+TxTypeLegacyTransaction은 Klaytn에 있는 기존 트랜잭션 타입입니다. 이 트랜잭션 타입은 호환을 위해 존재합니다. 더 자세한 정보는 [TxTypeLegacyTransaction](../../../../../klaytn/design/transactions/basic.md#txtypelegacytransaction)을 참고하십시오.
 
 **매개변수**
 
