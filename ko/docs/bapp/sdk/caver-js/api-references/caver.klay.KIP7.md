@@ -35,8 +35,8 @@ The tokenInfo object must contain the following:
 
 | 명칭            | 형식                                    | 설명                       |
 | ------------- | ------------------------------------- | ------------------------ |
-| name          | String                                | The name of the token.   |
-| symbol        | String                                | The symbol of the token. |
+| 명칭            | String                                | The name of the token.   |
+| 기호            | String                                | The symbol of the token. |
 | decimals      | Number                                | 토큰이 사용하는 소수점 자릿수입니다.     |
 | initialSupply | BigNumber &#124; String &#124; Number | 처음 공급될 토큰 총 수량입니다.       |
 
@@ -443,7 +443,7 @@ kip7Instance.approve(spender, amount [, sendParam])
 | -------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | from     | String                                          | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. 만약 `sendParam.from`이 할당되지 않았는데 `this.options.from`값도 할당되지 않았다면 에러가 발생합니다. |
 | gas      | Number &#124; String                            | (선택 사항) 트랜잭션에 규정된 최대 가스 (가스 제한). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, amount).estimateGas({from})`.                                               |
-| gasPrice | Number &#124; String                            | (선택 사항) 이 트랜잭션에 사용할 peb 단위의 가스 가격. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`.                                                                                |
+| gasPrice | Number &#124; String                            | (선택 사항) 이 트랜잭션에 사용할 peb 단위의 가스 가격. 생략하면 `caver.klay.getGasPrice` 값으로 caver-js가 설정합니다.                                                                                                          |
 | value    | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) peb으로 환산한 전송될 토큰 가치.                                                                                                                                                                   |
 
 **리턴값**
