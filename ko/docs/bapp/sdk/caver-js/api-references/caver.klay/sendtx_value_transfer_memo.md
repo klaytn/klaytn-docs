@@ -20,7 +20,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니�
 
 | 명칭       | 형식                                              | 설명                                                                                    |
 | -------- | ----------------------------------------------- | ------------------------------------------------------------------------------------- |
-| type     | String                                          | 트랜잭션 타입. "VALUE_TRANSFER_MEMO"                                                      |
+| 형식       | String                                          | 트랜잭션 타입. "VALUE_TRANSFER_MEMO"                                                      |
 | from     | String                                          | 이 트랜잭션 발신자의 주소.                                                                       |
 | to       | String                                          | 트랜잭션 수신 주소.                                                                           |
 | value    | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the transaction in peb.                                     |
@@ -96,7 +96,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니�
 
 | 명칭       | 형식                                              | 설명                                                                                    |
 | -------- | ----------------------------------------------- | ------------------------------------------------------------------------------------- |
-| type     | String                                          | 트랜잭션 타입. "FEE_DELEGATED_VALUE_TRANSFER_MEMO"                                      |
+| 형식       | String                                          | 트랜잭션 타입. "FEE_DELEGATED_VALUE_TRANSFER_MEMO"                                      |
 | from     | String                                          | 이 트랜잭션 발신자의 주소.                                                                       |
 | to       | String                                          | 트랜잭션 수신 주소.                                                                           |
 | value    | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the transaction in peb.                                     |
@@ -192,7 +192,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니�
 
 | 명칭       | 형식                                              | 설명                                                                                                                                                 |
 | -------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type     | String                                          | 트랜잭션 타입. "FEE_DELEGATED_VALUE_TRANSFER_MEMO_WITH_RATIO"                                                                                      |
+| 형식       | String                                          | 트랜잭션 타입. "FEE_DELEGATED_VALUE_TRANSFER_MEMO_WITH_RATIO"                                                                                      |
 | from     | String                                          | 이 트랜잭션 발신자의 주소.                                                                                                                                    |
 | to       | String                                          | 트랜잭션 수신 주소.                                                                                                                                        |
 | value    | Number &#124; String &#124; BN &#124; BigNumber | The value transferred for the transaction in peb.                                                                                                  |
