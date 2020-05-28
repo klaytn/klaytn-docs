@@ -514,10 +514,10 @@ sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 
 **매개변수**
 
-| 명칭      | 형식           | 설명            |
-| ------- | ------------ | ------------- |
-| Account | 20-byte DATA | 주소            |
-| Message | N-byte DATA  | 서명하려는 메시지입니다. |
+| 명칭      | 형식             | 설명            |
+| ------- | -------------- | ------------- |
+| Account | 20-byte DATA   | 주소            |
+| Message | N 바이트 크기의 DATA | 서명하려는 메시지입니다. |
 
 **리턴값**
 
