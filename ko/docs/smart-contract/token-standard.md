@@ -4,7 +4,7 @@ Klaytn 호환 토큰(KCT, Klaytn Compatible Token)는 특정 기술 스펙을 �
 
 Klaytn 토큰 표준은 [KIP-7](https://kips.klaytn.com/KIPs/kip-7), [KIP-17](https://kips.klaytn.com/KIPs/kip-17)과 같이 정의되어 있습니다.
 
-다른 형태의 KCT도 일련의 기술적 요구사항에 맞추어 정의될 수 있습니다. 혹시 또 다른 토큰 표준이 필요하다면 [Klaytn Improvement Proposal](https://github.com/klaytn/KIPs)을 방문하셔서 새로운 토큰 표준을 제안하십시오.
+다른 형태의 KCT도 일련의 기술적 요구사항에 맞추어 정의될 수 있습니다. If anyone needs other token standards, please visit [Klaytn Improvement Proposal](https://github.com/klaytn/KIPs) and propose a new token standard.
 
 ## 대체 가능 토큰 표준 \(KIP-7\) <a id="fungible-token-standard-kip-7"></a>
 
@@ -57,9 +57,9 @@ function renouncePauser() external;
 
 위의 인터페이스를 기반으로 개발자는 새로운 기능과 논리를 추가하여 토큰을 커스토마이징하고, Klaytn 네트워크에 배포할 수 있습니다.
 
-자세한 내용은 [KIP-7 documentation](https://kips.klaytn.com/KIPs/kip-7) 공식 문서를 참조하세요.
+For more information, refer to the official [KIP-7 documentation](https://kips.klaytn.com/KIPs/kip-7).
 
-* 구현 예시는 [https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP7/KIP7.sol](https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP7/KIP7.sol)에서 확인하실 수 있습니다.
+* An example implementation is available at [https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP7/KIP7.sol](https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP7/KIP7.sol).
 
 ## 대체 불가 토큰 표준 \(KIP-17\) <a id="non-fungible-token-standard-kip-17"></a>
 
@@ -121,15 +121,15 @@ function addPauser(address _account) public;
 function renouncePauser() public;
 ```
 
-위의 인터페이스를 기반으로 개발자는 새로운 기능과 논리를 추가하여 토큰을 사용자 정의하고, Klaytn 네트워크에 배포할 수 있습니다.
+위의 인터페이스를 기반으로 개발자는 새로운 기능과 논리를 추가하여 토큰을 커스토마이징하고, Klaytn 네트워크에 배포할 수 있습니다.
 
-자세한 내용은 [KIP-17 documentation](https://kips.klaytn.com/KIPs/kip-17) 공식 문서를 참조하세요.
+For more information, refer to the official [KIP-17 documentation](https://kips.klaytn.com/KIPs/kip-17).
 
-* 구현 예시는 [https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP17/KIP17.sol](https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP17/KIP17.sol)에서 확인하실 수 있습니다.
+* An example implementation is available at [https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP17/KIP17.sol](https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP17/KIP17.sol).
 
 ## Klaytn 서비스체인에 대한 토큰 표준 <a id="token-standards-for-klaytn-service-chain"></a>
 
 서비스체인은 Klaytn의 메인 블록체인 네트워크에 기반을 두는 Klaytn의 사이드체인을 의미합니다. 서비스체인을 구현할 때, 주 체인과 서비스체인간의 가치 전송을 지원하기 위해 특별한 유형의 컨트랙트가 사용됩니다. 이 컨트랙트는 현재 개발 중에 있으며, 준비가 완료되면 Klaytn 서비스체인을 위한 토큰 스펙이 KlaytnDocs에 제공될 것입니다.
 
 ## 참고: ERC-20과 ERC-721<a id="notes-on-erc-20-and-erc-721"></a>
-Klaytn은 KIP-7과 KIP-17을 토큰 표준으로 사용하기 때문에, ERC-20과 ERC-721 보다는 KIP-7과 KIP-17을 사용한 대체 가능 및 대체 불가 토큰 컨트랙트 구현을 권장합니다. KIP-7과 KIP-17은 ERC-20과 ERC-721를 기반으로 하지만, Klaytn에 최적화되어 Klaytn 에코시스템에서 사용하기에 더 적합합니다.  물론, ERC-20과 ERC-721도 Klaytn 네트워크에서 사용할 수 있습니다. 하지만, Klaytn 에코시스템에 존재하는 다른 도구들은 ERC-20과 ERC-721을 지원하지 않을 수 있습니다. 토큰 표준들 간의 차이에 관한 자세한 내용은 [KIP-7](https://kips.klaytn.com/KIPs/kip-7#differences-with-erc-20)과 [KIP-17](https://kips.klaytn.com/KIPs/kip-17#differences-from-erc-721)을 참조하세요.
+Klaytn은 KIP-7과 KIP-17을 토큰 표준으로 사용하기 때문에, ERC-20과 ERC-721 보다는 KIP-7과 KIP-17을 사용한 대체 가능 및 대체 불가 토큰 컨트랙트 구현을 권장합니다. KIP-7과 KIP-17은 ERC-20과 ERC-721를 기반으로 하지만, Klaytn에 최적화되어 Klaytn 에코시스템에서 사용하기에 더 적합합니다.  Yet ERC-20 and ERC-721 are still supported on Klaytn network, they may not be compatible with various tools in Klaytn ecosystem. 토큰 표준들 간의 차이에 관한 자세한 내용은 [KIP-7](https://kips.klaytn.com/KIPs/kip-7#differences-with-erc-20)과 [KIP-17](https://kips.klaytn.com/KIPs/kip-17#differences-from-erc-721)을 참조하세요.
