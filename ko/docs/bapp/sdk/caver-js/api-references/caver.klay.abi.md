@@ -103,7 +103,7 @@ caver.klay.abi.encodeParameter(type, parameter)
 
 | 명칭        | 형식                   | 설명                                                                                                     |
 | --------- | -------------------- | ------------------------------------------------------------------------------------------------------ |
-| type      | String &#124; Object | 매개변수 타입, 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
+| 형식        | String &#124; Object | 매개변수 타입, 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
 | parameter | 복합                   | 인코딩할 실제 매개변수.                                                                                          |
 
 **리턴값**
@@ -209,7 +209,7 @@ ABI 인코딩된 매개변수를 자바스크립트 타입으로 디코딩합니
 
 | 명칭        | 형식                 | 설명                                                                                                     |
 | --------- | ------------------ | ------------------------------------------------------------------------------------------------------ |
-| type      | String&#124;Object | 매개변수 타입, 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
+| 형식        | String&#124;Object | 매개변수 타입, 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
 | hexString | 배열                 | 디코딩할 ABI 바이트 코드.                                                                                       |
 
 **리턴값**
