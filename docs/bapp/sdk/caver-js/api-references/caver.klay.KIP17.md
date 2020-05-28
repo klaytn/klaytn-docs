@@ -290,7 +290,7 @@ Search the `owner`'s token list for the given index, and returns the token id of
 
 | Name | Type | Description |
 | --- | --- | --- |
-| owner | String | The address of the account who owns an indexed token. |
+| owner | String | The address of the account who owns tokens. |
 | index | BigNumber &#124; String &#124; Number | The index of a token in owner's token list. |
 
 **NOTE** The `index` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value. 
