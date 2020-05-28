@@ -16,7 +16,7 @@ $ kend stop
 Shutting down kend: Killed
 ```
 
-**status**
+**상태**
 
 ```bash
 $ kend status
