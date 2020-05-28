@@ -318,10 +318,10 @@ caver.klay.getCommittee([defaultBlock] [, callback])
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                                                                                                          |
-| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
+| 명칭           | 형식                   | 설명                                                                                       |
+| ------------ | -------------------- | ---------------------------------------------------------------------------------------- |
+| defaultBlock | Number &#124; String | (선택 사항) 이 파라미터에 값을 전달하면 [caver.klay.defaultBlock](#defaultblock)에 설정된 기본 블록을 사용하지 않습니다.. |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                     |
 
 **리턴값**
 
@@ -349,10 +349,10 @@ caver.klay.getCommitteeSize([defaultBlock] [, callback])
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                                                                                                          |
-| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
+| 명칭           | 형식                   | 설명                                                                                       |
+| ------------ | -------------------- | ---------------------------------------------------------------------------------------- |
+| defaultBlock | Number &#124; String | (선택 사항) 이 파라미터에 값을 전달하면 [caver.klay.defaultBlock](#defaultblock)에 설정된 기본 블록을 사용하지 않습니다.. |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                     |
 
 **리턴값**
 
@@ -376,10 +376,10 @@ caver.klay.getCouncil([defaultBlock] [, callback])
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                                                                                                          |
-| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
+| 명칭           | 형식                   | 설명                                                                                       |
+| ------------ | -------------------- | ---------------------------------------------------------------------------------------- |
+| defaultBlock | Number &#124; String | (선택 사항) 이 파라미터에 값을 전달하면 [caver.klay.defaultBlock](#defaultblock)에 설정된 기본 블록을 사용하지 않습니다.. |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                     |
 
 **리턴값**
 
@@ -407,10 +407,10 @@ caver.klay.getCouncilSize([defaultBlock] [, callback])
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                                                                                                          |
-| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
+| 명칭           | 형식                   | 설명                                                                                       |
+| ------------ | -------------------- | ---------------------------------------------------------------------------------------- |
+| defaultBlock | Number &#124; String | (선택 사항) 이 파라미터에 값을 전달하면 [caver.klay.defaultBlock](#defaultblock)에 설정된 기본 블록을 사용하지 않습니다.. |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                     |
 
 **리턴값**
 
@@ -433,12 +433,12 @@ Gets the storage at a specific position of an address.
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                                                                                                          |
-| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| address      | String               | The address to get the storage from.                                                                                        |
-| position     | Number               | The index position of the storage.                                                                                          |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
-| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
+| 명칭           | 형식                   | 설명                                                                                       |
+| ------------ | -------------------- | ---------------------------------------------------------------------------------------- |
+| address      | String               | The address to get the storage from.                                                     |
+| position     | Number               | The index position of the storage.                                                       |
+| defaultBlock | Number &#124; String | (선택 사항) 이 파라미터에 값을 전달하면 [caver.klay.defaultBlock](#defaultblock)에 설정된 기본 블록을 사용하지 않습니다.. |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                     |
 
 **리턴값**
 
