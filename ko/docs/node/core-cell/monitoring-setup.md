@@ -3,7 +3,7 @@
 
 ## 개요 <a id="overview"></a>
 
-The Klaytn team provides a site for monitoring the Klaytn CCN at [http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000). `telegraf` 모니터링 에이전트는 CC의 각 CN/PN에 설치되어 지표를 수집하고 이를 모니터링 서버로 보냅니다. 일단 설치되면 모니터링 사이트를 방문하여 Klaytn CC의 지표들을 볼 수 있습니다.
+Klaytn 팀은 Klaytn CCN을 모니터링할 수 있는 사이트([http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000))를 제공합니다. `telegraf` 모니터링 에이전트는 CC의 각 CN/PN에 설치되어 지표를 수집하고 이를 모니터링 서버로 보냅니다. 일단 설치되면 모니터링 사이트를 방문하여 Klaytn CC의 지표들을 볼 수 있습니다.
 
 설치 과정은 다음과 같습니다.
 
