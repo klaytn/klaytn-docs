@@ -1512,7 +1512,7 @@ caver.utils.bufferToHex(buffer)
 ```
 Converts buffer to 0x-prefixed hex string.
 
-**NOTE** `caver.utils.bufferToHex` is supported since caver-js [v1.3.2-rc.1](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.1).
+**참고** `caver.utils.bufferToHex`는 caver-js [v1.3.2-rc.1](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.1)부터 지원됩니다.
 
 **매개변수**
 
