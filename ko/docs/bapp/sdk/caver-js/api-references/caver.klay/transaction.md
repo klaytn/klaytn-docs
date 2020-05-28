@@ -250,7 +250,7 @@ caver.klay.getTransaction(transactionHash [, callback])
 | signatures         | 배열            | 서명 객체의 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                            |
 | to                 | 20바이트 크기 DATA | 트랜잭션 수신자의 주소입니다. 컨트랙트 생성 트랜잭션이면 `null`을 반환합니다.                                                                                                   |
 | transactionIndex   | QUANTITY      | 블록 내 트랜잭션의 인덱스 위치의 정숫값입니다. 보류 중인 상태이면 `null`을 반환합니다.                                                                                             |
-| type               | String        | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                           |
+| 형식                 | String        | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                           |
 | typeInt            | QUANTITY      | 트랜잭션의 유형을 나타내는 정수입니다.                                                                                                                            |
 | value              | QUANTITY      | peb로 전송된 값입니다.                                                                                                                                   |
 
@@ -320,7 +320,7 @@ caver.klay.getTransactionBySenderTxHash(senderTxHash [, callback])
 | signatures         | 배열            | 서명 객체의 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                                           |
 | to                 | 20바이트 크기 DATA | 트랜잭션 수신자의 주소입니다. 컨트랙트 생성 트랜잭션이면 `null`을 반환합니다.                                                                                                                  |
 | transactionIndex   | QUANTITY      | 블록 내 트랜잭션의 인덱스 위치의 정숫값입니다. 보류 중인 상태이면 `null`을 반환합니다.                                                                                                            |
-| type               | String        | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                                          |
+| 형식                 | String        | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                                          |
 | typeInt            | QUANTITY      | 트랜잭션의 유형을 나타내는 정수입니다.                                                                                                                                           |
 | value              | QUANTITY      | peb로 전송된 값입니다.                                                                                                                                                  |
 
@@ -376,12 +376,12 @@ caver.klay.getTransactionFromBlock(hashStringOrNumber, indexNumber [, callback])
 | 명칭                 | 형식       | 설명                                                                   |
 | ------------------ | -------- | -------------------------------------------------------------------- |
 | hashStringOrNumber | String   | 블록 번호 또는 해시. 또는 `"genesis"`, `"latest"`, `"pending"` 문자열 중 하나.       |
-| indexNumber        | Number   | The transactions index position.                                     |
+| indexNumber        | Number   | 트랜잭션의 인덱스 위치의 정숫값입니다.                                                |
 | callback           | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
-`Object` - A transaction object, see [caver.klay.getTransaction](#gettransaction)
+`객체` - 트랜잭션 객체를 반환하며 자세한 내용은  [caver.klay.getTransaction](#gettransaction)를 참고하십시오.
 
 **예제**
 
@@ -425,17 +425,17 @@ caver.klay.getTransactionReceipt(transactionHash [, callback])
 | humanReadable      | Boolean        | (선택사항) Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.                                                                                                    |
 | key                | String         | (선택사항) 새로 생성된 계정의 키입니다.                                                                                                                                                  |
 | input              | DATA           | (선택사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                              |
-| logs               | 배열             | 이 트랜잭션이 발생시킨 로그 객체들의 배열입니다.                                                                                                                                              |
+| 로그                 | 배열             | 이 트랜잭션이 발생시킨 로그 객체들의 배열입니다.                                                                                                                                              |
 | logsBloom          | 256바이트 크기 DATA | 라이트 클라이언트가 관련된 로그를 빠르게 검색할 수 있도록 하는 블룸필터입니다.                                                                                                                             |
 | 논스                 | QUANTITY       | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                                                  |
 | senderTxHash       | 32바이트 크기 DATA  | (선택사항) 발신자만 서명한 트랜잭션 해시. [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash)를 참고하세요. 이 값은 수수료를 위임하지 않은 트랜잭션의 `transactionHash` 값과 항상 동일합니다. |
 | signatures         | 배열             | 서명 객체의 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                                                    |
-| status             | Boolean        | `true` if the transaction was successful, `false` if the Klaytn Virtual Machine reverted the transaction.                                                                |
+| 상태                 | Boolean        | 트랜잭션이 성공적으로 실행되면 `true`를 반환하며, 만약 Klaytn 가상머신이 트랜잭션을 거부하면 `false`를 반환합니다.                                                                                                |
 | txError            | QUANTITY       | (선택사항) `status`가 0이면 상세한 오류 코드를 나타냅니다.                                                                                                                                   |
 | to                 | 20바이트 크기 DATA  | 트랜잭션 수신자의 주소입니다. 컨트랙트 생성 트랜잭션이면 `null`을 반환합니다.                                                                                                                           |
 | transactionHash    | 32바이트 크기 DATA  | 트랜잭션의 해시입니다.                                                                                                                                                             |
 | transactionIndex   | QUANTITY       | 블록 내 트랜잭션의 인덱스 위치의 정숫값입니다.                                                                                                                                               |
-| type               | String         | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                                                   |
+| 형식                 | String         | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                                                   |
 | typeInt            | QUANTITY       | 트랜잭션의 유형을 나타내는 정수입니다.                                                                                                                                                    |
 | value              | QUANTITY       | peb로 전송된 값입니다.                                                                                                                                                           |
 
@@ -508,17 +508,17 @@ caver.klay.getTransactionReceiptBySenderTxHash(senderTxHash [, callback])
 | humanReadable      | Boolean        | (선택사항) Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.                                                                                                      |
 | key                | String         | (선택사항) 새로 생성된 계정의 키입니다.                                                                                                                                                    |
 | input              | DATA           | (선택사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                                |
-| logs               | 배열             | 이 트랜잭션이 발생시킨 로그 객체들의 배열입니다.                                                                                                                                                |
+| 로그                 | 배열             | 이 트랜잭션이 발생시킨 로그 객체들의 배열입니다.                                                                                                                                                |
 | logsBloom          | 256바이트 크기 DATA | 라이트 클라이언트가 관련된 로그를 빠르게 검색할 수 있도록 하는 블룸필터입니다.                                                                                                                               |
 | 논스                 | QUANTITY       | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                                                    |
 | senderTxHash       | 32바이트 크기 DATA  | 트랜잭션 발신자만 서명한 트랜잭션의 해시입니다. [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash)를 참고하세요. 이 값은 수수료를 위임하지 않은 트랜잭션의 `transactionHash` 값과 항상 동일합니다. |
 | signatures         | 배열             | 서명 객체의 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                                                      |
-| status             | Boolean        | `true` if the transaction was successful, `false` if the Klaytn Virtual Machine reverted the transaction.                                                                  |
+| 상태                 | Boolean        | 트랜잭션이 성공적으로 실행되면 `true`를 반환하며, 만약 Klaytn 가상머신이 트랜잭션을 거부하면 `false`를 반환합니다.                                                                                                  |
 | txError            | QUANTITY       | (선택사항) `status`가 0이면 상세한 오류 코드를 나타냅니다.                                                                                                                                     |
 | to                 | 20바이트 크기 DATA  | 트랜잭션 수신자의 주소입니다. 컨트랙트 생성 트랜잭션이면 `null`을 반환합니다.                                                                                                                             |
 | transactionHash    | 32바이트 크기 DATA  | 트랜잭션의 해시입니다.                                                                                                                                                               |
 | transactionIndex   | QUANTITY       | 블록 내 트랜잭션의 인덱스 위치의 정숫값입니다.                                                                                                                                                 |
-| type               | String         | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                                                     |
+| 형식                 | String         | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                                                     |
 | typeInt            | QUANTITY       | 트랜잭션의 유형을 나타내는 정수입니다.                                                                                                                                                      |
 | value              | QUANTITY       | peb로 전송된 값입니다.                                                                                                                                                             |
 
@@ -574,16 +574,16 @@ caver.klay.getTransactionReceiptBySenderTxHash(senderTxHash [, callback])
 caver.klay.sendSignedTransaction(signedTransactionData [, callback])
 ```
 
-Sends an already signed transaction, generated using `caver.klay.accounts.signTransaction`.
+`caver.klay.accounts.signTransaction`으로 생성된 이미 서명받은 트랜잭션을 보냅니다.
 
-**NOTE** `caver.klay.sendSignedTransaction` can accepts an object as a parameter since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0). The object should include an RLP-encoded transaction string or should be an unencoded transaction object with signatures/feePayerSignatures. You can pass the returning object from caver.klay.accounts.signTransaction, caver.klay.accounts.feePayerSignTransaction, caver.klay.accounts.getRawTransactionWithSignatures or caver.klay.accounts.combineSignatures.
+**참고** `caver.klay.sendSignedTransaction`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 객체를 파라미터로 받을 수 있습니다. 객체는 반드시 RLP 인코딩된 트랜잭션 문자열을 포함하거나 반드시 서명(트랜잭션 발신자 서명 혹은 트랜잭션 수수료 납부자 서명)을 받았으며 인코딩되지 않은 트랜잭션 객체이어야 합니다. caver.klay.accounts.signTransaction, caver.klay.accounts.feePayerSignTransaction, caver.klay.accounts.getRawTransactionWithSignatures 또는 caver.klay.accounts.combineSignatures의 리턴값으로 받는 객체를 전달해도 됩니다.
 
 **매개변수**
 
-| 명칭                    | 형식                   | 설명                                                                                                                                                                                                                             |
-| --------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| signedTransactionData | String &#124; Object | An RLP-encoded signed transaction string, an object that has the RLP-encoded signed transaction string in its `rawTransaction` property, or an unencoded transaction object with signatures/feePayerSignatures attached to it. |
-| callback              | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                                                           |
+| 명칭                    | 형식                   | 설명                                                                                                                                                   |
+| --------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| signedTransactionData | String &#124; Object | RLP 인코딩된 서명받은 트랜잭션 문자열, 또는 RLP 인코딩된 서명받은 트랜잭션 문자열을 `rawTransaction` 속성값안에 가진 객체, 또는 서명(트랜잭션 발신자 서명 혹은 트랜잭션 수수료 납부자 서명)이 첨부된 인코딩되지 않은 트랜잭션 객체이어야 합니다. |
+| callback              | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                 |
 
 **리턴값**
 
@@ -591,7 +591,7 @@ Sends an already signed transaction, generated using `caver.klay.accounts.signTr
 | ---------- | ---------------------------------------------------------------------- |
 | PromiEvent | 프로미스(promise)가 조합된 이벤트 이미터(event emitter). 트랜잭션 영수증이 준비되면 resolve 됩니다. |
 
-For PromiEvent, the following events are available:
+PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 
 - `"transactionHash"`는 `String`를 반환: 트랜잭션을 보내고 트랜잭션 해시가 준비된 직후에 발생.
 - `"receipt"`는 `Object`를 반환: 트랜잭션 영수중이 중비되면 발생.
@@ -710,7 +710,7 @@ caver.klay.sendSignedTransaction({
 ```javascript
 caver.klay.signTransaction(transactionObject [, callback])
 ```
-트랜잭션에 서명합니다. This account needs to be unlocked.
+트랜잭션에 서명합니다. 이 계정은 잠금 해제되어 있어야 합니다.
 
 **매개변수**
 
@@ -721,7 +721,7 @@ caver.klay.signTransaction(transactionObject [, callback])
 
 **리턴값**
 
-`Promise` returns `Object` - The RLP encoded transaction. The `raw` property can be used to send the transaction using [caver.klay.sendSignedTransaction](#sendsignedtransaction).
+`Promise`는 `Object`를 반환: RLP 인코딩된 트랜잭션입니다. `raw` 속성은 [caver.klay.sendSignedTransaction](#sendsignedtransaction)으로 트랜잭션을 보내는 데 사용될 수 있습니다.
 
 **예시**
 
