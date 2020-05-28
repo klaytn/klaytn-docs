@@ -20,7 +20,7 @@ $ systemctl stop kcnd.service
 
 ```
 
-**status**
+**상태**
 
 ```bash
 $ systemctl status kcnd.service
@@ -47,7 +47,7 @@ $ systemctl stop kpnd.service
 
 ```
 
-**status**
+**상태**
 
 ```bash
 $ systemctl status kpnd.service
