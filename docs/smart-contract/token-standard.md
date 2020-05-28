@@ -4,7 +4,7 @@ Klaytn Compatible Token (KCT) is a special type of smart contract that implement
 
 Token standards are defined in Klaytn such as [KIP-7](https://kips.klaytn.com/KIPs/kip-7) and [KIP-17](https://kips.klaytn.com/KIPs/kip-17).
 
-Other KCTs can be defined to meet certain technical specifications. If anyone who needs another token standards, please visit [Klaytn Improvement Proposal](https://github.com/klaytn/KIPs) and propose a new token standard.
+Other KCTs can be defined to meet certain technical specifications. If anyone needs other token standards, please visit [Klaytn Improvement Proposal](https://github.com/klaytn/KIPs) and propose a new token standard.
 
 ## Fungible Token Standard \(KIP-7\) <a id="fungible-token-standard-kip-7"></a>
 
@@ -57,9 +57,9 @@ function renouncePauser() external;
 
 Based on the interface above, developers may customize tokens by adding new features and logics, and deploy them on Klaytn network.
 
-For more information, refer to official [KIP-7 documentation](https://kips.klaytn.com/KIPs/kip-7).
+For more information, refer to the official [KIP-7 documentation](https://kips.klaytn.com/KIPs/kip-7).
 
-* An example implementation is available at [https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP7/KIP7.sol](https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP7/KIP7.sol) on Github.
+* An example implementation is available at [https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP7/KIP7.sol](https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP7/KIP7.sol).
 
 ## Non-fungible Token Standard \(KIP-17\) <a id="non-fungible-token-standard-kip-17"></a>
 
@@ -121,11 +121,11 @@ function addPauser(address _account) public;
 function renouncePauser() public;
 ```
 
-Based on above interface, developers may customize tokens by adding new features and logics, and deploy them on Klaytn network.
+Based on the interface above, developers may customize tokens by adding new features and logics, and deploy them on Klaytn network.
 
-For more information, refer to official [KIP-17 documentation](https://kips.klaytn.com/KIPs/kip-17).
+For more information, refer to the official [KIP-17 documentation](https://kips.klaytn.com/KIPs/kip-17).
 
-* An example implementation is available at [https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP17/KIP17.sol](https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP17/KIP17.sol) on Github.
+* An example implementation is available at [https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP17/KIP17.sol](https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP17/KIP17.sol).
 
 ## Token Standards for Klaytn Service Chain <a id="token-standards-for-klaytn-service-chain"></a>
 
@@ -133,5 +133,5 @@ Service chain refers to Klaytn's side chain that anchors to Klaytn's main blockc
 
 ## Notes on ERC-20 and ERC-721 <a id="notes-on-erc-20-and-erc-721"></a>
 Since Klaytn published KIP-7 and KIP-17 as its token standards, it is recommended to implement fungible and non-fungible token contracts according to KIP-7 and KIP-17, respectively, rather than following ERC-20 and ERC-721.
-KIP-7 and KIP-17 are based on ERC-20 and ERC-721, but they are tailored for Klaytn and thus more suitable on Klaytn ecosystem. ERC-20 and ERC-721 are still available on Klaytn network. However, they may not be supported on other tools involved in Klaytn ecosystem. 
+KIP-7 and KIP-17 are based on ERC-20 and ERC-721, but they are tailored for Klaytn and thus more suitable on Klaytn ecosystem. Yet ERC-20 and ERC-721 are still supported on Klaytn network, they may not be compatible with various tools in Klaytn ecosystem. 
 For more information about the differences on token standards, please visit [KIP-7](https://kips.klaytn.com/KIPs/kip-7#differences-with-erc-20) and [KIP-17](https://kips.klaytn.com/KIPs/kip-17#differences-from-erc-721).
