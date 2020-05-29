@@ -120,7 +120,7 @@ SenderTxHash e434257753bf31a130c839fec0bd34fc6ea4aa256b825288ee82db31c2ed7524
 
 ## TxTypeValueTransfer <a id="txtypevaluetransfer"></a>
 
-TxTypeValueTransfer is used when a user wants to send KLAY. As Klaytn provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KLAY to an externally owned account. 따라서 TxTypeValueTransfer는 `to`가 EOA일때만 작동합니다. KLAY를 스마트 컨트랙트로 전송하려면 [TxTypeSmartContractExecution](basic.md#txtypesmartcontractexecution)를 대신 사용하여야 합니다. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
+TxTypeValueTransfer는 사용자가 KLAY를 전송할 때 사용됩니다. As Klaytn provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KLAY to an externally owned account. 따라서 TxTypeValueTransfer는 `to`가 EOA일때만 작동합니다. KLAY를 스마트 컨트랙트로 전송하려면 [TxTypeSmartContractExecution](basic.md#txtypesmartcontractexecution)를 대신 사용하여야 합니다. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
 
 1. 발신자의 잔고는 트랜잭션 수수료만큼 줄어듭니다.
 2. 발신자의 논스가 1 증가합니다.
