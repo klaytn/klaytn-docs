@@ -589,13 +589,13 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_sendTransaction <a id="klay_sendtransaction"></a>
 
-Constructs a transaction with given parameters, signs the transaction with a sender's private key and propagates the transaction to Klaytn network.
+주어진 파라미터로 트랜잭션을 구성한 다음, 트랜잭션 발신자의 개인키로 트랜잭션에 서명하고 트랜잭션을 Klaytn 네트워크에 전송합니다.
 
 **참고**: 서명하려는 계정은 잠금 해제되어 있어야 합니다.
 
 **매개변수**
 
-The required parameters depend on the transaction type. Check the proper parameters in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
+필수적으로 있어야 하는 파라미터들은 트랜잭션 타입에 따라 다릅니다. [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md)에서 적절한 파라미터를 확인하십시오.
 
 **리턴값**
 
@@ -632,13 +632,13 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_sendTransactionAsFeePayer <a id="klay_sendtransactionasfeepayer"></a>
 
-Constructs a transaction with given parameters, signs the transaction with a fee payer's private key and propagates the transaction to Klaytn network. This API supports only fee delegated type (including partial fee delegated type) transactions.
+주어진 파라미터로 트랜잭션을 구성한 다음, 트랜잭션 수수료 납부자의 개인키로 트랜잭션에 서명하고 트랜잭션을 Klaytn 네트워크에 전송합니다. 이 API는 오직 수수료 위임 트랜잭션(부분 수수료 위임 트랜잭션 포함)들만 지원합니다.
 
-**NOTE**: The fee payer address to sign with must be unlocked.
+**참고**: 서명하려는 트랜잭션 수수료 납부자의 주소는 잠금 해제되어 있어야 합니다.
 
 **매개변수**
 
-The required parameters depend on the transaction type. Check the proper parameters in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
+필수적으로 있어야 하는 파라미터들은 트랜잭션 타입에 따라 다릅니다. [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md)에서 적절한 파라미터를 확인하십시오.
 
 **리턴값**
 
@@ -683,20 +683,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_signTransaction <a id="klay_signtransaction"></a>
 
-Constructs a transaction with given parameters and signs the transaction with a sender's private key. This method can be used either to generate a sender signature or to make a final raw transaction that is ready to submit to Klaytn network.
+주어진 파라미터로 트랜잭션을 구성한 다음, 트랜잭션 발신자의 개인키로 트랜잭션에 서명합니다. 이 메서드는 발신자 서명을 생성하거나, 최종적으로 Klaytn 네트워크에 전송할 준비를 마친 rawTransaction을 만들 때 사용할 수 있습니다.
 
 **참고**: 서명하려는 계정은 잠금 해제되어 있어야 합니다.
 
 **매개변수**
 
-The required parameters depend on the transaction type. Check the proper parameters in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
+필수적으로 있어야 하는 파라미터들은 트랜잭션 타입에 따라 다릅니다. [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md)에서 적절한 파라미터를 확인하십시오.
 
 **리턴값**
 
-| 형식  | 설명                                                  |
-| --- | --------------------------------------------------- |
-| raw | 서명된 rawTransaction을 반환합니다.                          |
-| tx  | Transaction object including the sender's signature |
+| 형식  | 설명                         |
+| --- | -------------------------- |
+| raw | 서명된 rawTransaction을 반환합니다. |
+| tx  | 발신자 서명을 포함한 트랜잭션 객체입니다.    |
 
 **예시**
 ```shell
@@ -728,20 +728,20 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 ## klay_signTransactionAsFeePayer <a id="klay_signtransactionasfeepayer"></a>
 
-Constructs a transaction with given parameters and signs the transaction with a fee payer's private key. This method can be used either to generate a fee payer signature or to make a final raw transaction that is ready to submit to Klaytn network. In case you just want to extract the fee-payer signature, simply take the `feePayerSignatures` from the result. Note that the `raw` transaction is not final if the sender's signature is not attached (that is, `signatures` in `tx` is empty).
+주어진 파라미터로 트랜잭션을 구성한 다음, 트랜잭션 수수료 납부자의 개인키로 트랜잭션에 서명합니다. 이 메서드는 트랜잭션 수수료 납부자 서명을 생성하거나, 최종적으로 Klaytn 네트워크에 전송할 준비를 마친 rawTransaction을 만들 때 사용할 수 있습니다. 수수료 납부자 서명을 추출하고 싶다면, 결과값에서 `feePayerSignatures`을 사용하십시오. 발신자 서명이 첨부되어 있지 않다면( `tx`에 있는 `signatures` 가 비어 있는 상태), `raw` 트랜잭션은 Klaytn에 보내질 준비가 된 것이 아닙니다.
 
-**NOTE**: The fee payer address to sign with must be unlocked.
+**참고**: 서명하려는 트랜잭션 수수료 납부자의 주소는 잠금 해제되어 있어야 합니다.
 
 **매개변수**
 
-The required parameters depend on the transaction type. Check the proper parameters in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
+필수적으로 있어야 하는 파라미터들은 트랜잭션 타입에 따라 다릅니다. [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md)에서 적절한 파라미터를 확인하십시오.
 
 **리턴값**
 
-| 형식  | 설명                                                     |
-| --- | ------------------------------------------------------ |
-| raw | 서명된 rawTransaction을 반환합니다.                             |
-| tx  | Transaction object including the fee payer's signature |
+| 형식  | 설명                               |
+| --- | -------------------------------- |
+| raw | 서명된 rawTransaction을 반환합니다.       |
+| tx  | 트랜잭션 수수료 납부자 서명을 포함한 트랜잭션 객체입니다. |
 
 **예시**
 ```shell
