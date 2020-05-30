@@ -236,7 +236,7 @@ SenderTxHash 762f130342569e9669a4d8547f1248bd2554fbbf3062d63a97ce28bfa97aa9d7
 
 ## TxTypeValueTransferMemo <a id="txtypevaluetransfermemo"></a>
 
-TxTypeValueTransferMemo is used when a user wants to send KLAY with a specific message. 따라서 TxTypeValueTransferMemo는 `to`가 EOA일때만 작동합니다. KLAY를 스마트 컨트랙트로 전송하려면 [TxTypeSmartContractExecution](basic.md#txtypesmartcontractexecution)를 대신 사용하여야 합니다. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
+TxTypeValueTransferMemo는 사용자가 특정 메시지와 함께 KLAY를 보내려고 할 때 사용됩니다. 따라서 TxTypeValueTransferMemo는 `to`가 EOA일때만 작동합니다. KLAY를 스마트 컨트랙트로 전송하려면 [TxTypeSmartContractExecution](basic.md#txtypesmartcontractexecution)를 대신 사용하여야 합니다. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
 
 1. 발신자의 잔고는 트랜잭션 수수료만큼 줄어듭니다.
 2. 발신자의 논스가 1 증가합니다.
