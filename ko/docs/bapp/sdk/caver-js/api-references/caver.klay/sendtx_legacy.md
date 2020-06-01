@@ -1,4 +1,4 @@
-# Legacy Transaction <a id="legacy-transaction"></a>
+# 기본 트랜잭션<a id="legacy-transaction"></a>
 
 ## sendTransaction (Legacy) <a id="sendtransaction-legacy"></a>
 
@@ -20,15 +20,15 @@ sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니�
 
 ` LEGACY`  유형의 트랜잭션 오브젝트의 구조는 다음과 같습니다.
 
-| 명칭       | 형식                                              | 설명                                                                                                                                                                                                                                |
-| -------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from     | String                                          | 이 트랜잭션 발신자의 주소.                                                                                                                                                                                                                   |
-| to       | String                                          | (optional) The destination address of the message, left undefined for a contract-creation transaction.                                                                                                                            |
-| value    | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb, also the endowment if it's a contract-creation transaction.                                                                                                          |
-| gas      | Number                                          | 트랜잭션에 지불할 의향이 있는 최대 가스량(사용하지 않은 가스는 환불됨).                                                                                                                                                                                         |
-| gasPrice | Number                                          | (선택사항) 트랜잭션 발신자가 설정한 가스 가격으로 단위는 peb입니다. gasPrice는 Klaytn 노드에 설정된 unitPrice와 같아야 합니다.                                                                                                                                             |
-| data     | String                                          | (optional) Either an [ABI byte string](http://solidity.readthedocs.io/en/latest/abi-spec.html) containing the data of the function call on a contract, or in the case of a contract-creation transaction the initialization code. |
-| 논스       | Number                                          | (선택사항) 논스의 정숫값입니다. 생략하면 `caver.klay.getTransactionCount` 값으로 caver-js가 설정합니다.                                                                                                                                                     |
+| 명칭       | 형식                                              | 설명                                                                                                                                                               |
+| -------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from     | String                                          | 이 트랜잭션 발신자의 주소.                                                                                                                                                  |
+| to       | String                                          | (선택 사항) 메시지 수신자 주소이며, 트랜잭션이 컨트랙트 생성 트랜잭션일 경우 수신자 주소가 입력되지 않습니다.                                                                                                  |
+| value    | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션으로 전송할 peb 단위로 환산된 KLAY입니다. 컨트랙트 생성 트랜잭션일 경우 (생성 함수가 KLAY를 받을 수 있게 설정되었다면) 컨트랙트가 생성 시 보유하는 KLAY입니다.                                                  |
+| gas      | Number                                          | 트랜잭션에 지불할 의향이 있는 최대 가스량(사용하지 않은 가스는 환불됨).                                                                                                                        |
+| gasPrice | Number                                          | (선택사항) 트랜잭션 발신자가 설정한 가스 가격으로 단위는 peb입니다. gasPrice는 Klaytn 노드에 설정된 unitPrice와 같아야 합니다.                                                                            |
+| data     | String                                          | (선택 사항) 컨트랙트의 함수를 호출할 수 있는 데이터가 담긴 [ABI byte string](http://solidity.readthedocs.io/en/latest/abi-spec.html) 또는, 컨트랙트 생성 트랜잭션일 경우 컨트랙트를 초기화(initialize)하는 코드입니다. |
+| 논스       | Number                                          | (선택사항) 논스의 정숫값입니다. 생략하면 `caver.klay.getTransactionCount` 값으로 caver-js가 설정합니다.                                                                                    |
 
 **리턴값**
 
