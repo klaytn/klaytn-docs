@@ -1,4 +1,4 @@
-# Smart Contract Execution Transaction <a id="smart-contract-execution-transaction"></a>
+# 스마트 컨트랙트 실행 트랜잭션<a id="smart-contract-execution-transaction"></a>
 
 ## sendTransaction (SMART_CONTRACT_EXECUTION) <a id="sendtransaction-smart_contract_execution"></a>
 
