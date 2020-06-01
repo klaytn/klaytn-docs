@@ -1,4 +1,4 @@
-# Cancel Transaction <a id="cancel-transaction"></a>
+# 취소 트랜잭션<a id="cancel-transaction"></a>
 
 ## sendTransaction (CANCEL) <a id="sendtransaction-cancel"></a>
 
