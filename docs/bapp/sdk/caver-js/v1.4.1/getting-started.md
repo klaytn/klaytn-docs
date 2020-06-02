@@ -507,16 +507,16 @@ The printAccount above shows how to use the properties of the Account instance. 
 | accountKeyType | Type of accountKey the account has. This can be `AccountKeyPublic`, `AccountKeyMultiSig`, or `AccountKeyRoleBased` |
 | accountKey | The key of the account. This is AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased. |
 | keys | All keys inside accountKey that the account has. |
-| transactionKey | Key used for the [RoleTransaction](../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys. |
-| updateKey | Key used for the [RoleAccountUpdate](../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys. |
-| feePayerKey | Key used for [RoleFeePayer](../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys. |
+| transactionKey | Key used for the [RoleTransaction](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys. |
+| updateKey | Key used for the [RoleAccountUpdate](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys. |
+| feePayerKey | Key used for [RoleFeePayer](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys. |
 
 **NOTE** `transactionKey`, `updateKey`, and `feePayerKey` return a private key string or an array of private key strings that should be used for the role. So rather than using privateKey property, it is recommended that you use `transactionKey`, `updateKey` and `feePayerKey` as appropriate, without worrying about the accountKey type.
 
 An explanation of the various AccountKey classes is provided in the [AccountKey](#accountkey) part.
 
 ### AccountKey  <a id="accountkey"></a>
-AccountKey is a data structure that stores the keys of an account. An account can have one private key string or multiple private key strings to be used for signing. Account can also manage the private keys by [roles](../../../klaytn/design/accounts.md#roles).
+AccountKey is a data structure that stores the keys of an account. An account can have one private key string or multiple private key strings to be used for signing. Account can also manage the private keys by [roles](../../../../klaytn/design/accounts.md#roles).
 
 To support this structure, caver-js introduces new classes called AccountKeyPublic, AccountKeyMultiSig, and AccountKeyRoleBased.
 
