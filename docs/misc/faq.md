@@ -37,7 +37,7 @@ See [caver-js](../bapp/sdk/caver-js/README.md) and [caver-java](../bapp/sdk/cave
 
 To learn about how to build BApp using Klaytn SDK, see [Tutorials](../bapp/tutorials/README.md).
 
-Also, check the porting guidelines [from web3.js](../bapp/sdk/caver-js/porting-from-web3.js.md) and [from web3j](../bapp/sdk/caver-java/porting-from-web3j.md). Because the syntactic of caver-js and caver-java are very similar to web3.js and web3j, porting should be minimal and very straightforward. But, no, you can not use web3.js or web3j to make a request against Klaytn.
+Also, check the porting guidelines [from web3.js](../bapp/sdk/caver-js/v1.4.1/porting-from-web3.js.md) and [from web3j](../bapp/sdk/caver-java/porting-from-web3j.md). Because the syntactic of caver-js and caver-java are very similar to web3.js and web3j, porting should be minimal and very straightforward. But, no, you can not use web3.js or web3j to make a request against Klaytn.
 
 
 
@@ -104,9 +104,9 @@ Check [fee-delegation-example](../bapp/tutorials/fee-delegation-example.md) to g
 
 See the [JavaScript code snippet](https://gist.github.com/w3kim/64a3cf5da58250474f046d4dd7f85cc8) for deploying a contract with fee-delegation. Note that you can not use Truffle for the contract deployment with fee-delegation.
 
-[Sending a transaction with multiple signer](../bapp/sdk/caver-js/getting-started.md#sending-a-transaction-with-multiple-signer) gives a good explanation about two different ways of collecting signatures.
+[Sending a transaction with multiple signer](../bapp/sdk/caver-js/v1.4.1/getting-started.md#sending-a-transaction-with-multiple-signer) gives a good explanation about two different ways of collecting signatures.
 Relevant caver-js APIs are as follows. Take a look at the code examples in the API description.
-- [caver.klay.accounts.signTransaction](../bapp/sdk/caver-js/api-references/caver.klay.accounts.md#signtransaction)
-- [caver.klay.accounts.feePayerSignTransaction](../bapp/sdk/caver-js/api-references/caver.klay.accounts.md#feepayersigntransaction)
-- [caver.klay.accounts.combinesignatures](../bapp/sdk/caver-js/api-references/caver.klay.accounts.md#combinesignatures)
-- [caver.klay.sendSignedTransaction](../bapp/sdk/caver-js/api-references/caver.klay/transaction.md#sendsignedtransaction)
+- [caver.klay.accounts.signTransaction](../bapp/sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#signtransaction)
+- [caver.klay.accounts.feePayerSignTransaction](../bapp/sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#feepayersigntransaction)
+- [caver.klay.accounts.combinesignatures](../bapp/sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#combinesignatures)
+- [caver.klay.sendSignedTransaction](../bapp/sdk/caver-js/v1.4.1/api-references/caver.klay/transaction.md#sendsignedtransaction)

@@ -76,7 +76,7 @@ BlockNumber component gets the current block number every 1 second (1000ms).
 By simply replacing the `web3` library with `caver-js`, you can sync Klaytn's BlockNumber in real-time instead of Ethereum's BlockNumber.
 
 >Ethereum: [`web3.eth.getBlockNumber()`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth.html#getblocknumber)  
->Klaytn: [`caver.klay.getBlockNumber()`](../sdk/caver-js/api-references/caver.klay/block.md#getblocknumber)
+>Klaytn: [`caver.klay.getBlockNumber()`](../sdk/caver-js/v1.4.1/api-references/caver.klay/block.md#getblocknumber)
 
 ```js
 // import web3 from 'ethereum/web3'
@@ -165,7 +165,7 @@ For more details about deploying contracts, See [CountBapp tutorial - Deploy Con
 You can create a contract instance with the `caver-js` API. The contract instance creates a connection to `Count` contract. You can invoke contract methods through this instance.
 
 > Ethereum : [`web3.eth.Contract(ABI, address)`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth-contract.html#new-contract)  
-> Klaytn : [`caver.klay.Contract(ABI, address)`](../sdk/caver-js/api-references/caver.klay.Contract.md#new-contract)
+> Klaytn : [`caver.klay.Contract(ABI, address)`](../sdk/caver-js/v1.4.1/api-references/caver.klay.Contract.md#new-contract)
 
 `src/components/Count.js`
 ```javascript
