@@ -58,7 +58,7 @@ $ node
 
 ### Creating an Account <a id="creating-an-account"></a>
 
-You can use `caver-js` to create an account as shown below. You can also create an account via [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#create-a-new-account).
+You can use `caver-js` to create an account as shown below. You can also create an account via [Klaytn Wallet](../../../../toolkit/klaytn-wallet.md#create-a-new-account).
 
 ```text
 > const account = caver.klay.accounts.create()
@@ -129,7 +129,7 @@ This section will show you how to send a KLAY using caver-js on the Baobab netwo
 
 ### Getting KLAY via Baobab Faucet <a id="getting-klay-via-baobab-faucet"></a>
 
-If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the Klaytn Wallet using the private key or the keystore file and receive Baobab testnet KLAY via the faucet for testing.
+If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the Klaytn Wallet using the private key or the keystore file and receive Baobab testnet KLAY via the faucet for testing.
 
 ### Sending a Value Transfer Transaction <a id="sending-a-value-transfer-transaction"></a>
 
@@ -649,7 +649,7 @@ AccountForUpdate is a class designed to make it easier to use transactions for a
 
 The AccountForUpdate contains only the public key to be used for account update and the address of the account to update.
 
-The examples below start with updating your account with accountKey. There must be enough KLAY in the account to be used for testing. Test KLAY for the Baobab network is available through [Baobab Faucet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
+The examples below start with updating your account with accountKey. There must be enough KLAY in the account to be used for testing. Test KLAY for the Baobab network is available through [Baobab Faucet](../../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
 
 #### Create an AccountForUpdate  <a id="create-an-accountforupdate"></a>
 Let's start by creating an AccountForUpdate. 
@@ -956,8 +956,8 @@ console.log(rawTransaction)
 
 The BApp \(Blockchain Application\) Development sample projects using caver-js are the following:
 
-* [Count BApp](../../tutorials/count-bapp/README.md)
-* [Klaystagram](../../tutorials/klaystagram/README.md)
+* [Count BApp](../../../tutorials/count-bapp/README.md)
+* [Klaystagram](../../../tutorials/klaystagram/README.md)
 
 ## Links <a id="links"></a>
 
@@ -971,9 +971,9 @@ The BApp \(Blockchain Application\) Development sample projects using caver-js a
 [caver.klay.accounts.signTransaction]: api-references/caver.klay.accounts.md#signtransaction
 [caver.klay.getTransactionReceipt]: api-references/caver.klay/transaction.md#gettransactionreceipt
 [getTransactionReceipt]: api-references/caver.klay/transaction.md#gettransactionreceipt 
-[txError: Detailed Information of Transaction Failures]: ../../json-rpc/transaction-error-codes.md
-[Fee Delegation]: ../../../klaytn/design/transactions/README.md#fee-delegation
-[AccountKey]: ../../../klaytn/design/accounts.md#account-key
+[txError: Detailed Information of Transaction Failures]: ../../../json-rpc/transaction-error-codes.md
+[Fee Delegation]: ../../../../klaytn/design/transactions/README.md#fee-delegation
+[AccountKey]: ../../../../klaytn/design/accounts.md#account-key
 [Account Update]: api-references/caver.klay/sendtx_account_update.md
 [SMART_CONTRACT_DEPLOY]: api-references/caver.klay/sendtx_smart_contract_deploy.md
 [SMART_CONTRACT_EXECUTION]: api-references/caver.klay/sendtx_smart_contract_execution.md
