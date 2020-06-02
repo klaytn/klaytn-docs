@@ -5,7 +5,7 @@
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends a [Smart Contract Execution](../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractexecution) transaction to the network.
+Sends a [Smart Contract Execution](../../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractexecution) transaction to the network.
 
 **Parameters**
 
@@ -83,7 +83,7 @@ caver.klay.sendTransaction({
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends a [Fee Delegated Smart Contract Execution](../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution) transaction to the network.
+Sends a [Fee Delegated Smart Contract Execution](../../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution) transaction to the network.
 
 **Parameters**
 
@@ -179,7 +179,7 @@ caver.klay.sendTransaction({
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends a [Fee Delegated Smart Contract Execution With Ratio](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) transaction to the network.
+Sends a [Fee Delegated Smart Contract Execution With Ratio](../../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) transaction to the network.
 
 **Parameters**
 
