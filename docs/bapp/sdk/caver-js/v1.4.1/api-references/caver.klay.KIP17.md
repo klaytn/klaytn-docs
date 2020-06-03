@@ -9,7 +9,7 @@ The `caver.klay.KIP17`, a javascript object, makes it easy to interact with a sm
 
 The `caver.klay.KIP17` inherits [caver.klay.Contract](caver.klay.Contract.md) and is implemented for KIP-17 token contracts. This section describes only the additional implementations of the caver.klay.KIP17 for easy to use.
 
-The code that implements KIP-17 for caver-js is available on the [caver-js Github Repo](https://github.com/klaytn/caver-js/tree/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP17).
+The code that implements KIP-17 for caver-js is available on the [caver-js Github Repo](https://github.com/klaytn/caver-js/tree/dev/packages/caver-kct/src/contract/token/KIP17).
 
 For more information about KIP-17, see [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-17).
 
@@ -22,7 +22,7 @@ caver.klay.KIP17.deploy(tokenInfo, deployer)
 ```
 Deploys the KIP-17 token contract to the Klaytn blockchain. A contract deployed using caver.klay.KIP17.deploy is a non-fungible token that follows the KIP-17 standard. 
 
-After successful deployment, the promise will resolve with a new KIP17 instance.
+After successful deployment, the promise will be resolved with a new KIP17 instance.
 
 **Parameters**
 
