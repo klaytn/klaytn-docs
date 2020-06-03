@@ -1,6 +1,6 @@
 # Getting Started <a id="getting-started"></a>
 
-This Getting Started is based on caver-js v1.5.0 or higher. If you are using an older version, see [Getting Started (~v1.4.1)](v1.4.1/getting-started.md).
+This documentation is for developers using caver-js v1.5.0 or higher. If you are using an older version, see [Getting Started (~v1.4.1)](v1.4.1/getting-started.md).
 
 ## Prerequisites <a id="prerequisites"></a>
 
@@ -28,7 +28,7 @@ To try it out, install caver-js with npm using the following command:
 $ npm install caver-js
 ```
 
-**Note**: `package.json` file should exist on the same install path. If it does not exist, `package.json` should be generated via `npm init`.
+**Note**: `package.json` file should exist on the same install path. If it does not exist, `package.json` can be generated via `npm init`.
 
 To install a specific version of caver-js, try the following command:
 
@@ -38,9 +38,9 @@ $ npm install caver-js@X.X.Xd
 
 ## Starting with caver-js <a id="starting-with-caver-js"></a>
 
-Once you have finished installing caver-js, you can now connect caver-js with a Klaytn Node.
+Once you have finished installing caver-js, you can now connect a Klaytn Node with caver-js.
 
-The examples below describe in a Node.js file. To practice the examples, first create a test file in the working directory as shown below.
+The below shows examples in a Node.js file. To practice the examples, first create a test file in the working directory as shown below.
 
 ```bash
 $ touch test.js
@@ -49,7 +49,7 @@ You can see the `test.js` file created in the working directory.
 
 Write the following code in test.js.
 ```javascript
-// test.js file
+// test.js
 const Caver = require('caver-js')
 const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 
@@ -69,7 +69,7 @@ $ node ./test.js
 
 If you see the output of console.log, proceed with the steps below.
 
-### Connecting with a Klaytn Node
+### Connecting to a Klaytn Node <a id="connecting-to-a-klaytn-node"></a>
 
 You can import the caver-js module and connect it to a Klaytn Node in the Baobab testnet as shown in the example below:
 
@@ -89,14 +89,14 @@ const caver = new Caver('http://localhost:8551/')
 
 ### Creating a Keyring <a id="creating-a-keyring"></a>
 
-[Keyring] is used in Caver SDK, and is a class that contains the address of the account and the private key(s) to use when signing. You can use `caver-js` to create a keyring as shown below.
+[Keyring] in Caver SDK is a class that contains the address of the account and the private key(s) to use when signing. You can use `caver-js` to create a keyring as shown below.
 
 ```javascript
 const keyring = caver.wallet.keyring.generate()
 console.log(keyring)
 ```
 
-Below is the result of printing the keyring. Member variables defined inside the instance can be accessed by keyring.addres and keyring.keys.
+The execution result is shown below. Member variables defined inside the instance can be accessed by keyring.address and keyring.keys.
 
 ```text
 Keyring {
@@ -108,41 +108,41 @@ Keyring {
 Also, if you own a specific private key or [KlaytnWalletKey], you can use it to create a keyring as shown below.
 
 ```javascript
-// Create from a private key
+// Create a keyring from a private key
 const keyring = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
 console.log(keyring)
 ```
 
 ```javascript
-// Create from a KlaytnWalletKey
+// Create a keyring from a KlaytnWalletKey
 const keyring = caver.wallet.keyring.createFromKlaytnWalletKey('0x{private key}0x{type}0x{address in hex}')
 console.log(keyring)
 ```
 
 The results of `caver.wallet.keyring.createFromPrivateKey` and `caver.wallet.keyring.createFromKlaytnWalletKey`, like the resulot of `caver.wallet.keyring.generate` above, have an address defined inside and one PrivateKey instance defined in the first element of the keys array.
 
-If [AccountKey] of your account in Klaytn network is updated, you can create a keyring using the address and the updated private key(s).
+If [AccountKey] of your account in the Klaytn network is updated, you can create a keyring using the address and the updated private key(s).
 
 ```javascript
-// Create with an address and a private key
+// Create a keyring with an address and a private key
 const keyring = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key}')
 console.log(keyring)
 ```
 
-The result of caver.wallet.keyring.createWithSingleKey is shown below.
+The result of `caver.wallet.keyring.createWithSingleKey` is shown below.
 
 ```text
 Keyring {
-  _address: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
+  _address: '0x{address in hex}',
   _keys: [ [ PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
 }
 ```
 
-Let's create a Keyring instance using several private keys as shown below.
+The below examples shows how to create a keyring with multiple private keys as shown below.
 
 ```javascript
-// Create with an address and private keys
-const keyring = caver.wallet.keyring.createWithMultipleKey('0x{address in hex}', [ '0x{private key}', '0x{private key}' ])
+// Create a keyring with an address and private keys
+const keyring = caver.wallet.keyring.createWithMultipleKey('0x{address in hex}', [ '0x{private key1}', '0x{private key2}' ])
 console.log(keyring)
 ```
 
@@ -152,21 +152,21 @@ Below is the output of the example above. The keys array of the created Keyring 
 Keyring {
   _address: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
   _keys: [ 
-	  [  PrivateKey { _privateKey: '0x{private key}' }, PrivateKey { _privateKey: '0x{private key}' } ],
+	  [  PrivateKey { _privateKey: '0x{private key1}' }, PrivateKey { _privateKey: '0x{private key2}' } ],
 	  [],
 	  []
 	]
 }
 ```
 
-Then, let's create a Keyring instance that uses a different keys for each role as shown below.
+To set other arrays in the previous example, `caver.wallet.keyring.createWithRoleBasedKey` is used instead. Each array represents a role in Klaytn's [AccountKey]. The below shows how to create a Keyring instance with different keys for each role.
 
 ```javascript
-// Create with an address and private keys defined by each roles
+// Create a keyring with an address and private keys defined by each roles
 const keyring = caver.wallet.keyring.createWithRoleBasedKey('0x{address in hex}', [
-	[ '0x{private key}', '0x{private key}', '0x{private key}' ],
-	[ '0x{private key}'],
-	[ '0x{private key}', '0x{private key}' ],
+	[ '0x{private key1}', '0x{private key2}', '0x{private key3}' ],
+	[ '0x{private key4}'],
+	[ '0x{private key5}', '0x{private key6}' ],
 ])
 console.log(keyring)
 ```
@@ -661,4 +661,3 @@ The BApp \(Blockchain Application\) Development sample projects using caver-js a
 [caver.transaction.smartContractExecution]: api-references/caver.transaction.md#smartcontractexecution
 [caver.transaction.feeDelegatedSmartContractExecution]: api-references/caver.transaction.md#feedelegatedsmartcontractexecution
 [caver.transaction.feeDelegatedSmartContractExecutionWithRatio]: api-references/caver.transaction.md#feedelegatedsmartcontractexecutionwithratio
-
