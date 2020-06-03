@@ -59,7 +59,7 @@ function renouncePauser() external;
 
 For more information, refer to the official [KIP-7 documentation](https://kips.klaytn.com/KIPs/kip-7).
 
-* An example implementation is available at [https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP7/KIP7.sol](https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP7/KIP7.sol).
+* An example implementation is available at [https://github.com/klaytn/caver-js/blob/dev/packages/caver-kct/src/contract/token/KIP7/KIP7.sol](https://github.com/klaytn/caver-js/blob/dev/packages/caver-kct/src/contract/token/KIP7/KIP7.sol).
 
 ## 대체 불가 토큰 표준 \(KIP-17\) <a id="non-fungible-token-standard-kip-17"></a>
 
@@ -125,7 +125,7 @@ function renouncePauser() public;
 
 For more information, refer to the official [KIP-17 documentation](https://kips.klaytn.com/KIPs/kip-17).
 
-* An example implementation is available at [https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP17/KIP17.sol](https://github.com/klaytn/caver-js/blob/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP17/KIP17.sol).
+* An example implementation is available at [https://github.com/klaytn/caver-js/blob/dev/packages/caver-kct/src/contract/token/KIP17/KIP17.sol](https://github.com/klaytn/caver-js/blob/dev/packages/caver-kct/src/contract/token/KIP17/KIP17.sol).
 
 ## Klaytn 서비스체인에 대한 토큰 표준 <a id="token-standards-for-klaytn-service-chain"></a>
 
