@@ -13,10 +13,11 @@ The following packages are required to use the caver-js library.
 * [gcc-c++](https://gcc.gnu.org/)
 * [Solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
-**Note** caver-js can run on Node.js versions 8 and 10, and the recommended versions are:
+**Note** caver-js can run on Node.js versions 8, 10 and 12, and the recommended versions are:
 
 * lts/carbon \([8.16.0](https://nodejs.org/dist/latest-v8.x/)\)
 * lts/dubnium \([10.16.0](https://nodejs.org/dist/latest-v10.x/)\)
+* lts/erbium \([12.18.0](https://nodejs.org/dist/latest-v12.x/)\)
 
 If you are already using a different version of the Node \(for example, Node v12\), use the Node Version Manager\([NVM](https://github.com/nvm-sh/nvm)\) to install and use the version supported by caver-js.
 
