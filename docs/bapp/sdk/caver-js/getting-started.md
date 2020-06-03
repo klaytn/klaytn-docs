@@ -33,7 +33,7 @@ $ npm install caver-js
 To install a specific version of caver-js, try the following command:
 
 ```text
-$ npm install caver-js@X.X.Xd
+$ npm install caver-js@X.X.X
 ```
 
 ## Starting with caver-js <a id="starting-with-caver-js"></a>
@@ -54,7 +54,7 @@ const Caver = require('caver-js')
 const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 
 async function testFunction() {
-	const version = await caver.rpc.klay.getNodeInfo()
+	const version = await caver.rpc.klay.getClientVersion()
 	console.log(version)
 }
 
@@ -67,7 +67,11 @@ Save the file and run it in your console.
 $ node ./test.js
 ```
 
-If you see the output of console.log, proceed with the steps below.
+If you see the output of console.log like below, proceed with the steps below. The version number can be different.
+
+```text
+Klaytn/v1.4.0/linux-amd64/go1.14.1
+```
 
 ### Connecting to a Klaytn Node <a id="connecting-to-a-klaytn-node"></a>
 
@@ -87,9 +91,15 @@ const caver = new Caver('http://localhost:8551/')
 
 ## Managing Keyrings <a id="managing-keyrings"></a>
 
+[Keyring] in Caver SDK is a class that contains the address of the account and the private key(s) to use when signing.
+
+[Keyring] defines `keys` property inside, and this `keyring.keys` is implemented as a two-dimensional array (empty keyring.keys will be looked like `[ [], [], [] ]`) that can include multiple keys for each [role]. The first array defines the private key(s) to be used for `roleTransactionKey`, the second array defines private key(s) to be used for `roleAccountUpdateKey`, and the third array defines the private key(s) to be used for `roleFeePayerKey`.
+
+If user use private key(s) without role separation, only the first array of `keyring.keys` is used, and the private key(s) is assigned to this array and used regardless of the role.
+
 ### Creating a Keyring <a id="creating-a-keyring"></a>
 
-[Keyring] in Caver SDK is a class that contains the address of the account and the private key(s) to use when signing. You can use `caver-js` to create a keyring as shown below.
+You can use `caver-js` to create a keyring as shown below.
 
 ```javascript
 const keyring = caver.wallet.keyring.generate()
@@ -119,7 +129,7 @@ const keyring = caver.wallet.keyring.createFromKlaytnWalletKey('0x{private key}0
 console.log(keyring)
 ```
 
-The results of `caver.wallet.keyring.createFromPrivateKey` and `caver.wallet.keyring.createFromKlaytnWalletKey`, like the resulot of `caver.wallet.keyring.generate` above, have an address defined inside and one PrivateKey instance defined in the first element of the keys array.
+The results of `caver.wallet.keyring.createFromPrivateKey` and `caver.wallet.keyring.createFromKlaytnWalletKey`, like the result of `caver.wallet.keyring.generate` above, is a Keyring instance which has an address defined inside and one PrivateKey instance defined in the first element of the keyring.keys array.
 
 If [AccountKey] of your account in the Klaytn network is updated, you can create a keyring using the address and the updated private key(s).
 
@@ -146,7 +156,7 @@ const keyring = caver.wallet.keyring.createWithMultipleKey('0x{address in hex}',
 console.log(keyring)
 ```
 
-Below is the output of the example above. The keys array of the created Keyring instance has multiple PrivateKey instances in the first element of the array.
+Below is the output of the example above. As you can see, the `_keys` array has multiple PrivateKey instances in the first element of the array.
 
 ```text
 Keyring {
