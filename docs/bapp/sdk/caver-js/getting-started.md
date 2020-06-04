@@ -19,7 +19,7 @@ The following packages are required to use the caver-js library.
 * lts/dubnium \([10.16.0](https://nodejs.org/dist/latest-v10.x/)\)
 * lts/erbium \([12.18.0](https://nodejs.org/dist/latest-v12.x/)\)
 
-If you are already using a different version of the Node \(for example, Node v12\), use the Node Version Manager\([NVM](https://github.com/nvm-sh/nvm)\) to install and use the version supported by caver-js.
+If you are already using a different version of the Node \(for example, Node v14\), use the Node Version Manager\([NVM](https://github.com/nvm-sh/nvm)\) to install and use the version supported by caver-js.
 
 ### Installation <a id="installation"></a>
 
