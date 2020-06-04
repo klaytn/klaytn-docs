@@ -35,7 +35,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 | `"reward.ratio"`               | `STRING`. `"/"`으로 구분되는 <0>CN/KIR/PoC</0>의 분포 비율입니다. 각 값의 합은 `100`이어야 합니다. 예를 들어, `"34/54/12"`은 CN이 34%, PoC이 54%, KIR이 12%를 차지하고 있다는 것입니다.       |
 | `"reward.useginicoeff"`        | `BOOL`. 지니(GINI) 계수 사용 여부입니다 `true` 또는 `false`로 설정합니다.                                                                                           |
 | `"reward.deferredtxfee"`       | `BOOL`. 트랜잭션 수수료를 제안자에게 지급하는 방법입니다. true이면 트랜잭션 수수료는 블록 보상과 합산되어 제안자, KIR, PoC에게 분배됩니다. false이면 트랜잭션 수수료가 제안자에게 지급됩니다. `true` 또는 `false`로 설정합니다. |
-| `"reward.minimumstake"`        | `STRING`. CN(컨센서스 노드)가 되는 데 필요한 Klay 양입니다. 값에는 큰따옴표가 필요합니다. 예를 들어, `"5000000"`입니다.                                                               |
+| `"reward.minimumstake"`        | `STRING`. CN(컨센서스 노드)가 되는 데 필요한 Klay 양입니다. 값에는 큰 따옴표가 필요합니다. 예를 들어, `"5000000"`입니다.                                                              |
 
 
 **리턴값**
