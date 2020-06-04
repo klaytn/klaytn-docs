@@ -5,7 +5,7 @@
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends a [Smart Contract Execution](../../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractexecution) transaction to the network.
+[Smart Contract Execution](../../../../../../klaytn/design/transactions/basic.md#txtypesmartcontractexecution) 트랜잭션을 네트워크에 전송합니다.
 
 **매개변수**
 
@@ -23,7 +23,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니�
 | 형식       | String                                          | 트랜잭션 타입. "SMART_CONTRACT_EXECUTION"                                                                      |
 | from     | String                                          | 이 트랜잭션 발신자의 주소.                                                                                            |
 | to       | String                                          | 배포 된 스마트 컨트랙트의 address.                                                                                    |
-| value    | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 의해 전송된 peb 단위의 값. 전송된 KLAY를 받기 위해서는, 이 트랜잭션이 호출하는 컨트랙트 함수가 'payable'이어야 합니다. 생략하면 0으로 설정됩니다. |
+| 값        | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 의해 전송된 peb 단위의 값. 전송된 KLAY를 받기 위해서는, 이 트랜잭션이 호출하는 컨트랙트 함수가 'payable'이어야 합니다. 생략하면 0으로 설정됩니다. |
 | gas      | Number                                          | 트랜잭션에 지불할 의향이 있는 최대 가스량(사용하지 않은 가스는 환불됨).                                                                  |
 | gasPrice | Number                                          | (선택사항) 트랜잭션 발신자가 설정한 가스 가격으로 단위는 peb입니다. gasPrice는 Klaytn 노드에 설정된 unitPrice와 같아야 합니다.                      |
 | 논스       | Number                                          | (선택사항) 논스의 정숫값입니다. 생략하면 `caver.klay.getTransactionCount` 값으로 caver-js가 설정합니다.                              |
@@ -83,7 +83,7 @@ caver.klay.sendTransaction({
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends a [Fee Delegated Smart Contract Execution](../../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution) transaction to the network.
+[Fee Delegated Smart Contract Execution](../../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution) 트랜잭션을 네트워크에 전송합니다.
 
 **매개변수**
 
@@ -101,7 +101,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니�
 | 형식       | String                                          | 트랜잭션 타입. "FEE_DELEGATED_SMART_CONTRACT_EXECUTION"                                                      |
 | from     | String                                          | 이 트랜잭션 발신자의 주소.                                                                                            |
 | to       | String                                          | 배포 된 스마트 컨트랙트의 address.                                                                                    |
-| value    | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 의해 전송된 peb 단위의 값. 전송된 KLAY를 받기 위해서는, 이 트랜잭션이 호출하는 컨트랙트 함수가 'payable'이어야 합니다. 생략하면 0으로 설정됩니다. |
+| 값        | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 의해 전송된 peb 단위의 값. 전송된 KLAY를 받기 위해서는, 이 트랜잭션이 호출하는 컨트랙트 함수가 'payable'이어야 합니다. 생략하면 0으로 설정됩니다. |
 | gas      | Number                                          | 트랜잭션에 지불할 의향이 있는 최대 가스량(사용하지 않은 가스는 환불됨).                                                                  |
 | gasPrice | Number                                          | (선택사항) 트랜잭션 발신자가 설정한 가스 가격으로 단위는 peb입니다. gasPrice는 Klaytn 노드에 설정된 unitPrice와 같아야 합니다.                      |
 | 논스       | Number                                          | (선택사항) 논스의 정숫값입니다. 생략하면 `caver.klay.getTransactionCount` 값으로 caver-js가 설정합니다.                              |
@@ -179,7 +179,7 @@ caver.klay.sendTransaction({
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends a [Fee Delegated Smart Contract Execution With Ratio](../../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) transaction to the network.
+[Fee Delegated Smart Contract Execution With Ratio](../../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) 트랜잭션을 네트워크에 전송합니다.
 
 **매개변수**
 
@@ -197,7 +197,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니�
 | 형식       | String                                          | 트랜잭션 타입. "FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO"                                                                                 |
 | from     | String                                          | 이 트랜잭션 발신자의 주소.                                                                                                                                    |
 | to       | String                                          | 배포 된 스마트 컨트랙트의 address.                                                                                                                            |
-| value    | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 의해 전송된 peb 단위의 값. 전송된 KLAY를 받기 위해서는, 이 트랜잭션이 호출하는 컨트랙트 함수가 'payable'이어야 합니다. 생략하면 0으로 설정됩니다.                                         |
+| 값        | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 의해 전송된 peb 단위의 값. 전송된 KLAY를 받기 위해서는, 이 트랜잭션이 호출하는 컨트랙트 함수가 'payable'이어야 합니다. 생략하면 0으로 설정됩니다.                                         |
 | gas      | Number                                          | 트랜잭션에 지불할 의향이 있는 최대 가스량(사용하지 않은 가스는 환불됨).                                                                                                          |
 | gasPrice | Number                                          | (선택사항) 트랜잭션 발신자가 설정한 가스 가격으로 단위는 peb입니다. gasPrice는 Klaytn 노드에 설정된 unitPrice와 같아야 합니다.                                                              |
 | 논스       | Number                                          | (선택사항) 논스의 정숫값입니다. 생략하면 `caver.klay.getTransactionCount` 값으로 caver-js가 설정합니다.                                                                      |
