@@ -103,8 +103,22 @@ If user use private key(s) without role separation, only the first array of `key
 You can use `caver-js` to create a keyring as shown below.
 
 ```javascript
-const keyring = caver.wallet.keyring.generate()
-console.log(keyring)
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+
+async function testFunction() {
+	const keyring = caver.wallet.keyring.generate()
+	console.log(keyring)
+}
+
+testFunction()
+```
+
+Save the file and run it in your console.
+
+```bash
+$ node ./test.js
 ```
 
 The execution result is shown below. Member variables defined inside the instance can be accessed by keyring.address and keyring.keys.
@@ -119,25 +133,62 @@ Keyring {
 Also, if you own a specific private key or [KlaytnWalletKey], you can use it to create a keyring as shown below.
 
 ```javascript
-// Create a keyring from a private key
-const keyring = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
-console.log(keyring)
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+
+async function testFunction() {
+	// Create a keyring from a private key
+	const keyringFromPrivateKey = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+	console.log(keyringFromPrivateKey)
+
+	// Create a keyring from a KlaytnWalletKey
+	const keyringFromKlaytnWalletKey = caver.wallet.keyring.createFromKlaytnWalletKey('0x{private key}0x{type}0x{address in hex}')
+	console.log(keyringFromKlaytnWalletKey)
+}
+
+testFunction()
 ```
 
-```javascript
-// Create a keyring from a KlaytnWalletKey
-const keyring = caver.wallet.keyring.createFromKlaytnWalletKey('0x{private key}0x{type}0x{address in hex}')
-console.log(keyring)
+Save the file and run it in your console.
+
+```bash
+$ node ./test.js
 ```
 
 The results of `caver.wallet.keyring.createFromPrivateKey` and `caver.wallet.keyring.createFromKlaytnWalletKey`, like the result of `caver.wallet.keyring.generate` above, is a Keyring instance which has an address defined inside and one PrivateKey instance defined in the first element of the keyring.keys array.
 
+```text
+Keyring {
+  _address: '0x9f65d63fac94b5caadfca721ad0373b5561abc85',
+  _keys: [ [ PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
+}
+Keyring {
+  _address: '0x9f65d63fac94b5caadfca721ad0373b5561abc85',
+  _keys: [ [ PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
+}
+```
+
 If [AccountKey] of your account in the Klaytn network is updated, you can create a keyring using the address and the updated private key(s).
 
 ```javascript
-// Create a keyring with an address and a private key
-const keyring = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key}')
-console.log(keyring)
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+
+async function testFunction() {
+	// Create a keyring with an address and a private key
+	const keyring = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key}')
+	console.log(keyring)
+}
+
+testFunction()
+```
+
+Save the file and run it in your console.
+
+```bash
+$ node ./test.js
 ```
 
 The result of `caver.wallet.keyring.createWithSingleKey` is shown below.
@@ -152,9 +203,23 @@ Keyring {
 The below examples shows how to create a keyring with multiple private keys as shown below.
 
 ```javascript
-// Create a keyring with an address and private keys
-const keyring = caver.wallet.keyring.createWithMultipleKey('0x{address in hex}', [ '0x{private key1}', '0x{private key2}' ])
-console.log(keyring)
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+
+async function testFunction() {
+	// Create a keyring with an address and private keys
+	const keyring = caver.wallet.keyring.createWithMultipleKey('0x{address in hex}', [ '0x{private key1}', '0x{private key2}' ])
+	console.log(keyring)
+}
+
+testFunction()
+```
+
+Save the file and run it in your console.
+
+```bash
+$ node ./test.js
 ```
 
 Below is the output of the example above. As you can see, the `_keys` array has multiple PrivateKey instances in the first element of the array.
@@ -173,13 +238,27 @@ Keyring {
 To set other arrays in the previous example, `caver.wallet.keyring.createWithRoleBasedKey` is used instead. Each array represents a role in Klaytn's [AccountKey]. The below shows how to create a Keyring instance with different keys for each role.
 
 ```javascript
-// Create a keyring with an address and private keys defined by each roles
-const keyring = caver.wallet.keyring.createWithRoleBasedKey('0x{address in hex}', [
-	[ '0x{private key1}', '0x{private key2}', '0x{private key3}' ],
-	[ '0x{private key4}'],
-	[ '0x{private key5}', '0x{private key6}' ],
-])
-console.log(keyring)
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+
+async function testFunction() {
+	// Create a keyring with an address and private keys defined by each roles
+	const keyring = caver.wallet.keyring.createWithRoleBasedKey('0x{address in hex}', [
+		[ '0x{private key1}', '0x{private key2}', '0x{private key3}' ],
+		[ '0x{private key4}'],
+		[ '0x{private key5}', '0x{private key6}' ],
+	])
+	console.log(keyring)
+}
+
+testFunction()
+```
+
+Save the file and run it in your console.
+
+```bash
+$ node ./test.js
 ```
 
 Looking at the output below, the first element of the keys array, `roleTransactionKey`, has 3 PrivateKey instances, and the second element, `roleAccountUpdateKey`, has 1 PrivateKey instance. And the last element of the array, `roleFeePayerKey`, has 2 PrivateKey instances.
@@ -190,7 +269,7 @@ Keyring {
   _keys: [ 
 	  [  PrivateKey { _privateKey: '0x{private key}' }, PrivateKey { _privateKey: '0x{private key}' }, PrivateKey { _privateKey: '0x{private key}' } ],
 	  [ PrivateKey { _privateKey: '0x{private key}' } ],
-	  [ PrivateKey { _privateKey: '0x{private key}' }, PrivateKey { _privateKey: '0x{private key}' }]
+	  [ PrivateKey { _privateKey: '0x{private key}' }, PrivateKey { _privateKey: '0x{private key}' } ]
 	]
 }
 ```
@@ -202,35 +281,118 @@ Keyring {
 You can use your keyring easily by using the in-memory wallet provided by caver-js. The following examples illustrate how to add an keyring to a wallet using a keyring instance and a keystore file generated by Klaytn Wallet.
 
 ```javascript
-// Using a keyring instance
-const keyring = caver.wallet.keyring.generate()
-caver.wallet.add(keyring)
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 
-// Using a keystore file
-const decrypted = caver.wallet.keyring.decrypt({
-	version: 4,
-	id: '55da3f9c-6444-4fc1-abfa-f2eabfc57501',
-	address: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
-	keyring: [ ... ],
-}, 'password')
-caver.wallet.add(decrypted)
+async function testFunction() {
+	// Using a keyring instance
+	const keyring = caver.wallet.keyring.generate()
+	caver.wallet.add(keyring)
+	console.log(caver.wallet.getKeyring(keyring.address))
+
+	// Using a keystore file
+	const decrypted = caver.wallet.keyring.decrypt({ 
+		version: 4,
+		id: '9c12de05-0153-41c7-a8b7-849472eb5de7',
+		address: '0xc02cec4d0346bf4124deeb55c5216a4138a40a8c',
+		keyring: [
+			{ 
+				ciphertext: 'eacf496cea5e80eca291251b3743bf93cdbcf7072efc3a74efeaf518e2796b15',
+				cipherparams: { iv: 'd688a4319342e872cefcf51aef3ec2da' },
+				cipher: 'aes-128-ctr',
+				kdf: 'scrypt',
+				kdfparams: {
+					dklen: 32,
+					salt: 'c3cee502c7157e0faa42386c6d666116ffcdf093c345166c502e23bc34e6ba40',
+					n: 4096,
+					r: 8,
+					p: 1
+				},
+				mac: '4b49574f3d3356fa0d04f73e07d5a2a6bbfdd185bedfa31f37f347bc98f2ef26'
+			}
+		]
+	}, 'password')
+
+	caver.wallet.add(decrypted)
+	console.log(caver.wallet.getKeyring(decrypted.address))
+}
+
+testFunction()
+```
+
+Save the file and run it in your console.
+
+```bash
+$ node ./test.js
+```
+
+Looking at the output below, you can query your keyring from caver.wallet after adding to caver.wallet.
+
+```text
+Keyring {
+  _address: '0x{address in hex}',
+  _keys: [ [ PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
+}
+Keyring {
+  _address: '0x{address in hex}',
+  _keys: [ [ PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
+}
 ```
 
 If you have an address and private key(s) to use, you can easily add it directly to [caver.wallet] via [caver.wallet.newKeyring].
 
 ```javascript
-// Add to wallet with an address and a private key
-const added = caver.wallet.newKeyring('0x{address in hex}', '0x{private key}')
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 
-// Add to wallet with an address and private keys
-const added = caver.wallet.newKeyring('0x{address in hex}', ['0x{private key}', '0x{private key}', '0x{private key}'])
+async function testFunction() {
+	// Add to wallet with an address and a private key
+	const addedSingle = caver.wallet.newKeyring('0x{address in hex}', '0x{private key}')
+	console.log(caver.wallet.getKeyring(addedSingle.address))
 
-// Add to wallet with an address and private keys defined by each roles
-const added = caver.wallet.newKeyring('0x{address in hex}', [
-	['0x{private key}', '0x{private key}', '0x{private key}'],
-	['0x{private key}', '0x{private key}'],
-	['0x{private key}', '0x{private key}']
-])
+	// Add to wallet with an address and private keys
+	const addedMultiple = caver.wallet.newKeyring('0x{address in hex}', ['0x{private key}', '0x{private key}', '0x{private key}'])
+	console.log(caver.wallet.getKeyring(addedMultiple.address))
+
+	// Add to wallet with an address and private keys defined by each roles
+	const addedRoleBased = caver.wallet.newKeyring('0x{address in hex}', [
+		['0x{private key}', '0x{private key}', '0x{private key}'],
+		['0x{private key}', '0x{private key}'],
+		['0x{private key}', '0x{private key}']
+	])
+	console.log(caver.wallet.getKeyring(addedRoleBased.address))
+}
+
+testFunction()
+```
+
+Save the file and run it in your console.
+
+```bash
+$ node ./test.js
+```
+
+Below is the output of the above code execution. When `caver.wallet.newKeyring` is performed with a private key, a Keyring instance using one private key is created and added to caver.wallet. When using multiple private keys, a Keyring instance using multiple private keys is created. When passing the private keys defined for each role as a parameter, a Keyring instance using a different private key(s) for each role is created and added to the caver.wallet.
+
+```text
+Keyring {
+  _address: '0x{address in hex}',
+  _keys: [ [ PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
+}
+Keyring {
+  _address: '0x{address in hex}',
+  _keys: [ [ PrivateKey { _privateKey: '0x{private key}' }, PrivateKey { _privateKey: '0x{private key}' }, PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
+}
+Keyring {
+  _address: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
+  _keys: [ 
+	  [  PrivateKey { _privateKey: '0x{private key}' }, PrivateKey { _privateKey: '0x{private key}' }, PrivateKey { _privateKey: '0x{private key}' } ],
+	  [ PrivateKey { _privateKey: '0x{private key}' }, PrivateKey { _privateKey: '0x{private key}' } ],
+	  [ PrivateKey { _privateKey: '0x{private key}' }, PrivateKey { _privateKey: '0x{private key}' } ]
+	]
+}
 ```
 
 `caver.wallet.add` or `caver.wallet.newKeyring` returns a Keyring instance added to caver.wallet.
@@ -265,50 +427,98 @@ You can use a caver-js wallet to generate a signature of a transaction. You have
 Below is an example of how to sign a transaction if a keyring is added to the [caver-wallet].
 
 ```javascript
-// Add keyring to caver.wallet
-const keyring = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
-caver.wallet.add(keyring)
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 
-// Create value transfer transaction
-const valueTransfer = new caver.transaction.valueTransfer({
-	from: keyring.address,
+async function testFunction() {
+	// Add keyring to caver.wallet
+	const keyring = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+	caver.wallet.add(keyring)
+
+	// Create value transfer transaction
+	const valueTransfer = new caver.transaction.valueTransfer({
+		from: keyring.address,
+		to: '0x176ff0344de49c04be577a3512b6991507647f72',
+		value: 1,
+		gas: 30000,
+	})
+
+	// Sign transaction via caver.wallet.signWithKeys
+	await caver.wallet.signWithKeys(keyring.address, valueTransfer)
+
+	// Get RLP-encoded string from valueTransfer transaction through `valueTransfer.getRLPEncoding()`
+	const receipt = await caver.rpc.klay.sendRawTransaction(valueTransfer.getRLPEncoding())
+	console.log(receipt)
+}
+
+testFunction()
+```
+
+The above code adds a keyring to caver.wallet, creates a transaction, and signs the transaction through caver.wallet.signWithKeys. And the RLP-encoded string of the signed transaction is then sent over the network.
+
+Save the file and run it in your console.
+
+```bash
+$ node ./test.js
+```
+
+When the above code is executed, the receipt of transaction is output as shown below.
+
+```text
+{ 
+	blockHash: '0xd20066b448da77a41a46fbf0856792b85b60c42213126f661f6434b5b1263072',
+	blockNumber: 7931,
+	contractAddress: null,
+	from: '0x09a08f2289d3eb3499868908f1c84fd9523fe11b',
+	gas: '0x7530',
+	...
+	signatures: [
+		{ 
+			V: '0x4e43',
+			R: '0x5737aa8c88f019a3ee184faed6d34d103f77773bd5434cb0328c11738c8d9755',
+			S: '0x578b118f4400999e5232bd0860cfbdbf89622f6e11cc6bd9722a86767d2723b7'
+		}
+	],
+	status: true,
 	to: '0x176ff0344de49c04be577a3512b6991507647f72',
-	value: 1,
-	gas: 30000,
-})
-
-// Sign transaction via caver.wallet.signWithKeys
-await caver.wallet.signWithKeys(keyring.address, valueTransfer)
-
-const receipt = await caver.rpc.klay.sendRawTransaction(valueTransfer.getRLPEncoding())
-console.log(receipt)
+	transactionHash: '0x43e8ab1a2365ad598448b4402c1cfce6a71b3a103fce3a69905613e50b978113',
+	transactionIndex: 0,
+	type: 'TxTypeValueTransfer',
+	typeInt: 8,
+	value: '0x1'
+}
 ```
 
 If you want to sign a transaction and send it to the network without using caver.wallet, see the example below.
 
 ```javascript
-// Create value transfer transaction
-const keyring = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
-const valueTransfer = new caver.transaction.valueTransfer({
-	from: keyring.address,
-	to: '0x176ff0344de49c04be577a3512b6991507647f72',
-	value: 1,
-	gas: 30000,
-})
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 
-// Sign transaction via transaction.signWithKeys
-await valueTransfer.signWithKeys(keyring)
+async function testFunction() {
+	// Create value transfer transaction
+	const keyring = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+	const valueTransfer = new caver.transaction.valueTransfer({
+		from: keyring.address,
+		to: '0x176ff0344de49c04be577a3512b6991507647f72',
+		value: 1,
+		gas: 30000,
+	})
 
-const receipt = await caver.rpc.klay.sendRawTransaction(valueTransfer.getRLPEncoding())
-console.log(receipt)
+	// Sign transaction via transaction.signWithKeys
+	await valueTransfer.signWithKeys(keyring)
+
+	// Get RLP-encoded string from valueTransfer transaction through `valueTransfer.getRLPEncoding()`
+	const receipt = await caver.rpc.klay.sendRawTransaction(valueTransfer.getRLPEncoding())
+	console.log(receipt)
+}
+
+testFunction()
 ```
 
-If you have finished signing using [caver.wallet] or using the transaction's sign function, the transaction instance has signatures. You can get a RLP-encoded transaction (`rawTransaction`) using `transaction.getRLPEncoding()` as above and use this to transfer the transaction to the Klaytn network as below.
-
-```javascript
-const receipt = await caver.rpc.klay.sendRawTransaction(valueTransfer.getRLPEncoding())
-console.log(receipt)
-```
+When the above code is executed, the receipt of the transaction is printed as well.
 
 ### Checking Receipts <a id="checking-receipts"></a>
 
@@ -331,8 +541,49 @@ caver.rpc.klay.sendRawTransaction(rawTransaction).on('receipt', console.log)
 As described in the example above, you can get the result of sending a transaction through the promise and event emitter. And also, if you know the transaction hash, you can query the transaction receipt using the [caver.rpc.klay.getTransactionReceipt] RPC call. The example below shows how to get a receipt using the [caver.rpc.klay.getTransactionReceipt] RPC call.
 
 ```javascript
-const receipt = caver.rpc.klay.getTransactionReceipt('0xbad4dd6d80beda6c04d90f1db7e4179557ab48423d4f14295b33e38a9418e59f')
-console.log(receipt)
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+
+async function testFunction() {
+	const receipt = await caver.rpc.klay.getTransactionReceipt('0x40552efbba23347d36f6f5aaba6b9aeb6602e004df62c1988d9b7b1f036e676a')
+	console.log(receipt)
+}
+
+testFunction()
+```
+
+Save the file and run it in your console.
+
+```bash
+$ node ./test.js
+```
+
+When the above code is executed, the receipt of transaction is output as shown below.
+
+```text
+{ 
+	blockHash: '0x65d041011440e04643c546eb8bbb1dcabb659c3b3216e01473cb0712e47b5f69',
+	blockNumber: '0x20db',
+	contractAddress: null,
+	from: '0x09a08f2289d3eb3499868908f1c84fd9523fe11b',
+	gas: '0x7530',
+	...
+	signatures: [
+		{ 
+			V: '0x4e43',
+			R: '0xfabe48071a8b72f0c340b2ee9d948a496cce467aebe027159d66a175e6b4b5b4',
+			S: '0x1d4e503f1b084cda15edeba6b7b8eba15057b9d2484f7f3d095c980c2d98f13'
+		}
+	],
+	status: '0x1',
+	to: '0x176ff0344de49c04be577a3512b6991507647f72',
+	transactionHash: '0x40552efbba23347d36f6f5aaba6b9aeb6602e004df62c1988d9b7b1f036e676a',
+	transactionIndex: 0,
+	type: 'TxTypeValueTransfer',
+	typeInt: 8,
+	value: '0x1'
+}
 ```
 
 The result of the transaction can be found through the status of the receipt. For a detailed description of the return values, see [caver.rpc.klay.getTransactionReceipt]. If a transaction is failed, you can check the detailed error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures].
@@ -348,39 +599,132 @@ Klaytn provides [Fee Delegation] feature. Here's an example code.
 When you are a sender, use the code below to make an RLP-encoded transaction:
 
 ```javascript
-const sender = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
-caver.wallet.add(sender)
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 
-const feeDelegatedTx = new caver.transaction.feeDelegatedValueTransfer({
-	from: sender.address,
+async function testFunction() {
+	const sender = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+	caver.wallet.add(sender)
+
+	const feeDelegatedTx = new caver.transaction.feeDelegatedValueTransfer({
+		from: sender.address,
+		to: '0x176ff0344de49c04be577a3512b6991507647f72',
+		value: 5,
+		gas: 50000,
+	})
+
+	await caver.wallet.signWithKeys(sender.address, feeDelegatedTx)
+
+	const rlpEncoded = feeDelegatedTx.getRLPEncoding()
+	console.log(rlpEncoded)
+}
+
+testFunction()
+```
+
+Save the file and run it in your console.
+
+```bash
+$ node ./test.js
+```
+
+When the above code is executed, the RLP-encoded string will be printed. (The output you run above will be different from the string below.)
+
+```text
+0x09f884588505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f72059409a08f2289d3eb3499868908f1c84fd9523fe11bf847f845824e44a02ab3219f367f6a0848de587ed376dd48e2a4892963f251352bf1d20fec16b50da06f5e2e4987e0ca9ae0de0fd15d6fbc91c18f7c574d42b85c08e7cd9fb374eb4680c4c3018080
+```
+
+With the signed RLP-encoded string (`rawTransaction`), the fee payer can send the transaction after attaching the feePayerSignatures. If the fee payer can access to the above feeDelegatedTx instance signed by the sender, can sign directly to feeDelegatedTx. Otherwise, you can create a transaction instance and sign it using a signed RLP-encoded string, as in the example below. If you want to run below example, assign the output of the example code above to the rlpEncoed variable in the example below.
+
+```javascript
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+
+async function testFunction() {
+	const feePayer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+	caver.wallet.add(feePayer)
+
+	const rlpEncoded = '0x{RLP-encoded string}'
+
+	const feeDelegateTxFromRLPEncoding = new caver.transaction.feeDelegatedValueTransfer(rlpEncoded)
+	// Set fee payer address in transaction instance
+	feeDelegateTxFromRLPEncoding.feePayer = feePayer.address
+	await caver.wallet.signFeePayerWithKeys(feePayer.address, feeDelegateTxFromRLPEncoding)
+	console.log(feeDelegateTxFromRLPEncoding.getRLPEncoding())
+}
+
+testFunction()
+```
+
+Save the file and run it in your console.
+
+```bash
+$ node ./test.js
+```
+
+When the above code is executed, the `RLP-encoded string` including the sender's `signatures` and fee payer's `feePayerSignatures` is output as shown below. (The output you run above will be different from the string below.)
+
+```text
+0x09f8dc588505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f72059409a08f2289d3eb3499868908f1c84fd9523fe11bf847f845824e44a02ab3219f367f6a0848de587ed376dd48e2a4892963f251352bf1d20fec16b50da06f5e2e4987e0ca9ae0de0fd15d6fbc91c18f7c574d42b85c08e7cd9fb374eb4694b8354ce689391ce868a0605f9e5e07172651e57ff847f845824e44a04cbd8f47374cb07881dda839187c2cbfcc4af5127703ead87dad558f77fcbb3ba0035a2d93c73824541f1f59a45c1d9546c5c991d36fe16ce9544aed613a3d080c
+```
+
+The transaction is now signed by both the sender and fee payer, and can now be sent over the network. Assign the output of the example code above to the rlpEncoed variable in the example below.
+
+```javascript
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+
+async function testFunction() {
+	const rlpEncoded = '0x{RLP-encoded string}'
+	const receipt = await caver.rpc.klay.sendRawTransaction(rlpEncoded)
+	console.log(receipt)
+}
+
+testFunction()
+```
+
+Save the file and run it in your console.
+
+```bash
+$ node ./test.js
+```
+
+Through the execution result of the above code, you can check the processing result of the FeeDelegatedValueTransfer transaction.
+
+```text
+{ 
+	blockHash: '0x8343d88e56767877a394b76d57946491fffbcd7eac403439b340da6024a57150',
+	blockNumber: 9300,
+	contractAddress: null,
+	feePayer: '0xb8354ce689391ce868a0605f9e5e07172651e57f',
+	feePayerSignatures: [
+		{
+			V: '0x4e44',
+			R: '0x4cbd8f47374cb07881dda839187c2cbfcc4af5127703ead87dad558f77fcbb3b',
+			S: '0x35a2d93c73824541f1f59a45c1d9546c5c991d36fe16ce9544aed613a3d080c'
+		}
+	],
+	from: '0x09a08f2289d3eb3499868908f1c84fd9523fe11b',
+	gas: '0xc350',
+	...
+	signatures: [
+		{
+			V: '0x4e44',
+			R: '0x2ab3219f367f6a0848de587ed376dd48e2a4892963f251352bf1d20fec16b50d',
+			S: '0x6f5e2e4987e0ca9ae0de0fd15d6fbc91c18f7c574d42b85c08e7cd9fb374eb46'
+		}
+	],
+	status: true,
 	to: '0x176ff0344de49c04be577a3512b6991507647f72',
-	value: 5,
-	gas: 50000,
-})
-
-await caver.wallet.signWithKeys(sender.address, feeDelegatedTx)
-
-const rlpEncoded = feeDelegatedTx.getRLPEncoding()
-```
-
-With the signed RLP-encoded string (`rawTransaction`), the fee payer can send the transaction after attaching the feePayerSignatures. If the fee payer can access to the above feeDelegatedTx instance signed by the sender, can sign directly to feeDelegatedTx. Otherwise, you can create a transaction instance and sign it using a signed RLP-encoded string, as in the example below.
-
-```javascript
-const feePayer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
-caver.wallet.add(feePayer)
-
-const feeDelegateTxFromRLPEncoding = new caver.transaction.feeDelegatedValueTransfer(rlpEncoded)
-// Set fee payer address in transaction instance
-feeDelegateTxFromRLPEncoding.feePayer = feePayer.address
-await caver.wallet.signFeePayerWithKeys(feePayer.address, feeDelegateTxFromRLPEncoding)
-console.log(feeDelegateTxFromRLPEncoding)
-```
-
-If you run the above code, you can see that the `signatures` signed by sender and `feePayerSignatures` signed by feePayer are defined inside feeDelegatedTxFroRLPEncoding. If both the sender and fee payer are signed, send signed transaction to the network as shown below.
-
-```javascript
-const receipt = await caver.rpc.klay.sendRawTransaction(feeDelegateTxFromRLPEncoding.getRLPEncoding())
-console.log(receipt)
+	transactionHash: '0x1259e9b108f010a5b5a670cf25a3e0ded5007f14ead53ee4f6a40c42e1e7d7fa',
+	transactionIndex: 0,
+	type: 'TxTypeFeeDelegatedValueTransfer',
+	typeInt: 9,
+	value: '0x5'
+}
 ```
 
 ### Account Update <a id="account-update"></a>
@@ -389,38 +733,79 @@ If you want to use other private key(s), you need to send a transaction to chang
 
 In the [Account Update] transaction, the `account` field must be defined. The account field must have an [Account] instance defined. [Account] is a structure that stores information necessary for account update. The address of the account to be updated and the accountKey to be updated are defined inside.
 
-Below is an example of how to update to [AccountKeyPublic].
+Below is an example of how to update to [AccountKeyPublic]. The code below is a test code that changes the private key(s) you use for your account. Don't forget your new priate key(s).
 
 ```javascript
-let sender = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
-caver.wallet.add(sender)
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 
-const newPrivateKey = caver.wallet.keyring.generateSingleKey()
-const newKeyring = caver.wallet.keyring.createWithSingleKey(sender.address, newPrivateKey)
+async function testFunction() {
+	let sender = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+	caver.wallet.add(sender)
 
-// create an Account instance
-// getPublicKey will return [ ['0x..'], [], [] ]
-const account = caver.account.createWithAccountKeyPublic(sender.address, newKeyring.getPublicKey()[0][0])
+	const newPrivateKey = caver.wallet.keyring.generateSingleKey()
+	console.log(`new private key string: ${newPrivateKey}`)
+	const newKeyring = caver.wallet.keyring.createWithSingleKey(sender.address, newPrivateKey)
 
-const updateTx = new caver.transaction.accountUpdate({
-	from: sender.address,
-	account,
-	gas: 50000,
-})
-await caver.wallet.signWithKeys(sender.address, updateTx)
-const receipt = await caver.rpc.klay.sendRawTransaction(updateTx)
-console.log(receipt)
+	// create an Account instance
+	// getPublicKey will return [ ['0x..'], [], [] ]
+	const account = caver.account.createWithAccountKeyPublic(sender.address, newKeyring.getPublicKey()[0][0])
+
+	const updateTx = new caver.transaction.accountUpdate({
+		from: sender.address,
+		account,
+		gas: 50000,
+	})
+	await caver.wallet.signWithKeys(sender.address, updateTx)
+	const receipt = await caver.rpc.klay.sendRawTransaction(updateTx)
+	console.log(receipt)
+
+	// Update keys in caver.wallet
+	sender = caver.wallet.updateKeyring(newKeyring)
+}
+
+testFunction()
 ```
 
-If the above code is executed successfully, you can no longer use the old private key(s). The keyring in caver.wallet stores the old private key(s), so you must update it with the new private key(s). In the code above, `newKeyring` has a new private key, so use it to update the keyring inside caver.wallet as shown below.
+If the above code is executed successfully, you can no longer use the old private key(s). The keyring in caver.wallet stores the old private key(s), so you must update it with the new private key(s). In the code above, `newKeyring` has a new private key, so use it to update the keyring inside caver.wallet through `caver.wallet.updateKeyring(newKeyring)`. When the keyring inside the caver.wallet is updated as above, when using the caver.wallet to sign in the future, it is signed using the newly updated private key(s).
 
-```javascript
-sender = caver.wallet.updateKeyring(newKeyring)
+Save the file and run it in your console.
+
+```bash
+$ node ./test.js
 ```
 
-When the keyring inside the caver.wallet is updated as above, when using the caver.wallet to sign in the future, it is signed using the newly updated private key(s).
+In the execution result of the above code, the result of the private key and account update that you should newly use is printed like below.
 
-Do you want to update your account to various [AccountKey]? The example below explains how to create an account instance to update with various AccountKeys.
+```text
+new private key string: 0x8ca19d8e22e6cf9ec339cb5dc46e7fe30690471f2fc50c0a04b6edb5bb07c957
+{ 
+	blockHash: '0x4c0221245e7c810cc19b05257e8d7cd34f24cc829f8787a832c08682640173f5',
+	blockNumber: 9942,
+	contractAddress: null,
+	from: '0xeec694a4143e05945823b216d0c62ab91c192a63',
+	gas: '0xc350',
+	gasPrice: '0x5d21dba00',
+	gasUsed: 41000,
+	key: '0x02a1024cc461670797071be16c34b22df1a3588653da5c1e9279b1d9e4b24fbcba07d8',
+	...
+	signatures: [
+		{
+			V: '0x4e43',
+			R: '0xd0fa2d25711de4bfc3a7a6a660d307264fa3b2cacbb7eb71ab68f47661ebcfaf',
+			S: '0x4652102241e61968988a22f9fa2d5d38d4e654d1f4b193fba5627c0856c9da7b'
+		} 
+	],
+	status: true,
+	transactionHash: '0x4efdeeb1bb1e52ace11d64a19f564a973b36c29a0d85899a215621659b793665',
+	transactionIndex: 0,
+	type: 'TxTypeAccountUpdate',
+	typeInt: 32
+}
+```
+
+Do you want to update your account to various [AccountKey]? The example below explains how to create an account instance to update with various AccountKeys. When creating an account update transaction in the example code above, assign the account instance created below to the account field of the transaction.
 
 First, let's create an account to update with [AccountKeyWeightedMultiSig]. For [AccountKeyWeightedMultiSig], threshold and weight for each key must be defined. To do this, use [caver.account.weightedMultiSigOptions]. The first parameter is the threshold, and the second parameter is an array in which the weight for each key.
 
@@ -492,13 +877,104 @@ For smart contract deployment, you can use [caver.contract] to deploy it, or you
 You can create a contract instance as below using the result of compiling the smart contract.
 
 ```javascript
-const abi = [{"constant":true,"inputs":[],"name":"count","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBlockNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_count","type":"uint256"}],"name":"setCount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
-const contractInstance = new caver.contract(abi)
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+
+async function testFunction() {
+	const abi = [{"constant":true,"inputs":[],"name":"count","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBlockNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_count","type":"uint256"}],"name":"setCount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
+	const contractInstance = new caver.contract(abi)
+	console.log(contractInstance)
+	console.log(contractInstance.options.address)
+}
+
+testFunction()
+```
+
+Save the file and run it in your console.
+
+```bash
+$ node ./test.js
+```
+
+Looking at the output below, you can see that the methods are managed through abi inside the Contract instance. And since it hasn't been deployed yet, you can see that the result of `contractInstance.options.address` is output as undefined.
+
+```text
+Contract {
+	currentProvider: [Getter/Setter],
+	_requestManager: { ... },
+	providers: {
+		WebsocketProvider: [Function: WebsocketProvider],
+		HttpProvider: [Function: HttpProvider],
+		IpcProvider: [Function: IpcProvider]
+	},
+	_provider: HttpProvider { ... },
+	...
+	methods: {
+		count: [Function: bound _createTxObject],
+		'0x06661abd': [Function: bound _createTxObject],
+		'count()': [Function: bound _createTxObject],
+		...
+	},
+	events: { allEvents: [Function: bound ] },
+	_address: null,
+	_jsonInterface: [ ... ],
+	_keyrings:
+	KeyringContainer { ... }
+}
+undefined
 ```
 
 If the smart contract has already been deployed and you know the contract address where the smart contract was deployed, please pass the contract address to the second parameter as shown below.
+
 ```javascript
-const contractInstance = new caver.contract(abi, '0x{address in hex}')
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+
+async function testFunction() {
+	const abi = [{"constant":true,"inputs":[],"name":"count","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBlockNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_count","type":"uint256"}],"name":"setCount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
+
+	const contractInstance = new caver.contract(abi, '0x{address in hex}')
+	console.log(contractInstance)
+	console.log(contractInstance.options.address)
+}
+
+testFunction()
+```
+
+Save the file and run it in your console.
+
+```bash
+$ node ./test.js
+```
+
+Since this contract instance received the distributed address, it stores the contract address in `contractInstance.options.address`.
+
+```text
+Contract {
+	currentProvider: [Getter/Setter],
+	_requestManager: { ... },
+	providers: {
+		WebsocketProvider: [Function: WebsocketProvider],
+		HttpProvider: [Function: HttpProvider],
+		IpcProvider: [Function: IpcProvider]
+	},
+	_provider: HttpProvider { ... },
+	...
+	methods: {
+		count: [Function: bound _createTxObject],
+		'0x06661abd': [Function: bound _createTxObject],
+		'count()': [Function: bound _createTxObject],
+		...
+	},
+	events: { allEvents: [Function: bound ] },
+	_address: '0x5362506f07A941863dE36377ed0186d15bE784c9',
+	_jsonInterface: [ ... ],
+	_keyrings:
+	KeyringContainer { ... }
+}
+0x5362506f07A941863dE36377ed0186d15bE784c9
 ```
 
 If the contract instance is created, you can deploy it by passing the bytecode to the `data` field as shown below.
@@ -506,39 +982,153 @@ If the contract instance is created, you can deploy it by passing the bytecode t
 Note that [caver.contract] sends transactions for deployment and execution. And uses keyrigs in caver.wallet to sign transactions. The keyring to be used must be added to caver.wallet.
 
 ```javascript
-caver.wallet.add(keyring)
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 
-const deployedInstance = contractInstance.deploy({
-    data:  '60806040526000805534801561001457600080fd5b50610123806100246000396000f3fe6080604052600436106053576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14605857806342cbb15c146080578063d14e62b81460a8575b600080fd5b348015606357600080fd5b50606a60df565b6040518082815260200191505060405180910390f35b348015608b57600080fd5b50609260e5565b6040518082815260200191505060405180910390f35b34801560b357600080fd5b5060dd6004803603602081101560c857600080fd5b810190808035906020019092919050505060ed565b005b60005481565b600043905090565b806000819055505056fea165627a7a72305820e381897039d8e48bf74b4a096bb1c4ed02f331bd1a7a4add6217b72fa888f2f10029',
-}).send({
-    from: keyring.address,
-    gas: '0x4bfd200',
-    value: '0x0',
-})
+async function testFunction() {
+	const deployer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+	caver.wallet.add(deployer)
+	
+	const abi = [{"constant":true,"inputs":[],"name":"count","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBlockNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_count","type":"uint256"}],"name":"setCount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
+	const contractInstance = new caver.contract(abi)
+
+	const deployedInstance = await contractInstance.deploy({
+		data:  '60806040526000805534801561001457600080fd5b50610123806100246000396000f3fe6080604052600436106053576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14605857806342cbb15c146080578063d14e62b81460a8575b600080fd5b348015606357600080fd5b50606a60df565b6040518082815260200191505060405180910390f35b348015608b57600080fd5b50609260e5565b6040518082815260200191505060405180910390f35b34801560b357600080fd5b5060dd6004803603602081101560c857600080fd5b810190808035906020019092919050505060ed565b005b60005481565b600043905090565b806000819055505056fea165627a7a72305820e381897039d8e48bf74b4a096bb1c4ed02f331bd1a7a4add6217b72fa888f2f10029',
+	}).send({
+		from: deployer.address,
+		gas: '0x4bfd200',
+		value: '0x0',
+	})
+	console.log(deployedInstance)
+	console.log(deployedInstance.options.address)
+}
+
+testFunction()
 ```
 
-The deploy function will return another contract instance that includes deployed contract address. You can check deployed contract address like below
+Save the file and run it in your console.
 
-```javascript
-console.log(deployedInstance.options.address)
+```bash
+$ node ./test.js
 ```
+
+The code above deploys the contract to the Klaytn network using the deployer keyring, and returns the deployed contract instance.
+
+```text
+Contract {
+	currentProvider: [Getter/Setter],
+	_requestManager: { ... },
+	providers: {
+		WebsocketProvider: [Function: WebsocketProvider],
+		HttpProvider: [Function: HttpProvider],
+		IpcProvider: [Function: IpcProvider]
+	},
+	_provider: HttpProvider { ... },
+	...
+	methods: {
+		count: [Function: bound _createTxObject],
+		'0x06661abd': [Function: bound _createTxObject],
+		'count()': [Function: bound _createTxObject],
+		...
+	},
+	events: { allEvents: [Function: bound ] },
+	_address: '0x5362506f07A941863dE36377ed0186d15bE784c9',
+	_jsonInterface: [ ... ],
+	_keyrings:
+	KeyringContainer { ... }
+}
+0x5362506f07A941863dE36377ed0186d15bE784c9
+```
+
 
 One way to invoke a specific method of a smart contract is to use it with `caver.contract` or use [caver.transaction.smartContractExecution], [caver.transaction.feeDelegatedSmartContractExecution] or [caver.transaction.feeDelegatedSmartContractExecutionWithRatio] transaction.
 
 To transact with a smart contract:
 
 ```javascript
-caver.wallet.add(keyring)
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 
-const receipt = await contractInstance.methods.setCount(1).send({from:account.address, gas:'0x4bfd200'})
-console.log(receipt)
+async function testFunction() {
+	const keyring = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+	caver.wallet.add(keyring)
+
+	const abi = [{"constant":true,"inputs":[],"name":"count","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBlockNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_count","type":"uint256"}],"name":"setCount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
+	const contractInstance = new caver.contract(abi, '0x{smart contract address}')
+	const receipt = await contractInstance.methods.setCount(1).send({ from:keyring.address, gas:'0x4bfd200' })
+	console.log(receipt)
+}
+
+testFunction()
+```
+
+Save the file and run it in your console.
+
+```bash
+$ node ./test.js
+```
+
+When the above code is executed, the transaction processing result to execute setCount is output as shown below.
+
+```text
+{ 
+	blockHash: '0x4dc2aba953f018bc08173fe3d7e839cdaafc365d9d1005430e704c7103145997',
+	blockNumber: 11227,
+	contractAddress: null,
+	from: '0x09a08f2289d3eb3499868908f1c84fd9523fe11b',
+	gas: '0x4bfd200',
+	gasPrice: '0x5d21dba00',
+	gasUsed: 44875,
+	input: '0xd14e62b80000000000000000000000000000000000000000000000000000000000000001',
+	logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+	nonce: '0x5c',
+	senderTxHash: '0xa0f8e5338a6d16d4ba6049823148e9cee7612e976427255d613cc25a4257fff8',
+	signatures: [
+		{
+			V: '0x4e44',
+			R: '0x6d1f6c4a05f72c1cd762df57dee4dbc1458f73bb6875084a56f97807de67a586',
+			S: '0x1a1cdcbea952d6a53f2562a1b1cd2567052f8fa1048bab46ae95308f666b738'
+		}
+	],
+	status: true,
+	to: '0x5362506f07a941863de36377ed0186d15be784c9',
+	transactionHash: '0xa0f8e5338a6d16d4ba6049823148e9cee7612e976427255d613cc25a4257fff8',
+	transactionIndex: 0, type: 'TxTypeSmartContractExecution',
+	typeInt: 48,
+	value: '0x0',
+	events: {} 
+}
 ```
 
 To call a smart contract:
 
 ```javascript
-const blockNumber = await contractInstance.methods.getBlockNumber().call()
-console.log(blockNumber)
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+
+async function testFunction() {
+	const abi = [{"constant":true,"inputs":[],"name":"count","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBlockNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_count","type":"uint256"}],"name":"setCount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
+	const contractInstance = new caver.contract(abi, '0x{smart contract address}')
+
+	const blockNumber = await contractInstance.methods.getBlockNumber().call()
+	console.log(blockNumber)
+}
+
+testFunction()
+```
+
+Save the file and run it in your console.
+
+```bash
+$ node ./test.js
+```
+
+When the above code is executed, block number is output as shown below.
+```text
+11406
 ```
 
 See [caver.contract] for details.
@@ -549,51 +1139,121 @@ If the account's accountKey is AccountKeyMultiSig or AccountKeyRoleBased, the pe
 
 This section describes how to collect signatures and send the transaction if there are multiple signers.
 
+To run this example, you need to update the accountKey of account you use for testing with [AccountKeyWeightedMultiSig]. Please refer to [Account Update](#account-update) for how to update your account.
+
 ### Sequential sign <a id="sequential-sign"></a>
+
 When a transaction is signed using caver.wallet or the transaction's sign function, signatures (or feePayerSignatures) are defined (or appended) inside the transaction. You can obtain the RLP-encoded string (`rawTransaction`) containing the signatures (and feePayerSignatures) by calling the `transaction.getRLPEncoding()` function of the signed transaction instance.
 
 The following example shows how to sign a transaction sequentially with multiple private keys.
 Assume the accountKey of sender is AccountKeyWeightedMultiSig which uses two private key strings and two users each have a private key.
 
-First, User 1 signs the transaction as shown below using one private key he has.
+In the example below, user1 and user2 create a Keyring instances to be used. After that, each uses its own keyring to sign the transaction. For reference, the example below uses `transaction.signWithKeys` to sign it.
 
 ```javascript
-const user1 = caver.wallet.newKeyring('0x{address in hex}', '0x{private key}')
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 
-const vt = new caver.transaction.valueTransfer({
-	from: user1.address,
-	to: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
-	value: 1,
-	gas: 70000,
-})
+async function testFunction() {
+	const user1 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key}')
+	const user2 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key}')
 
-await caver.wallet.signWithKeys(user1.address, vt)
-console.log(vt.signatures)
+	const transaction = new caver.transaction.valueTransfer({
+		from: user1.address,
+		to: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
+		value: 1,
+		gas: 70000,
+	})
+
+	await transaction.signWithKeys(user1)
+	console.log(transaction.signatures)
+
+	await transaction.signWithKeys(user2)
+	console.log(transaction.signatures)
+}
+
+testFunction()
 ```
 
-If you run the code above, you can see that vt.signatures contains User1's signature. 
+Save the file and run it in your console.
 
-Then let's see how to sign sequentially. User1 passes RLP-encoded string that is the result of getRLPEncoding function of the signed transaction to User2.
+```bash
+$ node ./test.js
+```
+
+Looking at the execution result of the code above, if user1 signs, one signature is created, and if user2 signs, user2's signature is appended to the existing user1's signature.
+
+```text
+[ [ '0x4e44',
+    '0x1aa72b883ca540c8a63de244cd061ec4f9efb139541e8db304c07ec27bc9d272',
+    '0x6a4ca54f6269f2ddfe3648eb9ed57b0c5739f0077e1a38449f3ae3cc0b20dc3e' ] ]
+[ [ '0x4e44',
+    '0x1aa72b883ca540c8a63de244cd061ec4f9efb139541e8db304c07ec27bc9d272',
+    '0x6a4ca54f6269f2ddfe3648eb9ed57b0c5739f0077e1a38449f3ae3cc0b20dc3e' ],
+  [ '0x4e43',
+    '0xfd76dfc53c812ec6aa860076f731e3913936088a1518cc34f2d176bcbe0ac772',
+    '0x71491c938458fffe106dde485fc8b26cbebe8a517c46bd185b126930f480d773' ] ]
+```
+
+Then let's see how to sign sequentially without sharing same transaction object. In below example, user1 passes RLP-encoded string that is the result of getRLPEncoding function of the signed transaction to user2.
 
 The code below explains how to sign and append signatures with RLP-encoded string.
 
 ```javascript
-const user2 = caver.wallet.newKeyring('0x{address in hex}', '0x{private key}')
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 
-const vt = new caver.transaction.valueTransfer(rlpEncoding)
+async function testFunction() {
+	// Create user1 keyring
+	const user1 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key}')
+	
+	// Create value transfer transaction
+	const transaction = new caver.transaction.valueTransfer({
+		from: user1.address,
+		to: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
+		value: 1,
+		gas: 70000,
+	})
+	
+	// Sign to transaction
+	await transaction.signWithKeys(user1)
 
-await caver.wallet.signWithKeys(user2.address, vt)
-console.log(vt.signatures)
+	// Create user2 keyring
+	const user2 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key}')
+
+	// Create value transfer transaction from RLP-encoded string
+	const rlpEncoding = transaction.getRLPEncoding()
+	const transactionFromRLP = new caver.transaction.valueTransfer(rlpEncoding)
+
+	await transactionFromRLP.signWithKeys(user2)
+	console.log(transactionFromRLP.signatures)
+}
+
+testFunction()
 ```
 
-If you run the above code, you can see that v2.signatures has User2's signature appended, and a total of 2 signatures are included.
+Save the file and run it in your console.
 
-When all users have signed, send a transaction to the network as shown below.
-
-```javascript
-const receipt = await caver.rpc.klay.sendRawTransaction(vt.getRLPEncoding())
-console.log(receipt)
+```bash
+$ node ./test.js
 ```
+
+Looking at the execution result of the code above, the user2's signature is appended to the existing user1's signature.
+
+```text
+[ [ '0x4e44',
+    '0x1aa72b883ca540c8a63de244cd061ec4f9efb139541e8db304c07ec27bc9d272',
+    '0x6a4ca54f6269f2ddfe3648eb9ed57b0c5739f0077e1a38449f3ae3cc0b20dc3e' ],
+  [ '0x4e43',
+    '0xfd76dfc53c812ec6aa860076f731e3913936088a1518cc34f2d176bcbe0ac772',
+    '0x71491c938458fffe106dde485fc8b26cbebe8a517c46bd185b126930f480d773' ] ]
+```
+
+If you run the above code, you can see that transactionFromRLP.signatures has User2's signature appended, and a total of 2 signatures are included.
+
+When all users have signed, send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(transactionFromRLP.getRLPEncoding())`.
 
 If you send a fee delegation transaction, and the fee payer uses multiple keys, you can proceed with the above logic using `caver.wallet.signFeePayerWithKeys`.
 
@@ -604,26 +1264,45 @@ If you receive RLP-encoded string result of signing from several people, you can
 The example below shows how to combine and send the RLP encoded transactions.
 
 ```javascript
-const vt = new caver.transaction.feeDelegatedValueTransfer({
-	from: sender.address,
-	to: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
-	value: 1,
-	gas: 70000,
-})
-const combined = vt.combineSignatures([sender1SignedRLP, sender2SignedRLP, feePayer1SignedRLP, feePayer2SignedRLP])
-console.log(vt)
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+
+async function testFunction() {
+	const vt = new caver.transaction.valueTransfer({
+		from: '0x0fa355263f37f5a54d9179452baa8b63b8b2cdde',
+		to: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
+		value: 1,
+		gas: 70000,
+	})
+	const rlpEncodedStrings = [
+		'0x08f87f018505d21dba00830111709445c2a1e3a1c3957a06dae73ad516461c2d2c7ccc01940fa355263f37f5a54d9179452baa8b63b8b2cddef847f845824e44a01aa72b883ca540c8a63de244cd061ec4f9efb139541e8db304c07ec27bc9d272a06a4ca54f6269f2ddfe3648eb9ed57b0c5739f0077e1a38449f3ae3cc0b20dc3e',
+		'0x08f8c6018505d21dba00830111709445c2a1e3a1c3957a06dae73ad516461c2d2c7ccc01940fa355263f37f5a54d9179452baa8b63b8b2cddef88ef845824e44a01aa72b883ca540c8a63de244cd061ec4f9efb139541e8db304c07ec27bc9d272a06a4ca54f6269f2ddfe3648eb9ed57b0c5739f0077e1a38449f3ae3cc0b20dc3ef845824e43a0fd76dfc53c812ec6aa860076f731e3913936088a1518cc34f2d176bcbe0ac772a071491c938458fffe106dde485fc8b26cbebe8a517c46bd185b126930f480d773',
+		'0x08f8c6018505d21dba00830111709445c2a1e3a1c3957a06dae73ad516461c2d2c7ccc01940fa355263f37f5a54d9179452baa8b63b8b2cddef88ef845824e44a01aa72b883ca540c8a63de244cd061ec4f9efb139541e8db304c07ec27bc9d272a06a4ca54f6269f2ddfe3648eb9ed57b0c5739f0077e1a38449f3ae3cc0b20dc3ef845824e43a021e84a4740b374cdcf0cc38f93225f6d2f77388a9d90302d47b4f3ed84e4db5fa072ff5e77d2506d5222081c4d2a341c6ee5d258500030564f985951472f247b7d',
+	]
+	const combined = vt.combineSignatures(rlpEncodedStrings)
+	console.log(combined)
+}
+
+testFunction()
 ```
 
-If you look at the result of calling combineSignatures, you can see that signatures contain the signatures of sender1 and sender2, and feePayerSignatures contain the signatures of feePayer1 and feePayer2.
+Save the file and run it in your console.
+
+```bash
+$ node ./test.js
+```
+
+Running the code above outputs one RLP-encoded string with all the signature information combined.
+
+```text
+0x08f9010d808505d21dba00830111709445c2a1e3a1c3957a06dae73ad516461c2d2c7ccc01940fa355263f37f5a54d9179452baa8b63b8b2cddef8d5f8458207f5a094ce13c39d25d44ad1d07ba2fd89f476c4dc6eef6071a2ef1f496f9b04d049e5a00f7abddd548998b0a55e53600a48286c38262fffc6c153a64e8f65a77c11c722f8458207f6a0ceeea7287b2670719d8ac15cf3b21b36fcaf74d58cce99935ce17e100064037aa0499067788d5db5e7c09ed7bfe19764d66684abc06b81e8f54ea254377bc81066f8458207f5a05c3ba89336c7d84d4ce08104cfd6f7ef33cd9f29766a1955baae8bcf964fd50fa015accbbce6bb11847a3b0660491775d64ef6d692ea709b768f64f12968c09240
+```
 
 When doing `combineSignatures`, an error occurs if an RLP-encoded string signed with different transaction is included.
 
-The combineSignatures returns an RLP-encoded string containing all signatures (and feePayerSignatures) as a result. You use this to send a transaction to the network.
+The combineSignatures returns an RLP-encoded string containing all signatures (and feePayerSignatures if transaction is fee delegated transaction) as a result. You use this to send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(combined)`.
 
-```javascript
-const receipt = await caver.rpc.klay.sendRawTransaction(combined)
-console.log(receipt)
-```
 
 ## Sample Projects <a id="sample-projects"></a>
 
