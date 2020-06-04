@@ -113,7 +113,7 @@ solc --optimize --bin UserStorage.sol
 
 * [스마트 컨트랙트 보안 모범 사례](https://github.com/ConsenSys/smart-contract-best-practices)
 
-참고: 이 장은 나중에 업데이트 될 예정입니다.
+참고: 이 장은 나중에 업데이트될 예정입니다.
 
 ## 참고 <a id="references"></a>
 
