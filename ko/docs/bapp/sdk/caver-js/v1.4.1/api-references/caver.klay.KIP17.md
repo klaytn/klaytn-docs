@@ -46,7 +46,7 @@ The tokenInfo object must contain the following:
 | --------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | transactionHash | String | Fired right after the transaction is sent and a transaction hash is available.                                                                                                                                                                                                                                                 |
 | receipt         | Object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
-| error           | 에러     | Fired if an error occurs during sending.                                                                                                                                                                                                                                                                                       |
+| 에러              | 에러     | Fired if an error occurs during sending.                                                                                                                                                                                                                                                                                       |
 
 **예시**
 
@@ -555,7 +555,7 @@ The sendParam object can contain the following:
 | from     | String                                          | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
 | gas      | Number &#124; String                            | (선택 사항) 트랜잭션에 규정된 최대 가스 (가스 제한). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, tokenId).estimateGas({from})`.                                                                          |
 | gasPrice | Number &#124; String                            | (선택 사항) 트랜잭션에 사용할 peb 단위의 가스 가격. 생략하면 `caver.klay.getGasPrice` 값으로 caver-js가 설정합니다.                                                                                                                                        |
-| value    | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 의해 전송된 peb 단위의 값.                                                                                                                                                                                            |
+| 값        | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 의해 전송된 peb 단위의 값.                                                                                                                                                                                            |
 
 **리턴값**
 
@@ -841,10 +841,10 @@ Note that the addMinter method will submit a transaction to the Klaytn network, 
 
 **매개변수**
 
-| 명칭           | 형식     | 설명                                                                                                                                                                                     |
-| ------------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | String | The address of account to add as a minter.                                                                                                                                             |
-| sendParam    | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip17instance-approve). |
+| 명칭        | 형식     | 설명                                                                                                                                                                                     |
+| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | String | The address of account to add as a minter.                                                                                                                                             |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip17instance-approve). |
 
 **NOTE** The from account sending the transaction must be a minter.
 
@@ -1253,10 +1253,10 @@ Note that the addPauser method will submit a transaction to the Klaytn network, 
 
 **매개변수**
 
-| 명칭           | 형식     | 설명                                                                                                                                                                                     |
-| ------------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | String | The address of account to be a new pauser.                                                                                                                                             |
-| sendParam    | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip17instance-approve). |
+| 명칭        | 형식     | 설명                                                                                                                                                                                     |
+| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | String | The address of account to be a new pauser.                                                                                                                                             |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip17instance-approve). |
 
 **NOTE** The from account sending the transaction must be pauser with permission of PauserRole.
 
