@@ -39,9 +39,9 @@ $ npm install caver-js@X.X.X
 
 ## Starting with caver-js <a id="starting-with-caver-js"></a>
 
-Once you have finished installing caver-js, you can now connect a Klaytn Node with caver-js.
+Once you have finished installing caver-js, you can now connect to a Klaytn Node using caver-js.
 
-The below shows examples in a Node.js file. To practice the examples, first create a test file in the working directory as shown below.
+To practice the examples below, first create a test file in the working directory.
 
 ```bash
 $ touch test.js
