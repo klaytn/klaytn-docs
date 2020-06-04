@@ -468,7 +468,7 @@ When the above code is executed, the receipt of transaction is output as shown b
 ```text
 { 
 	blockHash: '0xd20066b448da77a41a46fbf0856792b85b60c42213126f661f6434b5b1263072',
-	blockNumber: 7931,
+	blockNumber: '0x1efb',
 	contractAddress: null,
 	from: '0x09a08f2289d3eb3499868908f1c84fd9523fe11b',
 	gas: '0x7530',
@@ -480,7 +480,7 @@ When the above code is executed, the receipt of transaction is output as shown b
 			S: '0x578b118f4400999e5232bd0860cfbdbf89622f6e11cc6bd9722a86767d2723b7'
 		}
 	],
-	status: true,
+	status: '0x1',
 	to: '0x176ff0344de49c04be577a3512b6991507647f72',
 	transactionHash: '0x43e8ab1a2365ad598448b4402c1cfce6a71b3a103fce3a69905613e50b978113',
 	transactionIndex: 0,
@@ -697,7 +697,7 @@ Through the execution result of the above code, you can check the processing res
 ```text
 { 
 	blockHash: '0x8343d88e56767877a394b76d57946491fffbcd7eac403439b340da6024a57150',
-	blockNumber: 9300,
+	blockNumber: '0x2454',
 	contractAddress: null,
 	feePayer: '0xb8354ce689391ce868a0605f9e5e07172651e57f',
 	feePayerSignatures: [
@@ -717,7 +717,7 @@ Through the execution result of the above code, you can check the processing res
 			S: '0x6f5e2e4987e0ca9ae0de0fd15d6fbc91c18f7c574d42b85c08e7cd9fb374eb46'
 		}
 	],
-	status: true,
+	status: '0x1',
 	to: '0x176ff0344de49c04be577a3512b6991507647f72',
 	transactionHash: '0x1259e9b108f010a5b5a670cf25a3e0ded5007f14ead53ee4f6a40c42e1e7d7fa',
 	transactionIndex: 0,
@@ -782,7 +782,7 @@ In the execution result of the above code, the result of the private key and acc
 new private key string: 0x8ca19d8e22e6cf9ec339cb5dc46e7fe30690471f2fc50c0a04b6edb5bb07c957
 { 
 	blockHash: '0x4c0221245e7c810cc19b05257e8d7cd34f24cc829f8787a832c08682640173f5',
-	blockNumber: 9942,
+	blockNumber: '0x26d6',
 	contractAddress: null,
 	from: '0xeec694a4143e05945823b216d0c62ab91c192a63',
 	gas: '0xc350',
@@ -797,7 +797,7 @@ new private key string: 0x8ca19d8e22e6cf9ec339cb5dc46e7fe30690471f2fc50c0a04b6ed
 			S: '0x4652102241e61968988a22f9fa2d5d38d4e654d1f4b193fba5627c0856c9da7b'
 		} 
 	],
-	status: true,
+	status: '0x1',
 	transactionHash: '0x4efdeeb1bb1e52ace11d64a19f564a973b36c29a0d85899a215621659b793665',
 	transactionIndex: 0,
 	type: 'TxTypeAccountUpdate',
@@ -1075,12 +1075,12 @@ When the above code is executed, the transaction processing result to execute se
 ```text
 { 
 	blockHash: '0x4dc2aba953f018bc08173fe3d7e839cdaafc365d9d1005430e704c7103145997',
-	blockNumber: 11227,
+	blockNumber: '0x2bdb',
 	contractAddress: null,
 	from: '0x09a08f2289d3eb3499868908f1c84fd9523fe11b',
 	gas: '0x4bfd200',
 	gasPrice: '0x5d21dba00',
-	gasUsed: 44875,
+	gasUsed: '0xaf4b',
 	input: '0xd14e62b80000000000000000000000000000000000000000000000000000000000000001',
 	logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
 	nonce: '0x5c',
@@ -1092,7 +1092,7 @@ When the above code is executed, the transaction processing result to execute se
 			S: '0x1a1cdcbea952d6a53f2562a1b1cd2567052f8fa1048bab46ae95308f666b738'
 		}
 	],
-	status: true,
+	status: '0x1',
 	to: '0x5362506f07a941863de36377ed0186d15be784c9',
 	transactionHash: '0xa0f8e5338a6d16d4ba6049823148e9cee7612e976427255d613cc25a4257fff8',
 	transactionIndex: 0, type: 'TxTypeSmartContractExecution',
