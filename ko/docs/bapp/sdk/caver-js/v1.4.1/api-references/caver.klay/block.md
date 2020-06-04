@@ -497,13 +497,13 @@ caver.klay.isSyncing([callback])
 
 `프로미스`는 `Object|Boolean`을 반환 - 노드가 현재 싱크중이면 싱크 객체를 반환하고 싱크중이 아니면 `false`를 반환합니다.
 
-| 명칭            | 형식     | 설명                                                                          |
-| ------------- | ------ | --------------------------------------------------------------------------- |
-| startingBlock | Number | The block number where the sync started.                                    |
-| currentBlock  | Number | The block number where at which block the node currently synced to already. |
-| highestBlock  | Number | The estimated block number to sync to.                                      |
-| knownStates   | Number | The estimated states to download.                                           |
-| pulledStates  | Number | The already downloaded states.                                              |
+| 명칭            | 형식     | 설명                              |
+| ------------- | ------ | ------------------------------- |
+| startingBlock | Number | 싱크가 시작된 블록의 번호입니다.              |
+| currentBlock  | Number | 현재 노드가 이미 싱크한 상태인 블록의 블록 번호입니다. |
+| highestBlock  | Number | 싱크해야 할 블록 번호 추정값입니다.            |
+| knownStates   | Number | 앞으로 다운로드할 상태(state) 추정값입니다.     |
+| pulledStates  | Number | 이미 다운로드한 상태(state)입니다.          |
 
 **예시**
 
