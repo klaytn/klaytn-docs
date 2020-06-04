@@ -566,7 +566,7 @@ caver.klay.accounts.createAccountForUpdate의 accountKey 매개 변수는 개인
 
 공개키로 AccountForUpdate 인스턴스를 생성하고 싶으면 [caver.klay.accounts.createAccountForUpdateWithPublicKey](#createaccountforupdatewithpublickey)를 사용하세요.
 
-You can also use [caver.klay.accounts.createAccountForUpdateWithLegacyKey](#createaccountforupdatewithlegacykey) to create an AccountForUpdate instance for updating to [AccountKeyLegacy](../../../../../klaytn/design/accounts.md#accountkeylegacy), and [caver.klay.accounts.createAccountForUpdateWithFailKey](#createaccountforupdatewithfailkey) to create an AccountForUpdate instance for updating to [AccountKeyFail](../../../../../klaytn/design/accounts.md#accountkeyfail).
+또한 [caver.klay.accounts.createAccountForUpdateWithLegacyKey](#createaccountforupdatewithlegacykey)를 사용해 AccountForUpdate 인스턴스를 만들어 [AccountKeyLegacy](../../../../../klaytn/design/accounts.md#accountkeylegacy)로 업데이트 할 수 있습니다. 그리고 [caver.klay.accounts.createAccountForUpdateWithFailKey](#createaccountforupdatewithfailkey)를 사용해 AccountForUpdate 인스턴스를 만들어 [AccountKeyFail](../../../../../klaytn/design/accounts.md#accountkeyfail)로 업데이트할 수 있습니다.
 
 **참고** `caver.klay.accounts.createAccountForUpdate`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
@@ -754,7 +754,7 @@ AccountForUpdate {
 ```javascript
 caver.klay.accounts.createAccountForUpdateWithLegacyKey(address)
 ```
-Creates an AccountForUpdate instance to update the account's key with [AccountKeyLegacy](../../../../../klaytn/design/accounts.md#accountkeylegacy). AccountKeyLegacy로 업데이트하기 전에 계정 주소와 일치하는 개인키를 가지고 있는지 확인하세요.
+계정의 키를 [AccountKeyLegacy](../../../../../klaytn/design/accounts.md#accountkeylegacy)로 업데이트 하기 위한 AccountForUpdate 인스턴스를 생성합니다. AccountKeyLegacy로 업데이트하기 전에 계정 주소와 일치하는 개인키를 가지고 있는지 확인하세요.
 
 `AccountForUpdate`는 계정 업데이트 트랜잭션 객체(`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`)의 `key`로 사용될 수 있습니다. `AccountForUpdate`를 트랜잭션에서 사용하는 방법은 [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate)를 참조하세요.
 
@@ -787,7 +787,7 @@ AccountForUpdate {
 ```javascript
 caver.klay.accounts.createAccountForUpdateWithFailKey(address)
 ```
-Creates an AccountForUpdate instance to update the account's key with [AccountKeyFail](../../../../../klaytn/design/accounts.md#accountkeyfail). AccountKeyFail을 가진 계정에서 보낸 트랜잭션은 항상 유효성 검사 과정에서 실패합니다.
+계정의 키를 [AccountKeyFail](../../../../../klaytn/design/accounts.md#accountkeyfail)로 업데이트 하기 위한 AccountForUpdate 인스턴스를 생성합니다. AccountKeyFail을 가진 계정에서 보낸 트랜잭션은 항상 유효성 검사 과정에서 실패합니다.
 
 `AccountForUpdate`는 계정 업데이트 트랜잭션 객체(`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`)의 `key`로 사용될 수 있습니다. `AccountForUpdate`를 트랜잭션에서 사용하는 방법은 [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate)를 참조하세요.
 
@@ -845,17 +845,17 @@ caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터, 이 메
 
 `Promise`는 `Object`를 반환: RLP 인코딩된 서명된 트랜잭션. 객체 속성은 다음과 같습니다:
 
-| 명칭                 | 형식             | 설명                                                                                                              |
-| ------------------ | -------------- | --------------------------------------------------------------------------------------------------------------- |
-| messageHash        | String         | 주어진 메시지의 해시.                                                                                                    |
-| r                  | String         | ECDSA 서명 r.                                                                                                     |
-| s                  | String         | ECDSA 서명 s.                                                                                                     |
-| v                  | String         | ECDSA 리커버리 id.                                                                                                  |
-| rawTransaction     | String         | caver.klay.sendSignedTransaction을 사용하여 전송할 준비가 된 RLP 인코딩된 트랜잭션.                                                 |
-| txHash             | 32-byte String | 트랜잭션의 해시입니다.                                                                                                    |
-| senderTxHash       | 32-byte String | 트랜잭션 발신자만 서명한 트랜잭션의 해시입니다. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash) |
-| signatures         | 배열             | (선택 사항) 발신자의 서명(들)의 배열.                                                                                         |
-| feePayerSignatures | 배열             | (선택 사항) 수수료 지불자의 서명(들)의 배열.                                                                                     |
+| 명칭                 | 형식             | 설명                                                                                                         |
+| ------------------ | -------------- | ---------------------------------------------------------------------------------------------------------- |
+| messageHash        | String         | 주어진 메시지의 해시.                                                                                               |
+| r                  | String         | ECDSA 서명 r.                                                                                                |
+| s                  | String         | ECDSA 서명 s.                                                                                                |
+| v                  | String         | ECDSA 리커버리 id.                                                                                             |
+| rawTransaction     | String         | caver.klay.sendSignedTransaction을 사용하여 전송할 준비가 된 RLP 인코딩된 트랜잭션.                                            |
+| txHash             | 32-byte String | 트랜잭션 해시.                                                                                                   |
+| senderTxHash       | 32-byte String | 발신자만 서명한 트랜잭션 해시. [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash)를 참조하세요. |
+| signatures         | 배열             | (선택 사항) 발신자의 서명(들)의 배열.                                                                                    |
+| feePayerSignatures | 배열             | (선택 사항) 수수료 지불자의 서명(들)의 배열.                                                                                |
 
 **참고** signatures 및 feePayerSignatures 속성은 caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3) 이후 추가되었습니다. 발신자가 트랜잭션에 서명하면, 서명 배열이 `signatures`로 반환됩니다. 수수료 지불자가 서명하면, 서명 배열이 `feePayerSignatures`로 반환됩니다.
 
@@ -1125,18 +1125,18 @@ feePayerSignTransaction은 입력받은 트랜잭션에 있는 기존 signatures
 
 **리턴값**
 
-`Promise`는 `Object`를 반환: RLP 인코딩된 서명된 트랜잭션. 객체 속성은 다음과 같습니다:
+`Promise`는 `객체`를 반환: RLP 인코딩된 서명된 트랜잭션. 객체 속성은 다음과 같습니다:
 
-| 명칭                 | 형식             | 설명                                                                                                              |
-| ------------------ | -------------- | --------------------------------------------------------------------------------------------------------------- |
-| messageHash        | String         | 주어진 메시지의 해시.                                                                                                    |
-| v                  | String         | ECDSA 리커버리 id.                                                                                                  |
-| r                  | String         | ECDSA 서명 r.                                                                                                     |
-| s                  | String         | ECDSA 서명 s.                                                                                                     |
-| rawTransaction     | String         | caver.klay.sendSignedTransaction을 사용하여 전송할 준비가 된 RLP 인코딩된 트랜잭션.                                                 |
-| txHash             | 32-byte String | 트랜잭션의 해시입니다.                                                                                                    |
-| senderTxHash       | 32-byte String | 트랜잭션 발신자만 서명한 트랜잭션의 해시입니다. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash) |
-| feePayerSignatures | Array          | 트랜잭션 수수료 납부자의 서명으로 이루어진 배열입니다.                                                                                  |
+| 명칭                 | 형식             | 설명                                                                                                         |
+| ------------------ | -------------- | ---------------------------------------------------------------------------------------------------------- |
+| messageHash        | String         | 주어진 메시지의 해시.                                                                                               |
+| v                  | String         | ECDSA 리커버리 id.                                                                                             |
+| r                  | String         | ECDSA 서명 r.                                                                                                |
+| s                  | String         | ECDSA 서명 s.                                                                                                |
+| rawTransaction     | String         | caver.klay.sendSignedTransaction을 사용하여 전송할 준비가 된 RLP 인코딩된 트랜잭션.                                            |
+| txHash             | 32-byte String | 트랜잭션 해시.                                                                                                   |
+| senderTxHash       | 32-byte String | 발신자만 서명한 트랜잭션 해시. [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash)를 참조하세요. |
+| feePayerSignatures | Array          | 트랜잭션 수수료 납부자의 서명으로 이루어진 배열입니다.                                                                             |
 
 **참고** 반환되는 객체에 있는 `txHash`와 `senderTxHash`는 최종 값이 아닐 수 있습니다. 다른 발신자 서명이 추가되면 txHash 및 senderTxHash가 변경됩니다. 수수료 납부자 서명이 추가되면 txHash가 변경됩니다.
 
@@ -1292,9 +1292,9 @@ keccak256로 해시를 취합니다.
 
 **매개변수**
 
-| 명칭      | 형식     | 설명                                           |
-| ------- | ------ | -------------------------------------------- |
-| message | String | 해시를 취할 메시지입니다.  HEX 문자열인 경우 먼저 UTF-8 디코딩됩니다. |
+| 명칭  | 형식     | 설명                                           |
+| --- | ------ | -------------------------------------------- |
+| 메시지 | String | 해시를 취할 메시지입니다.  HEX 문자열인 경우 먼저 UTF-8 디코딩됩니다. |
 
 
 **리턴값**
@@ -1328,10 +1328,10 @@ caver.klay.accounts.sign(data, privateKey)
 
 **매개변수**
 
-| 명칭         | 형식     | 설명              |
-| ---------- | ------ | --------------- |
-| data       | String | 서명할 데이터입니다.     |
-| privateKey | String | 서명에 사용할 개인키입니다. |
+| 명칭         | 형식     | 설명          |
+| ---------- | ------ | ----------- |
+| data       | String | 서명할 데이터입니다. |
+| privateKey | String | 서명할 개인키.    |
 
 
 **리턴값**
@@ -1340,7 +1340,7 @@ caver.klay.accounts.sign(data, privateKey)
 
 | 명칭          | 형식     | 설명             |
 | ----------- | ------ | -------------- |
-| message     | String | 주어진 메시지.       |
+| 메시지         | String | 주어진 메시지.       |
 | messageHash | String | 주어진 메시지의 해시.   |
 | r           | String | ECDSA 서명 r.    |
 | s           | String | ECDSA 서명 s.    |
@@ -1443,8 +1443,8 @@ combineSignatures는 signatures 또는 feePayerSignatures에서 중복 값은 �
 | 명칭                 | 형식             | 설명                                                                                                                                      |
 | ------------------ | -------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | rawTransaction     | String         | caver.klay.sendSignedTransaction을 사용하여 전송할 준비가 된 RLP 인코딩된 트랜잭션.                                                                         |
-| txHash             | 32-byte String | 트랜잭션의 해시입니다.                                                                                                                            |
-| senderTxHash       | 32-byte String | 트랜잭션 발신자만 서명한 트랜잭션의 해시입니다. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash)                         |
+| txHash             | 32-byte String | 트랜잭션 해시.                                                                                                                                |
+| senderTxHash       | 32-byte String | 발신자만 서명한 트랜잭션 해시. [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash)를 참조하세요.                              |
 | signatures         | Array          | (선택 사항) 결합된 RLP 인코딩된 트랜잭션(rawTransaction)에 있는 모든 signatures. signatures가 없으면 결과 객체에 `signatures` 속성이 반환되지 않습니다.                         |
 | feePayerSignatures | Array          | (선택 사항) 결합된 RLP 인코딩된 트랜잭션(rawTransaction)에 있는 모든 feePayerSignatures. feePayerSignatures가 없으면 결과 객체에 `feePayerSignatures` 속성이 반환되지 않습니다. |
 
@@ -1516,8 +1516,8 @@ caver.klay.accounts.getRawTransactionWithSignatures(tx [, callback])
 | 명칭                 | 형식             | 설명                                                                                                                                  |
 | ------------------ | -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | rawTransaction     | String         | caver.klay.sendSignedTransaction을 사용하여 전송할 준비가 된 RLP 인코딩된 트랜잭션.                                                                     |
-| txHash             | 32-byte String | 트랜잭션의 해시입니다.                                                                                                                        |
-| senderTxHash       | 32-byte String | 트랜잭션 발신자만 서명한 트랜잭션의 해시입니다. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash)                     |
+| txHash             | 32-byte String | 트랜잭션 해시.                                                                                                                            |
+| senderTxHash       | 32-byte String | 발신자만 서명한 트랜잭션 해시. [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash)를 참조하세요.                          |
 | signatures         | 배열             | (선택 사항) RLP 인코딩된 트랜잭션(rawTransaction)에 있는 모든 signatures. signatures가 없으면 결과 객체에 `signatures` 속성이 반환되지 않습니다.                         |
 | feePayerSignatures | 배열             | (선택 사항) RLP 인코딩된 트랜잭션(rawTransaction)에 있는 모든 feePayerSignatures. feePayerSignatures가 없으면 결과 객체에 `feePayerSignatures` 속성이 반환되지 않습니다. |
 
@@ -1666,7 +1666,7 @@ Klaytn 키스토어 표준으로 계정을 암호화합니다. 더 자세한 내
 **참고** encryptTarget에서 계정 주소를 추출할 수 없는 경우 또는 계정의 개인키가 주소에서 분리된 경우, 반드시 options 객체에 address 값을 명시해야 합니다. (encryptTarget은 AccountKeyMultiSig, AccountKeyRoleBased, 개인키 문자열의 배열, 또는 역할별 키를 정의한 객체가 될 수 있습니다.)
 
 **참고**: 주소에서 개인키가 분리된 경우 개인키를 암호화하는 두 가지 방법이 있습니다.
-1. Use the [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format with the privateKey parameter.
+1. privateKey 매개변수와 함께 [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) 포맷을 사용하세요.
 2. 주소를 매개변수로 보내기 위해 `options.address`를 사용하세요.
 
 **리턴값**
@@ -1900,7 +1900,7 @@ Klaytn 키스토어 v3 표준으로 계정을 암호화합니다.
 | options       | Object               | (선택 사항) `options` 매개변수를 사용하면 암호화 사용 시 사용할 값을 지정할 수 있습니다. `options` 객체를 사용하여 분리된(decoupled) 계정을 암호화할 수도 있습니다. `options`사용법은 아래 3번째 예시를 참조하세요. |
 
 **참고**: 주소에서 개인키가 분리된 경우 개인키를 암호화하는 두 가지 방법이 있습니다.
-1. Use the [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) as `encryptTarget` parameter.
+1. [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format)를 `encryptTarget` 파라미터로 사용합니다.
 2. 계정 주소를 `options.address` 파라미터로 전달합니다. 하단에 소개한 예시 중 3번째 예시를 참고하십시오.
 
 **리턴값**
@@ -2056,10 +2056,10 @@ caver.klay.accounts.isDecoupled(key, address)
 
 **매개변수**
 
-| 명칭      | 형식     | 설명                                                                                                                                                         |
-| ------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| key     | String | 주소에서 분리되었는지 확인하고자 하는 키. Key can be a 32-byte string private key or a [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
-| address | String | (선택 사항) 분리 여부를 확인하는 데 사용되는 주소. 주소가 주어지지 않으면, 주소는 키에서 파생됩니다.                                                                                                |
+| 명칭      | 형식     | 설명                                                                                                                                   |
+| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| key     | String | 주소에서 분리되었는지 확인하고자 하는 키. 키는 32바이트 문자열 개인키 또는 [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format)입니다. |
+| address | String | (선택 사항) 분리 여부를 확인하는 데 사용되는 주소. 주소가 주어지지 않으면, 주소는 키에서 파생됩니다.                                                                          |
 
 
 **리턴값**
@@ -2094,9 +2094,9 @@ caver.klay.accounts.getLegacyAccount(key)
 
 **매개변수**
 
-| 명칭  | 형식     | 설명                                                                                                                                                                                                            |
-| --- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| key | String | 기존 계정 키가 있는 계정을 얻는 데 사용되는 매개변수입니다. Key can be a 32-byte string private key or a [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format). KlaytnWalletKey에서는 개인키에 해당하는 부분만 사용됩니다. |
+| 명칭  | 형식     | 설명                                                                                                                                                                                      |
+| --- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| key | String | 기존 계정 키가 있는 계정을 얻는 데 사용되는 매개변수입니다. 키는 32바이트 문자열 개인키 또는 [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format)입니다. KlaytnWalletKey에서는 개인키에 해당하는 부분만 사용됩니다. |
 
 
 **리턴값**
@@ -2221,10 +2221,10 @@ caver.klay.accounts.wallet.add(account [, targetAddress])
 
 | 명칭            | 형식                   | 설명                                                       |
 | ------------- | -------------------- | -------------------------------------------------------- |
-| 계정 (Account)  | String &#124; Object | [caver.klay.accounts.create](#create)로 생성된 개인키 또는 계정 객체. |
+| account       | String &#124; Object | [caver.klay.accounts.create](#create)로 생성된 개인키 또는 계정 객체. |
 | targetAddress | String               | 주어진 개인키와 함께 사용될 목표 주소.                                   |
 
-**참고**: caver-js는 두 가지 유형의 개인키 형식을 지원합니다. One is a raw private key format of a 32-byte string type and the other is the [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format).
+**참고**: caver-js는 두 가지 유형의 개인키 형식을 지원합니다. 하나는 32바이트 문자열 타입의 원시 개인키 형식이고 다른 하나는 [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format)입니다.
 
 **리턴값**
 
@@ -2297,9 +2297,9 @@ caver.klay.accounts.wallet.remove(account)
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                |
-| ------------ | -------------------- | ----------------- |
-| 계정 (Account) | String &#124; Number | 지갑의 계좌 주소 또는 인덱스. |
+| 명칭      | 형식                   | 설명                |
+| ------- | -------------------- | ----------------- |
+| account | String &#124; Number | 지갑의 계좌 주소 또는 인덱스. |
 
 
 **리턴값**
