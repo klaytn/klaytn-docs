@@ -50,7 +50,7 @@ The tokenInfo object must contain the following:
 | --------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | transactionHash | String | Fired right after the transaction is sent and a transaction hash is available.                                                                                                                                                                                     |
 | receipt         | Object | Fired when the transaction receipt is available. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt)를 참고하십시오. Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
-| error           | 에러     | Fired if an error occurs during sending.                                                                                                                                                                                                                           |
+| 에러              | 에러     | Fired if an error occurs during sending.                                                                                                                                                                                                                           |
 
 **예시**
 
@@ -851,11 +851,11 @@ Creates the amount of token and issues it to the account, increasing the total s
 
 **매개변수**
 
-| 명칭           | 형식                                    | 설명                                                                                                                                                                                    |
-| ------------ | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | String                                | The address of the account to which the minted token will be allocated.                                                                                                               |
-| amount       | BigNumber &#124; String &#124; Number | The amount of tokens to mint.                                                                                                                                                         |
-| sendParam    | Object                                | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
+| 명칭        | 형식                                    | 설명                                                                                                                                                                                    |
+| --------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | String                                | The address of the account to which the minted token will be allocated.                                                                                                               |
+| amount    | BigNumber &#124; String &#124; Number | The amount of tokens to mint.                                                                                                                                                         |
+| sendParam | Object                                | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **참고** `amount` 파라미터는 `Number` 타입 값을 받지만,  입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
@@ -925,10 +925,10 @@ Adds an account as a minter that has the permission related to minting tokens.
 
 **매개변수**
 
-| 명칭           | 형식     | 설명                                                                                                                                                                                    |
-| ------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | String | The address of account to add as a minter.                                                                                                                                            |
-| sendParam    | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
+| 명칭        | 형식     | 설명                                                                                                                                                                                    |
+| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Account   | String | The address of account to add as a minter.                                                                                                                                            |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **NOTE** The from account sending the transaction must be a minter.
 
@@ -1129,11 +1129,11 @@ kip7Instance.burnFrom(account, amount [, sendParam])
 
 **매개변수**
 
-| 명칭           | 형식                                    | 설명                                                                                                                                                                                    |
-| ------------ | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | String                                | The address of the account that owns the given amount of tokens to be burned with allowance mechanism.                                                                                |
-| amount       | BigNumber &#124; String &#124; Number | The amount of tokens to destroy.                                                                                                                                                      |
-| sendParam    | Object                                | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
+| 명칭        | 형식                                    | 설명                                                                                                                                                                                    |
+| --------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | String                                | The address of the account that owns the given amount of tokens to be burned with allowance mechanism.                                                                                |
+| amount    | BigNumber &#124; String &#124; Number | The amount of tokens to destroy.                                                                                                                                                      |
+| sendParam | Object                                | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **참고** `amount` 파라미터는 `Number` 타입 값을 받지만,  입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
@@ -1224,10 +1224,10 @@ Adds an account as a pauser that has the permission related to suspending the co
 
 **매개변수**
 
-| 명칭           | 형식     | 설명                                                                                                                                                                                    |
-| ------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | String | The address of account to be a new pauser.                                                                                                                                            |
-| sendParam    | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
+| 명칭        | 형식     | 설명                                                                                                                                                                                    |
+| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | String | The address of account to be a new pauser.                                                                                                                                            |
+| sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7instance-approve). |
 
 **NOTE** The from account sending the transaction must be pauser with permission of PauserRole.
 
