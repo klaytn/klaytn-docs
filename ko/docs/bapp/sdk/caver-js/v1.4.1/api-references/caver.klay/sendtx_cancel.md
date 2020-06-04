@@ -5,7 +5,7 @@
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends a [Cancel](../../../../../../klaytn/design/transactions/basic.md#txtypecancel) transaction to the network.
+[Cancel](../../../../../../klaytn/design/transactions/basic.md#txtypecancel) 트랜잭션을 네트워크에 전송합니다.
 
 **매개변수**
 
@@ -74,7 +74,7 @@ caver.klay.sendTransaction({
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends a [Fee Delegated Cancel](../../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedcancel) transaction to the network.
+[Fee Delegated Cancel](../../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedcancel) 트랜잭션을 네트워크에 전송합니다.
 
 **매개변수**
 
@@ -163,7 +163,7 @@ caver.klay.sendTransaction({
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends a [Fee Delegated Cancel With Ratio](../../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio) transaction to the network.
+[Fee Delegated Cancel With Ratio](../../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio) 트랜잭션을 네트워크에 전송합니다.
 
 **매개변수**
 
