@@ -46,7 +46,7 @@ TXPOOL_NONEXEC_SLOTS_ACCOUNT=16384
 
 ## 속성<a id="properties"></a>
 
-다음은 설정 파일에서 설정할 수 있는 속성입니다. SCN, SPN, SEN 설정 파일의 속성은 동일합니다.
+다음은 환경 설정 파일에서 설정할 수 있는 속성입니다. SCN, SPN, SEN 설정 파일의 속성은 동일합니다.
 
 | 명칭                             | 설명                                                                                                                                                                 |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -57,7 +57,7 @@ TXPOOL_NONEXEC_SLOTS_ACCOUNT=16384
 | SERVER_TYPE                    | JSON RPC 서버 유형  ("http", "fasthttp")                                                                                                                               |
 | SYNCMODE                       | 블록체인 동기화 모드  ("fast", "full")                                                                                                                                      |
 | VERBOSITY                      | 로그 상세 레벨.  (0=silent, 1=error, 2=warn, 3=info, 4=debug, 5=detail)                                                                                                  |
-| MAXCONNECTIONS                 | 최대로 가능한 물리적 연결 수.  단일 채널 피어는 MAXCONNECTIONS 만큼의 피어와 연결할 수 있습니다.  다중 채널 피어는 MAXCONNECTIONS/2 만큼의 피어와 연결할 수 있습니다.  0으로 설정하면 네트워크 연결이 비활성화됩니다.                        |
+| MAXCONNECTIONS                 | 최대로 가능한 물리적 연결 수  단일 채널 피어는 MAXCONNECTIONS 만큼의 피어와 연결할 수 있습니다.  다중 채널 피어는 MAXCONNECTIONS/2 만큼의 피어와 연결할 수 있습니다.  0으로 설정하면 네트워크 연결이 비활성화됩니다.                         |
 | LDBCACHESIZE                   | LevelDB의 메모리 내 캐시 크기 (MiB).                                                                                                                                        |
 | REWARDBASE                     | 블록 합의 보상을 받을 계정 주소. 이 속성은 CN에만 적용됩니다.                                                                                                                              |
 | TXPOOL_EXEC_SLOTS_ALL        | 모든 계정에 대해 실행 가능한 트랜잭션 슬롯의 최대 개수                                                                                                                                    |
