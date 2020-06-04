@@ -4,7 +4,7 @@
 caver.klay.gasPriceAt([defaultBlock] [, callback])
 ```
 
-Returns the unit price of gas in peb that was effective at the given block height.
+주어진 블록 높이에서 유효했던 가스 단가를 peb 단위로 환산해 반환합니다.
 
 **매개변수**
 
@@ -15,7 +15,7 @@ Returns the unit price of gas in peb that was effective at the given block heigh
 
 **리턴값**
 
-`Promise` returns `String` - A numeric string of the gas price in peb.
+`프로미스`는 `String`을 반환 - 문자열로 표현된 peb 단위 가스 가격입니다.
 
 
 **예시**
@@ -44,7 +44,7 @@ caver.klay.getChainId([callback])
 
 **리턴값**
 
-`Promise` returns `Number` - Integer of the chain ID of the chain.
+`프로미스`는 `Number`를 반환 - 정수값 형태의 체인 ID입니다.
 
 **예시**
 
@@ -59,7 +59,7 @@ caver.klay.getChainId([callback])
 caver.klay.getGasPrice([callback])
 ```
 
-Returns the unit price defined in the Klaytn network.
+Klaytn 네트워크에 정의된 단위 가격을 반환합니다.
 
 **매개변수**
 
@@ -69,7 +69,7 @@ Returns the unit price defined in the Klaytn network.
 
 **리턴값**
 
-`Promise` returns `String` - Number string of the current unit price in peb.
+`프로미스`는 `String`을 반환 - 문자열로 표현된 현재 peb 단위 가격입니다.
 
 **예시**
 
@@ -94,7 +94,7 @@ Klaytn 노드의 현재 클라이언트 버전을 반환합니다.
 
 **리턴값**
 
-`Promise` returns `String` - The current client version of a Klaytn node.
+`프로미스`는 `String`을 반환 - Klaytn 노드의 현재 클라이언트 버전입니다.
 
 
 **예시**
@@ -120,7 +120,7 @@ caver.klay.getProtocolVersion([callback])
 
 **리턴값**
 
-`Promise` returns `String` - The Klaytn protocol version of the node.
+`프로미스`는 `String`을 반환 - 노드의 Klaytn 프로토콜 버전입니다.
 
 
 **예시**
@@ -140,13 +140,13 @@ caver.klay.isSenderTxHashIndexingEnabled([callback])
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                                                                                     |
-| -------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback function. The callback is fired with an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                                |
+| -------- | -------- | --------------------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백 함수입니다. 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 하여 실행됩니다. |
 
 **리턴값**
 
-`Promise` returns `Boolean` - `true` means the node is indexing the sender transaction hash to find the fee-payer-signed transaction. For detailed information, please see [Klaytn Platform API - klay_getTransactionBySenderTxHash](../../../../../json-rpc/api-references/klay/transaction.md#klay_gettransactionbysendertxhash) and [Klaytn Transactions - Fee Delegation and SenderTxHash](../../../../../../klaytn/design/transactions/README.md#fee-delegation).
+`프로미스`는 `Boolean`을 반환 - `true`는 트랜잭션 수수료 납부자가 서명한 트랜잭션을 찾기 위해 노드가 트랜잭션 발신자 해시를 인덱싱하고 있음을 의미합니다. 더 자세한 정보는 [Klaytn Platform API - klay_getTransactionBySenderTxHash](../../../../../json-rpc/api-references/klay/transaction.md#klay_gettransactionbysendertxhash)와 [Klaytn Transactions - Fee Delegation and SenderTxHash](../../../../../../klaytn/design/transactions/README.md#fee-delegation)를 참조하십시오.
 
 
 **예시**
@@ -172,7 +172,7 @@ caver.klay.isParallelDBWrite([callback])
 
 **리턴값**
 
-`Promise` returns `Boolean` - `true` means the node is writing blockchain data in a parallel manner. 노드가 순차적으로 블록체인 데이터를 쓰고 있으면 `false`를 반환합니다.
+`프로미스`는 `Boolean`을 반환 - `true`는 노드가 블록체인 데이터를 병렬로 기록하고 있음을 의미합니다. 노드가 순차적으로 블록체인 데이터를 쓰고 있으면 `false`를 반환합니다.
 
 
 **예시**
@@ -188,7 +188,7 @@ true
 caver.klay.rewardbase([callback])
 ```
 
-현재 노드의 Rewardbase를 반환합니다. Rewardbase is the address of the account where the block reward goes to. Only the Klaytn Consensus Nodes (CN) have the rewardbase in their configuration. See [Configuration File](../../../../../../node/core-cell/operation-guide/configuration.md).
+현재 노드의 Rewardbase를 반환합니다. Rewardbase는 블록 보상을 받을 계정 주소입니다. 오직 Klaytn 컨센서스 노드(Consensus Nodes)만이 환경설정을 통해 Rewardbase를 받습니다. [Configuration File](../../../../../../node/core-cell/operation-guide/configuration.md)를 참조하십시오.
 
 
 **매개변수**
@@ -199,7 +199,7 @@ caver.klay.rewardbase([callback])
 
 **리턴값**
 
-`Promise` returns `String` - The rewardbase of the current node.
+`프로미스`는 `String`을 반환 - 현재 노드의 Rewardbase입니다.
 
 **예시**
 
@@ -223,7 +223,7 @@ caver.klay.writeThroughCaching([callback])
 
 **리턴값**
 
-`Promise` returns `Boolean` - `true` means the node is using write through caching.
+`프로미스`는 `Boolean`을 반환 - `true`는 노드가 write-through 캐싱을 사용하고 있음을 의미합니다.
 
 **예시**
 
