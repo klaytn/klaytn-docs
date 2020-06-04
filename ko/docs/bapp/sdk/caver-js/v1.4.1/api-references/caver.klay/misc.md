@@ -16,7 +16,7 @@ caver.klay.sha3(data[, callback])
 
 **리턴값**
 
-`Promise` returns `String` - The SHA3 result of the given data.
+`프로미스`는 `String`을 반환 - 주어진 데이터를 SHA3 해시로 변환한 결과값입니다.
 
 **예시**
 
