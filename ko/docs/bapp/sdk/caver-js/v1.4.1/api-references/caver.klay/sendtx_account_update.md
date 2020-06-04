@@ -5,7 +5,7 @@
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends an [Account Update](../../../../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) transaction to the network.
+[Account Update](../../../../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) 트랜잭션을 네트워크에 전송합니다.
 
 **매개변수**
 
@@ -266,7 +266,7 @@ caver.klay.sendTransaction({
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends a [Fee Delegated Account Update](../../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate) transaction to the network.
+[Fee Delegated Account Update](../../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate) 트랜잭션을 네트워크에 전송합니다.
 
 수수료 납부자가 트랜잭션에 서명하고 네트워크에 보내는 방법은 두 가지가 있습니다.
 
@@ -374,12 +374,12 @@ caver.klay.sendTransaction({
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends a [Fee Delegated Account Update With Ratio](../../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio) transaction to the network.
+[Fee Delegated Account Update With Ratio](../../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio) 트랜잭션을 네트워크에 전송합니다.
 
 수수료 납부자가 트랜잭션에 서명하고 네트워크에 보내는 방법은 두 가지가 있습니다.
 
 1. `caver.klay.sendTransaction`에 수수료 납부자가 사용하는 트랜잭션 형식(`senderRawTransaction`과 `feePayer`를 가진 객체)을 넘겨 호출하는 방법. 이 경우, 수수료 납부자 계정이 caver-js의 인메모리 지갑에 있어야 합니다.
-2. [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction)로 서명하고 [caver.klay.sendSignedTransaction](./transaction.md#sendsignedtransaction)로 네트워크로 전송합니다.
+2. [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction)로 서명하고 [caver.klay.sendSignedTransaction](./transaction.md#sendsignedtransaction)로 네트워크로 전송하는 방법.
 
 여기서 보여주는 예제는 `caver.klay.sendTransaction`을 사용하는 방법만 설명합니다.
 
