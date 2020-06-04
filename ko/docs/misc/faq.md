@@ -35,7 +35,7 @@ Baobab 테스트넷
 
 Klaytn SDK를 사용하여 BApp을 구축하는 방법에 대한 자세한 내용은 [튜토리얼](../bapp/tutorials/README.md)을 확인하세요.
 
-Also, check the porting guidelines [from web3.js](../bapp/sdk/caver-js/v1.4.1/porting-from-web3.js.md) and [from web3j](../bapp/sdk/caver-java/porting-from-web3j.md). caver-js 및 caver-java의 구문은 web3.js 및 web3j와 매우 유사하므로 최소의 노력으로 간단하게 포팅할 수 있습니다. 그러나, web3.js 또는 web3j를 사용하여 Klaytn에 직접 요청을 보낼 수는 없다는 점을 기억하세요.
+또한 [web3.js](../bapp/sdk/caver-js/v1.4.1/porting-from-web3.js.md) 및 [web3j](../bapp/sdk/caver-java/porting-from-web3j.md)로 구현된 앱을 쉽게 옮겨올 수 있도록 포팅 가이드라인을 제공하고 있으니 확인해보세요. caver-js 및 caver-java의 구문은 web3.js 및 web3j와 매우 유사하므로 최소의 노력으로 간단하게 포팅할 수 있습니다. 그러나, web3.js 또는 web3j를 사용하여 Klaytn에 직접 요청을 보낼 수는 없다는 점을 기억하세요.
 
 
 
@@ -98,7 +98,7 @@ Klaytn은 [계정 주소를 키 쌍과 분리할 수 있습니다](../klaytn/des
 
 컨트랙트 배포 방법은 [자바 스크립트 코드](https://gist.github.com/w3kim/64a3cf5da58250474f046d4dd7f85cc8)를 참조하세요. 트러플로는 수수료를 위임하여 컨트랙트를 배포할 수 없습니다.
 
-[Sending a transaction with multiple signer](../bapp/sdk/caver-js/v1.4.1/getting-started.md#sending-a-transaction-with-multiple-signer) gives a good explanation about two different ways of collecting signatures. 관련 caver-js API는 다음과 같습니다. API 설명에 있는 코드 예제를 살펴보세요.
+[다중 서명된 트랜잭션 보내기](../bapp/sdk/caver-js/v1.4.1/getting-started.md#sending-a-transaction-with-multiple-signer)에 여러 개의 서명을 취합하는 두 가지 방법이 잘 설명되어 있습니다. 관련 caver-js API는 다음과 같습니다. API 설명에 있는 코드 예제를 살펴보세요.
 - [caver.klay.accounts.signTransaction](../bapp/sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#signtransaction)
 - [caver.klay.accounts.feePayerSignTransaction](../bapp/sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#feepayersigntransaction)
 - [caver.klay.accounts.combinesignatures](../bapp/sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#combinesignatures)
