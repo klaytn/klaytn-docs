@@ -58,7 +58,7 @@ $ node
 
 ### 계정 생성 <a id="creating-an-account"></a>
 
-아래와 같이 계정을 생성하기 위해 `caver-js`를 사용할 수 있습니다. You can also create an account via [Klaytn Wallet](../../../../toolkit/klaytn-wallet.md#create-a-new-account).
+아래와 같이 계정을 생성하기 위해 `caver-js`를 사용할 수 있습니다. [Klaytn Wallet](../../../../toolkit/klaytn-wallet.md#create-a-new-account)을 통해 계정을 생성할 수 있습니다.
 
 ```text
 > const account = caver.klay.accounts.create()
@@ -269,7 +269,7 @@ caver-js 지갑 없이 해당 개인키로부터 서명을 직접 생성하고�
 }
 ```
 
-트랜잭션의 실행 결과는 영수증의 상태를 통하여 확인할 수 있습니다. 리턴값에 대한 자세한 설명은 [getTransactionReceipt](api-references/caver.klay/transaction.md#gettransactionreceipt)를 참조하세요. 만약 트랜잭션 실행이 실패한다면 에러에 대한 내용은 영수증의 `txError`에서 확인할 수 있습니다. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../../json-rpc/transaction-error-codes.md).
+트랜잭션의 실행 결과는 영수증의 상태를 통하여 확인할 수 있습니다. 리턴값에 대한 자세한 설명은 [getTransactionReceipt](api-references/caver.klay/transaction.md#gettransactionreceipt)를 참조하세요. 만약 트랜잭션 실행이 실패한다면 에러에 대한 내용은 영수증의 `txError`에서 확인할 수 있습니다. `txError`에 대한 자세한 설명은 [txError: Detailed Information of Transaction Failures](../../../json-rpc/transaction-error-codes.md)를 참고하세요.
 
 ## 다른 트랜잭션 타입 실행하기 <a id="executing-other-transaction-types"></a>
 
@@ -507,9 +507,9 @@ function printAccount(account) {
 | accountKeyType | 계정이 가진 accountKey의 유형. `AccountKeyPublic`, `AccountKeyMultiSig`, 또는 `AccountKeyRoleBased`일 수 있습니다.                                                                                                   |
 | accountKey     | 계정의 키. AccountKeyPublic, AccountKeyMultiSig 또는 AccountKeyRoleBased입니다.                                                                                                                               |
 | keys           | 계정이 가진 accountKey의 모든 키.                                                                                                                                                                             |
-| transactionKey | Key used for the [RoleTransaction](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic 또는 AccountKeyMultiSig는 어떤 역할에도 묶이지 않으므로, transactionKey는 키와 동일한 값을 가집니다.                           |
-| updateKey      | Key used for the [RoleAccountUpdate](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic 또는 AccountKeyMultiSig는 어떤 역할에도 묶이지 않으므로, updateKey는 키와 동일한 값을 가집니다.                              |
-| feePayerKey    | Key used for [RoleFeePayer](../../../../klaytn/design/accounts.md#roles). AccountKeyPublic 또는 AccountKeyMultiSig는 어떤 역할에도 묶이지 않으므로, feePayerKey는 키와 동일한 값을 가집니다.                                     |
+| transactionKey | [RoleTransaction](../../../../klaytn/design/accounts.md#roles)에 사용되는 키. AccountKeyPublic 또는 AccountKeyMultiSig는 어떤 역할에도 묶이지 않으므로, transactionKey는 키와 동일한 값을 가집니다.                                    |
+| updateKey      | [RoleAccountUpdate](../../../../klaytn/design/accounts.md#roles)에 사용되는 키. AccountKeyPublic 또는 AccountKeyMultiSig는 어떤 역할에도 묶이지 않으므로, updateKey는 키와 동일한 값을 가집니다.                                       |
+| feePayerKey    | [RoleFeePayer](../../../../klaytn/design/accounts.md#roles)에 사용되는 키. AccountKeyPublic 또는 AccountKeyMultiSig는 어떤 역할에도 묶이지 않으므로, feePayerKey는 키와 동일한 값을 가집니다.                                          |
 
 **참고** `transactionKey`, `updateKey`, 그리고 `feePayerKey`는 역할에 사용해야 하는 개인키 문자열 또는 개인키 문자열 배열을 반환합니다. 따라서 privateKey 속성을 사용하는 대신, accountKey 유형에 대한 걱정 없이 `transactionKey`, `updateKey` 그리고 `feePayerKey`를 적절하게 사용하는 것이 권장됩니다.
 
