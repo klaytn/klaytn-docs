@@ -5,7 +5,7 @@
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
-Sends an [Account Creation](../../../../../../klaytn/design/transactions/basic.md) transaction to the network.
+[Account Creation](../../../../../../klaytn/design/transactions/basic.md) 트랜잭션을 네트워크에 전송합니다.
 
 **매개변수**
 
