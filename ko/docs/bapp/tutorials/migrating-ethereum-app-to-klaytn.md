@@ -73,7 +73,7 @@ export default caver
 BlockNumber 컴포넌트는 1초(1000ms)마다 현재 블록 번호를 가져옵니다.
 
 간단히 `web3` 라이브러리를 `caver-js`로 대체하여 이더리움 블록 번호 대신 Klaytn의 블록 번호로 실시간으로 동기화할 수 있습니다.
-> Ethereum: [`web3.eth.getBlockNumber()`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth.html#getblocknumber)  
+> 이더리움: [`web3.eth.getBlockNumber()`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth.html#getblocknumber)  
 > Klaytn: [`caver.klay.getBlockNumber()`](../sdk/caver-js/v1.4.1/api-references/caver.klay/block.md#getblocknumber)
 
 ```js
@@ -162,7 +162,7 @@ module.exports = {
 
 `caver-js` API를 사용하여 컨트랙트 인스턴스를 생성할 수 있습니다. 컨트랙트 인스턴스는 `Count` 컨트랙트와의 연결을 생성합니다. 즉 이 인스턴스를 통해 컨트랙트 메서드를 호출할 수 있습니다.
 
-> Ethereum : [`web3.eth.Contract(ABI, address)`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth-contract.html#new-contract) Klaytn : [`caver.klay.Contract(ABI, address)`](../sdk/caver-js/v1.4.1/api-references/caver.klay.Contract.md#new-contract)
+> 이더리움 : [`web3.eth.Contract(ABI, address)`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth-contract.html#new-contract) Klaytn : [`caver.klay.Contract(ABI, address)`](../sdk/caver-js/v1.4.1/api-references/caver.klay.Contract.md#new-contract)
 
 `src/components/Count.js`
 ```javascript
