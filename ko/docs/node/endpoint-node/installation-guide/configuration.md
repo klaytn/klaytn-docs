@@ -1,4 +1,4 @@
-# 설정<a id="configuration"></a>
+# 환경설정<a id="configuration"></a>
 
 EN 환경설정은 데이터 디렉토리를 생성하고 환경설정 파일 `kend.conf`의 환경 변수를 설정합니다.
 
