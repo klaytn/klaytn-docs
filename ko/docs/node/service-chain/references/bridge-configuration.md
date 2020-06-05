@@ -60,7 +60,7 @@ MAIN_BRIDGE_INDEXING=1
 
 #### EN 콘솔 열기<a id="open-en-console"></a>
 
-EN 프로세스에 연결하는 방법이 몇 가지 있습니다. [ken CLI 명령어](../../endpoint-node/ken-cli-commands.md)에서 사용 가능한 명령을 확인할 수 있습니다. 이 페이지는 IPC(inter-process communication)를 통해 프로세스에 연결하는 방법을 설명합니다. `klay.ipc` IPC 파일은 EN/SCN의 데이터 디렉토리에 있습니다.
+EN 프로세스를 연결하는 다른 방법이 있습니다. [ken CLI commands](../../endpoint-node/ken-cli-commands.md)에서 사용 가능한 명령을 확인할 수 있습니다. 이 페이지는 IPC(inter-process communication)를 통해 프로세스에 연결하는 방법을 설명합니다. `klay.ipc` IPC 파일은 EN/SCN의 데이터 디렉토리에 있습니다.
 
 다음 명령을 실행하고 결과를 확인하세요. (RPC를 위해 `mainbridge` API를 추가한 경우, 아래와 같이 브릿지 API를 확인할 수 있습니다. `mainbridge` API가 없는 경우, [EN Configuration - Enable Main-bridge](#en-configuration-enable-main-bridge)를 다시 확인해야 합니다. )
 
@@ -77,7 +77,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
 
 #### EN의 KNI 확인하기 <a id="get-the-ens-kni"></a>
 
-IPC를 통해 프로세스를 연결한 후, 아래와 같이 EN의 메인 브리지 KNI를 확인할 수 있습니다. 상세 사항은 [서비스체인 API](../../../bapp/json-rpc/api-references/servicechain.md)를 참조하세요.
+IPC를 통해 프로세스를 연결한 후, 아래와 같이 EN의 메인 브리지 KNI를 확인할 수 있습니다. [Service Chain API](../../../bapp/json-rpc/api-references/servicechain.md)를 참조할 수 있습니다.
 
 ```javascript
 > mainbridge.nodeInfo
@@ -115,7 +115,7 @@ IPC를 통해 프로세스를 연결한 후, 아래와 같이 EN의 메인 브�
 
 #### SCN 콘솔 열기<a id="open-scn-console"></a>
 
-아래와 같이 SCN 프로세스에 연결하세요. `subbridge` RPC API가 활성화되어 있어야 하며, 출력에서 subbridge 모듈을 확인할 수 있습니다. `subbridge` API가 없는 경우, [SCN 설정](scn/configuration.md#configuration-of-the-scn)을 다시 확인해야 합니다.
+아래와 같이 SCN 프로세스에 연결하세요. `subbridge` RPC API가 활성화되어 있어야 하며, 출력에서 subbridge 모듈을 확인할 수 있습니다. `subbridge` API가 없는 경우, [Configuration of the SCN](scn/configuration.md#configuration-of-the-scn)를 다시 확인해야 합니다.
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
