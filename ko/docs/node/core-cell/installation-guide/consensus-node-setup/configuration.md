@@ -1,4 +1,4 @@
-# 설정<a id="configuration"></a>
+# 환경설정<a id="configuration"></a>
 
 CN 환경설정은 데이터 디렉토리를 생성하고 환경설정 파일 `kcnd.conf`의 여러 변수를 설정합니다.
 
