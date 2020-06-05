@@ -140,7 +140,7 @@ caver.klay.getAccounts([callback])
 caver.klay.getAccountKey(address [, defaultBlock] [, callback])
 ```
 
-외부 소유 계정(EOA)의 주소를 입력으로 받아 해당 계정의 계정 키를 반환합니다. 해당 계정의 키가 AccountKeyLegacy이거나 입력으로 받은 주소의 계정이 스마트 컨트랙트 계정이면 빈 값을 반환합니다. 자세한 내용은 [계정 키](../../../../../../klaytn/design/accounts.md#account-key)를 참고해주세요.
+외부 소유 계정(EOA)의 주소를 입력으로 받아 해당 계정의 계정 키를 반환합니다. 해당 계정이 AccountKeyLegacy이거나 입력으로 받은 주소의 계정이 스마트 컨트랙트 계정이면 빈 값을 반환합니다. 자세한 내용은 [계정 키](../../../../../../klaytn/design/accounts.md#account-key)를 참고해주세요.
 
 **참고** getAccountKey는 계정이 네트워크에 있는 경우에만 계정 키를 반환하므로 키 쌍이 생성 되었다 하더라도 주소와 일치하는 계정이 실제 블록체인 네트워크에 존재하지 않으면 null이 반환됩니다.
 
