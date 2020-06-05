@@ -118,7 +118,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 
 ![](img/scope_09_tx_detail.png)
 
-#### Overview <a id="overview"></a>
+#### 개요 <a id="overview"></a>
 
 트랜잭션에 대한 전반적인 정보입니다.
 
@@ -145,7 +145,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 
 ![](img/scope_10_account_detail.png)
 
-#### Overview <a id="overview"></a>
+#### 개요 <a id="overview"></a>
 
 계정에 대한 전반적인 정보입니다.
 
@@ -162,7 +162,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 
 ![](img/scope_11_contract_detail.png)
 
-#### Overview <a id="overview"></a>
+#### 개요 <a id="overview"></a>
 
 컨트랙트에 대한 전반적인 정보입니다.
 
