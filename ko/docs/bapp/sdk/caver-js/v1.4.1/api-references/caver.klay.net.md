@@ -5,7 +5,7 @@ description: >-
 
 # caver.klay.net <a id="caver-klay-net"></a>
 
-`caver-klay` 패키지를 사용하면 Klaytn 노드의 네트워크 속성 값을 얻어올 수 있습니다.
+`caver-klay` 패키지를 사용하면 Klaytn 노드의 네트워크 속성과 상호작용할 수 있습니다.
 
 ```javascript
 var Net = require('caver-klay-net');
