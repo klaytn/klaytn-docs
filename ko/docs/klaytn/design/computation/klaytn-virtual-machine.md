@@ -92,45 +92,45 @@ KLVM은 간단한 스택 기반 아키텍처입니다. 머신의 워드 크기(�
 
 비용표 `G`는 트랜잭션에서 발생할 수 있는 연산의 가스값 정보를 가지고 있는 37개 스칼라값을 가진 튜플(tuple)입니다. `Precompiled contracts`와 `accounts` 같은 다른 표에 대해서는 이 [문서](../transaction-fees.md#klaytns-gas-table)를 참고하세요.
 
-| 명칭                |     값 | 설명                                                                                            |
-|:----------------- | -----:|:--------------------------------------------------------------------------------------------- |
-| `G_zero`          |     0 | Set `W_zero` 연산을 위해 지불할 금액은 없음                                                                |
-| `G_base`          |     2 | Set `W_base` 연산을 위해 지불하는 가스량                                                                  |
-| `G_verylow`       |     3 | Set `W_verylow` 연산을 위해 지불하는 가스량                                                               |
-| `G_low`           |     5 | Set `W_low` 연산을 위해 지불하는 가스량                                                                   |
-| `G_mid`           |     8 | Set `W_mid` 연산을 위해 지불하는 가스량                                                                   |
-| `G_high`          |    10 | Set `W_high` 연산을 위해 지불하는 가스량                                                                  |
-| `G_blockhash`     |    20 | `BLOCKHASH` 연산을 위해 지불하는 가스량                                                                   |
-| `G_extcode`       |   700 | Set `W_extcode` 연산을 위해 지불하는 가스량                                                               |
-| `G_balance`       |   400 | `BALANCE` 연산을 위해 지불하는 가스량                                                                     |
-| `G_sload`         |   200 | `SLOAD` 연산을 위해 지불하는 가스량                                                                       |
-| `G_jumpdest`      |     1 | `JUMPDEST` 연산을 위해 지불하는 가스량                                                                    |
-| `G_sset`          | 20000 | Storage value가 0에서 0이 아니도록 변경된 경우 `SSTORE` 연산을 위해 지불하는 가스량                                    |
-| `G_sreset`        |  5000 | Storage value가 0으로 남거나 0으로 바뀐 경우 `SSTORE` 연산을 위해 지불하는 가스량                                     |
-| `R_sclear`        | 15000 | 스토리지 값이 0이 아닌 경우에서 0으로 설정된 경우 반환되는 양(반환 카운터가 추가됨)                                             |
-| `R_selfdestruct`  | 24000 | 계정 self-destructing시 반환되는 가스량(반환 카운터가 추가됨)                                                    |
-| `G_selfdestruct`  |  5000 | `SELFDESTRUCT` 연산을 위해 지불하는 가스량                                                                |
-| `G_create`        | 32000 | `CREATE` 연산을 위해 지불하는 가스량                                                                      |
-| `G_codedeposit`   |   200 | Amount of gas paid per byte for a `CREATE` operation that succeeds in placing code into state |
-| `G_call`          |   700 | `CALL` 연산을 위해 지불하는 가스량                                                                        |
-| `G_callvalue`     |  9000 | 0가 아닌 값을 전송할 때 `CALL` 연산의 일부로 지불되는 가스량                                                        |
-| `G_callstipend`   |  2300 | 0이 아닌 값 전송을 위해 호출된 컨트랙트에 지불하는 비용으로 `G_callvalue`에서 차감된 금액                                     |
-| `G_newaccount`    | 25000 | 계정을 생성하는 `SELFDESTRUCT`나 `CALL` 연산을 위해 지불하는 가스량                                               |
-| `G_exp`           |    10 | `EXP` 연산에 대한 부분 지불                                                                            |
-| `G_expbyte`       |    50 | Partial payment when multiplied by `ceil(log_256(exponent))` for an `EXP` operation           |
-| `G_memory`        |     3 | 메모리를 확장하는 모든 추가적인 단어를 위해 지불하는 가스량                                                             |
-| `G_txcreate`      | 32000 | 모든 컨트랙트 생성 트랜잭션을 위해 지불하는 가스량                                                                  |
-| `G_txdatazero`    |     4 | 0바이트의 데이터 또는 트랜잭션 코드를 위해 지불하는 가스량                                                             |
-| `G_txdatanonzero` |    68 | 0바이트가 아닌 데이터 또는 트랜잭션 코드를 위해 지불하는 가스량                                                          |
-| `G_transaction`   | 21000 | 모든 트랜잭션에 지불하는 가스량                                                                             |
-| `G_log`           |   375 | `LOG` 연산에 대한 부분 지불하는 가스량                                                                      |
-| `G_logdata`       |     8 | `LOG` 연산의 데이터의 각 바이트마다 지불되는 가스량                                                               |
-| `G_logtopic`      |   375 | `LOG` 연산의 각 topic마다 지불되는 가스량                                                                  |
-| `G_sha3`          |    30 | `SHA3` 연산 각각에 대해 지불하는 가스량                                                                     |
-| `G_sha3word`      |     6 | `SHA3` 연산에 대한 입력 데이터의 각 단어(반올림)에 대해 지불하는 가스량                                                  |
-| `G_copy`          |     3 | `COPY` 연산에 대한 부분 지불량. 복사된 단어에 곱하고, 반올림 됨.                                                     |
-| `G_extcodehash`   |   400 | 컨트랙트 코드의 `keccak256` 해시를 얻기 위해 지불하는 가스량                                                       |
-| `G_create2`       | 32000 | CREATE와 똑같이 작동하지만 다른 인수를 사용하는 `CREATE2` Opcode를 위해 지불하는 가스량                                   |
+| 명칭                |     값 | 설명                                                          |
+|:----------------- | -----:|:----------------------------------------------------------- |
+| `G_zero`          |     0 | Set `W_zero` 연산을 위해 지불할 금액은 없음                              |
+| `G_base`          |     2 | Set `W_base` 연산을 위해 지불하는 가스량                                |
+| `G_verylow`       |     3 | Set `W_verylow` 연산을 위해 지불하는 가스량                             |
+| `G_low`           |     5 | Set `W_low` 연산을 위해 지불하는 가스량                                 |
+| `G_mid`           |     8 | Set `W_mid` 연산을 위해 지불하는 가스량                                 |
+| `G_high`          |    10 | Set `W_high` 연산을 위해 지불하는 가스량                                |
+| `G_blockhash`     |    20 | `BLOCKHASH` 연산을 위해 지불하는 가스량                                 |
+| `G_extcode`       |   700 | Set `W_extcode` 연산을 위해 지불하는 가스량                             |
+| `G_balance`       |   400 | `BALANCE` 연산을 위해 지불하는 가스량                                   |
+| `G_sload`         |   200 | `SLOAD` 연산을 위해 지불하는 가스량                                     |
+| `G_jumpdest`      |     1 | `JUMPDEST` 연산을 위해 지불하는 가스량                                  |
+| `G_sset`          | 20000 | Storage value가 0에서 0이 아니도록 변경된 경우 `SSTORE` 연산을 위해 지불하는 가스량  |
+| `G_sreset`        |  5000 | Storage value가 0으로 남거나 0으로 바뀐 경우 `SSTORE` 연산을 위해 지불하는 가스량   |
+| `R_sclear`        | 15000 | 스토리지 값이 0이 아닌 경우에서 0으로 설정된 경우 반환되는 양(반환 카운터가 추가됨)           |
+| `R_selfdestruct`  | 24000 | 계정 self-destructing시 반환되는 가스량(반환 카운터가 추가됨)                  |
+| `G_selfdestruct`  |  5000 | `SELFDESTRUCT` 연산을 위해 지불하는 가스량                              |
+| `G_create`        | 32000 | `CREATE` 연산을 위해 지불하는 가스량                                    |
+| `G_codedeposit`   |   200 | 상태에 코드를 삽입하는 `CREATE` 연산 시 바이트당 지불되는 가스량입니다.                |
+| `G_call`          |   700 | `CALL` 연산을 위해 지불하는 가스량                                      |
+| `G_callvalue`     |  9000 | 0가 아닌 값을 전송할 때 `CALL` 연산의 일부로 지불되는 가스량                      |
+| `G_callstipend`   |  2300 | 0이 아닌 값 전송을 위해 호출된 컨트랙트에 지불하는 비용으로 `G_callvalue`에서 차감된 금액   |
+| `G_newaccount`    | 25000 | 계정을 생성하는 `SELFDESTRUCT`나 `CALL` 연산을 위해 지불하는 가스량             |
+| `G_exp`           |    10 | `EXP` 연산에 대한 부분 지불                                          |
+| `G_expbyte`       |    50 | `ceil(log_256(exponent))`가 곱해졌을 때 `EXP` 연산에 대한 부분 지불        |
+| `G_memory`        |     3 | 메모리를 확장하는 모든 추가적인 단어를 위해 지불하는 가스량                           |
+| `G_txcreate`      | 32000 | 모든 컨트랙트 생성 트랜잭션을 위해 지불하는 가스량                                |
+| `G_txdatazero`    |     4 | 0바이트의 데이터 또는 트랜잭션 코드를 위해 지불하는 가스량                           |
+| `G_txdatanonzero` |    68 | 0바이트가 아닌 데이터 또는 트랜잭션 코드를 위해 지불하는 가스량                        |
+| `G_transaction`   | 21000 | 모든 트랜잭션에 지불하는 가스량                                           |
+| `G_log`           |   375 | `LOG` 연산에 대한 부분 지불하는 가스량                                    |
+| `G_logdata`       |     8 | `LOG` 연산의 데이터의 각 바이트마다 지불되는 가스량                             |
+| `G_logtopic`      |   375 | `LOG` 연산의 각 topic마다 지불되는 가스량                                |
+| `G_sha3`          |    30 | `SHA3` 연산 각각에 대해 지불하는 가스량                                   |
+| `G_sha3word`      |     6 | `SHA3` 연산에 대한 입력 데이터의 각 단어(반올림)에 대해 지불하는 가스량                |
+| `G_copy`          |     3 | `COPY` 연산에 대한 부분 지불량. 복사된 단어에 곱하고, 반올림 됨.                   |
+| `G_extcodehash`   |   400 | 컨트랙트 코드의 `keccak256` 해시를 얻기 위해 지불하는 가스량                     |
+| `G_create2`       | 32000 | CREATE와 똑같이 작동하지만 다른 인수를 사용하는 `CREATE2` Opcode를 위해 지불하는 가스량 |
 
 다음과 같이 명령어의 subset을 정의합니다.
 
@@ -234,7 +234,7 @@ KLVM은 간단한 스택 기반 아키텍처입니다. 머신의 워드 크기(�
 
 대부분의 실제 구현에서 `F_apply`는 전체 시스템 상태 `S_system`과 머신 상태 `S_machine` 쌍의 반복적인 진행으로 모델링됩니다. 형태적으로, 우리는 상태 머신에서 하나의 사이클의 결과값을 정의하는 이터레이터 함수 `O`와 현재 상태가 예외적으로 중단된 머신 상태인지 확인하는 함수 `Z`, 그리고 현재 상태가 정상적으로 중단된 머신 상태일 경우에만 명령어의 출력 데이터를 지정하는 `H`를 사용하는 함수 `X`를 이용하여 재귀적으로 정의합니다.
 
-The empty sequence, denoted as `()`, is not equal to the empty set, denoted as `Set_empty`; this is important when interpreting the output of `H`, which evaluates to `Set_empty` when execution is to continue but to a series \(potentially empty\) when execution should halt.
+빈 시퀀스 `()`는 빈 Set을 가리키는 `Set_empty`와는 다릅니다. 이는 `H`의 결과를 해석할 때 중요한데, 실행을 계속해도 된다면 결과가 `Set_empty`이고 실행이 중지되어야 한다면 결과가 (아마도 비어 있을)시퀀스이기 때문입니다.
 
 `F_apply(S_machine, G_rem, I, T) := (S_system', S_machine,g', A, o)`
 
@@ -265,7 +265,7 @@ where
 
     결과로 남은 머신 상태 `S_machine'`에서 차감한다는 의미입니다.
 
-`X` is thus cycled \(recursively here, but implementations are generally expected to use a simple iterative loop\) until either `Z` becomes true, indicating that the present state is exceptional and that the machine must be halted and any changes are discarded, or until `H` becomes a series \(rather than the empty set\), indicating that the machine has reached a controlled halt.
+따라서 `Z`가 true 즉 현재 상태에 예외가 발생했으며 머신이 반드시 중지되어야 하고 따라서 모든 상태 변화는 무시되는 상황이 될 때까지, 또는 `H`가 (Set_empty가 아닌) 시퀀스가 될 때 즉 머신이 통제 가능한 중지 상황에 이를 때까지 `X`는 재귀적으로(보통 실제 구현은 단순한 반복 루프 사용) 반복해서 정의됩니다.
 
 #### 머신 상태 <a id="machine-state"></a>
 
