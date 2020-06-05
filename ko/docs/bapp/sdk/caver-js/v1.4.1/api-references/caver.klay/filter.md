@@ -102,8 +102,8 @@ caver.klay.getPastLogs(options [, callback])
 | 명칭                | 형식                   | 설명                                                                                                                                                                                           |
 | ----------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | options           | Object               | 필터 옵션.                                                                                                                                                                                       |
-| options.fromBlock | Number &#124; String | (optional) The number of the earliest block to get the logs. (`"latest"`는 가장 최신 블록을 의미하며 `"pending"`은 현재 채굴중인 블록을 의미합니다.) 기본값은 `"latest"`입니다.                                                |
-| options.toBlock   | Number &#124; String | (optional) The number of the last block to get the logs. (`"latest"`는 가장 최신 블록을 의미하며 `"pending"`은 현재 채굴중인 블록을 의미합니다.) 기본값은 `"latest"`입니다.                                                    |
+| options.fromBlock | Number &#124; String | (선택 사항) 로그를 얻을 범위의 시작 값입니다. 이 값은 시작 블록의 블록 넘버입니다. (`"latest"`는 가장 최신 블록을 의미하며 `"pending"`은 현재 채굴중인 블록을 의미합니다.) 기본값은 `"latest"`입니다.                                                           |
+| options.toBlock   | Number &#124; String | (선택 사항) 로그를 얻을 범위의 마지막 값입니다. 이 값은 마지막 블록의 블록 넘버입니다. (`"latest"`는 가장 최신 블록을 의미하며 `"pending"`은 현재 채굴중인 블록을 의미합니다.) 기본값은 `"latest"`입니다.                                                         |
 | options.address   | String &#124; Array  | (선택 사항) 주소 1개 또는 주소 목록입니다. 특정 계정(들)과 관련있는 로그들만 반환됩니다.                                                                                                                                        |
 | options.topics    | 배열                   | (선택 사항) 로그에 반드시 있어야할 값들이 담긴 배열입니다. 값들의 순서는 중요합니다. 특정 토픽을 쓰지 않으려면 `null`을 사용하십시오. *예를 들면*, `[null, '0x12...']`. 그리고 각 토픽에 대해 토픽 옵션을 배열로 넣을 수 있습니다. *예를 들면*, `[null, ['option1', 'option2']]`. |
 | callback          | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                         |
@@ -188,14 +188,14 @@ caver.klay.newFilter(options [, callback])
 
 **매개변수**
 
-| 명칭                | 형식                   | 설명                                                                                                                                                                                                             |
-| ----------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options           | Object               | 필터 옵션.                                                                                                                                                                                                         |
-| options.fromBlock | Number &#124; String | (optional) The number of the earliest block height to query the events. (여기엔 특별한 태그들이 있습니다. `"latest"`는 가장 최신 블록을 의미하며 `"pending"`은 현재 채굴중인 블록을 의미합니다.) 기본값은 `"latest"`입니다.                                    |
-| options.toBlock   | Number &#124; String | (optional) The number of the last block height to query the events (There are special tags,`"latest"` means the most recent confirmed block and `"pending"` means currently mining block). 기본값은 `"latest"`입니다. |
-| options.address   | String &#124; Array  | (선택 사항) 주어진 컨트랙트 내부에 생성된 로그들을 얻기 위한 주소 1개 또는 주소 목록입니다.                                                                                                                                                         |
-| options.topics    | 배열                   | (선택 사항) 로그에서 찾을 값들이 담긴 배열입니다. 값들의 순서는 중요합니다. 주어진 위치에서 매칭되는 모든 것을 찾으려면 `null`을 사용하십시오. *예를 들면*, `[null, '0x12...']`. 배열을 입력하여 여러 개 중 하나를 찾을 수 있습니다.  *예를 들면*, `[null, ['option1', 'option2']]`.                 |
-| callback          | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                                           |
+| 명칭                | 형식                   | 설명                                                                                                                                                                                             |
+| ----------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| options           | Object               | 필터 옵션.                                                                                                                                                                                         |
+| options.fromBlock | Number &#124; String | (선택 사항) 로그를 찾을 범위의 시작 값입니다. 이 값은 시작 블록의 블록 넘버입니다. (여기엔 특별한 태그들이 있습니다. `"latest"`는 가장 최신 블록을 의미하며 `"pending"`은 현재 채굴중인 블록을 의미합니다.) 기본값은 `"latest"`입니다.                                          |
+| options.toBlock   | Number &#124; String | (선택 사항) 로그를 찾을 범위의 마지막 값입니다. 이 값은 마지막 블록의 블록 넘버입니다(여기엔 특별한 태그들이 있습니다. `"latest"`는 가장 최신 블록을 의미하며 `"pending"`은 현재 채굴중인 블록을 의미합니다.). 기본값은 `"latest"`입니다.                                         |
+| options.address   | String &#124; Array  | (선택 사항) 주어진 컨트랙트 내부에 생성된 로그들을 얻기 위한 주소 1개 또는 주소 목록입니다.                                                                                                                                         |
+| options.topics    | 배열                   | (선택 사항) 로그에서 찾을 값들이 담긴 배열입니다. 값들의 순서는 중요합니다. 주어진 위치에서 매칭되는 모든 것을 찾으려면 `null`을 사용하십시오. *예를 들면*, `[null, '0x12...']`. 배열을 입력하여 여러 개 중 하나를 찾을 수 있습니다.  *예를 들면*, `[null, ['option1', 'option2']]`. |
+| callback          | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                           |
 
 
 **리턴값**
