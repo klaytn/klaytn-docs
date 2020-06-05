@@ -1,4 +1,4 @@
-# Value Transfer Memo Transaction <a id="value-transfer-memo-transaction"></a>
+# KLAY 및 메모 전송 트랜잭션 <a id="value-transfer-memo-transaction"></a>
 
 ## sendTransaction (VALUE_TRANSFER_MEMO) <a id="sendtransaction-value_transfer_memo"></a>
 
