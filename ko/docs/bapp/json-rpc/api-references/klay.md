@@ -20,7 +20,7 @@ description: >-
 - [klay_sign](./klay/account.md#klay_sign)
 
 
-### [블록](./klay/block.md) <a id="block"></a>
+### [블록(Block)](./klay/block.md) <a id="block"></a>
 - [klay_blockNumber](./klay/block.md#klay_blocknumber)
 - [klay_getBlockByNumber](./klay/block.md#klay_getblockbynumber)
 - [klay_getBlockByHash](./klay/block.md#klay_getblockbyhash)
@@ -38,7 +38,7 @@ description: >-
 - [klay_syncing](./klay/block.md#klay_syncing)
 
 
-### [트랜잭션(Transaction)](./klay/transaction.md) <a id="transaction"></a>
+### [트랜잭션](./klay/transaction.md) <a id="transaction"></a>
 - [klay_call](./klay/transaction.md#klay_call)
 - [klay_estimateGas](./klay/transaction.md#klay_estimategas)
 - [klay_estimateComputationCost](./klay/transaction.md#klay_estimatecomputationcost)
