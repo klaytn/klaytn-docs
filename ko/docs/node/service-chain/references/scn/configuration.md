@@ -1,4 +1,4 @@
-# 환경설정<a id="configuration"></a>
+# 설정<a id="configuration"></a>
 
 이 페이지는 컨센서스 네트워크를 구성하기 위해 SCN를 설정하는 방법을 설명합니다.
 
@@ -106,7 +106,7 @@ $ cp homi-output/keys/nodekey1  ~/kscnd_home/klay/nodekey
 
 ## SCN 설정 <a id="configuration-of-the-scn"></a>
 
-`kscnd.conf`는 SCN의 설정 파일입니다.
+`kscnd.conf`는 SCN의 구성 파일입니다.
 
 SCN이 기본 포트를 사용하고 대규모 파티션을 `~/kscnd_home`에 마운트한다고 가정합니다. 기본 `kscnd.conf` 파일은 `SC_SUB_BRIDGE` 옵션이 비활성화되어 있고 `DATA_DIR`이 지정되어 있지 않습니다.
 ```
