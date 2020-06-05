@@ -1327,7 +1327,7 @@ The BApp \(Blockchain Application\) Development sample projects using caver-js a
 [AccountKeyPublic]: ../../../klaytn/design/accounts.md#accountkeypublic
 [AccountKeyFail]: ../../../klaytn/design/accounts.md#accountkeyfail
 [AccountKeyWeightedMultiSig]: ../../../klaytn/design/accounts.md#accountkeyweightedmultisig
-[AccountKeyRoleBased]: ../../../klaytn/design/accounts.md#accountkeyrolebase
+[AccountKeyRoleBased]: ../../../klaytn/design/accounts.md#accountkeyrolebased
 [role]: ../../../klaytn/design/accounts.md#roles
 [caver.account.weightedMultiSigOptions]: api-references/caver.account.md#weightedmultisigoptions
 
