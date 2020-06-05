@@ -1,4 +1,4 @@
-# 엔드포인트 노드 <a id="endpoint-node"></a>
+# Endpoint Node <a id="endpoint-node"></a>
 
 ## 튜토리얼 대상 <a id="intended-audience"></a>
 
