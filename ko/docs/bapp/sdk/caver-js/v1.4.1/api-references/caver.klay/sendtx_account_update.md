@@ -27,7 +27,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니�
 | 명칭                   | 형식     | 설명                                                                                                                                                                                                            |
 | -------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 형식                   | String | 트랜잭션 타입. "ACCOUNT_UPDATE"                                                                                                                                                                                     |
-| from                 | String | 이 트랜잭션 발신자의 주소. 이 계정이 이 트랜잭션에 의해 업데이트 될 것입니다.                                                                                                                                                                 |
+| from                 | String | 이 트랜잭션 발신자의 주소입니다. 이 계정이 이 트랜잭션에 의해 업데이트 될 것입니다.                                                                                                                                                              |
 | gas                  | Number | 트랜잭션에 지불할 의향이 있는 최대 가스량(사용하지 않은 가스는 환불됨).                                                                                                                                                                     |
 | gasPrice             | Number | (선택사항) 트랜잭션 발신자가 설정한 가스 가격으로 단위는 peb입니다. gasPrice는 Klaytn 노드에 설정된 unitPrice와 같아야 합니다.                                                                                                                         |
 | 논스                   | Number | (선택사항) 논스의 정숫값입니다. 생략하면 `caver.klay.getTransactionCount` 값으로 caver-js가 설정합니다.                                                                                                                                 |
@@ -271,7 +271,7 @@ caver.klay.sendTransaction(transactionObject [, callback])
 수수료 납부자가 트랜잭션에 서명하고 네트워크에 보내는 방법은 두 가지가 있습니다.
 
 1. `caver.klay.sendTransaction`에 `{senderRawTransaction: rawTransaction, feePayer: feePayerAddress}`객체를 넘겨 호출하는 방법. 이 객체는 수수료 납부자가 사용하는 트랜잭션 형식입니다. 이 경우, 수수료 납부자 계정이 caver-js의 인메모리 지갑에 있어야 합니다.
-2. [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction)로 서명하고 [caver.klay.sendSignedTransaction](./transaction.md#sendsignedtransaction)로 네트워크로 전송하는 방법.
+2. [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction)로 서명하고 [caver.klay.sendSignedTransaction](./transaction.md#sendsignedtransaction)로 네트워크로 전송합니다.
 
 여기서 보여주는 예제는 `caver.klay.sendTransaction`을 사용하는 방법만 설명합니다.
 
