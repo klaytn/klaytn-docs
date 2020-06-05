@@ -1,4 +1,4 @@
-# 네트워크 설정 <a id="network-configuration"></a>
+# 네트워크 구성 <a id="network-configuration"></a>
 
 코어 셀은 다음으로 구성 될 수 있습니다:
 
