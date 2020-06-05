@@ -28,7 +28,7 @@ $ sudo mkdir -p /var/kend/data
 DATA_DIR=/var/kend/data
 ```
 
-## 패스트 싱크 \(선택 사항\) <a id="fast-sync-optional"></a>
+## Fast Sync \(선택 사항\) <a id="fast-sync-optional"></a>
 
 각 EN은 네트워크의 체인 데이터 사본을 갖고 있습니다. 어떤 노드가 동기화되어 있지 않으면 네트워크의 다른 노드로부터 데이터를 받아옵니다 -- 동기화(syncing)라고 알려진 과정입니다. 새로운 EN이 처음 시작되면 네트워크로부터 전체 체인 데이터를 다운로드받아와야 합니다.
 
