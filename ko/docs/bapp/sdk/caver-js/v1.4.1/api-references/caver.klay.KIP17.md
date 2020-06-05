@@ -1255,7 +1255,7 @@ Note that the addPauser method will submit a transaction to the Klaytn network, 
 
 | 명칭        | 형식     | 설명                                                                                                                                                                                     |
 | --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | String | The address of account to be a new pauser.                                                                                                                                             |
+| Account   | String | The address of account to be a new pauser.                                                                                                                                             |
 | sendParam | Object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip17instance-approve). |
 
 **NOTE** The from account sending the transaction must be pauser with permission of PauserRole.
