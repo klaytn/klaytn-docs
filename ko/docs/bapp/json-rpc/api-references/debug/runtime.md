@@ -1,4 +1,4 @@
-# 런타임 디버깅<a id="runtime-debugging"></a>
+# 런타임 디버깅 <a id="runtime-debugging"></a>
 
 ## debug_freeOSMemory <a id="debug_freeosmemory"></a>
 
