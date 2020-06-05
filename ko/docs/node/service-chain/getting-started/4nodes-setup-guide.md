@@ -6,7 +6,7 @@
       - 서비스체인 컨센서스 노드: [kscn-v1.4.2-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.4.2/kscn-v1.4.2-0-linux-amd64.tar.gz)
       - homi 유틸리티: [homi-v1.4.2-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.4.2/homi-v1.4.2-0-linux-amd64.tar.gz)
    - MacOS
-      - 서비스체인 컨센서스 노드: [kscn-v1.4.2-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.4.2/kscn-v1.4.2-0-darwin-10.10-amd64.tar.gz)
+      - 서비스체인 컨센서스 노드(SCN): [kscn-v1.4.2-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.4.2/kscn-v1.4.2-0-darwin-10.10-amd64.tar.gz)
       - homi 유틸리티: [homi-v1.4.2-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.4.2/homi-v1.4.2-0-darwin-10.10-amd64.tar.gz)
  - 4대의 Linux 또는 MacOS 서버
  - 최소 하드웨어 요구 사항
