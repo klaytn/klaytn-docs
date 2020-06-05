@@ -30,9 +30,9 @@ gpgkey = https://repos.influxdata.com/influxdb.key
 EOF
 ```
 
-## Telegraf 설정<a id="telegraf-setup"></a>
+## Telegraf 설정 <a id="telegraf-setup"></a>
 
-### kcnd/kpnd에서 모니터링 활성화<a id="enable-monitoring-in-kcnd-kpnd"></a>
+### kcnd/kpnd에서 모니터링 활성화 <a id="enable-monitoring-in-kcnd-kpnd"></a>
 
 /etc/kcnd/conf/kcnd.conf
 
