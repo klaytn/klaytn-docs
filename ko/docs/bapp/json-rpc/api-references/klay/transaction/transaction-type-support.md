@@ -1,4 +1,4 @@
-# 다양한 Klaytn 트랜잭션 타입 활용하기<a id="working-with-klaytn-transaction-types"></a>
+# Working with Klaytn Transaction Types <a id="working-with-klaytn-transaction-types"></a>
 Klaytn은 다양한 트랜잭션 타입을 지원하며 각 트랜잭션은 서로 다른 필드를 가집니다. 따라서 사용자들은 트랜잭션 타입을 반드시 먼저 이해한 다음 트랜잭션  전송 및 서명 시 올바른 타입을 사용해야 합니다. 관련 APIs: `klay_signTransaction`, `klay_sendTransaction`, `klay_signTransactionAsFeePayer`, `klay_sendTransactionAsFeePayer`, `personal_signTransaction`, `personal_sendTransaction`.
 
 
@@ -14,9 +14,9 @@ TxTypeLegacyTransaction은 Klaytn에 있는 기존 트랜잭션 타입입니다.
 | to       | 20바이트 크기 DATA | (컨트랙트 생성 시 선택사항) 트랜잭션 수신자의 주소입니다.                                                                                          |
 | gas      | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다. |
 | gasPrice | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스 가격의 정숫값입니다. 트랜잭션 수수료는 가스와 가스 가격을 곱한 값입니다.                                          |
-| value    | QUANTITY      | (선택사항) 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                      |
+| 값        | QUANTITY      | (선택사항) 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                      |
 | data     | DATA          | 배포할 컨트랙트를 컴파일하면 얻는 바이트코드, 또는 컨트랙트를 호출할 때 필요한 함수 지시자(function indicator)와 파라미터 값(parameter values)들입니다.                     |
-| nonce    | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                         |
+| 논스       | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                         |
 
 **예시**
 ```shell
@@ -59,7 +59,7 @@ TxTypeValueTransfer는 사용자가 KLAY를 전송할 때 사용됩니다. 더 �
 | to       | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                           |
 | gas      | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다. |
 | gasPrice | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스 가격의 정숫값입니다. 트랜잭션 수수료는 가스와 가스 가격을 곱한 값입니다.                                          |
-| nonce    | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                         |
+| 논스       | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                         |
 | value    | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                             |
 
 **예시**
@@ -109,7 +109,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 | to         | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                                                                                  |
 | gas        | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
 | gasPrice   | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스 가격의 정숫값입니다. 트랜잭션 수수료는 가스와 가스 가격을 곱한 값입니다.                                                                                                 |
-| nonce      | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
+| 논스         | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
 | value      | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                                                                    |
 | feePayer   | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소입니다.                                                                                                                                                              |
 | signatures | DATA          | (선택 사항 - 오직 `klay_sendTransactionAsFeePayer` API에만 적용됨) 서명 객체들이 담긴 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다. |
@@ -176,7 +176,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 | to         | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                                                                                  |
 | gas        | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
 | gasPrice   | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스당 가격의 정숫값입니다.                                                                                                                              |
-| nonce      | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
+| 논스         | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
 | value      | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                                                                    |
 | feePayer   | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소.                                                                                                                                                                 |
 | feeRatio   | QUANTITY      | 트랜잭션 수수료 납부자의 부담 비율입니다. 이 값이 30이면, 트랜잭션 수수료의 30%를 트랜잭션 수수료 납부자가 지불합니다. 나머지 70%는 트랜잭션 발신자가 지불합니다. 수수료 비율의 범위는 1 ~ 99이며, 이 범위를 벗어나면 트랜잭션이 수락되지 않습니다.                                |
@@ -245,7 +245,7 @@ TxTypeValueTransferMemo는 사용자가 특정 메시지와 함께 KLAY를 보�
 | to       | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                           |
 | gas      | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다. |
 | gasPrice | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스당 가격의 정숫값입니다.                                                                       |
-| nonce    | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                         |
+| 논스       | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                         |
 | value    | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                             |
 | input    | DATA          | 트랜잭션과 함께 전송된 데이터입니다.                                                                                                       |
 
@@ -298,8 +298,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 | to         | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                                                                                  |
 | gas        | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
 | gasPrice   | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스당 가격의 정숫값입니다.                                                                                                                              |
-| nonce      | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
-| value      | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                                                                    |
+| 논스         | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
+| 값          | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                                                                    |
 | input      | DATA          | 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                                              |
 | feePayer   | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소.                                                                                                                                                                 |
 | signatures | DATA          | (선택 사항 - 오직 `klay_sendTransactionAsFeePayer` API에만 적용됨) 서명 객체들이 담긴 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다. |
@@ -368,7 +368,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 | to         | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                                                                                  |
 | gas        | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
 | gasPrice   | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스당 가격의 정숫값입니다.                                                                                                                              |
-| nonce      | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
+| 논스         | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
 | value      | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                                                                    |
 | input      | DATA          | 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                                              |
 | feePayer   | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소.                                                                                                                                                                 |
@@ -438,7 +438,7 @@ TxTypeAccountUpdate는 해당 계정의 키를 업데이트합니다. 더 자세
 | from     | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                |
 | gas      | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.      |
 | gasPrice | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스당 가격의 정숫값입니다.                                                                            |
-| nonce    | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                              |
+| 논스       | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                              |
 | key      | DATA          | `from` 계정의 RLP 인코딩된 새로운 계정 키입니다. 계정 키에 관한 자세한 정보는  [Account Key](../../../../../klaytn/design/accounts.md#account-key)에서 확인하세요. |
 
 **예시**
@@ -487,7 +487,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 | from       | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                                  |
 | gas        | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
 | gasPrice   | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스당 가격의 정숫값입니다.                                                                                                                              |
-| nonce      | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
+| 논스         | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
 | key        | DATA          | `from` 계정의 RLP 인코딩된 새로운 계정 키입니다. 계정 키에 관한 자세한 정보는  [Account Key](../../../../../klaytn/design/accounts.md#account-key)에서 확인하세요.                                                   |
 | feePayer   | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소.                                                                                                                                                                 |
 | signatures | DATA          | (선택 사항 - 오직 `klay_sendTransactionAsFeePayer` API에만 적용됨) 서명 객체들이 담긴 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다. |
@@ -553,7 +553,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 | from       | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                                  |
 | gas        | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
 | gasPrice   | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스당 가격의 정숫값입니다.                                                                                                                              |
-| nonce      | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
+| 논스         | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
 | key        | DATA          | `from` 계정의 RLP 인코딩된 새로운 계정 키입니다. 계정 키에 관한 자세한 정보는  [Account Key](../../../../../klaytn/design/accounts.md#account-key)에서 확인하세요.                                                   |
 | feePayer   | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소.                                                                                                                                                                 |
 | feeRatio   | QUANTITY      | 트랜잭션 수수료 납부자의 부담 비율입니다. 이 값이 30이면, 트랜잭션 수수료의 30%를 트랜잭션 수수료 납부자가 지불합니다. 나머지 70%는 트랜잭션 발신자가 지불합니다. 수수료 비율의 범위는 1 ~ 99이며, 이 범위를 벗어나면 트랜잭션이 수락되지 않습니다.                                |
@@ -621,7 +621,7 @@ TxTypeSmartContractDeploy는 지정된 주소에 스마트 컨트랙트를 배�
 | to            | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                              |
 | gas           | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.    |
 | gasPrice      | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스당 가격의 정숫값입니다.                                                                          |
-| nonce         | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                            |
+| 논스            | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                            |
 | value         | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                |
 | input         | DATA          | 트랜잭션과 함께 전송된 데이터입니다.                                                                                                          |
 | humanReadable | Boolean       | Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. 현재, 이 값은 반드시 `false`이어야 합니다. Human-readable한 주소는 추후 지원될 예정입니다. |
@@ -678,7 +678,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 | to            | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                                                                                  |
 | gas           | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
 | gasPrice      | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스당 가격의 정숫값입니다.                                                                                                                              |
-| nonce         | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
+| 논스            | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
 | value         | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                                                                    |
 | input         | DATA          | 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                                              |
 | humanReadable | Boolean       | Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. 현재, 이 값은 반드시 `false`이어야 합니다. Human-readable한 주소는 추후 지원될 예정입니다.                                                     |
@@ -752,7 +752,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 | to            | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                                                                                  |
 | gas           | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
 | gasPrice      | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스당 가격의 정숫값입니다.                                                                                                                              |
-| nonce         | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
+| 논스            | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
 | value         | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                                                                    |
 | input         | DATA          | 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                                              |
 | humanReadable | Boolean       | Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. 현재, 이 값은 반드시 `false`이어야 합니다. Human-readable한 주소는 추후 지원될 예정입니다.                                                     |
@@ -828,8 +828,8 @@ TxTypeSmartContractExecution는 스마트 컨트랙트를 실행하고, `input`�
 | to       | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                           |
 | gas      | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다. |
 | gasPrice | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스당 가격의 정숫값입니다.                                                                       |
-| nonce    | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                         |
-| value    | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                             |
+| 논스       | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                         |
+| 값        | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                             |
 | input    | DATA          | 트랜잭션과 함께 전송된 데이터입니다.                                                                                                       |
 
 
@@ -881,7 +881,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 | to         | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                                                                                  |
 | gas        | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
 | gasPrice   | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스당 가격의 정숫값입니다.                                                                                                                              |
-| nonce      | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
+| 논스         | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
 | value      | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                                                                    |
 | input      | DATA          | 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                                              |
 | feePayer   | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소.                                                                                                                                                                 |
@@ -951,7 +951,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 | to         | 20바이트 크기 DATA | 트랜잭션을 수신할 주소입니다.                                                                                                                                                                  |
 | gas        | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
 | gasPrice   | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스당 가격의 정숫값입니다.                                                                                                                              |
-| nonce      | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
+| 논스         | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
 | value      | QUANTITY      | 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                                                                    |
 | input      | DATA          | 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                                              |
 | feePayer   | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소.                                                                                                                                                                 |
@@ -1022,7 +1022,7 @@ TxTypeCancel는 트랜잭션 풀에서 같은 논스를 가진 트랜잭션을 �
 | from     | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                           |
 | gas      | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다. |
 | gasPrice | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스당 가격의 정숫값입니다.                                                                       |
-| nonce    | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                         |
+| 논스       | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                         |
 
 
 **예시**
@@ -1069,7 +1069,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 | from       | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                                  |
 | gas        | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
 | gasPrice   | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스당 가격의 정숫값입니다.                                                                                                                              |
-| nonce      | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
+| 논스         | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
 | feePayer   | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소.                                                                                                                                                                 |
 | signatures | DATA          | (선택 사항 - 오직 `klay_sendTransactionAsFeePayer` API에만 적용됨) 서명 객체들이 담긴 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다. |
 
@@ -1133,7 +1133,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 | from       | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                                  |
 | gas        | QUANTITY      | (선택사항이며, 기본 설정은 90000입니다.) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. 사용되지 않은 가스는 발신자에게 환불됩니다. 입력한 가스가 트랜잭션을 실행하기에 충분하지 않다면 트랜잭션은 거부됩니다.                                                        |
 | gasPrice   | QUANTITY      | (선택사항이며, 기본 설정은 25000000000 Peb입니다.) 가스당 가격의 정숫값입니다.                                                                                                                              |
-| nonce      | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
+| 논스         | QUANTITY      | (선택사항) 논스의 정숫값입니다.                                                                                                                                                                |
 | feePayer   | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소.                                                                                                                                                                 |
 | feeRatio   | QUANTITY      | 트랜잭션 수수료 납부자의 부담 비율입니다. 이 값이 30이면, 트랜잭션 수수료의 30%를 트랜잭션 수수료 납부자가 지불합니다. 나머지 70%는 트랜잭션 발신자가 지불합니다. 수수료 비율의 범위는 1 ~ 99이며, 이 범위를 벗어나면 트랜잭션이 수락되지 않습니다.                                |
 | signatures | DATA          | (선택 사항 - 오직 `klay_sendTransactionAsFeePayer` API에만 적용됨) 서명 객체들이 담긴 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다. |
