@@ -1,7 +1,7 @@
 # 다운로드<a id="download"></a>
 
 ## 패키지 받기 <a id="get-the-packages"></a>
-CN, PN, EN, SCN, SPN 및 SEN용 Linux 및 MacOS 패키지를 받을 수 있습니다.
+CN, PN, EN, SCN, SPN 및 SEN 용 Linux 및 MacOS 패키지를 받을 수 있습니다.
 
 - [v1.4.2 (latest)](v1.4.2.md)
 - [v1.4.1](v1.4.1.md)
