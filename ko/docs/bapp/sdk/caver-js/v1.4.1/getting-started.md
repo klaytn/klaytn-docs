@@ -129,7 +129,7 @@ caver-js 지갑에 추가된 계정은 `sendTransaction`에 사용될 수 있습
 
 ### Baobab Faucet을 통해 KLAY 받기 <a id="getting-klay-via-baobab-faucet"></a>
 
-If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). 개인키 또는 키스토어 파일을 사용하여 Klaytn Wallet에 로그인하고 테스트를 위해 faucet을 통해 Baobab 테스트넷 KLAY를 받습니다.
+테스트를 위해 KLAY가 필요한 경우 [Klaytn Wallet](../../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에서 Baobab testnet KLAY를 얻을 수 있습니다. 개인키 또는 키스토어 파일을 사용하여 Klaytn Wallet에 로그인하고 테스트를 위해 faucet을 통해 Baobab 테스트넷 KLAY를 받습니다.
 
 ### 송금 트랜잭션 전송 <a id="sending-a-value-transfer-transaction"></a>
 
@@ -273,11 +273,11 @@ caver-js 지갑 없이 해당 개인키로부터 서명을 직접 생성하고�
 
 ## 다른 트랜잭션 타입 실행하기 <a id="executing-other-transaction-types"></a>
 
-Klaytn은 확장성과 성능을 위한 다양한 트랜잭션 타입을 제공합니다. For more information, see [Transactions](../../../../klaytn/design/transactions/README.md). 이 장에서는 caver-js와 함께 사용할 수 있는 다양한 예시를 설명합니다.
+Klaytn은 확장성과 성능을 위한 다양한 트랜잭션 타입을 제공합니다. 자세한 내용은 [트랜잭션](../../../../klaytn/design/transactions/README.md)을 참고하세요. 이 장에서는 caver-js와 함께 사용할 수 있는 다양한 예시를 설명합니다.
 
 ### 트랜잭션 수수료 위임 <a id="fee-delegation"></a>
 
-Klaytn provides [Fee Delegation](../../../../klaytn/design/transactions/README.md#fee-delegation) feature. 예제 코드는 다음과 같습니다.
+Klaytn은 [트랜잭션 수수료 위임](../../../../klaytn/design/transactions/README.md#fee-delegation) 기능을 제공합니다. 예제 코드는 다음과 같습니다.
 
 발신인인 경우 아래 코드를 사용하여 RLP로 인코딩된 트랜잭션 객체를 만드세요:
 
@@ -433,7 +433,7 @@ Contract JSON ABI
 
 ## 다양한 AccountKey 타입 사용 <a id="using-various-accountkey-types"></a>
 
-caver-js introduces new classes to support the various types of [AccountKey](../../../../klaytn/design/accounts.md#account-key) supported by the platform.
+caver-js는 플랫폼 지원으로 다양한 유형의 [AccountKey](../../../../klaytn/design/accounts.md#account-key)를 지원하는 새로운 클래스를 도입했습니다.
 
 아래 예제는 Node.js 파일에서의 예시를 설명합니다. 예제를 실습하려면, 먼저 아래처럼 작업 디렉토리에 테스트 파일을 생성하세요.
 
@@ -516,7 +516,7 @@ function printAccount(account) {
 다양한 AccountKey 클래스에 대한 설명은 [AccountKey](#accountkey) 부분에서 제공됩니다.
 
 ### AccountKey  <a id="accountkey"></a>
-AccountKey는 계정의 키를 저장하는 데이터 구조입니다. 계정에는 서명에 사용할 하나의 개인키 문자열 또는 여러 개인키 문자열이 있을 수 있습니다. Account can also manage the private keys by [roles](../../../../klaytn/design/accounts.md#roles).
+AccountKey는 계정의 키를 저장하는 데이터 구조입니다. 계정에는 서명에 사용할 하나의 개인키 문자열 또는 여러 개인키 문자열이 있을 수 있습니다. 계정은 [역할들](../../../../klaytn/design/accounts.md#roles)로 개인키를 관리할 수도 있습니다.
 
 이 구조를 지원하기 위해, caver-js는 AccountKeyPublic, AccountKeyMultiSig 및 AccountKeyRoleBased라는 새로운 클래스를 도입했습니다.
 
@@ -649,7 +649,7 @@ AccountForUpdate는 계정 업데이트를 위한 트랜잭션을 보다 쉽게 
 
 AccountForUpdate는 계정 업데이트에 사용할 공개키와 업데이트 할 계정의 주소만 가지고 있습니다.
 
-아래 예제는 accountKey로 계정을 업데이트하는 것으로 시작합니다. 계정에 테스트에 사용하기 충분한 KLAY가 있어야 합니다. Test KLAY for the Baobab network is available through [Baobab Faucet](../../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
+아래 예제는 accountKey로 계정을 업데이트하는 것으로 시작합니다. 계정에 테스트에 사용하기 충분한 KLAY가 있어야 합니다. Baobab 네트워크에서 사용할 테스트 KLAY는 [Baobab Faucet](../../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에서 얻을 수 있습니다.
 
 #### AccountForUpdate 생성하기<a id="create-an-accountforupdate"></a>
 AccountForUpdate를 생성하는 것으로 시작하겠습니다.
@@ -741,7 +741,7 @@ const updatedKey = await caver.klay.getAccountKey(account.address)
 console.log(updatedKey)
 ```
 
-**참고** `caver.klay.accounts.feePayerSignTransaction`은 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
+**참고** `caver.klay.accounts.feePayerSignTransaction`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
 `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` 트랜잭션을 사용하려는경우 위의 예제에 `updateTx`를 아래와 같이 정의하세요.
 
