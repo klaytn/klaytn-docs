@@ -5,7 +5,7 @@ EN과 SCN을 설정한 후 체인 간 밸류 트랜스퍼를 활성화하려면 
 1. 브리지 오퍼레이터 계정의 주소를 확인하고 브리지 오퍼레이터 계정에 KLAY를 추가하세요.
 2. 브리지 컨트랙트를 부모/자식 체인에 배포하세요.
 3. 부모/자식 체인에 토큰(ERC-20 또는 721) 컨트랙트를 배포하세요. (KLAY 전송만 필요하면 3 & 4 단계는 건너뛰세요.) 부모/자식 체인에 있는 브리지 컨트랙트에 토큰 컨트랙트를 등록하세요.
-4. 부모/자식 체인에 있는 브리지 컨트랙트를 구독하세요.
+4. 부모/자식 체인에 있는 브리지 컨트랙트에 토큰 컨트랙트를 등록하세요.
 5. 부모/자식 체인에 있는 브리지 컨트랙트를 구독하세요.
 
 각 단계를 수행하기 전에 동작 메커니즘을 이해하기 위해 개략적인 시스템 구조를 살펴 보겠습니다.
@@ -31,8 +31,8 @@ SCN이 부팅될 때 제공된 키가 없으면 부모/자식 오퍼레이터를
 - 패스워드 파일 : `0x2eD72a9D7fe5da7672fD21567e07302431649B0B`
 
 **파일 경로**
-- 부모 체인 브리지 오퍼레이터 : $datadir/parent_bridge_account
-- 자식 체인 브리지 오퍼레이터 : $datadir/child_bridge_account
+- 부모 체인 브리지 오퍼레이터 : $datadir/ parent_bridge_account
+- 자식 체인 브리지 오퍼레이터 : $datadir/ child_bridge_account
 
 ```javascript
 > pwd
@@ -171,7 +171,7 @@ INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=
 - pending : `request`와 ` lowerHandle`의 차이.
 
 ### RPC API <a id="rpc-api"></a>
-다음과 같이 브리지 컨트랙트의 상태를 확인할 수 있습니다. 자세한 내용은 [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_getBridgeInformation)를 참조하세요.
+다음과 같이 브리지 컨트랙트의 상태를 확인할 수 있습니다. 상세 사항은 [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_getBridgeInformation)를 참조하세요.
 
 ```javascript
 > subbridge.getBridgeInformation("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")
