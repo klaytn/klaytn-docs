@@ -78,26 +78,26 @@ caver.klay.getBlock(blockHashOrBlockNumber [, returnTransactionObjects] [, callb
 
 `프로미스`는 `Object`를 반환 - 블록 객체입니다.
 
-| 명칭               | 형식             | 설명                                                                          |
-| ---------------- | -------------- | --------------------------------------------------------------------------- |
-| blockScore       | QUANTITY       | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                            |
-| extraData        | String         | 블록의 "추가 데이터"를 위한 필드입니다.                                                     |
-| gasUsed          | Number         | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                              |
-| governanceData   | DATA           | RLP 인코딩된 거버넌스 설정입니다.                                                        |
-| 해시               | 32-byte String | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                         |
-| logsBloom        | 256 바이트 문자열    | 블록의 로그를 위한 블룸필터입니다. 아직 보류 중인 블록이면 `null`입니다.                                |
-| number           | Number         | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                                          |
-| parentHash       | 32-byte String | 이전 블록의 해시입니다.                                                               |
-| receiptsRoot     | 32바이트 크기 DATA  | 블록의 영수증 트라이의 루트 해시입니다.                                                      |
-| reward           | 20바이트 크기 DATA  | 블록 보상을 받을 수혜자의 주소입니다.                                                       |
-| size             | Number         | 블록의 바이트 크기의 정수 형태입니다.                                                       |
-| stateRoot        | 32-byte String | 블록의 상태 트라이의 루트 해시입니다.                                                       |
-| timestamp        | Number         | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                                 |
-| timestampFoS     | QUANTITY       | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                            |
-| totalBlockScore  | QUANTITY       | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                      |
-| transactions     | 배열             | 트랜잭션 객체의 배열이거나 또는 `returnTransactionObjects` 매개변수에 따라 32바이트 크기의 트랜잭션 해시입니다. |
-| transactionsRoot | 32-byte String | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                     |
-| voteData         | DATA           | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                                   |
+| 명칭               | 형식              | 설명                                                                          |
+| ---------------- | --------------- | --------------------------------------------------------------------------- |
+| blockScore       | QUANTITY        | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                            |
+| extraData        | String          | 블록의 "추가 데이터"를 위한 필드입니다.                                                     |
+| gasUsed          | Number          | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                              |
+| governanceData   | DATA            | RLP 인코딩된 거버넌스 설정입니다.                                                        |
+| 해시               | 32-byte String  | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                         |
+| logsBloom        | 256-byte String | 블록의 로그를 위한 블룸필터입니다. 아직 보류 중인 블록이면 `null`입니다.                                |
+| number           | Number          | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                                          |
+| parentHash       | 32-byte String  | 이전 블록의 해시입니다.                                                               |
+| receiptsRoot     | 32바이트 크기 DATA   | 블록의 영수증 트라이의 루트 해시입니다.                                                      |
+| reward           | 20바이트 크기 DATA   | 블록 보상을 받을 수혜자의 주소입니다.                                                       |
+| size             | Number          | 블록의 바이트 크기의 정수 형태입니다.                                                       |
+| stateRoot        | 32-byte String  | 블록의 상태 트라이의 루트 해시입니다.                                                       |
+| timestamp        | Number          | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                                 |
+| timestampFoS     | QUANTITY        | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                            |
+| totalBlockScore  | QUANTITY        | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                      |
+| transactions     | 배열              | 트랜잭션 객체의 배열이거나 또는 `returnTransactionObjects` 매개변수에 따라 32바이트 크기의 트랜잭션 해시입니다. |
+| transactionsRoot | 32-byte String  | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                     |
+| voteData         | DATA            | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                                   |
 
 **예시**
 
@@ -403,7 +403,7 @@ caver.klay.getCouncil([defaultBlock] [, callback])
 caver.klay.getCouncilSize([defaultBlock] [, callback])
 ```
 
-어떤 블록 시간에서 카운슬의 구성원 수를 반환합니다. 매개변수를 설정하지 않으면 최신 블록에서의 카운슬 구성원 수를 반환합니다.
+어떤 블록 시간에서 council의 구성원 수를 반환합니다. 매개변수를 설정하지 않으면 최신 블록에서의 council 구성원 수를 반환합니다.
 
 **매개변수**
 
