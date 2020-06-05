@@ -119,7 +119,7 @@
         * [노드 상태 확인](node/service-chain/references/spn-sen/checking-node-status.md)
       * [브리지 설정](node/service-chain/references/bridge-configuration.md)
       * [앵커링](node/service-chain/references/anchoring.md)
-      * [밸류 트랜스퍼](node/service-chain/references/value-transfer.md)
+      * [밸류 트랜스퍼(Value Transfer)](node/service-chain/references/value-transfer.md)
       * [환경설정 파일](node/service-chain/references/configuration-files.md)
       * [로그 파일](node/service-chain/references/log-files.md)
       * [Genesis JSON](node/service-chain/references/genesis.md)
