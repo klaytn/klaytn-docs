@@ -66,13 +66,10 @@ Save the file and run it in your console.
 
 ```bash
 $ node ./test.js
-```
-
-If you see the output of console.log like below, proceed with the steps below. The version number can be different.
-
-```text
 Klaytn/v1.4.0/linux-amd64/go1.14.1
 ```
+
+If you see the output of console.log like above, proceed with the steps below. The version number can be different.
 
 ### Connecting to a Klaytn Node <a id="connecting-to-a-klaytn-node"></a>
 
@@ -119,16 +116,13 @@ Save the file and run it in your console.
 
 ```bash
 $ node ./test.js
-```
-
-The execution result is shown below. Member variables defined inside the instance can be accessed by keyring.address and keyring.keys.
-
-```text
 Keyring {
   _address: '0x9f65d63fac94b5caadfca721ad0373b5561abc85',
   _keys: [ [ PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
 }
 ```
+
+The execution result is shown above. Member variables defined inside the instance can be accessed by keyring.address and keyring.keys.
 
 Also, if you own a specific private key or [KlaytnWalletKey], you can use it to create a keyring as shown below.
 
@@ -154,20 +148,18 @@ Save the file and run it in your console.
 
 ```bash
 $ node ./test.js
+Keyring {
+  _address: '0x9f65d63fac94b5caadfca721ad0373b5561abc85',
+  _keys: [ [ PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
+}
+Keyring {
+  _address: '0x9f65d63fac94b5caadfca721ad0373b5561abc85',
+  _keys: [ [ PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
+}
 ```
 
 The results of `caver.wallet.keyring.createFromPrivateKey` and `caver.wallet.keyring.createFromKlaytnWalletKey`, like the result of `caver.wallet.keyring.generate` above, is a Keyring instance which has an address defined inside and one PrivateKey instance defined in the first element of the keyring.keys array.
 
-```text
-Keyring {
-  _address: '0x9f65d63fac94b5caadfca721ad0373b5561abc85',
-  _keys: [ [ PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
-}
-Keyring {
-  _address: '0x9f65d63fac94b5caadfca721ad0373b5561abc85',
-  _keys: [ [ PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
-}
-```
 
 If [AccountKey] of your account in the Klaytn network is updated, you can create a keyring using the address and the updated private key(s).
 
@@ -186,14 +178,10 @@ testFunction()
 ```
 
 Save the file and run it in your console.
+The result of `caver.wallet.keyring.createWithSingleKey` is shown below.
 
 ```bash
 $ node ./test.js
-```
-
-The result of `caver.wallet.keyring.createWithSingleKey` is shown below.
-
-```text
 Keyring {
   _address: '0x{address in hex}',
   _keys: [ [ PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
@@ -220,11 +208,6 @@ Save the file and run it in your console.
 
 ```bash
 $ node ./test.js
-```
-
-Below is the output of the example above. As you can see, the `_keys` array has multiple PrivateKey instances in the first element of the array.
-
-```text
 Keyring {
   _address: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
   _keys: [ 
@@ -234,6 +217,8 @@ Keyring {
 	]
 }
 ```
+
+Above is the output of the example above. As you can see, the `_keys` array has multiple PrivateKey instances in the first element of the array.
 
 To set other arrays in the previous example, `caver.wallet.keyring.createWithRoleBasedKey` is used instead. Each array represents a role in Klaytn's [AccountKey]. The below shows how to create a Keyring instance with different keys for each role.
 
@@ -259,11 +244,6 @@ Save the file and run it in your console.
 
 ```bash
 $ node ./test.js
-```
-
-Looking at the output below, the first element of the keys array, `roleTransactionKey`, has 3 PrivateKey instances, and the second element, `roleAccountUpdateKey`, has 1 PrivateKey instance. And the last element of the array, `roleFeePayerKey`, has 2 PrivateKey instances.
-
-```text
 Keyring {
   _address: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
   _keys: [ 
@@ -273,6 +253,8 @@ Keyring {
 	]
 }
 ```
+
+Looking at the output above, the first element of the keys array, `roleTransactionKey`, has 3 PrivateKey instances, and the second element, `roleAccountUpdateKey`, has 1 PrivateKey instance. And the last element of the array, `roleFeePayerKey`, has 2 PrivateKey instances.
 
 **Note**: Functions related to keyring ([caver.wallet.keyring]) or wallet ([caver.wallet]) do not affect the actual Klaytn network.
 
@@ -325,11 +307,6 @@ Save the file and run it in your console.
 
 ```bash
 $ node ./test.js
-```
-
-Looking at the output below, you can query your keyring from caver.wallet after adding to caver.wallet.
-
-```text
 Keyring {
   _address: '0x{address in hex}',
   _keys: [ [ PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
@@ -339,6 +316,8 @@ Keyring {
   _keys: [ [ PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
 }
 ```
+
+Looking at the output above, you can query your keyring from caver.wallet after adding to caver.wallet.
 
 If you have an address and private key(s) to use, you can easily add it directly to [caver.wallet] via [caver.wallet.newKeyring].
 
@@ -368,15 +347,10 @@ async function testFunction() {
 testFunction()
 ```
 
-Save the file and run it in your console.
+Save the file and run it in your console. Below is the output of the above code execution. When `caver.wallet.newKeyring` is performed with a private key, a Keyring instance using one private key is created and added to caver.wallet. When using multiple private keys, a Keyring instance using multiple private keys is created. When passing the private keys defined for each role as a parameter, a Keyring instance using a different private key(s) for each role is created and added to the caver.wallet.
 
 ```bash
 $ node ./test.js
-```
-
-Below is the output of the above code execution. When `caver.wallet.newKeyring` is performed with a private key, a Keyring instance using one private key is created and added to caver.wallet. When using multiple private keys, a Keyring instance using multiple private keys is created. When passing the private keys defined for each role as a parameter, a Keyring instance using a different private key(s) for each role is created and added to the caver.wallet.
-
-```text
 Keyring {
   _address: '0x{address in hex}',
   _keys: [ [ PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
@@ -457,15 +431,10 @@ testFunction()
 
 The above code adds a keyring to caver.wallet, creates a transaction, and signs the transaction through caver.wallet.signWithKeys. And the RLP-encoded string of the signed transaction is then sent over the network.
 
-Save the file and run it in your console.
+Save the file and run it in your console. When the above code is executed, the receipt of transaction is output as shown below.
 
 ```bash
 $ node ./test.js
-```
-
-When the above code is executed, the receipt of transaction is output as shown below.
-
-```text
 { 
 	blockHash: '0xd20066b448da77a41a46fbf0856792b85b60c42213126f661f6434b5b1263072',
 	blockNumber: '0x1efb',
@@ -553,15 +522,10 @@ async function testFunction() {
 testFunction()
 ```
 
-Save the file and run it in your console.
+Save the file and run it in your console. When the above code is executed, the receipt of transaction is output as shown below.
 
 ```bash
 $ node ./test.js
-```
-
-When the above code is executed, the receipt of transaction is output as shown below.
-
-```text
 { 
 	blockHash: '0x65d041011440e04643c546eb8bbb1dcabb659c3b3216e01473cb0712e47b5f69',
 	blockNumber: '0x20db',
@@ -623,15 +587,10 @@ async function testFunction() {
 testFunction()
 ```
 
-Save the file and run it in your console.
+Save the file and run it in your console. When the above code is executed, the RLP-encoded string will be printed. (The output you run above will be different from the string below.)
 
 ```bash
 $ node ./test.js
-```
-
-When the above code is executed, the RLP-encoded string will be printed. (The output you run above will be different from the string below.)
-
-```text
 0x09f884588505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f72059409a08f2289d3eb3499868908f1c84fd9523fe11bf847f845824e44a02ab3219f367f6a0848de587ed376dd48e2a4892963f251352bf1d20fec16b50da06f5e2e4987e0ca9ae0de0fd15d6fbc91c18f7c574d42b85c08e7cd9fb374eb4680c4c3018080
 ```
 
@@ -658,15 +617,10 @@ async function testFunction() {
 testFunction()
 ```
 
-Save the file and run it in your console.
+Save the file and run it in your console. When the above code is executed, the `RLP-encoded string` including the sender's `signatures` and fee payer's `feePayerSignatures` is output as shown below. (The output you run above will be different from the string below.)
 
 ```bash
 $ node ./test.js
-```
-
-When the above code is executed, the `RLP-encoded string` including the sender's `signatures` and fee payer's `feePayerSignatures` is output as shown below. (The output you run above will be different from the string below.)
-
-```text
 0x09f8dc588505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f72059409a08f2289d3eb3499868908f1c84fd9523fe11bf847f845824e44a02ab3219f367f6a0848de587ed376dd48e2a4892963f251352bf1d20fec16b50da06f5e2e4987e0ca9ae0de0fd15d6fbc91c18f7c574d42b85c08e7cd9fb374eb4694b8354ce689391ce868a0605f9e5e07172651e57ff847f845824e44a04cbd8f47374cb07881dda839187c2cbfcc4af5127703ead87dad558f77fcbb3ba0035a2d93c73824541f1f59a45c1d9546c5c991d36fe16ce9544aed613a3d080c
 ```
 
@@ -686,15 +640,10 @@ async function testFunction() {
 testFunction()
 ```
 
-Save the file and run it in your console.
+Save the file and run it in your console. Through the execution result of the above code, you can check the processing result of the FeeDelegatedValueTransfer transaction.
 
 ```bash
 $ node ./test.js
-```
-
-Through the execution result of the above code, you can check the processing result of the FeeDelegatedValueTransfer transaction.
-
-```text
 { 
 	blockHash: '0x8343d88e56767877a394b76d57946491fffbcd7eac403439b340da6024a57150',
 	blockNumber: '0x2454',
@@ -770,15 +719,10 @@ testFunction()
 
 If the above code is executed successfully, you can no longer use the old private key(s). The keyring in caver.wallet stores the old private key(s), so you must update it with the new private key(s). In the code above, `newKeyring` has a new private key, so use it to update the keyring inside caver.wallet through `caver.wallet.updateKeyring(newKeyring)`. When the keyring inside the caver.wallet is updated as above, when using the caver.wallet to sign in the future, it is signed using the newly updated private key(s).
 
-Save the file and run it in your console.
+Save the file and run it in your console. In the execution result of the above code, the result of the private key and account update that you should newly use is printed like below.
 
 ```bash
 $ node ./test.js
-```
-
-In the execution result of the above code, the result of the private key and account update that you should newly use is printed like below.
-
-```text
 new private key string: 0x8ca19d8e22e6cf9ec339cb5dc46e7fe30690471f2fc50c0a04b6edb5bb07c957
 { 
 	blockHash: '0x4c0221245e7c810cc19b05257e8d7cd34f24cc829f8787a832c08682640173f5',
@@ -804,6 +748,7 @@ new private key string: 0x8ca19d8e22e6cf9ec339cb5dc46e7fe30690471f2fc50c0a04b6ed
 	typeInt: 32
 }
 ```
+
 
 Do you want to update your account to various [AccountKey]? The example below explains how to create an account instance to update with various AccountKeys. When creating an account update transaction in the example code above, assign the account instance created below to the account field of the transaction.
 
@@ -895,11 +840,6 @@ Save the file and run it in your console.
 
 ```bash
 $ node ./test.js
-```
-
-Looking at the output below, you can see that the methods are managed through abi inside the Contract instance. And since it hasn't been deployed yet, you can see that the result of `contractInstance.options.address` is output as undefined.
-
-```text
 Contract {
 	currentProvider: [Getter/Setter],
 	_requestManager: { ... },
@@ -925,6 +865,8 @@ Contract {
 undefined
 ```
 
+Looking at the output above, you can see that the methods are managed through abi inside the Contract instance. And since it hasn't been deployed yet, you can see that the result of `contractInstance.options.address` is output as undefined.
+
 If the smart contract has already been deployed and you know the contract address where the smart contract was deployed, please pass the contract address to the second parameter as shown below.
 
 ```javascript
@@ -947,11 +889,6 @@ Save the file and run it in your console.
 
 ```bash
 $ node ./test.js
-```
-
-Since this contract instance received the distributed address, it stores the contract address in `contractInstance.options.address`.
-
-```text
 Contract {
 	currentProvider: [Getter/Setter],
 	_requestManager: { ... },
@@ -976,6 +913,8 @@ Contract {
 }
 0x5362506f07A941863dE36377ed0186d15bE784c9
 ```
+
+Since this contract instance received the distributed address, it stores the contract address in `contractInstance.options.address`.
 
 If the contract instance is created, you can deploy it by passing the bytecode to the `data` field as shown below.
 
@@ -1007,15 +946,10 @@ async function testFunction() {
 testFunction()
 ```
 
-Save the file and run it in your console.
+Save the file and run it in your console. The code above deploys the contract to the Klaytn network using the deployer keyring, and returns the deployed contract instance.
 
 ```bash
 $ node ./test.js
-```
-
-The code above deploys the contract to the Klaytn network using the deployer keyring, and returns the deployed contract instance.
-
-```text
 Contract {
 	currentProvider: [Getter/Setter],
 	_requestManager: { ... },
@@ -1041,7 +975,6 @@ Contract {
 0x5362506f07A941863dE36377ed0186d15bE784c9
 ```
 
-
 One way to invoke a specific method of a smart contract is to use it with `caver.contract` or use [caver.transaction.smartContractExecution], [caver.transaction.feeDelegatedSmartContractExecution] or [caver.transaction.feeDelegatedSmartContractExecutionWithRatio] transaction.
 
 To transact with a smart contract:
@@ -1064,15 +997,10 @@ async function testFunction() {
 testFunction()
 ```
 
-Save the file and run it in your console.
+Save the file and run it in your console. When the above code is executed, the transaction processing result to execute setCount is output as shown below.
 
 ```bash
 $ node ./test.js
-```
-
-When the above code is executed, the transaction processing result to execute setCount is output as shown below.
-
-```text
 { 
 	blockHash: '0x4dc2aba953f018bc08173fe3d7e839cdaafc365d9d1005430e704c7103145997',
 	blockNumber: '0x2bdb',
@@ -1120,14 +1048,10 @@ async function testFunction() {
 testFunction()
 ```
 
-Save the file and run it in your console.
+Save the file and run it in your console. When the above code is executed, block number is output as shown below.
 
 ```bash
 $ node ./test.js
-```
-
-When the above code is executed, block number is output as shown below.
-```text
 11406
 ```
 
@@ -1176,15 +1100,10 @@ async function testFunction() {
 testFunction()
 ```
 
-Save the file and run it in your console.
+Save the file and run it in your console. Looking at the execution result of the code above, if user1 signs, one signature is created, and if user2 signs, user2's signature is appended to the existing user1's signature.
 
 ```bash
 $ node ./test.js
-```
-
-Looking at the execution result of the code above, if user1 signs, one signature is created, and if user2 signs, user2's signature is appended to the existing user1's signature.
-
-```text
 [ [ '0x4e44',
     '0x1aa72b883ca540c8a63de244cd061ec4f9efb139541e8db304c07ec27bc9d272',
     '0x6a4ca54f6269f2ddfe3648eb9ed57b0c5739f0077e1a38449f3ae3cc0b20dc3e' ] ]
@@ -1238,11 +1157,6 @@ Save the file and run it in your console.
 
 ```bash
 $ node ./test.js
-```
-
-Looking at the execution result of the code above, the user2's signature is appended to the existing user1's signature.
-
-```text
 [ [ '0x4e44',
     '0x1aa72b883ca540c8a63de244cd061ec4f9efb139541e8db304c07ec27bc9d272',
     '0x6a4ca54f6269f2ddfe3648eb9ed57b0c5739f0077e1a38449f3ae3cc0b20dc3e' ],
@@ -1291,13 +1205,10 @@ Save the file and run it in your console.
 
 ```bash
 $ node ./test.js
+0x08f9010d808505d21dba00830111709445c2a1e3a1c3957a06dae73ad516461c2d2c7ccc01940fa355263f37f5a54d9179452baa8b63b8b2cddef8d5f8458207f5a094ce13c39d25d44ad1d07ba2fd89f476c4dc6eef6071a2ef1f496f9b04d049e5a00f7abddd548998b0a55e53600a48286c38262fffc6c153a64e8f65a77c11c722f8458207f6a0ceeea7287b2670719d8ac15cf3b21b36fcaf74d58cce99935ce17e100064037aa0499067788d5db5e7c09ed7bfe19764d66684abc06b81e8f54ea254377bc81066f8458207f5a05c3ba89336c7d84d4ce08104cfd6f7ef33cd9f29766a1955baae8bcf964fd50fa015accbbce6bb11847a3b0660491775d64ef6d692ea709b768f64f12968c09240
 ```
 
 Running the code above outputs one RLP-encoded string with all the signature information combined.
-
-```text
-0x08f9010d808505d21dba00830111709445c2a1e3a1c3957a06dae73ad516461c2d2c7ccc01940fa355263f37f5a54d9179452baa8b63b8b2cddef8d5f8458207f5a094ce13c39d25d44ad1d07ba2fd89f476c4dc6eef6071a2ef1f496f9b04d049e5a00f7abddd548998b0a55e53600a48286c38262fffc6c153a64e8f65a77c11c722f8458207f6a0ceeea7287b2670719d8ac15cf3b21b36fcaf74d58cce99935ce17e100064037aa0499067788d5db5e7c09ed7bfe19764d66684abc06b81e8f54ea254377bc81066f8458207f5a05c3ba89336c7d84d4ce08104cfd6f7ef33cd9f29766a1955baae8bcf964fd50fa015accbbce6bb11847a3b0660491775d64ef6d692ea709b768f64f12968c09240
-```
 
 When doing `combineSignatures`, an error occurs if an RLP-encoded string signed with different transaction is included.
 
