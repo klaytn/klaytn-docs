@@ -1,4 +1,4 @@
-# 엔드포인트 노드 실행 <a id="launch-an-endpoint-node"></a>
+# Endpoint Node 실행 <a id="launch-an-endpoint-node"></a>
 
 ## 엔드포인트 노드\(EN\) 다운로드 및 초기화<a id="download-and-initialize-an-endpoint-node-en"></a>
 
