@@ -25,7 +25,7 @@ sudo kend start
 ```
 
 
-## 다음 오류 메시지가 표시되며 트러플을 사용하여 스마트 컨트랙트를 배포할 수 없습니다. <a id="can-t-deploy-smart-contract-using-truffle-with-following-error-message"></a>
+## 트러플을 사용하여 스마트 컨트랙트를 배포하려 하는데 다음 오류 메시지가 표시됩니다.<a id="can-t-deploy-smart-contract-using-truffle-with-following-error-message"></a>
 
 ```
 Error: Returned error: The method net_version does not exist/is not available
