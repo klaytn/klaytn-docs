@@ -102,7 +102,7 @@ caver.klay.decodeTransaction(rawTransaction)
 ```
 RLP-encoded 트랜잭션인 주어진 `rawTransaction`의 모든 값을 디코딩한 트랜잭션 객체를 반환합니다. 레거시 트랜잭션을 제외한 모든 트랜잭션 타입이 트랜잭션 발신자와 트랜잭션 수수료 납부자의 다중 서명을 가질 수 있으므로, 기존에 리턴된 v, r, s 필드들과 payerV, payerR, payerS는 발신자외 트랜잭션 수수료 납부자의 0번째 서명입니다.
 
-**참고** caver.klay.decodeTransaction는 **v1.0.1-rc.8**부터 지원됩니다.  이 기능을 사용하려면 [v1.0.1-rc.8](https://www.npmjs.com/package/caver-js/v/8.1.1-rc.8) 또는 그 이상을 설치하세요.
+**참고** caver.klay.decodeTransaction는 **v1.0.1-rc.8**에서 지원됩니다.  이 기능을 사용하려면 [v1.0.1-rc.8](https://www.npmjs.com/package/caver-js/v/8.1.1-rc.8) 또는 그 이상을 설치하세요.
 
 **참고** 다중 서명을 지원하기 위해 `signatures` 및 `feePayerSignatures` 속성이 caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3) 부터 추가되었습니다.
 
