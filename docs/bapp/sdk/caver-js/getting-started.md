@@ -62,7 +62,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Save the file and run it in your console.
+Run the code in your console.
 
 ```bash
 $ node ./test.js
@@ -97,6 +97,8 @@ If a user uses private key(s) without the role separation, only the first array 
 
 ### Creating a Keyring <a id="creating-a-keyring"></a>
 
+#### Generate a Keyring <a id="generate-a-keyring"></a>
+
 You can create a keyring as shown below.
 
 ```javascript
@@ -123,6 +125,8 @@ Keyring {
 ```
 
 The execution result is shown above. Member variables defined inside the instance can be accessed through `keyring.address` and `keyring.keys`.
+
+#### Create a Keyring from private key <a id="create-a-keyring-from-private-key"></a>
 
 Also, if you own a specific private key or [KlaytnWalletKey], you can use it to create a keyring as shown below.
 
@@ -160,6 +164,7 @@ Keyring {
 
 The results of `caver.wallet.keyring.createFromPrivateKey` and `caver.wallet.keyring.createFromKlaytnWalletKey`, like the result of `caver.wallet.keyring.generate` above, have a Keyring instance which has an address defined inside and one PrivateKey instance in the first element of `keyring.keys`.
 
+#### Create a Keyring with a single private key <a id="create-a-keyring-with-a-single-private-key"></a>
 
 If [AccountKey] of your account in the Klaytn network is decoupled from the address, you can create a keyring using the address and the private key(s) like below.
 
@@ -187,7 +192,9 @@ Keyring {
 }
 ```
 
-The below examples show how to create a keyring with multiple private keys.
+#### Create a Keyring with multiple private keys <a id="create-a-keyring-with-multiple-private-keys"></a>
+
+If you want to use multiple private keys in a keyring, you can create a keyring using the address and multiple private keys. The below examples show how to create a keyring with multiple private keys.
 
 ```javascript
 // test.js
@@ -218,6 +225,9 @@ Keyring {
 ```
 
 As you can see, `_keys` has multiple PrivateKey instances in the first element of the array.
+
+
+#### Create a Keyring with role based private keys <a id="create-a-keyring-with-role-based-private-keys"></a>
 
 To set other arrays in the previous example, `caver.wallet.keyring.createWithRoleBasedKey` is used instead. Each array represents a role in Klaytn's [AccountKey]. The below example shows how to create a Keyring instance with different keys for each role.
 
@@ -593,7 +603,7 @@ $ node ./test.js
 0x09f884588505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f72059409a08f2289d3eb3499868908f1c84fd9523fe11bf847f845824e44a02ab3219f367f6a0848de587ed376dd48e2a4892963f251352bf1d20fec16b50da06f5e2e4987e0ca9ae0de0fd15d6fbc91c18f7c574d42b85c08e7cd9fb374eb4680c4c3018080
 ```
 
-With the signed RLP-encoded string (`rawTransaction`), the fee payer can send the transaction after attaching the feePayerSignatures. If the fee payer can access to the above feeDelegatedTx instance signed by the sender, it can sign feeDelegatedTx directly. Otherwise, you can create a transaction instance and sign it using a signed RLP-encoded string, as in the example below. If you want to run the below example, replace  `0x{RLP-encoded string}` with the output of the example code above.
+With the signed RLP-encoded string (`rawTransaction`), the fee payer can send the transaction after attaching the feePayerSignatures. If the fee payer can access to the above feeDelegatedTx instance signed by the sender, it can sign feeDelegatedTx directly. Otherwise, you can create a transaction instance and sign it using a signed RLP-encoded string, as in the example below. If you want to run the below example, replace `0x{RLP-encoded string}` with the output of the example code above.
 
 ```javascript
 // test.js
@@ -835,7 +845,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Save the file and run it in your console.
+Run the code in your console.
 
 ```bash
 $ node ./test.js
@@ -884,7 +894,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Save the file and run it in your console.
+Run the code in your console.
 
 ```bash
 $ node ./test.js
@@ -945,7 +955,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Save the file and run it in your console. The code above deploys the contract to the Klaytn network using the deployer keyring, and returns the deployed contract instance.
+Run the code in your console. The code above deploys the contract to the Klaytn network using the deployer keyring, and returns the deployed contract instance.
 
 ```bash
 $ node ./test.js
@@ -996,7 +1006,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Save the file and run it in your console. When the above code is executed, the transaction processing result to execute setCount is output as shown below.
+Run the code in your console. When the above code is executed, the transaction processing result to execute setCount is output as shown below.
 
 ```bash
 $ node ./test.js
@@ -1047,7 +1057,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Save the file and run it in your console. When the above code is executed, block number is output as shown below.
+Run the code in your console. When the above code is executed, block number is output as shown below.
 
 ```bash
 $ node ./test.js
@@ -1099,7 +1109,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Save the file and run it in your console. Looking at the execution result of the code above, if user1 signs, one signature is created, and if user2 signs, user2's signature is appended to the existing user1's signature.
+Run the code in your console. Looking at the execution result of the code above, if user1 signs, one signature is created, and if user2 signs, user2's signature is appended to the existing user1's signature.
 
 ```bash
 $ node ./test.js
@@ -1152,7 +1162,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Save the file and run it in your console.
+Run the code in your console.
 
 ```bash
 $ node ./test.js
@@ -1200,7 +1210,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Save the file and run it in your console.
+Run the code in your console.
 
 ```bash
 $ node ./test.js
