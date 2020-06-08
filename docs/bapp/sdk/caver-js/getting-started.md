@@ -712,7 +712,7 @@ async function testFunction() {
 
 	const updateTx = new caver.transaction.accountUpdate({
 		from: sender.address,
-		account,
+		account: account,
 		gas: 50000,
 	})
 	await caver.wallet.signWithKeys(sender.address, updateTx)
@@ -732,7 +732,7 @@ Run the code in your console. In the execution result of the above code, the res
 
 ```bash
 $ node ./test.js
-new private key string: 0x8ca19d8e22e6cf9ec339cb5dc46e7fe30690471f2fc50c0a04b6edb5bb07c957
+new private key string: 0x{private key}
 { 
 	blockHash: '0x4c0221245e7c810cc19b05257e8d7cd34f24cc829f8787a832c08682640173f5',
 	blockNumber: '0x26d6',
@@ -759,9 +759,9 @@ new private key string: 0x8ca19d8e22e6cf9ec339cb5dc46e7fe30690471f2fc50c0a04b6ed
 ```
 
 
-Do you want to update your account to various [AccountKey]? The example below explains how to create an account instance to update with various account keys. When creating an account update transaction in the example code above, assign the account instance created below to the account field of the transaction.
+Do you want to update your account with multiple [AccountKeys]? The example below explains how to create an account instance with multiple account keys. After setting the new account instance to the transaction object, signing and sending the transaction to the Klaytn network is the same as the above.
 
-First, let's create an account to update with [AccountKeyWeightedMultiSig]. For [AccountKeyWeightedMultiSig], threshold and weight for each key must be defined. To do this, use [caver.account.weightedMultiSigOptions]. The first parameter is the threshold, and the second parameter is an array in which the weight for each key.
+First, let's create an account to update with [AccountKeyWeightedMultiSig]. For [AccountKeyWeightedMultiSig], a threshold and a weight for each key must be defined. To do this, use [caver.account.weightedMultiSigOptions]. The first parameter is the threshold, and the second parameter is an array in which the weight for each key.
 
 ```javascript
 // Create an account with AccountKeyWeightedMultiSig
