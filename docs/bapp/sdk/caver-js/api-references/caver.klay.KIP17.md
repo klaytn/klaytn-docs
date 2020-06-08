@@ -7,7 +7,7 @@ description: >-
 
 `caver.klay.KIP17` helps you easily handle a smart contract that implements [KIP-17](https://kips.klaytn.com/KIPs/kip-17) as a JavaScript object on the Klaytn blockchain. 
 
-The `caver.klay.KIP17` inherits [caver.klay.Contract](caver.klay.Contract.md) to implement the KIP-17 token contract. The `caver.klay.KIP17` holds the same properties of `caver.klay.Contract` whereas additional methods to implement extra features. This section only introduces the newly added bound methods of the `caver.klay.KIP17`.
+The `caver.klay.KIP17` inherits [caver.klay.Contract](caver.klay.Contract.md) to implement the KIP-17 token contract. The `caver.klay.KIP17` holds the same properties of `caver.klay.Contract` whereas there are additional methods to implement extra features. This section only introduces the newly added bound methods of the `caver.klay.KIP17`.
 
 The code that implements KIP-17 for caver-js is available on the [caver-js Github Repo](https://github.com/klaytn/caver-js/tree/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP17).
 
