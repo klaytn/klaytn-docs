@@ -685,9 +685,9 @@ Note that the setApprovalForAll method will submit a transaction to the Klaytn n
 ```javascript
 kip17Instance.transferFrom(from, to, tokenId [, sendParam])
 ```
-Transfer the token of the given token id from the owner or operator to another address. It is recommended to use [safeTransferFrom](#kip17instance-safetransferfrom) whenever possible instead of this method.
+Transfer the token of the given token id `tokenId` from the token owner's balance to another address. The address who was approved to send the token owner's token (the operator) or the token owner itself is expected to execute this token transferring transaction. Thus, the approved one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7Instance.options.from`. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur. It is recommended to use [safeTransferFrom](#kip17instance-safetransferfrom) whenever possible instead of this method.  
 
-Note that the transferFrom method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that sending this transaction will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
@@ -758,9 +758,11 @@ Note that the transferFrom method will submit a transaction to the Klaytn networ
 ```javascript
 kip17Instance.safeTransferFrom(from, to, tokenId [, data] [, sendParam])
 ```
-Safely transfer the token of the given token id from the owner or operator to another address. If the `to` is a contract address, it must implement [IKIP17Receiver.onKIP17Received](https://kips.klaytn.com/KIPs/kip-17#wallet-interface). otherwise, the transfer is reverted.
+Safely transfer the token of the given token id `tokenId` from the token owner's balance to another address. The address who was approved to send the token owner's token (the operator) or the token owner itself is expected to execute this token transferring transaction. Thus, the approved one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7Instance.options.from`. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur.  
 
-Note that the safeTransferFrom method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+If the `to` is a contract address, it must implement [IKIP17Receiver.onKIP17Received](https://kips.klaytn.com/KIPs/kip-17#wallet-interface). otherwise, the transfer is reverted.  
+
+Note that sending this transaction will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
