@@ -29,24 +29,24 @@ KIP-17 토큰 컨트랙트를 Klaytn 블록체인에 배포합니다. A contract
 | 명칭        | 형식     | 설명                                                                                                                              |
 | --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------- |
 | tokenInfo | Object | The information needed to deploy a KIP-17 token contract on the Klaytn blockchain. See the below table to find the description. |
-| deployer  | String | The address of the account to deploy the KIP-17 token contract. This account must have enough KLAY to deploy.                   |
+| deployer  | String | The address of the account to deploy the KIP-17 token contract. 이 계정은 반드시 배포를 위해 충분한 KLAY를 가지고 있어야 합니다.                         |
 
 The tokenInfo object must contain the following:
 
-| 명칭 | 형식     | 설명                       |
-| -- | ------ | ------------------------ |
-| 명칭 | String | The name of the token.   |
-| 기호 | String | The symbol of the token. |
+| 명칭 | 형식     | 설명        |
+| -- | ------ | --------- |
+| 명칭 | String | 토큰 이름입니다. |
+| 기호 | String | 토큰 심볼입니다. |
 
 **리턴값**
 
 `PromiEvent`: A promise combined event emitter, which is resolved with a new KIP17 instance. 추가로 다음과 같은 이벤트를 사용할 수 있습니다:
 
-| 명칭              | 형식     | 설명                                                                                                                                                                                                                                                                                                                             |
-| --------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| transactionHash | String | Fired right after the transaction is sent and a transaction hash is available.                                                                                                                                                                                                                                                 |
-| receipt         | Object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
-| 에러              | 에러     | Fired if an error occurs during sending.                                                                                                                                                                                                                                                                                       |
+| 명칭              | 형식     | 설명                                                                                                                                                                                                                                                                                                        |
+| --------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| transactionHash | String | 트랜잭션이 전송된 직후 및 트랜잭션 해시를 사용할 수 있을 때 발생합니다.                                                                                                                                                                                                                                                                 |
+| receipt         | Object | 트랜잭션 영수증을 사용할 수 있을 때 발생합니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
+| 에러              | 에러     | 전송 중 오류가 나타나면 발생됩니다.                                                                                                                                                                                                                                                                                      |
 
 **예시**
 
