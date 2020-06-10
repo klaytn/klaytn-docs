@@ -97,7 +97,7 @@ const caver = new Caver('http://localhost:8551/')
 
 [MultipleKeyring] defines `keys` property inside, and this `keys` is implemented as an array to store multiple private keys.
 
-[RoleBasedKeyring] defines `keys` which is implemented as a two-dimensional array (empty `keys` looks like `[ [], [], [] ]`) that can include multiple keys for each [role]. The first array defines the private key(s) for `roleTransactionKey`, the second array defines private key(s) for `roleAccountUpdateKey`, and the third array defines the private key(s) for `roleFeePayerKey`.
+The `keys` property defined in [RoleBasedKeyring] is implemented as a two-dimensional array (empty `keys` will look like `[ [], [], [] ]`) that can include multiple keys for each [role]. The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
 
 ### Creating a Keyring <a id="creating-a-keyring"></a>
 
@@ -166,9 +166,9 @@ SingleKeyring {
 }
 ```
 
-The results of `caver.wallet.keyring.createFromPrivateKey` and `caver.wallet.keyring.createFromKlaytnWalletKey`, like the result of `caver.wallet.keyring.generate` above, have a [SingleKeyring] instance which has an address defined inside and one PrivateKey instance in `keyring.key`.
+The result of `caver.wallet.keyring.createFromPrivateKey` and `caver.wallet.keyring.createFromKlaytnWalletKey`, like the result of `caver.wallet.keyring.generate` above, is a [SingleKeyring] instance with an address defined inside it and a [PrivateKey] instance in `keyring.keys`.
 
-#### Create a SingleKeyring with a single private key <a id="create-a-singlekeyring-with-a-single-private-key"></a>
+#### Create a SingleKeyring with a private key and an address <a id="create-a-singlekeyring-with-a-private-key-and-an-address"></a>
 
 If [AccountKey] of your account in the Klaytn network is decoupled from the address, you can create a keyring using the address and the private key like below.
 
@@ -198,7 +198,7 @@ SingleKeyring {
 
 #### Create a MultipleKeyring with multiple private keys <a id="create-a-multiplekeyring-with-multiple-private-keys"></a>
 
-If you want to use multiple private keys, you can create a [MultipleKeyring] using the address and multiple private keys. The below examples show how to create a [MultipleKeyring] with multiple private keys.
+If you want to use multiple private keys, you can create a [MultipleKeyring] using an address and multiple private keys. The below examples show how to create a [MultipleKeyring] with multiple private keys.
 
 ```javascript
 // test.js
@@ -232,7 +232,7 @@ As you can see, `_keys` has multiple PrivateKey instances in the array. Member v
 
 #### Create a RoleBasedKeyring with role based private keys <a id="create-a-rolebasedkeyring-with-role-based-private-keys"></a>
 
-To use different private key(s) for each [role], `caver.wallet.keyring.createWithRoleBasedKey` is used instead. Each array represents a role in Klaytn's [AccountKey]. The below example shows how to create a Keyring instance with different keys for each role.
+To use different private key(s) for each [role], `caver.wallet.keyring.createWithRoleBasedKey` is used instead. Each array element represents a role in Klaytn's [AccountKey]. The below example shows how to create a [RoleBasedKeyring] instance from different keys for each role.
 
 ```javascript
 // test.js
@@ -419,7 +419,7 @@ You can use a caver-js wallet to generate a signature of a transaction. You have
 1. Sign to a transaction
 	- If the keyring you want to use is added to [caver.wallet], you can use `caver.wallet.sign` function to sign.
 	- If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
-2. Send the RLP-encoded string (`transaction.getRLPEncoding()`) to the Klaytn network via `caver.rpc.klay.sendRawTransaction`.
+2. Send the RLP-encoded string of the signed transaction to the Klaytn network via `caver.rpc.klay.sendRawTransaction`.
 
 **Note:** The sender should have enough amount of KLAY.
 
@@ -532,7 +532,7 @@ caver.rpc.klay.sendRawTransaction(rawTransaction).then(console.log)
 caver.rpc.klay.sendRawTransaction(rawTransaction).on('receipt', console.log)
 ```
 
-As described in the example above, you can get the result of sending a transaction through the promise and event emitter. And also, if you know the transaction hash, you can query the transaction receipt using the [caver.rpc.klay.getTransactionReceipt] RPC call. The example below shows how to get a receipt using the [caver.rpc.klay.getTransactionReceipt] RPC call.
+As described in the example above, you can get the result of sending a transaction through the promise and event emitter. The `transactionHash` field is defined inside the receipt object. You can use [caver.rpc.klay.getTransactionReceipt] RPC call with `receipt.transactionHash` to query the receipt of a transaction at any time from the network. The example below shows how to get a receipt using the [caver.rpc.klay.getTransactionReceipt] RPC call.
 
 ```javascript
 // test.js
@@ -617,7 +617,7 @@ $ node ./test.js
 0x09f884028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf080c4c3018080
 ```
 
-With the signed RLP-encoded string (`rawTransaction`), the fee payer can send the transaction after attaching the feePayerSignatures. If the fee payer can access to the above feeDelegatedTx instance signed by the sender, it can sign feeDelegatedTx directly. Otherwise, you can create a transaction instance and sign it using a signed RLP-encoded string, as in the example below. If you want to run the below example, replace `0x{RLP-encoded string}` with the output of the example code above.
+The fee payer can send the transaction to Klaytn network after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. If it can access to the above feeDelegatedTx instance signed by the sender, it can directly put its sign upon that feeDelegatedTx like `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. Otherwise, the fee payer has to create a feeDelegatedTx instance from the RLP-encoded string signed by the sender and add the fee payer's sign onto it, as illustrated below. If you want to run the below example, replace `0x{RLP-encoded string}` with the `rlpEncoded` output of the example code above.
 
 ```javascript
 // test.js
