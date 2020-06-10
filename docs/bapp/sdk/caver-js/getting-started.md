@@ -1058,7 +1058,7 @@ $ node ./test.js
 }
 ```
 
-To call a smart contract:
+To load a contract instance and call one of its functions:
 
 ```javascript
 // test.js
