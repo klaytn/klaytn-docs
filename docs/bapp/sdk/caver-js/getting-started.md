@@ -783,15 +783,16 @@ First, let's create an account to update with [AccountKeyWeightedMultiSig]. For 
 const newPrivateKeys = caver.wallet.keyring.generateMultipleKeys(3)
 const newKeyring = caver.wallet.keyring.createWithMultipleKey(sender.address, newPrivateKeys)
 
+// threshold = 3, the weights of the three keys = [1, 2, 1]
 const options = new caver.account.weightedMultiSigOptions(3, [1, 2, 1])
 
 const account = caver.account.createWithAccountKeyWeightedMultiSig(sender.address, newKeyring.getPublicKey(), options)
 ```
 
-Now let's update accountKey to [AccountKeyRoleBased]. [AccountKeyRoleBased] is an AccountKey type that defines the key to use for each [role].
+Now let's update the account key using [AccountKeyRoleBased]. [AccountKeyRoleBased] is an `AccountKey` type that defines the key to use for each [role].
 
 ```javascript
-// Create an account with AccountKeyRoleBased
+// Create an account with roles using AccountKeyRoleBased. Each role has a single private key.
 const newPrivateKeys = caver.wallet.keyring.generateRoleBasedKeys([1, 1, 1])
 const newKeyring = caver.wallet.keyring.createWithRoleBasedKey(sender.address, newPrivateKeys)
 
@@ -801,13 +802,16 @@ const account = caver.account.createWithAccountKeyRoleBased(sender.address, newK
 The AccountKeyRoleBased above is an example of using one private key for each role. If you want to use multiple private keys for each role, [caver.account.weightedMultiSigOptions] must be defined for each role as shown below.
 
 ```javascript
-// Create an account with AccountKeyRoleBased
+// Create an account with [3, 2, 3] keys for each role using AccountKeyRoleBased
 const newPrivateKeys = caver.wallet.keyring.generateRoleBasedKeys([3, 2, 3])
 const newKeyring = caver.wallet.keyring.createWithRoleBasedKey(sender.address, newPrivateKeys)
 
 const options = [
+	// thresold = 4, weights of keys = [2, 2, 4] for roleTransactionKey
 	new caver.account.weightedMultiSigOptions(4, [2, 2, 4]),
+	// threshold = 2, weights of keys = [1, 1]
 	new caver.account.weightedMultiSigOptions(2, [1, 1]),
+	// threshold = 3, weights of keys = [1, 1, 1]
 	new caver.account.weightedMultiSigOptions(3, [1, 1, 1]),
 ]
 
@@ -839,9 +843,9 @@ Contract JSON ABI
 [{"constant":true,"inputs":[],"name":"count","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBlockNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_count","type":"uint256"}],"name":"setCount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
 ```
 
-**NOTE**: To compile a smart contract, you must have a solidity compiler installed.
+**NOTE**: To compile a smart contract, you must have a [solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html) installed.
 
-For smart contract deployment, you can use [caver.contract] to deploy it, or you can deploy it using [caver.transaction.smartContractDeploy], [caver.transaction.feeDelegatedSmartContractDeploy] or [caver.transaction.feeDelegatedSmartContractDeployWithRatio] transaction. Here is an example of using [caver.contract].
+For the smart contract deployment, you can use [caver.contract] to deploy it, or you can deploy it using [caver.transaction.smartContractDeploy], [caver.transaction.feeDelegatedSmartContractDeploy] or [caver.transaction.feeDelegatedSmartContractDeployWithRatio] transaction. Here is an example of using [caver.contract].
 
 You can create a contract instance as below using the result of compiling the smart contract.
 
