@@ -1098,7 +1098,7 @@ When a transaction is signed using caver.wallet or the transaction's sign functi
 The following example shows how to sign a transaction sequentially with multiple private keys.
 Assume the accountKey of sender is AccountKeyWeightedMultiSig which uses two private key strings and two users each have a private key.
 
-In the example below, user1 and user2 create a Keyring instances to be used. After that, each uses its own keyring to sign the transaction. For reference, the example below uses `transaction.signWithKeys` to sign it.
+In the example below, user1 and user2 create a Keyring instances to be used. After that, each uses its own keyring to sign the transaction. For reference, the example below uses `transaction.sign` to sign it.
 
 ```javascript
 // test.js
