@@ -89,7 +89,7 @@ const caver = new Caver('http://localhost:8551/')
 
 ## Managing Keyrings <a id="managing-keyrings"></a>
 
-[Keyring] is a class that contains the address of the account and the private key(s). 
+[Keyring] is a structure that contains the address of the account and the private key(s). 
 
 [Keyring] can be classified into three types depending on the type of key being stored: [SingleKeyring] to store one address and one private key, [MultipleKeyring] to store one address and multiple private keys, and [RoleBasedKeyring] to store one address and one or more private keys for each role.
 
