@@ -97,7 +97,7 @@ const caver = new Caver('http://localhost:8551/')
 
 [MultipleKeyring] defines `keys` property inside, and this `keyring.keys` is implemented as an array to store multiple private keys.
 
-[RoleBasedKeyring] defines `keys` property inside, and this `keyring.keys` is implemented as a two-dimensional array (empty keyring.keys will be looked like `[ [], [], [] ]`) that can include multiple keys for each [role]. The first array defines the private key(s) to be used for `roleTransactionKey`, the second array defines private key(s) to be used for `roleAccountUpdateKey`, and the third array defines the private key(s) to be used for `roleFeePayerKey`.
+[RoleBasedKeyring] defines `keys` which is implemented as a two-dimensional array (empty `keys` looks like `[ [], [], [] ]`) that can include multiple keys for each [role]. The first array defines the private key(s) for `roleTransactionKey`, the second array defines private key(s) for `roleAccountUpdateKey`, and the third array defines the private key(s) for `roleFeePayerKey`.
 
 ### Creating a Keyring <a id="creating-a-keyring"></a>
 
