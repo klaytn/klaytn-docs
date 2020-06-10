@@ -93,9 +93,9 @@ const caver = new Caver('http://localhost:8551/')
 
 [Keyring] can be classified into three types depending on the type of key being stored: [SingleKeyring] to store one address and one private key, [MultipleKeyring] to store one address and multiple private keys, and [RoleBasedKeyring] to store one address and one or more private keys for each role.
 
-[SingleKeyring] defines `key` property inside, and this `keyring.key` store one private key.
+[SingleKeyring] defines `key` property inside, and this `key` store one private key.
 
-[MultipleKeyring] defines `keys` property inside, and this `keyring.keys` is implemented as an array to store multiple private keys.
+[MultipleKeyring] defines `keys` property inside, and this `keys` is implemented as an array to store multiple private keys.
 
 [RoleBasedKeyring] defines `keys` which is implemented as a two-dimensional array (empty `keys` looks like `[ [], [], [] ]`) that can include multiple keys for each [role]. The first array defines the private key(s) for `roleTransactionKey`, the second array defines private key(s) for `roleAccountUpdateKey`, and the third array defines the private key(s) for `roleFeePayerKey`.
 
