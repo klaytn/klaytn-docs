@@ -1189,7 +1189,7 @@ If you run the above code, you can see that user2's signature has been appended 
 
 When all users have signed, send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(transactionFromRLP.getRLPEncoding())`.
 
-If you send a fee delegation transaction, and the fee payer uses multiple keys, you can proceed with the above logic using `caver.wallet.signFeePayerWithKeys`.
+If you send a fee-delegated transaction, and the fee payer uses multiple keys, you can proceed with the above logic using `caver.wallet.signFeePayerWithKeys`.
 
 ### Combine signed raw transactions <a id="combine-signed-rawtransactions"></a>
 
