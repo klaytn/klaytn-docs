@@ -705,7 +705,7 @@ $ node ./test.js
 
 If you want to change the private key(s) of your account in the Klaytn network, you need to send an [Account Update] transaction. Please check [Account Update] for the details.
 
-To change your accountKey, you must provide an [Account] instance for the `account` field in the input argument object of  `caver.transaction.accountUpdate`. An [Account] instance contains the address of the account to be updated and the accountKey to be updated.
+To change your account key, you must provide an [Account] instance for the `account` field in the input argument object of `caver.transaction.accountUpdate`. An [Account] instance contains the address of the account and the accountKey to be updated.
 
 Below is an example of how to update to [AccountKeyPublic]. The code below is a test code that changes the private key(s) you use for your account. Don't forget your new priate key(s).
 
@@ -734,7 +734,7 @@ async function testFunction() {
 	const receipt = await caver.rpc.klay.sendRawTransaction(updateTx)
 	console.log(receipt)
 
-	// Update keys in caver.wallet
+	// Update the keyring in caver.wallet for signing afterward.
 	sender = caver.wallet.updateKeyring(newKeyring)
 }
 
@@ -776,10 +776,10 @@ new private key string: 0x{private key}
 
 Do you want to update your account's key with multiple [AccountKeys]? The example below explains how to create an account instance with multiple account keys. Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
 
-First, let's create an account to update with [AccountKeyWeightedMultiSig]. For [AccountKeyWeightedMultiSig], a threshold and a weight for each key must be defined. To do this, use [caver.account.weightedMultiSigOptions]. The first parameter is the threshold, and the second parameter is an array in which the weight for each key.
+First, let's create an account to update with [AccountKeyWeightedMultiSig]. For [AccountKeyWeightedMultiSig], a threshold and a weight for each key must be defined. To do this, use [caver.account.weightedMultiSigOptions]. The first parameter is the threshold, and the second parameter is an array containing the weight for each key.
 
 ```javascript
-// Create an account with AccountKeyWeightedMultiSig
+// Create an account with three private keys using AccountKeyWeightedMultiSig
 const newPrivateKeys = caver.wallet.keyring.generateMultipleKeys(3)
 const newKeyring = caver.wallet.keyring.createWithMultipleKey(sender.address, newPrivateKeys)
 
