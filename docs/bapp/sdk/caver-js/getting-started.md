@@ -62,7 +62,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Run the code in your console.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -118,7 +118,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Run the code in your console.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -152,7 +152,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Run the code in your console.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -214,7 +214,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Run the code in your console.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -252,7 +252,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Run the code in your console.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -366,7 +366,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Run the code in your console. The result of the above code execution is shown below. When `caver.wallet.newKeyring` is executed with a private key, a Keyring instance with one private key is created and added to `caver.wallet`. For multiple private keys, a Keyring instance with multiple private keys is created. When passing one or more private keys for each role as arguments, a Keyring instance with a different private key(s) for each role is created and also added to the `caver.wallet`.
+Running the above code gives you the following result. The result of the above code execution is shown below. When `caver.wallet.newKeyring` is executed with a private key, a Keyring instance with one private key is created and added to `caver.wallet`. For multiple private keys, a Keyring instance with multiple private keys is created. When passing one or more private keys for each role as arguments, a Keyring instance with a different private key(s) for each role is created and also added to the `caver.wallet`.
 
 ```bash
 $ node ./test.js
@@ -421,7 +421,7 @@ You can use a caver-js wallet to generate a signature of a transaction. You have
 	- If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
 2. Send the RLP-encoded string of the signed transaction to the Klaytn network via `caver.rpc.klay.sendRawTransaction`.
 
-**Note:** The sender should have enough amount of KLAY.
+**Note:** The sender should have enough number of KLAY.
 
 Below is an example of how to sign a transaction if a keyring is added to the [caver.wallet].
 
@@ -456,7 +456,7 @@ testFunction()
 
 The above code adds a keyring to caver.wallet, creates a transaction, and signs the transaction through `caver.wallet.sign`. And the RLP-encoded string of the signed transaction is then sent over the network.
 
-Run the code in your console. When the above code is executed, the receipt of the transaction is shown below.
+Running the above code gives you the following result. When the above code is executed, the receipt of the transaction is shown below.
 
 ```bash
 $ node ./test.js
@@ -547,7 +547,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Run the code in your console. When the above code is executed, the receipt of transaction is shown below.
+Running the above code gives you the following result. When the above code is executed, the receipt of transaction is shown below.
 
 ```bash
 $ node ./test.js
@@ -665,7 +665,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Run the code in your console. Through the execution result of the above code, you can check the FeeDelegatedValueTransfer transaction result.
+Running the above code gives you the following result. Through the execution result of the above code, you can check the FeeDelegatedValueTransfer transaction result.
 
 ```bash
 $ node ./test.js
@@ -743,7 +743,7 @@ testFunction()
 
 If the above code is executed successfully, you no longer are able to use the old private key(s) to sign any transaction with the old keyring. So you must update the old keyring with the `newKeyring` through `caver.wallet.updateKeyring(newKeyring)`. Once it is updated, the signing will be done by the newly updated private key(s).
 
-Run the code in your console. In the execution result of the above code, the result of the private key and the account update that you should newly use are printed like below.
+Running the above code gives you the following result. In the execution result of the above code, the result of the private key and the account update that you should newly use are printed like below.
 
 ```bash
 $ node ./test.js
@@ -860,7 +860,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Run the code in your console.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -909,7 +909,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Run the code in your console.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -1124,7 +1124,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Run the code in your console. Looking at the execution result of the code above, if user1 signs, one signature is created, and if user2 signs, user2's signature is appended to the existing user1's signature. [SignatureData] is an object that stores signature information.
+Running the above code gives you the following result. Looking at the execution result of the code above, if user1 signs, one signature is created, and if user2 signs, user2's signature is appended to the existing user1's signature. [SignatureData] is an object that stores signature information.
 
 ```bash
 $ node ./test.js
@@ -1175,7 +1175,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Run the code in your console.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -1221,7 +1221,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Run the code in your console.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
