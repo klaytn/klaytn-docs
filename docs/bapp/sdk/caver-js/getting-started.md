@@ -942,11 +942,11 @@ Contract {
 0x5362506f07A941863dE36377ed0186d15bE784c9
 ```
 
-Since this contract instance received the address of the smart contract that has been distributed, it stores the contract address in `contractInstance.options.address`.
+Since this contract instance received the address of the smart contract, it stores the contract address in `contractInstance.options.address`.
 
 If the contract instance is created, you can deploy it by passing the bytecode to the `data` field as shown below.
 
-Note that [caver.contract] sends transactions for deployment and execution. And uses keyrigs in caver.wallet to sign transactions. The keyring to be used must be added to caver.wallet.
+Note that [caver.contract] sends transactions for deployment and execution. It uses keyrings in `caver.wallet` to sign transactions. The keyring to be used must be added to `caver.wallet` before.
 
 ```javascript
 // test.js
@@ -1025,7 +1025,7 @@ async function testFunction() {
 testFunction()
 ```
 
-When the above code is executed, the transaction result from executing setCount arrives as below.
+When the above code is executed, the transaction result from executing `setCount` arrives as below.
 
 ```bash
 $ node ./test.js
@@ -1083,9 +1083,9 @@ $ node ./test.js
 11406
 ```
 
-See [caver.contract] for details.
+To find more information, see [caver.contract].
 
-## Sending a Transaction with multiple signer<a id="sending-a-transaction-with-multiple-signer"></a>
+## Sending a Transaction with multiple signers<a id="sending-a-transaction-with-multiple-signers"></a>
 
 If the account's accountKey is AccountKeyMultiSig or AccountKeyRoleBased, the person who manages each key can vary.
 
