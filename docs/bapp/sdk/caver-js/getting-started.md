@@ -89,17 +89,21 @@ const caver = new Caver('http://localhost:8551/')
 
 ## Managing Keyrings <a id="managing-keyrings"></a>
 
-[Keyring] is a class that contains the address of the account and the private key(s).
+[Keyring] is a class that contains the address of the account and the private key(s). 
 
-[Keyring] defines `keys` property inside, and this `keyring.keys` is implemented as a two-dimensional array (empty keyring.keys will be looked like `[ [], [], [] ]`) that can include multiple keys for each [role]. The first array defines the private key(s) to be used for `roleTransactionKey`, the second array defines private key(s) to be used for `roleAccountUpdateKey`, and the third array defines the private key(s) to be used for `roleFeePayerKey`.
+[Keyring] can be classified into 3 types depending on the type of key being stored. There are [SingleKeyring] to store one address and one private key, [MultipleKeyring] to store one address and multiple private keys, and finally, [RoleBasedKeyring] to store one or more private keys for each role.
 
-If a user uses private key(s) without the role separation, only the first array of `keyring.keys` is used. The private key(s) is assigned to this first array, and it is used regardless of the role.
+[SingleKeyring] defines `key` property inside, and this `keyring.key` store one private key.
+
+[MultipleKeyring] defines `keys` property inside, and this `keyring.keys` is implemented as an array to store multiple private keys.
+
+[RoleBasedKeyring] defines `keys` property inside, and this `keyring.keys` is implemented as a two-dimensional array (empty keyring.keys will be looked like `[ [], [], [] ]`) that can include multiple keys for each [role]. The first array defines the private key(s) to be used for `roleTransactionKey`, the second array defines private key(s) to be used for `roleAccountUpdateKey`, and the third array defines the private key(s) to be used for `roleFeePayerKey`.
 
 ### Creating a Keyring <a id="creating-a-keyring"></a>
 
-#### Generate a Keyring <a id="generate-a-keyring"></a>
+#### Generate a SingleKeyring <a id="generate-a-singlekeyring"></a>
 
-You can create a keyring as shown below.
+You can randomly generate a single keyring as shown below.
 
 ```javascript
 // test.js
@@ -118,15 +122,15 @@ Run the code in your console.
 
 ```bash
 $ node ./test.js
-Keyring {
-  _address: '0x9f65d63fac94b5caadfca721ad0373b5561abc85',
-  _keys: [ [ PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
+SingleKeyring {
+	_address: '0x3d263c3c0df60c5516f932d244531742f45eed5c',
+	_key: PrivateKey { _privateKey: '0x{private key}' }
 }
 ```
 
-The execution result is shown above. Member variables defined inside the instance can be accessed through `keyring.address` and `keyring.keys`.
+The execution result is shown above. Member variables defined inside the instance can be accessed through `keyring.address` and `keyring.key`.
 
-#### Create a Keyring from private key <a id="create-a-keyring-from-private-key"></a>
+#### Create a SignleKeyring from private key <a id="create-a-singlekeyring-from-private-key"></a>
 
 Also, if you own a specific private key or [KlaytnWalletKey], you can use it to create a keyring as shown below.
 
@@ -152,19 +156,19 @@ Run the code in your console.
 
 ```bash
 $ node ./test.js
-Keyring {
-  _address: '0x9f65d63fac94b5caadfca721ad0373b5561abc85',
-  _keys: [ [ PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
+SingleKeyring {
+	_address: '0xf5a9079f311f9ec55170af351627aff0c5d2e287',
+	_key: PrivateKey { _privateKey: '0x{private key}' } 
 }
-Keyring {
-  _address: '0x9f65d63fac94b5caadfca721ad0373b5561abc85',
-  _keys: [ [ PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
+SingleKeyring {
+	_address: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
+	_key: PrivateKey { _privateKey: '0x{private key}' }
 }
 ```
 
-The results of `caver.wallet.keyring.createFromPrivateKey` and `caver.wallet.keyring.createFromKlaytnWalletKey`, like the result of `caver.wallet.keyring.generate` above, have a Keyring instance which has an address defined inside and one PrivateKey instance in the first element of `keyring.keys`.
+The results of `caver.wallet.keyring.createFromPrivateKey` and `caver.wallet.keyring.createFromKlaytnWalletKey`, like the result of `caver.wallet.keyring.generate` above, have a [SingleKeyring] instance which has an address defined inside and one PrivateKey instance in `keyring.key`.
 
-#### Create a Keyring with a single private key <a id="create-a-keyring-with-a-single-private-key"></a>
+#### Create a SingleKeyring with a single private key <a id="create-a-singlekeyring-with-a-single-private-key"></a>
 
 If [AccountKey] of your account in the Klaytn network is decoupled from the address, you can create a keyring using the address and the private key(s) like below.
 
@@ -186,15 +190,15 @@ Run the code in your console like below.
 
 ```bash
 $ node ./test.js
-Keyring {
-  _address: '0x{address in hex}',
-  _keys: [ [ PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
+SingleKeyring {
+	_address: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
+	_key: PrivateKey { _privateKey: '0x{private key}' }
 }
 ```
 
-#### Create a Keyring with multiple private keys <a id="create-a-keyring-with-multiple-private-keys"></a>
+#### Create a MultipleKeyring with multiple private keys <a id="create-a-multiplekeyring-with-multiple-private-keys"></a>
 
-If you want to use multiple private keys in a keyring, you can create a keyring using the address and multiple private keys. The below examples show how to create a keyring with multiple private keys.
+If you want to use multiple private keys, you can create a [MultipleKeyring] using the address and multiple private keys. The below examples show how to create a [MultipleKeyring] with multiple private keys.
 
 ```javascript
 // test.js
@@ -214,22 +218,21 @@ Run the code in your console.
 
 ```bash
 $ node ./test.js
-Keyring {
-  _address: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
-  _keys: [ 
-	  [  PrivateKey { _privateKey: '0x{private key1}' }, PrivateKey { _privateKey: '0x{private key2}' } ],
-	  [],
-	  []
+MultipleKeyring {
+	_address: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
+	_keys: [
+		PrivateKey { _privateKey: '0x{private key1}' },
+		PrivateKey { _privateKey: '0x{private key2}' } 
 	]
 }
 ```
 
-As you can see, `_keys` has multiple PrivateKey instances in the first element of the array.
+As you can see, `_keys` has multiple PrivateKey instances in the array. Member variables defined inside the instance can be accessed through `keyring.address` and `keyring.keys`.
 
 
-#### Create a Keyring with role based private keys <a id="create-a-keyring-with-role-based-private-keys"></a>
+#### Create a RoleBasedKeyring with role based private keys <a id="create-a-rolebasedkeyring-with-role-based-private-keys"></a>
 
-To set other arrays in the previous example, `caver.wallet.keyring.createWithRoleBasedKey` is used instead. Each array represents a role in Klaytn's [AccountKey]. The below example shows how to create a Keyring instance with different keys for each role.
+To use different private key(s) for each [role], `caver.wallet.keyring.createWithRoleBasedKey` is used instead. Each array represents a role in Klaytn's [AccountKey]. The below example shows how to create a Keyring instance with different keys for each role.
 
 ```javascript
 // test.js
@@ -253,12 +256,19 @@ Run the code in your console.
 
 ```bash
 $ node ./test.js
-Keyring {
-  _address: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
-  _keys: [ 
-	  [  PrivateKey { _privateKey: '0x{private key1}' }, PrivateKey { _privateKey: '0x{private key2}' }, PrivateKey { _privateKey: '0x{private key3}' } ],
-	  [ PrivateKey { _privateKey: '0x{private key4}' } ],
-	  [ PrivateKey { _privateKey: '0x{private key5}' }, PrivateKey { _privateKey: '0x{private key6}' } ]
+RoleBasedKeyring {
+	_address: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
+	_keys: [ 
+		[ 
+			PrivateKey { _privateKey: '0x{private key1}' },
+			PrivateKey { _privateKey: '0x{private key2}' },
+			PrivateKey { _privateKey: '0x{private key3}' }
+		],
+		[ PrivateKey { _privateKey: '0x{private key4}' } ],
+		[ 
+			PrivateKey { _privateKey: '0x{private key5}' },
+			PrivateKey { _privateKey: '0x{private key6}' }
+		]
 	]
 }
 ```
@@ -316,13 +326,13 @@ Save the file and run it in your console.
 
 ```bash
 $ node ./test.js
-Keyring {
-  _address: '0x{address in hex}',
-  _keys: [ [ PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
+SingleKeyring {
+	_address: '0x66391720b488a3fb2c7c69d99cd4cd6e23ca18e3',
+	_key: PrivateKey { _privateKey: '0x{private key}' }
 }
-Keyring {
-  _address: '0x{address in hex}',
-  _keys: [ [ PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
+SingleKeyring {
+	_address: '0xc02cec4d0346bf4124deeb55c5216a4138a40a8c',
+	_key: PrivateKey { _privateKey: '0x{private key}' }
 }
 ```
 
@@ -337,18 +347,18 @@ const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 
 async function testFunction() {
 	// Add to wallet with an address and a private key
-	const addedSingle = caver.wallet.newKeyring('0x{address in hex}', '0x{private key}')
+	const addedSingle = caver.wallet.newKeyring('0x{address in hex}', '0x{private key1}')
 	console.log(caver.wallet.getKeyring(addedSingle.address))
 
 	// Add to wallet with an address and private keys
-	const addedMultiple = caver.wallet.newKeyring('0x{address in hex}', ['0x{private key}', '0x{private key}', '0x{private key}'])
+	const addedMultiple = caver.wallet.newKeyring('0x{address in hex}', ['0x{private key2}', '0x{private key3}', '0x{private key4}'])
 	console.log(caver.wallet.getKeyring(addedMultiple.address))
 
 	// Add to wallet with an address and private keys defined by each roles
 	const addedRoleBased = caver.wallet.newKeyring('0x{address in hex}', [
-		['0x{private key}', '0x{private key}', '0x{private key}'],
-		['0x{private key}', '0x{private key}'],
-		['0x{private key}', '0x{private key}']
+		['0x{private key5}', '0x{private key6}', '0x{private key7}'],
+		['0x{private key8}', '0x{private key9}'],
+		['0x{private key10}', '0x{private key11}']
 	])
 	console.log(caver.wallet.getKeyring(addedRoleBased.address))
 }
@@ -360,20 +370,34 @@ Run the code in your console. The result of the above code execution is shown be
 
 ```bash
 $ node ./test.js
-Keyring {
-  _address: '0x{address in hex}',
-  _keys: [ [ PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
+SingleKeyring {
+	_address: '0x651f6ae6b45750082b22805583acc989399c6552',
+	_key: PrivateKey { _privateKey: '0x{private key1}' }
 }
-Keyring {
-  _address: '0x{address in hex}',
-  _keys: [ [ PrivateKey { _privateKey: '0x{private key}' }, PrivateKey { _privateKey: '0x{private key}' }, PrivateKey { _privateKey: '0x{private key}' } ], [], [] ]
+MultipleKeyring {
+	_address: '0xce3ee92aeb4d600a41c98bdf92e8b337e186bf58',
+	_keys: [ 
+		PrivateKey { _privateKey: '0x{private key2}' },
+		PrivateKey { _privateKey: '0x{private key3}' },
+		PrivateKey { _privateKey: '0x{private key4}' }
+    ]
 }
-Keyring {
-  _address: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
-  _keys: [ 
-	  [  PrivateKey { _privateKey: '0x{private key}' }, PrivateKey { _privateKey: '0x{private key}' }, PrivateKey { _privateKey: '0x{private key}' } ],
-	  [ PrivateKey { _privateKey: '0x{private key}' }, PrivateKey { _privateKey: '0x{private key}' } ],
-	  [ PrivateKey { _privateKey: '0x{private key}' }, PrivateKey { _privateKey: '0x{private key}' } ]
+RoleBasedKeyring {
+	_address: '0x626d5b94ec76a105c5afa370bb7e59050a22b8b5',
+	_keys: [ 
+		[ 
+			PrivateKey { _privateKey: '0x{private key5}' },
+			PrivateKey { _privateKey: '0x{private key6}' },
+			PrivateKey { _privateKey: '0x{private key7}' }
+		],
+		[ 
+			PrivateKey { _privateKey: '0x{private key8}' },
+			PrivateKey { _privateKey: '0x{private key9}' }
+		],
+		[ 
+			PrivateKey { _privateKey: '0x{private key10}' },
+			PrivateKey { _privateKey: '0x{private key11}' }
+		]
 	]
 }
 ```
@@ -393,17 +417,9 @@ If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn W
 You can use a caver-js wallet to generate a signature of a transaction. You have to go through two steps below to send the transaction to the network.
 
 1. Sign to a transaction
-	- If the keyring you want to use is added to [caver.wallet], you can use the following functions to sign.
-		- caver.wallet.signWithKey
-		- caver.wallet.signWithKeys
-		- caver.wallet.signFeePayerWithKey
-		- caver.wallet.signFeePayerWithKeys
-	- If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through the functions below.
-		- transaction.signWithKey
-		- transaction.signWithKeys
-		- transaction.signFeePayerWithKey
-		- transaction.signFeePayerWithKeys
-2. Send the RLP-encoded string to the Klaytn network via `caver.rpc.klay.sendRawTransaction`.
+	- If the keyring you want to use is added to [caver.wallet], you can use `caver.wallet.sign` function to sign.
+	- If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
+2. Send the RLP-encoded string (`transaction.getRLPEncoding()`) to the Klaytn network via `caver.rpc.klay.sendRawTransaction`.
 
 **Note:** The sender should have enough amount of KLAY.
 
@@ -427,8 +443,8 @@ async function testFunction() {
 		gas: 30000,
 	})
 
-	// Sign the transaction via caver.wallet.signWithKeys
-	await caver.wallet.signWithKeys(keyring.address, valueTransfer)
+	// Sign the transaction via caver.wallet.sign
+	await caver.wallet.sign(keyring.address, valueTransfer)
 
 	// Get the RLP-encoded string from the valueTransfer transaction through `valueTransfer.getRLPEncoding()` and send the transaction using `caver.rpc.klay.sendRawTransaction`.
 	const receipt = await caver.rpc.klay.sendRawTransaction(valueTransfer.getRLPEncoding())
@@ -438,7 +454,7 @@ async function testFunction() {
 testFunction()
 ```
 
-The above code adds a keyring to caver.wallet, creates a transaction, and signs the transaction through caver.wallet.signWithKeys. And the RLP-encoded string of the signed transaction is then sent over the network.
+The above code adds a keyring to caver.wallet, creates a transaction, and signs the transaction through `caver.wallet.sign`. And the RLP-encoded string of the signed transaction is then sent over the network.
 
 Run the in your console. When the above code is executed, the receipt of the transaction is shown below.
 
@@ -485,8 +501,8 @@ async function testFunction() {
 		gas: 30000,
 	})
 
-	// Sign the transaction via transaction.signWithKeys
-	await valueTransfer.signWithKeys(keyring)
+	// Sign the transaction via transaction.sign
+	await valueTransfer.sign(keyring)
 
 	// Get RLP-encoded string from valueTransfer transaction through `valueTransfer.getRLPEncoding()`, then send the transaction to the Klaytn network using `caver.rpc.klay.sendRawTransaction`.
 	const receipt = await caver.rpc.klay.sendRawTransaction(valueTransfer.getRLPEncoding())
@@ -587,7 +603,7 @@ async function testFunction() {
 		gas: 50000,
 	})
 
-	await caver.wallet.signWithKeys(sender.address, feeDelegatedTx)
+	await caver.wallet.sign(sender.address, feeDelegatedTx)
 
 	const rlpEncoded = feeDelegatedTx.getRLPEncoding()
 	console.log(rlpEncoded)
@@ -600,7 +616,7 @@ Run the code in your console. When the above code is executed, the RLP-encoded s
 
 ```bash
 $ node ./test.js
-0x09f884588505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f72059409a08f2289d3eb3499868908f1c84fd9523fe11bf847f845824e44a02ab3219f367f6a0848de587ed376dd48e2a4892963f251352bf1d20fec16b50da06f5e2e4987e0ca9ae0de0fd15d6fbc91c18f7c574d42b85c08e7cd9fb374eb4680c4c3018080
+0x09f884028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf080c4c3018080
 ```
 
 With the signed RLP-encoded string (`rawTransaction`), the fee payer can send the transaction after attaching the feePayerSignatures. If the fee payer can access to the above feeDelegatedTx instance signed by the sender, it can sign feeDelegatedTx directly. Otherwise, you can create a transaction instance and sign it using a signed RLP-encoded string, as in the example below. If you want to run the below example, replace `0x{RLP-encoded string}` with the output of the example code above.
@@ -617,9 +633,11 @@ async function testFunction() {
 	const rlpEncoded = '0x{RLP-encoded string}'
 
 	const feeDelegateTxFromRLPEncoding = new caver.transaction.feeDelegatedValueTransfer(rlpEncoded)
+
 	// Set the fee payer address.
 	feeDelegateTxFromRLPEncoding.feePayer = feePayer.address
-	await caver.wallet.signFeePayerWithKeys(feePayer.address, feeDelegateTxFromRLPEncoding)
+	await caver.wallet.signAsFeePayer(feePayer.address, feeDelegateTxFromRLPEncoding)
+
 	console.log(feeDelegateTxFromRLPEncoding.getRLPEncoding())
 }
 
@@ -630,7 +648,7 @@ Run the code in your console. When the above code is executed, the `RLP-encoded 
 
 ```bash
 $ node ./test.js
-0x09f8dc588505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f72059409a08f2289d3eb3499868908f1c84fd9523fe11bf847f845824e44a02ab3219f367f6a0848de587ed376dd48e2a4892963f251352bf1d20fec16b50da06f5e2e4987e0ca9ae0de0fd15d6fbc91c18f7c574d42b85c08e7cd9fb374eb4694b8354ce689391ce868a0605f9e5e07172651e57ff847f845824e44a04cbd8f47374cb07881dda839187c2cbfcc4af5127703ead87dad558f77fcbb3ba0035a2d93c73824541f1f59a45c1d9546c5c991d36fe16ce9544aed613a3d080c
+0x09f8dc028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf09417e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24f847f845824e44a0921b7c3be69db96ce14134b306c2ada423613cb66ecc6697ee8067983c268b6ea07b86b255d1c781781315d85d7904226fb2101eb9498c4a03f3fbd30ba3ec5b79
 ```
 
 The transaction is now signed by both the sender and the fee payer, and it can now be sent over the network. Replace `0x{RLP-encoded string}` with the output of the example code above.
@@ -654,30 +672,30 @@ Run the code in your console. Through the execution result of the above code, yo
 ```bash
 $ node ./test.js
 { 
-	blockHash: '0x8343d88e56767877a394b76d57946491fffbcd7eac403439b340da6024a57150',
-	blockNumber: '0x2454',
+	blockHash: '0xb6a76163c4c558f50bdae77968a0f35dcfececf78b5cb780c3514a30a1c0a864',
+	blockNumber: '0xede',
 	contractAddress: null,
-	feePayer: '0xb8354ce689391ce868a0605f9e5e07172651e57f',
+	feePayer: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
 	feePayerSignatures: [
 		{
 			V: '0x4e44',
-			R: '0x4cbd8f47374cb07881dda839187c2cbfcc4af5127703ead87dad558f77fcbb3b',
-			S: '0x35a2d93c73824541f1f59a45c1d9546c5c991d36fe16ce9544aed613a3d080c'
+			R: '0x921b7c3be69db96ce14134b306c2ada423613cb66ecc6697ee8067983c268b6e',
+			S: '0x7b86b255d1c781781315d85d7904226fb2101eb9498c4a03f3fbd30ba3ec5b79'
 		}
 	],
-	from: '0x09a08f2289d3eb3499868908f1c84fd9523fe11b',
+	from: '0xf5a9079f311f9ec55170af351627aff0c5d2e287',
 	gas: '0xc350',
 	...
 	signatures: [
 		{
-			V: '0x4e44',
-			R: '0x2ab3219f367f6a0848de587ed376dd48e2a4892963f251352bf1d20fec16b50d',
-			S: '0x6f5e2e4987e0ca9ae0de0fd15d6fbc91c18f7c574d42b85c08e7cd9fb374eb46'
+			V: '0x4e43',
+			R: '0xf4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cc',
+			S: '0x35b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf0'
 		}
 	],
 	status: '0x1',
 	to: '0x176ff0344de49c04be577a3512b6991507647f72',
-	transactionHash: '0x1259e9b108f010a5b5a670cf25a3e0ded5007f14ead53ee4f6a40c42e1e7d7fa',
+	transactionHash: '0x1878cc27b7f259a98d3248b41bffb6158640b4a07c503095deac1913fb3856c2',
 	transactionIndex: 0,
 	type: 'TxTypeFeeDelegatedValueTransfer',
 	typeInt: 9,
@@ -707,15 +725,14 @@ async function testFunction() {
 	const newKeyring = caver.wallet.keyring.createWithSingleKey(sender.address, newPrivateKey)
 
 	// create an Account instance
-	// getPublicKey will return [ ['0x..'], [], [] ]
-	const account = caver.account.createWithAccountKeyPublic(sender.address, newKeyring.getPublicKey()[0][0])
+	const account = caver.account.createWithAccountKeyPublic(sender.address, newKeyring.getPublicKey())
 
 	const updateTx = new caver.transaction.accountUpdate({
 		from: sender.address,
 		account: account,
 		gas: 50000,
 	})
-	await caver.wallet.signWithKeys(sender.address, updateTx)
+	await caver.wallet.sign(sender.address, updateTx)
 	const receipt = await caver.rpc.klay.sendRawTransaction(updateTx)
 	console.log(receipt)
 
@@ -770,7 +787,7 @@ const newKeyring = caver.wallet.keyring.createWithMultipleKey(sender.address, ne
 
 const options = new caver.account.weightedMultiSigOptions(3, [1, 2, 1])
 
-const account = caver.account.createWithAccountKeyWeightedMultiSig(sender.address, newKeyring.getPublicKey()[0], options)
+const account = caver.account.createWithAccountKeyWeightedMultiSig(sender.address, newKeyring.getPublicKey(), options)
 ```
 
 Now let's update accountKey to [AccountKeyRoleBased]. [AccountKeyRoleBased] is an AccountKey type that defines the key to use for each [role].
@@ -1089,8 +1106,8 @@ const Caver = require('caver-js')
 const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 
 async function testFunction() {
-	const user1 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key}')
-	const user2 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key}')
+	const user1 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key1}')
+	const user2 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key2}')
 
 	const transaction = new caver.transaction.valueTransfer({
 		from: user1.address,
@@ -1099,29 +1116,27 @@ async function testFunction() {
 		gas: 70000,
 	})
 
-	await transaction.signWithKeys(user1)
+	await transaction.sign(user1)
 	console.log(transaction.signatures)
 
-	await transaction.signWithKeys(user2)
+	await transaction.sign(user2)
 	console.log(transaction.signatures)
 }
 
 testFunction()
 ```
 
-Run the code in your console. Looking at the execution result of the code above, if user1 signs, one signature is created, and if user2 signs, user2's signature is appended to the existing user1's signature.
+Run the code in your console. Looking at the execution result of the code above, if user1 signs, one signature is created, and if user2 signs, user2's signature is appended to the existing user1's signature. [SignatureData] is an object that stores signature information.
 
 ```bash
 $ node ./test.js
-[ [ '0x4e44',
-    '0x1aa72b883ca540c8a63de244cd061ec4f9efb139541e8db304c07ec27bc9d272',
-    '0x6a4ca54f6269f2ddfe3648eb9ed57b0c5739f0077e1a38449f3ae3cc0b20dc3e' ] ]
-[ [ '0x4e44',
-    '0x1aa72b883ca540c8a63de244cd061ec4f9efb139541e8db304c07ec27bc9d272',
-    '0x6a4ca54f6269f2ddfe3648eb9ed57b0c5739f0077e1a38449f3ae3cc0b20dc3e' ],
-  [ '0x4e43',
-    '0xfd76dfc53c812ec6aa860076f731e3913936088a1518cc34f2d176bcbe0ac772',
-    '0x71491c938458fffe106dde485fc8b26cbebe8a517c46bd185b126930f480d773' ] ]
+[ 
+	SignatureData { _v: '0x4e43', _r: '0x3f3d3...', _s: '0x24f94...' }
+]
+[ 
+	SignatureData { _v: '0x4e43', _r: '0x3f3d3...', _s: '0x24f94...' },
+	SignatureData { _v: '0x4e44', _r: '0xd6a94...', _s: '0x72dc8...' }
+]
 ```
 
 Then let's see how to sign sequentially without sharing same transaction object. In below example, user1 passes RLP-encoded string that is the result of getRLPEncoding function of the signed transaction to user2.
@@ -1146,7 +1161,7 @@ async function testFunction() {
 	})
 	
 	// Sign to transaction
-	await transaction.signWithKeys(user1)
+	await transaction.sign(user1)
 
 	// Create user2 keyring
 	const user2 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key}')
@@ -1155,7 +1170,7 @@ async function testFunction() {
 	const rlpEncoding = transaction.getRLPEncoding()
 	const transactionFromRLP = new caver.transaction.valueTransfer(rlpEncoding)
 
-	await transactionFromRLP.signWithKeys(user2)
+	await transactionFromRLP.sign(user2)
 	console.log(transactionFromRLP.signatures)
 }
 
@@ -1166,12 +1181,10 @@ Run the code in your console.
 
 ```bash
 $ node ./test.js
-[ [ '0x4e44',
-    '0x1aa72b883ca540c8a63de244cd061ec4f9efb139541e8db304c07ec27bc9d272',
-    '0x6a4ca54f6269f2ddfe3648eb9ed57b0c5739f0077e1a38449f3ae3cc0b20dc3e' ],
-  [ '0x4e43',
-    '0xfd76dfc53c812ec6aa860076f731e3913936088a1518cc34f2d176bcbe0ac772',
-    '0x71491c938458fffe106dde485fc8b26cbebe8a517c46bd185b126930f480d773' ] ]
+[ 
+	SignatureData { _v: '0x4e43', _r: '0x3f3d3...', _s: '0x24f94...' },
+	SignatureData { _v: '0x4e44', _r: '0xd6a94...', _s: '0x72dc8...' }
+]
 ```
 
 If you run the above code, you can see that transactionFromRLP.signatures has User2's signature appended, and a total of 2 signatures are included.
@@ -1255,7 +1268,11 @@ The BApp \(Blockchain Application\) Development sample projects using caver-js a
 [caver.wallet.newKeyring]: api-references/caver.wallet.md#newkeyring
 [caver.wallet.keyring]: api-references/caver.wallet.keyring.md
 [Keyring]: api-references/caver.wallet.keyring.md
+[SingleKeyring]: api-references/caver.wallet.keyring.md#singlekeyring
+[MultipleKeyring]: api-references/caver.wallet.keyring.md#multiplekeyring
+[RoleBasedKeyring]: api-references/caver.wallet.keyring.md#rolebasedkeyring
 [KlaytnWalletKey]: ../../../klaytn/design/accounts.md#klaytn-wallet-key-format
+[SignatureData]: api-references/caver.wallet.keyring.md#signaturedata
 
 [caver.rpc.klay.getTransactionReceipt]: api-references/caver.rpc/klay.md#gettransactionreceipt
 [getTransactionReceipt]: api-references/caver.rpc/klay.md#gettransactionreceipt
