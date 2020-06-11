@@ -1191,7 +1191,7 @@ const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 
 async function testFunction() {
 	// Create user1's keyring
-	const user1 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key}')
+	const user1 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key1}')
 	
 	// Create a value transfer transaction
 	const transaction = new caver.transaction.valueTransfer({
@@ -1204,8 +1204,8 @@ async function testFunction() {
 	// Sign the transaction
 	await transaction.sign(user1)
 
-	// Create user2 keyring
-	const user2 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key}')
+	// Create user2's keyring
+	const user2 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key2}')
 
 	// Create value transfer transaction from RLP-encoded string
 	const rlpEncoding = transaction.getRLPEncoding()
