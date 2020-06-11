@@ -1095,7 +1095,7 @@ To run this example, you need to update the account key of the account you use f
 
 ### Signing sequentially <a id="signing-sequentially"></a>
 
-When a transaction is signed using caver.wallet or the transaction's sign function, signatures (or feePayerSignatures) are defined (or appended) inside the transaction. You can obtain the RLP-encoded string (`rawTransaction`) containing the signatures (and feePayerSignatures) by calling the `transaction.getRLPEncoding()` function of the signed transaction instance.
+When a transaction is signed using `caver.wallet` or the transaction's `sign` function, signatures (or feePayerSignatures) are defined (or appended) inside the transaction. You can obtain the RLP-encoded string (`rawTransaction`) containing the signatures (and feePayerSignatures) by calling the `transaction.getRLPEncoding()` function of the signed transaction instance.
 
 The following example shows how to sign a transaction sequentially with multiple private keys.
 Assume the accountKey of sender is AccountKeyWeightedMultiSig which consists of two private key strings, one for each user.
