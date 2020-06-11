@@ -1225,7 +1225,7 @@ If you send a fee-delegated transaction, and the fee payer uses multiple keys, y
 
 ### Combining signed raw transactions <a id="combining-signed-rawtransactions"></a>
 
-If you receive multiple RLP-encoded raw transaction strings from several people, you can combine them into a single RLP-encoded raw transaction string that contains all the signatures.
+If you receive multiple signed RLP-encoded raw transaction strings from several people, you can combine them into a single RLP-encoded raw transaction string that contains all the signatures.
 
 The example below shows how to combine and send the RLP encoded transactions.
 
