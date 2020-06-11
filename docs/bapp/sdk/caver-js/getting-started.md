@@ -171,7 +171,7 @@ The execution result is shown above. Member variables defined inside the instanc
 
 #### Creating a SingleKeyring from private key <a id="creating-a-singlekeyring-from-private-key"></a>
 
-Also, if you own a specific private key or [KlaytnWalletKey], you can use it to create a keyring as shown below.
+Also, if you own a specific private key, you can use it to create a keyring as shown below.
 
 ```javascript
 // test.js
@@ -182,10 +182,6 @@ async function testFunction() {
 	// Create a keyring from a private key
 	const keyringFromPrivateKey = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
 	console.log(keyringFromPrivateKey)
-
-	// Create a keyring from a KlaytnWalletKey
-	const keyringFromKlaytnWalletKey = caver.wallet.keyring.createFromKlaytnWalletKey('0x{private key}0x{type}0x{address in hex}')
-	console.log(keyringFromKlaytnWalletKey)
 }
 
 testFunction()
@@ -199,13 +195,9 @@ SingleKeyring {
 	_address: '0xf5a9079f311f9ec55170af351627aff0c5d2e287',
 	_key: PrivateKey { _privateKey: '0x{private key}' } 
 }
-SingleKeyring {
-	_address: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
-	_key: PrivateKey { _privateKey: '0x{private key}' }
-}
 ```
 
-The result of `caver.wallet.keyring.createFromPrivateKey` and `caver.wallet.keyring.createFromKlaytnWalletKey`, like the result of `caver.wallet.keyring.generate` above, is a [SingleKeyring] instance with an address defined inside it and a [PrivateKey] instance in `keyring.keys`.
+The result of `caver.wallet.keyring.createFromPrivateKey`, like the result of `caver.wallet.keyring.generate` above, is a [SingleKeyring] instance with an address defined inside it and a [PrivateKey] instance in `keyring.key`.
 
 #### Creating a SingleKeyring with a private key and an address <a id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
 
@@ -220,6 +212,10 @@ async function testFunction() {
 	// Create a keyring with an address and a private key
 	const keyring = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key}')
 	console.log(keyring)
+
+	// Create a keyring from a KlaytnWalletKey
+	const keyringFromKlaytnWalletKey = caver.wallet.keyring.createFromKlaytnWalletKey('0x{private key}0x{type}0x{address in hex}')
+	console.log(keyringFromKlaytnWalletKey)
 }
 
 testFunction()
@@ -229,6 +225,10 @@ Run the code in your console like below.
 
 ```bash
 $ node ./test.js
+SingleKeyring {
+	_address: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
+	_key: PrivateKey { _privateKey: '0x{private key}' }
+}
 SingleKeyring {
 	_address: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
 	_key: PrivateKey { _privateKey: '0x{private key}' }
@@ -762,7 +762,7 @@ async function testFunction() {
 	const newKeyring = caver.wallet.keyring.createWithSingleKey(sender.address, newPrivateKey)
 
 	// create an Account instance
-	const account = caver.account.createWithAccountKeyPublic(sender.address, newKeyring.getPublicKey())
+	const account = newKeyring.toAccount()
 
 	const updateTx = new caver.transaction.accountUpdate({
 		from: sender.address,
@@ -825,7 +825,7 @@ const newKeyring = caver.wallet.keyring.createWithMultipleKey(sender.address, ne
 // threshold = 3, the weights of the three keys = [1, 2, 1]
 const options = new caver.account.weightedMultiSigOptions(3, [1, 2, 1])
 
-const account = caver.account.createWithAccountKeyWeightedMultiSig(sender.address, newKeyring.getPublicKey(), options)
+const account = newKeyring.toAccount(options)
 ```
 
 Now let's update the account key using [AccountKeyRoleBased]. [AccountKeyRoleBased] is an `AccountKey` type that defines the key to use for each [role].
@@ -835,7 +835,7 @@ Now let's update the account key using [AccountKeyRoleBased]. [AccountKeyRoleBas
 const newPrivateKeys = caver.wallet.keyring.generateRoleBasedKeys([1, 1, 1])
 const newKeyring = caver.wallet.keyring.createWithRoleBasedKey(sender.address, newPrivateKeys)
 
-const account = caver.account.createWithAccountKeyRoleBased(sender.address, newKeyring.getPublicKey())
+const account = newKeyring.toAccount()
 ```
 
 The AccountKeyRoleBased above is an example of using one private key for each role. If you want to use multiple private keys for each role, [caver.account.weightedMultiSigOptions] must be defined for each role as shown below.
@@ -854,7 +854,7 @@ const options = [
 	new caver.account.weightedMultiSigOptions(3, [1, 1, 1]),
 ]
 
-const account = caver.account.createWithAccountKeyRoleBased(sender.address, newKeyring.getPublicKey(), options)
+const account = newKeyring.toAccount(options)
 ```
 
 If you want to update accountKey to [AccountKeyLegacy] or [accountKeyFail], create an account as shown below and assign it to the account field of the transaction.
