@@ -1,6 +1,6 @@
 ---
 description: >-
-  A caver-js object used to interact with a smart contract for KIP17.
+  KIP-17 표준을 구현한 스마트 컨트랙트와 상호작용하는 데 사용되는 caver-js 객체입니다.
 ---
 
 # caver.klay.KIP17 <a id="caver-klay-kip17"></a>
