@@ -1207,7 +1207,7 @@ async function testFunction() {
 	// Create user2's keyring
 	const user2 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key2}')
 
-	// Create value transfer transaction from RLP-encoded string
+	// Create a value transfer transaction from the RLP-encoded string
 	const rlpEncoding = transaction.getRLPEncoding()
 	const transactionFromRLP = new caver.transaction.valueTransfer(rlpEncoding)
 
