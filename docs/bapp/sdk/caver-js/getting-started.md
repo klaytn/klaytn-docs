@@ -485,8 +485,8 @@ async function testFunction() {
 	// Sign the transaction via caver.wallet.sign
 	await caver.wallet.sign(keyring.address, valueTransfer)
 
-	// Get the RLP-encoded string from the valueTransfer transaction through `valueTransfer.getRLPEncoding()` and send the transaction using `caver.rpc.klay.sendRawTransaction`.
-	const receipt = await caver.rpc.klay.sendRawTransaction(valueTransfer.getRLPEncoding())
+	// Send the transaction using `caver.rpc.klay.sendRawTransaction`.
+	const receipt = await caver.rpc.klay.sendRawTransaction(valueTransfer)
 	console.log(receipt)
 }
 
@@ -543,8 +543,8 @@ async function testFunction() {
 	// Sign the transaction via transaction.sign
 	await valueTransfer.sign(keyring)
 
-	// Get RLP-encoded string from valueTransfer transaction through `valueTransfer.getRLPEncoding()`, then send the transaction to the Klaytn network using `caver.rpc.klay.sendRawTransaction`.
-	const receipt = await caver.rpc.klay.sendRawTransaction(valueTransfer.getRLPEncoding())
+	// Send the transaction to the Klaytn network using `caver.rpc.klay.sendRawTransaction`.
+	const receipt = await caver.rpc.klay.sendRawTransaction(valueTransfer)
 	console.log(receipt)
 }
 
@@ -1219,7 +1219,7 @@ $ node ./test.js
 
 If you run the above code, you can see that user2's signature has been appended in `transactionFromRLP.signatures` and a total of two signatures are included in it.
 
-When all users have signed, send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(transactionFromRLP.getRLPEncoding())`.
+When all users have signed, send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(transactionFromRLP)`.
 
 If you send a fee-delegated transaction, and the fee payer uses multiple keys, you can proceed with the above logic using `caver.wallet.signAsFeePayer`.
 
