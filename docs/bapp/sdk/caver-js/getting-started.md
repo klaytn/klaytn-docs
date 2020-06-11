@@ -1228,13 +1228,13 @@ $ node ./test.js
 ]
 ```
 
-If you run the above code, you can see that user2's signature has been appended in `transactionFromRLP.signatures` and a total of 2 signatures are included in it.
+If you run the above code, you can see that user2's signature has been appended in `transactionFromRLP.signatures` and a total of two signatures are included in it.
 
 When all users have signed, send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(transactionFromRLP.getRLPEncoding())`.
 
 If you send a fee-delegated transaction, and the fee payer uses multiple keys, you can proceed with the above logic using `caver.wallet.signAsFeePayer`.
 
-### Combine signed raw transactions <a id="combine-signed-rawtransactions"></a>
+### Combining signed raw transactions <a id="combining-signed-rawtransactions"></a>
 
 If you receive multiple RLP-encoded raw transaction strings from several people, you can combine them into a single RLP-encoded raw transaction string that contains all the signatures.
 
