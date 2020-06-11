@@ -871,15 +871,31 @@ const accountKeyFail = caver.account.createWithAccountKeyFail(keyringToUpdate.ad
 
 The [caver.contract] package makes it easy to interact with smart contracts on Klaytn. It automatically converts all methods of a smart contract into javascript calls when its low-level ABI \(Application Binary Interface\) is given. This allows you to interact with smart contracts as if they were JavaScript objects.
 
-First, we start by compiling a smart contract to get its bytecode and ABI.
+First, we make simple solidity example like below. Create a 'test.sol' file and write down below example.
+
+```
+pragma solidity ^0.5.6;
+
+contract KVstore {
+    mapping(string=>string) store;
+    function get(string memory key) public view returns (string memory) {
+        return store[key];
+    }
+    function set(string memory key, string memory value) public {
+        store[key] = value;
+    }
+}
+```
+
+Now we can complie a smart contract to get its bytecode and ABI.
 
 ```text
-> solc --abi --bin --allow-paths . ./test.sol
-======= ./test.sol:Count =======
+> solc --abi --bin ./test.sol
+======= ./test.sol:KVstore =======
 Binary: 
-60806040526000805534801561001457600080fd5b50610123806100246000396000f3fe6080604052600436106053576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14605857806342cbb15c146080578063d14e62b81460a8575b600080fd5b348015606357600080fd5b50606a60df565b6040518082815260200191505060405180910390f35b348015608b57600080fd5b50609260e5565b6040518082815260200191505060405180910390f35b34801560b357600080fd5b5060dd6004803603602081101560c857600080fd5b810190808035906020019092919050505060ed565b005b60005481565b600043905090565b806000819055505056fea165627a7a72305820e381897039d8e48bf74b4a096bb1c4ed02f331bd1a7a4add6217b72fa888f2f10029
+608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029
 Contract JSON ABI 
-[{"constant":true,"inputs":[],"name":"count","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBlockNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_count","type":"uint256"}],"name":"setCount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
+[{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
 ```
 
 **NOTE**: To compile a smart contract, you must have a [solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html) installed.
@@ -908,31 +924,24 @@ Running the above code gives you the following result.
 ```bash
 $ node ./test.js
 Contract {
-	currentProvider: [Getter/Setter],
-	_requestManager: { ... },
-	providers: {
-		WebsocketProvider: [Function: WebsocketProvider],
-		HttpProvider: [Function: HttpProvider],
-		IpcProvider: [Function: IpcProvider]
-	},
-	_provider: HttpProvider { ... },
 	...
-	methods: {
-		count: [Function: bound _createTxObject],
-		'0x06661abd': [Function: bound _createTxObject],
-		'count()': [Function: bound _createTxObject],
-		...
+  methods: {
+		get: [Function: bound _createTxObject],
+		'0x693ec85e': [Function: bound _createTxObject],
+		'get(string)': [Function: bound _createTxObject],
+		set: [Function: bound _createTxObject],
+		'0xe942b516': [Function: bound _createTxObject],
+		'set(string,string)': [Function: bound _createTxObject]
 	},
-	events: { allEvents: [Function: bound ] },
-	_address: null,
-	_jsonInterface: [ ... ],
-	_keyrings:
-	KeyringContainer { ... }
+  events: { allEvents: [Function: bound ] },
+  _address: null,
+  _jsonInterface: [ ... ],
+  _keyrings: KeyringContainer { ... }
 }
-undefined
+null
 ```
 
-Looking at the output above, you can see that the methods are managed through abi inside the Contract instance. And since it hasn't been deployed yet, you can see that the result of `contractInstance.options.address` is output as undefined.
+Looking at the output above, you can see that the methods are managed through abi inside the Contract instance. And since it hasn't been deployed yet, you can see that the result of `contractInstance.options.address` is output as null.
 
 If the smart contract has already been deployed and you know the contract address where the smart contract was deployed, please pass the contract address to the second parameter as shown below.
 
@@ -942,9 +951,10 @@ const Caver = require('caver-js')
 const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 
 async function testFunction() {
-	const abi = [{"constant":true,"inputs":[],"name":"count","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBlockNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_count","type":"uint256"}],"name":"setCount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
+	const abi = [{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
+	
+	const contractInstance = new caver.contract(abi, '0x3466D49256b0982E1f240b64e097FF04f99Ed4b9')
 
-	const contractInstance = new caver.contract(abi, '0x{address in hex}')
 	console.log(contractInstance)
 	console.log(contractInstance.options.address)
 }
@@ -957,28 +967,21 @@ Running the above code gives you the following result.
 ```bash
 $ node ./test.js
 Contract {
-	currentProvider: [Getter/Setter],
-	_requestManager: { ... },
-	providers: {
-		WebsocketProvider: [Function: WebsocketProvider],
-		HttpProvider: [Function: HttpProvider],
-		IpcProvider: [Function: IpcProvider]
-	},
-	_provider: HttpProvider { ... },
 	...
-	methods: {
-		count: [Function: bound _createTxObject],
-		'0x06661abd': [Function: bound _createTxObject],
-		'count()': [Function: bound _createTxObject],
-		...
+  methods: {
+		get: [Function: bound _createTxObject],
+		'0x693ec85e': [Function: bound _createTxObject],
+		'get(string)': [Function: bound _createTxObject],
+		set: [Function: bound _createTxObject],
+		'0xe942b516': [Function: bound _createTxObject],
+		'set(string,string)': [Function: bound _createTxObject]
 	},
-	events: { allEvents: [Function: bound ] },
-	_address: '0x5362506f07A941863dE36377ed0186d15bE784c9',
-	_jsonInterface: [ ... ],
-	_keyrings:
-	KeyringContainer { ... }
+  events: { allEvents: [Function: bound ] },
+  _address: '0x3466D49256b0982E1f240b64e097FF04f99Ed4b9',
+  _jsonInterface: [ ... ],
+  _keyrings: KeyringContainer { ... }
 }
-0x5362506f07A941863dE36377ed0186d15bE784c9
+0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
 Since this contract instance received the address of the smart contract, it stores the contract address in `contractInstance.options.address`.
@@ -996,11 +999,11 @@ async function testFunction() {
 	const deployer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
 	caver.wallet.add(deployer)
 	
-	const abi = [{"constant":true,"inputs":[],"name":"count","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBlockNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_count","type":"uint256"}],"name":"setCount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
+	const abi = [{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
 	const contractInstance = new caver.contract(abi)
-
+	
 	const deployedInstance = await contractInstance.deploy({
-		data:  '60806040526000805534801561001457600080fd5b50610123806100246000396000f3fe6080604052600436106053576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14605857806342cbb15c146080578063d14e62b81460a8575b600080fd5b348015606357600080fd5b50606a60df565b6040518082815260200191505060405180910390f35b348015608b57600080fd5b50609260e5565b6040518082815260200191505060405180910390f35b34801560b357600080fd5b5060dd6004803603602081101560c857600080fd5b810190808035906020019092919050505060ed565b005b60005481565b600043905090565b806000819055505056fea165627a7a72305820e381897039d8e48bf74b4a096bb1c4ed02f331bd1a7a4add6217b72fa888f2f10029',
+		data:  '608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029',
 	}).send({
 		from: deployer.address,
 		gas: '0x4bfd200',
@@ -1018,28 +1021,21 @@ In the code above, the `deployer` deploys the contract to the Klaytn network and
 ```bash
 $ node ./test.js
 Contract {
-	currentProvider: [Getter/Setter],
-	_requestManager: { ... },
-	providers: {
-		WebsocketProvider: [Function: WebsocketProvider],
-		HttpProvider: [Function: HttpProvider],
-		IpcProvider: [Function: IpcProvider]
-	},
-	_provider: HttpProvider { ... },
 	...
-	methods: {
-		count: [Function: bound _createTxObject],
-		'0x06661abd': [Function: bound _createTxObject],
-		'count()': [Function: bound _createTxObject],
-		...
+  methods: {
+		get: [Function: bound _createTxObject],
+		'0x693ec85e': [Function: bound _createTxObject],
+		'get(string)': [Function: bound _createTxObject],
+		set: [Function: bound _createTxObject],
+		'0xe942b516': [Function: bound _createTxObject],
+		'set(string,string)': [Function: bound _createTxObject]
 	},
-	events: { allEvents: [Function: bound ] },
-	_address: '0x5362506f07A941863dE36377ed0186d15bE784c9',
-	_jsonInterface: [ ... ],
-	_keyrings:
-	KeyringContainer { ... }
+  events: { allEvents: [Function: bound ] },
+  _address: '0x3466D49256b0982E1f240b64e097FF04f99Ed4b9',
+  _jsonInterface: [ ... ],
+  _keyrings: KeyringContainer { ... }
 }
-0x5362506f07A941863dE36377ed0186d15bE784c9
+0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
 One way to invoke a specific method of a smart contract is to use it with `caver.contract` or use [caver.transaction.smartContractExecution], [caver.transaction.feeDelegatedSmartContractExecution] or [caver.transaction.feeDelegatedSmartContractExecutionWithRatio] transaction.
@@ -1055,45 +1051,38 @@ async function testFunction() {
 	const keyring = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
 	caver.wallet.add(keyring)
 
-	const abi = [{"constant":true,"inputs":[],"name":"count","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBlockNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_count","type":"uint256"}],"name":"setCount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
-	const contractInstance = new caver.contract(abi, '0x{smart contract address}')
-	const receipt = await contractInstance.methods.setCount(1).send({ from:keyring.address, gas:'0x4bfd200' })
+	const abi = [{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
+	
+	const contractInstance = new caver.contract(abi, '0x{address in hex}')
+	const receipt = await contractInstance.methods.set('testKey', 'testValue').send({ from:keyring.address, gas:'0x4bfd200' })
 	console.log(receipt)
 }
 
 testFunction()
 ```
 
-When the above code is executed, the transaction result from executing `setCount` arrives as below.
+When the above code is executed, the transaction result from executing `set` arrives as below.
 
 ```bash
 $ node ./test.js
 { 
-	blockHash: '0x4dc2aba953f018bc08173fe3d7e839cdaafc365d9d1005430e704c7103145997',
-	blockNumber: '0x2bdb',
-	contractAddress: null,
-	from: '0x09a08f2289d3eb3499868908f1c84fd9523fe11b',
-	gas: '0x4bfd200',
-	gasPrice: '0x5d21dba00',
-	gasUsed: '0xaf4b',
-	input: '0xd14e62b80000000000000000000000000000000000000000000000000000000000000001',
-	logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-	nonce: '0x5c',
-	senderTxHash: '0xa0f8e5338a6d16d4ba6049823148e9cee7612e976427255d613cc25a4257fff8',
-	signatures: [
-		{
-			V: '0x4e44',
-			R: '0x6d1f6c4a05f72c1cd762df57dee4dbc1458f73bb6875084a56f97807de67a586',
-			S: '0x1a1cdcbea952d6a53f2562a1b1cd2567052f8fa1048bab46ae95308f666b738'
-		}
-	],
-	status: '0x1',
-	to: '0x5362506f07a941863de36377ed0186d15be784c9',
-	transactionHash: '0xa0f8e5338a6d16d4ba6049823148e9cee7612e976427255d613cc25a4257fff8',
-	transactionIndex: 0, type: 'TxTypeSmartContractExecution',
-	typeInt: 48,
-	value: '0x0',
-	events: {} 
+	blockHash: '0x610336d43644abc5ab71156f7334ff67deabdd8de27778faa9dec99d225927e6',
+  blockNumber: 4724,
+  contractAddress: null,
+  from: '0xbbfa9e3f76ddafedc28197e0f893366dd3c5c74a',
+  gas: '0x4bfd200',
+  gasPrice: '0x5d21dba00',
+  gasUsed: 62351,
+  input: '0xe942b...',
+  ...
+  status: true,
+  to: '0x3466d49256b0982e1f240b64e097ff04f99ed4b9',
+  transactionHash: '0x3a354703ab4a7b32492edab454b446dd3e92eec81ecbdaf2c3d84ffdd5cf9948',
+  transactionIndex: 0,
+  type: 'TxTypeSmartContractExecution',
+  typeInt: 48,
+  value: '0x0',
+  events: {}
 }
 ```
 
@@ -1108,18 +1097,18 @@ async function testFunction() {
 	const abi = [{"constant":true,"inputs":[],"name":"count","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBlockNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_count","type":"uint256"}],"name":"setCount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
 	const contractInstance = new caver.contract(abi, '0x{smart contract address}')
 
-	const blockNumber = await contractInstance.methods.getBlockNumber().call()
-	console.log(blockNumber)
+	const value = await contractInstance.methods.get('testKey').call()
+	console.log(value)
 }
 
 testFunction()
 ```
 
-When the above code is executed, the block number is shown as an output below.
+When the above code is executed, the value is shown as an output below.
 
 ```bash
 $ node ./test.js
-11406
+testValue
 ```
 
 To find more information, see [caver.contract].
