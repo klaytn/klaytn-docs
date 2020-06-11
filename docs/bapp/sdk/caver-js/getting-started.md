@@ -1167,7 +1167,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. Looking at the execution result of the code above, if user1 signs, one signature is created, and if user2 signs, user2's signature is appended to the existing user1's signature. [SignatureData] is an object that stores signature information.
+Running the above code gives you the following result. Looking at the execution result of the code above, if user1 signs, one signature is created. If user2 signs, user2's signature is appended. [SignatureData] is an object that stores a signature.
 
 ```bash
 $ node ./test.js
@@ -1190,10 +1190,10 @@ const Caver = require('caver-js')
 const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 
 async function testFunction() {
-	// Create user1 keyring
+	// Create user1's keyring
 	const user1 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key}')
 	
-	// Create value transfer transaction
+	// Create a value transfer transaction
 	const transaction = new caver.transaction.valueTransfer({
 		from: user1.address,
 		to: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
@@ -1201,7 +1201,7 @@ async function testFunction() {
 		gas: 70000,
 	})
 	
-	// Sign to transaction
+	// Sign the transaction
 	await transaction.sign(user1)
 
 	// Create user2 keyring
