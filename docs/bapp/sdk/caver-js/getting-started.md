@@ -37,6 +37,45 @@ To install a specific version of caver-js, try the following command:
 $ npm install caver-js@X.X.X
 ```
 
+## Sending KLAY at a glance <a id="sending-klay-at-a-glance"></a>
+
+A simple example of using a `keystore file` to send KLAY with a value transfer transaction. The keystore file can be created in [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
+
+```javascript
+const fs = require('fs')
+const Caver = require('./index')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+
+async function testFunction() {
+	// Read keystore json file
+	const keystore = fs.readFileSync('./keystore.json', 'utf8')
+
+	// Decrypt keystore
+    const keyring = caver.wallet.keyring.decrypt(keystore, 'gptnr8801080*')
+	console.log(keyring)
+
+	// Add to caver.wallet
+	caver.wallet.add(keyring)
+	
+	// Create value transfer transaction
+	const vt = new caver.transaction.valueTransfer({
+		from: keyring.address,
+		to: '0x8084fed6b1847448c24692470fc3b2ed87f9eb47',
+		value: caver.utils.toPeb(1, 'KLAY'),
+		gas: 25000,
+	})
+
+	// Sign to the transaction
+	const signed = await caver.wallet.sign(keyring.address, vt)
+
+	// Send transaction to the Klaytn network
+	const receipt = await caver.rpc.klay.sendRawTransaction(signed)
+	console.log(receipt)
+}
+
+testFunction()
+```
+
 ## Starting with caver-js <a id="starting-with-caver-js"></a>
 
 Once you have finished installing caver-js, you can now connect to a Klaytn Node using caver-js.
