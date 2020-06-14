@@ -20,7 +20,7 @@ With the features described above, Kaikas has improved the security, transparenc
 
 ## Supporting various Klaytn networks and tokens
 
-Kaikas enables you to store and interact with all Klaytn-based tokens, including KLAY and your own custom tokens. Tokens that are not shown up in Kaikas can later be added by pasting in their token contract address.
+Kaikas allows you to store and transact with all Klaytn-based tokens including KLAY. Tokens that are not loaded by default can be inserted by pasting in their contract address. You can even store and transact your own Klaytn-based custom tokens on Kaikas!
 
 Kaikas supports Klaytn's Baobab testnet as well as the Cypress mainnet. Moreover, Kaikas supports the private chains for Klaytn-based blockchain application developers who may wish to circulate custom tokens in their private network.
 
