@@ -1,6 +1,7 @@
 # Kaikas <a id="kaikas"></a>
 
-Kaikas is a browser extension for the Klaytn wallet. Available in Google Chrome and Mozilla Firefox, Kaikas provides a secure and usable means to interact with the Klaytn network via web browsers. Storing and interacting with KLAY and your Klaytn-based tokens get easier as never before with Kaikas, and it also supports you to sign the transactions from web-based Klaytn BApps (Blockchain Applications) in real-time.
+Kaikas is a browser extension wallet for the Klaytn Network. Available in Google Chrome and Mozilla Firefox, Kaikas provides a secure and usable means to interact with the Klaytn network via web browser. With Kaikas, you are able to store and transact with your KLAY and Klaytn-based tokens. You are also able to sign requests from web-based Klaytn BApps (Blockchain Applications) in
+realtime.
 
 * Download from Chrome Web Store: [link](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi)
 * Download from Firefox Add-on Store: [link](https://addons.mozilla.org/ko/firefox/addon/kaikas/)
