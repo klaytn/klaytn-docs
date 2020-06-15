@@ -51,7 +51,7 @@ async function testFunction() {
 	const keystore = fs.readFileSync('./keystore.json', 'utf8')
 
 	// Decrypt keystore
-    const keyring = caver.wallet.keyring.decrypt(keystore, 'gptnr8801080*')
+	const keyring = caver.wallet.keyring.decrypt(keystore, 'password')
 	console.log(keyring)
 
 	// Add to caver.wallet
