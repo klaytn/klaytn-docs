@@ -68,7 +68,7 @@ Klaytn 계정에 대한 자세한 내용은 Klaytn Docs의 [계정](../klaytn/de
 
 계정의 KLAY 또는 Klaytn 토큰의 잔액을 확인하거나 다른 계정으로 토큰을 전송하려면 계정에 접속해야 합니다. Klaytn Wallet은 계정에 접속하는 두 가지 방법을 제공합니다.
 
-* **Klaytn 지갑 키 또는 개인키 사용** Klaytn 지갑 키는 계정과 관련된 16진수 106자의 문자열이지만, 개인키는 16진수 64자의 문자열입니다. ("0x" 접두사는 문자 개수에 포함되지 않았습니다. 접두사까지 센다면 Klaytn 지갑 키는 112자, 개인키는 66자입니다.) 개인키를 사용하는 것은 다른 모든 시도가 실패할 시 어쩔 수 없는 최후의 접속 방법이어야 합니다. 계정에 접속하는 주된 방법이 되어서는 안 됩니다. 개인키는 계정에 대해 완전히 접속을 허용하기 때문에 가장 민감하게 다뤄줘야 하는 정보임을 명심하세요. 그러므로 개인키를 안전하게 보관하고 비밀로 유지하는 것이 매우 중요합니다.
+* **Using Klaytn Wallet Key or Private Key** A Klaytn Wallet Key is a string of 110 hexadecimal characters associated with an account, whereas a private key is a string of 64 hexadecimal characters (The character count does not include the "0x" prefixes that indicate hexadecimal numbers. If we count them in, a Klaytn Wallet Key is 112 characters long, and a private key is 66 characters long). Using one's private key should always be the last-ditch effort of access, only to be utilized when all else fails. This should not be the main road for anyone to access their accounts. Private keys are the most sensitive information because private keys allow complete access to an account. Therefore, it is extremely important to keep your private key safe, secure, and secret.
 * **키스토어 파일과 비밀번호** 키스토어 파일은 암호화된 개인키와 계정의 주소 정보가 저장된 JSON 파일입니다. 이 파일은 사용자가 설정한 비밀번호로 암호화되어 있습니다.
 
 ### Klaytn 지갑 키 또는 개인키를 사용하여 기존 계정 접속 <a id="access-existing-account-using-klaytn-wallet-key-or-private-key"></a>
@@ -189,4 +189,3 @@ Klaytn Wallet을 사용하여 KLAY 또는 Klaytn 토큰을 다른 계정으로 �
 ### 2단계: Faucet을 실행하세요. <a id="step-2-run-faucet"></a>
 
 `Run Faucet` 버튼을 클릭하여 5 테스트넷 KLAY를 받으면 잔액이 업데이트됩니다. 24시간마다 한 번씩 각 계정에 대해 Faucet을 실행할 수 있습니다.
-
