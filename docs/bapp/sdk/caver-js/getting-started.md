@@ -128,7 +128,7 @@ const caver = new Caver('http://localhost:8551/')
 
 ## Managing Keyrings <a id="managing-keyrings"></a>
 
-[Keyring] is a structure that contains the address of the account and the private key(s). 
+[Keyring] is a structure that contains the address of the Klaytn account and the private key(s). 
 
 [Keyring] can be classified into three types depending on the type of key being stored: [SingleKeyring] to store one address and one private key, [MultipleKeyring] to store one address and multiple private keys, and [RoleBasedKeyring] to store one address and one or more private keys for each role.
 
@@ -201,7 +201,7 @@ The result of `caver.wallet.keyring.createFromPrivateKey`, like the result of `c
 
 #### Creating a SingleKeyring with a private key and an address <a id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
 
-If [AccountKey] of your account in the Klaytn network is decoupled from the address, you can create a keyring using the address and the private key like below.
+If [AccountKey] of your Klaytn account in the Klaytn network is decoupled from the address, you can create a keyring using the address and the private key like below.
 
 ```javascript
 // test.js
@@ -271,7 +271,7 @@ As you can see, `_keys` has multiple PrivateKey instances in the array. Member v
 
 #### Creating a RoleBasedKeyring with private keys <a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
 
-To use different private key(s) for each [role], `caver.wallet.keyring.createWithRoleBasedKey` is used instead. Each array element represents a role in Klaytn's [AccountKey]. The below example shows how to create a [RoleBasedKeyring] instance from different keys for each role.
+To use different private key(s) for each [role], `caver.wallet.keyring.createWithRoleBasedKey` is used instead. Each array element represents a role described in [RoleBasedKeyring]. The example below shows how to create a [RoleBasedKeyring] instance from different keys for each role.
 
 ```javascript
 // test.js
@@ -742,11 +742,11 @@ $ node ./test.js
 
 ### Account Update <a id="account-update"></a>
 
-If you want to change the private key(s) of your account in the Klaytn network, you need to send an [Account Update] transaction. Please check [Account Update] for the details.
+If you want to change the private key(s) of your Klaytn account, you need to send an [Account Update] transaction. Please check [Account Update] for the details.
 
 To change your account key, you must provide an [Account] instance for the `account` field in the input argument object of `caver.transaction.accountUpdate`. An [Account] instance contains the address of the account and the AccountKey to be updated.
 
-The code below is an example code that changes the private key(s) you use for your account using [AccountKeyPublic]. Don't forget your new private key(s).
+The code below is an example code that changes the private key(s) you use for your Klaytn account using [AccountKeyPublic]. Don't forget your new private key(s).
 
 ```javascript
 // test.js
@@ -813,9 +813,9 @@ new private key string: 0x{private key}
 ```
 
 
-Do you want to update your account's key with multiple [AccountKeys]? The example below explains how to create an account instance with multiple account keys. Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
+Do you want to update your Klaytn account's key with multiple [AccountKeys]? The example below explains how to create an [Account] instance with multiple private keys that what you want to use (You can create an [Account] instance with multiple public keys via [caver.account.create]). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
 
-First, let's create an account to update with [AccountKeyWeightedMultiSig]. For [AccountKeyWeightedMultiSig], a threshold and a weight for each key must be defined. To do this, use [caver.account.weightedMultiSigOptions]. The first parameter is the threshold, and the second parameter is an array containing the weight for each key.
+First, let's create an Account instance to update with [AccountKeyWeightedMultiSig]. For [AccountKeyWeightedMultiSig], a threshold and a weight for each key must be defined. To do this, use [caver.account.weightedMultiSigOptions]. The first parameter is the threshold, and the second parameter is an array containing the weight for each key.
 
 ```javascript
 // Create an account with three private keys using AccountKeyWeightedMultiSig
@@ -857,7 +857,7 @@ const options = [
 const account = newKeyring.toAccount(options)
 ```
 
-If you want to update accountKey to [AccountKeyLegacy] or [accountKeyFail], create an account as shown below and assign it to the account field of the transaction.
+If you want to update accountKey to [AccountKeyLegacy] or [accountKeyFail], create an Account instance as shown below and assign it to the `account` field of the transaction.
 
 ```javascript
 // Create an account with AccountKeyLegacy
@@ -1115,11 +1115,11 @@ To find more information, see [caver.contract].
 
 ## Sending a Transaction with multiple signers<a id="sending-a-transaction-with-multiple-signers"></a>
 
-If the account's account key is AccountKeyMultiSig or AccountKeyRoleBased, the person who manages each key can vary.
+If the Klaytn account's account key is AccountKeyMultiSig or AccountKeyRoleBased, the person who manages each key can vary.
 
 This section describes how to collect signatures and send the transaction if there are multiple signers.
 
-To run this example, you need to update the account key of the account you use for testing with [AccountKeyWeightedMultiSig]. Please refer to [Account Update](#account-update) for how to update your account.
+To run this example, you need to update the account key of the Klaytn account you use for testing with [AccountKeyWeightedMultiSig]. Please refer to [Account Update](#account-update) for how to update your account.
 
 ### Signing sequentially <a id="signing-sequentially"></a>
 
@@ -1293,6 +1293,7 @@ The BApp \(Blockchain Application\) Development sample projects using caver-js a
 [AccountKeyRoleBased]: ../../../klaytn/design/accounts.md#accountkeyrolebased
 [role]: ../../../klaytn/design/accounts.md#roles
 [caver.account.weightedMultiSigOptions]: api-references/caver.account.md#weightedmultisigoptions
+[caver.account.create]: api-references/caver.account.md#caver-account-create
 
 [caver.wallet]: api-references/caver.wallet.md
 [caver.wallet.newKeyring]: api-references/caver.wallet.md#newkeyring
