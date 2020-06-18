@@ -428,9 +428,7 @@ contract MyContract {
 myContract.methods.methodName([param1 [, param2 [, ...]]]).send(options [, callback])
 ```
 
-Will send a transaction to the smart contract and execute its method.
-
-**NOTE** This can alter the smart contract state.
+Will send a transaction to the smart contract and execute its method. This can alter the smart contract state.
 
 **Parameters**
 
@@ -443,10 +441,13 @@ The options object can contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| from | string | The address from which the transaction should be sent. |
+| from | string | The address from which the transaction should be sent. If omitted, `myContract.options.from` will be used. |
 | gasPrice | string | (optional) The gas price in peb to use for this transaction. |
 | gas | number | (optional) The maximum gas provided for this transaction (gas limit). |
 | value | number &#124; string &#124; BN &#124; Bignumber | (optional) The value transferred for the transaction in peb. |
+
+
+**NOTE** The keyring corresponding to the `from` address that sends the transaction must exist in `caver.wallet`.
 
 **Return Value**
 
