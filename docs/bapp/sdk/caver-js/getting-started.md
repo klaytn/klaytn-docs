@@ -269,7 +269,7 @@ MultipleKeyring {
 As you can see, `_keys` has multiple PrivateKey instances in the array. Member variables defined inside the instance can be accessed through `keyring.address` and `keyring.keys`.
 
 
-#### Creating a RoleBasedKeyring with role based private keys <a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
+#### Creating a RoleBasedKeyring with private keys <a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
 
 To use different private key(s) for each [role], `caver.wallet.keyring.createWithRoleBasedKey` is used instead. Each array element represents a role in Klaytn's [AccountKey]. The below example shows how to create a [RoleBasedKeyring] instance from different keys for each role.
 
@@ -744,7 +744,7 @@ $ node ./test.js
 
 If you want to change the private key(s) of your account in the Klaytn network, you need to send an [Account Update] transaction. Please check [Account Update] for the details.
 
-To change your account key, you must provide an [Account] instance for the `account` field in the input argument object of `caver.transaction.accountUpdate`. An [Account] instance contains the address of the account and the accountKey to be updated.
+To change your account key, you must provide an [Account] instance for the `account` field in the input argument object of `caver.transaction.accountUpdate`. An [Account] instance contains the address of the account and the AccountKey to be updated.
 
 The code below is an example code that changes the private key(s) you use for your account using [AccountKeyPublic]. Don't forget your new private key(s).
 
