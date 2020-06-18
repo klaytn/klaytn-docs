@@ -742,7 +742,21 @@ $ node ./test.js
 
 ### Account Update <a id="account-update"></a>
 
-If you want to change the private key(s) of your Klaytn account, you need to send an [Account Update] transaction. Please check [Account Update] for the details.
+If you want to change the private key(s) for your account, there are 3 important things you need to remember:
+
+1. Klaytn network validates every transaction you send to it.
+2. The validation requires your public keys which exactly corresponds to your private key(s).
+3. Thus, changing your private key(s) into the new one(s) is **always be** **preceded** by changing your old public key(s) to the new one(s). The new public key(s) must be derived from the new private key(s).
+
+Keeping the 3 things above in your mind, you can change your private key(s) by following the steps below:
+
+1. Prepare the new private key(s) to create a new keyring.
+2. Create a keyring by its type (Single keyring, Multiple keyring, or Role-based keyring) you need.
+3. Generate an Account instance from the new keyring. This Account instance holds the new public key(s) for your account.
+4. Send AccountUpdate transaction including Account instance to Klaytn network.
+5. Finally, replace your old keyring to the new one that was created in Step 2.
+
+Please check [Account Update] for the details.
 
 To change your account key, you must provide an [Account] instance for the `account` field in the input argument object of `caver.transaction.accountUpdate`. An [Account] instance contains the address of the account and the AccountKey to be updated.
 
