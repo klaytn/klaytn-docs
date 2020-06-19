@@ -27,7 +27,7 @@ Kaikas supports Klaytn's Baobab testnet as well as the Cypress mainnet. Moreover
 ## Signing web-based BApp transactions
 
 Kaikas simply bridges the gap between you and Klaytn BApps, empowering you to sign transactions/data flowing to you from BApps with Kaikas account.
-Kaikas is also an aidful utility for developers to handle [fee-delegated transactions](/docs/klaytn/design/transactions/README.md#fee-delegation). Using Kaikas, both transaction senders and fee payers can swiftly sign the fee-delegated transactions.
+Kaikas is also an aidful utility for developers to handle [fee-delegated transactions](/klaytn/design/transactions/README.md#fee-delegation). Using Kaikas, both transaction senders and fee payers can swiftly sign the fee-delegated transactions.
 
 
 [Klaytnscope]: ./klaytnscope.md
