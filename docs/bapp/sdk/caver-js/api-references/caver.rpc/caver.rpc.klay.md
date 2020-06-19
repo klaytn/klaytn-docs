@@ -8,7 +8,7 @@
 caver.rpc.klay.accountCreated(address [, blockNumber] [, callback])
 ```
 
-Return `true` if the account associated with the address is created in the Klaytn network. It return `false` otherwise.
+Returns `true` if the account associated with the address is created in the Klaytn blockchain platform. It return `false` otherwise.
 
 **Parameters**
 
@@ -24,7 +24,7 @@ Return `true` if the account associated with the address is created in the Klayt
 
 | Type | Description |
 | --- | --- |
-| boolean | The existence of an input address in the Klaytn network. |
+| boolean | The existence of an input address in the Klaytn. |
 
 **Example**
 
@@ -39,7 +39,7 @@ true
 caver.rpc.klay.getAccount(address [, blockNumber] [, callback])
 ```
 
-Return the account information of a given address in the Klaytn network. For more details about the types of an account in Klaytn network, please refer to [Klaytn Account Types](../../../../../klaytn/design/accounts.md#klaytn-account-types).
+Returns the account information of a given address in the Klaytn. For more details about the types of an account in Klaytn, please refer to [Klaytn Account Types](../../../../../klaytn/design/accounts.md#klaytn-account-types).
 
 **NOTE** `caver.rpc.klay.getAccount` returns the account that exists on the network, so `null` is returned if the account matching the address does not exist on the actual blockchain network.
 
@@ -96,7 +96,7 @@ Return the account information of a given address in the Klaytn network. For mor
 caver.rpc.klay.getAccountKey(address [, blockNumber] [, callback])
 ```
 
-Return the account key of a given address. If the account has [AccountKeyLegacy](../../../../../klaytn/design/accounts.md#accountkeylegacy) or the account of the given address is a [Smart Contract Account](../../../../../klaytn/design/accounts.md#smart-contract-accounts-scas), it will return an empty key value. Please refer to [Account Key](../../../../../klaytn/design/accounts.md#account-key) for more detailed.
+Returns the account key of a given address. If the account has [AccountKeyLegacy](../../../../../klaytn/design/accounts.md#accountkeylegacy) or the account of the given address is a [Smart Contract Account](../../../../../klaytn/design/accounts.md#smart-contract-accounts-scas), it will return an empty key value. Please refer to [Account Key](../../../../../klaytn/design/accounts.md#account-key) for more details.
 
 **NOTE** `caver.rpc.klay.getAccountKey` returns the account key if the account exists on the network,  so `null` is returned if the account matching the address does not exist on the actual blockchain network.
 
@@ -184,7 +184,7 @@ Return the account key of a given address. If the account has [AccountKeyLegacy]
 caver.rpc.klay.encodeAccountKey(accountKey [, callback])
 ```
 
-Encode an account key using the Recursive Length Prefix (RLP) encoding scheme. Also you can use [account.getRLPEncodingAccountKey](../caver.account.md#account-getrlpencodingaccountkey) to get RLP-encoded account key.
+Encodes an account key using the Recursive Length Prefix (RLP) encoding scheme. Also you can use [account.getRLPEncodingAccountKey](../caver.account.md#account-getrlpencodingaccountkey) to get RLP-encoded account key.
 
 **Parameters**
 
@@ -303,7 +303,7 @@ Encode an account key using the Recursive Length Prefix (RLP) encoding scheme. A
 caver.rpc.klay.decodeAccountKey(encodedKey [, callback])
 ```
 
-Decode a RLP-encoded account key. Also you can use [caver.account.accountKey.decode](../caver.account.md#caver-account-accountkey-decode) to decode a RLP-encoded account key.
+Decodes a RLP-encoded account key. Also you can use [caver.account.accountKey.decode](../caver.account.md#caver-account-accountkey-decode) to decode a RLP-encoded account key.
 
 **Parameters**
 
@@ -418,7 +418,7 @@ Decode a RLP-encoded account key. Also you can use [caver.account.accountKey.dec
 caver.rpc.klay.getBalance(address [, blockNumber] [, callback])
 ```
 
-Return the balance of the account of given address in Klaytn network.
+Returns the balance of the account of given address in Klaytn.
 
 **Parameters**
 
@@ -480,7 +480,7 @@ Return code at a given address.
 caver.rpc.klay.getTransactionCount(address [, blockNumber] [, callback])
 ```
 
-Return the total number of transactions sent from an address.
+Returns the total number of transactions sent from an address.
 
 **Parameters**
 
@@ -511,7 +511,7 @@ Return the total number of transactions sent from an address.
 caver.rpc.klay.isContractAccount(address [, blockNumber] [, callback])
 ```
 
-Return `true` if an input account has a non-empty codeHash at the time of a specific block number. It returns `false` if the account is an EOA or a smart contract account which doesn't have codeHash. Please refer to [Smart Contract Account](../../../../../klaytn/design/accounts.md#smart-contract-accounts-scas) for more details.
+Returns `true` if an input account has a non-empty codeHash at the time of a specific block number. It returns `false` if the account is an EOA or a smart contract account which doesn't have codeHash. Please refer to [Smart Contract Account](../../../../../klaytn/design/accounts.md#smart-contract-accounts-scas) for more details.
 
 **Parameters**
 
@@ -527,7 +527,7 @@ Return `true` if an input account has a non-empty codeHash at the time of a spec
 
 | Type | Description |
 | --- | --- |
-| boolean | The number of transactions sent from the given address in hex. |
+| boolean | true means the input parameter is an existing smart contract address. |
 
 **Example**
 
@@ -545,7 +545,7 @@ true
 caver.rpc.klay.sign(message, address [, blockNumber] [, callback])
 ```
 
-Generate signed data specific to the Klaytn network. Refer to [Klaytn Platform API - klay_sign](../../../../json-rpc/api-references/klay/account.md#klay_sign) to know how the signature is generated.
+Generates signed data specific to the Klaytn. Refer to [Klaytn Platform API - klay_sign](../../../../json-rpc/api-references/klay/account.md#klay_sign) to know how the signature is generated.
 
 **NOTE**: This API provides the function to sign a message using an [imported account](../../../../json-rpc/api-references/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/api-references/personal.md#personal_unlockaccount) to sign the message. To sign a transaction with imported account in your Klaytn node, use [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction).
 
@@ -579,7 +579,7 @@ Generate signed data specific to the Klaytn network. Refer to [Klaytn Platform A
 caver.rpc.klay.getAccounts([callback])
 ```
 
-Return a list of addresses owned by the Klaytn Node.
+Returns a list of addresses owned by the Klaytn Node.
 
 **Parameters**
 
@@ -611,7 +611,7 @@ Return a list of addresses owned by the Klaytn Node.
 caver.rpc.klay.getBlockNumber([callback])
 ```
 
-Return the number of the most recent block.
+Returns the number of the most recent block.
 
 **Parameters**
 
@@ -640,14 +640,14 @@ Return the number of the most recent block.
 caver.rpc.klay.getBlockByNumber(blockNumber [, returnTransactionObjects] [, callback])
 ```
 
-Return the number of most recent block.
+Returns information about a block by block number. This API works only on RPC call, not on Javascript console.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
 | blockNumber | number &#124; string | The block number or the block which is tagged with a string (`genesis`, `latest` or `pending`). |
-| returnTransactionObjects | boolean | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, if `false` it will only contains the transaction hashes. |
+| returnTransactionObjects | boolean | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -690,14 +690,14 @@ Return the number of most recent block.
 caver.rpc.klay.getBlockByHash(blockHash [, returnTransactionObjects] [, callback])
 ```
 
-Return the number of most recent block.
+Returns the number of most recent block.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
 | blockHash | string | The block hash. |
-| returnTransactionObjects | boolean | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, if `false` it will only contains the transaction hashes. |
+| returnTransactionObjects | boolean | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -708,7 +708,7 @@ Return the number of most recent block.
 | --- | --- | --- |
 | blockScore | string | Former difficulty. Always 1 in the BFT consensus engine. |
 | extraData | string | The "extra data" field of this block. |
-| gasUsed | string | The total used gas by all transactions in this block. |
+| gasUsed | string | The gas in total that was used by all transactions in this block. |
 | governanceData | string | RLP encoded governance configuration |
 | hash | string | Hash of the block. `null` when it is a pending block. |
 | logsBloom | string | The bloom filter for the logs of the block. `null` when it is a pending block. |
@@ -757,7 +757,7 @@ Return the number of most recent block.
 caver.rpc.klay.getBlockReceipts(blockHash [, callback])
 ```
 
-Return receipts included in a block identified by block hash.
+Returns receipts included in a block identified by block hash.
 
 **Parameters**
 
@@ -815,7 +815,7 @@ Return receipts included in a block identified by block hash.
 caver.rpc.klay.getBlockTransactionCountByNumber(blockNumber [, callback])
 ```
 
-Return the number of transactions in a block matching the given block number.
+Returns the number of transactions in a block matching the given block number.
 
 **Parameters**
 
@@ -845,7 +845,7 @@ Return the number of transactions in a block matching the given block number.
 caver.rpc.klay.getBlockTransactionCountByHash(blockHash [, callback])
 ```
 
-Return the number of transactions in a block matching the given block hash.
+Returns the number of transactions in a block matching the given block hash.
 
 **Parameters**
 
@@ -875,7 +875,7 @@ Return the number of transactions in a block matching the given block hash.
 caver.rpc.klay.getBlockWithConsensusInfoByNumber(blockNumber [, callback])
 ```
 
-Return a block with consensus information matched by the given block number.
+Returns a block with consensus information matched by the given block number.
 
 **Parameters**
 
@@ -952,7 +952,7 @@ Return a block with consensus information matched by the given block number.
 caver.rpc.klay.getBlockWithConsensusInfoByHash(blockHash [, callback])
 ```
 
-Return a block with consensus information matched by the given hash.
+Returns a block with consensus information matched by the given hash.
 
 **Parameters**
 
@@ -970,7 +970,7 @@ Return a block with consensus information matched by the given hash.
 | blockScore | string | Former difficulty. Always 1 in the BFT consensus engine |
 | committee | Array | Array of addresses of committee members of this block. The committee is a subset of validators participated in the consensus protocol for this block. |
 | extraData | string | The "extra data" field of this block. |
-| gasUsed | string | The total used gas by all transactions in this block. |
+| gasUsed | string | The gas in total that was used by all transactions in this block. |
 | governanceData | string | RLP encoded governance configuration |
 | hash | string | Hash of the block. `null` when it is a pending block. |
 | logsBloom | string | The bloom filter for the logs of the block. ``null`` when it is a pending block. |
@@ -1048,7 +1048,7 @@ Return a block with consensus information matched by the given hash.
 caver.rpc.klay.getCommittee([blockNumber] [, callback])
 ```
 
-Return a list of all validators in the committee at the specified block.
+Returns a list of all validators in the committee at the specified block.
 
 **Parameters**
 
@@ -1081,7 +1081,7 @@ Return a list of all validators in the committee at the specified block.
 caver.rpc.klay.getCommitteeSize([blockNumber] [, callback])
 ```
 
-Return the size of the committee at the specified block.
+Returns the size of the committee at the specified block.
 
 **Parameters**
 
@@ -1111,7 +1111,7 @@ Return the size of the committee at the specified block.
 caver.rpc.klay.getCouncil([blockNumber] [, callback])
 ```
 
-Return a list of all validators of the council at the specified block.
+Returns a list of all validators of the council at the specified block.
 
 **Parameters**
 
@@ -1144,7 +1144,7 @@ Return a list of all validators of the council at the specified block.
 caver.rpc.klay.getCouncilSize([blockNumber] [, callback])
 ```
 
-Return the size of the council at the specified block.
+Returns the size of the council at the specified block.
 
 **Parameters**
 
@@ -1174,7 +1174,7 @@ Return the size of the council at the specified block.
 caver.rpc.klay.getStorageAt(address, position [, blockNumber] [, callback])
 ```
 
-Return the value from a storage position at a given address.
+Returns the value from a storage position at a given address.
 
 **Parameters**
 
@@ -1206,7 +1206,7 @@ Return the value from a storage position at a given address.
 caver.rpc.klay.isSyncing([callback])
 ```
 
-Return an object with data about the sync status or false.
+Returns an object with data about the sync status or false.
 
 **Parameters**
 
@@ -1248,7 +1248,7 @@ false
 caver.rpc.klay.call(callObject [, blockNumber] [, callback])
 ```
 
-Execute a new message call immediately without sending a transaction on the block chain. It returns data or an error object of JSON RPC if error occurs.
+Executes a new message call immediately without sending a transaction on the block chain. It returns data or an error object of JSON RPC if error occurs.
 
 **Parameters**
 
@@ -1275,7 +1275,7 @@ Execute a new message call immediately without sending a transaction on the bloc
 
 | Type | Description |
 | --- | --- |
-| string | The returned data of the call. *e.g.*, a smart contract functions return value. |
+| string | The returned data of the call. *e.g.*, a the return value of a smart contract function. |
 
 **Example**
 
@@ -1293,7 +1293,7 @@ Execute a new message call immediately without sending a transaction on the bloc
 caver.rpc.klay.estimateGas(callObject [, blockNumber] [, callback])
 ```
 
-Generate and return an estimate of how much `gas` is necessary to allow the transaction to complete. The transaction from this method will not be added to the blockchain. 
+Generates and return an estimate of how much `gas` is necessary to allow the transaction to complete. The transaction from this method will not be added to the blockchain. 
 
 **Parameters**
 
@@ -1305,7 +1305,7 @@ See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all prop
 
 | Type | Description |
 | --- | --- |
-| string | The returned data of the call. *e.g.*, a smart contract functions return value. |
+| string | The returned data of the call. *e.g.*, a the return value of a smart contract function. |
 
 **Example**
 
@@ -1323,7 +1323,7 @@ See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all prop
 caver.rpc.klay.estimateComputationCost(callObject [, blockNumber] [, callback])
 ```
 
-Generate and return an estimate of how much `computation cost` will be spent to execute the transaction. Klaytn limits the computation cost of a transaction to `100000000` currently not to take too much time by a single transaction. The transaction will not be added to the blockchain like [caver.rpc.klay.estimateGas](#caver-rpc-klay-estimategas).
+Generates and returns an estimate of how much `computation cost` will be spent to execute the transaction. Klaytn limits the computation cost of a transaction to `100000000` currently not to take too much time by a single transaction. The transaction will not be added to the blockchain like [caver.rpc.klay.estimateGas](#caver-rpc-klay-estimategas).
 
 **Parameters**
 
@@ -1353,7 +1353,7 @@ See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all prop
 caver.rpc.klay.getTransactionByBlockHashAndIndex(blockHash, index [, callback])
 ```
 
-Return information about a transaction by `block hash` and `transaction index` position.
+Returns information about a transaction by `block hash` and `transaction index` position.
 
 **Parameters**
 
@@ -1399,7 +1399,7 @@ Return information about a transaction by `block hash` and `transaction index` p
 caver.rpc.klay.getTransactionByBlockNumberAndIndex(blockNumber, index [, callback])
 ```
 
-Return information about a transaction by `block number` and `transaction index` position.
+Returns information about a transaction by `block number` and `transaction index` position.
 
 **Parameters**
 
@@ -1445,7 +1445,7 @@ Return information about a transaction by `block number` and `transaction index`
 caver.rpc.klay.getTransactionByHash(transactionHash [, callback])
 ```
 
-Return the information about a transaction requested by transaction hash.
+Returns the information about a transaction requested by transaction hash.
 
 **Parameters**
 
@@ -1534,7 +1534,7 @@ If the transaction is in `pending` status that has not yet been processed, defau
 caver.rpc.klay.getTransactionBySenderTxHash(senderTxHash [, callback])
 ```
 
-Return the information about a transaction requested by sender transaction hash.
+Returns the information about a transaction requested by sender transaction hash.
 
 Please note that this API returns correct result only if the indexing feature is enabled in the node by `--sendertxhashindexing`. Use [caver.rpc.klay.isSenderTxHashIndexingEnabled](#caver-rpc-klay-issendertxhashindexingenabled) to check if the indexing feature is enabled or not.
 
@@ -1584,7 +1584,7 @@ Please note that this API returns correct result only if the indexing feature is
 caver.rpc.klay.getTransactionReceipt(transactionHash [, callback])
 ```
 
-Return the receipt of a transaction by transaction hash.
+Returns the receipt of a transaction by transaction hash.
 
 **NOTE** Receipt is not available for `pending` transactions whose transactions have not yet been processed.
 
@@ -1662,7 +1662,7 @@ Return the receipt of a transaction by transaction hash.
 caver.rpc.klay.getTransactionReceiptBySenderTxHash(senderTxHash [, callback])
 ```
 
-Return the receipt of a transaction by sender transaction hash.
+Returns the receipt of a transaction by sender transaction hash.
 
 Please note that this API returns correct result only if the indexing feature is enabled in the node by `--sendertxhashindexing`. Use [caver.rpc.klay.isSenderTxHashIndexingEnabled](#caver-rpc-klay-issendertxhashindexingenabled) to check if the indexing feature is enabled or not.
 
@@ -1716,7 +1716,7 @@ Please note that this API returns correct result only if the indexing feature is
 caver.rpc.klay.sendRawTransaction(signedTransaction [, callback])
 ```
 
-Send a `signed transaction` to the Klaytn network. 
+Sends a `signed transaction` to the Klaytn. 
 
 The `signedTransaction` parameter can be a "RLP-encoded signed transaction." You can get the RLP-encoded transaction of a signed transaction using `transaction.getRLPEncoding`. For convenience, `caver.rpc.klay.sendRawTransaction` also accepts a "signed transaction instance" as parameter.
 
@@ -1776,7 +1776,7 @@ For PromiEvent, the following events are available:
 caver.rpc.klay.sendTransaction(transaction [, callback])
 ```
 
-Sign the transaction as a transaction `sender` with an "imported account's private key" in your Klyatn Node and propagates the transaction to the Klaytn network.
+Signs the transaction as a transaction `sender` with an "imported account's private key" in your Klyatn Node and propagates the transaction to the Klaytn.
 
 For more information about each transaction type, refer to [Transaction].
 
@@ -1786,7 +1786,7 @@ For more information about each transaction type, refer to [Transaction].
 
 | Name | Type | Description |
 | --- | --- | --- |
-| transaction | object | An instance of transaction to be sent to the Klaytn network. |
+| transaction | object | An instance of transaction to be sent to the Klaytn. |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -1844,7 +1844,7 @@ For PromiEvent, the following events are available:
 caver.rpc.klay.sendTransactionAsFeePayer(transaction [, callback])
 ```
 
-Sign the fee delegated transaction as a transaction `fee payer` with an `imported account's private key` in your Klyatn Node and propagates the transaction to the Klaytn network.
+Signs the fee delegated transaction as a transaction `fee payer` with an `imported account's private key` in your Klyatn Node and propagates the transaction to the Klaytn.
 
 Before using `sendTransaction` as a fee payer, the transaction sender must have signed with valid signature(s) and the `nonce` must have been defined.
 
@@ -1856,7 +1856,7 @@ For more information about each transaction type, refer to [Transaction].
 
 | Name | Type | Description |
 | --- | --- | --- |
-| transaction | object | An instance of fee delegated transaction to send to the Klaytn network. |
+| transaction | object | An instance of fee delegated transaction to send to the Klaytn. |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -1925,7 +1925,7 @@ For PromiEvent, the following events are available:
 caver.rpc.klay.signTransaction(transaction [, callback])
 ```
 
-Sign the transaction as a transaction `sender` with an `imported account's private key` in your Klyatn Node.
+Signs the transaction as a transaction sender with an "imported account's private key" in your Klaytn Node.
 
 For more information about each transaction type, refer to [Transaction].
 
@@ -1981,7 +1981,7 @@ For more information about each transaction type, refer to [Transaction].
 caver.rpc.klay.signTransactionAsFeePayer(transaction [, callback])
 ```
 
-Sign the transaction as a transaction fee payer with an "imported account's private key" in your Klyatn Node.
+Signs the transaction as a transaction fee payer with an "imported account's private key" in your Klaytn Node.
 
 For more information about each transaction type, refer to [Transaction].
 
@@ -2048,7 +2048,7 @@ For more information about each transaction type, refer to [Transaction].
 caver.rpc.klay.getDecodedAnchoringTransactionByHash(transactionHash [, callback])
 ```
 
-Return the decoded anchored data in the transaction for the given transaction hash.
+Returns the decoded anchored data in the transaction for the given transaction hash.
 
 **Parameters**
 
@@ -2094,7 +2094,7 @@ Return the decoded anchored data in the transaction for the given transaction ha
 caver.rpc.klay.getChainId([callback])
 ```
 
-Return the chain ID of the chain.
+Returns the chain ID of the chain.
 
 **Parameters**
 
@@ -2123,7 +2123,7 @@ Return the chain ID of the chain.
 caver.rpc.klay.getClientVersion([callback])
 ```
 
-Return the current client version of a Klaytn node.
+Returns the current client version of a Klaytn node.
 
 **Parameters**
 
@@ -2152,7 +2152,7 @@ Klaytn/v1.3.0+144494d2aa/linux-amd64/go1.13.1
 caver.rpc.klay.getGasPrice([callback])
 ```
 
-Return the current price per gas in peb.
+Returns the current price per gas in peb.
 
 **Parameters**
 
@@ -2181,7 +2181,7 @@ Return the current price per gas in peb.
 caver.rpc.klay.getGasPriceAt([blockNumber] [, callback])
 ```
 
-Return the current price per gas in peb for the given block.
+Returns the current price per gas in peb for the given block.
 
 **Parameters**
 
@@ -2211,7 +2211,7 @@ Return the current price per gas in peb for the given block.
 caver.rpc.klay.isParallelDBWrite([callback])
 ```
 
-Return true if the node is writing blockchain data in parallel manner.
+Returns true if the node is writing blockchain data in parallel manner.
 
 **Parameters**
 
@@ -2240,7 +2240,7 @@ true
 caver.rpc.klay.isSenderTxHashIndexingEnabled([callback])
 ```
 
-Return true if the node is indexing sender transaction hash to transaction hash mapping information.
+Returns true if the node is indexing sender transaction hash to transaction hash mapping information.
 
 **Parameters**
 
@@ -2269,7 +2269,7 @@ true
 caver.rpc.klay.getProtocolVersion([callback])
 ```
 
-Return true if the node is indexing sender transaction hash to transaction hash mapping information.
+Returns the Klaytn protocol version of the node.
 
 **Parameters**
 
@@ -2298,36 +2298,7 @@ Return true if the node is indexing sender transaction hash to transaction hash 
 caver.rpc.klay.getRewardbase([callback])
 ```
 
-Return the rewardbase of the current node. Rewardbase is the address of the account where the block rewards goes to. It is only required for CNs.
-
-**Parameters**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
-
-**Return Value**
-
-`Promise` returns `string`
-
-| Type | Description |
-| --- | --- |
-| string | The rewardbase address. |
-
-**Example**
-
-```javascript
-> caver.rpc.klay.getRewardbase().then(console.log)
-0xa9b3a93b2a9fa3fdcc31addd240b04bf8db3414c
-```
-
-## caver.rpc.klay.getRewardbase <a id="caver-rpc-klay-getrewardbase"></a>
-
-```javascript
-caver.rpc.klay.getRewardbase([callback])
-```
-
-Return the rewardbase of the current node. Rewardbase is the address of the account where the block rewards goes to. It is only required for CNs.
+Returns the rewardbase of the current node. Rewardbase is the address of the account where the block rewards goes to. It is only required for CNs.
 
 **Parameters**
 
@@ -2356,7 +2327,7 @@ Return the rewardbase of the current node. Rewardbase is the address of the acco
 caver.rpc.klay.isWriteThroughCaching([callback])
 ```
 
-Return true if the node is using writeThroughCaching.
+Returns true if the node is using writeThroughCaching.
 
 **Parameters**
 
@@ -2477,7 +2448,7 @@ See [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
 caver.rpc.klay.getLogs(options [, callback])
 ```
 
-Return an array of all logs matching a given filter object.
+Returns an array of all logs matching a given filter object.
 
 **Parameters**
 
@@ -2635,7 +2606,7 @@ To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver
 caver.rpc.klay.uninstallFilter(filterId [, callback])
 ```
 
-Uninstall a filter with given id. Should always be called when a watch is no longer needed. Additionally, filters time out when they are not being called with [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges) for a period of time.
+Uninstalls a filter with given id. Should always be called when a watch is no longer needed. Additionally, filters time out when they are not being called with [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges) for a period of time.
 
 **Parameters**
 
@@ -2665,7 +2636,7 @@ true
 caver.rpc.klay.sha3(data[, callback])
 ```
 
-Return Keccak-256 (not the standardized SHA3-256) of the given data. You can use [caver.utils.sha3](../caver.utils.md#caver-utils-sha3) instead of this.
+Returns Keccak-256 (not the standardized SHA3-256) of the given data. You can use [caver.utils.sha3](../caver.utils.md#caver-utils-sha3) instead of this.
 
 **Parameters**
 
