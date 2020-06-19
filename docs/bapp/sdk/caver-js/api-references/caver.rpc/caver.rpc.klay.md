@@ -39,7 +39,7 @@ true
 caver.rpc.klay.getAccount(address [, blockNumber] [, callback])
 ```
 
-Return the account information of a given address in the Klaytn network. For more detailed about `Klaytn Account Types` in Klaytn network, please refer to [Klaytn Account Types](../../../../../klaytn/design/accounts.md#klaytn-account-types).
+Return the account information of a given address in the Klaytn network. For more details about the types of an account in Klaytn network, please refer to [Klaytn Account Types](../../../../../klaytn/design/accounts.md#klaytn-account-types).
 
 **NOTE** `caver.rpc.klay.getAccount` returns the account that exists on the network, so `null` is returned if the account matching the address does not exist on the actual blockchain network.
 
@@ -480,7 +480,7 @@ Return code at a given address.
 caver.rpc.klay.getTransactionCount(address [, blockNumber] [, callback])
 ```
 
-Return the number of transactions sent from an address.
+Return the total number of transactions sent from an address.
 
 **Parameters**
 
@@ -511,7 +511,7 @@ Return the number of transactions sent from an address.
 caver.rpc.klay.isContractAccount(address [, blockNumber] [, callback])
 ```
 
-Return `true` if an input account has a non-empty codeHash at the time of a specific block number. It returns `false` if the account is an EOA or a smart contract account which doesn't have codeHash.
+Return `true` if an input account has a non-empty codeHash at the time of a specific block number. It returns `false` if the account is an EOA or a smart contract account which doesn't have codeHash. Please refer to [Smart Contract Account](../../../../../klaytn/design/accounts.md#smart-contract-accounts-scas) for more details.
 
 **Parameters**
 
@@ -554,7 +554,7 @@ Generate signed data specific to the Klaytn network. Refer to [Klaytn Platform A
 | Name | Type | Description |
 | --- | --- | --- |
 | message | String | Message to sign. |
-| address | String | The address of the account to sign the message with. |
+| address | String | The address of the imported account to sign the message. |
 | blockNumber | number &#124; string | (optional) A block number, or the string `latest`, `earliest` or `pending`. If omitted, `latest` will be used. |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -564,7 +564,7 @@ Generate signed data specific to the Klaytn network. Refer to [Klaytn Platform A
 
 | Type | Description |
 | --- | --- |
-| string | The signature signed with an imported account. |
+| string | The signature made from an imported account. |
 
 **Example**
 
@@ -611,7 +611,7 @@ Return a list of addresses owned by the Klaytn Node.
 caver.rpc.klay.getBlockNumber([callback])
 ```
 
-Return the number of most recent block.
+Return the number of the most recent block.
 
 **Parameters**
 
@@ -646,7 +646,7 @@ Return the number of most recent block.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| blockNumber | number &#124; string | The block number or the blcock tag string (`genesis`, `latest` or `pending`). |
+| blockNumber | number &#124; string | The block number or the block which is tagged with a string (`genesis`, `latest` or `pending`). |
 | returnTransactionObjects | boolean | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, if `false` it will only contains the transaction hashes. |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -656,12 +656,12 @@ Return the number of most recent block.
 
 | Type | Description |
 | --- | --- |
-| string | An object includes block. For detailed description of return value, please refer to [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash). |
+| string | A block object. For detailed description of return value, please refer to [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash). |
 
 **Example**
 
 ```javascript
-> caver.rpc.klay.getBlock(1).then(console.log)
+> caver.rpc.klay.getBlockByNumber(1).then(console.log)
 {
 	blockscore: '0x1',
 	extraData: '0xd8830...',
@@ -1063,7 +1063,7 @@ Return a list of all validators in the committee at the specified block.
 
 | Type | Description |
 | --- | --- |
-| Array | Addresses of all validators in the committee. |
+| Array | Addresses of all validators in the committee at the given block. |
 
 **Example**
 
@@ -1096,7 +1096,7 @@ Return the size of the committee at the specified block.
 
 | Type | Description |
 | --- | --- |
-| number | The size of the committee. |
+| number | The size of the committee at the given block. |
 
 **Example**
 
@@ -1126,7 +1126,7 @@ Return a list of all validators of the council at the specified block.
 
 | Type | Description |
 | --- | --- |
-| Array | An array of validator addresses of the council, or null when no council was found. |
+| Array | An array of validator addresses of the council at the given block, or null when no council was found. |
 
 **Example**
 
@@ -1159,7 +1159,7 @@ Return the size of the council at the specified block.
 
 | Type | Description |
 | --- | --- |
-| number | The size of the council. |
+| number | The size of the council at the given block. |
 
 **Example**
 
@@ -1221,7 +1221,7 @@ Return an object with data about the sync status or false.
 | Name | Type | Description |
 | --- | --- | --- |
 | startingBlock | string | The block number in hex where the sync started |
-| currentBlock | string | The block number in hex where at which block the node currently synced to already. |
+| currentBlock | string | The block number in hex where the node currently synced to. |
 | highestBlock | string | The estimated block number in hex to sync to. |
 | knownStates | string | The estimated states in hex to download. |
 | pulledStates | string | The already downloaded states in hex. |
@@ -1248,7 +1248,7 @@ false
 caver.rpc.klay.call(callObject [, blockNumber] [, callback])
 ```
 
-Execute a new message call immediately without creating a transaction on the block chain. It returns data or an error object of JSON RPC if error occurs.
+Execute a new message call immediately without sending a transaction on the block chain. It returns data or an error object of JSON RPC if error occurs.
 
 **Parameters**
 
@@ -1293,7 +1293,7 @@ Execute a new message call immediately without creating a transaction on the blo
 caver.rpc.klay.estimateGas(callObject [, blockNumber] [, callback])
 ```
 
-Generate and return an estimate of how much `gas` is necessary to allow the transaction to complete. The transaction will not be added to the blockchain. 
+Generate and return an estimate of how much `gas` is necessary to allow the transaction to complete. The transaction from this method will not be added to the blockchain. 
 
 **Parameters**
 
@@ -1476,13 +1476,13 @@ Return the information about a transaction requested by transaction hash.
 | nonce | string | The number of transactions made by the sender prior to this one. |
 | senderTxHash | string | (optional) Hash of the tx without the fee payer's address and signature. This value is always the same as the value of `hash` for non fee-delegated transactions. |
 | signatures | Array | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| to | string | Address of the receiver. `null` when it is a contract creation transaction. |
+| to | string | Address of the receiver. `null` when it is a contract deploying transaction. |
 | transactionIndex | string | Integer of the transaction index position in the block.. |
 | type | string | A string representing the type of the transaction. |
 | typeInt | number | An integer representing the type of the transaction. |
 | value | string | Value transferred in peb. |
 
-If the transaction is `pending` status that has not yet been processed, default value is returned in `blockHash` and `blockNumber` and `trasnactionIndex`. See the example below.
+If the transaction is in `pending` status that has not yet been processed, default values for `blockHash`, `blockNumber` and `trasnactionIndex` are returned. See the example below.
 
 **Example**
 
@@ -1508,7 +1508,7 @@ If the transaction is `pending` status that has not yet been processed, default 
 	value: '0x0',
 }
 
-// When transaction is pending default value is returned in `blockHash` and `blockNumber` and `trasnactionIndex`
+// When transaction is in pending, default values for `blockHash`, `blockNumber` and `trasnactionIndex` are returned.
 > caver.rpc.klay.getTransactionByHash('0x72e3838a42fbe75724a685ca03e50ff25ebc564e32d06dadf41be2190e5b11d1').then(console.log)
 {
 	blockHash: '0x0000000000000000000000000000000000000000000000000000000000000000',
@@ -1551,7 +1551,7 @@ Please note that this API returns correct result only if the indexing feature is
 
 | Type | Description |
 | --- | --- |
-| object | A transaction object, see [caver.rpc.klay.getTransactionByHash] for more detail. |
+| object | A transaction object, see [caver.rpc.klay.getTransactionByHash] for more details. |
 
 **Example**
 
@@ -1718,7 +1718,7 @@ caver.rpc.klay.sendRawTransaction(signedTransaction [, callback])
 
 Send a `signed transaction` to the Klaytn network. 
 
-The signedTransaction parameter can be a `RLP-encoded signed transaction` as a parameter. You can get the RLP-encoded transaction of a signed transaction using `transaction.getRLPEncoding`. For convenience, `caver.rpc.klay.sendRawTransaction` also accepts a `signed transaction instance` as parameter.
+The `signedTransaction` parameter can be a "RLP-encoded signed transaction." You can get the RLP-encoded transaction of a signed transaction using `transaction.getRLPEncoding`. For convenience, `caver.rpc.klay.sendRawTransaction` also accepts a "signed transaction instance" as parameter.
 
 **Parameters**
 
@@ -1776,7 +1776,7 @@ For PromiEvent, the following events are available:
 caver.rpc.klay.sendTransaction(transaction [, callback])
 ```
 
-Sign the transaction as a transaction `sender` with an `imported account's private key` in your Klyatn Node and propagates the transaction to the Klaytn network.
+Sign the transaction as a transaction `sender` with an "imported account's private key" in your Klyatn Node and propagates the transaction to the Klaytn network.
 
 For more information about each transaction type, refer to [Transaction].
 
@@ -1786,7 +1786,7 @@ For more information about each transaction type, refer to [Transaction].
 
 | Name | Type | Description |
 | --- | --- | --- |
-| transaction | object | An instance of transaction to send to the Klaytn network. |
+| transaction | object | An instance of transaction to be sent to the Klaytn network. |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -1846,7 +1846,7 @@ caver.rpc.klay.sendTransactionAsFeePayer(transaction [, callback])
 
 Sign the fee delegated transaction as a transaction `fee payer` with an `imported account's private key` in your Klyatn Node and propagates the transaction to the Klaytn network.
 
-Before using send transaction to the Klaytn Node as a fee payer, the transaction sender must be signed (valid `signatures` should be defined) and the `nonce` must be defined.
+Before using `sendTransaction` as a fee payer, the transaction sender must have signed with valid signature(s) and the `nonce` must have been defined.
 
 For more information about each transaction type, refer to [Transaction].
 
@@ -1981,7 +1981,7 @@ For more information about each transaction type, refer to [Transaction].
 caver.rpc.klay.signTransactionAsFeePayer(transaction [, callback])
 ```
 
-Sign the transaction as a transaction `sender` with an `imported account's private key` in your Klyatn Node.
+Sign the transaction as a transaction fee payer with an "imported account's private key" in your Klyatn Node.
 
 For more information about each transaction type, refer to [Transaction].
 
@@ -2001,7 +2001,7 @@ For more information about each transaction type, refer to [Transaction].
 | Name | Type | Description |
 | --- | --- | --- |
 | raw | string | A RLP-encoded signed transaction. |
-| tx | object | The transaction object including the sender's signature. |
+| tx | object | The transaction object to sign as fee payer. |
 
 **Example**
 
@@ -2181,7 +2181,7 @@ Return the current price per gas in peb.
 caver.rpc.klay.getGasPriceAt([blockNumber] [, callback])
 ```
 
-Return the current price per gas in peb.
+Return the current price per gas in peb for the given block.
 
 **Parameters**
 
@@ -2356,7 +2356,7 @@ Return the rewardbase of the current node. Rewardbase is the address of the acco
 caver.rpc.klay.isWriteThroughCaching([callback])
 ```
 
-Return true if the node is using write through caching.
+Return true if the node is using writeThroughCaching.
 
 **Parameters**
 
@@ -2398,8 +2398,8 @@ Polling method for a filter, which returns an array of logs since the last poll.
 
 `Promise` returns `Array` - Array of log objects, or an empty array if nothing has changed since last poll.
 
-- For filters created with [caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter), the return are block hashes, *e.g.*, `["0x3454645634534..."]`.
-- For filters created with [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter), the return are transaction hashes, *e.g.*, `["0x6345343454645..."]`.
+- For filters created with [caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter), the returns are block hashes, *e.g.*, `["0x3454645634534..."]`.
+- For filters created with [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter), the returns are transaction hashes, *e.g.*, `["0x6345343454645..."]`.
 - For filters created with [caver.rpc.klay.newFilter](#caver-rpc-klay-newfilter), logs are objects with following parameters:
 
 | Name | Type | Description |
@@ -2437,7 +2437,7 @@ Polling method for a filter, which returns an array of logs since the last poll.
 caver.rpc.klay.getFilterLogs(filterId [, callback])
 ```
 
-Returns an array of all logs matching the filter with the given id. The filter object should be obtained using [newFilter](#newfilter).  
+Returns an array of all logs matching the filter with the given id. The filter object should be obtained by using [newFilter](#newfilter).  
 
 Note that filter ids returned by other filter creation functions, such as [caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter) or [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter), cannot be used with this function.
 
@@ -2490,8 +2490,8 @@ The options object can contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| fromBlock | number &#124; string | (optional) The number of the earliest block to get the logs. (`"latest"` means the most recent block and `"pending"` means currently mining block.) The default value is `"latest"`. |
-| toBlock | number &#124; string | (optional) The number of the last block to get the logs. (`"latest"` means the most recent block and `"pending"` means currently mining block.). The default value is `"latest"`. |
+| fromBlock | number &#124; string | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block and `"pending"` means currently mining block.) The default value is `"latest"`. |
+| toBlock | number &#124; string | (optional) The block number of the last block to get the logs. (`"latest"` means the most recent block and `"pending"` means currently mining block.). The default value is `"latest"`. |
 | address | string &#124; Array | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned. |
 | topics | Array | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, *e.g.*, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, *e.g.,* `[null, ['option1', 'option2']]`. |
 
@@ -2563,7 +2563,7 @@ Creates a filter object using the given filter options, to receive the specific 
 - To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
 - To obtain all logs matching the filter created by `newFilter`, call [caver.rpc.klay.getFilterLogs](#caver-rpc-klay-getfilterlogs).
 
-For detailed information about topic filters, please see [Klaytn Platform API - klay_newFilter](../../../../json-rpc/api-references/klay/filter.md#klay_newfilter).
+For detailed information about the topics in the filter object, please see [Klaytn Platform API - klay_newFilter](../../../../json-rpc/api-references/klay/filter.md#klay_newfilter).
 
 **Parameters**
 
@@ -2576,8 +2576,8 @@ The options object can contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| fromBlock | number &#124; string | (optional) The number of the earliest block to get the logs. (`"latest"` means the most recent block and `"pending"` means currently mining block.) The default value is `"latest"`. |
-| toBlock | number &#124; string | (optional) The number of the last block to get the logs. (`"latest"` means the most recent block and `"pending"` means currently mining block.). The default value is `"latest"`. |
+| fromBlock | number &#124; string | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block and `"pending"` means currently mining block.) The default value is `"latest"`. |
+| toBlock | number &#124; string | (optional) The block number of the last block to get the logs. (`"latest"` means the most recent block and `"pending"` means currently mining block.). The default value is `"latest"`. |
 | address | string &#124; Array | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned. |
 | topics | Array | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, *e.g.*, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, *e.g.,* `[null, ['option1', 'option2']]`. |
 
@@ -2635,7 +2635,7 @@ To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver
 caver.rpc.klay.uninstallFilter(filterId [, callback])
 ```
 
-Uninstall a filter with given id. Should always be called when watch is no longer needed. Additionally, filters timeout when they are not requested with [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges) for a period of time.
+Uninstall a filter with given id. Should always be called when a watch is no longer needed. Additionally, filters time out when they are not being called with [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges) for a period of time.
 
 **Parameters**
 
@@ -2671,7 +2671,7 @@ Return Keccak-256 (not the standardized SHA3-256) of the given data. You can use
 
 | Name | Type | Description |
 | --- | --- | --- |
-| data | String | The data to convert into a SHA3 hash. |
+| data | String | The data to be converted into a SHA3 hash. |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
