@@ -190,7 +190,7 @@ Encode an account key using the Recursive Length Prefix (RLP) encoding scheme. A
 
 | Name | Type | Description |
 | --- | --- | --- |
-| accountKey | object | An object defines `keyType` and `key` inside or an instance of `AccountKey` (AccountKeyLegacy], [AccountKeyPublic]), [AccountKeyFail], [AccountKeyWeightedMultiSig] or [AccountKeyRoleBased]. |
+| accountKey | object | An object defines `keyType` and `key` inside or an instance of `AccountKey` ([AccountKeyLegacy], [AccountKeyPublic], [AccountKeyFail], [AccountKeyWeightedMultiSig] or [AccountKeyRoleBased]). |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
