@@ -318,7 +318,7 @@ Result {
 caver.abi.encodeContractDeploy(jsonInterface, hexstring, params)
 ```
 
-Encode smart contract bytecode with the arguments of the constructor.
+Encodes smart contract bytecode with the arguments of the constructor.
 
 **Parameters**
 | Name | Type | Description |
