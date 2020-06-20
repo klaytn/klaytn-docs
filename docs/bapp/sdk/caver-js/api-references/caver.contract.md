@@ -1,6 +1,6 @@
 # caver.contract <a id="caver-contract"></a>
 
-The `caver.contract` object makes it easy to interact with smart contracts on the Klaytn blockchain.  When you create a new contract object, you give it the JSON interface of the respective smart contract and caver will auto convert all calls into low level ABI calls over RPC for you.
+The `caver.contract` object makes it easy to interact with smart contracts on the Klaytn blockchain. When you create a new contract object, you have to provide the JSON interface for that smart contract and caver-js will automatically convert all calls with contract object in javascript into low level ABI calls over RPC for you.
 
 This allows you to interact with smart contracts as if they were JavaScript objects.
 
@@ -34,7 +34,7 @@ The options object contains the following:
 
 | Type | Description |
 | --- | --- |
-| string | The contract instance with all its methods and events. |
+| object | The contract instance with all its methods and events. |
 
 
 **Example**
