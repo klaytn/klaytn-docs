@@ -1,6 +1,6 @@
 # caver.contract <a id="caver-contract"></a>
 
-The `caver.contract` object makes it easy to interact with smart contracts on the Klaytn blockchain. When you create a new contract object, you have to provide the JSON interface for that smart contract and caver-js will automatically convert all calls with contract object in javascript into low level ABI calls over RPC for you.
+The `caver.contract` object makes it easy to interact with smart contracts on the Klaytn blockchain platform. When you create a new contract object, you have to provide the JSON interface for that smart contract and caver-js will automatically convert all calls with contract object in javascript into low level ABI calls over RPC for you.
 
 This allows you to interact with smart contracts as if they were JavaScript objects.
 
@@ -9,7 +9,7 @@ This allows you to interact with smart contracts as if they were JavaScript obje
 ```javascript
 new caver.contract(jsonInterface [, address] [, options])
 ```
-Create a new contract instance with all its methods and events defined in its JSON interface object.
+Creates a new contract instance with all its methods and events defined in its JSON interface object.
 
 **Parameters**
 
@@ -43,7 +43,7 @@ The options object contains the following:
 const myContract = new caver.contract([...], '0x{address in hex}', { gasPrice: '25000000000' })
 ```
 
-## contract.options <a id="contract-options"></a>
+## myContract.options <a id="mycontract-options"></a>
 
 ```javascript
 myContract.options
@@ -57,10 +57,10 @@ The `options` object for the contract instance. `from`, `gas` and `gasPrice` are
 | --- | --- | --- |
 | address | string | The address where the contract is deployed. |
 | jsonInterface | Array | The JSON interface of the contract. |
-| data | string | The byte code of the contract. Used when the contract gets deployed. |
 | from | string | The default from address which transactions should be made. When the transaction is created, if the from address is not defined in the option, this `myContract.options.from` is always used to create the transaction. |
 | gasPrice | string | The gas price in peb to use for transactions. |
 | gas | number | The maximum gas provided for a transaction (gas limit). |
+| data | string | The byte code of the contract. Used when the contract gets deployed. |
 
 
 **Example**
@@ -68,11 +68,12 @@ The `options` object for the contract instance. `from`, `gas` and `gasPrice` are
 ```javascript
 > myContract.options
 {
-    address: '0x1234567890123456789012345678901234567891',
-    jsonInterface: [...],
-    from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe',
-    gasPrice: '10000000000000',
-    gas: 1000000
+  address: [Getter/Setter],
+  jsonInterface: [Getter/Setter],
+  from: [Getter/Setter],
+  gasPrice: [Getter/Setter],
+  gas: [Getter/Setter],
+  data: [Getter/Setter]
 }
 
 > myContract.options.from = '0x1234567890123456789012345678901234567891' // default from address
@@ -159,7 +160,7 @@ The JSON interface object derived from the ABI of this contract `myContract`.
 myContract.clone([contractAddress])
 ```
 
-Clone the current contract instance.
+Clones the current contract instance.
 
 **Parameters**
 
@@ -192,7 +193,7 @@ Contract {
 myContract.deploy(options)
 ```
 
-Deploy the contract to the Klaytn blockchain. After successful deployment, the promise will be resolved with a new contract instance.
+Deploys the contract to the Klaytn. After successful deployment, the promise will be resolved with a new contract instance.
 
 **NOTE** The keyring with the from address that sends the transaction must exist in the caver.wallet.
 
@@ -216,7 +217,7 @@ The options object can contain the following:
 | Name | Type | Description |
 | --- | --- | --- |
 | arguments | Array | The arguments passed in `options.arguments`. |
-| [send](#myContract-methods-methodname-send) | function | The function will deploy the contract to the Klaytn network. The promise will be resolved with the new contract instance. |
+| [send](#myContract-methods-methodname-send) | function | The function will deploy the contract to the Klaytn. The promise will be resolved with the new contract instance. |
 | [estimateGas](#myContract-methods-methodname-estimategas) | function | The function will estimate the gas used for the deployment. |
 | [encodeABI](#myContract-methods-methodname-encodeabi) | function | The function encodes the ABI of the deployment, which is contract data + constructor parameters. |
 
@@ -319,7 +320,7 @@ Parameters of any method depend on the smart contracts methods, defined in the J
 | --- | --- | --- |
 | arguments | Array | The arguments passed as arguments for method. |
 | [call](#myContract-methods-methodname-call) | function | The function will call constant method and execute its smart contract method in the Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
-| [send](#myContract-methods-methodname-send) | function | The function will send a transaction to the Klaytn network and execute its method (can alter the smart contract state). |
+| [send](#myContract-methods-methodname-send) | function | The function will send a transaction to the Klaytn and execute its method (can alter the smart contract state). |
 | [estimateGas](#myContract-methods-methodname-estimategas) | function | The function will estimate the gas used for the execution. |
 | [encodeABI](#myContract-methods-methodname-encodeabi) | function | The function encodes the ABI for this method. This can be sent using a transaction, calling the method or passing into another smart contract method as argument. |
 
