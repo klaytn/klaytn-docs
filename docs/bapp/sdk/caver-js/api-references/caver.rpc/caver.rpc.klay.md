@@ -449,7 +449,7 @@ Returns the balance of the account of given address in Klaytn.
 caver.rpc.klay.getCode(address [, blockNumber] [, callback])
 ```
 
-Return code at a given address.
+Returns code at a given address.
 
 **Parameters**
 
