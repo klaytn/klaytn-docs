@@ -20,7 +20,7 @@ For more information about KIP-17, see [Klaytn Improvement Proposals](https://ki
 ```javascript
 caver.klay.KIP17.deploy(tokenInfo, deployer)
 ```
-Deploy the KIP-17 token contract to the Klaytn blockchain. A contract deployed using caver.klay.KIP17.deploy is a non-fungible token that follows the KIP-17 standard. 
+Deploys the KIP-17 token contract to the Klaytn blockchain. A contract deployed using caver.klay.KIP17.deploy is a non-fungible token that follows the KIP-17 standard. 
 
 After successful deployment, the promise will be resolved with a new KIP-17 instance.
 
@@ -96,7 +96,7 @@ KIP17 {
 ```javascript
 new caver.klay.KIP17([tokenAddress])
 ```
-Create a new KIP-17 instance with its bound methods and events.
+Creates a new KIP-17 instance with its bound methods and events.
 
 **Parameters**
 
@@ -127,7 +127,7 @@ Create a new KIP-17 instance with its bound methods and events.
 ```javascript
 kip17Instance.clone([tokenAddress])
 ```
-Clone the current KIP-17 instance.
+Clones the current KIP-17 instance.
 
 **Parameters**
 
@@ -160,7 +160,7 @@ Clone the current KIP-17 instance.
 ```javascript
 kip17Instance.supportsInterface(interfaceId)
 ```
-Return `true` if this contract implements the interface defined by `interfaceId`.
+Returns `true` if this contract implements the interface defined by `interfaceId`.
 
 **Parameters**
 
@@ -188,7 +188,7 @@ false
 ```javascript
 kip17Instance.name()
 ```
-Return the name of the token.
+Returns the name of the token.
 
 **Parameters**
 
@@ -211,7 +211,7 @@ Jasmine
 ```javascript
 kip17Instance.symbol()
 ```
-Return the symbol of the token.
+Returns the symbol of the token.
 
 **Parameters**
 
@@ -234,7 +234,7 @@ JAS
 ```javascript
 kip17Instance.totalSupply()
 ```
-Return the total number of tokens minted by the contract.
+Returns the total number of tokens minted by the contract.
 
 **Parameters**
 
@@ -257,7 +257,7 @@ None
 ```javascript
 kip17Instance.tokenURI(tokenId)
 ```
-Return the URI for a given token id.
+Returns the URI for a given token id.
 
 **Parameters**
 
@@ -284,7 +284,7 @@ https://kip17.example/uri-ex-caver.json
 ```javascript
 kip17Instance.tokenOfOwnerByIndex(owner, index)
 ```
-Search the `owner`'s token list for the given index, and returns the token id of a token positioned at the matched index in the list if there is a match.
+Searches the `owner`'s token list for the given index, and returns the token id of a token positioned at the matched index in the list if there is a match.
 
 **Parameters**
 
@@ -312,7 +312,7 @@ Search the `owner`'s token list for the given index, and returns the token id of
 ```javascript
 kip17Instance.tokenByIndex(index)
 ```
-Search the list of all tokens in this contract for the given index, and returns the token id of a token positioned at the matched index in the list if there is a match. It reverts if the index is greater or equal to the total number of tokens.
+Searches the list of all tokens in this contract for the given index, and returns the token id of a token positioned at the matched index in the list if there is a match. It reverts if the index is greater or equal to the total number of tokens.
 
 **Parameters**
 
@@ -339,7 +339,7 @@ Search the list of all tokens in this contract for the given index, and returns 
 ```javascript
 kip17Instance.balanceOf(address)
 ```
-Return the balance of the given account address. The balance of an account in KIP-17 is the total number of NFTs (Non-Fungible Tokens) owned by the account.
+Returns the balance of the given account address. The balance of an account in KIP-17 is the total number of NFTs (Non-Fungible Tokens) owned by the account.
 
 **Parameters**
 
@@ -364,7 +364,7 @@ Return the balance of the given account address. The balance of an account in KI
 ```javascript
 kip17Instance.ownerOf(tokenId)
 ```
-Return the address of the owner of the specified token id.
+Returns the address of the owner of the specified token id.
 
 **Parameters**
 
@@ -391,7 +391,7 @@ Return the address of the owner of the specified token id.
 ```javascript
 kip17Instance.getApproved(tokenId)
 ```
-Return the address who was permitted to transfer this token, or 'zero' address, if no address was approved. It reverts if the given token id does not exist.
+Returns the address who was permitted to transfer this token, or 'zero' address, if no address was approved. It reverts if the given token id does not exist.
 
 **Parameters**
 
@@ -423,7 +423,7 @@ Return the address who was permitted to transfer this token, or 'zero' address, 
 ```javascript
 kip17Instance.isApprovedForAll(owner, operator)
 ```
-Return `true` if an `operator` is approved to transfer all tokens that belong to the `owner`.
+Returns `true` if an `operator` is approved to transfer all tokens that belong to the `owner`.
 
 **Parameters**
 
@@ -452,7 +452,7 @@ true
 ```javascript
 kip17Instance.isMinter(address)
 ```
-Return `true` if the given account is a minter who can issue new KIP-17 tokens.
+Returns `true` if the given account is a minter who can issue new KIP-17 tokens.
 
 **Parameters**
 
@@ -480,7 +480,7 @@ false
 ```javascript
 kip17Instance.paused()
 ```
-Return `true` if the contract is paused, and `false` otherwise.
+Returns `true` if the contract is paused, and `false` otherwise.
 
 **Parameters**
 
@@ -506,7 +506,7 @@ false
 ```javascript
 kip17Instance.isPauser(address)
 ```
-Return `true` if the given account is a pauser who can suspend transferring tokens.
+Returns `true` if the given account is a pauser who can suspend transferring tokens.
 
 **Parameters**
 
@@ -534,7 +534,7 @@ false
 ```javascript
 kip17Instance.approve(to, tokenId [, sendParam])
 ```
-Approve another address to transfer a token of the given token id. This method is allowed to be called only by the token owner or an approved operator that is approved by `setApprovalForAll`. Note that there can only be one approved address per token. To remove the approved address of a token, call this function with `to` as a zero address.
+Approves another address to transfer a token of the given token id. The zero address indicates there is no approved address. There can only be one approved address per token. This method is allowed to call only by the token owner or an approved operator.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -615,7 +615,7 @@ The sendParam object can contain the following:
 ```javascript
 kip17Instance.setApprovalForAll(to, approved [, sendParam])
 ```
-Approve the given operator `to`, or disallow the given operator, to transfer all tokens of the owner.
+Approves the given operator `to`, or disallow the given operator, to transfer all tokens of the owner.
 
 Note that the setApprovalForAll method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -685,7 +685,7 @@ Note that the setApprovalForAll method will submit a transaction to the Klaytn n
 ```javascript
 kip17Instance.transferFrom(from, to, tokenId [, sendParam])
 ```
-Transfer the token of the given token id `tokenId` from the token owner's balance to another address. The address who was approved to send the token owner's token (the operator) or the token owner itself is expected to execute this token transferring transaction. Thus, the approved one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7Instance.options.from`. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur. It is recommended to use [safeTransferFrom](#kip17instance-safetransferfrom) whenever possible instead of this method.  
+Transfers the token of the given token id `tokenId` from the token owner's balance to another address. The address who was approved to send the token owner's token (the operator) or the token owner itself is expected to execute this token transferring transaction. Thus, the approved one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7Instance.options.from`. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur. It is recommended to use [safeTransferFrom](#kip17instance-safetransferfrom) whenever possible instead of this method.  
 
 Note that sending this transaction will charge the transaction fee to the transaction sender.
 
@@ -758,9 +758,9 @@ Note that sending this transaction will charge the transaction fee to the transa
 ```javascript
 kip17Instance.safeTransferFrom(from, to, tokenId [, data] [, sendParam])
 ```
-Safely transfer the token of the given token id `tokenId` from the token owner's balance to another address. The address who was approved to send the token owner's token (the operator) or the token owner itself is expected to execute this token transferring transaction. Thus, the approved one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7Instance.options.from`. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur.  
+Safely transfers the token of the given token id `tokenId` from the token owner's balance to another address. The address who was approved to send the token owner's token (the operator) or the token owner itself is expected to execute this token transferring transaction. Thus, the approved one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7Instance.options.from`. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur.  
 
-If `to` is a contract address, it must implement [IKIP17Receiver.onKIP17Received](https://kips.klaytn.com/KIPs/kip-17#wallet-interface). otherwise, the transfer is reverted.  
+If the `to` is a contract address, it must implement [IKIP17Receiver.onKIP17Received](https://kips.klaytn.com/KIPs/kip-17#wallet-interface). otherwise, the transfer is reverted.  
 
 Note that sending this transaction will charge the transaction fee to the transaction sender.
 
@@ -837,7 +837,7 @@ Note that sending this transaction will charge the transaction fee to the transa
 ```javascript
 kip17Instance.addMinter(account [, sendParam])
 ```
-Add an account as a minter, who are permitted to mint tokens.
+Adds an account as a minter, who are permitted to mint tokens.
 
 Note that the addMinter method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -905,7 +905,7 @@ Note that the addMinter method will submit a transaction to the Klaytn network, 
 kip17Instance.renounceMinter([sendParam])
 ```
 
-Renounce the right to mint tokens. Only a minter address can renounce the minting right.
+Renounces the right to mint tokens. Only a minter address can renounce the minting right.
 
 Note that the renounceMinter method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -971,7 +971,7 @@ If `sendParam.from` or `KIP17Instance.options.from` were given, it should be a m
 ```javascript
 kip17Instance.mintWithTokenURI(to, tokenId, tokenURI [, sendParam])
 ```
-Create a token with the given uri and assigns them to the given account. This method increases the total supply of this token.
+Creates a token with the given uri and assigns them to the given account. This method increases the total supply of this token.
 
 Note that the mintWithTokenURI method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -1046,7 +1046,7 @@ Note that the mintWithTokenURI method will submit a transaction to the Klaytn ne
 ```javascript
 kip17Instance.burn(tokenId [, sendParam])
 ```
-Destroy the token of the given token id. Without `sendParam.from` nor `KIP17Instance.options.from` being provided, an error would occur.  
+Destroys the token of the given token id. Without `sendParam.from` nor `KIP17Instance.options.from` being provided, an error would occur.  
 
 Note that the burn method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -1117,7 +1117,7 @@ Note that the burn method will submit a transaction to the Klaytn network, which
 ```javascript
 kip17Instance.pause([sendParam])
 ```
-Suspend functions related to sending tokens.
+Suspends functions related to sending tokens.
 
 Note that the pause method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -1183,7 +1183,7 @@ Note that the pause method will submit a transaction to the Klaytn network, whic
 ```javascript
 kip17Instance.unpause([sendParam])
 ```
-Resume the paused contract.
+Resumes the paused contract.
 
 Note that the unpause method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -1249,7 +1249,7 @@ Note that the unpause method will submit a transaction to the Klaytn network, wh
 ```javascript
 kip17Instance.addPauser(account [, sendParam])
 ```
-Add an account as a pauser that has the right to suspend the contract.
+Adds an account as a pauser that has the right to suspend the contract.
 
 Note that the addPauser method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -1316,7 +1316,7 @@ Note that the addPauser method will submit a transaction to the Klaytn network, 
 ```javascript
 kip17Instance.renouncePauser([sendParam])
 ```
-Renounce the right to pause the contract. Only a pauser address can renounce its own pausing right.
+Renounces the right to pause the contract. Only a pauser address can renounce its own pausing right.
 
 Note that the renouncePauser method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
