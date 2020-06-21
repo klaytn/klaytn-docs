@@ -452,7 +452,7 @@ true
 ```javascript
 kip17Instance.isMinter(address)
 ```
-Returns `true` if the given account is a minter who can issue new KIP-17 tokens.
+Returns `true` if the given account is a minter who can issue new tokens in the current contract conforming to KIP-17.
 
 **Parameters**
 
