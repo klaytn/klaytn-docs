@@ -569,12 +569,12 @@ The options object can contain the following:
 myContract.methods.methodName([param1 [, param2[, ...]]]).encodeABI()
 ```
 
-Encodes the ABI for this method. This can be used to send a transaction, call a method, or pass it into another smart contract method as arguments.
+Encodes the ABI for this method. This can be used to send a transaction or call a method, or pass it into another smart contract method as arguments.
 
 
 **Parameters**
 
-Parameters of any method depend on the smart contracts methods, defined in the JSON interface.
+Parameters of any method that belongs to this smart contract, defined in the JSON interface.
 
 **Return Value**
 
@@ -612,7 +612,7 @@ The options object can contain the following:
 | Name | Type | Description |
 | --- | --- | --- |
 | filter | object | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13. |
-| topics | Array | (optional) This allows you to manually set the topics for the event filter. If given the filter property and event signature, `topic[0]` will not be set automatically. |
+| topics | Array | (optional) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
 
 **Return Value**
 
