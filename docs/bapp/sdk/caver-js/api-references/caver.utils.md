@@ -1212,7 +1212,7 @@ Returns `true` if input is in 32-bytes hash format, otherwise it returns `false`
 
 | Name | Type | Description |
 | --- | --- | --- |
-| input | string | The value to be determined if the parameter is in 32-bytes hash format or not. |
+| input | string | The value to be examined that if it is in 32-bytes hash format or not. |
 
 **Return Value**
 
