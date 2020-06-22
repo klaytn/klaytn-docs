@@ -15,7 +15,7 @@ caver.kct.kip17.deploy(tokenInfo, deployer)
 ```
 Deploys the KIP-17 token contract to the Klaytn blockchain. A contract deployed using caver.kct.kip17.deploy is a non-fungible token that follows the KIP-17 standard. 
 
-After successful deployment, the promise will be resolved with a new KIP-17 instance.
+After successful deployment, the promise will be resolved with a new KIP17 instance.
 
 **Parameters**
 
@@ -33,12 +33,12 @@ The tokenInfo object must contain the following:
 
 **Return Value**
 
-`PromiEvent`: A promise combined event emitter, which is resolved with a new KIP-17 instance. Additionally, the following events can occur:
+`PromiEvent`: A promise combined event emitter, which is resolved with a new KIP17 instance. Additionally, the following events can occur:
 
 | Name | Type | Description |
 | --- | --- | --- |
 | transactionHash | string | Fired right after the transaction is sent and a transaction hash is available. |
-| receipt | object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see [getTransactionReceipt]. Receipts from KIP-17 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
+| receipt | object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see [getTransactionReceipt]. Receipts from KIP17 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
 | error | Error | Fired if an error occurs during sending. |
 
 **Example**
