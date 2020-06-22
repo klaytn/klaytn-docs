@@ -310,7 +310,7 @@ caver.utils.sha3('methodName(uint256)').substr(0, 10)
 
 **Parameters**
 
-Parameters of any method depend on the smart contracts methods, defined in the JSON interface.
+Parameters of any method that belongs to this smart contract, defined in the JSON interface.
 
 **Return Value**
 
