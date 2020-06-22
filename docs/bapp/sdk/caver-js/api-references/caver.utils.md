@@ -1634,7 +1634,7 @@ Recovers the Klaytn address that was used to sign the given data.
 caver.utils.compressPublicKey(uncompressedPublicKey)
 ```
 
-Converts uncompressed public key to compressed public key.
+Compresses the uncompressed public key.
 
 **Parameters**
 
@@ -1661,7 +1661,7 @@ Converts uncompressed public key to compressed public key.
 caver.utils.decompressPublicKey(compressedPublicKey)
 ```
 
-Converts compressed public key to uncompressed public key.
+Decompresses the compressed public key.
 
 **Parameters**
 
