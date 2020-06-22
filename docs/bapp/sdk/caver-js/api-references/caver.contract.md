@@ -287,7 +287,7 @@ The methods of this smart contract are available through:
 
 - The name with parameters: `myContract.methods.methodName(123)`
 - The string-formatted name and the parameter type, and parameters: `myContract.methods['methodName(uint256)'](123)`
-- The signature*: `myContract.methods['0x58cf5f10'](123)`
+- The signature* for the method and parameters: `myContract.methods['0x58cf5f10'](123)`
 
 This allows calling functions with the same name but different parameters from the JavaScript contract object.
 
