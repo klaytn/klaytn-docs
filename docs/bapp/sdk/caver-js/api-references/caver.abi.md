@@ -1,6 +1,6 @@
 # caver.abi <a id="caver-abi"></a>
 
-The `caver.abi` package allows you to de- and encode parameters from an ABI (Application Binary Interface). This will be used for calling functions of a deployed smart-contract.
+The `caver.abi` package allows you to decode and encode parameters with an ABI (Application Binary Interface). This will be used for calling functions of a deployed smart contracts.
 
 ## encodeFunctionSignature <a id="encodefunctionsignature"></a>
 
