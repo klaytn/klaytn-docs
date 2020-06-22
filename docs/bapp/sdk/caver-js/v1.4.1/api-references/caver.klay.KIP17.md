@@ -22,7 +22,7 @@ caver.klay.KIP17.deploy(tokenInfo, deployer)
 ```
 Deploys the KIP-17 token contract to the Klaytn blockchain. A contract deployed using caver.klay.KIP17.deploy is a non-fungible token that follows the KIP-17 standard. 
 
-After successful deployment, the promise will be resolved with a new KIP-17 instance.
+After successful deployment, the promise will be resolved with a new KIP17 instance.
 
 **Parameters**
 
@@ -40,12 +40,12 @@ The tokenInfo object must contain the following:
 
 **Return Value**
 
-`PromiEvent`: A promise combined event emitter, which is resolved with a new KIP-17 instance. Additionally, the following events can occur:
+`PromiEvent`: A promise combined event emitter, which is resolved with a new KIP17 instance. Additionally, the following events can occur:
 
 | Name | Type | Description |
 | --- | --- | --- |
 | transactionHash | String | Fired right after the transaction is sent and a transaction hash is available. |
-| receipt | Object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
+| receipt | Object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
 | error | Error | Fired if an error occurs during sending. |
 
 **Example**
@@ -96,7 +96,7 @@ KIP17 {
 ```javascript
 new caver.klay.KIP17([tokenAddress])
 ```
-Creates a new KIP-17 instance with its bound methods and events.
+Creates a new KIP17 instance with its bound methods and events.
 
 **Parameters**
 
@@ -108,16 +108,16 @@ Creates a new KIP-17 instance with its bound methods and events.
 
 | Type | Description |
 | --- | --- |
-| Object | The KIP-17 instance with its bound methods and events. |
+| Object | The KIP17 instance with its bound methods and events. |
 
 
 **Example**
 
 ```javascript
-// Create a KIP-17 instance without a parameter
+// Create a KIP17 instance without a parameter
 > const kip17Instance = new caver.klay.KIP17()
 
-// Create a KIP-17 instance with a token address
+// Create a KIP17 instance with a token address
 > const kip17Instance = new caver.klay.KIP17('0x{address in hex}')
 ```
 
@@ -127,7 +127,7 @@ Creates a new KIP-17 instance with its bound methods and events.
 ```javascript
 kip17Instance.clone([tokenAddress])
 ```
-Clones the current KIP-17 instance.
+Clones the current KIP17 instance.
 
 **Parameters**
 
@@ -139,7 +139,7 @@ Clones the current KIP-17 instance.
 
 | Type | Description |
 | --- | --- |
-| Object | The clone of the original KIP-17 instance. |
+| Object | The clone of the original KIP17 instance. |
 
 
 **Example**
