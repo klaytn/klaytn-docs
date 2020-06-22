@@ -318,11 +318,11 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 
 | Name | Type | Description |
 | --- | --- | --- |
-| arguments | Array | The arguments passed as arguments for method. |
-| [call](#myContract-methods-methodname-call) | function | The function will call constant method and execute its smart contract method in the Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
-| [send](#myContract-methods-methodname-send) | function | The function will send a transaction to the Klaytn and execute its method (can alter the smart contract state). |
-| [estimateGas](#myContract-methods-methodname-estimategas) | function | The function will estimate the gas used for the execution. |
-| [encodeABI](#myContract-methods-methodname-encodeabi) | function | The function encodes the ABI for this method. This can be sent using a transaction, calling the method or passing into another smart contract method as argument. |
+| arguments | Array | The arguments passed to this method. |
+| [call](#myContract-methods-methodname-call) | function | The function that will call constant method and execute its smart contract method in the Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
+| [send](#myContract-methods-methodname-send) | function | The function that will send a transaction to the Klaytn and execute its method (can alter the smart contract state). |
+| [estimateGas](#myContract-methods-methodname-estimategas) | function | The that function will estimate the gas used for the execution. |
+| [encodeABI](#myContract-methods-methodname-encodeabi) | function | The function that encodes the ABI for this method. This can be sent using a transaction, calling the method or passing into another smart contract method as argument. |
 
 **Example**
 
