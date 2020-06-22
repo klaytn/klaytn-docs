@@ -195,7 +195,7 @@ myContract.deploy(options)
 
 Deploys the contract to the Klaytn. After successful deployment, the promise will be resolved with a new contract instance.
 
-**NOTE** The keyring with the from address that sends the transaction must exist in the caver.wallet.
+**NOTE** The keyring that contains `myContract.options.from`, which is the sender of the transaction, must exist in the caver.wallet.
 
 **Parameters**
 
