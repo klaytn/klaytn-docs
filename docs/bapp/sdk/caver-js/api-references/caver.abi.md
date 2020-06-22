@@ -277,13 +277,13 @@ Decodes ABI encoded log data and indexed topic data.
 | --- | --- | --- |
 | inputs | Array | An array of JSON interface inputs. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
 | hexstring | string | The ABI byte code in the ``data`` field of a log. |
-| topics | Array | An array with the index parameter topics of the log, without the topic[0] if its a non-anonymous event, otherwise with topic[0]. |
+| topics | Array | An array of the index parameter topics of the log. This array doesn't have topic[0] if it is a non-anonymous event, or otherwise, it has topic[0]. |
 
 **Return Value**
 
 | Type | Description |
 | --- | --- |
-| object | The result object containing the decoded parameters. |
+| object | The result object containing the decoded logs. |
 
 **Examples**
 
