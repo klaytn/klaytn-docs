@@ -16,7 +16,7 @@ Creates a new contract instance with all its methods and events defined in its J
 | Name | Type | Description |
 | --- | --- | --- |
 | jsonInterface | object | The JSON interface for the contract to instantiate |
-| address | string | (optional) The address of the smart contract to call. Can be added later using ``myContract.options.address = '0x1234..'`` |
+| address | string | (optional) The address of the smart contract to call. Can be added later using `myContract.options.address = '0x1234..'` |
 | options | object | (optional) The options of the contract.  See the table below for the details. |
 
 The options object contains the following:
@@ -390,8 +390,8 @@ The options object can contain the following:
 ```solidity
 // Solidity: MULTIPLE RETURN VALUES
 contract MyContract {
-    function myfunction() returns(uint256 mynumber, string mystring) {
-        return (23456, "Hello!%")
+    function myFunction() public returns(uint256 myNumber, string memory myString) {
+        return (23456, "Hello!%");
     }
 }
 ```
@@ -402,7 +402,7 @@ contract MyContract {
 Result {
       mynumber: '23456',
       mystring: 'Hello!%',
-      0: '23456', // these are here as fallbacks if the name is not known or given
+      0: '23456',
       1: 'Hello!%'
 }
 ```
@@ -410,8 +410,8 @@ Result {
 ```solidity
 // Solidity: SINGLE RETURN VALUE
 contract MyContract {
-    function myfunction() returns(string mystring) {
-        return "Hello!%"
+    function myfunction() public returns(string memory mystring) {
+        return "Hello!%";
     }
 }
 ```
