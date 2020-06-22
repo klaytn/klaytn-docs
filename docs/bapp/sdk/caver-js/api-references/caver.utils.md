@@ -747,7 +747,7 @@ Converts any KLAY value into peb.
 caver.utils.convertFromPeb(number [, unit])
 ```
 
-**NOTE**: "peb" is the smallest KLAY unit, and you should always make calculations in KLAY and convert only for display reasons.
+**NOTE**: "peb" is the smallest KLAY unit, and you should always use "peb" as the unit of KLAY. Convert to "KLAY" only for display reasons.
 
 **Parameters**
 
