@@ -57,7 +57,7 @@ The `options` object for the contract instance. `from`, `gas` and `gasPrice` are
 | --- | --- | --- |
 | address | string | The address where the contract is deployed. |
 | jsonInterface | Array | The JSON interface of the contract. |
-| from | string | The default from address which transactions should be made. When the transaction is created, if the from address is not defined in the option, this `myContract.options.from` is always used to create the transaction. |
+| from | string | The default address from which the contract deployment/execution transaction is sent. If the `from` address is not defined when creating the transaction, this `myContract.options.from` is always used to create the transaction. |
 | gasPrice | string | The gas price in peb to use for transactions. |
 | gas | number | The maximum gas provided for a transaction (gas limit). |
 | data | string | The byte code of the contract. Used when the contract gets deployed. |
