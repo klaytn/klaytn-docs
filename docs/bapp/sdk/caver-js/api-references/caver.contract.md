@@ -668,8 +668,8 @@ The options object can contain the following:
 | Name | Type | Description |
 | --- | --- | --- |
 | filter | object | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13. |
-| fromBlock | number | (optional) The block number from which to get events on. |
-| topics | Array | (optional) This allows to manually set the topics for the event filter. If given the filter property and event signature, `topic[0]` will not be set automatically. |
+| fromBlock | number | (optional) The block number from which to get events. |
+| topics | Array | (optional) This allows to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
 
 
 **Return Value**
@@ -691,7 +691,7 @@ The structure of the returned event `object` looks as follows:
 | returnValues | object | The return values coming from the event, *e.g.*, `{myVar: 1, myVar2: '0x234...'}`. |
 | logIndex | number | Integer of the event index position in the block. |
 | transactionIndex | number | Integer of the transaction's index position where the event was created. |
-| transactionHash | 32-byte string | Hash of the block this event was created in. `null` when it is still pending. |
+| transactionHash | 32-byte string | Hash of the transaction this event was created in. `null` when it is still pending. |
 | blockHash | 32-byte string | Hash of the block this event was created in. `null` when it is still pending. |
 | blocknumber | number | The block number this log was created in. `null` when still pending. |
 | raw.data | string | The data containing non-indexed log parameter. |
