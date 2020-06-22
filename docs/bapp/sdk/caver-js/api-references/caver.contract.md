@@ -695,7 +695,7 @@ The structure of the returned event `object` looks as follows:
 | blockHash | 32-byte string | Hash of the block this event was created in. `null` when it is still pending. |
 | blocknumber | number | The block number this log was created in. `null` when still pending. |
 | raw.data | string | The data containing non-indexed log parameter. |
-| raw.topics | Array | An array with max 4 32-byte topics, topic 1-3 contains indexed parameters of the event. |
+| raw.topics | Array | An array with maximum four 32-byte topics, and topic 1-3 contains indexed parameters of the event. |
 | id | string | A log identifier. It is made through concatenating "log_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
 
 **Example**
@@ -765,7 +765,7 @@ To options object can contain the following:
 | filter | object | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13. |
 | fromBlock | number | (optional) The block number from which to get events on. |
 | toBlock | number | (optional) The block number to get events up to (defaults to `"latest"`). |
-| topics | Array | (optional) This allows manually setting the topics for the event filter. If given the filter property and event signature, `topic[0]` will not be set automatically. |
+| topics | Array | (optional) This allows manually setting the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
 
 **Return Value**
 
