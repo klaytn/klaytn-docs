@@ -454,7 +454,7 @@ The options object can contain the following:
 
 | Type | Description |
 | --- | --- |
-| PromiEvent | A promise combined event emitter. Will be resolved when the transaction receipt is available, or if this `send()` is called from a `myContract.deploy()`, then the promise will be resolved with the new contract instance. Additionally, the following events are available |
+| PromiEvent | A promise combined event emitter. Will be resolved when the transaction receipt is available. If `send()` is called from a `myContract.deploy()`, then the promise will be resolved with the new contract instance. |
 
 For PromiEvent, the following events are available:
 
