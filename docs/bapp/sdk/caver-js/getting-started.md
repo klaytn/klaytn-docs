@@ -1276,7 +1276,7 @@ $ node ./test.js
 
 Running the code above outputs one RLP-encoded raw transaction string with all the signature information combined.
 
-When doing `combineSignatures`, an error occurs if an RLP-encoded string signed with different transaction is included.
+When executing `combineSignatures `, the signed RLP-encoded raw transaction strings to be combined must be exactly the same to each other except the signatures and the optional variables in the transaction instance. Optional variables without any given value in the base transaction instance (the caller of `combineSignatures`) will be redeemed with the corresponding ones in the following raw transaction string to be merged right next. If there is any inconsistency among all raw transaction strings including the values of optional variables of them to be merged, an error occurs.
 
 The combineSignatures returns an RLP-encoded string containing all signatures (and feePayerSignatures if transaction is fee-delegated transaction) as a result. You use this to send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(combined)`.
 
