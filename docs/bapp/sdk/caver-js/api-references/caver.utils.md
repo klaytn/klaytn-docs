@@ -47,7 +47,7 @@ The [randomHex](https://github.com/frozeman/randomHex) library to generate crypt
 caver.utils._()
 ```
 
-The [underscore](http://underscorejs.org) library for many convenience JavaScript functions.
+The [underscore](http://underscorejs.org) library for many convenient JavaScript functions.
 
 See the [underscore API reference](http://underscorejs.org) for details.
 
