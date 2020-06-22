@@ -285,7 +285,7 @@ Creates a transaction object for that method, which then can be called, sent, es
 
 The methods of this smart contract are available through:
 
-- The name: `myContract.methods.methodName(123)`
+- The name with parameters: `myContract.methods.methodName(123)`
 - The name with parameters: `myContract.methods['methodName(uint256)'](123)`
 - The signature*: `myContract.methods['0x58cf5f10'](123)`
 
