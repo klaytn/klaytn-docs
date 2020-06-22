@@ -234,7 +234,7 @@ Decodes ABI encoded parameters to its JavaScript types.
 **Parameters**
 | Name | Type | Description |
 | --- | --- | --- |
-| typesArray | Array &#124; object | An array with types or a JSON interface outputs array. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
+| typesArray | Array &#124; object | An array with types or an array of JSON interface outputs. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
 | hexstring | string | The ABI byte code to decode. |
 
 **Return Value**
