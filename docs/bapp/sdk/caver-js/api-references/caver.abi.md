@@ -8,13 +8,13 @@ The `caver.abi` package allows you to decode and encode parameters with an ABI (
 caver.abi.encodeFunctionSignature(functionSignature)
 ```
 
-Encodes the function signature to its ABI signature, which are the first 4 bytes of the sha3 hash of the function name including types.
+Encodes the function signature to its ABI signature, which are the first 4 bytes of the sha3 hash of the function name including parameter types.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| functionSignature | string &#124; object | The function signature or the JSON interface object of the function to encode. If string it has to be in the form ``function(type,type,...)``, e.g: ``myFunction(uint256,uint32[],bytes10,bytes)``
+| functionSignature | string &#124; object | The function signature or the JSON interface object of the function to encode. If this is a string, it has to be in the form ``function(type, type,...)``, e.g: ``myFunction(uint256,uint32[],bytes10,bytes)``
 
 **Return Value**
 
@@ -50,13 +50,13 @@ Encodes the function signature to its ABI signature, which are the first 4 bytes
 caver.abi.encodeEventSignature(eventSignature)
 ```
 
-Encodes the event signature to its ABI signature, which is the sha3 hash of the event name including input types.
+Encodes the event signature to its ABI signature, which is the sha3 hash of the event name including input parameter types.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| eventSignature | string &#124; object | The event signature or the JSON interface object of the event to encode. If string it has to be in the form `event(type,type,...)`, e.g: `myEvent(uint256,uint32[],bytes10,bytes)` |
+| eventSignature | string &#124; object | The event signature or the JSON interface object of the event to encode. If this is a string, it has to be in the form `event(type,type,...)`, e.g: `myEvent(uint256,uint32[],bytes10,bytes)` |
 
 **Return Value**
 
