@@ -1608,7 +1608,7 @@ Recovers the Klaytn address that was used to sign the given data.
 | --- | --- | --- |
 | message | string | Either message or hashed message. |
 | signature | object | An instance of [SignatureData]. |
-| preFixed | b oolean | (optional, default: ``false``) If the last parameter is `true`, the given message will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and assumed to be already prefixed. |
+| preFixed | boolean | (optional, default: ``false``) If the last parameter is `true`, the given `message` will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and be assumed as already prefixed. |
 
 **Return Value**
 
