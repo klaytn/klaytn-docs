@@ -763,7 +763,7 @@ To options object can contain the following:
 | Name | Type | Description |
 | --- | --- | --- |
 | filter | object | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13. |
-| fromBlock | number | (optional) The block number from which to get events on. |
+| fromBlock | number | (optional) The block number from which to get events. |
 | toBlock | number | (optional) The block number to get events up to (defaults to `"latest"`). |
 | topics | Array | (optional) This allows manually setting the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
 
@@ -776,7 +776,7 @@ An event object can contain the following:
 | Name | Type | Description |
 | --- | --- | --- |
 | event | string | The event name. |
-| signature | string &#124; `null`| The event signature, null if it’s an anonymous event. |
+| signature | string &#124; `null`| The event signature, `null` if it’s an anonymous event. |
 | address | string | Address this event originated from. |
 | returnValues | object | The return values coming from the event, e.g. {myVar: 1, myVar2: '0x234...'}. |
 | logIndex | number | The event index position in the block. |
@@ -784,7 +784,7 @@ An event object can contain the following:
 | transactionHash | string | The hash of the transaction this event was created in. |
 | blockHash | string | The hash of the block this event was created in. null when it’s still pending. |
 | blockNumber | number | The block number this log was created in. null when still pending. |
-| raw | object | An object defines `data` and `topic`. `raw.data` containing non-indexed log parameter. `raw.topic` is an array with max 4 32 Byte topics, topic 1-3 contains indexed parameters of the event. |
+| raw | object | An object defines `data` and `topic`. `raw.data` containing non-indexed log parameter. `raw.topic` is an array with maximum four 32 Byte topics, and topic 1-3 contains indexed parameters of the event. |
 
 **Example**
 
