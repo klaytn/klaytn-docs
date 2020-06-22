@@ -723,7 +723,7 @@ Converts any KLAY value into peb.
 | Name | Type | Description |
 | --- | --- | --- |
 | number | string &#124; number &#124; BN | The value. |
-| unit | string | (optional, defaults to `KLAY`) KLAY to convert from. Possible units are:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> |
+| unit | string | (optional, defaults to ``"KLAY"``) The unit of KLAY to convert from. `number` will be multiplied by one of the following multipliers for the unit provided:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> |
 
 **Return Value**
 
