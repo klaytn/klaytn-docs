@@ -1247,7 +1247,7 @@ Returns `true` if input is in 0x-prefixed 32-bytes hash format, otherwise it ret
 
 | Name | Type | Description |
 | --- | --- | --- |
-| input | string | The value to be determined if the parameter is in the format of 0x-prefixed 32-bytes hash or not. |
+| input | string | The value to be examined that if it is in the format of 0x-prefixed 32-bytes hash or not. |
 
 **Return Value**
 
