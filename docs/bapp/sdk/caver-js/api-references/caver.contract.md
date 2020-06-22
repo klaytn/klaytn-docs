@@ -388,7 +388,7 @@ The options object can contain the following:
 ```
 
 ```solidity
-// Solidity: MULTI-ARGUMENT RETURN
+// Solidity: MULTIPLE RETURN VALUES
 contract MyContract {
     function myfunction() returns(uint256 mynumber, string mystring) {
         return (23456, "Hello!%")
@@ -408,7 +408,7 @@ Result {
 ```
 
 ```solidity
-// Solidity: SINGLE-ARGUMENT RETURN
+// Solidity: SINGLE RETURN VALUE
 contract MyContract {
     function myfunction() returns(string mystring) {
         return "Hello!%"
@@ -448,7 +448,7 @@ The options object can contain the following:
 | value | number &#124; string &#124; BN &#124; Bignumber | (optional) The value transferred for the transaction in peb. |
 
 
-**NOTE** The keyring corresponding to the `from` address that sends the transaction must exist in `caver.wallet`.
+**NOTE** The keyring that contains `myContract.options.from`, which is the sender of the transaction, must exist in the caver.wallet.
 
 **Return Value**
 
