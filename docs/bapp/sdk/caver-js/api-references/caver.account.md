@@ -35,7 +35,7 @@ const accountKeyLegacy = new caver.account.accountKey.accountKeyLegacy()
 const accountKeyPublic = new caver.account.accountKey.accountKeyPublic(publicKey)
 ```
 
-`AccountKeyPublic` is used to update the AccountKey of an account in the Klaytn with [AccountKeyPublic]. By updating AccountKey to `AccountKeyPublic`, you can change your existing AccountKey into the new public key, which will be used to validate a transaction in Klaytn. This change is necessary when you decouple your private key from the address of your account. See [AccountUpdate](/docs/bapp/sdk/caver-js/getting-started.md#account-update) and [AccountKey] for details.
+`AccountKeyPublic` is used to update the AccountKey of an account in the Klaytn with [AccountKeyPublic]. By updating AccountKey to `AccountKeyPublic`, you can change your existing AccountKey into the new public key, which will be used to validate a transaction in Klaytn. This change is necessary when you decouple your private key from the address of your account. See [AccountUpdate](../getting-started.md#account-update) and [AccountKey] for details.
 
 To create an Account instance with `AccountKeyPublic`, please refer to [caver.account.create](#caver-account-create) or [caver.account.createWithAccountKeyPublic](#caver-account-createwithaccountkeypublic).
 
@@ -59,7 +59,7 @@ const accountKeyFail = new caver.account.accountKey.accountKeyFail()
 const accountKeyWeightedMultiSig = new caver.account.accountKey.accountKeyWeightedMultiSig(threshold, weightedPublicKeys)
 ```
 
-`AccountKeyWeightedMultiSig` is used to update AccountKey of an account in the Klaytn with [AccountKeyWeightedMultiSig]. By updating your AccountKey to `AccountKeyWeightedMultiSig`, you can change your existing AccountKey into the new public key, which will be used to validate a transaction in Klaytn. This change is necessary when you decouple your private key from the address of your account. See [AccountUpdate](/docs/bapp/sdk/caver-js/getting-started.md#account-update) and [AccountKey] for details.
+`AccountKeyWeightedMultiSig` is used to update AccountKey of an account in the Klaytn with [AccountKeyWeightedMultiSig]. By updating your AccountKey to `AccountKeyWeightedMultiSig`, you can change your existing AccountKey into the new public key, which will be used to validate a transaction in Klaytn. This change is necessary when you decouple your private key from the address of your account. See [AccountUpdate](../getting-started.md#account-update) and [AccountKey] for details.
 
 To create an Account instance with `AccountKeyWeightedMultiSig`, please refer to [caver.account.create](#caver-account-create) or [caver.account.createWithAccountKeyWeightedMultiSig](#caver-account-createwithaccountkeyweightedmultisig).
 
@@ -76,7 +76,7 @@ To create an Account instance with `AccountKeyWeightedMultiSig`, please refer to
 const accountKeyRoleBased = new caver.account.accountKey.accountKeyRoleBased(accountKeyArray)
 ```
 
-`AccountKeyRoleBased` is used to update AccountKey of an account in the Klaytn with [AccountKeyRoleBased]. By updating your AccountKey to `AccountKeyRoleBased`, you can change the AccountKey(s) assigned for each role, all of which are used to validate a transaction in Klaytn. See [AccountUpdate](/docs/bapp/sdk/caver-js/getting-started.md#account-update) and [AccountKey] for more details.
+`AccountKeyRoleBased` is used to update AccountKey of an account in the Klaytn with [AccountKeyRoleBased]. By updating your AccountKey to `AccountKeyRoleBased`, you can change the AccountKey(s) assigned for each role, all of which are used to validate a transaction in Klaytn. See [AccountUpdate](../getting-started.md#account-update) and [AccountKey] for more details.
 
 To create an Account instance with `AccountKeyRoleBased`, please refer to [caver.account.create](#caver-account-create) or [caver.account.createWithAccountKeyRoleBased](#caver-account-createwithaccountkeyrolebased).
 

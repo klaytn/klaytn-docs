@@ -1475,4 +1475,4 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip7.unpause().then(console.log)
 ```
 
-[getTransactionReceipt]: ../caver.rpc/caver.rpc.klay.md#caver-rpc-klay-gettransactionreceipt
+[getTransactionReceipt]: ../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt

@@ -70,7 +70,7 @@ For [Account Update] transaction, use [roleAccountUpdateKey], or otherwise, use 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| keyring | object &#124; string | A private key string ([KlaytnWalletKey] format is also allowed) or an instance of [Keyring] ([SingleKeyring], [MultipleKeyring] or [RoleBasedKeyring]). If a private key string or a [KlaytnWalletKey] is passed as a parameter, the keyring instance is created internally. |
+| keyring | object &#124; string | A private key string ([KlaytnWalletKey] format is also allowed) or an instance of Keyring ([SingleKeyring], [MultipleKeyring] or [RoleBasedKeyring]). If a private key string or a [KlaytnWalletKey] is passed as a parameter, the keyring instance is created internally. |
 | index | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
 | hasher | Function | (optional) The hash function to get the hash of the transaction. |
 
@@ -182,7 +182,7 @@ If the `keyring` to be used for signing the transaction was added to `caver.wall
 
 | Name | Type | Description |
 | --- | --- | --- |
-| keyring | object &#124; string | A private key string ([KlaytnWalletKey] format is also allowed) or an instance of [Keyring] ([SingleKeyring], [MultipleKeyring] or [RoleBasedKeyring]). If the private key string or [KlaytnWalletKey] is passed as a parameter, the keyring instance is created internally. |
+| keyring | object &#124; string | A private key string ([KlaytnWalletKey] format is also allowed) or an instance of Keyring ([SingleKeyring], [MultipleKeyring] or [RoleBasedKeyring]). If the private key string or [KlaytnWalletKey] is passed as a parameter, the keyring instance is created internally. |
 | index | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
 | hasher | Function | (optional) The hash function to get the hash of the transaction. |
 
@@ -426,7 +426,7 @@ transaction.getSenderTxHash()
 
 Returns a [senderTxHash] of transaction. 
 
-The [senderTxHash] is a hash of the transaction except the fee payer's address and signature, so [transactionHash](#gettransactionhash) and [senderTxHash] are the same for basic transactions.
+The [senderTxHash] is a hash of the transaction except the fee payer's address and signature, so [transactionHash](#transaction-gettransactionhash) and [senderTxHash] are the same for basic transactions.
 
 For information on how to make the [senderTxHash] for each transaction type, see [Klaytn Design - Transactions].
 
@@ -522,6 +522,6 @@ Use [caver.rpc.klay.getGasPrice] to get `gasPrice`, [caver.rpc.klay.getTransacti
 [MultipleKeyring]: ../caver.wallet.keyring.md#multiplekeyring
 [RoleBasedKeyring]: ../caver.wallet.keyring.md#rolebasedkeyring
 [SignatureData]: ../caver.wallet.keyring.md#signaturedata
-[caver.rpc.klay.getGasPrice]: ../caver.rpc.md#caver-rpc-klay-getgasprice
-[caver.rpc.klay.getTransactionCount]: ../caver.rpc.md#caver-rpc-klay-gettransactioncount
-[caver.rpc.klay.getChainId]: ../caver.rpc.md#caver-rpc-klay-getchainid
+[caver.rpc.klay.getGasPrice]: ../caver.rpc/klay.md#caver-rpc-klay-getgasprice
+[caver.rpc.klay.getTransactionCount]: ../caver.rpc/klay.md#caver-rpc-klay-gettransactioncount
+[caver.rpc.klay.getChainId]: ../caver.rpc/klay.md#caver-rpc-klay-getchainid
