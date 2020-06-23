@@ -1339,7 +1339,7 @@ The BApp \(Blockchain Application\) Development sample projects using caver-js a
 [caver.account.create]: api-references/caver.account.md#caver-account-create
 
 [caver.wallet]: api-references/caver.wallet.md
-[caver.wallet.newKeyring]: api-references/caver.wallet.md#newkeyring
+[caver.wallet.newKeyring]: api-references/caver.wallet.md#caver-wallet-newkeyring
 [caver.wallet.keyring]: api-references/caver.wallet.keyring.md
 [Keyring]: api-references/caver.wallet.keyring.md
 [SingleKeyring]: api-references/caver.wallet.keyring.md#singlekeyring
@@ -1350,7 +1350,7 @@ The BApp \(Blockchain Application\) Development sample projects using caver-js a
 
 [caver.rpc.klay.getTransactionReceipt]: api-references/caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt
 [getTransactionReceipt]: api-references/caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt
-[caver.rpc.klay.sendRawTransaction]: api-references/caver.rpc/klay.md#sendrawtransaction
+[caver.rpc.klay.sendRawTransaction]: api-references/caver.rpc/klay.md#caver-rpc-klay-sendrawtransaction
 
 [txError: Detailed Information of Transaction Failures]: ../../json-rpc/transaction-error-codes.md
 

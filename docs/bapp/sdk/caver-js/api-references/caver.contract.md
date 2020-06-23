@@ -217,9 +217,9 @@ The options object can contain the following:
 | Name | Type | Description |
 | --- | --- | --- |
 | arguments | Array | The arguments passed in `options.arguments`. |
-| [send](#myContract-methods-methodname-send) | function | The function that will deploy the contract to the Klaytn. The promise as the result of this function will be resolved with the new contract instance. |
-| [estimateGas](#myContract-methods-methodname-estimategas) | function | The function that will estimate the gas used for the deployment. The execution of this function does not deploy the contract.|
-| [encodeABI](#myContract-methods-methodname-encodeabi) | function | The function that encodes the ABI of the deployment, which is contract data + constructor parameters. The execution of this function does not deploy the contract.|
+| [send](#methods-methodname-send) | function | The function that will deploy the contract to the Klaytn. The promise as the result of this function will be resolved with the new contract instance. |
+| [estimateGas](#methods-methodname-estimategas) | function | The function that will estimate the gas used for the deployment. The execution of this function does not deploy the contract.|
+| [encodeABI](#methods-methodname-encodeabi) | function | The function that encodes the ABI of the deployment, which is contract data + constructor parameters. The execution of this function does not deploy the contract.|
 
 **Example**
 

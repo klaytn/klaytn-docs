@@ -324,7 +324,7 @@ For [Account Update] transaction, use [roleTransactionKey], otherwise, use [role
 | address | string | An address of the keyring to be used. |
 | transaction | object | An instance of [Transaction]. |
 | index | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
-| hasher | function | (optional) A hash function to get the transaction hash. If `hasher` is given as a parameter, it calculates the transaction hash instead of the default method for calculating transaction hash implemented in caver-js. See [Basic](/docs/klaytn/design/transactions/basic.md) for details about the default method for transaction hash generation. |
+| hasher | function | (optional) A hash function to get the transaction hash. If `hasher` is given as a parameter, it calculates the transaction hash instead of the default method for calculating transaction hash implemented in caver-js. See [Basic](../../../../klaytn/design/transactions/basic.md) for details about the default method for transaction hash generation. |
 
 **Return Value**
 
@@ -554,7 +554,7 @@ FeeDelegatedValueTransfer {
 [SignatureData]: ./caver.wallet.keyring.md#signaturedata
 
 [Transaction]: ./caver.transaction/README.md#class
-[FeeDelegatedTransaction]: ./caver.transaction/fee-delegation.md#class
+[FeeDelegatedTransaction]: ./caver.transaction/fee-delegation.md
 [Account Update]: ./caver.transaction/basic.md#accountupdate
 [caver.transaction]: ./caver.transaction/README.md
 [LegacyTransaction]: ./caver.transaction/basic.md#legacytransaction
