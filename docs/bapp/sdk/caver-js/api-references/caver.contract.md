@@ -1,6 +1,6 @@
 # caver.contract <a id="caver-contract"></a>
 
-The `caver.contract` object makes it easy to interact with smart contracts on the Klaytn blockchain platform. When you create a new contract object, you have to provide the JSON interface for that smart contract and caver-js will automatically convert all calls with contract object in javascript into low level ABI calls over RPC for you.
+The `caver.contract` object makes it easy to interact with smart contracts on the Klaytn blockchain platform. When you create a new contract object, you have to provide the JSON interface for that smart contract and caver-js will automatically convert all calls with the contract object in javascript into low-level ABI calls over RPC for you.
 
 This allows you to interact with smart contracts as if they were JavaScript objects.
 
@@ -193,7 +193,7 @@ Contract {
 myContract.deploy(options)
 ```
 
-Deploys the contract to the Klaytn. After successful deployment, the promise will be resolved with a new contract instance.
+Deploys the contract to the Klaytn. After a successful deployment, the promise will be resolved with a new contract instance.
 
 **NOTE** The keyring that contains `myContract.options.from`, which is the sender of the transaction, must exist in the caver.wallet.
 
@@ -319,10 +319,10 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 | Name | Type | Description |
 | --- | --- | --- |
 | arguments | Array | The arguments passed to this method. |
-| [call](#myContract-methods-methodname-call) | function | The function that will call constant method and execute its smart contract method in the Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
+| [call](#myContract-methods-methodname-call) | function | The function that will call a constant method and execute its smart contract method in the Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
 | [send](#myContract-methods-methodname-send) | function | The function that will send a transaction to the Klaytn and execute its method (can alter the smart contract state). |
 | [estimateGas](#myContract-methods-methodname-estimategas) | function | The that function will estimate the gas used for the execution. |
-| [encodeABI](#myContract-methods-methodname-encodeabi) | function | The function that encodes the ABI for this method. This can be sent using a transaction, calling the method or passing into another smart contract method as argument. |
+| [encodeABI](#myContract-methods-methodname-encodeabi) | function | The function that encodes the ABI for this method. This can be sent using a transaction, calling the method or passing into another smart contract method as its argument. |
 
 **Example**
 
@@ -513,7 +513,7 @@ For PromiEvent, the following events are available:
     "MyOtherEvent": {
       ...
     },
-    "MyMultipleEvent":[{...}, {...}] // If there are a multiple of the same events, they will be in an array.
+    "MyMultipleEvent":[{...}, {...}] // If there are multiples of the same events, they will be in an array.
   }
 }
 ```
@@ -678,7 +678,7 @@ The options object can contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| data | object | Fires on each incoming event with the event object as argument. |
+| data | object | Fires on each incoming event with the event object as an argument. |
 | error | object | Fires when an error in the subscription occurs. |
 
 The structure of the returned event `object` looks as follows:
@@ -695,7 +695,7 @@ The structure of the returned event `object` looks as follows:
 | blockHash | 32-byte string | Hash of the block this event was created in. `null` when it is still pending. |
 | blocknumber | number | The block number this log was created in. `null` when still pending. |
 | raw.data | string | The data containing non-indexed log parameter. |
-| raw.topics | Array | An array with maximum four 32-byte topics, and topic 1-3 contains indexed parameters of the event. |
+| raw.topics | Array | An array with maximum of four 32-byte topics, and topic 1-3 contains indexed parameters of the event. |
 | id | string | A log identifier. It is made through concatenating "log_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
 
 **Example**
@@ -784,7 +784,7 @@ An event object can contain the following:
 | transactionHash | string | The hash of the transaction this event was created in. |
 | blockHash | string | The hash of the block this event was created in. null when it’s still pending. |
 | blockNumber | number | The block number this log was created in. null when still pending. |
-| raw | object | An object defines `data` and `topic`. `raw.data` containing non-indexed log parameter. `raw.topic` is an array with maximum four 32 Byte topics, and topic 1-3 contains indexed parameters of the event. |
+| raw | object | An object defines `data` and `topic`. `raw.data` containing non-indexed log parameter. `raw.topic` is an array with a maximum of four 32 Byte topics, and topic 1-3 contains indexed parameters of the event. |
 
 **Example**
 
