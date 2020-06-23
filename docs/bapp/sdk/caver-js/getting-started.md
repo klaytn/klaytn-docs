@@ -881,7 +881,7 @@ const newKeyring = caver.wallet.keyring.createWithRoleBasedKey(sender.address, n
 const account = newKeyring.toAccount()
 ```
 
-The AccountKeyRoleBased above is an example of using one private key for each role. If you want to use multiple private keys for each role, [caver.account.weightedMultiSigOptions] must be defined for each role as shown below.
+The AccountKeyRoleBased above is an example of using one public key for each role. As you can see from the code above, each of them corresponds to one private key. If you want to use multiple private keys for each role, [caver.account.weightedMultiSigOptions] must be defined for each role as shown below.
 
 ```javascript
 // Create an account instance with [3, 2, 3] keys for each role using AccountKeyRoleBased
