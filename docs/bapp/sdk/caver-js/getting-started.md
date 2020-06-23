@@ -1169,7 +1169,7 @@ To run this example, you need to update AccountKey of the Klaytn account you use
 When a transaction is signed using `caver.wallet` or the transaction's `sign` function, signatures (or feePayerSignatures) are defined (or appended) inside the transaction. You can obtain the RLP-encoded string (`rawTransaction`) containing the signatures (and feePayerSignatures) by calling the `transaction.getRLPEncoding()` function of the signed transaction instance.
 
 The following example shows how to sign a transaction sequentially with multiple private keys.
-Assume the account key of the sender is AccountKeyWeightedMultiSig which consists of two private key strings, one for each user.
+Let's assume that AccountKey of the account who sends this transaction is AccountKeyWeightedMultiSig of two public keys, which means this Klaytn account can use two private key strings, one private key for each user. This is a case that two users share the same Klaytn account.
 
 In the example below, user1 and user2 create a `Keyring` instances to be used. After that, each uses its own keyring to sign the transaction. The example below uses `transaction.sign` to sign it.
 
