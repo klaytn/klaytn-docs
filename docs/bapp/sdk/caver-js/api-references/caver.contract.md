@@ -369,9 +369,9 @@ The options object can contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| from | string | (optional) The address the call “transaction” should be made from. |
-| gasPrice | string | (optional) The gas price in peb to use for this call "transaction". |
-| gas | number | (optional) The maximum gas provided for this call "transaction" (gas limit). |
+| from | string | (optional) The address which calling contract methods should be made from. |
+| gasPrice | string | (optional) The gas price in peb to use for this call. |
+| gas | number | (optional) The maximum gas provided for this call (gas limit). |
 
 **Return Value**
 
