@@ -771,7 +771,7 @@ $ node ./test.js
 
 ### Account Update <a id="account-update"></a>
 
-If you want to change the private key(s) for your account, there are 3 important things you need to remember:
+If you want to change the private key(s) for your Klaytn account, there are 3 important things you need to remember:
 
 1. Klaytn validates every transaction you send to it.
 2. The validation requires your public keys which exactly corresponds to your private key(s).
@@ -781,7 +781,7 @@ Keeping the 3 things above in your mind, you can change your private key(s) by f
 
 1. Prepare the new private key(s) to create a new keyring.
 2. Create a keyring by its type (Single keyring, Multiple keyring, or Role-based keyring) you need.
-3. Generate an Account instance from the new keyring. This Account instance holds the new public key(s) for your account.
+3. Generate an Account instance from the new keyring. This Account instance holds the new public key(s) for your Klaytn account.
 4. Send AccountUpdate transaction including Account instance to Klaytn.
 5. Finally, replace your old keyring to the new one that was created in Step 2.
 
