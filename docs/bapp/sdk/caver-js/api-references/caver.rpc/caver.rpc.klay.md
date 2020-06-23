@@ -104,7 +104,7 @@ Returns AccountKey of a given address. If the account has [AccountKeyLegacy](../
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | string | The address of the account for which you want to get account key. |
+| address | string | The address of Klaytn account from which you want to get an object of AccountKey information. |
 | blockNumber | number &#124; string | (optional) A block number, or the string `latest`, `earliest` or `pending`. If omitted, `latest` will be used. |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
