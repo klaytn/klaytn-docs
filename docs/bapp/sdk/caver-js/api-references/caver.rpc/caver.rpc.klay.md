@@ -706,7 +706,7 @@ Returns the number of most recent block.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| blockScore | string | Former difficulty. Always 1 in the BFT consensus engine. |
+| blockScore | string | The difficulty of mining in the blockchain network. The use of `blockScore` differs from the consensus of the network. Always 1 in the BFT consensus engine. |
 | extraData | string | The "extra data" field of this block. |
 | gasUsed | string | The gas in total that was used by all transactions in this block. |
 | governanceData | string | RLP encoded governance configuration |
