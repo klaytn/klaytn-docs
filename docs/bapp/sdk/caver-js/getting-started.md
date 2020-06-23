@@ -68,7 +68,7 @@ async function testFunction() {
 	// Sign to the transaction
 	const signed = await caver.wallet.sign(keyring.address, vt)
 
-	// Send transaction to the Klaytn network
+	// Send transaction to the Klaytn blockchain platform (Klaytn)
 	const receipt = await caver.rpc.klay.sendRawTransaction(signed)
 	console.log(receipt)
 }
@@ -314,7 +314,7 @@ RoleBasedKeyring {
 
 Looking at the output above, the first element of the keys array, `roleTransactionKey`, has three PrivateKey instances, and the second element, `roleAccountUpdateKey`, has one PrivateKey instance. And the last element of the array, `roleFeePayerKey`, has two PrivateKey instances.
 
-**Note**: Calling functions related to keyring ([caver.wallet.keyring]) or wallet ([caver.wallet]) do not affect the actual Klaytn network.
+**Note**: Calling functions related to keyring ([caver.wallet.keyring]) or wallet ([caver.wallet]) do not affect the actual Klaytn blockchain platform (Klaytn).
 
 ### Adding Keyrings to caver-js <a id="adding-keyrings-to-caver-js"></a>
 
@@ -458,9 +458,13 @@ You can use a caver-js wallet to generate a signature of a transaction. You have
 1. Sign a transaction
 	- If the keyring you want to use is added to [caver.wallet], you can use `caver.wallet.sign` function to sign.
 	- If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
-2. Send the RLP-encoded string of the signed transaction to the Klaytn network via `caver.rpc.klay.sendRawTransaction`.
+2. Send the RLP-encoded string of the signed transaction to the Klaytn via `caver.rpc.klay.sendRawTransaction`.
 
 **Note:** The sender should have enough number of KLAY.
+
+#### Sign a transaction
+
+Before sending a transaction to Klaytn, you should sign a transaction first. 
 
 Below is an example of how to sign a transaction if a keyring is added to the [caver.wallet].
 
@@ -485,15 +489,40 @@ async function testFunction() {
 	// Sign the transaction via caver.wallet.sign
 	await caver.wallet.sign(keyring.address, valueTransfer)
 
-	// Send the transaction using `caver.rpc.klay.sendRawTransaction`.
-	const receipt = await caver.rpc.klay.sendRawTransaction(valueTransfer)
-	console.log(receipt)
+	const rlpEncoded = valueTransfer.getRLPEncoding()
+	console.log(`RLP-encoded string: ${rlpEncoded}`)
 }
 
 testFunction()
 ```
 
-The above code adds a keyring to `caver.wallet`, creates a transaction, and signs the transaction through `caver.wallet.sign`. And the RLP-encoded string of the signed transaction is then sent over the network.
+The above code adds a keyring to `caver.wallet`, creates a transaction, and signs the transaction through `caver.wallet.sign`. 
+
+Running the above code gives you following result. When the above code is executed, the RLP-encoded string of the transaction is shown below. (The RLP-encoded string output you got could be different from the string output shown below.)
+
+```bash
+RLP-encoded string: 0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b6991507647f720194ade4883d092e2a972d70637ca7de9ab5166894a2f847f845824e44a0e1ec99789157e5cb6bc691935c204a23aaa3dc049efafca106992a5d5db2d179a0511c421d5e508fdb335b6048ca7aa84560a53a5881d531644ff178b6aa4c0a41
+```
+
+#### Send the RLP-encoded string of the signed transaction to the Klaytn
+
+Now you can send sgined transaction to the network like below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
+
+```javascript
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+
+async function testFunction() {
+	const rlpEncoding = `0x{RLP-encoded string}`
+
+	// Send the transaction using `caver.rpc.klay.sendRawTransaction`.
+	const receipt = await caver.rpc.klay.sendRawTransaction(rlpEncoding)
+	console.log(receipt)
+}
+
+testFunction()
+```
 
 Running the above code gives you the following result. When the above code is executed, the receipt of the transaction is shown below.
 
@@ -543,7 +572,7 @@ async function testFunction() {
 	// Sign the transaction via transaction.sign
 	await valueTransfer.sign(keyring)
 
-	// Send the transaction to the Klaytn network using `caver.rpc.klay.sendRawTransaction`.
+	// Send the transaction to the Klaytn using `caver.rpc.klay.sendRawTransaction`.
 	const receipt = await caver.rpc.klay.sendRawTransaction(valueTransfer)
 	console.log(receipt)
 }
@@ -555,7 +584,7 @@ When the above code is executed, the receipt of the transaction is printed like 
 
 ### Checking Receipts <a id="checking-receipts"></a>
 
-You can use the promise or event emitter to get the receipt of the transaction when you transfer the transaction to the Klaytn network by [caver.rpc.klay.sendRawTransaction].
+You can use the promise or event emitter to get the receipt of the transaction when you transfer the transaction to the Klaytn by [caver.rpc.klay.sendRawTransaction].
 
 The following example shows how to get a receipt using promises and event emitters.
 
@@ -656,7 +685,7 @@ $ node ./test.js
 0x09f884028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf080c4c3018080
 ```
 
-The fee payer can send the transaction to the Klaytn network after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. If `caver.wallet` also has the fee payer's key, the fee payer's signature can be injected into `feeDelegatedTx` by calling `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. Otherwise, the fee payer has to create a `feeDelegatedTx` from the RLP-encoded string signed by the sender and add the fee payer's sign onto it, as illustrated below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
+The fee payer can send the transaction to the Klaytn after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. If `caver.wallet` also has the fee payer's key, the fee payer's signature can be injected into `feeDelegatedTx` by calling `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. Otherwise, the fee payer has to create a `feeDelegatedTx` from the RLP-encoded string signed by the sender and add the fee payer's sign onto it, as illustrated below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
 
 ```javascript
 // test.js
@@ -744,7 +773,7 @@ $ node ./test.js
 
 If you want to change the private key(s) for your account, there are 3 important things you need to remember:
 
-1. Klaytn network validates every transaction you send to it.
+1. Klaytn validates every transaction you send to it.
 2. The validation requires your public keys which exactly corresponds to your private key(s).
 3. Thus, changing your private key(s) into the new one(s) is **always be** **preceded** by changing your old public key(s) to the new one(s). The new public key(s) must be derived from the new private key(s).
 
@@ -753,7 +782,7 @@ Keeping the 3 things above in your mind, you can change your private key(s) by f
 1. Prepare the new private key(s) to create a new keyring.
 2. Create a keyring by its type (Single keyring, Multiple keyring, or Role-based keyring) you need.
 3. Generate an Account instance from the new keyring. This Account instance holds the new public key(s) for your account.
-4. Send AccountUpdate transaction including Account instance to Klaytn network.
+4. Send AccountUpdate transaction including Account instance to Klaytn.
 5. Finally, replace your old keyring to the new one that was created in Step 2.
 
 Please check [Account Update] for the details.
@@ -1030,7 +1059,7 @@ async function testFunction() {
 testFunction()
 ```
 
-In the code above, the `deployer` deploys the contract to the Klaytn network and returns the deployed contract instance.
+In the code above, the `deployer` deploys the contract to the Klaytn and returns the deployed contract instance.
 
 ```bash
 $ node ./test.js
