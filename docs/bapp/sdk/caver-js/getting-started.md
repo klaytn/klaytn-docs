@@ -904,10 +904,10 @@ If you want to update AccountKey to [AccountKeyLegacy] or [accountKeyFail], crea
 
 ```javascript
 // Create an account with AccountKeyLegacy
-const accountKeyLegacy = caver.account.createWithAccountKeyLegacy(keyringToUpdate.address)
+const accountWithLegacyKey = caver.account.createWithAccountKeyLegacy(keyringToUpdate.address)
 
 // Create an account with AccountKeyFail
-const accountKeyFail = caver.account.createWithAccountKeyFail(keyringToUpdate.address)
+const accountWithFailKey = caver.account.createWithAccountKeyFail(keyringToUpdate.address)
 ```
 
 ### Smart Contract <a id="smart-contract"></a>
@@ -1158,11 +1158,11 @@ To find more information, see [caver.contract].
 
 ## Sending a Transaction with multiple signers<a id="sending-a-transaction-with-multiple-signers"></a>
 
-If the Klaytn account's account key is AccountKeyMultiSig or AccountKeyRoleBased, the person who manages each key can vary.
+If the Klaytn account's AccountKey is AccountKeyMultiSig or AccountKeyRoleBased, the person who manages each key can vary.
 
 This section describes how to collect signatures and send the transaction if there are multiple signers.
 
-To run this example, you need to update the account key of the Klaytn account you use for testing with [AccountKeyWeightedMultiSig]. Please refer to [Account Update](#account-update) for how to update your account.
+To run this example, you need to update AccountKey of the Klaytn account you use for testing with [AccountKeyWeightedMultiSig]. Please refer to [Account Update](#account-update) for how to update your Klaytn account.
 
 ### Signing sequentially <a id="signing-sequentially"></a>
 
