@@ -1613,7 +1613,7 @@ Returns the receipt of a transaction by transaction hash.
 | gasPrice | string | Gas price provided by the sender in peb. |
 | gasUsed | string | The amount of gas used by this specific transaction alone. |
 | humanReadable | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable. |
-| key | string | (optional) The RLP-encoded account key used to update account key of account. |
+| key | string | (optional) The RLP-encoded AccountKey used to update AccountKey of a Klaytn account. |
 | input | string | (optional) The data sent along with the transaction. |
 | logs | Array | Array of log objects, which this transaction generated. |
 | logsBloom | string | Bloom filter for light clients to quickly retrieve related logs. |
