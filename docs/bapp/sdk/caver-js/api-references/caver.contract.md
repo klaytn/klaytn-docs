@@ -217,9 +217,9 @@ The options object can contain the following:
 | Name | Type | Description |
 | --- | --- | --- |
 | arguments | Array | The arguments passed in `options.arguments`. |
-| [send](#myContract-methods-methodname-send) | function | The function that will deploy the contract to the Klaytn. The promise as the result of this function will be resolved with the new contract instance. |
-| [estimateGas](#myContract-methods-methodname-estimategas) | function | The function that will estimate the gas used for the deployment. The execution of this function does not deploy the contract.|
-| [encodeABI](#myContract-methods-methodname-encodeabi) | function | The function that encodes the ABI of the deployment, which is contract data + constructor parameters. The execution of this function does not deploy the contract.|
+| [send](#methods-methodname-send) | function | The function that will deploy the contract to the Klaytn. The promise as the result of this function will be resolved with the new contract instance. |
+| [estimateGas](#methods-methodname-estimategas) | function | The function that will estimate the gas used for the deployment. The execution of this function does not deploy the contract.|
+| [encodeABI](#methods-methodname-encodeabi) | function | The function that encodes the ABI of the deployment, which is contract data + constructor parameters. The execution of this function does not deploy the contract.|
 
 **Example**
 
@@ -319,10 +319,10 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 | Name | Type | Description |
 | --- | --- | --- |
 | arguments | Array | The arguments passed to this method. |
-| [call](#myContract-methods-methodname-call) | function | The function that will call a constant method and execute its smart contract method in the Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
-| [send](#myContract-methods-methodname-send) | function | The function that will send a transaction to the Klaytn and execute its method (can alter the smart contract state). |
-| [estimateGas](#myContract-methods-methodname-estimategas) | function | The that function will estimate the gas used for the execution. |
-| [encodeABI](#myContract-methods-methodname-encodeabi) | function | The function that encodes the ABI for this method. This can be sent using a transaction, calling the method or passing into another smart contract method as its argument. |
+| [call](#methods-methodname-call) | function | The function that will call constant method and execute its smart contract method in the Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
+| [send](#methods-methodname-send) | function | The function that will send a transaction to the Klaytn and execute its method (can alter the smart contract state). |
+| [estimateGas](#methods-methodname-estimategas) | function | The that function will estimate the gas used for the execution. |
+| [encodeABI](#methods-methodname-encodeabi) | function | The function that encodes the ABI for this method. This can be sent using a transaction, calling the method or passing into another smart contract method as its argument. |
 
 **Example**
 
@@ -459,7 +459,7 @@ The options object can contain the following:
 For PromiEvent, the following events are available:
 
 - `transactionHash` returns `string`: Is fired right after the transaction is sent and a transaction hash is available.
-- `receipt` returns `object`: Is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](./caver.rpc/caver.rpc.klay.md#caver-rpc-klay-gettransactionreceipt) for more detail.
+- `receipt` returns `object`: Is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](./caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more detail.
 - `error` returns ``Error``: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
 **Example**
@@ -605,7 +605,7 @@ Subscribes to an event and unsubscribes immediately after the first event or err
 | --- | --- | --- |
 | event | string | The name of the event in the contract, or `allEvents` to get all events. |
 | options | object | (optional) The options used for subscription. See the table below for the details. |
-| callback | function | This callback will be fired for the first event as the second argument, or an error as the first argument. See [myContract.getPastEvents](#mycontract-getpastevents) for details about the event structure. |
+| callback | function | This callback will be fired for the first event as the second argument, or an error as the first argument. See [myContract.getPastEvents](#getpastevents) for details about the event structure. |
 
 The options object can contain the following:
 
@@ -616,7 +616,7 @@ The options object can contain the following:
 
 **Return Value**
 
-`Promise` returns `object` - An event object. For more detail about event object, please refer to [myContract.getPastEvents](#mycontract-getpastevents).
+`Promise` returns `object` - An event object. For more detail about event object, please refer to [myContract.getPastEvents](#getpastevents).
 
 **Example**
 
