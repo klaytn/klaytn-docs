@@ -1029,7 +1029,7 @@ keyring.toAccount([options])
 
 Returns the [Account] instance for updating the [AccountKey](../../../../klaytn/design/accounts.md#account-key) of the [Klaytn accounts](../../../../klaytn/design/accounts.md#klaytn-accounts). The [Account] instance has an [AccountKey](./caver.account.md#accountkeylegacy) instance that can contain public key(s) inside, which will be sent to Klaytn Network and used for validating transactions. For more details about [Account], see [Account Update](../getting-started.md#account-update).
 
-Note that if you update the [AccountKey](../../../../klaytn/design/accounts.md#account-key) of the [Account](../../../../klaytn/design/accounts.md#klaytn-accounts) stored in the Klaytn, the old private key(s) cannot be used anymore. See [Getting started](../getting-started.md#account-update) on how to use the returned [Account] instance to update information in your [Klaytn account](../../../../klaytn/design/accounts.md#klay-accounts) on Klaytn.
+Note that if you update the [AccountKey](../../../../klaytn/design/accounts.md#account-key) of the [Account](../../../../klaytn/design/accounts.md#klaytn-accounts) stored in the Klaytn, the old private key(s) cannot be used anymore. See [Getting started](../getting-started.md#account-update) on how to use the returned [Account] instance to update information in your [Klaytn account](../../../../klaytn/design/accounts.md#klaytn-accounts) on Klaytn.
 
 Depending on the type of the private key(s) in the keyring, the returned [Account] instances can be classified as follows.
 - When the keyring contains a private key string: Return an [Account] instance that includes the address in the keyring and an instance of [AccountKeyPublic]

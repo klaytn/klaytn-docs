@@ -33,7 +33,7 @@ Returns `true` if the account associated with the address is created in the Klay
 true
 ```
 
-## caver.rpc.klay.getAccount <a id="caver-rpc-klay-getAccount"></a>
+## caver.rpc.klay.getAccount <a id="caver-rpc-klay-getaccount"></a>
 
 ```javascript
 caver.rpc.klay.getAccount(address [, blockNumber] [, callback])
@@ -809,7 +809,7 @@ Returns receipts included in a block identified by block hash.
 ]
 ```
 
-## caver.rpc.klay.getBlockTransactionCountByNumber <a id="caver-rpc-klay-getblocktransactionCountbynumber"></a>
+## caver.rpc.klay.getBlockTransactionCountByNumber <a id="caver-rpc-klay-getblocktransactioncountbynumber"></a>
 
 ```javascript
 caver.rpc.klay.getBlockTransactionCountByNumber(blockNumber [, callback])

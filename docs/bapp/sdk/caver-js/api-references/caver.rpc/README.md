@@ -42,7 +42,7 @@ The `caver.rpc.klay` allows you to interact with the Klaytn nodes. The list belo
 - [getBlockByHash](./klay.md#caver-rpc-klay-getblockbyhash)
 - [getBlockReceipts](./klay.md#caver-rpc-klay-getblockreceipts)
 - [getBlockTransactionCountByNumber](./klay.md#caver-rpc-klay-getblocktransactioncountbynumber)
-- [getBlockTransactionCountByHash](./klay.md#caver-rpc-klay-getblocktransactioncountbyhash)
+- [getBlockTransactionCountByHash](./klay.md#caver-rpc-klay-getblocktransactionCountbyhash)
 - [getBlockWithConsensusInfoByNumber](./klay.md#caver-rpc-klay-getblockwithconsensusinfobynumber)
 - [getBlockWithConsensusInfoByHash](./klay.md#caver-rpc-klay-getblockwithconsensusinfobyhash)
 - [getCommittee](./klay.md#caver-rpc-klay-getcommittee)
@@ -63,8 +63,8 @@ The `caver.rpc.klay` allows you to interact with the Klaytn nodes. The list belo
 - [getTransactionReceipt](./klay.md#caver-rpc-klay-gettransactionreceipt)
 - [getTransactionReceiptBySenderTxHash](./klay.md#caver-rpc-klay-gettransactionreceiptbysendertxhash)
 - [sendRawTransaction](./klay.md#caver-rpc-klay-sendrawtransaction)
-- [sendTransaction](./caver.klay/sendtx_legacy.md#sendtransaction)
-- [sendTransactionAsFeePayer](./caver.klay/sendtx_legacy.md#sendtransactionasfeepayer)
+- [sendTransaction](./klay.md#caver-rpc-klay-sendtransaction)
+- [sendTransactionAsFeePayer](./klay.md#caver-rpc-klay-sendtransactionasfeepayer)
 - [signTransaction](./klay.md#caver-rpc-klay-signtransaction)
 - [signTransactionAsFeePayer](./klay.md#caver-rpc-klay-signtransactionasfeepayer)
 - [getDecodedAnchoringTransactionByHash](./klay.md#caver-rpc-klay-getdecodedanchoringtransactionbyhash)
@@ -90,10 +90,10 @@ The `caver.rpc.klay` allows you to interact with the Klaytn nodes. The list belo
 - [uninstallFilter](./klay.md#caver-rpc-klay-uninstallfilter)
 
 ### [Network](./net.md) <a id="network"></a>
-- [getNetworkId](./net.md#getnetworkid)
-- [isListening](./net.md#islistening)
-- [getPeerCount](./net.md#getpeercount)
-- [getPeerCountByType](./net.md#getpeercountbytype)
+- [getNetworkId](./net.md#caver-rpc-net-getnetworkid)
+- [isListening](./net.md#caver-rpc-net-islistening)
+- [getPeerCount](./net.md#caver-rpc-net-getpeercount)
+- [getPeerCountByType](./net.md#caver-rpc-net-getpeercountbytype)
 
 ### [Miscellaneous](./klay.md#caver-rpc-klay-sha3) <a id="miscellaneous"></a>
 - [sha3](./klay.md#caver-rpc-klay-sha3)
