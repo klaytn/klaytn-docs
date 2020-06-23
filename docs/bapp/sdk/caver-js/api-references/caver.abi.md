@@ -315,7 +315,7 @@ Result {
 ## encodeContractDeploy <a id="encodecontractdeploy"></a>
 
 ```javascript
-caver.abi.encodeContractDeploy(jsonInterface, hexstring, params)
+caver.abi.encodeContractDeploy(jsonInterface, hexstring [, params])
 ```
 
 Encodes smart contract bytecode with the arguments of the constructor.
@@ -325,7 +325,7 @@ Encodes smart contract bytecode with the arguments of the constructor.
 | --- | --- | --- |
 | jsonInterface | Array | The JSON interface of the contract. |
 | hexstring | string | A bytecode of smart contract to be deployed. |
-| params | Mixed | Arguments to pass to the constructor. |
+| params | Mixed | (optional) Arguments to pass to the constructor. |
 
 **Return Value**
 
