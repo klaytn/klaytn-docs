@@ -201,7 +201,7 @@ The result of `caver.wallet.keyring.createFromPrivateKey`, like the result of `c
 
 #### Creating a SingleKeyring with a private key and an address <a id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
 
-If your private key for your account is decoupled from the account address, you can create a keyring using the given address and the given private key like below.
+If your private key for your Klaytn account is decoupled from the address, you can create a keyring using the given address and the given private key like below.
 
 ```javascript
 // test.js
