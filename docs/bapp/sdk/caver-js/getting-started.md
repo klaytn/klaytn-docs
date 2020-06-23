@@ -861,7 +861,7 @@ Here comes how to update AccountKey of your Klaytn account with multiple [Accoun
 First, let's create an Account instance to update with [AccountKeyWeightedMultiSig]. For [AccountKeyWeightedMultiSig], a threshold and a weight for each key must be defined. To do this, use [caver.account.weightedMultiSigOptions]. The first parameter is the threshold, and the second parameter is an array containing the weight for each key.
 
 ```javascript
-// Create an account with three private keys using AccountKeyWeightedMultiSig
+// Create an account instance with three private keys using AccountKeyWeightedMultiSig
 const newPrivateKeys = caver.wallet.keyring.generateMultipleKeys(3)
 const newKeyring = caver.wallet.keyring.createWithMultipleKey(sender.address, newPrivateKeys)
 
