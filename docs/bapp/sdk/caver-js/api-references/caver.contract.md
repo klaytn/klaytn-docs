@@ -695,7 +695,7 @@ The structure of the returned event `object` looks as follows:
 | blockHash | 32-byte string | Hash of the block this event was created in. `null` when it is still pending. |
 | blocknumber | number | The block number this log was created in. `null` when still pending. |
 | raw.data | string | The data containing non-indexed log parameter. |
-| raw.topics | Array | An array with maximum of four 32-byte topics, and topic 1-3 contains indexed parameters of the event. |
+| raw.topics | Array | An array with a maximum of four 32-byte topics, and topic 1-3 contains indexed parameters of the event. |
 | id | string | A log identifier. It is made through concatenating "log_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
 
 **Example**
