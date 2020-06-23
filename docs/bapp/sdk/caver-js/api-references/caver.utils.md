@@ -1,3 +1,8 @@
+---
+description: >-
+  caver-js utility APIs.
+---
+
 # caver.utils <a id="caver-utils"></a>
 
 `caver.utils` provides utility functions.
