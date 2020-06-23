@@ -874,7 +874,7 @@ const account = newKeyring.toAccount(options)
 Now let's update AccountKey using [AccountKeyRoleBased]. [AccountKeyRoleBased] is an `AccountKey` type that defines the key to use for each [role].
 
 ```javascript
-// Create an account instance with roles using AccountKeyRoleBased. Each role has a single private key.
+// Create an account instance with roles using AccountKeyRoleBased. In the account instance created, each role has a public key that corresponds to one private key.
 const newPrivateKeys = caver.wallet.keyring.generateRoleBasedKeys([1, 1, 1])
 const newKeyring = caver.wallet.keyring.createWithRoleBasedKey(sender.address, newPrivateKeys)
 
