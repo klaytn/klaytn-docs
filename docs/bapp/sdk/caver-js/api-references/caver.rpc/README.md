@@ -23,80 +23,80 @@ caver.rpc
 
 The `caver.rpc.klay` allows you to interact with the Klaytn nodes. The list below enumerates the API functions that are currently supported in `caver-js`.
 
-### [Account](./caver.rpc.klay.md#caver-rpc-klay-accountcreated) <a id="account"></a>
-- [accountCreated](./caver.rpc.klay.md#accountcreated)
-- [getAccount](./caver.rpc.klay.md#getaccount)
-- [getAccountKey](./caver.rpc.klay.md#getaccountkey)
-- [encodeAccountKey](./caver.rpc.klay.md#encodeaccountkey)
-- [decodeAccountKey](./caver.rpc.klay.md#decodeaccountkey)
-- [getBalance](./caver.rpc.klay.md#getbalance)
-- [getCode](./caver.rpc.klay.md#getcode)
-- [getTransactionCount](./caver.rpc.klay.md#gettransactioncount)
-- [isContractAccount](./caver.rpc.klay.md#iscontractaccount)
-- [sign](./caver.rpc.klay.md#sign)
-- [getAccounts](./caver.rpc.klay.md#getaccounts)
+### [Account](./klay.md#caver-rpc-klay-accountcreated) <a id="account"></a>
+- [accountCreated](./klay.md#accountcreated)
+- [getAccount](./klay.md#getaccount)
+- [getAccountKey](./klay.md#getaccountkey)
+- [encodeAccountKey](./klay.md#encodeaccountkey)
+- [decodeAccountKey](./klay.md#decodeaccountkey)
+- [getBalance](./klay.md#getbalance)
+- [getCode](./klay.md#getcode)
+- [getTransactionCount](./klay.md#gettransactioncount)
+- [isContractAccount](./klay.md#iscontractaccount)
+- [sign](./klay.md#sign)
+- [getAccounts](./klay.md#getaccounts)
 
-### [Block](./caver.rpc.klay.md#caver-rpc-klay-getblocknumber) <a id="block"></a>
-- [getBlockNumber](./caver.rpc.klay.md#getblocknumber)
-- [getBlockByNumber](./caver.rpc.klay.md#getblockbynumber)
-- [getBlockByHash](./caver.rpc.klay.md#getblockbyhash)
-- [getBlockReceipts](./caver.rpc.klay.md#getblockreceipts)
-- [getBlockTransactionCountByNumber](./caver.rpc.klay.md#getblocktransactioncountbynumber)
-- [getBlockTransactionCountByHash](./caver.rpc.klay.md#getblocktransactioncountbyhash)
-- [getBlockWithConsensusInfoByNumber](./caver.rpc.klay.md#getblockwithconsensusinfobynumber)
-- [getBlockWithConsensusInfoByHash](./caver.rpc.klay.md#getblockwithconsensusinfobyhash)
-- [getCommittee](./caver.rpc.klay.md#getcommittee)
-- [getCommitteeSize](./caver.rpc.klay.md#getcommitteesize)
-- [getCouncil](./caver.rpc.klay.md#getcouncil)
-- [getCouncilSize](./caver.rpc.klay.md#getcouncilsize)
-- [getStorageAt](./caver.rpc.klay.md#getstorageat)
-- [isSyncing](./caver.rpc.klay.md#issyncing)
+### [Block](./klay.md#caver-rpc-klay-getblocknumber) <a id="block"></a>
+- [getBlockNumber](./klay.md#getblocknumber)
+- [getBlockByNumber](./klay.md#getblockbynumber)
+- [getBlockByHash](./klay.md#getblockbyhash)
+- [getBlockReceipts](./klay.md#getblockreceipts)
+- [getBlockTransactionCountByNumber](./klay.md#getblocktransactioncountbynumber)
+- [getBlockTransactionCountByHash](./klay.md#getblocktransactioncountbyhash)
+- [getBlockWithConsensusInfoByNumber](./klay.md#getblockwithconsensusinfobynumber)
+- [getBlockWithConsensusInfoByHash](./klay.md#getblockwithconsensusinfobyhash)
+- [getCommittee](./klay.md#getcommittee)
+- [getCommitteeSize](./klay.md#getcommitteesize)
+- [getCouncil](./klay.md#getcouncil)
+- [getCouncilSize](./klay.md#getcouncilsize)
+- [getStorageAt](./klay.md#getstorageat)
+- [isSyncing](./klay.md#issyncing)
 
-### [Transaction](./caver.rpc.klay.md#caver-rpc-klay-call) <a id="transaction"></a>
-- [call](./caver.rpc.klay.md#call)
-- [estimateGas](./caver.rpc.klay.md#estimategas)
-- [estimateComputationCost](./caver.rpc.klay.md#estimatecomputationcost)
-- [getTransactionByBlockHashAndIndex](./caver.rpc.klay.md#gettransactionbyblockhashandindex)
-- [getTransactionByBlockNumberAndIndex](./caver.rpc.klay.md#gettransactionbyblocknumberandindex)
-- [getTransactionByHash](./caver.rpc.klay.md#gettransactionbyhash)
-- [getTransactionBySenderTxHash](./caver.rpc.klay.md#gettransactionbysendertxhash)
-- [getTransactionReceipt](./caver.rpc.klay.md#gettransactionreceipt)
-- [getTransactionReceiptBySenderTxHash](./caver.rpc.klay.md#gettransactionreceiptbysendertxhash)
-- [sendRawTransaction](./caver.rpc.klay.md#sendrawtransaction)
+### [Transaction](./klay.md#caver-rpc-klay-call) <a id="transaction"></a>
+- [call](./klay.md#call)
+- [estimateGas](./klay.md#estimategas)
+- [estimateComputationCost](./klay.md#estimatecomputationcost)
+- [getTransactionByBlockHashAndIndex](./klay.md#gettransactionbyblockhashandindex)
+- [getTransactionByBlockNumberAndIndex](./klay.md#gettransactionbyblocknumberandindex)
+- [getTransactionByHash](./klay.md#gettransactionbyhash)
+- [getTransactionBySenderTxHash](./klay.md#gettransactionbysendertxhash)
+- [getTransactionReceipt](./klay.md#gettransactionreceipt)
+- [getTransactionReceiptBySenderTxHash](./klay.md#gettransactionreceiptbysendertxhash)
+- [sendRawTransaction](./klay.md#sendrawtransaction)
 - [sendTransaction](./caver.klay/sendtx_legacy.md#sendtransaction)
 - [sendTransactionAsFeePayer](./caver.klay/sendtx_legacy.md#sendtransactionasfeepayer)
-- [signTransaction](./caver.rpc.klay.md#signtransaction)
-- [signTransactionAsFeePayer](./caver.rpc.klay.md#signtransactionasfeepayer)
-- [getDecodedAnchoringTransactionByHash](./caver.rpc.klay.md#getdecodedanchoringtransactionbyhash)
+- [signTransaction](./klay.md#signtransaction)
+- [signTransactionAsFeePayer](./klay.md#signtransactionasfeepayer)
+- [getDecodedAnchoringTransactionByHash](./klay.md#getdecodedanchoringtransactionbyhash)
 
-### [Configuration](./caver.rpc.klay.md#caver-rpc-klay-getclientversion) <a id="configuration"></a>
-- [getChainId](./caver.rpc.klay.md#getchainid)
-- [getClientVersion](./caver.rpc.klay.md#getclientversion)
-- [getGasPrice](./caver.rpc.klay.md#getgasprice)
-- [getGasPriceAt](./caver.rpc.klay.md#getgaspriceat)
-- [isParallelDBWrite](./caver.rpc.klay.md#isparalleldbwrite)
-- [isSenderTxHashIndexingEnabled](./caver.rpc.klay.md#issendertxhashindexingenabled)
-- [getProtocolVersion](./caver.rpc.klay.md#getprotocolversion)
-- [getRewardbase](./caver.rpc.klay.md#getrewardbase)
-- [isWriteThroughCaching](./caver.rpc.klay.md#iswritethroughcaching)
+### [Configuration](./klay.md#caver-rpc-klay-getclientversion) <a id="configuration"></a>
+- [getChainId](./klay.md#getchainid)
+- [getClientVersion](./klay.md#getclientversion)
+- [getGasPrice](./klay.md#getgasprice)
+- [getGasPriceAt](./klay.md#getgaspriceat)
+- [isParallelDBWrite](./klay.md#isparalleldbwrite)
+- [isSenderTxHashIndexingEnabled](./klay.md#issendertxhashindexingenabled)
+- [getProtocolVersion](./klay.md#getprotocolversion)
+- [getRewardbase](./klay.md#getrewardbase)
+- [isWriteThroughCaching](./klay.md#iswritethroughcaching)
 
-### [Filter](./caver.rpc.klay.md#caver-rpc-klay-getfilterchanges) <a id="filter"></a>
-- [getFilterChanges](./caver.rpc.klay.md#getfilterchanges)
-- [getFilterLogs](./caver.rpc.klay.md#getfilterlogs)
-- [getLogs](./caver.rpc.klay.md#getlogs)
-- [newBlockFilter](./caver.rpc.klay.md#newblockfilter)
-- [newFilter](./caver.rpc.klay.md#newfilter)
-- [newPendingTransactionFilter](./caver.rpc.klay.md#newpendingtransactionfilter)
-- [uninstallFilter](./caver.rpc.klay.md#uninstallfilter)
+### [Filter](./klay.md#caver-rpc-klay-getfilterchanges) <a id="filter"></a>
+- [getFilterChanges](./klay.md#getfilterchanges)
+- [getFilterLogs](./klay.md#getfilterlogs)
+- [getLogs](./klay.md#getlogs)
+- [newBlockFilter](./klay.md#newblockfilter)
+- [newFilter](./klay.md#newfilter)
+- [newPendingTransactionFilter](./klay.md#newpendingtransactionfilter)
+- [uninstallFilter](./klay.md#uninstallfilter)
 
-### [Network](./caver.rpc.net.md) <a id="network"></a>
-- [getNetworkId](./caver.rpc.net.md#getnetworkid)
-- [isListening](./caver.rpc.net.md#islistening)
-- [getPeerCount](./caver.rpc.net.md#getpeercount)
-- [getPeerCountByType](./caver.rpc.net.md#getpeercountbytype)
+### [Network](./net.md) <a id="network"></a>
+- [getNetworkId](./net.md#getnetworkid)
+- [isListening](./net.md#islistening)
+- [getPeerCount](./net.md#getpeercount)
+- [getPeerCountByType](./net.md#getpeercountbytype)
 
-### [Miscellaneous](./caver.rpc.klay.md#caver-rpc-klay-sha3) <a id="miscellaneous"></a>
-- [sha3](./caver.rpc.klay.md#sha3)
+### [Miscellaneous](./klay.md#caver-rpc-klay-sha3) <a id="miscellaneous"></a>
+- [sha3](./klay.md#sha3)
 
-[Klay]: ./caver.rpc.klay.md
-[net]: ./caver.rpc.net.md
+[Klay]: ./klay.md
+[net]: ./net.md

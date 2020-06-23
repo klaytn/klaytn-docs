@@ -553,10 +553,10 @@ FeeDelegatedValueTransfer {
 [RoleBasedKeyring]: ./caver.wallet.keyring.md#rolebasedkeyring
 [SignatureData]: ./caver.wallet.keyring.md#signaturedata
 
-[Transaction]: ./caver.transaction.md#class
-[FeeDelegatedTransaction]: ./caver.transaction.md#class
+[Transaction]: ./caver.transaction/README.md#class
+[FeeDelegatedTransaction]: ./caver.transaction/fee-delegation.md#class
 [Account Update]: ./caver.transaction/basic.md#accountupdate
-[caver.transaction]: ./caver.transaction.md
+[caver.transaction]: ./caver.transaction/README.md
 [LegacyTransaction]: ./caver.transaction/basic.md#legacytransaction
 [ValueTransfer]: ./caver.transaction/basic.md#valuetransfer
 [FeeDelegatedValueTransfer]: ./caver.transaction/fee-delegation.md#feedelegatedvaluetransfer

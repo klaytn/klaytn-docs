@@ -4,7 +4,7 @@
 
 The `caver.kct.kip17` inherits [caver.contract](../caver.contract.md) to implement the KIP-17 token contract. The `caver.kct.kip17` holds the same properties of `caver.contract` whereas there are additional methods to implement extra features. This section only introduces the newly added bound methods of the `caver.kct.kip17`.
 
-The code that implements KIP-17 for caver-js is available on the [caver-js Github Repo](https://github.com/klaytn/caver-js/tree/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP17).
+The code that implements KIP-17 for caver-js is available on the [caver-js Github Repo](https://github.com/klaytn/caver-js/tree/dev/packages/caver-kct/src/contract/token/KIP17).
 
 For more information about KIP-17, see [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-17).
 
@@ -22,7 +22,7 @@ After successful deployment, the promise will be resolved with a new KIP17 insta
 | Name | Type | Description |
 | --- | --- | --- |
 | tokenInfo | object | The information needed to deploy KIP-17 token contract on the Klaytn blockchain. See the below table for the details. |
-| deployer | string | The address in the keyring instance to deploy the KIP-17 token contract. This address must have enough KLAY to deploy. See [Keyring](docs/bapp/sdk/caver-js/api-references/caver.wallet.keyring.md#caver-wallet-keyring) for more details. |
+| deployer | string | The address in the keyring instance to deploy the KIP-17 token contract. This address must have enough KLAY to deploy. See [Keyring](../caver.wallet.keyring.md#caver-wallet-keyring) for more details. |
 
 The tokenInfo object must contain the following:
 
@@ -1369,5 +1369,5 @@ Note that the renouncePauser method will submit a transaction to the Klaytn netw
 > kip17.renouncePauser().then(console.log)
 ```
 
-[getTransactionReceipt]: ../caver.rpc/caver.rpc.klay.md#caver-rpc-klay-gettransactionreceipt
+[getTransactionReceipt]: ../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt
 [approve]: #kip17-approve

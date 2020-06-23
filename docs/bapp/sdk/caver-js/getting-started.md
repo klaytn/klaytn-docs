@@ -1348,17 +1348,17 @@ The BApp \(Blockchain Application\) Development sample projects using caver-js a
 [KlaytnWalletKey]: ../../../klaytn/design/accounts.md#klaytn-wallet-key-format
 [SignatureData]: api-references/caver.wallet.keyring.md#signaturedata
 
-[caver.rpc.klay.getTransactionReceipt]: api-references/caver.rpc/klay.md#gettransactionreceipt
-[getTransactionReceipt]: api-references/caver.rpc/klay.md#gettransactionreceipt
+[caver.rpc.klay.getTransactionReceipt]: api-references/caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt
+[getTransactionReceipt]: api-references/caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt
 [caver.rpc.klay.sendRawTransaction]: api-references/caver.rpc/klay.md#sendrawtransaction
 
 [txError: Detailed Information of Transaction Failures]: ../../json-rpc/transaction-error-codes.md
 
 [Fee Delegation]: ../../../klaytn/design/transactions/README.md#fee-delegation
-[Account Update]: api-references/caver.transaction.md#accountupdate
-[caver.transaction.smartContractDeploy]: api-references/caver.transaction.md#smartcontractdeploy
-[caver.transaction.feeDelegatedSmartContractDeploy]: api-references/caver.transaction.md#feedelegatedsmartcontractdeploy
-[caver.transaction.feeDelegatedSmartContractDeployWithRatio]: api-references/caver.transaction.md#feedelegatedsmartcontractdeploywithratio
-[caver.transaction.smartContractExecution]: api-references/caver.transaction.md#smartcontractexecution
-[caver.transaction.feeDelegatedSmartContractExecution]: api-references/caver.transaction.md#feedelegatedsmartcontractexecution
-[caver.transaction.feeDelegatedSmartContractExecutionWithRatio]: api-references/caver.transaction.md#feedelegatedsmartcontractexecutionwithratio
+[Account Update]: api-references/caver.transaction/basic.md#accountupdate
+[caver.transaction.smartContractDeploy]: api-references/caver.transaction/basic.md#smartcontractdeploy
+[caver.transaction.feeDelegatedSmartContractDeploy]: api-references/caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy
+[caver.transaction.feeDelegatedSmartContractDeployWithRatio]: api-references/caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio
+[caver.transaction.smartContractExecution]: api-references/caver.transaction/basic.md#smartcontractexecution
+[caver.transaction.feeDelegatedSmartContractExecution]: api-references/caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution
+[caver.transaction.feeDelegatedSmartContractExecutionWithRatio]: api-references/caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio

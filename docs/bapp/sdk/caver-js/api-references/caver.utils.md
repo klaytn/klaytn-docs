@@ -1480,7 +1480,7 @@ true
 ```javascript
 caver.utils.isKlaytnWalletKey(key)
 ```
-Returns `true` if key is in [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format, otherwise it returns `false`.
+Returns `true` if key is in [KlaytnWalletKey] format, otherwise it returns `false`.
 
 **Parameters**
 
@@ -1682,6 +1682,6 @@ Decompresses the compressed public key.
 '0x62cef87819b82f62e9c0a38c1fa7dfa089084959df86aca19ff2f6c903db2248b45dc23220ee6bcd8753bb9df8ce7d58e56eabebb14479f3a0ca5ccd4bdea632'
 ```
 
-[Transaction]: ./caver.transaction/caver.transaction.md#class
+[Transaction]: ./caver.transaction/caver.transaction/README.md#class
 [SignatureData]: ./caver.wallet.keyring.md#signaturedata
 [KlaytnWalletKey]: ../../../../klaytn/design/accounts.md#klaytn-wallet-key-format

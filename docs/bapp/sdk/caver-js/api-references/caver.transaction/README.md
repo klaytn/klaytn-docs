@@ -522,6 +522,6 @@ Use [caver.rpc.klay.getGasPrice] to get `gasPrice`, [caver.rpc.klay.getTransacti
 [MultipleKeyring]: ../caver.wallet.keyring.md#multiplekeyring
 [RoleBasedKeyring]: ../caver.wallet.keyring.md#rolebasedkeyring
 [SignatureData]: ../caver.wallet.keyring.md#signaturedata
-[caver.rpc.klay.getGasPrice]: ../caver.rpc.md#caver-rpc-klay-getgasprice
-[caver.rpc.klay.getTransactionCount]: ../caver.rpc.md#caver-rpc-klay-gettransactioncount
-[caver.rpc.klay.getChainId]: ../caver.rpc.md#caver-rpc-klay-getchainid
+[caver.rpc.klay.getGasPrice]: ../caver.rpc/klay.md#caver-rpc-klay-getgasprice
+[caver.rpc.klay.getTransactionCount]: ../caver.rpc/klay.md#caver-rpc-klay-gettransactioncount
+[caver.rpc.klay.getChainId]: ../caver.rpc/klay.md#caver-rpc-klay-getchainid

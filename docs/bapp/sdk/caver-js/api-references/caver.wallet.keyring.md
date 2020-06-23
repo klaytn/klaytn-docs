@@ -1027,7 +1027,7 @@ Returns the [KlaytnWalletKey] string for the keyring. With [MultipleKeyring] or 
 keyring.toAccount([options])
 ```
 
-Returns the [Account] instance for updating the [AccountKey](../../../../klaytn/design/accounts.md#account-key) of the [Klaytn accounts](../../../../klaytn/design/accounts.md#klay-accounts). The [Account] instance has an [AccountKey](./caver.account.md#accountkeylegacy) instance that can contain public key(s) inside, which will be sent to Klaytn Network and used for validating transactions. For more details about [Account], see [Account Update](../getting-started.md#account-update).
+Returns the [Account] instance for updating the [AccountKey](../../../../klaytn/design/accounts.md#account-key) of the [Klaytn accounts](../../../../klaytn/design/accounts.md#klaytn-accounts). The [Account] instance has an [AccountKey](./caver.account.md#accountkeylegacy) instance that can contain public key(s) inside, which will be sent to Klaytn Network and used for validating transactions. For more details about [Account], see [Account Update](../getting-started.md#account-update).
 
 Note that if you update the [AccountKey](../../../../klaytn/design/accounts.md#account-key) of the [Account](../../../../klaytn/design/accounts.md#klay-accounts) stored in the Klaytn, the old private key(s) cannot be used anymore. See [Getting started](../getting-started.md#account-update) on how to use the returned [Account] instance to update information in your [Klaytn account](../../../../klaytn/design/accounts.md#klay-accounts) on Klaytn.
 
@@ -1386,13 +1386,13 @@ false
 
 [role]: ../../../../klaytn/design/accounts.md#roles
 [PrivateKey]: #privatekey
-[Keyring]: #keyring
+[Keyring]: #class
 [SingleKeyring]: #singlekeyring
 [MultipleKeyring]: #multiplekeyring
 [RoleBasedKeyring]: #rolebasedkeyring
 [KlaytnWalletKey]: ../../../../klaytn/design/accounts.md#klaytn-wallet-key-format
-[caver.wallet.sign]: ./caver.wallet.md#caver-wallet-signwithkey
-[transaction.sign]: ./caver.transaction.md#transaction-signwithkey
+[caver.wallet.sign]: ./caver.wallet.md#caver-wallet-sign
+[transaction.sign]: ./caver.transaction/README.md#transaction-sign
 [Account]: ./caver.account.md#acount
 [AccountKeyPublic]: ./caver.account.md#accountkeypublic
 [AccountKeyWeigthedMultiSig]: ./caver.account.md#accountkeyweightedmultisig
