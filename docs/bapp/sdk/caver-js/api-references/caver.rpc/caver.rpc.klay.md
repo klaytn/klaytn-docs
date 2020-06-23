@@ -98,7 +98,7 @@ caver.rpc.klay.getAccountKey(address [, blockNumber] [, callback])
 
 Returns AccountKey of a given address. If the account has [AccountKeyLegacy](../../../../../klaytn/design/accounts.md#accountkeylegacy) or the account of the given address is a [Smart Contract Account](../../../../../klaytn/design/accounts.md#smart-contract-accounts-scas), it will return an empty key value. Please refer to [Account Key](../../../../../klaytn/design/accounts.md#account-key) for more details.
 
-**NOTE** `caver.rpc.klay.getAccountKey` returns the account key if the account exists on the network,  so `null` is returned if the account matching the address does not exist on the actual blockchain network.
+**NOTE** `caver.rpc.klay.getAccountKey` returns an object that differs by each AccountKey type. If a Klaytn account matching the given address does not exist in the network, `null` is returned.
 
 **Parameters**
 
