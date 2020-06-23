@@ -787,7 +787,7 @@ Keeping the 3 things above in your mind, you can change your private key(s) by f
 
 Please check [Account Update] for the details.
 
-To change your account key, you must provide an [Account] instance for the `account` field in the input argument object of `caver.transaction.accountUpdate`. An [Account] instance contains the address of the account and the AccountKey to be updated.
+To change your AccountKey, you must provide an [Account] instance for the `account` field in the input argument object of `caver.transaction.accountUpdate`. An [Account] instance contains the address of the Klaytn account and the AccountKey to be updated.
 
 The code below is an example code that changes the private key(s) you use for your Klaytn account using [AccountKeyPublic]. Don't forget your new private key(s).
 
