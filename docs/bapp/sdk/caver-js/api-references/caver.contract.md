@@ -538,8 +538,8 @@ The options object can contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| from | string | (optional) The address from which the call "transaction" should be made. |
-| gas | number | (optional) The maximum gas provided for this call "transaction" (gas limit). Setting a specific value helps to detect out of gas errors. If all gas is used, it will return the same number. |
+| from | string | (optional) The address from which calling the contract method should be made. |
+| gas | number | (optional) The maximum gas provided for this call (gas limit). Setting a specific value helps to detect out of gas errors. If all gas is used, it will return the same number. |
 | value | number &#124; string &#124; BN &#124; Bignumber | (optional) The value in peb that would be transferred to the address of the smart contract if the transaction for executing this contract function was sent to Klaytn. |
 
 **Return Value**
