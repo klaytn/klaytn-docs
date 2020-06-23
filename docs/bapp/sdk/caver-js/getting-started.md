@@ -856,7 +856,7 @@ new private key string: 0x{private key}
 ```
 
 
-Do you want to update your Klaytn account's key with multiple [AccountKeys]? The example below explains how to create an [Account] instance with multiple private keys that what you want to use (You can create an [Account] instance with multiple public keys via [caver.account.create]). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
+Here comes how to update AccountKey of your Klaytn account with multiple [AccountKeys]? The example below explains how to create an [Account] instance with multiple private keys that what you want to use (You can create an [Account] instance with multiple public keys via [caver.account.create]). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
 
 First, let's create an Account instance to update with [AccountKeyWeightedMultiSig]. For [AccountKeyWeightedMultiSig], a threshold and a weight for each key must be defined. To do this, use [caver.account.weightedMultiSigOptions]. The first parameter is the threshold, and the second parameter is an array containing the weight for each key.
 
@@ -871,10 +871,10 @@ const options = new caver.account.weightedMultiSigOptions(3, [1, 2, 1])
 const account = newKeyring.toAccount(options)
 ```
 
-Now let's update the account key using [AccountKeyRoleBased]. [AccountKeyRoleBased] is an `AccountKey` type that defines the key to use for each [role].
+Now let's update AccountKey using [AccountKeyRoleBased]. [AccountKeyRoleBased] is an `AccountKey` type that defines the key to use for each [role].
 
 ```javascript
-// Create an account with roles using AccountKeyRoleBased. Each role has a single private key.
+// Create an account instance with roles using AccountKeyRoleBased. Each role has a single private key.
 const newPrivateKeys = caver.wallet.keyring.generateRoleBasedKeys([1, 1, 1])
 const newKeyring = caver.wallet.keyring.createWithRoleBasedKey(sender.address, newPrivateKeys)
 
@@ -884,7 +884,7 @@ const account = newKeyring.toAccount()
 The AccountKeyRoleBased above is an example of using one private key for each role. If you want to use multiple private keys for each role, [caver.account.weightedMultiSigOptions] must be defined for each role as shown below.
 
 ```javascript
-// Create an account with [3, 2, 3] keys for each role using AccountKeyRoleBased
+// Create an account instance with [3, 2, 3] keys for each role using AccountKeyRoleBased
 const newPrivateKeys = caver.wallet.keyring.generateRoleBasedKeys([3, 2, 3])
 const newKeyring = caver.wallet.keyring.createWithRoleBasedKey(sender.address, newPrivateKeys)
 
@@ -900,7 +900,7 @@ const options = [
 const account = newKeyring.toAccount(options)
 ```
 
-If you want to update accountKey to [AccountKeyLegacy] or [accountKeyFail], create an Account instance as shown below and assign it to the `account` field of the transaction.
+If you want to update AccountKey to [AccountKeyLegacy] or [accountKeyFail], create an Account instance as shown below and assign it to the `account` field of the transaction.
 
 ```javascript
 // Create an account with AccountKeyLegacy
