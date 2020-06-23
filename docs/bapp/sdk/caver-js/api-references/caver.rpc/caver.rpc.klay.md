@@ -2660,6 +2660,7 @@ Returns Keccak-256 (not the standardized SHA3-256) of the given data. You can us
 0x36712aa4d0dd2f64a9ae6ac09555133a157c74ddf7c079a70c33e8b4bf70dd73
 ```
 
+[AccountKey]: ../../../../../klaytn/design/accounts.md#account-key
 [AccountKeyLegacy]: ../caver.account.md#accountkeylegacy
 [AccountKeyPublic]: ../caver.account.md#accountkeypublic
 [AccountKeyFail]: ../caver.account.md#accountkeyfail
