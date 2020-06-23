@@ -1471,7 +1471,7 @@ Returns the information about a transaction requested by transaction hash.
 | gasPrice | string | Gas price provided by the sender in peb. |
 | hash | string | Hash of the transaction. |
 | humanReadable | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable. |
-| key | string | (optional) The RLP-encoded account key used to update account key of account. |
+| key | string | (optional) The RLP-encoded AccountKey used to update AccountKey of an Klaytn account. See [AccountKey] for more details. |
 | input | string | (optional) The data sent along with the transaction. |
 | nonce | string | The number of transactions made by the sender prior to this one. |
 | senderTxHash | string | (optional) Hash of the tx without the fee payer's address and signature. This value is always the same as the value of `hash` for non fee-delegated transactions. |
