@@ -114,7 +114,7 @@ Returns AccountKey of a given address. If the account has [AccountKeyLegacy](../
 
 | Type | Description |
 | --- | --- |
-| object | An object that contains the account key information. Each account key type has different attributes. |
+| object | An object that contains AccountKey information. Each AccountKey type has different attributes. |
 
 **Example**
 
