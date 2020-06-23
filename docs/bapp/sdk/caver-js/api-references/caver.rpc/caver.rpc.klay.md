@@ -184,7 +184,7 @@ Returns AccountKey of a given address. If the account has [AccountKeyLegacy](../
 caver.rpc.klay.encodeAccountKey(accountKey [, callback])
 ```
 
-Encodes an account key using the Recursive Length Prefix (RLP) encoding scheme. Also you can use [account.getRLPEncodingAccountKey](../caver.account.md#account-getrlpencodingaccountkey) to get RLP-encoded account key.
+Encodes an object that contains AccountKey information using the Recursive Length Prefix (RLP) encoding scheme. Also you can use [account.getRLPEncodingAccountKey](../caver.account.md#account-getrlpencodingaccountkey) to get RLP-encoded AccountKey.
 
 **Parameters**
 
@@ -199,7 +199,7 @@ Encodes an account key using the Recursive Length Prefix (RLP) encoding scheme. 
 
 | Type | Description |
 | --- | --- |
-| string | A RLP-encoded account key. |
+| string | A RLP-encoded AccountKey. |
 
 **Example**
 
@@ -303,13 +303,13 @@ Encodes an account key using the Recursive Length Prefix (RLP) encoding scheme. 
 caver.rpc.klay.decodeAccountKey(encodedKey [, callback])
 ```
 
-Decodes a RLP-encoded account key. Also you can use [caver.account.accountKey.decode](../caver.account.md#caver-account-accountkey-decode) to decode a RLP-encoded account key.
+Decodes a RLP-encoded AccountKey. Also you can use [caver.account.accountKey.decode](../caver.account.md#caver-account-accountkey-decode) to decode a RLP-encoded AccountKey.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| encodedKey | string | A RLP-encoded account key. |
+| encodedKey | string | A RLP-encoded AccountKey. |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
