@@ -498,7 +498,7 @@ testFunction()
 
 The above code adds a keyring to `caver.wallet`, creates a transaction, and signs the transaction through `caver.wallet.sign`. 
 
-Running the above code gives you following result. When the above code is executed, the RLP-encoded string of the transaction is shown below. (The RLP-encoded string output you got could be different from the string output shown below.)
+Running the above code gives you the following result. When the above code is executed, the RLP-encoded string of the transaction is shown below. (The RLP-encoded string output you got could be different from the string output shown below.)
 
 ```bash
 RLP-encoded string: 0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b6991507647f720194ade4883d092e2a972d70637ca7de9ab5166894a2f847f845824e44a0e1ec99789157e5cb6bc691935c204a23aaa3dc049efafca106992a5d5db2d179a0511c421d5e508fdb335b6048ca7aa84560a53a5881d531644ff178b6aa4c0a41
@@ -506,7 +506,7 @@ RLP-encoded string: 0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b699
 
 #### Send the RLP-encoded string of the signed transaction to the Klaytn
 
-Now you can send sgined transaction to the network like below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
+Now you can send a signed transaction to the network like below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
 
 ```javascript
 // test.js
@@ -600,7 +600,7 @@ caver.rpc.klay.sendRawTransaction(rawTransaction).then(console.log)
 caver.rpc.klay.sendRawTransaction(rawTransaction).on('receipt', console.log)
 ```
 
-As described in the example above, you can get the result of sending a transaction through the promise and event emitter. The `transactionHash` field is defined inside the receipt object. You can use [caver.rpc.klay.getTransactionReceipt] RPC call with `receipt.transactionHash` to query the receipt of a transaction at any time from the network after the transaction is included in a block . The example below shows how to get a receipt using the [caver.rpc.klay.getTransactionReceipt] RPC call.
+As described in the example above, you can get the result of sending a transaction through the promise and event emitter. The `transactionHash` field is defined inside the receipt object. You can use [caver.rpc.klay.getTransactionReceipt] RPC call with `receipt.transactionHash` to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the [caver.rpc.klay.getTransactionReceipt] RPC call.
 
 ```javascript
 // test.js
@@ -643,7 +643,7 @@ $ node ./test.js
 }
 ```
 
-The result of the transaction can be found through `status` of the receipt. For the details of the return values, see [caver.rpc.klay.getTransactionReceipt]. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures].
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see [caver.rpc.klay.getTransactionReceipt]. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures].
 
 ## Executing Other Transaction Types <a id="executing-other-transaction-types"></a>
 
@@ -914,7 +914,7 @@ const accountWithFailKey = caver.account.createWithAccountKeyFail(keyringToUpdat
 
 The [caver.contract] package makes it easy to interact with smart contracts on Klaytn. It automatically converts all methods of a smart contract into javascript calls when its low-level ABI \(Application Binary Interface\) is given. This allows you to interact with smart contracts as if they were JavaScript objects.
 
-First, we make simple solidity example like below. Create a 'test.sol' file and write down below example.
+First, we make a simple solidity example like the below. Create a 'test.sol' file and write down the below example.
 
 ```
 pragma solidity ^0.5.6;
@@ -930,7 +930,7 @@ contract KVstore {
 }
 ```
 
-Now we can complie a smart contract to get its bytecode and ABI.
+Now we can compile a smart contract to get its bytecode and ABI.
 
 ```text
 > solc --abi --bin ./test.sol
@@ -1212,7 +1212,7 @@ $ node ./test.js
 ]
 ```
 
-Then let's see how to sign sequentially without sharing same transaction object. In below example, user1 passes RLP-encoded string that is the result of getRLPEncoding function of the signed transaction to user2.
+Then let's see how to sign sequentially without sharing the same transaction object. In the below example, user1 passes RLP-encoded string that is the result of getRLPEncoding function of the signed transaction to user2.
 
 The code below explains how to sign and append signatures with RLP-encoded string.
 
@@ -1307,7 +1307,7 @@ Running the code above outputs one RLP-encoded raw transaction string with all t
 
 When executing `combineSignedRawTransactions `, the signed RLP-encoded raw transaction strings to be combined must be exactly the same to each other except the signatures and the optional variables in the transaction instance. Optional variables without any given value in the base transaction instance (the caller of `combineSignedRawTransactions`) will be redeemed with the corresponding ones in the following raw transaction string to be merged right next. If there is any inconsistency among all raw transaction strings including the values of optional variables of them to be merged, an error occurs.
 
-The combineSignedRawTransactions returns an RLP-encoded string containing all signatures (and feePayerSignatures if transaction is fee-delegated transaction) as a result. You use this to send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(combined)`.
+The combineSignedRawTransactions returns an RLP-encoded string containing all signatures (and feePayerSignatures if the transaction is a fee-delegated transaction) as a result. You use this to send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(combined)`.
 
 
 ## Sample Projects <a id="sample-projects"></a>
