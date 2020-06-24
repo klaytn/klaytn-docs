@@ -1338,8 +1338,8 @@ The BApp \(Blockchain Application\) Development sample projects using caver-js a
 [caver.account.weightedMultiSigOptions]: api-references/caver.account.md#weightedmultisigoptions
 [caver.account.create]: api-references/caver.account.md#caver-account-create
 
-[caver.wallet]: api-references/caver.wallet/READMD.md
-[caver.wallet.newKeyring]: api-references/caver.wallet/READMD.md#caver-wallet-newkeyring
+[caver.wallet]: api-references/caver.wallet/README.md
+[caver.wallet.newKeyring]: api-references/caver.wallet/README.md#caver-wallet-newkeyring
 [caver.wallet.keyring]: api-references/caver.wallet/keyring.md
 [Keyring]: api-references/caver.wallet/keyring.md
 [SingleKeyring]: api-references/caver.wallet/keyring.md#singlekeyring

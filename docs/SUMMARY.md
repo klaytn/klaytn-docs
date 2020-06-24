@@ -166,7 +166,7 @@
       * [Getting Started](bapp/sdk/caver-js/getting-started.md)
       * [API references](bapp/sdk/caver-js/api-references/README.md)
         * [caver.account](bapp/sdk/caver-js/api-references/caver.account.md)
-        * [caver.wallet](bapp/sdk/caver-js/api-references/caver.wallet/READMD.md)
+        * [caver.wallet](bapp/sdk/caver-js/api-references/caver.wallet/README.md)
           * [caver.wallet.keyring](bapp/sdk/caver-js/api-references/caver.wallet/keyring.md)
         * [caver.transaction](bapp/sdk/caver-js/api-references/caver.transaction/README.md)
           * [Basic](bapp/sdk/caver-js/api-references/caver.transaction/basic.md)

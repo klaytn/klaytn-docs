@@ -174,7 +174,7 @@ For signing a transaction as a fee payer, use [roleFeePayerKey] in `keyring`. If
 
 If the `transaction.feePayer` is not defined, the address of the given keyring is set to `transaction.feePayer`.
 
-If the `keyring` to be used for signing the transaction was added to `caver.wallet`, you can use [caver.wallet.signAsFeePayer](../caver.wallet/READMD.md#caver-wallet-signasfeepayer).
+If the `keyring` to be used for signing the transaction was added to `caver.wallet`, you can use [caver.wallet.signAsFeePayer](../caver.wallet/README.md#caver-wallet-signasfeepayer).
 
 **NOTE** This function works only for "fee-delgated" transactions or "fee-delegated with ratio" transactions.
 
