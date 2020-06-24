@@ -1391,7 +1391,7 @@ false
 [MultipleKeyring]: #multiplekeyring
 [RoleBasedKeyring]: #rolebasedkeyring
 [KlaytnWalletKey]: ../../../../klaytn/design/accounts.md#klaytn-wallet-key-format
-[caver.wallet.sign]: ./caver.wallet.md#caver-wallet-sign
+[caver.wallet.sign]: ./caver.wallet/READMD.md#caver-wallet-sign
 [transaction.sign]: ./caver.transaction/README.md#transaction-sign
 [Account]: ./caver.account.md#account
 [AccountKeyPublic]: ./caver.account.md#accountkeypublic

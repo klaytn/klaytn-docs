@@ -22,7 +22,7 @@ After successful deployment, the promise will be resolved with a new KIP17 insta
 | Name | Type | Description |
 | --- | --- | --- |
 | tokenInfo | object | The information needed to deploy KIP-17 token contract on the Klaytn blockchain. See the below table for the details. |
-| deployer | string | The address in the keyring instance to deploy the KIP-17 token contract. This address must have enough KLAY to deploy. See [Keyring](../caver.wallet.keyring.md#caver-wallet-keyring) for more details. |
+| deployer | string | The address in the keyring instance to deploy the KIP-17 token contract. This address must have enough KLAY to deploy. See [Keyring](../caver.wallet/keyring.md#caver-wallet-keyring) for more details. |
 
 The tokenInfo object must contain the following:
 

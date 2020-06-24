@@ -547,11 +547,11 @@ FeeDelegatedValueTransfer {
 [AccountKeyWeigthedMultiSig]: ./caver.account.md#accountkeyweightedmultisig
 [AccountKeyRoleBased]: ./caver.account.md#accountkeyrolebased
 [WeightedMultiSigOptions]: ./caver.account.md#weightedmultisigoptions
-[Keyring]: ./caver.wallet.keyring.md
-[SingleKeyring]: ./caver.wallet.keyring.md#singlekeyring
-[MultipleKeyring]: ./caver.wallet.keyring.md#multiplekeyring
-[RoleBasedKeyring]: ./caver.wallet.keyring.md#rolebasedkeyring
-[SignatureData]: ./caver.wallet.keyring.md#signaturedata
+[Keyring]: ./caver.wallet/keyring.md
+[SingleKeyring]: ./caver.wallet/keyring.md#singlekeyring
+[MultipleKeyring]: ./caver.wallet/keyring.md#multiplekeyring
+[RoleBasedKeyring]: ./caver.wallet/keyring.md#rolebasedkeyring
+[SignatureData]: ./caver.wallet/keyring.md#signaturedata
 
 [Transaction]: ./caver.transaction/README.md#class
 [FeeDelegatedTransaction]: ./caver.transaction/fee-delegation.md

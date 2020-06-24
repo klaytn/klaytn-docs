@@ -1338,15 +1338,15 @@ The BApp \(Blockchain Application\) Development sample projects using caver-js a
 [caver.account.weightedMultiSigOptions]: api-references/caver.account.md#weightedmultisigoptions
 [caver.account.create]: api-references/caver.account.md#caver-account-create
 
-[caver.wallet]: api-references/caver.wallet.md
-[caver.wallet.newKeyring]: api-references/caver.wallet.md#caver-wallet-newkeyring
-[caver.wallet.keyring]: api-references/caver.wallet.keyring.md
-[Keyring]: api-references/caver.wallet.keyring.md
-[SingleKeyring]: api-references/caver.wallet.keyring.md#singlekeyring
-[MultipleKeyring]: api-references/caver.wallet.keyring.md#multiplekeyring
-[RoleBasedKeyring]: api-references/caver.wallet.keyring.md#rolebasedkeyring
+[caver.wallet]: api-references/caver.wallet/READMD.md
+[caver.wallet.newKeyring]: api-references/caver.wallet/READMD.md#caver-wallet-newkeyring
+[caver.wallet.keyring]: api-references/caver.wallet/keyring.md
+[Keyring]: api-references/caver.wallet/keyring.md
+[SingleKeyring]: api-references/caver.wallet/keyring.md#singlekeyring
+[MultipleKeyring]: api-references/caver.wallet/keyring.md#multiplekeyring
+[RoleBasedKeyring]: api-references/caver.wallet/keyring.md#rolebasedkeyring
 [KlaytnWalletKey]: ../../../klaytn/design/accounts.md#klaytn-wallet-key-format
-[SignatureData]: api-references/caver.wallet.keyring.md#signaturedata
+[SignatureData]: api-references/caver.wallet/keyring.md#signaturedata
 
 [caver.rpc.klay.getTransactionReceipt]: api-references/caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt
 [getTransactionReceipt]: api-references/caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt

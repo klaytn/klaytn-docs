@@ -1688,5 +1688,5 @@ Decompresses the compressed public key.
 ```
 
 [Transaction]: ./caver.transaction/README.md#class
-[SignatureData]: ./caver.wallet.keyring.md#signaturedata
+[SignatureData]: ./caver.wallet/keyring.md#signaturedata
 [KlaytnWalletKey]: ../../../../klaytn/design/accounts.md#klaytn-wallet-key-format
