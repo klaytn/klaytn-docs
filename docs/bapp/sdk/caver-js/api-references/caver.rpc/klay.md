@@ -2402,7 +2402,7 @@ Polling method for a filter, which returns an array of logs since the last poll.
 ]
 ```
 
-## getFilterLogs <a id="caver-rpc-klay-getfilterlogs"></a>
+## caver.rpc.klay.getFilterLogs <a id="caver-rpc-klay-getfilterlogs"></a>
 
 ```javascript
 caver.rpc.klay.getFilterLogs(filterId [, callback])
@@ -2442,7 +2442,7 @@ See [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
 ]
 ```
 
-## getLogs <a id="caver-rpc-klay-getlogs"></a>
+## caver.rpc.klay.getLogs <a id="caver-rpc-klay-getlogs"></a>
 
 ```javascript
 caver.rpc.klay.getLogs(options [, callback])
@@ -2495,7 +2495,7 @@ See [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
 ]
 ```
 
-## newBlockFilter <a id="caver-rpc-klay-newblockfilter"></a>
+## caver.rpc.klay.newBlockFilter <a id="caver-rpc-klay-newblockfilter"></a>
 
 ```javascript
 caver.rpc.klay.newBlockFilter([callback])
@@ -2524,7 +2524,7 @@ Creates a filter in the node, to notify when a new block arrives. To check if th
 0xf90906914486a9c22d620e50022b38d5
 ```
 
-## newFilter <a id="caver-rpc-klay-newfilter"></a>
+## caver.rpc.klay.newFilter <a id="caver-rpc-klay-newfilter"></a>
 
 ```javascript
 caver.rpc.klay.newFilter(options [, callback])
@@ -2570,7 +2570,7 @@ The options object can contain the following:
 0xd165cbf31b9d60346aada33dbefe01b
 ```
 
-## newPendingTransactionFilter <a id="caver-rpc-klay-newpendingtransactionfilter"></a>
+## caver.rpc.klay.newPendingTransactionFilter <a id="caver-rpc-klay-newpendingtransactionfilter"></a>
 
 ```javascript
 caver.rpc.klay.newPendingTransactionFilter([callback])
@@ -2600,7 +2600,7 @@ To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver
 0xe62da1b2a09efcd4168398bdbf586db0
 ```
 
-## uninstallFilter <a id="caver-rpc-klay-uninstallfilter"></a>
+## caver.rpc.klay.uninstallFilter <a id="caver-rpc-klay-uninstallfilter"></a>
 
 ```javascript
 caver.rpc.klay.uninstallFilter(filterId [, callback])
@@ -2630,7 +2630,7 @@ Uninstalls a filter with given id. Should always be called when a watch is no lo
 true
 ```
 
-## sha3 <a id="caver-rpc-klay-sha3"></a>
+## caver.rpc.klay.sha3 <a id="caver-rpc-klay-sha3"></a>
 
 ```javascript
 caver.rpc.klay.sha3(data[, callback])
