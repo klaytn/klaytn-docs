@@ -77,7 +77,7 @@ Let's write a simple server and client using above fee delegation code.
 
 ### 3.1 Environment setup <a id="3-1-environment-setup"></a>
 
-We will use `npm` and [caver-js](../sdk/caver-js/v1.4.1/getting-started.md) to setup environment for this example as below.
+We will use `npm` and [caver-js](../sdk/caver-js/v1.4.1/getting-started_1.4.1.md) to setup environment for this example as below.
 
 ```text
 $ mkdir example
