@@ -4,7 +4,7 @@
 
 ## Class <a id="class"></a>
 
-`Keyring` is a structure that contains the address of the account and the private key(s). This is a class in caver-js that allows users to sign on using their own [Klaytn's account](../../../../klaytn/design/accounts.md#klaytn-accounts).
+`Keyring` is a structure that contains the address of the account and the private key(s). This is a class in caver-js that allows users to sign on using their own [Klaytn's account](../../../../../klaytn/design/accounts.md#klaytn-accounts).
 
 `Keyring` can be classified into three types depending on the type of key being stored: [SingleKeyring] to store one address and one private key, [MultipleKeyring] to store one address and multiple private keys, and [RoleBasedKeyring] to store one address and one or more private keys for each role.
 
@@ -1027,9 +1027,9 @@ Returns the [KlaytnWalletKey] string for the keyring. With [MultipleKeyring] or 
 keyring.toAccount([options])
 ```
 
-Returns the [Account] instance for updating the [AccountKey](../../../../klaytn/design/accounts.md#account-key) of the [Klaytn accounts](../../../../klaytn/design/accounts.md#klaytn-accounts). The [Account] instance has an [AccountKey](./caver.account.md#accountkeylegacy) instance that can contain public key(s) inside, which will be sent to Klaytn Network and used for validating transactions. For more details about [Account], see [Account Update](../getting-started.md#account-update).
+Returns the [Account] instance for updating the [AccountKey](../../../../../klaytn/design/accounts.md#account-key) of the [Klaytn accounts](../../../../../klaytn/design/accounts.md#klaytn-accounts). The [Account] instance has an [AccountKey](../caver.account.md#accountkeylegacy) instance that can contain public key(s) inside, which will be sent to Klaytn Network and used for validating transactions. For more details about [Account], see [Account Update](../../getting-started.md#account-update).
 
-Note that if you update the [AccountKey](../../../../klaytn/design/accounts.md#account-key) of the [Account](../../../../klaytn/design/accounts.md#klaytn-accounts) stored in the Klaytn, the old private key(s) cannot be used anymore. See [Getting started](../getting-started.md#account-update) on how to use the returned [Account] instance to update information in your [Klaytn account](../../../../klaytn/design/accounts.md#klaytn-accounts) on Klaytn.
+Note that if you update the [AccountKey](../../../../../klaytn/design/accounts.md#account-key) of the [Account](../../../../../klaytn/design/accounts.md#klaytn-accounts) stored in the Klaytn, the old private key(s) cannot be used anymore. See [Getting started](../../getting-started.md#account-update) on how to use the returned [Account] instance to update information in your [Klaytn account](../../../../../klaytn/design/accounts.md#klaytn-accounts) on Klaytn.
 
 Depending on the type of the private key(s) in the keyring, the returned [Account] instances can be classified as follows.
 - When the keyring contains a private key string: Return an [Account] instance that includes the address in the keyring and an instance of [AccountKeyPublic]
@@ -1384,18 +1384,18 @@ false
 ```
 
 
-[role]: ../../../../klaytn/design/accounts.md#roles
+[role]: ../../../../../klaytn/design/accounts.md#roles
 [PrivateKey]: #privatekey
 [Keyring]: #class
 [SingleKeyring]: #singlekeyring
 [MultipleKeyring]: #multiplekeyring
 [RoleBasedKeyring]: #rolebasedkeyring
-[KlaytnWalletKey]: ../../../../klaytn/design/accounts.md#klaytn-wallet-key-format
-[caver.wallet.sign]: ./caver.wallet.md#caver-wallet-sign
-[transaction.sign]: ./caver.transaction/README.md#transaction-sign
-[Account]: ./caver.account.md#account
-[AccountKeyPublic]: ./caver.account.md#accountkeypublic
-[AccountKeyWeigthedMultiSig]: ./caver.account.md#accountkeyweightedmultisig
-[AccountKeyRoleBased]: ./caver.account.md#accountkeyrolebased
-[WeightedMultiSigOptions]: ./caver.account.md#weightedmultisigoptions
+[KlaytnWalletKey]: ../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format
+[caver.wallet.sign]: ./README.md#caver-wallet-sign
+[transaction.sign]: ../caver.transaction/README.md#transaction-sign
+[Account]: ../caver.account.md#account
+[AccountKeyPublic]: ../caver.account.md#accountkeypublic
+[AccountKeyWeigthedMultiSig]: ../caver.account.md#accountkeyweightedmultisig
+[AccountKeyRoleBased]: ../caver.account.md#accountkeyrolebased
+[WeightedMultiSigOptions]: ../caver.account.md#weightedmultisigoptions
 [SignatureData]: #signaturedata

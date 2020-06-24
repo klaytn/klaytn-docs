@@ -19,8 +19,8 @@
 Below are packages provided in `caver-js`.
 
 * [caver.account](api-references/caver.account.md)
-* [caver.wallet.keyring](api-references/caver.wallet.keyring.md)
-* [caver.wallet](api-references/caver.wallet.md)
+* [caver.wallet.keyring](api-references/caver.wallet/keyring.md)
+* [caver.wallet](api-references/caver.wallet/README.md)
 * [caver.transaction](api-references/caver.transaction/README.md)
 * [caver.rpc](api-references/caver.rpc/README.md)
 * [caver.contract](api-references/caver.contract.md)

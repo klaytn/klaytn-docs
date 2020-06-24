@@ -324,7 +324,7 @@ For [Account Update] transaction, use [roleTransactionKey], otherwise, use [role
 | address | string | An address of the keyring to be used. |
 | transaction | object | An instance of [Transaction]. |
 | index | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
-| hasher | function | (optional) A hash function to get the transaction hash. If `hasher` is given as a parameter, it calculates the transaction hash instead of the default method for calculating transaction hash implemented in caver-js. See [Basic](../../../../klaytn/design/transactions/basic.md) for details about the default method for transaction hash generation. |
+| hasher | function | (optional) A hash function to get the transaction hash. If `hasher` is given as a parameter, it calculates the transaction hash instead of the default method for calculating transaction hash implemented in caver-js. See [Basic](../../../../../klaytn/design/transactions/basic.md) for details about the default method for transaction hash generation. |
 
 **Return Value**
 
@@ -537,45 +537,45 @@ FeeDelegatedValueTransfer {
 }
 ```
 
-[role]: ../../../../klaytn/design/accounts.md#roles
-[roleTransactionKey]: ../../../../klaytn/design/accounts.md#roles
-[roleAccountUpdateKey]: ../../../../klaytn/design/accounts.md#roles
-[roleFeePayerKey]: ../../../../klaytn/design/accounts.md#roles
-[KlaytnWalletKey]: ../../../../klaytn/design/accounts.md#klaytn-wallet-key-format
-[Account]: ./caver.account.md#acount
-[AccountKeyPublic]: ./caver.account.md#accountkeypublic
-[AccountKeyWeigthedMultiSig]: ./caver.account.md#accountkeyweightedmultisig
-[AccountKeyRoleBased]: ./caver.account.md#accountkeyrolebased
-[WeightedMultiSigOptions]: ./caver.account.md#weightedmultisigoptions
-[Keyring]: ./caver.wallet.keyring.md
-[SingleKeyring]: ./caver.wallet.keyring.md#singlekeyring
-[MultipleKeyring]: ./caver.wallet.keyring.md#multiplekeyring
-[RoleBasedKeyring]: ./caver.wallet.keyring.md#rolebasedkeyring
-[SignatureData]: ./caver.wallet.keyring.md#signaturedata
+[role]: ../../../../../klaytn/design/accounts.md#roles
+[roleTransactionKey]: ../../../../../klaytn/design/accounts.md#roles
+[roleAccountUpdateKey]: ../../../../../klaytn/design/accounts.md#roles
+[roleFeePayerKey]: ../../../../../klaytn/design/accounts.md#roles
+[KlaytnWalletKey]: ../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format
+[Account]: ../caver.account.md#acount
+[AccountKeyPublic]: ../caver.account.md#accountkeypublic
+[AccountKeyWeigthedMultiSig]: ../caver.account.md#accountkeyweightedmultisig
+[AccountKeyRoleBased]: ../caver.account.md#accountkeyrolebased
+[WeightedMultiSigOptions]: ../caver.account.md#weightedmultisigoptions
+[Keyring]: ./keyring.md
+[SingleKeyring]: ./keyring.md#singlekeyring
+[MultipleKeyring]: ./keyring.md#multiplekeyring
+[RoleBasedKeyring]: ./keyring.md#rolebasedkeyring
+[SignatureData]: ./keyring.md#signaturedata
 
-[Transaction]: ./caver.transaction/README.md#class
-[FeeDelegatedTransaction]: ./caver.transaction/fee-delegation.md
-[Account Update]: ./caver.transaction/basic.md#accountupdate
-[caver.transaction]: ./caver.transaction/README.md
-[LegacyTransaction]: ./caver.transaction/basic.md#legacytransaction
-[ValueTransfer]: ./caver.transaction/basic.md#valuetransfer
-[FeeDelegatedValueTransfer]: ./caver.transaction/fee-delegation.md#feedelegatedvaluetransfer
-[FeeDelegatedValueTransferWithRatio]: ./caver.transaction/partial-fee-delegation.md#feedelegatedvaluetransferwithratio
-[ValueTransferMemo]: ./caver.transaction/basic.md#valuetransfermemo
-[FeeDelegatedValueTransferMemo]: ./caver.transaction/fee-delegation.md#feedelegatedvaluetransfermemo
-[FeeDelegatedValueTransferMemoWithRatio]: ./caver.transaction/partial-fee-delegation.md#feedelegatedvaluetransfermemowithratio
-[AccountUpdate]: ./caver.transaction/basic.md#accountupdate
-[FeeDelegatedAccountUpdate]: ./caver.transaction/fee-delegation.md#feedelegatedaccountupdate
-[FeeDelegatedAccountUpdateWithRatio]: ./caver.transaction/partial-fee-delegation.md#feedelegatedaccountupdatewithratio
-[SmartContractDeploy]: ./caver.transaction/basic.md#smartcontractdeploy
-[FeeDelegatedSmartContractDeploy]: ./caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy
-[FeeDelegatedSmartContractDeployWithRatio]: ./caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio
-[SmartContractExecution]: ./caver.transaction/basic.md#smartcontractexecution
-[FeeDelegatedSmartContractExecution]: ./caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution
-[FeeDelegatedSmartContractExecutionWithRatio]: ./caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio
-[Cancel]: ./caver.transaction/basic.md#cancel
-[FeeDelegatedCancel]: ./caver.transaction/fee-delegation.md#feedelegatedcancel
-[FeeDelegatedCancelWithRatio]: ./caver.transaction/partial-fee-delegation.md#feedelegatedcancelwithratio
-[ChainDataAnchoring]: ./caver.transaction/basic.md#chaindataanchoring
-[FeeDelegatedChainDataAnchoring]: ./caver.transaction/fee-delegation.md#feedelegatedchaindataanchoring
-[FeeDelegatedChainDataAnchoringWithRatio]: ./caver.transaction/partial-fee-delegation.md#feedelegatedchaindataanchoringwithratio
+[Transaction]: ../caver.transaction/README.md#class
+[FeeDelegatedTransaction]: ../caver.transaction/fee-delegation.md
+[Account Update]: ../caver.transaction/basic.md#accountupdate
+[caver.transaction]: ../caver.transaction/README.md
+[LegacyTransaction]: ../caver.transaction/basic.md#legacytransaction
+[ValueTransfer]: ../caver.transaction/basic.md#valuetransfer
+[FeeDelegatedValueTransfer]: ../caver.transaction/fee-delegation.md#feedelegatedvaluetransfer
+[FeeDelegatedValueTransferWithRatio]: ../caver.transaction/partial-fee-delegation.md#feedelegatedvaluetransferwithratio
+[ValueTransferMemo]: ../caver.transaction/basic.md#valuetransfermemo
+[FeeDelegatedValueTransferMemo]: ../caver.transaction/fee-delegation.md#feedelegatedvaluetransfermemo
+[FeeDelegatedValueTransferMemoWithRatio]: ../caver.transaction/partial-fee-delegation.md#feedelegatedvaluetransfermemowithratio
+[AccountUpdate]: ../caver.transaction/basic.md#accountupdate
+[FeeDelegatedAccountUpdate]: ../caver.transaction/fee-delegation.md#feedelegatedaccountupdate
+[FeeDelegatedAccountUpdateWithRatio]: ../caver.transaction/partial-fee-delegation.md#feedelegatedaccountupdatewithratio
+[SmartContractDeploy]: ../caver.transaction/basic.md#smartcontractdeploy
+[FeeDelegatedSmartContractDeploy]: ../caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy
+[FeeDelegatedSmartContractDeployWithRatio]: ../caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio
+[SmartContractExecution]: ../caver.transaction/basic.md#smartcontractexecution
+[FeeDelegatedSmartContractExecution]: ../caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution
+[FeeDelegatedSmartContractExecutionWithRatio]: ../caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio
+[Cancel]: ../caver.transaction/basic.md#cancel
+[FeeDelegatedCancel]: ../caver.transaction/fee-delegation.md#feedelegatedcancel
+[FeeDelegatedCancelWithRatio]: ../caver.transaction/partial-fee-delegation.md#feedelegatedcancelwithratio
+[ChainDataAnchoring]: ../caver.transaction/basic.md#chaindataanchoring
+[FeeDelegatedChainDataAnchoring]: ../caver.transaction/fee-delegation.md#feedelegatedchaindataanchoring
+[FeeDelegatedChainDataAnchoringWithRatio]: ../caver.transaction/partial-fee-delegation.md#feedelegatedchaindataanchoringwithratio
