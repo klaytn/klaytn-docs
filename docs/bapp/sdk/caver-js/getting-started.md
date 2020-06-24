@@ -1,6 +1,6 @@
 # Getting Started <a id="getting-started"></a>
 
-This documentation is for developers using caver-js v1.5.0 or higher. If you are using an older version, see [Getting Started (~v1.4.1)](v1.4.1/getting-started.md).
+This documentation is for developers using caver-js v1.5.0 or higher. If you are using an older version, see [Getting Started (~v1.4.1)](v1.4.1/getting-started_1.4.1.md).
 
 ## Prerequisites <a id="prerequisites"></a>
 
