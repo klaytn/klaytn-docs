@@ -9,7 +9,7 @@ description: >-
 
 The `caver.klay.KIP17` inherits [caver.klay.Contract](caver.klay.Contract.md) to implement the KIP-17 token contract. The `caver.klay.KIP17` holds the same properties of `caver.klay.Contract` whereas there are additional methods to implement extra features. This section only introduces the newly added bound methods of the `caver.klay.KIP17`.
 
-The code that implements KIP-17 for caver-js is available on the [caver-js Github Repo](https://github.com/klaytn/caver-js/tree/dev/packages/caver-klay/caver-klay-kct/contract/token/KIP17).
+The code that implements KIP-17 for caver-js is available on the [caver-js Github Repo](https://github.com/klaytn/caver-js/tree/dev/packages/caver-kct/src/contract/token/KIP17).
 
 For more information about KIP-17, see [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-17).
 
@@ -22,7 +22,7 @@ caver.klay.KIP17.deploy(tokenInfo, deployer)
 ```
 KIP-17 토큰 컨트랙트를 Klaytn 블록체인에 배포합니다. A contract deployed using caver.klay.KIP17.deploy is a non-fungible token that follows the KIP-17 standard.
 
-After successful deployment, the promise will be resolved with a new KIP-17 instance.
+After successful deployment, the promise will be resolved with a new KIP17 instance.
 
 **매개변수**
 
@@ -40,13 +40,13 @@ The tokenInfo object must contain the following:
 
 **리턴값**
 
-`PromiEvent`: A promise combined event emitter, which is resolved with a new KIP-17 instance. 추가로 다음 이벤트가 발생할 수 있습니다.
+`PromiEvent`: A promise combined event emitter, which is resolved with a new KIP17 instance. 추가로 다음 이벤트가 발생할 수 있습니다.
 
-| 명칭              | 형식     | 설명                                                                                                                                                                                                                                              |
-| --------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | String | 트랜잭션이 전송된 직후 및 트랜잭션 해시를 사용할 수 있을 때 발생합니다.                                                                                                                                                                                                       |
-| receipt         | Object | 트랜잭션 영수증을 사용할 수 있을 때 발생합니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt)를 참고하십시오. Receipts from KIP-17 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
-| 에러              | 에러     | 전송 중 오류가 나타나면 발생됩니다.                                                                                                                                                                                                                            |
+| 명칭              | 형식     | 설명                                                                                                                                                                                                                                             |
+| --------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| transactionHash | String | 트랜잭션이 전송된 직후 및 트랜잭션 해시를 사용할 수 있을 때 발생합니다.                                                                                                                                                                                                      |
+| receipt         | Object | 트랜잭션 영수증을 사용할 수 있을 때 발생합니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt](./caver.klay/transaction.md#gettransactionreceipt)를 참고하십시오. Receipts from KIP17 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
+| 에러              | 에러     | 전송 중 오류가 나타나면 발생됩니다.                                                                                                                                                                                                                           |
 
 **예시**
 
@@ -96,7 +96,7 @@ KIP17 {
 ```javascript
 new caver.klay.KIP17([tokenAddress])
 ```
-Creates a new KIP-17 instance with its bound methods and events.
+Creates a new KIP17 instance with its bound methods and events.
 
 **매개변수**
 
@@ -106,18 +106,18 @@ Creates a new KIP-17 instance with its bound methods and events.
 
 **리턴값**
 
-| 형식     | 설명                                                     |
-| ------ | ------------------------------------------------------ |
-| Object | The KIP-17 instance with its bound methods and events. |
+| 형식     | 설명                                                    |
+| ------ | ----------------------------------------------------- |
+| Object | The KIP17 instance with its bound methods and events. |
 
 
 **예시**
 
 ```javascript
-// Create a KIP-17 instance without a parameter
+// Create a KIP17 instance without a parameter
 > const kip17Instance = new caver.klay.KIP17()
 
-// Create a KIP-17 instance with a token address
+// Create a KIP17 instance with a token address
 > const kip17Instance = new caver.klay.KIP17('0x{address in hex}')
 ```
 
@@ -127,7 +127,7 @@ Creates a new KIP-17 instance with its bound methods and events.
 ```javascript
 kip17Instance.clone([tokenAddress])
 ```
-Clones the current KIP-17 instance.
+Clones the current KIP17 instance.
 
 **매개변수**
 
@@ -137,9 +137,9 @@ Clones the current KIP-17 instance.
 
 **리턴값**
 
-| 형식     | 설명                                         |
-| ------ | ------------------------------------------ |
-| Object | The clone of the original KIP-17 instance. |
+| 형식     | 설명                                        |
+| ------ | ----------------------------------------- |
+| Object | The clone of the original KIP17 instance. |
 
 
 **예시**
