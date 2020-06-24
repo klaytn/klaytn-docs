@@ -23,7 +23,7 @@ Below are packages provided in `caver-js`.
 * [caver.klay.Contract](api-references/caver.klay.Contract.md)
 * [caver.klay.net](api-references/caver.klay.net.md)
 * [caver.klay.abi](api-references/caver.klay.abi.md)
-* [caver.utils](api-references/caver.utils.md)
+* [caver.utils](api-references/caver.utils_1.4.1.md)
 
 ## Error Code Improvement <a id="error-code-improvement"></a>
 

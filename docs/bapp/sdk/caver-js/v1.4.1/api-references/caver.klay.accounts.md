@@ -19,7 +19,7 @@ Generates an account object with private key and public key.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| entropy | String | (optional) A random string to increase entropy. If none is given, a random string will be generated using [randomHex](./caver.utils.md#randomhex). |
+| entropy | String | (optional) A random string to increase entropy. If none is given, a random string will be generated using [randomHex](./caver.utils_1.4.1.md#randomhex). |
 
 
 **Return Value**
@@ -561,7 +561,7 @@ caver.klay.accounts.createAccountForUpdate(address, accountKey, options)
 ```
 Creates an instance of `AccountForUpdate`. AccountForUpdate contains the address of the account and the new public key to update. 
 
-`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate).
+`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate).
 
 The accountKey parameter of caver.klay.accounts.createAccountForUpdate must be a private key. 
 
@@ -670,7 +670,7 @@ caver.klay.accounts.createAccountForUpdateWithPublicKey(address, keyForUpdate, o
 ```
 Creates an instance of `AccountForUpdate` with the public key of the new key to update.
 
-`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate).
+`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate).
 
 **NOTE** `caver.klay.accounts.createAccountForUpdateWithPublicKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
@@ -757,7 +757,7 @@ caver.klay.accounts.createAccountForUpdateWithLegacyKey(address)
 ```
 Creates an AccountForUpdate instance to update the account's key with [AccountKeyLegacy](../../../../../klaytn/design/accounts.md#accountkeylegacy). Make sure you have a private key that matches your account address before updating to AccountKeyLegacy.
 
-`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate).
+`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate).
 
 **NOTE** `caver.klay.accounts.createAccountForUpdateWithLegacyKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
@@ -790,7 +790,7 @@ caver.klay.accounts.createAccountForUpdateWithFailKey(address)
 ```
 Creates an AccountForUpdate instance to update the account's key with [AccountKeyFail](../../../../../klaytn/design/accounts.md#accountkeyfail). Transactions sent by an account with AccountKeyFail always fail in the validation process.
 
-`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate).
+`AccountForUpdate` can be used in the account update transaction object (`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, or `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`) as a `key`. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate).
 
 **NOTE** `caver.klay.accounts.createAccountForUpdateWithFailKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
@@ -829,7 +829,7 @@ If you want to sign as a fee-payer, we recommend to use [caver.klay.accounts.fee
 
 Also since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), signTransaction keeps the existing signatures/feePayerSignatures in the input transaction and appends the signature(s) of the signer to it.
 
-See [Sending a Transaction with multiple signer](../getting-started.md#sending-a-transaction-with-multiple-signer) for how to combine multiple users' signatures into a single rawTransaction.
+See [Sending a Transaction with multiple signer](../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer) for how to combine multiple users' signatures into a single rawTransaction.
 
 **Parameters**
 
@@ -1111,7 +1111,7 @@ If privateKay is not given, feePayerKey of the fee payer's account inside the ca
 
 feePayerSignTransaction keeps the existing signatures/feePayerSignatures in the input transaction and appends the fee-payer signature(s) to it.
 
-See [Sending a Transaction with multiple signer](../getting-started.md#sending-a-transaction-with-multiple-signer) for how to combine multiple users' signatures into a single rawTransaction.
+See [Sending a Transaction with multiple signer](../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer) for how to combine multiple users' signatures into a single rawTransaction.
 
 **NOTE** `caver.klay.accounts.feePayerSignTransaction` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
@@ -2187,7 +2187,7 @@ Generates one or more accounts in the wallet with randomly generated key pairs. 
 | Name | Type | Description |
 | --- | --- | --- |
 | numberOfAccounts | Number | (optional) The number of accounts to create. Leave empty to create an empty wallet. |
-| entropy | String | (optional) A random string to increase entropy. If none is given, a random string will be generated using [randomHex](./caver.utils.md#randomhex). |
+| entropy | String | (optional) A random string to increase entropy. If none is given, a random string will be generated using [randomHex](./caver.utils_1.4.1.md#randomhex). |
 
 **Return Value**
 
