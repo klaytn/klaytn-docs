@@ -77,7 +77,7 @@ caver.klay.sendTransaction({
 
 ### 3.1 환경설정 <a id="3-1-environment-setup"></a>
 
-위 예제의 환경설정을 위해 `npm`과 [caver-js](../sdk/caver-js/v1.4.1/getting-started.md)을 사용하여 아래와 같이 설정합니다.
+We will use `npm` and [caver-js](../sdk/caver-js/v1.4.1/getting-started_1.4.1.md) to setup environment for this example as below.
 
 ```text
 $ mkdir example
