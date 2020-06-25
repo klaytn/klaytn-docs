@@ -275,7 +275,7 @@ caver.klay.sendTransaction(transactionObject [, callback])
 
 여기서 보여주는 예제는 `caver.klay.sendTransaction`을 사용하는 방법만 설명합니다.
 
-`caver.klay.accounts.feePayerSignTransaction`과 `caver.klay.sendSignedTransaction`으로 보내는 방법에 관한 정보는 [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction)과 [Sending a Transaction with multiple signer](../../getting-started.md#sending-a-transaction-with-multiple-signer)를 참조하십시오.
+For information on how to send using `caver.klay.accounts.feePayerSignTransaction` and `caver.klay.sendSignedTransaction`, see [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) and [Sending a Transaction with multiple signer](../../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer).
 
 **매개변수**
 
@@ -383,7 +383,7 @@ caver.klay.sendTransaction(transactionObject [, callback])
 
 여기서 보여주는 예제는 `caver.klay.sendTransaction`을 사용하는 방법만 설명합니다.
 
-`caver.klay.accounts.feePayerSignTransaction`과 `caver.klay.sendSignedTransaction`으로 보내는 방법에 관한 정보는 [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction)과 [Sending a Transaction with multiple signer](../../getting-started.md#sending-a-transaction-with-multiple-signer)를 참조하십시오.
+For information on how to send using `caver.klay.accounts.feePayerSignTransaction` and `caver.klay.sendSignedTransaction`, see [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) and [Sending a Transaction with multiple signer](../../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer).
 
 **매개변수**
 
