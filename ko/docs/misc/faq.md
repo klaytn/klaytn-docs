@@ -98,7 +98,7 @@ Klaytn은 [계정 주소를 키 쌍과 분리할 수 있습니다](../klaytn/des
 
 컨트랙트 배포 방법은 [자바 스크립트 코드](https://gist.github.com/w3kim/64a3cf5da58250474f046d4dd7f85cc8)를 참조하세요. 트러플로는 수수료를 위임하여 컨트랙트를 배포할 수 없습니다.
 
-[다중 서명된 트랜잭션 보내기](../bapp/sdk/caver-js/v1.4.1/getting-started.md#sending-a-transaction-with-multiple-signer)에 여러 개의 서명을 취합하는 두 가지 방법이 잘 설명되어 있습니다. 관련 caver-js API는 다음과 같습니다. API 설명에 있는 코드 예제를 살펴보세요.
+[Sending a transaction with multiple signer](../bapp/sdk/caver-js/v1.4.1/getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer) gives a good explanation about two different ways of collecting signatures. 관련 caver-js API는 다음과 같습니다. API 설명에 있는 코드 예제를 살펴보세요.
 - [caver.klay.accounts.signTransaction](../bapp/sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#signtransaction)
 - [caver.klay.accounts.feePayerSignTransaction](../bapp/sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#feepayersigntransaction)
 - [caver.klay.accounts.combinesignatures](../bapp/sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#combinesignatures)
