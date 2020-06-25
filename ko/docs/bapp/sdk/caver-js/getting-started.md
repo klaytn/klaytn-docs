@@ -1,6 +1,6 @@
 # 시작하기 <a id="getting-started"></a>
 
-This documentation is for developers using caver-js v1.5.0 or higher. If you are using an older version, see [Getting Started (~v1.4.1)](v1.4.1/getting-started.md).
+This documentation is for developers using caver-js v1.5.0 or higher. If you are using an older version, see [Getting Started (~v1.4.1)](v1.4.1/getting-started_1.4.1.md).
 
 ## 준비 사항 <a id="prerequisites"></a>
 
@@ -1334,14 +1334,14 @@ caver-js를 사용한 BApp \(Blockchain Application\) 개발 샘플 프로젝트
 [caver.account.weightedMultiSigOptions]: api-references/caver.account.md#weightedmultisigoptions
 [caver.account.create]: api-references/caver.account.md#caver-account-create
 
-[caver.wallet]: api-references/caver.wallet.md
-[caver.wallet.newKeyring]: api-references/caver.wallet.md#caver-wallet-newkeyring
-[caver.wallet.keyring]: api-references/caver.wallet.keyring.md
-[Keyring]: api-references/caver.wallet.keyring.md
-[SingleKeyring]: api-references/caver.wallet.keyring.md#singlekeyring
-[MultipleKeyring]: api-references/caver.wallet.keyring.md#multiplekeyring
-[RoleBasedKeyring]: api-references/caver.wallet.keyring.md#rolebasedkeyring
-[SignatureData]: api-references/caver.wallet.keyring.md#signaturedata
+[caver.wallet]: api-references/caver.wallet/README.md
+[caver.wallet.newKeyring]: api-references/caver.wallet/README.md#caver-wallet-newkeyring
+[caver.wallet.keyring]: api-references/caver.wallet/keyring.md
+[Keyring]: api-references/caver.wallet/keyring.md
+[SingleKeyring]: api-references/caver.wallet/keyring.md#singlekeyring
+[MultipleKeyring]: api-references/caver.wallet/keyring.md#multiplekeyring
+[RoleBasedKeyring]: api-references/caver.wallet/keyring.md#rolebasedkeyring
+[SignatureData]: api-references/caver.wallet/keyring.md#signaturedata
 
 [caver.rpc.klay.getTransactionReceipt]: api-references/caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt
 [caver.rpc.klay.sendRawTransaction]: api-references/caver.rpc/klay.md#caver-rpc-klay-sendrawtransaction
