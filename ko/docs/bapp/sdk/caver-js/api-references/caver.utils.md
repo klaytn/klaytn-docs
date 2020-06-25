@@ -1,3 +1,7 @@
+- - -
+description: >- caver-js utility APIs.
+- - -
+
 # caver.utils <a id="caver-utils"></a>
 
 `caver.utils`는 유틸리티 함수를 제공합니다.
@@ -1679,5 +1683,5 @@ Decompresses the compressed public key.
 ```
 
 [Transaction]: ./caver.transaction/README.md#class
-[SignatureData]: ./caver.wallet.keyring.md#signaturedata
+[SignatureData]: ./caver.wallet/keyring.md#signaturedata
 [KlaytnWalletKey]: ../../../../klaytn/design/accounts.md#klaytn-wallet-key-format
