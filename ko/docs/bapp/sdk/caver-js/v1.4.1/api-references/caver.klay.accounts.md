@@ -17,9 +17,9 @@ caver.klay.accounts.create([entropy])
 
 **매개변수**
 
-| 명칭      | 형식     | 설명                                                                                                        |
-| ------- | ------ | --------------------------------------------------------------------------------------------------------- |
-| entropy | String | (선택 사항) 엔트로피를 증가시키는 임의의 문자열. 아무 것도 지정하지 않으면 [randomHex](./caver.utils.md#randomhex)를 사용하여 임의의 문자열이 생성됩니다. |
+| 명칭      | 형식     | 설명                                                                                                                                    |
+| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| entropy | String | (선택 사항) 엔트로피를 증가시키는 임의의 문자열. If none is given, a random string will be generated using [randomHex](./caver.utils_1.4.1.md#randomhex). |
 
 
 **리턴값**
@@ -560,7 +560,7 @@ caver.klay.accounts.createAccountForUpdate(address, accountKey, options)
 ```
 `AccountForUpdate` 인스턴스를 생성합니다. AccountForUpdate는 계정의 주소와 업데이트 할 새로운 공개키를 가지고 있습니다.
 
-`AccountForUpdate`는 계정 업데이트 트랜잭션 객체(`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`)의 `key`로 사용될 수 있습니다. `AccountForUpdate`를 트랜잭션에서 사용하는 방법은 [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate)를 참조하세요.
+`AccountForUpdate`는 계정 업데이트 트랜잭션 객체(`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`)의 `key`로 사용될 수 있습니다. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate).
 
 caver.klay.accounts.createAccountForUpdate의 accountKey 매개 변수는 개인키이어야합니다.
 
@@ -669,7 +669,7 @@ caver.klay.accounts.createAccountForUpdateWithPublicKey(address, keyForUpdate, o
 ```
 업데이트 할 새 키의 공개키를 사용하여 `AccountForUpdate` 인스턴스를 생성합니다.
 
-`AccountForUpdate`는 계정 업데이트 트랜잭션 객체(`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`)의 `key`로 사용될 수 있습니다. `AccountForUpdate`를 트랜잭션에서 사용하는 방법은 [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate)를 참조하세요.
+`AccountForUpdate`는 계정 업데이트 트랜잭션 객체(`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`)의 `key`로 사용될 수 있습니다. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate).
 
 **참고** `caver.klay.accounts.createAccountForUpdateWithPublicKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
@@ -756,7 +756,7 @@ caver.klay.accounts.createAccountForUpdateWithLegacyKey(address)
 ```
 계정의 키를 [AccountKeyLegacy](../../../../../klaytn/design/accounts.md#accountkeylegacy)로 업데이트 하기 위한 AccountForUpdate 인스턴스를 생성합니다. AccountKeyLegacy로 업데이트하기 전에 계정 주소와 일치하는 개인키를 가지고 있는지 확인하세요.
 
-`AccountForUpdate`는 계정 업데이트 트랜잭션 객체(`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`)의 `key`로 사용될 수 있습니다. `AccountForUpdate`를 트랜잭션에서 사용하는 방법은 [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate)를 참조하세요.
+`AccountForUpdate`는 계정 업데이트 트랜잭션 객체(`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`)의 `key`로 사용될 수 있습니다. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate).
 
 **참고** `caver.klay.accounts.createAccountForUpdateWithLegacyKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
@@ -789,7 +789,7 @@ caver.klay.accounts.createAccountForUpdateWithFailKey(address)
 ```
 계정의 키를 [AccountKeyFail](../../../../../klaytn/design/accounts.md#accountkeyfail)로 업데이트 하기 위한 AccountForUpdate 인스턴스를 생성합니다. AccountKeyFail을 가진 계정에서 보낸 트랜잭션은 항상 유효성 검사 과정에서 실패합니다.
 
-`AccountForUpdate`는 계정 업데이트 트랜잭션 객체(`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`)의 `key`로 사용될 수 있습니다. `AccountForUpdate`를 트랜잭션에서 사용하는 방법은 [Account update with AccountForUpdate](../getting-started.md#account-update-with-accountforupdate)를 참조하세요.
+`AccountForUpdate`는 계정 업데이트 트랜잭션 객체(`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`)의 `key`로 사용될 수 있습니다. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate).
 
 **참고** `caver.klay.accounts.createAccountForUpdateWithFailKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
@@ -827,7 +827,7 @@ caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터, 이 메
 
 또한 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터, signTransaction은 입력받은 트랜잭션에 있는 기존 signatures/feePayerSignatures를 유지한 채 서명자의 서명을 덧붙입니다.
 
-여러 사용자의 서명을 하나의 rawTransaction으로 결합하는 방법은 [Sending a Transaction with multiple signer](../getting-started.md#sending-a-transaction-with-multiple-signer)를 참조하세요.
+See [Sending a Transaction with multiple signer](../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer) for how to combine multiple users' signatures into a single rawTransaction.
 
 **매개변수**
 
@@ -1109,7 +1109,7 @@ privateKay가 주어지지 않으면 caver-js 인메모리 지갑에 있는 수�
 
 feePayerSignTransaction은 입력받은 트랜잭션에 있는 기존 signatures/feePayerSignatures를 유지한 채 수수료 납부자 서명을 덧붙입니다.
 
-여러 사용자의 서명을 하나의 rawTransaction으로 결합하는 방법은 [Sending a Transaction with multiple signer](../getting-started.md#sending-a-transaction-with-multiple-signer)를 참조하세요.
+See [Sending a Transaction with multiple signer](../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer) for how to combine multiple users' signatures into a single rawTransaction.
 
 **참고** `caver.klay.accounts.feePayerSignTransaction`은 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
@@ -2180,10 +2180,10 @@ caver.klay.accounts.wallet.create([numberOfAccounts] [, entropy])
 
 **매개변수**
 
-| 명칭               | 형식     | 설명                                                                                                        |
-| ---------------- | ------ | --------------------------------------------------------------------------------------------------------- |
-| numberOfAccounts | Number | (선택 사항) 생성할 계정 수. 빈 지갑을 만들려면 비워두세요.                                                                       |
-| entropy          | String | (선택 사항) 엔트로피를 증가시키는 임의의 문자열. 아무 것도 지정하지 않으면 [randomHex](./caver.utils.md#randomhex)를 사용하여 임의의 문자열이 생성됩니다. |
+| 명칭               | 형식     | 설명                                                                                                                                    |
+| ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| numberOfAccounts | Number | (선택 사항) 생성할 계정 수. 빈 지갑을 만들려면 비워두세요.                                                                                                   |
+| entropy          | String | (선택 사항) 엔트로피를 증가시키는 임의의 문자열. If none is given, a random string will be generated using [randomHex](./caver.utils_1.4.1.md#randomhex). |
 
 **리턴값**
 
