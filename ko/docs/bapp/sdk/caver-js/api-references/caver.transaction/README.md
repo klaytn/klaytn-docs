@@ -174,7 +174,7 @@ For signing a transaction as a fee payer, use [roleFeePayerKey] in `keyring`. If
 
 If the `transaction.feePayer` is not defined, the address of the given keyring is set to `transaction.feePayer`.
 
-If the `keyring` to be used for signing the transaction was added to `caver.wallet`, you can use [caver.wallet.signAsFeePayer](../caver.wallet.md#caver-wallet-signasfeepayer).
+If the `keyring` to be used for signing the transaction was added to `caver.wallet`, you can use [caver.wallet.signAsFeePayer](../caver.wallet/README.md#caver-wallet-signasfeepayer).
 
 **NOTE** This function works only for "fee-delgated" transactions or "fee-delegated with ratio" transactions.
 
@@ -517,10 +517,10 @@ Use [caver.rpc.klay.getGasPrice][] to get `gasPrice`, [caver.rpc.klay.getTransac
 [senderTxHash]: ../../../../../klaytn/design/transactions/README.md#sendertxhash
 [Transaction]: #class
 [KlaytnWalletKey]: ../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format
-[SingleKeyring]: ../caver.wallet.keyring.md#singlekeyring
-[MultipleKeyring]: ../caver.wallet.keyring.md#multiplekeyring
-[RoleBasedKeyring]: ../caver.wallet.keyring.md#rolebasedkeyring
-[SignatureData]: ../caver.wallet.keyring.md#signaturedata
+[SingleKeyring]: ../caver.wallet/keyring.md#singlekeyring
+[MultipleKeyring]: ../caver.wallet/keyring.md#multiplekeyring
+[RoleBasedKeyring]: ../caver.wallet/keyring.md#rolebasedkeyring
+[SignatureData]: ../caver.wallet/keyring.md#signaturedata
 [caver.rpc.klay.getGasPrice]: ../caver.rpc/klay.md#caver-rpc-klay-getgasprice
 [caver.rpc.klay.getTransactionCount]: ../caver.rpc/klay.md#caver-rpc-klay-gettransactioncount
 [caver.rpc.klay.getChainId]: ../caver.rpc/klay.md#caver-rpc-klay-getchainid
