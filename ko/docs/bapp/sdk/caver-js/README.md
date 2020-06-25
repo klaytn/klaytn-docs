@@ -19,8 +19,8 @@
 아래는 `caver-js`로 제공되는 패키지들입니다.
 
 * [caver.account](api-references/caver.account.md)
-* [caver.wallet.keyring](api-references/caver.wallet.keyring.md)
-* [caver.wallet](api-references/caver.wallet.md)
+* [caver.wallet.keyring](api-references/caver.wallet/keyring.md)
+* [caver.wallet](api-references/caver.wallet/README.md)
 * [caver.transaction](api-references/caver.transaction/README.md)
 * [caver.rpc](api-references/caver.rpc/README.md)
 * [caver.contract](api-references/caver.contract.md)
