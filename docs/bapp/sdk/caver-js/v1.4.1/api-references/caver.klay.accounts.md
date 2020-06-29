@@ -2306,7 +2306,7 @@ Returns the account corresponding to the address in `caver.klay.accounts.wallet`
 
 | Name | Type | Description |
 | --- | --- | --- |
-| addressOrIndex | String &#124; Number | An index in the wallet address list, an address in hexadecimal. The given value should exist in the caver-js wallet. |
+| addressOrIndex | String &#124; Number | An index in the wallet address list, or an address in hexadecimal. The given value should exist in the caver-js wallet. |
 
 **Return Value**
 
