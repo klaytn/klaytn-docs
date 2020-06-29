@@ -10,7 +10,7 @@
 const account = new caver.account(address, accountKey)
 ```
 
-`Account` is a class that contains informations needed to update the [AccountKey] of the account in the Klaytn blockchain platform (Klaytn). This is the default class for the `caver.account` package. To create an Account instance with public key string(s), please refer to [caver.account.create](#caver-account-create).
+`Account` is a class that contains information needed to update the [AccountKey] of the account in the Klaytn blockchain platform (Klaytn). This is the default class for the `caver.account` package. To create an Account instance with public key string(s), please refer to [caver.account.create](#caver-account-create).
 
 **properties**
 
@@ -148,104 +148,104 @@ If accountKey is a public key string, an Account instance with [AccountKeyPublic
 // Create an Account instance with a public key string -> Account with AccountKeyPublic
 > caver.account.create('0x{address in hex}', '0x034f1...')
 Account {
-	_address: '0xc771822ad361898a330df0169f2382ee92f6286d',
-	_accountKey: AccountKeyPublic { _publicKey: '0x034f1...' } 
+    _address: '0xc771822ad361898a330df0169f2382ee92f6286d',
+    _accountKey: AccountKeyPublic { _publicKey: '0x034f1...' } 
 }
 
 // Create an Account instance with an array of public keys -> Account with AccountKeyWeightedMultiSig
 > caver.account.create('0x{address in hex}', ['0x034f1...', '0xfe4b8...'])
 Account {
-	_address: '0xc771822ad361898a330df0169f2382ee92f6286d',
-	_accountKey:
-	AccountKeyWeightedMultiSig {
-		_threshold: 1,
-		_weightedPublicKeys: [ 
-			WeightedPublicKey { _weight: 1, _publicKey: '0x034f1...' },
-			WeightedPublicKey { _weight: 1, _publicKey: '0xfe4b8...' }
-		]
-	} 
+    _address: '0xc771822ad361898a330df0169f2382ee92f6286d',
+    _accountKey:
+    AccountKeyWeightedMultiSig {
+        _threshold: 1,
+        _weightedPublicKeys: [ 
+            WeightedPublicKey { _weight: 1, _publicKey: '0x034f1...' },
+            WeightedPublicKey { _weight: 1, _publicKey: '0xfe4b8...' }
+        ]
+    } 
 }
-	 
+     
 // Create an Account instance with an array of public keys with WeightedMultiSigOptions -> Account with AccountKeyWeightedMultiSig
 > const options = new caver.account.weightedMultiSigOptions(2, [1, 1])
 > caver.account.create('0x{address in hex}', ['0x034f1...', '0xfe4b8...'], options)
 Account {
-	_address: '0xc771822ad361898a330df0169f2382ee92f6286d',
-	_accountKey:
-	AccountKeyWeightedMultiSig {
-		_threshold: 2,
-		_weightedPublicKeys: [ 
-			WeightedPublicKey { _weight: 1, _publicKey: '0x034f1...' },
-			WeightedPublicKey { _weight: 1, _publicKey: '0xfe4b8...' }
-		]
-	} 
+    _address: '0xc771822ad361898a330df0169f2382ee92f6286d',
+    _accountKey:
+    AccountKeyWeightedMultiSig {
+        _threshold: 2,
+        _weightedPublicKeys: [ 
+            WeightedPublicKey { _weight: 1, _publicKey: '0x034f1...' },
+            WeightedPublicKey { _weight: 1, _publicKey: '0xfe4b8...' }
+        ]
+    } 
 }
 
 // Create an Account instance with an array in which keys to be used for each role are defined as an array -> Account with AccountKeyRoleBased
 > const publicKeys = [
-	['0xd8510...', '0xaa105...'],
-	['0xd8510...'],
-	['0xd8510...', '0xceeee...']
+    ['0xd8510...', '0xaa105...'],
+    ['0xd8510...'],
+    ['0xd8510...', '0xceeee...']
 ]
 > caver.account.create('0x{address in hex}', publicKeys)
 Account {
-	_address: '0xc771822ad361898a330df0169f2382ee92f6286d',
-	_accountKey:
-	AccountKeyRoleBased {
-		_accountKeys: [
-			AccountKeyWeightedMultiSig { 
-				_threshold: 1, 
-				_weightedPublicKeys: [ 
-					WeightedPublicKey { _weight: 1, _publicKey: '0xd8510...' }, 
-					WeightedPublicKey { _weight: 1, _publicKey: '0xaa105...' } 
-				]
-			},
-			AccountKeyPublic { _publicKey: '0xd8510...' },
-			AccountKeyWeightedMultiSig {
-				_threshold: 1,
-				_weightedPublicKeys: [
-					WeightedPublicKey { _weight: 1, _publicKey: '0xd8510...' },
-					WeightedPublicKey { _weight: 1, _publicKey: '0xceeee...' }
-				]
-			}
-		]
-	}
+    _address: '0xc771822ad361898a330df0169f2382ee92f6286d',
+    _accountKey:
+    AccountKeyRoleBased {
+        _accountKeys: [
+            AccountKeyWeightedMultiSig { 
+                _threshold: 1, 
+                _weightedPublicKeys: [ 
+                    WeightedPublicKey { _weight: 1, _publicKey: '0xd8510...' }, 
+                    WeightedPublicKey { _weight: 1, _publicKey: '0xaa105...' } 
+                ]
+            },
+            AccountKeyPublic { _publicKey: '0xd8510...' },
+            AccountKeyWeightedMultiSig {
+                _threshold: 1,
+                _weightedPublicKeys: [
+                    WeightedPublicKey { _weight: 1, _publicKey: '0xd8510...' },
+                    WeightedPublicKey { _weight: 1, _publicKey: '0xceeee...' }
+                ]
+            }
+        ]
+    }
 }
 
 // Create an Account instance with an array in which keys to be used for each role are defined as an array with an array of WeightedMultiSigOptions -> Account with AccountKeyRoleBased
 > const publicKeys = [
-	['0xd8510...', '0xaa105...'],
-	['0xd8510...'],
-	['0xd8510...', '0xceeee...']
+    ['0xd8510...', '0xaa105...'],
+    ['0xd8510...'],
+    ['0xd8510...', '0xceeee...']
 ]
 > const options = [
-	new caver.account.weightedMultiSigOptions(2, [1, 1]),
-	new caver.account.weightedMultiSigOptions(),
-	new caver.account.weightedMultiSigOptions(3, [1, 2])
+    new caver.account.weightedMultiSigOptions(2, [1, 1]),
+    new caver.account.weightedMultiSigOptions(),
+    new caver.account.weightedMultiSigOptions(3, [1, 2])
 ]
 > caver.account.create('0x{address in hex}', publicKeys, options)
 Account {
-	_address: '0xc771822ad361898a330df0169f2382ee92f6286d',
-	_accountKey:
-	AccountKeyRoleBased {
-		_accountKeys: [
-			AccountKeyWeightedMultiSig { 
-				_threshold: 2, 
-				_weightedPublicKeys: [ 
-					WeightedPublicKey { _weight: 1, _publicKey: '0xd8510...' }, 
-					WeightedPublicKey { _weight: 1, _publicKey: '0xaa105...' } 
-				]
-			},
-			AccountKeyPublic { _publicKey: '0xd8510...' },
-			AccountKeyWeightedMultiSig {
-				_threshold: 3,
-				_weightedPublicKeys: [
-					WeightedPublicKey { _weight: 1, _publicKey: '0xd8510...' },
-					WeightedPublicKey { _weight: 2, _publicKey: '0xceeee...' }
-				]
-			}
-		]
-	}
+    _address: '0xc771822ad361898a330df0169f2382ee92f6286d',
+    _accountKey:
+    AccountKeyRoleBased {
+        _accountKeys: [
+            AccountKeyWeightedMultiSig { 
+                _threshold: 2, 
+                _weightedPublicKeys: [ 
+                    WeightedPublicKey { _weight: 1, _publicKey: '0xd8510...' }, 
+                    WeightedPublicKey { _weight: 1, _publicKey: '0xaa105...' } 
+                ]
+            },
+            AccountKeyPublic { _publicKey: '0xd8510...' },
+            AccountKeyWeightedMultiSig {
+                _threshold: 3,
+                _weightedPublicKeys: [
+                    WeightedPublicKey { _weight: 1, _publicKey: '0xd8510...' },
+                    WeightedPublicKey { _weight: 2, _publicKey: '0xceeee...' }
+                ]
+            }
+        ]
+    }
 }
 ```
 
@@ -261,7 +261,7 @@ Creates an Account instance from RLP-encoded AccountKey.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | string | The address of account to be updated. |
+| address | string | The address of an account to be updated. |
 | rlpEncodedKey | string | The RLP-encoded string of AccountKey. |
 
 
@@ -276,15 +276,15 @@ Creates an Account instance from RLP-encoded AccountKey.
 ```javascript
 > caver.account.createFromRLPEncoding('0x{address in hex}', '0x04f84b02f848e301a102c10b598a1a3ba252acc21349d61c2fbd9bc8c15c50a5599f420cccc3291f9bf9e301a1021769a9196f523c419be50c26419ebbec34d3d6aa8b59da834212f13dbec9a9c1')
 Account {
-	_address: '0x9ea5b871e7bef65868a0d278be3fc6cdbee543ee',
-	_accountKey: 
-		AccountKeyWeightedMultiSig { 
-			_threshold: 2, 
-			_weightedPublicKeys: [ 
-				WeightedPublicKey { _weight: 1, _publicKey: '0x02c10...' },
-				WeightedPublicKey { _weight: 1, _publicKey: '0x02176...' }
-			]
-		}
+    _address: '0x9ea5b871e7bef65868a0d278be3fc6cdbee543ee',
+    _accountKey: 
+        AccountKeyWeightedMultiSig { 
+            _threshold: 2, 
+            _weightedPublicKeys: [ 
+                WeightedPublicKey { _weight: 1, _publicKey: '0x02c10...' },
+                WeightedPublicKey { _weight: 1, _publicKey: '0x02176...' }
+            ]
+        }
 }
 ```
 
@@ -300,7 +300,7 @@ Creates an Account instance which has AccountKeyLegacy as an accountKey.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | string | The address of account to be updated. |
+| address | string | The address of an account to be updated. |
 
 
 **Return Value**
@@ -331,7 +331,7 @@ Creates an Account instance which has AccountKeyPublic as an accountKey.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | string | The address of account to be updated. |
+| address | string | The address of an account to be updated. |
 | publicKey | string | The public key string. |
 
 
@@ -346,8 +346,8 @@ Creates an Account instance which has AccountKeyPublic as an accountKey.
 ```javascript
 > caver.account.createWithAccountKeyPublic('0x{address in hex}', '0xb5a9a...')
 Account {
-	_address: '0x9ea5b871e7bef65868a0d278be3fc6cdbee543ee',
-	_accountKey: AccountKeyPublic { _publicKey: ,'0xb5a9a...' }
+    _address: '0x9ea5b871e7bef65868a0d278be3fc6cdbee543ee',
+    _accountKey: AccountKeyPublic { _publicKey: ,'0xb5a9a...' }
 }
 ```
 
@@ -363,7 +363,7 @@ Creates an Account instance which has AccountKeyFail as an accountKey.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | string | The address of account to be updated. |
+| address | string | The address of an account to be updated. |
 
 
 **Return Value**
@@ -394,7 +394,7 @@ Creates an Account instance which has AccountKeyWeightedMultiSig as an accountKe
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | string | The address of account to be updated. |
+| address | string | The address of an account to be updated. |
 | publicKeyArray | Array | The array that includes multiple public key strings. |
 | options | [WeightedMultiSigOptions] | (optional) The [WeightedMultiSigOptions] instance that defines threshold and weight array. |
 
@@ -411,30 +411,30 @@ Creates an Account instance which has AccountKeyWeightedMultiSig as an accountKe
 // create an Account instance without options
 > caver.account.createWithAccountKeyWeightedMultiSig('0x{address in hex}', ['0xb5a9a...', '0xfe4b8...'])
 Account {
-	_address: '0xc771822ad361898a330df0169f2382ee92f6286d',
-	_accountKey:
-	AccountKeyWeightedMultiSig {
-		_threshold: 1,
-		_weightedPublicKeys: [ 
-			WeightedPublicKey { _weight: 1, _publicKey: '0xb5a9a...' },
-			WeightedPublicKey { _weight: 1, _publicKey: '0xfe4b8...' }
-		]
-	} 
+    _address: '0xc771822ad361898a330df0169f2382ee92f6286d',
+    _accountKey:
+    AccountKeyWeightedMultiSig {
+        _threshold: 1,
+        _weightedPublicKeys: [ 
+            WeightedPublicKey { _weight: 1, _publicKey: '0xb5a9a...' },
+            WeightedPublicKey { _weight: 1, _publicKey: '0xfe4b8...' }
+        ]
+    } 
 }
 
 // create an Account instance with options
 > const options = new caver.account.weightedMultiSigOptions(2, [1, 1])
 > caver.account.createWithAccountKeyWeightedMultiSig('0x{address in hex}', ['0xb5a9a...', '0xfe4b8...'], options)
 Account {
-	_address: '0xc771822ad361898a330df0169f2382ee92f6286d',
-	_accountKey:
-	AccountKeyWeightedMultiSig {
-		_threshold: 2,
-		_weightedPublicKeys: [ 
-			WeightedPublicKey { _weight: 1, _publicKey: '0xb5a9a...' },
-			WeightedPublicKey { _weight: 1, _publicKey: '0xfe4b8...' }
-		]
-	} 
+    _address: '0xc771822ad361898a330df0169f2382ee92f6286d',
+    _accountKey:
+    AccountKeyWeightedMultiSig {
+        _threshold: 2,
+        _weightedPublicKeys: [ 
+            WeightedPublicKey { _weight: 1, _publicKey: '0xb5a9a...' },
+            WeightedPublicKey { _weight: 1, _publicKey: '0xfe4b8...' }
+        ]
+    } 
 }
 ```
 
@@ -450,7 +450,7 @@ Creates an Account instance which has AccountKeyRoleBased as an accountKey.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | string | The address of account to be updated. |
+| address | string | The address of an account to be updated. |
 | roledBasedPublicKeyArray | Array | A two-dimensional array containing arrays of public key strings for each role. |
 | options | Array | (optional) An array that contains [WeightedMultiSigOptions] instances for each role. |
 
@@ -466,69 +466,69 @@ Creates an Account instance which has AccountKeyRoleBased as an accountKey.
 ```javascript
 // create an Account instance without options
 > const publicKeys = [
-	['0x034f1...', '0xfe4b8...'],
-	['0xb5a9a...'],
-	['0x034f1...', '0xb5a9a...']
+    ['0x034f1...', '0xfe4b8...'],
+    ['0xb5a9a...'],
+    ['0x034f1...', '0xb5a9a...']
 ]
 > caver.account.createWithAccountKeyRoleBased('0x{address in hex}', publicKeys)
 Account {
-	_address: '0xc771822ad361898a330df0169f2382ee92f6286d',
-	_accountKey:
-	AccountKeyRoleBased {
-		_accountKeys: [
-			AccountKeyWeightedMultiSig { 
-				_threshold: 1, 
-				_weightedPublicKeys: [ 
-					WeightedPublicKey { _weight: 1, _publicKey: '0x034f1...' }, 
-					WeightedPublicKey { _weight: 1, _publicKey: '0xfe4b8...' } 
-				]
-			},
-			AccountKeyPublic { _publicKey: '0xb5a9a...' },
-			AccountKeyWeightedMultiSig {
-				_threshold: 1,
-				_weightedPublicKeys: [
-					WeightedPublicKey { _weight: 1, _publicKey: '0x034f1...' },
-					WeightedPublicKey { _weight: 1, _publicKey: '0xb5a9a...' }
-				]
-			}
-		]
-	}
+    _address: '0xc771822ad361898a330df0169f2382ee92f6286d',
+    _accountKey:
+    AccountKeyRoleBased {
+        _accountKeys: [
+            AccountKeyWeightedMultiSig { 
+                _threshold: 1, 
+                _weightedPublicKeys: [ 
+                    WeightedPublicKey { _weight: 1, _publicKey: '0x034f1...' }, 
+                    WeightedPublicKey { _weight: 1, _publicKey: '0xfe4b8...' } 
+                ]
+            },
+            AccountKeyPublic { _publicKey: '0xb5a9a...' },
+            AccountKeyWeightedMultiSig {
+                _threshold: 1,
+                _weightedPublicKeys: [
+                    WeightedPublicKey { _weight: 1, _publicKey: '0x034f1...' },
+                    WeightedPublicKey { _weight: 1, _publicKey: '0xb5a9a...' }
+                ]
+            }
+        ]
+    }
 }
 
 // create an Account instance with options
 > const publicKeys = [
-	['0x034f1...', '0xfe4b8...'],
-	['0xb5a9a...'],
-	['0x034f1...', '0xb5a9a...']
+    ['0x034f1...', '0xfe4b8...'],
+    ['0xb5a9a...'],
+    ['0x034f1...', '0xb5a9a...']
 ]
 > const options = [
-	new caver.account.weightedMultiSigOptions(2, [1, 1]),
-	new caver.account.weightedMultiSigOptions(),
-	new caver.account.weightedMultiSigOptions(3, [1, 2])
+    new caver.account.weightedMultiSigOptions(2, [1, 1]),
+    new caver.account.weightedMultiSigOptions(),
+    new caver.account.weightedMultiSigOptions(3, [1, 2])
 ]
 > caver.account.createWithAccountKeyRoleBased('0x{address in hex}', publicKeys, options)
 Account {
-	_address: '0xc771822ad361898a330df0169f2382ee92f6286d',
-	_accountKey:
-	AccountKeyRoleBased {
-		_accountKeys: [
-			AccountKeyWeightedMultiSig { 
-				_threshold: 2, 
-				_weightedPublicKeys: [ 
-					WeightedPublicKey { _weight: 1, _publicKey: '0x034f1...' }, 
-					WeightedPublicKey { _weight: 1, _publicKey: '0xfe4b8...' } 
-				]
-			},
-			AccountKeyPublic { _publicKey: '0xb5a9a...' },
-			AccountKeyWeightedMultiSig {
-				_threshold: 3,
-				_weightedPublicKeys: [
-					WeightedPublicKey { _weight: 1, _publicKey: '0x034f1...' },
-					WeightedPublicKey { _weight: 2, _publicKey: '0xb5a9a...' }
-				]
-			}
-		]
-	}
+    _address: '0xc771822ad361898a330df0169f2382ee92f6286d',
+    _accountKey:
+    AccountKeyRoleBased {
+        _accountKeys: [
+            AccountKeyWeightedMultiSig { 
+                _threshold: 2, 
+                _weightedPublicKeys: [ 
+                    WeightedPublicKey { _weight: 1, _publicKey: '0x034f1...' }, 
+                    WeightedPublicKey { _weight: 1, _publicKey: '0xfe4b8...' } 
+                ]
+            },
+            AccountKeyPublic { _publicKey: '0xb5a9a...' },
+            AccountKeyWeightedMultiSig {
+                _threshold: 3,
+                _weightedPublicKeys: [
+                    WeightedPublicKey { _weight: 1, _publicKey: '0x034f1...' },
+                    WeightedPublicKey { _weight: 2, _publicKey: '0xb5a9a...' }
+                ]
+            }
+        ]
+    }
 }
 ```
 
@@ -566,7 +566,7 @@ AccountKeyPublic { _publicKey: '0x02c10b598a1a3ba252acc21349d61c2fbd9bc8c15c50a5
 account.getRLPEncodingAccountKey()
 ```
 
-Return RLP-encoded string of AccountKey .
+Return RLP-encoded string of AccountKey.
 
 
 **Return Value**
