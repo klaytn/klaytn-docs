@@ -2294,6 +2294,58 @@ One is a raw private key format of a 32-byte string type and the other is the [K
 ```
 
 
+## wallet.getAccount <a id="wallet-getaccount"></a>
+
+```javascript
+caver.klay.accounts.wallet.getAccount(addressOrIndex)
+```
+Returns the account corresponding to the address in `caver.klay.accounts.wallet`.
+
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| addressOrIndex | String &#124; Number | An index in the wallet address list, or an address in hexadecimal. The given value should exist in the caver-js wallet. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Object | The account in wallet. |
+
+
+**Example**
+
+```javascript
+> caver.klay.accounts.wallet.getAccount('0x{address in hex}')
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
+    signTransaction: [Function: signTransaction],
+    feePayerSignTransaction: [Function: feePayerSignTransaction],
+    sign: [Function: sign],
+    encrypt: [Function: encrypt],
+    getKlaytnWalletKey: [Function: getKlaytnWalletKey],
+    index: 0
+}
+
+> caver.klay.accounts.wallet.getAccount(0)
+Account {
+    address: [Getter/Setter],
+    accountKey: [Getter/Setter],
+    privateKey: [Getter/Setter],
+    signTransaction: [Function: signTransaction],
+    feePayerSignTransaction: [Function: feePayerSignTransaction],
+    sign: [Function: sign],
+    encrypt: [Function: encrypt],
+    getKlaytnWalletKey: [Function: getKlaytnWalletKey],
+    index: 0
+}
+```
+
+
 ## wallet.remove <a id="wallet-remove"></a>
 
 ```javascript
