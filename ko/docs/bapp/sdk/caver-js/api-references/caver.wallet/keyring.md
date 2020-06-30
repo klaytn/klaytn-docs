@@ -10,7 +10,7 @@
 
 - [SingleKeyring][]: User signs with a private key
 - [MultipleKeyring][]: User signs with private keys
-- [RoleBasedKeyring][]: User signs with different private key(s) by role
+- [RoleBasedKeyring][]: User signs with the private key(s) by role
 
 ### SingleKeyring <a id="singlekeyring"></a>
 
@@ -89,7 +89,7 @@ const privateKey = new caver.wallet.keyring.privateKey('0x{private key}')
 
 ### SignatureData <a id="signaturedata"></a>
 
-`SignatureData` is a class that contains signature data inside. The signature which is the result of `sign` or `signMessage` will be returned as a signatureData. You can see how signatureData contains signature inside like below.
+`SignatureData` is a class that contains signature data inside. The signature which is the result of `sign` or `signMessage` will be returned as a signatureData. You can see how signatureData contains signature(s) inside like below.
 
 ```javascript
 const signature = new caver.wallet.keyring.signatureData(['0x1b', '0x2dfc6...', '0x15038...'])
@@ -109,7 +109,7 @@ const signature = new caver.wallet.keyring.signatureData(['0x1b', '0x2dfc6...', 
 caver.wallet.keyring.generate([entropy])
 ```
 
-Generates a SingleKeyring instance with randomly generated private key.
+Generates a SingleKeyring instance with a randomly generated private key.
 
 **매개변수**
 
@@ -179,7 +179,7 @@ Generates private key strings.
 
 | 형식 | 설명                                                      |
 | -- | ------------------------------------------------------- |
-| 배열 | An array that includes private key strings is returend. |
+| 배열 | An array that includes private key strings is returned. |
 
 **예시**
 
@@ -241,7 +241,7 @@ caver.wallet.keyring.create(address, key)
 
 Creates a Keyring instance with parameters.
 
-If `key` is a private key string, a [SingleKeyring][] instance that use single private key is created. If `key` is an array containing private key strings, a [MultipleKeyring][] instance that use multiple private key is created. If `key` is a 2D array of which each element contains the private key(s) to be used for each role, a [RoleBasedKeyring][] instance is created.
+If `key` is a private key string, a [SingleKeyring][] instance that uses a single private key is created. If `key` is an array containing private key strings, a [MultipleKeyring][] instance that use multiple private keys is created. If `key` is a 2D array of which each element contains the private key(s) to be used for each role, a [RoleBasedKeyring][] instance is created.
 
 **매개변수**
 
@@ -811,7 +811,7 @@ When signing transactions, it is recommended to use [caver.wallet.sign][] or [tr
 
 | 명칭              | 형식                   | 설명                                                                                                                                                                                                                             |
 | --------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| transactionHash | 문자열                  | The hash string of transaction to sign.                                                                                                                                                                                        |
+| transactionHash | 문자열                  | The hash string of a transaction to sign.                                                                                                                                                                                      |
 | chainId         | string &#124; number | The chain id of the Klaytn blockchain platform.                                                                                                                                                                                |
 | role            | number               | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                              |
 | index           | number               | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
@@ -889,9 +889,9 @@ If the user has not defined the index parameter, `keyring.signMessage` signs mes
 
 **리턴값**
 
-| 형식     | 설명                                         |
-| ------ | ------------------------------------------ |
-| object | An object that includes result of signing. |
+| 형식     | 설명                                             |
+| ------ | ---------------------------------------------- |
+| object | An object that includes the result of signing. |
 
 The returned object contains the following:
 
@@ -1044,9 +1044,9 @@ Depending on the type of the private key(s) in the keyring, the returned [Accoun
 
 **리턴값**
 
-| 형식              | 설명                                                                                                                                                                                                                                                                                                                                               |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [계정(Account)][] | An Account instance to be used when a user updates AccountKey for their account in the Klaytn. Note that if you want to replace the existing keyring (or the existing private key(s)) with a new keyring (or a new private key(s)) for your account, you must update your AccountKey by sending Account Update transaction to Klaytn beforehand. |
+| 형식              | 설명                                                                                                                                                                                                                                                                                                                                                  |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [계정(Account)][] | An Account instance to be used when a user updates AccountKey for their account in the Klaytn. Note that if you want to replace the existing keyring (or the existing private key(s)) with a new keyring (or a new private key(s)) for your account, you must update your AccountKey by sending an Account Update transaction to Klaytn beforehand. |
 
 **예시**
 
