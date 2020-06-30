@@ -16,9 +16,9 @@ caver.utils.randomHex(size)
 
 **매개변수**
 
-| 명칭   | 형식     | 설명                                                                              |
-| ---- | ------ | ------------------------------------------------------------------------------- |
-| size | number | HEX 문자열의 바이트 크기, *가령*, `32`는 접두어 "0x"와 64개의 문자로 구성된 32바이트의 HEX 문자열이 결과가 될 것입니다. |
+| 명칭   | 형식     | 설명                                                                                                                        |
+| ---- | ------ | ------------------------------------------------------------------------------------------------------------------------- |
+| size | number | The byte size for the HEX string, *e.g.*, `32` will result in a 32-byte HEX string with 64 characters prefixed with "0x". |
 
 **리턴값**
 
@@ -339,7 +339,7 @@ false
 ```javascript
 caver.utils.isAddress(address)
 ```
-주어진 문자열이 유효한 Klaytn 주소인지 확인합니다. 주소에 대문자와 소문자가 있으면 체크섬(checksum)도 검사합니다.
+주어진 문자열이 유효한 Klaytn 주소인지 확인합니다. It will also check the checksum if the address has upper and lowercase letters.
 
 **매개변수**
 
@@ -434,7 +434,7 @@ true
 ```javascript
 caver.utils.toHex(mixed)
 ```
-주어진 값을 HEX로 변환합니다. number strings will interpreted as numbers. 텍스트 문자열은 UTF-8 문자열로 해석됩니다.
+주어진 값을 HEX로 변환합니다. The numeric strings will be interpreted as numbers. 텍스트 문자열은 UTF-8 문자열로 해석됩니다.
 
 **매개변수**
 
@@ -584,9 +584,9 @@ caver.utils.hexToAscii(hex)
 
 **매개변수**
 
-| 명칭  | 형식  | 설명                      |
-| --- | --- | ----------------------- |
-| hex | 문자열 | ASCII 문자열로 변환할 HEX 문자열. |
+| 명칭  | 형식  | 설명                                          |
+| --- | --- | ------------------------------------------- |
+| hex | 문자열 | A HEX string to convert to an ASCII string. |
 
 **리턴값**
 
@@ -727,9 +727,9 @@ caver.utils.convertToPeb(number [, unit])
 
 **리턴값**
 
-| 형식               | 설명                                                                                                                              |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| string &#124; BN | If the number parameter is an instance of [BN](https://github.com/indutny/bn.js/), it returns a BN instace, otherwise a string. |
+| 형식               | 설명                                                                                                                               |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| string &#124; BN | If the number parameter is an instance of [BN](https://github.com/indutny/bn.js/), it returns a BN instance, otherwise a string. |
 
 **예제**
 
@@ -811,7 +811,7 @@ caver.utils.padLeft(string, characterAmount [, sign])
 caver.utils.leftPad(string, characterAmount [, sign]) // ALIAS
 ```
 
-문자열 왼쪽에 패딩(padding)을 추가합니다. HEX 문자열에 패딩을 추가하는 데 유용합니다.
+Adds padding on the left of a string. HEX 문자열에 패딩을 추가하는 데 유용합니다.
 
 
 **매개변수**
@@ -847,7 +847,7 @@ caver.utils.leftPad(string, characterAmount [, sign]) // ALIAS
 caver.utils.padRight(str, characterAmount [, sign])
 caver.utils.rightPad(str, characterAmount [, sign]) // ALIAS
 ```
-문자열 오른쪽에 패딩을 추가합니다. HEX 문자열에 패딩을 추가하는 데 유용합니다.
+Adds padding on the right of a string, Useful for adding paddings to HEX strings.
 
 **매개변수**
 
@@ -1012,7 +1012,7 @@ caver.utils.xyPointFromPublicKey(publicKey)
 ```javascript
 caver.utils.isHexPrefixed(input)
 ```
-입력이 0x 접두사가 있는 16진수 문자열이면 `true`, 그렇지 않으면 `false`를 반환합니다.
+Returns `true` if the input is a 0x-prefixed hex string, otherwise it returns `false`.
 
 **매개변수**
 
@@ -1206,7 +1206,7 @@ caver.utils.numberToBuffer(input)
 caver.utils.isValidHash(input)
 ```
 
-Returns `true` if input is in 32-bytes hash format, otherwise it returns `false`.
+Returns `true` if the input is in 32-bytes hash format, otherwise it returns `false`.
 
 **매개변수**
 
@@ -1216,9 +1216,9 @@ Returns `true` if input is in 32-bytes hash format, otherwise it returns `false`
 
 **리턴값**
 
-| 형식      | 설명                                                    |
-| ------- | ----------------------------------------------------- |
-| boolean | `true` means the input is in format of 32-bytes hash. |
+| 형식      | 설명                                                        |
+| ------- | --------------------------------------------------------- |
+| boolean | `true` means the input is in the format of 32-bytes hash. |
 
 **예제**
 
@@ -1241,7 +1241,7 @@ false
 caver.utils.isValidHashStrict(input)
 ```
 
-Returns `true` if input is in 0x-prefixed 32-bytes hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of 0x-prefixed 32-bytes hash. Difference to [caver.utils.isValidHash](#isvalidhash) is that it expects HEX to be prefixed with `0x`.
+Returns `true` if the input is in 0x-prefixed 32-bytes hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of 0x-prefixed 32-bytes hash. Difference to [caver.utils.isValidHash](#isvalidhash) is that it expects HEX to be prefixed with `0x`.
 
 **매개변수**
 
@@ -1275,7 +1275,7 @@ false
 caver.utils.isTxHash(input)
 ```
 
-입력이 트랜잭션 해시 형식이면 `true`, 그렇지 않으면 `false`를 반환합니다. 이 함수는 입력값만 보고 트랜잭션 해시 형식인지를 판별합니다.
+Returns `true` if the input is in transaction hash format, otherwise it returns `false`. 이 함수는 입력값만 보고 트랜잭션 해시 형식인지를 판별합니다.
 
 **NOTE** This function has been deprecated. Use [isValidHash](#isvalidhash) to determine if a valid hash is 32 bytes long.
 
@@ -1312,7 +1312,7 @@ false
 caver.utils.isTxHashStrict(input)
 ```
 
-입력이 트랜잭션 해시 형식이면 `true`, 그렇지 않으면 `false`를 반환합니다. 이 함수는 입력값만 보고 트랜잭션 해시 형식인지를 판별합니다. [caver.utils.isTxHash](#istxhash)와의 차이점은 HEX 앞에 `0x`이 붙는다는 것입니다.
+Returns `true` if the input is in transaction hash format, otherwise it returns `false`. 이 함수는 입력값만 보고 트랜잭션 해시 형식인지를 판별합니다. [caver.utils.isTxHash](#istxhash)와의 차이점은 HEX 앞에 `0x`이 붙는다는 것입니다.
 
 **NOTE** This function has been deprecated. Use [isValidHashStrict](#isvalidhashstrict) to determine if a valid hash is 32 bytes long.
 
@@ -1348,7 +1348,7 @@ false
 ```javascript
 caver.utils.isValidPrivateKey(privateKey)
 ```
-privateKey가 유효하면 `true`, 그렇지 않으면 `false`리턴합니다.
+Returns `true` if `privateKey` is valid, otherwise it returns `false`.
 
 **매개변수**
 
@@ -1420,7 +1420,7 @@ false
 ```javascript
 caver.utils.isValidRole(role)
 ```
-role이 유효하면 `true`, 그렇지 않으면 `false`를 반환합니다. You can check roles supported by caver-js through `caver.wallet.keyring.role`.
+Returns `true` if a role is valid, otherwise it returns `false`. You can check roles supported by caver-js through `caver.wallet.keyring.role`.
 
 **매개변수**
 
