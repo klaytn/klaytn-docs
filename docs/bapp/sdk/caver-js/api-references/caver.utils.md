@@ -19,7 +19,7 @@ The [randomHex](https://github.com/frozeman/randomHex) library to generate crypt
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| size | number | The byte size for the HEX string, *e.g.*, `32` will result in a 32-byte HEX string with 64 characters preficed with "0x". |
+| size | number | The byte size for the HEX string, *e.g.*, `32` will result in a 32-byte HEX string with 64 characters prefixed with "0x". |
 
 **Return Value**
 
@@ -342,7 +342,7 @@ false
 caver.utils.isAddress(address)
 ```
 Checks if a given string is a valid Klaytn address.
-It will also check the checksum, if the address has upper and lowercase letters.
+It will also check the checksum if the address has upper and lowercase letters.
 
 **Parameters**
 
@@ -438,7 +438,7 @@ true
 caver.utils.toHex(mixed)
 ```
 Converts any given value to HEX.
-number strings will interpreted as numbers.
+The numeric strings will be interpreted as numbers.
 Text strings will be interpreted as UTF-8 strings.
 
 **Parameters**
@@ -591,7 +591,7 @@ Returns the ASCII string representation of a given HEX value.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| hex | string | A HEX string to convert to a ASCII string. |
+| hex | string | A HEX string to convert to an ASCII string. |
 
 **Return Value**
 
@@ -734,7 +734,7 @@ Converts any KLAY value into peb.
 
 | Type | Description |
 | --- | --- |
-| string &#124; BN | If the number parameter is an instance of [BN](https://github.com/indutny/bn.js/), it returns a BN instace, otherwise a string. |
+| string &#124; BN | If the number parameter is an instance of [BN](https://github.com/indutny/bn.js/), it returns a BN instance, otherwise a string. |
 
 **Examples**
 
@@ -816,7 +816,7 @@ caver.utils.padLeft(string, characterAmount [, sign])
 caver.utils.leftPad(string, characterAmount [, sign]) // ALIAS
 ```
 
-Adds a padding on the left of a string. Useful for adding paddings to HEX strings.
+Adds padding on the left of a string. Useful for adding paddings to HEX strings.
 
 
 **Parameters**
@@ -852,7 +852,7 @@ Adds a padding on the left of a string. Useful for adding paddings to HEX string
 caver.utils.padRight(str, characterAmount [, sign])
 caver.utils.rightPad(str, characterAmount [, sign]) // ALIAS
 ```
-Adds a padding on the right of a string, Useful for adding paddings to HEX strings.
+Adds padding on the right of a string, Useful for adding paddings to HEX strings.
 
 **Parameters**
 
@@ -945,37 +945,37 @@ Returns `true` if the given transaction is a smart contract deploy transaction. 
 
 ```javascript
 > caver.utils.isContractDeployment(new caver.transaction.legacyTransaction({
-	to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
-	value: caver.utils.toPeb(1, 'KLAY'),
-	gas: 25000,
+    to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
+    value: caver.utils.toPeb(1, 'KLAY'),
+    gas: 25000,
 }))
 false
 
 > caver.utils.isContractDeployment(new caver.transaction.legacyTransaction({
-	input: '0x608060405234801561001057600080fd5b506101de806100206000396000f3006080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a72305820627ca46bb09478a015762806cc00c431230501118c7c26c30ac58c4e09e51c4f0029',
-	gas: 200000,
+    input: '0x608060405234801561001057600080fd5b506101de806100206000396000f3006080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a72305820627ca46bb09478a015762806cc00c431230501118c7c26c30ac58c4e09e51c4f0029',
+    gas: 200000,
 }))
 true
 
 > caver.utils.isContractDeployment(new caver.transaction.smartContractDeploy({
-	from: '0x88e245dec96830f012f8fc1806bc623b3774560d',
-	input: '0x608060405234801561001057600080fd5b506101de806100206000396000f3006080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a72305820627ca46bb09478a015762806cc00c431230501118c7c26c30ac58c4e09e51c4f0029',
-	gas: 100000,
+    from: '0x88e245dec96830f012f8fc1806bc623b3774560d',
+    input: '0x608060405234801561001057600080fd5b506101de806100206000396000f3006080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a72305820627ca46bb09478a015762806cc00c431230501118c7c26c30ac58c4e09e51c4f0029',
+    gas: 100000,
 }))
 true
 
 > caver.utils.isContractDeployment(new caver.transaction.feeDelegatedSmartContractDeploy({
-	from: '0x88e245dec96830f012f8fc1806bc623b3774560d',
-	input: '0x608060405234801561001057600080fd5b506101de806100206000396000f3006080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a72305820627ca46bb09478a015762806cc00c431230501118c7c26c30ac58c4e09e51c4f0029',
-	gas: 100000,
+    from: '0x88e245dec96830f012f8fc1806bc623b3774560d',
+    input: '0x608060405234801561001057600080fd5b506101de806100206000396000f3006080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a72305820627ca46bb09478a015762806cc00c431230501118c7c26c30ac58c4e09e51c4f0029',
+    gas: 100000,
 }))
 true
 
 > caver.utils.isContractDeployment(new caver.transaction.feeDelegatedSmartContractDeployWithRatio({
-	from: '0x88e245dec96830f012f8fc1806bc623b3774560d',
-	input: '0x608060405234801561001057600080fd5b506101de806100206000396000f3006080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a72305820627ca46bb09478a015762806cc00c431230501118c7c26c30ac58c4e09e51c4f0029',
-	gas: 100000,
-	feeRatio: 30,
+    from: '0x88e245dec96830f012f8fc1806bc623b3774560d',
+    input: '0x608060405234801561001057600080fd5b506101de806100206000396000f3006080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a72305820627ca46bb09478a015762806cc00c431230501118c7c26c30ac58c4e09e51c4f0029',
+    gas: 100000,
+    feeRatio: 30,
 }))
 true
 ```
@@ -1017,7 +1017,7 @@ Returns the x and y coordinates of the given publicKey. For more information on 
 ```javascript
 caver.utils.isHexPrefixed(input)
 ```
-Returns `true` if input is a 0x-prefixed hex string, otherwise it returns `false`.
+Returns `true` if the input is a 0x-prefixed hex string, otherwise it returns `false`.
 
 **Parameters**
 
@@ -1211,7 +1211,7 @@ This function converts a number to a [Buffer](https://nodejs.org/api/buffer.html
 caver.utils.isValidHash(input)
 ```
 
-Returns `true` if input is in 32-bytes hash format, otherwise it returns `false`.
+Returns `true` if the input is in 32-bytes hash format, otherwise it returns `false`.
 
 **Parameters**
 
@@ -1223,7 +1223,7 @@ Returns `true` if input is in 32-bytes hash format, otherwise it returns `false`
 
 | Type | Description |
 | --- | --- |
-| boolean | `true` means the input is in format of 32-bytes hash. |
+| boolean | `true` means the input is in the format of 32-bytes hash. |
 
 **Examples**
 
@@ -1246,7 +1246,7 @@ false
 caver.utils.isValidHashStrict(input)
 ```
 
-Returns `true` if input is in 0x-prefixed 32-bytes hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of 0x-prefixed 32-bytes hash. Difference to [caver.utils.isValidHash](#isvalidhash) is that it expects HEX to be prefixed with `0x`.
+Returns `true` if the input is in 0x-prefixed 32-bytes hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of 0x-prefixed 32-bytes hash. Difference to [caver.utils.isValidHash](#isvalidhash) is that it expects HEX to be prefixed with `0x`.
 
 **Parameters**
 
@@ -1280,7 +1280,7 @@ false
 caver.utils.isTxHash(input)
 ```
 
-Returns `true` if input is in transaction hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of a transaction hash.
+Returns `true` if the input is in transaction hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of a transaction hash.
 
 **NOTE** This function has been deprecated. Use [isValidHash](#isvalidhash) to determine if a valid hash is 32 bytes long.
 
@@ -1294,7 +1294,7 @@ Returns `true` if input is in transaction hash format, otherwise it returns `fal
 
 | Type | Description |
 | --- | --- |
-| boolean | `true` means the input is in format of transaction hash. |
+| boolean | `true` means the input is in the format of transaction hash. |
 
 **Examples**
 
@@ -1317,7 +1317,7 @@ false
 caver.utils.isTxHashStrict(input)
 ```
 
-Returns `true` if input is in transaction hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of a transaction hash. Difference to [caver.utils.isTxHash](#istxhash) is that it expects HEX to be prefixed with ``0x``.
+Returns `true` if the input is in transaction hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of a transaction hash. Difference to [caver.utils.isTxHash](#istxhash) is that it expects HEX to be prefixed with ``0x``.
 
 **NOTE** This function has been deprecated. Use [isValidHashStrict](#isvalidhashstrict) to determine if a valid hash is 32 bytes long.
 
@@ -1353,7 +1353,7 @@ false
 ```javascript
 caver.utils.isValidPrivateKey(privateKey)
 ```
-Returns `true` if privateKey is valid, otherwise it returns `false`. 
+Returns `true` if `privateKey` is valid, otherwise it returns `false`. 
 
 **Parameters**
 
@@ -1425,7 +1425,7 @@ false
 ```javascript
 caver.utils.isValidRole(role)
 ```
-Returns `true` if role is valid, otherwise it returns `false`. You can check roles supported by caver-js through `caver.wallet.keyring.role`.
+Returns `true` if a role is valid, otherwise it returns `false`. You can check roles supported by caver-js through `caver.wallet.keyring.role`.
 
 **Parameters**
 
@@ -1566,9 +1566,9 @@ Parses [KlaytnWalletKey] string to an array which includes "private key", "type"
 ```javascript
 > caver.utils.parseKlaytnWalletKey('0x{private key}0x{type}0x{address in hex}')
 [
-	'0x{private key}',
-	'0x00',
-	'0x885ebdb17c221ef695936b18a0263d6399e14d60'
+    '0x{private key}',
+    '0x00',
+    '0x885ebdb17c221ef695936b18a0263d6399e14d60'
 ]
 ```
 

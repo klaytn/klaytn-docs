@@ -10,7 +10,7 @@
 
 - [SingleKeyring]: User signs with a private key
 - [MultipleKeyring]: User signs with private keys
-- [RoleBasedKeyring]: User signs with different private key(s) by role
+- [RoleBasedKeyring]: User signs with the private key(s) by role
 
 ### SingleKeyring <a id="singlekeyring"></a>
 
@@ -89,7 +89,7 @@ const privateKey = new caver.wallet.keyring.privateKey('0x{private key}')
 
 ### SignatureData <a id="signaturedata"></a>
 
-`SignatureData` is a class that contains signature data inside. The signature which is the result of `sign` or `signMessage` will be returned as a signatureData. You can see how signatureData contains signature inside like below.
+`SignatureData` is a class that contains signature data inside. The signature which is the result of `sign` or `signMessage` will be returned as a signatureData. You can see how signatureData contains signature(s) inside like below.
 
 ```javascript
 const signature = new caver.wallet.keyring.signatureData(['0x1b', '0x2dfc6...', '0x15038...'])
@@ -109,7 +109,7 @@ const signature = new caver.wallet.keyring.signatureData(['0x1b', '0x2dfc6...', 
 caver.wallet.keyring.generate([entropy])
 ```
 
-Generates a SingleKeyring instance with randomly generated private key.
+Generates a SingleKeyring instance with a randomly generated private key.
 
 **Parameters**
 
@@ -128,8 +128,8 @@ Generates a SingleKeyring instance with randomly generated private key.
 ```javascript
 > caver.wallet.keyring.generate()
 SingleKeyring {
-	_address: '0x8ecdfda0281f0d36518f89e0e2444c4f98b2e718',
-	_key: PrivateKey { _privateKey: '0x{private key}' }
+    _address: '0x8ecdfda0281f0d36518f89e0e2444c4f98b2e718',
+    _key: PrivateKey { _privateKey: '0x{private key}' }
 }
 ```
 
@@ -179,16 +179,16 @@ Generates private key strings.
 
 | Type | Description |
 | --- | --- |
-| Array | An array that includes private key strings is returend. |
+| Array | An array that includes private key strings is returned. |
 
 **Example**
 
 ```javascript
 > caver.wallet.keyring.generateMultipleKeys(3)
 [
-	'0x{private key1}',
-	'0x{private key2}',
-	'0x{private key3}'
+    '0x{private key1}',
+    '0x{private key2}',
+    '0x{private key3}'
 ]
 ```
 
@@ -218,18 +218,18 @@ Generates a 2D array of which each array element contains keys defined for each 
 ```javascript
 > caver.wallet.keyring.generateRoleBasedKeys([2, 1, 3])
 [
-	[
-		'0x{private key1}',
-		'0x{private key2}'
-	],
-	[
-		'0x{private key3}'
-	],
-	[
-		'0x{private key4}',
-		'0x{private key5}',
-		'0x{private key6}'
-	]
+    [
+        '0x{private key1}',
+        '0x{private key2}'
+    ],
+    [
+        '0x{private key3}'
+    ],
+    [
+        '0x{private key4}',
+        '0x{private key5}',
+        '0x{private key6}'
+    ]
 ]
 ```
 
@@ -241,7 +241,7 @@ caver.wallet.keyring.create(address, key)
 
 Creates a Keyring instance with parameters. 
 
-If `key` is a private key string, a [SingleKeyring] instance that use single private key is created. If `key` is an array containing private key strings, a [MultipleKeyring] instance that use multiple private key is created. If `key` is a 2D array of which each element contains the private key(s) to be used for each role, a [RoleBasedKeyring] instance is created.
+If `key` is a private key string, a [SingleKeyring] instance that uses a single private key is created. If `key` is an array containing private key strings, a [MultipleKeyring] instance that use multiple private keys is created. If `key` is a 2D array of which each element contains the private key(s) to be used for each role, a [RoleBasedKeyring] instance is created.
 
 **Parameters**
 
@@ -262,43 +262,43 @@ If `key` is a private key string, a [SingleKeyring] instance that use single pri
 // Create singleKeyring which uses one private key
 > caver.wallet.keyring.create('0x{address in hex}', '0x{private key}')
 SingleKeyring {
-	_address: '0x30fcfa9679c7141a234c1324c7e0a8b715bdfc90',
-	_key: PrivateKey { _privateKey: '0x{private key}' }
+    _address: '0x30fcfa9679c7141a234c1324c7e0a8b715bdfc90',
+    _key: PrivateKey { _privateKey: '0x{private key}' }
 }
 
 // Create multipleKeyring which uses multiple private keys
 > caver.wallet.keyring.create('0x{address in hex}', ['0x{private key1}', '0x{private key2}'])
 MultipleKeyring {
-	_address: '0x30fcfa9679c7141a234c1324c7e0a8b715bdfc90',
-	_keys: [
-		PrivateKey { _privateKey: '0x{private key1}' },
-		PrivateKey { _privateKey: '0x{private key2}' }
-	]
+    _address: '0x30fcfa9679c7141a234c1324c7e0a8b715bdfc90',
+    _keys: [
+        PrivateKey { _privateKey: '0x{private key1}' },
+        PrivateKey { _privateKey: '0x{private key2}' }
+    ]
 }
 
 // Create roleBasedKeyring which uses different private key(s) by roles
 > const roleBasedKeys = [
-	['0x{private key1}', '0x{private key2}'],
-	['0x{private key3}', '0x{private key4}'],
-	['0x{private key5}', '0x{private key6}'],
+    ['0x{private key1}', '0x{private key2}'],
+    ['0x{private key3}', '0x{private key4}'],
+    ['0x{private key5}', '0x{private key6}'],
 ]
 > caver.wallet.keyring.create('0x{address in hex}', roleBasedKeys)
 RoleBasedKeyring {
-	_address: '0x30fcfa9679c7141a234c1324c7e0a8b715bdfc90',
-	_keys: [
-		[
-			PrivateKey { _privateKey: '0x{private key1}' },
-			PrivateKey { _privateKey: '0x{private key2}' }
-		],
-		[
-			PrivateKey { _privateKey: '0x{private key3}' },
-			PrivateKey { _privateKey: '0x{private key4}' }
-		],
-		[
-			PrivateKey { _privateKey: '0x{private key5}' },
-			PrivateKey { _privateKey: '0x{private key6}' }
-		]
-	]
+    _address: '0x30fcfa9679c7141a234c1324c7e0a8b715bdfc90',
+    _keys: [
+        [
+            PrivateKey { _privateKey: '0x{private key1}' },
+            PrivateKey { _privateKey: '0x{private key2}' }
+        ],
+        [
+            PrivateKey { _privateKey: '0x{private key3}' },
+            PrivateKey { _privateKey: '0x{private key4}' }
+        ],
+        [
+            PrivateKey { _privateKey: '0x{private key5}' },
+            PrivateKey { _privateKey: '0x{private key6}' }
+        ]
+    ]
 }
 ```
 
@@ -328,15 +328,15 @@ Creates a `SingleKeyring` instance from a private key string or a [KlaytnWalletK
 // Create singleKeyring from private key string
 > caver.wallet.keyring.createFromPrivateKey('0x{private key}')
 SingleKeyring {
-	_address: '0xaa7b43f2eab01cfd787b07ce2f2fb5d6d20a8aa0',
-	_key: PrivateKey { _privateKey: '0x{private key}' }
+    _address: '0xaa7b43f2eab01cfd787b07ce2f2fb5d6d20a8aa0',
+    _key: PrivateKey { _privateKey: '0x{private key}' }
 }
 
 // Create singleKeyring from KlaytnWalletKey
 > caver.wallet.keyring.createFromPrivateKey('0x{private key}0x{type}0x{address in hex}')
 SingleKeyring {
-	_address: '0xaa7b43f2eab01cfd787b07ce2f2fb5d6d20a8aa0',
-	_key: PrivateKey { _privateKey: '0x{private key}' }
+    _address: '0xaa7b43f2eab01cfd787b07ce2f2fb5d6d20a8aa0',
+    _key: PrivateKey { _privateKey: '0x{private key}' }
 }
 ```
 
@@ -365,8 +365,8 @@ Creates a `SingleKeyring` instance from a [KlaytnWalletKey] string.
 ```javascript
 > caver.wallet.keyring.createFromKlaytnWalletKey('0x{private key}0x{type}0x{address in hex}')
 SingleKeyring {
-	_address: '0xaa7b43f2eab01cfd787b07ce2f2fb5d6d20a8aa0',
-	_key: PrivateKey { _privateKey: '0x{private key}' }
+    _address: '0xaa7b43f2eab01cfd787b07ce2f2fb5d6d20a8aa0',
+    _key: PrivateKey { _privateKey: '0x{private key}' }
 }
 ```
 
@@ -396,8 +396,8 @@ Creates a `SingleKeyring` instance from an address and a private key string.
 ```javascript
 > caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key}')
 SingleKeyring {
-	_address: '0xaa7b43f2eab01cfd787b07ce2f2fb5d6d20a8aa0',
-	_key: PrivateKey { _privateKey: '0x{private key}' }
+    _address: '0xaa7b43f2eab01cfd787b07ce2f2fb5d6d20a8aa0',
+    _key: PrivateKey { _privateKey: '0x{private key}' }
 }
 ```
 
@@ -427,11 +427,11 @@ Creates a `MultipleKeyring` instance from an address and private key strings.
 ```javascript
 > caver.wallet.keyring.createWithMultipleKey('0x{address in hex}', ['0x{private key1}', '0x{private key2}' ])
 MultipleKeyring {
-	_address: '0x30fcfa9679c7141a234c1324c7e0a8b715bdfc90',
-	_keys: [
-		PrivateKey { _privateKey: '0x{private key1}' },
-		PrivateKey { _privateKey: '0x{private key2}' }
-	]
+    _address: '0x30fcfa9679c7141a234c1324c7e0a8b715bdfc90',
+    _keys: [
+        PrivateKey { _privateKey: '0x{private key1}' },
+        PrivateKey { _privateKey: '0x{private key2}' }
+    ]
 }
 ```
 
@@ -460,27 +460,27 @@ Creates a `RoleBasedKeyring` instance from an address and a 2D array of which ea
 
 ```javascript
 > const roleBasedKeys = [
-	['0x{private key1}', '0x{private key2}'],
-	['0x{private key3}', '0x{private key4}'],
-	['0x{private key5}', '0x{private key6}'],
+    ['0x{private key1}', '0x{private key2}'],
+    ['0x{private key3}', '0x{private key4}'],
+    ['0x{private key5}', '0x{private key6}'],
 ]
 > caver.wallet.keyring.createWithRoleBasedKey('0x{address in hex}', roleBasedKeys)
 RoleBasedKeyring {
-	_address: '0x30fcfa9679c7141a234c1324c7e0a8b715bdfc90',
-	_keys: [
-		[
-			PrivateKey { _privateKey: '0x{private key1}' },
-			PrivateKey { _privateKey: '0x{private key2}' }
-		],
-		[
-			PrivateKey { _privateKey: '0x{private key3}' },
-			PrivateKey { _privateKey: '0x{private key4}' }
-		],
-		[
-			PrivateKey { _privateKey: '0x{private key5}' },
-			PrivateKey { _privateKey: '0x{private key6}' }
-		]
-	]
+    _address: '0x30fcfa9679c7141a234c1324c7e0a8b715bdfc90',
+    _keys: [
+        [
+            PrivateKey { _privateKey: '0x{private key1}' },
+            PrivateKey { _privateKey: '0x{private key2}' }
+        ],
+        [
+            PrivateKey { _privateKey: '0x{private key3}' },
+            PrivateKey { _privateKey: '0x{private key4}' }
+        ],
+        [
+            PrivateKey { _privateKey: '0x{private key5}' },
+            PrivateKey { _privateKey: '0x{private key6}' }
+        ]
+    ]
 }
 ```
 
@@ -510,199 +510,199 @@ Decrypts a keystore v3 or v4 JSON and returns the decrypted Keyring instance.
 ```javascript
 // Decrypt keystroe v4 (encrypted single keyring)
 > caver.wallet.keyring.decrypt({ 
-	version: 4,
-	id: '9c12de05-0153-41c7-a8b7-849472eb5de7',
-	address: '0xc02cec4d0346bf4124deeb55c5216a4138a40a8c',
-	keyring: [
-		{ 
-			ciphertext: 'eacf496cea5e80eca291251b3743bf93cdbcf7072efc3a74efeaf518e2796b15',
-			cipherparams: { iv: 'd688a4319342e872cefcf51aef3ec2da' },
-			cipher: 'aes-128-ctr',
-			kdf: 'scrypt',
-			kdfparams: {
-				dklen: 32,
-				salt: 'c3cee502c7157e0faa42386c6d666116ffcdf093c345166c502e23bc34e6ba40',
-				n: 4096,
-				r: 8,
-				p: 1
-			},
-			mac: '4b49574f3d3356fa0d04f73e07d5a2a6bbfdd185bedfa31f37f347bc98f2ef26'
-		}
-	]
+    version: 4,
+    id: '9c12de05-0153-41c7-a8b7-849472eb5de7',
+    address: '0xc02cec4d0346bf4124deeb55c5216a4138a40a8c',
+    keyring: [
+        { 
+            ciphertext: 'eacf496cea5e80eca291251b3743bf93cdbcf7072efc3a74efeaf518e2796b15',
+            cipherparams: { iv: 'd688a4319342e872cefcf51aef3ec2da' },
+            cipher: 'aes-128-ctr',
+            kdf: 'scrypt',
+            kdfparams: {
+                dklen: 32,
+                salt: 'c3cee502c7157e0faa42386c6d666116ffcdf093c345166c502e23bc34e6ba40',
+                n: 4096,
+                r: 8,
+                p: 1
+            },
+            mac: '4b49574f3d3356fa0d04f73e07d5a2a6bbfdd185bedfa31f37f347bc98f2ef26'
+        }
+    ]
 }, 'password')
 SingleKeyring {
-	_address: '0xc02cec4d0346bf4124deeb55c5216a4138a40a8c',
-	_key: PrivateKey { _privateKey: '0x{private key}' }
+    _address: '0xc02cec4d0346bf4124deeb55c5216a4138a40a8c',
+    _key: PrivateKey { _privateKey: '0x{private key}' }
 }
 
 // Decrypt keystroe v4 (encrypted multiple keyring)
 > caver.wallet.keyring.decrypt({
-	version: 4,
-	id: '55da3f9c-6444-4fc1-abfa-f2eabfc57501',
-	address: '0x86bce8c859f5f304aa30adb89f2f7b6ee5a0d6e2',
-	keyring: [
-		{
-			ciphertext: '93dd2c777abd9b80a0be8e1eb9739cbf27c127621a5d3f81e7779e47d3bb22f6',
-			cipherparams: { iv: '84f90907f3f54f53d19cbd6ae1496b86' },
-			cipher: 'aes-128-ctr',
-			kdf: 'scrypt',
-			kdfparams: {
-				dklen: 32,
-				salt: '69bf176a136c67a39d131912fb1e0ada4be0ed9f882448e1557b5c4233006e10',
-				n: 4096,
-				r: 8,
-				p: 1,
-			},
-			mac: '8f6d1d234f4a87162cf3de0c7fb1d4a8421cd8f5a97b86b1a8e576ffc1eb52d2',
-		},
-		{
-			ciphertext: '53d50b4e86b550b26919d9b8cea762cd3c637dfe4f2a0f18995d3401ead839a6',
-			cipherparams: { iv: 'd7a6f63558996a9f99e7daabd289aa2c' },
-			cipher: 'aes-128-ctr',
-			kdf: 'scrypt',
-			kdfparams: {
-				dklen: 32,
-				salt: '966116898d90c3e53ea09e4850a71e16df9533c1f9e1b2e1a9edec781e1ad44f',
-				n: 4096,
-				r: 8,
-				p: 1,
-			},
-			mac: 'bca7125e17565c672a110ace9a25755847d42b81aa7df4bb8f5ce01ef7213295',
-		},
-	],
+    version: 4,
+    id: '55da3f9c-6444-4fc1-abfa-f2eabfc57501',
+    address: '0x86bce8c859f5f304aa30adb89f2f7b6ee5a0d6e2',
+    keyring: [
+        {
+            ciphertext: '93dd2c777abd9b80a0be8e1eb9739cbf27c127621a5d3f81e7779e47d3bb22f6',
+            cipherparams: { iv: '84f90907f3f54f53d19cbd6ae1496b86' },
+            cipher: 'aes-128-ctr',
+            kdf: 'scrypt',
+            kdfparams: {
+                dklen: 32,
+                salt: '69bf176a136c67a39d131912fb1e0ada4be0ed9f882448e1557b5c4233006e10',
+                n: 4096,
+                r: 8,
+                p: 1,
+            },
+            mac: '8f6d1d234f4a87162cf3de0c7fb1d4a8421cd8f5a97b86b1a8e576ffc1eb52d2',
+        },
+        {
+            ciphertext: '53d50b4e86b550b26919d9b8cea762cd3c637dfe4f2a0f18995d3401ead839a6',
+            cipherparams: { iv: 'd7a6f63558996a9f99e7daabd289aa2c' },
+            cipher: 'aes-128-ctr',
+            kdf: 'scrypt',
+            kdfparams: {
+                dklen: 32,
+                salt: '966116898d90c3e53ea09e4850a71e16df9533c1f9e1b2e1a9edec781e1ad44f',
+                n: 4096,
+                r: 8,
+                p: 1,
+            },
+            mac: 'bca7125e17565c672a110ace9a25755847d42b81aa7df4bb8f5ce01ef7213295',
+        },
+    ],
 }, 'password')
 MultipleKeyring {
-	_address: '0x86bce8c859f5f304aa30adb89f2f7b6ee5a0d6e2',
-	_keys: [
-		PrivateKey { _privateKey: '0x{private key1}' },
-		PrivateKey { _privateKey: '0x{private key2}' }
-	]
+    _address: '0x86bce8c859f5f304aa30adb89f2f7b6ee5a0d6e2',
+    _keys: [
+        PrivateKey { _privateKey: '0x{private key1}' },
+        PrivateKey { _privateKey: '0x{private key2}' }
+    ]
 }
 
 // Decrypt keystroe v4 (encrypted role-based keyring)
 > caver.wallet.keyring.decrypt({
-	version: 4,
-	id: '55da3f9c-6444-4fc1-abfa-f2eabfc57501',
-	address: '0x86bce8c859f5f304aa30adb89f2f7b6ee5a0d6e2',
-	keyring: [
-		[
-			{
-				ciphertext: '93dd2c777abd9b80a0be8e1eb9739cbf27c127621a5d3f81e7779e47d3bb22f6',
-				cipherparams: { iv: '84f90907f3f54f53d19cbd6ae1496b86' },
-				cipher: 'aes-128-ctr',
-				kdf: 'scrypt',
-				kdfparams: {
-					dklen: 32,
-					salt: '69bf176a136c67a39d131912fb1e0ada4be0ed9f882448e1557b5c4233006e10',
-					n: 4096,
-					r: 8,
-					p: 1,
-				},
-				mac: '8f6d1d234f4a87162cf3de0c7fb1d4a8421cd8f5a97b86b1a8e576ffc1eb52d2',
-			},
-			{
-				ciphertext: '53d50b4e86b550b26919d9b8cea762cd3c637dfe4f2a0f18995d3401ead839a6',
-				cipherparams: { iv: 'd7a6f63558996a9f99e7daabd289aa2c' },
-				cipher: 'aes-128-ctr',
-				kdf: 'scrypt',
-				kdfparams: {
-					dklen: 32,
-					salt: '966116898d90c3e53ea09e4850a71e16df9533c1f9e1b2e1a9edec781e1ad44f',
-					n: 4096,
-					r: 8,
-					p: 1,
-				},
-				mac: 'bca7125e17565c672a110ace9a25755847d42b81aa7df4bb8f5ce01ef7213295',
-			},
-		],
-		[
-			{
-				ciphertext: 'f16def98a70bb2dae053f791882f3254c66d63416633b8d91c2848893e7876ce',
-				cipherparams: { iv: 'f5006128a4c53bc02cada64d095c15cf' },
-				cipher: 'aes-128-ctr',
-				kdf: 'scrypt',
-				kdfparams: {
-					dklen: 32,
-					salt: '0d8a2f71f79c4880e43ff0795f6841a24cb18838b3ca8ecaeb0cda72da9a72ce',
-					n: 4096,
-					r: 8,
-					p: 1,
-				},
-				mac: '38b79276c3805b9d2ff5fbabf1b9d4ead295151b95401c1e54aed782502fc90a',
-			},
-		],
-		[
-			{
-				ciphertext: '544dbcc327942a6a52ad6a7d537e4459506afc700a6da4e8edebd62fb3dd55ee',
-				cipherparams: { iv: '05dd5d25ad6426e026818b6fa9b25818' },
-				cipher: 'aes-128-ctr',
-				kdf: 'scrypt',
-				kdfparams: {
-					dklen: 32,
-					salt: '3a9003c1527f65c772c54c6056a38b0048c2e2d58dc0e584a1d867f2039a25aa',
-					n: 4096,
-					r: 8,
-					p: 1,
-				},
-				mac: '19a698b51409cc9ac22d63d329b1201af3c89a04a1faea3111eec4ca97f2e00f',
-			},
-			{
-				ciphertext: 'dd6b920f02cbcf5998ed205f8867ddbd9b6b088add8dfe1774a9fda29ff3920b',
-				cipherparams: { iv: 'ac04c0f4559dad80dc86c975d1ef7067' },
-				cipher: 'aes-128-ctr',
-				kdf: 'scrypt',
-				kdfparams: {
-					dklen: 32,
-					salt: '22279c6dbcc706d7daa120022a236cfe149496dca8232b0f8159d1df999569d6',
-					n: 4096,
-					r: 8,
-					p: 1,
-				},
-				mac: '1c54f7378fa279a49a2f790a0adb683defad8535a21bdf2f3dadc48a7bddf517',
-			},
-		],
-	],
+    version: 4,
+    id: '55da3f9c-6444-4fc1-abfa-f2eabfc57501',
+    address: '0x86bce8c859f5f304aa30adb89f2f7b6ee5a0d6e2',
+    keyring: [
+        [
+            {
+                ciphertext: '93dd2c777abd9b80a0be8e1eb9739cbf27c127621a5d3f81e7779e47d3bb22f6',
+                cipherparams: { iv: '84f90907f3f54f53d19cbd6ae1496b86' },
+                cipher: 'aes-128-ctr',
+                kdf: 'scrypt',
+                kdfparams: {
+                    dklen: 32,
+                    salt: '69bf176a136c67a39d131912fb1e0ada4be0ed9f882448e1557b5c4233006e10',
+                    n: 4096,
+                    r: 8,
+                    p: 1,
+                },
+                mac: '8f6d1d234f4a87162cf3de0c7fb1d4a8421cd8f5a97b86b1a8e576ffc1eb52d2',
+            },
+            {
+                ciphertext: '53d50b4e86b550b26919d9b8cea762cd3c637dfe4f2a0f18995d3401ead839a6',
+                cipherparams: { iv: 'd7a6f63558996a9f99e7daabd289aa2c' },
+                cipher: 'aes-128-ctr',
+                kdf: 'scrypt',
+                kdfparams: {
+                    dklen: 32,
+                    salt: '966116898d90c3e53ea09e4850a71e16df9533c1f9e1b2e1a9edec781e1ad44f',
+                    n: 4096,
+                    r: 8,
+                    p: 1,
+                },
+                mac: 'bca7125e17565c672a110ace9a25755847d42b81aa7df4bb8f5ce01ef7213295',
+            },
+        ],
+        [
+            {
+                ciphertext: 'f16def98a70bb2dae053f791882f3254c66d63416633b8d91c2848893e7876ce',
+                cipherparams: { iv: 'f5006128a4c53bc02cada64d095c15cf' },
+                cipher: 'aes-128-ctr',
+                kdf: 'scrypt',
+                kdfparams: {
+                    dklen: 32,
+                    salt: '0d8a2f71f79c4880e43ff0795f6841a24cb18838b3ca8ecaeb0cda72da9a72ce',
+                    n: 4096,
+                    r: 8,
+                    p: 1,
+                },
+                mac: '38b79276c3805b9d2ff5fbabf1b9d4ead295151b95401c1e54aed782502fc90a',
+            },
+        ],
+        [
+            {
+                ciphertext: '544dbcc327942a6a52ad6a7d537e4459506afc700a6da4e8edebd62fb3dd55ee',
+                cipherparams: { iv: '05dd5d25ad6426e026818b6fa9b25818' },
+                cipher: 'aes-128-ctr',
+                kdf: 'scrypt',
+                kdfparams: {
+                    dklen: 32,
+                    salt: '3a9003c1527f65c772c54c6056a38b0048c2e2d58dc0e584a1d867f2039a25aa',
+                    n: 4096,
+                    r: 8,
+                    p: 1,
+                },
+                mac: '19a698b51409cc9ac22d63d329b1201af3c89a04a1faea3111eec4ca97f2e00f',
+            },
+            {
+                ciphertext: 'dd6b920f02cbcf5998ed205f8867ddbd9b6b088add8dfe1774a9fda29ff3920b',
+                cipherparams: { iv: 'ac04c0f4559dad80dc86c975d1ef7067' },
+                cipher: 'aes-128-ctr',
+                kdf: 'scrypt',
+                kdfparams: {
+                    dklen: 32,
+                    salt: '22279c6dbcc706d7daa120022a236cfe149496dca8232b0f8159d1df999569d6',
+                    n: 4096,
+                    r: 8,
+                    p: 1,
+                },
+                mac: '1c54f7378fa279a49a2f790a0adb683defad8535a21bdf2f3dadc48a7bddf517',
+            },
+        ],
+    ],
 }, 'password')
 RoleBasedKeyring {
-	_address: '0x86bce8c859f5f304aa30adb89f2f7b6ee5a0d6e2',
-	_keys: [
-		[
-			PrivateKey { _privateKey: '0x{private key1}' },
-			PrivateKey { _privateKey: '0x{private key2}' }
-		],
-		[
-			PrivateKey { _privateKey: '0x{private key3}' }
-		],
-		[
-			PrivateKey { _privateKey: '0x{private key4}' },
-			PrivateKey { _privateKey: '0x{private key5}' }
-		]
-	]
+    _address: '0x86bce8c859f5f304aa30adb89f2f7b6ee5a0d6e2',
+    _keys: [
+        [
+            PrivateKey { _privateKey: '0x{private key1}' },
+            PrivateKey { _privateKey: '0x{private key2}' }
+        ],
+        [
+            PrivateKey { _privateKey: '0x{private key3}' }
+        ],
+        [
+            PrivateKey { _privateKey: '0x{private key4}' },
+            PrivateKey { _privateKey: '0x{private key5}' }
+        ]
+    ]
 }
 
 // Decrypt keystroe v3 JSON
 > caver.wallet.keyring.decrypt({ 
-	version: 3,
-	id: '43f99d36-3905-40e6-bff8-ff0dfc380037',
-	address: '0xc02cec4d0346bf4124deeb55c5216a4138a40a8c',
-	crypto: {
-		ciphertext: 'f7296e68807837a5318502c097276a89d58d91b85e45e692aee284a27bcd0955',
-		cipherparams: { iv: '03fd985d07777601078840c73cc6f7f3' },
-		cipher: 'aes-128-ctr',
-		kdf: 'scrypt',
-		kdfparams: {
-			dklen: 32,
-			salt: '46f85271c43fa64ab3338c5235f1d5073bc9379d9b7ba6065c89afb816d83a8a',
-			n: 4096,
-			r: 8,
-			p: 1
-		},
-	 mac: '947f13cd1481fa5ba186e59418ef7600fa69e9830054d59e4d5dc67176e1f967'
-	}
+    version: 3,
+    id: '43f99d36-3905-40e6-bff8-ff0dfc380037',
+    address: '0xc02cec4d0346bf4124deeb55c5216a4138a40a8c',
+    crypto: {
+        ciphertext: 'f7296e68807837a5318502c097276a89d58d91b85e45e692aee284a27bcd0955',
+        cipherparams: { iv: '03fd985d07777601078840c73cc6f7f3' },
+        cipher: 'aes-128-ctr',
+        kdf: 'scrypt',
+        kdfparams: {
+            dklen: 32,
+            salt: '46f85271c43fa64ab3338c5235f1d5073bc9379d9b7ba6065c89afb816d83a8a',
+            n: 4096,
+            r: 8,
+            p: 1
+        },
+     mac: '947f13cd1481fa5ba186e59418ef7600fa69e9830054d59e4d5dc67176e1f967'
+    }
 }, 'password')
 SingleKeyring {
-	_address: '0xc02cec4d0346bf4124deeb55c5216a4138a40a8c',
-	_key: PrivateKey { _privateKey: '0x{private key}' }
+    _address: '0xc02cec4d0346bf4124deeb55c5216a4138a40a8c',
+    _key: PrivateKey { _privateKey: '0x{private key}' }
 }
 ```
 
@@ -735,9 +735,9 @@ Returns the public key string(s). If `keyring` is an instance of [SingleKeyring]
 // Get public key with roleBasedKeyring
 > keyring.getPublicKey()
 [
-	[ '0x2d939...', '0x6beb4...', '0xd8f2f...' ],
-	[ '0xf09cd...', '0x96a63...', '0x02000...' ],
-	[ '0xc2d33...', '0x3088f...', '0xab193...' ]
+    [ '0x2d939...', '0x6beb4...', '0xd8f2f...' ],
+    [ '0xf09cd...', '0x96a63...', '0x02000...' ],
+    [ '0xc2d33...', '0x3088f...', '0xab193...' ]
 ]
 ```
 
@@ -762,38 +762,38 @@ Returns a copied keyring instance.
 // When keyring is an instance of SingleKeyring
 > keyring.copy()
 SingleKeyring {
-	_address: '0x30fcfa9679c7141a234c1324c7e0a8b715bdfc90',
-	_key: PrivateKey { _privateKey: '0x{private key}' }
+    _address: '0x30fcfa9679c7141a234c1324c7e0a8b715bdfc90',
+    _key: PrivateKey { _privateKey: '0x{private key}' }
 }
 
 // When keyring is an instance of MultipleKeyring
 > keyring.copy()
 MultipleKeyring {
-	_address: '0x30fcfa9679c7141a234c1324c7e0a8b715bdfc90',
-	_keys: [
-		PrivateKey { _privateKey: '0x{private key1}' },
-		PrivateKey { _privateKey: '0x{private key2}' }
-	]
+    _address: '0x30fcfa9679c7141a234c1324c7e0a8b715bdfc90',
+    _keys: [
+        PrivateKey { _privateKey: '0x{private key1}' },
+        PrivateKey { _privateKey: '0x{private key2}' }
+    ]
 }
 
 // When keyring is an instance of RoleBasedKeyring
 > keyring.copy()
 RoleBasedKeyring {
-	_address: '0x30fcfa9679c7141a234c1324c7e0a8b715bdfc90',
-	_keys: [
-		[
-			PrivateKey { _privateKey: '0x{private key1}' },
-			PrivateKey { _privateKey: '0x{private key2}' }
-		],
-		[
-			PrivateKey { _privateKey: '0x{private key3}' },
-			PrivateKey { _privateKey: '0x{private key4}' }
-		],
-		[
-			PrivateKey { _privateKey: '0x{private key5}' },
-			PrivateKey { _privateKey: '0x{private key6}' }
-		]
-	]
+    _address: '0x30fcfa9679c7141a234c1324c7e0a8b715bdfc90',
+    _keys: [
+        [
+            PrivateKey { _privateKey: '0x{private key1}' },
+            PrivateKey { _privateKey: '0x{private key2}' }
+        ],
+        [
+            PrivateKey { _privateKey: '0x{private key3}' },
+            PrivateKey { _privateKey: '0x{private key4}' }
+        ],
+        [
+            PrivateKey { _privateKey: '0x{private key5}' },
+            PrivateKey { _privateKey: '0x{private key6}' }
+        ]
+    ]
 }
 ```
 
@@ -811,7 +811,7 @@ When signing transactions, it is recommended to use [caver.wallet.sign] or [tran
 
 | Name | Type | Description |
 | --- | --- | --- |
-| transactionHash | string | The hash string of transaction to sign. |
+| transactionHash | string | The hash string of a transaction to sign. |
 | chainId | string &#124; number | The chain id of the Klaytn blockchain platform. |
 | role | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`. |
 | index | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
@@ -828,40 +828,40 @@ When signing transactions, it is recommended to use [caver.wallet.sign] or [tran
 // Using roleBasedKeyring which has two private key in roleTransactionKey
 > keyring.sign('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550', '0x2810', caver.wallet.keyring.role.roleTransactionKey)
 [
-	SignatureData { _v: '0x5044', _r: '0x7a8b6...', _s: '0x17139...' },
-	SignatureData { _v: '0x5043', _r: '0x7f978...', _s: '0x1a532...' }
+    SignatureData { _v: '0x5044', _r: '0x7a8b6...', _s: '0x17139...' },
+    SignatureData { _v: '0x5043', _r: '0x7f978...', _s: '0x1a532...' }
 ]
 
 // Using roleBasedKeyring which has two private key in roleTransactionKey with index
 > keyring.sign('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550', '0x2810', caver.wallet.keyring.role.roleTransactionKey, 1)
 [
-	SignatureData { _v: '0x5043', _r: '0x7f978...', _s: '0x1a532...' }
+    SignatureData { _v: '0x5043', _r: '0x7f978...', _s: '0x1a532...' }
 ]
 
 // Using roleBasedKeyring which has two private key in roleAccountUpdateKey
 > keyring.sign('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550', '0x2810', caver.wallet.keyring.role.roleAccountUpdateKey)
 [
-	SignatureData { _v: '0x5044', _r: '0xdbce8...', _s: '0x039a6...' },
-	SignatureData { _v: '0x5044', _r: '0xf69b7...', _s: '0x71dc9...' }
+    SignatureData { _v: '0x5044', _r: '0xdbce8...', _s: '0x039a6...' },
+    SignatureData { _v: '0x5044', _r: '0xf69b7...', _s: '0x71dc9...' }
 ]
 
 // Using roleBasedKeyring which has two private key in roleAccountUpdateKey with index
 > keyring.sign('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550', '0x2810', caver.wallet.keyring.role.roleAccountUpdateKey, 1)
 [
-	SignatureData { _v: '0x5044', _r: '0xf69b7...', _s: '0x71dc9...' }
+    SignatureData { _v: '0x5044', _r: '0xf69b7...', _s: '0x71dc9...' }
 ]
 
 // Using roleBasedKeyring which has two private key in roleFeePayerKey
 > keyring.sign('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550', '0x2810', caver.wallet.keyring.role.roleFeePayerKey)
 [
-	SignatureData { _v: '0x5043', _r: '0xe48bf...', _s: '0x1cf36...' },
-	SignatureData { _v: '0x5043', _r: '0x82976...', _s: '0x3c5e0...' }
+    SignatureData { _v: '0x5043', _r: '0xe48bf...', _s: '0x1cf36...' },
+    SignatureData { _v: '0x5043', _r: '0x82976...', _s: '0x3c5e0...' }
 ]
 
 // Using roleBasedKeyring which has two private key in roleFeePayerKey with index
 > keyring.sign('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550', '0x2810', caver.wallet.keyring.role.roleFeePayerKey, 1)
 [
-	SignatureData { _v: '0x5043', _r: '0x82976...', _s: '0x3c5e0...' }
+    SignatureData { _v: '0x5043', _r: '0x82976...', _s: '0x3c5e0...' }
 ]
 ```
 
@@ -891,7 +891,7 @@ If the user has not defined the index parameter, `keyring.signMessage` signs mes
 
 | Type | Description |
 | --- | --- |
-| object | An object that includes result of signing. |
+| object | An object that includes the result of signing. |
 
 The returned object contains the following:
 
@@ -907,21 +907,21 @@ The returned object contains the following:
 // Sign with roleTransactionKey
 > keyring.signMessage('message to sign', caver.wallet.keyring.role.roleTransactionKey)
 {
-	messageHash: '0x9c4c1ae0aa1faf7e59eaf6fcf36a34542698197b379a9949b58c92925e74c069',
-	signatures: [
-		SignatureData { _v: '0x1b', _r: '0x2dfc6...', _s: '0x15038...' }
-	],
-	message: 'message to sign'
+    messageHash: '0x9c4c1ae0aa1faf7e59eaf6fcf36a34542698197b379a9949b58c92925e74c069',
+    signatures: [
+        SignatureData { _v: '0x1b', _r: '0x2dfc6...', _s: '0x15038...' }
+    ],
+    message: 'message to sign'
 }
 
 // Sign with roleFeePayerKey and index
 > keyring.signMessage('message to sign', caver.wallet.keyring.role.roleFeePayerKey, 1)
 {
-	messageHash: '0x9c4c1ae0aa1faf7e59eaf6fcf36a34542698197b379a9949b58c92925e74c069',
-	signatures: [
-		SignatureData { _v: '0x1b', _r: '0x2dfc6...', _s: '0x15038...' }
-	],
-	message: 'message to sign'
+    messageHash: '0x9c4c1ae0aa1faf7e59eaf6fcf36a34542698197b379a9949b58c92925e74c069',
+    signatures: [
+        SignatureData { _v: '0x1b', _r: '0x2dfc6...', _s: '0x15038...' }
+    ],
+    message: 'message to sign'
 }
 ```
 
@@ -963,40 +963,40 @@ PrivateKey { _privateKey: '0x{private key}' }
 // The multipleKeyring will also return the single same array of PrivateKey intances regardless of role
 > keyring.getKeyByRole(caver.wallet.keyring.role.roleTransactionKey)
 [
-	PrivateKey { _privateKey: '0x{private key1}' },
-	PrivateKey { _privateKey: '0x{private key2}' }
+    PrivateKey { _privateKey: '0x{private key1}' },
+    PrivateKey { _privateKey: '0x{private key2}' }
 ]
 
 > keyring.getKeyByRole(caver.wallet.keyring.role.roleAccountUpdateKey)
 [
-	PrivateKey { _privateKey: '0x{private key1}' },
-	PrivateKey { _privateKey: '0x{private key2}' }
+    PrivateKey { _privateKey: '0x{private key1}' },
+    PrivateKey { _privateKey: '0x{private key2}' }
 ]
 
 > keyring.getKeyByRole(caver.wallet.keyring.role.roleFeePayerKey)
 [
-	PrivateKey { _privateKey: '0x{private key1}' },
-	PrivateKey { _privateKey: '0x{private key2}' }
+    PrivateKey { _privateKey: '0x{private key1}' },
+    PrivateKey { _privateKey: '0x{private key2}' }
 ]
 
 // getKeyByRole with roleBasedKeyring. 
 // The roleBasedKeyring will return different array of PrivateKey intances depends on role
 > keyring.getKeyByRole(caver.wallet.keyring.role.roleTransactionKey)
 [
-	PrivateKey { _privateKey: '0x{private key1}' }
+    PrivateKey { _privateKey: '0x{private key1}' }
 ]
 
 > keyring.getKeyByRole(caver.wallet.keyring.role.roleAccountUpdateKey)
 [
-	PrivateKey { _privateKey: '0x{private key2}' },
-	PrivateKey { _privateKey: '0x{private key3}' }
+    PrivateKey { _privateKey: '0x{private key2}' },
+    PrivateKey { _privateKey: '0x{private key3}' }
 ]
 
 > keyring.getKeyByRole(caver.wallet.keyring.role.roleFeePayerKey)
 [
-	PrivateKey { _privateKey: '0x{private key4}' },
-	PrivateKey { _privateKey: '0x{private key5}' },
-	PrivateKey { _privateKey: '0x{private key6}' }
+    PrivateKey { _privateKey: '0x{private key4}' },
+    PrivateKey { _privateKey: '0x{private key5}' },
+    PrivateKey { _privateKey: '0x{private key6}' }
 ]
 ```
 
@@ -1046,7 +1046,7 @@ Depending on the type of the private key(s) in the keyring, the returned [Accoun
 
 | Type | Description |
 | --- | --- |
-| [Account] | An Account instance to be used when a user updates AccountKey for their account in the Klaytn. Note that if you want to replace the existing keyring (or the existing private key(s)) with a new keyring (or a new private key(s)) for your account, you must update your AccountKey by sending Account Update transaction to Klaytn beforehand. |
+| [Account] | An Account instance to be used when a user updates AccountKey for their account in the Klaytn. Note that if you want to replace the existing keyring (or the existing private key(s)) with a new keyring (or a new private key(s)) for your account, you must update your AccountKey by sending an Account Update transaction to Klaytn beforehand. |
 
 **Example**
 
@@ -1054,103 +1054,103 @@ Depending on the type of the private key(s) in the keyring, the returned [Accoun
 // Get account with singleKeyring
 > keyring.toAccount()
 Account {
-	_address: '0x6a3edfad6d1126020d5369e9097db39281876c5d',
-	_accountKey: AccountKeyPublic { _publicKey: '0xc396b...' }
+    _address: '0x6a3edfad6d1126020d5369e9097db39281876c5d',
+    _accountKey: AccountKeyPublic { _publicKey: '0xc396b...' }
 }
 
 // Get account with multipleKeyring
 > keyring.toAccount()
 Account {
-	_address: '0x53027503242c2f99969eeb8cb3a31f48f3668712',
-	_accountKey: AccountKeyWeightedMultiSig {
-		_threshold: 1,
-		_weightedPublicKeys: [
-			WeightedPublicKey { _weight: 1, _publicKey: '0x969c8...' },
-			WeightedPublicKey { _weight: 1, _publicKey: '0x5bc06...' },
-			WeightedPublicKey { _weight: 1, _publicKey: '0x33d83...' }
-		]
-	}
+    _address: '0x53027503242c2f99969eeb8cb3a31f48f3668712',
+    _accountKey: AccountKeyWeightedMultiSig {
+        _threshold: 1,
+        _weightedPublicKeys: [
+            WeightedPublicKey { _weight: 1, _publicKey: '0x969c8...' },
+            WeightedPublicKey { _weight: 1, _publicKey: '0x5bc06...' },
+            WeightedPublicKey { _weight: 1, _publicKey: '0x33d83...' }
+        ]
+    }
 }
 
 // Get account with multipleKeyring and options
 > keyring.toAccount(new caver.account.weightedMultiSigOptions(3, [2, 2, 3]))
 Account {
-	_address: '0x53027503242c2f99969eeb8cb3a31f48f3668712',
-	_accountKey: AccountKeyWeightedMultiSig {
-		_threshold: 3,
-		_weightedPublicKeys: [
-			WeightedPublicKey { _weight: 2, _publicKey: '0x969c8...' },
-			WeightedPublicKey { _weight: 2, _publicKey: '0x5bc06...' },
-			WeightedPublicKey { _weight: 3, _publicKey: '0x33d83...' }
-		]
-	}
+    _address: '0x53027503242c2f99969eeb8cb3a31f48f3668712',
+    _accountKey: AccountKeyWeightedMultiSig {
+        _threshold: 3,
+        _weightedPublicKeys: [
+            WeightedPublicKey { _weight: 2, _publicKey: '0x969c8...' },
+            WeightedPublicKey { _weight: 2, _publicKey: '0x5bc06...' },
+            WeightedPublicKey { _weight: 3, _publicKey: '0x33d83...' }
+        ]
+    }
 }
 
 // Get account with roleBasedKeyring
 > keyring.toAccount()
 Account {
-	_address: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
-	_accountKey: AccountKeyRoleBased {
-		_accountKeys: [
-			AccountKeyWeightedMultiSig {
-				_threshold: 1,
-				_weightedPublicKeys: [
-					WeightedPublicKey { _weight: 1, _publicKey: '0x65b51...' },
-					WeightedPublicKey { _weight: 1, _publicKey: '0x8d85c...' }
-				]
-			},
-			AccountKeyWeightedMultiSig {
-				_threshold: 1,
-				_weightedPublicKeys: [
-					WeightedPublicKey { _weight: 1, _publicKey: '0x66899...' },
-					WeightedPublicKey { _weight: 1, _publicKey: '0x7705d...' }
-				]
-			},
-			AccountKeyWeightedMultiSig {
-				_threshold: 1,
-				_weightedPublicKeys: [
-					WeightedPublicKey { _weight: 1, _publicKey: '0xaa934...' },
-					WeightedPublicKey { _weight: 1, _publicKey: '0xb763f...' }
-				]
-			}
-		]
-	}
+    _address: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
+    _accountKey: AccountKeyRoleBased {
+        _accountKeys: [
+            AccountKeyWeightedMultiSig {
+                _threshold: 1,
+                _weightedPublicKeys: [
+                    WeightedPublicKey { _weight: 1, _publicKey: '0x65b51...' },
+                    WeightedPublicKey { _weight: 1, _publicKey: '0x8d85c...' }
+                ]
+            },
+            AccountKeyWeightedMultiSig {
+                _threshold: 1,
+                _weightedPublicKeys: [
+                    WeightedPublicKey { _weight: 1, _publicKey: '0x66899...' },
+                    WeightedPublicKey { _weight: 1, _publicKey: '0x7705d...' }
+                ]
+            },
+            AccountKeyWeightedMultiSig {
+                _threshold: 1,
+                _weightedPublicKeys: [
+                    WeightedPublicKey { _weight: 1, _publicKey: '0xaa934...' },
+                    WeightedPublicKey { _weight: 1, _publicKey: '0xb763f...' }
+                ]
+            }
+        ]
+    }
 }
 
 // Get account with roleBasedKeyring and options
 > const options = [
-	new caver.account.weightedMultiSigOptions(3, [2, 3]),
-	new caver.account.weightedMultiSigOptions(2, [1, 1]),
-	new caver.account.weightedMultiSigOptions(5, [3, 5])
+    new caver.account.weightedMultiSigOptions(3, [2, 3]),
+    new caver.account.weightedMultiSigOptions(2, [1, 1]),
+    new caver.account.weightedMultiSigOptions(5, [3, 5])
 ]
 > keyring.toAccount(options)
 Account {
-	_address: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
-	_accountKey: AccountKeyRoleBased {
-		_accountKeys: [
-			AccountKeyWeightedMultiSig {
-				_threshold: 3,
-				_weightedPublicKeys: [
-					WeightedPublicKey { _weight: 2, _publicKey: '0x65b51...' },
-					WeightedPublicKey { _weight: 3, _publicKey: '0x8d85c...' }
-				]
-			},
-			AccountKeyWeightedMultiSig {
-				_threshold: 2,
-				_weightedPublicKeys: [
-					WeightedPublicKey { _weight: 1, _publicKey: '0x66899...' },
-					WeightedPublicKey { _weight: 1, _publicKey: '0x7705d...' }
-				]
-			},
-			AccountKeyWeightedMultiSig {
-				_threshold: 5,
-				_weightedPublicKeys: [
-					WeightedPublicKey { _weight: 3, _publicKey: '0xaa934...' },
-					WeightedPublicKey { _weight: 5, _publicKey: '0xb763f...' }
-				]
-			}
-		]
-	}
+    _address: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
+    _accountKey: AccountKeyRoleBased {
+        _accountKeys: [
+            AccountKeyWeightedMultiSig {
+                _threshold: 3,
+                _weightedPublicKeys: [
+                    WeightedPublicKey { _weight: 2, _publicKey: '0x65b51...' },
+                    WeightedPublicKey { _weight: 3, _publicKey: '0x8d85c...' }
+                ]
+            },
+            AccountKeyWeightedMultiSig {
+                _threshold: 2,
+                _weightedPublicKeys: [
+                    WeightedPublicKey { _weight: 1, _publicKey: '0x66899...' },
+                    WeightedPublicKey { _weight: 1, _publicKey: '0x7705d...' }
+                ]
+            },
+            AccountKeyWeightedMultiSig {
+                _threshold: 5,
+                _weightedPublicKeys: [
+                    WeightedPublicKey { _weight: 3, _publicKey: '0xaa934...' },
+                    WeightedPublicKey { _weight: 5, _publicKey: '0xb763f...' }
+                ]
+            }
+        ]
+    }
 }
 ```
 
@@ -1192,63 +1192,63 @@ For more information, please refer to [KIP-3](https://kips.klaytn.com/KIPs/kip-3
 // Encrypt singleKeyring
 > keyring.encrypt('password')
 { 
-	version: 4,
-	id: '9c12de05-0153-41c7-a8b7-849472eb5de7',
-	address: '0xc02cec4d0346bf4124deeb55c5216a4138a40a8c',
-	keyring: [
-		{ 
-			ciphertext: 'eacf496cea5e80eca291251b3743bf93cdbcf7072efc3a74efeaf518e2796b15',
-			cipherparams: { iv: 'd688a4319342e872cefcf51aef3ec2da' },
-			cipher: 'aes-128-ctr',
-			kdf: 'scrypt',
-			kdfparams: {
-				dklen: 32,
-				salt: 'c3cee502c7157e0faa42386c6d666116ffcdf093c345166c502e23bc34e6ba40',
-				n: 4096,
-				r: 8,
-				p: 1
-			},
-			mac: '4b49574f3d3356fa0d04f73e07d5a2a6bbfdd185bedfa31f37f347bc98f2ef26'
-		}
-	]
+    version: 4,
+    id: '9c12de05-0153-41c7-a8b7-849472eb5de7',
+    address: '0xc02cec4d0346bf4124deeb55c5216a4138a40a8c',
+    keyring: [
+        { 
+            ciphertext: 'eacf496cea5e80eca291251b3743bf93cdbcf7072efc3a74efeaf518e2796b15',
+            cipherparams: { iv: 'd688a4319342e872cefcf51aef3ec2da' },
+            cipher: 'aes-128-ctr',
+            kdf: 'scrypt',
+            kdfparams: {
+                dklen: 32,
+                salt: 'c3cee502c7157e0faa42386c6d666116ffcdf093c345166c502e23bc34e6ba40',
+                n: 4096,
+                r: 8,
+                p: 1
+            },
+            mac: '4b49574f3d3356fa0d04f73e07d5a2a6bbfdd185bedfa31f37f347bc98f2ef26'
+        }
+    ]
 }
 
 // Encrypt multipleKeyring
 > keyring.encrypt('password')
 {
-	version: 4,
-	id: 'b9fe7bb3-3ae9-41df-a0f2-5f20f525a290',
-	address: '0x6e039858fe4c65fe6605fde722ef94a78a3fefed',
-	keyring: [
-		{ 
-			ciphertext: '91d62dd3be9a854387c2595b0a53d561b2c99c8fe4a675600a16532f48f5c750',
-			cipherparams: { iv: '853b3804c6627af342a8b35474105953' },
-			cipher: 'aes-128-ctr',
-			kdf: 'scrypt',
-			kdfparams: {
-				dklen: 32,
-				salt: '3a3b4d9bd97413b2bef95798dc27a29c73d4802ac7258e8b126eeb909f822c72',
-				n: 4096,
-				r: 8,
-				p: 1
-			},
-			mac: 'b5fe00edb3f9e5c02056b276380b30a7e61ed8e2925b898bc3d528138cd3c939'
-		},
-		{
-			ciphertext: '494486f72355d95991ba95fd5ed7eeecf0f9a3d2fa0a94400125befb4b4c043f',
-			cipherparams: { iv: '64be3daa213e359a404ec2e38c1ac9e1' },
-			cipher: 'aes-128-ctr',
-			kdf: 'scrypt',
-			kdfparams: {
-				dklen: 32,
-				salt: 'f089ee99bfe00f9a43b562624b9376b99963b9d4b8681c076935431dc5c98177',
-				n: 4096,
-				r: 8,
-				p: 1
-			},
-			mac: '4c8a72a3acb8b07d81033a8bc91f01a4025c684e882e758acde441323a75605f'
-		}
-	]
+    version: 4,
+    id: 'b9fe7bb3-3ae9-41df-a0f2-5f20f525a290',
+    address: '0x6e039858fe4c65fe6605fde722ef94a78a3fefed',
+    keyring: [
+        { 
+            ciphertext: '91d62dd3be9a854387c2595b0a53d561b2c99c8fe4a675600a16532f48f5c750',
+            cipherparams: { iv: '853b3804c6627af342a8b35474105953' },
+            cipher: 'aes-128-ctr',
+            kdf: 'scrypt',
+            kdfparams: {
+                dklen: 32,
+                salt: '3a3b4d9bd97413b2bef95798dc27a29c73d4802ac7258e8b126eeb909f822c72',
+                n: 4096,
+                r: 8,
+                p: 1
+            },
+            mac: 'b5fe00edb3f9e5c02056b276380b30a7e61ed8e2925b898bc3d528138cd3c939'
+        },
+        {
+            ciphertext: '494486f72355d95991ba95fd5ed7eeecf0f9a3d2fa0a94400125befb4b4c043f',
+            cipherparams: { iv: '64be3daa213e359a404ec2e38c1ac9e1' },
+            cipher: 'aes-128-ctr',
+            kdf: 'scrypt',
+            kdfparams: {
+                dklen: 32,
+                salt: 'f089ee99bfe00f9a43b562624b9376b99963b9d4b8681c076935431dc5c98177',
+                n: 4096,
+                r: 8,
+                p: 1
+            },
+            mac: '4c8a72a3acb8b07d81033a8bc91f01a4025c684e882e758acde441323a75605f'
+        }
+    ]
 }
 
 // Encrypt roleBasedKeyring
@@ -1339,23 +1339,23 @@ The returned object contains the following:
 ```javascript
 > keyring.encryptV3('password')
 { 
-	version: 3,
-	id: '43f99d36-3905-40e6-bff8-ff0dfc380037',
-	address: '0xc02cec4d0346bf4124deeb55c5216a4138a40a8c',
-	crypto: {
-		ciphertext: 'f7296e68807837a5318502c097276a89d58d91b85e45e692aee284a27bcd0955',
-		cipherparams: { iv: '03fd985d07777601078840c73cc6f7f3' },
-		cipher: 'aes-128-ctr',
-		kdf: 'scrypt',
-		kdfparams: {
-			dklen: 32,
-			salt: '46f85271c43fa64ab3338c5235f1d5073bc9379d9b7ba6065c89afb816d83a8a',
-			n: 4096,
-			r: 8,
-			p: 1
-		},
-	 mac: '947f13cd1481fa5ba186e59418ef7600fa69e9830054d59e4d5dc67176e1f967'
-	}
+    version: 3,
+    id: '43f99d36-3905-40e6-bff8-ff0dfc380037',
+    address: '0xc02cec4d0346bf4124deeb55c5216a4138a40a8c',
+    crypto: {
+        ciphertext: 'f7296e68807837a5318502c097276a89d58d91b85e45e692aee284a27bcd0955',
+        cipherparams: { iv: '03fd985d07777601078840c73cc6f7f3' },
+        cipher: 'aes-128-ctr',
+        kdf: 'scrypt',
+        kdfparams: {
+            dklen: 32,
+            salt: '46f85271c43fa64ab3338c5235f1d5073bc9379d9b7ba6065c89afb816d83a8a',
+            n: 4096,
+            r: 8,
+            p: 1
+        },
+     mac: '947f13cd1481fa5ba186e59418ef7600fa69e9830054d59e4d5dc67176e1f967'
+    }
 }
 ```
 

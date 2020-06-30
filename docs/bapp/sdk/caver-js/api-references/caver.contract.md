@@ -125,28 +125,28 @@ The JSON interface object derived from the ABI of this contract `myContract`.
 ```javascript
 > myContract.options.jsonInterface
 [
-	{
-		constant: true,
-		inputs: [ { name: 'interfaceId', type: 'bytes4' } ],
-		name: 'supportsInterface',
-		outputs: [ { name: '', type: 'bool' } ],
-		payable: false,
-		stateMutability: 'view',
-		type: 'function',
-		signature: '0x01ffc9a7',
-	},
-	...
-	{
-		anonymous: false,
-		inputs: [
-			{ indexed: true, name: 'owner', type: 'address' },
-			{ indexed: true, name: 'spender', type: 'address' },
-			{ indexed: false, name: 'value', type: 'uint256' }
-		],
-		name: 'Approval',
-		type: 'event',
-		signature: '0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925',
-	},
+  {
+    constant: true,
+    inputs: [ { name: 'interfaceId', type: 'bytes4' } ],
+    name: 'supportsInterface',
+    outputs: [ { name: '', type: 'bool' } ],
+    payable: false,
+    stateMutability: 'view',
+    type: 'function',
+    signature: '0x01ffc9a7',
+  },
+  ...
+  {
+    anonymous: false,
+    inputs: [
+      { indexed: true, name: 'owner', type: 'address' },
+      { indexed: true, name: 'spender', type: 'address' },
+      { indexed: false, name: 'value', type: 'uint256' }
+    ],
+    name: 'Approval',
+    type: 'event',
+    signature: '0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925',
+  },
 ]
 
 // set a new jsonInterface
@@ -319,10 +319,10 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 | Name | Type | Description |
 | --- | --- | --- |
 | arguments | Array | The arguments passed to this method. |
-| [call](#methods-methodname-call) | function | The function that will call constant method and execute its smart contract method in the Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
+| [call](#methods-methodname-call) | function | The function that will call and execute a constant method in its smart contract on Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
 | [send](#methods-methodname-send) | function | The function that will send a transaction to the Klaytn and execute its method (can alter the smart contract state). |
 | [estimateGas](#methods-methodname-estimategas) | function | The that function will estimate the gas used for the execution. |
-| [encodeABI](#methods-methodname-encodeabi) | function | The function that encodes the ABI for this method. This can be sent using a transaction, calling the method or passing into another smart contract method as its argument. |
+| [encodeABI](#methods-methodname-encodeabi) | function | The function that encodes the ABI for this method. This can be sent using a transaction, calling the method, or passing into another smart contract method as its argument. |
 
 **Example**
 
@@ -375,7 +375,7 @@ The options object can contain the following:
 
 **Return Value**
 
-`Promise` returning `Mixed` - The return value(s) of the smart contract method. If it returns a single value, it is returned as it is. If it has multiple return values, they are returned as an object with properties and indices.
+`Promise` returning `Mixed` - The return value(s) of the smart contract method. If it returns a single value, it is returned as it is. If it has multiple return values, it returns an object with properties and indices.
 
 **Example**
 
@@ -454,7 +454,7 @@ The options object can contain the following:
 
 | Type | Description |
 | --- | --- |
-| PromiEvent | A promise combined event emitter. Will be resolved when the transaction receipt is available. If `send()` is called from a `myContract.deploy()`, then the promise will be resolved with the new contract instance. |
+| PromiEvent | A promise combined event emitter. It will be resolved when the transaction receipt is available. If `send()` is called from a `myContract.deploy()`, then the promise will be resolved with the new contract instance. |
 
 For PromiEvent, the following events are available:
 
@@ -669,7 +669,7 @@ The options object can contain the following:
 | --- | --- | --- |
 | filter | object | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13. |
 | fromBlock | number | (optional) The block number from which to get events. |
-| topics | Array | (optional) This allows to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
+| topics | Array | (optional) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
 
 
 **Return Value**

@@ -43,16 +43,16 @@ Decodes RLP-encoded transaction string, a raw transaction, and returns a [Transa
 ```javascript
 > caver.transaction.decode('0x08f87...')
 ValueTransfer {
-	_type: 'TxTypeValueTransfer',
-	_from: '0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b',
-	_gas: '0xf4240',
-	_nonce: '0x4d2',
-	_gasPrice: '0x19',
-	_signatures: [ 
-		SignatureData { _v: '0x25', _r: '0xf3d0c...', _s: '0x6748a...' }
-	],
-	_to: '0x7b65b75d204abed71587c9e519a89277766ee1d0',
-	_value: '0xa'
+    _type: 'TxTypeValueTransfer',
+    _from: '0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b',
+    _gas: '0xf4240',
+    _nonce: '0x4d2',
+    _gasPrice: '0x19',
+    _signatures: [ 
+        SignatureData { _v: '0x25', _r: '0xf3d0c...', _s: '0x6748a...' }
+    ],
+    _to: '0x7b65b75d204abed71587c9e519a89277766ee1d0',
+    _value: '0xa'
 }
 ```
 
@@ -87,10 +87,10 @@ For [Account Update] transaction, use [roleAccountUpdateKey], or otherwise, use 
 ```javascript
 // This example uses the ValueTransfer transaction.
 > const transaction = new caver.transaction.valueTransfer({
-	from: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
-	to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
-	value: 1,
-	gas: 30000,
+    from: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
+    to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
+    value: 1,
+    gas: 30000,
 })
 
 > const customHasher = () => { ... }
@@ -98,67 +98,67 @@ For [Account Update] transaction, use [roleAccountUpdateKey], or otherwise, use 
 // Sign a transaction with the roleBasedKeyring which use two private keys for roleTransactionKey
 > transaction.sign(roleBasedKeyring).then(console.log)
 ValueTransfer {
-	_type: 'TxTypeValueTransfer',
-	_from: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
-	_gas: '0x7530',
-	_signatures: [
-		SignatureData { _v: '0x4e43', _r: '0xd78a2...', _s: '0x379e9...' },
-		SignatureData { _v: '0x4e43', _r: '0x70a58...', _s: '0x2ab28...' }
-	],
-	_to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
-	_value: '0x1',
-	_chainId: '0x2710',
-	_gasPrice: '0x5d21dba00',
-	_nonce: '0x0'
+    _type: 'TxTypeValueTransfer',
+    _from: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
+    _gas: '0x7530',
+    _signatures: [
+        SignatureData { _v: '0x4e43', _r: '0xd78a2...', _s: '0x379e9...' },
+        SignatureData { _v: '0x4e43', _r: '0x70a58...', _s: '0x2ab28...' }
+    ],
+    _to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
+    _value: '0x1',
+    _chainId: '0x2710',
+    _gasPrice: '0x5d21dba00',
+    _nonce: '0x0'
 }
 
 // Sign a transaction with the roleBasedKeyring which use two private keys for roleTransactionKey and index
 > transaction.sign(roleBasedKeyring, 1).then(console.log)
 ValueTransfer {
-	_type: 'TxTypeValueTransfer',
-	_from: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
-	_gas: '0x7530',
-	_signatures: [
-		SignatureData { _v: '0x4e43', _r: '0x70a58...', _s: '0x2ab28...' }
-	],
-	_to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
-	_value: '0x1',
-	_chainId: '0x2710',
-	_gasPrice: '0x5d21dba00',
-	_nonce: '0x0'
+    _type: 'TxTypeValueTransfer',
+    _from: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
+    _gas: '0x7530',
+    _signatures: [
+        SignatureData { _v: '0x4e43', _r: '0x70a58...', _s: '0x2ab28...' }
+    ],
+    _to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
+    _value: '0x1',
+    _chainId: '0x2710',
+    _gasPrice: '0x5d21dba00',
+    _nonce: '0x0'
 }
 
 // Sign a transaction with the roleBasedKeyring which use two private keys for roleTransactionKey and hasher
 > transaction.sign(roleBasedKeyring, customHasher).then(console.log)
 ValueTransfer {
-	_type: 'TxTypeValueTransfer',
-	_from: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
-	_gas: '0x7530',
-	_signatures: [
-		SignatureData { _v: '0x4e44', _r: '0x7a8b6...', _s: '0x17139...' },
-		SignatureData { _v: '0x4e43', _r: '0x7f978...', _s: '0x1a532...' }
-	],
-	_to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
-	_value: '0x1',
-	_chainId: '0x2710',
-	_gasPrice: '0x5d21dba00',
-	_nonce: '0x0'
+    _type: 'TxTypeValueTransfer',
+    _from: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
+    _gas: '0x7530',
+    _signatures: [
+        SignatureData { _v: '0x4e44', _r: '0x7a8b6...', _s: '0x17139...' },
+        SignatureData { _v: '0x4e43', _r: '0x7f978...', _s: '0x1a532...' }
+    ],
+    _to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
+    _value: '0x1',
+    _chainId: '0x2710',
+    _gasPrice: '0x5d21dba00',
+    _nonce: '0x0'
 }
 
 // Sign a transaction with the roleBasedKeyring which use two private keys for roleTransactionKey, index and hasher
 > transaction.sign(roleBasedKeyring, 1, customHasher).then(console.log)
 ValueTransfer {
-	_type: 'TxTypeValueTransfer',
-	_from: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
-	_gas: '0x7530',
-	_signatures: [
-		SignatureData { _v: '0x4e43', _r: '0x7f978...', _s: '0x1a532...' }
-	],
-	_to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
-	_value: '0x1',
-	_chainId: '0x2710',
-	_gasPrice: '0x5d21dba00',
-	_nonce: '0x0'
+    _type: 'TxTypeValueTransfer',
+    _from: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
+    _gas: '0x7530',
+    _signatures: [
+        SignatureData { _v: '0x4e43', _r: '0x7f978...', _s: '0x1a532...' }
+    ],
+    _to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
+    _value: '0x1',
+    _chainId: '0x2710',
+    _gasPrice: '0x5d21dba00',
+    _nonce: '0x0'
 }
 ```
 
@@ -168,7 +168,7 @@ ValueTransfer {
 transaction.signAsFeePayer(keyring [, index] [, hasher])
 ```
 
-Signs the transaction as a transaction `fee payer` and appends `feePayerSignatures` in the transaction object with private key(s) in the `keyring`.
+Signs the transaction as a transaction `fee payer` and appends `feePayerSignatures` in the transaction object with the private key(s) in the `keyring`.
 
 For signing a transaction as a fee payer, use [roleFeePayerKey] in `keyring`. If the user has not defined an `index`, `transaction.signAsFeePayer` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.signAsFeePayer` signs the transaction using only one private key at the given index.
 
@@ -176,7 +176,7 @@ If the `transaction.feePayer` is not defined, the address of the given keyring i
 
 If the `keyring` to be used for signing the transaction was added to `caver.wallet`, you can use [caver.wallet.signAsFeePayer](../caver.wallet/README.md#caver-wallet-signasfeepayer).
 
-**NOTE** This function works only for "fee-delgated" transactions or "fee-delegated with ratio" transactions.
+**NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
 
 **Parameters**
 
@@ -199,10 +199,10 @@ If the `keyring` to be used for signing the transaction was added to `caver.wall
 ```javascript
 // This example uses the FeeDelegatedValueTransfer transaction.
 > const transaction = new caver.transaction.feeDelegatedValueTransfer({
-	from: '0x6fddbcb99d31b8755c2b840a367f53eea4b4f45c',
-	to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
-	value: 1,
-	gas: 30000,
+    from: '0x6fddbcb99d31b8755c2b840a367f53eea4b4f45c',
+    to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
+    value: 1,
+    gas: 30000,
 })
 
 > const customHasher = () => { ... }
@@ -210,75 +210,75 @@ If the `keyring` to be used for signing the transaction was added to `caver.wall
 // Sign a transaction with the address of RoleBasedKeyring which use two private keys for roleFeePayerKey
 > transaction.signAsFeePayer(roleBasedKeyring).then(console.log)
 FeeDelegatedValueTransfer {
-	_type: 'TxTypeFeeDelegatedValueTransfer',
-	_from: '0x6fddbcb99d31b8755c2b840a367f53eea4b4f45c',
-	_gas: '0x7530',
-	_signatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
-	_feePayer: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
-	_feePayerSignatures: [
-		SignatureData { _v: '0x4e44', _r: '0x7010e...', _s: '0x65d6b...' },
-		SignatureData { _v: '0x4e43', _r: '0x96ef2...', _s: '0x77f34...' }
-	],
-	_to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
-	_value: '0x1',
-	_chainId: '0x2710',
-	_gasPrice: '0x5d21dba00',
-	_nonce: '0x0'
+    _type: 'TxTypeFeeDelegatedValueTransfer',
+    _from: '0x6fddbcb99d31b8755c2b840a367f53eea4b4f45c',
+    _gas: '0x7530',
+    _signatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
+    _feePayer: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
+    _feePayerSignatures: [
+        SignatureData { _v: '0x4e44', _r: '0x7010e...', _s: '0x65d6b...' },
+        SignatureData { _v: '0x4e43', _r: '0x96ef2...', _s: '0x77f34...' }
+    ],
+    _to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
+    _value: '0x1',
+    _chainId: '0x2710',
+    _gasPrice: '0x5d21dba00',
+    _nonce: '0x0'
 }
 
 // Sign a transaction with the address of RoleBasedKeyring which use two private keys for roleFeePayerKey and index
 > transaction.signAsFeePayer(roleBasedKeyring, 1).then(console.log)
 FeeDelegatedValueTransfer {
-	_type: 'TxTypeFeeDelegatedValueTransfer',
-	_from: '0x6fddbcb99d31b8755c2b840a367f53eea4b4f45c',
-	_gas: '0x7530',
-	_signatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
-	_feePayer: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
-	_feePayerSignatures: [
-		SignatureData { _v: '0x4e43', _r: '0x96ef2...', _s: '0x77f34...' }
-	],
-	_to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
-	_value: '0x1',
-	_chainId: '0x2710',
-	_gasPrice: '0x5d21dba00',
-	_nonce: '0x0'
+    _type: 'TxTypeFeeDelegatedValueTransfer',
+    _from: '0x6fddbcb99d31b8755c2b840a367f53eea4b4f45c',
+    _gas: '0x7530',
+    _signatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
+    _feePayer: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
+    _feePayerSignatures: [
+        SignatureData { _v: '0x4e43', _r: '0x96ef2...', _s: '0x77f34...' }
+    ],
+    _to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
+    _value: '0x1',
+    _chainId: '0x2710',
+    _gasPrice: '0x5d21dba00',
+    _nonce: '0x0'
 }
 
 // Sign a transaction with the address of RoleBasedKeyring which use two private keys for roleFeePayerKey and hasher
 > transaction.signAsFeePayer(roleBasedKeyring, customHasher).then(console.log)
 FeeDelegatedValueTransfer {
-	_type: 'TxTypeFeeDelegatedValueTransfer',
-	_from: '0x6fddbcb99d31b8755c2b840a367f53eea4b4f45c',
-	_gas: '0x7530',
-	_signatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
-	_feePayer: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
-	_feePayerSignatures: [
-		SignatureData { _v: '0x4e43', _r: '0xe48bf...', _s: '0x1cf36...' },
-		SignatureData { _v: '0x4e43', _r: '0x82976...', _s: '0x3c5e0...' }
-	],
-	_to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
-	_value: '0x1',
-	_chainId: '0x2710',
-	_gasPrice: '0x5d21dba00',
-	_nonce: '0x0'
+    _type: 'TxTypeFeeDelegatedValueTransfer',
+    _from: '0x6fddbcb99d31b8755c2b840a367f53eea4b4f45c',
+    _gas: '0x7530',
+    _signatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
+    _feePayer: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
+    _feePayerSignatures: [
+        SignatureData { _v: '0x4e43', _r: '0xe48bf...', _s: '0x1cf36...' },
+        SignatureData { _v: '0x4e43', _r: '0x82976...', _s: '0x3c5e0...' }
+    ],
+    _to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
+    _value: '0x1',
+    _chainId: '0x2710',
+    _gasPrice: '0x5d21dba00',
+    _nonce: '0x0'
 }
 
 // Sign a transaction with the address of RoleBasedKeyring which use two private keys for roleFeePayerKey, index and hasher
 > transaction.signAsFeePayer(roleBasedKeyring, 1, customHasher).then(console.log)
 FeeDelegatedValueTransfer {
-	_type: 'TxTypeFeeDelegatedValueTransfer',
-	_from: '0x6fddbcb99d31b8755c2b840a367f53eea4b4f45c',
-	_gas: '0x7530',
-	_signatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
-	_feePayer: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
-	_feePayerSignatures: [
-		SignatureData { _v: '0x4e43', _r: '0x82976...', _s: '0x3c5e0...' }
-	],
-	_to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
-	_value: '0x1',
-	_chainId: '0x2710',
-	_gasPrice: '0x5d21dba00',
-	_nonce: '0x0'
+    _type: 'TxTypeFeeDelegatedValueTransfer',
+    _from: '0x6fddbcb99d31b8755c2b840a367f53eea4b4f45c',
+    _gas: '0x7530',
+    _signatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
+    _feePayer: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
+    _feePayerSignatures: [
+        SignatureData { _v: '0x4e43', _r: '0x82976...', _s: '0x3c5e0...' }
+    ],
+    _to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
+    _value: '0x1',
+    _chainId: '0x2710',
+    _gasPrice: '0x5d21dba00',
+    _nonce: '0x0'
 }
 ```
 
@@ -294,7 +294,7 @@ Appends `signatures` to the transaction.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| signatures | object &#124; Array | The signatures to be append to the transaction. [SignatureData] instance or an array containing [SignatureData] instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
+| signatures | object &#124; Array | The signatures to be appended to the transaction. [SignatureData] instance or an array containing [SignatureData] instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
 
 **Example**
 
@@ -310,7 +310,7 @@ transaction.appendFeePayerSignatures(signatures)
 
 Appends `feePayerSignatures` to the transaction.
 
-**NOTE** This function works only for "fee-delgated" transactions or "fee-delegated with ratio" transactions.
+**NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
 
 **Parameters**
 
@@ -426,7 +426,7 @@ transaction.getSenderTxHash()
 
 Returns a [senderTxHash] of transaction. 
 
-The [senderTxHash] is a hash of the transaction except the fee payer's address and signature, so [transactionHash](#transaction-gettransactionhash) and [senderTxHash] are the same for basic transactions.
+The [senderTxHash] is a hash of the transaction except for the fee payer's address and signature, so [transactionHash](#transaction-gettransactionhash) and [senderTxHash] are the same for basic transactions.
 
 For information on how to make the [senderTxHash] for each transaction type, see [Klaytn Design - Transactions].
 
@@ -476,7 +476,7 @@ Returns a RLP-encoded transaction string for making the signature of the fee pay
 
 For information on how to make a RLP-encoded transaction string to generate the fee payer's signature for each transaction type, see [Klaytn Design - Transactions].
 
-**NOTE** This function works only for "fee-delgated" transactions or "fee-delegated with ratio" transactions.
+**NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
 
 **Return Value**
 
