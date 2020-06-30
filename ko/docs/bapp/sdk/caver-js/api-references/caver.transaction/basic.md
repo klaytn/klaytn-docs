@@ -10,21 +10,21 @@ new caver.transaction.legacyTransaction(transactionObject)
 
 `LegacyTransaction` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `LegacyTransaction`.
 
-**NOTE** You can create an instance of `LegacyTransaction` from RLP-encoded string. Please refer to below example.
+**NOTE** You can create an instance of `LegacyTransaction` from RLP-encoded string. Please refer to the below example.
 
 **properties**
 
-| 명칭         | 형식  | 설명                                                                                                                                                                                                                                                 |
-| ---------- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| gas        | 문자열 | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                                                                                                   |
-| value      | 문자열 | (optional, default: `'0x0'`) The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`.                                                                                                                                         |
-| from       | 문자열 | (optional) The address of sender. If omitted, the keyring address used for signing will be set.                                                                                                                                                    |
-| to         | 문자열 | (optional, default: `'0x'`) The account address that will receive the transferred value or smart contact address if a legacy transaction execute smart contract. If a legacy transaction deploys smart contract, `to` does not need to be defined. |
-| input      | 문자열 | (optional) Data attached to the transaction, used for smart contract deployment/execution.                                                                                                                                                         |
-| signatures | 배열  | (optional) An array of signatures. A legacy transaction can have only one signature.                                                                                                                                                               |
-| 논스         | 문자열 | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce.                                                                               |
-| gasPrice   | 문자열 | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                                                                                                      |
-| chainId    | 문자열 | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                                                                                                |
+| 명칭         | 형식  | 설명                                                                                                                                                                                                                                                   |
+| ---------- | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| gas        | 문자열 | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                                                                                                     |
+| value      | 문자열 | (optional, default: `'0x0'`) The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`.                                                                                                                                           |
+| from       | 문자열 | (optional) The address of the sender. If omitted, the keyring address used for signing will be set.                                                                                                                                                  |
+| to         | 문자열 | (optional, default: `'0x'`) The account address that will receive the transferred value or smart contact address if a legacy transaction execute smart contract. If a legacy transaction deploys a smart contract, `to` does not need to be defined. |
+| input      | 문자열 | (optional) Data attached to the transaction, used for smart contract deployment/execution.                                                                                                                                                           |
+| signatures | 배열  | (optional) An array of signatures. A legacy transaction can have only one signature.                                                                                                                                                                 |
+| 논스         | 문자열 | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce.                                                                                 |
+| gasPrice   | 문자열 | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                                                                                                        |
+| chainId    | 문자열 | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                                                                                                  |
 
 **예시**
 
@@ -74,14 +74,14 @@ new caver.transaction.valueTransfer(transactionObject)
 
 `ValueTransfer` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `ValueTransfer` transaction.
 
-**NOTE** You can create an instance of `ValueTransfer` from RLP-encoded string. Please refer to below example.
+**NOTE** You can create an instance of `ValueTransfer` from RLP-encoded string. Please refer to the below example.
 
 **properties**
 
 | 명칭         | 형식  | 설명                                                                                                                                                                   |
 | ---------- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | value      | 문자열 | The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`.                                                                                        |
-| from       | 문자열 | The address of sender.                                                                                                                                               |
+| from       | 문자열 | 발신자의 주소입니다.                                                                                                                                                          |
 | to         | 문자열 | 전송되는 KLAY를 받을 계정 주소입니다.                                                                                                                                              |
 | gas        | 문자열 | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                     |
 | signatures | 배열  | (optional) An array of signatures.                                                                                                                                   |
@@ -124,14 +124,14 @@ new caver.transaction.valueTransferMemo(transactionObject)
 
 `ValueTransferMemo` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `ValueTransferMemo` transaction.
 
-**NOTE** You can create an instance of `ValueTransferMemo` from RLP-encoded string. Please refer to below example.
+**NOTE** You can create an instance of `ValueTransferMemo` from RLP-encoded string. Please refer to the below example.
 
 **properties**
 
 | 명칭         | 형식  | 설명                                                                                                                                                                   |
 | ---------- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | value      | 문자열 | The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`.                                                                                        |
-| from       | 문자열 | The address of sender.                                                                                                                                               |
+| from       | 문자열 | 발신자의 주소입니다.                                                                                                                                                          |
 | to         | 문자열 | 전송되는 KLAY를 받을 계정 주소입니다.                                                                                                                                              |
 | input      | 문자열 | 트랜잭션에 첨부되는 데이터입니다. The message should be passed to this property.                                                                                                    |
 | gas        | 문자열 | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                     |
@@ -178,13 +178,13 @@ new caver.transaction.accountUpdate(transactionObject)
 `AccountUpdate` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `AccountUpdate` transaction.
 
 
-**NOTE** You can create an instance of `AccountUpdate` from RLP-encoded string. Please refer to below example.
+**NOTE** You can create an instance of `AccountUpdate` from RLP-encoded string. Please refer to the below example.
 
 **properties**
 
 | 명칭           | 형식              | 설명                                                                                                                                                                   |
 | ------------ | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from         | 문자열             | The address of sender.                                                                                                                                               |
+| from         | 문자열             | 발신자의 주소입니다.                                                                                                                                                          |
 | 계정 (Account) | [계정(Account)][] | An [Account][] instance that contains the information needed to update your account.                                                                                 |
 | gas          | 문자열             | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                     |
 | signatures   | 배열              | (optional) An array of signatures.                                                                                                                                   |
@@ -230,23 +230,23 @@ new caver.transaction.smartContractDeploy(transactionObject)
 
 `SmartContractDeploy` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `SmartContractDeploy` transaction.
 
-**NOTE** You can create an instance of `SmartContractDeploy` from RLP-encoded string. Please refer to below example.
+**NOTE** You can create an instance of `SmartContractDeploy` from RLP-encoded string. Please refer to the below example.
 
 **properties**
 
-| 명칭            | 형식      | 설명                                                                                                                                                                                                                     |
-| ------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from          | 문자열     | The address of sender.                                                                                                                                                                                                 |
-| input         | 문자열     | 트랜잭션에 첨부되는 데이터입니다. The byte code of the smart contract to be deployed and its arguments. You can get this through [caver.abi.encodeContractDeploy](../caver.abi.md#encodecontractdeploy).                              |
-| gas           | 문자열     | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                                                                       |
-| value         | 문자열     | (optional, default: `'0x0'`) The amount of KLAY in peb to be transferred to and stored in the balance of the smart contract address when the contract is initialized. You can use `caver.utils.toPeb`.                 |
-| to            | 문자열     | (optional, default: `'0x'`) Address to which the smart contract is deployed. Currently, this value cannot be defined. 특정 주소를 지정하는 기능은 향후 지원될 예정입니다.                                                                    |
-| humanReadable | boolean | (optional, default: `false`) This must be false since human-readable address is not supported yet.                                                                                                                     |
-| codeFormat    | 문자열     | (optional, default: `'EVM'`) The code format of smart contract code. The supported value for now is EVM only. This value is converted to hex string after the assignment(e.g> `EVM` is converted to `0x0`) internally. |
-| signatures    | 배열      | (optional) An array of signatures.                                                                                                                                                                                     |
-| 논스            | 문자열     | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce.                                                   |
-| gasPrice      | 문자열     | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                                                                          |
-| chainId       | 문자열     | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                                                                    |
+| 명칭            | 형식      | 설명                                                                                                                                                                                                                       |
+| ------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| from          | 문자열     | 발신자의 주소입니다.                                                                                                                                                                                                              |
+| input         | 문자열     | 트랜잭션에 첨부되는 데이터입니다. The byte code of the smart contract to be deployed and its arguments. You can get this through [caver.abi.encodeContractDeploy](../caver.abi.md#encodecontractdeploy).                                |
+| gas           | 문자열     | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                                                                         |
+| value         | 문자열     | (optional, default: `'0x0'`) The amount of KLAY in peb to be transferred to and stored in the balance of the smart contract address when the contract is initialized. You can use `caver.utils.toPeb`.                   |
+| to            | 문자열     | (optional, default: `'0x'`) Address to which the smart contract is deployed. Currently, this value cannot be defined. 특정 주소를 지정하는 기능은 향후 지원될 예정입니다.                                                                      |
+| humanReadable | boolean | (optional, default: `false`) This must be false since human-readable address is not supported yet.                                                                                                                       |
+| codeFormat    | 문자열     | (optional, default: `'EVM'`) The code format of smart contract code. The supported value, for now, is EVM only. This value is converted to hex string after the assignment(e.g> `EVM` is converted to `0x0`) internally. |
+| signatures    | 배열      | (optional) An array of signatures.                                                                                                                                                                                       |
+| 논스            | 문자열     | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce.                                                     |
+| gasPrice      | 문자열     | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                                                                            |
+| chainId       | 문자열     | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                                                                      |
 
 **예시**
 
@@ -285,21 +285,21 @@ new caver.transaction.smartContractExecution(transactionObject)
 
 `SmartContractExecution` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `SmartContractExecution` transaction.
 
-**NOTE** You can create an instance of `SmartContractExecution` from RLP-encoded string. Please refer to below example.
+**NOTE** You can create an instance of `SmartContractExecution` from RLP-encoded string. Please refer to the below example.
 
 **properties**
 
-| 명칭         | 형식  | 설명                                                                                                                                                                                                                                            |
-| ---------- | --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from       | 문자열 | The address of sender.                                                                                                                                                                                                                        |
-| to         | 문자열 | 실행할 스마트 컨트랙트 계정의 주소입니다.                                                                                                                                                                                                                       |
-| input      | 문자열 | 트랜잭션 실행에 이용되며 트랜잭션에 첨부되는 데이터입니다. The input is an encoded string which indicates a function to call and parameters to be passed to this function. You can get this through [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall). |
-| gas        | 문자열 | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                                                                                              |
-| value      | 문자열 | (optional, default: `'0x0'`) The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`.                                                                                                                                    |
-| signatures | 배열  | (optional) An array of signatures.                                                                                                                                                                                                            |
-| 논스         | 문자열 | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce.                                                                          |
-| gasPrice   | 문자열 | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                                                                                                 |
-| chainId    | 문자열 | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                                                                                           |
+| 명칭         | 형식  | 설명                                                                                                                                                                                                                                           |
+| ---------- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from       | 문자열 | 발신자의 주소입니다.                                                                                                                                                                                                                                  |
+| to         | 문자열 | 실행할 스마트 컨트랙트 계정의 주소입니다.                                                                                                                                                                                                                      |
+| input      | 문자열 | 트랜잭션 실행에 이용되며 트랜잭션에 첨부되는 데이터입니다. The input is an encoded string that indicates a function to call and parameters to be passed to this function. You can get this through [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall). |
+| gas        | 문자열 | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                                                                                             |
+| value      | 문자열 | (optional, default: `'0x0'`) The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`.                                                                                                                                   |
+| signatures | 배열  | (optional) An array of signatures.                                                                                                                                                                                                           |
+| 논스         | 문자열 | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce.                                                                         |
+| gasPrice   | 문자열 | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                                                                                                |
+| chainId    | 문자열 | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                                                                                          |
 
 **예시**
 
@@ -339,13 +339,13 @@ new caver.transaction.cancel(transactionObject)
 
 `Cancel` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `Cancel` transaction.
 
-**NOTE** You can create an instance of `Cancel` from RLP-encoded string. Please refer to below example.
+**NOTE** You can create an instance of `Cancel` from RLP-encoded string. Please refer to the below example.
 
 **properties**
 
 | 명칭         | 형식  | 설명                                                                                                                                                                   |
 | ---------- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from       | 문자열 | The address of sender.                                                                                                                                               |
+| from       | 문자열 | 발신자의 주소입니다.                                                                                                                                                          |
 | gas        | 문자열 | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                     |
 | 논스         | 문자열 | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
 | signatures | 배열  | (optional) An array of signatures.                                                                                                                                   |
@@ -384,13 +384,13 @@ new caver.transaction.chainDataAnchoring(transactionObject)
 
 `ChainDataAnchoring` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `ChainDataAnchoring` transaction.
 
-**NOTE** You can create an instance of `ChainDataAnchoring` from RLP-encoded string. Please refer to below example.
+**NOTE** You can create an instance of `ChainDataAnchoring` from RLP-encoded string. Please refer to the below example.
 
 **properties**
 
 | 명칭         | 형식  | 설명                                                                                                                                                                   |
 | ---------- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from       | 문자열 | The address of sender.                                                                                                                                               |
+| from       | 문자열 | 발신자의 주소입니다.                                                                                                                                                          |
 | input      | 문자열 | 서비스체인의 데이터입니다.                                                                                                                                                       |
 | gas        | 문자열 | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                     |
 | 논스         | 문자열 | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
