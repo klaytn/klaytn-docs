@@ -168,7 +168,7 @@ ValueTransfer {
 transaction.signAsFeePayer(keyring [, index] [, hasher])
 ```
 
-Signs the transaction as a transaction `fee payer` and appends `feePayerSignatures` in the transaction object with private key(s) in the `keyring`.
+Signs the transaction as a transaction `fee payer` and appends `feePayerSignatures` in the transaction object with the private key(s) in the `keyring`.
 
 For signing a transaction as a fee payer, use [roleFeePayerKey] in `keyring`. If the user has not defined an `index`, `transaction.signAsFeePayer` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.signAsFeePayer` signs the transaction using only one private key at the given index.
 
@@ -176,7 +176,7 @@ If the `transaction.feePayer` is not defined, the address of the given keyring i
 
 If the `keyring` to be used for signing the transaction was added to `caver.wallet`, you can use [caver.wallet.signAsFeePayer](../caver.wallet/README.md#caver-wallet-signasfeepayer).
 
-**NOTE** This function works only for "fee-delgated" transactions or "fee-delegated with ratio" transactions.
+**NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
 
 **매개변수**
 
@@ -292,9 +292,9 @@ Appends `signatures` to the transaction.
 
 **매개변수**
 
-| 명칭         | 형식                  | 설명                                                                                                                                                                                                                                                                                        |
-| ---------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| signatures | object &#124; Array | The signatures to be append to the transaction. [SignatureData][] instance or an array containing [SignatureData][] instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
+| 명칭         | 형식                  | 설명                                                                                                                                                                                                                                                                                          |
+| ---------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| signatures | object &#124; Array | The signatures to be appended to the transaction. [SignatureData][] instance or an array containing [SignatureData][] instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
 
 **예시**
 
@@ -310,7 +310,7 @@ transaction.appendFeePayerSignatures(signatures)
 
 Appends `feePayerSignatures` to the transaction.
 
-**NOTE** This function works only for "fee-delgated" transactions or "fee-delegated with ratio" transactions.
+**NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
 
 **매개변수**
 
@@ -426,7 +426,7 @@ transaction.getSenderTxHash()
 
 Returns a [senderTxHash][] of transaction.
 
-The [senderTxHash][] is a hash of the transaction except the fee payer's address and signature, so [transactionHash](#transaction-gettransactionhash) and [senderTxHash][] are the same for basic transactions.
+The [senderTxHash][] is a hash of the transaction except for the fee payer's address and signature, so [transactionHash](#transaction-gettransactionhash) and [senderTxHash][] are the same for basic transactions.
 
 For information on how to make the [senderTxHash][] for each transaction type, see [Klaytn Design - Transactions][].
 
@@ -476,7 +476,7 @@ Returns a RLP-encoded transaction string for making the signature of the fee pay
 
 For information on how to make a RLP-encoded transaction string to generate the fee payer's signature for each transaction type, see [Klaytn Design - Transactions][].
 
-**NOTE** This function works only for "fee-delgated" transactions or "fee-delegated with ratio" transactions.
+**NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
 
 **리턴값**
 
