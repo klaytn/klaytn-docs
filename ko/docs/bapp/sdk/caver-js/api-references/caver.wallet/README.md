@@ -24,7 +24,7 @@ caver.wallet
 caver.wallet.generate(numberOfKeyrings [, entropy])
 ```
 
-Generates instances of [SingleKeyring][] in the keyringContainer with randomly generated private key.
+Generates instances of [SingleKeyring][] in the keyringContainer with randomly generated private keys.
 
 **매개변수**
 
@@ -67,14 +67,14 @@ caver.wallet.newKeyring(address, key)
 
 Creates a keyring instance with given parameters and adds it to the `caver.wallet`.
 
-If `key` is a private key string, a [SingleKeyring][] instance that use single private key is created. If `key` is an array containing private key strings, a [MultipleKeyring][] instance that use multiple private key is created. If `key` is a 2D array of which each element contains the private key(s) to be used for each role, a [RoleBasedKeyring][] instance is created. The keyring created is added to `caver.wallet`.
+If `key` is a private key string, a [SingleKeyring][] instance that uses a single private key is created. If `key` is an array containing private key strings, a [MultipleKeyring][] instance that use multiple private keys is created. If `key` is a 2D array of which each element contains the private key(s) to be used for each role, a [RoleBasedKeyring][] instance is created. The keyring created is added to `caver.wallet`.
 
 **매개변수**
 
-| 명칭      | 형식                  | 설명                                                                                                                                  |
-| ------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| address | 문자열                 | The address string.                                                                                                                 |
-| key     | string &#124; Array | The private key string, an array of private keys or a 2D array of which each array element contains keys defined for each [role][]. |
+| 명칭      | 형식                  | 설명                                                                                                                                   |
+| ------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| address | 문자열                 | The address string.                                                                                                                  |
+| key     | string &#124; Array | The private key string, an array of private keys, or a 2D array of which each array element contains keys defined for each [role][]. |
 
 **리턴값**
 
@@ -270,9 +270,9 @@ If the user has not provided the index parameter, `caver.wallet.signMessage` sig
 
 **리턴값**
 
-| 형식     | 설명                                         |
-| ------ | ------------------------------------------ |
-| object | An object that includes result of signing. |
+| 형식     | 설명                                             |
+| ------ | ---------------------------------------------- |
+| object | An object that includes the result of signing. |
 
 The returned object contains the following:
 
