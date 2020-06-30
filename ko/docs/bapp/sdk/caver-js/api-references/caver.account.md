@@ -10,7 +10,7 @@
 const account = new caver.account(address, accountKey)
 ```
 
-`Account` is a class that contains informations needed to update the [AccountKey][] of the account in the Klaytn blockchain platform (Klaytn). This is the default class for the `caver.account` package. To create an Account instance with public key string(s), please refer to [caver.account.create](#caver-account-create).
+`Account` is a class that contains information needed to update the [AccountKey][] of the account in the Klaytn blockchain platform (Klaytn). This is the default class for the `caver.account` package. To create an Account instance with public key string(s), please refer to [caver.account.create](#caver-account-create).
 
 **properties**
 
@@ -259,10 +259,10 @@ Creates an Account instance from RLP-encoded AccountKey.
 
 **매개변수**
 
-| 명칭            | 형식  | 설명                                    |
-| ------------- | --- | ------------------------------------- |
-| address       | 문자열 | The address of account to be updated. |
-| rlpEncodedKey | 문자열 | The RLP-encoded string of AccountKey. |
+| 명칭            | 형식  | 설명                                       |
+| ------------- | --- | ---------------------------------------- |
+| address       | 문자열 | The address of an account to be updated. |
+| rlpEncodedKey | 문자열 | The RLP-encoded string of AccountKey.    |
 
 
 **리턴값**
@@ -298,9 +298,9 @@ Creates an Account instance which has AccountKeyLegacy as an accountKey.
 
 **매개변수**
 
-| 명칭      | 형식  | 설명                                    |
-| ------- | --- | ------------------------------------- |
-| address | 문자열 | The address of account to be updated. |
+| 명칭      | 형식  | 설명                                       |
+| ------- | --- | ---------------------------------------- |
+| address | 문자열 | The address of an account to be updated. |
 
 
 **리턴값**
@@ -329,10 +329,10 @@ Creates an Account instance which has AccountKeyPublic as an accountKey.
 
 **매개변수**
 
-| 명칭        | 형식  | 설명                                    |
-| --------- | --- | ------------------------------------- |
-| address   | 문자열 | The address of account to be updated. |
-| publicKey | 문자열 | The public key string.                |
+| 명칭        | 형식  | 설명                                       |
+| --------- | --- | ---------------------------------------- |
+| address   | 문자열 | The address of an account to be updated. |
+| publicKey | 문자열 | The public key string.                   |
 
 
 **리턴값**
@@ -361,9 +361,9 @@ Creates an Account instance which has AccountKeyFail as an accountKey.
 
 **매개변수**
 
-| 명칭      | 형식  | 설명                                    |
-| ------- | --- | ------------------------------------- |
-| address | 문자열 | The address of account to be updated. |
+| 명칭      | 형식  | 설명                                       |
+| ------- | --- | ---------------------------------------- |
+| address | 문자열 | The address of an account to be updated. |
 
 
 **리턴값**
@@ -394,7 +394,7 @@ Creates an Account instance which has AccountKeyWeightedMultiSig as an accountKe
 
 | 명칭             | 형식                          | 설명                                                                                           |
 | -------------- | --------------------------- | -------------------------------------------------------------------------------------------- |
-| address        | 문자열                         | The address of account to be updated.                                                        |
+| address        | 문자열                         | The address of an account to be updated.                                                     |
 | publicKeyArray | 배열                          | The array that includes multiple public key strings.                                         |
 | options        | [WeightedMultiSigOptions][] | (optional) The [WeightedMultiSigOptions][] instance that defines threshold and weight array. |
 
@@ -450,7 +450,7 @@ Creates an Account instance which has AccountKeyRoleBased as an accountKey.
 
 | 명칭                       | 형식  | 설명                                                                                     |
 | ------------------------ | --- | -------------------------------------------------------------------------------------- |
-| address                  | 문자열 | The address of account to be updated.                                                  |
+| address                  | 문자열 | The address of an account to be updated.                                               |
 | roledBasedPublicKeyArray | 배열  | A two-dimensional array containing arrays of public key strings for each role.         |
 | options                  | 배열  | (optional) An array that contains [WeightedMultiSigOptions][] instances for each role. |
 
@@ -566,7 +566,7 @@ AccountKeyPublic { _publicKey: '0x02c10b598a1a3ba252acc21349d61c2fbd9bc8c15c50a5
 account.getRLPEncodingAccountKey()
 ```
 
-Return RLP-encoded string of AccountKey .
+Return RLP-encoded string of AccountKey.
 
 
 **리턴값**
