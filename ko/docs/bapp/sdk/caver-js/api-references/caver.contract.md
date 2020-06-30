@@ -125,28 +125,28 @@ myContract.options.jsonInterface
 ```javascript
 > myContract.options.jsonInterface
 [
-    {
-        constant: true,
-        inputs: [ { name: 'interfaceId', type: 'bytes4' } ],
-        name: 'supportsInterface',
-        outputs: [ { name: '', type: 'bool' } ],
-        payable: false,
-        stateMutability: 'view',
-        type: 'function',
-        signature: '0x01ffc9a7',
-    },
-    ...
-    {
-        anonymous: false,
-        inputs: [
-            { indexed: true, name: 'owner', type: 'address' },
-            { indexed: true, name: 'spender', type: 'address' },
-            { indexed: false, name: 'value', type: 'uint256' }
-        ],
-        name: 'Approval',
-        type: 'event',
-        signature: '0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925',
-    },
+  {
+    constant: true,
+    inputs: [ { name: 'interfaceId', type: 'bytes4' } ],
+    name: 'supportsInterface',
+    outputs: [ { name: '', type: 'bool' } ],
+    payable: false,
+    stateMutability: 'view',
+    type: 'function',
+    signature: '0x01ffc9a7',
+  },
+  ...
+  {
+    anonymous: false,
+    inputs: [
+      { indexed: true, name: 'owner', type: 'address' },
+      { indexed: true, name: 'spender', type: 'address' },
+      { indexed: false, name: 'value', type: 'uint256' }
+    ],
+    name: 'Approval',
+    type: 'event',
+    signature: '0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925',
+  },
 ]
 
 // set a new jsonInterface
@@ -316,13 +316,13 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 
 `Promise` returning `object` - An object in which arguments and functions for contract execution are defined.:
 
-| 명칭                                             | 형식       | 설명                                                                                                                                                                                     |
-| ---------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| arguments                                      | 배열       | The arguments passed to this method.                                                                                                                                                   |
-| [call](#methods-methodname-call)               | function | The function that will call constant method and execute its smart contract method in the Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
-| [send](#methods-methodname-send)               | function | The function that will send a transaction to the Klaytn and execute its method (can alter the smart contract state).                                                                   |
-| [estimateGas](#methods-methodname-estimategas) | function | The that function will estimate the gas used for the execution.                                                                                                                        |
-| [encodeABI](#methods-methodname-encodeabi)     | function | The function that encodes the ABI for this method. This can be sent using a transaction, calling the method or passing into another smart contract method as its argument.             |
+| 명칭                                             | 형식       | 설명                                                                                                                                                                               |
+| ---------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| arguments                                      | 배열       | The arguments passed to this method.                                                                                                                                             |
+| [call](#methods-methodname-call)               | function | The function that will call and execute a constant method in its smart contract on Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
+| [send](#methods-methodname-send)               | function | The function that will send a transaction to the Klaytn and execute its method (can alter the smart contract state).                                                             |
+| [estimateGas](#methods-methodname-estimategas) | function | The that function will estimate the gas used for the execution.                                                                                                                  |
+| [encodeABI](#methods-methodname-encodeabi)     | function | The function that encodes the ABI for this method. This can be sent using a transaction, calling the method, or passing into another smart contract method as its argument.      |
 
 **예시**
 
@@ -375,7 +375,7 @@ Will call a "constant" method and execute its smart contract method in the Klayt
 
 **리턴값**
 
-`Promise` returning `Mixed` - The return value(s) of the smart contract method. 하나를 반환하면, 그대로 반환됩니다. If it has multiple return values, they are returned as an object with properties and indices.
+`Promise` returning `Mixed` - The return value(s) of the smart contract method. 하나를 반환하면, 그대로 반환됩니다. If it has multiple return values, it returns an object with properties and indices.
 
 **예시**
 
@@ -452,9 +452,9 @@ myContract.methods.methodName([param1 [, param2 [, ...]]]).send(options [, callb
 
 **리턴값**
 
-| 형식         | 설명                                                                                                                                                                                           |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| PromiEvent | 프로미스(promise)가 조합된 이벤트 이미터(event emitter). 트랜잭션 영수증이 준비되면 resolve 됩니다. If `send()` is called from a `myContract.deploy()`, then the promise will be resolved with the new contract instance. |
+| 형식         | 설명                                                                                                                                                                                                                              |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| PromiEvent | 프로미스(promise)가 조합된 이벤트 이미터(event emitter). It will be resolved when the transaction receipt is available. If `send()` is called from a `myContract.deploy()`, then the promise will be resolved with the new contract instance. |
 
 PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 
