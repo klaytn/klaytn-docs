@@ -498,7 +498,7 @@ kip7.approve(spender, amount [, sendParam])
 ```javascript
 kip7.transfer(recipient, amount [, sendParam])
 ```
-주어진 `amount`만큼의 토큰을 토큰 소유자 잔액에서 `recipient`에게 보냅니다. 토큰 소유자는 이 토큰 전송을 직접 실행해야 합니다. Thus, the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
+Transfers the given `amount` of the token from the token owner's balance to the `recipient`. 토큰 소유자는 이 토큰 전송을 직접 실행해야 합니다. Thus, the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
 
 트랜잭션 전송은 트랜잭션 발신자에게 트랜잭션 수수료를 부과함을 유의하십시오.
 
@@ -506,7 +506,7 @@ kip7.transfer(recipient, amount [, sendParam])
 
 | 명칭        | 형식                                    | 설명                                                                                                                                                                            |
 | --------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| recipient | 문자열                                   | 토큰을 받을 계정 주소입니다.                                                                                                                                                              |
+| recipient | 문자열                                   | The address of the account to receive the token.                                                                                                                              |
 | amount    | BigNumber &#124; string &#124; number | 전송될 토큰 수량입니다.                                                                                                                                                                 |
 | sendParam | object                                | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
@@ -569,7 +569,7 @@ kip7.transfer(recipient, amount [, sendParam])
 ```javascript
 kip7.safeTransfer(recipient, amount [, data] [, sendParam])
 ```
-주어진 `amount`만큼의 토큰을 토큰 소유자 잔액에서 `recipient`에게 안전하게 보냅니다. 토큰 소유자는 이 토큰 전송을 직접 실행해야 합니다. Thus, the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
+Safely transfers the given `amount` of the token from the token owner's balance to the `recipient`. 토큰 소유자는 이 토큰 전송을 직접 실행해야 합니다. Thus, the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
 
 만약 토큰 수신자 주소가 컨트랙트 주소라면, 컨트랙트는 반드시 [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface)를 구현했어야 합니다. 그렇지 않으면, 전송은 거부됩니다.
 
@@ -647,7 +647,7 @@ kip7.safeTransfer(recipient, amount [, data] [, sendParam])
 ```javascript
 kip7.transferFrom(sender, recipient, amount [, sendParam])
 ```
-주어진 `amount`만큼의 토큰을 토큰 소유자 잔액에서 `recipient`에게 보냅니다. 토큰 소유자의 토큰을 보내도록 허락받은 주소가 이 토큰 전송 트랜잭션을 실행할 수 있습니다. Thus, the approved one should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
+Transfers the given `amount` of the token from the token owner's balance to the `recipient`. 토큰 소유자의 토큰을 보내도록 허락받은 주소가 이 토큰 전송 트랜잭션을 실행할 수 있습니다. Thus, the approved one should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
 
 트랜잭션 전송은 트랜잭션 발신자에게 트랜잭션 수수료를 부과함을 유의하십시오.
 
@@ -742,7 +742,7 @@ kip7.transferFrom(sender, recipient, amount [, sendParam])
 ```javascript
 kip7.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
 ```
-주어진 `amount`만큼의 토큰을 토큰 소유자 잔액에서 `recipient`에게 안전하게 보냅니다. 토큰 소유자의 토큰을 보내도록 허락받은 주소가 이 토큰 전송 트랜잭션을 실행할 수 있습니다. Thus, the approved one should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
+Safely transfers the given `amount` of the token from the token owner's balance to the `recipient`. 토큰 소유자의 토큰을 보내도록 허락받은 주소가 이 토큰 전송 트랜잭션을 실행할 수 있습니다. Thus, the approved one should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
 
 만약 토큰 수신자 주소가 컨트랙트 주소라면, 컨트랙트는 반드시 [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface)를 구현했어야 합니다. 그렇지 않으면, 전송은 거부됩니다.
 
@@ -1224,7 +1224,7 @@ kip7.addPauser(account [, sendParam])
 
 | 명칭           | 형식     | 설명                                                                                                                                                                            |
 | ------------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | 문자열    | 컨트랙트 중지 권한을 가질 계정 주소입니다.                                                                                                                                                      |
+| 계정 (Account) | 문자열    | The address of the account to be a new pauser.                                                                                                                                |
 | sendParam    | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
 **NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a pauser with PauserRole.
