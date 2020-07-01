@@ -17,9 +17,9 @@ caver.klay.accounts.create([entropy])
 
 **매개변수**
 
-| 명칭      | 형식     | 설명                                                                                                                                    |
-| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| entropy | String | (선택 사항) 엔트로피를 증가시키는 임의의 문자열. If none is given, a random string will be generated using [randomHex](./caver.utils_1.4.1.md#randomhex). |
+| 명칭      | 형식     | 설명                                                                                                              |
+| ------- | ------ | --------------------------------------------------------------------------------------------------------------- |
+| entropy | String | (선택 사항) 엔트로피를 증가시키는 임의의 문자열. 아무 것도 지정하지 않으면 [randomHex](./caver.utils_1.4.1.md#randomhex)를 사용하여 임의의 문자열이 생성됩니다. |
 
 
 **리턴값**
@@ -560,7 +560,7 @@ caver.klay.accounts.createAccountForUpdate(address, accountKey, options)
 ```
 `AccountForUpdate` 인스턴스를 생성합니다. AccountForUpdate는 계정의 주소와 업데이트 할 새로운 공개키를 가지고 있습니다.
 
-`AccountForUpdate`는 계정 업데이트 트랜잭션 객체(`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`)의 `key`로 사용될 수 있습니다. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate).
+`AccountForUpdate`는 계정 업데이트 트랜잭션 객체(`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`)의 `key`로 사용될 수 있습니다. `AccountForUpdate`를 트랜잭션에서 사용하는 방법은 [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate)를 참조하세요.
 
 caver.klay.accounts.createAccountForUpdate의 accountKey 매개 변수는 개인키이어야합니다.
 
@@ -669,7 +669,7 @@ caver.klay.accounts.createAccountForUpdateWithPublicKey(address, keyForUpdate, o
 ```
 업데이트 할 새 키의 공개키를 사용하여 `AccountForUpdate` 인스턴스를 생성합니다.
 
-`AccountForUpdate`는 계정 업데이트 트랜잭션 객체(`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`)의 `key`로 사용될 수 있습니다. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate).
+`AccountForUpdate`는 계정 업데이트 트랜잭션 객체(`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`)의 `key`로 사용될 수 있습니다. `AccountForUpdate`를 트랜잭션에서 사용하는 방법은 [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate)를 참조하세요.
 
 **참고** `caver.klay.accounts.createAccountForUpdateWithPublicKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
@@ -756,7 +756,7 @@ caver.klay.accounts.createAccountForUpdateWithLegacyKey(address)
 ```
 계정의 키를 [AccountKeyLegacy](../../../../../klaytn/design/accounts.md#accountkeylegacy)로 업데이트 하기 위한 AccountForUpdate 인스턴스를 생성합니다. AccountKeyLegacy로 업데이트하기 전에 계정 주소와 일치하는 개인키를 가지고 있는지 확인하세요.
 
-`AccountForUpdate`는 계정 업데이트 트랜잭션 객체(`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`)의 `key`로 사용될 수 있습니다. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate).
+`AccountForUpdate`는 계정 업데이트 트랜잭션 객체(`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`)의 `key`로 사용될 수 있습니다. `AccountForUpdate`를 트랜잭션에서 사용하는 방법은 [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate)를 참조하세요.
 
 **참고** `caver.klay.accounts.createAccountForUpdateWithLegacyKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
@@ -789,7 +789,7 @@ caver.klay.accounts.createAccountForUpdateWithFailKey(address)
 ```
 계정의 키를 [AccountKeyFail](../../../../../klaytn/design/accounts.md#accountkeyfail)로 업데이트 하기 위한 AccountForUpdate 인스턴스를 생성합니다. AccountKeyFail을 가진 계정에서 보낸 트랜잭션은 항상 유효성 검사 과정에서 실패합니다.
 
-`AccountForUpdate`는 계정 업데이트 트랜잭션 객체(`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`)의 `key`로 사용될 수 있습니다. If you want to know how to use `AccountForUpdate` in the transaction, see [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate).
+`AccountForUpdate`는 계정 업데이트 트랜잭션 객체(`ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`)의 `key`로 사용될 수 있습니다. `AccountForUpdate`를 트랜잭션에서 사용하는 방법은 [Account update with AccountForUpdate](../getting-started_1.4.1.md#account-update-with-accountforupdate)를 참조하세요.
 
 **참고** `caver.klay.accounts.createAccountForUpdateWithFailKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
@@ -827,7 +827,7 @@ caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터, 이 메
 
 또한 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터, signTransaction은 입력받은 트랜잭션에 있는 기존 signatures/feePayerSignatures를 유지한 채 서명자의 서명을 덧붙입니다.
 
-See [Sending a Transaction with multiple signer](../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer) for how to combine multiple users' signatures into a single rawTransaction.
+여러 사용자의 서명을 하나의 rawTransaction으로 결합하는 방법은 [Sending a Transaction with multiple signer](../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer)를 참조하세요.
 
 **매개변수**
 
@@ -1109,7 +1109,7 @@ privateKay가 주어지지 않으면 caver-js 인메모리 지갑에 있는 수�
 
 feePayerSignTransaction은 입력받은 트랜잭션에 있는 기존 signatures/feePayerSignatures를 유지한 채 수수료 납부자 서명을 덧붙입니다.
 
-See [Sending a Transaction with multiple signer](../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer) for how to combine multiple users' signatures into a single rawTransaction.
+여러 사용자의 서명을 하나의 rawTransaction으로 결합하는 방법은 [Sending a Transaction with multiple signer](../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer)를 참조하세요.
 
 **참고** `caver.klay.accounts.feePayerSignTransaction`은 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
@@ -2180,10 +2180,10 @@ caver.klay.accounts.wallet.create([numberOfAccounts] [, entropy])
 
 **매개변수**
 
-| 명칭               | 형식     | 설명                                                                                                                                    |
-| ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| numberOfAccounts | Number | (선택 사항) 생성할 계정 수. 빈 지갑을 만들려면 비워두세요.                                                                                                   |
-| entropy          | String | (선택 사항) 엔트로피를 증가시키는 임의의 문자열. If none is given, a random string will be generated using [randomHex](./caver.utils_1.4.1.md#randomhex). |
+| 명칭               | 형식     | 설명                                                                                                              |
+| ---------------- | ------ | --------------------------------------------------------------------------------------------------------------- |
+| numberOfAccounts | Number | (선택 사항) 생성할 계정 수. 빈 지갑을 만들려면 비워두세요.                                                                             |
+| entropy          | String | (선택 사항) 엔트로피를 증가시키는 임의의 문자열. 아무 것도 지정하지 않으면 [randomHex](./caver.utils_1.4.1.md#randomhex)를 사용하여 임의의 문자열이 생성됩니다. |
 
 **리턴값**
 
@@ -2298,9 +2298,9 @@ Returns the account corresponding to the address in `caver.klay.accounts.wallet`
 
 **매개변수**
 
-| 명칭             | 형식                   | 설명                                                                                                                      |
-| -------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| addressOrIndex | String &#124; Number | An index in the wallet address list, or an address in hexadecimal. The given value should exist in the caver-js wallet. |
+| 명칭             | 형식                   | 설명                                                                                              |
+| -------------- | -------------------- | ----------------------------------------------------------------------------------------------- |
+| addressOrIndex | String &#124; Number | An index in the wallet address list, or an address in hexadecimal. 주어진 값은 caver-js 지갑에 있어야 합니다. |
 
 **리턴값**
 
@@ -2345,20 +2345,20 @@ Account {
 ```javascript
 caver.klay.accounts.wallet.remove(account)
 ```
-Removes an account from the wallet.
+지갑에서 계정을 제거합니다.
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                              |
-| ------------ | -------------------- | ----------------------------------------------- |
-| 계정 (Account) | String &#124; Number | The account address or the index in the wallet. |
+| 명칭           | 형식                   | 설명                |
+| ------------ | -------------------- | ----------------- |
+| 계정 (Account) | String &#124; Number | 지갑의 계좌 주소 또는 인덱스. |
 
 
 **리턴값**
 
-| 형식      | 설명                                                                  |
-| ------- | ------------------------------------------------------------------- |
-| Boolean | `true` if the wallet was removed. `false` if it could not be found. |
+| 형식      | 설명                                   |
+| ------- | ------------------------------------ |
+| Boolean | 지갑이 제거된 경우 `true`. 찾을 수 없으면 `false`. |
 
 
 **예시**
@@ -2388,7 +2388,7 @@ false
 ```javascript
 caver.klay.accounts.wallet.clear()
 ```
-Securely empties the wallet and removes all its accounts.
+지갑을 안전하게 비우고 모든 계정을 제거합니다.
 
 **매개변수**
 
@@ -2417,20 +2417,20 @@ Wallet {
 ```javascript
 caver.klay.accounts.wallet.encrypt(password)
 ```
-Encrypts all wallet accounts and returns an array of encrypted keystore v3 objects.
+모든 지갑 계정을 암호화하고 암호화된 키스토어 v3 객체 배열을 반환합니다.
 
 **매개변수**
 
-| 명칭       | 형식     | 설명                                             |
-| -------- | ------ | ---------------------------------------------- |
-| password | String | The password that will be used for encryption. |
+| 명칭       | 형식     | 설명             |
+| -------- | ------ | -------------- |
+| password | String | 암호화에 사용될 비밀번호. |
 
 
 **리턴값**
 
-| 형식 | 설명                                 |
-| -- | ---------------------------------- |
-| 배열 | The encrypted keystore v3 objects. |
+| 형식 | 설명                |
+| -- | ----------------- |
+| 배열 | 암호화된 키스토어 v3 객체들. |
 
 
 **예시**
@@ -2485,14 +2485,14 @@ Encrypts all wallet accounts and returns an array of encrypted keystore v3 objec
 ```javascript
 caver.klay.accounts.wallet.decrypt(keystoreArray, password)
 ```
-Decrypts keystore v3 objects.
+키스토어 v3 객체들을 복호화합니다.
 
 **매개변수**
 
-| 명칭            | 형식     | 설명                                            |
-| ------------- | ------ | --------------------------------------------- |
-| keystoreArray | 배열     | The encrypted keystore v3 objects to decrypt. |
-| password      | String | The password that was used for encryption.    |
+| 명칭            | 형식     | 설명                     |
+| ------------- | ------ | ---------------------- |
+| keystoreArray | 배열     | 복호화할 암호화된 키스토어 v3 객체들. |
+| password      | String | 암호화에 사용된 비밀번호.         |
 
 
 **리턴값**
@@ -2566,20 +2566,20 @@ Wallet {
 caver.klay.accounts.wallet.getKlaytnWalletKey(index)
 caver.klay.accounts.wallet.getKlaytnWalletKey(address)
 ```
-Return the Klaytn wallet key for the account on the wallet of caver-js.
+caver-js 지갑에 있는 계정에 대한 Klaytn 지갑 키를 반환합니다.
 
 **매개변수**
 
-| 명칭             | 형식                 | 설명                                                                                                                   |
-| -------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------- |
-| indexOrAddress | Number&#124;String | An index in the wallet address list, an address in hexadecimal. The given value should exist in the caver-js wallet. |
+| 명칭             | 형식                 | 설명                                                          |
+| -------------- | ------------------ | ----------------------------------------------------------- |
+| indexOrAddress | Number&#124;String | 지갑 주소 목록의 인덱스로, 16진수로 된 주소입니다. 주어진 값은 caver-js 지갑에 있어야 합니다. |
 
 
 **리턴값**
 
-| 형식     | 설명                                                                                       |
-| ------ | ---------------------------------------------------------------------------------------- |
-| String | KlaytnWalletKey that matches the account. This value allows you to log in to the wallet. |
+| 형식     | 설명                                                   |
+| ------ | ---------------------------------------------------- |
+| String | 계정과 일치하는 KlaytnWalletKey. 이 값을 사용하면 지갑에 로그인할 수 있습니다. |
 
 
 **예시**
@@ -2607,18 +2607,18 @@ Error: Failed to find account
 ```javascript
 caver.klay.accounts.wallet.updatePrivateKey(privateKey, address)
 ```
-Update the account's private key information stored in the wallet.
+지갑에 저장된 계정의 개인키 정보를 업데이트합니다.
 
-**NOTE**: This function only changes the information stored in the wallet of caver-js. This function has no effect on the key information stored on the Klaytn network. Keys in the Klaytn network can be changed by sending a ['ACCOUNT_UPDATE'](./caver.klay/sendtx_account_update.md#sendtransaction-account_update) transaction.
+**참고**: 이 함수는 caver-js의 지갑에 저장된 정보만을 변경합니다. 이 함수는 Klaytn 네트워크에 저장된 키 정보에는 영향을 미치지 않습니다. Klaytn 네트워크의 키는 ['ACCOUNT_UPDATE'](./caver.klay/sendtx_account_update.md#sendtransaction-account_update) 트랜잭션을 보내는 것으로 변경할 수 있습니다.
 
-**NOTE** `updatePrivateKey` only works if the account's accountKey is AccountKeyPublic. Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0) supports AccountKeys (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased), `privateKey` becomes a read-only property referencing the defaultKey of the accountKey. This method does not directly update the `privateKey`, instead update the accountKey. This method is maintained for backward-compatibility. It is now recommended to use more generic [caver.klay.accounts.wallet.updateAccountKey](#wallet-updateaccountkey).
+**참고** `updatePrivateKey`는 계정의 accountKey가 AccountKeyPublic일 때만 동작합니다. caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)에서 AccountKeys(AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased)를 지원하면서부터, `privateKey`는 accountKey의 defaultKey를 참조하는 읽기 전용 속성으로 변경되었습니다. 이 메서드는 `privateKey`직접 업데이트하지 않고 accountKey를 업데이트합니다. 이 메서드는 이전 버전과의 호환성을 위해 유지됩니다. 좀 더 포괄적인 [caver.klay.accounts.wallet.updateAccountKey](#wallet-updateaccountkey) 사용을 권장합니다.
 
 **매개변수**
 
-| 명칭         | 형식     | 설명                                      |
-| ---------- | ------ | --------------------------------------- |
-| privateKey | String | New private key to be used for updates. |
-| address    | String | The account address in the wallet.      |
+| 명칭         | 형식     | 설명                 |
+| ---------- | ------ | ------------------ |
+| privateKey | String | 업데이트에 사용될 새로운 개인키. |
+| address    | String | 지갑의 계좌 주소.         |
 
 
 **리턴값**
@@ -2649,19 +2649,19 @@ Account {
 ```javascript
 caver.klay.accounts.wallet.updateAccountKey(address, accountKey)
 ```
-Update the account's account key information stored in the wallet. When you update your account's accountKey, privateKey is updated as well to the defaultKey of the new accountKey.
+지갑에 저장된 계정의 계정 키 정보를 업데이트합니다. 계정의 accountKey를 업데이트하면 privateKey 또한 accountKey의 defaultKey로 업데이트됩니다.
 
-If the accountKey parameter is a single private key string, the account's accountKey is updated with an `AccountKeyPublic` instance. If the accountKey parameter is an array with multiple private key strings, the account's accountKey is updated with an `AccountKeyMultiSig` instance. If the accountKey parameter is an object whose keys are defined by roles, the account's accountKey is updated with an `AccountKeyRoleBased` instance.
+하나의 개인키 문자열이 accountKey 매개 변수로 전달되면, 계정의 accountKey는 `AccountKeyPublic` 인스턴스로 업데이트됩니다. 개인키 문자열의 배열이 accountKey 매개 변수로 전달되면, 계정의 accountKey는 `AccountKeyMultiSig` 인스턴스로 업데이트됩니다. 역할(Role)별 키를 정의한 객체가 accountKey 매개 변수로 전달되면, 계정의 accountKey는 `AccountKeyRoleBased` 인스턴스로 업데이트됩니다.
 
-**NOTE**: This function only changes the information stored in the wallet of caver-js. This function has no effect on the key information stored on the Klaytn network. Keys in the Klaytn network can be changed by sending a ['ACCOUNT_UPDATE'](./caver.klay/sendtx_account_update.md#sendtransaction-account_update) transaction.
+**참고**: 이 함수는 caver-js의 지갑에 저장된 정보만을 변경합니다. 이 함수는 Klaytn 네트워크에 저장된 키 정보에는 영향을 미치지 않습니다. Klaytn 네트워크의 키는 ['ACCOUNT_UPDATE'](./caver.klay/sendtx_account_update.md#sendtransaction-account_update) 트랜잭션을 보내는 것으로 변경할 수 있습니다.
 
-**NOTE** `caver.klay.accounts.wallet.updateAccountKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**참고** `caver.klay.accounts.wallet.updateAccountKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
 **매개변수**
 
 | 명칭         | 형식                                | 설명                                                                                                                                                    |
 | ---------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address    | String                            | The account address in the wallet.                                                                                                                    |
+| address    | String                            | 지갑의 계좌 주소.                                                                                                                                            |
 | accountKey | String &#124; Array &#124; Object | AccountKey 인스턴스(`AccountKeyPublic`, `AccountKeyMultiSig`, `AccountKeyRoleBased`) 또는 키 정보(개인키 문자열, 개인키 문자열의 배열 또는 각 역할에 해당하는 키를 정의한 객체)를 포함하는 데이터 구조체. |
 
 
