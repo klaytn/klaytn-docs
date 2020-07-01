@@ -12,7 +12,7 @@ new caver.transaction.feeDelegatedValueTransferWithRatio(transactionObject)
 
 **NOTE** You can create an instance of `FeeDelegatedValueTransferWithRatio` from RLP-encoded string. Please refer to the below example.
 
-**properties**
+**속성**
 
 | 명칭                 | 형식  | 설명                                                                                                                                                                                                         |
 | ------------------ | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -69,7 +69,7 @@ new caver.transaction.FeeDelegatedValueTransferMemoWithRatio(transactionObject)
 
 **NOTE** You can create an instance of `FeeDelegatedValueTransferMemoWithRatio` from RLP-encoded string. Please refer to the below example.
 
-**properties**
+**속성**
 
 | 명칭                 | 형식  | 설명                                                                                                                                                                                                         |
 | ------------------ | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -129,7 +129,7 @@ new caver.transaction.feeDelegatedAccountUpdateWithRatio(transactionObject)
 
 **NOTE** You can create an instance of `FeeDelegatedAccountUpdateWithRatio` from RLP-encoded string. Please refer to the below example.
 
-**properties**
+**속성**
 
 | 명칭                 | 형식        | 설명                                                                                                                                                                                                         |
 | ------------------ | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -188,7 +188,7 @@ new caver.transaction.feeDelegatedSmartContractDeployWithRatio(transactionObject
 
 **NOTE** You can create an instance of `FeeDelegatedSmartContractDeployWithRatio` from RLP-encoded string. Please refer to the below example.
 
-**properties**
+**속성**
 
 | 명칭                 | 형식      | 설명                                                                                                                                                                                                                       |
 | ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -250,7 +250,7 @@ new caver.transaction.feeDelegatedSmartContractExecutionWithRatio(transactionObj
 
 **NOTE** You can create an instance of `FeeDelegatedSmartContractExecutionWithRatio` from RLP-encoded string. Please refer to the below example.
 
-**properties**
+**속성**
 
 | 명칭                 | 형식  | 설명                                                                                                                                                                                                                                                          |
 | ------------------ | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -309,7 +309,7 @@ new caver.transaction.feeDelegatedCancelWithRatio(transactionObject)
 
 **NOTE** You can create an instance of `FeeDelegatedCancelWithRatio` from RLP-encoded string. Please refer to the below example.
 
-**properties**
+**속성**
 
 | 명칭                 | 형식  | 설명                                                                                                                                                                                                         |
 | ------------------ | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -361,7 +361,7 @@ new caver.transaction.feeDelegatedChainDataAnchoringWithRatio(transactionObject)
 
 **NOTE** You can create an instance of `FeeDelegatedChainDataAnchoringWithRatio` from RLP-encoded string. Please refer to the below example.
 
-**properties**
+**속성**
 
 | 명칭                 | 형식  | 설명                                                                                                                                                                                                         |
 | ------------------ | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
