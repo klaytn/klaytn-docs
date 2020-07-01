@@ -39,7 +39,7 @@ $ npm install caver-js@X.X.X
 
 ## Sending KLAY at a glance <a id="sending-klay-at-a-glance"></a>
 
-This section describes a simple example of using a `keystore file` to send KLAY with a value transfer transaction. The keystore file can be created in [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
+This section describes a simple example of using a `keystore file` to send KLAY with a value transfer transaction. The keystore file can be created in [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). 테스트를 위해 KLAY가 필요한 경우 [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에서 Baobab testnet KLAY를 얻을 수 있습니다.
 
 ```javascript
 const fs = require('fs')
@@ -449,7 +449,7 @@ This section will show you how to send KLAY using caver-js on the Baobab network
 
 ### Baobab Faucet을 통해 KLAY 받기 <a id="getting-klay-via-baobab-faucet"></a>
 
-If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). 개인키 또는 키스토어 파일을 사용하여 Klaytn Wallet에 로그인하고 테스트를 위해 faucet을 통해 Baobab 테스트넷 KLAY를 받습니다.
+테스트를 위해 KLAY가 필요한 경우 [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에서 Baobab testnet KLAY를 얻을 수 있습니다. 개인키 또는 키스토어 파일을 사용하여 Klaytn Wallet에 로그인하고 테스트를 위해 faucet을 통해 Baobab 테스트넷 KLAY를 받습니다.
 
 ### 송금 트랜잭션 전송 <a id="sending-a-value-transfer-transaction"></a>
 
@@ -647,11 +647,11 @@ The result of the transaction can be found through the `status` of the receipt. 
 
 ## 다른 트랜잭션 타입 실행하기 <a id="executing-other-transaction-types"></a>
 
-Klaytn은 확장성과 성능을 위한 다양한 트랜잭션 타입을 제공합니다. For more information, see [Transactions](../../../klaytn/design/transactions/README.md). This section describes some examples that can be used with caver-js.
+Klaytn은 확장성과 성능을 위한 다양한 트랜잭션 타입을 제공합니다. 자세한 내용은 [트랜잭션](../../../klaytn/design/transactions/README.md)을 참고하세요. This section describes some examples that can be used with caver-js.
 
 ### 트랜잭션 수수료 위임 <a id="fee-delegation"></a>
 
-Klaytn provides [Fee Delegation][] feature. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
+Klaytn은 [트랜잭션 수수료 위임][] 기능을 제공합니다. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
 
 ```javascript
 // test.js
@@ -1348,7 +1348,7 @@ caver-js를 사용한 BApp \(Blockchain Application\) 개발 샘플 프로젝트
 
 [txError: Detailed Information of Transaction Failures]: ../../json-rpc/transaction-error-codes.md
 
-[Fee Delegation]: ../../../klaytn/design/transactions/README.md#fee-delegation
+[트랜잭션 수수료 위임]: ../../../klaytn/design/transactions/README.md#fee-delegation
 [Account Update]: api-references/caver.transaction/basic.md#accountupdate
 [caver.transaction.smartContractDeploy]: api-references/caver.transaction/basic.md#smartcontractdeploy
 [caver.transaction.feeDelegatedSmartContractDeploy]: api-references/caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy
