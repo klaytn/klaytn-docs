@@ -22,7 +22,7 @@ const keyring = new caver.wallet.keyring.singleKeyring(address, key)
 
 `SingleKeyring` uses a private key with which no roles assigned.
 
-**properties**
+**속성**
 
 | 명칭      | 형식             | 설명                                                               |
 | ------- | -------------- | ---------------------------------------------------------------- |
@@ -39,7 +39,7 @@ const keyring = new caver.wallet.keyring.multipleKeyring(address, keys)
 
 `MultipleKeyring` uses private keys with which no roles assigned.
 
-**properties**
+**속성**
 
 | 명칭      | 형식  | 설명                                                                      |
 | ------- | --- | ----------------------------------------------------------------------- |
@@ -56,7 +56,7 @@ const keyring = new caver.wallet.keyring.roleBasedKeyring(address, keys)
 
 `RoleBasedKeyring` defines `keys` which is implemented as a two-dimensional array (empty `keys` looks like `[ [], [], [] ]`) that can include multiple keys for each [role][]. The first array element defines the private key(s) for `roleTransactionKey`, the second defines private key(s) for `roleAccountUpdateKey`, and the third defines the private key(s) for `roleFeePayerKey`.
 
-**properties**
+**속성**
 
 | 명칭      | 형식  | 설명                                                                                                                                                                                                                                                               |
 | ------- | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -80,7 +80,7 @@ const privateKey = new caver.wallet.keyring.privateKey('0x{private key}')
 
 `PrivateKey` is a class that contains a private key string. The private key to be used for each role in Keyring is defined as this `PrivateKey` instance.
 
-**properties**
+**속성**
 
 | 명칭         | 형식  | 설명                      |
 | ---------- | --- | ----------------------- |
@@ -95,7 +95,7 @@ const privateKey = new caver.wallet.keyring.privateKey('0x{private key}')
 const signature = new caver.wallet.keyring.signatureData(['0x1b', '0x2dfc6...', '0x15038...'])
 ```
 
-**properties**
+**속성**
 
 | 명칭 | 형식     | 설명             |
 | -- | ------ | -------------- |
