@@ -12,7 +12,7 @@ caver.wallet
 
 `KeyringContainer` is a class that manages [SingleKeyring][], [MultipleKeyring][], and [RoleBasedKeyring][] instances. When Caver is instantiated, it creates a KeyringContainer instance in the `caver.wallet`. You can store and manage keyring instances in the in-memory wallet through `caver.wallet`.
 
-**properties**
+**속성**
 
 | 명칭     | 형식     | 설명                                          |
 | ------ | ------ | ------------------------------------------- |
