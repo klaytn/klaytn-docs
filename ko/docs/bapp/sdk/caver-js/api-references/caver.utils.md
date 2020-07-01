@@ -76,9 +76,9 @@ Safely converts any given value (including [Bignumber.js](http://mikemcl.github.
 
 **매개변수**
 
-| 명칭     | 형식                   | 설명                                 |
-| ------ | -------------------- | ---------------------------------- |
-| number | string &#124; number | number to convert to a big number. |
+| 명칭     | 형식                   | 설명            |
+| ------ | -------------------- | ------------- |
+| number | string &#124; number | 큰 숫자로 변환할 숫자. |
 
 **리턴값**
 
@@ -1241,7 +1241,7 @@ false
 caver.utils.isValidHashStrict(input)
 ```
 
-Returns `true` if the input is in 0x-prefixed 32-bytes hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of 0x-prefixed 32-bytes hash. Difference to [caver.utils.isValidHash](#isvalidhash) is that it expects HEX to be prefixed with `0x`.
+Returns `true` if the input is in 0x-prefixed 32-bytes hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of 0x-prefixed 32-bytes hash. [caver.utils.isValidHash](#isvalidhash)와의 차이점은 HEX 앞에 `0x`이 붙는다는 것입니다.
 
 **매개변수**
 
@@ -1480,7 +1480,7 @@ true
 ```javascript
 caver.utils.isKlaytnWalletKey(key)
 ```
-Returns `true` if key is in [KlaytnWalletKey][] format, otherwise it returns `false`.
+키가 [KlaytnWalletKey][] 포맷이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.
 
 **매개변수**
 
