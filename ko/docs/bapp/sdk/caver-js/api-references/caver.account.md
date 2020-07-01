@@ -12,7 +12,7 @@ const account = new caver.account(address, accountKey)
 
 `Account` is a class that contains information needed to update the [AccountKey][] of the account in the Klaytn blockchain platform (Klaytn). This is the default class for the `caver.account` package. To create an Account instance with public key string(s), please refer to [caver.account.create](#caver-account-create).
 
-**properties**
+**속성**
 
 | 명칭         | 형식     | 설명                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -39,7 +39,7 @@ const accountKeyPublic = new caver.account.accountKey.accountKeyPublic(publicKey
 
 To create an Account instance with `AccountKeyPublic`, please refer to [caver.account.create](#caver-account-create) or [caver.account.createWithAccountKeyPublic](#caver-account-createwithaccountkeypublic).
 
-**properties**
+**속성**
 
 | 명칭        | 형식  | 설명                     |
 | --------- | --- | ---------------------- |
@@ -63,7 +63,7 @@ const accountKeyWeightedMultiSig = new caver.account.accountKey.accountKeyWeight
 
 To create an Account instance with `AccountKeyWeightedMultiSig`, please refer to [caver.account.create](#caver-account-create) or [caver.account.createWithAccountKeyWeightedMultiSig](#caver-account-createwithaccountkeyweightedmultisig).
 
-**properties**
+**속성**
 
 | 명칭                 | 형식     | 설명                                  |
 | ------------------ | ------ | ----------------------------------- |
@@ -80,7 +80,7 @@ const accountKeyRoleBased = new caver.account.accountKey.accountKeyRoleBased(acc
 
 To create an Account instance with `AccountKeyRoleBased`, please refer to [caver.account.create](#caver-account-create) or [caver.account.createWithAccountKeyRoleBased](#caver-account-createwithaccountkeyrolebased).
 
-**properties**
+**속성**
 
 | 명칭              | 형식 | 설명                                                                                                                                                                                                                                                                       |
 | --------------- | -- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -94,7 +94,7 @@ const weightedPublicKey = new caver.account.accountKey.weightedPublicKey(weight,
 
 `WeightedPublicKey` contains a public key and its weight. `WeightedPublicKey` is a class that contains the public key and the weight of the key, and it is used in [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig).
 
-**properties**
+**속성**
 
 | 명칭        | 형식     | 설명                                                                                                                                                                       |
 | --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -109,7 +109,7 @@ const weightedMultiSigOptions = new caver.account.weightedMultiSigOptions(thresh
 
 `WeightedMultiSigOptions` contains a threshold and weights. `WeightedMultiSigOptions` is a class for defining the options of AccountKeyWeightedMultiSig.
 
-**properties**
+**속성**
 
 | 명칭      | 형식     | 설명                           |
 | ------- | ------ | ---------------------------- |
