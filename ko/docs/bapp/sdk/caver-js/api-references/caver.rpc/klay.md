@@ -545,7 +545,7 @@ true
 caver.rpc.klay.sign(message, address [, blockNumber] [, callback])
 ```
 
-Generates signed data specific to the Klaytn. Refer to [Klaytn Platform API - klay_sign](../../../../json-rpc/api-references/klay/account.md#klay_sign) to know how the signature is generated.
+Generates signed data specific to the Klaytn. [Klaytn Platform API - klay_sign](../../../../json-rpc/api-references/klay/account.md#klay_sign)을 참고해 서명이 생성되는 방법을 확인하십시오.
 
 **NOTE**: This API provides the function to sign a message using an [imported account](../../../../json-rpc/api-references/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/api-references/personal.md#personal_unlockaccount) to sign the message. To sign a transaction with imported account in your Klaytn node, use [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction).
 
@@ -2422,7 +2422,7 @@ Note that filter ids returned by other filter creation functions, such as [caver
 
 **리턴값**
 
-See [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
+[caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)를 참조하세요
 
 **예시**
 
@@ -2468,7 +2468,7 @@ caver.rpc.klay.getLogs(options [, callback])
 
 **리턴값**
 
-See [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
+[caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)를 참조하세요
 
 **예시**
 
