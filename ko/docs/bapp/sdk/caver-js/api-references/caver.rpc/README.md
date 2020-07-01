@@ -12,7 +12,7 @@ caver.rpc
 
 `RPC` is a class that includes [Klay][] and [Net][] inside.
 
-**properties**
+**속성**
 
 | 명칭   | 형식       | 설명                                                           |
 | ---- | -------- | ------------------------------------------------------------ |
@@ -23,7 +23,7 @@ caver.rpc
 
 The `caver.rpc.klay` allows you to interact with the Klaytn nodes. The list below enumerates the API functions that are currently supported in `caver-js`.
 
-### [Account](./klay.md#caver-rpc-klay-accountcreated) <a id="account"></a>
+### [계정(Account)](./klay.md#caver-rpc-klay-accountcreated) <a id="account"></a>
 - [accountCreated](./klay.md#caver-rpc-klay-accountcreated)
 - [getAccount](./klay.md#caver-rpc-klay-getaccount)
 - [getAccountKey](./klay.md#caver-rpc-klay-getaccountkey)
@@ -36,7 +36,7 @@ The `caver.rpc.klay` allows you to interact with the Klaytn nodes. The list belo
 - [sign](./klay.md#caver-rpc-klay-sign)
 - [getAccounts](./klay.md#caver-rpc-klay-getaccounts)
 
-### [Block](./klay.md#caver-rpc-klay-getblocknumber) <a id="block"></a>
+### [블록](./klay.md#caver-rpc-klay-getblocknumber) <a id="block"></a>
 - [getBlockNumber](./klay.md#caver-rpc-klay-getblocknumber)
 - [getBlockByNumber](./klay.md#caver-rpc-klay-getblockbynumber)
 - [getBlockByHash](./klay.md#caver-rpc-klay-getblockbyhash)
@@ -52,7 +52,7 @@ The `caver.rpc.klay` allows you to interact with the Klaytn nodes. The list belo
 - [getStorageAt](./klay.md#caver-rpc-klay-getstorageat)
 - [isSyncing](./klay.md#caver-rpc-klay-issyncing)
 
-### [Transaction](./klay.md#caver-rpc-klay-call) <a id="transaction"></a>
+### [트랜잭션(Transaction)](./klay.md#caver-rpc-klay-call) <a id="transaction"></a>
 - [call](./klay.md#caver-rpc-klay-call)
 - [estimateGas](./klay.md#caver-rpc-klay-estimategas)
 - [estimateComputationCost](./klay.md#caver-rpc-klay-estimatecomputationcost)
@@ -69,7 +69,7 @@ The `caver.rpc.klay` allows you to interact with the Klaytn nodes. The list belo
 - [signTransactionAsFeePayer](./klay.md#caver-rpc-klay-signtransactionasfeepayer)
 - [getDecodedAnchoringTransactionByHash](./klay.md#caver-rpc-klay-getdecodedanchoringtransactionbyhash)
 
-### [Configuration](./klay.md#caver-rpc-klay-getclientversion) <a id="configuration"></a>
+### [환경설정](./klay.md#caver-rpc-klay-getclientversion) <a id="configuration"></a>
 - [getChainId](./klay.md#caver-rpc-klay-getchainid)
 - [getClientVersion](./klay.md#caver-rpc-klay-getclientversion)
 - [getGasPrice](./klay.md#caver-rpc-klay-getgasprice)
@@ -80,7 +80,7 @@ The `caver.rpc.klay` allows you to interact with the Klaytn nodes. The list belo
 - [getRewardbase](./klay.md#caver-rpc-klay-getrewardbase)
 - [isWriteThroughCaching](./klay.md#caver-rpc-klay-iswritethroughcaching)
 
-### [Filter](./klay.md#caver-rpc-klay-getfilterchanges) <a id="filter"></a>
+### [필터](./klay.md#caver-rpc-klay-getfilterchanges) <a id="filter"></a>
 - [getFilterChanges](./klay.md#caver-rpc-klay-getfilterchanges)
 - [getFilterLogs](./klay.md#caver-rpc-klay-getfilterlogs)
 - [getLogs](./klay.md#caver-rpc-klay-getlogs)
@@ -95,7 +95,7 @@ The `caver.rpc.klay` allows you to interact with the Klaytn nodes. The list belo
 - [getPeerCount](./net.md#caver-rpc-net-getpeercount)
 - [getPeerCountByType](./net.md#caver-rpc-net-getpeercountbytype)
 
-### [Miscellaneous](./klay.md#caver-rpc-klay-sha3) <a id="miscellaneous"></a>
+### [기타](./klay.md#caver-rpc-klay-sha3) <a id="miscellaneous"></a>
 - [sha3](./klay.md#caver-rpc-klay-sha3)
 
 [Klay]: ./klay.md
