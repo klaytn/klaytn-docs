@@ -12,7 +12,7 @@ new caver.transaction.feeDelegatedValueTransfer(transactionObject)
 
 **NOTE** You can create an instance of `FeeDelegatedValueTransfer` from RLP-encoded string. Please refer to the below example.
 
-**properties**
+**속성**
 
 | 명칭                 | 형식  | 설명                                                                                                                                                                                      |
 | ------------------ | --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -66,7 +66,7 @@ new caver.transaction.feeDelegatedValueTransferMemo(transactionObject)
 
 **NOTE** You can create an instance of `FeeDelegatedValueTransferMemo` from RLP-encoded string. Please refer to the below example.
 
-**properties**
+**속성**
 
 | 명칭                 | 형식  | 설명                                                                                                                                                                   |
 | ------------------ | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -123,7 +123,7 @@ new caver.transaction.feeDelegatedAccountUpdate(transactionObject)
 
 **NOTE** You can create an instance of `FeeDelegatedAccountUpdate` from RLP-encoded string. Please refer to the below example.
 
-**properties**
+**속성**
 
 | 명칭                 | 형식        | 설명                                                                                                                                                                   |
 | ------------------ | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -179,7 +179,7 @@ new caver.transaction.feeDelegatedSmartContractDeploy(transactionObject)
 
 **NOTE** You can create an instance of `FeeDelegatedSmartContractDeploy` from RLP-encoded string. Please refer to the below example.
 
-**properties**
+**속성**
 
 | 명칭                 | 형식      | 설명                                                                                                                                                                                                                       |
 | ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -238,7 +238,7 @@ new caver.transaction.feeDelegatedSmartContractExecution(transactionObject)
 
 **NOTE** You can create an instance of `FeeDelegatedSmartContractExecution` from RLP-encoded string. Please refer to the below example.
 
-**properties**
+**속성**
 
 | 명칭                 | 형식  | 설명                                                                                                                                                                                                                                                          |
 | ------------------ | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -294,7 +294,7 @@ new caver.transaction.feeDelegatedCancel(transactionObject)
 
 **NOTE** You can create an instance of `FeeDelegatedCancel` from RLP-encoded string. Please refer to the below example.
 
-**properties**
+**속성**
 
 | 명칭                 | 형식  | 설명                                                                                                                                                                   |
 | ------------------ | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -343,7 +343,7 @@ new caver.transaction.feeDelegatedChainDataAnchoring(transactionObject)
 
 **NOTE** You can create an instance of `FeeDelegatedChainDataAnchoring` from RLP-encoded string. Please refer to the below example.
 
-**properties**
+**속성**
 
 | 명칭                 | 형식  | 설명                                                                                                                                                                   |
 | ------------------ | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
