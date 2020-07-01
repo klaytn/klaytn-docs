@@ -12,7 +12,7 @@ new caver.transaction.legacyTransaction(transactionObject)
 
 **NOTE** You can create an instance of `LegacyTransaction` from RLP-encoded string. Please refer to the below example.
 
-**properties**
+**속성**
 
 | 명칭         | 형식  | 설명                                                                                                                                                                                                                                                   |
 | ---------- | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -76,7 +76,7 @@ new caver.transaction.valueTransfer(transactionObject)
 
 **NOTE** You can create an instance of `ValueTransfer` from RLP-encoded string. Please refer to the below example.
 
-**properties**
+**속성**
 
 | 명칭         | 형식  | 설명                                                                                                                                                                   |
 | ---------- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -126,7 +126,7 @@ new caver.transaction.valueTransferMemo(transactionObject)
 
 **NOTE** You can create an instance of `ValueTransferMemo` from RLP-encoded string. Please refer to the below example.
 
-**properties**
+**속성**
 
 | 명칭         | 형식  | 설명                                                                                                                                                                   |
 | ---------- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -180,7 +180,7 @@ new caver.transaction.accountUpdate(transactionObject)
 
 **NOTE** You can create an instance of `AccountUpdate` from RLP-encoded string. Please refer to the below example.
 
-**properties**
+**속성**
 
 | 명칭           | 형식              | 설명                                                                                                                                                                   |
 | ------------ | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -232,7 +232,7 @@ new caver.transaction.smartContractDeploy(transactionObject)
 
 **NOTE** You can create an instance of `SmartContractDeploy` from RLP-encoded string. Please refer to the below example.
 
-**properties**
+**속성**
 
 | 명칭            | 형식      | 설명                                                                                                                                                                                                                       |
 | ------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -287,7 +287,7 @@ new caver.transaction.smartContractExecution(transactionObject)
 
 **NOTE** You can create an instance of `SmartContractExecution` from RLP-encoded string. Please refer to the below example.
 
-**properties**
+**속성**
 
 | 명칭         | 형식  | 설명                                                                                                                                                                                                                                           |
 | ---------- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -341,7 +341,7 @@ new caver.transaction.cancel(transactionObject)
 
 **NOTE** You can create an instance of `Cancel` from RLP-encoded string. Please refer to the below example.
 
-**properties**
+**속성**
 
 | 명칭         | 형식  | 설명                                                                                                                                                                   |
 | ---------- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -386,7 +386,7 @@ new caver.transaction.chainDataAnchoring(transactionObject)
 
 **NOTE** You can create an instance of `ChainDataAnchoring` from RLP-encoded string. Please refer to the below example.
 
-**properties**
+**속성**
 
 | 명칭         | 형식  | 설명                                                                                                                                                                   |
 | ---------- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
