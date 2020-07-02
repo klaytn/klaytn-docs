@@ -1,6 +1,6 @@
 # caver.kct.kip7 <a id="caver-klay-kip7"></a>
 
-The `caver.kct.kip7` helps you easily handle a smart contract that implements KIP-7 as a JavaScript object on the Klaytn blockchain platform (Klaytn).
+`caver.kct.kip7`은 KIP-7 표준을 구현한 스마트 컨트랙트를 JavaScript 객체 형태로 Klaytn 블록체인 플랫폼(Klaytn)에서 손쉽게 다룰 수 있도록 돕습니다.
 
 `caver.kct.kip7`는 KIP-7 토큰 컨트랙트를 구현하기 위해 [caver.contract](../caver.contract.md)를 상속합니다. `caver.kct.kip7`은 `caver.contract`와 동일한 속성값들을 가지며, 추가 기능 구현을 위해 메서드를 더 가지고 있습니다. 이 장은 `caver.kct.kip7` 메쏘드들 중 오직 새롭게 추가된 메쏘드들만을 소개합니다.
 
@@ -19,10 +19,10 @@ KIP-7 토큰 컨트랙트를 Klaytn 블록체인에 배포합니다. caver.kct.k
 
 **매개변수**
 
-| 명칭        | 형식     | 설명                                                                                                           |
-| --------- | ------ | ------------------------------------------------------------------------------------------------------------ |
-| tokenInfo | object | Klaytn 블록체인에 KIP-7 토큰 컨트랙트를 배포하는 데 필요한 정보입니다. 자세한 내용은 아래 표를 참조하세요.                                           |
-| deployer  | 문자열    | The address of the keyring to deploy the KIP-7 token contract. This keyring must have enough KLAY to deploy. |
+| 명칭        | 형식     | 설명                                                                                                      |
+| --------- | ------ | ------------------------------------------------------------------------------------------------------- |
+| tokenInfo | object | Klaytn 블록체인에 KIP-7 토큰 컨트랙트를 배포하는 데 필요한 정보입니다. 자세한 내용은 아래 표를 참조하세요.                                      |
+| deployer  | 문자열    | KIP-7 토큰 컨트랙트를 배포하는 주소입니다. 이 주소는 keyring에 존재합니다. keyring에 있는 이 계정 주소는 반드시 배포를 위해 충분한 KLAY를 가지고 있어야 합니다. |
 
 tokenInfo 객체는 다음을 반드시 포함해야 합니다:
 
@@ -33,7 +33,7 @@ tokenInfo 객체는 다음을 반드시 포함해야 합니다:
 | decimals      | number                                | 토큰이 사용하는 소수점 자릿수입니다. |
 | initialSupply | BigNumber &#124; string &#124; number | 처음 공급될 토큰 총 수량입니다.   |
 
-**NOTE** The `initialSupply` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `initialSupply` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
@@ -101,9 +101,9 @@ new caver.kct.kip7([tokenAddress])
 
 **매개변수**
 
-| 명칭           | 형식  | 설명                                                                                                                          |
-| ------------ | --- | --------------------------------------------------------------------------------------------------------------------------- |
-| tokenAddress | 문자열 | (optional) The address of the KIP-7 token contract, which can be assigned later through `kip7.options.address = '0x1234..'` |
+| 명칭           | 형식  | 설명                                                                                 |
+| ------------ | --- | ---------------------------------------------------------------------------------- |
+| tokenAddress | 문자열 | (선택 사항) KIP-7 토큰 컨트랙트 주소이며 나중에 `kip7.options.address = '0x1234..'`로 값을 설정할 수 있습니다. |
 
 
 **리턴값**
@@ -161,7 +161,7 @@ kip7.clone([tokenAddress])
 ```javascript
 kip7.supportsInterface(interfaceId)
 ```
-Return `true` if this contract implements the interface defined by `interfaceId`.
+이 컨트랙트가 `interfaceId`로 정의된 인터페이스를 구현한다면 `true`를 반환합니다.
 
 **매개변수**
 
@@ -189,7 +189,7 @@ false
 ```javascript
 kip7.name()
 ```
-Return the name of the token.
+토큰 이름을 반환합니다.
 
 **매개변수**
 
@@ -212,7 +212,7 @@ Jasmine
 ```javascript
 kip7.symbol()
 ```
-Return the symbol of the token.
+토큰 심볼을 반환합니다.
 
 **매개변수**
 
@@ -235,7 +235,7 @@ JAS
 ```javascript
 kip7.decimals()
 ```
-Return the number of decimal places the token uses.
+토큰이 사용하는 소수점 자릿수를 반환합니다.
 
 **매개변수**
 
@@ -243,7 +243,7 @@ Return the number of decimal places the token uses.
 
 **리턴값**
 
-`Promise` returns `number`: The number of decimal places the token uses.
+`프로미스`는 `Number`를 반환합니다 - 토큰이 사용하는 소수점 자릿수입니다.
 
 **예시**
 
@@ -258,7 +258,7 @@ Return the number of decimal places the token uses.
 ```javascript
 kip7.totalSupply()
 ```
-Return the total token supply.
+공급된 토큰 총량을 반환합니다.
 
 **매개변수**
 
@@ -281,7 +281,7 @@ Return the total token supply.
 ```javascript
 kip7.balanceOf(address)
 ```
-Return the balance of the given account address.
+주어진 계정 주소의 잔액을 반환합니다.
 
 **매개변수**
 
@@ -306,7 +306,7 @@ Return the balance of the given account address.
 ```javascript
 kip7.allowance(owner, spender)
 ```
-Return the amount of token that `spender` is allowed to withdraw from `owner`.
+`spender`가 `owner`의 잔액에서 인출하도록 허락받은 토큰 수량을 반환합니다.
 
 **매개변수**
 
@@ -335,7 +335,7 @@ Return the amount of token that `spender` is allowed to withdraw from `owner`.
 ```javascript
 kip7.isMinter(address)
 ```
-Return `true` if the given account is a minter who can issue new KIP7 tokens.
+주어진 계정이 새 KIP7 토큰을 발행할 수 있는 발행자라면 `true`를 반환합니다.
 
 **매개변수**
 
@@ -363,7 +363,7 @@ false
 ```javascript
 kip7.isPauser(address)
 ```
-Return `true` if the given account is a pauser who can suspend transferring tokens.
+주어진 계정이 토큰 전송을 멈출 수 있는 pauser라면 `true`를 반환합니다.
 
 **매개변수**
 
@@ -391,7 +391,7 @@ false
 ```javascript
 kip7.paused()
 ```
-Return `true` if the contract is paused, and `false` otherwise.
+컨트랙트가 작동을 멈추었다면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.
 
 **매개변수**
 
@@ -429,7 +429,7 @@ kip7.approve(spender, amount [, sendParam])
 | amount    | BigNumber &#124; string &#124; number | 토큰 사용자가 사용을 허락받은 토큰 수량입니다.                   |
 | sendParam | object                                | (선택 사항) 트랜잭션을 보내는 데 필요한 파라미터들을 가지고 있는 객체입니다. |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `amount` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 `sendParam` 객체는 다음을 포함합니다:
 
@@ -498,19 +498,19 @@ kip7.approve(spender, amount [, sendParam])
 ```javascript
 kip7.transfer(recipient, amount [, sendParam])
 ```
-Transfers the given `amount` of the token from the token owner's balance to the `recipient`. 토큰 소유자는 이 토큰 전송을 직접 실행해야 합니다. Thus, the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
+주어진 `amount`만큼의 토큰을 토큰 소유자 잔액에서 `recipient`에게 보냅니다. 토큰 소유자는 이 토큰 전송을 직접 실행해야 합니다. 따라서 토큰 소유자는 이 트랜잭션 발신자이어야 하며, 토큰 소유자의 주소는 반드시 `sendParam.from` 또는 `kip7.options.from`에 주어져야 합니다. `sendParam.from` 또는 `kip7.options.from`가 주어지지 않는다면 에러가 발생합니다.
 
 트랜잭션 전송은 트랜잭션 발신자에게 트랜잭션 수수료를 부과함을 유의하십시오.
 
 **매개변수**
 
-| 명칭        | 형식                                    | 설명                                                                                                                                              |
-| --------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| recipient | 문자열                                   | 토큰을 받을 계정 주소입니다.                                                                                                                                |
-| amount    | BigNumber &#124; string &#124; number | 전송될 토큰 수량입니다.                                                                                                                                   |
-| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 명칭        | 형식                                    | 설명                                                                                                         |
+| --------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| recipient | 문자열                                   | 토큰을 받을 계정 주소입니다.                                                                                           |
+| amount    | BigNumber &#124; string &#124; number | 전송될 토큰 수량입니다.                                                                                              |
+| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `amount` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
@@ -569,7 +569,7 @@ Transfers the given `amount` of the token from the token owner's balance to the 
 ```javascript
 kip7.safeTransfer(recipient, amount [, data] [, sendParam])
 ```
-Safely transfers the given `amount` of the token from the token owner's balance to the `recipient`. 토큰 소유자는 이 토큰 전송을 직접 실행해야 합니다. Thus, the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
+주어진 `amount`만큼의 토큰을 토큰 소유자 잔액에서 `recipient`에게 안전하게 보냅니다. 토큰 소유자는 이 토큰 전송을 직접 실행해야 합니다. 따라서 토큰 소유자는 이 트랜잭션 발신자이어야 하며, 토큰 소유자의 주소는 반드시 `sendParam.from` 또는 `kip7.options.from`에 주어져야 합니다. `sendParam.from` 또는 `kip7.options.from`가 주어지지 않는다면 에러가 발생합니다.
 
 만약 토큰 수신자 주소가 컨트랙트 주소라면, 컨트랙트는 반드시 [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface)를 구현했어야 합니다. 그렇지 않으면, 전송은 거부됩니다.
 
@@ -577,14 +577,14 @@ Safely transfers the given `amount` of the token from the token owner's balance 
 
 **매개변수**
 
-| 명칭        | 형식                                    | 설명                                                                                                                                              |
-| --------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| recipient | 문자열                                   | 토큰을 받을 계정 주소입니다.                                                                                                                                |
-| amount    | BigNumber &#124; string &#124; number | 전송할 토큰 수량입니다.                                                                                                                                   |
-| data      | Buffer &#124; string &#124; number    | (선택 사항) 호출 시 함께 보낼 데이터입니다.                                                                                                                      |
-| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 명칭        | 형식                                    | 설명                                                                                                         |
+| --------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| recipient | 문자열                                   | 토큰을 받을 계정 주소입니다.                                                                                           |
+| amount    | BigNumber &#124; string &#124; number | 전송할 토큰 수량입니다.                                                                                              |
+| data      | Buffer &#124; string &#124; number    | (선택 사항) 호출 시 함께 보낼 데이터입니다.                                                                                 |
+| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `amount` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
@@ -647,20 +647,20 @@ Safely transfers the given `amount` of the token from the token owner's balance 
 ```javascript
 kip7.transferFrom(sender, recipient, amount [, sendParam])
 ```
-Transfers the given `amount` of the token from the token owner's balance to the `recipient`. 토큰 소유자의 토큰을 보내도록 허락받은 주소가 이 토큰 전송 트랜잭션을 실행할 수 있습니다. Thus, the approved one should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
+주어진 `amount`만큼의 토큰을 토큰 소유자 잔액에서 `recipient`에게 보냅니다. 토큰 소유자의 토큰을 보내도록 허락받은 주소가 이 토큰 전송 트랜잭션을 실행할 수 있습니다. 따라서 토큰을 보내도록 허락받은 계정이 이 트랜잭션 발신자이어야 하며, 허락받은 계정의 주소는 반드시 `sendParam.from` 또는 `kip7.options.from`에 주어져야 합니다. `sendParam.from` 또는 `kip7.options.from`가 주어지지 않는다면 에러가 발생합니다.
 
 트랜잭션 전송은 트랜잭션 발신자에게 트랜잭션 수수료를 부과함을 유의하십시오.
 
 **매개변수**
 
-| 명칭        | 형식                                    | 설명                                                                                                                                              |
-| --------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| sender    | 문자열                                   | 토큰을 소유한 계정 주소입니다. 이 계정 주소 잔액에서 allowance(kip7Instance.approve)를 사용해 토큰이 보내집니다.                                                                  |
-| recipient | 문자열                                   | 토큰을 받을 계정 주소입니다.                                                                                                                                |
-| amount    | BigNumber &#124; string &#124; number | 전송할 토큰 수량입니다.                                                                                                                                   |
-| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 명칭        | 형식                                    | 설명                                                                                                         |
+| --------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| sender    | 문자열                                   | 토큰을 소유한 계정 주소입니다. 이 계정 주소 잔액에서 allowance(kip7Instance.approve)를 사용해 토큰이 보내집니다.                             |
+| recipient | 문자열                                   | 토큰을 받을 계정 주소입니다.                                                                                           |
+| amount    | BigNumber &#124; string &#124; number | 전송할 토큰 수량입니다.                                                                                              |
+| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `amount` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
@@ -742,7 +742,7 @@ Transfers the given `amount` of the token from the token owner's balance to the 
 ```javascript
 kip7.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
 ```
-Safely transfers the given `amount` of the token from the token owner's balance to the `recipient`. 토큰 소유자의 토큰을 보내도록 허락받은 주소가 이 토큰 전송 트랜잭션을 실행할 수 있습니다. Thus, the approved one should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
+주어진 `amount`만큼의 토큰을 토큰 소유자 잔액에서 `recipient`에게 안전하게 보냅니다. 토큰 소유자의 토큰을 보내도록 허락받은 주소가 이 토큰 전송 트랜잭션을 실행할 수 있습니다. 따라서 토큰을 보내도록 허락받은 계정이 이 트랜잭션 발신자이어야 하며, 허락받은 계정의 주소는 반드시 `sendParam.from` 또는 `kip7.options.from`에 주어져야 합니다. `sendParam.from` 또는 `kip7.options.from`가 주어지지 않는다면 에러가 발생합니다.
 
 만약 토큰 수신자 주소가 컨트랙트 주소라면, 컨트랙트는 반드시 [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface)를 구현했어야 합니다. 그렇지 않으면, 전송은 거부됩니다.
 
@@ -750,15 +750,15 @@ Safely transfers the given `amount` of the token from the token owner's balance 
 
 **매개변수**
 
-| 명칭        | 형식                                    | 설명                                                                                                                                              |
-| --------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| sender    | 문자열                                   | 토큰을 소유한 계정 주소입니다. 이 계정 주소 잔액에서 allowance(kip7Instance.approve)를 사용해 토큰이 보내집니다.                                                                  |
-| recipient | 문자열                                   | 토큰을 받을 계정 주소입니다.                                                                                                                                |
-| amount    | BigNumber &#124; string &#124; number | 전송할 토큰 수량입니다.                                                                                                                                   |
-| data      | Buffer &#124; string &#124; number    | (선택 사항) 호출 시 함께 보낼 데이터입니다.                                                                                                                      |
-| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 명칭        | 형식                                    | 설명                                                                                                         |
+| --------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| sender    | 문자열                                   | 토큰을 소유한 계정 주소입니다. 이 계정 주소 잔액에서 allowance(kip7Instance.approve)를 사용해 토큰이 보내집니다.                             |
+| recipient | 문자열                                   | 토큰을 받을 계정 주소입니다.                                                                                           |
+| amount    | BigNumber &#124; string &#124; number | 전송할 토큰 수량입니다.                                                                                              |
+| data      | Buffer &#124; string &#124; number    | (선택 사항) 호출 시 함께 보낼 데이터입니다.                                                                                 |
+| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `amount` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
@@ -849,15 +849,15 @@ kip7.mint(account, amount [, sendParam])
 
 **매개변수**
 
-| 명칭           | 형식                                    | 설명                                                                                                                                              |
-| ------------ | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | 문자열                                   | 토큰이 발행될 계정 주소입니다.                                                                                                                               |
-| amount       | BigNumber &#124; string &#124; number | 발행될 토큰 수량입니다.                                                                                                                                   |
-| sendParam    | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 명칭           | 형식                                    | 설명                                                                                                         |
+| ------------ | ------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| 계정 (Account) | 문자열                                   | 토큰이 발행될 계정 주소입니다.                                                                                          |
+| amount       | BigNumber &#124; string &#124; number | 발행될 토큰 수량입니다.                                                                                              |
+| sendParam    | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `amount` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
-**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a minter with MinterRole.
+**참고** 만약 `sendParam.from` 또는 `kip7.options.from`이 주어졌다면, 이 주소는 반드시 MinterRole를 가진 발행자이어야 합니다.
 
 **리턴값**
 
@@ -923,12 +923,12 @@ kip7.addMinter(account [, sendParam])
 
 **매개변수**
 
-| 명칭           | 형식     | 설명                                                                                                                                              |
-| ------------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | 문자열    | 발행자에 추가될 계정 주소입니다.                                                                                                                              |
-| sendParam    | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 명칭           | 형식     | 설명                                                                                                         |
+| ------------ | ------ | ---------------------------------------------------------------------------------------------------------- |
+| 계정 (Account) | 문자열    | 발행자에 추가될 계정 주소입니다.                                                                                         |
+| sendParam    | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
 
-**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a minter.
+**참고** 만약 `sendParam.from` 또는 `kip7.options.from`이 주어졌다면, 이 주소는 반드시 발행자이어야 합니다.
 
 **리턴값**
 
@@ -990,11 +990,11 @@ kip7.renounceMinter([sendParam])
 
 **매개변수**
 
-| 명칭        | 형식     | 설명                                                                                                                                              |
-| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 명칭        | 형식     | 설명                                                                                                         |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------- |
+| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
 
-**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a minter with MinterRole.
+**참고** 만약 `sendParam.from` 또는 `kip7.options.from`이 주어졌다면, 이 주소는 반드시 MinterRole를 가진 발행자이어야 합니다.
 
 **리턴값**
 
@@ -1050,18 +1050,18 @@ kip7.renounceMinter([sendParam])
 ```javascript
 kip7.burn(amount [, sendParam])
 ```
-`amount`만큼의 토큰을 트랜잭션 발신자 잔액에서 제거합니다. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
+`amount`만큼의 토큰을 트랜잭션 발신자 잔액에서 제거합니다. `sendParam.from` 또는 `kip7.options.from`가 주어지지 않는다면 에러가 발생합니다.
 
 이 메서드는 Klaytn 네트워크에 트랜잭션을 전송하며 트랜잭션 수수료가 트랜잭션 발신자에게 부과됨을 참고하시기 바랍니다.
 
 **매개변수**
 
-| 명칭        | 형식                                    | 설명                                                                                                                                              |
-| --------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| amount    | BigNumber &#124; string &#124; number | 제거할 토큰 수량입니다.                                                                                                                                   |
-| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 명칭        | 형식                                    | 설명                                                                                                         |
+| --------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| amount    | BigNumber &#124; string &#124; number | 제거할 토큰 수량입니다.                                                                                              |
+| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `amount` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
@@ -1121,19 +1121,19 @@ kip7.burn(amount [, sendParam])
 ```javascript
 kip7.burnFrom(account, amount [, sendParam])
 ```
-`account`에서 주어진 토큰 수량을 제거합니다. The allowance of the sender specified in `sendParam.from` or `kip7.options.from` is reduced alongside the balance of `account`.
+`account`에서 주어진 토큰 수량을 제거합니다. `sendParam.from` 또는 `kip7.options.from`에 허용된 토큰량은 `account` 계정 잔고와 함께 줄어듭니다.
 
 이 메서드는 Klaytn 네트워크에 트랜잭션을 전송하며 트랜잭션 수수료가 트랜잭션 발신자에게 부과됨을 참고하시기 바랍니다.
 
 **매개변수**
 
-| 명칭           | 형식                                    | 설명                                                                                                                                              |
-| ------------ | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | 문자열                                   | 토큰을 소유한 계정 주소입니다. 이 계정 주소 잔액에서 allowance(kip7Instance. approve)를 사용해 토큰이 제거됩니다.                                                                 |
-| amount       | BigNumber &#124; string &#124; number | 제거할 토큰 수량입니다.                                                                                                                                   |
-| sendParam    | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 명칭           | 형식                                    | 설명                                                                                                         |
+| ------------ | ------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| 계정 (Account) | 문자열                                   | 토큰을 소유한 계정 주소입니다. 이 계정 주소 잔액에서 allowance(kip7Instance. approve)를 사용해 토큰이 제거됩니다.                            |
+| amount       | BigNumber &#124; string &#124; number | 제거할 토큰 수량입니다.                                                                                              |
+| sendParam    | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `amount` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
@@ -1222,12 +1222,12 @@ kip7.addPauser(account [, sendParam])
 
 **매개변수**
 
-| 명칭           | 형식     | 설명                                                                                                                                              |
-| ------------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | 문자열    | The address of the account to be a new pauser.                                                                                                  |
-| sendParam    | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 명칭           | 형식     | 설명                                                                                                         |
+| ------------ | ------ | ---------------------------------------------------------------------------------------------------------- |
+| 계정 (Account) | 문자열    | 컨트랙트 중지 권한을 가질 계정 주소입니다.                                                                                   |
+| sendParam    | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
 
-**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a pauser with PauserRole.
+**참고** 만약 `sendParam.from` 또는 `kip7.options.from`이 주어졌다면, 이 주소는 반드시 PauserRole을 가진 컨트랙트 중지 권한 소유자이어야 합니다.
 
 **리턴값**
 
@@ -1289,11 +1289,11 @@ kip7.renouncePauser([sendParam])
 
 **매개변수**
 
-| 명칭        | 형식     | 설명                                                                                                                                              |
-| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 명칭        | 형식     | 설명                                                                                                         |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------- |
+| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
 
-**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a pauser with PauserRole.
+**참고** 만약 `sendParam.from` 또는 `kip7.options.from`이 주어졌다면, 이 주소는 반드시 PauserRole을 가진 컨트랙트 중지 권한 소유자이어야 합니다.
 
 **리턴값**
 
@@ -1355,11 +1355,11 @@ kip7.pause([sendParam])
 
 **매개변수**
 
-| 명칭        | 형식     | 설명                                                                                                                                              |
-| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 명칭        | 형식     | 설명                                                                                                         |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------- |
+| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
 
-**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a pauser with PauserRole.
+**참고** 만약 `sendParam.from` 또는 `kip7.options.from`이 주어졌다면, 이 주소는 반드시 PauserRole을 가진 컨트랙트 중지 권한 소유자이어야 합니다.
 
 **리턴값**
 
@@ -1421,11 +1421,11 @@ kip7.unpause([sendParam])
 
 **매개변수**
 
-| 명칭        | 형식     | 설명                                                                                                                                              |
-| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 명칭        | 형식     | 설명                                                                                                         |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------- |
+| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
 
-**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a pauser with PauserRole.
+**참고** 만약 `sendParam.from` 또는 `kip7.options.from`이 주어졌다면, 이 주소는 반드시 PauserRole을 가진 컨트랙트 중지 권한 소유자이어야 합니다.
 
 **리턴값**
 
