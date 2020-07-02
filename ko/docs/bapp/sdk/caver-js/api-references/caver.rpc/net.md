@@ -49,7 +49,7 @@ Return `true` if the Klaytn Node is actively listening for network connections.
 
 **리턴값**
 
-`Promise` returns `boolean`
+`프로미스`는 `boolean`을 반환합니다.
 
 | 형식      | 설명                                                      |
 | ------- | ------------------------------------------------------- |
@@ -79,7 +79,7 @@ Return the number of peers currently connected to the Klaytn Node.
 
 **리턴값**
 
-`Promise` returns `string`
+`프로미스`는 `String`를 반환합니다.
 
 | 형식  | 설명                                    |
 | --- | ------------------------------------- |
