@@ -480,7 +480,7 @@ caver.rpc.klay.getCode(address [, blockNumber] [, callback])
 caver.rpc.klay.getTransactionCount(address [, blockNumber] [, callback])
 ```
 
-Returns the total number of transactions sent from an address.
+어떤 주소의 계정에서 발신된 트랜잭션의 총 개수를 반환합니다.
 
 **매개변수**
 
@@ -494,9 +494,9 @@ Returns the total number of transactions sent from an address.
 
 `프로미스`는 `String`를 반환합니다.
 
-| 형식  | 설명                                                             |
-| --- | -------------------------------------------------------------- |
-| 문자열 | The number of transactions sent from the given address in hex. |
+| 형식  | 설명                                        |
+| --- | ----------------------------------------- |
+| 문자열 | 주어진 주소에서 발신된 트랜잭션의 개수입니다. 이 값은 16진수 값입니다. |
 
 **예시**
 
@@ -511,13 +511,13 @@ Returns the total number of transactions sent from an address.
 caver.rpc.klay.isContractAccount(address [, blockNumber] [, callback])
 ```
 
-특정 번호의 블록 시간에서 입력으로 받은 계정의 codeHash가 비어 있지 않은 경우 `true`를 반환합니다. 해당 계정이 EOA이거나 codeHash가 비어 있는 스마트 컨트랙트 계정이면 `false`를 반환합니다. Please refer to [Smart Contract Account](../../../../../klaytn/design/accounts.md#smart-contract-accounts-scas) for more details.
+특정 번호의 블록 시간에서 입력으로 받은 계정의 codeHash가 비어 있지 않은 경우 `true`를 반환합니다. 해당 계정이 EOA이거나 codeHash가 비어 있는 스마트 컨트랙트 계정이면 `false`를 반환합니다. 더 자세한 내용은 [Smart Contract Account](../../../../../klaytn/design/accounts.md#smart-contract-accounts-scas)를 확인하십시오.
 
 **매개변수**
 
 | 명칭          | 형식                   | 설명                                                                                              |
 | ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
-| address     | 문자열                  | The address you want to check for isContractAccount.                                            |
+| address     | 문자열                  | isContractAccount로 확인할 주소입니다.                                                                   |
 | blockNumber | number &#124; string | (선택 사항) 블록 넘버, 또는 `latest`, `earliest`, `pending` 문자열 중 하나입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
 | callback    | function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                            |
 
@@ -525,9 +525,9 @@ caver.rpc.klay.isContractAccount(address [, blockNumber] [, callback])
 
 `프로미스`는 `boolean`을 반환합니다.
 
-| 형식      | 설명                                                                    |
-| ------- | --------------------------------------------------------------------- |
-| boolean | true means the input parameter is an existing smart contract address. |
+| 형식      | 설명                               |
+| ------- | -------------------------------- |
+| boolean | true이면 매개변수가 스마트 컨트랙트 계정의 주소입니다. |
 
 **예시**
 
