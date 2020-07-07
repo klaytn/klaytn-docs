@@ -2,11 +2,11 @@
 
 ## What's new?
 
-Caver-java 1.5.0 apply common architecture. Common Architecture is a new software architecture for Klaytn development environment which is shared by all Klaytn SDKs (caver-js/caver-java). It is designed for your streamlined development experience and ease of extensibility to other programming languages.
+Caver-java 1.5.0 applies common architecture. Common Architecture is a new software architecture for Klaytn development environment which is shared by all Klaytn SDKs (caver-js/caver-java). It is designed for your streamlined development experience and ease of extensibility to other programming languages.
 
 As caver-java is updated to 1.5.0, the APIs used in 1.4.0 are deprecated except for some APIs.
 
-The API provided in caver-java 1.5.0 is as follows.
+The API newly provided in caver-java 1.5.0 is as follows.
 
 ### caver.account
 
@@ -31,7 +31,7 @@ caver.transaction is a package that provides functionality related to Transactio
 
 caver.rpc is a package that provides functionality related to rpc call with Klaytn Node.
 
-- `caver.rpc` replaces `Klay`, `Net` interfaces in caver-java 1.4.0
+- `caver.rpc.klay` and `caver.rpc.net` replaces `Klay`, `Net` interfaces in caver-java 1.4.0, repectively
 
 ### caver.util
 
