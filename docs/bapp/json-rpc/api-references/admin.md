@@ -628,9 +628,9 @@ None
 | Name | Type | Description |
 | --- | --- | --- |
 | committed | int | this committed count represents the number of trie nodes that have copied by the state migration. |
-| err | Error | `null` if the state migration finished well, some error if not. |
+| err | Error | `null` if the state migration finished well, an error message if not. |
 | isMigration | bool | `true` if the state migration is running, `false` if not. |
-| migrationBlockNumber | uint64 | `null` if the state migration was stop, some error if not. |
+| migrationBlockNumber | uint64 | `null` if the state migration is stopped, an error message if not. |
 | pending | int | this pending count represents the number of trie nodes that does not have processed by the state migration. |
 | progress | float64 | the progress percent of the state migration. |
 | read | int | this read count represents the number of trie nodes that have searched by the state migration. |
