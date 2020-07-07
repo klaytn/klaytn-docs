@@ -301,3 +301,73 @@ HTTP RPC
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_setHead","params":["0x100"],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
+
+## debug_startWarmUp <a id="debug_startwarmup"></a>
+
+The `startWarmUp` starts warm-up iterating the latest state trie and caching it.
+The method returns the error if it fails to start the state migration, or `null` if it succeeds to start it. 
+
+| Client  | Method invocation                                            |
+| :-----: | ------------------------------------------------------------ |
+| Console | `debug.startWarmUp()`                     |
+|   RPC   | `{"method": "debug_startWarmUp"}` |
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Error | `null` if warm-up was started, some error if not. |
+
+**Example**
+
+Console
+
+```javascript
+> debug.startWarmUp()
+null
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startWarmUp","id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+
+## debug_stopWarmUp <a id="admin_stopwarmup"></a>
+
+The `stopWarmUp` stops warm-up iterating the latest state trie and caching it.
+This method takes no parameters, returning `null` or an error whether warm-up was stop or not.
+
+| Client  | Method invocation             |
+| :-----: | ----------------------------- |
+| Console | `debug.stopWarmUp()`             |
+|   RPC   | `{"method": "stopWarmUp"}` |
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Error | `null` if warm-up was stop, some error if not. |
+
+**Example**
+
+Console
+
+```javascript
+> debug.stopWarmUp()
+true
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stopWarmUp","id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```

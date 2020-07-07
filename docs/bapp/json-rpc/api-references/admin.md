@@ -500,3 +500,157 @@ HTTP RPC
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_importChain","params":["/tmp/chain.txt"],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
+
+## admin_importChainWithString <a id="admin_importchainwithstring"></a>
+
+The `importChainWithString` administrative method imports an exported chain from a RLP-encoded block string into the node. 
+This only works if no chain already exists: it does not delete any existing data.
+
+| Client  | Method invocation            |
+| :-----: | ---------------------------- |
+| Console | `admin.importChainFromString(blockRlp)`             |
+|   RPC   | `{"method": "admin_importChain"}, "params": [fileName]}` |
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| blockRlp | string | the RLP-encoded block string to be imported. (same with the result of `debug.getBlockRlp`)|
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| bool | `true` if chain was imported, `false` if not. |
+
+**Example**
+
+Console
+
+```javascript
+> admin.importChainFrom("f9071...080c0")
+true
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_importChainFromString","params":["f9071...080c0"],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":true}
+```
+
+## admin_startStateMigration <a id="admin_startstatemigration"></a>
+
+The `startStateMigration` administrative method starts the state migration to remove old state/storage trie, saving the storage space for Klaytn node.
+The method returns the error if it fails to start the state migration, or `null` if it succeeds to start it. 
+
+| Client  | Method invocation                                            |
+| :-----: | ------------------------------------------------------------ |
+| Console | `admin.startStateMigration()`                     |
+|   RPC   | `{"method": "admin_startStateMigration"}` |
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Error | `null` if the state migration was started, some error if not. |
+
+**Example**
+
+Console
+
+```javascript
+> admin.startStateMigration()
+null
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startStateMigration","id":1}' http://13.124.205.121:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+
+## admin_stopStateMigration <a id="admin_stopstatemigration"></a>
+
+The `stopStateMigration` administrative method stops the currently running state migration. 
+This method takes no parameters, returning `null` or an error whether state migration was stop or not.
+
+| Client  | Method invocation             |
+| :-----: | ----------------------------- |
+| Console | `admin.stopStateMigration()`             |
+|   RPC   | `{"method": "stopStateMigration"}` |
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Error | `null` if the state migration was stop, some error if not. |
+
+**Example**
+
+Console
+
+```javascript
+> admin.stopStateMigration()
+true
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stopStateMigration","id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+## admin_stateMigrationStatus <a id="admin_statemigrationstatus"></a>
+
+The `stateMigrationStatus` administrative method returns the status information of the state migration. 
+This method takes no parameters, returning the status of currently running state migration.
+
+| Client  | Method invocation             |
+| :-----: | ----------------------------- |
+| Console | `admin.stateMigrationStatus`             |
+|   RPC   | `{"method": "stateMigrationStatus"}` |
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| committed | int | this committed count represents the number of trie nodes that have copied by the state migration. |
+| err | Error | `null` if the state migration finished well, some error if not. |
+| isMigration | bool | `true` if the state migration is running, `false` if not. |
+| migrationBlockNumber | uint64 | `null` if the state migration was stop, some error if not. |
+| pending | int | this pending count represents the number of trie nodes that does not have processed by the state migration. |
+| progress | float64 | the progress percent of the state migration. |
+| read | int | this read count represents the number of trie nodes that have searched by the state migration. |
+
+**Example**
+  
+Console
+
+```javascript
+> admin.stateMigrationStatus
+{
+  committed: 1585169,
+  err: "null",
+  isMigration: true,
+  migrationBlockNumber: 32527233,
+  pending: 27677,
+  progress: 0.3662109375,
+  read: 1587473
+}
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stateMigrationStatus","id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":{"committed":0,"err":"null","isMigration":false,"migrationBlockNumber":0,"pending":0,"progress":0,"read":0}}
+```
