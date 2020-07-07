@@ -541,6 +541,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 The `startStateMigration` administrative method starts the state migration removing old state/storage trie nodes to save the storage space of Klaytn node.
 The method returns the error if it fails to start the state migration, or `null` if it succeeds to start it. 
+NOTE: After the state migration, the node cannot serve APIs with the previous state. 
 
 | Client  | Method invocation                                            |
 | :-----: | ------------------------------------------------------------ |

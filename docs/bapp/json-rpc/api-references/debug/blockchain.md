@@ -304,7 +304,8 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startWarmUp <a id="debug_startwarmup"></a>
 
-The `startWarmUp` starts warm-up iterating the latest state trie and caching it.
+The `startWarmUp` starts iterating the latest state trie to warm up the trie cache.
+The iteration will be automatically stopped if 90% of the trie cache is full. 
 The method returns the error if it fails to start the state migration, or `null` if it succeeds to start it. 
 
 | Client  | Method invocation                                            |
