@@ -503,8 +503,8 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_importChainFromString <a id="admin_importchainfromstring"></a>
 
-The `importChainFromString` administrative method imports an exported chain from a RLP-encoded block string into the node. 
-This only works if no chain already exists: it does not delete any existing data.
+The `importChainFromString` administrative method imports an exported chain from an RLP-encoded block string into a node. 
+This only works if there is no chain; it does not delete any existing chain data.
 
 | Client  | Method invocation            |
 | :-----: | ---------------------------- |
@@ -515,7 +515,7 @@ This only works if no chain already exists: it does not delete any existing data
 
 | Name | Type | Description |
 | --- | --- | --- |
-| blockRlp | string | the RLP-encoded block string to be imported. (same with the return of `debug.getBlockRlp`)|
+| blockRlp | string | the RLP-encoded block string to be imported. (equals to the return value of `debug.getBlockRlp`)|
 
 **Return Value**
 
@@ -541,7 +541,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 The `startStateMigration` administrative method starts the state migration removing old state/storage trie nodes to save the storage space of Klaytn node.
 The method returns the error if it fails to start the state migration, or `null` if it succeeds to start it. 
-NOTE: After the state migration, the node cannot serve APIs with the previous state. 
+NOTE: After the state migration, the node cannot serve APIs with previous states. 
 
 | Client  | Method invocation                                            |
 | :-----: | ------------------------------------------------------------ |
@@ -577,7 +577,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ## admin_stopStateMigration <a id="admin_stopstatemigration"></a>
 
 The `stopStateMigration` administrative method stops the currently running state migration. 
-This method takes no parameters, returning `null` or an error whether state migration was stop or not.
+This method takes no parameters, returning `null` or an error whether state migration was stopped or not.
 
 | Client  | Method invocation             |
 | :-----: | ----------------------------- |
@@ -592,7 +592,8 @@ None
 
 | Type | Description |
 | --- | --- |
-| Error | `null` if the state migration was stop, some error if not. |
+| Error | `null` if the state migration is stopped, some error if not. |
+
 
 **Example**
 
