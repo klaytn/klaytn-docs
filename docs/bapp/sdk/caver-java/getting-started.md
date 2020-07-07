@@ -12,43 +12,26 @@ The API provided in caver-java 1.5.0 is as follows.
 
 caver.account is a package that provides functionality related to Account that is used when updating an account.
 
-This API replaces the caver.tx.account in caver-java 1.4.0
+- `caver.account` replaces `caver.tx.account` in caver-java 1.4.0
 
 ### caver.wallet
 
 caver.wallet is a package that manages Keyring instances in in-memory wallet. caver.wallet accepts all SingleKeyring, MultipleKeyring, and RoleBasedKeyring, and manages them by address.
 
-This API replaces the caver.crypto and caver.wallet related class in caver-java 1.4.0
+- `caver.wallet` relpaces `caver.crypto` in caver-java 1.4.0
+- `caver.wallet.KeyStore` replaces `caver.wallet.WalletFile` in caver-java 1.4.0
 
 ### caver.transaction
 
 caver.transaction is a package that provides functionality related to Transaction.
 
-This API replaces the caver.tx in caver-java 1.4.0
+- `caver.transaction` replaces `caver.tx` in caver-java 1.4.0
 
 ### caver.rpc
 
 caver.rpc is a package that provides functionality related to rpc call with Klaytn Node.
 
-This package replaces existed Klay, Net API in caver-java 1.4.0.
-
-### caver.contract
-
-The caver.contract object makes it easy to interact with smart contracts on the Klaytn blockchain platform. When you create a new contract object, you have to provide the JSON interface for that smart contract and caver-js will automatically convert all calls with the contract object in javascript into low-level ABI calls over RPC for you.
-
-This API replaces the caver.tx.SmartContract class in caver-java 1.4.0.
-
-### caver.abi
-
-The caver.abi package allows you to decode and encode parameters with an ABI (Application Binary Interface). This will be used for calling functions of a deployed smart contracts.
-
-This API replaces the caver.tx.SmartContract class in caver-java 1.4.0.
-
-### caver.kct
-
-A caver-js package used to interact with a KCT.
-
-The caver.abi package allows you to decode and encode parameters with an ABI (Application Binary Interface). This will be used for calling functions of a deployed smart contracts.
+- `caver.rpc` replaces `Klay`, `Net` interfaces in caver-java 1.4.0
 
 ### caver.util
 
