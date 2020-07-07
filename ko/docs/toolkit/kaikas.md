@@ -25,4 +25,4 @@ Kaikas는 KLAY를 포함한 모든 종류의 Klaytn 기반 토큰을 지원합�
 
 ## 웹기반 BApp에서 요청하는 트랜잭션 서명 수행
 
-Kaikas simply bridges the gap between you and Klaytn BApps, empowering you to sign transactions/data flowing to you from BApps with Kaikas account. Kaikas is also an aidful utility for developers to handle [fee-delegated transactions](/docs/klaytn/design/transactions/README.md#fee-delegation). Using Kaikas, both transaction senders and fee payers can swiftly sign the fee-delegated transactions.
+Kaikas simply bridges the gap between you and Klaytn BApps, empowering you to sign transactions/data flowing to you from BApps with Kaikas account. Kaikas is also an aidful utility for developers to handle [fee-delegated transactions](/klaytn/design/transactions/README.md#fee-delegation). Using Kaikas, both transaction senders and fee payers can swiftly sign the fee-delegated transactions.
