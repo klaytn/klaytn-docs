@@ -18,7 +18,7 @@ This API replaces the caver.tx.account in caver-java 1.4.0
 
 caver.wallet is a package that manages Keyring instances in in-memory wallet. caver.wallet accepts all SingleKeyring, MultipleKeyring, and RoleBasedKeyring, and manages them by address.
 
-This API replaces the caver.crypto and caver.crypto.Wallet related class in caver-java 1.4.0
+This API replaces the caver.crypto and caver.wallet related class in caver-java 1.4.0
 
 ### caver.transaction
 
