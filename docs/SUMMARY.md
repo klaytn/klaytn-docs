@@ -209,7 +209,7 @@
     * [caver-java](bapp/sdk/caver-java/README.md)
       * [Getting Started](bapp/sdk/caver-java/getting-started.md)
       * [API references](https://javadoc.io/doc/com.klaytn.caver/core/)
-      * [caver-java ~v1.4.0]
+      * caver-java ~v1.4.0
         * [Getting Started (~v1.4.0)](bapp/sdk/caver-java/v1.4.0/getting-started_1.4.0.md)
         * [Porting from web3j](bapp/sdk/caver-java/v1.4.0/porting-from-web3j.md)
   * [Tutorials](bapp/tutorials/README.md)
