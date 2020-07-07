@@ -556,7 +556,7 @@ None
 
 | Type | Description |
 | --- | --- |
-| Error | `null` if the state migration was started, some error if not. |
+| Error | `null` if the state migration is started, an error message if not. |
 
 **Example**
 
