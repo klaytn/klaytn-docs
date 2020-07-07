@@ -501,21 +501,21 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
-## admin_importChainWithString <a id="admin_importchainwithstring"></a>
+## admin_importChainFromString <a id="admin_importchainfromstring"></a>
 
-The `importChainWithString` administrative method imports an exported chain from a RLP-encoded block string into the node. 
+The `importChainFromString` administrative method imports an exported chain from a RLP-encoded block string into the node. 
 This only works if no chain already exists: it does not delete any existing data.
 
 | Client  | Method invocation            |
 | :-----: | ---------------------------- |
 | Console | `admin.importChainFromString(blockRlp)`             |
-|   RPC   | `{"method": "admin_importChain"}, "params": [fileName]}` |
+|   RPC   | `{"method": "admin_importChainFromString"}, "params": [<blockRlp>]}` |
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| blockRlp | string | the RLP-encoded block string to be imported. (same with the result of `debug.getBlockRlp`)|
+| blockRlp | string | the RLP-encoded block string to be imported. (same with the return of `debug.getBlockRlp`)|
 
 **Return Value**
 
@@ -528,7 +528,7 @@ This only works if no chain already exists: it does not delete any existing data
 Console
 
 ```javascript
-> admin.importChainFrom("f9071...080c0")
+> admin.importChainFromString("f9071...080c0")
 true
 ```
 HTTP RPC
@@ -539,7 +539,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startStateMigration <a id="admin_startstatemigration"></a>
 
-The `startStateMigration` administrative method starts the state migration to remove old state/storage trie, saving the storage space for Klaytn node.
+The `startStateMigration` administrative method starts the state migration removing old state/storage trie nodes to save the storage space of Klaytn node.
 The method returns the error if it fails to start the state migration, or `null` if it succeeds to start it. 
 
 | Client  | Method invocation                                            |
