@@ -597,7 +597,6 @@ System.out.println(feeDelegatedValueTransfer.getRLPEncoding());
 When the above code is executed, the RLP-encoded string including the sender's signatures and fee payer's signatures is printed like below. (The output you got could be different from the string output shown below.)
 
 ```bash
-$ node ./test.js
 0x09f8dc028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf09417e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24f847f845824e44a0921b7c3be69db96ce14134b306c2ada423613cb66ecc6697ee8067983c268b6ea07b86b255d1c781781315d85d7904226fb2101eb9498c4a03f3fbd30ba3ec5b79
 ```
 
@@ -743,4 +742,4 @@ Accoaunt account = Account.createWithAccountKeyFail(keyringToUpdate.address)
 
 ### Smart Contract <a id="smart-contract"></a>
 
-This version is not contains common architecture's contract. This will be release soon.
+This is not supported yet.
