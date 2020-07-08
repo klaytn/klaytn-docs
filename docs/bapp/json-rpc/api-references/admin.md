@@ -654,5 +654,5 @@ Console
 HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stateMigrationStatus","id":1}' http://localhost:8551
-{"jsonrpc":"2.0","id":1,"result":{"committed":0,"err":"null","isMigration":false,"migrationBlockNumber":0,"pending":0,"progress":0,"read":0}}
+{"jsonrpc":"2.0","id":1,"result":{"committed":14995692,"err":"null","isMigration":true,"migrationBlockNumber":32630836,"pending":19699,"progress":25,"read":14997777}}
 ```
