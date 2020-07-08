@@ -176,15 +176,15 @@ Caver caver = new Caver("http://localhost:8551/");
 
 ## Managing Keyrings <a id="managing-keyrings"></a>
 
-[Keyring] is a structure that contains the address of the Klaytn account and the private key(s). 
+`Keyring` is a structure that contains the address of the Klaytn account and the private key(s). 
 
-[Keyring] can be classified into three types depending on the type of key being stored: [SingleKeyring] to store one address and one private key, [MultipleKeyring] to store one address and multiple private keys, and [RoleBasedKeyring] to store one address and one or more private keys for each role.
+`Keyring` can be classified into three types depending on the type of key being stored: `SingleKeyring` to store one address and one private key, `MultipleKeyring` to store one address and multiple private keys, and `RoleBasedKeyring` to store one address and one or more private keys for each role.
 
-[SingleKeyring] defines `key` property inside, and this `key` stores one private key.
+`SingleKeyring` defines `key` property inside, and this `key` stores one private key.
 
-[MultipleKeyring] defines `keys` property inside, and this `keys` is implemented as an array to store multiple private keys.
+`MultipleKeyring` defines `keys` property inside, and this `keys` is implemented as an array to store multiple private keys.
 
-The `keys` property defined in [RoleBasedKeyring] is implemented as a List object having 3 arrays of private key(s) as its elements (empty `keys` will look like `[ [], [], [] ]`) and so that it can include multiple keys for each [role]. The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
+The `keys` property defined in `RoleBasedKeyring` is implemented as a List object having 3 arrays of private key(s) as its elements (empty `keys` will look like `[ [], [], [] ]`) and so that it can include multiple keys for each `role`. The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
 
 ### Creating a Keyring <a id="creating-a-keyring"></a>
 
@@ -224,7 +224,7 @@ SingleKeyring keyring = KeyringFactory.createFromKlaytnWalletKey(klaytnWalletKey
 
 #### Creating a MultipleKeyring with multiple private keys <a id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
 
-If you want to use multiple private keys, you can create a [MultipleKeyring] using an address and multiple private keys. The below examples show how to create a [MultipleKeyring] with multiple private keys.
+If you want to use multiple private keys, you can create a `MultipleKeyring` using an address and multiple private keys. The below examples show how to create a `MultipleKeyring` with multiple private keys.
 
 ```java
 String address = "0x{address in hex}";
@@ -234,7 +234,7 @@ MultipleKeyring multipleKeyring = KeyringFactory.createWithMultipleKey(address, 
 
 #### Creating a RoleBasedKeyring with private keys <a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
 
-To use different private key(s) for each [role], `KeyringFactory.createWithRoleBasedKey` is used. Each array element represents a role described in [RoleBasedKeyring]. The example below shows how to create a [RoleBasedKeyring] instance from different keys for each role.
+To use different private key(s) for each `role`, `KeyringFactory.createWithRoleBasedKey` is used. Each array element represents a role described in `RoleBasedKeyring`. The example below shows how to create a `RoleBasedKeyring` instance from different keys for each role.
 
 
 ```java
@@ -376,7 +376,7 @@ If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn W
 You can use a caver-java wallet to generate a signature of a transaction. You have to go through two steps below to send the transaction to the network.
 
 1. Sign a transaction
-	- If the keyring you want to use is added to [caver.wallet], you can use `caver.wallet.sign` function to sign.
+	- If the keyring you want to use is added to `caver.wallet`, you can use `caver.wallet.sign` function to sign.
 	- If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
 2. Send the RLP-encoded string of the signed transaction to the Klaytn via `caver.rpc.klay.sendRawTransaction`.
 
@@ -489,7 +489,7 @@ Transaction Hash : 0x43e8ab1a2365ad598448b4402c1cfce6a71b3a103fce3a69905613e50b9
 
 ### Checking Receipts <a id="checking-receipts"></a>
 
-You can use the `TransactionReceiptProcessor` to get the receipt of the transaction when you transfer the transaction to the Klaytn by [caver.rpc.klay.sendRawTransaction].
+You can use the `TransactionReceiptProcessor` to get the receipt of the transaction when you transfer the transaction to the Klaytn by `caver.rpc.klay.sendRawTransaction`.
 
 The following example shows how to get a receipt using PollingTransactionReceiptProcessor.
 
@@ -531,7 +531,7 @@ try {
 }
 ```
 
-The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see [caver.rpc.klay.getTransactionReceipt]. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures].
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures].
 
 
 ## Executing Other Transaction Types <a id="executing-other-transaction-types"></a>
@@ -540,7 +540,7 @@ Klaytn provides various transaction types for extensibility and performance. For
 
 ### Fee Delegation <a id="fee-delegation"></a>
 
-Klaytn provides [Fee Delegation] feature. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
+Klaytn provides Fee Delegation feature. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
 
 ```java
 Caver caver = new Caver(Caver.BAOBAB_URL);
@@ -612,7 +612,7 @@ try {
 }
 ```
 
-The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see [caver.rpc.klay.getTransactionReceipt]. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures].
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures].
 
 ### Account Update <a id="account-update"></a>
 
@@ -630,11 +630,11 @@ Keeping the 3 things above in your mind, you can change your private key(s) by f
 4. Send AccountUpdate transaction including Account instance to Klaytn.
 5. Finally, replace your old keyring to the new one that was created in Step 2.
 
-Please check [Account Update] for the details.
+Please check `Account Update` for the details.
 
-To change your AccountKey, you must provide an [Account] instance for the `account` field in the input argument object of `caver.transaction.type.AccountUpdate`. An [Account] instance contains the address of the Klaytn account and the AccountKey to be updated.
+To change your AccountKey, you must provide an `Account` instance for the `account` field in the input argument object of `caver.transaction.type.AccountUpdate`. An `Account` instance contains the address of the Klaytn account and the AccountKey to be updated.
 
-The code below is an example code that changes the private key(s) you use for your Klaytn account along with changing AccountKey of your Klaytn account to [AccountKeyPublic]. Don't forget to prepare your new private key(s).
+The code below is an example code that changes the private key(s) you use for your Klaytn account along with changing AccountKey of your Klaytn account to `AccountKeyPublic`. Don't forget to prepare your new private key(s).
 
 ```java
 Caver caver = new Caver(Caver.BAOBAB_URL);
@@ -675,9 +675,9 @@ senderKeyring = caver.wallet.updateKeyring(newKeyring);
 
 If the above code is executed successfully, you are no longer able to use the old private key(s) to sign any transaction with the old keyring. So you must update the old keyring with the `newKeyring` through `caver.wallet.updateKeyring(newKeyring)`. Once it is updated, the signing will be done by the newly updated private key(s).
 
-Here comes how to update AccountKey of your Klaytn account with multiple [AccountKeys]? The example below explains how to create an [Account] instance with multiple private keys that what you want to use (You can create an [Account] instance with multiple public keys via [caver.account.create]). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
+Here comes how to update AccountKey of your Klaytn account with multiple `AccountKeys`? The example below explains how to create an `Account` instance with multiple private keys that what you want to use (You can create an `Account` instance with multiple public keys via `caver.account.create`). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
 
-First, let's create an Account instance to update with [AccountKeyWeightedMultiSig]. For [AccountKeyWeightedMultiSig], a threshold and a weight for each key must be defined. To do this, use [caver.account.weightedMultiSigOptions]. The first parameter is the threshold, and the second parameter is an array containing the weight for each key.
+First, let's create an Account instance to update with `AccountKeyWeightedMultiSig`. For `AccountKeyWeightedMultiSig`, a threshold and a weight for each key must be defined. To do this, use `caver.account.weightedMultiSigOptions`. The first parameter is the threshold, and the second parameter is an array containing the weight for each key.
 
 ```java
 // Create an account instance with three private keys using AccountKeyWeightedMultiSig
@@ -692,7 +692,7 @@ WeightedMultiSigOptions options = new WeightedMultiSigOptions(threshold, Arrays.
 Account account = multipleKeyring.toAccount(options)
 ```
 
-Now let's update AccountKey using [AccountKeyRoleBased]. [AccountKeyRoleBased] is an `AccountKey` type that defines the key to use for each [role].
+Now let's update AccountKey using `AccountKeyRoleBased`. `AccountKeyRoleBased` is an `AccountKey` type that defines the key to use for each `role`.
 
 ```java
 // Create an account instance with roles using AccountKeyRoleBased. In the account instance created, each role has a public key that corresponds to one private key.
@@ -702,7 +702,7 @@ RoleBasedKeyring newKeyring = KeyringFactory.createWithRoleBasedKey(senderKeyrin
 const account = newKeyring.toAccount()
 ```
 
-The AccountKeyRoleBased above is an example of using one public key for each role. As you can see from the code above, each of them corresponds to one private key. If you want to use multiple private keys for each role, [caver.account.weightedMultiSigOptions] must be defined for each role as shown below.
+The AccountKeyRoleBased above is an example of using one public key for each role. As you can see from the code above, each of them corresponds to one private key. If you want to use multiple private keys for each role, `caver.account.weightedMultiSigOptions` must be defined for each role as shown below.
 
 ```java
 // Create an account instance with [3, 2, 3] keys for each role using AccountKeyRoleBased
@@ -718,7 +718,7 @@ WeightedMultiSigOptions[] options = new WeightedMultiSigOptions[] {
 Account account = newKeyring.toAccount(Arrays.asList(options));
 ```
 
-If you want to update AccountKey to [AccountKeyLegacy] or [accountKeyFail], create an Account instance as shown below and assign it to the `account` field of the transaction. The rest of the update process is same to that of other AccountKey.
+If you want to update AccountKey to `AccountKeyLegacy` or `accountKeyFail`, create an Account instance as shown below and assign it to the `account` field of the transaction. The rest of the update process is same to that of other AccountKey.
 
 ```java
 // Create an account with AccountKeyLegacy
@@ -731,3 +731,8 @@ Accoaunt account = Account.createWithAccountKeyFail(keyringToUpdate.address)
 ### Smart Contract <a id="smart-contract"></a>
 
 This is not supported yet.
+
+
+
+
+[txError: Detailed Information of Transaction Failures]: ../../../json-rpc/transaction-error-codes.md
