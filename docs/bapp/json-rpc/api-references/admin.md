@@ -503,7 +503,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_importChainFromString <a id="admin_importchainfromstring"></a>
 
-The `importChainFromString` administrative method imports an exported chain from an RLP-encoded block string into a node. 
+The `importChainFromString` is an administrative method that imports a chain from a RLP-encoded string of a block into a Klaytn node. 
 This only works if there is no chain; it does not delete any existing chain data.
 
 | Client  | Method invocation            |
