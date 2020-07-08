@@ -5,11 +5,11 @@
 ## Features <a id="features"></a>
 
 * Complete implementation of Klaytn’s JSON-RPC client API over HTTP and IPC
-* Support of Klaytn transaction, account, and account key types
+* Support for Klaytn transaction, account, and account key types
 * Auto-generation of Java smart contract wrapper to deploy and execute a smart contract from native Java code
-* Creation of a new wallet and managing Klaytn wallets
+* Creating a new wallet and managing Klaytn wallets
 * Command line tools
-* Android compatible
+* Android compatibility
 
 ## Links <a id="links"></a>
 
