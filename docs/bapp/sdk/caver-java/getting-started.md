@@ -2,7 +2,7 @@
 
 ## What's new?
 
-In caver-java 1.5.0, we adopts Common Architecture. Common Architecture is a new software architecture for Klaytn development environment which is shared by all Klaytn SDKs (caver-js/caver-java). It is designed for your streamlined development experience and ease of extensibility to other programming languages.
+In caver-java 1.5.0, we adopt Common Architecture. Common Architecture is a new software architecture for Klaytn development environment, which is shared by all Klaytn SDKs (caver-js/caver-java). It is designed for your streamlined development experience and ease of extensibility to other programming languages.
 
 As caver-java is updated to 1.5.0, the APIs used in 1.4.0 are deprecated except for some APIs.
 
@@ -24,7 +24,7 @@ caver.wallet is a package that manages Keyring instances in in-memory wallet. A 
 
 ### caver.transaction
 
-caver.transaction is a package that provides functionality related to Transaction.
+caver.transaction is a package that provides functionality related to [Transaction](https://docs.klaytn.com/klaytn/design/transactions#transactions-overview).
 
 - `caver.transaction` replaces `caver.tx` in caver-java 1.4.0
 
@@ -132,7 +132,7 @@ public void sendingKLAY() throws IOException, CipherException, TransactionExcept
 
         BigInteger value = new BigInteger(Utils.convertToPeb(BigDecimal.ONE, "KLAY"));
 
-        //Create value transfer transaction
+        //Create a value transfer transaction
         ValueTransfer valueTransfer = new ValueTransfer.Builder()
                 .setKlaytnCall(caver.rpc.getKlay())
                 .setFrom(keyring.getAddress())
@@ -144,7 +144,7 @@ public void sendingKLAY() throws IOException, CipherException, TransactionExcept
         //Sign to the transaction
         valueTransfer.sign(keyring);
 
-        //Send transaction to the klaytn blockchain platform (Klaytn)
+        //Send a transaction to the klaytn blockchain platform (Klaytn)
         Bytes32 result = caver.rpc.klay.sendRawTransaction(valueTransfer.getRawTransaction()).send();
         if(result.hasError()) {
             throw new RuntimeException(result.getError().getMessage());
@@ -215,7 +215,7 @@ String privateKey = "0x{private key in hex}";
 SingleKeyring keyring = KeyringFactory.createWithSingleKey(address, privateKey);
 ```
 
-Also you can derived SingleKeyring instance from Klaytn wallet key.
+Also, you can derive SingleKeyring instance from Klaytn wallet key.
 
 ```java
 String klaytnWalletKey = "0x{private key}0x{type}0x{address in hex}";
@@ -481,7 +481,7 @@ try {
 }
 ```
 
-When the above code is executed, the transactionHash is printed like the previous example.
+When the above code is executed, the transaction hash (txHash) is printed like the example below.
 
 ```bash
 Transaction Hash : 0x43e8ab1a2365ad598448b4402c1cfce6a71b3a103fce3a69905613e50b978113
