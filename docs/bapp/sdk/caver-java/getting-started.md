@@ -386,7 +386,7 @@ You can use a caver-java wallet to generate a signature of a transaction. You ha
 
 Before sending a transaction to Klaytn, you should sign a transaction first. 
 
-Below is an example of how to sign a transaction if a keyring is added to the [caver.wallet].
+Below is an example of how to sign a transaction if a keyring is added to the `caver.wallet`.
 
 ```java
 Caver caver = new Caver(Caver.MAINNET_URL);
