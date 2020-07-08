@@ -2,15 +2,16 @@
 
 ## What's new?
 
-Caver-java 1.5.0 applies common architecture. Common Architecture is a new software architecture for Klaytn development environment which is shared by all Klaytn SDKs (caver-js/caver-java). It is designed for your streamlined development experience and ease of extensibility to other programming languages.
+In caver-java 1.5.0, we adopts Common Architecture. Common Architecture is a new software architecture for Klaytn development environment which is shared by all Klaytn SDKs (caver-js/caver-java). It is designed for your streamlined development experience and ease of extensibility to other programming languages.
 
 As caver-java is updated to 1.5.0, the APIs used in 1.4.0 are deprecated except for some APIs.
 
-The API newly provided in caver-java 1.5.0 is as follows.
+The APIs newly provided in caver-java 1.5.0 are as follows.
 
 ### caver.account
 
-caver.account is a package that provides functionality related to Account that is used when updating an account.
+caver.wallet is a package that manages Keyring instances in in-memory wallet. A Keyring is an instance that stores the address of a Klaytn account and its private key(s), and it is used when the address of this account signs a transaction. caver.wallet accepts all types of Keyring (SingleKeyring, MultipleKeyring, and RoleBasedKeyring) and manages them with their Klaytn account address.
+
 
 - `caver.account` replaces `caver.tx.account` in caver-java 1.4.0
 
@@ -179,11 +180,11 @@ Caver caver = new Caver("http://localhost:8551/");
 
 [Keyring] can be classified into three types depending on the type of key being stored: [SingleKeyring] to store one address and one private key, [MultipleKeyring] to store one address and multiple private keys, and [RoleBasedKeyring] to store one address and one or more private keys for each role.
 
-[SingleKeyring] defines `key` property inside, and this `key` store one private key.
+[SingleKeyring] defines `key` property inside, and this `key` stores one private key.
 
 [MultipleKeyring] defines `keys` property inside, and this `keys` is implemented as an array to store multiple private keys.
 
-The `keys` property defined in [RoleBasedKeyring] is implemented as a List with an array of elements (empty `keys` will look like `[ [], [], [] ]`) that can include multiple keys for each [role]. The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
+The `keys` property defined in [RoleBasedKeyring] is implemented as a List object having 3 arrays of private key(s) as its elements (empty `keys` will look like `[ [], [], [] ]`) and so that it can include multiple keys for each [role]. The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
 
 ### Creating a Keyring <a id="creating-a-keyring"></a>
 
@@ -214,7 +215,7 @@ String privateKey = "0x{private key in hex}";
 SingleKeyring keyring = KeyringFactory.createWithSingleKey(address, privateKey);
 ```
 
-also you can derived SingleKeyring instance from Klaytn wallet key.
+Also you can derived SingleKeyring instance from Klaytn wallet key.
 
 ```java
 String klaytnWalletKey = "0x{private key}0x{type}0x{address in hex}";
@@ -228,7 +229,7 @@ If you want to use multiple private keys, you can create a [MultipleKeyring] usi
 ```java
 String address = "0x{address in hex}";
 String[] privateKeyArray = new String[] {"0x{private key#1}", "0x{private key#2}", "0x{prviate key#3}"};
-MultipleKeyring multipleKeyring = MultipleKeyring multipleKeyring = KeyringFactory.createWithMultipleKey(address, privateKeyArray);
+MultipleKeyring multipleKeyring = KeyringFactory.createWithMultipleKey(address, privateKeyArray);
 ```
 
 #### Creating a RoleBasedKeyring with private keys <a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
