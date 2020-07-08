@@ -1,5 +1,43 @@
 # Getting Started <a id="getting-started"></a>
 
+## What's new?
+
+In caver-java 1.5.0, we adopt Common Architecture. Common Architecture is a new software architecture for Klaytn development environment, which is shared by all Klaytn SDKs (caver-js/caver-java). It is designed for your streamlined development experience and ease of extensibility to other programming languages.
+
+As caver-java is updated to 1.5.0, the APIs used in 1.4.0 are deprecated except for some APIs.
+
+The APIs newly provided in caver-java 1.5.0 are as follows.
+
+### caver.account
+
+caver.wallet is a package that manages Keyring instances in in-memory wallet. A Keyring is an instance that stores the address of a Klaytn account and its private key(s), and it is used when the address of this account signs a transaction. caver.wallet accepts all types of Keyring (SingleKeyring, MultipleKeyring, and RoleBasedKeyring) and manages them with their Klaytn account address.
+
+
+- `caver.account` replaces `caver.tx.account` in caver-java 1.4.0
+
+### caver.wallet
+
+caver.wallet is a package that manages Keyring instances in in-memory wallet. A Keyring is an instance that stores the address of a Klaytn account and its private key(s), and it is used when the address of this account signs a transaction. caver.wallet accepts all types of Keyring (SingleKeyring, MultipleKeyring, and RoleBasedKeyring) and manages them with their Klaytn account address.
+
+- `caver.wallet` relpaces `caver.crypto` in caver-java 1.4.0
+- `caver.wallet.KeyStore` replaces `caver.wallet.WalletFile` in caver-java 1.4.0
+
+### caver.transaction
+
+caver.transaction is a package that provides functionality related to [Transaction](https://docs.klaytn.com/klaytn/design/transactions#transactions-overview).
+
+- `caver.transaction` replaces `caver.tx` in caver-java 1.4.0
+
+### caver.rpc
+
+caver.rpc is a package that provides functionality related to rpc call with Klaytn Node.
+
+- `caver.rpc.klay` and `caver.rpc.net` replaces `Klay`, `Net` interfaces in caver-java 1.4.0, repectively
+
+### caver.util
+
+caver.utils provides utility functions.
+
 ## Prerequisites <a id="prerequisites"></a>
 
 ### Dependency <a id="dependency"></a>
@@ -10,14 +48,14 @@
 <dependency>
   <groupId>com.klaytn.caver</groupId>
   <artifactId>core</artifactId>
-  <version>1.0.1</version>
+  <version>1.5.0</version>
 </dependency>
 ```
 
 **gradle**
 
 ```groovy
-implementation 'com.klaytn.caver:core:1.0.1'
+implementation 'com.klaytn.caver:core:1.5.0'
 ```
 
 If you want to use Android dependency, just append -android at the end of the version string. \(e.g. 1.0.1-android\)
@@ -29,19 +67,6 @@ implementation "ch.qos.logback:logback-classic:1.2.3"
 ```
 
 **Note**: In the central repository, the RC, Android, and Java versions are listed together. If you use wildcards to get a version, you may be using a version that is not appropriate for your platform.
-
-### Installation <a id="installation"></a>
-
-If you want to generate transactions related with a smart contract, you need to install a Solidity compiler and caver-java command-line tool first.
-
-#### Solidity Compiler <a id="solidity-compiler"></a>
-
-You can install the Solidity compiler locally, following the instructions as per [the project documentation](http://solidity.readthedocs.io/en/develop/installing-solidity.html). Klaytn recommends you to install Solidity version either 0.4.24 or 0.5.6. If you are a macOS user, you can install the versions via Homebrew:
-
-```text
-$ brew install klaytn/klaytn/solidity@0.4.24  # version 0.4.24
-$ brew install klaytn/klaytn/solidity@0.5.6   # version 0.5.6
-```
 
 #### Command-line Tool <a id="command-line-tool"></a>
 
@@ -85,500 +110,629 @@ Currently, we do not support other package managers. As another solution, we pro
   $ ./console/build/distributions/console-shadow-{version}/bin/caver-java
   ```
 
-## Managing Accounts <a id="managing-accounts"></a>
 
-### Creating an Account <a id="creating-an-account"></a>
+## Sending KLAY at a glance
 
-In order to sign transactions, you need to have either an EC \(Elliptic Curve\) key pair or a Klaytn keystore file.
-
-#### Using an EC Key Pair <a id="using-an-ec-key-pair"></a>
-
-You can create a Klaytn account using an EC key pair like below:
+This section describes a simple example of using a `keystore file` to send KLAY with a value transfer transaction. The keystore file can be created in [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
 
 ```java
-KlayCredentials credentials = KlayCredentials.create(Keys.createEcKeyPair());
-String privateKey = Numeric.toHexStringWithPrefix(credentials.getEcKeyPair().getPrivateKey()); 
-String address = credentials.getAddress();
+public void sendingKLAY() throws IOException, CipherException, TransactionException {
+        Caver caver = new Caver(Caver.BAOBAB_URL);
+
+        //Read keystore json file.
+        File file = new File("./keystore.json");
+
+        //Decrypt keystore.
+        ObjectMapper objectMapper = ObjectMapperFactory.getObjectMapper();
+        KeyStore keyStore = objectMapper.readValue(file, KeyStore.class);
+        AbstractKeyring keyring = KeyringFactory.decrypt(keyStore, "password");
+
+        //Add to caver wallet.
+        caver.wallet.add(keyring);
+
+        BigInteger value = new BigInteger(Utils.convertToPeb(BigDecimal.ONE, "KLAY"));
+
+        //Create a value transfer transaction
+        ValueTransfer valueTransfer = new ValueTransfer.Builder()
+                .setKlaytnCall(caver.rpc.getKlay())
+                .setFrom(keyring.getAddress())
+                .setTo("0x8084fed6b1847448c24692470fc3b2ed87f9eb47")
+                .setValue(value)
+                .setGas(BigInteger.valueOf(25000))
+                .build();
+
+        //Sign to the transaction
+        valueTransfer.sign(keyring);
+
+        //Send a transaction to the klaytn blockchain platform (Klaytn)
+        Bytes32 result = caver.rpc.klay.sendRawTransaction(valueTransfer.getRawTransaction()).send();
+        if(result.hasError()) {
+            throw new RuntimeException(result.getError().getMessage());
+        }
+
+        //Check transaction receipt.
+        TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 15);
+        TransactionReceipt.TransactionReceiptData transactionReceipt = transactionReceiptProcessor.waitForTransactionReceipt(result.getResult());
+    }
 ```
 
-#### Using a Keystore File <a id="using-a-keystore-file"></a>
 
-If you want to create a new account with a keystore file (you can also create a new keystore file in [Klaytn Wallet]):
+## Starting with caver-java <a id="starting-with-caver-java"></a>
+
+### Connecting to a Klaytn Node <a id="connecting-to-a-klaytn-node"></a>
+
+You can import the caver-java module and connect it to a Klaytn Node in the Baobab testnet as shown in the example below:
 
 ```java
-KlayWalletUtils.generateNewWalletFile(
-        <yourPassword>,
-        new File(<walletFilePath>)
-);
+Caver caver = new Caver(Caver.BAOBAB_URL); // Caver.BAOBAB_URL = https://api.baobab.klaytn.net:8651
 ```
 
-To load an account using a keystore file like below:
+If you are running an EN, you can connect it to your own node by changing the host and port like below:
 
 ```java
-KlayCredentials credentials = KlayWalletUtils.loadCredentials(<password>, <walletFilePath>);
+Caver caver = new Caver("http://localhost:8551/");
 ```
+
+
+## Managing Keyrings <a id="managing-keyrings"></a>
+
+`Keyring` is a structure that contains the address of the Klaytn account and the private key(s). 
+
+`Keyring` can be classified into three types depending on the type of key being stored: `SingleKeyring` to store one address and one private key, `MultipleKeyring` to store one address and multiple private keys, and `RoleBasedKeyring` to store one address and one or more private keys for each role.
+
+`SingleKeyring` defines `key` property inside, and this `key` stores one private key.
+
+`MultipleKeyring` defines `keys` property inside, and this `keys` is implemented as an array to store multiple private keys.
+
+The `keys` property defined in `RoleBasedKeyring` is implemented as a List object having 3 arrays of private key(s) as its elements (empty `keys` will look like `[ [], [], [] ]`) and so that it can include multiple keys for each `role`. The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
+
+### Creating a Keyring <a id="creating-a-keyring"></a>
+
+#### Generating a SingleKeyring <a id="generating-a-singlekeyring"></a>
+
+You can randomly generate a single keyring as shown below.
+
+```java
+SingleKeyring keyring = KeyringFactory.generate();
+```
+
+#### Creating a SingleKeyring from private key <a id="creating-a-singlekeyring-from-private-key"></a>
+
+Also, if you own a specific private key, you can use it to create a keyring as shown below.
+
+```java
+String privateKey = "0x{private key in hex}";
+SingleKeyring keyring = KeyringFactory.createFromPrivateKey(privateKey);
+```
+
+#### Creating a SingleKeyring with a private key and an address <a id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
+
+If your private key for your Klaytn account is decoupled from the address, you can create a keyring using the given address and the given private key like below.
+
+```java
+String address = "0x{address in hex}";
+String privateKey = "0x{private key in hex}";
+SingleKeyring keyring = KeyringFactory.createWithSingleKey(address, privateKey);
+```
+
+Also, you can derive SingleKeyring instance from Klaytn wallet key.
+
+```java
+String klaytnWalletKey = "0x{private key}0x{type}0x{address in hex}";
+SingleKeyring keyring = KeyringFactory.createFromKlaytnWalletKey(klaytnWalletKey);
+```
+
+#### Creating a MultipleKeyring with multiple private keys <a id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
+
+If you want to use multiple private keys, you can create a `MultipleKeyring` using an address and multiple private keys. The below examples show how to create a `MultipleKeyring` with multiple private keys.
+
+```java
+String address = "0x{address in hex}";
+String[] privateKeyArray = new String[] {"0x{private key#1}", "0x{private key#2}", "0x{prviate key#3}"};
+MultipleKeyring multipleKeyring = KeyringFactory.createWithMultipleKey(address, privateKeyArray);
+```
+
+#### Creating a RoleBasedKeyring with private keys <a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
+
+To use different private key(s) for each `role`, `KeyringFactory.createWithRoleBasedKey` is used. Each array element represents a role described in `RoleBasedKeyring`. The example below shows how to create a `RoleBasedKeyring` instance from different keys for each role.
+
+
+```java
+String address = "0x{address in hex}";
+String[][] privateKeyArr = new String[][] {
+        //roleTransactionKey
+        {
+                "0x{privateKey in hex}",
+                "0x{privateKey in hex}",
+                "0x{privateKey in hex}",
+        },
+        //roleAccountUpdateKey
+        {
+                "0x{privateKey in hex}",
+                "0x{privateKey in hex}",
+                "0x{privateKey in hex}",
+        },
+        //roleFeePayerKey
+        {
+                "0x{privateKey in hex}",
+                "0x{privateKey in hex}",
+                "0x{privateKey in hex}",
+        },
+};
+
+RoleBasedKeyring keyring = KeyringFactory.createWithRoleBasedKey(address, Arrays.asList(privateKeyArr));
+```
+
+### Adding Keyrings to caver-java from a keystore json string.<a id="adding-keyrings-to-caver-java"></a>
+
+You can use a keyring more easily by adding it to the in-memory wallet provided by caver-java. The following examples illustrate how to add a keyring to `caver.wallet` using a keystore JSON file string generated by [Klaytn Wallet](https://wallet.klaytn.com/).
+
+```java
+Caver caver = new Caver(Caver.MAINNET_URL);
+
+String password = "password";
+String keyStoreJsonString = "{\n" +
+        "  \"version\": 4,\n" +
+        "  \"id\": \"9c12de05-0153-41c7-a8b7-849472eb5de7\",\n" +
+        "  \"address\": \"0xc02cec4d0346bf4124deeb55c5216a4138a40a8c\",\n" +
+        "  \"keyring\": [\n" +
+        "    {\n" +
+        "      \"ciphertext\": \"eacf496cea5e80eca291251b3743bf93cdbcf7072efc3a74efeaf518e2796b15\",\n" +
+        "      \"cipherparams\": {\n" +
+        "        \"iv\": \"d688a4319342e872cefcf51aef3ec2da\"\n" +
+        "      },\n" +
+        "      \"cipher\": \"aes-128-ctr\",\n" +
+        "      \"kdf\": \"scrypt\",\n" +
+        "      \"kdfparams\": {\n" +
+        "        \"dklen\": 32,\n" +
+        "        \"salt\": \"c3cee502c7157e0faa42386c6d666116ffcdf093c345166c502e23bc34e6ba40\",\n" +
+        "        \"n\": 4096,\n" +
+        "        \"r\": 8,\n" +
+        "        \"p\": 1\n" +
+        "      },\n" +
+        "      \"mac\": \"4b49574f3d3356fa0d04f73e07d5a2a6bbfdd185bedfa31f37f347bc98f2ef26\"\n" +
+        "    }\n" +
+        "  ]\n" +
+        "}";
+
+SingleKeyring decrypt = (SingleKeyring)KeyringFactory.decrypt(keyStoreJsonString, password);
+System.out.println("Decrypted address : " + decrypt.getAddress());
+System.out.println("Decrypted key : " + decrypt.getKey());
+
+AbstractKeyring addedKeyring = caver.wallet.add(decrypt);
+System.out.println("address : " + addedKeyring.getAddress());
+System.out.println("key : " + addedKeyring.getKey());
+```
+
+```bash
+Decrypted address : 0xc02cec4d0346bf4124deeb55c5216a4138a40a8c
+Decrypted key : 0x93c90135ae69669e416ba5997d9274f8c8bd60748761fc421e415602d68a13a5
+
+address : 0xc02cec4d0346bf4124deeb55c5216a4138a40a8c
+key : 0x93c90135ae69669e416ba5997d9274f8c8bd60748761fc421e415602d68a13a5
+```
+
+Looking at the output above, you can query your keyring from `caver.wallet` after adding it to `caver.wallet`.
+
+If you have an address and private key(s) to use, you can easily create a keyring and add it directly to caver.wallet via caver.wallet.newKeyring.
+
+```java
+Caver caver = new Caver(Caver.MAINNET_URL);
+
+// Add to wallet with an address and a private key
+AbstractKeyring addedSingleKeyring = caver.wallet.newKeyring("0x{address in hex}", "0x{private key1}");
+
+
+// Add to wallet with an address and private keys
+String[] privateKeyArr = new String[] {
+                "0x{privateKey in hex}",
+                "0x{privateKey in hex}",
+                "0x{privateKey in hex}",
+};
+
+AbstractKeyring addedMultipleKeyring = caver.wallet.newKeyring('0x{address in hex}', privateKeyArr);
+
+
+// Add to wallet with an address and private keys defined by each roles
+String[][] privateKeyArr = new String[][] {
+                //roleTransactionKey
+                {
+                        "0x{privateKey in hex}",
+                        "0x{privateKey in hex}",
+                        "0x{privateKey in hex}",
+                },
+                //roleAccountUpdateKey
+                {
+                        "0x{privateKey in hex}",
+                        "0x{privateKey in hex}",
+                        "0x{privateKey in hex}",
+                },
+                //roleFeePayerKey
+                {
+                        "0x{privateKey in hex}",
+                        "0x{privateKey in hex}",
+                        "0x{privateKey in hex}",
+                },
+};
+
+AbstractKeyring addedRoleBased = caver.wallet.newKeyring('0x{address in hex}', Arrays.asList(privateKeyArr))
+```
+
+When `caver.wallet.newKeyring` is executed with a private key, a Keyring instance with one private key is created and added to `caver.wallet`. For multiple private keys, a Keyring instance with multiple private keys is created and added to `caver.wallet`. When passing a 2D string array including one or more private keys for each role as an element, a Keyring instance that contains the different private key(s) for each role is created and also added to the `caver.wallet`.
+
+
+`caver.wallet.add` or `caver.wallet.newKeyring` returns a Keyring instance after adding it to `caver.wallet`.
 
 ## Sending a Transaction <a id="sending-a-transaction"></a>
 
+This section will show you how to send KLAY using caver-java on the Baobab network.
+
 ### Getting KLAY via Baobab Faucet <a id="getting-klay-via-baobab-faucet"></a>
 
-After creating an account, you can receive some Baobab testnet KLAY for the Baobab testnet via Baobab Faucet, available at [https://baobab.wallet.klaytn.com/](https://baobab.wallet.klaytn.com/). The received testnet KLAY will be used for transaction fee later.
-
-### Connecting to Baobab <a id="connecting-to-baobab"></a>
-
-You can use a Klaytn public EN \([https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651)\) to connect to the Baobab testnet.
-
-```java
-Caver caver  = Caver.build(Caver.BAOBAB_URL);  // Caver.BAOBAB_URL = https://api.baobab.klaytn.net:8651
-```
+If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the Klaytn Wallet using the private key or the keystore file and receive Baobab testnet KLAY via the faucet for testing.
 
 ### Sending a Value Transfer Transaction <a id="sending-a-value-transfer-transaction"></a>
 
-After you get a `Caver` instance and create an account which has some KLAY, you can send 1 peb to a certain address\(`0xe97f27e9a5765ce36a7b919b1cb6004c7209217e`\) with a gas limit `BigInteger.valueOf(100_000)` like below:
+You can use a caver-java wallet to generate a signature of a transaction. You have to go through two steps below to send the transaction to the network.
 
-`TransactionManager` is introduced to hide the complexity of transaction types. For example, a `FeeDelegatedValueTransferTransaction` object can be transformed from a `ValueTransferTransaction` object. For more details, see [Fee Delegation]. In addition to Fee Delegation, `TransactionManager` can be used with `GetNonceProcessor`, `ErrorHandler`, and `TransactionReceiptProcessor`.
+1. Sign a transaction
+	- If the keyring you want to use is added to `caver.wallet`, you can use `caver.wallet.sign` function to sign.
+	- If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
+2. Send the RLP-encoded string of the signed transaction to the Klaytn via `caver.rpc.klay.sendRawTransaction`.
+
+**Note:** The sender should have enough number of KLAY to be transferred and also to pay the transaction fee.
+
+#### Sign a transaction
+
+Before sending a transaction to Klaytn, you should sign a transaction first. 
+
+Below is an example of how to sign a transaction if a keyring is added to the `caver.wallet`.
 
 ```java
-TransactionManager transactionManager = new TransactionManager.Builder(caver, credentials)
-        .setChaindId(ChainId.BAOBAB_TESTNET).build();
+Caver caver = new Caver(Caver.MAINNET_URL);
 
-ValueTransferTransaction valueTransferTransaction = ValueTransferTransaction.create(
-        credentials.getAddress(),  // fromAddress
-        "0xe97f27e9a5765ce36a7b919b1cb6004c7209217e",  // toAddress
-        BigInteger.ONE,  // value
-        BigInteger.valueOf(100_000)  // gasLimit
-);
+// Add a keyring to caver.wallet
+SingleKeyring keyring = KeyringFactory.createFromPrivateKey("privateKey");
+caver.wallet.add(keyring);
 
-KlayRawTransaction klayRawTransaction = transactionManager.sign(valueTransferTransaction);
-String transactionHash = transactionManager.send(klayRawTransaction);
+// Create a value transfer transaction
+ValueTransfer valueTransfer = new ValueTransfer.Builder()
+        .setKlaytnCall(caver.rpc.klay)
+        .setFrom(keyring.getAddress())
+        .setTo("0x176ff0344de49c04be577a3512b6991507647f72")
+        .setValue(BigInteger.valueOf(1))
+        .setGas(BigInteger.valueOf(30000))
+        .build();
 
-TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 15);  // pollingSleepDuration = 1000, pollingAttempts = 15
-KlayTransactionReceipt.TransactionReceipt transactionReceipt = transactionReceiptProcessor.waitForTransactionReceipt(transactionHash);
+// Sign the transaction via caver.wallet.sign
+caver.wallet.sign(keyring.getAddress(), valueTransfer);
+String rlpEncoded = valueTransfer.getRLPEncoding();
+System.out.println("RLP-encoded string: " + rlpEncoded)
 ```
 
-If you use `ValueTransfer` class, you can more easily compose and send a transaction. This is because `ValueTransfer` class makes the processes above simple like below:
+The above code adds a keyring to `caver.wallet`, creates a transaction, and signs the transaction through `caver.wallet.sign`. 
+
+Running the above code gives you the following result. When the above code is executed, the RLP-encoded string of the transaction is shown below. (The RLP-encoded string output you got could be different from the string output shown below.)
+
+```bash
+RLP-encoded string: 0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b6991507647f720194ade4883d092e2a972d70637ca7de9ab5166894a2f847f845824e44a0e1ec99789157e5cb6bc691935c204a23aaa3dc049efafca106992a5d5db2d179a0511c421d5e508fdb335b6048ca7aa84560a53a5881d531644ff178b6aa4c0a41
+```
+
+#### Send the RLP-encoded string of the signed transaction to the Klaytn
+
+Now you can send a signed transaction to the network like below. If you want to run the below example, replace "rlpEncoding" with the value of `rlpEncoded` in the code above.
 
 ```java
-KlayTransactionReceipt.TransactionReceipt transactionReceipt
-        = ValueTransfer.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendFunds(
-                redentials.getAddress(),  // fromAddress
-                "0xe97f27e9a5765ce36a7b919b1cb6004c7209217e",  // toAddress
-                BigDecimal.ONE,  // value 
-                Convert.Unit.PEB,  // unit 
-                BigInteger.valueOf(100_000)  // gasLimit
-            ).send();
+public String sendRawTransaction() {
+  Caver caver = new Caver(Caver.BAOBAB_URL);
+  
+  String rlpEncoding = "rlpEncoding";
+  String txHash = null;
+
+  try {
+      // Send the transaction using `caver.rpc.klay.sendRawTransaction`.
+      Bytes32 sendResult = caver.rpc.klay.sendRawTransaction(rlpEncoding).send();
+      if(sendResult.hasError()) {
+          //do something to handle error
+      }
+      
+      txHash = sendResult.getResult();
+  } catch (IOException e) {
+      // do something to handle exception
+  }
+  return txHash;
+
+}
+```
+
+If you want to sign a transaction and send it to the network without `caver.wallet`, see the example below.
+
+```java
+Caver caver = new Caver(Caver.MAINNET_URL);
+
+// Add a keyring to caver.wallet
+SingleKeyring keyring = KeyringFactory.createFromPrivateKey("privateKey");
+caver.wallet.add(keyring);
+
+// Create a value transfer transaction
+ValueTransfer valueTransfer = new ValueTransfer.Builder()
+        .setKlaytnCall(caver.rpc.klay)
+        .setFrom(keyring.getAddress())
+        .setTo("0x176ff0344de49c04be577a3512b6991507647f72")
+        .setValue(BigInteger.valueOf(1))
+        .setGas(BigInteger.valueOf(30000))
+        .build();
+
+// Sign the transaction via transaction.sign
+valueTransfer.sign(keyring);
+String rlpEncoded = valueTransfer.getRLPEncoding();
+
+try {
+    // Send the transaction using `caver.rpc.klay.sendRawTransaction`.
+    Bytes32 sendResult = caver.rpc.klay.sendRawTransaction(rlpEncoded).send();
+    if(sendResult.hasError()) {
+        //do something to handle error
+    }
+    
+    String txHash = sendResult.getResult();
+    Systm.out.println("Transaction Hash : " + txHash);
+} catch (IOException e) {
+    // do something to handle exception
+}
+```
+
+When the above code is executed, the transaction hash (txHash) is printed like the example below.
+
+```bash
+Transaction Hash : 0x43e8ab1a2365ad598448b4402c1cfce6a71b3a103fce3a69905613e50b978113
 ```
 
 ### Checking Receipts <a id="checking-receipts"></a>
 
-If you send a transaction via `sendFunds`, caver-java tries to get a transaction receipt by default. After you get a receipt, you can see the following log in the console.
+You can use the `TransactionReceiptProcessor` to get the receipt of the transaction when you transfer the transaction to the Klaytn by `caver.rpc.klay.sendRawTransaction`.
 
-```javascript
-{
-   "jsonrpc":"2.0",
-   "id":4,
-   "result":{
-      "blockHash":"0x45542cc3e3bce952f368c5da9d40f972c134fed2b2b6815231b5caf33c79dacd",
-      "blockNumber":"0x39a57b",
-      "contractAddress":null,
-      "from":"0xe97f27e9a5765ce36a7b919b1cb6004c7209217e",
-      "gas":"0x186a0",
-      "gasPrice":"0x5d21dba00",
-      "gasUsed":"0x5208",
-      "logs":[],
-      "logsBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-      "nonce":"0x114e",
-      "senderTxHash":"0x3d50b9fa9fec58443f5618ed7e0f5aec5e9a6f7269d9ff606ff87156ca5b4afd",
-      "signatures":[
-         {
-            ...
-         }
-      ],
-      "status":"0x1",
-      "to":"0xe97f27e9a5765ce36a7b919b1cb6004c7209217e",
-      "transactionHash":"0x3d50b9fa9fec58443f5618ed7e0f5aec5e9a6f7269d9ff606ff87156ca5b4afd",
-      "transactionIndex":"0x1",
-      "type":"TxTypeValueTransfer",
-      "typeInt":8,
-      "value":"0x1"
-   }
+The following example shows how to get a receipt using PollingTransactionReceiptProcessor.
+
+```java
+Caver caver = new Caver(Caver.BAOBAB_URL);
+String txHash = "0x40552efbba23347d36f6f5aaba6b9aeb6602e004df62c1988d9b7b1f036e676a";
+
+//Sleep duration - 1000ms
+//Attempts count - 15
+TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 15);
+
+try {
+  TransactionReceipt.TransactionReceiptData receiptData = receiptProcessor.waitForTransactionReceipt(txHash);
+} catch (IOException | TransactionException e) {
+  // do something to handle error.
+
 }
 ```
 
-In this receipt, you can check the status of the transaction execution. If the 'status' field in the receipt is "0x1", it means the transaction is processed successfully. If not, the transaction failed. The detailed error message is presented in the `txError` field. For more detail, see [txError].
+As described in the example above, you can get the result of sending a transaction through TransactionReceiptProcessor. The `transactionHash` field is defined inside the receipt object. 
 
-## Sending Other Transaction Types <a id="sending-other-transaction-types"></a>
-
-### Account Update <a id="account-update"></a>
-
-If you want to update the key of the given account to a new [AccountKeyPublic] key:
+You can use `caver.rpc.klay.getTransactionReceipt` RPC call with `txHash` string to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the `caver.rpc.klay.getTransactionReceipt` RPC call.
 
 ```java
-AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.create(
-        credentials.getAddress(),  // fromAddress
-        AccountKeyPublic.create(
-                "0xbf8154a3c1580b5478ceec0aac319055185280ce22406c6dc227f4de85316da1",  // publicKeyX
-                "0x0dc8e4b9546adcc6d1f11796e43e478bd7ffbe302917667837179f4da77591d8"  // publicKeyY
-        ),  // newAccountKey
-        BigInteger.valueOf(100_000)  // gasLimit
-);
-Account.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendUpdateTransaction(accountUpdateTransaction).send();
+Caver caver = new Caver(Caver.BAOBAB_URL);
+String txHash = "0x40552efbba23347d36f6f5aaba6b9aeb6602e004df62c1988d9b7b1f036e676a";
+
+try {
+  TransactionReceipt receipt = caver.rpc.klay.getTransactionReceipt(txHash).send();
+  if(receipt.hasError()) {
+    // do something to handle error
+
+  }
+  
+  TransactionReceipt.TransactionReceiptData receiptData = receipt.getResult();
+} catch (IOException e) {
+    // do something to handle exception.
+
+}
 ```
 
-An account key represents the key structure associated with an account. To get more details and types about the Klaytn account key, please read [AccountKey].
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures].
 
-### Smart Contract <a id="smart-contract"></a>
 
-caver-java supports auto-generation of smart contract wrapper code. Using the wrapper, you can easily deploy and execute a smart contract. Before generating a wrapper code, you need to compile the smart contract first. Note: This will only work if a Solidity compiler is installed in your computer. See [Solidity Compiler].
+## Executing Other Transaction Types <a id="executing-other-transaction-types"></a>
 
-```text
-$ solc <contract>.sol --bin --abi --optimize -o <output-dir>/
-```
-
-Then, generate the wrapper code using caver-java’s [command-line tool].
-
-```text
-$ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
-```
-
-Above command will output `<smartContract>`.java. After generating the wrapper code, you can deploy your smart contract like below:
-
-```java
-<smartContract> contract = <smartContract>.deploy(
-        caver, credentials, <chainId>, <gasProvider>,
-        <param1>, ..., <paramN>).send();
-```
-
-After the smart contract has been deployed, you can create a smart contract instance like below:
-
-```java
-<smartContract> contract = <smartContract>.load(
-        <deployedContractAddress>, caver, credentials, <chainId>, <gasProvider>
-);
-```
-
-To transact with a smart contract:
-
-```java
-KlayTransactionReceipt.TransactionReceipt transactionReceipt = contract.<someMethod>(
-        <param1>,
-        ...).send();
-```
-
-To call a smart contract:
-
-```java
-<type> result = contract.<someMethod>(<param1>, ...).send();
-```
-
-#### Example <a id="example"></a>
-
-This section describes how to deploy and execute a smart contract on the Baobab testnet. In this example, we use a smart contract [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol). If contract deployment fails and an empty contract address is returned, it will throw RuntimeException.
-
-```java
-ERC20Mock erc20Mock = ERC20Mock.deploy(
-        caver, credentials, 
-        ChainId.BAOBAB_TESTNET,  // chainId
-        new DefaultGasProvider(),  // gasProvider
-        credentials.getAddress(),  // param1(initialAccount)
-        BigInteger.valueOf(100)  // param2(initialBalance)
-).send();
-String deployedContractAddress = erc20Mock.getContractAddress();
-```
-
-To create an instance of the deployed ERC20Mock contract:
-
-```java
-ERC20Mock erc20Mock = ERC20Mock.load(
-        deployedContractAddress, 
-        caver, credentials, 
-        ChainId.BAOBAB_TESTNET,  // chainId 
-        new DefaultGasProvider()  // gasProvider
-);
-```
-
-If you transfer 10 tokens to a specified address \(e.g., `0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a`\), use the following code:
-
-```java
-KlayTransactionReceipt.TransactionReceipt transactionReceipt = erc20Mock.transfer(
-        "0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a",  // toAddress
-        BigInteger.valueOf(10)  // value
-).send();
-```
-
-To check the balance of the recipient \(e.g., `0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a`\), use the code below:
-
-```java
-BigInteger balance = erc20Mock.balanceOf(
-        "0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a"  // owner
-).send();
-```
+Klaytn provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../klaytn/design/transactions/README.md). This section describes some examples that can be used with caver-java.
 
 ### Fee Delegation <a id="fee-delegation"></a>
 
-Klaytn provides [Fee Delegation] feature which allows service providers to pay transaction fees instead of the users.
-
-#### Value Transfer <a id="value-transfer"></a>
-
-On the client side, client who initiates the transaction will generate a fee-delegated value transfer transaction as follows: A sender creates a default `ValueTransferTransaction` object, then [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.2/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) returns a signed `FeeDelegatedValueTransferTransaction` object if the second parameter is set to `true`.
+Klaytn provides Fee Delegation feature. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
 
 ```java
-TransactionManager transactionManager = new TransactionManager.Builder(caver, credentials)
-        .setChaindId(ChainId.BAOBAB_TESTNET).build();  // BAOBAB_TESTNET = 1001
-ValueTransferTransaction valueTransferTransaction = ValueTransferTransaction.create(
-        credentials.getAddress(),  // fromAddress
-        "0xe97f27e9a5765ce36a7b919b1cb6004c7209217e",  // toAddress
-        BigInteger.ONE,  // value
-        BigInteger.valueOf(100_000)  // gasLimit
-);
-String senderRawTransaction = transactionManager.sign(valueTransferTransaction, true).getValueAsString();  // isFeeDelegated : true
-```
+Caver caver = new Caver(Caver.BAOBAB_URL);
+SingleKeyring senderKeyring = KeyringFactory.createFromPrivateKey("0x{privateKey}");
+caver.wallet.add(senderKeyring);
 
-A signed transaction, `senderRawTransaction`, is generated. Now the sender delivers the transaction to the fee payer who will pay for the transaction fee instead. Transferring transactions between the sender and the fee payer is not performed on the Klaytn network. The protocol should be defined by themselves.
-
-After the fee payer gets the transaction from the sender, the fee payer can send the transaction using the `FeePayerManager` class as follows. `FeePayerManager.executeTransaction()` will sign the received transaction with the fee payer's private key and send the transaction to the Klaytn network.
-
-```java
-KlayCredentials feePayer = KlayWalletUtils.loadCredentials(<password>, <walletfilePath>);
-FeePayerManager feePayerManager = new FeePayerManager.Builder(caver, feePayer)
-        .setChainId(ChainId.BAOBAB_TESTNET)
+FeeDelegatedValueTransfer feeDelegatedValueTransfer = new FeeDelegatedValueTransfer.Builder()
+        .setKlaytnCall(caver.rpc.klay)
+        .setFrom(senderKeyring.getAddress())
+        .setTo("0x176ff0344de49c04be577a3512b6991507647f72")
+        .setValue(BigInteger.valueOf(1))
+        .setGas(BigInteger.valueOf(30000))
         .build();
-feePayerManager.executeTransaction(senderRawTransaction);
+
+caver.wallet.sign(senderKeyring.getAddress(), feeDelegatedValueTransfer);
+String rlpEncoded = feeDelegatedValueTransfer.getRLPEncoding();
+System.out.println(rlpEncoded);
 ```
 
-#### Smart Contract Execution <a id="smart-contract-execution"></a>
+When the above code is executed, the RLP-encoded string will be printed. (The RLP-encoded string output you got could be different from the string output shown below.)
 
-The difference between fee-delegated smart contract execution and fee-delegated value transfer above is that this needs input data to call a function of a smart contract. A sender can generate a fee-delegated smart contract execution transaction as shown below. Note that [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.2/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) returns a `TxTypeFeeDelegatedSmartContractExecution` object if you pass `true` to the second parameter. The example below invokes the `transfer` method of [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol) contract which is described in [Smart Contract].
+```bash
+0x09f884028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf080c4c3018080
+```
+
+The fee payer can send the transaction to the Klaytn after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. If `caver.wallet` also has the fee payer's keyring, the fee payer's signature can be injected into `feeDelegatedTx` by calling `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. Otherwise, the fee payer has to create a `feeDelegatedTx` from the RLP-encoded string signed by the sender and add the fee payer's sign onto it, as illustrated below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
 
 ```java
-String recipient = "0x34f773c84fcf4a0a9e2ef07c4615601d60c3442f";
-BigInteger transferValue = BigInteger.valueOf(20);
-Function function = new Function(
-        ERC20Mock.FUNC_TRANSFER,  // FUNC_TRANSFER = "transfer"
-        Arrays.asList(new Address(recipient), new Uint256(transferValue)),  // inputParameters
-        Collections.emptyList()  // outputParameters
-);
-String data = FunctionEncoder.encode(function);
+Caver caver = new Caver(Caver.BAOBAB_URL);
 
-TransactionManager transactionManager = new TransactionManager.Builder(caver, credentials)
-        .setChaindId(ChainId.BAOBAB_TESTNET).build();  // BAOBAB_TESTNET = 1001
-SmartContractExecutionTransaction smartContractExecution = 
-        SmartContractExecutionTransaction.create(
-                credentials.getAddress(),  // fromAddress
-                erc20Mock.getContractAddress(),  // contractAddress
-                BigInteger.ZERO,  // value
-                Numeric.hexStringToByteArray(data),  // data
-                BigInteger.valueOf(100_000)  // gasLimit
-        );
-String senderRawTransaction = transactionManager.sign(smartContractExecution, true).getValueAsString();
+SingleKeyring feePayerKeyring = KeyringFactory.createFromPrivateKey("0x{privateKey}");
+caver.wallet.add(feePayerKeyring);
+
+String rlpEncoded = "0x{RLP-encoded string}";
+FeeDelegatedValueTransfer feeDelegatedValueTransfer = FeeDelegatedValueTransfer.decode(rlpEncoded);
+feeDelegatedValueTransfer.setFeePayer(feePayerKeyring.getAddress());
+
+caver.wallet.signAsFeePayer(feePayerKeyring.getAddress(), feeDelegatedValueTransfer);
+System.out.println(feeDelegatedValueTransfer.getRLPEncoding());
 ```
 
-After you get `senderRawTransaction`, the rest of the process using `FeePayerManager` is the same way as you saw in [fee-delegated value transfer] above:
+When the above code is executed, the RLP-encoded string including the sender's signatures and fee payer's signatures is printed like below. (The output you got could be different from the string output shown below.)
+
+```bash
+0x09f8dc028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf09417e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24f847f845824e44a0921b7c3be69db96ce14134b306c2ada423613cb66ecc6697ee8067983c268b6ea07b86b255d1c781781315d85d7904226fb2101eb9498c4a03f3fbd30ba3ec5b79
+```
+
+The transaction is now signed by both the sender and the fee payer, and it can now be sent over the network. Replace `0x{RLP-encoded string}` with the RLP-encoded string output of the example code above.
 
 ```java
-KlayCredentials feePayer = KlayWalletUtils.loadCredentials(<password>, <walletfilePath>);
-FeePayerManager feePayerManager = new FeePayerManager.Builder(caver, feePayer).build();
-feePayerManager.executeTransaction(senderRawTransaction);
+Caver caver = new Caver(Caver.BAOBAB_URL);
+
+TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 15);
+
+String rlpEncoded = "0x{RLP-encoded string}";
+try {
+  // Send the transaction using `caver.rpc.klay.sendRawTransaction`.
+  Bytes32 sendResult = caver.rpc.klay.sendRawTransaction(rlpEncoding).send();
+  if(sendResult.hasError()) {
+    //do something to handle error
+
+  }
+
+  String txHash = sendResult.getResult();
+  TransactionReceipt.TransactionReceiptData receiptData = receiptProcessor.waitForTransactionReceipt(txHash);
+} catch (IOException | TransactionException e) {
+  // do something to handle exception.
+
+}
 ```
-## Using various AccountKey Types <a id="using-various-account-key-type"></a>
 
-caver-java introduces new classes to support the various types of [AccountKey] supported by the platform. This feature is supported starting with version 1.2.0.
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures].
 
-### AccountKey  <a id="account-key"></a>
+### Account Update <a id="account-update"></a>
 
-To update the account key on the Klaytn platform, caver-java provides the `AccountKey` interface. The following describes `AccountKey` implementations, `AccountKeyPublic`, `AccountKeyWeightedMultiSig`, and `AccountKeyRoleBased`.
-See [Account Update](#account-update) for how to update an Account.
+If you want to change the private key(s) for your Klaytn account, there are 3 important things you need to remember:
 
-### AccountKeyPublic <a id="account-key-public"></a>
+1. Klaytn validates every transaction you send to it.
+2. The validation requires your public keys which exactly corresponds to your private key(s).
+3. Thus, changing your private key(s) into the new one(s) is **always be** **preceded** by changing your old public key(s) to the new one(s). The new public key(s) must be derived from the new private key(s).
 
-`AccountKeyPublic` is an implementation of `AccountKey` with one public key.
-You can create it like this:
+Keeping the 3 things above in your mind, you can change your private key(s) by following the steps below:
+
+1. Prepare the new private key(s) to create a new keyring.
+2. Create a keyring by its type (Single keyring, Multiple keyring, or Role-based keyring) you need.
+3. Generate an Account instance from the new keyring. This Account instance holds the new public key(s) for your Klaytn account.
+4. Send AccountUpdate transaction including Account instance to Klaytn.
+5. Finally, replace your old keyring to the new one that was created in Step 2.
+
+Please check `Account Update` for the details.
+
+To change your AccountKey, you must provide an `Account` instance for the `account` field in the input argument object of `caver.transaction.type.AccountUpdate`. An `Account` instance contains the address of the Klaytn account and the AccountKey to be updated.
+
+The code below is an example code that changes the private key(s) you use for your Klaytn account along with changing AccountKey of your Klaytn account to `AccountKeyPublic`. Don't forget to prepare your new private key(s).
 
 ```java
-ECKeyPair newKeyPair = Keys.createEcKeyPair();
-AccountKeyPublic newAccountKey = AccountKeyPublic.create(newKeyPair.getPublicKey());
+Caver caver = new Caver(Caver.BAOBAB_URL);
+SingleKeyring senderKeyring = KeyringFactory.createFromPrivateKey("0x{privateKey}");
+caver.wallet.add(senderKeyring);
+
+String newPrivateKey = KeyringFactory.generateSingleKey();
+SingleKeyring newKeyring = KeyringFactory.createFromPrivateKey(newPrivateKey);
+
+Account account = newKeyring.toAccount();
+
+AccountUpdate accountUpdate = new AccountUpdate.Builder()
+        .setKlaytnCall(caver.rpc.klay)
+        .setFrom(senderKeyring.getAddress())
+        .setAccount(account)
+        .setGas(BigInteger.valueOf(50000))
+        .build();
+
+try {
+    caver.wallet.sign(senderKeyring.getAddress(), accountUpdate);
+    String rlpEncoded = accountUpdate.getRLPEncoding();
+
+    Bytes32 sendResult = caver.rpc.klay.sendRawTransaction(rlpEncoded).send();
+    if(sendResult.hasError()) {
+        //do something to handle error
+    }
+
+    String txHash = sendResult.getResult();
+
+    TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 15);
+    TransactionReceipt.TransactionReceiptData receiptData = receiptProcessor.waitForTransactionReceipt(txHash);
+} catch (IOException | TransactionException e) {
+    // do something to handle exception.
+}
+
+senderKeyring = caver.wallet.updateKeyring(newKeyring);
 ```
 
-To use the account updated with `AccountKeyPublic`, you need to create `KlayCredentials` as follows:
+If the above code is executed successfully, you are no longer able to use the old private key(s) to sign any transaction with the old keyring. So you must update the old keyring with the `newKeyring` through `caver.wallet.updateKeyring(newKeyring)`. Once it is updated, the signing will be done by the newly updated private key(s).
+
+Here comes how to update AccountKey of your Klaytn account with multiple `AccountKeys`? The example below explains how to create an `Account` instance with multiple private keys that what you want to use (You can create an `Account` instance with multiple public keys via `caver.account.create`). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
+
+First, let's create an Account instance to update with `AccountKeyWeightedMultiSig`. For `AccountKeyWeightedMultiSig`, a threshold and a weight for each key must be defined. To do this, use `caver.account.weightedMultiSigOptions`. The first parameter is the threshold, and the second parameter is an array containing the weight for each key.
 
 ```java
-KlayCredentials validCredentails = KlayCredentials.create(newKeyPair, oldCredentials.getAddress());
+// Create an account instance with three private keys using AccountKeyWeightedMultiSig
+String[] privateKeyArr = KeyringFactory.generateMultipleKeys(3);
+MultipleKeyring multipleKeyring = KeyringFactory.createWithMultipleKey(sender.getAddress(), privateKeyArr);
 
-// Because the account address is decoupled from the AccountKeyPublic (public key), you can't use the account if you create the credentials without address as below.
-KlayCredentials invalidCredentails = KlayCredentials.create(newKeyPair);
+// threshold = 3, the weights of the three keys = [1, 2, 1]
+BigInteger threshold = BigInteger.valueOf(3);
+BigInteger[] weightedArr = new BigInteger[] {BigInteger.valueOf(1), BigInteger.valueOf(2), BigInteger.valueOf(1)};
+WeightedMultiSigOptions options = new WeightedMultiSigOptions(threshold, Arrays.asList(weightedArr));
+
+Account account = multipleKeyring.toAccount(options)
 ```
 
-### AccountKeyWeightedMultiSig <a id="account-key-weighted-multi-sig"></a>
-
-`AccountKeyWeightedMultiSig` is an account key that contains multiple public keys with varying weights. `AccountKeyWeightedMultiSig` also defines the threshold, the sum of the weights of the keys that must be signed in order to use the account. The maximum number of keys supported is 10. You can create `AccountKeyWeightedMultiSig` as below:
+Now let's update AccountKey using `AccountKeyRoleBased`. `AccountKeyRoleBased` is an `AccountKey` type that defines the key to use for each `role`.
 
 ```java
-List<AccountKeyWeightedMultiSig.WeightedPublicKey> weightedTransactionPublicKeys = new ArrayList<>();
+// Create an account instance with roles using AccountKeyRoleBased. In the account instance created, each role has a public key that corresponds to one private key.
+List<String[]> newPrivateKeyArr = KeyringFactory.generateRolBasedKeys(new int[] {1,1,1});
+RoleBasedKeyring newKeyring = KeyringFactory.createWithRoleBasedKey(senderKeyring.getAddress(), newPrivateKeyArr);
 
-int weight1 = 10;
-int weight2 = 30;
-
-ECKeyPair ecKeyPair1 = Keys.createEcKeyPair();
-ECKeyPair ecKeyPair2 = Keys.createEcKeyPair();
-
-AccountKeyWeightedMultiSig.WeightedPublicKey weightedPublicKey1 = AccountKeyWeightedMultiSig.WeightedPublicKey.create(
-				BigInteger.valueOf(weight1),
-				AccountKeyPublic.create(ecKeyPair1.getPublicKey())
-);
-
-AccountKeyWeightedMultiSig.WeightedPublicKey weightedPublicKey2 = AccountKeyWeightedMultiSig.WeightedPublicKey.create(
-				BigInteger.valueOf(weight2),
-				AccountKeyPublic.create(ecKeyPair2.getPublicKey())
-);
-
-weightedTransactionPublicKeys.add(weightedPublicKey1);
-weightedTransactionPublicKeys.add(weightedPublicKey2);
-
-AccountKeyWeightedMultiSig newAccountKey = AccountKeyWeightedMultiSig.create(
-                BigInteger.valueOf(weight1 + weight2),
-                weightedTransactionPublicKeys
-);
+const account = newKeyring.toAccount()
 ```
 
-To use the account updated with `AccountKeyWeightedMultiSig`, you can create `KlayCredentials` as follows:
+The AccountKeyRoleBased above is an example of using one public key for each role. As you can see from the code above, each of them corresponds to one private key. If you want to use multiple private keys for each role, `caver.account.weightedMultiSigOptions` must be defined for each role as shown below.
 
 ```java
-List<ECKeyPair> transactionECKeyPairList = new ArrayList<>();
+// Create an account instance with [3, 2, 3] keys for each role using AccountKeyRoleBased
+List<String[]> newPrivateKeyArr = KeyringFactory.generateRolBasedKeys(new int[] {3, 2, 3});
+RoleBasedKeyring newKeyring = KeyringFactory.createWithRoleBasedKey(senderKeyring.getAddress(), newPrivateKeyArr);
 
-transactionECKeyPairList.add(ecKeyPair1);
-transactionECKeyPairList.add(ecKeyPair2);
+WeightedMultiSigOptions[] options = new WeightedMultiSigOptions[] {
+    new WeightedMultiSigOptions(BigInteger.valueOf(4), Arrays.asList(BigInteger.valueOf(2), BigInteger.valueOf(2), BigInteger.valueOf(4))),
+    new WeightedMultiSigOptions(BigInteger.valueOf(2), Arrays.asList(BigInteger.valueOf(1), BigInteger.valueOf(1))),
+    new WeightedMultiSigOptions(BigInteger.valueOf(3), Arrays.asList(BigInteger.valueOf(1), BigInteger.valueOf(1), BigInteger.valueOf(1))),
+};
 
-KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList, address);
+Account account = newKeyring.toAccount(Arrays.asList(options));
 ```
 
-### AccountKeyRoleBased <a id="account-key-role-based"></a>
-
-`AccountKeyRoleBased` is a list of `AccountKey`. Each `AccountKey` is assigned to a specific role according to its position. AccountKey can be `AccountKeyPublic`,` AccountKeyWeightedMultiSig`, or `AccountKeyFail`. If `AccountKeyNil` is used for a specific role, the key will not be updated for that role and the existing AccountKey will be used. If `AccountKeyFail` is used, signing for the role will fail always, so be careful using AccountKeyFail.
+If you want to update AccountKey to `AccountKeyLegacy` or `accountKeyFail`, create an Account instance as shown below and assign it to the `account` field of the transaction. The rest of the update process is same to that of other AccountKey.
 
 ```java
-List<AccountKey> roleBasedAccountKeyList = new ArrayList<>();
+// Create an account with AccountKeyLegacy
+Account account = Account.createWithAccountKeyLegacy(keyringToUpdate.address);
 
-ECKeyPair newKeyPair1 = Keys.createEcKeyPair(); // for RoleTransaction
-roleBasedAccountKeyList.add(AccountKeyPublic.create(newKeyPair1.getPublicKey()));
-
-ECKeyPair newKeyPair2 = Keys.createEcKeyPair(); // for RoleAccountUpdate
-roleBasedAccountKeyList.add(AccountKeyPublic.create(newKeyPair2.getPublicKey()));
-
-ECKeyPair newKeyPair3 = Keys.createEcKeyPair(); // for RoleFeePayer
-roleBasedAccountKeyList.add(AccountKeyPublic.create(newKeyPair3.getPublicKey()));
-
-newAccountKey = AccountKeyRoleBased.create(roleBasedAccountKeyList);
+// Create an account with AccountKeyFail
+Accoaunt account = Account.createWithAccountKeyFail(keyringToUpdate.address)
 ```
 
-To use the account updated with `AccountKeyRoleBased`, you can create `KlayCredentials` as follows:
+### Smart Contract <a id="smart-contract"></a>
 
-```java
-List<ECKeyPair> transactionECKeyPairList = Arrays.asList(newKeyPair1);
-List<ECKeyPair> updateECKeyPairList = Arrays.asList(newKeyPair2);
-List<ECKeyPair> feePayerECKeyPairList = Arrays.asList(newKeyPair3);
-
-KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList, updateECKeyPairList, feePayerECKeyPairList, address);
-```
-
-If the account does not have a key for a specific role, pass an empty List as an argument.
-
-```java
-List<ECKeyPair> transactionECKeyPairList = Collections.emptyList();
-List<ECKeyPair> updateECKeyPairList = Arrays.asList(newKeyPair2);
-List<ECKeyPair> feePayerECKeyPairList = Collections.emptyList();
-
-KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList, updateECKeyPairList, feePayerECKeyPairList, address);
-```
-
-If the account has multiple keys for a specific role, you can pass the multiple keys as follows.
-
-```java
-List<ECKeyPair> transactionECKeyPairList = Collections.emptyList();
-List<ECKeyPair> updateECKeyPairList = Arrays.asList(newKeyPair2-1, newKeyPair2-2, newKeyPair2-3);
-List<ECKeyPair> feePayerECKeyPairList = Collections.emptyList();
-
-KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList, updateECKeyPairList, feePayerECKeyPairList, address);
-```
-
-## Sending a Transaction with Multiple Signers <a id="sending-a-transaction-with-multiple-signers"></a>
-
-If an account has AccountKeyMultiSig or AccountKeyRoleBased, each key can be managed by different people.
-
-This section describes how to collect signatures and send the transaction if there are multiple signers.
-
-### Sequential sender signing <a id="sequential-sender-signing"></a>
-
-The `rawTransaction` has an RLP encoded transaction that contains both `txSignatures` and `feePayerSignatures`. `feePayerSignature` is included only when the transaction is a fee delegated transaction.
-
-In the absence of a fee payer, the process of repeatedly signing and executing a transaction can be divided into three parts. 1. RLP-encode the transaction and send it to the signer in the form of rawTransaction. 2. Signer signs with its own key for the received rawTransaction. 3. Sending the signed rawTransaction to EN. Step 2 can be repeated if there are multiple signers.
-
-```java
-//// 1. Alice creates a transaction, signs it, and sends it to Bob.
-//// Alice Side
-ValueTransferTransaction transactionTransformer = ValueTransferTransaction.create(from, to, BigInteger.ONE, GAS_LIMIT);
-
-TransactionManager transactionManager_alice = new TransactionManager.Builder(caver, senderCredential_alice)
-                    .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
-                    .setChaindId(LOCAL_CHAIN_ID)
-                    .build();
-
-String rawTransaction_signed_alice = transactionManager_alice.sign(transactionTransformer).getValueAsString();
-
-//// 2. Bob signs the received transaction and sends it to Charlie.
-//// Bob Side
-            TransactionManager transactionManager_bob = new TransactionManager.Builder(caver, senderCredential_bob)
-                    .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
-                    .setChaindId(LOCAL_CHAIN_ID)
-                    .build();
-
-String rawTransaction_signed_alice_and_bob = transactionManager_bob.sign(rawTransaction_signed_alice).getValueAsString();
-
-//// 3. Charlie signs the received transaction and sends it to Klaytn EN.
-//// Charlie Side
-TransactionManager transactionManager_charlie = new TransactionManager.Builder(caver, senderCredential_charlie)
-                    .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
-                    .setChaindId(LOCAL_CHAIN_ID)
-                    .build();
-
-KlayTransactionReceipt.TransactionReceipt transactionReceipt = transactionManager_charlie.executeTransaction(rawTransaction_signed_alice_and_bob);
-```
-
-### Sequential fee-payer signing <a id="sequential-fee-payer-signing"></a>
-
-Fee-payer signature(s) can also be added sequentially. Signing with `FeePayerManager` accumulates `feePayerSignatures` in the transaction. The signing order is not important. If you sign with `TransactionManager`, the `txSignature` is added. If you sign with `FeePayerManger`, the `feePayerSignatures` is added to the raw transaction.
-
-```java
-//// 1. Bob receives a transaction from Alice and signs the transaction as a fee payer.
-//// Bob Side
-FeePayerManager feePayerManager_bob = new FeePayerManager.Builder(caver, feePayerCredentials_bob)
-                    .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
-                    .setChainId(LOCAL_CHAIN_ID)
-                    .build();
-
-String rawTransaction_signed_alice_and_bob = feePayerManager_bob.sign(rawTransaction_signed_alice).getValueAsString();
-
-//// 2. Charlie signs the received transaction and sends it to Klaytn EN.
-//// Charlie Side
-FeePayerManager feePayerManager_charlie = new FeePayerManager.Builder(caver, feePayerCredentials_charlie)
-                    .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
-                    .setChainId(LOCAL_CHAIN_ID)
-                    .build();
-
-KlayTransactionReceipt.TransactionReceipt transactionReceipt =  feePayerManager_charlie.executeTransaction(rawTransaction_signed_alice_and_bob);
-```
-
-## Thanks to <a id="thanks-to"></a>
-
-The [web3j](https://github.com/web3j/web3j) project for the inspiration. 🙂
+This is not supported yet.
 
 
-[Klaytn Wallet]: ../../../toolkit/klaytn-wallet.md
-[txError]: ../../json-rpc/transaction-error-codes.md
-[AccountKeyPublic]: ../../../klaytn/design/accounts.md#accountkeypublic
-[AccountKey]: ../../../klaytn/design/accounts.md#account-key
-[Solidity Compiler]: #solidity-compiler
-[command-line tool]: #command-line-tool
-[Fee Delegation]: ../../../klaytn/design/transactions/README.md#fee-delegation
-[Smart Contract]: #smart-contract
-[fee-delegated value transfer]: #value-transfer
 
+
+[txError: Detailed Information of Transaction Failures]: ../../../json-rpc/transaction-error-codes.md
