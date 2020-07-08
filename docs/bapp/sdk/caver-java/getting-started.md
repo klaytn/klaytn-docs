@@ -17,7 +17,7 @@ caver.wallet is a package that manages Keyring instances in in-memory wallet. A 
 
 ### caver.wallet
 
-caver.wallet is a package that manages Keyring instances in in-memory wallet. caver.wallet accepts all SingleKeyring, MultipleKeyring, and RoleBasedKeyring, and manages them by address.
+caver.wallet is a package that manages Keyring instances in in-memory wallet. A Keyring is an instance that stores the address of a Klaytn account and its private key(s), and it is used when the address of this account signs a transaction. caver.wallet accepts all types of Keyring (SingleKeyring, MultipleKeyring, and RoleBasedKeyring) and manages them with their Klaytn account address.
 
 - `caver.wallet` relpaces `caver.crypto` in caver-java 1.4.0
 - `caver.wallet.KeyStore` replaces `caver.wallet.WalletFile` in caver-java 1.4.0
@@ -687,7 +687,7 @@ BigInteger threshold = BigInteger.valueOf(3);
 BigInteger[] weightedArr = new BigInteger[] {BigInteger.valueOf(1), BigInteger.valueOf(2), BigInteger.valueOf(1)};
 WeightedMultiSigOptions options = new WeightedMultiSigOptions(threshold, Arrays.asList(weightedArr));
 
-Account account = newKeyring.toAccount(options)
+Account account = multipleKeyring.toAccount(options)
 ```
 
 Now let's update AccountKey using [AccountKeyRoleBased]. [AccountKeyRoleBased] is an `AccountKey` type that defines the key to use for each [role].
@@ -716,7 +716,7 @@ WeightedMultiSigOptions[] options = new WeightedMultiSigOptions[] {
 Account account = newKeyring.toAccount(Arrays.asList(options));
 ```
 
-If you want to update AccountKey to [AccountKeyLegacy] or [accountKeyFail], create an Account instance as shown below and assign it to the `account` field of the transaction.
+If you want to update AccountKey to [AccountKeyLegacy] or [accountKeyFail], create an Account instance as shown below and assign it to the `account` field of the transaction. The rest of the update process is same to that of other AccountKey.
 
 ```java
 // Create an account with AccountKeyLegacy
