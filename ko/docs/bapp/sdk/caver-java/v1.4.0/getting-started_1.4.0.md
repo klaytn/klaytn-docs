@@ -36,7 +36,7 @@ implementation "ch.qos.logback:logback-classic:1.2.3"
 
 #### 솔리디티 컴파일러 <a id="solidity-compiler"></a>
 
-[프로젝트 문서](http://solidity.readthedocs.io/en/develop/installing-solidity.html)의 지침에 따라 솔리디티 컴파일러를 로컬로 설치할 수 있습니다. Klaytn recommends you to install Solidity version either 0.4.24 or 0.5.6. If you are a macOS user, you can install the versions via Homebrew:
+[프로젝트 문서](http://solidity.readthedocs.io/en/develop/installing-solidity.html)의 지침에 따라 솔리디티 컴파일러를 로컬로 설치할 수 있습니다. Klaytn은 솔리디티 버전을 0.4.24 또는 0.5.6으로 설치할 것을 권장합니다. macOS 사용자인 경우 Homebrew를 통해 버전을 지정해서 설치할 수 있습니다:
 
 ```text
 $ brew install klaytn/klaytn/solidity@0.4.24  # version 0.4.24
@@ -103,7 +103,7 @@ String address = credentials.getAddress();
 
 #### 키스토어 파일 사용 <a id="using-a-keystore-file"></a>
 
-If you want to create a new account with a keystore file (you can also create a new keystore file in [Klaytn Wallet][]):
+키스토어 파일로 새 계정을 작성하려는 경우 ([Klaytn Wallet][]에서 새 키스토어 파일을 작성할 수도 있습니다):
 
 ```java
 KlayWalletUtils.generateNewWalletFile(
@@ -136,7 +136,7 @@ Caver caver  = Caver.build(Caver.BAOBAB_URL);  // Caver.BAOBAB_URL = https://api
 
 `Caver` 인스턴스를 얻고 약간의 KLAY가 있는 계정을 만든 후, 아래처럼 가스 한도 `BigInteger.valueOf(100_000)`로 특정 주소\(`0xe97f27e9a5765ce36a7b919b1cb6004c7209217e`\)에게 1 peb를 보낼 수 있습니다.
 
-`TransactionManager`는 트랜잭션 타입의 복잡성을 숨기기 위해 도입되었습니다. 예를 들어, `FeeDelegatedValueTransferTransaction` 객체는 `ValueTransferTransaction` 객체로 변환될 수 있습니다. For more details, see [Fee Delegation][]. 수수료 위임 외에도 `TransactionManager`는 `GetNonceProcessor`, `ErrorHandler`, `TransactionReceiptProcessor`와 함께 사용될 수 있습니다.
+`TransactionManager`는 트랜잭션 타입의 복잡성을 숨기기 위해 도입되었습니다. 예를 들어, `FeeDelegatedValueTransferTransaction` 객체는 `ValueTransferTransaction` 객체로 변환될 수 있습니다. 자세한 내용은 [수수료 위임][]을 참조하세요. 수수료 위임 외에도 `TransactionManager`는 `GetNonceProcessor`, `ErrorHandler`, `TransactionReceiptProcessor`와 함께 사용될 수 있습니다.
 
 ```java
 TransactionManager transactionManager = new TransactionManager.Builder(caver, credentials)
@@ -205,13 +205,13 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt
 }
 ```
 
-이 영수증에서 트랜잭션 실행 상태를 확인할 수 있습니다. 영수증의 '상태'필드가 "0x1"이면 트랜잭션이 성공적으로 처리되었음을 의미합니다. 그렇지 않으면 트랜잭션이 실패한 것입니다. 자세한 오류 메시지는 `txError` 필드에 표시됩니다. For more detail, see [txError][].
+이 영수증에서 트랜잭션 실행 상태를 확인할 수 있습니다. 영수증의 '상태'필드가 "0x1"이면 트랜잭션이 성공적으로 처리되었음을 의미합니다. 그렇지 않으면 트랜잭션이 실패한 것입니다. 자세한 오류 메시지는 `txError` 필드에 표시됩니다. 자세한 내용은 [txError][]를 참조하세요.
 
 ## 다른 트랜잭션 타입 보내기 <a id="sending-other-transaction-types"></a>
 
 ### 계정 업데이트 <a id="account-update"></a>
 
-If you want to update the key of the given account to a new [AccountKeyPublic][] key:
+주어진 계정의 키를 새 [AccountKeyPublic][]으로 업데이트하려는 경우:
 
 ```java
 AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.create(
@@ -225,17 +225,17 @@ AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.cre
 Account.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendUpdateTransaction(accountUpdateTransaction).send();
 ```
 
-계정 키는 계정과 연결된 키 구조를 나타냅니다. To get more details and types about the Klaytn account key, please read [AccountKey][].
+계정 키는 계정과 연결된 키 구조를 나타냅니다. Klaytn 계정 키에 대한 자세한 내용과 타입을 보려면 [AccountKey][]를 읽으세요.
 
 ### 스마트 컨트랙트 <a id="smart-contract"></a>
 
-caver-java는 스마트 컨트랙트 래퍼 코드의 자동 생성을 지원합니다. 랩퍼를 사용하면 스마트 컨트랙트를 쉽게 배포하고 실행할 수 있습니다. 랩퍼 코드를 생성하기 전, 먼저 스마트 컨트랙트를 컴파일해야 합니다. 참고: 컴퓨터에 솔리디티 컴파일러가 설치된 경우에만 작동합니다. See [Solidity Compiler][].
+caver-java는 스마트 컨트랙트 래퍼 코드의 자동 생성을 지원합니다. 랩퍼를 사용하면 스마트 컨트랙트를 쉽게 배포하고 실행할 수 있습니다. 랩퍼 코드를 생성하기 전, 먼저 스마트 컨트랙트를 컴파일해야 합니다. 참고: 컴퓨터에 솔리디티 컴파일러가 설치된 경우에만 작동합니다. [Solidity Compiler][]를 참조하세요.
 
 ```text
 $ solc <contract>.sol --bin --abi --optimize -o <output-dir>/
 ```
 
-Then, generate the wrapper code using caver-java’s [command-line tool][].
+그 후, caver-java의 [커맨드라인 도구][]를 사용해 래퍼 코드를 생성하세요.
 
 ```text
 $ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
@@ -316,7 +316,7 @@ BigInteger balance = erc20Mock.balanceOf(
 
 ### 트랜잭션 수수료 위임 <a id="fee-delegation"></a>
 
-Klaytn provides [Fee Delegation][] feature which allows service providers to pay transaction fees instead of the users.
+Klaytn은 서비스 제공자가 사용자 대신 트랜잭션 수수료를 지불할 수 있는 기능인 [수수료 위임][]을 제공합니다.
 
 #### 밸류 트랜스퍼(Value Transfer)<a id="value-transfer"></a>
 
@@ -348,7 +348,7 @@ feePayerManager.executeTransaction(senderRawTransaction);
 
 #### 스마트 컨트랙트 실행 <a id="smart-contract-execution"></a>
 
-수수료 위임 스마트 컨트랙트 실행과 위의 수수료 위임 벨류 트랜스퍼의 차이는 스마트 컨트랙트 함수를 호출하기 위해서는 입력 데이터가 필요하다는 것입니다. 발신자는 아래와 같이 수수료 위임 스마트 컨트랙트 실행 트랜잭션을 생성할 수 있습니다. 만일 두 번째 매개변수를 `true`로 전달하면 [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.2/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-)이 `TxTypeFeeDelegatedSmartContractExecution` 객체를 반환함에 유의하세요. The example below invokes the `transfer` method of [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol) contract which is described in [Smart Contract][].
+수수료 위임 스마트 컨트랙트 실행과 위의 수수료 위임 벨류 트랜스퍼의 차이는 스마트 컨트랙트 함수를 호출하기 위해서는 입력 데이터가 필요하다는 것입니다. 발신자는 아래와 같이 수수료 위임 스마트 컨트랙트 실행 트랜잭션을 생성할 수 있습니다. 만일 두 번째 매개변수를 `true`로 전달하면 [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.2/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-)이 `TxTypeFeeDelegatedSmartContractExecution` 객체를 반환함에 유의하세요. 아래 예제는 [Smart Contract][]에 설명된 [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol) 컨트랙트의 `transfer` 메소드를 호출합니다.
 
 ```java
 String recipient = "0x34f773c84fcf4a0a9e2ef07c4615601d60c3442f";
@@ -373,7 +373,7 @@ SmartContractExecutionTransaction smartContractExecution =
 String senderRawTransaction = transactionManager.sign(smartContractExecution, true).getValueAsString();
 ```
 
-After you get `senderRawTransaction`, the rest of the process using `FeePayerManager` is the same way as you saw in [fee-delegated value transfer][] above:
+`senderRawTransaction`를 받은 후, `FeePayerManager`를 사용한 나머지 프로세스는 위 [수수료 위임 벨류 트랜스퍼][]에서와 동일한 방식입니다:
 
 ```java
 KlayCredentials feePayer = KlayWalletUtils.loadCredentials(<password>, <walletfilePath>);
@@ -382,7 +382,7 @@ feePayerManager.executeTransaction(senderRawTransaction);
 ```
 ## 다양한 AccountKey 타입 사용 <a id="using-various-account-key-type"></a>
 
-caver-java introduces new classes to support the various types of [AccountKey][] supported by the platform. 이 기능은 버전 1.2.0부터 지원됩니다.
+caver-java는 플랫폼에서 제공하는 다양한 [AccountKey][] 타입을 지원하기 위해 새로운 클래스를 도입했습니다. 이 기능은 버전 1.2.0부터 지원됩니다.
 
 ### AccountKey  <a id="account-key"></a>
 
@@ -575,8 +575,8 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt =  feePayerManager_
 [AccountKeyPublic]: ../../../klaytn/design/accounts.md#accountkeypublic
 [AccountKey]: ../../../klaytn/design/accounts.md#account-key
 [Solidity Compiler]: #solidity-compiler
-[command-line tool]: #command-line-tool
-[Fee Delegation]: ../../../klaytn/design/transactions/README.md#fee-delegation
+[커맨드라인 도구]: #command-line-tool
+[수수료 위임]: ../../../klaytn/design/transactions/README.md#fee-delegation
 [Smart Contract]: #smart-contract
-[fee-delegated value transfer]: #value-transfer
+[수수료 위임 벨류 트랜스퍼]: #value-transfer
 
