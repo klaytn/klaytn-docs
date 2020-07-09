@@ -272,27 +272,27 @@ Caver caver = new Caver(Caver.MAINNET_URL);
 
 String password = "password";
 String keyStoreJsonString = "{\n" +
-        " \"version\": 4,\n" +
-        " \"id\": \"9c12de05-0153-41c7-a8b7-849472eb5de7\",\n" +
-        " \"address\": \"0xc02cec4d0346bf4124deeb55c5216a4138a40a8c\",\n" +
-        " \"keyring\": [\n" +
-        " {\n" +
-        " \"ciphertext\": \"eacf496cea5e80eca291251b3743bf93cdbcf7072efc3a74efeaf518e2796b15\",\n" +
-        " \"cipherparams\": {\n" +
-        " \"iv\": \"d688a4319342e872cefcf51aef3ec2da\"\n" +
-        " },\n" +
-        " \"cipher\": \"aes-128-ctr\",\n" +
-        " \"kdf\": \"scrypt\",\n" +
-        " \"kdfparams\": {\n" +
-        " \"dklen\": 32,\n" +
-        " \"salt\": \"c3cee502c7157e0faa42386c6d666116ffcdf093c345166c502e23bc34e6ba40\",\n" +
-        " \"n\": 4096,\n" +
-        " \"r\": 8,\n" +
-        " \"p\": 1\n" +
-        " },\n" +
-        " \"mac\": \"4b49574f3d3356fa0d04f73e07d5a2a6bbfdd185bedfa31f37f347bc98f2ef26\"\n" +
-        " }\n" +
-        " ]\n" +
+        "  \"version\": 4,\n" +
+        "  \"id\": \"9c12de05-0153-41c7-a8b7-849472eb5de7\",\n" +
+        "  \"address\": \"0xc02cec4d0346bf4124deeb55c5216a4138a40a8c\",\n" +
+        "  \"keyring\": [\n" +
+        "    {\n" +
+        "      \"ciphertext\": \"eacf496cea5e80eca291251b3743bf93cdbcf7072efc3a74efeaf518e2796b15\",\n" +
+        "      \"cipherparams\": {\n" +
+        "        \"iv\": \"d688a4319342e872cefcf51aef3ec2da\"\n" +
+        "      },\n" +
+        "      \"cipher\": \"aes-128-ctr\",\n" +
+        "      \"kdf\": \"scrypt\",\n" +
+        "      \"kdfparams\": {\n" +
+        "        \"dklen\": 32,\n" +
+        "        \"salt\": \"c3cee502c7157e0faa42386c6d666116ffcdf093c345166c502e23bc34e6ba40\",\n" +
+        "        \"n\": 4096,\n" +
+        "        \"r\": 8,\n" +
+        "        \"p\": 1\n" +
+        "      },\n" +
+        "      \"mac\": \"4b49574f3d3356fa0d04f73e07d5a2a6bbfdd185bedfa31f37f347bc98f2ef26\"\n" +
+        "    }\n" +
+        "  ]\n" +
         "}";
 
 SingleKeyring decrypt = (SingleKeyring)KeyringFactory.decrypt(keyStoreJsonString, password);
@@ -376,8 +376,8 @@ If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn W
 You can use a caver-java wallet to generate a signature of a transaction. You have to go through two steps below to send the transaction to the network.
 
 1. Sign a transaction
-        - If the keyring you want to use is added to `caver.wallet`, you can use `caver.wallet.sign` function to sign.
-        - If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
+	- If the keyring you want to use is added to `caver.wallet`, you can use `caver.wallet.sign` function to sign.
+	- If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
 2. Send the RLP-encoded string of the signed transaction to the Klaytn via `caver.rpc.klay.sendRawTransaction`.
 
 **Note:** The sender should have enough number of KLAY to be transferred and also to pay the transaction fee.
