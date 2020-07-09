@@ -1,6 +1,6 @@
 # 시작하기 <a id="getting-started"></a>
 
-## What's new?
+## 새로운 기능
 
 In caver-java 1.5.0, we adopt Common Architecture. Common Architecture is a new software architecture for Klaytn development environment, which is shared by all Klaytn SDKs (caver-js/caver-java). It is designed for your streamlined development experience and ease of extensibility to other programming languages.
 
