@@ -321,7 +321,7 @@ None
 
 | Type | Description |
 | --- | --- |
-| Error | `null` if a warm-up is started, an error message if not. |
+| Error | `null` if a warm-up is started, or an error if not. |
 
 **Example**
 
@@ -342,7 +342,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ## debug_stopWarmUp <a id="admin_stopwarmup"></a>
 
 The `stopWarmUp` stops the currently running warm-up.
-This method takes no parameters, returning `null` or an error whether warm-up was stop or not.
+This method takes no parameters and returns `null` or an error whether a warm-up was stoped or not.
 
 | Client  | Method invocation             |
 | :-----: | ----------------------------- |
@@ -357,7 +357,7 @@ None
 
 | Type | Description |
 | --- | --- |
-| Error | `null` if a warm-up is stopped, an error message if not. |
+| Error | `null` if a warm-up is stopped, or or an error if not. |
 
 **Example**
 
