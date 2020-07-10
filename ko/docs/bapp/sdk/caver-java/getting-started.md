@@ -2,22 +2,22 @@
 
 ## 새로운 기능
 
-In caver-java 1.5.0, we adopt Common Architecture. Common Architecture is a new software architecture for Klaytn development environment, which is shared by all Klaytn SDKs (caver-js/caver-java). It is designed for your streamlined development experience and ease of extensibility to other programming languages.
+이번 caver-java 1.5.0 버전은 Common Architecture를 도입했습니다. Common Architecture란 Klaytn 개발 환경을 위한 새로운 소프트웨어 아키텍처로써 모든 Klaytn SDKs (caver-js/caver-java)가 공유합니다. Common Architecture는 여러분이 더 간편하고 더 체계적으로 개발하며 다른 프로그래밍 언어로 더 쉽게 확장하도록 설계되었습니다.
 
-As caver-java is updated to 1.5.0, the APIs used in 1.4.0 are deprecated except for some APIs.
+caver-java가 1.5.0으로 업데이트되면서 일부 API를 제외한 1.4.0 API는 이제 사용되지 않습니다.
 
-The APIs newly provided in caver-java 1.5.0 are as follows.
+caver-java 1.5.0이 새롭게 제공하는 API는 아래와 같습니다.
 
 ### caver.account
 
-caver.wallet is a package that manages Keyring instances in in-memory wallet. A Keyring is an instance that stores the address of a Klaytn account and its private key(s), and it is used when the address of this account signs a transaction. caver.wallet accepts all types of Keyring (SingleKeyring, MultipleKeyring, and RoleBasedKeyring) and manages them with their Klaytn account address.
+caver.wallet은 인메모리 지갑에서 Keyring 인스턴스를 관리하도록 하는 패키지입니다. Keyring이란 어떤 Klaytn 계정 주소와 그 주소의 개인키(들)를 저장하는 인스턴스입니다. 키링은 이 계정 주소가 트랜잭션에 서명할 때 사용됩니다. caver.wallet은 모든 종류의 Keyring(SingleKeyring, MultipleKeyring, and RoleBasedKeyring)을 수용하며 각 keyring에 저장된 Klaytn 계정 주소를 가지고 keyring을 관리합니다.
 
 
-- `caver.account` replaces `caver.tx.account` in caver-java 1.4.0
+- `caver.account`는 caver-java 1.4.0의 `caver.tx.account`를 대체합니다.
 
 ### caver.wallet
 
-caver.wallet is a package that manages Keyring instances in in-memory wallet. A Keyring is an instance that stores the address of a Klaytn account and its private key(s), and it is used when the address of this account signs a transaction. caver.wallet accepts all types of Keyring (SingleKeyring, MultipleKeyring, and RoleBasedKeyring) and manages them with their Klaytn account address.
+caver.wallet은 인메모리 지갑에서 Keyring 인스턴스를 관리하도록 하는 패키지입니다. Keyring이란 어떤 Klaytn 계정 주소와 그 주소의 개인키(들)를 저장하는 인스턴스입니다. 키링은 이 계정 주소가 트랜잭션에 서명할 때 사용됩니다. caver.wallet은 모든 종류의 Keyring(SingleKeyring, MultipleKeyring, and RoleBasedKeyring)을 수용하며 각 keyring에 저장된 Klaytn 계정 주소를 가지고 keyring을 관리합니다.
 
 - `caver.wallet` relpaces `caver.crypto` in caver-java 1.4.0
 - `caver.wallet.KeyStore` replaces `caver.wallet.WalletFile` in caver-java 1.4.0
