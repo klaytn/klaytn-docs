@@ -613,7 +613,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ## admin_stateMigrationStatus <a id="admin_statemigrationstatus"></a>
 
 The `stateMigrationStatus` is an administrative method that returns the status information of the state migration. 
-This method takes no parameters, returning the status of currently running state migration.
+This method takes no parameters and returns the status of the currently running state migration.
 
 | Client  | Method invocation             |
 | :-----: | ----------------------------- |
