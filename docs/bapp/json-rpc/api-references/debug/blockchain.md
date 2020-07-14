@@ -306,7 +306,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 The `startWarmUp` iterates the latest state trie to warm-up the trie cache.
 The iteration will be automatically stopped if 90% of the trie cache is full. 
-The method returns an error if it fails to start a warm-up, or `null` if it succeeds to start. 
+The method returns an error if it fails in starting a warm-up, or `null` if it successfully has started it. 
 
 | Client  | Method invocation                                            |
 | :-----: | ------------------------------------------------------------ |

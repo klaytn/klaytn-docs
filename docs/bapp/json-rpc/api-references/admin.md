@@ -516,7 +516,7 @@ This only works if there is no existing chain in a Klaytn node. This method does
 
 | Name | Type | Description |
 | --- | --- | --- |
-| blockRlp | string | the RLP-encoded blocks string to be imported. (equals to the return value of `debug.getBlockRlp`)|
+| blockRlp | string | the RLP-encoded string that represents the blocks to be imported. (equals to the return value of `debug.getBlockRlp`)|
 
 **Return Value**
 
