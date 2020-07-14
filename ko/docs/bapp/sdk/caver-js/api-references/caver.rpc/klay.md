@@ -828,9 +828,9 @@ caver.rpc.klay.getBlockTransactionCountByNumber(blockNumber [, callback])
 
 `프로미스`는 `String`를 반환합니다.
 
-| 형식  | 설명                                                    |
-| --- | ----------------------------------------------------- |
-| 문자열 | The number of transactions in the given block in hex. |
+| 형식  | 설명                                       |
+| --- | ---------------------------------------- |
+| 문자열 | 주어진 블록에 기록된 트랜잭션의 개수입니다. 이 값은 16진수 값입니다. |
 
 **예시**
 
@@ -845,7 +845,7 @@ caver.rpc.klay.getBlockTransactionCountByNumber(blockNumber [, callback])
 caver.rpc.klay.getBlockTransactionCountByHash(blockHash [, callback])
 ```
 
-Returns the number of transactions in a block matching the given block hash.
+블록 해시로 조회한 블록에 담긴 트랜잭션의 개수를 반환합니다.
 
 **매개변수**
 
@@ -858,9 +858,9 @@ Returns the number of transactions in a block matching the given block hash.
 
 `프로미스`는 `String`를 반환합니다.
 
-| 형식  | 설명                                                    |
-| --- | ----------------------------------------------------- |
-| 문자열 | The number of transactions in the given block in hex. |
+| 형식  | 설명                                       |
+| --- | ---------------------------------------- |
+| 문자열 | 주어진 블록에 기록된 트랜잭션의 개수입니다. 이 값은 16진수 값입니다. |
 
 **예시**
 
@@ -886,11 +886,11 @@ caver.rpc.klay.getBlockWithConsensusInfoByNumber(blockNumber [, callback])
 
 **리턴값**
 
-`Promise` returns `object`
+`프로미스`는 `Object`를 반환합니다.
 
-| 형식  | 설명                                                                                                                                                                                                                |
-| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 문자열 | An object includes block with consensus information. For detailed description of return value, please refer to [caver.rpc.klay.getBlockWithConsensusInfoByHash](#caver-rpc-klay-getblockwithconsensusinfobyhash). |
+| 형식  | 설명                                                                                                                                                         |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 문자열 | 컨센서스 정보를 포함해 블록 정보를 담고 있는 객체입니다. 리턴값에 대한 자세한 설명은 [caver.rpc.klay.getBlockWithConsensusInfoByHash](#caver-rpc-klay-getblockwithconsensusinfobyhash)를 참조하세요. |
 
 **예시**
 
@@ -963,30 +963,30 @@ caver.rpc.klay.getBlockWithConsensusInfoByHash(blockHash [, callback])
 
 **리턴값**
 
-`Promise` returns `object` - A block object with consensus information (a proposer and a list of committee members), or null when no block was found:
+`프로미스`는 `객체`를 반환 - 합의 정보(제안자와 위원회 멤버 목록)와 블록 객체입니다. 블록을 찾지 못했다면 null을 반환합니다.
 
-| 명칭               | 형식  | 설명                                                                                                                                |
-| ---------------- | --- | --------------------------------------------------------------------------------------------------------------------------------- |
-| blockScore       | 문자열 | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                                                                                  |
-| committee        | 배열  | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. The committee is a subset of validators who participated in the consensus protocol for this block. |
-| extraData        | 문자열 | 블록의 "추가 데이터"를 위한 필드입니다.                                                                                                           |
-| gasUsed          | 문자열 | 이 블록에 있는 모든 트랜잭션에서 사용된 가스양의 총합입니다.                                                                                                |
-| governanceData   | 문자열 | RLP 인코딩된 거버넌스 설정입니다.                                                                                                              |
-| 해시               | 문자열 | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                                                                               |
-| logsBloom        | 문자열 | 블록의 로그를 위한 블룸필터입니다. 아직 보류 중인 블록이면 `null`입니다.                                                                                      |
-| number           | 문자열 | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                                                                                                |
-| parentHash       | 문자열 | 이전 블록의 해시입니다.                                                                                                                     |
-| proposer         | 문자열 | 블록 제안자의 주소입니다.                                                                                                                    |
-| receiptsRoot     | 문자열 | 블록의 영수증 트라이의 루트 해시입니다.                                                                                                            |
-| reward           | 문자열 | 블록 보상을 받을 수혜자의 주소입니다.                                                                                                             |
-| size             | 문자열 | 블록의 바이트 크기의 정수 형태입니다.                                                                                                             |
-| stateRoot        | 문자열 | 블록의 상태 트라이의 루트 해시입니다.                                                                                                             |
-| timestamp        | 문자열 | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                                                                                       |
-| timestampFoS     | 문자열 | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                                                                                  |
-| totalBlockScore  | 문자열 | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                                                                            |
-| transactions     | 배열  | 트랜잭션 객체의 배열입니다.                                                                                                                   |
-| transactionsRoot | 문자열 | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                                                                           |
-| voteData         | 문자열 | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                                                                                         |
+| 명칭               | 형식  | 설명                                                                      |
+| ---------------- | --- | ----------------------------------------------------------------------- |
+| blockScore       | 문자열 | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                        |
+| committee        | 배열  | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자 중 일부입니다. |
+| extraData        | 문자열 | 블록의 "추가 데이터"를 위한 필드입니다.                                                 |
+| gasUsed          | 문자열 | 이 블록에 있는 모든 트랜잭션에서 사용된 가스양의 총합입니다.                                      |
+| governanceData   | 문자열 | RLP 인코딩된 거버넌스 설정입니다.                                                    |
+| 해시               | 문자열 | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                     |
+| logsBloom        | 문자열 | 블록의 로그를 위한 블룸필터입니다. 아직 보류 중인 블록이면 `null`입니다.                            |
+| number           | 문자열 | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                                      |
+| parentHash       | 문자열 | 이전 블록의 해시입니다.                                                           |
+| proposer         | 문자열 | 블록 제안자의 주소입니다.                                                          |
+| receiptsRoot     | 문자열 | 블록의 영수증 트라이의 루트 해시입니다.                                                  |
+| reward           | 문자열 | 블록 보상을 받을 수혜자의 주소입니다.                                                   |
+| size             | 문자열 | 블록의 바이트 크기의 정수 형태입니다.                                                   |
+| stateRoot        | 문자열 | 블록의 상태 트라이의 루트 해시입니다.                                                   |
+| timestamp        | 문자열 | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                             |
+| timestampFoS     | 문자열 | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                        |
+| totalBlockScore  | 문자열 | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                  |
+| transactions     | 배열  | 트랜잭션 객체의 배열입니다.                                                         |
+| transactionsRoot | 문자열 | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                 |
+| voteData         | 문자열 | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                               |
 
 **예시**
 
@@ -1061,9 +1061,9 @@ caver.rpc.klay.getCommittee([blockNumber] [, callback])
 
 `프로미스`는 `Array`를 반환합니다.
 
-| 형식 | 설명                                                               |
-| -- | ---------------------------------------------------------------- |
-| 배열 | Addresses of all validators in the committee at the given block. |
+| 형식 | 설명                               |
+| -- | -------------------------------- |
+| 배열 | 주어진 블록에서 위원회에 속한 모든 검증자의 주소들입니다. |
 
 **예시**
 
@@ -1092,11 +1092,11 @@ caver.rpc.klay.getCommitteeSize([blockNumber] [, callback])
 
 **리턴값**
 
-`Promise` returns `number`
+`프로미스`는 `Number`을 반환합니다.
 
-| 형식     | 설명                                            |
-| ------ | --------------------------------------------- |
-| number | The size of the committee at the given block. |
+| 형식     | 설명                    |
+| ------ | --------------------- |
+| number | 주어진 블록의 위원회 구성원 수입니다. |
 
 **예시**
 
@@ -1124,9 +1124,9 @@ caver.rpc.klay.getCouncil([blockNumber] [, callback])
 
 `프로미스`는 `Array`를 반환합니다.
 
-| 형식 | 설명                                                                                                    |
-| -- | ----------------------------------------------------------------------------------------------------- |
-| 배열 | An array of validator addresses of the council at the given block, or null when no council was found. |
+| 형식 | 설명                                                                |
+| -- | ----------------------------------------------------------------- |
+| 배열 | 주어진 블록에서 카운슬에 속한 검증자들의 주소가 담긴 배열입니다. 카운슬을 찾을 수 없는 경우 null을 반환합니다. |
 
 **예시**
 
@@ -1155,11 +1155,11 @@ caver.rpc.klay.getCouncilSize([blockNumber] [, callback])
 
 **리턴값**
 
-`Promise` returns `number`
+`프로미스`는 `Number`을 반환합니다.
 
-| 형식     | 설명                                          |
-| ------ | ------------------------------------------- |
-| number | The size of the council at the given block. |
+| 형식     | 설명                    |
+| ------ | --------------------- |
+| number | 주어진 블록의 카운슬 구성원 수입니다. |
 
 **예시**
 
