@@ -432,7 +432,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_exportChain <a id="admin_exportchain"></a>
 
-The `exportChain` is an administrative method that exports the blockahin to a file.
+The `exportChain` is an administrative method that exports the blockchain to a file.
 
 | Client  | Method invocation            |
 | :-----: | ---------------------------- |
@@ -468,7 +468,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_importChain <a id="admin_importchain"></a>
 
-The `importChain` is an administrative method that imports an exported chain from file into node. 
+The `importChain` is an administrative method that imports an exported chain from a file into a node. 
 This only works if there is no existing chain in a Klaytn node. This method does not delete any data of the existing chain.
 
 | Client  | Method invocation            |
@@ -540,7 +540,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startStateMigration <a id="admin_startstatemigration"></a>
 
-The `startStateMigration` is an is an administrative method that that starts a state migration and removes old state/storage trie nodes. This can save the storage space of a Klaytn node.
+The `startStateMigration` is an administrative method that that starts a state migration and removes old state/storage trie nodes. This can save the storage space of a Klaytn node.
 The method returns an error if it fails to start a state migration, or `null` if it succeeds to start. 
 NOTE: After the state migration, the node cannot serve APIs with previous states. 
 
@@ -577,7 +577,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stopStateMigration <a id="admin_stopstatemigration"></a>
 
-The `stopStateMigration` is an is an administrative method that that stops the currently running state migration. 
+The `stopStateMigration` is an administrative method that stops the currently running state migration. 
 This method takes no parameters and returns `null` or an error whether the state migration was stopped or not.
 
 | Client  | Method invocation             |
@@ -633,7 +633,7 @@ None
 | isMigration | bool | `true` if the state migration is running, or `false` if not. |
 | migrationBlockNumber | uint64 | a blockNumber which the start migration started at. (`0` if the state migration is not running.)
 | pending | int | `pending` represents the number of trie nodes that have not been processed by the state migration. |
-| progress | float64 | `progress` is the pregress of the state migration calculated in percent. |
+| progress | float64 | `progress` is the progress of the state migration calculated in percent. |
 | read | int | `read` represents the number of trie nodes that have been searched by the state migration. |
 
 **Example**
