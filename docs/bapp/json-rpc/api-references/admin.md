@@ -196,7 +196,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admi
 
 ## admin_addPeer <a id="admin_addpeer"></a>
 
-The `addPeer` administrative method requests adding a new remote node to the list of tracked static
+The `addPeer` is an administrative method that requests adding a new remote node to the list of tracked static
 nodes. The node will try to maintain connectivity to these nodes at all times, reconnecting every
 once in a while if the remote connection goes down.
 
@@ -239,12 +239,12 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_removePeer <a id="admin_removepeer"></a>
 
-The `removePeer` administrative method requests removing a node from the list of tracked static
+The `removePeer` is an administrative method that requests removing a node from the list of tracked static
 nodes.
 
 The method accepts a single argument kni, which means "Klaytn Network Identifier". It is similar to
 the [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) concept in the geth. It is URL
-of the remote peer to be removed from a list and returns a `BOOL` indicating whether the peer was remove or some error occurred.
+of the remote peer to be removed from a list and returns a `BOOL` indicating whether the peer was removed or some error occurred.
 
 | Client  | Method invocation                              |
 |:-------:|------------------------------------------------|
@@ -280,7 +280,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startRPC <a id="admin_startrpc"></a>
 
-The `startRPC` administrative method starts an HTTP based [JSON RPC](http://www.jsonrpc.org/specification)
+The `startRPC` is an administrative method that starts an HTTP based [JSON RPC](http://www.jsonrpc.org/specification)
 API webserver to handle client requests.
 
 The method returns a boolean flag specifying whether the HTTP RPC listener was opened or not. Please note, only one HTTP endpoint is allowed to be active at any time.
@@ -322,7 +322,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stopRPC <a id="admin_stoprpc"></a>
 
-The `stopRPC` administrative method closes the currently open HTTP RPC endpoint. As the node can only have a single HTTP endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
+The `stopRPC` is an administrative method that closes the currently open HTTP RPC endpoint. As the node can only have a single HTTP endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
 
 | Client  | Method invocation             |
 | :-----: | ----------------------------- |
@@ -356,7 +356,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startWS <a id="admin_startws"></a>
 
-The `startWS` administrative method starts an WebSocket based [JSON RPC](http://www.jsonrpc.org/specification)
+The `startWS` is an administrative method that starts an WebSocket based [JSON RPC](http://www.jsonrpc.org/specification)
 API webserver to handle client requests.
 
 The method returns a boolean flag specifying whether the WebSocket RPC listener was opened or not. Please note, only one WebSocket endpoint is allowed to be active at any time.
@@ -398,7 +398,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stopWS <a id="admin_stopws"></a>
 
-The `stopWS` administrative method closes the currently open WebSocket RPC endpoint. As the node can only have a single WebSocket endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
+The `stopWS` is an administrative method that closes the currently open WebSocket RPC endpoint. As the node can only have a single WebSocket endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
 
 | Client  | Method invocation            |
 | :-----: | ---------------------------- |
@@ -432,7 +432,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_exportChain <a id="admin_exportchain"></a>
 
-The `exportChain` administrative method exports the blockahin to a file.
+The `exportChain` is an administrative method that exports the blockchain to a file.
 
 | Client  | Method invocation            |
 | :-----: | ---------------------------- |
@@ -468,7 +468,8 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_importChain <a id="admin_importchain"></a>
 
-The `importChain` administrative method imports an exported chain from file into node. This only works if no chain already exists: it does not delete any existing data.
+The `importChain` is an administrative method that imports an exported chain from a file into a node. 
+This only works if there is no existing chain in a Klaytn node. This method does not delete any data of the existing chain.
 
 | Client  | Method invocation            |
 | :-----: | ---------------------------- |
@@ -499,4 +500,160 @@ HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_importChain","params":["/tmp/chain.txt"],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":true}
+```
+
+## admin_importChainFromString <a id="admin_importchainfromstring"></a>
+
+The `importChainFromString` is an administrative method that imports a chain from a RLP-encoded string of blocks into a Klaytn node. 
+This only works if there is no existing chain in a Klaytn node. This method does not delete any data of the existing chain.
+
+| Client  | Method invocation            |
+| :-----: | ---------------------------- |
+| Console | `admin.importChainFromString(blockRlp)`             |
+|   RPC   | `{"method": "admin_importChainFromString"}, "params": [<blockRlp>]}` |
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| blockRlp | string | the RLP-encoded string that represents the blocks to be imported. (equals to the return value of `debug.getBlockRlp`)|
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| bool | `true` if a chain was imported, or `false` if not. |
+
+**Example**
+
+Console
+
+```javascript
+> admin.importChainFromString("f9071...080c0")
+true
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_importChainFromString","params":["f9071...080c0"],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":true}
+```
+
+## admin_startStateMigration <a id="admin_startstatemigration"></a>
+
+The `startStateMigration` is an administrative method that that starts a state migration and removes old state/storage trie nodes. This can save the storage space of a Klaytn node.
+The method returns an error if it fails to start a state migration, or `null` if it succeeds to start. 
+NOTE: After the state migration, the node cannot serve APIs with previous states. 
+
+| Client  | Method invocation                                            |
+| :-----: | ------------------------------------------------------------ |
+| Console | `admin.startStateMigration()`                     |
+|   RPC   | `{"method": "admin_startStateMigration"}` |
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Error | `null` if the state migration has started, or an error message if not. |
+
+**Example**
+
+Console
+
+```javascript
+> admin.startStateMigration()
+null
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startStateMigration","id":1}' http://13.124.205.121:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+
+## admin_stopStateMigration <a id="admin_stopstatemigration"></a>
+
+The `stopStateMigration` is an administrative method that stops the currently running state migration. 
+This method takes no parameters and returns `null` or an error whether the state migration was stopped or not.
+
+| Client  | Method invocation             |
+| :-----: | ----------------------------- |
+| Console | `admin.stopStateMigration()`             |
+|   RPC   | `{"method": "stopStateMigration"}` |
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Error | `null` if the state migration is stopped, or an error if not. |
+
+
+**Example**
+
+Console
+
+```javascript
+> admin.stopStateMigration()
+true
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stopStateMigration","id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+## admin_stateMigrationStatus <a id="admin_statemigrationstatus"></a>
+
+The `stateMigrationStatus` is an administrative method that returns the status information of the state migration. 
+This method takes no parameters and returns the status of the currently running state migration.
+
+| Client  | Method invocation             |
+| :-----: | ----------------------------- |
+| Console | `admin.stateMigrationStatus`             |
+|   RPC   | `{"method": "stateMigrationStatus"}` |
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| committed | int | `committed` is the number of trie nodes that have been copied by the state migration. |
+| err | Error | `null` if the state migration finished well, or an error if not. |
+| isMigration | bool | `true` if the state migration is running, or `false` if not. |
+| migrationBlockNumber | uint64 | a blockNumber which the start migration started at. (`0` if the state migration is not running.)
+| pending | int | `pending` represents the number of trie nodes that have not been processed by the state migration. |
+| progress | float64 | `progress` is the progress of the state migration calculated in percent. |
+| read | int | `read` represents the number of trie nodes that have been searched by the state migration. |
+
+**Example**
+  
+Console
+
+```javascript
+> admin.stateMigrationStatus
+{
+  committed: 1585169,
+  err: "null",
+  isMigration: true,
+  migrationBlockNumber: 32527233,
+  pending: 27677,
+  progress: 0.3662109375,
+  read: 1587473
+}
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stateMigrationStatus","id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":{"committed":14995692,"err":"null","isMigration":true,"migrationBlockNumber":32630836,"pending":19699,"progress":25,"read":14997777}}
 ```

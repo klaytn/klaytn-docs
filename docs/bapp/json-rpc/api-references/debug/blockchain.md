@@ -131,7 +131,7 @@ their block hashes. Changes made in `endBlockHash` are included, but changes mad
 
 | Type | Description |
 | --- | --- |
-| JSON string | The list of addresses modified between given range. |
+| JSON string | The list of addresses modified between the given range. |
 
 **Example**
 
@@ -173,7 +173,7 @@ code hash, or storage hash.
 
 | Type | Description |
 | --- | --- |
-| JSON string | The list of addresses modified between given range. |
+| JSON string | The list of addresses modified between the given range. |
 
 **Example**
 
@@ -299,5 +299,76 @@ null
 HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_setHead","params":["0x100"],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+## debug_startWarmUp <a id="debug_startwarmup"></a>
+
+The `startWarmUp` iterates the latest state trie to warm-up the trie cache.
+The iteration will be automatically stopped if 90% of the trie cache is full. 
+The method returns an error if it fails in starting a warm-up, or `null` if it successfully has started it. 
+
+| Client  | Method invocation                                            |
+| :-----: | ------------------------------------------------------------ |
+| Console | `debug.startWarmUp()`                     |
+|   RPC   | `{"method": "debug_startWarmUp"}` |
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Error | `null` if a warm-up is started, or an error if not. |
+
+**Example**
+
+Console
+
+```javascript
+> debug.startWarmUp()
+null
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startWarmUp","id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+
+## debug_stopWarmUp <a id="admin_stopwarmup"></a>
+
+The `stopWarmUp` stops the currently running warm-up.
+This method takes no parameters, and returns `null` or an error depending on a warm-up was stopped or not.
+
+| Client  | Method invocation             |
+| :-----: | ----------------------------- |
+| Console | `debug.stopWarmUp()`             |
+|   RPC   | `{"method": "stopWarmUp"}` |
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Error | `null` if a warm-up is stopped, or an error if not. |
+
+**Example**
+
+Console
+
+```javascript
+> debug.stopWarmUp()
+true
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stopWarmUp","id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
