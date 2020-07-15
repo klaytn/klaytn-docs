@@ -516,7 +516,7 @@ This only works if there is no existing chain in a Klaytn node. This method does
 
 | Name | Type | Description |
 | --- | --- | --- |
-| blockRlp | string | the RLP-encoded blocks string to be imported. (equals to the return value of `debug.getBlockRlp`)|
+| blockRlp | string | the RLP-encoded string that represents the blocks to be imported. (equals to the return value of `debug.getBlockRlp`)|
 
 **Return Value**
 
@@ -613,7 +613,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ## admin_stateMigrationStatus <a id="admin_statemigrationstatus"></a>
 
 The `stateMigrationStatus` is an administrative method that returns the status information of the state migration. 
-This method takes no parameters, returning the status of currently running state migration.
+This method takes no parameters and returns the status of the currently running state migration.
 
 | Client  | Method invocation             |
 | :-----: | ----------------------------- |
