@@ -244,7 +244,7 @@ nodes.
 
 The method accepts a single argument kni, which means "Klaytn Network Identifier". It is similar to
 the [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) concept in the geth. It is URL
-of the remote peer to be removed from a list and returns a `BOOL` indicating whether the peer was remove or some error occurred.
+of the remote peer to be removed from a list and returns a `BOOL` indicating whether the peer was removed or some error occurred.
 
 | Client  | Method invocation                              |
 |:-------:|------------------------------------------------|

@@ -131,7 +131,7 @@ their block hashes. Changes made in `endBlockHash` are included, but changes mad
 
 | Type | Description |
 | --- | --- |
-| JSON string | The list of addresses modified between given range. |
+| JSON string | The list of addresses modified between the given range. |
 
 **Example**
 
@@ -173,7 +173,7 @@ code hash, or storage hash.
 
 | Type | Description |
 | --- | --- |
-| JSON string | The list of addresses modified between given range. |
+| JSON string | The list of addresses modified between the given range. |
 
 **Example**
 
