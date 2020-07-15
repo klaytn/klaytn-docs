@@ -10,7 +10,7 @@ caver-java 1.5.0이 새롭게 제공하는 API는 아래와 같습니다.
 
 ### caver.account
 
-caver.wallet은 인메모리 지갑에서 Keyring 인스턴스를 관리하도록 하는 패키지입니다. Keyring이란 어떤 Klaytn 계정 주소와 그 주소의 개인키(들)를 저장하는 인스턴스입니다. 키링은 이 계정 주소가 트랜잭션에 서명할 때 사용됩니다. caver.wallet은 모든 종류의 Keyring(SingleKeyring, MultipleKeyring, and RoleBasedKeyring)을 수용하며 각 keyring에 저장된 Klaytn 계정 주소를 가지고 keyring을 관리합니다.
+caver.account is a package used to update AccountKey, which could be one or more public keys (AccountKeyPublic, AccountKeyWeightedMultiSig, and AccountKeyRoleBased) or a special type of keys (AccountKeyLegacy and AccountKeyFail), for a Klaytn account.
 
 
 - `caver.account`는 caver-java 1.4.0의 `caver.tx.account`를 대체합니다.
@@ -19,7 +19,7 @@ caver.wallet은 인메모리 지갑에서 Keyring 인스턴스를 관리하도�
 
 caver.wallet은 인메모리 지갑에서 Keyring 인스턴스를 관리하도록 하는 패키지입니다. Keyring이란 어떤 Klaytn 계정 주소와 그 주소의 개인키(들)를 저장하는 인스턴스입니다. 키링은 이 계정 주소가 트랜잭션에 서명할 때 사용됩니다. caver.wallet은 모든 종류의 Keyring(SingleKeyring, MultipleKeyring, and RoleBasedKeyring)을 수용하며 각 keyring에 저장된 Klaytn 계정 주소를 가지고 keyring을 관리합니다.
 
-- `caver.wallet` relpaces `caver.crypto` in caver-java 1.4.0
+- `caver.wallet` replaces `caver.crypto` in caver-java 1.4.0
 - `caver.wallet.KeyStore` replaces `caver.wallet.WalletFile` in caver-java 1.4.0
 
 ### caver.transaction
@@ -32,7 +32,7 @@ caver.transaction is a package that provides functionality related to [Transacti
 
 caver.rpc is a package that provides functionality related to rpc call with Klaytn Node.
 
-- `caver.rpc.klay` and `caver.rpc.net` replaces `Klay`, `Net` interfaces in caver-java 1.4.0, repectively
+- `caver.rpc.klay` and `caver.rpc.net` replaces `Klay`, `Net` interfaces in caver-java 1.4.0, respectively
 
 ### caver.util
 
@@ -228,7 +228,7 @@ If you want to use multiple private keys, you can create a `MultipleKeyring` usi
 
 ```java
 String address = "0x{address in hex}";
-String[] privateKeyArray = new String[] {"0x{private key#1}", "0x{private key#2}", "0x{prviate key#3}"};
+String[] privateKeyArray = new String[] {"0x{private key#1}", "0x{private key#2}", "0x{private key#3}"};
 MultipleKeyring multipleKeyring = KeyringFactory.createWithMultipleKey(address, privateKeyArray);
 ```
 
@@ -475,7 +475,7 @@ try {
     }
 
     String txHash = sendResult.getResult();
-    Systm.out.println("Transaction Hash : " + txHash);
+    System.out.println("Transaction Hash : " + txHash);
 } catch (IOException e) {
     // do something to handle exception
 }
@@ -725,7 +725,7 @@ If you want to update AccountKey to `AccountKeyLegacy` or `accountKeyFail`, crea
 Account account = Account.createWithAccountKeyLegacy(keyringToUpdate.address);
 
 // Create an account with AccountKeyFail
-Accoaunt account = Account.createWithAccountKeyFail(keyringToUpdate.address)
+Account account = Account.createWithAccountKeyFail(keyringToUpdate.address)
 ```
 
 ### 스마트 컨트랙트 <a id="smart-contract"></a>
