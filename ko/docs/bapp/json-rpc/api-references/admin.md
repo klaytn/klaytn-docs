@@ -224,7 +224,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `removePeer` 관리 메서드는 추적된 정적 노드들의 목록에서 노드를 제거하도록 요청합니다.
 
-이 메서드는 한 매개변수 kni(Klaytn Network Identifier)만을 입력으로 받습니다. 이는 geth의 [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) 개념과 유사합니다. 메서드의 입력으로 받을 kni는 목록에서 제거할 피어의 URL이며, 해당 피어가 제거되었는지 또는 어떤 오류가 발생했는지에 따라 `BOOL`을 반환합니다.
+이 메서드는 한 매개변수 kni(Klaytn Network Identifier)만을 입력으로 받습니다. 이는 geth의 [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) 개념과 유사합니다. 목록에서 제거될 원격 피어의 URL를 파라미터로 받습니다. 이 메서드는 피어가 성공적으로 제거되었거나 아니면 어떤 에러가 발생했는지 알려주기 위해 `BOOL`을 반환합니다.
 
 | 클라이언트 | 메서드 호출                                            |
 |:-----:| ------------------------------------------------- |
@@ -446,7 +446,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_importChain <a id="admin_importchain"></a>
 
-`importChain` 관리 메서드는 내보낸 블록체인을 파일에서 노드로 가져옵니다. 이 메서드는 노드에 블록체인이 존재하지 않는 경우에만 작동합니다. 즉 기존의 데이터를 삭제하지 않습니다.
+`importChain` 관리 메서드는 내보낸 블록체인을 파일에서 노드로 가져옵니다. 이 메서드는 Klaytn 노드에 체인이 없을 때에만 정상적으로 동작합니다. 이 메서드는 기존 체인에서 아무 데이터도 삭제하지 않습니다.
 
 | 클라이언트 | 메서드 호출                                                   |
 |:-----:| -------------------------------------------------------- |
@@ -477,4 +477,155 @@ HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_importChain","params":["/tmp/chain.txt"],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":true}
+```
+
+## admin_importChainFromString <a id="admin_importchainfromstring"></a>
+
+The `importChainFromString` is an administrative method that imports a chain from a RLP-encoded string of blocks into a Klaytn node. 이 메서드는 Klaytn 노드에 체인이 없을 때에만 정상적으로 동작합니다. 이 메서드는 기존 체인에서 아무 데이터도 삭제하지 않습니다.
+
+| 클라이언트 | 메서드 호출                                                                     |
+|:-----:| -------------------------------------------------------------------------- |
+|  콘솔   | `admin.importChainFromString(blockRlp)`                                    |
+|  RPC  | `{"method": "admin_importChainFromString"}, "params": [<blockRlp>]}` |
+
+**매개변수**
+
+| 명칭       | 형식  | 설명                                                                                                                    |
+| -------- | --- | --------------------------------------------------------------------------------------------------------------------- |
+| blockRlp | 문자열 | the RLP-encoded string that represents the blocks to be imported. (equals to the return value of `debug.getBlockRlp`) |
+
+**리턴값**
+
+| 형식   | 설명                                                 |
+| ---- | -------------------------------------------------- |
+| bool | `true` if a chain was imported, or `false` if not. |
+
+**예시**
+
+콘솔
+
+```javascript
+> admin.importChainFromString("f9071...080c0")
+true
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_importChainFromString","params":["f9071...080c0"],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":true}
+```
+
+## admin_startStateMigration <a id="admin_startstatemigration"></a>
+
+The `startStateMigration` is an administrative method that that starts a state migration and removes old state/storage trie nodes. This can save the storage space of a Klaytn node. The method returns an error if it fails to start a state migration, or `null` if it succeeds to start. NOTE: After the state migration, the node cannot serve APIs with previous states.
+
+| 클라이언트 | 메서드 호출                                    |
+|:-----:| ----------------------------------------- |
+|  콘솔   | `admin.startStateMigration()`             |
+|  RPC  | `{"method": "admin_startStateMigration"}` |
+
+**매개변수**
+
+없음
+
+**리턴값**
+
+| 형식 | 설명                                                                     |
+| -- | ---------------------------------------------------------------------- |
+| 에러 | `null` if the state migration has started, or an error message if not. |
+
+**예시**
+
+콘솔
+
+```javascript
+> admin.startStateMigration()
+null
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startStateMigration","id":1}' http://13.124.205.121:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+
+## admin_stopStateMigration <a id="admin_stopstatemigration"></a>
+
+The `stopStateMigration` is an administrative method that stops the currently running state migration. This method takes no parameters and returns `null` or an error whether the state migration was stopped or not.
+
+| 클라이언트 | 메서드 호출                             |
+|:-----:| ---------------------------------- |
+|  콘솔   | `admin.stopStateMigration()`       |
+|  RPC  | `{"method": "stopStateMigration"}` |
+
+**매개변수**
+
+없음
+
+**리턴값**
+
+| 형식 | 설명                                                            |
+| -- | ------------------------------------------------------------- |
+| 에러 | `null` if the state migration is stopped, or an error if not. |
+
+
+**예시**
+
+콘솔
+
+```javascript
+> admin.stopStateMigration()
+true
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stopStateMigration","id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+## admin_stateMigrationStatus <a id="admin_statemigrationstatus"></a>
+
+The `stateMigrationStatus` is an administrative method that returns the status information of the state migration. This method takes no parameters and returns the status of the currently running state migration.
+
+| 클라이언트 | 메서드 호출                               |
+|:-----:| ------------------------------------ |
+|  콘솔   | `admin.stateMigrationStatus`         |
+|  RPC  | `{"method": "stateMigrationStatus"}` |
+
+**매개변수**
+
+없음
+
+**리턴값**
+
+| 명칭                   | 형식      | 설명                                                                                                 |
+| -------------------- | ------- | -------------------------------------------------------------------------------------------------- |
+| committed            | int     | `committed` is the number of trie nodes that have been copied by the state migration.              |
+| err                  | 에러      | `null` if the state migration finished well, or an error if not.                                   |
+| isMigration          | bool    | `true` if the state migration is running, or `false` if not.                                       |
+| migrationBlockNumber | uint64  | a blockNumber which the start migration started at. (`0` if the state migration is not running.)   |
+| pending              | int     | `pending` represents the number of trie nodes that have not been processed by the state migration. |
+| progress             | float64 | `progress` is the progress of the state migration calculated in percent.                           |
+| read                 | int     | `read` represents the number of trie nodes that have been searched by the state migration.         |
+
+**예시**
+
+콘솔
+
+```javascript
+> admin.stateMigrationStatus
+{
+  committed: 1585169,
+  err: "null",
+  isMigration: true,
+  migrationBlockNumber: 32527233,
+  pending: 27677,
+  progress: 0.3662109375,
+  read: 1587473
+}
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stateMigrationStatus","id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":{"committed":14995692,"err":"null","isMigration":true,"migrationBlockNumber":32630836,"pending":19699,"progress":25,"read":14997777}}
 ```
