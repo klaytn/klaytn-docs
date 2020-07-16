@@ -288,3 +288,71 @@ HTTP RPC
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_setHead","params":["0x100"],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
+
+## debug_startWarmUp <a id="debug_startwarmup"></a>
+
+`startWarmUp`은 가장 최신 상태 트리를 순회하면서 트리 캐시를 채웁니다. 만약 트리 캐시가 90% 정도 차면 순회는 자동으로 중단됩니다. 이 메서드는 순회를 시작하는 데에 실패하면 에러를 반환하고, 순회를 시작하는 데에 성공했으면 `null`를 반환합니다.
+
+| 클라이언트 | 메서드 호출                            |
+|:-----:| --------------------------------- |
+|  콘솔   | `debug.startWarmUp()`             |
+|  RPC  | `{"method": "debug_startWarmUp"}` |
+
+**매개변수**
+
+없음
+
+**리턴값**
+
+| 형식 | 설명                                                       |
+| -- | -------------------------------------------------------- |
+| 에러 | 트리 캐시 채우기를 시작하는 데에 성공했다면 `null`를 반환하고 그렇지 않으면 에러를 반환합니다. |
+
+**예시**
+
+콘솔
+
+```javascript
+> debug.startWarmUp()
+null
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startWarmUp","id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+
+## debug_stopWarmUp <a id="admin_stopwarmup"></a>
+
+`stopWarmUp`은 트리 캐시를 현재 채우는 작업을 중단합니다. 이 메서드는 파라미터를 받지 않습니다. 트리 캐시를 채우는 작업이 성공적으로 중단되었다면 `null`을, 작업을 중단하는 데에 실패했다면 에러를 반환합니다.
+
+| 클라이언트 | 메서드 호출                     |
+|:-----:| -------------------------- |
+|  콘솔   | `debug.stopWarmUp()`       |
+|  RPC  | `{"method": "stopWarmUp"}` |
+
+**매개변수**
+
+없음
+
+**리턴값**
+
+| 형식 | 설명                                                       |
+| -- | -------------------------------------------------------- |
+| 에러 | 트리 캐시 채우기를 중단하는 데에 성공했다면 `null`를 반환하고 그렇지 않으면 에러를 반환합니다. |
+
+**예시**
+
+콘솔
+
+```javascript
+> debug.stopWarmUp()
+true
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stopWarmUp","id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
