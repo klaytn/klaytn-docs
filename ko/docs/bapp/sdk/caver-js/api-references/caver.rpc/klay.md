@@ -1925,7 +1925,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 caver.rpc.klay.signTransaction(transaction [, callback])
 ```
 
-Signs a transaction as a transaction sender with an "imported account's private key" in your Klaytn Node.
+트랜잭션 발신자로서 "Klaytn 노드에 임포트한 계정의 개인키"로 트랜잭션에 서명합니다.
 
 각 트랜잭션 타입에 관한 자세한 내용은 [Transaction][]을 확인하십시오.
 
@@ -1935,17 +1935,17 @@ Signs a transaction as a transaction sender with an "imported account's private 
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
-| 트랜잭션     | object   | An instance of a transaction to sign.                                |
+| 트랜잭션     | object   | 서명할 트랜잭션 인스턴스입니다.                                                    |
 | callback | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
-`Promise` returns `object` - An object includes signed transaction:
+`프로미스`는 `Object`를 반환 - 서명된 트랜잭션이 담긴 객체입니다:
 
-| 명칭  | 형식     | 설명                                                       |
-| --- | ------ | -------------------------------------------------------- |
-| raw | 문자열    | A RLP-encoded signed transaction.                        |
-| tx  | object | The transaction object including the sender's signature. |
+| 명칭  | 형식     | 설명                      |
+| --- | ------ | ----------------------- |
+| raw | 문자열    | RLP 인코딩된 서명된 트랜잭션.      |
+| tx  | object | 발신자 서명을 포함한 트랜잭션 객체입니다. |
 
 **예시**
 
@@ -1981,7 +1981,7 @@ Signs a transaction as a transaction sender with an "imported account's private 
 caver.rpc.klay.signTransactionAsFeePayer(transaction [, callback])
 ```
 
-Signs a transaction as a transaction fee payer with an "imported account's private key" in your Klaytn Node.
+트랜잭션 수수료 납부자로서 "Klaytn 노드에 임포트한 계정의 개인키"로 트랜잭션에 서명합니다.
 
 각 트랜잭션 타입에 관한 자세한 내용은 [Transaction][]을 확인하십시오.
 
@@ -1991,17 +1991,17 @@ Signs a transaction as a transaction fee payer with an "imported account's priva
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
-| 트랜잭션     | object   | An instance of a transaction to sign.                                |
+| 트랜잭션     | object   | 서명할 트랜잭션 인스턴스입니다.                                                    |
 | callback | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
-`Promise` returns `object` - An object includes signed transaction:
+`프로미스`는 `Object`를 반환 - 서명된 트랜잭션이 담긴 객체입니다:
 
-| 명칭  | 형식     | 설명                                           |
-| --- | ------ | -------------------------------------------- |
-| raw | 문자열    | A RLP-encoded signed transaction.            |
-| tx  | object | The transaction object to sign as fee payer. |
+| 명칭  | 형식     | 설명                         |
+| --- | ------ | -------------------------- |
+| raw | 문자열    | RLP 인코딩된 서명된 트랜잭션.         |
+| tx  | object | 수수료 납부자로서 서명하는 트랜잭션 객체입니다. |
 
 **예시**
 
@@ -2059,18 +2059,18 @@ caver.rpc.klay.getDecodedAnchoringTransactionByHash(transactionHash [, callback]
 
 **리턴값**
 
-`Promise` returns `object` - An object includes decoded anchored data:
+`프로미스`는 `Object`를 반환 - 앵커링된 데이터를 디코딩한 값을 담고 있는 객체입니다.
 
-| 명칭            | 형식     | 설명                                                                                                                                                                                                 |
-| ------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| BlockHash     | 문자열    | 이 앵커링 트랜잭션이 수행된 자식 체인의 블록 해시입니다.                                                                                                                                                                   |
-| BlockNumber   | number | 이 앵커링 트랜잭션이 수행된 자식 체인의 블록 번호입니다.                                                                                                                                                                   |
-| ParentHash    | 문자열    | 이전 블록의 해시입니다.                                                                                                                                                                                      |
-| TxHash        | 문자열    | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                                                                                                                                            |
-| StateRootHash | 문자열    | 블록의 상태 트라이의 루트 해시입니다.                                                                                                                                                                              |
-| ReceiptHash   | 문자열    | 블록의 영수증 트라이의 루트 해시입니다.                                                                                                                                                                             |
-| BlockCount    | number | 이 앵커링 주기 동안 생성된 블록 수입니다. In most cases, this number is equal to the child chain's `SC_TX_PERIOD`, except the case that this transaction was the first anchoring tx after turning on the anchoring. |
-| TxCount       | number | 이 앵커링 주기 동안 자식 체인에서 생성된 트랜잭션 수 입니다.                                                                                                                                                                |
+| 명칭            | 형식     | 설명                                                                                                             |
+| ------------- | ------ | -------------------------------------------------------------------------------------------------------------- |
+| BlockHash     | 문자열    | 이 앵커링 트랜잭션이 수행된 자식 체인의 블록 해시입니다.                                                                               |
+| BlockNumber   | number | 이 앵커링 트랜잭션이 수행된 자식 체인의 블록 번호입니다.                                                                               |
+| ParentHash    | 문자열    | 이전 블록의 해시입니다.                                                                                                  |
+| TxHash        | 문자열    | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                                                        |
+| StateRootHash | 문자열    | 블록의 상태 트라이의 루트 해시입니다.                                                                                          |
+| ReceiptHash   | 문자열    | 블록의 영수증 트라이의 루트 해시입니다.                                                                                         |
+| BlockCount    | number | 이 앵커링 주기 동안 생성된 블록 수입니다. 대부분의 경우 이 숫자는 자식 체인의 `SC_TX_PERIOD`와 같은데, 다만 이 트랜잭션이 앵커링을 활성화한 후 첫번째 트랜잭션인 경우만 예외입니다. |
+| TxCount       | number | 이 앵커링 주기 동안 자식 체인에서 생성된 트랜잭션 수 입니다.                                                                            |
 
 **예시**
 
@@ -2106,9 +2106,9 @@ caver.rpc.klay.getChainId([callback])
 
 `프로미스`는 `String`를 반환합니다.
 
-| 형식  | 설명                         |
-| --- | -------------------------- |
-| 문자열 | The chain ID of the chain. |
+| 형식  | 설명            |
+| --- | ------------- |
+| 문자열 | 체인의 체인 ID입니다. |
 
 **예시**
 
@@ -2164,9 +2164,9 @@ peb의 현재 가스 가격을 반환합니다.
 
 `프로미스`는 `String`를 반환합니다.
 
-| 형식  | 설명                            |
-| --- | ----------------------------- |
-| 문자열 | The current gas price in peb. |
+| 형식  | 설명                     |
+| --- | ---------------------- |
+| 문자열 | peb으로 환산된 현재 가스 가격입니다. |
 
 **예시**
 
@@ -2181,22 +2181,22 @@ peb의 현재 가스 가격을 반환합니다.
 caver.rpc.klay.getGasPriceAt([blockNumber] [, callback])
 ```
 
-Returns the current price per gas in peb for the given block.
+주어진 블록에서 peb으로 환산된 현재 가스 가격을 반환합니다.
 
 **매개변수**
 
-| 명칭          | 형식       | 설명                                                                               |
-| ----------- | -------- | -------------------------------------------------------------------------------- |
-| blockNumber | number   | (optional) The block number. If omitted, the latest unit price will be returned. |
-| callback    | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.             |
+| 명칭          | 형식       | 설명                                                                   |
+| ----------- | -------- | -------------------------------------------------------------------- |
+| blockNumber | number   | (선택 사항) 블록 번호입니다. 이를 생략하면 최신 단가가 반환됩니다.                              |
+| callback    | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
 `프로미스`는 `String`를 반환합니다.
 
-| 형식  | 설명                            |
-| --- | ----------------------------- |
-| 문자열 | The current gas price in peb. |
+| 형식  | 설명                     |
+| --- | ---------------------- |
+| 문자열 | peb으로 환산된 현재 가스 가격입니다. |
 
 **예시**
 
@@ -2211,7 +2211,7 @@ Returns the current price per gas in peb for the given block.
 caver.rpc.klay.isParallelDBWrite([callback])
 ```
 
-Returns true if the node is writing blockchain data in a parallel manner.
+노드가 병렬로 블록체인 데이터를 쓰고 있으면 true를 반환합니다.
 
 **매개변수**
 
@@ -2223,9 +2223,9 @@ Returns true if the node is writing blockchain data in a parallel manner.
 
 `프로미스`는 `boolean`을 반환합니다.
 
-| 형식      | 설명                                                                                                                         |
-| ------- | -------------------------------------------------------------------------------------------------------------------------- |
-| boolean | true means the node is writing blockchain data in a parallel manner. It is false if the node is serially writing the data. |
+| 형식      | 설명                                                                                |
+| ------- | --------------------------------------------------------------------------------- |
+| boolean | true이면 노드가 블록체인 데이터를 병렬로 기록하고 있음을 의미합니다. 노드가 블록체인 데이터를 순차적으로 쓰고 있으면 false를 반환합니다. |
 
 **예시**
 
@@ -2240,7 +2240,7 @@ true
 caver.rpc.klay.isSenderTxHashIndexingEnabled([callback])
 ```
 
-Returns true if the node is indexing sender transaction hash to transaction hash mapping information.
+노드가 트랜잭션 해시 맵핑 정보를 SenderTxHash로 색인화하고 있으면 true를 반환합니다.
 
 **매개변수**
 
@@ -2252,9 +2252,9 @@ Returns true if the node is indexing sender transaction hash to transaction hash
 
 `프로미스`는 `boolean`을 반환합니다.
 
-| 형식      | 설명                                                                                               |
-| ------- | ------------------------------------------------------------------------------------------------ |
-| boolean | true means the node is indexing sender transaction hash to transaction hash mapping information. |
+| 형식      | 설명                                                      |
+| ------- | ------------------------------------------------------- |
+| boolean | true이면 노드가 트랜잭션 해시 맵핑 정보를 SenderTxHash로 색인화하고 있다는 것입니다. |
 
 **예시**
 
@@ -2298,7 +2298,7 @@ caver.rpc.klay.getProtocolVersion([callback])
 caver.rpc.klay.getRewardbase([callback])
 ```
 
-현재 노드의 Rewardbase를 반환합니다. Rewardbase is the address of the account where the block rewards go to. 컨센서스 노드(CN)의 경우에만 해당합니다.
+현재 노드의 Rewardbase를 반환합니다. Rewardbase는 블록 보상을 받은 계정의 주소입니다. 컨센서스 노드(CN)의 경우에만 해당합니다.
 
 **매개변수**
 
@@ -2310,9 +2310,9 @@ caver.rpc.klay.getRewardbase([callback])
 
 `프로미스`는 `String`를 반환합니다.
 
-| 형식  | 설명                      |
-| --- | ----------------------- |
-| 문자열 | The rewardbase address. |
+| 형식  | 설명                               |
+| --- | -------------------------------- |
+| 문자열 | Rewardbase는 블록 보상을 받은 계정의 주소입니다. |
 
 **예시**
 
@@ -2327,7 +2327,7 @@ caver.rpc.klay.getRewardbase([callback])
 caver.rpc.klay.isWriteThroughCaching([callback])
 ```
 
-Returns true if the node is using writeThroughCaching.
+노드가 writeThroughCaching을 사용하고 있으면 true를 반환합니다.
 
 **매개변수**
 
@@ -2339,9 +2339,9 @@ Returns true if the node is using writeThroughCaching.
 
 `프로미스`는 `boolean`을 반환합니다.
 
-| 형식      | 설명                                                  |
-| ------- | --------------------------------------------------- |
-| boolean | true means the node is using write-through caching. |
+| 형식      | 설명                                        |
+| ------- | ----------------------------------------- |
+| boolean | true이면 노드가 write-through 캐싱을 하고 있다는 것입니다. |
 
 **예시**
 
@@ -2367,16 +2367,16 @@ caver.rpc.klay.getFilterChanges(filterId [, callback])
 
 **리턴값**
 
-`Promise` returns `Array` - Array of log objects, or an empty array if nothing has changed since the last poll.
+`프로미스`는 `배열`을 반환합니다 - 로그 객체의 배열을 반환하거나 또는 최근 폴링 이후 변화가 없는 경우 빈 배열을 반환합니다.
 
-- For filters created with [caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter), the returns are block hashes, *e.g.*, `["0x3454645634534..."]`.
-- For filters created with [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter), the returns are transaction hashes, *e.g.*, `["0x6345343454645..."]`.
-- For filters created with [caver.rpc.klay.newFilter](#caver-rpc-klay-newfilter), logs are objects with the following parameters:
+- [caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter)로 생성된 필터의 경우 블록 해시를 반환합니다. *예를 들어*, `["0x3454645634534..."]`.
+- [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter)로 생성된 필터의 경우 트랜잭션 해시를 반환합니다. *예를 들어*, `["0x6345343454645..."]`.
+- [caver.rpc.klay.newFilter](#caver-rpc-klay-newfilter)로 생성된 필터의 경우, 로그는 다음 매개변수들을 가지는 객체입니다:
 
 | 명칭               | 형식  | 설명                                                                                                                                                                                      |
 | ---------------- | --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| logIndex         | 문자열 | The log index position in the block.                                                                                                                                                    |
-| transactionIndex | 문자열 | The index position of transactions where this log was created from.                                                                                                                     |
+| logIndex         | 문자열 | 블록에서 로그 인덱스 위치입니다.                                                                                                                                                                      |
+| transactionIndex | 문자열 | 이 로그가 생성된 트랜잭션의 인덱스 위치입니다.                                                                                                                                                              |
 | transactionHash  | 문자열 | 로그가 생성된 트랜잭션의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                            |
 | blockHash        | 문자열 | 로그가 생성된 블록의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                              |
 | blockNumber      | 문자열 | 로그가 속한 블록의 번호입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                               |
@@ -2408,9 +2408,9 @@ caver.rpc.klay.getFilterChanges(filterId [, callback])
 caver.rpc.klay.getFilterLogs(filterId [, callback])
 ```
 
-입력으로 받은 필터 ID값을 가진 필터 객체를 찾고, 이 필터 객체에 해당하는 모든 로그를 배열 형태로 반환합니다. The filter object should be obtained by using [newFilter](#caver-rpc-klay-newfilter).
+입력으로 받은 필터 ID값을 가진 필터 객체를 찾고, 이 필터 객체에 해당하는 모든 로그를 배열 형태로 반환합니다. 필터 객체는 반드시 [newFilter](#caver-rpc-klay-newfilter)를 사용해 얻은 객체이어야 합니다.
 
-Note that filter ids returned by other filter creation functions, such as [caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter) or [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter), cannot be used with this function.
+이 때 [caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter), [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter)와 같은 다른 필터 생성 함수를 통해 얻은 필터 ID는 본 함수의 매개변수로 사용할 수 없습니다.
 
 
 **매개변수**
@@ -2454,15 +2454,15 @@ caver.rpc.klay.getLogs(options [, callback])
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
-| options  | object   | 필터 옵션. See the below table to find the description.                  |
+| options  | object   | 필터 옵션. 자세한 내용은 아래 표를 참조하세요.                                          |
 | callback | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 옵션 개체에는 다음이 포함됩니다:
 
 | 명칭        | 형식                   | 설명                                                                                                                                                                                           |
 | --------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | number &#124; string | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block and `"pending"` means currently mining block.) 기본값은 `"latest"`입니다.                |
-| toBlock   | number &#124; string | (optional) The block number of the last block to get the logs. (`"latest"`는 가장 최신 블록을 의미하며 `"pending"`은 현재 채굴중인 블록을 의미합니다.) 기본값은 `"latest"`입니다.                                              |
+| fromBlock | number &#124; string | (선택 사항) 로그를 얻을 범위의 시작 값입니다. 이 값은 시작 블록의 블록 넘버입니다. (`"latest"`는 가장 최신 블록을 의미하며 `"pending"`은 현재 채굴중인 블록을 의미합니다.) 기본값은 `"latest"`입니다.                                                           |
+| toBlock   | number &#124; string | (선택 사항) 로그를 얻을 범위의 마지막 값입니다. 이 값은 마지막 블록의 블록 넘버입니다. (`"latest"`는 가장 최신 블록을 의미하며 `"pending"`은 현재 채굴중인 블록을 의미합니다.) 기본값은 `"latest"`입니다.                                                         |
 | address   | string &#124; Array  | (선택 사항) 주소 1개 또는 주소 목록입니다. 특정 계정(들)과 관련있는 로그들만 반환됩니다.                                                                                                                                        |
 | topics    | 배열                   | (선택 사항) 로그에 반드시 있어야할 값들이 담긴 배열입니다. 값들의 순서는 중요합니다. 특정 토픽을 쓰지 않으려면 `null`을 사용하십시오. *예를 들면*, `[null, '0x12...']`. 그리고 각 토픽에 대해 토픽 옵션을 배열로 넣을 수 있습니다. *예를 들면*, `[null, ['option1', 'option2']]`. |
 
@@ -2501,7 +2501,7 @@ caver.rpc.klay.getLogs(options [, callback])
 caver.rpc.klay.newBlockFilter([callback])
 ```
 
-노드에 필터를 생성하여 새로운 블록이 도착하였음을 알립니다. To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
+노드에 필터를 생성하여 새로운 블록이 도착하였음을 알립니다. 상태가 변경되었는지 확인하려면 [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)를 호출하세요.
 
 **매개변수**
 
@@ -2531,24 +2531,24 @@ caver.rpc.klay.newFilter(options [, callback])
 ```
 
 주어진 필터 옵션을 사용해 특정 상태 변화(로그)를 받을 필터 객체를 만듭니다.
-- To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
-- To obtain all logs matching the filter created by `newFilter`, call [caver.rpc.klay.getFilterLogs](#caver-rpc-klay-getfilterlogs).
+- 상태가 변경되었는지 확인하려면 [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)를 호출하세요.
+- `newFilter`로 생성된 필터와 일치하는 모든 로그를 가져오려면 [caver.rpc.klay.getFilterLogs](#caver-rpc-klay-getfilterlogs)를 호출하세요.
 
-For detailed information about the topics in the filter object, please see [Klaytn Platform API - klay_newFilter](../../../../json-rpc/api-references/klay/filter.md#klay_newfilter).
+필터 객체에 있는 토픽에 관한 자세한 내용은 [Klaytn Platform API - klay_newFilter](../../../../json-rpc/api-references/klay/filter.md#klay_newfilter)를 참고하십시오.
 
 **매개변수**
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
-| options  | object   | 필터 옵션. See the below table to find the description.                  |
+| options  | object   | 필터 옵션. 자세한 내용은 아래 표를 참조하세요.                                          |
 | callback | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 옵션 개체에는 다음이 포함됩니다:
 
 | 명칭        | 형식                   | 설명                                                                                                                                                                                           |
 | --------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | number &#124; string | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block and `"pending"` means currently mining block.) 기본값은 `"latest"`입니다.                |
-| toBlock   | number &#124; string | (optional) The block number of the last block to get the logs. (`"latest"`는 가장 최신 블록을 의미하며 `"pending"`은 현재 채굴중인 블록을 의미합니다.) 기본값은 `"latest"`입니다.                                              |
+| fromBlock | number &#124; string | (선택 사항) 로그를 얻을 범위의 시작 값입니다. 이 값은 시작 블록의 블록 넘버입니다. (`"latest"`는 가장 최신 블록을 의미하며 `"pending"`은 현재 채굴중인 블록을 의미합니다.) 기본값은 `"latest"`입니다.                                                           |
+| toBlock   | number &#124; string | (선택 사항) 로그를 얻을 범위의 마지막 값입니다. 이 값은 마지막 블록의 블록 넘버입니다. (`"latest"`는 가장 최신 블록을 의미하며 `"pending"`은 현재 채굴중인 블록을 의미합니다.) 기본값은 `"latest"`입니다.                                                         |
 | address   | string &#124; Array  | (선택 사항) 주소 1개 또는 주소 목록입니다. 특정 계정(들)과 관련있는 로그들만 반환됩니다.                                                                                                                                        |
 | topics    | 배열                   | (선택 사항) 로그에 반드시 있어야할 값들이 담긴 배열입니다. 값들의 순서는 중요합니다. 특정 토픽을 쓰지 않으려면 `null`을 사용하십시오. *예를 들면*, `[null, '0x12...']`. 그리고 각 토픽에 대해 토픽 옵션을 배열로 넣을 수 있습니다. *예를 들면*, `[null, ['option1', 'option2']]`. |
 
@@ -2576,7 +2576,7 @@ For detailed information about the topics in the filter object, please see [Klay
 caver.rpc.klay.newPendingTransactionFilter([callback])
 ```
 
-Creates a filter in the node, to receive the information about new pending transaction arrival. To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
+보류 상태의 트랜잭션이 새롭게 도착했다는 정보를 받기 위해 노드에 필터를 만듭니다. 상태가 변경되었는지 확인하려면 [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)를 호출하세요.
 
 **매개변수**
 
@@ -2605,7 +2605,7 @@ Creates a filter in the node, to receive the information about new pending trans
 caver.rpc.klay.uninstallFilter(filterId [, callback])
 ```
 
-Uninstalls a filter with a given id. Should always be called when a watch is no longer needed. Additionally, filters time out when they are not being called with [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges) for a period of time.
+입력으로 받은 ID를 가진 필터를 제거합니다. 더는 모니터링을 하지 않으면 호출해야 합니다. 또한, 일정 시간 동안 [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)를 통해 호출되지 않으면 필터는 타임아웃 됩니다.
 
 **매개변수**
 
@@ -2618,9 +2618,9 @@ Uninstalls a filter with a given id. Should always be called when a watch is no 
 
 `프로미스`는 `boolean`을 반환합니다.
 
-| 형식      | 설명                                                                |
-| ------- | ----------------------------------------------------------------- |
-| boolean | true if the filter was successfully uninstalled, otherwise false. |
+| 형식      | 설명                                               |
+| ------- | ------------------------------------------------ |
+| boolean | 필터가 성공적으로 제거되면 true를 반환하고, 그렇지 않으면 false를 반환합니다. |
 
 **예시**
 
@@ -2635,13 +2635,13 @@ true
 caver.rpc.klay.sha3(data[, callback])
 ```
 
-입력으로 받은 데이터의 Keccak-256(이 해시 함수는 표준 SHA3-256가 아닙니다) 해시를 반환합니다. You can use [caver.utils.sha3](../caver.utils.md#sha3) instead of this.
+입력으로 받은 데이터의 Keccak-256(이 해시 함수는 표준 SHA3-256가 아닙니다) 해시를 반환합니다. 이 메서드 대신 [caver.utils.sha3](../caver.utils.md#sha3)도 사용하실 수 있습니다.
 
 **매개변수**
 
 | 명칭       | 형식       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
-| data     | String   | The data to be converted into a SHA3 hash.                           |
+| data     | String   | SHA3 해시로 변환할 데이터입니다.                                                 |
 | callback | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
