@@ -481,7 +481,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_importChainFromString <a id="admin_importchainfromstring"></a>
 
-The `importChainFromString` is an administrative method that imports a chain from a RLP-encoded string of blocks into a Klaytn node. 이 메서드는 Klaytn 노드에 체인이 없을 때에만 정상적으로 동작합니다. 이 메서드는 기존 체인에서 아무 데이터도 삭제하지 않습니다.
+`importChainFromString` 관리 메서드는 블록들을 RLP 인코딩한 문자열을 사용해 체인을 Klaytn 노드에 가져옵니다. 이 메서드는 Klaytn 노드에 체인이 없을 때에만 정상적으로 동작합니다. 이 메서드는 기존 체인에서 아무 데이터도 삭제하지 않습니다.
 
 | 클라이언트 | 메서드 호출                                                                     |
 |:-----:| -------------------------------------------------------------------------- |
@@ -490,15 +490,15 @@ The `importChainFromString` is an administrative method that imports a chain fro
 
 **매개변수**
 
-| 명칭       | 형식  | 설명                                                                                                                    |
-| -------- | --- | --------------------------------------------------------------------------------------------------------------------- |
-| blockRlp | 문자열 | the RLP-encoded string that represents the blocks to be imported. (equals to the return value of `debug.getBlockRlp`) |
+| 명칭       | 형식  | 설명                                                           |
+| -------- | --- | ------------------------------------------------------------ |
+| blockRlp | 문자열 | 불러올 블록들을 RLP 인코딩한 문자열입니다. (`debug.getBlockRlp` 메서드의 리턴값과 동일) |
 
 **리턴값**
 
-| 형식   | 설명                                                 |
-| ---- | -------------------------------------------------- |
-| bool | `true` if a chain was imported, or `false` if not. |
+| 형식   | 설명                                               |
+| ---- | ------------------------------------------------ |
+| bool | 블록체인을 가져오면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -516,7 +516,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startStateMigration <a id="admin_startstatemigration"></a>
 
-The `startStateMigration` is an administrative method that that starts a state migration and removes old state/storage trie nodes. This can save the storage space of a Klaytn node. The method returns an error if it fails to start a state migration, or `null` if it succeeds to start. NOTE: After the state migration, the node cannot serve APIs with previous states.
+`startStateMigration` 관리 메서드는 상태 마이그레이션을 시작하고 이전 상태/스토리지 트리 노드를 제거합니다. 이 메서드는 Klaytn 노드의 스토리지 사용량을 절약할 수 있습니다. 이 메서드는 상태 마이그레이션을 시작하는 데에 실패하면 에러를 반환하고, 상태 마이그레이션을 시작하는 데에 성공하면 `null`를 반환합니다. 참고: 상태 마이그레이션 후에는, 예전 상태들을 기준으로 API를 호출할 수 없습니다.
 
 | 클라이언트 | 메서드 호출                                    |
 |:-----:| ----------------------------------------- |
@@ -529,9 +529,9 @@ The `startStateMigration` is an administrative method that that starts a state m
 
 **리턴값**
 
-| 형식 | 설명                                                                     |
-| -- | ---------------------------------------------------------------------- |
-| 에러 | `null` if the state migration has started, or an error message if not. |
+| 형식 | 설명                                                      |
+| -- | ------------------------------------------------------- |
+| 에러 | 상태 마이그레이션을 성공적으로 시작했다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
 
 **예시**
 
@@ -551,7 +551,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stopStateMigration <a id="admin_stopstatemigration"></a>
 
-The `stopStateMigration` is an administrative method that stops the currently running state migration. This method takes no parameters and returns `null` or an error whether the state migration was stopped or not.
+`stopStateMigration` 관리 메서드는 현재 실행중인 상태 마이그레이션 작업을 중단합니다. 이 메서드는 파라미터를 받지 않습니다. 상태 마이그레이션 작업이 성공적으로 중단되었다면 `null`을, 작업을 중단하는 데에 실패했다면 에러를 반환합니다.
 
 | 클라이언트 | 메서드 호출                             |
 |:-----:| ---------------------------------- |
@@ -564,9 +564,9 @@ The `stopStateMigration` is an administrative method that stops the currently ru
 
 **리턴값**
 
-| 형식 | 설명                                                            |
-| -- | ------------------------------------------------------------- |
-| 에러 | `null` if the state migration is stopped, or an error if not. |
+| 형식 | 설명                                                 |
+| -- | -------------------------------------------------- |
+| 에러 | 상태 마이그레이션이 중단되었다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
 
 
 **예시**
@@ -585,7 +585,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stateMigrationStatus <a id="admin_statemigrationstatus"></a>
 
-The `stateMigrationStatus` is an administrative method that returns the status information of the state migration. This method takes no parameters and returns the status of the currently running state migration.
+`stateMigrationStatus` 관리 메서드는 상태 마이그레이션 작업 정보를 반환합니다. 이 메서드는 파라미터를 받지 않습니다. 현재 진행중인 상태 마이그레이션 작업에 대한 정보를 반환합니다.
 
 | 클라이언트 | 메서드 호출                               |
 |:-----:| ------------------------------------ |
@@ -598,15 +598,15 @@ The `stateMigrationStatus` is an administrative method that returns the status i
 
 **리턴값**
 
-| 명칭                   | 형식      | 설명                                                                                                 |
-| -------------------- | ------- | -------------------------------------------------------------------------------------------------- |
-| committed            | int     | `committed` is the number of trie nodes that have been copied by the state migration.              |
-| err                  | 에러      | `null` if the state migration finished well, or an error if not.                                   |
-| isMigration          | bool    | `true` if the state migration is running, or `false` if not.                                       |
-| migrationBlockNumber | uint64  | a blockNumber which the start migration started at. (`0` if the state migration is not running.)   |
-| pending              | int     | `pending` represents the number of trie nodes that have not been processed by the state migration. |
-| progress             | float64 | `progress` is the progress of the state migration calculated in percent.                           |
-| read                 | int     | `read` represents the number of trie nodes that have been searched by the state migration.         |
+| 명칭                   | 형식      | 설명                                                       |
+| -------------------- | ------- | -------------------------------------------------------- |
+| committed            | int     | `committed`는 상태 마이그레이션 작업에 의해 복제된 트리 노드들의 개수입니다.         |
+| err                  | 에러      | 상태 마이그레이션이 성공적으로 완료되었다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
+| isMigration          | bool    | 상태 마이그레이션이 진행중이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.   |
+| migrationBlockNumber | uint64  | 상태 마이그레이션이 시작된 블록 번호입니다. (상태 마이그레이션이 진행중이 아니라면 `0`.)     |
+| pending              | int     | `pending`은 상태 마이그레이션이 처리하지 않은 트리 노드 개수입니다.               |
+| progress             | float64 | `progress`는 퍼센트(%)로 표현한 상태 마이그레이션 진행 정도입니다.              |
+| read                 | int     | `read`는 상태 마이그레이션이 읽어 들인 트리 노드 개수입니다.                    |
 
 **예시**
 
