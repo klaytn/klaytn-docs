@@ -540,7 +540,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startStateMigration <a id="admin_startstatemigration"></a>
 
-The `startStateMigration` is an administrative method that that starts a state migration and removes old state/storage trie nodes. This can save the storage space of a Klaytn node.
+The `startStateMigration` is an administrative method that starts a state migration and removes old state/storage trie nodes. This can save the storage space of a Klaytn node.
 The method returns an error if it fails to start a state migration, or `null` if it succeeds to start. 
 NOTE: After the state migration, the node cannot serve APIs with previous states. 
 
@@ -631,10 +631,10 @@ None
 | committed | int | `committed` is the number of trie nodes that have been copied by the state migration. |
 | err | Error | `null` if the state migration finished well, or an error if not. |
 | isMigration | bool | `true` if the state migration is running, or `false` if not. |
-| migrationBlockNumber | uint64 | a blockNumber which the start migration started at. (`0` if the state migration is not running.)
+| migrationBlockNumber | uint64 | a blockNumber which the state migration started at. (`0` if the state migration is not running.)
 | pending | int | `pending` represents the number of trie nodes that have not been processed by the state migration. |
 | progress | float64 | `progress` is the progress of the state migration calculated in percent. |
-| read | int | `read` represents the number of trie nodes that have been searched by the state migration. |
+| read | int | `read` represents the number of trie nodes that have been read by the state migration. |
 
 **Example**
   
