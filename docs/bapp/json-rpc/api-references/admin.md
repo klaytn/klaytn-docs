@@ -469,7 +469,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ## admin_importChain <a id="admin_importchain"></a>
 
 The `importChain` is an administrative method that imports an exported chain from a file into a node. 
-This method import only blocks that haven't exist in a Klaytn node. This method does not delete any data of the existing chain.
+This method imports only blocks that haven't existed in a Klaytn node. This method does not delete any data of the existing chain.
 
 | Client  | Method invocation            |
 | :-----: | ---------------------------- |
