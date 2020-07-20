@@ -15,7 +15,7 @@ description: >-
 
 #### [Kaikas](../../toolkit/kaikas.md) <a id="kaikas"></a>
 
-* Kaikas는 Klaytn 네트워크를 위한 웹 브라우저 확장 프로그램 지갑입니다. Kaikas empowers you to store and interact with KLAY and your Klaytn-based tokens. Kaikas also enables you to sign transactions from web-based Klaytn BApps in realtime.
+* Kaikas는 Klaytn 네트워크를 위한 웹 브라우저 확장 프로그램 지갑입니다. Kaikas는 KLAY와 Klaytn 기반 토큰을 보관하고 활용하도록 당신을 돕습니다. 또 Kaikas를 사용하면 웹 기반 Klaytn BApp과 연동하여 실시간으로 트랜잭션에 서명할 수 있습니다.
 
 #### [Klaytn Wallet](../../toolkit/klaytn-wallet.md)  <a id="klaytn-wallet"></a>
 
