@@ -20,6 +20,5 @@ KlaytnDocs는 수백만 사용자들에게 사용자 친화적인 블록체인 �
 
 **크레딧**: 다음 페이지에서 사용한 아이콘은 [www.flaticon.com](https://www.flaticon.com/)의 [Freepik](https://www.flaticon.com/authors/freepik)이 만들었습니다.
 
-* [Klaytn  
-  개요](klaytn/README.md)
+* [Klaytn 개요](klaytn/README.md)
 * [합의 메커니즘](klaytn/design/consensus-mechanism.md)
