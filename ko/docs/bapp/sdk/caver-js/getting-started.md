@@ -1,6 +1,6 @@
 # 시작하기 <a id="getting-started"></a>
 
-This documentation is for developers using caver-js v1.5.0 or higher. If you are using an older version, see [Getting Started (~v1.4.1)](v1.4.1/getting-started_1.4.1.md).
+이 문서는 caver-js 1.5.0 또는 상위 버전을 사용하는 개발자를 위해 작성되었습니다. 하위 버전에 관한 자세한 내용은 [Getting Started (~v1.4.1)](v1.4.1/getting-started_1.4.1.md)를 확인하십시오.
 
 ## 준비 사항 <a id="prerequisites"></a>
 
@@ -13,13 +13,13 @@ caver-js 라이브러리를 사용하려면 다음 패키지가 필요합니다.
 * [gcc-c++](https://gcc.gnu.org/)
 * [Solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
-**Note** caver-js can run on Node.js versions 8, 10 and 12, and the recommended versions are:
+**참고** caver-js는 Node.js 버전 8, 10, 12에서 실행할 수 있으며, 권장 버전은 다음과 같습니다:
 
 * lts/carbon \([8.16.0](https://nodejs.org/dist/latest-v8.x/)\)
 * lts/dubnium \([10.16.0](https://nodejs.org/dist/latest-v10.x/)\)
 * lts/erbium \([12.18.0](https://nodejs.org/dist/latest-v12.x/)\)
 
-If you are already using a different version of the Node \(for example, Node v14\), use the Node Version Manager\([NVM](https://github.com/nvm-sh/nvm)\) to install and use the version supported by caver-js.
+다른 버전의 Node\(가령 Node v14\)를 이미 사용중인 경우, Node Version Manager\([NVM](https://github.com/nvm-sh/nvm)\)를 사용해 caver-js가 지원하는 버전을 설치하고 사용합니다.
 
 ### 설치 <a id="installation"></a>
 
@@ -29,7 +29,7 @@ If you are already using a different version of the Node \(for example, Node v14
 $ npm install caver-js
 ```
 
-**참고**: `package.json` 파일이 설치 경로와 동일한 곳에 존재해야 합니다. If it does not exist, `package.json` can be generated via `npm init`.
+**참고**: `package.json` 파일이 설치 경로와 동일한 곳에 존재해야 합니다. 만일 존재하지 않으면, `npm init`을 통해 `package.json`가 생성될 수 있습니다.
 
 caver-js의 특정 버전을 설치하려면 다음 명령을 이용하세요:
 
@@ -37,9 +37,9 @@ caver-js의 특정 버전을 설치하려면 다음 명령을 이용하세요:
 $ npm install caver-js@X.X.X
 ```
 
-## Sending KLAY at a glance <a id="sending-klay-at-a-glance"></a>
+## 빠른 시작: KLAY 전송하기<a id="sending-klay-at-a-glance"></a>
 
-This section describes a simple example of using a `keystore file` to send KLAY with a value transfer transaction. The keystore file can be created in [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). 테스트를 위해 KLAY가 필요한 경우 [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에서 Baobab testnet KLAY를 얻을 수 있습니다.
+이 장은 `keystore file`을 사용해 KLAY를 전송하는 간단한 KLAY 전송 트랜잭션 예시를 설명합니다. 키스토어 파일은 [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에 생성될 수 있습니다. 테스트를 위해 KLAY가 필요한 경우 [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에서 Baobab testnet KLAY를 얻을 수 있습니다.
 
 ```javascript
 const fs = require('fs')
@@ -78,9 +78,9 @@ testFunction()
 
 ## caver-js로 시작하기 <a id="starting-with-caver-js"></a>
 
-Once you have finished installing caver-js, you can now connect to a Klaytn Node using caver-js.
+caver-js 설치가 끝나면 이제 caver-js를 사용해 Klaytn 노드에 접속할 수 있습니다.
 
-To practice the examples below, first create a test file in the working directory.
+예제를 실습하려면, 먼저 아래처럼 작업 디렉토리에 테스트 파일을 생성하세요.
 
 ```bash
 $ touch test.js
@@ -101,14 +101,14 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+위 코드를 실행하면 아래 결과를 얻습니다.
 
 ```bash
 $ node ./test.js
 Klaytn/v1.4.0/linux-amd64/go1.14.1
 ```
 
-If you see the output of console.log like above, proceed with the steps below. The version number can be different according to the version of the connected Klaytn node.
+위와 같이 console.log 출력을 확인했다면, 아래 단계로 진행하세요. 접속한 Klaytn 노드 버전에 따라 버전 넘버가 다를 수 있습니다.
 
 ### Connecting to a Klaytn Node <a id="connecting-to-a-klaytn-node"></a>
 
@@ -157,7 +157,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+위 코드를 실행하면 아래 결과를 얻습니다.
 
 ```bash
 $ node ./test.js
@@ -187,7 +187,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+위 코드를 실행하면 아래 결과를 얻습니다.
 
 ```bash
 $ node ./test.js
@@ -253,7 +253,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+위 코드를 실행하면 아래 결과를 얻습니다.
 
 ```bash
 $ node ./test.js
@@ -291,7 +291,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+위 코드를 실행하면 아래 결과를 얻습니다.
 
 ```bash
 $ node ./test.js
@@ -405,7 +405,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. The result of the above code execution is shown below. When `caver.wallet.newKeyring` is executed with a private key, a Keyring instance with one private key is created and added to `caver.wallet`. For multiple private keys, a Keyring instance with multiple private keys is created. When passing one or more private keys for each role as arguments, a Keyring instance with a different private key(s) for each role is created and also added to the `caver.wallet`.
+위 코드를 실행하면 아래 결과를 얻습니다. The result of the above code execution is shown below. When `caver.wallet.newKeyring` is executed with a private key, a Keyring instance with one private key is created and added to `caver.wallet`. For multiple private keys, a Keyring instance with multiple private keys is created. When passing one or more private keys for each role as arguments, a Keyring instance with a different private key(s) for each role is created and also added to the `caver.wallet`.
 
 ```bash
 $ node ./test.js
@@ -498,7 +498,7 @@ testFunction()
 
 The above code adds a keyring to `caver.wallet`, creates a transaction, and signs the transaction through `caver.wallet.sign`.
 
-Running the above code gives you the following result. When the above code is executed, the RLP-encoded string of the transaction is shown below. (The RLP-encoded string output you got could be different from the string output shown below.)
+위 코드를 실행하면 아래 결과를 얻습니다. When the above code is executed, the RLP-encoded string of the transaction is shown below. (The RLP-encoded string output you got could be different from the string output shown below.)
 
 ```bash
 RLP-encoded string: 0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b6991507647f720194ade4883d092e2a972d70637ca7de9ab5166894a2f847f845824e44a0e1ec99789157e5cb6bc691935c204a23aaa3dc049efafca106992a5d5db2d179a0511c421d5e508fdb335b6048ca7aa84560a53a5881d531644ff178b6aa4c0a41
@@ -524,7 +524,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. When the above code is executed, the receipt of the transaction is shown below.
+위 코드를 실행하면 아래 결과를 얻습니다. When the above code is executed, the receipt of the transaction is shown below.
 
 ```bash
 $ node ./test.js
@@ -615,7 +615,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. When the above code is executed, the receipt of the transaction is shown below.
+위 코드를 실행하면 아래 결과를 얻습니다. When the above code is executed, the receipt of the transaction is shown below.
 
 ```bash
 $ node ./test.js
@@ -733,7 +733,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. Through the execution result of the above code, you can check the FeeDelegatedValueTransfer transaction result.
+위 코드를 실행하면 아래 결과를 얻습니다. Through the execution result of the above code, you can check the FeeDelegatedValueTransfer transaction result.
 
 ```bash
 $ node ./test.js
@@ -825,7 +825,7 @@ testFunction()
 
 If the above code is executed successfully, you no longer are able to use the old private key(s) to sign any transaction with the old keyring. So you must update the old keyring with the `newKeyring` through `caver.wallet.updateKeyring(newKeyring)`. Once it is updated, the signing will be done by the newly updated private key(s).
 
-Running the above code gives you the following result. In the execution result of the above code, the result of the private key and the account update that you should newly use are printed like below.
+위 코드를 실행하면 아래 결과를 얻습니다. In the execution result of the above code, the result of the private key and the account update that you should newly use are printed like below.
 
 ```bash
 $ node ./test.js
@@ -962,7 +962,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+위 코드를 실행하면 아래 결과를 얻습니다.
 
 ```bash
 $ node ./test.js
@@ -1005,7 +1005,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+위 코드를 실행하면 아래 결과를 얻습니다.
 
 ```bash
 $ node ./test.js
@@ -1198,7 +1198,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. Looking at the execution result of the code above, if user1 signs, one signature is created. If user2 signs, user2's signature is appended. [SignatureData][] is an object that stores a signature.
+위 코드를 실행하면 아래 결과를 얻습니다. Looking at the execution result of the code above, if user1 signs, one signature is created. If user2 signs, user2's signature is appended. [SignatureData][] is an object that stores a signature.
 
 ```bash
 $ node ./test.js
@@ -1249,7 +1249,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+위 코드를 실행하면 아래 결과를 얻습니다.
 
 ```bash
 $ node ./test.js
@@ -1295,7 +1295,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+위 코드를 실행하면 아래 결과를 얻습니다.
 
 ```bash
 $ node ./test.js
