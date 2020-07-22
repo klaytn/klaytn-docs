@@ -159,7 +159,7 @@ public void sendingKLAY() throws IOException, CipherException, TransactionExcept
 
 ## Starting with caver-java <a id="starting-with-caver-java"></a>
 
-### Connecting to a Klaytn Node <a id="connecting-to-a-klaytn-node"></a>
+### Klaytn 노드에 접속하기<a id="connecting-to-a-klaytn-node"></a>
 
 You can import the caver-java module and connect it to a Klaytn Node in the Baobab testnet as shown in the example below:
 
@@ -174,7 +174,7 @@ Caver caver = new Caver("http://localhost:8551/");
 ```
 
 
-## Managing Keyrings <a id="managing-keyrings"></a>
+## Keyring 관리 <a id="managing-keyrings"></a>
 
 `Keyring` is a structure that contains the address of the Klaytn account and the private key(s).
 
@@ -184,30 +184,30 @@ Caver caver = new Caver("http://localhost:8551/");
 
 `MultipleKeyring` defines `keys` property inside, and this `keys` is implemented as an array to store multiple private keys.
 
-The `keys` property defined in `RoleBasedKeyring` is implemented as a List object having 3 arrays of private key(s) as its elements (empty `keys` will look like `[ [], [], [] ]`) and so that it can include multiple keys for each `role`. The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
+The `keys` property defined in `RoleBasedKeyring` is implemented as a List object having 3 arrays of private key(s) as its elements (empty `keys` will look like `[ [], [], [] ]`) and so that it can include multiple keys for each `role`. 2차원 배열의 1번째 원소에는 `roleTransactionKey`로 사용될 개인키(들), 배열의 2번째 원소에는 `roleAccountUpdateKey`로 사용될 개인키(들), 배열의 3번째 원소에는 `roleFeePayerKey`로 사용될 개인키(들)이 저장됩니다.
 
-### Creating a Keyring <a id="creating-a-keyring"></a>
+### Keyring 생성<a id="creating-a-keyring"></a>
 
-#### Generating a SingleKeyring <a id="generating-a-singlekeyring"></a>
+#### SingleKeyring 생성 <a id="generating-a-singlekeyring"></a>
 
-You can randomly generate a single keyring as shown below.
+아래와 같이 임의의 값을 사용해 SingleKeyring을 생성할 수 있습니다.
 
 ```java
 SingleKeyring keyring = KeyringFactory.generate();
 ```
 
-#### Creating a SingleKeyring from private key <a id="creating-a-singlekeyring-from-private-key"></a>
+#### 개인키로 SingleKeyring 생성하기 <a id="creating-a-singlekeyring-from-private-key"></a>
 
-Also, if you own a specific private key, you can use it to create a keyring as shown below.
+개인키가 있다면, 이 개인키를 사용해 Keyring을 만들 수 있습니다.
 
 ```java
 String privateKey = "0x{private key in hex}";
 SingleKeyring keyring = KeyringFactory.createFromPrivateKey(privateKey);
 ```
 
-#### Creating a SingleKeyring with a private key and an address <a id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
+#### 개인키와 계정 주소로 SingleKeyring 생성하기<a id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
 
-If your private key for your Klaytn account is decoupled from the address, you can create a keyring using the given address and the given private key like below.
+여러분의 Klaytn 계정 주소가 개인키로부터 생성된 것이 아니라 개인키와 별도로 분리된 것이라면, 주소와 개인키를 사용해 Keyring을 만들 수 있습니다.
 
 ```java
 String address = "0x{address in hex}";
@@ -222,7 +222,7 @@ String klaytnWalletKey = "0x{private key}0x{type}0x{address in hex}";
 SingleKeyring keyring = KeyringFactory.createFromKlaytnWalletKey(klaytnWalletKey);
 ```
 
-#### Creating a MultipleKeyring with multiple private keys <a id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
+#### 여러 개인키로 MultipleKeyring 생성하기<a id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
 
 If you want to use multiple private keys, you can create a `MultipleKeyring` using an address and multiple private keys. The below examples show how to create a `MultipleKeyring` with multiple private keys.
 
