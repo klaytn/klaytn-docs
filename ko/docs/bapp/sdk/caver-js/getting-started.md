@@ -76,7 +76,7 @@ async function testFunction() {
 testFunction()
 ```
 
-## caver-js로 시작하기 <a id="starting-with-caver-js"></a>
+## caver-js 시작하기<a id="starting-with-caver-js"></a>
 
 caver-js 설치가 끝나면 이제 caver-js를 사용해 Klaytn 노드에 접속할 수 있습니다.
 
@@ -110,7 +110,7 @@ Klaytn/v1.4.0/linux-amd64/go1.14.1
 
 위와 같이 console.log 출력을 확인했다면, 아래 단계로 진행하세요. 접속한 Klaytn 노드 버전에 따라 버전 넘버가 다를 수 있습니다.
 
-### Connecting to a Klaytn Node <a id="connecting-to-a-klaytn-node"></a>
+### Klaytn 노드에 접속하기<a id="connecting-to-a-klaytn-node"></a>
 
 아래 예시와 같이 caver-js 모듈을 가져와 Baobab 테스트넷의 Klaytn 노드에 연결할 수 있습니다:
 
@@ -126,23 +126,23 @@ const Caver = require('caver-js')
 const caver = new Caver('http://localhost:8551/')
 ```
 
-## Managing Keyrings <a id="managing-keyrings"></a>
+## Keyring 관리 <a id="managing-keyrings"></a>
 
-[Keyring][] is a structure that contains the address of the Klaytn account and the private key(s).
+[Keyring][]은 Klaytn 계정 주소와 개인키(들)이 들어있는 객체입니다.
 
-[Keyring][] can be classified into three types depending on the type of key being stored: [SingleKeyring][] to store one address and one private key, [MultipleKeyring][] to store one address and multiple private keys, and [RoleBasedKeyring][] to store one address and one or more private keys for each role.
+[Keyring][]은 저장되는 키 종류에 따라 3가지 타입으로 나뉩니다: 주소 1개와 개인키 1개를 가지는 [SingleKeyring][], 주소 1개와 여러 개인키를 가지는 [MultipleKeyring][], 그리고 주소 1개와 키 Role별로 개인키 1개 이상을 가지는 [RoleBasedKeyring][]가 있습니다.
 
-[SingleKeyring][] defines `key` property inside, and this `key` store one private key.
+[SingleKeyring][]는 내부에 `key` 속성을 가지고 이 `key` 속성에 개인키 1개가 저장됩니다.
 
-[MultipleKeyring][] defines `keys` property inside, and this `keys` is implemented as an array to store multiple private keys.
+[MultipleKeyring][]는 내부에 `keys` 속성을 가지고, 이 `keys` 속성에 여러 개인키가 저장됩니다.
 
-The `keys` property defined in [RoleBasedKeyring][] is implemented as a two-dimensional array (empty `keys` will look like `[ [], [], [] ]`) that can include multiple keys for each [role][]. The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
+[RoleBasedKeyring][] 내부에 있는 `keys` 속성은 2차원 배열입니다(`keys`가 비어있으면 `[ [], [], [] ]`와 같이 보임). 배열의 각 원소에는 각 [role][]이 사용하는 1개 이상의 개인키가 저장됩니다. 2차원 배열의 1번째 원소에는 `roleTransactionKey`로 사용될 개인키(들), 배열의 2번째 원소에는 `roleAccountUpdateKey`로 사용될 개인키(들), 배열의 3번째 원소에는 `roleFeePayerKey`로 사용될 개인키(들)이 저장됩니다.
 
-### Creating a Keyring <a id="creating-a-keyring"></a>
+### Keyring 생성<a id="creating-a-keyring"></a>
 
-#### Generating a SingleKeyring <a id="generating-a-singlekeyring"></a>
+#### SingleKeyring 생성 <a id="generating-a-singlekeyring"></a>
 
-You can randomly generate a single keyring as shown below.
+아래와 같이 임의의 값을 사용해 SingleKeyring을 생성할 수 있습니다.
 
 ```javascript
 // test.js
@@ -167,11 +167,11 @@ SingleKeyring {
 }
 ```
 
-The execution result is shown above. Member variables defined inside the instance can be accessed through `keyring.address` and `keyring.key`.
+실행 결과는 아래와 같습니다. 인스턴스 멤버 변수들은 `keyring.address`와 `keyring.key`로 접근 가능합니다.
 
-#### Creating a SingleKeyring from private key <a id="creating-a-singlekeyring-from-private-key"></a>
+#### 개인키로 SingleKeyring 생성하기 <a id="creating-a-singlekeyring-from-private-key"></a>
 
-Also, if you own a specific private key, you can use it to create a keyring as shown below.
+개인키가 있다면, 이 개인키를 사용해 Keyring을 만들 수 있습니다.
 
 ```javascript
 // test.js
@@ -197,11 +197,11 @@ SingleKeyring {
 }
 ```
 
-The result of `caver.wallet.keyring.createFromPrivateKey`, like the result of `caver.wallet.keyring.generate` above, is a [SingleKeyring][] instance with an address defined inside it and a [PrivateKey] instance in `keyring.key`.
+위 `caver.wallet.keyring.generate` 결과처럼, `caver.wallet.keyring.createFromPrivateKey` 결과값도 계정 주소와 PrivateKey 인스턴스가 저장된 하나의 [SingleKeyring][] 인스턴스입니다.
 
-#### Creating a SingleKeyring with a private key and an address <a id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
+#### 개인키와 계정 주소로 SingleKeyring 생성하기<a id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
 
-If your private key for your Klaytn account is decoupled from the address, you can create a keyring using the given address and the given private key like below.
+여러분의 Klaytn 계정 주소가 개인키로부터 생성된 것이 아니라 개인키와 별도로 분리된 것이라면, 주소와 개인키를 사용해 Keyring을 만들 수 있습니다.
 
 ```javascript
 // test.js
@@ -221,7 +221,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Run the code in your console like below.
+콘솔에서 아래 코드를 실행하세요.
 
 ```bash
 $ node ./test.js
@@ -235,9 +235,9 @@ SingleKeyring {
 }
 ```
 
-#### Creating a MultipleKeyring with multiple private keys <a id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
+#### 여러 개인키로 MultipleKeyring 생성하기<a id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
 
-If you want to use multiple private keys, you can create a [MultipleKeyring][] using an address and multiple private keys. The below examples show how to create a [MultipleKeyring][] with multiple private keys.
+여러 개인키를 사용한다면, 주소 1개와 여러 개인키로 [MultipleKeyring][]를 만들 수 있습니다. 아래 예시는 개인키들로 [MultipleKeyring][]를 만드는 방법을 소개합니다.
 
 ```javascript
 // test.js
@@ -266,7 +266,7 @@ MultipleKeyring {
 }
 ```
 
-As you can see, `_keys` has multiple PrivateKey instances in the array. Member variables defined inside the instance can be accessed through `keyring.address` and `keyring.keys`.
+위에서 확인할 수 있듯이 `_keys` 속성은 여러 PrivateKey 인스턴스가 들어있는 배열을 갖고 있습니다. 인스턴스 멤버 변수들은 `keyring.address`와 `keyring.keys`로 접근 가능합니다.
 
 
 #### Creating a RoleBasedKeyring with private keys <a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
