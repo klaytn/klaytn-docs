@@ -34,7 +34,7 @@ caver-js의 특정 버전을 설치하려면 다음 명령을 이용하세요:
 $ npm install caver-js@X.X.X
 ```
 
-## caver-js로 시작하기 <a id="starting-with-caver-js"></a>
+## Starting with caver-js <a id="starting-with-caver-js"></a>
 
 caver-js 설치가 끝나면 이제 caver-js를 Klaytn 노드와 연결할 수 있습니다.
 
