@@ -269,9 +269,9 @@ MultipleKeyring {
 위에서 확인할 수 있듯이 `_keys` 속성은 여러 PrivateKey 인스턴스가 들어있는 배열을 갖고 있습니다. 인스턴스 멤버 변수들은 `keyring.address`와 `keyring.keys`로 접근 가능합니다.
 
 
-#### Creating a RoleBasedKeyring with private keys <a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
+#### 개인키로 RoleBasedKeyring 생성하기<a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
 
-To use different private key(s) for each [role][], `caver.wallet.keyring.createWithRoleBasedKey` is used instead. Each array element represents a role described in [RoleBasedKeyring][]. The example below shows how to create a [RoleBasedKeyring][] instance from different keys for each role.
+[role][]마다 개인키(들)를 따로 사용하려면, `caver.wallet.keyring.createWithRoleBasedKey`를 사용해야 합니다. 배열의 각 원소는 [RoleBasedKeyring][]에 있는 각 Role에 해당됩니다. 아래 예시는 각 Role이 사용하는 개인키들로부터 [RoleBasedKeyring][] 인스턴스를 만드는 방법을 소개합니다.
 
 ```javascript
 // test.js
