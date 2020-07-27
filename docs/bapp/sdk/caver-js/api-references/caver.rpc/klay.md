@@ -542,7 +542,7 @@ true
 ## caver.rpc.klay.sign <a id="caver-rpc-klay-sign"></a>
 
 ```javascript
-caver.rpc.klay.sign(message, address [, blockNumber] [, callback])
+caver.rpc.klay.sign(address, message [, blockNumber] [, callback])
 ```
 
 Generates signed data specific to the Klaytn. Refer to [Klaytn Platform API - klay_sign](../../../../json-rpc/api-references/klay/account.md#klay_sign) to know how the signature is generated.
@@ -553,8 +553,8 @@ Generates signed data specific to the Klaytn. Refer to [Klaytn Platform API - kl
 
 | Name | Type | Description |
 | --- | --- | --- |
-| message | String | Message to sign. |
 | address | String | The address of the imported account to sign the message. |
+| message | String | Message to sign. |
 | blockNumber | number &#124; string | (optional) A block number, or the string `latest`, `earliest` or `pending`. If omitted, `latest` will be used. |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -569,7 +569,7 @@ Generates signed data specific to the Klaytn. Refer to [Klaytn Platform API - kl
 **Example**
 
 ```javascript
-> caver.rpc.klay.sign('0xdeadbeaf', '0x{address in hex}').then(console.log)
+> caver.rpc.klay.sign('0x{address in hex}', '0xdeadbeaf').then(console.log)
 0x1066e052c4be821daa4d0a0cd1e9e75ccb200bb4001c2e38853ba41b712a5a226da2acd67c86a13b266e0d75d0a6e7d1551c8924af413267615a5948617c746c1c
 ```
 
