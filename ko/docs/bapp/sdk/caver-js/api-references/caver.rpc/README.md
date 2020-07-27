@@ -1,6 +1,6 @@
 # caver.rpc <a id="caver-rpc"></a>
 
-`caver.rpc` is a package that provides functionality related to rpc call with Klaytn Node.
+`caver.rpc`는 Klaytn 노드에 RPC 호출을 하는 기능을 제공하는 패키지입니다.
 
 ## Class <a id="class"></a>
 
@@ -10,18 +10,18 @@
 caver.rpc
 ```
 
-`RPC` is a class that includes [Klay][] and [Net][] inside.
+`RPC`는 [Klay][]와 [Net][] 패키지를 가진 클래스입니다.
 
 **속성**
 
-| 명칭   | 형식       | 설명                                                           |
-| ---- | -------- | ------------------------------------------------------------ |
-| klay | [Klay][] | The [Klay][] providing JSON-RPC call with `klay` name space. |
-| net  | [Net][]  | The [Net][] providing JSON-RPC call with `net` name space.   |
+| 명칭   | 형식       | 설명                                                |
+| ---- | -------- | ------------------------------------------------- |
+| klay | [Klay][] | [Klay][]는 `klay` 네임 스페이스를 가진 JSON-RPC API를 호출합니다. |
+| net  | [Net][]  | [Net][]는 `net` 네임 스페이스를 가진 JSON-RPC API를 호출합니다.   |
 
 ## JSON-RPC calls <a id="json-rpc-calls"></a>
 
-The `caver.rpc.klay` allows you to interact with the Klaytn nodes. The list below enumerates the API functions that are currently supported in `caver-js`.
+`caver.rpc.klay`를 사용하면 Klaytn 노드와 상호작용할 수 있습니다. 아래 목록은 `caver-js`에서 현재 지원되는 API의 기능을 열거합니다.
 
 ### [계정(Account)](./klay.md#caver-rpc-klay-accountcreated) <a id="account"></a>
 - [accountCreated](./klay.md#caver-rpc-klay-accountcreated)
@@ -36,7 +36,7 @@ The `caver.rpc.klay` allows you to interact with the Klaytn nodes. The list belo
 - [sign](./klay.md#caver-rpc-klay-sign)
 - [getAccounts](./klay.md#caver-rpc-klay-getaccounts)
 
-### [블록](./klay.md#caver-rpc-klay-getblocknumber) <a id="block"></a>
+### [블록(Block)](./klay.md#caver-rpc-klay-getblocknumber) <a id="block"></a>
 - [getBlockNumber](./klay.md#caver-rpc-klay-getblocknumber)
 - [getBlockByNumber](./klay.md#caver-rpc-klay-getblockbynumber)
 - [getBlockByHash](./klay.md#caver-rpc-klay-getblockbyhash)
@@ -89,7 +89,7 @@ The `caver.rpc.klay` allows you to interact with the Klaytn nodes. The list belo
 - [newPendingTransactionFilter](./klay.md#caver-rpc-klay-newpendingtransactionfilter)
 - [uninstallFilter](./klay.md#caver-rpc-klay-uninstallfilter)
 
-### [Network](./net.md) <a id="network"></a>
+### 네트워크([Network](./net.md)) <a id="network"></a>
 - [getNetworkId](./net.md#caver-rpc-net-getnetworkid)
 - [isListening](./net.md#caver-rpc-net-islistening)
 - [getPeerCount](./net.md#caver-rpc-net-getpeercount)
