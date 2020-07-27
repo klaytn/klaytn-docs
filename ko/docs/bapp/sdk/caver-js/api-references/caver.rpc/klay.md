@@ -542,7 +542,7 @@ true
 ## caver.rpc.klay.sign <a id="caver-rpc-klay-sign"></a>
 
 ```javascript
-caver.rpc.klay.sign(message, address [, blockNumber] [, callback])
+caver.rpc.klay.sign(address, message [, blockNumber] [, callback])
 ```
 
 Klaytn에서 사용하는 서명된 데이터를 생성합니다. [Klaytn Platform API - klay_sign](../../../../json-rpc/api-references/klay/account.md#klay_sign)을 참고해 서명이 생성되는 방법을 확인하십시오.
@@ -553,8 +553,8 @@ Klaytn에서 사용하는 서명된 데이터를 생성합니다. [Klaytn Platfo
 
 | 명칭          | 형식                   | 설명                                                                                              |
 | ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
-| message     | String               | 서명하려는 메시지입니다.                                                                                   |
 | address     | String               | 메시지에 서명할 불러온 계정 주소입니다.                                                                          |
+| message     | String               | 서명하려는 메시지입니다.                                                                                   |
 | blockNumber | number &#124; string | (선택 사항) 블록 넘버, 또는 `latest`, `earliest`, `pending` 문자열 중 하나입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
 | callback    | function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                            |
 
@@ -569,7 +569,7 @@ Klaytn에서 사용하는 서명된 데이터를 생성합니다. [Klaytn Platfo
 **예시**
 
 ```javascript
-> caver.rpc.klay.sign('0xdeadbeaf', '0x{address in hex}').then(console.log)
+> caver.rpc.klay.sign('0x{address in hex}', '0xdeadbeaf').then(console.log)
 0x1066e052c4be821daa4d0a0cd1e9e75ccb200bb4001c2e38853ba41b712a5a226da2acd67c86a13b266e0d75d0a6e7d1551c8924af413267615a5948617c746c1c
 ```
 
