@@ -1,6 +1,6 @@
 # caver.rpc.net <a id="caver-rpc-net"></a>
 
-`caver.rpc.net` provides JSON-RPC call with `net` name space.
+`caver.rpc.net`는 `net` 네임 스페이스를 가진 JSON-RPC API를 호출합니다.
 
 ## caver.rpc.net.getNetworkId <a id="caver-rpc-net-getnetworkid"></a>
 
@@ -8,7 +8,7 @@
 caver.rpc.net.getNetworkId([callback])
 ```
 
-Return the network identifier (network ID) of the Klaytn Node.
+Klaytn 노드의 네트워크 식별자(네트워크 ID)를 반환합니다.
 
 **매개변수**
 
@@ -19,11 +19,11 @@ Return the network identifier (network ID) of the Klaytn Node.
 
 **리턴값**
 
-`Promise` returns `number`
+`프로미스`는 `Number`을 반환합니다.
 
-| 형식     | 설명              |
-| ------ | --------------- |
-| number | The network id. |
+| 형식     | 설명          |
+| ------ | ----------- |
+| number | 네트워크 ID입니다. |
 
 **예시**
 
@@ -38,7 +38,7 @@ Return the network identifier (network ID) of the Klaytn Node.
 caver.rpc.net.isListening([callback])
 ```
 
-Return `true` if the Klaytn Node is actively listening for network connections.
+Klaytn 노드가 네트워크 연결을 수신하고 있으면 `true`를 반환합니다.
 
 **매개변수**
 
@@ -68,7 +68,7 @@ true
 caver.rpc.net.getPeerCount([callback])
 ```
 
-Return the number of peers currently connected to the Klaytn Node.
+현재 Klaytn 노드에 연결된 피어의 수를 반환합니다.
 
 **매개변수**
 
@@ -81,9 +81,9 @@ Return the number of peers currently connected to the Klaytn Node.
 
 `프로미스`는 `String`를 반환합니다.
 
-| 형식  | 설명                                    |
-| --- | ------------------------------------- |
-| 문자열 | The number of connected peers in hex. |
+| 형식  | 설명                             |
+| --- | ------------------------------ |
+| 문자열 | 연결된 피어의 개수입니다. 이 값은 16진수 값입니다. |
 
 **예시**
 
@@ -98,7 +98,7 @@ Return the number of peers currently connected to the Klaytn Node.
 caver.rpc.net.getPeerCountByType([callback])
 ```
 
-Return the number of connected nodes by type and the total number of connected nodes with key/value pairs.
+유형별 연결된 노드의 수와 연결된 모든 노드 수를 키-밸류 쌍의 형태로 반환합니다.
 
 **매개변수**
 
@@ -109,7 +109,7 @@ Return the number of connected nodes by type and the total number of connected n
 
 **리턴값**
 
-`Promise` returns `object`
+`프로미스`는 `Object`를 반환합니다.
 
 | 형식     | 설명                                  |
 | ------ | ----------------------------------- |
