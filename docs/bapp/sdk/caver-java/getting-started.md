@@ -535,7 +535,7 @@ try {
 }
 ```
 
-The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures].
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../json-rpc/transaction-error-codes.md).
 
 
 ## Executing Other Transaction Types <a id="executing-other-transaction-types"></a>
@@ -1149,4 +1149,3 @@ To find more information, see [caver-java API]
 
 
 [caver-java API]: (https://javadoc.io/doc/com.klaytn.caver/core/)
-[txError: Detailed Information of Transaction Failures]: ../../json-rpc/transaction-error-codes.md
