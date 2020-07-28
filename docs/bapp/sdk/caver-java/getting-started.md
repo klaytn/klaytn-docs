@@ -734,7 +734,7 @@ Account account = Account.createWithAccountKeyFail(keyringToUpdate.address)
 
 ### Smart Contract <a id="smart-contract"></a>
 
-The `caver.contract.Contract` class makes it easy to interact with smart contracts on Klaytn. All functions of a smart contract automatically converts and stored in `caver.contract.Contract` instance when its low-level ABI\(Application Binary Interface\) is given. This allows you to interact with smart contracts as using `caver.contract.Contract` instance.
+The `caver.contract.Contract` class makes it easy to interact with smart contracts on Klaytn. All functions of a smart contract automatically converts and stored in `caver.contract.Contract` instance, when its low-level ABI\(Application Binary Interface\) is given. This allows you to interact with smart contracts as using `caver.contract.Contract` instance.
 
 
 First, we make a simple solidity example like the below. Create a 'test.sol' file and write down the below example.
@@ -766,7 +766,12 @@ Contract JSON ABI
 
 **NOTE**: To compile a smart contract, you must have a [solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html) installed.
 
-For the smart contract deployment, you can use `caver.contract.Contract` to deploy it, or you can deploy it using `caver.transaction.smartContractDeploy`, `caver.transaction.feeDelegatedSmartContractDeploy` or `caver.transaction.feeDelegatedSmartContractDeployWithRatio` transaction. Here is an example of using `caver.contract.Contract` class.
+For the smart contract deployment, you can deploy it using
+  - `caver.contract.Contract` 
+  - `caver.transaction.smartContractDeploy`, 
+  - `caver.transaction.feeDelegatedSmartContractDeploy` or `caver.transaction.feeDelegatedSmartContractDeployWithRatio` transaction. 
+
+Here is an example of using `caver.contract.Contract` class.
 
 You can create a contract instance as below using the result of compiling the smart contract.
 
