@@ -734,7 +734,7 @@ Account account = Account.createWithAccountKeyFail(keyringToUpdate.address)
 
 ### Smart Contract <a id="smart-contract"></a>
 
-The `caver.contract.Contract` class makes it easy to interact with smart contracts on Klaytn. All functions of a smart contract automatically converts and stored in `caver.contract.Contract` instance, when its low-level ABI\(Application Binary Interface\) is given. This allows you to interact with smart contracts as using `caver.contract.Contract` instance.
+The `Contract` class in `caver.contract` package makes it easy to interact with smart contracts on Klaytn. All functions of a smart contract automatically converts and stored in `Contract` instance, when its low-level ABI\(Application Binary Interface\) is given. This allows you to interact with smart contracts as using `Contract` instance.
 
 
 First, we make a simple solidity example like the below. Create a 'test.sol' file and write down the below example.
@@ -767,11 +767,12 @@ Contract JSON ABI
 **NOTE**: To compile a smart contract, you must have a [solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html) installed.
 
 For the smart contract deployment, you can deploy it using
-  - `caver.contract.Contract` 
-  - `caver.transaction.smartContractDeploy`, 
-  - `caver.transaction.feeDelegatedSmartContractDeploy` or `caver.transaction.feeDelegatedSmartContractDeployWithRatio` transaction. 
+  - `Contract` class in `caver.contract` package
+  - `SmartContractDeploy` class in `caver.transaction`, 
+  - `feeDelegatedSmartContractDeploy` class in `caver.transaction` package
+  - `feeDelegatedSmartContractDeployWithRatio` class in `caver.transaction` package 
 
-Here is an example of using `caver.contract.Contract` class.
+Here is an example of using `Contract` class in `caver.contract` package.
 
 You can create a contract instance as below using the result of compiling the smart contract.
 
@@ -988,7 +989,10 @@ Note that `contractInstance.deploy()` sends transactions for deployment and exec
         try {
             Contract contract = new Contract(caver, ABI);
             ContractDeployParams params = new ContractDeployParams(byteCode, null);
-            SendOptions sendOptions = new SendOptions(deployer.getAddress(), BigInteger.valueOf(40000));
+            SendOptions sendOptions = new SendOptions();
+            sendOptions.setFrom(deployer.getAddress());
+            sendOptions.setGas(BigInteger.valueOf(40000))
+            
             contract.deploy(params, sendOptions);
             System.out.println("Contract address : " + contract.getContractAddress());
         } catch (IOException | TransactionException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
@@ -1005,7 +1009,11 @@ In the code above, the `deployer` deploys the contract to the Klaytn and returns
 ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
-One way to invoke a specific method of a smart contract is to use it with `caver.contract.Contract` or use [caver.transaction.smartContractExecution], [caver.transaction.feeDelegatedSmartContractExecution] or [caver.transaction.feeDelegatedSmartContractExecutionWithRatio] transaction.
+One way to invoke a specific method of a smart contract is to use it with 
+  - `Contract` class in `caver.contract` package
+  - `SmartContractDeploy` class in `caver.transaction` package
+  - `feeDelegatedSmartContractDeploy` class in `caver.transaction` package
+  - `feeDelegatedSmartContractDeployWithRatio` class in `caver.transaction` package 
 
 To transact with a smart contract:
 
@@ -1063,7 +1071,12 @@ To transact with a smart contract:
 
         try {
             Contract contract = new Contract(caver, ABI, '0x{address in hex}');
-            TransactionReceipt.TransactionReceiptData receipt = contract.getMethod("set").send(Arrays.asList("testValue"));
+            
+            SendOptions sendOptions = new SendOptions();
+            sendOptions.setFrom(deployer.getAddress());
+            sendOptions.setGas(BigInteger.valueOf(40000))
+
+            TransactionReceipt.TransactionReceiptData receipt = contract.getMethod("set").send(Arrays.asList("testValue"), sendOptions);
         } catch (IOException | TransactionException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
             //handle exception..
         }
