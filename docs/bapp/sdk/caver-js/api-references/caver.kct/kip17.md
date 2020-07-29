@@ -974,7 +974,7 @@ Note that the mintWithTokenURI method will submit a transaction to the Klaytn ne
 | --- | --- | --- |
 | to | string | The address of the account to which the minted token will be issued. |
 | tokenId | BigNumber &#124; string &#124; number | The id of the token to be minted. |
-| tokenURI | number | The uri of token to be minted. |
+| tokenURI | string | The uri of token to be minted. |
 | sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
 
 **NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
