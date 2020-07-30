@@ -118,7 +118,7 @@ KlayWalletUtils.generateNewWalletFile(
 KlayCredentials credentials = KlayWalletUtils.loadCredentials(<password>, <walletFilePath>);
 ```
 
-## 트랜잭션 발신 <a id="sending-a-transaction"></a>
+## Sending a Transaction <a id="sending-a-transaction"></a>
 
 ### Baobab Faucet을 통해 KLAY 받기 <a id="getting-klay-via-baobab-faucet"></a>
 
