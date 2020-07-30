@@ -123,7 +123,7 @@ caver-js에서 제공하는 인메모리 지갑을 사용하면 쉽게 계정을
 
 caver-js 지갑에 추가된 계정은 `sendTransaction`에 사용될 수 있습니다.
 
-## 트랜잭션 발신 <a id="sending-a-transaction"></a>
+## Sending a Transaction <a id="sending-a-transaction"></a>
 
 이 장에서는 Baobab 네트워크에서 caver-js를 사용하여 KLAY를 보내는 방법을 보여줍니다.
 
