@@ -821,7 +821,7 @@ Here is an example of exploiting `contract` class in `caver.contract` package. Y
             "  }\n" +
             "]";
 
-    public void testContract() {
+    public void createContractInstance() {
         Caver caver = new Caver(Caver.DEFAULT_URL);
 
         try {
@@ -898,7 +898,7 @@ If this contract was already deployed and you knew the contract address where th
             "]";
 
     @Test
-    public void testContract() {
+    public void loadContract() {
         Caver caver = new Caver(Caver.DEFAULT_URL);
         String contractAddress = "0x3466D49256b0982E1f240b64e097FF04f99Ed4b9";
 
@@ -979,7 +979,7 @@ Note that the `deploy()` method of the `contract` instance sends transactions fo
             "  }\n" +
             "]";
 
-    public void testContract() {
+    public void deployContract() {
         Caver caver = new Caver(Caver.DEFAULT_URL);
         SingleKeyring deployer = KeyringFactory.createFromPrivateKey("0x{private key}");
         caver.wallet.add(deployer);
@@ -1019,7 +1019,7 @@ To send a transaction for executing a smart contract:
     private static final String ABI = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
 
     
-    public void testContract() {
+    public void executeContractFunction() {
         Caver caver = new Caver(Caver.DEFAULT_URL);
         SingleKeyring deployer = KeyringFactory.createFromPrivateKey("0x{private key}");
         caver.wallet.add(deployer);
@@ -1044,7 +1044,7 @@ To load a `contract` instance and call one of its functions (not sending a trans
 private static final String ABI = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
 
 
-    public void testContract() {
+    public void callContractFunction() {
         Caver caver = new Caver(Caver.DEFAULT_URL);
 
         try {
