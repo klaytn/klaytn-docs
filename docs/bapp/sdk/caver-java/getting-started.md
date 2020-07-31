@@ -1007,7 +1007,7 @@ In the code above, the `deployer` deploys the contract to the Klaytn and returns
 ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
-As mentioned above, one way to invoke a specific type of transaction for deploying a smart contract is using:
+A smart contract can be deployed using one of the following classes, depending on the type of contract deploying transaction:
   - `Contract` class in `caver.contract` package when the sender of a smart contract transaction pays the fee
   - `SmartContractDeploy` class in `caver.transaction` when the sender of a smart contract transaction pays the fee
   - `feeDelegatedSmartContractDeploy` class in `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
