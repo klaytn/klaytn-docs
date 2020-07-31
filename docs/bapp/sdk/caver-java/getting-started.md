@@ -773,9 +773,7 @@ To deploy a smart contract by its type, you can use caver-java classes described
   - `feeDelegatedSmartContractDeploy` class in `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
   - `feeDelegatedSmartContractDeployWithRatio` class in `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
 
-Here is an example of using `Contract` class in `caver.contract` package.
-
-You can create a contract instance as below using the result of compiling the smart contract.
+Here is an example of exploiting `contract` class in `caver.contract` package. You can create a `contract` instance like below from the bytecode and ABI you get after compiling the smart contract.
 
 ```java
     private static final String ABI = "[\n" +
