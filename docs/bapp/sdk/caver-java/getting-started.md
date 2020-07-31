@@ -1021,14 +1021,14 @@ To send a transaction for executing a smart contract:
     
     public void executeContractFunction() {
         Caver caver = new Caver(Caver.DEFAULT_URL);
-        SingleKeyring deployer = KeyringFactory.createFromPrivateKey("0x{private key}");
-        caver.wallet.add(deployer);
+        SingleKeyring executor = KeyringFactory.createFromPrivateKey("0x{private key}");
+        caver.wallet.add(executor);
 
         try {
             Contract contract = new Contract(caver, ABI, '0x{address in hex}');
             
             SendOptions sendOptions = new SendOptions();
-            sendOptions.setFrom(deployer.getAddress());
+            sendOptions.setFrom(executor.getAddress());
             sendOptions.setGas(BigInteger.valueOf(40000))
 
             TransactionReceipt.TransactionReceiptData receipt = contract.getMethod("set").send(Arrays.asList("testValue"), sendOptions);
