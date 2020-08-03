@@ -838,7 +838,7 @@ methodName : set, ContractMethod : com.klaytn.caver.contract.ContractMethod@b019
 ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
-Since this `contract` instance received the address of the smart contract, it stores the contract address in `contractInstance.contractAddress`. It can access getter / setter function. (`getContractAddress()` / `setContractAddress()`)
+A `contract` instance stores its contract address in `contractInstance.contractAddress` when it was created. The address can be accessed through getter / setter function (`getContractAddress()` / `setContractAddress()`).
 
 Once a `contract` instance is created, you can deploy the smart contract by passing its bytecode you got after the compiling stage to the `ContractDeployParams` instance below.
 
