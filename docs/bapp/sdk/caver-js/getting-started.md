@@ -1224,7 +1224,7 @@ async function executionWithFeeDelegation() {
         },
     ]
 
-	// Pass contract address as a second parameter
+    // Pass contract address as a second parameter
     const contractInstance = new caver.contract(abi, '0x{address in hex}')
 
     const input = contractInstance.methods.set('testKey', 'testValue').encodeABI()
