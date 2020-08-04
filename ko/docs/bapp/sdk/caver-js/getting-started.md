@@ -456,17 +456,17 @@ RoleBasedKeyring {
 트랜잭션 서명은 caver-js 지갑을 통해 할 수 있습니다. 트랜잭션을 네트워크에 보내려면 아래와 같이 2단계를 거쳐야합니다.
 
 1. 트랜잭션 서명하기
-    - If the keyring you want to use is added to [caver.wallet][], you can use `caver.wallet.sign` function to sign.
-    - If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
-2. Send the RLP-encoded string of the signed transaction to the Klaytn via `caver.rpc.klay.sendRawTransaction`.
+    - 만약, 사용하시고 싶은 Keyring이 [caver.wallet][]에 있다면, `caver.wallet.sign` 함수로 서명할 수 있습니다.
+    - `caver.wallet`에 Keyring을 추가하지 않고 따로 관리한다면, `transaction.sign` 함수를 통해 트랜잭션에 서명할 수 있습니다.
+2. RLP 인코딩된 서명된 트랜잭션을 `caver.rpc.klay.sendRawTransaction`을 통해 Klaytn에 전송합니다.
 
-**Note:** The sender should have enough number of KLAY.
+**참고:** 발신자의 잔액은 송금하려는 KLAY보다 많아야 합니다.
 
 #### 트랜잭션 서명하기
 
-Before sending a transaction to Klaytn, you should sign a transaction first.
+트랜잭션을 Klaytn에 보내기 전에 트랜잭션에 먼저 서명해야 합니다.
 
-Below is an example of how to sign a transaction if a keyring is added to the [caver.wallet][].
+아래는 Keyring이 [caver.wallet][]에 추가되었을 때 트랜잭션에 서명하는 방법을 보이는 예제입니다.
 
 ```javascript
 // test.js
@@ -496,17 +496,17 @@ async function testFunction() {
 testFunction()
 ```
 
-The above code adds a keyring to `caver.wallet`, creates a transaction, and signs the transaction through `caver.wallet.sign`.
+위 코드는 Keyring을 `caver.wallet`에 추가하고, 트랜잭션을 생성하고, `caver.wallet.sign`를 통해 이 트랜잭션에 서명합니다.
 
-위 코드를 실행하면 아래 결과를 얻습니다. When the above code is executed, the RLP-encoded string of the transaction is shown below. (The RLP-encoded string output you got could be different from the string output shown below.)
+위 코드를 실행하면 아래 결과를 얻습니다. 위 코드가 실행되었을 때, RLP 인코딩된 트랜잭션 문자열은 아래와 같이 나타납니다. (여러분이 코드를 실행한 결과로 얻는 RLP 인코딩된 문자열은 아래에 있는 RLP 인코딩된 문자열과 다를 수 있습니다.)
 
 ```bash
 RLP-encoded string: 0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b6991507647f720194ade4883d092e2a972d70637ca7de9ab5166894a2f847f845824e44a0e1ec99789157e5cb6bc691935c204a23aaa3dc049efafca106992a5d5db2d179a0511c421d5e508fdb335b6048ca7aa84560a53a5881d531644ff178b6aa4c0a41
 ```
 
-#### Send the RLP-encoded string of the signed transaction to the Klaytn
+#### RLP 인코딩된 서명된 트랜잭션을 Klaytn에 전송합니다.
 
-Now you can send a signed transaction to the network like below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
+이제, 아래와 같이 서명된 트랜잭션을 Klaytn에 전송할 수 있습니다. 아래 예시를 직접 실행하려면 `0x{RLP-encoded string}`를 위 `rlpEncoded` 값으로 대체하십시오 .
 
 ```javascript
 // test.js
@@ -524,7 +524,7 @@ async function testFunction() {
 testFunction()
 ```
 
-위 코드를 실행하면 아래 결과를 얻습니다. When the above code is executed, the receipt of the transaction is shown below.
+위 코드를 실행하면 아래 결과를 얻습니다. 위 코드가 실행되었을 때, 트랜잭션에 대한 영수증은 아래와 같이 나타납니다.
 
 ```bash
 $ node ./test.js
@@ -552,7 +552,7 @@ $ node ./test.js
 }
 ```
 
-If you want to sign a transaction and send it to the network without `caver.wallet`, see the example below.
+`caver.wallet` 없이 트랜잭션에 서명하고 Klaytn에 서명된 트랜잭션을 보내려면 아래 예시를 확인하십시오.
 
 ```javascript
 // test.js
@@ -580,13 +580,13 @@ async function testFunction() {
 testFunction()
 ```
 
-When the above code is executed, the receipt of the transaction is printed like the previous example.
+위 코드가 실행 되었을 때, 트랜잭션에 대한 영수증은 앞에서 소개한 예제와 같이 나타납니다.
 
 ### 영수증 확인<a id="checking-receipts"></a>
 
-You can use the promise or event emitter to get the receipt of the transaction when you transfer the transaction to the Klaytn by [caver.rpc.klay.sendRawTransaction][].
+[caver.rpc.klay.sendRawTransaction][]을 통해 Klaytn에 트랜잭션을 전송할 때 프로미스(promise)나 이벤트 이미터(event emitter)를 사용하여 트랜잭션의 영수증을 받아올 수 있습니다.
 
-The following example shows how to get a receipt using promises and event emitters.
+다음 예시는 프로미스(promise) 및 이벤트 이미터(event emitter)를 사용하여 영수증을 받는 과정입니다.
 
 ```javascript
 // Using a promise - async/await
@@ -600,7 +600,7 @@ caver.rpc.klay.sendRawTransaction(rawTransaction).then(console.log)
 caver.rpc.klay.sendRawTransaction(rawTransaction).on('receipt', console.log)
 ```
 
-위 예시와 같이 프로미스(promise)와 이벤트 이미터(event emitter)를 통해 트랜잭션을 전송한 결과를 가져올 수 있습니다. The `transactionHash` field is defined inside the receipt object. You can use [caver.rpc.klay.getTransactionReceipt][] RPC call with `receipt.transactionHash` to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the [caver.rpc.klay.getTransactionReceipt][] RPC call.
+위 예시와 같이 프로미스(promise)와 이벤트 이미터(event emitter)를 통해 트랜잭션을 전송한 결과를 가져올 수 있습니다. `transactionHash` 필드는 영수증 객체 내부에 정의됩니다. 트랜잭션이 블록에 추가된 후, [caver.rpc.klay.getTransactionReceipt][]에 `receipt.transactionHash`를 파라미터로 전달해 RPC를 호출하면 언제든지 트랜잭션 영수증을 조회할 수 있습니다. 아래 예시는 [caver.rpc.klay.getTransactionReceipt][] RPC 호출을 사용하여 영수증을 받는 방법을 보여줍니다.
 
 ```javascript
 // test.js
@@ -615,7 +615,7 @@ async function testFunction() {
 testFunction()
 ```
 
-위 코드를 실행하면 아래 결과를 얻습니다. When the above code is executed, the receipt of the transaction is shown below.
+위 코드를 실행하면 아래 결과를 얻습니다. 위 코드가 실행되었을 때, 트랜잭션에 대한 영수증은 아래와 같이 나타납니다.
 
 ```bash
 $ node ./test.js
@@ -643,7 +643,7 @@ $ node ./test.js
 }
 ```
 
-The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see [caver.rpc.klay.getTransactionReceipt][]. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures][].
+트랜잭션의 실행 결과는 영수증의 `status`를 통하여 확인할 수 있습니다. 리턴값에 대한 자세한 설명은 [caver.rpc.klay.getTransactionReceipt][]를 참조하세요. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures][].
 
 ## 다른 트랜잭션 타입 실행하기 <a id="executing-other-transaction-types"></a>
 
@@ -678,14 +678,14 @@ async function testFunction() {
 testFunction()
 ```
 
-When the above code is executed, the RLP-encoded string will be printed. (The RLP-encoded string output you got could be different from the string output shown below.)
+When the above code is executed, the RLP-encoded string will be printed. (여러분이 코드를 실행한 결과로 얻는 RLP 인코딩된 문자열은 아래에 있는 RLP 인코딩된 문자열과 다를 수 있습니다.)
 
 ```bash
 $ node ./test.js
 0x09f884028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf080c4c3018080
 ```
 
-The fee payer can send the transaction to the Klaytn after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. If `caver.wallet` also has the fee payer's key, the fee payer's signature can be injected into `feeDelegatedTx` by calling `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. Otherwise, the fee payer has to create a `feeDelegatedTx` from the RLP-encoded string signed by the sender and add the fee payer's sign onto it, as illustrated below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
+The fee payer can send the transaction to the Klaytn after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. If `caver.wallet` also has the fee payer's key, the fee payer's signature can be injected into `feeDelegatedTx` by calling `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. Otherwise, the fee payer has to create a `feeDelegatedTx` from the RLP-encoded string signed by the sender and add the fee payer's sign onto it, as illustrated below. 아래 예시를 직접 실행하려면 `0x{RLP-encoded string}`를 위 `rlpEncoded` 값으로 대체하십시오 .
 
 ```javascript
 // test.js
