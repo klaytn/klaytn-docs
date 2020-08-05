@@ -641,18 +641,18 @@ To change your AccountKey, you must provide an `Account` instance for the `accou
 The code below is an example code that changes the private key(s) you use for your Klaytn account along with changing AccountKey of your Klaytn account to `AccountKeyPublic`. Don't forget to prepare your new private key(s).
 
 ```java
-Caver caver = new Caver(Caver.BAOBAB_URL);
-SingleKeyring senderKeyring = KeyringFactory.createFromPrivateKey("0x{privateKey}");
+Caver caver = new Caver(Caver.DEFAULT_URL);
+SingleKeyring senderKeyring = KeyringFactory.createFromPrivateKey("0x2359d1ae7317c01532a58b01452476b796a3ac713336e97d8d3c9651cc0aecc3");
 caver.wallet.add(senderKeyring);
 
 String newPrivateKey = KeyringFactory.generateSingleKey();
-SingleKeyring newKeyring = KeyringFactory.createFromPrivateKey(newPrivateKey);
+SingleKeyring newKeyring = KeyringFactory.create(senderKeyring.getAddress(), newPrivateKey);
 
 Account account = newKeyring.toAccount();
 
 AccountUpdate accountUpdate = new AccountUpdate.Builder()
         .setKlaytnCall(caver.rpc.klay)
-        .setFrom(senderKeyring.getAddress())
+        .setFrom(LUMAN.getAddress())
         .setAccount(account)
         .setGas(BigInteger.valueOf(50000))
         .build();
@@ -664,6 +664,7 @@ try {
     Bytes32 sendResult = caver.rpc.klay.sendRawTransaction(rlpEncoded).send();
     if(sendResult.hasError()) {
         //do something to handle error
+        throw new TransactionException(sendResult.getError().getMessage());
     }
 
     String txHash = sendResult.getResult();
@@ -672,9 +673,10 @@ try {
     TransactionReceipt.TransactionReceiptData receiptData = receiptProcessor.waitForTransactionReceipt(txHash);
 } catch (IOException | TransactionException e) {
     // do something to handle exception.
+    e.printStackTrace();
 }
 
-senderKeyring = caver.wallet.updateKeyring(newKeyring);
+senderKeyring = (SingleKeyring)caver.wallet.updateKeyring(newKeyring);
 ```
 
 If the above code is executed successfully, you are no longer able to use the old private key(s) to sign any transaction with the old keyring. So you must update the old keyring with the `newKeyring` through `caver.wallet.updateKeyring(newKeyring)`. Once it is updated, the signing will be done by the newly updated private key(s).
