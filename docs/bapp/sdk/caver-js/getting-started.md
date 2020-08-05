@@ -1081,7 +1081,7 @@ Contract {
 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
-Deploying a smart contract with fee delegation is not possible using the `caver.contract` currently. To do that, a feeDelegatedSmartContractDeploy(WithRatio) transaction is used explicitly like below:
+Deploying a smart contract through fee-delegated transaction using `caver.contract` is not supported yet. To do that, `caver.transaction.feeDelegatedSmartContractDeploy` (or `caver.transaction.feeDelegatedSmartContractDeployWithRatio`) is used explicitly like the example below:
 
 ```javascript
 // test.js
