@@ -1141,9 +1141,8 @@ async function deployWithFeeDelegation() {
 }
 ```
 
-One way to invoke a specific method of a smart contract is to use it with `caver.contract` or use [caver.transaction.smartContractExecution], [caver.transaction.feeDelegatedSmartContractExecution] or [caver.transaction.feeDelegatedSmartContractExecutionWithRatio] transaction.
-
-To transact with a smart contract:
+A smart contract can be executed using one of the followings, depending on the type of contract executing transaction: `Contract` class in `caver.contract` or [caver.transaction.smartContractExecution], [caver.transaction.feeDelegatedSmartContractExecution], or [caver.transaction.feeDelegatedSmartContractExecutionWithRatio].
+To send a transaction for executing a smart contract:
 
 ```javascript
 // test.js
