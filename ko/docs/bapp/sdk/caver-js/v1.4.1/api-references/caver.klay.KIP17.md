@@ -981,7 +981,7 @@ Note that the mintWithTokenURI method will submit a transaction to the Klaytn ne
 | --------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | to        | String                                | 토큰이 발행될 계정 주소입니다.                                                                                                                                        |
 | tokenId   | BigNumber &#124; String &#124; Number | The id of the token to be minted.                                                                                                                        |
-| tokenURI  | Number                                | The uri of token to be minted.                                                                                                                           |
+| tokenURI  | String                                | The uri string of the token to be minted.                                                                                                                |
 | sendParam | Object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip17instance-approve). |
 
 **NOTE** The `tokenId` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
