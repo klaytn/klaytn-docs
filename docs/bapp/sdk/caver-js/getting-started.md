@@ -1188,7 +1188,7 @@ $ node ./test.js
 }
 ```
 
-Executing a smart contract with fee delegation is not possible using the `caver.contract` currently. To do that, a feeDelegatedSmartContractExecution(WithRatio) transaction is used explicitly like below:
+Executing a smart contract through fee-delegated transaction using `caver.contract` is not supported yet. To do that, `caver.transaction.feeDelegatedSmartContractExecution` (or `caver.transaction.feeDelegatedSmartContractExecutionWithRatio`) is used explicitly like the example below:
 
 ```javascript
 // test.js
