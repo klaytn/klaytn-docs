@@ -652,7 +652,7 @@ Account account = newKeyring.toAccount();
 
 AccountUpdate accountUpdate = new AccountUpdate.Builder()
         .setKlaytnCall(caver.rpc.klay)
-        .setFrom(LUMAN.getAddress())
+        .setFrom(senderKeyring.getAddress())
         .setAccount(account)
         .setGas(BigInteger.valueOf(50000))
         .build();
