@@ -975,7 +975,7 @@ To show how to execute a function in a smart contract, here we send a contract e
     }
 ```
 
-If you want to execute contract function using fee delegation realated transaction, it supported not yet through using `Contract` class. To do that, using `FeeDelegatedSmartContractExecution` class or `FeeDelegatedSmartContractExecutionWithRatio` class explicitly like bleow:
+Executing a smart contract through fee-delegated transaction using `Contract` class in `caver.contract` package is not supported yet. To do that, `FeeDelegatedSmartContractExecution` class (or `FeeDelegatedSmartContractExecutionWithRatio` class) is used explicitly like the example below:
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
