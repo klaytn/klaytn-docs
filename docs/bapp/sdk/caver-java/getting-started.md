@@ -641,12 +641,12 @@ To change your AccountKey, you must provide an `Account` instance for the `accou
 The code below is an example code that changes the private key(s) you use for your Klaytn account along with changing AccountKey of your Klaytn account to `AccountKeyPublic`. Don't forget to prepare your new private key(s).
 
 ```java
-Caver caver = new Caver(Caver.BAOBAB_URL);
-SingleKeyring senderKeyring = KeyringFactory.createFromPrivateKey("0x{privateKey}");
+Caver caver = new Caver(Caver.DEFAULT_URL);
+SingleKeyring senderKeyring = KeyringFactory.createFromPrivateKey("0x2359d1ae7317c01532a58b01452476b796a3ac713336e97d8d3c9651cc0aecc3");
 caver.wallet.add(senderKeyring);
 
 String newPrivateKey = KeyringFactory.generateSingleKey();
-SingleKeyring newKeyring = KeyringFactory.createFromPrivateKey(newPrivateKey);
+SingleKeyring newKeyring = KeyringFactory.create(senderKeyring.getAddress(), newPrivateKey);
 
 Account account = newKeyring.toAccount();
 
@@ -664,6 +664,7 @@ try {
     Bytes32 sendResult = caver.rpc.klay.sendRawTransaction(rlpEncoded).send();
     if(sendResult.hasError()) {
         //do something to handle error
+        throw new TransactionException(sendResult.getError().getMessage());
     }
 
     String txHash = sendResult.getResult();
@@ -672,9 +673,10 @@ try {
     TransactionReceipt.TransactionReceiptData receiptData = receiptProcessor.waitForTransactionReceipt(txHash);
 } catch (IOException | TransactionException e) {
     // do something to handle exception.
+    e.printStackTrace();
 }
 
-senderKeyring = caver.wallet.updateKeyring(newKeyring);
+senderKeyring = (SingleKeyring)caver.wallet.updateKeyring(newKeyring);
 ```
 
 If the above code is executed successfully, you are no longer able to use the old private key(s) to sign any transaction with the old keyring. So you must update the old keyring with the `newKeyring` through `caver.wallet.updateKeyring(newKeyring)`. Once it is updated, the signing will be done by the newly updated private key(s).
@@ -776,13 +778,13 @@ To deploy a smart contract by its type, you can use caver-java classes described
 Here is an example of exploiting `Contract` class in `caver.contract` package. You can create a `contract` instance like below from the bytecode and ABI you get after compiling the smart contract.
 
 ```java
-    private static final String ABI = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
+    private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
 
     public void createContractInstance() {
         Caver caver = new Caver(Caver.DEFAULT_URL);
 
         try {
-            Contract contract = new Contract(caver, ABI);
+            Contract contract = new Contract(caver, ABIJson);
 
             contract.getMethods().forEach((methodName, contractMethod) -> {
                 System.out.println("methodName : " + methodName + ", ContractMethod : " + contractMethod);
@@ -809,7 +811,7 @@ Looking at the output above, you can see that the `contract` instance owns the s
 If this contract was already deployed and you knew the contract address where this contract was deployed at, pass the contract address as the third parameter of the constructor of the `contract` instance as below.
 
 ```java
-    private static final String ABI = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
+    private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
 
     @Test
     public void loadContract() {
@@ -817,7 +819,7 @@ If this contract was already deployed and you knew the contract address where th
         String contractAddress = "0x3466D49256b0982E1f240b64e097FF04f99Ed4b9";
 
         try {
-            Contract contract = new Contract(caver, ABI, contractAddress);
+            Contract contract = new Contract(caver, ABIJson, contractAddress);
 
             contract.getMethods().forEach((methodName, contractMethod) -> {
                 System.out.println("methodName : " + methodName + ", ContractMethod : " + contractMethod);
@@ -847,7 +849,7 @@ Note that the `deploy()` method of the `contract` instance sends transactions fo
 ```java
     private static final String byteCode = "608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029";
     
-    private static final String ABI = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
+    private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
 
     public void deployContract() {
         Caver caver = new Caver(Caver.DEFAULT_URL);
@@ -855,11 +857,11 @@ Note that the `deploy()` method of the `contract` instance sends transactions fo
         caver.wallet.add(deployer);
 
         try {
-            Contract contract = new Contract(caver, ABI);
+            Contract contract = new Contract(caver, ABIJson);
             ContractDeployParams params = new ContractDeployParams(byteCode, null);
             SendOptions sendOptions = new SendOptions();
             sendOptions.setFrom(deployer.getAddress());
-            sendOptions.setGas(BigInteger.valueOf(40000))
+            sendOptions.setGas(BigInteger.valueOf(40000));
             
             Contract newContract = contract.deploy(params, sendOptions);
             System.out.println("Contract address : " + newContract.getContractAddress());
@@ -867,8 +869,6 @@ Note that the `deploy()` method of the `contract` instance sends transactions fo
             //handle exception..
         }
     }
-}
-
 ```
 
 In the code above, the `deployer` deploys the contract to the Klaytn and returns the deployed `contract` instance.
@@ -883,10 +883,77 @@ A smart contract can be deployed using one of the following classes, depending o
   - `feeDelegatedSmartContractDeploy` class in `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
   - `feeDelegatedSmartContractDeployWithRatio` class in `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
 
+
+Deploying a smart contract through fee-delegated transaction using `Contract` class in `caver.contract` package is not supported yet. To do that, `FeeDelegatedSmartContractDeploy` class (or `FeeDelegatedSmartContractDeployWithRatio` class) is used explicitly like the example below:
+
+```java
+    private static final String byteCode = "608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029";
+
+    private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
+
+    public void deployContractWithFeeDelegation() {
+        Caver caver = new Caver(Caver.DEFAULT_URL);
+
+        SingleKeyring deployer = KeyringFactory.createFromPrivateKey("0x{private key}");
+        caver.wallet.add(deployer);
+
+        SingleKeyring feePayer = KeyringFactory.createFromPrivateKey("0x{private key}");
+        caver.wallet.add(feePayer);
+
+        try {
+            Contract contract = new Contract(caver, ABIJson);
+            ContractDeployParams params = new ContractDeployParams(byteCode, null);
+
+            String encodedConstructorData = "";
+
+            //if smart contract has constructor, it encodes constructor params.
+            //This sample contract has no constructor.
+            if(contract.getConstructor() != null) {
+                encodedConstructorData = ABI.encodeParameters(contract.getConstructor(), params.getDeployParams());
+            }
+
+            //make smart contract deploy data.
+            String input = params.getBytecode() + encodedConstructorData;
+
+            SendOptions sendOptions = new SendOptions();
+            sendOptions.setFrom(deployer.getAddress());
+            sendOptions.setGas(BigInteger.valueOf(40000));
+
+            //creates a FeeDelegatedSmartContractDeploy instance.
+            FeeDelegatedSmartContractDeploy feeDelegatedSmartContractDeploy = new FeeDelegatedSmartContractDeploy.Builder()
+                    .setKlaytnCall(caver.rpc.klay)
+                    .setFrom(sendOptions.getFrom())
+                    .setInput(input)
+                    .setCodeFormat(CodeFormat.EVM)
+                    .setFeePayer(feePayer.getAddress())
+                    .setHumanReadable(false)
+                    .setGas(sendOptions.getGas())
+                    .build();
+
+            //sign transaction using deployer's key
+            caver.wallet.sign(deployer.getAddress(), feeDelegatedSmartContractDeploy);
+
+            //sign transaction using feepayer's key
+            caver.wallet.signAsFeePayer(feePayer.getAddress(), feeDelegatedSmartContractDeploy);
+
+            //send transaction.
+            Bytes32 txHashData = caver.rpc.klay.sendRawTransaction(feeDelegatedSmartContractDeploy.getRLPEncoding()).send();
+
+            //Get transaction receipt data using transaction hash data
+            TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 20);
+            TransactionReceipt.TransactionReceiptData receipt = receiptProcessor.waitForTransactionReceipt(txHashData.getResult());
+            
+            
+        } catch (IOException | TransactionException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
+            //handle exception..
+        }
+    }
+```
+
 To show how to execute a function in a smart contract, here we send a contract execution transaction that puts a string "testValue" as the input parameter of the contract function `set` in the example code below. 
 
 ```java
-    private static final String ABI = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
+    private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
 
     
     public void executeContractFunction() {
@@ -895,11 +962,11 @@ To show how to execute a function in a smart contract, here we send a contract e
         caver.wallet.add(executor);
 
         try {
-            Contract contract = new Contract(caver, ABI, '0x{address in hex}');
+            Contract contract = new Contract(caver, ABIJson, "0x{address in hex}");
             
             SendOptions sendOptions = new SendOptions();
             sendOptions.setFrom(executor.getAddress());
-            sendOptions.setGas(BigInteger.valueOf(40000))
+            sendOptions.setGas(BigInteger.valueOf(40000));
 
             TransactionReceipt.TransactionReceiptData receipt = contract.getMethod("set").send(Arrays.asList("testValue"), sendOptions);
         } catch (IOException | TransactionException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
@@ -908,17 +975,70 @@ To show how to execute a function in a smart contract, here we send a contract e
     }
 ```
 
+Executing a smart contract through fee-delegated transaction using `Contract` class in `caver.contract` package is not supported yet. To do that, `FeeDelegatedSmartContractExecution` class (or `FeeDelegatedSmartContractExecutionWithRatio` class) is used explicitly like the example below:
+
+```java
+    private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
+
+    public void executeContractWithFeeDelegation() {
+        Caver caver = new Caver(Caver.DEFAULT_URL);
+
+        SingleKeyring executor = KeyringFactory.createFromPrivateKey("0x{private key}");
+        caver.wallet.add(executor);
+
+        SingleKeyring feePayer = KeyringFactory.createFromPrivateKey("0x{private key}");
+        caver.wallet.add(feePayer);
+
+        try {
+            Contract contract = new Contract(caver, ABIJson, "0x{address in hex}");
+
+            SendOptions sendOptions = new SendOptions();
+            sendOptions.setFrom(executor.getAddress());
+            sendOptions.setGas(BigInteger.valueOf(40000));
+
+            //encode paramter of contract's "set" function.
+            String encodedParams = contract.getMethod("set").encodeABI(Arrays.asList("testValue"));
+
+            //creates a FeeDelegatedSmartContractExecution instance
+            FeeDelegatedSmartContractExecution feeDelegatedSmartContractExecution = new FeeDelegatedSmartContractExecution.Builder()
+                    .setKlaytnCall(caver.rpc.klay)
+                    .setFrom(sendOptions.getFrom())
+                    .setTo(contract.getContractAddress())
+                    .setGas(sendOptions.getGas())
+                    .setInput(encodedParams)
+                    .setFeePayer(feePayer.getAddress())
+                    .build();
+
+            //sign transaction using executor's key
+            caver.wallet.sign(executor.getAddress(), feeDelegatedSmartContractExecution);
+
+            //sign transaction using fee payer's key
+            caver.wallet.signAsFeePayer(feePayer.getAddress(), feeDelegatedSmartContractExecution);
+
+            //send transaction
+            Bytes32 txHashData = caver.rpc.klay.sendRawTransaction(feeDelegatedSmartContractExecution.getRLPEncoding()).send();
+
+            //get transaction receipt
+            TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 20);
+            TransactionReceipt.TransactionReceiptData receipt = receiptProcessor.waitForTransactionReceipt(txHashData.getResult());
+
+        } catch (Exception e) {
+            //handle exception..
+        }
+    }
+```
+
 To load a `contract` instance and call one of its functions (not sending a transaction but just a call): the below example shows calling a `get` function in a contract.
 
 ```java
-    private static final String ABI = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
+    private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
 
 
     public void callContractFunction() {
         Caver caver = new Caver(Caver.DEFAULT_URL);
 
         try {
-            Contract contract = new Contract(caver, ABI, '0x{address in hex}');
+            Contract contract = new Contract(caver, ABIJson, '0x{address in hex}');
             List<Type> result = contract.getMethod("get").call(null, CallObject.createCallObject());
             System.out.println((String)result.get(0).getValue());
         } catch (IOException | TransactionException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
