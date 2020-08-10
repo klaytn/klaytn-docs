@@ -1278,9 +1278,9 @@ Klaytn 계정의 AccountKey가 AccountKeyMultiSig 또는 AccountKeyRoleBased인 
 
 이 장에서는 서명하는 사람이 여럿인 경우 서명을 수집하고 트랜잭션을 보내는 방법에 대해 설명합니다.
 
-To run this example, you need to update AccountKey of the Klaytn account you use for testing with [AccountKeyWeightedMultiSig][]. Please refer to [Account Update](#account-update) for how to update your Klaytn account.
+예제를 실행하려면 사용하는 Klaytn 계정의 AccountKey를 [AccountKeyWeightedMultiSig][]로 업데이트해야 합니다. 여러분의 Klaytn 계정을 업데이트하려면 [Account Update](#account-update)를 확인하십시오.
 
-### Signing sequentially <a id="signing-sequentially"></a>
+### 순차적으로 서명하기<a id="signing-sequentially"></a>
 
 When a transaction is signed using `caver.wallet` or the transaction's `sign` function, signatures (or feePayerSignatures) are defined (or appended) inside the transaction. You can obtain the RLP-encoded string (`rawTransaction`) containing the signatures (and feePayerSignatures) by calling the `transaction.getRLPEncoding()` function of the signed transaction instance.
 
