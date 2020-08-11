@@ -1282,11 +1282,11 @@ Klaytn 계정의 AccountKey가 AccountKeyMultiSig 또는 AccountKeyRoleBased인 
 
 ### 순차적으로 서명하기<a id="signing-sequentially"></a>
 
-When a transaction is signed using `caver.wallet` or the transaction's `sign` function, signatures (or feePayerSignatures) are defined (or appended) inside the transaction. You can obtain the RLP-encoded string (`rawTransaction`) containing the signatures (and feePayerSignatures) by calling the `transaction.getRLPEncoding()` function of the signed transaction instance.
+트랜잭션에 `caver.wallet` 또는 `sign` 함수로 서명을 하면, 트랜잭션 발신자 서명(또는 트랜잭션 수수료 납부자 서명)은 트랜잭션에 정의(또는 첨부)됩니다. 서명된 트랜잭션 인스턴스의 `transaction.getRLPEncoding()` 함수를 호출하면, 트랜잭션 발신자 서명(그리고 트랜잭션 수수료 납부자 서명)이 있는 RLP 인코딩된 문자열(`rawTransaction`)을 얻을 수 있습니다.
 
-다음 예제는 여러 개인 키를 사용하여 트랜잭션에 순차적으로 서명하는 방법을 보여줍니다. Let's assume that AccountKey of the account who sends this transaction is AccountKeyWeightedMultiSig of two public keys, which means this Klaytn account can use two private key strings, one private key for each user. This is a case that two users share the same Klaytn account.
+다음 예제는 여러 개인 키를 사용하여 트랜잭션에 순차적으로 서명하는 방법을 보여줍니다. 트랜잭션을 보내는 계정의 AccountKey가 공개키 2개로 구성된 AccountKeyWeightedMultiSig라고 가정합니다. 이는 이 Klaytn 계정이 개인키 2개를 쓸 수 있으며, 계정 사용자 1명당 개인키 1개를 사용함을 의미합니다. 이는 같은 Klaytn 계정을 사용자 2명이 공유하는 상황입니다.
 
-In the example below, user1 and user2 create a `Keyring` instances to be used. After that, each uses its own keyring to sign the transaction. The example below uses `transaction.sign` to sign it.
+아래 예시에서, 사용자1과 사용자2는 `Keyring` 인스턴스를 만듭니다. 그리고, 각 사용자는 자신의 Keyring을 써서 트랜잭션에 서명합니다. 아래 예시는 트랜잭션 서명에 `transaction.sign`을 씁니다.
 
 ```javascript
 // test.js
@@ -1314,7 +1314,7 @@ async function testFunction() {
 testFunction()
 ```
 
-위 코드를 실행하면 아래 결과를 얻습니다. Looking at the execution result of the code above, if user1 signs, one signature is created. If user2 signs, user2's signature is appended. [SignatureData][] is an object that stores a signature.
+위 코드를 실행하면 아래 결과를 얻습니다. 위 실행 결과를 보면, 사용자1이 서명할 때 서명 1개가 트랜잭션에 붙습니다. 사용자2가 서명하면, 사용자2의 서명도 트랜잭션에 추가됩니다. [SignatureData][] 객체는 서명을 저장하는 객체입니다.
 
 ```bash
 $ node ./test.js
@@ -1327,9 +1327,9 @@ $ node ./test.js
 ]
 ```
 
-Then let's see how to sign sequentially without sharing the same transaction object. In the below example, user1 passes RLP-encoded string that is the result of getRLPEncoding function of the signed transaction to user2.
+이제, 같은 트랜잭션 객체를 공유하지 않을 때 순차적으로 서명하는 방법을 안내합니다. 아래 예시에서, RLP 인코딩된 문자열은 서명을 가진 트랜잭션의 인스턴스 함수 getRLPEncoding를 실행하고 얻은 결과값입니다. 사용자1은 이 RLP 인코딩된 문자열을 사용자2에게 넘깁니다.
 
-The code below explains how to sign and append signatures with RLP-encoded string.
+아래 코드는 서명하는 방법과 서명을 RLP 인코딩된 문자열에 첨부하는 방법을 소개합니다.
 
 ```javascript
 // test.js
@@ -1375,15 +1375,15 @@ $ node ./test.js
 ]
 ```
 
-If you run the above code, you can see that user2's signature has been appended in `transactionFromRLP.signatures` and a total of two signatures are included in it.
+위 코드를 실행하면, 사용자2의 서명이 추가되어 `transactionFromRLP.signatures`에 총 2개의 서명이 있음을 확인할 수 있습니다.
 
-When all users have signed, send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(transactionFromRLP)`.
+모든 사용자가 서명했다면, `await caver.rpc.klay.sendRawTransaction(transactionFromRLP)`로 트랜잭션을 Klaytn에 보냅니다.
 
-If you send a fee-delegated transaction, and the fee payer uses multiple keys, you can proceed with the above logic using `caver.wallet.signAsFeePayer`.
+수수료 위임 트랜잭션을 전송할 때 수수료 납부자가 여러 키를 사용한다면, `caver.wallet.signAsFeePayer`를 위 예시 코드 방식대로 쓸 수 있습니다.
 
-### Combining signed raw transactions <a id="combining-signed-rawtransactions"></a>
+### 서명된 raw transaction들을 결합하기<a id="combining-signed-rawtransactions"></a>
 
-If you receive multiple signed RLP-encoded raw transaction strings from several people, you can combine them into a single RLP-encoded raw transaction string that contains all the signatures.
+여러 사람에게서 서명이 첨부된 상태로 RLP 인코딩된 raw transaction들을 받는다면, 여러분은 이 raw transaction들을 모든 서명이 첨부된 하나의 raw transaction으로 합칠 수 있습니다.
 
 아래 예제는 RLP 인코딩된 트랜잭션들을 하나로 통합하고 전송하는 방법을 보여줍니다.
 
@@ -1418,11 +1418,11 @@ $ node ./test.js
 0x08f9010d808505d21dba00830111709445c2a1e3a1c3957a06dae73ad516461c2d2c7ccc01940fa355263f37f5a54d9179452baa8b63b8b2cddef8d5f8458207f5a094ce13c39d25d44ad1d07ba2fd89f476c4dc6eef6071a2ef1f496f9b04d049e5a00f7abddd548998b0a55e53600a48286c38262fffc6c153a64e8f65a77c11c722f8458207f6a0ceeea7287b2670719d8ac15cf3b21b36fcaf74d58cce99935ce17e100064037aa0499067788d5db5e7c09ed7bfe19764d66684abc06b81e8f54ea254377bc81066f8458207f5a05c3ba89336c7d84d4ce08104cfd6f7ef33cd9f29766a1955baae8bcf964fd50fa015accbbce6bb11847a3b0660491775d64ef6d692ea709b768f64f12968c09240
 ```
 
-Running the code above outputs one RLP-encoded raw transaction string with all the signature information combined.
+위 코드를 실행하면 모든 서명이 첨부된 RLP 인코딩된 raw transaction 문자열 1개가 출력됩니다.
 
-When executing `combineSignedRawTransactions`, the signed RLP-encoded raw transaction strings to be combined must be exactly the same to each other except the signatures and the optional variables in the transaction instance. Optional variables without any given value in the base transaction instance (the caller of `combineSignedRawTransactions`) will be redeemed with the corresponding ones in the following raw transaction string to be merged right next. If there is any inconsistency among all raw transaction strings including the values of optional variables of them to be merged, an error occurs.
+`combineSignedRawTransactions`를 실행할 때, 서명된 상태로 RLP 인코딩된 raw transaction 문자열들은 서명 자체와 트랜잭션 인스턴스의 옵션 변수를 빼고는 서로 완전히 동일해야 합니다. 기본 트랜잭션 인스턴스(`combineSignedRawTransactions`를 호출하는 트랜잭션 인스턴스)에서 값을 지정하지 않은 옵션 변수는, 바로 뒤에서 합쳐지는 raw transaction 문자열에 지정된 옵션 변수값으로 덮어씌워 집니다. 옵션 변수값들을 포함해 모든 raw transaction 문자열 중 하나라도 전체에서 어긋난다면, 에러가 발생합니다.
 
-The combineSignedRawTransactions returns an RLP-encoded string containing all signatures (and feePayerSignatures if the transaction is a fee-delegated transaction) as a result. You use this to send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(combined)`.
+combineSignedRawTransaction은 모든 서명(트랜잭션이 수수료 위임 트랜잭션이면 모든 트랜잭션 수수료 납부자 서명들도 포함)이 담긴 RLP 인코딩된 문자열을 반환합니다. 그리고 이 문자열은 `await caver.rpc.klay.sendRawTransaction(combined)`로 트랜잭션을 Klaytn에 보내는 데 사용합니다.
 
 
 ## 샘플 프로젝트 <a id="sample-projects"></a>
