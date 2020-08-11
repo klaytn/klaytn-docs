@@ -821,7 +821,7 @@ Shows all KLAY units.
 
 | Type | Description |
 | --- | --- |
-| Object | An object in which the unit of KLAY used in Klaytn is defined. Each unit has a name and pebFactor defined, and pebFactor is used when converting to peb. |
+| Object | An object in which the units of KLAY used in Klaytn are defined. Each unit has its name and pebFactor. pebFactor is used when converting KLAY currently translated in each unit to 'peb'. |
 
 
 **Examples**
