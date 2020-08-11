@@ -64,7 +64,7 @@ LegacyTransaction {
 }
 ```
 
-### ValueTransfer <a id="valuetransfer"></a>
+## ValueTransfer <a id="valuetransfer"></a>
 
 ```javascript
 new caver.transaction.valueTransfer(transactionObject)
@@ -114,7 +114,7 @@ ValueTransfer {
 }
 ```
 
-### ValueTransferMemo <a id="valuetransfermemo"></a>
+## ValueTransferMemo <a id="valuetransfermemo"></a>
 
 ```javascript
 new caver.transaction.valueTransferMemo(transactionObject)
@@ -167,7 +167,7 @@ ValueTransferMemo {
 }
 ```
 
-### AccountUpdate <a id="accountupdate"></a>
+## AccountUpdate <a id="accountupdate"></a>
 
 ```javascript
 new caver.transaction.accountUpdate(transactionObject)
@@ -220,7 +220,7 @@ AccountUpdate {
 }
 ```
 
-### SmartContractDeploy <a id="smartcontractdeploy"></a>
+## SmartContractDeploy <a id="smartcontractdeploy"></a>
 
 ```javascript
 new caver.transaction.smartContractDeploy(transactionObject)
@@ -275,7 +275,7 @@ SmartContractDeploy {
 }
 ```
 
-### SmartContractExecution <a id="smartcontractexecution"></a>
+## SmartContractExecution <a id="smartcontractexecution"></a>
 
 ```javascript
 new caver.transaction.smartContractExecution(transactionObject)
@@ -327,7 +327,7 @@ SmartContractExecution {
 }
 ```
 
-### Cancel <a id="cancel"></a>
+## Cancel <a id="cancel"></a>
 
 ```javascript
 new caver.transaction.cancel(transactionObject)
@@ -374,7 +374,7 @@ Cancel {
 }
 ```
 
-### ChainDataAnchoring <a id="chaindataanchoring"></a>
+## ChainDataAnchoring <a id="chaindataanchoring"></a>
 
 ```javascript
 new caver.transaction.chainDataAnchoring(transactionObject)
