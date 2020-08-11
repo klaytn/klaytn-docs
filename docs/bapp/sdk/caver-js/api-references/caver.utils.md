@@ -786,7 +786,7 @@ Shows all possible KLAY values and their amount in peb.
 
 | Type | Description |
 | --- | --- |
-| Object | With the following properties:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> |
+| Object | With the following properties:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> - `TKLAY`: '1000000000000000000000000000000' <br> |
 
 
 **Examples**
@@ -805,6 +805,42 @@ Shows all possible KLAY values and their amount in peb.
   kKLAY: '1000000000000000000000',
   MKLAY: '1000000000000000000000000',
   GKLAY: '1000000000000000000000000000',
+  TKLAY: '1000000000000000000000000000000'
+}
+```
+
+## klayUnit <a id="klayunit"></a>
+
+```javascript
+caver.utils.klayUnit
+```
+
+Shows all KLAY units.
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Object | An object in which the unit of KLAY used in Klaytn is defined. Each unit has a name and pebFactor defined, and pebFactor is used when converting to peb. |
+
+
+**Examples**
+
+```javascript
+> caver.utils.klayUnit
+{
+    peb: { unit: 'peb', pebFactor: 0 },
+    kpeb: { unit: 'kpeb', pebFactor: 3 },
+    Mpeb: { unit: 'Mpeb', pebFactor: 6 },
+    Gpeb: { unit: 'Gpeb', pebFactor: 9 },
+    ston: { unit: 'ston', pebFactor: 9 },
+    uKLAY: { unit: 'uKLAY', pebFactor: 12 },
+    mKLAY: { unit: 'mKLAY', pebFactor: 15 },
+    KLAY: { unit: 'KLAY', pebFactor: 18 },
+    kKLAY: { unit: 'kKLAY', pebFactor: 21 },
+    MKLAY: { unit: 'MKLAY', pebFactor: 24 },
+    GKLAY: { unit: 'GKLAY', pebFactor: 27 },
+    TKLAY: { unit: 'TKLAY', pebFactor: 30 }
 }
 ```
 
