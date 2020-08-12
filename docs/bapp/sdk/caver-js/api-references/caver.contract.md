@@ -444,7 +444,7 @@ The options object can contain the following:
 | --- | --- | --- |
 | from | string | The address from which the transaction should be sent. If omitted, `myContract.options.from` will be used. |
 | gasPrice | string | (optional) The gas price in peb to use for this transaction. |
-| gas | number | (optional) The maximum gas provided for this transaction (gas limit). |
+| gas | number | The maximum gas provided for this transaction (gas limit). |
 | value | number &#124; string &#124; BN &#124; Bignumber | (optional) The value in peb to be transferred to the address of the smart contract by this transaction. |
 
 

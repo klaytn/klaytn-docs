@@ -446,7 +446,7 @@ The options object can contain the following:
 | --- | --- | --- |
 | from | String | The address from which the transaction should be sent. |
 | gasPrice | String | (optional) The gas price in peb to use for this transaction. |
-| gas | Number | (optional) The maximum gas provided for this transaction (gas limit). |
+| gas | Number | The maximum gas provided for this transaction (gas limit). |
 | value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 
 **Return Value**
