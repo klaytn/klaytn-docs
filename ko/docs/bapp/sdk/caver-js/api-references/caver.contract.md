@@ -30,7 +30,7 @@ JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로
 
 **리턴값**
 
-`Promise` returns `object`
+`프로미스`는 `Object`를 반환합니다.
 
 | 형식     | 설명                         |
 | ------ | -------------------------- |
@@ -199,9 +199,9 @@ Deploys the contract to the Klaytn. After a successful deployment, the promise w
 
 **매개변수**
 
-| 명칭      | 형식     | 설명                                                                                   |
-| ------- | ------ | ------------------------------------------------------------------------------------ |
-| options | object | The options object used for deployment. See the below table to find the description. |
+| 명칭      | 형식     | 설명                                                           |
+| ------- | ------ | ------------------------------------------------------------ |
+| options | object | The options object used for deployment. 자세한 내용은 아래 표를 참조하세요. |
 
 옵션 개체에는 다음이 포함됩니다:
 
@@ -444,7 +444,7 @@ myContract.methods.methodName([param1 [, param2 [, ...]]]).send(options [, callb
 | -------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | from     | 문자열                                             | 트랜잭션을 보낼 송신자 주소. If omitted, `myContract.options.from` will be used.                                    |
 | gasPrice | 문자열                                             | (선택 사항) 트랜잭션에 사용할 peb 단위의 가스 가격.                                                                        |
-| gas      | number                                          | (선택 사항) 트랜잭션에 규정된 최대 가스 (가스 제한).                                                                        |
+| gas      | number                                          | The maximum gas provided for this transaction (gas limit).                                              |
 | value    | number &#124; string &#124; BN &#124; Bignumber | (optional) The value in peb to be transferred to the address of the smart contract by this transaction. |
 
 
@@ -460,7 +460,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 
 - `transactionHash` returns `string`: Is fired right after the transaction is sent and a transaction hash is available.
 - `receipt` returns `object`: Is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](./caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more detail.
-- `error` returns `Error`: Is fired if an error occurs during sending. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
+- `error`는 `Error`를 반환: 전송 중 에러가 발생하면 발생합니다. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
 
 **예시**
 
@@ -544,7 +544,7 @@ Will estimate the gas that a method execution will take when executed in the Kla
 
 **리턴값**
 
-`Promise` returns `number`
+`프로미스`는 `Number`을 반환합니다.
 
 | 형식     | 설명                                               |
 | ------ | ------------------------------------------------ |
