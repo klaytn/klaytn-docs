@@ -6,7 +6,7 @@
 
 `Keyring` is a structure that contains the address of the account and the private key(s). This is a class in caver-js that allows users to sign on using their own [Klaytn's account](../../../../../klaytn/design/accounts.md#klaytn-accounts).
 
-`Keyring` can be classified into three types depending on the type of key being stored: [SingleKeyring][] to store one address and one private key, [MultipleKeyring][] to store one address and multiple private keys, and [RoleBasedKeyring][] to store one address and one or more private keys for each role.
+`Keyring`은 저장되는 키 종류에 따라 3가지 타입으로 나뉩니다: 주소 1개와 개인키 1개를 가지는 [SingleKeyring][], 주소 1개와 여러 개인키를 가지는 [MultipleKeyring][], 그리고 주소 1개와 키 Role별로 개인키 1개 이상을 가지는 [RoleBasedKeyring][]가 있습니다.
 
 - [SingleKeyring][]: User signs with a private key
 - [MultipleKeyring][]: User signs with private keys
@@ -496,7 +496,7 @@ Decrypts a keystore v3 or v4 JSON and returns the decrypted Keyring instance.
 
 | 명칭       | 형식     | 설명                                |
 | -------- | ------ | --------------------------------- |
-| keystore | object | The keystore v3 or v4 to decrypt. |
+| 키스토어     | object | The keystore v3 or v4 to decrypt. |
 | password | 문자열    | 암호화에 사용되는 비밀번호.                   |
 
 **리턴값**
