@@ -736,10 +736,10 @@ Account account = Account.createWithAccountKeyFail(keyringToUpdate.address)
 
 ### 스마트 컨트랙트 <a id="smart-contract"></a>
 
-`caver.contract` 패키지에 있는 `Contract` 클래스를 사용하면 Klaytn의 스마트 컨트랙트와 쉽게 상호작용할 수 있습니다. 어떤 스마트 컨트랙트의 모든 함수는 컨트랙트의 ABI가 주어졌을 때 자동으로 변환되어 `contract` 인스턴스내에 저장됩니다. This allows you to interact with a smart contract like you handle a `contract` instance in Java.
+`caver.contract` 패키지에 있는 `Contract` 클래스를 사용하면 Klaytn의 스마트 컨트랙트와 쉽게 상호작용할 수 있습니다. 어떤 스마트 컨트랙트의 모든 함수는 컨트랙트의 ABI가 주어졌을 때 자동으로 변환되어 `contract` 인스턴스내에 저장됩니다. 이는 스마트 컨트랙트를 마치 Java에 `컨트랙트` 인스턴스가 있는것처럼 다루도록 합니다.
 
 
-We begin our explanation of dealing with a smart contract in Java by writing a simple solidity example code below. Create a 'test.sol' file and write down the example below.
+이제 아래에서 간단한 솔리디티 예제 코드를 소개하면서 스마트 컨트랙트를 어떻게 다루는지 안내합니다. 'test.sol' 파일을 만들고 아래 예시를 작성합니다.
 
 
 ```
@@ -756,7 +756,7 @@ contract KVstore {
 }
 ```
 
-Then, compile this smart contract to get its bytecode and ABI.
+이제, 이 스마트 컨트랙트를 컴파일하여 바이트코드와 ABI를 얻습니다.
 
 ```text
 > solc --abi --bin ./test.sol
@@ -767,15 +767,15 @@ Contract JSON ABI
 [{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
 ```
 
-**참고**: 스마트 컨트랙트를 컴파일하려면 [솔리디티 컴파일러](https://solidity.readthedocs.io/en/develop/installing-solidity.html) 가 설치되어 있어야 합니다. To compile the above program, you need to install solc:0.5.6.
+**참고**: 스마트 컨트랙트를 컴파일하려면 [솔리디티 컴파일러](https://solidity.readthedocs.io/en/develop/installing-solidity.html) 가 설치되어 있어야 합니다. 위 프로그램을 컴파일하려면 solc 0.5.6을 설치해야 합니다.
 
-To deploy a smart contract by its type, you can use caver-java classes described below:
-  - `Contract` class in `caver.contract` package when the sender of a smart contract transaction pays the fee
-  - `SmartContractDeploy` class in `caver.transaction` when the sender of a smart contract transaction pays the fee
-  - `feeDelegatedSmartContractDeploy` class in `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
-  - `feeDelegatedSmartContractDeployWithRatio` class in `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
+스마트 컨트랙트를 배포하는 트랜잭션 타입에 따라, 아래와 같은 caver-java 클래스들을 사용합니다:
+  - 스마트 컨트랙트 트랜잭션 발신자가 수수료를 지불할 때에는 `caver.contract` 패키지에 있는 `Contract` 클래스를 사용
+  - 스마트 컨트랙트 트랜잭션 발신자가 수수료를 지불할 때에는 `caver.transaction`패키지에 있는 `SmartContractDeploy`클래스를 사용
+  - 스마트 컨트랙트 트랜잭션 수수료 납부자가 수수료를 지불할 때에는 `caver.transaction`패키지에 있는 `feeDelegatedSmartContractDeploy` 클래스를 사용
+  - 스마트 컨트랙트 트랜잭션 수수료 납부자가 수수료를 일부 지불할 때에는 `caver.transaction`패키지에 있는 `feeDelegatedSmartContractDeployWithRatio` 클래스를 사용
 
-Here is an example of exploiting `Contract` class in `caver.contract` package. You can create a `contract` instance like below from the bytecode and ABI you get after compiling the smart contract.
+아래는 `caver.contract` 패키지에 있는 `Contract` 클래스를 활용하는 방법입니다. You can create a `contract` instance like below from the bytecode and ABI you get after compiling the smart contract.
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
@@ -878,10 +878,10 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
 A smart contract can be deployed using one of the following classes, depending on the type of contract deploying transaction:
-  - `Contract` class in `caver.contract` package when the sender of a smart contract transaction pays the fee
-  - `SmartContractDeploy` class in `caver.transaction` when the sender of a smart contract transaction pays the fee
-  - `feeDelegatedSmartContractDeploy` class in `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
-  - `feeDelegatedSmartContractDeployWithRatio` class in `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
+  - 스마트 컨트랙트 트랜잭션 발신자가 수수료를 지불할 때에는 `caver.contract` 패키지에 있는 `Contract` 클래스를 사용
+  - 스마트 컨트랙트 트랜잭션 발신자가 수수료를 지불할 때에는 `caver.transaction`패키지에 있는 `SmartContractDeploy`클래스를 사용
+  - 스마트 컨트랙트 트랜잭션 수수료 납부자가 수수료를 지불할 때에는 `caver.transaction`패키지에 있는 `feeDelegatedSmartContractDeploy` 클래스를 사용
+  - 스마트 컨트랙트 트랜잭션 수수료 납부자가 수수료를 일부 지불할 때에는 `caver.transaction`패키지에 있는 `feeDelegatedSmartContractDeployWithRatio` 클래스를 사용
 
 
 Deploying a smart contract through fee-delegated transaction using `Contract` class in `caver.contract` package is not supported yet. To do that, `FeeDelegatedSmartContractDeploy` class (or `FeeDelegatedSmartContractDeployWithRatio` class) is used explicitly like the example below:
