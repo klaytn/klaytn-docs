@@ -34,7 +34,7 @@ caver-js의 특정 버전을 설치하려면 다음 명령을 이용하세요:
 $ npm install caver-js@X.X.X
 ```
 
-## Starting with caver-js <a id="starting-with-caver-js"></a>
+## caver-js 시작하기<a id="starting-with-caver-js"></a>
 
 caver-js 설치가 끝나면 이제 caver-js를 Klaytn 노드와 연결할 수 있습니다.
 
@@ -123,7 +123,7 @@ caver-js에서 제공하는 인메모리 지갑을 사용하면 쉽게 계정을
 
 caver-js 지갑에 추가된 계정은 `sendTransaction`에 사용될 수 있습니다.
 
-## Sending a Transaction <a id="sending-a-transaction"></a>
+## 트랜잭션 전송하기 <a id="sending-a-transaction"></a>
 
 이 장에서는 Baobab 네트워크에서 caver-js를 사용하여 KLAY를 보내는 방법을 보여줍니다.
 
