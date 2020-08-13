@@ -427,12 +427,12 @@ myContract.methods.myMethod([param1 [, param2 [, ...]]]).send(options [, callbac
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 명칭       | 형식                                              | 설명                               |
-| -------- | ----------------------------------------------- | -------------------------------- |
-| from     | String                                          | 트랜잭션을 보낼 송신자 주소.                 |
-| gasPrice | String                                          | (선택 사항) 트랜잭션에 사용할 peb 단위의 가스 가격. |
-| gas      | Number                                          | (선택 사항) 트랜잭션에 규정된 최대 가스 (가스 제한). |
-| 값        | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 의해 전송된 peb 단위의 값.  |
+| 명칭       | 형식                                              | 설명                                                         |
+| -------- | ----------------------------------------------- | ---------------------------------------------------------- |
+| from     | String                                          | 트랜잭션을 보낼 송신자 주소.                                           |
+| gasPrice | String                                          | (선택 사항) 트랜잭션에 사용할 peb 단위의 가스 가격.                           |
+| gas      | Number                                          | The maximum gas provided for this transaction (gas limit). |
+| 값        | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 의해 전송된 peb 단위의 값.                            |
 
 **리턴값**
 
