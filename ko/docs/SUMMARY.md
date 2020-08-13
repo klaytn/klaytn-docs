@@ -216,7 +216,7 @@
       * [API 참조 문서](https://javadoc.io/doc/com.klaytn.caver/core/)
       * [caver-java ~v1.4.0](bapp/sdk/caver-java/v1.4.0/README.md)
         * [Getting Started (~v1.4.0)](bapp/sdk/caver-java/v1.4.0/getting-started_1.4.0.md)
-        * [Porting from web3j](bapp/sdk/caver-java/v1.4.0/porting-from-web3j.md)
+        * [web3j에서 포팅하기](bapp/sdk/caver-java/v1.4.0/porting-from-web3j.md)
   * [튜토리얼](bapp/tutorials/README.md)
     * [트랜잭션 수수료 위임 예시](bapp/tutorials/fee-delegation-example.md)
     * [Baobab에서 BApp 개발하기(동영상 강의)](bapp/tutorials/bapp-on-baobab-video-lecture/README.md)
