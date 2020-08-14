@@ -1,12 +1,12 @@
-# Basic type transaction class <a id="basic-type-transaction-class"></a>
+# 기본 타입 트랜잭션 클래스<a id="basic-type-transaction-class"></a>
 
-## LegacyTransaction <a id="legacytransaction"></a>
+## 레거시 트랜잭션<a id="legacytransaction"></a>
 
 ```javascript
 new caver.transaction.legacyTransaction(transactionObject)
 ```
 
-`LegacyTransaction` represents a [legacy transaction](../../../../../klaytn/design/transactions/basic.md#txtypelegacytransaction). A [Klaytn account](../../../../../klaytn/design/accounts.md#klaytn-accounts) can execute a `LegacyTransaction` only with [AccountKeyLegacy][]. The `transactionObject` can have properties below to create a `LegacyTransaction`.
+`LegacyTransaction`은 [레거시 트랜잭션](../../../../../klaytn/design/transactions/basic.md#txtypelegacytransaction)을 의미합니다. [Klaytn 계정](../../../../../klaytn/design/accounts.md#klaytn-accounts)은 오직 [AccountKeyLegacy][]을 사용해야만 `LegacyTransaction`을 실행할 수 있습니다. The `transactionObject` can have properties below to create a `LegacyTransaction`.
 
 `LegacyTransaction` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `LegacyTransaction`.
 
