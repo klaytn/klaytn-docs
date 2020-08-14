@@ -775,7 +775,7 @@ Contract JSON ABI
   - 스마트 컨트랙트 트랜잭션 수수료 납부자가 수수료를 지불할 때에는 `caver.transaction`패키지에 있는 `feeDelegatedSmartContractDeploy` 클래스를 사용
   - 스마트 컨트랙트 트랜잭션 수수료 납부자가 수수료를 일부 지불할 때에는 `caver.transaction`패키지에 있는 `feeDelegatedSmartContractDeployWithRatio` 클래스를 사용
 
-아래는 `caver.contract` 패키지에 있는 `Contract` 클래스를 활용하는 방법입니다. You can create a `contract` instance like below from the bytecode and ABI you get after compiling the smart contract.
+아래는 `caver.contract` 패키지에 있는 `Contract` 클래스를 활용하는 방법입니다. 여러분은 아래와 같이 스마트 컨트랙트를 컴파일하여 얻은 ABI와 바이트코드에서 `컨트랙트` 인스턴스를 만들 수 있습니다.
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
@@ -797,7 +797,7 @@ Contract JSON ABI
     }
 ```
 
-Running the code above gives you the following result.
+위 코드를 실행하면 아래 결과를 얻습니다.
 
 ```bash
 methodName : getBlockNumber, ContractMethod : com.klaytn.caver.contract.ContractMethod@74a461d0
@@ -806,9 +806,9 @@ methodName : setCount, ContractMethod : com.klaytn.caver.contract.ContractMethod
 ContractAddress : null
 ```
 
-Looking at the output above, you can see that the `contract` instance owns the smart contract method. And since it hasn't been deployed yet, you can see that the result of `contract.getContractAddress()` is output as null.
+위 결과를 보시면, `컨트랙트` 인스턴스가 스마트 컨트랙트 메서드를 가지고 있음을 볼 수 있습니다. 그리고 아직 컨트랙트가 배포되지 않았으므로, `contract.getContractAddress()` 값이 null임을 확인할 수 있습니다.
 
-If this contract was already deployed and you knew the contract address where this contract was deployed at, pass the contract address as the third parameter of the constructor of the `contract` instance as below.
+만약 스마트 컨트랙트가 이미 배포되었고 배포된 컨트랙트의 주소를 알고 있다면, 아래와 같이 컨트랙트 주소를 `컨트랙트` 인스턴스 생성자의 3번째 파라미터로 넣으십시오.
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
@@ -832,7 +832,7 @@ If this contract was already deployed and you knew the contract address where th
     }
 ```
 
-Running the code above gives you the following result.
+위 코드를 실행하면 아래 결과를 얻습니다.
 
 ```bash
 methodName : get, ContractMethod : com.klaytn.caver.contract.ContractMethod@74a461d0
@@ -840,11 +840,11 @@ methodName : set, ContractMethod : com.klaytn.caver.contract.ContractMethod@b019
 ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
-A `contract` instance stores its contract address as `contractAddress` property when it was created. The address can be accessed through getter / setter function (`getContractAddress()` / `setContractAddress()`).
+`컨트랙트` 인스턴스는 생성될 때 컨트랙트 주소를 `contractAddress` 속성으로 가집니다. 주소에는 getter / setter 함수 (`getContractAddress()` / `setContractAddress()`)를 사용해 접근이 가능합니다.
 
-Once a `contract` instance is created, you can deploy the smart contract by passing its bytecode you got after the compiling stage to the `ContractDeployParams` instance below.
+`컨트랙트` 인스턴스가 만들어지면, 컴파일하고 얻은 바이트코드를 아래와 같이 `ContractDeployParams` 인스턴스에 보내고 스마트 컨트랙트를 배포할 수 있습니다.
 
-Note that the `deploy()` method of the `contract` instance sends transactions for contract deployment and contract execution. For sending transactions, it uses Keyrings in `caver.wallet` to sign them. The keyring to be used must have been added to `caver.wallet` before signing.
+`컨트랙트` 인스턴스 `deploy()` 메서드는 컨트랙트 배포와 컨트랙트 실행을 위해 트랜잭션을 보냄에 유의하십시오. 트랜잭션 전송 시에는 서명을 위해 `caver.wallet`에 있는 Keyring을 사용합니다. 사용할 Keyring은 `caver.wallet`에 서명하기 전에 먼저 추가해야 합니다.
 
 ```java
     private static final String byteCode = "608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029";
@@ -871,20 +871,20 @@ Note that the `deploy()` method of the `contract` instance sends transactions fo
     }
 ```
 
-In the code above, the `deployer` deploys the contract to the Klaytn and returns the deployed `contract` instance.
+위 코드를 보면, `deployer`가 컨트랙트를 Klaytn에 배포하고 배포된 `컨트랙트` 인스턴스를 받습니다.
 
 ```bash
 ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
-A smart contract can be deployed using one of the following classes, depending on the type of contract deploying transaction:
+컨트랙트 배포 트랜잭션 타입에 따라, 스마트 컨트랙트는 다음 클래스 중 하나를 사용해 배포됩니다.
   - 스마트 컨트랙트 트랜잭션 발신자가 수수료를 지불할 때에는 `caver.contract` 패키지에 있는 `Contract` 클래스를 사용
   - 스마트 컨트랙트 트랜잭션 발신자가 수수료를 지불할 때에는 `caver.transaction`패키지에 있는 `SmartContractDeploy`클래스를 사용
   - 스마트 컨트랙트 트랜잭션 수수료 납부자가 수수료를 지불할 때에는 `caver.transaction`패키지에 있는 `feeDelegatedSmartContractDeploy` 클래스를 사용
   - 스마트 컨트랙트 트랜잭션 수수료 납부자가 수수료를 일부 지불할 때에는 `caver.transaction`패키지에 있는 `feeDelegatedSmartContractDeployWithRatio` 클래스를 사용
 
 
-Deploying a smart contract through fee-delegated transaction using `Contract` class in `caver.contract` package is not supported yet. To do that, `FeeDelegatedSmartContractDeploy` class (or `FeeDelegatedSmartContractDeployWithRatio` class) is used explicitly like the example below:
+`caver.contract` 패키지의 `Contract` 클래스를 사용해 스마트 컨트랙트를 수수료 위임 트랜잭션으로 배포하는 것은 아직 지원되지 않습니다. 이를 위해서는, `FeeDelegatedSmartContractDeploy` 클래스 (또는 `FeeDelegatedSmartContractDeployWithRatio` 클래스)가 아래와 같이 명시적으로 사용되어야 합니다:
 
 ```java
     private static final String byteCode = "608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029";
@@ -950,7 +950,7 @@ Deploying a smart contract through fee-delegated transaction using `Contract` cl
     }
 ```
 
-To show how to execute a function in a smart contract, here we send a contract execution transaction that puts a string "testValue" as the input parameter of the contract function `set` in the example code below.
+스마트 컨트랙트 함수 실행을 소개하기 위해, 아래 코드에서는 "testValue" 문자열을 컨트랙트 함수 `set`의 입력 파라미터로 전달하고 컨트랙트 실행 트랜잭션을 보냅니다.
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
@@ -975,7 +975,7 @@ To show how to execute a function in a smart contract, here we send a contract e
     }
 ```
 
-Executing a smart contract through fee-delegated transaction using `Contract` class in `caver.contract` package is not supported yet. To do that, `FeeDelegatedSmartContractExecution` class (or `FeeDelegatedSmartContractExecutionWithRatio` class) is used explicitly like the example below:
+`caver.contract` 패키지의 `Contract` 클래스를 사용해 스마트 컨트랙트를 수수료 위임 트랜잭션으로 실행하는 것은 아직 지원되지 않습니다. 이를 위해서는, `FeeDelegatedSmartContractExecution` 클래스 (또는 `FeeDelegatedSmartContractExecutionWithRatio` 클래스)가 아래와 같이 명시적으로 사용되어야 합니다:
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
@@ -1028,7 +1028,7 @@ Executing a smart contract through fee-delegated transaction using `Contract` cl
     }
 ```
 
-To load a `contract` instance and call one of its functions (not sending a transaction but just a call): the below example shows calling a `get` function in a contract.
+`컨트랙트` 인스턴스를 불러와 그 함수 중 하나를 호출(트랜잭션을 전송하지 않고, 함수를 호출만 함)하는 예시는 컨트랙트의 `get` 함수를 호출하는 아래 코드에서 소개합니다.
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
@@ -1053,4 +1053,4 @@ To load a `contract` instance and call one of its functions (not sending a trans
 testValue
 ```
 
-To find more information, see [caver-java API]((https://javadoc.io/doc/com.klaytn.caver/core/))
+자세한 내용은 [caver-java API]((https://javadoc.io/doc/com.klaytn.caver/core/))를 참고해주세요
