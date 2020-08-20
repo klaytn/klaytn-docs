@@ -105,7 +105,7 @@ Service providers receive rewards through three stages as follows, based on data
 
 2. Calculating the total reward amount of compensation for a round: The total reward amount per round is measured based on the  number of \(new / retained\) user inflows. The total reward amount per round cannot exceed the total reward pool, which.
 
-3. Distributing compensation: Based on the previously calculated contribution, each service provider's contribution rate and ranking are determined. The service providers will eventually receive a reward based on the contribution rate and ranking.
+3. Distributing compensations: Based on the previously calculated contribution, each service provider's contribution rate and ranking are determined. The service providers will eventually receive a reward based on the contribution rate and ranking.
 
 This system is designed to help service providers get more rewards as they strive to attract users and develop the services.
 
