@@ -101,7 +101,7 @@ This method of distributing rewards is designed to help service providers get mo
 
 Service providers receive rewards through three stages as follows, based on data collected during a round.
 
-1. Applying minimum threshold and calculate contribution: Contribution measurement and compensation payments are made only to service providers that have passed the minimum standard \(e.g. inflow of at least 100 new users\). Contribution is measured based on the four metrics and their weights ​​mentioned above.
+1. Applying minimum threshold and calculating contribution: Contribution measurement and compensation payments are made only to service providers that have passed the minimum standard \(e.g. inflow of at least 100 new users\). The contribution is measured based on the four metrics and their weights ​​mentioned above.
 
 2. Calculating the total reward amount of compensation for a round: The total reward amount per round is measured based on the  number of \(new / retained\) user inflows. The total reward amount per round cannot exceed the total reward pool.
 
