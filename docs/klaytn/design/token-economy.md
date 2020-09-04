@@ -56,46 +56,58 @@ In order to achieve mass adoption of blockchain technology, it is important to i
 
 The extended imbalance between supply and demand makes economies unsustainable, an observation which places end-users on a key position within Klaytn token economy. End-users are the fundamental driving force behind economic growth as the primary demand-side entities, creating valuable market signals by carefully selecting and using services and sharing reviews with each other. Recognizing the value of end-users, Klaytn is reviewing designs to make PoC an incentivizing mechanism for their contributions to growing the Klaytn ecosystem.
 
-## Proof of Contribution Operation Plan <a id="proof-of-contribution-operation-plan"></a>
+## Proof of Contribution Pilot Test Operation Plan <a id="proof-of-contribution-operation-plan"></a>
+
+Klaytn will further develop the PoC policy through pilot testing so that PoC can be implemented stably for all participants in Klaytn. This pilot test will be conducted on a smaller scale as it will be the first external experiment of PoC, which can affect the early stages of the Klaytn network. The instructions will be updated according to the result of the pilot test.
 
 ### Overview <a id="overview"></a>
 
-Only once service onboarding begins can users join the platform. Therefore, we will focus on assessing and rewarding service contributions during the early operation period of the platform.
+The first PoC Pilot test will be implemented as below.
 
 | Phase 1 |  |
 | :--- | :--- |
-| **Application** | Services who want to participate in Proof of Contribution must file an application.  Announcement will be made by email when Proof of Contribution scheme starts.  You can register yourself on the [Proof of Contribution waiting list here](https://klaytn.typeform.com/to/uKlY16). |
-| **Basic Requirements** | \(1\) Services are required to set up fee delegation structure for users. [Checkout Fee Delegation Example here.](../../bapp/tutorials/fee-delegation-example.md)   \(2\) Services must be completed onboarding Cypress \(Klaytn Mainnet\). To start onboarding, please [request fee delegation key here](https://klaytn.typeform.com/to/op3xWQ). |
-| **Resources** | Maximum 80,000,000 KLAY will be distributed to service providers. \(Specific fund scale is subject to change based on block-creation and transaction fee collection situations.\) |
-| **Reward Schedule** | Service Providers will be rewarded on a weekly basis - every Wednesday. Specific amount of reward will be computed based on the blockchain data collected from last week's Wednesday 00:00 ~ Tuesday 23:59 \(UTC+00:00\). |
-| **Policy** | **ON ABUSING** : Services whose performance is found to be fabricated will be disqualified. |
-| **Notice** | BApp Reward & KLAY BApp Reward will be operated after a significant number of users have flown in. Platform status will be continuously monitored and the announcement will be made when the condition is satisfied. |
+| **Target** | Service providers who have applied for this pilot test and passed internal review |
+| **Period** | 2020.09 ~ 2020.11 |
+| **Basic Requirements** | \(1\) Services which have been completed onboarding Cypress (Klaytn Mainnet), \(2\) allow their customer to interact with smart contract \(3\) and are free from illegal issues. |
+| **Resources** | Maximum 600,000 KLAY will be distributed to service providers. |
+| **Reward Schedule** | Service providers will be rewarded after finishing each round which is bi-weekly basis. Specific amount of reward will be calculated based on the blockchain data collected during a round. |
+| **Disqualification Policy** | Service providers who performed inappropriate activities such as manipulating data about contribution indicators will be disqualified permanently. |
 
 ### Incentive Programs <a id="incentive-programs"></a>
 
-|  | 1. BApp Reward | 2. KLAY BApp Reward |
-| :--- | :--- | :--- |
-| Requirements | • Implementation of TX fee delegation<br>• Smart contract implementation | • Implementation of TX fee delegation<br>• Smart contract implementation<br>• Accepts KLAY payments |
-| Reward | Top N services will be rewarded. BApps are ranked based on the following two metrics:<br> • Average daily active users \(DAU\)<br> • Delegated transaction fee amount | Top M services will be rewarded. KLAY BApps are ranked based on the following three metrics:<br> • Average daily active users \(DAU\)<br> • Delegated transaction fee amount<br> • KLAY transaction volume |
+In this pilot test, service providers’ contribution is measured at each round (2 weeks), and rewards are distributed based on their level of contribution. The contribution metrics and reward distribution process are defined as follows.
 
-#### 1. BApp Reward <a id="1-bapp-reward"></a>
+#### 1. Contribution metrics
 
-Incentive scheme for Services which are implemented on Klaytn in the form of smart contracts. Service providers whose services are rank above a certain watermark as set by the criteria listed below will receive additional rewards each week. All services must meet minimum requirements to receive rewards.
+During a round, following data will be collected based on the transaction on Klaytn blockchain(Cypress).
+* No. of New Users: The no. of new unique accounts(EOAs) that send at least one transaction to smart contracts(of services) during the corresponding round
+* No. of Retained Users: The no. of returning unique accounts(EOAs) that send at least transactions to a smart contracts(of services) during the corresponding round
+* No. of Transactions: The no. of transactions that execute a service smart contract during the corresponding round
+* KLAY Volume: The total KLAY volume transmitted to a service smart contract during the corresponding round.
 
-* Average daily active users \(DAU\): average of daily distinct number of accounts that sent at least 1 transaction to smart contracts of the service.
-* Delegated transaction fee amount: total amount of transaction fee that service provider paid for the user.
+#### 2. Reward distribution process
 
-The total reward amount as well as the number of beneficiaries are designed to grow proportionally on a step-by-step basis along with the overall growth of Klaytn.
+Based on the data collected during a round, a service provider receives the rewards in three steps as shown below.
 
-#### 2. KLAY BApp Reward <a id="2-klay-bapp-reward"></a>
+* 1st step - Passing minimum threshold and calculating service provider’s contribution: To be rewarded, service providers should meet the given minimum threshold. The service providers’ contribution who belong to a specific standard (e.g. inflow of more than 100 new users) will be measured based on the four indicator values ​​mentioned above and the weight for each indicator.
 
-Additional incentive scheme only for KLAY BApps, namely those that accept KLAY as a direct means of using their services. Since those who use KLAY as the payment method contribute more directly to the token economy, service providers whose services are rank above a certain watermark as set by the criteria listed below will receive additional rewards each week. Note that only transactions with KLAY value transfer are subject to evaluation. All services must meet minimum requirements to receive rewards.
+* 2nd step - Calculating aggregate incentive amount per round: The total compensation amount for a particular round varies based on the total number of user (new/existing) inflows. As there is upper limit for total reward amount, the PoC compensation pool is not going to run out of.
 
-* Average daily active users \(DAU\): average of daily distinct number of accounts that sent at least 1 transaction with KLAY value transfer to smart contracts of the service.
-* Delegated transaction fee amount: total amount of transaction fee that service provider paid for the user.
-* KLAY transaction volume: total amount of KLAY that has been sent to smart contracts of the service.
+* 3rd step - Distributing compensation: Based on the previously calculated contribution, each service provider's contribution rate and ranking are determined. The service providers will eventually receive a reward based on the contribution rate and ranking.
 
-The total reward amount as well as the number of beneficiaries are designed to grow proportionally on a step-by-step basis along with the overall growth of Klaytn.
+This method of distributing rewards is designed to help service providers get more rewards as they strive to attract users and develop the services.
+
+--------------------------------------------------
+
+Service providers receive rewards through three stages as follows, based on data collected during a round.
+
+1. Applying minimum threshold and calculating contribution: Contribution measurement and compensation payments are made only to service providers that have passed the minimum standard \(e.g. inflow of at least 100 new users\). The contribution is measured based on the four metrics and their weights ​​mentioned above.
+
+2. Calculating the total reward amount of compensation for a round: The total reward amount per round is measured based on the  number of \(new / retained\) user inflows. The total reward amount per round cannot exceed the total reward pool.
+
+3. Distributing compensations: Based on the previously calculated contribution, each service provider's contribution rate and ranking are determined. The service providers will eventually receive a reward based on the contribution rate and ranking.
+
+This system is designed to help service providers get more rewards as they strive to attract users and develop the services.
 
 ## Klaytn Improvement Reserve <a id="klaytn-improvement-reserve"></a>
 
@@ -109,4 +121,3 @@ The spending necessary to set up the ecosystem can be categorized as following.
 * Others
 
 KIR proposals can be created by any participant in Klaytn’s ecosystem. KIR spending proposals will be processed per KIR Governance Process. Refer to the [Klaytn Improvement Reserve Governance Process](governance.md#klaytn-improvement-reserve-governance-process) section for more information on the procedure. Once a spending proposal has passed, KLAY will be distributed periodically, from a predetermined total amount, based on the project’s level of progress. This process may change based on the project size but is planned to be processed monthly.
-
