@@ -861,7 +861,7 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
             ContractDeployParams params = new ContractDeployParams(byteCode, null);
             SendOptions sendOptions = new SendOptions();
             sendOptions.setFrom(deployer.getAddress());
-            sendOptions.setGas(BigInteger.valueOf(40000));
+            sendOptions.setGas(BigInteger.valueOf(4000000));
 
             Contract newContract = contract.deploy(params, sendOptions);
             System.out.println("Contract address : " + newContract.getContractAddress());
@@ -966,9 +966,9 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 
             SendOptions sendOptions = new SendOptions();
             sendOptions.setFrom(executor.getAddress());
-            sendOptions.setGas(BigInteger.valueOf(40000));
+            sendOptions.setGas(BigInteger.valueOf(4000000));
 
-            TransactionReceipt.TransactionReceiptData receipt = contract.getMethod("set").send(Arrays.asList("testValue"), sendOptions);
+            TransactionReceipt.TransactionReceiptData receipt = contract.getMethod("set").send(Arrays.asList("test","testValue"), sendOptions);
         } catch (IOException | TransactionException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
             //handle exception..
         }
@@ -997,7 +997,7 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
             sendOptions.setGas(BigInteger.valueOf(40000));
 
             //encode paramter of contract's "set" function.
-            String encodedParams = contract.getMethod("set").encodeABI(Arrays.asList("testValue"));
+            String encodedParams = contract.getMethod("set").encodeABI(Arrays.asList("test","testValue"));
 
             //creates a FeeDelegatedSmartContractExecution instance
             FeeDelegatedSmartContractExecution feeDelegatedSmartContractExecution = new FeeDelegatedSmartContractExecution.Builder()
@@ -1039,7 +1039,7 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 
         try {
             Contract contract = new Contract(caver, ABIJson, '0x{address in hex}');
-            List<Type> result = contract.getMethod("get").call(null, CallObject.createCallObject());
+            List<Type> result = contract.getMethod("get").call(Arrays.asList("test"), CallObject.createCallObject());
             System.out.println((String)result.get(0).getValue());
         } catch (IOException | TransactionException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
             //handle exception..
