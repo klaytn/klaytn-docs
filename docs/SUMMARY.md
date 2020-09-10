@@ -116,6 +116,7 @@
         * [Checking Node Status](node/service-chain/references/spn-sen/checking-node-status.md)
       * [Bridge Configuration](node/service-chain/references/bridge-configuration.md)
       * [Anchoring](node/service-chain/references/anchoring.md)
+      * [KAS Anchoring](node/service-chain/references/kas-anchoring.md)
       * [Value Transfer](node/service-chain/references/value-transfer.md)
       * [Configuration Files](node/service-chain/references/configuration-files.md)
       * [Log Files](node/service-chain/references/log-files.md)
