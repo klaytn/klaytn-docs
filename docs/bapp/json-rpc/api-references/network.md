@@ -20,7 +20,7 @@ None
 
 | Type | Description |
 | --- | --- |
-| QUANTITY | The integer of the network identifier.<br>    - `"1000"`: Klaytn Aspen testnet.<br>    - `"1001"`: Klaytn Baobab testnet. |
+| QUANTITY | The integer of the network identifier.<br> - `"1001"`: Klaytn Baobab testnet.<br> - `"8217"`: Klaytn Cypress mainnet.|
 
 **Example**
 
