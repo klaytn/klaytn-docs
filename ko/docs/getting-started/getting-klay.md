@@ -9,9 +9,8 @@
 
 ### KLAY 거래소 목록 <a id="klay-exchange-list"></a>
 
-아래는 주요 KLAY 거래소의 목록입니다.
+KLAY is listed on various exchanges.  Please find the list of KLAY exchanges through the following links.
 
-- [Upbit 인도네시아](https://id.upbit.com/exchange?code=CRIX.UPBIT.IDR-KLAY)
-- [Upbit Singapore](https://sg.upbit.com/exchange?code=CRIX.UPBIT.BTC-KLAY)
-- [Liquid](https://app.liquid.com/exchange/KLAYBTC)
+- [KLAY exchanges listed at CoinGecko](https://www.coingecko.com/en/coins/klay#markets)
+- [KLAY exchanges listed at CoinMarketCap](https://coinmarketcap.com/currencies/klaytn/markets/)
 
