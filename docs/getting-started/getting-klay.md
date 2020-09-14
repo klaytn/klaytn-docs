@@ -9,9 +9,8 @@ The **testnet KLAY** faucet runs on the Baobab network. The faucet can be access
 
 ### KLAY Exchange List <a id="klay-exchange-list"></a>
 
-Below is the inclusive but not exhaustive list of major KLAY exchanges.
+KLAY is listed on various exchanges.  Please find the list of KLAY exchanges through the following links.
 
-- [Upbit Indonesia](https://id.upbit.com/exchange?code=CRIX.UPBIT.IDR-KLAY)
-- [Upbit Singapore](https://sg.upbit.com/exchange?code=CRIX.UPBIT.BTC-KLAY)
-- [Liquid](https://app.liquid.com/exchange/KLAYBTC)
+- [KLAY exchanges listed at CoinGecko](https://www.coingecko.com/en/coins/klay#markets)
+- [KLAY exchanges listed at CoinMarketCap](https://coinmarketcap.com/currencies/klaytn/markets/)
 
