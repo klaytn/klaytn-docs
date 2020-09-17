@@ -105,7 +105,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **리턴값**
 
-`객체` - 블록 객체로 반환하거나 또는 해당 블록을 찾을 수 없는 경우에는 `null`로 반환합니다.
+`Object` - A block object, or `error` when no block was found:
 
 | 명칭               | 형식             | 설명                                                         |
 | ---------------- | -------------- | ---------------------------------------------------------- |
@@ -297,7 +297,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **리턴값**
 
-`객체` - 합의에 대한 정보(제안자와 위원회 멤버의 목록)를 포함한 블록 객체를 반환하거나 또는 해당 블록이 없는 경우 `null`을 반환합니다.
+`Object` - A block object with consensus information (a proposer and a list of committee members), or `error` when no block was found:
 
 | 명칭               | 형식            | 설명                                                                       |
 | ---------------- | ------------- | ------------------------------------------------------------------------ |
@@ -401,7 +401,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **리턴값**
 
-`객체` - 합의에 대한 정보(제안자와 위원회 멤버의 목록)를 포함한 블록 객체를 반환하거나 또는 해당 블록이 없는 경우 `null`을 반환합니다.
+`Object` - A block object with consensus information (a proposer and a list of committee members), or `error` when no block was found:
 
 | 명칭               | 형식            | 설명                                                                       |
 | ---------------- | ------------- | ------------------------------------------------------------------------ |
