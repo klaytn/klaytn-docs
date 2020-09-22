@@ -1,9 +1,10 @@
 # Download <a id="download"></a>
 
 ## Get the Packages <a id="get-the-packages"></a>
-You can get the Linux and MacOS packages for CN, PN, EN, SCN, SPN and SEN.
+You can get the packages for CN, PN, EN, SCN, SPN and SEN.
 
-- [v1.5.0 (latest)](v1.5.0.md)
+- [latest (v1.5.1)](latest.md)
+- [v1.5.0](v1.5.0.md)
 - [v1.4.2](v1.4.2.md)
 - [v1.4.1](v1.4.1.md)
 - [v1.4.0](v1.4.0.md)
