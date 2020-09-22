@@ -1262,7 +1262,7 @@ Executes a new message call immediately without sending a transaction on the blo
 
 | Name | Type | Description |
 | --- | --- | --- |
-| to | string | (optional when creating a new contract) The address the transaction is directed to. |
+| to | string | (optional) The address the transaction is directed to. If omitted, it tests the deployment of a smart contract (no actual deployment is taken place). |
 | input | string | (optional) The hash of the method signature and encoded parameters. You can use [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall). |
 | from | string | (optional) The address the transaction is sent from. |
 | gas | string | (optional) The gas provided for the transaction execution. `klay_call` consumes zero gas, but this parameter may be needed by some executions. |
