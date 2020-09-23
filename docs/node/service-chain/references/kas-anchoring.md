@@ -4,7 +4,7 @@ This page introduces how to enable data anchoring via [KAS (Klaytn API Service)]
 Once it is turned on, a node in your service chain can periodically anchor its chain data (block data) to Cypress or Baobab as a proof of existence and immutability of the service chain. 
 This ensures the security and credibility of the service chain.
 
-# Preparation with KAS <a id="preparation-with-kas"></a>
+# Preparation for Using KAS <a id="preparation-with-kas"></a>
 This section introduces the pre-requisites to use KAS for data anchoring.
 
 ## Sign Up KAS (Klaytn API Service) <a id="sign-up-kas"></a>
