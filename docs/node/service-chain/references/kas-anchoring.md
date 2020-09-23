@@ -87,6 +87,6 @@ INFO[09/10,18:09:32 +09] [53] Anchored a block via KAS                  blkNum=8
 ```
 
 ## List of Transaction <a id="list-of-transaction"></a>
-In KAS console website, you can retrieve all anchoring transaction which your service chain node required in operators menu like below.
+In KAS console website, you can see the list of anchoring transactions that the operator of your service chain has sent at "KAS Console - Service - Anchor - Operators" menu like below. For more details about KAS, please visit [KAS Developer Docs](https://docs.klaytnapi.com/v/en/).
 
 ![anchoring transaction list](../images/kas-tx-list-ko.png)
