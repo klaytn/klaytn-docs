@@ -27,11 +27,12 @@ KAS provides Anchor API, which is designed for data anchoring and surely it is t
 ![anchor api](../images/kas-anchor-api-ko.png)
 
 ## Create Operator Address <a id="create-kas-credential"></a>
-Before you sets up the service node, you need to create an operator address in KAS console.
-Please select the chain where you want to anchor. 
-You can create an operator for each chain (Cypress/Baobab).
+To anchor service chain data via KAS, there should be a Klaytn address, enrolled in KAS, that actually send anchoring transaction to Klaytn. So, before you set up your service node, you need to create an Klaytn account called "operator" via KAS. Please, use KAS console to create this account. 
 
-Note that you cannot share operators for both chains.
+It is important to be noticed that you must **first select the chain** in Klaytn to which you want to anchor your data on **the top right corner of the KAS console page**. You should create an operator for each chain (Cypress/Baobab). 
+
+For more details about operator account, please visit [KAS Developer Docs](https://docs.klaytnapi.com/v/en/).
+
 
 ![select chain](../images/kas-select-chain-ko.png)
 
