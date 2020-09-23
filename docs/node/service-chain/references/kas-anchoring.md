@@ -1,34 +1,32 @@
-As explained in the design section, Service Chain supports the data anchoring feature.
-This page shows how to enable the anchoring function via KAS (Klaytn API Service, https://www.klaytnapi.com).
+As explained in the design section, you can anchor your service chain data to Klaytn main chain.
+This page introduces how to enable data anchoring via [KAS (Klaytn API Service)](https://www.klaytnapi.com).
 
-If it is enabled, Service chain node can anchor periodically the service chain block data to Cypress or Baobab as proof of existence and immutability. 
+Once it is turned on, a node in your service chain can periodically anchor its chain data (block data) to Cypress or Baobab as a proof of existence and immutability of the service chain. 
 This ensures the security and credibility of the service chain.
 
 # Preparation with KAS <a id="preparation-with-kas"></a>
-This section shows how to prepare with KAS website for anchoring via KAS.
+This section introduces the pre-requisites to use KAS for data anchoring.
 
-## Register KAS (Klaytn API Service) <a id="register-kas"></a>
-First, you need to register KAS on the [KAS console website](https://www.klaytnapi.com) to get the KAS account.
-Visit the website and register your own account.
+## Sign Up KAS (Klaytn API Service) <a id="sign-up-kas"></a>
+First, you need to sign up KAS on the [KAS console website](https://www.klaytnapi.com) to get a KAS account.
+Please visit the website above and sign up in KAS. For more details about signing up in KAS, please visit [KAS Developer Docs](https://docs.klaytnapi.com/v/en/).
 
 [![main page](../images/kas-main-en.png)](https://www.klaytnapi.com)
 
 [![sign up](../images/kas-signup-ko.png)](https://www.klaytnapi.com)
 
-## Create credential <a id="check-credential"></a>
+## Create Credential <a id="check-credential"></a>
 After login, you can create your credential like below.
-The `AccessKey ID`, `Secret AccessKey`, and `Authorization` will be used to call KAS APIs.
-Please note securely the information. 
+The `AccessKey ID` and `Secret AccessKey`, or `Authorization` will be used to call KAS APIs. For more details about KAS credential, please visit [KAS Developer Docs](https://docs.klaytnapi.com/v/en/).
 
 ![credential](../images/kas-credential-ko.png)
 
 ## Anchor API <a id="anchor-api"></a>
-To anchor via KAS, your service chain node will use Anchor API below.
-Please refer the API reference and examples.
+KAS provides Anchor API, which is designed for data anchoring and surely it is the one that you are going to use for anchoring task. Please go through the Anchor API tutorial and API reference site in [KAS Developer Docs](https://docs.klaytnapi.com/v/en/) to obtain its API endpoint and API parameters, which are to be used later.
 
 ![anchor api](../images/kas-anchor-api-ko.png)
 
-## Create operator address <a id="create-kas-credential"></a>
+## Create Operator Address <a id="create-kas-credential"></a>
 Before you sets up the service node, you need to create an operator address in KAS console.
 Please select the chain where you want to anchor. 
 You can create an operator for each chain (Cypress/Baobab).
@@ -37,17 +35,17 @@ Note that you cannot share operators for both chains.
 
 ![select chain](../images/kas-select-chain-ko.png)
 
-Then you can create operator like below.
+Create an operator as below.
 
 ![create operator](../images/kas-create-operator-ko.png)
 
-After then, you can check your operator list like below.
-Please note an operator address for setting your service chain node.
+Then, you can check your operator list like below.
+Please note that the address of an operator is required for setting your service chain node.
 
 ![create operator](../images/kas-operator-list-ko.png)
 
-## Configure Service chain node <a id="configure-service-chain-node"></a>
-Now, you are ready to set up your service chain node.
+## Configure Service Chain Node <a id="configure-service-chain-node"></a>
+After obtaining API credentials, Anchor API information (API endpoint and parameters), and an operator account in KAS, then It is time to set up your service chain node.
 You need to edit the configuration file (`kscnd.conf`, `kspnd.conf`, `ksend.conf`) of your service chain node like below.
 
 You should set `SC_SUB_BRIDGE=1` and all `SC_KAS_` prefix items.
@@ -69,9 +67,9 @@ SC_KAS_ANCHOR_X_CHAIN_ID=1001                                           # Cypres
 ...
 ```
 
-## Run Service chain node <a id="run-service-chain-node"></a>
-All preparation finished, you can run your own service chain node.
-Then you can see the log message related with KAS anchor API like below.
+## Run Service Chain Node <a id="run-service-chain-node"></a>
+Now you are good to go. You can run your service chain node.
+You will see the log message related with KAS Anchor API like below.
 
 ```bash
 ...
