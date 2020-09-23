@@ -1,13 +1,7 @@
 이 장에서는 다중 노드 서비스 체인을 설정하는 방법에 대해 설명합니다. 비잔틴 결함을 허용하려면 최소 4개의 노드가 필요합니다. 우리는 4개의 컨센서스 노드로 구성된 서비스 체인을 설정해볼 것입니다.
 
 ## 준비 사항 <a id="prerequisites"></a>
- - 아래 실행 파일을 다운로드하세요. 다운로드 가능한 전체 목록은 [다운로드](../../download/README.md) 페이지를 참조하세요.
-   - Linux
-      - 서비스체인 컨센서스 노드(SCN): [kscn-v1.5.0-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.0/kscn-v1.5.0-0-linux-amd64.tar.gz)
-      - homi 유틸리티: [homi-v1.5.0-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.0/homi-v1.5.0-0-linux-amd64.tar.gz)
-   - MacOS
-      - 서비스체인 컨센서스 노드(SCN): [kscn-v1.5.0-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.0/kscn-v1.5.0-0-darwin-10.10-amd64.tar.gz)
-      - homi 유틸리티: [homi-v1.5.0-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.0/homi-v1.5.0-0-darwin-10.10-amd64.tar.gz)
+ - Download packages for `kscn`, `homi` binary from [Download](../../download/README.md).
  - 4대의 Linux 또는 MacOS 서버
  - 최소 하드웨어 요구 사항
    - CPU: 4코어(Intel Xeon 또는 동급), RAM: 16GB, HDD: 50GB
