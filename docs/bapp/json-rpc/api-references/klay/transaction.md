@@ -58,7 +58,7 @@ Generates and returns an estimate of how much gas is necessary to allow the tran
 | Name | Type | Description |
 | --- | --- | --- |
 | from | 20-byte DATA | (optional) The address the transaction is sent from. |
-| to | 20-byte DATA | (optional when creating a new contract) The address the transaction is directed to. |
+| to | 20-byte DATA | (optional when testing the deployment of a new contract) The address the transaction is directed to. |
 | gas | QUANTITY | (optional) Integer of the upper gas limit provided for the gas estimation. If no gas limit is specified, the Klaytn node uses the designated gas limit as an upper bound.  
 | gasPrice | QUANTITY | (optional) Integer of the gasPrice used for each paid gas. |
 | value | QUANTITY | (optional) Integer of the value sent with this transaction. |
