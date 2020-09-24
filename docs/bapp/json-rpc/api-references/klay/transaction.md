@@ -14,7 +14,7 @@ Executes a new message call immediately without creating a transaction on the bl
 | Name | Type | Description |
 | --- | --- | --- |
 | from | 20-byte DATA | (optional) The address the transaction is sent from. |
-| to | 20-byte DATA | The address the transaction is directed to. |
+| to | 20-byte DATA | (optional when testing the deployment of a new contract) The address the transaction is directed to. |
 | gas | QUANTITY | (optional) Integer of the gas provided for the transaction execution. `klay_call` consumes zero gas, but this parameter may be needed by some executions. |
 | gasPrice | QUANTITY | (optional) Integer of the gasPrice used for each paid gas. |
 | value | QUANTITY | (optional) Integer of the value sent with this transaction. |
