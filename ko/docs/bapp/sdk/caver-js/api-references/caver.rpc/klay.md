@@ -1262,7 +1262,7 @@ caver.rpc.klay.call(callObject [, blockNumber] [, callback])
 
 | 명칭       | 형식  | 설명                                                                                                                 |
 | -------- | --- | ------------------------------------------------------------------------------------------------------------------ |
-| to       | 문자열 | 트랜잭션을 수신할 주소입니다.                                                                                                   |
+| to       | 문자열 | (optional when testing the deployment of a new contract) The address the transaction is directed to.               |
 | input    | 문자열 | (선택사항) 메서드 식별자와 인코딩된 매개변수들의 해시입니다. [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall)를 사용할 수 있습니다. |
 | from     | 문자열 | (선택사항) 트랜잭션을 발신한 주소입니다.                                                                                            |
 | gas      | 문자열 | (선택사항) 트랜잭션 실행을 위해 설정한 가스입니다. `klay_call`은 가스를 소비하지 않지만 트랜잭션 실행 중 일부에서 이 매개변수가 필요할 수 있습니다.                         |
