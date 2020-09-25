@@ -9,7 +9,7 @@ This section introduces the pre-requisites to use KAS for data anchoring.
 
 ## Sign Up KAS (Klaytn API Service) <a id="sign-up-kas"></a>
 First, you need to sign up KAS on the [KAS console website](https://www.klaytnapi.com) to get a KAS account.
-Please visit the website above and sign up in KAS. For more details about signing up in KAS, please visit [KAS Developer Docs](https://docs.klaytnapi.com/v/en/).
+Please visit the website above and sign up in KAS.
 
 [![main page](../images/kas-main-en.png)](https://www.klaytnapi.com)
 
@@ -17,12 +17,12 @@ Please visit the website above and sign up in KAS. For more details about signin
 
 ## Create Credential <a id="check-credential"></a>
 After login, you can create your credential like below.
-The `AccessKey ID` and `Secret AccessKey`, or `Authorization` will be used to call KAS APIs. For more details about KAS credential, please visit [KAS Developer Docs](https://docs.klaytnapi.com/v/en/).
+The `AccessKey ID` and `Secret AccessKey`, or `Authorization` will be used to call KAS APIs.
 
 ![credential](../images/kas-credential-ko.png)
 
 ## Anchor API <a id="anchor-api"></a>
-KAS provides Anchor API, which is designed for data anchoring and surely it is the one that you are going to use for anchoring task. Please go through the Anchor API tutorial and API reference site in [KAS Developer Docs](https://docs.klaytnapi.com/v/en/) to obtain its API endpoint and API parameters, which are to be used later.
+KAS provides Anchor API, which is designed for data anchoring and surely it is the one that you are going to use for anchoring task.
 
 ![anchor api](../images/kas-anchor-api-ko.png)
 
@@ -31,7 +31,6 @@ To anchor service chain data via KAS, there should be a Klaytn address, enrolled
 
 It is important to be noticed that you must **first select the chain** in Klaytn to which you want to anchor your data on **the top right corner of the KAS console page**. You should create an operator for each chain (Cypress/Baobab). 
 
-For more details about operator account, please visit [KAS Developer Docs](https://docs.klaytnapi.com/v/en/).
 
 
 ![select chain](../images/kas-select-chain-ko.png)
@@ -88,6 +87,6 @@ INFO[09/10,18:09:32 +09] [53] Anchored a block via KAS                  blkNum=8
 ```
 
 ## List of Transaction <a id="list-of-transaction"></a>
-In KAS console website, you can see the list of anchoring transactions that the operator of your service chain has sent at "KAS Console - Service - Anchor - Operators" menu like below. For more details about KAS, please visit [KAS Developer Docs](https://docs.klaytnapi.com/v/en/).
+In KAS console website, you can see the list of anchoring transactions that the operator of your service chain has sent at "KAS Console - Service - Anchor - Operators" menu like below.
 
 ![anchoring transaction list](../images/kas-tx-list-ko.png)
