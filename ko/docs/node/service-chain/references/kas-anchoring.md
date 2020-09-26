@@ -8,10 +8,6 @@ This section introduces the pre-requisites to use KAS for data anchoring.
 ## Sign Up KAS (Klaytn API Service) <a id="sign-up-kas"></a>
 First, you need to sign up KAS on the [KAS console website](https://www.klaytnapi.com) to get a KAS account. Please visit the website above and sign up in KAS.
 
-[![main page](../images/kas-main-en.png)](https://www.klaytnapi.com)
-
-[![sign up](../images/kas-signup-ko.png)](https://www.klaytnapi.com)
-
 ## Create Credential <a id="check-credential"></a>
 After login, you can create your credential like below. The `AccessKey ID` and `Secret AccessKey`, or `Authorization` will be used to call KAS APIs.
 
