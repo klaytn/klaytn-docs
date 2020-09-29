@@ -361,15 +361,16 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 - `timeout`: `STRING`. 자바스크립트 기반 추적 호출 타임아웃으로 기본 설정된 5초를 변경합니다. 유효한 값은 [여기](https://golang.org/pkg/time/#ParseDuration)를 참고해주세요.
 - `tracer`: `STRING`. 이 옵션을 설정하면 자바스크립트 기반 트랜잭션 추적을 활성화합니다. 자세한 내용은 [다음 장](#javascript-based-tracing)을 참고해주세요. 이 옵션을 설정하면 앞선 4개의 매개변수는 모두 무시됩니다. 다음 표와 같이 사전 정의된 추적 툴을 사용할 수도 있습니다.
 
-| 추적 툴 이름        | 설명                                                                                                          |
-| -------------- | ----------------------------------------------------------------------------------------------------------- |
-| 4byteTracer    | 4byteTracer는 4바이트 식별자를 검색하여 사후 처리를 위해 수집합니다. 제공된 데이터의 크기와 함께 메서드 식별자를 수집하므로 역으로 된 서명을 데이터 크기에 대응시킬 수도 있습니다. |
-| callTracer     | callTracer는 트랜잭션에서 생성된 내부 호출과 기타 유용한 정보들을 추출하고 보고하는 모든 기능을 갖춘 트랜잭션 추적 툴입니다.                                 |
-| evmdisTracer   | evmdisTracer는 evmdis 형식의 디스어셈블러에서 얻은 정보를 반환합니다.                                                             |
-| noopTracer     | noopTracer는 자바스크립트 객체에서 트랜잭션 추적 시 사용하기 위해 필요한 기본 상용구 코드입니다.                                                 |
-| opcountTracer  | opcountTracer는 트랜잭션이 종료되기 전에 KLVM이 실행한 연산 수를 세는 샘플 추적 툴입니다.                                                 |
-| prestateTracer | prestateTracer는 맞춤 조립된 제네시스 블록으로부터 트랜잭션 로컬 실행을 생성하기에 충분한 정보를 출력합니다.                                         |
-| revertTracer   | revertTracer는 REVERT의 오류 문자열을 출력합니다. 실행이 번복되지 않으면 빈 문자열을 출력합니다.                                             |
+| 추적 툴 이름        | 설명                                                                                                                                                                                                                                                               |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 4byteTracer    | 4byteTracer는 4바이트 식별자를 검색하여 사후 처리를 위해 수집합니다. 제공된 데이터의 크기와 함께 메서드 식별자를 수집하므로 역으로 된 서명을 데이터 크기에 대응시킬 수도 있습니다.                                                                                                                                                      |
+| callTracer     | callTracer는 트랜잭션에서 생성된 내부 호출과 기타 유용한 정보들을 추출하고 보고하는 모든 기능을 갖춘 트랜잭션 추적 툴입니다.                                                                                                                                                                                      |
+| fastCallTracer | fastCallTracer is a Go-native version of callTracer. Since it is not executed on Javascript VM, it shows more than 10x speedup compared to callTracer. Please use fastCallTracer instead of callTracer if the performance is the matter of the first importance. |
+| evmdisTracer   | evmdisTracer returns sufficient information from a trace to perform evmdis-style disassembly.                                                                                                                                                                    |
+| noopTracer     | noopTracer is just the barebone boilerplate code required from a JavaScript object to be usable as a transaction tracer.                                                                                                                                         |
+| opcountTracer  | opcountTracer is a sample tracer that just counts the number of instructions executed by the KLVM before the transaction terminated.                                                                                                                             |
+| prestateTracer | prestateTracer outputs sufficient information to create a local execution of the transaction from a custom assembled genesis block.                                                                                                                              |
+| revertTracer   | revertTracer outputs the error string of REVERT. If the execution is not reverted, it outputs an empty string.                                                                                                                                                   |
 
 
 **예시**
@@ -482,4 +483,3 @@ function(log) {
 ```javascript
 debug.traceTransaction(txhash, {tracer: '{data: [], step: function(log) { if(log.op.toString() == "CALL") this.data.push(log.stack.peek(0)); }, result: function() { return this.data; }}'});
 ```
-
