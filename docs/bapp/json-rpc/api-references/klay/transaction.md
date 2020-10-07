@@ -14,7 +14,7 @@ Executes a new message call immediately without creating a transaction on the bl
 | Name | Type | Description |
 | --- | --- | --- |
 | from | 20-byte DATA | (optional) The address the transaction is sent from. |
-| to | 20-byte DATA | The address the transaction is directed to. |
+| to | 20-byte DATA | (optional when testing the deployment of a new contract) The address the transaction is directed to. |
 | gas | QUANTITY | (optional) Integer of the gas provided for the transaction execution. `klay_call` consumes zero gas, but this parameter may be needed by some executions. |
 | gasPrice | QUANTITY | (optional) Integer of the gasPrice used for each paid gas. |
 | value | QUANTITY | (optional) Integer of the value sent with this transaction. |
@@ -30,8 +30,8 @@ If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactio
 
 **Error**
 
-It returns an error object of JSON RPC if anything goes worng.
-For example, an error object with message  "evm: execution reverted" will be generated if a message call is terminated with `REVERT` opcode.
+It returns an error object of JSON RPC if anything goes wrong.
+For example, an error object with a message  "evm: execution reverted" will be generated if a message call is terminated with `REVERT` opcode.
 
 **Example**
 
@@ -49,7 +49,20 @@ Generates and returns an estimate of how much gas is necessary to allow the tran
 
 **Parameters**
 
-See [klay_call](#klay_call) parameters, expect that all properties are optional. If no gas limit is specified, the Klaytn node uses the block gas limit from the pending block as an upper bound. As a result, the returned estimate might not be enough to executed the call/transaction when the amount of gas is higher than the pending block gas limit.
+| Name | Type | Description |
+| --- | --- | --- |
+| callObject | Object | The transaction call object.  See the next table for the object's properties. |
+
+`callObject` has the following properties:
+
+| Name | Type | Description |
+| --- | --- | --- |
+| from | 20-byte DATA | (optional) The address the transaction is sent from. |
+| to | 20-byte DATA | (optional when testing the deployment of a new contract) The address the transaction is directed to. |
+| gas | QUANTITY | (optional) Integer of the upper gas limit provided for the gas estimation. If no gas limit is specified, the Klaytn node uses the designated gas limit as an upper bound.  
+| gasPrice | QUANTITY | (optional) Integer of the gasPrice used for each paid gas. |
+| value | QUANTITY | (optional) Integer of the value sent with this transaction. |
+| data | DATA | (optional) Hash of the method signature and encoded parameters. |
 
 **Return Value**
 
@@ -61,7 +74,7 @@ See [klay_call](#klay_call) parameters, expect that all properties are optional.
 **Example**
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_estimateGas","params":[{see above}],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_estimateGas", "params": [{"from": "0x3f71029af4e252b25b9ab999f77182f0cd3bc085", "to": "0x87ac99835e67168d4f9a40580f8f5c33550ba88b", "gas": "0x100000", "gasPrice": "0x5d21dba00", "value": "0x0", "data": "0x8ada066e"}], "id": 1}' http://localhost:8551
 
 // Result
 {

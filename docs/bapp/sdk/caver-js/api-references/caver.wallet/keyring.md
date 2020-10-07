@@ -26,7 +26,7 @@ const keyring = new caver.wallet.keyring.singleKeyring(address, key)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | string | The address of account to update. |
+| address | string | The address of the account. |
 | key | [PrivateKey] | An instance of [PrivateKey] containing one private key inside. |
 
 ### MultipleKeyring <a id="multiplekeyring"></a>
@@ -43,7 +43,7 @@ const keyring = new caver.wallet.keyring.multipleKeyring(address, keys)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | string | The address of account to update. |
+| address | string | The address of the account. |
 | keys | Array | An array of [PrivateKey] instances containing one private key inside. |
 
 ### RoleBasedKeyring <a id="rolebasedkeyring"></a>
@@ -60,7 +60,7 @@ const keyring = new caver.wallet.keyring.roleBasedKeyring(address, keys)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | string | The address of account to update. |
+| address | string | The address of the account. |
 | keys | Array | A two-dimensional array that defines the keys used for each [role]. Each [role] includes [PrivateKey] instance(s). The first element in this is `roleTransactionKey`. The second element is `roleAccountUpdateKey`. The last element is `roleFeePayerKey`. |
 
 Below is a getter defined in keyring to intuitively use the key defined for each role. The key used for each role can be accessed more easily through the getter below.

@@ -108,7 +108,7 @@ This API works only on RPC call, not on Javascript console.
 
 **Return Value**
 
-`Object` - A block object, or `null` when no block was found:
+`Object` - A block object, or `error` when no block was found:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -301,7 +301,7 @@ Returns a block with consensus information matched by the given hash.
 
 **Return Value**
 
-`Object` - A block object with consensus information (a proposer and a list of committee members), or `null` when no block was found:
+`Object` - A block object with consensus information (a proposer and a list of committee members), or `error` when no block was found:
 
 | Name | Type | Description |
 | --- | --- | ---|
@@ -405,7 +405,7 @@ Returns a block with consensus information matched by the given block number.
 
 **Return Value**
 
-`Object` - A block object with consensus information (a proposer and a list of committee members), or `null` when no block was found:
+`Object` - A block object with consensus information (a proposer and a list of committee members), or `error` when no block was found:
 
 | Name | Type | Description |
 | --- | --- | ---|
