@@ -75,7 +75,7 @@ The first PoC Pilot test will be implemented as below.
 
 ### Incentive Programs <a id="incentive-programs"></a>
 
-In this pilot test, service providers’ contribution is measured at each round(2 weeks), and rewards are distributed based on the level of contribution. The contribution metrics and reward distribution process are defined as follows.
+In this pilot test, service providers’ contribution is measured at each round (2 weeks), and rewards are distributed based on their level of contribution. The contribution metrics and reward distribution process are defined as follows.
 
 #### 1. Contribution metrics
 
@@ -101,11 +101,11 @@ This method of distributing rewards is designed to help service providers get mo
 
 Service providers receive rewards through three stages as follows, based on data collected during a round.
 
-1. Applying minimum threshold and calculate contribution: Contribution measurement and compensation payments are made only to service providers that have passed the minimum standard \(e.g. inflow of at least 100 new users\). Contribution is measured based on the four metrics and their weights ​​mentioned above.
+1. Applying minimum threshold and calculating contribution: Contribution measurement and compensation payments are made only to service providers that have passed the minimum standard \(e.g. inflow of at least 100 new users\). The contribution is measured based on the four metrics and their weights ​​mentioned above.
 
-2. Calculating the total reward amount of compensation for a round: The total reward amount per round is measured based on the  number of \(new / retained\) user inflows. The total reward amount per round cannot exceed the total reward pool, which.
+2. Calculating the total reward amount of compensation for a round: The total reward amount per round is measured based on the  number of \(new / retained\) user inflows. The total reward amount per round cannot exceed the total reward pool.
 
-3. Distributing compensation: Based on the previously calculated contribution, each service provider's contribution rate and ranking are determined. The service providers will eventually receive a reward based on the contribution rate and ranking.
+3. Distributing compensations: Based on the previously calculated contribution, each service provider's contribution rate and ranking are determined. The service providers will eventually receive a reward based on the contribution rate and ranking.
 
 This system is designed to help service providers get more rewards as they strive to attract users and develop the services.
 
@@ -121,4 +121,3 @@ The spending necessary to set up the ecosystem can be categorized as following.
 * Others
 
 KIR proposals can be created by any participant in Klaytn’s ecosystem. KIR spending proposals will be processed per KIR Governance Process. Refer to the [Klaytn Improvement Reserve Governance Process](governance.md#klaytn-improvement-reserve-governance-process) section for more information on the procedure. Once a spending proposal has passed, KLAY will be distributed periodically, from a predetermined total amount, based on the project’s level of progress. This process may change based on the project size but is planned to be processed monthly.
-
