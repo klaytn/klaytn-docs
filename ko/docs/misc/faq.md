@@ -60,9 +60,9 @@ Klaytn SDK를 사용하여 BApp을 구축하는 방법에 대한 자세한 내�
 
 ## Klaytn에서 ERC-20 및 ERC-721 컨트랙트를 사용할 수 있나요? <a id="can-i-use-erc-20-and-erc-721"></a>
 
-예. Klaytn은 스마트 컨트랙트 언어로 솔리디티(Solidity)를 지원합니다. 이더리움에서 솔리디티로 작성한 [ERC-20](../smart-contract/sample-contracts/erc-20/README.md) 및 [ERC-721](../smart-contract/sample-contracts/erc-20/README.md)는 Klaytn에 그대로 배포하여 실행할 수 있습니다.
+예. Klaytn은 스마트 컨트랙트 언어로 솔리디티(Solidity)를 지원합니다. [ERC-20](../smart-contract/sample-contracts/erc-20/README.md) and [ERC-721](../smart-contract/sample-contracts/erc-721/README.md) written in Solidity for Etherem can be deployed and executed on Klaytn.
 
-Klaytn에 특화된 토큰 표준이 추가로 정의될 수 있습니다. [KIP(Klaytn Improvement Proposal)]()을 구독하고 토론에 참여하세요.
+Klaytn에 특화된 토큰 표준이 추가로 정의될 수 있습니다. Follow the [KIP (Klaytn Improvement Proposal)](http://kips.klaytn.com) and join the discussion.
 
 
 
