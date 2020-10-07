@@ -8,15 +8,19 @@ This section introduces the pre-requisites to use KAS for data anchoring.
 ## Sign Up KAS (Klaytn API Service) <a id="sign-up-kas"></a>
 First, you need to sign up KAS on the [KAS console website](https://www.klaytnapi.com) to get a KAS account. Please visit the website above and sign up in KAS.
 
+[![main page](../images/kas-main-en.png)](https://www.klaytnapi.com)
+
+[![sign up](../images/kas-signup-en.png)](https://www.klaytnapi.com)
+
 ## Create Credential <a id="check-credential"></a>
 After login, you can create your credential like below. The `AccessKey ID` and `Secret AccessKey`, or `Authorization` will be used to call KAS APIs.
 
-![credential](../images/kas-credential-ko.png)
+![credential](../images/kas-credential-en.png)
 
 ## Anchor API <a id="anchor-api"></a>
 KAS provides Anchor API, which is designed for data anchoring and surely it is the one that you are going to use for anchoring task.
 
-![anchor api](../images/kas-anchor-api-ko.png)
+![anchor api](../images/kas-anchor-api-en.png)
 
 ## Create Operator Address <a id="create-kas-credential"></a>
 To anchor service chain data via KAS, there should be a Klaytn address, enrolled in KAS, that actually send anchoring transaction to Klaytn. So, before you set up your service node, you need to create an Klaytn account called "operator" via KAS. Please, use KAS console to create this account.
@@ -25,15 +29,15 @@ It is important to be noticed that you must **first select the chain** in Klaytn
 
 
 
-![select chain](../images/kas-select-chain-ko.png)
+![select chain](../images/kas-select-chain-en.png)
 
 Create an operator as below.
 
-![create operator](../images/kas-create-operator-ko.png)
+![create operator](../images/kas-create-operator-en.png)
 
 Then, you can check your operator list like below. Please note that the address of an operator is required for setting your service chain node.
 
-![create operator](../images/kas-operator-list-ko.png)
+![create operator](../images/kas-operator-list-en.png)
 
 ## Configure Service Chain Node <a id="configure-service-chain-node"></a>
 After obtaining API credentials, Anchor API information (API endpoint and parameters), and an operator account in KAS, then It is time to set up your service chain node. You need to edit the configuration file (`kscnd.conf`, `kspnd.conf`, `ksend.conf`) of your service chain node like below.
@@ -78,4 +82,4 @@ INFO[09/10,18:09:32 +09] [53] Anchored a block via KAS                  blkNum=8
 ## List of Transaction <a id="list-of-transaction"></a>
 In KAS console website, you can see the list of anchoring transactions that the operator of your service chain has sent at "KAS Console - Service - Anchor - Operators" menu like below.
 
-![anchoring transaction list](../images/kas-tx-list-ko.png)
+![anchoring transaction list](../images/kas-tx-list-en.png)
