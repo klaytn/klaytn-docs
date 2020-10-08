@@ -660,7 +660,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_saveTrieNodeToDisk <a id="admin_saveTrieNodeToDisk"></a>
 
-The `saveTrieNodeToDisk` is an administrative method that starts saving the cached trie node to the disk to reuse them when the node restarts. To reuse the saved trie cached node data, the data should be located under `--datadir + "/fastcache"` . This method receives a parameter `filePath` , the path where the cached trie node will be saved and its default value is `--datadir + "/fastcache"`. This method returns an error if it fails to read the given `filePath` or the given directory is not an empty one. Job will be done in background and it will leave a log when it finishes.
+The `saveTrieNodeToDisk` is an administrative method that starts saving the cached trie node to the disk to reuse them when the node restarts. Cached trie node data will be stored to and loaded from  `--datadir + "/fastcache"` . This method returns an error if it the saving process has been already triggered or trie node cache is disabled.
 
 | Client  | Method invocation                                            |
 | :-----: | ------------------------------------------------------------ |
@@ -669,9 +669,7 @@ The `saveTrieNodeToDisk` is an administrative method that starts saving the cach
 
 **Parameters**
 
-| Name     | Type   | Description                                                  |
-| -------- | ------ | ------------------------------------------------------------ |
-| filePath | string | The path where state trie node cache will be saved. If not given, it will be `--datadir + "/fastcache"` |
+None
 
 **Return Value**
 
@@ -684,13 +682,13 @@ The `saveTrieNodeToDisk` is an administrative method that starts saving the cach
 Console
 
 ```javascript
-> admin.saveTrieNodeToDisk("")
+> admin.saveTrieNodeToDisk()
 null
 ```
 
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_saveTrieNodeToDisk", "params": [""], "id":1}' http://13.124.205.121:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_saveTrieNodeToDisk", "id":1}' http://13.124.205.121:8551
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
