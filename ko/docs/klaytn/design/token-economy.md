@@ -56,58 +56,54 @@ Klaytn의 토큰 이코노미는 경제 활동에 자발적으로 참여하여 �
 
 수요와 공급 사이의 불균형이 확대되면 경제가 지속 가능하지 않습니다. 따라서, 사용자는 Klaytn 토큰 이코노미 내에서 중요한 위치를 차지합니다. 사용자는 주요한 수요 주체로서 경제적 성장을 이끄는 근본적인 원동력입니다. 사용자는 서비스를 신중하게 선택하고, 사용하며, 리뷰를 공유함으로써 귀중한 시장 신호(Market signal)를 만듭니다. Klaytn은 사용자의 가치를 인식하여, PoC가 Klaytn 생태계 성장에 기여하는 바에 따라 사용자에게 보상하는 인센티브 메커니즘이 될 수 있도록 검토하고 있습니다.
 
-## Proof of Contribution Pilot Test Operation Plan <a id="proof-of-contribution-operation-plan"></a>
+## PoC 파일럿 테스트 운영 계획 <a id="proof-of-contribution-operation-plan"></a>
 
-Klaytn will further develop the PoC policy through pilot testing so that PoC can be implemented stably for all participants in Klaytn. This pilot test will be conducted on a smaller scale as it will be the first external experiment of PoC, which can affect the early stages of the Klaytn network. The instructions will be updated according to the result of the pilot test.
+Klaytn은 파일럿 테스트를 통해 PoC 정책을 보다 고도화 시켜 나감으로써, 보다 많은 Klaytn 네트워크 참가자들이 PoC의 혜택을 누릴 수 있게 하고자 합니다. 1차 PoC 파일럿 테스트 Klaytn 네트워크 초기에 시행 됨에 따라, Klaytn 생태계에 대한 영향을 최소화하기 위해 소규모로 진행될 예정입니다. 아래에 언급된 사항들은 파일럿 테스트 결과에 따라 지속 수정될 것입니다.
 
 ### 개요 <a id="overview"></a>
 
-The first PoC Pilot test will be implemented as below.
+1차 PoC 파일럿 테스트는 아래와 같이 진행될 예정입니다.
 
-| Phase 1                     |                                                                                                                                                                                             |
-|:--------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Target**                  | Service providers who have applied for this pilot test and passed internal review                                                                                                           |
-| **Period**                  | 2020.09 ~ 2020.11                                                                                                                                                                           |
-| **Basic Requirements**      | \(1\) Services which have been completed onboarding Cypress (Klaytn Mainnet), \(2\) allow their customer to interact with smart contract \(3\) and are free from illegal issues.      |
-| **Resources**               | Maximum 600,000 KLAY will be distributed to service providers.                                                                                                                              |
-| **Reward Schedule**         | Service providers will be rewarded after finishing each round which is bi-weekly basis. Specific amount of reward will be calculated based on the blockchain data collected during a round. |
-| **Disqualification Policy** | Service providers who performed inappropriate activities such as manipulating data about contribution indicators will be disqualified permanently.                                          |
+| Phase 1      |                                                                                                              |
+|:------------ |:------------------------------------------------------------------------------------------------------------ |
+| **대상**       | 1차 PoC 파일럿 테스트 신청 및 내부 심사를 통과한 서비스 제공자                                                                       |
+| **기간**       | 2020.09 ~ 2020.11                                                                                            |
+| **기본 요구 사항** | 다음 조건을 충족한 서비스 제공자: \(1\) Cypress 온보딩 완료, \(2\) 고객이 직접 스마트 컨트랙트와 상호작용할 수 있는 기능 지원, \(3\) 규제 준수         |
+| **자원**       | 최대 600,000 KLAY가 서비스 제공자들에게 배포될 예정입니다.                                                                       |
+| **보상 지급 일정** | 서비스 제공자는 기여도 평가 라운드가 끝난 이후에 보상을 지급 받습니다. 기여도 평가 라운드는 격주로 시작되며, 서비스 제공자의 보상량은 2주 동안 수집된 블록체인 데이터를 기반으로 산정됩니다. |
+| **자격박탈**     | 기여도 측정 관련 데이터 조작과 같은 부정 행위를 저지른 서비스 제공자는 영구적으로 PoC 참여 자격이 박탈됩니다.                                             |
 
 ### 인센티브 프로그램 <a id="incentive-programs"></a>
 
-In this pilot test, service providers’ contribution is measured at each round (2 weeks), and rewards are distributed based on their level of contribution. The contribution metrics and reward distribution process are defined as follows.
+본 파일럿 테스트에서, 서비스 제공자는 기여도 평가 라운드 마다 기여도가 측정되며, 이를 기반으로 보상을 분배받습니다. 서비스 제공자에 대한 ‘기여도 측정 지표’ 및 ‘보상 분배 방식’은 아래와 같습니다.
 
-#### 1. Contribution metrics
+#### 1. 기여도 측정 지표
 
-During a round, following data will be collected based on the transaction on Klaytn blockchain(Cypress).
-* No. of New Users: The no. of new unique accounts(EOAs) that send at least one transaction to smart contracts(of services) during the corresponding round
-* No. of Retained Users: The no. of returning unique accounts(EOAs) that send at least transactions to a smart contracts(of services) during the corresponding round
-* No. of Transactions: The no. of transactions that execute a service smart contract during the corresponding round
-* KLAY Volume: The total KLAY volume transmitted to a service smart contract during the corresponding round.
+서비스 제공자에 대한 기여도 측정을 위해, 서비스 스마트컨트랙트에 대한 트랜잭션을 기반으로 아래의 4가지 지표 데이터가 수집될 예정입니다.
+* 신규 유저 수: 해당 라운드 기간 동안 서비스 스마트 컨트랙트에 트랜잭션을 1개 이상 보낸 신규 고유 계정 수 입니다.
+* 신규 유저 수: 해당 라운드 기간 동안 서비스 스마트 컨트랙트에 트랜잭션을 1개 이상 보낸 신규 고유 계정 수 입니다. 재방문 유저 수: 해당 라운드 기간 동안 서비스 스마트 컨트랙트에 트랜잭션을 1개 이상 보낸 재방문 고유 계정 수 입니다.
+* 신규 유저 수: 해당 라운드 기간 동안 서비스 스마트 컨트랙트에 트랜잭션을 1개 이상 보낸 신규 고유 계정 수 입니다. 트랜잭션 발생 수: 해당 라운드 기간 동안 서비스 스마트컨트랙트를 호출하는 트랜잭션 수 입니다.
+* KLAY 사용 규모: 해당 라운드 기간 동안 서비스 스마트 컨트랙트로 전송되는 KLAY 전체 수량 입니다.
 
-#### 2. Reward distribution process
+#### 2. 보상 분배 방식
 
-Based on the data collected during a round, a service provider receives the rewards in three steps as shown below.
+서비스 제공자는 한 라운드 기간 동안 수집된 데이터를 기반으로, 아래와 같이 3단계에 거쳐 보상을 분배받습니다.
 
-* 1st step - Passing minimum threshold and calculating service provider’s contribution: To be rewarded, service providers should meet the given minimum threshold. The service providers’ contribution who belong to a specific standard (e.g. inflow of more than 100 new users) will be measured based on the four indicator values ​​mentioned above and the weight for each indicator.
+* 1단계 - 최소 기준 통과 및 기여도 산정: 최소 기준(eg. 신규 유저 100명 이상 유입)을 통과한 서비스 제공자에 한 하여 기여도 측정 및 보상 지급이 이뤄집니다. 기여도는 위에서 언급한 4가지 지표 값 및 각 지표별 가중치를 기반으로 측정됩니다.
 
-* 2nd step - Calculating aggregate incentive amount per round: The total compensation amount for a particular round varies based on the total number of user (new/existing) inflows. As there is upper limit for total reward amount, the PoC compensation pool is not going to run out of.
+* 2단계 - 라운드 별 총 보상량 산정: 라운드 별 총 보상량은 총 유저(신규/기존) 유입 수를 기반으로 측정됩니다. 이때, 라운드에 대한 총 보상량에는 상한선이 존재함에 따라 PoC 보상 풀 고갈에 대한 우려는 없습니다.
 
-* 3rd step - Distributing compensation: Based on the previously calculated contribution, each service provider's contribution rate and ranking are determined. The service providers will eventually receive a reward based on the contribution rate and ranking.
+* 3단계 - 기여율 및 기여도 순위 기반 보상 분배: 앞서 산정된 서비스 제공자의 기여도를 기반으로 서비스 제공자별 기여율 및 기여도 순위가 산정됩니다. 서비스 제공자는 최종적으로 기여율 및 기여도 순위에 따라 보상을 배분받습니다.
 
-This method of distributing rewards is designed to help service providers get more rewards as they strive to attract users and develop the services.
+본 보상 분배 방식은 서비스 제공자가 유저 유치 및 서비스 개발에 힘쓸 수록 보다 많은 보상을 받을 수 있도록 디자인 되었습니다.
 
 --------------------------------------------------
 
-Service providers receive rewards through three stages as follows, based on data collected during a round.
+1.
 
-1. Applying minimum threshold and calculating contribution: Contribution measurement and compensation payments are made only to service providers that have passed the minimum standard \(e.g. inflow of at least 100 new users\). The contribution is measured based on the four metrics and their weights ​​mentioned above.
+2.
 
-2. Calculating the total reward amount of compensation for a round: The total reward amount per round is measured based on the  number of \(new / retained\) user inflows. The total reward amount per round cannot exceed the total reward pool.
-
-3. Distributing compensations: Based on the previously calculated contribution, each service provider's contribution rate and ranking are determined. The service providers will eventually receive a reward based on the contribution rate and ranking.
-
-This system is designed to help service providers get more rewards as they strive to attract users and develop the services.
+3.
 
 ## Klaytn 개선 준비금(Klaytn Improvement Reserve)<a id="klaytn-improvement-reserve"></a>
 
