@@ -664,8 +664,8 @@ The `saveTrieNodeToDisk` is an administrative method that starts saving the cach
 
 | Client  | Method invocation                                            |
 | :-----: | ------------------------------------------------------------ |
-| Console | `admin.saveTrieNodeToDisk(filePath)`                         |
-|   RPC   | `{"method": "admin_saveTrieNodeToDisk", "params": [filePath]}` |
+| Console | `admin.saveTrieNodeToDisk()`                         |
+|   RPC   | `{"method": "admin_saveTrieNodeToDisk"}` |
 
 **Parameters**
 
@@ -691,4 +691,3 @@ HTTP RPC
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_saveTrieNodeToDisk", "id":1}' http://13.124.205.121:8551
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
-
