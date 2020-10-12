@@ -660,7 +660,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_saveTrieNodeToDisk <a id="admin_saveTrieNodeToDisk"></a>
 
-The `saveTrieNodeToDisk` is an administrative method that starts saving the cached trie node to the disk to reuse them when the node restarts. Cached trie node data will be stored to and loaded from  `--datadir + "/fastcache"` . This method returns an error if it the saving process has been already triggered or trie node cache is disabled. This feature is supported since Klaytn 1.5.3.
+The `saveTrieNodeToDisk` is an administrative method that starts saving the cached trie node to the disk to reuse them when the node restarts. Cached trie node data will be stored to and loaded from  `$DATA_DIR/fastcache` . This method returns an error if the saving process has been already triggered or trie node cache is disabled. This feature is supported since Klaytn 1.5.3.
 
 | Client  | Method invocation                                            |
 | :-----: | ------------------------------------------------------------ |
@@ -688,6 +688,6 @@ null
 
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_saveTrieNodeToDisk", "id":1}' http://13.124.205.121:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_saveTrieNodeToDisk", "id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
