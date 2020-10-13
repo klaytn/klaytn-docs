@@ -553,10 +553,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `stopStateMigration` 관리 메서드는 현재 실행중인 상태 마이그레이션 작업을 중단합니다. 이 메서드는 파라미터를 받지 않습니다. 상태 마이그레이션 작업이 성공적으로 중단되었다면 `null`을, 작업을 중단하는 데에 실패했다면 에러를 반환합니다.
 
-| 클라이언트 | 메서드 호출                             |
-|:-----:| ---------------------------------- |
-|  콘솔   | `admin.stopStateMigration()`       |
-|  RPC  | `{"method": "stopStateMigration"}` |
+| 클라이언트 | 메서드 호출                                   |
+|:-----:| ---------------------------------------- |
+|  콘솔   | `admin.stopStateMigration()`             |
+|  RPC  | `{"method": "admin_stopStateMigration"}` |
 
 **매개변수**
 
@@ -587,10 +587,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `stateMigrationStatus` 관리 메서드는 상태 마이그레이션 작업 정보를 반환합니다. 이 메서드는 파라미터를 받지 않습니다. 현재 진행중인 상태 마이그레이션 작업에 대한 정보를 반환합니다.
 
-| 클라이언트 | 메서드 호출                               |
-|:-----:| ------------------------------------ |
-|  콘솔   | `admin.stateMigrationStatus`         |
-|  RPC  | `{"method": "stateMigrationStatus"}` |
+| 클라이언트 | 메서드 호출                                     |
+|:-----:| ------------------------------------------ |
+|  콘솔   | `admin.stateMigrationStatus`               |
+|  RPC  | `{"method": "admin_stateMigrationStatus"}` |
 
 **매개변수**
 
@@ -628,4 +628,38 @@ HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stateMigrationStatus","id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":{"committed":14995692,"err":"null","isMigration":true,"migrationBlockNumber":32630836,"pending":19699,"progress":25,"read":14997777}}
+```
+
+## admin_saveTrieNodeToDisk <a id="admin_saveTrieNodeToDisk"></a>
+
+The `saveTrieNodeToDisk` is an administrative method that starts saving the cached trie node to the disk to reuse them when the node restarts. Cached trie node data will be stored to and loaded from  `$DATA_DIR/fastcache` . This method returns an error if the saving process has been already triggered or trie node cache is disabled. This feature is supported since Klaytn 1.5.3.
+
+| 클라이언트 | 메서드 호출                                   |
+|:-----:| ---------------------------------------- |
+|  콘솔   | `admin.saveTrieNodeToDisk()`             |
+|  RPC  | `{"method": "admin_saveTrieNodeToDisk"}` |
+
+**매개변수**
+
+없음
+
+**리턴값**
+
+| 형식 | 설명                                                                      |
+| -- | ----------------------------------------------------------------------- |
+| 에러 | `null` if saving the trie node has started, or an error message if not. |
+
+**예시**
+
+콘솔
+
+```javascript
+> admin.saveTrieNodeToDisk()
+null
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_saveTrieNodeToDisk", "id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
 ```
