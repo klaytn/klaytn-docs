@@ -583,7 +583,7 @@ This method takes no parameters and returns `null` or an error whether the state
 | Client  | Method invocation             |
 | :-----: | ----------------------------- |
 | Console | `admin.stopStateMigration()`             |
-|   RPC   | `{"method": "stopStateMigration"}` |
+|   RPC   | `{"method": "admin_stopStateMigration"}` |
 
 **Parameters**
 
@@ -618,7 +618,7 @@ This method takes no parameters and returns the status of the currently running 
 | Client  | Method invocation             |
 | :-----: | ----------------------------- |
 | Console | `admin.stateMigrationStatus`             |
-|   RPC   | `{"method": "stateMigrationStatus"}` |
+|   RPC   | `{"method": "admin_stateMigrationStatus"}` |
 
 **Parameters**
 
