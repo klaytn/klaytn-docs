@@ -87,18 +87,6 @@ During a round, following data will be collected based on the transaction on Kla
 
 #### 2. Reward distribution process
 
-Based on the data collected during a round, a service provider receives the rewards in three steps as shown below.
-
-* 1st step - Passing minimum threshold and calculating service provider’s contribution: To be rewarded, service providers should meet the given minimum threshold. The service providers’ contribution who belong to a specific standard (e.g. inflow of more than 100 new users) will be measured based on the four indicator values ​​mentioned above and the weight for each indicator.
-
-* 2nd step - Calculating aggregate incentive amount per round: The total compensation amount for a particular round varies based on the total number of user (new/existing) inflows. As there is upper limit for total reward amount, the PoC compensation pool is not going to run out of.
-
-* 3rd step - Distributing compensation: Based on the previously calculated contribution, each service provider's contribution rate and ranking are determined. The service providers will eventually receive a reward based on the contribution rate and ranking.
-
-This method of distributing rewards is designed to help service providers get more rewards as they strive to attract users and develop the services.
-
---------------------------------------------------
-
 Service providers receive rewards through three stages as follows, based on data collected during a round.
 
 1. Applying minimum threshold and calculating contribution: Contribution measurement and compensation payments are made only to service providers that have passed the minimum standard \(e.g. inflow of at least 100 new users\). The contribution is measured based on the four metrics and their weights ​​mentioned above.
