@@ -583,7 +583,7 @@ This method takes no parameters and returns `null` or an error whether the state
 | Client  | Method invocation             |
 | :-----: | ----------------------------- |
 | Console | `admin.stopStateMigration()`             |
-|   RPC   | `{"method": "stopStateMigration"}` |
+|   RPC   | `{"method": "admin_stopStateMigration"}` |
 
 **Parameters**
 
@@ -618,7 +618,7 @@ This method takes no parameters and returns the status of the currently running 
 | Client  | Method invocation             |
 | :-----: | ----------------------------- |
 | Console | `admin.stateMigrationStatus`             |
-|   RPC   | `{"method": "stateMigrationStatus"}` |
+|   RPC   | `{"method": "admin_stateMigrationStatus"}` |
 
 **Parameters**
 
@@ -637,7 +637,7 @@ None
 | read | int | `read` represents the number of trie nodes that have been read by the state migration. |
 
 **Example**
-  
+
 Console
 
 ```javascript
@@ -656,4 +656,38 @@ HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stateMigrationStatus","id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":{"committed":14995692,"err":"null","isMigration":true,"migrationBlockNumber":32630836,"pending":19699,"progress":25,"read":14997777}}
+```
+
+## admin_saveTrieNodeToDisk <a id="admin_saveTrieNodeToDisk"></a>
+
+The `saveTrieNodeToDisk` is an administrative method that starts saving the cached trie node to the disk to reuse them when the node restarts. Cached trie node data will be stored to and loaded from  `$DATA_DIR/fastcache` . This method returns an error if the saving process has been already triggered or trie node cache is disabled. This feature is supported since Klaytn 1.5.3.
+
+| Client  | Method invocation                                            |
+| :-----: | ------------------------------------------------------------ |
+| Console | `admin.saveTrieNodeToDisk()`                         |
+|   RPC   | `{"method": "admin_saveTrieNodeToDisk"}` |
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Error | `null` if saving the trie node has started, or an error message if not. |
+
+**Example**
+
+Console
+
+```javascript
+> admin.saveTrieNodeToDisk()
+null
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_saveTrieNodeToDisk", "id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
 ```
