@@ -65,9 +65,9 @@ Klaytn publishes the chain data every day. Chain data is a database snapshot tha
 
 ## Can I use ERC-20 and ERC-721 contracts on Klaytn? <a id="can-i-use-erc-20-and-erc-721"></a>
 
-Yes. Klaytn supports Solidity as a smart contract language. [ERC-20](../smart-contract/sample-contracts/erc-20/README.md) and [ERC-721](../smart-contract/sample-contracts/erc-20/README.md) written in Solidity for Etherem can be deployed and executed on Klaytn.
+Yes. Klaytn supports Solidity as a smart contract language. [ERC-20](../smart-contract/sample-contracts/erc-20/README.md) and [ERC-721](../smart-contract/sample-contracts/erc-721/README.md) written in Solidity for Etherem can be deployed and executed on Klaytn.
 
-Further Klaytn-specific token standards can be defined. Follow the [KIP (Klaytn Improvement Proposal)]() and join the discussion.
+Further Klaytn-specific token standards can be defined. Follow the [KIP (Klaytn Improvement Proposal)](http://kips.klaytn.com) and join the discussion.
 
 
 
