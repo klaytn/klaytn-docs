@@ -131,10 +131,10 @@ true
 ```
 
 
-## isBignumber <a id="isbignumber"></a>
+## isBigNumber <a id="isbignumber"></a>
 
 ```javascript
-caver.utils.isBignumber(bignumber)
+caver.utils.isBigNumber(bignumber)
 ```
 
 Checks if a given value is a [Bignumber.js](http://mikemcl.github.io/bignumber.js/) instance.
@@ -155,7 +155,7 @@ Checks if a given value is a [Bignumber.js](http://mikemcl.github.io/bignumber.j
 
 ```javascript
 > var number = new Bignumber(10)
-> caver.utils.isBignumber(number)
+> caver.utils.isBigNumber(number)
 true
 ```
 
@@ -472,10 +472,10 @@ Text strings will be interpreted as UTF-8 strings.
 '0x49206861766520313030e282ac'
 ```
 
-## hexTonumberstring <a id="hextonumberstring"></a>
+## hexToNumberString <a id="hextonumberstring"></a>
 
 ```javascript
-caver.utils.hexTonumberstring(hex)
+caver.utils.hexToNumberString(hex)
 ```
 
 Returns the number representation of a given HEX value as a string.
@@ -495,14 +495,14 @@ Returns the number representation of a given HEX value as a string.
 **Examples**
 
 ```javascript
-> caver.utils.hexTonumberstring('0xea')
+> caver.utils.hexToNumberString('0xea')
 "234"
 ```
 
-## hexTonumber <a id="hextonumber"></a>
+## hexToNumber <a id="hextonumber"></a>
 
 ```javascript
-caver.utils.hexTonumber(hex)
+caver.utils.hexToNumber(hex)
 ```
 Returns the number representation of a given HEX value.
 
@@ -523,7 +523,7 @@ Returns the number representation of a given HEX value.
 **Examples**
 
 ```javascript
-> caver.utils.hexTonumber('0xea')
+> caver.utils.hexToNumber('0xea')
 234
 ```
 
