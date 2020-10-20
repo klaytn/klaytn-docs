@@ -87,17 +87,7 @@ Klaytn은 파일럿 테스트를 통해 PoC 정책을 보다 고도화 시켜 �
 
 #### 2. 보상 분배 방식
 
-서비스 제공자는 한 라운드 기간 동안 수집된 데이터를 기반으로, 아래와 같이 3단계에 거쳐 보상을 분배받습니다.
-
-* 1단계 - 최소 기준 통과 및 기여도 산정: 최소 기준(eg. 신규 유저 100명 이상 유입)을 통과한 서비스 제공자에 한 하여 기여도 측정 및 보상 지급이 이뤄집니다. 기여도는 위에서 언급한 4가지 지표 값 및 각 지표별 가중치를 기반으로 측정됩니다.
-
-* 2단계 - 라운드 별 총 보상량 산정: 라운드 별 총 보상량은 총 유저(신규/기존) 유입 수를 기반으로 측정됩니다. 이때, 라운드에 대한 총 보상량에는 상한선이 존재함에 따라 PoC 보상 풀 고갈에 대한 우려는 없습니다.
-
-* 3단계 - 기여율 및 기여도 순위 기반 보상 분배: 앞서 산정된 서비스 제공자의 기여도를 기반으로 서비스 제공자별 기여율 및 기여도 순위가 산정됩니다. 서비스 제공자는 최종적으로 기여율 및 기여도 순위에 따라 보상을 배분받습니다.
-
-본 보상 분배 방식은 서비스 제공자가 유저 유치 및 서비스 개발에 힘쓸 수록 보다 많은 보상을 받을 수 있도록 디자인 되었습니다.
-
---------------------------------------------------
+Service providers receive rewards through three stages as follows, based on data collected during a round.
 
 1.
 
@@ -105,15 +95,17 @@ Klaytn은 파일럿 테스트를 통해 PoC 정책을 보다 고도화 시켜 �
 
 3.
 
+This system is designed to help service providers get more rewards as they strive to attract users and develop the services.
+
 ## Klaytn 개선 준비금(Klaytn Improvement Reserve)<a id="klaytn-improvement-reserve"></a>
 
 As technology continues to improve and the needs of users change over time, our platform must have the ability to quickly adapt to any new circumstance that arises. To respond to such changes, we must not only work on services, but also undergo various activities to maintain Klaytn’s ecosystem. For instance, research and development for better technology, or projects that contribute to the overall growth of the ecosystem may be part of these activities. These activities are necessary for Klaytn to progress continuously. Therefore, the Klaytn Improvement Reserve \(KIR\) will be managed on the platform for the investment and research on the Klaytn ecosystem.
 
 The spending necessary to set up the ecosystem can be categorized as following.
 
-* 플랫폼: 인프라, 연구 개발 및 지속가능한 프로토콜 생성 지원
-* 툴: 개발자 경험을 향상시키기 위해 더 나은 개발 환경 조성
-* 커뮤니티: Klaytn의 생태계 참여를 장려하는 프로그램 \(커뮤니티 이벤트, 모임, 해커 톤 등\).
-* 기타
+* Platform: Support for infrastructure, research and development, and the creation of a durable protocol
+* Tools: Create a better development environment to enhance developer experience
+* Community: Create programs to encourage participation in Klaytn’s ecosystem \(community events, meetups, hackathons, etc.\)
+* Others
 
 KIR proposals can be created by any participant in Klaytn’s ecosystem. KIR spending proposals will be processed per KIR Governance Process. Refer to the [Klaytn Improvement Reserve Governance Process](governance.md#klaytn-improvement-reserve-governance-process) section for more information on the procedure. Once a spending proposal has passed, KLAY will be distributed periodically, from a predetermined total amount, based on the project’s level of progress. This process may change based on the project size but is planned to be processed monthly.
