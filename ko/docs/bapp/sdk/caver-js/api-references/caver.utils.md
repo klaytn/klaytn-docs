@@ -130,10 +130,10 @@ true
 ```
 
 
-## isBignumber <a id="isbignumber"></a>
+## isBigNumber <a id="isbignumber"></a>
 
 ```javascript
-caver.utils.isBignumber(bignumber)
+caver.utils.isBigNumber(bignumber)
 ```
 
 Checks if a given value is a [Bignumber.js](http://mikemcl.github.io/bignumber.js/) instance.
@@ -154,7 +154,7 @@ Checks if a given value is a [Bignumber.js](http://mikemcl.github.io/bignumber.j
 
 ```javascript
 > var number = new Bignumber(10)
-> caver.utils.isBignumber(number)
+> caver.utils.isBigNumber(number)
 true
 ```
 
@@ -467,10 +467,10 @@ caver.utils.toHex(mixed)
 '0x49206861766520313030e282ac'
 ```
 
-## hexTonumberstring <a id="hextonumberstring"></a>
+## hexToNumberString <a id="hextonumberstring"></a>
 
 ```javascript
-caver.utils.hexTonumberstring(hex)
+caver.utils.hexToNumberString(hex)
 ```
 
 주어진 HEX 값의 숫자 표현을 문자열로 반환합니다.
@@ -490,14 +490,14 @@ caver.utils.hexTonumberstring(hex)
 **예제**
 
 ```javascript
-> caver.utils.hexTonumberstring('0xea')
+> caver.utils.hexToNumberString('0xea')
 "234"
 ```
 
-## hexTonumber <a id="hextonumber"></a>
+## hexToNumber <a id="hextonumber"></a>
 
 ```javascript
-caver.utils.hexTonumber(hex)
+caver.utils.hexToNumber(hex)
 ```
 주어진 HEX 값을 숫자로 반환합니다.
 
@@ -518,7 +518,7 @@ caver.utils.hexTonumber(hex)
 **예제**
 
 ```javascript
-> caver.utils.hexTonumber('0xea')
+> caver.utils.hexToNumber('0xea')
 234
 ```
 
