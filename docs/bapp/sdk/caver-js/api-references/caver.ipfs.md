@@ -2,6 +2,8 @@
 
 `caver.ipfs` is a package that provides functionality related to IPFS (InterPlanetary File System).
 
+**NOTE** `caver.ipfs` is supported since caver-js [v1.5.4](https://www.npmjs.com/package/caver-js/v/1.5.4).
+
 ## caver.ipfs.setIPFSNode <a id="caver-ipfs-setipfsnode"></a>
 
 ```javascript
