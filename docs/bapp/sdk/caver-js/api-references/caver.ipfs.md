@@ -76,17 +76,17 @@ Returns a file addressed by a valid IPFS path.
 
 **Return Value**
 
-`Promise` returns `string`
+`Promise` returns `Buffer`
 
 | Type | Description |
 | --- | --- |
-| string | The content of the file. |
+| Buffer | The content of the file. |
 
 **Example**
 
 ```javascript
 > caver.ipfs.get('Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC')
-test data for IPFS
+<Buffer 74 65 73 74 20 64 61 74 61 20 66 6f 72 20 49 50 46 53>
 ```
 
 ## caver.ipfs.toHex <a id="caver-ipfs-tohex"></a>
