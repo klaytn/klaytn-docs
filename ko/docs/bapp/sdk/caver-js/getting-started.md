@@ -15,9 +15,9 @@ caver-js 라이브러리를 사용하려면 다음 패키지가 필요합니다.
 
 **참고** caver-js는 Node.js 버전 8, 10, 12에서 실행할 수 있으며, 권장 버전은 다음과 같습니다:
 
-* lts/carbon \([8.16.0](https://nodejs.org/dist/latest-v8.x/)\)
-* lts/dubnium \([10.16.0](https://nodejs.org/dist/latest-v10.x/)\)
-* lts/erbium \([12.18.0](https://nodejs.org/dist/latest-v12.x/)\)
+* lts/carbon \([8.17.0](https://nodejs.org/dist/latest-v8.x/)\)
+* lts/dubnium \([10.22.0](https://nodejs.org/dist/latest-v10.x/)\)
+* lts/erbium \([12.19.0](https://nodejs.org/dist/latest-v12.x/)\)
 
 다른 버전의 Node\(가령 Node v14\)를 이미 사용중인 경우, Node Version Manager\([NVM](https://github.com/nvm-sh/nvm)\)를 사용해 caver-js가 지원하는 버전을 설치하고 사용합니다.
 
