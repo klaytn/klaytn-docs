@@ -8,7 +8,7 @@
 caver.ipfs.setIPFSNode(host, port, ssl)
 ```
 
-Initializes to connect with IPFS Node. When IPFS Node information is set through this function, you can save files to IPFS or load files stored in IPFS.
+Initializes to connect with IPFS Node. When IPFS Node information is set through this function, you can upload files to IPFS or load files stored in IPFS.
 
 **Parameters**
 
