@@ -8,7 +8,7 @@
 caver.ipfs.setIPFSNode(host, port, ssl)
 ```
 
-Initializes to connect with IPFS Node. When IPFS Node information is set through this function, you can upload files to IPFS or load files stored in IPFS.
+Initializes a connection with an IPFS Node. When an IPFS Node information is set through this function, you can upload files to IPFS or load files from IPFS.
 
 **Parameters**
 
@@ -16,7 +16,7 @@ Initializes to connect with IPFS Node. When IPFS Node information is set through
 | --- | --- | --- |
 | host | string | The IPFS Node url to connect with. |
 | port | number | The port number to use. |
-| ssl | boolean| If true, the `https` protocol is used. If false, the `http` protocol is used. |
+| ssl | boolean| If true, the `https` protocol is used. Otherwise, the `http` protocol is used. |
 
 
 **Return Value**
@@ -35,7 +35,7 @@ None
 caver.ipfs.add(path)
 ```
 
-Adds a file to IPFS. The IPFS hash (Content Identifier-CID) of the file uploaded to IPFS is returned.
+Adds a file to IPFS. The IPFS hash (Content Identifier-CID) of the uploaded file is returned.
 
 **Parameters**
 
@@ -50,7 +50,7 @@ Adds a file to IPFS. The IPFS hash (Content Identifier-CID) of the file uploaded
 
 | Type | Description |
 | --- | --- |
-| string | The IPFS hash (Content Identifier-CID) of the file. |
+| string | The IPFS hash (Content Identifier-CID) of the uploaded file. |
 
 **Example**
 
@@ -65,13 +65,13 @@ Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC
 caver.ipfs.get(hash)
 ```
 
-Returns a file addressed by a valid IPFS Path.
+Returns a file addressed by a valid IPFS path.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| hash | string | A IPFS hash (Content Identifier-CID) to export. |
+| hash | string | An IPFS hash (Content Identifier-CID) of the file to download. |
 
 
 **Return Value**
@@ -108,7 +108,7 @@ Converts a IPFS hash (Content Identifier-CID) to hex format.
 
 | Type | Description |
 | --- | --- |
-| string | The hex formatted hash string. |
+| string | The hash string in hex format. |
 
 **Example**
 
@@ -123,13 +123,13 @@ Converts a IPFS hash (Content Identifier-CID) to hex format.
 caver.ipfs.fromHex(hash)
 ```
 
-Converts to IPFS hash (Content Identifier-CID) from hex formatted hash.
+Converts to IPFS hash (Content Identifier-CID) from the hash in hex format.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| hash | string | A hex formatted hash to convert. |
+| hash | string | A hash in hex format to convert. |
 
 
 **Return Value**
