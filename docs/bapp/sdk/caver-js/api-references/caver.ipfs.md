@@ -1,0 +1,146 @@
+# caver.ipfs <a id="caver-ipfs"></a>
+
+`caver.ipfs` is a package that provides functionality related to IPFS (InterPlanetary File System).
+
+## caver.ipfs.setIPFSNode <a id="caver-ipfs-setipfsnode"></a>
+
+```javascript
+caver.ipfs.setIPFSNode(host, port, ssl)
+```
+
+Initializes to connect with IPFS Node. When IPFS Node information is set through this function, you can save files to IPFS or load files stored in IPFS.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| host | string | The IPFS Node url to connect with. |
+| port | number | The port number to use. |
+| ssl | boolean| If true, the `https` protocol is used. If false, the `http` protocol is used. |
+
+
+**Return Value**
+
+None
+
+**Example**
+
+```javascript
+> caver.ipfs.setIPFSNode('localhost', 5001, false)
+```
+
+## caver.ipfs.add <a id="caver-ipfs-add"></a>
+
+```javascript
+caver.ipfs.add(path)
+```
+
+Adds a file to IPFS. The IPFS hash (Content Identifier-CID) of the file uploaded to IPFS is returned.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| path | string | The path of the file to add to IPFS. |
+
+
+**Return Value**
+
+`Promise` returns `string`
+
+| Type | Description |
+| --- | --- |
+| string | The IPFS hash (Content Identifier-CID) of the file. |
+
+**Example**
+
+```javascript
+> caver.ipfs.add('./test.txt')
+Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC
+```
+
+## caver.ipfs.get <a id="caver-ipfs-get"></a>
+
+```javascript
+caver.ipfs.get(hash)
+```
+
+Returns a file addressed by a valid IPFS Path.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| hash | string | A IPFS hash (Content Identifier-CID) to export. |
+
+
+**Return Value**
+
+`Promise` returns `string`
+
+| Type | Description |
+| --- | --- |
+| string | The content of the file. |
+
+**Example**
+
+```javascript
+> caver.ipfs.get('Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC')
+test data for IPFS
+```
+
+## caver.ipfs.toHex <a id="caver-ipfs-tohex"></a>
+
+```javascript
+caver.ipfs.toHex(hash)
+```
+
+Converts a IPFS hash (Content Identifier-CID) to hex format.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| hash | string | A IPFS hash (Content Identifier-CID) to convert. |
+
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| string | The hex formatted hash string. |
+
+**Example**
+
+```javascript
+> caver.ipfs.toHex('Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC')
+0x1220dc1dbe0bcf1e5f6cce80bd3d7e7d873801c5a1732add889c0f25391d53470dc3
+```
+
+## caver.ipfs.fromHex <a id="caver-ipfs-fromhex"></a>
+
+```javascript
+caver.ipfs.fromHex(hash)
+```
+
+Converts to IPFS hash (Content Identifier-CID) from hex formatted hash.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| hash | string | A hex formatted hash to convert. |
+
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| string | The IPFS hash (Content Identifier-CID). |
+
+**Example**
+
+```javascript
+> caver.ipfs.fromHex('0x1220dc1dbe0bcf1e5f6cce80bd3d7e7d873801c5a1732add889c0f25391d53470dc3')
+Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC
+```
