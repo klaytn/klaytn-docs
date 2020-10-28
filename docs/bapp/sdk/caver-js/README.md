@@ -27,6 +27,7 @@ Below are packages provided in `caver-js`.
 * [caver.abi](api-references/caver.abi.md)
 * [caver.kct](api-references/caver.kct/README.md)
 * [caver.utils](api-references/caver.utils.md)
+* [caver.ipfs](api-references/caver.ipfs.md)
 
 ## Error Code Improvement <a id="error-code-improvement"></a>
 
