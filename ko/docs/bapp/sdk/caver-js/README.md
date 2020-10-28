@@ -27,6 +27,7 @@
 * [caver.abi](api-references/caver.abi.md)
 * [caver.kct](api-references/caver.kct/README.md)
 * [caver.utils](api-references/caver.utils.md)
+* [caver.ipfs](api-references/caver.ipfs.md)
 
 ## 오류 코드 개선 <a id="error-code-improvement"></a>
 
