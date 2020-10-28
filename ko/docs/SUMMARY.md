@@ -189,6 +189,7 @@
           * [caver.kct.kip7](bapp/sdk/caver-js/api-references/caver.kct/kip7.md)
           * [caver.kct.kip17](bapp/sdk/caver-js/api-references/caver.kct/kip17.md)
         * [caver.utils](bapp/sdk/caver-js/api-references/caver.utils.md)
+        * [caver.ipfs](bapp/sdk/caver-js/api-references/caver.ipfs.md)
       * [caver-js ~v1.4.1](bapp/sdk/caver-js/v1.4.1/README.md)
         * [Getting Started (~v1.4.1)](bapp/sdk/caver-js/v1.4.1/getting-started_1.4.1.md)
         * [API 참조 문서](bapp/sdk/caver-js/v1.4.1/api-references/README.md)
