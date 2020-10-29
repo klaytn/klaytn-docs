@@ -37,7 +37,7 @@ None
 caver.ipfs.add(path)
 ```
 
-Adds a file to IPFS. The IPFS hash (Content Identifier-CID) of the uploaded file is returned.
+Adds a file to IPFS. The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file is returned.
 
 **Parameters**
 
@@ -52,7 +52,7 @@ Adds a file to IPFS. The IPFS hash (Content Identifier-CID) of the uploaded file
 
 | Type | Description |
 | --- | --- |
-| string | The IPFS hash (Content Identifier-CID) of the uploaded file. |
+| string | The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file. |
 
 **Example**
 
@@ -73,7 +73,7 @@ Returns a file addressed by a valid IPFS path.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| hash | string | An IPFS hash (Content Identifier-CID) of the file to download. |
+| hash | string | An [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the file to download. |
 
 
 **Return Value**
@@ -97,20 +97,20 @@ Returns a file addressed by a valid IPFS path.
 caver.ipfs.toHex(hash)
 ```
 
-Converts a IPFS hash (Content Identifier-CID) to hex format.
+Converts a [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) to a [Multihash](https://multiformats.io/multihash).
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| hash | string | A IPFS hash (Content Identifier-CID) to convert. |
+| hash | string | A [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) to convert. |
 
 
 **Return Value**
 
 | Type | Description |
 | --- | --- |
-| string | The hash string in hex format. |
+| string | The [Multihash](https://multiformats.io/multihash) string. |
 
 **Example**
 
@@ -125,20 +125,20 @@ Converts a IPFS hash (Content Identifier-CID) to hex format.
 caver.ipfs.fromHex(hash)
 ```
 
-Converts to IPFS hash (Content Identifier-CID) from the hash in hex format.
+Converts to [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) from a [Multihash](https://multiformats.io/multihash).
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| hash | string | A hash in hex format to convert. |
+| hash | string | A [Multihash](https://multiformats.io/multihash) to convert. |
 
 
 **Return Value**
 
 | Type | Description |
 | --- | --- |
-| string | The IPFS hash (Content Identifier-CID). |
+| string | The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids). |
 
 **Example**
 
