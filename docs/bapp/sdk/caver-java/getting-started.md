@@ -1116,7 +1116,7 @@ byte[] content = caver.ipfs.get(cid);
 
 ### CID(Content Identifier) <-> Multihash
 
-You can convert CID to hexadecimal type [Multihash] (https://multiformats.io/multihash/) using the `toHex()` method in ʻIPFS`.
+You can convert CID to hexadecimal type [Multihash](https://multiformats.io/multihash/) using the `toHex()` method in ʻIPFS`.
 
 CID is Multihash encoded with Base58 algorithm. `toHex()` function decodes the encoded multihash data and returns multihash value.
 
