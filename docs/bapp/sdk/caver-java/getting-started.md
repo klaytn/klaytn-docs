@@ -1056,11 +1056,95 @@ testValue
 To find more information, see [caver-java API]
 
 
+## IPFS <a id="executing-other-transaction-types"></a>
+
+IPFS is a distributed system for storing and accessing files, websites, application, and data.
+
+You can upload and download file through IPFS with connecting Caver.
 
 
+### Connect with IPFS
+
+The `IPFS` class in `caver.ipfs` package defined `Caver` class member variable. So you can use ipfs feature through creating `Caver` class instance.
+
+For using `IPFS` instance through `Caver` instance, you must call method `setIPFSNode()`.
+
+`setIPFS()` requires data below.
+  - IPFS HTTP API Host url 
+  - IPFS HTTP API Host port number
+  - Whether the host use ssl.
+
+```java
+String host = "IPFS HTTP API host url";
+int port = 5001; // API host port number
+boolean isSSL = true; // API host support ssl 
+Caver caver = new Caver();
+caver.ipfs.setIPFSNode(host, port, isSSL);
+```
+
+### Upload file through IPFS
+
+For uploading file through `IPFS` class, using `add()` method.
+
+This function returns [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of uploaded file.
 
 
+```java
+String filePath = "your file path";
+String encodedhash = caver.ipfs.add(filePath);
+System.out.println(encodedhash);
+```
 
+If you run the above code, you can get the result like below.
+
+```java
+QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq
+```
+
+
+### Download file from IPFS
+
+Fow downloading file from `IPFS` class, using `get()` method.
+
+This function requires CID that `add()` return value.
+
+```java
+String cid = "QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq";
+byte[] content = caver.ipfs.get(cid);
+```
+
+
+### CID(Content Identifier) <-> Multihash
+
+You can convert CID to hexadecimal type [Multihash] (https://multiformats.io/multihash/) using the `toHex()` method in ʻIPFS`.
+
+CID is Multihash encoded with Base58 algorithm. `toHex()` function decodes the encoded multihash data and returns multihash value.
+
+```java
+String cid = "QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk";
+String multihash = IPFS.toHex(cid);
+System.out.println(multihash);
+```
+
+If you run the above code, you can get the result like below.
+
+```java
+0x12209cbc07c3f991725836a3aa2a581ca2029198aa420b9d99bc0e131d9f3e2cbe47
+```
+
+On the other hand, You can convert hexademical type multihash to CID using the `fromHex()` in `IPFS`
+
+```java
+String multihash = "0x12209cbc07c3f991725836a3aa2a581ca2029198aa420b9d99bc0e131d9f3e2cbe47";
+String cid = IPFS.fromHex(multihash);
+System.out.println(cid);
+```
+
+If you run the above code, you can get the result like below.
+
+```java
+QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk
+```
 
 
 [caver-java API]: (https://javadoc.io/doc/com.klaytn.caver/core/)
