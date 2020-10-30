@@ -1056,37 +1056,37 @@ testValue
 To find more information, see [caver-java API]
 
 
-## IPFS <a id="executing-other-transaction-types"></a>
+## IPFS <a id="ipfs"></a>
 
-IPFS is a distributed system for storing and accessing files, websites, application, and data.
+IPFS (InterPlanetary File System) is a distributed file system for storing and accessing files, websites, application, and data.
 
-You can upload and download file through IPFS with connecting Caver.
+You can upload and download a file through IPFS with Caver.
 
 
-### Connect with IPFS
+### Connecting with IPFS <a id="connecting-with-ipfs"></a>
 
-The `IPFS` class in `caver.ipfs` package defined `Caver` class member variable. So you can use ipfs feature through creating `Caver` class instance.
+The `IPFS` class in the `caver.ipfs` package is defined as a class member variable in `Caver`. So you can interact IPFS through `Caver`.
 
-For using `IPFS` instance through `Caver` instance, you must call method `setIPFSNode()`.
+In order to use an `IPFS` instance through the `Caver` instance, you must call method `setIPFSNode()` first to connect to an IPFS node.
 
-`setIPFS()` requires data below.
-  - IPFS HTTP API Host url 
+The function `setIPFSNode()` requires following parameters:
+  - IPFS HTTP API Host URL 
   - IPFS HTTP API Host port number
-  - Whether the host use ssl.
+  - Whether the host use SSL or not.
 
 ```java
-String host = "IPFS HTTP API host url";
+String host = "The URL of an IPFS node";
 int port = 5001; // API host port number
 boolean isSSL = true; // API host support ssl 
 Caver caver = new Caver();
 caver.ipfs.setIPFSNode(host, port, isSSL);
 ```
 
-### Upload file through IPFS
+### Uploading a file through IPFS<a id="uploading-a-file-through-ipfs"></a>
 
-For uploading file through `IPFS` class, using `add()` method.
+To upload a file through `IPFS`, please use `add()` like below.
 
-This function returns [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of uploaded file.
+This function returns [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file.
 
 
 ```java
@@ -1095,18 +1095,18 @@ String encodedhash = caver.ipfs.add(filePath);
 System.out.println(encodedhash);
 ```
 
-If you run the above code, you can get the result like below.
+The execution result of the above code is shown below.
 
 ```java
 QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq
 ```
 
 
-### Download file from IPFS
+### Downloading a file from IPFS<a id="downloading-a-file-from-ipfs"></a>
 
-Fow downloading file from `IPFS` class, using `get()` method.
+To download a file from `IPFS`, please use `get()` like below.
 
-This function requires CID that `add()` return value.
+This function requires CID of the file to be downloaded.
 
 ```java
 String cid = "QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq";
@@ -1114,11 +1114,11 @@ byte[] content = caver.ipfs.get(cid);
 ```
 
 
-### CID(Content Identifier) <-> Multihash
+### Conversion between CID and multihash <a id="conversion-between-cid-and-multihash"></a>
 
-You can convert CID to hexadecimal type [Multihash](https://multiformats.io/multihash/) using the `toHex()` method in ʻIPFS`.
+You can convert a CID to a [Multihash](https://multiformats.io/multihash/) using `toHex()`.
 
-CID is Multihash encoded with Base58 algorithm. `toHex()` function decodes the encoded multihash data and returns multihash value.
+A CID is a Base58 encoded value of a multihash. `toHex()` decodes the CID and returns the corresponding multihash.
 
 ```java
 String cid = "QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk";
@@ -1126,13 +1126,13 @@ String multihash = IPFS.toHex(cid);
 System.out.println(multihash);
 ```
 
-If you run the above code, you can get the result like below.
+The execution result of the above code is shown below.
 
 ```java
 0x12209cbc07c3f991725836a3aa2a581ca2029198aa420b9d99bc0e131d9f3e2cbe47
 ```
 
-On the other hand, You can convert hexademical type multihash to CID using the `fromHex()` in `IPFS`
+To convert a multihash to CID, plase use `fromHex()`.
 
 ```java
 String multihash = "0x12209cbc07c3f991725836a3aa2a581ca2029198aa420b9d99bc0e131d9f3e2cbe47";
@@ -1140,7 +1140,7 @@ String cid = IPFS.fromHex(multihash);
 System.out.println(cid);
 ```
 
-If you run the above code, you can get the result like below.
+The execution result of the above code is shown below.
 
 ```java
 QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk
