@@ -63,25 +63,25 @@ Common Packages
 # Release Notes <a id="release-notes"></a>
 
 ## New Features
-- Implemented chain data fetcher stream to push blockchain data to kafaka in real time
-  - Implemented kafaka client (#685)  
-  - Added kafaka option (#689)
-  - Implemented consumer package (#697)
+- Implemented a streaming module to push fetched blockchain data to Kafka in real-time
+  - Implemented a Kafka client (#685)  
+  - Added options for Kafka (#689)
+  - Implemented a Kafka consumer (#697)
 - Implemented Remote Cache (redis) (#681)
-- Implemented Redis pub/sub for latest block number (#676) 
-- Implemented DB Migration (#648)
-- Implemented StateTrieNode cache dump feature to restore the cache after restart (#692, #702)
+- Implemented Redis pub/sub for the latest block (#676) 
+- Implemented DB Migration feature (#648)
+- Implemented StateTrieNode cache dump feature to restore the cache after restart for performance boost at cold start (#692, #702)
 
 ## Improvements
-- Fix wrong status API output of State trie migration (#703)
-- Fix wrong validating a role based key including `AccountKeyLegacy` (#674)
+- Fixed wrong status API output of state trie migration (#703)
+- Fixed the validation logic of a role-based key including `AccountKeyLegacy` (#674)
 
 ## Miscellaneous
-- Added disable options of Fetcher/Downloader/Worker (#680, #688)
-- Supported overwriting genesis block to existing chain data (#649)
-- Removed unused `--cache.writethrough` flag (#682)
-- Added an error log of trie DB read error (#683)
-- Added the staking contract code (#699)
+- Added options to disable Fetcher/Downloader/Worker (#680, #688)
+- Implemented to generate the genesis block with existing chain data (#649)
+- Removed the unused flag `--cache.writethrough` (#682)
+- Added an error log when failed to read the trie DB (#683)
+- Added the staking contract source code (#699)
 - Added `--start-block-num` to test past blocks (#711)  
-- Added double checking keystore routine (#725)
-- Added read/write performance metrics for Level DB (#726)
+- Added a validity check when a keystore is created (#725)
+- Added read/write performance metrics for Level DB (#726) 
