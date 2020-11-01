@@ -3,56 +3,56 @@
 ## Linux <a id="linux"></a>
 
 Cypress 패키지
-- [kcnd-v1.5.2-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.2/kcnd-v1.5.2-0.el7.x86_64.rpm)
-- [kpnd-v1.5.2-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.2/kpnd-v1.5.2-0.el7.x86_64.rpm)
-- [kend-v1.5.2-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.2/kend-v1.5.2-0.el7.x86_64.rpm)
-- [kcn-v1.5.2-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/kcn-v1.5.2-0-linux-amd64.tar.gz)
-- [kpn-v1.5.2-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/kpn-v1.5.2-0-linux-amd64.tar.gz)
-- [ken-v1.5.2-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/ken-v1.5.2-0-linux-amd64.tar.gz)
+- [kcnd-v1.5.3-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.3/kcnd-v1.5.3-0.el7.x86_64.rpm)
+- [kpnd-v1.5.3-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.3/kpnd-v1.5.3-0.el7.x86_64.rpm)
+- [kend-v1.5.3-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.3/kend-v1.5.3-0.el7.x86_64.rpm)
+- [kcn-v1.5.3-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/kcn-v1.5.3-0-linux-amd64.tar.gz)
+- [kpn-v1.5.3-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/kpn-v1.5.3-0-linux-amd64.tar.gz)
+- [ken-v1.5.3-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/ken-v1.5.3-0-linux-amd64.tar.gz)
 
 Baobab 패키지
-- [kcnd-baobab-v1.5.2-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.2/kcnd-baobab-v1.5.2-0.el7.x86_64.rpm)
-- [kpnd-baobab-v1.5.2-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.2/kpnd-baobab-v1.5.2-0.el7.x86_64.rpm)
-- [kend-baobab-v1.5.2-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.2/kend-baobab-v1.5.2-0.el7.x86_64.rpm)
-- [kcn-baobab-v1.5.2-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/kcn-baobab-v1.5.2-0-linux-amd64.tar.gz)
-- [kpn-baobab-v1.5.2-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/kpn-baobab-v1.5.2-0-linux-amd64.tar.gz)
-- [ken-baobab-v1.5.2-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/ken-baobab-v1.5.2-0-linux-amd64.tar.gz)
+- [kcnd-baobab-v1.5.3-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.3/kcnd-baobab-v1.5.3-0.el7.x86_64.rpm)
+- [kpnd-baobab-v1.5.3-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.3/kpnd-baobab-v1.5.3-0.el7.x86_64.rpm)
+- [kend-baobab-v1.5.3-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.3/kend-baobab-v1.5.3-0.el7.x86_64.rpm)
+- [kcn-baobab-v1.5.3-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/kcn-baobab-v1.5.3-0-linux-amd64.tar.gz)
+- [kpn-baobab-v1.5.3-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/kpn-baobab-v1.5.3-0-linux-amd64.tar.gz)
+- [ken-baobab-v1.5.3-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/ken-baobab-v1.5.3-0-linux-amd64.tar.gz)
 
 공통 패키지
-- [kscnd-v1.5.2-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.2/kscnd-v1.5.2-0.el7.x86_64.rpm)
-- [kspnd-v1.5.2-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.2/kspnd-v1.5.2-0.el7.x86_64.rpm)
-- [ksend-v1.5.2-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.2/ksend-v1.5.2-0.el7.x86_64.rpm)
-- [kbnd-v1.5.2-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.2/kbnd-v1.5.2-0.el7.x86_64.rpm)
-- [kgen-v1.5.2-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.2/kgen-v1.5.2-0.el7.x86_64.rpm)
-- [homi-v1.5.2-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.2/homi-v1.5.2-0.el7.x86_64.rpm)
+- [kscnd-v1.5.3-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.3/kscnd-v1.5.3-0.el7.x86_64.rpm)
+- [kspnd-v1.5.3-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.3/kspnd-v1.5.3-0.el7.x86_64.rpm)
+- [ksend-v1.5.3-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.3/ksend-v1.5.3-0.el7.x86_64.rpm)
+- [kbnd-v1.5.3-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.3/kbnd-v1.5.3-0.el7.x86_64.rpm)
+- [kgen-v1.5.3-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.3/kgen-v1.5.3-0.el7.x86_64.rpm)
+- [homi-v1.5.3-0.el7.x86_64.rpm](http://packages.klaytn.net/klaytn/v1.5.3/homi-v1.5.3-0.el7.x86_64.rpm)
 
-- [kscn-v1.5.2-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/kscn-v1.5.2-0-linux-amd64.tar.gz)
-- [kspn-v1.5.2-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/kspn-v1.5.2-0-linux-amd64.tar.gz)
-- [ksen-v1.5.2-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/ksen-v1.5.2-0-linux-amd64.tar.gz)
-- [kbn-v1.5.2-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/kbn-v1.5.2-0-linux-amd64.tar.gz)
-- [kgen-v1.5.2-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/kgen-v1.5.2-0-linux-amd64.tar.gz)
-- [homi-v1.5.2-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/homi-v1.5.2-0-linux-amd64.tar.gz)
+- [kscn-v1.5.3-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/kscn-v1.5.3-0-linux-amd64.tar.gz)
+- [kspn-v1.5.3-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/kspn-v1.5.3-0-linux-amd64.tar.gz)
+- [ksen-v1.5.3-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/ksen-v1.5.3-0-linux-amd64.tar.gz)
+- [kbn-v1.5.3-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/kbn-v1.5.3-0-linux-amd64.tar.gz)
+- [kgen-v1.5.3-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/kgen-v1.5.3-0-linux-amd64.tar.gz)
+- [homi-v1.5.3-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/homi-v1.5.3-0-linux-amd64.tar.gz)
 
 
 ## MacOS <a id="macos"></a>
 
 Cypress 패키지
-- [kcn-v1.5.2-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/kcn-v1.5.2-0-darwin-10.10-amd64.tar.gz)
-- [kpn-v1.5.2-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/kpn-v1.5.2-0-darwin-10.10-amd64.tar.gz)
-- [ken-v1.5.2-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/ken-v1.5.2-0-darwin-10.10-amd64.tar.gz)
+- [kcn-v1.5.3-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/kcn-v1.5.3-0-darwin-10.10-amd64.tar.gz)
+- [kpn-v1.5.3-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/kpn-v1.5.3-0-darwin-10.10-amd64.tar.gz)
+- [ken-v1.5.3-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/ken-v1.5.3-0-darwin-10.10-amd64.tar.gz)
 
 Baobab 패키지
-- [kcn-baobab-v1.5.2-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/kcn-baobab-v1.5.2-0-darwin-10.10-amd64.tar.gz)
-- [kpn-baobab-v1.5.2-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/kpn-baobab-v1.5.2-0-darwin-10.10-amd64.tar.gz)
-- [ken-baobab-v1.5.2-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/ken-baobab-v1.5.2-0-darwin-10.10-amd64.tar.gz)
+- [kcn-baobab-v1.5.3-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/kcn-baobab-v1.5.3-0-darwin-10.10-amd64.tar.gz)
+- [kpn-baobab-v1.5.3-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/kpn-baobab-v1.5.3-0-darwin-10.10-amd64.tar.gz)
+- [ken-baobab-v1.5.3-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/ken-baobab-v1.5.3-0-darwin-10.10-amd64.tar.gz)
 
 공통 패키지
-- [kscn-v1.5.2-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/kscn-v1.5.2-0-darwin-10.10-amd64.tar.gz)
-- [kspn-v1.5.2-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/kspn-v1.5.2-0-darwin-10.10-amd64.tar.gz)
-- [ksen-v1.5.2-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/ksen-v1.5.2-0-darwin-10.10-amd64.tar.gz)
-- [kbn-v1.5.2-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/kbn-v1.5.2-0-darwin-10.10-amd64.tar.gz)
-- [kgen-v1.5.2-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/kgen-v1.5.2-0-darwin-10.10-amd64.tar.gz)
-- [homi-v1.5.2-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.2/homi-v1.5.2-0-darwin-10.10-amd64.tar.gz)
+- [kscn-v1.5.3-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/kscn-v1.5.3-0-darwin-10.10-amd64.tar.gz)
+- [kspn-v1.5.3-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/kspn-v1.5.3-0-darwin-10.10-amd64.tar.gz)
+- [ksen-v1.5.3-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/ksen-v1.5.3-0-darwin-10.10-amd64.tar.gz)
+- [kbn-v1.5.3-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/kbn-v1.5.3-0-darwin-10.10-amd64.tar.gz)
+- [kgen-v1.5.3-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/kgen-v1.5.3-0-darwin-10.10-amd64.tar.gz)
+- [homi-v1.5.3-0-darwin-10.10-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.3/homi-v1.5.3-0-darwin-10.10-amd64.tar.gz)
 
 
 ## Windows <a id="windows"></a>
@@ -60,20 +60,28 @@ Baobab 패키지
 - 아직 지원하지 않음
 
 
-# Release Notes for Klaytn v1.5.2 <a id="release-notes-for-klaytn-v1-5-2"></a>
+# Release Notes <a id="release-notes"></a>
 
 ## New Features
-- Implemented chain data fetcher to push blockchain data to RDB in real time
-  - Implemented chain data fetcher to load token transfer histories (#586)
-  - Implemented chain data fetcher to load internal/revert transaction data (#587)
-  - Implemented chain data fetcher to load contracts data (#588)
+- Implemented a streaming module to push fetched blockchain data to Kafka in real-time
+  - Implemented a Kafka client (#685)
+  - Added options for Kafka (#689)
+  - Implemented a Kafka consumer (#697)
+- Implemented Remote Cache (redis) (#681)
+- Implemented Redis pub/sub for the latest block (#676)
+- Implemented DB Migration feature (#648)
+- Implemented StateTrieNode cache dump feature to restore the cache after restart for performance boost at cold start (#692, #702)
 
-- Implemented supports for KAS Anchor API in Service chain Node (#591)
-  - Blocks in a service chain can be easily anchored to Baobab/Cypress via KAS Anchor API using command options (#653)
-  - `txpool.allow-local-anchortx` command option to allow anchor transaction submission via JSON-RPC (#614)
-  - Support for a new anchor data type (JSON format) (#614)
+## Improvements
+- Fixed wrong status API output of state trie migration (#703)
+- Fixed the validation logic of a role-based key including `AccountKeyLegacy` (#674)
 
 ## 기타
-- Added a new database implementation (DynamoDB) (#633, #624, #615, #598)
-- Added `overwrite-genesis` flag to initialize the genesis block with an existing state (#649)
-- Implemented stateDB cache interface to support various types of cache implementations (#646)
+- Added options to disable Fetcher/Downloader/Worker (#680, #688)
+- Implemented to generate the genesis block with existing chain data (#649)
+- Removed the unused flag `--cache.writethrough` (#682)
+- Added an error log when failed to read the trie DB (#683)
+- Added the staking contract source code (#699)
+- Added `--start-block-num` to test past blocks (#711)
+- Added a validity check when a keystore is created (#725)
+- Added read/write performance metrics for Level DB (#726) 
