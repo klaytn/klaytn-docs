@@ -47,7 +47,7 @@ If the path of a file is passed, the contents of the file are loaded from the pa
 | --- | --- | --- |
 | data | string &#124; Buffer| The path string of a file or a buffer to add to IPFS. |
 
-**NOTE** `Buffer` type parameter is supported since caver-js [v1.5.5](https://www.npmjs.com/package/caver-js/v/1.5.5).
+**NOTE** `Buffer` is supported since caver-js [v1.5.5](https://www.npmjs.com/package/caver-js/v/1.5.5).
 
 
 **Return Value**
