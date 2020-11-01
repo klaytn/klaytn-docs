@@ -39,13 +39,13 @@ caver.ipfs.add(data)
 
 Adds a file to IPFS. The IPFS hash (Content Identifier-CID) of the uploaded file is returned.
 
-When the path of a file is transfered as a parameter, the contents of the file are read from the path and uploaded to IPFS. File contents can be uploaded directly to IPFS using a parameter of type Buffer.
+If the path of a file is passed, the contents of the file are loaded from the path and uploaded to IPFS. If a buffer is passed, it is uploaded to IPFS directly.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| data | string &#124; Buffer| The path string or content buffer of the file to add to IPFS. |
+| data | string &#124; Buffer| The path string of a file or a buffer to add to IPFS. |
 
 **NOTE** `Buffer` type parameter is supported since caver-js [v1.5.5](https://www.npmjs.com/package/caver-js/v/1.5.5).
 
