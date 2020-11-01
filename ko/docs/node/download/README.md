@@ -3,7 +3,8 @@
 ## 패키지 받기 <a id="get-the-packages"></a>
 You can get the packages for CN, PN, EN, SCN, SPN and SEN.
 
-- [latest (v1.5.2)](latest.md)
+- [latest (v1.5.3)](latest.md)
+- [v1.5.2](v1.5.2.md)
 - [v1.5.1](v1.5.1.md)
 - [v1.5.0](v1.5.0.md)
 - [v1.4.2](v1.4.2.md)
