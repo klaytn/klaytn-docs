@@ -8,13 +8,14 @@ However, be aware of the following two issues.
 Klaytn is currently compatible with constantinople EVM target option. 
 Backward **compatibility** is not guaranteed in other versions. 
 Thus, it is highly recommended compiling solidity with constantinople option. 
-Please refer solidity target option setting page.
+Please refer [Solidity target option setting page](https://solidity.readthedocs.io/en/v0.6.0/using-the-compiler.html?highlight=compatibility#setting-the-evm-version-to-target).
+
 
 The example solc command is `solc --evm-version <VERSION> contract.sol`. 
 It is also possible with remix IDE.
 
-Klaytn has been thoroughly tested with openzepplin tests. 
-We run various openzepplin test suite to test Solidity 0.5.x, 0.6.x, 0.7.x with constantinople target option. 
+Klaytn has been thoroughly tested with [openzepplin tests](https://docs.openzeppelin.com/learn/writing-automated-tests#test-environment). 
+We run various openzepplin test suite to test Solidity 0.5.x, 0.6.x, and 0.7.x with constantinople target option. 
 It passed all, but please check once more.
 
 ## Decoupled Key Pairs <a id="decoupled-key-pairs"></a>
