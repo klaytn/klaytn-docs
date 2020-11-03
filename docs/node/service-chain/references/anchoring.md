@@ -1,16 +1,14 @@
-As explained in the design section, Service Chain supports the data anchoring feature.
-This page shows how to enable the anchoring function.
-If it is enabled, SCN anchors periodically the child chain block data to the parent chain as proof of existence and immutability. 
-This ensures the security and credibility of the service chain.
+# Anchoring
 
-# Enable Anchoring <a id="enable-anchoring"></a>
+As explained in the design section, Service Chain supports the data anchoring feature. This page shows how to enable the anchoring function. If it is enabled, SCN anchors periodically the child chain block data to the parent chain as proof of existence and immutability. This ensures the security and credibility of the service chain.
 
-## Check Parent Operator of SCN <a id="check-parent-operator-of-scn"></a>
-If you have installed and run an SCN successfully, the parent chain operator account should be generated. 
-You can provide a keystore file that you want to use as a parent operator, or if not provided, the SCN will generate the key for you. 
-You can check the parent operator address via RPC API, `subbridge_parentOperator`.
+## Enable Anchoring <a id="enable-anchoring"></a>
 
-```
+### Check Parent Operator of SCN <a id="check-parent-operator-of-scn"></a>
+
+If you have installed and run an SCN successfully, the parent chain operator account should be generated. You can provide a keystore file that you want to use as a parent operator, or if not provided, the SCN will generate the key for you. You can check the parent operator address via RPC API, `subbridge_parentOperator`.
+
+```text
 $ kscn attach ~/kscnd_home/klay.ipc
 Welcome to the Klaytn JavaScript console!
 
@@ -20,50 +18,53 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  modules: admin:1.0 subbridge:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 servicechain:1.0 txpool:1.0
  > subbridge.parentOperator
  "0x726e5C8705892989DAB1E9982FBE0B0A92eC84Bf"
-
 ```
-*This parent operator account address is derived from a keystore file in `$dataDIR/parent_bridge_account` directory.*
 
+_This parent operator account address is derived from a keystore file in `$dataDIR/parent_bridge_account` directory._
 
-## Add KLAY to Parent Operator account<a id="add-klay-to-parent-operator-account"></a>
-When SCN anchors the block data, SCN makes an anchoring transaction as a parent operator.
-Therefore the account needs KLAY to pay the transaction fee. You should add enough KLAY to the parent operator account.
+### Add KLAY to Parent Operator account <a id="add-klay-to-parent-operator-account"></a>
 
-## Enable Anchoring <a id="enable-anchoring"></a>
+When SCN anchors the block data, SCN makes an anchoring transaction as a parent operator. Therefore the account needs KLAY to pay the transaction fee. You should add enough KLAY to the parent operator account.
+
+### Enable Anchoring <a id="enable-anchoring"></a>
+
 After sending KLAY, you can check the balance like below.
+
 ```javascript
 > subbridge.parentOperatorBalance
 1e+50
 ```
 
-Then you can enable anchoring via RPC API, `subbridge.anchoring`, like below.
-You can refer to [subbridge APIs](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_anchoring) for more details.
-```
+Then you can enable anchoring via RPC API, `subbridge.anchoring`, like below. You can refer to [subbridge APIs](../../../bapp/json-rpc/servicechain/subbridge.md#subbridge_anchoring) for more details.
+
+```text
 > subbridge.anchoring(true)
 true
 ```
 
-# Check Anchoring Data <a id="check-anchoring-data"></a>
-If the anchoring feature is enabled, SCN will periodically anchor the block data to the main chain.
-You can check the anchored data like below.
+## Check Anchoring Data <a id="check-anchoring-data"></a>
 
-## Sub-Bridge <a id="sub-bridge"></a>
-In Sub-Bridge, You can check the latest anchored block number like below.
-You can refer to [subbridge APIs](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_latestAnchoredBlockNumber) for more details.
+If the anchoring feature is enabled, SCN will periodically anchor the block data to the main chain. You can check the anchored data like below.
+
+### Sub-Bridge <a id="sub-bridge"></a>
+
+In Sub-Bridge, You can check the latest anchored block number like below. You can refer to [subbridge APIs](../../../bapp/json-rpc/servicechain/subbridge.md#subbridge_latestAnchoredBlockNumber) for more details.
+
 ```javascript
 > subbridge.latestAnchoredBlockNumber
 71025
 ```
 
 Also, you can find the anchoring transaction hash by the service chain block number like below.
+
 ```javascript
 > subbridge.getAnchoringTxHashByBlockNumber(1055)
 "0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51"
 ```
 
-## Main-Bridge <a id="sub-bridge"></a>
-In Main-Bridge, if chain indexing option is enabled, you can find the anchoring tx hash by a service chain block hash like below.
-You can refer to [mainbridge APIs](../../../bapp/json-rpc/api-references/mainbridge.md#mainbridge_convertChildChainBlockHashToParentChainTxHash) for more details.
+### Main-Bridge <a id="sub-bridge"></a>
+
+In Main-Bridge, if chain indexing option is enabled, you can find the anchoring tx hash by a service chain block hash like below. You can refer to [mainbridge APIs](../../../bapp/json-rpc/servicechain/mainbridge.md#mainbridge_convertChildChainBlockHashToParentChainTxHash) for more details.
 
 ```javascript
 > mainbridge.convertChildChainBlockHashToParentChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
@@ -71,6 +72,7 @@ You can refer to [mainbridge APIs](../../../bapp/json-rpc/api-references/mainbri
 ```
 
 You can get the decoded anchoring data by anchoring transaction hash like below.
+
 ```javascript
 > klay.getDecodedAnchoringTransactionByHash("0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51")
 {
@@ -84,3 +86,4 @@ You can get the decoded anchoring data by anchoring transaction hash like below.
   TxHash: "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"
 }
 ```
+

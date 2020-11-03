@@ -1,6 +1,6 @@
-# Installation Guide <a id="installation-guide"></a>
+# Installation Guide
 
-You can download the latest version of the `kpn`  on [Download](../download.md) page.
+You can download the latest version of the `kpn` on [Download](../download.md) page.
 
 ## Linux Archive Distribution <a id="linux-archive-distribution"></a>
 
@@ -76,6 +76,4 @@ The installed files are located as follows.
 | :--- | :--- |
 | kpn | /usr/bin/kpn |
 | kpnd.conf | /etc/kpnd/conf/kpnd.conf |
-
-
 

@@ -1,4 +1,4 @@
-# Configuration <a id="configuration"></a>
+# Configuration
 
 The CN configuration is to create a data directory and set up several values in the configuration file `kcnd.conf`.
 
@@ -29,7 +29,7 @@ Configuration File Location:
 * For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kcn-linux-amd64/conf/`.
 * For the package distribution, the config directory defaults to `/etc/kcnd/conf/`.
 
-### Add Data Directory  <a id="add-data-directory"></a>
+### Add Data Directory <a id="add-data-directory"></a>
 
 You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kcnd.conf`.
 

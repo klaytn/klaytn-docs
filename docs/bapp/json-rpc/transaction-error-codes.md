@@ -1,4 +1,4 @@
-# Transaction Error Codes <a id="transaction-error-codes"></a>
+# Transaction Error Codes
 
 Klaytn provides a field `txError` in the transaction receipt to give developers more information about the reason for the failed transaction execution. This field exists only if the transaction execution is failed. To save storage and network bandwidth, `txError` contains an integer value. The below table shows the meaning of the value in `txError`.
 

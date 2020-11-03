@@ -1,5 +1,4 @@
-# Monitoring Setup <a id="monitoring-setup"></a>
-
+# Monitoring Setup
 
 ## Overview <a id="overview"></a>
 

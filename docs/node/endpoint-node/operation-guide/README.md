@@ -1,2 +1,2 @@
-# Operation Guide <a id="operation-guide"></a>
+# Operation Guide
 

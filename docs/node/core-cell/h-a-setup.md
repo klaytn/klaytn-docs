@@ -1,4 +1,4 @@
-# H/A Setup <a id="h-a-setup"></a>
+# H/A Setup
 
 Configuring the CN for high availability is critical for effectively operating a Core Cell. The recommended high availability scheme depends on whether the Core Cell is deployed on physical or cloud infrastructure.
 
