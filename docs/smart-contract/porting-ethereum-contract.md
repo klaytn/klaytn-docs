@@ -1,7 +1,6 @@
-# Porting Ethereum Contract <a id="porting-ethereum-contract"></a>
+# Porting Ethereum Contract
 
-In most cases, you can use Ethereum contracts on Klaytn without any modification.
-However, be aware of the following two issues. 
+In most cases, you can use Ethereum contracts on Klaytn without any modification. However, be aware of the following two issues.
 
 ## Solidity Support <a id="solidity-support"></a>
 
@@ -22,4 +21,4 @@ We run the OpenZeppelin test suite to test various Solidity versions (0.5.x, 0.6
 
 ## Decoupled Key Pairs <a id="decoupled-key-pairs"></a>
 
-Klaytn [decouples key pairs from addresses](../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses). If user [updates account](../klaytn/design/transactions/basic.md#txtypeaccountupdate), the private key for a specific account is replaced with another one. Most cases this will not affect your business logic. However if your business logic includes ecrecover, you should consider using validateSender. For more details, refer to [here](./precompiled-contracts.md).
+Klaytn [decouples key pairs from addresses](../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses). If user [updates account](../klaytn/design/transactions/basic.md#txtypeaccountupdate), the private key for a specific account is replaced with another one. Most cases this will not affect your business logic. However if your business logic includes ecrecover, you should consider using validateSender. For more details, refer to [here](precompiled-contracts.md).

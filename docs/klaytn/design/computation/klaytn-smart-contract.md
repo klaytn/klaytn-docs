@@ -1,4 +1,4 @@
-# Klaytn Smart Contract <a id="klaytn-smart-contract"></a>
+# Klaytn Smart Contract
 
 Smart contracts in Klaytn are programs that implement business logics, games, libraries, token transfers, or any type of code interacting with the Klaytn blockchain. When conditions described in the smart contract are met, the contract executes immediately. The terms within smart contracts are described in programming language; their contents data are stored as their state.
 

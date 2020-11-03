@@ -1,4 +1,4 @@
-# Governance <a id="governance"></a>
+# Governance
 
 ## Overview <a id="overview"></a>
 
