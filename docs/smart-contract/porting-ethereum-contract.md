@@ -4,10 +4,10 @@ In most cases, you can use Ethereum contracts on Klaytn without any modification
 
 ## Solidity Support <a id="solidity-support"></a>
 
-Klaytn is currently compatible with Constantinople EVM. 
-Backward **compatibility** is not guaranteed with other EVM versions on Klaytn.
-Thus, it is highly recommended to compile Solidity code with Constantinople EVM. 
-Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/v0.6.0/using-the-compiler.html?highlight=compatibility#setting-the-evm-version-to-target).
+Klaytn is currently compatible with **Constantinople** Ethereum Virtual Machine (EVM) version. 
+Backward compatibility is not guaranteed with other EVM versions on Klaytn.
+Thus, it is highly recommended to compile Solidity code with the Constantinople target option. 
+Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).
 
 
 An example command is shown below:
