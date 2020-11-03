@@ -11,12 +11,14 @@ Thus, it is highly recommended to compile Solidity code with Constantinople EVM.
 Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/v0.6.0/using-the-compiler.html?highlight=compatibility#setting-the-evm-version-to-target).
 
 
-The example solc command is `solc --evm-version <VERSION> contract.sol`. 
-It is also possible with remix IDE.
+An example command is shown below:
+
+```
+$ solc --evm-version constantinople contract.sol
+```
 
 Klaytn has been thoroughly tested with [OpenZeppelin tests](https://docs.openzeppelin.com/learn/writing-automated-tests#test-environment). 
 We run the OpenZeppelin test suite to test various Solidity versions (0.5.x, 0.6.x, and 0.7.x) with the Constantinople target option on Klaytn.
-It passed all, but please check once more.
 
 ## Decoupled Key Pairs <a id="decoupled-key-pairs"></a>
 
