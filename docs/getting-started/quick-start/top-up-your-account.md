@@ -1,4 +1,4 @@
-# Top up your Account
+# Top up your Account <a id="top-up-your-account"></a>
 
 ## Attaching to the Console <a id="attaching-to-the-console"></a>
 
@@ -11,11 +11,11 @@ Welcome to the Klaytn JavaScript console
 !instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kend_home
  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
-
+ 
  >
 ```
 
-**NOTE**: You must wait until it downloads all the blocks. Enter `klay.blockNumber` in a console and check whether it matches the current block number [here](https://baobab.scope.klaytn.com/)
+**NOTE**: You must wait until it downloads all the blocks. Enter `klay.blockNumber` in a console and check whether it matches the current block number [here](https://baobab.scope.klaytn.com/) 
 
 **NOTE**: Type `klay` or `personal` to get the list of available functions.
 
@@ -78,4 +78,5 @@ To leave the javascript console, execute the following command.
 > exit
 $
 ```
+
 

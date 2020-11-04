@@ -1,6 +1,6 @@
-# Installation Guide
+# Installation Guide <a id="installation-guide"></a>
 
-You can download the latest version of the `kcn` on [Download](../download.md) page.
+You can download the latest version of the `kcn`  on [Download](../download.md) page.
 
 ## Linux Archive Distribution <a id="linux-archive-distribution"></a>
 
@@ -76,4 +76,6 @@ The installed files are located as follows.
 | :--- | :--- |
 | kcn | /usr/bin/kcn |
 | kcnd.conf | /etc/kcnd/conf/kcnd.conf |
+
+
 

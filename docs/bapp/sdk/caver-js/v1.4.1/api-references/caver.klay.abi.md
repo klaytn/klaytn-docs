@@ -1,10 +1,11 @@
 ---
-description: caver-js APIs related to ABI encoding and decoding.
+description: >-
+  caver-js APIs related to ABI encoding and decoding.
 ---
 
-# caver.klay.abi
+# caver.klay.abi <a id="caver-klay-abi"></a>
 
-The `caver-klay-abi` package allows you to de- and encode parameters from an ABI \(Application Binary Interface\). This will be used for calling functions of a deployed smart-contract.
+The ``caver-klay-abi`` package allows you to de- and encode parameters from an ABI (Application Binary Interface). This will be used for calling functions of a deployed smart-contract.
 
 ## encodeFunctionSignature <a id="encodefunctionsignature"></a>
 
@@ -17,13 +18,13 @@ Encodes the function signature to its ABI signature, which are the first 4 bytes
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| functionSignature | String \| Object | The function signature or the JSON interface object of the function to encode. If String it has to be in the form `function(type,type,...)`, e.g: `myFunction(uint256,uint32[],bytes10,bytes)` |
+| --- | --- | --- |
+| functionSignature | String &#124; Object | The function signature or the JSON interface object of the function to encode. If String it has to be in the form ``function(type,type,...)``, e.g: ``myFunction(uint256,uint32[],bytes10,bytes)``
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | String | The ABI signature of the function. |
 
 **Examples**
@@ -59,13 +60,13 @@ Encodes the event signature to its ABI signature, which is the sha3 hash of the 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| eventSignature | String \| Object | The event signature or the JSON interface object of the event to encode. If string it has to be in the form `event(type,type,...)`, e.g: `myEvent(uint256,uint32[],bytes10,bytes)` |
+| --- | --- | --- |
+| eventSignature | String &#124; Object | The event signature or the JSON interface object of the event to encode. If string it has to be in the form ``event(type,type,...)``, e.g: ``myEvent(uint256,uint32[],bytes10,bytes)`` |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | String | The ABI signature of the event. |
 
 **Examples**
@@ -101,14 +102,14 @@ Encodes a parameter based on its type to its ABI representation.
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| type | String \| Object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)  for a list of types. |
+| --- | --- | --- |
+| type | String &#124; Object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)  for a list of types. |
 | parameter | Mixed | The actual parameter to encode. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | String | The ABI encoded parameter. |
 
 **Examples**
@@ -138,14 +139,14 @@ Encodes function parameters based on its JSON interface object.
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| typesArray | Array\|Object | An array with types or a JSON interface of a function. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
+| --- | --- | --- |
+| typesArray | Array<String&#124;Object>&#124;Object| An array with types or a JSON interface of a function. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
 | parameters | Array | The parameters to encode. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | String | The ABI encoded parameters. |
 
 **Examples**
@@ -169,14 +170,14 @@ Encodes a function call using its JSON interface object and given parameters.
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | jsonInterface | Object | The JSON interface object of a function. |
 | parameters | Array | The parameters to encode. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | String | The ABI encoded function call, which means function signature + parameters. |
 
 **Examples**
@@ -207,14 +208,14 @@ Decodes an ABI encoded parameter to its JavaScript type.
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| type | String\|Object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
+| --- | --- | --- |
+| type | String&#124;Object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
 | hexString | Array | The ABI byte code to decode. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | Mixed | The decoded parameter. |
 
 **Examples**
@@ -236,16 +237,15 @@ caver.klay.abi.decodeParameters(typesArray, hexString)
 Decodes ABI encoded parameters to its JavaScript types.
 
 **Parameters**
-
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| typesArray | Array\|Object | An array with types or a JSON interface outputs array. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
+| --- | --- | --- |
+| typesArray | Array<String&#124;Object>&#124;Object | An array with types or a JSON interface outputs array. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
 | hexString | String | The ABI byte code to decode. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | Object | The result object containing the decoded parameters. |
 
 **Examples**
@@ -278,17 +278,16 @@ caver.klay.abi.decodeLog(inputs, hexString, topics)
 Decodes ABI encoded log data and indexed topic data.
 
 **Parameters**
-
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | inputs | Array | A JSON interface inputs array. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
-| hexString | String | The ABI byte code in the `data` field of a log. |
-| topics | Array | An array with the index parameter topics of the log, without the topic\[0\] if its a non-anonymous event, otherwise with topic\[0\]. |
+| hexString | String | The ABI byte code in the ``data`` field of a log. |
+| topics | Array | An array with the index parameter topics of the log, without the topic[0] if its a non-anonymous event, otherwise with topic[0]. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | Object | The result object containing the decoded parameters. |
 
 **Examples**
@@ -327,9 +326,8 @@ caver.klay.abi.encodeContractDeploy(jsonInterface, hexString, params)
 Encode smart contract bytecode with the arguments of the constructor.
 
 **Parameters**
-
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | jsonInterface | Array | The JSON interface of the contract. |
 | hexString | String | A bytecode of smart contract to be deployed. |
 | params | Mixed | Arguments to pass to the constructor. |
@@ -337,7 +335,7 @@ Encode smart contract bytecode with the arguments of the constructor.
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | String | The ABI encoded smart contract deployment with constructor arguments, which means byteCode + parameters. |
 
 **Examples**
@@ -378,4 +376,3 @@ caver.klay.abi.encodeContractDeploy([
     ],'0x60806040526000805534801561001457600080fd5b5060405161015d38038061015d8339810180604052810190808051820192919050505050610116806100476000396000f3006080604052600436106053576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14605857806342cbb15c146080578063d14e62b81460a8575b600080fd5b348015606357600080fd5b50606a60d2565b6040518082815260200191505060405180910390f35b348015608b57600080fd5b50609260d8565b6040518082815260200191505060405180910390f35b34801560b357600080fd5b5060d06004803603810190808035906020019092919050505060e0565b005b60005481565b600043905090565b80600081905550505600a165627a7a7230582082c35290d5a3c5f9ae552e0f638388cdc57d596a0973febe5de8eb9ee6df48a60029', 'stringParams')
 > "0x60806040526000805534801561001457600080fd5b5060405161015d38038061015d8339810180604052810190808051820192919050505050610116806100476000396000f3006080604052600436106053576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14605857806342cbb15c146080578063d14e62b81460a8575b600080fd5b348015606357600080fd5b50606a60d2565b6040518082815260200191505060405180910390f35b348015608b57600080fd5b50609260d8565b6040518082815260200191505060405180910390f35b34801560b357600080fd5b5060d06004803603810190808035906020019092919050505060e0565b005b60005481565b600043905090565b80600081905550505600a165627a7a7230582082c35290d5a3c5f9ae552e0f638388cdc57d596a0973febe5de8eb9ee6df48a600290000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000c737472696e67506172616d730000000000000000000000000000000000000000"
 ```
-

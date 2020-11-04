@@ -1,6 +1,7 @@
-# Porting Ethereum Contract
+# Porting Ethereum Contract <a id="porting-ethereum-contract"></a>
 
-In most cases, you can use Ethereum contracts on Klaytn without any modification. However, be aware of the following two issues.
+In most cases, you can use Ethereum contracts on Klaytn without any modification.
+However, be aware of the following two issues. 
 
 ## Solidity Support <a id="solidity-support"></a>
 

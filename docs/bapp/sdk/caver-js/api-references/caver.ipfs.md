@@ -1,6 +1,6 @@
-# caver.ipfs
+# caver.ipfs <a id="caver-ipfs"></a>
 
-`caver.ipfs` is a package that provides functionality related to IPFS \(InterPlanetary File System\).
+`caver.ipfs` is a package that provides functionality related to IPFS (InterPlanetary File System).
 
 **NOTE** `caver.ipfs` is supported since caver-js [v1.5.4](https://www.npmjs.com/package/caver-js/v/1.5.4).
 
@@ -15,10 +15,11 @@ Initializes a connection with an IPFS Node. When an IPFS Node information is set
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | host | string | The IPFS Node url to connect with. |
 | port | number | The port number to use. |
-| ssl | boolean | If true, the `https` protocol is used. Otherwise, the `http` protocol is used. |
+| ssl | boolean| If true, the `https` protocol is used. Otherwise, the `http` protocol is used. |
+
 
 **Return Value**
 
@@ -36,21 +37,22 @@ None
 caver.ipfs.add(path)
 ```
 
-Adds a file to IPFS. The [CID\(Content Identifier\)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file is returned.
+Adds a file to IPFS. The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file is returned.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | path | string | The path of the file to add to IPFS. |
+
 
 **Return Value**
 
 `Promise` returns `string`
 
 | Type | Description |
-| :--- | :--- |
-| string | The [CID\(Content Identifier\)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file. |
+| --- | --- |
+| string | The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file. |
 
 **Example**
 
@@ -70,15 +72,16 @@ Returns a file addressed by a valid IPFS path.
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| hash | string | An [CID\(Content Identifier\)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the file to download. |
+| --- | --- | --- |
+| hash | string | An [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the file to download. |
+
 
 **Return Value**
 
 `Promise` returns `Buffer`
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | Buffer | The content of the file. |
 
 **Example**
@@ -94,18 +97,19 @@ Returns a file addressed by a valid IPFS path.
 caver.ipfs.toHex(hash)
 ```
 
-Converts a [CID\(Content Identifier\)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) to a [Multihash](https://multiformats.io/multihash).
+Converts a [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) to a [Multihash](https://multiformats.io/multihash).
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| hash | string | A [CID\(Content Identifier\)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) to convert. |
+| --- | --- | --- |
+| hash | string | A [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) to convert. |
+
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | The [Multihash](https://multiformats.io/multihash) string. |
 
 **Example**
@@ -121,19 +125,20 @@ Converts a [CID\(Content Identifier\)](https://docs.ipfs.io/concepts/content-add
 caver.ipfs.fromHex(hash)
 ```
 
-Converts to [CID\(Content Identifier\)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) from a [Multihash](https://multiformats.io/multihash).
+Converts to [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) from a [Multihash](https://multiformats.io/multihash).
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | hash | string | A [Multihash](https://multiformats.io/multihash) to convert. |
+
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
-| string | The [CID\(Content Identifier\)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids). |
+| --- | --- |
+| string | The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids). |
 
 **Example**
 
@@ -141,4 +146,3 @@ Converts to [CID\(Content Identifier\)](https://docs.ipfs.io/concepts/content-ad
 > caver.ipfs.fromHex('0x1220dc1dbe0bcf1e5f6cce80bd3d7e7d873801c5a1732add889c0f25391d53470dc3')
 Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC
 ```
-

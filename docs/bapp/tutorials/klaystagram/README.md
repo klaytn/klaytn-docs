@@ -1,4 +1,4 @@
-# Klaystagram
+# Klaystagram <a id="klaystagram"></a>
 
 ## Table of Contents <a id="table-of-contents"></a>
 
@@ -8,7 +8,7 @@
 * [4. Write Klaystagram Smart Contract](4.-write-klaystagram-smart-contract.md)
 * [5. Deploy Contract](5.-deploy-contract.md)
 * [6. Frontend Code Overview](6.-frontend-code-overview.md)
-* [7. FeedPage](7.-feedpage/)
+* [7. FeedPage](7.-feedpage/README.md)
   * [7-1. Connect Contract to Frontend](7.-feedpage/7-1.-connect-contract-to-frontend.md)
   * [7-2. UploadPhoto Component](7.-feedpage/7-2.-uploadphoto-component.md)
   * [7-3. Feed Component](7.-feedpage/7-3.-feed-component.md)
@@ -17,7 +17,7 @@
 
 ## Introduction <a id="introduction"></a>
 
-[![Klaystagram Introduction Video](../../../.gitbook/assets/klaystagram-video-poster.png)](https://vimeo.com/327033594)
+[![Klaystagram Introduction Video](images/klaystagram-video-poster.png)](https://vimeo.com/327033594)
 
 In this tutorial, we will learn how to make `Klaystagram`, a Klaytn-based NFT photo licensing application. This simple web application requires basic knowledge of Solidity, JavaScript and React.
 

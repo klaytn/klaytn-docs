@@ -1,28 +1,27 @@
-# Block
-
 ## defaultBlock <a id="defaultblock"></a>
 
 ```javascript
 caver.klay.defaultBlock
 ```
 
-The default block is used for certain methods. You can override it by passing in the defaultBlock as the last parameter. The default value is `"latest"`.
+The default block is used for certain methods.  You can override it by passing
+in the defaultBlock as the last parameter.  The default value is `"latest"`.
 
-* [caver.klay.getBalance\(\)](account.md#getbalance)
-* [caver.klay.getCode\(\)](account.md#getcode)
-* [caver.klay.getTransactionCount\(\)](account.md#gettransactioncount)
-* [caver.klay.getStorageAt\(\)](block.md#getstorageat)
-* [caver.klay.call\(\)](transaction/#call)
-* [new caver.klay.Contract\(\)](../caver.klay.contract.md#new-contract) -&gt; [myContract.methods.myMethod\(\).call\(\)](../caver.klay.contract.md#methods-mymethod-call)
+- [caver.klay.getBalance()](./account.md#getbalance)
+- [caver.klay.getCode()](./account.md#getcode)
+- [caver.klay.getTransactionCount()](./account.md#gettransactioncount)
+- [caver.klay.getStorageAt()](#getstorageat)
+- [caver.klay.call()](./transaction.md#call)
+- [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().call()](../caver.klay.Contract.md#methods-mymethod-call)
 
 **Property**
 
 Default block parameters can be one of the following:
 
-* Number: A block number
-* `"genesis"` - String: The genesis block
-* `"latest"` - String: The latest block \(current head of the blockchain\)
-* `"pending"` - String: The currently mined block \(including pending transactions\)
+- Number: A block number
+- `"genesis"` - String: The genesis block
+- `"latest"` - String: The latest block (current head of the blockchain)
+- `"pending"` - String: The currently mined block (including pending transactions)
 
 Default is `"latest"`.
 
@@ -47,8 +46,8 @@ Returns the current block number.
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| --- | --- | --- |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -66,30 +65,29 @@ Returns the current block number.
 ```javascript
 caver.klay.getBlock(blockHashOrBlockNumber [, returnTransactionObjects] [, callback])
 ```
-
 Returns a block matching the block hash or block number.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| blockHashOrBlockNumber | String \| Number | The block hash or block number. Or the string `"genesis"`, `"latest"` or `"pending"`. |
-| returnTransactionObjects | Boolean | \(optional, default `false`\) If `true`, the returned block will contain all transactions as objects, if `false` it will only contains the transaction hashes. |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| --- | --- | --- |
+| blockHashOrBlockNumber | String &#124; Number | The block hash or block number. Or the string ``"genesis"``, ``"latest"`` or ``"pending"``. |
+| returnTransactionObjects | Boolean | (optional, default ``false``) If ``true``, the returned block will contain all transactions as objects, if ``false`` it will only contains the transaction hashes. |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
-`Promise` returns `Object` - The block object:
+``Promise`` returns ``Object`` - The block object:
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | blockScore | QUANTITY | Former difficulty. Always 1 in the BFT consensus engine |
 | extraData | String | The "extra data" field of this block. |
 | gasUsed | Number | The total used gas by all transactions in this block. |
 | governanceData | DATA | RLP encoded governance configuration |
-| hash | 32-byte String | Hash of the block. `null` when it is a pending block. |
-| logsBloom | 256-byte String | The bloom filter for the logs of the block. `null` when it is a pending block. |
-| number | Number | The block number. `null` when it is a pending block. |
+| hash | 32-byte String | Hash of the block. ``null`` when it is a pending block. |
+| logsBloom | 256-byte String | The bloom filter for the logs of the block. ``null`` when it is a pending block. |
+| number | Number | The block number. ``null`` when it is a pending block. |
 | parentHash | 32-byte String | Hash of the parent block. |
 | receiptsRoot | 32-byte DATA | The root of the receipts trie of the block. |
 | reward | 20-byte DATA | The address of the beneficiary to whom the block rewards were given. |
@@ -98,7 +96,7 @@ Returns a block matching the block hash or block number.
 | timestamp | Number | The unix timestamp for when the block was collated. |
 | timestampFoS | QUANTITY | The fraction of a second of the timestamp for when the block was collated. |
 | totalBlockScore | QUANTITY | Integer of the total blockScore of the chain until this block. |
-| transactions | Array | Array of transaction objects, or 32-byte transaction hashes depending on the `returnTransactionObjects` parameter. |
+| transactions | Array | Array of transaction objects, or 32-byte transaction hashes depending on the ``returnTransactionObjects`` parameter. |
 | transactionsRoot | 32-byte String | The root of the transaction trie of the block. |
 | voteData | DATA | RLP encoded governance vote of the proposer |
 
@@ -133,19 +131,19 @@ Returns a block matching the block hash or block number.
 ```javascript
 caver.klay.getBlockReceipts(blockHash [, callback])
 ```
-
 Returns a list of transaction receipts included in a block identified by the given block hash.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | blockHash | String | Hash of a block. |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
-`Promise` returns `Array` - Receipts included in a block. If the target block contains no transaction, an empty array `[]` is returned.
+`Promise` returns `Array` - Receipts included in a block.  If the target block contains no transaction, an empty array `[]` is returned.
+
 
 **Example**
 
@@ -190,19 +188,18 @@ Returns a list of transaction receipts included in a block identified by the giv
 ```javascript
 caver.klay.getBlockTransactionCount(blockHashOrBlockNumber [, callback])
 ```
-
 Returns the number of transaction in a given block.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| blockHashOrBlockNumber | String \| Number | The block number or hash. Or the string `"genesis"`, `"latest"` or `"pending"`. |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| --- | --- | --- |
+| blockHashOrBlockNumber | String &#124; Number | The block number or hash. Or the string ``"genesis"``, ``"latest"`` or ``"pending"``. |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
-`Promise` returns `Number` - The number of transactions in the given block.
+``Promise`` returns ``Number`` - The number of transactions in the given block.
 
 **Example**
 
@@ -210,6 +207,7 @@ Returns the number of transaction in a given block.
 > caver.klay.getBlockTransactionCount("0x407d73d8a49eeb85d32cf465507dd71d507100c1").then(console.log);
 1
 ```
+
 
 ## getBlockWithConsensusInfo <a id="getblockwithconsensusinfo"></a>
 
@@ -222,23 +220,24 @@ Returns a block with consensus information matched by the given block hash or bl
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| blockHashOrBlockNumber | String \| Number | The block hash or block number. Or the string `"genesis"` or `"latest"`. |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| --- | --- | --- |
+| blockHashOrBlockNumber | String &#124; Number | The block hash or block number. Or the string `"genesis"` or `"latest"`. |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
-`Promise` returns `Object` - A block object with consensus information \(a proposer and a list of committee members\) The block object contains:
+``Promise`` returns ``Object`` - A block object with consensus information (a proposer and a list of committee members)
+The block object contains:
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | blockScore | QUANTITY | Former difficulty. Always 1 in the BFT consensus engine |
 | committee | Array | Array of addresses of committee members of this block. The committee is a subset of validators participated in the consensus protocol for this block. |
 | extraData | String | The "extra data" field of this block. |
 | gasUsed | QUANTITY | The total used gas by all transactions in this block. |
 | governanceData | DATA | RLP encoded governance configuration |
 | hash | 32-byte DATA | Hash of the block. `null` when it is a pending block. |
-| logsBloom | 256-byte String | The bloom filter for the logs of the block. `null` when it is a pending block. |
+| logsBloom | 256-byte String | The bloom filter for the logs of the block. ``null`` when it is a pending block. |
 | number | QUANTITY | The block number. `null` when it is a pending block. |
 | parentHash | 32-byte DATA | Hash of the parent block. |
 | proposer | 20-byte DATA | The address of the block proposer. |
@@ -254,7 +253,6 @@ Returns a block with consensus information matched by the given block hash or bl
 | voteData | DATA | RLP encoded governance vote of the proposer |
 
 **Examples**
-
 ```javascript
 > caver.klay.getBlockWithConsensusInfo(19097).then(console.log);
 { 
@@ -323,9 +321,9 @@ Returns a list of all validators in the committee at the specified block. If the
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| defaultBlock | Number \| String | \(optional\) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](block.md#defaultblock). |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| --- | --- | --- |
+| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -354,9 +352,9 @@ Returns the size of the committee at the specified block. If the parameter is no
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| defaultBlock | Number \| String | \(optional\) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](block.md#defaultblock). |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| --- | --- | --- |
+| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -370,7 +368,6 @@ Returns the size of the committee at the specified block. If the parameter is no
 ```
 
 ## getCouncil <a id="getcouncil"></a>
-
 **NOTE**: `getValidators` is replaced with this method and is not supported anymore.
 
 ```javascript
@@ -382,9 +379,9 @@ Returns a list of all validators of the council at the specified block. If the p
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| defaultBlock | Number \| String | \(optional\) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](block.md#defaultblock). |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| --- | --- | --- |
+| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -413,9 +410,9 @@ Returns the size of the council at the specified block. If the parameter is not 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| defaultBlock | Number \| String | \(optional\) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](block.md#defaultblock). |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| --- | --- | --- |
+| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -428,26 +425,26 @@ Returns the size of the council at the specified block. If the parameter is not 
 4
 ```
 
+
 ## getStorageAt <a id="getstorageat"></a>
 
 ```javascript
 caver.klay.getStorageAt(address, position [, defaultBlock] [, callback])
 ```
-
 Gets the storage at a specific position of an address.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | address | String | The address to get the storage from. |
 | position | Number | The index position of the storage. |
-| defaultBlock | Number \| String | \(optional\) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](block.md#defaultblock). |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
-`Promise` returns `String` - The value in storage at the given position.
+``Promise`` returns ``String`` - The value in storage at the given position.
 
 **Example**
 
@@ -455,6 +452,7 @@ Gets the storage at a specific position of an address.
 > caver.klay.getStorageAt("0x407d73d8a49eeb85d32cf465507dd71d507100c1", 0).then(console.log);
 "0x033456732123ffff2342342dd12342434324234234fd234fd23fd4f23d4234"
 ```
+
 
 ## isMining <a id="ismining"></a>
 
@@ -467,8 +465,9 @@ Returns `true` if client is actively mining new blocks.
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| --- | --- | --- |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+
 
 **Return Value**
 
@@ -492,15 +491,16 @@ Checks if the node is currently syncing and returns either a syncing object or `
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| --- | --- | --- |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+
 
 **Return Value**
 
 `Promise` returns `Object|Boolean` - A sync object when the node is currently syncing or `false`:
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | startingBlock | Number | The block number where the sync started. |
 | currentBlock | Number | The block number where at which block the node currently synced to already. |
 | highestBlock | Number | The estimated block number to sync to. |
@@ -519,4 +519,3 @@ Checks if the node is currently syncing and returns either a syncing object or `
     pulledStates: 123455
 }
 ```
-
