@@ -1,11 +1,20 @@
-# 이더리움 컨트랙트 포팅 <a id="porting-ethereum-contract"></a>
+# 이더리움 컨트랙트 포팅
 
 대부분의 경우 Klaytn에서 이더리움 컨트랙트를 수정 없이 사용할 수 있습니다. 그러나 다음 두 가지 문제에 유의하셔야 합니다.
 
-## 솔리디티 버전 <a id="solidity-version"></a>
+## Solidity Support <a id="solidity-support"></a>
 
-Klaytn은 공식적으로 솔리디티 v0.4.24 및 v0.5.6을 지원합니다. 이 두 버전은 철저한 테스트를 거쳤습니다. 다른 버전에서도 문제 없이 실행될 것으로 기대하지만, 이 두 버전을 사용하는 것을 강하게 추천합니다.
+Klaytn is currently compatible with **Constantinople** Ethereum Virtual Machine (EVM) version. Backward compatibility is not guaranteed with other EVM versions on Klaytn. Thus, it is highly recommended to compile Solidity code with the Constantinople target option. Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).
+
+
+An example command is shown below:
+
+```
+$ solc --evm-version constantinople contract.sol
+```
+
+Klaytn has been thoroughly tested with [OpenZeppelin tests](https://docs.openzeppelin.com/learn/writing-automated-tests#test-environment). We run the OpenZeppelin test suite to test various Solidity versions (0.5.x, 0.6.x, and 0.7.x) with the Constantinople target option on Klaytn.
 
 ## 분리된 키 쌍 <a id="decoupled-key-pairs"></a>
 
-Klaytn은 [키 쌍을 주소에서부터 분리합니다](../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses). 사용자가 [계정을 업데이트](../klaytn/design/transactions/basic.md#txtypeaccountupdate)할 경우, 특정 계정의 개인키는 다른 것으로 대체됩니다. 대부분의 경우 이는 비즈니스 로직에 영향을 미치지 않습니다. 그러나 비즈니스 로직에 ecrecover가 포함될 경우, validateSender를 고려해야 합니다. 자세한 내용은 [여기](./precompiled-contracts.md)를 참조하세요.
+Klaytn [decouples key pairs from addresses](../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses). If user [updates account](../klaytn/design/transactions/basic.md#txtypeaccountupdate), the private key for a specific account is replaced with another one. Most cases this will not affect your business logic. However if your business logic includes ecrecover, you should consider using validateSender. For more details, refer to [here](precompiled-contracts.md).
