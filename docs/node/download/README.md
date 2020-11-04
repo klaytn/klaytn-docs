@@ -4,7 +4,7 @@
 
 You can get the packages for CN, PN, EN, SCN, SPN and SEN.
 
-* [latest \(v1.5.3\)](https://github.com/ground-x/klaytn-docs/tree/67630dd1d9b7812c3cc817fdfe738dc1f80f1dc0/docs/node/download/latest.md)
+* [latest (v1.5.3)](latest.md)
 * [v1.5.2](v1.5.2.md)
 * [v1.5.1](v1.5.1.md)
 * [v1.5.0](v1.5.0.md)
