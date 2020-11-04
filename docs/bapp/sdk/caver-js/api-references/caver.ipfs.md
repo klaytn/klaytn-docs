@@ -34,16 +34,20 @@ None
 ## caver.ipfs.add <a id="caver-ipfs-add"></a>
 
 ```javascript
-caver.ipfs.add(path)
+caver.ipfs.add(data)
 ```
 
 Adds a file to IPFS. The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file is returned.
+
+If the path of a file is passed, the contents of the file are loaded from the path and uploaded to IPFS. If a buffer is passed, it is uploaded to IPFS directly.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| path | string | The path of the file to add to IPFS. |
+| data | string &#124; Buffer| The path string of a file or a buffer to add to IPFS. |
+
+**NOTE** `Buffer` is supported since caver-js [v1.5.5](https://www.npmjs.com/package/caver-js/v/1.5.5).
 
 
 **Return Value**
@@ -57,8 +61,13 @@ Adds a file to IPFS. The [CID(Content Identifier)](https://docs.ipfs.io/concepts
 **Example**
 
 ```javascript
+// Adds a file with path string.
 > caver.ipfs.add('./test.txt')
 Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC
+
+// Adds a file with Buffer containing the contents of the file.
+> caver.ipfs.add(Buffer.from('test data'))
+QmWmsL95CYvci8JiortAMhezezr8BhAwAVohVUSJBcZcBL
 ```
 
 ## caver.ipfs.get <a id="caver-ipfs-get"></a>
