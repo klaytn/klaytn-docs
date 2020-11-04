@@ -1,4 +1,4 @@
-# Token Economy
+# Token Economy <a id="token-economy"></a>
 
 ## Overview <a id="overview"></a>
 
@@ -68,21 +68,20 @@ The first PoC Pilot test will be implemented as below.
 | :--- | :--- |
 | **Target** | Service providers who have applied for this pilot test and passed internal review |
 | **Period** | 2020.09 ~ 2020.11 |
-| **Basic Requirements** | \(1\) Services which have been completed onboarding Cypress \(Klaytn Mainnet\), \(2\) allow their customer to interact with smart contract \(3\) and are free from illegal issues. |
+| **Basic Requirements** | \(1\) Services which have been completed onboarding Cypress (Klaytn Mainnet), \(2\) allow their customer to interact with smart contract \(3\) and are free from illegal issues. |
 | **Resources** | Maximum 600,000 KLAY will be distributed to service providers. |
 | **Reward Schedule** | Service providers will be rewarded after finishing each round which is bi-weekly basis. Specific amount of reward will be calculated based on the blockchain data collected during a round. |
 | **Disqualification Policy** | Service providers who performed inappropriate activities such as manipulating data about contribution indicators will be disqualified permanently. |
 
 ### Incentive Programs <a id="incentive-programs"></a>
 
-In this pilot test, service providers’ contribution is measured at each round \(2 weeks\), and rewards are distributed based on their level of contribution. The contribution metrics and reward distribution process are defined as follows.
+In this pilot test, service providers’ contribution is measured at each round (2 weeks), and rewards are distributed based on their level of contribution. The contribution metrics and reward distribution process are defined as follows.
 
 #### 1. Contribution metrics
 
-During a round, following data will be collected based on the transaction on Klaytn blockchain\(Cypress\).
-
-* No. of New Users: The no. of new unique accounts\(EOAs\) that send at least one transaction to smart contracts\(of services\) during the corresponding round
-* No. of Retained Users: The no. of returning unique accounts\(EOAs\) that send at least transactions to a smart contracts\(of services\) during the corresponding round
+During a round, following data will be collected based on the transaction on Klaytn blockchain(Cypress).
+* No. of New Users: The no. of new unique accounts(EOAs) that send at least one transaction to smart contracts(of services) during the corresponding round
+* No. of Retained Users: The no. of returning unique accounts(EOAs) that send at least transactions to a smart contracts(of services) during the corresponding round
 * No. of Transactions: The no. of transactions that execute a service smart contract during the corresponding round
 * KLAY Volume: The total KLAY volume transmitted to a service smart contract during the corresponding round.
 
@@ -91,7 +90,9 @@ During a round, following data will be collected based on the transaction on Kla
 Service providers receive rewards through three stages as follows, based on data collected during a round.
 
 1. Applying minimum threshold and calculating contribution: Contribution measurement and compensation payments are made only to service providers that have passed the minimum standard \(e.g. inflow of at least 100 new users\). The contribution is measured based on the four metrics and their weights ​​mentioned above.
-2. Calculating the total reward amount of compensation for a round: The total reward amount per round is measured based on the number of \(new / retained\) user inflows. The total reward amount per round cannot exceed the total reward pool.
+
+2. Calculating the total reward amount of compensation for a round: The total reward amount per round is measured based on the  number of \(new / retained\) user inflows. The total reward amount per round cannot exceed the total reward pool.
+
 3. Distributing compensations: Based on the previously calculated contribution, each service provider's contribution rate and ranking are determined. The service providers will eventually receive a reward based on the contribution rate and ranking.
 
 This system is designed to help service providers get more rewards as they strive to attract users and develop the services.
@@ -108,4 +109,3 @@ The spending necessary to set up the ecosystem can be categorized as following.
 * Others
 
 KIR proposals can be created by any participant in Klaytn’s ecosystem. KIR spending proposals will be processed per KIR Governance Process. Refer to the [Klaytn Improvement Reserve Governance Process](governance.md#klaytn-improvement-reserve-governance-process) section for more information on the procedure. Once a spending proposal has passed, KLAY will be distributed periodically, from a predetermined total amount, based on the project’s level of progress. This process may change based on the project size but is planned to be processed monthly.
-

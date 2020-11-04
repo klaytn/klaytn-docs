@@ -1,21 +1,21 @@
-# Migrating Ethereum App to Klaytn
+# Migrating Ethereum App to Klaytn <a id="migrating-ethereum-app-to-klaytn"></a>
 
 ## Table of Contents <a id="table-of-contents"></a>
 
-* [1. Introduction](migrating-ethereum-app-to-klaytn.md#1-introduction)
-* [2. Klaytn has Ethereum compatibility](migrating-ethereum-app-to-klaytn.md#2-klaytn-has-ethereum-compatibility)
-* [3. Change node connection from Ethereum to Klaytn](migrating-ethereum-app-to-klaytn.md#3-change-node-connection-from-ethereum-to-klaytn)
-* [4. Interact with Klaytn node: `BlockNumber` component](migrating-ethereum-app-to-klaytn.md#4-interact-with-klaytn-node-blocknumber-component)
-* [5. Interact with the contract: `Count` component](migrating-ethereum-app-to-klaytn.md#5-interact-with-the-contract-count-component)
-  * [5-1. Deploy Count contract on Klaytn](migrating-ethereum-app-to-klaytn.md#5-1-deploy-count-contract-on-klaytn)
-  * [5-2. Create a contract instance](migrating-ethereum-app-to-klaytn.md#5-2-create-a-contract-instance)
-  * [5-3. Interact with contract](migrating-ethereum-app-to-klaytn.md#5-3-interact-with-contract)
+* [1. Introduction](#1-introduction)
+* [2. Klaytn has Ethereum compatibility](#2-klaytn-has-ethereum-compatibility)
+* [3. Change node connection from Ethereum to Klaytn](#3-change-node-connection-from-ethereum-to-klaytn)
+* [4. Interact with Klaytn node: `BlockNumber` component](#4-interact-with-klaytn-node-blocknumber-component)
+* [5. Interact with the contract: `Count` component](#5-interact-with-the-contract-count-component)
+  * [5-1. Deploy Count contract on Klaytn](#5-1-deploy-count-contract-on-klaytn)
+  * [5-2. Create a contract instance](#5-2-create-a-contract-instance)
+  * [5-3. Interact with contract](#5-3-interact-with-contract)
 
 ## 1. Introduction <a id="1-introduction"></a>
 
-This tutorial is intended to give a guide to migrate an Ethereum App to Klaytn. No previous Klaytn experience is needed. A simple blockchain app will be used as a sample to show how to migrate an Ethereum App to Klaytn.
+This tutorial is intended to give a guide to migrate an Ethereum App to Klaytn. No previous Klaytn experience is needed. A simple blockchain app will be used as a sample to show how to migrate an Ethereum App to Klaytn.  
 
-We will focus only on the code modifications required to migrate an Ethereum App to Klaytn. If you need details on creating a Klaytn BApp, Please refer to [CountBApp Tutorial](count-bapp/).
+We will focus only on the code modifications required to migrate an Ethereum App to Klaytn. If you need details on creating a Klaytn BApp, Please refer to [CountBApp Tutorial](count-bapp/README.md).
 
 > **Source Code**  
 > Complete source code can be found on GitHub at [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
@@ -26,7 +26,6 @@ We will focus only on the code modifications required to migrate an Ethereum App
 * Basic knowledge and experience in Blockchain app is required, but no previous Klaytn experience is needed.
 
 #### Testing Environment <a id="testing-environment"></a>
-
 CountBApp is tested in the following environment.
 
 * MacOS Mojave 10.14.5
@@ -40,14 +39,14 @@ Klaytn runtime environment is compatible with Ethereum Virtual Machine and execu
 
 ## 3. Change node connection from Ethereum to Klaytn <a id="3-change-node-connection-from-ethereum-to-klaytn"></a>
 
-First, you need to change the library that makes a connection to the node. Then you will specify the node URL in 'rpcURL'.
+First, you need to change the library that makes a connection to the node. Then you will specify the node URL in 'rpcURL'. 
 
-* In Ethereum BApp example
-  * `web3` library connects to and communicates with Ethereum node.
-  * `Ropsten testnet` URL is assigned to 'rpcURL' .
-* In Klaytn BApp example
-  * `caver-js` library is used to connect to and communicate with Klaytn node.
-  * `Baobab testnet` URL is assigned to 'rpcURL'.
+- In Ethereum BApp example
+  - `web3` library connects to and communicates with Ethereum node.
+  - `Ropsten testnet` URL is assigned to 'rpcURL' .
+- In Klaytn BApp example
+  - `caver-js` library is used to connect to and communicate with Klaytn node.
+  - `Baobab testnet` URL is assigned to 'rpcURL'.
 
 `src/klaytn/caver.js`
 
@@ -68,18 +67,18 @@ const caver = new Caver(rpcURL)
 export default caver
 ```
 
+
 ## 4. Interact with Klaytn node: `BlockNumber` component <a id="4-interact-with-klaytn-node-blocknumber-component"></a>
+![blocknumber component](./count-bapp/images/blocknumber-component.gif)  
 
-![blocknumber component](../../.gitbook/assets/blocknumber-component.gif)
-
-BlockNumber component gets the current block number every 1 second \(1000ms\).
+BlockNumber component gets the current block number every 1 second (1000ms).  
 
 By simply replacing the `web3` library with `caver-js`, you can sync Klaytn's BlockNumber in real-time instead of Ethereum's BlockNumber.
 
-> Ethereum: [`web3.eth.getBlockNumber()`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth.html#getblocknumber)  
-> Klaytn: [`caver.klay.getBlockNumber()`](../sdk/caver-js/v1.4.1/api-references/caver.klay/block.md#getblocknumber)
+>Ethereum: [`web3.eth.getBlockNumber()`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth.html#getblocknumber)  
+>Klaytn: [`caver.klay.getBlockNumber()`](../sdk/caver-js/v1.4.1/api-references/caver.klay/block.md#getblocknumber)
 
-```javascript
+```js
 // import web3 from 'ethereum/web3'
 import caver from 'klaytn/caver'
 
@@ -97,20 +96,19 @@ class BlockNumber extends Component {
 
 export default BlockNumber
 ```
-
 For more detail about `BlockNumber` component, see [CountBApp tutorial - Blocknumber Component](count-bapp/5.-frontend-code-overview/5-1.-blocknumber-component.md).
 
 ## 5. Interact with the contract: `Count` component <a id="5-interact-with-the-contract-count-component"></a>
 
-![count component](../../.gitbook/assets/count-component.gif)
+![count component](./count-bapp/images/count-component.gif)
 
-To interact with the contract, we need to create an instance of the deployed contract. With the instance, we can read and write the contract's data.
+To interact with the contract, we need to create an instance of the deployed contract. With the instance, we can read and write the contract's data.  
 
 Let's learn step by step how to migrate `CountBApp` from Ethereum to Klaytn!
 
-* 5-1. Deploy `Count` contract on Klaytn
-* 5-2. Create a contract instance
-* 5-3. Interact with contract
+- 5-1. Deploy `Count` contract on Klaytn
+- 5-2. Create a contract instance
+- 5-3. Interact with contract
 
 ### 5-1. Deploy `Count` contract on Klaytn <a id="5-1-deploy-count-contract-on-klaytn"></a>
 
@@ -122,8 +120,7 @@ The first step is deploying Count contract on Klaytn and get the contract addres
 4. `Count` contract will be deployed on Baobab testnet, Klaytn.
 
 `truffle-config.js`
-
-```javascript
+```js
 // const HDWalletProvider = require("truffle-hdwallet-provider")
 const HDWalletProvider = require("truffle-hdwallet-provider-klaytn")
 
@@ -168,10 +165,9 @@ For more details about deploying contracts, See [CountBapp tutorial - Deploy Con
 You can create a contract instance with the `caver-js` API. The contract instance creates a connection to `Count` contract. You can invoke contract methods through this instance.
 
 > Ethereum : [`web3.eth.Contract(ABI, address)`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth-contract.html#new-contract)  
-> Klaytn : [`caver.klay.Contract(ABI, address)`](../sdk/caver-js/v1.4.1/api-references/caver.klay.contract.md#new-contract)
+> Klaytn : [`caver.klay.Contract(ABI, address)`](../sdk/caver-js/v1.4.1/api-references/caver.klay.Contract.md#new-contract)
 
 `src/components/Count.js`
-
 ```javascript
 // import web3 from 'ethereum/web3'
 import caver from 'klaytn/caver'
@@ -196,23 +192,18 @@ export default Count
 
 The `ABI` \(Application Binary Interface\) used to create the Count contract instance allows the `caver-js` to invoke contract's methods as below. You can interact with Count contract as if it were a JavaScript object.
 
-* Read data \(call\)  
-
-  `CountContract.methods.count().call()`
-
-* Write data \(send\)  
-
-  `CountContract.methods.plus().send({ ... })`  
-
-  `CountContract.methods.minus().send({ ... })`
+- Read data (call)  
+`CountContract.methods.count().call()`
+- Write data (send)  
+`CountContract.methods.plus().send({ ... })`  
+`CountContract.methods.minus().send({ ... })`
 
 Once you created a contract instance as in the previous step, you don't need to modify any code in using the contract methods afterward. BApp migration has been completed!
 
 #### Full code: `Count` component <a id="full-code-count-component"></a>
 
 `src/components/Count.js`
-
-```javascript
+```js
 import React, { Component } from 'react'
 import cx from 'classnames'
 
@@ -407,4 +398,3 @@ class Count extends Component {
 
 export default Count
 ```
-

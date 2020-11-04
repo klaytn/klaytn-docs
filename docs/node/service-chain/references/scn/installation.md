@@ -1,4 +1,4 @@
-# Installation
+# Installation Guide <a id="installation-guide"></a>
 
 This chapter explains the **Service Chain Consensus Node \(SCN\)** installation.
 
@@ -47,4 +47,5 @@ The Klaytn Linux package consists of the executable binary and the configuration
 | kscn | /usr/bin/kscn |
 | kscnd.conf | /etc/kscnd/conf/kscnd.conf |
 | homi | /usr/bin/homi |
+
 

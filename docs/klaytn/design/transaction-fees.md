@@ -1,4 +1,4 @@
-# Transaction Fees
+# Transaction Fees <a id="transaction-fees"></a>
 
 The transaction fee for the current Klaytn virtual machine \(KLVM\) is computed as follows:
 
@@ -39,7 +39,7 @@ The error message `invalid unit price` is returned when the gas price of a trans
 
 Klaytn currently does not provide a way to replace a transaction using the unit price but may support different methods for the transaction replacement in the future. Note that in Ethereum, a transaction with a given nonce can be replaced by a new one with a higher gas price.
 
-## Klaytn's Gas table <a id="klaytns-gas-table"></a>
+## Klaytn's Gas table  <a id="klaytns-gas-table"></a>
 
 Basically, Klaytn is keeping compatibility with Ethereum. So Klaytn's gas table is pretty similar with that of Ethereum. But because of the existence of unique features of Klaytn, there are several new constants for those features.
 

@@ -1,5 +1,3 @@
-# Filter
-
 ## getFilterChanges <a id="getfilterchanges"></a>
 
 ```javascript
@@ -11,27 +9,27 @@ Polling method for a filter, which returns an array of logs since the last poll.
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | filterId | String | The filter id. |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
-`Promise` returns `Array` - Array of log objects, or an empty array if nothing has changed since last poll.
+``Promise`` returns ``Array`` - Array of log objects, or an empty array if nothing has changed since last poll.
 
-The structure of the returned log `Object` in the `Array` looks as follows:
+The structure of the returned log ``Object`` in the ``Array`` looks as follows:
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | address | 20-byte DATA | Address from which this log originated. |
-| topics | Array of DATA | Array of 0 to 4 32-byte DATA of indexed log arguments. \(In Solidity: The first topic is the hash of the signature of the event \(_e.g._, `Deposit(address,bytes32,uint256)`\), except you declared the event with the `anonymous` specifier.\). |
+| topics | Array of DATA | Array of 0 to 4 32-byte DATA of indexed log arguments. (In Solidity: The first topic is the hash of the signature of the event (*e.g.*, `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.). |
 | data | DATA | Contains the non-indexed arguments of the log. |
 | blockNumber | QUANTITY | The block number where this log was in. `null` when pending. |
-| transactionHash | 32-byte DATA | Hash of the transaction that this log was created from. `null` when pending, an edge case when the transaction has been executed, but the block has not been confirmed. |
+| transactionHash | 32-byte DATA | Hash of the transaction that this log was created from. `null` when pending, an edge case when the transaction has been executed, but the block has not been confirmed.  |
 | transactionIndex | QUANTITY | Integer. The index of the transaction that this log was created from. `null` when pending. |
 | blockHash | 32-byte DATA | Hash of the block where this log was in. `null` when pending. |
 | logIndex | QUANTITY | Integer of the log index position in the block. `null` when it is a pending log. |
-| id | String | A log identifier. It is made by concatenating "log\_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
+| id | String | A log identifier. It is made by concatenating "log_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
 
 **Example**
 
@@ -58,19 +56,20 @@ The structure of the returned log `Object` in the `Array` looks as follows:
 caver.klay.getFilterLogs(filterId [, callback])
 ```
 
-Returns an array of all logs matching the filter with the given id. The filter object should be obtained using [newFilter](filter.md#newfilter).  
-Note that filter ids returned by other filter creation functions, such as [newBlockFilter](filter.md#newblockfilter) or [newPendingTransactionFilter](filter.md#newpendingtransactionfilter), cannot be used with this function.
+Returns an array of all logs matching the filter with the given id. The filter object should be obtained using [newFilter](#newfilter).  
+Note that filter ids returned by other filter creation functions, such as [newBlockFilter](#newblockfilter)
+or [newPendingTransactionFilter](#newpendingtransactionfilter), cannot be used with this function.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | filterId | String | The filter id. |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
-See [getFilterChanges](filter.md#getfilterchanges)
+See [getFilterChanges](#getfilterchanges)
 
 **Example**
 
@@ -91,6 +90,7 @@ See [getFilterChanges](filter.md#getfilterchanges)
 ]
 ```
 
+
 ## getPastLogs <a id="getpastlogs"></a>
 
 ```javascript
@@ -102,31 +102,31 @@ Gets past logs, matching the given options.
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | options | Object | The filter options. |
-| options.fromBlock | Number \| String | \(optional\) The number of the earliest block to get the logs. \(`"latest"` means the most recent block and `"pending"` means currently mining block.\) The default value is `"latest"`. |
-| options.toBlock | Number \| String | \(optional\) The number of the last block to get the logs. \(`"latest"` means the most recent block and `"pending"` means currently mining block.\). The default value is `"latest"`. |
-| options.address | String \| Array | \(optional\) An address or a list of addresses. Only the logs related to the particular account\(s\) will be returned. |
-| options.topics | Array | \(optional\) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, _e.g._, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, _e.g.,_ `[null, ['option1', 'option2']]`. |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| options.fromBlock | Number &#124; String | (optional) The number of the earliest block to get the logs. (`"latest"` means the most recent block and `"pending"` means currently mining block.) The default value is `"latest"`. |
+| options.toBlock | Number &#124; String | (optional) The number of the last block to get the logs. (`"latest"` means the most recent block and `"pending"` means currently mining block.). The default value is `"latest"`. |
+| options.address | String &#124; Array | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned. |
+| options.topics | Array | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, *e.g.*, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, *e.g.,* `[null, ['option1', 'option2']]`. |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
-`Promise` returns `Array` - Array of log objects.
+``Promise`` returns ``Array`` - Array of log objects.
 
-The structure of the returned event `Object` in the `Array` looks as follows:
+The structure of the returned event ``Object`` in the ``Array`` looks as follows:
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | address | String | From which this event originated from. |
 | data | String | The data containing non-indexed log parameter. |
 | topics | Array | An array with max 4 32-byte topics, topic 1-3 contains indexed parameters of the log. |
 | logIndex | Number | Integer of the event index position in the block. |
 | transactionIndex | Number | Integer of the transaction's index position, the event was created in. |
 | transactionHash | 32-byte String | Hash of the transaction this event was created in. |
-| blockHash | 32-byte String | Hash of the block where this event was created in. `null` when its still pending. |
-| blockNumber | Number | The block number where this log was created in. `null` when still pending. |
-| id | String | A log identifier. It is made through concatenating "log\_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
+| blockHash | 32-byte String | Hash of the block where this event was created in. ``null`` when its still pending. |
+| blockNumber | Number | The block number where this log was created in. ``null`` when still pending. |
+| id | String | A log identifier. It is made through concatenating "log_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
 
 **Example**
 
@@ -156,13 +156,14 @@ The structure of the returned event `Object` in the `Array` looks as follows:
 caver.klay.newBlockFilter([callback])
 ```
 
-Creates a filter in the node to receive the information about new block arrival. To check if the state has changed, call [getFilterChanges](filter.md#getfilterchanges).
+Creates a filter in the node to receive the information about new block arrival.
+To check if the state has changed, call [getFilterChanges](#getfilterchanges).
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| callback | Function | \(optional\) Optional callback. The callback is fired with an error object as its first parameter and the result as the second. |
+| --- | --- | --- |
+| callback | Function | (optional) Optional callback. The callback is fired with an error object as its first parameter and the result as the second. |
 
 **Return Value**
 
@@ -180,28 +181,29 @@ Creates a filter in the node to receive the information about new block arrival.
 ```javascript
 caver.klay.newFilter(options [, callback])
 ```
+Creates a filter object using the given filter options, to receive the specific state changes (logs).
+- To check if the state has changed, call [getFilterChanges](#getfilterchanges).
+- To obtain all logs matching the filter created by `newFilter`, call [getFilterLogs](#getfilterlogs).
 
-Creates a filter object using the given filter options, to receive the specific state changes \(logs\).
+For detailed information about topic filters, please see [Klaytn Platform API - klay_newFilter](../../../../../json-rpc/api-references/klay/filter.md#klay_newfilter).
 
-* To check if the state has changed, call [getFilterChanges](filter.md#getfilterchanges).
-* To obtain all logs matching the filter created by `newFilter`, call [getFilterLogs](filter.md#getfilterlogs).
 
-For detailed information about topic filters, please see [Klaytn Platform API - klay\_newFilter](../../../../../json-rpc/api-references/klay/filter.md#klay_newfilter).
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | options | Object | The filter options. |
-| options.fromBlock | Number \| String | \(optional\) The number of the earliest block height to query the events. \(There are special tags, `"latest"` means the most recent block and `"pending"` means currently mining block\). The default value is `"latest"`. |
-| options.toBlock | Number \| String | \(optional\) The number of the last block height to query the events \(There are special tags,`"latest"` means the most recent confirmed block and `"pending"` means currently mining block\). The default value is `"latest"`. |
-| options.address | String \| Array | \(optional\) An address or a list of addresses to get logs generated inside the given contract\(s\). |
-| options.topics | Array | \(optional\) An array of values to search for in the log entries. The order is important. If you want to match everything in the given position, use `null`, _e.g._, `[null, '0x12...']`. You can also pass an array to match one of them.  _e.g.,_ `[null, ['option1', 'option2']]`. |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| options.fromBlock | Number &#124; String | (optional) The number of the earliest block height to query the events. (There are special tags, `"latest"` means the most recent block and `"pending"` means currently mining block). The default value is `"latest"`. |
+| options.toBlock | Number &#124; String | (optional) The number of the last block height to query the events (There are special tags,`"latest"` means the most recent confirmed block and `"pending"` means currently mining block). The default value is `"latest"`. |
+| options.address | String &#124; Array | (optional) An address or a list of addresses to get logs generated inside the given contract(s). |
+| options.topics | Array | (optional) An array of values to search for in the log entries. The order is important. If you want to match everything in the given position, use `null`, *e.g.*, `[null, '0x12...']`. You can also pass an array to match one of them.  *e.g.,* ``[null, ['option1', 'option2']]``. |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+
 
 **Return Value**
 
-`Promise` returns `String` - A filter id.
+``Promise`` returns ``String`` - A filter id.
 
 **Example**
 
@@ -219,17 +221,18 @@ For detailed information about topic filters, please see [Klaytn Platform API - 
 caver.klay.newPendingTransactionFilter([callback])
 ```
 
-Creates a filter in the node, to receive the information about new pending transactions arrival. To check if the state has changed, call [getFilterChanges](filter.md#getfilterchanges).
+Creates a filter in the node, to receive the information about new pending transactions arrival.
+To check if the state has changed, call [getFilterChanges](#getfilterchanges).
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| --- | --- | --- |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
-`Promise` returns `String` - A filter id.
+``Promise`` returns ``String`` - A filter id.
 
 **Example**
 
@@ -244,18 +247,19 @@ Creates a filter in the node, to receive the information about new pending trans
 caver.klay.uninstallFilter(filterId [, callback])
 ```
 
-Removes the filter with the given id. It is strongly recommended to immediately remove the filter if monitoring is no longer needed. A filter will be removed if the filter has not been invoked through [getFilterChanges](filter.md#getfilterchanges) for more than the timeout value set in the node. The default configuration is 5 minutes.
+Removes the filter with the given id. It is strongly recommended to immediately remove the filter if monitoring is no longer needed.
+A filter will be removed if the filter has not been invoked through [getFilterChanges](#getfilterchanges) for more than the timeout value set in the node. The default configuration is 5 minutes.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | filterId | String | The filter id. |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
-`Promise` returns `Boolean` - `true` if the filter was successfully uninstalled, otherwise `false`.
+``Promise`` returns ``Boolean`` - `true` if the filter was successfully uninstalled, otherwise `false`.
 
 **Example**
 
@@ -263,4 +267,3 @@ Removes the filter with the given id. It is strongly recommended to immediately 
 > caver.klay.uninstallFilter('0x1426438ffdae5abf43edf4159c5b013b').then(console.log);
 true
 ```
-

@@ -1,29 +1,30 @@
 ---
-description: caver-js utility APIs.
+description: >-
+  caver-js utility APIs.
 ---
 
-# caver.utils
+# caver.utils <a id="caver-utils"></a>
 
 `caver.utils` provides utility functions.
+
 
 ## randomHex <a id="randomhex"></a>
 
 ```javascript
 caver.utils.randomHex(size)
 ```
-
 The [randomHex](https://github.com/frozeman/randomHex) library to generate cryptographically strong pseudo-random HEX strings from a given byte size.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| size | number | The byte size for the HEX string, _e.g._, `32` will result in a 32-byte HEX string with 64 characters prefixed with "0x". |
+| ---- | ---- | ----------- |
+| size | number | The byte size for the HEX string, *e.g.*, `32` will result in a 32-byte HEX string with 64 characters prefixed with "0x". |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| ---- | ----------- |
 | string | The generated random HEX string. |
 
 **Example**
@@ -45,7 +46,7 @@ The [randomHex](https://github.com/frozeman/randomHex) library to generate crypt
 '0x'
 ```
 
-## _&lt;a id="_"&gt;&lt;/a&gt;
+## _ <a id="_"></a>
 
 ```javascript
 caver.utils._()
@@ -72,20 +73,19 @@ See the [underscore API reference](http://underscorejs.org) for details.
 ```javascript
 caver.utils.toBN(number)
 ```
-
-Safely converts any given value \(including [Bignumber.js](http://mikemcl.github.io/bignumber.js/) instances\) into a [BN.js](https://github.com/indutny/bn.js/) instance, for handling big numbers in JavaScript.
+Safely converts any given value (including [Bignumber.js](http://mikemcl.github.io/bignumber.js/) instances) into a [BN.js](https://github.com/indutny/bn.js/) instance, for handling big numbers in JavaScript.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| number | string \| number | number to convert to a big number. |
+| --- | --- | --- |
+| number | string &#124; number | number to convert to a big number. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
-| Object | The [BN.js](https://github.com/indutny/bn.js/) instance. |
+| --- | --- |
+| Object| The [BN.js](https://github.com/indutny/bn.js/) instance. |
 
 **Examples**
 
@@ -100,6 +100,7 @@ Safely converts any given value \(including [Bignumber.js](http://mikemcl.github
 '234'
 ```
 
+
 ## isBN <a id="isbn"></a>
 
 ```javascript
@@ -108,16 +109,17 @@ caver.utils.isBN(bn)
 
 Checks if a given value is a [BN.js](https://github.com/indutny/bn.js/) instance.
 
+
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| bn | object | A [BN.js](https://github.com/indutny/bn.js/) instance. |
+| ---- | ---- | ----------- |
+| bn   | object | A [BN.js](https://github.com/indutny/bn.js/) instance. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| ---- | ----------- |
 | boolean | `true` if a given value is a [BN.js](https://github.com/indutny/bn.js/) instance. |
 
 **Example**
@@ -127,6 +129,7 @@ Checks if a given value is a [BN.js](https://github.com/indutny/bn.js/) instance
 > caver.utils.isBN(number)
 true
 ```
+
 
 ## isBigNumber <a id="isbignumber"></a>
 
@@ -139,13 +142,13 @@ Checks if a given value is a [Bignumber.js](http://mikemcl.github.io/bignumber.j
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| ---- | ---- | ----------- |
 | bignumber | object | A [Bignumber.js](http://mikemcl.github.io/bignumber.js/) instance. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| ---- | ----------- |
 | boolean | `true` if a given value is a `Bignumber.js` instance. |
 
 **Example**
@@ -156,27 +159,27 @@ Checks if a given value is a [Bignumber.js](http://mikemcl.github.io/bignumber.j
 true
 ```
 
+
 ## sha3 <a id="sha3"></a>
 
 ```javascript
 caver.utils.sha3(str)
 caver.utils.keccak256(str) // ALIAS
 ```
-
 Calculates the sha3 of the input.
 
-**NOTE**: To mimic the sha3 behavior of Solidity use [caver.utils.soliditySha3](caver.utils.md#soliditysha3).
+**NOTE**: To mimic the sha3 behavior of Solidity use [caver.utils.soliditySha3](#soliditysha3).
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| ---- | ---- | ----------- |
 | str | string | A string to hash. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| ---- | ----------- |
 | string | The result hash. |
 
 **Example**
@@ -204,18 +207,19 @@ null
 caver.utils.soliditySha3(param1 [, param2, ...])
 ```
 
-Calculates the sha3 of given input parameters in the same way solidity would. This means arguments will be ABI converted and tightly packed before being hashed.
+Calculates the sha3 of given input parameters in the same way solidity would.
+This means arguments will be ABI converted and tightly packed before being hashed.
 
 **Parameters**
 
-| Name | Type | Description |  |  |  |  |  |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| paramX | Mixed | Any type, or an object with `{type: 'uint', value: '123456'}` or `{t: 'bytes', v: '0xfff456'}`. Basic types are autodetected as follows:  - `string` non numerical UTF-8 string is interpreted as `string`.  - \`string | number | BN | HEX`positive number is interpreted as`uint256`.<br> -`string | number | BN`negative number is interpreted as`int256`.<br> -`boolean`as`bool`.<br> -`string`HEX string with leading`0x`is interpreted as`bytes`.<br> -`HEX`HEX number representation is interpreted as`uint256\`.  |
+| Name | Type | Description |
+| --- | --- | --- |
+| paramX | Mixed| Any type, or an object with `{type: 'uint', value: '123456'}` or `{t: 'bytes', v: '0xfff456'}`. Basic types are autodetected as follows:<br> - `string` non numerical UTF-8 string is interpreted as `string`.<br> - `string|number|BN|HEX` positive number is interpreted as `uint256`.<br> - `string|number|BN` negative number is interpreted as `int256`.<br> - `boolean` as `bool`.<br> - `string` HEX string with leading `0x` is interpreted as `bytes`.<br> - `HEX` HEX number representation is interpreted as `uint256`.<br>|
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| ---- | ----------- |
 | string | The result hash. |
 
 **Example**
@@ -259,24 +263,24 @@ Calculates the sha3 of given input parameters in the same way solidity would. Th
 '0xa13b31627c1ed7aaded5aecec71baf02fe123797fffd45e662eac8e06fbe4955'
 ```
 
+
 ## isHex <a id="ishex"></a>
 
 ```javascript
 caver.utils.isHex(hex)
 ```
-
 Checks if a given string is a HEX string.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| ---- | ---- | ----------- |
 | hex | string | The given HEX string. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| ---- | ----------- |
 | boolean | `true` if a given parameter is a HEX string. |
 
 **Example**
@@ -300,20 +304,20 @@ false
 ```javascript
 caver.utils.isHexStrict(hex)
 ```
-
-Checks if a given string is a HEX string. Difference to [caver.utils.isHex](caver.utils.md#ishex) is that it expects HEX to be prefixed with `0x`.
+Checks if a given string is a HEX string. Difference to [caver.utils.isHex](#ishex) is that it expects HEX to be prefixed with `0x`.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| ---- | ---- | ----------- |
 | hex | string | The given HEX string. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| ---- | ----------- |
 | boolean | `true` if a given string is a HEX string. |
+
 
 **Example**
 
@@ -331,24 +335,25 @@ false
 false
 ```
 
+
 ## isAddress <a id="isaddress"></a>
 
 ```javascript
 caver.utils.isAddress(address)
 ```
-
-Checks if a given string is a valid Klaytn address. It will also check the checksum if the address has upper and lowercase letters.
+Checks if a given string is a valid Klaytn address.
+It will also check the checksum if the address has upper and lowercase letters.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | address | string | An address string. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | boolean | `true` if a given string is a valid Klaytn address. |
 
 **Examples**
@@ -370,24 +375,24 @@ true
 false // wrong checksum
 ```
 
+
 ## toChecksumAddress <a id="tochecksumaddress"></a>
 
 ```javascript
 caver.utils.toChecksumAddress(address)
 ```
-
 Converts an upper or lowercase Klaytn address to a checksum address.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | address | string | An address string. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | The checksum address. |
 
 **Examples**
@@ -400,24 +405,24 @@ Converts an upper or lowercase Klaytn address to a checksum address.
 '0xc1912fEE45d61C87Cc5EA59DaE31190FFFFf232d' // same as above
 ```
 
+
 ## checkAddressChecksum <a id="checkaddresschecksum"></a>
 
 ```javascript
 caver.utils.checkAddressChecksum(address)
 ```
-
 Checks the checksum of a given address. Will also return `false` on non-checksum addresses.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| address | string | An address string. |
+| --- | --- | --- |
+| address | string | An address string.|
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | boolean | `true` when the checksum of the address is valid, `false` if it is not a checksum address, or the checksum is invalid. |
 
 **Examples**
@@ -432,19 +437,20 @@ true
 ```javascript
 caver.utils.toHex(mixed)
 ```
-
-Converts any given value to HEX. The numeric strings will be interpreted as numbers. Text strings will be interpreted as UTF-8 strings.
+Converts any given value to HEX.
+The numeric strings will be interpreted as numbers.
+Text strings will be interpreted as UTF-8 strings.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| mixed | string \| number \| BN \| Bignumber | The input to convert to HEX. |
+| --- | --- | --- |
+| mixed | string &#124; number &#124; BN &#124; Bignumber | The input to convert to HEX. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | The resulting HEX string. |
 
 **Examples**
@@ -477,13 +483,13 @@ Returns the number representation of a given HEX value as a string.
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | hexstring | string | A HEX string to be converted. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | The number as a string. |
 
 **Examples**
@@ -498,21 +504,20 @@ Returns the number representation of a given HEX value as a string.
 ```javascript
 caver.utils.hexToNumber(hex)
 ```
-
 Returns the number representation of a given HEX value.
 
-**NOTE**: This is not useful for big numbers, rather use [caver.utils.toBN](caver.utils.md#tobn).
+**NOTE**: This is not useful for big numbers, rather use [caver.utils.toBN](#tobn).
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | hexstring | string | A HEX string to be converted. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | number | The number representation of a given HEX value. |
 
 **Examples**
@@ -527,19 +532,18 @@ Returns the number representation of a given HEX value.
 ```javascript
 caver.utils.numberToHex(number)
 ```
-
 Returns the HEX representation of a given number value.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| number | string \| number \| BN \| Bignumber | A number as string or number. |
+| --- | --- | --- |
+| number | string &#124; number &#124; BN &#124; Bignumber | A number as string or number. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | The HEX value of the given number. |
 
 **Examples**
@@ -555,19 +559,18 @@ Returns the HEX representation of a given number value.
 caver.utils.hexToUtf8(hex)
 caver.utils.hexTostring(hex) // ALIAS
 ```
-
 Returns the UTF-8 string representation of a given HEX value.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | hex | string | A HEX string to convert to a UTF-8 string. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | The UTF-8 string. |
 
 **Examples**
@@ -582,19 +585,18 @@ Returns the UTF-8 string representation of a given HEX value.
 ```javascript
 caver.utils.hexToAscii(hex)
 ```
-
 Returns the ASCII string representation of a given HEX value.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | hex | string | A HEX string to convert to an ASCII string. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | The ASCII string. |
 
 **Examples**
@@ -610,19 +612,19 @@ Returns the ASCII string representation of a given HEX value.
 caver.utils.utf8ToHex(str)
 caver.utils.stringToHex(str) // ALIAS
 ```
-
 Returns the HEX representation of a given UTF-8 string.
+
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | str | string | A UTF-8 string to convert to a HEX string. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | The HEX string. |
 
 **Examples**
@@ -643,13 +645,13 @@ Returns the HEX representation of a given ASCII string.
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | str | string | An ASCII string to convert to a HEX string. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | The HEX string. |
 
 **Examples**
@@ -664,19 +666,18 @@ Returns the HEX representation of a given ASCII string.
 ```javascript
 caver.utils.hexToBytes(hex)
 ```
-
 Returns a byte array from the given HEX string.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | hex | string | A HEX string to be converted. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | Array | The byte array. |
 
 **Examples**
@@ -691,19 +692,18 @@ Returns a byte array from the given HEX string.
 ```javascript
 caver.utils.bytesToHex(byteArray)
 ```
-
 Returns a HEX string from a byte array.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | byteArray | Array | A byte array to convert. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | The HEX string. |
 
 **Examples**
@@ -726,15 +726,15 @@ Converts any KLAY value into peb.
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| number | string \| number \| BN | The value. |
-| unit | string | \(optional, defaults to `"KLAY"`\) The unit of KLAY to convert from. `number` will be multiplied by one of the following multipliers for the unit provided: - `peb`: '1'   - `kpeb`: '1000'   - `Mpeb`: '1000000'   - `Gpeb`: '1000000000'   - `Ston`: '1000000000'   - `uKLAY`: '1000000000000'   - `mKLAY`: '1000000000000000'   - `KLAY`: '1000000000000000000'   - `kKLAY`: '1000000000000000000000'   - `MKLAY`: '1000000000000000000000000'   - `GKLAY`: '1000000000000000000000000000'   |
+| --- | --- | --- |
+| number | string &#124; number &#124; BN | The value. |
+| unit | string | (optional, defaults to ``"KLAY"``) The unit of KLAY to convert from. `number` will be multiplied by one of the following multipliers for the unit provided:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
-| string \| BN | If the number parameter is an instance of [BN](https://github.com/indutny/bn.js/), it returns a BN instance, otherwise a string. |
+| --- | --- |
+| string &#124; BN | If the number parameter is an instance of [BN](https://github.com/indutny/bn.js/), it returns a BN instance, otherwise a string. |
 
 **Examples**
 
@@ -757,14 +757,14 @@ caver.utils.convertFromPeb(number [, unit])
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| number | string \| number \| BN | The value in peb. |
-| unit | string | \(optional, defaults to `"KLAY"`\) The unit of KLAY to convert your "peb" into. `number` will be divided by one of the following denominators for the unit provided: - `peb`: '1'   - `kpeb`: '1000'   - `Mpeb`: '1000000'   - `Gpeb`: '1000000000'   - `Ston`: '1000000000'   - `uKLAY`: '1000000000000'   - `mKLAY`: '1000000000000000'   - `KLAY`: '1000000000000000000'   - `kKLAY`: '1000000000000000000000'   - `MKLAY`: '1000000000000000000000000'   - `GKLAY`: '1000000000000000000000000000'   |
+| --- | --- | --- |
+| number | string &#124; number &#124; BN | The value in peb. |
+| unit | string | (optional, defaults to ``"KLAY"``) The unit of KLAY to convert your "peb" into. `number` will be divided by one of the following denominators for the unit provided:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | The string number. |
 
 **Examples**
@@ -785,8 +785,9 @@ Shows all possible KLAY values and their amount in peb.
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
-| Object | With the following properties: - `peb`: '1'   - `kpeb`: '1000'   - `Mpeb`: '1000000'   - `Gpeb`: '1000000000'   - `Ston`: '1000000000'   - `uKLAY`: '1000000000000'   - `mKLAY`: '1000000000000000'   - `KLAY`: '1000000000000000000'   - `kKLAY`: '1000000000000000000000'   - `MKLAY`: '1000000000000000000000000'   - `GKLAY`: '1000000000000000000000000000'   - `TKLAY`: '1000000000000000000000000000000'   |
+| --- | --- |
+| Object | With the following properties:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> - `TKLAY`: '1000000000000000000000000000000' <br> |
+
 
 **Examples**
 
@@ -819,8 +820,9 @@ Shows all KLAY units.
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | Object | An object in which the units of KLAY used in Klaytn are defined. Each unit has its name and pebFactor. pebFactor is used when converting KLAY currently translated in each unit to 'peb'. |
+
 
 **Examples**
 
@@ -842,6 +844,7 @@ Shows all KLAY units.
 }
 ```
 
+
 ## padLeft <a id="padleft"></a>
 
 ```javascript
@@ -851,18 +854,19 @@ caver.utils.leftPad(string, characterAmount [, sign]) // ALIAS
 
 Adds padding on the left of a string. Useful for adding paddings to HEX strings.
 
+
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| string | string | The string to add padding on the left. |
+| --- | --- | --- |
+| string | string | The string to add padding on the left.|
 | characterAmount | number | The number of characters the total string should have. |
-| sign | string | \(optional\) The character sign to use, defaults to `0`. |
+| sign | string | (optional) The character sign to use, defaults to `0`. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | The padded string. |
 
 **Examples**
@@ -884,21 +888,20 @@ Adds padding on the left of a string. Useful for adding paddings to HEX strings.
 caver.utils.padRight(str, characterAmount [, sign])
 caver.utils.rightPad(str, characterAmount [, sign]) // ALIAS
 ```
-
 Adds padding on the right of a string, Useful for adding paddings to HEX strings.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | str | string | The string to add padding on the right. |
 | characterAmount | number | The number of characters the total string should have. |
-| sign | string | \(optional\) The character sign to use, defaults to `0`. |
+| sign | string | (optional) The character sign to use, defaults to `0`. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | The padded string. |
 
 **Examples**
@@ -914,6 +917,7 @@ Adds padding on the right of a string, Useful for adding paddings to HEX strings
 'Helloxxxxxxxxxxxxxxx'
 ```
 
+
 ## toTwosComplement <a id="totwoscomplement"></a>
 
 ```javascript
@@ -925,13 +929,13 @@ Converts a negative number into a two's complement.
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| num | number \| string \| Bignumber | The number to convert. |
+| --- | --- | --- |
+| num | number &#124; string &#124; Bignumber | The number to convert. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | The converted hex string. |
 
 **Examples**
@@ -964,13 +968,13 @@ Returns `true` if the given transaction is a smart contract deploy transaction. 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| transactionObject | object | An instance of [Transaction](caver.transaction/#class) to check contract deploy transaction or not. |
+| --- | --- | --- |
+| transactionObject | object | An instance of [Transaction] to check contract deploy transaction or not. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | boolean | `true` means the transaction object is for smart contract deploy. |
 
 **Examples**
@@ -1020,18 +1024,18 @@ caver.utils.xyPointFromPublicKey(publicKey)
 
 Returns the x and y coordinates of the given publicKey. For more information on key cryptography, see [Elliptic-curve cryptography](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography).
 
-**NOTE** This function does not contain any logic to check whether the public key is valid. The function only split the input publicKey into x and y points by length. To validate public key, please use [isValidPublicKey](caver.utils.md#isvalidpublickey).
+**NOTE** This function does not contain any logic to check whether the public key is valid. The function only split the input publicKey into x and y points by length. To validate public key, please use [isValidPublicKey](#isvalidpublickey).
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | publicKey | string | The publicKey to get x and y points. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | Array | An array storing x and y points. Index 0 has x point, and index 1 has y point. |
 
 **Examples**
@@ -1049,19 +1053,18 @@ Returns the x and y coordinates of the given publicKey. For more information on 
 ```javascript
 caver.utils.isHexPrefixed(input)
 ```
-
 Returns `true` if the input is a 0x-prefixed hex string, otherwise it returns `false`.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | input | string | The value to be determined if the parameter is 0x-prefixed hex string or not. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | boolean | `true` means the input is 0x-prefixed hex string. |
 
 **Examples**
@@ -1085,19 +1088,18 @@ false
 ```javascript
 caver.utils.addHexPrefix(input)
 ```
-
 Returns a 0x-prefixed hex string. If the input is already 0x-prefixed or a non-hex string, the input value is returned as-is.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | input | string | string value to be prefixed with 0x. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | 0x-prefixed hex string is returned. |
 
 **Examples**
@@ -1115,7 +1117,6 @@ Returns a 0x-prefixed hex string. If the input is already 0x-prefixed or a non-h
 ```javascript
 caver.utils.stripHexPrefix(input)
 ```
-
 Returns the result with 0x prefix stripped from input.
 
 **NOTE** caver.klay.stripHexPrefix is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
@@ -1123,13 +1124,13 @@ Returns the result with 0x prefix stripped from input.
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | input | string | string to remove 0x prefix. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | A string stripped of 0x is returned. |
 
 **Examples**
@@ -1147,19 +1148,18 @@ Returns the result with 0x prefix stripped from input.
 ```javascript
 caver.utils.toBuffer(input)
 ```
-
 This function converts the input to a [Buffer](https://nodejs.org/api/buffer.html). To convert an object into a Buffer using `toBuffer`, the object must implement **toArray** function. For string type input, this function only works with a **0x-prefixed hex string**.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| input | Buffer \| string \| number \| Array \| BN \| object | The value to be converted to a Buffer. |
+| --- | --- | --- |
+| input | Buffer &#124; string &#124; number &#124; Array &#124; BN &#124; object | The value to be converted to a Buffer. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | Buffer | The value converted to Buffer type is returned. |
 
 **Examples**
@@ -1211,18 +1211,18 @@ Error: To convert an object to a buffer, the toArray function must be implemente
 caver.utils.numberToBuffer(input)
 ```
 
-This function converts a number to a [Buffer](https://nodejs.org/api/buffer.html). The [caver.utils.toBuffer](caver.utils.md#tobuffer) has the same behavior as this function when the input is a number.
+This function converts a number to a [Buffer](https://nodejs.org/api/buffer.html). The [caver.utils.toBuffer](#tobuffer) has the same behavior as this function when the input is a number.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| input | string \| number \| BN | A number to be converted to a Buffer. |
+| --- | --- | --- |
+| input | string &#124; number &#124; BN | A number to be converted to a Buffer. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | Buffer | The value converted to Buffer type is returned. |
 
 **Examples**
@@ -1252,13 +1252,13 @@ Returns `true` if the input is in 32-bytes hash format, otherwise it returns `fa
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | input | string | The value to be examined that if it is in 32-bytes hash format or not. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | boolean | `true` means the input is in the format of 32-bytes hash. |
 
 **Examples**
@@ -1282,22 +1282,21 @@ false
 caver.utils.isValidHashStrict(input)
 ```
 
-Returns `true` if the input is in 0x-prefixed 32-bytes hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of 0x-prefixed 32-bytes hash. Difference to [caver.utils.isValidHash](caver.utils.md#isvalidhash) is that it expects HEX to be prefixed with `0x`.
+Returns `true` if the input is in 0x-prefixed 32-bytes hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of 0x-prefixed 32-bytes hash. Difference to [caver.utils.isValidHash](#isvalidhash) is that it expects HEX to be prefixed with `0x`.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | input | string | The value to be examined that if it is in the format of 0x-prefixed 32-bytes hash or not. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | boolean | `true` means the input is in the format of 0x-prefixed 32-bytes hash. |
 
 **Examples**
-
 ```javascript
 // with '0x' hex prefix
 > caver.utils.isValidHashStrict('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550')
@@ -1319,18 +1318,18 @@ caver.utils.isTxHash(input)
 
 Returns `true` if the input is in transaction hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of a transaction hash.
 
-**NOTE** This function has been deprecated. Use [isValidHash](caver.utils.md#isvalidhash) to determine if a valid hash is 32 bytes long.
+**NOTE** This function has been deprecated. Use [isValidHash](#isvalidhash) to determine if a valid hash is 32 bytes long.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | input | string | The value to be determined if the parameter is in the format of transaction hash or not. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | boolean | `true` means the input is in the format of transaction hash. |
 
 **Examples**
@@ -1354,20 +1353,20 @@ false
 caver.utils.isTxHashStrict(input)
 ```
 
-Returns `true` if the input is in transaction hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of a transaction hash. Difference to [caver.utils.isTxHash](caver.utils.md#istxhash) is that it expects HEX to be prefixed with `0x`.
+Returns `true` if the input is in transaction hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of a transaction hash. Difference to [caver.utils.isTxHash](#istxhash) is that it expects HEX to be prefixed with ``0x``.
 
-**NOTE** This function has been deprecated. Use [isValidHashStrict](caver.utils.md#isvalidhashstrict) to determine if a valid hash is 32 bytes long.
+**NOTE** This function has been deprecated. Use [isValidHashStrict](#isvalidhashstrict) to determine if a valid hash is 32 bytes long.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | input | string | The value to be determined if the parameter is in the format of transaction hash or not. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | boolean | `true` means the input is in the format of transaction hash. |
 
 **Examples**
@@ -1390,19 +1389,18 @@ false
 ```javascript
 caver.utils.isValidPrivateKey(privateKey)
 ```
-
-Returns `true` if `privateKey` is valid, otherwise it returns `false`.
+Returns `true` if `privateKey` is valid, otherwise it returns `false`. 
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | privateKey | string | A private key string to validate. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | boolean | `true` means the privateKey is valid. |
 
 **Examples**
@@ -1423,19 +1421,18 @@ false
 ```javascript
 caver.utils.isValidPublicKey(publicKey)
 ```
-
-Returns `true` if publicKey is valid, otherwise it returns `false`.
+Returns `true` if publicKey is valid, otherwise it returns `false`. 
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | publicKey | string | A public key string to validate. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | boolean | `true` means the publicKey is valid. |
 
 **Examples**
@@ -1464,19 +1461,18 @@ false
 ```javascript
 caver.utils.isValidRole(role)
 ```
-
 Returns `true` if a role is valid, otherwise it returns `false`. You can check roles supported by caver-js through `caver.wallet.keyring.role`.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | role | string | A role string to validate. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | boolean | `true` means the role is valid. |
 
 **Examples**
@@ -1494,21 +1490,20 @@ false
 ```javascript
 caver.utils.isEmptySig(sig)
 ```
+Returns `true` if sig is in the format of empty signature (`SignatureData { _v: '0x01', _r: '0x', _s: '0x' }` or `[SignatureData { _v: '0x01', _r: '0x', _s: '0x' }]`), otherwise it returns `false`. 
 
-Returns `true` if sig is in the format of empty signature \(`SignatureData { _v: '0x01', _r: '0x', _s: '0x' }` or `[SignatureData { _v: '0x01', _r: '0x', _s: '0x' }]`\), otherwise it returns `false`.
-
-In caver-js, if signatures or feePayerSignatures is empty, the value representing an empty signature, `[SignatureData { _v: '0x01', _r: '0x', _s: '0x' }]`, is returned for the property. This function is used to check whether the given signature is `[SignatureData { _v: '0x01', _r: '0x', _s: '0x' }]` \(or `SignatureData { _v: '0x01', _r: '0x', _s: '0x' }` in the 'LEGACY' transaction\).
+In caver-js, if signatures or feePayerSignatures is empty, the value representing an empty signature, `[SignatureData { _v: '0x01', _r: '0x', _s: '0x' }]`, is returned for the property. This function is used to check whether the given signature is `[SignatureData { _v: '0x01', _r: '0x', _s: '0x' }]` (or `SignatureData { _v: '0x01', _r: '0x', _s: '0x' }` in the 'LEGACY' transaction).
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| sig | object \| Array | An instance of [SignatureData](caver.wallet/keyring.md#signaturedata) or array of [SignatureData](caver.wallet/keyring.md#signaturedata) to check empty or not. |
+| --- | --- | --- |
+| sig | object &#124; Array | An instance of [SignatureData] or array of [SignatureData] to check empty or not. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | boolean | `true` means the sig is empty. |
 
 **Examples**
@@ -1526,19 +1521,18 @@ true
 ```javascript
 caver.utils.isKlaytnWalletKey(key)
 ```
-
-Returns `true` if key is in [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) format, otherwise it returns `false`.
+Returns `true` if key is in [KlaytnWalletKey] format, otherwise it returns `false`.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | key | string | A key string to check in the format of KlaytnWalletKey or not. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | boolean | `true` means the key is `0x{private key}0x{type}0x{address in hex}` or `{private key}0x{type}0x{address in hex}`. |
 
 **Examples**
@@ -1559,19 +1553,18 @@ false
 ```javascript
 caver.utils.bufferToHex(buffer)
 ```
-
 Converts buffer to 0x-prefixed hex string.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | buffer | Buffer | A buffer to convert to hex string. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | The 0x-prefixed hex string. |
 
 **Examples**
@@ -1590,18 +1583,18 @@ Converts buffer to 0x-prefixed hex string.
 caver.utils.parseKlaytnWalletKey(key)
 ```
 
-Parses [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) string to an array which includes "private key", "type", "address".
+Parses [KlaytnWalletKey] string to an array which includes "private key", "type", "address".
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| key | string | A [KlaytnWalletKey](../../../../klaytn/design/accounts.md#klaytn-wallet-key-format) string. |
+| --- | --- | --- |
+| key | string | A [KlaytnWalletKey] string. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | Array | The parsed KlaytnWalletKey. |
 
 **Examples**
@@ -1626,13 +1619,13 @@ Hashes message with Klaytn specific prefix: `keccak256("\x19Klaytn Signed Messag
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | message | string | A message to hash. If it is a HEX string, it will be UTF-8 decoded first. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | The hashed message with Klaytn specific prefix. |
 
 **Examples**
@@ -1653,15 +1646,15 @@ Recovers the Klaytn address that was used to sign the given data.
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | message | string | Either message or hashed message. |
-| signature | object | An instance of [SignatureData](caver.wallet/keyring.md#signaturedata). |
-| preFixed | boolean | \(optional, default: `false`\) If the last parameter is `true`, the given `message` will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and be assumed as already prefixed. |
+| signature | object | An instance of [SignatureData]. |
+| preFixed | boolean | (optional, default: ``false``) If the last parameter is `true`, the given `message` will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and be assumed as already prefixed. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | The Klaytn address used to sign this data. |
 
 **Examples**
@@ -1687,13 +1680,13 @@ Compresses the uncompressed public key.
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | uncompressedPublicKey | string | An uncompressed public key. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | A compressed public key. |
 
 **Examples**
@@ -1714,13 +1707,13 @@ Decompresses the compressed public key.
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | compressedPublicKey | string | A compressed public key. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | An uncompressed public key. |
 
 **Examples**
@@ -1730,3 +1723,6 @@ Decompresses the compressed public key.
 '0x62cef87819b82f62e9c0a38c1fa7dfa089084959df86aca19ff2f6c903db2248b45dc23220ee6bcd8753bb9df8ce7d58e56eabebb14479f3a0ca5ccd4bdea632'
 ```
 
+[Transaction]: ./caver.transaction/README.md#class
+[SignatureData]: ./caver.wallet/keyring.md#signaturedata
+[KlaytnWalletKey]: ../../../../klaytn/design/accounts.md#klaytn-wallet-key-format

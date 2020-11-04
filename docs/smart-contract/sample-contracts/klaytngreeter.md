@@ -1,6 +1,6 @@
-# KlaytnGreeter
+# KlaytnGreeter <a id="klaytngreeter"></a>
 
-`KlaytnGreeter` is a simple contract that returns a greeting message. Greeting message is set when the contract is deployed.
+`KlaytnGreeter` is a simple contract that returns a greeting message. Greeting message is set when the contract is deployed. 
 
 ## Writing KlaytnGreeter <a id="writing-klaytngreeter"></a>
 
@@ -40,9 +40,11 @@ contract KlaytnGreeter is Mortal {
 
 ## References <a id="references"></a>
 
-For the details of contract deployment and the Klaytn IDE usage guideline, please refer to the following documents.
+For the details of contract deployment and the Klaytn IDE usage guideline, please refer to the following documents. 
 
-* [Klaytn IDE](../ide-and-tools/#klaytn-ide)
-* [Truffle](../ide-and-tools/#truffle)
+* [Klaytn IDE](../ide-and-tools/README.md#klaytn-ide)
+* [Truffle](../ide-and-tools/README.md#truffle)
 * [Deploy Guide](../deploy-guide.md)
+
+
 
