@@ -1,17 +1,16 @@
-# 블록(Block)
-
 ## 기본 블록 매개변수 <a id="the-default-block-parameter"></a>
 
 When requests are made that act on the state of Klaytn, the last default block parameter determines the height of the block.
 
 다음 옵션들은 `defaultBlock` 매개변수를 통해 설정할 수 있습니다.
 
-* `16진수 문자열` - 블록 번호의 정수 형태입니다.
-* `"earliest" 문자열` - 제네시스 블록입니다.
-* `"latest" 문자열` - 가장 최근에 채굴된 블록입니다.
-* `"pending" 문자열` - 보류 중인 상태/트랜잭션입니다.
+- `16진수 문자열` - 블록 번호의 정수 형태입니다.
+- `"earliest" 문자열` - 제네시스 블록입니다.
+- `"latest" 문자열` - 가장 최근에 채굴된 블록입니다.
+- `"pending" 문자열` - 보류 중인 상태/트랜잭션입니다.
 
-## klay\_blockNumber <a id="klay_blocknumber"></a>
+
+## klay_blockNumber <a id="klay_blocknumber"></a>
 
 가장 최근의 블록 번호를 반환합니다.
 
@@ -22,12 +21,12 @@ When requests are made that act on the state of Klaytn, the last default block p
 **리턴값**
 
 | 형식       | 설명                            |
-|:-------- |:----------------------------- |
+| -------- | ----------------------------- |
 | QUANTITY | 클라이언트가 있는 현재 블록 번호의 정수 형태입니다. |
 
 **예시**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_blockNumber","params":[],"id":83}' http://localhost:8551
 
@@ -39,24 +38,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_getBlockByNumber <a id="klay_getblockbynumber"></a>
+
+## klay_getBlockByNumber <a id="klay_getblockbynumber"></a>
 
 블록 번호로 조회한 블록의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
 
 **매개변수**
 
-| 형식          | 설명                                                                                                                                                                 |
-|:----------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| QUANTITY \ | TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](block.md#the-default-block-parameter). |
-| Boolean     | `true`이면 트랜잭션 객체 전체를 반환하고, `false`이면 트랜잭션의 해시만을 반환합니다.                                                                                                             |
+| 형식                  | 설명                                                                                                                                                   |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](#the-default-block-parameter). |
+| Boolean             | `true`이면 트랜잭션 객체 전체를 반환하고, `false`이면 트랜잭션의 해시만을 반환합니다.                                                                                               |
 
 **리턴값**
 
-See [klay\_getBlockByHash](block.md#klay_getblockbyhash)
+See [klay_getBlockByHash](#klay_getblockbyhash)
 
 **예시**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getBlockByNumber","params":["0x1b4", true],"id":1}' http://localhost:8551
 
@@ -91,14 +91,15 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_getBlockByHash <a id="klay_getblockbyhash"></a>
+
+## klay_getBlockByHash <a id="klay_getblockbyhash"></a>
 
 블록 해시로 조회한 블록의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
 
 **매개변수**
 
 | 형식            | 설명                                                     |
-|:------------- |:------------------------------------------------------ |
+| ------------- | ------------------------------------------------------ |
 | 32바이트 크기 DATA | 블록의 해시입니다.                                             |
 | Boolean       | `true`이면 트랜잭션 객체 전체를 반환하고, `false`이면 트랜잭션의 해시만을 반환합니다. |
 
@@ -107,7 +108,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 `Object` - A block object, or `error` when no block was found:
 
 | 명칭               | 형식             | 설명                                                         |
-|:---------------- |:-------------- |:---------------------------------------------------------- |
+| ---------------- | -------------- | ---------------------------------------------------------- |
 | number           | QUANTITY       | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                         |
 | 해시               | 32바이트 크기 DATA  | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                        |
 | parentHash       | 32바이트 크기 DATA  | 이전 블록의 해시입니다.                                              |
@@ -129,7 +130,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **예시**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getBlockByHash","params":["0xb8deae63002d2b6aa33247c8ef545383ee0fd2282ac9b49dbbb74114389ddb5c", true],"id":1}' http://localhost:8551
 
@@ -164,23 +165,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_getBlockReceipts <a id="klay_getblockreceipts"></a>
+
+## klay_getBlockReceipts <a id="klay_getblockreceipts"></a>
 
 블록 해시로 조회한 블록에 포함된 영수증을 반환합니다.
 
 **매개변수**
-
 | 형식            | 설명         |
-|:------------- |:---------- |
+| ------------- | ---------- |
 | 32바이트 크기 DATA | Block hash |
 
 **리턴값**
 
-해당 블록에 포함된 영수증을 반환합니다. 조회하고자 하는 블록이 트랜잭션을 담고 있지 않으면 빈 배열 `[]`이 반환됩니다.
+해당 블록에 포함된 영수증을 반환합니다.  If the target block contains no transaction, an empty array `[]` is returned.
 
 **예시**
 
-```text
+```shell
 // Request
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getBlockReceipts", "params":["0xdc762ed0274496e2a42278e2648d910d82468687b5415bb5eb058a96a0b93c30"],"id":73}' http://localhost:8551
 
@@ -221,25 +222,26 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-## klay\_getBlockTransactionCountByNumber <a id="klay_getblocktransactioncountbynumber"></a>
+
+## klay_getBlockTransactionCountByNumber <a id="klay_getblocktransactioncountbynumber"></a>
 
 블록 번호로 조회한 블록에 담긴 트랜잭션의 개수를 반환합니다.
 
 **매개변수**
 
-| 형식          | 설명                                                                                                                                                                 |
-|:----------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| QUANTITY \ | TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](block.md#the-default-block-parameter). |
+| 형식                  | 설명                                                                                                                                                   |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](#the-default-block-parameter). |
 
 **리턴값**
 
 | 형식       | 설명                                                   |
-|:-------- |:---------------------------------------------------- |
+| -------- | ---------------------------------------------------- |
 | QUANTITY | Integer of the number of transactions in this block. |
 
 **예시**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getBlockTransactionCountByNumber","params":["0xe8"],"id":1}' http://localhost:8551
 
@@ -251,25 +253,26 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_getBlockTransactionCountByHash <a id="klay_getblocktransactioncountbyhash"></a>
+
+## klay_getBlockTransactionCountByHash <a id="klay_getblocktransactioncountbyhash"></a>
 
 블록 해시로 조회한 블록에 담긴 트랜잭션의 개수를 반환합니다.
 
 **매개변수**
 
 | 형식            | 설명              |
-|:------------- |:--------------- |
+| ------------- | --------------- |
 | 32바이트 크기 DATA | Hash of a block |
 
 **리턴값**
 
 | 형식       | 설명                                                   |
-|:-------- |:---------------------------------------------------- |
+| -------- | ---------------------------------------------------- |
 | QUANTITY | Integer of the number of transactions in this block. |
 
 **예시**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getBlockTransactionCountByHash","params":["0x0c11803ab36110db993e7520908b9ba9336cca2f2dcc9b6130c481a3ccdc2621"],"id":1}' http://localhost:8551
 
@@ -281,22 +284,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_getBlockWithConsensusInfoByHash <a id="klay_getblockwithconsensusinfobyhash"></a>
+
+## klay_getBlockWithConsensusInfoByHash <a id="klay_getblockwithconsensusinfobyhash"></a>
 
 블록 해시로 조회한 블록을 합의에 대한 정보와 함께 반환합니다.
 
 **매개변수**
 
 | 형식            | 설명         |
-|:------------- |:---------- |
+| ------------- | ---------- |
 | 32바이트 크기 DATA | 블록의 해시입니다. |
 
 **리턴값**
 
-`Object` - A block object with consensus information \(a proposer and a list of committee members\), or `error` when no block was found:
+`Object` - A block object with consensus information (a proposer and a list of committee members), or `error` when no block was found:
 
 | 명칭               | 형식            | 설명                                                                       |
-|:---------------- |:------------- |:------------------------------------------------------------------------ |
+| ---------------- | ------------- | ------------------------------------------------------------------------ |
 | blockScore       | QUANTITY      | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                         |
 | totalBlockScore  | QUANTITY      | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                   |
 | committee        | 배열            | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
@@ -315,7 +319,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **예시**
 
-```text
+```shell
 // Request
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getBlockWithConsensusInfoByHash", "params":["0x7d68d09a7a571cdf8a3b6a5ef6e037265b3e3093cf145b0954d22bde5c1d4f61"],"id":73}' http://localhost:8551
 
@@ -385,22 +389,22 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-## klay\_getBlockWithConsensusInfoByNumber <a id="klay_getblockwithconsensusinfobynumber"></a>
 
+## klay_getBlockWithConsensusInfoByNumber <a id="klay_getblockwithconsensusinfobynumber"></a>
 블록 번호로 조회한 블록을 합의에 대한 정보와 함께 반환합니다.
 
 **매개변수**
 
-| 형식          | 설명                                                                         |
-|:----------- |:-------------------------------------------------------------------------- |
-| QUANTITY \ | TAG | Integer of a block number, or the string `"earliest"` or `"latest"`. |
+| 형식                  | 설명                                                                   |
+| ------------------- | -------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"` or `"latest"`. |
 
 **리턴값**
 
-`Object` - A block object with consensus information \(a proposer and a list of committee members\), or `error` when no block was found:
+`Object` - A block object with consensus information (a proposer and a list of committee members), or `error` when no block was found:
 
 | 명칭               | 형식            | 설명                                                                       |
-|:---------------- |:------------- |:------------------------------------------------------------------------ |
+| ---------------- | ------------- | ------------------------------------------------------------------------ |
 | blockScore       | QUANTITY      | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                         |
 | totalBlockScore  | QUANTITY      | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                   |
 | committee        | 배열            | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
@@ -419,7 +423,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **예시**
 
-```text
+```shell
 // Request
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getBlockWithConsensusInfoByNumber", "params":["0x6e0431"],"id":73}' http://localhost:8551
 
@@ -489,27 +493,26 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-## klay\_getCommittee <a id="klay_getcommittee"></a>
-
+## klay_getCommittee <a id="klay_getcommittee"></a>
 어떤 블록 시간에서 위원회에 속한 검증자 목록을 반환합니다. 매개변수를 설정하지 않으면 최신 블록에서 위원회에 속한 검증자 목록을 반환합니다.
 
 **매개변수**
 
-| 명칭           | 형식  | 설명                                                                                            |
-|:------------ |:--- |:--------------------------------------------------------------------------------------------- |
-| QUANTITY  \ | TAG | Integer | \(optional\) Integer of a block number, or the string `"earliest"` or `"latest"`. |
+| 명칭                   | 형식 | 설명                                                                              |
+| -------------------- | -- | ------------------------------------------------------------------------------- |
+| QUANTITY  &#124; TAG | 정수 | (optional) Integer of a block number, or the string `"earliest"` or `"latest"`. |
 
 **리턴값**
 
 `배열` - 위원회에 속한 검증자들의 주소를 배열로 반환하거나 또는 위원회를 찾을 수 없는 경우 `null`을 반환합니다.
 
 | 형식                    | 설명                                            |
-|:--------------------- |:--------------------------------------------- |
+| --------------------- | --------------------------------------------- |
 | Array of 20-byte DATA | Addresses of all validators in the committee. |
 
 **예시**
 
-```text
+```shell
 // Request
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getCommittee", "params":["0x1b4"],"id":73}' http://localhost:8551
 // Result
@@ -525,27 +528,26 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-## klay\_getCommitteeSize <a id="klay_getcommitteesize"></a>
-
+## klay_getCommitteeSize <a id="klay_getcommitteesize"></a>
 어떤 블록 시간에서 위원회의 구성원 수를 반환합니다. 매개변수를 설정하지 않으면 최신 블록에서의 위원회 구성원 수를 반환합니다.
 
 **매개변수**
 
-| 명칭           | 형식  | 설명                                                                                            |
-|:------------ |:--- |:--------------------------------------------------------------------------------------------- |
-| QUANTITY  \ | TAG | Integer | \(optional\) Integer of a block number, or the string `"earliest"` or `"latest"`. |
+| 명칭                   | 형식 | 설명                                                                              |
+| -------------------- | -- | ------------------------------------------------------------------------------- |
+| QUANTITY  &#124; TAG | 정수 | (optional) Integer of a block number, or the string `"earliest"` or `"latest"`. |
 
 **리턴값**
 
 `정수` - 위원회의 구성원 수를 반환하거나 또는 위원회를 찾을 수 없는 경우 `-1`을 반환합니다.
 
 | 형식       | 설명                      |
-|:-------- |:----------------------- |
+| -------- | ----------------------- |
 | QUANTITY | The size of the council |
 
 **예시**
 
-```text
+```shell
 // Request
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getCommitteeSize", "params":["0x1b4"],"id":73}' http://localhost:8551
 // Result
@@ -556,29 +558,29 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-## klay\_getCouncil <a id="klay_getcouncil"></a>
 
+## klay_getCouncil <a id="klay_getcouncil"></a>
 어떤 블록 시간에서 council에 속한 검증자 목록을 반환합니다. 매개변수를 설정하지 않으면 최신 블록에서 council에 속한 검증자 목록을 반환합니다.
 
 **참고**: `klay_getValidators`은 이 메서드로 대체되어 더 이상 지원하지 않습니다.
 
 **매개변수**
 
-| 명칭           | 형식  | 설명                                                                                            |
-|:------------ |:--- |:--------------------------------------------------------------------------------------------- |
-| QUANTITY  \ | TAG | Integer | \(optional\) Integer of a block number, or the string `"earliest"` or `"latest"`. |
+| 명칭                   | 형식 | 설명                                                                              |
+| -------------------- | -- | ------------------------------------------------------------------------------- |
+| QUANTITY  &#124; TAG | 정수 | (optional) Integer of a block number, or the string `"earliest"` or `"latest"`. |
 
 **리턴값**
 
 `배열` - council에 속한 검증자들의 주소를 배열로 반환하거나 또는 council을 찾을 수 없는 경우 `null`을 반환합니다.
 
 | 형식                    | 설명                                          |
-|:--------------------- |:------------------------------------------- |
+| --------------------- | ------------------------------------------- |
 | Array of 20-byte DATA | Addresses of all validators of the council. |
 
 **예시**
 
-```text
+```shell
 // Request
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getCouncil", "params":["0x1b4"],"id":73}' http://localhost:8551
 // Result
@@ -594,27 +596,26 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-## klay\_getCouncilSize <a id="klay_getcouncilsize"></a>
-
+## klay_getCouncilSize <a id="klay_getcouncilsize"></a>
 어떤 블록 시간에서 council의 구성원 수를 반환합니다. 매개변수를 설정하지 않으면 최신 블록에서의 council 구성원 수를 반환합니다.
 
 **매개변수**
 
-| 명칭           | 형식  | 설명                                                                                            |
-|:------------ |:--- |:--------------------------------------------------------------------------------------------- |
-| QUANTITY  \ | TAG | Integer | \(optional\) Integer of a block number, or the string `"earliest"` or `"latest"`. |
+| 명칭                   | 형식 | 설명                                                                              |
+| -------------------- | -- | ------------------------------------------------------------------------------- |
+| QUANTITY  &#124; TAG | 정수 | (optional) Integer of a block number, or the string `"earliest"` or `"latest"`. |
 
 **리턴값**
 
 `정수` - council의 구성원 수를 반환하거나 또는 council을 찾을 수 없는 경우 `-1`을 반환합니다.
 
 | 형식       | 설명                      |
-|:-------- |:----------------------- |
+| -------- | ----------------------- |
 | QUANTITY | The size of the council |
 
 **예시**
 
-```text
+```shell
 // Request
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getCouncilSize", "params":["0x1b4"],"id":73}' http://localhost:8551
 // Result
@@ -625,29 +626,30 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-## klay\_getStorageAt <a id="klay_getstorageat"></a>
+
+## klay_getStorageAt <a id="klay_getstorageat"></a>
 
 입력으로 받은 주소의 스토리지 위치에서 값을 반환합니다.
 
 **매개변수**
 
-| 형식            | 설명                                                                                                                                                          |
-|:------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA | Address of the storage.                                                                                                                                     |
-| QUANTITY      | Integer of the position in the storage.                                                                                                                     |
-| QUANTITY \   | TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](block.md#the-default-block-parameter). |
+| 형식                  | 설명                                                                                                                                            |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20바이트 크기 DATA       | Address of the storage.                                                                                                                       |
+| QUANTITY            | Integer of the position in the storage.                                                                                                       |
+| QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](#the-default-block-parameter). |
 
-**리턴값**
+ **리턴값**
 
 | 형식   | 설명                         |
-|:---- |:-------------------------- |
+| ---- | -------------------------- |
 | DATA | 입력으로 받은 스토리지 위치의 값을 반환합니다. |
 
 **예시**
 
 올바른 위치를 계산하는 것은 탐색할 스토리지에 따라 차이가 있습니다. 아래와 같이 `0x391694e7e0b0cce554cb130d723a9d27458f9298` 주소에 의해 `0x295a70b2de5e3953354a6a8344e616ed314d7251`에 배포된 컨트랙트를 가정해봅시다.
 
-```text
+```
 contract Storage {
     uint pos0;
     mapping(address => uint) pos1;
@@ -661,46 +663,41 @@ contract Storage {
 
 `pos0`의 값은 다음과 같이 찾을 수 있습니다.
 
-```text
+```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "klay_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", "latest"], "id": 1}' http://localhost:8551
 
 {"jsonrpc":"2.0","id":1,"result":"0x00000000000000000000000000000000000000000000000000000000000004d2"}
 ```
 
 맵핑의 요소를 찾는 것은 더 어렵습니다. 맵핑의 요소의 위치는 다음과 같이 계산됩니다.
-
 ```javascript
 keccak(LeftPad32(key, 0), LeftPad32(map position, 0))
 ```
 
 즉 `pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"]`의 스토리지를 탐색하려면 아래와 같이 그 위치를 계산해야 합니다.
-
 ```javascript
 keccak(decodeHex("000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"))
 ```
-
 이는 `klay` 라이브러리와 함께 제공되는 Klaytn 콘솔을 사용하여 계산할 수 있습니다.
-
 ```javascript
 > var key = "000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"
 undefined
 > klay.sha3(key, {"encoding": "hex"})
 "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9"
 ```
-
 이제 스토리지 값을 가져오려면 다음과 같이 입력합니다.
-
-```text
+```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "klay_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9", "latest"], "id": 1}' http://localhost:8551
 
 {"jsonrpc":"2.0","id":1,"result":"0x000000000000000000000000000000000000000000000000000000000000162e"}
 ```
 
-## klay\_mining <a id="klay_mining"></a>
+
+## klay_mining <a id="klay_mining"></a>
 
 클라이언트가 새로운 블록을 채굴하고 있으면 `true`를 반환합니다.
 
-**참고**: 현재는 트랜잭션을 재전송하기 위해 모든 노드가 기본적으로 채굴 모드입니다. Please note that actual "mining" process is only done by Consensus Nodes \(CNs\).
+**참고**: 현재는 트랜잭션을 재전송하기 위해 모든 노드가 기본적으로 채굴 모드입니다. Please note that actual "mining" process is only done by Consensus Nodes (CNs).
 
 **매개변수**
 
@@ -709,12 +706,12 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "kl
 **리턴값**
 
 | 형식      | 설명                                                 |
-|:------- |:-------------------------------------------------- |
+| ------- | -------------------------------------------------- |
 | Boolean | `true` if the client is mining, otherwise `false`. |
 
 **예시**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_mining","params":[],"id":1}' http://localhost:8551
 
@@ -726,7 +723,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_syncing <a id="klay_syncing"></a>
+
+## klay_syncing <a id="klay_syncing"></a>
 
 동기화 상태에 대한 데이터가 있는 객체를 반환하거나 `false`를 반환합니다.
 
@@ -739,8 +737,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 `Object|Boolean`, 동기화 상태에 대한 데이터 객체를 반환하거나 또는 동기화하고 있지 않으면 `false` 를 반환합니다.
 
 | 명칭            | 형식       | 설명                                                                                                                 |
-|:------------- |:-------- |:------------------------------------------------------------------------------------------------------------------ |
-| startingBlock | QUANTITY | The block at which the import started \(will only be reset, after the sync reached his head\).                   |
+| ------------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
+| startingBlock | QUANTITY | The block at which the import started (will only be reset, after the sync reached his head).                       |
 | currentBlock  | QUANTITY | The current block, same as `klay_blockNumber`.                                                                     |
 | highestBlock  | QUANTITY | The estimated highest block.                                                                                       |
 | pulledStates  | QUANTITY | The number of state entries processed until now.  If the sync mode is not "fast", zero is returned.                |
@@ -748,7 +746,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **예시**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_syncing","params":[],"id":1}' http://localhost:8551
 
@@ -771,4 +769,3 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
   "result": false
 }
 ```
-
