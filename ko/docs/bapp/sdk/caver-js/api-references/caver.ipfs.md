@@ -1,6 +1,6 @@
-# caver.ipfs
+# caver.ipfs <a id="caver-ipfs"></a>
 
-`caver.ipfs` is a package that provides functionality related to IPFS \(InterPlanetary File System\).
+`caver.ipfs` is a package that provides functionality related to IPFS (InterPlanetary File System).
 
 **NOTE** `caver.ipfs` is supported since caver-js [v1.5.4](https://www.npmjs.com/package/caver-js/v/1.5.4).
 
@@ -15,10 +15,11 @@ Initializes a connection with an IPFS Node. When an IPFS Node information is set
 **매개변수**
 
 | 명칭   | 형식      | 설명                                                                             |
-|:---- |:------- |:------------------------------------------------------------------------------ |
+| ---- | ------- | ------------------------------------------------------------------------------ |
 | host | 문자열     | The IPFS Node url to connect with.                                             |
 | port | number  | The port number to use.                                                        |
 | ssl  | boolean | If true, the `https` protocol is used. Otherwise, the `http` protocol is used. |
+
 
 **리턴값**
 
@@ -33,30 +34,40 @@ Initializes a connection with an IPFS Node. When an IPFS Node information is set
 ## caver.ipfs.add <a id="caver-ipfs-add"></a>
 
 ```javascript
-caver.ipfs.add(path)
+caver.ipfs.add(data)
 ```
 
-Adds a file to IPFS. The [CID\(Content Identifier\)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file is returned.
+Adds a file to IPFS. The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file is returned.
+
+If the path of a file is passed, the contents of the file are loaded from the path and uploaded to IPFS. If a buffer is passed, it is uploaded to IPFS directly.
 
 **매개변수**
 
-| 명칭   | 형식  | 설명                                   |
-|:---- |:--- |:------------------------------------ |
-| path | 문자열 | The path of the file to add to IPFS. |
+| 명칭   | 형식                   | 설명                                                    |
+| ---- | -------------------- | ----------------------------------------------------- |
+| data | string &#124; Buffer | The path string of a file or a buffer to add to IPFS. |
+
+**NOTE** `Buffer` is supported since caver-js [v1.5.5](https://www.npmjs.com/package/caver-js/v/1.5.5).
+
 
 **리턴값**
 
 `프로미스`는 `String`를 반환합니다.
 
-| 형식  | 설명                                                                                                                                     |
-|:--- |:-------------------------------------------------------------------------------------------------------------------------------------- |
-| 문자열 | The [CID\(Content Identifier\)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file. |
+| 형식  | 설명                                                                                                                                 |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| 문자열 | The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file. |
 
 **예시**
 
 ```javascript
+// Adds a file with path string.
 > caver.ipfs.add('./test.txt')
 Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC
+
+// Adds a file with Buffer containing the contents of the file.
+> caver.ipfs.add(Buffer.from('test data'))
+QmWmsL95CYvci8JiortAMhezezr8BhAwAVohVUSJBcZcBL
 ```
 
 ## caver.ipfs.get <a id="caver-ipfs-get"></a>
@@ -69,16 +80,17 @@ Returns a file addressed by a valid IPFS path.
 
 **매개변수**
 
-| 명칭 | 형식  | 설명                                                                                                                                       |
-|:-- |:--- |:---------------------------------------------------------------------------------------------------------------------------------------- |
-| 해시 | 문자열 | An [CID\(Content Identifier\)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the file to download. |
+| 명칭 | 형식  | 설명                                                                                                                                   |
+| -- | --- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| 해시 | 문자열 | An [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the file to download. |
+
 
 **리턴값**
 
 `Promise` returns `Buffer`
 
 | 형식     | 설명                       |
-|:------ |:------------------------ |
+| ------ | ------------------------ |
 | Buffer | The content of the file. |
 
 **예시**
@@ -94,18 +106,19 @@ Returns a file addressed by a valid IPFS path.
 caver.ipfs.toHex(hash)
 ```
 
-Converts a [CID\(Content Identifier\)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) to a [Multihash](https://multiformats.io/multihash).
+Converts a [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) to a [Multihash](https://multiformats.io/multihash).
 
 **매개변수**
 
-| 명칭 | 형식  | 설명                                                                                                                         |
-|:-- |:--- |:-------------------------------------------------------------------------------------------------------------------------- |
-| 해시 | 문자열 | A [CID\(Content Identifier\)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) to convert. |
+| 명칭 | 형식  | 설명                                                                                                                     |
+| -- | --- | ---------------------------------------------------------------------------------------------------------------------- |
+| 해시 | 문자열 | A [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) to convert. |
+
 
 **리턴값**
 
 | 형식  | 설명                                                         |
-|:--- |:---------------------------------------------------------- |
+| --- | ---------------------------------------------------------- |
 | 문자열 | The [Multihash](https://multiformats.io/multihash) string. |
 
 **예시**
@@ -121,19 +134,20 @@ Converts a [CID\(Content Identifier\)](https://docs.ipfs.io/concepts/content-add
 caver.ipfs.fromHex(hash)
 ```
 
-Converts to [CID\(Content Identifier\)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) from a [Multihash](https://multiformats.io/multihash).
+Converts to [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) from a [Multihash](https://multiformats.io/multihash).
 
 **매개변수**
 
 | 명칭 | 형식  | 설명                                                           |
-|:-- |:--- |:------------------------------------------------------------ |
+| -- | --- | ------------------------------------------------------------ |
 | 해시 | 문자열 | A [Multihash](https://multiformats.io/multihash) to convert. |
+
 
 **리턴값**
 
-| 형식  | 설명                                                                                                                |
-|:--- |:----------------------------------------------------------------------------------------------------------------- |
-| 문자열 | The [CID\(Content Identifier\)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids). |
+| 형식  | 설명                                                                                                            |
+| --- | ------------------------------------------------------------------------------------------------------------- |
+| 문자열 | The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids). |
 
 **예시**
 
@@ -141,4 +155,3 @@ Converts to [CID\(Content Identifier\)](https://docs.ipfs.io/concepts/content-ad
 > caver.ipfs.fromHex('0x1220dc1dbe0bcf1e5f6cce80bd3d7e7d873801c5a1732add889c0f25391d53470dc3')
 Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC
 ```
-
