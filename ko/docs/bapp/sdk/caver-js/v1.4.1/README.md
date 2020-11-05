@@ -1,4 +1,4 @@
-# caver-js ~v1.4.1
+# 소개 <a id="introduction"></a>
 
 `caver-js`는 개발자가 HTTP 또는 웹소켓 연결을 사용하여 Klaytn 노드와 상호작용할 수 있도록 하는 자바스크립트 API 라이브러리입니다. [npm](https://www.npmjs.com/package/caver-js) 이용이 가능합니다.
 
@@ -18,9 +18,9 @@
 
 아래는 `caver-js`로 제공되는 패키지들입니다.
 
-* [caver.klay](api-references/caver.klay/)
+* [caver.klay](api-references/caver.klay.md)
 * [caver.klay.accounts](api-references/caver.klay.accounts.md)
-* [caver.klay.Contract](api-references/caver.klay.contract.md)
+* [caver.klay.Contract](api-references/caver.klay.Contract.md)
 * [caver.klay.net](api-references/caver.klay.net.md)
 * [caver.klay.abi](api-references/caver.klay.abi.md)
 * [caver.utils](api-references/caver.utils_1.4.1.md)
@@ -59,4 +59,5 @@ Klaytn은 고정된 가스 가격 \(25 ston = 25 \* 10^9\)을 사용합니다. �
 
 * caver-js [깃허브 레포지토리](https://github.com/klaytn/caver-js)
 * caver-js on [npm](https://www.npmjs.com/package/caver-js)
+
 
