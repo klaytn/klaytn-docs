@@ -1,6 +1,4 @@
-# 환경설정
-
-## klay\_chainID <a id="klay_chainid"></a>
+## klay_chainID <a id="klay_chainid"></a>
 
 체인 ID를 반환합니다.
 
@@ -11,12 +9,12 @@
 **리턴값**
 
 | 형식       | 설명                   |
-|:-------- |:-------------------- |
+| -------- | -------------------- |
 | QUANTITY | 체인 ID를 정수 형태로 반환합니다. |
 
 **예시**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_chainID","id":1}' http://localhost:8551
 
@@ -28,7 +26,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_clientVersion <a id="klay_clientversion"></a>
+
+## klay_clientVersion <a id="klay_clientversion"></a>
 
 Klaytn 노드의 현재 클라이언트 버전을 반환합니다.
 
@@ -39,12 +38,12 @@ Klaytn 노드의 현재 클라이언트 버전을 반환합니다.
 **리턴값**
 
 | 형식     | 설명                             |
-|:------ |:------------------------------ |
+| ------ | ------------------------------ |
 | String | Klaytn 노드의 현재 클라이언트 버전을 반환합니다. |
 
 **예시**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_clientVersion","id":1}' http://localhost:8551
 
@@ -56,7 +55,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_gasPrice <a id="klay_gasprice"></a>
+
+## klay_gasPrice <a id="klay_gasprice"></a>
 
 peb의 현재 가스 가격을 반환합니다.
 
@@ -69,12 +69,12 @@ peb의 현재 가스 가격을 반환합니다.
 **리턴값**
 
 | 형식       | 설명                           |
-|:-------- |:---------------------------- |
+| -------- | ---------------------------- |
 | QUANTITY | peb의 현재 가스 가격을 정수 형태로 반환합니다. |
 
 **예시**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_gasPrice","params":[],"id":1}' http://localhost:8551
 
@@ -86,7 +86,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_gasPriceAt <a id="klay_gaspriceat"></a>
+## klay_gasPriceAt <a id="klay_gaspriceat"></a>
 
 입력으로 받은 peb의 블록의 단가를 반환합니다.
 
@@ -95,13 +95,13 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 **매개변수**
 
 | 형식     | 설명                              |
-|:------ |:------------------------------- |
+| ------ | ------------------------------- |
 | NUMBER | 블록 번호입니다. 이를 생략하면 최신 단가가 반환됩니다. |
 
 **리턴값**
 
 | 형식       | 설명                           |
-|:-------- |:---------------------------- |
+| -------- | ---------------------------- |
 | QUANTITY | peb의 현재 가스 가격을 정수 형태로 반환합니다. |
 
 **예시**
@@ -118,7 +118,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_isParallelDBWrite <a id="klay_isparalleldbwrite"></a>
+## klay_isParallelDBWrite <a id="klay_isparalleldbwrite"></a>
 
 노드가 병렬로 블록체인 데이터를 쓰고 있으면 `true`를 반환합니다. 이는 기본적으로 활성화되어 있습니다.
 
@@ -129,12 +129,12 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 **리턴값**
 
 | 형식      | 설명                                                                                 |
-|:------- |:---------------------------------------------------------------------------------- |
+| ------- | ---------------------------------------------------------------------------------- |
 | Boolean | `true`이면 노드가 병렬로 블록체인 데이터를 쓰고 있다는 것입니다. 노드가 순차적으로 블록체인 데이터를 쓰고 있으면 `false`를 반환합니다. |
 
 **예시**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_isParallelDBWrite","id":1}' http://localhost:8551
 
@@ -146,7 +146,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_isSenderTxHashIndexingEnabled <a id="klay_issendertxhashindexingenabled"></a>
+
+## klay_isSenderTxHashIndexingEnabled <a id="klay_issendertxhashindexingenabled"></a>
 
 노드가 트랜잭션 해시 맵핑 정보를 SenderTxHash로 색인화하고 있으면 `true`를 반환합니다. 이 설정은 기본적으로 비활성화되어 있으며 `--sendertxhashindexing`으로 활성화할 수 있습니다.
 
@@ -157,12 +158,12 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 **리턴값**
 
 | 형식      | 설명                                                        |
-|:------- |:--------------------------------------------------------- |
+| ------- | --------------------------------------------------------- |
 | Boolean | `true`이면 노드가 트랜잭션 해시 맵핑 정보를 SenderTxHash로 색인화하고 있다는 것입니다. |
 
 **예시**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_isSenderTxHashIndexingEnabled","id":1}' http://localhost:8551
 
@@ -174,7 +175,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_protocolVersion <a id="klay_protocolversion"></a>
+
+## klay_protocolVersion <a id="klay_protocolversion"></a>
 
 노드의 Klaytn 프로토콜 버전을 반환합니다.
 
@@ -185,12 +187,12 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 **리턴값**
 
 | 형식     | 설명                     |
-|:------ |:---------------------- |
+| ------ | ---------------------- |
 | String | 노드의 Klaytn 프로토콜 버전입니다. |
 
 **예시**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_protocolVersion","params":[],"id":1}' http://localhost:8551
 
@@ -202,7 +204,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_rewardbase <a id="klay_rewardbase"></a>
+
+## klay_rewardbase <a id="klay_rewardbase"></a>
 
 현재 노드의 Rewardbase를 반환합니다. Rewardbase는 블록 보상을 받은 계정의 주소입니다. 컨센서스 노드(CN)의 경우에만 해당합니다.
 
@@ -213,12 +216,12 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 **리턴값**
 
 | 형식            | 설명                |
-|:------------- |:----------------- |
+| ------------- | ----------------- |
 | 20바이트 크기 DATA | Rewardbase 주소입니다. |
 
 **예시**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_rewardbase","id":1}' http://localhost:8551
 
@@ -240,7 +243,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay\_writeThroughCaching <a id="klay_writethroughcaching"></a>
+
+## klay_writeThroughCaching <a id="klay_writethroughcaching"></a>
 
 노드가 write-through 캐싱을 사용하고 있으면 `true`를 반환합니다. write-through 캐싱을 활성화하면 블록 바디와 영수증이 영구적인 스토리지에 저장될 때 이들을 캐싱합니다. 기본적으로는 `false`로 설정되어 있습니다.
 
@@ -251,12 +255,12 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 **리턴값**
 
 | 형식      | 설명                                          |
-|:------- |:------------------------------------------- |
+| ------- | ------------------------------------------- |
 | Boolean | `true`이면 노드가 write-through 캐싱을 하고 있다는 것입니다. |
 
 **예시**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_writeThroughCaching","id":1}' http://localhost:8551
 
