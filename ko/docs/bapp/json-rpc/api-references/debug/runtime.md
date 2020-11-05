@@ -1,11 +1,11 @@
-# 런타임 디버깅
+# Runtime Debugging <a id="runtime-debugging"></a>
 
-## debug\_freeOSMemory <a id="debug_freeosmemory"></a>
+## debug_freeOSMemory <a id="debug_freeosmemory"></a>
 
 사용하지 않는 메모리를 운영체제에 반환합니다.
 
 | 클라이언트 | 메서드 호출                             |
-|:-----:|:---------------------------------- |
+|:-----:| ---------------------------------- |
 |  콘솔   | `debug.freeOSMemory()`             |
 |  RPC  | `{"method": "debug_freeOSMemory"}` |
 
@@ -20,25 +20,23 @@
 **예시**
 
 콘솔
-
 ```javascript
 > debug.freeOSMemory()
 null
 ```
-
 HTTP RPC
-
-```text
+```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_freeOSMemory","id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
-## debug\_gcStats <a id="debug_gcstats"></a>
+
+## debug_gcStats <a id="debug_gcstats"></a>
 
 GC 통계를 반환합니다.
 
 | 클라이언트 | 메서드 호출                                      |
-|:-----:|:------------------------------------------- |
+|:-----:| ------------------------------------------- |
 |  콘솔   | `debug.gcStats()`                           |
 |  RPC  | `{"method": "debug_gcStats", "params": []}` |
 
@@ -48,12 +46,11 @@ GC 통계를 반환합니다.
 
 **리턴값**
 
-See [https://golang.org/pkg/runtime/debug/\#GCStats](https://golang.org/pkg/runtime/debug/#GCStats) for information about the fields of the returned object.
+See [https://golang.org/pkg/runtime/debug/#GCStats](https://golang.org/pkg/runtime/debug/#GCStats) for information about the fields of the returned object.
 
 **예시**
 
 콘솔
-
 ```javascript
 > debug.gcStats()
 {
@@ -65,20 +62,19 @@ See [https://golang.org/pkg/runtime/debug/\#GCStats](https://golang.org/pkg/runt
   PauseTotal: 64156063
 }
 ```
-
 HTTP RPC
-
-```text
+```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_gcStats","params":[],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":{"LastGC":"2018-10-15T00:42:08.2787037Z","NumGC":14,"PauseTotal":292805500,"Pause":[3384700,60164200,259500,354600,62331200,241700,29701500,4868200,8242800,35177700,27621100,12647400,38250100,9560800],"PauseEnd":["2018-10-15T00:42:08.2787037Z","2018-10-15T00:40:19.3302813Z","2018-10-15T00:38:41.2202755Z","2018-10-15T00:36:41.2785669Z","2018-10-15T00:36:18.3196569Z","2018-10-15T00:34:48.2073609Z","2018-10-15T00:33:01.3309817Z","2018-10-15T00:31:28.3465898Z","2018-10-15T00:30:05.4245261Z","2018-10-15T00:28:58.6377593Z","2018-10-15T00:27:55.315809Z","2018-10-15T00:27:45.075085Z","2018-10-15T00:27:44.9164574Z","2018-10-15T00:27:44.8406572Z"],"PauseQuantiles":null}}
 ```
 
-## debug\_memStats <a id="debug_memstats"></a>
+
+## debug_memStats <a id="debug_memstats"></a>
 
 런타임 메모리 통계를 반환합니다.
 
 | 클라이언트 | 메서드 호출                                       |
-|:-----:|:-------------------------------------------- |
+|:-----:| -------------------------------------------- |
 |  콘솔   | `debug.memStats()`                           |
 |  RPC  | `{"method": "debug_memStats", "params": []}` |
 
@@ -88,12 +84,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **리턴값**
 
-See [https://golang.org/pkg/runtime/\#MemStats](https://golang.org/pkg/runtime/#MemStats) for information about the fields of the returned object.
+See [https://golang.org/pkg/runtime/#MemStats](https://golang.org/pkg/runtime/#MemStats) for information about the fields of the returned object.
 
 **예시**
 
 콘솔
-
 ```javascript
 > debug.memStats()
 {
@@ -114,41 +109,39 @@ See [https://golang.org/pkg/runtime/\#MemStats](https://golang.org/pkg/runtime/#
   TotalAlloc: 2105944960
 }
 ```
-
 HTTP RPC
-
-```text
+```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_memStats","params":[],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":{"Alloc":265525152,"TotalAlloc":3548997112,"Sys":756177144,"Lookups":2165,"Mallocs":25572268,"Frees":24933943,
 ...
 "Frees":36},{"Size":16384,"Mallocs":123,"Frees":122},{"Size":18432,"Mallocs":11,"Frees":3},{"Size":19072,"Mallocs":2,"Frees":1}]}}
 ```
 
-## debug\_metrics <a id="debug_metrics"></a>
+
+## debug_metrics <a id="debug_metrics"></a>
 
 노드가 수집한 시스템의 측정 수치들을 검색합니다.
 
 | 클라이언트 | 메서드 호출                                         |
-|:-----:|:---------------------------------------------- |
+|:-----:| ---------------------------------------------- |
 |  콘솔   | `debug.metrics(raw)`                           |
 |  RPC  | `{"method": "debug_metrics", "params": [raw]}` |
 
 **매개변수**
 
 | 명칭  | 형식   | 설명                                                     |
-|:--- |:---- |:------------------------------------------------------ |
+| --- | ---- | ------------------------------------------------------ |
 | raw | bool | raw 데이터 자체로 출력하면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **리턴값**
 
 | 형식       | 설명                      |
-|:-------- |:----------------------- |
+| -------- | ----------------------- |
 | JSON 문자열 | 노드가 수집한, 구조화된 측정 수치입니다. |
 
 **예시**
 
 콘솔
-
 ```javascript
 > debug.metrics(true)
 debug.metrics(true)
@@ -204,32 +197,30 @@ system: {
   }
 }
 ```
-
 HTTP RPC
-
-```text
+```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_metrics","params":[true],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":{"blockchain":{"block":{"tx":{"counter":{"Overall":98307},"rate":{"AvgRate01Min":19.99999999999893,"AvgRate05Min":19.999669059400787,"AvgRate15Min":19.91097896398045,"MeanRate":16.321034565305364,"Overall":98307}}},"head":{"blocknumber":"Unknown metric type"}},"bridgeTxpool":{"refuse":{"Overall":0}}, ...{"AvgRate01Min":0.9999999999999988,"AvgRate05Min":0.9999997215208508,"AvgRate15Min":0.9986124269288207,"MeanRate":0.9946322927570416,"Overall":5991,"Percentiles":{"20":6229668,"5":5986862.3,"50":6585653,"80":6864326.2,"95":7486187.249999999}}}}
 ```
 
-## debug\_setGCPercent <a id="debug_setgcpercent"></a>
+
+## debug_setGCPercent <a id="debug_setgcpercent"></a>
 
 GC 비율을 설정합니다. 이전 설정값을 반환합니다. 음수로 설정하면 GC를 비활성화합니다.
 
 **매개변수**
 
 | 명칭      | 형식 | 설명            |
-|:------- |:-- |:------------- |
+| ------- | -- | ------------- |
 | Percent | 정수 | 설정할 GC 비율입니다. |
 
 **리턴값**
 
 | 형식 | 설명                |
-|:-- |:----------------- |
+| -- | ----------------- |
 | 정수 | 이전에 설정된 GC 비율입니다. |
 
 **Example** Console
-
 ```javascript
 > debug.setGCPercent(50)
 100
@@ -238,10 +229,8 @@ GC 비율을 설정합니다. 이전 설정값을 반환합니다. 음수로 설
 > debug.setGCPercent(100)
 70
 ```
-
 HTTP RPC
-
-```text
+```shell
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"debug_setGCPercent", "params":[100],"id":73}' http://localhost:8551
 
 {
@@ -251,12 +240,13 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-## debug\_stacks <a id="debug_stacks"></a>
+
+## debug_stacks <a id="debug_stacks"></a>
 
 모든 go루틴의 스택을 반환합니다.
 
 | 클라이언트 | 메서드 호출                                     |
-|:-----:|:------------------------------------------ |
+|:-----:| ------------------------------------------ |
 |  콘솔   | `debug.stacks()`                           |
 |  RPC  | `{"method": "debug_stacks", "params": []}` |
 
@@ -267,13 +257,12 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 **리턴값**
 
 | 형식  | 설명                 |
-|:--- |:------------------ |
+| --- | ------------------ |
 | 문자열 | 모든 go루틴의 스택 정보입니다. |
 
 **예시**
 
 콘솔
-
 ```javascript
 > debug.stacks()
 goroutine 163577 [running]:
@@ -282,10 +271,8 @@ goroutine 163577 [running]:
 reflect.Value.call(0xc4213a80c0, 0xc42134d1f0, 0x13, 0xf050ec, 0x4, 0xc4233957a0, 0x1, 0x1, 0x474401, 0xc4233956c8, ...)
 ...
 ```
-
 HTTP RPC
-
-```text
+```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stacks","params":[],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":"goroutine 76176 [running]:\ngithub.com/klaytn/klaytn/api/debug.(*HandlerT).Stacks(0xc0002ce050, 0x0, 0x0)\n\t/private/tmp/klaytn-20181001-13887-zbyv2z/build/_workspace/src/github.com/klaytn/klaytn/api/debug/api.go:173 +0x74\nreflect.Value.call(0xc01867c660, 0xc000231bd8, 0x13, 0x4b26ca7, 0x4, 0xc008d8b7c0, 0x1, 0x1, 0x30, 0xc0323211d0 ..."}
 ```
