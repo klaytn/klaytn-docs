@@ -1,19 +1,21 @@
 ---
-description: 노드에서 트랜잭션 풀을 검사하는 API입니다.
+description: >-
+  노드에서 트랜잭션 풀을 검사하는 API입니다.
 ---
 
-# txpool
+# Namespace txpool <a id="namespace-txpool"></a>
 
 The namespace `txpool` API gives you access to several non-standard RPC methods to inspect the contents of the transaction pool containing all the currently pending transactions as well as the ones queued for future processing.
 
-## txpool\_content <a id="txpool_content"></a>
 
-The `content` inspection property can be queried to list the exact details of all the transactions currently pending for inclusion in the next block\(s\), as well as the ones that are being scheduled for future execution only.
+## txpool_content <a id="txpool_content"></a>
+
+The `content` inspection property can be queried to list the exact details of all the transactions currently pending for inclusion in the next block(s), as well as the ones that are being scheduled for future execution only.
 
 `pending`과 `queued` 등 두 개의 필드로 구성된 객체를 반환합니다. Each of these fields is associative arrays, in which each entry maps an origin-address to a batch of scheduled transactions. These batches themselves are maps associating nonces with actual transactions.
 
 | 클라이언트 | 메서드 호출                         |
-|:-----:|:------------------------------ |
+|:-----:| ------------------------------ |
 |  콘솔   | `txpool.content`               |
 |  RPC  | `{"method": "txpool_content"}` |
 
@@ -24,7 +26,7 @@ The `content` inspection property can be queried to list the exact details of al
 **리턴값**
 
 | 형식       | 설명             |
-|:-------- |:-------------- |
+| -------- | -------------- |
 | JSON 문자열 | 트랜잭션 풀의 내용입니다. |
 
 **예시**
@@ -123,23 +125,22 @@ The `content` inspection property can be queried to list the exact details of al
   }
 }
 ```
-
 HTTP RPC
-
-```text
+```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"txpool_content","id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":{"pending":{},"queued":{}}}
 #There is no pending transaction nor queued transaction.
 ```
 
-## txpool\_inspect <a id="txpool_inspect"></a>
 
-The `inspect` inspection property can be queried to list a textual summary of all the transactions currently pending for inclusion in the next block\(s\), as well as the ones that are being scheduled for future execution only. This is a method specifically tailored to developers to quickly see the transactions in the pool and find any potential issues.
+## txpool_inspect <a id="txpool_inspect"></a>
+
+The `inspect` inspection property can be queried to list a textual summary of all the transactions currently pending for inclusion in the next block(s), as well as the ones that are being scheduled for future execution only. This is a method specifically tailored to developers to quickly see the transactions in the pool and find any potential issues.
 
 `pending`과 `queued` 등 두 개의 필드로 구성된 객체를 반환합니다. Each of these fields is associative arrays, in which each entry maps an origin-address to a batch of scheduled transactions. These batches themselves are maps associating nonces with transactions summary strings.
 
 | 클라이언트 | 메서드 호출                         |
-|:-----:|:------------------------------ |
+|:-----:| ------------------------------ |
 |  콘솔   | `txpool.inspect`               |
 |  RPC  | `{"method": "txpool_inspect"}` |
 
@@ -150,13 +151,12 @@ The `inspect` inspection property can be queried to list a textual summary of al
 **리턴값**
 
 | 형식       | 설명                            |
-|:-------- |:----------------------------- |
+| -------- | ----------------------------- |
 | JSON 문자열 | 보류 상태이거나 대기 상태인 트랜잭션들의 목록입니다. |
 
 **예시**
 
 콘솔
-
 ```javascript
 > txpool.inspect
 {
@@ -206,22 +206,22 @@ The `inspect` inspection property can be queried to list a textual summary of al
   }
 }
 ```
-
 HTTP RPC
 
-```text
+```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"txpool_inspect","id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":{"pending":{"0x1A789E38cD567a00b7Fb8e1D39100ac395fa463B":{"0":"0x87AC99835e67168d4f9a40580f8F5C33550bA88b: 0 peb + 99000000 gas × 25000000000 peb"},"0xAb552FC3d76de919c74435A4C6B04576a9763934":{"0":"0x87AC99835e67168d4f9a40580f8F5C33550bA88b: 0 peb + 99000000 gas × 25000000000 peb"}},"queued":{}}}
 ```
 
-## txpool\_status <a id="txpool_status"></a>
 
-The `status` inspection property can be queried for the number of transactions currently pending for inclusion in the next block\(s\), as well as the ones that are being scheduled for future execution only.
+## txpool_status <a id="txpool_status"></a>
+
+The `status` inspection property can be queried for the number of transactions currently pending for inclusion in the next block(s), as well as the ones that are being scheduled for future execution only.
 
 The result is an object with two fields `pending` and `queued`, each of which is a counter representing the number of transactions in that particular state.
 
 | 클라이언트 | 메서드 호출                        |
-|:-----:|:----------------------------- |
+|:-----:| ----------------------------- |
 |  콘솔   | `txpool.status`               |
 |  RPC  | `{"method": "txpool_status"}` |
 
@@ -232,7 +232,7 @@ The result is an object with two fields `pending` and `queued`, each of which is
 **리턴값**
 
 | 명칭      | 형식  | 설명                  |
-|:------- |:--- |:------------------- |
+| ------- | --- | ------------------- |
 | pending | int | 보류 상태인 트랜잭션의 개수입니다. |
 | queued  | int | 대기 상태인 트랜잭션의 개수입니다. |
 
@@ -247,11 +247,9 @@ The result is an object with two fields `pending` and `queued`, each of which is
   queued: 7
 }
 ```
-
 HTTP RPC
 
-```text
+```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"txpool_status","id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":{"pending":"0x0","queued":"0x0"}}
 ```
-
