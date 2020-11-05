@@ -1,4 +1,4 @@
-# JSON-RPC APIs
+# 소개 <a id="introduction"></a>
 
 본 장에서는 Klaytn API 사용법에 대해 알아봅니다. Toolkit API를 제외한 다른 대부분의 API들은 원격 프로토콜 \(RPC, 웹소켓\)과 Klaytn 자바스크립트 콘솔을 지원합니다. 본 내용은 `ken`을 예시로 들어 작성되었으나 대부분의 API는 `kcn`과 `kpn`에서도 마찬가지로 사용할 수 있습니다.
 
