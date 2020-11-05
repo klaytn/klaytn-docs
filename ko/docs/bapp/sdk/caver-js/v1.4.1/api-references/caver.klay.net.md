@@ -1,8 +1,9 @@
 ---
-description: Klaytn API 중 'net' namespace에 해당하는 자바스크립트 래퍼.
+description: >-
+  Klaytn API 중 'net' namespace에 해당하는 자바스크립트 래퍼.
 ---
 
-# caver.klay.net
+# caver.klay.net <a id="caver-klay-net"></a>
 
 The `caver-klay-net` package allows you to interact with the Klaytn nodes' network properties.
 
@@ -18,6 +19,7 @@ var caver = new Caver(Caver.givenProvider || 'ws://some.local-or-remote.node:855
 // -> caver.klay.net
 ```
 
+
 ## getId <a id="getid"></a>
 
 ```javascript
@@ -28,9 +30,9 @@ caver.klay.net.getId([callback])
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                                                             |
-|:-------- |:-------- |:-------------------------------------------------------------------------------------------------------------- |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
@@ -43,6 +45,7 @@ caver.klay.net.getId([callback])
 1000
 ```
 
+
 ## isListening <a id="islistening"></a>
 
 ```javascript
@@ -53,9 +56,9 @@ caver.klay.net.isListening([callback])
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                                                             |
-|:-------- |:-------- |:-------------------------------------------------------------------------------------------------------------- |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
@@ -68,6 +71,7 @@ caver.klay.net.isListening([callback])
 true
 ```
 
+
 ## getPeerCount <a id="getpeercount"></a>
 
 ```javascript
@@ -78,9 +82,9 @@ caver.klay.net.getPeerCount([callback])
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                                                             |
-|:-------- |:-------- |:-------------------------------------------------------------------------------------------------------------- |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
@@ -103,9 +107,9 @@ caver.klay.net.peerCountByType([callback])
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                                                             |
-|:-------- |:-------- |:-------------------------------------------------------------------------------------------------------------- |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
@@ -117,4 +121,3 @@ caver.klay.net.peerCountByType([callback])
 > caver.klay.net.peerCountByType().then(console.log);
 { en: 1, pn: 2, total: 3 }
 ```
-
