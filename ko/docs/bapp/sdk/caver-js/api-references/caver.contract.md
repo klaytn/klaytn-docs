@@ -1,4 +1,4 @@
-# caver.contract
+# caver.contract <a id="caver-contract"></a>
 
 The `caver.contract` object makes it easy to interact with smart contracts on the Klaytn blockchain platform. When you create a new contract object, you have to provide the JSON interface for that smart contract and caver-js will automatically convert all calls with the contract object in javascript into low-level ABI calls over RPC for you.
 
@@ -9,33 +9,33 @@ The `caver.contract` object makes it easy to interact with smart contracts on th
 ```javascript
 new caver.contract(jsonInterface [, address] [, options])
 ```
-
 JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로 새 컨트랙트 인스턴스를 생성합니다.
 
 **매개변수**
 
-| 명칭            | 형식     | 설명                                                                                                                        |
-|:------------- |:------ |:------------------------------------------------------------------------------------------------------------------------- |
-| jsonInterface | object | 컨트랙트를 인스턴스화하기 위한 JSON 인터페이스                                                                                               |
-| address       | 문자열    | \(optional\) The address of the smart contract to call. `myContract.options.address = '0x1234..'`를 사용하여 나중에 추가할 수 있습니다. |
-| options       | object | \(optional\) The options of the contract.  자세한 내용은 아래 표를 참조하세요.                                                         |
+| 명칭            | 형식     | 설명                                                                                        |
+| ------------- | ------ | ----------------------------------------------------------------------------------------- |
+| jsonInterface | object | 컨트랙트를 인스턴스화하기 위한 JSON 인터페이스                                                               |
+| address       | 문자열    | (선택 사항) 호출할 스마트 컨트랙트의 주소. `myContract.options.address = '0x1234..'`를 사용하여 나중에 추가할 수 있습니다. |
+| options       | object | (선택 사항) 컨트랙트 옵션.  자세한 내용은 아래 표를 참조하세요.                                                    |
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 명칭       | 형식     | 설명                                                                         |
-|:-------- |:------ |:-------------------------------------------------------------------------- |
-| from     | 문자열    | \(optional\) The address from which transactions should be made.         |
-| gasPrice | 문자열    | \(optional\) The gas price in peb to use for transactions.               |
-| gas      | number | \(optional\) The maximum gas provided for a transaction \(gas limit\). |
-| data     | 문자열    | \(optional\) The byte code of the contract. 컨트랙트가 배포될 때 사용됩니다.           |
+| 명칭       | 형식     | 설명                                       |
+| -------- | ------ | ---------------------------------------- |
+| from     | 문자열    | (선택 사항) 트랜잭션이 만들어진 송신자 주소.               |
+| gasPrice | 문자열    | (선택 사항) 트랜잭션에 사용할 peb 단위의 가스 가격.         |
+| gas      | number | (선택 사항) 트랜잭션에 규정된 최대 가스 (가스 제한).         |
+| data     | 문자열    | (선택 사항) 컨트랙트의 바이트 코드. 컨트랙트가 배포될 때 사용됩니다. |
 
 **리턴값**
 
 `프로미스`는 `Object`를 반환합니다.
 
 | 형식     | 설명                         |
-|:------ |:-------------------------- |
+| ------ | -------------------------- |
 | object | 모든 메소드와 이벤트가 있는 컨트랙트 인스턴스. |
+
 
 **예시**
 
@@ -54,13 +54,14 @@ myContract.options
 **속성**
 
 | 명칭            | 형식     | 설명                                                                                                                                                                                                                                 |
-|:------------- |:------ |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address       | 문자열    | 컨트랙트가 배포된 주소.                                                                                                                                                                                                                      |
 | jsonInterface | 배열     | 컨트랙트의 JSON 인터페이스.                                                                                                                                                                                                                  |
 | from          | 문자열    | The default address from which the contract deployment/execution transaction is sent. If the `from` address is not defined when creating the transaction, this `myContract.options.from` is always used to create the transaction. |
 | gasPrice      | 문자열    | 트랜잭션에 사용할 peb 단위의 가스 가격.                                                                                                                                                                                                           |
-| gas           | number | The maximum gas provided for a transaction \(gas limit\).                                                                                                                                                                        |
+| gas           | number | 트랜잭션에 제공된 최대 가스 (가스 제한).                                                                                                                                                                                                           |
 | data          | 문자열    | 컨트랙트의 바이트 코드. 컨트랙트가 배포될 때 사용됩니다.                                                                                                                                                                                                   |
+
 
 **예시**
 
@@ -80,6 +81,7 @@ myContract.options
 > myContract.options.gas = 5000000 // provide as fallback always 5M gas
 ```
 
+
 ## myContract.options.address <a id="mycontract-options-address"></a>
 
 ```javascript
@@ -90,9 +92,9 @@ myContract.options.address
 
 **속성**
 
-| 명칭      | 형식        | 설명                                                                     |
-|:------- |:--------- |:---------------------------------------------------------------------- |
-| address | string \ | `null` | The address for this contract or `null` if it is not yet set. |
+| 명칭      | 형식                   | 설명                                      |
+| ------- | -------------------- | --------------------------------------- |
+| address | string &#124; `null` | 이 컨트랙트의 주소이거나, 아직 설정되지 않은 경우 `null`입니다. |
 
 **예시**
 
@@ -109,14 +111,14 @@ myContract.options.address
 ```javascript
 myContract.options.jsonInterface
 ```
-
 이 컨트랙트 `myContract`의 ABI에서 파생된 JSON 인터페이스 객체.
 
 **속성**
 
 | 명칭            | 형식 | 설명                                                         |
-|:------------- |:-- |:---------------------------------------------------------- |
+| ------------- | -- | ---------------------------------------------------------- |
 | jsonInterface | 배열 | 이 컨트랙트의 JSON 인터페이스. 이를 재설정하면 컨트랙트 인스턴스의 메소드 및 이벤트가 재생성됩니다. |
+
 
 **예시**
 
@@ -151,6 +153,7 @@ myContract.options.jsonInterface
 > myContract.options.jsonInterface = [...]
 ```
 
+
 ## myContract.clone <a id="mycontract-clone"></a>
 
 ```javascript
@@ -161,15 +164,16 @@ myContract.clone([contractAddress])
 
 **매개변수**
 
-| 명칭              | 형식     | 설명                                                                                                                                                           |
-|:--------------- |:------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| contractAddress | String | \(optional\) The address of the new contract. If omitted, it will be set to the address in the original instance \(e.g., `myContract.options.address`\). |
+| 명칭              | 형식     | 설명                                                                                                                                                   |
+| --------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| contractAddress | String | (optional) The address of the new contract. If omitted, it will be set to the address in the original instance (e.g., `myContract.options.address`). |
 
 **리턴값**
 
 | 형식     | 설명                |
-|:------ |:----------------- |
+| ------ | ----------------- |
 | object | 새로 복제된 컨트랙트 인스턴스. |
+
 
 **예시**
 
@@ -181,6 +185,7 @@ Contract {
   _keyrings: KeyringContainer { ... }
 }
 ```
+
 
 ## myContract.deploy <a id="mycontract-deploy"></a>
 
@@ -195,26 +200,26 @@ Deploys the contract to the Klaytn. After a successful deployment, the promise w
 **매개변수**
 
 | 명칭      | 형식     | 설명                                                           |
-|:------- |:------ |:------------------------------------------------------------ |
+| ------- | ------ | ------------------------------------------------------------ |
 | options | object | The options object used for deployment. 자세한 내용은 아래 표를 참조하세요. |
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 명칭        | 형식  | 설명                                                                             |
-|:--------- |:--- |:------------------------------------------------------------------------------ |
-| data      | 문자열 | 컨트랙트의 바이트 코드.                                                                  |
-| arguments | 배열  | \(optional\) The arguments that get passed to the constructor on deployment. |
+| 명칭        | 형식  | 설명                         |
+| --------- | --- | -------------------------- |
+| data      | 문자열 | 컨트랙트의 바이트 코드.              |
+| arguments | 배열  | (선택 사항) 배포시 생성자에게 전달되는 인자. |
 
 **리턴값**
 
 `Promise` returning `object` - An object in which arguments and functions for contract distribution are defined.:
 
-| 명칭                                                              | 형식       | 설명                                                                                                                                                                 |
-|:--------------------------------------------------------------- |:-------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| arguments                                                       | 배열       | The arguments passed in `options.arguments`.                                                                                                                       |
-| [send](caver.contract.md#methods-methodname-send)               | function | The function that will deploy the contract to the Klaytn. The promise as the result of this function will be resolved with the new contract instance.              |
-| [estimateGas](caver.contract.md#methods-methodname-estimategas) | function | The function that will estimate the gas used for the deployment. The execution of this function does not deploy the contract.                                      |
-| [encodeABI](caver.contract.md#methods-methodname-encodeabi)     | function | The function that encodes the ABI of the deployment, which is contract data + constructor parameters. The execution of this function does not deploy the contract. |
+| 명칭                                             | 형식       | 설명                                                                                                                                                                 |
+| ---------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| arguments                                      | 배열       | The arguments passed in `options.arguments`.                                                                                                                       |
+| [send](#methods-methodname-send)               | function | The function that will deploy the contract to the Klaytn. The promise as the result of this function will be resolved with the new contract instance.              |
+| [estimateGas](#methods-methodname-estimategas) | function | The function that will estimate the gas used for the deployment. The execution of this function does not deploy the contract.                                      |
+| [encodeABI](#methods-methodname-encodeabi)     | function | The function that encodes the ABI of the deployment, which is contract data + constructor parameters. The execution of this function does not deploy the contract. |
 
 **예시**
 
@@ -270,33 +275,31 @@ Deploys the contract to the Klaytn. After a successful deployment, the promise w
   })
 ```
 
+
 ## myContract.methods <a id="mycontract-methods"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]])
 ```
-
 호출, 전송, 추정 또는 ABI 인코딩될 수 있는 해당 메소드에 대한 트랜잭션 객체를 생성합니다.
 
 이 스마트 컨트랙트의 메소드는 다음을 통해 이용할 수 있습니다:
 
-* The name with parameters: `myContract.methods.methodName(123)`
-* The string-formatted name and the parameter type, and parameters: `myContract.methods['methodName(uint256)'](123)`
-* The signature\* for the method and parameters: `myContract.methods['0x58cf5f10'](123)`
+- The name with parameters: `myContract.methods.methodName(123)`
+- The string-formatted name and the parameter type, and parameters: `myContract.methods['methodName(uint256)'](123)`
+- The signature* for the method and parameters: `myContract.methods['0x58cf5f10'](123)`
 
 이를 통해 자바스크립트 컨트랙트 객체로부터 이름은 같지만 매개변수가 다른 함수를 호출할 수 있습니다.
 
-## cf\) \*function signature \(function selector\) <a id="cf-function-signature-function-selector"></a>
-
+## cf) \*function signature (function selector)   <a id="cf-function-signature-function-selector"></a>
 The first four bytes of the call data for a function call specifies the function to be called.  
-It is the first \(left, high-order in big-endian\) four bytes of the Keccak-256 \(SHA-3\) hash of the signature of the function.
+It is the first (left, high-order in big-endian) four bytes of the Keccak-256 (SHA-3) hash of the signature of the function.
 
 The function signature can be made by 2 different methods.  
 `1. caver.abi.encodefunctionSignature('funcName(paramType1,paramType2,...)')`  
 `2. caver.utils.sha3('funcName(paramType1,paramType2,...)').substr(0, 10)`
 
-ex\)
-
+예시)
 ```javascript
 caver.abi.encodefunctionSignature('methodName(uint256)')
 > 0x58cf5f10
@@ -313,13 +316,13 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 
 `Promise` returning `object` - An object in which arguments and functions for contract execution are defined.:
 
-| 명칭                                                              | 형식       | 설명                                                                                                                                                                                   |
-|:--------------------------------------------------------------- |:-------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| arguments                                                       | 배열       | The arguments passed to this method.                                                                                                                                                 |
-| [call](caver.contract.md#methods-methodname-call)               | function | The function that will call and execute a constant method in its smart contract on Klaytn Virtual Machine without sending a transaction \(cannot alter the smart contract state\). |
-| [send](caver.contract.md#methods-methodname-send)               | function | The function that will send a transaction to the Klaytn and execute its method \(can alter the smart contract state\).                                                             |
-| [estimateGas](caver.contract.md#methods-methodname-estimategas) | function | The that function will estimate the gas used for the execution.                                                                                                                      |
-| [encodeABI](caver.contract.md#methods-methodname-encodeabi)     | function | The function that encodes the ABI for this method. This can be sent using a transaction, calling the method, or passing into another smart contract method as its argument.          |
+| 명칭                                             | 형식       | 설명                                                                                                                                                                               |
+| ---------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| arguments                                      | 배열       | The arguments passed to this method.                                                                                                                                             |
+| [call](#methods-methodname-call)               | function | The function that will call and execute a constant method in its smart contract on Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
+| [send](#methods-methodname-send)               | function | The function that will send a transaction to the Klaytn and execute its method (can alter the smart contract state).                                                             |
+| [estimateGas](#methods-methodname-estimategas) | function | The that function will estimate the gas used for the execution.                                                                                                                  |
+| [encodeABI](#methods-methodname-encodeabi)     | function | The function that encodes the ABI for this method. This can be sent using a transaction, calling the method, or passing into another smart contract method as its argument.      |
 
 **예시**
 
@@ -346,32 +349,33 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
   .on('error', console.error)
 ```
 
+
 ## methods.methodName.call <a id="methods-methodname-call"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]]).call(options [, callback])
 ```
 
-Will call a "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction. Note that calling cannot alter the smart contract state.
+Will call a "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction.  Note that calling cannot alter the smart contract state.
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                                                                                                                       |
-|:-------- |:-------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| options  | object   | \(optional\) The options used for calling.  자세한 내용은 아래 표를 참조하세요.                                                                                                       |
-| callback | function | \(optional\) This callback will be fired with the result of the smart contract method execution as the second argument, or with an error object as the first argument. |
+| 명칭       | 형식       | 설명                                                                    |
+| -------- | -------- | --------------------------------------------------------------------- |
+| options  | object   | (선택 사항) 호출에 사용되는 옵션.  자세한 내용은 아래 표를 참조하세요.                            |
+| callback | function | (선택 사항) 이 콜백은 스마트 컨트랙트 메소드 실행 결과를 두 번째 인수로, 또는 오류 객체를 첫 번째 인수로 발생합니다. |
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 명칭       | 형식     | 설명                                                                             |
-|:-------- |:------ |:------------------------------------------------------------------------------ |
-| from     | 문자열    | \(optional\) The address which calling contract methods should be made from. |
-| gasPrice | 문자열    | \(optional\) The gas price in peb to use for this call.                      |
-| gas      | number | \(optional\) The maximum gas provided for this call \(gas limit\).         |
+| 명칭       | 형식     | 설명                                                                         |
+| -------- | ------ | -------------------------------------------------------------------------- |
+| from     | 문자열    | (optional) The address which calling contract methods should be made from. |
+| gasPrice | 문자열    | (optional) The gas price in peb to use for this call.                      |
+| gas      | number | (optional) The maximum gas provided for this call (gas limit).             |
 
 **리턴값**
 
-`Promise` returning `Mixed` - The return value\(s\) of the smart contract method. 하나를 반환하면, 그대로 반환됩니다. If it has multiple return values, it returns an object with properties and indices.
+`Promise` returning `Mixed` - The return value(s) of the smart contract method. 하나를 반환하면, 그대로 반환됩니다. If it has multiple return values, it returns an object with properties and indices.
 
 **예시**
 
@@ -383,7 +387,7 @@ Will call a "constant" method and execute its smart contract method in the Klayt
   })
 ```
 
-```text
+```solidity
 // Solidity: MULTIPLE RETURN VALUES
 contract MyContract {
     function myFunction() public returns(uint256 myNumber, string memory myString) {
@@ -403,7 +407,7 @@ Result {
 }
 ```
 
-```text
+```solidity
 // Solidity: SINGLE RETURN VALUE
 contract MyContract {
     function myfunction() public returns(string memory mystring) {
@@ -418,6 +422,7 @@ contract MyContract {
 "Hello!%"
 ```
 
+
 ## methods.methodName.send <a id="methods-methodname-send"></a>
 
 ```javascript
@@ -428,33 +433,34 @@ myContract.methods.methodName([param1 [, param2 [, ...]]]).send(options [, callb
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                                                                          |
-|:-------- |:-------- |:--------------------------------------------------------------------------------------------------------------------------- |
-| options  | object   | 전송에 사용되는 옵션.  자세한 내용은 아래 표를 참조하세요.                                                                                          |
-| callback | function | \(optional\) This callback will be fired first with the "transactionHash", or with an error object as the first argument. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| options  | object   | 전송에 사용되는 옵션.  자세한 내용은 아래 표를 참조하세요.                                   |
+| callback | function | (선택 사항) 이 콜백은 먼저 "transactionHash"로, 아니면 첫 번째 인수로 오류 객체를 사용하여 발생합니다. |
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 명칭       | 형식        | 설명                                                                                                                                        |
-|:-------- |:--------- |:----------------------------------------------------------------------------------------------------------------------------------------- |
-| from     | 문자열       | 트랜잭션을 보낼 송신자 주소. If omitted, `myContract.options.from` will be used.                                                                      |
-| gasPrice | 문자열       | \(optional\) The gas price in peb to use for this transaction.                                                                          |
-| gas      | number    | The maximum gas provided for this transaction \(gas limit\).                                                                            |
-| value    | number \ | string \| BN \| Bignumber | \(optional\) The value in peb to be transferred to the address of the smart contract by this transaction. |
+| 명칭       | 형식                                              | 설명                                                                                                      |
+| -------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| from     | 문자열                                             | 트랜잭션을 보낼 송신자 주소. If omitted, `myContract.options.from` will be used.                                    |
+| gasPrice | 문자열                                             | (선택 사항) 트랜잭션에 사용할 peb 단위의 가스 가격.                                                                        |
+| gas      | number                                          | The maximum gas provided for this transaction (gas limit).                                              |
+| value    | number &#124; string &#124; BN &#124; Bignumber | (optional) The value in peb to be transferred to the address of the smart contract by this transaction. |
+
 
 **NOTE** The keyring that contains `myContract.options.from`, which is the sender of the transaction, must exist in the caver.wallet.
 
 **리턴값**
 
 | 형식         | 설명                                                                                                                                                                                                                              |
-|:---------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | PromiEvent | 프로미스(promise)가 조합된 이벤트 이미터(event emitter). It will be resolved when the transaction receipt is available. If `send()` is called from a `myContract.deploy()`, then the promise will be resolved with the new contract instance. |
 
 PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 
-* `transactionHash` returns `string`: Is fired right after the transaction is sent and a transaction hash is available.
-* `receipt` returns `object`: Is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more detail.
-* `error`는 `Error`를 반환: 전송 중 에러가 발생하면 발생합니다. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
+- `transactionHash` returns `string`: Is fired right after the transaction is sent and a transaction hash is available.
+- `receipt` returns `object`: Is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](./caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more detail.
+- `error`는 `Error`를 반환: 전송 중 에러가 발생하면 발생합니다. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
 
 **예시**
 
@@ -512,6 +518,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 }
 ```
 
+
 ## methods.methodName.estimateGas <a id="methods-methodname-estimategas"></a>
 
 ```javascript
@@ -522,25 +529,25 @@ Will estimate the gas that a method execution will take when executed in the Kla
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                                                                                                      |
-|:-------- |:-------- |:------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options  | object   | \(optional\) The options used for calling.  자세한 내용은 아래 표를 참조하세요.                                                                                      |
-| callback | function | \(optional\) This callback will be fired with the result of the gas estimation as the second argument, or with an error object as the first argument. |
+| 명칭       | 형식       | 설명                                                             |
+| -------- | -------- | -------------------------------------------------------------- |
+| options  | object   | (선택 사항) 호출에 사용되는 옵션.  자세한 내용은 아래 표를 참조하세요.                     |
+| callback | function | (선택 사항) 이 콜백은 가스 추정 결과를 두 번째 인수로, 또는 오류 객체를 첫 번째 인수로 하여 발생합니다. |
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 명칭    | 형식        | 설명                                                                                                                                                                                                       |
-|:----- |:--------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from  | 문자열       | \(optional\) The address from which calling the contract method should be made.                                                                                                                        |
-| gas   | number    | \(optional\) The maximum gas provided for this call \(gas limit\). 특정 값을 설정하면 가스 부족 오류를 감지하는 데 도움이 됩니다. 모든 가스가 사용되면 같은 숫자를 반환합니다.                                                                    |
-| value | number \ | string \| BN \| Bignumber | \(optional\) The value in peb that would be transferred to the address of the smart contract if the transaction for executing this contract function was sent to Klaytn. |
+| 명칭    | 형식                                              | 설명                                                                                                                                                                     |
+| ----- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from  | 문자열                                             | (optional) The address from which calling the contract method should be made.                                                                                          |
+| gas   | number                                          | (optional) The maximum gas provided for this call (gas limit). 특정 값을 설정하면 가스 부족 오류를 감지하는 데 도움이 됩니다. 모든 가스가 사용되면 같은 숫자를 반환합니다.                                          |
+| value | number &#124; string &#124; BN &#124; Bignumber | (optional) The value in peb that would be transferred to the address of the smart contract if the transaction for executing this contract function was sent to Klaytn. |
 
 **리턴값**
 
 `프로미스`는 `Number`을 반환합니다.
 
 | 형식     | 설명                                               |
-|:------ |:------------------------------------------------ |
+| ------ | ------------------------------------------------ |
 | number | The used gas for the simulated call/transaction. |
 
 **예시**
@@ -555,6 +562,7 @@ Will estimate the gas that a method execution will take when executed in the Kla
   })
 ```
 
+
 ## methods.methodName.encodeABI <a id="methods-methodname-encodeabi"></a>
 
 ```javascript
@@ -563,6 +571,7 @@ myContract.methods.methodName([param1 [, param2[, ...]]]).encodeABI()
 
 이 메소드에 대한 ABI를 인코딩합니다. This can be used to send a transaction or call a method, or pass it into another smart contract method as arguments.
 
+
 **매개변수**
 
 Parameters of any method that belongs to this smart contract, defined in the JSON interface.
@@ -570,8 +579,9 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 **리턴값**
 
 | 형식  | 설명                                  |
-|:--- |:----------------------------------- |
+| --- | ----------------------------------- |
 | 문자열 | 트랜잭션 또는 호출을 통해 전송할 인코딩된 ABI 바이트 코드. |
+
 
 **예시**
 
@@ -579,6 +589,7 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 > myContract.methods.methodName(123).encodeABI()
 '0x58cf5f1000000000000000000000000000000000000000000000000000000000000007B'
 ```
+
 
 ## myContract.once <a id="mycontract-once"></a>
 
@@ -590,22 +601,22 @@ Subscribes to an event and unsubscribes immediately after the first event or err
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                                                                                                         |
-|:-------- |:-------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| event    | 문자열      | The name of the event in the contract, or `allEvents` to get all events.                                                                                   |
-| options  | object   | \(optional\) The options used for subscription. 자세한 내용은 아래 표를 참조하세요.                                                                                     |
-| callback | function | 이 콜백은 첫 번째 이벤트를 두 번째 인수로, 또는 오류를 첫 번째 인수로 하여 발생됩니다. See [myContract.getPastEvents](caver.contract.md#getpastevents) for details about the event structure. |
+| 명칭       | 형식       | 설명                                                                                                                                        |
+| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| event    | 문자열      | The name of the event in the contract, or `allEvents` to get all events.                                                                  |
+| options  | object   | (optional) The options used for subscription. 자세한 내용은 아래 표를 참조하세요.                                                                        |
+| callback | function | 이 콜백은 첫 번째 이벤트를 두 번째 인수로, 또는 오류를 첫 번째 인수로 하여 발생됩니다. See [myContract.getPastEvents](#getpastevents) for details about the event structure. |
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 명칭     | 형식     | 설명                                                                                                                                                                        |
-|:------ |:------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 필터     | object | \(optional\) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                       |
-| topics | 배열     | \(optional\) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
+| 명칭     | 형식     | 설명                                                                                                                                              |
+| ------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| 필터     | object | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13. |
+| topics | 배열     | (선택 사항) 이벤트 필터에 대한 주제를 수동으로 설정할 수 있습니다. Given the filter property and event signature, `topic[0]` would not be set automatically.               |
 
 **리턴값**
 
-`Promise` returns `object` - An event object. For more detail about event object, please refer to [myContract.getPastEvents](caver.contract.md#getpastevents).
+`Promise` returns `object` - An event object. For more detail about event object, please refer to [myContract.getPastEvents](#getpastevents).
 
 **예시**
 
@@ -636,6 +647,7 @@ Subscribes to an event and unsubscribes immediately after the first event or err
 }
 ```
 
+
 ## myContract.events <a id="mycontract-events"></a>
 
 ```javascript
@@ -646,44 +658,45 @@ myContract.events.eventName([options][, callback])
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                                                                   |
-|:-------- |:-------- |:-------------------------------------------------------------------------------------------------------------------- |
-| options  | object   | \(optional\) The options used for subscription. 자세한 내용은 아래 표를 참조하세요.                                               |
-| callback | function | \(optional\) This callback will be fired for each event as the second argument, or an error as the first argument. |
+| 명칭       | 형식       | 설명                                                                 |
+| -------- | -------- | ------------------------------------------------------------------ |
+| options  | object   | (optional) The options used for subscription. 자세한 내용은 아래 표를 참조하세요. |
+| callback | function | (선택 사항) 이 콜백은 각 이벤트를 두 번째 인수로, 또는 오류 객체를 첫 번째 인수로 하여 발생합니다.        |
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 명칭        | 형식     | 설명                                                                                                                                                                        |
-|:--------- |:------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 필터        | object | \(optional\) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                       |
-| fromBlock | number | \(optional\) The block number from which to get events.                                                                                                                 |
-| topics    | 배열     | \(optional\) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
+| 명칭        | 형식     | 설명                                                                                                                                              |
+| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| 필터        | object | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13. |
+| fromBlock | number | (optional) The block number from which to get events.                                                                                           |
+| topics    | 배열     | (선택 사항) 이벤트 필터에 대한 주제를 수동으로 설정할 수 있습니다. Given the filter property and event signature, `topic[0]` would not be set automatically.               |
+
 
 **리턴값**
 
 `EventEmitter`: 이벤트 이미터는 다음 이벤트를 가집니다:
 
 | 명칭    | 형식     | 설명                                                                 |
-|:----- |:------ |:------------------------------------------------------------------ |
+| ----- | ------ | ------------------------------------------------------------------ |
 | data  | object | Fires on each incoming event with the event object as an argument. |
 | error | object | 구독 오류가 발생하면 발생합니다.                                                 |
 
 The structure of the returned event `object` looks as follows:
 
-| 명칭               | 형식        | 설명                                                                                                                              |
-|:---------------- |:--------- |:------------------------------------------------------------------------------------------------------------------------------- |
-| event            | 문자열       | 이벤트 이름.                                                                                                                         |
-| 서명 값입니다.         | string \ | `null` | The event signature, `null` if it is an anonymous event.                                                               |
-| address          | 문자열       | 이 이벤트가 발생한 주소.                                                                                                                  |
-| returnValues     | object    | The return values coming from the event, _e.g._, `{myVar: 1, myVar2: '0x234...'}`.                                              |
-| logIndex         | number    | 블록에서 이벤트 인덱스 위치의 정수값.                                                                                                           |
-| transactionIndex | number    | 이벤트가 생성된 트랜잭션의 인덱스 위치의 정수값.                                                                                                     |
-| transactionHash  | 32바이트 문자열 | 이 이벤트가 생성된 트랜잭션의 해시. 아직 보류 중인 경우 `null`.                                                                                        |
-| blockHash        | 32바이트 문자열 | 이 이벤트가 생성된 블록의 해시. 아직 보류 중인 경우 `null`.                                                                                          |
-| blocknumber      | number    | 이 로그가 생성된 블록 번호. 아직 보류 중인 경우 `null`.                                                                                            |
-| raw.data         | 문자열       | 색인화되지 않은 로그 매개변수를 포함하는 데이터.                                                                                                     |
-| raw.topics       | 배열        | An array with a maximum of four 32-byte topics, and topic 1-3 contains indexed parameters of the event.                         |
-| id               | 문자열       | 로그 식별자. It is made through concatenating "log\_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
+| 명칭               | 형식                   | 설명                                                                                                      |
+| ---------------- | -------------------- | ------------------------------------------------------------------------------------------------------- |
+| event            | 문자열                  | 이벤트 이름.                                                                                                 |
+| 서명 값입니다.         | string &#124; `null` | 이벤트 서명, 익명의 이벤트인 경우 `null`.                                                                             |
+| address          | 문자열                  | 이 이벤트가 발생한 주소.                                                                                          |
+| returnValues     | object               | 이벤트에서 오는 리턴값, *가령*, `{myVar: 1, myVar2: '0x234...'}`.                                                   |
+| logIndex         | number               | 블록에서 이벤트 인덱스 위치의 정수값.                                                                                   |
+| transactionIndex | number               | 이벤트가 생성된 트랜잭션의 인덱스 위치의 정수값.                                                                             |
+| transactionHash  | 32바이트 문자열            | 이 이벤트가 생성된 트랜잭션의 해시. 아직 보류 중인 경우 `null`.                                                                |
+| blockHash        | 32바이트 문자열            | 이 이벤트가 생성된 블록의 해시. 아직 보류 중인 경우 `null`.                                                                  |
+| blocknumber      | number               | 이 로그가 생성된 블록 번호. 아직 보류 중인 경우 `null`.                                                                    |
+| raw.data         | 문자열                  | 색인화되지 않은 로그 매개변수를 포함하는 데이터.                                                                             |
+| raw.topics       | 배열                   | An array with a maximum of four 32-byte topics, and topic 1-3 contains indexed parameters of the event. |
+| id               | 문자열                  | 로그 식별자. `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`을 사용하여 "log_" 문자열을 연결하여 작성됩니다.  |
 
 **예시**
 
@@ -720,38 +733,38 @@ The structure of the returned event `object` looks as follows:
 }
 ```
 
+
 ## events.allEvents <a id="events-allevents"></a>
 
 ```javascript
 myContract.events.allEvents([options] [, callback])
 ```
+Same as [myContract.events](#mycontract-events) but receives all events from this smart contract. 선택적으로 filter 속성은 해당 이벤트를 필터링할 수 있습니다.
 
-Same as [myContract.events](caver.contract.md#mycontract-events) but receives all events from this smart contract. 선택적으로 filter 속성은 해당 이벤트를 필터링할 수 있습니다.
 
 ## getPastEvents <a id="getpastevents"></a>
 
 ```javascript
 myContract.getPastEvents(event [, options] [, callback])
 ```
-
 이 컨트랙트의 이전 이벤트를 가져옵니다.
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                                                                                |
-|:-------- |:-------- |:--------------------------------------------------------------------------------------------------------------------------------- |
-| event    | 문자열      | 컨트랙트, 또는 모든 이벤트를 받기 위한 `"allEvents"`에서의 이벤트 이름.                                                                                   |
-| options  | object   | \(optional\) The options used for subscription. 자세한 내용은 아래 표를 참조하세요.                                                            |
-| callback | function | \(optional\) This callback will be fired with an array of event logs as the second argument, or an error as the first argument. |
+| 명칭       | 형식       | 설명                                                                 |
+| -------- | -------- | ------------------------------------------------------------------ |
+| event    | 문자열      | 컨트랙트, 또는 모든 이벤트를 받기 위한 `"allEvents"`에서의 이벤트 이름.                    |
+| options  | object   | (optional) The options used for subscription. 자세한 내용은 아래 표를 참조하세요. |
+| callback | function | (선택 사항) 이 콜백은 이벤트 로그들의 배열을 두 번째 인수로, 또는 오류 객체를 첫 번째 인수로 하여 발생합니다.  |
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 명칭        | 형식     | 설명                                                                                                                                                                     |
-|:--------- |:------ |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 필터        | object | \(optional\) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                    |
-| fromBlock | number | \(optional\) The block number from which to get events.                                                                                                              |
-| toBlock   | number | \(optional\) The block number to get events up to \(defaults to `"latest"`\).                                                                                      |
-| topics    | 배열     | \(optional\) This allows manually setting the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
+| 명칭        | 형식     | 설명                                                                                                                                              |
+| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| 필터        | object | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13. |
+| fromBlock | number | (optional) The block number from which to get events.                                                                                           |
+| toBlock   | number | (선택 사항) 이벤트를 가져올 끝 블록 번호(기본값은 `"latest"`).                                                                                                      |
+| topics    | 배열     | (선택 사항) 이벤트 필터에 대한 주제를 수동으로 설정할 수 있습니다. Given the filter property and event signature, `topic[0]` would not be set automatically.               |
 
 **리턴값**
 
@@ -759,18 +772,18 @@ myContract.getPastEvents(event [, options] [, callback])
 
 An event object can contain the following:
 
-| 명칭               | 형식        | 설명                                                                                                                                                                                                            |
-|:---------------- |:--------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| event            | 문자열       | 이벤트 이름.                                                                                                                                                                                                       |
-| 서명 값입니다.         | string \ | `null` | The event signature, `null` if it’s an anonymous event.                                                                                                                                              |
-| address          | 문자열       | Address this event originated from.                                                                                                                                                                           |
-| returnValues     | object    | The return values coming from the event, e.g. {myVar: 1, myVar2: '0x234...'}.                                                                                                                                 |
-| logIndex         | number    | The event index position in the block.                                                                                                                                                                        |
-| transactionIndex | number    | The transaction’s index position the event was created in.                                                                                                                                                    |
-| transactionHash  | 문자열       | The hash of the transaction this event was created in.                                                                                                                                                        |
-| blockHash        | 문자열       | The hash of the block this event was created in. null when it’s still pending.                                                                                                                                |
-| blockNumber      | number    | The block number this log was created in. null when still pending.                                                                                                                                            |
-| raw              | object    | An object defines `data` and `topic`. `raw.data` containing non-indexed log parameter. `raw.topic` is an array with a maximum of four 32 Byte topics, and topic 1-3 contains indexed parameters of the event. |
+| 명칭               | 형식                   | 설명                                                                                                                                                                                                            |
+| ---------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| event            | 문자열                  | 이벤트 이름.                                                                                                                                                                                                       |
+| 서명 값입니다.         | string &#124; `null` | The event signature, `null` if it’s an anonymous event.                                                                                                                                                       |
+| address          | 문자열                  | Address this event originated from.                                                                                                                                                                           |
+| returnValues     | object               | The return values coming from the event, e.g. {myVar: 1, myVar2: '0x234...'}.                                                                                                                                 |
+| logIndex         | number               | The event index position in the block.                                                                                                                                                                        |
+| transactionIndex | number               | The transaction’s index position the event was created in.                                                                                                                                                    |
+| transactionHash  | 문자열                  | The hash of the transaction this event was created in.                                                                                                                                                        |
+| blockHash        | 문자열                  | The hash of the block this event was created in. null when it’s still pending.                                                                                                                                |
+| blockNumber      | number               | The block number this log was created in. null when still pending.                                                                                                                                            |
+| raw              | object               | An object defines `data` and `topic`. `raw.data` containing non-indexed log parameter. `raw.topic` is an array with a maximum of four 32 Byte topics, and topic 1-3 contains indexed parameters of the event. |
 
 **예시**
 
@@ -806,4 +819,3 @@ An event object can contain the following:
       ...
 }]
 ```
-
