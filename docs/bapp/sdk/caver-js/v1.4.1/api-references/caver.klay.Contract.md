@@ -65,8 +65,8 @@ The `options` object for the contract instance. `from`, `gas` and `gasPrice` are
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| address | String | The address where the contract is deployed.  Also see [options.address](caver.klay.contract.md#options-address). |
-| jsonInterface | Array | The JSON interface of the contract.  Also see [options.jsonInterface](caver.klay.contract.md#options-jsoninterface). |
+| address | String | The address where the contract is deployed.  Also see [options.address](#options-address). |
+| jsonInterface | Array | The JSON interface of the contract.  Also see [options.jsonInterface](#options-jsoninterface). |
 | data | String | The byte code of the contract. Used when the contract gets deployed. |
 | from | String | The address from which transactions should be made. |
 | gasPrice | String | The gas price in peb to use for transactions. |
@@ -198,9 +198,9 @@ Deploys the contract to the Klaytn blockchain. After successful deployment, the 
 | Type | Description |
 | :--- | :--- |
 | Array | arguments: The arguments passed to the method before. They can be changed. |
-| Function | [send](caver.klay.contract.md#methods-mymethod-send): Will deploy the contract. The promise will be resolved with the new contract instance, instead of the receipt. |
-| Function | [estimateGas](caver.klay.contract.md#methods-mymethod-estimategas): Will estimate the gas used for the deployment. |
-| Function | [encodeABI](caver.klay.contract.md#methods-mymethod-encodeabi): Encodes the ABI of the deployment, which is contract data + constructor parameters. |
+| Function | [send](#methods-mymethod-send): Will deploy the contract. The promise will be resolved with the new contract instance, instead of the receipt. |
+| Function | [estimateGas](#methods-mymethod-estimategas): Will estimate the gas used for the deployment. |
+| Function | [encodeABI](#methods-mymethod-encodeabi): Encodes the ABI of the deployment, which is contract data + constructor parameters. |
 
 **Example**
 
@@ -302,10 +302,10 @@ Parameters of any method depend on the smart contracts methods, defined in the J
 | Type | Description |
 | :--- | :--- |
 | Array | arguments: The arguments passed to the method before. They can be changed. |
-| Function | [call](caver.klay.contract.md#methods-mymethod-call): Will call the "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending a transaction \(cannot alter the smart contract state\). |
-| Function | [send](caver.klay.contract.md#methods-mymethod-send): Will send a transaction to the smart contract and execute its method \(can alter the smart contract state\). |
-| Function | [estimateGas](caver.klay.contract.md#methods-mymethod-estimategas): Will estimate the gas used when the method would be executed on the blockchain. |
-| Function | [encodeABI](caver.klay.contract.md#methods-mymethod-encodeabi): Encodes the ABI for this method. This can be sent using a transaction, calling the method or passing into another smart contract method as argument. |
+| Function | [call](#methods-mymethod-call): Will call the "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending a transaction \(cannot alter the smart contract state\). |
+| Function | [send](#methods-mymethod-send): Will send a transaction to the smart contract and execute its method \(can alter the smart contract state\). |
+| Function | [estimateGas](#methods-mymethod-estimategas): Will estimate the gas used when the method would be executed on the blockchain. |
+| Function | [encodeABI](#methods-mymethod-encodeabi): Encodes the ABI for this method. This can be sent using a transaction, calling the method or passing into another smart contract method as argument. |
 
 **Example**
 
@@ -442,7 +442,7 @@ The options object can contain the following:
 | Name | Type | Description |
 | :--- | :--- | :--- |
 | transactionHash | String | Is fired right after the transaction is sent and a transaction hash is available. |
-| receipt | Object | Is fired when the transaction receipt is available.  Receipts from contracts will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](caver.klay.contract.md#getpastevents) for details about the returned event object. |
+| receipt | Object | Is fired when the transaction receipt is available.  Receipts from contracts will have no `logs` property, but instead an `events` property with event names as keys and events as properties. See [getPastEvents return values](#getpastevents) for details about the returned event object. |
 | error | Error | Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt. |
 
 **Example**
@@ -591,7 +591,7 @@ Subscribes to an event and unsubscribes immediately after the first event or err
 | :--- | :--- | :--- |
 | event | String | The name of the event in the contract, or `"allEvents"` to get all events. |
 | options | Object | \(optional\) The options used for deployment.  See the table below for the details. |
-| callback | Function | This callback will be fired for the first event as the second argument, or an error as the first argument. See [getPastEvents return values](caver.klay.contract.md#getpastevents) for details about the event structure. |
+| callback | Function | This callback will be fired for the first event as the second argument, or an error as the first argument. See [getPastEvents return values](#getpastevents) for details about the event structure. |
 
 The options object can contain the following:
 
@@ -723,7 +723,7 @@ The structure of the returned event `Object` looks as follows:
 myContract.events.allEvents([options] [, callback])
 ```
 
-Same as [events](caver.klay.contract.md#events) but receives all events from this smart contract. Optionally, the filter property can filter those events.
+Same as [events](#events) but receives all events from this smart contract. Optionally, the filter property can filter those events.
 
 ## getPastEvents <a id="getpastevents"></a>
 
