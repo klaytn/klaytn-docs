@@ -37,7 +37,7 @@ See [caver-js](../bapp/sdk/caver-js/README.md) and [caver-java](../bapp/sdk/cave
 
 To learn about how to build BApp using Klaytn SDK, see [Tutorials](../bapp/tutorials/README.md).
 
-Also, check the porting guidelines [from web3.js](../bapp/sdk/caver-js/v1.4.1/porting-from-web3.js.md) and [from web3j](../bapp/sdk/caver-java/porting-from-web3j.md). Because the syntactic of caver-js and caver-java are very similar to web3.js and web3j, porting should be minimal and very straightforward. But, no, you can not use web3.js or web3j to make a request against Klaytn.
+Also, check the porting guidelines [from web3.js](../bapp/sdk/caver-js/v1.4.1/porting-from-web3.js.md) and [from web3j](../bapp/sdk/caver-java/v1.4.0/porting-from-web3j.md). Because the syntactic of caver-js and caver-java are very similar to web3.js and web3j, porting should be minimal and very straightforward. But, no, you can not use web3.js or web3j to make a request against Klaytn.
 
 
 

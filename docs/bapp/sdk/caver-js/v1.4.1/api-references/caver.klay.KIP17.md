@@ -6,7 +6,7 @@ description: A caver-js object used to interact with a smart contract for KIP17.
 
 `caver.klay.KIP17` helps you easily handle a smart contract that implements [KIP-17](https://kips.klaytn.com/KIPs/kip-17) as a JavaScript object on the Klaytn blockchain.
 
-The `caver.klay.KIP17` inherits [caver.klay.Contract](caver.klay.contract.md) to implement the KIP-17 token contract. The `caver.klay.KIP17` holds the same properties of `caver.klay.Contract` whereas there are additional methods to implement extra features. This section only introduces the newly added bound methods of the `caver.klay.KIP17`.
+The `caver.klay.KIP17` inherits [caver.klay.Contract](caver.klay.Contract.md) to implement the KIP-17 token contract. The `caver.klay.KIP17` holds the same properties of `caver.klay.Contract` whereas there are additional methods to implement extra features. This section only introduces the newly added bound methods of the `caver.klay.KIP17`.
 
 The code that implements KIP-17 for caver-js is available on the [caver-js Github Repo](https://github.com/klaytn/caver-js/tree/dev/packages/caver-kct/src/contract/token/KIP17).
 
@@ -45,7 +45,7 @@ The tokenInfo object must contain the following:
 | Name | Type | Description |
 | :--- | :--- | :--- |
 | transactionHash | String | Fired right after the transaction is sent and a transaction hash is available. |
-| receipt | Object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see [getTransactionReceipt](caver.klay/transaction/#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
+| receipt | Object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
 | error | Error | Fired if an error occurs during sending. |
 
 **Example**
@@ -557,7 +557,7 @@ The sendParam object can contain the following:
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction/#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -623,11 +623,11 @@ Note that the setApprovalForAll method will submit a transaction to the Klaytn n
 | :--- | :--- | :--- |
 | to | String | The address of an account to be approved/prohibited to transfer the owner's all tokens. |
 | approved | Boolean | This operator will be approved if `true`. The operator will be disallowed if `false`. |
-| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.kip17.md#kip17instance-approve). |
+| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP17.md#kip17instance-approve). |
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction/#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -683,7 +683,7 @@ Note that the setApprovalForAll method will submit a transaction to the Klaytn n
 kip17Instance.transferFrom(from, to, tokenId [, sendParam])
 ```
 
-Transfers the token of the given token id `tokenId` from the token owner's balance to another address. The address who was approved to send the token owner's token \(the operator\) or the token owner itself is expected to execute this token transferring transaction. Thus, the approved one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7Instance.options.from`. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur. It is recommended to use [safeTransferFrom](caver.klay.kip17.md#kip17instance-safetransferfrom) whenever possible instead of this method.
+Transfers the token of the given token id `tokenId` from the token owner's balance to another address. The address who was approved to send the token owner's token \(the operator\) or the token owner itself is expected to execute this token transferring transaction. Thus, the approved one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7Instance.options.from`. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur. It is recommended to use [safeTransferFrom](caver.klay.KIP17.md#kip17instance-safetransferfrom) whenever possible instead of this method.
 
 Note that sending this transaction will charge the transaction fee to the transaction sender.
 
@@ -694,13 +694,13 @@ Note that sending this transaction will charge the transaction fee to the transa
 | from | String | The address of the owner or the approved operator of the given token. |
 | to | String | The address of the account to receive the token. |
 | tokenId | BigNumber \| String \| Number | The id of the token you want to transfer. |
-| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.kip17.md#kip17instance-approve). |
+| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP17.md#kip17instance-approve). |
 
 **NOTE** The `tokenId` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction/#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -770,13 +770,13 @@ Note that sending this transaction will charge the transaction fee to the transa
 | to | String | The address of the account to receive the token. |
 | tokenId | BigNumber \| String \| Number | The id of the token you want to transfer. |
 | data | Buffer \| String \| Number | \(optional\) The optional data to send along with the call. |
-| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.kip17.md#kip17instance-approve). |
+| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP17.md#kip17instance-approve). |
 
 **NOTE** The `tokenId` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction/#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -844,13 +844,13 @@ Note that the addMinter method will submit a transaction to the Klaytn network, 
 | Name | Type | Description |
 | :--- | :--- | :--- |
 | account | String | The address of the account to be added as a minter. |
-| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.kip17.md#kip17instance-approve). |
+| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP17.md#kip17instance-approve). |
 
 **NOTE** If `sendParam.from` or `KIP17Instance.options.from` were given, it should be a minter.
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction/#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -910,13 +910,13 @@ Note that the renounceMinter method will submit a transaction to the Klaytn netw
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.kip17.md#kip17instance-approve). |
+| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP17.md#kip17instance-approve). |
 
 If `sendParam.from` or `KIP17Instance.options.from` were given, it should be a minter with MinterRole.
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction/#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -979,7 +979,7 @@ Note that the mintWithTokenURI method will submit a transaction to the Klaytn ne
 | to | String | The address of the account to which the minted token will be issued. |
 | tokenId | BigNumber \| String \| Number | The id of the token to be minted. |
 | tokenURI | String | The uri string of the token to be minted. |
-| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.kip17.md#kip17instance-approve). |
+| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP17.md#kip17instance-approve). |
 
 **NOTE** The `tokenId` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
@@ -987,7 +987,7 @@ Note that the mintWithTokenURI method will submit a transaction to the Klaytn ne
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction/#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1052,13 +1052,13 @@ Note that the burn method will submit a transaction to the Klaytn network, which
 | Name | Type | Description |
 | :--- | :--- | :--- |
 | tokenId | BigNumber \| String \| Number | The id of the token to be destroyed. |
-| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.kip17.md#kip17instance-approve). |
+| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP17.md#kip17instance-approve). |
 
 **NOTE** The `tokenId` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction/#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1122,13 +1122,13 @@ Note that the pause method will submit a transaction to the Klaytn network, whic
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.kip17.md#kip17instance-approve). |
+| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP17.md#kip17instance-approve). |
 
 **NOTE** If `sendParam.from` or `KIP17Instance.options.from` were given, it should be a pauser with PauserRole.
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction/#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1188,13 +1188,13 @@ Note that the unpause method will submit a transaction to the Klaytn network, wh
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.kip17.md#kip17instance-approve). |
+| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP17.md#kip17instance-approve). |
 
 **NOTE** If `sendParam.from` or `KIP17Instance.options.from` were given, it should be a pauser with PauserRole.
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction/#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1255,13 +1255,13 @@ Note that the addPauser method will submit a transaction to the Klaytn network, 
 | Name | Type | Description |
 | :--- | :--- | :--- |
 | account | String | The address of the account to be a new pauser. |
-| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.kip17.md#kip17instance-approve). |
+| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP17.md#kip17instance-approve). |
 
 **NOTE** If `sendParam.from` or `KIP17Instance.options.from` were given, it should be a pauser with PauserRole.
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction/#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1321,13 +1321,13 @@ Note that the renouncePauser method will submit a transaction to the Klaytn netw
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.kip17.md#kip17instance-approve). |
+| sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP17.md#kip17instance-approve). |
 
 **NOTE** If `sendParam.from` or `KIP17Instance.options.from` were given, it should be a pauser with PauserRole.
 
 **Return Value**
 
-`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction/#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `Object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 

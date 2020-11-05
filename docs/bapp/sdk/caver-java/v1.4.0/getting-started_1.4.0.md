@@ -572,13 +572,13 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt =  feePayerManager_
 The [web3j](https://github.com/web3j/web3j) project for the inspiration. 🙂
 
 
-[Klaytn Wallet]: ../../../toolkit/klaytn-wallet.md
-[txError]: ../../json-rpc/transaction-error-codes.md
-[AccountKeyPublic]: ../../../klaytn/design/accounts.md#accountkeypublic
-[AccountKey]: ../../../klaytn/design/accounts.md#account-key
+[Klaytn Wallet]: ../../../../toolkit/klaytn-wallet.md
+[txError]: ../../../json-rpc/transaction-error-codes.md
+[AccountKeyPublic]: ../../../../klaytn/design/accounts.md#accountkeypublic
+[AccountKey]: ../../../../klaytn/design/accounts.md#account-key
 [Solidity Compiler]: #solidity-compiler
 [command-line tool]: #command-line-tool
-[Fee Delegation]: ../../../klaytn/design/transactions/README.md#fee-delegation
+[Fee Delegation]: ../../../../klaytn/design/transactions/README.md#fee-delegation
 [Smart Contract]: #smart-contract
 [fee-delegated value transfer]: #value-transfer
 
