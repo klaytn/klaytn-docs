@@ -1,28 +1,26 @@
-# 블록(Block)
-
 ## defaultBlock <a id="defaultblock"></a>
 
 ```javascript
 caver.klay.defaultBlock
 ```
 
-기본 블록은 특정 메서드들에서 사용됩니다. You can override it by passing in the defaultBlock as the last parameter. 기본값은 `"latest"`입니다.
+기본 블록은 특정 메서드들에서 사용됩니다.  You can override it by passing in the defaultBlock as the last parameter.  기본값은 `"latest"`입니다.
 
-* [caver.klay.getBalance\(\)](account.md#getbalance)
-* [caver.klay.getCode\(\)](account.md#getcode)
-* [caver.klay.getTransactionCount\(\)](account.md#gettransactioncount)
-* [caver.klay.getStorageAt\(\)](block.md#getstorageat)
-* [caver.klay.call\(\)](transaction/#call)
-* [new caver.klay.Contract\(\)](../caver.klay.contract.md#new-contract) -&gt; [myContract.methods.myMethod\(\).call\(\)](../caver.klay.contract.md#methods-mymethod-call)
+- [caver.klay.getBalance()](./account.md#getbalance)
+- [caver.klay.getCode()](./account.md#getcode)
+- [caver.klay.getTransactionCount()](./account.md#gettransactioncount)
+- [caver.klay.getStorageAt()](#getstorageat)
+- [caver.klay.call()](./transaction.md#call)
+- [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().call()](../caver.klay.Contract.md#methods-mymethod-call)
 
 **속성**
 
 기본 블록 파라미터는 다음 중 하나일 수 있습니다.
 
-* 숫자: 블록 번호
-* `"genesis"` - String: 제네시스 블록
-* `"latest"` - String: The latest block \(current head of the blockchain\)
-* `"pending"` - String: The currently mined block \(including pending transactions\)
+- 숫자: 블록 번호
+- `"genesis"` - String: 제네시스 블록
+- `"latest"` - String: The latest block (current head of the blockchain)
+- `"pending"` - String: The currently mined block (including pending transactions)
 
 기본값은 `"latest"`입니다.
 
@@ -46,9 +44,9 @@ caver.klay.getBlockNumber([callback])
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                                                             |
-|:-------- |:-------- |:-------------------------------------------------------------------------------------------------------------- |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
@@ -66,23 +64,22 @@ caver.klay.getBlockNumber([callback])
 ```javascript
 caver.klay.getBlock(blockHashOrBlockNumber [, returnTransactionObjects] [, callback])
 ```
-
 블록 해시 또는 블록 번호와 매칭되는 블록을 반환합니다.
 
 **매개변수**
 
-| 명칭                       | 형식        | 설명                                                                                                                                                               |
-|:------------------------ |:--------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHashOrBlockNumber   | String \ | Number | The block hash or block number. 또는 `"genesis"`, `"latest"`, `"pending"` 문자열 중 하나.                                                                       |
-| returnTransactionObjects | Boolean   | \(optional, default `false`\) If `true`, the returned block will contain all transactions as objects, if `false` it will only contains the transaction hashes. |
-| callback                 | Function  | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second.                                                   |
+| 명칭                       | 형식                   | 설명                                                                                                                                                           |
+| ------------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockHashOrBlockNumber   | String &#124; Number | The block hash or block number. 또는 `"genesis"`, `"latest"`, `"pending"` 문자열 중 하나.                                                                            |
+| returnTransactionObjects | Boolean              | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, if `false` it will only contains the transaction hashes. |
+| callback                 | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                         |
 
 **리턴값**
 
 `프로미스`는 `Object`를 반환 - 블록 객체입니다.
 
 | 명칭               | 형식              | 설명                                                                          |
-|:---------------- |:--------------- |:--------------------------------------------------------------------------- |
+| ---------------- | --------------- | --------------------------------------------------------------------------- |
 | blockScore       | QUANTITY        | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                            |
 | extraData        | String          | 블록의 "추가 데이터"를 위한 필드입니다.                                                     |
 | gasUsed          | Number          | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                              |
@@ -133,19 +130,19 @@ caver.klay.getBlock(blockHashOrBlockNumber [, returnTransactionObjects] [, callb
 ```javascript
 caver.klay.getBlockReceipts(blockHash [, callback])
 ```
-
 주어진 블록 해시와 매칭된 블록에 있는 트랜잭션 영수증 목록을 반환합니다.
 
 **매개변수**
 
-| 명칭        | 형식       | 설명                                                                                                             |
-|:--------- |:-------- |:-------------------------------------------------------------------------------------------------------------- |
-| blockHash | String   | 블록의 해시입니다.                                                                                                     |
-| callback  | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭        | 형식       | 설명                                                                   |
+| --------- | -------- | -------------------------------------------------------------------- |
+| blockHash | String   | 블록의 해시입니다.                                                           |
+| callback  | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
-`프로미스`는 `Array`를 반환 - 블록에 있는 영수증들입니다. 조회하고자 하는 블록이 트랜잭션을 담고 있지 않으면 빈 배열 `[]`이 반환됩니다.
+`프로미스`는 `Array`를 반환 - 블록에 있는 영수증들입니다.  조회하고자 하는 블록이 트랜잭션을 담고 있지 않으면 빈 배열 `[]`이 반환됩니다.
+
 
 **예시**
 
@@ -190,15 +187,14 @@ caver.klay.getBlockReceipts(blockHash [, callback])
 ```javascript
 caver.klay.getBlockTransactionCount(blockHashOrBlockNumber [, callback])
 ```
-
 주어진 블록에 담긴 트랜잭션의 개수를 반환합니다.
 
 **매개변수**
 
-| 명칭                     | 형식        | 설명                                                                                                             |
-|:---------------------- |:--------- |:-------------------------------------------------------------------------------------------------------------- |
-| blockHashOrBlockNumber | String \ | Number | The block number or hash. 또는 `"genesis"`, `"latest"`, `"pending"` 문자열 중 하나.                           |
-| callback               | Function  | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭                     | 형식                   | 설명                                                                          |
+| ---------------------- | -------------------- | --------------------------------------------------------------------------- |
+| blockHashOrBlockNumber | String &#124; Number | The block number or hash. 또는 `"genesis"`, `"latest"`, `"pending"` 문자열 중 하나. |
+| callback               | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.        |
 
 **리턴값**
 
@@ -211,6 +207,7 @@ caver.klay.getBlockTransactionCount(blockHashOrBlockNumber [, callback])
 1
 ```
 
+
 ## getBlockWithConsensusInfo <a id="getblockwithconsensusinfo"></a>
 
 ```javascript
@@ -221,17 +218,17 @@ caver.klay.getBlockWithConsensusInfo(blockHashOrBlockNumber [, callback])
 
 **매개변수**
 
-| 명칭                     | 형식        | 설명                                                                                                             |
-|:---------------------- |:--------- |:-------------------------------------------------------------------------------------------------------------- |
-| blockHashOrBlockNumber | String \ | Number | The block hash or block number. 또는 `"genesis"` 아니면 `"latest"`.                                        |
-| callback               | Function  | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭                     | 형식                   | 설명                                                                   |
+| ---------------------- | -------------------- | -------------------------------------------------------------------- |
+| blockHashOrBlockNumber | String &#124; Number | The block hash or block number. 또는 `"genesis"` 아니면 `"latest"`.       |
+| callback               | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
-`Promise` returns `Object` - A block object with consensus information \(a proposer and a list of committee members\) The block object contains:
+`Promise` returns `Object` - A block object with consensus information (a proposer and a list of committee members) The block object contains:
 
 | 명칭               | 형식            | 설명                                                                       |
-|:---------------- |:------------- |:------------------------------------------------------------------------ |
+| ---------------- | ------------- | ------------------------------------------------------------------------ |
 | blockScore       | QUANTITY      | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                         |
 | committee        | 배열            | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
 | extraData        | String        | 블록의 "추가 데이터"를 위한 필드입니다.                                                  |
@@ -254,7 +251,6 @@ caver.klay.getBlockWithConsensusInfo(blockHashOrBlockNumber [, callback])
 | voteData         | DATA          | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                                |
 
 **예제**
-
 ```javascript
 > caver.klay.getBlockWithConsensusInfo(19097).then(console.log);
 { 
@@ -322,10 +318,10 @@ caver.klay.getCommittee([defaultBlock] [, callback])
 
 **매개변수**
 
-| 명칭           | 형식        | 설명                                                                                                                                               |
-|:------------ |:--------- |:------------------------------------------------------------------------------------------------------------------------------------------------ |
-| defaultBlock | Number \ | String | \(optional\) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](block.md#defaultblock). |
-| callback     | Function  | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second.                                   |
+| 명칭           | 형식                   | 설명                                                                                                                          |
+| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
 
 **리턴값**
 
@@ -353,10 +349,10 @@ caver.klay.getCommitteeSize([defaultBlock] [, callback])
 
 **매개변수**
 
-| 명칭           | 형식        | 설명                                                                                                                                               |
-|:------------ |:--------- |:------------------------------------------------------------------------------------------------------------------------------------------------ |
-| defaultBlock | Number \ | String | \(optional\) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](block.md#defaultblock). |
-| callback     | Function  | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second.                                   |
+| 명칭           | 형식                   | 설명                                                                                                                          |
+| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
 
 **리턴값**
 
@@ -370,7 +366,6 @@ caver.klay.getCommitteeSize([defaultBlock] [, callback])
 ```
 
 ## getCouncil <a id="getcouncil"></a>
-
 **참고**: `getValidators`은 이 메서드로 대체되어 더 이상 지원하지 않습니다.
 
 ```javascript
@@ -381,10 +376,10 @@ caver.klay.getCouncil([defaultBlock] [, callback])
 
 **매개변수**
 
-| 명칭           | 형식        | 설명                                                                                                                                               |
-|:------------ |:--------- |:------------------------------------------------------------------------------------------------------------------------------------------------ |
-| defaultBlock | Number \ | String | \(optional\) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](block.md#defaultblock). |
-| callback     | Function  | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second.                                   |
+| 명칭           | 형식                   | 설명                                                                                                                          |
+| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
 
 **리턴값**
 
@@ -412,10 +407,10 @@ caver.klay.getCouncilSize([defaultBlock] [, callback])
 
 **매개변수**
 
-| 명칭           | 형식        | 설명                                                                                                                                               |
-|:------------ |:--------- |:------------------------------------------------------------------------------------------------------------------------------------------------ |
-| defaultBlock | Number \ | String | \(optional\) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](block.md#defaultblock). |
-| callback     | Function  | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second.                                   |
+| 명칭           | 형식                   | 설명                                                                                                                          |
+| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
 
 **리턴값**
 
@@ -428,22 +423,22 @@ caver.klay.getCouncilSize([defaultBlock] [, callback])
 4
 ```
 
+
 ## getStorageAt <a id="getstorageat"></a>
 
 ```javascript
 caver.klay.getStorageAt(address, position [, defaultBlock] [, callback])
 ```
-
 주소를 사용해 특정 위치에 있는 스토리지를 반환합니다.
 
 **매개변수**
 
-| 명칭           | 형식        | 설명                                                                                                                                               |
-|:------------ |:--------- |:------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address      | String    | 스토리지를 얻고 싶은 주소입니다.                                                                                                                               |
-| position     | Number    | 스토리지 인덱스 위치입니다.                                                                                                                                  |
-| defaultBlock | Number \ | String | \(optional\) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](block.md#defaultblock). |
-| callback     | Function  | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second.                                   |
+| 명칭           | 형식                   | 설명                                                                                                                          |
+| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| address      | String               | 스토리지를 얻고 싶은 주소입니다.                                                                                                          |
+| position     | Number               | 스토리지 인덱스 위치입니다.                                                                                                             |
+| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](#defaultblock). |
+| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                        |
 
 **리턴값**
 
@@ -456,6 +451,7 @@ caver.klay.getStorageAt(address, position [, defaultBlock] [, callback])
 "0x033456732123ffff2342342dd12342434324234234fd234fd23fd4f23d4234"
 ```
 
+
 ## isMining <a id="ismining"></a>
 
 ```javascript
@@ -466,9 +462,10 @@ caver.klay.isMining([callback])
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                                                             |
-|:-------- |:-------- |:-------------------------------------------------------------------------------------------------------------- |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
+
 
 **리턴값**
 
@@ -491,16 +488,17 @@ caver.klay.isSyncing([callback])
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                                                             |
-|:-------- |:-------- |:-------------------------------------------------------------------------------------------------------------- |
-| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 명칭       | 형식       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
+
 
 **리턴값**
 
 `프로미스`는 `Object|Boolean`을 반환 - 노드가 현재 싱크중이면 싱크 객체를 반환하고 싱크중이 아니면 `false`를 반환합니다.
 
 | 명칭            | 형식     | 설명                              |
-|:------------- |:------ |:------------------------------- |
+| ------------- | ------ | ------------------------------- |
 | startingBlock | Number | 싱크가 시작된 블록의 번호입니다.              |
 | currentBlock  | Number | 현재 노드가 이미 싱크한 상태인 블록의 블록 번호입니다. |
 | highestBlock  | Number | 싱크해야 할 블록 번호 추정값입니다.            |
@@ -519,4 +517,3 @@ caver.klay.isSyncing([callback])
     pulledStates: 123455
 }
 ```
-
