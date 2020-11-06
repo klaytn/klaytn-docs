@@ -4,10 +4,10 @@
 
 **매개변수**
 
-| 명칭          | 형식                  | 설명                                                                                                                                                         |
-| ----------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callObject  | Object              | 트랜잭션 호출 객체입니다.  객체 속성은 다음의 표를 참고해주세요.                                                                                                                      |
-| blockNumber | QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
+| 명칭          | 형식                  | 설명                                                                                                                                          |
+| ----------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| callObject  | Object              | 트랜잭션 호출 객체입니다.  객체 속성은 다음의 표를 참고해주세요.                                                                                                       |
+| blockNumber | QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
 
 `callObject`에는 다음의 속성이 있습니다.
 
@@ -166,10 +166,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 형식                  | 설명                                                                                                                                                  |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | A block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./block.md#the-default-block-parameter). |
-| QUANTITY            | The transaction index position.                                                                                                                     |
+| 형식                  | 설명                                                                                                                                          |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
+| QUANTITY            | The transaction index position.                                                                                                             |
 
 **리턴값**
 
