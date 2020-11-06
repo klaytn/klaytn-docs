@@ -302,17 +302,17 @@ caver.klay.getCode(address [, defaultBlock] [, callback])
 ## getTransactionCount <a id="gettransactioncount"></a>
 
 ```javascript
-caver.klay.getTransactionCount(address [, defaultBlock] [, callback])
+caver.klay.getTransactionCount(address [, blockNumber] [, callback])
 ```
 이 주소에서 발신된 트랜잭션의 개수를 반환합니다.
 
 **매개변수**
 
-| 명칭           | 형식                   | 설명                                                                                                 |
-| ------------ | -------------------- | -------------------------------------------------------------------------------------------------- |
-| address      | String               | 발신한 트랜잭션 개수를 확인할 주소입니다.                                                                            |
-| defaultBlock | Number &#124; String | (선택 사항) 이 파라미터에 값을 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)에 설정된 기본 블록을 사용하지 않습니다.. |
-| callback     | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                               |
+| 명칭          | 형식                   | 설명                                                                                                                                                                                                         |
+| ----------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | String               | 발신한 트랜잭션 개수를 확인할 주소입니다.                                                                                                                                                                                    |
+| blockNumber | number &#124; string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the [default block parameter](./block.md#defaultblock). 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
+| callback    | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                                       |
 
 **리턴값**
 
