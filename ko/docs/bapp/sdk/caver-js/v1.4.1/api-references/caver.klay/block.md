@@ -20,7 +20,6 @@ caver.klay.defaultBlock
 - 숫자: 블록 번호
 - `"genesis"` - String: 제네시스 블록
 - `"latest"` - String: The latest block (current head of the blockchain)
-- `"pending"` - String: The currently mined block (including pending transactions)
 
 기본값은 `"latest"`입니다.
 
@@ -70,7 +69,7 @@ caver.klay.getBlock(blockHashOrBlockNumber [, returnTransactionObjects] [, callb
 
 | 명칭                       | 형식                   | 설명                                                                                                                                                           |
 | ------------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockHashOrBlockNumber   | String &#124; Number | The block hash or block number. 또는 `"genesis"`, `"latest"`, `"pending"` 문자열 중 하나.                                                                            |
+| blockHashOrBlockNumber   | String &#124; Number | The block hash or block number. Or the string `"genesis"`, or `"latest"`.                                                                                    |
 | returnTransactionObjects | Boolean              | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, if `false` it will only contains the transaction hashes. |
 | callback                 | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                         |
 
@@ -191,10 +190,10 @@ caver.klay.getBlockTransactionCount(blockHashOrBlockNumber [, callback])
 
 **매개변수**
 
-| 명칭                     | 형식                   | 설명                                                                          |
-| ---------------------- | -------------------- | --------------------------------------------------------------------------- |
-| blockHashOrBlockNumber | String &#124; Number | The block number or hash. 또는 `"genesis"`, `"latest"`, `"pending"` 문자열 중 하나. |
-| callback               | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.        |
+| 명칭                     | 형식                   | 설명                                                                   |
+| ---------------------- | -------------------- | -------------------------------------------------------------------- |
+| blockHashOrBlockNumber | String &#124; Number | The block number or hash. Or the string `"genesis"`, or `"latest"`.  |
+| callback               | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
