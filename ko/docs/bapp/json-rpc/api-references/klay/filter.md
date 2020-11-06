@@ -102,8 +102,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 | 명칭        | 형식                        | 설명                                                                                                                                                                                                                                           |
 | --------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions.                                                                                    |
-| toBlock   | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions.                                                                                    |
+| fromBlock | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter).                                                                    |
+| toBlock   | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter).                                                                    |
 | address   | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate.                                                                                                                                                         |
 | topics    | DATA 배열                   | (optional) Array of 32-byte DATA topics. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                                                                                                                                              |
 | blockHash | 32바이트 크기 DATA             | (optional) A filter option that restricts the logs returned to the single block with the 32-byte hash blockHash. blockHash를 사용하면, blockHash로 지정한 블록의 번호가 fromBlock, toBlock과 같아집니다. 따라서 필터 기준에 blockHash가 있으면 fromBlock과 toBlock이 허용되지 않습니다. |
@@ -275,12 +275,12 @@ Creates a filter object, based on filter options, to notify when the state chang
 
 `객체` - 필터 객체를 구성하는 옵션은 다음과 같습니다.
 
-| 명칭        | 형식                        | 설명                                                                                                                                                        |
-| --------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions. |
-| toBlock   | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions. |
-| address   | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate.                                                                      |
-| topics    | DATA 배열                   | (optional) Array of 32-byte DATA topics. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                                                           |
+| 명칭        | 형식                        | 설명                                                                                                                                                                        |
+| --------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| toBlock   | QUANTITY &#124; TAG       | (optional, default: `"latest"`) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| address   | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate.                                                                                      |
+| topics    | DATA 배열                   | (optional) Array of 32-byte DATA topics. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                                                                           |
 
 **리턴값**
 
