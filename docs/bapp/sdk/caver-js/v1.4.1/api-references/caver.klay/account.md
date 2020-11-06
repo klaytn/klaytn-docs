@@ -304,7 +304,7 @@ Gets the code at a specific address.
 ## getTransactionCount <a id="gettransactioncount"></a>
 
 ```javascript
-caver.klay.getTransactionCount(address [, defaultBlock] [, callback])
+caver.klay.getTransactionCount(address [, blockNumber] [, callback])
 ```
 Gets the number of transactions sent from this address.
 
@@ -313,7 +313,7 @@ Gets the number of transactions sent from this address.
 | Name | Type | Description |
 | --- | --- | --- |
 | address | String | The address to get the number of transactions from. |
-| defaultBlock | Number &#124; String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
+| blockNumber | number &#124; string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the [default block parameter](./block.md#defaultblock). If omitted, `latest` will be used. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**

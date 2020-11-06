@@ -21,7 +21,6 @@ Default block parameters can be one of the following:
 - Number: A block number
 - `"genesis"` - String: The genesis block
 - `"latest"` - String: The latest block (current head of the blockchain)
-- `"pending"` - String: The currently mined block (including pending transactions)
 
 Default is `"latest"`.
 
@@ -71,7 +70,7 @@ Returns a block matching the block hash or block number.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| blockHashOrBlockNumber | String &#124; Number | The block hash or block number. Or the string ``"genesis"``, ``"latest"`` or ``"pending"``. |
+| blockHashOrBlockNumber | String &#124; Number | The block hash or block number. Or the string ``"genesis"``, or ``"latest"``. |
 | returnTransactionObjects | Boolean | (optional, default ``false``) If ``true``, the returned block will contain all transactions as objects, if ``false`` it will only contains the transaction hashes. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -194,7 +193,7 @@ Returns the number of transaction in a given block.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| blockHashOrBlockNumber | String &#124; Number | The block number or hash. Or the string ``"genesis"``, ``"latest"`` or ``"pending"``. |
+| blockHashOrBlockNumber | String &#124; Number | The block number or hash. Or the string ``"genesis"``, or ``"latest"``. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
