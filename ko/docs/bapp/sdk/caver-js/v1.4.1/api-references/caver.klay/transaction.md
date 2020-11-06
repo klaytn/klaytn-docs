@@ -375,7 +375,7 @@ caver.klay.getTransactionFromBlock(hashStringOrNumber, indexNumber [, callback])
 
 | 명칭                 | 형식       | 설명                                                                   |
 | ------------------ | -------- | -------------------------------------------------------------------- |
-| hashStringOrNumber | String   | 블록 번호 또는 해시. 또는 `"genesis"`, `"latest"`, `"pending"` 문자열 중 하나.       |
+| hashStringOrNumber | String   | 블록 번호 또는 해시. 또는 `"genesis"` 아니면 `"latest"`.                          |
 | indexNumber        | Number   | 트랜잭션의 인덱스 위치의 정숫값입니다.                                                |
 | callback           | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
