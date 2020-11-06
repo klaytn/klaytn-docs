@@ -8,7 +8,6 @@ The following options are possible for the `defaultBlock` parameter:
 - `HEX String` - an integer block number
 - `String "earliest"` for the earliest/genesis block
 - `String "latest"` - for the latest mined block
-- `String "pending"` - for the pending state/transactions
 
 
 ## klay_blockNumber <a id="klay_blocknumber"></a>
@@ -49,7 +48,7 @@ This API works only on RPC call, not on Javascript console.
 
 | Type | Description |
 | --- | --- |
-| QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](#the-default-block-parameter). |
 | Boolean | If `true` it returns the full transaction objects, if `false` only the hashes of the transactions. |
 
 **Return Value**
@@ -235,7 +234,7 @@ Returns the number of transactions in a block matching the given block number.
 
 | Type          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
-| QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 **Return Value**
 
@@ -400,8 +399,8 @@ Returns a block with consensus information matched by the given block number.
 **Parameters**
 
 | Type | Description |
-| --- | ---|
-| QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"` or `"latest"`. |
+| --- | --- |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 **Return Value**
 
@@ -503,8 +502,8 @@ Returns a list of all validators in the committee at the specified block. If the
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | ---|
-| QUANTITY  &#124; TAG | Integer | (optional) Integer of a block number, or the string `"earliest"` or `"latest"`. |
+| --- | --- | --- |
+| QUANTITY  &#124; TAG | Integer | (optional) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 **Return Value**
 
@@ -538,8 +537,8 @@ Returns the size of the committee at the specified block. If the parameter is no
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | ---|
-| QUANTITY  &#124; TAG | Integer | (optional) Integer of a block number, or the string `"earliest"` or `"latest"`. |
+| --- | --- | --- |
+| QUANTITY  &#124; TAG | Integer | (optional) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 **Return Value**
 
@@ -571,8 +570,8 @@ Returns a list of all validators of the council at the specified block. If the p
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | ---|
-| QUANTITY  &#124; TAG | Integer | (optional) Integer of a block number, or the string `"earliest"` or `"latest"`. |
+| --- | --- | --- |
+| QUANTITY  &#124; TAG | Integer | (optional) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 **Return Value**
 
@@ -606,8 +605,8 @@ Returns the size of the council at the specified block. If the parameter is not 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | ---|
-| QUANTITY  &#124; TAG | Integer | (optional) Integer of a block number, or the string `"earliest"` or `"latest"`. |
+| --- | --- | --- |
+| QUANTITY  &#124; TAG | Integer | (optional) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 **Return Value**
 
@@ -637,11 +636,11 @@ Returns the value from a storage position at a given address.
 
 **Parameters**
 
-| Type          | Description                                                  |
-| ------------- | ------------------------------------------------------------ |
-| 20-byte DATA | Address of the storage.                           |
-| QUANTITY      | Integer of the position in the storage.                      |
-| QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](#the-default-block-parameter). |
+| Type | Description |
+| --- | --- |
+| 20-byte DATA | Address of the storage. |
+| QUANTITY | Integer of the position in the storage. |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
  **Return Value**
 

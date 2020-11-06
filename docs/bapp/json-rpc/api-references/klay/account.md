@@ -7,7 +7,7 @@ Returns `true` if the account associated with the address is created. It returns
 | Name | Type | Description |
 | --- | --- | --- |
 | account | 20-byte DATA | Address |
-| block number | QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
+| block number | QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
 
 **Return Value**
 
@@ -227,7 +227,7 @@ Returns the account information of a given address. There are two different acco
 | Type          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
 | 20-byte DATA | Address                                                      |
-| QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
 
 **Return Value**
 
@@ -298,7 +298,7 @@ Returns the account key of the Externally Owned Account (EOA) of a given address
 | Type          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
 | 20-byte DATA | Address                                                      |
-| QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
 
 **Return Value**
 
@@ -382,7 +382,7 @@ Returns the balance of the account of given address.
 | Type           | Description                                                  |
 | -------------- | ------------------------------------------------------------ |
 | 20-byte DATA | Address to check for balance.                               |
-| QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
 
 **Return Value**
 
@@ -413,7 +413,7 @@ Returns code at a given address.
 | Type          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
 | 20-byte DATA | Address                                                      |
-| QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
 
 **Return Value**
 
@@ -445,7 +445,7 @@ Returns the number of transactions *sent* from an address.
 | Type          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
 | 20-byte DATA | Address                                                      |
-| QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer block number, the string `"pending"` for the pending nonce, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
 
 **Return Value**
 
@@ -479,7 +479,7 @@ Returns `true` if an input account has a non-empty codeHash at the time of a spe
 | Name | Type | Description |
 | --- | --- | --- |
 | account | 20-byte DATA | Address |
-| block number | QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
+| block number | QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
 
 **Return Value**
 
