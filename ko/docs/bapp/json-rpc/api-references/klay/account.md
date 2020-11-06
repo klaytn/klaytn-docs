@@ -4,10 +4,10 @@
 
 **매개변수**
 
-| 명칭           | 형식                  | 설명                                                                                                                                                         |
-| ------------ | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Account      | 20바이트 크기 DATA       | 주소                                                                                                                                                         |
-| Block Number | QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
+| 명칭           | 형식                  | 설명                                                                                                                                          |
+| ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Account      | 20바이트 크기 DATA       | 주소                                                                                                                                          |
+| Block Number | QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
 
 **리턴값**
 
@@ -224,10 +224,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 **매개변수**
 
-| 형식                  | 설명                                                                                                                                                         |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA       | 주소                                                                                                                                                         |
-| QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
+| 형식                  | 설명                                                                                                                                          |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20바이트 크기 DATA       | 주소                                                                                                                                          |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
 
 **리턴값**
 
@@ -295,10 +295,10 @@ Returns the account key of the Externally Owned Account (EOA) of a given address
 
 **매개변수**
 
-| 형식                  | 설명                                                                                                                                                         |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA       | 주소                                                                                                                                                         |
-| QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
+| 형식                  | 설명                                                                                                                                          |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20바이트 크기 DATA       | 주소                                                                                                                                          |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
 
 **리턴값**
 
@@ -379,10 +379,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 형식                  | 설명                                                                                                                                                         |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA       | 잔액을 확인할 계정의 주소입니다.                                                                                                                                         |
-| QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
+| 형식                  | 설명                                                                                                                                          |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20바이트 크기 DATA       | 잔액을 확인할 계정의 주소입니다.                                                                                                                          |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
 
 **리턴값**
 
@@ -410,10 +410,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 형식                  | 설명                                                                                                                                                         |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA       | 주소                                                                                                                                                         |
-| QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
+| 형식                  | 설명                                                                                                                                          |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20바이트 크기 DATA       | 주소                                                                                                                                          |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
 
 **리턴값**
 
@@ -442,10 +442,10 @@ Returns the number of transactions *sent* from an address.
 
 **매개변수**
 
-| 형식                  | 설명                                                                                                                                                         |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA       | 주소                                                                                                                                                         |
-| QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
+| 형식                  | 설명                                                                                                                                                                                        |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20바이트 크기 DATA       | 주소                                                                                                                                                                                        |
+| QUANTITY &#124; TAG | Integer block number, the string `"pending"` for the pending nonce, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
 
 **리턴값**
 
@@ -476,10 +476,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 명칭           | 형식                  | 설명                                                                                                                                                         |
-| ------------ | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account      | 20바이트 크기 DATA       | 주소                                                                                                                                                         |
-| Block Number | QUANTITY &#124; TAG | 정수 형태의 블록 번호 또는 `"latest"`, `"earliest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. 이 매개변수에 대한 자세한 설명은 [기본 블록 매개변수](./block.md#the-default-block-parameter)를 참고하세요. |
+| 명칭           | 형식                  | 설명                                                                                                                                          |
+| ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| account      | 20바이트 크기 DATA       | 주소                                                                                                                                          |
+| Block Number | QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
 
 **리턴값**
 
