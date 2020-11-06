@@ -381,7 +381,7 @@ Returns a transaction based on a block hash or number and the transactions index
 
 | Name | Type | Description |
 | --- | --- | --- |
-| hashStringOrNumber | String | A block number or hash. Or the string ``"genesis"``, ``"latest"`` or ``"pending"``. |
+| hashStringOrNumber | String | A block number or hash. Or the string ``"genesis"`` or ``"latest"``. |
 | indexNumber | Number | The transactions index position. |
 | callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
