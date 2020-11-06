@@ -7,7 +7,6 @@ When requests are made that act on the state of Klaytn, the last default block p
 - `16진수 문자열` - 블록 번호의 정수 형태입니다.
 - `"earliest" 문자열` - 제네시스 블록입니다.
 - `"latest" 문자열` - 가장 최근에 채굴된 블록입니다.
-- `"pending" 문자열` - 보류 중인 상태/트랜잭션입니다.
 
 
 ## klay_blockNumber <a id="klay_blocknumber"></a>
@@ -45,10 +44,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 형식                  | 설명                                                                                                                                                   |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](#the-default-block-parameter). |
-| Boolean             | `true`이면 트랜잭션 객체 전체를 반환하고, `false`이면 트랜잭션의 해시만을 반환합니다.                                                                                               |
+| 형식                  | 설명                                                                                                                                |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](#the-default-block-parameter). |
+| Boolean             | `true`이면 트랜잭션 객체 전체를 반환하고, `false`이면 트랜잭션의 해시만을 반환합니다.                                                                            |
 
 **리턴값**
 
@@ -229,9 +228,9 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 형식                  | 설명                                                                                                                                                   |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](#the-default-block-parameter). |
+| 형식                  | 설명                                                                                                                                        |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 **리턴값**
 
@@ -395,9 +394,9 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 형식                  | 설명                                                                   |
-| ------------------- | -------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"` or `"latest"`. |
+| 형식                  | 설명                                                                                                                                        |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 **리턴값**
 
@@ -498,9 +497,9 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 명칭                   | 형식 | 설명                                                                              |
-| -------------------- | -- | ------------------------------------------------------------------------------- |
-| QUANTITY  &#124; TAG | 정수 | (optional) Integer of a block number, or the string `"earliest"` or `"latest"`. |
+| 명칭                   | 형식 | 설명                                                                                                                                                   |
+| -------------------- | -- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY  &#124; TAG | 정수 | (optional) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 **리턴값**
 
@@ -533,9 +532,9 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 명칭                   | 형식 | 설명                                                                              |
-| -------------------- | -- | ------------------------------------------------------------------------------- |
-| QUANTITY  &#124; TAG | 정수 | (optional) Integer of a block number, or the string `"earliest"` or `"latest"`. |
+| 명칭                   | 형식 | 설명                                                                                                                                                   |
+| -------------------- | -- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY  &#124; TAG | 정수 | (optional) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 **리턴값**
 
@@ -566,9 +565,9 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 명칭                   | 형식 | 설명                                                                              |
-| -------------------- | -- | ------------------------------------------------------------------------------- |
-| QUANTITY  &#124; TAG | 정수 | (optional) Integer of a block number, or the string `"earliest"` or `"latest"`. |
+| 명칭                   | 형식 | 설명                                                                                                                                                   |
+| -------------------- | -- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY  &#124; TAG | 정수 | (optional) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 **리턴값**
 
@@ -601,9 +600,9 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 명칭                   | 형식 | 설명                                                                              |
-| -------------------- | -- | ------------------------------------------------------------------------------- |
-| QUANTITY  &#124; TAG | 정수 | (optional) Integer of a block number, or the string `"earliest"` or `"latest"`. |
+| 명칭                   | 형식 | 설명                                                                                                                                                   |
+| -------------------- | -- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY  &#124; TAG | 정수 | (optional) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 **리턴값**
 
@@ -633,11 +632,11 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 형식                  | 설명                                                                                                                                            |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA       | Address of the storage.                                                                                                                       |
-| QUANTITY            | Integer of the position in the storage.                                                                                                       |
-| QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](#the-default-block-parameter). |
+| 형식                  | 설명                                                                                                                                        |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| 20바이트 크기 DATA       | Address of the storage.                                                                                                                   |
+| QUANTITY            | Integer of the position in the storage.                                                                                                   |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
  **리턴값**
 
