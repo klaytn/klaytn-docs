@@ -41,7 +41,7 @@ The Klaytn Governance Council members have the right to vote on the introduced p
 
 The KIR Proposal review will be decided through the voting of the Governance Council members, and the proposal will be rejected if half of the committee or more vote against(rejected). For more details on the KIR Proposal review, refer to the following.
 
-
+![kir_process](../images/kir_process.png)
 
 For more information, visit KIR Forum(https://kir.klaytn.com/)
 
