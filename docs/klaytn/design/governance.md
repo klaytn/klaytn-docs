@@ -36,16 +36,15 @@ The Klaytn Governance Council members have the right to vote on the introduced p
 * **Parameter Change**: This concerns the proposals that will be applied on the blockchain without any code updates.  Currently, matters such as gas price, block reward amount, block reward distribution ratio, voting period, number of committee members, and more can be decided without code updates. The proposer may initiate the voting process, and the vote will take place on-chain during a predetermined voting period. Each voter’s choice will be saved in the block header, and the vote will automatically be closed once the voting period is over. Once the same length of time as the voting period passes after the vote, the decision will be automatically implemented to the platform. Therefore, no specific follow-up procedure is necessary. 
 * **Standard Proposal**: This concerns proposals that request the approval of new standards for Klaytn, and the vote takes place online. As there is nothing to be changed in the platform, an approved proposal will only see an official announcement that Klaytn has officially approved a standard change.
 
-### Klaytn Improvement Reserve Governance Process <a id="klaytn-improvement-reserve-governance-process"></a>
+### Klaytn Improvement Reserve Review Process <a id="klaytn-improvement-reserve-review-process"></a>
 
-Unlike usual governance processes, the KIR governance process takes a series of steps composed of introduction of a proposal, spending approval, and follow-up procedures to implement an approved proposal.
 
-KIR’s proposal introduction methods are the following two.
+The KIR Proposal review will be decided through the voting of the Governance Council members, and the proposal will be rejected if half of the committee or more vote against(rejected). For more details on the KIR Proposal review, refer to the following.
 
-1. The financial commission, which votes on Klaytn’s financial issues and is composed of the finance commission members, can introduce a new proposal.
-2. A proposal passed by the House of Representatives, a system that evaluates different proposals through the votes of all users, is automatically introduced as a new proposal.
 
-The KIR’s final spending proposal will be determined through the votes of the Klaytn Financial Commission members. The goal is to automatically implement approved proposals on-chain as soon as it is passed, but in the early days following Klaytn’s launch, this process may be handled manually.
+
+For more information, visit KIR Forum(https://kir.klaytn.com/)
+
 
 ## Duties and Rights of the Governing Body <a id="duties-and-rights-of-the-governing-body"></a>
 
