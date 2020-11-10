@@ -43,7 +43,7 @@ The KIR Proposal review will be decided through the voting of the Governance Cou
 
 ![kir_process](../images/kir_process.png)
 
-For more information, visit KIR Forum(https://kir.klaytn.com/)
+For more information, visit [KIR Forum](https://kir.klaytn.com/).
 
 
 ## Duties and Rights of the Governing Body <a id="duties-and-rights-of-the-governing-body"></a>
