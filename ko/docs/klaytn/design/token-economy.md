@@ -103,9 +103,18 @@ As technology continues to improve and the needs of users change over time, our 
 
 The spending necessary to set up the ecosystem can be categorized as following.
 
-* Platform: Support for infrastructure, research and development, and the creation of a durable protocol
-* Tools: Create a better development environment to enhance developer experience
-* Community: Create programs to encourage participation in Klaytn’s ecosystem \(community events, meetups, hackathons, etc.\)
-* Others
 
-KIR proposals can be created by any participant in Klaytn’s ecosystem. KIR spending proposals will be processed per KIR Governance Process. Refer to the [Klaytn Improvement Reserve Governance Process](governance.md#klaytn-improvement-reserve-governance-process) section for more information on the procedure. Once a spending proposal has passed, KLAY will be distributed periodically, from a predetermined total amount, based on the project’s level of progress. This process may change based on the project size but is planned to be processed monthly.
+
+| 카테고리                            | Details                                                                                                                            |
+|:------------------------------- |:---------------------------------------------------------------------------------------------------------------------------------- |
+| **Development**                 | <ul><li>IDE & Editors</li><li>Oracle</li><li>Contract Library</li>                           |
+| **Infrastructure**              | <ul><li>Local Testnet</li><li>Decentralized File System</li><li>Multi-VM</li>                           |
+| **Test, Debugging, Deployment** | <ul><li>Testing & Deployment Tools</li><li>Security & Audit Tools</li>                                                     |
+| **Monitoring & Analytics**      | <ul><li>Monitoring</li><li>Analytics</li>                                                     |
+| **Education & Activity**        | <ul><li>Documentation</li><li>Educational Materials</li><li>Community Building</li><li>Open Source Activity(Including Bug Bounty)</li> |
+| **Research**                    | <ul><li>Security, Scalability, Cryptography, etc.</li></ul>                                                                                                         |
+
+
+KIR proposals can be created by any participant in Klaytn’s ecosystem. KIR spending proposals will be processed per KIR Governance Process. Refer to the [Klaytn Improvement Reserve Review Process](governance.md#klaytn-improvement-reserve-review-process) section for more information on the procedure. Once a spending proposal has passed, KLAY will be distributed periodically, from a predetermined total amount, based on the project’s level of progress. This process may change based on the project size but is planned to be processed monthly.
+
+For more information, please visit [Klaytn Improvement Reserve Forum](https://kir.klaytn.com/).
