@@ -36,16 +36,15 @@ Klaytn 거버넌스 카운슬 멤버들은 상정된 제안에 대해 투표할 
 * **파라미터 변경**: 코드 업데이트 없이 블록체인에 적용될 제안과 관련이 있습니다.  가스값, 블록 보상 금액, 블록 보상 배분 비율, 투표 기간, 위원회 멤버 수 등의 이슈는 코드 업데이트 없이 결정할 수 있습니다. 제안자는 투표 절차를 시작할 수 있으며, 투표는 미리 정해진 투표 기간 동안 온체인에서 진행됩니다. 각 투표자의 선택은 블록 헤더에 저장되고, 투표 기간이 끝나면 투표는 자동으로 마감됩니다. 투표 후, 투표 기간과 같은 기간이 지나고 나면 결과는 자동으로 플랫폼에 반영됩니다. 따라서, 구체적인 후속 절차는 필요하지 않습니다.
 * **스탠다드 제안**: Klaytn에 대한 새로운 스탠다드의 승인을 요청하는 제안과 관련이 있으며, 투표는 온라인에서 이루어집니다. 플랫폼에서 변경할 사항은 없으므로 승인된 제안은 Klaytn이 스탠다드 변경을 공식적으로 승인했다는 공식 발표에서만 볼 수 있습니다.
 
-### Klaytn 개선 준비금 거버넌스 프로세스(Klaytn Improvement Reserve Governance Process)<a id="klaytn-improvement-reserve-governance-process"></a>
+### Klaytn Improvement Reserve Review Process <a id="klaytn-improvement-reserve-review-process"></a>
 
-일반적인 거버넌스 프로세스와 달리 KIR 거버넌스 프로세스는 제안 상정, 지출 승인 및 승인된 제안 구현을 위한 후속 절차로 구성된 일련의 단계를 수행합니다.
 
-KIR의 제안 상정 방법은 다음과 같습니다.
+The KIR Proposal review will be decided through the voting of the Governance Council members, and the proposal will be rejected if half of the committee or more vote against(rejected) the proposal. For more details on the KIR Proposal review, refer to the following.
 
-1. 금융 위원회은 새로운 제안을 상정하고 투표할 수 있는 금융 위원회 멤버들로 이루어진 그룹입니다.
-2. 모든 사용자들의 투표를 통해 여러 제안들을 평가하는 시스템인 하원 의원들(House of Representatives)에 의해 통과된 제안은 자동으로 새로운 제안으로 상정됩니다.
+![kir_process](../images/kir_process.png)
 
-KIR의 최종 지출 제안은 Klaytn 금융 위원회 멤버들의 투표를 통해 결정됩니다. 제안이 승인되는 즉시 온체인(on-chain)에서 자동으로 제안을 이행하는 것이 목표이지만, Klaytn이 출범한 후 초기에는 이 프로세스가 수동으로 처리될 수 있습니다.
+For more information, visit [KIR Forum](https://kir.klaytn.com/).
+
 
 ## 거버넌스 참여자들의 의무와 권리 <a id="duties-and-rights-of-the-governing-body"></a>
 
@@ -68,4 +67,3 @@ Klaytn 거버넌스 카운슬은 Klaytn이 장기적으로 성장할 수 있도�
 * **개발 단계**: 메인넷 출시 후 초기 개발 단계에서는 파라미터 조정, 새로운 기능 개발 등을 신속하게 진행할 수 있어야 합니다. 이를 위해 Klaytn 거버넌스 카운슬 멤버, 서비스 제공자, 커뮤니티 멤버들의 의견을 수렴하여 많은 사항들을 결정할 예정입니다. 초기 안정화를 위해서, Klaytn Pte. Ltd. 은 의사 결정 과정을 지원할 수 있습니다. 추가적으로, 결정된 모든 사항은 대중에게 투명하게 공유될 것입니다.
 * **안정화 단계**: Klaytn 거버넌스 카운슬은 대부분의 제안에 대해 투표권을 가집니다. 플랫폼 개발과 같은 특별한 문제에 대해서는 Klaytn Pte. Ltd. 이 포함될 수 있습니다. 이해 상충 가능성이 있는 특정 주제\(CCO 등에 대한 보상\)에 대해서는 별도의 기관이 카운슬에 조언합니다.
 * **탈중앙화 단계**: 안정화 단계 이후, 추가적인 의견을 수렴하기 위해 더 많은 서비스 제공자와 다른 주체들이 의사 결정 과정에 추가로 참여할 수 있습니다.
-
