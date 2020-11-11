@@ -51,10 +51,10 @@ To use IPFS, It need to add a library repository as shown below.
 
 ```groovy
 <repositories>
-		<repository>
-		    <id>jitpack.io</id>
-		    <url>https://jitpack.io</url>
-		</repository>
+	<repository>
+	    <id>jitpack.io</id>
+	    <url>https://jitpack.io</url>
+	</repository>
 </repositories>
 ```
 
