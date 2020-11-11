@@ -44,6 +44,31 @@ caver.utils provides utility functions.
 
 ## Prerequisites <a id="prerequisites"></a>
 
+### Repository
+To use IPFS, you need to add a library repository as shown below. 
+
+**maven**
+
+```groovy
+<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+</repositories>
+```
+
+**gradle**
+
+```groovy
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
 ### Dependency <a id="dependency"></a>
 
 **maven**
@@ -1091,8 +1116,8 @@ This function returns [CID(Content Identifier)](https://docs.ipfs.io/concepts/co
 
 ```java
 String filePath = "your file path";
-String encodedhash = caver.ipfs.add(filePath);
-System.out.println(encodedhash);
+String cid = caver.ipfs.add(filePath);
+System.out.println(cid);
 ```
 
 The execution result of the above code is shown below.
@@ -1101,6 +1126,21 @@ The execution result of the above code is shown below.
 QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq
 ```
 
+also, You can upload byte array data.
+
+```java
+String text = "sample data";
+byte[] data = text.getBytes();
+
+String cid = caver.ipfs.add(data);
+System.out.pringln(cid);
+```
+
+The execution result of the above code is shown below.
+
+```java
+QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq
+```
 
 ### Downloading a file from IPFS<a id="downloading-a-file-from-ipfs"></a>
 
