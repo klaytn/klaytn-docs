@@ -36,14 +36,14 @@ Klaytn 거버넌스 카운슬 멤버들은 상정된 제안에 대해 투표할 
 * **파라미터 변경**: 코드 업데이트 없이 블록체인에 적용될 제안과 관련이 있습니다.  가스값, 블록 보상 금액, 블록 보상 배분 비율, 투표 기간, 위원회 멤버 수 등의 이슈는 코드 업데이트 없이 결정할 수 있습니다. 제안자는 투표 절차를 시작할 수 있으며, 투표는 미리 정해진 투표 기간 동안 온체인에서 진행됩니다. 각 투표자의 선택은 블록 헤더에 저장되고, 투표 기간이 끝나면 투표는 자동으로 마감됩니다. 투표 후, 투표 기간과 같은 기간이 지나고 나면 결과는 자동으로 플랫폼에 반영됩니다. 따라서, 구체적인 후속 절차는 필요하지 않습니다.
 * **스탠다드 제안**: Klaytn에 대한 새로운 스탠다드의 승인을 요청하는 제안과 관련이 있으며, 투표는 온라인에서 이루어집니다. 플랫폼에서 변경할 사항은 없으므로 승인된 제안은 Klaytn이 스탠다드 변경을 공식적으로 승인했다는 공식 발표에서만 볼 수 있습니다.
 
-### Klaytn Improvement Reserve Review Process <a id="klaytn-improvement-reserve-review-process"></a>
+### Klaytn 개선 준비금 심사 절차(Klaytn Improvement Reserve Review Process)<a id="klaytn-improvement-reserve-review-process"></a>
 
 
-The KIR Proposal review will be decided through the voting of the Governance Council members, and the proposal will be rejected if half of the committee or more vote against(rejected) the proposal. For more details on the KIR Proposal review, refer to the following.
+KIR 심사는 거버넌스 카운슬의 심사 및 투표를 통해 결정되며, 심사 참여자 중 과반수 이상이 반대할 경우에는 해당 제안은 거절됩니다. KIR 심사에 대한 자세한 내용은 하기를 참고바랍니다.
 
 ![kir_process](../images/kir_process.png)
 
-For more information, visit [KIR Forum](https://kir.klaytn.com/).
+자세한 사항은 KIR Forum(https://kir.klaytn.com/)을 참고하세요.
 
 
 ## 거버넌스 참여자들의 의무와 권리 <a id="duties-and-rights-of-the-governing-body"></a>
