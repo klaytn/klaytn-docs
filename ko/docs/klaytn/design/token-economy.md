@@ -99,9 +99,9 @@ Klaytn은 파일럿 테스트를 통해 PoC 정책을 보다 고도화 시켜 �
 
 ## Klaytn 개선 준비금(Klaytn Improvement Reserve)<a id="klaytn-improvement-reserve"></a>
 
-As technology continues to improve and the needs of users change over time, our platform must have the ability to quickly adapt to any new circumstance that arises. To respond to such changes, we must not only work on services, but also undergo various activities to maintain Klaytn’s ecosystem. For instance, research and development for better technology, or projects that contribute to the overall growth of the ecosystem may be part of these activities. These activities are necessary for Klaytn to progress continuously. Therefore, the Klaytn Improvement Reserve \(KIR\) will be managed on the platform for the investment and research on the Klaytn ecosystem.
+기술은 지속해서 향상되고, 사용자의 요구는 시간이 지나면서 변화합니다. 그러므로 플랫폼은 발생하는 모든 새로운 상황에 신속하게 대처할 수 있는 능력을 갖추어야 합니다. 이러한 변화에 대응하기 위해서 서비스뿐 아니라 Klaytn의 생태계를 유지하기 위해 다양한 활동에 노력을 들여야 합니다. Klaytn 개선 준비금(Klaytn Improvement Reserve) 은 그러한 노력의 일환으로서, 지속적으로 변화하는 환경속에서 Klaytn 생태계의 발전 및 확장을 위하여 진행되는 프로그램입니다. 플랫폼에 기여할 다양한 의견들을 수렴하고 이 중 주요한 기여를 할 제안들을 수용하고 지원함으로써, Klaytn 생태계는 지속적으로 확장 및 발전할 것입니다.
 
-The spending necessary to set up the ecosystem can be categorized as following.
+Klaytn 생태계에 필요한 주요 카테고리는 다음과 같이 분류할 수 있습니다.
 
 
 
@@ -115,6 +115,6 @@ The spending necessary to set up the ecosystem can be categorized as following.
 | **Research**                    | <ul><li>Security, Scalability, Cryptography, etc.</li></ul>                                                                                                         |
 
 
-KIR proposals can be created by any participant in Klaytn’s ecosystem. KIR spending proposals will be processed per KIR Governance Process. Refer to the [Klaytn Improvement Reserve Review Process](governance.md#klaytn-improvement-reserve-review-process) section for more information on the procedure. Once a spending proposal has passed, KLAY will be distributed periodically, from a predetermined total amount, based on the project’s level of progress. This process may change based on the project size but is planned to be processed monthly.
+KIR 제안은 Klaytn 생태계의 모든 참여자가 작성할 수 있습니다. KIR 지출 제안은 KIR 심사 절차에 따라 처리됩니다.   제안이 통과되면, 프로젝트의 진행 수준에 맞추어, 사전에 설정된 KLAY 가 지급됩니다. 프로젝트에 따라 지원되는 KLAY 총량 및 지급시기 등이 달라집니다.
 
-For more information, please visit [Klaytn Improvement Reserve Forum](https://kir.klaytn.com/).
+자세한 사항은 KIR Forum(https://kir.klaytn.com/) 을 참고하세요.
