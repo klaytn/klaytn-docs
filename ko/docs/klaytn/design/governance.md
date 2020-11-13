@@ -43,7 +43,7 @@ KIR 심사는 거버넌스 카운슬의 심사 및 투표를 통해 결정되며
 
 ![kir_process](../images/kir_process.png)
 
-자세한 사항은 KIR Forum(https://kir.klaytn.com/)을 참고하세요.
+자세한 사항은 KIR Forum(https://kir.klaytn.com/) 을 참고하세요.
 
 
 ## 거버넌스 참여자들의 의무와 권리 <a id="duties-and-rights-of-the-governing-body"></a>
