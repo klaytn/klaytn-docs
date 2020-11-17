@@ -44,8 +44,8 @@ caver.utils provides utility functions.
 
 ## Prerequisites <a id="prerequisites"></a>
 
-### Add a Repository
-To use IPFS, It need to add a library repository as shown below. 
+### Adding a Repository<a id="adding-a-repository"></a>
+A library repository should be added before using IPFS. Please add the following repository first.
 
 **maven**
 
@@ -69,7 +69,7 @@ allprojects {
 }
 ```
 
-### Add a Dependency <a id="dependency"></a>
+### Adding a Dependency <a id="adding-a-dependency"></a>
 
 **maven**
 
@@ -1090,7 +1090,7 @@ You can upload and download a file through IPFS with Caver.
 
 ### Connecting with IPFS <a id="connecting-with-ipfs"></a>
 
-The `IPFS` class in the `caver.ipfs` package is defined as a class member variable in `Caver`. So you can interact IPFS through `Caver`.
+The `IPFS` class in the `caver.ipfs` package is defined as a class member variable in `Caver`, so you can interact with IPFS through `Caver`.
 
 In order to use an `IPFS` instance through the `Caver` instance, you must call method `setIPFSNode()` first to connect to an IPFS node.
 
@@ -1126,14 +1126,14 @@ The execution result of the above code is shown below.
 QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq
 ```
 
-also, You can upload byte array data.
+Likewise, you can upload a byte array.
 
 ```java
 String text = "sample data";
 byte[] data = text.getBytes();
 
 String cid = caver.ipfs.add(data);
-System.out.pringln(cid);
+System.out.println(cid);
 ```
 
 The execution result of the above code is shown below.
