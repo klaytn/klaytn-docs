@@ -1115,7 +1115,7 @@ This function returns [CID(Content Identifier)](https://docs.ipfs.io/concepts/co
 
 
 ```java
-String filePath = "your file path";
+String filePath = "/path/to/file";
 String cid = caver.ipfs.add(filePath);
 System.out.println(cid);
 ```
