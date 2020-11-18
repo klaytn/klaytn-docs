@@ -44,7 +44,32 @@ caver.utils provides utility functions.
 
 ## Prerequisites <a id="prerequisites"></a>
 
-### Dependency <a id="dependency"></a>
+### Adding a Repository<a id="adding-a-repository"></a>
+A library repository should be added before using IPFS. Please add the following repository first.
+
+**maven**
+
+```groovy
+<repositories>
+	<repository>
+	    <id>jitpack.io</id>
+	    <url>https://jitpack.io</url>
+	</repository>
+</repositories>
+```
+
+**gradle**
+
+```groovy
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+### Adding a Dependency <a id="adding-a-dependency"></a>
 
 **maven**
 
@@ -1056,11 +1081,110 @@ testValue
 To find more information, see [caver-java API]
 
 
+## IPFS <a id="ipfs"></a>
+
+IPFS (InterPlanetary File System) is a distributed file system for storing and accessing files, websites, application, and data.
+
+You can upload and download a file through IPFS with Caver.
 
 
+### Connecting with IPFS <a id="connecting-with-ipfs"></a>
+
+The `IPFS` class in the `caver.ipfs` package is defined as a class member variable in `Caver`, so you can interact with IPFS through `Caver`.
+
+In order to use an `IPFS` instance through the `Caver` instance, you must call method `setIPFSNode()` first to connect to an IPFS node.
+
+The function `setIPFSNode()` requires following parameters:
+  - IPFS HTTP API Host URL 
+  - IPFS HTTP API Host port number
+  - Whether the host use SSL or not.
+
+```java
+String host = "The URL of an IPFS node";
+int port = 5001; // API host port number
+boolean isSSL = true; // API host support ssl 
+Caver caver = new Caver();
+caver.ipfs.setIPFSNode(host, port, isSSL);
+```
+
+### Uploading a file through IPFS<a id="uploading-a-file-through-ipfs"></a>
+
+To upload a file through `IPFS`, please use `add()` like below.
+
+This function returns [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file.
 
 
+```java
+String filePath = "/path/to/file";
+String cid = caver.ipfs.add(filePath);
+System.out.println(cid);
+```
 
+The execution result of the above code is shown below.
+
+```java
+QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq
+```
+
+Likewise, you can upload a byte array.
+
+```java
+String text = "sample data";
+byte[] data = text.getBytes();
+
+String cid = caver.ipfs.add(data);
+System.out.println(cid);
+```
+
+The execution result of the above code is shown below.
+
+```java
+QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq
+```
+
+### Downloading a file from IPFS<a id="downloading-a-file-from-ipfs"></a>
+
+To download a file from `IPFS`, please use `get()` like below.
+
+This function requires CID of the file to be downloaded.
+
+```java
+String cid = "QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq";
+byte[] content = caver.ipfs.get(cid);
+```
+
+
+### Conversion between CID and multihash <a id="conversion-between-cid-and-multihash"></a>
+
+You can convert a CID to a [Multihash](https://multiformats.io/multihash/) using `toHex()`.
+
+A CID is a Base58 encoded value of a multihash. `toHex()` decodes the CID and returns the corresponding multihash.
+
+```java
+String cid = "QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk";
+String multihash = IPFS.toHex(cid);
+System.out.println(multihash);
+```
+
+The execution result of the above code is shown below.
+
+```java
+0x12209cbc07c3f991725836a3aa2a581ca2029198aa420b9d99bc0e131d9f3e2cbe47
+```
+
+To convert a multihash to CID, please use `fromHex()`.
+
+```java
+String multihash = "0x12209cbc07c3f991725836a3aa2a581ca2029198aa420b9d99bc0e131d9f3e2cbe47";
+String cid = IPFS.fromHex(multihash);
+System.out.println(cid);
+```
+
+The execution result of the above code is shown below.
+
+```java
+QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk
+```
 
 
 [caver-java API]: https://javadoc.io/doc/com.klaytn.caver/core/
