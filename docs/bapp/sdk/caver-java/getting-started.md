@@ -1172,7 +1172,7 @@ The execution result of the above code is shown below.
 0x12209cbc07c3f991725836a3aa2a581ca2029198aa420b9d99bc0e131d9f3e2cbe47
 ```
 
-To convert a multihash to CID, plase use `fromHex()`.
+To convert a multihash to CID, please use `fromHex()`.
 
 ```java
 String multihash = "0x12209cbc07c3f991725836a3aa2a581ca2029198aa420b9d99bc0e131d9f3e2cbe47";
