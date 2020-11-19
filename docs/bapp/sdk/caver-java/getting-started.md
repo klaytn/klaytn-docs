@@ -1062,7 +1062,7 @@ To load a `contract` instance and call one of its functions (not sending a trans
 
         try {
             Contract contract = new Contract(caver, ABIJson, '0x{address in hex}');
-            List<Type> result = contract.call("get", "Just");
+            List<Type> result = contract.call("get", "test");
             System.out.println((String)result.get(0).getValue());
         } catch (IOException | TransactionException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
             //handle exception..
