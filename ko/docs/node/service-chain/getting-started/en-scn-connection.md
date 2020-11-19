@@ -26,7 +26,7 @@ $ tar xvf ken-baobab-vX.X.X-XXXXX-amd64.tar.gz
 ## 1 단계 : genesis.json 준비하기 <a id="step-1-preparing-genesis-json"></a>
 EN 서버에서 아래 명령어로 `Baobab` 네트워크를 위한 `genesis.json`을 다운로드하세요.
 ```
-$ curl -X GET http://packages.klaytn.net/baobab/genesis.json -o ~/genesis.json
+$ curl -X GET https://packages.klaytn.net/baobab/genesis.json -o ~/genesis.json
 ```
 
 ## 2 단계 : EN 노드 초기화<a id="step-2-en-node-initialization"></a>
