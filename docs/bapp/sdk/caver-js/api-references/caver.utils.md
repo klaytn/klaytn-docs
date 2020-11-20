@@ -557,7 +557,7 @@ Returns the HEX representation of a given number value.
 
 ```javascript
 caver.utils.hexToUtf8(hex)
-caver.utils.hexTostring(hex) // ALIAS
+caver.utils.hexToString(hex) // ALIAS
 ```
 Returns the UTF-8 string representation of a given HEX value.
 
