@@ -925,18 +925,11 @@ Deploying a smart contract through fee-delegated transaction using `Contract` cl
 
         try {
             Contract contract = new Contract(caver, ABIJson);
-            ContractDeployParams params = new ContractDeployParams(byteCode, null);
-
-            String encodedConstructorData = "";
+            ContractDeployParams params = new ContractDeployParams(byteCode);
 
             //if smart contract has constructor, it encodes constructor params.
             //This sample contract has no constructor.
-            if(contract.getConstructor() != null) {
-                encodedConstructorData = ABI.encodeParameters(contract.getConstructor(), params.getDeployParams());
-            }
-
-            //make smart contract deploy data.
-            String input = params.getBytecode() + encodedConstructorData;
+            String input = ABI.encodeContractDeploy(contract.getConstructor(), params.getBytecode(),  params.getDeployParams());
 
             SendOptions sendOptions = new SendOptions();
             sendOptions.setFrom(deployer.getAddress());
@@ -1020,7 +1013,7 @@ Executing a smart contract through fee-delegated transaction using `Contract` cl
             sendOptions.setGas(BigInteger.valueOf(40000));
 
             //encode paramter of contract's "set" function.
-            String encodedParams = contract.getMethod("set").encodeABI(Arrays.asList("test", "testValue"));
+            String encodedParams = contract.encodeABI("set", "test", "testValue");
 
             //creates a FeeDelegatedSmartContractExecution instance
             FeeDelegatedSmartContractExecution feeDelegatedSmartContractExecution = new FeeDelegatedSmartContractExecution.Builder()
