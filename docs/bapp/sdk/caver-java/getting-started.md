@@ -811,8 +811,8 @@ Here is an example of exploiting `Contract` class in `caver.contract` package. Y
         try {
             Contract contract = new Contract(caver, ABIJson);
 
-            contract.getMethods().forEach((methodName, contractMethod) -> {
-                System.out.println("methodName : " + methodName + ", ContractMethod : " + contractMethod);
+            contract.getMethods().forEach((name, method) ->{
+                System.out.println(method.getType() + " " +  ABI.buildFunctionString(method));
             });
 
             System.out.println("ContractAddress : " + contract.getContractAddress());
@@ -825,9 +825,8 @@ Here is an example of exploiting `Contract` class in `caver.contract` package. Y
 Running the code above gives you the following result.
 
 ```bash
-methodName : getBlockNumber, ContractMethod : com.klaytn.caver.contract.ContractMethod@74a461d0
-methodName : count, ContractMethod : com.klaytn.caver.contract.ContractMethod@b019412
-methodName : setCount, ContractMethod : com.klaytn.caver.contract.ContractMethod@124efaf5
+function set(string,string)
+function get(string)
 ContractAddress : null
 ```
 
@@ -844,10 +843,10 @@ If this contract was already deployed and you knew the contract address where th
         String contractAddress = "0x3466D49256b0982E1f240b64e097FF04f99Ed4b9";
 
         try {
-            Contract contract = new Contract(caver, ABIJson, contractAddress);
+            Contract contract = new Contract(caver, ABIJson);
 
-            contract.getMethods().forEach((methodName, contractMethod) -> {
-                System.out.println("methodName : " + methodName + ", ContractMethod : " + contractMethod);
+            contract.getMethods().forEach((name, method) ->{
+                System.out.println(method.getType() + " " +  ABI.buildFunctionString(method));
             });
 
             System.out.println("ContractAddress : " + contract.getContractAddress());
@@ -860,8 +859,8 @@ If this contract was already deployed and you knew the contract address where th
 Running the code above gives you the following result.
 
 ```bash
-methodName : get, ContractMethod : com.klaytn.caver.contract.ContractMethod@74a461d0
-methodName : set, ContractMethod : com.klaytn.caver.contract.ContractMethod@b019412
+function set(string,string)
+function get(string)
 ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
@@ -883,12 +882,11 @@ Note that the `deploy()` method of the `contract` instance sends transactions fo
 
         try {
             Contract contract = new Contract(caver, ABIJson);
-            ContractDeployParams params = new ContractDeployParams(byteCode, null);
             SendOptions sendOptions = new SendOptions();
             sendOptions.setFrom(deployer.getAddress());
             sendOptions.setGas(BigInteger.valueOf(4000000));
             
-            Contract newContract = contract.deploy(params, sendOptions);
+            Contract newContract = contract.deploy(sendOptions, byteCode);
             System.out.println("Contract address : " + newContract.getContractAddress());
         } catch (IOException | TransactionException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
             //handle exception..
@@ -927,18 +925,11 @@ Deploying a smart contract through fee-delegated transaction using `Contract` cl
 
         try {
             Contract contract = new Contract(caver, ABIJson);
-            ContractDeployParams params = new ContractDeployParams(byteCode, null);
-
-            String encodedConstructorData = "";
+            ContractDeployParams params = new ContractDeployParams(byteCode);
 
             //if smart contract has constructor, it encodes constructor params.
             //This sample contract has no constructor.
-            if(contract.getConstructor() != null) {
-                encodedConstructorData = ABI.encodeParameters(contract.getConstructor(), params.getDeployParams());
-            }
-
-            //make smart contract deploy data.
-            String input = params.getBytecode() + encodedConstructorData;
+            String input = ABI.encodeContractDeploy(contract.getConstructor(), params.getBytecode(),  params.getDeployParams());
 
             SendOptions sendOptions = new SendOptions();
             sendOptions.setFrom(deployer.getAddress());
@@ -993,7 +984,7 @@ To show how to execute a function in a smart contract, here we send a contract e
             sendOptions.setFrom(executor.getAddress());
             sendOptions.setGas(BigInteger.valueOf(4000000));
 
-            TransactionReceipt.TransactionReceiptData receipt = contract.getMethod("set").send(Arrays.asList("test","testValue"), sendOptions);
+            TransactionReceipt.TransactionReceiptData receipt = contract.send(sendOptions, "set", "test", "testValue");
         } catch (IOException | TransactionException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
             //handle exception..
         }
@@ -1022,7 +1013,7 @@ Executing a smart contract through fee-delegated transaction using `Contract` cl
             sendOptions.setGas(BigInteger.valueOf(40000));
 
             //encode paramter of contract's "set" function.
-            String encodedParams = contract.getMethod("set").encodeABI(Arrays.asList("test","testValue"));
+            String encodedParams = contract.encodeABI("set", "test", "testValue");
 
             //creates a FeeDelegatedSmartContractExecution instance
             FeeDelegatedSmartContractExecution feeDelegatedSmartContractExecution = new FeeDelegatedSmartContractExecution.Builder()
@@ -1064,7 +1055,7 @@ To load a `contract` instance and call one of its functions (not sending a trans
 
         try {
             Contract contract = new Contract(caver, ABIJson, '0x{address in hex}');
-            List<Type> result = contract.getMethod("get").call(Arrays.asList("test"), CallObject.createCallObject());
+            List<Type> result = contract.call("get", "test");
             System.out.println((String)result.get(0).getValue());
         } catch (IOException | TransactionException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
             //handle exception..
