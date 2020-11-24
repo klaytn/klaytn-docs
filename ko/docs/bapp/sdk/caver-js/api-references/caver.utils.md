@@ -552,7 +552,7 @@ caver.utils.numberToHex(number)
 
 ```javascript
 caver.utils.hexToUtf8(hex)
-caver.utils.hexTostring(hex) // ALIAS
+caver.utils.hexToString(hex) // ALIAS
 ```
 주어진 HEX 값을 UTF-8 문자열 표현으로 반환합니다.
 
