@@ -43,7 +43,7 @@ You can import the caver-js module and connect it to a Klaytn Node in the Baobab
 ```text
 $ node
 > const Caver = require('caver-js')
-> const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+> const caver = new Caver('https://your.en.url:8651/')
 ```
 
 If you are running an EN, you can connect it to your own node by changing the host and port like below:
@@ -446,7 +446,7 @@ Write the following code in test.js.
 ```javascript
 // test.js file
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
 	const version = await caver.klay.getNodeInfo()
