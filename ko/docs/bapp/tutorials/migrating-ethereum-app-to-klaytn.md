@@ -54,7 +54,7 @@ Klaytn의 런타임 환경은 이더리움 가상머신과 호환되어 솔리�
 import Caver from 'caver-js'
 
 // const ROPSTEN_TESTNET_RPC_URL = 'https://ropsten.infura.io/'
-const BAOBAB_TESTNET_RPC_URL = 'https://api.baobab.klaytn.net:8651/'
+const BAOBAB_TESTNET_RPC_URL = 'https://your.en.url:8651/'
 
 // const rpcURL = ROPSTEN_TESTNET_RPC_URL
 const rpcURL = BAOBAB_TESTNET_RPC_URL
@@ -126,7 +126,7 @@ const HDWalletProvider = require("truffle-hdwallet-provider-klaytn")
 const NETWORK_ID = '1001' // Klaytn, Baobab testnet's network id
 
 // const RPC_URL = 'https://ropsten.infura.io/'
-const RPC_URL = 'https://api.baobab.klaytn.net:8651'
+const RPC_URL = 'https://your.en.url:8651'
 
 // Change it to your own private key that has enough KLAY to deploy contract
 const PRIVATE_KEY = '0x3de0c90ce7e440f19eff6439390c29389f611725422b79c95f9f48c856b58277'
