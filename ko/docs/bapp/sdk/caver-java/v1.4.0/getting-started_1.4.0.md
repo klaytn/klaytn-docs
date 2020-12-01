@@ -126,10 +126,10 @@ KlayCredentials credentials = KlayWalletUtils.loadCredentials(<password>, <walle
 
 ### Baobab 연결 <a id="connecting-to-baobab"></a>
 
-Baobab 테스트넷에 연결하기 위해 Klaytn 공개 EN \([https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651)\)을 사용할 수 있습니다.
+You can connect to the Baobab network like below:
 
 ```java
-Caver caver  = Caver.build(Caver.BAOBAB_URL);  // Caver.BAOBAB_URL = https://api.baobab.klaytn.net:8651
+Caver caver  = Caver.build(https://your.baobab.en.url:8651);
 ```
 
 ### 송금 트랜잭션 전송 <a id="sending-a-value-transfer-transaction"></a>
