@@ -178,13 +178,12 @@ componentWillMount() {
  * caver-js 라이브러리는 Klaytn 노드에 연결하게 해줍니다.
  * 'rpcURL' 값을 변경하여 특정 Klaytn 노드에 연결할 수 있습니다.
  * Klaytn 풀노드를 운용 중이라면 rpcURL을 운용 중인 풀노드의 URL로 설정하세요.
- * 예시) rpcURL: 'http://localhost:8551'
- * 기본으로 설정된 rpcURL은 'https://api.baobab.klaytn.net:8651/'입니다.
+ * ex) rpcURL: 'http://localhost:8551'
  */
 import Caver from 'caver-js'
 
 export const config = {
-  rpcURL: 'https://api.baobab.klaytn.net:8651/'
+  rpcURL: 'http://localhost:8551/'
 }
 
 export const cav = new Caver(config.rpcURL)
@@ -198,7 +197,5 @@ export default cav
 
 * Klaytn 풀노드를 운용 중이라면 rpcURL을 운용 중인 풀노드의 URL로 설정하세요.
 
-  예를 들어, `rpcURL: 'http://localhost:8551'` 이렇게요.
-
-* rpcURL을 변경하지 않는 경우 기본 설정값은 `'https://api.baobab.klaytn.net:8651'`입니다.
+  예를 들어, `rpcURL: 'http://localhost:8551'` 이렇게요.  
 
