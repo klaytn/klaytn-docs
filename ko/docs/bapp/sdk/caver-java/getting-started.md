@@ -190,16 +190,10 @@ public void sendingKLAY() throws IOException, CipherException, TransactionExcept
 
 ### Klaytn 노드에 접속하기<a id="connecting-to-a-klaytn-node"></a>
 
-You can import the caver-java module and connect it to a Klaytn Node in the Baobab testnet as shown in the example below:
-
-```java
-Caver caver = new Caver(Caver.BAOBAB_URL); // Caver.BAOBAB_URL = https://api.baobab.klaytn.net:8651
-```
-
 EN을 실행 중인 경우, 아래와 같이 호스트와 포트를 변경하여 자신의 노드에 연결할 수 있습니다:
 
 ```java
-Caver caver = new Caver("http://localhost:8551/");
+Caver caver = new Caver("http://your.en.url:8551/");
 ```
 
 
@@ -822,7 +816,7 @@ Here is an example of exploiting `Contract` class in `caver.contract` package. Y
     }
 ```
 
-위 코드를 실행하면 아래 결과를 얻습니다.
+Running the code above gives you the following result.
 
 ```bash
 function set(string,string)
@@ -856,7 +850,7 @@ If this contract was already deployed and you knew the contract address where th
     }
 ```
 
-위 코드를 실행하면 아래 결과를 얻습니다.
+Running the code above gives you the following result.
 
 ```bash
 function set(string,string)
