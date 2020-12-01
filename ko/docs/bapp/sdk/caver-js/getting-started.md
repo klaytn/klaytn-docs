@@ -44,7 +44,7 @@ $ npm install caver-js@X.X.X
 ```javascript
 const fs = require('fs')
 const Caver = require('./index')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     // Read keystore json file
@@ -91,7 +91,7 @@ test.js에 다음 코드를 작성하세요.
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     const version = await caver.rpc.klay.getClientVersion()
@@ -116,7 +116,7 @@ Klaytn/v1.4.0/linux-amd64/go1.14.1
 
 ```javascript
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 ```
 
 EN을 실행 중인 경우, 아래와 같이 호스트와 포트를 변경하여 자신의 노드에 연결할 수 있습니다:
@@ -147,7 +147,7 @@ The `keys` property defined in [RoleBasedKeyring][] is implemented as a two-dime
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     const keyring = caver.wallet.keyring.generate()
@@ -176,7 +176,7 @@ SingleKeyring {
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     // Create a keyring from a private key
@@ -206,7 +206,7 @@ The result of `caver.wallet.keyring.createFromPrivateKey`, like the result of `c
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     // Create a keyring with an address and a private key
@@ -242,7 +242,7 @@ If you want to use multiple private keys, you can create a [MultipleKeyring][] u
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     // Create a keyring with an address and private keys
@@ -276,7 +276,7 @@ To use different private key(s) for each [role][], `caver.wallet.keyring.createW
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     // Create a keyring with an address and private keys defined by each roles
@@ -323,7 +323,7 @@ caver-js에서 제공하는 인메모리 지갑을 사용하면 쉽게 Keyring�
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     // Using a keyring instance
@@ -382,7 +382,7 @@ If you have an address and private key(s) to use, you can easily create a keyrin
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     // Add to wallet with an address and a private key
@@ -471,7 +471,7 @@ Below is an example of how to sign a transaction if a keyring is added to the [c
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     // Add a keyring to caver.wallet
@@ -511,7 +511,7 @@ RLP-encoded string: 0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b699
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     const rlpEncoding = `0x{RLP-encoded string}`
@@ -557,7 +557,7 @@ $ node ./test.js
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     // Create a value transfer transaction
@@ -605,7 +605,7 @@ caver.rpc.klay.sendRawTransaction(rawTransaction).on('receipt', console.log)
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     const receipt = await caver.rpc.klay.getTransactionReceipt('0x40552efbba23347d36f6f5aaba6b9aeb6602e004df62c1988d9b7b1f036e676a')
@@ -656,7 +656,7 @@ Klaytn provides [Fee Delegation][] feature. 여기에서는, 여러분이 트랜
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     const sender = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
@@ -690,7 +690,7 @@ The fee payer can send the transaction to the Klaytn after attaching the `feePay
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     const feePayer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
@@ -722,7 +722,7 @@ $ node ./test.js
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     const rlpEncoded = '0x{RLP-encoded string}'
@@ -794,7 +794,7 @@ The code below is an example code that changes the private key(s) you use for yo
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     let sender = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
@@ -950,7 +950,7 @@ For the smart contract deployment, you can use [caver.contract][] to deploy it, 
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     const abi = [{"constant":true,"inputs":[],"name":"count","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBlockNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_count","type":"uint256"}],"name":"setCount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
@@ -991,7 +991,7 @@ null
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     const abi = [{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
@@ -1036,7 +1036,7 @@ Note that [caver.contract][] sends transactions for deployment and execution. �
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     const deployer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
@@ -1086,7 +1086,7 @@ Contract {
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function deployWithFeeDelegation() {
     const deployer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
@@ -1146,7 +1146,7 @@ A smart contract can be executed using one of the followings, depending on the t
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     const keyring = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
@@ -1192,7 +1192,7 @@ $ node ./test.js
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function executionWithFeeDelegation() {
     const executor = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
@@ -1250,7 +1250,7 @@ async function executionWithFeeDelegation() {
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     const abi = [{"constant":true,"inputs":[],"name":"count","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBlockNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_count","type":"uint256"}],"name":"setCount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
@@ -1291,7 +1291,7 @@ When a transaction is signed using `caver.wallet` or the transaction's `sign` fu
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     const user1 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key1}')
@@ -1334,7 +1334,7 @@ $ node ./test.js
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     // Create user1's keyring
@@ -1390,7 +1390,7 @@ $ node ./test.js
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     const vt = new caver.transaction.valueTransfer({
