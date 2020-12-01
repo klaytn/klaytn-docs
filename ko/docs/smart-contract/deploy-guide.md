@@ -126,24 +126,24 @@ module.exports = function(deployer) {
 ```
 const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
 
-const privateKey = "0x3de..."; // 개인키를 입력하세요.
+const privateKey = "0x3de..." // Enter your private key;
 
 module.exports = {
   networks: {
     development: {
       host: "localhost",
       port: 8545,
-      network_id: "*" // 모든 네트워크 ID에 대해
+      network_id: "*" // Match any network id
     },
     testnet: {
-      provider: () => new HDWalletProvider(privateKey, "https://api.baobab.klaytn.net:8651"),
-      network_id: '1001', // Klaytn Baobab 테스트넷 네트워크 ID
+      provider: () => new HDWalletProvider(privateKey, "https://your.baobab.en.url:8651"),
+      network_id: '1001', //Klaytn baobab testnet's network id
       gas: '8500000',
       gasPrice: null
     },
     mainnet: {
-      provider: () => new HDWalletProvider(privateKey, "https://api.cypress.klaytn.net:8651"),
-      network_id: '8217', // Klaytn 메인넷 네트워크 ID
+      provider: () => new HDWalletProvider(privateKey, "https://your.cypress.en.url:8651"),
+      network_id: '8217', //Klaytn mainnet's network id
       gas: '8500000',
       gasPrice: null
     }
@@ -228,17 +228,17 @@ $ npm install caver-js.
 
 ```
 const Caver = require("caver-js");
-const caver = new Caver("https://api.baobab.klaytn.net:8651") // cypress에서는 "https://api.cypress.klaytn.net:8651"를 사용하세요.
+const caver = new Caver("https://your.en.url:8651")
 
 const walletInstance = caver.klay.accounts.privateKeyToAccount(
-  '0x3de0c9...' // 컨트랙트를 배포하고자 하는 개인키를 입력하세요.
+  '0x3de0c9...' // enter your private key to deploy contract with
 );
 caver.klay.accounts.wallet.add(walletInstance);
 
 const fs = require('fs')
-const bytecode = fs.readFileSync('./KlaytnGreeter_sol_KlaytnGreeter.bin') // 컴파일된 출력
+const bytecode = fs.readFileSync('./KlaytnGreeter_sol_KlaytnGreeter.bin') // compiled output
 
-const constructorType = ['string']  // 적절한 생성자 타입을 입력하세요.
+const constructorType = ['string']  // enter appropriate constructor type
 const constructorValue = ['Hello, Klaytn!']
 
 const params = caver.klay.abi.encodeParameters(constructorType, constructorValue);
