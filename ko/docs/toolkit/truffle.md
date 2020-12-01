@@ -41,17 +41,17 @@ module.exports = {
     development: {
       host: "localhost",
       port: 8545,
-      network_id: "*" // 모든 네트워크 ID에 대해서
+      network_id: "*" // Match any network id
     },
     testnet: {
-      provider: () => new HDWalletProvider(mnemonic, "https://api.baobab.klaytn.net:8651"),
-      network_id: '1001', // Klaytn baobab 테스트넷의 네트워크 ID
+      provider: () => new HDWalletProvider(mnemonic, "https://your.baobab.en.url.:8651"),
+      network_id: '1001', //Klaytn baobab testnet's network id
       gas: '8500000',
       gasPrice: null
     },
     mainnet: {
-      provider: () => new HDWalletProvider(mnemonic, "https://api.cypress.klaytn.net:8651"),
-      network_id: '8217', // Klaytn 메인넷의 네트워크 ID
+      provider: () => new HDWalletProvider(mnemonic, "https://your.cypress.en.url:8651"),
+      network_id: '8217', //Klaytn mainnet's network id
       gas: '8500000',
       gasPrice: null
     }
@@ -71,17 +71,17 @@ module.exports = {
     development: {
       host: "localhost",
       port: 8545,
-      network_id: "*" // 모든 네트워크 ID에 대해
+      network_id: "*" // Match any network id
     },
     testnet: {
-      provider: () => new HDWalletProvider(privateKey, "https://api.baobab.klaytn.net:8651"),
-      network_id: '1001', // Klaytn baobab 테스트넷의 네트워크 ID
+      provider: () => new HDWalletProvider(privateKey, "https://your.baobab.en.url:8651"),
+      network_id: '1001', //Klaytn baobab testnet's network id
       gas: '8500000',
       gasPrice: null
     },
     mainnet: {
-      provider: () => new HDWalletProvider(privateKey, "https://api.cypress.klaytn.net:8651"),
-      network_id: '8217', //Klaytn 메인넷의 네트워크 ID
+      provider: () => new HDWalletProvider(privateKey, "https://your.cypress.en.url:8651"),
+      network_id: '8217', //Klaytn mainnet's network id
       gas: '8500000',
       gasPrice: null
     }
