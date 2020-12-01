@@ -138,13 +138,13 @@ module.exports = {
       network_id: "*" // Match any network id
     },
     testnet: {
-      provider: () => new HDWalletProvider(privateKey, "https://api.baobab.klaytn.net:8651"),
+      provider: () => new HDWalletProvider(privateKey, "https://your.baobab.en.url:8651"),
       network_id: '1001', //Klaytn baobab testnet's network id
       gas: '8500000',
       gasPrice: null
     },
     mainnet: {
-      provider: () => new HDWalletProvider(privateKey, "https://api.cypress.klaytn.net:8651"),
+      provider: () => new HDWalletProvider(privateKey, "https://your.cypress.en.url:8651"),
       network_id: '8217', //Klaytn mainnet's network id
       gas: '8500000',
       gasPrice: null
@@ -231,7 +231,7 @@ $ npm install caver-js.
 
 ```
 const Caver = require("caver-js");
-const caver = new Caver("https://api.baobab.klaytn.net:8651") // for cypress, use "https://api.cypress.klaytn.net:8651"
+const caver = new Caver("https://your.en.url:8651")
 
 const walletInstance = caver.klay.accounts.privateKeyToAccount(
   '0x3de0c9...' // enter your private key to deploy contract with

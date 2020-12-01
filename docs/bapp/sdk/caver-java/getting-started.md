@@ -190,16 +190,10 @@ public void sendingKLAY() throws IOException, CipherException, TransactionExcept
 
 ### Connecting to a Klaytn Node <a id="connecting-to-a-klaytn-node"></a>
 
-You can import the caver-java module and connect it to a Klaytn Node in the Baobab testnet as shown in the example below:
-
-```java
-Caver caver = new Caver(Caver.BAOBAB_URL); // Caver.BAOBAB_URL = https://api.baobab.klaytn.net:8651
-```
-
 If you are running an EN, you can connect it to your own node by changing the host and port like below:
 
 ```java
-Caver caver = new Caver("http://localhost:8551/");
+Caver caver = new Caver("http://your.en.url:8551/");
 ```
 
 

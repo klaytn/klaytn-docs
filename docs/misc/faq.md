@@ -18,13 +18,11 @@ Below is information relating to each network.
 
 Cypress mainnet:
 - EN download : Choose the Cypress package from the [download page](../node/endpoint-node/installation-guide/download.md).
-- Public EN : https://api.cypress.klaytn.net:8651
 - Klaytnscope : https://scope.klaytn.com
 - Klaytn Wallet : https://wallet.klaytn.com
 
 Baobab testnet:
 - EN download : Choose the Baobab package from the [download page](../node/endpoint-node/installation-guide/download.md).
-- Public EN : https://api.baobab.klaytn.net:8651
 - Klaytnscope : https://baobab.scope.klaytn.com
 - Klaytn Wallet : https://baobab.wallet.klaytn.com
 - Baobab Faucet : https://baobab.wallet.klaytn.com/faucet
@@ -45,13 +43,9 @@ Also, check the porting guidelines [from web3.js](../bapp/sdk/caver-js/v1.4.1/po
 
 Yes and No.
 Endpoint node validates the blocks and exposes RPC APIs to the outer world. EN is always needed for your application to interact with the Klaytn network.
-For those who simply want to try Klaytn APIs, there are public ENs you can connect to. Note that they are provided as a testing purpose without SLA. Do not use them in production.
-
-- Cypress Public EN : https://api.cypress.klaytn.net:8651
-- Baobab Public EN : https://api.baobab.klaytn.net:8651
-
-KAS (Klaytn API Service), similar to Infura for Ethereum, will be released in 1H 2020. With KAS, you can use Klaytn without running own Endpoint Node.
-
+For those who simply want to try Klaytn APIs, you can try [KAS (Klaytn API Service)](https://www.klaytnapi.com).
+KAS provides Klaytn Node API service that exposes RPC APIs of Klaytn networks (both Baobab and Cypress) as well as other useful API services.
+Note that KAS serves free API requests after user registration. For pricing plans, please refer to [KAS pricing page](https://www.klaytnapi.com/landing/pricing).
 
 
 ## I am running an EN, and node data sync is too slow. <a id="node-data-sync-is-too-slow"></a>

@@ -44,13 +44,13 @@ module.exports = {
       network_id: "*" // Match any network id
     },
     testnet: {
-      provider: () => new HDWalletProvider(mnemonic, "https://api.baobab.klaytn.net:8651"),
+      provider: () => new HDWalletProvider(mnemonic, "https://your.baobab.en.url.:8651"),
       network_id: '1001', //Klaytn baobab testnet's network id
       gas: '8500000',
       gasPrice: null
     },
     mainnet: {
-      provider: () => new HDWalletProvider(mnemonic, "https://api.cypress.klaytn.net:8651"),
+      provider: () => new HDWalletProvider(mnemonic, "https://your.cypress.en.url:8651"),
       network_id: '8217', //Klaytn mainnet's network id
       gas: '8500000',
       gasPrice: null
@@ -74,13 +74,13 @@ module.exports = {
       network_id: "*" // Match any network id
     },
     testnet: {
-      provider: () => new HDWalletProvider(privateKey, "https://api.baobab.klaytn.net:8651"),
+      provider: () => new HDWalletProvider(privateKey, "https://your.baobab.en.url:8651"),
       network_id: '1001', //Klaytn baobab testnet's network id
       gas: '8500000',
       gasPrice: null
     },
     mainnet: {
-      provider: () => new HDWalletProvider(privateKey, "https://api.cypress.klaytn.net:8651"),
+      provider: () => new HDWalletProvider(privateKey, "https://your.cypress.en.url:8651"),
       network_id: '8217', //Klaytn mainnet's network id
       gas: '8500000',
       gasPrice: null

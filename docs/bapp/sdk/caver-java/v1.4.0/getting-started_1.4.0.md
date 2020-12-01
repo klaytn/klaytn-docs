@@ -126,10 +126,10 @@ After creating an account, you can receive some Baobab testnet KLAY for the Baob
 
 ### Connecting to Baobab <a id="connecting-to-baobab"></a>
 
-You can use a Klaytn public EN \([https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651)\) to connect to the Baobab testnet.
+You can connect to the Baobab network like below:
 
 ```java
-Caver caver  = Caver.build(Caver.BAOBAB_URL);  // Caver.BAOBAB_URL = https://api.baobab.klaytn.net:8651
+Caver caver  = Caver.build(https://your.baobab.en.url:8651);
 ```
 
 ### Sending a Value Transfer Transaction <a id="sending-a-value-transfer-transaction"></a>
