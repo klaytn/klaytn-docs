@@ -97,13 +97,13 @@ var net = require('net');
 var client = new net.Socket();
 
 const Caver = require('caver-js');
-const caver = new Caver('https://api.baobab.klaytn.net:8651');
+const caver = new Caver('https://your.en.url:8651');
 const senderAddress = "SENDER_ADDRESS";
 const senderPrivateKey = "SENDER_PRIVATEKEY";
 const toAddress = "TO_ADDRESS";
 
 sendFeeDelegateTx = async() => {
-    // 발신자의 개인키로 트랜잭션을 서명합니다.
+    // sign transaction with private key of sender
     const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
       type: 'FEE_DELEGATED_VALUE_TRANSFER',
       from: senderAddress,
@@ -112,7 +112,7 @@ sendFeeDelegateTx = async() => {
       value: caver.utils.toPeb('0.00001', 'KLAY'),
     }, senderPrivateKey)
 
-    // 서명된 raw 트랜잭션을 트랜잭션 수수료 납부자의 서버로 전송합니다.
+    // send signed raw transaction to fee payer's server
     client.connect(1337, '127.0.0.1', function() {
             console.log('Connected to fee delegated service');
     });
@@ -127,7 +127,7 @@ sendFeeDelegateTx = async() => {
     });
 }
 
-sendFeeDelegateTx();{ rawTransaction: senderRawTransaction }
+sendFeeDelegateTx();
 ```
 
 위 코드에서는 `senderPrivateKey`를 통해 트랜잭션 수수료가 위임된 송금 트랜잭션을 서명한 후 IP 주소 `127.0.0.1`\(로컬호스트\)의 `1337`번 포트에 있는 트랜잭션 수수료 납부자의 서버로 서명된 `senderRawTranscation`를 전송하고 있습니다.
@@ -140,18 +140,18 @@ sendFeeDelegateTx();{ rawTransaction: senderRawTransaction }
 
 ```javascript
 const Caver = require('caver-js');
-const caver = new Caver('https://api.baobab.klaytn.net:8651');
+const caver = new Caver('https://your.en.url:8651');
 const feePayerAddress = "FEEPAYER_ADDRESS";
 const feePayerPrivateKey = "FEEPAYER_PRIVATEKEY";
 
-// 트랜잭션 수수료 납부자의 계정을 추가합니다.
+// add fee payer account
 caver.klay.accounts.wallet.add(feePayerPrivateKey, feePayerAddress);
 
 var net = require('net');
 
 
 feePayerSign = (senderRawTransaction, socket) => {
-    // 트랜잭션 수수료 납부자
+    // fee payer
     caver.klay.sendTransaction({
       senderRawTransaction: senderRawTransaction,
       feePayer: feePayerAddress,
@@ -164,7 +164,7 @@ feePayerSign = (senderRawTransaction, socket) => {
         socket.write('Tx hash is '+ receipt.transactionHash);
         socket.write('Sender Tx hash is '+ receipt.senderTxHash);
     })
-    .on('error', console.error); // 가스 부족 에러(out-of-gas error)가 발생하면 두 번째 파라미터는 트랜잭션 영수증이 됩니다.
+    .on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 }
 
 var server = net.createServer(function(socket) {
