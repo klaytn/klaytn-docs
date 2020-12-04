@@ -2,6 +2,8 @@
 
 **KNI (Klaytn Network Identifier)** is URL scheme for Klaytn node.
 
+![KNI scheme](../images/kni_scheme.png)
+
 **nodeID** is a hexadecimals ID and in the username part of an URL. nodeID can be generated using public key.
 
 **hostname** is an address, located between @ and ?. The address format can be one of below:
