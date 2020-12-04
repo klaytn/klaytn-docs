@@ -6,7 +6,7 @@
 
 **nodeID** is a hexadecimals ID and in the username part of an URL. nodeID can be generated using public key.
 
-**hostname** is an address, located between @ and ?. The address format can be one of below:
+**hostname** is an address, located between @ and ?. The address format can be one of the belows.
 * IPv4 dotted decimal (`192.0.2.1`)
 * IPv6 (`[2001:db8::68]`)
 * IPv4-mapped IPv6 (`[2001:db8:3c4d:15::abcd:ef12]`)
