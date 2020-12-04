@@ -10,17 +10,12 @@
 * IPv4 dotted decimal (`192.0.2.1`)
 * IPv6 (`[2001:db8::68]`)
 * IPv4-mapped IPv6 (`[2001:db8:3c4d:15::abcd:ef12]`)
-* DNS domain names
+* DNS domain name
 
-**TCP listening port** is used to make connections with peer nodes.
-Depending on the number of TCP listening ports, Klaytn offers two types of connections:
+**TCP listening port** is used to make connections with peer nodes. Depending on the number of TCP listening ports, Klaytn offers two types of connections.
 * Single Channel : a single-channel server uses one port. The port is placed at the end of hostname
-* Multi Channel: a multi-channel server uses two ports. The ports can be specified in hostname and by `subport` query parameter.
-  In Klaytn, the default port number is 32323 and the default subport number is 32324.
-    * You might not set `subport` when connecting to multi-channel server.
-      In this case, at first, a klaytn server tries to connect using single-channel.
-      In handshake process, the actual peer's port numbers are revealed.
-      If the peer server is using multi-channel, the server will cancel the ongoing connection and try to reconnect with the updated ports.
+* Multi Channel: a multi-channel server uses two ports. The ports can be specified in hostname and by `subport` query parameter. In Klaytn, the default port number is 32323 and the default subport number is 32324.
+    * You might not set `subport` when connecting to multi-channel server.In this case, at first, a klaytn server tries to connect using single-channel. In handshake process, the actual peer's port numbers are revealed. If the peer server is using multi-channel, the server will cancel the ongoing connection and try to reconnect with the updated ports.
 
 **UDP discovery port** is for searching new nodes and checking if the nodes are reachable.
 By default, the UDP port uses the same port with the TCP port.
