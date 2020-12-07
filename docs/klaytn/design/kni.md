@@ -1,16 +1,18 @@
 # KNI <a id="KNI"></a>
 
-**KNI (Klaytn Network Identifier)** is URL scheme for Klaytn node.
-
+**KNI (Klaytn Network Identifier)** is a URL scheme to identify a Klaytn node. Its syntax is shown below:
+```
+kni://<nodeID>@<hostname>:<port>?subport=<subport>&discport=<discport>
+```
 ![KNI scheme](../images/kni_scheme.png)
 
-**nodeID** is a hexadecimals ID and in the username part of an URL. nodeID can be generated using public key.
+**nodeID** is a random hexadecimal string and is in the username part of an URL. The private key of the node is derived from the nodeID.
 
-**hostname** is an address, located between @ and ?. The address format can be one of the belows.
+**hostname** describes the address of a node, located between `@` and `:`. The address format can be one of the following:
 * IPv4 dotted decimal (`192.0.2.1`)
 * IPv6 (`[2001:db8::68]`)
 * IPv4-mapped IPv6 (`[2001:db8:3c4d:15::abcd:ef12]`)
-* DNS domain name
+* Domain name (`your.node.com`)
 
 **TCP listening port** is used to make connections with peer nodes. Depending on the number of TCP listening ports, Klaytn offers two types of connections.
 * Single Channel : a single-channel server uses one port. The port is placed at the end of hostname
