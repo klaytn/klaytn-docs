@@ -6,7 +6,7 @@ kni://<nodeID>@<hostname>:<port>?subport=<subport>&discport=<discport>
 ```
 ![KNI scheme](../images/kni_scheme.png)
 
-**nodeID** is a random hexadecimal string and is in the username part of an URL. The private key of the node is derived from the nodeID.
+**nodeID** is a random hexadecimal string and is in the username part of an URL. It is derived from the private/public key pair of the node.
 
 **hostname** describes the address of a node, located between `@` and `:`. The address format can be one of the following:
 * IPv4 dotted decimal (`192.0.2.1`)
