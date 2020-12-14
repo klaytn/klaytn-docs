@@ -14,7 +14,7 @@ kni://<nodeID>@<hostname>:<port>?subport=<subport>&discport=<discport>
 * IPv4-mapped IPv6 (`[2001:db8:3c4d:15::abcd:ef12]`)
 * Domain name (`your.node.com`)
 
-**port** is used to make connections with peer nodes through TCP. In Klaytn, the default `port` number is `32323` and the default `subport` number is `port + 1`. Depending on the number of TCP listening ports, Klaytn offers two [types of connections](./multiport.md).
+**port** is used to make connections with peer nodes through TCP. In Klaytn, the default `port` number is `32323` and the default `subport` number is `32324`. (The default `subport` number is `port + 1` in `kend.conf`) Depending on the number of TCP listening ports, Klaytn offers two [types of connections](./multiport.md).
 
 **discport** is used for checking if the nodes are reachable klaytn node and fetching its neighbors' address. Note that this is a UDP port.
 By default, the UDP port uses the same port with the TCP port.
