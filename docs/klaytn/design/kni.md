@@ -16,7 +16,7 @@ kni://<nodeID>@<hostname>:<port>?subport=<subport>&discport=<discport>
 
 **port** is used to make connections with peer nodes through TCP. In Klaytn, the default `port` number is `32323` and the default `subport` number is `32324`. (The default `subport` number is `port + 1` in `kend.conf`) Depending on the number of TCP listening ports, Klaytn offers two [types of connections](./multiport.md).
 
-**discport** is used for checking if known neighbors are reachable klaytn nodes and fetching their neighbors' addresses for new connections. Note that this is a UDP port.
+**discport** is used for checking if the known neighbors are reachable klaytn nodes and fetching their neighbors' addresses for new connections. Note that this is a UDP port.
 By default, the UDP port uses the same port with the TCP port.
 If the UDP port differs from TCP port, the UDP port can be set using `discport` query parameter.
 
