@@ -1,7 +1,7 @@
 # Multichannel <a id="multichannel"></a>
 
 A Klaytn node can be run with Multichannel.
-When 2 servers are connected with Multichannel, they use 2 ports for communication.
+When 2 nodes are connected with Multichannel, they use 2 ports for communication.
 
 Depending on the number of [TCP listening ports](./kni.md), the connection differs. If 2 ports are enabled, multichannel is used. If a port is used, single channel is applied.
 If you use `kend.conf`, a multi channel is used in default.
@@ -12,7 +12,11 @@ Currently, only one `subport` is supported at max.
 ![Multichannel server](../images/multichannel.png)
 
 The picture above shows a connection between two multichannel servers.
-Two ports, mainport(A) and subport(B), is used in different ways.
+Two ports, mainport(A) and subport(B), are used in different ways.
+* **Mainport**(A) is used to transfer block and consensus messages.
+  * Block message includes request and response of block hash, header, body and receipt.
+  * Consensus message includes Request, Preprepare, Prepare, Commit and RoundChange. The meaning of messages can be found in [PBFT](./consensus-mechanism.md#pbft-practical-byzantine-fault-tolerance).
+* **Subport**(B) is for transferring transaction message.
 
 ![Singlechannel server](../images/singlechannel.png)
 
