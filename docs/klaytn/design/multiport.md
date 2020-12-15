@@ -5,10 +5,8 @@ A Klaytn node can be run with **Multichannel**.
 If a node is executed with multichannel configuration, 2 ports are set up for communication. On the otherhand, if a node is executed with single channel configuration, 1 port is set up.
 If 2 multichannel nodes are trying to connect, a connection is established using 2 ports. Otherwise, they will use 1 port for communication.
 
-A multichannel server can be configured by using a `multichannel` flag. In the default `kend.conf`, multichannel is enabled (`MULTICHANNEL=1`).
-If you want to run a server with a configured port, checkout `port` and `subport` flags. If you want to designate port values of a connecting peer, checkout [KNI](./kni.md).
-
-Currently, only one `subport` is supported at max.
+A multichannel node can be enabled through the flag `--multichannel`. If you use [`kend`](../../node/endpoint-node/operation-guide/starting-stopping-en.md), multichannel is enabled by default due to the statement `MULTICHANNEL=1` in [`kend.conf`](../../node/endpoint-node/operation-guide/configuration.md). To disable multichannel, please replace the statement with `MULTICHANNEL=0`.
+If you want to run a node with specific ports, flags `port` and `subport` can be used. If you want to specify ports values of a connecting peer, check out [KNI](./kni.md).
 
 ## Architecture <a id="multichannel-architecture"></a>
 
