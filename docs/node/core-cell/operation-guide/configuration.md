@@ -100,7 +100,7 @@ The configuration file has the following configurable properties. CN and PN conf
 | SC_MAIN_BRIDGE | Enable main bridge service if it is set to 1. Used for service chain configuration. |
 | SC_MAIN_BRIDGE_PORT | Main bridge listens on this port. |
 | SC_MAIN_BRIDGE_INDEXING | Enable storing transaction hash of child chain transactions for fast access to child chain data if it is set to 1. |
-| AUTO_RESTART | Restart the process when the current block has not been updated for `autorestart.timeout` seconds if it is set to 1. |
+| AUTO_RESTART | Restart the process when the current block has not been updated for `autorestart.timeout` (e.g., 60s, 10m, 1h) if it is set to 1. |
 | METRICS | Enable metrics collection and reporting if it is set to 1. |
 | PROMETHEUS | Enable prometheus exporter if it is set to 1. |
 | DB_NO_PARALLEL_WRITE | Disable parallel writes of block data to persistent database if it is set to 1. |
