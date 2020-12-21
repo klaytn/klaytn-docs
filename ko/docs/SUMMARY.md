@@ -21,6 +21,8 @@
     * [Klaytn 자체 코인 - KLAY](klaytn/design/klaytn-native-coin-klay.md)
     * [토큰 이코노미](klaytn/design/token-economy.md)
     * [거버넌스(Governance)](klaytn/design/governance.md)
+    * [Multi-Channel](klaytn/design/multiport.md)
+    * [KNI](klaytn/design/kni.md)
   * [확장성 솔루션](klaytn/scaling-solutions.md)
   * [엔터프라이즈 프록시](klaytn/enterprise-proxy.md)
 
