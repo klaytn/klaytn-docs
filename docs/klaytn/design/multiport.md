@@ -27,6 +27,6 @@ In this case, all messages related to blocks, transactions, and consensus protoc
 ## Ports  <a id="multichannel-port"></a>
 
 To set port numbers in KNI, please refer to [the KNI scheme](./kni.md).
-* Single Channel : A single channel node uses one port.
+* Single Channel : A single channel node uses one port (default is 32323).
 * Multi-Channel: A multi-channel node uses two ports. The ports can be specified in `port` and `subport`. In Klaytn, the default values of `port` and `subport` are 32323 and 32324, respectively.
     * You might not set `subport` when connecting to multi-channel node. In this case, at first, a Klaytn node tries to connect using a single-channel. In handshake process, the actual peer's port numbers are revealed. If the peer is a multi-channel node, the ongoing connection will be canceled and a reconnection will be made with the updated ports.
