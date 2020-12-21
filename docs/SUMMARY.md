@@ -22,6 +22,7 @@
     * [Token Economy](klaytn/design/token-economy.md)
     * [Governance](klaytn/design/governance.md)
     * [Multi-Channel](klaytn/design/multiport.md)
+    * [KNI](klaytn/design/kni.md)
   * [Scaling Solutions](klaytn/scaling-solutions.md)
   * [Enterprise Proxy](klaytn/enterprise-proxy.md)
 
