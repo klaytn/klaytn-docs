@@ -21,6 +21,7 @@
     * [Klaytn native coin - KLAY](klaytn/design/klaytn-native-coin-klay.md)
     * [Token Economy](klaytn/design/token-economy.md)
     * [Governance](klaytn/design/governance.md)
+    * [KNI](klaytn/design/kni.md)
   * [Scaling Solutions](klaytn/scaling-solutions.md)
   * [Enterprise Proxy](klaytn/enterprise-proxy.md)
 
