@@ -17,9 +17,6 @@ An example command is shown below:
 $ solc --evm-version constantinople contract.sol
 ```
 
-Klaytn has been thoroughly tested with [OpenZeppelin tests](https://docs.openzeppelin.com/learn/writing-automated-tests#test-environment). 
-We run the OpenZeppelin test suite to test various Solidity versions (0.5.x, 0.6.x, and 0.7.x) with the Constantinople target option on Klaytn.
-
 ## Decoupled Key Pairs <a id="decoupled-key-pairs"></a>
 
 Klaytn [decouples key pairs from addresses](../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses). If user [updates account](../klaytn/design/transactions/basic.md#txtypeaccountupdate), the private key for a specific account is replaced with another one. Most cases this will not affect your business logic. However if your business logic includes ecrecover, you should consider using validateSender. For more details, refer to [here](precompiled-contracts.md).
