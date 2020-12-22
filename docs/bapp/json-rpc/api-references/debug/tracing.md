@@ -381,6 +381,9 @@ noopTracer | noopTracer is just the barebone boilerplate code required from a Ja
 opcountTracer | opcountTracer is a sample tracer that just counts the number of instructions executed by the KLVM before the transaction terminated.
 prestateTracer | prestateTracer outputs sufficient information to create a local execution of the transaction from a custom assembled genesis block.
 revertTracer | revertTracer outputs the error string of REVERT. If the execution is not reverted, it outputs an empty string.
+unigramTracer | unigramTracer returns the number of occurrences of each opcode.
+bigramTracer | bigramTracer returns the number of occurrences of two consecutive opcodes.
+trigramTracer | trigramTracer returns the number of occurrences of three consecutive opcodes.
 
 
 **Example**
