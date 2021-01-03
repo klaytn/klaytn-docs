@@ -62,7 +62,7 @@ The above code should be self-explanatory; thus people familiar with any other p
 * `L09` defines a public function `set` that saves the value `x` in `userData` for the message's sender.  The variable `msg.sender` is a special variable defined in Solidity that represents the address of the message \(_i.e._, current call\) sender.  The keyword `public` means that the function is part of the contract interface and can be called externally or internally.
 * The functions `get` in `L13` and `getUserData` in `L17` are declared with `view`, which means that the functions promise not to modify any state variable.  Their declarations include `returns (uint)`, which implies that they return a `uint` value.
 
-For more information concerning the syntax and semantics of the Solidity language, please refer to the [Solidity documentation](https://docs.soliditylang.org/en/v0.6.4/solidity-in-depth.html).
+For more information concerning the syntax and semantics of the Solidity language, please refer to the [Solidity documentation](https://docs.soliditylang.org/).
 
 ## How to Compile, Deploy, and Execute <a id="how-to-compile-deploy-and-execute"></a>
 
@@ -121,4 +121,3 @@ NOTE: This section will be updated in the future.
 * [Solidity documentation](https://solidity.readthedocs.io/en/latest/index.html)
 * [Remix documentation](https://remix-ide.readthedocs.io/en/latest/)
 * [Truffle documentation](https://trufflesuite.com/docs/truffle/overview)
-
