@@ -1,4 +1,4 @@
-# 이더리움 컨트랙트 포팅
+# Porting Ethereum Contract <a id="porting-ethereum-contract"></a>
 
 대부분의 경우 Klaytn에서 이더리움 컨트랙트를 수정 없이 사용할 수 있습니다. 그러나 다음 두 가지 문제에 유의하셔야 합니다.
 
@@ -12,8 +12,6 @@ An example command is shown below:
 ```
 $ solc --evm-version constantinople contract.sol
 ```
-
-Klaytn has been thoroughly tested with [OpenZeppelin tests](https://docs.openzeppelin.com/learn/writing-automated-tests#test-environment). We run the OpenZeppelin test suite to test various Solidity versions (0.5.x, 0.6.x, and 0.7.x) with the Constantinople target option on Klaytn.
 
 ## 분리된 키 쌍 <a id="decoupled-key-pairs"></a>
 
