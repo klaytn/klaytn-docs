@@ -2,7 +2,7 @@
 
 ## debug_dumpBlock <a id="debug_dumpblock"></a>
 
-Retrieves the state that corresponds to the block number and returns a list of accounts (including storage and code).
+블록 번호에 해당되는 상태를 검색하며 계정의 목록(스토리지와 코드 포함)을 반환합니다.
 
 **NOTE**: This function correctly returns the state for a few latest, currently 4, block numbers.  Retrieving older block state is restricted depending on the value set for the command-line option `--state.block-interval` (default: 128).  This means that the function performs the state retrieval against only the block numbers that are multiples of state.block-interval.  For example, when state.block-interval is 128, this function returns the state for the block numbers "0x0", "0x80", "0x100", "0x180", and so on.  If the block number is not a multiple of state.block-interval, it returns 'missing trie node' error.
 
