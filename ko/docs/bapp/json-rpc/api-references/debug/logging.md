@@ -2,7 +2,7 @@
 
 ## debug_backtraceAt <a id="debug_backtraceat"></a>
 
-로깅 백트레이스 위치를 설정합니다. When a backtrace location is set and a log message is emitted at that location, the stack of the goroutine executing the log statement will be printed to `stderr`.
+로깅 백트레이스 위치를 설정합니다. 백트레이스 위치가 설정되고, 그 위치에서 로그 메시지가 보내지면 로그 내역을 실행하는 Go루틴의 스택이 `stderr`로 출력됩니다.
 
 | 클라이언트 | 메서드 호출                                                |
 |:-----:| ----------------------------------------------------- |
