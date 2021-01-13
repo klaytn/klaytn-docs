@@ -89,13 +89,13 @@ Safely converts any given value (including [Bignumber.js](http://mikemcl.github.
 **예제**
 
 ```javascript
-> caver.utils.toBN(1234).tostring()
+> caver.utils.toBN(1234).toString()
 '1234'
 
-> caver.utils.toBN('1234').add(caver.utils.toBN('1')).tostring()
+> caver.utils.toBN('1234').add(caver.utils.toBN('1')).toString()
 '1235'
 
-> caver.utils.toBN('0xea').tostring()
+> caver.utils.toBN('0xea').toString()
 '234'
 ```
 
