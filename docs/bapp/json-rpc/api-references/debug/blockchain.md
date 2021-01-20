@@ -367,17 +367,17 @@ or `null` if it successfully has started it.
 Console
 
 ```javascript
-> debug.startWarmUp("0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b")
+> debug.startContractWarmUp("0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b")
 null
 ```
 
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startWarmUp", "params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b"], "id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startContractWarmUp", "params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b"], "id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
-## debug_stopWarmUp <a id="admin_stopwarmup"></a>
+## debug_stopWarmUp <a id="debug_stopwarmup"></a>
 
 The `stopWarmUp` stops the currently running warm-up.
 This method takes no parameters, and returns `null` or an error depending on a warm-up was stopped or not.
