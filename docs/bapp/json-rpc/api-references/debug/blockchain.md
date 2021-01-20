@@ -348,7 +348,7 @@ or `null` if it successfully has started it.
 | Client  | Method invocation                                            |
 | :-----: | ------------------------------------------------------------ |
 | Console | `debug.startContractWarmUp()`                     |
-|   RPC   | `{"method": "debug_startWarmUp"}` |
+|   RPC   | `{"method": "debug_startContractWarmUp"}` |
 
 **Parameters**
 
