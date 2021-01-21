@@ -323,10 +323,45 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
+## debug_startContractWarmUp <a id="debug_startcontractwarmup"></a>
 
-## debug_stopWarmUp <a id="admin_stopwarmup"></a>
+The `startContractWarmUp` iterates the latest storage trie of the given contract address to warm-up the trie cache. 만약 트리 캐시가 90% 정도 차면 순회는 자동으로 중단됩니다. The method returns an error if it fails in starting a warm-up or the given address is not a contract address, or `null` if it successfully has started it.
 
-`stopWarmUp`은 트리 캐시를 현재 채우는 작업을 중단합니다. 이 메서드는 파라미터를 받지 않습니다. 트리 캐시를 채우는 작업이 성공적으로 중단되었다면 `null`을, 작업을 중단하는 데에 실패했다면 에러를 반환합니다.
+| 클라이언트 | 메서드 호출                                                         |
+|:-----:| -------------------------------------------------------------- |
+|  콘솔   | `debug.startContractWarmUp(address)`                           |
+|  RPC  | `{"method": "debug_startContractWarmUp", "params": [address]}` |
+
+**매개변수**
+
+| 형식            | 설명               |
+| ------------- | ---------------- |
+| 20바이트 크기 DATA | Contract address |
+
+**리턴값**
+
+| 형식 | 설명                                                       |
+| -- | -------------------------------------------------------- |
+| 에러 | 트리 캐시 채우기를 시작하는 데에 성공했다면 `null`를 반환하고 그렇지 않으면 에러를 반환합니다. |
+
+**예시**
+
+콘솔
+
+```javascript
+> debug.startContractWarmUp("0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b")
+null
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startContractWarmUp", "params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b"], "id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+## debug_stopWarmUp <a id="debug_stopwarmup"></a>
+
+The `stopWarmUp` stops the currently running warm-up. This method takes no parameters, and returns `null` or an error depending on a warm-up was stopped or not.
 
 | 클라이언트 | 메서드 호출                     |
 |:-----:| -------------------------- |
@@ -339,9 +374,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **리턴값**
 
-| 형식 | 설명                                                       |
-| -- | -------------------------------------------------------- |
-| 에러 | 트리 캐시 채우기를 중단하는 데에 성공했다면 `null`를 반환하고 그렇지 않으면 에러를 반환합니다. |
+| 형식 | 설명                                                  |
+| -- | --------------------------------------------------- |
+| 에러 | `null` if a warm-up is stopped, or an error if not. |
 
 **예시**
 
