@@ -305,8 +305,8 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ## debug_startWarmUp <a id="debug_startwarmup"></a>
 
 The `startWarmUp` iterates the latest state trie to warm-up the trie cache.
-The iteration will be automatically stopped if 90% of the trie cache is full. 
-The method returns an error if it fails in starting a warm-up, or `null` if it successfully has started it. 
+The iteration will be automatically stopped if 90% of the trie cache is full.
+The method returns an error if it fails in starting a warm-up, or `null` if it successfully has started it.
 
 | Client  | Method invocation                                            |
 | :-----: | ------------------------------------------------------------ |
@@ -338,8 +338,46 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
+## debug_startContractWarmUp <a id="debug_startcontractwarmup"></a>
 
-## debug_stopWarmUp <a id="admin_stopwarmup"></a>
+The `startContractWarmUp` iterates the latest storage trie of the given contract address to warm-up the trie cache.
+The iteration will be automatically stopped if 90% of the trie cache is full.
+The method returns an error if it fails in starting a warm-up or the given address is not a contract address,
+or `null` if it successfully has started it.
+
+| Client  | Method invocation                                            |
+| :-----: | ------------------------------------------------------------ |
+| Console | `debug.startContractWarmUp(address)`                     |
+|   RPC   | `{"method": "debug_startContractWarmUp", "params": [address]}` |
+
+**Parameters**
+
+| Type           | Description                                                  |
+| -------------- | ------------------------------------------------------------ |
+| 20-byte DATA | Contract address                               |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Error | `null` if a warm-up is started, or an error if not. |
+
+**Example**
+
+Console
+
+```javascript
+> debug.startContractWarmUp("0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b")
+null
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startContractWarmUp", "params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b"], "id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+## debug_stopWarmUp <a id="debug_stopwarmup"></a>
 
 The `stopWarmUp` stops the currently running warm-up.
 This method takes no parameters, and returns `null` or an error depending on a warm-up was stopped or not.
