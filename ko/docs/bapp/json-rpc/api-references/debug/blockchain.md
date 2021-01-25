@@ -1,4 +1,4 @@
-# 블록체인 인스펙션 <a id="blockchain-inspection"></a>
+# 블록체인 검사 <a id="blockchain-inspection"></a>
 
 ## debug_dumpBlock <a id="debug_dumpblock"></a>
 
