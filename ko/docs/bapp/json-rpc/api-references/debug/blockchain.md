@@ -291,7 +291,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startWarmUp <a id="debug_startwarmup"></a>
 
-`startWarmUp`은 가장 최신 상태 트리를 순회하면서 트리 캐시를 채웁니다. 만약 트리 캐시가 90% 정도 차면 순회는 자동으로 중단됩니다. 이 메서드는 순회를 시작하는 데에 실패하면 에러를 반환하고, 순회를 시작하는 데에 성공했으면 `null`를 반환합니다.
+`startWarmUp`은 가장 최신 상태 트리를 순회하면서 트리 캐시를 채웁니다. 만약 트리 캐시가 90% 정도 차면 순회는 자동으로 중단됩니다. 이 메서드는 순회를 시작하는 데에 실패하면 에러를 반환하고, 순회를 시작하는 데에 성공했으면 `null`을 반환합니다.
 
 | 클라이언트 | 메서드 호출                            |
 |:-----:| --------------------------------- |
@@ -306,7 +306,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 | 형식 | 설명                                                       |
 | -- | -------------------------------------------------------- |
-| 에러 | 트리 캐시 채우기를 시작하는 데에 성공했다면 `null`를 반환하고 그렇지 않으면 에러를 반환합니다. |
+| 에러 | 트리 캐시 채우기를 시작하는 데에 성공했다면 `null`을 반환하고 그렇지 않으면 에러를 반환합니다. |
 
 **예시**
 
@@ -325,7 +325,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startContractWarmUp <a id="debug_startcontractwarmup"></a>
 
-The `startContractWarmUp` iterates the latest storage trie of the given contract address to warm-up the trie cache. 만약 트리 캐시가 90% 정도 차면 순회는 자동으로 중단됩니다. The method returns an error if it fails in starting a warm-up or the given address is not a contract address, or `null` if it successfully has started it.
+`startContractWarmUp` 은 주어진 컨트랙트 주소의 최신 스토리지 트리를 순회하면서 트리 캐시를 채웁니다. 만약 트리 캐시가 90% 정도 차면 순회는 자동으로 중단됩니다. 이 메서드는 채우기를 시작하는 데에 실패하거나 주어진 주소가 컨트랙트 주소가 아닐 경우 에러를 반환하고, 시작하는 데에 성공했으면 `null`을 반환합니다.
 
 | 클라이언트 | 메서드 호출                                                         |
 |:-----:| -------------------------------------------------------------- |
@@ -334,15 +334,15 @@ The `startContractWarmUp` iterates the latest storage trie of the given contract
 
 **매개변수**
 
-| 형식            | 설명               |
-| ------------- | ---------------- |
-| 20바이트 크기 DATA | Contract address |
+| 형식            | 설명      |
+| ------------- | ------- |
+| 20바이트 크기 DATA | 컨트랙트 주소 |
 
 **리턴값**
 
 | 형식 | 설명                                                       |
 | -- | -------------------------------------------------------- |
-| 에러 | 트리 캐시 채우기를 시작하는 데에 성공했다면 `null`를 반환하고 그렇지 않으면 에러를 반환합니다. |
+| 에러 | 트리 캐시 채우기를 시작하는 데에 성공했다면 `null`을 반환하고 그렇지 않으면 에러를 반환합니다. |
 
 **예시**
 
@@ -361,7 +361,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_stopWarmUp <a id="debug_stopwarmup"></a>
 
-The `stopWarmUp` stops the currently running warm-up. This method takes no parameters, and returns `null` or an error depending on a warm-up was stopped or not.
+`stopWarmUp`은 현재 채우는 작업을 중단합니다. 이 메서드는 파라미터를 받지 않으며, 채우기가 중단되었는지 아닌지에 따라 `null` 또는 에러를 반환합니다.
 
 | 클라이언트 | 메서드 호출                     |
 |:-----:| -------------------------- |
@@ -374,9 +374,9 @@ The `stopWarmUp` stops the currently running warm-up. This method takes no param
 
 **리턴값**
 
-| 형식 | 설명                                                  |
-| -- | --------------------------------------------------- |
-| 에러 | `null` if a warm-up is stopped, or an error if not. |
+| 형식 | 설명                             |
+| -- | ------------------------------ |
+| 에러 | 채우기가 중단된 경우 `null`, 그렇지 않으면 에러 |
 
 **예시**
 
