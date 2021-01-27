@@ -2,7 +2,7 @@
 
 ## debug_blockProfile <a id="debug_blockprofile"></a>
 
-Turns on block profiling for the given duration and writes profile data to disk. 가장 정확한 정보를 위해 프로파일 속도는 1입니다. If a different rate is desired, set the rate and write the profile manually using [debug_writeBlockProfile](#debug_writeblockprofile).
+입력으로 받은 기간 동안의 블록 프로파일링을 설정하고 프로파일 데이터를 디스크에 씁니다. 가장 정확한 정보를 위해 프로파일 속도는 1입니다. 속도를 다르게 설정하려면, [debug_writeBlockProfile](#debug_writeblockprofile)를 사용하여 속도를 설정하고 프로파일을 수동으로 작성합니다.
 
 | 클라이언트 | 메서드 호출                                                         |
 |:-----:| -------------------------------------------------------------- |
@@ -104,7 +104,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_setBlockProfileRate <a id="debug_setblockprofilerate"></a>
 
-Sets the rate (in samples/sec) of goroutine block profile data collection. A non-zero rate enables block profiling, setting it to zero stops the profile. Collected profile data can be written using [debug_writeBlockProfile](#debug_writeblockprofile).
+Go루틴 블록 프로파일 데이터 수집 속도(샘플/초)를 설정합니다. 0이 아닌 값으로 설정하면 블록 프로파일링을 활성화하고, 0으로 설정하면 중단합니다. [debug_writeBlockProfile](#debug_writeblockprofile)을 사용하여 수집한 프로파일 데이터를 쓸 수 있습니다.
 
 | 클라이언트 | 메서드 호출                                                        |
 |:-----:| ------------------------------------------------------------- |
@@ -202,7 +202,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startPProf <a id="debug_startpprof"></a>
 
-pprof HTTP 서버를 시작합니다.  The running pprof server can be accessed by (when the default configuration, i.e., localhost:6060, is used):
+pprof HTTP 서버를 시작합니다.  실행 중인 pprof 서버는 아래를 통해 접근할 수 있습니다. (기본 설정, 즉 localhost:6060인 경우입니다.)
 - http://localhost:6060/debug/pprof (for the pprof results)
 - http://localhost:6060/memsize/ (for the memory size reports)
 - http://localhost:6060/debug/vars (for the metrics)
@@ -214,10 +214,10 @@ pprof HTTP 서버를 시작합니다.  The running pprof server can be accessed 
 
 **매개변수**
 
-| 명칭      | 형식  | 설명                                                                       |
-| ------- | --- | ------------------------------------------------------------------------ |
-| address | 문자열 | (optional) pprof HTTP server listening interface (default: "127.0.0.1"). |
-| port    | int | (optional) pprof HTTP server listening port (default: 6060).             |
+| 명칭      | 형식  | 설명                                                      |
+| ------- | --- | ------------------------------------------------------- |
+| address | 문자열 | (선택사항) pprof HTTP 서버의 리스너 인터페이스입니다.(기본 설정: "127.0.0.1") |
+| port    | int | (선택사항) pprof HTTP 서버의 리스너 포트입니다.(기본 설정: 6060)           |
 
 **리턴값**
 
@@ -311,7 +311,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_writeMemProfile <a id="debug_writememprofile"></a>
 
-입력으로 받은 파일에 메모리 사용량 프로파일을 작성합니다.  Note that the profiling rate cannot be set through the API, it must be set on the command line using the `--memprofilerate` flag.
+입력으로 받은 파일에 메모리 사용량 프로파일을 작성합니다.  프로파일링 속도는 이 API로 설정할 수 없으며, 커맨드라인에서 `--memprofilerate` 플래그를 사용하여 설정해야 합니다.
 
 | 클라이언트 | 메서드 호출                                                    |
 |:-----:| --------------------------------------------------------- |
