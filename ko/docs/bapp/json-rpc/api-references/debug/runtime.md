@@ -1,4 +1,4 @@
-# Runtime Debugging <a id="runtime-debugging"></a>
+# 런타임 디버깅 <a id="runtime-debugging"></a>
 
 ## debug_freeOSMemory <a id="debug_freeosmemory"></a>
 
@@ -46,7 +46,7 @@ GC 통계를 반환합니다.
 
 **리턴값**
 
-See [https://golang.org/pkg/runtime/debug/#GCStats](https://golang.org/pkg/runtime/debug/#GCStats) for information about the fields of the returned object.
+반환되는 객체의 각 필드에 관한 내용은 [https://golang.org/pkg/runtime/debug/#GCStats](https://golang.org/pkg/runtime/debug/#GCStats)를 참고해주세요.
 
 **예시**
 
@@ -84,7 +84,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **리턴값**
 
-See [https://golang.org/pkg/runtime/#MemStats](https://golang.org/pkg/runtime/#MemStats) for information about the fields of the returned object.
+반환되는 객체의 각 필드에 관한 내용은 [https://golang.org/pkg/runtime/#MemStats](https://golang.org/pkg/runtime/#MemStats)를 참고해주세요.
 
 **예시**
 
@@ -220,7 +220,7 @@ GC 비율을 설정합니다. 이전 설정값을 반환합니다. 음수로 설
 | -- | ----------------- |
 | 정수 | 이전에 설정된 GC 비율입니다. |
 
-**Example** Console
+**예제** 콘솔
 ```javascript
 > debug.setGCPercent(50)
 100
