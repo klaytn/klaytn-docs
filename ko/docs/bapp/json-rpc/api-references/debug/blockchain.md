@@ -102,7 +102,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_getModifiedAccountsByHash <a id="debug_getmodifiedaccountsbyhash"></a>
 
-블록 해시를 통해 규명되는 두 블록 사이의 변경된 모든 계정을 반환합니다. `endBlockHash`에서 변경한 사항은 포함되지만 `startBlockHash`에서 변경한 사항은 포함되지 않습니다. `endBlockHash`가 주어지지 않으면, 이 함수는 `startBlockHash`에서 변경된 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
+블록 해시로 명시된 두 블록 사이에서 변경된 모든 계정을 반환합니다. `endBlockHash`에서 변경한 사항은 포함되지만 `startBlockHash`에서 변경한 사항은 포함되지 않습니다. `endBlockHash`가 주어지지 않으면, 이 함수는 `startBlockHash`에서 변경된 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
 
 
 | 클라이언트 | 메서드 호출                                                                                      |
@@ -112,10 +112,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 명칭             | 형식            | 설명                      |
-| -------------- | ------------- | ----------------------- |
-| startBlockHash | 32바이트 크기 DATA | 확인할 범위의 첫 번째 블록 해시.     |
-| endBlockHash   | 32바이트 크기 DATA | (선택 사항) 범위 내 마지막 블록 해시. |
+| 명칭             | 형식            | 설명                         |
+| -------------- | ------------- | -------------------------- |
+| startBlockHash | 32바이트 크기 DATA | 확인할 범위의 첫 번째 블록 해시입니다.     |
+| endBlockHash   | 32바이트 크기 DATA | (선택 사항) 범위 내 마지막 블록 해시입니다. |
 
 **리턴값**
 
@@ -142,7 +142,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 ## debug_getModifiedAccountsByNumber <a id="debug_getmodifiedaccountsbynumber"></a>
 
-블록 번호를 통해 규명되는 두 블록 사이의 변경된 모든 계정을 반환합니다. `endBlockNum`에서 변경한 사항은 포함되지만 `startBlockNum`에서 변경한 사항은 포함되지 않습니다. `endBlockNum`이 주어지지 않으면, 이 함수는 `startBlockNum`에서 변경된 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
+블록 번호로 명시된 두 블록 사이에서 변경된 모든 계정을 반환합니다. `endBlockNum`에서 변경한 사항은 포함되지만 `startBlockNum`에서 변경한 사항은 포함되지 않습니다. `endBlockNum`이 주어지지 않으면, 이 함수는 `startBlockNum`에서 변경된 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
 
 
 | 클라이언트 | 메서드 호출                                                                                    |
@@ -152,10 +152,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 **매개변수**
 
-| 명칭            | 형식  | 설명                      |
-| ------------- | --- | ----------------------- |
-| startBlockNum | int | 확인할 범위의 첫 번째 블록 넘버.     |
-| endBlockNum   | int | (선택 사항) 범위 내 마지막 블록 해시. |
+| 명칭            | 형식  | 설명                         |
+| ------------- | --- | -------------------------- |
+| startBlockNum | int | 확인할 범위의 첫 번째 블록 번호입니다.     |
+| endBlockNum   | int | (선택 사항) 범위 내 마지막 블록 번호입니다. |
 
 **리턴값**
 
@@ -334,9 +334,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 형식            | 설명      |
-| ------------- | ------- |
-| 20바이트 크기 DATA | 컨트랙트 주소 |
+| 형식            | 설명          |
+| ------------- | ----------- |
+| 20바이트 크기 DATA | 컨트랙트 주소입니다. |
 
 **리턴값**
 
@@ -374,9 +374,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **리턴값**
 
-| 형식 | 설명                             |
-| -- | ------------------------------ |
-| 에러 | 채우기가 중단된 경우 `null`, 그렇지 않으면 에러 |
+| 형식 | 설명                                     |
+| -- | -------------------------------------- |
+| 에러 | 채우기가 중단된 경우 `null`, 그렇지 않으면 에러를 반환합니다. |
 
 **예시**
 
