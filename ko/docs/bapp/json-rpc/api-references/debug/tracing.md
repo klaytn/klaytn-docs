@@ -1,8 +1,8 @@
-# VM Tracing <a id="vm-tracing"></a>
+# VM 추적 <a id="vm-tracing"></a>
 
 ## debug_traceBadBlock <a id="debug_tracebadblock"></a>
 
-The `traceBadBlock` method will return a full stack trace of all invoked opcodes of all transactions that were included in this block.
+`traceBadBlock` 메서드는 블록에 포함된 모든 트랜잭션에 대해서 모든 호출된 Opcode의 풀 스택 추적을 반환합니다.
 
 **참고**: 이 블록의 이전 블록이 존재해야 합니다. 존재하지 않으면 실패합니다.
 
@@ -13,10 +13,10 @@ The `traceBadBlock` method will return a full stack trace of all invoked opcodes
 
 **매개변수**
 
-| 명칭      | 형식            | 설명                                       |
-| ------- | ------------- | ---------------------------------------- |
-| 해시      | 32바이트 크기 DATA | 블록의 해시입니다.                               |
-| options | object        | See [tracing options](#tracing-options). |
+| 명칭      | 형식            | 설명                                |
+| ------- | ------------- | --------------------------------- |
+| 해시      | 32바이트 크기 DATA | 블록의 해시입니다.                        |
+| options | object        | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -57,7 +57,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlock <a id="debug_traceblock"></a>
 
-The `traceBlock` method will return a full stack trace of all invoked opcodes of all transactions that were included in this block.
+`traceBlock` 메서드는 블록에 포함된 모든 트랜잭션에 대해서 모든 호출된 Opcode의 풀 스택 추적을 반환합니다.
 
 **참고**: 이 블록의 이전 블록이 존재해야 합니다. 존재하지 않으면 실패합니다.
 
@@ -70,10 +70,10 @@ The `traceBlock` method will return a full stack trace of all invoked opcodes of
 
 **매개변수**
 
-| 명칭       | 형식     | 설명                                       |
-| -------- | ------ | ---------------------------------------- |
-| blockRlp | 문자열    | RLP 인코딩된 블록입니다.                          |
-| options  | object | See [tracing options](#tracing-options). |
+| 명칭       | 형식     | 설명                                |
+| -------- | ------ | --------------------------------- |
+| blockRlp | 문자열    | RLP 인코딩된 블록입니다.                   |
+| options  | object | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -105,7 +105,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 
 ## debug_traceBlockByHash <a id="debug_traceblockbyhash"></a>
-Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByHash` accepts a block hash and will replay the block that is already present in the database.
+[debug_traceBlock](#debug_traceblock)과 유사하게 `traceBlockByHash`는 블록 해시를 받아 데이터베이스에 존재하는 해당 블록을 재실행합니다.
 
 | 클라이언트 | 메서드 호출                                                       |
 |:-----:| ------------------------------------------------------------ |
@@ -114,10 +114,10 @@ Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByHash` accepts a b
 
 **매개변수**
 
-| 명칭      | 형식            | 설명                                       |
-| ------- | ------------- | ---------------------------------------- |
-| 해시      | 32바이트 크기 DATA | 블록의 해시입니다.                               |
-| options | object        | See [tracing options](#tracing-options). |
+| 명칭      | 형식            | 설명                                |
+| ------- | ------------- | --------------------------------- |
+| 해시      | 32바이트 크기 DATA | 블록의 해시입니다.                        |
+| options | object        | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -148,7 +148,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 
 ## debug_traceBlockByNumber <a id="debug_traceblockbynumber"></a>
-Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByNumber` accepts a block number and will replay the block that is already present in the database.
+[debug_traceBlock](#debug_traceblock)과 유사하게 `traceBlockByNumber`는 블록 번호를 받아 데이터베이스에 존재하는 해당 블록을 재실행합니다.
 
 | 클라이언트 | 메서드 호출                                                           |
 |:-----:| ---------------------------------------------------------------- |
@@ -157,10 +157,10 @@ Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByNumber` accepts a
 
 **매개변수**
 
-| 명칭      | 형식     | 설명                                       |
-| ------- | ------ | ---------------------------------------- |
-| number  | int    | 블록 번호입니다.                                |
-| options | object | See [tracing options](#tracing-options). |
+| 명칭      | 형식     | 설명                                |
+| ------- | ------ | --------------------------------- |
+| number  | int    | 블록 번호입니다.                         |
+| options | object | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -193,7 +193,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlockFromFile <a id="debug_traceblockfromfile"></a>
 
-Similar to [debug_traceBlock](#debug_traceblock), `traceBlockFromFile` accepts a file containing the RLP of the block.
+[debug_traceBlock](#debug_traceblock)와 유사하게 `traceBlockFromFile`은 블록의 RLP를 담고 있는 파일을 입력으로 받습니다.
 
 **참고**: 해당 파일은 `0x`를 제거한 16진수 문자열을 담고 있어야 합니다.
 
@@ -206,10 +206,10 @@ Similar to [debug_traceBlock](#debug_traceblock), `traceBlockFromFile` accepts a
 
 **매개변수**
 
-| 명칭       | 형식     | 설명                                       |
-| -------- | ------ | ---------------------------------------- |
-| fileName | 문자열    | 블록의 RLP를 담고 있는 파일의 이름입니다.                |
-| options  | object | See [tracing options](#tracing-options). |
+| 명칭       | 형식     | 설명                                |
+| -------- | ------ | --------------------------------- |
+| fileName | 문자열    | 블록의 RLP를 담고 있는 파일의 이름입니다.         |
+| options  | object | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -248,7 +248,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceTransaction <a id="debug_tracetransaction"></a>
 
-The `traceTransaction` debugging method will attempt to run the transaction in the exact same manner as it was executed on the network. It will replay any transaction that may have been executed prior to this one before it will finally attempt to execute the transaction that corresponds to the given hash.
+`traceTransaction` 디버깅 메서드는 네트워크에서 실행되었던 그대로 트랜잭션을 실행합니다. 입력으로 받은 트랜잭션 해시에 대응되는 트랜잭션을 실행하기 전에 이전에 실행되었을 수 있는 모든 트랜잭션들을 재실행합니다.
 
 | 클라이언트 | 메서드 호출                                                         |
 |:-----:| -------------------------------------------------------------- |
@@ -257,10 +257,10 @@ The `traceTransaction` debugging method will attempt to run the transaction in t
 
 **매개변수**
 
-| 명칭      | 형식     | 설명                                       |
-| ------- | ------ | ---------------------------------------- |
-| txHash  | 문자열    | 트랜잭션의 해시입니다.                             |
-| options | object | See [tracing options](#tracing-options). |
+| 명칭      | 형식     | 설명                                |
+| ------- | ------ | --------------------------------- |
+| txHash  | 문자열    | 트랜잭션의 해시입니다.                      |
+| options | object | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -353,24 +353,24 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## 추적 옵션 <a id="tracing-options"></a>
 
-You may give trace API function a secondary optional argument, which specifies the options for this specific call. 다음의 옵션들을 사용할 수 있습니다.
+추적 API 함수에 보조적으로 필수적이지 않은 매개변수를 전달할 수도 있습니다. 이들은 특정 호출을 지정하는 옵션 역할을 합니다. 다음의 옵션들을 사용할 수 있습니다.
 
-- `disableStorage`: `BOOL`. Setting this to true will disable storage capture (default = false).
-- `disableMemory`: `BOOL`. Setting this to true will disable memory capture (default = false).
-- `disableStack`: `BOOL`. Setting this to true will disable stack capture (default = false).
+- `disableStorage`: `BOOL`. 이 옵션을 true로 설정하면 스토리지 캡처가 비활성화됩니다.(기본 설정: false)
+- `disableMemory`: `BOOL`. 이 옵션을 true로 설정하면 메모리 캡처가 비활성화됩니다.(기본 설정: false)
+- `disableStack`: `BOOL`. 이 옵션을 true로 설정하면 스택 캡처가 비활성화됩니다.(기본 설정: false)
 - `timeout`: `STRING`. 자바스크립트 기반 추적 호출 타임아웃으로 기본 설정된 5초를 변경합니다. 유효한 값은 [여기](https://golang.org/pkg/time/#ParseDuration)를 참고해주세요.
-- `tracer`: `STRING`. Setting this will enable JavaScript-based transaction tracing, described in the [next section](#javascript-based-tracing). 이 옵션을 설정하면 앞선 4개의 매개변수는 모두 무시됩니다. 다음 표와 같이 사전 정의된 추적 툴을 사용할 수도 있습니다.
+- `tracer`: `STRING`. 이 옵션을 설정하면 자바스크립트 기반 트랜잭션 추적을 활성화합니다. 자세한 내용은 [다음 장](#javascript-based-tracing)을 참고해주세요. 이 옵션을 설정하면 앞선 4개의 매개변수는 모두 무시됩니다. 다음 표와 같이 사전 정의된 추적 툴을 사용할 수도 있습니다.
 
-| 추적 툴 이름        | 설명                                                                                                                                                                                                                                                               |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 4byteTracer    | 4byteTracer는 4바이트 식별자를 검색하여 사후 처리를 위해 수집합니다. 제공된 데이터의 크기와 함께 메서드 식별자를 수집하므로 역으로 된 서명을 데이터 크기에 대응시킬 수도 있습니다.                                                                                                                                                      |
-| callTracer     | callTracer는 트랜잭션에서 생성된 내부 호출과 기타 유용한 정보들을 추출하고 보고하는 모든 기능을 갖춘 트랜잭션 추적 툴입니다.                                                                                                                                                                                      |
-| fastCallTracer | fastCallTracer is a Go-native version of callTracer. Since it is not executed on Javascript VM, it shows more than 10x speedup compared to callTracer. Please use fastCallTracer instead of callTracer if the performance is the matter of the first importance. |
-| evmdisTracer   | evmdisTracer returns sufficient information from a trace to perform evmdis-style disassembly.                                                                                                                                                                    |
-| noopTracer     | noopTracer is just the barebone boilerplate code required from a JavaScript object to be usable as a transaction tracer.                                                                                                                                         |
-| opcountTracer  | opcountTracer is a sample tracer that just counts the number of instructions executed by the KLVM before the transaction terminated.                                                                                                                             |
-| prestateTracer | prestateTracer outputs sufficient information to create a local execution of the transaction from a custom assembled genesis block.                                                                                                                              |
-| revertTracer   | revertTracer outputs the error string of REVERT. If the execution is not reverted, it outputs an empty string.                                                                                                                                                   |
+| 추적 툴 이름        | 설명                                                                                                                                                           |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 4byteTracer    | 4byteTracer는 4바이트 식별자를 검색하여 사후 처리를 위해 수집합니다. 제공된 데이터의 크기와 함께 메서드 식별자를 수집하므로 역으로 된 서명을 데이터 크기에 대응시킬 수도 있습니다.                                                  |
+| callTracer     | callTracer는 트랜잭션에서 생성된 내부 호출과 기타 유용한 정보들을 추출하고 보고하는 모든 기능을 갖춘 트랜잭션 추적 툴입니다.                                                                                  |
+| fastCallTracer | fallCallTracer는 callTracer의 go네이티브 버전입니다. Javascript VM에서는 실행되지 않기 때문에 callTracer에 비해 10배 성능 향상을 보입니다. 만약 성능이 최우선시될 경우 callTracer 대신 fastCallTracer를 사용해주세요. |
+| evmdisTracer   | evmdisTracer는 evmdis 형식의 디스어셈블리를 실행하기에 충분한 정보를 반환합니다.                                                                                                        |
+| noopTracer     | noopTracer는 자바스크립트 객체에서 트랜잭션 추적 시 사용하기 위해 필요한 기본 상용구 코드입니다.                                                                                                  |
+| opcountTracer  | opcountTracer는 트랜잭션이 종료되기 전에 KLVM이 실행한 연산 수를 세는 샘플 추적 툴입니다.                                                                                                  |
+| prestateTracer | prestateTracer는 맞춤 조립된 제네시스 블록으로부터 트랜잭션 로컬 실행을 생성하기에 충분한 정보를 출력합니다.                                                                                          |
+| revertTracer   | revertTracer는 REVERT의 오류 문자열을 출력합니다. 실행이 번복되지 않으면 빈 문자열을 출력합니다.                                                                                              |
 
 
 **예시**
@@ -404,9 +404,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 
 ## 자바스크립트 기반 추적 <a id="javascript-based-tracing"></a>
-Specifying the `tracer` option in the second argument enables JavaScript-based tracing. In this mode, `tracer` is interpreted as a JavaScript expression that is expected to evaluate to an object with (at least) two methods, named `step` and `result`.
+`tracer` 옵션의 두 번째 매개변수를 지정하여 자바스크립트 기반 추적을 활성화합니다. 이 모드에서 `tracer`는(최소한) `step`과 `result` 등 두 메서드가 있는 객체라고 생각되는 자바스크립트 표현 식으로 해석(interpret)됩니다.
 
-`step` is a function that takes two arguments, `log` and `db`, and is called for each step of the KLVM, or when an error occurs, as the specified transaction is traced.
+`step`은 `log`와 `db`를 두 매개변수로 받는 함수이고, KLVM의 트랜잭션을 추적하는 스텝마다 또는 오류가 발생할 때 호출됩니다.
 
 `log`는 다음의 필드를 갖고 있습니다.
 
@@ -424,7 +424,7 @@ Specifying the `tracer` option in the second argument enables JavaScript-based t
 
 `err` 필드가 null이 아니면 다른 모든 필드의 정보는 무시되어야 합니다.
 
-For efficiency, the same `log` object is reused on each execution step, updated with current values; make sure to copy values you want to preserve beyond the current call. 예를 들어 아래와 같은 함수는 작동하지 않습니다.
+효율성을 위해 현재 값으로 업데이트한 뒤 동일한 `log` 객체를 각 실행 단계에서 재사용합니다. 따라서 현재 호출 이후에도 보존하려는 값은 복사해놓아야 합니다. 예를 들어 아래와 같은 함수는 작동하지 않습니다.
 
 ```javascript
 function(log) {
@@ -457,10 +457,10 @@ function(log) {
 
 `log.stack`는 다음의 메서드를 갖고 있습니다.
 
-| 메서드 이름      | 설명                                                                                              |
-| ----------- | ----------------------------------------------------------------------------------------------- |
-| `peek(idx)` | Returns the idx-th element from the top of the stack (0 is the topmost element) as a `big.Int`. |
-| `length()`  | 스택에 있는 요소의 수를 반환합니다.                                                                            |
+| 메서드 이름      | 설명                                                             |
+| ----------- | -------------------------------------------------------------- |
+| `peek(idx)` | idx번째 요소를 스택의 맨 위에서 가져와 `big.Int`로 반환합니다. (0이 가장 위에 있는 요소입니다.) |
+| `length()`  | 스택에 있는 요소의 수를 반환합니다.                                           |
 
 `db`는 다음의 메서드를 갖고 있습니다.
 
@@ -472,13 +472,13 @@ function(log) {
 | `getState(address, hash)` | 입력으로 받은 계정과 해시의 상태 값을 반환합니다.      |
 | `exists(address)`         | 입력으로 받은 계정이 존재하면 true를 반환합니다.     |
 
-The second function, `result`, takes no arguments, and is expected to return a JSON-serializable value to return to the RPC caller.
+두 번째 함수 `result`는 받는 매개변수가 없고, JSON 직렬화 값을 RPC 호출자에게 반환합니다.
 
-If the `step` function throws an exception or executes an illegal operation at any point, it will not be called on any further VM steps, and the error will be returned to the caller.
+언제라도 `step` 함수가 예외를 발생시키거나 잘못된 연산을 수행하면, 더는 VM 스텝에서 호출되지 않고 호출자에게는 에러가 반환됩니다.
 
-Note that several values are Golang `big.Int` objects, not JavaScript numbers or JS bigints. As such, they have the same interface as described in the godocs. Their default serialization to JSON is as a Javascript number; to serialize large numbers accurately call `.String()` on them. For convenience, `big.NewInt(x)` is provided, and will convert a uint to a Golang `big.Int`.
+몇몇 값은 자바스크립트 number나 JS bigints가 아니라 Go언어의 `big.Int` 객체입니다. 따라서 그러한 값들은 godocs에서 설명된 것과 같이 동일한 인터페이스를 갖습니다. 기본적인 JSON으로의 직렬화는 자바스크립트 number로 진행되므로 큰 숫자를 정확하게 직렬화하려면 `.String()`을 호출해야 합니다. 편의를 위해 `big.NewInt(x)`가 제공되어 uint를 Go언어의 `big.Int`로 변환합니다.
 
-As an usage example below, it returns the top element of the stack at each CALL opcode only:
+사용 예제는 아래와 같으며, 각 CALL Opcode에서만 스택의 가장 위에 있는 요소를 반환합니다.
 
 ```javascript
 debug.traceTransaction(txhash, {tracer: '{data: [], step: function(log) { if(log.op.toString() == "CALL") this.data.push(log.stack.peek(0)); }, result: function() { return this.data; }}'});
