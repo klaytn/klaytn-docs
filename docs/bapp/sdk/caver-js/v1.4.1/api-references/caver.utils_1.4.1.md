@@ -47,7 +47,7 @@ The [randomHex](https://github.com/frozeman/randomHex) library to generate crypt
 ```
 
 
-## _ <a id="_"></a>
+## \_ <a id="\_"></a>
 
 ```javascript
 caver.utils._()
