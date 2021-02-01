@@ -4,10 +4,10 @@
 
 **매개변수**
 
-| 명칭          | 형식                  | 설명                                                                                                                                          |
-| ----------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| callObject  | Object              | 트랜잭션 호출 객체입니다.  객체 속성은 다음의 표를 참고해주세요.                                                                                                       |
-| blockNumber | QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
+| 명칭          | 형식                  | 설명                                                                                                                 |
+| ----------- | ------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| callObject  | Object              | 트랜잭션 호출 객체입니다.  객체 속성은 다음의 표를 참고해주세요.                                                                              |
+| blockNumber | QUANTITY &#124; TAG | `"earliest"`, `"latest"` 같은 문자열이나 정수 형태의 블록 번호를 의미하며, [기본 블록 매개변수](./block.md#the-default-block-parameter)에 해당합니다. |
 
 `callObject`에는 다음의 속성이 있습니다.
 
@@ -166,10 +166,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 형식                  | 설명                                                                                                                                          |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
-| QUANTITY            | The transaction index position.                                                                                                             |
+| 형식                  | 설명                                                                                                                 |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| QUANTITY &#124; TAG | `"earliest"`, `"latest"` 같은 문자열이나 정수 형태의 블록 번호를 의미하며, [기본 블록 매개변수](./block.md#the-default-block-parameter)에 해당합니다. |
+| QUANTITY            | The transaction index position.                                                                                    |
 
 **리턴값**
 
