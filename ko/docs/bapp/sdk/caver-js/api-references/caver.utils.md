@@ -45,7 +45,7 @@ caver.utils.randomHex(size)
 '0x'
 ```
 
-## _ <a id="_"></a>
+## \_ <a id="\_"></a>
 
 ```javascript
 caver.utils._()
