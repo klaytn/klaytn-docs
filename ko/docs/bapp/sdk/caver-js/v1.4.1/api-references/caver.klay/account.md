@@ -63,7 +63,7 @@ false
 caver.klay.getAccount(address[, defaultBlock] [, callback])
 ```
 
-입력으로 받은 주소의 계정 정보를 반환합니다. There are two different account types in Klaytn: Externally Owned Account (EOA) and Smart Contract Account. 자세한 내용은  [Klaytn 계정](../../../../../../klaytn/design/accounts.md#klaytn-accounts)을 참고해주세요.
+입력으로 받은 주소의 계정 정보를 반환합니다. Klaytn에는 스마트 컨트랙트 계정과 외부 소유 계정(EOA)이 있습니다. 자세한 내용은  [Klaytn 계정](../../../../../../klaytn/design/accounts.md#klaytn-accounts)을 참고해주세요.
 
 **참고** getAccount는 계정이 네트워크에 있는 경우에만 계정을 반환하므로 키 쌍이 생성 되었다 하더라도 주소와 일치하는 계정이 실제 블록체인 네트워크에 존재하지 않으면 null이 반환됩니다.
 
