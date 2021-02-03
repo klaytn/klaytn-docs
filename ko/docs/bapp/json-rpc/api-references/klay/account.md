@@ -61,7 +61,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_encodeAccountKey <a id="klay_encodeaccountkey"></a>
 
-Encodes an account key using the Recursive Length Prefix (RLP) encoding scheme.
+RLP (Recursive Length Prefix)를 사용해 계정 키를 인코딩합니다.
 
 **매개변수**
 
@@ -220,7 +220,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## klay_getAccount <a id="klay_getaccount"></a>
 
-입력으로 받은 주소의 계정 정보를 반환합니다. There are two different account types in Klaytn: Externally Owned Account (EOA) and Smart Contract Account. 자세한 내용은  [Klaytn 계정](../../../../klaytn/design/accounts.md#klaytn-accounts)을 참고해주세요.
+입력으로 받은 주소의 계정 정보를 반환합니다. Klaytn에는 스마트 컨트랙트 계정과 외부 소유 계정(EOA)이 있습니다. 자세한 내용은  [Klaytn 계정](../../../../klaytn/design/accounts.md#klaytn-accounts)을 참고해주세요.
 
 **매개변수**
 
@@ -291,7 +291,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getAccountKey <a id="klay_getaccountkey"></a>
 
-Returns the account key of the Externally Owned Account (EOA) of a given address. 해당 계정의 키가 AccountKeyLegacy이거나 입력으로 받은 주소의 계정이 스마트 컨트랙트 계정이면 빈 값을 반환합니다. 자세한 내용은 [계정 키](../../../../klaytn/design/accounts.md#account-key)를 참고해주세요.
+입력된 주소의 외부 소유 계정(EOA)에 해당하는 계정의 키를 반환합니다. 해당 계정의 키가 AccountKeyLegacy이거나 입력으로 받은 주소의 계정이 스마트 컨트랙트 계정이면 빈 값을 반환합니다. 자세한 내용은 [계정 키](../../../../klaytn/design/accounts.md#account-key)를 참고해주세요.
 
 **매개변수**
 
@@ -302,9 +302,9 @@ Returns the account key of the Externally Owned Account (EOA) of a given address
 
 **리턴값**
 
-| 형식         | 설명                                                       |
-| ---------- | -------------------------------------------------------- |
-| AccountKey | The account key consist of public key(s) and a key type. |
+| 형식         | 설명                                   |
+| ---------- | ------------------------------------ |
+| AccountKey | 계정 키는 1개 이상의 공개 키와 1가지 키 타입으로 구성됩니다. |
 
 **예시**
 
@@ -438,7 +438,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionCount <a id="klay_gettransactioncount"></a>
 
-Returns the number of transactions *sent* from an address.
+어떤 주소의 계정에서 *전송한* 트랜잭션 개수를 반환합니다.
 
 **매개변수**
 
