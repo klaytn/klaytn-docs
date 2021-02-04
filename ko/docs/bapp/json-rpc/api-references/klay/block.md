@@ -1,6 +1,6 @@
 ## 기본 블록 매개변수 <a id="the-default-block-parameter"></a>
 
-When requests are made that act on the state of Klaytn, the last default block parameter determines the height of the block.
+Klaytn 상태 상에서 어떤 행위에 대한 요청이 있을 때 마지막의 기본 블록 매개변수가 블록의 번호를 결정합니다.
 
 다음 옵션들은 `defaultBlock` 매개변수를 통해 설정할 수 있습니다.
 
@@ -44,10 +44,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 형식                  | 설명                                                                                                                                |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](#the-default-block-parameter). |
-| Boolean             | `true`이면 트랜잭션 객체 전체를 반환하고, `false`이면 트랜잭션의 해시만을 반환합니다.                                                                            |
+| 형식                  | 설명                                                                                                                   |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | 정수 형태의 블록 번호나 [default block parameter](#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다. |
+| Boolean             | `true`이면 트랜잭션 객체 전체를 반환하고, `false`이면 트랜잭션의 해시만을 반환합니다.                                                               |
 
 **리턴값**
 
@@ -104,7 +104,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **리턴값**
 
-`Object` - A block object, or `error` when no block was found:
+`객체` - 블록 객체로 반환하거나 또는 블록이 없는 경우 `error`로 반환합니다.
 
 | 명칭               | 형식             | 설명                                                         |
 | ---------------- | -------------- | ---------------------------------------------------------- |
@@ -172,11 +172,11 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 **매개변수**
 | 형식            | 설명         |
 | ------------- | ---------- |
-| 32바이트 크기 DATA | Block hash |
+| 32바이트 크기 DATA | 블록의 해시입니다. |
 
 **리턴값**
 
-해당 블록에 포함된 영수증을 반환합니다.  If the target block contains no transaction, an empty array `[]` is returned.
+해당 블록에 포함된 영수증을 반환합니다.  조회하고자 하는 블록이 트랜잭션을 포함하지 않으면 빈 배열 `[]`이 반환됩니다.
 
 **예시**
 
@@ -228,15 +228,15 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 형식                  | 설명                                                                                                                                        |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| 형식                  | 설명                                                                                                                           |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | 정수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다. |
 
 **리턴값**
 
-| 형식       | 설명                                                   |
-| -------- | ---------------------------------------------------- |
-| QUANTITY | Integer of the number of transactions in this block. |
+| 형식       | 설명                        |
+| -------- | ------------------------- |
+| QUANTITY | 이 블록에 담긴 트랜잭션의 개수를 정수입니다. |
 
 **예시**
 
@@ -259,15 +259,15 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 형식            | 설명              |
-| ------------- | --------------- |
-| 32바이트 크기 DATA | Hash of a block |
+| 형식            | 설명         |
+| ------------- | ---------- |
+| 32바이트 크기 DATA | 블록의 해시입니다. |
 
 **리턴값**
 
-| 형식       | 설명                                                   |
-| -------- | ---------------------------------------------------- |
-| QUANTITY | Integer of the number of transactions in this block. |
+| 형식       | 설명                        |
+| -------- | ------------------------- |
+| QUANTITY | 이 블록에 담긴 트랜잭션의 개수를 정수입니다. |
 
 **예시**
 
@@ -296,7 +296,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **리턴값**
 
-`Object` - A block object with consensus information (a proposer and a list of committee members), or `error` when no block was found:
+`객체` - 합의에 대한 정보(제안자와 위원회 멤버의 목록)를 포함한 블록 객체를 반환하거나 또는 블록이 없는 경우 `error`을 반환합니다.
 
 | 명칭               | 형식            | 설명                                                                       |
 | ---------------- | ------------- | ------------------------------------------------------------------------ |
@@ -394,13 +394,13 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 형식                  | 설명                                                                                                                                        |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| 형식                  | 설명                                                                                                                           |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | 정수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다. |
 
 **리턴값**
 
-`Object` - A block object with consensus information (a proposer and a list of committee members), or `error` when no block was found:
+`객체` - 합의에 대한 정보(제안자와 위원회 멤버의 목록)를 포함한 블록 객체를 반환하거나 또는 블록이 없는 경우 `error`을 반환합니다.
 
 | 명칭               | 형식            | 설명                                                                       |
 | ---------------- | ------------- | ------------------------------------------------------------------------ |
@@ -497,17 +497,17 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 명칭                   | 형식 | 설명                                                                                                                                                   |
-| -------------------- | -- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY  &#124; TAG | 정수 | (optional) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| 명칭                   | 형식 | 설명                                                                                                                                   |
+| -------------------- | -- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| QUANTITY  &#124; TAG | 정수 | (선택 사항) 정수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다. |
 
 **리턴값**
 
 `배열` - 위원회에 속한 검증자들의 주소를 배열로 반환하거나 또는 위원회를 찾을 수 없는 경우 `null`을 반환합니다.
 
-| 형식                    | 설명                                            |
-| --------------------- | --------------------------------------------- |
-| Array of 20-byte DATA | Addresses of all validators in the committee. |
+| 형식                    | 설명                    |
+| --------------------- | --------------------- |
+| Array of 20-byte DATA | 위원회에 속한 모든 검증자의 주소입니다 |
 
 **예시**
 
@@ -532,17 +532,17 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 명칭                   | 형식 | 설명                                                                                                                                                   |
-| -------------------- | -- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY  &#124; TAG | 정수 | (optional) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| 명칭                   | 형식 | 설명                                                                                                                                   |
+| -------------------- | -- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| QUANTITY  &#124; TAG | 정수 | (선택 사항) 정수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다. |
 
 **리턴값**
 
 `정수` - 위원회의 구성원 수를 반환하거나 또는 위원회를 찾을 수 없는 경우 `-1`을 반환합니다.
 
-| 형식       | 설명                      |
-| -------- | ----------------------- |
-| QUANTITY | The size of the council |
+| 형식       | 설명             |
+| -------- | -------------- |
+| QUANTITY | 위원회의 구성원 수입니다. |
 
 **예시**
 
@@ -565,17 +565,17 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 명칭                   | 형식 | 설명                                                                                                                                                   |
-| -------------------- | -- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY  &#124; TAG | 정수 | (optional) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| 명칭                   | 형식 | 설명                                                                                                                                   |
+| -------------------- | -- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| QUANTITY  &#124; TAG | 정수 | (선택 사항) 정수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다. |
 
 **리턴값**
 
 `배열` - council에 속한 검증자들의 주소를 배열로 반환하거나 또는 council을 찾을 수 없는 경우 `null`을 반환합니다.
 
-| 형식                    | 설명                                          |
-| --------------------- | ------------------------------------------- |
-| Array of 20-byte DATA | Addresses of all validators of the council. |
+| 형식                    | 설명                     |
+| --------------------- | ---------------------- |
+| Array of 20-byte DATA | 위원회에 속한 모든 검증자의 주소입니다. |
 
 **예시**
 
@@ -600,17 +600,17 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 명칭                   | 형식 | 설명                                                                                                                                                   |
-| -------------------- | -- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY  &#124; TAG | 정수 | (optional) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| 명칭                   | 형식 | 설명                                                                                                                                   |
+| -------------------- | -- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| QUANTITY  &#124; TAG | 정수 | (선택 사항) 정수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다. |
 
 **리턴값**
 
 `정수` - council의 구성원 수를 반환하거나 또는 council을 찾을 수 없는 경우 `-1`을 반환합니다.
 
-| 형식       | 설명                      |
-| -------- | ----------------------- |
-| QUANTITY | The size of the council |
+| 형식       | 설명             |
+| -------- | -------------- |
+| QUANTITY | 위원회의 구성원 수입니다. |
 
 **예시**
 
@@ -632,11 +632,11 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 형식                  | 설명                                                                                                                                        |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA       | Address of the storage.                                                                                                                   |
-| QUANTITY            | Integer of the position in the storage.                                                                                                   |
-| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| 형식                  | 설명                                                                                                                           |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| 20바이트 크기 DATA       | 스토리지의 주소입니다.                                                                                                                 |
+| QUANTITY            | 스토리지의 위치의 정수 형태입니다.                                                                                                          |
+| QUANTITY &#124; TAG | 정수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다. |
 
  **리턴값**
 
@@ -696,7 +696,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "kl
 
 클라이언트가 새로운 블록을 채굴하고 있으면 `true`를 반환합니다.
 
-**참고**: 현재는 트랜잭션을 재전송하기 위해 모든 노드가 기본적으로 채굴 모드입니다. Please note that actual "mining" process is only done by Consensus Nodes (CNs).
+**참고**: 현재는 트랜잭션을 재전송하기 위해 모든 노드가 기본적으로 채굴 모드입니다. 실질적인 "채굴" 과정은 컨센서스 노드(CN)만이 하고 있음을 참고해주시기 바랍니다.
 
 **매개변수**
 
@@ -704,9 +704,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "kl
 
 **리턴값**
 
-| 형식      | 설명                                                 |
-| ------- | -------------------------------------------------- |
-| Boolean | `true` if the client is mining, otherwise `false`. |
+| 형식      | 설명                                                  |
+| ------- | --------------------------------------------------- |
+| Boolean | 클라이언트가 채굴 중이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -735,13 +735,13 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 `Object|Boolean`, 동기화 상태에 대한 데이터 객체를 반환하거나 또는 동기화하고 있지 않으면 `false` 를 반환합니다.
 
-| 명칭            | 형식       | 설명                                                                                                                 |
-| ------------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
-| startingBlock | QUANTITY | The block at which the import started (will only be reset, after the sync reached his head).                       |
-| currentBlock  | QUANTITY | The current block, same as `klay_blockNumber`.                                                                     |
-| highestBlock  | QUANTITY | The estimated highest block.                                                                                       |
-| pulledStates  | QUANTITY | The number of state entries processed until now.  If the sync mode is not "fast", zero is returned.                |
-| knownStates   | QUANTITY | The number of known state entries that still need to be pulled.  If the sync mode is not "fast", zero is returned. |
+| 명칭            | 형식       | 설명                                                       |
+| ------------- | -------- | -------------------------------------------------------- |
+| startingBlock | QUANTITY | 가져오기 시작하는 블록입니다.(동기화가 완료되면 재설정됩니다.)                      |
+| currentBlock  | QUANTITY | 현재 블록 번호로 `klay_blockNumber`와 동일합니다.                     |
+| highestBlock  | QUANTITY | 예상되는 최신 블록 번호입니다.                                        |
+| pulledStates  | QUANTITY | 지금까지 처리된 상태 항목의 개수입니다.  동기화 모드가 "fast"가 아니면 0이 반환됩니다.    |
+| knownStates   | QUANTITY | 가져와야 하는 알려진 상태 항목의 개수입니다.  동기화 모드가 "fast"가 아니면 0이 반환됩니다. |
 
 **예시**
 
