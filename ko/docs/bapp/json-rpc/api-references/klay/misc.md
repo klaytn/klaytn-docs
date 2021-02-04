@@ -2,7 +2,7 @@
 
 ## klay_sha3 <a id="klay_sha3"></a>
 
-Returns Keccak-256 (not the standardized SHA3-256) of the given data.
+입력된 데이터의 Keccak-256(이 해시 함수는 표준 SHA3-256가 아닙니다) 해시를 반환합니다.
 
 **매개변수**
 
