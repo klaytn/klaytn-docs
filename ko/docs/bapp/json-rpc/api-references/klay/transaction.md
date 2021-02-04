@@ -4,21 +4,21 @@
 
 **매개변수**
 
-| 명칭          | 형식                  | 설명                                                                                                                 |
-| ----------- | ------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| callObject  | Object              | 트랜잭션 호출 객체입니다.  객체 속성은 다음의 표를 참고해주세요.                                                                              |
-| blockNumber | QUANTITY &#124; TAG | `"earliest"`, `"latest"` 같은 문자열이나 정수 형태의 블록 번호를 의미하며, [기본 블록 매개변수](./block.md#the-default-block-parameter)에 해당합니다. |
+| 명칭          | 형식                  | 설명                                                                                                                             |
+| ----------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| callObject  | Object              | 트랜잭션 호출 객체입니다.  객체 속성은 다음의 표를 참고해주세요.                                                                                          |
+| blockNumber | QUANTITY &#124; TAG | 정수 형태의 블록 번호나 [default block parameter](./block.md#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다. |
 
 `callObject`에는 다음의 속성이 있습니다.
 
-| 명칭       | 형식            | 설명                                                                                                   |
-| -------- | ------------- | ---------------------------------------------------------------------------------------------------- |
-| from     | 20바이트 크기 DATA | (선택사항) 트랜잭션을 발신한 주소입니다.                                                                              |
-| to       | 20바이트 크기 DATA | (optional when testing the deployment of a new contract) The address the transaction is directed to. |
-| gas      | QUANTITY      | (선택사항) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. `klay_call`은 가스를 소비하지 않지만 트랜잭션 실행 중 일부에서 이 매개변수가 필요할 수 있습니다.     |
-| gasPrice | QUANTITY      | (선택사항) 가스당 가격, 즉 gasPrice의 정숫값입니다.                                                                   |
-| value    | QUANTITY      | (선택사항) 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                |
-| data     | DATA          | (선택사항) 메서드 식별자와 인코딩된 매개변수들의 해시입니다.                                                                   |
+| 명칭       | 형식            | 설명                                                                                                |
+| -------- | ------------- | ------------------------------------------------------------------------------------------------- |
+| from     | 20바이트 크기 DATA | (선택 사항) 트랜잭션을 발신한 주소입니다.                                                                          |
+| to       | 20바이트 크기 DATA | (새 트랜잭션 배포 테스트 시 선택 사항) 트랜잭션을 수신하는 주소입니다.                                                         |
+| gas      | QUANTITY      | (선택 사항) 트랜잭션 실행을 위해 설정한 가스양의 정숫값입니다. `klay_call`은 가스를 소비하지 않지만 트랜잭션 실행 중 일부에서 이 매개변수가 필요할 수 있습니다. |
+| gasPrice | QUANTITY      | (선택 사항) 가스당 가격, 즉 gasPrice의 정숫값입니다.                                                               |
+| value    | QUANTITY      | (선택 사항) 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                            |
+| data     | DATA          | (선택 사항) 메서드 식별자와 인코딩된 매개변수들의 해시입니다.                                                               |
 
 **리턴값**
 
@@ -30,7 +30,7 @@
 
 **에러**
 
-It returns an error object of JSON RPC if anything goes wrong. For example, an error object with a message  "evm: execution reverted" will be generated if a message call is terminated with `REVERT` opcode.
+어떤 문제가 발생할 경우 JSON RPC의 에러 객체를 반환합니다. 예를 들어, 어떤 메시지 호출이 `REVERT` Opcode로 종료되면 "evm: execution reverted"라는 메시지의 에러 객체가 생성됩니다.
 
 **예시**
 
@@ -54,20 +54,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 `callObject`에는 다음의 속성이 있습니다.
 
-| 명칭       | 형식            | 설명                                                                                                                                                                        |
-| -------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from     | 20바이트 크기 DATA | (선택사항) 트랜잭션을 발신한 주소입니다.                                                                                                                                                   |
-| to       | 20바이트 크기 DATA | (optional when testing the deployment of a new contract) The address the transaction is directed to.                                                                      |
-| gas      | QUANTITY      | (optional) Integer of the upper gas limit provided for the gas estimation. If no gas limit is specified, the Klaytn node uses the designated gas limit as an upper bound. |
-| gasPrice | QUANTITY      | (선택사항) 가스당 가격, 즉 gasPrice의 정숫값입니다.                                                                                                                                        |
-| value    | QUANTITY      | (선택사항) 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                                                                     |
-| data     | DATA          | (선택사항) 메서드 식별자와 인코딩된 매개변수들의 해시입니다.                                                                                                                                        |
+| 명칭       | 형식            | 설명                                                                                                                                |
+| -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| from     | 20바이트 크기 DATA | (선택 사항) 트랜잭션을 발신한 주소입니다.                                                                                                          |
+| to       | 20바이트 크기 DATA | (새 트랜잭션 배포 테스트 시 선택 사항) 트랜잭션을 수신하는 주소입니다.                                                                                         |
+| gas      | QUANTITY      | (optional) Integer of the upper gas limit provided for the gas estimation. 하지만 가스 한도를 지정하지 않으면, Klaytn 노드는 지정된 가스 한도를 상한으로 설정합니다. |
+| gasPrice | QUANTITY      | (선택 사항) 가스당 가격, 즉 gasPrice의 정숫값입니다.                                                                                               |
+| value    | QUANTITY      | (선택 사항) 트랜잭션을 통해 전송하고자 하는 송금액의 정숫값입니다.                                                                                            |
+| data     | DATA          | (선택 사항) 메서드 식별자와 인코딩된 매개변수들의 해시입니다.                                                                                               |
 
 **리턴값**
 
-| 형식       | 설명                      |
-| -------- | ----------------------- |
-| QUANTITY | The amount of gas used. |
+| 형식       | 설명          |
+| -------- | ----------- |
+| QUANTITY | 사용된 가스양입니다. |
 
 
 **예시**
@@ -114,10 +114,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 형식            | 설명                                         |
-| ------------- | ------------------------------------------ |
-| 32바이트 크기 DATA | 블록의 해시입니다.                                 |
-| QUANTITY      | Integer of the transaction index position. |
+| 형식            | 설명                    |
+| ------------- | --------------------- |
+| 32바이트 크기 DATA | 블록의 해시입니다.            |
+| QUANTITY      | 트랜잭션의 인덱스 위치의 정숫값입니다. |
 
 **리턴값**
 
@@ -166,10 +166,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 형식                  | 설명                                                                                                                 |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| QUANTITY &#124; TAG | `"earliest"`, `"latest"` 같은 문자열이나 정수 형태의 블록 번호를 의미하며, [기본 블록 매개변수](./block.md#the-default-block-parameter)에 해당합니다. |
-| QUANTITY            | The transaction index position.                                                                                    |
+| 형식                  | 설명                                                                                                                             |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| QUANTITY &#124; TAG | 정수 형태의 블록 번호나 [default block parameter](./block.md#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다. |
+| QUANTITY            | 트랜잭션의 인덱스 위치입니다.                                                                                                               |
 
 **리턴값**
 
@@ -218,9 +218,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 형식            | 설명                     |
-| ------------- | ---------------------- |
-| 32바이트 크기 DATA | Hash of a transaction. |
+| 형식            | 설명          |
+| ------------- | ----------- |
+| 32바이트 크기 DATA | 트랜잭션 해시입니다. |
 
 **리턴값**
 
@@ -385,9 +385,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 명칭 | 형식            | 설명                     |
-| -- | ------------- | ---------------------- |
-| 해시 | 32바이트 크기 DATA | Hash of a transaction. |
+| 명칭 | 형식            | 설명          |
+| -- | ------------- | ----------- |
+| 해시 | 32바이트 크기 DATA | 트랜잭션 해시입니다. |
 
 **리턴값**
 
@@ -480,9 +480,9 @@ SenderTxHash로 조회한 트랜잭션의 영수증을 반환합니다.
 
 **매개변수**
 
-| 명칭 | 형식            | 설명                                                                       |
-| -- | ------------- | ------------------------------------------------------------------------ |
-| 해시 | 32바이트 크기 DATA | Hash of a transaction before signing of feePayer(senderTransactionHash). |
+| 명칭 | 형식            | 설명                                                                         |
+| -- | ------------- | -------------------------------------------------------------------------- |
+| 해시 | 32바이트 크기 DATA | 트랜잭션 납부자(feePayer)에 의해 서명되기 이전의 트랜잭션의 해시입니다. (즉 senderTransactionHash입니다.) |
 
 **리턴값**
 
@@ -573,15 +573,15 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 형식   | 설명                           |
-| ---- | ---------------------------- |
-| DATA | The signed transaction data. |
+| 형식   | 설명               |
+| ---- | ---------------- |
+| DATA | 서명된 트랜잭션 데이터입니다. |
 
 **리턴값**
 
-| 형식            | 설명                                                                             |
-| ------------- | ------------------------------------------------------------------------------ |
-| 32바이트 크기 DATA | The transaction hash or the zero hash if the transaction is not yet available. |
+| 형식            | 설명                                                     |
+| ------------- | ------------------------------------------------------ |
+| 32바이트 크기 DATA | 트랜잭션 해시를 반환하거나 또는 해당 트랜잭션을 아직 사용할 수 없는 경우 0 해시를 반환합니다. |
 
 컨트랙트를 배포했다면 [klay_getTransactionReceipt](#klay_gettransactionreceipt)를 사용해 컨트랙트 주소를 확인하십시오.
 
@@ -706,10 +706,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **리턴값**
 
-| 형식  | 설명                                                  |
-| --- | --------------------------------------------------- |
-| raw | Signed raw transaction                              |
-| tx  | Transaction object including the sender's signature |
+| 형식  | 설명                         |
+| --- | -------------------------- |
+| raw | 서명된 rawTransaction을 반환합니다. |
+| tx  | 발신자 서명을 포함한 트랜잭션 객체입니다.    |
 
 **예시**
 ```shell
@@ -753,7 +753,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 | 형식  | 설명                                                     |
 | --- | ------------------------------------------------------ |
-| raw | Signed raw transaction                                 |
+| raw | 서명된 rawTransaction을 반환합니다.                             |
 | tx  | Transaction object including the fee payer's signature |
 
 **예시**
@@ -835,9 +835,9 @@ Klaytn은 트랜잭션 영수증의 `txError` 필드를 통해 트랜잭션 실�
 
 **매개변수**
 
-| 형식            | 설명                     |
-| ------------- | ---------------------- |
-| 32바이트 크기 DATA | Hash of a transaction. |
+| 형식            | 설명          |
+| ------------- | ----------- |
+| 32바이트 크기 DATA | 트랜잭션 해시입니다. |
 
 **리턴값**
 
