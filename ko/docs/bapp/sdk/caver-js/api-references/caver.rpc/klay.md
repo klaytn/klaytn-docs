@@ -1262,9 +1262,9 @@ caver.rpc.klay.call(callObject [, blockNumber] [, callback])
 
 | 명칭       | 형식  | 설명                                                                                                                                                  |
 | -------- | --- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| to       | 문자열 | (optional when testing the deployment of a new contract) The address the transaction is directed to.                                                |
+| to       | 문자열 | (새 트랜잭션 배포 테스트 시 선택 사항) 트랜잭션을 수신하는 주소입니다.                                                                                                           |
 | input    | 문자열 | (optional) The hash of the method signature and encoded parameters. [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall)를 사용할 수 있습니다. |
-| from     | 문자열 | (선택사항) 트랜잭션을 발신한 주소입니다.                                                                                                                             |
+| from     | 문자열 | (선택 사항) 트랜잭션을 발신한 주소입니다.                                                                                                                            |
 | gas      | 문자열 | (optional) The gas provided for the transaction execution. `klay_call`은 가스를 소비하지 않지만 트랜잭션 실행 중 일부에서 이 매개변수가 필요할 수 있습니다.                             |
 | gasPrice | 문자열 | (optional) The gasPrice used for each paid gas.                                                                                                     |
 | value    | 문자열 | (optional) The value sent with this transaction in `peb`.                                                                                           |
@@ -2373,16 +2373,16 @@ caver.rpc.klay.getFilterChanges(filterId [, callback])
 - For filters created with [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter), the returns are transaction hashes, *e.g.*, `["0x6345343454645..."]`.
 - For filters created with [caver.rpc.klay.newFilter](#caver-rpc-klay-newfilter), logs are objects with the following parameters:
 
-| 명칭               | 형식  | 설명                                                                                                                                                                                                                                                   |
-| ---------------- | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| logIndex         | 문자열 | 블록에서 로그 인덱스 위치입니다.                                                                                                                                                                                                                                   |
-| transactionIndex | 문자열 | 이 로그가 생성된 트랜잭션의 인덱스 위치입니다.                                                                                                                                                                                                                           |
-| transactionHash  | 문자열 | 로그가 생성된 트랜잭션의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                                                                                         |
-| blockHash        | 문자열 | 로그가 생성된 블록의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                                                                                           |
-| blockNumber      | 문자열 | 로그가 속한 블록의 번호입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                                                                                            |
-| address          | 문자열 | 로그를 발생시킨 주소입니다.                                                                                                                                                                                                                                      |
-| data             | 문자열 | 로그 중 인덱스화되지 않은 인수를 담고 있습니다.                                                                                                                                                                                                                          |
-| topics           | 배열  | 길이가 0부터 4까지인 배열로, 배열의 각 원소는 32바이트 크기 DATA 형태의 인덱스화된 로그 인수들입니다. (In Solidity: The first topic is the hash of the signature of the event (*e.g.*, `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.). |
+| 명칭               | 형식  | 설명                                                                                                                                                                                  |
+| ---------------- | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| logIndex         | 문자열 | 블록에서 로그 인덱스 위치입니다.                                                                                                                                                                  |
+| transactionIndex | 문자열 | 이 로그가 생성된 트랜잭션의 인덱스 위치입니다.                                                                                                                                                          |
+| transactionHash  | 문자열 | 로그가 생성된 트랜잭션의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                        |
+| blockHash        | 문자열 | 로그가 생성된 블록의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                          |
+| blockNumber      | 문자열 | 로그가 속한 블록의 번호입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                           |
+| address          | 문자열 | 로그를 발생시킨 주소입니다.                                                                                                                                                                     |
+| data             | 문자열 | 로그 중 인덱스화되지 않은 인수를 담고 있습니다.                                                                                                                                                         |
+| topics           | 배열  | 길이가 0부터 4까지인 배열로, 배열의 각 원소는 32바이트 크기 DATA 형태의 인덱스화된 로그 인수들입니다. (솔리디티의 경우 `anonymous` 지정자로 이벤트를 선언하지 않았다면 첫 번째 토픽은 이벤트에 대한 서명의 해시입니다. (*예를 들어*, `Deposit(address,bytes32,uint256)`)) |
 
 **예시**
 
@@ -2635,7 +2635,7 @@ true
 caver.rpc.klay.sha3(data[, callback])
 ```
 
-Returns Keccak-256 (not the standardized SHA3-256) of the given data. 이 메서드 대신 [caver.utils.sha3](../caver.utils.md#sha3)도 사용하실 수 있습니다.
+입력된 데이터의 Keccak-256(이 해시 함수는 표준 SHA3-256가 아닙니다) 해시를 반환합니다. 이 메서드 대신 [caver.utils.sha3](../caver.utils.md#sha3)도 사용하실 수 있습니다.
 
 **매개변수**
 
