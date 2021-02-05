@@ -5,12 +5,12 @@ description: >-
 
 # Namespace admin <a id="namespace-admin"></a>
 
-`admin` namespace는 몇몇 비표준 RPC 메서드에 접근할 수 있게 합니다. They will allow you to have fine-grained control over your Klaytn instance, including but not limited to network peer and RPC endpoint management.
+`admin` namespace는 몇몇 비표준 RPC 메서드에 접근할 수 있게 합니다. 이를 통해 네트워크 피어와 RPC 엔드포인트 관리 등 Klaytn 인스턴스를 세밀하게 제어할 수 있습니다.
 
 
 ## admin_nodeInfo <a id="admin_nodeinfo"></a>
 
-The `nodeInfo` administrative property can be queried for all the information known about the running Klaytn node at the networking granularity. These include general information about the node itself as a participant of the [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P overlay protocol, as well as specialized information added by each of the running application protocols, e.g., `klay`.
+The `nodeInfo` administrative property can be queried for all the information known about the running Klaytn node at the networking granularity. [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P 오버레이 프로토콜에 참여하는 노드 자체의 일반적인 정보 및 `klay`와 같은 실행 중인 애플리케이션 프로토콜에 의해 추가된 세부적인 정보 또한 확인할 수 있습니다.
 
 | 클라이언트 | 메서드 호출                         |
 |:-----:| ------------------------------ |
@@ -74,7 +74,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_datadir <a id="admin_datadir"></a>
 
-The `datadir` administrative property can be queried for the absolute path the running Klaytn node currently uses to store all its databases. The default path is different depending on the node types (kcn, kpn, and ken) and the OS type.
+`datadir` 관리 속성을 조회하여 실행 중인 Klaytn 노드가 현재 모든 데이터베이스를 저장하는 데에 사용하는 절대 경로를 확인할 수 있습니다. 기본으로 설정된 경로는 노드 유형(kcn, kpn, ken)과 운영체제에 따라 다릅니다.
 
 | 클라이언트 | 메서드 호출                        |
 |:-----:| ----------------------------- |
