@@ -43,9 +43,9 @@ If the path of a file is passed, the contents of the file are loaded from the pa
 
 **매개변수**
 
-| 명칭   | 형식                   | 설명                                                    |
-| ---- | -------------------- | ----------------------------------------------------- |
-| data | string &#124; Buffer | The path string of a file or a buffer to add to IPFS. |
+| 명칭   | 형식                                      | 설명                                                    |
+| ---- | --------------------------------------- | ----------------------------------------------------- |
+| data | string &#124; Buffer &#124; ArrayBuffer | The path string of a file or a buffer to add to IPFS. |
 
 **NOTE** `Buffer` is supported since caver-js [v1.5.5](https://www.npmjs.com/package/caver-js/v/1.5.5).
 
