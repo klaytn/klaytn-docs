@@ -1436,7 +1436,7 @@ The BApp \(Blockchain Application\) Development sample projects using caver-js a
 
 ## Troubleshooting <a id="troubleshooting"></a>
 
-* When using caver-js in a web browser, a "Error: Can't resolve'fs'" error occurs during the build:
+* **Error: Can't resolve 'fs'** occurs during the build with caver-js in a web browser:
    - Add the following webpack configuration.
    ```
    module.exports = {
@@ -1447,7 +1447,7 @@ The BApp \(Blockchain Application\) Development sample projects using caver-js a
 		...
 	}
    ```
-   If you use next web framework, you can add the webpack configuration to your "next.config.json" file like below:
+   If using Next.js web framework, you can add the webpack configuration to your **next.config.json** file as follows:
    ```
    module.exports = {
 		webpack: (config, { isServer }) => {
