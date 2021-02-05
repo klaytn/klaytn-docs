@@ -1434,6 +1434,33 @@ The BApp \(Blockchain Application\) Development sample projects using caver-js a
 * [Count BApp](../../tutorials/count-bapp/README.md)
 * [Klaystagram](../../tutorials/klaystagram/README.md)
 
+## Troubleshooting <a id="troubleshooting"></a>
+
+* **Error: Can't resolve 'fs'** occurs during the build with caver-js in a web browser:
+   - Add the following webpack configuration.
+   ```
+   module.exports = {
+		...
+		node: {
+			fs: 'empty',
+		},
+		...
+	}
+   ```
+   If using Next.js web framework, you can add the webpack configuration to your **next.config.json** file as follows:
+   ```
+   module.exports = {
+		webpack: (config, { isServer }) => {
+			if (!isServer) {
+				config.node = {
+					fs: 'empty'
+				}
+			}
+			return config
+		}
+	}
+   ```
+
 ## Links <a id="links"></a>
 
 * caver-js [GitHub repository](https://github.com/klaytn/caver-js)
