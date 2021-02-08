@@ -109,7 +109,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_peers <a id="admin_peers"></a>
 
-The `peers` administrative property can be queried for all the information known about the connected remote nodes at the networking granularity. These include general information about the nodes themselves as participants of the [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P overlay protocol, as well as specialized information added by each of the running application protocols.
+The `peers` administrative property can be queried for all the information known about the connected remote nodes at the networking granularity. [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P 오버레이 프로토콜에 참여하는 노드 자체의 일반적인 정보 및 개별 실행 중인 애플리케이션 프로토콜에 의해 추가된 세부적인 정보 또한 확인할 수 있습니다.
 
 | 클라이언트 | 메서드 호출                      |
 |:-----:| --------------------------- |
@@ -222,9 +222,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_removePeer <a id="admin_removepeer"></a>
 
-The `removePeer` is an administrative method that requests removing a node from the list of tracked static nodes.
+`removePeer`는 추적된 정적 노드들의 목록에서 한 노드를 제거하도록 요청하는 관리 메서드입니다.
 
-이 메서드는 한 매개변수 kni(Klaytn Network Identifier)만을 입력으로 받습니다. It is similar to the [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) concept in the geth. It is URL of the remote peer to be removed from a list and returns a `BOOL` indicating whether the peer was removed or some error occurred.
+이 메서드는 한 매개변수 kni(Klaytn Network Identifier)만을 입력으로 받습니다. It is similar to the [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) concept in the geth. 목록에서 제거될 원격 피어의 URL이며, 피어가 성공적으로 제거되었거나 어떤 에러가 발생했는지 알려주기 위해 `BOOL`을 반환합니다.
 
 | 클라이언트 | 메서드 호출                                            |
 |:-----:| ------------------------------------------------- |
