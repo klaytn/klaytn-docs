@@ -260,7 +260,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startRPC <a id="admin_startrpc"></a>
 
-The `startRPC` is an administrative method that starts an HTTP based [JSON RPC](http://www.jsonrpc.org/specification) API webserver to handle client requests.
+`startRPC`는 HTTP 기반의 [JSON RPC](http://www.jsonrpc.org/specification) API 웹서버를 시작하여 클라이언트 요청을 처리하도록 하는 관리 메서드입니다.
 
 이 메서드는 HTTP RPC 리스너가 열려있는지 여부를 나타내는 불리언 플래그를 반환합니다. 동시에 하나의 HTTP 엔드포인트만이 활성화될 수 있음을 참고해주세요.
 
@@ -271,12 +271,12 @@ The `startRPC` is an administrative method that starts an HTTP based [JSON RPC](
 
 **매개변수**
 
-| 명칭   | 형식  | 설명                                                                                                                                      |
-| ---- | --- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| host | 문자열 | (optional) network interface to open the listener socket on (default:  `"localhost"`).                                                  |
-| port | int | (optional) network port to open the listener socket on (default:  `8551`).                                                              |
-| cors | 문자열 | (optional) [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) header to use (default:  `""`). |
-| apis | 문자열 | (optional) API modules to offer over this interface (default:  `"klay,net,rpc"`).                                                       |
+| 명칭   | 형식  | 설명                                                                                                                             |
+| ---- | --- | ------------------------------------------------------------------------------------------------------------------------------ |
+| host | 문자열 | (선택 사항) 리스너 소켓이 열려있는 네트워크 인터페이스입니다. (기본 설정:  `"localhost"`)                                                                    |
+| port | int | (선택 사항) 리스너 소켓이 열려있는 네트워크 포트입니다. (기본 설정:  `8551`)                                                                              |
+| cors | 문자열 | (선택 사항) 사용할 [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 헤더입니다. (기본 설정:  `""`) |
+| apis | 문자열 | (선택 사항) 이 인터페이스를 통해 제공할 API 모듈입니다. (기본 설정:  `"klay,net,rpc"`)                                                                  |
 
 **리턴값**
 
@@ -301,7 +301,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stopRPC <a id="admin_stoprpc"></a>
 
-`stopRPC` 관리 메서드는 현재 열려있는 HTTP RPC 엔드포인트를 닫습니다. 노드는 하나의 HTTP 엔드포인트를 실행할 수 있기 때문에 이 메서드에 매개변수는 필요하지 않으며, 엔드포인트가 닫혔는지 여부에 따라 불리언으로 결과를 반환합니다.
+`stopRPC`는 현재 열려있는 HTTP RPC 엔드포인트를 닫는 관리 메서드입니다. 노드는 하나의 HTTP 엔드포인트를 실행할 수 있기 때문에 이 메서드에 매개변수는 필요하지 않으며, 엔드포인트가 닫혔는지 여부에 따라 불리언으로 결과를 반환합니다.
 
 | 클라이언트 | 메서드 호출                        |
 |:-----:| ----------------------------- |
@@ -335,7 +335,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startWS <a id="admin_startws"></a>
 
-The `startWS` is an administrative method that starts an WebSocket based [JSON RPC](http://www.jsonrpc.org/specification) API webserver to handle client requests.
+`startWS`는 웹소켓 기반의 [JSON RPC](http://www.jsonrpc.org/specification) API 웹서버를 시작하여 클라이언트 요청을 처리하도록 하는 관리 메서드입니다.
 
 이 메서드는 웹소켓 RPC 리스너가 열려있는지 여부를 나타내는 불리언 플래그를 반환합니다. 동시에 하나의 웹소켓 엔드포인트만이 활성화될 수 있음을 참고해주세요.
 
@@ -346,12 +346,12 @@ The `startWS` is an administrative method that starts an WebSocket based [JSON R
 
 **매개변수**
 
-| 명칭   | 형식  | 설명                                                                                                                                      |
-| ---- | --- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| host | 문자열 | (optional) network interface to open the listener socket on (default:  `"localhost"`).                                                  |
-| port | int | (optional) network port to open the listener socket on (default:  `8552`).                                                              |
-| cors | 문자열 | (optional) [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) header to use (default:  `""`). |
-| apis | 문자열 | (optional) API modules to offer over this interface (default:  `"klay,net,personal"`).                                                  |
+| 명칭   | 형식  | 설명                                                                                                                             |
+| ---- | --- | ------------------------------------------------------------------------------------------------------------------------------ |
+| host | 문자열 | (선택 사항) 리스너 소켓이 열려있는 네트워크 인터페이스입니다. (기본 설정:  `"localhost"`)                                                                    |
+| port | int | (optional) network port to open the listener socket on (default:  `8552`).                                                     |
+| cors | 문자열 | (선택 사항) 사용할 [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 헤더입니다. (기본 설정:  `""`) |
+| apis | 문자열 | (선택 사항) 이 인터페이스를 통해 제공할 API 모듈입니다. (기본 설정:  `"klay,net,personal"`)                                                             |
 
 **리턴값**
 
@@ -481,7 +481,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_importChainFromString <a id="admin_importchainfromstring"></a>
 
-`importChainFromString` 관리 메서드는 블록들을 RLP 인코딩한 문자열을 사용해 체인을 Klaytn 노드에 가져옵니다. 이 메서드는 Klaytn 노드에 체인이 없을 때에만 정상적으로 동작합니다. 이 메서드는 기존 체인에서 아무 데이터도 삭제하지 않습니다.
+`importChainFromString`는 블록들을 RLP 인코딩한 문자열을 사용해 체인을 Klaytn 노드에 가져오는 관리 메서드입니다. 이 메서드는 Klaytn 노드에 기존 체인이 없을 때에만 정상적으로 동작합니다. 이 메서드는 기존 체인에서 아무 데이터도 삭제하지 않습니다.
 
 | 클라이언트 | 메서드 호출                                                                     |
 |:-----:| -------------------------------------------------------------------------- |
@@ -490,9 +490,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **매개변수**
 
-| 명칭       | 형식  | 설명                                                                            |
-| -------- | --- | ----------------------------------------------------------------------------- |
-| blockRlp | 문자열 | 불러올 블록들을 RLP 인코딩한 문자열입니다. (equals to the return value of `debug.getBlockRlp`) |
+| 명칭       | 형식  | 설명                                                       |
+| -------- | --- | -------------------------------------------------------- |
+| blockRlp | 문자열 | 불러올 블록들을 RLP 인코딩한 문자열입니다. (`debug.getBlockRlp`의 리턴값과 동일) |
 
 **리턴값**
 
@@ -551,7 +551,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stopStateMigration <a id="admin_stopstatemigration"></a>
 
-`stopStateMigration` 관리 메서드는 현재 실행중인 상태 마이그레이션 작업을 중단합니다. 이 메서드는 파라미터를 받지 않습니다. 상태 마이그레이션 작업이 성공적으로 중단되었다면 `null`을, 작업을 중단하는 데에 실패했다면 에러를 반환합니다.
+`stopStateMigration`는 현재 실행중인 상태 마이그레이션 작업을 중단하는 관리 메서드입니다. 이 메서드는 파라미터를 받지 않으며, 상태 마이그레이션 작업이 중단되었는지에 따라 `null` 또는 에러를 반환합니다.
 
 | 클라이언트 | 메서드 호출                                   |
 |:-----:| ---------------------------------------- |
@@ -585,7 +585,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stateMigrationStatus <a id="admin_statemigrationstatus"></a>
 
-`stateMigrationStatus` 관리 메서드는 상태 마이그레이션 작업 정보를 반환합니다. 이 메서드는 파라미터를 받지 않습니다. 현재 진행중인 상태 마이그레이션 작업에 대한 정보를 반환합니다.
+`stateMigrationStatus` 관리 메서드는 상태 마이그레이션 작업 정보를 반환합니다. 이 메서드는 파라미터를 받지 않으며, 현재 진행중인 상태 마이그레이션 작업에 대한 정보를 반환합니다.
 
 | 클라이언트 | 메서드 호출                                     |
 |:-----:| ------------------------------------------ |
@@ -598,15 +598,15 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **리턴값**
 
-| 명칭                   | 형식      | 설명                                                                    |
-| -------------------- | ------- | --------------------------------------------------------------------- |
-| committed            | int     | `committed`는 상태 마이그레이션 작업에 의해 복제된 트리 노드들의 개수입니다.                      |
-| err                  | 에러      | 상태 마이그레이션이 성공적으로 완료되었다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다.              |
-| isMigration          | bool    | 상태 마이그레이션이 진행중이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.                |
-| migrationBlockNumber | uint64  | 상태 마이그레이션이 시작된 블록 번호입니다. (`0` if the state migration is not running.) |
-| pending              | int     | `pending`은 상태 마이그레이션이 처리하지 않은 트리 노드 개수입니다.                            |
-| progress             | float64 | `progress`는 퍼센트(%)로 표현한 상태 마이그레이션 진행 정도입니다.                           |
-| read                 | int     | `read`는 상태 마이그레이션이 읽어 들인 트리 노드 개수입니다.                                 |
+| 명칭                   | 형식      | 설명                                                       |
+| -------------------- | ------- | -------------------------------------------------------- |
+| committed            | int     | `committed`는 상태 마이그레이션 작업에 의해 복제된 트리 노드들의 개수입니다.         |
+| err                  | 에러      | 상태 마이그레이션이 성공적으로 완료되었다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
+| isMigration          | bool    | 상태 마이그레이션이 진행중이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.   |
+| migrationBlockNumber | uint64  | 상태 마이그레이션이 시작된 블록 번호입니다. (상태 마이그레이션이 진행중이 아니라면 `0`.)     |
+| pending              | int     | `pending`은 상태 마이그레이션이 처리하지 않은 트리 노드 개수입니다.               |
+| progress             | float64 | `progress`는 퍼센트(%)로 표현한 상태 마이그레이션 진행 정도입니다.              |
+| read                 | int     | `read`는 상태 마이그레이션이 읽어 들인 트리 노드 개수입니다.                    |
 
 **예시**
 
@@ -632,7 +632,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_saveTrieNodeToDisk <a id="admin_saveTrieNodeToDisk"></a>
 
-The `saveTrieNodeToDisk` is an administrative method that starts saving the cached trie node to the disk to reuse them when the node restarts. Cached trie node data will be stored to and loaded from  `$DATA_DIR/fastcache` . This method returns an error if the saving process has been already triggered or trie node cache is disabled. This feature is supported since Klaytn 1.5.3.
+`saveTrieNodeToDisk`는 노드가 재시작될 시 캐시된 트리 노드를 재사용하기 위해 디스크에 저장하기 시작하는 관리 메서드입니다.  `$DATA_DIR/fastcache`는 캐시된 트리 노드 테이터가 저장되고 또 로드되는 곳입니다. This method returns an error if the saving process has been already triggered or trie node cache is disabled. 이 기능은 Klaytn 1.5.3. 부터 지원됩니다.
 
 | 클라이언트 | 메서드 호출                                   |
 |:-----:| ---------------------------------------- |
@@ -645,9 +645,9 @@ The `saveTrieNodeToDisk` is an administrative method that starts saving the cach
 
 **리턴값**
 
-| 형식 | 설명                                                                      |
-| -- | ----------------------------------------------------------------------- |
-| 에러 | `null` if saving the trie node has started, or an error message if not. |
+| 형식 | 설명                                                      |
+| -- | ------------------------------------------------------- |
+| 에러 | 트리 노드 저장이 성공적으로 시작되었다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
 
 **예시**
 
