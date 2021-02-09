@@ -30,12 +30,12 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 | `"governance.addvalidator"`    | `ADDRESS`. 새로운 검증자 후보의 주소입니다. 예를 들어, `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`입니다.                                                            |
 | `"governance.removevalidator"` | `ADDRESS`. 제거될 검증자의 주소입니다. 예를 들어, `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`입니다.                                                               |
 | `"istanbul.epoch"`             | `NUMBER`. 표를 수집할 블록 단위의 시간입니다. 투표 기간이 종료되면 기간을 넘긴 투표는 무효가 됩니다. 예를 들어, `86400`입니다.                                                                |
-| `"istanbul.committeesize"`     | `NUMBER`. The number of validators in a committee.(`sub` in chain configuration) e.g., `7`                                                       |
+| `"istanbul.committeesize"`     | `NUMBER`. 위원회 내 검증자 수입니다.(체인 환경설정에서 `sub`입니다.) 예를 들어, `7`입니다.                                                                                    |
 | `"reward.mintingamount"`       | `STRING`. 블록이 생성될 때 발행되는 peb의 양입니다. 값에는 큰따옴표가 필요합니다. 예를 들어, `"9600000000000000000"`입니다.                                                          |
 | `"reward.ratio"`               | `STRING`. `"/"`으로 구분되는 <0>CN/KIR/PoC</0>의 분포 비율입니다. 각 값의 합은 `100`이어야 합니다. 예를 들어, `"34/54/12"`은 CN이 34%, PoC이 54%, KIR이 12%를 차지하고 있다는 것입니다.       |
 | `"reward.useginicoeff"`        | `BOOL`. 지니(GINI) 계수 사용 여부입니다 `true` 또는 `false`로 설정합니다.                                                                                           |
 | `"reward.deferredtxfee"`       | `BOOL`. 트랜잭션 수수료를 제안자에게 지급하는 방법입니다. true이면 트랜잭션 수수료는 블록 보상과 합산되어 제안자, KIR, PoC에게 분배됩니다. false이면 트랜잭션 수수료가 제안자에게 지급됩니다. `true` 또는 `false`로 설정합니다. |
-| `"reward.minimumstake"`        | `STRING`. Amount of Klay required to be a CN (Consensus Node). 값에는 큰 따옴표가 필요합니다. 예를 들어, `"5000000"`입니다.                                          |
+| `"reward.minimumstake"`        | `STRING`. CN(컨센서스 노드)가 되는 데 필요한 Klay 양입니다. 값에는 큰 따옴표가 필요합니다. 예를 들어, `"5000000"`입니다.                                                              |
 
 
 **리턴값**
@@ -143,7 +143,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 
 ## governance_myVotingPower <a id="governance_myvotingpower"></a>
 
-`myVotingPower` 속성은 나의 노드가 보유한 의결권을 나타냅니다. The voting power can be 1.0 ~ 2.0. In `"none"`, `"single"` governance mode, `totalVotingPower` don't provide any information.
+`myVotingPower` 속성은 나의 노드가 보유한 의결권을 나타냅니다. 한 노드당 1.0 ~ 2.0의 의결권을 가집니다. `"none"`, `"single"` 거버넌스 모드에서는 `totalVotingPower` 속성을 통해 제공하는 정보가 없습니다.
 
 **매개변수**
 
@@ -178,9 +178,9 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 
 **리턴값**
 
-| 형식        | 설명                                                                                                                                                                                                                                                      |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Vote List | Node's Voting status in the epoch<br />- `BlockNum`: The block number that this vote is stored<br />- `Casted`: If this vote is stored in a block or not<br />- `Key/Value`: The content of the vote |
+| 형식        | 설명                                                                                                                                                                                  |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Vote List | 투표 기간 동안 노드의 투표 상태는 다음과 같습니다.<br />- `BlockNum`: 투표가 저장된 블록 번호<br />- `Casted`: 이 투표가 블록에 저장이 되었는지 여부<br />- `Key/Value`: 투표의 내용 |
 
 **예시**
 
@@ -270,9 +270,9 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 
 **매개변수**
 
-| 형식                  | 설명                                                                                                                                             |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
+| 형식                  | 설명                                                                                                                                |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | 정수 형태의 블록 번호나 [default block parameter](klay/block.md#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다. |
 
 **리턴값**
 
