@@ -371,6 +371,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 | opcountTracer  | opcountTracer는 트랜잭션이 종료되기 전에 KLVM이 실행한 연산 수를 세는 샘플 추적 툴입니다.                                                                                                  |
 | prestateTracer | prestateTracer는 맞춤 조립된 제네시스 블록으로부터 트랜잭션 로컬 실행을 생성하기에 충분한 정보를 출력합니다.                                                                                          |
 | revertTracer   | revertTracer는 REVERT의 오류 문자열을 출력합니다. 실행이 번복되지 않으면 빈 문자열을 출력합니다.                                                                                              |
+| unigramTracer  | unigramTracer returns the number of occurrences of each opcode.                                                                                              |
+| bigramTracer   | bigramTracer returns the number of occurrences of two consecutive opcodes.                                                                                   |
+| trigramTracer  | trigramTracer returns the number of occurrences of three consecutive opcodes.                                                                                |
 
 
 **예시**
