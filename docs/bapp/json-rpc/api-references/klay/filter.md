@@ -420,7 +420,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_unsubscribe <a id="klay_unsubscribe"></a>
 
-Cancles subscription with a specific subscription id by using either RPC Pub/Sub over WebSockets or filters over HTTP.
+Cancels the subscription with a specific subscription id by using either RPC Pub/Sub over WebSockets or filters over HTTP.
 Only the connection that created a subscription can unsubscribe from it.
 
 **Parameters**
