@@ -425,8 +425,8 @@ Only the connection that created a subscription can unsubscribe from it.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
+| Type | Description |
+| --- | --- |
 | QUANTITY | A subscription id. |
 
 **Return Value**
