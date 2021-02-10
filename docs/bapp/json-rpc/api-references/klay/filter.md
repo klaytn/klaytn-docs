@@ -343,7 +343,7 @@ Creates a new subscription to specific events by using either RPC Pub/Sub over W
 It allows clients to wait for events instead of polling for them.
 
 The node will return a subscription id for each subscription created.
-For each event that matches the subscription, a notification with relevant data is send together with the subscription id.
+For each event that matches the subscription, a notification with relevant data is sent together with the subscription id.
 If a connection is closed, all subscriptions created over the connection are removed.
 
 **Parameters**
@@ -351,8 +351,8 @@ If a connection is closed, all subscriptions created over the connection are rem
 `Object` - A notification type: `"newHeads"` or `"logs"`.
 
 
-`"newHeads"` notifies you about each block added to the blockchain.
-`"logs"` notifies you about logs included in new blocks. `"logs"` requires an second parameter specifing filter options. For the detail of the filter options, see input paramters of [klay_newFilter](https://docs.klaytn.com/bapp/json-rpc/api-references/klay/filter#klay_newfilter)
+`"newHeads"` notifies you of each block added to the blockchain.
+`"logs"` notifies you of logs included in new blocks. This type requires a second parameter that specifies filter options. For more details, go to [klay_newFilter > parameters](https://docs.klaytn.com/bapp/json-rpc/api-references/klay/filter#klay_newfilter).
 
 **Return Value**
 
