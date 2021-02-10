@@ -433,7 +433,7 @@ Only the connection that created a subscription can unsubscribe from it.
 
 | Type | Description |
 | --- | --- |
-| Boolean | `true` if the subscription was successfully cancled, otherwise `false`. |
+| Boolean | `true` if the subscription was successfully canceled, otherwise `false`. |
 
 
 **Example**
