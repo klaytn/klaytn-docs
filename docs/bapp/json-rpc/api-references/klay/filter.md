@@ -363,7 +363,7 @@ If a connection is closed, all subscriptions created over the connection are rem
 
 **Example**
 
-The example uses a websocket tool, [`wscat`](https://www.npmjs.com/package/wscat)
+This API is appropriate for use with a WebSocket tool, [`wscat`](https://www.npmjs.com/package/wscat).
 
 ```shell
 // Request
@@ -438,7 +438,7 @@ Only the connection that created a subscription can unsubscribe from it.
 
 **Example**
 
-The example uses a websocket tool, [`wscat`](https://www.npmjs.com/package/wscat)
+This API is appropriate for use with a WebSocket tool, [`wscat`](https://www.npmjs.com/package/wscat).
 
 ```shell
 // Request
