@@ -358,7 +358,7 @@ If a connection is closed, all subscriptions created over the connection are rem
 
 | Type | Description |
 | --- | --- |
-| QUANTITY | A subscription id when a subscription is created. For each event that matches the subscription, a notification with relevant data will be delivered also. |
+| QUANTITY | A subscription id when a subscription is created. For each event that matches the subscription, a notification with relevant data will be delivered as well. |
 
 
 **Example**
