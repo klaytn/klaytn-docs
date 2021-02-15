@@ -1426,11 +1426,11 @@ When executing `combineSignedRawTransactions `, the signed RLP-encoded raw trans
 
 The combineSignedRawTransactions returns an RLP-encoded string containing all signatures (and feePayerSignatures if the transaction is a fee-delegated transaction) as a result. You use this to send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(combined)`.
 
-## Detect implementation of KCT interfaces <a id="detect-implementation-of-kct-interfaces"></a>
+## Detecting implementation of KCT interfaces <a id="detecting-implementation-of-kct-interfaces"></a>
 
-`caver.kct` provides functions that return information about which interface KCT token contract implements. Using this, you can see which interface the KCT token contract deployed on Klaytn implements.
+`caver.kct` provides functions that return information about which interface the given KCT token contract implements. Using this, you can see which interface the KCT token contract deployed on Klaytn implements.
 
-### Detect KIP-7 token contract <a id="detect-kip-7-token-contract"></a>
+### Detecting KIP-7 interfaces <a id="detecting-kip-7-interfaces"></a>
 
 In order to detect the interfaces implemented by the KIP-7 token contract, you can use `caver.kct.kip7.detectInterface(contractAddress)` or `kip7.detectInterface()`.
 
@@ -1489,7 +1489,7 @@ $ node ./test.js
 }
 ```
 
-### Detect KIP-17 token contract <a id="detect-kip-17-token-contract"></a>
+### Detecting KIP-17 interfaces <a id="detecting-kip-17-interfaces"></a>
 
 In order to detect the interfaces implemented by the KIP-17 token contract, you can use `caver.kct.kip17.detectInterface(contractAddress)` or `kip17.detectInterface()`.
 
@@ -1552,7 +1552,7 @@ $ node ./test.js
 }
 ```
 
-### Detect KIP-37 token contract <a id="detect-kip-37-token-contract"></a>
+### Detecting KIP-37 interfaces <a id="detect-kip-37-interfaces"></a>
 
 In order to detect the interfaces implemented by the KIP-37 token contract, you can use `caver.kct.kip37.detectInterface(contractAddress)` or `kip37.detectInterface()`.
 

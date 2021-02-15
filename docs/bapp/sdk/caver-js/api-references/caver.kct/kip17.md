@@ -98,7 +98,7 @@ Returns the information of the interface implemented by the token contract. This
 
 **Return Value**
 
-`Promise` returns `object`: Returns the object containing the result as a boolean about whether each [KIP-17 interface](https://kips.klaytn.com/KIPs/kip-17#kip-13-identifiers) is implemented.
+`Promise` returns `object`: Returns an object containing the result with boolean values whether each [KIP-17 interface](https://kips.klaytn.com/KIPs/kip-17#kip-13-identifiers) is implemented.
 
 **Example**
 
