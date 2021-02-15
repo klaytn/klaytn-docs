@@ -14,6 +14,9 @@ Therefore, we chose the third option and implemented it in Klaytn. For now, the 
 
 The below table shows the computation cost of EVM opcodes. The computation cost was determined based on experiments.
 
+In the process of importing Ethereum Istanbul hardfork, some computation costs are changed. Please refer to the table below for computation cost change. 
+If there's any change, they are marked as follows: [Original, Istanbul].
+
 | Opcode | ComputationCost |
 | :--- | ---: |
 | STOP | 0 |
@@ -44,7 +47,7 @@ The below table shows the computation cost of EVM opcodes. The computation cost 
 | SAR | 1815 |
 | SHA3 | 2465 |
 | ADDRESS | 284 |
-| BALANCE | 1407 |
+| BALANCE | 1407, 2462 |
 | ORIGIN | 210 |
 | CALLER | 188 |
 | CALLVALUE | 149 |
@@ -58,18 +61,20 @@ The below table shows the computation cost of EVM opcodes. The computation cost 
 | EXTCODECOPY | 1000 |
 | RETURNDATASIZE | 10 |
 | RETURNDATACOPY | 40 |
-| EXTCODEHASH | 1000 |
+| EXTCODEHASH | 1000, 1750 |
 | BLOCKHASH | 500 |
 | COINBASE | 189 |
 | TIMESTAMP | 265 |
 | NUMBER | 202 |
 | DIFFICULTY | 180 |
 | GASLIMIT | 166 |
+| CHAINID | 130 |
+| SELFBALANCE | 179 |
 | POP | 140 |
 | MLOAD | 376 |
 | MSTORE | 288 |
 | MSTORE8 | 5142 |
-| SLOAD | 835 |
+| SLOAD | 835, 3340 |
 | SSTORE | 1548 |
 | JUMP | 253 |
 | JUMPI | 176 |

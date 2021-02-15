@@ -5,16 +5,16 @@ However, be aware of the following two issues.
 
 ## Solidity Support <a id="solidity-support"></a>
 
-Klaytn is currently compatible with **Constantinople** Ethereum Virtual Machine (EVM) version. 
+Klaytn is currently compatible with **Istanbul** Ethereum Virtual Machine (EVM) version. 
 Backward compatibility is not guaranteed with other EVM versions on Klaytn.
-Thus, it is highly recommended to compile Solidity code with the Constantinople target option. 
+Thus, it is highly recommended to compile Solidity code with the Istanbul target option. 
 Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).
 
 
 An example command is shown below:
 
 ```
-$ solc --evm-version constantinople contract.sol
+$ solc --evm-version istanbul contract.sol
 ```
 
 ## Decoupled Key Pairs <a id="decoupled-key-pairs"></a>

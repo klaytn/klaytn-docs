@@ -2,6 +2,9 @@
 
 Klaytn provides several useful precompiled contracts. These contracts are implemented in the platform itself as a native implementation. The precompiled contracts from address 0x01 through 0x08 are the same as those in Ethereum. Klaytn additionally implements precompiled contracts from 0x09 through 0x0B to support new Klaytn features.
 
+Please note that the addresses of `vmLog`, `feePayer`, and `validateSender` have changed since IstanbulCompatible Change. 
+For compatibility, smart contracts deployed before the change operate with the old address. Please refer to this document for detailed address.
+
 ## Address 0x01: ecrecover\(hash, v, r, s\) <a id="address-0x-01-ecrecover-hash-v-r-s"></a>
 
 The address 0x01 implements ecrecover. It returns the address from the given signature by calculating a recovery function of ECDSA. Its function prototype is as follows:
@@ -139,26 +142,46 @@ function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
 }
 ```
 
-## Address 0x09: vmLog\(str\) <a id="address-0x-09-vmlog-str"></a>
+## Address 0x09: blake2F\(rounds, h, m, t, f\) <a id="address-0x-3fc-vmlog-str"></a>
+The address 0x09 implements BLAKE2b F compression function. For more information, see [EIP-152](https://eips.ethereum.org/EIPS/eip-152). This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
-The address 0x09 prints the specified string `str` to a specific file or passes it to the logger module. For more information, see [debug\_setVMLogTarget](../bapp/json-rpc/api-references/debug/logging.md#debug_setvmlogtarget). Note that this precompiled contract should be used only for debugging purposes, and it is required to enable the `--vmlog` option when the Klaytn node starts. Also, the log level of the Klaytn node should be 4 or more to see the output of vmLog. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
+```text
+function callBlake2F(uint32 rounds, bytes32[2] memory h, bytes32[4] memory m, bytes8[2] memory t, bool f) public view returns (bytes32[2] memory) {
+    bytes32[2] memory output;
+
+    bytes memory args = abi.encodePacked(rounds, h[0], h[1], m[0], m[1], m[2], m[3], t[0], t[1], f);
+
+    assembly {
+        if iszero(staticcall(not(0), 0x09, add(args, 32), 0xd5, output, 0x40)) {
+            revert(0, 0)
+        }
+    }
+
+    return output;
+}
+```
+## Address 0x3fc: vmLog\(str\) <a id="address-0x-3fc-vmlog-str"></a>
+CAUTIOUS: OLD ADDRESS IS 0x09
+
+The address 0x3FC prints the specified string `str` to a specific file or passes it to the logger module. For more information, see [debug\_setVMLogTarget](../bapp/json-rpc/api-references/debug/logging.md#debug_setvmlogtarget). Note that this precompiled contract should be used only for debugging purposes, and it is required to enable the `--vmlog` option when the Klaytn node starts. Also, the log level of the Klaytn node should be 4 or more to see the output of vmLog. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callVmLog(bytes memory str) public {
-    address(0x09).call(str);
+    address(0x3fc).call(str);
 }
 ```
 
-## Address 0x0A: feePayer\(\) <a id="address-0x-0-a-feepayer"></a>
+## Address 0x3fd: feePayer\(\) <a id="address-0x-3fd-feepayer"></a>
+CAUTIOUS: OLD ADDRESS IS 0x0A
 
-The address 0x0A returns a fee payer of the executing transaction. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
+The address 0x3FD returns a fee payer of the executing transaction. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function feePayer() internal returns (address addr) {
     assembly {
         let freemem := mload(0x40)
         let start_addr := add(freemem, 12)
-        if iszero(call(gas, 0x0a, 0, 0, 0, start_addr, 20)) {
+        if iszero(call(gas, 0x3fd, 0, 0, 0, start_addr, 20)) {
           invalid()
         }
         addr := mload(freemem)
@@ -166,9 +189,10 @@ function feePayer() internal returns (address addr) {
 }
 ```
 
-## Address 0x0B: validateSender\(\) <a id="address-0x-0-b-validatesender"></a>
+## Address 0x3fe: validateSender\(\) <a id="address-0x-3fe-validatesender"></a>
+CAUTIOUS: OLD ADDRESS IS 0x0B
 
-The address 0x0B validates the sender's signature with the message. Since Klaytn [decouples key pairs from addresses](../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses), it is required to validate that a signature is properly signed by the corresponding sender. To do that, this precompiled contract receives three parameters:
+The address 0x3FE validates the sender's signature with the message. Since Klaytn [decouples key pairs from addresses](../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses), it is required to validate that a signature is properly signed by the corresponding sender. To do that, this precompiled contract receives three parameters:
 
 * The sender's address to get the public keys
 * The message hash that is used to generate the signature
@@ -194,7 +218,7 @@ function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public retu
     assembly {
         // skip length header.
         let ptr := add(data, 0x20)
-        if iszero(call(gas, 0x0b, 0, ptr, idx, 31, 1)) {
+        if iszero(call(gas, 0x3fe, 0, ptr, idx, 31, 1)) {
           invalid()
         }
         return(0, 32)

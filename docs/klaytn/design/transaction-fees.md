@@ -43,6 +43,9 @@ Klaytn currently does not provide a way to replace a transaction using the unit 
 
 Basically, Klaytn is keeping compatibility with Ethereum. So Klaytn's gas table is pretty similar with that of Ethereum. But because of the existence of unique features of Klaytn, there are several new constants for those features.
 
+In the process of importing Ethereum Istanbul hardfork, some gas costs are changed. Please refer to the table below for gas cost change. 
+If there's any change, they are marked as follows: [Original, Istanbul].
+
 ### Common Fee <a id="common-fee"></a>
 
 | Item | Gas | Description |
@@ -55,8 +58,8 @@ Basically, Klaytn is keeping compatibility with Ethereum. So Klaytn's gas table 
 | G\_high | 10 | Amount of gas to pay for operations of the set Whigh |
 | G\_blockhash | 20 | Payment for BLOCKHASH operation |
 | G\_extcode | 700 | Amount of gas to pay for operations of the set Wextcode |
-| G\_balance | 400 | Amount of gas to pay for a BALANCE operation |
-| G\_sload | 200 | Paid for a SLOAD operation |
+| G\_balance | 400, 700 | Amount of gas to pay for a BALANCE operation |
+| G\_sload | 200, 800 | Paid for a SLOAD operation |
 | G\_jumpdest | 1 | Paid for a JUMPDEST operation |
 | G\_sset | 20000 | Paid for an SSTORE operation when the storage value is set to non-zero from zero |
 | G\_sreset | 5000 | Paid for an SSTORE operation when the storage value’s zeroness remains unchanged or is set to zero |
@@ -81,7 +84,7 @@ Basically, Klaytn is keeping compatibility with Ethereum. So Klaytn's gas table 
 | G\_sha3word | 6 | Paid for each word \(rounded up\) for input data to a SHA3 operation |
 | G\_copy | 3 | Partial payment for \*COPY operations, multiplied by words copied, rounded up |
 | G\_blockhash | 20 | Payment for BLOCKHASH operation |
-| G\_extcodehash | 400 | Paid for getting keccak256 hash of a contract's code |
+| G\_extcodehash | 400, 700 | Paid for getting keccak256 hash of a contract's code |
 | G\_create2 | 32000 | Paid for opcode CREATE2 which bahaves identically with CREATE but use different arguments |
 
 ### Precompiled Contracts <a id="precompiled-contracts"></a>
@@ -98,10 +101,10 @@ Precompiled contracts are special kind of contracts which usually perform comple
 | IdentityBaseGas | 15 | ​ |
 | IdentityPerWordGas | 3 | ​ |
 | ModExpQuadCoeffDiv | 20 | ​ |
-| Bn256AddGas | 500 | Perform Bn256 elliptic curve operation |
-| Bn256ScalarMulGas | 40000 | ​ |
-| Bn256PairingBaseGas | 100000 | ​ |
-| Bn256PairingPerPointGas | 80000 | ​ |
+| Bn256AddGas | 500, 150 | Perform Bn256 elliptic curve operation |
+| Bn256ScalarMulGas | 40000, 6000 | ​ |
+| Bn256PairingBaseGas | 100000, 45000 | ​ |
+| Bn256PairingPerPointGas | 80000, 34000 | ​ |
 | VMLogBaseGas | 100 | Write logs to node's log file - Klaytn only |
 | VMLogPerByteGas | 20 | Klaytn only |
 | FeePayerGas | 300 | Get feePayer's address - Klaytn only |

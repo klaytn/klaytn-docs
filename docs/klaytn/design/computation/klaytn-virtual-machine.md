@@ -92,6 +92,9 @@ Storage fees have a slightly nuanced behavior. To incentivize minimization of th
 
 The fee schedule `G` is a tuple of 37 scalar values corresponding to the relative costs, in gas, of a number of abstract operations that a transaction may incur. For other tables such as `Precompiled contracts` and `accounts`, please refer to [this document](../transaction-fees.md#klaytns-gas-table)
 
+In the process of importing Ethereum Istanbul hardfork, some gas costs are changed. Please refer to the table below for gas cost change. 
+If there's any change, they are marked as follows: [Original, Istanbul].
+
 | Name | Value | Description |
 | :--- | ---: | :--- |
 | `G_zero` | 0 | Nothing paid for operations of the set `W_zero` |
@@ -102,8 +105,8 @@ The fee schedule `G` is a tuple of 37 scalar values corresponding to the relativ
 | `G_high` | 10 | Amount of gas paid for operations of the set `W_high` |
 | `G_blockhash` | 20 | Payment for a `BLOCKHASH` operation |
 | `G_extcode` | 700 | Amount of gas paid for operations of the set `W_extcode` |
-| `G_balance` | 400 | Amount of gas paid for a `BALANCE` operation |
-| `G_sload` | 200 | Amount of gas paid for an `SLOAD` operation |
+| `G_balance` | 400, 700 | Amount of gas paid for a `BALANCE` operation |
+| `G_sload` | 200, 800 | Amount of gas paid for an `SLOAD` operation |
 | `G_jumpdest` | 1 | Amount of gas paid for a `JUMPDEST` operation |
 | `G_sset` | 20000 | Amount of gas paid for an `SSTORE` operation when the storage value is set to nonzero from zero |
 | `G_sreset` | 5000 | Amount of gas paid for an `SSTORE` operation when the storage value remains unchanged at zero or is set to zero |
@@ -121,7 +124,7 @@ The fee schedule `G` is a tuple of 37 scalar values corresponding to the relativ
 | `G_memory` | 3 | Amount of gas paid for every additional word when expanding memory |
 | `G_txcreate` | 32000 | Amount of gas paid by all contract-creating transactions |
 | `G_txdatazero` | 4 | Amount of gas paid for every zero byte of data or code for a transaction |
-| `G_txdatanonzero` | 68 | Amount of gas paid for every nonzero byte of data or code for a transaction |
+| `G_txdatanonzero` | 68, 16 | Amount of gas paid for every nonzero byte of data or code for a transaction |
 | `G_transaction` | 21000 | Amount of gas paid for every transaction |
 | `G_log` | 375 | Partial payment for a `LOG` operation |
 | `G_logdata` | 8 | Amount of gas paid for each byte in a `LOG` operation's data |
@@ -129,15 +132,15 @@ The fee schedule `G` is a tuple of 37 scalar values corresponding to the relativ
 | `G_sha3` | 30 | Amount of gas paid for each `SHA3` operation |
 | `G_sha3word` | 6 | Amount of gas paid for each word \(rounded up\) for input data to a `SHA3` operation |
 | `G_copy` | 3 | Partial payment for `COPY` operations, multiplied by words copied, rounded up |
-| `G_extcodehash` | 400 | Paid for getting `keccak256` hash of a contract's code |
+| `G_extcodehash` | 400, 700 | Paid for getting `keccak256` hash of a contract's code |
 | `G_create2` | 32000 | Paid for opcode `CREATE2` which bahaves identically with CREATE but use different arguments |
 
 We define the following subsets of instructions:
 
 * `W_zero` = {`STOP`, `RETURN`, `REVERT`}
-* `W_base` = {`ADDRESS`, `ORIGIN`, `CALLER`, `CALLVALUE`, `CALLDATASIZE`, `CODESIZE`, `GASPRICE`, `COINBASE`, `TIMESTAMP`, `NUMBER`, `DIFFICULTY`, `GASLIMIT`, `RETURNDATASIZE`, `POP`, `PC`, `MSIZE`, `GAS`}
+* `W_base` = {`ADDRESS`, `ORIGIN`, `CALLER`, `CALLVALUE`, `CALLDATASIZE`, `CODESIZE`, `GASPRICE`, `COINBASE`, `TIMESTAMP`, `NUMBER`, `DIFFICULTY`, `GASLIMIT`, `RETURNDATASIZE`, `POP`, `PC`, `MSIZE`, `GAS`, `CHAINID`}
 * `W_verylow` = {`ADD`, `SUB`, `LT`, `GT`, `SLT`, `SGT`, `EQ`, `ISZERO`, `AND`, `OR`, `XOR`, `NOT`, `BYTE`, `CALLDATALOAD`, `MLOAD`, `MSTORE`, `MSTORE8`, `PUSH`, `DUP`, `SWAP`}
-* `W_low` = {`MUL`, `DIV`, `SDIV`, `MOD`, `SMOD`, `SIGNEXTEND`}
+* `W_low` = {`MUL`, `DIV`, `SDIV`, `MOD`, `SMOD`, `SIGNEXTEND`, `SELFBALANCE`}
 * `W_mid` = {`ADDMOD`, `MULMOD`, `JUMP`}
 * `W_high` = {`JUMPI`}
 * `W_extcode` = {`EXTCODESIZE`}
