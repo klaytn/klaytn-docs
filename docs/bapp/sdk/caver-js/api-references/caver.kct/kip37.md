@@ -1,8 +1,8 @@
-# caver.kct.kip37 <a id="caver-klay-kip37"></a>
+# caver.kct.kip37 <a id="caver-kct-kip37"></a>
 
 The `caver.kct.kip37` helps you easily handle a smart contract that implements KIP-37 as a JavaScript object on the Klaytn blockchain platform (Klaytn). 
 
-The `caver.kct.kip37` inherits [caver.contract](../caver.contract.md) to implement the KIP-37 token contract. The `caver.kct.kip37` holds the same properties of `caver.contract` whereas additional methods to implement extra features. This section only introduces the newly added bound methods of the `caver.kct.kip37`.
+The `caver.kct.kip37` inherits [caver.contract](../caver.contract.md) to implement the KIP-37 token contract. The `caver.kct.kip37` holds the same properties of `caver.contract` whereas additional methods are implemented for extra features. This section only introduces the newly added methods of the `caver.kct.kip37`.
 
 For more information about KIP-37, see [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-37).
 
@@ -21,8 +21,8 @@ After successful deployment, the promise will be resolved with a new KIP37 insta
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenInfo | object | The information needed to deploy KIP-37 token contract on the Klaytn blockchain. See the below table for the details. |
-| deployer | string | The address of the keyring to deploy the KIP-37 token contract. This keyring must have enough KLAY to deploy. |
+| tokenInfo | object | The information needed to deploy a KIP-37 token contract on the Klaytn blockchain. See the below table for the details. |
+| deployer | string | The address of the keyring to deploy the KIP-37 token contract. The Klaytn account corresponding to this keyring must have enough KLAY to deploy. |
 
 The tokenInfo object must contain the following:
 
