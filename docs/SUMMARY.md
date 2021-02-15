@@ -187,6 +187,7 @@
         * [caver.kct](bapp/sdk/caver-js/api-references/caver.kct/README.md)
           * [caver.kct.kip7](bapp/sdk/caver-js/api-references/caver.kct/kip7.md)
           * [caver.kct.kip17](bapp/sdk/caver-js/api-references/caver.kct/kip17.md)
+          * [caver.kct.kip37](bapp/sdk/caver-js/api-references/caver.kct/kip37.md)
         * [caver.utils](bapp/sdk/caver-js/api-references/caver.utils.md)
         * [caver.ipfs](bapp/sdk/caver-js/api-references/caver.ipfs.md)
       * [caver-js ~v1.4.1](bapp/sdk/caver-js/v1.4.1/README.md)
