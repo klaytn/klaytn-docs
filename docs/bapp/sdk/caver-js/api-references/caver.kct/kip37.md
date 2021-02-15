@@ -265,7 +265,7 @@ Returns the balance of multiple account/token pairs. `balanceOfBatch` is a batch
 | Name | Type | Description |
 | --- | --- | --- |
 | accounts | Array | The address of the account for which you want to see balance. |
-| ids | Array | The token id to see balance. |
+| ids | Array |  An array of the token ids to see balance. |
 
 **Return Value**
 
@@ -885,8 +885,8 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | Name | Type | Description |
 | --- | --- | --- |
 | to | string | An address of the account to which the minted tokens will be issued. |
-| ids | Array| The list of the token ids to mint. |
-| values | Array | The list of the token amounts to mint. |
+| ids | Array| An array of the token ids to mint. |
+| values | Array | An array of the token amounts to mint. |
 | sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
 
 **NOTE** The `ids` and `values` array parameters accept `number` type as an element in array, but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
@@ -1178,8 +1178,8 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | Name | Type | Description |
 | --- | --- | --- |
 | account | string | The address of the account that owns the token to be destroyed. |
-| ids | Array | The list of the token ids to burn. |
-| values | Array | The list of the token amounts to burn. |
+| ids | Array | An array of the token ids to burn. |
+| values | Array | An array of the token amounts to burn. |
 | sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
 
 **NOTE** The `ids` and `values` array parameters accept `number` type as an element in array, but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
