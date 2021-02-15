@@ -505,7 +505,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -583,7 +583,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -666,7 +666,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
