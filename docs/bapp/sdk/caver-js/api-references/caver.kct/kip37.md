@@ -6,6 +6,8 @@ The `caver.kct.kip37` inherits [caver.contract](../caver.contract.md) to impleme
 
 For more information about KIP-37, see [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-37).
 
+**NOTE** `caver.kct.kip37` is supported since caver-js [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7).
+
 ## caver.kct.kip37.deploy <a id="caver-klay-kip37-deploy"></a>
 
 ```javascript
