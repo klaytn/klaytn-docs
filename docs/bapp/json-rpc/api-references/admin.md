@@ -711,7 +711,7 @@ The `setMaxSubscriptionPerConn` is an administrative method that sets the maximu
 
 | Type | Description |
 | --- | --- |
-| Error | `null` if the limit is set successfully, or an error message if not. |
+| Error | `null` if the limit is set successfully; otherwise, it returns an error message. |
 
 **Example**
 
