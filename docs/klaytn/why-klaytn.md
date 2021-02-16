@@ -5,21 +5,21 @@ description: >-
 
 # Why Klaytn <a id="why-klaytn"></a>
 
-Ever since the first bitcoin transaction in 2009, numerous blockchain applications have been developed, but few of them gain meaningful traction in the market. The major roadblocks to blockchain adoption are; 
+Ever since the first bitcoin transaction in 2009, numerous blockchain applications have been developed, but few of them have gained meaningful traction in the market. The major roadblocks to blockchain adoption are: 
 
-- Difficulty of use: Blockchain applications force end-users to understand cryptographic terms and the inner workings of the system. There are too many steps in making transactions, and hex-strings pop up all over.
-- Poor user experience: The burden of technical immaturity is simply passed to the users. In many blockchain systems, a transaction is not confirmed until significant time passes. Use of application often requires password inputs repeatedly (while there are no password recoveries), and charges a fee for each interaction (where the amount of fee can be highly fluctuating each time). 
-- Uncertain sustainability: Lack of long-term sustainable business models for public blockchains slows down enterprise adoption. The operation heavily relies on the token economy that incentivizes the stakeholders to act in a sustainable manner, but the model is not proven in commercial areas yet.
+- Complexity: Blockchain applications force end-users to understand cryptographic terminology and the inner workings of the system. There are too many steps involved in making the transactions, and all those hex-strings can be pretty overwhelming.
+- Poor user experience: The burden of familiarizing with the technology is simply passed on to the users. In many blockchain systems, it is not until a considerable amount of time has passed that a transaction is confirmed. And using the applications often requires repeatedly typing passwords (while there are no password recoveries), and there is a fee for each interaction (the amount being subject to fluctuations each time). 
+- Uncertain sustainability: The lack of long-term sustainable business models for public blockchains slows down enterprise adoption. The operation heavily relies on a token economy that incentivizes its stakeholders to act in a sustainable manner, but the model has not been proven in commercial areas yet.
 
-## Klaytn is aiming at Mass-adoption of Blockchain <a id="klaytn-is-aiming-at-mass-adoption-of-blockchain"></a>
+## Klaytn Aims for Mass-Adoption of Blockchain <a id="klaytn-is-aiming-at-mass-adoption-of-blockchain"></a>
 
-The goal of Klaytn is blockchain mass adoption. The foremost design principle is;
+The goal of Klaytn is blockchain mass adoption. The foremost design principle is:
 
 {% hint style="success" %}
-Giving the same user experience that matches the expectation set on the web/mobile applications, eventually making the technology invisible to the users.
+Giving the same user experience that corresponds to the expectations for web/mobile applications, eventually making the technology invisible to the users.
 {% endhint %}
 
-As per this principle, Klaytn has been designed to meet the following requirements.
+Adhering to this principle, Klaytn has been designed to meet the following requirements:
 
 ### High Performance  <a id="high-performance"></a>
 
@@ -29,14 +29,14 @@ As per this principle, Klaytn has been designed to meet the following requiremen
 
 ### Low Cost  <a id="low-cost"></a>
 
-- End-users should not be burdened with any higher transaction fee that is beyond the cost that the traditional systems require.
-- Transaction fee should be stable and be determined by the transaction complexity itself, not by surrounding factors.
+- End-users should not be burdened with high transaction fees which are beyond the cost required by  the traditional system.
+- Transaction fees should be stable and be determined by the transaction complexity itself, not by any surrounding factors.
 - See [Affordable Smart Contract Execution Cost] and [Transaction Fees]. At the time of writing, sending KLAY requires a fixed fee of 0.000625 KLAY. 
 
 ### Usability in User Account Management <a id="usability-in-user-account-management"></a>
 
-- User should be able to choose own account address in a human-readable format.
-- User can change the private key of an account without changing the address. 
+- Users should be able to choose their own account address in a human-readable format.
+- Users can change the private key of an account without changing the address. 
 - See [Human-Readable Address] and [Decoupling of Key Pairs from Addresses].
 
 ### Usability in Transaction <a id="usability-in-transaction"></a>
@@ -46,10 +46,10 @@ As per this principle, Klaytn has been designed to meet the following requiremen
 
 ***
 
-Removing usability hurdles in the platform layer is not enough to drive the mass-adoption. To find attractive blockchain applications, fostering global developer communities along the strategic partnership with business owners is a crucial step. 
+Removing usability hurdles on the platform layer is not enough to drive a mass-adoption. To discover attractive blockchain applications, fostering global developer communities in addition to strategic partnerships with businesses is crucial. 
 
 {% hint style="success" %}
-Making a business-friendly environment to encourage the birth of compelling applications.
+Making a business-friendly environment to promote the development of compelling applications.
 {% endhint %}
 
 This entails the following requirements to support application development. 
@@ -57,7 +57,7 @@ This entails the following requirements to support application development.
 ### Rapid Development <a id="rapid-development"></a>
 
 - The development of application on Klaytn must be straightforward, and the technologies used must follow the open standard to reduce the learning curve.
-- See [Solidity-Smart Contract Language], [Truffle], and [Migrating Ethereum App to Klaytn]. As Klaytn Virtual Machine (KLVM) supports Ethereum’s Solidity contract, it becomes much easier to port PoC product on Ethereum to Klaytn for commercial use. It is much easier as well to find development tools and to get some help from the well-established developer community. 
+- See [Solidity-Smart Contract Language], [Truffle], and [Migrating Ethereum App to Klaytn]. As Klaytn Virtual Machine (KLVM) supports Ethereum’s Solidity contract, it becomes much easier to port PoC product on Ethereum to Klaytn for commercial use. Searching development tools and seeking help from a well-established developer community are also much easier. 
 
 ### Service-specific Private Chains with Data Anchoring <a id="service-specific-private-chains-with-data-anchoring"></a>
 
@@ -66,8 +66,8 @@ This entails the following requirements to support application development.
 
 ### Application Service Layer <a id="application-service-layer"></a>
 
-- Klaytn provides an additional off-chain service layer called Enterprise Proxy (EP) to ease blockchain application development and operation. Enterprise Proxy will reduce the technical hurdles in using blockchain, and support seamless integration with traditional database and security systems. 
-- One of the first EP product will launch in early 2020. It will have APIs that can be used without much blockchain knowledge and provide business intelligence insights through data analysis. 
+- Klaytn provides an additional off-chain service layer called Enterprise Proxy (EP) to make blockchain application development and operation easier. Enterprise Proxy will reduce the technical hurdles in using blockchain, and support seamless integration with traditional database and security systems. 
+- One of the first EP products will launch in early 2020. It will provide APIs that can be used without much blockchain knowledge and provide business intelligence insights through data analysis. 
 - See [Enterprise Proxy] to learn about its strategic direction and the problems it aims to address. 
 
 ### Contribution Reward <a id="contribution-reward"></a>
@@ -77,10 +77,10 @@ This entails the following requirements to support application development.
 
 ***
 
-Lastly, the grounding rules, 
+Lastly, the ground rules: 
 
 {% hint style="success" %}
-Klaytn does not sacrifice blockchain’s core characteristics to achieve the above-mentioned enhancement, and the platform stays stable with strongly committed stakeholders.
+Klaytn does not compromise blockchain’s core characteristics to achieve the above-mentioned enhancements, and the platform will stay stable with its strongly committed stakeholders.
 {% endhint %}
 
 ### Transparency, Security and Decentralization <a id="transparency-security-and-decentralization"></a>
@@ -90,7 +90,7 @@ Klaytn does not sacrifice blockchain’s core characteristics to achieve the abo
 
 ### Governance by Enterprises <a id="governance-by-enterprises"></a>
 
-- The development and use of Klaytn is backed by Kakao, the massaging giant in Korea. Trusted entities, global listed enterprises that manage the business of hundreds of thousands to billions of dollars, operate Klaytn node and participate in decision making for the development of Klaytn. 
+- The development and the utilization of Klaytn is backed by Kakao, Korea's messaging giant. Trusted entities, globally listed enterprises that manage business whose values range from hundreds of thousands to billions of dollars, together operate the Klaytn nodes and participate in decision making for the development of Klaytn. 
 
 
 
