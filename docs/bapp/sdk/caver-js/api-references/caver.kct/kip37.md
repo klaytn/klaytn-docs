@@ -578,7 +578,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | recipient | string | The address of the account to receive the token. |
 | id | BigNumber &#124; string &#124; number | The token id to transfer. |
 | amount | BigNumber &#124; string &#124; number | The amount of token you want to transfer. |
-| data | Buffer &#124; string &#124; number | The data to send along with the call. |
+| data | Buffer &#124; string &#124; number | (optional) The optional data to send along with the call. |
 | sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
 
 **NOTE** The `id` and `amount` parameters accept `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
@@ -590,8 +590,8 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 **Example**
 
 ```javascript
-// Send via a sendParam object with the from field given
-> kip37.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 2, 10000, 'data', { from: '0x{address in hex}' }).then(console.log)
+// Send via a sendParam object with the from field given (without data)
+> kip37.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 2, 10000, { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x7dbe4c5bd916ad1aafef87fe6c8b32083080df4ec07f26b6c7a487bb3cc1cf64',
     blocknumber: 3983,
@@ -632,11 +632,14 @@ Note that this method will submit a transaction to the Klaytn network, which wil
     },
 }
 
+// Send via a sendParam object with the from field given (with data)
+> kip37.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 2, 10000, 'data' { from: '0x{address in hex}' }).then(console.log)
+
 // Using kip37.options.from
 // If the value of kip37.options.from is set, this value is used as the default value 
 // unless you specify `from` in the sendParam object when sending a transaction with a kip37 instance.
 > kip37.options.from = '0x{address in hex}'
-> kip37.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 2, 10000, 'data').then(console.log)
+> kip37.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 2, 10000).then(console.log)
 ```
 
 ## kip37.safeBatchTransferFrom <a id="kip37-safebatchtransferfrom"></a>
@@ -661,7 +664,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | recipient | string | The address of the account to receive the token. |
 | ids | Array | An array of the token ids to transfer. |
 | amounts | Array | An array of the token amounts you want to transfer. |
-| data | Buffer &#124; string &#124; number | The data to send along with the call. |
+| data | Buffer &#124; string &#124; number | (optional) The optional The data to send along with the call. |
 | sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
 
 **NOTE** The `ids` and `amounts` array parameters accept `number` type as an element in array, but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
@@ -673,8 +676,8 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 **Example**
 
 ```javascript
-// Send via a sendParam object with the from field given
-> kip37.safeBatchTransferFrom('0x{address in hex}', '0x{address in hex}', [1, 2], [10, 1000], 'data', { from: '0x{address in hex}' }).then(console.log)
+// Send via a sendParam object with the from field given (without data)
+> kip37.safeBatchTransferFrom('0x{address in hex}', '0x{address in hex}', [1, 2], [10, 1000], { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x9e469494463a02ec4f9e2530e014089d6be3146a5485161a530a8e6373d472a6',
     blocknumber: 4621,
@@ -715,11 +718,14 @@ Note that this method will submit a transaction to the Klaytn network, which wil
     },
 }
 
+// Send via a sendParam object with the from field given (with data)
+> kip37.safeBatchTransferFrom('0x{address in hex}', '0x{address in hex}', [1, 2], [10, 1000], 'data', { from: '0x{address in hex}' }).then(console.log)
+
 // Using kip37.options.from
 // If the value of kip37.options.from is set, this value is used as the default value 
 // unless you specify `from` in the sendParam object when sending a transaction with a kip37 instance.
 > kip37.options.from = '0x{address in hex}'
-> kip37.safeBatchTransferFrom('0x{address in hex}', '0x{address in hex}', [1, 2], [10, 1000], 'data').then(console.log)
+> kip37.safeBatchTransferFrom('0x{address in hex}', '0x{address in hex}', [1, 2], [10, 1000]).then(console.log)
 ```
 
 ## kip37.mint <a id="kip37-mint"></a>
