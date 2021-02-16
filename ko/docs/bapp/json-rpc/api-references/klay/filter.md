@@ -327,10 +327,54 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
+## klay_subscribe <a id="klay_subscribe"></a>
+
+Creates a new subscription to specific events by using either RPC Pub/Sub over WebSockets or filters over HTTP. It allows clients to wait for events instead of polling for them.
+
+The node will return a subscription id for each subscription created. For each event that matches the subscription, a notification with relevant data is sent together with the subscription id. If a connection is closed, all subscriptions created over the connection are removed.
+
+**매개변수**
+
+`Object` - A notification type: `"newHeads"` or `"logs"`.
+
+
+`"newHeads"` notifies you of each block added to the blockchain. `"logs"` notifies you of logs included in new blocks. This type requires a second parameter that specifies filter options. For more details, go to [klay_newFilter > parameters](https://docs.klaytn.com/bapp/json-rpc/api-references/klay/filter#klay_newfilter).
+
+**리턴값**
+
+| 형식       | 설명                                                                                                                                                           |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| QUANTITY | A subscription id when a subscription is created. For each event that matches the subscription, a notification with relevant data will be delivered as well. |
+
+
+**예시**
+
+This API is appropriate for use with a WebSocket tool, [`wscat`](https://www.npmjs.com/package/wscat).
+
+```shell
+// Request
+wscat -c http://localhost:8552
+> {"jsonrpc":"2.0", "id": 1, "method": "klay_subscribe", "params": ["newHeads"]}
+
+// Result
+< {"jsonrpc":"2.0","id":1,"result":"0x48bb6cb35d6ccab6eb2b4799f794c312"}
+< {"jsonrpc":"2.0","method":"klay_subscription","params":{"subscription":"0x48bb6cb35d6ccab6eb2b4799f794c312","result":{"parentHash":"0xc39755b6ac01d1e8c58b1088e416204f7af5b6b66bfb4f474523292acbaa7d57","reward":"0x2b2a7a1d29a203f60e0a964fc64231265a49cd97","stateRoot":"0x12aa1d3ab0440d844c28fbc6f89d26082f39a8435b512fa487ff55c2056aceb3","number":"0x303bea4”, ... ... }}}
+```
+
+```shell
+// Request
+wscat -c http://localhost:8552
+> {"jsonrpc":"2.0", "id": 1, "method": "eth_subscribe", "params": ["logs", {"fromBlock":"earliest","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b","topics":["0xd596fdad182d29130ce218f4c1590c4b5ede105bee36690727baa6592bd2bfc8"]}]}
+
+// Result
+< {"jsonrpc":"2.0","id":1,"result":"0xbdab16c8e4ae1b9e6930c78359de3e0e"}
+< {"jsonrpc":"2.0","method":"klay_subscription","params":{"subscription":"0xbdab16c8e4ae1b9e6930c78359de3e0e","result":{"address":"0x2e4bb340e26caffb4073d7f1151f37d17524cdbc","topics":["0xb1a7310b1a46c788fcf30784cad70442d5232acaef480b0c094c76bee8d9c77d"],"data":"0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000d2588fe96a34c56a5d0a484cb603bc16fc5cdbbc","blockNumber":"0x3041201","transactionHash":"0xdacdebc77006fc566f65448524a0bc770056d8c7a05244bc7bfb2123b1bd398c","transactionIndex":"0x0","blockHash":"0x899b2dbfe96a34ce5d965dbcfcf39d072b4ce1097d479923e6b6355f3e2609ec","logIndex":"0x0","removed":false}}}
+```
+
 
 ## klay_uninstallFilter <a id="klay_uninstallfilter"></a>
 
-입력으로 받은 ID를 가진 필터를 제거합니다. 더는 모니터링을 하지 않으면 호출해야 합니다. 또한, 일정 주기 동안 [klay_getFilterChanges](#klay_getfilterchanges)를 통해 요청되지 않으면 필터는 타임아웃 됩니다.
+Uninstalls a filter with given id. Should always be called when watch is no longer needed. Additionally, filters timeout when they are not requested with [klay_getFilterChanges](#klay_getfilterchanges) for a period of time.
 
 **매개변수**
 
@@ -340,9 +384,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **리턴값**
 
-| 형식      | 설명                                                   |
-| ------- | ---------------------------------------------------- |
-| Boolean | 필터가 성공적으로 제거되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+| 형식      | 설명                                                                    |
+| ------- | --------------------------------------------------------------------- |
+| Boolean | `true` if the filter was successfully uninstalled, otherwise `false`. |
 
 **예시**
 
@@ -356,4 +400,34 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
   "id":1,
   "result": true
 }
+```
+
+
+## klay_unsubscribe <a id="klay_unsubscribe"></a>
+
+Cancels the subscription with a specific subscription id by using either RPC Pub/Sub over WebSockets or filters over HTTP. Only the connection that created a subscription can unsubscribe from it.
+
+**매개변수**
+
+| 형식       | 설명                 |
+| -------- | ------------------ |
+| QUANTITY | A subscription id. |
+
+**리턴값**
+
+| 형식      | 설명                                                                       |
+| ------- | ------------------------------------------------------------------------ |
+| Boolean | `true` if the subscription was successfully canceled, otherwise `false`. |
+
+
+**예시**
+
+This API is appropriate for use with a WebSocket tool, [`wscat`](https://www.npmjs.com/package/wscat).
+
+```shell
+// Request
+> {"jsonrpc":"2.0", "id": 1, "method": "klay_unsubscribe", "params": ["0xab8ac7a4045025d0c2807d63060eea6d"]}
+
+// Result
+< {"jsonrpc":"2.0","id":1,"result":true}
 ```
