@@ -694,12 +694,12 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_setMaxSubscriptionPerConn <a id="admin_setMaxSubscriptionPerConn"></a>
 
-The `setMaxSubscriptionPerConn` is an administrative method that sets the maximum allowed number of subscriptions per single WebSocket connection. If the maximum number is set to five and a user requests more than five subscriptions through the `klay_subscribe` API, he/she will receive an error message like "Maximum 5 subscriptions are allowed for a WebSocket connection".
+The `setMaxSubscriptionPerConn` is an administrative method that sets the maximum allowed number of subscriptions per single WebSocket connection. For example, if the maximum number is set to five and a user requests more than five subscriptions through the `klay_subscribe` API, an error message "Maximum 5 subscriptions are allowed for a WebSocket connection" will be displayed.
 
 | Client  | Method invocation                                            |
 | :-----: | ------------------------------------------------------------ |
 | Console | `admin.setMaxSubscriptionPerConn(limit)`                         |
-|   RPC   | `{"method": "setMaxSubscriptionPerConn"}` |
+|   RPC   | `{"method": "admin_setMaxSubscriptionPerConn"}` |
 
 **Parameters**
 
