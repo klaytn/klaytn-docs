@@ -679,7 +679,10 @@ The options object can contain the following:
 | Name | Type | Description |
 | --- | --- | --- |
 | data | object | Fires on each incoming event with the event object as an argument. |
+| connected | string | Fires once after the subscription successfully connected. Returns the subscription id. |
 | error | object | Fires when an error in the subscription occurs. |
+
+**NOTE** `connected` is supported since caver-js [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7).
 
 The structure of the returned event `object` looks as follows:
 
@@ -705,6 +708,9 @@ The structure of the returned event `object` looks as follows:
     filter: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
     fromBlock: 0
   }, function(error, event) { console.log(event) })
+  .on('connected', function(subscriptionId){
+      console.log(subscriptionId)
+  })
   .on('data', function(event){
       console.log(event) // same results as the optional callback above
   })
