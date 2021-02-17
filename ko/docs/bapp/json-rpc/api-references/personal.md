@@ -10,7 +10,7 @@ description: >-
 
 ## personal_importRawKey <a id="personal_importrawkey"></a>
 
-Imports the given unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format) into the key store, encrypting it with the passphrase.
+암호화되지 않은 개인키(접두사 '0x'를 제거한 16진수 문자열) 또는 [Klaytn 지갑 키](../../../klaytn/design/accounts.md#klaytn-wallet-key-format)를 입력 받아 이에 해당하는 키 파일을 새 패스프레이즈로 암호화합니다.
 
 가져온 계정의 주소를 반환합니다.
 
@@ -21,10 +21,10 @@ Imports the given unencrypted private key (hex string without leading '0x') or a
 
 **매개변수**
 
-| 명칭         | 형식  | 설명                                                                                                                                                   |
-| ---------- | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keydata    | 문자열 | The unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
-| passphrase | 문자열 | 암호화에 사용되는 패스프레이즈입니다.                                                                                                                                 |
+| 명칭         | 형식  | 설명                                                                                                                      |
+| ---------- | --- | ----------------------------------------------------------------------------------------------------------------------- |
+| keydata    | 문자열 | 암호화되지 않은 개인키 (접두사 '0x'를 제거한 16진수 문자열) 또는 [Klaytn 지갑 키](../../../klaytn/design/accounts.md#klaytn-wallet-key-format)입니다. |
+| passphrase | 문자열 | 암호화에 사용되는 패스프레이즈입니다.                                                                                                    |
 
 **리턴값**
 
@@ -53,7 +53,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_listAccounts <a id="personal_listaccounts"></a>
 
-Returns all the Klaytn account addresses of all keys in the key store.
+키스토어에 있는 모든 키에 대해서 Klaytn 계정 주소를 반환합니다.
 
 | 클라이언트 | 메서드 호출                                              |
 |:-----:| --------------------------------------------------- |
@@ -90,7 +90,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 새 개인키를 생성하여 키스토어 디렉토리에 저장합니다. 입력으로 받은 패스프레이즈로 키 파일을 암호화합니다. 새로 생성된 계정의 주소를 반환합니다.
 
-At the Klaytn console, `newAccount` will prompt for a passphrase when it is not supplied as the argument.
+Klaytn 콘솔에서 패스프레이즈가 매개변수로 주어지지 않으면 `newAccount`가 패스프레이즈를 입력하도록 요구할 것입니다.
 
 | 클라이언트 | 메서드 호출                                                      |
 |:-----:| ----------------------------------------------------------- |
@@ -99,9 +99,9 @@ At the Klaytn console, `newAccount` will prompt for a passphrase when it is not 
 
 **매개변수**
 
-| 명칭         | 형식  | 설명                                              |
-| ---------- | --- | ----------------------------------------------- |
-| passphrase | 문자열 | (optional) the pass phrase used for encryption. |
+| 명칭         | 형식  | 설명                           |
+| ---------- | --- | ---------------------------- |
+| passphrase | 문자열 | (선택 사항) 암호화에 사용되는 패스프레이즈입니다. |
 
 **리턴값**
 
@@ -185,11 +185,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 **매개변수**
 
-| 명칭         | 형식  | 설명                                                       |
-| ---------- | --- | -------------------------------------------------------- |
-| address    | 문자열 | 잠금 해제할 계정의 주소입니다.                                        |
-| passphrase | 문자열 | 암호화에 사용되는 패스프레이즈입니다.                                     |
-| duration   | int | (optional) the unlock duration (default to 300 seconds). |
+| 명칭         | 형식  | 설명                                    |
+| ---------- | --- | ------------------------------------- |
+| address    | 문자열 | 잠금 해제할 계정의 주소입니다.                     |
+| passphrase | 문자열 | 암호화에 사용되는 패스프레이즈입니다.                  |
+| duration   | int | (선택사항) 잠금 해제 기간입니다. (기본 설정은 300초입니다.) |
 
 **리턴값**
 
@@ -230,7 +230,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_replaceRawKey <a id="personal_replacerawkey"></a>
 
-Replaces the encrypted key file in the key store with the given unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format), encrypting it with the new passphrase. 또한 변경하기 전에 이전 패스프레이즈를 입력하여 이전 개인키를 복호화합니다. 복호화에 실패하거나 일치하는 계정을 찾을 수 없는 경우 오류가 발생합니다.
+암호화되지 않은 개인키(접두사 '0x'를 제거한 16진수 문자열) 또는 [Klaytn 지갑 키](../../../klaytn/design/accounts.md#klaytn-wallet-key-format)를 받아 키 스토어의 암호화된 키 파일을 대체하며, 새 패스프레이즈로 암호화합니다. 또한 변경하기 전에 이전 패스프레이즈를 입력하여 이전 개인키를 복호화합니다. 복호화에 실패하거나 일치하는 계정을 찾을 수 없는 경우 오류가 발생합니다.
 
 성공적으로 변경되면 변경된 계정의 주소를 반환합니다.
 
@@ -241,11 +241,11 @@ Replaces the encrypted key file in the key store with the given unencrypted priv
 
 **매개변수**
 
-| 명칭            | 형식  | 설명                                                                                                                                                   |
-| ------------- | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keydata       | 문자열 | The unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format). |
-| oldPassphrase | 문자열 | 이전 개인키를 복호화하기 위한 패스프레이즈입니다.                                                                                                                          |
-| newPassphrase | 문자열 | 새 개인키를 암호화하기 위한 패스프레이즈입니다.                                                                                                                           |
+| 명칭            | 형식  | 설명                                                                                                                      |
+| ------------- | --- | ----------------------------------------------------------------------------------------------------------------------- |
+| keydata       | 문자열 | 암호화되지 않은 개인키 (접두사 '0x'를 제거한 16진수 문자열) 또는 [Klaytn 지갑 키](../../../klaytn/design/accounts.md#klaytn-wallet-key-format)입니다. |
+| oldPassphrase | 문자열 | 이전 개인키를 복호화하기 위한 패스프레이즈입니다.                                                                                             |
+| newPassphrase | 문자열 | 새 개인키를 암호화하기 위한 패스프레이즈입니다.                                                                                              |
 
 **리턴값**
 
@@ -272,7 +272,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_sendAccountUpdate <a id="personal_sendaccountupdate"></a>
 
-입력으로 받은 패스프레이즈를 검증하고 [TxTypeAccountUpdate](../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) 트랜잭션을 제출합니다. 이 트랜잭션 객체의 `from`와 `key` 필드는 필수적으로 값을 입력해야 합니다. `gas`, `gasPrice`, `논스`와 같은 다른 필드는 값이 지정되지 않으면 내부적으로 설정이 됩니다. If the passphrase is able to decrypt the private key belonging to `tx.from` and the transaction is verified, the transaction is signed and submitted onto the network. 이때 계정은 노드에서 전역적으로 잠금 해제되지 않으며 다른 RPC 호출에 사용될 수도 없습니다.
+입력으로 받은 패스프레이즈를 검증하고 [TxTypeAccountUpdate](../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) 트랜잭션을 제출합니다. 이 트랜잭션 객체의 `from`와 `key` 필드는 필수적으로 값을 입력해야 합니다. `gas`, `gasPrice`, `논스`와 같은 다른 필드는 값이 지정되지 않으면 내부적으로 설정이 됩니다. 패스프레이즈로 `tx.from`의 개인키를 복호화할 수 있고 트랜잭션이 유효하면, 트랜잭션을 서명하여 네트워크에 제출합니다. 이때 계정은 노드에서 전역적으로 잠금 해제되지 않으며 다른 RPC 호출에 사용될 수도 없습니다.
 
 | 클라이언트 | 메서드 호출                                                                 |
 |:-----:| ---------------------------------------------------------------------- |
@@ -350,7 +350,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_sendValueTransfer <a id="personal_sendvaluetransfer"></a>
 
-입력으로 받은 패스프레이즈를 검증하고 [TxTypeValueTransfer](../../../klaytn/design/transactions/basic.md#txtypevaluetransfer) 트랜잭션을 제출합니다. 이 트랜잭션 객체의 `from`, `to`, `value` 필드는 필수적으로 값을 입력해야 합니다. `gas`, `gasPrice`, `논스`와 같은 다른 필드는 값이 지정되지 않으면 내부적으로 설정이 됩니다. If the passphrase is able to decrypt the private key belonging to `tx.from` and the transaction is verified, the transaction is signed and submitted onto the network. 이때 계정은 노드에서 전역적으로 잠금 해제되지 않으며 다른 RPC 호출에 사용될 수도 없습니다.
+입력으로 받은 패스프레이즈를 검증하고 [TxTypeValueTransfer](../../../klaytn/design/transactions/basic.md#txtypevaluetransfer) 트랜잭션을 제출합니다. 이 트랜잭션 객체의 `from`, `to`, `value` 필드는 필수적으로 값을 입력해야 합니다. `gas`, `gasPrice`, `논스`와 같은 다른 필드는 값이 지정되지 않으면 내부적으로 설정이 됩니다. 패스프레이즈로 `tx.from`의 개인키를 복호화할 수 있고 트랜잭션이 유효하면, 트랜잭션을 서명하여 네트워크에 제출합니다. 이때 계정은 노드에서 전역적으로 잠금 해제되지 않으며 다른 RPC 호출에 사용될 수도 없습니다.
 
 | 클라이언트 | 메서드 호출                                                                 |
 |:-----:| ---------------------------------------------------------------------- |
@@ -389,9 +389,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_sign <a id="personal_sign"></a>
 
-The `sign` method calculates a Klaytn-specific signature with: `sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))`
+`sign` 메서드는 다음과 같이 Klaytn만의 서명을 계산합니다. `sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))`
 
-메시지에 접두사를 붙이면 계산된 서명 값이 Klaytn의 서명임을 알 수 있습니다. This prevents misuse where a malicious DApp can sign arbitrary data (*e.g.*, transaction) and use the signature to impersonate the victim.
+메시지에 접두사를 붙이면 계산된 서명 값이 Klaytn의 서명임을 알 수 있습니다. 이는 악성 DApp이 트랜잭션과 같은 임의의 데이터를 서명하여 누군가를 사칭하는 것을 방지합니다.
 
 서명 검증에 대한 자세한 내용은 `personal_ecRecover`를 참고하세요.
 
@@ -402,11 +402,11 @@ The `sign` method calculates a Klaytn-specific signature with: `sign(keccak256("
 
 **매개변수**
 
-| 명칭       | 형식  | 설명                                           |
-| -------- | --- | -------------------------------------------- |
-| message  | 문자열 | 서명할 메시지입니다.                                  |
-| Account  | 문자열 | 계정의 주소입니다.                                   |
-| password | 문자열 | (optional) the pass phrase used for signing. |
+| 명칭       | 형식  | 설명                           |
+| -------- | --- | ---------------------------- |
+| message  | 문자열 | 서명할 메시지입니다.                  |
+| Account  | 문자열 | 계정의 주소입니다.                   |
+| password | 문자열 | (선택 사항) 암호화에 사용되는 패스프레이즈입니다. |
 
 **리턴값**
 
