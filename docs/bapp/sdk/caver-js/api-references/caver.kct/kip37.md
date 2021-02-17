@@ -28,7 +28,7 @@ The tokenInfo object must contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| uri | string | The uri for all token types, by relying on the [token type ID substituion mechanism](http://kips.klaytn.com/KIPs/kip-37#metadata). |
+| uri | string | The URI for all token types, by relying on the [token type ID substitution mechanism](http://kips.klaytn.com/KIPs/kip-37#metadata). |
 
 **Return Value**
 
