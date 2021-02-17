@@ -184,9 +184,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admi
 
 ## admin_addPeer <a id="admin_addpeer"></a>
 
-The `addPeer` is an administrative method that requests adding a new remote node to the list of tracked static nodes. 각 노드는 목록의 노드들과의 연결을 항상 유지하고자 하고, 만약 원격 가끔씩 연결이 끊어지면 다시 연결합니다.
+`addPeer`는 추적된 정적 노드들의 목록에 새로운 원격 노드를 추가하도록 요청하는 관리 메서드입니다. 각 노드는 목록의 노드들과의 연결을 항상 유지하고자 하고, 만약 원격 가끔씩 연결이 끊어지면 다시 연결합니다.
 
-이 메서드는 한 매개변수 kni(Klaytn Network Identifier)만을 입력으로 받습니다. It is similar to the [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) concept in the geth. It is URL of the remote peer to start tracking and returns a `BOOL` indicating whether the peer was accepted for tracking or some error occurred.
+이 메서드는 한 매개변수 kni(Klaytn Network Identifier)만을 입력으로 받습니다. 이는 geth의 [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) 개념과 유사합니다. 추적할 원격 피어의 URL이며, 해당 피어의 추적이 허용되었는지 또는 어떤 오류가 발생했는지에 따라 `BOOL`을 반환합니다.
 
 | 클라이언트 | 메서드 호출                                         |
 |:-----:| ---------------------------------------------- |
@@ -224,7 +224,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `removePeer`는 추적된 정적 노드들의 목록에서 한 노드를 제거하도록 요청하는 관리 메서드입니다.
 
-이 메서드는 한 매개변수 kni(Klaytn Network Identifier)만을 입력으로 받습니다. It is similar to the [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) concept in the geth. 목록에서 제거될 원격 피어의 URL이며, 피어가 성공적으로 제거되었거나 어떤 에러가 발생했는지 알려주기 위해 `BOOL`을 반환합니다.
+이 메서드는 한 매개변수 kni(Klaytn Network Identifier)만을 입력으로 받습니다. 이는 geth의 [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) 개념과 유사합니다. 목록에서 제거될 원격 피어의 URL이며, 피어가 성공적으로 제거되었거나 어떤 에러가 발생했는지 알려주기 위해 `BOOL`을 반환합니다.
 
 | 클라이언트 | 메서드 호출                                            |
 |:-----:| ------------------------------------------------- |
@@ -349,7 +349,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 | 명칭   | 형식  | 설명                                                                                                                             |
 | ---- | --- | ------------------------------------------------------------------------------------------------------------------------------ |
 | host | 문자열 | (선택 사항) 리스너 소켓이 열려있는 네트워크 인터페이스입니다. (기본 설정:  `"localhost"`)                                                                    |
-| port | int | (optional) network port to open the listener socket on (default:  `8552`).                                                     |
+| port | int | (선택 사항) 리스너 소켓을 열기 위한 네트워크 포트입니다. (기본 설정:  `8552`)                                                                             |
 | cors | 문자열 | (선택 사항) 사용할 [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 헤더입니다. (기본 설정:  `""`) |
 | apis | 문자열 | (선택 사항) 이 인터페이스를 통해 제공할 API 모듈입니다. (기본 설정:  `"klay,net,personal"`)                                                             |
 
