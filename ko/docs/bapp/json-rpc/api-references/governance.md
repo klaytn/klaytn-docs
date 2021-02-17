@@ -143,7 +143,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 
 ## governance_myVotingPower <a id="governance_myvotingpower"></a>
 
-`myVotingPower` 속성은 나의 노드가 보유한 의결권을 나타냅니다. 한 노드당 1.0 ~ 2.0의 의결권을 가집니다. `"none"`, `"single"` 거버넌스 모드에서는 `totalVotingPower` 속성을 통해 제공하는 정보가 없습니다.
+`myVotingPower` 속성은 나의 노드가 보유한 의결권을 나타냅니다. 한 노드당 1.0 ~ 2.0 사이의 의결권을 가집니다. `"none"`, `"single"` 거버넌스 모드에서는 `totalVotingPower` 속성을 통해 제공하는 정보가 없습니다.
 
 **매개변수**
 
