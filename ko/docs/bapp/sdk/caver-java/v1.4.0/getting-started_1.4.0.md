@@ -126,7 +126,7 @@ KlayCredentials credentials = KlayWalletUtils.loadCredentials(<password>, <walle
 
 ### Baobab 연결 <a id="connecting-to-baobab"></a>
 
-You can connect to the Baobab network like below:
+아래와 같이 Baobab 네트워크에 연결할 수 있습니다.
 
 ```java
 Caver caver  = Caver.build(https://your.baobab.en.url:8651);
@@ -136,7 +136,7 @@ Caver caver  = Caver.build(https://your.baobab.en.url:8651);
 
 `Caver` 인스턴스를 얻고 약간의 KLAY가 있는 계정을 만든 후, 아래처럼 가스 한도 `BigInteger.valueOf(100_000)`로 특정 주소\(`0xe97f27e9a5765ce36a7b919b1cb6004c7209217e`\)에게 1 peb를 보낼 수 있습니다.
 
-`TransactionManager`는 트랜잭션 타입의 복잡성을 숨기기 위해 도입되었습니다. 예를 들어, `FeeDelegatedValueTransferTransaction` 객체는 `ValueTransferTransaction` 객체로 변환될 수 있습니다. For more details, see [Fee Delegation][]. 수수료 위임 외에도 `TransactionManager`는 `GetNonceProcessor`, `ErrorHandler`, `TransactionReceiptProcessor`와 함께 사용될 수 있습니다.
+`TransactionManager`는 트랜잭션 타입의 복잡성을 숨기기 위해 도입되었습니다. 예를 들어, `FeeDelegatedValueTransferTransaction` 객체는 `ValueTransferTransaction` 객체로 변환될 수 있습니다. 자세한 내용은 [수수료 위임][]을 참조하세요. 수수료 위임 외에도 `TransactionManager`는 `GetNonceProcessor`, `ErrorHandler`, `TransactionReceiptProcessor`와 함께 사용될 수 있습니다.
 
 ```java
 TransactionManager transactionManager = new TransactionManager.Builder(caver, credentials)
@@ -205,13 +205,13 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt
 }
 ```
 
-이 영수증에서 트랜잭션 실행 상태를 확인할 수 있습니다. 영수증의 '상태'필드가 "0x1"이면 트랜잭션이 성공적으로 처리되었음을 의미합니다. 그렇지 않으면 트랜잭션이 실패한 것입니다. 자세한 오류 메시지는 `txError` 필드에 표시됩니다. For more detail, see [txError][].
+이 영수증에서 트랜잭션 실행 상태를 확인할 수 있습니다. 영수증의 '상태'필드가 "0x1"이면 트랜잭션이 성공적으로 처리되었음을 의미합니다. 그렇지 않으면 트랜잭션이 실패한 것입니다. 자세한 오류 메시지는 `txError` 필드에 표시됩니다. 자세한 내용은 [txError][]를 참조하세요.
 
 ## 다른 트랜잭션 타입 보내기 <a id="sending-other-transaction-types"></a>
 
 ### 계정 업데이트 <a id="account-update"></a>
 
-If you want to update the key of the given account to a new [AccountKeyPublic][] key:
+주어진 계정의 키를 새 [AccountKeyPublic][]으로 업데이트하려는 경우:
 
 ```java
 AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.create(
@@ -225,11 +225,11 @@ AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.cre
 Account.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendUpdateTransaction(accountUpdateTransaction).send();
 ```
 
-계정 키는 계정과 연결된 키 구조를 나타냅니다. To get more details and types about the Klaytn account key, please read [AccountKey][].
+계정 키는 계정과 연결된 키 구조를 나타냅니다. Klaytn 계정 키에 대한 자세한 내용과 타입을 보려면 [AccountKey][]를 읽으세요.
 
 ### 스마트 컨트랙트 <a id="smart-contract"></a>
 
-caver-java는 스마트 컨트랙트 래퍼 코드의 자동 생성을 지원합니다. 랩퍼를 사용하면 스마트 컨트랙트를 쉽게 배포하고 실행할 수 있습니다. 랩퍼 코드를 생성하기 전, 먼저 스마트 컨트랙트를 컴파일해야 합니다. 참고: 컴퓨터에 솔리디티 컴파일러가 설치된 경우에만 작동합니다. See [Solidity Compiler][].
+caver-java는 스마트 컨트랙트 래퍼 코드의 자동 생성을 지원합니다. 랩퍼를 사용하면 스마트 컨트랙트를 쉽게 배포하고 실행할 수 있습니다. 랩퍼 코드를 생성하기 전, 먼저 스마트 컨트랙트를 컴파일해야 합니다. 참고: 컴퓨터에 솔리디티 컴파일러가 설치된 경우에만 작동합니다. [Solidity Compiler][]를 참조하세요.
 
 ```text
 $ solc <contract>.sol --bin --abi --optimize -o <output-dir>/
@@ -576,6 +576,7 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt =  feePayerManager_
 [AccountKey]: ../../../../klaytn/design/accounts.md#account-key
 [Solidity Compiler]: #solidity-compiler
 [command-line tool]: #command-line-tool
+[수수료 위임]: ../../../../klaytn/design/transactions/README.md#fee-delegation
 [Fee Delegation]: ../../../../klaytn/design/transactions/README.md#fee-delegation
 [Smart Contract]: #smart-contract
 [fee-delegated value transfer]: #value-transfer
