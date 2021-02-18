@@ -29,7 +29,7 @@ Adhering to this principle, Klaytn has been designed to meet the following requi
 
 ### Low Cost  <a id="low-cost"></a>
 
-- End-users should not be burdened with high transaction fees which are beyond the cost required by  the traditional system.
+- End-users should not be burdened with high transaction fees which are beyond the cost required by the traditional system.
 - Transaction fees should be stable and be determined by the transaction complexity itself, not by any surrounding factors.
 - See [Affordable Smart Contract Execution Cost] and [Transaction Fees]. At the time of writing, sending KLAY requires a fixed fee of 0.000625 KLAY. 
 
