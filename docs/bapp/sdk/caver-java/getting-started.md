@@ -1182,7 +1182,7 @@ KCT (Klaytn Compatible Token) contracts such as [KIP-7], [KIP-17], and [KIP-37] 
 To detect the interface implemented in a KIP-7 token contract, you can use `detectInterface()` in the `KIP7` class.
 It returns the mapping between KIP-7 interface identifier and interface support.
 
-`detectInterface()` supports both staic and instance methods, so you can select and use the method that suits your needs.
+`detectInterface()` supports both static and instance methods, so you can select and use the method that suits your needs.
 
 The interface detect through `detectInterface()` for `KIP7` is shown in the table below.
 
@@ -1224,7 +1224,7 @@ IKIP7Mintable - true
 To detect the interface implemented in a KIP-17 token contract, you can use `detectInterface()` in the `KIP17` class.
 It returns the mapping between KIP-17 interface identifier and interface support.
 
-`detectInterface()` supports both staic and instance methods, so you can select and use the method that suits your needs.
+`detectInterface()` supports both static and instance methods, so you can select and use the method that suits your needs.
 
 The interface detect through `detectInterface()` for `KIP17` is shown in the table below.
 
@@ -1269,7 +1269,7 @@ IKIP17Pausable - true
 To detect the interface implemented in a KIP-37 token contract, you can use `detectInterface()` in the `KIP37` class.
 It returns the mapping between KIP-37 interface identifier and interface support.
 
-`detectInterface()` supports both staic and instance methods, so you can select and use the method that suits your needs.
+`detectInterface()` supports both static and instance methods, so you can select and use the method that suits your needs.
 
 The interface detect through `detectInterface()` for `KIP37` is shown in the table below.
 
