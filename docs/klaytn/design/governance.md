@@ -14,27 +14,26 @@ To make the platform trustworthy in its initial stages, only trusted entities ar
 
 The main topics that can be decided through the governance structure include the following three areas, and proposals that require additional decision making may be introduced in a regular meeting or temporary meeting for review. The Klaytn Governance Council must make decisions that are best for the growth of Klaytn.
 
-1. **Technology**: Matters related to the technical update of the platform. Here the issues on the blockchain’s basic structure \(e.g., Account Structure\), new features \(e.g., L2 solution\), or software update schedule are included.
-2. **Economy**: The additional issuance of KLAY and its distribution structure, change in transaction fees, changes in Proof-of-Contribution service evaluation methods, Klaytn Improvement Reserve spending approval, and more issues are included in this category.
-3. **Governing Rule**: The governance subjects and processes, as well as the rules for the responsibilities and rights of governing bodies, are included in this category.
+- **Technology**
+  - Matters related to the technical update of the platform. Here the issues on the blockchain's basic structure (e.g., Account Structure), new features (e.g., L2 solution), or software update schedule are included.
+- **Economy**
+  - Issues relating to additional issuance of KLAY and its distribution structure, changes in transaction fees, and Klaytn Improvement Reserve spending approval etc. are included in this category.
+- **Governing Rule**
+  - The governance subjects and processes, as well as the rules for the responsibilities and rights of governing bodies, are included in this category.
 
 ## Governance Process <a id="governance-process"></a>
 
 The Goal of Klaytn Governance Process Klaytn collectively defines its decision-making process, from introducing agenda to voting, as Klaytn Governance Process. Klaytn Governance Process may differ in detail depending on the agenda category. Klaytn Governance Process aims to be executed on-chain, where the voting process itself and the results are transparently disclosed to all Klaytn ecosystem participants. However, initially, Klaytn Governance Process may be operated in an off-chain environment, followed by a transparent disclosure of discussion and decision results.
 
-Klaytn principally aims for the governance process to occur within the protocol \(on-chain\). Through this process, the votes will be recorded on the blockchain, and the results will be carried out following the vote. As the platform grows, more matters will be handled through on-chain governance.
+Klaytn principally aims for the governance process to occur within the protocol (on-chain). Through this process, the votes will be recorded on the blockchain, and the results will be carried out following the vote. As the platform grows, more matters will be handled through on-chain governance.
 
 ### General Governance Process <a id="general-governance-process"></a>
 
-The governance process is operated per the follow order: proposal introduction, statement of opinion submitted by advisors, voting by council members, and various follow-up procedures depending on the result of the vote.
+The initial governance process proceeds in the following order: proposal introduction, statement of opinion submitted by advisors, voting by council members, and various follow-up procedures depending on the result of the vote.
 
 Those who have the right to introduce proposals can make sure each proposal is voted on by introducing it. Once the proposal is introduced, the advisors must conduct expert analysis on the proposal and submit a statement of opinion with their results.
 
-The Klaytn Governance Council members have the right to vote on the introduced proposal and will reference the advisors’ statement of opinion to vote on what they believe to be the best option. If the number of votes passes the threshold, the proposal will pass; if not, the proposal will be dismissed. The follow-up measures for an approved proposal will be led by the chairman, and the chairman has the responsibility to carry out all proposals that have been passed by the council within his or her term. Specific proposal votes and follow-up measures follow the procedures outlined below.
-
-* **Core Update**: These are proposals that suggest updates to Klaytn’s core code. The vote takes place online. However, even if the code update is passed, software update must take place on a set date for this code to be implemented. As such, the software update will also be proposed, and if it is passed, the core update will take place on the set schedule of software update.
-* **Parameter Change**: This concerns the proposals that will be applied on the blockchain without any code updates.  Currently, matters such as gas price, block reward amount, block reward distribution ratio, voting period, number of committee members, and more can be decided without code updates. The proposer may initiate the voting process, and the vote will take place on-chain during a predetermined voting period. Each voter’s choice will be saved in the block header, and the vote will automatically be closed once the voting period is over. Once the same length of time as the voting period passes after the vote, the decision will be automatically implemented to the platform. Therefore, no specific follow-up procedure is necessary. 
-* **Standard Proposal**: This concerns proposals that request the approval of new standards for Klaytn, and the vote takes place online. As there is nothing to be changed in the platform, an approved proposal will only see an official announcement that Klaytn has officially approved a standard change.
+During the initial phase of Klaytn governance, the Klaytn Governance Council members have the right to vote on the introduced proposal and will reference the advisors' statements of opinion to vote on what they believe to be the best option. If the number of votes passes the threshold, the proposal will pass; if not, the proposal will be dismissed. The follow-up measures for an approved proposal will be led by the chairman, and the chairman has the responsibility to carry out all the proposals that have been passed by the council during his or her term. 
 
 ### Klaytn Improvement Reserve Review Process <a id="klaytn-improvement-reserve-review-process"></a>
 

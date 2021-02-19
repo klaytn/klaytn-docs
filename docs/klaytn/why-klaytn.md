@@ -64,15 +64,10 @@ This entails the following requirements to support application development.
 - Klaytn should provide a dedicated solution for private blockchain. The private chain can have its own governance and connect to the Klaytn main chain for data anchoring and asset transfer. 
 - See [Service Chain]. Enterprises often want to have their own dedicated execution environment to meet the SLA. With the service chain, an enterprise can maintain an isolated high-performing execution environment that is not affected by other blockchain applications, and also keep their business-sensitive data private. 
 
-### Application Service Layer <a id="application-service-layer"></a>
-
-- Klaytn provides an additional off-chain service layer called Enterprise Proxy (EP) to ease blockchain application development and operation. Enterprise Proxy will reduce the technical hurdles in using blockchain, and support seamless integration with traditional database and security systems. 
-- One of the first EP product will launch in early 2020. It will have APIs that can be used without much blockchain knowledge and provide business intelligence insights through data analysis. 
-- See [Enterprise Proxy] to learn about its strategic direction and the problems it aims to address. 
-
 ### Contribution Reward <a id="contribution-reward"></a>
 
 - Applications that contribute to growing Klaytn ecosystem should be fairly rewarded.
+[TODO] incentive program revise. 
 - See [Incentive Program]. 
 
 ***
@@ -88,9 +83,9 @@ Klaytn does not sacrifice blockchain’s core characteristics to achieve the abo
 - Everyone can request transactions and retrieve and validate every transaction execution result on the blockchain.
 - Klaytn is a decentralized network and no single malicious node breaks the data integrity.
 
-### Governance by Enterprises <a id="governance-by-enterprises"></a>
+### Governance by Trusted Entities <a id="governance-by-trusted-entities"></a>
 
-- The development and use of Klaytn is backed by Kakao, the massaging giant in Korea. Trusted entities, global listed enterprises that manage the business of hundreds of thousands to billions of dollars, operate Klaytn node and participate in decision making for the development of Klaytn. 
+- The initial development and use of Klaytn is backed by Kakao, the messaging giant in Korea. Trusted entities, global listed enterprises that manage the business of hundreds of thousands to billions of dollars, operate Klaytn node and participate in decision making for the development of Klaytn. 
 
 
 

@@ -23,7 +23,6 @@
 | peb | The smallest currency unit of KLAY. See [Unit of KLAY]. |
 | PN | Klaytn Proxy Node. A node which submits transactions received from the Klaytn Endpoint Node Network to a CN or CNs. Details at [Core Cell] |
 | PNN | Proxy Node Network. PNN is the network consisting of PNs in CCN. |
-| PoC | Proof of Contribution is a transparent evaluation mechanism that incentivizes and stimulates participants in its economy by evaluating their contributions and compensating them. See [Token Economy - Proof of Contribution]. |
 | Proposer | A consensus node proposing a new block |
 | Proposer reward | Amount of KLAY which a proposer receives from block reward |
 | SCN | Service Chain Network. This network is an auxiliary blockchain network specialized for the services that require higher performance, different node configurations, or security levels compared to the main chain. Details at SCN Operation Guide |
@@ -38,7 +37,6 @@
 [KLAY]: ../klaytn/design/klaytn-native-coin-klay.md
 [Unit of KLAY]: ../klaytn/design/klaytn-native-coin-klay.md#units-of-klay
 [Unit Price]: ../klaytn/design/transaction-fees.md#unit-price
-[Token Economy - Proof of Contribution]: ../klaytn/design/token-economy.md#proof-of-contribution
 [Token Economy - Klaytn Improvement Reserve]: ../klaytn/design/token-economy.md#klaytn-improvement-reserve
 [Consensus Nodes]: ../node/core-cell/README.md
 [Core Cell]: ../node/core-cell/README.md
