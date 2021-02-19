@@ -1173,18 +1173,18 @@ QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk
 
 ## Detect KCT interface<a id="detect kct interface"></a>
 
-KCT (Klaytn Compatible Token) contracts such as [KIP-7], [KIP-17], and [KIP-37] defiend an variable interface, and [KIP-13] contains content that allows you to check whether this contract complies with the KCt specification and which interface is implemented by sending a query to the contract.
+KCT (Klaytn Compatible Token) contracts such as [KIP-7], [KIP-17], and [KIP-37] define and provide various interfaces, and [KIP-13] allows you to see whether a contract complies with KCT specifications and which interface it implements, by sending a query to the contract.
 
-[KIP-13] was implemented in Caver v1.5.7, It could detect interface through `detectInterface()` in each KCT contract class(`KIP7`, `KIP17`, and `KIP37`).
+[KIP-13] was implemented in Caver v1.5.7, It could detect interface through `detectInterface()` for any of the KCT contract classes (`KIP7`, `KIP17`, and `KIP37`).
 
 ### Detect interface implemented in KIP-7 
 
-To detect the interface that implemented in the KIP-7 token contract, using `detectInterface()` in `KIP7` class.
+To detect the interface implemented in a KIP-7 token contract, you can use `detectInterface()` in the `KIP7` class.
 It returns the mapping between KIP-7 interface identifier and interface support.
 
-A `detectInterface()` supports both staic method and instance method, so you can select and use the method to use according to the situation.
+`detectInterface()` supports both staic and instance methods, so you can select and use the method that suits your needs.
 
-The interface detect through `detectInterface()` in `KIP7` is shown in the table below.
+The interface detect through `detectInterface()` for `KIP7` is shown in the table below.
 
 |Interface|KIP-13 Identifier|
 |---|---|
@@ -1221,12 +1221,12 @@ IKIP7Mintable - true
 
 ### Detect interface implemented in KIP-17 
 
-To detect the interface that implemented in the KIP-17 token contract, using `detectInterface()` in `KIP17` class.
+To detect the interface implemented in a KIP-17 token contract, you can use `detectInterface()` in the `KIP17` class.
 It returns the mapping between KIP-17 interface identifier and interface support.
 
-A `detectInterface()` supports both staic method and instance method, so you can select and use the method to use according to the situation.
+`detectInterface()` supports both staic and instance methods, so you can select and use the method that suits your needs.
 
-The interface detect through `detectInterface()` in `KIP17` is shown in the table below.
+The interface detect through `detectInterface()` for `KIP17` is shown in the table below.
 
 |Interface|KIP-13 Identifier|
 |---|---|
@@ -1266,12 +1266,12 @@ IKIP17Pausable - true
 
 ### Detect interface implemented in KIP-37 
 
-To detect the interface that implemented in the KIP-37 token contract, using `detectInterface()` in `KIP37` class.
+To detect the interface implemented in a KIP-37 token contract, you can use `detectInterface()` in the `KIP37` class.
 It returns the mapping between KIP-37 interface identifier and interface support.
 
-A `detectInterface()` supports both staic method and instance method, so you can select and use the method to use according to the situation.
+`detectInterface()` supports both staic and instance methods, so you can select and use the method that suits your needs.
 
-The interface detect through `detectInterface()` in `KIP37` is shown in the table below.
+The interface detect through `detectInterface()` for `KIP37` is shown in the table below.
 
 | Interface | KIP-13 Identifier |
 |---|---|
