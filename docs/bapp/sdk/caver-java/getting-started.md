@@ -1286,10 +1286,10 @@ The interface detect through `detectInterface()` for `KIP37` is shown in the tab
 | Interface | KIP-13 Identifier |
 |---|---|
 | IKIP37 | 0x6433ca1f |
-| IKIP37Metadata] | 0x0e89341c |
-| IKIP37Mintable] | 0xdfd9d9ec |
-| IKIP37Burnable] | 0x9e094e9e |
-| IKIP37Pausable] | 0x0e8ffdb7 |
+| IKIP37Metadata | 0x0e89341c |
+| IKIP37Mintable | 0xdfd9d9ec |
+| IKIP37Burnable | 0x9e094e9e |
+| IKIP37Pausable | 0x0e8ffdb7 |
 
 
 ```java
