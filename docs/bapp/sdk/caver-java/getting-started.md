@@ -1205,17 +1205,22 @@ resultStatic.entrySet().forEach(entry -> System.out.println(entry.getKey() + " -
 //using instance method.
 KIP7 kip7 = new KIP7(caver, contractAddress)
 Map<String, Boolean> resultInstance = kip7.detectInterface();
-resultInstance.entrySet().forEach(entry -> System.out.println(entry.getKey() + " - " + entry.getValue()));
+
+ObjectMapper mapper = new ObjectMapper();
+String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(result);
+System.out.println(resultJson);
 ```
 
 The execution result of the above code is shown below.
 
 ```java
-IKIP7Metatdata - true
-IKIP7Burnable - true
-IKIP7 - true
-IKIP7Pausable - true
-IKIP7Mintable - true
+{
+  "IKIP7Metatdata" : true,
+  "IKIP7Burnable" : true,
+  "IKIP7" : true,
+  "IKIP7Pausable" : true,
+  "IKIP7Mintable" : true
+}
 ```
 
 
@@ -1249,19 +1254,24 @@ resultStatic.entrySet().forEach(entry -> System.out.println(entry.getKey() + " -
 //using instance method.
 KIP17 kip17 = new KIP17(caver, contractAddress)
 Map<String, Boolean> resultInstance = kip17.detectInterface();
-resultInstance.entrySet().forEach(entry -> System.out.println(entry.getKey() + " - " + entry.getValue()));
+
+ObjectMapper mapper = new ObjectMapper();
+String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(result);
+System.out.println(resultJson);
 ```
 
 The execution result of the above code is shown below.
 
 ```java
-IKIP17Enumerable - true
-IKIP17Metadata - true
-IKIP17Burnable - true
-IKIP17Mintable - true
-IKIP17 - true
-IKIP17MetadataMintable - true
-IKIP17Pausable - true
+{
+  "IKIP17Enumerable" : true,
+  "IKIP17Metadata" : true,
+  "IKIP17Burnable" : true,
+  "IKIP17Mintable" : true,
+  "IKIP17" : true,
+  "IKIP17MetadataMintable" : true,
+  "IKIP17Pausable" : true
+}
 ```
 
 ### Detect interface implemented in KIP-37 
@@ -1293,17 +1303,22 @@ resultStatic.entrySet().forEach(entry -> System.out.println(entry.getKey() + " -
 //using instance method.
 KIP37 kip37 = new KIP17(caver, contractAddress)
 Map<String, Boolean> resultInstance = kip37.detectInterface();
-resultInstance.entrySet().forEach(entry -> System.out.println(entry.getKey() + " - " + entry.getValue()));
+
+ObjectMapper mapper = new ObjectMapper();
+String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(result);
+System.out.println(resultJson);
 ```
 
 The execution result of the above code is shown below.
 
 ```java
-IKIP37Metatdata - true
-IKIP37Burnable - true
-IKIP37 - true
-IKIP37Pausable - true
-IKIP37Mintable - true
+{
+  "IKIP37Metatdata" : true,
+  "IKIP37Burnable" : true,
+  "IKIP37" : true,
+  "IKIP37Pausable" : true,
+  "IKIP37Mintable" : true
+}
 ```
 
 
