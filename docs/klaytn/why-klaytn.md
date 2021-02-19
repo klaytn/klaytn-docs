@@ -7,7 +7,7 @@ description: >-
 
 Ever since the first bitcoin transaction in 2009, numerous blockchain applications have been developed, but few of them have gained meaningful traction in the market. The major roadblocks to blockchain adoption are: 
 
-- Usage difficulty: Blockchain applications force end-users to understand cryptographic terminology and the inner workings of the system. There are too many steps involved in making the transactions, and all those hex-strings can be pretty overwhelming.
+- Usage difficulty: Blockchain applications force end-users to understand cryptographic terminologies and the inner workings of the system. There are too many steps involved in making the transactions, and all those hex-strings can be pretty overwhelming.
 - Poor user experience: The burden of familiarizing with the technology is simply passed on to the users. In many blockchain systems, it takes a considerable amount of time for a transaction to be confirmed. And using the applications often requires repeatedly typing passwords (while there are no password recoveries), and there is a fee for each interaction (the amount being subject to fluctuations each time). 
 - Uncertain sustainability: The lack of long-term sustainable business models for public blockchains slows down enterprise adoption. The operation heavily relies on a token economy that incentivizes its stakeholders to act in a sustainable manner, but the model has not been proven in commercial areas yet.
 
