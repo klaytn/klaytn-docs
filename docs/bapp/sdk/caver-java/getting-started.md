@@ -1264,7 +1264,7 @@ IKIP17MetadataMintable - true
 IKIP17Pausable - true
 ```
 
-### Detect interface implemented in KIP-37 
+### Detect interface implemented in KIP-37 <a id="detecting-kip-37-interfaces"></a>
 
 To detect the interface implemented in a KIP-37 token contract, you can use `detectInterface()` in the `KIP37` class.
 It returns the mapping between KIP-37 interface identifier and interface support.
