@@ -1175,16 +1175,16 @@ QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk
 
 KCT (Klaytn Compatible Token) contracts such as [KIP-7], [KIP-17], and [KIP-37] define and provide various interfaces, and [KIP-13] allows you to see whether a contract complies with KCT specifications and which interface it implements, by sending a query to the contract.
 
-[KIP-13] was implemented in Caver v1.5.7, It could detect interface through `detectInterface()` for any of the KCT contract classes (`KIP7`, `KIP17`, and `KIP37`).
+[KIP-13] was implemented in Caver v1.5.7. It could detect interface through `detectInterface()` for any of the KCT contract classes (`KIP7`, `KIP17`, and `KIP37`).
 
-### Detect interface implemented in KIP-7 
+### Detecting KIP-7 Interfaces <a id="detecting-kip-7-interfaces"></a>
 
-To detect the interface implemented in a KIP-7 token contract, you can use `detectInterface()` in the `KIP7` class.
-It returns the mapping between KIP-7 interface identifier and interface support.
+To detect KIP-7 interfaces, you can use `detectInterface()` in the `KIP7` class.
+It returns the mapping between KIP-7 interface identifier and a boolean that the interface is supported or not.
 
 `detectInterface()` supports both static and instance methods, so you can select and use the method that suits your needs.
 
-The interface detect through `detectInterface()` for `KIP7` is shown in the table below.
+The interface detected through `detectInterface()` for `KIP7` is shown in the table below.
 
 |Interface|KIP-13 Identifier|
 |---|---|
@@ -1224,7 +1224,7 @@ The execution result of the above code is shown below.
 ```
 
 
-### Detect interface implemented in KIP-17 
+### Detecting KIP-17 Interfaces <a id="detecting-kip-17-interfaces"></a>
 
 To detect the interface implemented in a KIP-17 token contract, you can use `detectInterface()` in the `KIP17` class.
 It returns the mapping between KIP-17 interface identifier and interface support.
@@ -1274,7 +1274,7 @@ The execution result of the above code is shown below.
 }
 ```
 
-### Detect interface implemented in KIP-37 
+### Detect interface implemented in KIP-37 <a id="detecting-kip-37-interfaces"></a>
 
 To detect the interface implemented in a KIP-37 token contract, you can use `detectInterface()` in the `KIP37` class.
 It returns the mapping between KIP-37 interface identifier and interface support.
