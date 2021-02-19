@@ -1200,22 +1200,22 @@ Caver caver = new Caver(Caver.DEFAULT_URL);
 
 String contractAddress = "0x{address}";
 Map<String, Boolean> resultStatic = KIP7.detectInterface(caver, contractAddress);
-resultStatic.entrySet().forEach(entry -> System.out.println("Interface ID : " + entry.getKey() + " - " + entry.getValue()));
+resultStatic.entrySet().forEach(entry -> System.out.println(entry.getKey() + " - " + entry.getValue()));
 
 //using instance method.
 KIP7 kip7 = new KIP7(caver, contractAddress)
 Map<String, Boolean> resultInstance = kip7.detectInterface();
-resultInstance.entrySet().forEach(entry -> System.out.println("Interface ID : " + entry.getKey() + " - " + entry.getValue()));
+resultInstance.entrySet().forEach(entry -> System.out.println(entry.getKey() + " - " + entry.getValue()));
 ```
 
 The execution result of the above code is shown below.
 
 ```java
-Interface ID : 0x3b5a0bf8 - true
-Interface ID : 0x65787371 - true
-Interface ID : 0xa219a025 - true
-Interface ID : 0x4d5507ff - true
-Interface ID : 0xeab83e20 - true
+IKIP7Metatdata - true
+IKIP7Burnable - true
+IKIP7 - true
+IKIP7Pausable - true
+IKIP7Mintable - true
 ```
 
 
@@ -1244,24 +1244,24 @@ Caver caver = new Caver(Caver.DEFAULT_URL);
 
 String contractAddress = "0x{address}";
 Map<String, Boolean> resultStatic = KIP17.detectInterface(caver, contractAddress);
-resultStatic.entrySet().forEach(entry -> System.out.println("Interface ID : " + entry.getKey() + " - " + entry.getValue()));
+resultStatic.entrySet().forEach(entry -> System.out.println(entry.getKey() + " - " + entry.getValue()));
 
 //using instance method.
 KIP17 kip17 = new KIP17(caver, contractAddress)
 Map<String, Boolean> resultInstance = kip17.detectInterface();
-resultInstance.entrySet().forEach(entry -> System.out.println("Interface ID : " + entry.getKey() + " - " + entry.getValue()));
+resultInstance.entrySet().forEach(entry -> System.out.println(entry.getKey() + " - " + entry.getValue()));
 ```
 
 The execution result of the above code is shown below.
 
 ```java
-Interface ID : 0x5b5e139f - true
-Interface ID : 0x42966c68 - true
-Interface ID : 0x4d5507ff - true
-Interface ID : 0xfac27f46 - true
-Interface ID : 0x780e9d63 - true
-Interface ID : 0x80ac58cd - true
-Interface ID : 0xeab83e20 - true
+IKIP17Enumerable - true
+IKIP17Metadata - true
+IKIP17Burnable - true
+IKIP17Mintable - true
+IKIP17 - true
+IKIP17MetadataMintable - true
+IKIP17Pausable - true
 ```
 
 ### Detect interface implemented in KIP-37 
@@ -1288,22 +1288,22 @@ Caver caver = new Caver(Caver.DEFAULT_URL);
 
 String contractAddress = "0x{address}";
 Map<String, Boolean> resultStatic = KIP37.detectInterface(caver, contractAddress);
-resultStatic.entrySet().forEach(entry -> System.out.println("Interface ID : " + entry.getKey() + " - " + entry.getValue()));
+resultStatic.entrySet().forEach(entry -> System.out.println(entry.getKey() + " - " + entry.getValue()));
 
 //using instance method.
 KIP37 kip37 = new KIP17(caver, contractAddress)
 Map<String, Boolean> resultInstance = kip37.detectInterface();
-resultInstance.entrySet().forEach(entry -> System.out.println("Interface ID : " + entry.getKey() + " - " + entry.getValue()));
+resultInstance.entrySet().forEach(entry -> System.out.println(entry.getKey() + " - " + entry.getValue()));
 ```
 
 The execution result of the above code is shown below.
 
 ```java
-Interface ID : 0x0e89341c - true
-Interface ID : 0xdfd9d9ec - true
-Interface ID : 0x6433ca1f - true
-Interface ID : 0x9e094e9e - true
-Interface ID : 0x0e8ffdb7 - true
+IKIP37Metatdata - true
+IKIP37Burnable - true
+IKIP37 - true
+IKIP37Pausable - true
+IKIP37Mintable - true
 ```
 
 
