@@ -87,7 +87,7 @@ Returns the information of the interface implemented by the token contract. This
 
 | Name | Type | Description |
 | --- | --- | --- |
-| contractAddress | string | The address of the KIP-37 token contract. |
+| contractAddress | string | The address of the KIP-37 token contract |
 
 **Return Value**
 
@@ -184,7 +184,7 @@ None
 
 **Return Value**
 
-`Promise` returns `object`: Returns an object containing the result with boolean values whether each [KIP-37 interface](https://kips.klaytn.com/KIPs/kip-37#kip-13-identifiers) is implemented.
+`Promise` returns an `object` containing the result with boolean values whether each [KIP-37 interface](https://kips.klaytn.com/KIPs/kip-37#kip-13-identifiers) is implemented.
 
 **Example**
 
