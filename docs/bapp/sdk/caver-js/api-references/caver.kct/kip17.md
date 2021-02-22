@@ -94,7 +94,7 @@ Returns the information of the interface implemented by the token contract. This
 
 | Name | Type | Description |
 | --- | --- | --- |
-| contractAddress | string | The address of the KIP-7 token contract. |
+| contractAddress | string | The address of the KIP-7 token contract |
 
 **Return Value**
 
