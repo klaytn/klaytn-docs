@@ -600,6 +600,7 @@ caver.wallet.add(feePayerKeyring);
 String rlpEncoded = "0x{RLP-encoded string}";
 FeeDelegatedValueTransfer feeDelegatedValueTransfer = FeeDelegatedValueTransfer.decode(rlpEncoded);
 feeDelegatedValueTransfer.setFeePayer(feePayerKeyring.getAddress());
+feeDelegatedValueTransfer.setKlaytnCall(caver.rpc.klay);
 
 caver.wallet.signAsFeePayer(feePayerKeyring.getAddress(), feeDelegatedValueTransfer);
 System.out.println(feeDelegatedValueTransfer.getRLPEncoding());
