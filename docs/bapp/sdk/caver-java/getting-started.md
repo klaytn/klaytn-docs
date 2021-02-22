@@ -1274,14 +1274,14 @@ The execution result of the above code is shown below.
 }
 ```
 
-### Detect interface implemented in KIP-37 <a id="detecting-kip-37-interfaces"></a>
+### Detecting interfaces implemented in KIP-37 <a id="detecting-kip-37-interfaces"></a>
 
 To detect the interface implemented in a KIP-37 token contract, you can use `detectInterface()` in the `KIP37` class.
 It returns the mapping between KIP-37 interface identifier and interface support.
 
-`detectInterface()` supports both static and instance methods, so you can select and use the method that suits your needs.
+`detectInterface()` supports both static and instance methods, so you can select and use the appropriate method.
 
-The interface detect through `detectInterface()` for `KIP37` is shown in the table below.
+The interface detection through `detectInterface()` for `KIP37` is shown in the table below.
 
 | Interface | KIP-13 Identifier |
 |---|---|
