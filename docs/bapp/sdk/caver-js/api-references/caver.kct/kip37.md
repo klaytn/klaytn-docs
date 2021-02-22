@@ -317,7 +317,7 @@ Returns the amount of tokens of token type `id` owned by `account`.
 ```javascript
 kip37.balanceOfBatch(accounts, ids)
 ```
-Returns the balance of multiple account/token pairs. `balanceOfBatch` is a batch operation of [balanceOf](#kip37-balanceof), and the length of the accounts and ids arrays must be the same.
+Returns the balance of multiple account/token pairs. `balanceOfBatch` is a batch operation of [balanceOf](#kip37-balanceof), and the length of arrays with `accounts` and `ids` must be the same.
 
 **Parameters**
 
