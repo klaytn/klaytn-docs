@@ -682,7 +682,7 @@ The options object can contain the following:
 | connected | string | Fires once after the subscription successfully connected. It returns the subscription ID. |
 | error | object | Fires when an error in the subscription occurs. |
 
-**NOTE** `connected` is supported since caver-js [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7).
+**NOTE** `connected` is available with caver-js [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7).
 
 The structure of the returned event `object` looks as follows:
 
