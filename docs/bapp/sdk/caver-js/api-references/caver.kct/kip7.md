@@ -199,7 +199,7 @@ None
 
 **Return Value**
 
-`Promise` returns `object`: Returns an object containing the result with boolean values whether each [KIP-7 interface](https://kips.klaytn.com/KIPs/kip-7#kip-13-identifiers) is implemented.
+`Promise` returns an `object` containing the result with boolean values whether each [KIP-7 interface](https://kips.klaytn.com/KIPs/kip-7#kip-13-identifiers) is implemented.
 
 **Example**
 
