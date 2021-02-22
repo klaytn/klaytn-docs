@@ -76,6 +76,37 @@ KIP37 {
 })
 ```
 
+## caver.kct.kip37.detectInterface <a id="caver-kct-kip37-detectinterface"></a>
+
+```javascript
+caver.kct.kip37.detectInterface(contractAddress)
+```
+Returns the information of the interface implemented by the token contract. This static function will use [kip37.detectInterface](#kip37-detectinterface).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| contractAddress | string | The address of the KIP-37 token contract |
+
+**Return Value**
+
+`Promise` returns an `object` containing the result with boolean values whether each [KIP-37 interface](https://kips.klaytn.com/KIPs/kip-37#kip-13-identifiers) is implemented.
+
+**Example**
+
+```javascript
+> caver.kct.kip37.detectInterface('0x{address in hex}').then(console.log)
+{
+    IKIP37: true,
+    IKIP37Metadata: true,
+    IKIP37Mintable: true,
+    IKIP37Burnable: true,
+    IKIP37Pausable: true,
+}
+```
+
+
 ## new KIP37 <a id="new-kip37"></a>
 
 ```javascript
@@ -138,6 +169,34 @@ Clones the current KIP37 instance.
 
 // Clone with the address of the new token contract
 > const cloned = kip37.clone('0x{address in hex}')
+```
+
+## kip37.detectInterface <a id="kip37-detectinterface"></a>
+
+```javascript
+kip37.detectInterface()
+```
+Returns the information of the interface implemented by the token contract.
+
+**Parameters**
+
+None
+
+**Return Value**
+
+`Promise` returns an `object` containing the result with boolean values whether each [KIP-37 interface](https://kips.klaytn.com/KIPs/kip-37#kip-13-identifiers) is implemented.
+
+**Example**
+
+```javascript
+> kip37.detectInterface().then(console.log)
+{
+    IKIP37: true,
+    IKIP37Metadata: true,
+    IKIP37Mintable: true,
+    IKIP37Burnable: true,
+    IKIP37Pausable: true,
+}
 ```
 
 ## kip37.supportsInterface <a id="kip37-supportsinterface"></a>
