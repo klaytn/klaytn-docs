@@ -692,14 +692,14 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
-## admin_setMaxSubscriptionPerConn <a id="admin_setMaxSubscriptionPerConn"></a>
+## admin_setMaxSubscriptionPerWSConn <a id="admin_setMaxSubscriptionPerWSConn"></a>
 
-The `setMaxSubscriptionPerConn` is an administrative method that sets the maximum allowed number of subscriptions per single WebSocket connection. For example, if the maximum number is set to five and a user requests more than five subscriptions through the `klay_subscribe` API, an error message "Maximum 5 subscriptions are allowed for a WebSocket connection" will be displayed.
+The `setMaxSubscriptionPerWSConn` is an administrative method that sets the maximum allowed number of subscriptions per single WebSocket connection. For example, if the maximum number is set to five and a user requests more than five subscriptions through the `klay_subscribe` API, an error message "Maximum 5 subscriptions are allowed for a WebSocket connection" will be displayed.
 
 | Client  | Method invocation                                            |
 | :-----: | ------------------------------------------------------------ |
-| Console | `admin.setMaxSubscriptionPerConn(limit)`                         |
-|   RPC   | `{"method": "admin_setMaxSubscriptionPerConn"}` |
+| Console | `admin.setMaxSubscriptionPerWSConn(limit)`                         |
+|   RPC   | `{"method": "admin_setMaxSubscriptionPerWSConn"}` |
 
 **Parameters**
 
@@ -718,12 +718,12 @@ The `setMaxSubscriptionPerConn` is an administrative method that sets the maximu
 Console
 
 ```javascript
-> admin.setMaxSubscriptionPerConn(5)
+> admin.setMaxSubscriptionPerWSConn(5)
 null
 ```
 
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_setMaxSubscriptionPerConn", "params":[5], "id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_setMaxSubscriptionPerWSConn", "params":[5], "id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
