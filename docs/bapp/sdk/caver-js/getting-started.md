@@ -1426,6 +1426,190 @@ When executing `combineSignedRawTransactions `, the signed RLP-encoded raw trans
 
 The combineSignedRawTransactions returns an RLP-encoded string containing all signatures (and feePayerSignatures if the transaction is a fee-delegated transaction) as a result. You use this to send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(combined)`.
 
+## Detecting implementation of KCT interfaces <a id="detecting-implementation-of-kct-interfaces"></a>
+
+`caver.kct` provides functions that return information about which interface the given KCT token contract implements. Using this, you can see which interface the KCT token contract deployed on Klaytn implements.
+
+### Detecting KIP-7 interfaces <a id="detecting-kip-7-interfaces"></a>
+
+In order to detect the interfaces implemented by the KIP-7 token contract, you can use `caver.kct.kip7.detectInterface(contractAddress)` or `kip7.detectInterface()`.
+
+Below is a code on how to detect the implemented interfaces for the KIP-7 token contract deployed on Klaytn using static methods provided in `caver.kct.kip7`.
+```javascript
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://your.en.url:8651/')
+
+async function testFunction() {
+	const result = await caver.kct.kip7.detectInterface('0x{address in hex}')
+	console.log(result)
+}
+
+testFunction()
+```
+
+Running the above code gives you the following result.
+
+```bash
+$ node ./test.js
+{
+    IKIP7: true,
+    IKIP7Metadata: true,
+    IKIP7Mintable: true,
+    IKIP7Burnable: true,
+    IKIP7Pausable: true,
+}
+```
+
+Below is a code on how to detect the implemented interfaces for the KIP-7 token contract deployed on Klaytn using member method of KIP7.
+```javascript
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://your.en.url:8651/')
+
+async function testFunction() {
+	const kip7 = new caver.kct.kip7('0x{address in hex}')
+	const result = await kip7.detectInterface()
+	console.log(result)
+}
+
+testFunction()
+```
+
+Running the above code gives you the following result.
+
+```bash
+$ node ./test.js
+{
+    IKIP7: true,
+    IKIP7Metadata: true,
+    IKIP7Mintable: true,
+    IKIP7Burnable: true,
+    IKIP7Pausable: true,
+}
+```
+
+### Detecting KIP-17 interfaces <a id="detecting-kip-17-interfaces"></a>
+
+In order to detect the interfaces implemented by the KIP-17 token contract, you can use `caver.kct.kip17.detectInterface(contractAddress)` or `kip17.detectInterface()`.
+
+Below is a code on how to detect the implemented interfaces for the KIP-17 token contract deployed on Klaytn using static methods provided in `caver.kct.kip17`.
+```javascript
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://your.en.url:8651/')
+
+async function testFunction() {
+	const result = await caver.kct.kip17.detectInterface('0x{address in hex}')
+	console.log(result)
+}
+
+testFunction()
+```
+
+Running the above code gives you the following result.
+
+```bash
+$ node ./test.js
+{
+	IKIP17: true,
+	IKIP17Metadata: true,
+	IKIP17Enumerable: true,
+	IKIP17Mintable: true,
+	IKIP17MetadataMintable: true,
+	IKIP17Burnable: true,
+	IKIP17Pausable: true,
+}
+```
+
+Below is a code on how to detect the implemented interfaces for the KIP-17 token contract deployed on Klaytn using member method of KIP17.
+```javascript
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://your.en.url:8651/')
+
+async function testFunction() {
+	const kip17 = new caver.kct.kip17('0x{address in hex}')
+	const result = await kip17.detectInterface()
+	console.log(result)
+}
+
+testFunction()
+```
+
+Running the above code gives you the following result.
+
+```bash
+$ node ./test.js
+{
+	IKIP17: true,
+	IKIP17Metadata: true,
+	IKIP17Enumerable: true,
+	IKIP17Mintable: true,
+	IKIP17MetadataMintable: true,
+	IKIP17Burnable: true,
+	IKIP17Pausable: true,
+}
+```
+
+### Detecting KIP-37 interfaces <a id="detect-kip-37-interfaces"></a>
+
+In order to detect the interfaces implemented by the KIP-37 token contract, you can use `caver.kct.kip37.detectInterface(contractAddress)` or `kip37.detectInterface()`.
+
+Below is a code on how to detect the implemented interfaces for the KIP-37 token contract deployed on Klaytn using static methods provided in `caver.kct.kip37`.
+```javascript
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://your.en.url:8651/')
+
+async function testFunction() {
+	const result = await caver.kct.kip37.detectInterface('0x{address in hex}')
+	console.log(result)
+}
+
+testFunction()
+```
+
+Running the above code gives you the following result.
+
+```bash
+$ node ./test.js
+{
+    IKIP37: true,
+    IKIP37Metadata: true,
+    IKIP37Mintable: true,
+    IKIP37Burnable: true,
+    IKIP37Pausable: true,
+}
+```
+
+Below is a code on how to detect the implemented interfaces for the KIP-37 token contract deployed on Klaytn using member method of KIP37.
+```javascript
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://your.en.url:8651/')
+
+async function testFunction() {
+	const kip37 = new caver.kct.kip37('0x{address in hex}')
+	const result = await kip37.detectInterface()
+	console.log(result)
+}
+
+testFunction()
+```
+
+Running the above code gives you the following result.
+
+```bash
+$ node ./test.js
+{
+    IKIP37: true,
+    IKIP37Metadata: true,
+    IKIP37Mintable: true,
+    IKIP37Burnable: true,
+    IKIP37Pausable: true,
+}
+```
 
 ## Sample Projects <a id="sample-projects"></a>
 
