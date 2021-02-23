@@ -1207,7 +1207,7 @@ KIP7 kip7 = new KIP7(caver, contractAddress)
 Map<String, Boolean> resultInstance = kip7.detectInterface();
 
 ObjectMapper mapper = new ObjectMapper();
-String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(result);
+String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultInstance);
 System.out.println(resultJson);
 ```
 
@@ -1256,7 +1256,7 @@ KIP17 kip17 = new KIP17(caver, contractAddress)
 Map<String, Boolean> resultInstance = kip17.detectInterface();
 
 ObjectMapper mapper = new ObjectMapper();
-String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(result);
+String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultInstance);
 System.out.println(resultJson);
 ```
 
@@ -1274,7 +1274,7 @@ The execution result of the above code is shown below.
 }
 ```
 
-### Detecting interfaces implemented in KIP-37 <a id="detecting-kip-37-interfaces"></a>
+### Detecting KIP-37 interfaces <a id="detecting-kip-37-interfaces"></a>
 
 To detect the interface implemented in a KIP-37 token contract, you can use `detectInterface()` in the `KIP37` class.
 It returns the mapping between KIP-37 interface identifier and interface support.
@@ -1305,7 +1305,7 @@ KIP37 kip37 = new KIP17(caver, contractAddress)
 Map<String, Boolean> resultInstance = kip37.detectInterface();
 
 ObjectMapper mapper = new ObjectMapper();
-String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(result);
+String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultInstance);
 System.out.println(resultJson);
 ```
 
