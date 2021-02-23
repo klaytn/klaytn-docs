@@ -1195,18 +1195,18 @@ The interface detected through `detectInterface()` for `KIP7` is shown in the ta
 |IKIP7Pausable|0x4d5507ff|
 
 ```java
-//using static method.
 Caver caver = new Caver(Caver.DEFAULT_URL);
-
+ObjectMapper mapper = new ObjectMapper();
 String contractAddress = "0x{address}";
+
+//using static method.
 Map<String, Boolean> resultStatic = KIP7.detectInterface(caver, contractAddress);
-resultStatic.entrySet().forEach(entry -> System.out.println(entry.getKey() + " - " + entry.getValue()));
+String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultStatic);
+System.out.println(resultJson);
 
 //using instance method.
 KIP7 kip7 = new KIP7(caver, contractAddress)
 Map<String, Boolean> resultInstance = kip7.detectInterface();
-
-ObjectMapper mapper = new ObjectMapper();
 String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultInstance);
 System.out.println(resultJson);
 ```
@@ -1244,18 +1244,19 @@ The interface detect through `detectInterface()` for `KIP17` is shown in the tab
 |IKIP17Pausable|0x4d5507ff|
 
 ```java
-//using static method.
-Caver caver = new Caver(Caver.DEFAULT_URL);
 
+Caver caver = new Caver(Caver.DEFAULT_URL);
+ObjectMapper mapper = new ObjectMapper();
 String contractAddress = "0x{address}";
+
+//using static method.
 Map<String, Boolean> resultStatic = KIP17.detectInterface(caver, contractAddress);
-resultStatic.entrySet().forEach(entry -> System.out.println(entry.getKey() + " - " + entry.getValue()));
+String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultStatic);
+System.out.println(resultJson);
 
 //using instance method.
 KIP17 kip17 = new KIP17(caver, contractAddress)
 Map<String, Boolean> resultInstance = kip17.detectInterface();
-
-ObjectMapper mapper = new ObjectMapper();
 String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultInstance);
 System.out.println(resultJson);
 ```
@@ -1293,18 +1294,19 @@ The interface detection through `detectInterface()` for `KIP37` is shown in the 
 
 
 ```java
-//using static method.
-Caver caver = new Caver(Caver.DEFAULT_URL);
 
+Caver caver = new Caver(Caver.DEFAULT_URL);
+ObjectMapper mapper = new ObjectMapper();
 String contractAddress = "0x{address}";
+
+//using static method.
 Map<String, Boolean> resultStatic = KIP37.detectInterface(caver, contractAddress);
-resultStatic.entrySet().forEach(entry -> System.out.println(entry.getKey() + " - " + entry.getValue()));
+String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultStatic);
+System.out.println(resultJson);
 
 //using instance method.
-KIP37 kip37 = new KIP17(caver, contractAddress)
+KIP37 kip37 = new KIP37(caver, contractAddress)
 Map<String, Boolean> resultInstance = kip37.detectInterface();
-
-ObjectMapper mapper = new ObjectMapper();
 String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultInstance);
 System.out.println(resultJson);
 ```
