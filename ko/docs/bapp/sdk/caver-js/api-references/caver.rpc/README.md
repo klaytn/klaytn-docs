@@ -14,7 +14,7 @@ caver.rpc
 
 **속성**
 
-| 명칭   | 형식       | 설명                                                           |
+| 명칭   | 타입       | 설명                                                           |
 | ---- | -------- | ------------------------------------------------------------ |
 | klay | [Klay][] | The [Klay][] providing JSON-RPC call with `klay` name space. |
 | net  | [Net][]  | The [Net][] providing JSON-RPC call with `net` name space.   |
