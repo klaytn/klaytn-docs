@@ -28,13 +28,13 @@ Decodes RLP-encoded transaction string, a raw transaction, and returns a [Transa
 
 **매개변수**
 
-| 명칭         | 형식  | 설명                                          |
+| 명칭         | 타입  | 설명                                          |
 | ---------- | --- | ------------------------------------------- |
 | rlpEncoded | 문자열 | A RLP-encoded transaction string to decode. |
 
 **리턴값**
 
-| 형식     | 설명                                                                                         |
+| 타입     | 설명                                                                                         |
 | ------ | ------------------------------------------------------------------------------------------ |
 | object | An instance of [Transaction][]. For details of each transaction, refer to [Transaction][]. |
 
@@ -68,7 +68,7 @@ For [Account Update] transaction, use [roleAccountUpdateKey], or otherwise, use 
 
 **매개변수**
 
-| 명칭      | 형식                   | 설명                                                                                                                                                                                                                                                                                   |
+| 명칭      | 타입                   | 설명                                                                                                                                                                                                                                                                                   |
 | ------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | keyring | object &#124; string | A private key string ([KlaytnWalletKey][] format is also allowed) or an instance of Keyring ([SingleKeyring][], [MultipleKeyring][] or [RoleBasedKeyring][]). If a private key string or a [KlaytnWalletKey][] is passed as a parameter, the keyring instance is created internally. |
 | index   | number               | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                       |
@@ -78,7 +78,7 @@ For [Account Update] transaction, use [roleAccountUpdateKey], or otherwise, use 
 
 `Promise` returning `object`: The signed transaction.
 
-| 형식     | 설명                                                                                                |
+| 타입     | 설명                                                                                                |
 | ------ | ------------------------------------------------------------------------------------------------- |
 | object | An instance of signed [Transaction][]. The signature is appended to the `transaction.signatures`. |
 
@@ -180,7 +180,7 @@ If the `keyring` to be used for signing the transaction was added to `caver.wall
 
 **매개변수**
 
-| 명칭      | 형식                   | 설명                                                                                                                                                                                                                                                                                   |
+| 명칭      | 타입                   | 설명                                                                                                                                                                                                                                                                                   |
 | ------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | keyring | object &#124; string | A private key string ([KlaytnWalletKey][] format is also allowed) or an instance of Keyring ([SingleKeyring][], [MultipleKeyring][] or [RoleBasedKeyring][]). If the private key string or [KlaytnWalletKey][] is passed as a parameter, the keyring instance is created internally. |
 | index   | number               | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                       |
@@ -190,7 +190,7 @@ If the `keyring` to be used for signing the transaction was added to `caver.wall
 
 `Promise` returning `object`: The signed transaction.
 
-| 형식     | 설명                                                                                                        |
+| 타입     | 설명                                                                                                        |
 | ------ | --------------------------------------------------------------------------------------------------------- |
 | object | An instance of signed [Transaction][]. The signature is appended to the `transaction.feePayerSignatures`. |
 
@@ -292,7 +292,7 @@ Appends `signatures` to the transaction.
 
 **매개변수**
 
-| 명칭         | 형식                  | 설명                                                                                                                                                                                                                                                                                          |
+| 명칭         | 타입                  | 설명                                                                                                                                                                                                                                                                                          |
 | ---------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | signatures | object &#124; Array | The signatures to be appended to the transaction. [SignatureData][] instance or an array containing [SignatureData][] instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
 
@@ -314,7 +314,7 @@ Appends `feePayerSignatures` to the transaction.
 
 **매개변수**
 
-| 명칭                 | 형식                  | 설명                                                                                                                                                                                                                                                                                                  |
+| 명칭                 | 타입                  | 설명                                                                                                                                                                                                                                                                                                  |
 | ------------------ | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | feePayerSignatures | object &#124; Array | The feePayerSignatures to be appended to the transaction. [SignatureData][] instance or an array containing [SignatureData][] instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
 
@@ -334,13 +334,13 @@ Collects signs in each RLP-encoded transaction string in the given array, combin
 
 **매개변수**
 
-| 명칭            | 형식 | 설명                                                  |
+| 명칭            | 타입 | 설명                                                  |
 | ------------- | -- | --------------------------------------------------- |
 | rlpEncodedTxs | 배열 | An array of signed RLP-encoded transaction strings. |
 
 **리턴값**
 
-| 형식  | 설명                                                                                                                                                                           |
+| 타입  | 설명                                                                                                                                                                           |
 | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 문자열 | A RLP-encoded transaction string which includes all `signatures` (and `feePayerSignatures` if transaction is a type of either "fee-delgated" or "fee-delegated with ratio"). |
 
@@ -363,7 +363,7 @@ For information on how to make the RLP-encoded string for each transaction type,
 
 **리턴값**
 
-| 형식  | 설명                                |
+| 타입  | 설명                                |
 | --- | --------------------------------- |
 | 문자열 | A RLP-encoded transaction string. |
 
@@ -384,7 +384,7 @@ Returns a `rawTransaction` string (a RLP-encoded transaction string). This funct
 
 **리턴값**
 
-| 형식  | 설명                                |
+| 타입  | 설명                                |
 | --- | --------------------------------- |
 | 문자열 | A RLP-encoded transaction string. |
 
@@ -407,7 +407,7 @@ For information on how to make the transaction hash for each transaction type, s
 
 **리턴값**
 
-| 형식  | 설명                 |
+| 타입  | 설명                 |
 | --- | ------------------ |
 | 문자열 | A transactionHash. |
 
@@ -432,7 +432,7 @@ For information on how to make the [senderTxHash][] for each transaction type, s
 
 **리턴값**
 
-| 형식  | 설명              |
+| 타입  | 설명              |
 | --- | --------------- |
 | 문자열 | A senderTxHash. |
 
@@ -455,7 +455,7 @@ For information on how to make a RLP-encoded transaction string to generate the 
 
 **리턴값**
 
-| 형식  | 설명                                                               |
+| 타입  | 설명                                                               |
 | --- | ---------------------------------------------------------------- |
 | 문자열 | A RLP-encoded transaction string without any signature attached. |
 
@@ -480,7 +480,7 @@ For information on how to make a RLP-encoded transaction string to generate the 
 
 **리턴값**
 
-| 형식  | 설명                                                               |
+| 타입  | 설명                                                               |
 | --- | ---------------------------------------------------------------- |
 | 문자열 | A RLP-encoded transaction string without any signature attached. |
 
