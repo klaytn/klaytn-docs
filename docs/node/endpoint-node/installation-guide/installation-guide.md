@@ -1,4 +1,4 @@
-# Installation Guide <a id="installation-guide"></a>
+# Installation Guide
 
 You can download the latest version of the `ken` on [Download](download.md) page.
 
@@ -76,6 +76,4 @@ The installed files are located as follows.
 | :--- | :--- |
 | ken | /usr/bin/ken |
 | kend.conf | /etc/kend/conf/kend.conf |
-
-
 

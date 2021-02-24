@@ -1,4 +1,4 @@
-# Governance <a id="governance"></a>
+# Governance
 
 ## Overview <a id="overview"></a>
 
@@ -38,13 +38,11 @@ The Klaytn Governance Council members have the right to vote on the introduced p
 
 ### Klaytn Improvement Reserve Review Process <a id="klaytn-improvement-reserve-review-process"></a>
 
+The KIR Proposal review will be decided through the voting of the Governance Council members, and the proposal will be rejected if half of the committee or more vote against\(rejected\) the proposal. For more details on the KIR Proposal review, refer to the following.
 
-The KIR Proposal review will be decided through the voting of the Governance Council members, and the proposal will be rejected if half of the committee or more vote against(rejected) the proposal. For more details on the KIR Proposal review, refer to the following.
-
-![kir_process](../images/kir_process.png)
+![kir\_process](../../.gitbook/assets/kir_process.png)
 
 For more information, visit [KIR Forum](https://kir.klaytn.com/).
-
 
 ## Duties and Rights of the Governing Body <a id="duties-and-rights-of-the-governing-body"></a>
 
@@ -67,3 +65,4 @@ The bodies participating in governance must act in consideration of Klaytn’s l
 * **Development Phase**: The initial development phase after the mainnet launch must quickly see parameter adjustments, new feature developments, etc. For this to be possible, many issues will be decided through gathering the opinions of the Klaytn Governance Council members, service providers, and community members. To secure initial stabilization, Klaytn. Pte. Ltd. may assist in the decision-making process. Additionally, all decided matters will be transparently shared with the public.
 * **Stabilization Phase**: The Klaytn Governance Council has voting rights on most proposals. For special matters such as those concerning platform development, the opinion of Klaytn. Pte. Ltd. may be taken into consideration. For specific topics with the possibility of conflict of interest \(rewards for CCOs, etc.\), separate entities such as foundations will advise the council.
 * **Decentralization Phase**: Following the stabilization period, to gather additional opinions, more service providers and other bodies may additionally be brought into the decision-making process.
+

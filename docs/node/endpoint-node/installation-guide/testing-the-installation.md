@@ -1,4 +1,4 @@
-# Testing the Installation <a id="testing-the-installation"></a>
+# Testing the Installation
 
 It is time to check that Endpoint Node is successfully installed and it is working as expected after installation.
 
@@ -54,14 +54,14 @@ INFO[02/13,07:02:26 Z] [5] Imported new chain segment                blocks=1 tx
 INFO[02/13,07:02:26 Z] [35] Commit new mining work                    number=11572926 txs=0 elapsed=458.665µs
 INFO[02/13,07:02:27 Z] [14] Committed                                 address=0x1d4E05BB72677cB8fa576149c945b57d13F855e4 hash=60b9aa…94f648 number=11572926
 INFO[02/13,07:02:27 Z] [5] Imported new chain segment                blocks=1 txs=0 mgas=0.000     elapsed=1.783ms   mgasps=0.000       number=11572926 hash=60b9aa…94f648 cache=1.59mB
-INFO[02/13,07:02:27 Z] [35] Commit new mining work      
+INFO[02/13,07:02:27 Z] [35] Commit new mining work
 ```
 
 ## Queries <a id="queries"></a>
 
 ### ken console <a id="ken-console"></a>
 
-Klaytn provides a CLI client: `ken console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `data` directory on an EN.
+Klaytn provides a CLI client: `ken console`. Another way of using the client is to connect to the process via IPC \(inter-process communication\). The IPC file `klay.ipc` is located in the `data` directory on an EN.
 
 Please execute the following command and check out the result.
 
@@ -75,12 +75,12 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  >
 ```
 
-You can check the usable commands on [API Document](../../../bapp/json-rpc/README.md)
+You can check the usable commands on [API Document](../../../bapp/json-rpc/)
 
 The useful APIs to check the status of EN:
 
-* `klay.blockNumber` (to get the latest block number)
-* `net.peerCount` (to get the number of the connected Klaytn nodes currently)
+* `klay.blockNumber` \(to get the latest block number\)
+* `net.peerCount` \(to get the number of the connected Klaytn nodes currently\)
 
 ### klay.blockNumber <a id="klay-blocknumber"></a>
 
@@ -99,8 +99,4 @@ You can get the latest block number to see if blocks are propagated properly.
 ```
 
 The above command line returns the number of nodes that the EN connects to.
-
-
-
-
 

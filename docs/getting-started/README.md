@@ -4,5 +4,5 @@ description: >-
   journey to Klaytn BApps.
 ---
 
-# Overview <a id="overview"></a>
+# Getting Started
 

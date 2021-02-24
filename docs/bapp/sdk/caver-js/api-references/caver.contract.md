@@ -1,4 +1,4 @@
-# caver.contract <a id="caver-contract"></a>
+# caver.contract
 
 The `caver.contract` object makes it easy to interact with smart contracts on the Klaytn blockchain platform. When you create a new contract object, you have to provide the JSON interface for that smart contract and caver-js will automatically convert all calls with the contract object in javascript into low-level ABI calls over RPC for you.
 
@@ -9,33 +9,33 @@ This allows you to interact with smart contracts as if they were JavaScript obje
 ```javascript
 new caver.contract(jsonInterface [, address] [, options])
 ```
+
 Creates a new contract instance with all its methods and events defined in its JSON interface object.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | jsonInterface | object | The JSON interface for the contract to instantiate |
-| address | string | (optional) The address of the smart contract to call. Can be added later using `myContract.options.address = '0x1234..'` |
-| options | object | (optional) The options of the contract.  See the table below for the details. |
+| address | string | \(optional\) The address of the smart contract to call. Can be added later using `myContract.options.address = '0x1234..'` |
+| options | object | \(optional\) The options of the contract.  See the table below for the details. |
 
 The options object contains the following:
 
 | Name | Type | Description |
-| --- | --- | --- |
-| from | string | (optional) The address from which transactions should be made. |
-| gasPrice | string | (optional) The gas price in peb to use for transactions. |
-| gas | number | (optional) The maximum gas provided for a transaction (gas limit). |
-| data | string | (optional) The byte code of the contract. Used when the contract gets deployed. |
+| :--- | :--- | :--- |
+| from | string | \(optional\) The address from which transactions should be made. |
+| gasPrice | string | \(optional\) The gas price in peb to use for transactions. |
+| gas | number | \(optional\) The maximum gas provided for a transaction \(gas limit\). |
+| data | string | \(optional\) The byte code of the contract. Used when the contract gets deployed. |
 
 **Return Value**
 
 `Promise` returns `object`
 
 | Type | Description |
-| --- | --- |
+| :--- | :--- |
 | object | The contract instance with all its methods and events. |
-
 
 **Example**
 
@@ -54,14 +54,13 @@ The `options` object for the contract instance. `from`, `gas` and `gasPrice` are
 **Properties**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | address | string | The address where the contract is deployed. |
 | jsonInterface | Array | The JSON interface of the contract. |
 | from | string | The default address from which the contract deployment/execution transaction is sent. If the `from` address is not defined when creating the transaction, this `myContract.options.from` is always used to create the transaction. |
 | gasPrice | string | The gas price in peb to use for transactions. |
-| gas | number | The maximum gas provided for a transaction (gas limit). |
+| gas | number | The maximum gas provided for a transaction \(gas limit\). |
 | data | string | The byte code of the contract. Used when the contract gets deployed. |
-
 
 **Example**
 
@@ -81,7 +80,6 @@ The `options` object for the contract instance. `from`, `gas` and `gasPrice` are
 > myContract.options.gas = 5000000 // provide as fallback always 5M gas
 ```
 
-
 ## myContract.options.address <a id="mycontract-options-address"></a>
 
 ```javascript
@@ -93,8 +91,8 @@ The address used for this contract instance `myContract`. All transactions gener
 **Property**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| address | string &#124; `null` | The address for this contract or `null` if it is not yet set. |
+| :--- | :--- | :--- |
+| address | string \| `null` | The address for this contract or `null` if it is not yet set. |
 
 **Example**
 
@@ -111,14 +109,14 @@ The address used for this contract instance `myContract`. All transactions gener
 ```javascript
 myContract.options.jsonInterface
 ```
+
 The JSON interface object derived from the ABI of this contract `myContract`.
 
 **Property**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | jsonInterface | Array | The JSON interface for this contract. Re-setting this will regenerate the methods and events of the contract instance. |
-
 
 **Example**
 
@@ -153,7 +151,6 @@ The JSON interface object derived from the ABI of this contract `myContract`.
 > myContract.options.jsonInterface = [...]
 ```
 
-
 ## myContract.clone <a id="mycontract-clone"></a>
 
 ```javascript
@@ -165,15 +162,14 @@ Clones the current contract instance.
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| contractAddress | String | (optional) The address of the new contract. If omitted, it will be set to the address in the original instance (e.g., `myContract.options.address`). |
+| :--- | :--- | :--- |
+| contractAddress | String | \(optional\) The address of the new contract. If omitted, it will be set to the address in the original instance \(e.g., `myContract.options.address`\). |
 
 **Return Value**
 
 | Type | Description |
-| --- | --- |
+| :--- | :--- |
 | object | The new cloned contract instance. |
-
 
 **Example**
 
@@ -185,7 +181,6 @@ Contract {
   _keyrings: KeyringContainer { ... }
 }
 ```
-
 
 ## myContract.deploy <a id="mycontract-deploy"></a>
 
@@ -200,26 +195,26 @@ Deploys the contract to the Klaytn. After a successful deployment, the promise w
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | options | object | The options object used for deployment. See the below table to find the description. |
 
 The options object can contain the following:
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | data | string | The byte code of the contract. |
-| arguments | Array | (optional) The arguments that get passed to the constructor on deployment. |
+| arguments | Array | \(optional\) The arguments that get passed to the constructor on deployment. |
 
 **Return Value**
 
 `Promise` returning `object` - An object in which arguments and functions for contract distribution are defined.:
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | arguments | Array | The arguments passed in `options.arguments`. |
-| [send](#methods-methodname-send) | function | The function that will deploy the contract to the Klaytn. The promise as the result of this function will be resolved with the new contract instance. |
-| [estimateGas](#methods-methodname-estimategas) | function | The function that will estimate the gas used for the deployment. The execution of this function does not deploy the contract.|
-| [encodeABI](#methods-methodname-encodeabi) | function | The function that encodes the ABI of the deployment, which is contract data + constructor parameters. The execution of this function does not deploy the contract.|
+| [send](caver.contract.md#methods-methodname-send) | function | The function that will deploy the contract to the Klaytn. The promise as the result of this function will be resolved with the new contract instance. |
+| [estimateGas](caver.contract.md#methods-methodname-estimategas) | function | The function that will estimate the gas used for the deployment. The execution of this function does not deploy the contract. |
+| [encodeABI](caver.contract.md#methods-methodname-encodeabi) | function | The function that encodes the ABI of the deployment, which is contract data + constructor parameters. The execution of this function does not deploy the contract. |
 
 **Example**
 
@@ -275,31 +270,33 @@ The options object can contain the following:
   })
 ```
 
-
 ## myContract.methods <a id="mycontract-methods"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]])
 ```
+
 Creates a transaction object for that method, which then can be called, sent, estimated or ABI encoded.
 
 The methods of this smart contract are available through:
 
-- The name with parameters: `myContract.methods.methodName(123)`
-- The string-formatted name and the parameter type, and parameters: `myContract.methods['methodName(uint256)'](123)`
-- The signature* for the method and parameters: `myContract.methods['0x58cf5f10'](123)`
+* The name with parameters: `myContract.methods.methodName(123)`
+* The string-formatted name and the parameter type, and parameters: `myContract.methods['methodName(uint256)'](123)`
+* The signature\* for the method and parameters: `myContract.methods['0x58cf5f10'](123)`
 
 This allows calling functions with the same name but different parameters from the JavaScript contract object.
 
-## cf) \*function signature (function selector)   <a id="cf-function-signature-function-selector"></a>
+## cf\) \*function signature \(function selector\) <a id="cf-function-signature-function-selector"></a>
+
 The first four bytes of the call data for a function call specifies the function to be called.  
-It is the first (left, high-order in big-endian) four bytes of the Keccak-256 (SHA-3) hash of the signature of the function.
+It is the first \(left, high-order in big-endian\) four bytes of the Keccak-256 \(SHA-3\) hash of the signature of the function.
 
 The function signature can be made by 2 different methods.  
 `1. caver.abi.encodefunctionSignature('funcName(paramType1,paramType2,...)')`  
 `2. caver.utils.sha3('funcName(paramType1,paramType2,...)').substr(0, 10)`
 
-ex)  
+ex\)
+
 ```javascript
 caver.abi.encodefunctionSignature('methodName(uint256)')
 > 0x58cf5f10
@@ -317,12 +314,12 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 `Promise` returning `object` - An object in which arguments and functions for contract execution are defined.:
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | arguments | Array | The arguments passed to this method. |
-| [call](#methods-methodname-call) | function | The function that will call and execute a constant method in its smart contract on Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
-| [send](#methods-methodname-send) | function | The function that will send a transaction to the Klaytn and execute its method (can alter the smart contract state). |
-| [estimateGas](#methods-methodname-estimategas) | function | The that function will estimate the gas used for the execution. |
-| [encodeABI](#methods-methodname-encodeabi) | function | The function that encodes the ABI for this method. This can be sent using a transaction, calling the method, or passing into another smart contract method as its argument. |
+| [call](caver.contract.md#methods-methodname-call) | function | The function that will call and execute a constant method in its smart contract on Klaytn Virtual Machine without sending a transaction \(cannot alter the smart contract state\). |
+| [send](caver.contract.md#methods-methodname-send) | function | The function that will send a transaction to the Klaytn and execute its method \(can alter the smart contract state\). |
+| [estimateGas](caver.contract.md#methods-methodname-estimategas) | function | The that function will estimate the gas used for the execution. |
+| [encodeABI](caver.contract.md#methods-methodname-encodeabi) | function | The function that encodes the ABI for this method. This can be sent using a transaction, calling the method, or passing into another smart contract method as its argument. |
 
 **Example**
 
@@ -349,33 +346,32 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
   .on('error', console.error)
 ```
 
-
 ## methods.methodName.call <a id="methods-methodname-call"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]]).call(options [, callback])
 ```
 
-Will call a "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction.  Note that calling cannot alter the smart contract state.
+Will call a "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction. Note that calling cannot alter the smart contract state.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| options | object | (optional) The options used for calling.  See the table below for the details. |
-| callback | function | (optional) This callback will be fired with the result of the smart contract method execution as the second argument, or with an error object as the first argument. |
+| :--- | :--- | :--- |
+| options | object | \(optional\) The options used for calling.  See the table below for the details. |
+| callback | function | \(optional\) This callback will be fired with the result of the smart contract method execution as the second argument, or with an error object as the first argument. |
 
 The options object can contain the following:
 
 | Name | Type | Description |
-| --- | --- | --- |
-| from | string | (optional) The address which calling contract methods should be made from. |
-| gasPrice | string | (optional) The gas price in peb to use for this call. |
-| gas | number | (optional) The maximum gas provided for this call (gas limit). |
+| :--- | :--- | :--- |
+| from | string | \(optional\) The address which calling contract methods should be made from. |
+| gasPrice | string | \(optional\) The gas price in peb to use for this call. |
+| gas | number | \(optional\) The maximum gas provided for this call \(gas limit\). |
 
 **Return Value**
 
-`Promise` returning `Mixed` - The return value(s) of the smart contract method. If it returns a single value, it is returned as it is. If it has multiple return values, it returns an object with properties and indices.
+`Promise` returning `Mixed` - The return value\(s\) of the smart contract method. If it returns a single value, it is returned as it is. If it has multiple return values, it returns an object with properties and indices.
 
 **Example**
 
@@ -387,7 +383,7 @@ The options object can contain the following:
   })
 ```
 
-```solidity
+```text
 // Solidity: MULTIPLE RETURN VALUES
 contract MyContract {
     function myFunction() public returns(uint256 myNumber, string memory myString) {
@@ -407,7 +403,7 @@ Result {
 }
 ```
 
-```solidity
+```text
 // Solidity: SINGLE RETURN VALUE
 contract MyContract {
     function myfunction() public returns(string memory mystring) {
@@ -422,7 +418,6 @@ contract MyContract {
 "Hello!%"
 ```
 
-
 ## methods.methodName.send <a id="methods-methodname-send"></a>
 
 ```javascript
@@ -434,33 +429,32 @@ Will send a transaction to the smart contract and execute its method. This can a
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | options | object | The options used for sending.  See the table below for the details. |
-| callback | function | (optional) This callback will be fired first with the "transactionHash", or with an error object as the first argument. |
+| callback | function | \(optional\) This callback will be fired first with the "transactionHash", or with an error object as the first argument. |
 
 The options object can contain the following:
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | from | string | The address from which the transaction should be sent. If omitted, `myContract.options.from` will be used. |
-| gasPrice | string | (optional) The gas price in peb to use for this transaction. |
-| gas | number | The maximum gas provided for this transaction (gas limit). |
-| value | number &#124; string &#124; BN &#124; Bignumber | (optional) The value in peb to be transferred to the address of the smart contract by this transaction. |
-
+| gasPrice | string | \(optional\) The gas price in peb to use for this transaction. |
+| gas | number | The maximum gas provided for this transaction \(gas limit\). |
+| value | number \| string \| BN \| Bignumber | \(optional\) The value in peb to be transferred to the address of the smart contract by this transaction. |
 
 **NOTE** The keyring that contains `myContract.options.from`, which is the sender of the transaction, must exist in the caver.wallet.
 
 **Return Value**
 
 | Type | Description |
-| --- | --- |
+| :--- | :--- |
 | PromiEvent | A promise combined event emitter. It will be resolved when the transaction receipt is available. If `send()` is called from a `myContract.deploy()`, then the promise will be resolved with the new contract instance. |
 
 For PromiEvent, the following events are available:
 
-- `transactionHash` returns `string`: Is fired right after the transaction is sent and a transaction hash is available.
-- `receipt` returns `object`: Is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](./caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more detail.
-- `error` returns ``Error``: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+* `transactionHash` returns `string`: Is fired right after the transaction is sent and a transaction hash is available.
+* `receipt` returns `object`: Is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more detail.
+* `error` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
 **Example**
 
@@ -518,7 +512,6 @@ For PromiEvent, the following events are available:
 }
 ```
 
-
 ## methods.methodName.estimateGas <a id="methods-methodname-estimategas"></a>
 
 ```javascript
@@ -530,24 +523,24 @@ Will estimate the gas that a method execution will take when executed in the Kla
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| options | object | (optional) The options used for calling.  See the table below for the details. |
-| callback | function | (optional) This callback will be fired with the result of the gas estimation as the second argument, or with an error object as the first argument. |
+| :--- | :--- | :--- |
+| options | object | \(optional\) The options used for calling.  See the table below for the details. |
+| callback | function | \(optional\) This callback will be fired with the result of the gas estimation as the second argument, or with an error object as the first argument. |
 
 The options object can contain the following:
 
 | Name | Type | Description |
-| --- | --- | --- |
-| from | string | (optional) The address from which calling the contract method should be made. |
-| gas | number | (optional) The maximum gas provided for this call (gas limit). Setting a specific value helps to detect out of gas errors. If all gas is used, it will return the same number. |
-| value | number &#124; string &#124; BN &#124; Bignumber | (optional) The value in peb that would be transferred to the address of the smart contract if the transaction for executing this contract function was sent to Klaytn. |
+| :--- | :--- | :--- |
+| from | string | \(optional\) The address from which calling the contract method should be made. |
+| gas | number | \(optional\) The maximum gas provided for this call \(gas limit\). Setting a specific value helps to detect out of gas errors. If all gas is used, it will return the same number. |
+| value | number \| string \| BN \| Bignumber | \(optional\) The value in peb that would be transferred to the address of the smart contract if the transaction for executing this contract function was sent to Klaytn. |
 
 **Return Value**
 
 `Promise` returns `number`
 
 | Type | Description |
-| --- | --- |
+| :--- | :--- |
 | number | The used gas for the simulated call/transaction. |
 
 **Example**
@@ -562,7 +555,6 @@ The options object can contain the following:
   })
 ```
 
-
 ## methods.methodName.encodeABI <a id="methods-methodname-encodeabi"></a>
 
 ```javascript
@@ -571,7 +563,6 @@ myContract.methods.methodName([param1 [, param2[, ...]]]).encodeABI()
 
 Encodes the ABI for this method. This can be used to send a transaction or call a method, or pass it into another smart contract method as arguments.
 
-
 **Parameters**
 
 Parameters of any method that belongs to this smart contract, defined in the JSON interface.
@@ -579,9 +570,8 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 **Return Value**
 
 | Type | Description |
-| --- | --- |
+| :--- | :--- |
 | string | The encoded ABI byte code to send via a transaction or call. |
-
 
 **Example**
 
@@ -589,7 +579,6 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 > myContract.methods.methodName(123).encodeABI()
 '0x58cf5f1000000000000000000000000000000000000000000000000000000000000007B'
 ```
-
 
 ## myContract.once <a id="mycontract-once"></a>
 
@@ -602,21 +591,21 @@ Subscribes to an event and unsubscribes immediately after the first event or err
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | event | string | The name of the event in the contract, or `allEvents` to get all events. |
-| options | object | (optional) The options used for subscription. See the table below for the details. |
-| callback | function | This callback will be fired for the first event as the second argument, or an error as the first argument. See [myContract.getPastEvents](#getpastevents) for details about the event structure. |
+| options | object | \(optional\) The options used for subscription. See the table below for the details. |
+| callback | function | This callback will be fired for the first event as the second argument, or an error as the first argument. See [myContract.getPastEvents](caver.contract.md#getpastevents) for details about the event structure. |
 
 The options object can contain the following:
 
 | Name | Type | Description |
-| --- | --- | --- |
-| filter | object | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13. |
-| topics | Array | (optional) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
+| :--- | :--- | :--- |
+| filter | object | \(optional\) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13. |
+| topics | Array | \(optional\) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
 
 **Return Value**
 
-`Promise` returns `object` - An event object. For more detail about event object, please refer to [myContract.getPastEvents](#getpastevents).
+`Promise` returns `object` - An event object. For more detail about event object, please refer to [myContract.getPastEvents](caver.contract.md#getpastevents).
 
 **Example**
 
@@ -647,7 +636,6 @@ The options object can contain the following:
 }
 ```
 
-
 ## myContract.events <a id="mycontract-events"></a>
 
 ```javascript
@@ -659,25 +647,24 @@ Subscribes to an event.
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| options | object | (optional) The options used for subscription. See the table below for the details. |
-| callback | function | (optional) This callback will be fired for each event as the second argument, or an error as the first argument. |
+| :--- | :--- | :--- |
+| options | object | \(optional\) The options used for subscription. See the table below for the details. |
+| callback | function | \(optional\) This callback will be fired for each event as the second argument, or an error as the first argument. |
 
 The options object can contain the following:
 
 | Name | Type | Description |
-| --- | --- | --- |
-| filter | object | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13. |
-| fromBlock | number | (optional) The block number from which to get events. |
-| topics | Array | (optional) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
-
+| :--- | :--- | :--- |
+| filter | object | \(optional\) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13. |
+| fromBlock | number | \(optional\) The block number from which to get events. |
+| topics | Array | \(optional\) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
 
 **Return Value**
 
 `EventEmitter`: The event emitter has the following events:
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | data | object | Fires on each incoming event with the event object as an argument. |
 | connected | string | Fires once after the subscription successfully connected. It returns the subscription ID. |
 | error | object | Fires when an error in the subscription occurs. |
@@ -687,11 +674,11 @@ The options object can contain the following:
 The structure of the returned event `object` looks as follows:
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | event | string | The event name. |
-| signature | string &#124; `null` | The event signature, `null` if it is an anonymous event. |
+| signature | string \| `null` | The event signature, `null` if it is an anonymous event. |
 | address | string | Address which from this event originated. |
-| returnValues | object | The return values coming from the event, *e.g.*, `{myVar: 1, myVar2: '0x234...'}`. |
+| returnValues | object | The return values coming from the event, _e.g._, `{myVar: 1, myVar2: '0x234...'}`. |
 | logIndex | number | Integer of the event index position in the block. |
 | transactionIndex | number | Integer of the transaction's index position where the event was created. |
 | transactionHash | 32-byte string | Hash of the transaction this event was created in. `null` when it is still pending. |
@@ -699,7 +686,7 @@ The structure of the returned event `object` looks as follows:
 | blocknumber | number | The block number this log was created in. `null` when still pending. |
 | raw.data | string | The data containing non-indexed log parameter. |
 | raw.topics | Array | An array with a maximum of four 32-byte topics, and topic 1-3 contains indexed parameters of the event. |
-| id | string | A log identifier. It is made through concatenating "log_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
+| id | string | A log identifier. It is made through concatenating "log\_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
 
 **Example**
 
@@ -739,39 +726,38 @@ The structure of the returned event `object` looks as follows:
 }
 ```
 
-
 ## events.allEvents <a id="events-allevents"></a>
 
 ```javascript
 myContract.events.allEvents([options] [, callback])
 ```
-Same as [myContract.events](#mycontract-events) but receives all events from this smart contract.
-Optionally, the filter property can filter those events.
 
+Same as [myContract.events](caver.contract.md#mycontract-events) but receives all events from this smart contract. Optionally, the filter property can filter those events.
 
 ## getPastEvents <a id="getpastevents"></a>
 
 ```javascript
 myContract.getPastEvents(event [, options] [, callback])
 ```
+
 Gets past events for this contract.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | event | string | The name of the event in the contract, or `"allEvents"` to get all events. |
-| options | object | (optional) The options used for subscription. See the table below for the details. |
-| callback | function | (optional) This callback will be fired with an array of event logs as the second argument, or an error as the first argument. |
+| options | object | \(optional\) The options used for subscription. See the table below for the details. |
+| callback | function | \(optional\) This callback will be fired with an array of event logs as the second argument, or an error as the first argument. |
 
 To options object can contain the following:
 
 | Name | Type | Description |
-| --- | --- | --- |
-| filter | object | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13. |
-| fromBlock | number | (optional) The block number from which to get events. |
-| toBlock | number | (optional) The block number to get events up to (defaults to `"latest"`). |
-| topics | Array | (optional) This allows manually setting the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
+| :--- | :--- | :--- |
+| filter | object | \(optional\) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13. |
+| fromBlock | number | \(optional\) The block number from which to get events. |
+| toBlock | number | \(optional\) The block number to get events up to \(defaults to `"latest"`\). |
+| topics | Array | \(optional\) This allows manually setting the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
 
 **Return Value**
 
@@ -780,9 +766,9 @@ To options object can contain the following:
 An event object can contain the following:
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | event | string | The event name. |
-| signature | string &#124; `null`| The event signature, `null` if it’s an anonymous event. |
+| signature | string \| `null` | The event signature, `null` if it’s an anonymous event. |
 | address | string | Address this event originated from. |
 | returnValues | object | The return values coming from the event, e.g. {myVar: 1, myVar2: '0x234...'}. |
 | logIndex | number | The event index position in the block. |
@@ -826,3 +812,4 @@ An event object can contain the following:
       ...
 }]
 ```
+

@@ -1,4 +1,4 @@
-# ken CLI commands <a id="ken-cli-commands"></a>
+# ken CLI commands
 
 `ken` is a command-line interface for Klaytn Endpoint Node.
 
@@ -9,7 +9,7 @@ USAGE:
 
 ## Commands <a id="commands"></a>
 
-`ken` has the following commands. 
+`ken` has the following commands.
 
 ```bash
 COMMANDS:
@@ -70,7 +70,7 @@ Welcome to the Klaytn JavaScript console
  >
 ```
 
-`attach` command connects to the running node, while `console` command launches a node and connects to it.  
+`attach` command connects to the running node, while `console` command launches a node and connects to it.
 
 ```bash
    attach      Start an interactive JavaScript environment (connect to node)
@@ -79,7 +79,7 @@ Welcome to the Klaytn JavaScript console
 
 ### Module APIs <a id="module-apis"></a>
 
-If you type the module name on the console prompt, you will see the available properties and functions of the module. For the details of functions, please see [Klaytn API](../../bapp/json-rpc/api-references/README.md).  
+If you type the module name on the console prompt, you will see the available properties and functions of the module. For the details of functions, please see [Klaytn API](../../bapp/json-rpc/api-references/).
 
 ```javascript
 > personal
@@ -97,5 +97,6 @@ If you type the module name on the console prompt, you will see the available pr
 
 > personal.listAccounts
 ["0x960dba2500ab529693ef8e299210768aa0d55ec8", "0x09a04dc9ac3cd92de5ff0d45ae50ff1b618305d9", "0x36662211c072dadbf5fc1e087ddebd36df986abd", "0xbf9683cf04520eeba6d936a3478de29437c5d048"]
-> 
-```  
+>
+```
+

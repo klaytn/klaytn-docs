@@ -1,4 +1,4 @@
-# Deploy a Smart Contract <a id="deploy-a-smart-contract"></a>
+# Deploy a Smart Contract
 
 Now we are ready to develop and deploy Klaytn smart contracts!
 

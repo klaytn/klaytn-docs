@@ -1,4 +1,4 @@
-# Managing Accounts <a id="managing-accounts"></a>
+# Managing Accounts
 
 ## List Your Accounts <a id="list-your-accounts"></a>
 

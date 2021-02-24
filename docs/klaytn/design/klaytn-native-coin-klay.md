@@ -1,4 +1,4 @@
-# Klaytn native coin - KLAY <a id="klaytn-native-coin-klay"></a>
+# Klaytn native coin - KLAY
 
 ## KLAY <a id="klay"></a>
 
@@ -29,7 +29,7 @@ Klaytn uses the following unit system for KLAY.
 | GKLAY | 10^27 peb | 1,000,000,000,000,000,000,000,000,000 |
 | TKLAY | 10^30 peb | 1,000,000,000,000,000,000,000,000,000,000 |
 
-#### APIs Related to KLAY Units <a id="apis-related-to-klay-units"></a>
+### APIs Related to KLAY Units <a id="apis-related-to-klay-units"></a>
 
 `klay.toPeb` and `klay.fromPeb` are convenient APIs for converting between KLAY units.
 
@@ -75,6 +75,4 @@ Error: This unit doesn't exist, please use one of the following units
     at web3.js:2255:49
     at <anonymous>:1:1
 ```
-
-
 

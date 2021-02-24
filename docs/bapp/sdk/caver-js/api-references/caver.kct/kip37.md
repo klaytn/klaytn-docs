@@ -1,6 +1,6 @@
-# caver.kct.kip37 <a id="caver-kct-kip37"></a>
+# caver.kct.kip37
 
-The `caver.kct.kip37` helps you easily handle a smart contract that implements KIP-37 as a JavaScript object on the Klaytn blockchain platform (Klaytn). 
+The `caver.kct.kip37` helps you easily handle a smart contract that implements KIP-37 as a JavaScript object on the Klaytn blockchain platform \(Klaytn\).
 
 The `caver.kct.kip37` inherits [caver.contract](../caver.contract.md) to implement the KIP-37 token contract. The `caver.kct.kip37` holds the same properties of `caver.contract` whereas additional methods are implemented for extra features. This section only introduces the newly added methods of the `caver.kct.kip37`.
 
@@ -13,21 +13,22 @@ For more information about KIP-37, see [Klaytn Improvement Proposals](https://ki
 ```javascript
 caver.kct.kip37.deploy(tokenInfo, deployer)
 ```
-Deploys the KIP-37 token contract to the Klaytn blockchain. A contract deployed using caver.kct.kip37.deploy is a multi token that follows the KIP-37 standard. 
+
+Deploys the KIP-37 token contract to the Klaytn blockchain. A contract deployed using caver.kct.kip37.deploy is a multi token that follows the KIP-37 standard.
 
 After successful deployment, the promise will be resolved with a new KIP37 instance.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | tokenInfo | object | The information needed to deploy a KIP-37 token contract on the Klaytn blockchain. See the below table for the details. |
 | deployer | string | The address of the keyring to deploy the KIP-37 token contract. The Klaytn account corresponding to this keyring must have enough KLAY to deploy. |
 
 The tokenInfo object must contain the following:
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | uri | string | The URI for all token types, by relying on the [token type ID substitution mechanism](http://kips.klaytn.com/KIPs/kip-37#metadata). |
 
 **Return Value**
@@ -35,9 +36,9 @@ The tokenInfo object must contain the following:
 `PromiEvent`: A promise combined event emitter, which is resolved with a new KIP37 instance. Additionally, the following events can occur:
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | transactionHash | string | Fired right after the transaction is sent and a transaction hash is available. |
-| receipt | object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
+| receipt | object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP37 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
 | error | Error | Fired if an error occurs during sending. |
 
 **Example**
@@ -81,12 +82,13 @@ KIP37 {
 ```javascript
 caver.kct.kip37.detectInterface(contractAddress)
 ```
-Returns the information of the interface implemented by the token contract. This static function will use [kip37.detectInterface](#kip37-detectinterface).
+
+Returns the information of the interface implemented by the token contract. This static function will use [kip37.detectInterface](kip37.md#kip37-detectinterface).
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | contractAddress | string | The address of the KIP-37 token contract |
 
 **Return Value**
@@ -106,27 +108,25 @@ Returns the information of the interface implemented by the token contract. This
 }
 ```
 
-
 ## new KIP37 <a id="new-kip37"></a>
 
 ```javascript
 new caver.kct.kip37([tokenAddress])
 ```
+
 Creates a new KIP37 instance with its bound methods and events.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| tokenAddress | string | (optional) The address of the KIP-37 token contract, which can be assigned later through `kip37.options.address = '0x1234..'` |
-
+| :--- | :--- | :--- |
+| tokenAddress | string | \(optional\) The address of the KIP-37 token contract, which can be assigned later through `kip37.options.address = '0x1234..'` |
 
 **Return Value**
 
 | Type | Description |
-| --- | --- |
+| :--- | :--- |
 | object | The KIP37 instance with its bound methods and events. |
-
 
 **Example**
 
@@ -138,26 +138,25 @@ Creates a new KIP37 instance with its bound methods and events.
 > const kip37 = new caver.kct.kip37('0x{address in hex}')
 ```
 
-
 ## kip37.clone <a id="kip37-clone"></a>
 
 ```javascript
 kip37.clone([tokenAddress])
 ```
+
 Clones the current KIP37 instance.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| tokenAddress | string | (optional) The address of the smart contract that deployed another KIP37 token. If omitted, it will be set to the contract address in the original instance. |
+| :--- | :--- | :--- |
+| tokenAddress | string | \(optional\) The address of the smart contract that deployed another KIP37 token. If omitted, it will be set to the contract address in the original instance. |
 
 **Return Value**
 
 | Type | Description |
-| --- | --- |
+| :--- | :--- |
 | object | The clone of the original KIP37 instance. |
-
 
 **Example**
 
@@ -176,6 +175,7 @@ Clones the current KIP37 instance.
 ```javascript
 kip37.detectInterface()
 ```
+
 Returns the information of the interface implemented by the token contract.
 
 **Parameters**
@@ -204,12 +204,13 @@ None
 ```javascript
 kip37.supportsInterface(interfaceId)
 ```
+
 Return `true` if this contract implements the interface defined by `interfaceId`.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | interfaceId | string | The interfaceId to be checked. |
 
 **Return Value**
@@ -226,24 +227,23 @@ true
 false
 ```
 
-
 ## kip37.uri <a id="kip37-uri"></a>
 
 ```javascript
 kip37.uri(id)
 ```
-Returns distinct Uniform Resource Identifier (URI) of the given token.
 
-If the string "{id}" exists in any URI, this function will replace this with the actual token ID in hexadecimal form.
-Please refer to [KIP-34 Metadata](http://kips.klaytn.com/KIPs/kip-37#metadata).
+Returns distinct Uniform Resource Identifier \(URI\) of the given token.
+
+If the string "{id}" exists in any URI, this function will replace this with the actual token ID in hexadecimal form. Please refer to [KIP-34 Metadata](http://kips.klaytn.com/KIPs/kip-37#metadata).
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| id | BigNumber &#124; string &#124; number | The token id to get uri. |
+| :--- | :--- | :--- |
+| id | BigNumber \| string \| number | The token id to get uri. |
 
-**NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
@@ -256,21 +256,21 @@ Please refer to [KIP-34 Metadata](http://kips.klaytn.com/KIPs/kip-37#metadata).
 'https://caver.example/0000000000000000000000000000000000000000000000000000000000000000.json'
 ```
 
-
 ## kip37.totalSupply <a id="kip37-totalsupply"></a>
 
 ```javascript
 kip37.totalSupply(id)
 ```
+
 Returns the total token supply of the specific token.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| id | BigNumber &#124; string &#124; number | The token id to see the total supply. |
+| :--- | :--- | :--- |
+| id | BigNumber \| string \| number | The token id to see the total supply. |
 
-**NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
@@ -283,22 +283,22 @@ Returns the total token supply of the specific token.
 10000000000
 ```
 
-
 ## kip37.balanceOf <a id="kip37-balanceof"></a>
 
 ```javascript
 kip37.balanceOf(account, id)
 ```
+
 Returns the amount of tokens of token type `id` owned by `account`.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | account | string | The address of the account for which you want to see balance. |
-| id | BigNumber &#124; string &#124; number | The token id to see balance. |
+| id | BigNumber \| string \| number | The token id to see balance. |
 
-**NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
@@ -311,20 +311,20 @@ Returns the amount of tokens of token type `id` owned by `account`.
 20
 ```
 
-
 ## kip37.balanceOfBatch <a id="kip37-balanceofbatch"></a>
 
 ```javascript
 kip37.balanceOfBatch(accounts, ids)
 ```
-Returns the balance of multiple account/token pairs. `balanceOfBatch` is a batch operation of [balanceOf](#kip37-balanceof), and the length of arrays with `accounts` and `ids` must be the same.
+
+Returns the balance of multiple account/token pairs. `balanceOfBatch` is a batch operation of [balanceOf](kip37.md#kip37-balanceof), and the length of arrays with `accounts` and `ids` must be the same.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | accounts | Array | The address of the account for which you want to see balance. |
-| ids | Array |  An array of the token ids to see balance. |
+| ids | Array | An array of the token ids to see balance. |
 
 **Return Value**
 
@@ -337,18 +337,18 @@ Returns the balance of multiple account/token pairs. `balanceOfBatch` is a batch
 [ 20, 30 ]
 ```
 
-
 ## kip37.isMinter <a id="kip37-isminter"></a>
 
 ```javascript
 kip37.isMinter(address)
 ```
+
 Returns `true` if the given account is a minter who can issue new KIP37 tokens.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | address | string | The address of the account to be checked for having the minting right. |
 
 **Return Value**
@@ -365,18 +365,18 @@ true
 false
 ```
 
-
 ## kip37.isPauser <a id="kip37-ispauser"></a>
 
 ```javascript
 kip37.isPauser(address)
 ```
+
 Returns `true` if the given account is a pauser who can suspend transferring tokens.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | address | string | The address of the account to be checked for having the right to suspend transferring tokens. |
 
 **Return Value**
@@ -393,27 +393,27 @@ true
 false
 ```
 
-
 ## kip37.paused <a id="kip37-paused"></a>
 
 ```javascript
 kip37.paused()
 ```
-Returns whether or not the token contract's transaction (or specific token) is paused.
+
+Returns whether or not the token contract's transaction \(or specific token\) is paused.
 
 If id parameter is not defined, return whether the token contract's transaction is paused. If id parameter is defined, return whether the specific token is paused.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| id | BigNumber &#124; string &#124; number | (optional) The token id to check wether paused or not. If this parameter is omitted, the `paused` function return whether the contract is in paused state. |
+| :--- | :--- | :--- |
+| id | BigNumber \| string \| number | \(optional\) The token id to check wether paused or not. If this parameter is omitted, the `paused` function return whether the contract is in paused state. |
 
-**NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
-`Promise` returns `boolean`: `true` if the contract (or specific token) is paused.
+`Promise` returns `boolean`: `true` if the contract \(or specific token\) is paused.
 
 **Example**
 
@@ -431,18 +431,18 @@ true
 false
 ```
 
-
 ## kip37.isApprovedForAll <a id="kip37-isApprovedforall"></a>
 
 ```javascript
 kip37.isApprovedForAll(owner, operator)
 ```
+
 Queries the approval status of an operator for a given owner. Returns `true` if an operator is approved by a given owner.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | owner | string | The address of the owner. |
 | operator | string | The address of the operator. |
 
@@ -460,7 +460,6 @@ true
 false
 ```
 
-
 ## kip37.create <a id="kip37-create"></a>
 
 ```javascript
@@ -474,26 +473,26 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| id | BigNumber &#124; string &#124; number | The token id to create. |
-| initialSupply | BigNumber &#124; string &#124; number | The amount of tokens being minted. |
-| uri | string | (optional) The token URI of the created token. |
-| sendParam | object | (optional) An object holding parameters that are required for sending a transaction. |
+| :--- | :--- | :--- |
+| id | BigNumber \| string \| number | The token id to create. |
+| initialSupply | BigNumber \| string \| number | The amount of tokens being minted. |
+| uri | string | \(optional\) The token URI of the created token. |
+| sendParam | object | \(optional\) An object holding parameters that are required for sending a transaction. |
 
-**NOTE** The `id`, `initialSupply` parameters accept `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value. 
+**NOTE** The `id`, `initialSupply` parameters accept `number` type but if the fed value were out of the range capped by number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 The `sendParam` object contains the following:
 
 | Name | Type | Description |
-| --- | --- | --- |
-| from | string | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If neither of `from` in the `sendParam` object nor `this.options.from` were not provided, an error would occur. |
-| gas | number &#124; string | (optional) The maximum number of gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, amount).estimateGas({from})`. |
-| gasPrice | number &#124; string | (optional) The gas price in peb for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
-| value | number &#124; string &#124; BN &#124; BigNumber | (optional) The value to be transferred in peb. |
+| :--- | :--- | :--- |
+| from | string | \(optional\) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If neither of `from` in the `sendParam` object nor `this.options.from` were not provided, an error would occur. |
+| gas | number \| string | \(optional\) The maximum number of gas provided for this transaction \(gas limit\). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, amount).estimateGas({from})`. |
+| gasPrice | number \| string | \(optional\) The gas price in peb for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
+| value | number \| string \| BN \| BigNumber | \(optional\) The value to be transferred in peb. |
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -552,6 +551,7 @@ The `sendParam` object contains the following:
 ```javascript
 kip37.setApprovalForAll(operator, approved [, sendParam])
 ```
+
 Approves the given operator, or disallow the given operator, to transfer all tokens of the owner.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
@@ -559,14 +559,14 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | operator | string | The address of an account to be approved/prohibited to transfer the owner's all tokens. |
 | approved | boolean | This operator will be approved if `true`. The operator will be disallowed if `false`. |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](kip37.md#kip37-create). |
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -574,15 +574,15 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 // Send via a sendParam object with the from field given 
 > kip37.setApprovalForAll('0x{address in hex}', true, { from: '0x{address in hex}' }).then(console.log)
 {
-	blockHash: '0x0ee7be40f8b9f4d93d68235acef9fba08fde392a93a1a1743243cb9686943a47',
-	blockNumber: 3289,
-	contractAddress: null,
-	from: '0xfb8789cd544881f820fbff1728ba7c240a539f48',
-	...
-	status: true,
-	to: '0x394091d163ebdebcae876cb96cf0e0984c28a1e9',
-	...
-	events: {
+    blockHash: '0x0ee7be40f8b9f4d93d68235acef9fba08fde392a93a1a1743243cb9686943a47',
+    blockNumber: 3289,
+    contractAddress: null,
+    from: '0xfb8789cd544881f820fbff1728ba7c240a539f48',
+    ...
+    status: true,
+    to: '0x394091d163ebdebcae876cb96cf0e0984c28a1e9',
+    ...
+    events: {
         ApprovalForAll: {
             address: '0x394091D163eBDEbcAe876cb96CF0E0984C28a1e9',
             blockNumber: 3289,
@@ -621,30 +621,31 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 ```javascript
 kip37.safeTransferFrom(from, recipient, id, amount, data [, sendParam])
 ```
-Safely transfers the given `amount` tokens of specific token type `id` from `from` to the `recipient`. 
 
-The address who was approved to send the token owner's token (the operator) or the token owner itself is expected to execute this token transferring transaction. Thus, the approved one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Without `sendParam.from` nor `kip37.options.from` being provided, an error would occur.
+Safely transfers the given `amount` tokens of specific token type `id` from `from` to the `recipient`.
 
-If the recipient was a contract address, it should implement [IKIP37Receiver.onKIP37Received](https://kips.klaytn.com/KIPs/kip-37#kip-37-token-receiver). Otherwise, the transfer is reverted.  
+The address who was approved to send the token owner's token \(the operator\) or the token owner itself is expected to execute this token transferring transaction. Thus, the approved one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Without `sendParam.from` nor `kip37.options.from` being provided, an error would occur.
+
+If the recipient was a contract address, it should implement [IKIP37Receiver.onKIP37Received](https://kips.klaytn.com/KIPs/kip-37#kip-37-token-receiver). Otherwise, the transfer is reverted.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | from | string | The address of the account that owns the token to be sent with allowance mechanism. |
 | recipient | string | The address of the account to receive the token. |
-| id | BigNumber &#124; string &#124; number | The token id to transfer. |
-| amount | BigNumber &#124; string &#124; number | The amount of token you want to transfer. |
-| data | Buffer &#124; string &#124; number | (optional) The optional data to send along with the call. |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| id | BigNumber \| string \| number | The token id to transfer. |
+| amount | BigNumber \| string \| number | The amount of token you want to transfer. |
+| data | Buffer \| string \| number | \(optional\) The optional data to send along with the call. |
+| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](kip37.md#kip37-create). |
 
-**NOTE** The `id` and `amount` parameters accept `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `id` and `amount` parameters accept `number` type but if the fed value were out of the range capped by number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -709,28 +710,28 @@ kip37.safeBatchTransferFrom(from, recipient, ids, amounts, data [, sendParam])
 
 Safely batch transfers of multiple token ids and values from `from` to the `recipient`.
 
-The address who was approved to send the token owner's token (the operator) or the token owner itself is expected to execute this token transferring transaction. Thus, the approved one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Without `sendParam.from` nor `kip37.options.from` being provided, an error would occur.
+The address who was approved to send the token owner's token \(the operator\) or the token owner itself is expected to execute this token transferring transaction. Thus, the approved one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Without `sendParam.from` nor `kip37.options.from` being provided, an error would occur.
 
-If the recipient was a contract address, it should implement [IKIP37Receiver.onKIP37Received](https://kips.klaytn.com/KIPs/kip-37#kip-37-token-receiver). Otherwise, the transfer is reverted.  
+If the recipient was a contract address, it should implement [IKIP37Receiver.onKIP37Received](https://kips.klaytn.com/KIPs/kip-37#kip-37-token-receiver). Otherwise, the transfer is reverted.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | from | string | The address of the account that owns the token to be sent with allowance mechanism. |
 | recipient | string | The address of the account to receive the token. |
 | ids | Array | An array of the token ids to transfer. |
 | amounts | Array | An array of the token amounts you want to transfer. |
-| data | Buffer &#124; string &#124; number | (optional) The optional The data to send along with the call. |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| data | Buffer \| string \| number | \(optional\) The optional The data to send along with the call. |
+| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](kip37.md#kip37-create). |
 
-**NOTE** The `ids` and `amounts` array parameters accept `number` type as an element in array, but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `ids` and `amounts` array parameters accept `number` type as an element in array, but if the fed value were out of the range capped by number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -792,6 +793,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 ```javascript
 kip37.mint(to, id, value [, sendParam])
 ```
+
 Mints the token of the specific token type `id` and assigns the tokens according to the variables `to` and `value`. The mint function allows you to mint specific token to multiple accounts at once by passing arrays to `to` and `value` as parameters.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
@@ -799,19 +801,19 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| to | string &#124; Array | An address of the account or an array of addresses to which the minted token will be issued. |
-| id | BigNumber &#124; string &#124; number | The token id to mint. |
-| value | BigNumber &#124; string &#124; number &#124; Array | The amount of token to be minted. If an array containing multiple addresses is delivered to `to` parameter, the value must be delivered in the form of an array. |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| :--- | :--- | :--- |
+| to | string \| Array | An address of the account or an array of addresses to which the minted token will be issued. |
+| id | BigNumber \| string \| number | The token id to mint. |
+| value | BigNumber \| string \| number \| Array | The amount of token to be minted. If an array containing multiple addresses is delivered to `to` parameter, the value must be delivered in the form of an array. |
+| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](kip37.md#kip37-create). |
 
-**NOTE** The `id` and `value` parameters accept `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `id` and `value` parameters accept `number` type but if the fed value were out of the range capped by number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a minter with MinterRole.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -941,6 +943,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 ```javascript
 kip37.mintBatch(to, ids, values [, sendParam])
 ```
+
 Mints the multiple KIP-37 tokens of the specific token types `ids` in a batch and assigns the tokens according to the variables `to` and `values`.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
@@ -948,19 +951,19 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | to | string | An address of the account to which the minted tokens will be issued. |
-| ids | Array| An array of the token ids to mint. |
+| ids | Array | An array of the token ids to mint. |
 | values | Array | An array of the token amounts to mint. |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](kip37.md#kip37-create). |
 
-**NOTE** The `ids` and `values` array parameters accept `number` type as an element in array, but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `ids` and `values` array parameters accept `number` type as an element in array, but if the fed value were out of the range capped by number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a minter with MinterRole.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1014,12 +1017,12 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip37.mintBatch('0x{address in hex}', [1, 2], [100, 200]).then(console.log)
 ```
 
-
 ## kip37.addMinter <a id="kip37-addminter"></a>
 
 ```javascript
 kip37.addMinter(account [, sendParam])
 ```
+
 Adds an account as a minter, who are permitted to mint tokens.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
@@ -1027,15 +1030,15 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | account | string | The address of the account to be added as a minter. |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](kip37.md#kip37-create). |
 
 **NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a minter.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1081,27 +1084,27 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip37.addMinter('0x{address in hex}').then(console.log)
 ```
 
-
 ## kip37.renounceMinter <a id="kip37-renounceminter"></a>
 
 ```javascript
 kip37.renounceMinter([sendParam])
 ```
-Renounces the right to mint tokens. Only a minter address can renounce the minting right. 
+
+Renounces the right to mint tokens. Only a minter address can renounce the minting right.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| :--- | :--- | :--- |
+| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](kip37.md#kip37-create). |
 
 **NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a minter with MinterRole.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1147,32 +1150,32 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip37.renounceMinter().then(console.log)
 ```
 
-
 ## kip37.burn <a id="kip37-burn"></a>
 
 ```javascript
 kip37.burn(account, id, value [, sendParam])
 ```
+
 Burns specific KIP-37 tokens.
 
-The address who was approved to operate the token owner's token (the operator) or the token owner itself is expected to execute this token transferring transaction. Thus, the approved one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Without `sendParam.from` nor `kip37.options.from` being provided, an error would occur.
+The address who was approved to operate the token owner's token \(the operator\) or the token owner itself is expected to execute this token transferring transaction. Thus, the approved one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Without `sendParam.from` nor `kip37.options.from` being provided, an error would occur.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | account | string | The address of the account that owns the token to be destroyed. |
-| id | BigNumber &#124; string &#124; number | The id of token to be destroyed. |
-| value | BigNumber &#124; string &#124; number | The amount of token to be destroyed. |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| id | BigNumber \| string \| number | The id of token to be destroyed. |
+| value | BigNumber \| string \| number | The amount of token to be destroyed. |
+| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](kip37.md#kip37-create). |
 
-**NOTE** The `id` and `amount` parameters accept `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `id` and `amount` parameters accept `number` type but if the fed value were out of the range capped by number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1226,32 +1229,32 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip37.burn('0x{address in hex}', 2, 10).then(console.log)
 ```
 
-
 ## kip37.burnBatch <a id="kip37-burnbatch"></a>
 
 ```javascript
 kip37.burnBatch(account, ids, values [, sendParam])
 ```
+
 Burns the multiple KIP-37 tokens.
 
-The address who was approved to operate the token owner's token (the operator) or the token owner itself is expected to execute this token transferring transaction. Thus, the approved one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Without `sendParam.from` nor `kip37.options.from` being provided, an error would occur.
+The address who was approved to operate the token owner's token \(the operator\) or the token owner itself is expected to execute this token transferring transaction. Thus, the approved one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Without `sendParam.from` nor `kip37.options.from` being provided, an error would occur.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | account | string | The address of the account that owns the token to be destroyed. |
 | ids | Array | An array of the token ids to burn. |
 | values | Array | An array of the token amounts to burn. |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](kip37.md#kip37-create). |
 
-**NOTE** The `ids` and `values` array parameters accept `number` type as an element in array, but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `ids` and `values` array parameters accept `number` type as an element in array, but if the fed value were out of the range capped by number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1305,12 +1308,12 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip37.burnBatch('0x{address in hex}', [1, 2], [100, 200]).then(console.log)
 ```
 
-
 ## kip37.addPauser <a id="kip37-addpauser"></a>
 
 ```javascript
 kip37.addPauser(account [, sendParam])
 ```
+
 Adds an account as a pauser that has the right to suspend the contract.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
@@ -1318,15 +1321,15 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | account | string | The address of the account to be a new pauser. |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](kip37.md#kip37-create). |
 
 **NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a pauser with PauserRole.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1372,27 +1375,27 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip37.addPauser('0x{address in hex}').then(console.log)
 ```
 
-
 ## kip37.renouncePauser <a id="kip37-renouncepauser"></a>
 
 ```javascript
 kip37.renouncePauser([sendParam])
 ```
-Renounces the right to pause the contract. Only a pauser address can renounce the pausing right. 
+
+Renounces the right to pause the contract. Only a pauser address can renounce the pausing right.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| :--- | :--- | :--- |
+| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](kip37.md#kip37-create). |
 
 **NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a pauser with PauserRole.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1438,12 +1441,12 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip37.renouncePauser().then(console.log)
 ```
 
-
 ## kip37.pause <a id="kip37-pause"></a>
 
 ```javascript
 kip37.pause([id] [, sendParam])
 ```
+
 Suspends functions related to token operation. If `id` parameter is defined, pause the specific token. Otherwise pause the token contract.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
@@ -1451,14 +1454,14 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| id | BigNumber &#124; string &#124; number | (optional) The token id to pause. If this parameter is omitted, the `pause` function pause the token contract. |
+| :--- | :--- | :--- |
+| id | BigNumber \| string \| number | \(optional\) The token id to pause. If this parameter is omitted, the `pause` function pause the token contract. |
 
 **NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a pauser with PauserRole.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1540,7 +1543,6 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip37.pause().then(console.log)
 ```
 
-
 ## kip37.unpause <a id="kip37-unpause"></a>
 
 ```javascript
@@ -1554,14 +1556,14 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| id | BigNumber &#124; string &#124; number | (optional) The token id to unpause. If this parameter is omitted, the `unpause` function unpause the token contract. |
+| :--- | :--- | :--- |
+| id | BigNumber \| string \| number | \(optional\) The token id to unpause. If this parameter is omitted, the `unpause` function unpause the token contract. |
 
 **NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a pauser with PauserRole.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1643,4 +1645,3 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip37.unpause().then(console.log)
 ```
 
-[getTransactionReceipt]: ../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt

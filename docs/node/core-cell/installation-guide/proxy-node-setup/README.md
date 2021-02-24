@@ -1,2 +1,2 @@
-# Proxy Node Setup <a id="proxy-node-setup"></a>
+# Proxy Node Setup
 

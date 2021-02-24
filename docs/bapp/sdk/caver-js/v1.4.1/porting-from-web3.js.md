@@ -1,4 +1,4 @@
-# Porting from web.3js <a id="porting-from-web-3js"></a>
+# Porting from web3.js
 
 Since caver-js has been evolved from [web3.js](https://github.com/ethereum/web3.js/), usage pattern of caver-js is very similar to that of web3.js. This means a software developed using web3.js can be easily converted to caver-js. The following examples are code patterns used in web3.js and caver-js, respectively.
 
@@ -15,3 +15,4 @@ const caver = new Caver(new Caver.providers.HttpProvider('http://localhost:8545'
 
 caver.klay.getBalance('0x407d73d8a49eeb85d32cf465507dd71d507100c1').then(console.log)
 ```
+

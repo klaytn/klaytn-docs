@@ -1,4 +1,4 @@
-# 5. Frontend Code Overview <a id="5-frontend-code-overview"></a>
+# 5. Frontend Code Overview
 
 1\) `src/index.js` - Entry point of our app  
 2\) `public/index.html` - index.html  
@@ -212,7 +212,7 @@ After the connection is made, you can get the current block number from the node
 
 You can connect to a specific Klaytn node by specifying it in the 'rpcURL'.
 
-* If you are running a Klaytn full node, you can set rpcURL to your node's URL.  
+* If you are running a Klaytn full node, you can set rpcURL to your node's URL.
 
-  for example, `rpcURL: 'http://localhost:8551'`  
+  for example, `rpcURL: 'http://localhost:8551'`
 

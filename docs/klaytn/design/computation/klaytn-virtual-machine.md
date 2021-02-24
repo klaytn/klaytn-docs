@@ -1,4 +1,4 @@
-# Klaytn Virtual Machine <a id="klaytn-virtual-machine"></a>
+# Klaytn Virtual Machine
 
 ## Overview <a id="overview"></a>
 
