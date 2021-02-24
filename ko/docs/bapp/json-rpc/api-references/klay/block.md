@@ -170,7 +170,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 블록 해시로 조회한 블록에 포함된 영수증을 반환합니다.
 
 **매개변수**
-| 형식            | 설명         |
+| 타입            | 설명         |
 | ------------- | ---------- |
 | 32바이트 크기 DATA | 블록의 해시입니다. |
 
@@ -298,7 +298,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 `객체` - 합의에 대한 정보(제안자와 위원회 멤버의 목록)를 포함한 블록 객체를 반환하거나 또는 블록이 없는 경우 `error`을 반환합니다.
 
-| 명칭               | 형식            | 설명                                                                       |
+| 명칭               | 타입            | 설명                                                                       |
 | ---------------- | ------------- | ------------------------------------------------------------------------ |
 | blockScore       | QUANTITY      | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                         |
 | totalBlockScore  | QUANTITY      | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                   |
@@ -394,7 +394,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 형식                  | 설명                                                                                                                           |
+| 타입                  | 설명                                                                                                                           |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | QUANTITY &#124; TAG | 정수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다. |
 
@@ -402,7 +402,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 `객체` - 합의에 대한 정보(제안자와 위원회 멤버의 목록)를 포함한 블록 객체를 반환하거나 또는 블록이 없는 경우 `error`을 반환합니다.
 
-| 명칭               | 형식            | 설명                                                                       |
+| 명칭               | 타입            | 설명                                                                       |
 | ---------------- | ------------- | ------------------------------------------------------------------------ |
 | blockScore       | QUANTITY      | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                         |
 | totalBlockScore  | QUANTITY      | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                   |
@@ -505,7 +505,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 `배열` - 위원회에 속한 검증자들의 주소를 배열로 반환하거나 또는 위원회를 찾을 수 없는 경우 `null`을 반환합니다.
 
-| 형식                    | 설명                    |
+| 타입                    | 설명                    |
 | --------------------- | --------------------- |
 | Array of 20-byte DATA | 위원회에 속한 모든 검증자의 주소입니다 |
 
@@ -532,7 +532,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 명칭                   | 형식 | 설명                                                                                                                                   |
+| 명칭                   | 타입 | 설명                                                                                                                                   |
 | -------------------- | -- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | QUANTITY  &#124; TAG | 정수 | (선택 사항) 정수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다. |
 
@@ -540,7 +540,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 `정수` - 위원회의 구성원 수를 반환하거나 또는 위원회를 찾을 수 없는 경우 `-1`을 반환합니다.
 
-| 형식       | 설명             |
+| 타입       | 설명             |
 | -------- | -------------- |
 | QUANTITY | 위원회의 구성원 수입니다. |
 
@@ -565,7 +565,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 명칭                   | 형식 | 설명                                                                                                                                   |
+| 명칭                   | 타입 | 설명                                                                                                                                   |
 | -------------------- | -- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | QUANTITY  &#124; TAG | 정수 | (선택 사항) 정수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다. |
 
@@ -573,7 +573,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 `배열` - council에 속한 검증자들의 주소를 배열로 반환하거나 또는 council을 찾을 수 없는 경우 `null`을 반환합니다.
 
-| 형식                    | 설명                     |
+| 타입                    | 설명                     |
 | --------------------- | ---------------------- |
 | Array of 20-byte DATA | 위원회에 속한 모든 검증자의 주소입니다. |
 
@@ -600,7 +600,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 명칭                   | 형식 | 설명                                                                                                                                   |
+| 명칭                   | 타입 | 설명                                                                                                                                   |
 | -------------------- | -- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | QUANTITY  &#124; TAG | 정수 | (선택 사항) 정수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다. |
 
@@ -608,7 +608,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 `정수` - council의 구성원 수를 반환하거나 또는 council을 찾을 수 없는 경우 `-1`을 반환합니다.
 
-| 형식       | 설명             |
+| 타입       | 설명             |
 | -------- | -------------- |
 | QUANTITY | 위원회의 구성원 수입니다. |
 
@@ -735,7 +735,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 `Object|Boolean`, 동기화 상태에 대한 데이터 객체를 반환하거나 또는 동기화하고 있지 않으면 `false` 를 반환합니다.
 
-| 명칭            | 형식       | 설명                                                       |
+| 명칭            | 타입       | 설명                                                       |
 | ------------- | -------- | -------------------------------------------------------- |
 | startingBlock | QUANTITY | 가져오기 시작하는 블록입니다.(동기화가 완료되면 재설정됩니다.)                      |
 | currentBlock  | QUANTITY | 현재 블록 번호로 `klay_blockNumber`와 동일합니다.                     |
