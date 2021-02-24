@@ -342,7 +342,7 @@ The node will return a subscription id for each subscription created. For each e
 
 **리턴값**
 
-| 형식       | 설명                                                                                                                                                           |
+| 타입       | 설명                                                                                                                                                           |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | QUANTITY | A subscription id when a subscription is created. For each event that matches the subscription, a notification with relevant data will be delivered as well. |
 
@@ -378,13 +378,13 @@ Uninstalls a filter with given id. Should always be called when watch is no long
 
 **매개변수**
 
-| 명칭 | 형식       | 설명        |
+| 명칭 | 타입       | 설명        |
 | -- | -------- | --------- |
 | 필터 | QUANTITY | 필터 ID입니다. |
 
 **리턴값**
 
-| 형식      | 설명                                                                    |
+| 타입      | 설명                                                                    |
 | ------- | --------------------------------------------------------------------- |
 | Boolean | `true` if the filter was successfully uninstalled, otherwise `false`. |
 
@@ -409,13 +409,13 @@ Cancels the subscription with a specific subscription id by using either RPC Pub
 
 **매개변수**
 
-| 형식       | 설명                 |
+| 타입       | 설명                 |
 | -------- | ------------------ |
 | QUANTITY | A subscription id. |
 
 **리턴값**
 
-| 형식      | 설명                                                                       |
+| 타입      | 설명                                                                       |
 | ------- | ------------------------------------------------------------------------ |
 | Boolean | `true` if the subscription was successfully canceled, otherwise `false`. |
 
