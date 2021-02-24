@@ -13,7 +13,7 @@ JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로
 
 **매개변수**
 
-| 명칭            | 형식     | 설명                                                                                        |
+| 명칭            | 타입     | 설명                                                                                        |
 | ------------- | ------ | ----------------------------------------------------------------------------------------- |
 | jsonInterface | object | 컨트랙트를 인스턴스화하기 위한 JSON 인터페이스                                                               |
 | address       | 문자열    | (선택 사항) 호출할 스마트 컨트랙트의 주소. `myContract.options.address = '0x1234..'`를 사용하여 나중에 추가할 수 있습니다. |
@@ -21,7 +21,7 @@ JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 명칭       | 형식     | 설명                                       |
+| 명칭       | 타입     | 설명                                       |
 | -------- | ------ | ---------------------------------------- |
 | from     | 문자열    | (선택 사항) 트랜잭션이 만들어진 송신자 주소.               |
 | gasPrice | 문자열    | (선택 사항) 트랜잭션에 사용할 peb 단위의 가스 가격.         |
@@ -32,7 +32,7 @@ JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로
 
 `프로미스`는 `Object`를 반환합니다.
 
-| 형식     | 설명                         |
+| 타입     | 설명                         |
 | ------ | -------------------------- |
 | object | 모든 메소드와 이벤트가 있는 컨트랙트 인스턴스. |
 
@@ -53,7 +53,7 @@ myContract.options
 
 **속성**
 
-| 명칭            | 형식     | 설명                                                                                                                                                                                                                                 |
+| 명칭            | 타입     | 설명                                                                                                                                                                                                                                 |
 | ------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address       | 문자열    | 컨트랙트가 배포된 주소.                                                                                                                                                                                                                      |
 | jsonInterface | 배열     | 컨트랙트의 JSON 인터페이스.                                                                                                                                                                                                                  |
@@ -92,7 +92,7 @@ myContract.options.address
 
 **속성**
 
-| 명칭      | 형식                   | 설명                                      |
+| 명칭      | 타입                   | 설명                                      |
 | ------- | -------------------- | --------------------------------------- |
 | address | string &#124; `null` | 이 컨트랙트의 주소이거나, 아직 설정되지 않은 경우 `null`입니다. |
 
@@ -115,7 +115,7 @@ myContract.options.jsonInterface
 
 **속성**
 
-| 명칭            | 형식 | 설명                                                         |
+| 명칭            | 타입 | 설명                                                         |
 | ------------- | -- | ---------------------------------------------------------- |
 | jsonInterface | 배열 | 이 컨트랙트의 JSON 인터페이스. 이를 재설정하면 컨트랙트 인스턴스의 메소드 및 이벤트가 재생성됩니다. |
 
@@ -164,13 +164,13 @@ myContract.clone([contractAddress])
 
 **매개변수**
 
-| 명칭              | 형식     | 설명                                                                                                                                                   |
+| 명칭              | 타입     | 설명                                                                                                                                                   |
 | --------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | contractAddress | String | (optional) The address of the new contract. If omitted, it will be set to the address in the original instance (e.g., `myContract.options.address`). |
 
 **리턴값**
 
-| 형식     | 설명                |
+| 타입     | 설명                |
 | ------ | ----------------- |
 | object | 새로 복제된 컨트랙트 인스턴스. |
 
@@ -199,13 +199,13 @@ Deploys the contract to the Klaytn. After a successful deployment, the promise w
 
 **매개변수**
 
-| 명칭      | 형식     | 설명                                                           |
+| 명칭      | 타입     | 설명                                                           |
 | ------- | ------ | ------------------------------------------------------------ |
 | options | object | The options object used for deployment. 자세한 내용은 아래 표를 참조하세요. |
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 명칭        | 형식  | 설명                         |
+| 명칭        | 타입  | 설명                         |
 | --------- | --- | -------------------------- |
 | data      | 문자열 | 컨트랙트의 바이트 코드.              |
 | arguments | 배열  | (선택 사항) 배포시 생성자에게 전달되는 인자. |
@@ -214,7 +214,7 @@ Deploys the contract to the Klaytn. After a successful deployment, the promise w
 
 `Promise` returning `object` - An object in which arguments and functions for contract distribution are defined.:
 
-| 명칭                                             | 형식       | 설명                                                                                                                                                                 |
+| 명칭                                             | 타입       | 설명                                                                                                                                                                 |
 | ---------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | arguments                                      | 배열       | The arguments passed in `options.arguments`.                                                                                                                       |
 | [send](#methods-methodname-send)               | function | The function that will deploy the contract to the Klaytn. The promise as the result of this function will be resolved with the new contract instance.              |
@@ -316,7 +316,7 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 
 `Promise` returning `object` - An object in which arguments and functions for contract execution are defined.:
 
-| 명칭                                             | 형식       | 설명                                                                                                                                                                               |
+| 명칭                                             | 타입       | 설명                                                                                                                                                                               |
 | ---------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | arguments                                      | 배열       | The arguments passed to this method.                                                                                                                                             |
 | [call](#methods-methodname-call)               | function | The function that will call and execute a constant method in its smart contract on Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
@@ -360,14 +360,14 @@ Will call a "constant" method and execute its smart contract method in the Klayt
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                    |
+| 명칭       | 타입       | 설명                                                                    |
 | -------- | -------- | --------------------------------------------------------------------- |
 | options  | object   | (선택 사항) 호출에 사용되는 옵션.  자세한 내용은 아래 표를 참조하세요.                            |
 | callback | function | (선택 사항) 이 콜백은 스마트 컨트랙트 메소드 실행 결과를 두 번째 인수로, 또는 오류 객체를 첫 번째 인수로 발생합니다. |
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 명칭       | 형식     | 설명                                                                         |
+| 명칭       | 타입     | 설명                                                                         |
 | -------- | ------ | -------------------------------------------------------------------------- |
 | from     | 문자열    | (optional) The address which calling contract methods should be made from. |
 | gasPrice | 문자열    | (optional) The gas price in peb to use for this call.                      |
@@ -433,14 +433,14 @@ myContract.methods.methodName([param1 [, param2 [, ...]]]).send(options [, callb
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                   |
+| 명칭       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | options  | object   | 전송에 사용되는 옵션.  자세한 내용은 아래 표를 참조하세요.                                   |
 | callback | function | (선택 사항) 이 콜백은 먼저 "transactionHash"로, 아니면 첫 번째 인수로 오류 객체를 사용하여 발생합니다. |
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 명칭       | 형식                                              | 설명                                                                                                      |
+| 명칭       | 타입                                              | 설명                                                                                                      |
 | -------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | from     | 문자열                                             | 트랜잭션을 보낼 송신자 주소. If omitted, `myContract.options.from` will be used.                                    |
 | gasPrice | 문자열                                             | (선택 사항) 트랜잭션에 사용할 peb 단위의 가스 가격.                                                                        |
@@ -452,7 +452,7 @@ myContract.methods.methodName([param1 [, param2 [, ...]]]).send(options [, callb
 
 **리턴값**
 
-| 형식         | 설명                                                                                                                                                                                                                              |
+| 타입         | 설명                                                                                                                                                                                                                              |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | PromiEvent | 프로미스(promise)가 조합된 이벤트 이미터(event emitter). It will be resolved when the transaction receipt is available. If `send()` is called from a `myContract.deploy()`, then the promise will be resolved with the new contract instance. |
 
@@ -529,14 +529,14 @@ Will estimate the gas that a method execution will take when executed in the Kla
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                             |
+| 명칭       | 타입       | 설명                                                             |
 | -------- | -------- | -------------------------------------------------------------- |
 | options  | object   | (선택 사항) 호출에 사용되는 옵션.  자세한 내용은 아래 표를 참조하세요.                     |
 | callback | function | (선택 사항) 이 콜백은 가스 추정 결과를 두 번째 인수로, 또는 오류 객체를 첫 번째 인수로 하여 발생합니다. |
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 명칭    | 형식                                              | 설명                                                                                                                                                                     |
+| 명칭    | 타입                                              | 설명                                                                                                                                                                     |
 | ----- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | from  | 문자열                                             | (optional) The address from which calling the contract method should be made.                                                                                          |
 | gas   | number                                          | (optional) The maximum gas provided for this call (gas limit). 특정 값을 설정하면 가스 부족 오류를 감지하는 데 도움이 됩니다. 모든 가스가 사용되면 같은 숫자를 반환합니다.                                          |
@@ -546,7 +546,7 @@ Will estimate the gas that a method execution will take when executed in the Kla
 
 `프로미스`는 `Number`을 반환합니다.
 
-| 형식     | 설명                                               |
+| 타입     | 설명                                               |
 | ------ | ------------------------------------------------ |
 | number | The used gas for the simulated call/transaction. |
 
@@ -578,7 +578,7 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 
 **리턴값**
 
-| 형식  | 설명                                  |
+| 타입  | 설명                                  |
 | --- | ----------------------------------- |
 | 문자열 | 트랜잭션 또는 호출을 통해 전송할 인코딩된 ABI 바이트 코드. |
 
@@ -601,7 +601,7 @@ Subscribes to an event and unsubscribes immediately after the first event or err
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                                                                                        |
+| 명칭       | 타입       | 설명                                                                                                                                        |
 | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | event    | 문자열      | The name of the event in the contract, or `allEvents` to get all events.                                                                  |
 | options  | object   | (optional) The options used for subscription. 자세한 내용은 아래 표를 참조하세요.                                                                        |
@@ -609,7 +609,7 @@ Subscribes to an event and unsubscribes immediately after the first event or err
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 명칭     | 형식     | 설명                                                                                                                                              |
+| 명칭     | 타입     | 설명                                                                                                                                              |
 | ------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | 필터     | object | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13. |
 | topics | 배열     | (선택 사항) 이벤트 필터에 대한 주제를 수동으로 설정할 수 있습니다. Given the filter property and event signature, `topic[0]` would not be set automatically.               |
@@ -658,14 +658,14 @@ myContract.events.eventName([options][, callback])
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                 |
+| 명칭       | 타입       | 설명                                                                 |
 | -------- | -------- | ------------------------------------------------------------------ |
 | options  | object   | (optional) The options used for subscription. 자세한 내용은 아래 표를 참조하세요. |
 | callback | function | (선택 사항) 이 콜백은 각 이벤트를 두 번째 인수로, 또는 오류 객체를 첫 번째 인수로 하여 발생합니다.        |
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 명칭        | 형식     | 설명                                                                                                                                              |
+| 명칭        | 타입     | 설명                                                                                                                                              |
 | --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | 필터        | object | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13. |
 | fromBlock | number | (optional) The block number from which to get events.                                                                                           |
@@ -676,14 +676,17 @@ myContract.events.eventName([options][, callback])
 
 `EventEmitter`: 이벤트 이미터는 다음 이벤트를 가집니다:
 
-| 명칭    | 형식     | 설명                                                                 |
-| ----- | ------ | ------------------------------------------------------------------ |
-| data  | object | Fires on each incoming event with the event object as an argument. |
-| error | object | 구독 오류가 발생하면 발생합니다.                                                 |
+| 명칭        | 타입     | 설명                                                                                        |
+| --------- | ------ | ----------------------------------------------------------------------------------------- |
+| data      | object | Fires on each incoming event with the event object as an argument.                        |
+| connected | 문자열    | Fires once after the subscription successfully connected. It returns the subscription ID. |
+| error     | object | 구독 오류가 발생하면 발생합니다.                                                                        |
+
+**NOTE** `connected` is available with caver-js [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7).
 
 The structure of the returned event `object` looks as follows:
 
-| 명칭               | 형식                   | 설명                                                                                                      |
+| 명칭               | 타입                   | 설명                                                                                                      |
 | ---------------- | -------------------- | ------------------------------------------------------------------------------------------------------- |
 | event            | 문자열                  | 이벤트 이름.                                                                                                 |
 | 서명 값입니다.         | string &#124; `null` | 이벤트 서명, 익명의 이벤트인 경우 `null`.                                                                             |
@@ -705,6 +708,9 @@ The structure of the returned event `object` looks as follows:
     filter: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
     fromBlock: 0
   }, function(error, event) { console.log(event) })
+  .on('connected', function(subscriptionId){
+      console.log(subscriptionId)
+  })
   .on('data', function(event){
       console.log(event) // same results as the optional callback above
   })
@@ -751,7 +757,7 @@ myContract.getPastEvents(event [, options] [, callback])
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                 |
+| 명칭       | 타입       | 설명                                                                 |
 | -------- | -------- | ------------------------------------------------------------------ |
 | event    | 문자열      | 컨트랙트, 또는 모든 이벤트를 받기 위한 `"allEvents"`에서의 이벤트 이름.                    |
 | options  | object   | (optional) The options used for subscription. 자세한 내용은 아래 표를 참조하세요. |
@@ -759,7 +765,7 @@ myContract.getPastEvents(event [, options] [, callback])
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 명칭        | 형식     | 설명                                                                                                                                              |
+| 명칭        | 타입     | 설명                                                                                                                                              |
 | --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | 필터        | object | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13. |
 | fromBlock | number | (optional) The block number from which to get events.                                                                                           |
@@ -772,7 +778,7 @@ myContract.getPastEvents(event [, options] [, callback])
 
 An event object can contain the following:
 
-| 명칭               | 형식                   | 설명                                                                                                                                                                                                            |
+| 명칭               | 타입                   | 설명                                                                                                                                                                                                            |
 | ---------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | event            | 문자열                  | 이벤트 이름.                                                                                                                                                                                                       |
 | 서명 값입니다.         | string &#124; `null` | The event signature, `null` if it’s an anonymous event.                                                                                                                                                       |
