@@ -23,7 +23,7 @@ The `nodeInfo` administrative property can be queried for all the information kn
 
 **리턴값**
 
-| 형식       | 설명            |
+| 타입       | 설명            |
 | -------- | ------------- |
 | JSON 문자열 | 노드에 대한 정보입니다. |
 
@@ -74,7 +74,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_datadir <a id="admin_datadir"></a>
 
-`datadir` 관리 속성을 조회하여 실행 중인 Klaytn 노드가 현재 모든 데이터베이스를 저장하는 데에 사용하는 절대 경로를 확인할 수 있습니다. 기본으로 설정된 경로는 노드 유형(kcn, kpn, ken)과 운영체제에 따라 다릅니다.
+`datadir` 관리 속성을 조회하여 실행 중인 Klaytn 노드가 현재 모든 데이터베이스를 저장하는 데에 사용하는 절대 경로를 확인할 수 있습니다. 기본으로 설정된 경로는 노드 타입(kcn, kpn, ken)과 운영체제에 따라 다릅니다.
 
 | 클라이언트 | 메서드 호출                        |
 |:-----:| ----------------------------- |
@@ -490,13 +490,13 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **매개변수**
 
-| 명칭       | 형식  | 설명                                                       |
+| 명칭       | 타입  | 설명                                                       |
 | -------- | --- | -------------------------------------------------------- |
 | blockRlp | 문자열 | 불러올 블록들을 RLP 인코딩한 문자열입니다. (`debug.getBlockRlp`의 리턴값과 동일) |
 
 **리턴값**
 
-| 형식   | 설명                                               |
+| 타입   | 설명                                               |
 | ---- | ------------------------------------------------ |
 | bool | 블록체인을 가져오면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
@@ -529,7 +529,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **리턴값**
 
-| 형식 | 설명                                                      |
+| 타입 | 설명                                                      |
 | -- | ------------------------------------------------------- |
 | 에러 | 상태 마이그레이션을 성공적으로 시작했다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
 
@@ -564,7 +564,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **리턴값**
 
-| 형식 | 설명                                                 |
+| 타입 | 설명                                                 |
 | -- | -------------------------------------------------- |
 | 에러 | 상태 마이그레이션이 중단되었다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
 
@@ -598,7 +598,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **리턴값**
 
-| 명칭                   | 형식      | 설명                                                       |
+| 명칭                   | 타입      | 설명                                                       |
 | -------------------- | ------- | -------------------------------------------------------- |
 | committed            | int     | `committed`는 상태 마이그레이션 작업에 의해 복제된 트리 노드들의 개수입니다.         |
 | err                  | 에러      | 상태 마이그레이션이 성공적으로 완료되었다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
@@ -645,7 +645,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **리턴값**
 
-| 형식 | 설명                                                      |
+| 타입 | 설명                                                      |
 | -- | ------------------------------------------------------- |
 | 에러 | 트리 노드 저장이 성공적으로 시작되었다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
 
@@ -661,5 +661,41 @@ null
 HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_saveTrieNodeToDisk", "id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+## admin_setMaxSubscriptionPerWSConn <a id="admin_setMaxSubscriptionPerWSConn"></a>
+
+The `setMaxSubscriptionPerWSConn` is an administrative method that sets the maximum allowed number of subscriptions per single WebSocket connection. For example, if the maximum number is set to five and a user requests more than five subscriptions through the `klay_subscribe` API, an error message "Maximum 5 subscriptions are allowed for a WebSocket connection" will be displayed. This feature is supported since Klaytn 1.6.0.
+
+| 클라이언트 | 메서드 호출                                            |
+|:-----:| ------------------------------------------------- |
+|  콘솔   | `admin.setMaxSubscriptionPerWSConn(limit)`        |
+|  RPC  | `{"method": "admin_setMaxSubscriptionPerWSConn"}` |
+
+**매개변수**
+
+| 명칭    | 타입  | 설명                                                                           |
+| ----- | --- | ---------------------------------------------------------------------------- |
+| limit | int | The maximum allowed number of subscriptions per single WebSocket connection. |
+
+**리턴값**
+
+| 타입 | 설명                                                                               |
+| -- | -------------------------------------------------------------------------------- |
+| 에러 | `null` if the limit is set successfully; otherwise, it returns an error message. |
+
+**예시**
+
+콘솔
+
+```javascript
+> admin.setMaxSubscriptionPerWSConn(5)
+null
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_setMaxSubscriptionPerWSConn", "params":[5], "id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
