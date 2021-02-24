@@ -14,7 +14,7 @@ caver.wallet
 
 **속성**
 
-| 명칭     | 형식     | 설명                                          |
+| 명칭     | 타입     | 설명                                          |
 | ------ | ------ | ------------------------------------------- |
 | length | number | The number of keyrings in keyringContainer. |
 
@@ -28,14 +28,14 @@ Generates instances of [SingleKeyring][] in the keyringContainer with randomly g
 
 **매개변수**
 
-| 명칭               | 형식     | 설명                                                   |
+| 명칭               | 타입     | 설명                                                   |
 | ---------------- | ------ | ---------------------------------------------------- |
 | numberOfKeyrings | number | The number of [SingleKeyring][] instances to create. |
 | entropy          | 문자열    | (optional) A random string to increase entropy.      |
 
 **리턴값**
 
-| 형식 | 설명                                                  |
+| 타입 | 설명                                                  |
 | -- | --------------------------------------------------- |
 | 배열 | An array containing the addresses of the generated. |
 
@@ -71,14 +71,14 @@ If `key` is a private key string, a [SingleKeyring][] instance that uses a singl
 
 **매개변수**
 
-| 명칭      | 형식                  | 설명                                                                                                                                   |
+| 명칭      | 타입                  | 설명                                                                                                                                   |
 | ------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | address | 문자열                 | The address string.                                                                                                                  |
 | key     | string &#124; Array | The private key string, an array of private keys, or a 2D array of which each array element contains keys defined for each [role][]. |
 
 **리턴값**
 
-| 형식     | 설명                                                                                                                       |
+| 타입     | 설명                                                                                                                       |
 | ------ | ------------------------------------------------------------------------------------------------------------------------ |
 | object | The keyring instance ([SingleKeyring][], [MultipleKeyring][] or [RoleBasedKeyring][]) added to caver.wallet is returned. |
 
@@ -138,13 +138,13 @@ Updates the keyring inside the `caver.wallet`. When a new `keyring` instance ([S
 
 **매개변수**
 
-| 명칭      | 형식     | 설명                                                                                                               |
+| 명칭      | 타입     | 설명                                                                                                               |
 | ------- | ------ | ---------------------------------------------------------------------------------------------------------------- |
 | keyring | object | The new keyring ([SingleKeyring][], [MultipleKeyring][] or [RoleBasedKeyring][]) to be stored in `caver.wallet`. |
 
 **리턴값**
 
-| 형식     | 설명                                                                                                             |
+| 타입     | 설명                                                                                                             |
 | ------ | -------------------------------------------------------------------------------------------------------------- |
 | object | The updated keyring ([SingleKeyring][], [MultipleKeyring][] or [RoleBasedKeyring][]) stored in `caver.wallet`. |
 
@@ -168,13 +168,13 @@ Returns the keyring instance corresponding to the address in `caver.wallet`.
 
 **매개변수**
 
-| 명칭      | 형식  | 설명                               |
+| 명칭      | 타입  | 설명                               |
 | ------- | --- | -------------------------------- |
 | address | 문자열 | The address of keyring to query. |
 
 **리턴값**
 
-| 형식     | 설명                                                                                                                    |
+| 타입     | 설명                                                                                                                    |
 | ------ | --------------------------------------------------------------------------------------------------------------------- |
 | object | The found keyring instance ([SingleKeyring][], [MultipleKeyring][] or [RoleBasedKeyring][]) stored in `caver.wallet`. |
 
@@ -198,13 +198,13 @@ Adds an instance of keyring to the `caver.wallet`. If the newly given keyring ha
 
 **매개변수**
 
-| 명칭      | 형식     | 설명                                                                                                              |
+| 명칭      | 타입     | 설명                                                                                                              |
 | ------- | ------ | --------------------------------------------------------------------------------------------------------------- |
 | keyring | object | A keyring instance (([SingleKeyring][], [MultipleKeyring][] or [RoleBasedKeyring][])) to add to `caver.wallet`. |
 
 **리턴값**
 
-| 형식     | 설명                                                                                                    |
+| 타입     | 설명                                                                                                    |
 | ------ | ----------------------------------------------------------------------------------------------------- |
 | object | The added keyring ([SingleKeyring][], [MultipleKeyring][] or [RoleBasedKeyring][]) in `caver.wallet`. |
 
@@ -228,13 +228,13 @@ Deletes the keyring from `caver.wallet` whose address matches the address of the
 
 **매개변수**
 
-| 명칭      | 형식  | 설명                                                         |
+| 명칭      | 타입  | 설명                                                         |
 | ------- | --- | ---------------------------------------------------------- |
 | address | 문자열 | An address of the keyring to be deleted in `caver.wallet`. |
 
 **리턴값**
 
-| 형식      | 설명                                                |
+| 타입      | 설명                                                |
 | ------- | ------------------------------------------------- |
 | boolean | `true` if keyring is removed from `caver.wallet`. |
 
@@ -261,7 +261,7 @@ If the user has not provided the index parameter, `caver.wallet.signMessage` sig
 
 **매개변수**
 
-| 명칭      | 형식     | 설명                                                                                                                                                                                                                             |
+| 명칭      | 타입     | 설명                                                                                                                                                                                                                             |
 | ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | address | 문자열    | An address of the keyring to be used.                                                                                                                                                                                          |
 | message | 문자열    | The message to sign.                                                                                                                                                                                                           |
@@ -270,13 +270,13 @@ If the user has not provided the index parameter, `caver.wallet.signMessage` sig
 
 **리턴값**
 
-| 형식     | 설명                                             |
+| 타입     | 설명                                             |
 | ------ | ---------------------------------------------- |
 | object | An object that includes the result of signing. |
 
 The returned object contains the following:
 
-| 명칭          | 형식  | 설명                                               |
+| 명칭          | 타입  | 설명                                               |
 | ----------- | --- | ------------------------------------------------ |
 | messageHash | 문자열 | The hash of message with Klaytn-specific prefix. |
 | signatures  | 배열  | An array of [SignatureData][].                   |
@@ -319,7 +319,7 @@ For [Account Update][] transaction, use [roleTransactionKey][], otherwise, use [
 
 **매개변수**
 
-| 명칭      | 형식       | 설명                                                                                                                                                                                                                                                                                                                                                            |
+| 명칭      | 타입       | 설명                                                                                                                                                                                                                                                                                                                                                            |
 | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address | 문자열      | An address of the keyring to be used.                                                                                                                                                                                                                                                                                                                         |
 | 트랜잭션    | object   | An instance of [Transaction][].                                                                                                                                                                                                                                                                                                                               |
@@ -330,7 +330,7 @@ For [Account Update][] transaction, use [roleTransactionKey][], otherwise, use [
 
 `Promise` returning `object`: The signed transaction.
 
-| 형식     | 설명                                                                                   |
+| 타입     | 설명                                                                                   |
 | ------ | ------------------------------------------------------------------------------------ |
 | object | A signed transaction instance. The sign(s) is added to the `transaction.signatures`. |
 
@@ -431,7 +431,7 @@ If the `transaction.feePayer` is not defined, the address of keyring which is fo
 
 **매개변수**
 
-| 명칭      | 형식       | 설명                                                                                                                                                                                                                             |
+| 명칭      | 타입       | 설명                                                                                                                                                                                                                             |
 | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | address | 문자열      | An address of the keyring to be used.                                                                                                                                                                                          |
 | 트랜잭션    | object   | An instance of [FeeDelegatedTransaction][].                                                                                                                                                                                    |
@@ -442,7 +442,7 @@ If the `transaction.feePayer` is not defined, the address of keyring which is fo
 
 `Promise` returning `object`: The signed transaction.
 
-| 형식     | 설명                                                                                                     |
+| 타입     | 설명                                                                                                     |
 | ------ | ------------------------------------------------------------------------------------------------------ |
 | object | A signed transaction instance. The signing result is appended to the `transaction.feePayerSignatures`. |
 
