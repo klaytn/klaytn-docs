@@ -1172,5 +1172,161 @@ The execution result of the above code is shown below.
 QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk
 ```
 
+## Detect KCT interface<a id="detect kct interface"></a>
+
+KCT (Klaytn Compatible Token) contracts such as [KIP-7], [KIP-17], and [KIP-37] define and provide various interfaces, and [KIP-13] allows you to see whether a contract complies with KCT specifications and which interface it implements, by sending a query to the contract.
+
+[KIP-13] was implemented in Caver v1.5.7. It could detect interface through `detectInterface()` for any of the KCT contract classes (`KIP7`, `KIP17`, and `KIP37`).
+
+### Detecting KIP-7 Interfaces <a id="detecting-kip-7-interfaces"></a>
+
+To detect KIP-7 interfaces, you can use `detectInterface()` in the `KIP7` class.
+It returns the mapping between KIP-7 interface identifier and a boolean that the interface is supported or not.
+
+`detectInterface()` supports both static and instance methods, so you can select and use the method that suits your needs.
+
+The interface detected through `detectInterface()` for `KIP7` is shown in the table below.
+
+|Interface|KIP-13 Identifier|
+|---|---|
+|IKIP7|0x65787371|
+|IKIP7Metadata|0xa219a025|
+|IKIP7Mintable|0xeab83e20|
+|IKIP7Burnable|0x3b5a0bf8|
+|IKIP7Pausable|0x4d5507ff|
+
+```java
+Caver caver = new Caver(Caver.DEFAULT_URL);
+ObjectMapper mapper = new ObjectMapper();
+String contractAddress = "0x{address}";
+
+//using static method.
+Map<String, Boolean> resultStatic = KIP7.detectInterface(caver, contractAddress);
+String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultStatic);
+System.out.println(resultJson);
+
+//using instance method.
+KIP7 kip7 = new KIP7(caver, contractAddress)
+Map<String, Boolean> resultInstance = kip7.detectInterface();
+String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultInstance);
+System.out.println(resultJson);
+```
+
+The execution result of the above code is shown below.
+
+```java
+{
+  "IKIP7Metatdata" : true,
+  "IKIP7Burnable" : true,
+  "IKIP7" : true,
+  "IKIP7Pausable" : true,
+  "IKIP7Mintable" : true
+}
+```
+
+
+### Detecting KIP-17 Interfaces <a id="detecting-kip-17-interfaces"></a>
+
+To detect the interface implemented in a KIP-17 token contract, you can use `detectInterface()` in the `KIP17` class.
+It returns the mapping between KIP-17 interface identifier and interface support.
+
+`detectInterface()` supports both static and instance methods, so you can select and use the method that suits your needs.
+
+The interface detect through `detectInterface()` for `KIP17` is shown in the table below.
+
+|Interface|KIP-13 Identifier|
+|---|---|
+|IKIP17|0x80ac58cd|
+|IKIP17Metadata|0x5b5e139f|
+|IKIP17Enumerable|0x780e9d63|
+|IKIP17Mintable|0xeab83e20|
+|IKIP17MetadataMintable|0xfac27f46|
+|IKIP17Burnable|0x42966c68|
+|IKIP17Pausable|0x4d5507ff|
+
+```java
+
+Caver caver = new Caver(Caver.DEFAULT_URL);
+ObjectMapper mapper = new ObjectMapper();
+String contractAddress = "0x{address}";
+
+//using static method.
+Map<String, Boolean> resultStatic = KIP17.detectInterface(caver, contractAddress);
+String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultStatic);
+System.out.println(resultJson);
+
+//using instance method.
+KIP17 kip17 = new KIP17(caver, contractAddress)
+Map<String, Boolean> resultInstance = kip17.detectInterface();
+String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultInstance);
+System.out.println(resultJson);
+```
+
+The execution result of the above code is shown below.
+
+```java
+{
+  "IKIP17Enumerable" : true,
+  "IKIP17Metadata" : true,
+  "IKIP17Burnable" : true,
+  "IKIP17Mintable" : true,
+  "IKIP17" : true,
+  "IKIP17MetadataMintable" : true,
+  "IKIP17Pausable" : true
+}
+```
+
+### Detecting KIP-37 interfaces <a id="detecting-kip-37-interfaces"></a>
+
+To detect the interface implemented in a KIP-37 token contract, you can use `detectInterface()` in the `KIP37` class.
+It returns the mapping between KIP-37 interface identifier and interface support.
+
+`detectInterface()` supports both static and instance methods, so you can select and use the appropriate method.
+
+The interface detection through `detectInterface()` for `KIP37` is shown in the table below.
+
+| Interface | KIP-13 Identifier |
+|---|---|
+| IKIP37 | 0x6433ca1f |
+| IKIP37Metadata | 0x0e89341c |
+| IKIP37Mintable | 0xdfd9d9ec |
+| IKIP37Burnable | 0x9e094e9e |
+| IKIP37Pausable | 0x0e8ffdb7 |
+
+
+```java
+
+Caver caver = new Caver(Caver.DEFAULT_URL);
+ObjectMapper mapper = new ObjectMapper();
+String contractAddress = "0x{address}";
+
+//using static method.
+Map<String, Boolean> resultStatic = KIP37.detectInterface(caver, contractAddress);
+String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultStatic);
+System.out.println(resultJson);
+
+//using instance method.
+KIP37 kip37 = new KIP37(caver, contractAddress)
+Map<String, Boolean> resultInstance = kip37.detectInterface();
+String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultInstance);
+System.out.println(resultJson);
+```
+
+The execution result of the above code is shown below.
+
+```java
+{
+  "IKIP37Metatdata" : true,
+  "IKIP37Burnable" : true,
+  "IKIP37" : true,
+  "IKIP37Pausable" : true,
+  "IKIP37Mintable" : true
+}
+```
+
 
 [caver-java API]: https://javadoc.io/doc/com.klaytn.caver/core/
+[KIP-7]: https://kips.klaytn.com/KIPs/kip-7
+[KIP-13]: https://kips.klaytn.com/KIPs/kip-13
+[KIP-17]: https://kips.klaytn.com/KIPs/kip-17
+[KIP-37]: https://kips.klaytn.com/KIPs/kip-37
