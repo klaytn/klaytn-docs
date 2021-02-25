@@ -1,2 +1,1 @@
-# Starting/Stopping Node
 

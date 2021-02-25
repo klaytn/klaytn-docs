@@ -1,14 +1,16 @@
 ---
-description: APIs used to query network configuration.
+description: >-
+  APIs used to query network configuration.
 ---
 
-# net
+# Namespace net <a id="namespace-net"></a>
 
 The namespace `net` provides functions related to the Klaytn networks.
 
-## net\_networkID <a id="net_networkid"></a>
 
-Returns the network identifier \(network ID\).
+## net_networkID <a id="net_networkid"></a>
+
+Returns the network identifier (network ID).
 
 **Parameters**
 
@@ -17,12 +19,12 @@ None
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
-| QUANTITY | The integer of the network identifier.  - `"1001"`: Klaytn Baobab testnet.  - `"8217"`: Klaytn Cypress mainnet. |
+| --- | --- |
+| QUANTITY | The integer of the network identifier.<br> - `"1001"`: Klaytn Baobab testnet.<br> - `"8217"`: Klaytn Cypress mainnet.|
 
 **Example**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_networkID","params":[],"id":67}' http://localhost:8551
 
@@ -34,7 +36,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 }
 ```
 
-## net\_listening <a id="net_listening"></a>
+
+## net_listening <a id="net_listening"></a>
 
 Returns `true` if the client is actively listening for network connections.
 
@@ -45,12 +48,12 @@ None
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | Boolean | `true` when listening, otherwise `false`. |
 
 **Example**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":67}' http://localhost:8551
 
@@ -62,7 +65,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 }
 ```
 
-## net\_peerCount <a id="net_peercount"></a>
+
+## net_peerCount <a id="net_peercount"></a>
 
 Returns the number of peers currently connected to the client.
 
@@ -73,12 +77,12 @@ None
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
-| QUANTITY | Integer of the number of connected peers. |
+| --- | --- |
+| QUANTITY | Integer of the number of connected peers.|
 
 **Example**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":74}' http://localhost:8551
 
@@ -90,7 +94,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 }
 ```
 
-## net\_peerCountByType <a id="net_peercountbytype"></a>
+## net_peerCountByType <a id="net_peercountbytype"></a>
 
 Returns the number of connected nodes by type and the total number of connected nodes with key/value pairs.
 
@@ -101,12 +105,12 @@ None
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | JSON string | The number of connected peers by type as well as the total number of connected peers. |
 
 **Example**
 
-```text
+```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_peerCountByType","params":[],"id":74}' http://localhost:8551
 
@@ -117,4 +121,3 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
     "result": {"en":3,"pn":2,"total":5}
 }
 ```
-

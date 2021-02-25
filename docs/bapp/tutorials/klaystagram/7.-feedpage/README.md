@@ -1,6 +1,6 @@
-# 7. FeedPage
+# 7. FeedPage <a id="7-feedpage"></a>
 
-![FeedPage](../../../../.gitbook/assets/klaystagram-feedpage%20%282%29.png)
+![FeedPage](../images/klaystagram-feedpage.png)
 
 FeedPage is consisted of 3 main components that interact with `Klaystagram` contract.
 

@@ -1,4 +1,4 @@
-# Launch an Endpoint Node
+# Launch an Endpoint Node <a id="launch-an-endpoint-node"></a>
 
 ## Download and Initialize an Endpoint Node \(EN\) <a id="download-and-initialize-an-endpoint-node-en"></a>
 
@@ -71,5 +71,5 @@ INFO[03/26,15:37:49 +09] [5] Imported new chain segment                blocks=1 
 
 ## Troubleshooting <a id="troubleshooting"></a>
 
-Please refer to the [Troubleshooting]() if you have trouble in launching the Klaytn Endpoint Node.
+Please refer to the [Troubleshooting](../../node/errors-and-troubleshooting.md) if you have trouble in launching the Klaytn Endpoint Node.
 

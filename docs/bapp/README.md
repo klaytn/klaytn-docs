@@ -1,9 +1,7 @@
 ---
 description: >-
-  This chapter contains the resources for the BApp development -
-  back-end/front-end APIs, tools, and useful tutorials. Go to "Smart Contract"
-  for the details of contract development.
+  This chapter contains the resources for the BApp development - back-end/front-end APIs, tools, and useful tutorials. Go to "Smart Contract" for the details of contract development.   
 ---
 
-# BApp Developers
+# Overview <a id="overview"></a>
 
