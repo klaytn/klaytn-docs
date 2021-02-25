@@ -12,14 +12,14 @@ Sends a [Smart Contract Execution](../../../../../../../klaytn/design/transactio
 
 sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니다.
 
-| 명칭                | 형식       | 설명                                                                                                             |
+| 명칭                | 타입       | 설명                                                                                                             |
 |:----------------- |:-------- |:-------------------------------------------------------------------------------------------------------------- |
 | transactionObject | Object   | 전송하려는 트랜잭션 객체.                                                                                                 |
 | callback          | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 ` SMART_CONTRACT_EXECUTION`  트랜잭션 오브젝트 구조는 다음과 같습니다.
 
-| 명칭       | 형식        | 설명                                                                                                                                                                        |
+| 명칭       | 타입        | 설명                                                                                                                                                                        |
 |:-------- |:--------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 형식       | String    | 트랜잭션 타입. "SMART\_CONTRACT\_EXECUTION"                                                                                                                                 |
 | from     | String    | 이 트랜잭션 발신자의 주소입니다.                                                                                                                                                        |
@@ -90,14 +90,14 @@ Sends a [Fee Delegated Smart Contract Execution](../../../../../../../klaytn/des
 
 sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니다.
 
-| 명칭                | 형식       | 설명                                                                                                             |
+| 명칭                | 타입       | 설명                                                                                                             |
 |:----------------- |:-------- |:-------------------------------------------------------------------------------------------------------------- |
 | transactionObject | Object   | 전송하려는 트랜잭션 객체.                                                                                                 |
 | callback          | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 `FEE_DELEGATED_SMART_CONTRACT_EXECUTION` 트랜잭션 오브젝트 구조는 다음과 같습니다.
 
-| 명칭       | 형식        | 설명                                                                                                                                                                        |
+| 명칭       | 타입        | 설명                                                                                                                                                                        |
 |:-------- |:--------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 형식       | String    | 트랜잭션 타입. "FEE\_DELEGATED\_SMART\_CONTRACT\_EXECUTION"                                                                                                             |
 | from     | String    | 이 트랜잭션 발신자의 주소입니다.                                                                                                                                                        |
@@ -112,7 +112,7 @@ A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_EXECUTION` with the a
 
 수수료 납부자가 트랜잭션 발신자가 서명한 RLP 인코딩된 트랜잭션에 서명하고 이를 네트워크로 전송하려면 다음 구조로 오브젝트를 정의하고 `caver.klay.sendTransaction`을 호출하세요.
 
-| 명칭                   | 형식     | 설명                      |
+| 명칭                   | 타입     | 설명                      |
 |:-------------------- |:------ |:----------------------- |
 | feePayer             | String | 트랜잭션 수수료 납부자의 주소.       |
 | senderRawTransaction | String | 발신자가 서명한 RLP 인코딩된 트랜잭션. |
@@ -186,14 +186,14 @@ Sends a [Fee Delegated Smart Contract Execution With Ratio](../../../../../../..
 
 sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니다.
 
-| 명칭                | 형식       | 설명                                                                                                             |
+| 명칭                | 타입       | 설명                                                                                                             |
 |:----------------- |:-------- |:-------------------------------------------------------------------------------------------------------------- |
 | transactionObject | Object   | 전송하려는 트랜잭션 객체.                                                                                                 |
 | callback          | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 `FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO`  트랜잭션 오브젝트 구조는 다음과 같습니다.
 
-| 명칭       | 형식        | 설명                                                                                                                                                                        |
+| 명칭       | 타입        | 설명                                                                                                                                                                        |
 |:-------- |:--------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 형식       | String    | 트랜잭션 타입. "FEE\_DELEGATED\_SMART\_CONTRACT\_EXECUTION\_WITH\_RATIO"                                                                                            |
 | from     | String    | 이 트랜잭션 발신자의 주소입니다.                                                                                                                                                        |
@@ -209,7 +209,7 @@ A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO`
 
 수수료 납부자가 트랜잭션 발신자가 서명한 RLP 인코딩된 트랜잭션에 서명하고 이를 네트워크로 전송하려면 다음 구조로 오브젝트를 정의하고 `caver.klay.sendTransaction`을 호출하세요.
 
-| 명칭                   | 형식     | 설명                      |
+| 명칭                   | 타입     | 설명                      |
 |:-------------------- |:------ |:----------------------- |
 | feePayer             | String | 트랜잭션 수수료 납부자의 주소.       |
 | senderRawTransaction | String | 발신자가 서명한 RLP 인코딩된 트랜잭션. |
