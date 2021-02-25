@@ -174,7 +174,7 @@ The `peers` administrative property can be queried for all the information known
 ```
 HTTP RPC
 
-**참고**: 아래 IP 주소들은 예시입니다. 실행 환경에서의 실제 IP 주소로 바꿔주세요.
+**참고**: 아래 IP 주소는 예시입니다. 실행 환경에서의 실제 IP 주소로 바꿔주세요.
 
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_peers","id":1}' http://localhost:8551
