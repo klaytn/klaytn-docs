@@ -14,14 +14,14 @@ caver.klay.sendTransaction(transactionObject [, callback])
 
 sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니다.
 
-| 명칭                | 형식       | 설명                                                                                                             |
+| 명칭                | 타입       | 설명                                                                                                             |
 |:----------------- |:-------- |:-------------------------------------------------------------------------------------------------------------- |
 | transactionObject | Object   | 전송하려는 트랜잭션 객체.                                                                                                 |
 | callback          | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 ` LEGACY`  유형의 트랜잭션 오브젝트의 구조는 다음과 같습니다.
 
-| 명칭       | 형식        | 설명                                                                                                                                                                                                                                    |
+| 명칭       | 타입        | 설명                                                                                                                                                                                                                                    |
 |:-------- |:--------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | from     | String    | 이 트랜잭션 발신자의 주소입니다.                                                                                                                                                                                                                    |
 | to       | String    | \(optional\) The destination address of the message, left undefined for a contract-creation transaction.                                                                                                                            |
