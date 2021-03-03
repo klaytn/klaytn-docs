@@ -2,7 +2,7 @@
 
 ## 새로운 기능
 
-이번 caver-java 1.5.0 버전은 Common Architecture를 도입했습니다. Common Architecture is a new software architecture for Klaytn development environment, which is shared by all Klaytn SDKs (caver-js/caver-java). Common Architecture는 여러분이 더 간편하고 더 체계적으로 개발하며 다른 프로그래밍 언어로 더 쉽게 확장하도록 설계되었습니다.
+이번 caver-java 1.5.0 버전은 Common Architecture를 도입했습니다. Common Architecture란 Klaytn 개발 환경을 위한 새로운 소프트웨어 아키텍처로써 모든 Klaytn SDKs (caver-js/caver-java)가 공유합니다. Common Architecture는 여러분이 더 간편하고 더 체계적으로 개발하며 다른 프로그래밍 언어로 더 쉽게 확장하도록 설계되었습니다.
 
 caver-java가 1.5.0으로 업데이트되면서 일부 API를 제외한 1.4.0 API는 이제 사용되지 않습니다.
 
@@ -10,14 +10,14 @@ caver-java 1.5.0이 새롭게 제공하는 API는 아래와 같습니다.
 
 ### caver.account
 
-caver.account is a package used to update AccountKey, which could be one or more public keys (AccountKeyPublic, AccountKeyWeightedMultiSig, and AccountKeyRoleBased) or a special type of keys (AccountKeyLegacy and AccountKeyFail), for a Klaytn account.
+caver.account는 Klaytn 계정의 AccountKey를 업데이트하기 위한 패키지입니다. AccountKey는 1개 이상의 공개키(AccountKeyPublic, AccountKeyWeightedMultiSig, AccountKeyRoleBased) 또는 특수 타입 키(AccountKeyLegacy, AccountKeyFail)입니다.
 
 
 - `caver.account`는 caver-java 1.4.0의 `caver.tx.account`를 대체합니다.
 
 ### caver.wallet
 
-caver.wallet은 인메모리 지갑에서 Keyring 인스턴스를 관리하도록 하는 패키지입니다. A Keyring is an instance that stores the address of a Klaytn account and its private key(s), and it is used when the address of this account signs a transaction. caver.wallet accepts all types of Keyring (SingleKeyring, MultipleKeyring, and RoleBasedKeyring) and manages them with their Klaytn account address.
+caver.wallet은 인메모리 지갑에서 Keyring 인스턴스를 관리하도록 하는 패키지입니다. Keyring이란 어떤 Klaytn 계정 주소와 그 주소의 개인키(들)를 저장하는 인스턴스입니다. 키링은 이 계정 주소가 트랜잭션에 서명할 때 사용됩니다. caver.wallet accepts all types of Keyring (SingleKeyring, MultipleKeyring, and RoleBasedKeyring) and manages them with their Klaytn account address.
 
 - `caver.wallet`는 caver-java 1.4.0의 `caver.crypto`를 대체합니다.
 - `caver.wallet.KeyStore`는 caver-java 1.4.0의 `caver.wallet.WalletFile`를 대체합니다.
@@ -44,8 +44,8 @@ caver.utils는 유틸리티 함수를 제공합니다.
 
 ## 준비 사항 <a id="prerequisites"></a>
 
-### Adding a Repository<a id="adding-a-repository"></a>
-A library repository should be added before using IPFS. Please add the following repository first.
+### 저장소 추가<a id="adding-a-repository"></a>
+IPFS를 사용하기 전 라이브러리 저장소가 추가되어야 합니다. 우선 아래 저장소를 추가합니다.
 
 **maven**
 
@@ -69,7 +69,7 @@ allprojects {
 }
 ```
 
-### Adding a Dependency <a id="adding-a-dependency"></a>
+### 의존성 추가하기<a id="adding-a-dependency"></a>
 
 **maven**
 
