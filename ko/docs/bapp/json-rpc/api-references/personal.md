@@ -172,9 +172,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 입력으로 받은 주소에 해당하는 키를 키스토어로부터 복호화합니다.
 
-패스프레이즈와 duration 매개변수는 자바스트립트 콘솔일 때 사용하는 선택사항입니다. If the passphrase is not supplied as an argument, the console will prompt for the passphrase interactively.
+패스프레이즈와 duration 매개변수는 자바스트립트 콘솔일 때 사용하는 선택사항입니다. 패스프레이즈가 매개변수로 주어지지 않으면 콘솔에서 패스프레이즈를 입력하도록 요구할 것입니다.
 
-잠금 해제 기간이 만료될 때까지 암호화되지 않은 키가 메모리에 남습니다. 잠금 해제 기간은 300초로 기본 설정되어 있습니다. An explicit duration of zero seconds unlocks the key until the Klaytn local node exits.
+잠금 해제 기간이 만료될 때까지 암호화되지 않은 키가 메모리에 남습니다. 잠금 해제 기간은 300초로 기본 설정되어 있습니다. 잠금 해제 기간을 0으로 설정하면 Klaytn 로컬 노드가 종료될 때까지 키를 잠금 해제합니다.
 
 계정의 잠금이 해제된 동안 `klay_sign`와 `klay_sendTransaction`를 사용할 수 있습니다.
 
@@ -214,7 +214,7 @@ true
 true
 ```
 
-If you want to type in the passphrase and still override the default unlock duration, pass `null` as the passphrase.
+패스프레이즈는 그대로 놔두고 잠금 해제 기간을 따로 설정하려면 패스프레이즈를 `null`로 전달하세요.
 
 ```
 > personal.unlockAccount("0x5e97870f263700f46aa00d967821199b9bc5a120", null, 30)
