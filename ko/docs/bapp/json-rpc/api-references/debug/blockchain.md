@@ -142,7 +142,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 ## debug_getModifiedAccountsByNumber <a id="debug_getmodifiedaccountsbynumber"></a>
 
-블록 번호로 명시된 두 블록 사이에서 변경된 모든 계정을 반환합니다. `endBlockNum`에서 변경한 사항은 포함되지만 `startBlockNum`에서 변경한 사항은 포함되지 않습니다. `endBlockNum`이 주어지지 않으면, 이 함수는 `startBlockNum`에서 변경된 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
+블록 번호로 명시된 두 블록 사이에서 변경된 모든 계정을 반환합니다. `endBlockNum`에서 변경한 사항은 포함되지만 `startBlockNum`에서 변경한 사항은 포함되지 않습니다. 만약 `endBlockNum` 값이 없으면 `startBlockNum`에서 변경된 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
 
 
 | 클라이언트 | 메서드 호출                                                                                    |
