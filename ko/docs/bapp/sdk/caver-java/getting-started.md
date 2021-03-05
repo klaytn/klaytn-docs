@@ -199,11 +199,11 @@ Caver caver = new Caver("http://your.en.url:8551/");
 
 ## Keyring 관리 <a id="managing-keyrings"></a>
 
-`Keyring` is a structure that contains the address of the Klaytn account and the private key(s).
+`Keyring`은 Klaytn 계정 주소와 개인키(들)이 들어있는 구조입니다.
 
-`Keyring` can be classified into three types depending on the type of key being stored: `SingleKeyring` to store one address and one private key, `MultipleKeyring` to store one address and multiple private keys, and `RoleBasedKeyring` to store one address and one or more private keys for each role.
+`Keyring`은 저장되는 키 종류에 따라 3가지 타입으로 나뉩니다: 주소 1개와 개인키 1개를 가지는 `SingleKeyring`, 주소 1개와 여러 개인키를 가지는 `MultipleKeyring`, 그리고 주소 1개와 키 Role별로 개인키 1개 이상을 가지는 `RoleBasedKeyring`가 있습니다.
 
-`SingleKeyring` defines `key` property inside, and this `key` stores one private key.
+`SingleKeyring`는 내부에 `key` 속성을 정의하며, 이 `key` 속성에 개인키 1개가 저장됩니다.
 
 `MultipleKeyring` defines `keys` property inside, and this `keys` is implemented as an array to store multiple private keys.
 
@@ -247,7 +247,7 @@ SingleKeyring keyring = KeyringFactory.createFromKlaytnWalletKey(klaytnWalletKey
 
 #### 여러 개인키로 MultipleKeyring 생성하기<a id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
 
-If you want to use multiple private keys, you can create a `MultipleKeyring` using an address and multiple private keys. The below examples show how to create a `MultipleKeyring` with multiple private keys.
+여러 개인키를 사용하고자 한다면, 주소 1개와 여러 개인키로 `MultipleKeyring`를 만들 수 있습니다. 아래 예시는 여러 개인키들로 `MultipleKeyring`를 만드는 방법을 소개합니다.
 
 ```java
 String address = "0x{address in hex}";
@@ -257,7 +257,7 @@ MultipleKeyring multipleKeyring = KeyringFactory.createWithMultipleKey(address, 
 
 #### 개인키로 RoleBasedKeyring 생성하기<a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
 
-To use different private key(s) for each `role`, `KeyringFactory.createWithRoleBasedKey` is used. Each array element represents a role described in `RoleBasedKeyring`. The example below shows how to create a `RoleBasedKeyring` instance from different keys for each role.
+`role`마다 다른 개인키(들)를 사용하려면 `KeyringFactory.createWithRoleBasedKey`를 사용해야 합니다. 배열의 각 원소는 `RoleBasedKeyring`에 있는 각 Role에 해당됩니다. 아래 예시는 각 Role이 사용하는 개인키들로부터 `RoleBasedKeyring` 인스턴스를 만드는 방법을 소개합니다.
 
 
 ```java
