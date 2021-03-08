@@ -410,3 +410,43 @@ HTTP RPC
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stopWarmUp","id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
+
+## debug_startCollectingTrieStats <a id="debug_startCollectingTrieStats"></a>
+
+The `startCollectingTrieStats` iterates the latest state or storage trie to collect trie statistics.
+It collects whole state trie statistics for an empty address. If a contract address is given, it collects
+storage trie statistics of the given contract.
+Statistics will be logged every minute, containing overall and depth-by-depth information.
+The method returns an error if it fails in starting a task, or `null` if it successfully has started it.
+
+| Client  | Method invocation                                            |
+| :-----: | ------------------------------------------------------------ |
+| Console | `debug.startCollectingTrieStats(address)`                     |
+|   RPC   | `{"method": "debug_startCollectingTrieStats", "params": [address]}` |
+
+**Parameters**
+
+| Type           | Description                                                  |
+| -------------- | ------------------------------------------------------------ |
+| 20-byte DATA | Contract address                               |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Error | `null` if collecting trie statistics task is started, or an error if not. |
+
+**Example**
+
+Console
+
+```javascript
+> debug.startCollectingTrieStats("0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b")
+null
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startCollectingTrieStats", "params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b"], "id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
