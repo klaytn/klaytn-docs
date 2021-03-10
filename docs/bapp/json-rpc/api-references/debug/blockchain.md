@@ -414,7 +414,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ## debug_startCollectingTrieStats <a id="debug_startCollectingTrieStats"></a>
 
 The `startCollectingTrieStats` iterates the latest state or storage trie to collect trie statistics.
-It collects whole state trie statistics for an empty address. If a contract address is given, it collects
+It collects whole state trie statistics for an empty address(="0x00...00"). If a contract address is given, it collects
 storage trie statistics of the given contract.
 Statistics will be logged every minute, containing overall and depth-by-depth information.
 The method returns an error if it fails in starting a task, or `null` if it successfully has started it.
@@ -441,6 +441,10 @@ The method returns an error if it fails in starting a task, or `null` if it succ
 Console
 
 ```javascript
+// empty address to collect whole state trie statistics
+> debug.startCollectingTrieStats("0x0000000000000000000000000000000000000000")
+null
+// contract address to collect storage trie statistics
 > debug.startCollectingTrieStats("0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b")
 null
 ```
@@ -449,4 +453,17 @@ HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startCollectingTrieStats", "params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b"], "id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":null}
+```
+
+Log
+
+```
+INFO[03/10,12:03:12 +09] [5] Started collecting trie statistics        blockNum=1491072 root=0x64af12b6374b92f6db457fa1b98fe9522d9f36ba352e3c4e01cdb75f001e8264 len(children)=16
+...
+INFO[03/10,12:03:12 +09] [5] Finished collecting trie statistics       elapsed=95.152412ms numNodes=133036 numLeafNodes=95948 maxDepth=9
+INFO[03/10,12:03:12 +09] [5] number of leaf nodes in a depth           depth=5 numNodes=22098
+INFO[03/10,12:03:12 +09] [5] number of leaf nodes in a depth           depth=6 numNodes=65309
+INFO[03/10,12:03:12 +09] [5] number of leaf nodes in a depth           depth=7 numNodes=8083
+INFO[03/10,12:03:12 +09] [5] number of leaf nodes in a depth           depth=8 numNodes=456
+INFO[03/10,12:03:12 +09] [5] number of leaf nodes in a depth           depth=9 numNodes=2
 ```
