@@ -413,10 +413,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startCollectingTrieStats <a id="debug_startCollectingTrieStats"></a>
 
-The `startCollectingTrieStats` iterates the latest state or storage trie to collect trie statistics.
-It collects whole state trie statistics for an empty address(="0x00...00"). If a contract address is given, it collects
-storage trie statistics of the given contract.
-Statistics will be logged every minute, containing overall and depth-by-depth information.
+The `startCollectingTrieStats` iterates the latest state or storage trie to collect trie statistics. It collects storage trie statistics of the contract in the given address. If an empty address(="0x00...00") is given, it collects statistics of the whole state trie. Statistics will be logged every minute before end, containing overall and depth-by-depth information.
 The method returns an error if it fails in starting a task, or `null` if it successfully has started it.
 
 | Client  | Method invocation                                            |
