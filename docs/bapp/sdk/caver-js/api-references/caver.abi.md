@@ -101,7 +101,7 @@ Encodes a parameter based on its type to its ABI representation.
 | type | string &#124; object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)  for a list of types. |
 | parameter | Mixed | The actual parameter to encode. |
 
-**NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more detail about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+**NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
 
 **Return Value**
 
