@@ -774,14 +774,14 @@ $ node ./test.js
 If you want to change the private key(s) for your Klaytn account, there are 3 important things you need to remember:
 
 1. Klaytn은 자신에게 전송되는 모든 트랜잭션을 검증합니다.
-2. The validation requires your public keys which exactly corresponds to your private key(s).
-3. Thus, changing your private key(s) into the new one(s) is **always be** **preceded** by changing your old public key(s) to the new one(s). The new public key(s) must be derived from the new private key(s).
+2. 트랜잭션을 검증하려면 개인키와 짝을 이루는 공개키가 필요합니다.
+3. 따라서, 기존에 사용하던 개인키를 새로운 개인키로 바꾸기 전에, **먼저** 기존 공개키를 새로운 공개키로 바꿔야 합니다. 새로운 공개키는 반드시 새로운 개인키로부터 만들어야 합니다.
 
 Keeping the 3 things above in your mind, you can change your private key(s) by following the steps below:
 
-1. Prepare the new private key(s) to create a new keyring.
-2. Create a keyring by its type (Single keyring, Multiple keyring, or Role-based keyring) you need.
-3. 새 Keyring에서 Account 인스턴스를 생성합니다. This Account instance holds the new public key(s) for your Klaytn account.
+1. 새로운 Keyring을 만들기 위해 새 개인키(들)을 준비합니다.
+2. 필요한 Keyring 타입(SingleKeyring, MultipleKeyring, RoleBasedKeyring)을 골라 Keyring을 만듭니다.
+3. 새 Keyring에서 Account 인스턴스를 생성합니다. 이 Account 인스턴스는 여러분의 Klaytn 계정이 사용할 새로운 공개키를 가지고 있습니다.
 4. Account 인스턴스를 입력 파라미터로 받는 AccountUpdate 트랜잭션을 Klaytn에 전송합니다.
 5. 마지막으로, 기존 Keyring을 2번째 단계에서 만들었던 새 Keyring으로 교체합니다.
 
