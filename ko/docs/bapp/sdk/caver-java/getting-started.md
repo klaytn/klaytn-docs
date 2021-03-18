@@ -207,7 +207,7 @@ Caver caver = new Caver("http://your.en.url:8551/");
 
 `MultipleKeyring` defines `keys` property inside, and this `keys` is implemented as an array to store multiple private keys.
 
-The `keys` property defined in `RoleBasedKeyring` is implemented as a List object having 3 arrays of private key(s) as its elements (empty `keys` will look like `[ [], [], [] ]`) and so that it can include multiple keys for each `role`. The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
+`RoleBasedKeyring`에 정의된 있는 `keys` 속성은 개인키 배열 3개를 원소로 갖는 List 객체로서 구현되어(`keys`가 비어있으면 `[ [], [], [] ]`와 같이 보임), 각 `role`이 사용하는 여러 개의 개인키가 저장될 수 있습니다. The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
 
 ### Keyring 생성<a id="creating-a-keyring"></a>
 
@@ -286,7 +286,7 @@ String[][] privateKeyArr = new String[][] {
 RoleBasedKeyring keyring = KeyringFactory.createWithRoleBasedKey(address, Arrays.asList(privateKeyArr));
 ```
 
-### 키스토어 json 문자열로부터 Keyrings를 caver-java에 추가하기.<a id="adding-keyrings-to-caver-java"></a>
+### 키스토어 json 문자열로부터 Keyrings를 caver-java에 추가하기<a id="adding-keyrings-to-caver-java"></a>
 
 Caver-java에서 제공하는 인메모리 지갑에 Keyring을 추가하면 더 쉽게 사용할 수 있습니다. 다음 예시는 [Klaytn Wallet](https://wallet.klaytn.com/)에서 만들어진 키스토어 JSON 문자열 파일을 사용해 `caver.wallet`에 Keyring을 추가하는 방법을 설명합니다.
 
@@ -554,16 +554,16 @@ try {
 }
 ```
 
-트랜잭션의 실행 결과는 영수증의 `status`를 통하여 확인할 수 있습니다. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. 만약 트랜잭션 실행이 실패한다면 에러에 대한 자세한 내용은 영수증의 `txError`에서 확인할 수 있습니다. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../json-rpc/transaction-error-codes.md).
+트랜잭션의 실행 결과는 영수증의 `status`를 통하여 확인할 수 있습니다. 리턴값에 대한 자세한 설명은 `caver.rpc.klay.getTransactionReceipt`를 참조하세요. 만약 트랜잭션 실행이 실패한다면 에러에 대한 자세한 내용은 영수증의 `txError`에서 확인할 수 있습니다. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../json-rpc/transaction-error-codes.md).
 
 
 ## 다른 트랜잭션 타입 실행하기 <a id="executing-other-transaction-types"></a>
 
-Klaytn은 확장성과 성능을 위한 다양한 트랜잭션 타입을 제공합니다. For more information, see [Transactions](../../../klaytn/design/transactions/README.md). This section describes some examples that can be used with caver-java.
+Klaytn은 확장성과 성능을 위한 다양한 트랜잭션 타입을 제공합니다. For more information, see [Transactions](../../../klaytn/design/transactions/README.md). 이 장에서는 caver-java와 함께 사용할 수 있는 예시를 설명합니다.
 
-### 트랜잭션 수수료 위임 <a id="fee-delegation"></a>
+### 트랜잭션 수수료 대납<a id="fee-delegation"></a>
 
-Klaytn provides Fee Delegation feature. 여기에서는, 여러분이 트랜잭션 전송자일 때 RLP 인코딩된 트랜잭션을 만드는 예시를 소개합니다.
+Klaytn은 수수료 대납 기능을 제공합니다. 여기에서는, 여러분이 트랜잭션 전송자일 때 RLP 인코딩된 트랜잭션을 만드는 예시를 소개합니다.
 
 ```java
 Caver caver = new Caver(Caver.BAOBAB_URL);
@@ -589,7 +589,7 @@ System.out.println(rlpEncoded);
 0x09f884028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf080c4c3018080
 ```
 
-The fee payer can send the transaction to the Klaytn after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. If `caver.wallet` also has the fee payer's keyring, the fee payer's signature can be injected into `feeDelegatedTx` by calling `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. 그렇지 않다면, 수수료 납부자는 트랜잭션 발신자가 서명한 RLP 인코딩된 문자열에서 `feeDelegatedTx`를 새로 만들고, 자신의 서명을 여기에 추가해야합니다. 아래 예시를 참고하십시오. 아래 예시를 직접 실행하려면 `0x{RLP-encoded string}`를 위 `rlpEncoded` 값으로 대체하십시오 .
+The fee payer can send the transaction to the Klaytn after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. `caver.wallet`에 수수료 납부자 Keyring도 같이 있다면, `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`를 호출하여 수수료 납부자 서명을 `feeDelegatedTx`에 넣을 수 있습니다. 그렇지 않다면, 수수료 납부자는 트랜잭션 발신자가 서명한 RLP 인코딩된 문자열에서 `feeDelegatedTx`를 새로 만들고, 자신의 서명을 여기에 추가해야합니다. 아래 예시를 참고하십시오. 아래 예시를 직접 실행하려면 `0x{RLP-encoded string}`를 위 `rlpEncoded` 값으로 대체하십시오 .
 
 ```java
 Caver caver = new Caver(Caver.BAOBAB_URL);
@@ -636,29 +636,29 @@ try {
 }
 ```
 
-트랜잭션의 실행 결과는 영수증의 `status`를 통하여 확인할 수 있습니다. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. 만약 트랜잭션 실행이 실패한다면 에러에 대한 자세한 내용은 영수증의 `txError`에서 확인할 수 있습니다. For more information about `txError`, see [txError: Detailed Information of Transaction Failures].
+트랜잭션의 실행 결과는 영수증의 `status`를 통하여 확인할 수 있습니다. 리턴값에 대한 자세한 설명은 `caver.rpc.klay.getTransactionReceipt`를 참조하세요. 만약 트랜잭션 실행이 실패한다면 에러에 대한 자세한 내용은 영수증의 `txError`에서 확인할 수 있습니다. `txError`에 대한 자세한 설명은 [txError: Detailed Information of Transaction Failures를 참고해주세요].
 
 ### 계정 업데이트 <a id="account-update"></a>
 
 If you want to change the private key(s) for your Klaytn account, there are 3 important things you need to remember:
 
 1. Klaytn은 자신에게 전송되는 모든 트랜잭션을 검증합니다.
-2. The validation requires your public keys which exactly corresponds to your private key(s).
-3. Thus, changing your private key(s) into the new one(s) is **always be** **preceded** by changing your old public key(s) to the new one(s). The new public key(s) must be derived from the new private key(s).
+2. 트랜잭션을 검증하려면 개인키와 짝을 이루는 공개키가 필요합니다.
+3. 따라서, 기존에 사용하던 개인키를 새로운 개인키로 바꾸기 전에, **먼저** 기존 공개키를 새로운 공개키로 바꿔야 합니다. 새로운 공개키는 반드시 새로운 개인키로부터 만들어야 합니다.
 
 Keeping the 3 things above in your mind, you can change your private key(s) by following the steps below:
 
-1. Prepare the new private key(s) to create a new keyring.
-2. Create a keyring by its type (Single keyring, Multiple keyring, or Role-based keyring) you need.
-3. 새 Keyring에서 Account 인스턴스를 생성합니다. This Account instance holds the new public key(s) for your Klaytn account.
+1. 새로운 Keyring을 만들기 위해 새 개인키(들)을 준비합니다.
+2. 필요한 Keyring 타입(SingleKeyring, MultipleKeyring, RoleBasedKeyring)을 골라 Keyring을 만듭니다.
+3. 새 Keyring에서 Account 인스턴스를 생성합니다. 이 Account 인스턴스는 여러분의 Klaytn 계정이 사용할 새로운 공개키를 가지고 있습니다.
 4. Account 인스턴스를 입력 파라미터로 받는 AccountUpdate 트랜잭션을 Klaytn에 전송합니다.
 5. 마지막으로, 기존 Keyring을 2번째 단계에서 만들었던 새 Keyring으로 교체합니다.
 
-Please check `Account Update` for the details.
+더 자세한 내용은 `Account Update `를 확인하십시오.
 
-To change your AccountKey, you must provide an `Account` instance for the `account` field in the input argument object of `caver.transaction.type.AccountUpdate`. An `Account` instance contains the address of the Klaytn account and the AccountKey to be updated.
+To change your AccountKey, you must provide an `Account` instance for the `account` field in the input argument object of `caver.transaction.type.AccountUpdate`. `Account` 인스턴스는 Klaytn 계정의 주소와 업데이트할 AccountKey를 담고 있습니다.
 
-The code below is an example code that changes the private key(s) you use for your Klaytn account along with changing AccountKey of your Klaytn account to `AccountKeyPublic`. Don't forget to prepare your new private key(s).
+아래 코드는 Klaytn 계정 개인키를 바꾸는 것과 더불어 Klaytn 계정 AccountKey를 `AccountKeyPublic`로 바꾸는 예시입니다. Don't forget to prepare your new private key(s).
 
 ```java
 Caver caver = new Caver(Caver.DEFAULT_URL);
@@ -701,9 +701,9 @@ senderKeyring = (SingleKeyring)caver.wallet.updateKeyring(newKeyring);
 
 If the above code is executed successfully, you are no longer able to use the old private key(s) to sign any transaction with the old keyring. 따라서 여러분은 `caver.wallet.updateKeyring(newKeyring)`을 사용해 기존 Keyring을 `newKeyring`으로 업데이트하셔야 합니다.  Once it is updated, the signing will be done by the newly updated private key(s).
 
-Here comes how to update AccountKey of your Klaytn account with multiple `AccountKeys`? The example below explains how to create an `Account` instance with multiple private keys that what you want to use (You can create an `Account` instance with multiple public keys via `caver.account.create`). 여기에서도, 트랜잭션 객체의 `account` 필드에 Account 인스턴스를 입력 파라미터로 넣으면, 나머지 업데이트 과정은 위에서 소개한 AccountKey 1개를 업데이트하는 과정과 동일합니다.
+Klaytn 계정 AccountKey를 여러개의 `AccountKeys`로 업데이트하려면 어떻게 해야 할까요? 아래 예시는 여러분이 사용하고 싶은 개인키들을 가지고 `Account` 인스턴스를 만드는 방법을 소개합니다(`caver.account.create`로 여러 공개키를 가지고 `Account` 인스턴스를 만들 수 있습니다.). 여기에서도, 트랜잭션 객체의 `account` 필드에 Account 인스턴스를 입력 파라미터로 넣으면, 나머지 업데이트 과정은 위에서 소개한 AccountKey 1개를 업데이트하는 과정과 동일합니다.
 
-First, let's create an Account instance to update with `AccountKeyWeightedMultiSig`. For `AccountKeyWeightedMultiSig`, a threshold and a weight for each key must be defined. To do this, use `caver.account.weightedMultiSigOptions`. 1번째 파라미터는 임계값이고 2번째 파라미터는 Key별 가중치를 담고 있는 배열입니다.
+먼저, AccountKey를 `AccountKeyWeightedMultiSig`로 업데이트하기 위해 Account 인스턴스 하나를 만들어봅니다. `AccountKeyWeightedMultiSig`로 업데이트하려면, 임계값과 Key별 가중치가 정의되어야 합니다. 이를 위해서는 `caver.account.weightedMultiSigOptions`를 사용하십시오. 1번째 파라미터는 임계값이고 2번째 파라미터는 Key별 가중치를 담고 있는 배열입니다.
 
 ```java
 // Create an account instance with three private keys using AccountKeyWeightedMultiSig
@@ -718,7 +718,7 @@ WeightedMultiSigOptions options = new WeightedMultiSigOptions(threshold, Arrays.
 Account account = multipleKeyring.toAccount(options)
 ```
 
-Now let's update AccountKey using `AccountKeyRoleBased`. `AccountKeyRoleBased` is an `AccountKey` type that defines the key to use for each `role`.
+이제 `AccountKeyRoleBased`를 사용해 AccountKey를 업데이트합니다. `AccountKeyRoleBased`은 `AccountKey` 타입 중 하나이며 여기에는 각 `role`에서 사용하는 키가 정의되어 있습니다.
 
 ```java
 // Create an account instance with roles using AccountKeyRoleBased. In the account instance created, each role has a public key that corresponds to one private key.
@@ -728,7 +728,7 @@ RoleBasedKeyring newKeyring = KeyringFactory.createWithRoleBasedKey(senderKeyrin
 const account = newKeyring.toAccount()
 ```
 
-위 AccountKeyRoleBased는 Role마다 공개키 1개를 사용하는 예시입니다. 위 코드에서 볼 수 있듯이, 이들 각각은 개인키 1개에 대응됩니다. If you want to use multiple private keys for each role, `caver.account.weightedMultiSigOptions` must be defined for each role as shown below.
+위 AccountKeyRoleBased는 Role마다 공개키 1개를 사용하는 예시입니다. 위 코드에서 볼 수 있듯이, 이들 각각은 개인키 1개에 대응됩니다. 각 Role마다 여러 개인키를 사용하고 싶다면 아래와 같이 각 Role마다 `caver.account.weightedMultiSigOptions`을 반드시 정의해야 합니다.
 
 ```java
 // Create an account instance with [3, 2, 3] keys for each role using AccountKeyRoleBased
