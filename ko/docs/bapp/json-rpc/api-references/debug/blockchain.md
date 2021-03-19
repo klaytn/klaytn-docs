@@ -227,15 +227,15 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 명칭     | 형식  | 설명        |
+| 이름     | 타입  | 설명        |
 | ------ | --- | --------- |
 | number | int | 블록 번호입니다. |
 
 **리턴값**
 
-| 형식  | 설명             |
-| --- | -------------- |
-| 문자열 | 블록 구조체의 덤프입니다. |
+| 타입     | 설명             |
+| ------ | -------------- |
+| string | 블록 구조체의 덤프입니다. |
 
 **예시**
 
@@ -254,7 +254,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_setHead <a id="debug_sethead"></a>
 
-**`경고`**: 이 API는 아직 구현되지 않았으며 호출 시 "not yet implemented API" 오류를 반환합니다.
+**`경고`**: 이 API는 아직 구현되지 않았으며 호출 시 "not yet implemented API" 에러를 반환합니다.
 
 로컬 체인의 현재 헤드를 입력받은 블록의 번호로 설정합니다.
 
@@ -268,9 +268,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 명칭     | 형식  | 설명                     |
-| ------ | --- | ---------------------- |
-| number | 문자열 | 16진수 문자열 형태의 블록 번호입니다. |
+| 이름     | 타입     | 설명                     |
+| ------ | ------ | ---------------------- |
+| number | string | 16진수 문자열 형태의 블록 번호입니다. |
 
 **리턴값**
 
