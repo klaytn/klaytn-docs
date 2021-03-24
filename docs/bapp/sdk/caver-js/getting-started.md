@@ -18,7 +18,7 @@ The following packages are required to use the caver-js library.
 - lts/erbium ([12.21.0](https://nodejs.org/dist/latest-v12.x/))
 - lts/fermium ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
 
-If you are already using a different version of the Node \(for example, Node v15\), use the Node Version Manager\([NVM](https://github.com/nvm-sh/nvm)\) to install and use the version supported by caver-js.
+If you use a different version of the Node \(for example, Node v15\), utilize the Node Version Manager\([NVM](https://github.com/nvm-sh/nvm)\) to install and use the version supported by caver-js.
 
 ### Installation <a id="installation"></a>
 
