@@ -6,6 +6,8 @@ The `caver.kct.kip7` inherits [caver.contract](../caver.contract.md) to implemen
 
 The abi and bytecode used in the caver.kct.kip7 were implemented using the example of [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20).
 
+The code that implements KIP-7 for caver-js is available on the [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/token/KIP7).
+
 For more information about KIP-7, see [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-7).
 
 ## caver.kct.kip7.deploy <a id="caver-klay-kip7-deploy"></a>
