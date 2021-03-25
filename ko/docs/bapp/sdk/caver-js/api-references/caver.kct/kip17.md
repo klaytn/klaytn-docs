@@ -4,7 +4,7 @@
 
 `caver.kct.kip17`는 KIP-17 토큰 컨트랙트를 구현하기 위해 [caver.contract](../caver.contract.md)를 상속합니다. `caver.kct.kip17`은 `caver.contract`와 동일한 속성값들을 가지며, 추가 기능 구현을 위해 메서드를 더 가지고 있습니다. 이 장은 `caver.kct.kip17` 메쏘드들 중 오직 새롭게 추가된 메쏘드들만을 소개합니다.
 
-caver-js에서 KIP-17을 구현한 예시는 [Caver-js Github Repo](https://github.com/klaytn/caver-js/tree/dev/packages/caver-kct/src/contract/token/KIP17)에서 확인하실 수 있습니다.
+The code that implements KIP-17 for caver-js is available on the [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/token/KIP17).
 
 KIP-17에 관한 자세한 정보는 [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-17)를 참조하십시오.
 
