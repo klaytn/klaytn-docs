@@ -6,6 +6,8 @@ The `caver.kct.kip7` helps you easily handle a smart contract that implements KI
 
 caver.kct.kip7에서 사용된 abi와 바이트 코드는 [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20) 예시를 사용하여 구현되었습니다.
 
+The code that implements KIP-7 for caver-js is available on the [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/token/KIP7).
+
 KIP-7에 관한 자세한 정보는 [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-7)를 참조하십시오.
 
 ## caver.kct.kip7.deploy <a id="caver-klay-kip7-deploy"></a>
@@ -13,7 +15,7 @@ KIP-7에 관한 자세한 정보는 [Klaytn Improvement Proposals](https://kips.
 ```javascript
 caver.kct.kip7.deploy(tokenInfo, deployer)
 ```
-KIP-7 토큰 컨트랙트를 Klaytn 블록체인에 배포합니다. caver.kct.kip7.deploy를 사용해 배포한 컨트랙트는 KIP-7 표준을 따르는 대체 가능 토큰입니다.
+KIP-7 토큰 컨트랙트를 Klaytn 블록체인에 배포합니다. A contract deployed using caver.kct.kip7.deploy is a fungible token that follows the KIP-7 standard.
 
 성공적으로 배포된 후, 프로미스는 새로운 KIP7 인스턴스를 반환할 것입니다.
 
