@@ -13,13 +13,12 @@ caver-js 라이브러리를 사용하려면 다음 패키지가 필요합니다.
 * [gcc-c++](https://gcc.gnu.org/)
 * [Solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
-**참고** caver-js는 Node.js 버전 8, 10, 12에서 실행할 수 있으며, 권장 버전은 다음과 같습니다:
+**Note** caver-js can run on Node.js versions 10, 12 and 14. The recommended versions are as follows:
+- lts/dubnium ([10.24.0](https://nodejs.org/dist/latest-v10.x/))
+- lts/erbium ([12.21.0](https://nodejs.org/dist/latest-v12.x/))
+- lts/fermium ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
 
-* lts/carbon \([8.17.0](https://nodejs.org/dist/latest-v8.x/)\)
-* lts/dubnium \([10.22.0](https://nodejs.org/dist/latest-v10.x/)\)
-* lts/erbium \([12.19.0](https://nodejs.org/dist/latest-v12.x/)\)
-
-다른 버전의 Node\(가령 Node v14\)를 이미 사용중인 경우, Node Version Manager\([NVM](https://github.com/nvm-sh/nvm)\)를 사용해 caver-js가 지원하는 버전을 설치하고 사용합니다.
+If you use a different version of the Node \(for example, Node v15\), utilize the Node Version Manager\([NVM](https://github.com/nvm-sh/nvm)\) to install and use the version supported by caver-js.
 
 ### 설치 <a id="installation"></a>
 
