@@ -142,7 +142,7 @@ $ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -
 
 ## 빠른 시작: KLAY 전송하기
 
-이 장은 `keystore file`을 사용해 KLAY를 전송하는 간단한 KLAY 전송 트랜잭션 예시를 설명합니다. The keystore file can be created in [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
+이 장은 `keystore file`을 사용해 KLAY를 전송하는 간단한 KLAY 전송 트랜잭션 예시를 설명합니다. 키스토어 파일은 [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에 생성될 수 있습니다. 테스트를 위해 KLAY가 필요한 경우 [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에서 Baobab testnet KLAY를 얻을 수 있습니다.
 
 ```java
 public void sendingKLAY() throws IOException, CipherException, TransactionException {
@@ -205,9 +205,9 @@ Caver caver = new Caver("http://your.en.url:8551/");
 
 `SingleKeyring`는 내부에 `key` 속성을 정의하며, 이 `key` 속성에 개인키 1개가 저장됩니다.
 
-`MultipleKeyring` defines `keys` property inside, and this `keys` is implemented as an array to store multiple private keys.
+`MultipleKeyring`는 내부에 `keys` 속성을 정의하며, 이 `keys`는 여러 개인키를 저장하는 배열로서 구현됩니다.
 
-`RoleBasedKeyring`에 정의된 있는 `keys` 속성은 개인키 배열 3개를 원소로 갖는 List 객체로서 구현되어(`keys`가 비어있으면 `[ [], [], [] ]`와 같이 보임), 각 `role`이 사용하는 여러 개의 개인키가 저장될 수 있습니다. The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
+`RoleBasedKeyring`에 정의되어 있는 `keys` 속성은 개인키 배열 3개를 요소로 갖는 List 객체로서 구현되어(`keys`가 비어있으면 `[ [], [], [] ]`와 같이 보임), 각 `role`이 사용하는 여러 개의 개인키가 저장될 수 있습니다. 배열의 1번째 요소에는 `roleTransactionKey`로 사용될 개인키(들), 배열의 2번째 요소에는 `roleAccountUpdateKey`로 사용될 개인키(들), 배열의 3번째 요소에는 `roleFeePayerKey`로 사용될 개인키(들)이 저장됩니다.
 
 ### Keyring 생성<a id="creating-a-keyring"></a>
 
@@ -238,7 +238,7 @@ String privateKey = "0x{private key in hex}";
 SingleKeyring keyring = KeyringFactory.createWithSingleKey(address, privateKey);
 ```
 
-Also, you can derive SingleKeyring instance from Klaytn wallet key.
+또한, Klaytn 지갑 키에서 SingleKeyring 인스턴스를 생성할 수 있습니다.
 
 ```java
 String klaytnWalletKey = "0x{private key}0x{type}0x{address in hex}";
@@ -257,7 +257,7 @@ MultipleKeyring multipleKeyring = KeyringFactory.createWithMultipleKey(address, 
 
 #### 개인키로 RoleBasedKeyring 생성하기<a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
 
-`role`마다 다른 개인키(들)를 사용하려면 `KeyringFactory.createWithRoleBasedKey`를 사용해야 합니다. 배열의 각 원소는 `RoleBasedKeyring`에 있는 각 Role에 해당됩니다. 아래 예시는 각 Role이 사용하는 개인키들로부터 `RoleBasedKeyring` 인스턴스를 만드는 방법을 소개합니다.
+`role`마다 다른 개인키(들)를 사용하려면 `KeyringFactory.createWithRoleBasedKey`를 사용해야 합니다. 배열의 각 요소는 `RoleBasedKeyring`에 있는 각 Role에 해당됩니다. 아래 예시는 각 Role이 사용하는 개인키들로부터 `RoleBasedKeyring` 인스턴스를 만드는 방법을 소개합니다.
 
 
 ```java
