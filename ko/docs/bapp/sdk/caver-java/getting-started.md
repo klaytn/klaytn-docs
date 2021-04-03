@@ -205,7 +205,7 @@ Caver caver = new Caver("http://your.en.url:8551/");
 
 `SingleKeyring`는 내부에 `key` 속성을 정의하며, 이 `key` 속성에 개인키 1개가 저장됩니다.
 
-`MultipleKeyring`는 내부에 `keys` 속성을 정의하며, 이 `keys`는 여러 개인키를 저장하는 배열로서 구현됩니다.
+`MultipleKeyring`는 내부에 `keys` 속성을 정의하며, 이 `keys`는 여러 개인키를 저장하기 위해 배열로서 구현됩니다.
 
 `RoleBasedKeyring`에 정의되어 있는 `keys` 속성은 개인키 배열 3개를 요소로 갖는 List 객체로서 구현되어(`keys`가 비어있으면 `[ [], [], [] ]`와 같이 보임), 각 `role`이 사용하는 여러 개의 개인키가 저장될 수 있습니다. 배열의 1번째 요소에는 `roleTransactionKey`로 사용될 개인키(들), 배열의 2번째 요소에는 `roleAccountUpdateKey`로 사용될 개인키(들), 배열의 3번째 요소에는 `roleFeePayerKey`로 사용될 개인키(들)이 저장됩니다.
 
