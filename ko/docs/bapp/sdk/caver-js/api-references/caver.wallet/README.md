@@ -264,7 +264,7 @@ If the user has not provided the index parameter, `caver.wallet.signMessage` sig
 | 명칭      | 타입     | 설명                                                                                                                                                                                                                             |
 | ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | address | 문자열    | An address of the keyring to be used.                                                                                                                                                                                          |
-| message | 문자열    | The message to sign.                                                                                                                                                                                                           |
+| 메시지     | 문자열    | The message to sign.                                                                                                                                                                                                           |
 | role    | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                              |
 | index   | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
 
@@ -280,7 +280,7 @@ The returned object contains the following:
 | ----------- | --- | ------------------------------------------------ |
 | messageHash | 문자열 | The hash of message with Klaytn-specific prefix. |
 | signatures  | 배열  | An array of [SignatureData][].                   |
-| message     | 문자열 | The message to sign.                             |
+| 메시지         | 문자열 | The message to sign.                             |
 
 **예시**
 
