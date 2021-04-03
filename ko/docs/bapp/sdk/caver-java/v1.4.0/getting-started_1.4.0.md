@@ -543,7 +543,7 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt = transactionManage
 
 ### 순차적 수수료 납부자(Fee Payer) 서명<a id="sequential-fee-payer-signing"></a>
 
-Fee-payer signature(s) can also be added sequentially. `FeePayerManager`로 서명하면 트랜잭션의 `feePayerSignatures`가 누적됩니다. 서명 순서는 중요하지 않습니다. `TransactionManager`로 서명하면 `txSignature`에 추가됩니다. `FeePayerManger`로 서명하면 raw transaction의  `feePayerSignatures`에 추가됩니다.
+수수료 납부자 서명도 순차적으로 추가할 수 있습니다. `FeePayerManager`로 서명하면 트랜잭션의 `feePayerSignatures`가 누적됩니다. 서명 순서는 중요하지 않습니다. `TransactionManager`로 서명하면 `txSignature`에 추가됩니다. `FeePayerManger`로 서명하면 raw transaction의  `feePayerSignatures`에 추가됩니다.
 
 ```java
 //// 1. Bob은 Alice로부터 트랜잭션을 받아 수수료 납부자로 서명합니다.
