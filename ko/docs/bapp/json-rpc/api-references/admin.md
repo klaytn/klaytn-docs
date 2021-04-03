@@ -10,7 +10,7 @@ description: >-
 
 ## admin_nodeInfo <a id="admin_nodeinfo"></a>
 
-The `nodeInfo` administrative property can be queried for all the information known about the running Klaytn node at the networking granularity. [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P 오버레이 프로토콜에 참여하는 노드 자체의 일반적인 정보 및 `klay`와 같은 실행 중인 애플리케이션 프로토콜에 의해 추가된 세부적인 정보 또한 확인할 수 있습니다.
+`nodeInfo` 관리 속성을 조회하여 실행 중인 Klaytn 노드에 대해 알려진 모든 정보를 네트워크 수준에서 확인할 수 있습니다. [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P 오버레이 프로토콜에 참여하는 노드 자체의 일반적인 정보 및 `klay`와 같은 실행 중인 애플리케이션 프로토콜에 의해 추가된 세부적인 정보 또한 확인할 수 있습니다.
 
 | 클라이언트 | 메서드 호출                         |
 |:-----:| ------------------------------ |
@@ -632,7 +632,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_saveTrieNodeToDisk <a id="admin_saveTrieNodeToDisk"></a>
 
-`saveTrieNodeToDisk`는 노드가 재시작될 시 캐시된 트리 노드를 재사용하기 위해 디스크에 저장하기 시작하는 관리 메서드입니다.  `$DATA_DIR/fastcache`는 캐시된 트리 노드 테이터가 저장되고 또 로드되는 곳입니다. This method returns an error if the saving process has been already triggered or trie node cache is disabled. 이 기능은 Klaytn 1.5.3. 부터 지원됩니다.
+`saveTrieNodeToDisk`는 노드가 재시작될 시 캐시된 트리 노드를 재사용하기 위해 디스크에 저장하기 시작하는 관리 메서드입니다.  `$DATA_DIR/fastcache`는 캐시된 트리 노드 테이터가 저장되고 또 로드되는 곳입니다. 저장 프로세스가 이미 실행 되었거나 트리 노드 캐시가 비활성화되었을 경우 이 메서드는 에러를 반환합니다. 이 기능은 Klaytn 1.5.3. 부터 지원됩니다.
 
 | 클라이언트 | 메서드 호출                                   |
 |:-----:| ---------------------------------------- |
@@ -666,7 +666,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_setMaxSubscriptionPerWSConn <a id="admin_setMaxSubscriptionPerWSConn"></a>
 
-The `setMaxSubscriptionPerWSConn` is an administrative method that sets the maximum allowed number of subscriptions per single WebSocket connection. For example, if the maximum number is set to five and a user requests more than five subscriptions through the `klay_subscribe` API, an error message "Maximum 5 subscriptions are allowed for a WebSocket connection" will be displayed. This feature is supported since Klaytn 1.6.0.
+`setMaxSubscriptionPerWSConn`는 하나의 WebSocket 연결에 허용된 최대 구독 수를 설정하는 관리 메서드입니다. 예를 들어, 최대 구독 수가 5로 설정되어 있는데 사용자가 `klay_subscribe` API를 통해 5개 이상을 요청할 시, "하나의 WebSocket 연결당 5개의 구독이 허용됩니다"라는 에러 메시지가 나타납니다. 이 기능은 Klaytn 1.6.0부터 지원되었습니다.
 
 | 클라이언트 | 메서드 호출                                            |
 |:-----:| ------------------------------------------------- |
@@ -675,15 +675,15 @@ The `setMaxSubscriptionPerWSConn` is an administrative method that sets the maxi
 
 **매개변수**
 
-| 명칭    | 타입  | 설명                                                                           |
-| ----- | --- | ---------------------------------------------------------------------------- |
-| limit | int | The maximum allowed number of subscriptions per single WebSocket connection. |
+| 명칭    | 타입  | 설명                             |
+| ----- | --- | ------------------------------ |
+| limit | int | 하나의 WebSocket 연결 당 허용된 최대 구독 수 |
 
 **리턴값**
 
-| 타입 | 설명                                                                               |
-| -- | -------------------------------------------------------------------------------- |
-| 에러 | `null` if the limit is set successfully; otherwise, it returns an error message. |
+| 타입 | 설명                                               |
+| -- | ------------------------------------------------ |
+| 에러 | 한계가 성공적으로 설정될 시 `null`를, 그렇지 않을 시 에러 메시지가 나타납니다. |
 
 **예시**
 
