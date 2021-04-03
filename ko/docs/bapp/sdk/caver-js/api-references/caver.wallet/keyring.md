@@ -494,10 +494,10 @@ Decrypts a keystore v3 or v4 JSON and returns the decrypted Keyring instance.
 
 **매개변수**
 
-| 명칭       | 타입     | 설명                                |
-| -------- | ------ | --------------------------------- |
-| 키스토어     | object | The keystore v3 or v4 to decrypt. |
-| password | 문자열    | 암호화에 사용되는 비밀번호.                   |
+| 명칭   | 타입     | 설명                                |
+| ---- | ------ | --------------------------------- |
+| 키스토어 | object | The keystore v3 or v4 to decrypt. |
+| 비밀번호 | 문자열    | 암호화에 사용되는 비밀번호.                   |
 
 **리턴값**
 
@@ -881,11 +881,11 @@ If the user has not defined the index parameter, `keyring.signMessage` signs mes
 
 **매개변수**
 
-| 명칭      | 타입     | 설명                                                                                                                                                                                                                             |
-| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| message | 문자열    | The message to sign.                                                                                                                                                                                                           |
-| role    | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                              |
-| index   | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
+| 명칭    | 타입     | 설명                                                                                                                                                                                                                             |
+| ----- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 메시지   | 문자열    | The message to sign.                                                                                                                                                                                                           |
+| role  | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                              |
+| index | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
 
 **리턴값**
 
@@ -899,7 +899,7 @@ The returned object contains the following:
 | ----------- | --- | ------------------------------------------------ |
 | messageHash | 문자열 | The hash of message with Klaytn-specific prefix. |
 | signatures  | 배열  | An array of [SignatureData][].                   |
-| message     | 문자열 | The message to sign.                             |
+| 메시지         | 문자열 | The message to sign.                             |
 
 **예시**
 
@@ -1164,10 +1164,10 @@ Encrypts a keyring and returns a keystore v4 standard. 더 자세한 내용은 [
 
 **매개변수**
 
-| 명칭       | 타입  | 설명                                                                                                   |
-| -------- | --- | ---------------------------------------------------------------------------------------------------- |
-| password | 문자열 | The password to be used for encryption. The encrypted key store can be decrypted with this password. |
-| options  | 문자열 | (optional) The `options` parameter allows you to specify the values to use when using encrypt.       |
+| 명칭      | 타입  | 설명                                                                                                   |
+| ------- | --- | ---------------------------------------------------------------------------------------------------- |
+| 비밀번호    | 문자열 | The password to be used for encryption. The encrypted key store can be decrypted with this password. |
+| options | 문자열 | (optional) The `options` parameter allows you to specify the values to use when using encrypt.       |
 
 **리턴값**
 
@@ -1314,10 +1314,10 @@ Note that [MultipleKeyring][] and [RoleBasedKeyring][] cannot use encryptV3. In 
 
 **매개변수**
 
-| 명칭       | 타입  | 설명                                                                                                              |
-| -------- | --- | --------------------------------------------------------------------------------------------------------------- |
-| password | 문자열 | The password to be used for encryption. The encrypted key store can be decrypted with this password.            |
-| options  | 문자열 | (optional) The password to be used for encryption. The encrypted key store can be decrypted with this password. |
+| 명칭      | 타입  | 설명                                                                                                              |
+| ------- | --- | --------------------------------------------------------------------------------------------------------------- |
+| 비밀번호    | 문자열 | The password to be used for encryption. The encrypted key store can be decrypted with this password.            |
+| options | 문자열 | (optional) The password to be used for encryption. The encrypted key store can be decrypted with this password. |
 
 **리턴값**
 
