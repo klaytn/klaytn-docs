@@ -1613,9 +1613,9 @@ Hashes message with Klaytn specific prefix: `keccak256("\x19Klaytn Signed Messag
 
 **매개변수**
 
-| 명칭      | 타입  | 설명                                       |
-| ------- | --- | ---------------------------------------- |
-| message | 문자열 | 해시를 취할 메시지. HEX 문자열인 경우 먼저 UTF-8 디코딩됩니다. |
+| 명칭  | 타입  | 설명                                       |
+| --- | --- | ---------------------------------------- |
+| 메시지 | 문자열 | 해시를 취할 메시지. HEX 문자열인 경우 먼저 UTF-8 디코딩됩니다. |
 
 **리턴값**
 
@@ -1642,7 +1642,7 @@ caver.utils.recover(message, signature [, preFixed])
 
 | 명칭       | 타입      | 설명                                                                                                                                                                                                                           |
 | -------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| message  | 문자열     | Either message or hashed message.                                                                                                                                                                                            |
+| 메시지      | 문자열     | Either message or hashed message.                                                                                                                                                                                            |
 | 서명 값입니다. | object  | An instance of [SignatureData][].                                                                                                                                                                                            |
 | preFixed | boolean | (optional, default: `false`) If the last parameter is `true`, the given `message` will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and be assumed as already prefixed. |
 
