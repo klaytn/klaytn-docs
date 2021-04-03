@@ -1292,9 +1292,9 @@ keccak256로 해시를 취합니다.
 
 **매개변수**
 
-| 명칭      | 타입     | 설명                                        |
-| ------- | ------ | ----------------------------------------- |
-| message | String | 해시를 취할 메시지.  HEX 문자열인 경우 먼저 UTF-8 디코딩됩니다. |
+| 명칭  | 타입     | 설명                                        |
+| --- | ------ | ----------------------------------------- |
+| 메시지 | String | 해시를 취할 메시지.  HEX 문자열인 경우 먼저 UTF-8 디코딩됩니다. |
 
 
 **리턴값**
@@ -1340,7 +1340,7 @@ caver.klay.accounts.sign(data, privateKey)
 
 | 명칭          | 형식     | 설명                       |
 | ----------- | ------ | ------------------------ |
-| message     | String | The given message.       |
+| 메시지         | String | The given message.       |
 | messageHash | String | 주어진 메시지의 해시.             |
 | r           | String | ECDSA 서명 r.              |
 | s           | String | ECDSA 서명 s.              |
@@ -1660,7 +1660,7 @@ Klaytn 키스토어 표준으로 계정을 암호화합니다. 더 자세한 내
 | 명칭            | 형식                                | 설명                                                                                                                                                                                                                                                                                                                                   |
 | ------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | encryptTarget | String &#124; Array &#124; Object | A private key or a Klaytn wallet key to encrypt. Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), encryptTarget also can be an instance of Account or AccountKey (AccountKeyPublic, AccountKeyMultiSig, or AccountKeyRoleBased), an array of private key strings or an object that defines the keys by role. |
-| password      | String                            | 암호화에 사용되는 비밀번호.                                                                                                                                                                                                                                                                                                                      |
+| 비밀번호          | String                            | 암호화에 사용되는 비밀번호.                                                                                                                                                                                                                                                                                                                      |
 | options       | Object                            | (optional) The `options` parameter allows you to specify the values to use when using encrypt. You can also use the options object to encrypt decoupled accounts. See the example below for usage of `options`.                                                                                                                      |
 
 **NOTE** If account address cannot be extracted from encryptTarget (when AccountKeyMultiSig, AccountKeyRoleBased, an array of private key strings or an object that defines the keys by role) or if the account's private key is decoupled from address, you must specify the address in the options object.
@@ -1896,7 +1896,7 @@ Klaytn 키스토어 v3 표준으로 계정을 암호화합니다.
 | 명칭            | 타입                   | 설명                                                                                                                                                                                                                      |
 | ------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | encryptTarget | String &#124; Object | A private key, a Klaytn wallet key, or an instance of Account or AccountKeyPublic to encrypt.                                                                                                                           |
-| password      | String               | 암호화에 사용되는 비밀번호.                                                                                                                                                                                                         |
+| 비밀번호          | String               | 암호화에 사용되는 비밀번호.                                                                                                                                                                                                         |
 | options       | Object               | (optional) The `options` parameter allows you to specify the values to use when using encrypt. You can also use the `options` object to encrypt decoupled accounts. See the third example below for usage of `options`. |
 
 **NOTE**: There are two ways to encrypt the private key when an account has a decoupled private key from the address.
@@ -1977,7 +1977,7 @@ caver.klay.accounts.decrypt(keystoreJsonV3, password)
 | 명칭           | 타입     | 설명                                                       |
 | ------------ | ------ | -------------------------------------------------------- |
 | keystoreJson | String | JSON string containing the encrypted account to decrypt. |
-| password     | String | 암호화에 사용되는 비밀번호.                                          |
+| 비밀번호         | String | 암호화에 사용되는 비밀번호.                                          |
 
 
 **리턴값**
@@ -2421,9 +2421,9 @@ caver.klay.accounts.wallet.encrypt(password)
 
 **매개변수**
 
-| 명칭       | 타입     | 설명                                             |
-| -------- | ------ | ---------------------------------------------- |
-| password | String | The password that will be used for encryption. |
+| 명칭   | 타입     | 설명                                             |
+| ---- | ------ | ---------------------------------------------- |
+| 비밀번호 | String | The password that will be used for encryption. |
 
 
 **리턴값**
@@ -2492,7 +2492,7 @@ caver.klay.accounts.wallet.decrypt(keystoreArray, password)
 | 명칭            | 타입     | 설명                                            |
 | ------------- | ------ | --------------------------------------------- |
 | keystoreArray | 배열     | The encrypted keystore v3 objects to decrypt. |
-| password      | String | The password that was used for encryption.    |
+| 비밀번호          | String | The password that was used for encryption.    |
 
 
 **리턴값**
