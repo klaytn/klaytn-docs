@@ -236,9 +236,6 @@ kip37.uri(id)
 ```
 Returns distinct Uniform Resource Identifier (URI) of the given token.
 
-If the string "{id}" exists in any URI, this function will replace this with the actual token ID in hexadecimal form.
-Please refer to [KIP-34 Metadata](http://kips.klaytn.com/KIPs/kip-37#metadata).
-
 **Parameters**
 
 | Name | Type | Description |
@@ -255,7 +252,7 @@ Please refer to [KIP-34 Metadata](http://kips.klaytn.com/KIPs/kip-37#metadata).
 
 ```javascript
 > kip37.uri('0x0').then(console.log)
-'https://caver.example/0000000000000000000000000000000000000000000000000000000000000000.json'
+'https://caver.example/{id}.json'
 ```
 
 
