@@ -17,7 +17,7 @@ Creates a new contract instance with all its methods and events defined in its J
 | --- | --- | --- |
 | jsonInterface | object | The JSON interface for the contract to instantiate |
 | address | string | (optional) The address of the smart contract to call. Can be added later using `myContract.options.address = '0x1234..'` |
-| options | object | (optional) The options of the contract.  See the table below for the details. |
+| options | object | (optional) The options of the contract. See the table below for the details. |
 
 The options object contains the following:
 
@@ -27,6 +27,9 @@ The options object contains the following:
 | gasPrice | string | (optional) The gas price in peb to use for transactions. |
 | gas | number | (optional) The maximum gas provided for a transaction (gas limit). |
 | data | string | (optional) The byte code of the contract. Used when the contract gets deployed. |
+| feeDelegation | boolean | (optional) Whether to use fee delegation transaction. |
+| feePayer | string | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is set to `true` and a fee delegation transaction is created, it is set in the transaction field as the `feePayer` at this time. |
+| feeRatio | string | (optional) The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. If feeDelegation is true and feeRatio is set to a valid value, a partial fee delegation transaction is used. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
 
 **Return Value**
 
@@ -49,7 +52,7 @@ const myContract = new caver.contract([...], '0x{address in hex}', { gasPrice: '
 myContract.options
 ```
 
-The `options` object for the contract instance. `from`, `gas` and `gasPrice` are used as fallback values when sending transactions.
+The `options` object for the contract instance. `from`, `gas`, `gasPrice`, `feePayer` and `feeRatio` are used as fallback values when sending transactions.
 
 **Properties**
 
@@ -61,6 +64,11 @@ The `options` object for the contract instance. `from`, `gas` and `gasPrice` are
 | gasPrice | string | The gas price in peb to use for transactions. |
 | gas | number | The maximum gas provided for a transaction (gas limit). |
 | data | string | The byte code of the contract. Used when the contract gets deployed. |
+| feeDelegation | boolean | (optional) Whether to use fee delegation transaction. |
+| feePayer | string | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is set to `true` and a fee delegation transaction is created, it is set in the transaction field as the `feePayer` at this time. |
+| feeRatio | string | (optional) The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. If feeDelegation is true and feeRatio is set to a valid value, a partial fee delegation transaction is used. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
+
+**NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 
 **Example**
@@ -71,6 +79,9 @@ The `options` object for the contract instance. `from`, `gas` and `gasPrice` are
   address: [Getter/Setter],
   jsonInterface: [Getter/Setter],
   from: [Getter/Setter],
+  feePayer: [Getter/Setter],
+  feeDelegation: [Getter/Setter],
+  feeRatio: [Getter/Setter],
   gasPrice: [Getter/Setter],
   gas: [Getter/Setter],
   data: [Getter/Setter]
@@ -79,6 +90,9 @@ The `options` object for the contract instance. `from`, `gas` and `gasPrice` are
 > myContract.options.from = '0x1234567890123456789012345678901234567891' // default from address
 > myContract.options.gasPrice = '25000000000000' // default gas price in peb
 > myContract.options.gas = 5000000 // provide as fallback always 5M gas
+> myContract.options.feeDelegation = true // use fee delegation transaction
+> myContract.options.feePayer = '0x1234567890123456789012345678901234567891' // default fee payer address
+> myContract.options.feeRatio = 20 // default fee ratio when send partial fee delegation transaction
 ```
 
 
@@ -186,6 +200,105 @@ Contract {
 }
 ```
 
+## myContract.deploy <a id="mycontract-deploy2"></a>
+
+```javascript
+myContract.deploy(options, byteCode [, param1 [, param2 [, ...]]])
+```
+
+Deploys the contract to the Klaytn. After a successful deployment, the promise will be resolved with a new contract instance. Unlike the usability of the existing [myContract.deploy](#mycontrat-deploy) function, this function sends a transaction directly to Klaytn without returning the object defined by the `send` function used when deploying a smart contract.
+
+**NOTE** Keyring instances corresponding to `from`, `feePayer` defined in `options`, `myContract.options.from` and `myContact.options.feePayer` defined in `myContract.options` must exist in `caver.wallet`.
+
+**NOTE** `myContract.deploy` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| options | object | The options used for sending. See the table in [methods.methodName.send](#methods-methodname-send) for the details. |
+| byteCode | string | The byte code of the contract. |
+| parameters | Mixed | (optional) The parameters that get passed to the constructor on deployment. |
+
+
+**Return Value**
+
+`Promise` returning `PromiEvent`: The promise will be resolved with the new contract instance.
+
+| Type | Description |
+| --- | --- |
+| PromiEvent | A promise combined event emitter. It will be resolved when the transaction receipt is available. If `send()` is called from a `myContract.deploy()`, then the promise will be resolved with the new contract instance. |
+
+For PromiEvent, the following events are available:
+
+- `transactionHash` returns `string`: Is fired right after the transaction is sent and a transaction hash is available.
+- `receipt` returns `object`: Is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](./caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more detail.
+- `error` returns ``Error``: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+
+**Example**
+
+```javascript
+// Deploy a smart contract without constructor arguments
+> myContract.deploy({
+      from: '0x{address in hex}',
+      gas: 1500000,
+  }, '0x{byte code}')
+  .on('error', function(error) { ... })
+  .on('transactionHash', function(transactionHash) { ... })
+  .on('receipt', function(receipt) {
+     console.log(receipt.contractAddress) // contains the new contract address
+   })
+  .then(function(newContractInstance) {
+      console.log(newContractInstance.options.address) // instance with the new contract address
+  })
+
+// Deploy a smart contract with constructor arguments
+> myContract.deploy({
+      from: '0x{address in hex}',
+      gas: 1500000,
+  }, '0x{byte code}', 'keyString', ...)
+  .on('error', function(error) { ... })
+  .on('transactionHash', function(transactionHash) { ... })
+  .on('receipt', function(receipt) {
+     console.log(receipt.contractAddress) 
+   })
+  .then(function(newContractInstance) {
+      console.log(newContractInstance.options.address)
+  })
+
+// Deploy a smart contract with fee delegation transaction (TxTypeFeeDelegatedSmartContractDeploy)
+> myContract.deploy({
+      from: '0x{address in hex}',
+      feeDelegation: true,
+      feePayer: '0x{address in hex}',
+      gas: 1500000,
+  }, '0x{byte code}')
+  .on('error', function(error) { ... })
+  .on('transactionHash', function(transactionHash) { ... })
+  .on('receipt', function(receipt) {
+     console.log(receipt.contractAddress)
+   })
+  .then(function(newContractInstance) {
+      console.log(newContractInstance.options.address)
+  })
+
+// Deploy a smart contract with partial fee delegation transaction (TxTypeFeeDelegatedSmartContractDeployWithRatio)
+> myContract.deploy({
+      from: '0x{address in hex}',
+      feeDelegation: true,
+      feePayer: '0x{address in hex}',
+      feeRatio: 30,
+      gas: 1500000,
+  }, '0x{byte code}')
+  .on('error', function(error) { ... })
+  .on('transactionHash', function(transactionHash) { ... })
+  .on('receipt', function(receipt) {
+     console.log(receipt.contractAddress)
+   })
+  .then(function(newContractInstance) {
+      console.log(newContractInstance.options.address)
+  })
+```
 
 ## myContract.deploy <a id="mycontract-deploy"></a>
 
@@ -193,9 +306,7 @@ Contract {
 myContract.deploy(options)
 ```
 
-Deploys the contract to the Klaytn. After a successful deployment, the promise will be resolved with a new contract instance.
-
-**NOTE** The keyring that contains `myContract.options.from`, which is the sender of the transaction, must exist in the caver.wallet.
+Returns the object used when deploying the smart contract to the Klaytn. You can send the smart contract deploy transaction via calling `myContract.deploy({ data, arguments }).send(options)`. After a successful deployment, the promise will be resolved with a new contract instance.
 
 **Parameters**
 
@@ -218,8 +329,12 @@ The options object can contain the following:
 | --- | --- | --- |
 | arguments | Array | The arguments passed in `options.arguments`. |
 | [send](#methods-methodname-send) | function | The function that will deploy the contract to the Klaytn. The promise as the result of this function will be resolved with the new contract instance. |
+| [sign](#methods-methodname-sign) | function | The function that will sign a smart contract deploy transaction as a sender. The sign function will return signed transaction. |
+| [signAsFeePayer](#methods-methodname-signasfeepayer) | function | The function that will sign a smart contract deploy transaction as a fee payer. The signAsFeePayer function will return signed transaction. |
 | [estimateGas](#methods-methodname-estimategas) | function | The function that will estimate the gas used for the deployment. The execution of this function does not deploy the contract.|
 | [encodeABI](#methods-methodname-encodeabi) | function | The function that encodes the ABI of the deployment, which is contract data + constructor parameters. The execution of this function does not deploy the contract.|
+
+**NOTE** `myContract.deploy({ data, arguments }).sign(options)` and `myContract.deploy({ data, arguments }).signAsFeePayer(options)` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 **Example**
 
@@ -276,16 +391,470 @@ The options object can contain the following:
 ```
 
 
+## myContract.send <a id="mycontract-send"></a>
+
+```javascript
+myContract.send(options, methodName [, param1 [, param2 [, ...]]])
+```
+
+Will send a transaction to execute the function of the smart contract. This can alter the smart contract state.
+
+The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee payment transaction through `myContract.send`, `feeDelegation` should be defined as `true` and `feePayer` should also be defined.
+
+- `feeDelegation` is not defined or defined to `false` : [SmartContractExecution]
+- `feeDelegation` is defined to `true`, but `feePayer` is not defined : Throws an error.
+- `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractExecution]
+- `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractExecutionWithRatio]
+
+**NOTE** Keyring instances corresponding to `from`, `feePayer` defined in `options`, `myContract.options.from` and `myContact.options.feePayer` defined in `myContract.options` must exist in `caver.wallet`.
+
+**NOTE** `myContract.send` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| options | object | The options used for sending. See the table in [methods.methodName.send](#methods-methodname-send) for the details. |
+| methodName | string | The method name of the contract function to execute. |
+| parameters | Mixed | (optional) The parameters that get passed to the smart contract function. |
+
+**Return Value**
+
+`Promise` returns `PromiEvent`
+
+| Type | Description |
+| --- | --- |
+| PromiEvent | A promise combined event emitter. It will be resolved when the transaction receipt is available. The promise will be resolved with the new contract instance. |
+
+For PromiEvent, the following events are available:
+
+- `transactionHash` returns `string`: Is fired right after the transaction is sent and a transaction hash is available.
+- `receipt` returns `object`: Is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](./caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more detail.
+- `error` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+
+**Example**
+
+```javascript
+// Send a SmartContractExecution and use the promise
+> myContract.send({ from: '0x{address in hex}', gas: 1000000 }, 'methodName', 123).then(console.log)
+{
+  blockHash: '0x294202dcd1d3c422880e2a209b9cd70ce7036300536c78ab74130c5717cb90da',
+  blockNumber: 16342,
+  contractAddress: null,
+  from: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
+  gas: '0xf4240',
+  gasPrice: '0x5d21dba00',
+  gasUsed: 47411,
+  input: '0x983b2...',
+  logsBloom: '0x00800...',
+  nonce: '0x1cd',
+  senderTxHash: '0xe3f50d2bab2c462ef99379860d2b634d85a0c9fba4e2b189daf1d96bd4bbf8ff',
+  signatures: [ { V: '0x4e43', R: '0x2ba27...', S: '0x50d37...' } ],
+  status: true,
+  to: '0x361870b50834a6afc3358e81a3f7f1b1eb9c7e55',
+  transactionHash: '0xe3f50d2bab2c462ef99379860d2b634d85a0c9fba4e2b189daf1d96bd4bbf8ff',
+  transactionIndex: 0,
+  type: 'TxTypeSmartContractExecution',
+  typeInt: 48,
+  value: '0x0',
+  events: {...}
+}
+
+// Send a SmartContractExecution and use the event emitter
+> myContract.send({ from: '0x{address in hex}', gas: 1000000 }, 'methodName', 123)
+  .on('transactionHash', function(hash) {
+    ...
+  })
+  .on('receipt', function(receipt) {
+    console.log(receipt)
+  })
+  .on('error', console.error)
+
+// Send a FeeDelegatedSmartContractExecution
+> myContract.send({
+    from: '0x{address in hex}',
+    gas: 1000000,
+    feeDelegation: true,
+    feePayer: '0x{address in hex}',
+  }, 'methodName', 123).then(console.log)
+{
+  blockHash: '0x149e36f279577c306fccb9779a0274e802501c32f7054c951f592778bd5c168a',
+  blockNumber: 16458,
+  contractAddress: null,
+  feePayer: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
+  feePayerSignatures: [ { V: '0x4e43', R: '0x48c28...', S: '0x18413...' } ],
+  from: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
+  gas: '0xf4240',
+  gasPrice: '0x5d21dba00',
+  gasUsed: 57411,
+  input: '0x983b2d5600000000000000000000000022bb89bd35e7b12bd25bea4165cf0f9330032f8c',
+  logsBloom: '0x00800...',
+  nonce: '0x1f5',
+  senderTxHash: '0x5b06ca5046229e066c11dfc0c74fcbc98509294370981f9b142378a8f2bd5fe8',
+  signatures: [ { V: '0x4e44', R: '0xfb707...', S: '0x641c6...' } ],
+  status: true,
+  to: '0x361870b50834a6afc3358e81a3f7f1b1eb9c7e55',
+  transactionHash: '0x0e04be479ad06ec87acbf49abd44f16a56390c736f0a7354860ebc7fc0f92e13',
+  transactionIndex: 1,
+  type: 'TxTypeFeeDelegatedSmartContractExecution',
+  typeInt: 49,
+  value: '0x0',
+  events: {...}
+}
+
+// Send a FeeDelegatedSmartContractExecutionWithRatio
+> myContract.send({
+    from: '0x{address in hex}',
+    gas: 1000000,
+    feeDelegation: true,
+    feePayer: '0x{address in hex}',
+    feeRatio: 30,
+  }, 'methodName', 123).then(console.log)
+{
+  blockHash: '0x8f0a0137cf7e0fea503c818910140246437db36121871bc54b2ebc688873b3f3',
+  blockNumber: 16539,
+  contractAddress: null,
+  feePayer: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
+  feePayerSignatures: [ { V: '0x4e43', R: '0x80db0...', S: '0xf8c7c...' } ],
+  feeRatio: '0x1e',
+  from: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
+  gas: '0xf4240',
+  gasPrice: '0x5d21dba00',
+  gasUsed: 62411,
+  input: '0x983b2d560000000000000000000000007ad1a538041fa3ba1a721f87203cb1a3822b8eaa',
+  logsBloom: '0x00800...',
+  nonce: '0x219',
+  senderTxHash: '0x14c7b674a0e253b31c85c7be8cbfe4bf9d86e66e940fcae34b854e25eab1ce15',
+  signatures: [ { V: '0x4e43', R: '0xd57ef...', S: '0xe14f3...' } ],
+  status: true,
+  to: '0x361870b50834a6afc3358e81a3f7f1b1eb9c7e55',
+  transactionHash: '0xfbf00ec189aeb0941d554384f1660ffdac7768b3af2bb1526bcb3983215c1183',
+  transactionIndex: 0,
+  type: 'TxTypeFeeDelegatedSmartContractExecutionWithRatio',
+  typeInt: 50,
+  value: '0x0',
+  events: {...}
+}
+```
+
+## myContract.sign <a id="mycontract-sign"></a>
+
+```javascript
+myContract.sign(options, methodName [, param1 [, param2 [, ...]]])
+```
+
+Signs a smart contract transaction as a sender to deploy the smart contract or execute the function of the smart contract.
+
+If a smart contract is deployed, "constructor" can be entered in the methodName, such as `myContract.sign({ from, ... }, 'constructor', byteCode, ...)`.
+
+The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee payment transaction through `myContract.sign`, `feeDelegation` should be defined as `true`.
+
+- `feeDelegation` is not defined or defined to `false` : [SmartContractDeploy] / [SmartContractExecution]
+- `feeDelegation` is defined to `true`, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy] / [FeeDelegatedSmartContractExecution]
+- `feeDelegation` is defined to `true` and `feeRatio` is defined: [FeeDelegatedSmartContractDeployWithRatio] / [FeeDelegatedSmartContractExecutionWithRatio]
+
+**NOTE** Keyring instances corresponding to `from` defined in `options` or `myContract.options.from` defined in `myContract.options` must exist in `caver.wallet`.
+
+**NOTE** `myContract.sign` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| options | object | The options used for sending. See the table in [methods.methodName.send](#methods-methodname-send) for the details. |
+| methodName | string | The method name of the contract function to execute. If you want to sign a transaction for deploying the smart contract, use 'constructor' string instead of methid name. |
+| parameters | Mixed | (optional) The parameters that get passed to the smart contract function. If you want to sign a smart contract deploy transaction, pass the byteCode and constructor parameters. |
+
+**Return Value**
+
+`Promise` returning [Transaction](./caver.transaction/README.md) - The signed smart contract transaction.
+
+**Example**
+
+```javascript
+// Sign a SmartContractDeploy
+> myContract.sign({ from: '0x{address in hex}', gas: 1000000 }, 'constructor', byteCode, 123).then(console.log)
+SmartContractDeploy {
+  _type: 'TxTypeSmartContractDeploy',
+  _from: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
+  _gas: '0xf4240',
+  _signatures: [ SignatureData { _v: '0x4e43', _r: '0xeb6b5...', _s: '0x5e4f9...' } ],
+  _to: '0x',
+  _value: '0x0',
+  _input: '0x60806...',
+  _humanReadable: false,
+  _codeFormat: '0x0',
+  _chainId: '0x2710',
+  _gasPrice: '0x5d21dba00',
+  _nonce: '0x2a5'
+}
+
+// Sign a FeeDelegatedSmartContractDeploy
+> myContract.sign({ from: '0x{address in hex}', feeDelegation: true, gas: 1000000 }, 'constructor', byteCode, 123).then(console.log)
+FeeDelegatedSmartContractDeploy {
+  _type: 'TxTypeFeeDelegatedSmartContractDeploy',
+  _from: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
+  _gas: '0xf4240',
+  _signatures: [ SignatureData { _v: '0x4e43', _r: '0xee0f5...', _s: '0x31cbf...' } ],
+  _feePayer: '0x0000000000000000000000000000000000000000',
+  _feePayerSignatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
+  _to: '0x',
+  _value: '0x0',
+  _input: '0x60806...',
+  _humanReadable: false,
+  _codeFormat: '0x0',
+  _chainId: '0x2710',
+  _gasPrice: '0x5d21dba00',
+  _nonce: '0x320'
+}
+
+// Sign a FeeDelegatedSmartContractDeployWithRatio
+> myContract.sign({ from: keyring.address, feeDelegation: true, feeRatio: 30, gas: 1000000 }, 'constructor', byteCode, 123).then(console.log)
+FeeDelegatedSmartContractDeployWithRatio {
+  _type: 'TxTypeFeeDelegatedSmartContractDeployWithRatio',
+  _from: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
+  _gas: '0xf4240',
+  _signatures: [ SignatureData { _v: '0x4e44', _r: '0x4c2b0...', _s: '0x47df8...' } ],
+  _feePayer: '0x0000000000000000000000000000000000000000',
+  _feePayerSignatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
+  _feeRatio: '0x1e',
+  _to: '0x',
+  _value: '0x0',
+  _input: '0x60806...',
+  _humanReadable: false,
+  _codeFormat: '0x0',
+  _chainId: '0x2710',
+  _gasPrice: '0x5d21dba00',
+  _nonce: '0x306'
+}
+
+// Sign a SmartContractExecution
+> myContract.sign({ from: '0x{address in hex}', gas: 1000000 }, 'methodName', 123).then(console.log)
+SmartContractExecution {
+  _type: 'TxTypeSmartContractExecution',
+  _from: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
+  _gas: '0xf4240',
+  _signatures: [ SignatureData { _v: '0x4e44', _r: '0xb2846...', _s: '0x422c1...' } ],
+  _to: '0x361870b50834a6afc3358e81a3f7f1b1eb9c7e55',
+  _value: '0x0',
+  _input: '0x983b2...',
+  _chainId: '0x2710',
+  _gasPrice: '0x5d21dba00',
+  _nonce: '0x23b'
+}
+
+// Sign a FeeDelegatedSmartContractExecution
+> myContract.sign({
+    from: '0x{address in hex}',
+    gas: 1000000,
+    feeDelegation: true,
+  }, 'methodName', 123).then(console.log)
+FeeDelegatedSmartContractExecution {
+  _type: 'TxTypeFeeDelegatedSmartContractExecution',
+  _from: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
+  _gas: '0xf4240',
+  _signatures: [ SignatureData { _v: '0x4e43', _r: '0xf7676...', _s: '0x42673...' } ],
+  _feePayer: '0x0000000000000000000000000000000000000000',
+  _feePayerSignatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
+  _to: '0x361870b50834a6afc3358e81a3f7f1b1eb9c7e55',
+  _value: '0x0',
+  _input: '0x983b2...',
+  _chainId: '0x2710',
+  _gasPrice: '0x5d21dba00',
+  _nonce: '0x254'
+}
+
+// Sign a FeeDelegatedSmartContractExecutionWithRatio
+> myContract.sign({
+    from: '0x{address in hex}',
+    gas: 1000000,
+    feeDelegation: true,
+    feeRatio: 30,
+  }, 'methodName', 123).then(console.log)
+FeeDelegatedSmartContractExecutionWithRatio {
+  _type: 'TxTypeFeeDelegatedSmartContractExecutionWithRatio',
+  _from: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
+  _gas: '0xf4240',
+  _signatures: [ SignatureData { _v: '0x4e44', _r: '0x58b06...', _s: '0x637ff...' } ],
+  _feePayer: '0x0000000000000000000000000000000000000000',
+  _feePayerSignatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
+  _feeRatio: '0x1e',
+  _to: '0x361870b50834a6afc3358e81a3f7f1b1eb9c7e55',
+  _value: '0x0',
+  _input: '0x983b2...',
+  _chainId: '0x2710',
+  _gasPrice: '0x5d21dba00',
+  _nonce: '0x262'
+}
+```
+
+## myContract.signAsFeePayer <a id="mycontract-signasfeepayer"></a>
+
+```javascript
+myContract.signAsFeePayer(options, methodName [, param1 [, param2 [, ...]]])
+```
+
+Signs a smart contract transaction as a fee payer to deploy the smart contract or execute the function of the smart contract.
+
+If a smart contract is deployed, "constructor" can be entered in the methodName, such as `myContract.signAsFeePayer({ from, feeDelegation: true, feePayer, ... }, 'constructor', byteCode, ...)`.
+
+The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. The `signAsFeePayer` is a function that signs as a transaction fee payer, so `feeDelegation` field must be defined as `true`. Also, the address of the fee payer must be defined in the `feePayer` field.
+
+- `feeDelegation` is not defined : Throws an error.
+- `feeDelegation` is defined, but `feePayer` is not defined : Throws an error.
+- `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy] / [FeeDelegatedSmartContractExecution]
+- `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractDeployWithRatio] / [FeeDelegatedSmartContractExecutionWithRatio]
+
+**NOTE** Keyring instances corresponding to `feePayer` defined in `options` or `myContract.options.feePayer` defined in `myContract.options` must exist in `caver.wallet`.
+
+**NOTE** `myContract.signAsFeePayer` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| options | object | The options used for sending. See the table in [methods.methodName.send](#methods-methodname-send) for the details. |
+| methodName | string | The method name of the contract function to execute. If you want to sign a transaction for deploying the smart contract, use 'constructor' string instead of methid name. |
+| parameters | Mixed | (optional) The parameters that get passed to the smart contract function. If you want to sign a smart contract deploy transaction, pass the byteCode and constructor parameters. |
+
+**Return Value**
+
+`Promise` returning [Transaction](./caver.transaction/README.md) - The signed smart contract transaction.
+
+**Example**
+
+```javascript
+// Sign a FeeDelegatedSmartContractDeploy
+> myContract.signAsFeePayer({ from: '0x{address in hex}', feeDelegation: true, feePayer: '0x{address in hex}', gas: 1000000 }, 'constructor', byteCode, 123).then(console.log)
+FeeDelegatedSmartContractDeploy {
+  _type: 'TxTypeFeeDelegatedSmartContractDeploy',
+  _from: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
+  _gas: '0xf4240',
+  _signatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
+  _feePayer: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
+  _feePayerSignatures: [ SignatureData { _v: '0x4e43', _r: '0xe0641...', _s: '0x1d21e...' } ],
+  _to: '0x',
+  _value: '0x0',
+  _input: '0x60806...',
+  _humanReadable: false,
+  _codeFormat: '0x0',
+  _chainId: '0x2710',
+  _gasPrice: '0x5d21dba00',
+  _nonce: '0x32a'
+}
+
+// Sign a FeeDelegatedSmartContractDeployWithRatio
+> myContract.signAsFeePayer({ from: keyring.address, feeDelegation: true, feePayer: '0x{address in hex}', feeRatio: 30, gas: 1000000 }, 'constructor', byteCode, 123).then(console.log)
+FeeDelegatedSmartContractDeployWithRatio {
+  _type: 'TxTypeFeeDelegatedSmartContractDeployWithRatio',
+  _from: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
+  _gas: '0xf4240',
+  _signatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
+  _feePayer: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
+  _feePayerSignatures: [ SignatureData { _v: '0x4e44', _r: '0x307bd...', _s: '0x75110...' } ],
+  _feeRatio: '0x1e',
+  _to: '0x',
+  _value: '0x0',
+  _input: '0x60806...',
+  _humanReadable: false,
+  _codeFormat: '0x0',
+  _chainId: '0x2710',
+  _gasPrice: '0x5d21dba00',
+  _nonce: '0x359'
+}
+
+// Sign a FeeDelegatedSmartContractExecution
+> myContract.signAsFeePayer({
+    from: '0x{address in hex}',
+    gas: 1000000,
+    feeDelegation: true,
+    feePayer: '0x{address in hex}',
+  }, 'methodName', 123).then(console.log)
+FeeDelegatedSmartContractExecution {
+  _type: 'TxTypeFeeDelegatedSmartContractExecution',
+  _from: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
+  _gas: '0xf4240',
+  _signatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
+  _feePayer: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
+  _feePayerSignatures: [ SignatureData { _v: '0x4e43', _r: '0xc58ba...', _s: '0x76fdb...' } ],
+  _to: '0x4a9d979707aede18fa674711f3b2fe110fac4e7e',
+  _value: '0x0',
+  _input: '0x983b2...',
+  _chainId: '0x2710',
+  _gasPrice: '0x5d21dba00',
+  _nonce: '0x36c'
+}
+
+// Sign a FeeDelegatedSmartContractExecutionWithRatio
+> myContract.signAsFeePayer({
+    from: '0x{address in hex}',
+    gas: 1000000,
+    feeDelegation: true,
+    feePayer: '0x{address in hex}',
+    feeRatio: 30,
+  }, 'methodName', 123).then(console.log)
+FeeDelegatedSmartContractExecutionWithRatio {
+  _type: 'TxTypeFeeDelegatedSmartContractExecutionWithRatio',
+  _from: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
+  _gas: '0xf4240',
+  _signatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
+  _feePayer: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
+  _feePayerSignatures: [ SignatureData { _v: '0x4e44', _r: '0xeb78d...', _s: '0x2864d...' } ],
+  _feeRatio: '0x1e',
+  _to: '0x4a9d979707aede18fa674711f3b2fe110fac4e7e',
+  _value: '0x0',
+  _input: '0x983b2...',
+  _chainId: '0x2710',
+  _gasPrice: '0x5d21dba00',
+  _nonce: '0x37b'
+}
+```
+
+## myContract.call <a id="mycontract-call"></a>
+
+```javascript
+myContract.call('methodName', [param1 [, param2 [, ...]]])
+myContract.call(options, 'methodName', [param1 [, param2 [, ...]]])
+```
+
+Will call a "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction. Note that calling cannot alter the smart contract state.
+
+**NOTE** `myContract.call` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| options | object | (optional) The options used for calling. See the table in [methods.methodName.call](#methods-methodname-call) for the details. |
+| methodName | string | The method name of the contract function to call. |
+| parameters | Mixed | (optional) The parameters that get passed to the smart contract function. |
+
+
+**Return Value**
+
+`Promise` returning `Mixed` - The return value(s) of the smart contract method. If it returns a single value, it is returned as it is. If it has multiple return values, it returns an object with properties and indices.
+
+**Example**
+
+```javascript
+> myContract.call('methodName').then(console.log)
+Jasmine
+
+> myContract.call({ from: '0x{address in hex}' }, 'methodName', 123).then(console.log)
+Test Result
+```
+
 ## myContract.methods <a id="mycontract-methods"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]])
+myContract.methods['methodName']([param1 [, param2 [, ...]]])
 ```
 Creates a transaction object for that method, which then can be called, sent, estimated or ABI encoded.
 
 The methods of this smart contract are available through:
 
-- The name with parameters: `myContract.methods.methodName(123)`
+- The name with parameters: `myContract.methods.methodName(123)` or `myContract.methods[methodName](123)`
 - The string-formatted name and the parameter type, and parameters: `myContract.methods['methodName(uint256)'](123)`
 - The signature* for the method and parameters: `myContract.methods['0x58cf5f10'](123)`
 
@@ -321,32 +890,99 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 | arguments | Array | The arguments passed to this method. |
 | [call](#methods-methodname-call) | function | The function that will call and execute a constant method in its smart contract on Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
 | [send](#methods-methodname-send) | function | The function that will send a transaction to the Klaytn and execute its method (can alter the smart contract state). |
+| [sign](#methods-methodname-sign) | function | The function that will sign a transaction as a sender. The sign function will return signed transaction. |
+| [signAsFeePayer](#methods-methodname-signasfeepayer) | function | The function that will sign a transaction as a fee payer. The signAsFeePayer function will return signed transaction. |
 | [estimateGas](#methods-methodname-estimategas) | function | The that function will estimate the gas used for the execution. |
 | [encodeABI](#methods-methodname-encodeabi) | function | The function that encodes the ABI for this method. This can be sent using a transaction, calling the method, or passing into another smart contract method as its argument. |
+
+**NOTE** `sign` and `signAsFeePayer` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 **Example**
 
 ```javascript
-// calling a method
-> myContract.methods.methodName(123).call({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'}, function(error, result) {
-      ...
-  })
+// Calling a method
+> myContract.methods.methodName(123).call({ ... }, function(error, result) { ... })
+> myContract.methods.methodName(123).call({ ... }).then((result) => { ... })
 
-// or sending and using a promise
-> myContract.methods.methodName(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
-  .then(function(receipt) {
+// Sending basic transaction and using the promise
+> myContract.methods.methodName(123).send({
+    from: '0x{address in hex}',
+    ...
+  }).then(function(receipt) {
     // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
   })
 
-// or sending and using the events
-> myContract.methods.methodName(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
-  .on('transactionHash', function(hash) {
+// Sending basic transaction and using the eventEmitter
+> myContract.methods.methodName(123).send({
+    from: '0x{address in hex}',
+    ...
+  }).on('transactionHash', function(hash) {
       ...
   })
   .on('receipt', function(receipt) {
       ...
   })
   .on('error', console.error)
+
+// Sending fee delegation transaction and using the promise
+> myContract.methods.methodName(123).send({
+    from: '0x{address in hex}',
+    feePayer: '0x{fee-payer address}',
+    feeDelegation: true,f
+    ...
+  }).then(function(receipt) {
+    // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
+  })
+
+// Sending partial fee delegation transaction and using the promise
+> myContract.methods.methodName(123).send({
+    from: '0x{address in hex}',
+    feePayer: '0x{fee-payer address}',
+    feeDelegation: true,
+    feeRatio: 30,
+    ...
+  }).then(function(receipt) {
+    // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
+  })
+
+// sign the basic transaction
+> myContract.methods.methodName(123).sign({
+    from: '0x{address in hex}',
+    feeDelegation: true,
+    ...
+  }).then(function(signedTx) { ... })
+
+// sign the fee delegation transaction
+> myContract.methods.methodName(123).sign({
+    from: '0x{address in hex}',
+    feeDelegation: true,
+    ...
+  }).then(function(signedTx) { ... })
+
+// sign the partial fee delegation transaction
+> myContract.methods.methodName(123).sign({
+    from: '0x{address in hex}',
+    feeDelegation: true,
+    feeRatio: 30,
+    ...
+  }).then(function(signedTx) { ... })
+
+// sign the fee delegation transaction as a fee payer
+> myContract.methods.methodName(123).signAsFeePayer({
+    from: '0x{address in hex}',
+    feePayer: '0x{fee-payer address}',
+    feeDelegation: true,
+    ...
+  }).then(function(signedTx) { ... })
+
+// sign the partial fee delegation transaction as a fee payer
+> myContract.methods.methodName(123).signAsFeePayer({
+    from: '0x{address in hex}',
+    feePayer: '0x{fee-payer address}',
+    feeDelegation: true,
+    feeRatio: 30,
+    ...
+  }).then(function(signedTx) { ... })
 ```
 
 
@@ -354,15 +990,16 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]]).call(options [, callback])
+myContract.methods['methodName']([param1 [, param2 [, ...]]]).call(options [, callback])
 ```
 
-Will call a "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction.  Note that calling cannot alter the smart contract state.
+Will call a "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction.  Note that calling cannot alter the smart contract state. You can use the [myContract.call](#mycontract-call) provided as a short-cut function.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| options | object | (optional) The options used for calling.  See the table below for the details. |
+| options | object | (optional) The options used for calling. See the table below for the details. |
 | callback | function | (optional) This callback will be fired with the result of the smart contract method execution as the second argument, or with an error object as the first argument. |
 
 The options object can contain the following:
@@ -427,15 +1064,27 @@ contract MyContract {
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]]).send(options [, callback])
+myContract.methods['methodName']([param1 [, param2 [, ...]]]).send(options [, callback])
 ```
 
-Will send a transaction to the smart contract and execute its method. This can alter the smart contract state.
+Will send a transaction to deploy the smart contract or execute the function of the smart contract. This can alter the smart contract state. You can use the [myContract.send](#mycontract-send) provided as a short-cut function.
+
+If a smart contract is deployed, "constructor" can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
+
+The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee payment transaction through `send`, `feeDelegation` should be defined as `true` and `feePayer` should also be defined.
+
+- `feeDelegation` is not defined or defined to `false` : [SmartContractDeploy] / [SmartContractExecution]
+- `feeDelegation` is defined to `true`, but `feePayer` is not defined : Throws an error.
+- `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy] / [FeeDelegatedSmartContractExecution]
+- `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractDeployWithRatio] / [FeeDelegatedSmartContractExecutionWithRatio]
+
+**NOTE** Keyring instances corresponding to `from`, `feePayer` defined in `options`, `myContract.options.from` and `myContact.options.feePayer` defined in `myContract.options` must exist in `caver.wallet`.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| options | object | The options used for sending.  See the table below for the details. |
+| options | object | The options used for sending. See the table below for the details. |
 | callback | function | (optional) This callback will be fired first with the "transactionHash", or with an error object as the first argument. |
 
 The options object can contain the following:
@@ -443,18 +1092,22 @@ The options object can contain the following:
 | Name | Type | Description |
 | --- | --- | --- |
 | from | string | The address from which the transaction should be sent. If omitted, `myContract.options.from` will be used. |
-| gasPrice | string | (optional) The gas price in peb to use for this transaction. |
 | gas | number | The maximum gas provided for this transaction (gas limit). |
+| gasPrice | string | (optional) The gas price in peb to use for this transaction. |
 | value | number &#124; string &#124; BN &#124; Bignumber | (optional) The value in peb to be transferred to the address of the smart contract by this transaction. |
+| feeDelegation | boolean | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `myContract.options.feeDelegation` will be used. |
+| feePayer | string | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is set to `true` and a fee delegation transaction is created, it is set in the transaction field as the `feePayer` at this time. If omitted, `myContract.options.feePayer` will be used. |
+| feeRatio | string | (optional) The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. If feeDelegation is true and feeRatio is set to a valid value, a partial fee delegation transaction is used. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `myContract.options.feeRatio` will be used. |
 
-
-**NOTE** The keyring that contains `myContract.options.from`, which is the sender of the transaction, must exist in the caver.wallet.
+**NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 **Return Value**
 
+`Promise` returns `PromiEvent`
+
 | Type | Description |
 | --- | --- |
-| PromiEvent | A promise combined event emitter. It will be resolved when the transaction receipt is available. If `send()` is called from a `myContract.deploy()`, then the promise will be resolved with the new contract instance. |
+| PromiEvent | A promise combined event emitter. It will be resolved when the transaction receipt is available. The promise will be resolved with the new contract instance. |
 
 For PromiEvent, the following events are available:
 
@@ -518,6 +1171,193 @@ For PromiEvent, the following events are available:
 }
 ```
 
+## methods.methodName.sign <a id="methods-methodname-sign"></a>
+
+```javascript
+myContract.methods.methodName([param1 [, param2 [, ...]]]).sign(options)
+myContract.methods['methodName']([param1 [, param2 [, ...]]]).sign(options)
+```
+
+Signs a smart contract transaction as a sender to deploy the smart contract or execute the function of the smart contract. You can use the [myContract.sign](#mycontract-sign) provided as a short-cut function.
+
+If a smart contract is deployed, "constructor" can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
+
+The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee payment transaction through `methods.methodName.sign`, `feeDelegation` should be defined as `true`.
+
+- `feeDelegation` is not defined or defined to `false` : [SmartContractDeploy] / [SmartContractExecution]
+- `feeDelegation` is defined to `true`, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy] / [FeeDelegatedSmartContractExecution]
+- `feeDelegation` is defined to `true` and `feeRatio` is defined: [FeeDelegatedSmartContractDeployWithRatio] / [FeeDelegatedSmartContractExecutionWithRatio]
+
+**NOTE** Keyring instances corresponding to `from` defined in `options` or `myContract.options.from` defined in `myContract.options` must exist in `caver.wallet`.
+
+**NOTE** `methods.methodName.sign` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| options | object | The options used for creating a transaction. See the parameter table in [methods.methodName.send](#methods-methodname-send) for the details. |
+
+**Return Value**
+
+`Promise` returning [Transaction](./caver.transaction/README.md) - The signed smart contract transaction.
+
+**Example**
+
+```javascript
+// Sign a SmartContractDeploy transaction
+> myContract.methods.constructor(byteCode, 123).sign({ from: '0x{address in hex}', gas: 1000000 }).then(console.log)
+SmartContractDeploy {
+  _type: 'TxTypeSmartContractDeploy',
+  _from: '0x60498fefbf1705a3db8d7bb5c80d5238956343e5',
+  _gas: '0xf4240',
+  _signatures: [
+    SignatureData {
+      _v: '0x07f6',
+      _r: '0x26a05...',
+      _s: '0x3e3e4...'
+    }
+  ],
+  _to: '0x',
+  _value: '0x0',
+  _input: '0x60806...',
+  _humanReadable: false,
+  _codeFormat: '0x0',
+  _chainId: '0x3e9',
+  _gasPrice: '0x5d21dba00',
+  _nonce: '0x2f6'
+}
+> myContract.methods['constructor'](byteCode, 123).sign({ from: '0x{address in hex}', gas: 1000000 }).then(console.log)
+
+// Sign a FeeDelegatedSmartContractDeploy transaction
+> myContract.methods.constructor(byteCode, 123).sign({ from: '0x{address in hex}', feeDelegation: true, gas: 1000000 }).then(console.log)
+FeeDelegatedSmartContractDeploy {
+  _type: 'TxTypeFeeDelegatedSmartContractDeploy',
+  _from: '0x60498fefbf1705a3db8d7bb5c80d5238956343e5',
+  _gas: '0xf4240',
+  _signatures: [ SignatureData { _v: '0x07f5', _r: '0xa74f7...', _s: '0x0991e...' } ],
+  _feePayer: '0x0000000000000000000000000000000000000000',
+  _feePayerSignatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
+  _to: '0x',
+  _value: '0x0',
+  _input: '0x60806...',
+  _humanReadable: false,
+  _codeFormat: '0x0',
+  _chainId: '0x3e9',
+  _gasPrice: '0x5d21dba00',
+  _nonce: '0x2f6'
+}
+> myContract.methods['constructor'](byteCode, 123).sign({ from: '0x{address in hex}', feeDelegation: true, gas: 1000000 }).then(console.log)
+
+// Sign a SmartContractExecution transaction
+> myContract.methods.methodName('0x...').sign({ from: '0x{address in hex}', gas: 1000000 }).then(console.log)
+SmartContractExecution {
+  _type: 'TxTypeSmartContractExecution',
+  _from: '0x60498fefbf1705a3db8d7bb5c80d5238956343e5',
+  _gas: '0xf4240',
+  _signatures: [ SignatureData { _v: '0x07f5', _r: '0xafbf9...', _s: '0x10ea0...' } ],
+  _to: '0xbc6723431a57abcacc4016ae664ee778d313ca6e',
+  _value: '0x0',
+  _input: '0x983b2d5600000000000000000000000060498fefbf1705a3db8d7bb5c80d5238956343e5',
+  _chainId: '0x3e9',
+  _gasPrice: '0x5d21dba00',
+  _nonce: '0x2f6'
+}
+
+> myContract.methods['methodName']('0x...').sign({ from: '0x{address in hex}', gas: 1000000 }).then(console.log)
+
+// Sign a FeeDelegatedSmartContractExecution transaction
+> myContract.methods.methodName('0x...').sign({ from: '0x{address in hex}', feeDelegation: true, gas: 1000000 }).then(console.log)
+FeeDelegatedSmartContractExecution {
+  _type: 'TxTypeFeeDelegatedSmartContractExecution',
+  _from: '0x60498fefbf1705a3db8d7bb5c80d5238956343e5',
+  _gas: '0xf4240',
+  _signatures: [ SignatureData { _v: '0x07f6', _r: '0xdfc14...', _s: '0x38b9c...' } ],
+  _feePayer: '0x0000000000000000000000000000000000000000',
+  _feePayerSignatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
+  _to: '0xbc6723431a57abcacc4016ae664ee778d313ca6e',
+  _value: '0x0',
+  _input: '0x983b2d5600000000000000000000000060498fefbf1705a3db8d7bb5c80d5238956343e5',
+  _chainId: '0x3e9',
+  _gasPrice: '0x5d21dba00',
+  _nonce: '0x2f6'
+}
+> myContract.methods['methodName']('0x...').sign({ from: '0x{address in hex}', feeDelegation: true, gas: 1000000 }).then(console.log)
+```
+
+## methods.methodName.signAsFeePayer <a id="methods-methodname-signasfeepayer"></a>
+
+```javascript
+myContract.methods.methodName([param1 [, param2 [, ...]]]).signAsFeePayer(options)
+myContract.methods['methodName']([param1 [, param2 [, ...]]]).signAsFeePayer(options)
+```
+
+Signs a smart contract transaction as a fee payer to deploy the smart contract or execute the function of the smart contract. You can use the [myContract.signAsFeePayer](#mycontract-signasfeepayer) provided as a short-cut function.
+
+If a smart contract is deployed, "constructor" can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
+
+The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. The `signAsFeePayer` is a function that signs as a transaction fee payer, so `feeDelegation` field must be defined as `true`. Also, the address of the fee payer must be defined in the `feePayer` field.
+
+- `feeDelegation` is not defined : Throws an error.
+- `feeDelegation` is defined, but `feePayer` is not defined : Throws an error.
+- `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy] / [FeeDelegatedSmartContractExecution]
+- `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractDeployWithRatio] / [FeeDelegatedSmartContractExecutionWithRatio]
+
+**NOTE** Keyring instances corresponding to `feePayer` defined in `options` or `myContract.options.feePayer` defined in `myContract.options` must exist in `caver.wallet`.
+
+**NOTE** `methods.methodName.signAsFeePayer` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| options | object | The options used for creating a transaction. See the parameter table in [methods.methodName.send](#methods-methodname-send) for the details. |
+
+**Return Value**
+
+`Promise` returning [Transaction](./caver.transaction/README.md) - The signed smart contract transaction.
+
+**Example**
+
+```javascript
+// Sign a FeeDelegatedSmartContractDeploy transaction
+> myContract.methods.constructor(byteCode, 123).signAsFeePayer({ from: '0x{address in hex}', feeDelegation: true, feePayer: '0x{address in hex}', gas: 1000000 }).then(console.log)
+> FeeDelegatedSmartContractDeploy {
+  _type: 'TxTypeFeeDelegatedSmartContractDeploy',
+  _from: '0x60498fefbf1705a3db8d7bb5c80d5238956343e5',
+  _gas: '0xf4240',
+  _signatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
+  _feePayer: '0x60498fefbf1705a3db8d7bb5c80d5238956343e5',
+  _feePayerSignatures: [ SignatureData { _v: '0x07f6', _r: '0x2c385...', _s: '0x7fa79...' } ],
+  _to: '0x',
+  _value: '0x0',
+  _input: '0x60806...',
+  _humanReadable: false,
+  _codeFormat: '0x0',
+  _chainId: '0x3e9',
+  _gasPrice: '0x5d21dba00',
+  _nonce: '0x2f6'
+}
+> myContract.methods['constructor'](byteCode, 123).signAsFeePayer({ from: '0x{address in hex}', feeDelegation: true, feePayer: '0x{address in hex}', gas: 1000000 }).then(console.log)
+
+// Sign a FeeDelegatedSmartContractExecution transaction
+> myContract.methods.methodName(123).signAsFeePayer({ from: '0x{address in hex}', feeDelegation: true, feePayer: '0x{address in hex}', gas: 1000000 }).then(console.log)
+> FeeDelegatedSmartContractExecution {
+  _type: 'TxTypeFeeDelegatedSmartContractExecution',
+  _from: '0x60498fefbf1705a3db8d7bb5c80d5238956343e5',
+  _gas: '0xf4240',
+  _signatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
+  _feePayer: '0x60498fefbf1705a3db8d7bb5c80d5238956343e5',
+  _feePayerSignatures: [ SignatureData { _v: '0x07f6', _r: '0x793eb...', _s: '0x0f776...' } ],
+  _to: '0x294b2618f29714732cfc202d7be53bf5efee90dd',
+  _value: '0x0',
+  _input: '0x983b2d5600000000000000000000000060498fefbf1705a3db8d7bb5c80d5238956343e5',
+  _chainId: '0x3e9',
+  _gasPrice: '0x5d21dba00',
+  _nonce: '0x2f6'
+}
+> myContract.methods['methodName'](123).signAsFeePayer({ from: '0x{address in hex}', feeDelegation: true, feePayer: '0x{address in hex}', gas: 1000000 }).then(console.log)
+```
 
 ## methods.methodName.estimateGas <a id="methods-methodname-estimategas"></a>
 
@@ -531,7 +1371,7 @@ Will estimate the gas that a method execution will take when executed in the Kla
 
 | Name | Type | Description |
 | --- | --- | --- |
-| options | object | (optional) The options used for calling.  See the table below for the details. |
+| options | object | (optional) The options used for calling. See the table below for the details. |
 | callback | function | (optional) This callback will be fired with the result of the gas estimation as the second argument, or with an error object as the first argument. |
 
 The options object can contain the following:
@@ -826,3 +1666,10 @@ An event object can contain the following:
       ...
 }]
 ```
+
+[SmartContractDeploy]: ./caver.transaction/basic.md#smartcontractdeploy
+[SmartContractExecution]: ./caver.transaction/basic.md#txtypesmartcontractexecution
+[FeeDelegatedSmartContractDeploy]: ./caver.transaction/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy
+[FeeDelegatedSmartContractExecution]: ./caver.transaction/fee-delegation.md#txtypefeedelegatedsmartcontractexecution
+[FeeDelegatedSmartContractDeployWithRatio]: ./caver.transaction/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio
+[FeeDelegatedSmartContractExecutionWithRatio]: ./caver.transaction/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio
