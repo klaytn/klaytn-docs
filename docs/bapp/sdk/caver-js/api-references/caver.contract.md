@@ -4,6 +4,43 @@ The `caver.contract` object makes it easy to interact with smart contracts on th
 
 This allows you to interact with smart contracts as if they were JavaScript objects.
 
+## caver.contract.create <a id="caver-contract-create"></a>
+
+```javascript
+caver.contract.create(jsonInterface [, address] [, options])
+```
+Creates a new contract instance with all its methods and events defined in its JSON interface object. This function works the same as [new caver.contract](#new-contract).
+
+**NOTE** `caver.contract.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+
+**Parameters**
+
+See the [new caver.contract](#new-contract).
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| object | The contract instance with all its methods and events. |
+
+
+**Example**
+
+```javascript
+const contract = caver.contract.create([
+    {
+        constant: true,
+        inputs: [{ name: 'interfaceId', type: 'bytes4' }],
+        name: 'supportsInterface',
+        outputs: [{ name: '', type: 'bool' }],
+        payable: false,
+        stateMutability: 'view',
+        type: 'function',
+    },
+    ...
+  ], '0x{address in hex}')
+```
+
 ## caver.contract <a id="new-contract"></a>
 
 ```javascript
@@ -29,8 +66,6 @@ The options object contains the following:
 | data | string | (optional) The byte code of the contract. Used when the contract gets deployed. |
 
 **Return Value**
-
-`Promise` returns `object`
 
 | Type | Description |
 | --- | --- |
