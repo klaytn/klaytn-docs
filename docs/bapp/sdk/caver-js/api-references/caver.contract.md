@@ -28,8 +28,8 @@ The options object contains the following:
 | gas | number | (optional) The maximum gas provided for a transaction (gas limit). |
 | data | string | (optional) The byte code of the contract. Used when the contract gets deployed. |
 | feeDelegation | boolean | (optional) Whether to use fee delegation transaction. |
-| feePayer | string | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is set to `true` and a fee delegation transaction is created, it is set in the transaction field as the `feePayer` at this time. |
-| feeRatio | string | (optional) The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. If feeDelegation is true and feeRatio is set to a valid value, a partial fee delegation transaction is used. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
+| feePayer | string | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. |
+| feeRatio | string | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
 
 **Return Value**
 
@@ -206,7 +206,7 @@ Contract {
 myContract.deploy(options, byteCode [, param1 [, param2 [, ...]]])
 ```
 
-Deploys the contract to the Klaytn. After a successful deployment, the promise will be resolved with a new contract instance. Unlike the usability of the existing [myContract.deploy](#mycontrat-deploy) function, this function sends a transaction directly to Klaytn without returning the object defined by the `send` function used when deploying a smart contract.
+Deploys the contract to the Klaytn network. After a successful deployment, the promise will be resolved with a new contract instance. Unlike the usability of the existing [myContract.deploy](#mycontract-deploy) function, this function sends a transaction directly to the Klaytn network. You don't need to call `send()` with the returned object.
 
 **NOTE** Keyring instances corresponding to `from`, `feePayer` defined in `options`, `myContract.options.from` and `myContact.options.feePayer` defined in `myContract.options` must exist in `caver.wallet`.
 
@@ -231,9 +231,9 @@ Deploys the contract to the Klaytn. After a successful deployment, the promise w
 
 For PromiEvent, the following events are available:
 
-- `transactionHash` returns `string`: Is fired right after the transaction is sent and a transaction hash is available.
-- `receipt` returns `object`: Is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](./caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more detail.
-- `error` returns ``Error``: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- `transactionHash`: it is fired right after the transaction is sent and a transaction hash is available. Its type is `string`.
+- `receipt`: it Is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](./caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more detail. Its type is `object`.
+- `error`: it is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt. Its type is `Error`.
 
 **Example**
 
@@ -397,11 +397,11 @@ The options object can contain the following:
 myContract.send(options, methodName [, param1 [, param2 [, ...]]])
 ```
 
-Will send a transaction to execute the function of the smart contract. This can alter the smart contract state.
+Submits a transaction to execute the function of the smart contract. This can alter the smart contract state.
 
-The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee payment transaction through `myContract.send`, `feeDelegation` should be defined as `true` and `feePayer` should also be defined.
+The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee-delegated transaction through `myContract.send`, `feeDelegation` and `feePayer` should be set properly.
 
-- `feeDelegation` is not defined or defined to `false` : [SmartContractExecution]
+- `feeDelegation` is not defined or defined to `false`: [SmartContractExecution]
 - `feeDelegation` is defined to `true`, but `feePayer` is not defined : Throws an error.
 - `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractExecution]
 - `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractExecutionWithRatio]
