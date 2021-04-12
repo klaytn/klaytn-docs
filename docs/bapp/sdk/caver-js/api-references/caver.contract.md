@@ -65,8 +65,8 @@ The `options` object for the contract instance. `from`, `gas`, `gasPrice`, `feeP
 | gas | number | The maximum gas provided for a transaction (gas limit). |
 | data | string | The byte code of the contract. Used when the contract gets deployed. |
 | feeDelegation | boolean | (optional) Whether to use fee delegation transaction. |
-| feePayer | string | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is set to `true` and a fee delegation transaction is created, it is set in the transaction field as the `feePayer` at this time. |
-| feeRatio | string | (optional) The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. If feeDelegation is true and feeRatio is set to a valid value, a partial fee delegation transaction is used. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
+| feePayer | string | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction.  |
+| feeRatio | string | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
 
 **NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
@@ -428,9 +428,9 @@ The transaction type used for this function depends on the `options` or the valu
 
 For PromiEvent, the following events are available:
 
-- `transactionHash` returns `string`: Is fired right after the transaction is sent and a transaction hash is available.
-- `receipt` returns `object`: Is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](./caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more detail.
-- `error` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- `transactionHash`: Is fired right after the transaction is sent and a transaction hash is available. Its type is `string`.
+- `receipt`: Is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](./caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more detail. Its type is `object`.
+- `error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt. Its type is `Error`.
 
 **Example**
 
@@ -547,9 +547,9 @@ Signs a smart contract transaction as a sender to deploy the smart contract or e
 
 If a smart contract is deployed, "constructor" can be entered in the methodName, such as `myContract.sign({ from, ... }, 'constructor', byteCode, ...)`.
 
-The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee payment transaction through `myContract.sign`, `feeDelegation` should be defined as `true`.
+The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee-delegated transaction through `myContract.sign`, `feeDelegation` should be defined as `true`.
 
-- `feeDelegation` is not defined or defined to `false` : [SmartContractDeploy] / [SmartContractExecution]
+- `feeDelegation` is not defined or defined to `false`: [SmartContractDeploy] / [SmartContractExecution]
 - `feeDelegation` is defined to `true`, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy] / [FeeDelegatedSmartContractExecution]
 - `feeDelegation` is defined to `true` and `feeRatio` is defined: [FeeDelegatedSmartContractDeployWithRatio] / [FeeDelegatedSmartContractExecutionWithRatio]
 
@@ -1071,9 +1071,9 @@ Will send a transaction to deploy the smart contract or execute the function of 
 
 If a smart contract is deployed, "constructor" can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
 
-The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee payment transaction through `send`, `feeDelegation` should be defined as `true` and `feePayer` should also be defined.
+The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee-delegated transaction through `methods.methodName.send`, `feeDelegation` and `feePayer` should be set properly.
 
-- `feeDelegation` is not defined or defined to `false` : [SmartContractDeploy] / [SmartContractExecution]
+- `feeDelegation` is not defined or defined to `false`: [SmartContractDeploy] / [SmartContractExecution]
 - `feeDelegation` is defined to `true`, but `feePayer` is not defined : Throws an error.
 - `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy] / [FeeDelegatedSmartContractExecution]
 - `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractDeployWithRatio] / [FeeDelegatedSmartContractExecutionWithRatio]
@@ -1096,8 +1096,8 @@ The options object can contain the following:
 | gasPrice | string | (optional) The gas price in peb to use for this transaction. |
 | value | number &#124; string &#124; BN &#124; Bignumber | (optional) The value in peb to be transferred to the address of the smart contract by this transaction. |
 | feeDelegation | boolean | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `myContract.options.feeDelegation` will be used. |
-| feePayer | string | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is set to `true` and a fee delegation transaction is created, it is set in the transaction field as the `feePayer` at this time. If omitted, `myContract.options.feePayer` will be used. |
-| feeRatio | string | (optional) The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. If feeDelegation is true and feeRatio is set to a valid value, a partial fee delegation transaction is used. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `myContract.options.feeRatio` will be used. |
+| feePayer | string | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `myContract.options.feePayer` will be used. |
+| feeRatio | string | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `myContract.options.feeRatio` will be used. |
 
 **NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
@@ -1111,9 +1111,9 @@ The options object can contain the following:
 
 For PromiEvent, the following events are available:
 
-- `transactionHash` returns `string`: Is fired right after the transaction is sent and a transaction hash is available.
-- `receipt` returns `object`: Is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](./caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more detail.
-- `error` returns ``Error``: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- `transactionHash`: Is fired right after the transaction is sent and a transaction hash is available. Its type is `string`.
+- `receipt`: Is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](./caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more detail. Its type is `object`.
+- `error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt. Its type is `Error`.
 
 **Example**
 
@@ -1182,9 +1182,9 @@ Signs a smart contract transaction as a sender to deploy the smart contract or e
 
 If a smart contract is deployed, "constructor" can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
 
-The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee payment transaction through `methods.methodName.sign`, `feeDelegation` should be defined as `true`.
+The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee-delegated transaction through `methods.methodName.sign`, `feeDelegation` should be defined as `true`.
 
-- `feeDelegation` is not defined or defined to `false` : [SmartContractDeploy] / [SmartContractExecution]
+- `feeDelegation` is not defined or defined to `false`: [SmartContractDeploy] / [SmartContractExecution]
 - `feeDelegation` is defined to `true`, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy] / [FeeDelegatedSmartContractExecution]
 - `feeDelegation` is defined to `true` and `feeRatio` is defined: [FeeDelegatedSmartContractDeployWithRatio] / [FeeDelegatedSmartContractExecutionWithRatio]
 
