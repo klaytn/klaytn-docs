@@ -406,7 +406,7 @@ The transaction type used for this function depends on the `options` or the valu
 - `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractExecution]
 - `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractExecutionWithRatio]
 
-**NOTE** Keyring instances corresponding to `from`, `feePayer` defined in `options`, `myContract.options.from` and `myContact.options.feePayer` defined in `myContract.options` must exist in `caver.wallet`.
+**NOTE** `caver.wallet` must contains keyring instances corresponding to `from` and `feePayer` in `options` or `myContract.options` to make signatures.
 
 **NOTE** `myContract.send` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
@@ -553,7 +553,7 @@ The transaction type used for this function depends on the `options` or the valu
 - `feeDelegation` is defined to `true`, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy] / [FeeDelegatedSmartContractExecution]
 - `feeDelegation` is defined to `true` and `feeRatio` is defined: [FeeDelegatedSmartContractDeployWithRatio] / [FeeDelegatedSmartContractExecutionWithRatio]
 
-**NOTE** Keyring instances corresponding to `from` defined in `options` or `myContract.options.from` defined in `myContract.options` must exist in `caver.wallet`.
+**NOTE** `caver.wallet` must contains keyring instances corresponding to `from` in `options` or `myContract.options` to make signatures.
 
 **NOTE** `myContract.sign` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
@@ -705,7 +705,7 @@ The transaction type used for this function depends on the `options` or the valu
 - `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy] / [FeeDelegatedSmartContractExecution]
 - `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractDeployWithRatio] / [FeeDelegatedSmartContractExecutionWithRatio]
 
-**NOTE** Keyring instances corresponding to `feePayer` defined in `options` or `myContract.options.feePayer` defined in `myContract.options` must exist in `caver.wallet`.
+**NOTE** `caver.wallet` must contains keyring instances corresponding to `feePayer` in `options` or `myContract.options` to make signatures.
 
 **NOTE** `myContract.signAsFeePayer` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
@@ -1078,7 +1078,7 @@ The transaction type used for this function depends on the `options` or the valu
 - `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy] / [FeeDelegatedSmartContractExecution]
 - `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractDeployWithRatio] / [FeeDelegatedSmartContractExecutionWithRatio]
 
-**NOTE** Keyring instances corresponding to `from`, `feePayer` defined in `options`, `myContract.options.from` and `myContact.options.feePayer` defined in `myContract.options` must exist in `caver.wallet`.
+**NOTE** `caver.wallet` must contains keyring instances corresponding to `from` and `feePayer` in `options` or `myContract.options` to make signatures.
 
 **Parameters**
 
@@ -1188,7 +1188,7 @@ The transaction type used for this function depends on the `options` or the valu
 - `feeDelegation` is defined to `true`, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy] / [FeeDelegatedSmartContractExecution]
 - `feeDelegation` is defined to `true` and `feeRatio` is defined: [FeeDelegatedSmartContractDeployWithRatio] / [FeeDelegatedSmartContractExecutionWithRatio]
 
-**NOTE** Keyring instances corresponding to `from` defined in `options` or `myContract.options.from` defined in `myContract.options` must exist in `caver.wallet`.
+**NOTE** `caver.wallet` must contains keyring instances corresponding to `from` in `options` or `myContract.options` to make signatures.
 
 **NOTE** `methods.methodName.sign` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
@@ -1303,7 +1303,7 @@ The transaction type used for this function depends on the `options` or the valu
 - `feeDelegation` is defined to `true` and `feePayer` is defined, but `feeRatio` is not defined: [FeeDelegatedSmartContractDeploy] / [FeeDelegatedSmartContractExecution]
 - `feeDelegation` is defined to `true` and `feePayer` and `feeRatio` are defined: [FeeDelegatedSmartContractDeployWithRatio] / [FeeDelegatedSmartContractExecutionWithRatio]
 
-**NOTE** Keyring instances corresponding to `feePayer` defined in `options` or `myContract.options.feePayer` defined in `myContract.options` must exist in `caver.wallet`.
+**NOTE** `caver.wallet` must contains keyring instances corresponding to `feePayer` in `options` or `myContract.options` to make signatures.
 
 **NOTE** `methods.methodName.signAsFeePayer` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
