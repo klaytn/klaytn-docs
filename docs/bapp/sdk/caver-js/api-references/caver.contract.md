@@ -545,7 +545,7 @@ myContract.sign(options, methodName [, param1 [, param2 [, ...]]])
 
 Signs a smart contract transaction as a sender to deploy the smart contract or execute the function of the smart contract.
 
-If a smart contract is deployed, "constructor" can be entered in the methodName, such as `myContract.sign({ from, ... }, 'constructor', byteCode, ...)`.
+If a smart contract is deployed, **constructor** can be entered in the methodName, such as `myContract.sign({ from, ... }, 'constructor', byteCode, ...)`.
 
 The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee-delegated transaction through `myContract.sign`, `feeDelegation` should be defined as `true`.
 
@@ -1069,7 +1069,7 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]]).send(options [, ca
 
 Will send a transaction to deploy the smart contract or execute the function of the smart contract. This can alter the smart contract state. You can use the [myContract.send](#mycontract-send) provided as a short-cut function.
 
-If a smart contract is deployed, "constructor" can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
+If a smart contract is deployed, **constructor** can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
 
 The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee-delegated transaction through `methods.methodName.send`, `feeDelegation` and `feePayer` should be set properly.
 
@@ -1180,7 +1180,7 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]]).sign(options)
 
 Signs a smart contract transaction as a sender to deploy the smart contract or execute the function of the smart contract. You can use the [myContract.sign](#mycontract-sign) provided as a short-cut function.
 
-If a smart contract is deployed, "constructor" can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
+If a smart contract is deployed, **constructor** can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
 
 The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee-delegated transaction through `methods.methodName.sign`, `feeDelegation` should be defined as `true`.
 
