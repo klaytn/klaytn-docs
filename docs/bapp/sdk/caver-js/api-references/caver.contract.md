@@ -696,7 +696,7 @@ myContract.signAsFeePayer(options, methodName [, param1 [, param2 [, ...]]])
 
 Signs a smart contract transaction as a fee payer to deploy the smart contract or execute the function of the smart contract.
 
-If a smart contract is deployed, "constructor" can be entered in the methodName, such as `myContract.signAsFeePayer({ from, feeDelegation: true, feePayer, ... }, 'constructor', byteCode, ...)`.
+If a smart contract is deployed, **constructor** can be entered in the methodName, such as `myContract.signAsFeePayer({ from, feeDelegation: true, feePayer, ... }, 'constructor', byteCode, ...)`.
 
 The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. The `signAsFeePayer` is a function that signs as a transaction fee payer, so `feeDelegation` field must be defined as `true`. Also, the address of the fee payer must be defined in the `feePayer` field.
 
