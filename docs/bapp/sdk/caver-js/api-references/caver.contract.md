@@ -208,7 +208,7 @@ myContract.deploy(options, byteCode [, param1 [, param2 [, ...]]])
 
 Deploys the contract to the Klaytn network. After a successful deployment, the promise will be resolved with a new contract instance. Unlike the usability of the existing [myContract.deploy](#mycontract-deploy) function, this function sends a transaction directly to the Klaytn network. You don't need to call `send()` with the returned object.
 
-**NOTE** Keyring instances corresponding to `from`, `feePayer` defined in `options`, `myContract.options.from` and `myContact.options.feePayer` defined in `myContract.options` must exist in `caver.wallet`.
+**NOTE** `caver.wallet` must contains keyring instances corresponding to `from` and `feePayer` in `options` or `myContract.options` to make signatures.
 
 **NOTE** `myContract.deploy` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
