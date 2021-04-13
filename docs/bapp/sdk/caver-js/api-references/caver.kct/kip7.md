@@ -138,9 +138,7 @@ See the [new KIP7](#new-kip7).
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| object | The KIP7 instance with its bound methods and events. |
+See the [new KIP7](#new-kip7).
 
 
 **Example**

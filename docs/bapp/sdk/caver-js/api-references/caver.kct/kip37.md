@@ -124,9 +124,7 @@ See the [new KIP37](#new-kip37).
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| object | The KIP37 instance with its bound methods and events. |
+See the [new KIP37](#new-kip37).
 
 
 **Example**

@@ -130,9 +130,7 @@ See the [new KIP17](#new-kip17).
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| object | The KIP17 instance with its bound methods and events. |
+See the [new KIP17](#new-kip17).
 
 **Example**
 

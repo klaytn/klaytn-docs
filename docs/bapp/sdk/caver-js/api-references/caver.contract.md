@@ -19,9 +19,7 @@ See the [new caver.contract](#new-contract).
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| object | The contract instance with all its methods and events. |
+See the [new caver.contract](#new-contract).
 
 
 **Example**
