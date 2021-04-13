@@ -233,7 +233,7 @@ For PromiEvent, the following events are available:
 
 - `transactionHash`: it is fired right after the transaction is sent and a transaction hash is available. Its type is `string`.
 - `receipt`: It is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](./caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more details. Its type is `object`.
-- `error`: it is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt. Its type is `Error`.
+- `error`: It is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt. Its type is `Error`.
 
 **Example**
 
