@@ -545,7 +545,7 @@ myContract.sign(options, methodName [, param1 [, param2 [, ...]]])
 
 Signs a smart contract transaction as a sender to deploy the smart contract or execute the function of the smart contract.
 
-If a smart contract is deployed, **constructor** can be entered in the methodName, such as `myContract.sign({ from, ... }, 'constructor', byteCode, ...)`.
+If a smart contract is deployed, 'constructor' can be entered in the methodName, such as `myContract.sign({ from, ... }, 'constructor', byteCode, ...)`.
 
 The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee-delegated transaction through `myContract.sign`, `feeDelegation` should be defined as `true`.
 
@@ -696,7 +696,7 @@ myContract.signAsFeePayer(options, methodName [, param1 [, param2 [, ...]]])
 
 Signs a smart contract transaction as a fee payer to deploy the smart contract or execute the function of the smart contract.
 
-If a smart contract is deployed, **constructor** can be entered in the methodName, such as `myContract.signAsFeePayer({ from, feeDelegation: true, feePayer, ... }, 'constructor', byteCode, ...)`.
+If a smart contract is deployed, 'constructor' can be entered in the methodName, such as `myContract.signAsFeePayer({ from, feeDelegation: true, feePayer, ... }, 'constructor', byteCode, ...)`.
 
 The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. The `signAsFeePayer` is a function that signs as a transaction fee payer, so `feeDelegation` field must be defined as `true`. Also, the address of the fee payer must be defined in the `feePayer` field.
 
@@ -817,7 +817,7 @@ myContract.call('methodName', [param1 [, param2 [, ...]]])
 myContract.call(options, 'methodName', [param1 [, param2 [, ...]]])
 ```
 
-Will call a "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction. Note that calling cannot alter the smart contract state.
+Will call a constant method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction. Note that calling cannot alter the smart contract state.
 
 **NOTE** `myContract.call` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
@@ -993,7 +993,7 @@ myContract.methods.methodName([param1 [, param2 [, ...]]]).call(options [, callb
 myContract.methods['methodName']([param1 [, param2 [, ...]]]).call(options [, callback])
 ```
 
-Will call a "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction.  Note that calling cannot alter the smart contract state. You can use the [myContract.call](#mycontract-call) provided as a short-cut function.
+Will call a constant method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction.  Note that calling cannot alter the smart contract state. You can use the [myContract.call](#mycontract-call) provided as a short-cut function.
 
 **Parameters**
 
@@ -1069,7 +1069,7 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]]).send(options [, ca
 
 Will send a transaction to deploy the smart contract or execute the function of the smart contract. This can alter the smart contract state. You can use the [myContract.send](#mycontract-send) provided as a short-cut function.
 
-If a smart contract is deployed, **constructor** can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
+If a smart contract is deployed, 'constructor' can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
 
 The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee-delegated transaction through `methods.methodName.send`, `feeDelegation` and `feePayer` should be set properly.
 
@@ -1180,7 +1180,7 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]]).sign(options)
 
 Signs a smart contract transaction as a sender to deploy the smart contract or execute the function of the smart contract. You can use the [myContract.sign](#mycontract-sign) provided as a short-cut function.
 
-If a smart contract is deployed, **constructor** can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
+If a smart contract is deployed, 'constructor' can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
 
 The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee-delegated transaction through `methods.methodName.sign`, `feeDelegation` should be defined as `true`.
 
@@ -1294,7 +1294,7 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]]).signAsFeePayer(opt
 
 Signs a smart contract transaction as a fee payer to deploy the smart contract or execute the function of the smart contract. You can use the [myContract.signAsFeePayer](#mycontract-signasfeepayer) provided as a short-cut function.
 
-If a smart contract is deployed, **constructor** can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
+If a smart contract is deployed, 'constructor' can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
 
 The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. The `signAsFeePayer` is a function that signs as a transaction fee payer, so `feeDelegation` field must be defined as `true`. Also, the address of the fee payer must be defined in the `feePayer` field.
 
