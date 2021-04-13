@@ -562,7 +562,7 @@ The transaction type used for this function depends on the `options` or the valu
 | Name | Type | Description |
 | --- | --- | --- |
 | options | object | The options used for sending. See the table in [methods.methodName.send](#methods-methodname-send) for the details. |
-| methodName | string | The method name of the contract function to execute. If you want to sign a transaction for deploying the smart contract, use `constructor` string instead of method name. |
+| methodName | string | The method name of the contract function to execute. If you want to sign a transaction for deploying the smart contract, use 'constructor' string instead of method name. |
 | parameters | Mixed | (optional) The parameters that get passed to the smart contract function. If you want to sign a smart contract deploy transaction, pass the byteCode and constructor parameters. |
 
 **Return Value**
@@ -714,7 +714,7 @@ The transaction type used for this function depends on the `options` or the valu
 | Name | Type | Description |
 | --- | --- | --- |
 | options | object | The options used for sending. See the table in [methods.methodName.send](#methods-methodname-send) for the details. |
-| methodName | string | The method name of the contract function to execute. If you want to sign a transaction for deploying the smart contract, use `constructor` string instead of method name. |
+| methodName | string | The method name of the contract function to execute. If you want to sign a transaction for deploying the smart contract, use 'constructor' string instead of method name. |
 | parameters | Mixed | (optional) The parameters that get passed to the smart contract function. If you want to sign a smart contract deploy transaction, pass the byteCode and constructor parameters. |
 
 **Return Value**
