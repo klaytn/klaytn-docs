@@ -1804,7 +1804,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 **예시**
 
 ```javascript
-> const tx = new caver.transaction.valueTransfer({
+> const tx = caver.transaction.valueTransfer.create({
     from: '0x{address in hex}', // The address of imported account in Klaytn Node
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     value: caver.utils.toPeb(10, 'KLAY'),
@@ -1874,7 +1874,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 **예시**
 
 ```javascript
-> const tx = new caver.transaction.feeDelegatedValueTransfer({
+> const tx = caver.transaction.feeDelegatedValueTransfer.create({
     from: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     value: caver.utils.toPeb(1, 'KLAY'),
@@ -1950,7 +1950,7 @@ For more information about each transaction type, refer to [Transaction][].
 **예시**
 
 ```javascript
-> const tx = new caver.transaction.valueTransfer({
+> const tx = caver.transaction.valueTransfer.create({
     from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e', // The address of imported account in Klaytn Node
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     value: caver.utils.toPeb(10, 'KLAY'),
@@ -2006,7 +2006,7 @@ For more information about each transaction type, refer to [Transaction][].
 **예시**
 
 ```javascript
-> const tx = new caver.transaction.feeDelegatedValueTransfer({
+> const tx = caver.transaction.feeDelegatedValueTransfer.craete({
     from: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     value: caver.utils.toPeb(1, 'KLAY'),
