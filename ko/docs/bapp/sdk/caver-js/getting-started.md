@@ -56,7 +56,7 @@ async function testFunction() {
     caver.wallet.add(keyring)
 
     // Create value transfer transaction
-    const vt = new caver.transaction.valueTransfer({
+    const vt = caver.transaction.valueTransfer.create({
         from: keyring.address,
         to: '0x8084fed6b1847448c24692470fc3b2ed87f9eb47',
         value: caver.utils.toPeb(1, 'KLAY'),
@@ -477,7 +477,7 @@ async function testFunction() {
     caver.wallet.add(keyring)
 
     // Create a value transfer transaction
-    const valueTransfer = new caver.transaction.valueTransfer({
+    const valueTransfer = caver.transaction.valueTransfer.create({
         from: keyring.address,
         to: '0x176ff0344de49c04be577a3512b6991507647f72',
         value: 1,
@@ -560,7 +560,7 @@ const caver = new Caver('https://your.en.url:8651/')
 async function testFunction() {
     // Create a value transfer transaction
     const keyring = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
-    const valueTransfer = new caver.transaction.valueTransfer({
+    const valueTransfer = caver.transaction.valueTransfer.create({
         from: keyring.address,
         to: '0x176ff0344de49c04be577a3512b6991507647f72',
         value: 1,
@@ -660,7 +660,7 @@ async function testFunction() {
     const sender = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
     caver.wallet.add(sender)
 
-    const feeDelegatedTx = new caver.transaction.feeDelegatedValueTransfer({
+    const feeDelegatedTx = caver.transaction.feeDelegatedValueTransfer.create({
         from: sender.address,
         to: '0x176ff0344de49c04be577a3512b6991507647f72',
         value: 5,
@@ -696,7 +696,7 @@ async function testFunction() {
 
     const rlpEncoded = '0x{RLP-encoded string}'
 
-    const feeDelegateTxFromRLPEncoding = new caver.transaction.feeDelegatedValueTransfer(rlpEncoded)
+    const feeDelegateTxFromRLPEncoding = caver.transaction.feeDelegatedValueTransfer.create(rlpEncoded)
 
     // Set the fee payer address.
     feeDelegateTxFromRLPEncoding.feePayer = feePayer.address
@@ -805,7 +805,7 @@ async function testFunction() {
     // create an Account instance
     const account = newKeyring.toAccount()
 
-    const updateTx = new caver.transaction.accountUpdate({
+    const updateTx = caver.transaction.accountUpdate.create({
         from: sender.address,
         account: account,
         gas: 50000,
@@ -952,7 +952,7 @@ const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     const abi = [{"constant":true,"inputs":[],"name":"count","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBlockNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_count","type":"uint256"}],"name":"setCount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
-    const contractInstance = new caver.contract(abi)
+    const contractInstance = caver.contract.create(abi)
     console.log(contractInstance)
     console.log(contractInstance.options.address)
 }
@@ -994,7 +994,7 @@ const caver = new Caver('https://your.en.url:8651/')
 async function testFunction() {
     const abi = [{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
 
-    const contractInstance = new caver.contract(abi, '0x3466D49256b0982E1f240b64e097FF04f99Ed4b9')
+    const contractInstance = caver.contract.create(abi, '0x3466D49256b0982E1f240b64e097FF04f99Ed4b9')
 
     console.log(contractInstance)
     console.log(contractInstance.options.address)
@@ -1041,7 +1041,7 @@ async function testFunction() {
     caver.wallet.add(deployer)
 
     const abi = [{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
-    const contractInstance = new caver.contract(abi)
+    const contractInstance = caver.contract.create(abi)
 
     const deployedInstance = await contractInstance.deploy({
         data:  '608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029',
@@ -1121,7 +1121,7 @@ async function deployWithFeeDelegation() {
     // If you have contructor parameter(s), pass parameter(s) after byteCode
     const input = caver.abi.encodeContractDeploy(abi, byteCode)
 
-    const feeDelegated = new caver.transaction.feeDelegatedSmartContractDeploy({
+    const feeDelegated = caver.transaction.feeDelegatedSmartContractDeploy.create({
         from: deployer.address,
         input,
         gas: 500000,
@@ -1152,7 +1152,7 @@ async function testFunction() {
 
     const abi = [{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
 
-    const contractInstance = new caver.contract(abi, '0x{address in hex}')
+    const contractInstance = caver.contract.create(abi, '0x{address in hex}')
     const receipt = await contractInstance.methods.set('testKey', 'testValue').send({ from:keyring.address, gas:'0x4bfd200' })
     console.log(receipt)
 }
@@ -1221,10 +1221,10 @@ async function executionWithFeeDelegation() {
     ]
 
     // Pass contract address as a second parameter
-    const contractInstance = new caver.contract(abi, '0x{address in hex}')
+    const contractInstance = caver.contract.create(abi, '0x{address in hex}')
 
     const input = contractInstance.methods.set('testKey', 'testValue').encodeABI()
-    const feeDelegated = new caver.transaction.feeDelegatedSmartContractExecution({
+    const feeDelegated = caver.transaction.feeDelegatedSmartContractExecution.create({
         from: executor.address,
         to: contractInstance.options.address,
         input,
@@ -1252,7 +1252,7 @@ const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
     const abi = [{"constant":true,"inputs":[],"name":"count","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBlockNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_count","type":"uint256"}],"name":"setCount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
-    const contractInstance = new caver.contract(abi, '0x{smart contract address}')
+    const contractInstance = caver.contract.create(abi, '0x{smart contract address}')
 
     const value = await contractInstance.methods.get('testKey').call()
     console.log(value)
@@ -1295,7 +1295,7 @@ async function testFunction() {
     const user1 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key1}')
     const user2 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key2}')
 
-    const transaction = new caver.transaction.valueTransfer({
+    const transaction = caver.transaction.valueTransfer.create({
         from: user1.address,
         to: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
         value: 1,
@@ -1339,7 +1339,7 @@ async function testFunction() {
     const user1 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key1}')
 
     // Create a value transfer transaction
-    const transaction = new caver.transaction.valueTransfer({
+    const transaction = caver.transaction.valueTransfer.create({
         from: user1.address,
         to: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
         value: 1,
@@ -1354,7 +1354,7 @@ async function testFunction() {
 
     // Create a value transfer transaction from the RLP-encoded string
     const rlpEncoding = transaction.getRLPEncoding()
-    const transactionFromRLP = new caver.transaction.valueTransfer(rlpEncoding)
+    const transactionFromRLP = caver.transaction.valueTransfer.create(rlpEncoding)
 
     await transactionFromRLP.sign(user2)
     console.log(transactionFromRLP.signatures)
@@ -1391,7 +1391,7 @@ const Caver = require('caver-js')
 const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
-    const vt = new caver.transaction.valueTransfer({
+    const vt = caver.transaction.valueTransfer.create({
         from: '0x0fa355263f37f5a54d9179452baa8b63b8b2cdde',
         to: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
         value: 1,
