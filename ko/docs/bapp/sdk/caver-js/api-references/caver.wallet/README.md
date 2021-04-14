@@ -341,7 +341,7 @@ For more information about fields by transaction type, see [caver.transaction][]
 ```javascript
 // This example uses the ValueTransfer transaction.
 // Please refer to [caver.transaction] for how to use various transaction types.
-> const transaction = new caver.transaction.valueTransfer({
+> const transaction = caver.transaction.valueTransfer.create({
     from: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
     to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
     value: 1,
@@ -453,7 +453,7 @@ For more information about fields by transaction type, see [caver.transaction][]
 ```javascript
 // This example uses the FeeDelegatedValueTransfer transaction.
 // Please refer to [caver.transaction] for how to use various transaction types.
-> const transaction = new caver.transaction.feeDelegatedValueTransfer({
+> const transaction = caver.transaction.feeDelegatedValueTransfer.create({
     from: '0x6fddbcb99d31b8755c2b840a367f53eea4b4f45c',
     to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
     value: 1,
