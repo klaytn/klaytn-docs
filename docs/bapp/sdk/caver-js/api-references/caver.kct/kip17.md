@@ -115,6 +115,33 @@ Returns the information of the interface implemented by the token contract. This
 }
 ```
 
+## caver.kct.kip17.create <a id="caver-kct-kip17-create"></a>
+
+```javascript
+caver.kct.kip17.create([tokenAddress])
+```
+Creates a new KIP17 instance with its bound methods and events. This function works the same as [new KIP17](#new-kip17).
+
+**NOTE** `caver.kct.kip17.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+
+**Parameters**
+
+See the [new KIP17](#new-kip17).
+
+**Return Value**
+
+See the [new KIP17](#new-kip17).
+
+**Example**
+
+```javascript
+// Create a KIP17 instance without a parameter
+> const kip17 = caver.kct.kip17.create()
+
+// Create a KIP17 instance with a token address
+> const kip17 = caver.kct.kip17.create('0x{address in hex}')
+```
+
 
 ## new KIP17 <a id="new-kip17"></a>
 
