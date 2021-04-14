@@ -123,6 +123,34 @@ Returns the information of the interface implemented by the token contract. This
 }
 ```
 
+## caver.kct.kip7.create <a id="caver-kct-kip7-create"></a>
+
+```javascript
+caver.kct.kip7.create([tokenAddress])
+```
+새로운 KIP7 인스턴스를 인스턴스 메소드, 이벤트들과 함께 생성합니다. This function works the same as [new KIP7](#new-kip7).
+
+**NOTE** `caver.kct.kip7.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+
+**매개변수**
+
+See the [new KIP7](#new-kip7).
+
+**리턴값**
+
+See the [new KIP7](#new-kip7).
+
+
+**예시**
+
+```javascript
+// Create a KIP7 instance without a parameter
+> const kip7 = caver.kct.kip7.create()
+
+// Create a KIP7 instance with a token address
+> const kip7 = caver.kct.kip7.create('0x{address in hex}')
+```
+
 
 ## new KIP7 <a id="new-kip7"></a>
 
