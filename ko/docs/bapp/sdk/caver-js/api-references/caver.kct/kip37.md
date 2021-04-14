@@ -108,6 +108,35 @@ Returns the information of the interface implemented by the token contract. This
 }
 ```
 
+## caver.kct.kip37.create <a id="caver-kct-kip37-create"></a>
+
+```javascript
+caver.kct.kip37.create([tokenAddress])
+```
+Creates a new KIP37 instance with its bound methods and events. This function works the same as [new KIP37](#new-kip37).
+
+**NOTE** `caver.kct.kip37.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+
+**매개변수**
+
+See the [new KIP37](#new-kip37).
+
+
+**리턴값**
+
+See the [new KIP37](#new-kip37).
+
+
+**예시**
+
+```javascript
+// Create a KIP37 instance without a parameter
+> const kip37 = caver.kct.kip37.create()
+
+// Create a KIP37 instance with a token address
+> const kip37 = caver.kct.kip37.create('0x{address in hex}')
+```
+
 
 ## new KIP37 <a id="new-kip37"></a>
 
