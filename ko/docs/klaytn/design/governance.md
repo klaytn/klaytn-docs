@@ -4,7 +4,7 @@
 
 ### Klaytn 거버넌스 카운슬: Klaytn 기여자와 함께 거버넌스를 운영 <a id="klaytn-governance-council-co-governed-by-klaytn-contributors"></a>
 
-Klaytn 플랫폼의 장기 개발 계획에 따라 자신의 이익을 고려하여 플랫폼을 구축하고 확장하는 기여자들이 Klaytn 거버넌스에 참여하기에 가장 적합한 주체라고 생각합니다. Klaytn에 새로운 서비스를 제공하여 블록체인 서비스 대중화를 지원하는 서비스 제공자, Klaytn을 세계에 소개하고 홍보하는 생태계 빌더 또는 다른 종류의 기여자는 Klaytn 거버넌스 카운슬의 잠재적인 멤버입니다. 즉, Klaytn 거버넌스 카운슬은 Klaytn의 장기적인 성장을 이끄는 의사결정 그룹입니다. 거버넌스에 대한 자세한 내용은 토큰 이코노미&거버넌스 페이퍼 \([https://www.klaytn.com/technology](https://www.klaytn.com/technology)\)를 참조해주세요.
+Klaytn 플랫폼의 장기 개발 계획에 따라 자신의 이익을 고려하여 플랫폼을 구축하고 확장하는 기여자들이 Klaytn 거버넌스에 참여하기에 가장 적합한 주체라고 생각합니다. Klaytn에 새로운 서비스를 제공하여 블록체인 서비스 대중화를 지원하는 서비스 제공자, Klaytn을 세계에 소개하고 홍보하는 생태계 빌더 또는 다른 종류의 기여자는 Klaytn 거버넌스 카운슬의 잠재적인 멤버입니다. 즉, Klaytn 거버넌스 카운슬은 Klaytn의 장기적인 성장을 이끄는 의사결정 그룹입니다. For detailed information on governance, please refer to [Token Economy & Governance Paper](https://www.klaytn.com/Klaytn_Token_Economics_and_Governance_Paper_V1.01.pdf).
 
 ### 부트스트래핑 <a id="bootstrapping"></a>
 
