@@ -4,7 +4,7 @@
 
 ### Klaytn Governance Council: Co-governed by Klaytn Contributors <a id="klaytn-governance-council-co-governed-by-klaytn-contributors"></a>
 
-Klaytn believes that its contributors who build and grow the platform with their interests aligned with the platform’s long-term development plans are the most qualified entities to undertake Klaytn governance. Service providers who support mass adoption by delivering new services to Klaytn, Ecosystem builders who introduce and promote Klaytn to the world, or contributors of any other kinds, are potential members of Klaytn Governance Council. In other words, Klaytn Governance Council is the governing body that will generate long-term growth of Klaytn. For detailed information on governance, please refer to Token Economy & Governance Paper \(to be made available on [https://www.klaytn.com/technology](https://www.klaytn.com/technology)\).
+Klaytn believes that its contributors who build and grow the platform with their interests aligned with the platform’s long-term development plans are the most qualified entities to undertake Klaytn governance. Service providers who support mass adoption by delivering new services to Klaytn, Ecosystem builders who introduce and promote Klaytn to the world, or contributors of any other kinds, are potential members of Klaytn Governance Council. In other words, Klaytn Governance Council is the governing body that will generate long-term growth of Klaytn. For detailed information on governance, please refer to [Token Economy & Governance Paper](https://www.klaytn.com/Klaytn_Token_Economics_and_Governance_Paper_V1.01.pdf).
 
 ### Bootstrapping <a id="bootstrapping"></a>
 
