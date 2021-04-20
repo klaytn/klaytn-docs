@@ -24,7 +24,7 @@ After successful deployment, the promise will be resolved with a new KIP7 instan
 | Name | Type | Description |
 | --- | --- | --- |
 | tokenInfo | object | The information needed to deploy KIP-7 token contract on the Klaytn blockchain. See the below table for the details. |
-| deployer | string &#124; obejct | The address of the keyring to deploy the KIP-7 token contract. This keyring must have enough KLAY to deploy. If you want to define your own fields to use when sending transactions, you can pass the object type as a parameter. Also, if you want to use Fee Delegation when deploying KIP-7 contracts, you can define fields related to fee delegation in the object. For fields that can be defined in the object, refer to the parameter description of [approve](#kip7-approve). |
+| deployer | string &#124; object | The address of the keyring to deploy the KIP-7 token contract. This keyring must have enough KLAY to deploy. If you want to define your own fields to use when sending transactions, you can pass the object type as a parameter. Also, if you want to use Fee Delegation when deploying KIP-7 contracts, you can define fields related to fee delegation in the object. For fields that can be defined in the object, refer to the parameter description of [approve](#kip7-approve). |
 
 The tokenInfo object must contain the following:
 
