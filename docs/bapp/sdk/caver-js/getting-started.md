@@ -951,7 +951,27 @@ const Caver = require('caver-js')
 const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
-	const abi = [{"constant":true,"inputs":[],"name":"count","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBlockNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_count","type":"uint256"}],"name":"setCount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
+	const abi = [
+        {
+            constant: true,
+            inputs: [{ name: 'key', type: 'string' }],
+            name: 'get',
+            outputs: [{ name: '', type: 'string' }],
+            payable: false,
+            stateMutability: 'view',
+            type: 'function',
+        },
+        {
+            constant: false,
+            inputs: [{ name: 'key', type: 'string' }, { name: 'value', type: 'string' }],
+            name: 'set',
+            outputs: [],
+            payable: false,
+            stateMutability: 'nonpayable',
+            type: 'function',
+        },
+    ]
+
 	const contractInstance = caver.contract.create(abi)
 	console.log(contractInstance)
 	console.log(contractInstance.options.address)
@@ -992,7 +1012,26 @@ const Caver = require('caver-js')
 const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
-	const abi = [{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
+	const abi = [
+        {
+            constant: true,
+            inputs: [{ name: 'key', type: 'string' }],
+            name: 'get',
+            outputs: [{ name: '', type: 'string' }],
+            payable: false,
+            stateMutability: 'view',
+            type: 'function',
+        },
+        {
+            constant: false,
+            inputs: [{ name: 'key', type: 'string' }, { name: 'value', type: 'string' }],
+            name: 'set',
+            outputs: [],
+            payable: false,
+            stateMutability: 'nonpayable',
+            type: 'function',
+        },
+    ]
 	
 	const contractInstance = caver.contract.create(abi, '0x3466D49256b0982E1f240b64e097FF04f99Ed4b9')
 
@@ -1040,16 +1079,37 @@ async function testFunction() {
 	const deployer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
 	caver.wallet.add(deployer)
 	
-	const abi = [{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
+	const abi = [
+        {
+            constant: true,
+            inputs: [{ name: 'key', type: 'string' }],
+            name: 'get',
+            outputs: [{ name: '', type: 'string' }],
+            payable: false,
+            stateMutability: 'view',
+            type: 'function',
+        },
+        {
+            constant: false,
+            inputs: [{ name: 'key', type: 'string' }, { name: 'value', type: 'string' }],
+            name: 'set',
+            outputs: [],
+            payable: false,
+            stateMutability: 'nonpayable',
+            type: 'function',
+        },
+    ]
+
+    const byteCode =
+        '608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029'
+
 	const contractInstance = caver.contract.create(abi)
 	
 	const deployedInstance = await contractInstance.deploy({
-		data:  '608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029',
-	}).send({
 		from: deployer.address,
-		gas: '0x4bfd200',
-		value: '0x0',
-	})
+		gas: 1500000,
+	}, byteCode)
+
 	console.log(deployedInstance)
 	console.log(deployedInstance.options.address)
 }
@@ -1079,7 +1139,7 @@ Contract {
 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
-Deploying a smart contract through fee-delegated transaction using `caver.contract` is not supported yet. To do that, `caver.transaction.feeDelegatedSmartContractDeploy` (or `caver.transaction.feeDelegatedSmartContractDeployWithRatio`) is used explicitly like the example below:
+To deploy a smart contract through fee-delegated transaction, define `feeDelegation` and `feePayer` like the example below:
 
 ```javascript
 // test.js
@@ -1117,25 +1177,71 @@ async function deployWithFeeDelegation() {
     const byteCode =
         '608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029'
 
-    // caver.abi.encodeContractDeploy encodes byte code and parameters of constructor
-    // If you have contructor parameter(s), pass parameter(s) after byteCode
-    const input = caver.abi.encodeContractDeploy(abi, byteCode)
+	const contractInstance = caver.contract.create(abi)
 
-    const feeDelegated = caver.transaction.feeDelegatedSmartContractDeploy.create({
-        from: deployer.address,
-        input,
-        gas: 500000,
-    })
+	const deployedInstance = await contractInstance.deploy({
+		from: deployer.address,
+		feeDelegation: true,
+		feePayer: feePayer.address,
+		gas: 1500000,
+	}, byteCode)
+	
+	console.log(deployedInstance)
+	console.log(deployedInstance.options.address)
+}
+```
 
-    // Append signatures to feeDelegated transaction
-    await caver.wallet.sign(deployer.address, feeDelegated)
+If you want to send a transaction with sender and feePayer signed separately when deploying a smart contract through `caver.contract`, refer to the code below:
 
-    // Append feePayerSignatures to feeDelegated transaction
-    await caver.wallet.signAsFeePayer(feePayer.address, feeDelegated)
+```javascript
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://your.en.url:8651/')
 
-    // Send signed transaction to Klaytn
-    const receipt = await caver.rpc.klay.sendRawTransaction(feeDelegated)
-    console.log(receipt)
+async function deployWithFeeDelegation() {
+    const deployer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+    caver.wallet.add(deployer)
+
+    const feePayer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+    caver.wallet.add(feePayer)
+
+    const abi = [
+        {
+            constant: true,
+            inputs: [{ name: 'key', type: 'string' }],
+            name: 'get',
+            outputs: [{ name: '', type: 'string' }],
+            payable: false,
+            stateMutability: 'view',
+            type: 'function',
+        },
+        {
+            constant: false,
+            inputs: [{ name: 'key', type: 'string' }, { name: 'value', type: 'string' }],
+            name: 'set',
+            outputs: [],
+            payable: false,
+            stateMutability: 'nonpayable',
+            type: 'function',
+        },
+    ]
+
+    const byteCode =
+        '608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029'
+
+	const contractInstance = caver.contract.create(abi)
+
+	const signed = await contractInstance.sign({
+		from: deployer.address,
+		feeDelegation: true,
+		gas: 1500000,
+	}, 'constructor', byteCode)
+	
+	await caver.wallet.signAsFeePayer(feePayer.address, signed)
+
+	const receipt = await caver.rpc.klay.sendRawTransaction(signed)
+
+	const deployed = caver.contract.create(abi, receipt.contractAddress)
 }
 ```
 
@@ -1151,10 +1257,29 @@ async function testFunction() {
 	const keyring = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
 	caver.wallet.add(keyring)
 
-	const abi = [{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
+	const abi = [
+        {
+            constant: true,
+            inputs: [{ name: 'key', type: 'string' }],
+            name: 'get',
+            outputs: [{ name: '', type: 'string' }],
+            payable: false,
+            stateMutability: 'view',
+            type: 'function',
+        },
+        {
+            constant: false,
+            inputs: [{ name: 'key', type: 'string' }, { name: 'value', type: 'string' }],
+            name: 'set',
+            outputs: [],
+            payable: false,
+            stateMutability: 'nonpayable',
+            type: 'function',
+        },
+    ]
 	
 	const contractInstance = caver.contract.create(abi, '0x{address in hex}')
-	const receipt = await contractInstance.methods.set('testKey', 'testValue').send({ from:keyring.address, gas:'0x4bfd200' })
+	const receipt = await contractInstance.send({ from: keyring.address, gas: '0x4bfd200' }, 'set', 'testKey', 'testValue')
 	console.log(receipt)
 }
 
@@ -1186,7 +1311,7 @@ $ node ./test.js
 }
 ```
 
-Executing a smart contract through fee-delegated transaction using `caver.contract` is not supported yet. To do that, `caver.transaction.feeDelegatedSmartContractExecution` (or `caver.transaction.feeDelegatedSmartContractExecutionWithRatio`) is used explicitly like the example below:
+To execute a smart contract through fee-delegated transaction, define `feeDelegation` and `feePayer` like the example below:
 
 ```javascript
 // test.js
@@ -1224,22 +1349,62 @@ async function executionWithFeeDelegation() {
     // Pass contract address as a second parameter
     const contractInstance = caver.contract.create(abi, '0x{address in hex}')
 
-    const input = contractInstance.methods.set('testKey', 'testValue').encodeABI()
-    const feeDelegated = caver.transaction.feeDelegatedSmartContractExecution.create({
+	const receipt = await contractInstance.send({
         from: executor.address,
-        to: contractInstance.options.address,
-        input,
-        gas: 100000,
-    })
+		gas: 1000000,
+		feeDelegation: true,
+		feePayer: feePayer.address,
+	}, 'set', 'testKey', 'testValue')
+    console.log(receipt)
+}
+```
 
-    // Append signatures to feeDelegated transaction
-    await caver.wallet.sign(executor.address, feeDelegated)
+If you want to send a transaction with sender and feePayer signed separately when executing a smart contract through `caver.contract`, refer to the code below:
 
-    // Append feePayerSignatures to feeDelegated transaction
-    await caver.wallet.signAsFeePayer(feePayer.address, feeDelegated)
+```javascript
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://your.en.url:8651/')
 
-    // Send signed transaction to Klaytn
-    const receipt = await caver.rpc.klay.sendRawTransaction(feeDelegated)
+async function deployWithFeeDelegation() {
+    const deployer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+    caver.wallet.add(deployer)
+
+    const feePayer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+    caver.wallet.add(feePayer)
+
+    const abi = [
+        {
+            constant: true,
+            inputs: [{ name: 'key', type: 'string' }],
+            name: 'get',
+            outputs: [{ name: '', type: 'string' }],
+            payable: false,
+            stateMutability: 'view',
+            type: 'function',
+        },
+        {
+            constant: false,
+            inputs: [{ name: 'key', type: 'string' }, { name: 'value', type: 'string' }],
+            name: 'set',
+            outputs: [],
+            payable: false,
+            stateMutability: 'nonpayable',
+            type: 'function',
+        },
+    ]
+
+	const contractInstance = caver.contract.create(abi)
+
+	const signed = await contractInstance.sign({
+		from: deployer.address,
+		feeDelegation: true,
+		gas: 1500000,
+	}, 'set', 'testKey', 'testValue')
+	
+	await caver.wallet.signAsFeePayer(feePayer.address, signed)
+
+	const receipt = await caver.rpc.klay.sendRawTransaction(signed)
     console.log(receipt)
 }
 ```
@@ -1252,10 +1417,29 @@ const Caver = require('caver-js')
 const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
-	const abi = [{"constant":true,"inputs":[],"name":"count","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBlockNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_count","type":"uint256"}],"name":"setCount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
+	const abi = [
+        {
+            constant: true,
+            inputs: [{ name: 'key', type: 'string' }],
+            name: 'get',
+            outputs: [{ name: '', type: 'string' }],
+            payable: false,
+            stateMutability: 'view',
+            type: 'function',
+        },
+        {
+            constant: false,
+            inputs: [{ name: 'key', type: 'string' }, { name: 'value', type: 'string' }],
+            name: 'set',
+            outputs: [],
+            payable: false,
+            stateMutability: 'nonpayable',
+            type: 'function',
+        },
+    ]
 	const contractInstance = caver.contract.create(abi, '0x{smart contract address}')
 
-	const value = await contractInstance.methods.get('testKey').call()
+	const value = await contractInstance.call('get', 'testKey')
 	console.log(value)
 }
 
