@@ -649,7 +649,7 @@ The sendParam object can contain the following:
 | gas | number &#124; string | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `kip17.methods.approve(spender, tokenId).estimateGas({from})`. |
 | gasPrice | number &#124; string | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
 | value | number &#124; string &#124; BN &#124; BigNumber | (optional) The value to be transferred in peb. |
-| feeDelegation | boolean | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `kip17.options.feeDelegation` will be used. |
+| feeDelegation | boolean | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `kip17.options.feeDelegation` will be used. If both omitted, fee delegation is not used. |
 | feePayer | string | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `kip17.options.feePayer` will be used. |
 | feeRatio | string | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `kip17.options.feeRatio` will be used. |
 
