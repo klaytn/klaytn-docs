@@ -74,7 +74,9 @@ The list below enumerates the API functions that are currently supported in Klay
 - [klay_newBlockFilter](./klay/filter.md#klay_newblockfilter)
 - [klay_newFilter](./klay/filter.md#klay_newfilter)
 - [klay_newPendingTransactionFilter](./klay/filter.md#klay_newpendingtransactionfilter)
+- [klay_subscribe](./klay/filter.md#klay_subscribe)
 - [klay_uninstallFilter](./klay/filter.md#klay_uninstallfilter)
+- [klay_unsubscribe](./klay/filter.md#klay_unsubscribe)
 
 
 ### [Miscellaneous](./klay/misc.md) <a id="miscellaneous"></a>
