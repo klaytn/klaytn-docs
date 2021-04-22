@@ -364,7 +364,7 @@ wscat -c http://localhost:8552
 ```shell
 // Request
 wscat -c http://localhost:8552
-> {"jsonrpc":"2.0", "id": 1, "method": "eth_subscribe", "params": ["logs", {"fromBlock":"earliest","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b","topics":["0xd596fdad182d29130ce218f4c1590c4b5ede105bee36690727baa6592bd2bfc8"]}]}
+> {"jsonrpc":"2.0", "id": 1, "method": "klay_subscribe", "params": ["logs", {"fromBlock":"earliest","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b","topics":["0xd596fdad182d29130ce218f4c1590c4b5ede105bee36690727baa6592bd2bfc8"]}]}
 
 // Result
 < {"jsonrpc":"2.0","id":1,"result":"0xbdab16c8e4ae1b9e6930c78359de3e0e"}
