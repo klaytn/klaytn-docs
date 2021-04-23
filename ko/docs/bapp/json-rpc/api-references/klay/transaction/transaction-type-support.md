@@ -1,5 +1,5 @@
-# Working with Klaytn Transaction Types <a id="working-with-klaytn-transaction-types"></a>
-Klaytn은 다양한 트랜잭션 타입을 지원하며 각 트랜잭션은 서로 다른 필드를 가집니다. 따라서 사용자들은 트랜잭션 타입을 반드시 먼저 이해한 다음 트랜잭션  전송 및 서명 시 올바른 타입을 사용해야 합니다. 관련 APIs: `klay_signTransaction`, `klay_sendTransaction`, `klay_signTransactionAsFeePayer`, `klay_sendTransactionAsFeePayer`, `personal_signTransaction`, `personal_sendTransaction`.
+# Klaytn 트랜잭션 타입 활용하기<a id="working-with-klaytn-transaction-types"></a>
+Klaytn은 다양한 트랜잭션 타입을 지원하며 각 트랜잭션은 서로 다른 필드를 가집니다. 따라서 사용자들은 트랜잭션 타입을 반드시 먼저 이해한 다음 트랜잭션  전송 및 서명 시 올바른 타입을 사용해야 합니다. 관련 API: `klay_signTransaction`, `klay_sendTransaction`, `klay_signTransactionAsFeePayer`, `klay_sendTransactionAsFeePayer`, `personal_signTransaction`, `personal_sendTransaction`.
 
 
 ## TxTypeLegacyTransaction <a id="txtypelegacytransaction"></a>
