@@ -21,10 +21,10 @@ KIP-7 토큰 컨트랙트를 Klaytn 블록체인에 배포합니다. A contract 
 
 **매개변수**
 
-| 명칭        | 타입     | 설명                                                                                                      |
-| --------- | ------ | ------------------------------------------------------------------------------------------------------- |
-| tokenInfo | object | Klaytn 블록체인에 KIP-7 토큰 컨트랙트를 배포하는 데 필요한 정보입니다. 자세한 내용은 아래 표를 참조하세요.                                      |
-| deployer  | 문자열    | KIP-7 토큰 컨트랙트를 배포하는 주소입니다. 이 주소는 keyring에 존재합니다. keyring에 있는 이 계정 주소는 반드시 배포를 위해 충분한 KLAY를 가지고 있어야 합니다. |
+| 명칭        | 타입                   | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tokenInfo | object               | Klaytn 블록체인에 KIP-7 토큰 컨트랙트를 배포하는 데 필요한 정보입니다. 자세한 내용은 아래 표를 참조하세요.                                                                                                                                                                                                                                                                                                                                                                                                                |
+| deployer  | string &#124; object | KIP-7 토큰 컨트랙트를 배포하는 주소입니다. 이 주소는 keyring에 존재합니다. keyring에 있는 이 계정 주소는 반드시 배포를 위해 충분한 KLAY를 가지고 있어야 합니다. If you want to define your own fields to use when sending transactions, you can pass the object type as a parameter. Also, if you want to use Fee Delegation when deploying KIP-7 contracts, you can define fields related to fee delegation in the object. For fields that can be defined in the object, refer to the parameter description of [approve](#kip7-approve). |
 
 tokenInfo 객체는 다음을 반드시 포함해야 합니다:
 
@@ -75,6 +75,19 @@ KIP7 {
         }
     ] 
 }
+
+// Send object as second parameter
+> caver.kct.kip7.deploy({
+        name: 'Jasmine',
+        symbol: 'JAS',
+        decimals: 18,
+        initialSupply: '100000000000000000000',
+    },
+    {
+        from: '0x{address in hex}',
+        feeDelegation: true,
+        feePayer: '0x{address in hex}',
+    }).then(console.log)
 
 // using event emitter and promise
 > caver.kct.kip7.deploy({
@@ -521,12 +534,17 @@ kip7.approve(spender, amount [, sendParam])
 
 `sendParam` 객체는 다음을 포함합니다:
 
-| 명칭       | 타입                                              | 설명                                                                                                                                       |
-| -------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| from     | 문자열                                             | (선택 사항) 트랜잭션 발신자 주소입니다. 생략되면, `this.options.from`에 의해 지정됩니다. `sendParam`객체의 `from` 또는 `this.options.from`가 주어지지 않으면, 에러가 발생합니다.          |
-| gas      | number &#124; string                            | (선택 사항) 이 트랜잭션이 쓸 수 있는 최대 가스량 (가스 제한) 입니다. 생략되면, caver-js가 `this.methods.approve(spender, amount).estimateGas({from})`를 호출하여 이 값을 지정합니다. |
-| gasPrice | number &#124; string                            | (선택 사항) 이 트랜잭션에 사용할 peb 단위의 가스 가격. 생략하면 `caver.klay.getGasPrice` 값으로 caver-js가 설정합니다.                                                    |
-| value    | number &#124; string &#124; BN &#124; BigNumber | (선택 사항) peb으로 환산한 전송될 토큰 가치.                                                                                                             |
+| 명칭            | 타입                                              | 설명                                                                                                                                                                                                                                                                                                                                                   |
+| ------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from          | 문자열                                             | (선택 사항) 트랜잭션 발신자 주소입니다. If omitted, it will be set by `kip7.options.from`. If neither of `from` in the `sendParam` object nor `kip7.options.from` were not provided, an error would occur.                                                                                                                                                           |
+| gas           | number &#124; string                            | (선택 사항) 이 트랜잭션이 쓸 수 있는 최대 가스량 (가스 제한) 입니다. If omitted, it will be set by caver-js via calling `kip7.methods.approve(spender, amount).estimateGas({from})`.                                                                                                                                                                                           |
+| gasPrice      | number &#124; string                            | (선택 사항) 이 트랜잭션에 사용할 peb 단위의 가스 가격. 생략하면 `caver.klay.getGasPrice` 값으로 caver-js가 설정합니다.                                                                                                                                                                                                                                                                |
+| value         | number &#124; string &#124; BN &#124; BigNumber | (선택 사항) peb으로 환산한 전송될 토큰 가치.                                                                                                                                                                                                                                                                                                                         |
+| feeDelegation | boolean                                         | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `kip7.options.feeDelegation` will be used. If both omitted, fee delegation is not used.                                                                                                                                                                           |
+| feePayer      | 문자열                                             | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `kip7.options.feePayer` will be used. If both omitted, throws an error.                                                                                                 |
+| feeRatio      | 문자열                                             | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `kip7.options.feeRatio` will be used. |
+
+**NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 **리턴값**
 
@@ -572,6 +590,13 @@ kip7.approve(spender, amount [, sendParam])
         },
     },
 }
+
+// Using FD transaction to execute the smart contract
+> kip7.approve('0x{address in hex}', 10, {
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
 
 // Using kip7.options.from
 // If the value of kip7.options.from is set, this value is used as the default value 
@@ -644,6 +669,13 @@ Transfers the given `amount` of the token from the token owner's balance to the 
         },
     },
 }
+
+// Using FD transaction to execute the smart contract
+> kip7.transfer('0x{address in hex}', 10, {
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
 
 // Using kip7.options.from
 // If the value of kip7.options.from is set, this value is used as the default value 
@@ -718,6 +750,13 @@ Safely transfers the given `amount` of the token from the token owner's balance 
             },
     },
 }
+
+// Using FD transaction to execute the smart contract
+> kip7.safeTransfer('0x{address in hex}', 10, {
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
 
 // Send via a sendParam object with the from field given (with data)
 > kip7.safeTransfer('0x{address in hex}', 11, '0x1234', { from: '0x{address in hex}' }).then(console.log)
@@ -818,6 +857,13 @@ Transfers the given `amount` of the token from the token owner's balance to the 
     },
 }
 
+// Using FD transaction to execute the smart contract
+> kip7.transferFrom('0x{address in hex}', '0x{address in hex}', 10000, {
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
+
 // Using kip7.options.from
 // If the value of kip7.options.from is set, this value is used as the default value 
 // unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
@@ -916,6 +962,13 @@ Safely transfers the given `amount` of the token from the token owner's balance 
     },
 }
 
+// Using FD transaction to execute the smart contract
+> kip7.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 10000, {
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
+
 // Send via a sendParam object with the from field given (with data)
 > kip7.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 11, '0x1234', { from: '0x{address in hex}' }).then(console.log)
 
@@ -992,6 +1045,13 @@ kip7.mint(account, amount [, sendParam])
     },
 }
 
+// Using FD transaction to execute the smart contract
+> kip7.mint('0x{address in hex}', 10000, {
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
+
 // Using kip7.options.from
 // If the value of kip7.options.from is set, this value is used as the default value 
 // unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
@@ -1059,6 +1119,13 @@ kip7.addMinter(account [, sendParam])
     },
 }
 
+// Using FD transaction to execute the smart contract
+> kip7.addMinter('0x{address in hex}', {
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
+
 // Using kip7.options.from
 // If the value of kip7.options.from is set, this value is used as the default value 
 // unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
@@ -1124,6 +1191,13 @@ kip7.renounceMinter([sendParam])
         },
     },
 }
+
+// Using FD transaction to execute the smart contract
+> kip7.renounceMinter({
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
 
 // Using kip7.options.from
 // If the value of kip7.options.from is set, this value is used as the default value 
@@ -1195,6 +1269,13 @@ kip7.burn(amount [, sendParam])
         },
     },
 }
+
+// Using FD transaction to execute the smart contract
+> kip7.burn(1000, {
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
 
 // Using kip7.options.from
 // If the value of kip7.options.from is set, this value is used as the default value 
@@ -1291,6 +1372,13 @@ kip7.burnFrom(account, amount [, sendParam])
     },
 }
 
+// Using FD transaction to execute the smart contract
+> kip7.burnFrom('0x{address in hex}', 1000, {
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
+
 // Using kip7.options.from
 // If the value of kip7.options.from is set, this value is used as the default value 
 // unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
@@ -1358,6 +1446,13 @@ kip7.addPauser(account [, sendParam])
     },
 }
 
+// Using FD transaction to execute the smart contract
+> kip7.addPauser('0x{address in hex}', {
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
+
 // Using kip7.options.from
 // If the value of kip7.options.from is set, this value is used as the default value 
 // unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
@@ -1423,6 +1518,13 @@ kip7.renouncePauser([sendParam])
         },
     },
 }
+
+// Using FD transaction to execute the smart contract
+> kip7.renouncePauser({
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
 
 // Using kip7.options.from
 // If the value of kip7.options.from is set, this value is used as the default value 
@@ -1490,6 +1592,13 @@ kip7.pause([sendParam])
     },
 }
 
+// Using FD transaction to execute the smart contract
+> kip7.pause({
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
+
 // Using kip7.options.from
 // If the value of kip7.options.from is set, this value is used as the default value 
 // unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
@@ -1555,6 +1664,13 @@ kip7.unpause([sendParam])
         },
     },
 }
+
+// Using FD transaction to execute the smart contract
+> kip7.unpause({
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
 
 // Using kip7.options.from
 // If the value of kip7.options.from is set, this value is used as the default value 
