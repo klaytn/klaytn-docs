@@ -3,56 +3,56 @@
 ## Linux <a id="linux"></a>
 
 Cypress 패키지
-- [kcnd-v1.6.0-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.0/kcnd-v1.6.0-0.el7.x86_64.rpm)
-- [kpnd-v1.6.0-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.0/kpnd-v1.6.0-0.el7.x86_64.rpm)
-- [kend-v1.6.0-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.0/kend-v1.6.0-0.el7.x86_64.rpm)
-- [kcn-v1.6.0-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/kcn-v1.6.0-0-linux-amd64.tar.gz)
-- [kpn-v1.6.0-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/kpn-v1.6.0-0-linux-amd64.tar.gz)
-- [ken-v1.6.0-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/ken-v1.6.0-0-linux-amd64.tar.gz)
+- [kcnd-v1.6.1-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.1/kcnd-v1.6.1-0.el7.x86_64.rpm)
+- [kpnd-v1.6.1-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.1/kpnd-v1.6.1-0.el7.x86_64.rpm)
+- [kend-v1.6.1-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.1/kend-v1.6.1-0.el7.x86_64.rpm)
+- [kcn-v1.6.1-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/kcn-v1.6.1-0-linux-amd64.tar.gz)
+- [kpn-v1.6.1-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/kpn-v1.6.1-0-linux-amd64.tar.gz)
+- [ken-v1.6.1-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/ken-v1.6.1-0-linux-amd64.tar.gz)
 
 Baobab 패키지
-- [kcnd-baobab-v1.6.0-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.0/kcnd-baobab-v1.6.0-0.el7.x86_64.rpm)
-- [kpnd-baobab-v1.6.0-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.0/kpnd-baobab-v1.6.0-0.el7.x86_64.rpm)
-- [kend-baobab-v1.6.0-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.0/kend-baobab-v1.6.0-0.el7.x86_64.rpm)
-- [kcn-baobab-v1.6.0-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/kcn-baobab-v1.6.0-0-linux-amd64.tar.gz)
-- [kpn-baobab-v1.6.0-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/kpn-baobab-v1.6.0-0-linux-amd64.tar.gz)
-- [ken-baobab-v1.6.0-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/ken-baobab-v1.6.0-0-linux-amd64.tar.gz)
+- [kcnd-baobab-v1.6.1-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.1/kcnd-baobab-v1.6.1-0.el7.x86_64.rpm)
+- [kpnd-baobab-v1.6.1-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.1/kpnd-baobab-v1.6.1-0.el7.x86_64.rpm)
+- [kend-baobab-v1.6.1-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.1/kend-baobab-v1.6.1-0.el7.x86_64.rpm)
+- [kcn-baobab-v1.6.1-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/kcn-baobab-v1.6.1-0-linux-amd64.tar.gz)
+- [kpn-baobab-v1.6.1-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/kpn-baobab-v1.6.1-0-linux-amd64.tar.gz)
+- [ken-baobab-v1.6.1-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/ken-baobab-v1.6.1-0-linux-amd64.tar.gz)
 
 공통 패키지
-- [kscnd-v1.6.0-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.0/kscnd-v1.6.0-0.el7.x86_64.rpm)
-- [kspnd-v1.6.0-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.0/kspnd-v1.6.0-0.el7.x86_64.rpm)
-- [ksend-v1.6.0-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.0/ksend-v1.6.0-0.el7.x86_64.rpm)
-- [kbnd-v1.6.0-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.0/kbnd-v1.6.0-0.el7.x86_64.rpm)
-- [kgen-v1.6.0-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.0/kgen-v1.6.0-0.el7.x86_64.rpm)
-- [homi-v1.6.0-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.0/homi-v1.6.0-0.el7.x86_64.rpm)
+- [kscnd-v1.6.1-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.1/kscnd-v1.6.1-0.el7.x86_64.rpm)
+- [kspnd-v1.6.1-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.1/kspnd-v1.6.1-0.el7.x86_64.rpm)
+- [ksend-v1.6.1-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.1/ksend-v1.6.1-0.el7.x86_64.rpm)
+- [kbnd-v1.6.1-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.1/kbnd-v1.6.1-0.el7.x86_64.rpm)
+- [kgen-v1.6.1-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.1/kgen-v1.6.1-0.el7.x86_64.rpm)
+- [homi-v1.6.1-0.el7.x86_64.rpm](https://packages.klaytn.net/klaytn/v1.6.1/homi-v1.6.1-0.el7.x86_64.rpm)
 
-- [kscn-v1.6.0-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/kscn-v1.6.0-0-linux-amd64.tar.gz)
-- [kspn-v1.6.0-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/kspn-v1.6.0-0-linux-amd64.tar.gz)
-- [ksen-v1.6.0-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/ksen-v1.6.0-0-linux-amd64.tar.gz)
-- [kbn-v1.6.0-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/kbn-v1.6.0-0-linux-amd64.tar.gz)
-- [kgen-v1.6.0-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/kgen-v1.6.0-0-linux-amd64.tar.gz)
-- [homi-v1.6.0-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/homi-v1.6.0-0-linux-amd64.tar.gz)
+- [kscn-v1.6.1-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/kscn-v1.6.1-0-linux-amd64.tar.gz)
+- [kspn-v1.6.1-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/kspn-v1.6.1-0-linux-amd64.tar.gz)
+- [ksen-v1.6.1-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/ksen-v1.6.1-0-linux-amd64.tar.gz)
+- [kbn-v1.6.1-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/kbn-v1.6.1-0-linux-amd64.tar.gz)
+- [kgen-v1.6.1-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/kgen-v1.6.1-0-linux-amd64.tar.gz)
+- [homi-v1.6.1-0-linux-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/homi-v1.6.1-0-linux-amd64.tar.gz)
 
 
 ## MacOS <a id="macos"></a>
 
 Cypress 패키지
-- [kcn-v1.6.0-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/kcn-v1.6.0-0-darwin-10.10-amd64.tar.gz)
-- [kpn-v1.6.0-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/kpn-v1.6.0-0-darwin-10.10-amd64.tar.gz)
-- [ken-v1.6.0-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/ken-v1.6.0-0-darwin-10.10-amd64.tar.gz)
+- [kcn-v1.6.1-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/kcn-v1.6.1-0-darwin-10.10-amd64.tar.gz)
+- [kpn-v1.6.1-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/kpn-v1.6.1-0-darwin-10.10-amd64.tar.gz)
+- [ken-v1.6.1-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/ken-v1.6.1-0-darwin-10.10-amd64.tar.gz)
 
 Baobab 패키지
-- [kcn-baobab-v1.6.0-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/kcn-baobab-v1.6.0-0-darwin-10.10-amd64.tar.gz)
-- [kpn-baobab-v1.6.0-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/kpn-baobab-v1.6.0-0-darwin-10.10-amd64.tar.gz)
-- [ken-baobab-v1.6.0-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/ken-baobab-v1.6.0-0-darwin-10.10-amd64.tar.gz)
+- [kcn-baobab-v1.6.1-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/kcn-baobab-v1.6.1-0-darwin-10.10-amd64.tar.gz)
+- [kpn-baobab-v1.6.1-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/kpn-baobab-v1.6.1-0-darwin-10.10-amd64.tar.gz)
+- [ken-baobab-v1.6.1-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/ken-baobab-v1.6.1-0-darwin-10.10-amd64.tar.gz)
 
 공통 패키지
-- [kscn-v1.6.0-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/kscn-v1.6.0-0-darwin-10.10-amd64.tar.gz)
-- [kspn-v1.6.0-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/kspn-v1.6.0-0-darwin-10.10-amd64.tar.gz)
-- [ksen-v1.6.0-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/ksen-v1.6.0-0-darwin-10.10-amd64.tar.gz)
-- [kbn-v1.6.0-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/kbn-v1.6.0-0-darwin-10.10-amd64.tar.gz)
-- [kgen-v1.6.0-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/kgen-v1.6.0-0-darwin-10.10-amd64.tar.gz)
-- [homi-v1.6.0-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.0/homi-v1.6.0-0-darwin-10.10-amd64.tar.gz)
+- [kscn-v1.6.1-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/kscn-v1.6.1-0-darwin-10.10-amd64.tar.gz)
+- [kspn-v1.6.1-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/kspn-v1.6.1-0-darwin-10.10-amd64.tar.gz)
+- [ksen-v1.6.1-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/ksen-v1.6.1-0-darwin-10.10-amd64.tar.gz)
+- [kbn-v1.6.1-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/kbn-v1.6.1-0-darwin-10.10-amd64.tar.gz)
+- [kgen-v1.6.1-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/kgen-v1.6.1-0-darwin-10.10-amd64.tar.gz)
+- [homi-v1.6.1-0-darwin-10.10-amd64.tar.gz](https://packages.klaytn.net/klaytn/v1.6.1/homi-v1.6.1-0-darwin-10.10-amd64.tar.gz)
 
 
 ## Windows <a id="windows"></a>
@@ -63,29 +63,22 @@ Baobab 패키지
 # Release Notes <a id="release-notes"></a>
 
 ## New Features
-- Introduced KES (Klaytn Endpoint System) (#707, #709)
-  - Supported shared database and cache
-  - KES Fetcher node processes blocks and KES Service node serves APIs with the shared database/cache without its processing
-- Added debug.startCollectingTrieStats API which shows a stat of state trie (#740)
-- Added debug.getModifiedStorageNodesByNumber API which returns modified trie nodes from the contract sotrage (#742)
-- Added logs to show block processing summary (#747)
-- Added unigram/bigram/trigram tracers and fixed an error in 4-byte tracer (#752)
-- Supported ABIEncoderV2 to pack dynamic array and slice type (#753)
-- Supported ABI to unpack tuple type and bytesN arrays (#807, #792, #786)
-- Introduced state.trie-cache-save-period option for periodical saving fast cache to filesystem (#828)
-- Added debug.StartContractWarmUp(common.Address) API to warm up contract storage trie node (#831)
-- Introduced state prefetcher which executes future blocks and future transactions against current state for pre-loading state trie cache (#832, #860)
+- Introduced execution deadline and max item limit for klay_getLogs and klay_getFilterLogs APIs (#903)
+- Introduced a metric to record hashLocked status (#932)
+- Added Staking Information API (governance.getStakingInfo) (#929)
+- Introduced an option to limit concurrency limitation of HTTP-RPC server (rpc.concurrencylimit) (#922)
 
 ## Improvements
-- Split chain data to send Kafka messages by chain data fetcher (#708, #712)
-- Changed metrics.Meter to metrics.Timer (#817)
-- Updated default docker image ID (#824)
-- Increased FD limit to the maximum value of the process (#827)
+- Added a condition sending a COMMIT message for resolve hash lock issue (#888)
+- Prefetch
+  - Fixed the prefech logic for multiple txs of the same sender in a block (#911)
+  - Enable TX prefetcher for multiple blocks (#916)
+  - Move prefetcher execution as early as possible (#918)
+  - Fixed the race condition of transaction access (#941)
 
 ## Fixes
-- Fixed the path for saving trie node cache (#751)
+- Fixed invalid validator list in extraData of block headers (#891)
 
 ## 기타
-- Disabled seek compaction for LevelDB (#715)
-- Performed code refactoring (#730, #733, #735)
-- Updated golang to 1.15.7 version (#875, #871)
+- Renamed an API, setMaxSubscriptionPerConn to setMaxSubscriptionPerWSConn (#897)
+- Renamed hardfork name, Incompatible1 to IstanbulCompatible  docs update needed (#901)
