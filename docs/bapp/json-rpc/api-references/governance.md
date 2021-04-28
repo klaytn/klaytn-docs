@@ -428,15 +428,15 @@ The `itemCacheFromDb` returns the governance information stored in the given blo
 ## governance_getStakingInfo <a id="governance_getstakinginfo"></a>
 
 The `getStakingInfo` returns staking information at a specific block. The result includes the following information.
-- `BlockNum`: the block number at which the staking information is given.
-- `CouncilNodeAddrs`: the addresses of the consensus node.
-- `CouncilRewardAddrs`: the addresses to which the block reward of the associated nodes is sent.
-- `CouncilStakingAddrs`: the contract addresses in which the associated nodes deploys for staking.
-- `CouncilStakingAmounts`: the amount of KLAYs which the associated nodes stake.
-- `Gini`: gini coefficient.
-- `KIRAddr`: the contract address of KIR.
-- `PoCAddr`: the contract address of PoC.
-- `UseGini`: the boolean value whether or not the gini coefficient is used.
+- `BlockNum`: The block number at which the staking information is given.
+- `CouncilNodeAddrs`: The addresses of the consensus node.
+- `CouncilRewardAddrs`: The addresses to which the block reward of the associated nodes is sent.
+- `CouncilStakingAddrs`: The contract addresses in which the associated nodes deploy for staking.
+- `CouncilStakingAmounts`: The amount of KLAY which the associated nodes stake.
+- `Gini`: Gini coefficient.
+- `KIRAddr`: The contract address of KIR.
+- `PoCAddr`: The contract address of PoC.
+- `UseGini`: The boolean value whether or not the Gini coefficient is used.
 
 Note that the order of all addresses and the staking amounts are matched.
 
