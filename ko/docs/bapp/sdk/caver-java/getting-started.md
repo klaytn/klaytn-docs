@@ -337,7 +337,7 @@ key : 0x93c90135ae69669e416ba5997d9274f8c8bd60748761fc421e415602d68a13a5
 
 위 결과를 살펴보면 `caver.wallet`에 Keyring을 추가하면 `caver.wallet`에서 여러분의 Keyring을 조회할 수 있습니다.
 
-If you have an address and private key(s) to use, you can easily create a keyring and add it directly to caver.wallet via caver.wallet.newKeyring.
+사용할 주소와 개인키만 있으면 caver.wallet.newKeyring로 손쉽게 Keyring을 만들고 caver.wallet에 직접 추가할 수 있습니다.
 
 ```java
 Caver caver = new Caver(Caver.MAINNET_URL);
@@ -554,7 +554,7 @@ try {
 }
 ```
 
-트랜잭션의 실행 결과는 영수증의 `status`를 통하여 확인할 수 있습니다. 리턴값에 대한 자세한 설명은 `caver.rpc.klay.getTransactionReceipt`를 참조하세요. 만약 트랜잭션 실행이 실패한다면 에러에 대한 자세한 내용은 영수증의 `txError`에서 확인할 수 있습니다. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../json-rpc/transaction-error-codes.md).
+트랜잭션의 실행 결과는 영수증의 `status`를 통하여 확인할 수 있습니다. 리턴값에 대한 자세한 설명은 `caver.rpc.klay.getTransactionReceipt`를 참조하세요. 만약 트랜잭션 실행이 실패한다면 에러에 대한 자세한 내용은 영수증의 `txError`에서 확인할 수 있습니다. `txError`에 대한 자세한 설명은 [txError: Detailed Information of Transaction Failures](../../json-rpc/transaction-error-codes.md)를 참고하세요.
 
 
 ## 다른 트랜잭션 타입 실행하기 <a id="executing-other-transaction-types"></a>
@@ -640,7 +640,7 @@ try {
 
 ### 계정 업데이트 <a id="account-update"></a>
 
-If you want to change the private key(s) for your Klaytn account, there are 3 important things you need to remember:
+여러분의 Klaytn 계정 개인키를 변경하려면 다음 3가지 사항을 반드시 알아야 합니다:
 
 1. Klaytn은 자신에게 전송되는 모든 트랜잭션을 검증합니다.
 2. 트랜잭션을 검증하려면 개인키와 짝을 이루는 공개키가 필요합니다.
@@ -656,9 +656,9 @@ Keeping the 3 things above in your mind, you can change your private key(s) by f
 
 더 자세한 내용은 `Account Update `를 확인하십시오.
 
-To change your AccountKey, you must provide an `Account` instance for the `account` field in the input argument object of `caver.transaction.type.AccountUpdate`. `Account` 인스턴스는 Klaytn 계정의 주소와 업데이트할 AccountKey를 담고 있습니다.
+AccountKey를 변경하려면, `Account` 인스턴스를 `caver.transaction.type.AccountUpdate`의 입력 변수 객체의 `account` 필드에 넣어야 합니다. `Account` 인스턴스는 Klaytn 계정의 주소와 업데이트할 AccountKey를 담고 있습니다.
 
-아래 코드는 Klaytn 계정 개인키를 바꾸는 것과 더불어 Klaytn 계정 AccountKey를 `AccountKeyPublic`로 바꾸는 예시입니다. Don't forget to prepare your new private key(s).
+아래 코드는 Klaytn 계정 개인키를 바꾸는 것과 더불어 Klaytn 계정 AccountKey를 `AccountKeyPublic`로 바꾸는 예시입니다. 이를 위해서는 새로 사용할 개인키를 준비하셔야 합니다.
 
 ```java
 Caver caver = new Caver(Caver.DEFAULT_URL);
@@ -699,7 +699,7 @@ try {
 senderKeyring = (SingleKeyring)caver.wallet.updateKeyring(newKeyring);
 ```
 
-If the above code is executed successfully, you are no longer able to use the old private key(s) to sign any transaction with the old keyring. 따라서 여러분은 `caver.wallet.updateKeyring(newKeyring)`을 사용해 기존 Keyring을 `newKeyring`으로 업데이트하셔야 합니다.  Once it is updated, the signing will be done by the newly updated private key(s).
+위 코드가 성공적으로 실행되었다면 서명 시 기존 개인키와 이에 대응되는 기존 Keyring은 트랜잭션에 더 이상 사용하실 수 없습니다. 따라서 여러분은 `caver.wallet.updateKeyring(newKeyring)`을 사용해 기존 Keyring을 `newKeyring`으로 업데이트하셔야 합니다.  Once it is updated, the signing will be done by the newly updated private key(s).
 
 Klaytn 계정 AccountKey를 여러개의 `AccountKeys`로 업데이트하려면 어떻게 해야 할까요? 아래 예시는 여러분이 사용하고 싶은 개인키들을 가지고 `Account` 인스턴스를 만드는 방법을 소개합니다(`caver.account.create`로 여러 공개키를 가지고 `Account` 인스턴스를 만들 수 있습니다.). 여기에서도, 트랜잭션 객체의 `account` 필드에 Account 인스턴스를 입력 파라미터로 넣으면, 나머지 업데이트 과정은 위에서 소개한 AccountKey 1개를 업데이트하는 과정과 동일합니다.
 
