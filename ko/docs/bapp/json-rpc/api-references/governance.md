@@ -423,3 +423,46 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
   reward.useginicoeff: false
 }
 ```
+## governance_getStakingInfo <a id="governance_getstakinginfo"></a>
+
+The `getStakingInfo` returns staking information at a specific block. The result includes the following information.
+- `BlockNum`: The block number at which the staking information is given.
+- `CouncilNodeAddrs`: The addresses of the consensus node.
+- `CouncilRewardAddrs`: The addresses to which the block reward of the associated nodes is sent.
+- `CouncilStakingAddrs`: The contract addresses in which the associated nodes deploy for staking.
+- `CouncilStakingAmounts`: The amount of KLAY which the associated nodes stake.
+- `Gini`: Gini coefficient.
+- `KIRAddr`: The contract address of KIR.
+- `PoCAddr`: The contract address of PoC.
+- `UseGini`: The boolean value whether or not the Gini coefficient is used.
+
+Note that the order of all addresses and the staking amounts are matched.
+
+**매개변수**
+
+| 타입                  | 설명                                                                                                                                                                  |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
+
+**리턴값**
+
+| 타입   | 설명                  |
+| ---- | ------------------- |
+| JSON | Staking information |
+
+**예시**
+
+```javascript
+> governance.getStakingInfo("latest")
+{
+  BlockNum: 57801600,
+  CouncilNodeAddrs: ["0x99fb17d324fa0e07f23b49d09028ac0919414db6", "0x571e53df607be97431a5bbefca1dffe5aef56f4d", "0xb74ff9dea397fe9e231df545eb53fe2adf776cb2", "0x5cb1a7dccbd0dc446e3640898ede8820368554c8", "0x776817c0ef3d06d794cf01ae9afa33d7397b9b40", "0xc180ca565b34b5b63877674f5fe647e7da079022", "0x03497f51c31fe8b402df0bde90fd5a85f87aa943"],
+  CouncilRewardAddrs: ["0xb2bd3178affccd9f9f5189457f1cad7d17a01c9d", "0x6559a7b6248b342bc11fbcdf9343212bbc347edc", "0x82829a60c6eac4e3e9d6ed00891c69e88537fd4d", "0xa86fd667c6a340c53cc5d796ba84dbe1f29cb2f7", "0x6e22cbe2b8bbd1df9f1d3c8ebae6d7ff5414a734", "0x24e593fb29731e54905025c230727dc28d229f77", "0x2b2a7a1d29a203f60e0a964fc64231265a49cd97"],
+  CouncilStakingAddrs: ["0x12fa1ab4c3e17c1c08c1b5a945c864c8e8bf707e", "0xfd56604f1a20268ff7a0eab2ab48e25ee1e0f653", "0x1e0f6aaa9baa6081dc4910a854eebf8854c262ab", "0x5e6988415ebe0f6b088f5a676003ba60f572875a", "0xbb44998c2af35b8faee694cffe216558056d747e", "0x68cba498b7175cde9de08fc2e85ad3e9c8caefa8", "0x98efb31eeccafe35d53a6926e2a54c0858d9eebc"],
+  CouncilStakingAmounts: [5000000, 5000000, 5000000, 5000000, 5000000, 5000000, 5000000],
+  Gini: 0,
+  KIRAddr: "0x716f89d9bc333286c79db4ebb05516897c8d208a",
+  PoCAddr: "0x2bcf9d3e4a846015e7e3152a614c684de16f37c6",
+  UseGini: true
+}
+```
