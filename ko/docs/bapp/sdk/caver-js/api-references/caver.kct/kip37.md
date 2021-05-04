@@ -333,10 +333,10 @@ Returns the amount of tokens of token type `id` owned by `account`.
 
 **매개변수**
 
-| 명칭           | 타입                                    | 설명                                                            |
-| ------------ | ------------------------------------- | ------------------------------------------------------------- |
-| 계정 (Account) | 문자열                                   | The address of the account for which you want to see balance. |
-| id           | BigNumber &#124; string &#124; number | The token id to see balance.                                  |
+| 명칭      | 타입                                    | 설명                                                            |
+| ------- | ------------------------------------- | ------------------------------------------------------------- |
+| account | 문자열                                   | The address of the account for which you want to see balance. |
+| id      | BigNumber &#124; string &#124; number | The token id to see balance.                                  |
 
 **NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
@@ -1113,10 +1113,10 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 
 **매개변수**
 
-| 명칭           | 타입     | 설명                                                                                                                                                   |
-| ------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | 문자열    | 발행자에 추가될 계정 주소입니다.                                                                                                                                   |
-| sendParam    | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 명칭        | 타입     | 설명                                                                                                                                                   |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | 문자열    | 발행자에 추가될 계정 주소입니다.                                                                                                                                   |
+| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
 
 **NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a minter.
 
@@ -1262,12 +1262,12 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 
 **매개변수**
 
-| 명칭           | 타입                                    | 설명                                                                                                                                                   |
-| ------------ | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | 문자열                                   | The address of the account that owns the token to be destroyed.                                                                                      |
-| id           | BigNumber &#124; string &#124; number | The id of token to be destroyed.                                                                                                                     |
-| value        | BigNumber &#124; string &#124; number | 제거할 토큰 수량입니다.                                                                                                                                        |
-| sendParam    | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 명칭        | 타입                                    | 설명                                                                                                                                                   |
+| --------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | 문자열                                   | The address of the account that owns the token to be destroyed.                                                                                      |
+| id        | BigNumber &#124; string &#124; number | The id of token to be destroyed.                                                                                                                     |
+| value     | BigNumber &#124; string &#124; number | 제거할 토큰 수량입니다.                                                                                                                                        |
+| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
 
 **NOTE** The `id` and `amount` parameters accept `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
@@ -1348,12 +1348,12 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 
 **매개변수**
 
-| 명칭           | 타입     | 설명                                                                                                                                                   |
-| ------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | 문자열    | The address of the account that owns the token to be destroyed.                                                                                      |
-| ids          | 배열     | An array of the token ids to burn.                                                                                                                   |
-| values       | 배열     | An array of the token amounts to burn.                                                                                                               |
-| sendParam    | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 명칭        | 타입     | 설명                                                                                                                                                   |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | 문자열    | The address of the account that owns the token to be destroyed.                                                                                      |
+| ids       | 배열     | An array of the token ids to burn.                                                                                                                   |
+| values    | 배열     | An array of the token amounts to burn.                                                                                                               |
+| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
 
 **NOTE** The `ids` and `values` array parameters accept `number` type as an element in array, but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
@@ -1432,10 +1432,10 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 
 **매개변수**
 
-| 명칭           | 타입     | 설명                                                                                                                                                   |
-| ------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | 문자열    | 컨트랙트 중지 권한을 가질 계정 주소입니다.                                                                                                                             |
-| sendParam    | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 명칭        | 타입     | 설명                                                                                                                                                   |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | 문자열    | 컨트랙트 중지 권한을 가질 계정 주소입니다.                                                                                                                             |
+| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
 
 **NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a pauser with PauserRole.
 
