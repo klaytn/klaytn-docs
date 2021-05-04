@@ -137,7 +137,7 @@ new caver.transaction.feeDelegatedAccountUpdate(transactionObject)
 | 명칭                 | 타입        | 설명                                                                                                                                                                   |
 | ------------------ | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | from               | 문자열       | 발신자의 주소입니다.                                                                                                                                                          |
-| 계정 (Account)       | [Account] | An [Account] instance that contains the information needed to update your account.                                                                                   |
+| account            | [Account] | An [Account] instance that contains the information needed to update your account.                                                                                   |
 | gas                | 문자열       | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                     |
 | signatures         | 배열        | (optional) An array of signatures.                                                                                                                                   |
 | feePayerSignatures | 배열        | (optional) An array of feePayerSignatures.                                                                                                                           |
