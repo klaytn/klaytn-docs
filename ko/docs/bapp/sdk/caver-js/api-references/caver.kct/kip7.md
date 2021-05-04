@@ -990,11 +990,11 @@ kip7.mint(account, amount [, sendParam])
 
 **매개변수**
 
-| 명칭           | 타입                                    | 설명                                                                                                                                              |
-| ------------ | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | 문자열                                   | 토큰이 발행될 계정 주소입니다.                                                                                                                               |
-| amount       | BigNumber &#124; string &#124; number | 발행될 토큰 수량입니다.                                                                                                                                   |
-| sendParam    | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 명칭        | 타입                                    | 설명                                                                                                                                              |
+| --------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | 문자열                                   | 토큰이 발행될 계정 주소입니다.                                                                                                                               |
+| amount    | BigNumber &#124; string &#124; number | 발행될 토큰 수량입니다.                                                                                                                                   |
+| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
 **NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
@@ -1071,10 +1071,10 @@ kip7.addMinter(account [, sendParam])
 
 **매개변수**
 
-| 명칭           | 타입     | 설명                                                                                                                                              |
-| ------------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | 문자열    | 발행자에 추가될 계정 주소입니다.                                                                                                                              |
-| sendParam    | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 명칭        | 타입     | 설명                                                                                                                                              |
+| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | 문자열    | 발행자에 추가될 계정 주소입니다.                                                                                                                              |
+| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
 **NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a minter.
 
@@ -1296,11 +1296,11 @@ kip7.burnFrom(account, amount [, sendParam])
 
 **매개변수**
 
-| 명칭           | 타입                                    | 설명                                                                                                                                              |
-| ------------ | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | 문자열                                   | 토큰을 소유한 계정 주소입니다. 이 계정 주소 잔액에서 allowance(kip7Instance. approve)를 사용해 토큰이 제거됩니다.                                                                 |
-| amount       | BigNumber &#124; string &#124; number | 제거할 토큰 수량입니다.                                                                                                                                   |
-| sendParam    | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 명칭        | 타입                                    | 설명                                                                                                                                              |
+| --------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | 문자열                                   | 토큰을 소유한 계정 주소입니다. 이 계정 주소 잔액에서 allowance(kip7Instance. approve)를 사용해 토큰이 제거됩니다.                                                                 |
+| amount    | BigNumber &#124; string &#124; number | 제거할 토큰 수량입니다.                                                                                                                                   |
+| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
 **NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
@@ -1398,10 +1398,10 @@ kip7.addPauser(account [, sendParam])
 
 **매개변수**
 
-| 명칭           | 타입     | 설명                                                                                                                                              |
-| ------------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | 문자열    | 컨트랙트 중지 권한을 가질 계정 주소입니다.                                                                                                                        |
-| sendParam    | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 명칭        | 타입     | 설명                                                                                                                                              |
+| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | 문자열    | 컨트랙트 중지 권한을 가질 계정 주소입니다.                                                                                                                        |
+| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
 **NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a pauser with PauserRole.
 
