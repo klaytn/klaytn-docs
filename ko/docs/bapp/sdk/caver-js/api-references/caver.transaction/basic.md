@@ -192,15 +192,15 @@ new caver.transaction.accountUpdate(transactionObject)
 
 **속성**
 
-| 명칭           | 타입              | 설명                                                                                                                                                                   |
-| ------------ | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from         | 문자열             | 발신자의 주소입니다.                                                                                                                                                          |
-| 계정 (Account) | [계정(Account)][] | An [Account][] instance that contains the information needed to update your account.                                                                                 |
-| gas          | 문자열             | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                     |
-| signatures   | 배열              | (optional) An array of signatures.                                                                                                                                   |
-| 논스           | 문자열             | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
-| gasPrice     | 문자열             | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                        |
-| chainId      | 문자열             | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                  |
+| 명칭         | 타입              | 설명                                                                                                                                                                   |
+| ---------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from       | 문자열             | 발신자의 주소입니다.                                                                                                                                                          |
+| account    | [계정(Account)][] | An [Account][] instance that contains the information needed to update your account.                                                                                 |
+| gas        | 문자열             | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                     |
+| signatures | 배열              | (optional) An array of signatures.                                                                                                                                   |
+| 논스         | 문자열             | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
+| gasPrice   | 문자열             | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                        |
+| chainId    | 문자열             | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                  |
 
 For how to create an [Account][] instance for each `AccountKey`, refer to [Getting Started - Account Update](../../getting-started.md#account-update) or [caver.account.create](../caver.account.md#caver-account-create).
 
