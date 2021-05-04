@@ -9,8 +9,8 @@
 
 ### KLAY 거래소 목록 <a id="klay-exchange-list"></a>
 
-KLAY is listed on various exchanges.  Please find the list of KLAY exchanges through the following links.
+KLAY는 다양한 거래소에 등재되어 있습니다.   아래 링크에서 KLAY 거래소를 검색해보세요.
 
-- [KLAY exchanges listed at CoinGecko](https://www.coingecko.com/en/coins/klay#markets)
-- [KLAY exchanges listed at CoinMarketCap](https://coinmarketcap.com/currencies/klaytn/markets/)
+- [CoinGecko에 등재된 KLAY 거래소](https://www.coingecko.com/en/coins/klay#markets)
+- [CoinMarketCap에 등재된 KLAY 거래소](https://coinmarketcap.com/currencies/klaytn/markets/)
 
