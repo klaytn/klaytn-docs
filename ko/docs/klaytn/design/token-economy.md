@@ -2,21 +2,21 @@
 
 ## 개요 <a id="overview"></a>
 
-Klaytn의 토큰 이코노미는 생태계 운영, 성장 전략, 전략적 투자에 동력을 제공할 수 있도록 지속적인 펀딩이 가능한 구조로 설계되었습니다. 많은 퍼블릭 블록체인 프로젝트는 네트워크 유지의 기술적 측면에만 초점을 맞춰서 노드 운영자(채굴자 또는 블록 생산자)에게만 인센티브를 주는 토큰 이코노미를 가지고 있습니다. 그러나, 이러한 디자인은 네트워크의 성장에 기여하거나 장기 성장 가능성에 투자하는 다른 참여자들에게 인센티브를 제공하지 못합니다. 하지만 Klaytn의 토큰 이코노미는 폭넒은 영역의 참여자들의 더 다양한 형태로 기여하고 이에 대해 보상을 받을 수 있도록 설계되었습니다. 또한, 블록체인 노드 운영 외에도 외에도 미래 성장 계획이나 전략적으로 기획된 투자 프로젝트를 지원하기 위해 지속적으로 재원을 공급할 수 있는 구조를 가지고 있습니다. For detailed information on Klaytn token economy, please refer to [Token Economy & Governance Paper](https://www.klaytn.com/Klaytn_Token_Economics_and_Governance_Paper_V1.01.pdf).
+Klaytn의 토큰 이코노미는 플랫폼의 생태계 운영, 성장 계획, 전략적 투자를 지속가능하게 지원하기 위한 구조를 갖추도록 설계되었습니다. 많은 공개 블록체인 프로젝트들의 토큰 이코노미는 네트워크 유지라는 기술적 측면에만 초점을 맞추면서 노드 운영자(채굴자 또는 블록 생산자)에게만 유인을 제공합니다. 그러나 이는 네트워크의 확장에 기여하거나 장기 성장에 투자하는 다른 참여자들에게 유인을 제공하는 중요성을 간과하는 것입니다. Klaytn의 토큰 이코노미는 폭넒은 영역의 참여자들의 더 다양한 형태로 기여하고 이에 대해 보상을 받을 수 있도록 설계되었습니다. 또한, 블록체인 노드 운영 외에도 외에도 미래 성장 계획이나 전략적으로 기획된 투자 프로젝트를 지원하기 위해 지속적으로 재원을 공급할 수 있는 구조를 가지고 있습니다. Klaytn의 토큰 이코노미에 대해 더 자세한 정보를 알고 싶다면 [토큰 이코노미 & 거버넌스 페이퍼](https://www.klaytn.com/Klaytn_Token_Economics_and_Governance_Paper_V1.01.pdf)를 참고해주세요.
 
 ## 펀딩 구조(Funding Structure)<a id="funding-structure"></a>
 
-Klaytn의 펀딩 구조는 Klaytn 네트워크의 블록 생성과 함께 지속적으로 운영됩니다. 모든 신규 블록에서 새로 발행된 KLAY와 블록\(총칭 "블록 보상" \)에 사용된 트랜잭션 수수료 합계는 사전 결정된 비율에 따라 다음 세 개의 대상 계정에 집계 및 배포됩니다.
+Klaytn의 펀딩 구조는 Klaytn 네트워크의 블록 생성과 함께 지속적으로 운영됩니다. 모든 신규 블록에서 발행된 KLAY, 그리고 블록\(총칭 "블록 보상" \)에 사용된 트랜잭션 수수료의 합계는 사전 결정된 비율에 따라 다음 세 개의 계정에 집계 및 배포됩니다.
 
 * Klaytn 거버넌스 카운슬 보상: 34%
 * 기여증명 \(PoC\) : 54 %
 * Klaytn 개선 준비금 \(KIR\) : 12 %
 
-Klaytn 메인넷 출시 시점에는 블록당 9.6 KLAY가 발행됩니다. 따라서, 매년 약 3억개의 KLAY가 발행될 것으로 예상할 수 있습니다. 이는 처음에 발행된 100억 KLAY 대비 연간 3 %의 인플레이션이 일어나는 것과 같습니다(연간 인플레이션율은 Klaytn Governance Process를 통해 변경 될 수 있습니다). 트랜잭션 수수료는 OPcode당 부과되며, 트랜잭션 수수료 표에 따라 책정됩니다. 트랜잭션 수수료 표에 대해서 더 많은 정보가 필요하면 [트랜잭션 수수료](transaction-fees.md)를 참고해주세요.
+Klaytn 메인넷 출시 시점에는 블록당 9.6 KLAY가 발행됩니다. 따라서 매년 약 3억개의 KLAY가 발행될 것으로 예상할 수 있습니다. 최초 발행된 100억 KLAY 대비 연간 인플레이션율은 3 %인 것입니다(연간 인플레이션율은 Klaytn Governance Process를 통해 변경 될 수 있습니다). 트랜잭션 수수료는 OPcode당 부과되며, 트랜잭션 수수료 표에 따라 책정됩니다. 트랜잭션 수수료 표에 대해서 더 자세한 정보를 알고 싶으시다면  [트랜잭션 수수료](transaction-fees.md)를 참고해주세요.
 
 ## Klaytn 거버넌스 카운슬 보상 <a id="klaytn-governance-council-reward"></a>
 
-Klaytn 거버넌스 카운슬은 코어 셀 운영자\(CCOs\) 들의 그룹입니다. 카운슬 구성원은 코어 셀 \(CCs\)을 유지해야 할 책임이 있으며, 이 카운슬은 Klaytn 생태계에서 기본 인프라 제공을 담당하는 필수 기관이됩니다. 카운슬 멤버가 되려면 Klaytn Governance Process에서 자격 검토를 받아야하며 최소 5백만 KLAY를 스테이크해야합니다. Klaytn 거버넌스 카운슬 보상은 카운슬 멤버들이 Klaytn 생태계의 안정적인 기반이 될 수 있도록 인센티브를 제공하는 구조입니다.
+Klaytn 거버넌스 카운슬은 코어 셀 운영자\(CCOs\)들의 집단입니다. 카운슬 구성원은 코어 셀 \(CCs\)을 유지해야 할 책임이 있으며, 이 카운슬은 Klaytn 생태계에서 기본 인프라 제공을 담당하는 필수 기관이됩니다. 카운슬 멤버가 되려면 Klaytn Governance Process에서 자격 검토를 받아야하며, 5백만 KLAY라는 최소 스테이킹 조건을 충족해야 합니다. Klaytn 거버넌스 카운슬 보상은 카운슬 멤버들이 Klaytn 생태계의 안정적인 기반이 될 수 있도록 유인을 제공하는 구조입니다.
 
 ### Klaytn 거버넌스 카운슬 보상 메커니즘 <a id="klaytn-governance-council-reward-mechanism"></a>
 
@@ -105,14 +105,14 @@ Klaytn 생태계에 필요한 주요 카테고리는 다음과 같이 분류할 
 
 
 
-| 카테고리                            | 상세 카테고리                                                                                                                            |
-|:------------------------------- |:---------------------------------------------------------------------------------------------------------------------------------- |
-| **Development**                 | <ul><li>IDE & Editors</li><li>Oracle</li><li>Contract Library</li>                           |
-| **Infrastructure**              | <ul><li>Local Testnet</li><li>Decentralized File System</li><li>Multi-VM</li>                           |
-| **Test, Debugging, Deployment** | <ul><li>Testing & Deployment Tools</li><li>Security & Audit Tools</li>                                                     |
-| **Monitoring & Analytics**      | <ul><li>Monitoring</li><li>Analytics</li>                                                     |
-| **Education & Activity**        | <ul><li>Documentation</li><li>Educational Materials</li><li>Community Building</li><li>Open Source Activity(Including Bug Bounty)</li> |
-| **Research**                    | <ul><li>Security, Scalability, Cryptography, etc.</li></ul>                                                                                                         |
+| 카테고리             | 상세 카테고리                                                                                                                            |
+|:---------------- |:---------------------------------------------------------------------------------------------------------------------------------- |
+| **개발**           | <ul><li>IDE & 편집기</li><li>오라클</li><li>컨트랙트 라이브러리</li>                           |
+| **인프라**          | <ul><li>로컬 테스트넷</li><li>탈중앙화 파일 시스템</li><li>다중 VM</li>                           |
+| **테스트, 디버그, 배포** | <ul><li>테스트 및 배포를 위한 툴 </li><li>보안·감사 툴</li>                                                     |
+| **모니터링 & 애널리틱스** | <ul><li>모니터링</li><li>애널리틱스</li>                                                     |
+| **교육 & 활동**      | <ul><li>설명문서</li><li>교육 자료</li><li>커뮤니티 구축</li><li>오픈 소스 활동 (버그 바운티 등)</li> |
+| **연구**           | <ul><li>보안, 확장성, 암호학 등</li></ul>                                                                                                         |
 
 
 KIR 제안은 Klaytn 생태계의 모든 참여자가 작성할 수 있습니다. KIR 지출 제안은 KIR 심사 절차에 따라 처리됩니다.   제안이 통과되면, 프로젝트의 진행 수준에 맞추어, 사전에 설정된 KLAY 가 지급됩니다. 프로젝트에 따라 지원되는 KLAY 총량 및 지급시기 등이 달라집니다.
