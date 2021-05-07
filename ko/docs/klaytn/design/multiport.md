@@ -1,28 +1,28 @@
-# Multi-Channel <a id="multi-channel"></a>
+# 다중 채널<a id="multi-channel"></a>
 
-A Klaytn node can be run with **Multi-channel**.
+Klaytn 노드는 **다중 채널**로 운영될 수 있습니다.
 
-If a node is executed with multi-channel configuration, 2 ports are set up for communication. On the otherhand, if a node is executed with single channel configuration, 1 port is set up. If 2 multi-channel nodes are trying to connect, a connection is established using 2 ports. Otherwise, they will use 1 port for communication.
+노드가 다중 채널로 실행될 경우 커뮤니케이션을 위해 두 개의 포트가 설치됩니다. 단일 채널로 노드가 실행될 시, 하나의 포트만 설치됩니다. 두 다중 채널 노드가 연결될 때 두 개의 포트가 사용됩니다. 그 외의 경우에는 하나의 포트가 사용됩니다.
 
-A multi-channel node can be enabled through the flag `--multichannel`. If you use [`kend`](../../node/endpoint-node/operation-guide/starting-stopping-en.md), multi-channel is enabled by default due to the statement `MULTICHANNEL=1` in [`kend.conf`](../../node/endpoint-node/operation-guide/configuration.md). To disable multi-channel, please replace the statement with `MULTICHANNEL=0`. If you want to run a node with specific ports, flags `port` and `subport` can be used. If you want to specify ports values of a connecting peer, check out [KNI](./kni.md).
+다중 채널 노드는  `--multichannel` 플래그를 통해 활성화될 수 있습니다. [`kend`](../../node/endpoint-node/operation-guide/starting-stopping-en.md)를 사용할 경우 `MULTICHANNEL=1` in [`kend.conf`](../../node/endpoint-node/operation-guide/configuration.md) 선언문에 의해 다중 채널이 기본값으로 활성화됩니다.  다중 채널을 비활성화하기 위해서는 선언문을 `MULTICHANNEL=0`로 대체하면 됩니다. 특정 포트를 사용해 노드를 운영하고 싶다면 `port`와 `subport` 플래그가 사용될 수 있습니다. 연결되는 피어의 포트 값을 특정하고 싶다면 [KNI](./kni.md)를 확인해세요.
 
-## Architecture <a id="architecture"></a>
+## 구조<a id="architecture"></a>
 
 ![Multi-Channel Server](../images/multichannel.png)
 
-The picture above shows a connection between two multi-channel nodes. Two ports, mainport (A) and subport (B), transfer different messages.
-* **Mainport**(A) is used to transfer messages related to blocks and consensus protocols.
-  * Block messages include requests and responses of the hash, header, body and receipt of a block.
-  * Consensus messages include Request, Preprepare, Prepare, Commit and RoundChange. The meaning of the messages can be found in [PBFT](./consensus-mechanism.md#pbft-practical-byzantine-fault-tolerance).
-* **Subport**(B) is for transferring transaction messages.
+위의 그림은 두 다중 채널 노드 간의 연결을 보여줍니다. 메인포트(A)와 서브포트(B) 두 포트는 다른 메시지를 전달합니다.
+* **메인포트**(A)는 블록과 합의 프로토콜 관련 메시지 전달에 사용됩니다.
+  * 블록 메시지는 해시, 헤더, 바디, 그리고 블록 영수증에 대한 요청과 응답을 포함합니다.
+  * 합의 메시지는 Request, Preprepare, Prepare, Commit, 그리고 RoundChange 등을 포함합니다. 이 메시지들의 의미는 [PBFT](./consensus-mechanism.md#pbft-practical-byzantine-fault-tolerance)에서 찾을 수 있습니다.
+* **서브포트**(B)는 트랜잭션 메시지 전달을 위한 것입니다.
 
 ![Single Channel Server](../images/singlechannel.png)
 
-The picture shows a connection between two single channel nodes or between a single channel node and a multi-channel node. In this case, all messages related to blocks, transactions, and consensus protocols are transported via the same port.
+이 그림은 두 단일 채널 노드 간, 또는 단일 채널 노드와 다중 채널 노드 간의 연결을 나타냅니다. 이 경우, 블록, 트랜잭션, 합의 프로토콜에 관련된 모든 메시지들은 동일한 포트를 통해 전달됩니다.
 
-## Ports  <a id="multichannel-port"></a>
+## 포트<a id="multichannel-port"></a>
 
-To set port numbers in KNI, please refer to [the KNI scheme](./kni.md).
-* Single Channel : A single channel node uses one port (default is 32323).
-* Multi-Channel: A multi-channel node uses two ports. The ports can be specified in `port` and `subport`. In Klaytn, the default values of `port` and `subport` are 32323 and 32324, respectively.
+KNI에서 포트 번호를 설정하고 싶다면 [KNI 스킴](./kni.md)을 참고하세요.
+* 단일 채널 : 단일 채널 노드는 하나의 포트를 사용합니다 (기본값은 32323입니다).
+* 다중 채널: 다중 채널 노드는 두 개의 포트를 사용합니다. 이 포트들은 `port`와 `subport`로 특정될 수 있습니다. In Klaytn, the default values of `port` and `subport` are 32323 and 32324, respectively.
     * You might not set `subport` when connecting to multi-channel node. In this case, at first, a Klaytn node tries to connect using a single-channel. In handshake process, the actual peer's port numbers are revealed. If the peer is a multi-channel node, the ongoing connection will be canceled and a reconnection will be made with the updated ports.
