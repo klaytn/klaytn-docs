@@ -14,9 +14,9 @@ kni://<nodeID>@<hostname>:<port>?subport=<subport>&discport=<discport>
 * IPv4-mapped IPv6 (`[2001:db8:3c4d:15::abcd:ef12]`)
 * 도메인명 (`your.node.com`)
 
-**port**는 TCP를 통해 피어 노드들과 연결하기 위해 사용됩니다. Klaytn의 경우 `port`의 기본값은 `32323`이며, `subport`의 기본값은 `32324`입니다. `subport`의 기본값은 `kend.conf`에 `port + 1`라고 설정되어 있습니다. Depending on the number of TCP listening ports, Klaytn offers two [types of connections](./multiport.md).
+**port**는 TCP를 통해 피어 노드들과 연결하기 위해 사용됩니다. Klaytn의 경우 `port`의 기본값은 `32323`이며, `subport`의 기본값은 `32324`입니다. `subport`의 기본값은 `kend.conf`에 `port + 1`라고 설정되어 있습니다. TCP 수신 대기(listening) 포트의 수에 따라 Klaytn은 두 종류의 [연결](./multiport.md)을 제공합니다.
 
-**discport** is used for checking if the known neighbors are reachable klaytn nodes and fetching their neighbors' addresses for new connections. 이것은 UDP port라는 점을 유의하십시오. 기본값으로 UDP port, 또는 `discport`는 TCP port와 같은 port를 사용합니다. 노드가 `discport`에 다른 port를 사용한다면, `discport` 쿼리 파라미터를 통해 지정될 수 있습니다.
+**discport**는 알려진 이웃들이 인접한 Klaytn 노드인지 확인하고, 새로운 연결을 위해 이웃 주소를 가져올 때 쓰입니다. 이것은 UDP port라는 점을 유의하십시오. 기본값으로 UDP port, 또는 `discport`는 TCP port와 같은 port를 사용합니다. 노드가 `discport`에 다른 port를 사용한다면, `discport` 쿼리 파라미터를 통해 지정될 수 있습니다.
 
 이하의 두 URL은 IP 주소가 `10.0.0.1`, TCP listening port가 `32323`와 `32324`인 KNI 예시입니다. `discport`가 생략될 시 UDP port `32323`로 지정되며, 이는 `port` 값과 동일합니다.
 ```
