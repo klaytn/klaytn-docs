@@ -24,5 +24,5 @@ Klaytn 노드는 **다중 채널**로 운영될 수 있습니다.
 
 KNI에서 포트 번호를 설정하고 싶다면 [KNI 스킴](./kni.md)을 참고하세요.
 * 단일 채널 : 단일 채널 노드는 하나의 포트를 사용합니다 (기본값은 32323입니다).
-* 다중 채널: 다중 채널 노드는 두 개의 포트를 사용합니다. 이 포트들은 `port`와 `subport`로 특정될 수 있습니다. In Klaytn, the default values of `port` and `subport` are 32323 and 32324, respectively.
-    * You might not set `subport` when connecting to multi-channel node. In this case, at first, a Klaytn node tries to connect using a single-channel. In handshake process, the actual peer's port numbers are revealed. If the peer is a multi-channel node, the ongoing connection will be canceled and a reconnection will be made with the updated ports.
+* 다중 채널: 다중 채널 노드는 두 개의 포트를 사용합니다. 이 포트들은 `port`와 `subport`로 특정될 수 있습니다. Klaytn에서는 `port`와 `subport`의 기본값이 각각 32323과 32324입니다.
+    * 다중 채널 노드에 연결할 때는 `subport`를 설정하지 않아도 됩니다. 이 경우 처음에 Klaytn 노드는 단일 채널을 사용해 연결을 하려고 할 것입니다. 핸드셰이크 과정에서 실제 피어의 포트 번호가 드러납니다. 피어가 다중 채널 노드라면, 지속 중인 연결은 취소되고 업데이트된 포트로 재연결될 것입니다.
