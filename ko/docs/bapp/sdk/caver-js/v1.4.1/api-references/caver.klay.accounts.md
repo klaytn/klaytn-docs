@@ -2221,7 +2221,7 @@ caver.klay.accounts.wallet.add(account [, targetAddress])
 
 | 명칭            | 타입                   | 설명                                                                                  |
 | ------------- | -------------------- | ----------------------------------------------------------------------------------- |
-| 계정 (Account)  | String &#124; Object | A private key or account object created with [caver.klay.accounts.create](#create). |
+| account       | String &#124; Object | A private key or account object created with [caver.klay.accounts.create](#create). |
 | targetAddress | String               | A target address which will be used with a given private key.                       |
 
 **참고**: caver-js는 두 가지 유형의 개인키 형식을 지원합니다. 하나는 32바이트 문자열 타입의 원시 개인키 형식이고 다른 하나는 [KlaytnWalletKey](../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format)입니다.
@@ -2349,9 +2349,9 @@ caver.klay.accounts.wallet.remove(account)
 
 **매개변수**
 
-| 명칭           | 타입                   | 설명                                              |
-| ------------ | -------------------- | ----------------------------------------------- |
-| 계정 (Account) | String &#124; Number | The account address or the index in the wallet. |
+| 명칭      | 타입                   | 설명                                              |
+| ------- | -------------------- | ----------------------------------------------- |
+| account | String &#124; Number | The account address or the index in the wallet. |
 
 
 **리턴값**
