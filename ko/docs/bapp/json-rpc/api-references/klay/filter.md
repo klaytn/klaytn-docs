@@ -4,9 +4,9 @@
 
 **매개변수**
 
-| 명칭       | 형식  | 설명                                    |
-| -------- | --- | ------------------------------------- |
-| QUANTITY | 문자열 | The filter id (*e.g.*, "0x16" // 22). |
+| 명칭       | 형식  | 설명                               |
+| -------- | --- | -------------------------------- |
+| QUANTITY | 문자열 | 필터 ID(*예를 들어*, "0x16" // 22)입니다. |
 
 **리턴값**
 
@@ -329,27 +329,29 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_subscribe <a id="klay_subscribe"></a>
 
-Creates a new subscription to specific events by using either RPC Pub/Sub over WebSockets or filters over HTTP. It allows clients to wait for events instead of polling for them.
+Websockets을 통한 RPC나 Pub/Sub 또는 HTTP를 통한 필터를 이용하여 특정 이벤트에 대한 새 구독을 생성합니다. 클라이언트가 이벤트에 대해 폴링하는 대신 이벤트 발생을 기다리게 해줍니다.
 
-The node will return a subscription id for each subscription created. For each event that matches the subscription, a notification with relevant data is sent together with the subscription id. If a connection is closed, all subscriptions created over the connection are removed.
+매 생성된 구독에 대해 노드는 구독 ID를 반환할 것입니다. 구독에 일치하는 모든 이벤트에 대해서는 관계된 데이터와 구독 ID를 포함한 알림이 전송됩니다. 연결이 닫힐 경우, 이 연결을 통해 생성된 모든 구독들이 제거됩니다.
 
 **매개변수**
 
-`Object` - A notification type: `"newHeads"` or `"logs"`.
+`Object` -알림 타입: `"newHeads"` or `"logs"`.
 
 
-`"newHeads"` notifies you of each block added to the blockchain. `"logs"` notifies you of logs included in new blocks. This type requires a second parameter that specifies filter options. For more details, go to [klay_newFilter > parameters](https://docs.klaytn.com/bapp/json-rpc/api-references/klay/filter#klay_newfilter).
+`"newHeads"`는 블록체인에 블록이 매번 추가될 때 알림을 보냅니다. `"logs"`는 새 블록에 포함된 로그에 대해 알림을 보냅니다. 이러한 타입은 필터 옵션을 구체화하는 두 번째 매개변수를 필요로 합니다. 더 자세한 내용은를 참고하세요.</p> 
 
 **리턴값**
 
-| 타입       | 설명                                                                                                                                                           |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| QUANTITY | A subscription id when a subscription is created. For each event that matches the subscription, a notification with relevant data will be delivered as well. |
+| 타입       | 설명                                                                        |
+| -------- | ------------------------------------------------------------------------- |
+| QUANTITY | 구독이 생성될 때의 구독 ID입니다. 구독에 일치하는 모든 이벤트에 대해서는 관계된 데이터와 구독 ID를 포함한 알림이 전달됩니다. |
 
 
 **예시**
 
-This API is appropriate for use with a WebSocket tool, [`wscat`](https://www.npmjs.com/package/wscat).
+이 API는 WebSocket 툴인 [`wscat`](https://www.npmjs.com/package/wscat)과 함께 쓰기에 적합합니다.
+
+
 
 ```shell
 // Request
@@ -360,6 +362,9 @@ wscat -c http://localhost:8552
 < {"jsonrpc":"2.0","id":1,"result":"0x48bb6cb35d6ccab6eb2b4799f794c312"}
 < {"jsonrpc":"2.0","method":"klay_subscription","params":{"subscription":"0x48bb6cb35d6ccab6eb2b4799f794c312","result":{"parentHash":"0xc39755b6ac01d1e8c58b1088e416204f7af5b6b66bfb4f474523292acbaa7d57","reward":"0x2b2a7a1d29a203f60e0a964fc64231265a49cd97","stateRoot":"0x12aa1d3ab0440d844c28fbc6f89d26082f39a8435b512fa487ff55c2056aceb3","number":"0x303bea4”, ... ... }}}
 ```
+
+
+
 
 ```shell
 // Request
@@ -372,9 +377,12 @@ wscat -c http://localhost:8552
 ```
 
 
+
+
+
 ## klay_uninstallFilter <a id="klay_uninstallfilter"></a>
 
-Uninstalls a filter with given id. Should always be called when watch is no longer needed. Additionally, filters timeout when they are not requested with [klay_getFilterChanges](#klay_getfilterchanges) for a period of time.
+입력으로 받은 ID를 가진 필터를 제거합니다. 더는 감시가 필요없을 때 항상 호출해야 합니다. 일정 주기 동안 [klay_getFilterChanges](#klay_getfilterchanges)를 통해 요청되지 않으면 필터는 타임아웃 됩니다.
 
 **매개변수**
 
@@ -382,13 +390,17 @@ Uninstalls a filter with given id. Should always be called when watch is no long
 | -- | -------- | --------- |
 | 필터 | QUANTITY | 필터 ID입니다. |
 
+
 **리턴값**
 
-| 타입      | 설명                                                                    |
-| ------- | --------------------------------------------------------------------- |
-| Boolean | `true` if the filter was successfully uninstalled, otherwise `false`. |
+| 타입      | 설명                                                   |
+| ------- | ---------------------------------------------------- |
+| Boolean | 필터가 성공적으로 제거되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+
 
 **예시**
+
+
 
 ```shell
 // Request
@@ -403,26 +415,32 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
+
+
+
 ## klay_unsubscribe <a id="klay_unsubscribe"></a>
 
-Cancels the subscription with a specific subscription id by using either RPC Pub/Sub over WebSockets or filters over HTTP. Only the connection that created a subscription can unsubscribe from it.
+Websockets을 통한 RPC나 Pub/Sub 또는 HTTP를 통한 필터를 이용하여 특정 구독 ID에 대한 구독을 취소합니다. 해당 구독을 생성한 연결만이 구독을 취소할 수 있습니다.
 
 **매개변수**
 
-| 타입       | 설명                 |
-| -------- | ------------------ |
-| QUANTITY | A subscription id. |
+| 타입       | 설명        |
+| -------- | --------- |
+| QUANTITY | 구독 ID입니다. |
+
 
 **리턴값**
 
-| 타입      | 설명                                                                       |
-| ------- | ------------------------------------------------------------------------ |
-| Boolean | `true` if the subscription was successfully canceled, otherwise `false`. |
+| 타입      | 설명                                                   |
+| ------- | ---------------------------------------------------- |
+| Boolean | 구독이 성공적으로 취소되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 
 **예시**
 
-This API is appropriate for use with a WebSocket tool, [`wscat`](https://www.npmjs.com/package/wscat).
+이 API는 WebSocket 툴인 [`wscat`](https://www.npmjs.com/package/wscat)과 함께 쓰기에 적합합니다.
+
+
 
 ```shell
 // Request
