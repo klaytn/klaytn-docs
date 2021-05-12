@@ -325,7 +325,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startContractWarmUp <a id="debug_startcontractwarmup"></a>
 
-`startContractWarmUp` 은 주어진 컨트랙트 주소의 최신 스토리지 트리를 반복하면서 트리 캐시를 채웁니다. 만약 트리 캐시가 90% 정도 차면 반복은 자동으로 중단됩니다. 이 메서드는 채우기를 시작하는 데에 실패하거나 주어진 주소가 컨트랙트 주소가 아닐 경우 에러를 반환하고, 시작하는 데에 성공했으면 `null`을 반환합니다.
+`startContractWarmUp` 은 주어진 컨트랙트 주소의 최신 스토리지 트리를 순회하면서 트리 캐시를 채웁니다. 만약 트리 캐시가 90% 정도 차면 반복은 자동으로 중단됩니다. 이 메서드는 채우기를 시작하는 데에 실패하거나 주어진 주소가 컨트랙트 주소가 아닐 경우 에러를 반환하고, 시작하는 데에 성공했으면 `null`을 반환합니다.
 
 | 클라이언트 | 메서드 호출                                                         |
 |:-----:| -------------------------------------------------------------- |
@@ -394,7 +394,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startCollectingTrieStats <a id="debug_startCollectingTrieStats"></a>
 
-The `startCollectingTrieStats` iterates the latest state or storage trie to collect trie statistics. It collects storage trie statistics of the contract in the given address. If an empty address(="0x00...00") is given, it collects statistics of the whole state trie. Statistics will be logged every minute before end, containing overall and depth-by-depth information. The method returns an error if it fails in starting a task, or `null` if it successfully has started it.
+`startCollectingTrieStats`는 최신 상태나 스토리지 트리를 순회하면서 트리 통계를 수집합니다. 주어진 주소의 컨트랙트의 트리 통계 스토리지를 수집합니다. 빈 주소(="0x00...00")가 입력될 시, 전체 상태 트리의 통계를 수집합니다. Statistics will be logged every minute before end, containing overall and depth-by-depth information. 이 메서드는 작업을 시작하는 데 실패하면 에러를 반환하며, 성공적으로 시작했을 경우 `null` 를 반환합니다.
 
 | 클라이언트 | 메서드 호출                                                              |
 |:-----:| ------------------------------------------------------------------- |
@@ -409,9 +409,9 @@ The `startCollectingTrieStats` iterates the latest state or storage trie to coll
 
 **리턴값**
 
-| 타입 | 설명                                                                        |
-| -- | ------------------------------------------------------------------------- |
-| 에러 | `null` if collecting trie statistics task is started, or an error if not. |
+| 타입 | 설명                                                   |
+| -- | ---------------------------------------------------- |
+| 에러 | 트리 통계 수집이 시작되었을 시 `null`를 반환하며, 그렇지 않을 경우 에러를 반환합니다. |
 
 **예시**
 
