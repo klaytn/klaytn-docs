@@ -1026,7 +1026,7 @@ myContract.methods.methodName([param1 [, param2 [, ...]]]).call(options [, callb
 myContract.methods['methodName']([param1 [, param2 [, ...]]]).call(options [, callback])
 ```
 
-Will call a constant method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction.  Note that calling cannot alter the smart contract state. You can use the [myContract.call](#mycontract-call) provided as a short-cut function.
+Will call a constant method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction.  Note that calling cannot alter the smart contract state. It is recommended to use [myContract.call](#mycontract-call) provided as a short-cut function.
 
 **매개변수**
 
@@ -1100,9 +1100,9 @@ myContract.methods.methodName([param1 [, param2 [, ...]]]).send(options [, callb
 myContract.methods['methodName']([param1 [, param2 [, ...]]]).send(options [, callback])
 ```
 
-Will send a transaction to deploy the smart contract or execute the function of the smart contract. This can alter the smart contract state. You can use the [myContract.send](#mycontract-send) provided as a short-cut function.
+Will send a transaction to deploy the smart contract or execute the function of the smart contract. This can alter the smart contract state. It is recommended to use [myContract.send](#mycontract-send) provided as a short-cut function.
 
-If a smart contract is deployed, 'constructor' can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
+If a smart contract is deployed, 'constructor' can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`, but it is recommended to use the [myContract.deploy](#mycontract-deploy2) function.
 
 The transaction type used for this function depends on the `options` or the value defined in `myContract.options`. If you want to use a fee-delegated transaction through `methods.methodName.send`, `feeDelegation` and `feePayer` should be set properly.
 
@@ -1202,6 +1202,10 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
     "MyMultipleEvent":[{...}, {...}] // If there are multiples of the same events, they will be in an array.
   }
 }
+
+// Deploy the contract
+> myContract.methods.constructor('0x{byte code}', 123).send({ from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe', gas: 1000000 })
+> myContract.methods['constructor']('0x{byte code}', 123).send({ from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe', gas: 1000000 })
 ```
 
 ## methods.methodName.sign <a id="methods-methodname-sign"></a>
@@ -1211,7 +1215,7 @@ myContract.methods.methodName([param1 [, param2 [, ...]]]).sign(options)
 myContract.methods['methodName']([param1 [, param2 [, ...]]]).sign(options)
 ```
 
-Signs a smart contract transaction as a sender to deploy the smart contract or execute the function of the smart contract. You can use the [myContract.sign](#mycontract-sign) provided as a short-cut function.
+Signs a smart contract transaction as a sender to deploy the smart contract or execute the function of the smart contract. It is recommended to use [myContract.sign](#mycontract-sign) provided as a short-cut function.
 
 If a smart contract is deployed, 'constructor' can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
 
@@ -1325,7 +1329,7 @@ myContract.methods.methodName([param1 [, param2 [, ...]]]).signAsFeePayer(option
 myContract.methods['methodName']([param1 [, param2 [, ...]]]).signAsFeePayer(options)
 ```
 
-Signs a smart contract transaction as a fee payer to deploy the smart contract or execute the function of the smart contract. You can use the [myContract.signAsFeePayer](#mycontract-signasfeepayer) provided as a short-cut function.
+Signs a smart contract transaction as a fee payer to deploy the smart contract or execute the function of the smart contract. It is recommended to use [myContract.signAsFeePayer](#mycontract-signasfeepayer) provided as a short-cut function.
 
 If a smart contract is deployed, 'constructor' can be entered in the methodName, such as `myContract.methods.constructor` or `myContract.methods['constructor']`.
 
