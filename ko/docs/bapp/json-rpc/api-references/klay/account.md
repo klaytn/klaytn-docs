@@ -4,14 +4,14 @@
 
 **매개변수**
 
-| 명칭           | 형식                  | 설명                                                                                                                             |
+| 이름           | 타입                  | 설명                                                                                                                             |
 | ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| Account      | 20바이트 크기 DATA       | 주소                                                                                                                             |
-| Block Number | QUANTITY &#124; TAG | 정수 형태의 블록 번호나 [default block parameter](./block.md#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다. |
+| account      | 20바이트 크기 DATA       | 주소                                                                                                                             |
+| block number | QUANTITY &#124; TAG | 정수 형태의 블록 번호나 [default block parameter](./block.md#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다. |
 
 **리턴값**
 
-| 형식      | 설명                           |
+| 타입      | 설명                           |
 | ------- | ---------------------------- |
 | Boolean | 입력으로 받은 주소가 존재하는지 여부를 반환합니다. |
 
@@ -149,7 +149,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## klay_decodeAccountKey <a id="klay_decodeaccountkey"></a>
 
-RLP 인코딩된 계정 키를 디코딩 합니다.
+RLP 인코딩된 계정 키를 디코딩합니다.
 
 **매개변수**
 
