@@ -407,7 +407,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 
 ## 자바스크립트 기반 추적 <a id="javascript-based-tracing"></a>
-`tracer` 옵션의 두 번째 매개변수를 지정하여 자바스크립트 기반 추적을 활성화합니다. 이 모드에서 `tracer`는(최소한) `step`과 `result` 등 두 메서드가 있는 객체라고 생각되는 자바스크립트 표현 식으로 해석(interpret)됩니다.
+`tracer` 옵션의 두 번째 인자(argument)를 지정하여 자바스크립트 기반 추적을 활성화합니다. 이 모드에서 `tracer`는 (최소한) `step`과 `result` 두 메서드가 있는 객체라고 생각되는 자바스크립트 표현으로 해석(interpret) 됩니다.
 
 `step`은 `log`와 `db`를 두 매개변수로 받는 함수이고, KLVM의 트랜잭션을 추적하는 스텝마다 또는 오류가 발생할 때 호출됩니다.
 
@@ -479,9 +479,9 @@ function(log) {
 
 언제라도 `step` 함수가 예외를 발생시키거나 잘못된 연산을 수행하면, 더는 VM 스텝에서 호출되지 않고 호출자에게는 에러가 반환됩니다.
 
-몇몇 값은 자바스크립트 number나 JS bigints가 아니라 Go언어의 `big.Int` 객체입니다. 따라서 그러한 값들은 godocs에서 설명된 것과 같이 동일한 인터페이스를 갖습니다. 기본적인 JSON으로의 직렬화는 자바스크립트 number로 진행되므로 큰 숫자를 정확하게 직렬화하려면 `.String()`을 호출해야 합니다. 편의를 위해 `big.NewInt(x)`가 제공되어 uint를 Go언어의 `big.Int`로 변환합니다.
+몇몇 값은 자바스크립트 numbers나 JS bigints가 아니라 Go언어의 `big.Int` 객체입니다. 따라서 그러한 값들은 godocs에서 설명된 것과 같이 동일한 인터페이스를 갖습니다. 기본적인 JSON으로의 직렬화는 자바스크립트 number로 진행되므로 큰 숫자를 정확하게 직렬화하려면 `.String()`을 호출해야 합니다. 편의를 위해 `big.NewInt(x)`가 제공되어 uint를 Go언어의 `big.Int`로 변환합니다.
 
-사용 예제는 아래와 같으며, 각 CALL Opcode에서만 스택의 가장 위에 있는 요소를 반환합니다.
+아래 예제와 같이 각 CALL Opcode에서만 스택의 가장 위에 있는 요소를 반환합니다.
 
 ```javascript
 debug.traceTransaction(txhash, {tracer: '{data: [], step: function(log) { if(log.op.toString() == "CALL") this.data.push(log.stack.peek(0)); }, result: function() { return this.data; }}'});
