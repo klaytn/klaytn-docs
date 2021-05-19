@@ -72,7 +72,7 @@ export default caver
 
 BlockNumber 컴포넌트는 1초(1000ms)마다 현재 블록 번호를 가져옵니다.
 
-간단히 `web3` 라이브러리를 `caver-js`로 대체하여 이더리움 블록 번호 대신 Klaytn의 블록 번호로 실시간으로 동기화할 수 있습니다.
+간단히 `web3` 라이브러리를 `caver-js`로 대체하여 이더리움 블록 번호 대신 Klaytn의 블록 번호를 실시간 동기화할 수 있습니다.
 > 이더리움: [`web3.eth.getBlockNumber()`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth.html#getblocknumber)  
 > Klaytn: [`caver.klay.getBlockNumber()`](../sdk/caver-js/v1.4.1/api-references/caver.klay/block.md#getblocknumber)
 
@@ -102,7 +102,7 @@ export default BlockNumber
 
 스마트 컨트랙트와 상호작용하기 위해서는 배포된 컨트랙트의 인스턴스를 생성해야 합니다. 생성한 인스턴스를 통해 컨트랙트의 데이터를 읽어오거나 컨트랙트에 데이터를 쓸 수 있습니다.
 
-이제 `CountBApp`을 이더리움에서 Klaytn으로 이전하는 방법을 차례차례 알아봐요!
+이제 `CountBApp`을 이더리움에서 Klaytn으로 이전하는 방법을 단계별로 살펴보겠습니다.
 
 - 5-1. Klaytn에 `Count` 컨트랙트 배포
 - 5-2. 컨트랙트 인스턴스 생성
@@ -194,7 +194,7 @@ Count 컨트랙트 인스턴스를 생성하는 데에 사용된 `ABI` \(Applica
 - 데이터 쓰기(send)  
   `CountContract.methods.plus().send({ ... })` `CountContract.methods.minus().send({ ... })`
 
-이전 단계에서처럼 컨트랙트 인스턴스를 생성하면, 컨트랙트 메서드를 사용하여 코드를 수정할 필요가 없습니다. BApp 이전이 완료되었네요!
+이전 단계에서처럼 컨트랙트 인스턴스를 생성하면, 컨트랙트 메서드를 사용하여 코드를 수정할 필요가 없습니다. BApp 이전이 완료되었습니다!
 
 #### 전체 코드: `Count` 컴포넌트 <a id="full-code-count-component"></a>
 
