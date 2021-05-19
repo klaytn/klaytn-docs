@@ -425,30 +425,30 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 ```
 ## governance_getStakingInfo <a id="governance_getstakinginfo"></a>
 
-The `getStakingInfo` returns staking information at a specific block. The result includes the following information.
-- `BlockNum`: The block number at which the staking information is given.
-- `CouncilNodeAddrs`: The addresses of the consensus node.
-- `CouncilRewardAddrs`: The addresses to which the block reward of the associated nodes is sent.
+`getStakingInfo`는 특정 블록의 스테이킹 정보를 반환합니다. 결과값에는 다음과 같은 정보들이 포함되어 있습니다.
+- `BlockNum`: 스테이킹 정보가 조회되는 블록 번호
+- `CouncilNodeAddrs`: 컨센서스 노드 주소
+- `CouncilRewardAddrs`: 관련 노드들의 블록 보상이 제공되는 주소
 - `CouncilStakingAddrs`: The contract addresses in which the associated nodes deploy for staking.
-- `CouncilStakingAmounts`: The amount of KLAY which the associated nodes stake.
-- `Gini`: Gini coefficient.
-- `KIRAddr`: The contract address of KIR.
-- `PoCAddr`: The contract address of PoC.
-- `UseGini`: The boolean value whether or not the Gini coefficient is used.
+- `CouncilStakingAmounts`: 관련 노드들이 스테이킹하는 KLAY 액수
+- `Gini`: 지니 계수
+- `KIRAddr`: KIR 컨트랙트 주소
+- `PoCAddr`: PoC의 컨트랙트 주소
+- `UseGini`: 지니 계수 사용 여부를 나타내는 boolean 값
 
 Note that the order of all addresses and the staking amounts are matched.
 
 **매개변수**
 
-| 타입                  | 설명                                                                                                                                                                  |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
+| 타입                  | 설명                                                                                                                                           |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | [default block parameter](./klay/block.md#the-default-block-parameter)와 같이 블록 번호의 정수, 또는 `"earliest"`, `"latest"`, `"pending"` 중 하나의 문자열입니다. |
 
 **리턴값**
 
-| 타입   | 설명                  |
-| ---- | ------------------- |
-| JSON | Staking information |
+| 타입   | 설명          |
+| ---- | ----------- |
+| JSON | 스테이킹 정보입니다. |
 
 **예시**
 
