@@ -44,13 +44,13 @@ const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signT
 
 에러가 발생하지 않았다면  `senderRawTransaction` 실행 결과 `senderPrivateKey`를 통해 서명된 트랜잭션을 확인하실 수 있을 것입니다.
 
-이제 트랜잭션 수수료 납부자에게 `senderRawTransaction`를 전송해야 합니다. 이것을 전송하는 방법에는 여러 가지가 있어요. 여기서는 `senderRawTransaction`를 트랜잭션 수수료 납부자에게 전송하는 예제로 간단한 서버-클라이언트 코드를 드릴게요.
+이제 트랜잭션 수수료 납부자에게 `senderRawTransaction`를 전송해야 합니다. 전송하는 방법은 여러 가지가 있습니다. 여기서는 `senderRawTransaction`를 트랜잭션 수수료 납부자에게 전송하는 예제로 간단한 서버-클라이언트 코드를 보여 드리겠습니다.
 
 ### 2.2 트랜잭션 수수료 납부자에 의한 서명 <a id="2-2-transaction-signing-by-the-fee-payer"></a>
 
-`fee payer`\(트랜잭션 수수료 납부자\)가 `senderRawTransaction`를 받으면, `fee payer`\(트랜잭션 수수료 납부자\)는 본인의 개인키로 한번 더 `senderRawTransaction`를 서명한 후 Klaytn에 전송합니다. 다음의 코드 스니펫은 위 과정을 구현한 것이에요. `klay.sendTransaction` 메서드는 트랜잭션을 전송하기 전에 지정한 계정의 개인키로 트랜잭션을 서명합니다. 아래 코드를 실행하기 전에 `"FEEPAYER_ADDRESS"`와 `"PRIVATE_KEY"`는 각각 트랜잭션 수수료 납부자의 주소와 납부자의 개인키로 바꿔주세요.
+`fee payer`\(트랜잭션 수수료 납부자\)가 `senderRawTransaction`를 받으면, `fee payer`\(트랜잭션 수수료 납부자\)는 본인의 개인키로 한번 더 `senderRawTransaction`를 서명한 후 Klaytn에 전송합니다. 다음 코드는 위 과정을 구현한 것입니다. `klay.sendTransaction` 메서드는 트랜잭션을 전송하기 전에 지정한 계정의 개인키로 트랜잭션을 서명합니다. 아래 코드를 실행하기 전에 `"FEEPAYER_ADDRESS"`와 `"PRIVATE_KEY"`는 각각 트랜잭션 수수료 납부자의 주소와 납부자의 개인키로 바꿔주세요.
 
-이때 `fee payer`\(트랜잭션 수수료 납부자\)가 `sender`\(트랜잭션 발신자\)를 대신하여 트랜잭션을 Klaytn에 제출하는 경우, `senderRawTransaction`의 타입은 반드시 `FEE_DELEATED`이어야 합니다. 아래 예제에서는 트랜잭션 발신자가 생성한 [senderRawTransaction](../sdk/caver-js/v1.4.1/api-references/caver.klay/sendtx_value_transfer.md#sendtransaction-fee_delegated_value_transfer)가 `TxTypeFeeDelegatedValueTransfer` 타입이었기 때문에 [sendTransaction\(FEE\_DELEGATED\_VALUE\_TRANSFER\)](../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer) 메서드가 호출되었어요.
+이때 `fee payer`\(트랜잭션 수수료 납부자\)가 `sender`\(트랜잭션 발신자\)를 대신하여 트랜잭션을 Klaytn에 제출하는 경우, `senderRawTransaction`의 타입은 반드시 `FEE_DELEATED`이어야 합니다. 아래 예제에서는 트랜잭션 발신자가 생성한 [senderRawTransaction](../sdk/caver-js/v1.4.1/api-references/caver.klay/sendtx_value_transfer.md#sendtransaction-fee_delegated_value_transfer)가 `TxTypeFeeDelegatedValueTransfer` 타입이었기 때문에 [sendTransaction\(FEE\_DELEGATED\_VALUE\_TRANSFER\)](../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer) 메서드가 호출되었습니다.
 
 ```text
 const feePayerAddress = "FEEPAYER_ADDRESS";
@@ -136,7 +136,7 @@ sendFeeDelegateTx();
 
 이제 트랜잭션 수수료 납부자의 서버인 `feepayer_server.js`를 작성해봅시다. 이 서버는 수신한 `senderRawTransaction`를 `feePayerPrivateKey`로 서명한 후 Baobab 테스트넷에 전송합니다.
 
-아래 예제에서 `"FEEPAYER_ADDRESS"`와 `"FEEPAYER_PRIVATEKEY"`는 각각 실제 트랜잭션 수수료 납부자의 주소와 개인키로 바꿔주세요.
+아래 예제의 `"FEEPAYER_ADDRESS"`와 `"FEEPAYER_PRIVATEKEY"`는 각각 실제 트랜잭션 수수료 납부자의 주소와 개인키로 바꿔주세요.
 
 ```javascript
 const Caver = require('caver-js');
@@ -279,7 +279,7 @@ receipt { blockHash:
 
 위 트랜잭션은 [Klaytnscope](https://baobab.scope.klaytn.com)에서 확인하실 수도 있어요.
 
-위의 예제는 이 트랜잭션의 타입이`TxTypeFeeDelegatedValueTransfer`이고 `Fee payer` \(트랜잭션 수수료 납부자\)의 주소가 `0x2645ba5be42ffee907ca8e9d88f6ee6dad8c1410`, 즉 `feepayerAddress`에 입력된 주소임을 나타냅니다. 이때 `From`은 `Fee payer`와는 다른 주소로 위 예제에서의 <0>senderAddress</0>임을 확인하실 수 있습니다.
+위의 예제는 이 트랜잭션의 타입이`TxTypeFeeDelegatedValueTransfer`이고 `Fee payer` \(트랜잭션 수수료 납부자\)의 주소가 `0x2645ba5be42ffee907ca8e9d88f6ee6dad8c1410`, 즉 `feepayerAddress`에 입력된 주소임을 나타냅니다. 이때 `From`은 `Fee payer`와는 다른 주소로, 위 예제에서의 <0>senderAddress</0>임을 확인할 수 있습니다.
 
 ![트랜잭션 수수료가 위임된 트랜잭션](./img/fee-delegation-example.png)
 
