@@ -412,7 +412,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 | 타입                  | 설명                                                                                                                       |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| 20바이트 크기 DATA       | 주소                                                                                                                       |
+| 20바이트 크기 DATA       | 주소입니다.                                                                                                                   |
 | QUANTITY &#124; TAG | 정수 형태의 블록 번호나 [default block parameter](./block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열입니다. |
 
 **리턴값**
