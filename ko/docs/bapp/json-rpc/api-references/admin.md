@@ -109,7 +109,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_peers <a id="admin_peers"></a>
 
-The `peers` administrative property can be queried for all the information known about the connected remote nodes at the networking granularity. [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P 오버레이 프로토콜에 참여하는 노드 자체의 일반적인 정보 및 개별 실행 중인 애플리케이션 프로토콜에 의해 추가된 세부적인 정보 또한 확인할 수 있습니다.
+`peers` 관리 속성은 연결된 원격 노드에 대해 알려진 모든 정보를 네트워크 수준에서 조회할 수 있습니다. [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P 오버레이 프로토콜에 참여하는 노드 자체의 일반적인 정보 및 개별 실행 중인 애플리케이션 프로토콜에 의해 추가된 세부적인 정보 또한 확인할 수 있습니다.
 
 | 클라이언트 | 메서드 호출                      |
 |:-----:| --------------------------- |
