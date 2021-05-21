@@ -429,14 +429,14 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 - `BlockNum`: 스테이킹 정보가 조회되는 블록 번호
 - `CouncilNodeAddrs`: 컨센서스 노드 주소
 - `CouncilRewardAddrs`: 관련 노드들의 블록 보상이 제공되는 주소
-- `CouncilStakingAddrs`: The contract addresses in which the associated nodes deploy for staking.
+- `CouncilStakingAddrs`: 관련된 노드들이 스테이킹을 위해 배포하는 컨트랙트 주소
 - `CouncilStakingAmounts`: 관련 노드들이 스테이킹하는 KLAY 액수
 - `Gini`: 지니 계수
 - `KIRAddr`: KIR 컨트랙트 주소
 - `PoCAddr`: PoC의 컨트랙트 주소
 - `UseGini`: 지니 계수 사용 여부를 나타내는 boolean 값
 
-Note that the order of all addresses and the staking amounts are matched.
+각 주소와 스테이킹양의 순서는 대응됩니다.
 
 **매개변수**
 
