@@ -15,4 +15,4 @@
 
 * caver-java [깃허브 레포지토리](https://github.com/klaytn/caver-java)
 * caver-java [Javadoc](https://javadoc.io/doc/com.klaytn.caver/core)
-* caver-java on [Maven central](https://search.maven.org/search?q=g:com.klaytn.caver)
+* caver-java [Maven central](https://search.maven.org/search?q=g:com.klaytn.caver)
