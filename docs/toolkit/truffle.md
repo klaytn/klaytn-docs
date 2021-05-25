@@ -1,10 +1,10 @@
-# Truffle
+# Truffle <a id="truffle"></a>
 
-## Compatibility with Truffle
+## Compatibility with Truffle <a id="compatibility-with-truffle"></a>
 
 In Klaytn, a smart contract written in Solidity can be compiled and deployed via Truffle. At the moment, Klaytn supports up to Truffle v5.0.26, the latest version at the time of writing. Please find details about Truffle on the websites below.
 
-* [Truffle overview](https://truffleframework.com/docs/truffle/overview)
+* [Truffle overview](https://trufflesuite.com/docs/truffle/overview)
 * [Truffle repository](https://github.com/trufflesuite/truffle)
 
 You can install Truffle as the following:
@@ -17,7 +17,7 @@ If you have a local EN running, you can deploy contracts directly with truffle f
 
 If you want to deploy with a remote EN node, you should use [truffle-hdwallet-provider-klaytn](https://www.npmjs.com/package/truffle-hdwallet-provider-klaytn).
 
-## Configuring truffle-hdwallet-provider-klaytn
+## Configuring truffle-hdwallet-provider-klaytn <a id="configuring-truffle-hdwallet-provider-klaytn"></a>
 
 truffle-hdwallet-provider-klaytn is a JavaScript HD wallet provider forked from truffle-hdwallet-provider.
 
@@ -29,7 +29,7 @@ $ npm install truffle-hdwallet-provider-klaytn
 
 Set `truffle-config.js` as below.
 
-### Using a mnemonic
+### Using a mnemonic <a id="using-a-mnemonic"></a>
 
 ```javascript
 const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
@@ -44,13 +44,13 @@ module.exports = {
       network_id: "*" // Match any network id
     },
     testnet: {
-      provider: () => new HDWalletProvider(mnemonic, "https://api.baobab.klaytn.net:8651"),
+      provider: () => new HDWalletProvider(mnemonic, "https://your.baobab.en.url.:8651"),
       network_id: '1001', //Klaytn baobab testnet's network id
       gas: '8500000',
       gasPrice: null
     },
     mainnet: {
-      provider: () => new HDWalletProvider(mnemonic, "https://api.cypress.klaytn.net:8651"),
+      provider: () => new HDWalletProvider(mnemonic, "https://your.cypress.en.url:8651"),
       network_id: '8217', //Klaytn mainnet's network id
       gas: '8500000',
       gasPrice: null
@@ -59,7 +59,7 @@ module.exports = {
 };
 ```
 
-### Using a private key
+### Using a private key <a id="using-a-private-key"></a>
 
 ```javascript
 const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
@@ -74,13 +74,13 @@ module.exports = {
       network_id: "*" // Match any network id
     },
     testnet: {
-      provider: () => new HDWalletProvider(privateKey, "https://api.baobab.klaytn.net:8651"),
+      provider: () => new HDWalletProvider(privateKey, "https://your.baobab.en.url:8651"),
       network_id: '1001', //Klaytn baobab testnet's network id
       gas: '8500000',
       gasPrice: null
     },
     mainnet: {
-      provider: () => new HDWalletProvider(privateKey, "https://api.cypress.klaytn.net:8651"),
+      provider: () => new HDWalletProvider(privateKey, "https://your.cypress.en.url:8651"),
       network_id: '8217', //Klaytn mainnet's network id
       gas: '8500000',
       gasPrice: null
