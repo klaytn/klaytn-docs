@@ -1,8 +1,8 @@
-# Deploy a Smart Contract
+# Deploy a Smart Contract <a id="deploy-a-smart-contract"></a>
 
 Now we are ready to develop and deploy Klaytn smart contracts!
 
-## Creating a Project Directory
+## Creating a Project Directory <a id="creating-a-project-directory"></a>
 
 First of all, create a directory where the source code locates.
 
@@ -11,7 +11,7 @@ $ mkdir klaytn-testboard
 $ cd klaytn-testboard
 ```
 
-## Initializing Truffle
+## Initializing Truffle <a id="initializing-truffle"></a>
 
 Initialize Truffle for contract deployment.
 
@@ -19,7 +19,7 @@ Initialize Truffle for contract deployment.
 $ truffle init
 ```
 
-## Writing a Simple Smart Contract in Solidity
+## Writing a Simple Smart Contract in Solidity <a id="writing-a-simple-smart-contract-in-solidity"></a>
 
 Create `KlaytnGreeter.sol` at `klaytn-testboard/contracts` directory.
 
@@ -56,7 +56,7 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-## Modifying the Migration Script
+## Modifying the Migration Script <a id="modifying-the-migration-script"></a>
 
 ```bash
 $ cd ..
@@ -75,7 +75,7 @@ module.exports = function(deployer) {
 };
 ```
 
-## Deploying a Smart Contract using Truffle
+## Deploying a Smart Contract using Truffle <a id="deploying-a-smart-contract-using-truffle"></a>
 
 Enter Klaytn's network information into truffle.js.
 
