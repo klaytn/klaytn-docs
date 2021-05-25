@@ -1,4 +1,4 @@
-# Before You Install
+# Before You Install <a id="before-you-install"></a>
 
 Before installing the Klaytn package, it is required to create the associated node information to enroll your node URIs. The Kgen package is provided for CC operators, please follow the steps in the order shown below.
 
@@ -6,13 +6,13 @@ Before installing the Klaytn package, it is required to create the associated no
 2. Node Key & Node URI Creation
 3. Node URI Enrollment
 
-## Download `kgen` Package
+## Download `kgen` Package <a id="download-kgen-package"></a>
 
 First of all, you can download the latest version of `kgen` package depending on your operating systems on [Download](download.md) page.
 
 You can find the `kgen` binary file under the `bin` directory.
 
-## Node Key & Node URI Creation
+## Node Key & Node URI Creation <a id="node-key-node-uri-creation"></a>
 
 The node key and the node URI are created only once at the beginning. The node URI must be shared with other Core Cells of the Core Cell Network. A CN connects to other CNs and a PN connects to a CN and some PNs using the created node URI. A node URI is created based on the node key by using the downloaded `kgen`. The below command line creates `nodekey` as well as `node_info.json`.
 
@@ -51,7 +51,7 @@ $ cat node_info.json
 }
 ```
 
-## Node URI Enrollment
+## Node URI Enrollment <a id="node-uri-enrollment"></a>
 
 The created node URI should be enrolled to participate in the Core Cell Network \(CCN\). The process of the enrollment is as follows.
 
