@@ -3,14 +3,14 @@ description: >-
   APIs to control Klaytn node.
 ---
 
-# Namespace admin
+# Namespace admin <a id="namespace-admin"></a>
 
-The namespace `admin` gives you access to several non-standard RPC methods, which will allow you to have
+The namespace `admin` gives you access to several non-standard RPC methods. They will allow you to have
 fine-grained control over your Klaytn instance, including but not limited to network peer and RPC
 endpoint management.
 
 
-## admin_nodeInfo
+## admin_nodeInfo <a id="admin_nodeinfo"></a>
 
 The `nodeInfo` administrative property can be queried for all the information known about the running
 Klaytn node at the networking granularity. These include general information about the node itself as a
@@ -78,7 +78,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_datadir
+## admin_datadir <a id="admin_datadir"></a>
 
 The `datadir` administrative property can be queried for the absolute path the running Klaytn node
 currently uses to store all its databases. The default path is different depending on the node types
@@ -115,7 +115,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_peers
+## admin_peers <a id="admin_peers"></a>
 
 The `peers` administrative property can be queried for all the information known about the connected
 remote nodes at the networking granularity. These include general information about the nodes themselves
@@ -194,9 +194,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admi
 ```
 
 
-## admin_addPeer
+## admin_addPeer <a id="admin_addpeer"></a>
 
-The `addPeer` administrative method requests adding a new remote node to the list of tracked static
+The `addPeer` is an administrative method that requests adding a new remote node to the list of tracked static
 nodes. The node will try to maintain connectivity to these nodes at all times, reconnecting every
 once in a while if the remote connection goes down.
 
@@ -237,14 +237,14 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_removePeer
+## admin_removePeer <a id="admin_removepeer"></a>
 
-The `removePeer` administrative method requests removing a node from the list of tracked static
+The `removePeer` is an administrative method that requests removing a node from the list of tracked static
 nodes.
 
 The method accepts a single argument kni, which means "Klaytn Network Identifier". It is similar to
 the [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) concept in the geth. It is URL
-of the remote peer to be removed from a list and returns a `BOOL` indicating whether the peer was remove or some error occurred.
+of the remote peer to be removed from a list and returns a `BOOL` indicating whether the peer was removed or some error occurred.
 
 | Client  | Method invocation                              |
 |:-------:|------------------------------------------------|
@@ -278,9 +278,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_startRPC
+## admin_startRPC <a id="admin_startrpc"></a>
 
-The `startRPC` administrative method starts an HTTP based [JSON RPC](http://www.jsonrpc.org/specification)
+The `startRPC` is an administrative method that starts an HTTP based [JSON RPC](http://www.jsonrpc.org/specification)
 API webserver to handle client requests.
 
 The method returns a boolean flag specifying whether the HTTP RPC listener was opened or not. Please note, only one HTTP endpoint is allowed to be active at any time.
@@ -297,7 +297,7 @@ The method returns a boolean flag specifying whether the HTTP RPC listener was o
 | host | string | (optional) network interface to open the listener socket on (default:  `"localhost"`). |
 | port | int | (optional) network port to open the listener socket on (default:  `8551`). |
 | cors | string | (optional) [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) header to use (default:  `""`). |
-| apis | string | (optional) API modules to offer over this interface (default:  `"klay,net,personal"`). |
+| apis | string | (optional) API modules to offer over this interface (default:  `"klay,net,rpc"`). |
 
 **Return Value**
 
@@ -320,9 +320,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_stopRPC
+## admin_stopRPC <a id="admin_stoprpc"></a>
 
-The `stopRPC` administrative method closes the currently open HTTP RPC endpoint. As the node can only have a single HTTP endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
+The `stopRPC` is an administrative method that closes the currently open HTTP RPC endpoint. As the node can only have a single HTTP endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
 
 | Client  | Method invocation             |
 | :-----: | ----------------------------- |
@@ -354,9 +354,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_startWS
+## admin_startWS <a id="admin_startws"></a>
 
-The `startWS` administrative method starts an WebSocket based [JSON RPC](http://www.jsonrpc.org/specification)
+The `startWS` is an administrative method that starts an WebSocket based [JSON RPC](http://www.jsonrpc.org/specification)
 API webserver to handle client requests.
 
 The method returns a boolean flag specifying whether the WebSocket RPC listener was opened or not. Please note, only one WebSocket endpoint is allowed to be active at any time.
@@ -396,9 +396,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_stopWS
+## admin_stopWS <a id="admin_stopws"></a>
 
-The `stopWS` administrative method closes the currently open WebSocket RPC endpoint. As the node can only have a single WebSocket endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
+The `stopWS` is an administrative method that closes the currently open WebSocket RPC endpoint. As the node can only have a single WebSocket endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
 
 | Client  | Method invocation            |
 | :-----: | ---------------------------- |
@@ -430,9 +430,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_exportChain
+## admin_exportChain <a id="admin_exportchain"></a>
 
-The `exportChain` administrative method exports the blockahin to a file.
+The `exportChain` is an administrative method that exports the blockchain to a file.
 
 | Client  | Method invocation            |
 | :-----: | ---------------------------- |
@@ -466,9 +466,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 
 
-## admin_importChain
+## admin_importChain <a id="admin_importchain"></a>
 
-The `importChain` administrative method imports an exported chain from file into node. This only works if no chain already exists: it does not delete any existing data.
+The `importChain` is an administrative method that imports an exported chain from a file into a node. 
+This method imports only blocks that haven't existed in a Klaytn node. This method does not delete any data of the existing chain.
 
 | Client  | Method invocation            |
 | :-----: | ---------------------------- |
@@ -499,4 +500,230 @@ HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_importChain","params":["/tmp/chain.txt"],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":true}
+```
+
+## admin_importChainFromString <a id="admin_importchainfromstring"></a>
+
+The `importChainFromString` is an administrative method that imports a chain from a RLP-encoded string of blocks into a Klaytn node. 
+This only works if there is no existing chain in a Klaytn node. This method does not delete any data of the existing chain.
+
+| Client  | Method invocation            |
+| :-----: | ---------------------------- |
+| Console | `admin.importChainFromString(blockRlp)`             |
+|   RPC   | `{"method": "admin_importChainFromString"}, "params": [<blockRlp>]}` |
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| blockRlp | string | the RLP-encoded string that represents the blocks to be imported. (equals to the return value of `debug.getBlockRlp`)|
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| bool | `true` if a chain was imported, or `false` if not. |
+
+**Example**
+
+Console
+
+```javascript
+> admin.importChainFromString("f9071...080c0")
+true
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_importChainFromString","params":["f9071...080c0"],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":true}
+```
+
+## admin_startStateMigration <a id="admin_startstatemigration"></a>
+
+The `startStateMigration` is an administrative method that starts a state migration and removes old state/storage trie nodes. This can save the storage space of a Klaytn node.
+The method returns an error if it fails to start a state migration, or `null` if it succeeds to start. 
+NOTE: After the state migration, the node cannot serve APIs with previous states. 
+
+| Client  | Method invocation                                            |
+| :-----: | ------------------------------------------------------------ |
+| Console | `admin.startStateMigration()`                     |
+|   RPC   | `{"method": "admin_startStateMigration"}` |
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Error | `null` if the state migration has started, or an error message if not. |
+
+**Example**
+
+Console
+
+```javascript
+> admin.startStateMigration()
+null
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startStateMigration","id":1}' http://13.124.205.121:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+
+## admin_stopStateMigration <a id="admin_stopstatemigration"></a>
+
+The `stopStateMigration` is an administrative method that stops the currently running state migration. 
+This method takes no parameters and returns `null` or an error whether the state migration was stopped or not.
+
+| Client  | Method invocation             |
+| :-----: | ----------------------------- |
+| Console | `admin.stopStateMigration()`             |
+|   RPC   | `{"method": "admin_stopStateMigration"}` |
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Error | `null` if the state migration is stopped, or an error if not. |
+
+
+**Example**
+
+Console
+
+```javascript
+> admin.stopStateMigration()
+true
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stopStateMigration","id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+## admin_stateMigrationStatus <a id="admin_statemigrationstatus"></a>
+
+The `stateMigrationStatus` is an administrative method that returns the status information of the state migration. 
+This method takes no parameters and returns the status of the currently running state migration.
+
+| Client  | Method invocation             |
+| :-----: | ----------------------------- |
+| Console | `admin.stateMigrationStatus`             |
+|   RPC   | `{"method": "admin_stateMigrationStatus"}` |
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| committed | int | `committed` is the number of trie nodes that have been copied by the state migration. |
+| err | Error | `null` if the state migration finished well, or an error if not. |
+| isMigration | bool | `true` if the state migration is running, or `false` if not. |
+| migrationBlockNumber | uint64 | a blockNumber which the state migration started at. (`0` if the state migration is not running.)
+| pending | int | `pending` represents the number of trie nodes that have not been processed by the state migration. |
+| progress | float64 | `progress` is the progress of the state migration calculated in percent. |
+| read | int | `read` represents the number of trie nodes that have been read by the state migration. |
+
+**Example**
+
+Console
+
+```javascript
+> admin.stateMigrationStatus
+{
+  committed: 1585169,
+  err: "null",
+  isMigration: true,
+  migrationBlockNumber: 32527233,
+  pending: 27677,
+  progress: 0.3662109375,
+  read: 1587473
+}
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stateMigrationStatus","id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":{"committed":14995692,"err":"null","isMigration":true,"migrationBlockNumber":32630836,"pending":19699,"progress":25,"read":14997777}}
+```
+
+## admin_saveTrieNodeToDisk <a id="admin_saveTrieNodeToDisk"></a>
+
+The `saveTrieNodeToDisk` is an administrative method that starts saving the cached trie node to the disk to reuse them when the node restarts. Cached trie node data will be stored to and loaded from  `$DATA_DIR/fastcache` . This method returns an error if the saving process has been already triggered or trie node cache is disabled. This feature is supported since Klaytn 1.5.3.
+
+| Client  | Method invocation                                            |
+| :-----: | ------------------------------------------------------------ |
+| Console | `admin.saveTrieNodeToDisk()`                         |
+|   RPC   | `{"method": "admin_saveTrieNodeToDisk"}` |
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Error | `null` if saving the trie node has started, or an error message if not. |
+
+**Example**
+
+Console
+
+```javascript
+> admin.saveTrieNodeToDisk()
+null
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_saveTrieNodeToDisk", "id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+## admin_setMaxSubscriptionPerWSConn <a id="admin_setMaxSubscriptionPerWSConn"></a>
+
+The `setMaxSubscriptionPerWSConn` is an administrative method that sets the maximum allowed number of subscriptions per single WebSocket connection. For example, if the maximum number is set to five and a user requests more than five subscriptions through the `klay_subscribe` API, an error message "Maximum 5 subscriptions are allowed for a WebSocket connection" will be displayed. This feature is supported since Klaytn 1.6.0.
+
+| Client  | Method invocation                                            |
+| :-----: | ------------------------------------------------------------ |
+| Console | `admin.setMaxSubscriptionPerWSConn(limit)`                         |
+|   RPC   | `{"method": "admin_setMaxSubscriptionPerWSConn"}` |
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| limit | int | The maximum allowed number of subscriptions per single WebSocket connection. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Error | `null` if the limit is set successfully; otherwise, it returns an error message. |
+
+**Example**
+
+Console
+
+```javascript
+> admin.setMaxSubscriptionPerWSConn(5)
+null
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_setMaxSubscriptionPerWSConn", "params":[5], "id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
 ```
