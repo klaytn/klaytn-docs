@@ -1,4 +1,4 @@
-# Glossary
+# Glossary <a id="glossary"></a>
 
 | Term | Description |
 | :--- | :--- |
@@ -27,7 +27,7 @@
 | Proposer | A consensus node proposing a new block |
 | Proposer reward | Amount of KLAY which a proposer receives from block reward |
 | SCN | Service Chain Network. This network is an auxiliary blockchain network specialized for the services that require higher performance, different node configurations, or security levels compared to the main chain. Details at SCN Operation Guide |
-| Service Chain | A service-provider-owned blockchai capable of running more than one blockchain-based service |
+| Service Chain | A service-provider-owned blockchain capable of running more than one blockchain-based service |
 | Unit price | A fixed price of gas maintained by Klaytn. Details at [Unit Price]. |
 | Validator | A consensus node validating a new block proposed by a proposer |
 | Validator reward | Total amount of KLAY that validators receive from block reward |
