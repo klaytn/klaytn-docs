@@ -1,8 +1,75 @@
-# Getting Started
+# Getting Started <a id="getting-started"></a>
 
-## Prerequisites
+## What's new?
 
-### Dependency
+In caver-java 1.5.0, we adopt Common Architecture. Common Architecture is a new software architecture for Klaytn development environment, which is shared by all Klaytn SDKs (caver-js/caver-java). It is designed for your streamlined development experience and ease of extensibility to other programming languages.
+
+As caver-java is updated to 1.5.0, the APIs used in 1.4.0 are deprecated except for some APIs.
+
+The APIs newly provided in caver-java 1.5.0 are as follows.
+
+### caver.account
+
+caver.account is a package used to update AccountKey, which could be one or more public keys (AccountKeyPublic, AccountKeyWeightedMultiSig, and AccountKeyRoleBased) or a special type of keys (AccountKeyLegacy and AccountKeyFail), for a Klaytn account.
+
+
+- `caver.account` replaces `caver.tx.account` in caver-java 1.4.0
+
+### caver.wallet
+
+caver.wallet is a package that manages Keyring instances in in-memory wallet. A Keyring is an instance that stores the address of a Klaytn account and its private key(s), and it is used when the address of this account signs a transaction. caver.wallet accepts all types of Keyring (SingleKeyring, MultipleKeyring, and RoleBasedKeyring) and manages them with their Klaytn account address.
+
+- `caver.wallet` replaces `caver.crypto` in caver-java 1.4.0
+- `caver.wallet.KeyStore` replaces `caver.wallet.WalletFile` in caver-java 1.4.0
+
+### caver.transaction
+
+caver.transaction is a package that provides functionality related to [Transaction](https://docs.klaytn.com/klaytn/design/transactions#transactions-overview).
+
+- `caver.transaction` replaces `caver.tx` in caver-java 1.4.0
+
+### caver.rpc
+
+caver.rpc is a package that provides functionality related to rpc call with Klaytn Node.
+
+- `caver.rpc.klay` and `caver.rpc.net` replaces `Klay`, `Net` interfaces in caver-java 1.4.0, respectively
+
+### caver.util
+
+caver.utils provides utility functions.
+
+### caver.contract
+
+`caver.contract` is a package that makes it easy to handle smart contracts in Klaytn. With caver.contract, you can deploy smart contracts and execute them by calling their functions. `caver.contract` first converts smart contract functions and events from ABI\(Application Binary Interface\), calls those functions, and obtains the event information.
+
+## Prerequisites <a id="prerequisites"></a>
+
+### Adding a Repository<a id="adding-a-repository"></a>
+A library repository should be added before using IPFS. Please add the following repository first.
+
+**maven**
+
+```groovy
+<repositories>
+	<repository>
+	    <id>jitpack.io</id>
+	    <url>https://jitpack.io</url>
+	</repository>
+</repositories>
+```
+
+**gradle**
+
+```groovy
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+### Adding a Dependency <a id="adding-a-dependency"></a>
 
 **maven**
 
@@ -10,14 +77,14 @@
 <dependency>
   <groupId>com.klaytn.caver</groupId>
   <artifactId>core</artifactId>
-  <version>1.0.1</version>
+  <version>1.5.0</version>
 </dependency>
 ```
 
 **gradle**
 
 ```groovy
-implementation 'com.klaytn.caver:core:1.0.1'
+implementation 'com.klaytn.caver:core:1.5.0'
 ```
 
 If you want to use Android dependency, just append -android at the end of the version string. \(e.g. 1.0.1-android\)
@@ -28,20 +95,9 @@ If you want to see details of the JSON-RPC requests and responses, please includ
 implementation "ch.qos.logback:logback-classic:1.2.3"
 ```
 
-### Installation
+**Note**: In the central repository, the RC, Android, and Java versions are listed together. If you use wildcards to get a version, you may be using a version that is not appropriate for your platform.
 
-If you want to generate transactions related with a smart contract, you need to install a Solidity compiler and caver-java commmand-line tool first.
-
-#### Solidity Compiler
-
-You can install the Solidity compiler locally, following the instructions as per [the project documentation](http://solidity.readthedocs.io/en/develop/installing-solidity.html). Klaytn recommends you to install Solidity version either 0.4.24 or 0.5.6. If you are a macOS user, you can install the versions via Homebrew:
-
-```text
-$ brew install klaytn/klaytn/solidity@0.4.24  # version 0.4.24
-$ brew install klaytn/klaytn/solidity@0.5.6   # version 0.5.6
-```
-
-#### Command-line Tool
+#### Command-line Tool <a id="command-line-tool"></a>
 
 The command-line tool allows you to generate Solidity smart contract function wrappers from the command line.
 
@@ -83,313 +139,1194 @@ Currently, we do not support other package managers. As another solution, we pro
   $ ./console/build/distributions/console-shadow-{version}/bin/caver-java
   ```
 
-## Managing Accounts
 
-### Creating an Account
+## Sending KLAY at a glance
 
-In order to sign transactions, you need to have either an EC \(Elliptic Curve\) key pair or a Klaytn keystore file.
-
-#### Using an EC Key Pair
-
-You can create a Klaytn account using an EC key pair like below:
+This section describes a simple example of using a `keystore file` to send KLAY with a value transfer transaction. The keystore file can be created in [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
 
 ```java
-KlayCredentials credentials = KlayCredentials.create(Keys.createEcKeyPair());
-String privateKey = Numeric.toHexStringWithPrefix(credentials.getEcKeyPair().getPrivateKey()); 
-String address = credentials.getAddress();
+public void sendingKLAY() throws IOException, CipherException, TransactionException {
+        Caver caver = new Caver(Caver.BAOBAB_URL);
+
+        //Read keystore json file.
+        File file = new File("./keystore.json");
+
+        //Decrypt keystore.
+        ObjectMapper objectMapper = ObjectMapperFactory.getObjectMapper();
+        KeyStore keyStore = objectMapper.readValue(file, KeyStore.class);
+        AbstractKeyring keyring = KeyringFactory.decrypt(keyStore, "password");
+
+        //Add to caver wallet.
+        caver.wallet.add(keyring);
+
+        BigInteger value = new BigInteger(Utils.convertToPeb(BigDecimal.ONE, "KLAY"));
+
+        //Create a value transfer transaction
+        ValueTransfer valueTransfer = new ValueTransfer.Builder()
+                .setKlaytnCall(caver.rpc.getKlay())
+                .setFrom(keyring.getAddress())
+                .setTo("0x8084fed6b1847448c24692470fc3b2ed87f9eb47")
+                .setValue(value)
+                .setGas(BigInteger.valueOf(25000))
+                .build();
+
+        //Sign to the transaction
+        valueTransfer.sign(keyring);
+
+        //Send a transaction to the klaytn blockchain platform (Klaytn)
+        Bytes32 result = caver.rpc.klay.sendRawTransaction(valueTransfer.getRawTransaction()).send();
+        if(result.hasError()) {
+            throw new RuntimeException(result.getError().getMessage());
+        }
+
+        //Check transaction receipt.
+        TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 15);
+        TransactionReceipt.TransactionReceiptData transactionReceipt = transactionReceiptProcessor.waitForTransactionReceipt(result.getResult());
+    }
 ```
 
-#### Using a Keystore File
 
-If you want to create a new account with a keystore file (you can also create a new keystore file in [Klaytn Wallet]):
+## Starting with caver-java <a id="starting-with-caver-java"></a>
+
+### Connecting to a Klaytn Node <a id="connecting-to-a-klaytn-node"></a>
+
+If you are running an EN, you can connect it to your own node by changing the host and port like below:
 
 ```java
-KlayWalletUtils.generateNewWalletFile(
-        <yourPassword>,
-        new File(<walletFilePath>)
-);
+Caver caver = new Caver("http://your.en.url:8551/");
 ```
 
-To load an account using a keystore file like below:
+
+## Managing Keyrings <a id="managing-keyrings"></a>
+
+`Keyring` is a structure that contains the address of the Klaytn account and the private key(s). 
+
+`Keyring` can be classified into three types depending on the type of key being stored: `SingleKeyring` to store one address and one private key, `MultipleKeyring` to store one address and multiple private keys, and `RoleBasedKeyring` to store one address and one or more private keys for each role.
+
+`SingleKeyring` defines `key` property inside, and this `key` stores one private key.
+
+`MultipleKeyring` defines `keys` property inside, and this `keys` is implemented as an array to store multiple private keys.
+
+The `keys` property defined in `RoleBasedKeyring` is implemented as a List object having 3 arrays of private key(s) as its elements (empty `keys` will look like `[ [], [], [] ]`) and so that it can include multiple keys for each `role`. The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
+
+### Creating a Keyring <a id="creating-a-keyring"></a>
+
+#### Generating a SingleKeyring <a id="generating-a-singlekeyring"></a>
+
+You can randomly generate a single keyring as shown below.
 
 ```java
-KlayCredentials credentials = KlayWalletUtils.loadCredentials(<password>, <walletFilePath>);
+SingleKeyring keyring = KeyringFactory.generate();
 ```
 
-## Sending a Transaction
+#### Creating a SingleKeyring from private key <a id="creating-a-singlekeyring-from-private-key"></a>
 
-### Getting KLAY via Baobab Faucet
-
-After creating an account, you can receive some Baobab testnet KLAY for the Baobab testnet via Baobab Faucet, available at [https://baobab.wallet.klaytn.com/](https://baobab.wallet.klaytn.com/). The received testnet KLAY will be used for transaction fee later.
-
-### Connecting to Baobab
-
-You can use a Klaytn public EN \([https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651)\) to connect to the Baobab testnet.
+Also, if you own a specific private key, you can use it to create a keyring as shown below.
 
 ```java
-Caver caver  = Caver.build(Caver.BAOBAB_URL);  // Caver.BAOBAB_URL = https://api.baobab.klaytn.net:8651
+String privateKey = "0x{private key in hex}";
+SingleKeyring keyring = KeyringFactory.createFromPrivateKey(privateKey);
 ```
 
-### Sending a Value Transfer Transaction
+#### Creating a SingleKeyring with a private key and an address <a id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
 
-After you get a `Caver` instance and create an account which has some KLAY, you can send 1 peb to a certain address\(`0xe97f27e9a5765ce36a7b919b1cb6004c7209217e`\) with a gas limit `BigInteger.valueOf(100_000)` like below:
-
-`TransactionManager` is introduced to hide the complexity of transaction types. For example, a `FeeDelegatedValueTransferTransaction` object can be transformed from a `ValueTransferTransaction` object. For more details, see [Fee Delegation]. In addition to Fee Delegation, `TransactionManager` can be used with `GetNonceProcessor`, `ErrorHandler`, and `TransactionReceiptProcessor`.
+If your private key for your Klaytn account is decoupled from the address, you can create a keyring using the given address and the given private key like below.
 
 ```java
-TransactionManager transactionManager = new TransactionManager.Builder(caver, credentials)
-        .setChaindId(ChainId.BAOBAB_TESTNET).build();
-
-ValueTransferTransaction valueTransferTransaction = ValueTransferTransaction.create(
-        credentials.getAddress(),  // fromAddress
-        "0xe97f27e9a5765ce36a7b919b1cb6004c7209217e",  // toAddress
-        BigInteger.ONE,  // value
-        BigInteger.valueOf(100_000)  // gasLimit
-);
-
-KlayRawTransaction klayRawTransaction = transactionManager.sign(valueTransferTransaction);
-String transactionHash = transactionManager.send(klayRawTransaction);
-
-TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 15);  // pollingSleepDuration = 1000, pollingAttempts = 15
-KlayTransactionReceipt.TransactionReceipt transactionReceipt = transactionReceiptProcessor.waitForTransactionReceipt(transactionHash);
+String address = "0x{address in hex}";
+String privateKey = "0x{private key in hex}";
+SingleKeyring keyring = KeyringFactory.createWithSingleKey(address, privateKey);
 ```
 
-If you use `ValueTransfer` class, you can more easily compose and send a transaction. This is because `ValueTransfer` class makes the processes above simple like below:
+Also, you can derive SingleKeyring instance from Klaytn wallet key.
 
 ```java
-KlayTransactionReceipt.TransactionReceipt transactionReceipt
-        = ValueTransfer.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendFunds(
-                redentials.getAddress(),  // fromAddress
-                "0xe97f27e9a5765ce36a7b919b1cb6004c7209217e",  // toAddress
-                BigDecimal.ONE,  // value 
-                Convert.Unit.PEB,  // unit 
-                BigInteger.valueOf(100_000)  // gasLimit
-            ).send();
+String klaytnWalletKey = "0x{private key}0x{type}0x{address in hex}";
+SingleKeyring keyring = KeyringFactory.createFromKlaytnWalletKey(klaytnWalletKey);
 ```
 
-### Checking Receipts
+#### Creating a MultipleKeyring with multiple private keys <a id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
 
-If you send a transaction via `sendFunds`, caver-java tries to get a transaction receipt by default. After you get a receipt, you can see the following log in the console.
+If you want to use multiple private keys, you can create a `MultipleKeyring` using an address and multiple private keys. The below examples show how to create a `MultipleKeyring` with multiple private keys.
 
-```javascript
-{
-   "jsonrpc":"2.0",
-   "id":4,
-   "result":{
-      "blockHash":"0x45542cc3e3bce952f368c5da9d40f972c134fed2b2b6815231b5caf33c79dacd",
-      "blockNumber":"0x39a57b",
-      "contractAddress":null,
-      "from":"0xe97f27e9a5765ce36a7b919b1cb6004c7209217e",
-      "gas":"0x186a0",
-      "gasPrice":"0x5d21dba00",
-      "gasUsed":"0x5208",
-      "logs":[],
-      "logsBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-      "nonce":"0x114e",
-      "senderTxHash":"0x3d50b9fa9fec58443f5618ed7e0f5aec5e9a6f7269d9ff606ff87156ca5b4afd",
-      "signatures":[
-         {
-            ...
-         }
-      ],
-      "status":"0x1",
-      "to":"0xe97f27e9a5765ce36a7b919b1cb6004c7209217e",
-      "transactionHash":"0x3d50b9fa9fec58443f5618ed7e0f5aec5e9a6f7269d9ff606ff87156ca5b4afd",
-      "transactionIndex":"0x1",
-      "type":"TxTypeValueTransfer",
-      "typeInt":8,
-      "value":"0x1"
-   }
+```java
+String address = "0x{address in hex}";
+String[] privateKeyArray = new String[] {"0x{private key#1}", "0x{private key#2}", "0x{private key#3}"};
+MultipleKeyring multipleKeyring = KeyringFactory.createWithMultipleKey(address, privateKeyArray);
+```
+
+#### Creating a RoleBasedKeyring with private keys <a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
+
+To use different private key(s) for each `role`, `KeyringFactory.createWithRoleBasedKey` is used. Each array element represents a role described in `RoleBasedKeyring`. The example below shows how to create a `RoleBasedKeyring` instance from different keys for each role.
+
+
+```java
+String address = "0x{address in hex}";
+String[][] privateKeyArr = new String[][] {
+        //roleTransactionKey
+        {
+                "0x{privateKey in hex}",
+                "0x{privateKey in hex}",
+                "0x{privateKey in hex}",
+        },
+        //roleAccountUpdateKey
+        {
+                "0x{privateKey in hex}",
+                "0x{privateKey in hex}",
+                "0x{privateKey in hex}",
+        },
+        //roleFeePayerKey
+        {
+                "0x{privateKey in hex}",
+                "0x{privateKey in hex}",
+                "0x{privateKey in hex}",
+        },
+};
+
+RoleBasedKeyring keyring = KeyringFactory.createWithRoleBasedKey(address, Arrays.asList(privateKeyArr));
+```
+
+### Adding Keyrings to caver-java from a keystore json string.<a id="adding-keyrings-to-caver-java"></a>
+
+You can use a keyring more easily by adding it to the in-memory wallet provided by caver-java. The following examples illustrate how to add a keyring to `caver.wallet` using a keystore JSON file string generated by [Klaytn Wallet](https://wallet.klaytn.com/).
+
+```java
+Caver caver = new Caver(Caver.MAINNET_URL);
+
+String password = "password";
+String keyStoreJsonString = "{\n" +
+        "  \"version\": 4,\n" +
+        "  \"id\": \"9c12de05-0153-41c7-a8b7-849472eb5de7\",\n" +
+        "  \"address\": \"0xc02cec4d0346bf4124deeb55c5216a4138a40a8c\",\n" +
+        "  \"keyring\": [\n" +
+        "    {\n" +
+        "      \"ciphertext\": \"eacf496cea5e80eca291251b3743bf93cdbcf7072efc3a74efeaf518e2796b15\",\n" +
+        "      \"cipherparams\": {\n" +
+        "        \"iv\": \"d688a4319342e872cefcf51aef3ec2da\"\n" +
+        "      },\n" +
+        "      \"cipher\": \"aes-128-ctr\",\n" +
+        "      \"kdf\": \"scrypt\",\n" +
+        "      \"kdfparams\": {\n" +
+        "        \"dklen\": 32,\n" +
+        "        \"salt\": \"c3cee502c7157e0faa42386c6d666116ffcdf093c345166c502e23bc34e6ba40\",\n" +
+        "        \"n\": 4096,\n" +
+        "        \"r\": 8,\n" +
+        "        \"p\": 1\n" +
+        "      },\n" +
+        "      \"mac\": \"4b49574f3d3356fa0d04f73e07d5a2a6bbfdd185bedfa31f37f347bc98f2ef26\"\n" +
+        "    }\n" +
+        "  ]\n" +
+        "}";
+
+SingleKeyring decrypt = (SingleKeyring)KeyringFactory.decrypt(keyStoreJsonString, password);
+System.out.println("Decrypted address : " + decrypt.getAddress());
+System.out.println("Decrypted key : " + decrypt.getKey());
+
+AbstractKeyring addedKeyring = caver.wallet.add(decrypt);
+System.out.println("address : " + addedKeyring.getAddress());
+System.out.println("key : " + addedKeyring.getKey());
+```
+
+```bash
+Decrypted address : 0xc02cec4d0346bf4124deeb55c5216a4138a40a8c
+Decrypted key : 0x93c90135ae69669e416ba5997d9274f8c8bd60748761fc421e415602d68a13a5
+
+address : 0xc02cec4d0346bf4124deeb55c5216a4138a40a8c
+key : 0x93c90135ae69669e416ba5997d9274f8c8bd60748761fc421e415602d68a13a5
+```
+
+Looking at the output above, you can query your keyring from `caver.wallet` after adding it to `caver.wallet`.
+
+If you have an address and private key(s) to use, you can easily create a keyring and add it directly to caver.wallet via caver.wallet.newKeyring.
+
+```java
+Caver caver = new Caver(Caver.MAINNET_URL);
+
+// Add to wallet with an address and a private key
+AbstractKeyring addedSingleKeyring = caver.wallet.newKeyring("0x{address in hex}", "0x{private key1}");
+
+
+// Add to wallet with an address and private keys
+String[] privateKeyArr = new String[] {
+                "0x{privateKey in hex}",
+                "0x{privateKey in hex}",
+                "0x{privateKey in hex}",
+};
+
+AbstractKeyring addedMultipleKeyring = caver.wallet.newKeyring('0x{address in hex}', privateKeyArr);
+
+
+// Add to wallet with an address and private keys defined by each roles
+String[][] privateKeyArr = new String[][] {
+                //roleTransactionKey
+                {
+                        "0x{privateKey in hex}",
+                        "0x{privateKey in hex}",
+                        "0x{privateKey in hex}",
+                },
+                //roleAccountUpdateKey
+                {
+                        "0x{privateKey in hex}",
+                        "0x{privateKey in hex}",
+                        "0x{privateKey in hex}",
+                },
+                //roleFeePayerKey
+                {
+                        "0x{privateKey in hex}",
+                        "0x{privateKey in hex}",
+                        "0x{privateKey in hex}",
+                },
+};
+
+AbstractKeyring addedRoleBased = caver.wallet.newKeyring('0x{address in hex}', Arrays.asList(privateKeyArr))
+```
+
+When `caver.wallet.newKeyring` is executed with a private key, a Keyring instance with one private key is created and added to `caver.wallet`. For multiple private keys, a Keyring instance with multiple private keys is created and added to `caver.wallet`. When passing a 2D string array including one or more private keys for each role as an element, a Keyring instance that contains the different private key(s) for each role is created and also added to the `caver.wallet`.
+
+
+`caver.wallet.add` or `caver.wallet.newKeyring` returns a Keyring instance after adding it to `caver.wallet`.
+
+## Sending a Transaction <a id="sending-a-transaction"></a>
+
+This section will show you how to send KLAY using caver-java on the Baobab network.
+
+### Getting KLAY via Baobab Faucet <a id="getting-klay-via-baobab-faucet"></a>
+
+If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the Klaytn Wallet using the private key or the keystore file and receive Baobab testnet KLAY via the faucet for testing.
+
+### Sending a Value Transfer Transaction <a id="sending-a-value-transfer-transaction"></a>
+
+You can use a caver-java wallet to generate a signature of a transaction. You have to go through two steps below to send the transaction to the network.
+
+1. Sign a transaction
+	- If the keyring you want to use is added to `caver.wallet`, you can use `caver.wallet.sign` function to sign.
+	- If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
+2. Send the RLP-encoded string of the signed transaction to the Klaytn via `caver.rpc.klay.sendRawTransaction`.
+
+**Note:** The sender should have enough number of KLAY to be transferred and also to pay the transaction fee.
+
+#### Sign a transaction
+
+Before sending a transaction to Klaytn, you should sign a transaction first. 
+
+Below is an example of how to sign a transaction if a keyring is added to the `caver.wallet`.
+
+```java
+Caver caver = new Caver(Caver.MAINNET_URL);
+
+// Add a keyring to caver.wallet
+SingleKeyring keyring = KeyringFactory.createFromPrivateKey("privateKey");
+caver.wallet.add(keyring);
+
+// Create a value transfer transaction
+ValueTransfer valueTransfer = new ValueTransfer.Builder()
+        .setKlaytnCall(caver.rpc.klay)
+        .setFrom(keyring.getAddress())
+        .setTo("0x176ff0344de49c04be577a3512b6991507647f72")
+        .setValue(BigInteger.valueOf(1))
+        .setGas(BigInteger.valueOf(30000))
+        .build();
+
+// Sign the transaction via caver.wallet.sign
+caver.wallet.sign(keyring.getAddress(), valueTransfer);
+String rlpEncoded = valueTransfer.getRLPEncoding();
+System.out.println("RLP-encoded string: " + rlpEncoded)
+```
+
+The above code adds a keyring to `caver.wallet`, creates a transaction, and signs the transaction through `caver.wallet.sign`. 
+
+Running the above code gives you the following result. When the above code is executed, the RLP-encoded string of the transaction is shown below. (The RLP-encoded string output you got could be different from the string output shown below.)
+
+```bash
+RLP-encoded string: 0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b6991507647f720194ade4883d092e2a972d70637ca7de9ab5166894a2f847f845824e44a0e1ec99789157e5cb6bc691935c204a23aaa3dc049efafca106992a5d5db2d179a0511c421d5e508fdb335b6048ca7aa84560a53a5881d531644ff178b6aa4c0a41
+```
+
+#### Send the RLP-encoded string of the signed transaction to the Klaytn
+
+Now you can send a signed transaction to the network like below. If you want to run the below example, replace "rlpEncoding" with the value of `rlpEncoded` in the code above.
+
+```java
+public String sendRawTransaction() {
+  Caver caver = new Caver(Caver.BAOBAB_URL);
+  
+  String rlpEncoding = "rlpEncoding";
+  String txHash = null;
+
+  try {
+      // Send the transaction using `caver.rpc.klay.sendRawTransaction`.
+      Bytes32 sendResult = caver.rpc.klay.sendRawTransaction(rlpEncoding).send();
+      if(sendResult.hasError()) {
+          //do something to handle error
+      }
+      
+      txHash = sendResult.getResult();
+  } catch (IOException e) {
+      // do something to handle exception
+  }
+  return txHash;
+
 }
 ```
 
-In this receipt, you can check the status of the transaction execution. If the 'status' field in the receipt is "0x1", it means the transaction is processed successfully. If not, the transaction failed. The detailed error message is presented in the `txError` field. For more detail, see [txError].
-
-## Sending Other Transaction Types
-
-### Account Update
-
-If you want to update the key of the given account to a new [AccountKeyPublic] key:
+If you want to sign a transaction and send it to the network without `caver.wallet`, see the example below.
 
 ```java
-AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.create(
-        credentials.getAddress(),  // fromAddress
-        AccountKeyPublic.create(
-                "0xbf8154a3c1580b5478ceec0aac319055185280ce22406c6dc227f4de85316da1",  // publicKeyX
-                "0x0dc8e4b9546adcc6d1f11796e43e478bd7ffbe302917667837179f4da77591d8"  // publicKeyY
-        ),  // newAccountKey
-        BigInteger.valueOf(100_000)  // gasLimit
-);
-Account.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendUpdateTransaction(accountUpdateTransaction).send();
-```
+Caver caver = new Caver(Caver.MAINNET_URL);
 
-An account key represents the key structure associated with an account. To get more details and types about the Klaytn account key, please read [Account Key].
+// Add a keyring to caver.wallet
+SingleKeyring keyring = KeyringFactory.createFromPrivateKey("privateKey");
+caver.wallet.add(keyring);
 
-### Smart Contract
-
-caver-java supports auto-generation of smart contract wrapper code. Using the wrapper, you can easily deploy and execute a smart contract. Before generating a wrapper code, you need to compile the smart contract first. Note: This will only work if a Solidity compiler is installed in your computer. See [Solidity Compiler].
-
-```text
-$ solc <contract>.sol --bin --abi --optimize -o <output-dir>/
-```
-
-Then, generate the wrapper code using caver-java’s [command-line tool].
-
-```text
-$ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
-```
-
-Above command will output `<smartContract>`.java. After generating the wrapper code, you can deploy your smart contract like below:
-
-```java
-<smartContract> contract = <smartContract>.deploy(
-        caver, credentials, <chainId>, <gasProvider>,
-        <param1>, ..., <paramN>).send();
-```
-
-After the smart contract has been deployed, you can create a smart contract instance like below:
-
-```java
-<smartContract> contract = <smartContract>.load(
-        <deployedContractAddress>, caver, credentials, <chainId>, <gasProvider>
-);
-```
-
-To transact with a smart contract:
-
-```java
-KlayTransactionReceipt.TransactionReceipt transactionReceipt = contract.<someMethod>(
-        <param1>,
-        ...).send();
-```
-
-To call a smart contract:
-
-```java
-<type> result = contract.<someMethod>(<param1>, ...).send();
-```
-
-#### Example
-
-This section describes how to deploy and execute a smart contract on the Baobab testnet. In this example, we use a smart contract [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol). If contract deployment fails and an empty contract address is returned, it will throw RuntimeException.
-
-```java
-ERC20Mock erc20Mock = ERC20Mock.deploy(
-        caver, credentials, 
-        ChainId.BAOBAB_TESTNET,  // chainId
-        new DefaultGasProvider(),  // gasProvider
-        credentials.getAddress(),  // param1(initialAccount)
-        BigInteger.valueOf(100)  // param2(initialBalance)
-).send();
-String deployedContractAddress = erc20Mock.getContractAddress();
-```
-
-To create an instance of the deployed ERC20Mock contract:
-
-```java
-ERC20Mock erc20Mock = ERC20Mock.load(
-        deployedContractAddress, 
-        caver, credentials, 
-        ChainId.BAOBAB_TESTNET,  // chainId 
-        new DefaultGasProvider()  // gasProvider
-);
-```
-
-If you transfer 10 tokens to a specified address \(e.g., `0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a`\), use the following code:
-
-```java
-KlayTransactionReceipt.TransactionReceipt transactionReceipt = erc20Mock.transfer(
-        "0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a",  // toAddress
-        BigInteger.valueOf(10)  // value
-).send();
-```
-
-To check the balance of the recipient \(e.g., `0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a`\), use the code below:
-
-```java
-BigInteger balance = erc20Mock.balanceOf(
-        "0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a"  // owner
-).send();
-```
-
-### Fee Delegation
-
-Klaytn provides [Fee Delegation] feature which allows service providers to pay transaction fees instead of the users.
-
-#### Value Transfer
-
-On the client side, client who initiates the transaction will generate a fee-delegated value transfer transaction as follows: A sender creates a default `ValueTransferTransaction` object, then [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.1/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) returns a signed `FeeDelegatedValueTransferTransaction` object if the second parameter is set to `true`.
-
-```java
-TransactionManager transactionManager = new TransactionManager.Builder(caver, credentials)
-        .setChaindId(ChainId.BAOBAB_TESTNET).build();  // BAOBAB_TESTNET = 1001
-ValueTransferTransaction valueTransferTransaction = ValueTransferTransaction.create(
-        credentials.getAddress(),  // fromAddress
-        "0xe97f27e9a5765ce36a7b919b1cb6004c7209217e",  // toAddress
-        BigInteger.ONE,  // value
-        BigInteger.valueOf(100_000)  // gasLimit
-);
-String senderRawTransaction = transactionManager.sign(valueTransferTransaction, true).getValueAsString();  // isFeeDelegated : true
-```
-
-A signed transaction, `senderRawTransaction`, is generated. Now the sender delivers the transaction to the fee payer who will pay for the transaction fee instead. Transferring transactions between the sender and the fee payer is not performed on the Klaytn network. The protocol should be defined by themselves.
-
-After the fee payer gets the transaction from the sender, the fee payer can send the transaction using the `FeePayerManager` class as follows. `FeePayerManager.executeTransaction()` will sign the received transaction with the fee payer's private key and send the transaction to the Klaytn network.
-
-```java
-KlayCredentials feePayer = KlayWalletUtils.loadCredentials(<password>, <walletfilePath>);
-FeePayerManager feePayerManager = new FeePayerManager.Builder(caver, feePayer)
-        .setChainId(ChainId.BAOBAB_TESTNET)
+// Create a value transfer transaction
+ValueTransfer valueTransfer = new ValueTransfer.Builder()
+        .setKlaytnCall(caver.rpc.klay)
+        .setFrom(keyring.getAddress())
+        .setTo("0x176ff0344de49c04be577a3512b6991507647f72")
+        .setValue(BigInteger.valueOf(1))
+        .setGas(BigInteger.valueOf(30000))
         .build();
-feePayerManager.executeTransaction(senderRawTransaction);
+
+// Sign the transaction via transaction.sign
+valueTransfer.sign(keyring);
+String rlpEncoded = valueTransfer.getRLPEncoding();
+
+try {
+    // Send the transaction using `caver.rpc.klay.sendRawTransaction`.
+    Bytes32 sendResult = caver.rpc.klay.sendRawTransaction(rlpEncoded).send();
+    if(sendResult.hasError()) {
+        //do something to handle error
+    }
+    
+    String txHash = sendResult.getResult();
+    System.out.println("Transaction Hash : " + txHash);
+} catch (IOException e) {
+    // do something to handle exception
+}
 ```
 
-#### Smart Contract Execution
+When the above code is executed, the transaction hash (txHash) is printed like the example below.
 
-The difference between fee-delegated smart contract execution and fee-delegated value transfer above is that this needs input data to call a function of a smart contract. A sender can generate a fee-delegated smart contract execution transaction as shown below. Note that [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.1/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) returns a `TxTypeFeeDelegatedSmartContractExecution` object if you pass `true` to the second parameter. The example below invokes the `transfer` method of [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol) contract which is described in [Smart Contract].
+```bash
+Transaction Hash : 0x43e8ab1a2365ad598448b4402c1cfce6a71b3a103fce3a69905613e50b978113
+```
+
+### Checking Receipts <a id="checking-receipts"></a>
+
+You can use the `TransactionReceiptProcessor` to get the receipt of the transaction when you transfer the transaction to the Klaytn by `caver.rpc.klay.sendRawTransaction`.
+
+The following example shows how to get a receipt using PollingTransactionReceiptProcessor.
 
 ```java
-String recipient = "0x34f773c84fcf4a0a9e2ef07c4615601d60c3442f";
-BigInteger transferValue = BigInteger.valueOf(20);
-Function function = new Function(
-        ERC20Mock.FUNC_TRANSFER,  // FUNC_TRANSFER = "transfer"
-        Arrays.asList(new Address(recipient), new Uint256(transferValue)),  // inputParameters
-        Collections.emptyList()  // outputParameters
-);
-String data = FunctionEncoder.encode(function);
+Caver caver = new Caver(Caver.BAOBAB_URL);
+String txHash = "0x40552efbba23347d36f6f5aaba6b9aeb6602e004df62c1988d9b7b1f036e676a";
 
-TransactionManager transactionManager = new TransactionManager.Builder(caver, credentials)
-        .setChaindId(ChainId.BAOBAB_TESTNET).build();  // BAOBAB_TESTNET = 1001
-SmartContractExecutionTransaction smartContractExecution = 
-        SmartContractExecutionTransaction.create(
-                credentials.getAddress(),  // fromAddress
-                erc20Mock.getContractAddress(),  // contractAddress
-                BigInteger.ZERO,  // value
-                Numeric.hexStringToByteArray(data),  // data
-                BigInteger.valueOf(100_000)  // gasLimit
-        );
-String senderRawTransaction = transactionManager.sign(smartContractExecution, true).getValueAsString();
+//Sleep duration - 1000ms
+//Attempts count - 15
+TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 15);
+
+try {
+  TransactionReceipt.TransactionReceiptData receiptData = receiptProcessor.waitForTransactionReceipt(txHash);
+} catch (IOException | TransactionException e) {
+  // do something to handle error.
+
+}
 ```
 
-After you get `senderRawTransaction`, the rest of the process using `FeePayerManager` is the same way as you saw in [fee-delegated value transfer] above:
+As described in the example above, you can get the result of sending a transaction through TransactionReceiptProcessor. The `transactionHash` field is defined inside the receipt object. 
+
+You can use `caver.rpc.klay.getTransactionReceipt` RPC call with `txHash` string to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the `caver.rpc.klay.getTransactionReceipt` RPC call.
 
 ```java
-KlayCredentials feePayer = KlayWalletUtils.loadCredentials(<password>, <walletfilePath>);
-FeePayerManager feePayerManager = new FeePayerManager.Builder(caver, feePayer).build();
-feePayerManager.executeTransaction(senderRawTransaction);
+Caver caver = new Caver(Caver.BAOBAB_URL);
+String txHash = "0x40552efbba23347d36f6f5aaba6b9aeb6602e004df62c1988d9b7b1f036e676a";
+
+try {
+  TransactionReceipt receipt = caver.rpc.klay.getTransactionReceipt(txHash).send();
+  if(receipt.hasError()) {
+    // do something to handle error
+
+  }
+  
+  TransactionReceipt.TransactionReceiptData receiptData = receipt.getResult();
+} catch (IOException e) {
+    // do something to handle exception.
+
+}
 ```
 
-## Thanks to
-
-The [web3j](https://github.com/web3j/web3j) project for the inspiration. 🙂
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../json-rpc/transaction-error-codes.md).
 
 
-[Klaytn Wallet]: ../../../toolkit/klaytn-wallet.md
-[txError]: ../../json-rpc/transaction-error-codes.md
-[AccountKeyPublic]: ../../../klaytn/design/accounts.md#accountkeypublic
-[Account Key]: ../../../klaytn/design/accounts.md#account-key 
-[Solidity Compiler]: #solidity-compiler
-[command-line tool]: #command-line-tool
-[Fee Delegation]: ../../../klaytn/design/transactions/README.md#fee-delegation
-[Smart Contract]: #smart-contract
-[fee-delegated value transfer]: #value-transfer
+## Executing Other Transaction Types <a id="executing-other-transaction-types"></a>
+
+Klaytn provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../klaytn/design/transactions/README.md). This section describes some examples that can be used with caver-java.
+
+### Fee Delegation <a id="fee-delegation"></a>
+
+Klaytn provides Fee Delegation feature. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
+
+```java
+Caver caver = new Caver(Caver.BAOBAB_URL);
+SingleKeyring senderKeyring = KeyringFactory.createFromPrivateKey("0x{privateKey}");
+caver.wallet.add(senderKeyring);
+
+FeeDelegatedValueTransfer feeDelegatedValueTransfer = new FeeDelegatedValueTransfer.Builder()
+        .setKlaytnCall(caver.rpc.klay)
+        .setFrom(senderKeyring.getAddress())
+        .setTo("0x176ff0344de49c04be577a3512b6991507647f72")
+        .setValue(BigInteger.valueOf(1))
+        .setGas(BigInteger.valueOf(30000))
+        .build();
+
+caver.wallet.sign(senderKeyring.getAddress(), feeDelegatedValueTransfer);
+String rlpEncoded = feeDelegatedValueTransfer.getRLPEncoding();
+System.out.println(rlpEncoded);
+```
+
+When the above code is executed, the RLP-encoded string will be printed. (The RLP-encoded string output you got could be different from the string output shown below.)
+
+```bash
+0x09f884028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf080c4c3018080
+```
+
+The fee payer can send the transaction to the Klaytn after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. If `caver.wallet` also has the fee payer's keyring, the fee payer's signature can be injected into `feeDelegatedTx` by calling `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. Otherwise, the fee payer has to create a `feeDelegatedTx` from the RLP-encoded string signed by the sender and add the fee payer's sign onto it, as illustrated below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
+
+```java
+Caver caver = new Caver(Caver.BAOBAB_URL);
+
+SingleKeyring feePayerKeyring = KeyringFactory.createFromPrivateKey("0x{privateKey}");
+caver.wallet.add(feePayerKeyring);
+
+String rlpEncoded = "0x{RLP-encoded string}";
+FeeDelegatedValueTransfer feeDelegatedValueTransfer = FeeDelegatedValueTransfer.decode(rlpEncoded);
+feeDelegatedValueTransfer.setFeePayer(feePayerKeyring.getAddress());
+feeDelegatedValueTransfer.setKlaytnCall(caver.rpc.klay);
+
+caver.wallet.signAsFeePayer(feePayerKeyring.getAddress(), feeDelegatedValueTransfer);
+System.out.println(feeDelegatedValueTransfer.getRLPEncoding());
+```
+
+When the above code is executed, the RLP-encoded string including the sender's signatures and fee payer's signatures is printed like below. (The output you got could be different from the string output shown below.)
+
+```bash
+0x09f8dc028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf09417e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24f847f845824e44a0921b7c3be69db96ce14134b306c2ada423613cb66ecc6697ee8067983c268b6ea07b86b255d1c781781315d85d7904226fb2101eb9498c4a03f3fbd30ba3ec5b79
+```
+
+The transaction is now signed by both the sender and the fee payer, and it can now be sent over the network. Replace `0x{RLP-encoded string}` with the RLP-encoded string output of the example code above.
+
+```java
+Caver caver = new Caver(Caver.BAOBAB_URL);
+
+TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 15);
+
+String rlpEncoded = "0x{RLP-encoded string}";
+try {
+  // Send the transaction using `caver.rpc.klay.sendRawTransaction`.
+  Bytes32 sendResult = caver.rpc.klay.sendRawTransaction(rlpEncoding).send();
+  if(sendResult.hasError()) {
+    //do something to handle error
+
+  }
+
+  String txHash = sendResult.getResult();
+  TransactionReceipt.TransactionReceiptData receiptData = receiptProcessor.waitForTransactionReceipt(txHash);
+} catch (IOException | TransactionException e) {
+  // do something to handle exception.
+
+}
+```
+
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures].
+
+### Account Update <a id="account-update"></a>
+
+If you want to change the private key(s) for your Klaytn account, there are 3 important things you need to remember:
+
+1. Klaytn validates every transaction you send to it.
+2. The validation requires your public keys which exactly corresponds to your private key(s).
+3. Thus, changing your private key(s) into the new one(s) is **always be** **preceded** by changing your old public key(s) to the new one(s). The new public key(s) must be derived from the new private key(s).
+
+Keeping the 3 things above in your mind, you can change your private key(s) by following the steps below:
+
+1. Prepare the new private key(s) to create a new keyring.
+2. Create a keyring by its type (Single keyring, Multiple keyring, or Role-based keyring) you need.
+3. Generate an Account instance from the new keyring. This Account instance holds the new public key(s) for your Klaytn account.
+4. Send AccountUpdate transaction including Account instance to Klaytn.
+5. Finally, replace your old keyring to the new one that was created in Step 2.
+
+Please check `Account Update` for the details.
+
+To change your AccountKey, you must provide an `Account` instance for the `account` field in the input argument object of `caver.transaction.type.AccountUpdate`. An `Account` instance contains the address of the Klaytn account and the AccountKey to be updated.
+
+The code below is an example code that changes the private key(s) you use for your Klaytn account along with changing AccountKey of your Klaytn account to `AccountKeyPublic`. Don't forget to prepare your new private key(s).
+
+```java
+Caver caver = new Caver(Caver.DEFAULT_URL);
+SingleKeyring senderKeyring = KeyringFactory.createFromPrivateKey("0x2359d1ae7317c01532a58b01452476b796a3ac713336e97d8d3c9651cc0aecc3");
+caver.wallet.add(senderKeyring);
+
+String newPrivateKey = KeyringFactory.generateSingleKey();
+SingleKeyring newKeyring = KeyringFactory.create(senderKeyring.getAddress(), newPrivateKey);
+
+Account account = newKeyring.toAccount();
+
+AccountUpdate accountUpdate = new AccountUpdate.Builder()
+        .setKlaytnCall(caver.rpc.klay)
+        .setFrom(senderKeyring.getAddress())
+        .setAccount(account)
+        .setGas(BigInteger.valueOf(50000))
+        .build();
+
+try {
+    caver.wallet.sign(senderKeyring.getAddress(), accountUpdate);
+    String rlpEncoded = accountUpdate.getRLPEncoding();
+
+    Bytes32 sendResult = caver.rpc.klay.sendRawTransaction(rlpEncoded).send();
+    if(sendResult.hasError()) {
+        //do something to handle error
+        throw new TransactionException(sendResult.getError().getMessage());
+    }
+
+    String txHash = sendResult.getResult();
+
+    TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 15);
+    TransactionReceipt.TransactionReceiptData receiptData = receiptProcessor.waitForTransactionReceipt(txHash);
+} catch (IOException | TransactionException e) {
+    // do something to handle exception.
+    e.printStackTrace();
+}
+
+senderKeyring = (SingleKeyring)caver.wallet.updateKeyring(newKeyring);
+```
+
+If the above code is executed successfully, you are no longer able to use the old private key(s) to sign any transaction with the old keyring. So you must update the old keyring with the `newKeyring` through `caver.wallet.updateKeyring(newKeyring)`. Once it is updated, the signing will be done by the newly updated private key(s).
+
+Here comes how to update AccountKey of your Klaytn account with multiple `AccountKeys`? The example below explains how to create an `Account` instance with multiple private keys that what you want to use (You can create an `Account` instance with multiple public keys via `caver.account.create`). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
+
+First, let's create an Account instance to update with `AccountKeyWeightedMultiSig`. For `AccountKeyWeightedMultiSig`, a threshold and a weight for each key must be defined. To do this, use `caver.account.weightedMultiSigOptions`. The first parameter is the threshold, and the second parameter is an array containing the weight for each key.
+
+```java
+// Create an account instance with three private keys using AccountKeyWeightedMultiSig
+String[] privateKeyArr = KeyringFactory.generateMultipleKeys(3);
+MultipleKeyring multipleKeyring = KeyringFactory.createWithMultipleKey(sender.getAddress(), privateKeyArr);
+
+// threshold = 3, the weights of the three keys = [1, 2, 1]
+BigInteger threshold = BigInteger.valueOf(3);
+BigInteger[] weightedArr = new BigInteger[] {BigInteger.valueOf(1), BigInteger.valueOf(2), BigInteger.valueOf(1)};
+WeightedMultiSigOptions options = new WeightedMultiSigOptions(threshold, Arrays.asList(weightedArr));
+
+Account account = multipleKeyring.toAccount(options)
+```
+
+Now let's update AccountKey using `AccountKeyRoleBased`. `AccountKeyRoleBased` is an `AccountKey` type that defines the key to use for each `role`.
+
+```java
+// Create an account instance with roles using AccountKeyRoleBased. In the account instance created, each role has a public key that corresponds to one private key.
+List<String[]> newPrivateKeyArr = KeyringFactory.generateRolBasedKeys(new int[] {1,1,1});
+RoleBasedKeyring newKeyring = KeyringFactory.createWithRoleBasedKey(senderKeyring.getAddress(), newPrivateKeyArr);
+
+const account = newKeyring.toAccount()
+```
+
+The AccountKeyRoleBased above is an example of using one public key for each role. As you can see from the code above, each of them corresponds to one private key. If you want to use multiple private keys for each role, `caver.account.weightedMultiSigOptions` must be defined for each role as shown below.
+
+```java
+// Create an account instance with [3, 2, 3] keys for each role using AccountKeyRoleBased
+List<String[]> newPrivateKeyArr = KeyringFactory.generateRolBasedKeys(new int[] {3, 2, 3});
+RoleBasedKeyring newKeyring = KeyringFactory.createWithRoleBasedKey(senderKeyring.getAddress(), newPrivateKeyArr);
+
+WeightedMultiSigOptions[] options = new WeightedMultiSigOptions[] {
+    new WeightedMultiSigOptions(BigInteger.valueOf(4), Arrays.asList(BigInteger.valueOf(2), BigInteger.valueOf(2), BigInteger.valueOf(4))),
+    new WeightedMultiSigOptions(BigInteger.valueOf(2), Arrays.asList(BigInteger.valueOf(1), BigInteger.valueOf(1))),
+    new WeightedMultiSigOptions(BigInteger.valueOf(3), Arrays.asList(BigInteger.valueOf(1), BigInteger.valueOf(1), BigInteger.valueOf(1))),
+};
+
+Account account = newKeyring.toAccount(Arrays.asList(options));
+```
+
+If you want to update AccountKey to `AccountKeyLegacy` or `accountKeyFail`, create an Account instance as shown below and assign it to the `account` field of the transaction. The rest of the update process is same to that of other AccountKey.
+
+```java
+// Create an account with AccountKeyLegacy
+Account account = Account.createWithAccountKeyLegacy(keyringToUpdate.address);
+
+// Create an account with AccountKeyFail
+Account account = Account.createWithAccountKeyFail(keyringToUpdate.address)
+```
+
+### Smart Contract <a id="smart-contract"></a>
+
+The `Contract` class in `caver.contract` package makes it easy to interact with smart contracts on Klaytn. All functions of a smart contract automatically converted and stored inside `contract` instance, when its low-level ABI is given. This allows you to interact with a smart contract like you handle a `contract` instance in Java.
+
+
+We begin our explanation of dealing with a smart contract in Java by writing a simple solidity example code below. Create a 'test.sol' file and write down the example below.
+
+
+```
+pragma solidity ^0.5.6;
+
+contract KVstore {
+    mapping(string=>string) store;
+    function get(string memory key) public view returns (string memory) {
+        return store[key];
+    }
+    function set(string memory key, string memory value) public {
+        store[key] = value;
+    }
+}
+```
+
+Then, compile this smart contract to get its bytecode and ABI.
+
+```text
+> solc --abi --bin ./test.sol
+======= ./test.sol:KVstore =======
+Binary: 
+608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029
+Contract JSON ABI 
+[{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
+```
+
+**NOTE**: To compile a smart contract, you must have a [solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html) installed. To compile the above program, you need to install solc:0.5.6.
+
+To deploy a smart contract by its type, you can use caver-java classes described below:
+  - `Contract` class in `caver.contract` package when the sender of a smart contract transaction pays the fee
+  - `SmartContractDeploy` class in `caver.transaction` when the sender of a smart contract transaction pays the fee
+  - `feeDelegatedSmartContractDeploy` class in `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
+  - `feeDelegatedSmartContractDeployWithRatio` class in `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
+
+Here is an example of exploiting `Contract` class in `caver.contract` package. You can create a `contract` instance like below from the bytecode and ABI you get after compiling the smart contract.
+
+```java
+    private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
+
+    public void createContractInstance() {
+        Caver caver = new Caver(Caver.DEFAULT_URL);
+
+        try {
+            Contract contract = new Contract(caver, ABIJson);
+
+            contract.getMethods().forEach((name, method) ->{
+                System.out.println(method.getType() + " " +  ABI.buildFunctionString(method));
+            });
+
+            System.out.println("ContractAddress : " + contract.getContractAddress());
+        } catch (IOException e) {
+            //handle exception..
+        }
+    }
+```
+
+Running the code above gives you the following result.
+
+```bash
+function set(string,string)
+function get(string)
+ContractAddress : null
+```
+
+Looking at the output above, you can see that the `contract` instance owns the smart contract method. And since it hasn't been deployed yet, you can see that the result of `contract.getContractAddress()` is output as null.
+
+If this contract was already deployed and you knew the contract address where this contract was deployed at, pass the contract address as the third parameter of the constructor of the `contract` instance as below.
+
+```java
+    private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
+
+    @Test
+    public void loadContract() {
+        Caver caver = new Caver(Caver.DEFAULT_URL);
+        String contractAddress = "0x3466D49256b0982E1f240b64e097FF04f99Ed4b9";
+
+        try {
+            Contract contract = new Contract(caver, ABIJson);
+
+            contract.getMethods().forEach((name, method) ->{
+                System.out.println(method.getType() + " " +  ABI.buildFunctionString(method));
+            });
+
+            System.out.println("ContractAddress : " + contract.getContractAddress());
+        } catch (IOException e) {
+            //handle exception..
+        }
+    }
+```
+
+Running the code above gives you the following result.
+
+```bash
+function set(string,string)
+function get(string)
+ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
+```
+
+A `contract` instance stores its contract address as `contractAddress` property when it was created. The address can be accessed through getter / setter function (`getContractAddress()` / `setContractAddress()`).
+
+Once a `contract` instance is created, you can deploy the smart contract by passing its bytecode you got after the compiling stage to the `ContractDeployParams` instance below.
+
+Note that the `deploy()` method of the `contract` instance sends transactions for contract deployment and contract execution. For sending transactions, it uses Keyrings in `caver.wallet` to sign them. The keyring to be used must have been added to `caver.wallet` before signing.
+
+```java
+    private static final String byteCode = "608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029";
+    
+    private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
+
+    public void deployContract() {
+        Caver caver = new Caver(Caver.DEFAULT_URL);
+        SingleKeyring deployer = KeyringFactory.createFromPrivateKey("0x{private key}");
+        caver.wallet.add(deployer);
+
+        try {
+            Contract contract = new Contract(caver, ABIJson);
+            SendOptions sendOptions = new SendOptions();
+            sendOptions.setFrom(deployer.getAddress());
+            sendOptions.setGas(BigInteger.valueOf(4000000));
+            
+            Contract newContract = contract.deploy(sendOptions, byteCode);
+            System.out.println("Contract address : " + newContract.getContractAddress());
+        } catch (IOException | TransactionException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
+            //handle exception..
+        }
+    }
+```
+
+In the code above, the `deployer` deploys the contract to the Klaytn and returns the deployed `contract` instance.
+
+```bash
+ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
+```
+
+A smart contract can be deployed using one of the following classes, depending on the type of contract deploying transaction:
+  - `Contract` class in `caver.contract` package when the sender of a smart contract transaction pays the fee
+  - `SmartContractDeploy` class in `caver.transaction` when the sender of a smart contract transaction pays the fee
+  - `feeDelegatedSmartContractDeploy` class in `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
+  - `feeDelegatedSmartContractDeployWithRatio` class in `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
+
+
+Deploying a smart contract through fee-delegated transaction using `Contract` class in `caver.contract` package is not supported yet. To do that, `FeeDelegatedSmartContractDeploy` class (or `FeeDelegatedSmartContractDeployWithRatio` class) is used explicitly like the example below:
+
+```java
+    private static final String byteCode = "608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029";
+
+    private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
+
+    public void deployContractWithFeeDelegation() {
+        Caver caver = new Caver(Caver.DEFAULT_URL);
+
+        SingleKeyring deployer = KeyringFactory.createFromPrivateKey("0x{private key}");
+        caver.wallet.add(deployer);
+
+        SingleKeyring feePayer = KeyringFactory.createFromPrivateKey("0x{private key}");
+        caver.wallet.add(feePayer);
+
+        try {
+            Contract contract = new Contract(caver, ABIJson);
+            ContractDeployParams params = new ContractDeployParams(byteCode);
+
+            //if smart contract has constructor, it encodes constructor params.
+            //This sample contract has no constructor.
+            String input = ABI.encodeContractDeploy(contract.getConstructor(), params.getBytecode(),  params.getDeployParams());
+
+            SendOptions sendOptions = new SendOptions();
+            sendOptions.setFrom(deployer.getAddress());
+            sendOptions.setGas(BigInteger.valueOf(40000));
+
+            //creates a FeeDelegatedSmartContractDeploy instance.
+            FeeDelegatedSmartContractDeploy feeDelegatedSmartContractDeploy = new FeeDelegatedSmartContractDeploy.Builder()
+                    .setKlaytnCall(caver.rpc.klay)
+                    .setFrom(sendOptions.getFrom())
+                    .setInput(input)
+                    .setCodeFormat(CodeFormat.EVM)
+                    .setFeePayer(feePayer.getAddress())
+                    .setHumanReadable(false)
+                    .setGas(sendOptions.getGas())
+                    .build();
+
+            //sign transaction using deployer's key
+            caver.wallet.sign(deployer.getAddress(), feeDelegatedSmartContractDeploy);
+
+            //sign transaction using feepayer's key
+            caver.wallet.signAsFeePayer(feePayer.getAddress(), feeDelegatedSmartContractDeploy);
+
+            //send transaction.
+            Bytes32 txHashData = caver.rpc.klay.sendRawTransaction(feeDelegatedSmartContractDeploy.getRLPEncoding()).send();
+
+            //Get transaction receipt data using transaction hash data
+            TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 20);
+            TransactionReceipt.TransactionReceiptData receipt = receiptProcessor.waitForTransactionReceipt(txHashData.getResult());
+            
+            
+        } catch (IOException | TransactionException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
+            //handle exception..
+        }
+    }
+```
+
+To show how to execute a function in a smart contract, here we send a contract execution transaction that puts a string "testValue" as the input parameter of the contract function `set` in the example code below. 
+
+```java
+    private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
+
+    
+    public void executeContractFunction() {
+        Caver caver = new Caver(Caver.DEFAULT_URL);
+        SingleKeyring executor = KeyringFactory.createFromPrivateKey("0x{private key}");
+        caver.wallet.add(executor);
+
+        try {
+            Contract contract = new Contract(caver, ABIJson, "0x{address in hex}");
+            
+            SendOptions sendOptions = new SendOptions();
+            sendOptions.setFrom(executor.getAddress());
+            sendOptions.setGas(BigInteger.valueOf(4000000));
+
+            TransactionReceipt.TransactionReceiptData receipt = contract.send(sendOptions, "set", "test", "testValue");
+        } catch (IOException | TransactionException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
+            //handle exception..
+        }
+    }
+```
+
+Executing a smart contract through fee-delegated transaction using `Contract` class in `caver.contract` package is not supported yet. To do that, `FeeDelegatedSmartContractExecution` class (or `FeeDelegatedSmartContractExecutionWithRatio` class) is used explicitly like the example below:
+
+```java
+    private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
+
+    public void executeContractWithFeeDelegation() {
+        Caver caver = new Caver(Caver.DEFAULT_URL);
+
+        SingleKeyring executor = KeyringFactory.createFromPrivateKey("0x{private key}");
+        caver.wallet.add(executor);
+
+        SingleKeyring feePayer = KeyringFactory.createFromPrivateKey("0x{private key}");
+        caver.wallet.add(feePayer);
+
+        try {
+            Contract contract = new Contract(caver, ABIJson, "0x{address in hex}");
+
+            SendOptions sendOptions = new SendOptions();
+            sendOptions.setFrom(executor.getAddress());
+            sendOptions.setGas(BigInteger.valueOf(40000));
+
+            //encode paramter of contract's "set" function.
+            String encodedParams = contract.encodeABI("set", "test", "testValue");
+
+            //creates a FeeDelegatedSmartContractExecution instance
+            FeeDelegatedSmartContractExecution feeDelegatedSmartContractExecution = new FeeDelegatedSmartContractExecution.Builder()
+                    .setKlaytnCall(caver.rpc.klay)
+                    .setFrom(sendOptions.getFrom())
+                    .setTo(contract.getContractAddress())
+                    .setGas(sendOptions.getGas())
+                    .setInput(encodedParams)
+                    .setFeePayer(feePayer.getAddress())
+                    .build();
+
+            //sign transaction using executor's key
+            caver.wallet.sign(executor.getAddress(), feeDelegatedSmartContractExecution);
+
+            //sign transaction using fee payer's key
+            caver.wallet.signAsFeePayer(feePayer.getAddress(), feeDelegatedSmartContractExecution);
+
+            //send transaction
+            Bytes32 txHashData = caver.rpc.klay.sendRawTransaction(feeDelegatedSmartContractExecution.getRLPEncoding()).send();
+
+            //get transaction receipt
+            TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 20);
+            TransactionReceipt.TransactionReceiptData receipt = receiptProcessor.waitForTransactionReceipt(txHashData.getResult());
+
+        } catch (Exception e) {
+            //handle exception..
+        }
+    }
+```
+
+To load a `contract` instance and call one of its functions (not sending a transaction but just a call): the below example shows calling a `get` function in a contract.
+
+```java
+    private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
+
+
+    public void callContractFunction() {
+        Caver caver = new Caver(Caver.DEFAULT_URL);
+
+        try {
+            Contract contract = new Contract(caver, ABIJson, '0x{address in hex}');
+            List<Type> result = contract.call("get", "test");
+            System.out.println((String)result.get(0).getValue());
+        } catch (IOException | TransactionException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
+            //handle exception..
+        }
+    }
+```
+
+When the above code is executed, the value is shown as an output below.
+
+```bash
+testValue
+```
+
+To find more information, see [caver-java API]
+
+
+## IPFS <a id="ipfs"></a>
+
+IPFS (InterPlanetary File System) is a distributed file system for storing and accessing files, websites, application, and data.
+
+You can upload and download a file through IPFS with Caver.
+
+
+### Connecting with IPFS <a id="connecting-with-ipfs"></a>
+
+The `IPFS` class in the `caver.ipfs` package is defined as a class member variable in `Caver`, so you can interact with IPFS through `Caver`.
+
+In order to use an `IPFS` instance through the `Caver` instance, you must call method `setIPFSNode()` first to connect to an IPFS node.
+
+The function `setIPFSNode()` requires following parameters:
+  - IPFS HTTP API Host URL 
+  - IPFS HTTP API Host port number
+  - Whether the host use SSL or not.
+
+```java
+String host = "The URL of an IPFS node";
+int port = 5001; // API host port number
+boolean isSSL = true; // API host support ssl 
+Caver caver = new Caver();
+caver.ipfs.setIPFSNode(host, port, isSSL);
+```
+
+### Uploading a file through IPFS<a id="uploading-a-file-through-ipfs"></a>
+
+To upload a file through `IPFS`, please use `add()` like below.
+
+This function returns [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file.
+
+
+```java
+String filePath = "/path/to/file";
+String cid = caver.ipfs.add(filePath);
+System.out.println(cid);
+```
+
+The execution result of the above code is shown below.
+
+```java
+QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq
+```
+
+Likewise, you can upload a byte array.
+
+```java
+String text = "sample data";
+byte[] data = text.getBytes();
+
+String cid = caver.ipfs.add(data);
+System.out.println(cid);
+```
+
+The execution result of the above code is shown below.
+
+```java
+QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq
+```
+
+### Downloading a file from IPFS<a id="downloading-a-file-from-ipfs"></a>
+
+To download a file from `IPFS`, please use `get()` like below.
+
+This function requires CID of the file to be downloaded.
+
+```java
+String cid = "QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq";
+byte[] content = caver.ipfs.get(cid);
+```
+
+
+### Conversion between CID and multihash <a id="conversion-between-cid-and-multihash"></a>
+
+You can convert a CID to a [Multihash](https://multiformats.io/multihash/) using `toHex()`.
+
+A CID is a Base58 encoded value of a multihash. `toHex()` decodes the CID and returns the corresponding multihash.
+
+```java
+String cid = "QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk";
+String multihash = IPFS.toHex(cid);
+System.out.println(multihash);
+```
+
+The execution result of the above code is shown below.
+
+```java
+0x12209cbc07c3f991725836a3aa2a581ca2029198aa420b9d99bc0e131d9f3e2cbe47
+```
+
+To convert a multihash to CID, please use `fromHex()`.
+
+```java
+String multihash = "0x12209cbc07c3f991725836a3aa2a581ca2029198aa420b9d99bc0e131d9f3e2cbe47";
+String cid = IPFS.fromHex(multihash);
+System.out.println(cid);
+```
+
+The execution result of the above code is shown below.
+
+```java
+QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk
+```
+
+## Detect KCT interface<a id="detect kct interface"></a>
+
+KCT (Klaytn Compatible Token) contracts such as [KIP-7], [KIP-17], and [KIP-37] define and provide various interfaces, and [KIP-13] allows you to see whether a contract complies with KCT specifications and which interface it implements, by sending a query to the contract.
+
+[KIP-13] was implemented in Caver v1.5.7. It could detect interface through `detectInterface()` for any of the KCT contract classes (`KIP7`, `KIP17`, and `KIP37`).
+
+### Detecting KIP-7 Interfaces <a id="detecting-kip-7-interfaces"></a>
+
+To detect KIP-7 interfaces, you can use `detectInterface()` in the `KIP7` class.
+It returns the mapping between KIP-7 interface identifier and a boolean that the interface is supported or not.
+
+`detectInterface()` supports both static and instance methods, so you can select and use the method that suits your needs.
+
+The interface detected through `detectInterface()` for `KIP7` is shown in the table below.
+
+|Interface|KIP-13 Identifier|
+|---|---|
+|IKIP7|0x65787371|
+|IKIP7Metadata|0xa219a025|
+|IKIP7Mintable|0xeab83e20|
+|IKIP7Burnable|0x3b5a0bf8|
+|IKIP7Pausable|0x4d5507ff|
+
+```java
+Caver caver = new Caver(Caver.DEFAULT_URL);
+ObjectMapper mapper = new ObjectMapper();
+String contractAddress = "0x{address}";
+
+//using static method.
+Map<String, Boolean> resultStatic = KIP7.detectInterface(caver, contractAddress);
+String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultStatic);
+System.out.println(resultJson);
+
+//using instance method.
+KIP7 kip7 = new KIP7(caver, contractAddress)
+Map<String, Boolean> resultInstance = kip7.detectInterface();
+String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultInstance);
+System.out.println(resultJson);
+```
+
+The execution result of the above code is shown below.
+
+```java
+{
+  "IKIP7Metatdata" : true,
+  "IKIP7Burnable" : true,
+  "IKIP7" : true,
+  "IKIP7Pausable" : true,
+  "IKIP7Mintable" : true
+}
+```
+
+
+### Detecting KIP-17 Interfaces <a id="detecting-kip-17-interfaces"></a>
+
+To detect the interface implemented in a KIP-17 token contract, you can use `detectInterface()` in the `KIP17` class.
+It returns the mapping between KIP-17 interface identifier and interface support.
+
+`detectInterface()` supports both static and instance methods, so you can select and use the method that suits your needs.
+
+The interface detect through `detectInterface()` for `KIP17` is shown in the table below.
+
+|Interface|KIP-13 Identifier|
+|---|---|
+|IKIP17|0x80ac58cd|
+|IKIP17Metadata|0x5b5e139f|
+|IKIP17Enumerable|0x780e9d63|
+|IKIP17Mintable|0xeab83e20|
+|IKIP17MetadataMintable|0xfac27f46|
+|IKIP17Burnable|0x42966c68|
+|IKIP17Pausable|0x4d5507ff|
+
+```java
+
+Caver caver = new Caver(Caver.DEFAULT_URL);
+ObjectMapper mapper = new ObjectMapper();
+String contractAddress = "0x{address}";
+
+//using static method.
+Map<String, Boolean> resultStatic = KIP17.detectInterface(caver, contractAddress);
+String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultStatic);
+System.out.println(resultJson);
+
+//using instance method.
+KIP17 kip17 = new KIP17(caver, contractAddress)
+Map<String, Boolean> resultInstance = kip17.detectInterface();
+String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultInstance);
+System.out.println(resultJson);
+```
+
+The execution result of the above code is shown below.
+
+```java
+{
+  "IKIP17Enumerable" : true,
+  "IKIP17Metadata" : true,
+  "IKIP17Burnable" : true,
+  "IKIP17Mintable" : true,
+  "IKIP17" : true,
+  "IKIP17MetadataMintable" : true,
+  "IKIP17Pausable" : true
+}
+```
+
+### Detecting KIP-37 interfaces <a id="detecting-kip-37-interfaces"></a>
+
+To detect the interface implemented in a KIP-37 token contract, you can use `detectInterface()` in the `KIP37` class.
+It returns the mapping between KIP-37 interface identifier and interface support.
+
+`detectInterface()` supports both static and instance methods, so you can select and use the appropriate method.
+
+The interface detection through `detectInterface()` for `KIP37` is shown in the table below.
+
+| Interface | KIP-13 Identifier |
+|---|---|
+| IKIP37 | 0x6433ca1f |
+| IKIP37Metadata | 0x0e89341c |
+| IKIP37Mintable | 0xdfd9d9ec |
+| IKIP37Burnable | 0x9e094e9e |
+| IKIP37Pausable | 0x0e8ffdb7 |
+
+
+```java
+
+Caver caver = new Caver(Caver.DEFAULT_URL);
+ObjectMapper mapper = new ObjectMapper();
+String contractAddress = "0x{address}";
+
+//using static method.
+Map<String, Boolean> resultStatic = KIP37.detectInterface(caver, contractAddress);
+String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultStatic);
+System.out.println(resultJson);
+
+//using instance method.
+KIP37 kip37 = new KIP37(caver, contractAddress)
+Map<String, Boolean> resultInstance = kip37.detectInterface();
+String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultInstance);
+System.out.println(resultJson);
+```
+
+The execution result of the above code is shown below.
+
+```java
+{
+  "IKIP37Metatdata" : true,
+  "IKIP37Burnable" : true,
+  "IKIP37" : true,
+  "IKIP37Pausable" : true,
+  "IKIP37Mintable" : true
+}
+```
+
+
+[caver-java API]: https://javadoc.io/doc/com.klaytn.caver/core/
+[KIP-7]: https://kips.klaytn.com/KIPs/kip-7
+[KIP-13]: https://kips.klaytn.com/KIPs/kip-13
+[KIP-17]: https://kips.klaytn.com/KIPs/kip-17
+[KIP-37]: https://kips.klaytn.com/KIPs/kip-37
