@@ -1,14 +1,14 @@
-# Account Management
+# Account Management <a id="account-management"></a>
 
 **`WARNING`**: Remember your password. If you lose the password of your account, you will not be able to access that account. **There is no** _**forgot my password**_ **option here. Never forget it.**
 
 Klaytn provides two handy command-line tools, `ken` and `JavaScript console`, for developers to manage accounts. Note that exporting your private key in an unencrypted format is NOT supported.
 
-## ken
+## ken <a id="ken"></a>
 
 The Klaytn Endpoint Node binary `ken` provides account management via the `account` command. The command `account` lets you create new accounts, lists all existing accounts, imports a private key into a new account, migrates to the newest key format, and changes your password.
 
-### Usage
+### Usage <a id="usage"></a>
 
 ```bash
 $ ken account <command> [options...] [arguments...]
@@ -44,7 +44,7 @@ DATABASE OPTIONS:
   --db.no-partitioning  Disable partitioned databases for persistent storage
 ```
 
-### Data Directory
+### Data Directory <a id="data-directory"></a>
 
 Keystore files are stored under `<DATADIR>/keystore`. You can specify the data directory as below. It is highly recommended to execute `ken account` command with `--datadir` option. Make the data directory point to the `DATA_DIR` set in the `kend.conf` to seamlessly share the accounts with your Endpoint Node.
 
@@ -58,11 +58,11 @@ If you do not specify the data directory, the default location is as follows.
 * Mac: `~/Library/KEN`
 * Linux: `~/.ken`
 
-## JavaScript Console
+## JavaScript Console <a id="javascript-console"></a>
 
 To connect to the JavaScript console, an EN must be in running status. For more information, see [Launching an EN](../quick-start/launch-an-en.md). Start an EN and attach to the console as follows.
 
-### Usage
+### Usage <a id="usage"></a>
 
 ```bash
 $ kend start
@@ -90,7 +90,7 @@ Type `personal` or `klay` to get the list of available functions. In this tutori
 > klay.getBalance()
 ```
 
-### Data Directory
+### Data Directory <a id="data-directory"></a>
 
 When you create an account, the keystore file is stored under `<DATADIR>/keystore`. The `<DATADIR>` is the `DATA_DIR` set in the `kend.conf`. If you follow the quick start guide with the given example, it must be `~/kend_home`.
 
