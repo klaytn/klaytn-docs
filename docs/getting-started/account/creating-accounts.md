@@ -1,4 +1,4 @@
-# Creating Accounts
+# Creating Accounts <a id="creating-accounts"></a>
 
 ## Creating a New Account <a id="creating-a-new-account"></a>
 
