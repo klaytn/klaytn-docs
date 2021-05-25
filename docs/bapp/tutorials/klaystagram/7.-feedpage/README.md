@@ -1,4 +1,4 @@
-# 7. FeedPage
+# 7. FeedPage <a id="7-feedpage"></a>
 
 ![FeedPage](../images/klaystagram-feedpage.png)
 
