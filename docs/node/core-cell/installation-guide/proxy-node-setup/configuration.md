@@ -1,4 +1,4 @@
-# Configuration
+# Configuration <a id="configuration"></a>
 
 The PN configuration is to create a data directory and set up several values in the configuration file `kpnd.conf`.
 
@@ -7,7 +7,7 @@ The PN configuration is to create a data directory and set up several values in 
 3. Install `static-node.json` 
 4. Configure the PN with `kpnd.conf`.
 
-## PN Data Directory Creation
+## PN Data Directory Creation <a id="pn-data-directory-creation"></a>
 
 Considering the fact that the size of Klaytn blockchain data is always increased, it is recommended to use a big enough storage. You may need to create the directory on your desired path.
 
@@ -15,7 +15,7 @@ Considering the fact that the size of Klaytn blockchain data is always increased
 $ mkdir -p /var/kpnd/data
 ```
 
-## Install Node Key
+## Install Node Key <a id="install-node-key"></a>
 
 In order to operate a PN, a `nodekey` is required. The KPN binary will create a new one for you if you do not have it. If you have one, you need to put your `nodekey` into the PN data directory. The way to create a `nodekey` is in the "[Before You Install](../before-you-install.md)" section. The following command line copies the `nodekey` into the PN data directory.
 
@@ -23,7 +23,7 @@ In order to operate a PN, a `nodekey` is required. The KPN binary will create a 
 $ cp nodekey /var/kpnd/data
 ```
 
-## Install `static-nodes.json`
+## Install `static-nodes.json` <a id="install-static-nodes-json"></a>
 
 The `static-nodes.json` should be created from the PN operator. It contains the addresses that your PN is connected to. It is recommended to add the addresses including your CN and a PN from another Core Cell. Please contact to the Klaytn official email for more details \(`bootstrap@klaytn.com` for Cypress or `baobab@klaytn.com` for Baobab\).
 
@@ -42,14 +42,14 @@ The node URI of the PN is in the "[Before You Install](../before-you-install.md)
 $ cp static-nodes.json /var/kpnd/data
 ```
 
-## Update the Configuration File
+## Update the Configuration File <a id="update-the-configuration-file"></a>
 
 Configuration File Location:
 
 * For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kpn-linux-amd64/conf/`.
 * For the package distribution, the config directory defaults to `/etc/kpnd/conf/`.
 
-### Add Data Directory 
+### Add Data Directory  <a id="add-data-directory"></a>
 
 You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kpnd.conf`.
 
@@ -59,7 +59,7 @@ DATA_DIR=/var/kpnd/data
 ...
 ```
 
-## Fast Sync \(Optional\)
+## Fast Sync \(Optional\) <a id="fast-sync-optional"></a>
 
 Each PN maintains a copy of the network's chain data. If a node is out of sync, it can obtain this data from other nodes in the network -- a process known as syncing. When a new PN is first started, it must download the entire chain data from the network.
 
