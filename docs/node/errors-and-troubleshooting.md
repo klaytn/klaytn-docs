@@ -1,12 +1,12 @@
-# Errors & Troubleshooting
+# Errors & Troubleshooting <a id="errors-troubleshooting"></a>
 
-## Where can I find a log file for the running Klaytn node using the Klaytn binary package?
+## Where can I find a log file for the running Klaytn node using the Klaytn binary package? <a id="where-can-i-find-a-log-file-for-the-running-klaytn-node-using-the-klaytn-binary"></a>
 
 **Answer**
 
 You can find a log file in data directory. For example, default location of a log for `kcnd` is `/var/log/kcnd/kcnd.out` when you install `kcnd` RPM package.
 
-## Klaytn node can not connect to network with `Protocol istanbul/64 failed` and `Genesis block mismatch` error message as below.
+## Klaytn node can not connect to network with `Protocol istanbul/64 failed` and `Genesis block mismatch` error message as below. <a id="klaytn-node-can-not-connect-to-network-with-protocol-istanbul-64-failed-and-gene"></a>
 
 ```
 ERROR[01/27,17:11:33 +09] [33] Protocol istanbul/64 failed               id=b10697e43d4f8e30 conn=staticdial err="Genesis block mismatch - 81cf117d44f99b21 (!= 74647b98b9f06cb4)"
@@ -26,7 +26,7 @@ sudo kend start
 ```
 
 
-## Can't deploy smart contract using truffle with following error message.
+## Can't deploy smart contract using truffle with following error message. <a id="can-t-deploy-smart-contract-using-truffle-with-following-error-message"></a>
 
 ```
 Error: Returned error: The method net_version does not exist/is not available
@@ -53,7 +53,7 @@ RPC_API="admin,debug,klay,miner,net,personal,rpc,txpool,web3" # available apis: 
 After updating `kend.conf`, restart Klaytn node.
 
 
-## Can't start Klaytn node with `Unit not found` error as below after installing binary package.
+## Can't start Klaytn node with `Unit not found` error as below after installing binary package. <a id="can-t-start-klaytn-node-with-unit-not-found-error-as-below-after-installing-bina"></a>
 
 ```
 Failed to start kcnd.service: Unit not found.
@@ -67,7 +67,7 @@ Please reload daemon as below.
 sudo systemctl daemon-reload
 ```
 
-## CN can't connect to network with `Add dial candidate from static nodes` log message.
+## CN can't connect to network with `Add dial candidate from static nodes` log message. <a id="cn-can-t-connect-to-network-with-add-dial-candidate-from-static-nodes-log-messag"></a>
 
 ```
 INFO[02/20,12:35:34 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa1e3136fd16a3 addr=13.209.225.108:32323
@@ -77,10 +77,10 @@ INFO[02/20,12:35:38 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa
 
 **Answer**
 
-This can be happend when `genesis.json` and nodekey/validator information differ.
+This can happen when `genesis.json` and nodekey/validator information differ.
 Please check nodekey/validator and `genesis.json` file again.
 
-## Klaytn node can't start with following error log message.
+## Klaytn node can't start with following error log message. <a id="klaytn-node-can-t-start-with-following-error-log-message"></a>
 
 ```
 Fatal: Error starting protocol stack: listen unix /Users/username/some_directory/more_directories/klaytn/klaytn_client/my_test_klaytn/data/dd/klay.ipc: bind: invalid argument
@@ -91,7 +91,7 @@ Fatal: Error starting protocol stack: listen unix /Users/username/some_directory
 If you see the above protocol stack error message in the log file, it means Klaytn failed to start because the full path name of current working directory is too long. Please launch a Klaytn node with a shorter full data directory. The maximum allowed length of path name depends on operating system.
 
 
-## EN can't connect to CC with following log message.
+## EN can't connect to CC with following log message. <a id="en-can-t-connect-to-cc-with-following-log-message"></a>
 
 ```
 ERROR[01/28,06:20:07 Z] [23] Protocol istanbul/64 failed id=845f596536450bad conn=staticdial err="InvalidPeerHierarchy - (PeerIsOnParentChain:false) == (OnChildChain:false)"
@@ -101,7 +101,7 @@ ERROR[01/28,06:20:07 Z] [23] Protocol istanbul/64 failed id=845f596536450bad con
 
 It could happen when genesis of mainchain and service chain differ. Please check genesis of both chain are same.
 
-## Head state missing error
+## Head state missing error <a id="head-state-missing-error"></a>
 
 ```
 "ERROR[06/21,14:35:16 +09] [5] Head state missing, repairing chain       number=2955620 hash=66bba2…e15f8d
