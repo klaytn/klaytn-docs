@@ -790,7 +790,7 @@ Contract JSON ABI
 **NOTE**: To compile a smart contract, you must have a [solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html) installed. To compile the above program, you need to install solc:0.5.6.
 
 To deploy a smart contract by its type, you can use caver-java classes described below:
-  - `Contract` class in `caver.contract` package when the sender of a smart contract transaction pays the fee
+  - `Contract` class in `caver.contract` package when the sender or the fee payer of a smart contract transaction pays the fee
   - `SmartContractDeploy` class in `caver.transaction` when the sender of a smart contract transaction pays the fee
   - `feeDelegatedSmartContractDeploy` class in `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
   - `feeDelegatedSmartContractDeployWithRatio` class in `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
@@ -861,7 +861,7 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 
 A `contract` instance stores its contract address as `contractAddress` property when it was created. The address can be accessed through getter / setter function (`getContractAddress()` / `setContractAddress()`).
 
-Once a `contract` instance is created, you can deploy the smart contract by passing its bytecode you got after the compiling stage to the `ContractDeployParams` instance below.
+Once a `contract` instance is created, you can deploy the smart contract by passing its bytecode and constructor's arguments(if it needed to deploy.) below example.
 
 Note that the `deploy()` method of the `contract` instance sends transactions for contract deployment and contract execution. For sending transactions, it uses Keyrings in `caver.wallet` to sign them. The keyring to be used must have been added to `caver.wallet` before signing.
 
@@ -896,13 +896,48 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
 A smart contract can be deployed using one of the following classes, depending on the type of contract deploying transaction:
-  - `Contract` class in `caver.contract` package when the sender of a smart contract transaction pays the fee
+  - `Contract` class in `caver.contract` package when the sender or the fee payer of a smart contract transaction pays the fee
   - `SmartContractDeploy` class in `caver.transaction` when the sender of a smart contract transaction pays the fee
   - `feeDelegatedSmartContractDeploy` class in `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
   - `feeDelegatedSmartContractDeployWithRatio` class in `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
 
 
-Deploying a smart contract through fee-delegated transaction using `Contract` class in `caver.contract` package is not supported yet. To do that, `FeeDelegatedSmartContractDeploy` class (or `FeeDelegatedSmartContractDeployWithRatio` class) is used explicitly like the example below:
+To deploy a smart contract through fee-delegated transaction, define `feeDelegation` and `feePayer` field in `SendOptions` class like the example below.
+
+```java
+    private static final String byteCode = "608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029";
+
+    private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
+
+    public void deployContractWithFeeDelegation() {
+        Caver caver = new Caver(Caver.DEFAULT_URL);
+
+        SingleKeyring deployer = caver.wallet.keyring.createFromPrivateKey("0x{private key}");
+        caver.wallet.add(deployer);
+
+        SingleKeyring feePayer = caver.wallet.keyring.createFromPrivateKey("0x{private key}");
+        caver.wallet.add(feePayer);
+
+        try {
+            Contract contract = caver.contract.create(ABIJson);
+
+            SendOptions sendOptionsForDeployment = new SendOptions();
+            sendOptionsForDeployment.setFrom(sender.getAddress());
+            sendOptionsForDeployment.setGas(BigInteger.valueOf(1000000));
+            sendOptionsForDeployment.setFeeDelegation(true);
+            sendOptionsForDeployment.setFeePayer(feePayer.getAddress());
+
+            contract.deploy(sendOptionsForDeployment, byteCode);
+            System.out.println("The address of deployed smart contract:" + contract.getContractAddress());
+            
+            
+        } catch (IOException | TransactionException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
+            //handle exception..
+        }
+    }
+```
+
+If you want to send a transaction with sender and feePayer signed seperately when deploying a smart contract through `caver.contract`, refer to the code below.
 
 ```java
     private static final String byteCode = "608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029";
@@ -922,44 +957,33 @@ Deploying a smart contract through fee-delegated transaction using `Contract` cl
             Contract contract = caver.contract.create(ABIJson);
             ContractDeployParams params = new ContractDeployParams(byteCode);
 
-            //if smart contract has constructor, it encodes constructor params.
-            //This sample contract has no constructor.
-            String input = ABI.encodeContractDeploy(contract.getConstructor(), params.getBytecode(),  params.getDeployParams());
+            SendOptions sendOptionsForDeployment = new SendOptions();
+            sendOptionsForDeployment.setFrom(sender.getAddress());
+            sendOptionsForDeployment.setGas(BigInteger.valueOf(1000000));
+            sendOptionsForDeployment.setFeeDelegation(true);
+            sendOptionsForDeployment.setFeePayer(feePayer.getAddress());
 
-            SendOptions sendOptions = new SendOptions();
-            sendOptions.setFrom(deployer.getAddress());
-            sendOptions.setGas(BigInteger.valueOf(4000000));
+            AbstractTransaction signedTx = contract.sign(sendOptionsForSigning, "constructor", byteCode);
 
-            //creates a FeeDelegatedSmartContractDeploy instance.
-            FeeDelegatedSmartContractDeploy feeDelegatedSmartContractDeploy = caver.transaction.feeDelegatedSmartContractDeploy.create(
-                    TxPropertyBuilder.feeDelegatedSmartContractDeploy()
-                            .setFrom(sendOptions.getFrom())
-                            .setInput(input)
-                            .setCodeFormat(CodeFormat.EVM)
-                            .setFeePayer(feePayer.getAddress())
-                            .setHumanReadable(false)
-                            .setGas(sendOptions.getGas())
-            );
+            caver.wallet.signAsFeePayer(feePayer.getAddress(), (AbstractFeeDelegatedTransaction)signedTx);
+            Bytes32 txHash = caver.rpc.klay.sendRawTransaction(signedTx).send();
+            TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 15);
 
-            //sign transaction using deployer's key
-            caver.wallet.sign(deployer.getAddress(), feeDelegatedSmartContractDeploy);
-
-            //sign transaction using feepayer's key
-            caver.wallet.signAsFeePayer(feePayer.getAddress(), feeDelegatedSmartContractDeploy);
-
-            //send transaction.
-            Bytes32 txHashData = caver.rpc.klay.sendRawTransaction(feeDelegatedSmartContractDeploy.getRLPEncoding()).send();
-
-            //Get transaction receipt data using transaction hash data
-            TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 20);
-            TransactionReceipt.TransactionReceiptData receipt = receiptProcessor.waitForTransactionReceipt(txHashData.getResult());
-            
-            
+            TransactionReceipt.TransactionReceiptData receiptData = receiptProcessor.waitForTransactionReceipt(txHash.getResult());
+            System.out.println("The address of deployed smart contract:" + receiptData.getContractAddress());
         } catch (IOException | TransactionException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
             //handle exception..
         }
     }
 ```
+
+
+To execute a smart contract's function by its type, you can use caver-java classes described below:
+  - `Contract` class in `caver.contract` package when the sender of a smart contract transaction pays the fee
+  - `SmartContractExecution` class in `caver.transaction` when the sender of a smart contract transaction pays the fee
+  - `FeeDelegatedSmartContractExecution` class in `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
+  - `FeeDelegatedSmartContractExecutionWithRatio` class in `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
+
 
 To show how to execute a function in a smart contract, here we send a contract execution transaction that puts a string "testValue" as the input parameter of the contract function `set` in the example code below. 
 
@@ -986,7 +1010,8 @@ To show how to execute a function in a smart contract, here we send a contract e
     }
 ```
 
-Executing a smart contract through fee-delegated transaction using `Contract` class in `caver.contract` package is not supported yet. To do that, `FeeDelegatedSmartContractExecution` class (or `FeeDelegatedSmartContractExecutionWithRatio` class) is used explicitly like the example below:
+To execute a smart contract's function through fee-delegated transaction, define `feeDelegation` and `feePayer` field in `SendOptions` class like the example below.
+
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
@@ -1003,36 +1028,49 @@ Executing a smart contract through fee-delegated transaction using `Contract` cl
         try {
             Contract contract = caver.contract.create(ABIJson, "0x{address in hex}");
 
-            SendOptions sendOptions = new SendOptions();
-            sendOptions.setFrom(executor.getAddress());
-            sendOptions.setGas(BigInteger.valueOf(4000000));
+            SendOptions sendOptionsForExecution = new SendOptions();
+            sendOptionsForExecution.setFrom(executor.getAddress());
+            sendOptionsForExecution.setGas(BigInteger.valueOf(4000000));
+            sendOptionsForExecuted.setFeeDelegation(true);
+            sendOptionsForExecuted.setFeePayer(feePayer.getAddress());
+            
+            TransactionReceipt.TransactionReceiptData receipt = contract.send(sendOptions, "set", "test", "testValue");
+        } catch (Exception e) {
+            //handle exception..
+        }
+    }
+```
 
-            //encode paramter of contract's "set" function.
-            String encodedParams = contract.encodeABI("set", "test", "testValue");
+If you want to send a transaction with sender and feePayer signed separately when executing a smart contract through `caver.contract`, refer to the code below:
 
-            //creates a FeeDelegatedSmartContractExecution instance
-            FeeDelegatedSmartContractExecution feeDelegatedSmartContractExecution = caver.transaction.feeDelegatedSmartContractExecution.create(
-                    TxPropertyBuilder.feeDelegatedSmartContractExecution()
-                            .setFrom(sendOptions.getFrom())
-                            .setTo(contract.getContractAddress())
-                            .setGas(sendOptions.getGas())
-                            .setInput(encodedParams)
-                            .setFeePayer(feePayer.getAddress())
-            );
+```java
+    private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
 
-            //sign transaction using executor's key
-            caver.wallet.sign(executor.getAddress(), feeDelegatedSmartContractExecution);
+    public void executeContractWithFeeDelegation() {
+        Caver caver = new Caver(Caver.DEFAULT_URL);
 
-            //sign transaction using fee payer's key
-            caver.wallet.signAsFeePayer(feePayer.getAddress(), feeDelegatedSmartContractExecution);
+        SingleKeyring executor = caver.wallet.keyring.createFromPrivateKey("0x{private key}");
+        caver.wallet.add(executor);
 
-            //send transaction
-            Bytes32 txHashData = caver.rpc.klay.sendRawTransaction(feeDelegatedSmartContractExecution.getRLPEncoding()).send();
+        SingleKeyring feePayer = caver.wallet.keyring.createFromPrivateKey("0x{private key}");
+        caver.wallet.add(feePayer);
 
-            //get transaction receipt
-            TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 20);
-            TransactionReceipt.TransactionReceiptData receipt = receiptProcessor.waitForTransactionReceipt(txHashData.getResult());
+        try {
+            Contract contract = caver.contract.create(ABIJson, "0x{address in hex}");
 
+            SendOptions sendOptionsForExecution = new SendOptions();
+            sendOptionsForExecution.setFrom(executor.getAddress());
+            sendOptionsForExecution.setGas(BigInteger.valueOf(4000000));
+            sendOptionsForExecuted.setFeeDelegation(true);
+            sendOptionsForExecuted.setFeePayer(feePayer.getAddress());
+            
+            AbstractTransaction executionTx = contract.sign(sendOptionsForExecution, "set", "test", "testValue");
+            caver.wallet.signAsFeePayer(feePayer.getAddress(), (AbstractFeeDelegatedTransaction)executionTx);
+
+            Bytes32 txHash_executed = caver.rpc.klay.sendRawTransaction(executionTx).send();
+            TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 15);
+
+            TransactionReceipt.TransactionReceiptData receiptData = receiptProcessor.waitForTransactionReceipt(txHash_executed.getResult());
         } catch (Exception e) {
             //handle exception..
         }
