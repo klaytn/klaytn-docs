@@ -3,12 +3,12 @@ description: >-
   APIs to manage accounts and private keys in the node.
 ---
 
-# Namespace personal
+# Namespace personal <a id="namespace-personal"></a>
 
 The namespace `personal` manages private keys in the key store.
 
 
-## personal_importRawKey
+## personal_importRawKey <a id="personal_importrawkey"></a>
 
 Imports the given unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format) into the key store,
 encrypting it with the passphrase.
@@ -52,7 +52,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 {"jsonrpc":"2.0","id":1,"result":"0xda04fb00e2cb5745cef7d8c4464378202a1673ef"}
 ```
 
-## personal_listAccounts
+## personal_listAccounts <a id="personal_listaccounts"></a>
 
 Returns all the Klaytn account addresses of all keys
 in the key store.
@@ -88,7 +88,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 ```
 
 
-## personal_newAccount
+## personal_newAccount <a id="personal_newaccount"></a>
 
 Generates a new private key and stores it in the key store directory.
 The key file is encrypted with the given passphrase.
@@ -138,7 +138,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 ```
 
 
-## personal_lockAccount
+## personal_lockAccount <a id="personal_lockaccount"></a>
 
 Removes the private key with a given address from memory.
 The account can no longer be used to send transactions.
@@ -174,7 +174,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 ```
 
 
-## personal_unlockAccount
+## personal_unlockAccount <a id="personal_unlockaccount"></a>
 
 Decrypts the key with the given address from the key store.
 
@@ -239,7 +239,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
-## personal_replaceRawKey
+## personal_replaceRawKey <a id="personal_replacerawkey"></a>
 
 Replaces the encrypted key file in the key store with the given unencrypted private key (hex string without leading '0x') or a [Klaytn wallet key](../../../klaytn/design/accounts.md#klaytn-wallet-key-format),
 encrypting it with the new passphrase.
@@ -284,7 +284,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 {"jsonrpc":"2.0","id":1,"result":"0xda04fb00e2cb5745cef7d8c4464378202a1673ef"}
 ```
 
-## personal_sendAccountUpdate
+## personal_sendAccountUpdate <a id="personal_sendaccountupdate"></a>
 
 Validates the given passphrase and submits a [TxTypeAccountUpdate](../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) transaction.
 The transaction object must have fields `from` and `key`. Other fields such as `gas`, `gasPrice`, and `nonce` are set internally if unspecified.
@@ -321,18 +321,20 @@ undefined
 ```
 HTTP RPC
 
-**NOTE**: The function `klay.toPeb()` is not excutable in HTTP RPC.
+**NOTE**: The function `klay.toPeb()` is not executable in HTTP RPC.
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendAccountUpdate","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","key":"0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8"}, "passphrase"],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":"0x26a7a8ba619a5e3e4d742c217f55f49591a5616b200c976bd58a966a05e294b7"}
 ```
 
-## personal_sendTransaction
+## personal_sendTransaction <a id="personal_sendtransaction"></a>
 
 Validates the given passphrase and submits a [TxTypeLegacy](../../../klaytn/design/transactions/basic.md#txtypelegacytransaction) transaction.
-The transaction object must have fields `from`, `to`, and `value`. Other fields such as `gas`, `gasPrice`, and `nonce` are set internally if unspecified.
-If the passphrase is able to decrypt the private key belonging to `tx.from` and the transaction is verified,
-the transaction is signed and submitted onto the network.
+The transaction object must have `from` and `to` except the case of contract deployment. 
+`to` should be omitted if the transaction deploys a smart contract. 
+If `value` is not specified, it will be set to zero internally. 
+Other fields such as `gas`, `gasPrice`, and `nonce` are set to appropriate values internally if unspecified.
+If the passphrase is able to decrypt the private key belonging to `tx.from` and the transaction is verified, the transaction is signed and submitted onto the network.
 The account is not unlocked globally in the node and cannot be used in other RPC calls.
 
 | Client    | Method invocation                                                |
@@ -344,7 +346,7 @@ The account is not unlocked globally in the node and cannot be used in other RPC
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tx | string | A transaction object. `from`, `to`, and `value` must be specified. |
+| tx | string | A transaction object. `from` is a required field. `to`, `value`, `gas`, `gasPrice` and `nonce` are optional fields. |
 | passphrase | string | The passphrase to decrypt the private key of `tx.from`. |
 
 **Return Value**
@@ -364,13 +366,13 @@ undefined
 ```
 HTTP RPC
 
-**NOTE**: The function `klay.toPeb()` is not excutable in HTTP RPC.
+**NOTE**: The function `klay.toPeb()` is not executable in HTTP RPC.
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendTransaction","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","to":"0xafa3f8684e54059998bc3a7b0d2b0da075154d66","value":"0x1230000000"},"passphrase"],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":"0x26a7a8ba619a5e3e4d742c217f55f49591a5616b200c976bd58a966a05e294b7"}
 ```
 
-## personal_sendValueTransfer
+## personal_sendValueTransfer <a id="personal_sendvaluetransfer"></a>
 
 Validates the given passphrase and submits a [TxTypeValueTransfer](../../../klaytn/design/transactions/basic.md#txtypevaluetransfer) transaction.
 The transaction object must have fields `from`, `to`, and `value`. Other fields such as `gas`, `gasPrice`, and `nonce` are set internally if unspecified.
@@ -407,13 +409,13 @@ undefined
 ```
 HTTP RPC
 
-**NOTE**: The function `klay.toPeb()` is not excutable in HTTP RPC.
+**NOTE**: The function `klay.toPeb()` is not executable in HTTP RPC.
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendValueTransfer","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","to":"0xafa3f8684e54059998bc3a7b0d2b0da075154d66","value":"0x1230000000"},"passphrase"],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":"0x26a7a8ba619a5e3e4d742c217f55f49591a5616b200c976bd58a966a05e294b7"}
 ```
 
-## personal_sign
+## personal_sign <a id="personal_sign"></a>
 
 The `sign` method calculates a Klaytn-specific signature with:
 `sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))`
@@ -455,7 +457,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 ```
 
 
-## personal_ecRecover
+## personal_ecRecover <a id="personal_ecrecover"></a>
 
 `ecRecover` returns the address associated with the private key that was used to calculate the signature in `personal_sign`.
 
