@@ -1,8 +1,8 @@
-# Deploy Guide
+# Deploy Guide <a id="deploy-guide"></a>
 
 There are various ways of deploying a smart contract to Klaytn. This document provides a step-by-step guide to deploy a sample contract using various tools. We assume that you have a Klaytn account with enough KLAY to pay the transaction fee. To create an account, please refer to [Klaytn Wallet](../toolkit/klaytn-wallet.md).
 
-## Klaytn IDE
+## Klaytn IDE <a id="klaytn-ide"></a>
 
 Open up your internet browser and go to https://ide.klaytn.com  
 
@@ -65,7 +65,7 @@ contract KlaytnGreeter is Mortal {
 
 For more details refer to this [link](../toolkit/klaytn-ide.md).
 
-## Truffle 
+## Truffle  <a id="truffle"></a>
 
 Truffle is the most popular framework for smart contract deployment and execution. 
 
@@ -138,13 +138,13 @@ module.exports = {
       network_id: "*" // Match any network id
     },
     testnet: {
-      provider: () => new HDWalletProvider(privateKey, "https://api.baobab.klaytn.net:8651"),
+      provider: () => new HDWalletProvider(privateKey, "https://your.baobab.en.url:8651"),
       network_id: '1001', //Klaytn baobab testnet's network id
       gas: '8500000',
       gasPrice: null
     },
     mainnet: {
-      provider: () => new HDWalletProvider(privateKey, "https://api.cypress.klaytn.net:8651"),
+      provider: () => new HDWalletProvider(privateKey, "https://your.cypress.en.url:8651"),
       network_id: '8217', //Klaytn mainnet's network id
       gas: '8500000',
       gasPrice: null
@@ -173,11 +173,11 @@ $ truffle deploy --network mainnet
 
 For more details refer to this [link](../toolkit/truffle.md).
 
-## VVISP
+## VVISP <a id="vvisp"></a>
 vvisp is an easy-to-use CLI tool/framework for developing smart contracts, provided by HEACHI LABS. You can easily set environment, deploy and execute Klaytn smart contracts with a single command. Refer to the following link for more details. 
 - https://henesis.gitbook.io/vvisp/deploying-smart-contracts
 
-## solc & caver-js
+## solc & caver-js <a id="solc-caver-js"></a>
 
 Another way to deploy contracts is manually compiling contracts with solc and deploying them with caver-js.
 
@@ -231,7 +231,7 @@ $ npm install caver-js.
 
 ```
 const Caver = require("caver-js");
-const caver = new Caver("https://api.baobab.klaytn.net:8651") // for cypress, use "https://api.cypress.klaytn.net:8651"
+const caver = new Caver("https://your.en.url:8651")
 
 const walletInstance = caver.klay.accounts.privateKeyToAccount(
   '0x3de0c9...' // enter your private key to deploy contract with
@@ -265,3 +265,4 @@ caver.klay.sendTransaction({
 ```
 $ node deploy.js
 ```
+
