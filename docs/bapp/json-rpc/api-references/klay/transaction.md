@@ -1,4 +1,4 @@
-## klay_call
+## klay_call <a id="klay_call"></a>
 
 Executes a new message call immediately without creating a transaction on the block chain. It returns data or an error object of JSON RPC if error occurs.
 
@@ -7,14 +7,14 @@ Executes a new message call immediately without creating a transaction on the bl
 | Name | Type | Description |
 | --- | --- | --- |
 | callObject | Object | The transaction call object.  See the next table for the object's properties. |
-| blockNumber | QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](./block.md#the-default-block-parameter). |
+| blockNumber | QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
 
 `callObject` has the following properties:
 
 | Name | Type | Description |
 | --- | --- | --- |
 | from | 20-byte DATA | (optional) The address the transaction is sent from. |
-| to | 20-byte DATA | The address the transaction is directed to. |
+| to | 20-byte DATA | (optional when testing the deployment of a new contract) The address the transaction is directed to. |
 | gas | QUANTITY | (optional) Integer of the gas provided for the transaction execution. `klay_call` consumes zero gas, but this parameter may be needed by some executions. |
 | gasPrice | QUANTITY | (optional) Integer of the gasPrice used for each paid gas. |
 | value | QUANTITY | (optional) Integer of the value sent with this transaction. |
@@ -26,12 +26,12 @@ Executes a new message call immediately without creating a transaction on the bl
 | --- | --- |
 | DATA | The return value of executed contract. |
 
-Use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address, after the transaction was mined, when you created a contract.
+If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
 
 **Error**
 
-It returns an error object of JSON RPC if anything goes worng.
-For example, an error object with message  "evm: execution reverted" will be generated if a message call is terminated with `REVERT` opcode.
+It returns an error object of JSON RPC if anything goes wrong.
+For example, an error object with a message  "evm: execution reverted" will be generated if a message call is terminated with `REVERT` opcode.
 
 **Example**
 
@@ -43,14 +43,26 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 {"jsonrpc":"2.0","id":1,"result":"0x000000000000000000000000000000000000000000000000000000000000000a"}
 ```
 
-
-## klay_estimateGas
+## klay_estimateGas <a id="klay_estimategas"></a>
 
 Generates and returns an estimate of how much gas is necessary to allow the transaction to complete. The transaction will not be added to the blockchain. Note that the estimate may be significantly more than the amount of gas actually used by the transaction, for a variety of reasons including Klaytn Virtual Machine mechanics and node performance.
 
 **Parameters**
 
-See [klay_call](#klay_call) parameters, expect that all properties are optional. If no gas limit is specified, the Klaytn node uses the block gas limit from the pending block as an upper bound. As a result, the returned estimate might not be enough to executed the call/transaction when the amount of gas is higher than the pending block gas limit.
+| Name | Type | Description |
+| --- | --- | --- |
+| callObject | Object | The transaction call object.  See the next table for the object's properties. |
+
+`callObject` has the following properties:
+
+| Name | Type | Description |
+| --- | --- | --- |
+| from | 20-byte DATA | (optional) The address the transaction is sent from. |
+| to | 20-byte DATA | (optional when testing the deployment of a new contract) The address the transaction is directed to. |
+| gas | QUANTITY | (optional) Integer of the upper gas limit provided for the gas estimation. If no gas limit is specified, the Klaytn node uses the designated gas limit as an upper bound.  
+| gasPrice | QUANTITY | (optional) Integer of the gasPrice used for each paid gas. |
+| value | QUANTITY | (optional) Integer of the value sent with this transaction. |
+| data | DATA | (optional) Hash of the method signature and encoded parameters. |
 
 **Return Value**
 
@@ -62,7 +74,7 @@ See [klay_call](#klay_call) parameters, expect that all properties are optional.
 **Example**
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_estimateGas","params":[{see above}],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_estimateGas", "params": [{"from": "0x3f71029af4e252b25b9ab999f77182f0cd3bc085", "to": "0x87ac99835e67168d4f9a40580f8f5c33550ba88b", "gas": "0x100000", "gasPrice": "0x5d21dba00", "value": "0x0", "data": "0x8ada066e"}], "id": 1}' http://localhost:8551
 
 // Result
 {
@@ -71,7 +83,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay_estimateComputationCost
+## klay_estimateComputationCost <a id="klay_estimatecomputationcost"></a>
 
 Generates and returns an estimate of how much computation cost will be spent to execute the transaction.
 Klaytn limits the computation cost of a transaction to `100000000` currently not to take too much time by a single transaction.
@@ -100,7 +112,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay_getTransactionByBlockHashAndIndex
+## klay_getTransactionByBlockHashAndIndex <a id="klay_gettransactionbyblockhashandindex"></a>
 
 Returns information about a transaction by block hash and transaction index position.
 This API works only on RPC call, not on Javascript console.
@@ -153,7 +165,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getTransactionByBlockNumberAndIndex
+## klay_getTransactionByBlockNumberAndIndex <a id="klay_gettransactionbyblocknumberandindex"></a>
 
 Returns information about a transaction by block number and transaction index position.
 This API works only on RPC call, not on Javascript console.
@@ -162,7 +174,7 @@ This API works only on RPC call, not on Javascript console.
 
 | Type | Description |
 | --- | --- |
-| QUANTITY &#124; TAG | A block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./block.md#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
 | QUANTITY | The transaction index position. |
 
 **Return Value**
@@ -206,7 +218,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getTransactionByHash
+## klay_getTransactionByHash <a id="klay_gettransactionbyhash"></a>
 
 Returns the information about a transaction requested by transaction hash.
 This API works only on RPC call, not on Javascript console.
@@ -290,12 +302,12 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getTransactionBySenderTxHash
+## klay_getTransactionBySenderTxHash <a id="klay_gettransactionbysendertxhash"></a>
 
 Returns the information about a transaction requested by sender transaction hash.
 This API works only on RPC call, not on Javascript console.
 Please note that this API returns correct result only if indexing feature is enabled by `--sendertxhashindexing`.
-This can be checked by call [klay_isSenderTxHashIndexingEnabled](config.md#klay_isSenderTxHashIndexingEnabled).
+This can be checked by call [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled).
 
 **Parameters**
 
@@ -375,7 +387,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getTransactionReceipt
+## klay_getTransactionReceipt <a id="klay_gettransactionreceipt"></a>
 
 Returns the receipt of a transaction by transaction hash.
 
@@ -470,7 +482,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getTransactionReceiptBySenderTxHash
+## klay_getTransactionReceiptBySenderTxHash <a id="klay_gettransactionreceiptbysendertxhash"></a>
 
 Returns the receipt of a transaction by sender transaction hash.
 
@@ -567,7 +579,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_sendRawTransaction
+## klay_sendRawTransaction <a id="klay_sendrawtransaction"></a>
 
 Creates a new message call transaction or a contract creation for signed transactions.
 
@@ -583,7 +595,7 @@ Creates a new message call transaction or a contract creation for signed transac
 | --- | --- |
 | 32-byte DATA | The transaction hash or the zero hash if the transaction is not yet available. |
 
-Use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address, after the transaction was mined, when you created a contract.
+If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
 
 **Example**
 
@@ -600,29 +612,24 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_sendTransaction
+## klay_sendTransaction <a id="klay_sendtransaction"></a>
 
-Creates a new message call transaction or a contract creation if the data field contains code.
+Constructs a transaction with given parameters, signs the transaction with a sender's private key and propagates the transaction to Klaytn network. 
+
+**NOTE**: The address to sign with must be unlocked.
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| from | 20-byte DATA | The address from which the transaction is sent. |
-| to | 20-byte DATA | (optional when creating a new contract) The address to which the transaction is directed. |
-| gas | QUANTITY | (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas. |
-| gasPrice | QUANTITY | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas. |
-| value | QUANTITY | (optional) Integer of the value sent with this transaction. |
-| data | DATA | The compiled code of a contract or the hash of the invoked method signature and encoded parameters. |
-| nonce | QUANTITY | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. |
+The required parameters depend on the transaction type. 
+Check the proper parameters in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
 
 **Return Value**
 
 | Type | Description |
 | --- | --- |
-| 32-byte DATA | The transaction hash, or the zero hash if the transaction is not yet available. |
+| 32-byte DATA | The transaction hash |
 
-Use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address, after the transaction was mined, when you created a contract.
+If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
 
 **Example**
 
@@ -649,28 +656,77 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_signTransaction
-Creates a rawTransaction based on the give transaction information.
+## klay_sendTransactionAsFeePayer <a id="klay_sendtransactionasfeepayer"></a>
+
+Constructs a transaction with given parameters, signs the transaction with a fee payer's private key and propagates the transaction to Klaytn network. 
+This API supports only fee delegated type (including partial fee delegated type) transactions.
+
+**NOTE**: The fee payer address to sign with must be unlocked.
+
+**Parameters**
+
+The required parameters depend on the transaction type. 
+Check the proper parameters in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| 32-byte DATA | The transaction hash |
+
+If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
+
+**Example**
+
+```shell
+params: [{
+  "typeInt": 18,
+  "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d",
+  "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075",
+  "gas": "0x4a380",
+  "gasPrice": "0x5d21dba00",
+  "nonce": "0x2c",
+  "value": "0xf4",
+  "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001",
+  "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d",
+  "feeRatio": 30,
+  "signatures": [{
+    "V": "0x4e43", 
+    "R": "0xd3ff5ca7bdd0120d79e8aa875593d05022fe74ce2b7a0594218d53c0fdca7fa9", 
+    "S": "0x2c100e69d2455afc9393e017514063da18b18db6f7e811d0aeaf6002515b58ef"
+  }]
+}]
+```
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_sendTransactionAsFeePayer","params":[{see above}],"id":1}' http://localhost:8551
+
+// Result
+{
+  "jsonrpc": "2.0","id":1,
+  "result": "0x77ec2d910d0b96585373e2d6508f2b2d8c2af7d0060d2012e1cb2f0ee9d74830"
+}
+```
+
+## klay_signTransaction <a id="klay_signtransaction"></a>
+
+Constructs a transaction with given parameters and signs the transaction with a sender's private key. 
+This method can be used either to generate a sender signature or to make a final raw transaction that is ready to submit to Klaytn network.
 
 **NOTE**: The address to sign with must be unlocked.
 
 **Parameters**
-| Name | Type | Description |
-| --- | --- | --- |
-| from | 20-byte DATA | The address from which the transaction is sent. |
-| to | 20-byte DATA | (optional when creating a new contract) The address to which the transaction is directed. |
-| gas | QUANTITY | (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas. |
-| gasPrice | QUANTITY | (optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas. |
-| value | QUANTITY | (optional) Integer of the value sent with this transaction. |
-| data | DATA | The compiled code of a contract or the hash of the invoked method signature and encoded parameters. |
-| nonce | QUANTITY | (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. |
 
+The required parameters depend on the transaction type. 
+Check the proper parameters in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
 
 **Return Value**
+
 | Type | Description |
 | --- | --- |
 | raw | Signed raw transaction |
-| tx | Transaction information including hash |
+| tx | Transaction object including the sender's signature |
 
 **Example**
 ```shell
@@ -699,7 +755,66 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-## txError: Detailed Information of Transaction Failures
+
+## klay_signTransactionAsFeePayer <a id="klay_signtransactionasfeepayer"></a>
+
+Constructs a transaction with given parameters and signs the transaction with a fee payer's private key.
+This method can be used either to generate a fee payer signature or to make a final raw transaction that is ready to submit to Klaytn network.
+In case you just want to extract the fee-payer signature, simply take the `feePayerSignatures` from the result.
+Note that the `raw` transaction is not final if the sender's signature is not attached (that is, `signatures` in `tx` is empty).
+
+**NOTE**: The fee payer address to sign with must be unlocked.
+
+**Parameters**
+
+The required parameters depend on the transaction type. 
+Check the proper parameters in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| raw | Signed raw transaction |
+| tx | Transaction object including the fee payer's signature |
+
+**Example**
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransactionAsFeePayer", "params": [{"typeInt": 17, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x76c0", "gasPrice": "0x5d21dba00", "value": "0xf4", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d"}], "id": 83}' http://127.0.0.1:8551
+
+// Result
+{
+    "id": 83,
+    "jsonrpc": "2.0",
+    "result": {
+        "raw": "0x11f8ba358505d21dba008276c09444711e89b0c23845b5b2ed9d3716ba42b8a3e07581f494cd01b2b44584fb143824c1ea0231bebaea826b9da4b3f98adc0000000000000000000000000000000000000000000000000000000000000001c094cd01b2b44584fb143824c1ea0231bebaea826b9df847f845824e43a0b34470d1bb588a6afe8f170333ca147e805727aa1911353ed544c31ad4863beca020322c2727091ff79458a87a424b53a4b08cc3d7d485e002e8bf0add13974507",
+        "tx": {
+            "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d",
+            "feePayerSignatures": [
+                {
+                    "R": "0xb34470d1bb588a6afe8f170333ca147e805727aa1911353ed544c31ad4863bec",
+                    "S": "0x20322c2727091ff79458a87a424b53a4b08cc3d7d485e002e8bf0add13974507",
+                    "V": "0x4e43"
+                }
+            ],
+            "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d",
+            "gas": "0x76c0",
+            "gasPrice": "0x5d21dba00",
+            "hash": "0x9e76f754b884d7853814a39c0e51fcefcef6f55b872f00ddad9724c9638128b3",
+            "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001",
+            "nonce": "0x35",
+            "signatures": [],
+            "to": "0x44711e89b0c23845b5b2ed9d3716ba42b8a3e075",
+            "type": "TxTypeFeeDelegatedValueTransferMemo",
+            "typeInt": 17,
+            "value": "0xf4"
+        }
+    }
+}
+```
+
+
+## txError: Detailed Information of Transaction Failures <a id="txerror-detailed-information-of-transaction-failures"></a>
 
 Klaytn provides a field `txError` in the transaction receipt
 to give developers more information about the reason for the failed transaction execution.
@@ -738,3 +853,63 @@ The below table shows the meaning of the value in `txError`.
 |0x1c|deprecated feature|
 |0x1d|not supported|
 |0x1e|smart contract code format is invalid|
+
+## klay_getDecodedAnchoringTransactionByHash <a id="klay_getDecodedAnchoringTransactionByHash"></a>
+
+Returns the decoded anchored data in the transaction for the given transaction hash.
+
+**Parameters**
+
+| Type | Description |
+| --- | --- |
+| 32-byte DATA | Hash of a transaction. |
+
+**Return Value**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| BlockHash | 32-byte DATA | Hash of the child chain block that this anchoring transaction was performed. |
+| BlockNumber | QUANTITY | The child chain block number that this anchoring transaction was performed. |
+| ParentHash | 32-byte DATA | Hash of the parent block. |
+| TxHash | 32-byte DATA | The root of the transaction trie of the block. |
+| StateRootHash | 32-byte DATA | The root of the final state trie of the block. |
+| ReceiptHash| 32-byte DATA | The root of the receipts trie of the block. |
+| BlockCount | QUANTITY | The number of blocks generated during this anchoring period. In most cases, this number is equal to the child chain's `SC_TX_PERIOD`, with the exception of the case that this transaction was the first anchoring tx after turning on the anchoring. |
+| TxCount | QUANTITY | The number of transactions generated in the child chain during this anchoring period. |
+
+**Example**
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getDecodedAnchoringTransactionByHash","params":["0x499350bc5e2f6fee1ba78b4d40a7a1db0a64f3c091112e6798a02ed9a4140084"],"id":1}' http://localhost:8551
+
+// Result
+{
+   "jsonrpc":"2.0",
+   "id":1,
+   "result":{
+      "BlockCount":1,
+      "BlockHash":"0xcf5f591836d70a1da8e6bb8e5b2c5739329ca0e535b91e239b332af2e1b7f1f4",
+      "BlockNumber":1055,
+      "ParentHash":"0x70f6115a5b597f29791d3b5e3f129df54778f69ae669842cc81ec8c432fee37c",
+      "ReceiptHash":"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+      "StateRootHash":"0x654773348f77a6788c76c93946340323c9b39399d0aa173f6b23fe082848d056",
+      "TxCount":0,
+      "TxHash":"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"
+   }
+}
+```
+
+```javascript
+> klay.getDecodedAnchoringTransactionByHash("0x499350bc5e2f6fee1ba78b4d40a7a1db0a64f3c091112e6798a02ed9a4140084")
+{
+  BlockCount: 1,
+  BlockHash: "0xcf5f591836d70a1da8e6bb8e5b2c5739329ca0e535b91e239b332af2e1b7f1f4",
+  BlockNumber: 1055,
+  ParentHash: "0x70f6115a5b597f29791d3b5e3f129df54778f69ae669842cc81ec8c432fee37c",
+  ReceiptHash: "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+  StateRootHash: "0x654773348f77a6788c76c93946340323c9b39399d0aa173f6b23fe082848d056",
+  TxCount: 0,
+  TxHash: "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"
+}
+```
