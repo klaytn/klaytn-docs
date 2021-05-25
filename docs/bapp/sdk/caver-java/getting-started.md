@@ -955,7 +955,6 @@ If you want to send a transaction with sender and feePayer signed seperately whe
 
         try {
             Contract contract = caver.contract.create(ABIJson);
-            ContractDeployParams params = new ContractDeployParams(byteCode);
 
             SendOptions sendOptionsForDeployment = new SendOptions();
             sendOptionsForDeployment.setFrom(sender.getAddress());
