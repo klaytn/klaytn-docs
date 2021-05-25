@@ -1,11 +1,11 @@
-# Network Configuration
+# Network Configuration <a id="network-configuration"></a>
 
 A Core Cell can be made up of:
 
 * multiple subnets (recommended)
 * a single subnet
 
-## A Core Cell with Multiple Subnets
+## A Core Cell with Multiple Subnets <a id="a-core-cell-with-multiple-subnets"></a>
 
 It is recommended to have a two-layer subnet which is used in general web services such as DB + AppServer and Proxy Web Servers. This design of the subnet has more advantages on the security.
 
@@ -17,7 +17,7 @@ The three-layer subnet consists of the following:
 * PN Subnet
 * Management (Mgmt) Subnet
 
-### CN Subnet
+### CN Subnet <a id="cn-subnet"></a>
 
 A CN Subnet consists of CN servers in Core Cells. The working CN in a Core Cell is only one, but spare one should be prepared for high availability. IP/Port of all CNs within the Core Cell Network (CCN) must be opened to each other because they try to connect to the others from the outside of the Core Cell. (This connection information can be received from Baobab operators.) The internal communication with other subnets in the Core Cell requires to open default port (32323: default Klaytn P2P port number) in order to connect to PNs of the PN Subnet. Furthermore, it is necessary to open other ports such as the CN monitoring port (61001) for the monitoring server and the SSH port (22) for the management purpose. If the multichannel feature is used, another port (32324: default multichannel port) should be opened as well.
 
@@ -29,7 +29,7 @@ A CN Subnet consists of CN servers in Core Cells. The working CN in a Core Cell 
 | CN Subnet | Mgmt Subnet | SSH: 22, Monitoring: 61001 | All |
 | CN Subnet | Public (Internet) | each CN's IP and P2P port | All |
 
-### PN Subnet
+### PN Subnet <a id="pn-subnet"></a>
 
 A PN Subnet consists of the PN servers to provide services in order to connect to the external ENs.
 
@@ -48,7 +48,7 @@ A PN subnet is connected to the following nodes:
 | PN Subnet | Mgmt Subnet | SSH: 22, Monitoring: 61001 | All |
 | PN Subnet | Public (Internet) | P2P: 32323 | All |
 
-### Mgmt Subnet
+### Mgmt Subnet <a id="mgmt-subnet"></a>
 
 A Mgmt Subnet is a gateway subnet for the operator to enter into the Core Cell nodes through ssh. A VPN server may be necessary to make the connection together with a monitoring server and a management server installed with a tool to manage the Core Cell nodes.
 
@@ -60,7 +60,7 @@ A Mgmt Subnet is a gateway subnet for the operator to enter into the Core Cell n
 | Mgmt Subnet | PN Subnet | All | All |
 | Mgmt Subnet | Public (Internet) | VPN (tcp): 443, VPN (udp): 1194 | All |
 
-## A Core Cell with a Single Subnet
+## A Core Cell with a Single Subnet <a id="a-core-cell-with-a-single-subnet"></a>
 
 A single subnet of a Core Cell is built for the development/test purpose or under the difficult circumstances to create multiple subnets.
 
