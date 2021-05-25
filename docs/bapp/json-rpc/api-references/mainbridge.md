@@ -3,12 +3,12 @@ description: >-
   APIs related to main chain ENs connected with a service chain.
 ---
 
-# Namespace mainbridge
+# Namespace mainbridge <a id="namespace-mainbridge"></a>
 
 The namespace `mainbridge` provides functions related to Service Chain.
 To use functions in this namespace, the option `mainbridge` should be enabled in the EN connected to the main chain (Mainnet or Baobab testnet).
 
-## mainbridge_nodeInfo
+## mainbridge_nodeInfo <a id="mainbridge_nodeInfo"></a>
 
 Returns bridge node information including the KNI (Klaytn Network Identifier) of the node.
 A mainbridge node can connect to a subbrige node via the KNI.
@@ -55,7 +55,7 @@ None
 }
 ```
 
-## mainbridge_addPeer
+## mainbridge_addPeer  <a id="mainbridge_addPeer"></a>
 Returns `true` if adding a subbridge peer is done successfully.
 
 It Adds a new remote node to the peer list.
@@ -90,7 +90,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
-## mainbridge_removePeer
+## mainbridge_removePeer <a id="mainbridge_removePeer"></a>
 Returns `true` if removing the peer is done successfully.
 
 The `removePeer` method disconnects and removes the remote node in the list of tracked static nodes.
@@ -125,7 +125,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
-## mainbridge_convertServiceChainBlockHashToMainChainTxHash
+## mainbridge_getChildChainIndexingEnabled <a id="mainbridge_getChildChainIndexingEnabled"></a>
+
+`mainbridge_getChildChainIndexingEnabled` returns if indexing anchoring transaction is enabled or not.
+
+**Parameters**
+
+none
+
+**Return Value**
+
+| Type   | Description                          |
+| ------ | ------------------------------------ |
+| bool | `true` if the indexing was enabled, `false` otherwise. |
+
+**Example**
+
+```javascript
+> mainbridge.getChildChainIndexingEnabled()
+true
+```
+
+## mainbridge_convertChildChainBlockHashToParentChainTxHash <a id="mainbridge_convertChildChainBlockHashToParentChainTxHash"></a>
 
 Returns the anchoring transaction hash of the given child chain block hash.
 
@@ -133,27 +154,27 @@ Returns the anchoring transaction hash of the given child chain block hash.
 
 | Type   | Description                          |
 | ------ | ------------------------------------ |
-| 32-byte DATA | The childchain block hash which included the anchoring tx hash.  |
+| 32-byte DATA | The child chain block hash.  |
 
 **Return Value**
 
 | Type   | Description                          |
 | ------ | ------------------------------------ |
-| 32-byte DATA | The transaction hash whilch including the childchain block anchoring inforamtion.|
+| 32-byte DATA | The anchoring transaction hash that includes the child chain block information.|
 
 **Example**
 
 Console
 
 ```javascript
-> mainbridge.convertServiceChainBlockHashToMainChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
+> mainbridge.convertChildChainBlockHashToParentChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
 "0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51"
 ```
 
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"mainbridge_convertServiceChainBlockHashToMainChainTxHash","params":["0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"mainbridge_convertChildChainBlockHashToParentChainTxHash","params":["0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880"],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":"0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51"}
 ```
 
