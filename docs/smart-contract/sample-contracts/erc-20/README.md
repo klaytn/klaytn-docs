@@ -1,8 +1,8 @@
-# ERC-20
+# ERC-20 <a id="erc-20"></a>
 
-## Introduction
+## Introduction <a id="introduction"></a>
 
-This tutorial helps you to create an example ERC-20 compatible token that comforms to the [Klaytn Token Standards](../../token-standard.md), especially [Fungible Token Standard \(ERC-20\)](../../token-standard.md#fungible-token-standard-erc-20).
+This tutorial helps you to create an example ERC-20 compatible token that conforms to the [Klaytn Token Standards](../../token-standard.md), especially [Fungible Token Standard \(ERC-20\)](../../token-standard.md#fungible-token-standard-kip-7).
 
 [ERC-20 Token Standard](https://eips.ethereum.org/EIPS/eip-20) defines two events and 9 methods \(including 3 optional methods\) as below. ERC-20-compatible tokens are token contracts that implements the following interface.
 
