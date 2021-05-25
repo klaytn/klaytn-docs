@@ -1,4 +1,4 @@
-# 5. Frontend Code Overview
+# 5. Frontend Code Overview <a id="5-frontend-code-overview"></a>
 
 1\) `src/index.js` - Entry point of our app  
 2\) `public/index.html` - index.html  
@@ -6,7 +6,7 @@
 4\) `src/App.js` - Root component of our app  
 5\) `src/klaytn/caver.js` - Makes a connection with a Klaytn node
 
-## 1\) `src/index.js`:
+## 1\) `src/index.js`: <a id="1-src-index-js"></a>
 
 ```javascript
 import ReactDOM from 'react-dom'
@@ -36,7 +36,7 @@ if (module.hot) {
 
 It uses 'react-dom' library to render a React element into the DOM in the supplied container\('\#root'\) and return a reference to the component. In short, through 'react-dom' our tutorial app's DOM will be populated to `<div id="root"></div>` in `public/index.html` file.
 
-## 2\) `public/index.html`:
+## 2\) `public/index.html`: <a id="2-public-index-html"></a>
 
 ```markup
 <!DOCTYPE html>
@@ -70,7 +70,7 @@ It uses 'react-dom' library to render a React element into the DOM in the suppli
 
 For further information, visit React official site [https://reactjs.org/docs/react-dom.html\#render](https://reactjs.org/docs/react-dom.html#render)
 
-## 3\) `src/routes.js`:
+## 3\) `src/routes.js`: <a id="3-src-routes-js"></a>
 
 ```javascript
 import React from 'react'
@@ -95,7 +95,7 @@ By above code, `'Count'` component would be rendered as a children of rootCompon
 
 For further information, visit React router github [https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md](https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md)
 
-## 4\) `src/App.js`:
+## 4\) `src/App.js`: <a id="4-src-app-js"></a>
 
 ```javascript
 import React, { Component } from 'react'
@@ -183,11 +183,11 @@ componentWillMount() {
 `walletInstance` session may not exist if you have never logged in our tutorial app.  
 Otherwise, `walletInstance` session will exist as a JSON string, if so, it attempts to add the wallet instance to the caver's wallet.  
 You can add a wallet instance to caver through `cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))`.  
-For further information related `caver.klay.accounts.wallet.add`, see [caver.klay.accounts.wallet.add](../../../sdk/caver-js/api-references/caver.klay.accounts.md#wallet-add)
+For further information related `caver.klay.accounts.wallet.add`, see [caver.klay.accounts.wallet.add](../../../sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#wallet-add)
 
 cf\) `JSON.parse` is needed since `walletInstance` session is stored as a JSON string.
 
-## 5\) `src/klaytn/caver.js`:
+## 5\) `src/klaytn/caver.js`: <a id="5-src-klaytn-caver-js"></a>
 
 ```javascript
 /**
@@ -195,12 +195,11 @@ cf\) `JSON.parse` is needed since `walletInstance` session is stored as a JSON s
  * You could connect to specific klaytn node by changing 'rpcURL' value.
  * If you are running a klaytn full node, set rpcURL to your node's URL.
  * ex) rpcURL: 'http://localhost:8551'
- * default rpcURL is 'https://api.baobab.klaytn.net:8651/'.
  */
 import Caver from 'caver-js'
 
 export const config = {
-  rpcURL: 'https://api.baobab.klaytn.net:8651/'
+  rpcURL: 'http://localhost:8551/'
 }
 
 export const cav = new Caver(config.rpcURL)
@@ -216,6 +215,4 @@ You can connect to a specific Klaytn node by specifying it in the 'rpcURL'.
 * If you are running a Klaytn full node, you can set rpcURL to your node's URL.  
 
   for example, `rpcURL: 'http://localhost:8551'`  
-
-* If not, default rpcURL is `'https://api.baobab.klaytn.net:8651'`.
 
