@@ -1,6 +1,6 @@
-# Logging
+# Logging <a id="logging"></a>
 
-## debug_backtraceAt
+## debug_backtraceAt <a id="debug_backtraceat"></a>
 
 Sets the logging backtrace location. When a backtrace location is set and a log
 message is emitted at that location, the stack of the goroutine executing the
@@ -36,7 +36,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_setVMLogTarget
+## debug_setVMLogTarget <a id="debug_setvmlogtarget"></a>
 
 Sets the output target of vmlog precompiled contract.  When the output target
 is a file, logs from `vmlog` calls in smart contracts will be written to
@@ -91,7 +91,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_verbosity
+## debug_verbosity <a id="debug_verbosity"></a>
 
 Sets the logging verbosity ceiling. Log messages with level up to and including
 the given level will be printed.
@@ -130,7 +130,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_vmodule
+## debug_vmodule <a id="debug_vmodule"></a>
 
 Sets the logging verbosity pattern.
 
