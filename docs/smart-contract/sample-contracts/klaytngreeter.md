@@ -1,8 +1,8 @@
-# KlaytnGreeter
+# KlaytnGreeter <a id="klaytngreeter"></a>
 
 `KlaytnGreeter` is a simple contract that returns a greeting message. Greeting message is set when the contract is deployed. 
 
-## Writing KlaytnGreeter
+## Writing KlaytnGreeter <a id="writing-klaytngreeter"></a>
 
 ```text
 pragma solidity 0.5.6;
@@ -29,7 +29,7 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-## Deploying KlaytnGreeter using Klaytn IDE
+## Deploying KlaytnGreeter using Klaytn IDE <a id="deploying-klaytngreeter-using-klaytn-ide"></a>
 
 * Please visit the [Klaytn IDE website](https://ide.klaytn.com) and create a `KlaytnGreeter` contract. The complete source code was given in the above.
 * Prepare your account which will be used to deploy the contract. 
@@ -38,7 +38,7 @@ contract KlaytnGreeter is Mortal {
 * Deploy the contract with initial parameter, a greeting message. 
 * After deploying, you can invoke `greet` from the IDE.
 
-## References
+## References <a id="references"></a>
 
 For the details of contract deployment and the Klaytn IDE usage guideline, please refer to the following documents. 
 
