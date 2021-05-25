@@ -1,6 +1,6 @@
-# VM Standard Tracing
+# VM Standard Tracing <a id="vm-standard-tracing"></a>
 
-## debug_standardTraceBadBlockToFile
+## debug_standardTraceBadBlockToFile <a id="debug_standardtracebadblocktofile"></a>
 
 Similar to [debug_traceBadBlock](./tracing.md#debug_tracebadblock),
 `standardTraceBadBlockToFile` accepts a bad block hash and will replay the bad
@@ -41,7 +41,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 ```
 
 
-## debug_standardTraceBlockToFile
+## debug_standardTraceBlockToFile <a id="debug_standardtraceblocktofile"></a>
 
 Similar to [debug_traceBlock](./tracing.md#debug_traceblock),
 `standardTraceBlockToFile` accepts a block hash and will replay the block that
@@ -82,7 +82,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## Standard Tracing Options
+## Standard Tracing Options <a id="standard-tracing-options"></a>
 
 You may give trace API function a secondary optional argument, which specifies
 the options for this specific call. The possible options are:
