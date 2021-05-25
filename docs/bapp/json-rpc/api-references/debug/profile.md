@@ -1,6 +1,6 @@
-# Profiling
+# Profiling <a id="profiling"></a>
 
-## debug_blockProfile
+## debug_blockProfile <a id="debug_blockprofile"></a>
 
 Turns on block profiling for the given duration and writes profile data to
 disk. It uses a profile rate of 1 for most accurate information. If a different
@@ -37,7 +37,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_cpuProfile
+## debug_cpuProfile <a id="debug_cpuprofile"></a>
 
 Turns on CPU profiling for the given duration and writes profile data to disk.
 
@@ -71,7 +71,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_isPProfRunning
+## debug_isPProfRunning <a id="debug_ispprofrunning"></a>
 
 Returns `true` if the pprof HTTP server is running and `false` otherwise.
 
@@ -105,7 +105,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_setBlockProfileRate
+## debug_setBlockProfileRate <a id="debug_setblockprofilerate"></a>
 
 Sets the rate (in samples/sec) of goroutine block profile data collection. A
 non-zero rate enables block profiling, setting it to zero stops the profile.
@@ -141,7 +141,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_startCPUProfile
+## debug_startCPUProfile <a id="debug_startcpuprofile"></a>
 
 Turns on CPU profiling indefinitely, writing to the given file.
 
@@ -175,7 +175,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_stopCPUProfile
+## debug_stopCPUProfile <a id="debug_stopcpuprofile"></a>
 
 Turns off CPU profiling.
 
@@ -206,7 +206,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_startPProf
+## debug_startPProf <a id="debug_startpprof"></a>
 
 Starts the pprof HTTP server.  The running pprof server can be accessed by
 (when the default configuration, i.e., localhost:6060, is used):
@@ -251,7 +251,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_stopPProf
+## debug_stopPProf <a id="debug_stoppprof"></a>
 
 Stops the pprof HTTP server.
 
@@ -283,7 +283,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_writeBlockProfile
+## debug_writeBlockProfile <a id="debug_writeblockprofile"></a>
 
 Writes a goroutine blocking profile to the given file.
 
@@ -316,7 +316,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_writeMemProfile
+## debug_writeMemProfile <a id="debug_writememprofile"></a>
 
 Writes an allocation profile to the given file.  Note that the profiling rate
 cannot be set through the API, it must be set on the command line using the
