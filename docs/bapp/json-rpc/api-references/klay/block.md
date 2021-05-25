@@ -1,4 +1,4 @@
-## The Default Block Parameter
+## The Default Block Parameter <a id="the-default-block-parameter"></a>
 
 When requests are made that act on the state of Klaytn, the last default block
 parameter determines the height of the block.
@@ -8,10 +8,9 @@ The following options are possible for the `defaultBlock` parameter:
 - `HEX String` - an integer block number
 - `String "earliest"` for the earliest/genesis block
 - `String "latest"` - for the latest mined block
-- `String "pending"` - for the pending state/transactions
 
 
-## klay_blockNumber
+## klay_blockNumber <a id="klay_blocknumber"></a>
 
 Returns the number of most recent block.
 
@@ -40,7 +39,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getBlockByNumber
+## klay_getBlockByNumber <a id="klay_getblockbynumber"></a>
 
 Returns information about a block by block number.
 This API works only on RPC call, not on Javascript console.
@@ -49,7 +48,7 @@ This API works only on RPC call, not on Javascript console.
 
 | Type | Description |
 | --- | --- |
-| QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](#the-default-block-parameter). |
 | Boolean | If `true` it returns the full transaction objects, if `false` only the hashes of the transactions. |
 
 **Return Value**
@@ -94,7 +93,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getBlockByHash
+## klay_getBlockByHash <a id="klay_getblockbyhash"></a>
 
 Returns information about a block by hash.
 This API works only on RPC call, not on Javascript console.
@@ -108,7 +107,7 @@ This API works only on RPC call, not on Javascript console.
 
 **Return Value**
 
-`Object` - A block object, or `null` when no block was found:
+`Object` - A block object, or `error` when no block was found:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -169,7 +168,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getBlockReceipts
+## klay_getBlockReceipts <a id="klay_getblockreceipts"></a>
 
 Returns receipts included in a block identified by block hash.
 
@@ -227,7 +226,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ```
 
 
-## klay_getBlockTransactionCountByNumber
+## klay_getBlockTransactionCountByNumber <a id="klay_getblocktransactioncountbynumber"></a>
 
 Returns the number of transactions in a block matching the given block number.
 
@@ -235,7 +234,7 @@ Returns the number of transactions in a block matching the given block number.
 
 | Type          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
-| QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 **Return Value**
 
@@ -258,7 +257,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getBlockTransactionCountByHash
+## klay_getBlockTransactionCountByHash <a id="klay_getblocktransactioncountbyhash"></a>
 
 Returns the number of transactions in a block from a block matching the given block hash.
 
@@ -289,7 +288,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getBlockWithConsensusInfoByHash
+## klay_getBlockWithConsensusInfoByHash <a id="klay_getblockwithconsensusinfobyhash"></a>
 
 Returns a block with consensus information matched by the given hash.
 
@@ -301,7 +300,7 @@ Returns a block with consensus information matched by the given hash.
 
 **Return Value**
 
-`Object` - A block object with consensus information (a proposer and a list of committee members), or `null` when no block was found:
+`Object` - A block object with consensus information (a proposer and a list of committee members), or `error` when no block was found:
 
 | Name | Type | Description |
 | --- | --- | ---|
@@ -325,91 +324,87 @@ Returns a block with consensus information matched by the given hash.
 
 ```shell
 // Request
-curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getBlockWithConsensusInfoByHash", "params":["0x2f0c986bd224d85411c89c108c28caa6dad1c7f97745051920289c65924faf10"],"id":73}' http://localhost:8551
+curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getBlockWithConsensusInfoByHash", "params":["0x7d68d09a7a571cdf8a3b6a5ef6e037265b3e3093cf145b0954d22bde5c1d4f61"],"id":73}' http://localhost:8551
 
 // Result
 {
-  "jsonrpc":"2.0",
-  "id":73,
-  "result":{
-    "blockscore":"0x1",
-    "committee":["0x3f0fd2d317878d561af836547d568123d9ad6dfc","0x3e198e3d87f79a6ffe01d7debd4b149d21a8c2c1","0x55b51257a835f877ee4c71d079629c2c22e282e1","0x946fd575c03828fde82b0f83fed0970527ef5c3b","0x96089f58b2ce2cf58f38535e269a4eaff5d4c52d","0xad36f4fa8752ef0e58ef558002ed581d3bb6bd8e","0xf156dfa0b5836685b52dd51588554b2965fdab57","0xfb42f1cc6445ed51cd025f7de4c8400aa2d609e1"],
-    "extraData":"0xd7820703846b6c617988676f312e31312e35856c696e75780000000000000000f9023ff8a8943e198e3d87f79a6ffe01d7debd4b149d21a8c2c1943f0fd2d317878d561af836547d568123d9ad6dfc9455b51257a835f877ee4c71d079629c2c22e282e194946fd575c03828fde82b0f83fed0970527ef5c3b9496089f58b2ce2cf58f38535e269a4eaff5d4c52d94ad36f4fa8752ef0e58ef558002ed581d3bb6bd8e94f156dfa0b5836685b52dd51588554b2965fdab5794fb42f1cc6445ed51cd025f7de4c8400aa2d609e1b841855a27fdfa88cf2679eddde99bfa15b810b3e8b840f0f164c58c26a6ee9cad804c40d12a28702fc8f352b77b0f3fe66d47ba7ba53a5bd183614541282963ac2201f9014fb841ddf20e4b4e0b9374d5bd5cb8c3ec3beafd4695f90a9013a619381f134f442eb74698750945169f9111e754da9c9f49234b91edd3e14914894b79daa875b1b7f501b841e48b7ae162974534136733556151a37f7413c59d17103cc6fca58fc68386c12f5b7a9025eab962e14140a4c34591211b3b4a663eb30a994597579ca24cc051ba01b84183bf2ea50a6d9c4e136e7ec0647b1d04734438dcb29df805f312f13fd2e5b29d24ac5061b3f307d7fff5b70de7135a12f0b539f3b85e9cbad4d52ede0016c24101b84117f232fd6221a2a2efb416ffbf7f4ac4afb0de394c07deba9273da11aaa3c9974e6be2f197b88d3b900fbeaf0adbe69c225b125689ae765eba1f25f9cfa367e200b841042b797dd91502240451d2c9c818f2a5c2f81fe3c826f9235e1bd89c7cbd969a7754dba45b0d1b4d1949d4c5aa43d0754c63a571b09c653fd92aad0b0e38425300",
-    "gasUsed":"0x0",
-    "governanceData":"0x",
-    "hash":"0xad273a4e43b22b4c2139d25aa79beb0bc2ede4f446306cef9b62141e21a60c7a",
-    "logsBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-    "number":"0x1",
-    "parentHash":"0x2c4e9c507f8481b02c60e1f7b4a018c6a0b0681c61da917cde2450490ac21205",
-    "proposer":"0xfb42f1cc6445ed51cd025f7de4c8400aa2d609e1",
-    "receiptsRoot":"0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
-    "reward":"0xa4b4427fc87a764b6caca7a80568812fa67fea45",
-    "size":"0x413",
-    "stateRoot":"0xccfb9b40bb06d4bf0f6fc6e720c9356fe3e18c641d683fe2a6ecb75008e22f98",
-    "timestamp":"0x5cd4ce48",
-    "timestampFoS":"0x5f",
-    "totalBlockScore":"0x2",
-    "transactions":[
+  "jsonrpc": "2.0",
+  "id": 73,
+  "result": {
+    "blockscore": "0x1",
+    "committee": ["0xe783fc94fddaeebef7293d6c5864cff280f121e1", "0x8a88a093c05376886754a9b70b0d0a826a5e64be", "0xf113ec8c22765d485309cf1d025d1b975245b9f8", "0xe3d92072d8b9a59a0427485a1b5f459271df457c", "0xa2ba8f7798649a778a1fd66d3035904949fec555", "0x2bdd279522b8a0843831fbb94cfbb24a913597c5", "0x9419fa2e3b9eb1158de31be66c586a52f49c5de7", "0xc032c34cb9fe064fe435199e1078dd8756a166b5", "0x56e8c1463c341abf8b168c3079ea41ce8a387e18", "0x6873352021fe9226884616dc6f189f289aeb0cc5", "0xe93a890fb7ec5e993b1a7fd77b0d13a0763eff3d", "0xbca8ffa45cc8e30bbc0522cdf1a1e0ebf540dfe2", "0x386ca3cb8bb13f48d1a6adc1fb8df09e7bb7f9c8", "0x1782834bf8847e235f21f2c1f13fca4d5dff6621", "0x6f6770f1f67f44fb15b335b49581ad6b935d963a", "0x0b59cae1f03534209fdb9ddf5ea65b310cd7060c", "0xb9456fd65a6810b19df24832c50b2e61a41867f8", "0x16c192585a0ab24b552783b4bf7d8dc9f6855c35", "0xec6c1cede510be308f0fdbbc8dbdf238829bdb34", "0xf8c9c61c5e7f2b6219d1c28b94e5cb3cdc802594", "0x5e59db28cef098d5a2e877f84127aed10d7378f2", "0x52d41ca72af615a1ac3301b0a93efa222ecc7541"],
+    "extraData": "0xd883010101846b6c617988676f312e31322e35856c696e757800000000000000f90604f901ce9452d41ca72af615a1ac3301b0a93efa222ecc7541948a88a093c05376886754a9b70b0d0a826a5e64be94f113ec8c22765d485309cf1d025d1b975245b9f894e3d92072d8b9a59a0427485a1b5f459271df457c94a2ba8f7798649a778a1fd66d3035904949fec555942bdd279522b8a0843831fbb94cfbb24a913597c594bca8ffa45cc8e30bbc0522cdf1a1e0ebf540dfe294c032c34cb9fe064fe435199e1078dd8756a166b59456e3a565e31f8fb0ba0b12c03355518c64372120946f6770f1f67f44fb15b335b49581ad6b935d963a94e93a890fb7ec5e993b1a7fd77b0d13a0763eff3d94e783fc94fddaeebef7293d6c5864cff280f121e194386ca3cb8bb13f48d1a6adc1fb8df09e7bb7f9c8941782834bf8847e235f21f2c1f13fca4d5dff6621949419fa2e3b9eb1158de31be66c586a52f49c5de7940b59cae1f03534209fdb9ddf5ea65b310cd7060c94b9456fd65a6810b19df24832c50b2e61a41867f89416c192585a0ab24b552783b4bf7d8dc9f6855c3594ec6c1cede510be308f0fdbbc8dbdf238829bdb3494f8c9c61c5e7f2b6219d1c28b94e5cb3cdc802594946873352021fe9226884616dc6f189f289aeb0cc59456e8c1463c341abf8b168c3079ea41ce8a387e18b8418890007a341ee171ba8d5e3cb546d1d927c8202f0df3c3f381c8173eb36db41305227c289fb528a4614b1a2c04a7ec5a1b5d76f62b829496aa36979e88a9610c01f903edb841f0ba93ac8e28a021e582e50abbaa24fa5174674b3b0873dc568f6c9ebaf830bb4d03b857416304f97b4314e310f66f6c8043e716e70751bc9663dd6f9e5d6a9100b84174717204aa9d9f2dcb1269c89141ec2ee9d447e1981e8a704caa5a6ce376b0901f3e0ddf0ebe08542af86b23637df2f962b0f7ced5469cea310cb71c2358357300b841aa3aa8b450a6f4d883dcf2eda0f964ff4d35a250996b34aa91279c9c7f4383a22c879e2f21c9fddf8c3b1a6cbc59b273b4a0daf4b15aaf18f5e33e70c9277e6f00b8414adbeaaf82da005a33f00e7f74a3eeecb989698968b3694ea9e74018a0836184188eca727900280734ead256af02e72679addcddbf5ebd82c04c030c2bd85f4a01b841610b61422badd11afa2a617502f81c0c8aa1f11951d80893976a391026a3859c1f5e6c6d28e8b2ca8c4281c699b7b8ec30625801d4a6637291f9a8d1a2d8244f00b8417590e3d92063d4162f49493848ef0557daba3c2d82b9498eda09d5d08837296937a69e7b852579eeadf1c077d3b80d232ece03a12f4c45896e518cbb0771c52700b8415a2a40f416154793535cfe133040236ecc8b1f276df39e0a3713992fad06e38a42a455a636add93bff218544a4c53b852b8c4e461d3ae0663fdefe8fe7e327cc00b841e0c64cc8a30d84196d57639a42c5da941164b0700476d1b91d18f7c8f58d12f932ad1362270ec968294257f9c5cb60c40a7d4a5932a8f4d537be4db51f7dcf2500b841f61b6f014628ab751d79f095b1e739bc2b31fa8b6b847878e13b000a6dd53fa8467903119a72c7445f8490cf4932a42f4a418b89436b70d100c56c083399579500b841e6fe4f7c4bdcb4a81125bd282d0b9fedf1f51636c69bd4684d3131d685a7aed34face3d943d02b6ad632bb337f89fd6b0fb08e163ef84bb87fe556f4bafa0d3401b8412c6666136414f88327e07a6e8a2b04d105d6cf64daee239cea647a25f93ce0e6542f59f4363e3522bc838841e6db1940e569938b9458fb674fd543646a6b669b00b84134f967c4060d85a7c2f65d00695f3308d2ab78033e895775e0ab6f70cc6e71081c030bd997773191b3d2d7e5425e542c3b98fc127031784a858cf497c0e1532100b841d81aedf218d33e12087fb6c71b1d76e69dde542659c85661909b8c99793c7f1535afdc8addaefc5bcf6a3f99fd34518a1e9ab4a73ec9921e9865c1bd8543fd4c01b84199ec6f0fca02e48db37f0e4ae1b2fdf643abf610a9f1d7c0b490250aa7f1393d3069d1b4cec74ee99b0e18081bbf5e03d7b918d46499d579459cf0114ff76e9301b841d81a55eb96767edc5305dac78b904f70d2f44bd845fcd2bd581778669e5b8446220143680619986b9975ea528aacec0976406424588760f4fe086f16abaaaf4600",
+    "gasUsed": "0x1d065",
+    "governanceData": "0x",
+    "hash": "0x7d68d09a7a571cdf8a3b6a5ef6e037265b3e3093cf145b0954d22bde5c1d4f61",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "number": "0x6e0431",
+    "parentHash": "0xa76ef625874a4d2126eb3fd1ebb5c1a8d0deb360a12b4f8edf30fb417d82b5a1",
+    "proposer": "0xe783fc94fddaeebef7293d6c5864cff280f121e1",
+    "receiptsRoot": "0x56734b337c3daab6766104bb51bd2ca408cf4537f5528ab3362536c57e65ba67",
+    "reward": "0x79f83dbb81f6f706be3e8491b14790c30d03e659",
+    "size": "0x947",
+    "stateRoot": "0xf685dce2cbef004cb041cf23959aea65e8aa86911fac55739ae1971f7d1dacd4",
+    "timestamp": "0x5d801768",
+    "timestampFoS": "0x4",
+    "totalBlockScore": "0x6e0432",
+    "transactions": [
       {
-        "blockHash":"0xcc5d73c789bf239d93b712267496ccf87a1cf5213fb69dbd4919117085d521de",
-        "blockNumber":"0x13fa8",
-        "contractAddress":null,
-        "from":"0x5b5b7a718a4124eb746ae00b1ce6edcaa5ab55bc",
-        "gas":"0x989680",
-        "gasPrice":"0x5d21dba00",
-        "gasUsed":"0xecc8","input":"0xa2320f03000000000000000000000000d3564e57bb5c6f4d983a493a946534f8e1e8b4810000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000045827b25000000000000000000000000000000000000000000000000000000000",
-        "logs":[
+        "blockHash": "0x7d68d09a7a571cdf8a3b6a5ef6e037265b3e3093cf145b0954d22bde5c1d4f61",
+        "blockNumber": "0x6e0431",
+        "contractAddress": null,
+        "feePayer": "0x08260736c18bd8612bee2b21beedf4e97c0bc6b9",
+        "feePayerSignatures": [
           {
-            "address":"0xd3564e57bb5c6f4d983a493a946534f8e1e8b481",
-            "topics":["0xeabf7053a0bf044bb930225b51ac0017c5f6e07d9437da3be979511122dbc116","0x24da66e9f7eac6e40e8143e06bda90a5d6becc682426ac693de641cd1ddb13f8","0x0000000000000000000000005b5b7a718a4124eb746ae00b1ce6edcaa5ab55bc"],
-            "data":"0x000000000000000000000000d3564e57bb5c6f4d983a493a946534f8e1e8b48100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000005c99f21900000000000000000000000000000000000000000000000000000000000000045827b25000000000000000000000000000000000000000000000000000000000",
-            "blockNumber":"0x13fa8","transactionHash":"0x0d465e4b1b02f0c7f42557846274fa9a45ed325db04458df65e588124be8a85d",
-            "transactionIndex":"0x0",
-            "blockHash":"0xcc5d73c789bf239d93b712267496ccf87a1cf5213fb69dbd4919117085d521de",
-            "logIndex":"0x0",
-            "removed":false
-          },
-          {
-            "address":"0xd3564e57bb5c6f4d983a493a946534f8e1e8b481",
-            "topics":["0x7bcadb76354d2db89bb853995c4378d9f91a187f2f0c1e2aec621b848c71ecfa","0x24da66e9f7eac6e40e8143e06bda90a5d6becc682426ac693de641cd1ddb13f8","0x0000000000000000000000005b5b7a718a4124eb746ae00b1ce6edcaa5ab55bc"],
-            "data":"0x000000000000000000000000000000000000000000000000000000005c99f219",
-            "blockNumber":"0x13fa8",
-            "transactionHash":"0x0d465e4b1b02f0c7f42557846274fa9a45ed325db04458df65e588124be8a85d",
-            "transactionIndex":"0x0",
-            "blockHash":"0xcc5d73c789bf239d93b712267496ccf87a1cf5213fb69dbd4919117085d521de",
-            "logIndex":"0x1",
-            "removed":false
+            "V": "0x4055",
+            "R": "0xd3fdd58e18e5a96d1f9af3d1aff31601d8e543a8085c78edfc8602db4c91b3c6",
+            "S": "0x19d937e315472a188f11a6bb87f47e66a30b44ba907b5f01fcd47dab8d99f3f0"
           }
-        ],"logsBloom":"0x00000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000008000000000000000000400000000000000000000000000000000000000000000000000000000000000000000008000100000000000100000000000020000000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000002000000000000400000000000000000000200000000040000000000000000000000040000000000000000000000000000000000000000000000000000000000000000000024000000000000000000000000000000000",
-        "nonce":"0x7",
-        "signatures":["0x1c","0x62bd6db227c1df4af36c3b35642a5b1ef1cde7fb4a91eca754955b2fb65e111f","0x1824f2128cf4271af6eb4ad644864220efb1f3efa12f08ef1d446c74209960e8"],
-        "status":"0x1",
-        "to":"0xd3564e57bb5c6f4d983a493a946534f8e1e8b481",
-        "transactionIndex":"0x0",
-        "txHash":"0x0d465e4b1b02f0c7f42557846274fa9a45ed325db04458df65e588124be8a85d",
-        "type":"TxTypeLegacyTransaction",
-        "value":"0x0"
+        ],
+        "from": "0x84b605b268e89ccdf591974db82deaa48bce59dc",
+        "gas": "0x419ce0",
+        "gasPrice": "0x5d21dba00",
+        "gasUsed": "0x1d065",
+        "input": "0x50716652000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000013416c50000000000000000000000000000000000000000000000000000000000001f3f000000000000000000000000000000000000000000000000000000003b9af23c",
+        "logs": [],
+        "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "nonce": "0x8",
+        "senderTxHash": "0x5fe7485db56c0c2b0eb54dd46e584a413193ad66b40e69281f44dadfa7409b2e",
+        "signatures": [
+          {
+            "V": "0x4056",
+            "R": "0xca32239c38e1080f3a394504e2a0bb9811cda0a87d25b750cbbab265d581074d",
+            "S": "0x584ab136a483e755d9d458f9965ca0d514724c7b45f6123d19323f6fa7ccdb5f"
+          }
+        ],
+        "status": "0x1",
+        "to": "0x1db1b93447328dd904152f798ead97987844f7b7",
+        "transactionHash": "0x020a2156bb4b29dc84f26887efae79e07a3d738b2856a66bbaab8aee18d507b5",
+        "transactionIndex": "0x0",
+        "type": "TxTypeFeeDelegatedSmartContractExecution",
+        "typeInt": 49,
+        "value": "0x0"
       }
     ],
-    "transactionsRoot":"0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
-    "voteData":"0x"
+    "transactionsRoot": "0x020a2156bb4b29dc84f26887efae79e07a3d738b2856a66bbaab8aee18d507b5",
+    "voteData": "0x"
   }
 }
 ```
 
 
-## klay_getBlockWithConsensusInfoByNumber
+## klay_getBlockWithConsensusInfoByNumber <a id="klay_getblockwithconsensusinfobynumber"></a>
 Returns a block with consensus information matched by the given block number.
 
 **Parameters**
 
 | Type | Description |
-| --- | ---|
-| QUANTITY &#124; TAG | Integer of a block number, or the string `"earliest"` or `"latest"`. |
+| --- | --- |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 **Return Value**
 
-`Object` - A block object with consensus information (a proposer and a list of committee members), or `null` when no block was found:
+`Object` - A block object with consensus information (a proposer and a list of committee members), or `error` when no block was found:
 
 | Name | Type | Description |
 | --- | --- | ---|
@@ -433,86 +428,82 @@ Returns a block with consensus information matched by the given block number.
 
 ```shell
 // Request
-curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getBlockWithConsensusInfoByNumber", "params":["0x1"],"id":73}'http://localhost:8551
+curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_getBlockWithConsensusInfoByNumber", "params":["0x6e0431"],"id":73}' http://localhost:8551
 
 // Result
 {
-  "jsonrpc":"2.0",
-  "id":73,
-  "result":{
-    "blockscore":"0x1",
-    "committee":["0x3f0fd2d317878d561af836547d568123d9ad6dfc","0x3e198e3d87f79a6ffe01d7debd4b149d21a8c2c1","0x55b51257a835f877ee4c71d079629c2c22e282e1","0x946fd575c03828fde82b0f83fed0970527ef5c3b","0x96089f58b2ce2cf58f38535e269a4eaff5d4c52d","0xad36f4fa8752ef0e58ef558002ed581d3bb6bd8e","0xf156dfa0b5836685b52dd51588554b2965fdab57","0xfb42f1cc6445ed51cd025f7de4c8400aa2d609e1"],
-    "extraData":"0xd7820703846b6c617988676f312e31312e35856c696e75780000000000000000f9023ff8a8943e198e3d87f79a6ffe01d7debd4b149d21a8c2c1943f0fd2d317878d561af836547d568123d9ad6dfc9455b51257a835f877ee4c71d079629c2c22e282e194946fd575c03828fde82b0f83fed0970527ef5c3b9496089f58b2ce2cf58f38535e269a4eaff5d4c52d94ad36f4fa8752ef0e58ef558002ed581d3bb6bd8e94f156dfa0b5836685b52dd51588554b2965fdab5794fb42f1cc6445ed51cd025f7de4c8400aa2d609e1b841855a27fdfa88cf2679eddde99bfa15b810b3e8b840f0f164c58c26a6ee9cad804c40d12a28702fc8f352b77b0f3fe66d47ba7ba53a5bd183614541282963ac2201f9014fb841ddf20e4b4e0b9374d5bd5cb8c3ec3beafd4695f90a9013a619381f134f442eb74698750945169f9111e754da9c9f49234b91edd3e14914894b79daa875b1b7f501b841e48b7ae162974534136733556151a37f7413c59d17103cc6fca58fc68386c12f5b7a9025eab962e14140a4c34591211b3b4a663eb30a994597579ca24cc051ba01b84183bf2ea50a6d9c4e136e7ec0647b1d04734438dcb29df805f312f13fd2e5b29d24ac5061b3f307d7fff5b70de7135a12f0b539f3b85e9cbad4d52ede0016c24101b84117f232fd6221a2a2efb416ffbf7f4ac4afb0de394c07deba9273da11aaa3c9974e6be2f197b88d3b900fbeaf0adbe69c225b125689ae765eba1f25f9cfa367e200b841042b797dd91502240451d2c9c818f2a5c2f81fe3c826f9235e1bd89c7cbd969a7754dba45b0d1b4d1949d4c5aa43d0754c63a571b09c653fd92aad0b0e38425300",
-    "gasUsed":"0x0",
-    "governanceData":"0x",
-    "hash":"0xad273a4e43b22b4c2139d25aa79beb0bc2ede4f446306cef9b62141e21a60c7a",
-    "logsBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-    "number":"0x1",
-    "parentHash":"0x2c4e9c507f8481b02c60e1f7b4a018c6a0b0681c61da917cde2450490ac21205",
-    "proposer":"0xfb42f1cc6445ed51cd025f7de4c8400aa2d609e1",
-    "receiptsRoot":"0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
-    "reward":"0xa4b4427fc87a764b6caca7a80568812fa67fea45",
-    "size":"0x413",
-    "stateRoot":"0xccfb9b40bb06d4bf0f6fc6e720c9356fe3e18c641d683fe2a6ecb75008e22f98",
-    "timestamp":"0x5cd4ce48",
-    "timestampFoS":"0x5f",
-    "totalBlockScore":"0x2",
-    "transactions":[
+  "jsonrpc": "2.0",
+  "id": 73,
+  "result": {
+    "blockscore": "0x1",
+    "committee": ["0xe783fc94fddaeebef7293d6c5864cff280f121e1", "0x8a88a093c05376886754a9b70b0d0a826a5e64be", "0xf113ec8c22765d485309cf1d025d1b975245b9f8", "0xe3d92072d8b9a59a0427485a1b5f459271df457c", "0xa2ba8f7798649a778a1fd66d3035904949fec555", "0x2bdd279522b8a0843831fbb94cfbb24a913597c5", "0x9419fa2e3b9eb1158de31be66c586a52f49c5de7", "0xc032c34cb9fe064fe435199e1078dd8756a166b5", "0x56e8c1463c341abf8b168c3079ea41ce8a387e18", "0x6873352021fe9226884616dc6f189f289aeb0cc5", "0xe93a890fb7ec5e993b1a7fd77b0d13a0763eff3d", "0xbca8ffa45cc8e30bbc0522cdf1a1e0ebf540dfe2", "0x386ca3cb8bb13f48d1a6adc1fb8df09e7bb7f9c8", "0x1782834bf8847e235f21f2c1f13fca4d5dff6621", "0x6f6770f1f67f44fb15b335b49581ad6b935d963a", "0x0b59cae1f03534209fdb9ddf5ea65b310cd7060c", "0xb9456fd65a6810b19df24832c50b2e61a41867f8", "0x16c192585a0ab24b552783b4bf7d8dc9f6855c35", "0xec6c1cede510be308f0fdbbc8dbdf238829bdb34", "0xf8c9c61c5e7f2b6219d1c28b94e5cb3cdc802594", "0x5e59db28cef098d5a2e877f84127aed10d7378f2", "0x52d41ca72af615a1ac3301b0a93efa222ecc7541"],
+    "extraData": "0xd883010101846b6c617988676f312e31322e35856c696e757800000000000000f90604f901ce9452d41ca72af615a1ac3301b0a93efa222ecc7541948a88a093c05376886754a9b70b0d0a826a5e64be94f113ec8c22765d485309cf1d025d1b975245b9f894e3d92072d8b9a59a0427485a1b5f459271df457c94a2ba8f7798649a778a1fd66d3035904949fec555942bdd279522b8a0843831fbb94cfbb24a913597c594bca8ffa45cc8e30bbc0522cdf1a1e0ebf540dfe294c032c34cb9fe064fe435199e1078dd8756a166b59456e3a565e31f8fb0ba0b12c03355518c64372120946f6770f1f67f44fb15b335b49581ad6b935d963a94e93a890fb7ec5e993b1a7fd77b0d13a0763eff3d94e783fc94fddaeebef7293d6c5864cff280f121e194386ca3cb8bb13f48d1a6adc1fb8df09e7bb7f9c8941782834bf8847e235f21f2c1f13fca4d5dff6621949419fa2e3b9eb1158de31be66c586a52f49c5de7940b59cae1f03534209fdb9ddf5ea65b310cd7060c94b9456fd65a6810b19df24832c50b2e61a41867f89416c192585a0ab24b552783b4bf7d8dc9f6855c3594ec6c1cede510be308f0fdbbc8dbdf238829bdb3494f8c9c61c5e7f2b6219d1c28b94e5cb3cdc802594946873352021fe9226884616dc6f189f289aeb0cc59456e8c1463c341abf8b168c3079ea41ce8a387e18b8418890007a341ee171ba8d5e3cb546d1d927c8202f0df3c3f381c8173eb36db41305227c289fb528a4614b1a2c04a7ec5a1b5d76f62b829496aa36979e88a9610c01f903edb841f0ba93ac8e28a021e582e50abbaa24fa5174674b3b0873dc568f6c9ebaf830bb4d03b857416304f97b4314e310f66f6c8043e716e70751bc9663dd6f9e5d6a9100b84174717204aa9d9f2dcb1269c89141ec2ee9d447e1981e8a704caa5a6ce376b0901f3e0ddf0ebe08542af86b23637df2f962b0f7ced5469cea310cb71c2358357300b841aa3aa8b450a6f4d883dcf2eda0f964ff4d35a250996b34aa91279c9c7f4383a22c879e2f21c9fddf8c3b1a6cbc59b273b4a0daf4b15aaf18f5e33e70c9277e6f00b8414adbeaaf82da005a33f00e7f74a3eeecb989698968b3694ea9e74018a0836184188eca727900280734ead256af02e72679addcddbf5ebd82c04c030c2bd85f4a01b841610b61422badd11afa2a617502f81c0c8aa1f11951d80893976a391026a3859c1f5e6c6d28e8b2ca8c4281c699b7b8ec30625801d4a6637291f9a8d1a2d8244f00b8417590e3d92063d4162f49493848ef0557daba3c2d82b9498eda09d5d08837296937a69e7b852579eeadf1c077d3b80d232ece03a12f4c45896e518cbb0771c52700b8415a2a40f416154793535cfe133040236ecc8b1f276df39e0a3713992fad06e38a42a455a636add93bff218544a4c53b852b8c4e461d3ae0663fdefe8fe7e327cc00b841e0c64cc8a30d84196d57639a42c5da941164b0700476d1b91d18f7c8f58d12f932ad1362270ec968294257f9c5cb60c40a7d4a5932a8f4d537be4db51f7dcf2500b841f61b6f014628ab751d79f095b1e739bc2b31fa8b6b847878e13b000a6dd53fa8467903119a72c7445f8490cf4932a42f4a418b89436b70d100c56c083399579500b841e6fe4f7c4bdcb4a81125bd282d0b9fedf1f51636c69bd4684d3131d685a7aed34face3d943d02b6ad632bb337f89fd6b0fb08e163ef84bb87fe556f4bafa0d3401b8412c6666136414f88327e07a6e8a2b04d105d6cf64daee239cea647a25f93ce0e6542f59f4363e3522bc838841e6db1940e569938b9458fb674fd543646a6b669b00b84134f967c4060d85a7c2f65d00695f3308d2ab78033e895775e0ab6f70cc6e71081c030bd997773191b3d2d7e5425e542c3b98fc127031784a858cf497c0e1532100b841d81aedf218d33e12087fb6c71b1d76e69dde542659c85661909b8c99793c7f1535afdc8addaefc5bcf6a3f99fd34518a1e9ab4a73ec9921e9865c1bd8543fd4c01b84199ec6f0fca02e48db37f0e4ae1b2fdf643abf610a9f1d7c0b490250aa7f1393d3069d1b4cec74ee99b0e18081bbf5e03d7b918d46499d579459cf0114ff76e9301b841d81a55eb96767edc5305dac78b904f70d2f44bd845fcd2bd581778669e5b8446220143680619986b9975ea528aacec0976406424588760f4fe086f16abaaaf4600",
+    "gasUsed": "0x1d065",
+    "governanceData": "0x",
+    "hash": "0x7d68d09a7a571cdf8a3b6a5ef6e037265b3e3093cf145b0954d22bde5c1d4f61",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "number": "0x6e0431",
+    "parentHash": "0xa76ef625874a4d2126eb3fd1ebb5c1a8d0deb360a12b4f8edf30fb417d82b5a1",
+    "proposer": "0xe783fc94fddaeebef7293d6c5864cff280f121e1",
+    "receiptsRoot": "0x56734b337c3daab6766104bb51bd2ca408cf4537f5528ab3362536c57e65ba67",
+    "reward": "0x79f83dbb81f6f706be3e8491b14790c30d03e659",
+    "size": "0x947",
+    "stateRoot": "0xf685dce2cbef004cb041cf23959aea65e8aa86911fac55739ae1971f7d1dacd4",
+    "timestamp": "0x5d801768",
+    "timestampFoS": "0x4",
+    "totalBlockScore": "0x6e0432",
+    "transactions": [
       {
-        "blockHash":"0xcc5d73c789bf239d93b712267496ccf87a1cf5213fb69dbd4919117085d521de",
-        "blockNumber":"0x13fa8",
-        "contractAddress":null,
-        "from":"0x5b5b7a718a4124eb746ae00b1ce6edcaa5ab55bc",
-        "gas":"0x989680",
-        "gasPrice":"0x5d21dba00",
-        "gasUsed":"0xecc8","input":"0xa2320f03000000000000000000000000d3564e57bb5c6f4d983a493a946534f8e1e8b4810000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000045827b25000000000000000000000000000000000000000000000000000000000",
-        "logs":[
+        "blockHash": "0x7d68d09a7a571cdf8a3b6a5ef6e037265b3e3093cf145b0954d22bde5c1d4f61",
+        "blockNumber": "0x6e0431",
+        "contractAddress": null,
+        "feePayer": "0x08260736c18bd8612bee2b21beedf4e97c0bc6b9",
+        "feePayerSignatures": [
           {
-            "address":"0xd3564e57bb5c6f4d983a493a946534f8e1e8b481",
-            "topics":["0xeabf7053a0bf044bb930225b51ac0017c5f6e07d9437da3be979511122dbc116","0x24da66e9f7eac6e40e8143e06bda90a5d6becc682426ac693de641cd1ddb13f8","0x0000000000000000000000005b5b7a718a4124eb746ae00b1ce6edcaa5ab55bc"],
-            "data":"0x000000000000000000000000d3564e57bb5c6f4d983a493a946534f8e1e8b48100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000005c99f21900000000000000000000000000000000000000000000000000000000000000045827b25000000000000000000000000000000000000000000000000000000000",
-            "blockNumber":"0x13fa8","transactionHash":"0x0d465e4b1b02f0c7f42557846274fa9a45ed325db04458df65e588124be8a85d",
-            "transactionIndex":"0x0",
-            "blockHash":"0xcc5d73c789bf239d93b712267496ccf87a1cf5213fb69dbd4919117085d521de",
-            "logIndex":"0x0",
-            "removed":false
-          },
-          {
-            "address":"0xd3564e57bb5c6f4d983a493a946534f8e1e8b481",
-            "topics":["0x7bcadb76354d2db89bb853995c4378d9f91a187f2f0c1e2aec621b848c71ecfa","0x24da66e9f7eac6e40e8143e06bda90a5d6becc682426ac693de641cd1ddb13f8","0x0000000000000000000000005b5b7a718a4124eb746ae00b1ce6edcaa5ab55bc"],
-            "data":"0x000000000000000000000000000000000000000000000000000000005c99f219",
-            "blockNumber":"0x13fa8",
-            "transactionHash":"0x0d465e4b1b02f0c7f42557846274fa9a45ed325db04458df65e588124be8a85d",
-            "transactionIndex":"0x0",
-            "blockHash":"0xcc5d73c789bf239d93b712267496ccf87a1cf5213fb69dbd4919117085d521de",
-            "logIndex":"0x1",
-            "removed":false
+            "V": "0x4055",
+            "R": "0xd3fdd58e18e5a96d1f9af3d1aff31601d8e543a8085c78edfc8602db4c91b3c6",
+            "S": "0x19d937e315472a188f11a6bb87f47e66a30b44ba907b5f01fcd47dab8d99f3f0"
           }
-        ],"logsBloom":"0x00000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000008000000000000000000400000000000000000000000000000000000000000000000000000000000000000000008000100000000000100000000000020000000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000002000000000000400000000000000000000200000000040000000000000000000000040000000000000000000000000000000000000000000000000000000000000000000024000000000000000000000000000000000",
-        "nonce":"0x7",
-        "signatures":["0x1c","0x62bd6db227c1df4af36c3b35642a5b1ef1cde7fb4a91eca754955b2fb65e111f","0x1824f2128cf4271af6eb4ad644864220efb1f3efa12f08ef1d446c74209960e8"],
-        "status":"0x1",
-        "to":"0xd3564e57bb5c6f4d983a493a946534f8e1e8b481",
-        "transactionIndex":"0x0",
-        "txHash":"0x0d465e4b1b02f0c7f42557846274fa9a45ed325db04458df65e588124be8a85d",
-        "type":"TxTypeLegacyTransaction",
-        "value":"0x0"
+        ],
+        "from": "0x84b605b268e89ccdf591974db82deaa48bce59dc",
+        "gas": "0x419ce0",
+        "gasPrice": "0x5d21dba00",
+        "gasUsed": "0x1d065",
+        "input": "0x50716652000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000013416c50000000000000000000000000000000000000000000000000000000000001f3f000000000000000000000000000000000000000000000000000000003b9af23c",
+        "logs": [],
+        "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "nonce": "0x8",
+        "senderTxHash": "0x5fe7485db56c0c2b0eb54dd46e584a413193ad66b40e69281f44dadfa7409b2e",
+        "signatures": [
+          {
+            "V": "0x4056",
+            "R": "0xca32239c38e1080f3a394504e2a0bb9811cda0a87d25b750cbbab265d581074d",
+            "S": "0x584ab136a483e755d9d458f9965ca0d514724c7b45f6123d19323f6fa7ccdb5f"
+          }
+        ],
+        "status": "0x1",
+        "to": "0x1db1b93447328dd904152f798ead97987844f7b7",
+        "transactionHash": "0x020a2156bb4b29dc84f26887efae79e07a3d738b2856a66bbaab8aee18d507b5",
+        "transactionIndex": "0x0",
+        "type": "TxTypeFeeDelegatedSmartContractExecution",
+        "typeInt": 49,
+        "value": "0x0"
       }
     ],
-    "transactionsRoot":"0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
-    "voteData":"0x"
+    "transactionsRoot": "0x020a2156bb4b29dc84f26887efae79e07a3d738b2856a66bbaab8aee18d507b5",
+    "voteData": "0x"
   }
 }
 ```
 
-## klay_getCommittee
+## klay_getCommittee <a id="klay_getcommittee"></a>
 Returns a list of all validators in the committee at the specified block. If the parameter is not set, returns a list of all validators in the committee at the latest block.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | ---|
-| QUANTITY  &#124; TAG | Integer | (optional) Integer of a block number, or the string `"earliest"` or `"latest"`. |
+| --- | --- | --- |
+| QUANTITY  &#124; TAG | Integer | (optional) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 **Return Value**
 
@@ -540,14 +531,14 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-## klay_getCommitteeSize
+## klay_getCommitteeSize <a id="klay_getcommitteesize"></a>
 Returns the size of the committee at the specified block. If the parameter is not set, returns the size of the committee at the latest block.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | ---|
-| QUANTITY  &#124; TAG | Integer | (optional) Integer of a block number, or the string `"earliest"` or `"latest"`. |
+| --- | --- | --- |
+| QUANTITY  &#124; TAG | Integer | (optional) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 **Return Value**
 
@@ -571,7 +562,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ```
 
 
-## klay_getCouncil
+## klay_getCouncil <a id="klay_getcouncil"></a>
 Returns a list of all validators of the council at the specified block. If the parameter is not set, returns a list of all validators of the council at the latest block.
 
 **NOTE**: `klay_getValidators` is replaced with this method and is not supported anymore.
@@ -579,8 +570,8 @@ Returns a list of all validators of the council at the specified block. If the p
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | ---|
-| QUANTITY  &#124; TAG | Integer | (optional) Integer of a block number, or the string `"earliest"` or `"latest"`. |
+| --- | --- | --- |
+| QUANTITY  &#124; TAG | Integer | (optional) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 **Return Value**
 
@@ -608,14 +599,14 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-## klay_getCouncilSize
+## klay_getCouncilSize <a id="klay_getcouncilsize"></a>
 Returns the size of the council at the specified block. If the parameter is not set, returns the size of the council at the latest block.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | ---|
-| QUANTITY  &#124; TAG | Integer | (optional) Integer of a block number, or the string `"earliest"` or `"latest"`. |
+| --- | --- | --- |
+| QUANTITY  &#124; TAG | Integer | (optional) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 **Return Value**
 
@@ -639,17 +630,17 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ```
 
 
-## klay_getStorageAt
+## klay_getStorageAt <a id="klay_getstorageat"></a>
 
 Returns the value from a storage position at a given address.
 
 **Parameters**
 
-| Type          | Description                                                  |
-| ------------- | ------------------------------------------------------------ |
-| 20-byte DATA | Address of the storage.                           |
-| QUANTITY      | Integer of the position in the storage.                      |
-| QUANTITY &#124; TAG | Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](#the-default-block-parameter). |
+| Type | Description |
+| --- | --- |
+| 20-byte DATA | Address of the storage. |
+| QUANTITY | Integer of the position in the storage. |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
  **Return Value**
 
@@ -705,7 +696,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "kl
 ```
 
 
-## klay_mining
+## klay_mining <a id="klay_mining"></a>
 
 Returns `true` if client is actively mining new blocks.
 
@@ -736,7 +727,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_syncing
+## klay_syncing <a id="klay_syncing"></a>
 
 Returns an object with data about the sync status or `false`.
 
