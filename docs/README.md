@@ -1,4 +1,4 @@
-# Welcome
+# Welcome <a id="welcome"></a>
 
 KlaytnDocs introduces and explains [Klaytn](https://www.klaytn.com/), an enterprise-grade, service-centric platform that brings user-friendly blockchain experience to millions of users. In the following documents, we describe what Klaytn is and provide guidelines and instructions on how to use Klaytn as well as how to interact with the Klaytn network. To better understand Klaytn's vision, mission, and future plans briefly, please visit the [Klaytn Position Paper](https://www.klaytn.com/Klaytn_PositionPaper_V2.1.0.pdf) .
 
@@ -12,9 +12,13 @@ KlaytnDocs introduces and explains [Klaytn](https://www.klaytn.com/), an enterpr
 
 **Disclaimer**: Some notes are derived from Ethereum documents as the Klaytn source code was initiated from Ethereum’s Byzantium version. As Klaytn develops further, KlaytnDocs and the source code will continue to be updated. Reference websites are as follows:
 
-* [http://www.ethdocs.org/en/latest/](http://www.ethdocs.org/en/latest/)
+* [https://ethereum.org/developers/](https://ethereum.org/developers/)
 * [https://github.com/ethereum/go-ethereum/wiki](https://github.com/ethereum/go-ethereum/wiki)
-* [https://truffleframework.com/docs](https://truffleframework.com/docs)
+* [https://trufflesuite.com/docs](https://trufflesuite.com/docs)
 * [https://web3js.readthedocs.io/en/1.0/](https://web3js.readthedocs.io/en/1.0/)
 
 
+**Credit**: Icons used in the following pages are made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/).
+
+* [Klaytn Overview](klaytn/README.md)
+* [Consensus Mechanism](klaytn/design/consensus-mechanism.md)
