@@ -1,4 +1,4 @@
-# Startup the EN
+# Startup the EN <a id="startup-the-en"></a>
 
 You can start or stop the Endpoint Node using the following commands.
 
