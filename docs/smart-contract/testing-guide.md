@@ -1,12 +1,12 @@
-# Testing Guide
+# Testing Guide <a id="testing-guide"></a>
 In this section, we'll introduce how to test smart contracts. Because any transaction on the blockchain is not reversible, testing your smart contract is crucial before you deploy the contract. 
 
-## Testing with Truffle
+## Testing with Truffle <a id="testing-with-truffle"></a>
 Truffle provides an automated testing framework. This framework lets you write simple and manageable tests in two different ways:  
 * In `Javascript` and `TypeScript`, for exercising your contracts from the outside world, just like application.
 * In `Solidity`, for exercising your contracts in advances, bare-to-the-metal scenarios.
 
-### 1) Getting started
+### 1) Getting started <a id="1-getting-started"></a>
 We will follow the [Deployment Guide using Truffle](./deploy-guide.md#truffle) to create a contract and deploy it. But, before we deploy it, we will add a setter function `setGreet` to the contract for testing purpose. The source code is given below.
 
 
@@ -54,7 +54,7 @@ First, we will install the Chai assertions library (or any different assertions 
 ```
 npm install --save-dev chai truffle-assertions
 ```
-### 2) Writing test in Solidity
+### 2) Writing test in Solidity <a id="2-writing-test-in-solidity"></a>
 Testing with Solidity can be a little bit more intuitive than JavaScript tests. Solidity test contracts live alongside JavaScript tests as .sol files. 
 
 Create a file called `TestKlaytnGreeting.sol` in the `test` folder. The Truffle suite provides us with helper libraries for testing, so we need to import those.
@@ -69,7 +69,7 @@ import "../contracts/HashMarket.sol";
 * Assert : It gives us access to various testing functions, like `Assert.equals()`, `Assert.greaterThan()`, etc.
 * DeployedAddresses : Every time you change your contract, you must redeploy it to a new address. You can get the deployed contract addresses through this library. 
 
-Now, Let's wirte a test code.
+Now, Let's write a test code.
 ```
 pragma solidity ^0.5.6;
 
@@ -149,7 +149,7 @@ Compiling your contracts...
 ```
 Congratulations! Your test has passed.
 
-### 3) Writing test in JavaScript
+### 3) Writing test in JavaScript <a id="3-writing-test-in-javascript"></a>
 Truffle uses the [Mocha](https://mochajs.org/) testing framework and [Chai](https://www.chaijs.com/) assertion library to provide a solid framework for JavaScript test. JavaScript test gives you more flexibility and enables you to write more complex tests.
 
 Let's create a file and name it `0_KlaytnGreeting.js` under `test` directory.  
@@ -168,12 +168,12 @@ contract("KlaytnGreeter", async(accounts) => {
 
     // This will run before each test proceed.
     before(async function() {
-        // set contract instnace into a variable
+        // set contract instance into a variable
         klaytnGreeterInstance = await KlaytnGreeter.new(greetMsg, {from:owner});
     })
 
     it("#1 check Greeting message", async function() {
-        // set the expected greeting messge
+        // set the expected greeting message
         var expectedGreeting = greetMsg;
         var greet= await klaytnGreeterInstance.greet();
         assert.equal(expectedGreeting, greet, "greeting message should match");
@@ -230,7 +230,7 @@ Compiling your contracts...
 ```
 Congratulations! Your test has passed.
 
-### 4) Specifying test
+### 4) Specifying test <a id="4-specifying-test"></a>
 You can choose the test file to be executed.
 ```
 truffle test ./test/0_KlaytnGreeting.js
