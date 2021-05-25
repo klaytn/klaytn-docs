@@ -1,19 +1,18 @@
-# Blockchain Inspection
+# Blockchain Inspection <a id="blockchain-inspection"></a>
 
-## debug_dumpBlock
+## debug_dumpBlock <a id="debug_dumpblock"></a>
 
 Retrieves the state that corresponds to the block number and returns a list of
 accounts (including storage and code).
 
-**NOTE**: This function returns the state correctly for some latest block
-numbers.  On the other hand, old block numbers that can be used to retrieve the
-state may be restricted depending on the value set for the `klay` command-line
+**NOTE**: This function correctly returns the state for a few latest, currently 4, block
+numbers.  Retrieving older block state is restricted depending on the value set for the command-line
 option `--state.block-interval` (default: 128).  This means that the function
-will perform the state retrieval against only the block numbers, which are a
-multiple of state.block-interval value.  For example, when the value of
-state.block-interval is 128, this function returns the state correctly for the
-block numbers such as "0x0", "0x80", "0x100", "0x180", and so on.  If the block
-number is not a multiple of state.block-interval value, it will return 'missing
+performs the state retrieval against only the block numbers that are
+multiples of state.block-interval.  For example, when 
+state.block-interval is 128, this function returns the state for the
+block numbers "0x0", "0x80", "0x100", "0x180", and so on.  If the block
+number is not a multiple of state.block-interval, it returns 'missing
 trie node' error.
 
 | Client  | Method Invocation                                   |
@@ -73,7 +72,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_getBlockRlp
+## debug_getBlockRlp <a id="debug_getblockrlp"></a>
 
 Retrieves and returns the RLP-encoded block by the block number.
 
@@ -110,11 +109,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_getModifiedAccountsByHash
+## debug_getModifiedAccountsByHash <a id="debug_getmodifiedaccountsbyhash"></a>
 
 Returns all accounts that have changed between the two blocks specified by
-their block hashes. A change is defined as a difference in nonce, balance, code
-hash, or storage hash.
+their block hashes. Changes made in `endBlockHash` are included, but changes made in `startBlockHash` are not. If `endBlockHash` is not given, it returns the accounts modified in the `startBlockHash`. A change is defined as a difference in nonce, balance, code hash, or storage hash.
 
 
 | Client  | Method Invocation                                                                           |
@@ -126,14 +124,14 @@ hash, or storage hash.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| startBlockHash | 32-byte DATA | Start block hash for the range. |
-| endBlockHash | 32-byte DATA | End block hash for the range. |
+| startBlockHash | 32-byte DATA | The first block hash of the range to check. |
+| endBlockHash | 32-byte DATA | (optional) The last block hash of the range. |
 
 **Return Value**
 
 | Type | Description |
 | --- | --- |
-| JSON string | The list of addresses modified between given range. |
+| JSON string | The list of addresses modified between the given range. |
 
 **Example**
 
@@ -152,10 +150,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 ```
 
 
-## debug_getModifiedAccountsByNumber
+## debug_getModifiedAccountsByNumber <a id="debug_getmodifiedaccountsbynumber"></a>
 
 Returns all accounts that have changed between the two blocks specified by
-their block numbers. A change is defined as a difference in nonce, balance,
+their block numbers. Changes made in `endBlockNum` are included, but changes made in `startBlockNum` are not. If `endBlockNum` is not given, it returns the accounts modified in the `startBlockNum`. A change is defined as a difference in nonce, balance,
 code hash, or storage hash.
 
 
@@ -168,14 +166,14 @@ code hash, or storage hash.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| startBlockNum | int | Start block number for the range. |
-| endBlockNum | int | End block number for the range. |
+| startBlockNum | int | The first block number of the range to check. |
+| endBlockNum | int | (optional) The last block number of the range. |
 
 **Return Value**
 
 | Type | Description |
 | --- | --- |
-| JSON string | The list of addresses modified between given range. |
+| JSON string | The list of addresses modified between the given range. |
 
 **Example**
 
@@ -193,7 +191,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 ```
 
 
-## debug_preimage
+## debug_preimage <a id="debug_preimage"></a>
 
 Returns the preimage for a sha3 hash, if known.
 
@@ -230,7 +228,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_printBlock
+## debug_printBlock <a id="debug_printblock"></a>
 
 Retrieves a block and returns its pretty printed form.
 
@@ -266,7 +264,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_setHead
+## debug_setHead <a id="debug_sethead"></a>
 
 **`WARNING`**: This API is not yet implemented and always returns "not yet implemented API" error.
 
@@ -304,3 +302,165 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
+## debug_startWarmUp <a id="debug_startwarmup"></a>
+
+The `startWarmUp` iterates the latest state trie to warm-up the trie cache.
+The iteration will be automatically stopped if 90% of the trie cache is full.
+The method returns an error if it fails in starting a warm-up, or `null` if it successfully has started it.
+
+| Client  | Method invocation                                            |
+| :-----: | ------------------------------------------------------------ |
+| Console | `debug.startWarmUp()`                     |
+|   RPC   | `{"method": "debug_startWarmUp"}` |
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Error | `null` if a warm-up is started, or an error if not. |
+
+**Example**
+
+Console
+
+```javascript
+> debug.startWarmUp()
+null
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startWarmUp","id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+## debug_startContractWarmUp <a id="debug_startcontractwarmup"></a>
+
+The `startContractWarmUp` iterates the latest storage trie of the given contract address to warm-up the trie cache.
+The iteration will be automatically stopped if 90% of the trie cache is full.
+The method returns an error if it fails in starting a warm-up or the given address is not a contract address,
+or `null` if it successfully has started it.
+
+| Client  | Method invocation                                            |
+| :-----: | ------------------------------------------------------------ |
+| Console | `debug.startContractWarmUp(address)`                     |
+|   RPC   | `{"method": "debug_startContractWarmUp", "params": [address]}` |
+
+**Parameters**
+
+| Type           | Description                                                  |
+| -------------- | ------------------------------------------------------------ |
+| 20-byte DATA | Contract address                               |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Error | `null` if a warm-up is started, or an error if not. |
+
+**Example**
+
+Console
+
+```javascript
+> debug.startContractWarmUp("0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b")
+null
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startContractWarmUp", "params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b"], "id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+## debug_stopWarmUp <a id="debug_stopwarmup"></a>
+
+The `stopWarmUp` stops the currently running warm-up.
+This method takes no parameters, and returns `null` or an error depending on a warm-up was stopped or not.
+
+| Client  | Method invocation             |
+| :-----: | ----------------------------- |
+| Console | `debug.stopWarmUp()`             |
+|   RPC   | `{"method": "stopWarmUp"}` |
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Error | `null` if a warm-up is stopped, or an error if not. |
+
+**Example**
+
+Console
+
+```javascript
+> debug.stopWarmUp()
+true
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stopWarmUp","id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+## debug_startCollectingTrieStats <a id="debug_startCollectingTrieStats"></a>
+
+The `startCollectingTrieStats` iterates the latest state or storage trie to collect trie statistics. It collects storage trie statistics of the contract in the given address. If an empty address(="0x00...00") is given, it collects statistics of the whole state trie. Statistics will be logged every minute before end, containing overall and depth-by-depth information.
+The method returns an error if it fails in starting a task, or `null` if it successfully has started it.
+
+| Client  | Method invocation                                            |
+| :-----: | ------------------------------------------------------------ |
+| Console | `debug.startCollectingTrieStats(address)`                     |
+|   RPC   | `{"method": "debug_startCollectingTrieStats", "params": [address]}` |
+
+**Parameters**
+
+| Type           | Description                                                  |
+| -------------- | ------------------------------------------------------------ |
+| 20-byte DATA | Contract address                               |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Error | `null` if collecting trie statistics task is started, or an error if not. |
+
+**Example**
+
+Console
+
+```javascript
+// empty address to collect whole state trie statistics
+> debug.startCollectingTrieStats("0x0000000000000000000000000000000000000000")
+null
+// contract address to collect storage trie statistics
+> debug.startCollectingTrieStats("0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b")
+null
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startCollectingTrieStats", "params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b"], "id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+Log
+
+```
+INFO[03/10,12:03:12 +09] [5] Started collecting trie statistics        blockNum=1491072 root=0x64af12b6374b92f6db457fa1b98fe9522d9f36ba352e3c4e01cdb75f001e8264 len(children)=16
+...
+INFO[03/10,12:03:12 +09] [5] Finished collecting trie statistics       elapsed=95.152412ms numNodes=133036 numLeafNodes=95948 maxDepth=9
+INFO[03/10,12:03:12 +09] [5] number of leaf nodes in a depth           depth=5 numNodes=22098
+INFO[03/10,12:03:12 +09] [5] number of leaf nodes in a depth           depth=6 numNodes=65309
+INFO[03/10,12:03:12 +09] [5] number of leaf nodes in a depth           depth=7 numNodes=8083
+INFO[03/10,12:03:12 +09] [5] number of leaf nodes in a depth           depth=8 numNodes=456
+INFO[03/10,12:03:12 +09] [5] number of leaf nodes in a depth           depth=9 numNodes=2
+```
