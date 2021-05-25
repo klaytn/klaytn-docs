@@ -1,13 +1,13 @@
-# ken CLI commands
+# ken CLI commands <a id="ken-cli-commands"></a>
 
-`ken` is a command-line interface for Klayrn Endpoint Node.
+`ken` is a command-line interface for Klaytn Endpoint Node.
 
 ```bash
 USAGE:
    ken [options] command [command options] [arguments...]
 ```
 
-## Commands
+## Commands <a id="commands"></a>
 
 `ken` has the following commands. 
 
@@ -55,7 +55,7 @@ participating.
  ...
 ```
 
-## JavaScript Console
+## JavaScript Console <a id="javascript-console"></a>
 
 Klaytn Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Klaytn API calls to your EN. To attach to the JavaScript console, execute the following command.
 
@@ -77,7 +77,7 @@ Welcome to the Klaytn JavaScript console
    console     Start an interactive JavaScript environment
 ```
 
-### Module APIs
+### Module APIs <a id="module-apis"></a>
 
 If you type the module name on the console prompt, you will see the available properties and functions of the module. For the details of functions, please see [Klaytn API](../../bapp/json-rpc/api-references/README.md).  
 
