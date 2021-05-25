@@ -1,12 +1,12 @@
-# Testing the Core Cell
+# Testing the Core Cell <a id="testing-the-core-cell"></a>
 
 It is time to check that Core Cell is successfully installed and it is working as expected after installation.
 
-## Process Status
+## Process Status <a id="process-status"></a>
 
 It is possible to check the status of CN/PN's process using the status commands `systemctl` and `kcnd/kpnd`.
 
-### systemctl
+### systemctl <a id="systemctl"></a>
 
 `systemctl` is installed along with the RPM and the status of CN/PN can be checked as follows.
 
@@ -28,7 +28,7 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Start
 
 You can check the current status such as `Active: active (running)` in the above example.
 
-### kcnd (kpnd)
+### kcnd (kpnd) <a id="kcnd-kpnd"></a>
 
 `kcnd` (or `kpnd`) is installed along with the package and the status of CN/PN can be checked as follows.
 
@@ -37,7 +37,7 @@ $ kcnd status
 kcnd is running
 ```
 
-## Logs
+## Logs <a id="logs"></a>
 
 The log is stored in `kcnd.out` (or `kpnd.out`) file located in the path defined in the `LOG_DIR` field of the `kcnd.conf` (or `kpnd.conf`) file. When the node works properly, you can see that each block is created per second as follows.
 
@@ -57,7 +57,7 @@ INFO[02/13,07:02:27 Z] [5] Imported new chain segment                blocks=1 tx
 INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=11572927 txs=0 elapsed=483.436µs
 ```
 
-## kcn console (kpn console)
+## kcn console (kpn console) <a id="kcn-console-kpn-console"></a>
 
 Klaytn provides a CLI client: `kcn console` (or `kpn console`). However, a CN/PN may disable the RPC interface for the client due to the security reason. Another way of using the client is to connect to the process via IPC (inter-process communication).
 
@@ -98,7 +98,7 @@ The useful APIs to check the status of a CN/PN:
 * `klay.blockNumber` (to get the latest block number)
 * `net.peerCount` (to get the number of the connected Klaytn nodes currently)
 
-### klay.blockNumber 
+### klay.blockNumber  <a id="klay-blocknumber"></a>
 
 You can get the latest block number to see if blocks are created (for CNs) or propagated (for CNs and PNs) properly based on your node type.
 
@@ -107,7 +107,7 @@ You can get the latest block number to see if blocks are created (for CNs) or pr
 11573819
 ```
 
-### net.peerCount 
+### net.peerCount  <a id="net-peercount"></a>
 
 ```javascript
 > net.peerCount
