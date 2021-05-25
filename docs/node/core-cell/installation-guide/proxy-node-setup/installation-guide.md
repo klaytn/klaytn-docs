@@ -1,8 +1,8 @@
-# Installation Guide
+# Installation Guide <a id="installation-guide"></a>
 
-You can download the latest version of the `kpn`  on [Download](../download.md) page. 
+You can download the latest version of the `kpn`  on [Download](../download.md) page.
 
-## Linux Archive Distribution
+## Linux Archive Distribution <a id="linux-archive-distribution"></a>
 
 The archive file consists of the executable binary and the configuration file structured as follows.
 
@@ -22,7 +22,7 @@ The archive file consists of the executable binary and the configuration file st
 | bin/kpnd | PN start/termination script file |
 | conf/kpnd.conf | PN configuration file |
 
-### Installation
+### Installation <a id="installation"></a>
 
 The installation is the uncompression of the downloaded package where you want to install the package.
 
@@ -46,7 +46,7 @@ The other sections assume that the path is added to the variable.
 
 ## RPM Distribution \(RHEL/CentOS/Fedora\) <a id="rpm-rhel-centos-fedora"></a>
 
-### Install downloaded RPM
+### Install downloaded RPM <a id="install-downloaded-rpm"></a>
 
 You can install the downloaded RPM file with the following `yum` command.
 
@@ -60,15 +60,15 @@ Or,
 $ yum install kpnd-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### Install from Klaytn Yum Repo
+### Install from Klaytn Yum Repo <a id="install-from-klaytn-yum-repo"></a>
 
 Alternatively, you can install `kpnd` from the Klaytn Yum repo, run:
 
 ```bash
-$ sudo curl -o /etc/yum.repos.d/klaytn.repo http://packages.klaytn.net/config/rhel/7/prod.repo && sudo yum install kpnd
+$ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo && sudo yum install kpnd
 ```
 
-### Installed Location
+### Installed Location <a id="installed-location"></a>
 
 The installed files are located as follows.
 
