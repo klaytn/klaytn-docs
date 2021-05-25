@@ -1,8 +1,8 @@
-# ERC-721 Example
+# ERC-721 Example <a id="erc-721-example"></a>
 
-## Introduction
+## Introduction <a id="introduction"></a>
 
-This tutorial helps you to create an example ERC-721 compatible token that conforms to [Klaytn Token Standards](../../token-standard.md), especially [Non-fungible Token Standard (ERC-721)](../../token-standard.md#non-fungible-token-standard-erc-721).
+This tutorial helps you to create an example ERC-721 compatible token that conforms to [Klaytn Token Standards](../../token-standard.md), especially [Non-fungible Token Standard (ERC-721)](../../token-standard.md#non-fungible-token-standard-kip-17).
 
 [ERC-721 Non-Fungible Token Standard](https://eips.ethereum.org/EIPS/eip-721) defines three events and 10 methods as below. `supportsInterface` of ERC-721 is derived from [ERC-165 Standard Interface Detection](https://eips.ethereum.org/EIPS/eip-165) and ERC-165 is a part of ERC-721.
 ERC-721 compatible tokens are the token contracts that implement ERC-721 and ERC-165 interfaces as below.
