@@ -1,15 +1,15 @@
-# Partial Fee Delegation
+# Partial Fee Delegation <a id="partial-fee-delegation"></a>
 
-## TxTypeFeeDelegatedValueTransferWithRatio
+## TxTypeFeeDelegatedValueTransferWithRatio <a id="txtypefeedelegatedvaluetransferwithratio"></a>
 
-TxTypeFeeDelegatedValueTransferWithRatio is used when a user wants to send tokens. As Klaytn provides multiple transaction types to make each transaction type serve a single purpose, TxTypeFeeDelegatedValueTransferWithRatio is limited to send tokens to an externally owned account. Therefore, TxTypeFeeDelegatedValueTransferWithRatio is accepted only if `to` is an externally owned account. To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecutionWithRatio](partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) instead. The following changes will be made by this transaction type.
+TxTypeFeeDelegatedValueTransferWithRatio is used when a user wants to send KLAY. As Klaytn provides multiple transaction types to make each transaction type serve a single purpose, TxTypeFeeDelegatedValueTransferWithRatio is limited to send KLAY to an externally owned account. Therefore, TxTypeFeeDelegatedValueTransferWithRatio is accepted only if `to` is an externally owned account. To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecutionWithRatio](partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) instead. The following changes will be made by this transaction type.
 
 1. The fee payer's balance decreases by the given ratio of the transaction fee.
 2. The sender's balance decreases by the remaining transaction fee. e.g., If the `feeRatio` is 30, 30% of the fee will be paid by the fee payer, and the remaining 70% of the fee will be paid by the sender.
 3. The sender's nonce increases by one.
 4. `value` KLAY is transferred from the sender to the recipient.
 
-### Attributes
+### Attributes <a id="attributes"></a>
 
 | Attribute | Type | Description |
 | :--- | :--- | :--- |
@@ -25,7 +25,7 @@ TxTypeFeeDelegatedValueTransferWithRatio is used when a user wants to send token
 | feePayer | common.Address \(Go\) | The address of the fee payer. |
 | feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures. |
 
-### RLP Encoding for Signature of the Sender
+### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
 To make a signature of the sender, RLP serialization should be done like the following:
 
@@ -35,7 +35,7 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <the sender's private key>)
 ```
 
-### RLP Encoding for Signature of the Fee Payer
+### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
 To make a signature of the fee payer, RLP serialization should be done like the following:
 
@@ -45,7 +45,7 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### RLP Encoding for SenderTxHash
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
 To make a SenderTxHash, RLP serialization should be done like the following:
 
@@ -56,7 +56,7 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, feeRatio
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### RLP Encoding for Transaction Hash
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
 To make a transaction hash, RLP serialization should be done like the following:
 
@@ -69,7 +69,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, feeRatio, txSi
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP Encoding \(Example\)
+### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
 The following shows the result of RLP serialization and the transaction object:
 
@@ -107,7 +107,7 @@ SenderTxHash 4711ed4023e821425968342c1d50063b6bc3176b1792b7075cfeee3656d450f6
     Hex:           0af8d78204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0b1ef845f84325a0dde32b8241f039a82b124fe94d3e556eb08f0d6f26d07dcc0f3fca621f1090caa01c8c336b358ab6d3a2bbf25de2adab4d01b754e2fb3b9b710069177d54c1e956945a0043070275d9f6054307ee7348bd660849d90ff845f84326a0091ecf53f91bb97bb694f2f2443f3563ac2b646d651497774524394aae396360a044228b88f275aa1ec1bab43681d21dc7e3a676786ed1906f6841d0a1a188f88a
 ```
 
-### RPC Output \(Example\)
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
 The following shows a transaction object returned via JSON RPC.
 
@@ -150,16 +150,16 @@ The following shows a transaction object returned via JSON RPC.
 }
 ```
 
-## TxTypeFeeDelegatedValueTransferMemoWithRatio
+## TxTypeFeeDelegatedValueTransferMemoWithRatio <a id="txtypefeedelegatedvaluetransfermemowithratio"></a>
 
-TxTypeFeeDelegatedValueTransferMemoWithRatio is used when a user wants to send tokens with a specific message. TxTypeFeeDelegatedValueTransferMemoWithRatio is accepted only if `to` is an externally owned account. To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecutionWithRatio](partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) instead. The following changes will be made by this transaction type.
+TxTypeFeeDelegatedValueTransferMemoWithRatio is used when a user wants to send KLAY with a specific message. TxTypeFeeDelegatedValueTransferMemoWithRatio is accepted only if `to` is an externally owned account. To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecutionWithRatio](partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) instead. The following changes will be made by this transaction type.
 
 1. The fee payer's balance decreases by the fee ratio of the amount of the transaction fee.
 2. The sender's balance decreases by the remaining transaction fee. e.g., If the `feeRatio` is 30, 30% of the fee will be paid by the fee payer, and the remaining 70% of the fee will be paid by the sender.k
 3. The sender's nonce increases by one.
 4. `value` KLAY is transferred from the sender to the recipient.
 
-### Attributes
+### Attributes <a id="attributes"></a>
 
 | Attribute | Description | Type |
 | :--- | :--- | :--- |
@@ -176,7 +176,7 @@ TxTypeFeeDelegatedValueTransferMemoWithRatio is used when a user wants to send t
 | feePayer | common.Address \(Go\) | The address of the fee payer. |
 | feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures. |
 
-### RLP Encoding for Signature of the Sender
+### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
 To make a signature of the sender, RLP serialization should be done like the following:
 
@@ -186,7 +186,7 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <the sender's private key>)
 ```
 
-### RLP Encoding for Signature of the Fee Payer
+### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
 To make a signature of the fee payer, RLP serialization should be done like the following:
 
@@ -196,7 +196,7 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### RLP Encoding for SenderTxHash
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
 To make a SenderTxHash, RLP serialization should be done like the following:
 
@@ -207,7 +207,7 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, f
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### RLP Encoding for Transaction Hash
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
 To make a transaction hash, RLP serialization should be done like the following:
 
@@ -220,7 +220,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, feeRati
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP Encoding \(Example\)
+### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
 The following shows the result of RLP serialization and the transaction object:
 
@@ -259,7 +259,7 @@ SenderTxHash 2c4e8cd3c68a4aacae51c695e857cfc1a019037ca71d8cd1e8ca56ec4eaf55b1
     Hex:           12f8dd8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0b8568656c6c6f1ef845f84326a0769f0afdc310289f9b24decb5bb765c8d7a87a6a4ae28edffb8b7085bbd9bc78a06a7b970eea026e60ac29bb52aee10661a4222e6bdcdfb3839a80586e584586b4945a0043070275d9f6054307ee7348bd660849d90ff845f84325a0c1c54bdc72ce7c08821329bf50542535fac74f4bba5de5b7881118a461d52834a03a3a64878d784f9af91c2e3ab9c90f17144c47cfd9951e3588c75063c0649ecd
 ```
 
-### RPC Output \(Example\)
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
 The following shows a transaction object returned via JSON RPC.
 
@@ -303,7 +303,7 @@ The following shows a transaction object returned via JSON RPC.
 }
 ```
 
-## TxTypeFeeDelegatedSmartContractDeployWithRatio
+## TxTypeFeeDelegatedSmartContractDeployWithRatio <a id="txtypefeedelegatedsmartcontractdeploywithratio"></a>
 
 TxTypeFeeDelegatedSmartContractDeployWithRatio deploys a smart contract. The given ratio of the transaction fee is paid by the fee payer. The following changes will be made by this transaction type.
 
@@ -313,7 +313,7 @@ TxTypeFeeDelegatedSmartContractDeployWithRatio deploys a smart contract. The giv
 4. A smart contract is deployed with the code in `input`. The deployed address will be returned via `contractAddress` in the receipt.
 5. `value` KLAY is transferred from the sender to the recipient.
 
-### Attributes
+### Attributes <a id="attributes"></a>
 
 | Attribute | Type | Description |
 | :--- | :--- | :--- |
@@ -332,7 +332,7 @@ TxTypeFeeDelegatedSmartContractDeployWithRatio deploys a smart contract. The giv
 | feePayer | common.Address \(Go\) | The address of the fee payer. |
 | feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures. |
 
-### RLP Encoding for Signature of the Sender
+### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
 To make a signature of the sender, RLP serialization should be done like the following:
 
@@ -342,7 +342,7 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <the sender's private key>)
 ```
 
-### RLP Encoding for Signature of the Fee Payer
+### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
 To make a signature of the fee payer, RLP serialization should be done like the following:
 
@@ -352,7 +352,7 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### RLP Encoding for SenderTxHash
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
 To make a SenderTxHash, RLP serialization should be done like the following:
 
@@ -363,7 +363,7 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, h
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### RLP Encoding for Transaction Hash
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
 To make a transaction hash, RLP serialization should be done like the following:
 
@@ -376,7 +376,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, humanRe
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP Encoding \(Example\)
+### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
 The following shows the result of RLP serialization and the transaction object:
 
@@ -417,7 +417,7 @@ SenderTxHash 57dfef9c923cba182cca00fa65d45aaf619613d843d585d3c4026a3bd0797366
     Hex:           2af902da8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0bb901fe608060405234801561001057600080fd5b506101de806100206000396000f3006080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a72305820627ca46bb09478a015762806cc00c431230501118c7c26c30ac58c4e09e51c4f0029011e80f845f84326a0cfe8dc29d31916b3f661a4774cb8d44d39ae700a9fb6ca04327f84bbe4de1486a01616e09ced403420cac1363d14e705b7a323518b1ce5124b16f06871c00ac424945a0043070275d9f6054307ee7348bd660849d90ff845f84325a0e29dae81defc027f059cd6a55ff74156b9c5bdb811460f09fc8d167c01aaaea1a04eba34d4d5ebbce60e4998f03b7a4658263bb21063ddf68ad3b088d670de47c8
 ```
 
-### RPC Output \(Example\)
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
 The following shows a transaction object returned via JSON RPC.
 
@@ -463,7 +463,7 @@ The following shows a transaction object returned via JSON RPC.
 }
 ```
 
-## TxTypeFeeDelegatedSmartContractExecutionWithRatio
+## TxTypeFeeDelegatedSmartContractExecutionWithRatio <a id="txtypefeedelegatedsmartcontractexecutionwithratio"></a>
 
 TxTypeFeeDelegatedSmartContractExecution executes a smart contract with the given data in `input`. TxTypeFeeDelegatedSmartContractExecutionWithRatio is accepted only if `to` is a smart contract account. To transfer KLAY to an externally owned account, use [TxTypeFeeDelegatedValueTransferWithRatio](partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio) instead. The following changes will be made by this transaction type.
 
@@ -473,7 +473,7 @@ TxTypeFeeDelegatedSmartContractExecution executes a smart contract with the give
 4. The sender's nonce increases by one.
 5. If `value` was provided, `value` KLAY is transferred from the sender to the `to` smart contract. The contract should have a payable fallback function to receive KLAY.
 
-### Attributes
+### Attributes <a id="attributes"></a>
 
 | Attribute | Type | Description |
 | :--- | :--- | :--- |
@@ -490,7 +490,7 @@ TxTypeFeeDelegatedSmartContractExecution executes a smart contract with the give
 | feePayer | common.Address \(Go\) | The address of the fee payer. |
 | feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures. |
 
-### RLP Encoding for Signature of the Sender
+### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
 To make a signature of the sender, RLP serialization should be done like the following:
 
@@ -500,7 +500,7 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <the sender's private key>)
 ```
 
-### RLP Encoding for Signature of the Fee Payer
+### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
 To make a signature of the fee payer, RLP serialization should be done like the following:
 
@@ -510,7 +510,7 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### RLP Encoding for SenderTxHash
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
 To make a SenderTxHash, RLP serialization should be done like the following:
 
@@ -521,7 +521,7 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, f
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### RLP Encoding for Transaction Hash
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
 To make a transaction hash, RLP serialization should be done like the following:
 
@@ -530,7 +530,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, feeRati
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP Encoding \(Example\)
+### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
 The following shows the result of RLP serialization and the transaction object:
 
@@ -569,7 +569,7 @@ SenderTxHash d5e22319cbf020d422d8ba3a07da9d99b9300826637af85b4e061805dcb2c1b0
     Hex:           32f8fc8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0ba46353586b000000000000000000000000bc5951f055a85f41a3b62fd6f68ab7de76d299b21ef845f84326a074ccfee18dc28932396b85617c53784ee366303bce39a2401d8eb602cf73766fa04c937a5ab9401d2cacb3f39ba8c29dbcd44588cc5c7d0b6b4113cfa7b7d9427b945a0043070275d9f6054307ee7348bd660849d90ff845f84325a04a4997524694d535976d7343c1e3a260f99ba53fcb5477e2b96216ec96ebb565a00f8cb31a35399d2b0fbbfa39f259c819a15370706c0449952c7cfc682d200d7c
 ```
 
-### RPC Output \(Example\)
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
 The following shows a transaction object returned via JSON RPC.
 
@@ -613,7 +613,7 @@ The following shows a transaction object returned via JSON RPC.
 }
 ```
 
-## TxTypeFeeDelegatedAccountUpdateWithRatio
+## TxTypeFeeDelegatedAccountUpdateWithRatio <a id="txtypefeedelegatedaccountupdatewithratio"></a>
 
 TxTypeFeeDelegatedAccountUpdateWithRatio updates the key of the given account. The given ratio of the transaction fee is paid by the fee payer. The following changes will take place by this transaction type.
 
@@ -623,7 +623,7 @@ TxTypeFeeDelegatedAccountUpdateWithRatio updates the key of the given account. T
 4. The account's key is updated with `key`.
 5. Transactions sent from the account afterward will be validated with this `key`, once this transaction is executed.
 
-### Attributes
+### Attributes <a id="attributes"></a>
 
 | Attribute | Type | Description |
 | :--- | :--- | :--- |
@@ -638,7 +638,7 @@ TxTypeFeeDelegatedAccountUpdateWithRatio updates the key of the given account. T
 | feePayer | common.Address \(Go\) | The address of the fee payer. |
 | feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures. |
 
-### RLP Encoding for Signature of the Sender
+### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
 To make a signature of the sender, RLP serialization should be done like the following:
 
@@ -648,7 +648,7 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <the sender's private key>)
 ```
 
-### RLP Encoding for Signature of the Fee Payer
+### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
 To make a signature of the fee payer, RLP serialization should be done like the following:
 
@@ -658,7 +658,7 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### RLP Encoding for SenderTxHash
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
 To make a SenderTxHash, RLP serialization should be done like the following:
 
@@ -669,7 +669,7 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, from, rlpEncodedKey, feeR
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### RLP Encoding for Transaction Hash
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
 To make a transaction hash, RLP serialization should be done like the following:
 
@@ -682,7 +682,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, from, rlpEncodedKey, feeRatio, 
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP Encoding \(Example\)
+### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
 The following shows the result of RLP serialization and the transaction object:
 
@@ -719,7 +719,7 @@ SenderTxHash e1d87538509549f4a1eb418f986bc53dc77b7eec3b2150f75cd787951d3e4b7f
     Hex:           22f8e58204d219830f424094a94f5374fce5edbc8e2a8697c15331677e6ebf0ba302a1033a514176466fa815ed481ffad09110a2d344f6c9b78c1d14afc351c3a51be33d1ef845f84326a00e5929f96dec2b41343a9e6f0150eef08741fe7dcece88cc5936c49ed19051dca05a07b07017190e0baba32bdf6352f5a358a2798ed3c56e704a63819b87cf8e3f945a0043070275d9f6054307ee7348bd660849d90ff845f84326a0cf8d102de7c6b0a41d3f02aefb7e419522341734c98af233408298d0c424c04ba00286f89cab4668f728d7c269997116a49b80cec8776fc64e60588a9268571e35
 ```
 
-### RPC Output \(Example\)
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
 The following shows a transaction object returned via JSON RPC.
 
@@ -761,13 +761,13 @@ The following shows a transaction object returned via JSON RPC.
 }
 ```
 
-## TxTypeFeeDelegatedCancelWithRatio
+## TxTypeFeeDelegatedCancelWithRatio <a id="txtypefeedelegatedcancelwithratio"></a>
 
 TxTypeFeeDelegatedCancelWithRatio cancels the execution of the transaction with the same nonce in the transaction pool. For more details, see [TxTypeCancel](basic.md#txtypecancel).
 
 The following changes will apply by this transaction type. 1. The fee payer's balance decreases by the given fee ratio of the amount of the transaction fee. 2. The sender's balance decreases by the remaining transaction fee. 3. The sender's nonce increases by one.
 
-### Attributes
+### Attributes <a id="attributes"></a>
 
 | Attribute | Description | Type |
 | :--- | :--- | :--- |
@@ -781,7 +781,7 @@ The following changes will apply by this transaction type. 1. The fee payer's ba
 | feePayer | common.Address \(Go\) | The address of the fee payer. |
 | feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures. |
 
-### RLP Encoding for Signature of the Sender
+### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
 To make a signature of the sender, RLP serialization should be done like the following:
 
@@ -791,7 +791,7 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <the sender's private key>)
 ```
 
-### RLP Encoding for Signature of the Fee Payer
+### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
 To make a signature of the fee payer, RLP serialization should be done like the following:
 
@@ -801,7 +801,7 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### RLP Encoding for SenderTxHash
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
 To make a SenderTxHash, RLP serialization should be done like the following:
 
@@ -812,7 +812,7 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, from, feeRatio, txSignatu
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### RLP Encoding for Transaction Hash
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
 To make a transaction hash, RLP serialization should be done like the following:
 
@@ -825,7 +825,7 @@ TxHashRLP = type + encode([nonce, gasPricke, gas, from, feeRatio, txSignatures, 
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP Encoding \(Example\)
+### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
 The following shows the result of RLP serialization and the transaction object:
 
@@ -861,7 +861,7 @@ SenderTxHash c0818be4cffbacfe29be1134e0267e10fd1afb6571f4ccc95dcc67a788bab5e7
     Hex:           3af8c18204d219830f424094a94f5374fce5edbc8e2a8697c15331677e6ebf0b1ef845f84326a072efa47960bef40b536c72d7e03ceaf6ca5f6061eb8a3eda3545b1a78fe52ef5a062006ddaf874da205f08b3789e2d014ae37794890fc2e575bf75201563a24ba9945a0043070275d9f6054307ee7348bd660849d90ff845f84326a06ba5ef20c3049323fc94defe14ca162e28b86aa64f7cf497ac8a5520e9615614a04a0a0fc61c10b416759af0ce4ce5c09ca1060141d56d958af77050c9564df6bf
 ```
 
-### RPC Output \(Example\)
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
 The following shows a transaction object returned via JSON RPC.
 
@@ -899,6 +899,154 @@ The following shows a transaction object returned via JSON RPC.
   "transactionIndex": "0xb",
   "type": "TxTypeFeeDelegatedCancelWithRatio",
   "typeInt": 58
+}
+```
+
+## TxTypeFeeDelegatedChainDataAnchoringWithRatio <a id="txtypefeedelegatedchaindataanchoringwithratio"></a>
+
+TxTypeFeeDelegatedChainDataAnchoringWithRatio is a fee-delegated transaction, with the ratio, that anchors service chain data to the Klaytn mainchain.
+Service chains periodically send this type of transaction to the Klaytn mainchain to ensure its security and credibility of data.
+For more details about the data anchoring, see [Anchoring](../../../node/service-chain/references/anchoring.md).
+As it is a fee-delegated transaction with the given ratio as well, the fee payer bears only the given portion of the transaction fee based on the given ratio and the sender pays the rest.
+Be mindful that it is not allowed to send this transaction via RPC.
+Currently, this transaction is executed through private p2p channels for security reasons.
+This transaction does not change the state of the Klaytn blockchain except the sender's nonce being increased by one.
+
+### Attributes <a id="attributes"></a>
+
+| Attribute | Type | Description |
+| :--- | :--- | :--- |
+| type | uint8 \(Go\) | The type of TxTypeFeeDelegatedChainDataAnchoringWithRatio. This must be 0x4a. |
+| nonce | uint64 \(Go\) | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed. |
+| gasPrice | \*big.Int \(Go\) | A unit price of gas in `peb` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KLAY. See [Unit of KLAY]. |
+| gas | uint64 \(Go\) | The maximum amount of transaction fee the transaction is allowed to use. |
+| from | common.Address \(Go\) | The address of the sender. For more details, see [Signature Validation of Transactions](README.md#signature-validation-of-transactions). |
+| feeRatio | uint8 \(Go\) | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well. |
+| input | \[\]byte \(Go\) | Data of the service chain. |
+| txSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](README.md#signature-validation-of-transactions). |
+| feePayer | common.Address \(Go\) | The address of the fee payer. |
+| feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | The fee payer's signatures. |
+
+### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
+
+To make a signature of the sender, RLP serialization should be done like the following:
+
+```javascript
+SigRLP = encode([encode([type, nonce, gasPrice, gas, from, anchoredData, feeRatio]), chainid, 0, 0])
+SigHash = keccak256(SigRLP)
+Signature = sign(SigHash, <private key>)
+```
+
+### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
+
+To make a signature of the fee payer, RLP serialization should be done like the following:
+
+```javascript
+SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gas, from, anchoredData, feeRatio]), feePayer, chainid, 0, 0])
+SigFeePayerHash = keccak256(SigFeePayerRLP)
+SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
+```
+
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+
+To make a SenderTxHash, RLP serialization should be done like the following:
+
+```javascript
+txSignatures (a single signature) = [[v, r, s]]
+txSignatures (two signatures) = [[v1, r1, s1], [v2, r2, s2]]
+SenderTxHashRLP = type + encode([nonce, gasPrice, gas, from, anchoredData, feeRatio, txSignatures])
+SenderTxHash = keccak256(SenderTxHashRLP)
+```
+
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
+
+To make a transaction hash, RLP serialization should be done like the following:
+
+```javascript
+txSignatures (a single signature) = [[v, r, s]]
+txSignatures (two signatures) = [[v1, r1, s1], [v2, r2, s2]]
+feePayerSignatures (a single signature) = [[v, r, s]]
+feePayerSignatures (two signatures) = [[v1, r1, s1], [v2, r2, s2]]
+TxHashRLP = type + encode([nonce, gasPrice, gas, from, anchoredData, feeRatio, txSignatures, feePayer, feePayerSignatures])
+TxHash = keccak256(TxHashRLP)
+```
+
+### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
+
+The following shows the result of RLP serialization and the transaction object:
+
+```javascript
+ChainID 0x01
+PrivateKey 0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d8
+PublicKey.X 0x3a514176466fa815ed481ffad09110a2d344f6c9b78c1d14afc351c3a51be33d
+PublicKey.Y 0x8072e77939dc03ba44790779b7a1025baf3003f6732430e20cd9b76d953391b3
+SigRLP 0xf8dcb8d7f8d54a128505d21dba0085174876e80094a94f5374fce5edbc8e2a8697c15331677e6ebf0bb8aff8ad80b8aaf8a8a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a0000000000000000000000000000000000000000000000000000000000000000405800658018080
+SigHash 0xd79dbb964bee2d3807e214a247141a1fcb066a67de99e90750aac4a2a0b776de
+Signature 0xf845f84326a0c612a243bcb3b98958e9cce1a0bc0e170291b33a7f0dbfae4b36dafb5806797da00c734423492ecc21cc53238147c359676fcec43fcc2a0e021d87bb1da49f0abf
+FeePayerPrivateKey 0xb9d5558443585bca6f225b935950e3f6e69f9da8a5809a83f51c3365dff53936
+FeePayerPublicKey.X 0x327434d4cfc66ef8857d431419e9deebdc53a3e415edcc55382e2d417b8dd102
+FeePayerPublicKey.Y 0x65fc97045707faf7b8f81ac65089d4cc71f69ad0bf1bc8559bc24f13fc284ced
+SigRLPFeePayer 0xf8f1b8d7f8d54a128505d21dba0085174876e80094a94f5374fce5edbc8e2a8697c15331677e6ebf0bb8aff8ad80b8aaf8a8a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a00000000000000000000000000000000000000000000000000000000000000004058006589433f524631e573329a550296f595c820d6c65213f018080
+SigHashFeePayer 0xa824ff743912239d0665d2fd43a66d57138c92834e9d338b66bcca4a0bee8fbd
+SignatureFeePayer 0xf845f84325a0a3e40598b67e2bcbaa48fdd258b9d1dcfcc9cc134972560ba042430078a769a5a06707ea362e588e4e5869cffcd5a058749d823aeff13eb95dc1146faff561df32
+TxHashRLP 0x4af90177128505d21dba0085174876e80094a94f5374fce5edbc8e2a8697c15331677e6ebf0bb8aff8ad80b8aaf8a8a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a0000000000000000000000000000000000000000000000000000000000000000405800658f845f84326a0c612a243bcb3b98958e9cce1a0bc0e170291b33a7f0dbfae4b36dafb5806797da00c734423492ecc21cc53238147c359676fcec43fcc2a0e021d87bb1da49f0abf9433f524631e573329a550296f595c820d6c65213ff845f84325a0a3e40598b67e2bcbaa48fdd258b9d1dcfcc9cc134972560ba042430078a769a5a06707ea362e588e4e5869cffcd5a058749d823aeff13eb95dc1146faff561df32
+TxHash 0xc01a7c3ece18c115b58d7747669ec7c31ec5ab031a88cb49ad85a31f6dbbf915
+SenderTxHashRLP 0x4af9011b128505d21dba0085174876e80094a94f5374fce5edbc8e2a8697c15331677e6ebf0bb8aff8ad80b8aaf8a8a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a0000000000000000000000000000000000000000000000000000000000000000405800658f845f84326a0c612a243bcb3b98958e9cce1a0bc0e170291b33a7f0dbfae4b36dafb5806797da00c734423492ecc21cc53238147c359676fcec43fcc2a0e021d87bb1da49f0abf
+SenderTxHash 0xa0670c01fe39feb2d2442adf7df1957ade3c5abcde778fb5edf99c80c06aa53c
+
+	TX(c01a7c3ece18c115b58d7747669ec7c31ec5ab031a88cb49ad85a31f6dbbf915)
+	Type:          TxTypeFeeDelegatedChainDataAnchoringWithRatio
+	From:          0xa94f5374Fce5edBC8E2a8697C15331677e6EbF0B
+	Nonce:         18
+	GasPrice:      0x5d21dba00
+	GasLimit:      0x174876e800
+	AnchoredData:  f8ad80b8aaf8a8a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a00000000000000000000000000000000000000000000000000000000000000004058006
+	Signature:     [{"V":"0x26","R":"0xc612a243bcb3b98958e9cce1a0bc0e170291b33a7f0dbfae4b36dafb5806797d","S":"0xc734423492ecc21cc53238147c359676fcec43fcc2a0e021d87bb1da49f0abf"}]
+	FeePayer:      0x33f524631e573329a550296F595c820D6c65213f
+	FeeRatio:      88
+	FeePayerSig:   [{"V":"0x25","R":"0xa3e40598b67e2bcbaa48fdd258b9d1dcfcc9cc134972560ba042430078a769a5","S":"0x6707ea362e588e4e5869cffcd5a058749d823aeff13eb95dc1146faff561df32"}]
+	Hex:           4af90177128505d21dba0085174876e80094a94f5374fce5edbc8e2a8697c15331677e6ebf0bb8aff8ad80b8aaf8a8a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a0000000000000000000000000000000000000000000000000000000000000000405800658f845f84326a0c612a243bcb3b98958e9cce1a0bc0e170291b33a7f0dbfae4b36dafb5806797da00c734423492ecc21cc53238147c359676fcec43fcc2a0e021d87bb1da49f0abf9433f524631e573329a550296f595c820d6c65213ff845f84325a0a3e40598b67e2bcbaa48fdd258b9d1dcfcc9cc134972560ba042430078a769a5a06707ea362e588e4e5869cffcd5a058749d823aeff13eb95dc1146faff561df32
+```
+
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
+
+The following shows a transaction object returned via JSON RPC.
+
+```javascript
+{
+    "blockHash": "0xee6c72b7d99019a941b47d77507abe015c3f00d3ff9122a2eec33d846107b842",
+    "blockNumber": "0x2",
+    "contractAddress": null,
+    "feePayer": "0x33f524631e573329a550296f595c820d6c65213f",
+    "feePayerSignatures": [
+        {
+            "V": "0x25",
+            "R": "0xa3e40598b67e2bcbaa48fdd258b9d1dcfcc9cc134972560ba042430078a769a5",
+            "S": "0x6707ea362e588e4e5869cffcd5a058749d823aeff13eb95dc1146faff561df32"
+        }
+    ],
+    "feeRatio": "0x58",
+    "from": "0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b",
+    "gas": "0x174876e800",
+    "gasPrice": "0x5d21dba00",
+    "gasUsed": "0xd0fc",
+    "input": "0xf8ad80b8aaf8a8a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a00000000000000000000000000000000000000000000000000000000000000004058006",
+    "logs": [],
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "nonce": "0x12",
+    "senderTxHash": "0xa0670c01fe39feb2d2442adf7df1957ade3c5abcde778fb5edf99c80c06aa53c",
+    "signatures": [
+        {
+            "V": "0x26",
+            "R": "0xc612a243bcb3b98958e9cce1a0bc0e170291b33a7f0dbfae4b36dafb5806797d",
+            "S": "0xc734423492ecc21cc53238147c359676fcec43fcc2a0e021d87bb1da49f0abf"
+        }
+    ],
+    "status": "0x1",
+    "transactionHash": "0xc01a7c3ece18c115b58d7747669ec7c31ec5ab031a88cb49ad85a31f6dbbf915",
+    "transactionIndex": "0xb",
+    "type": "TxTypeFeeDelegatedChainDataAnchoringWithRatio",
+    "typeInt": 74
 }
 ```
 
