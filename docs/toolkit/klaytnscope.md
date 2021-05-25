@@ -1,4 +1,4 @@
-# Klaytnscope
+# Klaytnscope <a id="klaytnscope"></a>
 
 Klaytnscope is the block explorer for the Klaytn Network. Klaytnscope gives you an insight about the Klaytn network by monitoring the network health and providing various statistics of Klaytn network. You can also explore the block and transaction data and the list of smart contracts on the Klaytn network.
 
@@ -7,7 +7,7 @@ Klaytnscope is the block explorer for the Klaytn Network. Klaytnscope gives you 
 
 ![](img/scope_01_main.png)
 
-## Major Features
+## Major Features <a id="major-features"></a>
 
 Please note that some of the features are under development.
 
@@ -20,7 +20,7 @@ Please note that some of the features are under development.
 
 In the subsequent sections, we will visit the major functions and screenshots of Klaytnscope. Functions are grouped by four categories - dashboard, list view, detail view, and search.
 
-## Dashboard
+## Dashboard <a id="dashboard"></a>
 
 Network information is presented in the dashboard. The information includes average block generation time, average number of transactions in a block, number of consensus nodes, and the latest trends in transactions.
 
@@ -34,13 +34,13 @@ Network information is presented in the dashboard. The information includes aver
   * Avg TX Per Block \(24 hours\): The average number of transactions included in one block over the last 24 hours.
 * Transaction History \(14 days\): The graphs show the number of daily transactions over the last 14 days. You can see the trend in the transaction volume over the last two weeks.
 
-### Recent Blocks & Transactions
+### Recent Blocks & Transactions <a id="recent-blocks-transactions"></a>
 
 These lists show recently created blocks and transactions respectively. You can get the latest information by clicking the refresh button on the upper-right corner in the pane. In the bottom of the list, clicking the ‘view all’ button will take you to the [list view](klaytnscope.md#list-view).
 
 ![](img/scope_03_main_list.png)
 
-### Network Status & Network Selector
+### Network Status & Network Selector <a id="network-status-network-selector"></a>
 
 ![](img/network_status.gif)
 
@@ -53,11 +53,11 @@ On the upper-right corner of the site, there are network status indicator and th
 * Network Selector Drop Down
   * You can choose Klaytn mainnet and Baobab testnet from the menu.
 
-## List View
+## List View <a id="list-view"></a>
 
 If you want to get a closer look at the status of the Klaytn network, you can check the list of recently generated blocks and transactions. To access the list page, click the button on the navigation bar which located on the left of the screen.
 
-### Blocks
+### Blocks <a id="blocks"></a>
 
 ![](img/scope_04_block_list.png)
 
@@ -70,7 +70,7 @@ A list of recently generated blocks. To update the information, please click the
 * Reward: Aggregation of newly minted KLAY \(9.6 KLAY\) and transaction fees used in the block. The list displays only the sum of Klaytn Governance Council Reward, Proof of Contribution, and Klaytn Improvement Reserve. Hover the block reward section on the block detail page to see detailed information. More details about the block reward distribution system can be found in the [Klaytn Token Economy].
 * Size: The size of blocks measured in Byte. The more transactions are included, the larger the block size.
 
-### Transactions
+### Transactions <a id="transactions"></a>
 
 ![](img/scope_05_tx_list.png)
 
@@ -84,15 +84,15 @@ A list of recently executed transactions. To update the information, please clic
 * Amount: The amount of value transferred through the transaction.
 * TX Fee: The actual cost used to process transaction.
 
-## Detail View
+## Detail View <a id="detail-view"></a>
 
 Detailed information about single Block, Transaction, Account, and Contract can be found on this page. To go to the details view, you can search for the entity from the search bar or click the item from the list view.
 
-### Block
+### Block <a id="block"></a>
 
 ![](img/scope_08_block_detail.png)
 
-#### Overview
+#### Overview <a id="overview"></a>
 
 Overall information about the block.
 
@@ -103,22 +103,22 @@ Overall information about the block.
 * Block Reward: Aggregation of the newly minted KLAY \(9.6 KLAY\) and the transaction fees collected in the block. If you hover, you will find detailed information on Klaytn Governance Council Reward, Proof of Contribution and Klaytn Improvement Reserve. More details about block reward distribution system can be found in the [Klaytn Token Economy].
 * Block Size: The size of block measured in Byte. The more transactions are included, the larger the block size.
 
-#### Committee
+#### Committee <a id="committee"></a>
 
 List of consensus nodes that proposed and validated the block.
 
 * Block Proposer: Randomly but deterministically selected consensus node that proposed the block. By clicking the address, you can easily go to the detail view of the node.
 * Validators: Consensus nodes that validated the block. By clicking the address, you can easily go to the detail view of the node.
 
-#### Transactions
+#### Transactions <a id="transactions"></a>
 
 List of transactions included in the block.
 
-### Transaction
+### Transaction <a id="transaction"></a>
 
 ![](img/scope_09_tx_detail.png)
 
-#### Overview
+#### Overview <a id="overview"></a>
 
 Overall information about the transaction.
 
@@ -137,15 +137,15 @@ Overall information about the transaction.
 * TX Fee by Sender: Displayed when TX type is Fee Delegated with Ratio. The portion of TX fee paid by the sender.
 * TX Fee by Fee Payer: Displayed when TX type is Fee Delegated with Ratio. The portion of TX fee paid by the fee payer.
 
-#### Input Data
+#### Input Data <a id="input-data"></a>
 
 Extra data provided by the sender or contract.
 
-### Account
+### Account <a id="account"></a>
 
 ![](img/scope_10_account_detail.png)
 
-#### Overview
+#### Overview <a id="overview"></a>
 
 Overall information about the account.
 
@@ -154,36 +154,36 @@ Overall information about the account.
 * Total TXs: The total number of transactions that this account sent or received.
 * HRA: It informs whether this account type is HRA or not. \(TBD\)
 
-#### Transactions
+#### Transactions <a id="transactions"></a>
 
 The list of transactions related to this account. The color of the arrow indicates if the account is a sender or receiver.
 
-### Contract
+### Contract <a id="contract"></a>
 
 ![](img/scope_11_contract_detail.png)
 
-#### Overview
+#### Overview <a id="overview"></a>
 
 Overall information about the contract.
 
 * Account \(Hex\): The unique address of the contract.
 * Balance: The total amount of KLAY that this contract has.
-* Contract Creator: The account that deployed this contract. By clicking the address, you can go to the detail view of the accont.
+* Contract Creator: The account that deployed this contract. By clicking the address, you can go to the detail view of the account.
 * Total TXs: The total number of transactions that this contract received.
 * Contract Created TX: The transaction that deployed this contract. Clicking on the hash takes you to the detail view of the transaction.
 * HRA: It informs whether the contract account type is HRA or not. \(TBD\)
 
-#### Transactions
+#### Transactions <a id="transactions"></a>
 
 The list of transactions related to this contract.
 
-## Search
+## Search <a id="search"></a>
 
 Through Klaytnscope, you can search for the information about account, contract, transactions and blocks. The search bar is placed on every page, making it easy to access. Entering a valid keyword will take you to the detail view of the entity.
 
 ![](img/scope_06_search.png)
 
-### Search Keyword
+### Search Keyword <a id="search-keyword"></a>
 
 In the mainnet version, searchable keywords are as follows:
 
@@ -192,44 +192,44 @@ In the mainnet version, searchable keywords are as follows:
 * Address \(Account, Contract\)
 * Human Readable Address \(.klaytn\) \(TBD\)
 
-### Keyword Format
+### Keyword Format <a id="keyword-format"></a>
 
 The unique characteristics that distinguish each keyword are as follows:
 
-#### Block
+#### Block <a id="block"></a>
 
 * Decimal numbers only \[0~9\]
 
-#### TX Hash
+#### TX Hash <a id="tx-hash"></a>
 
 * 66 characters long
 * Starts with a prefix `0x`
 * Hexadecimal number only \[0~9, a~f\]
 
-#### Address
+#### Address <a id="address"></a>
 
 * 42 characters long
 * Start with a prefix `0x`
 * Hexadecimal number only \[0~9, a~f\]
 
-#### Human Readable Address \(TBD\)
+#### Human Readable Address \(TBD\) <a id="human-readable-address-tbd"></a>
 
 * 12~20 characters long
 * Ends in `.klaytn`
 
-### Search Errors
+### Search Errors <a id="search-errors"></a>
 
 ![](img/scope_07_noresult.png)
 
 If you search for a keyword that doesn't fit in the specified format or information hasn't yet been generated, no result page will appear.
 
-#### Wrong Format \(TX Hash / Address\)
+#### Wrong Format \(TX Hash / Address\) <a id="wrong-format-tx-hash-address"></a>
 
 * Wrong number of characters
 * Doesn't start with a prefix `0x`
 * Contains special characters or non-hexadecimal characters \[g~z\]
 
-#### Doesn't Exist
+#### Doesn't Exist <a id="doesn-t-exist"></a>
 
 * Blocks not yet generated \(if the block number entered was higher than recently generated block number\)
 * Non-existent TX Hash
