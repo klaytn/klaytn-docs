@@ -1,12 +1,9 @@
-# Monitoring Setup
+# Monitoring Setup <a id="monitoring-setup"></a>
 
-> Please download the latest version of Klaytn binaries \(&gt;= v0.5.9\) due to the hard fork.
 
-## Monitoring Setup
+## Overview <a id="overview"></a>
 
-### Overview
-
-The Klaytn team provides a site for monitoring the Klaytn CCN at [http://cypress.klaytn.net](http://cypress.klaytn.net). The `telegraf` montoring agent is installed in each CN/PN of the CC to collect metrics and send them to the monitoring server. Once installed, you may visit the monitoring site to view the metrics of the Klaytn CCs.
+The Klaytn team provides a site for monitoring the Klaytn CCN at [http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000). The `telegraf` monitoring agent is installed in each CN/PN of the CC to collect metrics and send them to the monitoring server. Once installed, you may visit the monitoring site to view the metrics of the Klaytn CCs.
 
 The installation process is as follows:
 
@@ -14,7 +11,7 @@ The installation process is as follows:
 2. Configure `telegraf`
 3. Start `telegraf`
 
-### Telegraf Installation
+## Telegraf Installation <a id="telegraf-installation"></a>
 
 Telegraf Installation Guide \(Amazon Linux 2 users, see below\): [https://docs.influxdata.com/telegraf/latest/introduction/installation/](https://docs.influxdata.com/telegraf/latest/introduction/installation/)
 
@@ -33,9 +30,9 @@ gpgkey = https://repos.influxdata.com/influxdb.key
 EOF
 ```
 
-### Telegraf Setup
+## Telegraf Setup <a id="telegraf-setup"></a>
 
-#### Enable monitoring in kcnd/kpnd
+### Enable monitoring in kcnd/kpnd <a id="enable-monitoring-in-kcnd-kpnd"></a>
 
 /etc/kcnd/conf/kcnd.conf
 
@@ -89,11 +86,11 @@ Change the following in `/etc/telegraf/telegraf.conf`:
 $ systemctl restart telegraf
 ```
 
-### Grafana
+## Grafana <a id="grafana"></a>
 
 If each CN/PN has the above configuration and agent, you can check the metrics at the following URL:
 
-[http://cypress.klaytn.net](http://cypress.klaytn.net)
+[http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000)
 
 As a CC operator, you may request an account by providing your company name and email address in the Slack channel. Please note that only CC operators are allowed to request a Grafana account.
 
