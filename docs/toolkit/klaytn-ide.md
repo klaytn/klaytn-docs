@@ -1,4 +1,4 @@
-# Klaytn IDE
+# Klaytn IDE <a id="klaytn-ide"></a>
 
 ![](img/klaytn-ide/ide-overview-all.png)
 
@@ -6,19 +6,19 @@ Klaytn IDE is a browser-based compiler and IDE that helps developers build Klayt
 
 You can access to the Klaytn IDE at [https://ide.klaytn.com](https://ide.klaytn.com). This document is an overview of the Klaytn IDE, it explains the major features and the usage guideline. You can find more detailed information in [Remix docs](https://remix-ide.readthedocs.io/en/latest/).
 
-## What's different from Remix?
+## What's different from Remix? <a id="what-s-different-from-remix"></a>
 
 1. Sign-in with Klaytn accounts
 2. Supports 2 Solidity versions \(v0.4.24 and v0.5.6\)
 3. Does not support Plugin, Gist add-on, and Swarm.
 
-## Overview
+## Overview <a id="overview"></a>
 
 ![](img/klaytn-ide/ide-docs-sections.png)
 
 The layout of the Klaytn IDE is as shown above. There are 4 areas - file explorer, code editor, console, and modules.
 
-## 1. File Explorer
+## 1. File Explorer <a id="1-file-explorer"></a>
 
 ![](img/klaytn-ide/ide-file-explorer.png)
 
@@ -31,31 +31,31 @@ The file explorer on the left side of the workspace shows the list of smart cont
 * Rename and delete a file  
   * Right-click on a file will show up a context menu from which you can rename or delete the file.
 
-## 2. Code Editor
+## 2. Code Editor <a id="2-code-editor"></a>
 
 ![](img/klaytn-ide/ide-editor-view.png)
 
 At the center of the workspace, you can edit files.
 
-### File tabs
+### File tabs <a id="file-tabs"></a>
 
 You can open multiple files, and the editor displays the opened files as tabs. When you create or add a file to the file explorer, the file appears on the file tabs. Clicking ![](img/klaytn-ide/ide-editor-close.png) icon on the tab will close the file.
 
 Note: Closing a file \(by clicking ![](img/klaytn-ide/ide-editor-close.png) icon\) does not remove the file from the file explorer.
 
-### Auto-completion for Solidity reserved keywords
+### Auto-completion for Solidity reserved keywords <a id="auto-completion-for-solidity-reserved-keywords"></a>
 
 There are frequently-used statements in Solidity, for example, `bytes32`, `public`, and `modifier`. You don't need to type the whole characters since Klaytn IDE suggests the word you are intending to type. The auto-completion works for all reserved keywords in Solidity and the functions, variables, and classes you define.
 
 ![](img/klaytn-ide/ide-auto-completion.png)
 
-### Error detection
+### Error detection <a id="error-detection"></a>
 
 A red marker is displayed next to the line number where a compilation error occurred.
 
 ![](img/klaytn-ide/ide-error-detection.png)
 
-## 3. Modules
+## 3. Modules <a id="3-modules"></a>
 
 There are six tabs in Modules. Compile, Run, Analysis, Testing, Debugger, and Settings.
 
@@ -68,7 +68,7 @@ There are six tabs in Modules. Compile, Run, Analysis, Testing, Debugger, and Se
 * Debugger: Allows you to debug the transaction. 
 * Settings: General settings and Help & Support links.
 
-### Compile
+### Compile <a id="compile"></a>
 
 Compiling is triggered when you click the `Start to compile` button. If you want the file to be compiled each time the file is saved or when another file is selected - check the `Auto compile` checkbox.
 
@@ -81,9 +81,9 @@ Note:
 * Your codes are automatically saved every 15 seconds. Auto-save is also triggered when you compile a file, close the file tab, or leave the Klaytn IDE.  
 * If activated, "Auto-compile" starts to compile when you stop typing.
 
-### Run
+### Run <a id="run"></a>
 
-#### Environment \(Network Selector\)
+#### Environment \(Network Selector\) <a id="environment-network-selector"></a>
 
 ![](img/klaytn-ide/ide-environment.png)
 
@@ -96,7 +96,7 @@ If you want to connect to another custom node, click the dropdown list, select `
 
 > To deploy a contract, you need KLAY to pay the transaction fee. For the `Baobab network` \(Klaytn testnet\), you can get some **testnet KLAY** from the faucet \[[https://baobab.wallet.klaytn.com/faucet](https://baobab.wallet.klaytn.com/faucet)\]. After receiving **testnet KLAY** from the faucet, import the account to the Klaytn IDE in the `"Account"` selector.
 
-#### Account \(Account Selector\)
+#### Account \(Account Selector\) <a id="account-account-selector"></a>
 
 ![](img/klaytn-ide/ide-from-account.png)
 
@@ -107,19 +107,19 @@ To import an account, click ![](img/klaytn-ide/ide-add-account-button.png) butto
 
 After Import, your account balance will appear in the`Account` selector in a few seconds.
 
-#### Value
+#### Value <a id="value"></a>
 
 ![](img/klaytn-ide/ide-tx-value-controller.png)
 
 On the `Value (Tx Value Controller)`, you can fill the amount of value for the next created transaction.
 
-#### Gas Limit Controller
+#### Gas Limit Controller <a id="gas-limit-controller"></a>
 
 ![](img/klaytn-ide/ide-gas-limit-controller.png)
 
 In the `Gas Limit` controller, you can fill the maximum amount of gas which will be used for calling a smart contract function.
 
-#### Deploy
+#### Deploy <a id="deploy"></a>
 
 ![](img/klaytn-ide/ide-deploy.png)
 
@@ -129,7 +129,7 @@ Once you compile the code, you will find the contract listed in the dropdown sel
 
 If the contract is deployed successfully, the contract address is shown and you can see the list of functions that the contract exposes in the below. There are only two types of functions in the smart contract, functions that write data to the blockchain \(transaction\) and functions that read data from the blockchain.
 
-### Analysis
+### Analysis <a id="analysis"></a>
 
 ![](img/klaytn-ide/ide-tab-analysis.png)
 
@@ -139,13 +139,13 @@ The analysis tab gives detailed information about the contract code. It can help
 
 If you need more information, please visit [Remix docs &gt; Analysis ](https://remix-ide.readthedocs.io/en/latest/static_analysis.html?highlight=analysis)
 
-### Testing
+### Testing <a id="testing"></a>
 
 ![](img/klaytn-ide/ide-tab-testing.png)
 
 In this section, you can create a new solidity test file in the current folder and execute the tests. The execution result is displayed below. If you need more information, please visit [Remix docs &gt; Unit Testing](https://remix-ide.readthedocs.io/en/latest/unittesting.html)
 
-### Debugger
+### Debugger <a id="debugger"></a>
 
 ![](img/klaytn-ide/ide-tab-debugger.png)
 
@@ -155,7 +155,7 @@ This module allows you to debug the transaction. It can be used to deploy transa
 
 If you need more information, please visit [Remix docs &gt; Debugger](https://remix-ide.readthedocs.io/en/latest/debugger.html)
 
-### Settings
+### Settings <a id="settings"></a>
 
 ![](img/klaytn-ide/ide-tab-setting.png)
 
@@ -166,7 +166,7 @@ Important settings:
 * Text Wrap: controls if the text in the editor should be wrapped.
 * Enable Personal Mode : use in private network
 
-## 4. Terminal
+## 4. Terminal <a id="4-terminal"></a>
 
 ![](img/klaytn-ide/ide-console.png)
 
@@ -174,33 +174,33 @@ At the bottom of the code editor, compiled outputs, compiler errors, deployment 
 
 If you click on the transaction output, detailed information will be shown. If debugging is supported, debugging the transaction will work on the Debug tab.
 
-## Develop with OpenZepplin
+## Develop with OpenZeppelin <a id="develop-with-openzeppelin"></a>
 
 OpenZeppelin is a library for secure smart contract development. It provides implementations of standards like ERC20 and ERC721 which you can deploy as-is or extend to suit your needs, as well as Solidity components to build custom contracts and more complex decentralized systems.
 
-The OpenZepplin library is available after connecting to localhost via remixd. This requires the installation of remixd.
+The OpenZeppelin library is available after connecting to localhost via remixd. This requires the installation of remixd.
 
-### Install Remixd
+### Install Remixd <a id="install-remixd"></a>
 
 Remixd is a tool that is intended to be used with Remix IDE \(aka. Browser-Solidity\). It allows a websocket connection between Remix IDE \(web application\) and the local computer. Get more details at: [remixd document](https://remix-ide.readthedocs.io/en/latest/remixd.html?highlight=remixd).
 
-`remixd` can be globally installed using the following command: After installation, start `remixd`. `-s` option gives the IDE access to the given folder. In the given folder, you will install OpenZepplin and place your contract source code.
+`remixd` can be globally installed using the following command: After installation, start `remixd`. `-s` option gives the IDE access to the given folder. In the given folder, you will install OpenZeppelin and place your contract source code.
 
 \`\`\`bash $ remixd -s  --remix-ide [http://ide.klaytn.com](http://ide.klaytn.com)
 
-For example, `remixd -s ~/temp/openzepplin --remix-ide http://ide.klaytn.com`
+For example, `remixd -s ~/temp/openzeppelin --remix-ide http://ide.klaytn.com`
 
 Then, you will see the following messages in your terminal.
 
 ![](img/klaytn-ide/ide-launch-remixd.png)
 
-### Install OpenZepplin
+### Install OpenZeppelin <a id="install-openzepplin"></a>
 
-Go to the shared folder, and install OpenZepplin.
+Go to the shared folder, and install OpenZeppelin.
 
 \`\`\`bash $ cd  $ npm install openzeppelin-solidity
 
-### Connect Remixd
+### Connect Remixd <a id="connect-remixd"></a>
 
 Click remix connect button as shown below.
 
@@ -214,15 +214,15 @@ localhost directory will appear in the file browser.
 
 ![](img/klaytn-ide/ide-connection-localhost.png)
 
-In your contract source file, import the required solidity contract from the OpenZepplin.
+In your contract source file, import the required solidity contract from the OpenZeppelin.
 
 ![](img/klaytn-ide/ide-import-openzepplin.png)
 
-## Need more information?
+## Need more information? <a id="need-more-information"></a>
 
 The Klaytn IDE is based on the Remix v0.7.7. Many features are compatible, so please refer to the [official Remix documentation](https://remix-ide.readthedocs.io/en/latest/).
 
-## Send us feedback!
+## Send us feedback! <a id="send-us-feedback"></a>
 
 If you have any feedback or suggestions about Klaytn IDE, please send an email to [developer@klaytn.com](mailto:developer@klaytn.com).
 
