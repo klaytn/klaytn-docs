@@ -1,10 +1,10 @@
-# Managing Accounts
+# Managing Accounts <a id="managing-accounts"></a>
 
-## List Your Accounts
+## List Your Accounts <a id="list-your-accounts"></a>
 
 This will return the list of all accounts created under the data directory.
 
-### ken
+### ken <a id="ken"></a>
 
 From the command line, call the CLI with:
 
@@ -17,7 +17,7 @@ Account #1: {47bd2e9565cbe1789454718d6cf1778d7ea557aa} keystore:///Users/usernam
 
 **NOTE**: This order of returned account list can change if you copy keystore files from other nodes or remove the files. Therefore, make sure you either do not rely on the index or make sure if you copy or remove keystore files you check and update your account indexes in your scripts.
 
-### JavaScript Console
+### JavaScript Console <a id="javascript-console"></a>
 
 When using the console:
 
@@ -26,11 +26,11 @@ When using the console:
 ["bfc22a57999459b0c2ce6337deb9287e7a970e02", "47bd2e9565cbe1789454718d6cf1778d7ea557aa"]
 ```
 
-## Unlock Accounts
+## Unlock Accounts <a id="unlock-accounts"></a>
 
 If you want to use an account non-interactively, you need to unlock it.
 
-### ken
+### ken <a id="ken"></a>
 
 You can unlock accounts and start the EN on the command line with the `--unlock "{address},{address}"` option which takes a comma-separated list of accounts \(in hex or index\) as an argument so you can unlock the accounts programmatically for one session. This is useful if you want to use your account from BApps via RPC. `--unlock` will unlock the first account in the list. This is useful when you created your account programmatically, you do not need to know the actual account to unlock it.
 
@@ -57,7 +57,7 @@ $ ken --unlock "0x407d73d8a49eeb85d32cf465507dd71d507100c1,0,5,e470b1a7d2c9c5c6f
 
 If this construction is used non-interactively, your password file will need to contain the respective passwords for the accounts in question, one per line.
 
-### JavaScript Console
+### JavaScript Console <a id="javascript-console"></a>
 
 On the console you can also unlock accounts \(one at a time\) for a duration \(in seconds\).
 
@@ -67,13 +67,13 @@ On the console you can also unlock accounts \(one at a time\) for a duration \(i
 
 Note that we do NOT recommend using the password argument here, since the console history is logged, so you may compromise your account. You have been warned.
 
-## Check Account Balance
+## Check Account Balance <a id="check-account-balance"></a>
 
-### ken
+### ken <a id="ken"></a>
 
 n/a
 
-### JavaScript Console
+### JavaScript Console <a id="javascript-console"></a>
 
 To check your account balance:
 
