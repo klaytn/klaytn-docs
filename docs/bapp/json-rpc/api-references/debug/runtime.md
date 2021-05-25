@@ -1,6 +1,6 @@
-# Runtime Debugging
+# Runtime Debugging <a id="runtime-debugging"></a>
 
-## debug_freeOSMemory
+## debug_freeOSMemory <a id="debug_freeosmemory"></a>
 
 Returns unused memory to the OS.
 
@@ -31,7 +31,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_gcStats
+## debug_gcStats <a id="debug_gcstats"></a>
 
 Returns GC statistics.
 
@@ -70,7 +70,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_memStats
+## debug_memStats <a id="debug_memstats"></a>
 
 Returns detailed runtime memory statistics.
 
@@ -120,7 +120,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_metrics
+## debug_metrics <a id="debug_metrics"></a>
 
 Retrieves all the known system metrics collected by the node.
 
@@ -206,7 +206,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_setGCPercent
+## debug_setGCPercent <a id="debug_setgcpercent"></a>
 
 Sets the garbage collection target percentage. It returns the previous setting.
 A negative value disables GC.
@@ -245,7 +245,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ```
 
 
-## debug_stacks
+## debug_stacks <a id="debug_stacks"></a>
 
 Returns a printed representation of the stacks of all goroutines.
 
