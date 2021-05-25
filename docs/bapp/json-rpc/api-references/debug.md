@@ -3,13 +3,12 @@ description: >-
   APIs used to inspect and debug node state and blockchain data at run time.
 ---
 
-# Namespace debug
+# Namespace debug <a id="namespace-debug"></a>
 
-The namespace `debug` gives you access to several non-standard RPC methods, which
-will allow you to inspect, debug and set certain debugging flags at run time.
+The namespace `debug` gives you access to several non-standard RPC methods, which will allow you to inspect, debug and set certain debugging flags at run time.
 
 
-## [Logging](./debug/logging.md)
+## [Logging](./debug/logging.md) <a id="logging"></a>
 
 - [debug_backtraceAt](./debug/logging.md#debug_backtraceat)
 - [debug_setVMLogTarget](./debug/logging.md#debug_setvmlogtarget)
@@ -17,7 +16,7 @@ will allow you to inspect, debug and set certain debugging flags at run time.
 - [debug_vmodule](./debug/logging.md#debug_vmodule)
 
 
-## [Profiling](./debug/profile.md)
+## [Profiling](./debug/profile.md) <a id="profiling"></a>
 
 - [debug_blockProfile](./debug/profile.md#debug_blockprofile)
 - [debug_cpuProfile](./debug/profile.md#debug_cpuprofile)
@@ -31,14 +30,14 @@ will allow you to inspect, debug and set certain debugging flags at run time.
 - [debug_writeMemProfile](./debug/profile.md#debug_writememprofile)
 
 
-## [Runtime Tracing](./debug/go_trace.md)
+## [Runtime Tracing](./debug/go_trace.md) <a id="runtime-tracing"></a>
 
 - [debug_goTrace](./debug/go_trace.md#debug_gotrace)
 - [debug_startGoTrace](./debug/go_trace.md#debug_startgotrace)
 - [debug_stopGoTrace](./debug/go_trace.md#debug_stopgotrace)
 
 
-## [Runtime Debugging](./debug/runtime.md)
+## [Runtime Debugging](./debug/runtime.md) <a id="runtime-debugging"></a>
 
 - [debug_freeOSMemory](./debug/runtime.md#debug_freeosmemory)
 - [debug_gcStats](./debug/runtime.md#debug_gcstats)
@@ -48,7 +47,7 @@ will allow you to inspect, debug and set certain debugging flags at run time.
 - [debug_stacks](./debug/runtime.md#debug_stacks)
 
 
-## [VM Tracing](./debug/tracing.md)
+## [VM Tracing](./debug/tracing.md) <a id="vm-tracing"></a>
 
 - [debug_traceBadBlock](./debug/tracing.md#debug_tracebadblock)
 - [debug_traceBlock](./debug/tracing.md#debug_traceblock)
@@ -60,14 +59,14 @@ will allow you to inspect, debug and set certain debugging flags at run time.
 - [JavaScript-based Tracing](./debug/tracing.md#javascript-based-tracing)
 
 
-## [VM Standard Tracing](./debug/standard_tracing.md)
+## [VM Standard Tracing](./debug/standard_tracing.md) <a id="vm-standard-tracing"></a>
 
 - [debug_standardTraceBadBlockToFile](./debug/standard_tracing.md#debug_standardtracebadblocktofile)
 - [debug_standardTraceBlockToFile](./debug/standard_tracing.md#debug_standardtraceblocktofile)
 - [Standard Tracing Options](./debug/standard_tracing.md#standard-tracing-options)
 
 
-## [Blockchain Inspection](./debug/blockchain.md)
+## [Blockchain Inspection](./debug/blockchain.md) <a id="blockchain-inspection"></a>
 
 - [debug_dumpBlock](./debug/blockchain.md#debug_dumpblock)
 - [debug_getBlockRlp](./debug/blockchain.md#debug_getblockrlp)
