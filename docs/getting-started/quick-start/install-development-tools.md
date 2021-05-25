@@ -1,4 +1,4 @@
-# Install Development Tools
+# Install Development Tools <a id="install-development-tools"></a>
 
 ## Installing caver-js <a id="installing-caver-js"></a>
 
@@ -51,7 +51,7 @@ $ rm /Users/username/klaytn/node_modules/websocket/.git
 In this tutorial, Truffle is used to compile and deploy smart contracts written in Solidity. Currently, Klaytn supports Truffle version 4.1.15. For further information about Truffle, refer to the following sites:
 
 * Truffle repository - [https://github.com/trufflesuite/truffle](https://github.com/trufflesuite/truffle)​
-* Truffle documents - [https://truffleframework.com/docs](https://truffleframework.com/docs)​
+* Truffle documents - [https://trufflesuite.com/docs](https://trufflesuite.com/docs)​
 
 We can install Truffle either
 
