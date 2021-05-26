@@ -41,10 +41,10 @@ const keyring = new caver.wallet.keyring.multipleKeyring(address, keys)
 
 **속성**
 
-| 명칭      | 타입  | 설명                                                                      |
-| ------- | --- | ----------------------------------------------------------------------- |
-| address | 문자열 | 계정 주소.                                                                  |
-| keys    | 배열  | An array of [PrivateKey][] instances containing one private key inside. |
+| 명칭      | 타입    | 설명                                                                      |
+| ------- | ----- | ----------------------------------------------------------------------- |
+| address | 문자열   | 계정 주소.                                                                  |
+| keys    | Array | An array of [PrivateKey][] instances containing one private key inside. |
 
 ### RoleBasedKeyring <a id="rolebasedkeyring"></a>
 
@@ -58,18 +58,18 @@ const keyring = new caver.wallet.keyring.roleBasedKeyring(address, keys)
 
 **속성**
 
-| 명칭      | 타입  | 설명                                                                                                                                                                                                                                                               |
-| ------- | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address | 문자열 | 계정 주소.                                                                                                                                                                                                                                                           |
-| keys    | 배열  | A two-dimensional array that defines the keys used for each [role][]. Each [role][] includes [PrivateKey][] instance(s). The first element in this is `roleTransactionKey`. The second element is `roleAccountUpdateKey`. The last element is `roleFeePayerKey`. |
+| 명칭      | 타입    | 설명                                                                                                                                                                                                                                                               |
+| ------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address | 문자열   | 계정 주소.                                                                                                                                                                                                                                                           |
+| keys    | Array | A two-dimensional array that defines the keys used for each [role][]. Each [role][] includes [PrivateKey][] instance(s). The first element in this is `roleTransactionKey`. The second element is `roleAccountUpdateKey`. The last element is `roleFeePayerKey`. |
 
 Below is a getter defined in keyring to intuitively use the key defined for each role. The key used for each role can be accessed more easily through the getter below.
 
-| 명칭                   | 타입 | 설명                                                                                                                                                                                |
-| -------------------- | -- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| roleTransactionKey   | 배열 | The roleTransactionKey used to sign transactions (except for transactions for the account update). `keyring.roleTransactionkey` will return the first element of `keys` property. |
-| roleAccountUpdateKey | 배열 | The roleAccountUpdateKey used to sign account update transactions. `keyring.roleAccountUpdateKey` will return the second element of `keys` property.                              |
-| roleFeePayerKey      | 배열 | The roleFeePayerKey used to sign transactions as a fee payer. `keyring.roleFeePayerKey` will return the thrid element of `keys` property.                                         |
+| 명칭                   | 타입    | 설명                                                                                                                                                                                |
+| -------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| roleTransactionKey   | Array | The roleTransactionKey used to sign transactions (except for transactions for the account update). `keyring.roleTransactionkey` will return the first element of `keys` property. |
+| roleAccountUpdateKey | Array | The roleAccountUpdateKey used to sign account update transactions. `keyring.roleAccountUpdateKey` will return the second element of `keys` property.                              |
+| roleFeePayerKey      | Array | The roleFeePayerKey used to sign transactions as a fee payer. `keyring.roleFeePayerKey` will return the thrid element of `keys` property.                                         |
 
 
 ### PrivateKey <a id="privatekey"></a>
@@ -177,9 +177,9 @@ Generates private key strings.
 
 **리턴값**
 
-| 타입 | 설명                                                      |
-| -- | ------------------------------------------------------- |
-| 배열 | An array that includes private key strings is returned. |
+| 타입    | 설명                                                      |
+| ----- | ------------------------------------------------------- |
+| Array | An array that includes private key strings is returned. |
 
 **예시**
 
@@ -202,16 +202,16 @@ Generates a 2D array of which each array element contains keys defined for each 
 
 **매개변수**
 
-| 명칭       | 타입  | 설명                                                        |
-| -------- | --- | --------------------------------------------------------- |
-| numArray | 배열  | An array containing the number of keys for each [role][]. |
-| entropy  | 문자열 | (optional) A random string to increase entropy.           |
+| 명칭       | 타입    | 설명                                                        |
+| -------- | ----- | --------------------------------------------------------- |
+| numArray | Array | An array containing the number of keys for each [role][]. |
+| entropy  | 문자열   | (optional) A random string to increase entropy.           |
 
 **리턴값**
 
-| 타입 | 설명                                                                                          |
-| -- | ------------------------------------------------------------------------------------------- |
-| 배열 | A 2D array of which each array element contains keys defined for each [role][] is returned. |
+| 타입    | 설명                                                                                          |
+| ----- | ------------------------------------------------------------------------------------------- |
+| Array | A 2D array of which each array element contains keys defined for each [role][] is returned. |
 
 **예시**
 
@@ -411,10 +411,10 @@ Creates a `MultipleKeyring` instance from an address and private key strings.
 
 **매개변수**
 
-| 명칭       | 타입  | 설명                               |
-| -------- | --- | -------------------------------- |
-| address  | 문자열 | An address of keyring.           |
-| keyArray | 배열  | An array of private key strings. |
+| 명칭       | 타입    | 설명                               |
+| -------- | ----- | -------------------------------- |
+| address  | 문자열   | An address of keyring.           |
+| keyArray | Array | An array of private key strings. |
 
 **리턴값**
 
@@ -445,10 +445,10 @@ Creates a `RoleBasedKeyring` instance from an address and a 2D array of which ea
 
 **매개변수**
 
-| 명칭                 | 타입  | 설명                                                                              |
-| ------------------ | --- | ------------------------------------------------------------------------------- |
-| address            | 문자열 | An address of keyring.                                                          |
-| roledBasedKeyArray | 배열  | A two-dimensional array containing arrays of private key strings for each role. |
+| 명칭                 | 타입    | 설명                                                                              |
+| ------------------ | ----- | ------------------------------------------------------------------------------- |
+| address            | 문자열   | An address of keyring.                                                          |
+| roledBasedKeyArray | Array | A two-dimensional array containing arrays of private key strings for each role. |
 
 **리턴값**
 
@@ -818,9 +818,9 @@ When signing transactions, it is recommended to use [caver.wallet.sign][] or [tr
 
 **리턴값**
 
-| 타입 | 설명                             |
-| -- | ------------------------------ |
-| 배열 | An array of [SignatureData][]. |
+| 타입    | 설명                             |
+| ----- | ------------------------------ |
+| Array | An array of [SignatureData][]. |
 
 **예시**
 
@@ -895,11 +895,11 @@ If the user has not defined the index parameter, `keyring.signMessage` signs mes
 
 The returned object contains the following:
 
-| 명칭          | 타입  | 설명                                               |
-| ----------- | --- | ------------------------------------------------ |
-| messageHash | 문자열 | The hash of message with Klaytn-specific prefix. |
-| signatures  | 배열  | An array of [SignatureData][].                   |
-| 메시지         | 문자열 | The message to sign.                             |
+| 명칭          | 타입    | 설명                                               |
+| ----------- | ----- | ------------------------------------------------ |
+| messageHash | 문자열   | The hash of message with Klaytn-specific prefix. |
+| signatures  | Array | An array of [SignatureData][].                   |
+| 메시지         | 문자열   | The message to sign.                             |
 
 **예시**
 
@@ -1182,7 +1182,7 @@ The returned object contains the following:
 | version | number | The version of keystore.                  |
 | id      | 문자열    | The id of keystore.                       |
 | address | 문자열    | The address in the encrypted [Keyring][]. |
-| keyring | 배열     | The encrypted private key(s).             |
+| keyring | Array  | The encrypted private key(s).             |
 
 더 자세한 내용은 [KIP-3](https://kips.klaytn.com/KIPs/kip-3)를 참조하십시오.
 
