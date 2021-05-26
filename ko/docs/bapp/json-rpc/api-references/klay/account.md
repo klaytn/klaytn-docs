@@ -472,20 +472,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_isContractAccount <a id="klay_iscontractaccount"></a>
 
-특정 번호의 블록 시간에서 입력으로 받은 계정의 codeHash가 비어 있지 않은 경우 `true`를 반환합니다. 해당 계정이 EOA이거나 codeHash가 비어 있는 스마트 컨트랙트 계정이면 `false`를 반환합니다.
+입력 받은 계정의 codeHash가 특정 블록 번호 시점에 비어 있지 않은 경우 `true`를 반환합니다. 해당 계정이 EOA이거나 codeHash가 비어 있는 스마트 컨트랙트 계정이면 `false`를 반환합니다.
 
 **매개변수**
 
-| 명칭           | 형식                  | 설명                                                                                                                       |
+| 이름           | 타입                  | 설명                                                                                                                       |
 | ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| account      | 20바이트 크기 DATA       | 주소                                                                                                                       |
-| Block Number | QUANTITY &#124; TAG | 정수 형태의 블록 번호나 [default block parameter](./block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열입니다. |
+| account      | 20바이트 크기 DATA       | 계정의 주소입니다.                                                                                                               |
+| block number | QUANTITY &#124; TAG | 정수 형태의 블록 번호나 [default block parameter](./block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열입니다. |
 
 **리턴값**
 
-| 타입      | 설명                                 |
-| ------- | ---------------------------------- |
-| Boolean | `true`이면 매개변수가 스마트 컨트랙트 계정의 주소입니다. |
+| 타입      | 설명                                            |
+| ------- | --------------------------------------------- |
+| Boolean | 리턴값이 `true`이면 매개변수가 기존에 있는 스마트 컨트랙트 계정 주소입니다. |
 
 **예시**
 
@@ -514,14 +514,14 @@ sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 
 **매개변수**
 
-| 명칭      | 형식             | 설명            |
+| 이름      | 타입             | 설명            |
 | ------- | -------------- | ------------- |
-| account | 20바이트 크기 DATA  | 주소            |
+| account | 20바이트 크기 DATA  | 계정의 주소입니다.    |
 | 메시지     | N 바이트 크기의 DATA | 서명하려는 메시지입니다. |
 
 **리턴값**
 
-| 형식   | 설명       |
+| 타입   | 설명       |
 | ---- | -------- |
 | DATA | 서명 값입니다. |
 
