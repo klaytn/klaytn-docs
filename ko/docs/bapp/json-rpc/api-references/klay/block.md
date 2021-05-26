@@ -19,7 +19,7 @@ Klaytn 상태 상에서 어떤 행위에 대한 요청이 있을 때 마지막�
 
 **리턴값**
 
-| 형식       | 설명                            |
+| 타입       | 설명                            |
 | -------- | ----------------------------- |
 | QUANTITY | 클라이언트가 있는 현재 블록 번호의 정수 형태입니다. |
 
@@ -44,14 +44,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 형식                  | 설명                                                                                                                   |
+| 타입                  | 설명                                                                                                                   |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------- |
 | QUANTITY &#124; TAG | 정수 형태의 블록 번호나 [default block parameter](#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다. |
 | Boolean             | `true`이면 트랜잭션 객체 전체를 반환하고, `false`이면 트랜잭션의 해시만을 반환합니다.                                                               |
 
 **리턴값**
 
-See [klay_getBlockByHash](#klay_getblockbyhash)
+자세한 내용은 [klay_getBlockByHash](#klay_getblockbyhash)를 참고하세요.
 
 **예시**
 
@@ -97,7 +97,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 형식            | 설명                                                     |
+| 타입            | 설명                                                     |
 | ------------- | ------------------------------------------------------ |
 | 32바이트 크기 DATA | 블록의 해시입니다.                                             |
 | Boolean       | `true`이면 트랜잭션 객체 전체를 반환하고, `false`이면 트랜잭션의 해시만을 반환합니다. |
@@ -106,10 +106,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 `객체` - 블록 객체로 반환하거나 또는 블록이 없는 경우 `error`로 반환합니다.
 
-| 명칭               | 형식             | 설명                                                         |
+| 이름               | 타입             | 설명                                                         |
 | ---------------- | -------------- | ---------------------------------------------------------- |
 | number           | QUANTITY       | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                         |
-| 해시               | 32바이트 크기 DATA  | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                        |
+| hash             | 32바이트 크기 DATA  | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                        |
 | parentHash       | 32바이트 크기 DATA  | 이전 블록의 해시입니다.                                              |
 | logsBloom        | 256바이트 크기 DATA | 블록의 로그를 위한 블룸필터입니다. 아직 보류 중인 블록이면 `null`입니다.               |
 | transactionsRoot | 32바이트 크기 DATA  | 블록의 트랜잭션 트라이의 루트 해시입니다.                                    |
@@ -123,7 +123,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | gasUsed          | QUANTITY       | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                             |
 | timestamp        | QUANTITY       | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                |
 | timestampFoS     | QUANTITY       | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                           |
-| transactions     | 배열             | 트랜잭션 객체의 배열이거나 또는 마지막으로 주어진 매개변수에 따라 32바이트 크기의 트랜잭션 해시입니다. |
+| transactions     | Array          | 트랜잭션 객체의 배열이거나 또는 마지막으로 주어진 매개변수에 따라 32바이트 크기의 트랜잭션 해시입니다. |
 | governanceData   | DATA           | RLP 인코딩된 거버넌스 설정입니다.                                       |
 | voteData         | DATA           | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                  |
 
@@ -302,7 +302,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | ---------------- | ------------- | ------------------------------------------------------------------------ |
 | blockScore       | QUANTITY      | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                         |
 | totalBlockScore  | QUANTITY      | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                   |
-| committee        | 배열            | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
+| committee        | Array         | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
 | gasUsed          | QUANTITY      | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                           |
 | 해시               | 32바이트 크기 DATA | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                      |
 | number           | QUANTITY      | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                                       |
@@ -313,7 +313,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | stateRoot        | 32바이트 크기 DATA | 블록의 상태 트라이의 루트 해시입니다.                                                    |
 | timestamp        | QUANTITY      | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                              |
 | timestampFoS     | QUANTITY      | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                         |
-| transactions     | 배열            | 트랜잭션 객체의 배열입니다.                                                          |
+| transactions     | Array         | 트랜잭션 객체의 배열입니다.                                                          |
 | transactionsRoot | 32바이트 크기 DATA | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                  |
 
 **예시**
@@ -406,7 +406,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 | ---------------- | ------------- | ------------------------------------------------------------------------ |
 | blockScore       | QUANTITY      | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                         |
 | totalBlockScore  | QUANTITY      | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                   |
-| committee        | 배열            | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
+| committee        | Array         | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
 | gasUsed          | QUANTITY      | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                           |
 | 해시               | 32바이트 크기 DATA | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                      |
 | number           | QUANTITY      | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                                       |
@@ -417,7 +417,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 | stateRoot        | 32바이트 크기 DATA | 블록의 상태 트라이의 루트 해시입니다.                                                    |
 | timestamp        | QUANTITY      | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                              |
 | timestampFoS     | QUANTITY      | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                         |
-| transactions     | 배열            | 트랜잭션 객체의 배열입니다.                                                          |
+| transactions     | Array         | 트랜잭션 객체의 배열입니다.                                                          |
 | transactionsRoot | 32바이트 크기 DATA | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                  |
 
 **예시**
@@ -505,9 +505,9 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 `배열` - 위원회에 속한 검증자들의 주소를 배열로 반환하거나 또는 위원회를 찾을 수 없는 경우 `null`을 반환합니다.
 
-| 타입                    | 설명                    |
-| --------------------- | --------------------- |
-| Array of 20-byte DATA | 위원회에 속한 모든 검증자의 주소입니다 |
+| 타입                  | 설명                    |
+| ------------------- | --------------------- |
+| 20바이트 크기 DATA array | 위원회에 속한 모든 검증자의 주소입니다 |
 
 **예시**
 
@@ -573,9 +573,9 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 `배열` - council에 속한 검증자들의 주소를 배열로 반환하거나 또는 council을 찾을 수 없는 경우 `null`을 반환합니다.
 
-| 타입                    | 설명                     |
-| --------------------- | ---------------------- |
-| Array of 20-byte DATA | 위원회에 속한 모든 검증자의 주소입니다. |
+| 타입                  | 설명                     |
+| ------------------- | ---------------------- |
+| 20바이트 크기 DATA array | 위원회에 속한 모든 검증자의 주소입니다. |
 
 **예시**
 
