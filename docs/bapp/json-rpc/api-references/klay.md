@@ -26,6 +26,8 @@ The list below enumerates the API functions that are currently supported in Klay
 
 ### [Block](./klay/block.md) <a id="block"></a>
 - [klay_blockNumber](./klay/block.md#klay_blocknumber)
+- [klay_getHeaderByNumber](./klay/block.md#klay_getheaderbynumber)
+- [klay_getHeaderByHash](./klay/block.md#klay_getheaderbyhash)
 - [klay_getBlockByNumber](./klay/block.md#klay_getblockbynumber)
 - [klay_getBlockByHash](./klay/block.md#klay_getblockbyhash)
 - [klay_getBlockReceipts](./klay/block.md#klay_getblockreceipts)
