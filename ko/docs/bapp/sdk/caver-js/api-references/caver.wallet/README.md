@@ -35,9 +35,9 @@ Generates instances of [SingleKeyring][] in the keyringContainer with randomly g
 
 **리턴값**
 
-| 타입 | 설명                                                  |
-| -- | --------------------------------------------------- |
-| 배열 | An array containing the addresses of the generated. |
+| 타입    | 설명                                                  |
+| ----- | --------------------------------------------------- |
+| Array | An array containing the addresses of the generated. |
 
 **예시**
 
@@ -276,11 +276,11 @@ If the user has not provided the index parameter, `caver.wallet.signMessage` sig
 
 The returned object contains the following:
 
-| 명칭          | 타입  | 설명                                               |
-| ----------- | --- | ------------------------------------------------ |
-| messageHash | 문자열 | The hash of message with Klaytn-specific prefix. |
-| signatures  | 배열  | An array of [SignatureData][].                   |
-| 메시지         | 문자열 | The message to sign.                             |
+| 명칭          | 타입    | 설명                                               |
+| ----------- | ----- | ------------------------------------------------ |
+| messageHash | 문자열   | The hash of message with Klaytn-specific prefix. |
+| signatures  | Array | An array of [SignatureData][].                   |
+| 메시지         | 문자열   | The message to sign.                             |
 
 **예시**
 
