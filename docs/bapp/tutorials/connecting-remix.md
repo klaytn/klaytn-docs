@@ -17,7 +17,7 @@ Remix is a browser-based IDE (Integrated Development Environment) for developing
 
 * Click on the [Deploy & Run Transactions] tab.
 * Select the appropriate [Environment].
-  ![img](./img/remix-environment.png)
+  ![img](./img/remix-environment.png)  
   * **[JavaScript VM]**: Connects to an inbuilt test network within Remix
   * **[Injected Web3]**: Connects to network through Mist browser or MetaMask
   * **[Web3 Provider]**: Connects directly to Klaytn node, which supports RPC
@@ -36,26 +36,27 @@ Remix is a browser-based IDE (Integrated Development Environment) for developing
 * Enter the RPC address of the EN in the Web3 Provider Endpoint.
   Local EN (default):[http://localhost:8551](http://localhost:8551/)
 
-* Once you are successfully connected to the Network, you will see the Chain ID as below. You can view the list of accounts that you have created in Account. ![img](./img/remix-network-connected.png)
+* Once you are successfully connected to the Network, you will see the Chain ID as below. You can view the list of accounts that you have created in Account. 
+  ![img](./img/remix-network-connected.png)
 
 ## Case 2. Connecting Klaytn - Remix using MetaMask <a id="connecting-klaytn-remix-using-metamask"></a>
 
 * Connect Klaytn with MetaMask by referring to the [**Connecting to MetaMask**](https://groundx.atlassian.net/wiki/spaces/~59728130/pages/1880752196/Klaytn+Docs+-+Metamast+Remix).
 * Select [Injected Web3] on the Remix Environment menu.
-  ![img](/img/remix-environment-injectedWeb3.png)
+  ![img](./img/remix-environment-injectedWeb3.png)
 
 * When you see the MetaMask pop-up, select the connected account and click [Next].
 * Once you are connected to the Network (Baobab Testnet in this example), you will see the Chain ID as below. You can check the connection status with the MetaMask wallet under [Account]. 
-  ![img](/img/remix-connect-with-metamask.png)
+  ![img](./img/remix-connect-with-metamask.png)
 
 ## Tutorial: Connecting Remix <a id="tutorial-connecting-remix"></a>
 
 We will be using the [**KlaytnGreeter**](https://docs.klaytn.com/smart-contract/sample-contracts/klaytngreeter) sample contract.
 
 * Add KlaytnGreeter.sol and write the testing code.
-  ![img](/img/remix-add-klaytngreeter.png)
+  ![img](./img/remix-add-klaytngreeter.png)
 * On the Solidity Compile tab, select [Compile KlaytnGreeter.sol] to compile the contract code.
 * In the Deploy & Run Transactions tab, click [Deploy] to deploy the compiled contract.
-  ![img](/img/remix-deploy-run-tx.png)
+  ![img](./img/remix-deploy-run-tx.png)
 * You can view the deployed contract. You can test or debug it.
-  ![img](/img/remix-test-or-debug.png)
+  ![img](./img/remix-test-or-debug.png)
