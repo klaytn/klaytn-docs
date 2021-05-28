@@ -394,7 +394,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startCollectingTrieStats <a id="debug_startCollectingTrieStats"></a>
 
-`startCollectingTrieStats`는 최신 상태나 스토리지 트리를 순회하면서 트리 통계를 수집합니다. 주어진 주소의 컨트랙트의 트리 통계 스토리지를 수집합니다. 빈 주소(="0x00...00")가 입력될 시, 전체 상태 트리의 통계를 수집합니다. Statistics will be logged every minute before end, containing overall and depth-by-depth information. 이 메서드는 작업을 시작하는 데 실패하면 에러를 반환하며, 성공적으로 시작했을 경우 `null` 를 반환합니다.
+`startCollectingTrieStats`는 최신 상태나 스토리지 트리를 순회하면서 트리 통계를 수집합니다. 주어진 주소의 컨트랙트의 트리 통계 스토리지를 수집합니다. 빈 주소(="0x00...00")가 입력될 시, 전체 상태 트리의 통계를 수집합니다. 통계는 트리 전체, 깊이별 정보를 포함하여 종료 전 분 단위로 로그를 남깁니다. 이 메서드는 작업을 시작하는 데 실패하면 에러를 반환하며, 성공적으로 시작했을 경우 `null` 를 반환합니다.
 
 | 클라이언트 | 메서드 호출                                                              |
 |:-----:| ------------------------------------------------------------------- |
