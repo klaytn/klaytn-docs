@@ -2373,16 +2373,16 @@ caver.rpc.klay.getFilterChanges(filterId [, callback])
 - For filters created with [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter), the returns are transaction hashes, *e.g.*, `["0x6345343454645..."]`.
 - For filters created with [caver.rpc.klay.newFilter](#caver-rpc-klay-newfilter), logs are objects with the following parameters:
 
-| 명칭               | 타입    | 설명                                                                                                                                                                                  |
-| ---------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| logIndex         | 문자열   | 블록에서 로그 인덱스 위치입니다.                                                                                                                                                                  |
-| transactionIndex | 문자열   | 이 로그가 생성된 트랜잭션의 인덱스 위치입니다.                                                                                                                                                          |
-| transactionHash  | 문자열   | 로그가 생성된 트랜잭션의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                        |
-| blockHash        | 문자열   | 로그가 생성된 블록의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                          |
-| blockNumber      | 문자열   | 로그가 속한 블록의 번호입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                           |
-| address          | 문자열   | 로그를 발생시킨 주소입니다.                                                                                                                                                                     |
-| data             | 문자열   | 로그 중 인덱스화되지 않은 인수를 담고 있습니다.                                                                                                                                                         |
-| topics           | Array | 길이가 0부터 4까지인 배열로, 배열의 각 원소는 32바이트 크기 DATA 형태의 인덱스화된 로그 인수들입니다. (솔리디티의 경우 `anonymous` 지정자로 이벤트를 선언하지 않았다면 첫 번째 토픽은 이벤트에 대한 서명의 해시입니다. (*예를 들어*, `Deposit(address,bytes32,uint256)`)) |
+| 명칭               | 타입    | 설명                                                                                                                                                                              |
+| ---------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| logIndex         | 문자열   | 블록에서 로그 인덱스 위치입니다.                                                                                                                                                              |
+| transactionIndex | 문자열   | 이 로그가 생성된 트랜잭션의 인덱스 위치입니다.                                                                                                                                                      |
+| transactionHash  | 문자열   | 로그가 생성된 트랜잭션의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                    |
+| blockHash        | 문자열   | 로그가 생성된 블록의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                      |
+| blockNumber      | 문자열   | 로그가 속한 블록의 번호입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                       |
+| address          | 문자열   | 로그를 발생시킨 주소입니다.                                                                                                                                                                 |
+| data             | 문자열   | 로그 중 인덱스화되지 않은 인수를 담고 있습니다.                                                                                                                                                     |
+| topics           | Array | 길이가 0부터 4까지인 배열로, 배열의 각 원소는 32바이트 크기 DATA 형태의 인덱스화된 로그 인수들입니다. (솔리디티의 경우 `anonymous` 지정자로 이벤트를 선언하지 않았다면 첫 번째 토픽은 이벤트에 대한 서명의 해시입니다. (*예*. `Deposit(address,bytes32,uint256)`)) |
 
 **예시**
 
