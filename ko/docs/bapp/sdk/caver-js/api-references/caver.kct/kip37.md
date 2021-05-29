@@ -361,10 +361,10 @@ Returns the balance of multiple account/token pairs. `balanceOfBatch` is a batch
 
 **매개변수**
 
-| 명칭       | 타입 | 설명                                                            |
-| -------- | -- | ------------------------------------------------------------- |
-| accounts | 배열 | The address of the account for which you want to see balance. |
-| ids      | 배열 | An array of the token ids to see balance.                     |
+| 명칭       | 타입    | 설명                                                            |
+| -------- | ----- | ------------------------------------------------------------- |
+| accounts | Array | The address of the account for which you want to see balance. |
+| ids      | Array | An array of the token ids to see balance.                     |
 
 **리턴값**
 
@@ -787,8 +787,8 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | --------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | from      | 문자열                                | 토큰을 소유한 계정 주소입니다. 이 계정 주소 잔액에서 allowance(kip7Instance.approve)를 사용해 토큰이 보내집니다.                                                                       |
 | recipient | 문자열                                | 토큰을 받을 계정 주소입니다.                                                                                                                                     |
-| ids       | 배열                                 | An array of the token ids to transfer.                                                                                                               |
-| amounts   | 배열                                 | An array of the token amounts you want to transfer.                                                                                                  |
+| ids       | Array                              | An array of the token ids to transfer.                                                                                                               |
+| amounts   | Array                              | An array of the token amounts you want to transfer.                                                                                                  |
 | data      | Buffer &#124; string &#124; number | (optional) The optional The data to send along with the call.                                                                                        |
 | sendParam | object                             | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
 
@@ -1030,8 +1030,8 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | 명칭        | 타입     | 설명                                                                                                                                                   |
 | --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | to        | 문자열    | An address of the account to which the minted tokens will be issued.                                                                                 |
-| ids       | 배열     | An array of the token ids to mint.                                                                                                                   |
-| values    | 배열     | An array of the token amounts to mint.                                                                                                               |
+| ids       | Array  | An array of the token ids to mint.                                                                                                                   |
+| values    | Array  | An array of the token amounts to mint.                                                                                                               |
 | sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
 
 **NOTE** The `ids` and `values` array parameters accept `number` type as an element in array, but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
@@ -1351,8 +1351,8 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | 명칭        | 타입     | 설명                                                                                                                                                   |
 | --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | account   | 문자열    | The address of the account that owns the token to be destroyed.                                                                                      |
-| ids       | 배열     | An array of the token ids to burn.                                                                                                                   |
-| values    | 배열     | An array of the token amounts to burn.                                                                                                               |
+| ids       | Array  | An array of the token ids to burn.                                                                                                                   |
+| values    | Array  | An array of the token amounts to burn.                                                                                                               |
 | sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
 
 **NOTE** The `ids` and `values` array parameters accept `number` type as an element in array, but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
