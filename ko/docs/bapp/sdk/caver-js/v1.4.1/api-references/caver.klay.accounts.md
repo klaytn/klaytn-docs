@@ -1136,7 +1136,7 @@ feePayerSignTransaction keeps the existing signatures/feePayerSignatures in the 
 | rawTransaction     | String         | The RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction.                              |
 | txHash             | 32-byte String | 트랜잭션의 해시입니다.                                                                                                    |
 | senderTxHash       | 32-byte String | 트랜잭션 발신자만 서명한 트랜잭션의 해시입니다. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash) |
-| feePayerSignatures | 배열             | An array of the fee payer's signature(s).                                                                       |
+| feePayerSignatures | Array          | An array of the fee payer's signature(s).                                                                       |
 
 **참고** 반환되는 객체에 있는 `txHash`와 `senderTxHash`는 최종 값이 아닐 수 있습니다. 다른 발신자 서명이 추가되면 txHash 및 senderTxHash가 변경됩니다. 수수료 납부자 서명이 추가되면 txHash가 변경됩니다.
 
@@ -1432,9 +1432,9 @@ combineSignatures는 signatures 또는 feePayerSignatures에서 중복 값은 �
 
 **매개변수**
 
-| 명칭              | 타입 | 설명                                                            |
-| --------------- | -- | ------------------------------------------------------------- |
-| rawTransactions | 배열 | An array of RLP encoded transaction strings (rawTransaction). |
+| 명칭              | 타입    | 설명                                                            |
+| --------------- | ----- | ------------------------------------------------------------- |
+| rawTransactions | Array | An array of RLP encoded transaction strings (rawTransaction). |
 
 **리턴값**
 
@@ -1445,8 +1445,8 @@ combineSignatures는 signatures 또는 feePayerSignatures에서 중복 값은 �
 | rawTransaction     | String         | An RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction.                                                                                                                       |
 | txHash             | 32-byte String | 트랜잭션의 해시입니다.                                                                                                                                                                                            |
 | senderTxHash       | 32-byte String | 트랜잭션 발신자만 서명한 트랜잭션의 해시입니다. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash)                                                                                         |
-| signatures         | 배열             | (optional) All signatures in the combined RLP encoded transaction (rawTransaction). If there are no signatures, the `signatures` property is not returned in the result object.                         |
-| feePayerSignatures | 배열             | (optional) All feePayerSignatures in the combined RLP encoded transaction (rawTransaction). If there are no feePayerSignatures, the `feePayerSignatures` property is not returned in the result object. |
+| signatures         | Array          | (optional) All signatures in the combined RLP encoded transaction (rawTransaction). If there are no signatures, the `signatures` property is not returned in the result object.                         |
+| feePayerSignatures | Array          | (optional) All feePayerSignatures in the combined RLP encoded transaction (rawTransaction). If there are no feePayerSignatures, the `feePayerSignatures` property is not returned in the result object. |
 
 **참고** 반환되는 객체에 있는 `txHash`와 `senderTxHash`는 최종 값이 아닐 수 있습니다. 다른 발신자 서명이 추가되면 txHash 및 senderTxHash가 변경됩니다. 수수료 납부자 서명이 추가되면 txHash가 변경됩니다.
 
@@ -1518,8 +1518,8 @@ caver.klay.accounts.getRawTransactionWithSignatures(tx [, callback])
 | rawTransaction     | String         | An RLP encoded transaction, ready to send using caver.klay.sendSignedTransaction.                                                                                                              |
 | txHash             | 32-byte String | 트랜잭션의 해시입니다.                                                                                                                                                                                   |
 | senderTxHash       | 32-byte String | 트랜잭션 발신자만 서명한 트랜잭션의 해시입니다. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash)                                                                                |
-| signatures         | 배열             | (optional) All signatures in the RLP encoded transaction (rawTransaction). If there are no signatures, the `signatures` property is not returned in the result object.                         |
-| feePayerSignatures | 배열             | (optional) All feePayerSignatures in the RLP encoded transaction (rawTransaction). If there are no feePayerSignatures, the `feePayerSignatures` property is not returned in the result object. |
+| signatures         | Array          | (optional) All signatures in the RLP encoded transaction (rawTransaction). If there are no signatures, the `signatures` property is not returned in the result object.                         |
+| feePayerSignatures | Array          | (optional) All feePayerSignatures in the RLP encoded transaction (rawTransaction). If there are no feePayerSignatures, the `feePayerSignatures` property is not returned in the result object. |
 
 **참고** 반환되는 객체에 있는 `txHash`와 `senderTxHash`는 최종 값이 아닐 수 있습니다. 발신자 서명이 추가되면 txHash와 senderTxHash가 변경됩니다. 수수료 납부자 서명이 추가되면 txHash가 변경됩니다.
 
@@ -2428,9 +2428,9 @@ caver.klay.accounts.wallet.encrypt(password)
 
 **리턴값**
 
-| 타입 | 설명                                 |
-| -- | ---------------------------------- |
-| 배열 | The encrypted keystore v3 objects. |
+| 타입    | 설명                                 |
+| ----- | ---------------------------------- |
+| Array | The encrypted keystore v3 objects. |
 
 
 **예시**
@@ -2491,7 +2491,7 @@ caver.klay.accounts.wallet.decrypt(keystoreArray, password)
 
 | 명칭            | 타입     | 설명                                            |
 | ------------- | ------ | --------------------------------------------- |
-| keystoreArray | 배열     | The encrypted keystore v3 objects to decrypt. |
+| keystoreArray | Array  | The encrypted keystore v3 objects to decrypt. |
 | 비밀번호          | String | The password that was used for encryption.    |
 
 
