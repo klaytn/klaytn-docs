@@ -19,17 +19,17 @@ caver.klay.getFilterChanges(filterId [, callback])
 
 `Array`에 담겨 반환된 로그 `Object`의 구조는 다음과 같습니다:
 
-| 명칭               | 형식            | 설명                                                                                                                                                                                  |
-| ---------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address          | 20바이트 크기 DATA | 로그를 발생시킨 주소입니다.                                                                                                                                                                     |
-| topics           | DATA 배열       | 길이가 0부터 4까지인 배열로, 배열의 각 원소는 32바이트 크기 DATA 형태의 인덱스화된 로그 인수들입니다. (솔리디티의 경우 `anonymous` 지정자로 이벤트를 선언하지 않았다면 첫 번째 토픽은 이벤트에 대한 서명의 해시입니다. (*예를 들어*, `Deposit(address,bytes32,uint256)`)) |
-| data             | DATA          | 로그 중 인덱스화되지 않은 인수를 담고 있습니다.                                                                                                                                                         |
-| blockNumber      | QUANTITY      | 로그가 속한 블록의 번호입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                           |
-| transactionHash  | 32바이트 크기 DATA | 이 로그를 생성한 트랜잭션의 해시입니다. 트랜잭션이 보류 상태이면 `null`입니다. 보류 상태란 트랜잭션이 실행되었지만 블록이 검증되지 않은 경계 조건(edge case)입니다.                                                                                |
-| transactionIndex | QUANTITY      | 정수. 이 로그를 생성한 트랜잭션의 인덱스입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                 |
-| blockHash        | 32바이트 크기 DATA | 로그가 생성된 블록의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                          |
-| logIndex         | QUANTITY      | 블록에서 로그 인덱스 위치의 정숫값입니다. 보류 중인 로그인 경우 `null`을 반환합니다.                                                                                                                                 |
-| id               | String        | 로그 식별자. It is made by concatenating "log_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`                                                             |
+| 명칭               | 형식            | 설명                                                                                                                                                                              |
+| ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address          | 20바이트 크기 DATA | 로그를 발생시킨 주소입니다.                                                                                                                                                                 |
+| topics           | DATA 배열       | 길이가 0부터 4까지인 배열로, 배열의 각 원소는 32바이트 크기 DATA 형태의 인덱스화된 로그 인수들입니다. (솔리디티의 경우 `anonymous` 지정자로 이벤트를 선언하지 않았다면 첫 번째 토픽은 이벤트에 대한 서명의 해시입니다. (*예*. `Deposit(address,bytes32,uint256)`)) |
+| data             | DATA          | 로그 중 인덱스화되지 않은 인수를 담고 있습니다.                                                                                                                                                     |
+| blockNumber      | QUANTITY      | 로그가 속한 블록의 번호입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                       |
+| transactionHash  | 32바이트 크기 DATA | 이 로그를 생성한 트랜잭션의 해시입니다. 트랜잭션이 보류 상태이면 `null`입니다. 보류 상태란 트랜잭션이 실행되었지만 블록이 검증되지 않은 경계 조건(edge case)입니다.                                                                            |
+| transactionIndex | QUANTITY      | 정수. 이 로그를 생성한 트랜잭션의 인덱스입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                             |
+| blockHash        | 32바이트 크기 DATA | 로그가 생성된 블록의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                      |
+| logIndex         | QUANTITY      | 블록에서 로그 인덱스 위치의 정숫값입니다. 보류 중인 로그인 경우 `null`을 반환합니다.                                                                                                                             |
+| id               | String        | 로그 식별자. It is made by concatenating "log_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`                                                         |
 
 **예시**
 
