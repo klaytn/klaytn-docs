@@ -151,7 +151,7 @@ JSON 인터페이스 객체를 기반으로 함수 매개변수를 인코딩합�
 | 명칭         | 타입                  | 설명                                                                                                                                                   |
 | ---------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | typesArray | Array &#124; object | An array with types or a JSON interface of a function. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
-| parameters | 배열                  | 인코딩할 매개변수.                                                                                                                                           |
+| parameters | Array               | 인코딩할 매개변수.                                                                                                                                           |
 
 **NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
 
@@ -213,7 +213,7 @@ JSON 인터페이스 객체 및 주어진 매개변수를 사용하여 함수 �
 | 명칭            | 타입     | 설명                 |
 | ------------- | ------ | ------------------ |
 | jsonInterface | object | 함수의 JSON 인터페이스 객체. |
-| parameters    | 배열     | 인코딩할 매개변수.         |
+| parameters    | Array  | 인코딩할 매개변수.         |
 
 **리턴값**
 
@@ -251,7 +251,7 @@ ABI 인코딩된 매개변수를 자바스크립트 타입으로 디코딩합니
 | 명칭        | 타입                 | 설명                                                                                                                                     |
 | --------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
 | 형식        | string&#124;object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
-| hexstring | 배열                 | 디코딩할 ABI 바이트 코드.                                                                                                                       |
+| hexstring | Array              | 디코딩할 ABI 바이트 코드.                                                                                                                       |
 
 **NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
 
@@ -392,11 +392,11 @@ caver.abi.decodeLog(inputs, hexstring, topics)
 ABI 인코딩된 로그 데이터 및 인덱싱된 토픽 데이터를 디코딩합니다.
 
 **매개변수**
-| 명칭        | 타입  | 설명                                                                                                                                                 |
-| --------- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| inputs    | 배열  | An array of JSON interface inputs. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요.                   |
-| hexstring | 문자열 | 로그의 `data` 필드에 있는 ABI 바이트 코드.                                                                                                                      |
-| topics    | 배열  | An array of the index parameter topics of the log. This array doesn't have topic[0] if it is a non-anonymous event, or otherwise, it has topic[0]. |
+| 명칭        | 타입    | 설명                                                                                                                                                 |
+| --------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| inputs    | Array | An array of JSON interface inputs. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요.                   |
+| hexstring | 문자열   | 로그의 `data` 필드에 있는 ABI 바이트 코드.                                                                                                                      |
+| topics    | Array | An array of the index parameter topics of the log. This array doesn't have topic[0] if it is a non-anonymous event, or otherwise, it has topic[0]. |
 
 **리턴값**
 
@@ -440,11 +440,11 @@ caver.abi.encodeContractDeploy(jsonInterface, hexstring [, params])
 Encodes smart contract bytecode with the arguments of the constructor.
 
 **매개변수**
-| 명칭            | 타입  | 설명                                               |
-| ------------- | --- | ------------------------------------------------ |
-| jsonInterface | 배열  | 컨트랙트의 JSON 인터페이스.                                |
-| hexstring     | 문자열 | 배포할 스마트 컨트랙트의 바이트코드.                             |
-| params        | 복합  | (optional) Arguments to pass to the constructor. |
+| 명칭            | 타입    | 설명                                               |
+| ------------- | ----- | ------------------------------------------------ |
+| jsonInterface | Array | 컨트랙트의 JSON 인터페이스.                                |
+| hexstring     | 문자열   | 배포할 스마트 컨트랙트의 바이트코드.                             |
+| params        | 복합    | (optional) Arguments to pass to the constructor. |
 
 **리턴값**
 
