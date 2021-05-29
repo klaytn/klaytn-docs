@@ -92,7 +92,7 @@ myContract.options
 | 명칭            | 타입      | 설명                                                                                                                                                                                                                                                                                                 |
 | ------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address       | 문자열     | 컨트랙트가 배포된 주소.                                                                                                                                                                                                                                                                                      |
-| jsonInterface | 배열      | 컨트랙트의 JSON 인터페이스.                                                                                                                                                                                                                                                                                  |
+| jsonInterface | Array   | 컨트랙트의 JSON 인터페이스.                                                                                                                                                                                                                                                                                  |
 | from          | 문자열     | The default address from which the contract deployment/execution transaction is sent. If the `from` address is not defined when creating the transaction, this `myContract.options.from` is always used to create the transaction.                                                                 |
 | gasPrice      | 문자열     | 트랜잭션에 사용할 peb 단위의 가스 가격.                                                                                                                                                                                                                                                                           |
 | gas           | number  | 트랜잭션에 제공된 최대 가스 (가스 제한).                                                                                                                                                                                                                                                                           |
@@ -162,9 +162,9 @@ myContract.options.jsonInterface
 
 **속성**
 
-| 명칭            | 타입 | 설명                                                         |
-| ------------- | -- | ---------------------------------------------------------- |
-| jsonInterface | 배열 | 이 컨트랙트의 JSON 인터페이스. 이를 재설정하면 컨트랙트 인스턴스의 메소드 및 이벤트가 재생성됩니다. |
+| 명칭            | 타입    | 설명                                                         |
+| ------------- | ----- | ---------------------------------------------------------- |
+| jsonInterface | Array | 이 컨트랙트의 JSON 인터페이스. 이를 재설정하면 컨트랙트 인스턴스의 메소드 및 이벤트가 재생성됩니다. |
 
 
 **예시**
@@ -349,10 +349,10 @@ Returns the object used when deploying the smart contract to the Klaytn. You can
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 명칭        | 타입  | 설명                                                                         |
-| --------- | --- | -------------------------------------------------------------------------- |
-| data      | 문자열 | 컨트랙트의 바이트 코드.                                                              |
-| arguments | 배열  | (optional) The arguments that get passed to the constructor on deployment. |
+| 명칭        | 타입    | 설명                                                                         |
+| --------- | ----- | -------------------------------------------------------------------------- |
+| data      | 문자열   | 컨트랙트의 바이트 코드.                                                              |
+| arguments | Array | (optional) The arguments that get passed to the constructor on deployment. |
 
 **리턴값**
 
@@ -360,7 +360,7 @@ Returns the object used when deploying the smart contract to the Klaytn. You can
 
 | 명칭                                                   | 타입       | 설명                                                                                                                                                                 |
 | ---------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| arguments                                            | 배열       | The arguments passed in `options.arguments`.                                                                                                                       |
+| arguments                                            | Array    | The arguments passed in `options.arguments`.                                                                                                                       |
 | [send](#methods-methodname-send)                     | function | The function that will deploy the contract to the Klaytn. The promise as the result of this function will be resolved with the new contract instance.              |
 | [sign](#methods-methodname-sign)                     | function | The function that will sign a smart contract deploy transaction as a sender. The sign function will return signed transaction.                                     |
 | [signAsFeePayer](#methods-methodname-signasfeepayer) | function | The function that will sign a smart contract deploy transaction as a fee payer. The signAsFeePayer function will return signed transaction.                        |
@@ -920,7 +920,7 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 
 | 명칭                                                   | 타입       | 설명                                                                                                                                                                               |
 | ---------------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| arguments                                            | 배열       | The arguments passed to this method.                                                                                                                                             |
+| arguments                                            | Array    | The arguments passed to this method.                                                                                                                                             |
 | [call](#methods-methodname-call)                     | function | The function that will call and execute a constant method in its smart contract on Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
 | [send](#methods-methodname-send)                     | function | The function that will send a transaction to the Klaytn and execute its method (can alter the smart contract state).                                                             |
 | [sign](#methods-methodname-sign)                     | function | The function that will sign a transaction as a sender. The sign function will return signed transaction.                                                                         |
@@ -1489,7 +1489,7 @@ Subscribes to an event and unsubscribes immediately after the first event or err
 | 명칭     | 타입     | 설명                                                                                                                                                                    |
 | ------ | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 필터     | object | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                       |
-| topics | 배열     | (optional) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
+| topics | Array  | (optional) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
 
 **리턴값**
 
@@ -1546,7 +1546,7 @@ myContract.events.eventName([options][, callback])
 | --------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 필터        | object | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                       |
 | fromBlock | number | (optional) The block number from which to get events.                                                                                                                 |
-| topics    | 배열     | (optional) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
+| topics    | Array  | (optional) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
 
 
 **리턴값**
@@ -1575,7 +1575,7 @@ The structure of the returned event `object` looks as follows:
 | blockHash        | 32바이트 문자열            | 이 이벤트가 생성된 블록의 해시. 아직 보류 중인 경우 `null`.                                                                  |
 | blocknumber      | number               | 이 로그가 생성된 블록 번호. 아직 보류 중인 경우 `null`.                                                                    |
 | raw.data         | 문자열                  | 색인화되지 않은 로그 매개변수를 포함하는 데이터.                                                                             |
-| raw.topics       | 배열                   | An array with a maximum of four 32-byte topics, and topic 1-3 contains indexed parameters of the event. |
+| raw.topics       | Array                | An array with a maximum of four 32-byte topics, and topic 1-3 contains indexed parameters of the event. |
 | id               | 문자열                  | 로그 식별자. `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`을 사용하여 "log_" 문자열을 연결하여 작성됩니다.  |
 
 **예시**
@@ -1647,7 +1647,7 @@ myContract.getPastEvents(event [, options] [, callback])
 | 필터        | object | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                    |
 | fromBlock | number | (optional) The block number from which to get events.                                                                                                              |
 | toBlock   | number | (optional) The block number to get events up to (defaults to `"latest"`).                                                                                          |
-| topics    | 배열     | (optional) This allows manually setting the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
+| topics    | Array  | (optional) This allows manually setting the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
 
 **리턴값**
 
