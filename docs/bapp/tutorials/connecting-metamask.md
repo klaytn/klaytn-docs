@@ -5,7 +5,7 @@
 
 * We will be using Chrome browser in this example. ([**Install Chrome**](https://www.google.com/intl/ko/chrome/))
 
-* Add[ **MetaMask Extension**](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=ko) to Chrome.
+* Add[**MetaMask Extension**](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=ko) to Chrome.
 
   >  **Note:** You may need additional installations if you are using another browser. 
 
