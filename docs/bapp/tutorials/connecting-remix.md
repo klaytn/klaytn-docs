@@ -34,7 +34,7 @@ Remix is a browser-based IDE (Integrated Development Environment) for developing
   ![img](./img/remix-environment-web3provider.png)
 
 * Enter the RPC address of the EN in the Web3 Provider Endpoint.
-  Local EN (default):[http://localhost:8551](http://localhost:8551/)
+  Local EN (default): [http://localhost:8551](http://localhost:8551/)
 
 * Once you are successfully connected to the Network, you will see the Chain ID as below. You can view the list of accounts that you have created in Account. 
   ![img](./img/remix-network-connected.png)
