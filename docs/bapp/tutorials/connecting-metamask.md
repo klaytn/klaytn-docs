@@ -40,7 +40,10 @@
     * Chain ID: 8217
   * Common
     * Currency Symbol: KLAY
-    * Block Explorer URL:[ https://scope.klaytn.com/](https://baobab.scope.klaytn.com/)
+* Baobab
+    * Block Explorer URL:[ https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
+* Cypress
+    * Block Explorer URL:[ https://scope.klaytn.com/](https://scope.klaytn.com/)
 
     > **Note:** This tutorial uses Public EN of the Testnet (Baobab) for connecting to the network. Currently, Public EN is not supported on the Mainnet (Cypress), so make sure to use Baobab when running a test.
   
