@@ -36,11 +36,11 @@ tokenInfo 객체는 다음을 반드시 포함해야 합니다:
 
 `PromiEvent`: A promise combined event emitter, which is resolved with a new KIP37 instance. 추가로 다음 이벤트가 발생할 수 있습니다.
 
-| 명칭              | 타입     | 설명                                                                                                                                                                                                                                    |
-| --------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | 문자열    | 트랜잭션이 전송된 직후 및 트랜잭션 해시를 사용할 수 있을 때 발생합니다.                                                                                                                                                                                             |
-| receipt         | object | 트랜잭션 영수증을 사용할 수 있을 때 발생합니다. If you want to know about the properties inside the receipt object, see [getTransactionReceipt][]. Receipts from KIP37 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
-| error           | 에러     | 전송 중 오류가 나타나면 발생됩니다.                                                                                                                                                                                                                  |
+| 명칭              | 타입     | 설명                                                                                                                                                                                            |
+| --------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| transactionHash | 문자열    | 트랜잭션이 전송된 직후 및 트랜잭션 해시를 사용할 수 있을 때 발생합니다.                                                                                                                                                     |
+| receipt         | object | 트랜잭션 영수증을 사용할 수 있을 때 발생합니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. Receipts from KIP37 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
+| error           | 에러     | 전송 중 오류가 나타나면 발생됩니다.                                                                                                                                                                          |
 
 **예시**
 
@@ -93,7 +93,7 @@ KIP37 {
 ```javascript
 caver.kct.kip37.detectInterface(contractAddress)
 ```
-Returns the information of the interface implemented by the token contract. This static function will use [kip37.detectInterface](#kip37-detectinterface).
+토큰 컨트랙트에 의해 구현된 인터페이스 정보를 반환합니다. This static function will use [kip37.detectInterface](#kip37-detectinterface).
 
 **매개변수**
 
@@ -217,7 +217,7 @@ Clones the current KIP37 instance.
 ```javascript
 kip37.detectInterface()
 ```
-Returns the information of the interface implemented by the token contract.
+토큰 컨트랙트에 의해 구현된 인터페이스 정보를 반환합니다.
 
 **매개변수**
 
