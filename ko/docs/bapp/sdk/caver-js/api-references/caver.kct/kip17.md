@@ -2,9 +2,9 @@
 
 `caver.kct.kip17`은 [KIP-17](https://kips.klaytn.com/KIPs/kip-17) 표준을 구현한 스마트 컨트랙트를 JavaScript 객체 형태로 Klaytn 블록체인에서 손쉽게 다룰 수 있도록 돕습니다.
 
-`caver.kct.kip17`는 KIP-17 토큰 컨트랙트를 구현하기 위해 [caver.contract](../caver.contract.md)를 상속합니다. `caver.kct.kip17`은 `caver.contract`와 동일한 속성값들을 가지며, 추가 기능 구현을 위해 메서드를 더 가지고 있습니다. 이 장은 `caver.kct.kip17` 메쏘드들 중 오직 새롭게 추가된 메쏘드들만을 소개합니다.
+`caver.kct.kip17`는 KIP-17 토큰 컨트랙트를 구현하기 위해 [caver.contract](../caver.contract.md)를 상속합니다. `caver.kct.kip17`은 `caver.contract`와 동일한 속성값들을 가지며, 추가 기능 구현을 위해 메서드를 더 가지고 있습니다. 이 장은 `caver.kct.kip17` 메서드들 중 오직 새롭게 추가된 것만을 소개합니다.
 
-The code that implements KIP-17 for caver-js is available on the [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/token/KIP17).
+caver-js에서 KIP-17을 구현한 예시는 [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/token/KIP17)에서 확인할 수 있습니다.
 
 KIP-17에 관한 자세한 정보는 [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-17)를 참조하십시오.
 
@@ -19,10 +19,10 @@ KIP-17 토큰 컨트랙트를 Klaytn 블록체인에 배포합니다. caver.kct.
 
 **매개변수**
 
-| 명칭        | 타입                   | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| --------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenInfo | object               | Klaytn 블록체인에 KIP-17 토큰 컨트랙트를 배포하는 데 필요한 정보입니다. 자세한 내용은 아래 표를 참조하세요.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| deployer  | string &#124; object | keyring 인스턴스에 있는 계정 주소입니다. 이 주소가 KIP-17 토큰 컨트랙트를 배포합니다. 이 주소는 반드시 배포를 위해 충분한 KLAY를 가지고 있어야 합니다. 자세한 내용은 [Keyring](../caver.wallet/keyring.md#caver-wallet-keyring)을 참조하세요. If you want to define your fields to use when sending transactions, you can pass the object type as a parameter. If you want to use Fee Delegation when deploying KIP-17 contracts, you can define the fields related to fee delegation in the object. For the use of these fields, refer to the parameter description of [approve](#kip17-approve). |
+| 명칭        | 타입                   | 설명                                                                                                                                                                                                                                                                                                                                                                  |
+| --------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tokenInfo | object               | Klaytn 블록체인에 KIP-17 토큰 컨트랙트를 배포하는 데 필요한 정보입니다. 자세한 내용은 아래 표를 참조하세요.                                                                                                                                                                                                                                                                                                 |
+| deployer  | string &#124; object | keyring 인스턴스에 있는 계정 주소입니다. 이 주소가 KIP-17 토큰 컨트랙트를 배포합니다. 이 주소는 반드시 배포를 위해 충분한 KLAY를 가지고 있어야 합니다. 자세한 내용은 [Keyring](../caver.wallet/keyring.md#caver-wallet-keyring)을 참조하세요. 트랜잭션 전송 시 사용할 필드를 자체적으로 정의하고 싶다면 객체 타입을 매개변수로 전달하면 됩니다. KIP-17 컨트랙트 배포 시 수수료 위임을 이용하고 싶다면, 객체 내 수수료 위임과 관련된 필드를 정의할 수 있습니다. 이 필드의 사용에 관한 내용은 [approve](#kip17-approve)의 매개변수 설명을 참고하십시오. |
 
 tokenInfo 객체는 다음을 반드시 포함해야 합니다:
 
@@ -35,11 +35,11 @@ tokenInfo 객체는 다음을 반드시 포함해야 합니다:
 
 `PromiEvent`: 이벤트 이미터와 결합된 프로미스이며 새로운 KIP17 인스턴스를 반환합니다. 추가로 다음 이벤트가 발생할 수 있습니다.
 
-| 명칭              | 타입     | 설명                                                                                                                                                                                            |
-| --------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | 문자열    | 트랜잭션이 전송된 직후 및 트랜잭션 해시를 사용할 수 있을 때 발생합니다.                                                                                                                                                     |
-| receipt         | object | 트랜잭션 영수증을 사용할 수 있을 때 발생합니다. If you want to know about the properties inside the receipt object, see [getTransactionReceipt][]. KIP17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다. |
-| error           | 에러     | 전송 중 오류가 나타나면 발생됩니다.                                                                                                                                                                          |
+| 명칭              | 타입     | 설명                                                                                                                                                    |
+| --------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| transactionHash | 문자열    | 트랜잭션이 전송된 직후 및 트랜잭션 해시를 사용할 수 있을 때 발생합니다.                                                                                                             |
+| receipt         | object | 트랜잭션 영수증을 사용할 수 있을 때 발생합니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다. |
+| error           | 에러     | 전송 중 오류가 나타나면 발생됩니다.                                                                                                                                  |
 
 **예시**
 
@@ -99,17 +99,17 @@ KIP17 {
 ```javascript
 caver.kct.kip17.detectInterface(contractAddress)
 ```
-Returns the information of the interface implemented by the token contract. This static function will use [kip17.detectInterface](#kip17-detectinterface).
+토큰 컨트랙트에 의해 구현된 인터페이스 정보를 반환합니다. 이 정적 함수는 [kip7.detectInterface](#kip17-detectinterface)를 사용합니다.
 
 **매개변수**
 
-| 명칭              | 타입  | 설명                                      |
-| --------------- | --- | --------------------------------------- |
-| contractAddress | 문자열 | The address of the KIP-7 token contract |
+| 명칭              | 타입  | 설명                    |
+| --------------- | --- | --------------------- |
+| contractAddress | 문자열 | KIP-7 토큰 컨트랙트의 주소입니다. |
 
 **리턴값**
 
-`Promise` returns an `object` containing the result with boolean values whether each [KIP-17 interface](https://kips.klaytn.com/KIPs/kip-17#kip-13-identifiers) is implemented.
+`Promise`는 각 [KIP-17 interface](https://kips.klaytn.com/KIPs/kip-7#kip-13-identifiers)가 구현되었는지에 대한 boolean 값을 포함한 `object`를 반환합니다.
 
 **예시**
 
@@ -131,17 +131,17 @@ Returns the information of the interface implemented by the token contract. This
 ```javascript
 caver.kct.kip17.create([tokenAddress])
 ```
-새로운 KIP17 인스턴스를 인스턴스 메소드, 이벤트들과 함께 생성합니다. This function works the same as [new KIP17](#new-kip17).
+새로운 KIP17 인스턴스를 인스턴스 메서드, 이벤트들과 함께 생성합니다. 이 함수는 [new KIP17](#new-kip17)과 동일하게 작동합니다.
 
-**NOTE** `caver.kct.kip17.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**NOTE** `caver.kct.kip17.create` caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
 **매개변수**
 
-See the [new KIP17](#new-kip17).
+[new KIP17](#new-kip17)를 참고하세요.
 
 **리턴값**
 
-See the [new KIP17](#new-kip17).
+[new KIP17](#new-kip17)를 참고하세요.
 
 **예시**
 
@@ -163,9 +163,9 @@ new caver.kct.kip17([tokenAddress])
 
 **매개변수**
 
-| 명칭           | 타입  | 설명                                                                                                                            |
-| ------------ | --- | ----------------------------------------------------------------------------------------------------------------------------- |
-| tokenAddress | 문자열 | (optional) The address of the KIP-17 token contract, which can be assigned later through `kip17.options.address = '0x1234..'` |
+| 명칭           | 타입  | 설명                                                                                   |
+| ------------ | --- | ------------------------------------------------------------------------------------ |
+| tokenAddress | 문자열 | (선택 사항) KIP-17 토큰 컨트랙트 주소이며 나중에 `kip17.options.address = '0x1234..'`로 값을 설정할 수 있습니다. |
 
 **리턴값**
 
@@ -194,9 +194,9 @@ kip17.clone([tokenAddress])
 
 **매개변수**
 
-| 명칭           | 타입  | 설명                                                                                                                        |
-| ------------ | --- | ------------------------------------------------------------------------------------------------------------------------- |
-| tokenAddress | 문자열 | (optional) The address of the smart contract that deployed another KIP-17 token. 입력을 생략하면, 이 주소는 원본 인스턴스의 컨트랙트 주소로 설정됩니다. |
+| 명칭           | 타입  | 설명                                                                                 |
+| ------------ | --- | ---------------------------------------------------------------------------------- |
+| tokenAddress | 문자열 | (선택 사항) 다른 KIP17 토큰을 배포했던 스마트 컨트랙트 주소입니다. 입력을 생략하면, 이 주소는 원본 인스턴스의 컨트랙트 주소로 설정됩니다. |
 
 **리턴값**
 
@@ -222,7 +222,7 @@ kip17.clone([tokenAddress])
 ```javascript
 kip17.detectInterface()
 ```
-Returns the information of the interface implemented by the token contract.
+토큰 컨트랙트에 의해 구현된 인터페이스 정보를 반환합니다.
 
 **매개변수**
 
@@ -230,7 +230,7 @@ Returns the information of the interface implemented by the token contract.
 
 **리턴값**
 
-`Promise` returns an `object` containing the result with boolean values whether each [KIP-17 interface](https://kips.klaytn.com/KIPs/kip-17#kip-13-identifiers) is implemented.
+`Promise`는 각 [KIP-17 interface](https://kips.klaytn.com/KIPs/kip-7#kip-13-identifiers)가 구현되었는지에 대한 boolean 값을 포함한 `object`를 반환합니다.
 
 **예시**
 
@@ -358,11 +358,11 @@ kip17.tokenURI(tokenId)
 | ------- | ------------------------------------- | --------- |
 | tokenId | BigNumber &#124; string &#124; number | 토큰 ID입니다. |
 
-**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `tokenId` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
-`Promise` returns `string`: The URI of the given token.
+`Promise`는 `String`을 반환: 주어진 토큰의 URI입니다.
 
 **예시**
 
@@ -381,12 +381,12 @@ kip17.tokenOfOwnerByIndex(owner, index)
 
 **매개변수**
 
-| 명칭    | 타입                                    | 설명                                          |
-| ----- | ------------------------------------- | ------------------------------------------- |
-| owner | 문자열                                   | 토큰을 소유한 계정 주소입니다.                           |
-| index | BigNumber &#124; string &#124; number | The index of a token in owner's token list. |
+| 명칭    | 타입                                    | 설명                                       |
+| ----- | ------------------------------------- | ---------------------------------------- |
+| owner | 문자열                                   | 토큰을 소유한 계정 주소입니다.                        |
+| index | BigNumber &#124; string &#124; number | 토큰 소유자가 가지고 있는 토큰 목록 중 특정 토큰의 위치 인덱스입니다. |
 
-**NOTE** The `index` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `index` 파라미터는 `number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
@@ -409,11 +409,11 @@ kip17.tokenByIndex(index)
 
 **매개변수**
 
-| 명칭    | 타입                                    | 설명                                  |
-| ----- | ------------------------------------- | ----------------------------------- |
-| index | BigNumber &#124; string &#124; number | The index of a token to be queried. |
+| 명칭    | 타입                                    | 설명              |
+| ----- | ------------------------------------- | --------------- |
+| index | BigNumber &#124; string &#124; number | 검색할 토큰의 인덱스입니다. |
 
-**NOTE** The `index` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `index` 파라미터는 `number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
@@ -465,7 +465,7 @@ kip17.ownerOf(tokenId)
 | ------- | ------------------------------------- | --------- |
 | tokenId | BigNumber &#124; string &#124; number | 토큰 ID입니다. |
 
-**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `tokenId` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
@@ -492,11 +492,11 @@ kip17.getApproved(tokenId)
 | ------- | ------------------------------------- | --------- |
 | tokenId | BigNumber &#124; string &#124; number | 토큰 ID입니다. |
 
-**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `tokenId` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
-`Promise` returns `string`: The address of the account that has the right to transfer the given token.
+`Promise`는 `String`을 반환: 주어진 토큰을 전송할 권한이 있는 계정 주소입니다.
 
 **예시**
 
@@ -527,7 +527,7 @@ kip17.isApprovedForAll(owner, operator)
 
 **리턴값**
 
-`Promise` returns `boolean`: `true` if an `operator` is approved to send all tokens that belong to the `owner`.
+`프로미스`는 `boolean`을 반환: `operator`에게 `owner`가 소유한 모든 토큰을 전송할 권한이 있다면 `true` 를 반환합니다.
 
 **예시**
 
@@ -581,7 +581,7 @@ kip17.paused()
 
 **리턴값**
 
-`Promise` returns `boolean`: `true` if the contract is paused.
+`Promise`는 `Boolean`을 반환: 이 컨트랙트가 중지되었다면 `true`를 반환합니다.
 
 **예시**
 
@@ -633,19 +633,19 @@ kip17.approve(to, tokenId [, sendParam])
 
 **매개변수**
 
-| 명칭        | 타입                                    | 설명                                                 |
-| --------- | ------------------------------------- | -------------------------------------------------- |
-| to        | 문자열                                   | 토큰 소유자를 대신해 토큰을 사용하는 계정 주소입니다.                     |
-| tokenId   | BigNumber &#124; string &#124; number | The id of the token the spender is allowed to use. |
-| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다.          |
+| 명칭        | 타입                                    | 설명                                        |
+| --------- | ------------------------------------- | ----------------------------------------- |
+| to        | 문자열                                   | 토큰 소유자를 대신해 토큰을 사용하는 계정 주소입니다.            |
+| tokenId   | BigNumber &#124; string &#124; number | 토큰 사용자가 사용을 허락받은 토큰의 ID입니다.               |
+| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. |
 
-**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `tokenId` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 sendParam 객체는 다음을 포함할 수 있습니다:
 
 | 명칭            | 타입                                              | 설명                                                                                                                                                                                                                                                                                                                                                    |
 | ------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from          | 문자열                                             | (선택 사항) 트랜잭션 발신자 주소입니다. If omitted, it will be set by `kip17.options.from`. If neither of `from` in `sendParam` object nor `kip17.options.from` were not provided, an error would occur.                                                                                                                                                              |
+| from          | 문자열                                             | (선택 사항) 트랜잭션 발신자 주소입니다. 미입력시 `kip17.options.from`에 의해 지정됩니다. If neither of `from` in `sendParam` object nor `kip17.options.from` were not provided, an error would occur.                                                                                                                                                                             |
 | gas           | number &#124; string                            | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `kip17.methods.approve(spender, tokenId).estimateGas({from})`.                                                                                                                                                               |
 | gasPrice      | number &#124; string                            | (선택 사항) 트랜잭션에 사용할 peb 단위의 가스 가격. 생략하면 `caver.klay.getGasPrice` 값으로 caver-js가 설정합니다.                                                                                                                                                                                                                                                                   |
 | value         | number &#124; string &#124; BN &#124; BigNumber | (선택 사항) peb으로 환산한 전송될 토큰 가치.                                                                                                                                                                                                                                                                                                                          |
@@ -810,7 +810,7 @@ kip17.transferFrom(from, to, tokenId [, sendParam])
 | tokenId   | BigNumber &#124; string &#124; number | 전송하고 싶은 토큰의 토큰 ID입니다.                                                                                                              |
 | sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve][]. |
 
-**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `tokenId` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
@@ -893,7 +893,7 @@ kip17.safeTransferFrom(from, to, tokenId [, data] [, sendParam])
 | data      | Buffer &#124; string &#124; number    | (선택 사항) 호출 시 함께 보낼 데이터입니다.                                                                                                         |
 | sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve][]. |
 
-**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `tokenId` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
@@ -1124,7 +1124,7 @@ mintWithTokenURI 메서드는 Klaytn 네트워크에 트랜잭션을 전송하�
 | tokenURI  | 문자열                                   | The uri string of token to be minted.                                                                                              |
 | sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve][]. |
 
-**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `tokenId` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **NOTE** If `sendParam.from` or `kip17.options.from` were given, it should be a minter with MinterRole.
 
@@ -1204,7 +1204,7 @@ burn 메서드는 Klaytn 네트워크에 트랜잭션을 전송하며 트랜잭�
 | tokenId   | BigNumber &#124; string &#124; number | The id of the token to be destroyed.                                                                                               |
 | sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve][]. |
 
-**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `tokenId` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
