@@ -1,5 +1,6 @@
 # Connecting MetaMask <a id="connecting-metamask"></a>
 
+> **Note**: MetaMask is mostly used as a wallet for Ethereum, but it is also compatible with Klaytn due to the identical address structures. Klaytn also has a browser extension wallet called [Kaikas](../developer-tools/kaikas), so it basically provides the same features as MetaMask, except for Remix.
 
 ## Step 1. Install MetaMask <a id="install-metamask"></a>
 
