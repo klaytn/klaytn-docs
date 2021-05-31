@@ -27,7 +27,7 @@
 
 * Click on the Network tab, which is on Ethereum Mainnet as default and select [Custom RPC].
 
-* Enter the End Node (EN) data of the Klaytn chain.
+* Enter the Endpoint Node (EN) data of the Klaytn chain.
 
   * Baobab
     * Network Name: Klaytn Baobab
