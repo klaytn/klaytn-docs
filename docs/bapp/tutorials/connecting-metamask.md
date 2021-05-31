@@ -4,7 +4,7 @@
 
 ## Step 1. Install MetaMask <a id="install-metamask"></a>
 
-* We will be using Chrome browser in this example. ([**Install Chrome**](https://www.google.com/intl/ko/chrome/))
+* We will be using Chrome browser in this example. ([**Install Chrome**](https://www.google.com/intl/en_us/chrome/))
 
 * Add [**MetaMask Extension**](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=ko) to Chrome.
 
