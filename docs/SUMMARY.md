@@ -258,6 +258,8 @@
         * [7-4. TransferOwnership Component](bapp/tutorials/klaystagram/7.-feedpage/7-4.-transferownership-component.md)
       * [8. Run App](bapp/tutorials/klaystagram/8.-run-app.md)
     * [Migrating Ethereum App to Klaytn](bapp/tutorials/migrating-ethereum-app-to-klaytn.md)
+    * [Connecting MetaMask](bapp/tutorials/connecting-metamask.md)
+    * [Connecting Remix](bapp/tutorials/connecting-remix.md)
   * [Developer Tools](bapp/developer-tools/README.md)
     * [Kaikas](toolkit/kaikas.md)
     * [Klaytn Wallet](toolkit/klaytn-wallet.md)
