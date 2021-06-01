@@ -1704,8 +1704,8 @@ An event object can contain the following:
 ```
 
 [SmartContractDeploy]: ./caver.transaction/basic.md#smartcontractdeploy
-[SmartContractExecution]: ./caver.transaction/basic.md#txtypesmartcontractexecution
-[FeeDelegatedSmartContractDeploy]: ./caver.transaction/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy
-[FeeDelegatedSmartContractExecution]: ./caver.transaction/fee-delegation.md#txtypefeedelegatedsmartcontractexecution
-[FeeDelegatedSmartContractDeployWithRatio]: ./caver.transaction/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio
-[FeeDelegatedSmartContractExecutionWithRatio]: ./caver.transaction/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio
+[SmartContractExecution]: ./caver.transaction/basic.md#smartcontractexecution
+[FeeDelegatedSmartContractDeploy]: ./caver.transaction/fee-delegation.md#feedelegatedsmartcontractdeploy
+[FeeDelegatedSmartContractExecution]: ./caver.transaction/fee-delegation.md#feedelegatedsmartcontractexecution
+[FeeDelegatedSmartContractDeployWithRatio]: ./caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio
+[FeeDelegatedSmartContractExecutionWithRatio]: ./caver.transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio
