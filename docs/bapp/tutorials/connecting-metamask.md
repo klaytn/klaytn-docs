@@ -32,18 +32,16 @@
 
   * Baobab
     * Network Name: Klaytn Baobab
-    * New RPC URL:[ https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651) (Default:[ http://localhost:8551](http://localhost:8551/))
-    * Chain ID: 1001
-  * Cypress
-    * Network Name: Klaytn Cypress
-    * New RPC URL: default:[ http://localhost:8551](http://localhost:8551/)
-    * Chain ID: 8217
-  * Common
-    * Currency Symbol: KLAY
-* Baobab
+    * New RPC URL:[ https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651) (Default:[ http://localhost:8551](http://localhost:8551/))    
     * Block Explorer URL:[ https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
-* Cypress
+    * Chain ID: 1001  
+  * Cypress    
+    * Network Name: Klaytn Cypress    
+    * New RPC URL: default:[ http://localhost:8551](http://localhost:8551/)    
     * Block Explorer URL:[ https://scope.klaytn.com/](https://scope.klaytn.com/)
+    * Chain ID: 8217  
+  * Common    
+    * Currency Symbol: KLAY
 
     > **Note:** This tutorial uses Public EN of the Testnet (Baobab) for connecting to the network. Currently, Public EN is not supported on the Mainnet (Cypress), so make sure to use Baobab when running a test.
   
