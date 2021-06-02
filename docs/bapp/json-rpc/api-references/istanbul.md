@@ -180,3 +180,25 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 // Response
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
+
+## istanbul_getTimeout <a id="istanbul_getTimeout"></a>
+Return istanbul config timeout.
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| timeout | int | config timeout |
+
+**Example**
+
+```shell
+// Request
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"istanbul_getTimeout","params":[],"id":1}' http://localhost:8551 
+// Response
+{"jsonrpc":"2.0","id":1,"result":10000}
+```
