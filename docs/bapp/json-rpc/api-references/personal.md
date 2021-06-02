@@ -611,6 +611,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 {"jsonrpc":"2.0","id":1,"result":"0xccb8cce176b01fdc8f7ac3c101b8eb3b9005e938a60800e517624419dd8b7fba0e4598bdf1c4fa1743e1288e89b8b7090cc11f4b3640aafcbc71896ec73eec241b"}
 ```
 
+## personal_signTransaction <a id="personal_signtransaction"></a>
+
+Set defaults and signs the given transaction.
+
+NOTE: Sending your account password over an unsecured HTTP RPC connection is highly unsecure. Use klay_signTransaction.
+
+**Parameters**
+
+The required parameters depend on the transaction type.
+Check the proper parameters in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| raw | Signed raw transaction |
+| tx | Transaction object |
+| password | Sender's password |
+
+
 ## personal_ecRecover <a id="personal_ecrecover"></a>
 
 `ecRecover` returns the address associated with the private key that was used to calculate the signature in `personal_sign`.
