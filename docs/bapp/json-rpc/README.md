@@ -45,6 +45,7 @@ will give all enabled modules including the version number:
    "result":{
       "admin":"1.0",
       "debug":"1.0",
+      "istanbul":"1.0",
       "klay":"1.0",
       "miner":"1.0",
       "net":"1.0",
