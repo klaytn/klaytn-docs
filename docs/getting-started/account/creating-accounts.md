@@ -20,7 +20,7 @@ $ ken account new --password <passwordfile> --datadir <DATADIR>
 $ ken account new --password <(echo $mypassword) --datadir <DATADIR>
 ```
 
-**`WARNING`**: Note that using a password file is meant to be used for testing only, it is a bad idea to save your password to a file or expose it in any other way. If you use the password flag with a password file, best to make sure the file is not readable or even listable for anyone but you. You achieve this with:
+**`WARNING`**: Note that using a password file is meant for testing only; it is a bad idea to save your password in a file or expose it in any other way. If you use the password flag with a password file, best to make sure the file is not readable or even listable for anyone but you. You achieve this with:
 
 ```bash
 $ touch /path/to/password
@@ -42,7 +42,7 @@ The account is saved in an encrypted format. You **must** remember this passphra
 
 ## Importing an Account <a id="importing-an-account"></a>
 
-You can import an account using a keyfile. The keyfile is assumed to contain an unencrypted private key as canonical EC raw bytes encoded into hex. In a simpler term, it is a private key in a plain text without leading `0x`.
+You can import an account using a keyfile. The keyfile is assumed to contain an unencrypted private key as canonical EC raw bytes encoded into hex. In simpler terms, it is a private key in plain text without the leading `0x`.
 
 This imports an unencrypted private key from the given keyfile, creates a new account, generates a keystore file under the data directory, and prints the address in the console. You must remember the passphrase to unlock your account in the future.
 
