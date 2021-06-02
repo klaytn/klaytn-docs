@@ -2321,35 +2321,6 @@ Returns the rewardbase of the current node. Rewardbase is the address of the acc
 0xa9b3a93b2a9fa3fdcc31addd240b04bf8db3414c
 ```
 
-## caver.rpc.klay.isWriteThroughCaching <a id="caver-rpc-klay-iswritethroughcaching"></a>
-
-```javascript
-caver.rpc.klay.isWriteThroughCaching([callback])
-```
-
-Returns true if the node is using writeThroughCaching.
-
-**Parameters**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
-
-**Return Value**
-
-`Promise` returns `boolean`
-
-| Type | Description |
-| --- | --- |
-| boolean | true means the node is using write-through caching. |
-
-**Example**
-
-```javascript
-> caver.rpc.klay.isWriteThroughCaching().then(console.log)
-false
-```
-
 ## caver.rpc.klay.getFilterChanges <a id="caver-rpc-klay-getfilterchanges"></a>
 
 ```javascript

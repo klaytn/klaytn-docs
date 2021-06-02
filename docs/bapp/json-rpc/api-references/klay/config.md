@@ -245,31 +245,3 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_writeThroughCaching <a id="klay_writethroughcaching"></a>
-
-Returns `true` if the node is using write through caching. If enabled, block bodies and receipts are cached when they are written to persistent storage. It is `false` by default.
-
-**Parameters**
-
-None
-
-**Return Value**
-
-| Type     | Description                                           |
-| -------- | ----------------------------------------------------- |
-| Boolean | `true` means the node is using write through caching. |
-
-**Example**
-
-```shell
-// Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_writeThroughCaching","id":1}' http://localhost:8551
-
-// Result
-{
-    "jsonrpc":"2.0",
-    "id":1,
-    "result":false
-}
-```
-

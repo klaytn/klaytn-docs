@@ -208,26 +208,3 @@ Returns the rewardbase of the current node. Rewardbase is the address of the acc
 0xed9d108be2a9a7ea5f180ace80f31b66ea107283
 ```
 
-## writeThroughCaching <a id="writethroughcaching"></a>
-
-```javascript
-caver.klay.writeThroughCaching([callback])
-```
-Returns `true` if the node is using write-through caching. If enabled, block bodies and receipts are cached to increase the read performance when they are written to persistent storage. It is `false` by default.
-
-**Parameters**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
-
-**Return Value**
-
-`Promise` returns `Boolean` - `true` means the node is using write through caching.
-
-**Example**
-
-```javascript
-> caver.klay.writeThroughCaching().then(console.log);
-false
-```
