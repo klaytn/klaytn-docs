@@ -13,6 +13,8 @@ The namespace `debug` gives you access to several non-standard RPC methods, whic
 - [debug_backtraceAt](./debug/logging.md#debug_backtraceat)
 - [debug_setVMLogTarget](./debug/logging.md#debug_setvmlogtarget)
 - [debug_verbosity](./debug/logging.md#debug_verbosity)
+- [debug_verbosityByName](./debug/logging.md#debug_verbositybyname)
+- [debug_verbosityByID](./debug/logging.md#debug_verbositybyid)
 - [debug_vmodule](./debug/logging.md#debug_vmodule)
 
 
@@ -20,6 +22,7 @@ The namespace `debug` gives you access to several non-standard RPC methods, whic
 
 - [debug_blockProfile](./debug/profile.md#debug_blockprofile)
 - [debug_cpuProfile](./debug/profile.md#debug_cpuprofile)
+- [debug_mutexProfile](./debug/profile.md#debug_mutexprofile)
 - [debug_isPProfRunning](./debug/profile.md#debug_ispprofrunning)
 - [debug_setBlockProfileRate](./debug/profile.md#debug_setblockprofilerate)
 - [debug_startCPUProfile](./debug/profile.md#debug_startcpuprofile)
@@ -28,6 +31,7 @@ The namespace `debug` gives you access to several non-standard RPC methods, whic
 - [debug_stopPProf](./debug/profile.md#debug_stoppprof)
 - [debug_writeBlockProfile](./debug/profile.md#debug_writeblockprofile)
 - [debug_writeMemProfile](./debug/profile.md#debug_writememprofile)
+- [debug_writeMutexProfile](./debug/profile.md#debug_writemutexprofile)
 
 
 ## [Runtime Tracing](./debug/go_trace.md) <a id="runtime-tracing"></a>
@@ -69,10 +73,22 @@ The namespace `debug` gives you access to several non-standard RPC methods, whic
 ## [Blockchain Inspection](./debug/blockchain.md) <a id="blockchain-inspection"></a>
 
 - [debug_dumpBlock](./debug/blockchain.md#debug_dumpblock)
+- [debug_dumpStateTrie](./debug/blockchain.md#debug_dumpstatetrie)
 - [debug_getBlockRlp](./debug/blockchain.md#debug_getblockrlp)
 - [debug_getModifiedAccountsByHash](./debug/blockchain.md#debug_getmodifiedaccountsbyhash)
 - [debug_getModifiedAccountsByNumber](./debug/blockchain.md#debug_getmodifiedaccountsbynumber)
 - [debug_preimage](./debug/blockchain.md#debug_preimage)
+- [debug_getBadBlocks](./debug/blockchain.md#debug_getbadblocks)
 - [debug_printBlock](./debug/blockchain.md#debug_printblock)
 - [debug_setHead](./debug/blockchain.md#debug_sethead)
+- [debug_seedHash](./debug/blockchain.md#debug_seedhash)
+- [debug_startWarmUp](./debug/blockchain.md#debug_startwarmup)
+- [debug_startContractWarmUp](./debug/blockchain.md#debug_startcontractwarmup)
+- [debug_stopWarmUp](./debug/blockchain.md#debug_stopwarmup)
+- [debug_startCollectingTrieStats](./debug/blockchain.md#debug_startCollectingTrieStats)
 
+
+## [Debug ChainDB](./debug/chaindb.md) <a id="debug-chaindb"></a>
+
+- [debug_chaindbProperty](./debug/chaindb.md#debug_chaindbproperty)
+- [debug_chaindbCompact](./debug/chaindb.md#debug_chaindbcompact)

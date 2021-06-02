@@ -1,4 +1,4 @@
-# PrivateDebugAPI <a id="private-debug-api"></a>
+# Debug ChainDB <a id="debug-chaindb"></a>
 
 ## debug_chaindbProperty <a id="debug_chaindbproperty"></a>
 Return leveldb properties of the chain database.

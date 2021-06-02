@@ -271,7 +271,7 @@ Return a list of the last 'bad blocks' that the client has seen on the network.
 
 | Client  | Method Invocation                                    |
 |:-------:|------------------------------------------------------|
-| Console | `debug.getBadBlocks(number)`                           |
+| Console | `debug.getBadBlocks()`                           |
 | RPC     | `{"method": "debug_getBadBlocks", "params": []}` |
 
 **Parameters**
@@ -296,6 +296,7 @@ HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_getBadBlocks","params":[],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":[]}
+```
 
 ## debug_printBlock <a id="debug_printblock"></a>
 
@@ -324,7 +325,6 @@ Console
 ```javascript
 > debug.printBlock(65120)
 "(*types.Block)(0xc436fad3b0)(Block(#65120): Size: 2.95 kB {\nMinerHash: 7a5f8d37d34be6d9d19c5f161756d607da62227bb725ddb2f372682d7a9f1445\nHeader(e96d6477acfeba8ba865c315020471dcf751aa1bddca77f469334ab0492d218f):\n[\n\tParentHash:      e768b5b7eeb1005fe130c26da744d47e042e9227cee675fa70c89ede38653aea\n\tCoinbase:         0000000000000000000000000000000000000000\n\tRewardbase:       0000000000000000000000000000000000000000\n\tRoot: ... 0xc3be927ae5c0c48a0c83a1dbdf2df737c4a708eb6dae0ccb4a7eb042ea0a6ebf\n\tS:       0x53d8bed6357f88c8bab1f3d83942aa53c14269e58016e284656b12996a5d759a\n\tHex:      f863829d9280825208949619a83fcefc5647736cfd28845fcc4f716ff53b8080820fe7a0c3be927ae5c0c48a0c83a1dbdf2df737c4a708eb6dae0ccb4a7eb042ea0a6ebfa053d8bed6357f88c8bab1f3d83942aa53c14269e58016e284656b12996a5d759a\n]\n}\n)\n"
-
 ```
 HTTP RPC
 ```shell

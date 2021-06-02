@@ -142,7 +142,7 @@ can be raised using `debug_vmodule`.
 | Client  | Method Invocation                                             |
 |:-------:|---------------------------------------------------------------|
 | Console | `debug.verbosityByName(name, level)`                    |
-| RPC     | `{"method": "debug_vmodule", "params": [string, number]}` |
+| RPC     | `{"method": "debug_verbosityByName", "params": [string, number]}` |
 
 **Parameters**
 
@@ -169,7 +169,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 
-## debug_verbosityBYID <a id="debug_verbositybyid"></a>
+## debug_verbosityByID <a id="debug_verbositybyid"></a>
 
 Set the verbosity of log module with given ModuleID.
 Please note that VerbosityByID only works with zapLogger.
@@ -181,8 +181,8 @@ can be raised using `debug_vmodule`.
 
 | Client  | Method Invocation                                 |
 |:-------:|---------------------------------------------------|
-| Console | `debug.verbosity(id, level)`                          |
-| RPC     | `{"method": "debug_vmodule", "params": [number, number]}` |
+| Console | `debug.verbosityByID(id, level)`                          |
+| RPC     | `{"method": "debug_verbosityByID", "params": [number, number]}` |
 
 **Parameters**
 
