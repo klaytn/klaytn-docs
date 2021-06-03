@@ -15,7 +15,7 @@ Account #0: {bfc22a57999459b0c2ce6337deb9287e7a970e02} keystore:///Users/usernam
 Account #1: {47bd2e9565cbe1789454718d6cf1778d7ea557aa} keystore:///Users/username/kend_home/keystore/UTC--2019-03-26T07-04-44.840061000Z--47bd2e9565cbe1789454718d6cf1778d7ea557aa
 ```
 
-**NOTE**: This order of returned account list can change if you copy keystore files from other nodes or remove the files. Therefore, make sure you either do not rely on the index or make sure if you copy or remove keystore files you check and update your account indexes in your scripts.
+**NOTE**: This order of the returned account list can change if you copy keystore files from other nodes or remove the files. Therefore, do not rely on the index, or make sure to doublecheck and update your account indexes in your scripts when you copy or remove keystore files.
 
 ### JavaScript Console <a id="javascript-console"></a>
 
@@ -32,7 +32,7 @@ If you want to use an account non-interactively, you need to unlock it.
 
 ### ken <a id="ken"></a>
 
-You can unlock accounts and start the EN on the command line with the `--unlock "{address},{address}"` option which takes a comma-separated list of accounts \(in hex or index\) as an argument so you can unlock the accounts programmatically for one session. This is useful if you want to use your account from BApps via RPC. `--unlock` will unlock the first account in the list. This is useful when you created your account programmatically, you do not need to know the actual account to unlock it.
+You can unlock accounts and start the EN on the command line with the `--unlock "{address},{address}"` option which takes a comma-separated list of accounts \(in hex or index\) as an argument so you can unlock the accounts programmatically for one session. This is useful if you want to use your account from BApps via RPC. `--unlock` will unlock the first account on the list. This is useful when you programmatically create your account, since you do not need to know the actual account to unlock it.
 
 Create an account and start a node with the account unlocked:
 
@@ -41,7 +41,7 @@ $ ken account new --password <(echo this is not secret) --datadir <DATADIR>
 $ ken --password <(echo "this is not secret") --unlock primary --datadir <DATADIR> --rpccorsdomain localhost --verbosity 6 2>> log.log
 ```
 
-If you want to start a node with a specific account unlocked, you can use an address or an index which refers to the address position in the account list \(and corresponds to the order of creation\).
+If you want to start a node with a specific account unlocked, you can use an address or an index that points to the address location in the account list \(and corresponds to the order of creation\).
 
 ```bash
 $ ken --unlock "0" --datadir <DATADIR>
@@ -65,7 +65,7 @@ On the console you can also unlock accounts \(one at a time\) for a duration \(i
 > personal.unlockAccount(address, "password", 300)
 ```
 
-Note that we do NOT recommend using the password argument here, since the console history is logged, so you may compromise your account. You have been warned.
+Note that we do NOT recommend using the password argument here. Since the console history is logged, you may compromise your account. You have been warned.
 
 ## Check Account Balance <a id="check-account-balance"></a>
 
