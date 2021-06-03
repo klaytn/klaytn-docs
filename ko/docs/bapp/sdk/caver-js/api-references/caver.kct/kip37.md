@@ -1,30 +1,30 @@
 # caver.kct.kip37 <a id="caver-kct-kip37"></a>
 
-The `caver.kct.kip37` helps you easily handle a smart contract that implements KIP-37 as a JavaScript object on the Klaytn blockchain platform (Klaytn).
+`caver.kct.kip37`은 JavaScript의 객체로서 KIP-37을 구현하는 스마트 컨트랙트를 Klaytn 블록체인 플랫폼에서 쉽게 다룰 수 있도록 도와줍니다.
 
-The `caver.kct.kip37` inherits [caver.contract](../caver.contract.md) to implement the KIP-37 token contract. The `caver.kct.kip37` holds the same properties of `caver.contract` whereas additional methods are implemented for extra features. This section only introduces the newly added methods of the `caver.kct.kip37`.
+`caver.kct.kip37`는 KIP-37 토큰 컨트랙트를 구현하기 위해 [caver.contract](../caver.contract.md)를 상속합니다. `caver.kct.kip37`은 `caver.contract`와 동일한 속성값들을 가지며, 추가 기능 구현을 위한 메서드를 더 가지고 있습니다. 이 장은 `caver.kct.kip37` 메서드들 중 오직 새롭게 추가된 것만을 소개합니다.
 
-The code that implements KIP-37 for caver-js is available on the [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/token/KIP37).
+caver-js에서 KIP-37을 구현한 예시는 [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/token/KIP37)에서 확인할 수 있습니다.
 
-For more information about KIP-37, see [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-37).
+KIP-37에 관한 더 자세한 정보는 [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-37)를 참조하십시오.
 
-**NOTE** `caver.kct.kip37` is supported since caver-js [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7).
+**참고** `caver.kct.kip37`는 caver-js [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7)부터 지원됩니다.
 
 ## caver.kct.kip37.deploy <a id="caver-klay-kip37-deploy"></a>
 
 ```javascript
 caver.kct.kip37.deploy(tokenInfo, deployer)
 ```
-Deploys the KIP-37 token contract to the Klaytn blockchain. A contract deployed using caver.kct.kip37.deploy is a multi token that follows the KIP-37 standard.
+KIP-37 토큰 컨트랙트를 Klaytn 블록체인에 배포합니다. caver.kct.kip37.deploy를 사용해 배포한 컨트랙트는 KIP-37 표준을 따르는 멀티 토큰입니다.
 
-After successful deployment, the promise will be resolved with a new KIP37 instance.
+성공적으로 배포된 후, 프로미스는 새로운 KIP37 인스턴스를 반환할 것입니다.
 
 **매개변수**
 
-| 명칭        | 타입                   | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenInfo | object               | The information needed to deploy a KIP-37 token contract on the Klaytn blockchain. 자세한 내용은 아래 표를 참조하세요.                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| deployer  | string &#124; object | The address in the keyring instance to deploy the KIP-37 token contract. 이 주소는 반드시 배포를 위해 충분한 KLAY를 가지고 있어야 합니다. 자세한 내용은 [Keyring](../caver.wallet/keyring.md#caver-wallet-keyring)을 참조하세요. If you want to define your own fields to use when sending transactions, you can pass the object type as a parameter. Also, if you want to use Fee Delegation when deploying KIP-37 contracts, you can define fields related to fee delegation in the object. For fields that can be defined in the object, refer to the parameter description of [create](#kip37-create). |
+| 명칭        | 타입                   | 설명                                                                                                                                                                                                                                                                                                                                                         |
+| --------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tokenInfo | object               | Klaytn 블록체인에 KIP-37 토큰 컨트랙트를 배포하는 데 필요한 정보입니다. 자세한 내용은 아래 표를 참조하세요.                                                                                                                                                                                                                                                                                        |
+| deployer  | string &#124; object | KIP-37 토큰 컨트랙트를 배포할 keyring 인스턴스의 계정 주소입니다. 이 주소는 반드시 배포를 위해 충분한 KLAY를 가지고 있어야 합니다. 자세한 내용은 [Keyring](../caver.wallet/keyring.md#caver-wallet-keyring)을 참조하세요. 트랜잭션 전송 시 사용할 필드를 자체적으로 정의하고 싶다면 객체 타입을 매개변수로 전달하면 됩니다. KIP-37 컨트랙트 배포 시 수수료 위임을 이용하고 싶다면, 객체 내 수수료 위임과 관련된 필드를 정의할 수 있습니다. 객체에 정의될 수 있는 필드에 대해서는 [create](#kip37-create)의 매개변수 설명을 참고하십시오. |
 
 tokenInfo 객체는 다음을 반드시 포함해야 합니다:
 
