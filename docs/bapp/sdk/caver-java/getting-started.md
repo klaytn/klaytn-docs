@@ -899,7 +899,7 @@ A smart contract can be deployed using one of the following classes, depending o
   - `Contract` class in the `caver.contract` package when the sender or the fee payer of a smart contract transaction pays the fee
   - `SmartContractDeploy` class in `caver.transaction` when the sender of a smart contract transaction pays the fee
   - `feeDelegatedSmartContractDeploy` class in the `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
-  - `feeDelegatedSmartContractDeployWithRatio` class in `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
+  - `feeDelegatedSmartContractDeployWithRatio` class in the `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
 
 
 To deploy a smart contract through a fee-delegated transaction, define  the `feeDelegation` and `feePayer` fields in the `SendOptions` class like the example below.
