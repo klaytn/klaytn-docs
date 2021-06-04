@@ -790,7 +790,7 @@ Contract JSON ABI
 **NOTE**: To compile a smart contract, you must have a [solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html) installed. To compile the above program, you need to install solc:0.5.6.
 
 To deploy a smart contract by its type, you can use caver-java classes described below:
-  - `Contract` class in `caver.contract` package when the sender or the fee payer of a smart contract transaction pays the fee
+  - `Contract` class in the `caver.contract` package when the sender or the fee payer of a smart contract transaction pays the fee
   - `SmartContractDeploy` class in `caver.transaction` when the sender of a smart contract transaction pays the fee
   - `feeDelegatedSmartContractDeploy` class in `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
   - `feeDelegatedSmartContractDeployWithRatio` class in `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
@@ -861,7 +861,7 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 
 A `contract` instance stores its contract address as `contractAddress` property when it was created. The address can be accessed through getter / setter function (`getContractAddress()` / `setContractAddress()`).
 
-Once a `contract` instance is created, you can deploy the smart contract by passing its bytecode and constructor's arguments(if it needed to deploy.) below example.
+Once a `contract` instance is created, you can deploy the smart contract by passing its bytecode and constructor's arguments (when needed for deploying) as the example below.
 
 Note that the `deploy()` method of the `contract` instance sends transactions for contract deployment and contract execution. For sending transactions, it uses Keyrings in `caver.wallet` to sign them. The keyring to be used must have been added to `caver.wallet` before signing.
 
@@ -896,7 +896,7 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
 A smart contract can be deployed using one of the following classes, depending on the type of contract deploying transaction:
-  - `Contract` class in `caver.contract` package when the sender or the fee payer of a smart contract transaction pays the fee
+  - `Contract` class in the `caver.contract` package when the sender or the fee payer of a smart contract transaction pays the fee
   - `SmartContractDeploy` class in `caver.transaction` when the sender of a smart contract transaction pays the fee
   - `feeDelegatedSmartContractDeploy` class in `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
   - `feeDelegatedSmartContractDeployWithRatio` class in `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
@@ -978,10 +978,10 @@ If you want to send a transaction with sender and feePayer signed seperately whe
 
 
 To execute a smart contract's function by its type, you can use caver-java classes described below:
-  - `Contract` class in `caver.contract` package when the sender of a smart contract transaction pays the fee
-  - `SmartContractExecution` class in `caver.transaction` when the sender of a smart contract transaction pays the fee
-  - `FeeDelegatedSmartContractExecution` class in `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
-  - `FeeDelegatedSmartContractExecutionWithRatio` class in `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
+  - `Contract` class in the `caver.contract` package when the sender of a smart contract transaction pays the fee
+  - `SmartContractExecution` class in the `caver.transaction` package when the sender of a smart contract transaction pays the fee
+  - `FeeDelegatedSmartContractExecution` class in the `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
+  - `FeeDelegatedSmartContractExecutionWithRatio` class in the `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
 
 
 To show how to execute a function in a smart contract, here we send a contract execution transaction that puts a string "testValue" as the input parameter of the contract function `set` in the example code below. 
@@ -1009,7 +1009,7 @@ To show how to execute a function in a smart contract, here we send a contract e
     }
 ```
 
-To execute a smart contract's function through fee-delegated transaction, define `feeDelegation` and `feePayer` field in `SendOptions` class like the example below.
+To execute a smart contract's function through a fee-delegated transaction, define the `feeDelegation` and `feePayer` fields in the `SendOptions` class like the example below.
 
 
 ```java
