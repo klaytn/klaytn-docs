@@ -897,7 +897,7 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 
 A smart contract can be deployed using one of the following classes, depending on the type of contract deploying transaction:
   - `Contract` class in the `caver.contract` package when the sender or the fee payer of a smart contract transaction pays the fee
-  - `SmartContractDeploy` class in `caver.transaction` when the sender of a smart contract transaction pays the fee
+  - `SmartContractDeploy` class in the `caver.transaction` package when the sender of a smart contract transaction pays the fee
   - `feeDelegatedSmartContractDeploy` class in the `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
   - `feeDelegatedSmartContractDeployWithRatio` class in the `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
 
