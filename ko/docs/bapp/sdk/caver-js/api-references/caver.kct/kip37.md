@@ -36,11 +36,11 @@ tokenInfo 객체는 다음을 반드시 포함해야 합니다:
 
 `PromiEvent`: A promise combined event emitter, which is resolved with a new KIP37 instance. 추가로 다음 이벤트가 발생할 수 있습니다.
 
-| 명칭              | 타입     | 설명                                                                                                                                                                                            |
-| --------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | 문자열    | 트랜잭션이 전송된 직후 및 트랜잭션 해시를 사용할 수 있을 때 발생합니다.                                                                                                                                                     |
-| receipt         | object | 트랜잭션 영수증을 사용할 수 있을 때 발생합니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. Receipts from KIP37 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
-| error           | 에러     | 전송 중 오류가 나타나면 발생됩니다.                                                                                                                                                                          |
+| 명칭              | 타입     | 설명                                                                                                                                                    |
+| --------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| transactionHash | 문자열    | 트랜잭션이 전송된 직후 및 트랜잭션 해시를 사용할 수 있을 때 발생합니다.                                                                                                             |
+| receipt         | object | 트랜잭션 영수증을 사용할 수 있을 때 발생합니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP37 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다. |
+| error           | 에러     | 전송 중 오류가 나타나면 발생됩니다.                                                                                                                                  |
 
 **예시**
 
@@ -93,17 +93,17 @@ KIP37 {
 ```javascript
 caver.kct.kip37.detectInterface(contractAddress)
 ```
-토큰 컨트랙트에 의해 구현된 인터페이스 정보를 반환합니다. This static function will use [kip37.detectInterface](#kip37-detectinterface).
+토큰 컨트랙트에 의해 구현된 인터페이스 정보를 반환합니다. 이 정적 함수는 [kip37.detectInterface](#kip37-detectinterface)를 사용합니다.
 
 **매개변수**
 
-| 명칭              | 타입  | 설명                                       |
-| --------------- | --- | ---------------------------------------- |
-| contractAddress | 문자열 | The address of the KIP-37 token contract |
+| 명칭              | 타입  | 설명                     |
+| --------------- | --- | ---------------------- |
+| contractAddress | 문자열 | KIP-37 토큰 컨트랙트의 주소입니다. |
 
 **리턴값**
 
-`Promise` returns an `object` containing the result with boolean values whether each [KIP-37 interface](https://kips.klaytn.com/KIPs/kip-37#kip-13-identifiers) is implemented.
+`Promise`는 각 [KIP-37 interface](https://kips.klaytn.com/KIPs/kip-7#kip-13-identifiers)가 구현되었는지에 대한 boolean 값을 포함한 `object`를 반환합니다.
 
 **예시**
 
@@ -123,18 +123,18 @@ caver.kct.kip37.detectInterface(contractAddress)
 ```javascript
 caver.kct.kip37.create([tokenAddress])
 ```
-Creates a new KIP37 instance with its bound methods and events. This function works the same as [new KIP37](#new-kip37).
+새로운 KIP37 인스턴스를 인스턴스 메소드, 이벤트들과 함께 생성합니다. 이 함수는 [new KIP37](#new-kip37)과 동일하게 작동합니다.
 
 **NOTE** `caver.kct.kip37.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 **매개변수**
 
-See the [new KIP37](#new-kip37).
+[new KIP37](#new-kip37)을 참고하세요.
 
 
 **리턴값**
 
-See the [new KIP37](#new-kip37).
+[new KIP37](#new-kip37)을 참고하세요.
 
 
 **예시**
@@ -153,20 +153,20 @@ See the [new KIP37](#new-kip37).
 ```javascript
 new caver.kct.kip37([tokenAddress])
 ```
-Creates a new KIP37 instance with its bound methods and events.
+새로운 KIP37 인스턴스를 인스턴스 메소드, 이벤트들과 함께 생성합니다.
 
 **매개변수**
 
-| 명칭           | 타입  | 설명                                                                                                                            |
-| ------------ | --- | ----------------------------------------------------------------------------------------------------------------------------- |
-| tokenAddress | 문자열 | (optional) The address of the KIP-37 token contract, which can be assigned later through `kip37.options.address = '0x1234..'` |
+| 명칭           | 타입  | 설명                                                                                   |
+| ------------ | --- | ------------------------------------------------------------------------------------ |
+| tokenAddress | 문자열 | (선택 사항) KIP-37 토큰 컨트랙트 주소이며 나중에 `kip37.options.address = '0x1234..'`로 값을 설정할 수 있습니다. |
 
 
 **리턴값**
 
-| 타입     | 설명                                                    |
-| ------ | ----------------------------------------------------- |
-| object | The KIP37 instance with its bound methods and events. |
+| 타입     | 설명                                   |
+| ------ | ------------------------------------ |
+| object | 인스턴스 메소드와 이벤트들을 갖고 있는 KIP37 인스턴스입니다. |
 
 
 **예시**
@@ -185,19 +185,19 @@ Creates a new KIP37 instance with its bound methods and events.
 ```javascript
 kip37.clone([tokenAddress])
 ```
-Clones the current KIP37 instance.
+현재 KIP37 인스턴스를 복제합니다.
 
 **매개변수**
 
-| 명칭           | 타입  | 설명                                                                                                                       |
-| ------------ | --- | ------------------------------------------------------------------------------------------------------------------------ |
-| tokenAddress | 문자열 | (optional) The address of the smart contract that deployed another KIP37 token. 입력을 생략하면, 이 주소는 원본 인스턴스의 컨트랙트 주소로 설정됩니다. |
+| 명칭           | 타입  | 설명                                                                      |
+| ------------ | --- | ----------------------------------------------------------------------- |
+| tokenAddress | 문자열 | (선택 사항) 다른 KIP37 토큰을 배포했던 스마트 컨트랙트 주소입니다. 미입력시 원본 인스턴스의 컨트랙트 주소로 설정됩니다. |
 
 **리턴값**
 
-| 타입     | 설명                                        |
-| ------ | ----------------------------------------- |
-| object | The clone of the original KIP37 instance. |
+| 타입     | 설명                          |
+| ------ | --------------------------- |
+| object | 원본 KIP37 인스턴스를 복제한 인스턴스입니다. |
 
 
 **예시**
@@ -225,7 +225,7 @@ kip37.detectInterface()
 
 **리턴값**
 
-`Promise` returns an `object` containing the result with boolean values whether each [KIP-37 interface](https://kips.klaytn.com/KIPs/kip-37#kip-13-identifiers) is implemented.
+`Promise`는 각 [KIP-37 interface](https://kips.klaytn.com/KIPs/kip-7#kip-13-identifiers)가 구현되었는지에 대한 boolean 값을 포함한 `object`를 반환합니다.
 
 **예시**
 
@@ -273,21 +273,21 @@ false
 ```javascript
 kip37.uri(id)
 ```
-Returns distinct Uniform Resource Identifier (URI) of the given token.
+주어진 토큰의 고유한 Uniform Resource Identifier (URI)를 반환합니다.
 
-If the string "{id}" exists in any URI, this function will replace this with the actual token ID in hexadecimal form. Please refer to [KIP-34 Metadata](http://kips.klaytn.com/KIPs/kip-37#metadata).
+어느 URI에 문자열 "{id}"가 포함된다면, 이 함수는 16진수 형식의 실제 토큰 ID로 이를 대체합니다. [KIP-34 Metadata](http://kips.klaytn.com/KIPs/kip-37#metadata)를 참고하세요.
 
 **매개변수**
 
-| 명칭 | 타입                                    | 설명                       |
-| -- | ------------------------------------- | ------------------------ |
-| id | BigNumber &#124; string &#124; number | The token id to get uri. |
+| 명칭 | 타입                                    | 설명                |
+| -- | ------------------------------------- | ----------------- |
+| id | BigNumber &#124; string &#124; number | URI를 받을 토큰 ID입니다. |
 
-**NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `id` 파라미터는 `number` 타입 값을 받지만, 입력된 값이 number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
-`Promise` returns `string`: The uri of the token.
+`Promise`는 `string`을 반환: 토큰의 URI입니다.
 
 **예시**
 
@@ -302,7 +302,7 @@ If the string "{id}" exists in any URI, this function will replace this with the
 ```javascript
 kip37.totalSupply(id)
 ```
-Returns the total token supply of the specific token.
+특정 토큰의 총 발행량을 반환합니다.
 
 **매개변수**
 
@@ -310,7 +310,7 @@ Returns the total token supply of the specific token.
 | -- | ------------------------------------- | ------------------------------------- |
 | id | BigNumber &#124; string &#124; number | The token id to see the total supply. |
 
-**NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `id` 파라미터는 `number` 타입 값을 받지만, 입력된 값이 number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
@@ -338,7 +338,7 @@ Returns the amount of tokens of token type `id` owned by `account`.
 | account | 문자열                                   | The address of the account for which you want to see balance. |
 | id      | BigNumber &#124; string &#124; number | The token id to see balance.                                  |
 
-**NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `id` 파라미터는 `number` 타입 값을 받지만, 입력된 값이 number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
@@ -449,7 +449,7 @@ If id parameter is not defined, return whether the token contract's transaction 
 | -- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | id | BigNumber &#124; string &#124; number | (optional) The token id to check wether paused or not. If this parameter is omitted, the `paused` function return whether the contract is in paused state. |
 
-**NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `id` 파라미터는 `number` 타입 값을 받지만, 입력된 값이 number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
