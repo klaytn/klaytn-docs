@@ -99,14 +99,14 @@ caver.klay.getPastLogs(options [, callback])
 
 **매개변수**
 
-| 명칭                | 형식                   | 설명                                                                                                                                                                                                                                                                           |
-| ----------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options           | Object               | 필터 옵션.                                                                                                                                                                                                                                                                       |
-| options.fromBlock | Number &#124; String | (optional) The number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`.                                                                                                                                      |
-| options.toBlock   | Number &#124; String | (optional) The number of the last block to get the logs. (`"latest"` means the most recent block.). 기본값은 `"latest"`입니다.                                                                                                                                                      |
-| options.address   | String &#124; Array  | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned.                                                                                                                                                           |
-| options.topics    | 배열                   | (optional) An array of values that must appear in the log entries. 값들의 순서는 중요합니다. If you want to leave topics out, use `null`, *e.g.*, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, *e.g.,* `[null, ['option1', 'option2']]`. |
-| callback          | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                                                                                                         |
+| 명칭                | 형식                   | 설명                                                                                                                                                                               |
+| ----------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| options           | Object               | 필터 옵션.                                                                                                                                                                           |
+| options.fromBlock | Number &#124; String | (optional) The number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`.                                          |
+| options.toBlock   | Number &#124; String | (optional) The number of the last block to get the logs. (`"latest"`는 가장 최신 블록을 의미합니다.). 기본값은 `"latest"`입니다.                                                                     |
+| options.address   | String &#124; Array  | (선택 사항) 주소 또는 주소 목록입니다. 특정 계정(들)과 관련있는 로그들만 반환됩니다.                                                                                                                               |
+| options.topics    | 배열                   | (선택 사항) 로그에 반드시 있어야할 값들이 담긴 배열입니다. 값들의 순서는 중요합니다. 특정 토픽을 쓰지 않으려면 `[null, '0x12...']`에서와 같이 `null`을 사용하십시오. 각 토픽에 대해 `[null, ['option1', 'option2']]`와 같이  토픽 옵션을 배열로 넣을 수도 있습니다. |
+| callback          | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                             |
 
 **리턴값**
 
@@ -178,7 +178,7 @@ caver.klay.newBlockFilter([callback])
 ```javascript
 caver.klay.newFilter(options [, callback])
 ```
-Creates a filter object using the given filter options, to receive the specific state changes (logs).
+주어진 필터 옵션을 사용해 특정 상태 변화(로그)를 받을 필터 객체를 만듭니다.
 - To check if the state has changed, call [getFilterChanges](#getfilterchanges).
 - To obtain all logs matching the filter created by `newFilter`, call [getFilterLogs](#getfilterlogs).
 
