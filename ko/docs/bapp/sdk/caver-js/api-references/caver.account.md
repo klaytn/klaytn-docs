@@ -16,7 +16,7 @@ const account = new caver.account(address, accountKey)
 
 | 명칭         | 타입     | 설명                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address    | 문자열    | The address of account to be updated.                                                                                                                                                                                                                                                                                                                                                                    |
+| address    | string | The address of account to be updated.                                                                                                                                                                                                                                                                                                                                                                    |
 | accountKey | object | The new accountKey to be used in account. This can be an instance of [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) or [AccountKeyRoleBased](#accountkeyrolebased). When the transaction is executed, the accountKey of the account stored in the Klaytn is changed to this. |
 
 
@@ -41,9 +41,9 @@ To create an Account instance with `AccountKeyPublic`, please refer to [caver.ac
 
 **속성**
 
-| 명칭        | 타입  | 설명                     |
-| --------- | --- | ---------------------- |
-| publicKey | 문자열 | The public key string. |
+| 명칭        | 타입     | 설명                     |
+| --------- | ------ | ---------------------- |
+| publicKey | string | The public key string. |
 
 ### AccountKeyFail <a id="accountkeyfail"></a>
 
@@ -68,7 +68,7 @@ To create an Account instance with `AccountKeyWeightedMultiSig`, please refer to
 | 명칭                 | 타입     | 설명                                  |
 | ------------------ | ------ | ----------------------------------- |
 | 임계값                | number | The validation threshold.           |
-| weightedPublicKeys | 배열     | The array of [WeightedPublicKey][]. |
+| weightedPublicKeys | Array  | The array of [WeightedPublicKey][]. |
 
 ### AccountKeyRoleBased <a id="accountkeyrolebased"></a>
 
@@ -82,9 +82,9 @@ To create an Account instance with `AccountKeyRoleBased`, please refer to [caver
 
 **속성**
 
-| 명칭              | 타입 | 설명                                                                                                                                                                                                                                                                       |
-| --------------- | -- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| accountKeyArray | 배열 | The array defining accountKey to be used for each [role][]. Each role can be defined with [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), or [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig). |
+| 명칭              | 타입    | 설명                                                                                                                                                                                                                                                                       |
+| --------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| accountKeyArray | Array | The array defining accountKey to be used for each [role][]. Each role can be defined with [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), or [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig). |
 
 ### WeightedPublicKey <a id="weightedpublickey"></a>
 
@@ -99,7 +99,7 @@ const weightedPublicKey = new caver.account.accountKey.weightedPublicKey(weight,
 | 명칭        | 타입     | 설명                                                                                                                                                                       |
 | --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 가중치       | number | The weight of public key. The weight is used to check whether the weighted sum of public keys is larger than the threshold of the [AccountKeyWeightedMultiSig][] object. |
-| publicKey | 문자열    | The public key string.                                                                                                                                                   |
+| publicKey | string | The public key string.                                                                                                                                                   |
 
 ### WeightedMultiSigOptions <a id="weightedmultisigoptions"></a>
 
@@ -114,7 +114,7 @@ const weightedMultiSigOptions = new caver.account.weightedMultiSigOptions(thresh
 | 명칭      | 타입     | 설명                           |
 | ------- | ------ | ---------------------------- |
 | 임계값     | number | The validation threshold.    |
-| weights | 배열     | An array of weights of keys. |
+| weights | Array  | An array of weights of keys. |
 
 
 ## caver.account.create <a id="caver-account-create"></a>
@@ -131,7 +131,7 @@ If accountKey is a public key string, an Account instance with [AccountKeyPublic
 
 | 명칭         | 타입                                       | 설명                                                                                                                                      |
 | ---------- | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| address    | 문자열                                      | The address of account to be updated.                                                                                                   |
+| address    | string                                   | The address of account to be updated.                                                                                                   |
 | accountKey | string &#124; Array                      | A public key string, an array of public keys, or a 2D array of which each element contains an array of key(s) to be used for each role. |
 | options    | [WeightedMultiSigOptions][] &#124; Array | (optional) Options for AccountKeyWeigthedMultiSig.                                                                                      |
 
@@ -259,10 +259,10 @@ Creates an Account instance from RLP-encoded AccountKey.
 
 **매개변수**
 
-| 명칭            | 타입  | 설명                                       |
-| ------------- | --- | ---------------------------------------- |
-| address       | 문자열 | The address of an account to be updated. |
-| rlpEncodedKey | 문자열 | The RLP-encoded string of AccountKey.    |
+| 명칭            | 타입     | 설명                                       |
+| ------------- | ------ | ---------------------------------------- |
+| address       | string | The address of an account to be updated. |
+| rlpEncodedKey | string | The RLP-encoded string of AccountKey.    |
 
 
 **리턴값**
@@ -298,9 +298,9 @@ Creates an Account instance which has AccountKeyLegacy as an accountKey.
 
 **매개변수**
 
-| 명칭      | 타입  | 설명                                       |
-| ------- | --- | ---------------------------------------- |
-| address | 문자열 | The address of an account to be updated. |
+| 명칭      | 타입     | 설명                                       |
+| ------- | ------ | ---------------------------------------- |
+| address | string | The address of an account to be updated. |
 
 
 **리턴값**
@@ -329,10 +329,10 @@ Creates an Account instance which has AccountKeyPublic as an accountKey.
 
 **매개변수**
 
-| 명칭        | 타입  | 설명                                       |
-| --------- | --- | ---------------------------------------- |
-| address   | 문자열 | The address of an account to be updated. |
-| publicKey | 문자열 | The public key string.                   |
+| 명칭        | 타입     | 설명                                       |
+| --------- | ------ | ---------------------------------------- |
+| address   | string | The address of an account to be updated. |
+| publicKey | string | The public key string.                   |
 
 
 **리턴값**
@@ -361,9 +361,9 @@ Creates an Account instance which has AccountKeyFail as an accountKey.
 
 **매개변수**
 
-| 명칭      | 타입  | 설명                                       |
-| ------- | --- | ---------------------------------------- |
-| address | 문자열 | The address of an account to be updated. |
+| 명칭      | 타입     | 설명                                       |
+| ------- | ------ | ---------------------------------------- |
+| address | string | The address of an account to be updated. |
 
 
 **리턴값**
@@ -394,8 +394,8 @@ Creates an Account instance which has AccountKeyWeightedMultiSig as an accountKe
 
 | 명칭             | 타입                          | 설명                                                                                           |
 | -------------- | --------------------------- | -------------------------------------------------------------------------------------------- |
-| address        | 문자열                         | The address of an account to be updated.                                                     |
-| publicKeyArray | 배열                          | The array that includes multiple public key strings.                                         |
+| address        | string                      | The address of an account to be updated.                                                     |
+| publicKeyArray | Array                       | The array that includes multiple public key strings.                                         |
 | options        | [WeightedMultiSigOptions][] | (optional) The [WeightedMultiSigOptions][] instance that defines threshold and weight array. |
 
 
@@ -448,11 +448,11 @@ Creates an Account instance which has AccountKeyRoleBased as an accountKey.
 
 **매개변수**
 
-| 명칭                       | 타입  | 설명                                                                                     |
-| ------------------------ | --- | -------------------------------------------------------------------------------------- |
-| address                  | 문자열 | The address of an account to be updated.                                               |
-| roledBasedPublicKeyArray | 배열  | A two-dimensional array containing arrays of public key strings for each role.         |
-| options                  | 배열  | (optional) An array that contains [WeightedMultiSigOptions][] instances for each role. |
+| 명칭                       | 타입     | 설명                                                                                     |
+| ------------------------ | ------ | -------------------------------------------------------------------------------------- |
+| address                  | string | The address of an account to be updated.                                               |
+| roledBasedPublicKeyArray | Array  | A two-dimensional array containing arrays of public key strings for each role.         |
+| options                  | Array  | (optional) An array that contains [WeightedMultiSigOptions][] instances for each role. |
 
 
 **리턴값**
@@ -542,9 +542,9 @@ Decodes an RLP-encoded string of AccountKey and returns an [AccountKeyLegacy](#a
 
 **매개변수**
 
-| 명칭                   | 타입  | 설명                                   |
-| -------------------- | --- | ------------------------------------ |
-| rlpEncodedAccountKey | 문자열 | An RLP-encoded string of AccountKey. |
+| 명칭                   | 타입     | 설명                                   |
+| -------------------- | ------ | ------------------------------------ |
+| rlpEncodedAccountKey | string | An RLP-encoded string of AccountKey. |
 
 
 **리턴값**
@@ -571,9 +571,9 @@ Return RLP-encoded string of AccountKey.
 
 **리턴값**
 
-| 타입  | 설명                                   |
-| --- | ------------------------------------ |
-| 문자열 | A RLP-encoded string of AccountKey . |
+| 타입     | 설명                                   |
+| ------ | ------------------------------------ |
+| string | A RLP-encoded string of AccountKey . |
 
 **예시**
 
