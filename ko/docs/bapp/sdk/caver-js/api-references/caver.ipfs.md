@@ -16,7 +16,7 @@ Initializes a connection with an IPFS Node. When an IPFS Node information is set
 
 | 명칭   | 타입      | 설명                                                                             |
 | ---- | ------- | ------------------------------------------------------------------------------ |
-| host | 문자열     | The IPFS Node url to connect with.                                             |
+| host | string  | The IPFS Node url to connect with.                                             |
 | port | number  | The port number to use.                                                        |
 | ssl  | boolean | If true, the `https` protocol is used. Otherwise, the `http` protocol is used. |
 
@@ -52,11 +52,11 @@ If the path of a file is passed, the contents of the file are loaded from the pa
 
 **리턴값**
 
-`프로미스`는 `String`를 반환합니다.
+`Promise`는 `string`을 반환합니다.
 
-| 타입  | 설명                                                                                                                                 |
-| --- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| 문자열 | The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file. |
+| 타입     | 설명                                                                                                                                 |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| string | The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file. |
 
 **예시**
 
@@ -80,9 +80,9 @@ Returns a file addressed by a valid IPFS path.
 
 **매개변수**
 
-| 명칭 | 타입  | 설명                                                                                                                                   |
-| -- | --- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| 해시 | 문자열 | An [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the file to download. |
+| 명칭 | 타입     | 설명                                                                                                                                   |
+| -- | ------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| 해시 | string | An [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the file to download. |
 
 
 **리턴값**
@@ -110,16 +110,16 @@ Converts a [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addre
 
 **매개변수**
 
-| 명칭 | 타입  | 설명                                                                                                                     |
-| -- | --- | ---------------------------------------------------------------------------------------------------------------------- |
-| 해시 | 문자열 | A [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) to convert. |
+| 명칭 | 타입     | 설명                                                                                                                     |
+| -- | ------ | ---------------------------------------------------------------------------------------------------------------------- |
+| 해시 | string | A [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) to convert. |
 
 
 **리턴값**
 
-| 타입  | 설명                                                         |
-| --- | ---------------------------------------------------------- |
-| 문자열 | The [Multihash](https://multiformats.io/multihash) string. |
+| 타입     | 설명                                                         |
+| ------ | ---------------------------------------------------------- |
+| string | The [Multihash](https://multiformats.io/multihash) string. |
 
 **예시**
 
@@ -138,16 +138,16 @@ Converts to [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addr
 
 **매개변수**
 
-| 명칭 | 타입  | 설명                                                           |
-| -- | --- | ------------------------------------------------------------ |
-| 해시 | 문자열 | A [Multihash](https://multiformats.io/multihash) to convert. |
+| 명칭 | 타입     | 설명                                                           |
+| -- | ------ | ------------------------------------------------------------ |
+| 해시 | string | A [Multihash](https://multiformats.io/multihash) to convert. |
 
 
 **리턴값**
 
-| 타입  | 설명                                                                                                            |
-| --- | ------------------------------------------------------------------------------------------------------------- |
-| 문자열 | The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids). |
+| 타입     | 설명                                                                                                            |
+| ------ | ------------------------------------------------------------------------------------------------------------- |
+| string | The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids). |
 
 **예시**
 
