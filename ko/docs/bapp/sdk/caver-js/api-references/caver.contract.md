@@ -51,20 +51,20 @@ JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로
 | 명칭            | 타입     | 설명                                                                                        |
 | ------------- | ------ | ----------------------------------------------------------------------------------------- |
 | jsonInterface | object | 컨트랙트를 인스턴스화하기 위한 JSON 인터페이스                                                               |
-| address       | 문자열    | (선택 사항) 호출할 스마트 컨트랙트의 주소. `myContract.options.address = '0x1234..'`를 사용하여 나중에 추가할 수 있습니다. |
+| address       | string | (선택 사항) 호출할 스마트 컨트랙트의 주소. `myContract.options.address = '0x1234..'`를 사용하여 나중에 추가할 수 있습니다. |
 | options       | object | (선택 사항) 컨트랙트 옵션. 자세한 내용은 아래 표를 참조하세요.                                                     |
 
 옵션 개체에는 다음이 포함됩니다:
 
 | 명칭            | 타입      | 설명                                                                                                                                                                                                                                                                                                 |
 | ------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from          | 문자열     | (선택 사항) 트랜잭션이 만들어진 송신자 주소.                                                                                                                                                                                                                                                                         |
-| gasPrice      | 문자열     | (선택 사항) 트랜잭션에 사용할 peb 단위의 가스 가격.                                                                                                                                                                                                                                                                   |
+| from          | string  | (선택 사항) 트랜잭션이 만들어진 송신자 주소.                                                                                                                                                                                                                                                                         |
+| gasPrice      | string  | (선택 사항) 트랜잭션에 사용할 peb 단위의 가스 가격.                                                                                                                                                                                                                                                                   |
 | gas           | number  | (선택 사항) 트랜잭션에 규정된 최대 가스 (가스 제한).                                                                                                                                                                                                                                                                   |
-| data          | 문자열     | (선택 사항) 컨트랙트의 바이트 코드. 컨트랙트가 배포될 때 사용됩니다.                                                                                                                                                                                                                                                           |
+| data          | string  | (선택 사항) 컨트랙트의 바이트 코드. 컨트랙트가 배포될 때 사용됩니다.                                                                                                                                                                                                                                                           |
 | feeDelegation | boolean | (optional) Whether to use fee delegation transaction.                                                                                                                                                                                                                                              |
-| feePayer      | 문자열     | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction.                                                                                                                                   |
-| feeRatio      | 문자열     | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
+| feePayer      | string  | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction.                                                                                                                                   |
+| feeRatio      | string  | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
 
 **리턴값**
 
@@ -91,15 +91,15 @@ myContract.options
 
 | 명칭            | 타입      | 설명                                                                                                                                                                                                                                                                                                 |
 | ------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address       | 문자열     | 컨트랙트가 배포된 주소.                                                                                                                                                                                                                                                                                      |
+| address       | string  | 컨트랙트가 배포된 주소.                                                                                                                                                                                                                                                                                      |
 | jsonInterface | Array   | 컨트랙트의 JSON 인터페이스.                                                                                                                                                                                                                                                                                  |
-| from          | 문자열     | The default address from which the contract deployment/execution transaction is sent. If the `from` address is not defined when creating the transaction, this `myContract.options.from` is always used to create the transaction.                                                                 |
-| gasPrice      | 문자열     | 트랜잭션에 사용할 peb 단위의 가스 가격.                                                                                                                                                                                                                                                                           |
+| from          | string  | The default address from which the contract deployment/execution transaction is sent. If the `from` address is not defined when creating the transaction, this `myContract.options.from` is always used to create the transaction.                                                                 |
+| gasPrice      | string  | 트랜잭션에 사용할 peb 단위의 가스 가격.                                                                                                                                                                                                                                                                           |
 | gas           | number  | 트랜잭션에 제공된 최대 가스 (가스 제한).                                                                                                                                                                                                                                                                           |
-| data          | 문자열     | 컨트랙트의 바이트 코드. 컨트랙트가 배포될 때 사용됩니다.                                                                                                                                                                                                                                                                   |
+| data          | string  | 컨트랙트의 바이트 코드. 컨트랙트가 배포될 때 사용됩니다.                                                                                                                                                                                                                                                                   |
 | feeDelegation | boolean | (optional) Whether to use fee delegation transaction.                                                                                                                                                                                                                                              |
-| feePayer      | 문자열     | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction.                                                                                                                                   |
-| feeRatio      | 문자열     | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
+| feePayer      | string  | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction.                                                                                                                                   |
+| feeRatio      | string  | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
 
 **NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
@@ -250,7 +250,7 @@ Deploys the contract to the Klaytn network. After a successful deployment, the p
 | 명칭         | 타입     | 설명                                                                                                 |
 | ---------- | ------ | -------------------------------------------------------------------------------------------------- |
 | options    | object | 전송에 사용되는 옵션. See the table in [methods.methodName.send](#methods-methodname-send) for the details. |
-| byteCode   | 문자열    | 컨트랙트의 바이트 코드.                                                                                      |
+| byteCode   | string | 컨트랙트의 바이트 코드.                                                                                      |
 | parameters | 복합     | (optional) The parameters that get passed to the constructor on deployment.                        |
 
 
@@ -349,10 +349,10 @@ Returns the object used when deploying the smart contract to the Klaytn. You can
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 명칭        | 타입    | 설명                                                                         |
-| --------- | ----- | -------------------------------------------------------------------------- |
-| data      | 문자열   | 컨트랙트의 바이트 코드.                                                              |
-| arguments | Array | (optional) The arguments that get passed to the constructor on deployment. |
+| 명칭        | 타입     | 설명                                                                         |
+| --------- | ------ | -------------------------------------------------------------------------- |
+| data      | string | 컨트랙트의 바이트 코드.                                                              |
+| arguments | Array  | (optional) The arguments that get passed to the constructor on deployment. |
 
 **리턴값**
 
@@ -448,7 +448,7 @@ The transaction type used for this function depends on the `options` or the valu
 | 명칭         | 타입     | 설명                                                                                                 |
 | ---------- | ------ | -------------------------------------------------------------------------------------------------- |
 | options    | object | 전송에 사용되는 옵션. See the table in [methods.methodName.send](#methods-methodname-send) for the details. |
-| methodName | 문자열    | The method name of the contract function to execute.                                               |
+| methodName | string | The method name of the contract function to execute.                                               |
 | parameters | 복합     | (optional) The parameters that get passed to the smart contract function.                          |
 
 **리턴값**
@@ -595,7 +595,7 @@ The transaction type used for this function depends on the `options` or the valu
 | 명칭         | 타입     | 설명                                                                                                                                                                               |
 | ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | options    | object | 전송에 사용되는 옵션. See the table in [methods.methodName.send](#methods-methodname-send) for the details.                                                                               |
-| methodName | 문자열    | The method name of the contract function to execute. If you want to sign a transaction for deploying the smart contract, use 'constructor' string instead of method name.        |
+| methodName | string | The method name of the contract function to execute. If you want to sign a transaction for deploying the smart contract, use 'constructor' string instead of method name.        |
 | parameters | 복합     | (optional) The parameters that get passed to the smart contract function. If you want to sign a smart contract deploy transaction, pass the byteCode and constructor parameters. |
 
 **리턴값**
@@ -747,7 +747,7 @@ The transaction type used for this function depends on the `options` or the valu
 | 명칭         | 타입     | 설명                                                                                                                                                                               |
 | ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | options    | object | 전송에 사용되는 옵션. See the table in [methods.methodName.send](#methods-methodname-send) for the details.                                                                               |
-| methodName | 문자열    | The method name of the contract function to execute. If you want to sign a transaction for deploying the smart contract, use 'constructor' string instead of method name.        |
+| methodName | string | The method name of the contract function to execute. If you want to sign a transaction for deploying the smart contract, use 'constructor' string instead of method name.        |
 | parameters | 복합     | (optional) The parameters that get passed to the smart contract function. If you want to sign a smart contract deploy transaction, pass the byteCode and constructor parameters. |
 
 **리턴값**
@@ -859,7 +859,7 @@ Will call a constant method and execute its smart contract method in the Klaytn 
 | 명칭         | 타입     | 설명                                                                                                         |
 | ---------- | ------ | ---------------------------------------------------------------------------------------------------------- |
 | options    | object | (선택 사항) 호출에 사용되는 옵션. See the table in [methods.methodName.call](#methods-methodname-call) for the details. |
-| methodName | 문자열    | The method name of the contract function to call.                                                          |
+| methodName | string | The method name of the contract function to call.                                                          |
 | parameters | 복합     | (optional) The parameters that get passed to the smart contract function.                                  |
 
 
@@ -1039,8 +1039,8 @@ Will call a constant method and execute its smart contract method in the Klaytn 
 
 | 명칭       | 타입     | 설명                                                                         |
 | -------- | ------ | -------------------------------------------------------------------------- |
-| from     | 문자열    | (optional) The address which calling contract methods should be made from. |
-| gasPrice | 문자열    | (optional) The gas price in peb to use for this call.                      |
+| from     | string | (optional) The address which calling contract methods should be made from. |
+| gasPrice | string | (optional) The gas price in peb to use for this call.                      |
 | gas      | number | (optional) The maximum gas provided for this call (gas limit).             |
 
 **리턴값**
@@ -1124,13 +1124,13 @@ The transaction type used for this function depends on the `options` or the valu
 
 | 명칭            | 타입                                              | 설명                                                                                                                                                                                                                                                                                                                                                         |
 | ------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from          | 문자열                                             | 트랜잭션을 보낼 송신자 주소. If omitted, `myContract.options.from` will be used.                                                                                                                                                                                                                                                                                       |
+| from          | string                                          | 트랜잭션을 보낼 송신자 주소. If omitted, `myContract.options.from` will be used.                                                                                                                                                                                                                                                                                       |
 | gas           | number                                          | The maximum gas provided for this transaction (gas limit).                                                                                                                                                                                                                                                                                                 |
-| gasPrice      | 문자열                                             | (선택 사항) 트랜잭션에 사용할 peb 단위의 가스 가격.                                                                                                                                                                                                                                                                                                                           |
+| gasPrice      | string                                          | (선택 사항) 트랜잭션에 사용할 peb 단위의 가스 가격.                                                                                                                                                                                                                                                                                                                           |
 | value         | number &#124; string &#124; BN &#124; Bignumber | (optional) The value in peb to be transferred to the address of the smart contract by this transaction.                                                                                                                                                                                                                                                    |
 | feeDelegation | boolean                                         | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `myContract.options.feeDelegation` will be used.                                                                                                                                                                                                                        |
-| feePayer      | 문자열                                             | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `myContract.options.feePayer` will be used.                                                                                                                                   |
-| feeRatio      | 문자열                                             | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `myContract.options.feeRatio` will be used. |
+| feePayer      | string                                          | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `myContract.options.feePayer` will be used.                                                                                                                                   |
+| feeRatio      | string                                          | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `myContract.options.feeRatio` will be used. |
 
 **NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
@@ -1415,13 +1415,13 @@ Will estimate the gas that a method execution will take when executed in the Kla
 
 | 명칭    | 타입                                              | 설명                                                                                                                                                                     |
 | ----- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from  | 문자열                                             | (optional) The address from which calling the contract method should be made.                                                                                          |
+| from  | string                                          | (optional) The address from which calling the contract method should be made.                                                                                          |
 | gas   | number                                          | (optional) The maximum gas provided for this call (gas limit). 특정 값을 설정하면 가스 부족 오류를 감지하는 데 도움이 됩니다. 모든 가스가 사용되면 같은 숫자를 반환합니다.                                          |
 | value | number &#124; string &#124; BN &#124; Bignumber | (optional) The value in peb that would be transferred to the address of the smart contract if the transaction for executing this contract function was sent to Klaytn. |
 
 **리턴값**
 
-`프로미스`는 `Number`을 반환합니다.
+`Promise`는 `number`를 반환합니다.
 
 | 타입     | 설명                                               |
 | ------ | ------------------------------------------------ |
@@ -1455,9 +1455,9 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 
 **리턴값**
 
-| 타입  | 설명                                  |
-| --- | ----------------------------------- |
-| 문자열 | 트랜잭션 또는 호출을 통해 전송할 인코딩된 ABI 바이트 코드. |
+| 타입     | 설명                                  |
+| ------ | ----------------------------------- |
+| string | 트랜잭션 또는 호출을 통해 전송할 인코딩된 ABI 바이트 코드. |
 
 
 **예시**
@@ -1480,7 +1480,7 @@ Subscribes to an event and unsubscribes immediately after the first event or err
 
 | 명칭       | 타입       | 설명                                                                                                                                        |
 | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| event    | 문자열      | The name of the event in the contract, or `allEvents` to get all events.                                                                  |
+| event    | string   | The name of the event in the contract, or `allEvents` to get all events.                                                                  |
 | options  | object   | (optional) The options used for subscription. 자세한 내용은 아래 표를 참조하세요.                                                                        |
 | callback | function | 이 콜백은 첫 번째 이벤트를 두 번째 인수로, 또는 오류를 첫 번째 인수로 하여 발생됩니다. See [myContract.getPastEvents](#getpastevents) for details about the event structure. |
 
@@ -1556,7 +1556,7 @@ myContract.events.eventName([options][, callback])
 | 명칭        | 타입     | 설명                                                                                        |
 | --------- | ------ | ----------------------------------------------------------------------------------------- |
 | data      | object | Fires on each incoming event with the event object as an argument.                        |
-| connected | 문자열    | Fires once after the subscription successfully connected. It returns the subscription ID. |
+| connected | string | Fires once after the subscription successfully connected. It returns the subscription ID. |
 | error     | object | 구독 오류가 발생하면 발생합니다.                                                                        |
 
 **NOTE** `connected` is available with caver-js [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7).
@@ -1565,18 +1565,18 @@ The structure of the returned event `object` looks as follows:
 
 | 명칭               | 타입                   | 설명                                                                                                      |
 | ---------------- | -------------------- | ------------------------------------------------------------------------------------------------------- |
-| event            | 문자열                  | 이벤트 이름.                                                                                                 |
+| event            | string               | 이벤트 이름.                                                                                                 |
 | 서명 값입니다.         | string &#124; `null` | The event signature, `null` if it is an anonymous event.                                                |
-| address          | 문자열                  | 이 이벤트가 발생한 주소.                                                                                          |
+| address          | string               | 이 이벤트가 발생한 주소.                                                                                          |
 | returnValues     | object               | The return values coming from the event, *e.g.*, `{myVar: 1, myVar2: '0x234...'}`.                      |
 | logIndex         | number               | 블록에서 이벤트 인덱스 위치의 정수값.                                                                                   |
 | transactionIndex | number               | 이벤트가 생성된 트랜잭션의 인덱스 위치의 정수값.                                                                             |
 | transactionHash  | 32바이트 문자열            | 이 이벤트가 생성된 트랜잭션의 해시. 아직 보류 중인 경우 `null`.                                                                |
 | blockHash        | 32바이트 문자열            | 이 이벤트가 생성된 블록의 해시. 아직 보류 중인 경우 `null`.                                                                  |
 | blocknumber      | number               | 이 로그가 생성된 블록 번호. 아직 보류 중인 경우 `null`.                                                                    |
-| raw.data         | 문자열                  | 색인화되지 않은 로그 매개변수를 포함하는 데이터.                                                                             |
+| raw.data         | string               | 색인화되지 않은 로그 매개변수를 포함하는 데이터.                                                                             |
 | raw.topics       | Array                | An array with a maximum of four 32-byte topics, and topic 1-3 contains indexed parameters of the event. |
-| id               | 문자열                  | 로그 식별자. `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`을 사용하여 "log_" 문자열을 연결하여 작성됩니다.  |
+| id               | string               | 로그 식별자. `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`을 사용하여 "log_" 문자열을 연결하여 작성됩니다.  |
 
 **예시**
 
@@ -1636,7 +1636,7 @@ myContract.getPastEvents(event [, options] [, callback])
 
 | 명칭       | 타입       | 설명                                                                                                                            |
 | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| event    | 문자열      | 컨트랙트, 또는 모든 이벤트를 받기 위한 `"allEvents"`에서의 이벤트 이름.                                                                               |
+| event    | string   | 컨트랙트, 또는 모든 이벤트를 받기 위한 `"allEvents"`에서의 이벤트 이름.                                                                               |
 | options  | object   | (optional) The options used for subscription. 자세한 내용은 아래 표를 참조하세요.                                                            |
 | callback | function | (optional) This callback will be fired with an array of event logs as the second argument, or an error as the first argument. |
 
@@ -1657,14 +1657,14 @@ An event object can contain the following:
 
 | 명칭               | 타입                   | 설명                                                                                                                                                                                                            |
 | ---------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| event            | 문자열                  | 이벤트 이름.                                                                                                                                                                                                       |
+| event            | string               | 이벤트 이름.                                                                                                                                                                                                       |
 | 서명 값입니다.         | string &#124; `null` | The event signature, `null` if it’s an anonymous event.                                                                                                                                                       |
-| address          | 문자열                  | Address this event originated from.                                                                                                                                                                           |
+| address          | string               | Address this event originated from.                                                                                                                                                                           |
 | returnValues     | object               | The return values coming from the event, e.g. {myVar: 1, myVar2: '0x234...'}.                                                                                                                                 |
 | logIndex         | number               | The event index position in the block.                                                                                                                                                                        |
 | transactionIndex | number               | The transaction’s index position the event was created in.                                                                                                                                                    |
-| transactionHash  | 문자열                  | The hash of the transaction this event was created in.                                                                                                                                                        |
-| blockHash        | 문자열                  | The hash of the block this event was created in. null when it’s still pending.                                                                                                                                |
+| transactionHash  | string               | The hash of the transaction this event was created in.                                                                                                                                                        |
+| blockHash        | string               | The hash of the block this event was created in. null when it’s still pending.                                                                                                                                |
 | blockNumber      | number               | The block number this log was created in. null when still pending.                                                                                                                                            |
 | raw              | object               | An object defines `data` and `topic`. `raw.data` containing non-indexed log parameter. `raw.topic` is an array with a maximum of four 32 Byte topics, and topic 1-3 contains indexed parameters of the event. |
 
