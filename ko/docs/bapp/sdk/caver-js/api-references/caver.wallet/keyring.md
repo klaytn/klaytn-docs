@@ -26,7 +26,7 @@ const keyring = new caver.wallet.keyring.singleKeyring(address, key)
 
 | 명칭      | 타입             | 설명                                                               |
 | ------- | -------------- | ---------------------------------------------------------------- |
-| address | 문자열            | 계정 주소.                                                           |
+| address | string         | 계정 주소.                                                           |
 | key     | [PrivateKey][] | An instance of [PrivateKey][] containing one private key inside. |
 
 ### MultipleKeyring <a id="multiplekeyring"></a>
@@ -41,10 +41,10 @@ const keyring = new caver.wallet.keyring.multipleKeyring(address, keys)
 
 **속성**
 
-| 명칭      | 타입    | 설명                                                                      |
-| ------- | ----- | ----------------------------------------------------------------------- |
-| address | 문자열   | 계정 주소.                                                                  |
-| keys    | Array | An array of [PrivateKey][] instances containing one private key inside. |
+| 명칭      | 타입     | 설명                                                                      |
+| ------- | ------ | ----------------------------------------------------------------------- |
+| address | string | 계정 주소.                                                                  |
+| keys    | Array  | An array of [PrivateKey][] instances containing one private key inside. |
 
 ### RoleBasedKeyring <a id="rolebasedkeyring"></a>
 
@@ -58,10 +58,10 @@ const keyring = new caver.wallet.keyring.roleBasedKeyring(address, keys)
 
 **속성**
 
-| 명칭      | 타입    | 설명                                                                                                                                                                                                                                                               |
-| ------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address | 문자열   | 계정 주소.                                                                                                                                                                                                                                                           |
-| keys    | Array | A two-dimensional array that defines the keys used for each [role][]. Each [role][] includes [PrivateKey][] instance(s). The first element in this is `roleTransactionKey`. The second element is `roleAccountUpdateKey`. The last element is `roleFeePayerKey`. |
+| 명칭      | 타입     | 설명                                                                                                                                                                                                                                                               |
+| ------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address | string | 계정 주소.                                                                                                                                                                                                                                                           |
+| keys    | Array  | A two-dimensional array that defines the keys used for each [role][]. Each [role][] includes [PrivateKey][] instance(s). The first element in this is `roleTransactionKey`. The second element is `roleAccountUpdateKey`. The last element is `roleFeePayerKey`. |
 
 Below is a getter defined in keyring to intuitively use the key defined for each role. The key used for each role can be accessed more easily through the getter below.
 
@@ -82,9 +82,9 @@ const privateKey = new caver.wallet.keyring.privateKey('0x{private key}')
 
 **속성**
 
-| 명칭         | 타입  | 설명                      |
-| ---------- | --- | ----------------------- |
-| privateKey | 문자열 | The private key string. |
+| 명칭         | 타입     | 설명                      |
+| ---------- | ------ | ----------------------- |
+| privateKey | string | The private key string. |
 
 
 ### SignatureData <a id="signaturedata"></a>
@@ -113,9 +113,9 @@ Generates a SingleKeyring instance with a randomly generated private key.
 
 **매개변수**
 
-| 명칭      | 타입  | 설명                                              |
-| ------- | --- | ----------------------------------------------- |
-| entropy | 문자열 | (optional) A random string to increase entropy. |
+| 명칭      | 타입     | 설명                                              |
+| ------- | ------ | ----------------------------------------------- |
+| entropy | string | (optional) A random string to increase entropy. |
 
 **리턴값**
 
@@ -143,15 +143,15 @@ Generates a private key string.
 
 **매개변수**
 
-| 명칭      | 타입  | 설명                                              |
-| ------- | --- | ----------------------------------------------- |
-| entropy | 문자열 | (optional) A random string to increase entropy. |
+| 명칭      | 타입     | 설명                                              |
+| ------- | ------ | ----------------------------------------------- |
+| entropy | string | (optional) A random string to increase entropy. |
 
 **리턴값**
 
-| 타입  | 설명                                  |
-| --- | ----------------------------------- |
-| 문자열 | The private key string is returned. |
+| 타입     | 설명                                  |
+| ------ | ----------------------------------- |
+| string | The private key string is returned. |
 
 **예시**
 
@@ -173,7 +173,7 @@ Generates private key strings.
 | 명칭      | 타입     | 설명                                              |
 | ------- | ------ | ----------------------------------------------- |
 | num     | number | The number of private key strings.              |
-| entropy | 문자열    | (optional) A random string to increase entropy. |
+| entropy | string | (optional) A random string to increase entropy. |
 
 **리턴값**
 
@@ -202,10 +202,10 @@ Generates a 2D array of which each array element contains keys defined for each 
 
 **매개변수**
 
-| 명칭       | 타입    | 설명                                                        |
-| -------- | ----- | --------------------------------------------------------- |
-| numArray | Array | An array containing the number of keys for each [role][]. |
-| entropy  | 문자열   | (optional) A random string to increase entropy.           |
+| 명칭       | 타입     | 설명                                                        |
+| -------- | ------ | --------------------------------------------------------- |
+| numArray | Array  | An array containing the number of keys for each [role][]. |
+| entropy  | string | (optional) A random string to increase entropy.           |
 
 **리턴값**
 
@@ -247,7 +247,7 @@ If `key` is a private key string, a [SingleKeyring][] instance that uses a singl
 
 | 명칭      | 타입                  | 설명                                                                                                                                  |
 | ------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| address | 문자열                 | An array containing the number of keys for each [role][].                                                                           |
+| address | string              | An array containing the number of keys for each [role][].                                                                           |
 | key     | string &#124; Array | The private key string, an array of private keys, or a 2D array of which each element contains key(s) to be used for each [role][]. |
 
 **리턴값**
@@ -312,9 +312,9 @@ Creates a `SingleKeyring` instance from a private key string or a [KlaytnWalletK
 
 **매개변수**
 
-| 명칭  | 타입  | 설명                                                                 |
-| --- | --- | ------------------------------------------------------------------ |
-| key | 문자열 | This parameter can be either a private key or [KlaytnWalletKey][]. |
+| 명칭  | 타입     | 설명                                                                 |
+| --- | ------ | ------------------------------------------------------------------ |
+| key | string | This parameter can be either a private key or [KlaytnWalletKey][]. |
 
 **리턴값**
 
@@ -350,9 +350,9 @@ Creates a `SingleKeyring` instance from a [KlaytnWalletKey][] string.
 
 **매개변수**
 
-| 명칭              | 타입  | 설명                              |
-| --------------- | --- | ------------------------------- |
-| klaytnWalletKey | 문자열 | The [KlaytnWalletKey][] string. |
+| 명칭              | 타입     | 설명                              |
+| --------------- | ------ | ------------------------------- |
+| klaytnWalletKey | string | The [KlaytnWalletKey][] string. |
 
 **리턴값**
 
@@ -380,10 +380,10 @@ Creates a `SingleKeyring` instance from an address and a private key string.
 
 **매개변수**
 
-| 명칭      | 타입  | 설명                                            |
-| ------- | --- | --------------------------------------------- |
-| address | 문자열 | An address to be used for creating a keyring. |
-| key     | 문자열 | A private key string.                         |
+| 명칭      | 타입     | 설명                                            |
+| ------- | ------ | --------------------------------------------- |
+| address | string | An address to be used for creating a keyring. |
+| key     | string | A private key string.                         |
 
 **리턴값**
 
@@ -411,10 +411,10 @@ Creates a `MultipleKeyring` instance from an address and private key strings.
 
 **매개변수**
 
-| 명칭       | 타입    | 설명                               |
-| -------- | ----- | -------------------------------- |
-| address  | 문자열   | An address of keyring.           |
-| keyArray | Array | An array of private key strings. |
+| 명칭       | 타입     | 설명                               |
+| -------- | ------ | -------------------------------- |
+| address  | string | An address of keyring.           |
+| keyArray | Array  | An array of private key strings. |
 
 **리턴값**
 
@@ -445,10 +445,10 @@ Creates a `RoleBasedKeyring` instance from an address and a 2D array of which ea
 
 **매개변수**
 
-| 명칭                 | 타입    | 설명                                                                              |
-| ------------------ | ----- | ------------------------------------------------------------------------------- |
-| address            | 문자열   | An address of keyring.                                                          |
-| roledBasedKeyArray | Array | A two-dimensional array containing arrays of private key strings for each role. |
+| 명칭                 | 타입     | 설명                                                                              |
+| ------------------ | ------ | ------------------------------------------------------------------------------- |
+| address            | string | An address of keyring.                                                          |
+| roledBasedKeyArray | Array  | A two-dimensional array containing arrays of private key strings for each role. |
 
 **리턴값**
 
@@ -497,7 +497,7 @@ Decrypts a keystore v3 or v4 JSON and returns the decrypted Keyring instance.
 | 명칭   | 타입     | 설명                                |
 | ---- | ------ | --------------------------------- |
 | 키스토어 | object | The keystore v3 or v4 to decrypt. |
-| 비밀번호 | 문자열    | 암호화에 사용되는 비밀번호.                   |
+| 비밀번호 | string | 암호화에 사용되는 비밀번호.                   |
 
 **리턴값**
 
@@ -811,7 +811,7 @@ When signing transactions, it is recommended to use [caver.wallet.sign][] or [tr
 
 | 명칭              | 타입                   | 설명                                                                                                                                                                                                                             |
 | --------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| transactionHash | 문자열                  | The hash string of a transaction to sign.                                                                                                                                                                                      |
+| transactionHash | string               | The hash string of a transaction to sign.                                                                                                                                                                                      |
 | chainId         | string &#124; number | The chain id of the Klaytn blockchain platform.                                                                                                                                                                                |
 | role            | number               | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                              |
 | index           | number               | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
@@ -883,7 +883,7 @@ If the user has not defined the index parameter, `keyring.signMessage` signs mes
 
 | 명칭    | 타입     | 설명                                                                                                                                                                                                                             |
 | ----- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 메시지   | 문자열    | The message to sign.                                                                                                                                                                                                           |
+| 메시지   | string | The message to sign.                                                                                                                                                                                                           |
 | role  | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                              |
 | index | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
 
@@ -895,11 +895,11 @@ If the user has not defined the index parameter, `keyring.signMessage` signs mes
 
 The returned object contains the following:
 
-| 명칭          | 타입    | 설명                                               |
-| ----------- | ----- | ------------------------------------------------ |
-| messageHash | 문자열   | The hash of message with Klaytn-specific prefix. |
-| signatures  | Array | An array of [SignatureData][].                   |
-| 메시지         | 문자열   | The message to sign.                             |
+| 명칭          | 타입     | 설명                                               |
+| ----------- | ------ | ------------------------------------------------ |
+| messageHash | string | The hash of message with Klaytn-specific prefix. |
+| signatures  | Array  | An array of [SignatureData][].                   |
+| 메시지         | string | The message to sign.                             |
 
 **예시**
 
@@ -1010,9 +1010,9 @@ Returns the [KlaytnWalletKey][] string for the keyring. With [MultipleKeyring][]
 
 **리턴값**
 
-| 타입  | 설명                                      |
-| --- | --------------------------------------- |
-| 문자열 | The [KlaytnWalletKey][] of the keyring. |
+| 타입     | 설명                                      |
+| ------ | --------------------------------------- |
+| string | The [KlaytnWalletKey][] of the keyring. |
 
 **예시**
 
@@ -1164,10 +1164,10 @@ Encrypts a keyring and returns a keystore v4 standard. 더 자세한 내용은 [
 
 **매개변수**
 
-| 명칭      | 타입  | 설명                                                                                                   |
-| ------- | --- | ---------------------------------------------------------------------------------------------------- |
-| 비밀번호    | 문자열 | The password to be used for encryption. The encrypted key store can be decrypted with this password. |
-| options | 문자열 | (optional) The `options` parameter allows you to specify the values to use when using encrypt.       |
+| 명칭      | 타입     | 설명                                                                                                   |
+| ------- | ------ | ---------------------------------------------------------------------------------------------------- |
+| 비밀번호    | string | The password to be used for encryption. The encrypted key store can be decrypted with this password. |
+| options | string | (optional) The `options` parameter allows you to specify the values to use when using encrypt.       |
 
 **리턴값**
 
@@ -1180,8 +1180,8 @@ The returned object contains the following:
 | 명칭      | 타입     | 설명                                        |
 | ------- | ------ | ----------------------------------------- |
 | version | number | The version of keystore.                  |
-| id      | 문자열    | The id of keystore.                       |
-| address | 문자열    | The address in the encrypted [Keyring][]. |
+| id      | string | The id of keystore.                       |
+| address | string | The address in the encrypted [Keyring][]. |
 | keyring | Array  | The encrypted private key(s).             |
 
 더 자세한 내용은 [KIP-3](https://kips.klaytn.com/KIPs/kip-3)를 참조하십시오.
@@ -1314,10 +1314,10 @@ Note that [MultipleKeyring][] and [RoleBasedKeyring][] cannot use encryptV3. In 
 
 **매개변수**
 
-| 명칭      | 타입  | 설명                                                                                                              |
-| ------- | --- | --------------------------------------------------------------------------------------------------------------- |
-| 비밀번호    | 문자열 | The password to be used for encryption. The encrypted key store can be decrypted with this password.            |
-| options | 문자열 | (optional) The password to be used for encryption. The encrypted key store can be decrypted with this password. |
+| 명칭      | 타입     | 설명                                                                                                              |
+| ------- | ------ | --------------------------------------------------------------------------------------------------------------- |
+| 비밀번호    | string | The password to be used for encryption. The encrypted key store can be decrypted with this password.            |
+| options | string | (optional) The password to be used for encryption. The encrypted key store can be decrypted with this password. |
 
 **리턴값**
 
@@ -1330,8 +1330,8 @@ The returned object contains the following:
 | 명칭      | 타입     | 설명                                    |
 | ------- | ------ | ------------------------------------- |
 | version | number | The version of keystore.              |
-| id      | 문자열    | The id of keystore.                   |
-| address | 문자열    | The address of encrypted [Keyring][]. |
+| id      | string | The id of keystore.                   |
+| address | string | The address of encrypted [Keyring][]. |
 | crypto  | object | The encrypted private key.            |
 
 **예시**
