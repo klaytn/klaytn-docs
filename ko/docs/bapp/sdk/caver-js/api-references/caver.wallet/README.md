@@ -31,7 +31,7 @@ Generates instances of [SingleKeyring][] in the keyringContainer with randomly g
 | 명칭               | 타입     | 설명                                                   |
 | ---------------- | ------ | ---------------------------------------------------- |
 | numberOfKeyrings | number | The number of [SingleKeyring][] instances to create. |
-| entropy          | 문자열    | (optional) A random string to increase entropy.      |
+| entropy          | string | (optional) A random string to increase entropy.      |
 
 **리턴값**
 
@@ -73,7 +73,7 @@ If `key` is a private key string, a [SingleKeyring][] instance that uses a singl
 
 | 명칭      | 타입                  | 설명                                                                                                                                   |
 | ------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| address | 문자열                 | The address string.                                                                                                                  |
+| address | string              | The address string.                                                                                                                  |
 | key     | string &#124; Array | The private key string, an array of private keys, or a 2D array of which each array element contains keys defined for each [role][]. |
 
 **리턴값**
@@ -168,9 +168,9 @@ Returns the keyring instance corresponding to the address in `caver.wallet`.
 
 **매개변수**
 
-| 명칭      | 타입  | 설명                               |
-| ------- | --- | -------------------------------- |
-| address | 문자열 | The address of keyring to query. |
+| 명칭      | 타입     | 설명                               |
+| ------- | ------ | -------------------------------- |
+| address | string | The address of keyring to query. |
 
 **리턴값**
 
@@ -228,9 +228,9 @@ Deletes the keyring from `caver.wallet` whose address matches the address of the
 
 **매개변수**
 
-| 명칭      | 타입  | 설명                                                         |
-| ------- | --- | ---------------------------------------------------------- |
-| address | 문자열 | An address of the keyring to be deleted in `caver.wallet`. |
+| 명칭      | 타입     | 설명                                                         |
+| ------- | ------ | ---------------------------------------------------------- |
+| address | string | An address of the keyring to be deleted in `caver.wallet`. |
 
 **리턴값**
 
@@ -263,8 +263,8 @@ If the user has not provided the index parameter, `caver.wallet.signMessage` sig
 
 | 명칭      | 타입     | 설명                                                                                                                                                                                                                             |
 | ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address | 문자열    | An address of the keyring to be used.                                                                                                                                                                                          |
-| 메시지     | 문자열    | The message to sign.                                                                                                                                                                                                           |
+| address | string | An address of the keyring to be used.                                                                                                                                                                                          |
+| 메시지     | string | The message to sign.                                                                                                                                                                                                           |
 | role    | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                              |
 | index   | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
 
@@ -276,11 +276,11 @@ If the user has not provided the index parameter, `caver.wallet.signMessage` sig
 
 The returned object contains the following:
 
-| 명칭          | 타입    | 설명                                               |
-| ----------- | ----- | ------------------------------------------------ |
-| messageHash | 문자열   | The hash of message with Klaytn-specific prefix. |
-| signatures  | Array | An array of [SignatureData][].                   |
-| 메시지         | 문자열   | The message to sign.                             |
+| 명칭          | 타입     | 설명                                               |
+| ----------- | ------ | ------------------------------------------------ |
+| messageHash | string | The hash of message with Klaytn-specific prefix. |
+| signatures  | Array  | An array of [SignatureData][].                   |
+| 메시지         | string | The message to sign.                             |
 
 **예시**
 
@@ -321,7 +321,7 @@ For [Account Update][] transaction, use [roleTransactionKey][], otherwise, use [
 
 | 명칭      | 타입       | 설명                                                                                                                                                                                                                                                                                                                                                            |
 | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address | 문자열      | An address of the keyring to be used.                                                                                                                                                                                                                                                                                                                         |
+| address | string   | An address of the keyring to be used.                                                                                                                                                                                                                                                                                                                         |
 | 트랜잭션    | object   | An instance of [Transaction][].                                                                                                                                                                                                                                                                                                                               |
 | index   | number   | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                |
 | hasher  | function | (optional) A hash function to get the transaction hash. If `hasher` is given as a parameter, it calculates the transaction hash instead of the default method for calculating transaction hash implemented in caver-js. See [Basic](../../../../../klaytn/design/transactions/basic.md) for details about the default method for transaction hash generation. |
@@ -433,7 +433,7 @@ If the `transaction.feePayer` is not defined, the address of keyring which is fo
 
 | 명칭      | 타입       | 설명                                                                                                                                                                                                                             |
 | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address | 문자열      | An address of the keyring to be used.                                                                                                                                                                                          |
+| address | string   | An address of the keyring to be used.                                                                                                                                                                                          |
 | 트랜잭션    | object   | An instance of [FeeDelegatedTransaction][].                                                                                                                                                                                    |
 | index   | number   | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
 | hasher  | function | (optional) A function to get the transaction hash. If hasher is defined as a parameter, this is used to get the transaction hash instead of a default implementation in caver-js.                                              |
