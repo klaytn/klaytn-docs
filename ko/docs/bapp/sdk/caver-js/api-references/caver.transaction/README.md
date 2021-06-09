@@ -28,9 +28,9 @@ Decodes RLP-encoded transaction string, a raw transaction, and returns a [Transa
 
 **매개변수**
 
-| 명칭         | 타입  | 설명                                          |
-| ---------- | --- | ------------------------------------------- |
-| rlpEncoded | 문자열 | A RLP-encoded transaction string to decode. |
+| 명칭         | 타입     | 설명                                          |
+| ---------- | ------ | ------------------------------------------- |
+| rlpEncoded | string | A RLP-encoded transaction string to decode. |
 
 **리턴값**
 
@@ -334,15 +334,15 @@ Collects signs in each RLP-encoded transaction string in the given array, combin
 
 **매개변수**
 
-| 명칭            | 타입 | 설명                                                  |
-| ------------- | -- | --------------------------------------------------- |
-| rlpEncodedTxs | 배열 | An array of signed RLP-encoded transaction strings. |
+| 명칭            | 타입    | 설명                                                  |
+| ------------- | ----- | --------------------------------------------------- |
+| rlpEncodedTxs | Array | An array of signed RLP-encoded transaction strings. |
 
 **리턴값**
 
-| 타입  | 설명                                                                                                                                                                           |
-| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 문자열 | A RLP-encoded transaction string which includes all `signatures` (and `feePayerSignatures` if transaction is a type of either "fee-delgated" or "fee-delegated with ratio"). |
+| 타입     | 설명                                                                                                                                                                           |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| string | A RLP-encoded transaction string which includes all `signatures` (and `feePayerSignatures` if transaction is a type of either "fee-delgated" or "fee-delegated with ratio"). |
 
 **예시**
 
@@ -363,9 +363,9 @@ For information on how to make the RLP-encoded string for each transaction type,
 
 **리턴값**
 
-| 타입  | 설명                                |
-| --- | --------------------------------- |
-| 문자열 | A RLP-encoded transaction string. |
+| 타입     | 설명                                |
+| ------ | --------------------------------- |
+| string | A RLP-encoded transaction string. |
 
 **예시**
 
@@ -384,9 +384,9 @@ Returns a `rawTransaction` string (a RLP-encoded transaction string). This funct
 
 **리턴값**
 
-| 타입  | 설명                                |
-| --- | --------------------------------- |
-| 문자열 | A RLP-encoded transaction string. |
+| 타입     | 설명                                |
+| ------ | --------------------------------- |
+| string | A RLP-encoded transaction string. |
 
 **예시**
 
@@ -407,9 +407,9 @@ For information on how to make the transaction hash for each transaction type, s
 
 **리턴값**
 
-| 타입  | 설명                 |
-| --- | ------------------ |
-| 문자열 | A transactionHash. |
+| 타입     | 설명                 |
+| ------ | ------------------ |
+| string | A transactionHash. |
 
 **예시**
 
@@ -432,9 +432,9 @@ For information on how to make the [senderTxHash][] for each transaction type, s
 
 **리턴값**
 
-| 타입  | 설명              |
-| --- | --------------- |
-| 문자열 | A senderTxHash. |
+| 타입     | 설명              |
+| ------ | --------------- |
+| string | A senderTxHash. |
 
 **예시**
 
@@ -455,9 +455,9 @@ For information on how to make a RLP-encoded transaction string to generate the 
 
 **리턴값**
 
-| 타입  | 설명                                                               |
-| --- | ---------------------------------------------------------------- |
-| 문자열 | A RLP-encoded transaction string without any signature attached. |
+| 타입     | 설명                                                               |
+| ------ | ---------------------------------------------------------------- |
+| string | A RLP-encoded transaction string without any signature attached. |
 
 **예시**
 
@@ -480,9 +480,9 @@ For information on how to make a RLP-encoded transaction string to generate the 
 
 **리턴값**
 
-| 타입  | 설명                                                               |
-| --- | ---------------------------------------------------------------- |
-| 문자열 | A RLP-encoded transaction string without any signature attached. |
+| 타입     | 설명                                                               |
+| ------ | ---------------------------------------------------------------- |
+| string | A RLP-encoded transaction string without any signature attached. |
 
 **예시**
 
