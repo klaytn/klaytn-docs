@@ -125,7 +125,7 @@ caver.kct.kip37.create([tokenAddress])
 ```
 새로운 KIP37 인스턴스를 인스턴스 메소드, 이벤트들과 함께 생성합니다. 이 함수는 [new KIP37](#new-kip37)과 동일하게 작동합니다.
 
-**NOTE** `caver.kct.kip37.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**참고** `caver.kct.kip37.create`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
 **매개변수**
 
