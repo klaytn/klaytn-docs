@@ -1,10 +1,10 @@
 # caver.transaction <a id="caver-transaction"></a>
 
-`caver.transaction` is a package that provides functionality related to Transaction.
+`caver.transaction`는 트랜잭션 관련 기능을 제공하는 패키지입니다.
 
 ## Class <a id="class"></a>
 
-Each transaction class is described in detail with the table below:
+각 트랜잭션 클래스에 대한 자세한 설명이 있습니다:
 
 |                        | 일반 트랜잭션                                                   | 수수료 위임 트랜잭션                                                                                | 수수료 부분 위임 트랜잭션                                                                                                       |
 |:---------------------- |:--------------------------------------------------------- |:------------------------------------------------------------------------------------------ |:-------------------------------------------------------------------------------------------------------------------- |
@@ -24,19 +24,19 @@ Each transaction class is described in detail with the table below:
 caver.transaction.decode(rlpEncoded)
 ```
 
-Decodes RLP-encoded transaction string, a raw transaction, and returns a [Transaction][] instance.
+RLP 인코딩된 트랜잭션 문자열, 원시(raw) 트랜잭션을 디코딩하여 [트랜잭션][] 인스턴스를 반환합니다.
 
 **매개변수**
 
-| 명칭         | 타입     | 설명                                          |
-| ---------- | ------ | ------------------------------------------- |
-| rlpEncoded | string | A RLP-encoded transaction string to decode. |
+| 명칭         | 타입     | 설명                         |
+| ---------- | ------ | -------------------------- |
+| rlpEncoded | string | 디코딩할 RLP 인코딩된 트랜잭션 문자열입니다. |
 
 **리턴값**
 
-| 타입     | 설명                                                                                         |
-| ------ | ------------------------------------------------------------------------------------------ |
-| object | An instance of [Transaction][]. For details of each transaction, refer to [Transaction][]. |
+| 타입     | 설명                                                     |
+| ------ | ------------------------------------------------------ |
+| object | [트랜잭션][]의 인스턴스입니다. 각 트랜잭션에 대한 자세한 설명은 [트랜잭션][]을 참고하세요. |
 
 **예시**
 
@@ -62,25 +62,25 @@ ValueTransfer {
 transaction.sign(keyring [, index] [, hasher])
 ```
 
-Signs the transaction as a transaction sender with the private key(s) in the `keyring` and appends `signatures` in the transaction object.
+트랜잭션 발송자로서 `keyring` 내 개인키로 트랜잭션에 서명하며, 트랜잭션 객체에 `signatures`를 첨부합니다.
 
-For [Account Update] transaction, use [roleAccountUpdateKey], or otherwise, use [roleTransactionKey] in [RoleBasedKeyring][]. If the user has not defined an `index`, `transaction.sign` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.sign` signs the transaction using only one private key at the given index.
+[Account Update] 트랜잭션을 위해서는 [roleAccountUpdateKey]를 사용하고, 그 외에는 [RoleBasedKeyring][] 내 [roleTransactionKey]를 사용합니다. 사용자가 `index`를 정의하지 않았다면, `transaction.sign`이 해당 역할에 의해 사용되는 모든 개인키를 가지고 트랜잭션에 서명합니다. `index`가 정의되어 있다면, `transaction.sign`이 주어진 인덱스에 대응하는 하나의 개인키를 가지고 트랜잭션에 서명합니다.
 
 **매개변수**
 
-| 명칭      | 타입                   | 설명                                                                                                                                                                                                                                                                                   |
-| ------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| keyring | object &#124; string | A private key string ([KlaytnWalletKey][] format is also allowed) or an instance of Keyring ([SingleKeyring][], [MultipleKeyring][] or [RoleBasedKeyring][]). If a private key string or a [KlaytnWalletKey][] is passed as a parameter, the keyring instance is created internally. |
-| index   | number               | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                       |
-| hasher  | Function             | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                     |
+| 명칭      | 타입                   | 설명                                                                                                                                                                                                   |
+| ------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keyring | object &#124; string | 개인키 문자열([KlaytnWalletKey][] 형식도 가능) 또는 Keyring ([SingleKeyring][], [MultipleKeyring][] 또는 [RoleBasedKeyring][])의 인스턴스입니다. 만약 개인키 문자열이나 [KlaytnWalletKey][]가 파라미터로 전달되었다면, 내부적으로 Keyring 인스턴스가 생성됩니다. |
+| index   | number               | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. 인덱스는 각각의 역할에 정의된 개인키들의 배열 길이보다 작아야 합니다. 인덱스가 정의되지 않았을 경우, 이 메서드는 모든 개인키를 사용합니다.                                                                                        |
+| hasher  | Function             | (선택 사항) 트랜잭션의 해시를 구하기 위한 해시 함수입니다.                                                                                                                                                                   |
 
 **리턴값**
 
-`Promise` returning `object`: The signed transaction.
+`Promise`는 `객체`를 반환: 서명된 트랜잭션입니다.
 
-| 타입     | 설명                                                                                                |
-| ------ | ------------------------------------------------------------------------------------------------- |
-| object | An instance of signed [Transaction][]. The signature is appended to the `transaction.signatures`. |
+| 타입     | 설명                                                           |
+| ------ | ------------------------------------------------------------ |
+| object | 서명된 [트랜잭션][]의 인스턴스입니다. `transaction.signatures`에 첨부되는 서명입니다. |
 
 **예시**
 
@@ -180,19 +180,19 @@ If the `keyring` to be used for signing the transaction was added to `caver.wall
 
 **매개변수**
 
-| 명칭      | 타입                   | 설명                                                                                                                                                                                                                                                                                   |
-| ------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| keyring | object &#124; string | A private key string ([KlaytnWalletKey][] format is also allowed) or an instance of Keyring ([SingleKeyring][], [MultipleKeyring][] or [RoleBasedKeyring][]). If the private key string or [KlaytnWalletKey][] is passed as a parameter, the keyring instance is created internally. |
-| index   | number               | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                       |
-| hasher  | Function             | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                     |
+| 명칭      | 타입                   | 설명                                                                                                                                                                                                                                               |
+| ------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| keyring | object &#124; string | 개인키 문자열([KlaytnWalletKey][] 형식도 가능) 또는 Keyring ([SingleKeyring][], [MultipleKeyring][] 또는 [RoleBasedKeyring][])의 인스턴스입니다. If the private key string or [KlaytnWalletKey][] is passed as a parameter, the keyring instance is created internally. |
+| index   | number               | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                              |
+| hasher  | Function             | (선택 사항) 트랜잭션의 해시를 구하기 위한 해시 함수입니다.                                                                                                                                                                                                               |
 
 **리턴값**
 
 `Promise` returning `object`: The signed transaction.
 
-| 타입     | 설명                                                                                                        |
-| ------ | --------------------------------------------------------------------------------------------------------- |
-| object | An instance of signed [Transaction][]. The signature is appended to the `transaction.feePayerSignatures`. |
+| 타입     | 설명                                                                                        |
+| ------ | ----------------------------------------------------------------------------------------- |
+| object | 서명된 [트랜잭션][]의 인스턴스입니다. The signature is appended to the `transaction.feePayerSignatures`. |
 
 **예시**
 
@@ -515,7 +515,7 @@ Use [caver.rpc.klay.getGasPrice][] to get `gasPrice`, [caver.rpc.klay.getTransac
 
 [Klaytn Design - Transactions]: ../../../../../klaytn/design/transactions/README.md
 [senderTxHash]: ../../../../../klaytn/design/transactions/README.md#sendertxhash
-[Transaction]: #class
+[트랜잭션]: #class
 [KlaytnWalletKey]: ../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format
 [SingleKeyring]: ../caver.wallet/keyring.md#singlekeyring
 [MultipleKeyring]: ../caver.wallet/keyring.md#multiplekeyring
