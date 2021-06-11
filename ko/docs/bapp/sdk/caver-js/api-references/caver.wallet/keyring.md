@@ -809,12 +809,12 @@ When signing transactions, it is recommended to use [caver.wallet.sign][] or [tr
 
 **매개변수**
 
-| 명칭              | 타입                   | 설명                                                                                                                                                                                                                             |
-| --------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| transactionHash | string               | The hash string of a transaction to sign.                                                                                                                                                                                      |
-| chainId         | string &#124; number | The chain id of the Klaytn blockchain platform.                                                                                                                                                                                |
-| role            | number               | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                              |
-| index           | number               | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
+| 명칭              | 타입                   | 설명                                                                                                                                                                                                  |
+| --------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| transactionHash | string               | The hash string of a transaction to sign.                                                                                                                                                           |
+| chainId         | string &#124; number | The chain id of the Klaytn blockchain platform.                                                                                                                                                     |
+| role            | number               | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                   |
+| index           | number               | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
 
 **리턴값**
 
@@ -881,11 +881,11 @@ If the user has not defined the index parameter, `keyring.signMessage` signs mes
 
 **매개변수**
 
-| 명칭    | 타입     | 설명                                                                                                                                                                                                                             |
-| ----- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 메시지   | string | The message to sign.                                                                                                                                                                                                           |
-| role  | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                              |
-| index | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
+| 명칭    | 타입     | 설명                                                                                                                                                                                                  |
+| ----- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 메시지   | string | The message to sign.                                                                                                                                                                                |
+| role  | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                   |
+| index | number | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
 
 **리턴값**
 
