@@ -261,12 +261,12 @@ If the user has not provided the index parameter, `caver.wallet.signMessage` sig
 
 **매개변수**
 
-| 명칭      | 타입     | 설명                                                                                                                                                                                                                             |
-| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address | string | An address of the keyring to be used.                                                                                                                                                                                          |
-| 메시지     | string | The message to sign.                                                                                                                                                                                                           |
-| role    | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                              |
-| index   | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
+| 명칭      | 타입     | 설명                                                                                                                                                                                                  |
+| ------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address | string | An address of the keyring to be used.                                                                                                                                                               |
+| 메시지     | string | The message to sign.                                                                                                                                                                                |
+| role    | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                   |
+| index   | number | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
 
 **리턴값**
 
@@ -323,7 +323,7 @@ For [Account Update][] transaction, use [roleTransactionKey][], otherwise, use [
 | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address | string   | An address of the keyring to be used.                                                                                                                                                                                                                                                                                                                         |
 | 트랜잭션    | object   | An instance of [Transaction][].                                                                                                                                                                                                                                                                                                                               |
-| index   | number   | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                |
+| index   | number   | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                                           |
 | hasher  | function | (optional) A hash function to get the transaction hash. If `hasher` is given as a parameter, it calculates the transaction hash instead of the default method for calculating transaction hash implemented in caver-js. See [Basic](../../../../../klaytn/design/transactions/basic.md) for details about the default method for transaction hash generation. |
 
 **리턴값**
@@ -431,12 +431,12 @@ If the `transaction.feePayer` is not defined, the address of keyring which is fo
 
 **매개변수**
 
-| 명칭      | 타입       | 설명                                                                                                                                                                                                                             |
-| ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address | string   | An address of the keyring to be used.                                                                                                                                                                                          |
-| 트랜잭션    | object   | An instance of [FeeDelegatedTransaction][].                                                                                                                                                                                    |
-| index   | number   | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
-| hasher  | function | (optional) A function to get the transaction hash. If hasher is defined as a parameter, this is used to get the transaction hash instead of a default implementation in caver-js.                                              |
+| 명칭      | 타입       | 설명                                                                                                                                                                                                  |
+| ------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address | string   | An address of the keyring to be used.                                                                                                                                                               |
+| 트랜잭션    | object   | An instance of [FeeDelegatedTransaction][].                                                                                                                                                         |
+| index   | number   | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
+| hasher  | function | (optional) A function to get the transaction hash. If hasher is defined as a parameter, this is used to get the transaction hash instead of a default implementation in caver-js.                   |
 
 **리턴값**
 
