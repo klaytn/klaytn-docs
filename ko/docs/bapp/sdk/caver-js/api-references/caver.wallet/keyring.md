@@ -1,14 +1,14 @@
 # caver.wallet.keyring <a id="caver-wallet-keyring"></a>
 
-`caver.wallet.keyring` is a package that provides functionality related to Keyring which includes address and private key(s).
+`caver.wallet.keyring`은 주소와 개인키를 포함하는 키링 관련 기능을 제공하는 패키지입니다.
 
 ## Class <a id="class"></a>
 
-`Keyring` is a structure that contains the address of the account and the private key(s). This is a class in caver-js that allows users to sign on using their own [Klaytn's account](../../../../../klaytn/design/accounts.md#klaytn-accounts).
+`Keyring`은 계정 주소와 개인키를 포함하는 구조입니다. 사용자들이 [클레이튼 계정](../../../../../klaytn/design/accounts.md#klaytn-accounts)을 사용해 서명을 할 수 있게 해주는 caver-js 클래스입니다.
 
-`Keyring` can be classified into three types depending on the type of key being stored: [SingleKeyring][] to store one address and one private key, [MultipleKeyring][] to store one address and multiple private keys, and [RoleBasedKeyring][] to store one address and one or more private keys for each role.
+`Keyring`은 저장하는 키의 종류에 따라 세 가지로 분류될 수 있습니다. 주소와 개인키를 하나씩 저장하는 [SingleKeyring][], 주소 하나와 다수의 개인키를 저장하는 [MultipleKeyring][], 그리고 주소 하나와 각 역할에 대한 하나 또는 다수의 개인키를 저장하기 위한 [RoleBasedKeyring][]가 있습니다.
 
-- [SingleKeyring][]: User signs with a private key
+- [SingleKeyring][]: 사용자가 개인키 하나로 서명합니다.
 - [MultipleKeyring][]: User signs with private keys
 - [RoleBasedKeyring][]: User signs with the private key(s) by role
 
