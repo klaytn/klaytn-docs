@@ -6,11 +6,11 @@
 
 `Keyring`은 계정 주소와 개인키를 포함하는 구조입니다. 사용자들이 [클레이튼 계정](../../../../../klaytn/design/accounts.md#klaytn-accounts)을 사용해 서명을 할 수 있게 해주는 caver-js 클래스입니다.
 
-`Keyring`은 저장하는 키의 종류에 따라 세 가지로 분류될 수 있습니다. 주소와 개인키를 하나씩 저장하는 [SingleKeyring][], 주소 하나와 다수의 개인키를 저장하는 [MultipleKeyring][], 그리고 주소 하나와 각 역할에 대한 하나 또는 다수의 개인키를 저장하기 위한 [RoleBasedKeyring][]가 있습니다.
+`Keyring`은 저장하는 키의 종류에 따라 세 가지로 분류될 수 있습니다. 주소와 개인키를 하나씩 저장하는 [SingleKeyring][], 주소 하나와 다수의 개인키를 저장하는 [MultipleKeyring][], 그리고 주소 하나와 각 역할에 대한 개인키(들)을 저장하기 위한 [RoleBasedKeyring][]가 있습니다.
 
 - [SingleKeyring][]: 사용자가 개인키 하나로 서명합니다.
-- [MultipleKeyring][]: User signs with private keys
-- [RoleBasedKeyring][]: User signs with the private key(s) by role
+- [MultipleKeyring][]: 사용자가 다수의 개인키로 서명합니다.
+- [RoleBasedKeyring][]: 사용자가 역할에 따른 개인키로 서명합니다.
 
 ### SingleKeyring <a id="singlekeyring"></a>
 
@@ -18,16 +18,16 @@
 const keyring = new caver.wallet.keyring.singleKeyring(address, key)
 ```
 
-`SingleKeyring` is a class that stores the `address` of the account and a `private key`. To create a SingleKeyring instance with a private key string, please refer to [caver.wallet.keyring.create](#caver-wallet-keyring-create).
+`SingleKeyring`은 계정의 `address`와 `private key`를 저장하는 클래스입니다. 개인키 문자열을 사용해서 SingleKeyring 인스턴스를 생성하고 싶다면 [caver.wallet.keyring.create](#caver-wallet-keyring-create)를 참고하세요.
 
-`SingleKeyring` uses a private key with which no roles assigned.
+`SingleKeyring`는 역할이 할당되지 않은 개인키를 사용합니다.
 
 **속성**
 
-| 명칭      | 타입             | 설명                                                               |
-| ------- | -------------- | ---------------------------------------------------------------- |
-| address | string         | 계정 주소.                                                           |
-| key     | [PrivateKey][] | An instance of [PrivateKey][] containing one private key inside. |
+| 명칭      | 타입             | 설명                                        |
+| ------- | -------------- | ----------------------------------------- |
+| address | string         | 계정 주소.                                    |
+| key     | [PrivateKey][] | 하나의 개인키를 포함하고 있는 [PrivateKey][]의 인스턴스입니다. |
 
 ### MultipleKeyring <a id="multiplekeyring"></a>
 
@@ -35,16 +35,16 @@ const keyring = new caver.wallet.keyring.singleKeyring(address, key)
 const keyring = new caver.wallet.keyring.multipleKeyring(address, keys)
 ```
 
-`MultipleKeyring` is a class that stores the `address` of the account and the multiple `private keys`. To create a MultipleKeyring instance with private key strings, please refer to [caver.wallet.keyring.create](#caver-wallet-keyring-create).
+`MultipleKeyring`은 계정의 `address`와 `private keys`를 저장하는 클래스입니다. 개인키 문자열을 사용해서 MultipleKeyring 인스턴스를 생성하고 싶다면 [caver.wallet.keyring.create](#caver-wallet-keyring-create)를 참고하세요.
 
-`MultipleKeyring` uses private keys with which no roles assigned.
+`MultipleKeyring`는 역할이 할당되지 않은 개인키들을 사용합니다.
 
 **속성**
 
-| 명칭      | 타입     | 설명                                                                      |
-| ------- | ------ | ----------------------------------------------------------------------- |
-| address | string | 계정 주소.                                                                  |
-| keys    | Array  | An array of [PrivateKey][] instances containing one private key inside. |
+| 명칭      | 타입     | 설명                                        |
+| ------- | ------ | ----------------------------------------- |
+| address | string | 계정 주소.                                    |
+| keys    | Array  | 하나의 개인키를 포함하고 있는 [PrivateKey][]의 인스턴스입니다. |
 
 ### RoleBasedKeyring <a id="rolebasedkeyring"></a>
 
@@ -52,24 +52,24 @@ const keyring = new caver.wallet.keyring.multipleKeyring(address, keys)
 const keyring = new caver.wallet.keyring.roleBasedKeyring(address, keys)
 ```
 
-`RoleBasedKeyring` is a class that stores the `address` of the account and the `private keys` to be used for each role in the form of an array.
+`RoleBasedKeyring`는 계정의 `address`와 각 역할에 사용될 `private keys`를 배열 형식으로 저장하는 클래스입니다.
 
-`RoleBasedKeyring` defines `keys` which is implemented as a two-dimensional array (empty `keys` looks like `[ [], [], [] ]`) that can include multiple keys for each [role][]. The first array element defines the private key(s) for `roleTransactionKey`, the second defines private key(s) for `roleAccountUpdateKey`, and the third defines the private key(s) for `roleFeePayerKey`.
+`RoleBasedKeyring`는 각 [역할][]에 대해 다수의 키를 포함할 수 있는 2차원 배열 (`keys`가 비어있으면 `[ [], [], [] ]`와 같이 보임) `keys`로서 구현됩니다. 2차원 배열의 첫 번째 원소에는 `roleTransactionKey`로 사용될 개인키(들), 두 번째 원소에는 `roleAccountUpdateKey`로 사용될 개인키(들), 세 번째 원소에는 `roleFeePayerKey`로 사용될 개인키(들)이 저장됩니다.
 
 **속성**
 
-| 명칭      | 타입     | 설명                                                                                                                                                                                                                                                               |
-| ------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address | string | 계정 주소.                                                                                                                                                                                                                                                           |
-| keys    | Array  | A two-dimensional array that defines the keys used for each [role][]. Each [role][] includes [PrivateKey][] instance(s). The first element in this is `roleTransactionKey`. The second element is `roleAccountUpdateKey`. The last element is `roleFeePayerKey`. |
+| 명칭      | 타입     | 설명                                                                                                                                                                              |
+| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address | string | 계정 주소.                                                                                                                                                                          |
+| keys    | Array  | 각 [역할][]에 사용되는 키를 정의하는 2차원 배열입니다. 각 [역할][]은 [PrivateKey][] 인스턴스를 포함하고 있습니다. 첫 번째 원소는 `roleTransactionKey`입니다. 두 번째 원소는 `roleAccountUpdateKey`입니다. 마지막 원소는 `roleFeePayerKey`입니다. |
 
-Below is a getter defined in keyring to intuitively use the key defined for each role. The key used for each role can be accessed more easily through the getter below.
+이하는 각 역할에 정의된 키를 직관적으로 사용하기 위해 키링에 정의된 게터(getter)입니다. 각 역할에 사용되는 키에 게터를 통해 더 쉽게 접근할 수 있습니다.
 
-| 명칭                   | 타입    | 설명                                                                                                                                                                                |
-| -------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| roleTransactionKey   | Array | The roleTransactionKey used to sign transactions (except for transactions for the account update). `keyring.roleTransactionkey` will return the first element of `keys` property. |
-| roleAccountUpdateKey | Array | The roleAccountUpdateKey used to sign account update transactions. `keyring.roleAccountUpdateKey` will return the second element of `keys` property.                              |
-| roleFeePayerKey      | Array | The roleFeePayerKey used to sign transactions as a fee payer. `keyring.roleFeePayerKey` will return the thrid element of `keys` property.                                         |
+| 명칭                   | 타입    | 설명                                                                                                                |
+| -------------------- | ----- | ----------------------------------------------------------------------------------------------------------------- |
+| roleTransactionKey   | Array | (계정 업데이트 트랜잭션을 제외한) 트랜잭션 서명에 사용되는 roleTransactionKey입니다. `keyring.roleTransactionkey`는 `keys` 속성의 첫 번째 요소를 반환합니다. |
+| roleAccountUpdateKey | Array | 계정 업데이트 트랜잭션 서명을 위해 사용되는 roleAccountUpdateKey입니다. `keyring.roleAccountUpdateKey`는 `keys` 속성의 두 번째 요소를 반환합니다.      |
+| roleFeePayerKey      | Array | 이 roleFeePayerKey는 feePayer로 트랜잭션에 서명할 때 사용됩니다. `keyring.roleFeePayerKey`는 `keys` 속성의 세 번째 요소를 반환합니다.             |
 
 
 ### PrivateKey <a id="privatekey"></a>
@@ -78,18 +78,18 @@ Below is a getter defined in keyring to intuitively use the key defined for each
 const privateKey = new caver.wallet.keyring.privateKey('0x{private key}')
 ```
 
-`PrivateKey` is a class that contains a private key string. The private key to be used for each role in Keyring is defined as this `PrivateKey` instance.
+`PrivateKey`는 개인키 문자열을 포함하는 클래스입니다. Keyring 내 각 역할에 사용되는 개인키는 이 `PrivateKey` 인스턴스로 정의됩니다.
 
 **속성**
 
-| 명칭         | 타입     | 설명                      |
-| ---------- | ------ | ----------------------- |
-| privateKey | string | The private key string. |
+| 명칭         | 타입     | 설명       |
+| ---------- | ------ | -------- |
+| privateKey | string | 개인키 문자열. |
 
 
 ### SignatureData <a id="signaturedata"></a>
 
-`SignatureData` is a class that contains signature data inside. The signature which is the result of `sign` or `signMessage` will be returned as a signatureData. You can see how signatureData contains signature(s) inside like below.
+`SignatureData`는 서명 데이터를 포함한 클래스입니다. `sign` 또는 `signMessage`의 결과인 서명은 signatureData로서 반환됩니다. 아래와 같이 signatureData가 서명(들)을 포함하는 것을 확인할 수 있습니다.
 
 ```javascript
 const signature = new caver.wallet.keyring.signatureData(['0x1b', '0x2dfc6...', '0x15038...'])
@@ -109,19 +109,19 @@ const signature = new caver.wallet.keyring.signatureData(['0x1b', '0x2dfc6...', 
 caver.wallet.keyring.generate([entropy])
 ```
 
-Generates a SingleKeyring instance with a randomly generated private key.
+무작위로 생성된 캐인키로 SingleKeyring 인스턴스를 생성합니다.
 
 **매개변수**
 
-| 명칭      | 타입     | 설명                                              |
-| ------- | ------ | ----------------------------------------------- |
-| entropy | string | (optional) A random string to increase entropy. |
+| 명칭      | 타입     | 설명                              |
+| ------- | ------ | ------------------------------- |
+| entropy | string | (선택 사항) 엔트로피를 증가시키는 임의의 문자열입니다. |
 
 **리턴값**
 
-| 타입                | 설명                                                        |
-| ----------------- | --------------------------------------------------------- |
-| [SingleKeyring][] | A randomly generated single keyring instance is returned. |
+| 타입                | 설명                           |
+| ----------------- | ---------------------------- |
+| [SingleKeyring][] | 무작위로 생성된 하나의 키링 인스턴스가 반환됩니다. |
 
 **예시**
 
@@ -139,19 +139,19 @@ SingleKeyring {
 caver.wallet.keyring.generateSingleKey([entropy])
 ```
 
-Generates a private key string.
+개인키 문자열을 생성합니다.
 
 **매개변수**
 
-| 명칭      | 타입     | 설명                                              |
-| ------- | ------ | ----------------------------------------------- |
-| entropy | string | (optional) A random string to increase entropy. |
+| 명칭      | 타입     | 설명                              |
+| ------- | ------ | ------------------------------- |
+| entropy | string | (선택 사항) 엔트로피를 증가시키는 임의의 문자열입니다. |
 
 **리턴값**
 
-| 타입     | 설명                                  |
-| ------ | ----------------------------------- |
-| string | The private key string is returned. |
+| 타입     | 설명              |
+| ------ | --------------- |
+| string | 개인키 문자열이 반환됩니다. |
 
 **예시**
 
@@ -166,20 +166,20 @@ Generates a private key string.
 caver.wallet.keyring.generateMultipleKeys(num [, entropy])
 ```
 
-Generates private key strings.
+개인키 문자열들을 생성합니다.
 
 **매개변수**
 
-| 명칭      | 타입     | 설명                                              |
-| ------- | ------ | ----------------------------------------------- |
-| num     | number | The number of private key strings.              |
-| entropy | string | (optional) A random string to increase entropy. |
+| 명칭      | 타입     | 설명                              |
+| ------- | ------ | ------------------------------- |
+| num     | number | 개인키 문자열들의 수입니다.                 |
+| entropy | string | (선택 사항) 엔트로피를 증가시키는 임의의 문자열입니다. |
 
 **리턴값**
 
-| 타입    | 설명                                                      |
-| ----- | ------------------------------------------------------- |
-| Array | An array that includes private key strings is returned. |
+| 타입    | 설명                   |
+| ----- | -------------------- |
+| Array | 개인키들을 포함한 배열이 반환됩니다. |
 
 **예시**
 
@@ -202,16 +202,16 @@ Generates a 2D array of which each array element contains keys defined for each 
 
 **매개변수**
 
-| 명칭       | 타입     | 설명                                                        |
-| -------- | ------ | --------------------------------------------------------- |
-| numArray | Array  | An array containing the number of keys for each [role][]. |
-| entropy  | string | (optional) A random string to increase entropy.           |
+| 명칭       | 타입     | 설명                                |
+| -------- | ------ | --------------------------------- |
+| numArray | Array  | 각 [역할][]에 사용되는 키를 정의하는 2차원 배열입니다. |
+| entropy  | string | (선택 사항) 엔트로피를 증가시키는 임의의 문자열입니다.   |
 
 **리턴값**
 
-| 타입    | 설명                                                                                          |
-| ----- | ------------------------------------------------------------------------------------------- |
-| Array | A 2D array of which each array element contains keys defined for each [role][] is returned. |
+| 타입    | 설명                                       |
+| ----- | ---------------------------------------- |
+| Array | 각 [역할][]에 정의된 키를 포함하는 요소들을 지닌 2차원 배열입니다. |
 
 **예시**
 
@@ -239,22 +239,22 @@ Generates a 2D array of which each array element contains keys defined for each 
 caver.wallet.keyring.create(address, key)
 ```
 
-Creates a Keyring instance with parameters.
+파라미터로 키링 인스턴스를 생성합니다.
 
-If `key` is a private key string, a [SingleKeyring][] instance that uses a single private key is created. If `key` is an array containing private key strings, a [MultipleKeyring][] instance that use multiple private keys is created. If `key` is a 2D array of which each element contains the private key(s) to be used for each role, a [RoleBasedKeyring][] instance is created.
+`key`가 개인키 문자열인 경우, 하나의 개인키를 사용하는 [SingleKeyring][] 인스턴스가 생성됩니다. `key`가 개인키 문자열들을 포함한 배열인 경우, 다수의 개인키를 사용하는 [MultipleKeyring][] 인스턴스가 생성됩니다. `key`가 각 [역할][]에 사용될 키를 포함하는 요소들을 지닌 2차원 배열인 경우 [RoleBasedKeyring][]가 생성됩니다.
 
 **매개변수**
 
-| 명칭      | 타입                  | 설명                                                                                                                                  |
-| ------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| address | string              | An array containing the number of keys for each [role][].                                                                           |
-| key     | string &#124; Array | The private key string, an array of private keys, or a 2D array of which each element contains key(s) to be used for each [role][]. |
+| 명칭      | 타입                  | 설명                                                             |
+| ------- | ------------------- | -------------------------------------------------------------- |
+| address | string              | 각 [역할][]에 사용되는 키를 정의하는 2차원 배열입니다.                              |
+| key     | string &#124; Array | 개인키 문자열, 개인키들의 배열, 또는 각 [역할][]에 사용될 키를 포함하는 요소들을 지닌 2차원 배열입니다. |
 
 **리턴값**
 
-| 타입        | 설명                                                                                                                                            |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Keyring` | The keyring instance is returned. Depending on the `key` parameter, it can be [SingleKeyring][], [MultipleKeyring][] or [RoleBasedKeyring][]. |
+| 타입        | 설명                                                                                                      |
+| --------- | ------------------------------------------------------------------------------------------------------- |
+| `Keyring` | 키링 인스턴스가 반환됩니다. `key` 파라미터에 따라 [SingleKeyring][], [MultipleKeyring][] 또는 [RoleBasedKeyring][] 일 수 있습니다. |
 
 **예시**
 
@@ -308,19 +308,19 @@ RoleBasedKeyring {
 caver.wallet.keyring.createFromPrivateKey(key)
 ```
 
-Creates a `SingleKeyring` instance from a private key string or a [KlaytnWalletKey][].
+개인키 문자열 또는 [KlaytnWalletKey][]로부터 `SingleKeyring` 인스턴스를 생성합니다.
 
 **매개변수**
 
-| 명칭  | 타입     | 설명                                                                 |
-| --- | ------ | ------------------------------------------------------------------ |
-| key | string | This parameter can be either a private key or [KlaytnWalletKey][]. |
+| 명칭  | 타입     | 설명                                               |
+| --- | ------ | ------------------------------------------------ |
+| key | string | 파라미터는 개인키 또는 [KlaytnWalletKey][] 둘 중 하나일 수 있습니다. |
 
 **리턴값**
 
-| 타입                | 설명                                      |
-| ----------------- | --------------------------------------- |
-| [SingleKeyring][] | The SingleKeyring instance is returned. |
+| 타입                | 설명                         |
+| ----------------- | -------------------------- |
+| [SingleKeyring][] | SingleKeyring 인스턴스가 반환됩니다. |
 
 **예시**
 
@@ -346,19 +346,19 @@ SingleKeyring {
 caver.wallet.keyring.createFromKlaytnWalletKey(klaytnWalletKey)
 ```
 
-Creates a `SingleKeyring` instance from a [KlaytnWalletKey][] string.
+[KlaytnWalletKey][] 문자열로부터 `SingleKeyring` 인스턴스를 생성합니다.
 
 **매개변수**
 
-| 명칭              | 타입     | 설명                              |
-| --------------- | ------ | ------------------------------- |
-| klaytnWalletKey | string | The [KlaytnWalletKey][] string. |
+| 명칭              | 타입     | 설명                           |
+| --------------- | ------ | ---------------------------- |
+| klaytnWalletKey | string | [KlaytnWalletKey][] 문자열 입니다. |
 
 **리턴값**
 
-| 타입                | 설명                                      |
-| ----------------- | --------------------------------------- |
-| [SingleKeyring][] | The SingleKeyring instance is returned. |
+| 타입                | 설명                         |
+| ----------------- | -------------------------- |
+| [SingleKeyring][] | SingleKeyring 인스턴스가 반환됩니다. |
 
 **예시**
 
@@ -376,20 +376,20 @@ SingleKeyring {
 caver.wallet.keyring.createWithSingleKey(address, key)
 ```
 
-Creates a `SingleKeyring` instance from an address and a private key string.
+주소와 개인키 문자열로부터 `SingleKeyring` 인스턴스를 생성합니다.
 
 **매개변수**
 
-| 명칭      | 타입     | 설명                                            |
-| ------- | ------ | --------------------------------------------- |
-| address | string | An address to be used for creating a keyring. |
-| key     | string | A private key string.                         |
+| 명칭      | 타입     | 설명                    |
+| ------- | ------ | --------------------- |
+| address | string | 키링 생성을 위해 사용되는 주소입니다. |
+| key     | string | 개인키 문자열입니다.           |
 
 **리턴값**
 
-| 타입                | 설명                                      |
-| ----------------- | --------------------------------------- |
-| [SingleKeyring][] | The SingleKeyring instance is returned. |
+| 타입                | 설명                         |
+| ----------------- | -------------------------- |
+| [SingleKeyring][] | SingleKeyring 인스턴스가 반환됩니다. |
 
 **예시**
 
@@ -407,20 +407,20 @@ SingleKeyring {
 caver.wallet.keyring.createWithMultipleKey(address, key)
 ```
 
-Creates a `MultipleKeyring` instance from an address and private key strings.
+주소와 개인키 문자열로부터 `MultipleKeyring` 인스턴스를 생성합니다.
 
 **매개변수**
 
-| 명칭       | 타입     | 설명                               |
-| -------- | ------ | -------------------------------- |
-| address  | string | An address of keyring.           |
-| keyArray | Array  | An array of private key strings. |
+| 명칭       | 타입     | 설명               |
+| -------- | ------ | ---------------- |
+| address  | string | 키링 주소입니다.        |
+| keyArray | Array  | 개인키 문자열들의 배열입니다. |
 
 **리턴값**
 
-| 타입                  | 설명                                        |
-| ------------------- | ----------------------------------------- |
-| [MultipleKeyring][] | The MultipleKeyring instance is returned. |
+| 타입                  | 설명                           |
+| ------------------- | ---------------------------- |
+| [MultipleKeyring][] | MultipleKeyring 인스턴스가 반환됩니다. |
 
 **예시**
 
@@ -441,20 +441,20 @@ MultipleKeyring {
 caver.wallet.keyring.createWithRoleBasedKey(address, roledBasedKeyArray)
 ```
 
-Creates a `RoleBasedKeyring` instance from an address and a 2D array of which each array element contains keys defined for each [role][].
+주소와 `key`가 각 [역할][]에 사용될 키를 포함하는 요소들을 지닌 2차원 배열로부터  `RoleBasedKeyring` 인스턴스를 생성합니다.
 
 **매개변수**
 
-| 명칭                 | 타입     | 설명                                                                              |
-| ------------------ | ------ | ------------------------------------------------------------------------------- |
-| address            | string | An address of keyring.                                                          |
-| roledBasedKeyArray | Array  | A two-dimensional array containing arrays of private key strings for each role. |
+| 명칭                 | 타입     | 설명                                  |
+| ------------------ | ------ | ----------------------------------- |
+| address            | string | 키링 주소입니다.                           |
+| roledBasedKeyArray | Array  | 각 역할에 대해 개인키 배열을 포함하고 있는 2차원 배열입니다. |
 
 **리턴값**
 
-| 타입                   | 설명                                         |
-| -------------------- | ------------------------------------------ |
-| [RoleBasedKeyring][] | The RoleBasedKeyring instance is returned. |
+| 타입                   | 설명                            |
+| -------------------- | ----------------------------- |
+| [RoleBasedKeyring][] | RoleBasedKeyring 인스턴스가 반환됩니다. |
 
 **예시**
 
@@ -490,20 +490,20 @@ RoleBasedKeyring {
 caver.wallet.keyring.decrypt(keystore, password)
 ```
 
-Decrypts a keystore v3 or v4 JSON and returns the decrypted Keyring instance.
+키스토어 v3 또는 v4 JSON을 복호화하고 복호화된 키링 객체를 반환합니다.
 
 **매개변수**
 
-| 명칭   | 타입     | 설명                                |
-| ---- | ------ | --------------------------------- |
-| 키스토어 | object | The keystore v3 or v4 to decrypt. |
-| 비밀번호 | string | 암호화에 사용되는 비밀번호.                   |
+| 명칭   | 타입     | 설명                     |
+| ---- | ------ | ---------------------- |
+| 키스토어 | object | 복호화할 키스토어 v3 또는 v4입니다. |
+| 비밀번호 | string | 암호화에 사용되는 비밀번호.        |
 
 **리턴값**
 
-| 타입        | 설명                                                                                               |
-| --------- | ------------------------------------------------------------------------------------------------ |
-| `Keyring` | The decrypted keyring instance ([SingleKeyring][], [MultipleKeyring][] or [RoleBasedKeyring][]). |
+| 타입        | 설명                                                                           |
+| --------- | ---------------------------------------------------------------------------- |
+| `Keyring` | 복호화된 인스턴스입니다([SingleKeyring][], [MultipleKeyring][] 또는[RoleBasedKeyring][]). |
 
 **예시**
 
@@ -712,14 +712,14 @@ SingleKeyring {
 keyring.getPublicKey()
 ```
 
-Returns the public key string(s). If `keyring` is an instance of [SingleKeyring][], getPublicKey returns a public key string. If `keyring` is an instance of [MultipleKeyring][], getPublicKey returns an array of public key strings. If `keyring` is an instance of [RoleBasedKeyring][], getPublicKey returns a two-dimensional array in which the public key(s) used for each role is defined as an array.
+공개키 문자열(들)을 반환합니다. `keyring`이 [SingleKeyring][]의 인스턴스인 경우 getPublicKey는 공개키 문자열을 반환합니다. `keyring`이 [MultipleKeyring][]의 인스턴스인 경우 getPublicKey는 공개키 문자열의 배열을 반환합니다. `keyring`이 [RoleBasedKeyring][]의 인스턴스인 경우, getPublicKey는 각 역할에 대해 공개키(들)이 배열로서 정의된 2차원 배열을 반환합니다.
 
 
 **리턴값**
 
-| 타입                  | 설명                             |
-| ------------------- | ------------------------------ |
-| string &#124; Array | The public key of the keyring. |
+| 타입                  | 설명          |
+| ------------------- | ----------- |
+| string &#124; Array | 키링의 공개키입니다. |
 
 **예시**
 
@@ -747,14 +747,14 @@ Returns the public key string(s). If `keyring` is an instance of [SingleKeyring]
 keyring.copy()
 ```
 
-Returns a copied keyring instance.
+복사된 키링 인스턴스를 반환합니다.
 
 
 **리턴값**
 
-| 타입        | 설명                                                                                          |
-| --------- | ------------------------------------------------------------------------------------------- |
-| `Keyring` | A copied keyring instance ([SingleKeyring][], [MultipleKeyring][] or [RoleBasedKeyring][]). |
+| 타입        | 설명                                                                               |
+| --------- | -------------------------------------------------------------------------------- |
+| `Keyring` | 복사된 키링 인스턴스입니다 ([SingleKeyring][], [MultipleKeyring][] 또는 [RoleBasedKeyring][]). |
 
 **예시**
 
@@ -803,24 +803,24 @@ RoleBasedKeyring {
 keyring.sign(transactionHash, chainId, role [, index])
 ```
 
-Signs with transactionHash with the private key(s) and returns signature(s). If the user has not defined an index parameter, `keyring.sign` signs transaction using all the private keys used by the role. If `index` is defined, the `keyring.sign` signs transaction using only one private key at the index. The role used in caver-js can be checked through `caver.wallet.keyring.role`.
+개인키를 사용해 transactionHash로 서명하며 서명을 반환합니다. 사용자가 index 파라미터를 정의하지 않았다면, `keyring.sign`이 해당 역할에 의해 사용되는 모든 개인키를 가지고 트랜잭션에 서명합니다. `index`가 정의되어 있다면, `keyring.sign`이 주어진 인덱스에 대응하는 하나의 개인키를 가지고 트랜잭션에 서명합니다. caver-js에서 사용되는 역할은 `caver.wallet.keyring.role`에서 확인할 수 있습니다.
 
-When signing transactions, it is recommended to use [caver.wallet.sign][] or [transaction.sign][].
+트랜잭션에 서명할 때 [caver.wallet.sign][]나 [transaction.sign][]를 사용하는 것을 제안합니다.
 
 **매개변수**
 
-| 명칭              | 타입                   | 설명                                                                                                                                                                                                  |
-| --------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | string               | The hash string of a transaction to sign.                                                                                                                                                           |
-| chainId         | string &#124; number | The chain id of the Klaytn blockchain platform.                                                                                                                                                     |
-| role            | number               | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                   |
-| index           | number               | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
+| 명칭              | 타입                   | 설명                                                                                                            |
+| --------------- | -------------------- | ------------------------------------------------------------------------------------------------------------- |
+| transactionHash | string               | 서명할 트랜잭션의 해시 문자열입니다.                                                                                          |
+| chainId         | string &#124; number | Klaytn 블록체인 플랫폼의 체인 ID입니다.                                                                                    |
+| role            | number               | 키의 역할을 나타내는 숫자입니다. `caver.wallet.keyring.role`를 사용할 수 있습니다.                                                   |
+| index           | number               | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. 인덱스는 각각의 역할에 정의된 개인키들의 배열 길이보다 작아야 합니다. 인덱스가 정의되지 않았을 경우, 이 메서드는 모든 개인키를 사용합니다. |
 
 **리턴값**
 
-| 타입    | 설명                             |
-| ----- | ------------------------------ |
-| Array | An array of [SignatureData][]. |
+| 타입    | 설명                         |
+| ----- | -------------------------- |
+| Array | [SignatureData][]의 문자열입니다. |
 
 **예시**
 
@@ -871,21 +871,21 @@ When signing transactions, it is recommended to use [caver.wallet.sign][] or [tr
 keyring.signMessage(message, role [, index])
 ```
 
-Signs message with Klaytn-specific prefix. This calculates a Klaytn-specific signature with:
+Klaytn 고유의 접두사를 이용해 메시지에 서명합니다. 다음 메서드는 Klaytn 고유의 서명을 계산합니다.
 
 ```
 sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 ```
 
-If the user has not defined the index parameter, `keyring.signMessage` signs message with all the private keys used by the role. If the index parameter is given, `keyring.signMessage` signs message using only one private key at the given index. The role used in caver-js can be found through `caver.wallet.keyring.role`.
+사용자가 index 파라미터를 정의하지 않았다면, `keyring.signMessage`이 해당 역할에 의해 사용되는 모든 개인키를 가지고 트랜잭션에 서명합니다. 인덱스 파라미터가 주어져 있다면 `keyring.signMessage`는 해당 인덱스에 있는 하나의 개인키를 사용해 메시지에 서명합니다. caver-js에서 사용되는 역할은 `caver.wallet.keyring.role`를 통해 찾을 수 있습니다.
 
 **매개변수**
 
-| 명칭    | 타입     | 설명                                                                                                                                                                                                  |
-| ----- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 메시지   | string | The message to sign.                                                                                                                                                                                |
-| role  | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                   |
-| index | number | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
+| 명칭    | 타입     | 설명                                                                                                            |
+| ----- | ------ | ------------------------------------------------------------------------------------------------------------- |
+| 메시지   | string | 서명할 메시지입니다.                                                                                                   |
+| role  | number | 키의 역할을 나타내는 숫자입니다. `caver.wallet.keyring.role`를 사용할 수 있습니다.                                                   |
+| index | number | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. 인덱스는 각각의 역할에 정의된 개인키들의 배열 길이보다 작아야 합니다. 인덱스가 정의되지 않았을 경우, 이 메서드는 모든 개인키를 사용합니다. |
 
 **리턴값**
 
@@ -893,13 +893,13 @@ If the user has not defined the index parameter, `keyring.signMessage` signs mes
 | ------ | ---------------------------------------------- |
 | object | An object that includes the result of signing. |
 
-The returned object contains the following:
+반환된 객체는 다음을 포함합니다.
 
-| 명칭          | 타입     | 설명                                               |
-| ----------- | ------ | ------------------------------------------------ |
-| messageHash | string | The hash of message with Klaytn-specific prefix. |
-| signatures  | Array  | An array of [SignatureData][].                   |
-| 메시지         | string | The message to sign.                             |
+| 명칭          | 타입     | 설명                             |
+| ----------- | ------ | ------------------------------ |
+| messageHash | string | Klaytn 고유의 접두사를 가진 메시지의 해시입니다. |
+| signatures  | Array  | [SignatureData][]의 문자열입니다.     |
+| 메시지         | string | 서명할 메시지입니다.                    |
 
 **예시**
 
@@ -931,19 +931,19 @@ The returned object contains the following:
 keyring.getKeyByRole(role)
 ```
 
-Returns the private key(s) used by the role entered as a parameter.
+파라미터로 입력된 개인키(들)의 역할을 반환합니다.
 
 **매개변수**
 
-| 명칭   | 타입     | 설명                                                                                |
-| ---- | ------ | --------------------------------------------------------------------------------- |
-| role | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`. |
+| 명칭   | 타입     | 설명                                                          |
+| ---- | ------ | ----------------------------------------------------------- |
+| role | number | 키의 역할을 나타내는 숫자입니다. `caver.wallet.keyring.role`를 사용할 수 있습니다. |
 
 **리턴값**
 
-| 타입                          | 설명                                                                                                  |
-| --------------------------- | --------------------------------------------------------------------------------------------------- |
-| [PrivateKey][] &#124; Array | An instance of [PrivateKey][] or an array containing the [PrivateKey][] instances used by the role. |
+| 타입                          | 설명                                                               |
+| --------------------------- | ---------------------------------------------------------------- |
+| [PrivateKey][] &#124; Array | [PrivateKey][]의 인스턴스 또는 역할이 사용하는 [PrivateKey][] 인스턴스를 포함한 배열입니다. |
 
 **예시**
 
@@ -1006,13 +1006,13 @@ PrivateKey { _privateKey: '0x{private key}' }
 keyring.getKlaytnWalletKey()
 ```
 
-Returns the [KlaytnWalletKey][] string for the keyring. With [MultipleKeyring][] or [RoleBasedKeyring][], [KlaytnWalletKey][] cannot be used. In this case, use [keyring.encrypt](#keyring-encrypt).
+키링을 위한 [KlaytnWalletKey][] 문자열을 반환합니다. [MultipleKeyring][], 또는 [RoleBasedKeyring][]의 경우 [KlaytnWalletKey][]는 사용될 수 없습니다. 이 경우 [keyring.encrypt](#keyring-encrypt)를 사용하세요.
 
 **리턴값**
 
-| 타입     | 설명                                      |
-| ------ | --------------------------------------- |
-| string | The [KlaytnWalletKey][] of the keyring. |
+| 타입     | 설명                          |
+| ------ | --------------------------- |
+| string | 키링의 [KlaytnWalletKey][]입니다. |
 
 **예시**
 
@@ -1027,26 +1027,26 @@ Returns the [KlaytnWalletKey][] string for the keyring. With [MultipleKeyring][]
 keyring.toAccount([options])
 ```
 
-Returns the [Account][] instance for updating the [AccountKey](../../../../../klaytn/design/accounts.md#account-key) of the [Klaytn accounts](../../../../../klaytn/design/accounts.md#klaytn-accounts). The [Account][] instance has an [AccountKey](../caver.account.md#accountkeylegacy) instance that can contain public key(s) inside, which will be sent to Klaytn Network and used for validating transactions. For more details about [Account][], see [Account Update](../../getting-started.md#account-update).
+[Klaytn accounts](../../../../../klaytn/design/accounts.md#klaytn-accounts)의 [AccountKey](../../../../../klaytn/design/accounts.md#account-key)를 업데이트 하기 위한 [Account][] 인스턴스를 반환합니다. [Account][] 인스턴스는 내부에 Klaytn 네트워크에 전송되며 트랜잭션 검증에 사용되는 공개키(들)을 포함할 수 있는 [AccountKey](../caver.account.md#accountkeylegacy) 인스턴스를 가지고 있습니다. [Account][]에 대한 자세한 정보는 [Account Update](../../getting-started.md#account-update)에서 확인하세요.
 
-Note that if you update the [AccountKey](../../../../../klaytn/design/accounts.md#account-key) of the [Account](../../../../../klaytn/design/accounts.md#klaytn-accounts) stored in the Klaytn, the old private key(s) cannot be used anymore. See [Getting started](../../getting-started.md#account-update) on how to use the returned [Account][] instance to update information in your [Klaytn account](../../../../../klaytn/design/accounts.md#klaytn-accounts) on Klaytn.
+Klaytn에 저장된 [Account](../../../../../klaytn/design/accounts.md#klaytn-accounts)의 [AccountKey](../../../../../klaytn/design/accounts.md#account-key)를 업데이트할 시 이전 개인키(들)은 더 이상 사용할 수 없음을 참고하세요. [Klaytn account](../../../../../klaytn/design/accounts.md#klaytn-accounts)의 정보를 업데이트하기 위해 반환된 [Account][] 인스턴스를 사용하는 방법은 [Getting started](../../getting-started.md#account-update)에서 확인하세요.
 
-Depending on the type of the private key(s) in the keyring, the returned [Account][] instances can be classified as follows.
-- When the keyring contains a private key string: Return an [Account][] instance that includes the address in the keyring and an instance of [AccountKeyPublic][]
-- When the keyring contains private key strings: Return an [Account][] instance that includes the address in the keyring and an instance of [AccountKeyWeigthedMultiSig][]
-- When the keyring contains the different private key strings by role: Return an [Account][] instance that includes the address in the keyring and an instance of [AccountKeyRoleBased][]
+키링 내 개인키(들)의 종류에 따라 반환된 [Account][] 인스턴스는 다음과 같이 구분될 수 있습니다.
+- 키링이 하나의 개인키 문자열을 포함하고 있는 경우: 키링 내의 주소 및 [AccountKeyPublic][] 인스턴스를 포함한 [Account][] 인스턴스를 반환합니다.
+- 키링이 다수의 개인키 문자열을 포함하고 있는 경우: 키링 내의 주소 및 [AccountKeyWeigthedMultiSig][] 인스턴스를 포함한 [Account][] 인스턴스를 반환합니다.
+- 키링이 역할에 따른 개인키 문자열들을 포함하고 있는 경우: 키링 내의 주소 및 [AccountKeyRoleBased][] 인스턴스를 포함한 [Account][] 인스턴스를 반환합니다.
 
 **매개변수**
 
-| 명칭      | 타입                                       | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| options | [WeightedMultiSigOptions][] &#124; Array | (optional) [WeightedMultiSigOptions][] instance containing information that should be defined when updating your existing account to the one with a number of private keys. If keyring uses different private keys for each role, a [WeightedMultiSigOptions][] instance must be defined for each role in an array. If keyring uses more than one private key and options parameter is not defined, the default [WeightedMultiSigOptions][] with the threshold of 1 and the weight of 1 for each key will be used. |
+| 명칭      | 타입                                       | 설명                                                                                                                                                                                                                                                                                                   |
+| ------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| options | [WeightedMultiSigOptions][] &#124; Array | (선택 사항) 기존의 계정을 몇 가지의 개인키를 가진 계정으로 업데이트할 때 정의되어야 하는 정보를 포함한 [WeightedMultiSigOptions][] 인스턴스입니다. 키링이 각 역할에 대해 다른 개인키를 사용한다면 [WeightedMultiSigOptions][] 인스턴스는 배열 내 각 역할에 대해 정의되어야 합니다. 키링이 하나 이상의 개인키를 사용하며, options 파라미터가 정의되지 않았다면, 임계값이 1이며 각 키의 가중치가 1인 [WeightedMultiSigOptions][]가 기본으로 사용됩니다. |
 
 **리턴값**
 
-| 타입              | 설명                                                                                                                                                                                                                                                                                                                                                  |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [계정(Account)][] | An Account instance to be used when a user updates AccountKey for their account in the Klaytn. Note that if you want to replace the existing keyring (or the existing private key(s)) with a new keyring (or a new private key(s)) for your account, you must update your AccountKey by sending an Account Update transaction to Klaytn beforehand. |
+| 타입              | 설명                                                                                                                                                 |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [계정(Account)][] | 사용자가 Klaytn 계정의 AccountKey를 업데이트할 때 사용하는 Account 인스턴스입니다. 계정의 기존 키링(들) 을 새로운 키링(들) 로 교체하고 싶다면 미리 Klaytn에 계정 업데이트 트랜잭션을 보내서 AccountKey를 업데이트해야 합니다. |
 
 **예시**
 
@@ -1160,29 +1160,29 @@ Account {
 keyring.encrypt(password [, options])
 ```
 
-Encrypts a keyring and returns a keystore v4 standard. 더 자세한 내용은 [KIP-3](https://kips.klaytn.com/KIPs/kip-3)를 참조하십시오.
+키링을 암호화하며 키스토어 v4를 반환합니다. 더 자세한 내용은 [KIP-3](https://kips.klaytn.com/KIPs/kip-3)를 참조하십시오.
 
 **매개변수**
 
-| 명칭      | 타입     | 설명                                                                                                   |
-| ------- | ------ | ---------------------------------------------------------------------------------------------------- |
-| 비밀번호    | string | The password to be used for encryption. The encrypted key store can be decrypted with this password. |
-| options | string | (optional) The `options` parameter allows you to specify the values to use when using encrypt.       |
+| 명칭      | 타입     | 설명                                                     |
+| ------- | ------ | ------------------------------------------------------ |
+| 비밀번호    | string | 암호화에 사용되는 비밀번호입니다. 암호화된 키스토어는 이 비밀번호를 사용해 복호화될 수 있습니다. |
+| options | string | (선택 사항) `options` 파라미터를 사용하면 암호화에 사용할 값을 지정할 수 있습니다.   |
 
 **리턴값**
 
-| 타입     | 설명                         |
-| ------ | -------------------------- |
-| object | The encrypted keystore v4. |
+| 타입     | 설명               |
+| ------ | ---------------- |
+| object | 암호화된 키스토어 v4입니다. |
 
-The returned object contains the following:
+반환된 객체는 다음을 포함합니다.
 
-| 명칭      | 타입     | 설명                                        |
-| ------- | ------ | ----------------------------------------- |
-| version | number | The version of keystore.                  |
-| id      | string | The id of keystore.                       |
-| address | string | The address in the encrypted [Keyring][]. |
-| keyring | Array  | The encrypted private key(s).             |
+| 명칭      | 타입     | 설명                       |
+| ------- | ------ | ------------------------ |
+| version | number | 키스토어의 버전입니다.             |
+| id      | string | 키스토어의 ID입니다.             |
+| address | string | 암호화된 [Keyring][]의 주소입니다. |
+| keyring | Array  | 암호화된 개인키(들)입니다.          |
 
 더 자세한 내용은 [KIP-3](https://kips.klaytn.com/KIPs/kip-3)를 참조하십시오.
 
@@ -1308,31 +1308,31 @@ The returned object contains the following:
 keyring.encryptV3(password [, options])
 ```
 
-Encrypts an instance of [SingleKeyring][] and returns a keystore v3 standard.
+[SingleKeyring][] 인스턴스를 암호화하며 키스토어 v3을 반환합니다.
 
-Note that [MultipleKeyring][] and [RoleBasedKeyring][] cannot use encryptV3. In this case, please use [keyring.encrypt](#keyring-encrypt) with a keystore V4 standard.
+[MultipleKeyring][]와 [RoleBasedKeyring][]는 encryptV3을 사용함을 참고해주세요. 이 경우 키스토어 v4와 함께 [keyring.encrypt](#keyring-encrypt)를 사용해주세요.
 
 **매개변수**
 
-| 명칭      | 타입     | 설명                                                                                                              |
-| ------- | ------ | --------------------------------------------------------------------------------------------------------------- |
-| 비밀번호    | string | The password to be used for encryption. The encrypted key store can be decrypted with this password.            |
-| options | string | (optional) The password to be used for encryption. The encrypted key store can be decrypted with this password. |
+| 명칭      | 타입     | 설명                                                             |
+| ------- | ------ | -------------------------------------------------------------- |
+| 비밀번호    | string | 암호화에 사용되는 비밀번호입니다. 암호화된 키스토어는 이 비밀번호를 사용해 복호화될 수 있습니다.         |
+| options | string | (선택 사항) 암호화에 사용되는 비밀번호입니다. 암호화된 키스토어는 이 비밀번호를 사용해 복호화될 수 있습니다. |
 
 **리턴값**
 
-| 타입     | 설명                         |
-| ------ | -------------------------- |
-| object | The encrypted keystore v3. |
+| 타입     | 설명               |
+| ------ | ---------------- |
+| object | 암호화된 키스토어 v3입니다. |
 
-The returned object contains the following:
+반환된 객체는 다음을 포함합니다.
 
-| 명칭      | 타입     | 설명                                    |
-| ------- | ------ | ------------------------------------- |
-| version | number | The version of keystore.              |
-| id      | string | The id of keystore.                   |
-| address | string | The address of encrypted [Keyring][]. |
-| crypto  | object | The encrypted private key.            |
+| 명칭      | 타입     | 설명                       |
+| ------- | ------ | ------------------------ |
+| version | number | 키스토어의 버전입니다.             |
+| id      | string | 키스토어의 ID입니다.             |
+| address | string | 암호화된 [Keyring][]의 주소입니다. |
+| crypto  | object | 암호화된 개인키입니다.             |
 
 **예시**
 
@@ -1365,13 +1365,13 @@ The returned object contains the following:
 keyring.isDecoupled()
 ```
 
-Returns `true` if keyring has decoupled key.
+키링에 분리된 키가 있을 경우 `true`를 반환합니다.
 
 **리턴값**
 
-| 타입      | 설명                                   |
-| ------- | ------------------------------------ |
-| boolean | `true` if keyring has decoupled key. |
+| 타입      | 설명                              |
+| ------- | ------------------------------- |
+| boolean | 키링에 분리된 키가 있는 경우 `true`를 반환합니다. |
 
 **예시**
 
@@ -1385,6 +1385,9 @@ false
 
 
 [role]: ../../../../../klaytn/design/accounts.md#roles
+
+
+[역할]: ../../../../../klaytn/design/accounts.md#roles
 [PrivateKey]: #privatekey
 [Keyring]: #class
 [SingleKeyring]: #singlekeyring
