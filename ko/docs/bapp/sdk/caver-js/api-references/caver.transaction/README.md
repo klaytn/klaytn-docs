@@ -188,7 +188,7 @@ transaction.signAsFeePayer(keyring [, index] [, hasher])
 
 **리턴값**
 
-`Promise` returning `object`: The signed transaction.
+`Promise`는 `객체`를 반환: 서명된 트랜잭션입니다.
 
 | 타입     | 설명                                                                   |
 | ------ | -------------------------------------------------------------------- |
