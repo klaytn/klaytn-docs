@@ -1,6 +1,6 @@
 # caver.account <a id="caver-account"></a>
 
-`caver.account` is a package that provides functionality related to Account that is used when updating an account.
+`caver.account`는 계정 업데이트시 사용 되며 Account에 관련된 기능을 제공하는 패키지입니다.
 
 ## Class <a id="class"></a>
 
@@ -10,14 +10,14 @@
 const account = new caver.account(address, accountKey)
 ```
 
-`Account` is a class that contains information needed to update the [AccountKey][] of the account in the Klaytn blockchain platform (Klaytn). This is the default class for the `caver.account` package. To create an Account instance with public key string(s), please refer to [caver.account.create](#caver-account-create).
+`Account`는 Klaytn 계정의 [AccountKey][]를 업데이트하기 위해 필요한 정보를 포함하는 클래스입니다. `caver.account` 패키지의 기본 클래스입니다. 공개키(들)을 이용해 Account 인스턴스를 만들고자 한다면 [caver.account.create](#caver-account-create)를 참고하세요.
 
 **속성**
 
-| 명칭         | 타입     | 설명                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address    | string | The address of account to be updated.                                                                                                                                                                                                                                                                                                                                                                    |
-| accountKey | object | The new accountKey to be used in account. This can be an instance of [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) or [AccountKeyRoleBased](#accountkeyrolebased). When the transaction is executed, the accountKey of the account stored in the Klaytn is changed to this. |
+| 명칭         | 타입     | 설명                                                                                                                                                                                                                                                                                                                  |
+| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address    | string | 업데이트 할 계정의 주소입니다.                                                                                                                                                                                                                                                                                                   |
+| accountKey | object | 계정에 사용될 새 accountKey입니다. [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) 또는 [AccountKeyRoleBased](#accountkeyrolebased)의 인스턴스일 수 있습니다. 트랜잭션이 실행되면 Klaytn에 저장된 계정의 accountKey가 이렇게 변경됩니다. |
 
 
 ### AccountKeyLegacy <a id="accountkeylegacy"></a>
@@ -26,7 +26,7 @@ const account = new caver.account(address, accountKey)
 const accountKeyLegacy = new caver.account.accountKey.accountKeyLegacy()
 ```
 
-`AccountKeyLegacy` is used to update the AccountKey of an account in the Klaytn with [AccountKeyLegacy][]. To create an Account instance with `AccountKeyLegacy`, please refer to [caver.account.createWithAccountKeyLegacy](#caver-account-createwithaccountkeylegacy).
+`AccountKeyLegacy`는 [AccountKeyLegacy][]를 통해 Klaytn 계정의 AccountKey를 업데이트할 때 사용됩니다. `AccountKeyLegacy`를 가지고 Account 인스턴스를 생성하고자 한다면 [caver.account.createWithAccountKeyLegacy](#caver-account-createwithaccountkeylegacy)를 참고하세요.
 
 
 ### AccountKeyPublic <a id="accountkeypublic"></a>
@@ -35,15 +35,15 @@ const accountKeyLegacy = new caver.account.accountKey.accountKeyLegacy()
 const accountKeyPublic = new caver.account.accountKey.accountKeyPublic(publicKey)
 ```
 
-`AccountKeyPublic` is used to update the AccountKey of an account in the Klaytn with [AccountKeyPublic][]. By updating AccountKey to `AccountKeyPublic`, you can change your existing AccountKey into the new public key, which will be used to validate a transaction in Klaytn. This change is necessary when you decouple your private key from the address of your account. See [AccountUpdate](../getting-started.md#account-update) and [AccountKey][] for details.
+`AccountKeyPublic`는 [AccountKeyPublic][]를 이용해 Klaytn 계정의 AccountKey를 업데이트할 때 사용됩니다. AccountKey를 `AccountKeyPublic`로 업데이트하면 기존의 AccountKey가 새로운 공개키로 바뀌며, 이는 Klaytn 트랜잭션 검증에 사용됩니다. 계정의 개인키를 주소로부터 분리할 때 필요한 업데이트입니다. 자세한 사항은 [AccountUpdate](../getting-started.md#account-update)와 [AccountKey][]를 참고하세요.
 
-To create an Account instance with `AccountKeyPublic`, please refer to [caver.account.create](#caver-account-create) or [caver.account.createWithAccountKeyPublic](#caver-account-createwithaccountkeypublic).
+`AccountKeyPublic`로 Account 인스턴스를 만들고자 한다면 [caver.account.create](#caver-account-create) or [caver.account.createWithAccountKeyPublic](#caver-account-createwithaccountkeypublic)를 참고하세요.
 
 **속성**
 
-| 명칭        | 타입     | 설명                     |
-| --------- | ------ | ---------------------- |
-| publicKey | string | The public key string. |
+| 명칭        | 타입     | 설명          |
+| --------- | ------ | ----------- |
+| publicKey | string | 공개키 문자열입니다. |
 
 ### AccountKeyFail <a id="accountkeyfail"></a>
 
@@ -51,7 +51,7 @@ To create an Account instance with `AccountKeyPublic`, please refer to [caver.ac
 const accountKeyFail = new caver.account.accountKey.accountKeyFail()
 ```
 
-`AccountKeyFail` is used to update AccountKey of an account in the Klaytn with [AccountKeyFail][]. To create an Account instance with `AccountKeyFail`, please refer to [caver.account.createWithAccountKeyFail](#caver-account-createwithaccountkeyfail).
+`AccountKeyFail`은 [AccountKeyFail][]을 통해 Klaytn 계정의 AccountKey를 업데이트할 때 사용됩니다. `AccountKeyFail`을 사용하여 Account 인스턴스를 만들고자 한다면 [caver.account.createWithAccountKeyFail](#caver-account-createwithaccountkeyfail)를 참고하세요.
 
 ### AccountKeyWeightedMultiSig <a id="accountkeyweightedmultisig"></a>
 
@@ -59,7 +59,7 @@ const accountKeyFail = new caver.account.accountKey.accountKeyFail()
 const accountKeyWeightedMultiSig = new caver.account.accountKey.accountKeyWeightedMultiSig(threshold, weightedPublicKeys)
 ```
 
-`AccountKeyWeightedMultiSig` is used to update AccountKey of an account in the Klaytn with [AccountKeyWeightedMultiSig][]. By updating your AccountKey to `AccountKeyWeightedMultiSig`, you can change your existing AccountKey into the new public key, which will be used to validate a transaction in Klaytn. This change is necessary when you decouple your private key from the address of your account. See [AccountUpdate](../getting-started.md#account-update) and [AccountKey][] for details.
+`AccountKeyWeightedMultiSig` is used to update AccountKey of an account in the Klaytn with [AccountKeyWeightedMultiSig][]. By updating your AccountKey to `AccountKeyWeightedMultiSig`, you can change your existing AccountKey into the new public key, which will be used to validate a transaction in Klaytn. 계정의 개인키를 주소로부터 분리할 때 필요한 업데이트입니다. 자세한 사항은 [AccountUpdate](../getting-started.md#account-update)와 [AccountKey][]를 참고하세요.
 
 To create an Account instance with `AccountKeyWeightedMultiSig`, please refer to [caver.account.create](#caver-account-create) or [caver.account.createWithAccountKeyWeightedMultiSig](#caver-account-createwithaccountkeyweightedmultisig).
 
@@ -99,7 +99,7 @@ const weightedPublicKey = new caver.account.accountKey.weightedPublicKey(weight,
 | 명칭        | 타입     | 설명                                                                                                                                                                       |
 | --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 가중치       | number | The weight of public key. The weight is used to check whether the weighted sum of public keys is larger than the threshold of the [AccountKeyWeightedMultiSig][] object. |
-| publicKey | string | The public key string.                                                                                                                                                   |
+| publicKey | string | 공개키 문자열입니다.                                                                                                                                                              |
 
 ### WeightedMultiSigOptions <a id="weightedmultisigoptions"></a>
 
@@ -131,7 +131,7 @@ If accountKey is a public key string, an Account instance with [AccountKeyPublic
 
 | 명칭         | 타입                                       | 설명                                                                                                                                      |
 | ---------- | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| address    | string                                   | The address of account to be updated.                                                                                                   |
+| address    | string                                   | 업데이트 할 계정의 주소입니다.                                                                                                                       |
 | accountKey | string &#124; Array                      | A public key string, an array of public keys, or a 2D array of which each element contains an array of key(s) to be used for each role. |
 | options    | [WeightedMultiSigOptions][] &#124; Array | (optional) Options for AccountKeyWeigthedMultiSig.                                                                                      |
 
@@ -332,7 +332,7 @@ Creates an Account instance which has AccountKeyPublic as an accountKey.
 | 명칭        | 타입     | 설명                                       |
 | --------- | ------ | ---------------------------------------- |
 | address   | string | The address of an account to be updated. |
-| publicKey | string | The public key string.                   |
+| publicKey | string | 공개키 문자열입니다.                              |
 
 
 **리턴값**
