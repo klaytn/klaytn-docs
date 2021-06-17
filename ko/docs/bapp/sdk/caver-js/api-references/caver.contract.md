@@ -1,6 +1,6 @@
 # caver.contract <a id="caver-contract"></a>
 
-The `caver.contract` object makes it easy to interact with smart contracts on the Klaytn blockchain platform. When you create a new contract object, you have to provide the JSON interface for that smart contract and caver-js will automatically convert all calls with the contract object in javascript into low-level ABI calls over RPC for you.
+`caver.contract` 객체는 Klaytn 블록체인과 스마트 컨트랙트 간의 상호작용을 쉽게 만들어 줍니다. 새 컨트랙트 객체를 생성할 때 해당 스마트 컨트랙트를 위해 JSON 인터페이스를 제공해야 하는데, 이때 caver-js가 자바스크립트로 작성된 컨트랙트 객체와의 모든 호출을 RPC를 통해 하위 수준의 ABI 호출로 자동 변환시켜줍니다.
 
 이를 통해 스마트 컨트랙트가 마치 자바스크립트 객체인 것처럼 스마트 컨트랙트와 상호작용할 수 있습니다.
 
@@ -9,17 +9,17 @@ The `caver.contract` object makes it easy to interact with smart contracts on th
 ```javascript
 caver.contract.create(jsonInterface [, address] [, options])
 ```
-JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로 새 컨트랙트 인스턴스를 생성합니다. This function works the same as [new caver.contract](#new-contract).
+JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로 새 컨트랙트 인스턴스를 생성합니다. 이 함수는 [new caver.contract](#new-contract)와 동일하게 작동합니다.
 
-**NOTE** `caver.contract.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**참고** `caver.contract.create`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
 **매개변수**
 
-See the [new caver.contract](#new-contract).
+[new caver.contract](#new-contract)를 참고하세요.
 
 **리턴값**
 
-See the [new caver.contract](#new-contract).
+[new caver.contract](#new-contract)를 참고하세요.
 
 
 **예시**
@@ -56,15 +56,15 @@ JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 명칭            | 타입      | 설명                                                                                                                                                                                                                                                                         |
-| ------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from          | string  | (선택 사항) 트랜잭션이 만들어진 송신자 주소.                                                                                                                                                                                                                                                 |
-| gasPrice      | string  | (선택 사항) 트랜잭션에 사용할 peb 단위의 가스 가격.                                                                                                                                                                                                                                           |
-| gas           | number  | (선택 사항) 트랜잭션에 규정된 최대 가스 (가스 제한).                                                                                                                                                                                                                                           |
-| data          | string  | (선택 사항) 컨트랙트의 바이트 코드. 컨트랙트가 배포될 때 사용됩니다.                                                                                                                                                                                                                                   |
-| feeDelegation | boolean | (optional) Whether to use fee delegation transaction.                                                                                                                                                                                                                      |
-| feePayer      | string  | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction.                                                                                                           |
-| feeRatio      | string  | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. 0이나 100 이상의 값은 허용되지 않습니다. |
+| 명칭            | 타입      | 설명                                                                                                                                                                           |
+| ------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from          | string  | (선택 사항) 트랜잭션이 만들어진 송신자 주소.                                                                                                                                                   |
+| gasPrice      | string  | (선택 사항) 트랜잭션에 사용할 peb 단위의 가스 가격.                                                                                                                                             |
+| gas           | number  | (선택 사항) 트랜잭션에 규정된 최대 가스 (가스 제한).                                                                                                                                             |
+| data          | string  | (선택 사항) 컨트랙트의 바이트 코드. 컨트랙트가 배포될 때 사용됩니다.                                                                                                                                     |
+| feeDelegation | boolean | (선택 사항) 수수료 위임 트랜잭션 사용 여부를 나타냅니다.                                                                                                                                            |
+| feePayer      | string  | (선택 사항) 트랜잭션 수수료를 부담하는 수수료 납부자의 주소입니다. `feeDelegation`이 `true`일 때, 값은 트랜잭션의 `feePayer` 필드에 설정됩니다.                                                                            |
+| feeRatio      | string  | (optional) Fee payer가 부담하게될 트랜잭션 수수료의 비율입니다. `feeDelegation`이 `true`이며, `feeRatio`가 유효한 값으로 설정되었을 경우, 부분 수수료 위임 트랜잭션이 사용됩니다. 유효한 범위는 1에서 99 사이입니다. 0이나 100 이상의 값은 허용되지 않습니다. |
 
 **리턴값**
 
@@ -85,23 +85,23 @@ const myContract = new caver.contract([...], '0x{address in hex}', { gasPrice: '
 myContract.options
 ```
 
-컨트랙트 인스턴스에 대한 `options` 객체. `from`, `gas`, `gasPrice`, `feePayer` and `feeRatio` are used as fallback values when sending transactions.
+컨트랙트 인스턴스에 대한 `options` 객체. `from`, `gas`, `gasPrice`, `feePayer` 그리고 `feeRatio`는 트랜잭션 전송시 대체값으로 사용됩니다.
 
 **속성**
 
-| 명칭            | 타입      | 설명                                                                                                                                                                                                                                                                         |
-| ------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address       | string  | 컨트랙트가 배포된 주소.                                                                                                                                                                                                                                                              |
-| jsonInterface | Array   | 컨트랙트의 JSON 인터페이스.                                                                                                                                                                                                                                                          |
-| from          | string  | The default address from which the contract deployment/execution transaction is sent. If the `from` address is not defined when creating the transaction, this `myContract.options.from` is always used to create the transaction.                                         |
-| gasPrice      | string  | 트랜잭션에 사용할 peb 단위의 가스 가격.                                                                                                                                                                                                                                                   |
-| gas           | number  | 트랜잭션에 제공된 최대 가스 (가스 제한).                                                                                                                                                                                                                                                   |
-| data          | string  | 컨트랙트의 바이트 코드. 컨트랙트가 배포될 때 사용됩니다.                                                                                                                                                                                                                                           |
-| feeDelegation | boolean | (optional) Whether to use fee delegation transaction.                                                                                                                                                                                                                      |
-| feePayer      | string  | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction.                                                                                                           |
-| feeRatio      | string  | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. 0이나 100 이상의 값은 허용되지 않습니다. |
+| 명칭            | 타입      | 설명                                                                                                                                                                           |
+| ------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address       | string  | 컨트랙트가 배포된 주소.                                                                                                                                                                |
+| jsonInterface | Array   | 컨트랙트의 JSON 인터페이스.                                                                                                                                                            |
+| from          | string  | 컨트랙트 배포/실행 트랜잭션을 전송하는 기본 주소입니다. 트랜잭션 생성시 `from` 주소가 정의되어 있지 않다면, 트랜잭션 생성시 항상 `myContract.options.from`가 사용됩니다.                                                               |
+| gasPrice      | string  | 트랜잭션에 사용할 peb 단위의 가스 가격.                                                                                                                                                     |
+| gas           | number  | 트랜잭션에 제공된 최대 가스 (가스 제한).                                                                                                                                                     |
+| data          | string  | 컨트랙트의 바이트 코드. 컨트랙트가 배포될 때 사용됩니다.                                                                                                                                             |
+| feeDelegation | boolean | (선택 사항) 수수료 위임 트랜잭션 사용 여부를 나타냅니다.                                                                                                                                            |
+| feePayer      | string  | (선택 사항) 트랜잭션 수수료를 부담하는 수수료 납부자의 주소입니다. `feeDelegation`이 `true`일 때, 값은 트랜잭션의 `feePayer` 필드에 설정됩니다.                                                                            |
+| feeRatio      | string  | (optional) Fee payer가 부담하게될 트랜잭션 수수료의 비율입니다. `feeDelegation`이 `true`이며, `feeRatio`가 유효한 값으로 설정되었을 경우, 부분 수수료 위임 트랜잭션이 사용됩니다. 유효한 범위는 1에서 99 사이입니다. 0이나 100 이상의 값은 허용되지 않습니다. |
 
-**NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**참고** `feeDelegation`, `feePayer`, 그리고 `feeRatio`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 이후부터 지원됩니다.
 
 
 **예시**
@@ -135,7 +135,7 @@ myContract.options
 myContract.options.address
 ```
 
-이 컨트랙트 인스턴스 `myContract`에 사용된 주소. All transactions generated by caver-js from this contract will contain this address as the `to` of the transaction.
+이 컨트랙트 인스턴스 `myContract`에 사용된 주소입니다. All transactions generated by caver-js from this contract will contain this address as the `to` of the transaction.
 
 **속성**
 
@@ -211,9 +211,9 @@ myContract.clone([contractAddress])
 
 **매개변수**
 
-| 명칭              | 타입     | 설명                                                                                                                                                   |
-| --------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| contractAddress | String | (optional) The address of the new contract. If omitted, it will be set to the address in the original instance (e.g., `myContract.options.address`). |
+| 명칭              | 타입     | 설명                                                                                 |
+| --------------- | ------ | ---------------------------------------------------------------------------------- |
+| contractAddress | String | (선택 사항) 새 컨트랙트의 주소입니다. 미입력시 오리지널 인스턴스(예: `myContract.options.address`)의 주소로 설정됩니다. |
 
 **리턴값**
 
@@ -239,7 +239,7 @@ Contract {
 myContract.deploy(options, byteCode [, param1 [, param2 [, ...]]])
 ```
 
-Deploys the contract to the Klaytn network. After a successful deployment, the promise will be resolved with a new contract instance. Unlike the usability of the existing [myContract.deploy](#mycontract-deploy) function, this function sends a transaction directly to the Klaytn network. You don't need to call `send()` with the returned object.
+컨트랙트를 Klaytn 네트워크에 배포합니다. 성공적으로 배포된 후, Promise는 새로운 컨트랙트 인스턴스와 함께 해결(resolved)될 것입니다. 기존의 [myContract.deploy](#mycontract-deploy) 함수 사용성과는 다르게, 이 함수는 Klaytn 네트워크에 직접 트랜잭션을 전송합니다. You don't need to call `send()` with the returned object.
 
 **NOTE** `caver.wallet` must contains keyring instances corresponding to `from` and `feePayer` in `options` or `myContract.options` to make signatures.
 
@@ -339,7 +339,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 myContract.deploy(options)
 ```
 
-Returns the object used when deploying the smart contract to the Klaytn. You can send the smart contract deploy transaction via calling `myContract.deploy({ data, arguments }).send(options)`. After a successful deployment, the promise will be resolved with a new contract instance.
+Returns the object used when deploying the smart contract to the Klaytn. You can send the smart contract deploy transaction via calling `myContract.deploy({ data, arguments }).send(options)`. 성공적으로 배포된 후, Promise는 새로운 컨트랙트 인스턴스와 함께 해결(resolved)될 것입니다.
 
 **매개변수**
 
@@ -1122,17 +1122,17 @@ The transaction type used for this function depends on the `options` or the valu
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 명칭            | 타입                                              | 설명                                                                                                                                                                                                                                                                                                                                 |
-| ------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from          | string                                          | 트랜잭션을 보낼 송신자 주소. If omitted, `myContract.options.from` will be used.                                                                                                                                                                                                                                                               |
-| gas           | number                                          | The maximum gas provided for this transaction (gas limit).                                                                                                                                                                                                                                                                         |
-| gasPrice      | string                                          | (선택 사항) 트랜잭션에 사용할 peb 단위의 가스 가격.                                                                                                                                                                                                                                                                                                   |
-| value         | number &#124; string &#124; BN &#124; Bignumber | (optional) The value in peb to be transferred to the address of the smart contract by this transaction.                                                                                                                                                                                                                            |
-| feeDelegation | boolean                                         | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `myContract.options.feeDelegation` will be used.                                                                                                                                                                                                |
-| feePayer      | string                                          | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `myContract.options.feePayer` will be used.                                                                                                           |
-| feeRatio      | string                                          | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. 0이나 100 이상의 값은 허용되지 않습니다. If omitted, `myContract.options.feeRatio` will be used. |
+| 명칭            | 타입                                              | 설명                                                                                                                                                                                                                                   |
+| ------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| from          | string                                          | 트랜잭션을 보낼 송신자 주소. If omitted, `myContract.options.from` will be used.                                                                                                                                                                 |
+| gas           | number                                          | The maximum gas provided for this transaction (gas limit).                                                                                                                                                                           |
+| gasPrice      | string                                          | (선택 사항) 트랜잭션에 사용할 peb 단위의 가스 가격.                                                                                                                                                                                                     |
+| value         | number &#124; string &#124; BN &#124; Bignumber | (optional) The value in peb to be transferred to the address of the smart contract by this transaction.                                                                                                                              |
+| feeDelegation | boolean                                         | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `myContract.options.feeDelegation` will be used.                                                                                                  |
+| feePayer      | string                                          | (선택 사항) 트랜잭션 수수료를 부담하는 수수료 납부자의 주소입니다. `feeDelegation`이 `true`일 때, 값은 트랜잭션의 `feePayer` 필드에 설정됩니다. If omitted, `myContract.options.feePayer` will be used.                                                                            |
+| feeRatio      | string                                          | (optional) Fee payer가 부담하게될 트랜잭션 수수료의 비율입니다. `feeDelegation`이 `true`이며, `feeRatio`가 유효한 값으로 설정되었을 경우, 부분 수수료 위임 트랜잭션이 사용됩니다. 유효한 범위는 1에서 99 사이입니다. 0이나 100 이상의 값은 허용되지 않습니다. If omitted, `myContract.options.feeRatio` will be used. |
 
-**NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**참고** `feeDelegation`, `feePayer`, 그리고 `feeRatio`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 이후부터 지원됩니다.
 
 **리턴값**
 
