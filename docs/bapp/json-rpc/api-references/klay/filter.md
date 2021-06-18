@@ -63,6 +63,10 @@ returned by other filter creation functions, such as [klay_newBlockFilter](#klay
 or [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter),
 cannot be used with this function.
 
+The execution of this API can be limited by two node configurations to manage resource of Klaytn node safely.
+- The number of returned results in a single query (default: 10,000).
+- The execution duration of ta single query (default: 10 seconds).
+
 **Parameters**
 
 | Name | Type | Description |
@@ -101,6 +105,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ## klay_getLogs <a id="klay_getlogs"></a>
 
 Returns an array of all logs matching a given filter object.
+
+The execution of this API can be limited by two node configurations to manage resource of Klaytn node safely.
+- The number of returned results in a single query (default: 10,000).
+- The execution duration of ta single query (default: 10 seconds).
 
 **Parameters**
 
