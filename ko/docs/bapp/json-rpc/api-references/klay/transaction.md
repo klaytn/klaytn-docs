@@ -178,7 +178,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 **예시**
 
 ```shell
-// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getTransactionByBlockNumberAndIndex","params":["0x27", "0x0"],"id":1}' http://localhost:8551
 
 // Result
@@ -218,7 +217,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 형식            | 설명          |
+| 타입            | 설명          |
 | ------------- | ----------- |
 | 32바이트 크기 DATA | 트랜잭션 해시입니다. |
 
@@ -226,7 +225,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 `객체` - 트랜잭션 객체를 반환하거나 또는 해당하는 트랜잭션을 찾을 수 없는 경우 `null`을 반환합니다.
 
-| 명칭                 | 형식            | 설명                                                                                                                                                                |
+| 이름                 | 타입            | 설명                                                                                                                                                                |
 | ------------------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | blockHash          | 32바이트 크기 DATA | 트랜잭션이 담긴 블록의 해시입니다. 보류 중인 상태이면 `null`을 반환합니다.                                                                                                                     |
 | blockNumber        | QUANTITY      | 트랜잭션이 담긴 블록의 번호입니다. 보류 중인 상태이면 `null`을 반환합니다.                                                                                                                     |
