@@ -1776,7 +1776,7 @@ For PromiEvent, the following events are available:
 caver.rpc.klay.sendTransaction(transaction [, callback])
 ```
 
-Signs a transaction as a transaction `sender` with an "imported account's private key" in your Klyatn Node and propagates the transaction to the Klaytn.
+Signs a transaction as a transaction `sender` with an "imported account's private key" in your Klaytn Node and propagates the transaction to the Klaytn.
 
 For more information about each transaction type, refer to [Transaction].
 
@@ -1844,7 +1844,7 @@ For PromiEvent, the following events are available:
 caver.rpc.klay.sendTransactionAsFeePayer(transaction [, callback])
 ```
 
-Signs a fee delegated transaction as a transaction `fee payer` with an `imported account's private key` in your Klyatn Node and propagates the transaction to the Klaytn.
+Signs a fee delegated transaction as a transaction `fee payer` with an `imported account's private key` in your Klaytn Node and propagates the transaction to the Klaytn.
 
 Before using `sendTransaction` as a fee payer, the transaction sender must have signed with valid signature(s) and the `nonce` must have been defined.
 
