@@ -885,11 +885,11 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]])
 ```
 Creates a transaction object for that method, which then can be called, sent, estimated or ABI encoded.
 
-The methods of this smart contract are available through:
+The methods of this smart contract are available via:
 
-- The name with parameters: `myContract.methods.methodName(123)` or `myContract.methods[methodName](123)`
-- The string-formatted name and the parameter type, and parameters: `myContract.methods['methodName(uint256)'](123)`
-- The signature* for the method and parameters: `myContract.methods['0x58cf5f10'](123)`
+- Method name: `myContract.methods.methodName(123)` or `myContract.methods[methodName](123)`
+- Method prototype: `myContract.methods['methodName(uint256)'](123)`
+- Method signature: `myContract.methods['0x58cf5f10'](123)`
 
 This allows calling functions with the same name but different parameters from the JavaScript contract object.
 
@@ -897,7 +897,7 @@ This allows calling functions with the same name but different parameters from t
 The first four bytes of the call data for a function call specifies the function to be called.  
 It is the first (left, high-order in big-endian) four bytes of the Keccak-256 (SHA-3) hash of the signature of the function.
 
-The function signature can be made by 2 different methods.  
+The function signature can be given via 2 different methods.  
 `1. caver.abi.encodefunctionSignature('funcName(paramType1,paramType2,...)')`  
 `2. caver.utils.sha3('funcName(paramType1,paramType2,...)').substr(0, 10)`
 
