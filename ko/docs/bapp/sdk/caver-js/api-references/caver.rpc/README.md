@@ -10,20 +10,20 @@
 caver.rpc
 ```
 
-`RPC` is a class that includes [Klay][] and [Net][] inside.
+`RPC`는 [Klay][]와 [Net][]을 포함한 클래스입니다.
 
 **속성**
 
-| 명칭   | 타입       | 설명                                                           |
-| ---- | -------- | ------------------------------------------------------------ |
-| klay | [Klay][] | The [Klay][] providing JSON-RPC call with `klay` name space. |
-| net  | [Net][]  | The [Net][] providing JSON-RPC call with `net` name space.   |
+| 명칭   | 타입       | 설명                                                |
+| ---- | -------- | ------------------------------------------------- |
+| klay | [Klay][] | [Klay][]는 `klay` 네임 스페이스를 가진 JSON-RPC API를 호출합니다. |
+| net  | [Net][]  | [Net][]은 `net` 네임 스페이스를 가진 JSON-RPC API를 호출합니다.   |
 
 ## JSON-RPC calls <a id="json-rpc-calls"></a>
 
 `caver.rpc.klay`를 사용하면 Klaytn 노드와 상호작용할 수 있습니다. 아래 목록은 `caver-js`에서 현재 지원되는 API의 기능을 열거합니다.
 
-### [Account](./klay.md#caver-rpc-klay-accountcreated) <a id="account"></a>
+### [계정(Account)](./klay.md#caver-rpc-klay-accountcreated) <a id="account"></a>
 - [accountCreated](./klay.md#caver-rpc-klay-accountcreated)
 - [getAccount](./klay.md#caver-rpc-klay-getaccount)
 - [getAccountKey](./klay.md#caver-rpc-klay-getaccountkey)
@@ -36,7 +36,7 @@ caver.rpc
 - [sign](./klay.md#caver-rpc-klay-sign)
 - [getAccounts](./klay.md#caver-rpc-klay-getaccounts)
 
-### [Block](./klay.md#caver-rpc-klay-getblocknumber) <a id="block"></a>
+### [블록(Block)](./klay.md#caver-rpc-klay-getblocknumber) <a id="block"></a>
 - [getBlockNumber](./klay.md#caver-rpc-klay-getblocknumber)
 - [getBlockByNumber](./klay.md#caver-rpc-klay-getblockbynumber)
 - [getBlockByHash](./klay.md#caver-rpc-klay-getblockbyhash)
@@ -52,7 +52,7 @@ caver.rpc
 - [getStorageAt](./klay.md#caver-rpc-klay-getstorageat)
 - [isSyncing](./klay.md#caver-rpc-klay-issyncing)
 
-### [Transaction](./klay.md#caver-rpc-klay-call) <a id="transaction"></a>
+### [트랜잭션(Transaction)](./klay.md#caver-rpc-klay-call) <a id="transaction"></a>
 - [call](./klay.md#caver-rpc-klay-call)
 - [estimateGas](./klay.md#caver-rpc-klay-estimategas)
 - [estimateComputationCost](./klay.md#caver-rpc-klay-estimatecomputationcost)
@@ -69,7 +69,7 @@ caver.rpc
 - [signTransactionAsFeePayer](./klay.md#caver-rpc-klay-signtransactionasfeepayer)
 - [getDecodedAnchoringTransactionByHash](./klay.md#caver-rpc-klay-getdecodedanchoringtransactionbyhash)
 
-### [Configuration](./klay.md#caver-rpc-klay-getclientversion) <a id="configuration"></a>
+### [환경설정(Configuration)](./klay.md#caver-rpc-klay-getclientversion) <a id="configuration"></a>
 - [getChainId](./klay.md#caver-rpc-klay-getchainid)
 - [getClientVersion](./klay.md#caver-rpc-klay-getclientversion)
 - [getGasPrice](./klay.md#caver-rpc-klay-getgasprice)
@@ -80,7 +80,7 @@ caver.rpc
 - [getRewardbase](./klay.md#caver-rpc-klay-getrewardbase)
 - [isWriteThroughCaching](./klay.md#caver-rpc-klay-iswritethroughcaching)
 
-### [Filter](./klay.md#caver-rpc-klay-getfilterchanges) <a id="filter"></a>
+### [필터(Filter)](./klay.md#caver-rpc-klay-getfilterchanges) <a id="filter"></a>
 - [getFilterChanges](./klay.md#caver-rpc-klay-getfilterchanges)
 - [getFilterLogs](./klay.md#caver-rpc-klay-getfilterlogs)
 - [getLogs](./klay.md#caver-rpc-klay-getlogs)
@@ -89,13 +89,13 @@ caver.rpc
 - [newPendingTransactionFilter](./klay.md#caver-rpc-klay-newpendingtransactionfilter)
 - [uninstallFilter](./klay.md#caver-rpc-klay-uninstallfilter)
 
-### [Network](./net.md) <a id="network"></a>
+### [네트워크(Network)](./net.md) <a id="network"></a>
 - [getNetworkId](./net.md#caver-rpc-net-getnetworkid)
 - [isListening](./net.md#caver-rpc-net-islistening)
 - [getPeerCount](./net.md#caver-rpc-net-getpeercount)
 - [getPeerCountByType](./net.md#caver-rpc-net-getpeercountbytype)
 
-### [Miscellaneous](./klay.md#caver-rpc-klay-sha3) <a id="miscellaneous"></a>
+### [기타(Miscellaneous)](./klay.md#caver-rpc-klay-sha3) <a id="miscellaneous"></a>
 - [sha3](./klay.md#caver-rpc-klay-sha3)
 
 [Klay]: ./klay.md
