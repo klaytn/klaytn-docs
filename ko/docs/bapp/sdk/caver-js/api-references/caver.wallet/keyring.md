@@ -198,7 +198,7 @@ caver.wallet.keyring.generateMultipleKeys(num [, entropy])
 caver.wallet.keyring.generateRoleBasedKeys(numArray [, entropy])
 ```
 
-Generates a 2D array of which each array element contains keys defined for each [role][].
+각 [역할][]에 정의된 키를 포함하는 요소들을 지닌 2차원 배열을 생성합니다.
 
 **매개변수**
 
@@ -889,9 +889,9 @@ sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 
 **리턴값**
 
-| 타입     | 설명                                             |
-| ------ | ---------------------------------------------- |
-| object | An object that includes the result of signing. |
+| 타입     | 설명                 |
+| ------ | ------------------ |
+| object | 서명 결과를 포함하는 객체입니다. |
 
 반환된 객체는 다음을 포함합니다.
 
@@ -1382,9 +1382,6 @@ true
 > keyring.isDecoupled()
 false
 ```
-
-
-[role]: ../../../../../klaytn/design/accounts.md#roles
 
 
 [역할]: ../../../../../klaytn/design/accounts.md#roles
