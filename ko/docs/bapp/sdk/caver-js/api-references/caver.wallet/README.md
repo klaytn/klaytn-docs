@@ -270,9 +270,9 @@ sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 
 **리턴값**
 
-| 타입     | 설명                                             |
-| ------ | ---------------------------------------------- |
-| object | An object that includes the result of signing. |
+| 타입     | 설명                 |
+| ------ | ------------------ |
+| object | 서명 결과를 포함하는 객체입니다. |
 
 반환된 객체는 다음을 포함합니다.
 
@@ -330,9 +330,9 @@ caver.wallet.sign(address, transaction [, index] [, hasher])
 
 `Promise`는 `객체`를 반환: 서명된 트랜잭션입니다.
 
-| 타입     | 설명                                                                                   |
-| ------ | ------------------------------------------------------------------------------------ |
-| object | A signed transaction instance. The sign(s) is added to the `transaction.signatures`. |
+| 타입     | 설명                                                        |
+| ------ | --------------------------------------------------------- |
+| object | 서명된 트랜잭션 인스턴스입니다. `transaction.signatures`에 서명(들)이 첨부됩니다. |
 
 트랜잭션 타입 별 필드에 대한 관한 자세한 내용은 [Transaction][]에서 확인하세요.
 
