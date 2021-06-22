@@ -325,7 +325,7 @@ Account {
 caver.account.createWithAccountKeyPublic(address, publicKey)
 ```
 
-Creates an Account instance which has AccountKeyPublic as an accountKey.
+AccountKeyPublic를 accountKey로 지닌 Account 인스턴스를 생성합니다.
 
 **매개변수**
 
