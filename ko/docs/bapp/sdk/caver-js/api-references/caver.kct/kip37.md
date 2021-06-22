@@ -526,12 +526,12 @@ kip37.create(id, initialSupply [, uri] [, sendParam])
 
 | 명칭            | 타입                                              | 설명                                                                                                                                                                                                              |
 | ------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from          | string                                          | (선택 사항) 트랜잭션 발신자 주소입니다. 미입력시 `kip37.options.from`에 의해 지정됩니다. If neither of `from` in the `sendParam` object nor `kip37.options.from` were not provided, an error would occur.                                   |
+| from          | string                                          | (선택 사항) 트랜잭션 발신자 주소입니다. 미입력시 `kip37.options.from`에 의해 지정됩니다. `sendParam`객체의 `from` 또는 `kip37.options.from`가 주어지지 않으면 오류가 발생합니다.                                                                                 |
 | gas           | number &#124; string                            | (선택 사항) 이 트랜잭션이 쓸 수 있는 최대 가스량 (가스 제한) 입니다. 미입력시 caver-js가 `kip37.methods.approve(spender, amount).estimateGas({from})`를 호출하여 이 값을 지정합니다.                                                                        |
 | gasPrice      | number &#124; string                            | (선택 사항) 이 트랜잭션에 사용할 peb 단위의 가스 가격. 생략하면 `caver.klay.getGasPrice` 값으로 caver-js가 설정합니다.                                                                                                                           |
 | value         | number &#124; string &#124; BN &#124; BigNumber | (선택 사항) peb으로 환산한 전송될 토큰 가치.                                                                                                                                                                                    |
 | feeDelegation | boolean                                         | (선택 사항, default `false`) 수수료 위임 트랜잭션 사용 여부를 나타냅니다. 미입력시 `kip37.options.feeDelegation`를 사용합니다. 둘 다 미입력시 수수료 위임은 사용되지 않습니다.                                                                                       |
-| feePayer      | string                                          | (선택 사항) 트랜잭션 수수료를 부담하는 fee payer의 주소입니다. `feeDelegation`이 `true`일 때, 값은 트랜잭션의 `feePayer` 필드에 설정됩니다. 미입력시 `kip37.options.feePayer`를 사용합니다. If both omitted, throws an error.                                     |
+| feePayer      | string                                          | (선택 사항) 트랜잭션 수수료를 부담하는 fee payer의 주소입니다. `feeDelegation`이 `true`일 때, 값은 트랜잭션의 `feePayer` 필드에 설정됩니다. 미입력시 `kip37.options.feePayer`를 사용합니다. 둘 다 미입력시 오류를 반환합니다.                                                   |
 | feeRatio      | string                                          | (선택 사항) Fee payer가 부담하게될 트랜잭션 수수료의 비율입니다. `feeDelegation`이 `true`이며, `feeRatio`가 유효한 값으로 설정되었을 경우, 부분 수수료 위임 트랜잭션이 사용됩니다. 유효한 범위는 1에서 99 사이입니다. 0이나 100 이상의 값은 허용되지 않습니다. 미입력시 `kip37.options.feeRatio`를 사용합니다. |
 
 **참고** `feeDelegation`, `feePayer`, 그리고 `feeRatio`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 이후부터 지원됩니다.
@@ -1031,7 +1031,7 @@ kip37.mintBatch(to, ids, values [, sendParam])
 | --------- | ------ | --------------------------------------------------------------------------------------------------------------- |
 | to        | string | 토큰들이 발행될 계정 주소입니다.                                                                                              |
 | ids       | Array  | 발행할 토큰 ID들의 배열입니다.                                                                                              |
-| values    | Array  | An array of the token amounts to mint.                                                                          |
+| values    | Array  | 발행할 토큰 수량들의 배열입니다.                                                                                              |
 | sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
 
 **참고**  `ids`와 `values` 배열 파라미터는 배열 요소로서 `number` 타입 값을 받지만, 입력된 값이 number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
@@ -1122,7 +1122,7 @@ kip37.addMinter(account [, sendParam])
 
 **리턴값**
 
-`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP37 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
+`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값에 대한 자세한 정보는 [getTransactionReceipt][]를 참고하세요. KIP37 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
 **예시**
 
@@ -1195,7 +1195,7 @@ kip37.renounceMinter([sendParam])
 
 **리턴값**
 
-`Promise`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP37 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
+`Promise`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값에 대한 자세한 정보는 [getTransactionReceipt][]를 참고하세요. KIP37 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
 **예시**
 
@@ -1697,7 +1697,7 @@ kip37.unpause([id] [, sendParam])
 
 **리턴값**
 
-`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP37 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
+`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값에 대한 자세한 정보는 [getTransactionReceipt][]를 참고하세요. KIP37 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
 **예시**
 
