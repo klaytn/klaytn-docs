@@ -1729,9 +1729,9 @@ caver.rpc.klay.sendRawTransaction(signedTransaction [, callback])
 
 **리턴값**
 
-| 타입         | 설명                                                                     |
-| ---------- | ---------------------------------------------------------------------- |
-| PromiEvent | 프로미스(promise)가 조합된 이벤트 이미터(event emitter). 트랜잭션 영수증이 준비되면 resolve 됩니다. |
+| 타입         | 설명                                                                        |
+| ---------- | ------------------------------------------------------------------------- |
+| PromiEvent | 프로미스(promise)가 조합된 이벤트 이미터(event emitter). 트랜잭션 영수증이 준비되면 해결(resolve)됩니다. |
 
 PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 
@@ -1776,7 +1776,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 caver.rpc.klay.sendTransaction(transaction [, callback])
 ```
 
-트랜잭션 `발신자`로서 "Klaytn 노드에 임포트한 계정의 개인키"로 트랜잭션에 서명하고, 트랜잭션을 Klaytn에 전송합니다.
+트랜잭션 `sender`로서 "Klaytn 노드에 임포트한 계정의 개인키"로 트랜잭션에 서명하고, 트랜잭션을 Klaytn에 전송합니다.
 
 각 트랜잭션 타입에 관한 자세한 내용은 [Transaction][]을 확인하십시오.
 
@@ -1791,9 +1791,9 @@ caver.rpc.klay.sendTransaction(transaction [, callback])
 
 **리턴값**
 
-| 타입         | 설명                                                                     |
-| ---------- | ---------------------------------------------------------------------- |
-| PromiEvent | 프로미스(promise)가 조합된 이벤트 이미터(event emitter). 트랜잭션 영수증이 준비되면 resolve 됩니다. |
+| 타입         | 설명                                                                        |
+| ---------- | ------------------------------------------------------------------------- |
+| PromiEvent | 프로미스(promise)가 조합된 이벤트 이미터(event emitter). 트랜잭션 영수증이 준비되면 해결(resolve)됩니다. |
 
 PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 
@@ -1844,9 +1844,9 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 caver.rpc.klay.sendTransactionAsFeePayer(transaction [, callback])
 ```
 
-수수료 위임 트랜잭션 `트랜잭션 수수료 납부자`로서 `Klaytn 노드에 임포트한 계정의 개인키<code>로 트랜잭션에 서명하고, 트랜잭션을 Klaytn에 전송합니다.</p>
+트랜잭션 `feePayer`로서 Klaytn 노드에 임포트된 계정의 개인키로 트랜잭션에 서명하고, 트랜잭션을 Klaytn에 전파합니다.
 
-<p spaces-before="0">트랜잭션 수수료 납부자로서 <code>sendTransaction`을 사용하기 전에, 트랜잭션 발신자는 반드시 유효한 서명(들)으로 트랜잭션에 서명했어야 하며 `nonce`가 반드시 정의되어 있어야 합니다.
+트랜잭션 수수료 납부자로서 `sendTransaction`을 사용하기 전에, 트랜잭션 발신자는 반드시 유효한 서명(들)으로 트랜잭션에 서명했어야 하며 `nonce`가 반드시 정의되어 있어야 합니다.
 
 각 트랜잭션 타입에 관한 자세한 내용은 [Transaction][]을 확인하십시오.
 
@@ -1861,9 +1861,9 @@ caver.rpc.klay.sendTransactionAsFeePayer(transaction [, callback])
 
 **리턴값**
 
-| 타입         | 설명                                                                     |
-| ---------- | ---------------------------------------------------------------------- |
-| PromiEvent | 프로미스(promise)가 조합된 이벤트 이미터(event emitter). 트랜잭션 영수증이 준비되면 resolve 됩니다. |
+| 타입         | 설명                                                                        |
+| ---------- | ------------------------------------------------------------------------- |
+| PromiEvent | 프로미스(promise)가 조합된 이벤트 이미터(event emitter). 트랜잭션 영수증이 준비되면 해결(resolve)됩니다. |
 
 PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 
@@ -2187,7 +2187,7 @@ caver.rpc.klay.getGasPriceAt([blockNumber] [, callback])
 
 | 명칭          | 타입       | 설명                                                                   |
 | ----------- | -------- | -------------------------------------------------------------------- |
-| blockNumber | number   | (optional) The block number. 이를 생략하면 최신 단가가 반환됩니다.                   |
+| blockNumber | number   | (선택 사항) 블록 번호입니다. 이를 생략하면 최신 단가가 반환됩니다.                              |
 | callback    | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
