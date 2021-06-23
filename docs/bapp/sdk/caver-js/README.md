@@ -26,6 +26,7 @@ Below are packages provided in `caver-js`.
 * [caver.contract](api-references/caver.contract.md)
 * [caver.abi](api-references/caver.abi.md)
 * [caver.kct](api-references/caver.kct/README.md)
+* [caver.validator](api-references/caver.validator.md)
 * [caver.utils](api-references/caver.utils.md)
 * [caver.ipfs](api-references/caver.ipfs.md)
 
