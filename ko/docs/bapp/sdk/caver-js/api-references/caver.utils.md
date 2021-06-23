@@ -1640,11 +1640,11 @@ caver.utils.recover(message, signature [, preFixed])
 
 **매개변수**
 
-| 명칭       | 타입      | 설명                                                                                                                                                                                                                           |
-| -------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 메시지      | string  | Either message or hashed message.                                                                                                                                                                                            |
-| 서명 값입니다. | object  | An instance of [SignatureData][].                                                                                                                                                                                            |
-| preFixed | boolean | (optional, default: `false`) If the last parameter is `true`, the given `message` will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and be assumed as already prefixed. |
+| 명칭        | 타입      | 설명                                                                                                                                                                                                                           |
+| --------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 메시지       | string  | Either message or hashed message.                                                                                                                                                                                            |
+| signature | object  | An instance of [SignatureData][].                                                                                                                                                                                            |
+| preFixed  | boolean | (optional, default: `false`) If the last parameter is `true`, the given `message` will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and be assumed as already prefixed. |
 
 **리턴값**
 
