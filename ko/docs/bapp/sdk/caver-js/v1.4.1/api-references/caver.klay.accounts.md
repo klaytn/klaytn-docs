@@ -1260,9 +1260,9 @@ caver.klay.accounts.recoverTransaction(rawTransaction)
 
 **매개변수**
 
-| 명칭       | 형식     | 설명                           |
-| -------- | ------ | ---------------------------- |
-| 서명 값입니다. | String | The RLP encoded transaction. |
+| 명칭        | 형식     | 설명                           |
+| --------- | ------ | ---------------------------- |
+| signature | String | The RLP encoded transaction. |
 
 **리턴값**
 
@@ -1345,7 +1345,7 @@ caver.klay.accounts.sign(data, privateKey)
 | r           | String | ECDSA 서명 r.              |
 | s           | String | ECDSA 서명 s.              |
 | v           | String | ECDSA 리커버리 id.           |
-| 서명 값입니다.    | String | The generated signature. |
+| signature   | String | The generated signature. |
 
 
 **예시**
@@ -1378,7 +1378,7 @@ caver.klay.accounts.recover(message, v, r, s [, preFixed])
 | ------------------------------ | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | message &#124; signatureObject | String &#124; Object | Either signed message or hash. For the details of the signature object, see the table below.                                                                                                                               |
 | messageHash                    | String               | 주어진 메시지의 해시.                                                                                                                                                                                                               |
-| 서명 값입니다.                       | String               | The raw RLP encoded signature, OR parameter 2-4 as v, r, s values.                                                                                                                                                         |
+| signature                      | String               | The raw RLP encoded signature, OR parameter 2-4 as v, r, s values.                                                                                                                                                         |
 | preFixed                       | Boolean              | (optional, default: `false`) If the last parameter is `true`, the given message will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and assumed to be already prefixed. |
 
 서명 객체는 다음과 같은 값을 가집니다:
