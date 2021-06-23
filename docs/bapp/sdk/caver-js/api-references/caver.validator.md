@@ -61,7 +61,7 @@ Validates a transaction. This function compares the public keys of the account k
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tx | object | An instance of transaction to validate. |
+| tx | object | An instance of [Transaction] to validate. |
 
 **Return Value**
 
@@ -92,7 +92,7 @@ Validates the sender of the transaction. This function compares the public keys 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tx | object | An instance of transaction to validate. |
+| tx | object | An instance of [Transaction] to validate. |
 
 **Return Value**
 
@@ -118,7 +118,7 @@ Validates a fee payer in the transaction. This function compares the public keys
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tx | object | An instance of transaction to validate. |
+| tx | object | An instance of [Transaction] to validate. |
 
 **Return Value**
 
@@ -131,3 +131,5 @@ Validates a fee payer in the transaction. This function compares the public keys
 const tx = caver.transaction.feeDelegatedValueTransfer.create({...})
 > caver.validator.validateFeePayer(tx).then(console.log)
 ```
+
+[Transaction]: ./caver.transaction/README.md#class
