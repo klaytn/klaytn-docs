@@ -55,7 +55,7 @@ const signature = [
 caver.validator.validateTransaction(tx)
 ```
 
-Validates a transaction. This function compares the public keys of the account key of the Klaytn account in the Klaytn with the public keys recovered from `signatures`. And if transaction is fee-delegation, which has `feePayerSignatures` variable inside, this function compares recovered public keys from `feePayerSignatures` and the public keys of the fee payer.
+Validates a transaction. This function compares the public keys of the account key of the Klaytn account with the public keys recovered from `signatures`. If the transaction is fee-delegated with the `feePayerSignatures` variable inside, this function compares the public keys recovered from `feePayerSignatures` with the public keys of the fee payer.
 
 **Parameters**
 
@@ -65,7 +65,7 @@ Validates a transaction. This function compares the public keys of the account k
 
 **Return Value**
 
-`Promise` returning `boolean`: The promise will be resolved with whether the transacion is valid or not.
+`Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transacion is valid or not.
 
 
 **Examples**
@@ -86,7 +86,7 @@ const tx = caver.transaction.feeDelegatedValueTransfer.create({...})
 caver.validator.validateSender(tx)
 ```
 
-Validates a sender in the transaction. This function compares the public keys of the account key of the Klaytn account in the Klaytn with the public keys recovered from `signatures`.
+Validates the sender of the transaction. This function compares the public keys of the account key of the Klaytn account with the public keys recovered from `signatures`.
 
 **Parameters**
 
@@ -96,7 +96,7 @@ Validates a sender in the transaction. This function compares the public keys of
 
 **Return Value**
 
-`Promise` returning `boolean`: The promise will be resolved with whether the transacion is valid or not.
+`Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transaction is valid or not.
 
 
 **Examples**
