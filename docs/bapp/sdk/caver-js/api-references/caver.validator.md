@@ -1,6 +1,6 @@
 # caver.validator <a id="caver-validator"></a>
 
-The `caver.validator` package provides validation functions that should be used when implementing applications on the Klaytn.
+The `caver.validator` package provides validation functions that should be used when implementing applications on Klaytn.
 
 **NOTE** `caver.validator` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
@@ -10,13 +10,13 @@ The `caver.validator` package provides validation functions that should be used 
 caver.validator.validateSignedMessage(message, signatures, address [, isHashed])
 ```
 
-Validates a signed message through comparing the public key recovered from the signature and the account key of the Klaytn account.
+Validates a signed message by comparing the public key recovered from the signature with the account key of the Klaytn account.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| message | string | The raw message string. If this message is hased with Klaytn specific prefix, the third parameter should be passed as `true`. |
+| message | string | The raw message string. If this message is hashed with the Klaytn-specific prefix, the third parameter should be passed as `true`. |
 | signatures | object &#124; Array | An object which in format of `{ v, r, s }`, an instance of `SignatureData` or an array of `SignatureData`. '[ v, r, s ]' or '[[ v, r, s ]]' array can also be passed as a parameter, and in this case, it is internally converted to `SignatureData` type. |
 | address | string | The address of the account that signed the message. |
 | isHashed | boolean | (optional, default: `false`) The address of the account that signed the message. |
