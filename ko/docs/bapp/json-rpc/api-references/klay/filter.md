@@ -57,6 +57,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 입력된 필터 ID와 일치하는 모든 로그를 배열 형태로 반환합니다. 필터 ID는 [klay_newFilter](#klay_newfilter)를 통해 얻을 수 있습니다.  이때 [klay_newBlockFilter](#klay_newblockfilter), [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter)와 같은 다른 필터 생성 함수를 통해 얻은 필터 ID는 본 함수에 사용할 수 없습니다.
 
+The execution of this API can be limited by two node configurations to manage resources of Klaytn node safely.
+- The number of maximum returned results in a single query (Default: 10,000).
+- The execution duration limit of a single query (Default: 10 seconds).
+
 **매개변수**
 
 | 이름       | 타입     | 설명        |
@@ -65,7 +69,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **리턴값**
 
-[klay_getFilterChanges](#klay_getfilterchanges)를 참고하세요.
+See [klay_getFilterChanges](#klay_getfilterchanges)
 
 **예시**
 
@@ -96,9 +100,13 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 입력으로 받은 필터 객체와 일치하는 모든 로그를 배열 형태로 반환합니다.
 
+The execution of this API can be limited by two node configurations to manage resources of Klaytn node safely.
+- The number of maximum returned results in a single query (Default: 10,000).
+- The execution duration limit of a single query (Default: 10 seconds).
+
 **매개변수**
 
-`객체` - 필터 객체를 구성하는 옵션은 다음과 같습니다.
+`Object` - The filter options:
 
 | 이름        | 타입                          | 설명                                                                                                                                                                                              |
 | --------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -110,7 +118,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **리턴값**
 
-[klay_getFilterChanges](#klay_getfilterchanges)를 참고하세요.
+See [klay_getFilterChanges](#klay_getfilterchanges)
 
 **예제**
 
@@ -231,7 +239,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 
 ## klay_newBlockFilter <a id="klay_newblockfilter"></a>
 
-노드에 필터를 생성하여 새로운 블록이 도착하였음을 알립니다. 상태가 변경되었는지 확인하려면 [klay_getFilterChanges](#klay_getfilterchanges)를 호출하세요.
+노드에 필터를 생성하여 새로운 블록이 도착하였음을 알립니다. To check if the state has changed, call [klay_getFilterChanges](#klay_getfilterchanges).
 
 **매개변수**
 
@@ -260,20 +268,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_newFilter <a id="klay_newfilter"></a>
 
-필터 옵션에 따라 필터 객체를 생성하여 상태가 변경되었음(로그)을 알립니다.
-- 상태가 변경되었는지 확인하려면 [klay_getFilterChanges](#klay_getfilterchanges)를 호출하세요.
-- `klay_newFilter`로 생성된 필터와 일치하는 모든 로그를 가져오려면 [klay_getFilterLogs](#klay_getfilterlogs)를 호출하세요.
+Creates a filter object, based on filter options, to notify when the state changes (logs).
+- To check if the state has changed, call [klay_getFilterChanges](#klay_getfilterchanges).
+- To obtain all logs matching the filter created by `klay_newFilter`, call [klay_getFilterLogs](#klay_getfilterlogs).
 
-**토픽 필터 지정 시 참고사항:** 토픽은 순서에 따라 다릅니다. `[A, B]`인 토픽인 로그가 있는 트랜잭션은 다음 토픽 필터에 대응됩니다.
-* `[]` "조건 없음"
-* `[A]` "A가 첫 번째 위치에 있음 (이후에는 무엇이든 있어도 됨)"
-* `[null, B]` "첫 번째 위치에 어떤 것이 있음 AND B가 두 번째 위치에 있음 (이후에는 무엇이든 있어도 됨)"
-* `[A, B]` "A가 첫 번째 위치에 있음 AND B가 두 번째 위치에 있음 (이후에는 무엇이든 있어도 됨)"
-* `[[A, B], [A, B]]` "(A 또는 B)가 첫 번째 위치에 있음 AND (A 또는 B)가 두 번째 위치에 있음 (이후에는 무엇이든 있어도 됨)"
+**A note on specifying topic filters:** Topics are order-dependent. A transaction with a log with topics `[A, B]` will be matched by the following topic filters:
+* `[]` "anything"
+* `[A]` "A in first position (and anything after)"
+* `[null, B]` "anything in first position AND B in second position (and anything after)"
+* `[A, B]` "A in first position AND B in second position (and anything after)"
+* `[[A, B], [A, B]]` "(A OR B) in first position AND (A OR B) in second position (and anything after)"
 
 **매개변수**
 
-`객체` - 필터 객체를 구성하는 옵션은 다음과 같습니다.
+`Object` - The filter options:
 
 | 이름        | 타입                          | 설명                                                                                                                             |
 | --------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -301,7 +309,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 
 ## klay_newPendingTransactionFilter <a id="klay_newpendingtransactionfilter"></a>
 
-노드에 필터를 생성하여 보류 상태인 새로운 트랜잭션이 도착하였음을 알립니다. 상태가 변경되었는지 확인하려면 [klay_getFilterChanges](#klay_getfilterchanges)를 호출하세요.
+Creates a filter in the node, to notify when new pending transactions arrive. To check if the state has changed, call [klay_getFilterChanges](#klay_getfilterchanges).
 
 **매개변수**
 
@@ -329,16 +337,16 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_subscribe <a id="klay_subscribe"></a>
 
-Websockets을 통한 RPC나 Pub/Sub 또는 HTTP를 통한 필터를 이용하여 특정 이벤트에 대한 새 구독을 생성합니다. 클라이언트가 이벤트에 대해 폴링하는 대신 이벤트 발생을 기다리게 해줍니다.
+Creates a new subscription to specific events by using either RPC Pub/Sub over WebSockets or filters over HTTP. It allows clients to wait for events instead of polling for them.
 
-매 생성된 구독에 대해 노드는 구독 ID를 반환할 것입니다. 구독에 일치하는 모든 이벤트에 대해서는 관계된 데이터와 구독 ID를 포함한 알림이 전송됩니다. 연결이 닫힐 경우, 이 연결을 통해 생성된 모든 구독들이 제거됩니다.
+The node will return a subscription id for each subscription created. For each event that matches the subscription, a notification with relevant data is sent together with the subscription id. If a connection is closed, all subscriptions created over the connection are removed.
 
 **매개변수**
 
-`Object` -알림 타입: `"newHeads"` 또는 `"logs"`.
+`Object` - A notification type: `"newHeads"` or `"logs"`.
 
 
-`"newHeads"`는 블록체인에 블록이 추가될 때 매번 알림을 보냅니다. `"logs"`는 새 블록에 포함된 로그에 대해 알림을 보냅니다. 이러한 타입은 필터 옵션을 구체화하는 두 번째 매개변수를 필요로 합니다. 더 자세한 내용은 [klay_newFilter > parameters](https://docs.klaytn.com/bapp/json-rpc/api-references/klay/filter#klay_newfilter)를 참고하세요.
+`"newHeads"` notifies you of each block added to the blockchain. `"logs"` notifies you of logs included in new blocks. This type requires a second parameter that specifies filter options. For more details, go to [klay_newFilter > parameters](https://docs.klaytn.com/bapp/json-rpc/api-references/klay/filter#klay_newfilter).
 
 **리턴값**
 
@@ -349,7 +357,7 @@ Websockets을 통한 RPC나 Pub/Sub 또는 HTTP를 통한 필터를 이용하여
 
 **예시**
 
-이 API는 WebSocket 툴인 [`wscat`](https://www.npmjs.com/package/wscat)과 함께 쓰기에 적합합니다.
+This API is appropriate for use with a WebSocket tool, [`wscat`](https://www.npmjs.com/package/wscat).
 
 ```shell
 // Request
@@ -374,7 +382,7 @@ wscat -c http://localhost:8552
 
 ## klay_uninstallFilter <a id="klay_uninstallfilter"></a>
 
-입력으로 받은 ID를 가진 필터를 제거합니다. 더는 감시가 필요없을 때 항상 호출해야 합니다. 일정 주기 동안 [klay_getFilterChanges](#klay_getfilterchanges)를 통해 요청되지 않으면 필터는 타임아웃 됩니다.
+Uninstalls a filter with given id. Should always be called when watch is no longer needed. Additionally, filters timeout when they are not requested with [klay_getFilterChanges](#klay_getfilterchanges) for a period of time.
 
 **매개변수**
 
@@ -405,7 +413,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_unsubscribe <a id="klay_unsubscribe"></a>
 
-Websockets을 통한 RPC나 Pub/Sub 또는 HTTP를 통한 필터를 이용하여 특정 구독 ID에 대한 구독을 취소합니다. 해당 구독을 생성한 연결만이 구독을 취소할 수 있습니다.
+Cancels the subscription with a specific subscription id by using either RPC Pub/Sub over WebSockets or filters over HTTP. Only the connection that created a subscription can unsubscribe from it.
 
 **매개변수**
 
@@ -422,7 +430,7 @@ Websockets을 통한 RPC나 Pub/Sub 또는 HTTP를 통한 필터를 이용하여
 
 **예시**
 
-이 API는 WebSocket 툴인 [`wscat`](https://www.npmjs.com/package/wscat)과 함께 쓰기에 적합합니다.
+This API is appropriate for use with a WebSocket tool, [`wscat`](https://www.npmjs.com/package/wscat).
 
 ```shell
 // Request
