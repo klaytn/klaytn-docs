@@ -238,6 +238,52 @@ Encodes a function call using its JSON interface object and given parameters.
 '0x24ee0097000000000000000000000000000000000000000000000000000000008bd02b7b0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000748656c6c6f212500000000000000000000000000000000000000000000000000'
 ```
 
+## decodeFunctionCall <a id="decodefunctioncall"></a>
+
+```javascript
+caver.abi.decodeFunctionCall(abi, functionCall)
+```
+
+Decodes a function call from its abi object of a function or function abi string and returns parameters.
+
+**NOTE** `caver.abi.decodeFunctionCall` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| abi | object | The abi object of a function. |
+| functionCall | string | The encoded function call string. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| object | An object which includes plain params. You can use `result[0]` as it is provided to be accessed like an array in the order of the parameters. |
+
+**Examples**
+
+```javascript
+> caver.abi.decodeFunctionCall({
+    name: 'myMethod',
+    type: 'function',
+    inputs: [{
+        type: 'uint256',
+        name: 'myNumber'
+    },{
+        type: 'string',
+        name: 'mystring'
+    }]
+}, '0x24ee0097000000000000000000000000000000000000000000000000000000008bd02b7b0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000748656c6c6f212500000000000000000000000000000000000000000000000000')
+Result {
+  '0': '2345675643',
+  '1': 'Hello!%',
+  __length__: 2,
+  myNumber: '2345675643',
+  mystring: 'Hello!%'
+}
+```
+
 ## decodeParameter <a id="decodeparameter"></a>
 
 ```javascript
