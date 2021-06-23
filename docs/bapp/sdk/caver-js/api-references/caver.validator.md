@@ -23,7 +23,7 @@ Validates a signed message by comparing the public key recovered from the signat
 
 **Return Value**
 
-`Promise` returning `boolean`: The promise will be resolved with whether the signature on the message is valid or not.
+`Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the signature on the message is valid or not.
 
 
 **Examples**
@@ -40,13 +40,13 @@ const signature = [
 
 
 const address = '0xa84a1ce657e9d5b383cece6f4ba365e23fa234dd'
-const hasedMessage = '0xa4b1069c1000981f4fdca0d62302dfff77c2d0bc17f283d961e2dc5961105b18'
+const hashedMessage = '0xa4b1069c1000981f4fdca0d62302dfff77c2d0bc17f283d961e2dc5961105b18'
 const signature = [
 	'0x1b',
 	'0x8213e560e7bbe1f2e28fd69cbbb41c9108b84c98cd7c2c88d3c8e3549fd6ab10',
 	'0x3ca40c9e20c1525348d734a6724db152b9244bff6e0ff0c2b811d61d8f874f00',
 ]
-> caver.validator.validateSignedMessage(hasedMessage, signature, address, true).then(console.log)
+> caver.validator.validateSignedMessage(hashedMessage, signature, address, true).then(console.log)
 ```
 
 ## validateTransaction <a id="validatetransaction"></a>
