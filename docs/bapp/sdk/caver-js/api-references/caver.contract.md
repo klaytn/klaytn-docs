@@ -883,7 +883,7 @@ Test Result
 myContract.decodeFunctionCall(functionCall)
 ```
 
-Decodes a function call returns parameters.
+Decodes a function call and returns parameters.
 
 **NOTE** `myContract.decodeFunctionCall` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
@@ -902,7 +902,7 @@ Decodes a function call returns parameters.
 **Examples**
 
 ```javascript
-// The myContract variable is instantiated with below abi.
+// The myContract variable is instantiated with the below abi.
 // [
 //   {
 //     constant: true,
