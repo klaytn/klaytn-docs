@@ -16,8 +16,7 @@ Validates a signed message through comparing the public key recovered from the s
 
 | Name | Type | Description |
 | --- | --- | --- |
-| message | string | The raw message string. If this message is hased with Klaytn specific 
-prefix, the third parameter should be passed as `true`. |
+| message | string | The raw message string. If this message is hased with Klaytn specific prefix, the third parameter should be passed as `true`. |
 | signatures | object &#124; Array | An object which in format of `{ v, r, s }`, an instance of `SignatureData` or an array of `SignatureData`. '[ v, r, s ]' or '[[ v, r, s ]]' array can also be passed as a parameter, and in this case, it is internally converted to `SignatureData` type. |
 | address | string | The address of the account that signed the message. |
 | isHashed | boolean | (optional, default: `false`) The address of the account that signed the message. |
