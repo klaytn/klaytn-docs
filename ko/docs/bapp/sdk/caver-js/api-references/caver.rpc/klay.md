@@ -1776,7 +1776,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 caver.rpc.klay.sendTransaction(transaction [, callback])
 ```
 
-트랜잭션 `sender`로서 "Klaytn 노드에 임포트한 계정의 개인키"로 트랜잭션에 서명하고, 트랜잭션을 Klaytn에 전송합니다.
+Signs a transaction as a transaction `sender` with an "imported account's private key" in your Klaytn Node and propagates the transaction to the Klaytn.
 
 각 트랜잭션 타입에 관한 자세한 내용은 [Transaction][]을 확인하십시오.
 
@@ -1844,7 +1844,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 caver.rpc.klay.sendTransactionAsFeePayer(transaction [, callback])
 ```
 
-트랜잭션 `feePayer`로서 Klaytn 노드에 임포트된 계정의 개인키로 트랜잭션에 서명하고, 트랜잭션을 Klaytn에 전파합니다.
+Signs a fee delegated transaction as a transaction `fee payer` with an `imported account's private key` in your Klaytn Node and propagates the transaction to the Klaytn.
 
 트랜잭션 수수료 납부자로서 `sendTransaction`을 사용하기 전에, 트랜잭션 발신자는 반드시 유효한 서명(들)으로 트랜잭션에 서명했어야 하며 `nonce`가 반드시 정의되어 있어야 합니다.
 
