@@ -1649,7 +1649,7 @@ Recovers the Klaytn address that was used to sign the given data.
 | --- | --- | --- |
 | message | string | Either message or hashed message. |
 | signature | object &#124; Array | An instance of [SignatureData]. |
-| isHashed | boolean | (optional, default: `false`) If the last parameter is `true`, the given `message` will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and be assumed as already prefixed. |
+| isHashed | boolean | (optional, default: `false`) If the last parameter is `true`, the given `message` will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and will be assumed to be already prefixed. |
 
 **Return Value**
 
@@ -1728,7 +1728,7 @@ Recovers the public key that was used to sign the given data.
 caver.utils.publicKeyToAddress('0x{public key}')
 ```
 
-Returns an address which is derived by a public key. This function simply converts the public key string into address form by hashing it. It has nothing to do with the actual account in the Klaytn.
+Returns an address derived from a public key. This function simply converts the public key string into an address form by hashing it. It has nothing to do with an actual account on Klaytn.
 
 **NOTE** `caver.utils.publicKeyToAddress` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
@@ -1742,7 +1742,7 @@ Returns an address which is derived by a public key. This function simply conver
 
 | Type | Description |
 | --- | --- |
-| string | The address string derived by a public key. |
+| string | The address string derived from a public key. |
 
 **Examples**
 
@@ -1811,7 +1811,7 @@ Decompresses the compressed public key.
 caver.utils.decodeSignature('0x{signature}')
 ```
 
-Decodes a raw signature data that composed of 'R(32 byte) + S(32 byte) + V(1byte)'.
+Decodes a raw signature data composed of 'R(32 byte) + S(32 byte) + V(1byte)'.
 
 **NOTE** `caver.utils.decodeSignature` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
@@ -1819,7 +1819,7 @@ Decodes a raw signature data that composed of 'R(32 byte) + S(32 byte) + V(1byte
 
 | Name | Type | Description |
 | --- | --- | --- |
-| signature | string |The signature string to decode. It composed of R(32 byte) + S(32 byte) + V(1byte). |
+| signature | string |The signature string to decode. It is composed of R(32 byte) + S(32 byte) + V(1byte). |
 
 **Return Value**
 
