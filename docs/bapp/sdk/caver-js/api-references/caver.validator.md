@@ -112,7 +112,7 @@ const tx = caver.transaction.valueTransfer.create({...})
 caver.validator.validateFeePayer(tx)
 ```
 
-Validates a fee payer in the transaction. This function compares the public keys of the account key of the fee payer in the Klaytn with the public keys recovered from `feePayerSignatures`.
+Validates a fee payer in the transaction. This function compares the public keys of the account key of the fee payer with the public keys recovered from `feePayerSignatures`.
 
 **Parameters**
 
@@ -122,7 +122,7 @@ Validates a fee payer in the transaction. This function compares the public keys
 
 **Return Value**
 
-`Promise` returning `boolean`: The promise will be resolved with whether the transacion is valid or not.
+`Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transaction is valid or not.
 
 
 **Examples**
