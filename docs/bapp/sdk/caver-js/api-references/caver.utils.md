@@ -1673,7 +1673,7 @@ Recovers the Klaytn address that was used to sign the given data.
 '0xe8b3a6ef12f9506e1df9fd445f9bb4488a482122'
 ```
 
-## recoverPublicKey <a id="recoverpublicKey"></a>
+## recoverPublicKey <a id="recoverpublickey"></a>
 
 ```javascript
 caver.utils.recoverPublicKey(message, signature [, isHashed])
