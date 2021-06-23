@@ -1,8 +1,8 @@
 # caver.ipfs <a id="caver-ipfs"></a>
 
-`caver.ipfs` is a package that provides functionality related to IPFS (InterPlanetary File System).
+`caver.ipfs`는 IPFS (InterPlanetary File System)와 관련된 기능을 제공하는 패키지입니다.
 
-**NOTE** `caver.ipfs` is supported since caver-js [v1.5.4](https://www.npmjs.com/package/caver-js/v/1.5.4).
+**참고** `caver.ipfs`는 caver-js [v1.5.4](https://www.npmjs.com/package/caver-js/v/1.5.4)부터 지원됩니다.
 
 ## caver.ipfs.setIPFSNode <a id="caver-ipfs-setipfsnode"></a>
 
@@ -10,15 +10,15 @@
 caver.ipfs.setIPFSNode(host, port, ssl)
 ```
 
-Initializes a connection with an IPFS Node. When an IPFS Node information is set through this function, you can upload files to IPFS or load files from IPFS.
+IPFS 노드와의 연결을 초기화합니다. 이 함수를 통해 IPFS 노드 정보가 설정되면, IPFS에 대해 파일을 업로드, 다운로드 할 수 있습니다.
 
 **매개변수**
 
-| 명칭   | 타입      | 설명                                                                             |
-| ---- | ------- | ------------------------------------------------------------------------------ |
-| host | string  | The IPFS Node url to connect with.                                             |
-| port | number  | The port number to use.                                                        |
-| ssl  | boolean | If true, the `https` protocol is used. Otherwise, the `http` protocol is used. |
+| 명칭   | 타입      | 설명                                                    |
+| ---- | ------- | ----------------------------------------------------- |
+| host | string  | 연결할 IPFS 노드 URL입니다.                                   |
+| port | number  | 사용할 포트 번호입니다.                                         |
+| ssl  | boolean | 참이라면 `https` 프로토콜이 사용됩니다. 그 외의 경우 `http` 프로토콜이 사용됩니다. |
 
 
 **리턴값**
@@ -37,26 +37,26 @@ Initializes a connection with an IPFS Node. When an IPFS Node information is set
 caver.ipfs.add(data)
 ```
 
-Adds a file to IPFS. The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file is returned.
+IPFS에 파일을 추가합니다. 업로드된 파일의 [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)가 반환됩니다.
 
-If the path of a file is passed, the contents of the file are loaded from the path and uploaded to IPFS. If a buffer is passed, it is uploaded to IPFS directly.
+파일의 경로(path)가 전달되면, 경로로부터 파일의 내용을 받아서 IPFS에 업로드합니다. 버퍼가 전달되면, IPFS에 직접적으로 업로드됩니다.
 
 **매개변수**
 
-| 명칭   | 타입                                      | 설명                                                    |
-| ---- | --------------------------------------- | ----------------------------------------------------- |
-| data | string &#124; Buffer &#124; ArrayBuffer | The path string of a file or a buffer to add to IPFS. |
+| 명칭   | 타입                                      | 설명                             |
+| ---- | --------------------------------------- | ------------------------------ |
+| data | string &#124; Buffer &#124; ArrayBuffer | IPFS에 추가될 파일 또는 버퍼의 경로 문자열입니다. |
 
-**NOTE** `Buffer` is supported since caver-js [v1.5.5](https://www.npmjs.com/package/caver-js/v/1.5.5).
+**참고** `Buffer`는 caver-js [v1.5.5](https://www.npmjs.com/package/caver-js/v/1.5.5)부터 지원됩니다.
 
 
 **리턴값**
 
 `Promise`는 `string`을 반환합니다.
 
-| 타입     | 설명                                                                                                                                 |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| string | The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file. |
+| 타입     | 설명                                                                                                                    |
+| ------ | --------------------------------------------------------------------------------------------------------------------- |
+| string | 업로드된 파일의 [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)입니다. |
 
 **예시**
 
@@ -76,22 +76,22 @@ QmWmsL95CYvci8JiortAMhezezr8BhAwAVohVUSJBcZcBL
 caver.ipfs.get(hash)
 ```
 
-Returns a file addressed by a valid IPFS path.
+유효한 IPFS 경로로 주소가 설정된 파일을 반환합니다.
 
 **매개변수**
 
-| 명칭 | 타입     | 설명                                                                                                                                   |
-| -- | ------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| 해시 | string | An [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the file to download. |
+| 명칭 | 타입     | 설명                                                                                                                     |
+| -- | ------ | ---------------------------------------------------------------------------------------------------------------------- |
+| 해시 | string | 다운로드할 파일의 [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)입니다. |
 
 
 **리턴값**
 
-`Promise` returns `Buffer`
+`Promise`는 `Buffer`를 반환합니다.
 
-| 타입     | 설명                       |
-| ------ | ------------------------ |
-| Buffer | The content of the file. |
+| 타입     | 설명         |
+| ------ | ---------- |
+| Buffer | 파일의 내용입니다. |
 
 **예시**
 
@@ -106,20 +106,20 @@ Returns a file addressed by a valid IPFS path.
 caver.ipfs.toHex(hash)
 ```
 
-Converts a [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) to a [Multihash](https://multiformats.io/multihash).
+[CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)를 [Multihash](https://multiformats.io/multihash)로 변환합니다.
 
 **매개변수**
 
-| 명칭 | 타입     | 설명                                                                                                                     |
-| -- | ------ | ---------------------------------------------------------------------------------------------------------------------- |
-| 해시 | string | A [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) to convert. |
+| 명칭 | 타입     | 설명                                                                                                               |
+| -- | ------ | ---------------------------------------------------------------------------------------------------------------- |
+| 해시 | string | 변환할 [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)입니다. |
 
 
 **리턴값**
 
-| 타입     | 설명                                                         |
-| ------ | ---------------------------------------------------------- |
-| string | The [Multihash](https://multiformats.io/multihash) string. |
+| 타입     | 설명                                                     |
+| ------ | ------------------------------------------------------ |
+| string | [Multihash](https://multiformats.io/multihash) 문자열입니다. |
 
 **예시**
 
@@ -134,20 +134,20 @@ Converts a [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addre
 caver.ipfs.fromHex(hash)
 ```
 
-Converts to [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) from a [Multihash](https://multiformats.io/multihash).
+[CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)를 [Multihash](https://multiformats.io/multihash)로 변환합니다.
 
 **매개변수**
 
-| 명칭 | 타입     | 설명                                                           |
-| -- | ------ | ------------------------------------------------------------ |
-| 해시 | string | A [Multihash](https://multiformats.io/multihash) to convert. |
+| 명칭 | 타입     | 설명                                                         |
+| -- | ------ | ---------------------------------------------------------- |
+| 해시 | string | 변환할 [Multihash](https://multiformats.io/multihash) 문자열입니다. |
 
 
 **리턴값**
 
-| 타입     | 설명                                                                                                            |
-| ------ | ------------------------------------------------------------------------------------------------------------- |
-| string | The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids). |
+| 타입     | 설명                                                                                                           |
+| ------ | ------------------------------------------------------------------------------------------------------------ |
+| string | [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)입니다. |
 
 **예시**
 
