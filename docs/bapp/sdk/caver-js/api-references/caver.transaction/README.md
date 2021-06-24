@@ -74,7 +74,7 @@ Querys transaction from Klaytn and converts to a caver transaction instance.
 
 **Return Value**
 
-`Promise` returning `object`: An instance of [Transaction]. If it fails to receive a transaction object from Klaytn, an error is thrown.
+`Promise` returning `object`: An instance of [Transaction]. If it fails to receive a transaction object from Klaytn, an error occurs.
 
 | Type | Description |
 | --- | --- |
