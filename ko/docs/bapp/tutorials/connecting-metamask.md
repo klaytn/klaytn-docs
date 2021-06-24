@@ -1,70 +1,70 @@
 # Connecting MetaMask <a id="connecting-metamask"></a>
 
-> **Note**: MetaMask is mostly used as a wallet for Ethereum, but it is also compatible with Klaytn due to the identical address structures. Klaytn also has a browser extension wallet called [Kaikas](../developer-tools/README.md#kaikas), so it basically provides the same features as MetaMask, except for Remix.
+> **참고**: MetaMask는 주로 이더리움 지갑으로서 사용되지만, 동일한 주소 구조를 지닌 Klaytn과도 호환 가능합니다. Klaytn은 브라우저 익스텐션 지갑 [Kaikas](../developer-tools/README.md#kaikas)도 지원합니다. 따라서 Remix를 제외하면 MetaMask와 거의 동일한 기능을 제공합니다.
 
-## 1단계: Install MetaMask <a id="install-metamask"></a>
+## 1단계: 메타마스크 설치하기 <a id="install-metamask"></a>
 
-* We will be using Chrome browser in this example. ([**Install Chrome**](https://www.google.com/intl/en_us/chrome/))
+* Chrome 웹브라우저 기준으로 설명합니다. ([**크롬 설치하기**](https://www.google.com/intl/en_us/chrome/))
 
-* Add [**MetaMask Extension**](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en) to Chrome.
+* Chrome 확장 프로그램 탭에서 [**MetaMask 확장 프로그램**](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)을 추가합니다.
 
-  > **Note:** You may need additional installations if you are using another browser.
+  > **참고:** 다른 브라우저를 사용하는 경우 별도 설치가 필요할 수 있습니다.
 
-* You can start MetaMask by clicking on the icon in the upper right-hand corner of your chrome browser.
+* Chrome 검색 바 오른쪽 아이콘을 클릭하면 메타마스크를 실행시킬 수 있습니다.
 
-## 2단계: Generate a MetaMask Wallet <a id="generate-a-metamask"></a>
+## 2단계: 메타마스크 지갑 생성 <a id="generate-a-metamask"></a>
 
 ![img](./img/new-to-metamask.png)
 
-* Click on [Create a Wallet].
-* Set a password.
-* You will be given a 12 word seed phrase; back it up somewhere secure.
+* [지갑 생성] 버튼을 클릭합니다.
+* 암호를 생성합니다.
+* 12개의 단어로 구성된 시드 구문이 주어지면 이를 안전한 곳에 적습니다.
 
-  > **Note:** You can only restore your wallet with the seed phrase. Sharing your seed phrase with others may result in losing all of your funds. Therefore, it is recommended that you either write it down manually or store it in an offline device.
+  > **참고:** 해당 구문을 알아야만 지갑 복구가 가능합니다. 타인에게 노출 시 계정의 자금을 모두 잃을 수 있습니다. 그렇기에 시드 구문은 수기로 적어두거나 외부 연결이 차단된 장치에 기록하기를 권장합니다.
 
   ![Seed phrase and Wallet](./img/metamask-secret-backup.png)
 
-## 3단계: Connect to Klaytn Network <a id="connect-to-klaytn-network"></a>
+## 3단계: Klaytn 네트워크 연결 <a id="connect-to-klaytn-network"></a>
 
-* Click on the Network tab, which is on Ethereum Mainnet as default and select [Custom RPC].
+* 이더리움 메인넷 상태인 네트워크 탭을 클릭해 [맞춤형 RPC]를 선택합니다.
 
-* Enter the Endpoint Node (EN) data of the Klaytn chain.
+* 연결할 Klaytn 체인의 EN 정보를 입력합니다.
 
   * Baobab
-    * Network Name: Klaytn Baobab
-    * New RPC URL: [https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651) (Default: [http://localhost:8551](http://localhost:8551/))
+    * 네트워크 이름: Klaytn Baobab
+    * 새 RPC URL: [https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651) (Default: [http://localhost:8551](http://localhost:8551/))
     * Block Explorer URL: [https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
-    * Chain ID: 1001
+    * 체인 ID: 1001
   * Cypress
-    * Network Name: Klaytn Cypress
-    * New RPC URL: (Default: [http://localhost:8551](http://localhost:8551/))
+    * 네트워크 이름: Klaytn Cypress
+    * 새 RPC URL: (Default: [http://localhost:8551](http://localhost:8551/))
     * Block Explorer URL: [https://scope.klaytn.com/](https://scope.klaytn.com/)
-    * Chain ID: 8217
-  * Common
-    * Currency Symbol: KLAY
+    * 체인 ID: 8217
+  * 공통
+    * 통화 기호: KLAY
 
-    > **Note:** This tutorial uses Public EN of the Testnet (Baobab) for connecting to the network. Currently, Public EN is not supported on the Mainnet (Cypress), so make sure to use Baobab when running a test.
+    > **참고:** 예제는 테스트넷(Baobab)의 Public EN으로 네트워크에 연결하였습니다. 현재는 메인넷(Cypress)에서 Public EN을 제공하고 있지 않으니 테스트넷(Baobab)으로 테스트를 진행해 주세요.
 
-* Click [Save] to add Klaytn Baobab Network. ![Network Setup and Custom RPC](./img/metamask-add-baobab.png)
+* [저장]을 클릭하면 Klaytn Baobab 네트워크가 추가됩니다. ![Network Setup and Custom RPC](./img/metamask-add-baobab.png)
 
-## 4단계: Obtain KLAY to make a transaction <a id="obtain-klay-to-make-a-transaction"></a>
+## 4단계: 송금에 필요한 KLAY 획득하기 <a id="obtain-klay-to-make-a-transaction"></a>
 
-* To test the connection of the Klaytn Wallet, you will need to make a transaction, which requires KLAY.
-* Click on the kebab menu (three dots) in the upper right corner and select [Account details].
-* Click [Export Private Key] to obtain your private key. ![img](./img/metamask-obtain-private-key.png)
-* When using Baobab Testnet, you can obtain Test Klay in [**Klaytn Faucet**](https://baobab.wallet.klaytn.com/access?next=faucet).
-* Enter your private key on Klaytn Wallet and log in by clicking [Access]. (Attach 0x in front of the private key.)
-* Click [Run Faucet]. 5 Testnet KLAY will be sent to your account and the balance will be updated accordingly. You can claim Testnet KLAY from Faucet once every 24 hours per account. ![Account Signin and KLAY Faucet](./img/metamask-klay-faucet.png)
-* Come back to MetaMask and confirm the KLAY that you received. ![img](./img/metamask-klay-received.png)
+* Klaytn Wallet의 연동 상태를 확인하기 위해서는 송금에 사용될 KLAY가 필요합니다.
+* 우측 상단 아이콘 아래 탭에서 [계정 세부 정보]를 클릭합니다.
+* [비공개 키 내보내기]를 클릭하여 private key를 획득합니다. ![img](./img/metamask-obtain-private-key.png)
+* Baobab 테스트넷에서는 [**Klaytn Faucet**](https://baobab.wallet.klaytn.com/access?next=faucet)을 이용하여 테스트에 필요한 KLAY를 받을 수 있습니다.
+* Klaytn Wallet에서 private key를 입력한 후 [Access] 버튼을 클릭해 로그인합니다. (Private key 앞에 0x를 기입합니다.)
+* [Run Faucet] 버튼을 클릭하세요. 5 테스트넷 KLAY가 전송되고 잔액이 업데이트됩니다. Faucet 기능은 계정당 1일 1회, 24시간마다 한 번씩 실행할 수 있습니다. ![Account Signin and KLAY Faucet](./img/metamask-klay-faucet.png)
+* 메타마스크로 돌아와 보유 KLAY를 확인합니다.![img](./img/metamask-klay-received.png)
 
-## 5단계: Send KLAY <a id="send-klay"></a>
+## 5단계: 송금하기 <a id="send-klay"></a>
 
-* Click on the round icon in the top right corner, and select [Create Account] in the menu to create a new account.
-* Copy the account address to clipboard. ![img](./img/metamask-copy-address.png)
+* 우측 상단 아이콘 탭에서 [계정 생성]을 클릭하여 Account를 추가 생성합니다.
+* 계정 주소를 복사합니다. ![img](./img/metamask-copy-address.png)
 
-* In the drop-down menu, change to the first account.
-* On [Send], enter the recipient's account address as well as the amount of KLAY and then click [Next] to proceed.
+* 우측 상단 아이콘 탭에서 기존 Account를 클릭하여 전환합니다.
+* [보내기]에서 받을 Account와 KLAY 수량을 입력한 후 [다음] 을 클릭하여 송금을 진행합니다.
 
-  > **Note:** The gas price on Klaytn is fixed. Arbitrarily changing the price may result in a transaction failure.You can view your transaction history in the [Activity] tab.
+  > **Note:** Klaytn은 Gas 값이 고정되어 있습니다. 임의 변경 시 전송 실패할 수 있습니다. [활동] 탭을 클릭하여 송금 내역을 확인합니다.
 
   ![img](./img/metamask-send-klay.png)
