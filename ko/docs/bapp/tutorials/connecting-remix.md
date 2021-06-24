@@ -1,50 +1,50 @@
-# Connecting Remix <a id="connecting-remix"></a>
+# 리믹스(Remix) 연동 <a id="connecting-remix"></a>
 
 
-## What is Remix <a id="what-is-remix"></a>
+## 리믹스(Remix)란? <a id="what-is-remix"></a>
 
-Remix is a browser-based IDE (Integrated Development Environment) for developing Solidity contracts. Klaytn supports Solidity contracts, and is compatible with the Constantinople version of EVM. This document will cover connecting Remix with Klaytn. If you want to know more about how to use Remix, please refer to[ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) or [**Klaytn IDE**](../../smart-contract/ide-and-tools/README.md#klaytn-ide), which was derived from Remix.
+Solidity Contract 개발을 위한 브라우저 기반의 IDE 입니다. Klaytn은 Solidity Contract를 지원하고 있으며, EVM 버전을 Constantinople로 설정 시 호환 가능합니다. 이 문서는 Remix와 Klaytn의 연동에 대해서만 다루고 있습니다. 자세한 사용법은 [ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) 혹은 Remix에서 파생된 [**Klaytn IDE**](../../smart-contract/ide-and-tools/README.md#klaytn-ide) 사용법을 참고하시기 바랍니다.
 
-## Setting Remix Solidity Compiler <a id="setting-remix-solidity-compiler"></a>
+## Remix Solidity Compiler 설정 <a id="setting-remix-solidity-compiler"></a>
 
-* Click on the Solidity Compiler tab. ![img](./img/remix-solidity-compiler.png)
-* Set EVM Version to Constantinople. **Reference:** [Porting Ethereum Contract](https://docs.klaytn.com/smart-contract/porting-ethereum-contract#solidity-support) ![img](./img/remix-evm-version.png)
+* Solidity Compiler 탭을 클릭합니다. ![img](./img/remix-solidity-compiler.png)
+* EVM Version을 Constantinople로 설정합니다. **참고:** [Porting Ethereum Contract](https://docs.klaytn.com/smart-contract/porting-ethereum-contract#solidity-support) ![img](./img/remix-evm-version.png)
 
-## Setting up the Remix Deploy Environment <a id="setting-up-the-remix-deploy-environment"></a>
+## Remix Deploy 환경 설정 <a id="setting-up-the-remix-deploy-environment"></a>
 
-* Click on the [Deploy & Run Transactions] tab.
-* Select the appropriate [Environment]. ![img](./img/remix-environment.png)
-  * **[JavaScript VM]**: Connects to an inbuilt test network within Remix
-  * **[Injected Web3]**: Connects to network through Mist browser or MetaMask
-  * **[Web3 Provider]**: Connects directly to Klaytn node, which supports RPC
+* Deploy & Run Transactions 탭을 클릭합니다.
+* [Environment]를 알맞게 선택합니다. ![img](./img/remix-environment.png)
+  * **[JavaScript VM]**: Remix 메모리 상의 가상 네트워크에 연결합니다.
+  * **[Injected Web3]**: Mist 브라우저나 MetaMask를 통해 네트워크에 연결합니다.
+  * **[Web3 Provider]**: RPC를 지원하는 Klaytn 노드에 직접 연결합니다.
 
-## Case 1. Connecting Klaytn - Remix using EN (Endpoint Node) <a id="connecting-klaytn-remix-using-en"></a>
+## Case 1. EN(Endpoint Node)을 이용한 Klaytn - Remix 연동 <a id="connecting-klaytn-remix-using-en"></a>
 
-* Set up an Endpoint Node in the local environment by following the instructions in [**the EN documents**](https://docs.klaytn.com/getting-started/quick-start/launch-an-en).
+* [**EN 문서**](https://docs.klaytn.com/getting-started/quick-start/launch-an-en)를 참고하여 개인 환경에 EN을 띄웁니다.
 
-* Create an account by following the instructions in [**Account Management**](https://docs.klaytn.com/getting-started/account).
+* [**계정 관리 문서**](https://docs.klaytn.com/getting-started/account)를 참고하여 Account를 생성합니다.
 
-  > **Note:** If you use the Public EN from Baobab, instead of from your local environment, you won't be connected to your account because the personal API is disabled.
+  > **Note:** 개인 환경의 EN이 아닌 Baobab Public EN으로 연결 시 personal API가 닫혀있기 때문에 Account에 연결되지 않습니다.
 
-* Select [Web3 Provider] in the Remix Environment menu. ![img](./img/remix-environment-web3provider.png)
+* Remix Environment 설정에서 [Web3 Provider]를 선택합니다. ![img](./img/remix-environment-web3provider.png)
 
-* Enter the RPC address of the EN in the Web3 Provider Endpoint. Local EN (default): [http://localhost:8551](http://localhost:8551/)
+* Web3 Provider Endpoint에 위에서 띄운 EN의 RPC 주소를 입력합니다. Local EN(default): [http://localhost:8551](http://localhost:8551/)
 
-* Once you are successfully connected to the Network, you will see the Chain ID as below. You can view the list of accounts that you have created in Account. ![img](./img/remix-network-connected.png)
+* Network에 연결되면 Chain ID가 아래와 같이 표시됩니다. 앞에서 생성한 Account 목록을 Account 항목에서 확인할 수 있습니다. ![img](./img/remix-network-connected.png)
 
-## Case 2. Connecting Klaytn - Remix using MetaMask <a id="connecting-klaytn-remix-using-metamask"></a>
+## Case 2. 메타마스크(MetaMask)를 이용한 Klaytn - Remix 연동 <a id="connecting-klaytn-remix-using-metamask"></a>
 
-* Connect Klaytn with MetaMask by referring to the [**Connecting to MetaMask**](https://groundx.atlassian.net/wiki/spaces/~59728130/pages/1880752196/Klaytn+Docs+-+Metamast+Remix).
-* Select [Injected Web3] on the Remix Environment menu. ![img](./img/remix-environment-injectedWeb3.png)
+* [**MetaMask 연동 문서**](https://groundx.atlassian.net/wiki/spaces/~59728130/pages/1880752196/Klaytn+Docs+-+Metamast+Remix)를 참고하여 Klaytn을 연동합니다.
+* Remix Environment 설정에서 [Injected Web3]를 선택합니다. ![img](./img/remix-environment-injectedWeb3.png)
 
-* When you see the MetaMask pop-up, select the connected account and click [Next].
-* Once you are connected to the Network (Baobab Testnet in this example), you will see the Chain ID as below. You can check the connection status with the MetaMask wallet under [Account]. ![img](./img/remix-connect-with-metamask.png)
+* 메타마스크에 연결이 뜨면 연동된 Account를 선택 후 [다음]을 클릭합니다.
+* Network(예제에서는 Baobab 테스트넷)에 연결되면 Chain ID가 아래와 같이 표시됩니다. MetaMask 지갑과의 연결 상태를 [Account] 항목에서 확인할 수 있습니다. ![img](./img/remix-connect-with-metamask.png)
 
-## Tutorial: Connecting Remix <a id="tutorial-connecting-remix"></a>
+## Remix 연동 사용 예제 <a id="tutorial-connecting-remix"></a>
 
-We will be using the [**KlaytnGreeter**](https://docs.klaytn.com/smart-contract/sample-contracts/klaytngreeter) sample contract.
+[**KlaytnGreeter**](https://docs.klaytn.com/smart-contract/sample-contracts/klaytngreeter) 샘플 컨트랙트를 이용하여 진행합니다.
 
-* Add KlaytnGreeter.sol and write the testing code. ![img](./img/remix-add-klaytngreeter.png)
-* On the Solidity Compile tab, select [Compile KlaytnGreeter.sol] to compile the contract code.
-* In the Deploy & Run Transactions tab, click [Deploy] to deploy the compiled contract. ![img](./img/remix-deploy-run-tx.png)
-* You can view the deployed contract. You can test or debug it. ![img](./img/remix-test-or-debug.png)
+* KlaytnGreeter.sol 파일을 추가하고, 테스트할 코드를 작성합니다. ![img](./img/remix-add-klaytngreeter.png)
+* Solidity Compile 탭에서 [Compile KlaytnGreeter.sol]을 클릭해 작성한 컨트랙트 코드를 컴파일합니다.
+* Deploy & Run Transactions 탭에서 [Deploy]를 클릭해 컴파일된 컨트랙트를 배포합니다. ![img](./img/remix-deploy-run-tx.png)
+* 배포된 컨트랙트를 확인합니다. 테스트하거나 디버깅할 수 있습니다. ![img](./img/remix-test-or-debug.png)
