@@ -62,7 +62,7 @@ ValueTransfer {
 caver.transaction.getTransactionByHash('0x{transaction hash}')
 ```
 
-Querys transaction from Klaytn and converts to a caver transaction instance.
+Queries a transaction from Klaytn and converts to a caver transaction instance.
 
 **NOTE** `caver.transaction.getTransactionByHash` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
@@ -107,7 +107,7 @@ LegacyTransaction {
 caver.transaction.recoverPublicKeys('0x{RLP-encoded transaction}')
 ```
 
-Recovers the public key strings from `signatures` field.
+Recovers the public key strings from `signatures` field of the given transaction.
 
 **NOTE** `caver.transaction.recoverPublicKeys` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
@@ -140,7 +140,7 @@ Recovers the public key strings from `signatures` field.
 caver.transaction.recoverFeePayerPublicKeys('0x{RLP-encoded transaction}')
 ```
 
-Recovers the public key strings from `feePayerSignatures` field.
+Recovers the public key strings from `feePayerSignatures` field of the given transaction.
 
 **NOTE** `caver.transaction.recoverFeePayerPublicKeys` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
@@ -148,7 +148,7 @@ Recovers the public key strings from `feePayerSignatures` field.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| rawTx | string | The RLP-encoded transaction string to recover public keys from `feePayerSignatures`. To recover fee payer's public keys, transaction should be fee-delegated with the `feePayerSignatures` variable inside. |
+| rawTx | string | The RLP-encoded transaction string to recover public keys from `feePayerSignatures`. To recover fee payer's public keys, the transaction should be a fee-delegated transaction with the `feePayerSignatures` field inside. |
 
 **Return Value**
 
