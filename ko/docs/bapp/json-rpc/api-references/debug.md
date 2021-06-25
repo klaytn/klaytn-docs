@@ -3,9 +3,9 @@ description: >-
   런타임 중 노드 상태와 블록체인 데이터를 검사하고 디버깅하는 API입니다.
 ---
 
-# Namespace debug <a id="namespace-debug"></a>
+# debug <a id="namespace-debug"></a>
 
-`debug` namespace는 몇몇 비표준 RPC 메서드에 접근하여  런타임 인스펙션, 디버깅 및 특정 디버깅 플래그를 실시간으로 설정하도록 합니다.
+`debug` namespace는 몇몇 비표준 RPC 메서드에 접근하여 런타임 중의 특정 디버깅 플래그를 검사, 디버깅, 설정하도록 합니다.
 
 
 ## [로깅](./debug/logging.md) <a id="logging"></a>
@@ -66,7 +66,7 @@ description: >-
 - [표준 추적 옵션](./debug/standard_tracing.md#standard-tracing-options)
 
 
-## [블록체인 인스펙션](./debug/blockchain.md) <a id="blockchain-inspection"></a>
+## [블록체인 검사](./debug/blockchain.md) <a id="blockchain-inspection"></a>
 
 - [debug_dumpBlock](./debug/blockchain.md#debug_dumpblock)
 - [debug_getBlockRlp](./debug/blockchain.md#debug_getblockrlp)
