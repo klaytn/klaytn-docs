@@ -22,9 +22,9 @@ A transaction object of type `LEGACY` has the following structure:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| from | String | Address of this transaction sender. |
+| from | String | Address of the sender of this transaction. |
 | to | String | (optional) The destination address of the message, left undefined for a contract-creation transaction. |
-| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb, also the endowment if it's a contract-creation transaction. |
+| value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
 | gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
 | data | String | (optional) Either an [ABI byte string](http://solidity.readthedocs.io/en/latest/abi-spec.html) containing the data of the function call on a contract, or in the case of a contract-creation transaction the initialization code. |
@@ -34,7 +34,7 @@ A transaction object of type `LEGACY` has the following structure:
 
 The `callback` will return the 32-byte transaction hash.
 
-`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
+`PromiEvent`: A promise combined with event emitter. Will be resolved when the transaction receipt is available. The following events are also available:
 
 - ``"transactionHash"`` returns ``String``: Is fired right after the transaction is sent and a transaction hash is available.
 - ``"receipt"`` returns ``Object``: Is fired when the transaction receipt is available.
