@@ -3,7 +3,7 @@ description: >-
   Klaytn 노드를 제어하는 API입니다.
 ---
 
-# Namespace admin <a id="namespace-admin"></a>
+# admin <a id="namespace-admin"></a>
 
 `admin` namespace는 몇몇 비표준 RPC 메서드에 접근할 수 있게 합니다. 이를 통해 네트워크 피어와 RPC 엔드포인트 관리 등 Klaytn 인스턴스를 세밀하게 제어할 수 있습니다.
 
@@ -87,7 +87,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **리턴값**
 
-| 형식     | 설명                |
+| 타입     | 설명                |
 | ------ | ----------------- |
 | string | `datadir`의 경로입니다. |
 
@@ -122,9 +122,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **리턴값**
 
-| 형식       | 설명                   |
-| -------- | -------------------- |
-| JSON 문자열 | 연결된 모든 피어에 대한 정보입니다. |
+| 타입          | 설명                   |
+| ----------- | -------------------- |
+| JSON string | 연결된 모든 피어에 대한 정보입니다. |
 
 **예시**
 
@@ -195,9 +195,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admi
 
 **매개변수**
 
-| 명칭  | 형식  | 설명                |
-| --- | --- | ----------------- |
-| url | 문자열 | 피어의 `kni` URL입니다. |
+| 이름  | 타입     | 설명                |
+| --- | ------ | ----------------- |
+| url | string | 피어의 `kni` URL입니다. |
 
 **리턴값**
 
@@ -490,7 +490,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **매개변수**
 
-| 명칭       | 타입     | 설명                                                       |
+| 이름       | 타입     | 설명                                                       |
 | -------- | ------ | -------------------------------------------------------- |
 | blockRlp | string | 불러올 블록들을 RLP 인코딩한 문자열입니다. (`debug.getBlockRlp`의 리턴값과 동일) |
 
@@ -598,7 +598,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **리턴값**
 
-| 명칭                   | 타입      | 설명                                                       |
+| 이름                   | 타입      | 설명                                                       |
 | -------------------- | ------- | -------------------------------------------------------- |
 | committed            | int     | `committed`는 상태 마이그레이션 작업에 의해 복제된 트리 노드들의 개수입니다.         |
 | err                  | 에러      | 상태 마이그레이션이 성공적으로 완료되었다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
@@ -675,7 +675,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **매개변수**
 
-| 명칭    | 타입  | 설명                             |
+| 이름    | 타입  | 설명                             |
 | ----- | --- | ------------------------------ |
 | limit | int | 하나의 WebSocket 연결 당 허용된 최대 구독 수 |
 
