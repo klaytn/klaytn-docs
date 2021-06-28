@@ -1,6 +1,6 @@
 # caver.rpc.governance <a id="caver-rpc-governance"></a>
 
-`caver.rpc.governance` provides JSON-RPC call with `governance` name space.
+`caver.rpc.governance` provides JSON-RPC call with the `governance` name space.
 
 ## caver.rpc.governance.vote <a id="caver-rpc-governance-vote"></a>
 
@@ -8,16 +8,16 @@
 caver.rpc.governance.vote(key, value)
 ```
 
-Submits a new vote. If the node has the right to vote based on governance mode, the vote can be placed. If not, an error will be occured and the vote will be ignored.
+Submits a new vote. If the node has the right to vote based on the governance mode, the vote can be submitted. If not, an error will occur and the vote will be ignored.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| key | string | Name of the configuration setting to be changed. Key has the form of "domain.field". |
+| key | string | Name of the configuration setting to be changed. Key has the form "domain.field". |
 | value | string &#124; number &#124; boolean | Various types of value for each key. |
 
-For more details about `key` and `value` for `caver.rpc.governance.vote`, please refer to [governance_vote](../../../../json-rpc/api-references/governance.md#governance_vote).
+For more details about `key`, `value` and `caver.rpc.governance.vote`, please refer to [governance_vote](../../../../json-rpc/api-references/governance.md#governance_vote).
 
 
 **Return Value**
@@ -402,4 +402,3 @@ Returns staking information at a specific block.
   CouncilStakingAmounts: []
 }
 ```
-
