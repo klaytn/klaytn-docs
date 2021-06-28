@@ -41,7 +41,7 @@ Your vote was successfully placed.
 caver.rpc.governance.showTally()
 ```
 
-Provides the current tally of governance votes. It shows the aggregated approval rate in percentage. When it goes over 50%, the vote passes.
+Provides the current tally of governance votes. It shows the aggregate approval rate in percentage. The suggested change shall pass when the rate is over 50%.
 
 **Return Value**
 
@@ -70,7 +70,7 @@ Provides the current tally of governance votes. It shows the aggregated approval
 caver.rpc.governance.getTotalVotingPower()
 ```
 
-Provides the sum of all voting power that CNs have. Each CN has 1.0 ~ 2.0 voting power. In "none", "single" governance mode, totalVotingPower don't provide any information.
+Provides the sum of all voting power that CNs have. Each CN has 1.0 ~ 2.0 voting power. In  the "none" and "single" governance modes, totalVotingPower doesn't provide any information.
 
 **Return Value**
 
@@ -93,7 +93,7 @@ Provides the sum of all voting power that CNs have. Each CN has 1.0 ~ 2.0 voting
 caver.rpc.governance.getMyVotingPower()
 ```
 
-Provides the voting power of the node. The voting power can be 1.0 ~ 2.0. In "none", "single" governance mode, totalVotingPower don't provide any information.
+Provides the voting power of the node. The voting power can be anywhere between 1.0 ~ 2.0. In the "none" and "single" governance modes, totalVotingPower doesn't provide any information.
 
 **Return Value**
 
@@ -210,7 +210,7 @@ Provides the address of the node that a user is using. It is derived from the no
 caver.rpc.governance.getItemsAt([blockNumberOrTag])
 ```
 
-Returns governance items at specific block. It is the result of previous voting of the block and used as configuration for chain at the given block number.
+Returns governance items at a specific block. It is the result of previous voting of the block and used as configuration for chain at the given block number.
 
 **Parameters**
 
@@ -301,7 +301,7 @@ Returns an array of current idxCache in the memory cache. idxCache contains the 
 caver.rpc.governance.getIdxCacheFromDb()
 ```
 
-Returns an array that contains all block numbers on which a governance change ever happened. The result of idxCacheFromDb is the same or longer than that of [idxCache](#caver-rpc-governance-getidxcache).
+Returns an array that contains all block numbers at which any governance changes ever took place. The result of idxCacheFromDb is the same or longer than that of [idxCache](#caver-rpc-governance-getidxcache).
 
 **Return Value**
 
@@ -324,13 +324,13 @@ Returns an array that contains all block numbers on which a governance change ev
 caver.rpc.governance.getItemCacheFromDb()
 ```
 
-Returns the governance information stored in the given block. If no changes were stored in the given block, the function returns null.
+Returns the governance information stored on the given block. If no changes are stored on the given block, the function returns null.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| blockNumber | number &#124; string | A block number, or the hex number string to query the governance change made in the block. |
+| blockNumber | number &#124; string | A block number, or the hex number string to query the governance change made on the block. |
 
 **Return Value**
 
@@ -370,7 +370,7 @@ null
 caver.rpc.governance.getStakingInfo([blockNumberOrTag])
 ```
 
-Returns staking information at a specific block.
+Returns the staking information at a specific block.
 
 **Parameters**
 
