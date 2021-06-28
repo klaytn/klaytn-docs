@@ -185,6 +185,7 @@
         * [caver.rpc](bapp/sdk/caver-js/api-references/caver.rpc/README.md)
           * [caver.rpc.klay](bapp/sdk/caver-js/api-references/caver.rpc/klay.md)
           * [caver.rpc.net](bapp/sdk/caver-js/api-references/caver.rpc/net.md)
+          * [caver.rpc.governance](bapp/sdk/caver-js/api-references/caver.rpc/governance.md)
         * [caver.contract](bapp/sdk/caver-js/api-references/caver.contract.md)
         * [caver.abi](bapp/sdk/caver-js/api-references/caver.abi.md)
         * [caver.kct](bapp/sdk/caver-js/api-references/caver.kct/README.md)
