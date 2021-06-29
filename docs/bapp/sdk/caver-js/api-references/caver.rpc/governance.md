@@ -17,7 +17,7 @@ Submits a new vote. If the node has the right to vote based on the governance mo
 | key | string | Name of the configuration setting to be changed. Key has the form "domain.field". |
 | value | string &#124; number &#124; boolean | Various types of value for each key. |
 
-For more details about `key`, `value` and `caver.rpc.governance.vote`, please refer to [governance_vote](../../../../json-rpc/api-references/governance.md#governance_vote).
+For more details about the `key` and `value` for `caver.rpc.governance.vote`, please refer to [governance_vote](../../../../json-rpc/api-references/governance.md#governance_vote).
 
 
 **Return Value**
