@@ -532,7 +532,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 명칭                   | 타입      | 설명                                                                                                                             |
+| 이름                   | 타입      | 설명                                                                                                                             |
 | -------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | QUANTITY  &#124; TAG | Integer | (선택 사항) 정수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열입니다. |
 
@@ -565,7 +565,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 명칭                   | 타입      | 설명                                                                                                                             |
+| 이름                   | 타입      | 설명                                                                                                                             |
 | -------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | QUANTITY  &#124; TAG | Integer | (선택 사항) 정수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열입니다. |
 
@@ -600,7 +600,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 명칭                   | 타입      | 설명                                                                                                                             |
+| 이름                   | 타입      | 설명                                                                                                                             |
 | -------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | QUANTITY  &#124; TAG | Integer | (선택 사항) 정수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열입니다. |
 
@@ -735,7 +735,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 `Object|Boolean`, 동기화 상태에 대한 데이터 객체를 반환하거나 또는 동기화하고 있지 않으면 `false` 를 반환합니다.
 
-| 명칭            | 타입       | 설명                                                        |
+| 이름            | 타입       | 설명                                                        |
 | ------------- | -------- | --------------------------------------------------------- |
 | startingBlock | QUANTITY | 가져오기 시작하는 블록입니다.(동기화가 완료되면 재설정됩니다.)                       |
 | currentBlock  | QUANTITY | 현재 블록 번호로 `klay_blockNumber`와 동일합니다.                      |
