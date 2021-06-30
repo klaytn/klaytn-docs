@@ -877,6 +877,63 @@ Jasmine
 Test Result
 ```
 
+## myContract.decodeFunctionCall <a id="mycontract-decodefunctioncall"></a>
+
+```javascript
+myContract.decodeFunctionCall(functionCall)
+```
+
+Decodes a function call and returns parameters.
+
+**NOTE** `myContract.decodeFunctionCall` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| functionCall | string | The encoded function call string. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| object | An object which includes plain params. You can use `result[0]` as it is provided to be accessed like an array in the order of the parameters. |
+
+**Examples**
+
+```javascript
+// The myContract variable is instantiated with the below abi.
+// [
+//   {
+//     constant: true,
+//     inputs: [{ name: 'key', type: 'string' }],
+//     name: 'get',
+//     outputs: [{ name: '', type: 'string' }],
+//     payable: false,
+//     stateMutability: 'view',
+//     type: 'function',
+//   },
+//   {
+//     constant: false,
+//     inputs: [{ name: 'key', type: 'string' }, { name: 'value', type: 'string' }],
+//     name: 'set',
+//     outputs: [],
+//     payable: false,
+//     stateMutability: 'nonpayable',
+//     type: 'function',
+//   },
+// ]
+> myContract.decodeFunctionCall('0xe942b5160000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000036b65790000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000576616c7565000000000000000000000000000000000000000000000000000000')
+Result {
+  '0': '2345675643',
+  '1': 'Hello!%',
+  __length__: 2,
+  myNumber: '2345675643',
+  mystring: 'Hello!%'
+}
+```
+
+
 ## myContract.methods <a id="mycontract-methods"></a>
 
 ```javascript
