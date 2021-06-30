@@ -237,7 +237,7 @@ caver.klay.abi.decodeParameters(typesArray, hexString)
 ABI 인코딩된 매개변수를 자바스크립트 타입으로 디코딩합니다.
 
 **매개변수**
-| 명칭         | 타입                                    | 설명                                                                                                                                                   |
+| 이름         | 타입                                    | 설명                                                                                                                                                   |
 | ---------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | typesArray | Array<String&#124;Object>&#124;Object | An array with types or a JSON interface outputs array. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
 | hexString  | String                                | 디코딩할 ABI 바이트 코드.                                                                                                                                     |
@@ -278,7 +278,7 @@ caver.klay.abi.decodeLog(inputs, hexString, topics)
 ABI 인코딩된 로그 데이터 및 인덱싱된 토픽 데이터를 디코딩합니다.
 
 **매개변수**
-| 명칭        | 타입     | 설명                                                                                                                               |
+| 이름        | 타입     | 설명                                                                                                                               |
 | --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------- |
 | inputs    | Array  | A JSON interface inputs array. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요.     |
 | hexString | String | 로그의 `data` 필드에 있는 ABI 바이트 코드.                                                                                                    |
@@ -326,7 +326,7 @@ caver.klay.abi.encodeContractDeploy(jsonInterface, hexString, params)
 생성자의 인자를 포함한 스마트 컨트랙트 바이트코드를 인코딩합니다.
 
 **매개변수**
-| 명칭            | 타입     | 설명                                    |
+| 이름            | 타입     | 설명                                    |
 | ------------- | ------ | ------------------------------------- |
 | jsonInterface | Array  | 컨트랙트의 JSON 인터페이스.                     |
 | hexString     | String | 배포할 스마트 컨트랙트의 바이트코드.                  |
