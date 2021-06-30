@@ -10,14 +10,15 @@
 caver.rpc
 ```
 
-`RPC`는 [Klay][]와 [Net][]을 포함한 클래스입니다.
+`RPC` is a class that contains [Klay][], [Net][] and [Governance][] inside.
 
 **속성**
 
-| 명칭   | 타입       | 설명                                                |
-| ---- | -------- | ------------------------------------------------- |
-| klay | [Klay][] | [Klay][]는 `klay` 네임 스페이스를 가진 JSON-RPC API를 호출합니다. |
-| net  | [Net][]  | [Net][]은 `net` 네임 스페이스를 가진 JSON-RPC API를 호출합니다.   |
+| 이름         | 타입                   | 설명                                                                           |
+| ---------- | -------------------- | ---------------------------------------------------------------------------- |
+| klay       | [Klay][]             | The [Klay][] providing JSON-RPC call with  the`klay` name space.             |
+| net        | [Net][]              | The [Net][] providing JSON-RPC call with the `net` name space.               |
+| governance | [거버넌스(Governance)][] | The [Governance][] providing JSON-RPC call with the `governance` name space. |
 
 ## JSON-RPC calls <a id="json-rpc-calls"></a>
 
@@ -100,3 +101,5 @@ caver.rpc
 
 [Klay]: ./klay.md
 [Net]: ./net.md
+[Governance]: ./governance.md
+[거버넌스(Governance)]: ./governance.md
