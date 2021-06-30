@@ -16,7 +16,7 @@ caver.utils.randomHex(size)
 
 **매개변수**
 
-| 명칭   | 타입     | 설명                                                                                 |
+| 이름   | 타입     | 설명                                                                                 |
 | ---- | ------ | ---------------------------------------------------------------------------------- |
 | size | number | HEX 문자열의 바이트 크기, *예를 들어*, `32`는 접두어 "0x"와 64개의 문자로 구성된 32바이트의 HEX 문자열이 결과가 될 것입니다. |
 
@@ -76,7 +76,7 @@ caver.utils.toBN(number)
 
 **매개변수**
 
-| 명칭     | 타입                   | 설명               |
+| 이름     | 타입                   | 설명               |
 | ------ | -------------------- | ---------------- |
 | number | string &#124; number | 큰 숫자로 변환할 숫자입니다. |
 
@@ -111,7 +111,7 @@ caver.utils.isBN(bn)
 
 **매개변수**
 
-| 명칭 | 타입     | 설명                                                  |
+| 이름 | 타입     | 설명                                                  |
 | -- | ------ | --------------------------------------------------- |
 | bn | object | [BN.js](https://github.com/indutny/bn.js/) 인스턴스입니다. |
 
@@ -140,7 +140,7 @@ caver.utils.isBigNumber(bignumber)
 
 **매개변수**
 
-| 명칭        | 타입     | 설명                                                              |
+| 이름        | 타입     | 설명                                                              |
 | --------- | ------ | --------------------------------------------------------------- |
 | bignumber | object | [BigNumber.js](http://mikemcl.github.io/bignumber.js/) 인스턴스입니다. |
 
@@ -171,7 +171,7 @@ caver.utils.keccak256(str) // ALIAS
 
 **매개변수**
 
-| 명칭  | 타입     | 설명          |
+| 이름  | 타입     | 설명          |
 | --- | ------ | ----------- |
 | str | string | 해시할 문자열입니다. |
 
@@ -210,7 +210,7 @@ caver.utils.soliditySha3(param1 [, param2, ...])
 
 **매개변수**
 
-| 명칭     | 타입 | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| 이름     | 타입 | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ------ | -- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | paramX | 복합 | 모든 타입, 또는 `{type: 'uint', value: '123456'}` or `{t: 'bytes', v: '0xfff456'}` 객체. 기본 타입들은 다음과 같이 탐지됩니다:<br> - `string` 숫자가 아닌 UTF-8 문자열은 `string`로 해석됩니다. <br> - `string|number|BN|HEX` 양수는 `uint256`으로 해석됩니다.<br> - `string|number|BN` 음수는 `int256`으로 해석됩니다. <br> - `boolean`은 `bool`로 해석됩니다. <br> - `string` `0x`로 시작되는 HEX 문자열은 `bytes`로 해석됩니다.<br> - `HEX` HEX 숫자는 `uint256`로 해석됩니다.<br> |
 
@@ -271,7 +271,7 @@ caver.utils.isHex(hex)
 
 **매개변수**
 
-| 명칭  | 타입     | 설명              |
+| 이름  | 타입     | 설명              |
 | --- | ------ | --------------- |
 | hex | string | 주어진 HEX 문자열입니다. |
 
@@ -306,7 +306,7 @@ caver.utils.isHexStrict(hex)
 
 **매개변수**
 
-| 명칭  | 타입     | 설명           |
+| 이름  | 타입     | 설명           |
 | --- | ------ | ------------ |
 | hex | string | 주어진 HEX 문자열. |
 
@@ -343,7 +343,7 @@ caver.utils.isAddress(address)
 
 **매개변수**
 
-| 명칭      | 타입     | 설명      |
+| 이름      | 타입     | 설명      |
 | ------- | ------ | ------- |
 | address | string | 주소 문자열. |
 
@@ -382,7 +382,7 @@ caver.utils.toChecksumAddress(address)
 
 **매개변수**
 
-| 명칭      | 타입     | 설명      |
+| 이름      | 타입     | 설명      |
 | ------- | ------ | ------- |
 | address | string | 주소 문자열. |
 
@@ -412,7 +412,7 @@ caver.utils.checkAddressChecksum(address)
 
 **매개변수**
 
-| 명칭      | 타입     | 설명      |
+| 이름      | 타입     | 설명      |
 | ------- | ------ | ------- |
 | address | string | 주소 문자열. |
 
@@ -438,7 +438,7 @@ caver.utils.toHex(mixed)
 
 **매개변수**
 
-| 명칭    | 타입                                              | 설명            |
+| 이름    | 타입                                              | 설명            |
 | ----- | ----------------------------------------------- | ------------- |
 | mixed | string &#124; number &#124; BN &#124; Bignumber | HEX로 변환할 입력값. |
 
@@ -477,7 +477,7 @@ caver.utils.hexToNumberString(hex)
 
 **매개변수**
 
-| 명칭        | 타입     | 설명           |
+| 이름        | 타입     | 설명           |
 | --------- | ------ | ------------ |
 | hexstring | string | 변환할 HEX 문자열. |
 
@@ -505,7 +505,7 @@ caver.utils.hexToNumber(hex)
 
 **매개변수**
 
-| 명칭        | 타입     | 설명           |
+| 이름        | 타입     | 설명           |
 | --------- | ------ | ------------ |
 | hexstring | string | 변환할 HEX 문자열. |
 
@@ -531,7 +531,7 @@ caver.utils.numberToHex(number)
 
 **매개변수**
 
-| 명칭     | 타입                                              | 설명               |
+| 이름     | 타입                                              | 설명               |
 | ------ | ----------------------------------------------- | ---------------- |
 | number | string &#124; number &#124; BN &#124; Bignumber | 문자열 또는 숫자로 된 숫자. |
 
@@ -558,7 +558,7 @@ caver.utils.hexToString(hex) // ALIAS
 
 **매개변수**
 
-| 명칭  | 타입     | 설명                      |
+| 이름  | 타입     | 설명                      |
 | --- | ------ | ----------------------- |
 | hex | string | UTF-8 문자열로 변환할 HEX 문자열. |
 
@@ -584,7 +584,7 @@ caver.utils.hexToAscii(hex)
 
 **매개변수**
 
-| 명칭  | 타입     | 설명                         |
+| 이름  | 타입     | 설명                         |
 | --- | ------ | -------------------------- |
 | hex | string | ASCII 문자열로 변환할 HEX 문자열입니다. |
 
@@ -612,7 +612,7 @@ caver.utils.stringToHex(str) // ALIAS
 
 **매개변수**
 
-| 명칭  | 타입     | 설명                      |
+| 이름  | 타입     | 설명                      |
 | --- | ------ | ----------------------- |
 | str | string | HEX 문자열로 변환할 UTF-8 문자열. |
 
@@ -639,7 +639,7 @@ caver.utils.asciiToHex(str)
 
 **매개변수**
 
-| 명칭  | 타입     | 설명                      |
+| 이름  | 타입     | 설명                      |
 | --- | ------ | ----------------------- |
 | str | string | HEX 문자열로 변환할 ASCII 문자열. |
 
@@ -665,7 +665,7 @@ caver.utils.hexToBytes(hex)
 
 **매개변수**
 
-| 명칭  | 타입     | 설명           |
+| 이름  | 타입     | 설명           |
 | --- | ------ | ------------ |
 | hex | string | 변환할 HEX 문자열. |
 
@@ -691,7 +691,7 @@ caver.utils.bytesToHex(byteArray)
 
 **매개변수**
 
-| 명칭        | 타입    | 설명          |
+| 이름        | 타입    | 설명          |
 | --------- | ----- | ----------- |
 | byteArray | Array | 변환할 바이트 배열. |
 
@@ -720,7 +720,7 @@ caver.utils.convertToPeb(number [, unit])
 
 **매개변수**
 
-| 명칭     | 타입                             | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| 이름     | 타입                             | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | ------ | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | number | string &#124; number &#124; BN | 값.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | unit   | string                         | (선택 사항, 기본값은 `"KLAY"`) 변환하려고 하는 KLAY입니다. `number`에는 주어진 단위에 대해 다음 승수 중 하나가 곱해집니다:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> |
@@ -751,7 +751,7 @@ caver.utils.convertFromPeb(number [, unit])
 
 **매개변수**
 
-| 명칭     | 타입                             | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| 이름     | 타입                             | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | number | string &#124; number &#124; BN | peb 단위의 값입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | unit   | string                         | (선택 사항, 기본값은 `"KLAY"`) KLAY로 변환하려고 하는 "peb"입니다. `number`에는 주어진 단위에 대해 다음 승수 중 하나로 나누어 집니다:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> |
@@ -852,7 +852,7 @@ caver.utils.leftPad(string, characterAmount [, sign]) // ALIAS
 
 **매개변수**
 
-| 명칭              | 타입     | 설명                                |
+| 이름              | 타입     | 설명                                |
 | --------------- | ------ | --------------------------------- |
 | string          | string | 왼쪽에 패딩을 추가할 문자열입니다.               |
 | characterAmount | number | 총 문자열이 가질 문자 개수입니다.               |
@@ -887,7 +887,7 @@ Adds padding on the right of a string, Useful for adding paddings to HEX strings
 
 **매개변수**
 
-| 명칭              | 타입     | 설명                                |
+| 이름              | 타입     | 설명                                |
 | --------------- | ------ | --------------------------------- |
 | str             | string | 오른쪽에 패딩을 추가할 문자열입니다.              |
 | characterAmount | number | 총 문자열이 가질 문자 개수입니다.               |
@@ -923,7 +923,7 @@ caver.utils.toTwosComplement(num)
 
 **매개변수**
 
-| 명칭  | 타입                                    | 설명      |
+| 이름  | 타입                                    | 설명      |
 | --- | ------------------------------------- | ------- |
 | num | number &#124; string &#124; Bignumber | 변환할 숫자. |
 
@@ -962,7 +962,7 @@ caver.utils.isContractDeployment(transactionObject)
 
 **매개변수**
 
-| 명칭                | 타입     | 설명                                             |
+| 이름                | 타입     | 설명                                             |
 | ----------------- | ------ | ---------------------------------------------- |
 | transactionObject | object | 컨트랙트 배포 트랜잭션을 확인하기 위한 [Transaction][] 인스턴스입니다. |
 
@@ -1023,7 +1023,7 @@ caver.utils.xyPointFromPublicKey(publicKey)
 
 **매개변수**
 
-| 명칭        | 타입     | 설명                   |
+| 이름        | 타입     | 설명                   |
 | --------- | ------ | -------------------- |
 | publicKey | string | x와 y 좌표를 얻고자 하는 공개키. |
 
@@ -1052,7 +1052,7 @@ caver.utils.isHexPrefixed(input)
 
 **매개변수**
 
-| 명칭    | 타입     | 설명                                  |
+| 이름    | 타입     | 설명                                  |
 | ----- | ------ | ----------------------------------- |
 | input | string | 0x 접두사가 있는 16진수 문자열인지 여부를 판별할 값입니다. |
 
@@ -1087,7 +1087,7 @@ caver.utils.addHexPrefix(input)
 
 **매개변수**
 
-| 명칭    | 타입     | 설명                   |
+| 이름    | 타입     | 설명                   |
 | ----- | ------ | -------------------- |
 | input | string | 0x 접두사를 더할 문자열 값입니다. |
 
@@ -1118,7 +1118,7 @@ caver.utils.stripHexPrefix(input)
 
 **매개변수**
 
-| 명칭    | 타입     | 설명                  |
+| 이름    | 타입     | 설명                  |
 | ----- | ------ | ------------------- |
 | input | string | 접두사 0x를 제거할 문자열입니다. |
 
@@ -1147,7 +1147,7 @@ caver.utils.toBuffer(input)
 
 **매개변수**
 
-| 명칭    | 타입                                                                      | 설명         |
+| 이름    | 타입                                                                      | 설명         |
 | ----- | ----------------------------------------------------------------------- | ---------- |
 | input | Buffer &#124; string &#124; number &#124; Array &#124; BN &#124; object | 버퍼로 변환할 값. |
 
@@ -1210,7 +1210,7 @@ caver.utils.numberToBuffer(input)
 
 **매개변수**
 
-| 명칭    | 타입                             | 설명             |
+| 이름    | 타입                             | 설명             |
 | ----- | ------------------------------ | -------------- |
 | input | string &#124; number &#124; BN | 버퍼로 변환할 숫자입니다. |
 
@@ -1246,7 +1246,7 @@ caver.utils.isValidHash(input)
 
 **매개변수**
 
-| 명칭    | 타입     | 설명                           |
+| 이름    | 타입     | 설명                           |
 | ----- | ------ | ---------------------------- |
 | input | string | 32 바이트 해시 형식인지 여부를 검토할 값입니다. |
 
@@ -1281,7 +1281,7 @@ caver.utils.isValidHashStrict(input)
 
 **매개변수**
 
-| 명칭    | 타입     | 설명                                    |
+| 이름    | 타입     | 설명                                    |
 | ----- | ------ | ------------------------------------- |
 | input | string | 0x로 시작하는 32 바이트 해시 형식인지 여부를 검토할 값입니다. |
 
@@ -1317,7 +1317,7 @@ caver.utils.isTxHash(input)
 
 **매개변수**
 
-| 명칭    | 타입     | 설명                                 |
+| 이름    | 타입     | 설명                                 |
 | ----- | ------ | ---------------------------------- |
 | input | string | 매개변수가 트랜잭션 해시 형식인지 여부를 판별하고자 하는 값. |
 
@@ -1354,7 +1354,7 @@ caver.utils.isTxHashStrict(input)
 
 **매개변수**
 
-| 명칭    | 타입     | 설명                                 |
+| 이름    | 타입     | 설명                                 |
 | ----- | ------ | ---------------------------------- |
 | input | string | 매개변수가 트랜잭션 해시 형식인지 여부를 판별하고자 하는 값. |
 
@@ -1388,7 +1388,7 @@ caver.utils.isValidPrivateKey(privateKey)
 
 **매개변수**
 
-| 명칭         | 타입     | 설명                   |
+| 이름         | 타입     | 설명                   |
 | ---------- | ------ | -------------------- |
 | privateKey | string | 유효성을 검사할 개인키 문자열입니다. |
 
@@ -1420,7 +1420,7 @@ publicKey가 유효하면 `true`, 그렇지 않으면 `false`를 반환합니다
 
 **매개변수**
 
-| 명칭        | 타입     | 설명                   |
+| 이름        | 타입     | 설명                   |
 | --------- | ------ | -------------------- |
 | publicKey | string | 유효성을 검사할 공개키 문자열입니다. |
 
@@ -1460,7 +1460,7 @@ role이 유효하면 `true`, 그렇지 않으면 `false`를 반환합니다. cav
 
 **매개변수**
 
-| 명칭   | 타입     | 설명                    |
+| 이름   | 타입     | 설명                    |
 | ---- | ------ | --------------------- |
 | role | string | 유효성을 검사할 role 문자열입니다. |
 
@@ -1491,7 +1491,7 @@ caver-js에서는 signatures나 feePayerSignatures가 비어있다면 그 속성
 
 **매개변수**
 
-| 명칭  | 타입                  | 설명                                                                  |
+| 이름  | 타입                  | 설명                                                                  |
 | --- | ------------------- | ------------------------------------------------------------------- |
 | sig | object &#124; Array | 비어있는지 여부 확인을 위한 [SignatureData][] 인스턴스 또는 [SignatureData][] 문자열입니다. |
 
@@ -1520,7 +1520,7 @@ caver.utils.isKlaytnWalletKey(key)
 
 **매개변수**
 
-| 명칭  | 타입     | 설명                                 |
+| 이름  | 타입     | 설명                                 |
 | --- | ------ | ---------------------------------- |
 | key | string | KlaytnWalletKey 포맷인지 확인할 키 문자열입니다. |
 
@@ -1552,7 +1552,7 @@ caver.utils.bufferToHex(buffer)
 
 **매개변수**
 
-| 명칭     | 타입     | 설명                  |
+| 이름     | 타입     | 설명                  |
 | ------ | ------ | ------------------- |
 | buffer | Buffer | 16진수 문자열로 바꿀 버퍼입니다. |
 
@@ -1582,7 +1582,7 @@ caver.utils.parseKlaytnWalletKey(key)
 
 **매개변수**
 
-| 명칭  | 타입     | 설명                           |
+| 이름  | 타입     | 설명                           |
 | --- | ------ | ---------------------------- |
 | key | string | [KlaytnWalletKey][] 문자열 입니다. |
 
@@ -1613,7 +1613,7 @@ Klaytn 고유의 접두사를 이용해 메시지를 해시로 변환합니다: 
 
 **매개변수**
 
-| 명칭  | 타입     | 설명                                           |
+| 이름  | 타입     | 설명                                           |
 | --- | ------ | -------------------------------------------- |
 | 메시지 | string | 해시로 변환할 메시지입니다. HEX 문자열인 경우 먼저 UTF-8 디코딩됩니다. |
 
@@ -1633,18 +1633,18 @@ Klaytn 고유의 접두사를 이용해 메시지를 해시로 변환합니다: 
 ## recover <a id="recover"></a>
 
 ```javascript
-caver.utils.recover(message, signature [, preFixed])
+caver.utils.recover(message, signature [, isHashed])
 ```
 
 주어진 데이터에 서명하는 데 사용된 Klaytn 주소를 복구합니다.
 
 **매개변수**
 
-| 명칭        | 타입      | 설명                                                                                                                                                                    |
-| --------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 메시지       | string  | 메세지 또는 메세지 해시입니다.                                                                                                                                                     |
-| signature | object  | [SignatureData][]의 인스턴스입니다.                                                                                                                                           |
-| preFixed  | boolean | (선택 사항, 기본값: `false`) 마지막 매개 변수가 `true`이면, 주어진 `message`에는 자동적으로 `"\x19Klaytn Signed Message:\n" + message.length + message`가 접두사로 붙지 않을 것이며, 이미 접두사가 있다고 간주될 것입니다. |
+| 이름        | 타입                  | 설명                                                                                                                                                                                                                                   |
+| --------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 메시지       | string              | 메세지 또는 메세지 해시입니다.                                                                                                                                                                                                                    |
+| signature | object &#124; Array | [SignatureData][]의 인스턴스입니다.                                                                                                                                                                                                          |
+| isHashed  | boolean             | (optional, default: `false`) If the last parameter is `true`, the given `message` will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and will be assumed to be already prefixed. |
 
 **리턴값**
 
@@ -1655,13 +1655,95 @@ caver.utils.recover(message, signature [, preFixed])
 **예제**
 
 ```javascript
-> const sig = new caver.wallet.keyring.signatureData(['0x1b', '0x50a80...', '0x021de...'])
+> caver.utils.recover('message', new caver.wallet.keyring.signatureData(['0x1b', '0x50a80...', '0x021de...']))
+'0xe8b3a6ef12f9506e1df9fd445f9bb4488a482122'
 
-> caver.utils.recover('message', sig)
+> caver.utils.recover('message', ['0x1b', '0x50a80...', '0x021de...'])
+'0xe8b3a6ef12f9506e1df9fd445f9bb4488a482122'
+
+> caver.utils.recover('message', { v: '0x1b', r: '0x50a80...', s: '0x021de...' })
 '0xe8b3a6ef12f9506e1df9fd445f9bb4488a482122'
 
 > caver.utils.recover('0xe960248437f2134a77a9aa0ebcbb6523aec095f23b02e25f16fd95e99b099daa', sig, true)
 '0xe8b3a6ef12f9506e1df9fd445f9bb4488a482122'
+```
+
+## recoverPublicKey <a id="recoverpublickey"></a>
+
+```javascript
+caver.utils.recoverPublicKey(message, signature [, isHashed])
+```
+
+Recovers the public key that was used to sign the given data.
+
+**NOTE** `caver.utils.recoverPublicKey` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+
+**매개변수**
+
+| 이름        | 타입                  | 설명                                                                                                                                                              |
+| --------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 메시지       | string              | 메세지 또는 메세지 해시입니다.                                                                                                                                               |
+| signature | object &#124; Array | [SignatureData][]의 인스턴스입니다.                                                                                                                                     |
+| isHashed  | boolean             | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Klaytn Signed Message:\n" + message.length + message`. |
+
+**리턴값**
+
+| 타입     | 설명                                     |
+| ------ | -------------------------------------- |
+| string | The public key used to sign this data. |
+
+**예제**
+
+```javascript
+> caver.utils.recoverPublicKey('Some Message', new caver.wallet.keyring.signatureData([
+    '0x1b',
+    '0x8213e560e7bbe1f2e28fd69cbbb41c9108b84c98cd7c2c88d3c8e3549fd6ab10',
+    '0x3ca40c9e20c1525348d734a6724db152b9244bff6e0ff0c2b811d61d8f874f00',
+]))
+'0xb5df4d5e6b4ee7a136460b911a69030fdd42c18ed067bcc2e25eda1b851314fad994c5fe946aad01ca2e348d4ff3094960661a8bc095f358538af54aeea48ff3'
+
+> caver.utils.recoverPublicKey('Some Message', [
+    '0x1b',
+    '0x8213e560e7bbe1f2e28fd69cbbb41c9108b84c98cd7c2c88d3c8e3549fd6ab10',
+    '0x3ca40c9e20c1525348d734a6724db152b9244bff6e0ff0c2b811d61d8f874f00',
+])
+'0xb5df4d5e6b4ee7a136460b911a69030fdd42c18ed067bcc2e25eda1b851314fad994c5fe946aad01ca2e348d4ff3094960661a8bc095f358538af54aeea48ff3'
+
+> caver.utils.recoverPublicKey('0x8ed2036502ed7f485b81feaec1c581d236a8b711e55a24077724879c8a263c2a', {
+    v: '0x1b',
+    r: '0x3acab5ba6f884eccfb9642018aa6debab1310d99b7a84ae9acb8f52f567cf16a',
+    s: '0x3501ae03809bf93222c4683642fa8fdc36385709c70ed8e7b883b34d66a5b8a4',
+}, true)
+'0xdd352dbe1c49aa9addaa3ca762de476a1b4deca3ac15fbb7fac153737b3ddb1e3249e1c2d86d5cbeaf6d30d366a211532683b59cb5f402bf3fe14989a378d45d'
+```
+
+## publicKeyToAddress <a id="publickeytoaddress"></a>
+
+```javascript
+caver.utils.publicKeyToAddress('0x{public key}')
+```
+
+Returns an address derived from a public key. This function simply converts the public key string into an address form by hashing it. It has nothing to do with an actual account on Klaytn.
+
+**NOTE** `caver.utils.publicKeyToAddress` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+
+**매개변수**
+
+| 이름        | 타입     | 설명                                        |
+| --------- | ------ | ----------------------------------------- |
+| publicKey | string | The public key string to get the address. |
+
+**리턴값**
+
+| 타입     | 설명                                            |
+| ------ | --------------------------------------------- |
+| string | The address string derived from a public key. |
+
+**예제**
+
+```javascript
+> caver.utils.publicKeyToAddress('0xb5df4d5e6b4ee7a136460b911a69030fdd42c18ed067bcc2e25eda1b851314fad994c5fe946aad01ca2e348d4ff3094960661a8bc095f358538af54aeea48ff3')
+'0xA84A1CE657e9d5b383cECE6f4bA365e23Fa234Dd'
 ```
 
 ## compressPublicKey <a id="compresspublicKkey"></a>
@@ -1670,19 +1752,19 @@ caver.utils.recover(message, signature [, preFixed])
 caver.utils.compressPublicKey(uncompressedPublicKey)
 ```
 
-압축되지 않은 공개키를 압축합니다.
+Compresses the uncompressed public key.
 
 **매개변수**
 
-| 명칭                    | 타입     | 설명              |
-| --------------------- | ------ | --------------- |
-| uncompressedPublicKey | string | 압축되지 않은 공개키입니다. |
+| 이름                    | 타입     | 설명                          |
+| --------------------- | ------ | --------------------------- |
+| uncompressedPublicKey | string | An uncompressed public key. |
 
 **리턴값**
 
-| 타입     | 설명          |
-| ------ | ----------- |
-| string | 압축된 공개키입니다. |
+| 타입     | 설명                       |
+| ------ | ------------------------ |
+| string | A compressed public key. |
 
 **예제**
 
@@ -1697,25 +1779,58 @@ caver.utils.compressPublicKey(uncompressedPublicKey)
 caver.utils.decompressPublicKey(compressedPublicKey)
 ```
 
-압축된 공개키의 압축을 해제합니다.
+Decompresses the compressed public key.
 
 **매개변수**
 
-| 명칭                  | 타입     | 설명          |
-| ------------------- | ------ | ----------- |
-| compressedPublicKey | string | 압축된 공개키입니다. |
+| 이름                  | 타입     | 설명                       |
+| ------------------- | ------ | ------------------------ |
+| compressedPublicKey | string | A compressed public key. |
 
 **리턴값**
 
-| 타입     | 설명              |
-| ------ | --------------- |
-| string | 압축되지 않은 공개키입니다. |
+| 타입     | 설명                          |
+| ------ | --------------------------- |
+| string | An uncompressed public key. |
 
 **예제**
 
 ```javascript
 > caver.utils.decompressPublicKey('0x0262cef87819b82f62e9c0a38c1fa7dfa089084959df86aca19ff2f6c903db2248')
 '0x62cef87819b82f62e9c0a38c1fa7dfa089084959df86aca19ff2f6c903db2248b45dc23220ee6bcd8753bb9df8ce7d58e56eabebb14479f3a0ca5ccd4bdea632'
+```
+
+## decodeSignature <a id="decodesignature"></a>
+
+```javascript
+caver.utils.decodeSignature('0x{signature}')
+```
+
+Decodes a raw signature data composed of 'R(32 byte) + S(32 byte) + V(1byte)'.
+
+**NOTE** `caver.utils.decodeSignature` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+
+**매개변수**
+
+| 이름        | 타입     | 설명                                                                                    |
+| --------- | ------ | ------------------------------------------------------------------------------------- |
+| signature | string | The signature string to decode. It is composed of R(32 byte) + S(32 byte) + V(1byte). |
+
+**리턴값**
+
+| 타입     | 설명                                                         |
+| ------ | ---------------------------------------------------------- |
+| object | A `SignatureData` instance that includes `v`, `r` and `s`. |
+
+**예제**
+
+```javascript
+> caver.utils.decodeSignature('0xc69018da9396c4b87947e0784625af7475caf46e2af9cf57a44673ff0f625258642d8993751ae67271bcc131aa065adccf9f16fc4953f9c48f4a80d675c09ae81b')
+SignatureData {
+  _v: '0x1b',
+  _r: '0xc69018da9396c4b87947e0784625af7475caf46e2af9cf57a44673ff0f625258',
+  _s: '0x642d8993751ae67271bcc131aa065adccf9f16fc4953f9c48f4a80d675c09ae8'
+}
 ```
 
 [Transaction]: ./caver.transaction/README.md#class
