@@ -184,7 +184,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admi
 
 ## admin_addPeer <a id="admin_addpeer"></a>
 
-`addPeer`는 추적된 정적 노드들의 목록에 새로운 원격 노드를 추가하도록 요청하는 관리 메서드입니다. 각 노드는 목록의 노드들과의 연결을 항상 유지하고자 하고, 만약 원격 가끔씩 연결이 끊어지면 다시 연결합니다.
+`addPeer`는 추적된 정적 노드들의 목록에 새로운 원격 노드를 추가하도록 요청하는 관리 메서드입니다. 각 노드는 목록의 노드들과의 연결을 항상 유지하고자 하고, 원격 연결이 간혹 끊어지면 다시 연결합니다.
 
 이 메서드는 한 매개변수 kni(Klaytn Network Identifier)만을 입력으로 받습니다. 이는 geth의 [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) 개념과 유사합니다. 추적할 원격 피어의 URL이며, 해당 피어의 추적이 허용되었는지 또는 어떤 오류가 발생했는지에 따라 `BOOL`을 반환합니다.
 
