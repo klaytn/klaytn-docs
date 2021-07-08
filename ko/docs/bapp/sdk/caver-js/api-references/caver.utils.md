@@ -1613,9 +1613,9 @@ Klaytn 고유의 접두사를 이용해 메시지를 해시로 변환합니다: 
 
 **매개변수**
 
-| 이름  | 타입     | 설명                                           |
-| --- | ------ | -------------------------------------------- |
-| 메시지 | string | 해시로 변환할 메시지입니다. HEX 문자열인 경우 먼저 UTF-8 디코딩됩니다. |
+| 이름      | 타입     | 설명                                           |
+| ------- | ------ | -------------------------------------------- |
+| message | string | 해시로 변환할 메시지입니다. HEX 문자열인 경우 먼저 UTF-8 디코딩됩니다. |
 
 **리턴값**
 
@@ -1642,7 +1642,7 @@ caver.utils.recover(message, signature [, isHashed])
 
 | 이름        | 타입                  | 설명                                                                                                                                                                                                                                   |
 | --------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 메시지       | string              | 메세지 또는 메세지 해시입니다.                                                                                                                                                                                                                    |
+| message   | string              | 메세지 또는 메세지 해시입니다.                                                                                                                                                                                                                    |
 | signature | object &#124; Array | [SignatureData][]의 인스턴스입니다.                                                                                                                                                                                                          |
 | isHashed  | boolean             | (optional, default: `false`) If the last parameter is `true`, the given `message` will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and will be assumed to be already prefixed. |
 
@@ -1682,7 +1682,7 @@ Recovers the public key that was used to sign the given data.
 
 | 이름        | 타입                  | 설명                                                                                                                                                              |
 | --------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 메시지       | string              | 메세지 또는 메세지 해시입니다.                                                                                                                                               |
+| message   | string              | 메세지 또는 메세지 해시입니다.                                                                                                                                               |
 | signature | object &#124; Array | [SignatureData][]의 인스턴스입니다.                                                                                                                                     |
 | isHashed  | boolean             | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Klaytn Signed Message:\n" + message.length + message`. |
 
