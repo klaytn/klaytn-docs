@@ -76,7 +76,7 @@ KIP7 {
     ] 
 }
 
-// Send object as second parameter
+// 두 번째 파라미터로서 객체 전달
 > caver.kct.kip7.deploy({
         name: 'Jasmine',
         symbol: 'JAS',
@@ -89,7 +89,7 @@ KIP7 {
         feePayer: '0x{address in hex}',
     }).then(console.log)
 
-// using event emitter and promise
+// 이벤트 이미터와 프로미스 사용
 > caver.kct.kip7.deploy({
     name: 'Jasmine',
     symbol: 'JAS',
@@ -111,7 +111,7 @@ KIP7 {
 ```javascript
 caver.kct.kip7.detectInterface(contractAddress)
 ```
-Token contract로 구현된 인터페이스의 정보를 반환합니다. 이 정적 함수는 [kip7.detectInterface](#kip7-detectinterface)를 사용합니다.
+토큰 컨트랙트로 구현된 인터페이스의 정보를 반환합니다. 이 정적 함수는 [kip7.detectInterface](#kip7-detectinterface)를 사용합니다.
 
 **매개변수**
 
@@ -157,11 +157,11 @@ caver.kct.kip7.create([tokenAddress])
 **예시**
 
 ```javascript
-// Create a KIP7 instance without a parameter
-> const kip7 = caver.kct.kip7.create()
+// 매개변수 없는 KIP17 인스턴스 생성
+> const kip17 = caver.kct.kip7.create()
 
-// Create a KIP7 instance with a token address
-> const kip7 = caver.kct.kip7.create('0x{address in hex}')
+// 토큰 주소를 가진 KIP17 인스턴스 생성
+> const kip17 = caver.kct.kip7.create('0x{address in hex}')
 ```
 
 
@@ -189,11 +189,11 @@ new caver.kct.kip7([tokenAddress])
 **예시**
 
 ```javascript
-// Create a KIP7 instance without a parameter
-> const kip7 = new caver.kct.kip7()
+// 매개변수 없는 KIP17 인스턴스 생성
+> const kip17 = caver.kct.kip7()
 
-// Create a KIP7 instance with a token address
-> const kip7 = new caver.kct.kip7('0x{address in hex}')
+// 토큰 주소를 가진 KIP17 인스턴스 생성
+> const kip17 = caver.kct.kip7('0x{address in hex}')
 ```
 
 
@@ -222,10 +222,10 @@ kip7.clone([tokenAddress])
 ```javascript
 > const kip7 = new caver.kct.kip7(address)
 
-// Clone without a parameter
+// 매개변수 없이 클론
 > const cloned = kip7.clone()
 
-// Clone with the address of the new token contract
+// 새 토큰 컨트랙트 주소를 가지고 클론
 > const cloned = kip7.clone('0x{address in hex}')
 ```
 
@@ -487,7 +487,7 @@ false
 ```
 
 
-## kip7.paused <a id="kip7-paused"></a>
+## kip7.paused<a id="kip7-paused"></a>
 
 ```javascript
 kip7.paused()
