@@ -45,7 +45,7 @@ tokenInfo 객체는 다음을 반드시 포함해야 합니다:
 **예시**
 
 ```javascript
-// using the promise
+// 프로미스 사용
 > caver.kct.kip37.deploy({
     uri: 'https://caver.example/{id}.json',
 }, '0x{address in hex}').then(console.log)
