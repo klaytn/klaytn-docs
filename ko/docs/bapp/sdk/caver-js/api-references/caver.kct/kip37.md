@@ -64,7 +64,7 @@ KIP37 {
     ] 
 }
 
-// Send object as second parameter
+// 두 번째 파라미터로 객체 전달
 > caver.kct.kip37.deploy({
     uri: 'https://caver.example/{id}.json',
     },
@@ -74,7 +74,7 @@ KIP37 {
         feePayer: '0x{address in hex}',
     }).then(console.log)
 
-// using event emitter and promise
+// 이벤트 이미터와 프로미스 사용
 > caver.kct.kip37.deploy({
     uri: 'https://caver.example/{id}.json',
 }, '0x{address in hex}')
@@ -140,11 +140,11 @@ caver.kct.kip37.create([tokenAddress])
 **예시**
 
 ```javascript
-// Create a KIP37 instance without a parameter
-> const kip37 = caver.kct.kip37.create()
+// 매개변수 없는 KIP17 인스턴스 생성
+> const kip17 = caver.kct.kip37.create()
 
-// Create a KIP37 instance with a token address
-> const kip37 = caver.kct.kip37.create('0x{address in hex}')
+// 토큰 주소를 가진 KIP37 인스턴스 생성
+> const kip17 = caver.kct.kip37.create('0x{address in hex}')
 ```
 
 
@@ -172,10 +172,10 @@ new caver.kct.kip37([tokenAddress])
 **예시**
 
 ```javascript
-// Create a KIP37 instance without a parameter
+// 매개변수 없는 KIP37 인스턴스 생성
 > const kip37 = new caver.kct.kip37()
 
-// Create a KIP37 instance with a token address
+// 토큰 주소를 가진 KIP37 인스턴스 생성
 > const kip37 = new caver.kct.kip37('0x{address in hex}')
 ```
 
@@ -1446,7 +1446,7 @@ kip37.addPauser(account [, sendParam])
 **예시**
 
 ```javascript
-// Send via a sendParam object with the from field given 
+// 주어진 from 필드에서 sendParam 객체를 통해 전송
 > kip37.addPauser('0x{address in hex}', { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x8267759b768d486e42657216a22c2425455cbf8b12aea9f149bb7ebe3aa2d666',
@@ -1480,16 +1480,16 @@ kip37.addPauser(account [, sendParam])
     },
 }
 
-// Using FD transaction to execute the smart contract
+// 스마트 컨트랙트 실행에 수수료 대납 사용
 > kip37.addPauser('0x{address in hex}', {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// Using kip37.options.from
-// If the value of kip37.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip37 instance.
+// kip37.options.from 사용
+// kip37 인스턴스로 트랜잭션을 보낼 때 sendParam 객체에서 `from`을 지정하지 않는다면
+// kip37.options.from 값이 설정되어 있을 시 기본 값으로 사용
 > kip37.options.from = '0x{address in hex}'
 > kip37.addPauser('0x{address in hex}').then(console.log)
 ```
@@ -1519,7 +1519,7 @@ kip37.renouncePauser([sendParam])
 **예시**
 
 ```javascript
-// Send via a sendParam object with the from field given 
+// 주어진 from 필드에서 sendParam 객체를 통해 전송
 > kip37.renouncePauser({ from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x86b189c51df4c9390ddc7bcaefa6b5e78b9e7db645079cff33cc09ab321bc5e6',
@@ -1553,16 +1553,16 @@ kip37.renouncePauser([sendParam])
     },
 }
 
-// Using FD transaction to execute the smart contract
+// 스마트 컨트랙트 실행에 수수료 대납 사용
 > kip37.renouncePauser({
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// Using kip37.options.from
-// If the value of kip37.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip37 instance.
+// kip37.options.from 사용
+// kip37 인스턴스로 트랜잭션을 보낼 때 sendParam 객체에서 `from`을 지정하지 않는다면
+// kip37.options.from 값이 설정되어 있을 시 기본 값으로 사용
 > kip37.options.from = '0x{address in hex}'
 > kip37.renouncePauser().then(console.log)
 ```
@@ -1592,7 +1592,7 @@ kip37.pause([id] [, sendParam])
 **예시**
 
 ```javascript
-// Send via a sendParam object with the from field given (pause the token contract)
+// 주어진 from 필드에서 sendParam 객체를 통해 전송 (토큰 컨트랙트 중단)
 > kip37.pause({ from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x004960a28a6c5b75963d28c4018d6540d5ad181c5a5f257ec8f78ebb8436be1e',
@@ -1626,7 +1626,7 @@ kip37.pause([id] [, sendParam])
     },
 }
 
-// Send via a sendParam object with the from field given (pause the specific token)
+// 주어진 from 필드에서 sendParam 객체를 통해 전송 (특정 토큰 중단)
 > kip37.pause(2, { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x36d0618e1e30bca8199ce3bbc3d32e74bd4c25f6326c4c9e2d9292b79605155f',
@@ -1662,16 +1662,17 @@ kip37.pause([id] [, sendParam])
     },
 }
 
-// Using FD transaction to execute the smart contract
-> kip37.pause({
+
+// 스마트 컨트랙트 실행에 수수료 대납 사용
+> kip37.unpause({
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// Using kip37.options.from
-// If the value of kip37.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip37 instance.
+// kip37.options.from 사용
+// kip37 인스턴스로 트랜잭션을 보낼 때 sendParam 객체에서 `from`을 지정하지 않는다면
+// kip37.options.from 값이 설정되어 있을 시 기본 값으로 사용
 > kip37.options.from = '0x{address in hex}'
 > kip37.pause().then(console.log)
 ```
@@ -1702,7 +1703,7 @@ kip37.unpause([id] [, sendParam])
 **예시**
 
 ```javascript
-// Send via a sendParam object with the from field given (unpause the token contract)
+// 주어진 from 필드에서 sendParam 객체를 통해 전송 (토큰 컨트랙트 중단 해제)
 > kip37.unpause({ from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x71d47d869e6fcf7b56f071e4f3b7b5a6d83e585b36a203248544340cdada8f1d',
@@ -1736,7 +1737,7 @@ kip37.unpause([id] [, sendParam])
     },
 }
 
-// Send via a sendParam object with the from field given (unpause the specific token)
+// 주어진 from 필드에서 sendParam 객체를 통해 전송 (특정 토큰 중단)
 > kip37.unpause(2, { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x44e2005d6061eeb014889c29cce567d12664e5ef4104faa3426eacd8772790c6',
@@ -1772,16 +1773,16 @@ kip37.unpause([id] [, sendParam])
     },
 }
 
-// Using FD transaction to execute the smart contract
+// 스마트 컨트랙트 실행에 수수료 대납 사용
 > kip37.unpause({
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// Using kip37.options.from
-// If the value of kip37.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip37 instance.
+// kip37.options.from 사용
+// kip37 인스턴스로 트랜잭션을 보낼 때 sendParam 객체에서 `from`을 지정하지 않는다면
+// kip37.options.from 값이 설정되어 있을 시 기본 값으로 사용
 > kip37.options.from = '0x{address in hex}'
 > kip37.unpause().then(console.log)
 ```
