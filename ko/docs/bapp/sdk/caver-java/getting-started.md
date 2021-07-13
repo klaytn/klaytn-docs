@@ -148,20 +148,20 @@ $ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -
 public void sendingKLAY() throws IOException, CipherException, TransactionException {
         Caver caver = new Caver(Caver.BAOBAB_URL);
 
-        //Read keystore json file.
+        //keystore json 파일을 읽음.
         File file = new File("./keystore.json");
 
-        //Decrypt keystore.
+        // keystore 복호화.
         ObjectMapper objectMapper = ObjectMapperFactory.getObjectMapper();
         KeyStore keyStore = objectMapper.readValue(file, KeyStore.class);
         AbstractKeyring keyring = caver.wallet.keyring.decrypt(keyStore, "password");
 
-        //Add to caver wallet.
+        // caver wallet에 추가
         caver.wallet.add(keyring);
 
         BigInteger value = new BigInteger(caver.utils.convertToPeb(BigDecimal.ONE, "KLAY"));
 
-        //Create a value transfer transaction
+        // 자산 이전 트랜잭션 생성
         ValueTransfer valueTransfer = caver.transaction.valueTransfer.create(
                 TxPropertyBuilder.valueTransfer()
                         .setFrom(keyring.getAddress())
@@ -170,16 +170,16 @@ public void sendingKLAY() throws IOException, CipherException, TransactionExcept
                         .setGas(BigInteger.valueOf(25000))
         );
 
-        //Sign to the transaction
+        // 트랜잭션 서명
         valueTransfer.sign(keyring);
 
-        //Send a transaction to the klaytn blockchain platform (Klaytn)
+        // Klaytn으로 트랜잭션 전송
         Bytes32 result = caver.rpc.klay.sendRawTransaction(valueTransfer.getRawTransaction()).send();
         if(result.hasError()) {
             throw new RuntimeException(result.getError().getMessage());
         }
 
-        //Check transaction receipt.
+        // 트랜잭션 영수증 확인
         TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 15);
         TransactionReceipt.TransactionReceiptData transactionReceipt = transactionReceiptProcessor.waitForTransactionReceipt(result.getResult());
     }
