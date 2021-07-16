@@ -3,7 +3,7 @@ description: >-
   노드에서 트랜잭션 풀을 검사하는 API입니다.
 ---
 
-# Namespace txpool <a id="namespace-txpool"></a>
+# txpool <a id="namespace-txpool"></a>
 
 Namespace `txpool` API는 몇몇 비표준 RPC 메서드에 접근하여 현재 보류 상태일 뿐만 아니라 이후 처리되기 위해 대기 중인 모든 트랜잭션들을 담고 있는 트랜잭션 풀의 내용을 검사하도록 합니다
 
