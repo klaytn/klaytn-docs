@@ -1,4 +1,4 @@
-# Transaction Error Codes <a id="transaction-error-codes"></a>
+# 트랜잭션 에러 코드 <a id="transaction-error-codes"></a>
 
 Klaytn은 트랜잭션 영수증의 `txError` 필드를 통해 트랜잭션 실행이 실패한 원인을 개발자분들께 알려드립니다. 이 필드는 트랜잭션 실행이 실패한 경우에만 존재합니다. 스토리지와 네트워크 대역폭을 절약하기 위해 `txError`는 정숫값으로 표현됩니다. 아래 표는 각 `txError` 값의 의미를 안내합니다.
 
