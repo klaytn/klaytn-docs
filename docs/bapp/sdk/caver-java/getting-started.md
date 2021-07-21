@@ -320,11 +320,11 @@ String keyStoreJsonString = "{\n" +
 
 SingleKeyring decrypt = (SingleKeyring)caver.wallet.keyring.decrypt(keyStoreJsonString, password);
 System.out.println("Decrypted address : " + decrypt.getAddress());
-System.out.println("Decrypted key : " + decrypt.getKey());
+System.out.println("Decrypted key : " + decrypt.getKey().getPrivateKey());
 
-AbstractKeyring addedKeyring = caver.wallet.add(decrypt);
+SingleKeyring addedKeyring = (SingleKeyring)caver.wallet.add(decrypt);
 System.out.println("address : " + addedKeyring.getAddress());
-System.out.println("key : " + addedKeyring.getKey());
+System.out.println("key : " + addedKeyring.getKey().getPrivateKey());
 ```
 
 ```bash
