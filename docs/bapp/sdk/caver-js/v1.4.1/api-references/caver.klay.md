@@ -81,7 +81,6 @@ enumerates the API functions that are currently supported in `caver-js`.
 - [isSenderTxHashIndexingEnabled](./caver.klay/config.md#issendertxhashindexingenabled)
 - [isParallelDBWrite](./caver.klay/config.md#isparalleldbwrite)
 - [rewardbase](./caver.klay/config.md#rewardbase)
-- [writeThroughCaching](./caver.klay/config.md#writethroughcaching)
 
 
 ## [Filter](./caver.klay/filter.md) <a id="filter"></a>
