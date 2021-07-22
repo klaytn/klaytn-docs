@@ -320,11 +320,11 @@ String keyStoreJsonString = "{\n" +
 
 SingleKeyring decrypt = (SingleKeyring)caver.wallet.keyring.decrypt(keyStoreJsonString, password);
 System.out.println("Decrypted address : " + decrypt.getAddress());
-System.out.println("Decrypted key : " + decrypt.getKey());
+System.out.println("Decrypted key : " + decrypt.getKey().getPrivateKey());
 
-AbstractKeyring addedKeyring = caver.wallet.add(decrypt);
+SingleKeyring addedKeyring = (SingleKeyring)caver.wallet.add(decrypt);
 System.out.println("address : " + addedKeyring.getAddress());
-System.out.println("key : " + addedKeyring.getKey());
+System.out.println("key : " + addedKeyring.getKey().getPrivateKey());
 ```
 
 ```bash
@@ -1100,17 +1100,17 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 testValue
 ```
 
-To find more information, see [caver-java API](https://javadoc.io/doc/com.klaytn.caver/core/)
+자세한 내용은 [caver-java API](https://javadoc.io/doc/com.klaytn.caver/core/)를 참고해주세요
 
 
-## IPFS <a id="ipfs"></a>
+## IPFS<a id="ipfs"></a>
 
-IPFS (InterPlanetary File System) is a distributed file system for storing and accessing files, websites, application, and data.
+IPFS(InterPlanetary File System)는 파일, 웹사이트, 어플리케이션, 데이터를 저장, 접근하는 분산 파일 시스템입니다.
 
-You can upload and download a file through IPFS with Caver.
+Caver를 사용해서 IPFS로 파일을 업로드/다운로드할 수 있습니다.
 
 
-### Connecting with IPFS <a id="connecting-with-ipfs"></a>
+### IPFS 연결하기 <a id="connecting-with-ipfs"></a>
 
 The `IPFS` class in the `caver.ipfs` package is defined as a class member variable in `Caver`, so you can interact with IPFS through `Caver`.
 
@@ -1345,7 +1345,7 @@ String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(r
 System.out.println(resultJson);
 ```
 
-The execution result of the above code is shown below.
+해당 코드의 실행 결과는 아래와 같습니다.
 
 ```java
 {
