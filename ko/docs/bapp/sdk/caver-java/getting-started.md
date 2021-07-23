@@ -1112,11 +1112,11 @@ Caver를 사용해서 IPFS로 파일을 업로드/다운로드할 수 있습니�
 
 ### IPFS 연결하기 <a id="connecting-with-ipfs"></a>
 
-The `IPFS` class in the `caver.ipfs` package is defined as a class member variable in `Caver`, so you can interact with IPFS through `Caver`.
+`caver.ipfs` 패키지의 `IPFS` 클래스는 `Caver`에 클래스 멤버 변수로 정의되어 있으며, IPFS를 통해 `Caver`와 상호작용할 수 있습니다.
 
-In order to use an `IPFS` instance through the `Caver` instance, you must call method `setIPFSNode()` first to connect to an IPFS node.
+`Caver` 인스턴스를 통해 `IPFS` 인스턴스를 사요아기 위해서는 `setIPFSNode()` 메서드를 호출하여 IPFS 노드에 연결해야 합니다.
 
-The function `setIPFSNode()` requires following parameters:
+`setIPFSNode()` 함수는 다음의 매개변수를 요구합니다.
   - IPFS HTTP API Host URL
   - IPFS HTTP API Host port number
   - Whether the host use SSL or not.
@@ -1129,11 +1129,11 @@ Caver caver = new Caver();
 caver.ipfs.setIPFSNode(host, port, isSSL);
 ```
 
-### Uploading a file through IPFS<a id="uploading-a-file-through-ipfs"></a>
+### IPFS를 통해 파일 업로드하기<a id="uploading-a-file-through-ipfs"></a>
 
 To upload a file through `IPFS`, please use `add()` like below.
 
-This function returns [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file.
+이 함수는 업로드된 파일의 [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)를 반환합니다.
 
 
 ```java
@@ -1142,13 +1142,13 @@ String cid = caver.ipfs.add(filePath);
 System.out.println(cid);
 ```
 
-The execution result of the above code is shown below.
+해당 코드의 실행 결과는 아래와 같습니다.
 
 ```java
 QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq
 ```
 
-Likewise, you can upload a byte array.
+마찬가지로 바이트 배열도 업로드할 수 있습니다.
 
 ```java
 String text = "sample data";
@@ -1158,17 +1158,17 @@ String cid = caver.ipfs.add(data);
 System.out.println(cid)
 ```
 
-The execution result of the above code is shown below.
+해당 코드의 실행 결과는 아래와 같습니다.
 
 ```java
 QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq
 ```
 
-### Downloading a file from IPFS<a id="downloading-a-file-from-ipfs"></a>
+### IPFS에서 파일 다운로드하기<a id="downloading-a-file-from-ipfs"></a>
 
-To download a file from `IPFS`, please use `get()` like below.
+`IPFS`에서 파일을 다운로드하기 위해서는 아래의 `get()`를 사용하세요.
 
-This function requires CID of the file to be downloaded.
+이 함수는 파일의 CID를 다운받을 것을 요구합니다.
 
 ```java
 String cid = "QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq";
@@ -1176,11 +1176,11 @@ byte[] content = caver.ipfs.get(cid);
 ```
 
 
-### Conversion between CID and multihash <a id="conversion-between-cid-and-multihash"></a>
+### CID와 멀티해시 변환<a id="conversion-between-cid-and-multihash"></a>
 
-You can convert a CID to a [Multihash](https://multiformats.io/multihash/) using `toHex()`.
+`toHex()`를 사용해 CID를 [Multihash](https://multiformats.io/multihash/)로 변환할 수 있습니다.
 
-A CID is a Base58 encoded value of a multihash. `toHex()` decodes the CID and returns the corresponding multihash.
+CID는 멀티해시의 Base58 인코딩된 값입니다. `toHex()`는 CID 디코딩하고 해당하는 멀티해시를 반환합니다.
 
 ```java
 String cid = "QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk";
@@ -1188,13 +1188,13 @@ String multihash = caver.ipfs.toHex(cid);
 System.out.println(multihash);
 ```
 
-The execution result of the above code is shown below.
+해당 코드의 실행 결과는 아래와 같습니다.
 
 ```java
 0x12209cbc07c3f991725836a3aa2a581ca2029198aa420b9d99bc0e131d9f3e2cbe47
 ```
 
-To convert a multihash to CID, please use `fromHex()`.
+멀티해시를 CID로 변환하기 위해서는 `fromHex()`를 사용하세요.
 
 ```java
 String multihash = "0x12209cbc07c3f991725836a3aa2a581ca2029198aa420b9d99bc0e131d9f3e2cbe47";
@@ -1202,15 +1202,15 @@ String cid = caver.ipfs.fromHex(multihash);
 System.out.println(cid);
 ```
 
-The execution result of the above code is shown below.
+해당 코드의 실행 결과는 아래와 같습니다.
 
 ```java
 QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk
 ```
 
-## Detect KCT interface<a id="detect kct interface"></a>
+## KCT 인터페이스 식별<a id="detect kct interface"></a>
 
-KCT (Klaytn Compatible Token) contracts such as [KIP-7](https://kips.klaytn.com/KIPs/kip-7), [KIP-17](https://kips.klaytn.com/KIPs/kip-17), and [KIP-37](https://kips.klaytn.com/KIPs/kip-37) define and provide various interfaces, and [KIP-13](https://kips.klaytn.com/KIPs/kip-13) allows you to see whether a contract complies with KCT specifications and which interface it implements, by sending a query to the contract.
+[KIP-7](https://kips.klaytn.com/KIPs/kip-7), [KIP-17](https://kips.klaytn.com/KIPs/kip-17), [KIP-37](https://kips.klaytn.com/KIPs/kip-37)와 같은 KCT (Klaytn Compatible Token; Klaytn 호환 토큰) 컨트랙트는 다양한 인터페이스를 정의, 제공하며, [KIP-13](https://kips.klaytn.com/KIPs/kip-13)를 사용하면 어떤 컨트랙트가 KCT 명세에 부합하는지 여부, 어떤 인터페이스를 구현하는지를 확인할 수 있습니다.
 
 [KIP-13](https://kips.klaytn.com/KIPs/kip-13) was implemented in Caver v1.5.7. It could detect interface through `detectInterface()` for any of the KCT contract classes (`KIP7`, `KIP17`, and `KIP37`).
 
@@ -1247,7 +1247,7 @@ String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(r
 System.out.println(resultJson);
 ```
 
-The execution result of the above code is shown below.
+해당 코드의 실행 결과는 아래와 같습니다.
 
 ```java
 {
@@ -1296,7 +1296,7 @@ String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(r
 System.out.println(resultJson);
 ```
 
-The execution result of the above code is shown below.
+해당 코드의 실행 결과는 아래와 같습니다.
 
 ```java
 {
