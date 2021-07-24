@@ -1212,15 +1212,15 @@ QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk
 
 [KIP-7](https://kips.klaytn.com/KIPs/kip-7), [KIP-17](https://kips.klaytn.com/KIPs/kip-17), [KIP-37](https://kips.klaytn.com/KIPs/kip-37)와 같은 KCT (Klaytn Compatible Token; Klaytn 호환 토큰) 컨트랙트는 다양한 인터페이스를 정의, 제공하며, [KIP-13](https://kips.klaytn.com/KIPs/kip-13)를 사용하면 어떤 컨트랙트가 KCT 명세에 부합하는지 여부, 어떤 인터페이스를 구현하는지를 확인할 수 있습니다.
 
-[KIP-13](https://kips.klaytn.com/KIPs/kip-13) was implemented in Caver v1.5.7. It could detect interface through `detectInterface()` for any of the KCT contract classes (`KIP7`, `KIP17`, and `KIP37`).
+[KIP-13](https://kips.klaytn.com/KIPs/kip-13)는 Caver v1.5.7에서 구현되었습니다. `detectInterface()`를 사용해 모든 KCT 컨트랙트 클래스 (`KIP7`, `KIP17`, `KIP37`)의 인터페이스를 식별할 수 있습니다.
 
-### Detecting KIP-7 Interfaces <a id="detecting-kip-7-interfaces"></a>
+### KIP-7 인터페이스 식별 <a id="detecting-kip-7-interfaces"></a>
 
-To detect KIP-7 interfaces, you can use `detectInterface()` in the `KIP7` class. It returns the mapping between KIP-7 interface identifier and a boolean that the interface is supported or not.
+KIP-7 인터페이스를 식별하기 위해 `KIP7` 클래스의 `detectInterface()`를 사용할 수 있습니다. KIP-7 인터페이스 식별자와, 그 인터페이스가 지원되는 지 여부에 대한 boolean 간의 매핑을 반환합니다.
 
-`detectInterface()` supports both static and instance methods, so you can select and use the method that suits your needs.
+`detectInterface()`는 정적, 그리고 인스턴스 메서드 둘 다 지원하기 때문에, 필요에 맞는 메서드를 선택하여 사용할 수 있습니다.
 
-The interface detected through `detectInterface()` for `KIP7` is shown in the table below.
+`detectInterface()`를 통해 식별한 `KIP7`에 대한 인터페이스는 아래와 같습니다.
 
 | 인터페이스         | KIP-13 Identifier |
 | ------------- | ----------------- |
@@ -1260,13 +1260,13 @@ System.out.println(resultJson);
 ```
 
 
-### Detecting KIP-17 Interfaces <a id="detecting-kip-17-interfaces"></a>
+### KIP-17 인터페이스 식별 <a id="detecting-kip-17-interfaces"></a>
 
-To detect the interface implemented in a KIP-17 token contract, you can use `detectInterface()` in the `KIP17` class. It returns the mapping between KIP-17 interface identifier and interface support.
+KIP-17 토큰 컨트랙트에 구현된 인터페이스를 식별하기 위해 `KIP17` 클래스의 `detectInterface()`를 사용할 수 있습니다. KIP-17 인터페이스 식별자와, 그 인터페이스가 지원 간의 매핑을 반환합니다.
 
-`detectInterface()` supports both static and instance methods, so you can select and use the method that suits your needs.
+`detectInterface()`는 정적, 그리고 인스턴스 메서드 둘 다 지원하기 때문에, 필요에 맞는 메서드를 선택하여 사용할 수 있습니다.
 
-The interface detect through `detectInterface()` for `KIP17` is shown in the table below.
+`detectInterface()`를 통해 식별한 `KIP17`에 대한 인터페이스는 아래와 같습니다.
 
 | 인터페이스                  | KIP-13 Identifier |
 | ---------------------- | ----------------- |
@@ -1310,13 +1310,13 @@ System.out.println(resultJson);
 }
 ```
 
-### Detecting KIP-37 interfaces <a id="detecting-kip-37-interfaces"></a>
+### KIP-37 인터페이스 식별 <a id="detecting-kip-37-interfaces"></a>
 
-To detect the interface implemented in a KIP-37 token contract, you can use `detectInterface()` in the `KIP37` class. It returns the mapping between KIP-37 interface identifier and interface support.
+KIP-37 토큰 컨트랙트에 구현된 인터페이스를 식별하기 위해 `KIP37` 클래스의 `detectInterface()`를 사용할 수 있습니다. KIP-37 인터페이스 식별자와, 그 인터페이스가 지원 간의 매핑을 반환합니다.
 
-`detectInterface()` supports both static and instance methods, so you can select and use the appropriate method.
+`detectInterface()`는 정적, 그리고 인스턴스 메서드 둘 다 지원하기 때문에, 필요에 맞는 메서드를 선택하여 사용할 수 있습니다.
 
-The interface detection through `detectInterface()` for `KIP37` is shown in the table below.
+`detectInterface()`를 통해 식별한 `KIP37`에 대한 인터페이스는 아래와 같습니다.
 
 | 인터페이스          | KIP-13 Identifier |
 | -------------- | ----------------- |
