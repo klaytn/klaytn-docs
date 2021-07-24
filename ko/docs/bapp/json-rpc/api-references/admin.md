@@ -630,7 +630,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 {"jsonrpc":"2.0","id":1,"result":{"committed":14995692,"err":"null","isMigration":true,"migrationBlockNumber":32630836,"pending":19699,"progress":25,"read":14997777}}
 ```
 
-## admin_saveTrieNodeToDisk <a id="admin_saveTrieNodeToDisk"></a>
+## admin_saveTrieNodeToDisk<a id="admin_saveTrieNodeToDisk"></a>
 
 `saveTrieNodeToDisk`는 노드가 재시작될 시 캐시된 트리 노드를 재사용하기 위해 디스크에 저장하기 시작하는 관리 메서드입니다.  `$DATA_DIR/fastcache`는 캐시된 트리 노드 테이터가 저장되고 또 로드되는 곳입니다. 저장 프로세스가 이미 실행 되었거나 트리 노드 캐시가 비활성화되었을 경우 이 메서드는 에러를 반환합니다. 이 기능은 Klaytn 1.5.3. 부터 지원됩니다.
 
@@ -664,7 +664,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
-## admin_setMaxSubscriptionPerWSConn <a id="admin_setMaxSubscriptionPerWSConn"></a>
+## admin_setMaxSubscriptionPerWSConn<a id="admin_setMaxSubscriptionPerWSConn"></a>
 
 `setMaxSubscriptionPerWSConn`는 하나의 WebSocket 연결에 허용된 최대 구독 수를 설정하는 관리 메서드입니다. 예를 들어, 최대 구독 수가 5로 설정되어 있는데 사용자가 `klay_subscribe` API를 통해 5개 이상을 요청할 시, "하나의 WebSocket 연결당 5개의 구독이 허용됩니다"라는 에러 메시지가 나타납니다. 이 기능은 Klaytn 1.6.0부터 지원되었습니다.
 
