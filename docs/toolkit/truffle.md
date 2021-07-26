@@ -24,7 +24,7 @@ truffle-hdwallet-provider-klaytn is a JavaScript HD wallet provider forked from 
 Install as the following:
 
 ```text
-$ nvm use 10 # for node v7, v8, v10
+$ nvm use 10
 $ yarn install truffle-hdwallet-provider-klaytn@1.0.18
 ```
 
