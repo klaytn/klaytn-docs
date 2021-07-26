@@ -205,10 +205,10 @@ kip37.clone([tokenAddress])
 ```javascript
 > const kip37 = new caver.kct.kip37(address)
 
-// Clone without a parameter
+// 매개변수 없이 클론
 > const cloned = kip37.clone()
 
-// Clone with the address of the new token contract
+// 새 토큰 컨트랙트 주소와 함께 클론
 > const cloned = kip37.clone('0x{address in hex}')
 ```
 
@@ -268,7 +268,7 @@ false
 ```
 
 
-## kip37.uri <a id="kip37-uri"></a>
+## kip37.uri<a id="kip37-uri"></a>
 
 ```javascript
 kip37.uri(id)
@@ -297,7 +297,7 @@ kip37.uri(id)
 ```
 
 
-## kip37.totalSupply <a id="kip37-totalsupply"></a>
+## kip37.totalSupply<a id="kip37-totalsupply"></a>
 
 ```javascript
 kip37.totalSupply(id)
@@ -324,7 +324,7 @@ kip37.totalSupply(id)
 ```
 
 
-## kip37.balanceOf <a id="kip37-balanceof"></a>
+## kip37.balanceOf<a id="kip37-balanceof"></a>
 
 ```javascript
 kip37.balanceOf(account, id)
@@ -352,7 +352,7 @@ kip37.balanceOf(account, id)
 ```
 
 
-## kip37.balanceOfBatch <a id="kip37-balanceofbatch"></a>
+## kip37.balanceOfBatch<a id="kip37-balanceofbatch"></a>
 
 ```javascript
 kip37.balanceOfBatch(accounts, ids)
@@ -378,7 +378,7 @@ kip37.balanceOfBatch(accounts, ids)
 ```
 
 
-## kip37.isMinter <a id="kip37-isminter"></a>
+## kip37.isMinter<a id="kip37-isminter"></a>
 
 ```javascript
 kip37.isMinter(address)
@@ -398,11 +398,7 @@ kip37.isMinter(address)
 **예시**
 
 ```javascript
-> kip37.isMinter('0x{address in hex}').then(console.log)
-true
-
-> kip37.isMinter('0x{address in hex}').then(console.log)
-false
+kip37.isMinter(address)
 ```
 
 
@@ -434,10 +430,10 @@ false
 ```
 
 
-## kip37.paused <a id="kip37-paused"></a>
+## kip37.paused<a id="kip37-paused"></a>
 
 ```javascript
-kip37.paused()
+kip37.pause()
 ```
 토큰 컨트랙트의 트랜잭션(또는 특정 토큰)이 중단되었는지 여부를 반환합니다.
 
@@ -458,13 +454,13 @@ id 파라미터가 정의되지 않은 경우, 토큰 컨트랙트 트랜잭션�
 **예시**
 
 ```javascript
-// without token id parameter
+// 토큰 ID 매개변수 없이
 > kip37.paused().then(console.log)
 true
 > kip37.paused().then(console.log)
 false
 
-// with token id parameter
+// 토큰 ID 매개변수와 함께
 > kip37.paused(0).then(console.log)
 true
 > kip37.paused(1).then(console.log)
@@ -472,7 +468,7 @@ false
 ```
 
 
-## kip37.isApprovedForAll <a id="kip37-isApprovedforall"></a>
+## kip37.isApprovedForAll<a id="kip37-isApprovedforall"></a>
 
 ```javascript
 kip37.isApprovedForAll(owner, operator)
@@ -501,7 +497,7 @@ false
 ```
 
 
-## kip37.create <a id="kip37-create"></a>
+## kip37.create<a id="kip37-create"></a>
 
 ```javascript
 kip37.create(id, initialSupply [, uri] [, sendParam])
@@ -543,7 +539,7 @@ kip37.create(id, initialSupply [, uri] [, sendParam])
 **예시**
 
 ```javascript
-// Send via a sendParam object with the from field given 
+// 주어진 필드에서 sendParam 객체를 통해 전송 
 > kip37.create(2, '1000000000000000000', { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0xf1cefd8efbde83595742dc88308143dde50e7bee39a3a0cfea92ed5df3529d61',
@@ -599,7 +595,7 @@ kip37.create(id, initialSupply [, uri] [, sendParam])
 > kip37.create(2, '1000000000000000000').then(console.log)
 ```
 
-## kip37.setApprovalForAll <a id="kip37-setApprovalforall"></a>
+## kip37.setApprovalForAll<a id="kip37-setApprovalforall"></a>
 
 ```javascript
 kip37.setApprovalForAll(operator, approved [, sendParam])
@@ -623,7 +619,7 @@ kip37.setApprovalForAll(operator, approved [, sendParam])
 **예시**
 
 ```javascript
-// Send via a sendParam object with the from field given 
+// 주어진 필드에서 sendParam 객체를 통해 전송 
 > kip37.setApprovalForAll('0x{address in hex}', true, { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x0ee7be40f8b9f4d93d68235acef9fba08fde392a93a1a1743243cb9686943a47',
@@ -675,7 +671,7 @@ kip37.setApprovalForAll(operator, approved [, sendParam])
 > kip37.setApprovalForAll('0x{address in hex}', true).then(console.log)
 ```
 
-## kip37.safeTransferFrom <a id="kip37-safetransferfrom"></a>
+## kip37.safeTransferFrom<a id="kip37-safetransferfrom"></a>
 
 ```javascript
 kip37.safeTransferFrom(from, recipient, id, amount, data [, sendParam])
@@ -708,7 +704,7 @@ kip37.safeTransferFrom(from, recipient, id, amount, data [, sendParam])
 **예시**
 
 ```javascript
-// Send via a sendParam object with the from field given (without data)
+// 주어진 필드에서 sendParam 객체를 통해 전송 (데이터 없이)
 > kip37.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 2, 10000, { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x7dbe4c5bd916ad1aafef87fe6c8b32083080df4ec07f26b6c7a487bb3cc1cf64',
