@@ -45,11 +45,11 @@ caver.rpc.klay.getAccount(address [, blockNumber] [, callback])
 
 **매개변수**
 
-| 이름          | 타입                   | 설명                                                                                              |
-| ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
-| address     | string               | 계정 정보를 알고 싶은 계정 주소입니다.                                                                          |
-| blockNumber | number &#124; string | (선택 사항) 블록 넘버, 또는 `latest`, `earliest`, `pending` 문자열 중 하나입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
-| callback    | function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                            |
+| 이름          | 타입                                       | 설명                                                                                              |
+| ----------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| address     | string                                   | 계정 정보를 알고 싶은 계정 주소입니다.                                                                          |
+| blockNumber | number &#124; stringnumber &#124; string | (선택 사항) 블록 넘버, 또는 `latest`, `earliest`, `pending` 문자열 중 하나입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
+| callback    | function                                 | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                            |
 
 **리턴값**
 
@@ -484,11 +484,11 @@ caver.rpc.klay.getTransactionCount(address [, blockNumber] [, callback])
 
 **매개변수**
 
-| 이름          | 타입                   | 설명                                                                                                                                                                                                                                                               |
-| ----------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address     | string               | 발신한 트랜잭션 개수를 확인할 주소입니다.                                                                                                                                                                                                                                          |
-| blockNumber | number &#124; string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the [default block parameter](../../../../json-rpc/api-references/klay/block.md#the-default-block-parameter). 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
-| callback    | function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |[]                                                                                                                                                                                         |
+| 이름          | 타입                   | 설명                                                                                                                                                                                                                                 |
+| ----------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | string               | 발신한 트랜잭션 개수를 확인할 주소입니다.                                                                                                                                                                                                            |
+| blockNumber | number &#124; string | (선택 사항) 블록 번호, 보류 중인 논스의 경우 `pending` 문자열, 또는 [default block parameter](../../../../json-rpc/api-references/klay/block.md#the-default-block-parameter)에 정의된 바와 같은 `earliest`, `latest` 같은 문자열입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
+| callback    | function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |[]                                                                                                                                                           |
 
 **리턴값**
 
@@ -554,7 +554,7 @@ Klaytn에서 사용하는 서명된 데이터를 생성합니다. [Klaytn Platfo
 | 이름          | 타입                   | 설명                                                                                              |
 | ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
 | address     | String               | 메시지에 서명할 불러온 계정 주소입니다.                                                                          |
-| 메시지         | String               | 서명하려는 메시지입니다.                                                                                   |
+| message     | String               | 서명하려는 메시지입니다.                                                                                   |
 | blockNumber | number &#124; string | (선택 사항) 블록 넘버, 또는 `latest`, `earliest`, `pending` 문자열 중 하나입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
 | callback    | function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                            |
 
@@ -1776,7 +1776,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 caver.rpc.klay.sendTransaction(transaction [, callback])
 ```
 
-Signs a transaction as a transaction `sender` with an "imported account's private key" in your Klaytn Node and propagates the transaction to the Klaytn.
+트랜잭션 `sender`로서 Klaytn 노드에 "가져오기한 계정의 개인키"로 트랜잭션에 서명하고, Klaytn에 전파합니다.
 
 각 트랜잭션 타입에 관한 자세한 내용은 [Transaction][]을 확인하십시오.
 
@@ -1844,7 +1844,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 caver.rpc.klay.sendTransactionAsFeePayer(transaction [, callback])
 ```
 
-Signs a fee delegated transaction as a transaction `fee payer` with an `imported account's private key` in your Klaytn Node and propagates the transaction to the Klaytn.
+트랜잭션 `feePayer`로서 Klaytn 노드에 임포트된 계정의 개인키로 수수료 대납 트랜잭션에 서명하고, 트랜잭션을 Klaytn에 전파합니다.
 
 트랜잭션 수수료 납부자로서 `sendTransaction`을 사용하기 전에, 트랜잭션 발신자는 반드시 유효한 서명(들)으로 트랜잭션에 서명했어야 하며 `nonce`가 반드시 정의되어 있어야 합니다.
 
@@ -1874,7 +1874,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 **예시**
 
 ```javascript
-> const tx = caver.transaction.feeDelegatedValueTransfer.create({
+> const tx = new caver.transaction.feeDelegatedValueTransfer({
     from: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     value: caver.utils.toPeb(1, 'KLAY'),
