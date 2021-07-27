@@ -1131,7 +1131,7 @@ caver.ipfs.setIPFSNode(host, port, isSSL);
 
 ### IPFS를 통해 파일 업로드하기<a id="uploading-a-file-through-ipfs"></a>
 
-To upload a file through `IPFS`, please use `add()` like below.
+`IPFS`를 통해 파일을 업로드하기 위해서는 아래의 `add()`를 사용하세요.
 
 이 함수는 업로드된 파일의 [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)를 반환합니다.
 
