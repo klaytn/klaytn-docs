@@ -9,7 +9,7 @@ Klaytn’s token economy is designed to create sustainable funding structures fo
 Klaytn’s funding structure runs continuously with Klaytn network’s block generation. With every new block, newly issued KLAY and the sum of transaction fees used in the block \(collectively called “block reward”\) are aggregated and distributed to the following three destination accounts in accordance to the predetermined ratio:
 
 * Klaytn Governance Council Reward: 34%
-* Klaytn Growth Fund \(PoC\): 54%
+* Klaytn Growth Fund \(KGF\): 54%
 * Klaytn Improvement Reserve \(KIR\): 12%
 
 At the time of Klaytn mainnet launch, 9.6 KLAY will be minted per block. This implies that approximately 300 million KLAY will be minted annually, which is equivalent to 3% annual inflation against the 10 billion KLAY issued at genesis \(the annual inflation rate is subject to change through the Klaytn Governance Process\). Transaction fee is charged per OPCODE and is metered according to the transaction fee table. For detailed information on the transaction fee table, please refer to [Transaction Fees](transaction-fees.md).

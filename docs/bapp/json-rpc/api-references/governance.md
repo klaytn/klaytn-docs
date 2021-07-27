@@ -32,9 +32,9 @@ The `vote` method submits a new vote. If the node has the right to vote based on
 |`"istanbul.epoch"` | `NUMBER`. A period in which votes are gathered in blocks. When an epoch end, all votes which haven't been passed will be cleared. e.g., `86400`|
 | `"istanbul.committeesize"`| `NUMBER`. The number of validators in a committee.(`sub` in chain configuration) e.g., `7`|
 | `"reward.mintingamount"`| `STRING`. Amount of Peb minted when a block is generated. Double quotation marks are needed for a value. e.g., `"9600000000000000000"` |
-| `"reward.ratio"`| `STRING`. Distribution rate for a CN/PoC/KIR separated by `"/"`. The sum of all values has to be `100`. e.g., `"34/54/12"` meaning CN 34%, PoC 54%, KiR 12% |
+| `"reward.ratio"`| `STRING`. Distribution rate for a CN/KGF/KIR separated by `"/"`. The sum of all values has to be `100`. e.g., `"34/54/12"` meaning CN 34%, KGF 54%, KIR 12% |
 | `"reward.useginicoeff"`| `BOOL`. Use the Gini coefficient or not. `true`, `false`|
-| `"reward.deferredtxfee"`| `BOOL`. The way of giving transaction fee to a proposer. If true, it means the tx fee will be summed up with block reward and distributed to the proposer, KIR and PoC. If not, all tx fee will be given to the proposer. `true`, `false`|
+| `"reward.deferredtxfee"`| `BOOL`. The way of giving transaction fee to a proposer. If true, it means the tx fee will be summed up with block reward and distributed to the proposer, KIR and KGF. If not, all tx fee will be given to the proposer. `true`, `false`|
 | `"reward.minimumstake"`| `STRING`. Amount of Klay required to be a CN (Consensus Node). Double quotation marks are needed for a value. e.g., `"5000000"`|
 
 
@@ -435,7 +435,7 @@ The `getStakingInfo` returns staking information at a specific block. The result
 - `CouncilStakingAmounts`: The amount of KLAY which the associated nodes stake.
 - `Gini`: Gini coefficient.
 - `KIRAddr`: The contract address of KIR.
-- `PoCAddr`: The contract address of PoC.
+- `KGFAddr`: The contract address of KGF.
 - `UseGini`: The boolean value whether or not the Gini coefficient is used.
 
 Note that the order of all addresses and the staking amounts are matched.
@@ -464,7 +464,7 @@ Note that the order of all addresses and the staking amounts are matched.
   CouncilStakingAmounts: [5000000, 5000000, 5000000, 5000000, 5000000, 5000000, 5000000],
   Gini: 0,
   KIRAddr: "0x716f89d9bc333286c79db4ebb05516897c8d208a",
-  PoCAddr: "0x2bcf9d3e4a846015e7e3152a614c684de16f37c6",
+  KGFAddr: "0x2bcf9d3e4a846015e7e3152a614c684de16f37c6",
   UseGini: true
 }
 ```

@@ -1,6 +1,6 @@
 # Computation Cost <a id="computation-cost"></a>
 
-Since Klaytn targets to generate a block every second, the execution time of a transaction should be managed. We considered three approaches to do that: 1. Limits the gas limit of a transaction 1. Limits the execution time of a transaction 1. Limits the computation cost of a transaction
+Since Klaytn targets to generate a block every second, the execution time of a transaction should be managed. We considered three approaches to do that: 1. Limits the gas limit of a transaction 2. Limits the execution time of a transaction 3. Limits the computation cost of a transaction
 
 Limiting the gas limit of a transaction was not a feasible solution because the concept of the gas represents the current exchange value of the various resources in the Blockchain platform such as computation, storage, network bandwidth, and so on. It is not suitable as a metric for the transaction execution time.
 

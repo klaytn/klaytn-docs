@@ -67,7 +67,6 @@ This entails the following requirements to support application development.
 ### Contribution Reward <a id="contribution-reward"></a>
 
 - Applications that contribute to growing Klaytn ecosystem should be fairly rewarded.
-[TODO] incentive program revise. 
 - See [Incentive Program]. 
 
 ***
@@ -85,7 +84,7 @@ Klaytn does not sacrifice blockchain’s core characteristics to achieve the abo
 
 ### Governance by Trusted Entities <a id="governance-by-trusted-entities"></a>
 
-- The initial development and use of Klaytn is backed by Kakao, the messaging giant in Korea. Trusted entities, global listed enterprises that manage the business of hundreds of thousands to billions of dollars, operate Klaytn node and participate in decision making for the development of Klaytn. 
+- At its initial phase, trusted entities, global listed enterprises that manage the business of hundreds of thousands to billions of dollars, operate Klaytn node and participate in decision making for the development of Klaytn. 
 
 
 
@@ -100,5 +99,4 @@ Klaytn does not sacrifice blockchain’s core characteristics to achieve the abo
 [Solidity-Smart Contract Language]: ../smart-contract/solidity-smart-contract-language.md
 [Truffle]: ../toolkit/truffle.md
 [Migrating Ethereum App to Klaytn]: ../bapp/tutorials/migrating-ethereum-app-to-klaytn.md
-[Incentive Program]: design/token-economy.md#incentive-programs
-[Enterprise Proxy]: enterprise-proxy.md
+[Incentive Program]: design/token-economy.md
