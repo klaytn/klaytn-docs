@@ -1,4 +1,4 @@
-# caver.validator
+# caver.validator <a id="caver-validator"></a>
 
 The `caver.validator` package provides validation functions that should be used when implementing applications on Klaytn.
 
@@ -15,15 +15,16 @@ Validates a signed message by comparing the public key recovered from the signat
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | message | string | The raw message string. If this message is hashed with the Klaytn-specific prefix, the third parameter should be passed as `true`. |
-| signatures | object \| Array | An object in the format of `{ v, r, s }`, an instance of `SignatureData`, or an array of `SignatureData`. '\[ v, r, s \]' or '\[\[ v, r, s \]\]' array can also be passed as a parameter, and in this case, it is internally converted to `SignatureData` type. |
+| signatures | object &#124; Array | An object in the format of `{ v, r, s }`, an instance of `SignatureData`, or an array of `SignatureData`. '[ v, r, s ]' or '[[ v, r, s ]]' array can also be passed as a parameter, and in this case, it is internally converted to `SignatureData` type. |
 | address | string | The address of the account that signed the message. |
-| isHashed | boolean | \(optional, default: `false`\) Whether the message passed as a parameter is hashed with the prefix `"\x19Klaytn Signed Message:\n" + message.length + message`. |
+| isHashed | boolean | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Klaytn Signed Message:\n" + message.length + message`. |
 
 **Return Value**
 
 `Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the signature on the message is valid or not.
+
 
 **Examples**
 
@@ -31,9 +32,9 @@ Validates a signed message by comparing the public key recovered from the signat
 const address = '0xa84a1ce657e9d5b383cece6f4ba365e23fa234dd'
 const message = 'Some Message'
 const signature = [
-    '0x1b',
-    '0x8213e560e7bbe1f2e28fd69cbbb41c9108b84c98cd7c2c88d3c8e3549fd6ab10',
-    '0x3ca40c9e20c1525348d734a6724db152b9244bff6e0ff0c2b811d61d8f874f00',
+	'0x1b',
+	'0x8213e560e7bbe1f2e28fd69cbbb41c9108b84c98cd7c2c88d3c8e3549fd6ab10',
+	'0x3ca40c9e20c1525348d734a6724db152b9244bff6e0ff0c2b811d61d8f874f00',
 ]
 > caver.validator.validateSignedMessage(message, signature, address).then(console.log)
 
@@ -41,9 +42,9 @@ const signature = [
 const address = '0xa84a1ce657e9d5b383cece6f4ba365e23fa234dd'
 const hashedMessage = '0xa4b1069c1000981f4fdca0d62302dfff77c2d0bc17f283d961e2dc5961105b18'
 const signature = [
-    '0x1b',
-    '0x8213e560e7bbe1f2e28fd69cbbb41c9108b84c98cd7c2c88d3c8e3549fd6ab10',
-    '0x3ca40c9e20c1525348d734a6724db152b9244bff6e0ff0c2b811d61d8f874f00',
+	'0x1b',
+	'0x8213e560e7bbe1f2e28fd69cbbb41c9108b84c98cd7c2c88d3c8e3549fd6ab10',
+	'0x3ca40c9e20c1525348d734a6724db152b9244bff6e0ff0c2b811d61d8f874f00',
 ]
 > caver.validator.validateSignedMessage(hashedMessage, signature, address, true).then(console.log)
 ```
@@ -59,12 +60,13 @@ Validates a transaction. This function compares the public keys from the account
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| tx | object | An instance of [Transaction](caver.transaction/#class) to validate. |
+| --- | --- | --- |
+| tx | object | An instance of [Transaction] to validate. |
 
 **Return Value**
 
 `Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transacion is valid or not.
+
 
 **Examples**
 
@@ -89,12 +91,13 @@ Validates the sender of the transaction. This function compares the public keys 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| tx | object | An instance of [Transaction](caver.transaction/#class) to validate. |
+| --- | --- | --- |
+| tx | object | An instance of [Transaction] to validate. |
 
 **Return Value**
 
 `Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transaction is valid or not.
+
 
 **Examples**
 
@@ -114,12 +117,13 @@ Validates a fee payer in the transaction. This function compares the public keys
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| tx | object | An instance of [Transaction](caver.transaction/#class) to validate. |
+| --- | --- | --- |
+| tx | object | An instance of [Transaction] to validate. |
 
 **Return Value**
 
 `Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transaction is valid or not.
+
 
 **Examples**
 
@@ -128,3 +132,4 @@ const tx = caver.transaction.feeDelegatedValueTransfer.create({...})
 > caver.validator.validateFeePayer(tx).then(console.log)
 ```
 
+[Transaction]: ./caver.transaction/README.md#class

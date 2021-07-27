@@ -1,6 +1,6 @@
-# caver.kct.kip7
+# caver.kct.kip7 <a id="caver-klay-kip7"></a>
 
-The `caver.kct.kip7` helps you easily handle a smart contract that implements KIP-7 as a JavaScript object on the Klaytn blockchain platform \(Klaytn\).
+The `caver.kct.kip7` helps you easily handle a smart contract that implements KIP-7 as a JavaScript object on the Klaytn blockchain platform (Klaytn). 
 
 The `caver.kct.kip7` inherits [caver.contract](../caver.contract.md) to implement the KIP-7 token contract. The `caver.kct.kip7` holds the same properties of `caver.contract` whereas additional methods to implement extra features. This section only introduces the newly added bound methods of the `caver.kct.kip7`.
 
@@ -15,37 +15,36 @@ For more information about KIP-7, see [Klaytn Improvement Proposals](https://kip
 ```javascript
 caver.kct.kip7.deploy(tokenInfo, deployer)
 ```
-
-Deploys the KIP-7 token contract to the Klaytn blockchain. A contract deployed using caver.kct.kip7.deploy is a fungible token that follows the KIP-7 standard.
+Deploys the KIP-7 token contract to the Klaytn blockchain. A contract deployed using caver.kct.kip7.deploy is a fungible token that follows the KIP-7 standard. 
 
 After successful deployment, the promise will be resolved with a new KIP7 instance.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | tokenInfo | object | The information needed to deploy KIP-7 token contract on the Klaytn blockchain. See the below table for the details. |
-| deployer | string \| object | The address of the keyring to deploy the KIP-7 token contract. This keyring must have enough KLAY to deploy. If you want to define your own fields to use when sending transactions, you can pass the object type as a parameter. Also, if you want to use Fee Delegation when deploying KIP-7 contracts, you can define fields related to fee delegation in the object. For fields that can be defined in the object, refer to the parameter description of [approve](kip7.md#kip7-approve). |
+| deployer | string &#124; object | The address of the keyring to deploy the KIP-7 token contract. This keyring must have enough KLAY to deploy. If you want to define your own fields to use when sending transactions, you can pass the object type as a parameter. Also, if you want to use Fee Delegation when deploying KIP-7 contracts, you can define fields related to fee delegation in the object. For fields that can be defined in the object, refer to the parameter description of [approve](#kip7-approve). |
 
 The tokenInfo object must contain the following:
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | name | string | The name of the token. |
 | symbol | string | The symbol of the token. |
 | decimals | number | The number of decimal places the token uses. |
-| initialSupply | BigNumber \| string \| number | The total amount of token to be supplied initially. |
+| initialSupply | BigNumber &#124; string &#124; number | The total amount of token to be supplied initially. |
 
-**NOTE** The `initialSupply` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `initialSupply` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
 `PromiEvent`: A promise combined event emitter, which is resolved with a new KIP7 instance. Additionally, the following events can occur:
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | transactionHash | string | Fired right after the transaction is sent and a transaction hash is available. |
-| receipt | object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
+| receipt | object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
 | error | Error | Fired if an error occurs during sending. |
 
 **Example**
@@ -112,13 +111,12 @@ KIP7 {
 ```javascript
 caver.kct.kip7.detectInterface(contractAddress)
 ```
-
-Returns the information of the interface implemented by the token contract. This static function will use [kip7.detectInterface](kip7.md#kip7-detectinterface).
+Returns the information of the interface implemented by the token contract. This static function will use [kip7.detectInterface](#kip7-detectinterface).
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | contractAddress | string | The address of the KIP-7 token contract |
 
 **Return Value**
@@ -143,18 +141,18 @@ Returns the information of the interface implemented by the token contract. This
 ```javascript
 caver.kct.kip7.create([tokenAddress])
 ```
-
-Creates a new KIP7 instance with its bound methods and events. This function works the same as [new KIP7](kip7.md#new-kip7).
+Creates a new KIP7 instance with its bound methods and events. This function works the same as [new KIP7](#new-kip7).
 
 **NOTE** `caver.kct.kip7.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 **Parameters**
 
-See the [new KIP7](kip7.md#new-kip7).
+See the [new KIP7](#new-kip7).
 
 **Return Value**
 
-See the [new KIP7](kip7.md#new-kip7).
+See the [new KIP7](#new-kip7).
+
 
 **Example**
 
@@ -166,25 +164,27 @@ See the [new KIP7](kip7.md#new-kip7).
 > const kip7 = caver.kct.kip7.create('0x{address in hex}')
 ```
 
+
 ## new KIP7 <a id="new-kip7"></a>
 
 ```javascript
 new caver.kct.kip7([tokenAddress])
 ```
-
 Creates a new KIP7 instance with its bound methods and events.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| tokenAddress | string | \(optional\) The address of the KIP-7 token contract, which can be assigned later through `kip7.options.address = '0x1234..'` |
+| --- | --- | --- |
+| tokenAddress | string | (optional) The address of the KIP-7 token contract, which can be assigned later through `kip7.options.address = '0x1234..'` |
+
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | object | The KIP7 instance with its bound methods and events. |
+
 
 **Example**
 
@@ -196,25 +196,26 @@ Creates a new KIP7 instance with its bound methods and events.
 > const kip7 = new caver.kct.kip7('0x{address in hex}')
 ```
 
+
 ## kip7.clone <a id="kip7-clone"></a>
 
 ```javascript
 kip7.clone([tokenAddress])
 ```
-
 Clones the current KIP7 instance.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| tokenAddress | string | \(optional\) The address of the smart contract that deployed another KIP7 token. If omitted, it will be set to the contract address in the original instance. |
+| --- | --- | --- |
+| tokenAddress | string | (optional) The address of the smart contract that deployed another KIP7 token. If omitted, it will be set to the contract address in the original instance. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | object | The clone of the original KIP7 instance. |
+
 
 **Example**
 
@@ -233,7 +234,6 @@ Clones the current KIP7 instance.
 ```javascript
 kip7.detectInterface()
 ```
-
 Returns the information of the interface implemented by the token contract.
 
 **Parameters**
@@ -262,13 +262,12 @@ None
 ```javascript
 kip7.supportsInterface(interfaceId)
 ```
-
 Return `true` if this contract implements the interface defined by `interfaceId`.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | interfaceId | string | The interfaceId to be checked. |
 
 **Return Value**
@@ -285,12 +284,12 @@ true
 false
 ```
 
+
 ## kip7.name <a id="kip7-name"></a>
 
 ```javascript
 kip7.name()
 ```
-
 Return the name of the token.
 
 **Parameters**
@@ -308,12 +307,12 @@ None
 Jasmine
 ```
 
+
 ## kip7.symbol <a id="kip7-symbol"></a>
 
 ```javascript
 kip7.symbol()
 ```
-
 Return the symbol of the token.
 
 **Parameters**
@@ -331,12 +330,12 @@ None
 JAS
 ```
 
+
 ## kip7.decimals <a id="kip7-decimals"></a>
 
 ```javascript
 kip7.decimals()
 ```
-
 Return the number of decimal places the token uses.
 
 **Parameters**
@@ -354,12 +353,12 @@ None
 18
 ```
 
+
 ## kip7.totalSupply <a id="kip7-totalsupply"></a>
 
 ```javascript
 kip7.totalSupply()
 ```
-
 Return the total token supply.
 
 **Parameters**
@@ -377,18 +376,18 @@ None
 100000000000000000000
 ```
 
+
 ## kip7.balanceOf <a id="kip7-balanceof"></a>
 
 ```javascript
 kip7.balanceOf(address)
 ```
-
 Return the balance of the given account address.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | address | string | The address of the account to be checked for its balance. |
 
 **Return Value**
@@ -402,19 +401,19 @@ Return the balance of the given account address.
 100000
 ```
 
+
 ## kip7.allowance <a id="kip7-allowance"></a>
 
 ```javascript
 kip7.allowance(owner, spender)
 ```
-
 Return the amount of token that `spender` is allowed to withdraw from `owner`.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| owner | string | The address of the token owner's account. |
+| --- | --- | --- |
+| owner | string | The address of the token owner's account.  |
 | spender | string | The address of the account that spends tokens in place of the owner. |
 
 **Return Value**
@@ -431,18 +430,18 @@ Return the amount of token that `spender` is allowed to withdraw from `owner`.
 10
 ```
 
+
 ## kip7.isMinter <a id="kip7-isminter"></a>
 
 ```javascript
 kip7.isMinter(address)
 ```
-
 Return `true` if the given account is a minter who can issue new KIP7 tokens.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | address | string | The address of the account to be checked for having the minting right. |
 
 **Return Value**
@@ -459,18 +458,18 @@ true
 false
 ```
 
+
 ## kip7.isPauser <a id="kip7-ispauser"></a>
 
 ```javascript
 kip7.isPauser(address)
 ```
-
 Return `true` if the given account is a pauser who can suspend transferring tokens.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | address | string | The address of the account to be checked for having the right to suspend transferring tokens. |
 
 **Return Value**
@@ -487,12 +486,12 @@ true
 false
 ```
 
+
 ## kip7.paused <a id="kip7-paused"></a>
 
 ```javascript
 kip7.paused()
 ```
-
 Return `true` if the contract is paused, and `false` otherwise.
 
 **Parameters**
@@ -513,12 +512,12 @@ true
 false
 ```
 
+
 ## kip7.approve <a id="kip7-approve"></a>
 
 ```javascript
 kip7.approve(spender, amount [, sendParam])
 ```
-
 Set the `amount` of the tokens of the token owner to be spent by the `spender`.
 
 Note that this method will submit a transaction from the owner to the Klaytn network, which will charge the transaction fee to the owner.
@@ -526,30 +525,30 @@ Note that this method will submit a transaction from the owner to the Klaytn net
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | spender | string | The address of the account who spends tokens in place of the owner. |
-| amount | BigNumber \| string \| number | The amount of token the spender is allowed to use. |
-| sendParam | object | \(optional\) An object holding parameters that are required for sending a transaction. |
+| amount | BigNumber &#124; string &#124; number | The amount of token the spender is allowed to use. |
+| sendParam | object | (optional) An object holding parameters that are required for sending a transaction. |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value. 
 
 The `sendParam` object contains the following:
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| from | string | \(optional\) The address from which the transaction should be sent. If omitted, it will be set by `kip7.options.from`. If neither of `from` in the `sendParam` object nor `kip7.options.from` were not provided, an error would occur. |
-| gas | number \| string | \(optional\) The maximum number of gas provided for this transaction \(gas limit\). If omitted, it will be set by caver-js via calling `kip7.methods.approve(spender, amount).estimateGas({from})`. |
-| gasPrice | number \| string | \(optional\) The gas price in peb for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
-| value | number \| string \| BN \| BigNumber | \(optional\) The value to be transferred in peb. |
-| feeDelegation | boolean | \(optional, default `false`\) Whether to use fee delegation transaction. If omitted, `kip7.options.feeDelegation` will be used. If both omitted, fee delegation is not used. |
-| feePayer | string | \(optional\) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `kip7.options.feePayer` will be used. If both omitted, throws an error. |
-| feeRatio | string | \(optional\) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `kip7.options.feeRatio` will be used. |
+| --- | --- | --- |
+| from | string | (optional) The address from which the transaction should be sent. If omitted, it will be set by `kip7.options.from`. If neither of `from` in the `sendParam` object nor `kip7.options.from` were not provided, an error would occur. |
+| gas | number &#124; string | (optional) The maximum number of gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `kip7.methods.approve(spender, amount).estimateGas({from})`. |
+| gasPrice | number &#124; string | (optional) The gas price in peb for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
+| value | number &#124; string &#124; BN &#124; BigNumber | (optional) The value to be transferred in peb. |
+| feeDelegation | boolean | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `kip7.options.feeDelegation` will be used. If both omitted, fee delegation is not used. |
+| feePayer | string | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `kip7.options.feePayer` will be used. If both omitted, throws an error. |
+| feeRatio | string | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `kip7.options.feeRatio` will be used. |
 
 **NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -606,29 +605,29 @@ The `sendParam` object contains the following:
 > kip7.approve('0x{address in hex}', 10).then(console.log)
 ```
 
+
 ## kip7.transfer <a id="kip7-transfer"></a>
 
 ```javascript
 kip7.transfer(recipient, amount [, sendParam])
 ```
-
-Transfers the given `amount` of the token from the token owner's balance to the `recipient`. The token owner should execute this token transfer with its own hands. Thus, the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
+Transfers the given `amount` of the token from the token owner's balance to the `recipient`. The token owner should execute this token transfer with its own hands. Thus, the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.  
 
 Note that sending this transaction will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | recipient | string | The address of the account to receive the token. |
-| amount | BigNumber \| string \| number | The amount of token to be transferred. |
-| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](kip7.md#kip7-approve). |
+| amount | BigNumber &#124; string &#124; number | The amount of token to be transferred. |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -690,27 +689,26 @@ Note that sending this transaction will charge the transaction fee to the transa
 ```javascript
 kip7.safeTransfer(recipient, amount [, data] [, sendParam])
 ```
+Safely transfers the given `amount` of the token from the token owner's balance to the `recipient`. The token owner should execute this token transfer with its own hands. Thus, the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.  
 
-Safely transfers the given `amount` of the token from the token owner's balance to the `recipient`. The token owner should execute this token transfer with its own hands. Thus, the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
-
-If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface). Otherwise, the transfer is reverted.
+If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface). Otherwise, the transfer is reverted.  
 
 Note that sending this transaction will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | recipient | string | The address of the account to receive the token. |
-| amount | BigNumber \| string \| number | The amount of token you want to transfer. |
-| data | Buffer \| string \| number | \(optional\) The optional data to send along with the call. |
-| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](kip7.md#kip7-approve). |
+| amount | BigNumber &#124; string &#124; number | The amount of token you want to transfer. |
+| data | Buffer &#124; string &#124; number | (optional) The optional data to send along with the call. |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -770,30 +768,30 @@ Note that sending this transaction will charge the transaction fee to the transa
 > kip7.safeTransfer('0x{address in hex}', 11).then(console.log)
 ```
 
+
 ## kip7.transferFrom <a id="kip7-transferfrom"></a>
 
 ```javascript
 kip7.transferFrom(sender, recipient, amount [, sendParam])
 ```
-
-Transfers the given `amount` of the token from the token owner's balance to the `recipient`. The address who was approved to send the token owner's tokens is expected to execute this token transferring transaction. Thus, the approved one should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
+Transfers the given `amount` of the token from the token owner's balance to the `recipient`. The address who was approved to send the token owner's tokens is expected to execute this token transferring transaction. Thus, the approved one should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.  
 
 Note that sending this transaction will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | sender | string | The address of the account that owns the token to be sent with allowance mechanism. |
 | recipient | string | The address of the account to receive the token. |
-| amount | BigNumber \| string \| number | The amount of token you want to transfer. |
-| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](kip7.md#kip7-approve). |
+| amount | BigNumber &#124; string &#124; number | The amount of token you want to transfer. |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -878,28 +876,27 @@ Note that sending this transaction will charge the transaction fee to the transa
 ```javascript
 kip7.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
 ```
+Safely transfers the given `amount` of the token from the token owner's balance to the `recipient`. The address who was approved to send the token owner's tokens is expected to execute this token transferring transaction. Thus, the approved one should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.  
 
-Safely transfers the given `amount` of the token from the token owner's balance to the `recipient`. The address who was approved to send the token owner's tokens is expected to execute this token transferring transaction. Thus, the approved one should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
-
-If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface). Otherwise, the transfer is reverted.
+If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface). Otherwise, the transfer is reverted.  
 
 Note that sending this transaction will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | sender | string | The address of the account that owns the token to be sent with allowance mechanism. |
 | recipient | string | The address of the account to receive the token. |
-| amount | BigNumber \| string \| number | The amount of token you want to transfer. |
-| data | Buffer \| string \| number | \(optional\) The optional data to send along with the call. |
-| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](kip7.md#kip7-approve). |
+| amount | BigNumber &#124; string &#124; number | The amount of token you want to transfer. |
+| data | Buffer &#124; string &#124; number | (optional) The optional data to send along with the call. |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -987,7 +984,6 @@ Note that sending this transaction will charge the transaction fee to the transa
 ```javascript
 kip7.mint(account, amount [, sendParam])
 ```
-
 Creates the `amount` of token and issues it to the `account`, increasing the total supply of token.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
@@ -995,18 +991,18 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | account | string | The address of the account to which the minted token will be issued. |
-| amount | BigNumber \| string \| number | The amount of token to be minted. |
-| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](kip7.md#kip7-approve). |
+| amount | BigNumber &#124; string &#124; number | The amount of token to be minted. |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a minter with MinterRole.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1063,12 +1059,12 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip7.mint('0x{address in hex}', 10000).then(console.log)
 ```
 
+
 ## kip7.addMinter <a id="kip7-addminter"></a>
 
 ```javascript
 kip7.addMinter(account [, sendParam])
 ```
-
 Adds an account as a minter, who are permitted to mint tokens.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
@@ -1076,15 +1072,15 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | account | string | The address of the account to be added as a minter. |
-| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](kip7.md#kip7-approve). |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
 **NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a minter.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1137,27 +1133,27 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip7.addMinter('0x{address in hex}').then(console.log)
 ```
 
+
 ## kip7.renounceMinter <a id="kip7-renounceminter"></a>
 
 ```javascript
 kip7.renounceMinter([sendParam])
 ```
-
-Renounces the right to mint tokens. Only a minter address can renounce the minting right.
+Renounces the right to mint tokens. Only a minter address can renounce the minting right. 
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](kip7.md#kip7-approve). |
+| --- | --- | --- |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
 **NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a minter with MinterRole.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1210,28 +1206,28 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip7.renounceMinter().then(console.log)
 ```
 
+
 ## kip7.burn <a id="kip7-burn"></a>
 
 ```javascript
 kip7.burn(amount [, sendParam])
 ```
-
-Destroys the `amount` of tokens in the sender's balance. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
+Destroys the `amount` of tokens in the sender's balance. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.  
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| amount | BigNumber \| string \| number | The amount of token to be destroyed. |
-| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](kip7.md#kip7-approve). |
+| --- | --- | --- |
+| amount | BigNumber &#124; string &#124; number | The amount of token to be destroyed. |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1288,12 +1284,12 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip7.burn(1000).then(console.log)
 ```
 
+
 ## kip7.burnFrom <a id="kip7-burnfrom"></a>
 
 ```javascript
 kip7.burnFrom(account, amount [, sendParam])
 ```
-
 Destroys the given number of tokens from `account`. The allowance of the sender specified in `sendParam.from` or `kip7.options.from` is reduced alongside the balance of `account`.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
@@ -1301,16 +1297,16 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | account | string | The address of the account that owns tokens to be burned with allowance mechanism. |
-| amount | BigNumber \| string \| number | The amount of token to be destroyed. |
-| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](kip7.md#kip7-approve). |
+| amount | BigNumber &#124; string &#124; number | The amount of token to be destroyed. |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1390,12 +1386,12 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip7.burnFrom('0x{address in hex}', 1000).then(console.log)
 ```
 
+
 ## kip7.addPauser <a id="kip7-addpauser"></a>
 
 ```javascript
 kip7.addPauser(account [, sendParam])
 ```
-
 Adds an account as a pauser that has the right to suspend the contract.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
@@ -1403,15 +1399,15 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | account | string | The address of the account to be a new pauser. |
-| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](kip7.md#kip7-approve). |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
 **NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a pauser with PauserRole.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1464,27 +1460,27 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip7.addPauser('0x{address in hex}').then(console.log)
 ```
 
+
 ## kip7.renouncePauser <a id="kip7-renouncepauser"></a>
 
 ```javascript
 kip7.renouncePauser([sendParam])
 ```
-
-Renounces the right to pause the contract. Only a pauser address can renounce the pausing right.
+Renounces the right to pause the contract. Only a pauser address can renounce the pausing right. 
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](kip7.md#kip7-approve). |
+| --- | --- | --- |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
 **NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a pauser with PauserRole.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1537,12 +1533,12 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip7.renouncePauser().then(console.log)
 ```
 
+
 ## kip7.pause <a id="kip7-pause"></a>
 
 ```javascript
 kip7.pause([sendParam])
 ```
-
 Suspends functions related to sending tokens.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
@@ -1550,14 +1546,14 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](kip7.md#kip7-approve). |
+| --- | --- | --- |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
 **NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a pauser with PauserRole.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1610,12 +1606,12 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip7.pause().then(console.log)
 ```
 
+
 ## kip7.unpause <a id="kip7-unpause"></a>
 
 ```javascript
 kip7.unpause([sendParam])
 ```
-
 Resumes the paused contract.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
@@ -1623,14 +1619,14 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| sendParam | object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](kip7.md#kip7-approve). |
+| --- | --- | --- |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
 **NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a pauser with PauserRole.
 
 **Return Value**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
 
 **Example**
 
@@ -1683,3 +1679,4 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip7.unpause().then(console.log)
 ```
 
+[getTransactionReceipt]: ../caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt

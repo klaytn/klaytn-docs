@@ -1,13 +1,13 @@
-# Runtime Debugging
+# Runtime Debugging <a id="runtime-debugging"></a>
 
-## debug\_freeOSMemory <a id="debug_freeosmemory"></a>
+## debug_freeOSMemory <a id="debug_freeosmemory"></a>
 
 Returns unused memory to the OS.
 
-| Client | Method Invocation |
-| :---: | :--- |
-| Console | `debug.freeOSMemory()` |
-| RPC | `{"method": "debug_freeOSMemory"}` |
+| Client  | Method Invocation                  |
+|:-------:|------------------------------------|
+| Console | `debug.freeOSMemory()`             |
+| RPC     | `{"method": "debug_freeOSMemory"}` |
 
 **Parameters**
 
@@ -20,27 +20,25 @@ None
 **Example**
 
 Console
-
 ```javascript
 > debug.freeOSMemory()
 null
 ```
-
 HTTP RPC
-
-```text
+```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_freeOSMemory","id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
-## debug\_gcStats <a id="debug_gcstats"></a>
+
+## debug_gcStats <a id="debug_gcstats"></a>
 
 Returns GC statistics.
 
-| Client | Method Invocation |
-| :---: | :--- |
-| Console | `debug.gcStats()` |
-| RPC | `{"method": "debug_gcStats", "params": []}` |
+| Client  | Method Invocation                                 |
+|:-------:|---------------------------------------------------|
+| Console | `debug.gcStats()`                                 |
+| RPC     | `{"method": "debug_gcStats", "params": []}`       |
 
 **Parameters**
 
@@ -48,12 +46,12 @@ None
 
 **Return Value**
 
-See [https://golang.org/pkg/runtime/debug/\#GCStats](https://golang.org/pkg/runtime/debug/#GCStats) for information about the fields of the returned object.
+See [https://golang.org/pkg/runtime/debug/#GCStats](https://golang.org/pkg/runtime/debug/#GCStats)
+for information about the fields of the returned object.
 
 **Example**
 
 Console
-
 ```javascript
 > debug.gcStats()
 {
@@ -65,22 +63,21 @@ Console
   PauseTotal: 64156063
 }
 ```
-
 HTTP RPC
-
-```text
+```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_gcStats","params":[],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":{"LastGC":"2018-10-15T00:42:08.2787037Z","NumGC":14,"PauseTotal":292805500,"Pause":[3384700,60164200,259500,354600,62331200,241700,29701500,4868200,8242800,35177700,27621100,12647400,38250100,9560800],"PauseEnd":["2018-10-15T00:42:08.2787037Z","2018-10-15T00:40:19.3302813Z","2018-10-15T00:38:41.2202755Z","2018-10-15T00:36:41.2785669Z","2018-10-15T00:36:18.3196569Z","2018-10-15T00:34:48.2073609Z","2018-10-15T00:33:01.3309817Z","2018-10-15T00:31:28.3465898Z","2018-10-15T00:30:05.4245261Z","2018-10-15T00:28:58.6377593Z","2018-10-15T00:27:55.315809Z","2018-10-15T00:27:45.075085Z","2018-10-15T00:27:44.9164574Z","2018-10-15T00:27:44.8406572Z"],"PauseQuantiles":null}}
 ```
 
-## debug\_memStats <a id="debug_memstats"></a>
+
+## debug_memStats <a id="debug_memstats"></a>
 
 Returns detailed runtime memory statistics.
 
-| Client | Method Invocation |
-| :---: | :--- |
-| Console | `debug.memStats()` |
-| RPC | `{"method": "debug_memStats", "params": []}` |
+| Client  | Method Invocation                                 |
+|:-------:|---------------------------------------------------|
+| Console | `debug.memStats()`                                |
+| RPC     | `{"method": "debug_memStats", "params": []}`      |
 
 **Parameters**
 
@@ -88,12 +85,12 @@ None
 
 **Return Value**
 
-See [https://golang.org/pkg/runtime/\#MemStats](https://golang.org/pkg/runtime/#MemStats) for information about the fields of the returned object.
+See [https://golang.org/pkg/runtime/#MemStats](https://golang.org/pkg/runtime/#MemStats)
+for information about the fields of the returned object.
 
 **Example**
 
 Console
-
 ```javascript
 > debug.memStats()
 {
@@ -114,41 +111,39 @@ Console
   TotalAlloc: 2105944960
 }
 ```
-
 HTTP RPC
-
-```text
+```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_memStats","params":[],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":{"Alloc":265525152,"TotalAlloc":3548997112,"Sys":756177144,"Lookups":2165,"Mallocs":25572268,"Frees":24933943,
 ...
 "Frees":36},{"Size":16384,"Mallocs":123,"Frees":122},{"Size":18432,"Mallocs":11,"Frees":3},{"Size":19072,"Mallocs":2,"Frees":1}]}}
 ```
 
-## debug\_metrics <a id="debug_metrics"></a>
+
+## debug_metrics <a id="debug_metrics"></a>
 
 Retrieves all the known system metrics collected by the node.
 
-| Client | Method Invocation |
-| :---: | :--- |
-| Console | `debug.metrics(raw)` |
-| RPC | `{"method": "debug_metrics", "params": [raw]}` |
+| Client  | Method Invocation                              |
+|:-------:|------------------------------------------------|
+| Console | `debug.metrics(raw)`                           |
+| RPC     | `{"method": "debug_metrics", "params": [raw]}` |
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | raw | bool | `true` If raw data is output as it is, `false` If not |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | JSON string | The structured metrics collected by the node. |
 
 **Example**
 
 Console
-
 ```javascript
 > debug.metrics(true)
 debug.metrics(true)
@@ -204,32 +199,32 @@ system: {
   }
 }
 ```
-
 HTTP RPC
-
-```text
+```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_metrics","params":[true],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":{"blockchain":{"block":{"tx":{"counter":{"Overall":98307},"rate":{"AvgRate01Min":19.99999999999893,"AvgRate05Min":19.999669059400787,"AvgRate15Min":19.91097896398045,"MeanRate":16.321034565305364,"Overall":98307}}},"head":{"blocknumber":"Unknown metric type"}},"bridgeTxpool":{"refuse":{"Overall":0}}, ...{"AvgRate01Min":0.9999999999999988,"AvgRate05Min":0.9999997215208508,"AvgRate15Min":0.9986124269288207,"MeanRate":0.9946322927570416,"Overall":5991,"Percentiles":{"20":6229668,"5":5986862.3,"50":6585653,"80":6864326.2,"95":7486187.249999999}}}}
 ```
 
-## debug\_setGCPercent <a id="debug_setgcpercent"></a>
 
-Sets the garbage collection target percentage. It returns the previous setting. A negative value disables GC.
+## debug_setGCPercent <a id="debug_setgcpercent"></a>
+
+Sets the garbage collection target percentage. It returns the previous setting.
+A negative value disables GC.
 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | Percent | integer | Garbage collection target percentage. |
 
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | integer | Previous garbage collection target percentage. |
 
-**Example** Console
-
+**Example**
+Console
 ```javascript
 > debug.setGCPercent(50)
 100
@@ -238,10 +233,8 @@ Sets the garbage collection target percentage. It returns the previous setting. 
 > debug.setGCPercent(100)
 70
 ```
-
 HTTP RPC
-
-```text
+```shell
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"debug_setGCPercent", "params":[100],"id":73}' http://localhost:8551
 
 {
@@ -251,14 +244,15 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-## debug\_stacks <a id="debug_stacks"></a>
+
+## debug_stacks <a id="debug_stacks"></a>
 
 Returns a printed representation of the stacks of all goroutines.
 
-| Client | Method Invocation |
-| :---: | :--- |
-| Console | `debug.stacks()` |
-| RPC | `{"method": "debug_stacks", "params": []}` |
+| Client  | Method Invocation                                 |
+|:-------:|---------------------------------------------------|
+| Console | `debug.stacks()`                                  |
+| RPC     | `{"method": "debug_stacks", "params": []}`        |
 
 **Parameters**
 
@@ -267,25 +261,22 @@ None
 **Return Value**
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | The stack information of all goroutines. |
 
 **Example**
 
 Console
-
 ```javascript
 > debug.stacks()
 goroutine 163577 [running]:
 /api/debug.(*HandlerT).Stacks(0xc4200a4780, 0x0, 0x0)
-    /klaytn/build/_workspace/src/github.com/klaytn/klaytn/api/debug/api.go:173 +0x74
+	/klaytn/build/_workspace/src/github.com/klaytn/klaytn/api/debug/api.go:173 +0x74
 reflect.Value.call(0xc4213a80c0, 0xc42134d1f0, 0x13, 0xf050ec, 0x4, 0xc4233957a0, 0x1, 0x1, 0x474401, 0xc4233956c8, ...)
 ...
 ```
-
 HTTP RPC
-
-```text
+```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stacks","params":[],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":"goroutine 76176 [running]:\ngithub.com/klaytn/klaytn/api/debug.(*HandlerT).Stacks(0xc0002ce050, 0x0, 0x0)\n\t/private/tmp/klaytn-20181001-13887-zbyv2z/build/_workspace/src/github.com/klaytn/klaytn/api/debug/api.go:173 +0x74\nreflect.Value.call(0xc01867c660, 0xc000231bd8, 0x13, 0x4b26ca7, 0x4, 0xc008d8b7c0, 0x1, 0x1, 0x30, 0xc0323211d0 ..."}
 ```

@@ -1,4 +1,4 @@
-# caver.rpc.governance
+# caver.rpc.governance <a id="caver-rpc-governance"></a>
 
 `caver.rpc.governance` provides JSON-RPC call with the `governance` name space.
 
@@ -13,18 +13,19 @@ Submits a new vote. If the node has the right to vote based on the governance mo
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | key | string | Name of the configuration setting to be changed. Key has the form "domain.field". |
-| value | string \| number \| boolean | Various types of value for each key. |
+| value | string &#124; number &#124; boolean | Various types of value for each key. |
 
-For more details about the `key` and `value` for `caver.rpc.governance.vote`, please refer to [governance\_vote](../../../../json-rpc/api-references/governance.md#governance_vote).
+For more details about the `key` and `value` for `caver.rpc.governance.vote`, please refer to [governance_vote](../../../../json-rpc/api-references/governance.md#governance_vote).
+
 
 **Return Value**
 
 `Promise` returns `string`
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | Result of vote submission. |
 
 **Example**
@@ -47,7 +48,7 @@ Provides the current tally of governance votes. It shows the aggregate approval 
 `Promise` returns `Array`
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | Array | An array containing the vote's value and the approval rate in percentage. |
 
 **Example**
@@ -69,14 +70,14 @@ Provides the current tally of governance votes. It shows the aggregate approval 
 caver.rpc.governance.getTotalVotingPower()
 ```
 
-Provides the sum of all voting power that CNs have. Each CN has 1.0 ~ 2.0 voting power. In the "none" and "single" governance modes, totalVotingPower doesn't provide any information.
+Provides the sum of all voting power that CNs have. Each CN has 1.0 ~ 2.0 voting power. In  the "none" and "single" governance modes, totalVotingPower doesn't provide any information.
 
 **Return Value**
 
 `Promise` returns `number`
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | number | Total Voting Power. |
 
 **Example**
@@ -99,7 +100,7 @@ Provides the voting power of the node. The voting power can be anywhere between 
 `Promise` returns `number`
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | number | Node's Voting Power. |
 
 **Example**
@@ -122,7 +123,7 @@ Provides my vote information in the epoch. Each vote is stored in a block when t
 `Promise` returns `Array`
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | Array | Node's Voting status in the epoch. |
 
 **Example**
@@ -152,7 +153,7 @@ Provides the initial chain configuration. Because it just stores the initial con
 `Promise` returns `Array`
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | Array | An array containing the vote's value and the approval rate in percentage. |
 
 **Example**
@@ -193,7 +194,7 @@ Provides the address of the node that a user is using. It is derived from the no
 `Promise` returns `string`
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | string | The address of a node. |
 
 **Example**
@@ -214,15 +215,15 @@ Returns governance items at a specific block. It is the result of previous votin
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| blockNumberOrTag | number \| string | \(optional\) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| --- | --- | --- |
+| blockNumberOrTag | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
 
 **Return Value**
 
 `Promise` returns `object`
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | object | The governance items. |
 
 **Example**
@@ -261,7 +262,7 @@ Returns the list of items that have received enough number of votes but not yet 
 `Promise` returns `object`
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | object | Currently pending changes composed of keys and values. |
 
 **Example**
@@ -284,7 +285,7 @@ Returns an array of current idxCache in the memory cache. idxCache contains the 
 `Promise` returns `object`
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | Array | Block numbers where governance change happened. |
 
 **Example**
@@ -300,14 +301,14 @@ Returns an array of current idxCache in the memory cache. idxCache contains the 
 caver.rpc.governance.getIdxCacheFromDb()
 ```
 
-Returns an array that contains all block numbers at which any governance changes ever took place. The result of idxCacheFromDb is the same or longer than that of [idxCache](governance.md#caver-rpc-governance-getidxcache).
+Returns an array that contains all block numbers at which any governance changes ever took place. The result of idxCacheFromDb is the same or longer than that of [idxCache](#caver-rpc-governance-getidxcache).
 
 **Return Value**
 
 `Promise` returns `object`
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | Array | Block numbers where governance change happened. |
 
 **Example**
@@ -328,15 +329,15 @@ Returns the governance information stored on the given block. If no changes are 
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| blockNumber | number \| string | A block number, or the hex number string to query the governance change made on the block. |
+| --- | --- | --- |
+| blockNumber | number &#124; string | A block number, or the hex number string to query the governance change made on the block. |
 
 **Return Value**
 
 `Promise` returns `object`
 
 | Type | Description |
-| :--- | :--- |
+| --- | --- |
 | object | Stored governance information at a given block. |
 
 **Example**
@@ -374,16 +375,16 @@ Returns the staking information at a specific block.
 **Parameters**
 
 | Name | Type | Description |
-| :--- | :--- | :--- |
-| blockNumberOrTag | number \| string | \(optional\) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| --- | --- | --- |
+| blockNumberOrTag | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
 
 **Return Value**
 
 `Promise` returns `object`
 
 | Type | Description |
-| :--- | :--- |
-| object | Staking information. Refer to [governance\_getStakingInfo](../../../../json-rpc/api-references/governance.md#governance_getstakinginfo) for a description of the return result. |
+| --- | --- |
+| object | Staking information. Refer to [governance_getStakingInfo](../../../../json-rpc/api-references/governance.md#governance_getstakinginfo) for a description of the return result. |
 
 **Example**
 
@@ -401,4 +402,3 @@ Returns the staking information at a specific block.
   CouncilStakingAmounts: []
 }
 ```
-
