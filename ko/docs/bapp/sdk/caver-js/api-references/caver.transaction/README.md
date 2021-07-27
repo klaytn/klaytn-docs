@@ -18,7 +18,7 @@
 | ChainDataAnchoring     | [ChainDataAnchoring](basic.md#chaindataanchoring)         | [FeeDelegatedChainDataAnchoring](fee-delegation.md#feedelegatedchaindataanchoring)         | [FeeDelegatedChainDataAnchoringWithRatio](partial-fee-delegation.md#feedelegatedchaindataanchoringwithratio)         |
 
 
-## caver.transaction.decode <a id="caver-transaction-decode"></a>
+## caver.transaction.decode<a id="caver-transaction-decode"></a>
 
 ```javascript
 caver.transaction.decode(rlpEncoded)
@@ -56,7 +56,7 @@ ValueTransfer {
 }
 ```
 
-## caver.transaction.getTransactionByHash <a id="caver-transaction-gettransactionbyhash"></a>
+## caver.transaction.getTransactionByHash<a id="caver-transaction-gettransactionbyhash"></a>
 
 ```javascript
 caver.transaction.getTransactionByHash('0x{transaction hash}')
@@ -134,7 +134,7 @@ Recovers the public key strings from `signatures` field of the given transaction
 ]
 ```
 
-## caver.transaction.recoverFeePayerPublicKeys <a id="caver-transaction-recoverfeepayerpublickeys"></a>
+## caver.transaction.recoverFeePayerPublicKeys<a id="caver-transaction-recoverfeepayerpublickeys"></a>
 
 ```javascript
 caver.transaction.recoverFeePayerPublicKeys('0x{RLP-encoded transaction}')
@@ -167,7 +167,7 @@ Recovers the public key strings from `feePayerSignatures` field of the given tra
 ]
 ```
 
-## transaction.sign <a id="transaction-sign"></a>
+## transaction.sign<a id="transaction-sign"></a>
 
 ```javascript
 transaction.sign(keyring [, index] [, hasher])
@@ -196,7 +196,7 @@ For [Account Update] transaction, use [roleAccountUpdateKey], or otherwise, use 
 **예시**
 
 ```javascript
-// This example uses the ValueTransfer transaction.
+// 이 예시는 ValueTransfer 트랜잭션 사용
 > const transaction = caver.transaction.valueTransfer.create({
     from: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
     to: '0x3424b91026bdc5ec55df4548e6ebf0f28b60abd7',
@@ -206,7 +206,7 @@ For [Account Update] transaction, use [roleAccountUpdateKey], or otherwise, use 
 
 > const customHasher = () => { ... }
 
-// Sign a transaction with the roleBasedKeyring which use two private keys for roleTransactionKey
+// roleTransactionKey에 두 개인키를 사용하는 roleBasedKeyring로 트랜잭션 서명
 > transaction.sign(roleBasedKeyring).then(console.log)
 ValueTransfer {
     _type: 'TxTypeValueTransfer',
@@ -223,7 +223,7 @@ ValueTransfer {
     _nonce: '0x0'
 }
 
-// Sign a transaction with the roleBasedKeyring which use two private keys for roleTransactionKey and index
+// roleTransactionKey와 인덱스에 두 개인키를 사용하는 roleBasedKeyring로 트랜잭션 서명
 > transaction.sign(roleBasedKeyring, 1).then(console.log)
 ValueTransfer {
     _type: 'TxTypeValueTransfer',
@@ -239,7 +239,7 @@ ValueTransfer {
     _nonce: '0x0'
 }
 
-// Sign a transaction with the roleBasedKeyring which use two private keys for roleTransactionKey and hasher
+// roleTransactionKey와 hasher에 두 개인키를 사용하는 roleBasedKeyring로 트랜잭션 서명
 > transaction.sign(roleBasedKeyring, customHasher).then(console.log)
 ValueTransfer {
     _type: 'TxTypeValueTransfer',
@@ -256,7 +256,7 @@ ValueTransfer {
     _nonce: '0x0'
 }
 
-// Sign a transaction with the roleBasedKeyring which use two private keys for roleTransactionKey, index and hasher
+// roleTransactionKey, 인덱스, hasher에 두 개인키를 사용하는 roleBasedKeyring로 트랜잭션 서명
 > transaction.sign(roleBasedKeyring, 1, customHasher).then(console.log)
 ValueTransfer {
     _type: 'TxTypeValueTransfer',
@@ -273,21 +273,21 @@ ValueTransfer {
 }
 ```
 
-## transaction.signAsFeePayer <a id="transaction-signasfeepayer"></a>
+## transaction.signAsFeePayer<a id="transaction-signasfeepayer"></a>
 
 ```javascript
 transaction.signAsFeePayer(keyring [, index] [, hasher])
 ```
 
-Signs the transaction as a transaction `fee payer` and appends `feePayerSignatures` in the transaction object with the private key(s) in the `keyring`.
+트랜잭션 `fee payer`로서 서명하며, `keyring` 내 개인키를 사용하여 트랜잭션 객체에 `feePayerSignatures`를 첨부합니다.
 
-For signing a transaction as a fee payer, use [roleFeePayerKey] in `keyring`. If the user has not defined an `index`, `transaction.signAsFeePayer` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.signAsFeePayer` signs the transaction using only one private key at the given index.
+수수료 납부자로서 트랜잭션에 서명하기 위해서는 `keyring`의 [roleFeePayerKey]를 사용합니다. 사용자가 `index`를 정의하지 않았다면, `transaction.signAsFeePayer`이 해당 역할에 의해 사용되는 모든 개인키를 가지고 트랜잭션에 서명합니다. `index`가 정의되어 있다면, `transaction.signAsFeePayer`이 주어진 인덱스에 대응하는 하나의 개인키를 가지고 트랜잭션에 서명합니다.
 
-If the `transaction.feePayer` is not defined, the address of the given keyring is set to `transaction.feePayer`.
+`transaction.feePayer`가 정의되어 있지 않은 경우, 주어진 keyring의 주소는 `transaction.feePayer`로 설정됩니다.
 
-If the `keyring` to be used for signing the transaction was added to `caver.wallet`, you can use [caver.wallet.signAsFeePayer](../caver.wallet/README.md#caver-wallet-signasfeepayer).
+트랜잭션 서명에 사용될 `keyring`이 `caver.wallet`에 추가되었다면, [caver.wallet.signAsFeePayer](../caver.wallet/README.md#caver-wallet-signasfeepayer)을 사용할 수 있습니다.
 
-**NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
+**참고** 이 함수는 "수수료 대납" 트랜잭션 또는 "수수료 부분 대납" 트랜잭션에서만 작동합니다.
 
 **매개변수**
 
@@ -413,7 +413,7 @@ Appends `signatures` to the transaction.
 > transaction.appendSignatures([ '0x4e44', '0x7010e...', '0x65d6b...' ])
 ```
 
-## transaction.appendFeePayerSignatures <a id="transaction-appendfeepayersignatures"></a>
+## transaction.appendFeePayerSignatures<a id="transaction-appendfeepayersignatures"></a>
 
 ```javascript
 transaction.appendFeePayerSignatures(signatures)
@@ -421,7 +421,7 @@ transaction.appendFeePayerSignatures(signatures)
 
 Appends `feePayerSignatures` to the transaction.
 
-**NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
+**참고** 이 함수는 "수수료 대납" 트랜잭션 또는 "수수료 부분 대납" 트랜잭션에서만 작동합니다.
 
 **매개변수**
 
@@ -435,7 +435,7 @@ Appends `feePayerSignatures` to the transaction.
 > transaction.appendFeePayerSignatures([ '0x4e44', '0x7010e...', '0x65d6b...' ])
 ```
 
-## transaction.combineSignedRawTransactions <a id="transaction-combinesignatures"></a>
+## transaction.combineSignedRawTransactions<a id="transaction-combinesignatures"></a>
 
 ```javascript
 transaction.combineSignedRawTransactions(rlpEncodedTxs)
@@ -462,21 +462,21 @@ Collects signs in each RLP-encoded transaction string in the given array, combin
 '0x09f885018505d21dba00830f4240947b65b75d204abed71587c9e519a89277766ee1d00a9404bb86a1b16113ebe8f57071f839b002cbcbf7d0f847f845820feaa068e56f3da7fbe7a86543eb4b244ddbcb13b2d1cb9adb3ee8a4c8b046821bc492a068c29c057055f68a7860b54184bba7967bcf42b6aae12beaf9f30933e6e730c280c4c3018080'
 ```
 
-## transaction.getRLPEncoding <a id="transaction-getrlpencoding"></a>
+## transaction.getRLPEncoding<a id="transaction-getrlpencoding"></a>
 
 ```javascript
 transaction.getRLPEncoding()
 ```
 
-Returns a RLP-encoded transaction string.
+RLP 인코딩된 트랜잭션 문자열을 반환합니다.
 
-For information on how to make the RLP-encoded string for each transaction type, see [Klaytn Design - Transactions][].
+각 트랜잭션 타입에서 RLP 인코딩된 문자열을 만드는 방법은 [Klaytn Design - Transactions][]를 참고하세요.
 
 **리턴값**
 
-| 타입     | 설명                                |
-| ------ | --------------------------------- |
-| string | A RLP-encoded transaction string. |
+| 타입     | 설명                    |
+| ------ | --------------------- |
+| string | RLP 인코딩된 트랜잭션 문자열입니다. |
 
 **예시**
 
@@ -491,13 +491,13 @@ For information on how to make the RLP-encoded string for each transaction type,
 transaction.getRawTransaction()
 ```
 
-Returns a `rawTransaction` string (a RLP-encoded transaction string). This function is same with [transaction.getRLPEncoding](#transaction-getrlpencoding).
+`rawTransaction` 문자열을 반환합니다(RLP 인코딩된 트랜잭션 문자열). 이 함수는 [transaction.getRLPEncoding](#transaction-getrlpencoding)과 동일합니다.
 
 **리턴값**
 
-| 타입     | 설명                                |
-| ------ | --------------------------------- |
-| string | A RLP-encoded transaction string. |
+| 타입     | 설명                    |
+| ------ | --------------------- |
+| string | RLP 인코딩된 트랜잭션 문자열입니다. |
 
 **예시**
 
@@ -512,15 +512,15 @@ Returns a `rawTransaction` string (a RLP-encoded transaction string). This funct
 transaction.getTransactionHash()
 ```
 
-Returns a `transactionHash`.
+`transactionHash`를 반환합니다.
 
-For information on how to make the transaction hash for each transaction type, see [Klaytn Design - Transactions][].
+각 트랜잭션 타입에서 트랜잭션 해시를 구하는 방법은 [Klaytn Design - Transactions][]를 참고하세요.
 
 **리턴값**
 
-| 타입     | 설명                 |
-| ------ | ------------------ |
-| string | A transactionHash. |
+| 타입     | 설명          |
+| ------ | ----------- |
+| string | 트랜잭션 해시입니다. |
 
 **예시**
 
@@ -535,17 +535,17 @@ For information on how to make the transaction hash for each transaction type, s
 transaction.getSenderTxHash()
 ```
 
-Returns a [senderTxHash][] of transaction.
+트랜잭션의 [senderTxHash][]를 반환합니다.
 
-The [senderTxHash][] is a hash of the transaction except for the fee payer's address and signature, so [transactionHash](#transaction-gettransactionhash) and [senderTxHash][] are the same for basic transactions.
+[senderTxHash][]는 수수료 납부자 주소와 서명을 제외한 트랜잭션의 해시입니다. 따라서 [transactionHash](#transaction-gettransactionhash)와 [senderTxHash][]는 기본 트랜잭션에서 동일합니다.
 
-For information on how to make the [senderTxHash][] for each transaction type, see [Klaytn Design - Transactions][].
+각 트랜잭션 타입에서  [senderTxHash][]를 만드는 방법은 [Klaytn Design - Transactions][]를 참고하세요.
 
 **리턴값**
 
-| 타입     | 설명              |
-| ------ | --------------- |
-| string | A senderTxHash. |
+| 타입     | 설명                              |
+| ------ | ------------------------------- |
+| string | 전송자의 트랜잭션 해시(senderTxHash) 입니다. |
 
 **예시**
 
@@ -560,15 +560,15 @@ For information on how to make the [senderTxHash][] for each transaction type, s
 transaction.getRLPEncodingForSignature()
 ```
 
-Returns a RLP-encoded transaction string for making the signature of the transaction sender. Note that the returned RLP-encoded transaction string is not added with the signature and rather is used to generate this signature.
+트랜잭션 전송자의 서명을 만들기 위한 RLP 인코딩된 트랜잭션 문자열을 반환합니다. 반환된 RLP 인코딩된 트랜잭션 문자열은 서명에 추가되는 것이 아니라, 이 서명을 생성하는 데 사용된다는 점을 참고하세요.
 
-For information on how to make a RLP-encoded transaction string to generate the transaction sender's signature for each transaction type, see [Klaytn Design - Transactions][].
+각 트랜잭션 타입에서 트랜잭션 전송자의 서명을 생성하기 위한 RLP 인코딩된 트랜잭션 문자열을 구하는 방법은 [Klaytn Design - Transactions][]를 참고하세요.
 
 **리턴값**
 
-| 타입     | 설명                                                               |
-| ------ | ---------------------------------------------------------------- |
-| string | A RLP-encoded transaction string without any signature attached. |
+| 타입     | 설명                                |
+| ------ | --------------------------------- |
+| string | 서명이 첨부되지 않은 RLP 인코딩된 트랜잭션 문자열입니다. |
 
 **예시**
 
@@ -583,17 +583,17 @@ For information on how to make a RLP-encoded transaction string to generate the 
 transaction.getRLPEncodingForFeePayerSignature()
 ```
 
-Returns a RLP-encoded transaction string for making the signature of the fee payer. Note that the returned RLP-encoded transaction string is not added with the signature and rather is used to generate this signature.
+수수료 납부자의 서명을 생성하기 위한 RLP 인코딩된 트랜잭션 문자열을 반환합니다. 반환된 RLP 인코딩된 트랜잭션 문자열은 서명에 추가되는 것이 아니라, 이 서명을 생성하는 데 사용된다는 점을 참고하세요.
 
-For information on how to make a RLP-encoded transaction string to generate the fee payer's signature for each transaction type, see [Klaytn Design - Transactions][].
+각 트랜잭션 타입에서 트랜잭션 전송자의 서명을 생성하기 위한 RLP 인코딩된 트랜잭션 문자열을 구하는 방법은 [Klaytn Design - Transactions][]를 참고하세요.
 
-**NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
+**참고** 이 함수는 "수수료 대납" 트랜잭션 또는 "수수료 부분 대납" 트랜잭션에서만 작동합니다.
 
 **리턴값**
 
-| 타입     | 설명                                                               |
-| ------ | ---------------------------------------------------------------- |
-| string | A RLP-encoded transaction string without any signature attached. |
+| 타입     | 설명                                |
+| ------ | --------------------------------- |
+| string | 서명이 첨부되지 않은 RLP 인코딩된 트랜잭션 문자열입니다. |
 
 **예시**
 
@@ -608,15 +608,15 @@ For information on how to make a RLP-encoded transaction string to generate the 
 transaction.fillTransaction()
 ```
 
-Fills in the optional variables in transaction.
+트랜잭션의 선택 사항 변수들을 기입해 줍니다.
 
-If the `gasPrice`, `nonce`, or `chainId` of the transaction are not defined, this method asks the default values for these optional variables and preset them by sending JSON RPC call to the connected Klaytn Node.
+이 메서드는 트랜잭션의 선택 변수 `gasPrice`, `nonce`, 또는 `chainId`가 정의되지 않은 경우, 각각의 기본값을 조회하여 연결된 Klaytn Node에 JSON RPC 호출을 함으로서 이 값들을 지정시킵니다.
 
-Use [caver.rpc.klay.getGasPrice][] to get `gasPrice`, [caver.rpc.klay.getTransactionCount][] to get `nonce` and [caver.rpc.klay.getChainId][] call to get `chainId`.
+`gasPrice`는 [caver.rpc.klay.getGasPrice][], `nonce`는 [caver.rpc.klay.getTransactionCount][], 그리고 `chainId`는 [caver.rpc.klay.getChainId][]에서 구할 수 있습니다.
 
 **리턴값**
 
-`Promise` returning `void`
+`Promise`는 `void`을 반환합니다.
 
 **예시**
 
@@ -630,15 +630,15 @@ Use [caver.rpc.klay.getGasPrice][] to get `gasPrice`, [caver.rpc.klay.getTransac
 transaction.recoverPublicKeys()
 ```
 
-Recovers the public key strings from `signatures` field.
+`signatures`에서 공개키 스트링을 복구합니다.
 
-**NOTE** `transaction.recoverPublicKeys` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**참고** `transaction.recoverPublicKeys`는 caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3)부터 지원됩니다.
 
 **리턴값**
 
-| 타입    | 설명                                                           |
-| ----- | ------------------------------------------------------------ |
-| Array | An array containing public keys recovered from `signatures`. |
+| 타입    | 설명                                   |
+| ----- | ------------------------------------ |
+| Array | `signatures`에서 복구된 공개키를 포함하는 문자열입니다. |
 
 **예시**
 
@@ -657,15 +657,15 @@ Recovers the public key strings from `signatures` field.
 transaction.recoverFeePayerPublicKeys()
 ```
 
-Recovers the public key strings from `feePayerSignatures` field.
+`feePayerSignatures` 필드에서 공개키 문자열을 복구합니다.
 
-**NOTE** `transaction.recoverFeePayerPublicKeys` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**참고** `transaction.recoverFeePayerPublicKeys`는 caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3)부터 지원됩니다.
 
 **리턴값**
 
-| 타입    | 설명                                                                   |
-| ----- | -------------------------------------------------------------------- |
-| Array | An array containing public keys recovered from `feePayerSignatures`. |
+| 타입    | 설명                                           |
+| ----- | -------------------------------------------- |
+| Array | `feePayerSignatures`에서 복구된 공개키를 포함하는 문자열입니다. |
 
 **예시**
 
