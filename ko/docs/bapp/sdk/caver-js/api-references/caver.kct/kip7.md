@@ -591,16 +591,16 @@ kip7.approve(spender, amount [, sendParam])
     },
 }
 
-// Using FD transaction to execute the smart contract
+//스마트 컨트랙트 실행에 수수료 대납 트랜잭션 사용
 > kip7.approve('0x{address in hex}', 10, {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// Using kip7.options.from
-// If the value of kip7.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
+// kip7.options.from 사용
+// kip7 인스턴스로 트랜잭션을 보낼 때 kip7.options.from 값이 정해져 있는 경우, 
+// sendParam 객체에 `from`를 명시하지 않는 이상 kip7 인스턴스로 트랜잭션을 보낼 때 그 값을 사용
 > kip7.options.from = '0x{address in hex}'
 > kip7.approve('0x{address in hex}', 10).then(console.log)
 ```
@@ -670,16 +670,16 @@ kip7.transfer(recipient, amount [, sendParam])
     },
 }
 
-// Using FD transaction to execute the smart contract
+//스마트 컨트랙트 실행에 수수료 대납 트랜잭션 사용
 > kip7.transfer('0x{address in hex}', 10, {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// Using kip7.options.from
-// If the value of kip7.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
+// kip7.options.from 사용
+// kip7 인스턴스로 트랜잭션을 보낼 때 kip7.options.from 값이 정해져 있는 경우, 
+// sendParam 객체에 `from`를 명시하지 않는 이상 kip7 인스턴스로 트랜잭션을 보낼 때 그 값을 사용
 > kip7.options.from = '0x{address in hex}'
 > kip7.transfer('0x{address in hex}', 10).then(console.log)
 ```
@@ -751,19 +751,19 @@ kip7.safeTransfer(recipient, amount [, data] [, sendParam])
     },
 }
 
-// Using FD transaction to execute the smart contract
+//스마트 컨트랙트 실행에 수수료 대납 트랜잭션 사용
 > kip7.safeTransfer('0x{address in hex}', 10, {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// Send via a sendParam object with the from field given (with data)
+// 주어진 from 필드에서 sendParam 객체를 통해 전송(데이터와 함께)
 > kip7.safeTransfer('0x{address in hex}', 11, '0x1234', { from: '0x{address in hex}' }).then(console.log)
 
-// Using kip7.options.from
-// If the value of kip7.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
+// kip7.options.from 사용
+// kip7 인스턴스로 트랜잭션을 보낼 때 kip7.options.from 값이 정해져 있는 경우, 
+// sendParam 객체에 `from`를 명시하지 않는 이상 kip7 인스턴스로 트랜잭션을 보낼 때 그 값을 사용
 > kip7.options.from = '0x{address in hex}'
 > kip7.safeTransfer('0x{address in hex}', 11).then(console.log)
 ```
@@ -857,16 +857,16 @@ kip7.transferFrom(sender, recipient, amount [, sendParam])
     },
 }
 
-// Using FD transaction to execute the smart contract
+//스마트 컨트랙트 실행에 수수료 대납 트랜잭션 사용
 > kip7.transferFrom('0x{address in hex}', '0x{address in hex}', 10000, {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// Using kip7.options.from
-// If the value of kip7.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
+// kip7.options.from 사용
+// kip7 인스턴스로 트랜잭션을 보낼 때 kip7.options.from 값이 정해져 있는 경우, 
+// sendParam 객체에 `from`를 명시하지 않는 이상 kip7 인스턴스로 트랜잭션을 보낼 때 그 값을 사용
 > kip7.options.from = '0x{address in hex}'
 > kip7.transferFrom('0x{address in hex}', '0x{address in hex}', 10000).then(console.log)
 ```
@@ -962,19 +962,19 @@ kip7.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
     },
 }
 
-// Using FD transaction to execute the smart contract
+//스마트 컨트랙트 실행에 수수료 대납 트랜잭션 사용
 > kip7.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 10000, {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// Send via a sendParam object with the from field given (with data)
-> kip7.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 11, '0x1234', { from: '0x{address in hex}' }).then(console.log)
+// 주어진 from 필드에서 sendParam 객체를 통해 전송(데이터와 함께)
+> kip7.safeTransfer('0x{address in hex}', 11, '0x1234', { from: '0x{address in hex}' }).then(console.log)
 
-// Using kip7.options.from
-// If the value of kip7.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
+// kip7.options.from 사용
+// kip7 인스턴스로 트랜잭션을 보낼 때 kip7.options.from 값이 정해져 있는 경우, 
+// sendParam 객체에 `from`를 명시하지 않는 이상 kip7 인스턴스로 트랜잭션을 보낼 때 그 값을 사용
 > kip7.options.from = '0x{address in hex}'
 > kip7.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 11).then(console.log)
 ```
@@ -1045,16 +1045,16 @@ kip7.mint(account, amount [, sendParam])
     },
 }
 
-// Using FD transaction to execute the smart contract
+//스마트 컨트랙트 실행에 수수료 대납 트랜잭션 사용
 > kip7.mint('0x{address in hex}', 10000, {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// Using kip7.options.from
-// If the value of kip7.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
+// kip7.options.from 사용
+// kip7 인스턴스로 트랜잭션을 보낼 때 kip7.options.from 값이 정해져 있는 경우, 
+// sendParam 객체에 `from`를 명시하지 않는 이상 kip7 인스턴스로 트랜잭션을 보낼 때 그 값을 사용
 > kip7.options.from = '0x{address in hex}'
 > kip7.mint('0x{address in hex}', 10000).then(console.log)
 ```
@@ -1119,16 +1119,16 @@ kip7.addMinter(account [, sendParam])
     },
 }
 
-// Using FD transaction to execute the smart contract
+//스마트 컨트랙트 실행에 수수료 대납 트랜잭션 사용
 > kip7.addMinter('0x{address in hex}', {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// Using kip7.options.from
-// If the value of kip7.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
+// kip7.options.from 사용
+// kip7 인스턴스로 트랜잭션을 보낼 때 kip7.options.from 값이 정해져 있는 경우, 
+// sendParam 객체에 `from`를 명시하지 않는 이상 kip7 인스턴스로 트랜잭션을 보낼 때 그 값을 사용
 > kip7.options.from = '0x{address in hex}'
 > kip7.addMinter('0x{address in hex}').then(console.log)
 ```
@@ -1192,16 +1192,16 @@ kip7.renounceMinter([sendParam])
     },
 }
 
-// Using FD transaction to execute the smart contract
+//스마트 컨트랙트 실행에 수수료 대납 트랜잭션 사용
 > kip7.renounceMinter({
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// Using kip7.options.from
-// If the value of kip7.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
+// kip7.options.from 사용
+// kip7 인스턴스로 트랜잭션을 보낼 때 kip7.options.from 값이 정해져 있는 경우, 
+// sendParam 객체에 `from`를 명시하지 않는 이상 kip7 인스턴스로 트랜잭션을 보낼 때 그 값을 사용
 > kip7.options.from = '0x{address in hex}'
 > kip7.renounceMinter().then(console.log)
 ```
@@ -1270,16 +1270,16 @@ kip7.burn(amount [, sendParam])
     },
 }
 
-// Using FD transaction to execute the smart contract
+//스마트 컨트랙트 실행에 수수료 대납 트랜잭션 사용
 > kip7.burn(1000, {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// Using kip7.options.from
-// If the value of kip7.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
+// kip7.options.from 사용
+// kip7 인스턴스로 트랜잭션을 보낼 때 kip7.options.from 값이 정해져 있는 경우, 
+// sendParam 객체에 `from`를 명시하지 않는 이상 kip7 인스턴스로 트랜잭션을 보낼 때 그 값을 사용
 > kip7.options.from = '0x{address in hex}'
 > kip7.burn(1000).then(console.log)
 ```
@@ -1372,16 +1372,16 @@ kip7.burnFrom(account, amount [, sendParam])
     },
 }
 
-// Using FD transaction to execute the smart contract
+//스마트 컨트랙트 실행에 수수료 대납 트랜잭션 사용
 > kip7.burnFrom('0x{address in hex}', 1000, {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// Using kip7.options.from
-// If the value of kip7.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
+// kip7.options.from 사용
+// kip7 인스턴스로 트랜잭션을 보낼 때 kip7.options.from 값이 정해져 있는 경우, 
+// sendParam 객체에 `from`를 명시하지 않는 이상 kip7 인스턴스로 트랜잭션을 보낼 때 그 값을 사용
 > kip7.options.from = '0x{address in hex}'
 > kip7.burnFrom('0x{address in hex}', 1000).then(console.log)
 ```
@@ -1446,16 +1446,16 @@ kip7.addPauser(account [, sendParam])
     },
 }
 
-// Using FD transaction to execute the smart contract
+//스마트 컨트랙트 실행에 수수료 대납 트랜잭션 사용
 > kip7.addPauser('0x{address in hex}', {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// Using kip7.options.from
-// If the value of kip7.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
+// kip7.options.from 사용
+// kip7 인스턴스로 트랜잭션을 보낼 때 kip7.options.from 값이 정해져 있는 경우, 
+// sendParam 객체에 `from`를 명시하지 않는 이상 kip7 인스턴스로 트랜잭션을 보낼 때 그 값을 사용
 > kip7.options.from = '0x{address in hex}'
 > kip7.addPauser('0x{address in hex}').then(console.log)
 ```
@@ -1519,16 +1519,16 @@ kip7.renouncePauser([sendParam])
     },
 }
 
-// Using FD transaction to execute the smart contract
+//스마트 컨트랙트 실행에 수수료 대납 트랜잭션 사용
 > kip7.renouncePauser({
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// Using kip7.options.from
-// If the value of kip7.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
+// kip7.options.from 사용
+// kip7 인스턴스로 트랜잭션을 보낼 때 kip7.options.from 값이 정해져 있는 경우, 
+// sendParam 객체에 `from`를 명시하지 않는 이상 kip7 인스턴스로 트랜잭션을 보낼 때 그 값을 사용
 > kip7.options.from = '0x{address in hex}'
 > kip7.renouncePauser().then(console.log)
 ```
@@ -1592,16 +1592,16 @@ kip7.pause([sendParam])
     },
 }
 
-// Using FD transaction to execute the smart contract
+//스마트 컨트랙트 실행에 수수료 대납 트랜잭션 사용
 > kip7.pause({
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// Using kip7.options.from
-// If the value of kip7.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
+// kip7.options.from 사용
+// kip7 인스턴스로 트랜잭션을 보낼 때 kip7.options.from 값이 정해져 있는 경우, 
+// sendParam 객체에 `from`를 명시하지 않는 이상 kip7 인스턴스로 트랜잭션을 보낼 때 그 값을 사용
 > kip7.options.from = '0x{address in hex}'
 > kip7.pause().then(console.log)
 ```
@@ -1665,16 +1665,16 @@ kip7.unpause([sendParam])
     },
 }
 
-// Using FD transaction to execute the smart contract
+//스마트 컨트랙트 실행에 수수료 대납 트랜잭션 사용
 > kip7.unpause({
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// Using kip7.options.from
-// If the value of kip7.options.from is set, this value is used as the default value 
-// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
+// kip7.options.from 사용
+// kip7 인스턴스로 트랜잭션을 보낼 때 kip7.options.from 값이 정해져 있는 경우, 
+// sendParam 객체에 `from`를 명시하지 않는 이상 kip7 인스턴스로 트랜잭션을 보낼 때 그 값을 사용
 > kip7.options.from = '0x{address in hex}'
 > kip7.unpause().then(console.log)
 ```
