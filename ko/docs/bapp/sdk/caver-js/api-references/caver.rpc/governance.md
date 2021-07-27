@@ -1,8 +1,8 @@
-# caver.rpc.governance <a id="caver-rpc-governance"></a>
+# caver.rpc.governance<a id="caver-rpc-governance"></a>
 
-`caver.rpc.governance` provides JSON-RPC call with the `governance` name space.
+`caver.rpc.governance`는 `governance` 네임 스페이스를 가진 JSON-RPC API를 제공합니다.
 
-## caver.rpc.governance.vote <a id="caver-rpc-governance-vote"></a>
+## caver.rpc.governance.vote<a id="caver-rpc-governance-vote"></a>
 
 ```javascript
 caver.rpc.governance.vote(key, value)
@@ -35,7 +35,7 @@ For more details about the `key` and `value` for `caver.rpc.governance.vote`, pl
 Your vote was successfully placed.
 ```
 
-## caver.rpc.governance.showTally <a id="caver-rpc-governance-showtally"></a>
+## caver.rpc.governance.showTally<a id="caver-rpc-governance-showtally"></a>
 
 ```javascript
 caver.rpc.governance.showTally()
@@ -64,7 +64,7 @@ Provides the current tally of governance votes. It shows the aggregate approval 
 ]
 ```
 
-## caver.rpc.governance.getTotalVotingPower <a id="caver-rpc-governance-gettotalvotingpower"></a>
+## caver.rpc.governance.getTotalVotingPower<a id="caver-rpc-governance-gettotalvotingpower"></a>
 
 ```javascript
 caver.rpc.governance.getTotalVotingPower()
@@ -87,7 +87,7 @@ Provides the sum of all voting power that CNs have. 각 CN은 1.0 ~ 2.0의 의�
 3
 ```
 
-## caver.rpc.governance.getMyVotingPower <a id="caver-rpc-governance-getmyvotingpower"></a>
+## caver.rpc.governance.getMyVotingPower<a id="caver-rpc-governance-getmyvotingpower"></a>
 
 ```javascript
 caver.rpc.governance.getMyVotingPower()
@@ -110,7 +110,7 @@ Provides the voting power of the node. The voting power can be anywhere between 
 1
 ```
 
-## caver.rpc.governance.getMyVotes <a id="caver-rpc-governance-getmyvotes"></a>
+## caver.rpc.governance.getMyVotes<a id="caver-rpc-governance-getmyvotes"></a>
 
 ```javascript
 caver.rpc.governance.getMyVotes()
@@ -140,7 +140,7 @@ Provides my vote information in the epoch. 사용자의 노드가 새로운 블�
 ]
 ```
 
-## caver.rpc.governance.getChainConfig <a id="caver-rpc-governance-getchainconfig"></a>
+## caver.rpc.governance.getChainConfig<a id="caver-rpc-governance-getchainconfig"></a>
 
 ```javascript
 caver.rpc.governance.getChainConfig()
@@ -181,7 +181,7 @@ Provides the initial chain configuration. Because it just stores the initial con
 }
 ```
 
-## caver.rpc.governance.getNodeAddress <a id="caver-rpc-governance-getnodeaddress"></a>
+## caver.rpc.governance.getNodeAddress<a id="caver-rpc-governance-getnodeaddress"></a>
 
 ```javascript
 caver.rpc.governance.getNodeAddress()
@@ -204,7 +204,7 @@ Provides the address of the node that a user is using. nodekey에서 파생되�
 0xbeafcca672100a88a953fcf5e882cb763f9e3de9
 ```
 
-## caver.rpc.governance.getItemsAt <a id="caver-rpc-governance-getitemsat"></a>
+## caver.rpc.governance.getItemsAt<a id="caver-rpc-governance-getitemsat"></a>
 
 ```javascript
 caver.rpc.governance.getItemsAt([blockNumberOrTag])
@@ -249,7 +249,7 @@ Returns governance items at a specific block. 이는 해당 블록의 이전 투
 > caver.rpc.governance.getItemsAt('latest').then(console.log)
 ```
 
-## caver.rpc.governance.getPendingChanges <a id="caver-rpc-governance-getpendingchanges"></a>
+## caver.rpc.governance.getPendingChanges<a id="caver-rpc-governance-getpendingchanges"></a>
 
 ```javascript
 caver.rpc.governance.getPendingChanges()
@@ -272,7 +272,7 @@ Returns the list of items that have received enough number of votes but not yet 
 { 'governance.governancemode': 'single' }
 ```
 
-## caver.rpc.governance.getIdxCache <a id="caver-rpc-governance-getidxcache"></a>
+## caver.rpc.governance.getIdxCache<a id="caver-rpc-governance-getidxcache"></a>
 
 ```javascript
 caver.rpc.governance.getIdxCache()
@@ -295,7 +295,7 @@ Returns an array of current idxCache in the memory cache. idxCache는 거버넌�
 [ 0, 60, 321180 ]
 ```
 
-## caver.rpc.governance.getIdxCacheFromDb <a id="caver-rpc-governance-getidxcachefromdb"></a>
+## caver.rpc.governance.getIdxCacheFromDb<a id="caver-rpc-governance-getidxcachefromdb"></a>
 
 ```javascript
 caver.rpc.governance.getIdxCacheFromDb()
@@ -318,7 +318,7 @@ Returns an array that contains all block numbers at which any governance changes
 [ 0, 60, 321180 ]
 ```
 
-## caver.rpc.governance.getItemCacheFromDb <a id="caver-rpc-governance-getitemcachefromdb"></a>
+## caver.rpc.governance.getItemCacheFromDb<a id="caver-rpc-governance-getitemcachefromdb"></a>
 
 ```javascript
 caver.rpc.governance.getItemCacheFromDb()
@@ -364,7 +364,7 @@ Returns the governance information stored on the given block. If no changes are 
 null
 ```
 
-## caver.rpc.governance.getStakingInfo <a id="caver-rpc-governance-getstakinginfo"></a>
+## caver.rpc.governance.getStakingInfo<a id="caver-rpc-governance-getstakinginfo"></a>
 
 ```javascript
 caver.rpc.governance.getStakingInfo([blockNumberOrTag])
