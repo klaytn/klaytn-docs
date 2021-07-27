@@ -1776,7 +1776,7 @@ For PromiEvent, the following events are available:
 caver.rpc.klay.sendTransaction(transaction [, callback])
 ```
 
-Signs a transaction as a transaction `sender` with an "imported account's private key" in your Klyatn Node and propagates the transaction to the Klaytn.
+Signs a transaction as a transaction `sender` with an "imported account's private key" in your Klaytn Node and propagates the transaction to the Klaytn.
 
 For more information about each transaction type, refer to [Transaction].
 
@@ -1804,7 +1804,7 @@ For PromiEvent, the following events are available:
 **Example**
 
 ```javascript
-> const tx = new caver.transaction.valueTransfer({
+> const tx = caver.transaction.valueTransfer.create({
     from: '0x{address in hex}', // The address of imported account in Klaytn Node
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     value: caver.utils.toPeb(10, 'KLAY'),
@@ -1844,7 +1844,7 @@ For PromiEvent, the following events are available:
 caver.rpc.klay.sendTransactionAsFeePayer(transaction [, callback])
 ```
 
-Signs a fee delegated transaction as a transaction `fee payer` with an `imported account's private key` in your Klyatn Node and propagates the transaction to the Klaytn.
+Signs a fee delegated transaction as a transaction `fee payer` with an `imported account's private key` in your Klaytn Node and propagates the transaction to the Klaytn.
 
 Before using `sendTransaction` as a fee payer, the transaction sender must have signed with valid signature(s) and the `nonce` must have been defined.
 
@@ -1874,7 +1874,7 @@ For PromiEvent, the following events are available:
 **Example**
 
 ```javascript
-> const tx = new caver.transaction.feeDelegatedValueTransfer({
+> const tx = caver.transaction.feeDelegatedValueTransfer.create({
     from: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     value: caver.utils.toPeb(1, 'KLAY'),
@@ -1950,7 +1950,7 @@ For more information about each transaction type, refer to [Transaction].
 **Example**
 
 ```javascript
-> const tx = new caver.transaction.valueTransfer({
+> const tx = caver.transaction.valueTransfer.create({
     from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e', // The address of imported account in Klaytn Node
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     value: caver.utils.toPeb(10, 'KLAY'),
@@ -2006,7 +2006,7 @@ For more information about each transaction type, refer to [Transaction].
 **Example**
 
 ```javascript
-> const tx = new caver.transaction.feeDelegatedValueTransfer({
+> const tx = caver.transaction.feeDelegatedValueTransfer.craete({
     from: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     value: caver.utils.toPeb(1, 'KLAY'),

@@ -3,7 +3,7 @@
 KlaytnDocs의 개발 버전을 보기 위해서는 다음 링크를 통해 gitbook.com에 가입을
 해야합니다.
 
-* https://www.gitbook.com/invite/klaytn?invite=-LZ3M2ThlpQDQod7fBPK
+* https://www.gitbook.com
 
 NOTE: docs.klaytn.com은 master 브랜치만 보여줍니다.
 

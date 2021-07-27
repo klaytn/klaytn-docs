@@ -89,9 +89,9 @@ solc --optimize --bin UserStorage.sol
 Some resources for compiling, deploying, and executing smart contracts are listed below.
 
 * [Using the Solidity command-line compiler](https://docs.soliditylang.org/en/latest/using-the-compiler.html)
-* [Compiling contracts using Remix](https://remix.readthedocs.io/en/stable/compile_tab.html)
-* [Running transactions with Remix](https://remix.readthedocs.io/en/stable/run_tab.html)
-* [Building smart contracts with Remix](https://remix.readthedocs.io/en/stable/workshop_Building_smart_contracts_with_Remix.html)
+* [Compiling contracts using Remix](https://remix-ide.readthedocs.io/en/stable/compile.html)
+* [Running transactions with Remix](https://remix-ide.readthedocs.io/en/stable/run.html)
+* [Remix Learneth Tutorials](https://remix-ide.readthedocs.io/en/latest/remix_tutorials_learneth.html)
 * [Compiling contracts with Truffle](https://trufflesuite.com/docs/truffle/getting-started/compiling-contracts)
 * [Deploying contracts with Truffle](https://trufflesuite.com/docs/truffle/getting-started/running-migrations)
 

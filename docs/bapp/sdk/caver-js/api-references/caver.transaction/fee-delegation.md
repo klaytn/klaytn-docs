@@ -3,6 +3,7 @@
 ## FeeDelegatedValueTransfer <a id="feedelegatedvaluetransfer"></a>
 
 ```javascript
+caver.transaction.feeDelegatedValueTransfer.create(transactionObject)
 new caver.transaction.feeDelegatedValueTransfer(transactionObject)
 ```
 
@@ -11,6 +12,8 @@ new caver.transaction.feeDelegatedValueTransfer(transactionObject)
 `FeeDelegatedValueTransfer` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedValueTransfer` transaction.
 
 **NOTE** You can create an instance of `FeeDelegatedValueTransfer` from RLP-encoded string. Please refer to the below example.
+
+**NOTE** `caver.transaction.feeDelegatedValueTransfer.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 **properties**
 
@@ -31,7 +34,7 @@ new caver.transaction.feeDelegatedValueTransfer(transactionObject)
 
 ```javascript
 // Create a feeDelegatedValueTransfer
-> new caver.transaction.feeDelegatedValueTransfer({
+> caver.transaction.feeDelegatedValueTransfer.create({
     from: '0x{address in hex}',
     to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
     value: caver.utils.toPeb(1, 'KLAY'),
@@ -39,7 +42,7 @@ new caver.transaction.feeDelegatedValueTransfer(transactionObject)
 })
 
 // Create a feeDelegatedValueTransfer from RLP-encoded string
-> new caver.transaction.feeDelegatedValueTransfer('0x09f8d68204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0bf845f84325a09f8e49e2ad84b0732984398749956e807e4b526c786af3c5f7416b293e638956a06bf88342092f6ff9fabe31739b2ebfa1409707ce54a54693e91a6b9bb77df0e7945a0043070275d9f6054307ee7348bd660849d90ff845f84326a0f45cf8d7f88c08e6b6ec0b3b562f34ca94283e4689021987abb6b0772ddfd80aa0298fe2c5aeabb6a518f4cbb5ff39631a5d88be505d3923374f65fdcf63c2955b')
+> caver.transaction.feeDelegatedValueTransfer.create('0x09f8d68204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0bf845f84325a09f8e49e2ad84b0732984398749956e807e4b526c786af3c5f7416b293e638956a06bf88342092f6ff9fabe31739b2ebfa1409707ce54a54693e91a6b9bb77df0e7945a0043070275d9f6054307ee7348bd660849d90ff845f84326a0f45cf8d7f88c08e6b6ec0b3b562f34ca94283e4689021987abb6b0772ddfd80aa0298fe2c5aeabb6a518f4cbb5ff39631a5d88be505d3923374f65fdcf63c2955b')
 FeeDelegatedValueTransfer {
     _type: 'TxTypeFeeDelegatedValueTransfer',
     _from: '0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b',
@@ -57,6 +60,7 @@ FeeDelegatedValueTransfer {
 ## FeeDelegatedValueTransferMemo <a id="feedelegatedvaluetransfermemo"></a>
 
 ```javascript
+caver.transaction.feeDelegatedValueTransferMemo.create(transactionObject)
 new caver.transaction.feeDelegatedValueTransferMemo(transactionObject)
 ```
 
@@ -65,6 +69,8 @@ new caver.transaction.feeDelegatedValueTransferMemo(transactionObject)
 `FeeDelegatedValueTransferMemo` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedValueTransferMemo` transaction.
 
 **NOTE** You can create an instance of `FeeDelegatedValueTransferMemo` from RLP-encoded string. Please refer to the below example.
+
+**NOTE** `caver.transaction.feeDelegatedValueTransferMemo.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 **properties**
 
@@ -86,7 +92,7 @@ new caver.transaction.feeDelegatedValueTransferMemo(transactionObject)
 
 ```javascript
 // Create a feeDelegatedValueTransferMemo
-> new caver.transaction.feeDelegatedValueTransferMemo({
+> caver.transaction.feeDelegatedValueTransferMemo.create({
     from: '0x{address in hex}',
     to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
     value: caver.utils.toPeb(1, 'KLAY'),
@@ -95,7 +101,7 @@ new caver.transaction.feeDelegatedValueTransferMemo(transactionObject)
 })
 
 // Create a feeDelegatedValueTransferMemo from RLP-encoded string
-> new caver.transaction.feeDelegatedValueTransferMemo('0x11f8dc8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0b8568656c6c6ff845f84326a064e213aef0167fbd853f8f9989ef5d8b912a77457395ccf13d7f37009edd5c5ba05d0c2e55e4d8734fe2516ed56ac628b74c0eb02aa3b6eda51e1e25a1396093e1945a0043070275d9f6054307ee7348bd660849d90ff845f84326a087390ac14d3c34440b6ddb7b190d3ebde1a07d9a556e5a82ce7e501f24a060f9a037badbcb12cda1ed67b12b1831683a08a3adadee2ea760a07a46bdbb856fea44')
+> caver.transaction.feeDelegatedValueTransferMemo.create('0x11f8dc8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0b8568656c6c6ff845f84326a064e213aef0167fbd853f8f9989ef5d8b912a77457395ccf13d7f37009edd5c5ba05d0c2e55e4d8734fe2516ed56ac628b74c0eb02aa3b6eda51e1e25a1396093e1945a0043070275d9f6054307ee7348bd660849d90ff845f84326a087390ac14d3c34440b6ddb7b190d3ebde1a07d9a556e5a82ce7e501f24a060f9a037badbcb12cda1ed67b12b1831683a08a3adadee2ea760a07a46bdbb856fea44')
 FeeDelegatedValueTransferMemo {
     _type: 'TxTypeFeeDelegatedValueTransferMemo',
     _from: '0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b',
@@ -114,6 +120,7 @@ FeeDelegatedValueTransferMemo {
 ## FeeDelegatedAccountUpdate <a id="feedelegatedaccountupdate"></a>
 
 ```javascript
+caver.transaction.feeDelegatedAccountUpdate.create(transactionObject)
 new caver.transaction.feeDelegatedAccountUpdate(transactionObject)
 ```
 
@@ -122,6 +129,8 @@ new caver.transaction.feeDelegatedAccountUpdate(transactionObject)
 `FeeDelegatedAccountUpdate` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedAccountUpdate` transaction.
 
 **NOTE** You can create an instance of `FeeDelegatedAccountUpdate` from RLP-encoded string. Please refer to the below example.
+
+**NOTE** `caver.transaction.feeDelegatedAccountUpdate.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 **properties**
 
@@ -143,14 +152,14 @@ For how to create an [Account] instance for each `AccountKey` type, refer to [Ge
 
 ```javascript
 // Create a feeDelegatedAccountUpdate
-> new caver.transaction.feeDelegatedAccountUpdate({
+> caver.transaction.feeDelegatedAccountUpdate.create({
     from: '0x{address in hex}',
     gas: 50000,
     account: caver.account.createWithAccountKeyLegacy('0x{address in hex}'),
 })
 
 // Create a feeDelegatedAccountUpdate from RLP-encoded string
-> new caver.transaction.feeDelegatedAccountUpdate('0x21f8ea018505d21dba00830493e094ac1aec09ef5f8dde6a0baf709ea388bbd7965f72a302a103d032771e5d927fb568cdf7605496b700277d7b9bcabe7657f45602348964e396f846f844820fe99f0e1a3542288951226c66e6e8de320ddef4e0c0d6650baec828998a7ce411fea052d0766f3b84f35787d2a810f97057d215dcbe070cd890b7ccb8aaa3aac8eacc9423bf3d4eb274621e56ce65f6fa05da9e24785bb8f847f845820feaa0faca4cf91418c6fea61e9439620b656c7b0717b058fd8787865f4564a0f9974ea03a483582435426e7b2aeffe3131a678ae54c7aa948fa5442b5ded209ba373221')
+> caver.transaction.feeDelegatedAccountUpdate.create('0x21f8ea018505d21dba00830493e094ac1aec09ef5f8dde6a0baf709ea388bbd7965f72a302a103d032771e5d927fb568cdf7605496b700277d7b9bcabe7657f45602348964e396f846f844820fe99f0e1a3542288951226c66e6e8de320ddef4e0c0d6650baec828998a7ce411fea052d0766f3b84f35787d2a810f97057d215dcbe070cd890b7ccb8aaa3aac8eacc9423bf3d4eb274621e56ce65f6fa05da9e24785bb8f847f845820feaa0faca4cf91418c6fea61e9439620b656c7b0717b058fd8787865f4564a0f9974ea03a483582435426e7b2aeffe3131a678ae54c7aa948fa5442b5ded209ba373221')
 FeeDelegatedAccountUpdate {
     _type: 'TxTypeFeeDelegatedAccountUpdate',
     _from: '0xac1aec09ef5f8dde6a0baf709ea388bbd7965f72',
@@ -170,6 +179,7 @@ FeeDelegatedAccountUpdate {
 ## FeeDelegatedSmartContractDeploy <a id="feedelegatedsmartcontractdeploy"></a>
 
 ```javascript
+caver.transaction.feeDelegatedSmartContractDeploy.create(transactionObject)
 new caver.transaction.feeDelegatedSmartContractDeploy(transactionObject)
 ```
 
@@ -178,6 +188,8 @@ new caver.transaction.feeDelegatedSmartContractDeploy(transactionObject)
 `FeeDelegatedSmartContractDeploy` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedSmartContractDeploy` transaction.
 
 **NOTE** You can create an instance of `FeeDelegatedSmartContractDeploy` from RLP-encoded string. Please refer to the below example.
+
+**NOTE** `caver.transaction.feeDelegatedSmartContractDeploy.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 **properties**
 
@@ -201,14 +213,14 @@ new caver.transaction.feeDelegatedSmartContractDeploy(transactionObject)
 
 ```javascript
 // Create a feeDelegatedSmartContractDeploy
-> new caver.transaction.feeDelegatedSmartContractDeploy({
+> caver.transaction.feeDelegatedSmartContractDeploy.create({
     from: '0x{address in hex}',
     input: '0x60806...',
     gas: 100000,
 })
 
 // Create a feeDelegatedSmartContractDeploy from RLP-encoded string
-> new caver.transaction.feeDelegatedSmartContractDeploy('0x29f902cc808505d21dba00830dbba08080948061145252c8f2b4f110aed096435ae6ed7d5a95b901fe608060405234801561001057600080fd5b506101de806100206000396000f3006080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a72305820627ca46bb09478a015762806cc00c431230501118c7c26c30ac58c4e09e51c4f00298080f847f845820fe9a07abfd0f0cfb9a9c38c6e3e1a4eeb15f43aeb4b4f6dee7c3f37c07e417af89d9ba03f1e54a512c906d2e57a611b25ce4739d12928e199c3e89792b82f577f0da9ad942c8eb96e7060ab864d94e91ab16f214dc6647628f847f845820fe9a0192e3b6457f13c6ef557bd11074702d5062dd463473c483278c57f651d5b712ba03ff8638b7cc7ed86c793cb5ffe0e8a064fc94946c3aab624bb7704c62e81ec2d')
+> caver.transaction.feeDelegatedSmartContractDeploy.create('0x29f902cc808505d21dba00830dbba08080948061145252c8f2b4f110aed096435ae6ed7d5a95b901fe608060405234801561001057600080fd5b506101de806100206000396000f3006080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a72305820627ca46bb09478a015762806cc00c431230501118c7c26c30ac58c4e09e51c4f00298080f847f845820fe9a07abfd0f0cfb9a9c38c6e3e1a4eeb15f43aeb4b4f6dee7c3f37c07e417af89d9ba03f1e54a512c906d2e57a611b25ce4739d12928e199c3e89792b82f577f0da9ad942c8eb96e7060ab864d94e91ab16f214dc6647628f847f845820fe9a0192e3b6457f13c6ef557bd11074702d5062dd463473c483278c57f651d5b712ba03ff8638b7cc7ed86c793cb5ffe0e8a064fc94946c3aab624bb7704c62e81ec2d')
 FeeDelegatedSmartContractDeploy {
     _type: 'TxTypeFeeDelegatedSmartContractDeploy',
     _from: '0x8061145252c8f2b4f110aed096435ae6ed7d5a95',
@@ -229,6 +241,7 @@ FeeDelegatedSmartContractDeploy {
 ## FeeDelegatedSmartContractExecution <a id="feedelegatedsmartcontractexecution"></a>
 
 ```javascript
+caver.transaction.feeDelegatedSmartContractExecution.create(transactionObject)
 new caver.transaction.feeDelegatedSmartContractExecution(transactionObject)
 ```
 
@@ -237,6 +250,8 @@ new caver.transaction.feeDelegatedSmartContractExecution(transactionObject)
 `FeeDelegatedSmartContractExecution` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedSmartContractExecution` transaction.
 
 **NOTE** You can create an instance of `FeeDelegatedSmartContractExecution` from RLP-encoded string. Please refer to the below example.
+
+**NOTE** `caver.transaction.feeDelegatedSmartContractExecution.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 **properties**
 
@@ -258,7 +273,7 @@ new caver.transaction.feeDelegatedSmartContractExecution(transactionObject)
 
 ```javascript
 // Create a feeDelegatedSmartContractExecution
-> new caver.transaction.feeDelegatedSmartContractExecution({
+> caver.transaction.feeDelegatedSmartContractExecution.create({
     from: '0x{address in hex}',
     to: '0x{address in hex}',
     input: '0xa9059...',
@@ -266,7 +281,7 @@ new caver.transaction.feeDelegatedSmartContractExecution(transactionObject)
 })
 
 // Create a feeDelegatedSmartContractExecution from RLP-encoded string
-> new caver.transaction.feeDelegatedSmartContractExecution('0x31f8fb8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0ba46353586b000000000000000000000000bc5951f055a85f41a3b62fd6f68ab7de76d299b2f845f84325a0253aea7d2c37160da45e84afbb45f6b3341cf1e8fc2df4ecc78f14adb512dc4fa022465b74015c2a8f8501186bb5e200e6ce44be52e9374615a7e7e21c41bc27b5945a0043070275d9f6054307ee7348bd660849d90ff845f84326a0e7c51db7b922c6fa2a941c9687884c593b1b13076bdf0c473538d826bf7b9d1aa05b0de2aabb84b66db8bf52d62f3d3b71b592e3748455630f1504c20073624d80')
+> caver.transaction.feeDelegatedSmartContractExecution.create('0x31f8fb8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0ba46353586b000000000000000000000000bc5951f055a85f41a3b62fd6f68ab7de76d299b2f845f84325a0253aea7d2c37160da45e84afbb45f6b3341cf1e8fc2df4ecc78f14adb512dc4fa022465b74015c2a8f8501186bb5e200e6ce44be52e9374615a7e7e21c41bc27b5945a0043070275d9f6054307ee7348bd660849d90ff845f84326a0e7c51db7b922c6fa2a941c9687884c593b1b13076bdf0c473538d826bf7b9d1aa05b0de2aabb84b66db8bf52d62f3d3b71b592e3748455630f1504c20073624d80')
 FeeDelegatedSmartContractExecution {
     _type: 'TxTypeFeeDelegatedSmartContractExecution',
     _from: '0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b',
@@ -285,6 +300,7 @@ FeeDelegatedSmartContractExecution {
 ## FeeDelegatedCancel <a id="feedelegatedcancel"></a>
 
 ```javascript
+caver.transaction.feeDelegatedCancel.create(transactionObject)
 new caver.transaction.feeDelegatedCancel(transactionObject)
 ```
 
@@ -293,6 +309,8 @@ new caver.transaction.feeDelegatedCancel(transactionObject)
 `FeeDelegatedCancel` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedCancel` transaction.
 
 **NOTE** You can create an instance of `FeeDelegatedCancel` from RLP-encoded string. Please refer to the below example.
+
+**NOTE** `caver.transaction.feeDelegatedCancel.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 **properties**
 
@@ -311,14 +329,14 @@ new caver.transaction.feeDelegatedCancel(transactionObject)
 
 ```javascript
 // Create a feeDelegatedCancel
-> new caver.transaction.feeDelegatedCancel({
+> caver.transaction.feeDelegatedCancel.create({
     from: '0x{address in hex}',
     nonce: 1,
     gas: 25000,
 })
 
 // Create a feeDelegatedCancel from RLP-encoded string
-> new caver.transaction.feeDelegatedCancel('0x39f8c08204d219830f424094a94f5374fce5edbc8e2a8697c15331677e6ebf0bf845f84326a08409f5441d4725f90905ad87f03793857d124de7a43169bc67320cd2f020efa9a060af63e87bdc565d7f7de906916b2334336ee7b24d9a71c9521a67df02e7ec92945a0043070275d9f6054307ee7348bd660849d90ff845f84326a0044d5b25e8c649a1fdaa409dc3817be390ad90a17c25bc17c89b6d5d248495e0a073938e690d27b5267c73108352cf12d01de7fd0077b388e94721aa1fa32f85ec')
+> caver.transaction.feeDelegatedCancel.create('0x39f8c08204d219830f424094a94f5374fce5edbc8e2a8697c15331677e6ebf0bf845f84326a08409f5441d4725f90905ad87f03793857d124de7a43169bc67320cd2f020efa9a060af63e87bdc565d7f7de906916b2334336ee7b24d9a71c9521a67df02e7ec92945a0043070275d9f6054307ee7348bd660849d90ff845f84326a0044d5b25e8c649a1fdaa409dc3817be390ad90a17c25bc17c89b6d5d248495e0a073938e690d27b5267c73108352cf12d01de7fd0077b388e94721aa1fa32f85ec')
 FeeDelegatedCancel {
     _type: 'TxTypeFeeDelegatedCancel',
     _from: '0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b',
@@ -334,6 +352,7 @@ FeeDelegatedCancel {
 ## FeeDelegatedChainDataAnchoring <a id="feedelegatedchaindataanchoring"></a>
 
 ```javascript
+caver.transaction.feeDelegatedChainDataAnchoring.create(transactionObject)
 new caver.transaction.feeDelegatedChainDataAnchoring(transactionObject)
 ```
 
@@ -342,6 +361,8 @@ new caver.transaction.feeDelegatedChainDataAnchoring(transactionObject)
 `FeeDelegatedChainDataAnchoring` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedChainDataAnchoring` transaction.
 
 **NOTE** You can create an instance of `FeeDelegatedChainDataAnchoring` from RLP-encoded string. Please refer to the below example.
+
+**NOTE** `caver.transaction.feeDelegatedChainDataAnchoring.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 **properties**
 
@@ -361,14 +382,14 @@ new caver.transaction.feeDelegatedChainDataAnchoring(transactionObject)
 
 ```javascript
 // Create a feeDelegatedChainDataAnchoring
-> new caver.transaction.feeDelegatedChainDataAnchoring({
+> caver.transaction.feeDelegatedChainDataAnchoring.create({
     from: '0x{address in hex}',
     gas: 50000,
     input: '0xf8a6a...',
 })
 
 // Create a feeDelegatedChainDataAnchoring from RLP-encoded string
-> new caver.transaction.feeDelegatedChainDataAnchoring('0x49f90176118505d21dba0085174876e80094a94f5374fce5edbc8e2a8697c15331677e6ebf0bb8aff8ad80b8aaf8a8a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a00000000000000000000000000000000000000000000000000000000000000004058006f845f84326a0afe41edc9cce1185ab9065ca7dbfb89ab5c7bde3602a659aa258324124644142a0317848698248ba7cc057b8f0dd19a27b52ef904d29cb72823100f1ed18ba2bb39433f524631e573329a550296f595c820d6c65213ff845f84325a0309e46db21a1bf7bfdae24d9192aca69516d6a341ecce8971fc69cff481cee76a04b939bf7384c4f919880307323a5e36d4d6e029bae1887a43332710cdd48f174')
+> caver.transaction.feeDelegatedChainDataAnchoring.create('0x49f90176118505d21dba0085174876e80094a94f5374fce5edbc8e2a8697c15331677e6ebf0bb8aff8ad80b8aaf8a8a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a00000000000000000000000000000000000000000000000000000000000000004058006f845f84326a0afe41edc9cce1185ab9065ca7dbfb89ab5c7bde3602a659aa258324124644142a0317848698248ba7cc057b8f0dd19a27b52ef904d29cb72823100f1ed18ba2bb39433f524631e573329a550296f595c820d6c65213ff845f84325a0309e46db21a1bf7bfdae24d9192aca69516d6a341ecce8971fc69cff481cee76a04b939bf7384c4f919880307323a5e36d4d6e029bae1887a43332710cdd48f174')
 FeeDelegatedChainDataAnchoring {
     _type: 'TxTypeFeeDelegatedChainDataAnchoring',
     _from: '0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b',

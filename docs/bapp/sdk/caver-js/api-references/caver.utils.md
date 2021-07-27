@@ -980,34 +980,34 @@ Returns `true` if the given transaction is a smart contract deploy transaction. 
 **Examples**
 
 ```javascript
-> caver.utils.isContractDeployment(new caver.transaction.legacyTransaction({
+> caver.utils.isContractDeployment(caver.transaction.legacyTransaction.create({
     to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
     value: caver.utils.toPeb(1, 'KLAY'),
     gas: 25000,
 }))
 false
 
-> caver.utils.isContractDeployment(new caver.transaction.legacyTransaction({
+> caver.utils.isContractDeployment(caver.transaction.legacyTransaction.create({
     input: '0x608060405234801561001057600080fd5b506101de806100206000396000f3006080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a72305820627ca46bb09478a015762806cc00c431230501118c7c26c30ac58c4e09e51c4f0029',
     gas: 200000,
 }))
 true
 
-> caver.utils.isContractDeployment(new caver.transaction.smartContractDeploy({
+> caver.utils.isContractDeployment(caver.transaction.smartContractDeploy.create({
     from: '0x88e245dec96830f012f8fc1806bc623b3774560d',
     input: '0x608060405234801561001057600080fd5b506101de806100206000396000f3006080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a72305820627ca46bb09478a015762806cc00c431230501118c7c26c30ac58c4e09e51c4f0029',
     gas: 100000,
 }))
 true
 
-> caver.utils.isContractDeployment(new caver.transaction.feeDelegatedSmartContractDeploy({
+> caver.utils.isContractDeployment(caver.transaction.feeDelegatedSmartContractDeploy.create({
     from: '0x88e245dec96830f012f8fc1806bc623b3774560d',
     input: '0x608060405234801561001057600080fd5b506101de806100206000396000f3006080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a72305820627ca46bb09478a015762806cc00c431230501118c7c26c30ac58c4e09e51c4f0029',
     gas: 100000,
 }))
 true
 
-> caver.utils.isContractDeployment(new caver.transaction.feeDelegatedSmartContractDeployWithRatio({
+> caver.utils.isContractDeployment(caver.transaction.feeDelegatedSmartContractDeployWithRatio.create({
     from: '0x88e245dec96830f012f8fc1806bc623b3774560d',
     input: '0x608060405234801561001057600080fd5b506101de806100206000396000f3006080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a72305820627ca46bb09478a015762806cc00c431230501118c7c26c30ac58c4e09e51c4f0029',
     gas: 100000,
@@ -1638,7 +1638,7 @@ Hashes message with Klaytn specific prefix: `keccak256("\x19Klaytn Signed Messag
 ## recover <a id="recover"></a>
 
 ```javascript
-caver.utils.recover(message, signature [, preFixed])
+caver.utils.recover(message, signature [, isHashed])
 ```
 
 Recovers the Klaytn address that was used to sign the given data.
@@ -1648,8 +1648,8 @@ Recovers the Klaytn address that was used to sign the given data.
 | Name | Type | Description |
 | --- | --- | --- |
 | message | string | Either message or hashed message. |
-| signature | object | An instance of [SignatureData]. |
-| preFixed | boolean | (optional, default: ``false``) If the last parameter is `true`, the given `message` will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and be assumed as already prefixed. |
+| signature | object &#124; Array | An instance of [SignatureData]. |
+| isHashed | boolean | (optional, default: `false`) If the last parameter is `true`, the given `message` will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and will be assumed to be already prefixed. |
 
 **Return Value**
 
@@ -1660,13 +1660,95 @@ Recovers the Klaytn address that was used to sign the given data.
 **Examples**
 
 ```javascript
-> const sig = new caver.wallet.keyring.signatureData(['0x1b', '0x50a80...', '0x021de...'])
+> caver.utils.recover('message', new caver.wallet.keyring.signatureData(['0x1b', '0x50a80...', '0x021de...']))
+'0xe8b3a6ef12f9506e1df9fd445f9bb4488a482122'
 
-> caver.utils.recover('message', sig)
+> caver.utils.recover('message', ['0x1b', '0x50a80...', '0x021de...'])
+'0xe8b3a6ef12f9506e1df9fd445f9bb4488a482122'
+
+> caver.utils.recover('message', { v: '0x1b', r: '0x50a80...', s: '0x021de...' })
 '0xe8b3a6ef12f9506e1df9fd445f9bb4488a482122'
 
 > caver.utils.recover('0xe960248437f2134a77a9aa0ebcbb6523aec095f23b02e25f16fd95e99b099daa', sig, true)
 '0xe8b3a6ef12f9506e1df9fd445f9bb4488a482122'
+```
+
+## recoverPublicKey <a id="recoverpublickey"></a>
+
+```javascript
+caver.utils.recoverPublicKey(message, signature [, isHashed])
+```
+
+Recovers the public key that was used to sign the given data.
+
+**NOTE** `caver.utils.recoverPublicKey` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| message | string | Either message or hashed message. |
+| signature | object &#124; Array | An instance of [SignatureData]. |
+| isHashed | boolean | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Klaytn Signed Message:\n" + message.length + message`. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| string | The public key used to sign this data. |
+
+**Examples**
+
+```javascript
+> caver.utils.recoverPublicKey('Some Message', new caver.wallet.keyring.signatureData([
+	'0x1b',
+	'0x8213e560e7bbe1f2e28fd69cbbb41c9108b84c98cd7c2c88d3c8e3549fd6ab10',
+	'0x3ca40c9e20c1525348d734a6724db152b9244bff6e0ff0c2b811d61d8f874f00',
+]))
+'0xb5df4d5e6b4ee7a136460b911a69030fdd42c18ed067bcc2e25eda1b851314fad994c5fe946aad01ca2e348d4ff3094960661a8bc095f358538af54aeea48ff3'
+
+> caver.utils.recoverPublicKey('Some Message', [
+	'0x1b',
+	'0x8213e560e7bbe1f2e28fd69cbbb41c9108b84c98cd7c2c88d3c8e3549fd6ab10',
+	'0x3ca40c9e20c1525348d734a6724db152b9244bff6e0ff0c2b811d61d8f874f00',
+])
+'0xb5df4d5e6b4ee7a136460b911a69030fdd42c18ed067bcc2e25eda1b851314fad994c5fe946aad01ca2e348d4ff3094960661a8bc095f358538af54aeea48ff3'
+
+> caver.utils.recoverPublicKey('0x8ed2036502ed7f485b81feaec1c581d236a8b711e55a24077724879c8a263c2a', {
+	v: '0x1b',
+	r: '0x3acab5ba6f884eccfb9642018aa6debab1310d99b7a84ae9acb8f52f567cf16a',
+	s: '0x3501ae03809bf93222c4683642fa8fdc36385709c70ed8e7b883b34d66a5b8a4',
+}, true)
+'0xdd352dbe1c49aa9addaa3ca762de476a1b4deca3ac15fbb7fac153737b3ddb1e3249e1c2d86d5cbeaf6d30d366a211532683b59cb5f402bf3fe14989a378d45d'
+```
+
+## publicKeyToAddress <a id="publickeytoaddress"></a>
+
+```javascript
+caver.utils.publicKeyToAddress('0x{public key}')
+```
+
+Returns an address derived from a public key. This function simply converts the public key string into an address form by hashing it. It has nothing to do with an actual account on Klaytn.
+
+**NOTE** `caver.utils.publicKeyToAddress` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| publicKey | string | The public key string to get the address. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| string | The address string derived from a public key. |
+
+**Examples**
+
+```javascript
+> caver.utils.publicKeyToAddress('0xb5df4d5e6b4ee7a136460b911a69030fdd42c18ed067bcc2e25eda1b851314fad994c5fe946aad01ca2e348d4ff3094960661a8bc095f358538af54aeea48ff3')
+'0xA84A1CE657e9d5b383cECE6f4bA365e23Fa234Dd'
 ```
 
 ## compressPublicKey <a id="compresspublicKkey"></a>
@@ -1721,6 +1803,39 @@ Decompresses the compressed public key.
 ```javascript
 > caver.utils.decompressPublicKey('0x0262cef87819b82f62e9c0a38c1fa7dfa089084959df86aca19ff2f6c903db2248')
 '0x62cef87819b82f62e9c0a38c1fa7dfa089084959df86aca19ff2f6c903db2248b45dc23220ee6bcd8753bb9df8ce7d58e56eabebb14479f3a0ca5ccd4bdea632'
+```
+
+## decodeSignature <a id="decodesignature"></a>
+
+```javascript
+caver.utils.decodeSignature('0x{signature}')
+```
+
+Decodes a raw signature data composed of 'R(32 byte) + S(32 byte) + V(1byte)'.
+
+**NOTE** `caver.utils.decodeSignature` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| signature | string |The signature string to decode. It is composed of R(32 byte) + S(32 byte) + V(1byte). |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| object | A `SignatureData` instance that includes `v`, `r` and `s`. |
+
+**Examples**
+
+```javascript
+> caver.utils.decodeSignature('0xc69018da9396c4b87947e0784625af7475caf46e2af9cf57a44673ff0f625258642d8993751ae67271bcc131aa065adccf9f16fc4953f9c48f4a80d675c09ae81b')
+SignatureData {
+  _v: '0x1b',
+  _r: '0xc69018da9396c4b87947e0784625af7475caf46e2af9cf57a44673ff0f625258',
+  _s: '0x642d8993751ae67271bcc131aa065adccf9f16fc4953f9c48f4a80d675c09ae8'
+}
 ```
 
 [Transaction]: ./caver.transaction/README.md#class

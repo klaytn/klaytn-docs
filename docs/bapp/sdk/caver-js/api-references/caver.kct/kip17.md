@@ -4,7 +4,7 @@
 
 The `caver.kct.kip17` inherits [caver.contract](../caver.contract.md) to implement the KIP-17 token contract. The `caver.kct.kip17` holds the same properties of `caver.contract` whereas there are additional methods to implement extra features. This section only introduces the newly added bound methods of the `caver.kct.kip17`.
 
-The code that implements KIP-17 for caver-js is available on the [caver-js Github Repo](https://github.com/klaytn/caver-js/tree/dev/packages/caver-kct/src/contract/token/KIP17).
+The code that implements KIP-17 for caver-js is available on the [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/token/KIP17).
 
 For more information about KIP-17, see [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-17).
 
@@ -22,7 +22,7 @@ After successful deployment, the promise will be resolved with a new KIP17 insta
 | Name | Type | Description |
 | --- | --- | --- |
 | tokenInfo | object | The information needed to deploy KIP-17 token contract on the Klaytn blockchain. See the below table for the details. |
-| deployer | string | The address in the keyring instance to deploy the KIP-17 token contract. This address must have enough KLAY to deploy. See [Keyring](../caver.wallet/keyring.md#caver-wallet-keyring) for more details. |
+| deployer | string &#124; object | The address in the keyring instance to deploy the KIP-17 token contract. This address must have enough KLAY to deploy. See [Keyring](../caver.wallet/keyring.md#caver-wallet-keyring) for more details. If you want to define your fields to use when sending transactions, you can pass the object type as a parameter. If you want to use Fee Delegation when deploying KIP-17 contracts, you can define the fields related to fee delegation in the object. For the use of these fields, refer to the parameter description of [approve](#kip17-approve). |
 
 The tokenInfo object must contain the following:
 
@@ -68,6 +68,17 @@ KIP17 {
 	] 
 }
 
+// Send object as second parameter
+> caver.kct.kip17.deploy({
+        name: 'Jasmine',
+        symbol: 'JAS',
+    },
+    {
+        from: '0x{address in hex}',
+        feeDelegation: true,
+        feePayer: '0x{address in hex}',
+    }).then(console.log)
+
 // using event emitter and promise
 > caver.kct.kip17.deploy({
     name: 'Jasmine',
@@ -81,6 +92,65 @@ KIP17 {
 .then(function(newKIP17Instance) {
 	console.log(newKIP17Instance.options.address) // instance with the new token contract address
 })
+```
+
+## caver.kct.kip17.detectInterface <a id="caver-kct-kip17-detectinterface"></a>
+
+```javascript
+caver.kct.kip17.detectInterface(contractAddress)
+```
+Returns the information of the interface implemented by the token contract. This static function will use [kip17.detectInterface](#kip17-detectinterface).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| contractAddress | string | The address of the KIP-7 token contract |
+
+**Return Value**
+
+`Promise` returns an `object` containing the result with boolean values whether each [KIP-17 interface](https://kips.klaytn.com/KIPs/kip-17#kip-13-identifiers) is implemented.
+
+**Example**
+
+```javascript
+> caver.kct.kip17.detectInterface('0x{address in hex}').then(console.log)
+{
+	IKIP17: true,
+	IKIP17Metadata: true,
+	IKIP17Enumerable: true,
+	IKIP17Mintable: true,
+	IKIP17MetadataMintable: true,
+	IKIP17Burnable: true,
+	IKIP17Pausable: true,
+}
+```
+
+## caver.kct.kip17.create <a id="caver-kct-kip17-create"></a>
+
+```javascript
+caver.kct.kip17.create([tokenAddress])
+```
+Creates a new KIP17 instance with its bound methods and events. This function works the same as [new KIP17](#new-kip17).
+
+**NOTE** `caver.kct.kip17.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+
+**Parameters**
+
+See the [new KIP17](#new-kip17).
+
+**Return Value**
+
+See the [new KIP17](#new-kip17).
+
+**Example**
+
+```javascript
+// Create a KIP17 instance without a parameter
+> const kip17 = caver.kct.kip17.create()
+
+// Create a KIP17 instance with a token address
+> const kip17 = caver.kct.kip17.create('0x{address in hex}')
 ```
 
 
@@ -145,6 +215,36 @@ Clones the current KIP17 instance.
 
 // Clone with the address of the new token contract
 > const cloned = kip17.clone('0x{address in hex}')
+```
+
+## kip17.detectInterface <a id="kip17-detectinterface"></a>
+
+```javascript
+kip17.detectInterface()
+```
+Returns the information of the interface implemented by the token contract.
+
+**Parameters**
+
+None
+
+**Return Value**
+
+`Promise` returns an `object` containing the result with boolean values whether each [KIP-17 interface](https://kips.klaytn.com/KIPs/kip-17#kip-13-identifiers) is implemented.
+
+**Example**
+
+```javascript
+> kip17.detectInterface().then(console.log)
+{
+	IKIP17: true,
+	IKIP17Metadata: true,
+	IKIP17Enumerable: true,
+	IKIP17Mintable: true,
+	IKIP17MetadataMintable: true,
+	IKIP17Burnable: true,
+	IKIP17Pausable: true,
+}
 ```
 
 
@@ -545,10 +645,15 @@ The sendParam object can contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| from | string | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If neither of `from` in `sendParam` object nor `this.options.from` were not provided, an error would occur. |
-| gas | number &#124; string | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, tokenId).estimateGas({from})`. |
+| from | string | (optional) The address from which the transaction should be sent. If omitted, it will be set by `kip17.options.from`. If neither of `from` in `sendParam` object nor `kip17.options.from` were not provided, an error would occur. |
+| gas | number &#124; string | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `kip17.methods.approve(spender, tokenId).estimateGas({from})`. |
 | gasPrice | number &#124; string | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
 | value | number &#124; string &#124; BN &#124; BigNumber | (optional) The value to be transferred in peb. |
+| feeDelegation | boolean | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `kip17.options.feeDelegation` will be used. If both omitted, fee delegation is not used. |
+| feePayer | string | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `kip17.options.feePayer` will be used. If both omitted, throws an error. |
+| feeRatio | string | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `kip17.options.feeRatio` will be used. |
+
+**NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
 **Return Value**
 
@@ -594,6 +699,13 @@ The sendParam object can contain the following:
 		},
 	},
 }
+
+// Using FD transaction to execute the smart contract
+> kip17.approve('0x{address in hex}', 10, {
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
 
 // Using kip17.options.from
 // If the value of kip17.options.from is set, this value is used as the default value 
@@ -664,6 +776,13 @@ Note that the setApprovalForAll method will submit a transaction to the Klaytn n
 		},
 	},
 }
+
+// Using FD transaction to execute the smart contract
+> kip17.setApprovalForAll('0x{address in hex}', false, {
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
 
 // Using kip17.options.from
 // If the value of kip17.options.from is set, this value is used as the default value 
@@ -737,6 +856,13 @@ Note that sending this transaction will charge the transaction fee to the transa
 		},
 	},
 }
+
+// Using FD transaction to execute the smart contract
+> kip17.transferFrom('0x{address in hex}', '0x{address in hex}', 2, {
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
 
 // Using kip17.options.from
 // If the value of kip17.options.from is set, this value is used as the default value 
@@ -814,6 +940,13 @@ Note that sending this transaction will charge the transaction fee to the transa
 	},
 }
 
+// Using FD transaction to execute the smart contract
+> kip17.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 9, {
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
+
 // Send via a sendParam object with the from field given (with data)
 > kip17.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 11, '0x1234', { from: '0x{address in hex}' }).then(console.log)
 
@@ -884,6 +1017,13 @@ Note that the addMinter method will submit a transaction to the Klaytn network, 
 	},
 }
 
+// Using FD transaction to execute the smart contract
+> kip17.addMinter('0x{address in hex}', {
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
+
 // Using kip17.options.from
 // If the value of kip17.options.from is set, this value is used as the default value 
 // unless you specify `from` in the sendParam object when sending a transaction with a kip17 instance.
@@ -950,6 +1090,13 @@ If `sendParam.from` or `kip17.options.from` were given, it should be a minter wi
 		},
 	},
 }
+
+// Using FD transaction to execute the smart contract
+> kip17.renounceMinter({
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
 
 // Using kip17.options.from
 // If the value of kip17.options.from is set, this value is used as the default value 
@@ -1026,6 +1173,13 @@ Note that the mintWithTokenURI method will submit a transaction to the Klaytn ne
 	},
 }
 
+// Using FD transaction to execute the smart contract
+> kip17.mintWithTokenURI('0x{address in hex}', 18, tokenURI, {
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
+
 // Using kip17.options.from
 // If the value of kip17.options.from is set, this value is used as the default value 
 // unless you specify `from` in the sendParam object when sending a transaction with a kip17 instance.
@@ -1097,6 +1251,13 @@ Note that the burn method will submit a transaction to the Klaytn network, which
 	},
 }
 
+// Using FD transaction to execute the smart contract
+> kip17.burn(14, {
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
+
 // Using kip17.options.from
 // If the value of kip17.options.from is set, this value is used as the default value 
 // unless you specify `from` in the sendParam object when sending a transaction with a kip17 instance.
@@ -1163,6 +1324,13 @@ Note that the pause method will submit a transaction to the Klaytn network, whic
 	},
 }
 
+// Using FD transaction to execute the smart contract
+> kip17.pause({
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
+
 // Using kip17.options.from
 // If the value of kip17.options.from is set, this value is used as the default value 
 // unless you specify `from` in the sendParam object when sending a transaction with a kip17 instance.
@@ -1228,6 +1396,13 @@ Note that the unpause method will submit a transaction to the Klaytn network, wh
 		},
 	},
 }
+
+// Using FD transaction to execute the smart contract
+> kip17.unpause({
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
 
 // Using kip17.options.from
 // If the value of kip17.options.from is set, this value is used as the default value 
@@ -1296,6 +1471,13 @@ Note that the addPauser method will submit a transaction to the Klaytn network, 
 	},
 }
 
+// Using FD transaction to execute the smart contract
+> kip17.addPauser('0x{address in hex}', {
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
+
 // Using kip17.options.from
 // If the value of kip17.options.from is set, this value is used as the default value 
 // unless you specify `from` in the sendParam object when sending a transaction with a kip17 instance.
@@ -1361,6 +1543,13 @@ Note that the renouncePauser method will submit a transaction to the Klaytn netw
 		},
 	},
 }
+
+// Using FD transaction to execute the smart contract
+> kip17.renouncePauser({
+    from: '0x{address in hex}'
+    feeDelegation: true,
+    feePayer: '0x{address in hex}'
+}).then(console.log)
 
 // Using kip17.options.from
 // If the value of kip17.options.from is set, this value is used as the default value 

@@ -10,14 +10,15 @@
 caver.rpc
 ```
 
-`RPC` is a class that includes [Klay] and [Net] inside.
+`RPC` is a class that contains [Klay], [Net] and [Governance] inside.
 
-**properties**
+**Properties**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| klay | [Klay] | The [Klay] providing JSON-RPC call with `klay` name space. |
-| net | [Net] | The [Net] providing JSON-RPC call with `net` name space. |
+| klay | [Klay] | The [Klay] providing JSON-RPC call with  the`klay` name space. |
+| net | [Net] | The [Net] providing JSON-RPC call with the `net` name space. |
+| governance | [Governance] | The [Governance] providing JSON-RPC call with the `governance` name space. |
 
 ## JSON-RPC calls <a id="json-rpc-calls"></a>
 
@@ -100,3 +101,4 @@ The `caver.rpc.klay` allows you to interact with the Klaytn nodes. The list belo
 
 [Klay]: ./klay.md
 [Net]: ./net.md
+[Governance]: ./governance.md

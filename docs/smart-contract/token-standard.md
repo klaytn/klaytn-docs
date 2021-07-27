@@ -59,7 +59,7 @@ Based on the interface above, developers may customize tokens by adding new feat
 
 For more information, refer to the official [KIP-7 documentation](https://kips.klaytn.com/KIPs/kip-7).
 
-* An example implementation is available at [https://github.com/klaytn/caver-js/blob/dev/packages/caver-kct/src/contract/token/KIP7/KIP7.sol](https://github.com/klaytn/caver-js/blob/dev/packages/caver-kct/src/contract/token/KIP7/KIP7.sol).
+* An example implementation is available at [https://github.com/klaytn/klaytn-contracts/blob/master/contracts/token/KIP7/KIP7Token.sol](https://github.com/klaytn/klaytn-contracts/blob/master/contracts/token/KIP7/KIP7Token.sol).
 
 ## Non-fungible Token Standard \(KIP-17\) <a id="non-fungible-token-standard-kip-17"></a>
 
@@ -125,7 +125,7 @@ Based on the interface above, developers may customize tokens by adding new feat
 
 For more information, refer to the official [KIP-17 documentation](https://kips.klaytn.com/KIPs/kip-17).
 
-* An example implementation is available at [https://github.com/klaytn/caver-js/blob/dev/packages/caver-kct/src/contract/token/KIP17/KIP17.sol](https://github.com/klaytn/caver-js/blob/dev/packages/caver-kct/src/contract/token/KIP17/KIP17.sol).
+* An example implementation is available at [https://github.com/klaytn/klaytn-contracts/blob/master/contracts/token/KIP17/KIP17Token.sol](https://github.com/klaytn/klaytn-contracts/blob/master/contracts/token/KIP17/KIP17Token.sol).
 
 ## Token Standards for Klaytn Service Chain <a id="token-standards-for-klaytn-service-chain"></a>
 

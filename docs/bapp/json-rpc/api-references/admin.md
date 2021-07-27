@@ -570,7 +570,7 @@ null
 
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startStateMigration","id":1}' http://13.124.205.121:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startStateMigration","id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -689,5 +689,41 @@ null
 HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_saveTrieNodeToDisk", "id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+## admin_setMaxSubscriptionPerWSConn <a id="admin_setMaxSubscriptionPerWSConn"></a>
+
+The `setMaxSubscriptionPerWSConn` is an administrative method that sets the maximum allowed number of subscriptions per single WebSocket connection. For example, if the maximum number is set to five and a user requests more than five subscriptions through the `klay_subscribe` API, an error message "Maximum 5 subscriptions are allowed for a WebSocket connection" will be displayed. This feature is supported since Klaytn 1.6.0.
+
+| Client  | Method invocation                                            |
+| :-----: | ------------------------------------------------------------ |
+| Console | `admin.setMaxSubscriptionPerWSConn(limit)`                         |
+|   RPC   | `{"method": "admin_setMaxSubscriptionPerWSConn"}` |
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| limit | int | The maximum allowed number of subscriptions per single WebSocket connection. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Error | `null` if the limit is set successfully; otherwise, it returns an error message. |
+
+**Example**
+
+Console
+
+```javascript
+> admin.setMaxSubscriptionPerWSConn(5)
+null
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_setMaxSubscriptionPerWSConn", "params":[5], "id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":null}
 ```

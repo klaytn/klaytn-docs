@@ -63,6 +63,10 @@ returned by other filter creation functions, such as [klay_newBlockFilter](#klay
 or [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter),
 cannot be used with this function.
 
+The execution of this API can be limited by two node configurations to manage resources of Klaytn node safely.
+- The number of maximum returned results in a single query (Default: 10,000).
+- The execution duration limit of a single query (Default: 10 seconds).
+
 **Parameters**
 
 | Name | Type | Description |
@@ -101,6 +105,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ## klay_getLogs <a id="klay_getlogs"></a>
 
 Returns an array of all logs matching a given filter object.
+
+The execution of this API can be limited by two node configurations to manage resources of Klaytn node safely.
+- The number of maximum returned results in a single query (Default: 10,000).
+- The execution duration limit of a single query (Default: 10 seconds).
 
 **Parameters**
 
@@ -378,7 +386,7 @@ wscat -c http://localhost:8552
 ```shell
 // Request
 wscat -c http://localhost:8552
-> {"jsonrpc":"2.0", "id": 1, "method": "eth_subscribe", "params": ["logs", {"fromBlock":"earliest","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b","topics":["0xd596fdad182d29130ce218f4c1590c4b5ede105bee36690727baa6592bd2bfc8"]}]}
+> {"jsonrpc":"2.0", "id": 1, "method": "klay_subscribe", "params": ["logs", {"fromBlock":"earliest","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b","topics":["0xd596fdad182d29130ce218f4c1590c4b5ede105bee36690727baa6592bd2bfc8"]}]}
 
 // Result
 < {"jsonrpc":"2.0","id":1,"result":"0xbdab16c8e4ae1b9e6930c78359de3e0e"}

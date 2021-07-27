@@ -13,6 +13,8 @@ The list below enumerates the API functions that are currently supported in Klay
 ### [Account](./klay/account.md) <a id="account"></a>
 - [klay_accountCreated](./klay/account.md#klay_accountcreated)
 - [klay_accounts](./klay/account.md#klay_accounts)
+- [klay_encodeAccountKey](./klay/account.md#klay_encodeaccountkey)
+- [klay_decodeAccountKey](./klay/account.md#klay_decodeaccountkey)
 - [klay_getAccount](./klay/account.md#klay_getaccount)
 - [klay_getAccountKey](./klay/account.md#klay_getaccountkey)
 - [klay_getBalance](./klay/account.md#klay_getbalance)
@@ -52,7 +54,10 @@ The list below enumerates the API functions that are currently supported in Klay
 - [klay_getTransactionReceiptBySenderTxHash](./klay/transaction.md#klay_gettransactionreceiptbysendertxhash)
 - [klay_sendRawTransaction](./klay/transaction.md#klay_sendrawtransaction)
 - [klay_sendTransaction](./klay/transaction.md#klay_sendtransaction)
+- [klay_sendTransactionAsFeePayer](./klay/transaction.md#klay_sendtransactionasfeepayer)
 - [klay_signTransaction](./klay/transaction.md#klay_signtransaction)
+- [klay_signTransactionAsFeePayer](./klay/transaction.md#klay_signtransactionasfeepayer)
+- [klay_getDecodedAnchoringTransactionByHash](./klay/transaction.md#klay_getDecodedAnchoringTransactionByHash)
 
 
 ### [Configuration](./klay/config.md) <a id="configuration"></a>
@@ -74,7 +79,9 @@ The list below enumerates the API functions that are currently supported in Klay
 - [klay_newBlockFilter](./klay/filter.md#klay_newblockfilter)
 - [klay_newFilter](./klay/filter.md#klay_newfilter)
 - [klay_newPendingTransactionFilter](./klay/filter.md#klay_newpendingtransactionfilter)
+- [klay_subscribe](./klay/filter.md#klay_subscribe)
 - [klay_uninstallFilter](./klay/filter.md#klay_uninstallfilter)
+- [klay_unsubscribe](./klay/filter.md#klay_unsubscribe)
 
 
 ### [Miscellaneous](./klay/misc.md) <a id="miscellaneous"></a>

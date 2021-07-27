@@ -101,6 +101,8 @@ Encodes a parameter based on its type to its ABI representation.
 | type | string &#124; object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)  for a list of types. |
 | parameter | Mixed | The actual parameter to encode. |
 
+**NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+
 **Return Value**
 
 | Type | Description |
@@ -121,6 +123,19 @@ Encodes a parameter based on its type to its ABI representation.
 
 > caver.abi.encodeParameter('bytes32[]', [caver.utils.rightPad('0xdf3234', 64), caver.utils.rightPad('0xfdfd', 64)])
 '0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000002df32340000000000000000000000000000000000000000000000000000000000fdfd000000000000000000000000000000000000000000000000000000000000'
+
+> caver.abi.encodeParameter('tuple(bytes32,bool)', ['0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a18', true])
+'0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a180000000000000000000000000000000000000000000000000000000000000001'
+
+> caver.abi.encodeParameter(
+    {
+        components: [{ name: 'a', type: 'bytes32' }, { name: 'b', type: 'bool' }],
+        name: 'tupleExample',
+        type: 'tuple',
+    },
+    ['0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a18', true]
+)
+'0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a180000000000000000000000000000000000000000000000000000000000000001'
 ```
 
 ## encodeParameters <a id="encodeparameters"></a>
@@ -138,6 +153,8 @@ Encodes function parameters based on its JSON interface object.
 | typesArray | Array &#124; object| An array with types or a JSON interface of a function. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
 | parameters | Array | The parameters to encode. |
 
+**NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+
 **Return Value**
 
 | Type | Description |
@@ -152,6 +169,35 @@ Encodes function parameters based on its JSON interface object.
 
 > caver.abi.encodeParameters(['uint8[]','bytes32'], [['34','255'], caver.utils.rightPad('0x324567fff', 64)])
 '0x0000000000000000000000000000000000000000000000000000000000000040324567fff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000002200000000000000000000000000000000000000000000000000000000000000ff'
+
+> caver.abi.encodeParameters(
+    ['tuple(bytes32,bool)', 'tuple(bool,address)'],
+    [
+        ['0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a18', true],
+        [true, '0x77656c636f6d6520746f20657468657265756d2e']
+    ]
+)
+'0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a180000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000100000000000000000000000077656c636f6d6520746f20657468657265756d2e'
+
+> caver.abi.encodeParameters(
+    [
+        {
+            components: [{ name: 'a', type: 'bytes32' }, { name: 'b', type: 'bool' }],
+            name: 'tupleExample',
+            type: 'tuple',
+        },
+        {
+            components: [{ name: 'c', type: 'bool' }, { name: 'd', type: 'address' }],
+            name: 'tupleExample2',
+            type: 'tuple',
+        },
+    ],
+    [
+        ['0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a18', true],
+        [true, '0x77656c636f6d6520746f20657468657265756d2e']
+    ]
+)
+'0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a180000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000100000000000000000000000077656c636f6d6520746f20657468657265756d2e'
 ```
 
 ## encodeFunctionCall <a id="encodefunctioncall"></a>
@@ -192,6 +238,52 @@ Encodes a function call using its JSON interface object and given parameters.
 '0x24ee0097000000000000000000000000000000000000000000000000000000008bd02b7b0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000748656c6c6f212500000000000000000000000000000000000000000000000000'
 ```
 
+## decodeFunctionCall <a id="decodefunctioncall"></a>
+
+```javascript
+caver.abi.decodeFunctionCall(abi, functionCall)
+```
+
+Decodes a function call from its abi object of a function or function abi string and returns parameters.
+
+**NOTE** `caver.abi.decodeFunctionCall` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| abi | object | The abi object of a function. |
+| functionCall | string | The encoded function call string. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| object | An object which includes plain params. You can use `result[0]` as it is provided to be accessed like an array in the order of the parameters. |
+
+**Examples**
+
+```javascript
+> caver.abi.decodeFunctionCall({
+    name: 'myMethod',
+    type: 'function',
+    inputs: [{
+        type: 'uint256',
+        name: 'myNumber'
+    },{
+        type: 'string',
+        name: 'mystring'
+    }]
+}, '0x24ee0097000000000000000000000000000000000000000000000000000000008bd02b7b0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000748656c6c6f212500000000000000000000000000000000000000000000000000')
+Result {
+  '0': '2345675643',
+  '1': 'Hello!%',
+  __length__: 2,
+  myNumber: '2345675643',
+  mystring: 'Hello!%'
+}
+```
+
 ## decodeParameter <a id="decodeparameter"></a>
 
 ```javascript
@@ -207,6 +299,8 @@ Decodes an ABI encoded parameter to its JavaScript type.
 | type | string&#124;object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
 | hexstring | Array | The ABI byte code to decode. |
 
+**NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+
 **Return Value**
 
 | Type | Description |
@@ -221,6 +315,24 @@ Decodes an ABI encoded parameter to its JavaScript type.
 
 > caver.abi.decodeParameter('string', '0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000848656c6c6f212521000000000000000000000000000000000000000000000000')
 'Hello!%!'
+
+> caver.abi.decodeParameter('tuple(bytes32,bool)', '0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a180000000000000000000000000000000000000000000000000000000000000001')
+[ '0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a18', true ]
+
+> caver.abi.decodeParameter(
+    {
+        components: [{ name: 'a', type: 'bytes32' }, { name: 'b', type: 'bool' }],
+        name: 'tupleExample',
+        type: 'tuple',
+    },
+    '0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a180000000000000000000000000000000000000000000000000000000000000001'
+)
+[
+    '0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a18',
+    true,
+    a: '0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a18',
+    b: true
+]
 ```
 
 ## decodeParameters <a id="decodeparameters"></a>
@@ -236,6 +348,8 @@ Decodes ABI encoded parameters to its JavaScript types.
 | --- | --- | --- |
 | typesArray | Array &#124; object | An array with types or an array of JSON interface outputs. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
 | hexstring | string | The ABI byte code to decode. |
+
+**NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
 
 **Return Value**
 
@@ -261,6 +375,57 @@ Result {
     '1': '234',
     mystring: 'Hello!%!',
     myNumber: '234'
+}
+
+> caver.abi.decodeParameters(
+    ['tuple(bytes32,bool)', 'tuple(bool,address)'],
+    '0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a180000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000100000000000000000000000077656c636f6d6520746f20657468657265756d2e'
+)
+Result {
+    '0': [ '0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a18', true ],
+    '1': [ true, '0x77656c636f6d6520746F20657468657265756d2E' ],
+}
+
+> caver.abi.decodeParameters(
+    [
+        {
+            components: [{ name: 'a', type: 'bytes32' }, { name: 'b', type: 'bool' }],
+            name: 'tupleExample',
+            type: 'tuple',
+        },
+        {
+            components: [{ name: 'c', type: 'bool' }, { name: 'd', type: 'address' }],
+            name: 'tupleExample2',
+            type: 'tuple',
+        },
+    ],
+    '0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a180000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000100000000000000000000000077656c636f6d6520746f20657468657265756d2e'
+)
+Result {
+    '0': [
+        '0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a18',
+        true,
+        a: '0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a18',
+        b: true
+    ],
+    '1': [
+        true,
+        '0x77656c636f6d6520746F20657468657265756d2E',
+        c: true,
+        d: '0x77656c636f6d6520746F20657468657265756d2E'
+    ],
+    tupleExample: [
+        '0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a18',
+        true,
+        a: '0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a18',
+        b: true
+    ],
+    tupleExample2: [
+        true,
+        '0x77656c636f6d6520746F20657468657265756d2E',
+        c: true,
+        d: '0x77656c636f6d6520746F20657468657265756d2E'
+    ]
 }
 ```
 
