@@ -1,4 +1,4 @@
-# Token Economy <a id="token-economy"></a>
+# Token Economy
 
 ## Overview <a id="overview"></a>
 
@@ -28,7 +28,6 @@ To prevent monopolized claiming of Klaytn Governance Council Reward by small gro
 
 * _Adjusted staking amount = \(Council member's staking amount\)^\(1/1+G\)_
 
-
 ### Penalty for Misbehaving Council Members <a id="penalty-for-misbehaving-council-members"></a>
 
 A Council member may be subject to penalties for conducting misbehaviors defined below. In the future, more penalty rules can be established and refined through the Klaytn Governance Process.
@@ -49,10 +48,9 @@ Causing Liveness Failure:
 
 Klaytn's token economy operates and develops through the activities of Klaytn's economic entities. The growth of the economy will help improve the stability of the platform and help the ecosystem last. Therefore, Klaytn has created an incentive system to foster the economic entities' activities in order to help maintain and strengthen the economic growth of Klaytn.
 
-
 ### General Concept
-The Klaytn Growth Fund (KGF) aims to bring Klaytn economy forward by providing grants and investing in various organizations and individuals that contribute to the Klaytn economy. Klaytn's technology provides enormous opportunities for people to store, transfer, and exchange data and value globally with ease and at minimal cost. And since it is an open network, anyone can join to build an application without obtaining any permissions. However, a wider adoption of blockchain has been hindered because the technology is still in its early phase, and most of the values and data are still being managed in traditional ways in the form of contracts, local storage, etc. And solving these problems are exactly what the KGF is intended for. During its initial phase, digital asset applications and infrastructures will be some of its focus areas. To operate the KGF, various programs for promoting the adoption of Klaytn in the digital asset industry may be included. It will be constantly financed through a certain percentage of the block rewards (refer to [Funding Structure](token-economy.md#funding-structure)). 
 
+The Klaytn Growth Fund \(KGF\) aims to bring Klaytn economy forward by providing grants and investing in various organizations and individuals that contribute to the Klaytn economy. Klaytn's technology provides enormous opportunities for people to store, transfer, and exchange data and value globally with ease and at minimal cost. And since it is an open network, anyone can join to build an application without obtaining any permissions. However, a wider adoption of blockchain has been hindered because the technology is still in its early phase, and most of the values and data are still being managed in traditional ways in the form of contracts, local storage, etc. And solving these problems are exactly what the KGF is intended for. During its initial phase, digital asset applications and infrastructures will be some of its focus areas. To operate the KGF, various programs for promoting the adoption of Klaytn in the digital asset industry may be included. It will be constantly financed through a certain percentage of the block rewards \(refer to [Funding Structure](token-economy.md#funding-structure)\).
 
 ## Klaytn Improvement Reserve <a id="klaytn-improvement-reserve"></a>
 
@@ -60,18 +58,67 @@ As technology continues to improve and the needs of users change over time, our 
 
 The spending necessary to set up the ecosystem can be categorized as following.
 
-
-
-| Category | Details |
-| :--- | :--- |
-| **Development** | <ul><li>IDE & Editors</li><li>Oracle</li><li>Contract Library</li> |
-| **Infrastructure** | <ul><li>Local Testnet</li><li>Decentralized File System</li><li>Multi-VM</li> |
-| **Test, Debugging, Deployment** | <ul><li>Testing & Deployment Tools</li><li>Security & Audit Tools</li> |
-| **Monitoring & Analytics** | <ul><li>Monitoring</li><li>Analytics</li> |
-| **Education & Activity** | <ul><li>Documentation</li><li>Educational Materials</li><li>Community Building</li><li>Open Source Activity(Including Bug Bounty)</li> |
-| **Research** | <ul><li>Security, Scalability, Cryptography, etc.</li></ul> |
-
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Category</th>
+      <th style="text-align:left">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><b>Development</b>
+      </td>
+      <td style="text-align:left">
+        <p>IDE &amp; Editors</p>
+        <p>Oracle</p>
+        <p>Contract Library</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>Infrastructure</b>
+      </td>
+      <td style="text-align:left">
+        <p>Local Testnet</p>
+        <p>Decentralized File System</p>
+        <p>Multi-VM</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>Test, Debugging, Deployment</b>
+      </td>
+      <td style="text-align:left">
+        <p>Testing &amp; Deployment Tools</p>
+        <p>Security &amp; Audit Tools</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>Monitoring &amp; Analytics</b>
+      </td>
+      <td style="text-align:left">
+        <p>Monitoring</p>
+        <p>Analytics</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>Education &amp; Activity</b>
+      </td>
+      <td style="text-align:left">
+        <p>Documentation</p>
+        <p>Educational Materials</p>
+        <p>Community Building</p>
+        <p>Open Source Activity(Including Bug Bounty)</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>Research</b>
+      </td>
+      <td style="text-align:left">Security, Scalability, Cryptography, etc.</td>
+    </tr>
+  </tbody>
+</table>
 
 KIR proposals can be created by any participant in Klaytn’s ecosystem. KIR spending proposals will be processed per KIR Governance Process. Refer to the [Klaytn Improvement Reserve Review Process](governance.md#klaytn-improvement-reserve-review-process) section for more information on the procedure. Once a spending proposal has passed, KLAY will be distributed periodically, from a predetermined total amount, based on the project’s level of progress. This process may change based on the project size but is planned to be processed monthly.
 
 For more information, please visit [Klaytn Improvement Reserve Forum](https://kir.klaytn.com/).
+

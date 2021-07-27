@@ -1,29 +1,21 @@
 ---
-description: >-
-  APIs to inspect transaction pools in the node.
+description: APIs to inspect transaction pools in the node.
 ---
 
-# Namespace txpool <a id="namespace-txpool"></a>
+# txpool
 
-The namespace `txpool` API gives you access to several non-standard RPC methods to inspect the contents of the
-transaction pool containing all the currently pending transactions as well as the ones queued for
-future processing.
+The namespace `txpool` API gives you access to several non-standard RPC methods to inspect the contents of the transaction pool containing all the currently pending transactions as well as the ones queued for future processing.
 
+## txpool\_content <a id="txpool_content"></a>
 
-## txpool_content <a id="txpool_content"></a>
+The `content` inspection property can be queried to list the exact details of all the transactions currently pending for inclusion in the next block\(s\), as well as the ones that are being scheduled for future execution only.
 
-The `content` inspection property can be queried to list the exact details of all the transactions
-currently pending for inclusion in the next block(s), as well as the ones that are being scheduled
-for future execution only.
+The result is an object with two fields `pending` and `queued`. Each of these fields is associative arrays, in which each entry maps an origin-address to a batch of scheduled transactions. These batches themselves are maps associating nonces with actual transactions.
 
-The result is an object with two fields `pending` and `queued`. Each of these fields is associative
-arrays, in which each entry maps an origin-address to a batch of scheduled transactions. These batches
-themselves are maps associating nonces with actual transactions.
-
-| Client  | Method invocation                                                       |
-|:-------:|-------------------------------------------------------------------------|
-| Console | `txpool.content`                                                        |
-| RPC     | `{"method": "txpool_content"}`                                          |
+| Client | Method invocation |
+| :---: | :--- |
+| Console | `txpool.content` |
+| RPC | `{"method": "txpool_content"}` |
 
 **Parameters**
 
@@ -32,7 +24,7 @@ None
 **Return Value**
 
 | Type | Description |
-| --- | --- |
+| :--- | :--- |
 | JSON string | The content of the transaction pool. |
 
 **Example**
@@ -131,29 +123,25 @@ Console
   }
 }
 ```
+
 HTTP RPC
-```shell
+
+```text
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"txpool_content","id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":{"pending":{},"queued":{}}}
 #There is no pending transaction nor queued transaction.
 ```
 
+## txpool\_inspect <a id="txpool_inspect"></a>
 
-## txpool_inspect <a id="txpool_inspect"></a>
+The `inspect` inspection property can be queried to list a textual summary of all the transactions currently pending for inclusion in the next block\(s\), as well as the ones that are being scheduled for future execution only. This is a method specifically tailored to developers to quickly see the transactions in the pool and find any potential issues.
 
-The `inspect` inspection property can be queried to list a textual summary of all the transactions
-currently pending for inclusion in the next block(s), as well as the ones that are being scheduled
-for future execution only. This is a method specifically tailored to developers to quickly see the
-transactions in the pool and find any potential issues.
+The result is an object with two fields `pending` and `queued`. Each of these fields is associative arrays, in which each entry maps an origin-address to a batch of scheduled transactions. These batches themselves are maps associating nonces with transactions summary strings.
 
-The result is an object with two fields `pending` and `queued`. Each of these fields is associative
-arrays, in which each entry maps an origin-address to a batch of scheduled transactions. These batches
-themselves are maps associating nonces with transactions summary strings.
-
-| Client  | Method invocation                                              |
-|:-------:|----------------------------------------------------------------|
-| Console | `txpool.inspect`                                               |
-| RPC     | `{"method": "txpool_inspect"}`                                 |
+| Client | Method invocation |
+| :---: | :--- |
+| Console | `txpool.inspect` |
+| RPC | `{"method": "txpool_inspect"}` |
 
 **Parameters**
 
@@ -162,12 +150,13 @@ None
 **Return Value**
 
 | Type | Description |
-| --- | --- |
+| :--- | :--- |
 | JSON string | A list of pending and queued transactions. |
 
 **Example**
 
 Console
+
 ```javascript
 > txpool.inspect
 {
@@ -217,26 +206,24 @@ Console
   }
 }
 ```
+
 HTTP RPC
 
-```shell
+```text
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"txpool_inspect","id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":{"pending":{"0x1A789E38cD567a00b7Fb8e1D39100ac395fa463B":{"0":"0x87AC99835e67168d4f9a40580f8F5C33550bA88b: 0 peb + 99000000 gas × 25000000000 peb"},"0xAb552FC3d76de919c74435A4C6B04576a9763934":{"0":"0x87AC99835e67168d4f9a40580f8F5C33550bA88b: 0 peb + 99000000 gas × 25000000000 peb"}},"queued":{}}}
 ```
 
+## txpool\_status <a id="txpool_status"></a>
 
-## txpool_status <a id="txpool_status"></a>
+The `status` inspection property can be queried for the number of transactions currently pending for inclusion in the next block\(s\), as well as the ones that are being scheduled for future execution only.
 
-The `status` inspection property can be queried for the number of transactions currently pending for
-inclusion in the next block(s), as well as the ones that are being scheduled for future execution only.
+The result is an object with two fields `pending` and `queued`, each of which is a counter representing the number of transactions in that particular state.
 
-The result is an object with two fields `pending` and `queued`, each of which is a counter representing
-the number of transactions in that particular state.
-
-| Client  | Method invocation                             |
-|:-------:|-----------------------------------------------|
-| Console | `txpool.status`                               |
-| RPC     | `{"method": "txpool_status"}`                 |
+| Client | Method invocation |
+| :---: | :--- |
+| Console | `txpool.status` |
+| RPC | `{"method": "txpool_status"}` |
 
 **Parameters**
 
@@ -245,7 +232,7 @@ None
 **Return Value**
 
 | Name | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | pending | int | The number of pending transactions. |
 | queued | int | The number of queued transactions. |
 
@@ -260,9 +247,11 @@ Console
   queued: 7
 }
 ```
+
 HTTP RPC
 
-```shell
+```text
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"txpool_status","id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":{"pending":"0x0","queued":"0x0"}}
 ```
+

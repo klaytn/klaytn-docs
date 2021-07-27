@@ -1,3 +1,5 @@
+# Configuration
+
 ## gasPriceAt <a id="gaspriceat"></a>
 
 ```javascript
@@ -9,14 +11,13 @@ Returns the unit price of gas in peb that was effective at the given block heigh
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| defaultBlock | Number &#124; String | (optional) If you don't pass this parameter, the default block set by [caver.klay.defaultBlock](./block.md#defaultblock) will be used. |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| :--- | :--- | :--- |
+| defaultBlock | Number \| String | \(optional\) If you don't pass this parameter, the default block set by [caver.klay.defaultBlock](block.md#defaultblock) will be used. |
+| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `String` - A numeric string of the gas price in peb.
-
 
 **Example**
 
@@ -39,8 +40,8 @@ Returns the chain ID of the chain.
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| :--- | :--- | :--- |
+| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -64,8 +65,8 @@ Returns the unit price defined in the Klaytn network.
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| :--- | :--- | :--- |
+| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -89,13 +90,12 @@ Returns the current client version of a Klaytn node.
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| :--- | :--- | :--- |
+| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `String` - The current client version of a Klaytn node.
-
 
 **Example**
 
@@ -115,13 +115,12 @@ Returns the Klaytn protocol version of the node.
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| :--- | :--- | :--- |
+| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `String` - The Klaytn protocol version of the node.
-
 
 **Example**
 
@@ -141,13 +140,12 @@ Returns `true` if the node is indexing sender transaction hash to transaction ha
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| callback | Function | (optional) Optional callback function. The callback is fired with an error object as the first parameter and the result as the second. |
+| :--- | :--- | :--- |
+| callback | Function | \(optional\) Optional callback function. The callback is fired with an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
-`Promise` returns `Boolean` - `true` means the node is indexing the sender transaction hash to find the fee-payer-signed transaction. For detailed information, please see [Klaytn Platform API - klay_getTransactionBySenderTxHash](../../../../../json-rpc/api-references/klay/transaction.md#klay_gettransactionbysendertxhash) and [Klaytn Transactions - Fee Delegation and SenderTxHash](../../../../../../klaytn/design/transactions/README.md#fee-delegation).
-
+`Promise` returns `Boolean` - `true` means the node is indexing the sender transaction hash to find the fee-payer-signed transaction. For detailed information, please see [Klaytn Platform API - klay\_getTransactionBySenderTxHash](../../../../../json-rpc/api-references/klay/transaction/#klay_gettransactionbysendertxhash) and [Klaytn Transactions - Fee Delegation and SenderTxHash](../../../../../../klaytn/design/transactions/#fee-delegation).
 
 **Example**
 
@@ -167,13 +165,12 @@ Returns `true` if the node is writing blockchain data in parallel manner. It is 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| :--- | :--- | :--- |
+| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `Boolean` - `true` means the node is writing blockchain data in a parallel manner. Returns `false` if the node is writing the data in a serial manner.
-
 
 **Example**
 
@@ -188,14 +185,13 @@ true
 caver.klay.rewardbase([callback])
 ```
 
-Returns the rewardbase of the current node. Rewardbase is the address of the account where the block reward goes to. Only the Klaytn Consensus Nodes (CN) have the rewardbase in their configuration. See [Configuration File](../../../../../../node/core-cell/operation-guide/configuration.md).
-
+Returns the rewardbase of the current node. Rewardbase is the address of the account where the block reward goes to. Only the Klaytn Consensus Nodes \(CN\) have the rewardbase in their configuration. See [Configuration File](../../../../../../node/core-cell/operation-guide/configuration.md).
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| :--- | :--- | :--- |
+| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -213,13 +209,14 @@ Returns the rewardbase of the current node. Rewardbase is the address of the acc
 ```javascript
 caver.klay.writeThroughCaching([callback])
 ```
+
 Returns `true` if the node is using write-through caching. If enabled, block bodies and receipts are cached to increase the read performance when they are written to persistent storage. It is `false` by default.
 
 **Parameters**
 
 | Name | Type | Description |
-| --- | --- | --- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| :--- | :--- | :--- |
+| callback | Function | \(optional\) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -231,3 +228,4 @@ Returns `true` if the node is using write-through caching. If enabled, block bod
 > caver.klay.writeThroughCaching().then(console.log);
 false
 ```
+

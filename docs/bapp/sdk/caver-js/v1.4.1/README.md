@@ -1,4 +1,4 @@
-# Introduction <a id="introduction"></a>
+# caver-js ~v1.4.1
 
 `caver-js` is a JavaScript API library that allows developers to interact with a Klaytn node using a HTTP or Websocket connection. It is available on [npm](https://www.npmjs.com/package/caver-js).
 
@@ -18,9 +18,9 @@
 
 Below are packages provided in `caver-js`.
 
-* [caver.klay](api-references/caver.klay.md)
+* [caver.klay](api-references/caver.klay/)
 * [caver.klay.accounts](api-references/caver.klay.accounts.md)
-* [caver.klay.Contract](api-references/caver.klay.Contract.md)
+* [caver.klay.Contract](api-references/caver.klay.contract.md)
 * [caver.klay.net](api-references/caver.klay.net.md)
 * [caver.klay.abi](api-references/caver.klay.abi.md)
 * [caver.utils](api-references/caver.utils_1.4.1.md)
@@ -59,5 +59,4 @@ If `gasPrice` is not defined when you sign or submit a transaction, caver-js use
 
 * caver-js [GitHub repository](https://github.com/klaytn/caver-js)
 * caver-js on [npm](https://www.npmjs.com/package/caver-js)
-
 

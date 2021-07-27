@@ -1,4 +1,4 @@
-# Creating Accounts <a id="creating-accounts"></a>
+# Creating Accounts
 
 ## Creating a New Account <a id="creating-a-new-account"></a>
 
@@ -65,6 +65,4 @@ $ ken account import --password <passwordfile> <keyfile> --datadir <DATADIR>
 > personal.importRawKey('{private key}0x000x{address}', 'mypassword')
 "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"
 ```
-
-
 

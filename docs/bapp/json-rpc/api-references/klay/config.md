@@ -1,4 +1,6 @@
-## klay_chainID <a id="klay_chainid"></a>
+# Configuration
+
+## klay\_chainID <a id="klay_chainid"></a>
 
 Returns the chain ID of the chain.
 
@@ -8,13 +10,13 @@ None
 
 **Return Value**
 
-| Type     | Description                                           |
-| -------- | ----------------------------------------------------- |
+| Type | Description |
+| :--- | :--- |
 | QUANTITY | Integer of the chain ID of the chain. |
 
 **Example**
 
-```shell
+```text
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_chainID","id":1}' http://localhost:8551
 
@@ -26,8 +28,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-
-## klay_clientVersion <a id="klay_clientversion"></a>
+## klay\_clientVersion <a id="klay_clientversion"></a>
 
 Returns the current client version of a Klaytn node.
 
@@ -37,13 +38,13 @@ None
 
 **Return Value**
 
-| Type   | Description                                  |
-| ------ | -------------------------------------------- |
+| Type | Description |
+| :--- | :--- |
 | String | The current client version of a Klaytn node. |
 
 **Example**
 
-```shell
+```text
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_clientVersion","id":1}' http://localhost:8551
 
@@ -55,8 +56,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-
-## klay_gasPrice <a id="klay_gasprice"></a>
+## klay\_gasPrice <a id="klay_gasprice"></a>
 
 Returns the current price per gas in peb.
 
@@ -68,13 +68,13 @@ None
 
 **Return Value**
 
-| Type     | Description                              |
-| -------- | ---------------------------------------- |
+| Type | Description |
+| :--- | :--- |
 | QUANTITY | Integer of the current gas price in peb. |
 
 **Example**
 
-```shell
+```text
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_gasPrice","params":[],"id":1}' http://localhost:8551
 
@@ -86,7 +86,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay_gasPriceAt <a id="klay_gaspriceat"></a>
+## klay\_gasPriceAt <a id="klay_gaspriceat"></a>
 
 Returns the unit price of the given block in peb.
 
@@ -94,14 +94,14 @@ Returns the unit price of the given block in peb.
 
 **Parameters**
 
-| Type          | Description                                                  |
-| ------------- | ------------------------------------------------------------ |
-| NUMBER | Block number. If omitted, latest unit price will be returned.       |
+| Type | Description |
+| :--- | :--- |
+| NUMBER | Block number. If omitted, latest unit price will be returned. |
 
 **Return Value**
 
-| Type     | Description                              |
-| -------- | ---------------------------------------- |
+| Type | Description |
+| :--- | :--- |
 | QUANTITY | Integer of the current gas price in peb. |
 
 **Example**
@@ -118,7 +118,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-## klay_isParallelDBWrite <a id="klay_isparalleldbwrite"></a>
+## klay\_isParallelDBWrite <a id="klay_isparalleldbwrite"></a>
 
 Returns `true` if the node is writing blockchain data in parallel manner. It is enabled by default.
 
@@ -128,13 +128,13 @@ None
 
 **Return Value**
 
-| Type     | Description                                           |
-| -------- | ----------------------------------------------------- |
+| Type | Description |
+| :--- | :--- |
 | Boolean | `true` means the node is writing blockchain data in parallel manner. It is `false` if the node is writing the data in serial manner. |
 
 **Example**
 
-```shell
+```text
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_isParallelDBWrite","id":1}' http://localhost:8551
 
@@ -146,11 +146,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
+## klay\_isSenderTxHashIndexingEnabled <a id="klay_issendertxhashindexingenabled"></a>
 
-## klay_isSenderTxHashIndexingEnabled <a id="klay_issendertxhashindexingenabled"></a>
-
-Returns `true` if the node is indexing sender transaction hash to transaction hash mapping information.
-It is disabled by default and can be enabled by `--sendertxhashindexing`.
+Returns `true` if the node is indexing sender transaction hash to transaction hash mapping information. It is disabled by default and can be enabled by `--sendertxhashindexing`.
 
 **Parameters**
 
@@ -158,13 +156,13 @@ None
 
 **Return Value**
 
-| Type     | Description                                           |
-| -------- | ----------------------------------------------------- |
+| Type | Description |
+| :--- | :--- |
 | Boolean | `true` means the node is indexing sender transaction hash to transaction hash mapping information. |
 
 **Example**
 
-```shell
+```text
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_isSenderTxHashIndexingEnabled","id":1}' http://localhost:8551
 
@@ -176,8 +174,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-
-## klay_protocolVersion <a id="klay_protocolversion"></a>
+## klay\_protocolVersion <a id="klay_protocolversion"></a>
 
 Returns the Klaytn protocol version of the node.
 
@@ -187,13 +184,13 @@ None
 
 **Return Value**
 
-| Type   | Description                          |
-| ------ | ------------------------------------ |
+| Type | Description |
+| :--- | :--- |
 | String | The Klaytn protocol version of the node. |
 
 **Example**
 
-```shell
+```text
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_protocolVersion","params":[],"id":1}' http://localhost:8551
 
@@ -205,8 +202,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-
-## klay_rewardbase <a id="klay_rewardbase"></a>
+## klay\_rewardbase <a id="klay_rewardbase"></a>
 
 Returns the rewardbase of the current node. Rewardbase is the address of the account where the block rewards goes to. It is only required for CNs.
 
@@ -216,13 +212,13 @@ None
 
 **Return Value**
 
-| Type     | Description                                           |
-| -------- | ----------------------------------------------------- |
+| Type | Description |
+| :--- | :--- |
 | 20-byte DATA | Address. |
 
 **Example**
 
-```shell
+```text
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_rewardbase","id":1}' http://localhost:8551
 
@@ -244,8 +240,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-
-## klay_writeThroughCaching <a id="klay_writethroughcaching"></a>
+## klay\_writeThroughCaching <a id="klay_writethroughcaching"></a>
 
 Returns `true` if the node is using write through caching. If enabled, block bodies and receipts are cached when they are written to persistent storage. It is `false` by default.
 
@@ -255,13 +250,13 @@ None
 
 **Return Value**
 
-| Type     | Description                                           |
-| -------- | ----------------------------------------------------- |
+| Type | Description |
+| :--- | :--- |
 | Boolean | `true` means the node is using write through caching. |
 
 **Example**
 
-```shell
+```text
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_writeThroughCaching","id":1}' http://localhost:8551
 

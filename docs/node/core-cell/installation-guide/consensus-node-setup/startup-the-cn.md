@@ -1,6 +1,6 @@
-# Startup the CN <a id="startup-the-cn"></a>
+# Startup the CN
 
-## CN Start/Stop  <a id="cn-start-stop"></a>
+## CN Start/Stop <a id="cn-start-stop"></a>
 
 You can start/stop the Klaytn service with the following `systemctl` command.
 
@@ -10,14 +10,12 @@ You can start/stop the Klaytn service with the following `systemctl` command.
 
 ```bash
 $ systemctl start kcnd.service
-
 ```
 
 **stop**
 
 ```bash
 $ systemctl stop kcnd.service
-
 ```
 
 ## Troubleshooting <a id="troubleshooting"></a>
@@ -33,5 +31,4 @@ reload the systemd manager configuration with the following command.
 ```bash
 $ systemctl daemon-reload
 ```
-
 

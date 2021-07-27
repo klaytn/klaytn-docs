@@ -1,4 +1,4 @@
-# ERC-20 <a id="erc-20"></a>
+# ERC-20
 
 ## Introduction <a id="introduction"></a>
 

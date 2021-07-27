@@ -1,4 +1,4 @@
-# Checking Node Status <a id="checking-node-status"></a>
+# Checking Node Status
 
 ## Process Status <a id="process-status"></a>
 
@@ -60,7 +60,7 @@ $ tail -F ~/kscnd_home/logs/kscnd.out
 
 ### kscn console <a id="kscn-console"></a>
 
-Klaytn provides a CLI client: `kscn console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `data` directory on an SCN.
+Klaytn provides a CLI client: `kscn console`. Another way of using the client is to connect to the process via IPC \(inter-process communication\). The IPC file `klay.ipc` is located in the `data` directory on an SCN.
 
 Please execute the following command and check out the result.
 
@@ -75,12 +75,12 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
  >
 ```
 
-You can check the usable commands on [API Document](../../../../bapp/json-rpc/README.md)
+You can check the usable commands on [API Document](../../../../bapp/json-rpc/)
 
 The useful APIs to check the status of SCN:
 
-* `klay.blockNumber` (to get the latest block number)
-* `net.peerCount` (to get the number of the connected Klaytn nodes currently)
+* `klay.blockNumber` \(to get the latest block number\)
+* `net.peerCount` \(to get the number of the connected Klaytn nodes currently\)
 
 ### klay.blockNumber <a id="klay-blocknumber"></a>
 
@@ -99,5 +99,4 @@ You can get the latest block number to see if blocks are propagated properly.
 ```
 
 The above command line returns the number of nodes that the SCN connects to except the EN in the main chain.
-
 
