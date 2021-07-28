@@ -17,16 +17,16 @@ caver.account는 Klaytn 계정의 AccountKey를 업데이트하기 위한 패키
 
 ### caver.wallet
 
-caver.wallet은 인메모리 지갑에서 Keyring 인스턴스를 관리하도록 하는 패키지입니다. Keyring이란 어떤 Klaytn 계정 주소와 그 주소의 개인키(들)를 저장하는 인스턴스입니다. 키링은 이 계정 주소가 트랜잭션에 서명할 때 사용됩니다. caver.wallet은 모든 종류의 Keyring (SingleKeyring, MultipleKeyring, and RoleBasedKeyring)을 수용하며 각 Klaytn 계정 주소를 가지고 이를 관리합니다.
+caver.wallet은 인메모리 지갑에서 Keyring 인스턴스를 관리하도록 하는 패키지입니다. Keyring이란 어떤 Klaytn 계정 주소와 그 주소의 개인키(들)를 저장하는 인스턴스입니다. 키링은 이 계정 주소가 트랜잭션에 서명할 때 사용됩니다. caver.wallet은 모든 종류의 Keyring (SingleKeyring, MultipleKeyring, RoleBasedKeyring)을 수용하며 각 Klaytn 계정 주소를 가지고 이를 관리합니다.
 
-- `caver.wallet`는 caver-java 1.4.0의 `caver.crypto`를 대체합니다.
+- `caver.wallet`은 caver-java 1.4.0의 `caver.crypto`를 대체합니다.
 - `caver.wallet.KeyStore`는 caver-java 1.4.0의 `caver.wallet.WalletFile`를 대체합니다.
 
 ### caver.transaction
 
 caver.transaction은 [Transaction](https://docs.klaytn.com/klaytn/design/transactions#transactions-overview) 관련 기능을 제공하는 패키지입니다.
 
-- `caver.transaction`는 caver-java 1.4.0의 `caver.tx`를 대체합니다.
+- `caver.transaction`은 caver-java 1.4.0의 `caver.tx`를 대체합니다.
 
 ### caver.rpc
 
@@ -40,7 +40,7 @@ caver.utils는 유틸리티 함수를 제공합니다.
 
 ### caver.contract
 
-`caver.contract` 패키지를 사용하면 Klaytn의 스마트 컨트랙트를 쉽게 다룰 수 있습니다. caver.contract를 사용하면 스마트 컨트랙트를 배포하고 스마트 컨트랙트 함수를 호출해 실행할 수 있습니다. `caver.contract`는 먼저 스마트 컨트랙트 함수와 이벤트들을 ABI\(Application Binary Interface\)에서 변환하여 함수를 호출하고 이벤트 정보를 얻습니다.
+`caver.contract` 패키지를 사용하면 Klaytn의 스마트 컨트랙트를 쉽게 다룰 수 있습니다. caver.contract로 스마트 컨트랙트를 배포하고 스마트 컨트랙트 함수를 호출해 실행할 수 있습니다. `caver.contract`는 먼저 스마트 컨트랙트 함수와 이벤트들을 ABI\(Application Binary Interface\)에서 변환하여 함수를 호출하고 이벤트 정보를 얻습니다.
 
 ## 준비 사항 <a id="prerequisites"></a>
 
@@ -101,7 +101,7 @@ implementation "ch.qos.logback:logback-classic:1.2.3"
 
 커맨드라인 도구를 사용하면 커맨드라인에서 솔리디티 스마트 컨트랙트 함수 래퍼를 생성할 수 있습니다.
 
-**설치 \(Homebrew\)**
+**\(Homebrew\) 설치**
 
 이를 설치하려면 Java 1.8 이상이 필요합니다.
 
@@ -116,7 +116,7 @@ $ brew install caver-java
 $ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
 ```
 
-**설치 \(기타\)**
+**\(기타\) 설치**
 
 현재 다른 패키지 관리자는 지원하지 않습니다. 다른 솔루션으로, 아래 CLI를 구축하는 방법을 제공합니다.
 
