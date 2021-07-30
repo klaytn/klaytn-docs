@@ -201,7 +201,7 @@ Caver caver = new Caver("http://your.en.url:8551/");
 
 `Keyring`은 Klaytn 계정 주소와 개인키(들)이 들어있는 구조입니다.
 
-`Keyring`은 저장되는 키 종류에 따라 3가지 타입으로 나뉩니다: 주소 1개와 개인키 1개를 가지는 `SingleKeyring`, 주소 1개와 여러 개인키를 가지는 `MultipleKeyring`, 그리고 주소 1개와 키 Role별로 개인키 1개 이상을 가지는 `RoleBasedKeyring`가 있습니다.
+`Keyring`은 저장되는 키 종류에 따라 3가지 타입으로 나뉩니다: 주소 1개와 개인키 1개를 가지는 `SingleKeyring`, 주소 1개와 여러 개인키를 가지는 `MultipleKeyring`, 그리고 주소 1개와 키 역할별로 개인키 1개 이상을 가지는 `RoleBasedKeyring`가 있습니다.
 
 `SingleKeyring`는 내부에 `key` 속성을 정의하며, 이 `key` 속성에 개인키 1개가 저장됩니다.
 
