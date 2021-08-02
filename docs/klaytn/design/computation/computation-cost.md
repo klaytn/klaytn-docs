@@ -1,14 +1,16 @@
 # Computation Cost <a id="computation-cost"></a>
 
-Since Klaytn targets to generate a block every second, the execution time of a transaction should be managed. We considered three approaches to do that: 1. Limits the gas limit of a transaction 1. Limits the execution time of a transaction 1. Limits the computation cost of a transaction
+Since Klaytn aims to maintain 1-second block time, the execution time of transactions have to be managed. Here are three approaches to achieve that: 
 
-Limiting the gas limit of a transaction was not a feasible solution because the concept of the gas represents the current exchange value of the various resources in the Blockchain platform such as computation, storage, network bandwidth, and so on. It is not suitable as a metric for the transaction execution time.
+1. Limiting the gas limit of a transaction 2. Limiting the execution time of a transaction 3. Limiting the computation cost of a transaction
 
-Limiting the execution time of a transaction was not feasible either because the execution time can vary between nodes in the blockchain platform. For example, consider the case that we limit the execution time of a transaction to be 100 milli-second. If a node executes a transaction in 90 ms and another node executes it in 110 ms, the two nodes cannot reach a consensus. Hence, it is not appropriate either.
+Limiting the gas limit of a transaction was not a feasible solution because the concept of the gas represents the current exchange value of the various resources in the blockchain platform such as computation, storage, network bandwidth, and so on. It is not suitable as a metric for the transaction execution time.
 
-The last solution is to limit the computation cost of a transaction. We modeled the computation cost of each EVM opcode based on its actual execution time and limit the sum of computation cost of a transaction. With this approach, we eliminate other factors and only count the normalized execution time unit, and nodes can reach a consensus as well.
+Limiting the execution time of a transaction was not feasible either because the execution time can vary between nodes on the blockchain platform. For example, consider the case in which we limit the execution time of a transaction to be 100 milli-second. If a node executes a transaction in 90 ms and another node executes it in 110 ms, the two nodes cannot reach a consensus. Hence, this solution is not appropriate.
 
-Therefore, we chose the third option and implemented it in Klaytn. For now, the limit of the execution cost is set to 100,000,000. Since the limitation is determined by the platform, developers should know the computation cost of a transaction. To get the computation cost of a transaction, Klaytn provides [klay_estimateComputationCost](../../../bapp/json-rpc/api-references/klay/transaction.md#klay_estimatecomputationcost). The usage is almost the same as [klay_estimateGas](../../../bapp/json-rpc/api-references/klay/transaction.md#klay_estimategas).
+The last approoach is to limit the computation cost of a transaction. We modelled the computation cost of each EVM opcode based on its actual execution time and limit the sum of computation cost of a transaction. With this approach, we eliminate other factors and only count the normalized execution time unit, and nodes can reach a consensus as well.
+
+Therefore, we chose the third option for Klaytn. For now, the limit of the execution cost is set to 100,000,000. Since the limit is determined by the platform, developers should be aware of the computation cost of a transaction. To calculate the computation cost of a transaction, Klaytn provides [klay_estimateComputationCost](../../../bapp/json-rpc/api-references/klay/transaction.md#klay_estimatecomputationcost). The usage is almost the same as [klay_estimateGas](../../../bapp/json-rpc/api-references/klay/transaction.md#klay_estimategas).
 
 ## Computation Cost of Opcodes <a id="computation-cost-of-opcodes"></a>
 
