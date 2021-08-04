@@ -299,7 +299,7 @@ Jasmine
 ```
 
 
-## kip17.symbol <a id="kip17-symbol"></a>
+## kip17.symbol<a id="kip17-symbol"></a>
 
 ```javascript
 kip17.symbol()
