@@ -12,7 +12,7 @@
 - [MultipleKeyring][]: 사용자가 다수의 개인키로 서명합니다.
 - [RoleBasedKeyring][]: 사용자가 역할에 따른 개인키로 서명합니다.
 
-### SingleKeyring <a id="singlekeyring"></a>
+### SingleKeyring<a id="singlekeyring"></a>
 
 ```javascript
 const keyring = new caver.wallet.keyring.singleKeyring(address, key)
@@ -29,7 +29,7 @@ const keyring = new caver.wallet.keyring.singleKeyring(address, key)
 | address | string         | 계정 주소.                                    |
 | key     | [PrivateKey][] | 하나의 개인키를 포함하고 있는 [PrivateKey][]의 인스턴스입니다. |
 
-### MultipleKeyring <a id="multiplekeyring"></a>
+### MultipleKeyring<a id="multiplekeyring"></a>
 
 ```javascript
 const keyring = new caver.wallet.keyring.multipleKeyring(address, keys)
@@ -46,7 +46,7 @@ const keyring = new caver.wallet.keyring.multipleKeyring(address, keys)
 | address | string | 계정 주소.                                    |
 | keys    | Array  | 하나의 개인키를 포함하고 있는 [PrivateKey][]의 인스턴스입니다. |
 
-### RoleBasedKeyring <a id="rolebasedkeyring"></a>
+### RoleBasedKeyring<a id="rolebasedkeyring"></a>
 
 ```javascript
 const keyring = new caver.wallet.keyring.roleBasedKeyring(address, keys)
@@ -87,7 +87,7 @@ const privateKey = new caver.wallet.keyring.privateKey('0x{private key}')
 | privateKey | string | 개인키 문자열. |
 
 
-### SignatureData <a id="signaturedata"></a>
+### SignatureData<a id="signaturedata"></a>
 
 `SignatureData`는 서명 데이터를 포함한 클래스입니다. `sign` 또는 `signMessage`의 결과인 서명은 signatureData로서 반환됩니다. 아래와 같이 signatureData가 서명(들)을 포함하는 것을 확인할 수 있습니다.
 
@@ -103,7 +103,7 @@ const signature = new caver.wallet.keyring.signatureData(['0x1b', '0x2dfc6...', 
 | r  | String | ECDSA 서명 r.    |
 | s  | String | ECDSA 서명 s.    |
 
-## caver.wallet.keyring.generate <a id="caver-wallet-keyring-generate"></a>
+## caver.wallet.keyring.generate<a id="caver-wallet-keyring-generate"></a>
 
 ```javascript
 caver.wallet.keyring.generate([entropy])
@@ -133,7 +133,7 @@ SingleKeyring {
 }
 ```
 
-## caver.wallet.keyring.generateSingleKey <a id="caver-wallet-keyring-generatesinglekey"></a>
+## caver.wallet.keyring.generateSingleKey<a id="caver-wallet-keyring-generatesinglekey"></a>
 
 ```javascript
 caver.wallet.keyring.generateSingleKey([entropy])
@@ -160,7 +160,7 @@ caver.wallet.keyring.generateSingleKey([entropy])
 '0x{private key}'
 ```
 
-## caver.wallet.keyring.generateMultipleKeys <a id="caver-wallet-keyring-generatemultiplekeys"></a>
+## caver.wallet.keyring.generateMultipleKeys<a id="caver-wallet-keyring-generatemultiplekeys"></a>
 
 ```javascript
 caver.wallet.keyring.generateMultipleKeys(num [, entropy])
@@ -192,7 +192,7 @@ caver.wallet.keyring.generateMultipleKeys(num [, entropy])
 ]
 ```
 
-## caver.wallet.keyring.generateRoleBasedKeys <a id="caver-wallet-keyring-generaterolebasedkeys"></a>
+## caver.wallet.keyring.generateRoleBasedKeys<a id="caver-wallet-keyring-generaterolebasedkeys"></a>
 
 ```javascript
 caver.wallet.keyring.generateRoleBasedKeys(numArray [, entropy])
@@ -233,7 +233,7 @@ caver.wallet.keyring.generateRoleBasedKeys(numArray [, entropy])
 ]
 ```
 
-## caver.wallet.keyring.create <a id="caver-wallet-keyring-create"></a>
+## caver.wallet.keyring.create<a id="caver-wallet-keyring-create"></a>
 
 ```javascript
 caver.wallet.keyring.create(address, key)
@@ -302,7 +302,7 @@ RoleBasedKeyring {
 }
 ```
 
-## caver.wallet.keyring.createFromPrivateKey <a id="caver-wallet-keyring-createfromprivatekey"></a>
+## caver.wallet.keyring.createFromPrivateKey<a id="caver-wallet-keyring-createfromprivatekey"></a>
 
 ```javascript
 caver.wallet.keyring.createFromPrivateKey(key)
@@ -340,7 +340,7 @@ SingleKeyring {
 }
 ```
 
-## caver.wallet.keyring.createFromKlaytnWalletKey <a id="caver-wallet-keyring-createfromklaytnwalletkey"></a>
+## caver.wallet.keyring.createFromKlaytnWalletKey<a id="caver-wallet-keyring-createfromklaytnwalletkey"></a>
 
 ```javascript
 caver.wallet.keyring.createFromKlaytnWalletKey(klaytnWalletKey)
@@ -370,7 +370,7 @@ SingleKeyring {
 }
 ```
 
-## caver.wallet.keyring.createWithSingleKey <a id="caver-wallet-keyring-createwithsinglekey"></a>
+## caver.wallet.keyring.createWithSingleKey<a id="caver-wallet-keyring-createwithsinglekey"></a>
 
 ```javascript
 caver.wallet.keyring.createWithSingleKey(address, key)
@@ -401,7 +401,7 @@ SingleKeyring {
 }
 ```
 
-## caver.wallet.keyring.createWithMultipleKey <a id="caver-wallet-keyring-createwithmultiplekey"></a>
+## caver.wallet.keyring.createWithMultipleKey<a id="caver-wallet-keyring-createwithmultiplekey"></a>
 
 ```javascript
 caver.wallet.keyring.createWithMultipleKey(address, key)
@@ -435,7 +435,7 @@ MultipleKeyring {
 }
 ```
 
-## caver.wallet.keyring.createWithRoleBasedKey <a id="caver-wallet-keyring-createwithrolebasedkey"></a>
+## caver.wallet.keyring.createWithRoleBasedKey<a id="caver-wallet-keyring-createwithrolebasedkey"></a>
 
 ```javascript
 caver.wallet.keyring.createWithRoleBasedKey(address, roledBasedKeyArray)
@@ -484,7 +484,7 @@ RoleBasedKeyring {
 }
 ```
 
-## caver.wallet.keyring.decrypt <a id="caver-wallet-keyring-decrypt"></a>
+## caver.wallet.keyring.decrypt<a id="caver-wallet-keyring-decrypt"></a>
 
 ```javascript
 caver.wallet.keyring.decrypt(keystore, password)
@@ -706,7 +706,7 @@ SingleKeyring {
 }
 ```
 
-## keyring.getPublicKey <a id="keyring-getpublickey"></a>
+## keyring.getPublicKey<a id="keyring-getpublickey"></a>
 
 ```javascript
 keyring.getPublicKey()
@@ -741,7 +741,7 @@ keyring.getPublicKey()
 ]
 ```
 
-## keyring.copy <a id="keyring-copy"></a>
+## keyring.copy<a id="keyring-copy"></a>
 
 ```javascript
 keyring.copy()
@@ -797,7 +797,7 @@ RoleBasedKeyring {
 }
 ```
 
-## keyring.sign <a id="keyring-sign"></a>
+## keyring.sign<a id="keyring-sign"></a>
 
 ```javascript
 keyring.sign(transactionHash, chainId, role [, index])
@@ -812,7 +812,7 @@ keyring.sign(transactionHash, chainId, role [, index])
 | 이름              | 타입                   | 설명                                                                                                            |
 | --------------- | -------------------- | ------------------------------------------------------------------------------------------------------------- |
 | transactionHash | string               | 서명할 트랜잭션의 해시 문자열입니다.                                                                                          |
-| chainId         | string &#124; number | Klaytn 블록체인 플랫폼의 체인 ID입니다.                                                                                    |
+| chainId         | string &#124; Number | Klaytn 블록체인 플랫폼의 체인 ID입니다.                                                                                    |
 | role            | number               | 키의 역할을 나타내는 숫자입니다. `caver.wallet.keyring.role`를 사용할 수 있습니다.                                                   |
 | index           | number               | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. 인덱스는 각각의 역할에 정의된 개인키들의 배열 길이보다 작아야 합니다. 인덱스가 정의되지 않았을 경우, 이 메서드는 모든 개인키를 사용합니다. |
 
@@ -865,7 +865,7 @@ keyring.sign(transactionHash, chainId, role [, index])
 ]
 ```
 
-## keyring.signMessage <a id="keyring-signmessage"></a>
+## keyring.signMessage<a id="keyring-signmessage"></a>
 
 ```javascript
 keyring.signMessage(message, role [, index])
@@ -925,7 +925,7 @@ sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 }
 ```
 
-## keyring.getKeyByRole <a id="keyring-getkeybyrole"></a>
+## keyring.getKeyByRole<a id="keyring-getkeybyrole"></a>
 
 ```javascript
 keyring.getKeyByRole(role)
@@ -1000,7 +1000,7 @@ PrivateKey { _privateKey: '0x{private key}' }
 ]
 ```
 
-## keyring.getKlaytnWalletKey <a id="keyring-getklaytnwalletkey"></a>
+## keyring.getKlaytnWalletKey<a id="keyring-getklaytnwalletkey"></a>
 
 ```javascript
 keyring.getKlaytnWalletKey()
@@ -1154,7 +1154,7 @@ Account {
 }
 ```
 
-## keyring.encrypt <a id="keyring-encrypt"></a>
+## keyring.encrypt<a id="keyring-encrypt"></a>
 
 ```javascript
 keyring.encrypt(password [, options])
@@ -1302,7 +1302,7 @@ keyring.encrypt(password [, options])
 }
 ```
 
-## keyring.encryptV3 <a id="keyring-encryptv3"></a>
+## keyring.encryptV3<a id="keyring-encryptv3"></a>
 
 ```javascript
 keyring.encryptV3(password [, options])
@@ -1359,7 +1359,7 @@ keyring.encryptV3(password [, options])
 }
 ```
 
-## keyring.isDecoupled <a id="keyring-isdecoupled"></a>
+## keyring.isDecoupled<a id="keyring-isdecoupled"></a>
 
 ```javascript
 keyring.isDecoupled()
