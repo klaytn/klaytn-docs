@@ -4,7 +4,7 @@
 
 이를 통해 스마트 컨트랙트가 마치 자바스크립트 객체인 것처럼 스마트 컨트랙트와 상호작용할 수 있습니다.
 
-## caver.contract.create <a id="caver-contract-create"></a>
+## caver.contract.create<a id="caver-contract-create"></a>
 
 ```javascript
 caver.contract.create(jsonInterface [, address] [, options])
@@ -79,7 +79,7 @@ JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로
 const myContract = new caver.contract([...], '0x{address in hex}', { gasPrice: '25000000000' })
 ```
 
-## myContract.options <a id="mycontract-options"></a>
+## myContract.options<a id="mycontract-options"></a>
 
 ```javascript
 myContract.options
@@ -129,7 +129,7 @@ myContract.options
 ```
 
 
-## myContract.options.address <a id="mycontract-options-address"></a>
+## myContract.options.address<a id="mycontract-options-address"></a>
 
 ```javascript
 myContract.options.address
@@ -149,11 +149,11 @@ myContract.options.address
 >  myContract.options.address
 '0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae'
 
-// set a contract address
+// 컨트랙트 주소 설정
 >  myContract.options.address = '0x1234FFDD...'
 ```
 
-## myContract.options.jsonInterface <a id="mycontract-options-jsoninterface"></a>
+## myContract.options.jsonInterface<a id="mycontract-options-jsoninterface"></a>
 
 ```javascript
 myContract.options.jsonInterface
@@ -196,12 +196,12 @@ myContract.options.jsonInterface
   },
 ]
 
-// set a new jsonInterface
+// 새 jsonInterface 설정
 > myContract.options.jsonInterface = [...]
 ```
 
 
-## myContract.clone <a id="mycontract-clone"></a>
+## myContract.clone<a id="mycontract-clone"></a>
 
 ```javascript
 myContract.clone([contractAddress])
@@ -233,7 +233,7 @@ Contract {
 }
 ```
 
-## myContract.deploy <a id="mycontract-deploy2"></a>
+## myContract.deploy<a id="mycontract-deploy2"></a>
 
 ```javascript
 myContract.deploy(options, byteCode [, param1 [, param2 [, ...]]])
@@ -333,7 +333,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
   })
 ```
 
-## myContract.deploy <a id="mycontract-deploy"></a>
+## myContract.deploymyContract.deploy<a id="mycontract-deploy"></a>
 
 ```javascript
 myContract.deploy(options)
@@ -424,7 +424,7 @@ Klaytn에 스마트 컨트랙트를 배포할 때 사용되는 객체를 반환�
 ```
 
 
-## myContract.send <a id="mycontract-send"></a>
+## myContract.send<a id="mycontract-send"></a>
 
 ```javascript
 myContract.send(options, methodName [, param1 [, param2 [, ...]]])
@@ -570,7 +570,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 }
 ```
 
-## myContract.sign <a id="mycontract-sign"></a>
+## myContract.sign<a id="mycontract-sign"></a>
 
 ```javascript
 myContract.sign(options, methodName [, param1 [, param2 [, ...]]])
@@ -721,7 +721,7 @@ FeeDelegatedSmartContractExecutionWithRatio {
 }
 ```
 
-## myContract.signAsFeePayer <a id="mycontract-signasfeepayer"></a>
+## myContract.signAsFeePayer<a id="mycontract-signasfeepayer"></a>
 
 ```javascript
 myContract.signAsFeePayer(options, methodName [, param1 [, param2 [, ...]]])
@@ -843,14 +843,14 @@ FeeDelegatedSmartContractExecutionWithRatio {
 }
 ```
 
-## myContract.call <a id="mycontract-call"></a>
+## myContract.call<a id="mycontract-call"></a>
 
 ```javascript
 myContract.call('methodName', [param1 [, param2 [, ...]]])
 myContract.call(options, 'methodName', [param1 [, param2 [, ...]]])
 ```
 
-상수형 메서드를 호출하며 트랜잭션을 보내지 않고 그 스마트 컨트랙트 메서드를 Klaytn 가상머신에서 실행합니다. Note that calling cannot alter the smart contract state.
+상수형 메서드를 호출하며 트랜잭션을 보내지 않고 그 스마트 컨트랙트 메서드를 Klaytn 가상머신에서 실행합니다. 이러한 호출은 스마트 컨트랙트 상태를 변경할 수 없음에 유의하세요.
 
 **참고** `myContract.call`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
@@ -877,7 +877,7 @@ Jasmine
 Test Result
 ```
 
-## myContract.decodeFunctionCall <a id="mycontract-decodefunctioncall"></a>
+## myContract.decodeFunctionCall<a id="mycontract-decodefunctioncall"></a>
 
 ```javascript
 myContract.decodeFunctionCall(functionCall)
@@ -889,9 +889,9 @@ Decodes a function call and returns parameters.
 
 **매개변수**
 
-| 이름           | 타입     | 설명                                |
-| ------------ | ------ | --------------------------------- |
-| functionCall | string | The encoded function call string. |
+| 이름          | 타입     | 설명                                |
+| ----------- | ------ | --------------------------------- |
+| functionCal | string | The encoded function call string. |
 
 **리턴값**
 
@@ -903,7 +903,7 @@ Decodes a function call and returns parameters.
 
 ```javascript
 // The myContract variable is instantiated with the below abi.
-// [
+/ [
 //   {
 //     constant: true,
 //     inputs: [{ name: 'key', type: 'string' }],
@@ -934,7 +934,7 @@ Result {
 ```
 
 
-## myContract.methods <a id="mycontract-methods"></a>
+## myContract.methods<a id="mycontract-methods"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]])
@@ -942,7 +942,7 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]])
 ```
 호출, 전송, 추정 또는 ABI 인코딩될 수 있는 해당 메소드에 대한 트랜잭션 객체를 생성합니다.
 
-The methods of this smart contract are available via:
+이 스마트 컨트랙트의 메서드는 다음을 통해 이용할 수 있습니다:
 
 - 메서드 이름: `myContract.methods.methodName(123)` 또는 `myContract.methods[methodName](123)`
 - 메서드 프로토타입: `myContract.methods['methodName(uint256)'](123)`
@@ -950,11 +950,11 @@ The methods of this smart contract are available via:
 
 이를 통해 자바스크립트 컨트랙트 객체로부터 이름은 같지만 매개변수가 다른 함수를 호출할 수 있습니다.
 
-## cf) \*function signature (function selector)   <a id="cf-function-signature-function-selector"></a>
+## cf) \*function signature (function selector)<a id="cf-function-signature-function-selector"></a>
 The first four bytes of the call data for a function call specifies the function to be called.  
 It is the first (left, high-order in big-endian) four bytes of the Keccak-256 (SHA-3) hash of the signature of the function.
 
-The function signature can be given via 2 different methods.  
+함수 서명은 두 가지 방식으로 가능합니다.  
 `1. caver.abi.encodefunctionSignature('funcName(paramType1,paramType2,...)')`  
 `2. caver.utils.sha3('funcName(paramType1,paramType2,...)').substr(0, 10)`
 
@@ -969,23 +969,23 @@ caver.utils.sha3('methodName(uint256)').substr(0, 10)
 
 **매개변수**
 
-Parameters of any method that belongs to this smart contract, defined in the JSON interface.
+JSON 인터페이스에 정의된 스마트 컨트랙트 메서드에 속하는 모든 메서드의 매개변수
 
 **리턴값**
 
-`Promise` returning `object` - An object in which arguments and functions for contract execution are defined.:
+`Promise`는 `object`를 반환 - 컨트랙트 실행을 위한 인자와 함수가 정의되어 있는 객체입니다:
 
-| 이름                                                   | 타입       | 설명                                                                                                                                                                               |
-| ---------------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| arguments                                            | Array    | The arguments passed to this method.                                                                                                                                             |
-| [call](#methods-methodname-call)                     | function | The function that will call and execute a constant method in its smart contract on Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
-| [send](#methods-methodname-send)                     | function | The function that will send a transaction to the Klaytn and execute its method (can alter the smart contract state).                                                             |
-| [sign](#methods-methodname-sign)                     | function | The function that will sign a transaction as a sender. sign 함수는 서명된 트랜잭션을 반환합니다.                                                                                                 |
-| [signAsFeePayer](#methods-methodname-signasfeepayer) | function | The function that will sign a transaction as a fee payer. signAsFeePayer 함수는 서명된 트랜잭션을 반환합니다.                                                                                    |
-| [estimateGas](#methods-methodname-estimategas)       | function | The that function will estimate the gas used for the execution.                                                                                                                  |
-| [encodeABI](#methods-methodname-encodeabi)           | function | The function that encodes the ABI for this method. This can be sent using a transaction, calling the method, or passing into another smart contract method as its argument.      |
+| 이름                                                   | 타입       | 설명                                                                                         |
+| ---------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------ |
+| arguments                                            | Array    | 이 메서드에 전달되는 인자들입니다.                                                                        |
+| [call](#methods-methodname-call)                     | function | 트랜잭션을 전송하지 않고 Klaytn 가상머신에서 스마트 컨트랙트 내 상수형 메서드를 호출하고 실행하는 함수입니다.                           |
+| [send](#methods-methodname-send)                     | function | Klaytn에 트랜잭션을 전송하고 그 메서드를 실행하는 함수입니다(스마트 컨트랙트 상태를 변경할 수 있음).                               |
+| [sign](#methods-methodname-sign)                     | function | 발신자로서 스마트 컨트랙트 트랜잭션에 서명하는 함수입니다. sign 함수는 서명된 트랜잭션을 반환합니다.                                 |
+| [signAsFeePayer](#methods-methodname-signasfeepayer) | function | 수수료 납부자로서 스마트 컨트랙트 트랜잭션에 서명하는 함수입니다. signAsFeePayer 함수는 서명된 트랜잭션을 반환합니다.                   |
+| [estimateGas](#methods-methodname-estimategas)       | function | 실행에 사용되는 가스량을 추정하는 함수입니다.                                                                  |
+| [encodeABI](#methods-methodname-encodeabi)           | function | 이 메서드의 ABI를 인코딩하는 함수입니다. 트랜잭션을 사용하거나, 메서드를 호출하거나, 인수로써 다른 스마트 컨트랙트 메서드에 전달됨으로써 전송할 수 있습니다. |
 
-**NOTE** `sign` and `signAsFeePayer` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**참고** `sign`과 `signAsFeePayer`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
 **예시**
 
@@ -1076,29 +1076,29 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 ```
 
 
-## methods.methodName.call <a id="methods-methodname-call"></a>
+## methods.methodName.call<a id="methods-methodname-call"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]]).call(options [, callback])
 myContract.methods['methodName']([param1 [, param2 [, ...]]]).call(options [, callback])
 ```
 
-상수형 메서드를 호출하며 트랜잭션을 보내지 않고 그 스마트 컨트랙트 메서드를 Klaytn 가상머신에서 실행합니다.  Note that calling cannot alter the smart contract state. It is recommended to use [myContract.call](#mycontract-call) provided as a short-cut function.
+상수형 메서드를 호출하며 트랜잭션을 보내지 않고 그 스마트 컨트랙트 메서드를 Klaytn 가상머신에서 실행합니다.  이러한 호출은 스마트 컨트랙트 상태를 변경할 수 없음에 유의하세요. 단축함수로서 제공되는 [myContract.call](#mycontract-call)를 사용하는 것이 제안됩니다.
 
 **매개변수**
 
-| 이름       | 타입       | 설명                                                                                                                                                                   |
-| -------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options  | object   | (선택 사항) 호출에 사용되는 옵션. 자세한 내용은 아래 표를 참조하세요.                                                                                                                            |
-| callback | function | (optional) This callback will be fired with the result of the smart contract method execution as the second argument, or with an error object as the first argument. |
+| 이름       | 타입       | 설명                                                                    |
+| -------- | -------- | --------------------------------------------------------------------- |
+| options  | object   | (선택 사항) 호출에 사용되는 옵션. 자세한 내용은 아래 표를 참조하세요.                             |
+| callback | function | (선택 사항) 이 콜백은 스마트 컨트랙트 메소드 실행 결과를 두 번째 인수로, 또는 오류 객체를 첫 번째 인수로 발생합니다. |
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 이름       | 타입     | 설명                                                                         |
-| -------- | ------ | -------------------------------------------------------------------------- |
-| from     | string | (optional) The address which calling contract methods should be made from. |
-| gasPrice | string | (optional) The gas price in peb to use for this call.                      |
-| gas      | number | (optional) The maximum gas provided for this call (gas limit).             |
+| 이름       | 타입     | 설명                                |
+| -------- | ------ | --------------------------------- |
+| from     | string | (선택 사항) 컨트랙트 메서드가 호출되는 주소입니다.     |
+| gasPrice | string | (선택 사항) 호출에 사용될 peb 단위의 가스 가격입니다. |
+| gas      | number | (선택 사항) 호출에 규정된 가스 최대량(가스 제한)입니다. |
 
 **리턴값**
 
@@ -1107,7 +1107,7 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]]).call(options [, ca
 **예시**
 
 ```javascript
-// using the promise
+// promise 사용
 > myContract.methods.methodName(123).call({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
   .then(function(result) {
       ...
@@ -1150,7 +1150,7 @@ contract MyContract {
 ```
 
 
-## methods.methodName.send <a id="methods-methodname-send"></a>
+## methods.methodName.send<a id="methods-methodname-send"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]]).send(options [, callback])
@@ -1473,7 +1473,7 @@ Will estimate the gas that a method execution will take when executed in the Kla
 | 이름    | 타입                                              | 설명                                                                                                                                                                     |
 | ----- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | from  | string                                          | (optional) The address from which calling the contract method should be made.                                                                                          |
-| gas   | number                                          | (optional) The maximum gas provided for this call (gas limit). 특정 값을 설정하면 가스 부족 오류를 감지하는 데 도움이 됩니다. 모든 가스가 사용되면 같은 숫자를 반환합니다.                                          |
+| gas   | number                                          | (선택 사항) 호출에 규정된 가스 최대량(가스 제한)입니다. 특정 값을 설정하면 가스 부족 오류를 감지하는 데 도움이 됩니다. 모든 가스가 사용되면 같은 숫자를 반환합니다.                                                                       |
 | value | number &#124; string &#124; BN &#124; Bignumber | (optional) The value in peb that would be transferred to the address of the smart contract if the transaction for executing this contract function was sent to Klaytn. |
 
 **리턴값**
@@ -1508,7 +1508,7 @@ myContract.methods.methodName([param1 [, param2[, ...]]]).encodeABI()
 
 **매개변수**
 
-Parameters of any method that belongs to this smart contract, defined in the JSON interface.
+JSON 인터페이스에 정의된 스마트 컨트랙트 메서드에 속하는 모든 메서드의 매개변수
 
 **리턴값**
 
