@@ -1021,7 +1021,7 @@ keyring.getKlaytnWalletKey()
 '0x{private key}0x{type}0x{address in hex}'
 ```
 
-## keyring.toAccount <a id="keyring-toaccount"></a>
+## keyring.toAccount<a id="keyring-toaccount"></a>
 
 ```javascript
 keyring.toAccount([options])
