@@ -1,5 +1,5 @@
 ---
-description: >- Namespaces related to "Istanbul".
+description: >- APIs related to the namespace "istanbul".
 ---
 
 # Namespace istanbul <a id="namespace-istanbul"></a>
@@ -136,7 +136,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_propose <a id="istanbul_propose"></a>
 
-Injects a new authorization candidate that the validator will attempt to push through.
+Inject a new authorization candidate that the validator will attempt to push through.
 
 **Parameters**
 
@@ -160,7 +160,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_discard <a id="istanbul_discard"></a>
 
-Drops a currently running candidate, stopping the validator from casting further votes (either for or against).
+Drop a currently running candidate, stopping the validator from casting further votes (either for or against).
 
 **Parameters**
 
