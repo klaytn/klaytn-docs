@@ -39,6 +39,110 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
+## klay_getHeaderByNumber <a id="klay_getheaderbynumber"></a>
+
+Returns information about a header by nuumber.
+This API works only on RPC call, not on Javascript console.
+
+**Parameters**
+
+| Type | Description |
+| --- | --- |
+| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](#the-default-block-parameter). |
+
+**Return Value**
+
+See [klay_getHeaderByHash](#klay_getheaderbyhash)
+
+**Example**
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getHeaderByNumber","params":["0x1b4"],"id":1}' http://localhost:8551
+// Result
+{
+   "jsonrpc":"2.0",
+   "id":1,
+   "result":{
+      extraData: "0xd8820505846b6c617988676f312e31312e328664617277696e00000000000000f89ed594e733cb4d279da696f30d470f8c04decb54fcb0d2b841f1f600d136f93a5a2d9c12a7a9f6d7ba80a047c3910a2bbc01e38bcce25e48ed2004d21f134df5efaf1f8cbb9a26e1548e57628ab258c935490c11a7cd65324701f843b841444b3efc40071b6eec2c4d2630b483710b8fc7a601432431b0161f489102d1ca02f2ef93153d0be3843aa563d34cee1716163f58711843442aedd94a56303c0400",
+      gasLimit: "0xe8d4a50fff",
+      gasUsed: "0x0",
+      governanceData: "0x",
+      logsBloom: "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      number: "0x1",
+      parentHash: "0x73255a60e9491b5715f9bfcb7fa1143296810f629836d4cefbd1921d9173d63d",
+      receiptsRoot: "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+      reward: "0x0000000000000000000000000000000000000000",
+      stateRoot: "0xedb87f4b0f905a655c80d1768eb22b1eff2405098c4748b8364c869611e02a2b",
+      timestamp: "0x5c99cbd8",
+      timestampFoS: "0x3d",
+      transactionsRoot: "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+      voteData: "0x"
+    }
+}
+```
+
+## klay_getHeaderByHash <a id="klay_getheaderbyhash"></a>
+
+Returns information about a header by hash.
+This API works only on RPC call, not on Javascript console.
+
+**Parameters**
+
+| Type | Description |
+| --- | --- |
+| 32-byte DATA | Hash of a block. |
+
+**Return Value**
+
+`Object` - A header object, or `error` when no header was found:
+
+| Name | Type | Description |
+| --- | --- | --- |
+| number | QUANTITY | The block number. `null` when it is pending block. |
+| parentHash | 32-byte DATA | Hash of the parent block. |
+| logsBloom | 256-byte DATA | The bloom filter for the logs of the block. `null` when it is pending block. |
+| transactionsRoot | 32-byte DATA | The root of the transaction trie of the block. |
+| stateRoot | 32-byte DATA | The root of the final state trie of the block. |
+| receiptsRoot | 32-byte DATA | The root of the receipts trie of the block. |
+| reward | 20-byte DATA | The address of the beneficiary to whom the block rewards were given. |
+| blockScore | QUANTITY | Former difficulty. Always 1 in the BFT consensus engine |
+| extraData | DATA | The "extra data" field of this block. |
+| gasUsed | QUANTITY | The total used gas by all transactions in this block. |
+| timestamp | QUANTITY | The Unix timestamp for when the block was collated. |
+| timestampFoS | QUANTITY | The fraction of a second of the timestamp for when the block was collated. |
+| governanceData | DATA | RLP encoded governance configuration |
+| voteData | DATA | RLP encoded governance vote of the proposer |
+
+**Example**
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getHeaderByHash","params":["0xb8deae63002d2b6aa33247c8ef545383ee0fd2282ac9b49dbbb74114389ddb5c"],"id":1}' http://localhost:8551
+// Result
+{
+   "jsonrpc":"2.0",
+   "id":1,
+   "result":{
+      extraData: "0xd8820505846b6c617988676f312e31312e328664617277696e00000000000000f89ed594e733cb4d279da696f30d470f8c04decb54fcb0d2b841f1f600d136f93a5a2d9c12a7a9f6d7ba80a047c3910a2bbc01e38bcce25e48ed2004d21f134df5efaf1f8cbb9a26e1548e57628ab258c935490c11a7cd65324701f843b841444b3efc40071b6eec2c4d2630b483710b8fc7a601432431b0161f489102d1ca02f2ef93153d0be3843aa563d34cee1716163f58711843442aedd94a56303c0400",
+      gasLimit: "0xe8d4a50fff",
+      gasUsed: "0x0",
+      governanceData: "0x",
+      logsBloom: "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      number: "0x1",
+      parentHash: "0x73255a60e9491b5715f9bfcb7fa1143296810f629836d4cefbd1921d9173d63d",
+      receiptsRoot: "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+      reward: "0x0000000000000000000000000000000000000000",
+      stateRoot: "0xedb87f4b0f905a655c80d1768eb22b1eff2405098c4748b8364c869611e02a2b",
+      timestamp: "0x5c99cbd8",
+      timestampFoS: "0x3d",
+      transactionsRoot: "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+      voteData: "0x"
+    }
+}
+```
+
+
 ## klay_getBlockByNumber <a id="klay_getblockbynumber"></a>
 
 Returns information about a block by block number.
