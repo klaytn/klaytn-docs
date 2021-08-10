@@ -7,7 +7,7 @@ Executes a new message call immediately without creating a transaction on the bl
 | Name | Type | Description |
 | --- | --- | --- |
 | callObject | Object | The transaction call object.  See the next table for the object's properties. |
-| blockNumber | QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
+| blockNumberOrHash | QUANTITY &#124; TAG &#124; HASH| Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash.|
 
 `callObject` has the following properties:
 
@@ -174,7 +174,7 @@ This API works only on RPC call, not on Javascript console.
 
 | Type | Description |
 | --- | --- |
-| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
 | QUANTITY | The transaction index position. |
 
 **Return Value**
