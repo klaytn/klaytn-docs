@@ -73,7 +73,7 @@ See the [underscore API reference](http://underscorejs.org) for details.
 ```javascript
 caver.utils.toBN(number)
 ```
-Safely converts any given value (including [Bignumber.js](http://mikemcl.github.io/bignumber.js/) instances) into a [BN.js](https://github.com/indutny/bn.js/) instance, for handling big numbers in JavaScript.
+Safely converts any given value (including [BigNumber.js](http://mikemcl.github.io/bignumber.js/) instances) into a [BN.js](https://github.com/indutny/bn.js/) instance, for handling big numbers in JavaScript.
 
 **Parameters**
 
@@ -125,7 +125,7 @@ Checks if a given value is a [BN.js](https://github.com/indutny/bn.js/) instance
 **Example**
 
 ```javascript
-> var number = new BN(10)
+> var number = new caver.utils.BN(10)
 > caver.utils.isBN(number)
 true
 ```
@@ -137,24 +137,24 @@ true
 caver.utils.isBigNumber(bignumber)
 ```
 
-Checks if a given value is a [Bignumber.js](http://mikemcl.github.io/bignumber.js/) instance.
+Checks if a given value is a [BigNumber.js](http://mikemcl.github.io/bignumber.js/) instance.
 
 **Parameters**
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| bignumber | object | A [Bignumber.js](http://mikemcl.github.io/bignumber.js/) instance. |
+| bignumber | object | A [BigNumber.js](http://mikemcl.github.io/bignumber.js/) instance. |
 
 **Return Value**
 
 | Type | Description |
 | ---- | ----------- |
-| boolean | `true` if a given value is a `Bignumber.js` instance. |
+| boolean | `true` if a given value is a `BigNumber.js` instance. |
 
 **Example**
 
 ```javascript
-> var number = new Bignumber(10)
+> var number = new caver.utils.BigNumber(10)
 > caver.utils.isBigNumber(number)
 true
 ```
@@ -188,7 +188,7 @@ Calculates the sha3 of the input.
 > caver.utils.sha3('234') // taken as string
 '0xc1912fee45d61c87cc5ea59dae311904cd86b84fee17cc96966216f811ce6a79'
 
-> caver.utils.sha3(new BN('234')) // utils.sha3 stringify bignumber instance.
+> caver.utils.sha3(new caver.utils.BN('234')) // utils.sha3 stringify bignumber instance.
 '0xc1912fee45d61c87cc5ea59dae311904cd86b84fee17cc96966216f811ce6a79'
 
 > caver.utils.sha3(234)
@@ -238,13 +238,13 @@ This means arguments will be ABI converted and tightly packed before being hashe
 > caver.utils.soliditySha3(0xea) // same as above
 '0x61c831beab28d67d1bb40b5ae1a11e2757fa842f031a2d0bc94a7867bc5d26c2'
 
-> caver.utils.soliditySha3(new BN('234')) // same as above
+> caver.utils.soliditySha3(new caver.utils.BN('234')) // same as above
 '0x61c831beab28d67d1bb40b5ae1a11e2757fa842f031a2d0bc94a7867bc5d26c2'
 
 > caver.utils.soliditySha3({type: 'uint256', value: '234'})) // same as above
 '0x61c831beab28d67d1bb40b5ae1a11e2757fa842f031a2d0bc94a7867bc5d26c2'
 
-> caver.utils.soliditySha3({t: 'uint', v: new BN('234')})) // same as above
+> caver.utils.soliditySha3({t: 'uint', v: new caver.utils.BN('234')})) // same as above
 '0x61c831beab28d67d1bb40b5ae1a11e2757fa842f031a2d0bc94a7867bc5d26c2'
 
 > caver.utils.soliditySha3('0x407D73d8a49eeb85D32Cf465507dd71d507100c1')
@@ -445,7 +445,7 @@ Text strings will be interpreted as UTF-8 strings.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| mixed | string &#124; number &#124; BN &#124; Bignumber | The input to convert to HEX. |
+| mixed | string &#124; number &#124; BN &#124; BigNumber | The input to convert to HEX. |
 
 **Return Value**
 
@@ -462,10 +462,10 @@ Text strings will be interpreted as UTF-8 strings.
 > caver.utils.toHex(234)
 '0xea'
 
-> caver.utils.toHex(new BN('234'))
+> caver.utils.toHex(new caver.utils.BN('234'))
 '0xea'
 
-> caver.utils.toHex(new Bignumber('234'))
+> caver.utils.toHex(new caver.utils.BigNumber('234'))
 '0xea'
 
 > caver.utils.toHex('I have 100€')
@@ -538,7 +538,7 @@ Returns the HEX representation of a given number value.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| number | string &#124; number &#124; BN &#124; Bignumber | A number as string or number. |
+| number | string &#124; number &#124; BN &#124; BigNumber | A number as string or number. |
 
 **Return Value**
 
@@ -758,7 +758,7 @@ caver.utils.convertFromPeb(number [, unit])
 
 | Name | Type | Description |
 | --- | --- | --- |
-| number | string &#124; number &#124; BN | The value in peb. |
+| number | string &#124; number &#124; BN &#124; BigNumber| The value in peb. |
 | unit | string | (optional, defaults to ``"KLAY"``) The unit of KLAY to convert your "peb" into. `number` will be divided by one of the following denominators for the unit provided:<br>- `peb`: '1' <br> - `kpeb`: '1000' <br> - `Mpeb`: '1000000' <br> - `Gpeb`: '1000000000' <br> - `Ston`: '1000000000' <br> - `uKLAY`: '1000000000000' <br> - `mKLAY`: '1000000000000000' <br> - `KLAY`: '1000000000000000000' <br> - `kKLAY`: '1000000000000000000000' <br> - `MKLAY`: '1000000000000000000000000' <br> - `GKLAY`: '1000000000000000000000000000' <br> |
 
 **Return Value**
@@ -917,6 +917,58 @@ Adds padding on the right of a string, Useful for adding paddings to HEX strings
 'Helloxxxxxxxxxxxxxxx'
 ```
 
+## trimLeadingZero <a id="trimleadingzero"></a>
+
+```javascript
+caver.utils.trimLeadingZero(hexString)
+```
+Removes leading zero from 0x-prefixed hex string.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| hexString | string | A hex string to trim. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| string | A hex string without leading zero. |
+
+**Examples**
+
+```javascript
+> caver.utils.trimLeadingZero('0x000011')
+0x11
+```
+
+## makeEven <a id="makeeven"></a>
+
+```javascript
+caver.utils.makeEven(hexString)
+```
+Returns a string to an even length.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| hexString | string | A hex string to make even. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| string | A string with even length. |
+
+**Examples**
+
+```javascript
+> caver.utils.makeEven('0x011')
+0x0011
+```
+
 
 ## toTwosComplement <a id="totwoscomplement"></a>
 
@@ -930,7 +982,7 @@ Converts a negative number into a two's complement.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| num | number &#124; string &#124; Bignumber | The number to convert. |
+| num | number &#124; string &#124; BigNumber | The number to convert. |
 
 **Return Value**
 
@@ -1154,7 +1206,9 @@ This function converts the input to a [Buffer](https://nodejs.org/api/buffer.htm
 
 | Name | Type | Description |
 | --- | --- | --- |
-| input | Buffer &#124; string &#124; number &#124; Array &#124; BN &#124; object | The value to be converted to a Buffer. |
+| input | Buffer &#124; string &#124; number &#124; Array &#124; BN &#124; BigNumber &#124; object | The value to be converted to a Buffer. |
+
+**NOTE** `BigNumber` type is supported since caver-js [v1.6.4](https://www.npmjs.com/package/caver-js/v/1.6.4).
 
 **Return Value**
 
@@ -1217,7 +1271,7 @@ This function converts a number to a [Buffer](https://nodejs.org/api/buffer.html
 
 | Name | Type | Description |
 | --- | --- | --- |
-| input | string &#124; number &#124; BN | A number to be converted to a Buffer. |
+| input | string &#124; number &#124; BN &#124; BigNumber | A number to be converted to a Buffer. |
 
 **Return Value**
 
@@ -1482,6 +1536,74 @@ Returns `true` if a role is valid, otherwise it returns `false`. You can check r
 true
 
 > caver.utils.isValidRole('role')
+false
+```
+
+## isValidBlockNumberCandidate <a id="isvalidblocknumbercandidate"></a>
+
+```javascript
+caver.utils.isValidBlockNumberCandidate(input)
+```
+
+Validtes block number (or block tag string).
+
+The block number should be one of a type below:
+ - predefined block number ex:) 'latest', 'earliest', 'pending', 'genesis'
+ - hex
+ - finite number
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| blockNumber | string &#124; number | The block number to validate. This can be block number in number type or block tag(`latest`, `pending`, `earliest`, `genesis`) string. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| boolean | `true` means blockNumber is valid. |
+
+**Examples**
+
+```javascript
+> caver.utils.isValidBlockNumberCandidate('latest')
+true
+
+> caver.utils.isValidBlockNumberCandidate('0x1')
+true
+
+> caver.utils.isValidBlockNumberCandidate(1)
+true
+```
+
+## isPredefinedBlockNumber <a id="ispredefinedblocknumber"></a>
+
+```javascript
+caver.utils.isPredefinedBlockNumber(input)
+```
+
+Returns `true` if the parameter is predefined block tag.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| predefinedBlock | string | The predefined block. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| boolean | `true` means predefinedBlock is valid predefined block tag. |
+
+**Examples**
+
+```javascript
+> caver.utils.isPredefinedBlockNumber('latest')
+true
+
+> caver.utils.isPredefinedBlockNumber('0x1')
 false
 ```
 
@@ -1805,6 +1927,33 @@ Decompresses the compressed public key.
 '0x62cef87819b82f62e9c0a38c1fa7dfa089084959df86aca19ff2f6c903db2248b45dc23220ee6bcd8753bb9df8ce7d58e56eabebb14479f3a0ca5ccd4bdea632'
 ```
 
+## isCompressedPublicKey <a id="iscompressedpublickey"></a>
+
+```javascript
+caver.utils.isCompressedPublicKey(publicKey)
+```
+
+Return `true` is public key is compressed, otherwise `false`.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| publicKey | string | A public key. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| boolean | `true` means compressed. |
+
+**Examples**
+
+```javascript
+> caver.utils.isCompressedPublicKey('0x0262cef87819b82f62e9c0a38c1fa7dfa089084959df86aca19ff2f6c903db2248')
+true
+```
+
 ## decodeSignature <a id="decodesignature"></a>
 
 ```javascript
@@ -1819,7 +1968,7 @@ Decodes a raw signature data composed of 'R(32 byte) + S(32 byte) + V(1byte)'.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| signature | string |The signature string to decode. It is composed of R(32 byte) + S(32 byte) + V(1byte). |
+| signature | string | The signature string to decode. It is composed of R(32 byte) + S(32 byte) + V(1byte). |
 
 **Return Value**
 

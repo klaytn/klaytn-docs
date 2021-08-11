@@ -681,6 +681,10 @@ Recovers the public key strings from `feePayerSignatures` field.
 
 [Klaytn Design - Transactions]: ../../../../../klaytn/design/transactions/README.md
 [senderTxHash]: ../../../../../klaytn/design/transactions/README.md#sendertxhash
+[Account Update]: ./basic.md#accountupdate
+[roleTransactionKey]: ../../../../../klaytn/design/accounts.md#roles
+[roleAccountUpdateKey]: ../../../../../klaytn/design/accounts.md#roles
+[roleFeePayerKey]: ../../../../../klaytn/design/accounts.md#roles
 [Transaction]: #class
 [Keyring]: ../caver.wallet/keyring.md
 [KlaytnWalletKey]: ../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format
