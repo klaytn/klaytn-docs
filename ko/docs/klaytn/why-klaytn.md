@@ -64,16 +64,10 @@ Klaytn은 블록체인 대중화가 목표입니다. 가장 중요한 디자인 
 - Klaytn은 프라이빗 블록체인 전용 솔루션을 제공해야합니다. 프라이빗 체인은 자체 거버넌스를 보유하고 데이터 앵커링 및 자산 전송을 위해 Klaytn 메인체인에 연결할 수 있습니다.
 - [서비스체인](scaling-solutions.md#service-chain)을 참고해주세요. 기업은 종종 SLA를 충족하기 위해 자체적인 전용 실행 환경을 원합니다. 서비스체인을 통해 기업은 다른 블록체인 애플리케이션의 영향을 받지 않는 격리된 고성능 실행 환경을 유지하고 비즈니스에서 민감한 데이터를 비공개로 유지할 수 있습니다.
 
-### 애플리케이션 서비스 레이어 <a id="application-service-layer"></a>
+### Contribution Reward <a id="contribution-reward"></a>
 
-- Klaytn은 블록체인 애플리케이션 개발 및 운영을 용이하게 하기 위해 엔터프라이즈 프록시(EP)라는 추가 오프체인 서비스 레이어를 제공합니다. 엔터프라이즈 프록시는 블록체인 사용에 따른 기술적 장애를 줄이고 기존 데이터베이스 및 보안 시스템과의 완벽한 통합을 지원합니다.
-- EP 제품 중 하나가 2020년 초에 처음으로 출시될 예정입니다. 이 제품은 블록체인에 대한 지식 없이도 사용할 수 있는 API를 제공하고, 데이터 분석을 통해 비즈니스 인텔리전스 인사이트를 제공할 것입니다.
-- EP의 전략적 방향과 해결할 문제에 대해 알아보려면 [엔터프라이즈 프록시](enterprise-proxy.md)을 참고해주세요.
-
-### 기여 보상 <a id="contribution-reward"></a>
-
-- Klaytn 생태계 성장에 기여하는 애플리케이션은 상당한 보상을 받아야합니다.
-- [Incentive Program](design/token-economy.md#incentive-programs)을 참조해주세요.
+- Applications that contribute to growing Klaytn ecosystem should be fairly rewarded.
+- See [Incentive Program](design/token-economy.md).
 
 ***
 
@@ -83,11 +77,11 @@ Klaytn은 블록체인 대중화가 목표입니다. 가장 중요한 디자인 
 Klaytn은 위에서 언급한 개선 사항을 달성하되 블록체인의 핵심적인 특징을 희생하지 않으며, 적극적으로 헌신하는 참여자들과 함께 안정적으로 플랫폼을 유지합니다.
 {% endhint %}
 
-### 투명성, 보안 및 탈중앙화 <a id="transparency-security-and-decentralization"></a>
+### Transparency, Security and Decentralization <a id="transparency-security-and-decentralization"></a>
 
-- 누구나 트랜잭션을 요청하고 블록체인에서 모든 트랜잭션 실행 결과를 검색하고 확인할 수 있습니다.
-- Klaytn은 탈중앙화된 네트워크이므로 하나의 악성 노드가 데이터 무결성을 손상시키지 않습니다.
+- Everyone can request transactions and retrieve and validate every transaction execution result on the blockchain.
+- Klaytn is a decentralized network and no single malicious node breaks the data integrity.
 
-### 기업들에 의한 거버넌스 <a id="governance-by-enterprises"></a>
+### Governance by Trusted Entities <a id="governance-by-trusted-entities"></a>
 
-- Klaytn의 개발 및 사용은 한국의 IT 대기업인 Kakao의 지원을 받습니다. 수천에서 수십억 달러를 다루는 신뢰받는 기관들과 세계적인 기업들이 Klaytn의 노드를 운영하고, Klaytn 개발을 위한 의사결정에 참여합니다.
+- At its initial phase, trusted entities, global listed enterprises that manage the business of hundreds of thousands to billions of dollars, operate Klaytn node and participate in decision making for the development of Klaytn.
