@@ -20,10 +20,6 @@ Klaytn은 BApp을 성공시킬 수 있는 최적의 환경을 제공함으로써
 
 Data privacy 때문에 퍼블릭 블록체인 사용을 꺼리는 기업들을 위해 Service Chain이라는 자체 L2 Solution(Sidechain)을 제공합니다. 따라서 기업들은 자신만의 블록체인을 구성할 수 있습니다. 동시에 Klaytn mainnet과의 연동을 통해 private blockchain임에도 일정 정도의 신뢰 수준을 제공하는 hybrid blockchain 기능을 제공합니다.
 
-#### 엔터프라이즈 프록시(EP): 기업의 레거시 시스템과의 연동 지원 <a id="enterprise-proxy-ep-support-the-integration-with-the-legacy-systems"></a>
+#### Governance by Trusted Entities: Enterprise level stable consensus and governance <a id="governance-by-enterprises-enterprise-level-stable-consensus-and-governance"></a>
 
-기업에서 블록체인을 적용할 때 기존 시스템과 연동되는 것이 일반적입니다. 따라서 기존 프로그래밍 방식과 블록체인의 스마트 컨트랙트가 혼재될 수 밖에 없고 데이터 역시 기존 시스템과 블록체인에 분산되어 저장될 수 있습니다. 따라서 두 시스템을 자연스럽게 연동시키는 것은 기업에서는 필수적인 업무입니다. Klaytn은 EP를 통해 엔지니어들이 블록체인 지식없이 기존 시스템과 쉽게 연동할 수 있는 기능을 제공합니다.
-
-#### Governance by Enterprises: 기업 수준의 안정적인 컨센서스와 거버넌스 <a id="governance-by-enterprises-enterprise-level-stable-consensus-and-governance"></a>
-
-Klaytn의 노드는 Trusted Entities들, 주로 글로벌 상장기업들이 운영합니다. 이들은 또한 Klaytn 거버넌스 카운슬(KGC)에 속하여 Klaytn 발전을 위한 의사결정에 참여 합니다. 그들은 대부분 수천억에서 수조원대의 사업을 영위하는 기업들이라 평판이 매우 중요합니다. 따라서 평판 리스크를 감수하며 악의적인 행동을 할 가능성이 매우 낮습니다. KGC는 모두 블록체인 사업에 관심이 많기 때문에 노드 운영과 거버넌스 참여 이외에도 Klaytn 기반으로 사업화를 위해 함께 협력할 파트너들입니다.
+Trusted Entities, that is, mainly global listed enterprises, operate Klaytn node. They also belong to Klaytn Governance Council (KGC) and participate in decision making for the development of Klaytn. They are mostly enterprises that manage the business of hundreds of thousands to billions of dollars, so reputation is very important. Therefore, the possibility of doing something malicious while enduring reputation risk is very low. All KGC have lots of interest in blockchain business so they are partners to cooperate with for commercializing based on Klaytn other than node government and governance.
