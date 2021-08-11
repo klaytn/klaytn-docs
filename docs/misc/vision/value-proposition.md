@@ -20,10 +20,6 @@ We provide an optimized environment to the enterprise that leads the enterpriseâ
 
 We provide own L2 Solution(Sidechain) called Service Chain for an enterprise that avoids the use of public blockchain due to data privacy. Therefore, enterprises can constitute their own blockchain. At the same time, through linkage with Klaytn mainnet, we provide a hybrid blockchain function that provides some level of trust although it is private blockchain.
 
-#### Enterprise Proxy (EP): Support the integration with the legacy systems <a id="enterprise-proxy-ep-support-the-integration-with-the-legacy-systems"></a>
-
-It is common to integrate the preexisting system when an enterprise applies blockchain. Therefore, the preexisting programs and the smart contracts in the blockchain have to collaborate and the data also has to be stored across preexisting systems and blockchain. So, it is a necessary task for an enterprise to integrate two systems seamlessly. Klaytn provides an easy integration solution through EP that does not require much blockchain knowledge.
-
-#### Governance by Enterprises: Enterprise level stable consensus and governance <a id="governance-by-enterprises-enterprise-level-stable-consensus-and-governance"></a>
+#### Governance by Trusted Entities: Enterprise level stable consensus and governance <a id="governance-by-enterprises-enterprise-level-stable-consensus-and-governance"></a>
 
 Trusted Entities, that is, mainly global listed enterprises, operate Klaytn node. They also belong to Klaytn Governance Council (KGC) and participate in decision making for the development of Klaytn. They are mostly enterprises that manage the business of hundreds of thousands to billions of dollars, so reputation is very important. Therefore, the possibility of doing something malicious while enduring reputation risk is very low. All KGC have lots of interest in blockchain business so they are partners to cooperate with for commercializing based on Klaytn other than node government and governance.

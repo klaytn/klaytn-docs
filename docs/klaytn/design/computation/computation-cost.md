@@ -2,6 +2,7 @@
 
 Since Klaytn aims to maintain 1-second block time, the execution time of transactions have to be managed. Here are three approaches to achieve that: 
 
+
 1. Limiting the gas limit of a transaction 2. Limiting the execution time of a transaction 3. Limiting the computation cost of a transaction
 
 Limiting the gas limit of a transaction was not a feasible solution because the concept of the gas represents the current exchange value of the various resources in the blockchain platform such as computation, storage, network bandwidth, and so on. It is not suitable as a metric for the transaction execution time.
