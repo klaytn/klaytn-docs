@@ -24,7 +24,6 @@
     * [Multi-Channel](klaytn/design/multiport.md)
     * [KNI](klaytn/design/kni.md)
   * [Scaling Solutions](klaytn/scaling-solutions.md)
-  * [Enterprise Proxy](klaytn/enterprise-proxy.md)
 
 * [Getting Started](getting-started/README.md)
   * [Quick Start](getting-started/quick-start/README.md)
@@ -38,7 +37,6 @@
     * [Managing Accounts](getting-started/account/managing-accounts.md)
   * [Development Environment](getting-started/development-environment.md)
   * [Getting KLAY](getting-started/getting-klay.md)
-  * [Request for Initial Setup on Cypress Mainnet](getting-started/request-for-initial-setup-on-cypress-mainnet.md)
 
 * [Smart Contract](smart-contract/README.md)
   * [Solidity - Smart Contract Language](smart-contract/solidity-smart-contract-language.md)
@@ -272,11 +270,7 @@
 * [Vision](misc/vision/README.md)
   * [Klaytn BApp (Blockchain App)](misc/vision/bapps.md)
   * [Value Proposition](misc/vision/value-proposition.md)
-  * [Governance Council](misc/vision/governance-council.md)
-  * [Service Partners](misc/vision/service-partners.md)
-  * [Klaytn Ecosystem Support](misc/vision/ecosystem.md)
   * [Open Source](misc/vision/opensource.md)
-* [Roadmap](misc/roadmap.md)
 * [FAQ](misc/faq.md)
 * [Glossary](misc/glossary.md)
 * [Terms of Use](misc/terms-of-use.md)
