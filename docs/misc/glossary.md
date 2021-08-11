@@ -17,6 +17,7 @@
 | ENN | Endpoint Node Network. The network consists of the Endpoint Nodes \(ENs\), which mainly create transactions, handle RPC API requests, or process the data from service chains. |
 | EOA | Externally Owned Account. See [Klaytn Account Types] |
 | Full node | A node containing all the blocks generated from a blockchain |
+| KGF | Klaytn Growth Fund. See [Token Economy - Klaytn Growth Fund]. |
 | KIR | Klaytn Improvement Reserve. See [Token Economy - Klaytn Improvement Reserve]. |
 | KLAY | [KLAY] is the main internal transferable cryptocurrency of Klaytn and is used to pay transaction fees when creating or executing smart contracts or when transferring KLAY. Also currency unit of KLAY and 1 KLAY is 10^18 peb. |
 | KLVM | [Klaytn Virtual Machine] |
@@ -37,6 +38,7 @@
 [KLAY]: ../klaytn/design/klaytn-native-coin-klay.md
 [Unit of KLAY]: ../klaytn/design/klaytn-native-coin-klay.md#units-of-klay
 [Unit Price]: ../klaytn/design/transaction-fees.md#unit-price
+[Token Economy - Klaytn Growth Fund]: ../klaytn/design/token-economy.md#klaytn-growth-fund
 [Token Economy - Klaytn Improvement Reserve]: ../klaytn/design/token-economy.md#klaytn-improvement-reserve
 [Consensus Nodes]: ../node/core-cell/README.md
 [Core Cell]: ../node/core-cell/README.md
