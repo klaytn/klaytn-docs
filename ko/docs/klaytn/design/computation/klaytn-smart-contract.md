@@ -8,12 +8,7 @@ Klaytn은 Klaytn 네트워크에서 스마트 컨트랙트를 작성하고 실�
 
 ## 경제적인 스마트 컨트랙트 실행 비용 <a id="affordable-smart-contract-execution-cost"></a>
 
-스마트 컨트랙트 실행에 수수료를 청구하는 이유 중 한 가지는 잘못되었거나 악의적으로 작성된 컨트랙트가 실행되지 않도록 만들어 제한된 자원을 효율적으로 활용하기 위해서입니다. 즉, 블록체인은 \(1\)개발자들이 효율적으로 코드를 작성하게 만들고, \(2\) 악의적인 공격자가 공격했을 때 얻을 수 있는 경제적 이득을 줄이기 위해서 스마트 컨트랙트를 실행하는 데 소모되는 비용을 고의로 늘립니다. 이에 알맞는 전략은 정상적인 실행에는 비용을 적게 청구하고 악의적인 실행에는 많이 청구해야 합니다. 이더리움의 Opcode 기반 수수료 모델은 자원 낭비를 방지하는 데 유용하지만, 일부 Opcode\(예: state write\)의 높은 가스 가격 때문에 일반적인 스마트 컨트랙트도 실행하기 힘들게 만들 수 있습니다. 이는 블록체인 기술의 대중화를 막습니다. 이 문제를 해결하기 위해서 Klaytn은 \(1\)Opcode 당 낮은 단가와 \(2\)종량제 모델을 특징으로 하는 Opcode 기반 고정 수수료 모델(opcode-based fixed fee model)을 사용하고자 계획하고 있습니다.
+스마트 컨트랙트 실행에 수수료를 청구하는 이유 중 한 가지는 잘못되었거나 악의적으로 작성된 컨트랙트가 실행되지 않도록 만들어 제한된 자원을 효율적으로 활용하기 위해서입니다. 즉, 블록체인은 \(1\)개발자들이 효율적으로 코드를 작성하게 만들고, \(2\) 악의적인 공격자가 공격했을 때 얻을 수 있는 경제적 이득을 줄이기 위해서 스마트 컨트랙트를 실행하는 데 소모되는 비용을 고의로 늘립니다. 이에 알맞는 전략은 정상적인 실행에는 비용을 적게 청구하고 악의적인 실행에는 많이 청구해야 합니다. 이더리움의 Opcode 기반 수수료 모델은 자원 낭비를 방지하는 데 유용하지만, 일부 Opcode\(예: state write\)의 높은 가스 가격 때문에 일반적인 스마트 컨트랙트도 실행하기 힘들게 만들 수 있습니다. 이는 블록체인 기술의 대중화를 막습니다. To address this problem, Klaytn plans to use an opcode-based fixed fee model with low unit cost per opcode. This is made possible by dramatically increasing scalability of blockchain protocol.
 
-1. Opcode 수수료는 플랫폼이 사용할 수 있는 자원의 양과 직접적인 관련이 있습니다. 이더리움의 상태 쓰기(state write) 비용은 많이 듭니다. 상태 변화를 기록하고 전파하기 위해서 필요한 저장 공간과 네트워크 대역폭이 제한적이기 때문입니다. 반대로, 만약 블록체인이 많은 자원(예: CPU 타임, 저장 공간, 네트워크 대역폭)을 가지고 있으면 Opcode 당 수수료 단가는 상당히 낮아질 수 있고, Opcode별 비용 차이도 줄일 수 있습니다. Klaytn은 각 CN 노드를 수직적 확장(즉, 하이엔드 하드웨어 사용)하고, 연산을 병렬화(즉, 서비스체인을 통한 논리적 확장)하며, 물리적 클러스터를 수평으로 확장하여 Opcode 당 수수료 단가를 낮추는 것을 목표로 합니다.
-2. 이더리움의 스마트 컨트랙트 수수료는 Opcode들을 실행하기 위한 가스의 합으로 결정됩니다. 이런 전략은 직관적이고 효과적이지만, 최종 비용은 실행된 Opcode의 수와 비례하기 때문에 스마트 컨트랙트의 작은 변경도 실행 비용을 크게 증가시킬 수 있습니다. 이 문제를 해결하기 위해 Klaytn은 미리 정해진 Opcode의 실행 범위에 대해 실행 비용을 동일한 레벨로 조정하는 종량제 모델을 제안합니다. Opcode당 수수료가 저렴해지고 계량 모델이 적용되면 대부분의 짧은 스마트 컨트랙트 실행은 훨씬 저렴하고 안정적인 비용으로 실행될 수 있습니다.
-
-## 작은 가격 변동성 <a id="low-price-volatility"></a>
-
-이더리움이 복잡한 가스 기반 수수료 모델을 선택한 이유는 컴퓨팅 자원을 효율적으로 분배하고, ETH와 법정 화폐 간의 직접 매핑을 방지하여 수수료가 암호화폐 가격 변동성에 주는 영향을 최소화하기 위해서입니다. Klaytn 또한 KLAY의 환율과 스마트 컨트랙트 실행 수수료와의 관계를 분리하기 위해 이더리움의 모델을 일부 수정한 모델을 사용할 것입니다.
+Opcode cost is directly related to the amount of resources that the platform can use. The Ethereum state write cost is high since the storage, and the network bandwidth required to record and propagate the changed states are limited. Conversely, if a blockchain has abundant resources \(e.g., CPU time, storage, network bandwidth\), then the unit cost per opcode can be substantially lower than that of Ethereum, and the cost difference between opcodes can be minimized. Klaytn aims to lower opcode unit cost by vertically scaling each CN node \(i.e., acquiring high-end hardware\), parallelizing computation \(i.e., logical scaling via service chain\), and horizontally scaling physical clusters.
 
