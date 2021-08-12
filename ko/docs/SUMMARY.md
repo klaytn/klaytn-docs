@@ -24,7 +24,6 @@
     * [Multi-Channel](klaytn/design/multiport.md)
     * [KNI](klaytn/design/kni.md)
   * [확장성 솔루션](klaytn/scaling-solutions.md)
-  * [엔터프라이즈 프록시](klaytn/enterprise-proxy.md)
 
 * [시작하기](getting-started/README.md)
   * [빠른 시작](getting-started/quick-start/README.md)
@@ -38,7 +37,6 @@
     * [계정 관리](getting-started/account/managing-accounts.md)
   * [개발 환경](getting-started/development-environment.md)
   * [KLAY 받기](getting-started/getting-klay.md)
-  * [Cypress Mainnet 초기 설정 요청](getting-started/request-for-initial-setup-on-cypress-mainnet.md)
 
 * [스마트 컨트랙트](smart-contract/README.md)
   * [솔리디티 - 스마트 컨트랙트 언어](smart-contract/solidity-smart-contract-language.md)
@@ -272,13 +270,9 @@
 * [비전](misc/vision/README.md)
   * [Klaytn BApp (Blockchain App)](misc/vision/bapps.md)
   * [제안하는 핵심 가치](misc/vision/value-proposition.md)
-  * [거버넌스 카운슬](misc/vision/governance-council.md)
-  * [서비스 파트너](misc/vision/service-partners.md)
-  * [Klaytn 생태계 지원](misc/vision/ecosystem.md)
-  * [오픈 소스](misc/vision/opensource.md)
-* [로드맵](misc/roadmap.md)
+  * [Open Source](misc/vision/opensource.md)
 * [FAQ](misc/faq.md)
-* [용어집](misc/glossary.md)
+* [Glossary](misc/glossary.md)
 * [Terms of Use](misc/terms-of-use.md)
 
 * [지원 언어](languages.md)
