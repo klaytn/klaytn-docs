@@ -30,7 +30,7 @@ caver.transaction은 [Transaction](https://docs.klaytn.com/klaytn/design/transac
 
 ### caver.rpc
 
-caver.rpc는 Klaytn 노드에 RPC 호출을 하는 기능을 제공하는 패키지입니다.
+caver.rpc는 Klaytn 노드에 RPC 호출 기능을 제공하는 패키지입니다.
 
 - `caver.rpc.klay`와 `caver.rpc.net`은 caver-java 1.4.0의 `Klay`, `Net` 인터페이스를 각각 대체합니다.
 
@@ -635,7 +635,7 @@ try {
 }
 ```
 
-트랜잭션의 실행 결과는 영수증의 `status`를 통하여 확인할 수 있습니다. 리턴값에 대한 자세한 설명은 `caver.rpc.klay.getTransactionReceipt`를 참조하세요. 만약 트랜잭션 실행이 실패한다면 에러에 대한 자세한 내용은 영수증의 `txError`에서 확인할 수 있습니다. `txError`에 대한 자세한 설명은 [txError: Detailed Information of Transaction Failures를 참고해주세요].
+트랜잭션의 실행 결과는 영수증의 `status`를 통하여 확인할 수 있습니다. 리턴값에 대한 자세한 설명은 `caver.rpc.klay.getTransactionReceipt`를 참조하세요. 만약 트랜잭션 실행이 실패한다면 에러에 대한 자세한 내용은 영수증의 `txError`에서 확인할 수 있습니다. `txError`에 대한 자세한 설명은 [txError: Detailed Information of Transaction Failures]를 참고해주세요.
 
 ### 계정 업데이트 <a id="account-update"></a>
 
@@ -700,9 +700,9 @@ senderKeyring = (SingleKeyring)caver.wallet.updateKeyring(newKeyring);
 
 위 코드가 성공적으로 실행되었다면 서명 시 기존 개인키와 이에 대응되는 기존 Keyring은 트랜잭션에 더 이상 사용하실 수 없습니다. 따라서 여러분은 `caver.wallet.updateKeyring(newKeyring)`을 사용해 기존 Keyring을 `newKeyring`으로 업데이트하셔야 합니다.  업데이트되고 나면 트랜잭션 서명은 새로운 개인키로만 가능합니다.
 
-Klaytn 계정 AccountKey를 여러개의 `AccountKeys`로 업데이트하려면 어떻게 해야 할까요? 아래 예시는 여러분이 사용하고 싶은 개인키들을 가지고 `Account` 인스턴스를 만드는 방법을 소개합니다(`caver.account.create`로 여러 공개키를 가지고 `Account` 인스턴스를 만들 수 있습니다.). 여기에서도, 트랜잭션 객체의 `account` 필드에 Account 인스턴스를 입력 파라미터로 넣으면, 나머지 업데이트 과정은 위에서 소개한 AccountKey 1개를 업데이트하는 과정과 동일합니다.
+Klaytn 계정 AccountKey를 여러 개의 `AccountKeys`로 업데이트하려면 어떻게 해야 할까요? 아래 예시는 여러분이 사용하고 싶은 개인키들을 가지고 `Account` 인스턴스를 만드는 방법을 소개합니다(`caver.account.create`로 여러 공개키를 가지고 `Account` 인스턴스를 만들 수 있습니다.). 여기에서도, 트랜잭션 객체의 `account` 필드에 Account 인스턴스를 입력 파라미터로 넣으면, 나머지 업데이트 과정은 위에서 소개한 AccountKey 1개를 업데이트하는 과정과 동일합니다.
 
-먼저, AccountKey를 `AccountKeyWeightedMultiSig`로 업데이트하기 위해 Account 인스턴스 하나를 만들어봅니다. `AccountKeyWeightedMultiSig`로 업데이트하려면, 임계값과 Key별 가중치가 정의되어야 합니다. 이를 위해서는 `caver.account.weightedMultiSigOptions`를 사용하십시오. 1번째 파라미터는 임계값이고 2번째 파라미터는 Key별 가중치를 담고 있는 배열입니다.
+먼저, AccountKey를 `AccountKeyWeightedMultiSig`로 업데이트하기 위해 Account 인스턴스 하나를 만들어봅니다. `AccountKeyWeightedMultiSig`로 업데이트하려면, 임계값(Threshold)과 Key별 가중치가 정의되어야 합니다. 이를 위해서는 `caver.account.weightedMultiSigOptions`를 사용하십시오. 1번째 파라미터는 임계값이고 2번째 파라미터는 Key별 가중치를 담고 있는 배열입니다.
 
 ```java
 // AccountKeyWeightedMultiSig를 사용하여 개인키 3개로 account 인스턴스 생성
