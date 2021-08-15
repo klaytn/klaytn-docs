@@ -1,6 +1,6 @@
 # 시작하기 <a id="getting-started"></a>
 
-이 문서는 caver-js 1.5.0 또는 상위 버전을 사용하는 개발자를 위해 작성되었습니다. If you are using an older version, see [Getting Started (~v1.4.1)](v1.4.1/getting-started_1.4.1.md).
+이 문서는 caver-js 1.5.0 또는 상위 버전을 사용하는 개발자를 위해 작성되었습니다. 하위 버전을 사용 중이라면 [Getting Started (~v1.4.1)](v1.4.1/getting-started_1.4.1.md)를 확인하십시오.
 
 ## 준비 사항 <a id="prerequisites"></a>
 
@@ -13,7 +13,7 @@ caver-js 라이브러리를 사용하려면 다음 패키지가 필요합니다.
 * [gcc-c++](https://gcc.gnu.org/)
 * [Solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
-**Note** caver-js can run on Node.js versions 12 and 14. The recommended versions are as follows:
+**참고** caver-js는 Node.js 버전 12와 14에서 실행 가능합니다. 권장되는 버전은 다음과 같습니다.
 - lts/erbium ([12.21.0](https://nodejs.org/dist/latest-v12.x/))
 - lts/fermium ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
 
