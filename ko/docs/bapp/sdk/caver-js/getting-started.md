@@ -17,7 +17,7 @@ caver-js 라이브러리를 사용하려면 다음 패키지가 필요합니다.
 - lts/erbium ([12.21.0](https://nodejs.org/dist/latest-v12.x/))
 - lts/fermium ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
 
-If you use a different version of the Node \(for example, Node v15\), utilize the Node Version Manager\([NVM](https://github.com/nvm-sh/nvm)\) to install and use the version supported by caver-js.
+다른 버전의 Node\(가령 Node v15\)를 사용 중인 경우, Node Version Manager\([NVM](https://github.com/nvm-sh/nvm)\)를 사용해 caver-js가 지원하는 버전을 설치하고 사용합니다.
 
 ### 설치 <a id="installation"></a>
 
@@ -37,7 +37,7 @@ $ npm install caver-js@X.X.X
 
 ## 빠른 시작: KLAY 전송하기<a id="sending-klay-at-a-glance"></a>
 
-이 장은 `keystore file`을 사용해 KLAY를 전송하는 간단한 KLAY 전송 트랜잭션 예시를 설명합니다. The keystore file can be created in [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
+이 장은 `keystore file`을 사용해 KLAY를 전송하는 간단한 KLAY 전송 트랜잭션 예시를 설명합니다. 키스토어 파일은 [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에 생성될 수 있습니다. 테스트를 위해 KLAY가 필요한 경우 [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에서 Baobab testnet KLAY를 얻을 수 있습니다.
 
 ```javascript
 const fs = require('fs')
@@ -447,7 +447,7 @@ RoleBasedKeyring {
 
 ### Baobab Faucet을 통해 KLAY 받기 <a id="getting-klay-via-baobab-faucet"></a>
 
-If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). 개인키 또는 키스토어 파일을 사용하여 Klaytn Wallet에 로그인하고 테스트를 위해 faucet을 통해 Baobab 테스트넷 KLAY를 받습니다.
+테스트를 위해 KLAY가 필요한 경우 [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에서 Baobab testnet KLAY를 얻을 수 있습니다. 개인키 또는 키스토어 파일을 사용하여 Klaytn Wallet에 로그인하고 테스트를 위해 faucet을 통해 Baobab 테스트넷 KLAY를 받습니다.
 
 ### 송금 트랜잭션 전송 <a id="sending-a-value-transfer-transaction"></a>
 
