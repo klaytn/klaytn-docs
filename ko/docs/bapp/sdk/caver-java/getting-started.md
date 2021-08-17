@@ -789,7 +789,7 @@ Contract JSON ABI
 **참고**: 스마트 컨트랙트를 컴파일하려면 [솔리디티 컴파일러](https://solidity.readthedocs.io/en/develop/installing-solidity.html) 가 설치되어 있어야 합니다. 위 프로그램을 컴파일하려면 solc:0.5.6을 설치해야 합니다.
 
 유형별로 스마트 컨트랙트를 배포하기 위해서는 아래와 같은 caver-java 클래스들을 사용합니다:
-  - `caver.contract` 패키지의 `Contract` 클래스: 스마트 컨트랙트 트랜잭션의 발신자가 수수료를 지불할 때
+  - `caver.contract` 패키지의 `Contract` 클래스: 스마트 컨트랙트 트랜잭션의 발신자 또는 대납자가 수수료를 지불할 때
   - `caver.transaction`패키지의 `SmartContractDeploy`클래스: 스마트 컨트랙트 트랜잭션 발신자가 수수료를 지불할 때
   - `caver.transaction`패키지의`feeDelegatedSmartContractDeploy` 클래스: 스마트 컨트랙트 트랜잭션 수수료 납부자가 수수료를 지불할 때
   - `caver.transaction`패키지의`feeDelegatedSmartContractDeployWithRatio` 클래스: 스마트 컨트랙트 트랜잭션 수수료 납부자가 수수료를 일부 지불할 때
