@@ -1,4 +1,4 @@
-# Table of contents <a id="table-of-contents"></a>
+# 목차 <a id="table-of-contents"></a>
 
 * [Welcome](README.md)
 
@@ -21,7 +21,7 @@
     * [Klaytn 자체 코인 - KLAY](klaytn/design/klaytn-native-coin-klay.md)
     * [토큰 이코노미](klaytn/design/token-economy.md)
     * [거버넌스(Governance)](klaytn/design/governance.md)
-    * [Multi-Channel](klaytn/design/multiport.md)
+    * [다중 채널](klaytn/design/multiport.md)
     * [KNI](klaytn/design/kni.md)
   * [확장성 솔루션](klaytn/scaling-solutions.md)
 
