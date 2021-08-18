@@ -1239,7 +1239,7 @@ Returns `true` if client is actively mining new blocks.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 

@@ -16,7 +16,7 @@ Submits a new vote. If the node has the right to vote based on the governance mo
 | --- | --- | --- |
 | key | string | Name of the configuration setting to be changed. Key has the form "domain.field". |
 | value | string &#124; number &#124; boolean | Various types of value for each key. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 For more details about the `key` and `value` for `caver.rpc.governance.vote`, please refer to [governance_vote](../../../../json-rpc/api-references/governance.md#governance_vote).
 
@@ -48,7 +48,7 @@ Provides the current tally of governance votes. It shows the aggregate approval 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -83,7 +83,7 @@ Provides the sum of all voting power that CNs have. Each CN has 1.0 ~ 2.0 voting
 
 | Name | Type | Description |
 | --- | --- | --- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -112,7 +112,7 @@ Provides the voting power of the node. The voting power can be anywhere between 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -141,7 +141,7 @@ Provides my vote information in the epoch. Each vote is stored in a block when t
 
 | Name | Type | Description |
 | --- | --- | --- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -177,7 +177,7 @@ Provides the initial chain configuration. Because it just stores the initial con
 
 | Name | Type | Description |
 | --- | --- | --- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -224,7 +224,7 @@ Provides the address of the node that a user is using. It is derived from the no
 
 | Name | Type | Description |
 | --- | --- | --- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -254,7 +254,7 @@ Returns governance items at a specific block. It is the result of previous votin
 | Name | Type | Description |
 | --- | --- | --- |
 | blockNumberOrTag | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -299,7 +299,7 @@ Returns the list of items that have received enough number of votes but not yet 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -328,7 +328,7 @@ Returns an array of current idxCache in the memory cache. idxCache contains the 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -357,7 +357,7 @@ Returns an array that contains all block numbers at which any governance changes
 
 | Name | Type | Description |
 | --- | --- | --- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -386,7 +386,7 @@ Returns the governance information stored on the given block. If no changes are 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Parameters**
 
@@ -438,7 +438,7 @@ Returns the votes from all nodes in the epoch. These votes are gathered from the
 
 | Name | Type | Description |
 | --- | --- | --- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -476,7 +476,7 @@ Returns the staking information at a specific block.
 | Name | Type | Description |
 | --- | --- | --- |
 | blockNumberOrTag | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 

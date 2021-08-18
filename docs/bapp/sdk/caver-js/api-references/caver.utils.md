@@ -1545,9 +1545,9 @@ false
 caver.utils.isValidBlockNumberCandidate(input)
 ```
 
-Validtes block number (or block tag string).
+Validates the block number (or block tag string).
 
-The block number should be one of a type below:
+The block number should be one of the types below:
  - predefined block number ex:) 'latest', 'earliest', 'pending', 'genesis'
  - hex
  - finite number
@@ -1933,7 +1933,7 @@ Decompresses the compressed public key.
 caver.utils.isCompressedPublicKey(publicKey)
 ```
 
-Return `true` is public key is compressed, otherwise `false`.
+Returns `true` if public key is compressed, otherwise `false`.
 
 **Parameters**
 
@@ -1968,7 +1968,7 @@ Decodes a raw signature data composed of 'R(32 byte) + S(32 byte) + V(1byte)'.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| signature | string | The signature string to decode. It is composed of R(32 byte) + S(32 byte) + V(1byte). |
+| signature | string | The signature string to decode. It is composed of R(32bytes) + S(32bytes) + V(1byte). |
 
 **Return Value**
 
