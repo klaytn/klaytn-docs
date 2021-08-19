@@ -8,7 +8,7 @@
 caver.rpc.net.getNetworkId([callback])
 ```
 
-Klaytn 노드의 네트워크 식별자(네트워크 ID)를 반환합니다.
+Returns the network identifier (network ID) of the Klaytn Node.
 
 **매개변수**
 
@@ -38,7 +38,7 @@ Klaytn 노드의 네트워크 식별자(네트워크 ID)를 반환합니다.
 caver.rpc.net.isListening([callback])
 ```
 
-Klaytn 노드가 네트워크 연결을 수신하고 있으면 `true`를 반환합니다.
+Returns `true` if the Klaytn Node is actively listening for network connections.
 
 **매개변수**
 
@@ -68,7 +68,7 @@ true
 caver.rpc.net.getPeerCount([callback])
 ```
 
-현재 Klaytn 노드에 연결된 피어의 수를 반환합니다.
+Returns the number of peers currently connected to the Klaytn Node.
 
 **매개변수**
 
