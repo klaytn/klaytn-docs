@@ -79,7 +79,6 @@ caver.rpc
 - [isSenderTxHashIndexingEnabled](./klay.md#caver-rpc-klay-issendertxhashindexingenabled)
 - [getProtocolVersion](./klay.md#caver-rpc-klay-getprotocolversion)
 - [getRewardbase](./klay.md#caver-rpc-klay-getrewardbase)
-- [isWriteThroughCaching](./klay.md#caver-rpc-klay-iswritethroughcaching)
 
 ### [필터(Filter)](./klay.md#caver-rpc-klay-getfilterchanges) <a id="filter"></a>
 - [getFilterChanges](./klay.md#caver-rpc-klay-getfilterchanges)
