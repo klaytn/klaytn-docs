@@ -678,7 +678,7 @@ kip37.safeTransferFrom(from, recipient, id, amount, data [, sendParam])
 ```
 타입이 `id`인 특정 토큰의 주어진 `amount`를 `from`으로부터 `recipient`에 안전하게 전송합니다.
 
-토큰 소유자의 토큰을 보내도록 허락받은 주소인 operator, 또는 토큰 소유자 자신이 이 토큰 전송 트랜잭션을 실행할 수 있습니다. 따라서 토큰을 보내도록 승인 계정 또는 토큰 소유자가 이 트랜잭션 발신자이어야 하며, 허락받은 계정의 주소는 반드시 `sendParam.from` 또는 `kip37.options.from`에 주어져야 합니다. `sendParam.from` 또는 `kip37.options.from`가 주어지지 않는다면 에러가 발생합니다.
+The address that was authorized to send the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an authorized address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
 
 만약 수신자 주소가 컨트랙트 주소라면, 컨트랙트는 반드시 [IKIP37Receiver.onKIP37Received](https://kips.klaytn.com/KIPs/kip-37#kip-37-token-receiver)를 구현했어야 합니다. 그렇지 않으면, 전송은 거부됩니다.
 
@@ -771,7 +771,7 @@ kip37.safeBatchTransferFrom(from, recipient, ids, amounts, data [, sendParam])
 
 `from`에서 `recipient`로 다수의 토큰 ID와 값들의 전송을 안전하게 배치(batch) 합니다.
 
-토큰 소유자의 토큰을 보내도록 허락받은 주소인 operator, 또는 토큰 소유자 자신이 이 토큰 전송 트랜잭션을 실행할 수 있습니다. 따라서 토큰을 보내도록 승인 계정 또는 토큰 소유자가 이 트랜잭션 발신자이어야 하며, 허락받은 계정의 주소는 반드시 `sendParam.from` 또는 `kip37.options.from`에 주어져야 합니다. `sendParam.from` 또는 `kip37.options.from`가 주어지지 않는다면 에러가 발생합니다.
+The address that was approved to send the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an approved address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
 
 만약 수신자 주소가 컨트랙트 주소라면, 컨트랙트는 반드시 [IKIP37Receiver.onKIP37Received](https://kips.klaytn.com/KIPs/kip-37#kip-37-token-receiver)를 구현했어야 합니다. 그렇지 않으면, 전송은 거부됩니다.
 
@@ -1252,7 +1252,7 @@ kip37.burn(account, id, value [, sendParam])
 ```
 특정 KIP-37 토큰을 소각합니다.
 
-토큰 소유자의 토큰을 다루도록 허락받은 주소인 operator, 또는 토큰 소유자 자신이 이 토큰 전송 트랜잭션을 실행할 수 있습니다. 따라서 토큰을 보내도록 승인 계정 또는 토큰 소유자가 이 트랜잭션 발신자이어야 하며, 허락받은 계정의 주소는 반드시 `sendParam.from` 또는 `kip37.options.from`에 주어져야 합니다. `sendParam.from` 또는 `kip37.options.from`가 주어지지 않는다면 에러가 발생합니다.
+The address that was approved to operate the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an authorized address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
 
 이 메서드는 Klaytn 네트워크에 트랜잭션을 전송하며 트랜잭션 수수료가 트랜잭션 발신자에게 부과됨을 참고하시기 바랍니다.
 
@@ -1338,7 +1338,7 @@ kip37.burnBatch(account, ids, values [, sendParam])
 ```
 다수의 KIP-37 토큰을 소각합니다.
 
-토큰 소유자의 토큰을 다루도록 허락받은 주소인 operator, 또는 토큰 소유자 자신이 이 토큰 전송 트랜잭션을 실행할 수 있습니다. 따라서 토큰을 보내도록 승인 계정 또는 토큰 소유자가 이 트랜잭션 발신자이어야 하며, 허락받은 계정의 주소는 반드시 `sendParam.from` 또는 `kip37.options.from`에 주어져야 합니다. `sendParam.from` 또는 `kip37.options.from`가 주어지지 않는다면 에러가 발생합니다.
+The address that was authorized to operate the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, the authorized one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
 
 이 메서드는 Klaytn 네트워크에 트랜잭션을 전송하며 트랜잭션 수수료가 트랜잭션 발신자에게 부과됨을 참고하시기 바랍니다.
 
@@ -1575,9 +1575,10 @@ kip37.pause([id] [, sendParam])
 
 **매개변수**
 
-| 이름 | 타입                                    | 설명                                                            |
-| -- | ------------------------------------- | ------------------------------------------------------------- |
-| id | BigNumber &#124; string &#124; number | (선택 사항) 중지시킬 토큰 ID입니다. 해당 파라미터 미입력시 `pause` 함수는 컨트랙트를 중지시킵니다. |
+| 이름        | 타입                                    | 설명                                                                                                              |
+| --------- | ------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| id        | BigNumber &#124; string &#124; number | (선택 사항) 중지시킬 토큰 ID입니다. 해당 파라미터 미입력시 `pause` 함수는 컨트랙트를 중지시킵니다.                                                   |
+| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
 
 **참고** 만약 `sendParam.from` 또는 `kip37.options.from`이 주어졌다면, 이 주소는 반드시 PauserRole을 가진 컨트랙트 중지 권한 소유자이어야 합니다.
 
