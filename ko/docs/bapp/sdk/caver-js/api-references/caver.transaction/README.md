@@ -24,7 +24,7 @@
 caver.transaction.decode(rlpEncoded)
 ```
 
-RLP 인코딩된 트랜잭션 문자열, 원시(raw) 트랜잭션을 디코딩하여 [트랜잭션][] 인스턴스를 반환합니다.
+Decodes RLP-encoded transaction string, a raw transaction, and returns a [Transaction][] instance.
 
 **매개변수**
 
@@ -34,9 +34,9 @@ RLP 인코딩된 트랜잭션 문자열, 원시(raw) 트랜잭션을 디코딩�
 
 **리턴값**
 
-| 타입     | 설명                                                     |
-| ------ | ------------------------------------------------------ |
-| object | [트랜잭션][]의 인스턴스입니다. 각 트랜잭션에 대한 자세한 설명은 [트랜잭션][]을 참고하세요. |
+| 타입     | 설명                                                                                         |
+| ------ | ------------------------------------------------------------------------------------------ |
+| object | An instance of [Transaction][]. For details of each transaction, refer to [Transaction][]. |
 
 **예시**
 
@@ -76,9 +76,9 @@ Queries a transaction from Klaytn and converts to a caver transaction instance.
 
 `Promise` returning `object`: An instance of [Transaction][]. If it fails to receive a transaction object from Klaytn, an error occurs.
 
-| 타입     | 설명                                                     |
-| ------ | ------------------------------------------------------ |
-| object | [트랜잭션][]의 인스턴스입니다. 각 트랜잭션에 대한 자세한 설명은 [트랜잭션][]을 참고하세요. |
+| 타입     | 설명                                                                                         |
+| ------ | ------------------------------------------------------------------------------------------ |
+| object | An instance of [Transaction][]. For details of each transaction, refer to [Transaction][]. |
 
 **예시**
 
@@ -175,7 +175,7 @@ transaction.sign(keyring [, index] [, hasher])
 
 Signs the transaction as a transaction sender with the private key(s) in the `keyring` and appends `signatures` in the transaction object.
 
-For [Account Update] transaction, use [roleAccountUpdateKey], or otherwise, use [roleTransactionKey] in [RoleBasedKeyring][]. If the user has not defined an `index`, `transaction.sign` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.sign` signs the transaction using only one private key at the given index.
+For [Account Update][] transaction, use [roleAccountUpdateKey][], or otherwise, use [roleTransactionKey][] in [RoleBasedKeyring][]. If the user has not defined an `index`, `transaction.sign` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.sign` signs the transaction using only one private key at the given index.
 
 **매개변수**
 
@@ -281,7 +281,7 @@ transaction.signAsFeePayer(keyring [, index] [, hasher])
 
 트랜잭션 `fee payer`로서 서명하며, `keyring` 내 개인키를 사용하여 트랜잭션 객체에 `feePayerSignatures`를 첨부합니다.
 
-수수료 납부자로서 트랜잭션에 서명하기 위해서는 `keyring`의 [roleFeePayerKey]를 사용합니다. 사용자가 `index`를 정의하지 않았다면, `transaction.signAsFeePayer`이 해당 역할에 의해 사용되는 모든 개인키를 가지고 트랜잭션에 서명합니다. `index`가 정의되어 있다면, `transaction.signAsFeePayer`이 주어진 인덱스에 대응하는 하나의 개인키를 가지고 트랜잭션에 서명합니다.
+For signing a transaction as a fee payer, use [roleFeePayerKey][] in `keyring`. 사용자가 `index`를 정의하지 않았다면, `transaction.signAsFeePayer`이 해당 역할에 의해 사용되는 모든 개인키를 가지고 트랜잭션에 서명합니다. `index`가 정의되어 있다면, `transaction.signAsFeePayer`이 주어진 인덱스에 대응하는 하나의 개인키를 가지고 트랜잭션에 서명합니다.
 
 `transaction.feePayer`가 정의되어 있지 않은 경우, 주어진 keyring의 주소는 `transaction.feePayer`로 설정됩니다.
 
@@ -612,7 +612,7 @@ transaction.fillTransaction()
 
 이 메서드는 트랜잭션의 선택 변수 `gasPrice`, `nonce`, 또는 `chainId`가 정의되지 않은 경우, 각각의 기본값을 조회하여 연결된 Klaytn Node에 JSON RPC 호출을 함으로서 이 값들을 지정시킵니다.
 
-`gasPrice`는 [caver.rpc.klay.getGasPrice][], `nonce`는 [caver.rpc.klay.getTransactionCount][], 그리고 `chainId`는 [caver.rpc.klay.getChainId][]에서 구할 수 있습니다.
+Use [caver.rpc.klay.getGasPrice][] to get `gasPrice`, [caver.rpc.klay.getTransactionCount][] to get `nonce` and [caver.rpc.klay.getChainId][] call to get `chainId`.
 
 **리턴값**
 
@@ -681,7 +681,10 @@ transaction.recoverFeePayerPublicKeys()
 
 [Klaytn Design - Transactions]: ../../../../../klaytn/design/transactions/README.md
 [senderTxHash]: ../../../../../klaytn/design/transactions/README.md#sendertxhash
-[트랜잭션]: #class
+[Account Update]: ./basic.md#accountupdate
+[roleTransactionKey]: ../../../../../klaytn/design/accounts.md#roles
+[roleAccountUpdateKey]: ../../../../../klaytn/design/accounts.md#roles
+[roleFeePayerKey]: ../../../../../klaytn/design/accounts.md#roles
 [Transaction]: #class
 [KlaytnWalletKey]: ../../../../../klaytn/design/accounts.md#klaytn-wallet-key-format
 [SingleKeyring]: ../caver.wallet/keyring.md#singlekeyring
