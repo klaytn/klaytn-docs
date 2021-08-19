@@ -683,7 +683,7 @@ kip37.safeTransferFrom(from, recipient, id, amount, data [, sendParam])
 ```
 Safely transfers the given `amount` tokens of specific token type `id` from `from` to the `recipient`. 
 
-The address who was approved to send the token owner's token (the operator) or the token owner itself is expected to execute this token transferring transaction. Thus, the approved one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Without `sendParam.from` nor `kip37.options.from` being provided, an error would occur.
+The address that was authorized to send the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an authorized address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
 
 If the recipient was a contract address, it should implement [IKIP37Receiver.onKIP37Received](https://kips.klaytn.com/KIPs/kip-37#kip-37-token-receiver). Otherwise, the transfer is reverted.  
 
@@ -776,7 +776,7 @@ kip37.safeBatchTransferFrom(from, recipient, ids, amounts, data [, sendParam])
 
 Safely batch transfers of multiple token ids and values from `from` to the `recipient`.
 
-The address who was approved to send the token owner's token (the operator) or the token owner itself is expected to execute this token transferring transaction. Thus, the approved one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Without `sendParam.from` nor `kip37.options.from` being provided, an error would occur.
+The address that was approved to send the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an approved address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
 
 If the recipient was a contract address, it should implement [IKIP37Receiver.onKIP37Received](https://kips.klaytn.com/KIPs/kip-37#kip-37-token-receiver). Otherwise, the transfer is reverted.  
 
@@ -1257,7 +1257,7 @@ kip37.burn(account, id, value [, sendParam])
 ```
 Burns specific KIP-37 tokens.
 
-The address who was approved to operate the token owner's token (the operator) or the token owner itself is expected to execute this token transferring transaction. Thus, the approved one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Without `sendParam.from` nor `kip37.options.from` being provided, an error would occur.
+The address that was approved to operate the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an authorized address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
 
@@ -1343,7 +1343,7 @@ kip37.burnBatch(account, ids, values [, sendParam])
 ```
 Burns the multiple KIP-37 tokens.
 
-The address who was approved to operate the token owner's token (the operator) or the token owner itself is expected to execute this token transferring transaction. Thus, the approved one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Without `sendParam.from` nor `kip37.options.from` being provided, an error would occur.
+The address that was authorized to operate the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, the authorized one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
 
@@ -1583,6 +1583,7 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 | Name | Type | Description |
 | --- | --- | --- |
 | id | BigNumber &#124; string &#124; number | (optional) The token id to pause. If this parameter is omitted, the `pause` function pause the token contract. |
+| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
 
 **NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a pauser with PauserRole.
 

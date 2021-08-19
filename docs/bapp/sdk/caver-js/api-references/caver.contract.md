@@ -356,7 +356,11 @@ The options object can contain the following:
 
 **Return Value**
 
-`Promise` returning `object` - An object in which arguments and functions for contract distribution are defined.:
+| Type | Description |
+| --- | --- |
+| object | An object in which arguments and functions for contract distribution are defined. See the below table to find the description. |
+
+The object contains the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
