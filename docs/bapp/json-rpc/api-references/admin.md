@@ -280,12 +280,12 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startRPC <a id="admin_startrpc"></a>
 
-The `startRPC` was deprecated. Please use `startHttp`.
+The `startRPC` will be deprecated soon. Please use `startHttp`.
 
 
 ## admin_stopRPC <a id="admin_stoprpc"></a>
 
-The `stopRPC` was deprecated. Please use `stopHttp`.
+The `stopRPC` will be deprecated soon. Please use `stopHttp`.
 
 ## admin_startHTTP <a id="admin_starthttp"></a>
 
