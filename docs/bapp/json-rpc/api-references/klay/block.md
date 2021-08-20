@@ -41,6 +41,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getHeaderByNumber <a id="klay_getheaderbynumber"></a>
 
+**NOTE**: This API is supported from Klaytn v1.7.0.
+
 Returns information about a header by nuumber.
 This API works only on RPC call, not on Javascript console.
 
@@ -83,6 +85,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 ## klay_getHeaderByHash <a id="klay_getheaderbyhash"></a>
+
+**NOTE**: This API is supported from Klaytn v1.7.0.
 
 Returns information about a header by hash.
 This API works only on RPC call, not on Javascript console.
@@ -154,6 +158,8 @@ This API works only on RPC call, not on Javascript console.
 | --- | --- |
 | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](#the-default-block-parameter). |
 | Boolean | If `true` it returns the full transaction objects, if `false` only the hashes of the transactions. |
+
+**NOTE**: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
 
 **Return Value**
 
@@ -340,6 +346,8 @@ Returns the number of transactions in a block matching the given block number.
 | ------------- | ------------------------------------------------------------ |
 | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
+**NOTE**: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
+
 **Return Value**
 
 | Type     | Description                                          |
@@ -506,6 +514,8 @@ Returns a block with consensus information matched by the given block number.
 | --- | --- |
 | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
+**NOTE**: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
+
 **Return Value**
 
 `Object` - A block object with consensus information (a proposer and a list of committee members), or `error` when no block was found:
@@ -607,7 +617,9 @@ Returns a list of all validators in the committee at the specified block. If the
 
 | Name | Type | Description |
 | --- | --- | --- |
-| QUANTITY  &#124; TAG | Integer | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+
+**NOTE**: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
 
 **Return Value**
 
@@ -642,7 +654,9 @@ Returns the size of the committee at the specified block. If the parameter is no
 
 | Name | Type | Description |
 | --- | --- | --- |
-| QUANTITY  &#124; TAG | Integer | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+
+**NOTE**: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
 
 **Return Value**
 
@@ -675,7 +689,9 @@ Returns a list of all validators of the council at the specified block. If the p
 
 | Name | Type | Description |
 | --- | --- | --- |
-| QUANTITY  &#124; TAG | Integer | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+
+**NOTE**: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
 
 **Return Value**
 
@@ -710,7 +726,9 @@ Returns the size of the council at the specified block. If the parameter is not 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| QUANTITY  &#124; TAG | Integer | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+
+**NOTE**: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
 
 **Return Value**
 
@@ -745,6 +763,8 @@ Returns the value from a storage position at a given address.
 | 20-byte DATA | Address of the storage. |
 | QUANTITY | Integer of the position in the storage. |
 | QUANTITY &#124; TAG &#124; HASH| Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter), or block hash.|
+
+**NOTE**: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
 
  **Return Value**
 

@@ -276,7 +276,9 @@ The `itemsAt` returns governance items at specific block. It is the result of pr
 | ------------- | ------------------------------------------------------------ |
 | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
 
-**Return Value**
+**NOTE**: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
+
+**Return Value**x
 
 | Type   | Description                          |
 | ------ | ------------------------------------ |
