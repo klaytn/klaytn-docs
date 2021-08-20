@@ -17,7 +17,7 @@ COMMANDS:
    attach      Start an interactive JavaScript environment (connect to node)
    console     Start an interactive JavaScript environment
    dumpconfig  Show configuration values
-   dumpgenesis Dump genesis block JSON configuration to stdout
+   dumpgenesis Dump genesis block JSON configuration to stdout (This command is supoported from Klaytn v1.7.0.)
    init        Bootstrap and initialize a new genesis block
    version     Show version number
    help, h     Shows a list of commands or help for one command
