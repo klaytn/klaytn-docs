@@ -69,7 +69,6 @@ The list below enumerates the API functions that are currently supported in Klay
 - [klay_isSenderTxHashIndexingEnabled](./klay/config.md#klay_issendertxhashindexingenabled)
 - [klay_protocolVersion](./klay/config.md#klay_protocolversion)
 - [klay_rewardbase](./klay/config.md#klay_rewardbase)
-- [klay_writeThroughCaching](./klay/config.md#klay_writethroughcaching)
 
 
 ### [Filter](./klay/filter.md) <a id="filter"></a>
