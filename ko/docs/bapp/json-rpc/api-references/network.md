@@ -121,3 +121,30 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
     "result": {"en":3,"pn":2,"total":5}
 }
 ```
+
+## net_version <a id="net_version"></a>
+
+Return the current klaytn protocol version.
+
+**매개변수**
+
+없음
+
+**리턴값**
+
+| 타입       | 설명                                                                                                                                                               |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY | The integer of the klaytn protocol version.<br /> - `"1001"`: Klaytn Baobab testnet.<br /> - `"8217"`: Klaytn Cypress mainnet. |
+
+**예시**
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67}' http://localhost:8551
+// Result
+{
+    "jsonrpc":"2.0",
+    "id":67,
+    "result":"1001"
+}
+```
