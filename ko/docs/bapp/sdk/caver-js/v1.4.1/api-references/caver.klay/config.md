@@ -207,27 +207,3 @@ caver.klay.rewardbase([callback])
 > caver.klay.rewardbase().then(console.log);
 0xed9d108be2a9a7ea5f180ace80f31b66ea107283
 ```
-
-## writeThroughCaching <a id="writethroughcaching"></a>
-
-```javascript
-caver.klay.writeThroughCaching([callback])
-```
-노드가 write-through 캐싱을 사용하고 있으면 `true`를 반환합니다. 활성화하면, 블록 바디와 영수증을 퍼시스턴트 스토리지에 저장할 때 읽기 성능을 향상시키기 위해 캐슁됩니다. 기본적으로는 `false`로 설정되어 있습니다.
-
-**매개변수**
-
-| 명칭       | 형식       | 설명                                                                   |
-| -------- | -------- | -------------------------------------------------------------------- |
-| callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
-
-**리턴값**
-
-`프로미스`는 `Boolean`을 반환 - `true`는 노드가 write-through 캐싱을 사용하고 있음을 의미합니다.
-
-**예시**
-
-```javascript
-> caver.klay.writeThroughCaching().then(console.log);
-false
-```
