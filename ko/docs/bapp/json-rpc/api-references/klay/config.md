@@ -243,32 +243,3 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-
-## klay_writeThroughCaching <a id="klay_writethroughcaching"></a>
-
-노드가 write-through 캐싱을 사용하고 있으면 `true`를 반환합니다. write-through 캐싱을 활성화하면 블록 바디와 영수증이 영구적인 스토리지에 저장될 때 이들을 캐싱합니다. 기본적으로는 `false`로 설정되어 있습니다.
-
-**매개변수**
-
-없음
-
-**리턴값**
-
-| 타입      | 설명                                          |
-| ------- | ------------------------------------------- |
-| Boolean | `true`이면 노드가 write-through 캐싱을 하고 있다는 것입니다. |
-
-**예시**
-
-```shell
-// Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_writeThroughCaching","id":1}' http://localhost:8551
-
-// Result
-{
-    "jsonrpc":"2.0",
-    "id":1,
-    "result":false
-}
-```
-
