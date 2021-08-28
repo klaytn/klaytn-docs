@@ -45,12 +45,12 @@ tokenInfo 객체는 다음을 반드시 포함해야 합니다:
 | --------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionHash | string | 트랜잭션이 전송된 직후 및 트랜잭션 해시를 사용할 수 있을 때 발생합니다.                                                                                                            |
 | receipt         | object | 트랜잭션 영수증을 사용할 수 있을 때 발생합니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다. |
-| error           | 에러     | 전송 중 오류가 나타나면 발생됩니다.                                                                                                                                 |
+| error           | Error  | 전송 중 오류가 나타나면 발생합니다.                                                                                                                                 |
 
 **예시**
 
 ```javascript
-// using the promise
+// 프로미스 사용
 > caver.kct.kip7.deploy({
     name: 'Jasmine',
     symbol: 'JAS',
@@ -157,11 +157,11 @@ caver.kct.kip7.create([tokenAddress])
 **예시**
 
 ```javascript
-// 매개변수 없는 KIP17 인스턴스 생성
-> const kip17 = caver.kct.kip7.create()
+// 매개변수 없는 KIP7 인스턴스 생성
+> const kip7 = caver.kct.kip7.create()
 
-// 토큰 주소를 가진 KIP17 인스턴스 생성
-> const kip17 = caver.kct.kip7.create('0x{address in hex}')
+// 토큰 주소를 가진 KIP7 인스턴스 생성
+> const kip7 = caver.kct.kip7.create('0x{address in hex}')
 ```
 
 
@@ -189,11 +189,11 @@ new caver.kct.kip7([tokenAddress])
 **예시**
 
 ```javascript
-// 매개변수 없는 KIP17 인스턴스 생성
-> const kip17 = caver.kct.kip7()
+// 매개변수 없는 KIP7 인스턴스 생성
+> const kip7 = caver.kct.kip7()
 
-// 토큰 주소를 가진 KIP17 인스턴스 생성
-> const kip17 = caver.kct.kip7('0x{address in hex}')
+// 토큰 주소를 가진 KIP7 인스턴스 생성
+> const kip7 = caver.kct.kip7('0x{address in hex}')
 ```
 
 
@@ -344,7 +344,7 @@ kip7.decimals()
 
 **리턴값**
 
-`프로미스`는 `Number`를 반환합니다 - 토큰이 사용하는 소수점 자릿수입니다.
+`프로미스`는 `Number`를 반환: 토큰이 사용하는 소수점 자릿수입니다.
 
 **예시**
 
@@ -446,7 +446,7 @@ kip7.isMinter(address)
 
 **리턴값**
 
-`프로미스`는 `Boolean`을 반환: 계정이 발행자라면 `true`를 반환합니다.
+`프로미스`는 `Boolean`을 반환: 계정이 minter라면 `true`를 반환합니다.
 
 **예시**
 
