@@ -22,7 +22,7 @@ A transaction object of type `LEGACY` has the following structure:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| from | String | Address of the sender of this transaction. |
+| from | String | Address of the sender. |
 | to | String | (optional) The destination address of the message, left undefined for a contract-creation transaction. |
 | value | Number &#124; String &#124; BN &#124; BigNumber | (optional) The value transferred for the transaction in peb. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
