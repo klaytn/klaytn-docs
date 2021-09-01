@@ -22,7 +22,7 @@ implementation 'com.klaytn.caver:core:1.4.0'
 
 If you want to use Android dependency, just append -android at the end of the version string. \(e.g. 1.0.1-android\)
 
-If you want to see details of the JSON-RPC requests and responses, please include [LOGBack](https://logback.qos.ch/) dependency in your project. Below is a Gradle build file example. You can add the dependency to Maven as well. Since caver-java uses the [SLF4J](https://www.slf4j.org/) logging facade, you can switch to your preferred logging framework instead of LOGBack.
+If you want to see details of the JSON-RPC requests and responses, please include [LOGBack](https://logback.qos.ch/) dependency in your project. Below is a Gradle build file example. You can add the dependency to Maven as well. Since caver-java uses the [SLF4J](http://www.slf4j.org/) logging facade, you can switch to your preferred logging framework instead of LOGBack.
 
 ```groovy
 implementation "ch.qos.logback:logback-classic:1.2.3"
