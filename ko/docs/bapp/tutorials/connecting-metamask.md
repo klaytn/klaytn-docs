@@ -14,7 +14,7 @@
 
 ## 2단계: 메타마스크 지갑 생성 <a id="generate-a-metamask"></a>
 
-![img](./img/new-to-metamask.png)
+![Create a Wallet](./img/new-to-metamask.png)
 
 * [지갑 생성] 버튼을 클릭합니다.
 * 암호를 생성합니다.
@@ -22,7 +22,7 @@
 
   > **참고:** 해당 구문을 알아야만 지갑 복구가 가능합니다. 타인에게 노출 시 계정의 자금을 모두 잃을 수 있습니다. 그렇기에 시드 구문은 수기로 적어두거나 외부 연결이 차단된 장치에 기록하기를 권장합니다.
 
-  ![Seed phrase and Wallet](./img/metamask-secret-backup.png)
+![Seed phrase and Wallet](./img/metamask-secret-backup.png)
 
 ## 3단계: Klaytn 네트워크 연결 <a id="connect-to-klaytn-network"></a>
 
@@ -45,26 +45,36 @@
 
     > **참고:** 예제는 테스트넷(Baobab)의 Public EN으로 네트워크에 연결하였습니다. 현재는 메인넷(Cypress)에서 Public EN을 제공하고 있지 않으니 테스트넷(Baobab)으로 테스트를 진행해 주세요.
 
-* [저장]을 클릭하면 Klaytn Baobab 네트워크가 추가됩니다. ![Network Setup and Custom RPC](./img/metamask-add-baobab.png)
+* Click [Save] to add Klaytn Baobab Network.
+
+![Network Setup and Custom RPC](./img/metamask-add-baobab.png)
 
 ## 4단계: 송금에 필요한 KLAY 획득하기 <a id="obtain-klay-to-make-a-transaction"></a>
 
 * Klaytn Wallet의 연동 상태를 확인하기 위해서는 송금에 사용될 KLAY가 필요합니다.
 * 우측 상단 아이콘 아래 탭에서 [계정 세부 정보]를 클릭합니다.
-* [비공개 키 내보내기]를 클릭하여 private key를 획득합니다. ![img](./img/metamask-obtain-private-key.png)
-* Baobab 테스트넷에서는 [**Klaytn Faucet**](https://baobab.wallet.klaytn.com/access?next=faucet)을 이용하여 테스트에 필요한 KLAY를 받을 수 있습니다.
-* Klaytn Wallet에서 private key를 입력한 후 [Access] 버튼을 클릭해 로그인합니다. (Private key 앞에 0x를 기입합니다.)
-* [Run Faucet] 버튼을 클릭하세요. 5 테스트넷 KLAY가 전송되고 잔액이 업데이트됩니다. Faucet 기능은 계정당 1일 1회, 24시간마다 한 번씩 실행할 수 있습니다. ![Account Signin and KLAY Faucet](./img/metamask-klay-faucet.png)
-* 메타마스크로 돌아와 보유 KLAY를 확인합니다.![img](./img/metamask-klay-received.png)
+* Click [Export Private Key] to obtain your private key.
+
+![Export Private Key](./img/metamask-obtain-private-key.png)
+
+* When using Baobab Testnet, you can obtain Test Klay in [**Klaytn Faucet**](https://baobab.wallet.klaytn.com/access?next=faucet).
+* Enter your private key on Klaytn Wallet and log in by clicking [Access]. (Attach 0x in front of the private key.)
+* Click [Run Faucet]. 5 Testnet KLAY will be sent to your account and the balance will be updated accordingly. You can claim Testnet KLAY from Faucet once every 24 hours per account.
+
+![Account Sign-in and KLAY Faucet](./img/metamask-klay-faucet.png)
+
+* Come back to MetaMask and confirm the KLAY that you received.
+
+![Balance](./img/metamask-klay-received.png)
 
 ## 5단계: 송금하기 <a id="send-klay"></a>
 
-* 우측 상단 아이콘 탭에서 [계정 생성]을 클릭하여 Account를 추가 생성합니다.
-* 계정 주소를 복사합니다. ![img](./img/metamask-copy-address.png)
+* Click on the round icon in the top right corner, and select [Create Account] in the menu to create a new account.
+* Copy the account address to clipboard.
 
-* 우측 상단 아이콘 탭에서 기존 Account를 클릭하여 전환합니다.
-* [보내기]에서 받을 Account와 KLAY 수량을 입력한 후 [다음] 을 클릭하여 송금을 진행합니다.
+![Copy the Account Address](./img/metamask-copy-address.png)
 
-  > **Note:** Klaytn은 Gas 값이 고정되어 있습니다. 임의 변경 시 전송 실패할 수 있습니다. [활동] 탭을 클릭하여 송금 내역을 확인합니다.
+* In the drop-down menu, change to the first account.
+* On [Send], enter the recipient's account address as well as the amount of KLAY and then click [Next] to proceed. > **Note:** The gas price on Klaytn is fixed. Arbitrarily changing the price may result in a transaction failure.You can view your transaction history in the [Activity] tab.
 
-  ![img](./img/metamask-send-klay.png)
+![Transfer History](./img/metamask-send-klay.png)
