@@ -48,7 +48,7 @@ Remix is a browser-based IDE (Integrated Development Environment) for developing
 
 ## Case 2. Connecting Klaytn - Remix using MetaMask <a id="connecting-klaytn-remix-using-metamask"></a>
 
-* Connect Klaytn with MetaMask by referring to the [**Connecting to MetaMask**](https://groundx.atlassian.net/wiki/spaces/~59728130/pages/1880752196/Klaytn+Docs+-+Metamast+Remix).
+* Connect Klaytn with MetaMask by referring to the [**Connecting to MetaMask**](https://docs.klaytn.com/bapp/tutorials/connecting-metamask).
 * Select [Injected Web3] on the Remix Environment menu.
 
 ![Injected Web3](./img/remix-environment-injectedWeb3.png)
