@@ -6,7 +6,7 @@ TxTypeFeeDelegatedValueTransfer는 사용자가 KLAY를 보내려고 할 때 사
 
 1. 트랜잭션 수수료 납부자의 잔고는 트랜잭션 수수료만큼 감소합니다.
 2. 발신자의 논스가 1 증가합니다.
-3. `value` KLAY가 발산지로부터 수신자로 전송됩니다.
+3. `value` KLAY가 발신자로부터 수신자로 전송됩니다.
 
 ### 속성 <a id="attributes"></a>
 
@@ -152,7 +152,7 @@ TxTypeFeeDelegatedValueTransferMemo는 사용자가 특정 메시지와 함께 K
 
 1. 트랜잭션 수수료 납부자의 잔고는 트랜잭션 수수료만큼 감소합니다.
 2. 발신자의 논스가 1 증가합니다.
-3. `value` KLAY가 발산지로부터 수신자로 전송됩니다.
+3. `value` KLAY가 발신자로부터 수신자로 전송됩니다.
 
 ### 속성 <a id="attributes"></a>
 
@@ -302,7 +302,7 @@ TxTypeFeeDelegatedSmartContractDeploy는 트랜잭션 수수료를 위임하는 
 1. 트랜잭션 수수료 납부자의 잔고는 트랜잭션 수수료만큼 감소합니다.
 2. 발신자의 논스가 1 증가합니다.
 3. `input`에 기입된 코드로 스마트 컨트랙트가 배포됩니다. 배포된 주소는 영수증의 `contractAddress`를 통해 반환됩니다.
-4. `value` KLAY가 발산지로부터 수신자로 전송됩니다.
+4. `value` KLAY가 발신자로부터 수신자로 전송됩니다.
 
 ### 속성 <a id="attributes"></a>
 
