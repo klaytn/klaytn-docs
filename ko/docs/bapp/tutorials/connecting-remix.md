@@ -46,7 +46,7 @@ Solidity Contract 개발을 위한 브라우저 기반의 IDE 입니다. Klaytn�
 
 ## Case 2. 메타마스크(MetaMask)를 이용한 Klaytn - Remix 연동 <a id="connecting-klaytn-remix-using-metamask"></a>
 
-* Connect Klaytn with MetaMask by referring to the [**Connecting to MetaMask**](https://groundx.atlassian.net/wiki/spaces/~59728130/pages/1880752196/Klaytn+Docs+-+Metamast+Remix).
+* Connect Klaytn with MetaMask by referring to the [**Connecting to MetaMask**](https://docs.klaytn.com/bapp/tutorials/connecting-metamask).
 * Select [Injected Web3] on the Remix Environment menu.
 
 ![Injected Web3](./img/remix-environment-injectedWeb3.png)
