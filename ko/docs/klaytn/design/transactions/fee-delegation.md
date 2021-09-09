@@ -2,7 +2,7 @@
 
 ## TxTypeFeeDelegatedValueTransfer <a id="txtypefeedelegatedvaluetransfer"></a>
 
-TxTypeFeeDelegatedValueTransfer는 사용자가 KLAY를 보내려고 할 때 사용됩니다. Klaytn은 각 목적에 맞는 여러가지 트랜잭션 유형들을 제공하는데, TxTypeFeeDelegatedValueTransfer는 KLAY를 EOA에 전송할 때 사용하는 기능입니다. 따라서 TxTypeFeeDelegatedValueTransfer는 `to`가 EOA일때만 작동합니다. KLAY를 스마트 컨트랙트로 전송하려면 [TxTypeFeeDelegatedSmartContractExecution](fee-delegation.md#txtypefeedelegatedsmartcontractexecution)를 대신 사용하여야 합니다. 이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다.
+TxTypeFeeDelegatedValueTransfer는 사용자가 KLAY를 보내려고 할 때 사용됩니다. Klaytn은 각 목적에 맞는 여러가지 트랜잭션 유형들을 제공하는데, TxTypeFeeDelegatedValueTransfer는 KLAY를 EOA에 전송할 때 사용하는 기능입니다. 따라서 TxTypeFeeDelegatedValueTransfer는 `to`가 EOA일때만 작동합니다. KLAY를 스마트 컨트랙트로 전송하려면 [TxTypeFeeDelegatedSmartContractExecution](fee-delegation.md#txtypefeedelegatedsmartcontractexecution)를 대신 사용하여야 합니다. 이 트랜잭션 타입은 다음과 같은 변경 사항을 만듭니다.
 
 1. 트랜잭션 수수료 납부자의 잔고는 트랜잭션 수수료만큼 감소합니다.
 2. 발신자의 논스가 1 증가합니다.
@@ -10,14 +10,14 @@ TxTypeFeeDelegatedValueTransfer는 사용자가 KLAY를 보내려고 할 때 사
 
 ### 속성 <a id="attributes"></a>
 
-| 속성                 | 형식                                                     | 설명                                                                                                                                                                                                                           |
+| 속성                 | 타입                                                     | 설명                                                                                                                                                                                                                           |
 |:------------------ |:------------------------------------------------------ |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 형식                 | uint8 \(Go\)                                         | TxTypeFeeDelegatedValueTransfer의 유형입니다. 이는 0x09이어야 합니다.                                                                                                                                                                      |
+| type               | uint8 \(Go\)                                         | TxTypeFeeDelegatedValueTransfer의 유형입니다. 이는 0x09이어야 합니다.                                                                                                                                                                      |
 | nonce              | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                |
 | gasPrice           | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 수수료로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 수수료는 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [KLAY의 단위](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
-| gas                | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                                                                             |
+| gas                | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 가스양입니다.                                                                                                                                                                                                  |
 | to                 | common.Address \(Go\)                                | 전송되는 KLAY를 받을 계정 주소입니다.                                                                                                                                                                                                      |
-| 값                  | \*big.Int \(Go\)                                   | 명시된 양의 KLAY(단위: peb)가 전송됩니다.                                                                                                                                                                                                 |
+| value              | \*big.Int \(Go\)                                   | 명시된 양의 KLAY(단위: peb)가 전송됩니다.                                                                                                                                                                                                 |
 | from               | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                          |
 | txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                          |
 | feePayer           | common.Address \(Go\)                                | 트랜잭션 수수료 납부자의 주소입니다.                                                                                                                                                                                                         |
