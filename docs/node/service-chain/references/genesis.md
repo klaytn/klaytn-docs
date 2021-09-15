@@ -26,6 +26,7 @@ The `config` field stores the information related to the chain.
 |           Field Name           |         Description           |
 | ------------------------------ | ----------------------------- |
 | chainId                        | It identifies the current chain and is used for prevention from the replay attack. |
+| istanbulCompatibleBlock        | A block number to which istanbul change is applied. |
 | istanbul, clique               | The type of consensus engine. |
 | unitPrice                      | Unit price. |
 | deriveShaImpl                  | Defines a method to generate transaction hash and receipt hash. |
@@ -112,6 +113,7 @@ The `reward` field stores the information about the network's token economy.
 {
     "config": {
         "chainId": 2019,
+        "istanbulCompatibleBlock": 0,
         "istanbul": {
             "epoch": 604800,
             "policy": 2,

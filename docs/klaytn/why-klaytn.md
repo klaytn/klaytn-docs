@@ -99,7 +99,7 @@ Klaytn does not sacrifice blockchain’s core characteristics to achieve the abo
 [Human-Readable Address]: design/accounts.md#human-readable-address-hra
 [Consensus Mechanism]: design/consensus-mechanism.md
 [Affordable Smart Contract Execution Cost]: design/computation/klaytn-smart-contract.md#affordable-smart-contract-execution-cost
-[Transaction Fees]: design/transaction-fees.md
+[Transaction Fees]: design/transaction-fees/transaction-fees.md
 [Fee Delegation]: design/transactions/README.md#fee-delegation
 [Service Chain]: scaling-solutions.md#service-chain
 [Solidity-Smart Contract Language]: ../smart-contract/solidity-smart-contract-language.md

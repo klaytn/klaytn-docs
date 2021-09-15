@@ -56,7 +56,7 @@ Error: runtime error occurred in interpreter
 
 ## Caution when Sending a Transaction to Klaytn <a id="caution-when-sending-a-transaction-to-klaytn"></a>
 
-Klaytn uses a fixed gas price \(25 ston = 25 \* 10^9\). If a transaction with other gas price is submitted to the Klaytn network, it is rejected. For more information about the gas price, see [Gas and Unit Price Overview](../../../klaytn/design/transaction-fees.md#gas-and-unit-price-overview) The price of gas used in the network can be obtained by using [caver.rpc.klay.getGasPrice].
+Klaytn uses a fixed gas price \(25 ston = 25 \* 10^9\). If a transaction with other gas price is submitted to the Klaytn network, it is rejected. For more information about the gas price, see [Gas and Unit Price Overview](../../../klaytn/design/transaction-fees/transaction-fees.md#gas-and-unit-price-overview) The price of gas used in the network can be obtained by using [caver.rpc.klay.getGasPrice].
 
 If `gasPrice` is not defined when you sign or submit a transaction, caver-js uses the [caver.rpc.klay.getGasPrice] RPC call to set the gas price of the transaction.
 
