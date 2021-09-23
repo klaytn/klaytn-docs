@@ -3,8 +3,8 @@
 Klaytn provides several useful precompiled contracts. These contracts are implemented in the platform itself as a native implementation. The precompiled contracts from address 0x01 through 0x08 are the same as those in Ethereum. Klaytn additionally implements precompiled contracts from 0x09 through 0x0B to support new Klaytn features.
 
 {% hint style="success" %}
-NOTE: Below table is used before the incompatible change, in other words, hard fork introduced in klaytn v1.7.0.
-If you want the latest document, please refer [latest document](precompiled-contracts.md).
+NOTE: The table below is used before the incompatible change, or the "hard fork" introduced in klaytn v1.7.0.
+If you want the latest document, please refer to [latest document](precompiled-contracts.md).
 {% endhint %}
 
 ## Address 0x01: ecrecover\(hash, v, r, s\) <a id="address-0x-01-ecrecover-hash-v-r-s"></a>

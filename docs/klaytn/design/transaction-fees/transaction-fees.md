@@ -41,11 +41,11 @@ Klaytn currently does not provide a way to replace a transaction using the unit 
 
 ## Klaytn's Gas table  <a id="klaytns-gas-table"></a>
 
-Basically, Klaytn is keeping compatibility with Ethereum. So Klaytn's gas table is pretty similar with that of Ethereum. But because of the existence of unique features of Klaytn, there are several new constants for those features.
+Basically, Klaytn is keeping compatibility with Ethereum. So Klaytn's gas table is pretty similar with that of Ethereum. But there are some features unique to Klaytn that require several new constants.
 
 {% hint style="success" %}
-NOTE: Since incompatible change, in other words, hard fork introduced in klaytn v1.7.0, gas table has been changed.
-If you want a previous document, please refer [previous document](transaction-fees-previous.md)
+NOTE: With the incompatible change, or the "hard fork" introduced in klaytn v1.7.0, the gas table has been changed.
+If you want the previous document, please refer to [previous document](transaction-fees-previous.md)
 {% endhint %}
 
 ### Common Fee <a id="common-fee"></a>
@@ -124,7 +124,7 @@ ValidateSenderGas have to be paid per signature basis.
 TotalGas = number of signatures * ValidateSenderGas
 ```
 
-Blake2f gas cost is calculated based on below formula. `input` is the input of the blake2f call.
+Blake2f gas cost is calculated based on the below formula. `input` is the input of the blake2f call.
 ```text
 Gas = uint64(binary.BigEndian.Uint32(input[0:4]))
 ```
@@ -161,7 +161,7 @@ GasPayload = number_of_bytes * TxDataGas
 | SmartContractExecution | TxGasContractExecution + PayloadGas + KeyValidationGas |
 | Cancel | TxGasCancel + KeyValidationGas |
 
-KeyValidationGas is defined as below based on key type,
+KeyValidationGas is defined as below based on the key type,
 
 | Key Type | Gas |
 | :--- | :--- |
@@ -172,7 +172,7 @@ KeyValidationGas is defined as below based on key type,
 | MultiSig | \(number of signatures - 1\) \* GasValidationPerKey \(15000\) |
 | RoleBased | Based on keys in the role used in the validation |
 
-KeyCreationGas is defined as below based on key type,
+KeyCreationGas is defined as below based on the key type,
 
 | Key Type | Gas |
 | :--- | :--- |

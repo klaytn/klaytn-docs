@@ -1,6 +1,6 @@
 # Computation Cost <a id="computation-cost"></a>
 
-Since Klaytn aims to maintain 1-second block time, the execution time of transactions have to be managed. Here are three approaches to achieve that: 
+Since Klaytn aims to maintain 1-second block time, the execution time of transactions has to be managed. Here are three approaches to achieve that: 
 
 1. Limiting the gas limit of a transaction 2. Limiting the execution time of a transaction 3. Limiting the computation cost of a transaction
 
@@ -17,8 +17,8 @@ Therefore, we chose the third option for Klaytn. For now, the limit of the execu
 The below table shows the computation cost of EVM opcodes. The computation cost was determined based on experiments.
 
 {% hint style="success" %}
-NOTE: Since incompatible change, in other words, hard fork introduced in klaytn v1.7.0, some computation costs has been changed.
-If you want a previous document, please refer [previous document](computation-cost-previous.md).
+NOTE: With the incompatible change, or the "hard fork" introduced in klaytn v1.7.0, some computation costs have been changed.
+If you want the previous document, please refer to [previous document](computation-cost-previous.md).
 {% endhint %}
 
 | Opcode | ComputationCost |

@@ -7,7 +7,7 @@ However, be aware of the following two issues.
 
 Klaytn is currently compatible with **Istanbul** Ethereum Virtual Machine (EVM) version. 
 Backward compatibility is not guaranteed with other EVM versions on Klaytn.
-Thus, it is highly recommended compiling solidity code with the Istanbul target option. 
+Thus, it is highly recommended to compile Solidity code with the Istanbul target option. 
 Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).
 
 

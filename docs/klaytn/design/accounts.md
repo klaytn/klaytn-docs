@@ -76,10 +76,10 @@ In contrast to EOAs, SCAs have code associated with them and are controlled by t
 | codeHash | \[\]byte \(Go\) | The hash of the account's smart contract code. This value is immutable, which means it is set only when the smart contract is created. |
 | storageRoot | \[32\]byte \(Go\) | A 256-bit hash of the root of the Merkle Patricia Trie that contains the values of all the storage variables in the account. |
 | codeFormat | uint8 \(Go\) | Supporting interpreter version. Up to 16 can be set. Currently, it supports EVM\(0x00\) only. |
-| vmVersion | uint8 \(Go\) | The incompatible change(hard fork) information at contract deployment time (ex. 0x0(constantinople), 0x1(istanbul,...)). Up to 16 can be used. It is automatically created when the contract is created. |
+| vmVersion | uint8 \(Go\) | The incompatible change (hard fork) information at contract deployment time (ex. 0x0(constantinople), 0x1(istanbul,...)). Up to 16 can be used. It is automatically created with the contract. |
 
 {% hint style="success" %}
-NOTE: Since klaytn v1.7.0, vmVersion attribute is added to the Smart Contract Account.
+NOTE: From klaytn v1.7.0 onwards, vmVersion attribute will be added to the Smart Contract Account.
 {% endhint %}
 
 ### Klaytn Account Type ID <a id="klaytn-account-type-id"></a>
@@ -177,14 +177,14 @@ If an account has the key AccountKeyFail, the transaction validation process alw
 
 ### AccountKeyWeightedMultiSig <a id="accountkeyweightedmultisig"></a>
 
-AccountKeyWeightedMultiSig is an account key type containing a threshold and WeightedPublicKeys which contains a list whose item is composed of a public key and its weight. 
-To be a valid transaction for an account associated with AccountKeyWeightedMultiSig, following conditions should be satisfied.
-* The weighted sum of signed public keys should be larger than the threshold.
+AccountKeyWeightedMultiSig is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight. 
+In order for a transaction to be valid for an account associated with AccountKeyWeightedMultiSig, the following conditions should be satisfied:
+* The weighted sum of the signed public keys should be larger than the threshold.
 * The invalid signature should not be included in the transaction.
 * The number of signed public keys should be less than the number of weightedPublicKeys.
 
 {% hint style="success" %}
-NOTE: Since incompatible change, in other words, hard fork introduced in klaytn v1.7.0, next multiSig validation logic is added.
+NOTE: After the incompatible change, or the "hard fork" introduced in klaytn v1.7.0, next multiSig validation logic is added.
   * The invalid signature should not be included in the transaction.
   * The number of signed public keys should be less than the number of weightedPublicKeys.
 {% endhint %}

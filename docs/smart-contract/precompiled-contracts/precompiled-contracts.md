@@ -3,7 +3,7 @@
 Klaytn provides several useful precompiled contracts. These contracts are implemented in the platform itself as a native implementation. The precompiled contracts from address 0x01 through 0x09 are the same as those in Ethereum. Klaytn additionally implements precompiled contracts from 0x3ff through 0x3fd to support new Klaytn features.
 
 {% hint style="success" %}
-NOTE: Since incompatible change, in other words, hard fork introduced in klaytn v1.7.0, three addresses are changed, and blake2F contract is newly added.
+NOTE: With the incompatible change, or the "hard fork" introduced in klaytn v1.7.0, three addresses have changed, and the blake2F contract has been added.
 
 | precompiled contract | address before change | address after change |
 | :--- | :--- | :--- |
@@ -12,7 +12,7 @@ NOTE: Since incompatible change, in other words, hard fork introduced in klaytn 
 | feePayer | 0x0a | 0x3fe |
 | validateSender | 0x0b | 0x3ff |
 
-If you want a previous document, please refer [previous document](precompiled-contracts-previous.md)
+If you want the previous document, please refer to [previous document](precompiled-contracts-previous.md)
 {% endhint %}
 
 ## Address 0x01: ecrecover\(hash, v, r, s\) <a id="address-0x-01-ecrecover-hash-v-r-s"></a>
@@ -206,7 +206,7 @@ The address 0x3FF validates the sender's signature with the message. Since Klayt
 * The message hash that is used to generate the signature
 * The signatures that are signed by the sender's private keys with the given message hash
 
-The precompiled contract validates that the given signature is properly signed by the sender's private keys. Note that Klaytn natively support multi signatures, the signatures can be multiple. The length of a signature must be 65 byte long.
+The precompiled contract validates that the given signature is properly signed by the sender's private keys. Note that Klaytn natively support multi signatures, which means there can be multiple signatures. The signature must be 65 bytes long.
 
 ```text
 function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public returns (bool) {
