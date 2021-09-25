@@ -896,15 +896,15 @@ TxTypeFeeDelegatedChainDataAnchoring는 서비스체인 데이터를 Klaytn 메�
 | nonce              | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                |
 | gasPrice           | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 수수료로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 수수료는 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [KLAY의 단위](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
 | gas                | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                                                                             |
-| from               | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                          |
+| from               | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [트랜잭션의 서명 검증](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                                                   |
 | input              | \[\]byte \(Go\)                                    | 서비스체인의 데이터입니다.                                                                                                                                                                                                               |
-| txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                          |
+| txSignatures       | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션의 서명 검증](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                                                   |
 | feePayer           | common.Address \(Go\)                                | 트랜잭션 수수료 납부자의 주소입니다.                                                                                                                                                                                                         |
 | feePayerSignatures | \[\]{\*big.Int, \*big.Int, \*big.Int} \(Go\) | 트랜잭션 수수료 납부자의 서명입니다.                                                                                                                                                                                                         |
 
 ### 발신자의 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-발신자의 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
+발신자의 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다.
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, from, anchoredData]), chainid, 0, 0])
@@ -914,7 +914,7 @@ Signature = sign(SigHash, <private key>)
 
 ### 수수료 납부자의 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-수수료 납부자의 서명을 만들려면 RLP 직렬화를 다음과 같이 수행해야합니다.
+수수료 납부자의 서명을 만들려면 RLP 직렬화를 다음과 같이 수행해야 합니다.
 
 ```javascript
 SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gas, from, anchoredData]), feePayer, chainid, 0, 0])
@@ -924,7 +924,7 @@ SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 
 ### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHash를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
+SenderTxHash를 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -935,7 +935,7 @@ SenderTxHash = keccak256(SenderTxHashRLP)
 
 ### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
+트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
