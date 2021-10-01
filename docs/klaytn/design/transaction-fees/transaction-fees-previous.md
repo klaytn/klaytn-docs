@@ -43,6 +43,11 @@ Klaytn currently does not provide a way to replace a transaction using the unit 
 
 Basically, Klaytn is keeping compatibility with Ethereum. So Klaytn's gas table is pretty similar with that of Ethereum. But because of the existence of unique features of Klaytn, there are several new constants for those features.
 
+{% hint style="success" %}
+NOTE: The table below is used before the incompatible change, or the "hard fork" introduced in klaytn v1.7.0.
+If you want the latest document, please refer to [latest document](transaction-fees.md).
+{% endhint %}
+
 ### Common Fee <a id="common-fee"></a>
 
 | Item | Gas | Description |
@@ -172,4 +177,3 @@ KeyCreationGas is defined as below based on key type,
 | Public | GasCreationPerKey \(20000\) |
 | MultiSig | \(keys\) \* GasCreationPerKey |
 | RoleBased | Gas fee calculated based on keys in each role. e.g., GasRoleTransaction = \(keys\) _GasCreationPerKey_ _GasRoleAccountUpdate = \(keys\)_ GasCreationPerKey GasRoleFeePayer = \(keys\) \* GasCreationPerKey |
-

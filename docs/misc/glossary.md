@@ -33,11 +33,11 @@
 | Validator reward | Total amount of KLAY that validators receive from block reward |
 
 
-[Klaytn Virtual Machine]: ../klaytn/design/computation/klaytn-virtual-machine.md
+[Klaytn Virtual Machine]: ../klaytn/design/computation/klaytn-virtual-machine/klaytn-virtual-machine.md
 [Klaytn Account Types]: ../klaytn/design/accounts.md#klaytn-account-types
 [KLAY]: ../klaytn/design/klaytn-native-coin-klay.md
 [Unit of KLAY]: ../klaytn/design/klaytn-native-coin-klay.md#units-of-klay
-[Unit Price]: ../klaytn/design/transaction-fees.md#unit-price
+[Unit Price]: ../klaytn/design/transaction-fees/transaction-fees.md#unit-price
 [Token Economy - Proof of Contribution]: ../klaytn/design/token-economy.md#proof-of-contribution
 [Token Economy - Klaytn Improvement Reserve]: ../klaytn/design/token-economy.md#klaytn-improvement-reserve
 [Consensus Nodes]: ../node/core-cell/README.md
