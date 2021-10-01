@@ -17,7 +17,7 @@ Therefore, we chose the third option for Klaytn. For now, the limit of the execu
 The below table shows the computation cost of EVM opcodes. The computation cost was determined based on experiments.
 
 {% hint style="success" %}
-NOTE: With the incompatible change, or the "hard fork" introduced in klaytn v1.7.0, some computation costs have been changed.
+NOTE: With the incompatible change, or the "hard fork" introduced in Klaytn v1.7.0, some computation costs have been changed.
 If you want the previous document, please refer to [previous document](computation-cost-previous.md).
 {% endhint %}
 

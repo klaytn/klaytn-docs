@@ -93,7 +93,7 @@ Storage fees have a slightly nuanced behavior. To incentivize minimization of th
 The fee schedule `G` is a tuple of 37 scalar values corresponding to the relative costs, in gas, of a number of abstract operations that a transaction may incur. For other tables such as `Precompiled contracts` and `accounts`, please refer to [this document](../transaction-fees.md#klaytns-gas-table)
 
 {% hint style="success" %}
-NOTE: The table below is used before the incompatible change, or the "hard fork" introduced in klaytn v1.7.0.
+NOTE: The table below is used before the incompatible change, or the "hard fork" introduced in Klaytn v1.7.0.
 If you want the latest document, please refer to [latest document](klaytn-virtual-machine.md).
 {% endhint %}
 
