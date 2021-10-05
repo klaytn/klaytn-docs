@@ -277,17 +277,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
-
-## admin_startRPC <a id="admin_startrpc"></a>
-
-The `startRPC` will be deprecated soon. Please use `startHttp`.
-
-
-## admin_stopRPC <a id="admin_stoprpc"></a>
-
-The `stopRPC` will be deprecated soon. Please use `stopHttp`.
-
 ## admin_startHTTP <a id="admin_starthttp"></a>
+
+**NOTE**: This API replaces `admin_startRPC`. The `admin_startRPC` will be deprecated soon.
 
 The `startHTTP` is an administrative method that starts an HTTP based [JSON RPC](http://www.jsonrpc.org/specification)
 API webserver to handle client requests.
@@ -330,6 +322,8 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 
 ## admin_stopHTTP <a id="admin_stophttp"></a>
+
+**NOTE**: This API replaces `admin_stopRPC`. The `admin_stopRPC` will be deprecated soon.
 
 The `stopHTTP` is an administrative method that closes the currently open HTTP RPC endpoint. As the node can only have a single HTTP endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
 
