@@ -8,7 +8,7 @@ The namespace `istanbul` provides functions related to consensus.
 
 ## istanbul_getSnapshot <a id="istanbul_getsnapshot"></a>
 
-Return the state snapshot at a given block number.
+Returns the state snapshot at a given block number. The state snapshot contains information such as number/hash, validator set, and governance vote of the snapshot block.
 
 **Parameters**
 
@@ -23,9 +23,9 @@ Return the state snapshot at a given block number.
 | Name | Type | Description |
 | --- | --- | --- |
 | Epoch | 64-byte DATA | The number of blocks after which to checkpoint and reset the pending votes |
-| Number | 64-byte DATA | Block number where the snapshot was created |
-| Hash | 64-byte DATA | Block hash where the snapshot was created |
-| ValSet | 64-byte DATA | Set of authorized validators at this moment |
+| Number | 64-byte DATA | The block number where the snapshot was created |
+| Number | 64-byte DATA | The block number where the snapshot was created |
+| ValSet | 64-byte DATA | Set of validators at the moment |
 | Policy | 64-byte DATA | |
 | CommiteeSize | 64-byte DATA | |
 | Votes | 64-byte DATA | List of votes cast in chronological order |
@@ -42,13 +42,13 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_getSnapshotAtHash <a id="istanbul_getsnapshotAtHash"></a>
 
-Return the state snapshot at a given block hash.
+Returns the state snapshot at a given block hash.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| block hash | 32-byte DATA | Hash of a block. |
+| block hash | 32-byte DATA | The hash of a block. |
 
 **Return Value**
 
@@ -66,7 +66,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_getValidators <a id="istanbul_getvalidators"></a>
 
-Return the list of authorized validators at a given block number.
+Returns the list of validators at a given block number.
 
 **Parameters**
 
@@ -91,13 +91,13 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_getValidatorsAtHash <a id="istanbul_getvalidatorsathash"></a>
 
-Return the list of authorized validators at a given block hash.
+Returns the list of authorized validators at a given block hash.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| block hash | 32-byte DATA | Hash of a block. |
+| block hash | 32-byte DATA | The hash of a block. |
 
 **Return Value**
 
@@ -114,7 +114,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_candidates <a id="istanbul_candidates"></a>
 
-Return the current candidates the node tries to uphold and vote on.
+Returns the current candidates the node tries to uphold and vote on.
 
 **Parameters**
 
@@ -123,7 +123,7 @@ none
 **Return Value**
 
 | account | 20-byte DATA | Address of candidate. |
-| auth | boolean | Authorization of candidate. |
+| auth | boolean | A value indicating the authorization status of the candidate. |
 
 **Example**
 
@@ -136,14 +136,14 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_propose <a id="istanbul_propose"></a>
 
-Inject a new authorization candidate that the validator will attempt to push through.
+Injects a new authorization candidate that the validator will attempt to push through.
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
 | account | 20-byte DATA | Address of candidate. |
-| auth | boolean | New authorization. |
+| auth | boolean | A value indicating the authorization status of the candidate. |
 
 **Return Value**
 
@@ -160,7 +160,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_discard <a id="istanbul_discard"></a>
 
-Drop a currently running candidate, stopping the validator from casting further votes (either for or against).
+Drops a currently running candidate, stopping the validator from casting further votes (either for or against).
 
 **Parameters**
 
@@ -182,7 +182,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 ```
 
 ## istanbul_getTimeout <a id="istanbul_getTimeout"></a>
-Return istanbul config timeout.
+
+Returns istanbul config timeout. Default value is 10000ms, and if over, timeoutEvent is sent. In case of CN, the timeoutEvent contains information such as currentRound, preparesSize and commitsSize to log.
+
 
 **Parameters**
 
