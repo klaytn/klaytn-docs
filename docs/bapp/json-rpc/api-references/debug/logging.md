@@ -129,6 +129,162 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
+## debug_verbosityByName <a id="debug_verbositybyname"></a>
+
+Sets the verbosity of log module with given name.
+Please note that VerbosityByName only works with zapLogger.
+
+(Level :  0=silent, 1=error, 2=warn, 3=info, 4=debug, 5=detail)
+
+The verbosity of individual packages and source files
+can be raised using `debug_vmodule`.
+
+| Client  | Method Invocation                                             |
+|:-------:|---------------------------------------------------------------|
+| Console | `debug.verbosityByName(name, level)`                    |
+| RPC     | `{"method": "debug_verbosityByName", "params": [string, number]}` |
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| name | string | The module name. |
+| level | int | The logging verbosity level. |
+
+**Return Value**
+
+None
+
+**Example**
+
+Console
+```javascript
+> debug.verbosityByName("name", 3)
+null
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_verbosityByName","params":["name", '3'],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+
+## debug_verbosityByID <a id="debug_verbositybyid"></a>
+
+Sets the verbosity of log module with given ModuleID.
+Please note that VerbosityByID only works with zapLogger.
+
+```
+ModuleID
+
+	0 : BaseLogger
+
+	1 : AccountsAbiBind
+	2 : AccountsKeystore
+	3 : API
+	4 : APIDebug
+	5 : Blockchain
+	6 : BlockchainState
+	7 : BlockchainTypes
+	8 : BlockchainTypesAccount
+	9 : BlockchainTypesAccountKey
+	10 : CMDIstanbul
+
+	11 : CMDKBN
+	12 : CMDKCN
+	13 : CMDKEN
+	14 : CMDKGEN
+	15 : CMDKlay
+	16 : CMDKPN
+	17 : CMDKSCN
+	18 : CMDUtils
+	19 : CMDUtilsNodeCMD
+	20 : Common
+
+	21 : ConsensusClique
+	22 : ConsensusGxhash
+	23 : ConsensusIstanbul
+	24 : ConsensusIstanbulBackend
+	25 : ConsensusIstanbulCore
+	26 : ConsensusIstanbulValidator
+	27 : Console
+	28 : DatasyncDownloader
+	29 : DatasyncFetcher
+	30 : Governance
+
+	31: Metrics
+	32 : NetworksGRPC
+	33 : NetworksP2P
+	34 : NetworksP2PDiscover
+	35 : NetworksP2PNat
+	36 : NetworksP2PSimulations
+	37 : NetworksP2PSimulationsAdapters
+	38 : NetworksP2PSimulationsCnism
+	39 : NetworksRPC
+	40 : Node
+
+	41 : NodeCN
+	42 : NodeCNFilters
+	43 : NodeCNTracers
+	44 : Reward
+	45 : ServiceChain
+	46 : StorageDatabase
+	47 : StorageStateDB
+	48 : VM
+	49 : Work
+	50 : CMDKSPN
+
+	
+	51 : CMDKSEN
+	52 : ChainDataFetcher
+	53 : KAS
+	54 : FORK
+	
+	55 : ModuleNameLen
+	
+
+Level 
+
+	0 : silent 
+	1 : error
+	2 : warn
+	3 : info
+	4 : debu
+	5 : detail
+``` 
+
+The verbosity of individual packages and source files
+can be raised using `debug_vmodule`.
+
+| Client  | Method Invocation                                 |
+|:-------:|---------------------------------------------------|
+| Console | `debug.verbosityByID(id, level)`                          |
+| RPC     | `{"method": "debug_verbosityByID", "params": [number, number]}` |
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| id | int | The module id. |
+| level | int | The logging verbosity level. |
+
+**Return Value**
+
+None
+
+**Example**
+
+Console
+```javascript
+> debug.verbosityById(1, 3)
+null
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_verbosityById","params":['1',3'],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
 
 ## debug_vmodule <a id="debug_vmodule"></a>
 

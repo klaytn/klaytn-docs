@@ -70,6 +70,40 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
+## debug_mutexProfile <a id="debug_mutexprofile"></a>
+
+Turns on mutex profiling for nsec (nanosecond) and writes profile data to file.
+It uses a profile rate of 1 for most accurate information. If a different rate is desired, set the rate and write the profile manually.
+
+| Client  | Method Invocation                                            |
+| :-----: | ------------------------------------------------------------ |
+| Console | `debug.mutexProfile(file, seconds)`                            |
+|   RPC   | `{"method": "debug_mutexProfile", "params": [string, number]}` |
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| file | string | The filename for the profiling result. |
+| seconds | int | The profiling duration in seconds. |
+
+**Return Value**
+
+None
+
+**Example**
+
+Console
+```javascript
+> debug.mutexProfile("mutex.profile", 10)
+null
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_mutexProfile","params":["mutex.profile", 10],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
 
 ## debug_isPProfRunning <a id="debug_ispprofrunning"></a>
 
@@ -350,3 +384,34 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
+## debug_writeMutexProfile <a id="debug_writemutexprofile"></a>
+
+Writes a goroutine blocking profile to the given file.
+
+| Client  | Method Invocation                                           |
+|:-------:|-------------------------------------------------------------|
+| Console | `debug.writeMutexProfile(file)`                               |
+| RPC     | `{"method": "debug_writeMutexProfile", "params": [string]}` |
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| file | string | The filename for the profiling output. |
+
+**Return Value**
+
+None
+
+**Example**
+
+Console
+```javascript
+> debug.writeMutexProfile("mutex.profile")
+null
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_writeMutexProfile","params":["mutex.profile"],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
