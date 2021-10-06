@@ -43,8 +43,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **NOTE**: This API is supported from Klaytn v1.7.0.
 
-Returns information about a header by nuumber.
-This API works only on RPC call, not on Javascript console.
+Returns information about a header by nuuber.
+This API works only on RPC call, not on JavaScript console.
 
 **Parameters**
 
@@ -89,7 +89,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 **NOTE**: This API is supported from Klaytn v1.7.0.
 
 Returns information about a header by hash.
-This API works only on RPC call, not on Javascript console.
+This API works only on RPC call, not on JavaScript console.
 
 **Parameters**
 
@@ -150,7 +150,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ## klay_getBlockByNumber <a id="klay_getblockbynumber"></a>
 
 Returns information about a block by block number.
-This API works only on RPC call, not on Javascript console.
+This API works only on RPC call, not on JavaScript console.
 
 **Parameters**
 
@@ -206,7 +206,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ## klay_getBlockByHash <a id="klay_getblockbyhash"></a>
 
 Returns information about a block by hash.
-This API works only on RPC call, not on Javascript console.
+This API works only on RPC call, not on JavaScript console.
 
 **Parameters**
 
