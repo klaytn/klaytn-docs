@@ -89,7 +89,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 ## personal_listWallets <a id="personal_listwallets"></a>
 
-Return a list of wallets this node manages.
+Returns a list of wallets this node manages.
 
 | Client    | Method invocation                                   |
 | :-------: | --------------------------------------------------- |
@@ -133,7 +133,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 Initiates a hardware wallet opening procedure, establishing a USB connection and attempting to authenticate via
 the provided passphrase.
-Note, the method may return an extra challenge requiring a second open (e.g. the Trezor PIN matrix challenge).
+
+{% hint style="success" %}
+NOTE: The method may return an extra challenge requiring a second open (e.g., the Trezor PIN matrix challenge).
+{% endhint 
 
 | Client    | Method invocation                                                |
 | :-------: | ---------------------------------------------------------------- |
@@ -402,7 +405,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 ## personal_sendAccountUpdate <a id="personal_sendaccountupdate"></a>
 
 Validates the given passphrase and submits a [TxTypeAccountUpdate](../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) transaction.
-The transaction object must have fields `from` and `key`. Other fields such as `gas`, `gasPrice`, and `nonce` are set internally if unspecified.
+The transaction object must have fields `from` and `key`. Other fields such as `gas`, `gasPrice`, and `nonce` are se internally if unspecified.
 If the passphrase is able to decrypt the private key belonging to `tx.from` and the transaction is verified,
 the transaction is signed and submitted onto the network.
 The account is not unlocked globally in the node and cannot be used in other RPC calls.
@@ -571,49 +574,13 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 {"jsonrpc":"2.0","id":1,"result":"0xccb8cce176b01fdc8f7ac3c101b8eb3b9005e938a60800e517624419dd8b7fba0e4598bdf1c4fa1743e1288e89b8b7090cc11f4b3640aafcbc71896ec73eec241b"}
 ```
 
-## personal_signAsFeePayer <a id="personal_signasfeepayer"></a>
-
-The `signAsFeePayer` is a helper function that signs a transaction with the private key of the given address.
-If the given password isn't able to decrypt the key, it fails.
-
-
-| Client  | Method invocation                                     |
-|:-------:|-------------------------------------------------------|
-| Console | `personal.sign(message, account, password)`                |
-| RPC     | `{"method": "personal_sign", "params": [message, account, password]}` |
-
-**Parameters**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| message | string | A message to sign. |
-| account | string | The account address. |
-| password | string | (optional) the pass phrase used for signing. |
-
-**Return Value**
-
-| Type | Description |
-| --- | --- |
-| string | A signature. |
-
-**Example**
-
-Console
-``` javascript
-> personal.sign("0xdeadbeaf", "0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "")
-"0xa3f20717a250c2b0b729b7e5becbff67fdaef7e0699da4de7ca5895b02a170a12d887fd3b17bfdce3481f10bea41f45ba9f709d39ce8325427b57afcfc994cee1b"
-```
-HTTP RPC
-```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sign","params":["0xdead","0xda04fb00e2cb5745cef7d8c4464378202a1673ef","mypassword"],"id":1}' http://localhost:8551
-{"jsonrpc":"2.0","id":1,"result":"0xccb8cce176b01fdc8f7ac3c101b8eb3b9005e938a60800e517624419dd8b7fba0e4598bdf1c4fa1743e1288e89b8b7090cc11f4b3640aafcbc71896ec73eec241b"}
-```
-
 ## personal_signTransaction <a id="personal_signtransaction"></a>
 
-Set defaults and signs the given transaction.
+Sets default configuration and signs the given transaction.
 
-NOTE: Sending your account password over an unsecured HTTP RPC connection is highly unsecure. Use klay_signTransaction.
+{% hint style="success" %}
+NOTE: Sending your account password over an unsecured HTTP RPC connection is highly unsecure. Use [klay_signTransaction](../klay/transaction#klay_signtransaction).
+{% endhint %}
 
 **Parameters**
 
