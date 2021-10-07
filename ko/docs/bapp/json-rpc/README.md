@@ -45,6 +45,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"rp
    "result":{
       "admin":"1.0",
       "debug":"1.0",
+      "istanbul":"1.0",
       "klay":"1.0",
       "miner":"1.0",
       "net":"1.0",
