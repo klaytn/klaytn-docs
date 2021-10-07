@@ -13,16 +13,16 @@ In Klaytn, there are three different governance modes.
 * `ballot`: All nodes which have voting power can vote for a change. When more than half of total voting power gathered, the vote passes.
 
 Based on the governance mode, a proposer is able to cast a vote about network parameters such as unit price, minimum staking amount, etc.
-In order to be a proposer, it is required that the candidate nodes deposit more than minimum amount of KLAYs.
+In order to be a proposer, the candidate nodes are required to deposit a minimum amount of KLAY.
 All the qualified nodes always have a chance to propose a block, but the probability is approximately propositional to the amount of staking.
 
 When calculating the number of slots assigned for proposers, it is possible that no slot is allocated to a node because of rounding off computation.
-However, it is guaranteed that a slot will be assigned to a qualified node all the time.
-If a node is not qualified, that is the node doesn't stake enough KLAYs, there is no chance to propose nor to validate a block.
+To a qualified node, however, it is guaranteed that a slot will be assigned.
+If a node is not qualified - the node does not stake enough KLAY - it won't be given a chance to propose nor validate a block.
 
 **Caveat**
 - a governing node is always qualified in `single` mode as an exception.
-- A vote will be casted when a block is proposed. This vote is applied after two epochs including the epoch where a block is proposed.
+- A vote will be casted when a block is proposed. This vote is applied after two epochs including the epoch where the block is proposed.
 
 ## governance_vote <a id="governance_vote"></a>
 
