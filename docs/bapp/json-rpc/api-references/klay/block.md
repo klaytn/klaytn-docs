@@ -160,7 +160,7 @@ This API works only on RPC call, not on JavaScript console.
 | Boolean | If `true` it returns the full transaction objects, if `false` only the hashes of the transactions. |
 
 {% hint style="success" %} 
-**Note**: In versions earlier than klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
+Note: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
 {% endhint %}
 
 **Return Value**
@@ -349,7 +349,7 @@ Returns the number of transactions in a block matching the given block number.
 | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 {% hint style="success" %} 
-**Note**: In versions earlier than klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
+Note: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
 {% endhint %}
 
 **Return Value**
@@ -519,7 +519,7 @@ Returns a block with consensus information matched by the given block number.
 | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 {% hint style="success" %} 
-**Note**: In versions earlier than klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
+Note: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
 {% endhint %}
 
 **Return Value**
@@ -626,7 +626,7 @@ Returns a list of all validators in the committee at the specified block. If the
 | QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 {% hint style="success" %} 
-**Note**: In versions earlier than klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
+Note: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
 {% endhint %}
 
 **Return Value**
@@ -665,7 +665,7 @@ Returns the size of the committee at the specified block. If the parameter is no
 | QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 {% hint style="success" %} 
-**Note**: In versions earlier than klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
+Note: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
 {% endhint %}
 
 **Return Value**
@@ -702,7 +702,7 @@ Returns a list of all validators of the council at the specified block. If the p
 | QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 {% hint style="success" %} 
-**Note**: In versions earlier than klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
+Note: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
 {% endhint %}
 
 **Return Value**
@@ -741,7 +741,7 @@ Returns the size of the council at the specified block. If the parameter is not 
 | QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 {% hint style="success" %} 
-**Note**: In versions earlier than klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
+Note: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
 {% endhint %}
 
 **Return Value**
@@ -779,7 +779,7 @@ Returns the value from a storage position at a given address.
 | QUANTITY &#124; TAG &#124; HASH| Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter), or block hash.|
 
 {% hint style="success" %} 
-**Note**: In versions earlier than klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
+Note: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earlist"` and `"latest"` are available.
 {% endhint %}
 
  **Return Value**
