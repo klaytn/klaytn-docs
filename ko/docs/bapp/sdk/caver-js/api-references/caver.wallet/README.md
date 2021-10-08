@@ -291,7 +291,7 @@ If the user has not provided the index parameter, `caver.wallet.signMessage` sig
 | 이름      | 타입     | 설명                                                                                                            |
 | ------- | ------ | ------------------------------------------------------------------------------------------------------------- |
 | address | string | 사용될 키링의 주소입니다.                                                                                                |
-| message | string | 서명할 메시지입니다.                                                                                                   |
+| 메시지     | string | 서명할 메시지입니다.                                                                                                   |
 | role    | number | 키의 역할을 나타내는 숫자입니다. `caver.wallet.keyring.role`를 사용할 수 있습니다.                                                   |
 | index   | number | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. 인덱스는 각각의 역할에 정의된 개인키들의 배열 길이보다 작아야 합니다. 인덱스가 정의되지 않았을 경우, 이 메서드는 모든 개인키를 사용합니다. |
 
@@ -307,7 +307,7 @@ If the user has not provided the index parameter, `caver.wallet.signMessage` sig
 | ----------- | ------ | ------------------------------ |
 | messageHash | string | Klaytn 고유의 접두사를 가진 메시지의 해시입니다. |
 | signatures  | Array  | An array of [SignatureData][]. |
-| message     | string | 서명할 메시지입니다.                    |
+| 메시지         | string | 서명할 메시지입니다.                    |
 
 **예시**
 
