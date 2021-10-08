@@ -14,9 +14,9 @@ In Klaytn, there are three different governance modes.
 
 Based on the governance mode, a proposer is able to cast a vote about network parameters such as unit price, minimum staking amount, etc.
 In order to be a proposer, the candidate nodes are required to deposit a minimum amount of KLAY.
-All the qualified nodes always have a chance to propose a block, but the probability is approximately propositional to the amount of staking.
+All the qualified nodes always are eligible to propose a block, but the chance is propositional to the stake amount.
 
-When calculating the number of slots assigned for proposers, it is possible that no slot is allocated to a node because of rounding off computation.
+When calculating the stake proportions to determine the number of slots to be assigned to proposers, it is possible that a slot may not be allocated any slots as a result of rounding numbers.
 To a qualified node, however, it is guaranteed that a slot will be assigned.
 If a node is not qualified - the node does not stake enough KLAY - it won't be given a chance to propose nor validate a block.
 
