@@ -87,6 +87,124 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 {"jsonrpc":"2.0","id":1,"result":["0xd8d81f52b595cc6135177c9c34ae6130ecad4636","0xda04fb00e2cb5745cef7d8c4464378202a1673ef"]}
 ```
 
+## personal_listWallets <a id="personal_listwallets"></a>
+
+Returns a list of wallets this node manages.
+
+| Client    | Method invocation                                   |
+| :-------: | --------------------------------------------------- |
+| Console   | `personal.listWallets`                              |
+| RPC       | `{"method": "personal_listWallets", "params": []}`  |
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| URL | string | Wallet url |
+| Status | string | Locking status |
+| Failure | string | Error condition |
+| Accounts | string | The list of account addresses. |
+
+**Example**
+
+Console
+``` javascript
+> personal.listWallets
+[
+  {
+    "url":"keystore:///", 
+    "status":"Locked",
+    "accounts":[{"address":"0x336010a2f91728ffe01414a87ae5d8af55f310c6","url":"keystore://"}]
+  },
+  ...
+]
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_listWallets","params":[],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":[{"url":"keystore:///","status":"Locked","accounts":[{"address":"0x336010a2f91728ffe01414a87ae5d8af55f310c6","url":"keystore://"}]}]}
+```
+
+## personal_openWallet <a id="personal_openwallet"></a>
+
+Initiates a hardware wallet opening procedure, establishing a USB connection and attempting to authenticate via
+the provided passphrase.
+
+{% hint style="success" %}
+NOTE: The method may return an extra challenge requiring a second open (e.g., the Trezor PIN matrix challenge).
+{% endhint 
+
+| Client    | Method invocation                                                |
+| :-------: | ---------------------------------------------------------------- |
+| Console   | `personal.openWallet(url, passhrase)`                            |
+| RPC       | `{"method": "personal_openWallet", "params": [url, passphrase]}` |
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| URL | string | Wallet url |
+| Passphrase | string | passphrase for wallet  |
+
+**Return Value**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| Error | error | Error condition | 
+
+**Example**
+
+Console
+``` javascript
+> personal.openWallet("keystore://", "passphrase")
+null
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_openWallet","params":["keystore://", "passphrase"],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+## personal_deriveAccount <a id="personal_deriveaccount"></a>
+
+Requests a HD wallet to derive a new account, optionally pinning it for later reuse.
+
+| Client    | Method invocation                                                  |
+| :-------: | ------------------------------------------------------------------ |
+| Console   | `personal.deriveAccount(url, path, pin)`                           |
+| RPC       | `{"method": "personal_deriveAccount", "params": [url, path, pin]}` |
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| URL | string | Wallet url |
+| path | string | derivation path  |
+| pin | boolean | optionally pinning |
+
+**Return Value**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| Account | string | The address of the new account. | 
+| Error | error | Error condition | 
+
+**Example**
+
+Console
+``` javascript
+> personal.deriveAccount(url, path, pin)
+"result":"0xed1b12248aee85a32aead06c7789d3fcdcd4dae6"
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_deriveAccount","params":[url, path, pin],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":"0xed1b12248aee85a32aead06c7789d3fcdcd4dae6"}
+```
 
 ## personal_newAccount <a id="personal_newaccount"></a>
 
@@ -287,7 +405,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 ## personal_sendAccountUpdate <a id="personal_sendaccountupdate"></a>
 
 Validates the given passphrase and submits a [TxTypeAccountUpdate](../../../klaytn/design/transactions/basic.md#txtypeaccountupdate) transaction.
-The transaction object must have fields `from` and `key`. Other fields such as `gas`, `gasPrice`, and `nonce` are set internally if unspecified.
+The transaction object must have fields `from` and `key`. Other fields such as `gas`, `gasPrice`, and `nonce` are se internally if unspecified.
 If the passphrase is able to decrypt the private key belonging to `tx.from` and the transaction is verified,
 the transaction is signed and submitted onto the network.
 The account is not unlocked globally in the node and cannot be used in other RPC calls.
@@ -455,6 +573,27 @@ HTTP RPC
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sign","params":["0xdead","0xda04fb00e2cb5745cef7d8c4464378202a1673ef","mypassword"],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":"0xccb8cce176b01fdc8f7ac3c101b8eb3b9005e938a60800e517624419dd8b7fba0e4598bdf1c4fa1743e1288e89b8b7090cc11f4b3640aafcbc71896ec73eec241b"}
 ```
+
+## personal_signTransaction <a id="personal_signtransaction"></a>
+
+Sets default configuration and signs the given transaction.
+
+{% hint style="success" %}
+NOTE: Sending your account password over an unsecured HTTP RPC connection is highly unsecure. Use [klay_signTransaction](../klay/transaction#klay_signtransaction).
+{% endhint %}
+
+**Parameters**
+
+The required parameters depend on the transaction type.
+Check the proper parameters in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| raw | Signed raw transaction |
+| tx | Transaction object |
+| password | Sender's password |
 
 
 ## personal_ecRecover <a id="personal_ecrecover"></a>
