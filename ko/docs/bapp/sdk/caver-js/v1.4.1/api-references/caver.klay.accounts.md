@@ -1260,9 +1260,9 @@ caver.klay.accounts.recoverTransaction(rawTransaction)
 
 **매개변수**
 
-| 명칭        | 형식     | 설명                           |
-| --------- | ------ | ---------------------------- |
-| signature | String | The RLP encoded transaction. |
+| 명칭       | 형식     | 설명                           |
+| -------- | ------ | ---------------------------- |
+| 서명 값입니다. | String | The RLP encoded transaction. |
 
 **리턴값**
 
@@ -1292,9 +1292,9 @@ keccak256로 해시를 취합니다.
 
 **매개변수**
 
-| 이름      | 타입     | 설명                                            |
-| ------- | ------ | --------------------------------------------- |
-| message | String | 해시로 변환할 메시지입니다.  HEX 문자열인 경우 먼저 UTF-8 디코딩됩니다. |
+| 이름  | 타입     | 설명                                            |
+| --- | ------ | --------------------------------------------- |
+| 메시지 | String | 해시로 변환할 메시지입니다.  HEX 문자열인 경우 먼저 UTF-8 디코딩됩니다. |
 
 
 **리턴값**
@@ -1340,12 +1340,12 @@ caver.klay.accounts.sign(data, privateKey)
 
 | 명칭          | 형식     | 설명              |
 | ----------- | ------ | --------------- |
-| message     | String | 주어진 메시지입니다.     |
+| 메시지         | String | 주어진 메시지입니다.     |
 | messageHash | String | 주어진 메시지의 해시입니다. |
 | r           | String | ECDSA 서명 r.     |
 | s           | String | ECDSA 서명 s.     |
 | v           | String | ECDSA 리커버리 id.  |
-| signature   | String | 생성된 서명입니다.      |
+| 서명 값입니다.    | String | 생성된 서명입니다.      |
 
 
 **예시**
@@ -1378,7 +1378,7 @@ caver.klay.accounts.recover(message, v, r, s [, preFixed])
 | ------------------------------ | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | message &#124; signatureObject | String &#124; Object | 서명된 메시지 또는 해시입니다. 서명 객체에 대한 자세한 내용은 아래 표를 참조하세요.                                                                                                     |
 | messageHash                    | String               | 주어진 메시지의 해시.                                                                                                                                         |
-| signature                      | String               | 원시(raw) RLP 인코딩된 서명, 또는 v, r, s 값인 매개변수 2-4입니다.                                                                                                      |
+| 서명 값입니다.                       | String               | 원시(raw) RLP 인코딩된 서명, 또는 v, r, s 값인 매개변수 2-4입니다.                                                                                                      |
 | preFixed                       | Boolean              | (선택 사항, 기본값: `false`) 마지막 매개 변수가 `true`이면, 제공된 메시지에 자동으로 `"\x19Klaytn Signed Message:\n" + message.length + message`접두사가 붙지 않으며 이미 접두사가 있다고 가정합니다. |
 
 서명 객체는 다음과 같은 값을 가집니다:
