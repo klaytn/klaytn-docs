@@ -1627,7 +1627,7 @@ The structure of the returned event `object` looks as follows:
 | 이름               | 타입                   | 설명                                                                                                      |
 | ---------------- | -------------------- | ------------------------------------------------------------------------------------------------------- |
 | event            | string               | 이벤트 이름.                                                                                                 |
-| signature        | string &#124; `null` | The event signature, `null` if it is an anonymous event.                                                |
+| 서명 값입니다.         | string &#124; `null` | The event signature, `null` if it is an anonymous event.                                                |
 | address          | string               | 이 이벤트가 발생한 주소.                                                                                          |
 | returnValues     | object               | The return values coming from the event, *e.g.*, `{myVar: 1, myVar2: '0x234...'}`.                      |
 | logIndex         | number               | 블록에서 이벤트 인덱스 위치의 정수값.                                                                                   |
@@ -1719,7 +1719,7 @@ An event object can contain the following:
 | 이름               | 타입                   | 설명                                                                                                                                                                                                            |
 | ---------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | event            | string               | 이벤트 이름.                                                                                                                                                                                                       |
-| signature        | string &#124; `null` | The event signature, `null` if it’s an anonymous event.                                                                                                                                                       |
+| 서명 값입니다.         | string &#124; `null` | The event signature, `null` if it’s an anonymous event.                                                                                                                                                       |
 | address          | string               | Address this event originated from.                                                                                                                                                                           |
 | returnValues     | object               | The return values coming from the event, e.g. {myVar: 1, myVar2: '0x234...'}.                                                                                                                                 |
 | logIndex         | number               | The event index position in the block.                                                                                                                                                                        |
