@@ -71,6 +71,42 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 {"jsonrpc":"2.0","id":1,"result":{"root":"70383c826d1161ec2f12d799023317d8da7775dd47b8502d2d7ef646d094d3a5","accounts":{"0000000000000000000000000000000000000035":{"balance":"12800000000000000000","nonce":0,"root":"56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421","codeHash":"62b00472fac99d94ccc52f5addac43d54c129cd2c6d2357c9557abea67efdec5","code":"6080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a723058201307c3756f4e627009187dcdbc0b3e286c13b98ba9279a25bfcc18dd8bcd73e40029","storage":{}},...(skipped)...}}}
 ```
 
+## debug_dumpStateTrie <a id="debug_dumpstatetrie"></a>
+
+Retrieves all state/storage tries of the given state root.
+
+| Client  | Method Invocation                                   |
+| :-----: | --------------------------------------------------- |
+| Console | `debug.dumpStateTrie(number)`                           |
+|   RPC   | `{"method": "debug_dumpStateTrie", "params": [number]}` |
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| number | int | The block number. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| JSON string | Dump state Trie result |
+
+**Example**
+
+Console
+```javascript
+> debug.dumpStateTrie(10)
+{
+    root: "70383c826d1161ec2f12d799023317d8da7775dd47b8502d2d7ef646d094d3a5",
+    tries: [...]
+}
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_dumpStateTrie","params":["0x80"],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":{"root":"70383c826d1161ec2f12d799023317d8da7775dd47b8502d2d7ef646d094d3a5","tries":[...]}}
+```
 
 ## debug_getBlockRlp <a id="debug_getblockrlp"></a>
 
@@ -227,6 +263,37 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 "0xdd738d9a7d987a98798123b2322d389470328420bb3d84023a8405a5523cc532235ba325235243242cb9a4758609a8604 ...  98bbd743053d0cbadaaccd4865cc0348685460ada874506ad984506ad80458ad69038fd6f908340fd9af68faf903760"}
 ```
 
+## debug_getBadBlocks <a id="debug_getbadblocks"></a>
+
+Returns a list of the last 'bad blocks' that the client has seen on the network.
+
+| Client  | Method Invocation                                    |
+|:-------:|------------------------------------------------------|
+| Console | `debug.getBadBlocks()`                           |
+| RPC     | `{"method": "debug_getBadBlocks", "params": []}` |
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| badBlock | JSON | JSON list of block-hashes |
+
+**Example**
+
+Console
+```javascript
+> debug.getBadBlocks()
+[]
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_getBadBlocks","params":[],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":[]}
+```
 
 ## debug_printBlock <a id="debug_printblock"></a>
 
@@ -301,6 +368,43 @@ HTTP RPC
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_setHead","params":["0x100"],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
+
+## debug_seedHash <a id="debug_seedhash"></a>
+
+Retrieves the seed hash of a block.
+
+
+| Client  | Method Invocation                                 |
+|:-------:|---------------------------------------------------|
+| Console | `debug.seedHash(number)`                           |
+| RPC     | `{"method": "debug_seedHash", "params": [number]}` |
+
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| number | uint64 | The block number. |
+
+**Return Value**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| seedHash | string | The block seed hash. |
+
+**Example**
+
+Console
+```javascript
+> debug.seedHash(100)
+"0x0000000000000000000000000000000000000000000000000000000000000000"
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_seedHash","params":[100],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":"0x0000000000000000000000000000000000000000000000000000000000000000"}
+```
+
 
 ## debug_startWarmUp <a id="debug_startwarmup"></a>
 

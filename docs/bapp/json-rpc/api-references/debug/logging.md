@@ -96,7 +96,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 Sets the logging verbosity ceiling. Log messages with level up to and including
 the given level will be printed.
 
-(Level :  0=silent, 1=error, 2=warn, 3=info, 4=debug, 5=detail)
+(Level :  0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
 
 The verbosity of individual packages and source files
 can be raised using `debug_vmodule`.
@@ -126,6 +126,87 @@ null
 HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_verbosity","params":['3'],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+## debug_verbosityByName <a id="debug_verbositybyname"></a>
+
+Sets the verbosity of log module with given name.
+Please note that VerbosityByName only works with zapLogger.
+
+(Level :  0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
+
+The verbosity of individual packages and source files
+can be raised using `debug_vmodule`.
+
+| Client  | Method Invocation                                             |
+|:-------:|---------------------------------------------------------------|
+| Console | `debug.verbosityByName(name, level)`                    |
+| RPC     | `{"method": "debug_verbosityByName", "params": [string, number]}` |
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| name | string | The module name. |
+| level | int | The logging verbosity level. |
+
+**Return Value**
+
+None
+
+**Example**
+
+Console
+```javascript
+> debug.verbosityByName("name", 3)
+null
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_verbosityByName","params":["name", '3'],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+
+## debug_verbosityByID <a id="debug_verbositybyid"></a>
+
+Sets the verbosity of log module with given ModuleID.
+Please note that VerbosityByID only works with zapLogger.
+
+(ModuleID : Please refer to the code on the [github](https://github.com/klaytn/klaytn/blob/dev/log/log_modules.go). )
+
+(Level :  0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
+
+The verbosity of individual packages and source files
+can be raised using `debug_vmodule`.
+
+| Client  | Method Invocation                                 |
+|:-------:|---------------------------------------------------|
+| Console | `debug.verbosityByID(id, level)`                          |
+| RPC     | `{"method": "debug_verbosityByID", "params": [number, number]}` |
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| id | int | The module id. |
+| level | int | The logging verbosity level. |
+
+**Return Value**
+
+None
+
+**Example**
+
+Console
+```javascript
+> debug.verbosityById(1, 3)
+null
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_verbosityById","params":['1',3'],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
