@@ -7,7 +7,11 @@ Executes a new message call immediately without creating a transaction on the bl
 | Name | Type | Description |
 | --- | --- | --- |
 | callObject | Object | The transaction call object.  See the next table for the object's properties. |
-| blockNumber | QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
+| blockNumberOrHash | QUANTITY &#124; TAG &#124; HASH| Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash.|
+
+{% hint style="success" %} 
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+{% endhint %}
 
 `callObject` has the following properties:
 
@@ -115,7 +119,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ## klay_getTransactionByBlockHashAndIndex <a id="klay_gettransactionbyblockhashandindex"></a>
 
 Returns information about a transaction by block hash and transaction index position.
-This API works only on RPC call, not on Javascript console.
+This API works only on RPC call, not on JavaScript console.
 
 **Parameters**
 
@@ -168,14 +172,18 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ## klay_getTransactionByBlockNumberAndIndex <a id="klay_gettransactionbyblocknumberandindex"></a>
 
 Returns information about a transaction by block number and transaction index position.
-This API works only on RPC call, not on Javascript console.
+This API works only on RPC call, not on JavaScript console.
 
 **Parameters**
 
 | Type | Description |
 | --- | --- |
-| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
 | QUANTITY | The transaction index position. |
+
+{% hint style="success" %} 
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+{% endhint %}
 
 **Return Value**
 
@@ -221,7 +229,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ## klay_getTransactionByHash <a id="klay_gettransactionbyhash"></a>
 
 Returns the information about a transaction requested by transaction hash.
-This API works only on RPC call, not on Javascript console.
+This API works only on RPC call, not on JavaScript console.
 
 **Parameters**
 
@@ -305,7 +313,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ## klay_getTransactionBySenderTxHash <a id="klay_gettransactionbysendertxhash"></a>
 
 Returns the information about a transaction requested by sender transaction hash.
-This API works only on RPC call, not on Javascript console.
+This API works only on RPC call, not on JavaScript console.
 Please note that this API returns correct result only if indexing feature is enabled by `--sendertxhashindexing`.
 This can be checked by call [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled).
 

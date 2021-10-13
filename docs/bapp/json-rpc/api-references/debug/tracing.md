@@ -375,7 +375,7 @@ Tracer Name | Description
 -- | --
 4byteTracer | 4byteTracer searches for 4byte-identifiers, and collects them for post-processing. It collects the methods identifiers along with the size of the supplied data, so a reversed signature can be matched against the size of the data.
 callTracer | callTracer is a full-blown transaction tracer that extracts and reports all the internal calls made by a transaction, along with any useful information.
-fastCallTracer | fastCallTracer is a Go-native version of callTracer. Since it is not executed on Javascript VM, it shows more than 10x speedup compared to callTracer. Please use fastCallTracer instead of callTracer if the performance is the matter of the first importance.
+fastCallTracer | fastCallTracer is a Go-native version of callTracer. Since it is not executed on JavaScript VM, it shows more than 10x speedup compared to callTracer. Please use fastCallTracer instead of callTracer if the performance is the matter of the first importance.
 evmdisTracer | evmdisTracer returns sufficient information from a trace to perform evmdis-style disassembly.
 noopTracer | noopTracer is just the barebone boilerplate code required from a JavaScript object to be usable as a transaction tracer.
 opcountTracer | opcountTracer is a sample tracer that just counts the number of instructions executed by the KLVM before the transaction terminated.

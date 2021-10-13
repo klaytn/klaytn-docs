@@ -24,7 +24,11 @@ trie node' error.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| number | string | The block number as a hex string. |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH| Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash.|
+
+{% hint style="success" %} 
+NOTE: In versions earlier than Klaytn v1.7.0, only hex string type is available.
+{% endhint %}
 
 **Return Value**
 
@@ -123,7 +127,11 @@ References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| number | int | The block number. |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH| Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash.|
+
+{% hint style="success" %} 
+NOTE: In versions earlier than Klaytn v1.7.0, only integer type is available.
+{% endhint %}
 
 **Return Value**
 
@@ -308,7 +316,11 @@ Retrieves a block and returns its pretty printed form.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| number | int | The block number. |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH| Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash.|
+
+{% hint style="success" %} 
+NOTE: In versions earlier than Klaytn v1.7.0, only integer type is available.
+{% endhint %}
 
 **Return Value**
 
