@@ -67,10 +67,43 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
+## debug_mutexProfile <a id="debug_mutexprofile"></a>
+
+Turns on mutex profiling for nsec (nanosecond) and writes profile data to file. 가장 정확한 정보를 위해 프로파일 속도는 1입니다. If a different rate is desired, set the rate and write the profile manually.
+
+| 클라이언트 | 메서드 호출                                                         |
+|:-----:| -------------------------------------------------------------- |
+|  콘솔   | `debug.mutexProfile(file, seconds)`                            |
+|  RPC  | `{"method": "debug_mutexProfile", "params": [string, number]}` |
+
+**매개변수**
+
+| 이름      | 타입     | 설명                     |
+| ------- | ------ | ---------------------- |
+| file    | string | 프로파일링 결과 파일의 이름입니다.    |
+| seconds | int    | 초 단위로 표현된 프로파일링 기간입니다. |
+
+**리턴값**
+
+없음
+
+**예시**
+
+콘솔
+```javascript
+> debug.mutexProfile("mutex.profile", 10)
+null
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_mutexProfile","params":["mutex.profile", 10],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
 
 ## debug_isPProfRunning <a id="debug_ispprofrunning"></a>
 
-pprof HTTP 서버가 실행 중이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.
+Returns `true` if the pprof HTTP server is running and `false` otherwise.
 
 | 클라이언트 | 메서드 호출                                             |
 |:-----:| -------------------------------------------------- |
@@ -83,9 +116,9 @@ pprof HTTP 서버가 실행 중이면 `true`를 반환하고, 그렇지 않으�
 
 **리턴값**
 
-| 타입   | 설명                                                          |
-| ---- | ----------------------------------------------------------- |
-| bool | pprof HTTP 서버가 실행 중이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+| 타입   | 설명                                                                |
+| ---- | ----------------------------------------------------------------- |
+| bool | `true` if the pprof HTTP server is running and `false` otherwise. |
 
 **예시**
 
@@ -104,7 +137,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_setBlockProfileRate <a id="debug_setblockprofilerate"></a>
 
-Go루틴 블록 프로파일 데이터 수집 속도(샘플/초)를 설정합니다. 0이 아닌 값으로 설정하면 블록 프로파일링을 활성화하고, 0으로 설정하면 중단합니다. [debug_writeBlockProfile](#debug_writeblockprofile)을 사용하여 수집한 프로파일 데이터를 쓸 수 있습니다.
+Sets the rate (in samples/sec) of goroutine block profile data collection. A non-zero rate enables block profiling, setting it to zero stops the profile. Collected profile data can be written using [debug_writeBlockProfile](#debug_writeblockprofile).
 
 | 클라이언트 | 메서드 호출                                                        |
 |:-----:| ------------------------------------------------------------- |
@@ -113,9 +146,9 @@ Go루틴 블록 프로파일 데이터 수집 속도(샘플/초)를 설정합니
 
 **매개변수**
 
-| 이름   | 타입  | 설명                       |
-| ---- | --- | ------------------------ |
-| rate | int | (샘플/초)로 표현된 프로파일링 속도입니다. |
+| 이름   | 타입  | 설명                                 |
+| ---- | --- | ---------------------------------- |
+| rate | int | The profiling rate in samples/sec. |
 
 **리턴값**
 
@@ -137,7 +170,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startCPUProfile <a id="debug_startcpuprofile"></a>
 
-무기한으로 CPU 프로파일링을 진행하고, 입력으로 받은 파일에 그 결과를 작성합니다.
+Turns on CPU profiling indefinitely, writing to the given file.
 
 | 클라이언트 | 메서드 호출                                                    |
 |:-----:| --------------------------------------------------------- |
@@ -146,9 +179,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 이름   | 타입  | 설명                  |
-| ---- | --- | ------------------- |
-| file | 문자열 | 프로파일링 출력 파일의 이름입니다. |
+| 이름   | 타입     | 설명                  |
+| ---- | ------ | ------------------- |
+| file | string | 프로파일링 출력 파일의 이름입니다. |
 
 **리턴값**
 
@@ -171,7 +204,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_stopCPUProfile <a id="debug_stopcpuprofile"></a>
 
-CPU 프로파일링을 중단합니다.
+Turns off CPU profiling.
 
 | 클라이언트 | 메서드 호출                                             |
 |:-----:| -------------------------------------------------- |
@@ -202,7 +235,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startPProf <a id="debug_startpprof"></a>
 
-pprof HTTP 서버를 시작합니다.  실행 중인 pprof 서버는 아래를 통해 접근할 수 있습니다. (기본 설정, 즉 localhost:6060인 경우입니다.)
+Starts the pprof HTTP server.  The running pprof server can be accessed by (when the default configuration, i.e., localhost:6060, is used):
 - http://localhost:6060/debug/pprof (pprof 결과)
 - http://localhost:6060/memsize/ (메모리 크기 리포트)
 - http://localhost:6060/debug/vars (측정 수치)
@@ -214,10 +247,10 @@ pprof HTTP 서버를 시작합니다.  실행 중인 pprof 서버는 아래를 �
 
 **매개변수**
 
-| 이름      | 타입     | 설명                                                       |
-| ------- | ------ | -------------------------------------------------------- |
-| address | string | (선택 사항) pprof HTTP 서버의 리스너 인터페이스입니다.(기본 설정: "127.0.0.1") |
-| port    | int    | (선택 사항) pprof HTTP 서버의 리스너 포트입니다.(기본 설정: 6060)           |
+| 이름      | 타입     | 설명                                                                       |
+| ------- | ------ | ------------------------------------------------------------------------ |
+| address | string | (optional) pprof HTTP server listening interface (default: "127.0.0.1"). |
+| port    | int    | (optional) pprof HTTP server listening port (default: 6060).             |
 
 **리턴값**
 
@@ -246,7 +279,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_stopPProf <a id="debug_stoppprof"></a>
 
-pprof HTTP 서버를 중단합니다.
+Stops the pprof HTTP server.
 
 | 클라이언트 | 메서드 호출                                        |
 |:-----:| --------------------------------------------- |
@@ -278,7 +311,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_writeBlockProfile <a id="debug_writeblockprofile"></a>
 
-입력으로 받은 파일에 go루틴 블록 프로파일링을 작성합니다.
+Writes a goroutine blocking profile to the given file.
 
 | 클라이언트 | 메서드 호출                                                      |
 |:-----:| ----------------------------------------------------------- |
@@ -311,7 +344,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_writeMemProfile <a id="debug_writememprofile"></a>
 
-입력으로 받은 파일에 메모리 사용량 프로파일을 작성합니다.  프로파일링 속도는 이 API로 설정할 수 없으며, 커맨드라인에서 `--memprofilerate` 플래그를 사용하여 설정해야 합니다.
+Writes an allocation profile to the given file.  Note that the profiling rate cannot be set through the API, it must be set on the command line using the `--memprofilerate` flag.
 
 | 클라이언트 | 메서드 호출                                                    |
 |:-----:| --------------------------------------------------------- |
@@ -341,3 +374,34 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
+## debug_writeMutexProfile <a id="debug_writemutexprofile"></a>
+
+Writes a goroutine blocking profile to the given file.
+
+| 클라이언트 | 메서드 호출                                                      |
+|:-----:| ----------------------------------------------------------- |
+|  콘솔   | `debug.writeMutexProfile(file)`                             |
+|  RPC  | `{"method": "debug_writeMutexProfile", "params": [string]}` |
+
+**매개변수**
+
+| 이름   | 타입     | 설명                  |
+| ---- | ------ | ------------------- |
+| file | string | 프로파일링 출력 파일의 이름입니다. |
+
+**리턴값**
+
+없음
+
+**예시**
+
+콘솔
+```javascript
+> debug.writeMutexProfile("mutex.profile")
+null
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_writeMutexProfile","params":["mutex.profile"],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
