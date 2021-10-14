@@ -62,10 +62,46 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 {"jsonrpc":"2.0","id":1,"result":{"root":"70383c826d1161ec2f12d799023317d8da7775dd47b8502d2d7ef646d094d3a5","accounts":{"0000000000000000000000000000000000000035":{"balance":"12800000000000000000","nonce":0,"root":"56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421","codeHash":"62b00472fac99d94ccc52f5addac43d54c129cd2c6d2357c9557abea67efdec5","code":"6080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a723058201307c3756f4e627009187dcdbc0b3e286c13b98ba9279a25bfcc18dd8bcd73e40029","storage":{}},...(skipped)...}}}
 ```
 
+## debug_dumpStateTrie <a id="debug_dumpstatetrie"></a>
+
+Retrieves all state/storage tries of the given state root.
+
+| 클라이언트 | 메서드 호출                                                  |
+|:-----:| ------------------------------------------------------- |
+|  콘솔   | `debug.dumpStateTrie(number)`                           |
+|  RPC  | `{"method": "debug_dumpStateTrie", "params": [number]}` |
+
+**매개변수**
+
+| 이름     | 타입  | 설명        |
+| ------ | --- | --------- |
+| number | int | 블록 번호입니다. |
+
+**리턴값**
+
+| 타입       | 설명                     |
+| -------- | ---------------------- |
+| JSON 문자열 | Dump state Trie result |
+
+**예시**
+
+콘솔
+```javascript
+> debug.dumpStateTrie(10)
+{
+    root: "70383c826d1161ec2f12d799023317d8da7775dd47b8502d2d7ef646d094d3a5",
+    tries: [...]
+}
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_dumpStateTrie","params":["0x80"],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":{"root":"70383c826d1161ec2f12d799023317d8da7775dd47b8502d2d7ef646d094d3a5","tries":[...]}}
+```
 
 ## debug_getBlockRlp <a id="debug_getblockrlp"></a>
 
-블록 번호를 통해 RLP 인코딩된 블록을 검색하고 반환합니다.
+Retrieves and returns the RLP-encoded block by the block number.
 
 | 클라이언트 | 메서드 호출                                                |
 |:-----:| ----------------------------------------------------- |
@@ -102,7 +138,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_getModifiedAccountsByHash <a id="debug_getmodifiedaccountsbyhash"></a>
 
-블록 해시로 명시된 두 블록 사이에서 변경된 모든 계정을 반환합니다. `endBlockHash`에서 변경한 사항은 포함되지만 `startBlockHash`에서 변경한 사항은 포함되지 않습니다. 만약 `endBlockHash` 값이 없으면 `startBlockHash`에서 변경된 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
+Returns all accounts that have changed between the two blocks specified by their block hashes. Changes made in `endBlockHash` are included, but changes made in `startBlockHash` are not. If `endBlockHash` is not given, it returns the accounts modified in the `startBlockHash`. A change is defined as a difference in nonce, balance, code hash, or storage hash.
 
 
 | 클라이언트 | 메서드 호출                                                                                      |
@@ -112,10 +148,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 이름             | 타입            | 설명                         |
-| -------------- | ------------- | -------------------------- |
-| startBlockHash | 32바이트 크기 DATA | 확인할 범위의 첫 번째 블록 해시입니다.     |
-| endBlockHash   | 32바이트 크기 DATA | (선택 사항) 범위 내 마지막 블록 해시입니다. |
+| 이름             | 타입            | 설명                                           |
+| -------------- | ------------- | -------------------------------------------- |
+| startBlockHash | 32바이트 크기 DATA | The first block hash of the range to check.  |
+| endBlockHash   | 32바이트 크기 DATA | (optional) The last block hash of the range. |
 
 **리턴값**
 
@@ -142,7 +178,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 ## debug_getModifiedAccountsByNumber <a id="debug_getmodifiedaccountsbynumber"></a>
 
-블록 번호로 명시된 두 블록 사이에서 변경된 모든 계정을 반환합니다. `endBlockNum`에서 변경한 사항은 포함되지만 `startBlockNum`에서 변경한 사항은 포함되지 않습니다. 만약 `endBlockNum` 값이 없으면 `startBlockNum`에서 변경된 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
+Returns all accounts that have changed between the two blocks specified by their block numbers. Changes made in `endBlockNum` are included, but changes made in `startBlockNum` are not. If `endBlockNum` is not given, it returns the accounts modified in the `startBlockNum`. A change is defined as a difference in nonce, balance, code hash, or storage hash.
 
 
 | 클라이언트 | 메서드 호출                                                                                    |
@@ -152,16 +188,16 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 **매개변수**
 
-| 이름            | 타입  | 설명                         |
-| ------------- | --- | -------------------------- |
-| startBlockNum | int | 확인할 범위의 첫 번째 블록 번호입니다.     |
-| endBlockNum   | int | (선택 사항) 범위 내 마지막 블록 번호입니다. |
+| 이름            | 타입  | 설명                                             |
+| ------------- | --- | ---------------------------------------------- |
+| startBlockNum | int | The first block number of the range to check.  |
+| endBlockNum   | int | (optional) The last block number of the range. |
 
 **리턴값**
 
-| 타입          | 설명                                   |
-| ----------- | ------------------------------------ |
-| JSON string | 지정한 두 블록 사이에 변경이 이루어진 계정들의 주소 목록입니다. |
+| 타입       | 설명                                   |
+| -------- | ------------------------------------ |
+| JSON 문자열 | 지정한 두 블록 사이에 변경이 이루어진 계정들의 주소 목록입니다. |
 
 **예시**
 
@@ -181,7 +217,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 ## debug_preimage <a id="debug_preimage"></a>
 
-입력으로 받은 sha3 해시의 역상이 알려져 있다면 그 역상을 반환합니다.
+Returns the preimage for a sha3 hash, if known.
 
 | 클라이언트 | 메서드 호출                                           |
 |:-----:| ------------------------------------------------ |
@@ -191,15 +227,15 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 **매개변수**
 
-| 이름 | 타입     | 설명          |
-| -- | ------ | ----------- |
-| 해시 | string | sha3 해시입니다. |
+| 이름 | 타입     | 설명         |
+| -- | ------ | ---------- |
+| 해시 | string | sha3 hash. |
 
 **리턴값**
 
-| 이름       | 타입     | 설명                      |
-| -------- | ------ | ----------------------- |
-| preimage | string | 입력으로 받은 sha3 해시의 역상입니다. |
+| 이름       | 타입     | 설명                        |
+| -------- | ------ | ------------------------- |
+| preimage | string | Preimage for a sha3 hash. |
 
 **예시**
 
@@ -215,10 +251,41 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 "0xdd738d9a7d987a98798123b2322d389470328420bb3d84023a8405a5523cc532235ba325235243242cb9a4758609a8604 ...  98bbd743053d0cbadaaccd4865cc0348685460ada874506ad984506ad80458ad69038fd6f908340fd9af68faf903760"}
 ```
 
+## debug_getBadBlocks <a id="debug_getbadblocks"></a>
+
+Returns a list of the last 'bad blocks' that the client has seen on the network.
+
+| 클라이언트 | 메서드 호출                                           |
+|:-----:| ------------------------------------------------ |
+|  콘솔   | `debug.getBadBlocks()`                           |
+|  RPC  | `{"method": "debug_getBadBlocks", "params": []}` |
+
+**매개변수**
+
+없음
+
+**리턴값**
+
+| 이름       | 타입   | 설명                        |
+| -------- | ---- | ------------------------- |
+| badBlock | JSON | JSON list of block-hashes |
+
+**예시**
+
+콘솔
+```javascript
+> debug.getBadBlocks()
+[]
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_getBadBlocks","params":[],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":[]}
+```
 
 ## debug_printBlock <a id="debug_printblock"></a>
 
-블록을 검색하여 출력된 양식대로 반환합니다.
+Retrieves a block and returns its pretty printed form.
 
 | 클라이언트 | 메서드 호출                                               |
 |:-----:| ---------------------------------------------------- |
@@ -233,9 +300,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **리턴값**
 
-| 타입     | 설명             |
-| ------ | -------------- |
-| string | 블록 구조체의 덤프입니다. |
+| 타입     | 설명                      |
+| ------ | ----------------------- |
+| string | Dump of a block struct. |
 
 **예시**
 
@@ -254,11 +321,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_setHead <a id="debug_sethead"></a>
 
-**`경고`**: 이 API는 아직 구현되지 않았으며 호출 시 "not yet implemented API" 에러를 반환합니다.
+**`WARNING`**: This API is not yet implemented and always returns "not yet implemented API" error.
 
-로컬 체인의 현재 헤드를 입력받은 블록의 번호로 설정합니다.
+Sets the current head of the local chain by block number.
 
-**참고**: 이 행동은 블록체인에 심각한 손상을 줄 수 있습니다. *각별히 주의* 하여 사용하세요.
+**NOTE**: This is a destructive action and may severely damage your chain. Use with *extreme* caution.
 
 | 클라이언트 | 메서드 호출                                            |
 |:-----:| ------------------------------------------------- |
@@ -268,9 +335,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 이름     | 타입     | 설명                     |
-| ------ | ------ | ---------------------- |
-| number | string | 16진수 문자열 형태의 블록 번호입니다. |
+| 이름     | 타입     | 설명                                      |
+| ------ | ------ | --------------------------------------- |
+| number | string | The block number in hexadecimal string. |
 
 **리턴값**
 
@@ -289,9 +356,46 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
+## debug_seedHash <a id="debug_seedhash"></a>
+
+Retrieves the seed hash of a block.
+
+
+| 클라이언트 | 메서드 호출                                             |
+|:-----:| -------------------------------------------------- |
+|  콘솔   | `debug.seedHash(number)`                           |
+|  RPC  | `{"method": "debug_seedHash", "params": [number]}` |
+
+
+**매개변수**
+
+| 이름     | 타입     | 설명        |
+| ------ | ------ | --------- |
+| number | uint64 | 블록 번호입니다. |
+
+**리턴값**
+
+| 이름       | 타입     | 설명                   |
+| -------- | ------ | -------------------- |
+| seedHash | string | The block seed hash. |
+
+**예시**
+
+콘솔
+```javascript
+> debug.seedHash(100)
+"0x0000000000000000000000000000000000000000000000000000000000000000"
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_seedHash","params":[100],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":"0x0000000000000000000000000000000000000000000000000000000000000000"}
+```
+
+
 ## debug_startWarmUp <a id="debug_startwarmup"></a>
 
-`startWarmUp`은 가장 최신 상태 트리를 반복하면서 트리 캐시를 채웁니다. 만약 트리 캐시가 90% 정도 차면 반복은 자동으로 중단됩니다. 이 메서드는 순회를 시작하는 데에 실패하면 에러를 반환하고, 순회를 시작하는 데에 성공했으면 `null`을 반환합니다.
+The `startWarmUp` iterates the latest state trie to warm-up the trie cache. The iteration will be automatically stopped if 90% of the trie cache is full. The method returns an error if it fails in starting a warm-up, or `null` if it successfully has started it.
 
 | 클라이언트 | 메서드 호출                            |
 |:-----:| --------------------------------- |
@@ -304,9 +408,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **리턴값**
 
-| 타입    | 설명                                                       |
-| ----- | -------------------------------------------------------- |
-| error | 트리 캐시 채우기를 시작하는 데에 성공했다면 `null`을 반환하고 그렇지 않으면 에러를 반환합니다. |
+| 타입 | 설명                                                  |
+| -- | --------------------------------------------------- |
+| 에러 | `null` if a warm-up is started, or an error if not. |
 
 **예시**
 
@@ -325,7 +429,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startContractWarmUp <a id="debug_startcontractwarmup"></a>
 
-`startContractWarmUp` 은 주어진 컨트랙트 주소의 최신 스토리지 트리를 순회하면서 트리 캐시를 채웁니다. 만약 트리 캐시가 90% 정도 차면 반복은 자동으로 중단됩니다. 이 메서드는 채우기를 시작하는 데에 실패하거나 주어진 주소가 컨트랙트 주소가 아닐 경우 에러를 반환하고, 시작하는 데에 성공했으면 `null`을 반환합니다.
+The `startContractWarmUp` iterates the latest storage trie of the given contract address to warm-up the trie cache. The iteration will be automatically stopped if 90% of the trie cache is full. The method returns an error if it fails in starting a warm-up or the given address is not a contract address, or `null` if it successfully has started it.
 
 | 클라이언트 | 메서드 호출                                                         |
 |:-----:| -------------------------------------------------------------- |
@@ -334,15 +438,15 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 타입            | 설명          |
-| ------------- | ----------- |
-| 20바이트 크기 DATA | 컨트랙트 주소입니다. |
+| 타입            | 설명               |
+| ------------- | ---------------- |
+| 20바이트 크기 DATA | Contract address |
 
 **리턴값**
 
-| 타입 | 설명                                                       |
-| -- | -------------------------------------------------------- |
-| 에러 | 트리 캐시 채우기를 시작하는 데에 성공했다면 `null`을 반환하고 그렇지 않으면 에러를 반환합니다. |
+| 타입 | 설명                                                  |
+| -- | --------------------------------------------------- |
+| 에러 | `null` if a warm-up is started, or an error if not. |
 
 **예시**
 
@@ -361,7 +465,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_stopWarmUp <a id="debug_stopwarmup"></a>
 
-`stopWarmUp`은 현재 채우는 작업을 중단합니다. 이 메서드는 파라미터를 받지 않으며, 채우기가 중단되었는지 아닌지에 따라 `null` 또는 에러를 반환합니다.
+The `stopWarmUp` stops the currently running warm-up. This method takes no parameters, and returns `null` or an error depending on a warm-up was stopped or not.
 
 | 클라이언트 | 메서드 호출                     |
 |:-----:| -------------------------- |
@@ -374,9 +478,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **리턴값**
 
-| 타입 | 설명                                     |
-| -- | -------------------------------------- |
-| 에러 | 채우기가 중단된 경우 `null`, 그렇지 않으면 에러를 반환합니다. |
+| 타입 | 설명                                                  |
+| -- | --------------------------------------------------- |
+| 에러 | `null` if a warm-up is stopped, or an error if not. |
 
 **예시**
 
@@ -394,7 +498,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startCollectingTrieStats <a id="debug_startCollectingTrieStats"></a>
 
-`startCollectingTrieStats`는 최신 상태나 스토리지 트리를 순회하면서 트리 통계를 수집합니다. 주어진 주소의 컨트랙트의 트리 통계 스토리지를 수집합니다. 빈 주소(="0x00...00")가 입력될 시, 전체 상태 트리의 통계를 수집합니다. 통계는 트리 전체, 깊이별 정보를 포함하여 종료 전 분 단위로 로그를 남깁니다. 이 메서드는 작업을 시작하는 데 실패하면 에러를 반환하며, 성공적으로 시작했을 경우 `null` 를 반환합니다.
+The `startCollectingTrieStats` iterates the latest state or storage trie to collect trie statistics. It collects storage trie statistics of the contract in the given address. If an empty address(="0x00...00") is given, it collects statistics of the whole state trie. Statistics will be logged every minute before end, containing overall and depth-by-depth information. The method returns an error if it fails in starting a task, or `null` if it successfully has started it.
 
 | 클라이언트 | 메서드 호출                                                              |
 |:-----:| ------------------------------------------------------------------- |
@@ -403,15 +507,15 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 타입            | 설명          |
-| ------------- | ----------- |
-| 20바이트 크기 DATA | 컨트랙트 주소입니다. |
+| 타입            | 설명               |
+| ------------- | ---------------- |
+| 20바이트 크기 DATA | Contract address |
 
 **리턴값**
 
-| 타입 | 설명                                                   |
-| -- | ---------------------------------------------------- |
-| 에러 | 트리 통계 수집이 시작되었을 시 `null`를 반환하며, 그렇지 않을 경우 에러를 반환합니다. |
+| 타입 | 설명                                                                        |
+| -- | ------------------------------------------------------------------------- |
+| 에러 | `null` if collecting trie statistics task is started, or an error if not. |
 
 **예시**
 
@@ -432,10 +536,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
-로그
+Log
 
 ```
 INFO[03/10,12:03:12 +09] [5] Started collecting trie statistics        blockNum=1491072 root=0x64af12b6374b92f6db457fa1b98fe9522d9f36ba352e3c4e01cdb75f001e8264 len(children)=16
+...
 INFO[03/10,12:03:12 +09] [5] Finished collecting trie statistics       elapsed=95.152412ms numNodes=133036 numLeafNodes=95948 maxDepth=9
 INFO[03/10,12:03:12 +09] [5] number of leaf nodes in a depth           depth=5 numNodes=22098
 INFO[03/10,12:03:12 +09] [5] number of leaf nodes in a depth           depth=6 numNodes=65309
