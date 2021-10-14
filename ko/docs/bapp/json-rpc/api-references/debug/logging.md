@@ -89,7 +89,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 로깅의 상세 정도 상한을 설정합니다. 특정 레벨 이하까지 로그 메시지가 출력됩니다.
 
-(레벨 :  0=로깅 없음, 1=에러, 2=경고, 3=정보, 4=디버깅, 5=세부 사항)
+(Level :  0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
 
 `debug_vmodule`을 사용하여 각 패키지와 소스 파일의 상세 정도를 높일 수 있습니다.
 
@@ -121,10 +121,87 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
+## debug_verbosityByName <a id="debug_verbositybyname"></a>
+
+Sets the verbosity of log module with given name. Please note that VerbosityByName only works with zapLogger.
+
+(Level :  0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
+
+`debug_vmodule`을 사용하여 각 패키지와 소스 파일의 상세 정도를 높일 수 있습니다.
+
+| 클라이언트 | 메서드 호출                                                            |
+|:-----:| ----------------------------------------------------------------- |
+|  콘솔   | `debug.verbosityByName(name, level)`                              |
+|  RPC  | `{"method": "debug_verbosityByName", "params": [string, number]}` |
+
+**매개변수**
+
+| 이름    | 타입     | 설명                     |
+| ----- | ------ | ---------------------- |
+| 명칭    | string | The module name.       |
+| level | int    | 로깅의 상세 정도를 나타내는 레벨입니다. |
+
+**리턴값**
+
+없음
+
+**예시**
+
+콘솔
+```javascript
+> debug.verbosityByName("name", 3)
+null
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_verbosityByName","params":["name", '3'],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+
+## debug_verbosityByID <a id="debug_verbositybyid"></a>
+
+Sets the verbosity of log module with given ModuleID. Please note that VerbosityByID only works with zapLogger.
+
+(ModuleID : Please refer to the code on the [github](https://github.com/klaytn/klaytn/blob/dev/log/log_modules.go). )
+
+(Level :  0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
+
+`debug_vmodule`을 사용하여 각 패키지와 소스 파일의 상세 정도를 높일 수 있습니다.
+
+| 클라이언트 | 메서드 호출                                                          |
+|:-----:| --------------------------------------------------------------- |
+|  콘솔   | `debug.verbosityByID(id, level)`                                |
+|  RPC  | `{"method": "debug_verbosityByID", "params": [number, number]}` |
+
+**매개변수**
+
+| 이름    | 타입  | 설명                     |
+| ----- | --- | ---------------------- |
+| id    | int | The module id.         |
+| level | int | 로깅의 상세 정도를 나타내는 레벨입니다. |
+
+**리턴값**
+
+없음
+
+**예시**
+
+콘솔
+```javascript
+> debug.verbosityById(1, 3)
+null
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_verbosityById","params":['1',3'],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
 
 ## debug_vmodule <a id="debug_vmodule"></a>
 
-로깅의 상세 출력 패턴을 설정합니다.
+Sets the logging verbosity pattern.
 
 | 클라이언트 | 메서드 호출                                            |
 |:-----:| ------------------------------------------------- |
@@ -133,9 +210,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 이름     | 타입     | 설명             |
-| ------ | ------ | -------------- |
-| module | string | 로깅을 위한 모듈명입니다. |
+| 이름     | 타입     | 설명                           |
+| ------ | ------ | ---------------------------- |
+| module | string | The module name for logging. |
 
 **리턴값**
 
@@ -145,19 +222,19 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 콘솔
 
-특정 Go 패키지(디렉토리) 및 하위 디렉토리의 메시지를 확인하려면 아래와 같이 입력하세요.
+If you want to see messages from a particular Go package (directory) and all subdirectories, use
 
 ```javascript
 > debug.vmodule("p2p/*=5")
 ```
 
-하위 디렉토리는 제외하고 특정 패키지(*예를 들어*, p2p)의 메시지로 제한하려면 아래와 같이 입력하세요.
+If you want to restrict messages to a particular package (*e.g.*, p2p) but exclude subdirectories, use
 
 ```javascript
 > debug.vmodule("p2p=4")
 ```
 
-특정 소스 파일의 로그 메시지를 확인하려면 아래와 같이 입력하세요.
+If you want to see log messages from a particular source file, use
 
 ```javascript
 > debug.vmodule("server.go=3")
