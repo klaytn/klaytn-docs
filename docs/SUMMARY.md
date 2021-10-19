@@ -124,6 +124,8 @@
     * [How-To Guides](node/service-chain/howto/README.md)
   * [Errors & Troubleshooting](node/errors-and-troubleshooting.md)
   * [Download](node/download/README.md)
+    * [v1.6.4](node/download/v1.6.4.md)
+    * [v1.6.3](node/download/v1.6.3.md)
     * [v1.6.2](node/download/v1.6.2.md)
     * [v1.6.1](node/download/v1.6.1.md)
     * [v1.6.0](node/download/v1.6.0.md)
