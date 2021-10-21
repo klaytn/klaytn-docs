@@ -14,14 +14,13 @@ Returns the state snapshot at a given block number. The state snapshot contains 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| block number |QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](#the-default-block-parameter). |
+| block number |QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
 
 **Return Value**
 
 `Object` - A snapshot object, or `error` when no snapshot was found:
 
 | Name | Type | Description |
-| --- | --- | --- |
 | Epoch | 64-byte DATA | The number of blocks after which to checkpoint and reset the pending votes |
 | Number | 64-byte DATA | The block number where the snapshot was created |
 | Number | 64-byte DATA | The block number where the snapshot was created |
