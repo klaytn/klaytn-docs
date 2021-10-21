@@ -87,9 +87,3 @@ description: >-
 - [debug_stopWarmUp](./debug/blockchain.md#debug_stopwarmup)
 - [debug_startCollectingTrieStats](./debug/blockchain.md#debug_startCollectingTrieStats)
 
-
-## [Debug ChainDB](./debug/chaindb.md) <a id="debug-chaindb"></a>
-
-- [debug_chaindbProperty](./debug/chaindb.md#debug_chaindbproperty)
-- [debug_chaindbCompact](./debug/chaindb.md#debug_chaindbcompact)
-
