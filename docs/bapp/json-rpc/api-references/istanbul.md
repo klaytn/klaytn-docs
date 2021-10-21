@@ -71,7 +71,7 @@ Returns the list of validators at a given block number.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| block number |QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](#the-default-block-parameter). |
+| block number |QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
 
 **Return Value**
 

@@ -719,7 +719,7 @@ This method can be used either to generate a sender signature or to make a final
 **Parameters**
 
 The required parameters depend on the transaction type. 
-Check the proper parameters in [Working with Klaytn Transaction Types](./klay/transaction/transaction-type-support.md).
+Check the proper parameters in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
 
 **Return Value**
 
