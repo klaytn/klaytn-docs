@@ -136,7 +136,7 @@ the provided passphrase.
 
 {% hint style="success" %}
 NOTE: The method may return an extra challenge requiring a second open (e.g., the Trezor PIN matrix challenge).
-{% endhint 
+{% endhint %}
 
 | Client    | Method invocation                                                |
 | :-------: | ---------------------------------------------------------------- |
@@ -579,13 +579,13 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 Sets default configuration and signs the given transaction.
 
 {% hint style="success" %}
-NOTE: Sending your account password over an unsecured HTTP RPC connection is highly unsecure. Use [klay_signTransaction](./klay/transaction.md#klay_signtransaction).
+NOTE: Sending your account password over an unsecured HTTP RPC connection is highly unsecure. Use [klay_signTransaction](../klay/transaction#klay_signtransaction).
 {% endhint %}
 
 **Parameters**
 
 The required parameters depend on the transaction type.
-Check the proper parameters in [Working with Klaytn Transaction Types](./klay/transaction/transaction-type-support.md).
+Check the proper parameters in [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md).
 
 **Return Value**
 
