@@ -63,7 +63,7 @@ The configuration file has the following configurable properties.
 | TXPOOL_NONEXEC_SLOTS_ALL | Maximum number of non-executable transaction slots for all accounts. (Default: 1024) |
 | TXPOOL_EXEC_SLOTS_ACCOUNT | Number of executable transaction slots guaranteed per account. (Default: 16) |
 | TXPOOL_NONEXEC_SLOTS_ACCOUNT | Maximum number of non-executable transaction slots guaranteed per account. (Default: 64) |
-| TXPOOL_LIFE_TIME | Maximum amount of time non-executable transactions is queued. (Default : 5m) |
+| TXPOOL_LIFE_TIME | Maximum amount of time non-executable transactions is queued. (Default : 30m) |
 | RPC_ENABLE | Enable the HTTP-RPC server if it is set to 1. |
 | RPC_API | Comma-separated list of APIs offered over the HTTP-RPC interface.  (admin, debug, klay, miner, net, personal, rpc, txpool, web3) |
 | RPC_PORT | HTTP-RPC server listening port. (Default: "8551") |
