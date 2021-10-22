@@ -151,7 +151,7 @@ JSON 인터페이스 객체를 기반으로 함수 매개변수를 인코딩합�
 | 이름         | 타입                  | 설명                                                                                                                             |
 | ---------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | typesArray | Array &#124; object | 타입의 배열 또는 함수의 JSON 인터페이스의 배열입니다. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
-| parameters | Array               | 인코딩할 매개변수.                                                                                                                     |
+| parameters | 배열                  | 인코딩할 매개변수.                                                                                                                     |
 
 **참고** ``는 caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0)부터 지원됩니다. `tuple` 타입에 대한 자세한 정보는 [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types)에서 확인할 수 있습니다.
 
@@ -213,7 +213,7 @@ JSON 인터페이스 객체 및 주어진 매개변수를 사용하여 함수 �
 | 이름            | 타입     | 설명                 |
 | ------------- | ------ | ------------------ |
 | jsonInterface | object | 함수의 JSON 인터페이스 객체. |
-| parameters    | Array  | 인코딩할 매개변수.         |
+| parameters    | 배열     | 인코딩할 매개변수.         |
 
 **리턴값**
 
@@ -297,7 +297,7 @@ ABI 인코딩된 매개변수를 자바스크립트 타입으로 디코딩합니
 | 이름        | 타입                 | 설명                                                                                                              |
 | --------- | ------------------ | --------------------------------------------------------------------------------------------------------------- |
 | 형식        | string&#124;object | 매개변수 타입입니다. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)에서 확인할 수 있습니다. |
-| hexstring | Array              | 디코딩할 ABI 바이트 코드.                                                                                                |
+| hexstring | 배열                 | 디코딩할 ABI 바이트 코드.                                                                                                |
 
 **참고** ``는 caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0)부터 지원됩니다. `tuple` 타입에 대한 자세한 정보는 [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types)에서 확인할 수 있습니다.
 
@@ -440,9 +440,9 @@ ABI 인코딩된 로그 데이터 및 인덱싱된 토픽 데이터를 디코딩
 **매개변수**
 | 이름        | 타입     | 설명                                                                                                                                                 |
 | --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| inputs    | Array  | An array of JSON interface inputs. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요.                   |
+| inputs    | 배열     | An array of JSON interface inputs. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요.                   |
 | hexstring | string | 로그의 `data` 필드에 있는 ABI 바이트 코드.                                                                                                                      |
-| topics    | Array  | An array of the index parameter topics of the log. This array doesn't have topic[0] if it is a non-anonymous event, or otherwise, it has topic[0]. |
+| topics    | 배열     | An array of the index parameter topics of the log. This array doesn't have topic[0] if it is a non-anonymous event, or otherwise, it has topic[0]. |
 
 **리턴값**
 
@@ -488,7 +488,7 @@ Encodes smart contract bytecode with the arguments of the constructor.
 **매개변수**
 | 이름            | 타입     | 설명                                               |
 | ------------- | ------ | ------------------------------------------------ |
-| jsonInterface | Array  | 컨트랙트의 JSON 인터페이스.                                |
+| jsonInterface | 배열     | 컨트랙트의 JSON 인터페이스.                                |
 | hexstring     | string | 배포할 스마트 컨트랙트의 바이트코드.                             |
 | params        | 복합     | (optional) Arguments to pass to the constructor. |
 
