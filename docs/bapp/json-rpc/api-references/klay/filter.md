@@ -116,11 +116,15 @@ The execution of this API can be limited by two node configurations to manage re
 
 | Name | Type | Description |
 | --- | --- | --- |
-| fromBlock | QUANTITY &#124; TAG | (optional, default: `"latest"`) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
-| toBlock | QUANTITY &#124; TAG | (optional, default: `"latest"`) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| fromBlock | QUANTITY &#124; TAG | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| toBlock | QUANTITY &#124; TAG | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 | address | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate. |
 | topics | Array of DATA | (optional) Array of 32-byte DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with “or” options. |
 | blockHash | 32-byte DATA | (optional) A filter option that restricts the logs returned to the single block with the 32-byte hash blockHash. Using blockHash is equivalent to fromBlock = toBlock = the block number with hash blockHash. If blockHash is present in in the filter criteria, then neither fromBlock nor toBlock are allowed. |
+
+{% hint style="success" %} 
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+{% endhint %}
 
 **Return Value**
 
@@ -294,10 +298,14 @@ Topics are order-dependent. A transaction with a log with topics `[A, B]` will b
 
 | Name | Type | Description |
 | --- | --- | --- |
-| fromBlock | QUANTITY &#124; TAG | (optional, default: `"latest"`) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
-| toBlock | QUANTITY &#124; TAG | (optional, default: `"latest"`) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| fromBlock | QUANTITY &#124; TAG | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| toBlock | QUANTITY &#124; TAG | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
 | address | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate. |
 | topics | Array of DATA | (optional) Array of 32-byte DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options. |
+
+{% hint style="success" %} 
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+{% endhint %}
 
 **Return Value**
 

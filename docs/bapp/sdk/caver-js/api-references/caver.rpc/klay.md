@@ -640,7 +640,7 @@ Returns the number of the most recent block.
 caver.rpc.klay.getBlockByNumber(blockNumber [, returnTransactionObjects] [, callback])
 ```
 
-Returns information about a block by block number. This API works only on RPC call, not on Javascript console.
+Returns information about a block by block number. This API works only on RPC call, not on JavaScript console.
 
 **Parameters**
 
