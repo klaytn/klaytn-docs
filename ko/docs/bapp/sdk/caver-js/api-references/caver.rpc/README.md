@@ -14,11 +14,11 @@ caver.rpc
 
 **속성**
 
-| 이름         | 타입                   | 설명                                                                           |
-| ---------- | -------------------- | ---------------------------------------------------------------------------- |
-| klay       | [Klay][]             | The [Klay][] providing JSON-RPC call with  the`klay` name space.             |
-| net        | [Net][]              | The [Net][] providing JSON-RPC call with the `net` name space.               |
-| governance | [거버넌스(Governance)][] | The [Governance][] providing JSON-RPC call with the `governance` name space. |
+| 이름   | 타입                   | 설명                                                                           |
+| ---- | -------------------- | ---------------------------------------------------------------------------- |
+| klay | [Klay][]             | The [Klay][] providing JSON-RPC call with  the`klay` name space.             |
+| net  | [Net][]              | The [Net][] providing JSON-RPC call with the `net` name space.               |
+| 거버넌스 | [거버넌스(Governance)][] | The [Governance][] providing JSON-RPC call with the `governance` name space. |
 
 ## JSON-RPC calls <a id="json-rpc-calls"></a>
 
