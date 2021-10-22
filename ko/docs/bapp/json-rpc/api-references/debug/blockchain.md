@@ -13,9 +13,13 @@
 
 **매개변수**
 
-| 이름     | 타입     | 설명                     |
-| ------ | ------ | ---------------------- |
-| number | string | 16진수 문자열 형태의 블록 번호입니다. |
+| 이름                   | 타입                              | 설명                                                                                                                                                                              |
+| -------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash. |
+
+{% hint style="success" %}
+NOTE: In versions earlier than Klaytn v1.7.0, only hex string type is available.
+{% endhint %}
 
 **리턴값**
 
@@ -112,9 +116,13 @@ Retrieves and returns the RLP-encoded block by the block number.
 
 **매개변수**
 
-| 이름     | 타입  | 설명        |
-| ------ | --- | --------- |
-| number | int | 블록 번호입니다. |
+| 이름                   | 타입                              | 설명                                                                                                                                                                              |
+| -------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash. |
+
+{% hint style="success" %}
+NOTE: In versions earlier than Klaytn v1.7.0, only integer type is available.
+{% endhint %}
 
 **리턴값**
 
@@ -294,9 +302,13 @@ Retrieves a block and returns its pretty printed form.
 
 **매개변수**
 
-| 이름     | 타입  | 설명        |
-| ------ | --- | --------- |
-| number | int | 블록 번호입니다. |
+| 이름                   | 타입                              | 설명                                                                                                                                                                              |
+| -------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash. |
+
+{% hint style="success" %}
+NOTE: In versions earlier than Klaytn v1.7.0, only integer type is available.
+{% endhint %}
 
 **리턴값**
 
