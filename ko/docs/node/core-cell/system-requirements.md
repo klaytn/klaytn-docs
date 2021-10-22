@@ -8,12 +8,12 @@
 
 ### 베어메탈 서버 <a id="bare-metal-server"></a>
 
-| 카테고리          | 사양                                                                                                 |
-|:------------- |:-------------------------------------------------------------------------------------------------- |
-| 서버            | Intel® Server System R2312WFTZS                                                                    |
-| CPU           | Intel® Xeon 6148 2.40 GHz \(20-core/40-thread\) \* 2EA \(total 40-core/80-thread\)           |
-| 메모리           | 256GB \(32GB \* 8\)                                                                            |
-| 스토리지(Storage) | 1TB (또는 더 큰 용량의) SSD (체인 데이터 크기에 따라 적절한 스토리지 크기와 환경설정이 달라질 수 있습니다. 자세한 내용은 Klaytn 팀에게 문의하시기 바랍니다.) |
+| 카테고리          | 사양                                                                                                                                                      |
+|:------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 서버            | Intel® Server System R2312WFTZS                                                                                                                         |
+| CPU           | Intel® Xeon 6148 2.40 GHz \(20-core/40-thread\) \* 2EA \(total 40-core/80-thread\)                                                                |
+| 메모리           | 256GB \(32GB \* 8\)                                                                                                                                 |
+| 스토리지(Storage) | 1.5TB (or larger size) SSD (The preferred storage size and configuration could differ depending on the chain data size. 자세한 내용은 Klaytn 팀에게 문의하시기 바랍니다.) |
 
 이는 CN 및 PN에 권장되는 하드웨어 사양이며, 정확히 필요한 요구 사항은 아닙니다. 하드웨어 환경설정이 비슷하면 어떤 물리적 시스템이라도 CN 또는 PN을 작동시키기에 충분합니다.
 
