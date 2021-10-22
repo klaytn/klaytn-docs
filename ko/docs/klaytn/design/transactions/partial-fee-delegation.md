@@ -178,7 +178,7 @@ TxTypeFeeDelegatedValueTransferMemoWithRatio는 사용자가 특정 메시지와
 
 ### 발신자의 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-발신자의 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
+발신자의 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다.
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input, feeRatio]), chainid, 0, 0])
@@ -188,7 +188,7 @@ Signature = sign(SigHash, <the sender's private key>)
 
 ### 수수료 납부자의 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-수수료 납부자의 서명을 만들려면 RLP 직렬화를 다음과 같이 수행해야합니다.
+수수료 납부자의 서명을 만들려면 RLP 직렬화를 다음과 같이 수행해야 합니다.
 
 ```javascript
 SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input, feeRatio]), feePayer, chainid, 0, 0])
@@ -198,7 +198,7 @@ SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 
 ### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHash를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
+SenderTxHash를 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -209,7 +209,7 @@ SenderTxHash = keccak256(SenderTxHashRLP)
 
 ### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
+트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -492,7 +492,7 @@ TxTypeFeeDelegatedSmartContractExecution는 스마트 컨트랙트를 실행하�
 
 ### 발신자의 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-발신자의 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
+발신자의 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다.
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input, feeRatio]), chainid, 0, 0])
@@ -502,7 +502,7 @@ Signature = sign(SigHash, <the sender's private key>)
 
 ### 수수료 납부자의 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-수수료 납부자의 서명을 만들려면 RLP 직렬화를 다음과 같이 수행해야합니다.
+수수료 납부자의 서명을 만들려면 RLP 직렬화를 다음과 같이 수행해야 합니다.
 
 ```javascript
 SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input, feeRatio]), feePayer, chainid, 0, 0])
@@ -512,7 +512,7 @@ SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 
 ### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHash를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
+SenderTxHash를 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -523,7 +523,7 @@ SenderTxHash = keccak256(SenderTxHashRLP)
 
 ### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
+트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다.
 
 ```javascript
 TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, feeRatio, txSignatures, feePayer, feePayerSignatures])
@@ -640,7 +640,7 @@ TxTypeFeeDelegatedAccountUpdateWithRatio는 해당 계정의 키를 업데이트
 
 ### 발신자의 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-발신자의 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
+발신자의 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다.
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, from, rlpEncodedKey, feeRatio]), chainid, 0, 0])
@@ -650,7 +650,7 @@ Signature = sign(SigHash, <the sender's private key>)
 
 ### 수수료 납부자의 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-수수료 납부자의 서명을 만들려면 RLP 직렬화를 다음과 같이 수행해야합니다.
+수수료 납부자의 서명을 만들려면 RLP 직렬화를 다음과 같이 수행해야 합니다.
 
 ```javascript
 SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gas, from, rlpEncodedKey, feeRatio]), feePayer, chainid, 0, 0])
@@ -660,7 +660,7 @@ SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 
 ### SenderTxHash를 위한 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
-SenderTxHash를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
+SenderTxHash를 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -671,7 +671,7 @@ SenderTxHash = keccak256(SenderTxHashRLP)
 
 ### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야합니다.
+트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다.
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -765,14 +765,14 @@ SenderTxHash e1d87538509549f4a1eb418f986bc53dc77b7eec3b2150f75cd787951d3e4b7f
 
 TxTypeFeeDelegatedCancelWithRatio는 트랜잭션 풀에서 같은 논스를 가진 트랜잭션을 취소합니다. 자세한 내용은 [TxTypeCancel](basic.md#txtypecancel)를 참조하세요.
 
-이 트랜잭션 유형은 다음과 같은 변경 사항을 만듭니다. 1. 트랜잭션 수수료 납부자의 잔액은 트랜잭션 수수료의 주어진 수수료 부담 비율만큼 감소합니다. 2. 발신자의 잔고는 남은 트랜잭션 수수료만큼 줄어듭니다. 3. 발신자의 논스가 1 증가합니다.
+이 트랜잭션 타입은 다음과 같은 변경 사항을 만듭니다. 1. 트랜잭션 수수료 납부자의 잔액은 트랜잭션 수수료의 주어진 수수료 부담 비율만큼 감소합니다. 2. 발신자의 잔고는 남은 트랜잭션 수수료만큼 줄어듭니다. 3. 발신자의 논스가 1 증가합니다.
 
 ### 속성 <a id="attributes"></a>
 
-| 속성                 | 설명                                                     | 형식                                                                                                                                                                                                                           |
+| 속성                 | 설명                                                     | 타입                                                                                                                                                                                                                           |
 |:------------------ |:------------------------------------------------------ |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 형식                 | uint8 \(Go\)                                         | TxTypeFeeDelegatedCancelWithRatio의 유형입니다. 이는 0x3a이어야 합니다.                                                                                                                                                                    |
-| 논스                 | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                |
+| type               | uint8 \(Go\)                                         | TxTypeFeeDelegatedCancelWithRatio의 유형입니다. 이는 0x3a이어야 합니다.                                                                                                                                                                    |
+| nonce              | uint64 \(Go\)                                        | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                |
 | gasPrice           | \*big.Int \(Go\)                                   | 발신자가 트랜잭션 수수료로 지불하는 가스의 단가입니다(단위는 peb). 트랜잭션 수수료는 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 만약 가스가 10이 필요하고 gasPrice가 10^18이라면 발신자는 트랜잭션을 위해 10 KLAY를 지급해야 합니다. [KLAY의 단위](../klaytn-native-coin-klay.md#units-of-klay)를 참고해주세요. |
 | gas                | uint64 \(Go\)                                        | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                                                                             |
 | from               | common.Address \(Go\)                                | 발신자의 주소입니다. 자세한 내용은 [Signature Validation of Transactions](README.md#signature-validation-of-transactions)을 참고해주세요.                                                                                                          |
