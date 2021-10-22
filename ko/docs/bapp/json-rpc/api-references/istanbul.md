@@ -12,24 +12,15 @@ Returns the state snapshot at a given block number. The state snapshot contains 
 
 **매개변수**
 
-| 이름           | 타입                  | 설명                                                                                                                   |
-| ------------ | ------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| block number | QUANTITY &#124; TAG | 정수 형태의 블록 번호나 [default block parameter](#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다. |
+| 이름    | 타입                  | 설명                                                                                                                                               |
+| ----- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 블록 번호 | QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
 
 **리턴값**
 
 `Object` - A snapshot object, or `error` when no snapshot was found:
 
-| 이름           | 타입           | 설명                                                                         |
-| ------------ | ------------ | -------------------------------------------------------------------------- |
-| Epoch        | 64-byte DATA | The number of blocks after which to checkpoint and reset the pending votes |
-| Number       | 64-byte DATA | The block number where the snapshot was created                            |
-| Number       | 64-byte DATA | The block number where the snapshot was created                            |
-| ValSet       | 64-byte DATA | Set of validators at the moment                                            |
-| Policy       | 64-byte DATA |                                                                            |
-| CommiteeSize | 64-byte DATA |                                                                            |
-| 추천수          | 64-byte DATA | List of votes cast in chronological order                                  |
-| Tally        | 64-byte DATA | Current vote tally to avoid recalculating                                  |
+| Name | Type | Description | | Epoch | 64-byte DATA | The number of blocks after which to checkpoint and reset the pending votes | | Number | 64-byte DATA | The block number where the snapshot was created | | Number | 64-byte DATA | The block number where the snapshot was created | | ValSet | 64-byte DATA | Set of validators at the moment | | Policy | 64-byte DATA | | | CommiteeSize | 64-byte DATA | | | Votes | 64-byte DATA | List of votes cast in chronological order | | Tally | 64-byte DATA | Current vote tally to avoid recalculating |
 
 **예시**
 
@@ -70,9 +61,9 @@ Returns the list of validators at a given block number.
 
 **매개변수**
 
-| 이름           | 타입                  | 설명                                                                                                                   |
-| ------------ | ------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| block number | QUANTITY &#124; TAG | 정수 형태의 블록 번호나 [default block parameter](#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다. |
+| 이름    | 타입                  | 설명                                                                                                                                               |
+| ----- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 블록 번호 | QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
 
 **리턴값**
 
