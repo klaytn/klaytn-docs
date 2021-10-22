@@ -1136,7 +1136,7 @@ feePayerSignTransaction keeps the existing signatures/feePayerSignatures in the 
 | rawTransaction     | String         | caver.klay.sendSignedTransaction을 사용하여 전송할 준비가 된 RLP 인코딩된 트랜잭션입니다.                                              |
 | txHash             | 32-byte String | 트랜잭션의 해시입니다.                                                                                                    |
 | senderTxHash       | 32-byte String | 트랜잭션 발신자만 서명한 트랜잭션의 해시입니다. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash) |
-| feePayerSignatures | Array          | 트랜잭션 수수료 납부자의 서명으로 이루어진 배열입니다.                                                                                  |
+| feePayerSignatures | 배열             | 트랜잭션 수수료 납부자의 서명으로 이루어진 배열입니다.                                                                                  |
 
 **참고** 반환되는 객체에 있는 `txHash`와 `senderTxHash`는 최종 값이 아닐 수 있습니다. 다른 발신자 서명이 추가되면 txHash 및 senderTxHash가 변경됩니다. 수수료 납부자 서명이 추가되면 txHash가 변경됩니다.
 
@@ -1432,9 +1432,9 @@ combineSignatures는 signatures 또는 feePayerSignatures에서 중복 값은 �
 
 **매개변수**
 
-| 이름              | 타입    | 설명                                        |
-| --------------- | ----- | ----------------------------------------- |
-| rawTransactions | Array | RLP 인코딩된 트랜잭션 문자열(rawTransaction)의 배열입니다. |
+| 이름              | 타입 | 설명                                        |
+| --------------- | -- | ----------------------------------------- |
+| rawTransactions | 배열 | RLP 인코딩된 트랜잭션 문자열(rawTransaction)의 배열입니다. |
 
 **리턴값**
 
@@ -1445,8 +1445,8 @@ combineSignatures는 signatures 또는 feePayerSignatures에서 중복 값은 �
 | rawTransaction     | String         | caver.klay.sendSignedTransaction을 사용하여 전송할 준비가 된 RLP 인코딩된 트랜잭션입니다.                                                                          |
 | txHash             | 32-byte String | 트랜잭션의 해시입니다.                                                                                                                                |
 | senderTxHash       | 32-byte String | 트랜잭션 발신자만 서명한 트랜잭션의 해시입니다. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash)                             |
-| signatures         | Array          | (선택 사항) 결합된 RLP 인코딩된 트랜잭션(rawTransaction)에 있는 모든 서명들입니다. 서명들이 없으면 결과 객체에 `signatures` 속성이 반환되지 않습니다.                                        |
-| feePayerSignatures | Array          | (선택 사항) 결합된 RLP 인코딩된 트랜잭션(rawTransaction)에 있는 모든 feePayerSignatures 입니다. feePayerSignatures가 없으면 결과 객체에 `feePayerSignatures` 속성이 반환되지 않습니다. |
+| signatures         | 배열             | (선택 사항) 결합된 RLP 인코딩된 트랜잭션(rawTransaction)에 있는 모든 서명들입니다. 서명들이 없으면 결과 객체에 `signatures` 속성이 반환되지 않습니다.                                        |
+| feePayerSignatures | 배열             | (선택 사항) 결합된 RLP 인코딩된 트랜잭션(rawTransaction)에 있는 모든 feePayerSignatures 입니다. feePayerSignatures가 없으면 결과 객체에 `feePayerSignatures` 속성이 반환되지 않습니다. |
 
 **참고** 반환되는 객체에 있는 `txHash`와 `senderTxHash`는 최종 값이 아닐 수 있습니다. 다른 발신자 서명이 추가되면 txHash 및 senderTxHash가 변경됩니다. 수수료 납부자 서명이 추가되면 txHash가 변경됩니다.
 
@@ -1518,8 +1518,8 @@ caver.klay.accounts.getRawTransactionWithSignatures(tx [, callback])
 | rawTransaction     | String         | caver.klay.sendSignedTransaction을 사용하여 전송할 준비가 된 RLP 인코딩된 트랜잭션입니다.                                                                      |
 | txHash             | 32-byte String | 트랜잭션의 해시입니다.                                                                                                                            |
 | senderTxHash       | 32-byte String | 트랜잭션 발신자만 서명한 트랜잭션의 해시입니다. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash)                         |
-| signatures         | Array          | (선택 사항) RLP 인코딩된 트랜잭션(rawTransaction)에 있는 모든 서명들입니다. 서명들이 없으면 결과 객체에 `signatures` 속성이 반환되지 않습니다.                                        |
-| feePayerSignatures | Array          | (선택 사항) RLP 인코딩된 트랜잭션(rawTransaction)에 있는 모든 feePayerSignatures 입니다. feePayerSignatures가 없으면 결과 객체에 `feePayerSignatures` 속성이 반환되지 않습니다. |
+| signatures         | 배열             | (선택 사항) RLP 인코딩된 트랜잭션(rawTransaction)에 있는 모든 서명들입니다. 서명들이 없으면 결과 객체에 `signatures` 속성이 반환되지 않습니다.                                        |
+| feePayerSignatures | 배열             | (선택 사항) RLP 인코딩된 트랜잭션(rawTransaction)에 있는 모든 feePayerSignatures 입니다. feePayerSignatures가 없으면 결과 객체에 `feePayerSignatures` 속성이 반환되지 않습니다. |
 
 **참고** 반환되는 객체에 있는 `txHash`와 `senderTxHash`는 최종 값이 아닐 수 있습니다. 발신자 서명이 추가되면 txHash와 senderTxHash가 변경됩니다. 수수료 납부자 서명이 추가되면 txHash가 변경됩니다.
 
@@ -2428,9 +2428,9 @@ caver.klay.accounts.wallet.encrypt(password)
 
 **리턴값**
 
-| 타입    | 설명                   |
-| ----- | -------------------- |
-| Array | 암호화된 키스토어 v3 객체들입니다. |
+| 타입 | 설명                   |
+| -- | -------------------- |
+| 배열 | 암호화된 키스토어 v3 객체들입니다. |
 
 
 **예시**
@@ -2491,7 +2491,7 @@ caver.klay.accounts.wallet.decrypt(keystoreArray, password)
 
 | 이름            | 타입     | 설명                        |
 | ------------- | ------ | ------------------------- |
-| keystoreArray | Array  | 복호화할 암호화된 키스토어 v3 객체들입니다. |
+| keystoreArray | 배열     | 복호화할 암호화된 키스토어 v3 객체들입니다. |
 | password      | String | 암호화에 사용된 비밀번호입니다.         |
 
 
