@@ -24,8 +24,8 @@ new caver.transaction.feeDelegatedValueTransferWithRatio(transactionObject)
 | to                 | string | 전송되는 KLAY를 받을 계정 주소입니다.                                                                                                    |
 | gas                | string | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                           |
 | feeRatio           | string | (선택 사항) Fee payer가 부담하게될 트랜잭션 수수료의 비율입니다. 유효한 범위는 1에서 99 사이입니다. 0이나 100 이상의 값은 허용되지 않습니다.                                  |
-| signatures         | Array  | (선택 사항) 서명의 배열입니다.                                                                                                         |
-| feePayerSignatures | Array  | (선택 사항) 수수료 납부자의 서명의 배열입니다.                                                                                                |
+| signatures         | 배열     | (선택 사항) 서명의 배열입니다.                                                                                                         |
+| feePayerSignatures | 배열     | (선택 사항) 수수료 납부자의 서명의 배열입니다.                                                                                                |
 | feePayer           | string | (선택 사항) 수수료 납부자의 주소입니다.                                                                                                    |
 | 논스                 | string | (선택 사항) 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 미입력시 논스 설정을 위해 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 사용됩니다. |
 | gasPrice           | string | (선택 사항) 발신자가 지불할 토큰양을 구하기 위한 승수입니다. 미입력시 gasPrice 설정을 위해 `caver.rpc.klay.getGasPrice`가 사용됩니다.                              |
@@ -85,8 +85,8 @@ new caver.transaction.feeDelegatedValueTransferMemoWithRatio(transactionObject)
 | input              | string | 트랜잭션에 첨부되는 데이터입니다. 메시지는 이 속성으로 전달되어야 합니다.                                                                                  |
 | gas                | string | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                           |
 | feeRatio           | string | (선택 사항) Fee payer가 부담하게될 트랜잭션 수수료의 비율입니다. 유효한 범위는 1에서 99 사이입니다. 0이나 100 이상의 값은 허용되지 않습니다.                                  |
-| signatures         | Array  | (선택 사항) 서명의 배열입니다.                                                                                                         |
-| feePayerSignatures | Array  | (선택 사항) 수수료 납부자의 서명의 배열입니다.                                                                                                |
+| signatures         | 배열     | (선택 사항) 서명의 배열입니다.                                                                                                         |
+| feePayerSignatures | 배열     | (선택 사항) 수수료 납부자의 서명의 배열입니다.                                                                                                |
 | feePayer           | string | (선택 사항) 수수료 납부자의 주소입니다.                                                                                                    |
 | nonce              | string | (선택 사항) 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 미입력시 논스 설정을 위해 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 사용됩니다. |
 | gasPrice           | string | (선택 사항) 발신자가 지불할 토큰양을 구하기 위한 승수입니다. 미입력시 gasPrice 설정을 위해 `caver.rpc.klay.getGasPrice`가 사용됩니다.                              |
@@ -146,8 +146,8 @@ new caver.transaction.feeDelegatedAccountUpdateWithRatio(transactionObject)
 | account            | [Account] | 계정 업데이트에 필요한 정보를 포함하고 있는 [Account] 인스턴스입니다.                                                                                |
 | gas                | string    | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                           |
 | feeRatio           | string    | (선택 사항) Fee payer가 부담하게될 트랜잭션 수수료의 비율입니다. 유효한 범위는 1에서 99 사이입니다. 0이나 100 이상의 값은 허용되지 않습니다.                                  |
-| signatures         | Array     | (선택 사항) 서명의 배열입니다.                                                                                                         |
-| feePayerSignatures | Array     | (선택 사항) 수수료 납부자의 서명의 배열입니다.                                                                                                |
+| signatures         | 배열        | (선택 사항) 서명의 배열입니다.                                                                                                         |
+| feePayerSignatures | 배열        | (선택 사항) 수수료 납부자의 서명의 배열입니다.                                                                                                |
 | feePayer           | string    | (선택 사항) 수수료 납부자의 주소입니다.                                                                                                    |
 | nonce              | string    | (선택 사항) 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 미입력시 논스 설정을 위해 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 사용됩니다. |
 | gasPrice           | string    | (선택 사항) 발신자가 지불할 토큰양을 구하기 위한 승수입니다. 미입력시 gasPrice 설정을 위해 `caver.rpc.klay.getGasPrice`가 사용됩니다.                              |
@@ -212,8 +212,8 @@ new caver.transaction.feeDelegatedSmartContractDeployWithRatio(transactionObject
 | to                 | string  | (선택 사항, default: `'0x'`) 스마트 컨트랙트가 배포되는 주소입니다. 현재는 이 값이 정의되지 않습니다. 특정 주소를 지정하는 기능은 향후 지원될 예정입니다.                                           |
 | humanReadable      | boolean | (선택 사항, default: `false`) 인간이 읽을 수 있는 형식의 주소는 아직 지원되지 않기 때문에 이 값은 false입니다.                                                                |
 | codeFormat         | string  | (선택 사항, default: `"EVM"`) 스마트 컨트랙트의 코드 포맷입니다. 현재는 오직 EVM만 지원됩니다. 이 값은 할당 후 내부적으로 16진수로 변환됩니다(e.g. `EVM`이 `0x0`로 변환).                       |
-| signatures         | Array   | (선택 사항) 서명의 배열입니다.                                                                                                                         |
-| feePayerSignatures | Array   | (선택 사항) 수수료 납부자의 서명의 배열입니다.                                                                                                                |
+| signatures         | 배열      | (선택 사항) 서명의 배열입니다.                                                                                                                         |
+| feePayerSignatures | 배열      | (선택 사항) 수수료 납부자의 서명의 배열입니다.                                                                                                                |
 | feePayer           | string  | (선택 사항) 수수료 납부자의 주소입니다.                                                                                                                    |
 | nonce              | string  | (선택 사항) 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 미입력시 논스 설정을 위해 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 사용됩니다.                 |
 | gasPrice           | string  | (선택 사항) 발신자가 지불할 토큰양을 구하기 위한 승수입니다. 미입력시 gasPrice 설정을 위해 `caver.rpc.klay.getGasPrice`가 사용됩니다.                                              |
@@ -275,8 +275,8 @@ new caver.transaction.feeDelegatedSmartContractExecutionWithRatio(transactionObj
 | gas                | string | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                  |
 | feeRatio           | string | (선택 사항) Fee payer가 부담하게될 트랜잭션 수수료의 비율입니다. 유효한 범위는 1에서 99 사이입니다. 0이나 100 이상의 값은 허용되지 않습니다.                                                                         |
 | value              | string | (선택 사항, default: `'0x0'`) peb로 나타낸 전송될 KLAY 양입니다. `caver.utils.toPeb`를 사용할 수 있습니다.                                                                                |
-| signatures         | Array  | (선택 사항) 서명의 배열입니다.                                                                                                                                                |
-| feePayerSignatures | Array  | (선택 사항) 수수료 납부자의 서명의 배열입니다.                                                                                                                                       |
+| signatures         | 배열     | (선택 사항) 서명의 배열입니다.                                                                                                                                                |
+| feePayerSignatures | 배열     | (선택 사항) 수수료 납부자의 서명의 배열입니다.                                                                                                                                       |
 | feePayer           | string | (선택 사항) 수수료 납부자의 주소입니다.                                                                                                                                           |
 | 논스                 | string | (선택 사항) 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 미입력시 논스 설정을 위해 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 사용됩니다.                                        |
 | gasPrice           | string | (선택 사항) 발신자가 지불할 토큰양을 구하기 위한 승수입니다. 미입력시 gasPrice 설정을 위해 `caver.rpc.klay.getGasPrice`가 사용됩니다.                                                                     |
@@ -335,8 +335,8 @@ new caver.transaction.feeDelegatedCancelWithRatio(transactionObject)
 | gas                | string | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                           |
 | feeRatio           | string | (선택 사항) Fee payer가 부담하게될 트랜잭션 수수료의 비율입니다. 유효한 범위는 1에서 99 사이입니다. 0이나 100 이상의 값은 허용되지 않습니다.                                  |
 | nonce              | string | (선택 사항) 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 미입력시 논스 설정을 위해 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 사용됩니다. |
-| signatures         | Array  | (선택 사항) 서명의 배열입니다.                                                                                                         |
-| feePayerSignatures | Array  | (선택 사항) 수수료 납부자의 서명의 배열입니다.                                                                                                |
+| signatures         | 배열     | (선택 사항) 서명의 배열입니다.                                                                                                         |
+| feePayerSignatures | 배열     | (선택 사항) 수수료 납부자의 서명의 배열입니다.                                                                                                |
 | feePayer           | string | (선택 사항) 수수료 납부자의 주소입니다.                                                                                                    |
 | gasPrice           | string | (선택 사항) 발신자가 지불할 토큰양을 구하기 위한 승수입니다. 미입력시 gasPrice 설정을 위해 `caver.rpc.klay.getGasPrice`가 사용됩니다.                              |
 | chainId            | string | (선택 사항) Klaytn 네트워크의 체인 ID입니다. 미입력시 chainId 설정을 위해 `caver.rpc.klay.getChainId`가 사용됩니다.                                     |
@@ -391,8 +391,8 @@ new caver.transaction.feeDelegatedChainDataAnchoringWithRatio(transactionObject)
 | gas                | string | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                           |
 | feeRatio           | string | (선택 사항) Fee payer가 부담하게될 트랜잭션 수수료의 비율입니다. 유효한 범위는 1에서 99 사이입니다. 0이나 100 이상의 값은 허용되지 않습니다.                                  |
 | nonce              | string | (선택 사항) 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 미입력시 논스 설정을 위해 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 사용됩니다. |
-| signatures         | Array  | (선택 사항) 서명의 배열입니다.                                                                                                         |
-| feePayerSignatures | Array  | (선택 사항) 수수료 납부자의 서명의 배열입니다.                                                                                                |
+| signatures         | 배열     | (선택 사항) 서명의 배열입니다.                                                                                                         |
+| feePayerSignatures | 배열     | (선택 사항) 수수료 납부자의 서명의 배열입니다.                                                                                                |
 | feePayer           | string | (선택 사항) 수수료 납부자의 주소입니다.                                                                                                    |
 | gasPrice           | string | (선택 사항) 발신자가 지불할 토큰양을 구하기 위한 승수입니다. 미입력시 gasPrice 설정을 위해 `caver.rpc.klay.getGasPrice`가 사용됩니다.                              |
 | chainId            | string | (선택 사항) Klaytn 네트워크의 체인 ID입니다. 미입력시 chainId 설정을 위해 `caver.rpc.klay.getChainId`가 사용됩니다.                                     |
