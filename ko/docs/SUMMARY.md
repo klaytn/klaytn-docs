@@ -168,7 +168,8 @@
       * [personal](bapp/json-rpc/api-references/personal.md)
       * [txpool](bapp/json-rpc/api-references/txpool.md)
       * [governance](bapp/json-rpc/api-references/governance.md)
-    * [서비스체인 API 참조](bapp/json-rpc/api-references/servicechain.md)
+      <!-- Hided instanbul page because istanbul APIs are only for specific users and need more enhancement now -->
+      <!-- * \[istanbul\](bapp/json-rpc/api-references/istanbul.md)  -->* [Service Chain API references](bapp/json-rpc/api-references/servicechain.md)
       * [mainbridge](bapp/json-rpc/api-references/mainbridge.md)
       * [subbridge](bapp/json-rpc/api-references/subbridge.md)
     * [트랜잭션 오류 코드](bapp/json-rpc/transaction-error-codes.md)
