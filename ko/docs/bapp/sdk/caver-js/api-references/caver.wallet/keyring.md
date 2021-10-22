@@ -44,7 +44,7 @@ const keyring = new caver.wallet.keyring.multipleKeyring(address, keys)
 | 이름      | 타입     | 설명                                        |
 | ------- | ------ | ----------------------------------------- |
 | address | string | 계정 주소.                                    |
-| keys    | Array  | 하나의 개인키를 포함하고 있는 [PrivateKey][]의 인스턴스입니다. |
+| keys    | 배열     | 하나의 개인키를 포함하고 있는 [PrivateKey][]의 인스턴스입니다. |
 
 ### RoleBasedKeyring<a id="rolebasedkeyring"></a>
 
@@ -61,15 +61,15 @@ const keyring = new caver.wallet.keyring.roleBasedKeyring(address, keys)
 | 이름      | 타입     | 설명                                                                                                                                                                              |
 | ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address | string | 계정 주소.                                                                                                                                                                          |
-| keys    | Array  | 각 [역할][]에 사용되는 키를 정의하는 2차원 배열입니다. 각 [역할][]은 [PrivateKey][] 인스턴스를 포함하고 있습니다. 첫 번째 원소는 `roleTransactionKey`입니다. 두 번째 원소는 `roleAccountUpdateKey`입니다. 마지막 원소는 `roleFeePayerKey`입니다. |
+| keys    | 배열     | 각 [역할][]에 사용되는 키를 정의하는 2차원 배열입니다. 각 [역할][]은 [PrivateKey][] 인스턴스를 포함하고 있습니다. 첫 번째 원소는 `roleTransactionKey`입니다. 두 번째 원소는 `roleAccountUpdateKey`입니다. 마지막 원소는 `roleFeePayerKey`입니다. |
 
 이하는 각 역할에 정의된 키를 직관적으로 사용하기 위해 키링에 정의된 게터(getter)입니다. 각 역할에 사용되는 키에 게터를 통해 더 쉽게 접근할 수 있습니다.
 
-| 이름                   | 타입    | 설명                                                                                                                |
-| -------------------- | ----- | ----------------------------------------------------------------------------------------------------------------- |
-| roleTransactionKey   | Array | (계정 업데이트 트랜잭션을 제외한) 트랜잭션 서명에 사용되는 roleTransactionKey입니다. `keyring.roleTransactionkey`는 `keys` 속성의 첫 번째 요소를 반환합니다. |
-| roleAccountUpdateKey | Array | 계정 업데이트 트랜잭션 서명을 위해 사용되는 roleAccountUpdateKey입니다. `keyring.roleAccountUpdateKey`는 `keys` 속성의 두 번째 요소를 반환합니다.      |
-| roleFeePayerKey      | Array | 이 roleFeePayerKey는 feePayer로 트랜잭션에 서명할 때 사용됩니다. `keyring.roleFeePayerKey`는 `keys` 속성의 세 번째 요소를 반환합니다.             |
+| 이름                   | 타입 | 설명                                                                                                                |
+| -------------------- | -- | ----------------------------------------------------------------------------------------------------------------- |
+| roleTransactionKey   | 배열 | (계정 업데이트 트랜잭션을 제외한) 트랜잭션 서명에 사용되는 roleTransactionKey입니다. `keyring.roleTransactionkey`는 `keys` 속성의 첫 번째 요소를 반환합니다. |
+| roleAccountUpdateKey | 배열 | 계정 업데이트 트랜잭션 서명을 위해 사용되는 roleAccountUpdateKey입니다. `keyring.roleAccountUpdateKey`는 `keys` 속성의 두 번째 요소를 반환합니다.      |
+| roleFeePayerKey      | 배열 | 이 roleFeePayerKey는 feePayer로 트랜잭션에 서명할 때 사용됩니다. `keyring.roleFeePayerKey`는 `keys` 속성의 세 번째 요소를 반환합니다.             |
 
 
 ### PrivateKey <a id="privatekey"></a>
@@ -177,9 +177,9 @@ caver.wallet.keyring.generateMultipleKeys(num [, entropy])
 
 **리턴값**
 
-| 타입    | 설명                   |
-| ----- | -------------------- |
-| Array | 개인키들을 포함한 배열이 반환됩니다. |
+| 타입 | 설명                   |
+| -- | -------------------- |
+| 배열 | 개인키들을 포함한 배열이 반환됩니다. |
 
 **예시**
 
@@ -204,14 +204,14 @@ caver.wallet.keyring.generateRoleBasedKeys(numArray [, entropy])
 
 | 이름       | 타입     | 설명                                |
 | -------- | ------ | --------------------------------- |
-| numArray | Array  | 각 [역할][]에 사용되는 키를 정의하는 2차원 배열입니다. |
+| numArray | 배열     | 각 [역할][]에 사용되는 키를 정의하는 2차원 배열입니다. |
 | entropy  | string | (선택 사항) 엔트로피를 증가시키는 임의의 문자열입니다.   |
 
 **리턴값**
 
-| 타입    | 설명                                       |
-| ----- | ---------------------------------------- |
-| Array | 각 [역할][]에 정의된 키를 포함하는 요소들을 지닌 2차원 배열입니다. |
+| 타입 | 설명                                       |
+| -- | ---------------------------------------- |
+| 배열 | 각 [역할][]에 정의된 키를 포함하는 요소들을 지닌 2차원 배열입니다. |
 
 **예시**
 
@@ -414,7 +414,7 @@ caver.wallet.keyring.createWithMultipleKey(address, key)
 | 이름       | 타입     | 설명               |
 | -------- | ------ | ---------------- |
 | address  | string | 키링 주소입니다.        |
-| keyArray | Array  | 개인키 문자열들의 배열입니다. |
+| keyArray | 배열     | 개인키 문자열들의 배열입니다. |
 
 **리턴값**
 
@@ -448,7 +448,7 @@ caver.wallet.keyring.createWithRoleBasedKey(address, roledBasedKeyArray)
 | 이름                 | 타입     | 설명                                  |
 | ------------------ | ------ | ----------------------------------- |
 | address            | string | 키링 주소입니다.                           |
-| roledBasedKeyArray | Array  | 각 역할에 대해 개인키 배열을 포함하고 있는 2차원 배열입니다. |
+| roledBasedKeyArray | 배열     | 각 역할에 대해 개인키 배열을 포함하고 있는 2차원 배열입니다. |
 
 **리턴값**
 
@@ -824,9 +824,9 @@ When signing transactions, it is recommended to use [caver.wallet.sign][] or [tr
 
 **리턴값**
 
-| 타입    | 설명                             |
-| ----- | ------------------------------ |
-| Array | An array of [SignatureData][]. |
+| 타입 | 설명                             |
+| -- | ------------------------------ |
+| 배열 | An array of [SignatureData][]. |
 
 **예시**
 
@@ -904,7 +904,7 @@ If the user has not defined the index parameter, `keyring.signMessage` signs mes
 | 이름          | 타입     | 설명                             |
 | ----------- | ------ | ------------------------------ |
 | messageHash | string | Klaytn 고유의 접두사를 가진 메시지의 해시입니다. |
-| signatures  | Array  | An array of [SignatureData][]. |
+| signatures  | 배열     | An array of [SignatureData][]. |
 | 메시지         | string | 서명할 메시지입니다.                    |
 
 **예시**
@@ -1188,7 +1188,7 @@ Encrypts a keyring and returns a keystore v4 standard. 더 자세한 내용은 [
 | version | number | The version of keystore.                  |
 | id      | string | The id of keystore.                       |
 | address | string | The address in the encrypted [Keyring][]. |
-| keyring | Array  | The encrypted private key(s).             |
+| keyring | 배열     | The encrypted private key(s).             |
 
 더 자세한 내용은 [KIP-3](https://kips.klaytn.com/KIPs/kip-3)를 참조하십시오.
 
