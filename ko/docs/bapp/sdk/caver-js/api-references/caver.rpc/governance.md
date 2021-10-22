@@ -54,9 +54,9 @@ Provides the current tally of governance votes. It shows the aggregate approval 
 
 `Promise`는 `array`를 반환합니다.
 
-| 타입    | 설명                                                                        |
-| ----- | ------------------------------------------------------------------------- |
-| Array | An array containing the vote's value and the approval rate in percentage. |
+| 타입 | 설명                                                                        |
+| -- | ------------------------------------------------------------------------- |
+| 배열 | An array containing the vote's value and the approval rate in percentage. |
 
 **예시**
 
@@ -147,9 +147,9 @@ Provides my vote information in the epoch. 사용자의 노드가 새로운 블�
 
 `Promise`는 `array`를 반환합니다.
 
-| 타입    | 설명                                 |
-| ----- | ---------------------------------- |
-| Array | Node's Voting status in the epoch. |
+| 타입 | 설명                                 |
+| -- | ---------------------------------- |
+| 배열 | Node's Voting status in the epoch. |
 
 **예시**
 
@@ -334,9 +334,9 @@ Returns an array of current idxCache in the memory cache. idxCache는 거버넌�
 
 `Promise`는 `object`를 반환합니다.
 
-| 타입    | 설명                                              |
-| ----- | ----------------------------------------------- |
-| Array | Block numbers where governance change happened. |
+| 타입 | 설명                                              |
+| -- | ----------------------------------------------- |
+| 배열 | Block numbers where governance change happened. |
 
 **예시**
 
@@ -363,9 +363,9 @@ Returns an array that contains all block numbers at which any governance changes
 
 `Promise`는 `object`를 반환합니다.
 
-| 타입    | 설명                                              |
-| ----- | ----------------------------------------------- |
-| Array | Block numbers where governance change happened. |
+| 타입 | 설명                                              |
+| -- | ----------------------------------------------- |
+| 배열 | Block numbers where governance change happened. |
 
 **예시**
 
@@ -444,9 +444,9 @@ Returns the votes from all nodes in the epoch. 각 블록의 헤더로부터 이
 
 `Promise`는 `object`를 반환합니다.
 
-| 타입    | 설명                                                         |
-| ----- | ---------------------------------------------------------- |
-| Array | Current votes composed of keys, values and node addresses. |
+| 타입 | 설명                                                         |
+| -- | ---------------------------------------------------------- |
+| 배열 | Current votes composed of keys, values and node addresses. |
 
 **예시**
 
