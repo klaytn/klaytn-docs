@@ -133,7 +133,7 @@ Initiates a hardware wallet opening procedure, establishing a USB connection and
 
 {% hint style="success" %}
 NOTE: The method may return an extra challenge requiring a second open (e.g., the Trezor PIN matrix challenge).
-{% endhint
+{% endhint %}
 
 | 클라이언트 | 메서드 호출                                                           |
 |:-----:| ---------------------------------------------------------------- |
@@ -549,12 +549,12 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 Sets default configuration and signs the given transaction.
 
 {% hint style="success" %}
-NOTE: Sending your account password over an unsecured HTTP RPC connection is highly unsecure. Use [klay_signTransaction](../klay/transaction#klay_signtransaction).
+NOTE: Sending your account password over an unsecured HTTP RPC connection is highly unsecure. Use [klay_signTransaction](./klay/transaction.md#klay_signtransaction).
 {% endhint %}
 
 **매개변수**
 
-필수적으로 있어야 하는 파라미터들은 트랜잭션 타입에 따라 다릅니다. [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md)에서 적절한 파라미터를 확인하십시오.
+필수적으로 있어야 하는 파라미터들은 트랜잭션 타입에 따라 다릅니다. Check the proper parameters in [Working with Klaytn Transaction Types](./klay/transaction/transaction-type-support.md).
 
 **리턴값**
 
