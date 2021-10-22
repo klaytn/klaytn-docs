@@ -270,11 +270,15 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 
 **매개변수**
 
-| 타입                  | 설명                                                                                                                          |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | 정수 형태의 블록 번호나 [default block parameter](klay/block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열입니다. |
+| 타입                  | 설명                                                                                                                                                            |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
 
-**리턴값**
+{% hint style="success" %}
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+{% endhint %}
+
+**Return Value**x
 
 | 타입   | 설명           |
 | ---- | ------------ |
@@ -302,7 +306,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 ```
 ## governance_pendingChanges <a id="governance_pendingchanges"></a>
 
-`pendingChanges`은 충분한 표를 받았지만, 아직 확정되지 않은 항목들의 목록을 반환합니다. 현재 투표 기간이 끝날 때 이 항목들은 확정되어 그 결과가 다음 투표 기간 이후의 투표 기간부터 적용됩니다.
+The `pendingChanges` returns the list of items that have received enough number of votes but not yet finalized. 현재 투표 기간이 끝날 때 이 항목들은 확정되어 그 결과가 다음 투표 기간 이후의 투표 기간부터 적용됩니다.
 
 **매개변수**
 
@@ -325,7 +329,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 
 ## governance_votes <a id="governance_votes"></a>
 
-`votes`는 투표 기간 중 모든 노드의 투표 상태를 반환합니다. 각 블록의 헤더로부터 이러한 정보가 수집됩니다.
+The `votes` returns the votes from all nodes in the epoch. 각 블록의 헤더로부터 이러한 정보가 수집됩니다.
 
 **매개변수**
 
@@ -352,7 +356,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 ```
 
 ## governance_idxCache <a id="governance_idxcache"></a>
-`idxCache` 속성은 메모리 캐시 내의 현재 idxCache 배열을 반환합니다. idxCache는 거버넌스 내용이 변경되었던 블록 번호를 담고 있습니다. 캐시는 최대 1,000개의 블록 번호까지 담을 수 있도록 기본 설정되어 있습니다.
+The `idxCache` property returns an array of current idxCache in the memory cache. idxCache는 거버넌스 내용이 변경되었던 블록 번호를 담고 있습니다. 캐시는 최대 1,000개의 블록 번호까지 담을 수 있도록 기본 설정되어 있습니다.
 
 **매개변수**
 
@@ -371,7 +375,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 ```
 
 ## governance_idxCacheFromDb <a id="governance_idxcachefromdb"></a>
-`idxCacheFromDb`는 거버넌스 내용 변경이 이루어졌던 모든 블록의 번호를 배열로 반환합니다. `idxCacheFromDb`의 결과의 길이는 `idxCache`의 그것 이상입니다.
+The `idxCacheFromDb` returns an array that contains all block numbers on which a governance change ever happened. The result of `idxCacheFromDb` is the same or longer than that of `idxCache`
 
 **매개변수**
 
@@ -390,7 +394,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 ```
 
 ## governance_itemCacheFromDb <a id="governance_itemcachefromdb"></a>
-`itemCacheFromDb`는 입력으로 받은 블록에 저장된 거버넌스 정보를 반환합니다. 해당 블록에 변경 사항이 저장되어 있지 않다면 함수는 `null`을 반환합니다.
+The `itemCacheFromDb` returns the governance information stored in the given block. If no changes were stored in the given block, the function returns `null`.
 
 **매개변수**
 
@@ -425,7 +429,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 ```
 ## governance_getStakingInfo <a id="governance_getstakinginfo"></a>
 
-`getStakingInfo`는 특정 블록의 스테이킹 정보를 반환합니다. 결과값에는 다음과 같은 정보들이 포함되어 있습니다.
+The `getStakingInfo` returns staking information at a specific block. The result includes the following information.
 - `BlockNum`: 스테이킹 정보가 조회되는 블록 번호
 - `CouncilNodeAddrs`: 컨센서스 노드 주소
 - `CouncilRewardAddrs`: 관련 노드들의 블록 보상이 제공되는 주소
@@ -436,7 +440,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 - `KGFAddr`: The contract address of KGF.
 - `UseGini`: 지니 계수 사용 여부를 나타내는 boolean 값
 
-각 주소 순서와 스테이킹 양은 대응됩니다.
+Note that the order of all addresses and the staking amounts are matched.
 
 **매개변수**
 
