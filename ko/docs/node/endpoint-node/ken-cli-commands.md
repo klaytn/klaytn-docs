@@ -12,14 +12,15 @@ USAGE:
 `ken`에는 다음의 명령어들이 있습니다.
 
 ```bash
-명령어:
-   account     계정을 관리합니다
-   attach      대화형 자바스크립트 환경을 시작합니다 (노드에 연결합니다)
-   console     대화형 자바스크립트 환경을 시작합니다
-   dumpconfig  환경설정값을 나타냅니다
-   init        제네시스 블록을 부트스트랩하고 초기화합니다
-   version     버전 번호를 나타냅니다
-   help, h     명령어 리스트 또는 명령어에 대한 도움말을 나타냅니다
+COMMANDS:
+   account     Manage accounts
+   attach      Start an interactive JavaScript environment (connect to node)
+   console     Start an interactive JavaScript environment
+   dumpconfig  Show configuration values
+   dumpgenesis Dump genesis block JSON configuration to stdout (This command is supoported from Klaytn v1.7.0.)
+   init        Bootstrap and initialize a new genesis block
+   version     Show version number
+   help, h     Shows a list of commands or help for one command
 ```
 
 `-h` 옵션을 사용하여 각 명령에 대한 자세한 사용법을 확인해주세요.
