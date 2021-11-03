@@ -5,29 +5,41 @@
 
 Remix is a browser-based IDE (Integrated Development Environment) for developing Solidity contracts. Klaytn supports Solidity contracts, and is compatible with the Constantinople version of EVM. This document will cover connecting Remix with Klaytn. If you want to know more about how to use Remix, please refer to[ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) or [**Klaytn IDE**](../../smart-contract/ide-and-tools/README.md#klaytn-ide), which was derived from Remix.
 
-## Setting Remix Solidity Compiler <a id="setting-remix-solidity-compiler"></a>
+## Connect to a local plugin <a id="connect-to-a-local-plugin"></a>
 
-* Click on the Solidity Compiler tab.
+To connect to the Klaytn network using Remix, a local plugin needs to be connected. The following describes the process.
 
-![Solidity Compiler](./img/remix-solidity-compiler.png)
+* Go to https://remix.ethereum.org/, click **plugin manager**, and then click **Connect to a Local Plugin**.
 
-* Set EVM Version to Constantinople.
-  **Reference:** [Porting Ethereum Contract](https://docs.klaytn.com/smart-contract/porting-ethereum-contract#solidity-support)
+![Plugin](./img/remix-environment-plugin.png)
 
-![EVM Version Settings](./img/remix-evm-version.png)
+* Put http://klaytn-remix-plugin.ozys.net in the **URL**. Use any name what you want in the **Plugin Name** and **Display Name**.
 
-## Setting up the Remix Deploy Environment <a id="setting-up-the-remix-deploy-environment"></a>
+![Local Plugin](./img/remix-local-plugin.png)
 
-* Click on the [Deploy & Run Transactions] tab.
-* Select the appropriate [Environment].
+* If the **klaytn tab** appears, you are ready to interact with Klaytn.
 
-![Environment Settings](./img/remix-environment.png)  
+## Setting up the Deployment Environment <a id="setting-up-the-deployment-environment"></a>
 
-  * **[JavaScript VM]**: Connects to an inbuilt test network within Remix
-  * **[Injected Web3]**: Connects to network through Mist browser or MetaMask
-  * **[Web3 Provider]**: Connects directly to Klaytn node, which supports RPC
+* Click on the [Klaytn] tab.
+* Select the appropriate [Environment].  You can select **baobab**, **cypress**, or **caver provider**.
+  * **[Baobab]**: Connects to the baobab network
+  * **[Cypress]**: Connects to the cypress network
+  * **[Caver Provider]**: Connects directly to Klaytn node, which supports RPC
 
-## Case 1. Connecting Klaytn - Remix using EN (Endpoint Node) <a id="connecting-klaytn-remix-using-en"></a>
+![Klaytn Tab](./img/remix-klaytn-tab.png)
+
+## Import account <a id="import-account"></a>
+
+* You can import keys from **private key** or **Keystore**.
+* Click **plus** button next to the **ACCOUNT**.
+
+![Import Keys](./img/remix-klaytn-import-account.png)
+
+* Then put private key or keystore.
+* You can also import keys for the **feePayer**. It only supports **private key**.
+
+## Connecting Klaytn - Remix using EN (Endpoint Node) <a id="connecting-klaytn-remix-using-en"></a>
 
 * Set up an Endpoint Node in the local environment by following the instructions in [**the EN documents**](https://docs.klaytn.com/getting-started/quick-start/launch-an-en).
 
@@ -35,30 +47,26 @@ Remix is a browser-based IDE (Integrated Development Environment) for developing
 
   > **Note:** If you use the Public EN from Baobab, instead of from your local environment, you won't be connected to your account because the personal API is disabled. 
 
-* Select [Web3 Provider] in the Remix Environment menu.
+* Select [Caver Provider] in the Environment menu.
 
-![Web3 Provider](./img/remix-environment-web3provider.png)
+![Caver Provider](./img/remix-klaytn-environment.png)
 
-* Enter the RPC address of the EN in the Web3 Provider Endpoint.
+* Enter the RPC address of the EN in the Caver Provider Endpoint.
   Local EN (default): [http://localhost:8551](http://localhost:8551/)
 
-* Once you are successfully connected to the Network, you will see the Chain ID as below. You can view the list of accounts that you have created in Account. 
+* Once you are successfully connected to the Network, you will see the Chain ID as below. You can view the list of accounts that you have created in Account.
 
-![Chain ID](./img/remix-network-connected.png)
-
-## Case 2. Connecting Klaytn - Remix using MetaMask <a id="connecting-klaytn-remix-using-metamask"></a>
+## Connecting Klaytn - Remix using MetaMask <a id="connecting-klaytn-remix-using-metamask"></a>
 
 * Connect Klaytn with MetaMask by referring to the [**Connecting to MetaMask**](https://docs.klaytn.com/bapp/tutorials/connecting-metamask).
 * Select [Injected Web3] on the Remix Environment menu.
 
-![Injected Web3](./img/remix-environment-injectedWeb3.png)
+![Injected Web3](./img/remix-klaytn-environment-injectedWeb3.png)
 
 * When you see the MetaMask pop-up, select the connected account and click [Next].
-* Once you are connected to the Network (Baobab Testnet in this example), you will see the Chain ID as below. You can check the connection status with the MetaMask wallet under [Account]. 
+* Once you are connected to the Network (Baobab Testnet in this example), you will see the Chain ID as below. You can check the connection status with the MetaMask wallet under [Account].
 
-![Connection Status](./img/remix-connect-with-metamask.png)
-
-## Tutorial: Connecting Remix <a id="tutorial-connecting-remix"></a>
+## Tutorial: KlaytnGreeter Contract <a id="tutorial-KlaytnGreeter-contract"></a>
 
 We will be using the [**KlaytnGreeter**](https://docs.klaytn.com/smart-contract/sample-contracts/klaytngreeter) sample contract.
 
