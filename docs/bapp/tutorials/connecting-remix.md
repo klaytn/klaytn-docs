@@ -13,7 +13,7 @@ You need a local plugin to connect to the Klaytn network using Remix. The proces
 
 ![Plugin](./img/remix-environment-plugin.png)
 
-* Put http://klaytn-remix-plugin.ozys.net in the **URL**. Use any name what you want in the **Plugin Name** and **Display Name**.
+* Put https://klaytn-remix-plugin.ozys.net in the **URL**. Use any name what you want in the **Plugin Name** and **Display Name**.
 
 ![Local Plugin](./img/remix-local-plugin.png)
 
