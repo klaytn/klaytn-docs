@@ -7,7 +7,7 @@ Remix is a browser-based IDE (Integrated Development Environment) for developing
 
 ## Connect to a local plugin <a id="connect-to-a-local-plugin"></a>
 
-To connect to the Klaytn network using Remix, a local plugin needs to be connected. The following describes the process.
+You need a local plugin to connect to the Klaytn network using Remix. The process is described in the following:
 
 * Go to https://remix.ethereum.org/, click **plugin manager**, and then click **Connect to a Local Plugin**.
 
@@ -17,14 +17,14 @@ To connect to the Klaytn network using Remix, a local plugin needs to be connect
 
 ![Local Plugin](./img/remix-local-plugin.png)
 
-* If the **klaytn tab** appears, you are ready to interact with Klaytn.
+* If the [Klaytn] tab appears, you are ready to interact with Klaytn.
 
 ## Setting up the Deployment Environment <a id="setting-up-the-deployment-environment"></a>
 
 * Click on the [Klaytn] tab.
-* Select the appropriate [Environment].  You can select **baobab**, **cypress**, or **caver provider**.
-  * **[Baobab]**: Connects to the baobab network
-  * **[Cypress]**: Connects to the cypress network
+* Select the appropriate [Environment].  You can select **Baobab**, **Cypress**, or **Caver provider**.
+  * **[Baobab]**: Connects to the Baobab network
+  * **[Cypress]**: Connects to the Cypress network
   * **[Caver Provider]**: Connects directly to Klaytn node, which supports RPC
 
 ![Klaytn Tab](./img/remix-klaytn-tab.png)
