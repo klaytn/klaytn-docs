@@ -3,13 +3,21 @@
 
 ## What is Remix <a id="what-is-remix"></a>
 
-Remix is a browser-based IDE (Integrated Development Environment) for developing Solidity contracts. Klaytn supports Solidity contracts, and is compatible with the Constantinople version of EVM. This document will cover connecting Remix with Klaytn. If you want to know more about how to use Remix, please refer to[ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) or [**Klaytn IDE**](../../smart-contract/ide-and-tools/README.md#klaytn-ide), which was derived from Remix.
+Remix is a browser-based IDE (Integrated Development Environment) for developing Solidity contracts. This document will cover connecting Remix with Klaytn. If you want to know more about how to use Remix, please refer to[ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) or [**Klaytn IDE**](../../smart-contract/ide-and-tools/README.md#klaytn-ide), which was derived from Remix.
+
+## Setup EVM version <a id="setup-EVM-version"></a>
+Klaytn supports contracts written in Solidity, and is compatible with the **Constantinople** version of EVM. Also, Solidity version 0.7.x and lower are supported in Klaytn.
+Therefore, to deploy the contract on Klaytn, the contract must be compiled with the **Constantinople** EVM version.
+
+* Click **solidity compiler**, and then choose **constantinople** EVM version.
+
+![Solidity Complier](./img/remix-solidity-compiler.png)
 
 ## Connect to a local plugin <a id="connect-to-a-local-plugin"></a>
 
 You need a local plugin to connect to the Klaytn network using Remix. The process is described in the following:
 
-* Go to https://remix.ethereum.org/, click **plugin manager**, and then click **Connect to a Local Plugin**.
+* Click **plugin manager**, and then click **Connect to a Local Plugin**.
 
 ![Plugin](./img/remix-environment-plugin.png)
 
