@@ -22,4 +22,4 @@ description: >-
 
 * Covalent provides a unified API to bring full transparency and visibility to assets across all blockchain networks. Simply put, we have a single API which allows you to pull detailed, granular blockchain transaction data from multiple blockchains with no code.
 
-* Supported endpoints- All Class A endpoints are supported for the Klaytn mainnet Cypress and the Klaytn testnet Baobab. You can query either network via the unified API by changing the chainId.Please go through for more information - https://www.covalenthq.com/docs/networks/klaytn#supported-endpoints
+* Supported endpoints- All Class A endpoints are supported for the Klaytn mainnet Cypress and the Klaytn testnet Baobab. You can query either network via the unified API by changing the chainId.For more information, see [https://www.covalenthq.com/docs/networks/klaytn#supported-endpoints](https://www.covalenthq.com/docs/networks/klaytn#supported-endpoints).
