@@ -92,6 +92,13 @@ Storage fees have a slightly nuanced behavior. To incentivize minimization of th
 
 The fee schedule `G` is a tuple of 37 scalar values corresponding to the relative costs, in gas, of a number of abstract operations that a transaction may incur. For other tables such as `Precompiled contracts` and `accounts`, please refer to [this document](../transaction-fees.md#klaytns-gas-table)
 
+{% hint style="success" %}
+NOTE: The table below is used before the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0.
+In case of Baobab network, protocol upgrade is applied from block number `75373312`.
+We will apply protocol upgrade for Cypress network later.
+If you want the latest document, please refer to [latest document](klaytn-virtual-machine.md).
+{% endhint %}
+
 | Name | Value | Description |
 | :--- | ---: | :--- |
 | `G_zero` | 0 | Nothing paid for operations of the set `W_zero` |
@@ -292,4 +299,3 @@ As mentioned earlier, the current KLVM is based on EVM; thus, its specification 
 The Klaytn team will try to maintain compatibility between KLVM and EVM, but as Klaytn becomes increasingly implemented and evolves, the KLVM specification will be updated, and there will probably be more differences compared to EVM.
 
 NOTE: This section will be updated in the future.
-
