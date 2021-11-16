@@ -12,8 +12,8 @@ NOTE: With the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0,
 | feePayer | 0x0a | 0x3fe |
 | validateSender | 0x0b | 0x3ff |
 
-In case of Baobab network, protocol upgrade is applied from block number `75373312`.
-We will apply protocol upgrade for Cypress network later.
+In case of Baobab network, protocol upgrade was enabled from block number `#75373312`.
+Cypress mainnet will be subject to the same protocol upgrade in the next version.
 If you want the previous document, please refer to [previous document](precompiled-contracts-previous.md)
 {% endhint %}
 

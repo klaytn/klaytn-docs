@@ -4,8 +4,8 @@ Klaytn provides several useful precompiled contracts. These contracts are implem
 
 {% hint style="success" %}
 NOTE: The table below is used before the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0.
-In case of Baobab network, protocol upgrade is applied from block number `75373312`.
-We will apply protocol upgrade for Cypress network later.
+In case of Baobab network, protocol upgrade was enabled from block number `#75373312`.
+Cypress mainnet will be subject to the same protocol upgrade in the next version.
 If you want the latest document, please refer to [latest document](precompiled-contracts.md).
 {% endhint %}
 
