@@ -14,6 +14,7 @@ NOTE: With the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0,
 
 In case of Baobab network, protocol upgrade was enabled from block number `#75373312`.
 Cypress mainnet will be subject to the same protocol upgrade in the next version.
+
 If you want the previous document, please refer to [previous document](precompiled-contracts-previous.md)
 {% endhint %}
 

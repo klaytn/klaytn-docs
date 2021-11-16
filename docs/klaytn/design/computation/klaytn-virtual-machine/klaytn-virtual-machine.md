@@ -96,6 +96,7 @@ The fee schedule `G` is a tuple of 37 scalar values corresponding to the relativ
 NOTE: Since protocol upgrade, in other words, hard fork introduced in klaytn v1.7.0, the fee has been changed.
 In case of Baobab network, protocol upgrade was enabled from block number `#75373312`.
 Cypress mainnet will be subject to the same protocol upgrade in the next version.
+
 If you want a previous document, please refer [previous document](klaytn-virtual-machine-previous.md).
 {% endhint %}
 
