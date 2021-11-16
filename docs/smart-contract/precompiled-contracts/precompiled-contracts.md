@@ -3,7 +3,7 @@
 Klaytn provides several useful precompiled contracts. These contracts are implemented in the platform itself as a native implementation. The precompiled contracts from address 0x01 through 0x09 are the same as those in Ethereum. Klaytn additionally implements precompiled contracts from 0x3ff through 0x3fd to support new Klaytn features.
 
 {% hint style="success" %}
-NOTE: With the incompatible change, or the "hard fork" introduced in klaytn v1.7.0, three addresses have changed, and the blake2F contract has been added.
+NOTE: With the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0, three addresses have changed, and the blake2F contract has been added.
 
 | precompiled contract | address before change | address after change |
 | :--- | :--- | :--- |
@@ -12,6 +12,8 @@ NOTE: With the incompatible change, or the "hard fork" introduced in klaytn v1.7
 | feePayer | 0x0a | 0x3fe |
 | validateSender | 0x0b | 0x3ff |
 
+In case of Baobab network, protocol upgrade is applied from block number `75373312`.
+We will apply protocol upgrade for Cypress network later.
 If you want the previous document, please refer to [previous document](precompiled-contracts-previous.md)
 {% endhint %}
 

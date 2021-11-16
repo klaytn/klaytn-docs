@@ -44,7 +44,9 @@ Klaytn currently does not provide a way to replace a transaction using the unit 
 Basically, Klaytn is keeping compatibility with Ethereum. So Klaytn's gas table is pretty similar with that of Ethereum. But there are some features unique to Klaytn that require several new constants.
 
 {% hint style="success" %}
-NOTE: With the incompatible change, or the "hard fork" introduced in klaytn v1.7.0, the gas table has been changed.
+NOTE: With the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0, the gas table has been changed.
+In case of Baobab network, protocol upgrade is applied from block number `75373312`.
+We will apply protocol upgrade for Cypress network later.
 If you want the previous document, please refer to [previous document](transaction-fees-previous.md)
 {% endhint %}
 
