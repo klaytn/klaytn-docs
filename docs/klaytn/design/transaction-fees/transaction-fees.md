@@ -45,8 +45,9 @@ Basically, Klaytn is keeping compatibility with Ethereum. So Klaytn's gas table 
 
 {% hint style="success" %}
 NOTE: With the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0, the gas table has been changed.
-In case of Baobab network, protocol upgrade is applied from block number `75373312`.
-We will apply protocol upgrade for Cypress network later.
+In case of Baobab network, protocol upgrade was enabled from block number `#75373312`.
+Cypress mainnet will be subject to the same protocol upgrade in the next version.
+
 If you want the previous document, please refer to [previous document](transaction-fees-previous.md)
 {% endhint %}
 
