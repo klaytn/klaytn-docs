@@ -1,8 +1,12 @@
 # Porting Ethereum Contract <a id="porting-ethereum-contract"></a>
 
 In most cases, you can use Ethereum contracts on Klaytn without any modification.
-However, be aware of the following two issues. 
+However, be aware of the following two issues.  
+{% hint style="success" %}
+NOTE: In case of Baobab network, protocol upgrade was enabled from block number `#75373312`.
+Cypress mainnet will be subject to the same protocol upgrade in the next version.
 
+{% endhint %}
 ## Solidity Support <a id="solidity-support"></a>
 
 Klaytn is currently compatible with **Istanbul** Ethereum Virtual Machine (EVM) version. 
