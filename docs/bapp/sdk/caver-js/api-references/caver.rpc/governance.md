@@ -5,7 +5,7 @@
 ## caver.rpc.governance.vote <a id="caver-rpc-governance-vote"></a>
 
 ```javascript
-caver.rpc.governance.vote(key, value)
+caver.rpc.governance.vote(key, value [, callback])
 ```
 
 Submits a new vote. If the node has the right to vote based on the governance mode, the vote can be submitted. If not, an error will occur and the vote will be ignored.
@@ -16,6 +16,7 @@ Submits a new vote. If the node has the right to vote based on the governance mo
 | --- | --- | --- |
 | key | string | Name of the configuration setting to be changed. Key has the form "domain.field". |
 | value | string &#124; number &#124; boolean | Various types of value for each key. |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 For more details about the `key` and `value` for `caver.rpc.governance.vote`, please refer to [governance_vote](../../../../json-rpc/api-references/governance.md#governance_vote).
 
@@ -38,10 +39,16 @@ Your vote was successfully placed.
 ## caver.rpc.governance.showTally <a id="caver-rpc-governance-showtally"></a>
 
 ```javascript
-caver.rpc.governance.showTally()
+caver.rpc.governance.showTally([callback])
 ```
 
 Provides the current tally of governance votes. It shows the aggregate approval rate in percentage. The suggested change shall pass when the rate is over 50%.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -67,10 +74,16 @@ Provides the current tally of governance votes. It shows the aggregate approval 
 ## caver.rpc.governance.getTotalVotingPower <a id="caver-rpc-governance-gettotalvotingpower"></a>
 
 ```javascript
-caver.rpc.governance.getTotalVotingPower()
+caver.rpc.governance.getTotalVotingPower([callback])
 ```
 
 Provides the sum of all voting power that CNs have. Each CN has 1.0 ~ 2.0 voting power. In  the "none" and "single" governance modes, totalVotingPower doesn't provide any information.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -90,10 +103,16 @@ Provides the sum of all voting power that CNs have. Each CN has 1.0 ~ 2.0 voting
 ## caver.rpc.governance.getMyVotingPower <a id="caver-rpc-governance-getmyvotingpower"></a>
 
 ```javascript
-caver.rpc.governance.getMyVotingPower()
+caver.rpc.governance.getMyVotingPower([callback])
 ```
 
 Provides the voting power of the node. The voting power can be anywhere between 1.0 ~ 2.0. In the "none" and "single" governance modes, totalVotingPower doesn't provide any information.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -113,10 +132,16 @@ Provides the voting power of the node. The voting power can be anywhere between 
 ## caver.rpc.governance.getMyVotes <a id="caver-rpc-governance-getmyvotes"></a>
 
 ```javascript
-caver.rpc.governance.getMyVotes()
+caver.rpc.governance.getMyVotes([callback])
 ```
 
 Provides my vote information in the epoch. Each vote is stored in a block when the user's node generates a new block. After current epoch ends, this information is cleared.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -143,18 +168,24 @@ Provides my vote information in the epoch. Each vote is stored in a block when t
 ## caver.rpc.governance.getChainConfig <a id="caver-rpc-governance-getchainconfig"></a>
 
 ```javascript
-caver.rpc.governance.getChainConfig()
+caver.rpc.governance.getChainConfig([callback])
 ```
 
 Provides the initial chain configuration. Because it just stores the initial configuration, if there were changes in the governance made by voting, the result of chainConfig will differ from the current states. To see the current information, please use itemsAt.
 
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+
 **Return Value**
 
-`Promise` returns `Array`
+`Promise` returns `object`
 
 | Type | Description |
 | --- | --- |
-| Array | An array containing the vote's value and the approval rate in percentage. |
+| object | The initial chain configuration |
 
 **Example**
 
@@ -184,10 +215,16 @@ Provides the initial chain configuration. Because it just stores the initial con
 ## caver.rpc.governance.getNodeAddress <a id="caver-rpc-governance-getnodeaddress"></a>
 
 ```javascript
-caver.rpc.governance.getNodeAddress()
+caver.rpc.governance.getNodeAddress([callback])
 ```
 
 Provides the address of the node that a user is using. It is derived from the nodekey and used to sign consensus messages. And the value of "governingnode" has to be one of validator's node address.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -207,7 +244,7 @@ Provides the address of the node that a user is using. It is derived from the no
 ## caver.rpc.governance.getItemsAt <a id="caver-rpc-governance-getitemsat"></a>
 
 ```javascript
-caver.rpc.governance.getItemsAt([blockNumberOrTag])
+caver.rpc.governance.getItemsAt([blockNumberOrTag] [, callback])
 ```
 
 Returns governance items at a specific block. It is the result of previous voting of the block and used as configuration for chain at the given block number.
@@ -217,6 +254,7 @@ Returns governance items at a specific block. It is the result of previous votin
 | Name | Type | Description |
 | --- | --- | --- |
 | blockNumberOrTag | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -252,10 +290,16 @@ Returns governance items at a specific block. It is the result of previous votin
 ## caver.rpc.governance.getPendingChanges <a id="caver-rpc-governance-getpendingchanges"></a>
 
 ```javascript
-caver.rpc.governance.getPendingChanges()
+caver.rpc.governance.getPendingChanges([callback])
 ```
 
 Returns the list of items that have received enough number of votes but not yet finalized. At the end of the current epoch, these changes will be finalized and the result will be in effect from the epoch after next epoch.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -275,10 +319,16 @@ Returns the list of items that have received enough number of votes but not yet 
 ## caver.rpc.governance.getIdxCache <a id="caver-rpc-governance-getidxcache"></a>
 
 ```javascript
-caver.rpc.governance.getIdxCache()
+caver.rpc.governance.getIdxCache([callback])
 ```
 
 Returns an array of current idxCache in the memory cache. idxCache contains the block numbers where governance change happened. The cache can have up to 1000 block numbers in memory by default.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -298,10 +348,16 @@ Returns an array of current idxCache in the memory cache. idxCache contains the 
 ## caver.rpc.governance.getIdxCacheFromDb <a id="caver-rpc-governance-getidxcachefromdb"></a>
 
 ```javascript
-caver.rpc.governance.getIdxCacheFromDb()
+caver.rpc.governance.getIdxCacheFromDb([callback])
 ```
 
 Returns an array that contains all block numbers at which any governance changes ever took place. The result of idxCacheFromDb is the same or longer than that of [idxCache](#caver-rpc-governance-getidxcache).
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -321,10 +377,16 @@ Returns an array that contains all block numbers at which any governance changes
 ## caver.rpc.governance.getItemCacheFromDb <a id="caver-rpc-governance-getitemcachefromdb"></a>
 
 ```javascript
-caver.rpc.governance.getItemCacheFromDb()
+caver.rpc.governance.getItemCacheFromDb([callback])
 ```
 
 Returns the governance information stored on the given block. If no changes are stored on the given block, the function returns null.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Parameters**
 
@@ -364,10 +426,47 @@ Returns the governance information stored on the given block. If no changes are 
 null
 ```
 
+## caver.rpc.governance.getVotes <a id="caver-rpc-governance-getvotes"></a>
+
+```javascript
+caver.rpc.governance.getVotes([callback])
+```
+
+Returns the votes from all nodes in the epoch. These votes are gathered from the header of each block.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+
+**Return Value**
+
+`Promise` returns `object`
+
+| Type | Description |
+| --- | --- |
+| Array | Current votes composed of keys, values and node addresses. |
+
+**Example**
+
+```javascript
+> caver.rpc.governance.getVotes().then(console.log)
+[{
+    key: 'reward.minimumstake',
+    validator: '0xe733cb4d279da696f30d470f8c04decb54fcb0d2',
+    value: '5000000'
+}, {
+    key: 'reward.useginicoeff',
+    validator: '0xa5bccb4d279419abe2d470f8c04dec0789ac2d54',
+    value: false
+}]
+```
+
 ## caver.rpc.governance.getStakingInfo <a id="caver-rpc-governance-getstakinginfo"></a>
 
 ```javascript
-caver.rpc.governance.getStakingInfo([blockNumberOrTag])
+caver.rpc.governance.getStakingInfo([blockNumberOrTag] [, callback])
 ```
 
 Returns the staking information at a specific block.
@@ -377,6 +476,7 @@ Returns the staking information at a specific block.
 | Name | Type | Description |
 | --- | --- | --- |
 | blockNumberOrTag | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -396,7 +496,7 @@ Returns the staking information at a specific block.
   CouncilStakingAddrs: [],
   CouncilRewardAddrs: [],
   KIRAddr: '0x0000000000000000000000000000000000000000',
-  PoCAddr: '0x0000000000000000000000000000000000000000',
+  KGFAddr: '0x0000000000000000000000000000000000000000',
   UseGini: false,
   Gini: -1,
   CouncilStakingAmounts: []

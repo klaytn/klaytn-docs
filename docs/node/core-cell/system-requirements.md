@@ -13,7 +13,7 @@ The following sections show the recommended specifications for both CNs and PNs.
 | Server | Intel® Server System R2312WFTZS |
 | CPU | Intel® Xeon 6148 2.40 GHz \(20-core/40-thread\) \* 2EA \(total 40-core/80-thread\) |
 | Memory | 256GB \(32GB \* 8\) |
-| Storage | 1TB (or larger size) SSD (The preferred storage size and configuration could differ depending on the chain data size. Please consult with the Klaytn team for more information.) |
+| Storage | 1.5TB (or larger size) SSD (The preferred storage size and configuration could differ depending on the chain data size. Please consult with the Klaytn team for more information.) |
 
 Note that this is a recommended hardware specification for CNs and PNs, not an exact requirement. Any physical machine having similar hardware configuration would be sufficient to operate a CN or a PN.
 

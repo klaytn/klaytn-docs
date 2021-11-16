@@ -39,17 +39,129 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 
 
-## klay_getBlockByNumber <a id="klay_getblockbynumber"></a>
+## klay_getHeaderByNumber <a id="klay_getheaderbynumber"></a>
 
-Returns information about a block by block number.
-This API works only on RPC call, not on Javascript console.
+**NOTE**: This API is supported from Klaytn v1.7.0.
+
+Returns information about a header by nuuber.
+This API works only on RPC call, not on JavaScript console.
 
 **Parameters**
 
 | Type | Description |
 | --- | --- |
-| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](#the-default-block-parameter). |
+
+**Return Value**
+
+See [klay_getHeaderByHash](#klay_getheaderbyhash)
+
+**Example**
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getHeaderByNumber","params":["0x1b4"],"id":1}' http://localhost:8551
+// Result
+{
+   "jsonrpc":"2.0",
+   "id":1,
+   "result":{
+      extraData: "0xd8820505846b6c617988676f312e31312e328664617277696e00000000000000f89ed594e733cb4d279da696f30d470f8c04decb54fcb0d2b841f1f600d136f93a5a2d9c12a7a9f6d7ba80a047c3910a2bbc01e38bcce25e48ed2004d21f134df5efaf1f8cbb9a26e1548e57628ab258c935490c11a7cd65324701f843b841444b3efc40071b6eec2c4d2630b483710b8fc7a601432431b0161f489102d1ca02f2ef93153d0be3843aa563d34cee1716163f58711843442aedd94a56303c0400",
+      gasLimit: "0xe8d4a50fff",
+      gasUsed: "0x0",
+      governanceData: "0x",
+      logsBloom: "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      number: "0x1",
+      parentHash: "0x73255a60e9491b5715f9bfcb7fa1143296810f629836d4cefbd1921d9173d63d",
+      receiptsRoot: "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+      reward: "0x0000000000000000000000000000000000000000",
+      stateRoot: "0xedb87f4b0f905a655c80d1768eb22b1eff2405098c4748b8364c869611e02a2b",
+      timestamp: "0x5c99cbd8",
+      timestampFoS: "0x3d",
+      transactionsRoot: "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+      voteData: "0x"
+    }
+}
+```
+
+## klay_getHeaderByHash <a id="klay_getheaderbyhash"></a>
+
+**NOTE**: This API is supported from Klaytn v1.7.0.
+
+Returns information about a header by hash.
+This API works only on RPC call, not on JavaScript console.
+
+**Parameters**
+
+| Type | Description |
+| --- | --- |
+| 32-byte DATA | Hash of a block. |
+
+**Return Value**
+
+`Object` - A header object, or `error` when no header was found:
+
+| Name | Type | Description |
+| --- | --- | --- |
+| number | QUANTITY | The block number. `null` when it is pending block. |
+| parentHash | 32-byte DATA | Hash of the parent block. |
+| logsBloom | 256-byte DATA | The bloom filter for the logs of the block. `null` when it is pending block. |
+| transactionsRoot | 32-byte DATA | The root of the transaction trie of the block. |
+| stateRoot | 32-byte DATA | The root of the final state trie of the block. |
+| receiptsRoot | 32-byte DATA | The root of the receipts trie of the block. |
+| reward | 20-byte DATA | The address of the beneficiary to whom the block rewards were given. |
+| blockScore | QUANTITY | Former difficulty. Always 1 in the BFT consensus engine |
+| extraData | DATA | The "extra data" field of this block. |
+| gasUsed | QUANTITY | The total used gas by all transactions in this block. |
+| timestamp | QUANTITY | The Unix timestamp for when the block was collated. |
+| timestampFoS | QUANTITY | The fraction of a second of the timestamp for when the block was collated. |
+| governanceData | DATA | RLP encoded governance configuration |
+| voteData | DATA | RLP encoded governance vote of the proposer |
+
+**Example**
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getHeaderByHash","params":["0xb8deae63002d2b6aa33247c8ef545383ee0fd2282ac9b49dbbb74114389ddb5c"],"id":1}' http://localhost:8551
+// Result
+{
+   "jsonrpc":"2.0",
+   "id":1,
+   "result":{
+      extraData: "0xd8820505846b6c617988676f312e31312e328664617277696e00000000000000f89ed594e733cb4d279da696f30d470f8c04decb54fcb0d2b841f1f600d136f93a5a2d9c12a7a9f6d7ba80a047c3910a2bbc01e38bcce25e48ed2004d21f134df5efaf1f8cbb9a26e1548e57628ab258c935490c11a7cd65324701f843b841444b3efc40071b6eec2c4d2630b483710b8fc7a601432431b0161f489102d1ca02f2ef93153d0be3843aa563d34cee1716163f58711843442aedd94a56303c0400",
+      gasLimit: "0xe8d4a50fff",
+      gasUsed: "0x0",
+      governanceData: "0x",
+      logsBloom: "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      number: "0x1",
+      parentHash: "0x73255a60e9491b5715f9bfcb7fa1143296810f629836d4cefbd1921d9173d63d",
+      receiptsRoot: "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+      reward: "0x0000000000000000000000000000000000000000",
+      stateRoot: "0xedb87f4b0f905a655c80d1768eb22b1eff2405098c4748b8364c869611e02a2b",
+      timestamp: "0x5c99cbd8",
+      timestampFoS: "0x3d",
+      transactionsRoot: "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+      voteData: "0x"
+    }
+}
+```
+
+
+## klay_getBlockByNumber <a id="klay_getblockbynumber"></a>
+
+Returns information about a block by block number.
+This API works only on RPC call, not on JavaScript console.
+
+**Parameters**
+
+| Type | Description |
+| --- | --- |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](#the-default-block-parameter). |
 | Boolean | If `true` it returns the full transaction objects, if `false` only the hashes of the transactions. |
+
+{% hint style="success" %} 
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+{% endhint %}
 
 **Return Value**
 
@@ -63,32 +175,28 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 // Result
 {
-   "jsonrpc":"2.0",
-   "id":1,
-   "result":{
-      difficulty: "0x1",
-      extraData: "0xd8820505846b6c617988676f312e31312e328664617277696e00000000000000f89ed594e733cb4d279da696f30d470f8c04decb54fcb0d2b841559df8d4c3c83e1d1df56fceb70cb782a6a1062ab687026dd115b33df76fe03034e67bacf9662875968573f74f888d8264c7f4dd66552251e2485bc002b9aa0200f843b841337325a0e9c2736cbaf8afe7f6e5a229bcf17d0ffc3384bbaf80bda5772383fa2b22c5bd461183b428858b2937c33ddd2aff4beb8d6e429e59fbf39780cf8bb101",
-      gasLimit: "0xe8d4a50fff",
-      gasUsed: "0x0",
-      governanceData: "0x",
-      hash: "0xb1529fe2ac7c5c02106d4561b84f7fd82f16f269ec21167058a595c8c8b71bdf",
-      logsBloom: "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-      miner: "0x0000000000000000000000000000000000000000",
-      mixHash: "0x63746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365",
-      nonce: "0x0000000000000000",
-      number: "0x1b4",
-      parentHash: "0x722ac692fbfe4de54b2aeaf4dead05c272f1597e6e45fe828cd6dd3ec771dbf4",
-      receiptsRoot: "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
-      reward: "0x0000000000000000000000000000000000000000",
-      size: "0x2d9",
-      stateRoot: "0xedb87f4b0f905a655c80d1768eb22b1eff2405098c4748b8364c869611e02a2b",
-      timestamp: "0x5c99cd8c",
-      timestampFoS: "0xa",
-      totalDifficulty: "0x1b5",
-      transactions: [],
-      transactionsRoot: "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
-      voteData: "0x"
-    }
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "blockscore": "0x1",
+    "extraData": "0xd883010000846b6c617988676f312e31322e35856c696e757800000000000000f90164f85494571e53df607be97431a5bbefca1dffe5aef56f4d945cb1a7dccbd0dc446e3640898ede8820368554c89499fb17d324fa0e07f23b49d09028ac0919414db694b74ff9dea397fe9e231df545eb53fe2adf776cb2b8415863772c5a9b3ce315c19d372fdd83baf50136bb68eeb629379304e20281e9132cc986c53a57733c9f585c4729e249cdfeffbbf0c79e74b48364017efc23cad100f8c9b841ddf1a8e73751edc6b852eee9563eb52cdef9d046690abd6b62ceb4082bf21b9235a4e51fd55dd8b3ac202264360509aa9282a2542720975c0e6bc9cf72596bdd01b8418a8b490884ecfcc518e7f36af3ba602191c0c2926c21afa3ac78a936975109474681281dad4b3d0967cf8751905ec905ce1964d42c96e640a94ce866e73aca6f01b84164511566c92ece29d284c9930906e93bbee138ba65d9a701bc12bdffb2df6fec30e9b3fec7ab497351e21f545786d2aebd61f2d41fbca57e08cd022fffe2466200",
+    "gasUsed": "0x0",
+    "governanceData": "0x",
+    "hash": "0x1bb0ac2af3f485a81319da9fc3e4f051ec369cdb208c073bb75677d67b585039",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "number": "0x1b4",
+    "parentHash": "0x3c7aac87f217f7fdd45c2a137a9ee38937ad72d8e14adb1b91a1e1c1c0b4adf2",
+    "receiptsRoot": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+    "reward": "0xb74ff9dea397fe9e231df545eb53fe2adf776cb2",
+    "size": "0x33a",
+    "stateRoot": "0xdddc985254e4f14cfb6c6f935f93138ee260bbf2f43bbc709bf8e652dbebbb09",
+    "timestamp": "0x5d13468c",
+    "timestampFoS": "0x2d",
+    "totalBlockScore": "0x1b5",
+    "transactions": [],
+    "transactionsRoot": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+    "voteData": "0x"
+  }
 }
 ```
 
@@ -96,7 +204,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ## klay_getBlockByHash <a id="klay_getblockbyhash"></a>
 
 Returns information about a block by hash.
-This API works only on RPC call, not on Javascript console.
+This API works only on RPC call, not on JavaScript console.
 
 **Parameters**
 
@@ -234,7 +342,11 @@ Returns the number of transactions in a block matching the given block number.
 
 | Type          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
-| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+
+{% hint style="success" %} 
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+{% endhint %}
 
 **Return Value**
 
@@ -400,7 +512,11 @@ Returns a block with consensus information matched by the given block number.
 
 | Type | Description |
 | --- | --- |
-| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+
+{% hint style="success" %} 
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+{% endhint %}
 
 **Return Value**
 
@@ -503,7 +619,11 @@ Returns a list of all validators in the committee at the specified block. If the
 
 | Name | Type | Description |
 | --- | --- | --- |
-| QUANTITY  &#124; TAG | Integer | (optional) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+
+{% hint style="success" %} 
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+{% endhint %}
 
 **Return Value**
 
@@ -538,7 +658,11 @@ Returns the size of the committee at the specified block. If the parameter is no
 
 | Name | Type | Description |
 | --- | --- | --- |
-| QUANTITY  &#124; TAG | Integer | (optional) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+
+{% hint style="success" %} 
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+{% endhint %}
 
 **Return Value**
 
@@ -571,7 +695,11 @@ Returns a list of all validators of the council at the specified block. If the p
 
 | Name | Type | Description |
 | --- | --- | --- |
-| QUANTITY  &#124; TAG | Integer | (optional) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+
+{% hint style="success" %} 
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+{% endhint %}
 
 **Return Value**
 
@@ -606,7 +734,11 @@ Returns the size of the council at the specified block. If the parameter is not 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| QUANTITY  &#124; TAG | Integer | (optional) Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| QUANTITY  &#124; TAG | block number | (optional) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+
+{% hint style="success" %} 
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+{% endhint %}
 
 **Return Value**
 
@@ -640,7 +772,11 @@ Returns the value from a storage position at a given address.
 | --- | --- |
 | 20-byte DATA | Address of the storage. |
 | QUANTITY | Integer of the position in the storage. |
-| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| QUANTITY &#124; TAG &#124; HASH| Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter), or block hash.|
+
+{% hint style="success" %} 
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+{% endhint %}
 
  **Return Value**
 

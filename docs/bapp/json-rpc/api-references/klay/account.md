@@ -7,7 +7,11 @@ Returns `true` if the account associated with the address is created. It returns
 | Name | Type | Description |
 | --- | --- | --- |
 | account | 20-byte DATA | Address |
-| block number | QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+
+{% hint style="success" %} 
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+{% endhint %}
 
 **Return Value**
 
@@ -224,10 +228,14 @@ Returns the account information of a given address. There are two different acco
 
 **Parameters**
 
-| Type          | Description                                                  |
-| ------------- | ------------------------------------------------------------ |
-| 20-byte DATA | Address                                                      |
-| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
+|   Name  | Type          | Description                                                  |
+| ------- | ------------- | ------------------------------------------------------------ |
+| address | 20-byte DATA  | Address                                                      |
+| block number or hash    | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+
+{% hint style="success" %} 
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+{% endhint %}
 
 **Return Value**
 
@@ -298,7 +306,11 @@ Returns the account key of the Externally Owned Account (EOA) of a given address
 | Type          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
 | 20-byte DATA | Address                                                      |
-| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
+| QUANTITY &#124; TAG &#124; HASH| Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash.|
+
+{% hint style="success" %} 
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+{% endhint %}
 
 **Return Value**
 
@@ -379,10 +391,14 @@ Returns the balance of the account of given address.
 
 **Parameters**
 
-| Type           | Description                                                  |
-| -------------- | ------------------------------------------------------------ |
-| 20-byte DATA | Address to check for balance.                               |
-| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
+| Name | Type           | Description                                                  |
+| ---- | -------------- | ------------------------------------------------------------ |
+| address | 20-byte DATA | Address to check for balance.                               |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+
+{% hint style="success" %} 
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+{% endhint %}
 
 **Return Value**
 
@@ -413,7 +429,11 @@ Returns code at a given address.
 | Type          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
 | 20-byte DATA | Address                                                      |
-| QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
+| QUANTITY &#124; TAG &#124; HASH| Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+
+{% hint style="success" %} 
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+{% endhint %}
 
 **Return Value**
 
@@ -445,7 +465,11 @@ Returns the number of transactions *sent* from an address.
 | Type          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
 | 20-byte DATA | Address                                                      |
-| QUANTITY &#124; TAG | Integer block number, the string `"pending"` for the pending nonce, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
+| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash.|
+
+{% hint style="success" %} 
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+{% endhint %}
 
 **Return Value**
 
@@ -479,7 +503,11 @@ Returns `true` if an input account has a non-empty codeHash at the time of a spe
 | Name | Type | Description |
 | --- | --- | --- |
 | account | 20-byte DATA | Address |
-| block number | QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+
+{% hint style="success" %} 
+NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+{% endhint %}
 
 **Return Value**
 

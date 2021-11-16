@@ -247,7 +247,7 @@ If `key` is a private key string, a [SingleKeyring] instance that uses a single 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| address | string | An array containing the number of keys for each [role]. |
+| address | string | An address of keyring. |
 | key | string &#124; Array | The private key string, an array of private keys, or a 2D array of which each element contains key(s) to be used for each [role]. |
 
 **Return Value**
@@ -714,6 +714,12 @@ keyring.getPublicKey()
 
 Returns the public key string(s). If `keyring` is an instance of [SingleKeyring], getPublicKey returns a public key string. If `keyring` is an instance of [MultipleKeyring], getPublicKey returns an array of public key strings. If `keyring` is an instance of [RoleBasedKeyring], getPublicKey returns a two-dimensional array in which the public key(s) used for each role is defined as an array.
 
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| compressed | boolean | (optional) Whether in compressed format or not (default: `false`). |
 
 **Return Value**
 

@@ -640,7 +640,7 @@ Returns the number of the most recent block.
 caver.rpc.klay.getBlockByNumber(blockNumber [, returnTransactionObjects] [, callback])
 ```
 
-Returns information about a block by block number. This API works only on RPC call, not on Javascript console.
+Returns information about a block by block number. This API works only on RPC call, not on JavaScript console.
 
 **Parameters**
 
@@ -975,10 +975,12 @@ Returns a block with consensus information matched by the given hash.
 | hash | string | Hash of the block. `null` when it is a pending block. |
 | logsBloom | string | The bloom filter for the logs of the block. ``null`` when it is a pending block. |
 | number | string | The block number. `null` when it is a pending block. |
+| originProposer | string | The proposal of 0 round at the same block number. |
 | parentHash | string | Hash of the parent block. |
 | proposer | string | The address of the block proposer. |
 | receiptsRoot | string | The root of the receipts trie of the block. |
 | reward | string | The address of the beneficiary to whom the block rewards were given. |
+| round | number | The round number. |
 | size | string | Integer the size of this block in bytes. |
 | stateRoot | string | The root of the final state trie of the block. |
 | timestamp | string | The unix timestamp for when the block was collated. |
@@ -994,50 +996,75 @@ Returns a block with consensus information matched by the given hash.
 > caver.rpc.klay.getBlockWithConsensusInfoByHash('0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0').then(console.log)
 {
     blockscore: '0x1',
-    committee: ['0xddc2002b729676dfd906484d35bb02a8634d7040', '0xa1d2665c4c9f77410844dd4c22ed11aabbd4033e'],
+    committee: [ '0x571e5...', '0x5cb1a...', '0x99fb1...', '0xb74ff...' ],
     extraData: '0xd8830...',
-    gasUsed: '0x5208',
+    gasUsed: '0x3ea49',
     governanceData: '0x',
-    hash: '0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0',
+    hash: '0x188d4531d668ae3da20d70d4cb4c5d96a0cc5190771f0920c56b461c4d356566',
     logsBloom: '0x00000...',
-    number: '0x5301',
-    parentHash: '0x024f05c0e7428e33331104bedbfc453d481ce6a2f5e57f7fd68a4391ba6c2619',
-    proposer: '0xa1d2665c4c9f77410844dd4c22ed11aabbd4033e',
-    receiptsRoot: '0xe38e5532717f12f769b07ea016014bd39b74fb72def4de8442114cc2728609f2',
-    reward: '0xb74837f495060f3f794dcae8fa3e0c5d3cf99d9f',
-    size: '0x313',
-    stateRoot: '0x9964b2d8f23da7383a32ec33c9700a76ebf4a36315c9067c2fef7568d97e1d55',
-    timestamp: '0x5ee851dd',
-    timestampFoS: '0x0',
-    totalBlockScore: '0x5302',
+    number: '0x3f79aa7',
+    originProposer: '0x99fb17d324fa0e07f23b49d09028ac0919414db6',
+    parentHash: '0x777d344c8c59c4d8d0041bb4c2ee66e95ec110303fb59d3e329f80e7a9c9c617',
+    proposer: '0x99fb17d324fa0e07f23b49d09028ac0919414db6',
+    receiptsRoot: '0xffbae3190f858531ff785bcbdc70278d91c3d9becdd8b134b0ab7974b9ef3641',
+    reward: '0xb2bd3178affccd9f9f5189457f1cad7d17a01c9d',
+    round: 0,
+    size: '0x507',
+    stateRoot: '0xa60d0868bd41b63b4fd67e5a8f801c5949e89a8994a13426747890b77d6bc0c4',
+    timestamp: '0x610b3164',
+    timestampFoS: '0xc',
+    totalBlockScore: '0x3f79aa8',
     transactions: [
         {
-            blockHash: '0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0',
-            blockNumber: '0x5301',
+            blockHash: '0x188d4531d668ae3da20d70d4cb4c5d96a0cc5190771f0920c56b461c4d356566',
+            blockNumber: '0x3f79aa7',
             contractAddress: null,
-            from: '0xddc2002b729676dfd906484d35bb02a8634d7040',
-            gas: '0x61a8',
+            feePayer: '0xfee998d423d5bd2bf5b5c0f0acb4e3aae2bd2286',
+            feePayerSignatures: [
+                {
+                    V: '0x7f5',
+                    R: '0xf9aff6f39feb7a18d3e1b8ab9f590f0227e465c72cfe05e8d7c9e390cbf1d349',
+                    S: '0x6e7317d121a3951a8cbca110be8cc86c5314349f8fb1c37f9af4cadf72fe89ec',
+                },
+            ],
+            from: '0x11eb23f57151a88d4bb53cc9c27355437138c278',
+            gas: '0x2dc6c0',
             gasPrice: '0x5d21dba00',
-            gasUsed: '0x5208',
-            logs: [],
+            gasUsed: '0x3ea49',
+            input: '0x850ba...',
+            logs: [
+                {
+                    address: '0x78ca9a1105c3392b56625f3fcfd149b29322c56f',
+                    topics: [ '0xddf25...', '0x00000...', '0x00000...', '0x00000...' ],
+                    data: '0x',
+                    blockNumber: '0x3f79aa7',
+                    transactionHash: '0x109d2836d9fde9d8081a27dd6ac545fd7a53530a56bdc40f2a11e5d6dbc2a09f',
+                    transactionIndex: '0x0',
+                    blockHash: '0x188d4531d668ae3da20d70d4cb4c5d96a0cc5190771f0920c56b461c4d356566',
+                    logIndex: '0x0',
+                    removed: false,
+                },
+            ],
             logsBloom: '0x00000...',
-            nonce: '0x5e',
-            senderTxHash: '0x413f080a498ae3973490c2f80e75e6a492cfcdac8be8051220bb7a964768d28c',
-            signatures: {
-                V: '0x4e44',
-                R: '0x98583ffa8d9a6d5f9e60e4daebb33f18e8ad4d32653c4a2fa7f12ce025af763d',
-                S: '0x9b9e5257293e3b986842b6a203dd16ce46f16ed42dd3e9592fcaab9ea2696cb'
-            },
+            nonce: '0x0',
+            senderTxHash: '0xeca2d3650403a1e27af0bbe9878dcbb248d764fc88751f35a6e05636d2ad9e78',
+            signatures: [
+                {
+                    V: '0x7f6',
+                    R: '0x9ea78985b004afa86acd455c017da374ec1aec885f963ec8134a38f7ede451b0',
+                    S: '0xfac0e417f7f7b15023e3f5ac95f1fb5b3280746a2eff04394ddedbdd259fc1',
+                },
+            ],
             status: '0x1',
-            to: '0xc0aabc441129991dd3a9363a9a43b745527ea4e7',
-            transactionHash: '0x413f080a498ae3973490c2f80e75e6a492cfcdac8be8051220bb7a964768d28c',
+            to: '0x78ca9a1105c3392b56625f3fcfd149b29322c56f',
+            transactionHash: '0x109d2836d9fde9d8081a27dd6ac545fd7a53530a56bdc40f2a11e5d6dbc2a09f',
             transactionIndex: '0x0',
-            type: 'TxTypeValueTransfer',
-            typeInt: 8,
-            value: '0xde0b6b3a7640000',
+            type: 'TxTypeFeeDelegatedSmartContractExecution',
+            typeInt: 49,
+            value: '0x0',
         },
     ],
-    transactionsRoot: '0x413f080a498ae3973490c2f80e75e6a492cfcdac8be8051220bb7a964768d28c',
+    transactionsRoot: '0x109d2836d9fde9d8081a27dd6ac545fd7a53530a56bdc40f2a11e5d6dbc2a09f',
     voteData: '0x',
 }
 ```
@@ -1200,6 +1227,31 @@ Returns the value from a storage position at a given address.
 0x033456732123ffff2342342dd12342434324234234fd234fd23fd4f23d4234
 ```
 
+## caver.rpc.klay.isMinting <a id="caver-rpc-klay-isminting"></a>
+
+```javascript
+caver.rpc.klay.isMinting([callback])
+```
+
+Returns `true` if client is actively mining new blocks.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+
+**Return Value**
+
+`Promise` returns `boolean` - `true` if the client is mining, otherwise `false`.
+
+**Example**
+
+```javascript
+> caver.rpc.klay.isMinting().then(console.log)
+true
+```
+
 ## caver.rpc.klay.isSyncing <a id="caver-rpc-klay-issyncing"></a>
 
 ```javascript
@@ -1220,7 +1272,7 @@ Returns an object with data about the sync status or false.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| startingBlock | string | The block number in hex where the sync started |
+| startingBlock | string | The block number in hex where the sync started. |
 | currentBlock | string | The block number in hex where the node currently synced to. |
 | highestBlock | string | The estimated block number in hex to sync to. |
 | knownStates | string | The estimated states in hex to download. |
@@ -1255,7 +1307,7 @@ Executes a new message call immediately without sending a transaction on the blo
 | Name | Type | Description |
 | --- | --- | --- |
 | callObject | object | A transaction call object. See the next table for the object's properties. |
-| blockNumber | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |s
+| blockNumber | number &#124; string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 `callObject` has the following properties:
@@ -1305,7 +1357,7 @@ See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all prop
 
 | Type | Description |
 | --- | --- |
-| string | The returned data of the call. *e.g.*, the return value of a smart contract function. |
+| string | The amount of gas used. |
 
 **Example**
 
@@ -1807,7 +1859,7 @@ For PromiEvent, the following events are available:
 > const tx = caver.transaction.valueTransfer.create({
     from: '0x{address in hex}', // The address of imported account in Klaytn Node
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
-    value: caver.utils.toPeb(10, 'KLAY'),
+    value: caver.utils.convertToPeb(10, 'KLAY'),
     gas: 25000
 })
 // Using promise
@@ -2211,7 +2263,7 @@ Returns the current price per gas in peb for the given block.
 caver.rpc.klay.isParallelDBWrite([callback])
 ```
 
-Returns true if the node is writing blockchain data in a parallel manner.
+Returns `true` if the node is writing blockchain data in a parallel manner.
 
 **Parameters**
 
@@ -2225,7 +2277,7 @@ Returns true if the node is writing blockchain data in a parallel manner.
 
 | Type | Description |
 | --- | --- |
-| boolean | true means the node is writing blockchain data in a parallel manner. It is false if the node is serially writing the data. |
+| boolean | `true` means the node is writing blockchain data in a parallel manner. It is `false` if the node is serially writing the data. |
 
 **Example**
 
@@ -2240,7 +2292,7 @@ true
 caver.rpc.klay.isSenderTxHashIndexingEnabled([callback])
 ```
 
-Returns true if the node is indexing sender transaction hash to transaction hash mapping information.
+Returns `true` if the node is indexing sender transaction hash to transaction hash mapping information.
 
 **Parameters**
 
@@ -2254,7 +2306,7 @@ Returns true if the node is indexing sender transaction hash to transaction hash
 
 | Type | Description |
 | --- | --- |
-| boolean | true means the node is indexing sender transaction hash to transaction hash mapping information. |
+| boolean | `true` means the node is indexing sender transaction hash to transaction hash mapping information. |
 
 **Example**
 
@@ -2319,35 +2371,6 @@ Returns the rewardbase of the current node. Rewardbase is the address of the acc
 ```javascript
 > caver.rpc.klay.getRewardbase().then(console.log)
 0xa9b3a93b2a9fa3fdcc31addd240b04bf8db3414c
-```
-
-## caver.rpc.klay.isWriteThroughCaching <a id="caver-rpc-klay-iswritethroughcaching"></a>
-
-```javascript
-caver.rpc.klay.isWriteThroughCaching([callback])
-```
-
-Returns true if the node is using writeThroughCaching.
-
-**Parameters**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
-
-**Return Value**
-
-`Promise` returns `boolean`
-
-| Type | Description |
-| --- | --- |
-| boolean | true means the node is using write-through caching. |
-
-**Example**
-
-```javascript
-> caver.rpc.klay.isWriteThroughCaching().then(console.log)
-false
 ```
 
 ## caver.rpc.klay.getFilterChanges <a id="caver-rpc-klay-getfilterchanges"></a>
@@ -2621,7 +2644,7 @@ Uninstalls a filter with a given id. Should always be called when a watch is no 
 
 | Type | Description |
 | --- | --- |
-| boolean | true if the filter was successfully uninstalled, otherwise false. |
+| boolean | `true` if the filter was successfully uninstalled, otherwise `false`. |
 
 **Example**
 

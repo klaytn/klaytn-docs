@@ -277,18 +277,19 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
+## admin_startHTTP <a id="admin_starthttp"></a>
 
-## admin_startRPC <a id="admin_startrpc"></a>
+**NOTE**: This API replaces `admin_startRPC`. The `admin_startRPC` will be deprecated soon.
 
-The `startRPC` is an administrative method that starts an HTTP based [JSON RPC](http://www.jsonrpc.org/specification)
+The `startHTTP` is an administrative method that starts an HTTP based [JSON RPC](http://www.jsonrpc.org/specification)
 API webserver to handle client requests.
 
 The method returns a boolean flag specifying whether the HTTP RPC listener was opened or not. Please note, only one HTTP endpoint is allowed to be active at any time.
 
 | Client  | Method invocation                                            |
 | :-----: | ------------------------------------------------------------ |
-| Console | `admin.startRPC(host, port, cors, apis)`                     |
-|   RPC   | `{"method": "admin_startRPC", "params": [host, port, cors, apis]}` |
+| Console | `admin.startHTTP(host, port, cors, apis)`                     |
+|   RPC   | `{"method": "admin_startHTTP", "params": [host, port, cors, apis]}` |
 
 **Parameters**
 
@@ -310,24 +311,26 @@ The method returns a boolean flag specifying whether the HTTP RPC listener was o
 Console
 
 ```javascript
-> admin.startRPC("127.0.0.1", 8551)
+> admin.startHTTP("127.0.0.1", 8551)
 true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startRPC","id":1, "params":["127.0.0.1", 8551, "", "klay"]}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startHTTP","id":1, "params":["127.0.0.1", 8551, "", "klay"]}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"error":{"code":-32000,"message":"HTTP RPC already running on 127.0.0.1:8551"}}
 ```
 
 
-## admin_stopRPC <a id="admin_stoprpc"></a>
+## admin_stopHTTP <a id="admin_stophttp"></a>
 
-The `stopRPC` is an administrative method that closes the currently open HTTP RPC endpoint. As the node can only have a single HTTP endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
+**NOTE**: This API replaces `admin_stopRPC`. The `admin_stopRPC` will be deprecated soon.
+
+The `stopHTTP` is an administrative method that closes the currently open HTTP RPC endpoint. As the node can only have a single HTTP endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
 
 | Client  | Method invocation             |
 | :-----: | ----------------------------- |
-| Console | `admin.stopRPC()`             |
-|   RPC   | `{"method": "admin_stopRPC"}` |
+| Console | `admin.stopHTTP()`             |
+|   RPC   | `{"method": "admin_stopHTTP"}` |
 
 **Parameters**
 
@@ -344,12 +347,12 @@ None
 Console
 
 ```javascript
-> admin.stopRPC()
+> admin.stopHTTP()
 true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stopRPC","id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stopHTTP","id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -658,14 +661,14 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 {"jsonrpc":"2.0","id":1,"result":{"committed":14995692,"err":"null","isMigration":true,"migrationBlockNumber":32630836,"pending":19699,"progress":25,"read":14997777}}
 ```
 
-## admin_saveTrieNodeToDisk <a id="admin_saveTrieNodeToDisk"></a>
+## admin_saveTrieNodeCacheToDisk <a id="admin_saveTrieNodeCacheToDisk"></a>
 
-The `saveTrieNodeToDisk` is an administrative method that starts saving the cached trie node to the disk to reuse them when the node restarts. Cached trie node data will be stored to and loaded from  `$DATA_DIR/fastcache` . This method returns an error if the saving process has been already triggered or trie node cache is disabled. This feature is supported since Klaytn 1.5.3.
+The `saveTrieNodeCacheToDisk` is an administrative method that starts saving the cached trie node to the disk to reuse them when the node restarts. Cached trie node data will be stored to and loaded from  `$DATA_DIR/fastcache` . This method returns an error if the saving process has been already triggered or trie node cache is disabled. This feature is supported since Klaytn 1.5.3.
 
 | Client  | Method invocation                                            |
 | :-----: | ------------------------------------------------------------ |
-| Console | `admin.saveTrieNodeToDisk()`                         |
-|   RPC   | `{"method": "admin_saveTrieNodeToDisk"}` |
+| Console | `admin.saveTrieNodeCacheToDisk()`                         |
+|   RPC   | `{"method": "admin_saveTrieNodeCacheToDisk"}` |
 
 **Parameters**
 
@@ -682,13 +685,13 @@ None
 Console
 
 ```javascript
-> admin.saveTrieNodeToDisk()
+> admin.saveTrieNodeCacheToDisk()
 null
 ```
 
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_saveTrieNodeToDisk", "id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_saveTrieNodeCacheToDisk", "id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 

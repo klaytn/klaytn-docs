@@ -188,6 +188,33 @@ SingleKeyring {
 }
 ```
 
+## caver.wallet.isExisted <a id="caver-wallet-isexisted"></a>
+
+```javascript
+caver.wallet.isExisted(address)
+```
+
+Returns `true` if there is a keyring matching the address.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| address | string | The address of keyring to check existence. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| boolean | `true` means a keyring matching with the address is existed in the `caver.wallet`. |
+
+**Example**
+
+```javascript
+> caver.wallet.isExisted('0x386a4bb40abbfaa59cecdc3ced202475895fd569')
+true
+```
+
 ## caver.wallet.add <a id="caver-wallet-add"></a>
 
 ```javascript
@@ -200,7 +227,7 @@ Adds an instance of keyring to the `caver.wallet`. If the newly given keyring ha
 
 | Name | Type | Description |
 | --- | --- | --- |
-| keyring | object | A keyring instance (([SingleKeyring], [MultipleKeyring] or [RoleBasedKeyring])) to add to `caver.wallet`. |
+| keyring | object | A keyring instance ([SingleKeyring], [MultipleKeyring] or [RoleBasedKeyring]) to add to `caver.wallet`. |
 
 **Return Value**
 

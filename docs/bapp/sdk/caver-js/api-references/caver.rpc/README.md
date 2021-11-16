@@ -79,7 +79,6 @@ The `caver.rpc.klay` allows you to interact with the Klaytn nodes. The list belo
 - [isSenderTxHashIndexingEnabled](./klay.md#caver-rpc-klay-issendertxhashindexingenabled)
 - [getProtocolVersion](./klay.md#caver-rpc-klay-getprotocolversion)
 - [getRewardbase](./klay.md#caver-rpc-klay-getrewardbase)
-- [isWriteThroughCaching](./klay.md#caver-rpc-klay-iswritethroughcaching)
 
 ### [Filter](./klay.md#caver-rpc-klay-getfilterchanges) <a id="filter"></a>
 - [getFilterChanges](./klay.md#caver-rpc-klay-getfilterchanges)

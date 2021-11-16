@@ -27,7 +27,6 @@
     * [Multi-Channel](klaytn/design/multiport.md)
     * [KNI](klaytn/design/kni.md)
   * [Scaling Solutions](klaytn/scaling-solutions.md)
-  * [Enterprise Proxy](klaytn/enterprise-proxy.md)
 
 * [Getting Started](getting-started/README.md)
   * [Quick Start](getting-started/quick-start/README.md)
@@ -41,7 +40,6 @@
     * [Managing Accounts](getting-started/account/managing-accounts.md)
   * [Development Environment](getting-started/development-environment.md)
   * [Getting KLAY](getting-started/getting-klay.md)
-  * [Request for Initial Setup on Cypress Mainnet](getting-started/request-for-initial-setup-on-cypress-mainnet.md)
 
 * [Smart Contract](smart-contract/README.md)
   * [Solidity - Smart Contract Language](smart-contract/solidity-smart-contract-language.md)
@@ -130,6 +128,9 @@
     * [How-To Guides](node/service-chain/howto/README.md)
   * [Errors & Troubleshooting](node/errors-and-troubleshooting.md)
   * [Download](node/download/README.md)
+    * [v1.7.0](node/download/v1.7.0.md)
+    * [v1.6.4](node/download/v1.6.4.md)
+    * [v1.6.3](node/download/v1.6.3.md)
     * [v1.6.2](node/download/v1.6.2.md)
     * [v1.6.1](node/download/v1.6.1.md)
     * [v1.6.0](node/download/v1.6.0.md)
@@ -171,6 +172,8 @@
       * [personal](bapp/json-rpc/api-references/personal.md)
       * [txpool](bapp/json-rpc/api-references/txpool.md)
       * [governance](bapp/json-rpc/api-references/governance.md)
+      <!-- Hided instanbul page because istanbul APIs are only for specific users and need more enhancement now -->
+      <!-- * [istanbul](bapp/json-rpc/api-references/istanbul.md)  --> 
     * [Service Chain API references](bapp/json-rpc/api-references/servicechain.md)
       * [mainbridge](bapp/json-rpc/api-references/mainbridge.md)
       * [subbridge](bapp/json-rpc/api-references/subbridge.md)
@@ -276,11 +279,7 @@
 * [Vision](misc/vision/README.md)
   * [Klaytn BApp (Blockchain App)](misc/vision/bapps.md)
   * [Value Proposition](misc/vision/value-proposition.md)
-  * [Governance Council](misc/vision/governance-council.md)
-  * [Service Partners](misc/vision/service-partners.md)
-  * [Klaytn Ecosystem Support](misc/vision/ecosystem.md)
   * [Open Source](misc/vision/opensource.md)
-* [Roadmap](misc/roadmap.md)
 * [FAQ](misc/faq.md)
 * [Glossary](misc/glossary.md)
 * [Terms of Use](misc/terms-of-use.md)
