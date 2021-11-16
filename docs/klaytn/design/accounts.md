@@ -81,7 +81,6 @@ In contrast to EOAs, SCAs have code associated with them and are controlled by t
 {% hint style="success" %}
 NOTE: From klaytn v1.7.0 onwards, vmVersion attribute will be added to the Smart Contract Account.
 
-
 {% endhint %}
 
 ### Klaytn Account Type ID <a id="klaytn-account-type-id"></a>
