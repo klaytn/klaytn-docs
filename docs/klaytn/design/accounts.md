@@ -80,8 +80,6 @@ In contrast to EOAs, SCAs have code associated with them and are controlled by t
 
 {% hint style="success" %}
 NOTE: From klaytn v1.7.0 onwards, vmVersion attribute will be added to the Smart Contract Account.
-In case of Baobab network, protocol upgrade was enabled from block number `#75373312`.
-Cypress mainnet will be subject to the same protocol upgrade in the next version.
 
 {% endhint %}
 
@@ -192,7 +190,7 @@ In case of Baobab network, protocol upgrade was enabled from block number `#7537
 Cypress mainnet will be subject to the same protocol upgrade in the next version.
 
 * The invalid signature should not be included in the transaction.
-  * The number of signed public keys should be less than the number of weightedPublicKeys.
+* The number of signed public keys should be less than the number of weightedPublicKeys.
 {% endhint %}
 
 #### Attributes <a id="attributes"></a>
