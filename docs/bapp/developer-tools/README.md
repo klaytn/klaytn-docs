@@ -22,4 +22,4 @@ description: >-
 
 * Covalent aggregates information from across dozens of sources including nodes, chains, and data feeds. This Covalent RESTful API allows you to pull detailed, granular and historical blockchain transaction data from Klaytn (and other blockchains) with no code. The Covalent API allows you to create entirely new applications or augment existing ones without configuring or maintaining blockchain infrastructure.
 
-* Supported endpoints- All Class A endpoints are supported for the Klaytn mainnet Cypress and the Klaytn testnet Baobab. You can query either network via the unified API by changing the chainId.For more information, see [https://www.covalenthq.com/docs/networks/klaytn#supported-endpoints](https://www.covalenthq.com/docs/networks/klaytn#supported-endpoints).
+* Supported endpoints- All Class A endpoints are supported for the Klaytn mainnet Cypress and the Klaytn testnet Baobab. You can query either network via the unified API by changing the chainId. For more information, see [Covalent Docs](https://www.covalenthq.com/docs/networks/klaytn#supported-endpoints).
