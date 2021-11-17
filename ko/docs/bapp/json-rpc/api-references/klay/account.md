@@ -4,13 +4,13 @@
 
 **매개변수**
 
-| 이름                   | 타입                              | 설명                                                                                                                                                                        |
-| -------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account              | 20바이트 크기 DATA                   | 주소입니다.                                                                                                                                                                    |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| 이름          | 타입                              | 설명                                                                                                                                         |
+| ----------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| account     | 20바이트 크기 DATA                   | 주소입니다.                                                                                                                                     |
+| 블록 번호 또는 해시 | QUANTITY &#124; TAG &#124; HASH | 정수 또는 16진수 형태의 블록 번호나 [default block parameter](./block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열, 또는 블록 해시입니다. |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
 {% endhint %}
 
 **리턴값**
@@ -36,7 +36,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_accounts <a id="klay_accounts"></a>
 
-Returns a list of addresses owned by client.
+클라이언트가 소유한 계정의 주소 목록을 반환합니다.
 
 **매개변수**
 
@@ -65,7 +65,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_encodeAccountKey <a id="klay_encodeaccountkey"></a>
 
-Encodes an account key using the Recursive Length Prefix (RLP) encoding scheme.
+RLP(Recursive Length Prefix)를 사용해 계정 키를 인코딩합니다.
 
 **매개변수**
 
@@ -153,7 +153,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## klay_decodeAccountKey <a id="klay_decodeaccountkey"></a>
 
-Decodes an RLP encoded account key.
+RLP 인코딩된 계정 키를 디코딩합니다.
 
 **매개변수**
 
@@ -224,17 +224,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## klay_getAccount <a id="klay_getaccount"></a>
 
-입력으로 받은 주소의 계정 정보를 반환합니다. Klaytn에는 스마트 컨트랙트 계정과 외부 소유 계정(EOA)이 있습니다. See [Klaytn Accounts](../../../../klaytn/design/accounts.md#klaytn-accounts).
+입력으로 받은 주소의 계정 정보를 반환합니다. Klaytn에는 스마트 컨트랙트 계정과 외부 소유 계정(EOA)이 있습니다. 자세한 내용은 [Klaytn 계정](../../../../klaytn/design/accounts.md#klaytn-accounts)을 참고해주세요.
 
 **매개변수**
 
-| 이름                   | 타입                              | 설명                                                                                                                                                                        |
-| -------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address              | 20바이트 크기 DATA                   | 주소입니다.                                                                                                                                                                    |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| 이름                   | 타입                              | 설명                                                                                                                                         |
+| -------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| address              | 20바이트 크기 DATA                   | 주소입니다.                                                                                                                                     |
+| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 또는 16진수 형태의 블록 번호나 [default block parameter](./block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열, 또는 블록 해시입니다. |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
 {% endhint %}
 
 **리턴값**
@@ -246,7 +246,7 @@ NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the str
 **예시**
 
 ```shell
-// Request (Account type: Externally Owned Account)
+    // Request (Account type: Externally Owned Account)
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getAccount","params":["0x3111a0577f322e8fb54f78d9982a26ae7ca0f722", "latest"],"id":1}' http://localhost:8551
 
 // Result
@@ -303,10 +303,10 @@ Returns the account key of the Externally Owned Account (EOA) of a given address
 
 **매개변수**
 
-| 타입                              | 설명                                                                                                                                                                        |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA                   | 주소입니다.                                                                                                                                                                    |
-| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| 타입                              | 설명                                                                                                                                         |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| 20바이트 크기 DATA                   | 주소입니다.                                                                                                                                     |
+| QUANTITY &#124; TAG &#124; HASH | 정수 또는 16진수 형태의 블록 번호나 [default block parameter](./block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열, 또는 블록 해시입니다. |
 
 {% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
@@ -391,10 +391,10 @@ Returns the balance of the account of given address.
 
 **매개변수**
 
-| 이름                   | 타입                              | 설명                                                                                                                                                                        |
-| -------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address              | 20바이트 크기 DATA                   | Address to check for balance.                                                                                                                                             |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| 이름                   | 타입                              | 설명                                                                                                                                         |
+| -------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| address              | 20바이트 크기 DATA                   | Address to check for balance.                                                                                                              |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH | 정수 또는 16진수 형태의 블록 번호나 [default block parameter](./block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열, 또는 블록 해시입니다. |
 
 {% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
@@ -426,10 +426,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 타입                              | 설명                                                                                                                                                                        |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA                   | 주소입니다.                                                                                                                                                                    |
-| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| 타입                              | 설명                                                                                                                                         |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| 20바이트 크기 DATA                   | 주소입니다.                                                                                                                                     |
+| QUANTITY &#124; TAG &#124; HASH | 정수 또는 16진수 형태의 블록 번호나 [default block parameter](./block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열, 또는 블록 해시입니다. |
 
 {% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
@@ -462,10 +462,10 @@ Returns the number of transactions *sent* from an address.
 
 **매개변수**
 
-| 타입                              | 설명                                                                                                                                                                        |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA                   | 주소                                                                                                                                                                        |
-| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| 타입                              | 설명                                                                                                                                         |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| 20바이트 크기 DATA                   | 주소                                                                                                                                         |
+| QUANTITY &#124; TAG &#124; HASH | 정수 또는 16진수 형태의 블록 번호나 [default block parameter](./block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열, 또는 블록 해시입니다. |
 
 {% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
@@ -500,10 +500,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 이름                   | 타입                              | 설명                                                                                                                                                                        |
-| -------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account              | 20바이트 크기 DATA                   | 계정의 주소입니다.                                                                                                                                                                |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| 이름                   | 타입                              | 설명                                                                                                                                         |
+| -------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| account              | 20바이트 크기 DATA                   | 계정의 주소입니다.                                                                                                                                 |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH | 정수 또는 16진수 형태의 블록 번호나 [default block parameter](./block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열, 또는 블록 해시입니다. |
 
 {% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
