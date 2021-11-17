@@ -6,7 +6,7 @@
 
 트랜잭션은 플랫폼의 API(참고: [ Platform API Specification](../../../bapp/json-rpc/api-references/README.md))를 통해 생성될 수 있습니다. 이 트랜잭션들은 블록에 저장되기 위해 _컨센서스 노드 \(CNs\)_로 보내집니다. CN은 전송된 각 트랜잭션이 유효한지 검사합니다. 유효한 트랜잭션은 트랜잭션 풀에 저장되고, 그렇지 않다면 버려집니다. CN은 트랜잭션 풀에서 현재 블록에서 실행 가능한 트랜잭션을 선택하고, 하나씩 실행합니다.
 
-트랜잭션을 실행하려면 발신자가 일정량의 KLAY를 트랜잭션 수수료로 지불해야합니다. 트랜잭션 수수료는 사용된 가스와 단가(unit price)를 기준으로 계산됩니다. 가스는 연산의 기본적인 단위입니다. Klaytn 노드에서 실행되는 모든 연산은 미리 정의된 양의 가스를 소모합니다. 트랜잭션에 필요한 정확한 KLAY 양은 [트랜잭션 수수료](../transaction-fees.md)에 설명된 공식으로 계산됩니다. 트랜잭션이 충분한 가스와 함께 보내지지 않는다면 트랜잭션은 실행되지 않습니다. 또한, 발신인의 잔고가 부족할 때도 트랜잭션이 보내지지 않습니다.
+트랜잭션을 실행하려면 발신자가 일정량의 KLAY를 트랜잭션 수수료로 지불해야합니다. 트랜잭션 수수료는 사용된 가스와 단가(unit price)를 기준으로 계산됩니다. 가스는 연산의 기본적인 단위입니다. Klaytn 노드에서 실행되는 모든 연산은 미리 정의된 양의 가스를 소모합니다. The exact amount of KLAY required for the transaction is calculated by the formula illustrated in [Transaction Fees](../transaction-fees/transaction-fees.md). 트랜잭션이 충분한 가스와 함께 보내지지 않는다면 트랜잭션은 실행되지 않습니다. 또한, 발신인의 잔고가 부족할 때도 트랜잭션이 보내지지 않습니다.
 
 트랜잭션이 성공적으로 실행되면, 트랜잭션은 현재 블록에 담기게 됩니다. CN은 블록 가스 한도나 블록 생성 제한 시간에 도달할 때까지 트랜잭션을 모읍니다. 그 후, CN은 트랜잭션이 담긴 블록을 생성합니다. 이 단계에서는 블록의 여러 필드를 채워 넣어야합니다. 예를 들어 트랜잭션, 영수증, 상태 등의 해시를 계산해야 합니다. 채워야하는 모든 필드가 채워지면 CN은 블록 해시를 생성합니다.
 
@@ -17,7 +17,7 @@
 Klaytn의 Baobab 및 Cypress 네트워크에는 현재 트랜잭션 실행에 관해 다음과 같은 제한이 있습니다.
 
 * 트랜잭션은 가스 가격을 Klaytn의 [단위 가격](../klaytn-native-coin-klay.md/#units-of-klay)으로 설정해야 합니다. _즉_, 25 Gpeb입니다.
-* 연산 비용 한도보다 실행 비용이 큰 트랜잭션은 버려집니다. [연산 비용](computation-cost.md)을 참고해주세요.
+* A transaction which has bigger execution cost than the computation cost limit will be discarded. Please refer to [computation cost](computation-cost/computation-cost.md)
 
 ## 데이터 구조(Data Structures)<a id="data-structures"></a>
 
