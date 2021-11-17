@@ -31,7 +31,7 @@ Klaytn은 블록체인 대중화가 목표입니다. 가장 중요한 디자인 
 
 - 사용자는 기존 시스템을 사용할 때 필요한 비용 이상의 높은 트랜잭션 수수료를 부담해서는 안됩니다.
 - 트랜잭션 수수료는 안정적이어야 하고, 주변 요인이 아니라 트랜잭션의 복잡성 자체에 의해 결정되어야 합니다.
-- [저렴한 스마트 컨트랙트 실행 비용](design/computation/klaytn-smart-contract.md#affordable-smart-contract-execution-cost) 및 [트랜잭션 수수료](design/transaction-fees.md)을 참고하세요. 현재 KLAY를 보내려면 고정 비용으로 0.000625 KLAY가 필요합니다.
+- See [Affordable Smart Contract Execution Cost](design/computation/klaytn-smart-contract.md#affordable-smart-contract-execution-cost) and [Transaction Fees](design/transaction-fees/transaction-fees.md). 현재 KLAY를 보내려면 고정 비용으로 0.000625 KLAY가 필요합니다.
 
 ### 사용자 계정 관리의 사용성 <a id="usability-in-user-account-management"></a>
 
