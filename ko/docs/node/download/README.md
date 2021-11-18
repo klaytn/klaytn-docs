@@ -1,7 +1,7 @@
 # 다운로드<a id="download"></a>
 
 ## 패키지 받기 <a id="get-the-packages"></a>
-You can get the packages for CN, PN, EN, SCN, SPN and SEN.
+CN, PN, EN, SCN, SPN 및 SEN 용 패키지를 받을 수 있습니다.
 
 * [v1.7.1](v1.7.1.md)
 * [v1.7.0](v1.7.0.md)
