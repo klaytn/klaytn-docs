@@ -23,14 +23,14 @@
 
 `config` 필드는 체인과 관련된 정보를 저장합니다.
 
-| 필드명                     | 설명                                                                               |
-| ----------------------- | -------------------------------------------------------------------------------- |
-| chainId                 | 현재 체인을 식별하고 리플레이 공격을 방지하는 데 사용됩니다.                                               |
-| istanbulCompatibleBlock | A block number to which istanbul change is applied.                              |
-| istanbul, clique        | The type of consensus engine.                                                    |
-| 단위 가격                   | Unit price.                                                                      |
-| deriveShaImpl           | Defines a method to generate transaction hash and receipt hash.                  |
-| 거버넌스                    | Governance information of the network. See the section [Governance](#governance) |
+| 필드명                     | 설명                                           |
+| ----------------------- | -------------------------------------------- |
+| chainId                 | 현재 체인을 식별하고 리플레이 공격을 방지하는 데 사용됩니다.           |
+| istanbulCompatibleBlock | 이스탄불 업그레이드가 적용될 블록 번호.                       |
+| istanbul, clique        | 합의 엔진의 유형.                                   |
+| unitPrice               | 단가.                                          |
+| deriveShaImpl           | 트랜잭션 해시 및 영수증 해시를 생성하는 방법을 정의합니다.            |
+| governance              | 네트워크의 거버넌스 정보. [거버넌스](#governance) 장을 참조하세요. |
 
 
 ## extraData <a id="extradata"></a>
