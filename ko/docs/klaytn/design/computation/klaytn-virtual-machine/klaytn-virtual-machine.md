@@ -90,12 +90,12 @@ KLVM은 간단한 스택 기반 아키텍처입니다. 머신의 워드 크기(�
 
 #### 비용표 <a id="fee-schedule"></a>
 
-비용표 `G`는 트랜잭션에서 발생할 수 있는 연산의 가스값 정보를 가지고 있는 37개 스칼라값을 가진 튜플(tuple)입니다. For other tables such as `Precompiled contracts` and `accounts`, please refer to [this document](../../../transaction-fees.md#klaytns-gas-table)
+비용표 `G`는 트랜잭션에서 발생할 수 있는 연산의 가스값 정보를 가지고 있는 37개 스칼라값을 가진 튜플(tuple)입니다. `Precompiled contracts`와 `accounts` 같은 다른 표에 대해서는 이 [문서](../../../transaction-fees.md#klaytns-gas-table)를 참고하세요.
 
 {% hint style="success" %}
-NOTE: Since protocol upgrade, in other words, hard fork introduced in klaytn v1.7.0, the fee has been changed. In case of Baobab network, protocol upgrade was enabled from block number `#75373312`. Cypress mainnet will be subject to the same protocol upgrade in the next version.
+NOTE: Klaytn v1.7.0에서 도입된 protocol upgrade, 또는 "hard fork" 활성화부터는, 일부 가스 비용이 변경되었습니다. Baobab 네트워크의 경우 프로토콜 업데이트는 블록번호 `#75373312`번 부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
 
-If you want a previous document, please refer [previous document](klaytn-virtual-machine-previous.md).
+이전 문서는 [이전 문서](klaytn-virtual-machine-previous.md)를 참고해주세요.
 {% endhint %}
 
 | 명칭                |     값 | 설명                                                          |
