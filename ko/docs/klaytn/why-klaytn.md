@@ -31,7 +31,7 @@ Klaytn은 블록체인 대중화가 목표입니다. 가장 중요한 디자인 
 
 - 사용자는 기존 시스템을 사용할 때 필요한 비용 이상의 높은 트랜잭션 수수료를 부담해서는 안됩니다.
 - 트랜잭션 수수료는 안정적이어야 하고, 주변 요인이 아니라 트랜잭션의 복잡성 자체에 의해 결정되어야 합니다.
-- See [Affordable Smart Contract Execution Cost](design/computation/klaytn-smart-contract.md#affordable-smart-contract-execution-cost) and [Transaction Fees](design/transaction-fees/transaction-fees.md). 현재 KLAY를 보내려면 고정 비용으로 0.000625 KLAY가 필요합니다.
+- [저렴한 스마트 컨트랙트 실행 비용](design/computation/klaytn-smart-contract.md#affordable-smart-contract-execution-cost) 및 [트랜잭션 수수료](design/transaction-fees/transaction-fees.md)를 참고하세요. 현재 KLAY를 보내려면 고정 비용으로 0.000625 KLAY가 필요합니다.
 
 ### 사용자 계정 관리의 사용성 <a id="usability-in-user-account-management"></a>
 
@@ -64,10 +64,10 @@ Klaytn은 블록체인 대중화가 목표입니다. 가장 중요한 디자인 
 - Klaytn은 프라이빗 블록체인 전용 솔루션을 제공해야합니다. 프라이빗 체인은 자체 거버넌스를 보유하고 데이터 앵커링 및 자산 전송을 위해 Klaytn 메인체인에 연결할 수 있습니다.
 - [서비스체인](scaling-solutions.md#service-chain)을 참고해주세요. 기업은 종종 SLA를 충족하기 위해 자체적인 전용 실행 환경을 원합니다. 서비스체인을 통해 기업은 다른 블록체인 애플리케이션의 영향을 받지 않는 격리된 고성능 실행 환경을 유지하고 비즈니스에서 민감한 데이터를 비공개로 유지할 수 있습니다.
 
-### Contribution Reward <a id="contribution-reward"></a>
+### 기여 보상 <a id="contribution-reward"></a>
 
-- Applications that contribute to growing Klaytn ecosystem should be fairly rewarded.
-- See [Incentive Program](design/token-economy.md).
+- Klaytn 생태계 성장에 기여하는 애플리케이션은 이에 상당한 보상을 받아야합니다.
+- [Incentive Program](design/token-economy.md)을 참조해주세요.
 
 ***
 
@@ -77,10 +77,10 @@ Klaytn은 블록체인 대중화가 목표입니다. 가장 중요한 디자인 
 Klaytn은 위에서 언급한 개선 사항을 달성하되 블록체인의 핵심적인 특징을 희생하지 않으며, 적극적으로 헌신하는 참여자들과 함께 안정적으로 플랫폼을 유지합니다.
 {% endhint %}
 
-### Transparency, Security and Decentralization <a id="transparency-security-and-decentralization"></a>
+### 투명성, 보안 및 탈중앙화 <a id="transparency-security-and-decentralization"></a>
 
-- Everyone can request transactions and retrieve and validate every transaction execution result on the blockchain.
-- Klaytn is a decentralized network and no single malicious node breaks the data integrity.
+- 누구나 트랜잭션을 요청하고 블록체인에서 모든 트랜잭션 실행 결과를 검색하고 확인할 수 있습니다.
+- Klaytn은 탈중앙화된 네트워크이므로 하나의 악성 노드가 데이터 무결성을 손상시키지 않습니다.
 
 ### Governance by Trusted Entities <a id="governance-by-trusted-entities"></a>
 
