@@ -123,7 +123,7 @@
       * [KAS 앵커링](node/service-chain/references/kas-anchoring.md)
       * [밸류 트랜스퍼(Value Transfer)](node/service-chain/references/value-transfer.md)
       * [환경설정 파일](node/service-chain/references/configuration-files.md)
-      * [Log Files](node/service-chain/references/log-files.md)
+      * [로그 파일](node/service-chain/references/log-files.md)
       * [Genesis JSON](node/service-chain/references/genesis.md)
     * [How-To 가이드](node/service-chain/howto/README.md)
   * [에러 & 문제 해결](node/errors-and-troubleshooting.md)
