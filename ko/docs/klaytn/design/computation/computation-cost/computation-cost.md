@@ -1,25 +1,25 @@
 # 연산 비용(Computation Cost)<a id="computation-cost"></a>
 
-Since Klaytn aims to maintain 1-second block time, the execution time of transactions has to be managed. Here are three approaches to achieve that:
+Klaytn은 1초 블록생성 시간을 목표로 하기 때문에 트랜잭션 실행 시간이 관리되어야 합니다. 이를 위한 3가지 접근법이 있습니다.
 
-1. Limiting the gas limit of a transaction 2. Limiting the execution time of a transaction 3. Limiting the computation cost of a transaction
+1. 트랜잭션의 가스 한도를 제한합니다. 2. 트랜잭션의 실행 시간을 제한합니다. 3. 트랜잭션의 연산 비용을 제한합니다.
 
-Limiting the gas limit of a transaction was not a feasible solution because the concept of the gas represents the current exchange value of the various resources in the blockchain platform such as computation, storage, network bandwidth, and so on. 따라서, 트랜잭션 실행 시간을 관리하기 위한 방법으로는 적합하지 않습니다.
+그러나, 가스 한도를 제한하는 것은 실현 가능한 해결책이 아닙니다. 블록체인 플랫폼에서 연산, 저장공간, 네트워크 대역폭 등 여러 자원의 교환 값을 나타내는 것이 가스의 개념이기 때문입니다. 따라서, 트랜잭션 실행 시간을 관리하기 위한 방법으로는 적합하지 않습니다.
 
-Limiting the execution time of a transaction was not feasible either because the execution time can vary between nodes on the blockchain platform. For example, consider the case in which we limit the execution time of a transaction to be 100 milli-second. 만약 한 노드에서 트랜잭션 실행 시간이 90ms고, 다른 노드에서 110ms라면 두 노드는 합의에 도달 할 수 없습니다. Hence, this solution is not appropriate.
+트랜잭션의 실행 시간을 제한하는 것도 실현 가능한 해결책이 아닙니다. 실행 시간은 블록체인 플랫폼 내 노드에 따라 달라질 수 있기 때문입니다. 예를 들어, 트랜잭션 실행 시간을 100ms로 제한하는 경우를 고려해보겠습니다. 만약 한 노드에서 트랜잭션 실행 시간이 90ms고, 다른 노드에서 110ms라면 두 노드는 합의에 도달 할 수 없습니다. 그렇기 때문에 이 해결책은 적절하지 않습니다.
 
-The last approach is to limit the computation cost of a transaction. We modelled the computation cost of each EVM opcode based on its actual execution time and limit the sum of computation cost of a transaction. 이 접근 방식을 사용하면 다른 요소들을 제거하고, 정규화된 실행 시간만 계산하여 노드들이 합의에 도달 할 수 있습니다.
+마지막 해결책은 트랜잭션의 연산 비용을 제한하는 것입니다. 우리는 각 EVM 연산자(Opcode)의 연산 비용을 실제 실행 시간에 기반하여 모델링하고, 한 트랜잭션 연산 비용의 합계를 제한합니다. 이 접근 방식을 사용하면 다른 요소들을 제거하고, 정규화된 실행 시간만 계산하여 노드들이 합의에 도달 할 수 있습니다.
 
-Therefore, we chose the third option for Klaytn. 현재는 실행 비용 한도는 100,000,000으로 설정되어 있습니다. Since the limit is determined by the platform, developers should be aware of the computation cost of a transaction. To calculate the computation cost of a transaction, Klaytn provides [klay_estimateComputationCost](../../../../../bapp/json-rpc/api-references/klay/transaction.md#klay_estimatecomputationcost). The usage is almost the same as [klay_estimateGas](../../../../../bapp/json-rpc/api-references/klay/transaction.md#klay_estimategas).
+그렇기 때문에 우리는 Klaytn에 세번 째 방법을 선택했습니다. 현재는 실행 비용 한도는 100,000,000으로 설정되어 있습니다. 한도는 플랫폼에 의해 결정되므로 개발자들은 트랜잭션의 연산 비용을 알아야합니다. 트랜잭션의 연산 비용을 알 수 있도록 Klaytn은 [ klay_estimateComputationCost](../../../../../bapp/json-rpc/api-references/klay/transaction.md#klay_estimatecomputationcost)를 제공합니다. 사용법은 [klay_estimateGas](../../../../../bapp/json-rpc/api-references/klay/transaction.md#klay_estimategas)와 거의 같습니다.
 
 ## Opcode의 연산 비용 <a id="computation-cost-of-opcodes"></a>
 
 아래 표는 EVM Opcode의 연산 비용을 보여줍니다. 연산 비용은 시뮬레이션을 통해 결정되었습니다.
 
 {% hint style="success" %}
-NOTE: With the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0, some computation costs have been changed. In case of Baobab network, protocol upgrade was enabled from block number `#75373312`. Cypress mainnet will be subject to the same protocol upgrade in the next version.
+NOTE: Klaytn v1.7.0에서 도입된 protocol upgrade, 또는 "hard fork" 활성화부터는, 일부 연산 비용이 변경되었습니다. Baobab 네트워크의 경우 프로토콜 업데이트는 블록번호 `#75373312`번 부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
 
-If you want the previous document, please refer to [previous document](computation-cost-previous.md).
+이전 문서는 [이전 문서](computation-cost-previous.md)를 참고해주세요.
 {% endhint %}
 
 | Opcode         | 연산 비용 |
