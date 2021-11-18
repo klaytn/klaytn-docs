@@ -68,23 +68,23 @@ EOA와 달리 SCA에는 관련 코드가 있으며 해당 코드로 제어됩니
 
 | 속성            | 형식                                    | 설명                                                                                                                                                                                                                                                                                                                                          |
 |:------------- |:------------------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 형식            | uint8 \(Go\)                        | 스마트 컨트랙트 계정의 유형입니다. SCA의 경우 Type은 **0x2**이어야 합니다.                                                                                                                                                                                                                                                                                           |
-| 논스            | uint64 \(Go\)                       | 트랜잭션의 순서를 정하기 위한 시퀀스 번호(Sequence number). 다음 처리 될 트랜잭션은 이 값과 같은 Nonce값을 가집니다.                                                                                                                                                                                                                                                               |
+| type          | uint8 \(Go\)                        | 스마트 컨트랙트 계정의 유형입니다. SCA의 경우 Type은 **0x2**이어야 합니다.                                                                                                                                                                                                                                                                                           |
+| nonce         | uint64 \(Go\)                       | 트랜잭션의 순서를 정하기 위한 시퀀스 번호(Sequence number). 다음 처리 될 트랜잭션은 이 값과 같은 Nonce값을 가집니다.                                                                                                                                                                                                                                                               |
 | balance       | \*big.Int \(Go\)                  | 계정이 가지고 있는 Klay의 양                                                                                                                                                                                                                                                                                                                          |
 | humanReadable | bool \(Go\)                         | 계정이 Human-readable address와 연결되어있는지 알려주는 Boolean 값 [HRA](accounts.md#human-readable-address-hra)은 현재 개발중이므로, 이 값은 모든 계정에서 false로 지정되어있습니다.                                                                                                                                                                                                  |
 | key           | [AccountKey](accounts.md#account-key) | 이 계정과 연결된 키. 이 필드는 [AccountKeyLegacy](accounts.md#accountkeylegacy), [AccountKeyPublic](accounts.md#accountkeypublic), [AccountKeyFail](accounts.md#accountkeyfail), [AccountKeyWeightedMultisig](accounts.md#accountkeyweightedmultisig), [AccountKeyRoleBased](accounts.md#accountkeyrolebased) 중 어떤 것이라도 될 수 있습니다. 트랜잭션의 서명은 이 키로 검증됩니다. |
 | codeHash      | \[\]byte \(Go\)                   | 계정의 스마트 컨트랙트 코드의 해시. 이 값은 변경할 수 없으며, 스마트 컨트랙트가 생성 될 때만 설정됩니다.                                                                                                                                                                                                                                                                               |
 | storageRoot   | \[32\]byte \(Go\)                 | 계정에 저장된 모든 변수들의 값을 포함하는 Merkle Patricia trie 루트의 256비트 해시입니다.                                                                                                                                                                                                                                                                               |
-| codeFormat    | uint8 \(Go\)                        | Supporting interpreter version. Up to 16 can be set. Currently, it supports EVM\(0x00\) only.                                                                                                                                                                                                                                             |
-| vmVersion     | uint8 \(Go\)                        | The protocol upgrade (hard fork) information at contract deployment time (ex. 0x0(constantinople), 0x1(istanbul,...)). Up to 16 can be used. It is automatically created with the contract.                                                                                                                                                 |
+| codeFormat    | uint8 \(Go\)                        | 계정이 지원하는 interpreter 버전입니다. 16까지 설정할 수 있으며,  현재는 EVM\(0x00\)만 지원합니다.                                                                                                                                                                                                                                                                      |
+| vmVersion     | uint8 \(Go\)                        | 계정이 배포될 당시의 Protocol Upgrade (hard fork) 정보 (ex.  0x0(constantinople), 0x1(istanbul,...)).  16까지 존재하며,  컨트랙트 배포 시 자동으로 값이 설정됩니다.                                                                                                                                                                                                            |
 
 {% hint style="success" %}
-NOTE: From klaytn v1.7.0 onwards, vmVersion attribute will be added to the Smart Contract Account.
+NOTE: 클레이튼 v1.7.0부터는, 스마트 컨트랙트 계정의 속성으로 vmVersion이 추가됩니다.
 
 {% endhint %}
 
 ### Klaytn 계정 유형 ID <a id="klaytn-account-type-id"></a>
-Below are the Account Type ID assigned to each Account Type.
+아래는 각 계정 유형에 할당된 계정 유형 ID입니다.
 
 | 계정 유형                | 계정 유형 ID |
 | -------------------- | -------- |
@@ -97,15 +97,15 @@ Below are the Account Type ID assigned to each Account Type.
 
 ### AccountKeyNil <a id="accountkeynil"></a>
 
-AccountKeyNil represents an empty key. If an account tries to have an AccountKeyNil object, the transaction will be failed. AccountKeyNil is used only for TxTypeAccountUpdate transactions with role-based keys. For example, if an account tries to update RoleAccountUpdate key only, the key field of the TxTypeAccountUpdate transaction would be:
+AccountKeyNil은 빈(empty) 키를 나타냅니다. 계정이 AccountKeyNil object를 가지려고 하면 트랜잭션은 실패합니다. AccountKeyNil은 역할기반 키(role-based keys)를 이용하는 TxTypeAccountUpdate 트랜잭션에만 사용됩니다. 예를 들어, 계정이 RoleAccountUpdate 키만 업데이트하려고 할 때TxTypeAccountUpdate 트랜잭션의 키 필드는 다음과 같습니다.
 
 `[AccountKeyNil, NewKey, AccountKeyNil]`
 
-Then, only the RoleAccountUpdate key is updated. Other roles are not updated. Refer to the [AccountKeyRoleBased](accounts.md#accountkeyrolebased) for more detail.
+그런 다음 RoleAccountUpdate 키만 업데이트됩니다. 다른 역할은 업데이트되지 않습니다. 상세사항을 알고 싶으시면 [AccountKeyRoleBased](accounts.md#accountkeyrolebased)를 참고해주세요.
 
 #### 속성 <a id="attributes"></a>
 
-No attributes for AccountKeyNil.
+AccountKeyNil에 대한 속성이 없습니다.
 
 #### RLP 인코딩 <a id="rlp-encoding"></a>
 
@@ -113,7 +113,7 @@ No attributes for AccountKeyNil.
 
 ### AccountKeyLegacy <a id="accountkeylegacy"></a>
 
-AccountKeyLegacy is used for the account having an address derived from the corresponding key pair. If an account has AccountKeyLegacy, the transaction validation process is done like below \(as typical Blockchain platforms did\):
+AccountKeyLegacy는 해당 키 쌍에서 파생된 주소를 가진 계정에 사용됩니다. 계정이 AccountKeyLegacy를 가지고 있는 경우, 트랜잭션 유효성 검사 절차는 다음과 같이 수행됩니다. 일반적인 블록체인 플랫폼의 절차와 같습니다.
 
 * 공개키를 `ecrecover(txhash, txsig)`로부터 얻습니다.
 * 공개키의 주소를 얻습니다.
@@ -121,7 +121,7 @@ AccountKeyLegacy is used for the account having an address derived from the corr
 
 #### 속성 <a id="attributes"></a>
 
-| 속성   | 형식             | 설명                                           |
+| 속성   | 타입             | 설명                                           |
 |:---- |:-------------- |:-------------------------------------------- |
 | Type | uint8 \(Go\) | AccountKeyLegacy의 유형입니다. 이는 **0x01**이어야 합니다. |
 
@@ -131,7 +131,7 @@ AccountKeyLegacy is used for the account having an address derived from the corr
 
 ### AccountKeyPublic <a id="accountkeypublic"></a>
 
-AccountKeyPublic is used for accounts having one public key. If an account has an AccountKeyPublic object, the transaction validation process is done like below:
+AccountKeyPublic은 공개키를 하나 가진 계정에 사용됩니다. 계정에 AccountKeyPublic 객체가 있는 경우, 트랜잭션 유효성 검사 프로세스는 다음과 같이 수행됩니다:
 
 * `ecrecover(txhash, txsig)`로부터 파생된 공개키를 얻습니다.
 * 파생된 공개키가 해당 계정의 공개키와 같은지 확인합니다.
@@ -147,7 +147,7 @@ AccountKeyPublic is used for accounts having one public key. If an account has a
 
 `0x02 + encode(CompressedPubKey)`
 
-**NOTE**: CompressedPubKey is a public key in a compressed format defined in [SEC1](https://www.secg.org/SEC1-Ver-1.0.pdf). In short, 0x02{PubkeyX} if PubkeyY is an even number or 0x03{PubkeyX} otherwise.
+**참고**: CompressedPubKey는 [SEC1](https://www.secg.org/SEC1-Ver-1.0.pdf)에 정의된 압축된 형식의 공개키입니다. 즉, PubkeyY가 짝수이면 0x02{PubkeyX} 이고, 그렇지 않으면 0x03{PubkeyX} 입니다.
 
 #### RLP 인코딩 \(예시\) <a id="rlp-encoding-example"></a>
 
@@ -161,7 +161,7 @@ RLP: 0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8
 
 ### AccountKeyFail <a id="accountkeyfail"></a>
 
-If an account has the key AccountKeyFail, the transaction validation process always fails. It can be used for smart contract accounts so that a transaction sent from the smart contract account always fails.
+계정에 AccountKeyFail 키가 있으면 트랜잭션 유효성 검증 프로세스는 항상 실패하게 됩니다. 특정 스마트 컨트랙트 계정에서 전송된 트랜잭션이 항상 실패하도록 사용될 수 있습니다.
 
 #### 속성 <a id="attributes"></a>
 
@@ -175,16 +175,16 @@ If an account has the key AccountKeyFail, the transaction validation process alw
 
 ### AccountKeyWeightedMultiSig <a id="accountkeyweightedmultisig"></a>
 
-AccountKeyWeightedMultiSig is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight. In order for a transaction to be valid for an account associated with AccountKeyWeightedMultiSig, the following conditions should be satisfied:
-* The weighted sum of the signed public keys should be larger than the threshold.
-* The invalid signature should not be included in the transaction.
-* The number of signed public keys should be less than the number of weightedPublicKeys.
+AccountKeyWeightedMultiSig는 계정 키 타입입니다. 여기에는 threshold와 WeightedPublicKeys가 저장되어 있습니다. WeightedPublicKeys는 공개키와 공개키의 가중치(weight)로 이루어진 리스트입니다. AccountKeyWeightedMultiSig와 연결된 계정에 대해 유효한 트랜잭션이 되려면, 다음 조건을 만족해야합니다.
+* 서명된 공개키의 가중치 합계가 임계값(threshold)보다 커야합니다.
+* 트랜잭션에 유효하지 않은 서명이 포함되면 안 됩니다.
+* 서명된 공개키 개수가 WeightedPublicKey 개수보다 적어야만 합니다.
 
 {% hint style="success" %}
-NOTE: After the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0, next multiSig validation logic is added. In case of Baobab network, protocol upgrade was enabled from block number `#75373312`. Cypress mainnet will be subject to the same protocol upgrade in the next version.
+NOTE: Klaytn v1.7.0에서 도입된 protocol upgrade, 또는 "hard fork" 활성화부터는, 다음 다중키 검증 로직이 추가됩니다. Baobab 네트워크의 경우 프로토콜 업데이트는 블록번호 `#75373312`번 부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
 
-* The invalid signature should not be included in the transaction.
-* The number of signed public keys should be less than the number of weightedPublicKeys.
+* 트랜잭션에 유효하지 않은 서명이 포함되면 안 됩니다.
+* 서명된 공개키 개수가 WeightedPublicKey 개수보다 적어야만 합니다.
 {% endhint %}
 
 #### 속성 <a id="attributes"></a>
@@ -221,7 +221,7 @@ RLP: 0x04f89303f890e301a102c734b50ddb229be5e929fc4aa8080ae8240a802d23d3290e5e615
 
 ### AccountKeyRoleBased <a id="accountkeyrolebased"></a>
 
-AccountKeyRoleBased represents a role-based key. The roles are specified at [Roles](accounts.md#roles).
+AccountKeyRoleBased는 역할기반 키를 의미합니다. 역할은 [Roles](accounts.md#roles)에 명시되어있습니다.
 
 #### 속성 <a id="attributes"></a>
 
@@ -232,7 +232,7 @@ AccountKeyRoleBased represents a role-based key. The roles are specified at [Rol
 
 #### 역할 <a id="roles"></a>
 
-Roles of AccountKeyRoleBased are defined as below:
+AccountKeyRoleBased의 역할은 다음과 같이 정의됩니다.
 
 | 역할                | 설명                                                                                                                             |
 |:----------------- |:------------------------------------------------------------------------------------------------------------------------------ |
@@ -244,13 +244,13 @@ Roles of AccountKeyRoleBased are defined as below:
 
 `0x05 + encode([key1, key2, key3])`
 
-Note that key1, key2, and key3 can be any of above keys \(AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail, and AccountKeyWeightedMultiSig\).
+참고: key1, key2 및 key3은 위의 키(AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail 및 AccountKeyWeightedMultiSig\) 중 하나입니다.
 
 #### 생략할 수 있고 확장이 가능한 역할 <a id="omissible-and-extendable-roles"></a>
 
-The roles can be omitted from the last, and the omitted roles are mapped to the first role. However, a role in the middle cannot be omitted, which means RoleTransaction and RoleFeePayer cannot be set without RoleAccountUpdate. For example, if a role-based key is set to `0x05 + encode([key1, key2])`, RoleFeePayer works as if the key is set like `0x05 + encode([key1, key2, key1])`.
+역할은 끝에서부터 생략할 수 있으며 생략된 역할은 첫 번째 역할에 매핑됩니다. 그러나, 중간에 있는 역할을 생략할 수 없으므로 RoleAccountUpdate 없이는 RoleTransaction 및 RoleFeePayer를 설정할 수 없습니다. 예를 들어, 역할기반 키가 `0x05 + encode([key1, key2])</0->로 설정되어있으면, RoleFeePayer는 <code>0x05 + encode ([key1, key2, key1])`로 설정되어있는 것처럼 작동합니다.
 
-This feature is provided to extend more roles in the future. If a new role is provided, the new role of accounts already created with old roles is mapped to the first role.
+이 기능은 향후 더 많은 역할을 확장하기 위해 제공됩니다. 새 역할이 제공되면 이전 역할로 이미 생성된 새 계정 역할이 첫 번째 역할에 대응됩니다.
 
 #### RLP 인코딩 \(예시\) <a id="rlp-encoding-example"></a>
 
@@ -274,7 +274,7 @@ RLP: 0x05f898a302a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf0
 ```
 
 ## 계정 키 유형 ID <a id="account-key-type-id"></a>
-Below are the Account Key Type ID assigned to each Account Key Type.
+다음은 각 계정 키 유형에 지정된 계정 키 유형 ID입니다.
 
 | 계정 키 유형                    | 계정 키 유형 ID |
 | -------------------------- | ---------- |
