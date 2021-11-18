@@ -41,12 +41,12 @@ Klaytn은 현재 단가를 이용하는 트랜잭션을 교체할 수 없습니�
 
 ## Klaytn의 가스표  <a id="klaytns-gas-table"></a>
 
-기본적으로 Klaytn은 이더리움과 호환성을 유지합니다. 그래서 Klaytn의 가스표는 이더리움과 매우 유사합니다. But there are some features unique to Klaytn that require several new constants.
+기본적으로 Klaytn은 이더리움과 호환성을 유지합니다. 그래서 Klaytn의 가스표는 이더리움과 매우 유사합니다. 하지만 Klaytn의 고유한 기능이 있기 때문에, 그런 기능들을 위한 다른 수치들이 있습니다.
 
 {% hint style="success" %}
-NOTE: With the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0, the gas table has been changed. In case of Baobab network, protocol upgrade was enabled from block number `#75373312`. Cypress mainnet will be subject to the same protocol upgrade in the next version.
+NOTE: Klaytn v1.7.0에서 도입된 protocol upgrade, 또는 "hard fork" 활성화부터는, 일부 가스표가 변경되었습니다. Baobab 네트워크의 경우 프로토콜 업데이트는 블록번호 `#75373312`번 부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
 
-If you want the previous document, please refer to [previous document](transaction-fees-previous.md)
+이전 문서는 [이전 문서](transaction-fees-previous.md)를 참고해주세요
 {% endhint %}
 
 ### 공통 비용<a id="common-fee"></a>
@@ -125,7 +125,7 @@ ValidateSenderGas는 서명마다 지불해야 합니다.
 TotalGas = number of signatures * ValidateSenderGas
 ```
 
-Blake2f gas cost is calculated based on the below formula. `input` is the input of the blake2f call.
+Blake2f 가스비는 아래 공식에 따라 계산됩니다. `input` 은 blake2f call의 input 입니다.
 ```text
 Gas = uint64(binary.BigEndian.Uint32(input[0:4]))
 ```
@@ -162,7 +162,7 @@ GasPayload = number_of_bytes * TxDataGas
 | SmartContractExecution | TxGasContractExecution + PayloadGas + KeyValidationGas |
 | Cancel                 | TxGasCancel + KeyValidationGas                         |
 
-KeyValidationGas is defined as below based on the key type,
+KeyValidationGas는 키 유형에 따라 아래와 같이 정의됩니다.
 
 | 키 유형      | 가스                                                                  |
 |:--------- |:------------------------------------------------------------------- |
@@ -173,7 +173,7 @@ KeyValidationGas is defined as below based on the key type,
 | MultiSig  | \(number of signatures - 1\) \* GasValidationPerKey \(15000\) |
 | RoleBased | 검증(validation)에 사용된 역할의 키를 기반으로 함                                   |
 
-KeyCreationGas is defined as below based on the key type,
+KeyCreationGas는 키 유형에 따라 아래와 같이 정의됩니다.
 
 | 키 유형      | 가스                                                                                                                                                                                              |
 |:--------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
