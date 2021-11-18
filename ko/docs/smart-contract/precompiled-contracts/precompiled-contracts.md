@@ -155,7 +155,7 @@ function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
 ```
 
 ## Address 0x09: blake2F\(rounds, h, m, t, f\) <a id="address-0x-3fc-vmlog-str"></a>
-The address 0x09 implements BLAKE2b F compression function. 자세한 내용은 [EIP-152](https://eips.ethereum.org/EIPS/eip-152)를 참고해주세요. 이 미리 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
+0x09 주소는 BLAKE2b F 압축 함수(compression function)를 구현합니다. 자세한 내용은 [EIP-152](https://eips.ethereum.org/EIPS/eip-152)를 참고해주세요. 이 미리 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
 
 ```text
 function callBlake2F(uint32 rounds, bytes32[2] memory h, bytes32[4] memory m, bytes8[2] memory t, bool f) public view returns (bytes32[2] memory) {
@@ -173,9 +173,9 @@ function callBlake2F(uint32 rounds, bytes32[2] memory h, bytes32[4] memory m, by
 }
 ```
 
-## Address 0x3fd: vmLog\(str\) <a id="address-0x-3fc-vmlog-str"></a>
+## 0x3fd 주소: vmLog\(str\) <a id="address-0x-3fc-vmlog-str"></a>
 
-The address 0x3FD prints the specified string `str` to a specific file or passes it to the logger module. For more information, see [debug\_setVMLogTarget](../../../bapp/json-rpc/api-references/debug/logging.md#debug_setvmlogtarget). 이 컨트랙트는 오직 디버깅을 목적으로 사용되어야 하며, Klaytn 노드를 시작할 때 `--vmlog` 옵션을 활성화해야 사용할 수 있습니다. 또한 vmLog의 출력을 보려면 Klaytn 노드의 로깅 수준이 4 이상이어야 합니다. 이 미리 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
+0x3FD 주소는 특정 문자열 `str`을 특정 파일로 출력하거나 로깅 모듈에 전달하는 미리 컴파일된 컨트랙트입니다. 자세한 내용은 [debug\_setVMLogTarget](../../../bapp/json-rpc/api-references/debug/logging.md#debug_setvmlogtarget)를 참고해주세요. 이 컨트랙트는 오직 디버깅을 목적으로 사용되어야 하며, Klaytn 노드를 시작할 때 `--vmlog` 옵션을 활성화해야 사용할 수 있습니다. 또한 vmLog의 출력을 보려면 Klaytn 노드의 로깅 수준이 4 이상이어야 합니다. 이 미리 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
 
 ```text
 function callVmLog(bytes memory str) public {
@@ -183,9 +183,9 @@ function callVmLog(bytes memory str) public {
 }
 ```
 
-## Address 0x3fe: feePayer\(\) <a id="address-0x-3fd-feepayer"></a>
+## 0x3fe 주소: feePayer\(\) <a id="address-0x-3fd-feepayer"></a>
 
-The address 0x3FE returns a fee payer of the executing transaction. 이 미리 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
+0x3FE  주소는 실행 트랜잭션 비용 납부 계정을 반환합니다. 이 미리 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
 
 ```text
 function feePayer() internal returns (address addr) {
@@ -200,15 +200,15 @@ function feePayer() internal returns (address addr) {
 }
 ```
 
-## Address 0x3ff: validateSender\(\) <a id="address-0x-3fe-validatesender"></a>
+## 0x3ff 주소: validateSender\(\) <a id="address-0x-3fe-validatesender"></a>
 
-The address 0x3FF validates the sender's signature with the message. Since Klaytn [decouples key pairs from addresses](../../../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses), it is required to validate that a signature is properly signed by the corresponding sender. 이를 위해 이 컨트랙트는 세 개의 매개 변수를 입력받습니다.
+0x3FF는 주소의 미리 컴파일된 컨트랙트는 메세지 발신자의 서명을 검증합니다. Klaytn은 [주소로부터 키 쌍\(key pairs\) 분리하기](../../../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses) 때문에 해당 발신자가 올바르게 서명했는지 검증해야 합니다. 이를 위해 이 컨트랙트는 세 개의 매개 변수를 입력받습니다.
 
 * 공개키를 가져오는 데에 사용되는 발신자의 주소
 * 서명을 생성하는 데에 사용된 메세지의 해시
 * 메세지의 해시를 발신자의 개인키로 서명한 서명 값
 
-이 컨트랙트는 주어진 서명 값이 발신자의 개인키로 올바르게 서명된 것인지 검증합니다. Note that Klaytn natively support multi signatures, which means there can be multiple signatures. The signature must be 65 bytes long.
+이 컨트랙트는 주어진 서명 값이 발신자의 개인키로 올바르게 서명된 것인지 검증합니다. Klaytn은 기본적으로 다중 서명을 지원하여 여러 개의 서명이 있을 수도 있습니다. 각 서명의 길이는 65바이트이어야 합니다.
 
 ```text
 function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public returns (bool) {
@@ -226,7 +226,7 @@ function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public retu
         data[idx++] = sigs[i];
     }
     assembly {
-        // 길이를 나타내는 헤더는 건너뜁니다
+        // 길이를 나타내는 헤더는 건너 뜁니다.
         let ptr := add(data, 0x20)
         if iszero(call(gas, 0x3ff, 0, ptr, idx, 31, 1)) {
           invalid()
