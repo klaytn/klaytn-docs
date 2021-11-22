@@ -8,6 +8,7 @@ The following options are possible for the `defaultBlock` parameter:
 - `HEX String` - an integer block number
 - `String "earliest"` for the earliest/genesis block
 - `String "latest"` - for the latest mined block
+- `String "pending"` - for the pending state/transactions
 
 
 ## klay_blockNumber <a id="klay_blocknumber"></a>
@@ -50,7 +51,7 @@ This API works only on RPC call, not on JavaScript console.
 
 | Type | Description |
 | --- | --- |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
 
 **Return Value**
 
@@ -156,7 +157,7 @@ This API works only on RPC call, not on JavaScript console.
 
 | Type | Description |
 | --- | --- |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
 | Boolean | If `true` it returns the full transaction objects, if `false` only the hashes of the transactions. |
 
 {% hint style="success" %} 
@@ -342,7 +343,7 @@ Returns the number of transactions in a block matching the given block number.
 
 | Type          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 {% hint style="success" %} 
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
@@ -772,7 +773,7 @@ Returns the value from a storage position at a given address.
 | --- | --- |
 | 20-byte DATA | Address of the storage. |
 | QUANTITY | Integer of the position in the storage. |
-| QUANTITY &#124; TAG &#124; HASH| Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter), or block hash.|
+| QUANTITY &#124; TAG &#124; HASH| Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter), or block hash.|
 
 {% hint style="success" %} 
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
