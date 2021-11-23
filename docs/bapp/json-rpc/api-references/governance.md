@@ -23,7 +23,7 @@ However, a slot is guaranteed to a qualified node that has deposited a minimum a
 That is, if a node is not qualified - the node does not stake enough amount of KLAY - it won't be given a chance to propose nor validate a block.
 
 **Caveat**
-- a governing node is always qualified in `single` mode as an exception.
+- A governing node is always qualified in `single` mode as an exception.
 - A vote will be casted when a block is proposed. This vote is applied after two epochs including the epoch where the block is proposed.
 As an exception, only addValidator/removeValidator is applied immediately.
 ## governance_vote <a id="governance_vote"></a>
