@@ -13,9 +13,9 @@
 
 **매개변수**
 
-| 이름                   | 타입                              | 설명                                                                                                                                                                              |
-| -------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash. |
+| 이름                   | 타입                              | 설명                                                                                                                                                                                           |
+| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash. |
 
 {% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only hex string type is available.
@@ -116,9 +116,9 @@ Retrieves and returns the RLP-encoded block by the block number.
 
 **매개변수**
 
-| 이름                   | 타입                              | 설명                                                                                                                                                                              |
-| -------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash. |
+| 이름                   | 타입                              | 설명                                                                                                                                                                                           |
+| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash. |
 
 {% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only integer type is available.
@@ -302,9 +302,9 @@ Retrieves a block and returns its pretty printed form.
 
 **매개변수**
 
-| 이름                   | 타입                              | 설명                                                                                                                                                                              |
-| -------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash. |
+| 이름                   | 타입                              | 설명                                                                                                                                                                                           |
+| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash. |
 
 {% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only integer type is available.
