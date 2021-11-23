@@ -12,6 +12,10 @@ NOTE: With the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0,
 | feePayer | 0x0a | 0x3fe |
 | validateSender | 0x0b | 0x3ff |
 
+It should be noted that contracts deployed before the Protocol Upgrade activation introduced in klaytn v1.7.0 use the old address.
+* case 1) The contracts deployed in Baobab at block number `#75373310` recognizes 0x09, 0x0a, and 0x0b as addresses of vmLog, feePayer, and validateSender, respectively, and blake2f cannot be used.
+* case 2) The contracts deployed in Baobab at block number `#75373314` recognizes 0x09 as the address of blake2f, and recognizes 0x3fd, 0x3fe, and 0xff as addresses of vmLog, feePayer, and validateSender.
+
 In case of Baobab network, protocol upgrade was enabled from block number `#75373312`.
 Cypress mainnet will be subject to the same protocol upgrade in the next version.
 

@@ -12,7 +12,20 @@ In Klaytn, there are three different governance modes.
 * `single`: Only one designated node has the right to change the configuration.
 * `ballot`: All nodes which have voting power can vote for a change. When more than half of total voting power gathered, the vote passes.
 
+Based on the governance mode, a proposer is able to cast a vote about network parameters such as unit price, minimum staking amount, etc.
+In order to be a proposer, the candidate nodes are required to deposit a minimum amount of KLAY.
+All the qualified nodes are always eligible to propose a block, but the chance is propositional to the stake amount.
 
+When calculating the staking proportions to determine the number of slots(the number of chances) to become a proposer within a certain period,
+it is possible that a node may not be allocated any slots as a result of rounding numbers.
+However, a slot is guaranteed to a qualified node that has deposited a minimum amount of KLAY.
+
+That is, if a node is not qualified - the node does not stake enough amount of KLAY - it won't be given a chance to propose nor validate a block.
+
+**Caveat**
+- A governing node is always qualified in `single` mode as an exception.
+- A vote will be casted when a block is proposed. This vote is applied after two epochs including the epoch where the block is proposed.
+As an exception, only addValidator/removeValidator is applied immediately.
 ## governance_vote <a id="governance_vote"></a>
 
 The `vote` method submits a new vote. If the node has the right to vote based on governance mode, the vote can be placed. If not, an error message will be returned and the vote will be ignored.
