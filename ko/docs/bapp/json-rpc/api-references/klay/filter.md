@@ -108,13 +108,13 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 `Object` - 필터 객체를 구성하는 옵션은 다음과 같습니다.
 
-| 이름        | 타입                          | 설명                                                                                                                                                                                              |
-| --------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | QUANTITY &#124; TAG         | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter).        |
-| toBlock   | QUANTITY &#124; TAG         | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter).        |
-| address   | 20바이트 크기의 DATA &#124; Array | (선택 사항) 로그를 발생시킨 컨트랙트 주소 또는 주소들의 목록입니다.                                                                                                                                                         |
-| topics    | DATA array                  | (선택 사항) 32바이트 크기 DATA 형태의 토픽으로 이루어진 배열입니다. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                                                                                               |
-| blockHash | 32바이트 크기 DATA               | (선택 사항) 32바이트 길이의 해시 blockHash를 사용하여 단일 블록으로 반환된 로그를 제한하는 필터 옵션입니다. blockHash를 사용하면, blockHash로 지정한 블록의 번호가 fromBlock, toBlock과 같아집니다. 따라서 필터 기준에 blockHash가 있으면 fromBlock과 toBlock이 허용되지 않습니다. |
+| 이름        | 타입                          | 설명                                                                                                                                                                                                    |
+| --------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | QUANTITY &#124; TAG         | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| toBlock   | QUANTITY &#124; TAG         | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| address   | 20바이트 크기의 DATA &#124; Array | (선택 사항) 로그를 발생시킨 컨트랙트 주소 또는 주소들의 목록입니다.                                                                                                                                                               |
+| topics    | DATA array                  | (선택 사항) 32바이트 크기 DATA 형태의 토픽으로 이루어진 배열입니다. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                                                                                                     |
+| blockHash | 32바이트 크기 DATA               | (선택 사항) 32바이트 길이의 해시 blockHash를 사용하여 단일 블록으로 반환된 로그를 제한하는 필터 옵션입니다. blockHash를 사용하면, blockHash로 지정한 블록의 번호가 fromBlock, toBlock과 같아집니다. 따라서 필터 기준에 blockHash가 있으면 fromBlock과 toBlock이 허용되지 않습니다.       |
 
 {% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
@@ -287,12 +287,12 @@ Creates a filter object, based on filter options, to notify when the state chang
 
 `Object` - 필터 객체를 구성하는 옵션은 다음과 같습니다.
 
-| 이름        | 타입                          | 설명                                                                                                                                                                                       |
-| --------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | QUANTITY &#124; TAG         | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
-| toBlock   | QUANTITY &#124; TAG         | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
-| address   | 20바이트 크기의 DATA &#124; Array | (선택 사항) 로그를 발생시킨 컨트랙트 주소 또는 주소들의 목록입니다.                                                                                                                                                  |
-| topics    | DATA array                  | (선택 사항) 32바이트 크기 DATA 형태의 토픽으로 이루어진 배열입니다. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                                                                                        |
+| 이름        | 타입                          | 설명                                                                                                                                                                                                    |
+| --------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | QUANTITY &#124; TAG         | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| toBlock   | QUANTITY &#124; TAG         | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| address   | 20바이트 크기의 DATA &#124; Array | (선택 사항) 로그를 발생시킨 컨트랙트 주소 또는 주소들의 목록입니다.                                                                                                                                                               |
+| topics    | DATA array                  | (선택 사항) 32바이트 크기 DATA 형태의 토픽으로 이루어진 배열입니다. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                                                                                                     |
 
 {% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
