@@ -7,6 +7,7 @@ Klaytn 상태 상에서 어떤 행위에 대한 요청이 있을 때 마지막�
 - `16진수 문자열` - 블록 번호의 정수 형태입니다.
 - `"earliest" 문자열` - 제네시스 블록입니다.
 - `"latest" 문자열` - 가장 최근에 채굴된 블록입니다.
+- `String "pending"` - for the pending state/transactions
 
 
 ## klay_blockNumber <a id="klay_blocknumber"></a>
@@ -46,9 +47,9 @@ Returns information about a header by nuuber. This API works only on RPC call, n
 
 **매개변수**
 
-| 타입                  | 설명                                                                                                                                               |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](#the-default-block-parameter). |
+| 타입                  | 설명                                                                                                                                                            |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
 
 **리턴값**
 
@@ -150,10 +151,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 타입                  | 설명                                                                                                                                               |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](#the-default-block-parameter). |
-| Boolean             | If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.                                               |
+| 타입                  | 설명                                                                                                                                                            |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
+| Boolean             | If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.                                                            |
 
 {% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
@@ -334,9 +335,9 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 타입                  | 설명                                                                                                                                                       |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| 타입                  | 설명                                                                                                                                                                    |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
@@ -762,11 +763,11 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 타입                              | 설명                                                                                                                                                                      |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA                   | Address of the storage.                                                                                                                                                 |
-| QUANTITY                        | Integer of the position in the storage.                                                                                                                                 |
-| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](block.md#the-default-block-parameter), or block hash. |
+| 타입                              | 설명                                                                                                                                                                                   |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 20바이트 크기 DATA                   | Address of the storage.                                                                                                                                                              |
+| QUANTITY                        | Integer of the position in the storage.                                                                                                                                              |
+| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter), or block hash. |
 
 {% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
