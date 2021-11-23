@@ -5,9 +5,18 @@ However, be aware of the following two issues.
 
 ## Solidity Support <a id="solidity-support"></a>
 
-Klaytn is currently compatible with **Istanbul** Ethereum Virtual Machine (EVM) version. 
+* Baobab network is currently compatible with **istanbul** Ethereum Virtual Machine (EVM).
+* Cypress network is currently compatible with **constantinople** Ethereum Virtual Machine (EVM).
+
+**NOTE**: In case of Baobab network, protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0 has been enabled from block number `#75373312`. This led to a transition from **constantinople EVM** to **istanbul EVM**.
+Cypress mainnet has not enabled the protocol upgrade yet, but soon, it will be subject to the same protocol upgrade in the next version. 
+
 Backward compatibility is not guaranteed with other EVM versions on Klaytn.
-Thus, it is highly recommended to compile Solidity code with the Istanbul target option. 
+Thus, it is highly recommended compiling Solidity code with the correct target option according to the protocol upgrade status.
+* baobab: istanbul
+* cypress: constantinople
+* other(private/service chain): determined according to the protocol upgrade status
+
 Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).
 
 
