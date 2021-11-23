@@ -4,10 +4,10 @@
 
 **매개변수**
 
-| 이름                | 타입                              | 설명                                                                                                                                         |
-| ----------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| callObject        | Object                          | 트랜잭션 호출 객체입니다.  객체 속성은 다음의 표를 참고해주세요.                                                                                                      |
-| blockNumberOrHash | QUANTITY &#124; TAG &#124; HASH | 정수 또는 16진수 형태의 블록 번호나 [default block parameter](./block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열, 또는 블록 해시입니다. |
+| 이름                | 타입                              | 설명                                                                                                                                                                                     |
+| ----------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callObject        | Object                          | 트랜잭션 호출 객체입니다.  객체 속성은 다음의 표를 참고해주세요.                                                                                                                                                  |
+| blockNumberOrHash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
 
 {% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
@@ -170,10 +170,10 @@ Returns information about a transaction by block number and transaction index po
 
 **매개변수**
 
-| 타입                  | 설명                                                                                                                                                         |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./block.md#the-default-block-parameter). |
-| QUANTITY            | 트랜잭션의 인덱스 위치입니다.                                                                                                                                           |
+| 타입                  | 설명                                                                                                                                                                       |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"`  as in the [default block parameter](./block.md#the-default-block-parameter). |
+| QUANTITY            | 트랜잭션의 인덱스 위치입니다.                                                                                                                                                         |
 
 {% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
