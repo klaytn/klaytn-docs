@@ -12,15 +12,23 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 * `single`: 오직 하나의 특정 노드가 환경설정을 변경할 권리를 가집니다.
 * `ballot`: 의결권이 있는 모든 노드가 환경설정 변경에 투표할 수 있습니다. 전체 의결권 중 절반 이상이 모이면 해당 의제는 통과됩니다.
 
+Based on the governance mode, a proposer is able to cast a vote about network parameters such as unit price, minimum staking amount, etc. In order to be a proposer, the candidate nodes are required to deposit a minimum amount of KLAY. All the qualified nodes are always eligible to propose a block, but the chance is propositional to the stake amount.
 
+When calculating the staking proportions to determine the number of slots(the number of chances) to become a proposer within a certain period, it is possible that a node may not be allocated any slots as a result of rounding numbers. However, a slot is guaranteed to a qualified node that has deposited a minimum amount of KLAY.
+
+That is, if a node is not qualified - the node does not stake enough amount of KLAY - it won't be given a chance to propose nor validate a block.
+
+**Caveat**
+- A governing node is always qualified in `single` mode as an exception.
+- A vote will be casted when a block is proposed. This vote is applied after two epochs including the epoch where the block is proposed. As an exception, only addValidator/removeValidator is applied immediately.
 ## governance_vote <a id="governance_vote"></a>
 
-`vote` 메서드는 새로운 투표를 제출합니다. 거버넌스 모드에 의거하여 노드가 의결권을 가지면 투표할 수 있습니다. 그렇지 않으면 오류 메시지가 반환되고 투표 행위가 무시됩니다.
+The `vote` method submits a new vote. If the node has the right to vote based on governance mode, the vote can be placed. If not, an error message will be returned and the vote will be ignored.
 
 **매개변수**
 
-- `Key` : 변경하고자 하는 환경설정의 이름입니다. 키는 `domain.field`의 형식으로 되어 있습니다.
-- `Value` : 각 키에 대한 다양한 형태의 값입니다.
+- `Key` : Name of the configuration setting to be changed. Key has the form of `domain.field`
+- `Value` : Various types of value for each key.
 
 | 키                              | 설명                                                                                                                                                                                                          |
 | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -86,7 +94,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 
 ## governance_showTally <a id="governance_showtally"></a>
 
-`showTally` 속성은 거버넌스 투표의 현재 집계를 제공합니다. 집계된 찬성률을 백분율로 나타냅니다. 50%가 넘으면 해당 의제는 통과됩니다.
+The `showTally` property provides the current tally of governance votes. It shows the aggregated approval rate in percentage. When it goes over 50%, the vote passes.
 
 **매개변수**
 
@@ -116,7 +124,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 
 ## governance_totalVotingPower <a id="governance_totalvotingpower"></a>
 
-`totalVotingPower` 속성은 CN들이 보유한 의결권 합계를 나타냅니다. 각 CN은 1.0 ~ 2.0의 의결권을 가집니다. `"none"`, `"single"` 거버넌스 모드에서는 `totalVotingPower` 속성을 통해 제공하는 정보가 없습니다.
+The `totalVotingPower` property provides the sum of all voting power that CNs have. 각 CN은 1.0 ~ 2.0의 의결권을 가집니다. In `"none"`, `"single"` governance mode, `totalVotingPower` don't provide any information.
 
 **매개변수**
 
@@ -143,7 +151,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 
 ## governance_myVotingPower <a id="governance_myvotingpower"></a>
 
-`myVotingPower` 속성은 나의 노드가 보유한 의결권을 나타냅니다. 한 노드당 1.0 ~ 2.0 사이의 의결권을 가집니다. `"none"`, `"single"` 거버넌스 모드에서는 `totalVotingPower` 속성을 통해 제공하는 정보가 없습니다.
+The `myVotingPower` property provides the voting power of the node. The voting power can be 1.0 ~ 2.0. In `"none"`, `"single"` governance mode, `totalVotingPower` don't provide any information.
 
 **매개변수**
 
@@ -170,7 +178,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 
 ## governance_myVotes <a id="governance_myvotes"></a>
 
-`myVotes` 속성은 투표 기간 동안의 나의 투표 정보를 나타냅니다. 사용자의 노드가 새로운 블록을 생성할 때 각 투표가 블록에 저장됩니다. 현재 투표 기간이 종료되면 이 정보는 사라집니다.
+The `myVotes` property provides my vote information in the epoch. 사용자의 노드가 새로운 블록을 생성할 때 각 투표가 블록에 저장됩니다. 현재 투표 기간이 종료되면 이 정보는 사라집니다.
 
 **매개변수**
 
@@ -201,7 +209,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 
 ## governance_chainConfig <a id="governance_chainconfig"></a>
 
-`chainConfig` 속성은 초기 체인 환경설정을 나타냅니다. 이 속성은 초기 환경설정만 저장하기 때문에 투표에 의해 거버넌스에 변경 사항이 있다면 `chainConfig`의 결과는 현재 상태와 달라질 것입니다. 현재 정보를 확인하려면 `itemsAt`을 사용하세요.
+The `chainConfig` property provides the initial chain configuration. Because it just stores the initial configuration, if there were changes in the governance made by voting, the result of `chainConfig` will differ from the current states. To see the current information, please use `itemsAt`.
 
 **매개변수**
 
@@ -245,7 +253,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 
 ## governance_nodeAddress <a id="governance_nodeaddress"></a>
 
-`nodeAddress` 속성은 사용자가 사용하고 있는 노드의 주소를 나타냅니다. nodekey에서 파생되어 합의 메시지를 서명하는 데에 사용됩니다. 그리고 `"governingnode"`의 값은 검증자의 노드 중 하나의 주소가 되어야 합니다.
+The `nodeAddress` property provides the address of the node that a user is using. nodekey에서 파생되어 합의 메시지를 서명하는 데에 사용됩니다. And the value of `"governingnode"` has to be one of validator's node address.
 
 **매개변수**
 
@@ -266,7 +274,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 
 ## governance_itemsAt <a id="governance_itemsat"></a>
 
-`itemsAt`은 특정 블록에서의 거버넌스 항목을 반환합니다. 이는 해당 블록의 이전 투표 결과이며, 입력으로 받은 블록 번호에서 체인의 환경설정을 하는 데에 사용됩니다.
+The `itemsAt` returns governance items at specific block. 이는 해당 블록의 이전 투표 결과이며, 입력으로 받은 블록 번호에서 체인의 환경설정을 하는 데에 사용됩니다.
 
 **매개변수**
 
@@ -275,7 +283,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
+참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
 {% endhint %}
 
 **Return Value**x
@@ -430,15 +438,15 @@ The `itemCacheFromDb` returns the governance information stored in the given blo
 ## governance_getStakingInfo <a id="governance_getstakinginfo"></a>
 
 The `getStakingInfo` returns staking information at a specific block. The result includes the following information.
-- `BlockNum`: 스테이킹 정보가 조회되는 블록 번호
-- `CouncilNodeAddrs`: 컨센서스 노드 주소
-- `CouncilRewardAddrs`: 관련 노드들의 블록 보상이 제공되는 주소
-- `CouncilStakingAddrs`: 관련된 노드들이 스테이킹을 위해 배포하는 컨트랙트 주소
-- `CouncilStakingAmounts`: 관련 노드들이 스테이킹하는 KLAY 액수
-- `Gini`: 지니 계수
-- `KIRAddr`: KIR 컨트랙트 주소
+- `BlockNum`: The block number at which the staking information is given.
+- `CouncilNodeAddrs`: The addresses of the consensus node.
+- `CouncilRewardAddrs`: The addresses to which the block reward of the associated nodes is sent.
+- `CouncilStakingAddrs`: The contract addresses in which the associated nodes deploy for staking.
+- `CouncilStakingAmounts`: The amount of KLAY which the associated nodes stake.
+- `Gini`: Gini coefficient.
+- `KIRAddr`: The contract address of KIR.
 - `KGFAddr`: The contract address of KGF.
-- `UseGini`: 지니 계수 사용 여부를 나타내는 boolean 값
+- `UseGini`: The boolean value whether or not the Gini coefficient is used.
 
 Note that the order of all addresses and the staking amounts are matched.
 
