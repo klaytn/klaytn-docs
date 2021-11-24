@@ -13,9 +13,9 @@ Cypress mainnet has not enabled the protocol upgrade yet, but soon, it will be s
 
 Backward compatibility is not guaranteed with other EVM versions on Klaytn.
 Thus, it is highly recommended compiling Solidity code with the correct target option according to the protocol upgrade status.
-* baobab: istanbul
-* cypress: constantinople
-* other(private/service chain): determined according to the protocol upgrade status
+* Baobab: --evm-version istanbul
+* Cypress: --evm-version constantinople
+* Others(private/service chain): determined according to the protocol upgrade status
 
 Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).
 
