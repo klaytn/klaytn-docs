@@ -44,7 +44,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **NOTE**: This API is supported from Klaytn v1.7.0.
 
-Returns information about a header by nuuber.
+Returns information about a header by number.
 This API works only on RPC call, not on JavaScript console.
 
 **Parameters**
@@ -372,7 +372,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBlockTransactionCountByHash <a id="klay_getblocktransactioncountbyhash"></a>
 
-Returns the number of transactions in a block from a block matching the given block hash.
+Returns the number of transactions in a block from a block that matches the given hash.
 
 **Parameters**
 
@@ -403,7 +403,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBlockWithConsensusInfoByHash <a id="klay_getblockwithconsensusinfobyhash"></a>
 
-Returns a block with consensus information matched by the given hash.
+Returns a block with consensus information that matches the given hash.
 
 **Parameters**
 
@@ -507,7 +507,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 
 ## klay_getBlockWithConsensusInfoByNumber <a id="klay_getblockwithconsensusinfobynumber"></a>
-Returns a block with consensus information matched by the given block number.
+Returns a block with consensus information that matches the given block number.
 
 **Parameters**
 
