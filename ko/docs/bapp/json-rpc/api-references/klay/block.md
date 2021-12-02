@@ -2,12 +2,12 @@
 
 Klaytn 상태 상에서 어떤 행위에 대한 요청이 있을 때 마지막의 기본 블록 매개변수가 블록의 번호를 결정합니다.
 
-다음 옵션들은 `defaultBlock` 매개변수를 통해 설정할 수 있습니다.
+`defaultBlock` 매개변수를 통해 설정할 수 있는 사항들은 다음과 같습니다.
 
 - `16진수 문자열` - 블록 번호의 정수 형태입니다.
 - `"earliest" 문자열` - 제네시스 블록입니다.
 - `"latest" 문자열` - 가장 최근에 채굴된 블록입니다.
-- `String "pending"` - for the pending state/transactions
+- `"pending" 문자열` - 보류 중인 상태/트랜잭션입니다.
 
 
 ## klay_blockNumber <a id="klay_blocknumber"></a>
@@ -41,7 +41,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getHeaderByNumber <a id="klay_getheaderbynumber"></a>
 
-**NOTE**: This API is supported from Klaytn v1.7.0.
+**참고**: 이 API는 Klaytn v1.7.0.부터 지원됩니다.
 
 Returns information about a header by nuuber. This API works only on RPC call, not on JavaScript console.
 
@@ -85,7 +85,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getHeaderByHash <a id="klay_getheaderbyhash"></a>
 
-**NOTE**: This API is supported from Klaytn v1.7.0.
+**참고**: 이 API는 Klaytn v1.7.0.부터 지원됩니다.
 
 Returns information about a header by hash. This API works only on RPC call, not on JavaScript console.
 
