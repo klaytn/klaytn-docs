@@ -114,7 +114,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionByBlockHashAndIndex <a id="klay_gettransactionbyblockhashandindex"></a>
 
-Returns information about a transaction by block hash and transaction index position. This API works only on RPC call, not on JavaScript console.
+Returns information about a transaction by block hash and transaction index position. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
 
 **매개변수**
 
@@ -166,7 +166,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionByBlockNumberAndIndex <a id="klay_gettransactionbyblocknumberandindex"></a>
 
-Returns information about a transaction by block number and transaction index position. This API works only on RPC call, not on JavaScript console.
+Returns information about a transaction by block number and transaction index position. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
 
 **매개변수**
 
@@ -221,7 +221,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionByHash <a id="klay_gettransactionbyhash"></a>
 
-트랜잭션 해시로 조회한 트랜잭션의 정보를 반환합니다. This API works only on RPC call, not on JavaScript console.
+트랜잭션 해시로 조회한 트랜잭션의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
 
 **매개변수**
 
@@ -304,7 +304,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionBySenderTxHash <a id="klay_gettransactionbysendertxhash"></a>
 
-Returns the information about a transaction requested by sender transaction hash. This API works only on RPC call, not on JavaScript console. Please note that this API returns correct result only if indexing feature is enabled by `--sendertxhashindexing`. This can be checked by call [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled).
+Returns the information about a transaction requested by sender transaction hash. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다. Please note that this API returns correct result only if indexing feature is enabled by `--sendertxhashindexing`. This can be checked by call [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled).
 
 **매개변수**
 
