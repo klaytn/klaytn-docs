@@ -640,7 +640,7 @@ caver.rpc.klay.getBlockNumber([callback])
 caver.rpc.klay.getBlockByNumber(blockNumber [, returnTransactionObjects] [, callback])
 ```
 
-블록 번호로 조회한 블록의 정보를 반환합니다. This API works only on RPC call, not on JavaScript console.
+블록 번호로 조회한 블록의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
 
 **매개변수**
 
