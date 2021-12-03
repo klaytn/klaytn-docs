@@ -13,12 +13,12 @@
 
 **매개변수**
 
-| 이름                   | 타입                              | 설명                                                                                                                                                                                           |
-| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash. |
+| 이름                   | 타입                              | 설명                                                                                                                                                   |
+| -------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](../klay/block.md#the-default-block-parameter) 또는 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only hex string type is available.
+참고: v1.7.0 이전 버전에서는 16진수 문자열 타입만 사용 가능합니다.
 {% endhint %}
 
 **리턴값**
@@ -68,7 +68,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_dumpStateTrie <a id="debug_dumpstatetrie"></a>
 
-Retrieves all state/storage tries of the given state root.
+특정 상태 루트의 모든 상태/스토리지 트라이(trie)를 반환합니다.
 
 | 클라이언트 | 메서드 호출                                                  |
 |:-----:| ------------------------------------------------------- |
@@ -83,9 +83,9 @@ Retrieves all state/storage tries of the given state root.
 
 **리턴값**
 
-| 타입       | 설명                     |
-| -------- | ---------------------- |
-| JSON 문자열 | Dump state Trie result |
+| 타입       | 설명               |
+| -------- | ---------------- |
+| JSON 문자열 | 덤프 상태 트라이 결과입니다. |
 
 **예시**
 
@@ -105,7 +105,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_getBlockRlp <a id="debug_getblockrlp"></a>
 
-Retrieves and returns the RLP-encoded block by the block number.
+블록 번호를 기분으로 RLP 인코딩된 블록을 검색하고 반환합니다.
 
 | 클라이언트 | 메서드 호출                                                |
 |:-----:| ----------------------------------------------------- |
@@ -116,12 +116,12 @@ Retrieves and returns the RLP-encoded block by the block number.
 
 **매개변수**
 
-| 이름                   | 타입                              | 설명                                                                                                                                                                                           |
-| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash. |
+| 이름                   | 타입                              | 설명                                                                                                                                                   |
+| -------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](../klay/block.md#the-default-block-parameter) 또는 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer type is available.
+참고: v1.7.0 이전 버전에서는 정수 타입만 사용 가능합니다.
 {% endhint %}
 
 **리턴값**
@@ -146,7 +146,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_getModifiedAccountsByHash <a id="debug_getmodifiedaccountsbyhash"></a>
 
-Returns all accounts that have changed between the two blocks specified by their block hashes. Changes made in `endBlockHash` are included, but changes made in `startBlockHash` are not. If `endBlockHash` is not given, it returns the accounts modified in the `startBlockHash`. A change is defined as a difference in nonce, balance, code hash, or storage hash.
+블록 해시로 특정된 두 블록 사이에서 변경된 모든 계정을 반환합니다. `endBlockHash`에서 변경한 사항은 포함되지만 `startBlockHash`에서 변경한 사항은 포함되지 않습니다. 만약 `endBlockHash` 값이 없으면 `startBlockHash`에서 변경된 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
 
 
 | 클라이언트 | 메서드 호출                                                                                      |
@@ -156,10 +156,10 @@ Returns all accounts that have changed between the two blocks specified by their
 
 **매개변수**
 
-| 이름             | 타입            | 설명                                           |
-| -------------- | ------------- | -------------------------------------------- |
-| startBlockHash | 32바이트 크기 DATA | The first block hash of the range to check.  |
-| endBlockHash   | 32바이트 크기 DATA | (optional) The last block hash of the range. |
+| 이름             | 타입            | 설명                         |
+| -------------- | ------------- | -------------------------- |
+| startBlockHash | 32바이트 크기 DATA | 확인할 범위의 첫 번째 블록 해시입니다.     |
+| endBlockHash   | 32바이트 크기 DATA | (선택 사항) 범위 내 마지막 블록 해시입니다. |
 
 **리턴값**
 
@@ -186,7 +186,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 ## debug_getModifiedAccountsByNumber <a id="debug_getmodifiedaccountsbynumber"></a>
 
-Returns all accounts that have changed between the two blocks specified by their block numbers. Changes made in `endBlockNum` are included, but changes made in `startBlockNum` are not. If `endBlockNum` is not given, it returns the accounts modified in the `startBlockNum`. A change is defined as a difference in nonce, balance, code hash, or storage hash.
+블록 번호로 특정된 두 블록 사이에서 변경된 모든 계정을 반환합니다. `endBlockNum`에서 변경한 사항은 포함되지만 `startBlockNum`에서 변경한 사항은 포함되지 않습니다. 만약 `endBlockNum` 값이 없으면 `startBlockNum`에서 변경된 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
 
 
 | 클라이언트 | 메서드 호출                                                                                    |
@@ -196,10 +196,10 @@ Returns all accounts that have changed between the two blocks specified by their
 
 **매개변수**
 
-| 이름            | 타입  | 설명                                             |
-| ------------- | --- | ---------------------------------------------- |
-| startBlockNum | int | The first block number of the range to check.  |
-| endBlockNum   | int | (optional) The last block number of the range. |
+| 이름            | 타입  | 설명                         |
+| ------------- | --- | -------------------------- |
+| startBlockNum | int | 확인할 범위의 첫 번째 블록 번호입니다.     |
+| endBlockNum   | int | (선택 사항) 범위 내 마지막 블록 번호입니다. |
 
 **리턴값**
 
@@ -225,7 +225,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 ## debug_preimage <a id="debug_preimage"></a>
 
-Returns the preimage for a sha3 hash, if known.
+입력으로 받은 sha3 해시의 역상이 알려져 있다면 그 역상을 반환합니다.
 
 | 클라이언트 | 메서드 호출                                           |
 |:-----:| ------------------------------------------------ |
@@ -241,9 +241,9 @@ Returns the preimage for a sha3 hash, if known.
 
 **리턴값**
 
-| 이름       | 타입     | 설명                        |
-| -------- | ------ | ------------------------- |
-| preimage | string | Preimage for a sha3 hash. |
+| 이름       | 타입     | 설명                      |
+| -------- | ------ | ----------------------- |
+| preimage | string | 입력으로 받은 sha3 해시의 역상입니다. |
 
 **예시**
 
@@ -261,7 +261,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_getBadBlocks <a id="debug_getbadblocks"></a>
 
-Returns a list of the last 'bad blocks' that the client has seen on the network.
+네트워크에서 클라이언트가 확인한 가장 최신 'bad block' 목록을 반환합니다.
 
 | 클라이언트 | 메서드 호출                                           |
 |:-----:| ------------------------------------------------ |
@@ -274,9 +274,9 @@ Returns a list of the last 'bad blocks' that the client has seen on the network.
 
 **리턴값**
 
-| 이름       | 타입   | 설명                        |
-| -------- | ---- | ------------------------- |
-| badBlock | JSON | JSON list of block-hashes |
+| 이름       | 타입   | 설명                 |
+| -------- | ---- | ------------------ |
+| badBlock | JSON | 블록 해시의 JSON 목록입니다. |
 
 **예시**
 
@@ -293,7 +293,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_printBlock <a id="debug_printblock"></a>
 
-Retrieves a block and returns its pretty printed form.
+블록을 검색하여 출력된 양식대로 반환합니다.
 
 | 클라이언트 | 메서드 호출                                               |
 |:-----:| ---------------------------------------------------- |
@@ -302,19 +302,19 @@ Retrieves a block and returns its pretty printed form.
 
 **매개변수**
 
-| 이름                   | 타입                              | 설명                                                                                                                                                                                           |
-| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../klay/block.md#the-default-block-parameter), or block hash. |
+| 이름                   | 타입                              | 설명                                                                                                                                                   |
+| -------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](../klay/block.md#the-default-block-parameter) 또는 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
 
 {% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer type is available.
+참고: v1.7.0 이전 버전에서는 정수 타입만 사용 가능합니다.
 {% endhint %}
 
 **리턴값**
 
-| 타입     | 설명                      |
-| ------ | ----------------------- |
-| string | Dump of a block struct. |
+| 타입     | 설명             |
+| ------ | -------------- |
+| string | 블록 구조체의 덤프입니다. |
 
 **예시**
 
@@ -333,11 +333,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_setHead <a id="debug_sethead"></a>
 
-**`WARNING`**: This API is not yet implemented and always returns "not yet implemented API" error.
+**`경고`**: 이 API는 아직 구현되지 않았으며 호출 시 "not yet implemented API" 에러를 반환합니다.
 
-Sets the current head of the local chain by block number.
+로컬 체인의 현재 헤드를 입력받은 블록의 번호로 설정합니다.
 
-**NOTE**: This is a destructive action and may severely damage your chain. Use with *extreme* caution.
+**참고**: 이 행동은 블록체인에 심각한 손상을 줄 수 있습니다. *각별히 주의* 하여 사용하세요.
 
 | 클라이언트 | 메서드 호출                                            |
 |:-----:| ------------------------------------------------- |
@@ -347,9 +347,9 @@ Sets the current head of the local chain by block number.
 
 **매개변수**
 
-| 이름     | 타입     | 설명                                      |
-| ------ | ------ | --------------------------------------- |
-| number | string | The block number in hexadecimal string. |
+| 이름     | 타입     | 설명                     |
+| ------ | ------ | ---------------------- |
+| number | string | 16진수 문자열 형태의 블록 번호입니다. |
 
 **리턴값**
 
@@ -370,7 +370,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_seedHash <a id="debug_seedhash"></a>
 
-Retrieves the seed hash of a block.
+블록의 시드 해시를 반환합니다.
 
 
 | 클라이언트 | 메서드 호출                                             |
@@ -387,9 +387,9 @@ Retrieves the seed hash of a block.
 
 **리턴값**
 
-| 이름       | 타입     | 설명                   |
-| -------- | ------ | -------------------- |
-| seedHash | string | The block seed hash. |
+| 이름       | 타입     | 설명           |
+| -------- | ------ | ------------ |
+| seedHash | string | 블록 시드 해시입니다. |
 
 **예시**
 
@@ -407,7 +407,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startWarmUp <a id="debug_startwarmup"></a>
 
-The `startWarmUp` iterates the latest state trie to warm-up the trie cache. The iteration will be automatically stopped if 90% of the trie cache is full. The method returns an error if it fails in starting a warm-up, or `null` if it successfully has started it.
+`startWarmUp`은 가장 최신 상태 트리를 반복하면서 트리 캐시를 채웁니다. 만약 트리 캐시가 90% 정도 차면 반복은 자동으로 중단됩니다. 이 메서드는 순회를 시작하는 데에 실패하면 에러를 반환하고, 순회를 시작하는 데에 성공했으면 `null`을 반환합니다.
 
 | 클라이언트 | 메서드 호출                            |
 |:-----:| --------------------------------- |
@@ -420,9 +420,9 @@ The `startWarmUp` iterates the latest state trie to warm-up the trie cache. The 
 
 **리턴값**
 
-| 타입 | 설명                                                  |
-| -- | --------------------------------------------------- |
-| 에러 | `null` if a warm-up is started, or an error if not. |
+| 타입 | 설명                                                       |
+| -- | -------------------------------------------------------- |
+| 에러 | 트리 캐시 채우기를 시작하는 데에 성공했다면 `null`을 반환하고 그렇지 않으면 에러를 반환합니다. |
 
 **예시**
 
@@ -441,7 +441,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startContractWarmUp <a id="debug_startcontractwarmup"></a>
 
-The `startContractWarmUp` iterates the latest storage trie of the given contract address to warm-up the trie cache. The iteration will be automatically stopped if 90% of the trie cache is full. The method returns an error if it fails in starting a warm-up or the given address is not a contract address, or `null` if it successfully has started it.
+`startContractWarmUp` 은 주어진 컨트랙트 주소의 최신 스토리지 트리를 순회하면서 트리 캐시를 채웁니다. 만약 트리 캐시가 90% 정도 차면 반복은 자동으로 중단됩니다. 이 메서드는 채우기를 시작하는 데에 실패하거나 주어진 주소가 컨트랙트 주소가 아닐 경우 에러를 반환하고, 시작하는 데에 성공했으면 `null`을 반환합니다.
 
 | 클라이언트 | 메서드 호출                                                         |
 |:-----:| -------------------------------------------------------------- |
@@ -450,15 +450,15 @@ The `startContractWarmUp` iterates the latest storage trie of the given contract
 
 **매개변수**
 
-| 타입            | 설명               |
-| ------------- | ---------------- |
-| 20바이트 크기 DATA | Contract address |
+| 타입            | 설명          |
+| ------------- | ----------- |
+| 20바이트 크기 DATA | 컨트랙트 주소입니다. |
 
 **리턴값**
 
-| 타입 | 설명                                                  |
-| -- | --------------------------------------------------- |
-| 에러 | `null` if a warm-up is started, or an error if not. |
+| 타입 | 설명                                                       |
+| -- | -------------------------------------------------------- |
+| 에러 | 트리 캐시 채우기를 시작하는 데에 성공했다면 `null`을 반환하고 그렇지 않으면 에러를 반환합니다. |
 
 **예시**
 
@@ -477,7 +477,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_stopWarmUp <a id="debug_stopwarmup"></a>
 
-The `stopWarmUp` stops the currently running warm-up. This method takes no parameters, and returns `null` or an error depending on a warm-up was stopped or not.
+`stopWarmUp`은 트리 캐시를 현재 채우는 작업을 중단합니다. 이 메서드는 파라미터를 받지 않습니다. 트리 캐시를 채우는 작업이 성공적으로 중단되었다면 `null`을, 작업을 중단하는 데에 실패했다면 에러를 반환합니다.
 
 | 클라이언트 | 메서드 호출                     |
 |:-----:| -------------------------- |
@@ -490,9 +490,9 @@ The `stopWarmUp` stops the currently running warm-up. This method takes no param
 
 **리턴값**
 
-| 타입 | 설명                                                  |
-| -- | --------------------------------------------------- |
-| 에러 | `null` if a warm-up is stopped, or an error if not. |
+| 타입 | 설명                                                       |
+| -- | -------------------------------------------------------- |
+| 에러 | 트리 캐시 채우기를 중단하는 데에 성공했다면 `null`를 반환하고 그렇지 않으면 에러를 반환합니다. |
 
 **예시**
 
@@ -510,7 +510,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startCollectingTrieStats <a id="debug_startCollectingTrieStats"></a>
 
-The `startCollectingTrieStats` iterates the latest state or storage trie to collect trie statistics. It collects storage trie statistics of the contract in the given address. If an empty address(="0x00...00") is given, it collects statistics of the whole state trie. Statistics will be logged every minute before end, containing overall and depth-by-depth information. The method returns an error if it fails in starting a task, or `null` if it successfully has started it.
+`startCollectingTrieStats`는 최신 상태나 스토리지 트리를 순회하면서 트리 통계를 수집합니다. 주어진 주소의 컨트랙트의 트리 통계 스토리지를 수집합니다. 빈 주소(="0x00...00")가 입력될 시, 전체 상태 트리의 통계를 수집합니다. 통계는 트리 전체, 깊이별 정보를 포함하여 종료 전 분 단위로 로그를 남깁니다. 이 메서드는 작업을 시작하는 데 실패하면 에러를 반환하며, 성공적으로 시작했을 경우 `null` 를 반환합니다.
 
 | 클라이언트 | 메서드 호출                                                              |
 |:-----:| ------------------------------------------------------------------- |
@@ -519,15 +519,15 @@ The `startCollectingTrieStats` iterates the latest state or storage trie to coll
 
 **매개변수**
 
-| 타입            | 설명               |
-| ------------- | ---------------- |
-| 20바이트 크기 DATA | Contract address |
+| 타입            | 설명          |
+| ------------- | ----------- |
+| 20바이트 크기 DATA | 컨트랙트 주소입니다. |
 
 **리턴값**
 
-| 타입 | 설명                                                                        |
-| -- | ------------------------------------------------------------------------- |
-| 에러 | `null` if collecting trie statistics task is started, or an error if not. |
+| 타입 | 설명                                                   |
+| -- | ---------------------------------------------------- |
+| 에러 | 트리 통계 수집이 시작되었을 시 `null`를 반환하며, 그렇지 않을 경우 에러를 반환합니다. |
 
 **예시**
 
