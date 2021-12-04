@@ -21,7 +21,7 @@ $ sudo npm install -g truffle
 
 truffle-hdwallet-provider-klaytn은 truffle-hdwallet-provider에서 파생된 자바스크립트 HD 지갑 제공자입니다.
 
-Install as the following:
+다음과 같이 설치하세요.
 
 ```text
 $ nvm use 10
@@ -251,14 +251,14 @@ module.exports = {
 
 **경고: 니모닉 및 개인키가 노출되지 않도록 주의하세요.**
 
-Deploying on Klaytn :
+Klaytn에 배포
 
 ```bash
 $ truffle deploy --network baobab  # testnet
 $ truffle deploy --network cypress # mainnet
 ```
 
-Making transaction on Klaytn : (using an example from [Truffle Docs quick start - Creating a project](https://www.trufflesuite.com/docs/truffle/quickstart#creating-a-project))
+Klaytn에 트랜잭션 생성하기 ([Truffle Docs quick start - Creating a project](https://www.trufflesuite.com/docs/truffle/quickstart#creating-a-project)의 예시 사용)
 
 ```bash
 $ truffle console --network baobab
