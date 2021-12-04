@@ -123,7 +123,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_verbosityByName <a id="debug_verbositybyname"></a>
 
-Sets the verbosity of log module with given name. Please note that VerbosityByName only works with zapLogger.
+로그 모듈의 상세수준을 이름을 사용해 설정합니다. VerbosityByName은 zapLogger로만 작동하는 점에 주의해주세요.
 
 (Level :  0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
 
@@ -138,7 +138,7 @@ Sets the verbosity of log module with given name. Please note that VerbosityByNa
 
 | 이름    | 타입     | 설명                     |
 | ----- | ------ | ---------------------- |
-| 명칭    | string | The module name.       |
+| 명칭    | string | 모듈의 이름입니다.             |
 | level | int    | 로깅의 상세 정도를 나타내는 레벨입니다. |
 
 **리턴값**
@@ -161,9 +161,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_verbosityByID <a id="debug_verbositybyid"></a>
 
-Sets the verbosity of log module with given ModuleID. Please note that VerbosityByID only works with zapLogger.
+로그 모듈의 상세수준을 모듈 ID를 사용해 설정합니다. VerbosityByID는 zapLogger로만 작동하는 점에 주의해주세요.
 
-(ModuleID : Please refer to the code on the [github](https://github.com/klaytn/klaytn/blob/dev/log/log_modules.go). )
+(ModuleID : [github](https://github.com/klaytn/klaytn/blob/dev/log/log_modules.go)의 코드를 참고해주세요. )
 
 (Level :  0=crit, 1=error, 2=warn, 3=info, 4=debug, 5=trace)
 
@@ -176,10 +176,10 @@ Sets the verbosity of log module with given ModuleID. Please note that Verbosity
 
 **매개변수**
 
-| 이름    | 타입  | 설명                     |
-| ----- | --- | ---------------------- |
-| id    | int | The module id.         |
-| level | int | 로깅의 상세 정도를 나타내는 레벨입니다. |
+| 이름    | 타입  | 설명                    |
+| ----- | --- | --------------------- |
+| id    | int | 모듈의 ID입니다.            |
+| level | int | 로깅의 상세수준을 나타내는 레벨입니다. |
 
 **리턴값**
 
@@ -201,7 +201,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_vmodule <a id="debug_vmodule"></a>
 
-Sets the logging verbosity pattern.
+로깅의 상세수준 패턴을 설정합니다.
 
 | 클라이언트 | 메서드 호출                                            |
 |:-----:| ------------------------------------------------- |
@@ -222,19 +222,19 @@ Sets the logging verbosity pattern.
 
 콘솔
 
-If you want to see messages from a particular Go package (directory) and all subdirectories, use
+특정 Go 패키지(디렉토리) 및 하위 디렉토리의 메시지를 확인하려면 아래와 같이 입력하세요.
 
 ```javascript
 > debug.vmodule("p2p/*=5")
 ```
 
-If you want to restrict messages to a particular package (*e.g.*, p2p) but exclude subdirectories, use
+하위 디렉토리는 제외하고 특정 패키지(*예를 들어*, p2p)의 메시지로 제한하려면 아래와 같이 입력하세요.
 
 ```javascript
 > debug.vmodule("p2p=4")
 ```
 
-If you want to see log messages from a particular source file, use
+특정 소스 파일의 로그 메시지를 확인하려면 아래와 같이 입력하세요.
 
 ```javascript
 > debug.vmodule("server.go=3")
