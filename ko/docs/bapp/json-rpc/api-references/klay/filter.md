@@ -108,13 +108,13 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 `Object` - 필터 객체를 구성하는 옵션은 다음과 같습니다.
 
-| 이름        | 타입                          | 설명                                                                                                                                                                                                    |
-| --------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | QUANTITY &#124; TAG         | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
-| toBlock   | QUANTITY &#124; TAG         | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
-| address   | 20바이트 크기의 DATA &#124; Array | (선택 사항) 로그를 발생시킨 컨트랙트 주소 또는 주소들의 목록입니다.                                                                                                                                                               |
-| topics    | DATA array                  | (선택 사항) 32바이트 크기 DATA 형태의 토픽으로 이루어진 배열입니다. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                                                                                                     |
-| blockHash | 32바이트 크기 DATA               | (선택 사항) 32바이트 길이의 해시 blockHash를 사용하여 단일 블록으로 반환된 로그를 제한하는 필터 옵션입니다. blockHash를 사용하면, blockHash로 지정한 블록의 번호가 fromBlock, toBlock과 같아집니다. 따라서 필터 기준에 blockHash가 있으면 fromBlock과 toBlock이 허용되지 않습니다.       |
+| 이름        | 타입                          | 설명                                                                                                                                                                                              |
+| --------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | QUANTITY &#124; TAG         | (선택 사항, 기본값: `"latest"`)정수 또는 16진수 형태의 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다.                                     |
+| toBlock   | QUANTITY &#124; TAG         | (선택 사항, 기본값: `"latest"`)정수 또는 16진수 형태의 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다.                                     |
+| address   | 20바이트 크기의 DATA &#124; Array | (선택 사항) 로그를 발생시킨 컨트랙트 주소 또는 주소들의 목록입니다.                                                                                                                                                         |
+| topics    | DATA array                  | (선택 사항) 32바이트 크기 DATA 형태의 토픽으로 이루어진 배열입니다. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                                                                                               |
+| blockHash | 32바이트 크기 DATA               | (선택 사항) 32바이트 길이의 해시 blockHash를 사용하여 단일 블록으로 반환된 로그를 제한하는 필터 옵션입니다. blockHash를 사용하면, blockHash로 지정한 블록의 번호가 fromBlock, toBlock과 같아집니다. 따라서 필터 기준에 blockHash가 있으면 fromBlock과 toBlock이 허용되지 않습니다. |
 
 {% hint style="success" %}
 참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
@@ -272,11 +272,11 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_newFilter <a id="klay_newfilter"></a>
 
-Creates a filter object, based on filter options, to notify when the state changes (logs).
+필터 옵션에 따라 필터 객체를 생성하여 상태가 변경되었음(로그)을 알립니다.
 - 상태가 변경되었는지 확인하려면 [klay_getFilterChanges](#klay_getfilterchanges)를 호출하세요.
 - `klay_newFilter`로 생성된 필터와 일치하는 모든 로그를 가져오려면 [klay_getFilterLogs](#klay_getfilterlogs)를 호출하세요.
 
-**A note on specifying topic filters:** Topics are order-dependent. A transaction with a log with topics `[A, B]` will be matched by the following topic filters:
+**토픽 필터 지정 시 참고사항:** 토픽은 순서에 따라 다릅니다. `[A, B]`인 토픽인 로그가 있는 트랜잭션은 다음 토픽 필터에 대응됩니다.
 * `[]` "조건 없음"
 * `[A]` "A가 첫 번째 위치에 있음 (이후에는 무엇이든 와도 됨)"
 * `[null, B]` "첫 번째 위치에 어떤 것이 있으며 B가 두 번째 위치에 있음 (이후에는 무엇이든 있어도 됨)"
@@ -287,12 +287,12 @@ Creates a filter object, based on filter options, to notify when the state chang
 
 `Object` - 필터 객체를 구성하는 옵션은 다음과 같습니다.
 
-| 이름        | 타입                          | 설명                                                                                                                                                                                                    |
-| --------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | QUANTITY &#124; TAG         | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
-| toBlock   | QUANTITY &#124; TAG         | (optional, default: `"latest"`) Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
-| address   | 20바이트 크기의 DATA &#124; Array | (선택 사항) 로그를 발생시킨 컨트랙트 주소 또는 주소들의 목록입니다.                                                                                                                                                               |
-| topics    | DATA array                  | (선택 사항) 32바이트 크기 DATA 형태의 토픽으로 이루어진 배열입니다. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                                                                                                     |
+| 이름        | 타입                          | 설명                                                                                                                                                          |
+| --------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | QUANTITY &#124; TAG         | (선택 사항, 기본값: `"latest"`)정수 또는 16진수 형태의 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
+| toBlock   | QUANTITY &#124; TAG         | (선택 사항, 기본값: `"latest"`)정수 또는 16진수 형태의 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
+| address   | 20바이트 크기의 DATA &#124; Array | (선택 사항) 로그를 발생시킨 컨트랙트 주소 또는 주소들의 목록입니다.                                                                                                                     |
+| topics    | DATA array                  | (선택 사항) 32바이트 크기 DATA 형태의 토픽으로 이루어진 배열입니다. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                                                           |
 
 {% hint style="success" %}
 참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
@@ -317,7 +317,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 
 ## klay_newPendingTransactionFilter <a id="klay_newpendingtransactionfilter"></a>
 
-Creates a filter in the node, to notify when new pending transactions arrive. 상태가 변경되었는지 확인하려면 [klay_getFilterChanges](#klay_getfilterchanges)를 호출하세요.
+노드에 필터를 생성하여 보류 상태인 새로운 트랜잭션이 도착하였음을 알립니다. 상태가 변경되었는지 확인하려면 [klay_getFilterChanges](#klay_getfilterchanges)를 호출하세요.
 
 **매개변수**
 
@@ -345,16 +345,16 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_subscribe <a id="klay_subscribe"></a>
 
-Creates a new subscription to specific events by using either RPC Pub/Sub over WebSockets or filters over HTTP. It allows clients to wait for events instead of polling for them.
+Websockets을 통한 RPC Pub/Sub 또는 HTTP를 통한 필터를 이용하여 특정 이벤트에 대한 새 구독을 생성합니다. 클라이언트가 이벤트에 대해 폴링하는 대신 이벤트 발생을 기다리게 해줍니다.
 
-The node will return a subscription id for each subscription created. For each event that matches the subscription, a notification with relevant data is sent together with the subscription id. If a connection is closed, all subscriptions created over the connection are removed.
+매 생성된 구독에 대해 노드는 구독 ID를 반환할 것입니다. 구독에 일치하는 모든 이벤트에 대해서는 관계된 데이터와 구독 ID를 포함한 알림이 전송됩니다. 연결이 닫힐 경우, 이 연결을 통해 생성된 모든 구독들이 제거됩니다.
 
 **매개변수**
 
-`Object` - A notification type: `"newHeads"` or `"logs"`.
+`Object` -알림 타입: `"newHeads"` 또는 `"logs"`.
 
 
-`"newHeads"` notifies you of each block added to the blockchain. `"logs"` notifies you of logs included in new blocks. This type requires a second parameter that specifies filter options. For more details, go to [klay_newFilter > parameters](https://docs.klaytn.com/bapp/json-rpc/api-references/klay/filter#klay_newfilter).
+`"newHeads"`는 블록체인에 블록이 추가될 때 매번 알림을 보냅니다. `"logs"`는 새 블록에 포함된 로그에 대해 알림을 보냅니다. 이러한 타입은 필터 옵션을 구체화하는 두 번째 매개변수를 필요로 합니다. 더 자세한 내용은 [klay_newFilter > parameters](https://docs.klaytn.com/bapp/json-rpc/api-references/klay/filter#klay_newfilter)를 참고하세요.
 
 **리턴값**
 
@@ -365,7 +365,7 @@ The node will return a subscription id for each subscription created. For each e
 
 **예시**
 
-This API is appropriate for use with a WebSocket tool, [`wscat`](https://www.npmjs.com/package/wscat).
+이 API는 WebSocket 툴인 [`wscat`](https://www.npmjs.com/package/wscat)과 함께 쓰기에 적합합니다.
 
 ```shell
 // Request
@@ -390,7 +390,7 @@ wscat -c http://localhost:8552
 
 ## klay_uninstallFilter <a id="klay_uninstallfilter"></a>
 
-Uninstalls a filter with given id. Should always be called when watch is no longer needed. Additionally, filters timeout when they are not requested with [klay_getFilterChanges](#klay_getfilterchanges) for a period of time.
+입력으로 받은 ID를 가진 필터를 제거합니다. 더는 모니터링이 필요없을 때 항상 호출해야 합니다. 또한, 일정 주기 동안 [klay_getFilterChanges](#klay_getfilterchanges)를 통해 요청되지 않으면 필터는 타임아웃 됩니다.
 
 **매개변수**
 
@@ -421,7 +421,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_unsubscribe <a id="klay_unsubscribe"></a>
 
-Cancels the subscription with a specific subscription id by using either RPC Pub/Sub over WebSockets or filters over HTTP. Only the connection that created a subscription can unsubscribe from it.
+Websockets을 통한 RPC Pub/Sub 또는 HTTP를 통한 필터를 이용하여 특정 구독 ID에 대한 구독을 취소합니다. 해당 구독을 생성한 연결만이 구독을 취소할 수 있습니다.
 
 **매개변수**
 
@@ -438,7 +438,7 @@ Cancels the subscription with a specific subscription id by using either RPC Pub
 
 **예시**
 
-This API is appropriate for use with a WebSocket tool, [`wscat`](https://www.npmjs.com/package/wscat).
+이 API는 WebSocket 툴인 [`wscat`](https://www.npmjs.com/package/wscat)과 함께 쓰기에 적합합니다.
 
 ```shell
 // Request
