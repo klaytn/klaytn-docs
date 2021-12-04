@@ -125,7 +125,7 @@ function renouncePauser() public;
 
 자세한 내용은 [KIP-17 documentation](https://kips.klaytn.com/KIPs/kip-17)을 참조하십시오.
 
-* An example implementation is available at [https://github.com/klaytn/klaytn-contracts/blob/master/contracts/token/KIP17/KIP17Token.sol](https://github.com/klaytn/klaytn-contracts/blob/master/contracts/token/KIP17/KIP17Token.sol).
+* 구현 예시는 [https://github.com/klaytn/klaytn-contracts/blob/master/contracts/token/KIP17/KIP17Token.sol](https://github.com/klaytn/klaytn-contracts/blob/master/contracts/token/KIP17/KIP17Token.sol)에서 확인할 수 있습니다.
 
 ## Klaytn 서비스체인에 대한 토큰 표준 <a id="token-standards-for-klaytn-service-chain"></a>
 
