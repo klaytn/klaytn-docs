@@ -12,13 +12,13 @@ NOTE: 프로토콜 업그레이드 또는 Klaytn v1.7.0부터 도입된 "하드 
 | feePayer       | 0x0a    | 0x3fe   |
 | validateSender | 0x0b    | 0x3ff   |
 
-It should be noted that contracts deployed before the Protocol Upgrade activation introduced in klaytn v1.7.0 use the old address.
-* case 1) The contracts deployed in Baobab at block number `#75373310` recognizes 0x09, 0x0a, and 0x0b as addresses of vmLog, feePayer, and validateSender, respectively, and blake2f cannot be used.
-* case 2) The contracts deployed in Baobab at block number `#75373314` recognizes 0x09 as the address of blake2f, and recognizes 0x3fd, 0x3fe, and 0xff as addresses of vmLog, feePayer, and validateSender.
+Klaytn v1.7.0에서 도입된 프로토콜 엡그레이드 이전의 컨트랙트들은 이전의 주소를 사용합니다.
+* case 1) Baobab에서 블록번호 `#75373310`에 배포된 컨트랙트는 0x09, 0x0a와 0x0b를 각각 vmLog, feePayer, and validateSender로 인식하지만,  blake2f는 사용될 수 없습니다.
+* case 2) Baobab에서 블록번호 #75373314에 배포된 컨트랙트는 0x09를 blake2f로, 그리고 0x3fd, 0x3fe와 0xff를 각각 vmLog, feePayer와 validateSender로 인식합니다.
 
-Baobab 네트워크의 경우 프로토콜 업데이트는 블록번호 `#75373312`번 부터 적용됩니다. Cypress mainnet will be subject to the same protocol upgrade in the next version.
+Baobab 네트워크의 경우 프로토콜 업데이트는 블록번호 `#75373312`번 부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
 
-If you want the previous document, please refer to [previous document](precompiled-contracts-previous.md)
+이전 문서는 [이전 문서](precompiled-contracts-previous.md)를 참고해주세요.
 {% endhint %}
 
 ## 주소 0x01: ecrecover\(hash, v, r, s\) <a id="address-0x-01-ecrecover-hash-v-r-s"></a>
@@ -189,7 +189,7 @@ function callVmLog(bytes memory str) public {
 
 ## 0x3fe 주소: feePayer\(\) <a id="address-0x-3fd-feepayer"></a>
 
-The address 0x3FE returns a fee payer of the executing transaction. 이 미리 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
+0x3FE 주소는 실행 트랜잭션 비용 납부 계정을 반환합니다. 이 미리 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
 
 ```text
 function feePayer() internal returns (address addr) {
@@ -206,13 +206,13 @@ function feePayer() internal returns (address addr) {
 
 ## 0x3ff 주소: validateSender\(\) <a id="address-0x-3fe-validatesender"></a>
 
-The address 0x3FF validates the sender's signature with the message. Since Klaytn [decouples key pairs from addresses](../../../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses), it is required to validate that a signature is properly signed by the corresponding sender. 이를 위해 이 컨트랙트는 세 개의 매개 변수를 입력받습니다.
+0x3FF 주소는 메세지 발신자의 서명을 검증합니다. Klaytn은 [주소로부터 키 쌍\(key pairs\) 분리하기](../../../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses) 때문에 해당 발신자가 올바르게 서명했는지 검증해야 합니다. 이를 위해 이 컨트랙트는 세 개의 매개 변수를 입력받습니다.
 
 * 공개키를 가져오는 데에 사용되는 발신자의 주소
 * 서명을 생성하는 데에 사용된 메세지의 해시
 * 메세지의 해시를 발신자의 개인키로 서명한 서명 값
 
-이 컨트랙트는 주어진 서명 값이 발신자의 개인키로 올바르게 서명된 것인지 검증합니다. Note that Klaytn natively support multi signatures, which means there can be multiple signatures. The signature must be 65 bytes long.
+이 컨트랙트는 주어진 서명 값이 발신자의 개인키로 올바르게 서명된 것인지 검증합니다. Klaytn은 기본적으로 다중 서명을 지원하여 여러 개의 서명이 있을 수도 있습니다. 각 서명의 길이는 65바이트이어야 합니다.
 
 ```text
 function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public returns (bool) {
