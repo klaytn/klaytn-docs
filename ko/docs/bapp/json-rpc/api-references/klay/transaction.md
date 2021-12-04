@@ -4,10 +4,10 @@
 
 **매개변수**
 
-| 이름                | 타입                              | 설명                                                                                                                                                                                     |
-| ----------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callObject        | Object                          | 트랜잭션 호출 객체입니다.  객체 속성은 다음의 표를 참고해주세요.                                                                                                                                                  |
-| blockNumberOrHash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| 이름                | 타입                              | 설명                                                                                                                                           |
+| ----------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| callObject        | Object                          | 트랜잭션 호출 객체입니다.  객체 속성은 다음의 표를 참고해주세요.                                                                                                        |
+| blockNumberOrHash | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)나 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
 
 {% hint style="success" %}
 참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
@@ -30,11 +30,11 @@
 | ---- | ----------------- |
 | DATA | 실행된 컨트랙트의 리턴값입니다. |
 
-If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
+컨트랙트를 배포했다면 [klay_getTransactionReceipt](#klay_gettransactionreceipt)를 사용해 컨트랙트 주소를 확인하세요.
 
 **에러**
 
-It returns an error object of JSON RPC if anything goes wrong. For example, an error object with a message  "evm: execution reverted" will be generated if a message call is terminated with `REVERT` opcode.
+문제가 발생할 경우 JSON RPC의 에러 객체를 반환합니다. 예를 들어, 어떤 메시지 호출이 `REVERT` opcode로 종료되면 "evm: execution reverted"라는 메시지의 에러 객체가 생성됩니다.
 
 **예시**
 
@@ -48,7 +48,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## klay_estimateGas <a id="klay_estimategas"></a>
 
-Generates and returns an estimate of how much gas is necessary to allow the transaction to complete. 이때 발생한 트랜잭션은 블록체인에 추가되지 않습니다. Note that the estimate may be significantly more than the amount of gas actually used by the transaction, for a variety of reasons including Klaytn Virtual Machine mechanics and node performance.
+트랜잭션 실행을 완료하는 데에 필요한 가스양의 추정치를 생성하여 반환합니다. 이때 발생한 트랜잭션은 블록체인에 추가되지 않습니다. Klaytn 가상머신의 메커니즘, 노드 성능 등의 다양한 원인에 의해 추정치가 실제 사용된 가스양보다 훨씬 클 수도 있습니다.
 
 **매개변수**
 
@@ -88,11 +88,11 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## klay_estimateComputationCost <a id="klay_estimatecomputationcost"></a>
 
-트랜잭션을 실행하는 데에 들 연산 비용의 추정치를 생성하여 반환합니다. Klaytn은 한 트랜잭션을 실행하는 데에 너무 많은 시간이 걸리지 않도록 하기 위해 현재 트랜잭션당 연산 비용을 `100000000`으로 제한합니다. The transaction will not be added to the blockchain like [klay_estimateGas](#klay_estimategas).
+트랜잭션을 실행하는 데에 들 연산 비용의 추정치를 생성하여 반환합니다. Klaytn은 한 트랜잭션을 실행하는 데에 너무 많은 시간이 걸리지 않도록 하기 위해 현재 트랜잭션당 연산 비용을 `100000000`으로 제한합니다. 이때 발생한 트랜잭션은 [klay_estimateGas](#klay_estimategas)와 마찬가지로 블록체인에 추가되지 않습니다.
 
 **매개변수**
 
-See [klay_call](#klay_call) parameters, except that all properties are optional. If no gas limit is specified, the Klaytn node uses the default gas limit (uint64 / 2) as an upper bound.
+[klay_call](#klay_call)의 매개변수들을 보면 모든 속성이 선택사항인 것을 볼 수 있습니다. 하지만 가스 한도를 지정하지 않으면, Klaytn 노드는 기본 가스 한도(uint64 / 2) 를 상한으로 설정합니다.
 
 **리턴값**
 
@@ -114,7 +114,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionByBlockHashAndIndex <a id="klay_gettransactionbyblockhashandindex"></a>
 
-Returns information about a transaction by block hash and transaction index position. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
+블록 해시와 트랜잭션 인덱스 위치로 조회한 트랜잭션의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
 
 **매개변수**
 
@@ -125,7 +125,7 @@ Returns information about a transaction by block hash and transaction index posi
 
 **리턴값**
 
-See [klay_getTransactionByHash](#klay_gettransactionbyhash)
+[klay_getTransactionByHash](#klay_gettransactionbyhash)를 참고하세요.
 
 **예시**
 
@@ -166,14 +166,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionByBlockNumberAndIndex <a id="klay_gettransactionbyblocknumberandindex"></a>
 
-Returns information about a transaction by block number and transaction index position. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
+블록 번호와 트랜잭션 인덱스 위치로 조회한 트랜잭션의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
 
 **매개변수**
 
-| 타입                  | 설명                                                                                                                                                                       |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"`  as in the [default block parameter](./block.md#the-default-block-parameter). |
-| QUANTITY            | 트랜잭션의 인덱스 위치입니다.                                                                                                                                                         |
+| 타입                  | 설명                                                                                                                                            |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | 정수 또는 16진수 형태의 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
+| QUANTITY            | 트랜잭션의 인덱스 위치입니다.                                                                                                                              |
 
 {% hint style="success" %}
 참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
@@ -181,7 +181,7 @@ Returns information about a transaction by block number and transaction index po
 
 **리턴값**
 
-See [klay_getTransactionByHash](#klay_gettransactionbyhash)
+[klay_getTransactionByHash](#klay_gettransactionbyhash)를 참고하세요.
 
 **예시**
 
@@ -231,7 +231,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **리턴값**
 
-`Object` - A transaction object, or `null` when no transaction was found:
+`객체` - 트랜잭션 객체를 반환하거나 또는 해당하는 트랜잭션을 찾을 수 없는 경우 `null`을 반환합니다.
 
 | 이름                 | 타입            | 설명                                                                                                                                                                |
 | ------------------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -304,7 +304,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionBySenderTxHash <a id="klay_gettransactionbysendertxhash"></a>
 
-Returns the information about a transaction requested by sender transaction hash. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다. Please note that this API returns correct result only if indexing feature is enabled by `--sendertxhashindexing`. This can be checked by call [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled).
+발신자 트랜잭션 해시로 조회한 트랜잭션의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다. 이 API는 `--sendertxhashindexing`에 의해 인덱싱 기능이 활성화되어 있을 때만 올바른 결과를 반환합니다. [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled)를 호출하여 확인할 수 있습니다.
 
 **매개변수**
 
@@ -314,7 +314,7 @@ Returns the information about a transaction requested by sender transaction hash
 
 **리턴값**
 
-`Object` - A transaction object, or `null` when no transaction was found:
+`객체` - 트랜잭션 객체를 반환하거나 또는 해당하는 트랜잭션을 찾을 수 없는 경우 `null`을 반환합니다.
 
 | 명칭                 | 형식            | 설명                                                                                                                                                                        |
 | ------------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -483,7 +483,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 SenderTxHash로 조회한 트랜잭션의 영수증을 반환합니다.
 
-**참고**: 보류 상태의 트랜잭션은 영수증을 확인할 수 없습니다. Please note that this API returns correct result only if indexing feature is enabled by `--sendertxhashindexing`. This can be checked by call [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled).
+**참고**: 보류 상태의 트랜잭션은 영수증을 확인할 수 없습니다. 이 API는 `--sendertxhashindexing`에 의해 인덱싱 기능이 활성화되어 있을 때만 올바른 결과를 반환합니다. [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled)를 호출하여 확인할 수 있습니다.
 
 **매개변수**
 
@@ -576,7 +576,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_sendRawTransaction <a id="klay_sendrawtransaction"></a>
 
-Creates a new message call transaction or a contract creation for signed transactions.
+새 메시지 호출 트랜잭션을 생성하거나 또는 서명된 트랜잭션을 입력으로 받으면 컨트랙트를 생성합니다.
 
 **매개변수**
 
@@ -590,7 +590,7 @@ Creates a new message call transaction or a contract creation for signed transac
 | ------------- | ------------------------------------------------------ |
 | 32바이트 크기 DATA | 트랜잭션 해시를 반환하거나 또는 해당 트랜잭션을 아직 사용할 수 없는 경우 0 해시를 반환합니다. |
 
-If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
+컨트랙트를 배포했다면 [klay_getTransactionReceipt](#klay_gettransactionreceipt)를 사용해 컨트랙트 주소를 확인하세요.
 
 **예시**
 
@@ -609,7 +609,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_sendTransaction <a id="klay_sendtransaction"></a>
 
-Constructs a transaction with given parameters, signs the transaction with a sender's private key and propagates the transaction to Klaytn network.
+주어진 파라미터로 트랜잭션을 구성한 다음, 트랜잭션 발신자의 개인키로 트랜잭션에 서명하고 트랜잭션을 Klaytn 네트워크에 전송합니다.
 
 **참고**: 서명하려는 계정은 잠금 해제되어 있어야 합니다.
 
@@ -623,7 +623,7 @@ Constructs a transaction with given parameters, signs the transaction with a sen
 | ------------- | ------- |
 | 32바이트 크기 DATA | 트랜잭션 해시 |
 
-If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
+컨트랙트를 배포했다면 [klay_getTransactionReceipt](#klay_gettransactionreceipt)를 사용해 컨트랙트 주소를 확인하세요.
 
 **예시**
 
@@ -652,9 +652,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_sendTransactionAsFeePayer <a id="klay_sendtransactionasfeepayer"></a>
 
-Constructs a transaction with given parameters, signs the transaction with a fee payer's private key and propagates the transaction to Klaytn network. This API supports only fee delegated type (including partial fee delegated type) transactions.
+주어진 파라미터로 트랜잭션을 구성한 다음, 트랜잭션 수수료 납부자의 개인키로 트랜잭션에 서명하고 트랜잭션을 Klaytn 네트워크에 전송합니다. 이 API는 오직 수수료 위임 트랜잭션(부분 수수료 위임 트랜잭션 포함)들만 지원합니다.
 
-**NOTE**: The fee payer address to sign with must be unlocked.
+**참고**: 서명하려는 트랜잭션 수수료 납부자의 주소는 잠금 해제되어 있어야 합니다.
 
 **매개변수**
 
@@ -666,7 +666,7 @@ Constructs a transaction with given parameters, signs the transaction with a fee
 | ------------- | ------- |
 | 32바이트 크기 DATA | 트랜잭션 해시 |
 
-If you deployed a contract, use [klay_getTransactionReceipt](#klay_gettransactionreceipt) to get the contract address.
+컨트랙트를 배포했다면 [klay_getTransactionReceipt](#klay_gettransactionreceipt)를 사용해 컨트랙트 주소를 확인하세요.
 
 **예시**
 
@@ -703,7 +703,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_signTransaction <a id="klay_signtransaction"></a>
 
-Constructs a transaction with given parameters and signs the transaction with a sender's private key. This method can be used either to generate a sender signature or to make a final raw transaction that is ready to submit to Klaytn network.
+주어진 파라미터로 트랜잭션을 구성한 다음, 트랜잭션 발신자의 개인키로 트랜잭션에 서명합니다. 이 메서드는 발신자 서명을 생성하거나, 최종적으로 Klaytn 네트워크에 전송할 준비를 마친 raw Transaction을 만들 때 사용할 수 있습니다.
 
 **참고**: 서명하려는 계정은 잠금 해제되어 있어야 합니다.
 
@@ -748,9 +748,9 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 ## klay_signTransactionAsFeePayer <a id="klay_signtransactionasfeepayer"></a>
 
-Constructs a transaction with given parameters and signs the transaction with a fee payer's private key. This method can be used either to generate a fee payer signature or to make a final raw transaction that is ready to submit to Klaytn network. In case you just want to extract the fee-payer signature, simply take the `feePayerSignatures` from the result. Note that the `raw` transaction is not final if the sender's signature is not attached (that is, `signatures` in `tx` is empty).
+주어진 파라미터로 트랜잭션을 구성한 다음, 트랜잭션 수수료 납부자의 개인키로 트랜잭션에 서명합니다. 이 메서드는 트랜잭션 수수료 납부자 서명을 생성하거나, 최종적으로 Klaytn 네트워크에 전송할 준비를 마친 raw Transaction을 만들 때 사용할 수 있습니다. 수수료 납부자 서명을 추출하고 싶다면, 결과값에서 `feePayerSignatures`을 사용하십시오. 발신자 서명이 첨부되어 있지 않다면( `tx`에 있는 `signatures` 가 비어 있는 상태), `raw` 트랜잭션은 최종 상태가 아닙니다.
 
-**NOTE**: The fee payer address to sign with must be unlocked.
+**참고**: 서명하려는 트랜잭션 수수료 납부자의 주소는 잠금 해제되어 있어야 합니다.
 
 **매개변수**
 
@@ -802,7 +802,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## txError: 트랜잭션 실행 실패에 대한 상세한 설명 <a id="txerror-detailed-information-of-transaction-failures"></a>
 
-Klaytn provides a field `txError` in the transaction receipt to give developers more information about the reason for the failed transaction execution. 이 필드는 트랜잭션 실행이 실패한 경우에만 존재합니다. 스토리지와 네트워크 대역폭을 절약하기 위해 `txError`는 정숫값으로 표현됩니다. 아래 표는 `txError` 코드와 의미를 설명합니다.
+Klaytn은 트랜잭션 영수증의 `txError` 필드를 통해 트랜잭션 실행이 실패한 원인을 알려드립니다. 이 필드는 트랜잭션 실행이 실패한 경우에만 존재합니다. 스토리지와 네트워크 대역폭을 절약하기 위해 `txError`는 정숫값으로 표현됩니다. 아래 표는 `txError` 코드와 의미를 설명합니다.
 
 | 오류 코드 | 설명                                            |
 | ----- | --------------------------------------------- |
