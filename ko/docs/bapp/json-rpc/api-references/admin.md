@@ -259,11 +259,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startHTTP <a id="admin_starthttp"></a>
 
-**NOTE**: This API replaces `admin_startRPC`. The `admin_startRPC` will be deprecated soon.
+**참고**: 이 API는 `admin_startRPC`를 대체합니다. `admin_startRPC`는 곧 사용이 중지됩니다.
 
-The `startHTTP` is an administrative method that starts an HTTP based [JSON RPC](http://www.jsonrpc.org/specification) API webserver to handle client requests.
+`startRPC`는 HTTP 기반의 [JSON RPC](http://www.jsonrpc.org/specification) API 웹서버를 시작하여 클라이언트 요청을 처리하도록 하는 관리 메서드입니다.
 
-The method returns a boolean flag specifying whether the HTTP RPC listener was opened or not. Please note, only one HTTP endpoint is allowed to be active at any time.
+이 메서드는 HTTP RPC 리스너가 열려있는지 여부를 나타내는 불리언 플래그를 반환합니다. 동시에 하나의 HTTP 엔드포인트만이 활성화될 수 있음을 참고해주세요.
 
 | 클라이언트 | 메서드 호출                                                              |
 |:-----:| ------------------------------------------------------------------- |
@@ -302,9 +302,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stopHTTP <a id="admin_stophttp"></a>
 
-**NOTE**: This API replaces `admin_stopRPC`. The `admin_stopRPC` will be deprecated soon.
+**참고**: 이 API는 `admin_stopRPC`를 대체합니다. `admin_stopRPC`는 곧 사용이 중지됩니다.
 
-The `stopHTTP` is an administrative method that closes the currently open HTTP RPC endpoint. As the node can only have a single HTTP endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
+`stopRPC`는 현재 열려있는 HTTP RPC 엔드포인트를 닫는 관리 메서드입니다. 노드는 하나의 HTTP 엔드포인트를 실행할 수 있기 때문에 이 메서드에 매개변수는 필요하지 않으며, 엔드포인트가 닫혔는지 여부에 따라 불리언으로 결과를 반환합니다.
 
 | 클라이언트 | 메서드 호출                         |
 |:-----:| ------------------------------ |
@@ -338,9 +338,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startWS <a id="admin_startws"></a>
 
-The `startWS` is an administrative method that starts an WebSocket based [JSON RPC](http://www.jsonrpc.org/specification) API webserver to handle client requests.
+`startWS`는 웹소켓 기반의 [JSON RPC](http://www.jsonrpc.org/specification) API 웹서버를 시작하여 클라이언트 요청을 처리하도록 하는 관리 메서드입니다.
 
-The method returns a boolean flag specifying whether the WebSocket RPC listener was opened or not. Please note, only one WebSocket endpoint is allowed to be active at any time.
+이 메서드는 웹소켓 RPC 리스너가 열려있는지 여부를 나타내는 불리언 플래그를 반환합니다. 동시에 하나의 웹소켓 엔드포인트만이 활성화될 수 있음을 참고해주세요.
 
 | 클라이언트 | 메서드 호출                                                            |
 |:-----:| ----------------------------------------------------------------- |
@@ -379,7 +379,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stopWS <a id="admin_stopws"></a>
 
-The `stopWS` is an administrative method that closes the currently open WebSocket RPC endpoint. As the node can only have a single WebSocket endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
+`stopWS` 관리 메서드는 현재 열려있는 웹소켓 RPC 엔드포인트를 닫습니다. 노드는 하나의 웹소켓 엔드포인트를 실행할 수 있기 때문에 이 메서드에 매개변수는 필요하지 않으며, 엔드포인트가 닫혔는지 여부에 따라 불리언으로 결과를 반환합니다.
 
 | 클라이언트 | 메서드 호출                       |
 |:-----:| ---------------------------- |
@@ -413,7 +413,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_exportChain <a id="admin_exportchain"></a>
 
-The `exportChain` is an administrative method that exports the blockchain to a file.
+`exportChain` 관리 메서드는 블록체인을 파일로 내보냅니다.
 
 | 클라이언트 | 메서드 호출                                                   |
 |:-----:| -------------------------------------------------------- |
@@ -449,7 +449,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_importChain <a id="admin_importchain"></a>
 
-The `importChain` is an administrative method that imports an exported chain from a file into a node. This method imports only blocks that haven't existed in a Klaytn node. This method does not delete any data of the existing chain.
+`importChain` 관리 메서드는 내보낸 블록체인을 파일에서 노드로 가져옵니다. 이 메서드는 Klaytn 노드에 존재하지 않았던 블록만을 가져옵니다. 이 메서드는 기존 체인에서 아무 데이터도 삭제하지 않습니다.
 
 | 클라이언트 | 메서드 호출                                                   |
 |:-----:| -------------------------------------------------------- |
@@ -484,7 +484,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_importChainFromString <a id="admin_importchainfromstring"></a>
 
-The `importChainFromString` is an administrative method that imports a chain from a RLP-encoded string of blocks into a Klaytn node. This only works if there is no existing chain in a Klaytn node. This method does not delete any data of the existing chain.
+`importChainFromString`는 블록들을 RLP 인코딩한 문자열을 사용해 체인을 Klaytn 노드에 가져오는 관리 메서드입니다. 이 메서드는 Klaytn 노드에 체인이 없을 때에만 정상적으로 동작합니다. 이 메서드는 기존 체인에서 아무 데이터도 삭제하지 않습니다.
 
 | 클라이언트 | 메서드 호출                                                                     |
 |:-----:| -------------------------------------------------------------------------- |
@@ -519,7 +519,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startStateMigration <a id="admin_startstatemigration"></a>
 
-The `startStateMigration` is an administrative method that starts a state migration and removes old state/storage trie nodes. This can save the storage space of a Klaytn node. The method returns an error if it fails to start a state migration, or `null` if it succeeds to start. NOTE: After the state migration, the node cannot serve APIs with previous states.
+`startStateMigration` 관리 메서드는 상태 마이그레이션을 시작하고 이전 상태/스토리지 트리 노드를 제거합니다. 이 메서드는 Klaytn 노드의 스토리지 사용량을 절약할 수 있습니다. 이 메서드는 상태 마이그레이션을 시작하는 데에 실패하면 에러를 반환하고, 상태 마이그레이션을 시작하는 데에 성공하면 `null`를 반환합니다. 참고: 상태 마이그레이션 후에는, 예전 상태들을 기준으로 API를 호출할 수 없습니다.
 
 | 클라이언트 | 메서드 호출                                    |
 |:-----:| ----------------------------------------- |
@@ -554,7 +554,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stopStateMigration <a id="admin_stopstatemigration"></a>
 
-The `stopStateMigration` is an administrative method that stops the currently running state migration. This method takes no parameters and returns `null` or an error whether the state migration was stopped or not.
+`stopStateMigration`는 현재 실행중인 상태 마이그레이션 작업을 중단하는 관리 메서드입니다. 이 메서드는 파라미터를 받지 않으며, 상태 마이그레이션 작업이 중단되었는지에 따라 `null` 또는 에러를 반환합니다.
 
 | 클라이언트 | 메서드 호출                                   |
 |:-----:| ---------------------------------------- |
@@ -588,7 +588,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stateMigrationStatus <a id="admin_statemigrationstatus"></a>
 
-The `stateMigrationStatus` is an administrative method that returns the status information of the state migration. This method takes no parameters and returns the status of the currently running state migration.
+`stateMigrationStatus` 관리 메서드는 상태 마이그레이션 작업 정보를 반환합니다. 이 메서드는 파라미터를 받지 않으며, 현재 진행중인 상태 마이그레이션 작업에 대한 정보를 반환합니다.
 
 | 클라이언트 | 메서드 호출                                     |
 |:-----:| ------------------------------------------ |
@@ -635,7 +635,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_saveTrieNodeCacheToDisk <a id="admin_saveTrieNodeCacheToDisk"></a>
 
-The `saveTrieNodeCacheToDisk` is an administrative method that starts saving the cached trie node to the disk to reuse them when the node restarts. Cached trie node data will be stored to and loaded from  `$DATA_DIR/fastcache` . This method returns an error if the saving process has been already triggered or trie node cache is disabled. This feature is supported since Klaytn 1.5.3.
+`saveTrieNodeToDisk`는 노드가 재시작될 시 캐시된 트리 노드를 재사용하기 위해 디스크에 저장하기 시작하는 관리 메서드입니다.  `$DATA_DIR/fastcache`는 캐시된 트리 노드 테이터가 저장되고 또 로드되는 곳입니다. 저장 프로세스가 이미 실행 되었거나 트리 노드 캐시가 비활성화되었을 경우 이 메서드는 에러를 반환합니다. 이 기능은 Klaytn 1.5.3. 부터 지원됩니다.
 
 | 클라이언트 | 메서드 호출                                        |
 |:-----:| --------------------------------------------- |
@@ -669,7 +669,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_setMaxSubscriptionPerWSConn<a id="admin_setMaxSubscriptionPerWSConn"></a>
 
-The `setMaxSubscriptionPerWSConn` is an administrative method that sets the maximum allowed number of subscriptions per single WebSocket connection. For example, if the maximum number is set to five and a user requests more than five subscriptions through the `klay_subscribe` API, an error message "Maximum 5 subscriptions are allowed for a WebSocket connection" will be displayed. This feature is supported since Klaytn 1.6.0.
+`setMaxSubscriptionPerWSConn`는 하나의 웹소켓 연결에 허용된 최대 구독 수를 설정하는 관리 메서드입니다. 예를 들어, 최대 구독 수가 5로 설정되어 있는데 사용자가 `klay_subscribe` API를 통해 5개 이상을 요청할 시, "하나의 웹소켓 연결당 5개의 구독이 허용됩니다"라는 에러 메시지가 나타납니다. 이 기능은 Klaytn 1.6.0. 부터 지원됩니다.
 
 | 클라이언트 | 메서드 호출                                            |
 |:-----:| ------------------------------------------------- |
