@@ -24,7 +24,9 @@ NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the str
 curl
       -H "Content-Type: application/json"
       --data '{"jsonrpc":"2.0","method":"klay_accountCreated","params":["0xa4f42d4d2a3a13874406435500950c9bf2d783db","latest"],"id":1}' http://localhost:8551
+```
 
+```
 // JSON-RPC over WebSocket
 wscat -c http://localhost:8552
 > {"jsonrpc":"2.0", "method": "klay_accountCreated", "params":["0xa4f42d4d2a3a13874406435500950c9bf2d783db","latest"],"id":1}
@@ -34,7 +36,7 @@ wscat -c http://localhost:8552
 
 > ### Result Fields
 
-`ADDRESS EXISTS FLAG` - a boolean indicating if the input address exists or not
+`ADDRESS EXISTS FLAG` - a boolean indicating if the input address exists or not.
 
 > ### Example
 
@@ -58,21 +60,27 @@ Returns a list of addresses owned by a client.
 
 > ### Example
 
-`curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_accounts","params":[],"id":1}' http://localhost:8551`
-
-**Return Value**
-
-| Type                  | Description                    |
-| --------------------- | ------------------------------ |
-| Array of 20-byte DATA | Addresses owned by the client. |
-
-**Example**
+```
+curl
+      -H "Content-Type: application/json"
+      --data '{"jsonrpc":"2.0","method":"klay_accounts","params":[],"id":1}' http://localhost:8551
+```
 
 ```
-// Request
+// JSON-RPC over WebSocket
+wscat -c http://localhost:8552
+> {"jsonrpc":"2.0", "method": "klay_accounts", "params":[],"id":1}
+```
 
+### RESPONSE
 
-// Result
+> ### Result Fields
+
+`ARRAY OD DATA`, 20-byte DATA - Address owned by the client.
+
+> ### Example
+
+```
 {
   "jsonrpc": "2.0",
   "id":1,
