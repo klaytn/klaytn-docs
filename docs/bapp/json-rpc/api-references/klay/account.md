@@ -50,9 +50,15 @@ wscat -c http://localhost:8552
 
 Returns a list of addresses owned by a client.
 
-**Parameters**
+### REQUEST
 
-None
+> ### Headers
+
+`Content-Type: application/json`
+
+> ### Example
+
+`curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_accounts","params":[],"id":1}' http://localhost:8551`
 
 **Return Value**
 
@@ -64,7 +70,7 @@ None
 
 ```
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_accounts","params":[],"id":1}' http://localhost:8551
+
 
 // Result
 {
