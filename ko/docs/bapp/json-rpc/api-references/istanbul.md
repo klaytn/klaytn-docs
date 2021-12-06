@@ -4,23 +4,23 @@ description: '>- APIs related to the namespace "istanbul".'
 
 # Namespace istanbul <a id="namespace-istanbul"></a>
 
-The namespace `istanbul` provides functions related to consensus.
+`istanbul` 네임스페이스는 합의 관련된 함수를 제공합니다.
 
 ## istanbul_getSnapshot <a id="istanbul_getsnapshot"></a>
 
-Returns the state snapshot at a given block number. The state snapshot contains information such as number/hash, validator set, and governance vote of the snapshot block.
+특정 블록 넘버에서 상태 스냅샷을 반환합니다. 상태 스냅샷은 번호/해시, 검증자, 스냅샷 블록의 거버넌스 투표 등의 정보를 포함하고 있습니다.
 
 **매개변수**
 
-| 이름    | 타입                  | 설명                                                                                                                                               |
-| ----- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 블록 번호 | QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
+| 이름    | 타입                  | 설명                                                                                                                            |
+| ----- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| 블록 번호 | QUANTITY &#124; TAG | 정수 형태의 블록 번호나 [default block parameter](./klay/block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열입니다. |
 
 **리턴값**
 
-`Object` - A snapshot object, or `error` when no snapshot was found:
+`객체` - 헤더 객체, 또는 블록이 없는 경우 `error`를 반환합니다.
 
-| Name | Type | Description | | Epoch | 64-byte DATA | The number of blocks after which to checkpoint and reset the pending votes | | Number | 64-byte DATA | The block number where the snapshot was created | | Number | 64-byte DATA | The block number where the snapshot was created | | ValSet | 64-byte DATA | Set of validators at the moment | | Policy | 64-byte DATA | | | CommiteeSize | 64-byte DATA | | | Votes | 64-byte DATA | List of votes cast in chronological order | | Tally | 64-byte DATA | Current vote tally to avoid recalculating |
+| 이름 | 타입 | 설명 | | Epoch | 64-byte DATA | 해당 블록 다음부터 보류 중인 표결을 체크포인트 및 리셋합니다. | | Number | 64-byte DATA | 스냅샷이 생성된 블록 번호입니다. | | Number | 64-byte DATA | 스냅샷이 생성된 블록 번호입니다. | | ValSet | 64-byte DATA | 현재 검증자 목록입니다. | | Policy | 64-byte DATA | | | CommiteeSize | 64-byte DATA | | | Votes | 64-byte DATA | 연대기 순으로 정렬된 표결입니다. | | Tally | 64-byte DATA | 재계산을 방지하기 위한 현재 표 합산입니다. |
 
 **예시**
 
@@ -33,7 +33,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_getSnapshotAtHash <a id="istanbul_getsnapshotAtHash"></a>
 
-Returns the state snapshot at a given block hash.
+특정 블록 해시의 스냅샷을 반환합니다.
 
 **매개변수**
 
@@ -43,7 +43,7 @@ Returns the state snapshot at a given block hash.
 
 **리턴값**
 
-See [istanbul_getSnapshot](#istanbul_getsnapshot)
+[istanbul_getSnapshot](#istanbul_getsnapshot)를 확인하세요.
 
 **예시**
 
@@ -57,19 +57,19 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_getValidators <a id="istanbul_getvalidators"></a>
 
-Returns the list of validators at a given block number.
+특정 블록 번호의 검증자 목록을 반환합니다.
 
 **매개변수**
 
-| 이름    | 타입                  | 설명                                                                                                                                               |
-| ----- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 블록 번호 | QUANTITY &#124; TAG | Integer block number, or the string `"earliest"` or `"latest"` as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
+| 이름    | 타입                  | 설명                                                                                                                            |
+| ----- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| 블록 번호 | QUANTITY &#124; TAG | 정수 형태의 블록 번호나 [default block parameter](./klay/block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열입니다. |
 
 **리턴값**
 
-| 이름         | 타입            | 설명                           |
-| ---------- | ------------- | ---------------------------- |
-| validators | 20바이트 크기 DATA | List of validator addresses. |
+| 이름  | 타입            | 설명             |
+| --- | ------------- | -------------- |
+| 검증자 | 20바이트 크기 DATA | 검증자의 주소 목록입니다. |
 
 **예시**
 
@@ -82,7 +82,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_getValidatorsAtHash <a id="istanbul_getvalidatorsathash"></a>
 
-Returns the list of authorized validators at a given block hash.
+주어진 블록 해시에서의 승인된 검증자 목록을 반환합니다.
 
 **매개변수**
 
@@ -92,7 +92,7 @@ Returns the list of authorized validators at a given block hash.
 
 **리턴값**
 
-See [istanbul_getValidators](#istanbul_getvalidators)
+[istanbul_getValidators](#istanbul_getvalidators)를 참고하세요.
 
 **예시**
 
