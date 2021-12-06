@@ -1,8 +1,8 @@
-## klay_accountCreated <a id="klay_accountcreated"></a>
+# klay_accountCreated <a id="klay_accountcreated"></a>
 
 Returns `true` if the account associated with the address is created.
 
-### Request
+## Request
 
 ### Headers
 
