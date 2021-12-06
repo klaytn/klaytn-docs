@@ -10,8 +10,8 @@ Returns `true` if the account associated with the address is created.
 
 ### Request Payload
 
-`ACCOUNT`: 20 Bytes - The address of the account
-`BLOCK PARAMETER: An integer or hexadecimal block number, block hash, or the string `"earliest"`, `"latest"`or`"pending"`, see the [default block parameter](./block.md#the-default-block-parameter) |
+> > `ACCOUNT`: 20 Bytes - The address of the account
+> > `BLOCK PARAMETER: An integer or hexadecimal block number, block hash, or the string `"earliest"`, `"latest"`or`"pending"`, see the [default block parameter](./block.md#the-default-block-parameter) |
 
 {% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
