@@ -1,14 +1,14 @@
-# klay_accountCreated <a id="klay_accountcreated"></a>
+## klay_accountCreated <a id="klay_accountcreated"></a>
 
 Returns `true` if the account associated with the address is created.
 
-## Request
+### Request
 
-### Headers
+> ### Headers
 
 `Content-Type: application/json`
 
-### Request Payload
+> ### Request Payload
 
 - `ACCOUNT`: 20 Bytes - The address of the account
 - `BLOCK PARAMETER: An integer or hexadecimal block number, block hash, or the string `"earliest"`, `"latest"`or`"pending"`, see the [default block parameter](./block.md#the-default-block-parameter) |
@@ -17,7 +17,7 @@ Returns `true` if the account associated with the address is created.
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
-### Example
+> ### Example
 
 ```
 // JSON-RPC over HTTP POST
@@ -30,13 +30,13 @@ wscat -c http://localhost:8552
 > {"jsonrpc":"2.0", "method": "klay_accountCreated", "params":["0xa4f42d4d2a3a13874406435500950c9bf2d783db","latest"],"id":1}
 ```
 
-## Response
+### Response
 
-### Result Fields
+> ### Result Fields
 
 `ADDRESS EXISTS FLAG` - a boolean indicating if the input address exists or not
 
-### Example
+> ### Example
 
 ```
 {
