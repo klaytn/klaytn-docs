@@ -2,7 +2,7 @@
 
 Returns `true` if the account associated with the address is created.
 
-### Request
+### REQUEST
 
 > ### Headers
 
@@ -30,7 +30,7 @@ wscat -c http://localhost:8552
 > {"jsonrpc":"2.0", "method": "klay_accountCreated", "params":["0xa4f42d4d2a3a13874406435500950c9bf2d783db","latest"],"id":1}
 ```
 
-### Response
+### RESPONSE
 
 > ### Result Fields
 
