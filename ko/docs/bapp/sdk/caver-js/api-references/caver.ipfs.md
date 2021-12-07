@@ -25,7 +25,7 @@ IPFS 노드와의 연결을 초기화합니다. 이 함수를 통해 IPFS 노드
 
 없음
 
-**예시**
+**Example**
 
 ```javascript
 > caver.ipfs.setIPFSNode('localhost', 5001, false)
@@ -58,7 +58,7 @@ IPFS에 파일을 추가합니다. 업로드된 파일의 [CID(Content Identifie
 | ------ | --------------------------------------------------------------------------------------------------------------------- |
 | string | 업로드된 파일의 [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 // Adds a file with path string.
@@ -93,7 +93,7 @@ caver.ipfs.get(hash)
 | ------ | ---------- |
 | Buffer | 파일의 내용입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.ipfs.get('Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC')
@@ -121,7 +121,7 @@ caver.ipfs.toHex(hash)
 | ------ | ------------------------------------------------------ |
 | string | [Multihash](https://multiformats.io/multihash) 문자열입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.ipfs.toHex('Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC')
@@ -149,7 +149,7 @@ caver.ipfs.fromHex(hash)
 | ------ | ------------------------------------------------------------------------------------------------------------ |
 | string | [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.ipfs.fromHex('0x1220dc1dbe0bcf1e5f6cce80bd3d7e7d873801c5a1732add889c0f25391d53470dc3')
