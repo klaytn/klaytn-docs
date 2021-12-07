@@ -8,17 +8,17 @@
 caver.rpc.governance.vote(key, value [, callback])
 ```
 
-Submits a new vote. If the node has the right to vote based on the governance mode, the vote can be submitted. If not, an error will occur and the vote will be ignored.
+새로 투표합니다. 거버넌스 모드에 의거하여 노드가 의결권을 가지면 투표할 수 있습니다. 그렇지 않으면 오류 메시지가 반환되고 투표 행위가 무시됩니다.
 
 **매개변수**
 
-| 이름       | 타입                                  | 설명                                                                                                               |
-| -------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| key      | string                              | Name of the configuration setting to be changed. Key has the form "domain.field".                                |
-| value    | string &#124; number &#124; boolean | Various types of value for each key.                                                                             |
-| callback | function                            | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 이름       | 타입                                  | 설명                                                                   |
+| -------- | ----------------------------------- | -------------------------------------------------------------------- |
+| key      | string                              | Key : 변경하고자 하는 환경설정의 이름입니다. 키는 domain.field의 형식으로 되어 있습니다.           |
+| value    | string &#124; number &#124; boolean | 각 키에 대한 값의 타입들입니다.                                                   |
+| callback | function                            | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
-For more details about the `key` and `value` for `caver.rpc.governance.vote`, please refer to [governance_vote](../../../../json-rpc/api-references/governance.md#governance_vote).
+`caver.rpc.governance.vote`의 `key`나 `value`에 대한 자세한 내용은 [governance_vote](../../../../json-rpc/api-references/governance.md#governance_vote)를 참고해주세요.
 
 
 **리턴값**
@@ -29,7 +29,7 @@ For more details about the `key` and `value` for `caver.rpc.governance.vote`, pl
 | ------ | -------------------------- |
 | string | Result of vote submission. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.vote('governance.governancemode', 'ballot').then(console.log)
@@ -42,23 +42,23 @@ Your vote was successfully placed.
 caver.rpc.governance.showTally([callback])
 ```
 
-Provides the current tally of governance votes. It shows the aggregate approval rate in percentage. The suggested change shall pass when the rate is over 50%.
+현재 거버넌스 표 합계를 제공합니다. 집계된 찬성률을 백분율로 나타냅니다. 찬성률이 50%인 경우 변경이 통과됩니다.
 
 **매개변수**
 
-| 이름       | 타입       | 설명                                                                                                               |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 이름       | 타입       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
 `Promise`는 `array`를 반환합니다.
 
-| 타입 | 설명                                                                        |
-| -- | ------------------------------------------------------------------------- |
-| 배열 | An array containing the vote's value and the approval rate in percentage. |
+| 타입 | 설명                    |
+| -- | --------------------- |
+| 배열 | 표의 값과 찬성률을 포함한 배열입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.showTally().then(console.log)
@@ -77,23 +77,23 @@ Provides the current tally of governance votes. It shows the aggregate approval 
 caver.rpc.governance.getTotalVotingPower([callback])
 ```
 
-Provides the sum of all voting power that CNs have. 각 CN은 1.0 ~ 2.0의 의결권을 가집니다. In  the "none" and "single" governance modes, totalVotingPower doesn't provide any information.
+CN이 지닌 의결권의 합을 제공합니다.  각 CN은 1.0 ~ 2.0의 의결권을 가집니다. "none", "single" 거버넌스 모드에서는 totalVotingPower 속성을 통해 제공하는 정보가 없습니다.
 
 **매개변수**
 
-| 이름       | 타입       | 설명                                                                                                               |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 이름       | 타입       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
 `Promise`는 `number`를 반환합니다.
 
-| 타입     | 설명                  |
-| ------ | ------------------- |
-| number | Total Voting Power. |
+| 타입     | 설명          |
+| ------ | ----------- |
+| number | 의결권의 총합입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getTotalVotingPower().then(console.log)
@@ -106,23 +106,23 @@ Provides the sum of all voting power that CNs have. 각 CN은 1.0 ~ 2.0의 의�
 caver.rpc.governance.getMyVotingPower([callback])
 ```
 
-Provides the voting power of the node. The voting power can be anywhere between 1.0 ~ 2.0. In the "none" and "single" governance modes, totalVotingPower doesn't provide any information.
+노드의 의결권을 반환합니다. 의결권의 값은 1.0 ~ 2.0입니다. "none", "single" 거버넌스 모드에서는 totalVotingPower 속성을 통해 제공하는 정보가 없습니다.
 
 **매개변수**
 
-| 이름       | 타입       | 설명                                                                                                               |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 이름       | 타입       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
 `Promise`는 `number`를 반환합니다.
 
-| 타입     | 설명                   |
-| ------ | -------------------- |
-| number | Node's Voting Power. |
+| 타입     | 설명          |
+| ------ | ----------- |
+| number | 노드의 의결권입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getMyVotingPower().then(console.log)
@@ -135,23 +135,23 @@ Provides the voting power of the node. The voting power can be anywhere between 
 caver.rpc.governance.getMyVotes([callback])
 ```
 
-Provides my vote information in the epoch. 사용자의 노드가 새로운 블록을 생성할 때 각 투표가 블록에 저장됩니다. 현재 투표 기간이 종료되면 이 정보는 사라집니다.
+투표 기간 내 내 투표 정보를 반환합니다. 사용자의 노드가 새로운 블록을 생성할 때 각 투표가 블록에 저장됩니다. 현재 투표 기간이 종료되면 이 정보는 사라집니다.
 
 **매개변수**
 
-| 이름       | 타입       | 설명                                                                                                               |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 이름       | 타입       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
 `Promise`는 `array`를 반환합니다.
 
-| 타입 | 설명                                 |
-| -- | ---------------------------------- |
-| 배열 | Node's Voting status in the epoch. |
+| 타입 | 설명                    |
+| -- | --------------------- |
+| 배열 | 투표 기간 내 노드의 투표 상태입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getMyVotes().then(console.log)
@@ -171,23 +171,23 @@ Provides my vote information in the epoch. 사용자의 노드가 새로운 블�
 caver.rpc.governance.getChainConfig([callback])
 ```
 
-Provides the initial chain configuration. Because it just stores the initial configuration, if there were changes in the governance made by voting, the result of chainConfig will differ from the current states. To see the current information, please use itemsAt.
+최초 체인 환경설정을 제공합니다. 이 속성은 초기 환경설정만 저장하기 때문에 투표에 의해 거버넌스에 변경 사항이 있다면 chainConfig의 결과는 현재 상태와 달라질 것입니다. 현재 정보를 확인하려면 itemsAt을 사용하세요.
 
 **매개변수**
 
-| 이름       | 타입       | 설명                                                                                                               |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 이름       | 타입       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
 `Promise`는 `object`를 반환합니다.
 
-| 타입     | 설명                              |
-| ------ | ------------------------------- |
-| object | The initial chain configuration |
+| 타입     | 설명              |
+| ------ | --------------- |
+| object | 체인의 최초 환경설정입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getChainConfig().then(console.log)
@@ -218,23 +218,23 @@ Provides the initial chain configuration. Because it just stores the initial con
 caver.rpc.governance.getNodeAddress([callback])
 ```
 
-Provides the address of the node that a user is using. nodekey에서 파생되어 합의 메시지를 서명하는 데에 사용됩니다. And the value of "governingnode" has to be one of validator's node address.
+사용자의 노드 주소를 제공합니다. nodekey에서 파생되어 합의 메시지를 서명하는 데에 사용됩니다. 그리고 "governingnode"의 값은 검증자의 노드 중 하나의 주소가 되어야 합니다.
 
 **매개변수**
 
-| 이름       | 타입       | 설명                                                                                                               |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 이름       | 타입       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
 `Promise`는 `string`을 반환합니다.
 
-| 타입     | 설명                     |
-| ------ | ---------------------- |
-| string | The address of a node. |
+| 타입     | 설명         |
+| ------ | ---------- |
+| string | 노드의 주소입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getNodeAddress().then(console.log)
@@ -247,24 +247,24 @@ Provides the address of the node that a user is using. nodekey에서 파생되�
 caver.rpc.governance.getItemsAt([blockNumberOrTag] [, callback])
 ```
 
-Returns governance items at a specific block. 이는 해당 블록의 이전 투표 결과이며, 입력으로 받은 블록 번호에서 체인의 환경설정을 하는 데에 사용됩니다.
+특정 블록에서의 거버넌스 항목을 반환합니다. 이는 해당 블록의 이전 투표 결과이며, 입력으로 받은 블록 번호에서 체인의 환경설정을 하는 데에 사용됩니다.
 
 **매개변수**
 
-| 이름               | 타입                   | 설명                                                                                                               |
-| ---------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| blockNumberOrTag | number &#124; string | (선택 사항) 블록 넘버, 또는 `latest`, `earliest`, `pending` 문자열 중 하나입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다.                  |
-| callback         | function             | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 이름               | 타입                   | 설명                                                                                              |
+| ---------------- | -------------------- | ----------------------------------------------------------------------------------------------- |
+| blockNumberOrTag | number &#124; string | (선택 사항) 블록 넘버, 또는 `latest`, `earliest`, `pending` 문자열 중 하나입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
+| callback         | function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                            |
 
 **리턴값**
 
 `Promise`는 `object`를 반환합니다.
 
-| 타입     | 설명                    |
-| ------ | --------------------- |
-| object | The governance items. |
+| 타입     | 설명           |
+| ------ | ------------ |
+| object | 거버넌스 항목들입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getItemsAt().then(console.log)
@@ -293,23 +293,23 @@ Returns governance items at a specific block. 이는 해당 블록의 이전 투
 caver.rpc.governance.getPendingChanges([callback])
 ```
 
-Returns the list of items that have received enough number of votes but not yet finalized. 현재 투표 기간이 끝날 때 이 항목들은 확정되어 그 결과가 다음 투표 기간 이후의 투표 기간부터 적용됩니다.
+pendingChanges은 충분한 표를 받았지만, 아직 확정되지 않은 항목들의 목록을 반환합니다. 현재 투표 기간이 끝날 때 이 항목들은 확정되어 그 결과가 다음 투표 기간 이후의 투표 기간부터 적용됩니다.
 
 **매개변수**
 
-| 이름       | 타입       | 설명                                                                                                               |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 이름       | 타입       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
 `Promise`는 `object`를 반환합니다.
 
-| 타입     | 설명                                                     |
-| ------ | ------------------------------------------------------ |
-| object | Currently pending changes composed of keys and values. |
+| 타입     | 설명                          |
+| ------ | --------------------------- |
+| object | 현재 보류 중인 변경 항목들의 키-밸류 쌍입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getPendingChanges().then(console.log)
@@ -322,23 +322,23 @@ Returns the list of items that have received enough number of votes but not yet 
 caver.rpc.governance.getIdxCache([callback])
 ```
 
-Returns an array of current idxCache in the memory cache. idxCache는 거버넌스 내용이 변경되었던 블록 번호를 담고 있습니다. 캐시는 최대 1,000개의 블록 번호까지 담을 수 있도록 기본 설정되어 있습니다.
+메모리 캐시 내 현재 idxCache 배열을 반환합니다. idxCache는 거버넌스 내용이 변경되었던 블록 번호를 담고 있습니다. 캐시는 최대 1,000개의 블록 번호까지 담을 수 있도록 기본 설정되어 있습니다.
 
 **매개변수**
 
-| 이름       | 타입       | 설명                                                                                                               |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 이름       | 타입       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
 `Promise`는 `object`를 반환합니다.
 
-| 타입 | 설명                                              |
-| -- | ----------------------------------------------- |
-| 배열 | Block numbers where governance change happened. |
+| 타입 | 설명                        |
+| -- | ------------------------- |
+| 배열 | 거버넌스 내용이 변경되었던 블록의 번호입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getIdxCache().then(console.log)
@@ -351,23 +351,23 @@ Returns an array of current idxCache in the memory cache. idxCache는 거버넌�
 caver.rpc.governance.getIdxCacheFromDb([callback])
 ```
 
-Returns an array that contains all block numbers at which any governance changes ever took place. The result of idxCacheFromDb is the same or longer than that of [idxCache](#caver-rpc-governance-getidxcache).
+거버넌스에 변화가 한번이라도 있었던 블록의 번호를 포함하는 배열을 반환합니다. idxCacheFromDb의 결과의 길이는 [idxCache](#caver-rpc-governance-getidxcache) 이상입니다.
 
 **매개변수**
 
-| 이름       | 타입       | 설명                                                                                                               |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 이름       | 타입       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
 `Promise`는 `object`를 반환합니다.
 
-| 타입 | 설명                                              |
-| -- | ----------------------------------------------- |
-| 배열 | Block numbers where governance change happened. |
+| 타입 | 설명                        |
+| -- | ------------------------- |
+| 배열 | 거버넌스 내용이 변경되었던 블록의 번호입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getIdxCacheFromDb().then(console.log)
@@ -380,29 +380,29 @@ Returns an array that contains all block numbers at which any governance changes
 caver.rpc.governance.getItemCacheFromDb([callback])
 ```
 
-Returns the governance information stored on the given block. If no changes are stored on the given block, the function returns null.
+특정 블록에 저장된 거버넌스 정보를 반환합니다. 해당 블록에 변경 사항이 저장되어 있지 않다면 함수는 null을 반환합니다.
 
 **매개변수**
 
-| 이름       | 타입       | 설명                                                                                                               |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 이름       | 타입       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **매개변수**
 
-| 이름          | 타입                   | 설명                                                                                         |
-| ----------- | -------------------- | ------------------------------------------------------------------------------------------ |
-| blockNumber | number &#124; string | A block number, or the hex number string to query the governance change made on the block. |
+| 이름          | 타입                   | 설명                                          |
+| ----------- | -------------------- | ------------------------------------------- |
+| blockNumber | number &#124; string | 거버넌스 내용 변경이 이루어졌는지 확인할 블록의 번호, 16진수 문자열입니다. |
 
 **리턴값**
 
 `Promise`는 `object`를 반환합니다.
 
-| 타입     | 설명                                              |
-| ------ | ----------------------------------------------- |
-| object | Stored governance information at a given block. |
+| 타입     | 설명                     |
+| ------ | ---------------------- |
+| object | 특정 블록에 저장된 거버넌스 정보입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getItemCacheFromDb(321180).then(console.log)
@@ -432,21 +432,21 @@ null
 caver.rpc.governance.getVotes([callback])
 ```
 
-Returns the votes from all nodes in the epoch. 각 블록의 헤더로부터 이러한 정보가 수집됩니다.
+투표 기간 중 모든 노드의 투표 상태를 반환합니다. 각 블록의 헤더로부터 이러한 정보가 수집됩니다.
 
 **매개변수**
 
-| 이름       | 타입       | 설명                                                                                                               |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 이름       | 타입       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
 
 `Promise`는 `object`를 반환합니다.
 
-| 타입 | 설명                                                         |
-| -- | ---------------------------------------------------------- |
-| 배열 | Current votes composed of keys, values and node addresses. |
+| 타입 | 설명                            |
+| -- | ----------------------------- |
+| 배열 | 키, 값, 노드 주소로 구성된 현재 투표 정보입니다. |
 
 **예시**
 
@@ -469,24 +469,24 @@ Returns the votes from all nodes in the epoch. 각 블록의 헤더로부터 이
 caver.rpc.governance.getStakingInfo([blockNumberOrTag] [, callback])
 ```
 
-Returns the staking information at a specific block.
+특정 블록에서의 스테이킹 정보를 반환합니다.
 
 **매개변수**
 
-| 이름               | 타입                   | 설명                                                                                                               |
-| ---------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| blockNumberOrTag | number &#124; string | (선택 사항) 블록 넘버, 또는 `latest`, `earliest`, `pending` 문자열 중 하나입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다.                  |
-| callback         | function             | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 이름               | 타입                   | 설명                                                                                              |
+| ---------------- | -------------------- | ----------------------------------------------------------------------------------------------- |
+| blockNumberOrTag | number &#124; string | (선택 사항) 블록 넘버, 또는 `latest`, `earliest`, `pending` 문자열 중 하나입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
+| callback         | function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                            |
 
 **리턴값**
 
 `Promise`는 `object`를 반환합니다.
 
-| 타입     | 설명                                                                                                                                                                             |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| object | Staking information. Refer to [governance_getStakingInfo](../../../../json-rpc/api-references/governance.md#governance_getstakinginfo) for a description of the return result. |
+| 타입     | 설명                                                                                                                                       |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| object | 스테이킹 정보입니다. 반환값의 대한 설명은 [governance_getStakingInfo](../../../../json-rpc/api-references/governance.md#governance_getstakinginfo)을 참고하세요. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getStakingInfo().then(console.log)
