@@ -187,7 +187,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 없음
 
-**예시**
+**Example**
 
 콘솔
 
@@ -256,7 +256,7 @@ pprof HTTP 서버를 시작합니다.  실행 중인 pprof 서버는 아래를 �
 
 없음
 
-**예시**
+**Example**
 
 콘솔
 ```javascript
@@ -361,7 +361,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 없음
 
-**예시**
+**Example**
 
 콘솔
 ```javascript
@@ -393,7 +393,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 없음
 
-**예시**
+**Example**
 
 콘솔
 ```javascript
