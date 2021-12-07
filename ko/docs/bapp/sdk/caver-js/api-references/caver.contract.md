@@ -22,7 +22,7 @@ JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로
 [new caver.contract](#new-contract)를 참고하세요.
 
 
-**예시**
+**Example**
 
 ```javascript
 const contract = caver.contract.create([
@@ -73,7 +73,7 @@ JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로
 | object | 모든 메소드와 이벤트가 있는 컨트랙트 인스턴스. |
 
 
-**예시**
+**Example**
 
 ```javascript
 const myContract = new caver.contract([...], '0x{address in hex}', { gasPrice: '25000000000' })
@@ -104,7 +104,7 @@ myContract.options
 **참고** `feeDelegation`, `feePayer`, 그리고 `feeRatio`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 이후부터 지원됩니다.
 
 
-**예시**
+**Example**
 
 ```javascript
 > myContract.options
@@ -143,7 +143,7 @@ myContract.options.address
 | ------- | -------------------- | --------------------------------------- |
 | address | string &#124; `null` | 이 컨트랙트의 주소이거나, 아직 설정되지 않은 경우 `null`입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 >  myContract.options.address
@@ -167,7 +167,7 @@ myContract.options.jsonInterface
 | jsonInterface | 배열 | 이 컨트랙트의 JSON 인터페이스. 이를 재설정하면 컨트랙트 인스턴스의 메소드 및 이벤트가 재생성됩니다. |
 
 
-**예시**
+**Example**
 
 ```javascript
 > myContract.options.jsonInterface
@@ -222,7 +222,7 @@ myContract.clone([contractAddress])
 | object | 새로 복제된 컨트랙트 인스턴스. |
 
 
-**예시**
+**Example**
 
 ```javascript
 > myContract.clone()
@@ -268,7 +268,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 - `receipt`: 트랜잭션 영수중이 준비되면 발생합니다. 자세한 내용은 [caver.rpc.klay.getTransactionReceipt](./caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt)를 참조하세요. 타입은 `object`입니다.
 - `error`: 전송 중 에러가 발생하면 발생합니다. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다. 타입은 `error`입니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Deploy a smart contract without constructor arguments
@@ -373,7 +373,7 @@ The object contains the following:
 
 **참고** `myContract.deploy({ data, arguments }).sign(options)` and `myContract.deploy({ data, arguments }).signAsFeePayer(options)`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
-**예시**
+**Example**
 
 ```javascript
 > myContract.deploy({
@@ -469,7 +469,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 - `receipt`: 트랜잭션 영수중이 준비되면 발생합니다. 자세한 내용은 [caver.rpc.klay.getTransactionReceipt](./caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt)를 참조하세요. 타입은 `object`입니다.
 - `error`: 전송 중 에러가 발생하면 발생합니다. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다. 타입은 `error`입니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Send a SmartContractExecution and use the promise
@@ -606,7 +606,7 @@ myContract.sign(options, methodName [, param1 [, param2 [, ...]]])
 
 `Promise`는 [Transaction](./caver.transaction/README.md)을 반환 - 서명된 스마트 컨트랙트 트랜잭션입니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Sign a SmartContractDeploy
@@ -758,7 +758,7 @@ myContract.signAsFeePayer(options, methodName [, param1 [, param2 [, ...]]])
 
 `Promise`는 [Transaction](./caver.transaction/README.md)을 반환 - 서명된 스마트 컨트랙트 트랜잭션입니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Sign a FeeDelegatedSmartContractDeploy
@@ -871,7 +871,7 @@ myContract.call(options, 'methodName', [param1 [, param2 [, ...]]])
 
 `Promise`가 `Mixed`를 반환: 스마트 컨트랙트 메서드의 리턴값(들) 입니다. 하나의 값을 반환하면, 그대로 반환됩니다. 다수의 반환값이 있는 경우 속성과 인덱스로 구성된 객체로서 반환됩니다.
 
-**예시**
+**Example**
 
 ```javascript
 > myContract.call('methodName').then(console.log)
@@ -991,7 +991,7 @@ JSON 인터페이스에 정의된 스마트 컨트랙트 메서드에 속하는 
 
 **참고** `sign`과 `signAsFeePayer`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Calling a method
@@ -1108,7 +1108,7 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]]).call(options [, ca
 
 `Promise`가 `Mixed`를 반환: 스마트 컨트랙트 메서드의 리턴값(들) 입니다. 하나를 반환하면, 그대로 반환됩니다. 다수의 반환값이 있는 경우 속성과 인덱스로 구성된 객체로서 반환됩니다.
 
-**예시**
+**Example**
 
 ```javascript
 // promise 사용
@@ -1209,7 +1209,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 - `receipt`: 트랜잭션 영수중이 준비되면 발생합니다. 자세한 내용은 [caver.rpc.klay.getTransactionReceipt](./caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt)를 참조하세요. 타입은 `object`입니다.
 - `error`: 전송 중 에러가 발생하면 발생합니다. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다. 타입은 `error`입니다.
 
-**예시**
+**Example**
 
 ```javascript
 // using the promise
@@ -1300,7 +1300,7 @@ If a smart contract is deployed, 'constructor' can be entered in the methodName,
 
 `Promise`는 [Transaction](./caver.transaction/README.md)을 반환 - 서명된 스마트 컨트랙트 트랜잭션입니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Sign a SmartContractDeploy transaction
@@ -1415,7 +1415,7 @@ If a smart contract is deployed, 'constructor' can be entered in the methodName,
 
 `Promise`는 [Transaction](./caver.transaction/README.md)을 반환 - 서명된 스마트 컨트랙트 트랜잭션입니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Sign a FeeDelegatedSmartContractDeploy transaction
@@ -1488,7 +1488,7 @@ Will estimate the gas that a method execution will take when executed in the Kla
 | ------ | ------------------------------------------------ |
 | number | The used gas for the simulated call/transaction. |
 
-**예시**
+**Example**
 
 ```javascript
 > myContract.methods.methodName(123).estimateGas({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
@@ -1521,7 +1521,7 @@ JSON 인터페이스에 정의된 스마트 컨트랙트 메서드에 속하는 
 | string | 트랜잭션 또는 호출을 통해 전송할 인코딩된 ABI 바이트 코드. |
 
 
-**예시**
+**Example**
 
 ```javascript
 > myContract.methods.methodName(123).encodeABI()
@@ -1556,7 +1556,7 @@ Subscribes to an event and unsubscribes immediately after the first event or err
 
 `Promise` returns `object` - An event object. For more detail about event object, please refer to [myContract.getPastEvents](#getpastevents).
 
-**예시**
+**Example**
 
 ```javascript
 > myContract.once('eventName', {
@@ -1639,7 +1639,7 @@ The structure of the returned event `object` looks as follows:
 | raw.topics       | 배열                   | An array with a maximum of four 32-byte topics, and topic 1-3 contains indexed parameters of the event. |
 | id               | string               | 로그 식별자. `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`을 사용하여 "log_" 문자열을 연결하여 작성됩니다.  |
 
-**예시**
+**Example**
 
 ```javascript
 > myContract.events.eventName({
@@ -1729,7 +1729,7 @@ An event object can contain the following:
 | blockNumber      | number               | The block number this log was created in. null when still pending.                                                                                                                                            |
 | raw              | object               | An object defines `data` and `topic`. `raw.data` containing non-indexed log parameter. `raw.topic` is an array with a maximum of four 32 Byte topics, and topic 1-3 contains indexed parameters of the event. |
 
-**예시**
+**Example**
 
 ```javascript
 > myContract.getPastEvents('eventName', {
