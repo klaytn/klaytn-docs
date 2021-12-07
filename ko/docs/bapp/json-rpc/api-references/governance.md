@@ -52,7 +52,7 @@ The `vote` method submits a new vote. If the node has the right to vote based on
 | ------ | ------------ |
 | String | 투표 제출 결과입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > governance.vote ("governance.governancemode", "ballot")
@@ -106,7 +106,7 @@ The `showTally` property provides the current tally of governance votes. It show
 | ----- | -------------------------- |
 | Tally | 각 표의 가중치를 고려한 찬성률의 백분율입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > governance.showTally
@@ -136,7 +136,7 @@ The `totalVotingPower` property provides the sum of all voting power that CNs ha
 | ----- | ----------------------- |
 | Float | 총 의결권 또는 오류 메시지를 반환합니다. |
 
-**예시**
+**Example**
 
 ```javascript
 // In "ballot" governance mode
@@ -163,7 +163,7 @@ The `myVotingPower` property provides the voting power of the node. The voting p
 | ----- | ------------------------- |
 | Float | 노드의 의결권 또는 오류 메시지를 반환합니다. |
 
-**예시**
+**Example**
 
 ```javascript
 // In "ballot" governance mode
@@ -190,7 +190,7 @@ The `myVotes` property provides my vote information in the epoch. 사용자의 �
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Vote List | 투표 기간 동안 노드의 투표 상태는 다음과 같습니다.<br />- `BlockNum`: 투표가 저장된 블록 번호<br />- `Casted`: 이 투표의 블록 저장 여부<br />- `Key/Value`: 투표의 내용 |
 
-**예시**
+**Example**
 
 ```javascript
 > governance.vote("governance.governancemode", "ballot")
@@ -221,7 +221,7 @@ The `chainConfig` property provides the initial chain configuration. Because it 
 | ---- | --------------- |
 | JSON | 현재 체인의 환경설정입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > governance.chainConfig
@@ -265,7 +265,7 @@ The `nodeAddress` property provides the address of the node that a user is using
 | ------- | ------------------- |
 | ADDRESS | 노드의 20바이트 길이 주소입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > governance.nodeAddress
@@ -292,7 +292,7 @@ The `itemsAt` returns governance items at specific block. 이는 해당 블록�
 | ---- | ------------ |
 | JSON | 거버넌스 항목들입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > governance.itemsAt(89)
@@ -326,7 +326,7 @@ The `pendingChanges` returns the list of items that have received enough number 
 | --------- | --------------------------- |
 | Vote List | 현재 보류 중인 변경 항목들의 키-밸류 쌍입니다. |
 
-**예시**
+**Example**
 ```javascript
 > governance.pendingChanges
 {
@@ -349,7 +349,7 @@ The `votes` returns the votes from all nodes in the epoch. 각 블록의 헤더�
 | --------- | ----------------------------- |
 | Vote List | 키, 값, 노드 주소로 구성된 현재 투표 정보입니다. |
 
-**예시**
+**Example**
 ```javascript
 > governance.votes
 [{
@@ -376,7 +376,7 @@ The `idxCache` property returns an array of current idxCache in the memory cache
 | --------- | ------------------------- |
 | uint64 배열 | 거버넌스 내용이 변경되었던 블록의 번호입니다. |
 
-**예시**
+**Example**
 ```javascript
 > governance.idxCache
 [0, 30]
@@ -395,7 +395,7 @@ The `idxCacheFromDb` returns an array that contains all block numbers on which a
 | ------------ | ---------------------------- |
 | uint64 array | 거버넌스 내용이 변경되었던 모든 블록의 번호입니다. |
 
-**예시**
+**Example**
 ```javascript
 > governance.idxCacheFromDb
 [0, 30]
@@ -416,7 +416,7 @@ The `itemCacheFromDb` returns the governance information stored in the given blo
 | ---- | --------------------------- |
 | JSON | 입력으로 받은 블록에 저장된 거버넌스 정보입니다. |
 
-**예시**
+**Example**
 ```javascript
 > governance.itemCacheFromDb(0)
 {
@@ -462,7 +462,7 @@ Note that the order of all addresses and the staking amounts are matched.
 | ---- | ----------- |
 | JSON | 스테이킹 정보입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > governance.getStakingInfo("latest")
