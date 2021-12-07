@@ -142,7 +142,7 @@ accountKey가 공개키 문자열인 경우, accountKey가 [AccountKeyPublic](#a
 | --------------- | -------------------- |
 | [계정(Account)][] | Account 인스턴스가 반환됩니다. |
 
-**예시**
+**Example**
 
 ```javascript
 // Create an Account instance with a public key string -> Account with AccountKeyPublic
@@ -271,7 +271,7 @@ RLP 인코딩된 AccountKey로부터 Account 인스턴스를 생성합니다.
 | --------------- | -------------------- |
 | [계정(Account)][] | Account 인스턴스가 반환됩니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.account.createFromRLPEncoding('0x{address in hex}', '0x04f84b02f848e301a102c10b598a1a3ba252acc21349d61c2fbd9bc8c15c50a5599f420cccc3291f9bf9e301a1021769a9196f523c419be50c26419ebbec34d3d6aa8b59da834212f13dbec9a9c1')
@@ -309,7 +309,7 @@ AccountKeyLegacy를 accountKey로 지닌 Account 인스턴스를 생성합니다
 | --------------- | -------------------- |
 | [계정(Account)][] | Account 인스턴스가 반환됩니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.account.createWithAccountKeyLegacy('0x{address in hex}')
@@ -341,7 +341,7 @@ AccountKeyPublic를 accountKey로 지닌 Account 인스턴스를 생성합니다
 | --------------- | -------------------- |
 | [계정(Account)][] | Account 인스턴스가 반환됩니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.account.createWithAccountKeyPublic('0x{address in hex}', '0xb5a9a...')
@@ -372,7 +372,7 @@ AccountKeyFail를 accountKey로 지닌 Account 인스턴스를 생성합니다.
 | --------------- | -------------------- |
 | [계정(Account)][] | Account 인스턴스가 반환됩니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.account.createWithAccountKeyFail('0x{address in hex}')
@@ -405,7 +405,7 @@ AccountKeyWeightedMultiSig를 accountKey로 지닌 Account 인스턴스를 생�
 | --------------- | -------------------- |
 | [계정(Account)][] | Account 인스턴스가 반환됩니다. |
 
-**예시**
+**Example**
 
 ```javascript
 // create an Account instance without options
@@ -461,7 +461,7 @@ AccountKeyRoleBased를 accountKey로 지닌 Account 인스턴스를 생성합니
 | --------------- | -------------------- |
 | [계정(Account)][] | Account 인스턴스가 반환됩니다. |
 
-**예시**
+**Example**
 
 ```javascript
 // create an Account instance without options
@@ -553,7 +553,7 @@ AccountKey의 RLP 인코딩된 문자열을 디코딩하며, [AccountKeyLegacy](
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
 | [AccountKeyLegacy](#accountkeylegacy) &#124; [AccountKeyPublic](#accountkeypublic) &#124; [AccountKeyFail](#accountkeyfail) &#124; [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) &#124; [AccountKeyRoleBased](#accountkeyrolebased) | AccountKey 인스턴스가 반환됩니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.account.accountKey.decode('0x02a102c10b598a1a3ba252acc21349d61c2fbd9bc8c15c50a5599f420cccc3291f9bf9')
@@ -575,7 +575,7 @@ AccountKey의 RLP 인코딩된 문자열을 반환합니다.
 | ------ | ----------------------------- |
 | string | AccountKey의 RLP 인코딩된 문자열입니다 . |
 
-**예시**
+**Example**
 
 ```javascript
 > const account = caver.account.create('0x{address in hex}', '0x034f1...')
