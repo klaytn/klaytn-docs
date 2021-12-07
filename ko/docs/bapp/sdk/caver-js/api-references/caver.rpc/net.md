@@ -25,7 +25,7 @@ Returns the network identifier (network ID) of the Klaytn Node.
 | ------ | ----------- |
 | number | 네트워크 ID입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.net.getNetworkId().then(console.log)
@@ -55,7 +55,7 @@ Returns `true` if the Klaytn Node is actively listening for network connections.
 | ------- | ------------------------------------------------------- |
 | boolean | 클라이언트가 연결을 수신 중이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.net.isListening().then(console.log)
@@ -85,7 +85,7 @@ Returns the number of peers currently connected to the Klaytn Node.
 | ------ | ------------------------------ |
 | string | 연결된 피어의 개수입니다. 이 값은 16진수 값입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.net.getPeerCount().then(console.log)
@@ -115,7 +115,7 @@ caver.rpc.net.getPeerCountByType([callback])
 | ------ | ----------------------------------- |
 | object | 유형별 연결된 피어의 수와 연결된 모든 피어의 수를 반환합니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.net.getPeerCountByType().then(console.log)
