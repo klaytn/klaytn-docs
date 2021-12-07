@@ -71,7 +71,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 See [klay_getFilterChanges](#klay_getfilterchanges)
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -255,7 +255,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 | -------- | --------- |
 | QUANTITY | 필터 ID입니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -304,7 +304,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | -------- | -------- |
 | QUANTITY | 필터 ID입니다 |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -329,7 +329,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 | -------- | --------- |
 | QUANTITY | 필터 ID입니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -363,7 +363,7 @@ Websockets을 통한 RPC Pub/Sub 또는 HTTP를 통한 필터를 이용하여 �
 | QUANTITY | 구독이 생성될 때의 구독 ID입니다. 구독에 일치하는 모든 이벤트에 대해서는 관계된 데이터와 구독 ID를 포함한 알림이 전달됩니다. |
 
 
-**예시**
+**Example**
 
 이 API는 WebSocket 툴인 [`wscat`](https://www.npmjs.com/package/wscat)과 함께 쓰기에 적합합니다.
 
@@ -404,7 +404,7 @@ wscat -c http://localhost:8552
 | ------- | ---------------------------------------------------- |
 | Boolean | 필터가 성공적으로 제거되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -436,7 +436,7 @@ Websockets을 통한 RPC Pub/Sub 또는 HTTP를 통한 필터를 이용하여 �
 | Boolean | 구독이 성공적으로 취소되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 
-**예시**
+**Example**
 
 이 API는 WebSocket 툴인 [`wscat`](https://www.npmjs.com/package/wscat)과 함께 쓰기에 적합합니다.
 
