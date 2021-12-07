@@ -26,7 +26,7 @@ caver.utils.randomHex(size)
 | ------ | ------------------- |
 | string | 생성된 임의의 HEX 문자열입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.utils.randomHex(32)
@@ -55,7 +55,7 @@ caver.utils._()
 
 자세한 내용은 [underscore API reference](http://underscorejs.org)를 참조하세요.
 
-**예시**
+**Example**
 
 ```javascript
 > var _ = caver.utils._
@@ -121,7 +121,7 @@ caver.utils.isBN(bn)
 | ------- | ------------------------------------------------------------------------- |
 | boolean | 주어진 값이 [BN.js](https://github.com/indutny/bn.js/) 인스턴스인 경우 `true`를 반환합니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > var number = new caver.utils.BN(10)
@@ -150,7 +150,7 @@ caver.utils.isBigNumber(bignumber)
 | ------- | -------------------------------------- |
 | boolean | 주어진 값이 `BigNumber.js` 인스턴스인 경우 `true`. |
 
-**예시**
+**Example**
 
 ```javascript
 > var number = new caver.utils.BigNumber(10)
@@ -181,7 +181,7 @@ caver.utils.keccak256(str) // ALIAS
 | ------ | --------- |
 | string | 결과 해시입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.utils.sha3('234') // taken as string
@@ -220,7 +220,7 @@ caver.utils.soliditySha3(param1 [, param2, ...])
 | ------ | --------- |
 | string | 결과 해시입니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.utils.soliditySha3('234564535', '0xfff23243', true, -10)
@@ -281,7 +281,7 @@ caver.utils.isHex(hex)
 | ------- | --------------------------------- |
 | boolean | 주어진 문자열이 HEX 문자열이면 `true`를 반환합니다. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.utils.isHex('0xc1912')
@@ -317,7 +317,7 @@ caver.utils.isHexStrict(hex)
 | boolean | 주어진 문자열이 HEX 문자열이면 `true`. |
 
 
-**예시**
+**Example**
 
 ```javascript
 > caver.utils.isHexStrict('0xc1912')
