@@ -2361,7 +2361,7 @@ caver.klay.accounts.wallet.remove(account)
 | Boolean | 지갑이 제거된 경우 `true`입니다. 찾을 수 없으면 `false`입니다. |
 
 
-**예시**
+**Example**
 
 ```javascript
 > caver.klay.accounts.wallet;
@@ -2582,7 +2582,7 @@ caver-js 지갑에 있는 계정에 대한 Klaytn 지갑 키를 반환합니다.
 | String | 계정과 일치하는 KlaytnWalletKey입니다. 이 값을 사용하면 지갑에 로그인할 수 있습니다. |
 
 
-**예시**
+**Example**
 
 ```javascript
 // With non-human-readable address
@@ -2628,7 +2628,7 @@ caver.klay.accounts.wallet.updatePrivateKey(privateKey, address)
 | Object | 새 accountKey를 가지는 Account 인스턴스입니다. Account 인스턴스는 caver-js의 인메모리 지갑에 존재합니다. |
 
 
-**예시**
+**Example**
 
 ```javascript
 > caver.klay.accounts.wallet.updatePrivateKey('0x{private key}', '0xf2e2565629c7763dc0b595e8e531a31371a95f95');
@@ -2672,7 +2672,7 @@ caver.klay.accounts.wallet.updateAccountKey(address, accountKey)
 | Object | 새 accountKey를 가지는 Account 인스턴스입니다. Account 인스턴스는 caver-js의 인메모리 지갑에 존재합니다. |
 
 
-**예시**
+**Example**
 
 ```javascript
 // Update to AccountKeyPublic with a private key string
