@@ -22,7 +22,7 @@ description: '>- APIs related to the namespace "istanbul".'
 
 | 이름 | 타입 | 설명 | | Epoch | 64-byte DATA | 해당 블록 다음부터 보류 중인 표결을 체크포인트 및 리셋합니다. | | Number | 64-byte DATA | 스냅샷이 생성된 블록 번호입니다. | | Number | 64-byte DATA | 스냅샷이 생성된 블록 번호입니다. | | ValSet | 64-byte DATA | 현재 검증자 목록입니다. | | Policy | 64-byte DATA | | | CommiteeSize | 64-byte DATA | | | Votes | 64-byte DATA | 연대기 순으로 정렬된 표결입니다. | | Tally | 64-byte DATA | 재계산을 방지하기 위한 현재 표 합산입니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -45,7 +45,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 [istanbul_getSnapshot](#istanbul_getsnapshot)를 확인하세요.
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -71,7 +71,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 | --- | ------------- | -------------- |
 | 검증자 | 20바이트 크기 DATA | 검증자의 주소 목록입니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -94,7 +94,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 [istanbul_getValidators](#istanbul_getvalidators)를 참고하세요.
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -105,7 +105,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_candidates <a id="istanbul_candidates"></a>
 
-Returns the current candidates the node tries to uphold and vote on.
+노드가 지지하고 투표하려고 하는 현재 후보자들을 반환합니다.
 
 **매개변수**
 
@@ -113,9 +113,9 @@ Returns the current candidates the node tries to uphold and vote on.
 
 **리턴값**
 
-| account | 20-byte DATA | Address of candidate. | | auth | boolean | A value indicating the authorization status of the candidate. |
+| account | 20-byte DATA | 후보자의 주소입니다. | | auth | boolean | 후보자의 승인 상태를 나타내는 값입니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -126,20 +126,20 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_propose <a id="istanbul_propose"></a>
 
-Injects a new authorization candidate that the validator will attempt to push through.
+검증자가 관철시키고자 하는 새로운 승인 후보를 추가합니다.
 
 **매개변수**
 
-| 이름      | 타입            | 설명                                                            |
-| ------- | ------------- | ------------------------------------------------------------- |
-| account | 20바이트 크기 DATA | Address of candidate.                                         |
-| auth    | boolean       | A value indicating the authorization status of the candidate. |
+| 이름      | 타입            | 설명                     |
+| ------- | ------------- | ---------------------- |
+| account | 20바이트 크기 DATA | 후보자의 주소입니다.            |
+| auth    | boolean       | 후보자의 승인 상태를 나타내는 값입니다. |
 
 **리턴값**
 
 없음
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -150,19 +150,19 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_discard <a id="istanbul_discard"></a>
 
-Drops a currently running candidate, stopping the validator from casting further votes (either for or against).
+현재 후보자를 탈락시키고, 검증자가 더 이상 투표하지 못하도록 합니다.
 
 **매개변수**
 
-| 이름      | 타입            | 설명                    |
-| ------- | ------------- | --------------------- |
-| account | 20바이트 크기 DATA | Address of candidate. |
+| 이름      | 타입            | 설명          |
+| ------- | ------------- | ----------- |
+| account | 20바이트 크기 DATA | 후보자의 주소입니다. |
 
 **리턴값**
 
 없음
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -173,7 +173,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 ## istanbul_getTimeout <a id="istanbul_getTimeout"></a>
 
-Returns istanbul config timeout. Default value is 10000ms, and if over, timeoutEvent is sent. In case of CN, the timeoutEvent contains information such as currentRound, preparesSize and commitsSize to log.
+이스탄불 config 타임아웃을 반환합니다. 기본값은 10000ms이며, 이를 초과할 시 timeoutEvent가 전송됩니다. CN의 경우 timeoutEvent는 currentRound, preparesSize, 그리고 로그될 commitsSize를 포함합니다.
 
 
 **매개변수**
@@ -182,11 +182,11 @@ Returns istanbul config timeout. Default value is 10000ms, and if over, timeoutE
 
 **리턴값**
 
-| 이름      | 타입  | 설명             |
-| ------- | --- | -------------- |
-| timeout | int | config timeout |
+| 이름      | 타입  | 설명              |
+| ------- | --- | --------------- |
+| timeout | int | config 타임아웃입니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
