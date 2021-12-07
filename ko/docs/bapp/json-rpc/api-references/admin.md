@@ -27,7 +27,7 @@ description: >-
 | -------- | ------------- |
 | JSON 문자열 | 노드에 대한 정보입니다. |
 
-**예시**
+**Example**
 
 콘솔
 ```javascript
@@ -285,7 +285,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 | ---- | ------------------------------------------------------- |
 | bool | HTTP RPC 리스너가 열리면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**예시**
+**Example**
 
 콘솔
 
@@ -321,7 +321,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 | ---- | ------------------------------------------------ |
 | bool | 엔드포인트가 닫히면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**예시**
+**Example**
 
 콘솔
 
@@ -362,7 +362,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 | ---- | ------------------------------------------------------ |
 | bool | 웹소켓 RPC 리스너가 열리면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**예시**
+**Example**
 
 콘솔
 
@@ -396,7 +396,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 | ---- | ------------------------------------------------ |
 | bool | 엔드포인트가 닫히면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**예시**
+**Example**
 
 콘솔
 
@@ -432,7 +432,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 | ---- | ------------------------------------------------ |
 | bool | 블록체인을 내보내면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**예시**
+**Example**
 
 콘솔
 
@@ -468,7 +468,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 | ---- | ------------------------------------------------ |
 | bool | 블록체인을 가져오면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**예시**
+**Example**
 
 콘솔
 
@@ -503,7 +503,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 | ---- | ------------------------------------------------ |
 | bool | 블록체인을 가져오면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**예시**
+**Example**
 
 콘솔
 
@@ -536,7 +536,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 | -- | ------------------------------------------------------- |
 | 에러 | 상태 마이그레이션을 성공적으로 시작했다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
 
-**예시**
+**Example**
 
 콘솔
 
@@ -572,7 +572,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 | 에러 | 상태 마이그레이션이 중단되었다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
 
 
-**예시**
+**Example**
 
 콘솔
 
@@ -611,7 +611,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 | progress             | float64 | `progress`는 퍼센트(%)로 표현한 상태 마이그레이션 진행 정도입니다.              |
 | read                 | int     | `read`는 상태 마이그레이션이 읽어 들인 트리 노드 개수입니다.                    |
 
-**예시**
+**Example**
 
 콘솔
 
@@ -652,7 +652,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 | -- | ------------------------------------------------------- |
 | 에러 | 트리 노드 저장이 성공적으로 시작되었다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
 
-**예시**
+**Example**
 
 콘솔
 
@@ -688,7 +688,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 | -- | ------------------------------------------------ |
 | 에러 | 한계가 성공적으로 설정될 시 `null`를, 그렇지 않을 시 에러 메시지가 나타납니다. |
 
-**예시**
+**Example**
 
 콘솔
 
