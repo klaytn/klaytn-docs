@@ -595,7 +595,7 @@ kip7Instance.safeTransfer(recipient, amount [, data] [, sendParam])
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given (without data)
@@ -671,7 +671,7 @@ kip7Instance.transferFrom(sender, recipient, amount [, sendParam])
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given
@@ -770,7 +770,7 @@ kip7Instance.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given (without data)
@@ -870,7 +870,7 @@ kip7Instance.mint(account, amount [, sendParam])
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -941,7 +941,7 @@ kip7Instance.addMinter(account [, sendParam])
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1007,7 +1007,7 @@ kip7Instance.renounceMinter([sendParam])
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1074,7 +1074,7 @@ kip7Instance.burn(amount [, sendParam])
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1146,7 +1146,7 @@ kip7Instance.burnFrom(account, amount [, sendParam])
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1240,7 +1240,7 @@ kip7Instance.addPauser(account [, sendParam])
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1306,7 +1306,7 @@ kip7Instance.renouncePauser([sendParam])
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1372,7 +1372,7 @@ kip7Instance.pause([sendParam])
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1438,7 +1438,7 @@ kip7Instance.unpause([sendParam])
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
