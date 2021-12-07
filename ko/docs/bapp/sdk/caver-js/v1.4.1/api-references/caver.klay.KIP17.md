@@ -778,7 +778,7 @@ kip17Instance.safeTransferFrom(from, to, tokenId [, data] [, sendParam])
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). KIP-17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given (without data)
@@ -852,7 +852,7 @@ addMinter 메서드는 Klaytn 네트워크에 트랜잭션을 전송하며 트�
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). KIP-17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -918,7 +918,7 @@ If `sendParam.from` or `KIP17Instance.options.from` were given, it should be a m
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). KIP-17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -989,7 +989,7 @@ mintWithTokenURI 메서드는 Klaytn 네트워크에 트랜잭션을 전송하�
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). KIP-17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1060,7 +1060,7 @@ burn 메서드는 Klaytn 네트워크에 트랜잭션을 전송하며 트랜잭�
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). KIP-17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1130,7 +1130,7 @@ pause 메서드는 Klaytn 네트워크에 트랜잭션을 전송하며 트랜잭
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). KIP-17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1196,7 +1196,7 @@ unpause 메서드는 Klaytn 네트워크에 트랜잭션을 전송하며 트랜�
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). KIP-17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1263,7 +1263,7 @@ addPauser 메서드는 Klaytn 네트워크에 트랜잭션을 전송하며 트�
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). KIP-17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1329,7 +1329,7 @@ renouncePauser 메서드는 Klaytn 네트워크에 트랜잭션을 전송하며 
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). KIP-17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // Send via a sendParam object with the from field given 
