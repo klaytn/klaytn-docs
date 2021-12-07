@@ -55,7 +55,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 [klay_getBlockByHash](#klay_getheaderbyhash)를 참고하세요.
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -116,7 +116,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | governanceData   | DATA           | RLP 인코딩된 거버넌스 설정입니다.                         |
 | voteData         | DATA           | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                    |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -164,7 +164,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 [klay_getBlockByHash](#klay_getblockbyhash)를 참고하세요.
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -234,7 +234,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | governanceData   | DATA           | RLP 인코딩된 거버넌스 설정입니다.                                       |
 | voteData         | DATA           | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                  |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -285,7 +285,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 해당 블록에 포함된 Receipt를 반환합니다.  조회하고자 하는 블록이 트랜잭션을 포함하지 않으면 빈 배열 `[]`이 반환됩니다.
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -349,7 +349,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 | -------- | ---------------------------- |
 | QUANTITY | 이 블록에 담긴 트랜잭션의 개수의 정수 형태입니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -380,7 +380,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | -------- | ---------------------------- |
 | QUANTITY | 이 블록에 담긴 트랜잭션의 개수의 정수 형태입니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -427,7 +427,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | transactions     | 배열            | 트랜잭션 객체의 배열입니다.                                                          |
 | transactionsRoot | 32바이트 크기 DATA | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                  |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -628,7 +628,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 | ------------------- | ---------------------- |
 | 20바이트 크기 DATA array | 위원회에 속한 모든 검증자의 주소입니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -704,7 +704,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 | ------------------- | ---------------------- |
 | 20바이트 크기 DATA array | 위원회에 속한 모든 검증자의 주소입니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -743,7 +743,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 | -------- | -------------- |
 | QUANTITY | 위원회의 구성원 수입니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -779,7 +779,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 | ---- | -------------------------- |
 | DATA | 입력으로 받은 스토리지 위치의 값을 반환합니다. |
 
-**예시**
+**Example**
 
 올바른 위치를 계산하는 것은 탐색할 스토리지에 따라 차이가 있습니다. 아래와 같이 `0x391694e7e0b0cce554cb130d723a9d27458f9298` 주소에 의해 `0x295a70b2de5e3953354a6a8344e616ed314d7251`에 배포된 컨트랙트를 가정해봅시다.
 
@@ -843,7 +843,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "kl
 | ------- | --------------------------------------------------- |
 | Boolean | 클라이언트가 채굴 중이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -878,7 +878,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | pulledStates  | QUANTITY | 지금까지 처리된 상태 항목의 개수입니다.  동기화 모드가 "fast"가 아니면 0이 반환됩니다.    |
 | knownStates   | QUANTITY | 가져와야 하는 알려진 상태 항목의 개수입니다.  동기화 모드가 "fast"가 아니면 0이 반환됩니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
