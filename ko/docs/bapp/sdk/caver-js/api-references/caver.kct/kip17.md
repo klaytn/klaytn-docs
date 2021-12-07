@@ -41,7 +41,7 @@ tokenInfo 객체는 다음을 반드시 포함해야 합니다:
 | receipt         | object | 트랜잭션 영수증을 사용할 수 있을 때 발생합니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다. |
 | error           | 에러     | 전송 중 오류가 나타나면 발생됩니다.                                                                                                                                  |
 
-**예시**
+**Example**
 
 ```javascript
 // using the promise
@@ -111,7 +111,7 @@ caver.kct.kip17.detectInterface(contractAddress)
 
 `Promise`는 각 [KIP-17 interface](https://kips.klaytn.com/KIPs/kip-7#kip-13-identifiers)가 구현되었는지에 대한 boolean 값을 포함한 `object`를 반환합니다.
 
-**예시**
+**Example**
 
 ```javascript
 > caver.kct.kip17.detectInterface('0x{address in hex}').then(console.log)
@@ -143,7 +143,7 @@ caver.kct.kip17.create([tokenAddress])
 
 [new KIP17](#new-kip17)를 참고하세요.
 
-**예시**
+**Example**
 
 ```javascript
 // 매개변수 없는 KIP17 인스턴스 생성
@@ -174,7 +174,7 @@ new caver.kct.kip17([tokenAddress])
 | object | 인스턴스 메소드와 이벤트들을 갖고 있는 KIP17 인스턴스입니다. |
 
 
-**예시**
+**Example**
 
 ```javascript
 // 매개변수 없는 KIP17 인스턴스 생성
@@ -205,7 +205,7 @@ kip17.clone([tokenAddress])
 | object | 원본 KIP17 인스턴스를 복제한 인스턴스입니다. |
 
 
-**예시**
+**Example**
 
 ```javascript
 > const kip17 = new caver.kct.kip17(address)
@@ -232,7 +232,7 @@ kip17.detectInterface
 
 `Promise`는 각 [KIP-17 interface](https://kips.klaytn.com/KIPs/kip-7#kip-13-identifiers)가 구현되었는지에 대한 boolean 값을 포함한 `object`를 반환합니다.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.detectInterface().then(console.log)
@@ -265,7 +265,7 @@ kip17.supportsInterface(interfaceId)
 
 `프로미스`는 `Boolean`을 반환: 이 컨트랙트가 해당 `interfaceId`를 가진 인터페이스를 구현한다면 `true`를 반환합니다.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.supportsInterface('0x80ac58cd').then(console.log)
@@ -291,7 +291,7 @@ kip17.name()
 
 `프로미스`는 `String`을 반환: 토큰의 이름입니다.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.name().then(console.log)
@@ -314,7 +314,7 @@ kip17.symbol()
 
 `프로미스`는 `String`을 반환: 토큰의 심볼입니다.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.symbol().then(console.log)
@@ -337,7 +337,7 @@ kip17.totalSupply()
 
 `프로미스`는 `BigNumber`를 반환: 토큰의 총 수량입니다.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.totalSupply().then(console.log)
@@ -364,7 +364,7 @@ kip17.tokenURI(tokenId)
 
 `Promise`는 `String`을 반환: 주어진 토큰의 URI입니다.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.tokenURI(0).then(console.log)
@@ -392,7 +392,7 @@ kip17.tokenOfOwnerByIndex(owner, index)
 
 `프로미스`는 `BigNumber`를 반환: 토큰의 Id입니다.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.tokenOfOwnerByIndex('0x{address in hex}', 5).then(console.log)
@@ -419,7 +419,7 @@ kip17.tokenByIndex(index)
 
 `프로미스`는 `BigNumber`를 반환: 토큰의 Id입니다.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.tokenByIndex(1).then(console.log)
@@ -444,7 +444,7 @@ kip17.balanceOf(address)
 
 `프로미스`는 `BigNumber`를 반환: 계정 잔고입니다.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.balanceOf('0x{address in hex}').then(console.log)
@@ -471,7 +471,7 @@ kip17.ownerOf(tokenId)
 
 `promise`는 `string`을 반환: 주어진 토큰을 소유한 계정의 주소입니다.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.ownerOf(8).then(console.log)
@@ -498,7 +498,7 @@ kip17.getApproved(tokenId)
 
 `Promise`는 `String`을 반환: 주어진 토큰을 전송할 권한이 있는 계정 주소입니다.
 
-**예시**
+**Example**
 
 ```javascript
 // 권한 있는 계정 주소가 존재할 경우
@@ -529,7 +529,7 @@ kip17.isApprovedForAll(owner, operator)
 
 `프로미스`는 `boolean`을 반환: `operator`에게 `owner`가 소유한 모든 토큰을 전송할 권한이 있다면 `true` 를 반환합니다.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.isApprovedForAll('0x{address in hex}', '0x{address in hex}').then(console.log)
@@ -557,7 +557,7 @@ kip17.isMinter(address)
 
 `프로미스`는 `Boolean`을 반환: 계정이 발행자라면 `true`를 반환합니다.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.isMinter('0x{address in hex}').then(console.log)
@@ -583,7 +583,7 @@ kip17.paused()
 
 `Promise`는 `Boolean`을 반환: 이 컨트랙트가 중지되었다면 `true`를 반환합니다.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.paused().then(console.log)
@@ -611,7 +611,7 @@ kip17.isPauser(address)
 
 `프로미스`는 `Boolean`을 반환: 이 계정이 중지 권한을 가진 계정이라면 `true`를 반환합니다.
 
-**예시**
+**Example**
 
 ```javascript
 > kip17.isPauser('0x{address in hex}').then(console.log)
@@ -659,7 +659,7 @@ sendParam 객체는 다음을 포함할 수 있습니다:
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값에 대한 자세한 정보는 [getTransactionReceipt][]를 참고하세요. KIP-17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // 주어진 from 필드에서 sendParam 객체를 통해 전송
@@ -736,7 +736,7 @@ setApprovalForAll 메서드는 Klaytn 네트워크에 트랜잭션을 전송하�
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값에 대한 자세한 정보는 [getTransactionReceipt][]를 참고하세요. KIP-17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // 주어진 from 필드에서 sendParam 객체를 통해 전송
@@ -816,7 +816,7 @@ Transfers the token of the given token id, `tokenId` from the token owner's bala
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값에 대한 자세한 정보는 [getTransactionReceipt][]를 참고하세요. KIP-17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // 주어진 from 필드에서 sendParam 객체를 통해 전송
@@ -877,7 +877,7 @@ Transfers the token of the given token id, `tokenId` from the token owner's bala
 ```javascript
 kip17.safeTransferFrom(from, to, tokenId [, data] [, sendParam])
 ```
-더 안전한 방법으로 주어진 토큰 ID `tokenId`를 가진 토큰을 토큰 소유자 잔액에서 다른 계정으로 전송합니다. The address that was authorized to send the token owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an authorized address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip17Instance.options.from`. Unless both `sendParam.from` and `kip17Instance.options.from` are provided, an error would occur.
+더 안전한 방법으로 주어진 토큰 ID `tokenId`를 가진 토큰을 토큰 소유자 잔액에서 다른 계정으로 전송합니다. 토큰 소유자의 토큰을 보내도록 허락받은 주소인 operator, 또는 토큰 소유자 자신이 이 토큰 전송 트랜잭션을 실행할 수 있습니다. 따라서 토큰을 보내도록 허락받은 계정 또는 토큰 소유자가 이 트랜잭션 발신자이어야 하며, 허락받은 계정의 주소는 반드시 `sendParam.from` 또는 `kip7Instance.options.from`에 주어져야 합니다. `sendParam.from` 또는 `kip7Instance.options.from`가 주어지지 않는다면 에러가 발생합니다.
 
 `to`이 컨트랙트 주소라면, 이 컨트랙트는 반드시 [IKIP17Receiver.onKIP17Received](https://kips.klaytn.com/KIPs/kip-17#wallet-interface)를 구현했어야 합니다. 그렇지 않으면, 전송은 거부됩니다.
 
@@ -899,7 +899,7 @@ kip17.safeTransferFrom(from, to, tokenId [, data] [, sendParam])
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값에 대한 자세한 정보는 [getTransactionReceipt][]를 참고하세요. KIP-17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // (데이터 없이) 주어진 from 필드에서 sendParam 객체를 통해 전송
@@ -980,7 +980,7 @@ addMinter 메서드는 Klaytn 네트워크에 트랜잭션을 전송하며 트�
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값에 대한 자세한 정보는 [getTransactionReceipt][]를 참고하세요. KIP-17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // 주어진 from 필드에서 sendParam 객체를 통해 전송
@@ -1054,7 +1054,7 @@ renounceMinter 메서드는 Klaytn 네트워크에 트랜잭션을 전송하며 
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값에 대한 자세한 정보는 [getTransactionReceipt][]를 참고하세요. KIP-17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // 주어진 from 필드에서 sendParam 객체를 통해 전송
@@ -1132,7 +1132,7 @@ mintWithTokenURI 메서드는 Klaytn 네트워크에 트랜잭션을 전송하�
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값에 대한 자세한 정보는 [getTransactionReceipt][]를 참고하세요. KIP-17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // 주어진 from 필드에서 sendParam 객체를 통해 전송
@@ -1210,7 +1210,7 @@ burn 메서드는 Klaytn 네트워크에 트랜잭션을 전송하며 트랜잭�
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값에 대한 자세한 정보는 [getTransactionReceipt][]를 참고하세요. KIP-17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // 주어진 from 필드에서 sendParam 객체를 통해 전송
@@ -1287,7 +1287,7 @@ pause 메서드는 Klaytn 네트워크에 트랜잭션을 전송하며 트랜잭
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값에 대한 자세한 정보는 [getTransactionReceipt][]를 참고하세요. KIP-17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // 주어진 from 필드에서 sendParam 객체를 통해 전송
@@ -1360,7 +1360,7 @@ unpause 메서드는 Klaytn 네트워크에 트랜잭션을 전송하며 트랜�
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값에 대한 자세한 정보는 [getTransactionReceipt][]를 참고하세요. KIP-17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // 주어진 from 필드에서 sendParam 객체를 통해 전송
@@ -1434,7 +1434,7 @@ addPauser 메서드는 Klaytn 네트워크에 트랜잭션을 전송하며 트�
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값에 대한 자세한 정보는 [getTransactionReceipt][]를 참고하세요. KIP-17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // 주어진 from 필드에서  sendParam 객체를 통해 전송
@@ -1507,7 +1507,7 @@ renouncePauser 메서드는 Klaytn 네트워크에 트랜잭션을 전송하며 
 
 `프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값에 대한 자세한 정보는 [getTransactionReceipt][]를 참고하세요. KIP-17 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
-**예시**
+**Example**
 
 ```javascript
 // 주어진 from 필드에서 sendParam 객체를 통해 전송
