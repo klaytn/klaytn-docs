@@ -19,7 +19,7 @@
 | ------- | ---------------------------- |
 | Boolean | 입력으로 받은 주소가 존재하는지 여부를 반환합니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -48,7 +48,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | ------------------- | -------------------------- |
 | 20바이트 크기 DATA array | 클라이언트가 소유한 계정의 주소들을 반환합니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -81,7 +81,7 @@ RLP(Recursive Length Prefix)를 사용해 계정 키를 인코딩합니다.
 | DATA | RLP로 인코딩된 계정 키 |
 
 
-**예시**
+**Example**
 
 ```shell
 // Request to encode AccountKeyNil
@@ -168,7 +168,7 @@ RLP 인코딩된 계정 키를 디코딩합니다.
 | keytype | QUANTITY  | 계정 키 타입을 의미하는 정수값입니다. |
 | key     | JSON DATA | 계정 키 객체               |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -243,7 +243,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 | ------- | ----------------------- |
 | Account | 계정 유형에 따라 다른 속성을 반환합니다. |
 
-**예시**
+**Example**
 
 ```shell
     // Request (Account type: Externally Owned Account)
@@ -318,7 +318,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | ---------- | ------------------------------------ |
 | AccountKey | 계정 키는 1개 이상의 공개 키와 1가지 키 타입으로 구성됩니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request (AccountKey type: AccountKeyPublic)
@@ -441,7 +441,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | ---- | ------------------ |
 | DATA | 입력으로 받은 주소의 코드입니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -477,7 +477,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | -------- | ---------------------------------------- |
 | QUANTITY | 입력으로 받은 주소에서 발신한 트랜잭션의 개수를 정수 형태로 반환합니다. |
 
-**예시**
+**Example**
 
  ```shell
 // Request
@@ -515,7 +515,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | ------- | --------------------------------------------- |
 | Boolean | 리턴값이 `true`이면 매개변수가 기존에 있는 스마트 컨트랙트 계정 주소입니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -553,7 +553,7 @@ sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 | ---- | -------- |
 | DATA | 서명 값입니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
