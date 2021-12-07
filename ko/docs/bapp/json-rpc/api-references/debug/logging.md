@@ -145,7 +145,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 없음
 
-**예시**
+**Example**
 
 콘솔
 ```javascript
@@ -185,7 +185,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 없음
 
-**예시**
+**Example**
 
 콘솔
 ```javascript
@@ -218,7 +218,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 없음
 
-**예시**
+**Example**
 
 콘솔
 
