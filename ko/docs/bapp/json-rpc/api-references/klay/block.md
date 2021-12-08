@@ -55,7 +55,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 [klay_getBlockByHash](#klay_getheaderbyhash)를 참고하세요.
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -116,7 +116,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | governanceData   | DATA           | RLP 인코딩된 거버넌스 설정입니다.                         |
 | voteData         | DATA           | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                    |
 
-**Example**
+**예시**
 
 ```shell
 // Request
