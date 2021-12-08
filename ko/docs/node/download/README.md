@@ -3,6 +3,7 @@
 ## 패키지 받기 <a id="get-the-packages"></a>
 CN, PN, EN, SCN, SPN 및 SEN 용 패키지를 받을 수 있습니다.
 
+* [v1.7.2](v1.7.2.md)
 * [v1.7.1](v1.7.1.md)
 * [v1.7.0](v1.7.0.md)
 * [v1.6.4](v1.6.4.md)
