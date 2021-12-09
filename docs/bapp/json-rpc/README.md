@@ -57,3 +57,21 @@ will give all enabled modules including the version number:
 }
 ```
 
+## 요청 형식
+
+Klaytn의 JSON-RPC API 설명에 공통적으로 사용되는 요청 형식에 대해 설명드리겠습니다. 우선 형식은 아래와 같습니다.
+
+```
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"{method}","params":[],"id":1}' http://localhost:8551
+```
+
+우선 `-H` 이후에 나오는 헤더 포함되는 내용은 다음과 같습니다.
+
+- `Content-Type: application/json`는 전달되는 데이터의 형식이 JSON이라는 뜻입니다.
+
+`--data`에 포함되는 내용을 살펴보겠습니다.
+
+- `"jsonrpc":"2.0"`는 사용되는 JSON-RPC 프로토콜의 버전이 2.0라는 뜻입니다.
+- `method`는 사용할 JSON-RPC 메서드를 뜻합니다.
+- `"params":[]`에는 사용할 메서드에 따라 파라미터를 전달합니다. 특정 주소의 계정 정보를 반환하는 경우로 예를 들어 보겠습니다. 이때 파라미터로 조회할 주소와 블록번호가 전달되는데, 이는 다음과 같습니다. `"params":["0x3111a0577f322e8fb54f78d9982a26ae7ca0f722", "latest"]`
+- `"id":1`는 요청을 구분할 식별자입니다.
