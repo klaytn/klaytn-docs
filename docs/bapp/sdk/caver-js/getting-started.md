@@ -41,7 +41,7 @@ This section describes a simple example of using a `keystore file` to send KLAY 
 
 ```javascript
 const fs = require('fs')
-const Caver = require('./index')
+const Caver = require('caver-js')
 const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
