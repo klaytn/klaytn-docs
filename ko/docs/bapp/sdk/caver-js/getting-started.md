@@ -41,7 +41,7 @@ $ npm install caver-js@X.X.X
 
 ```javascript
 const fs = require('fs')
-const Caver = require('./index')
+const Caver = require('caver-js')
 const caver = new Caver('https://your.en.url:8651/')
 
 async function testFunction() {
