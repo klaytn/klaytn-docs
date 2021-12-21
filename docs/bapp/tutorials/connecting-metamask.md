@@ -30,26 +30,45 @@
 
 * Enter the Endpoint Node (EN) data of the Klaytn chain.
 
+  * Cypress
+    * Network Name: Klaytn Cypress
+    * New RPC URL: (Default: [https://public-node-api.klaytnapi.com/v1/cypress](https://public-node-api.klaytnapi.com/v1/cypress))
+    * Block Explorer URL: [https://scope.klaytn.com/](https://scope.klaytn.com/)
+    * Chain ID: 8217
   * Baobab
     * Network Name: Klaytn Baobab
     * New RPC URL: [https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651) (Default: [http://localhost:8551](http://localhost:8551/))
     * Block Explorer URL: [https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
     * Chain ID: 1001
-  * Cypress
-    * Network Name: Klaytn Cypress
-    * New RPC URL: (Default: [http://localhost:8551](http://localhost:8551/))
-    * Block Explorer URL: [https://scope.klaytn.com/](https://scope.klaytn.com/)
-    * Chain ID: 8217
   * Common
     * Currency Symbol: KLAY
 
-    > **Note:** This tutorial uses Public EN of the Testnet (Baobab) for connecting to the network. Currently, Public EN is not supported on the Mainnet (Cypress), so make sure to use Baobab when running a test.
-  
+
+* Click [Save] to add Klaytn Cypress Network.
+
+![Network Setup and Custom RPC](./img/metamask-add-cypress-1.png)
+![Network Setup and Custom RPC](./img/metamask-add-cypress-2.png)
+
+## Step 4. Send KLAY <a id="send-klay"></a>
+**Note:** To send KLAY, you will need to make a transaction, which requires KLAY. If you don't have enough KLAY, do this step in Klaytn Baobab Network. 
+
+* Click on the round icon in the top right corner, and select [Create Account] in the menu to create a new account.
+* Copy the account address to clipboard.
+
+![Copy the Account Address](./img/metamask-copy-address.png)
+
+* In the drop-down menu, change to the first account.
+* On [Send], enter the recipient's account address as well as the amount of KLAY and then click [Next] to proceed.
+  > **Note:** The gas price on Klaytn is fixed. Arbitrarily changing the price may result in a transaction failure.You can view your transaction history in the [Activity] tab.
+
+![Transfer History](./img/metamask-send-klay.png)
+
+## Klaytn Baobab Network - Obtain KLAY to make a transaction <a id="obtain-klay-to-make-a-transaction"></a>
+> **Note:** This tutorial uses Public EN of the Testnet (Baobab) for connecting to the network. Make sure to use Baobab when running a test.
+
 * Click [Save] to add Klaytn Baobab Network.
 
 ![Network Setup and Custom RPC](./img/metamask-add-baobab.png)
-
-## Step 4. Obtain KLAY to make a transaction <a id="obtain-klay-to-make-a-transaction"></a>
 
 * To test the connection of the Klaytn Wallet, you will need to make a transaction, which requires KLAY.
 * Click on the kebab menu (three dots) in the upper right corner and select [Account details].
@@ -64,18 +83,6 @@
 ![Account Sign-in and KLAY Faucet](./img/metamask-klay-faucet.png)
 
 * Come back to MetaMask and confirm the KLAY that you received.
+* You can do step 4 in Klaytn Baobab Network.
 
 ![Balance](./img/metamask-klay-received.png)
-
-## Step 5. Send KLAY <a id="send-klay"></a>
-
-* Click on the round icon in the top right corner, and select [Create Account] in the menu to create a new account.
-* Copy the account address to clipboard.
-
-![Copy the Account Address](./img/metamask-copy-address.png)
-
-* In the drop-down menu, change to the first account.
-* On [Send], enter the recipient's account address as well as the amount of KLAY and then click [Next] to proceed.
-  > **Note:** The gas price on Klaytn is fixed. Arbitrarily changing the price may result in a transaction failure.You can view your transaction history in the [Activity] tab.
-
-![Transfer History](./img/metamask-send-klay.png)
