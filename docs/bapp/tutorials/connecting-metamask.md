@@ -59,7 +59,7 @@
 
 * In the drop-down menu, change to the first account.
 * On [Send], enter the recipient's account address as well as the amount of KLAY and then click [Next] to proceed.
-  > **Note:** The gas price on Klaytn is fixed. Arbitrarily changing the price may result in a transaction failure.You can view your transaction history in the [Activity] tab.
+  > **Note:** The gas price on Klaytn is fixed. Arbitrarily changing the price may result in a transaction failure. You can view your transaction history in the [Activity] tab.
 
 ![Transfer History](./img/metamask-send-klay.png)
 
