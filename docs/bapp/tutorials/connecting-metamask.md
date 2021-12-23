@@ -50,7 +50,7 @@
 ![Network Setup and Custom RPC](./img/metamask-add-cypress-2.png)
 
 ## Step 4. Send KLAY <a id="send-klay"></a>
-**Note:** To send KLAY, you will need to make a transaction, which requires KLAY. If you don't have enough KLAY, do this step in Klaytn Baobab Network. 
+**Note:** To send KLAY, you will need to make a transaction, which requires KLAY. For the Klaytn Baobab Network, follow this step if you don't have enough KLAY.
 
 * Click on the round icon in the top right corner, and select [Create Account] in the menu to create a new account.
 * Copy the account address to clipboard.
