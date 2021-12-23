@@ -64,7 +64,7 @@
 ![Transfer History](./img/metamask-send-klay.png)
 
 ## Klaytn Baobab Network - Obtain KLAY to make a transaction <a id="obtain-klay-to-make-a-transaction"></a>
-> **Note:** This tutorial uses Public EN of the Testnet (Baobab) for connecting to the network. Make sure to use Baobab when running a test.
+> **Note:** This tutorial uses Public EN of the Testnet (Baobab) to connect to the network. Make sure to use Baobab when you are running a test.
 
 * Click [Save] to add Klaytn Baobab Network.
 
