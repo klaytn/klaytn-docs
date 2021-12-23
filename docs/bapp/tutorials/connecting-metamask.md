@@ -83,6 +83,6 @@
 ![Account Sign-in and KLAY Faucet](./img/metamask-klay-faucet.png)
 
 * Come back to MetaMask and confirm the KLAY that you received.
-* You can do step 4 in Klaytn Baobab Network.
+* You can follow step 4 for the Klaytn Baobab Network.
 
 ![Balance](./img/metamask-klay-received.png)
