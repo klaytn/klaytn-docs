@@ -31,56 +31,56 @@
 * 연결할 Klaytn 체인의 EN 정보를 입력합니다.
 
   * Cypress
-    * Network Name: Klaytn Cypress
-    * New RPC URL: (Default: [https://public-node-api.klaytnapi.com/v1/cypress](https://public-node-api.klaytnapi.com/v1/cypress))
-    * Block Explorer URL: [https://scope.klaytn.com/](https://scope.klaytn.com/)
-    * Chain ID: 8217
+    * 네트워크 이름: Klaytn Cypress
+    * 새 RPC URL: (기본값: [https://public-node-api.klaytnapi.com/v1/cypress](https://public-node-api.klaytnapi.com/v1/cypress))
+    * 블록 탐색기 URL: [https://scope.klaytn.com/](https://scope.klaytn.com/)
+    * 체인 ID: 8217
   * Baobab
-    * Network Name: Klaytn Baobab
-    * New RPC URL: [https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651) (Default: [http://localhost:8551](http://localhost:8551/))
-    * Block Explorer URL: [https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
-    * Chain ID: 1001
-  * Common
+    * 네트워크 이름: Klaytn Baobab
+    * 새 RPC URL: [https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651) (Default: [http://localhost:8551](http://localhost:8551/))
+    * 블록 탐색기 URL: [https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
+    * 체인 ID: 1001
+  * 공통
     * 통화 기호: KLAY
 
 
-* Click [Save] to add Klaytn Cypress Network.
+* [Save]를 클릭하면 Klaytn Cypress 네트워크가 추가됩니다.
 
 ![Network Setup and Custom RPC](./img/metamask-add-cypress-1.png) ![Network Setup and Custom RPC](./img/metamask-add-cypress-2.png)
 
-## 4단계: Send KLAY <a id="send-klay"></a>
-**Note:** To send KLAY, you will need to make a transaction, which requires KLAY. For the Klaytn Baobab Network, follow this step if you don't have enough KLAY.
+## 4단계: KLAY 보내기 <a id="send-klay"></a>
+**Note:** KLAY를 보내기 위해서는 트랜잭션을 발생시켜야 하며, 이 과정은 KLAY를 요구합니다. Klaytn Baobab 네트워크를 사용하는 경우, KLAY가 부족할 시 이 단계를 따르세요.
 
-* Click on the round icon in the top right corner, and select [Create Account] in the menu to create a new account.
-* Copy the account address to clipboard.
+* 우측 상단 아이콘 탭에서 [Create Account]을 클릭하여 새로운 계정을 생성합니다.
+* 계정 주소를 복사합니다.
 
-![Copy the Account Address](./img/metamask-copy-address.png)
+![계정 주소를 복사하세요.](./img/metamask-copy-address.png)
 
-* In the drop-down menu, change to the first account.
-* On [Send], enter the recipient's account address as well as the amount of KLAY and then click [Next] to proceed. > **Note:** The gas price on Klaytn is fixed. Arbitrarily changing the price may result in a transaction failure. You can view your transaction history in the [Activity] tab.
+* 드롭다운 메뉴에서 첫 번째 계정으로 전환합니다.
+* [Send]에서 받을 계정 주소와 KLAY 수량을 입력한 후 [Next]을 클릭하여 송금을 진행합니다. > **Note:** Klaytn의 가스비는 고정되어 있습니다. 임의적으로 가스비를 변경할 경우 트랜잭션이 실패할 수 있습니다. [Activity] 탭에서 거래 내역을 확인할 수 있습니다.
 
-![Transfer History](./img/metamask-send-klay.png)
+![거래 내역](./img/metamask-send-klay.png)
 
-## Klaytn Baobab Network - Obtain KLAY to make a transaction <a id="obtain-klay-to-make-a-transaction"></a>
-> **Note:** This tutorial uses Public EN of the Testnet (Baobab) to connect to the network. Make sure to use Baobab when you are running a test.
+## Klaytn Baobab 네트워크 - 트랜잭션을 위한 KLAY 충전<a id="obtain-klay-to-make-a-transaction"></a>
+> **참고:** 예제는 테스트넷(Baobab)의 Public EN으로 네트워크에 연결하였습니다. 테스트 시에는 Baobab을 사용하세요.
 
-* Click [Save] to add Klaytn Baobab Network.
+* [Save]을 클릭하면 Klaytn Baobab 네트워크가 추가됩니다.
 
 ![Network Setup and Custom RPC](./img/metamask-add-baobab.png)
 
-* To test the connection of the Klaytn Wallet, you will need to make a transaction, which requires KLAY.
-* Click on the kebab menu (three dots) in the upper right corner and select [Account details].
-* Click [Export Private Key] to obtain your private key.
+* Klaytn Wallet의 연동 상태를 확인하기 위해서는 송금에 사용될 KLAY가 필요합니다.
+* 우측 상단 아이콘 아래 탭에서 [Account details]를 클릭합니다.
+* [Export Private Key]를 클릭하여 개인 키를 획득합니다.
 
-![Export Private Key](./img/metamask-obtain-private-key.png)
+![개인 키 내보내기](./img/metamask-obtain-private-key.png)
 
-* When using Baobab Testnet, you can obtain Test Klay in [**Klaytn Faucet**](https://baobab.wallet.klaytn.com/access?next=faucet).
-* Enter your private key on Klaytn Wallet and log in by clicking [Access]. (Attach 0x in front of the private key.)
-* Click [Run Faucet]. 5 Testnet KLAY will be sent to your account and the balance will be updated accordingly. You can claim Testnet KLAY from Faucet once every 24 hours per account.
+* Baobab 테스트넷에서는 [**Klaytn Faucet**](https://baobab.wallet.klaytn.com/access?next=faucet)을 이용하여 테스트에 필요한 KLAY를 받을 수 있습니다.
+* Klaytn Wallet에서 개인 키를 입력한 후 [Access] 버튼을 클릭해 로그인합니다. (개인 키 앞에 0x를 기입합니다.)
+* [Run Faucet] 버튼을 클릭하세요. 5 테스트넷 KLAY가 전송되고 잔액이 업데이트됩니다. Faucet 기능은 계정당 1일 1회, 24시간마다 한 번씩 실행할 수 있습니다.
 
-![Account Sign-in and KLAY Faucet](./img/metamask-klay-faucet.png)
+![계정 로그인과 KLAY Faucet](./img/metamask-klay-faucet.png)
 
-* Come back to MetaMask and confirm the KLAY that you received.
-* You can follow step 4 for the Klaytn Baobab Network.
+* 메타마스크로 돌아와 보유 KLAY를 확인합니다.
+* Klaytn Baobab 네트워크의 경우 Step 4를 따르세요.
 
 ![Balance](./img/metamask-klay-received.png)
