@@ -119,9 +119,9 @@ Recovers the public key strings from `signatures` field of the given transaction
 
 **리턴값**
 
-| 타입 | 설명                                                           |
-| -- | ------------------------------------------------------------ |
-| 배열 | An array containing public keys recovered from `signatures`. |
+| 타입    | 설명                                                           |
+| ----- | ------------------------------------------------------------ |
+| Array | An array containing public keys recovered from `signatures`. |
 
 **Example**
 
@@ -152,9 +152,9 @@ Recovers the public key strings from `feePayerSignatures` field of the given tra
 
 **리턴값**
 
-| 타입 | 설명                                                                   |
-| -- | -------------------------------------------------------------------- |
-| 배열 | An array containing public keys recovered from `feePayerSignatures`. |
+| 타입    | 설명                                                                   |
+| ----- | -------------------------------------------------------------------- |
+| Array | An array containing public keys recovered from `feePayerSignatures`. |
 
 **Example**
 
@@ -445,9 +445,9 @@ Collects signs in each RLP-encoded transaction string in the given array, combin
 
 **매개변수**
 
-| 이름            | 타입 | 설명                                                  |
-| ------------- | -- | --------------------------------------------------- |
-| rlpEncodedTxs | 배열 | An array of signed RLP-encoded transaction strings. |
+| 이름            | 타입    | 설명                                                  |
+| ------------- | ----- | --------------------------------------------------- |
+| rlpEncodedTxs | Array | An array of signed RLP-encoded transaction strings. |
 
 **리턴값**
 
@@ -636,9 +636,9 @@ transaction.recoverPublicKeys()
 
 **리턴값**
 
-| 타입 | 설명                                   |
-| -- | ------------------------------------ |
-| 배열 | `signatures`에서 복구된 공개키를 포함하는 문자열입니다. |
+| 타입    | 설명                                   |
+| ----- | ------------------------------------ |
+| Array | `signatures`에서 복구된 공개키를 포함하는 문자열입니다. |
 
 **Example**
 
@@ -663,9 +663,9 @@ transaction.recoverFeePayerPublicKeys()
 
 **리턴값**
 
-| 타입 | 설명                                           |
-| -- | -------------------------------------------- |
-| 배열 | `feePayerSignatures`에서 복구된 공개키를 포함하는 문자열입니다. |
+| 타입    | 설명                                           |
+| ----- | -------------------------------------------- |
+| Array | `feePayerSignatures`에서 복구된 공개키를 포함하는 문자열입니다. |
 
 **Example**
 
