@@ -280,9 +280,9 @@ ABI 인코딩된 로그 데이터 및 인덱싱된 토픽 데이터를 디코딩
 **매개변수**
 | 이름        | 타입     | 설명                                                                                                                               |
 | --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------- |
-| inputs    | 배열     | A JSON interface inputs array. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요.     |
+| inputs    | Array  | A JSON interface inputs array. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요.     |
 | hexString | String | 로그의 `data` 필드에 있는 ABI 바이트 코드.                                                                                                    |
-| topics    | 배열     | An array with the index parameter topics of the log, without the topic[0] if its a non-anonymous event, otherwise with topic[0]. |
+| topics    | Array  | An array with the index parameter topics of the log, without the topic[0] if its a non-anonymous event, otherwise with topic[0]. |
 
 **리턴값**
 
@@ -328,7 +328,7 @@ caver.klay.abi.encodeContractDeploy(jsonInterface, hexString, params)
 **매개변수**
 | 이름            | 타입     | 설명                                    |
 | ------------- | ------ | ------------------------------------- |
-| jsonInterface | 배열     | 컨트랙트의 JSON 인터페이스.                     |
+| jsonInterface | Array  | 컨트랙트의 JSON 인터페이스.                     |
 | hexString     | String | 배포할 스마트 컨트랙트의 바이트코드.                  |
 | params        | 복합     | Arguments to pass to the constructor. |
 
