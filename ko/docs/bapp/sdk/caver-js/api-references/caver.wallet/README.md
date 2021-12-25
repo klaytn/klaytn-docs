@@ -35,9 +35,9 @@ caver.wallet.generate(numberOfKeyrings [, entropy])
 
 **리턴값**
 
-| 타입 | 설명                        |
-| -- | ------------------------- |
-| 배열 | 생성된 인스턴스의 주소를 포함하는 배열입니다. |
+| 타입    | 설명                        |
+| ----- | ------------------------- |
+| Array | 생성된 인스턴스의 주소를 포함하는 배열입니다. |
 
 **Example**
 
@@ -306,7 +306,7 @@ If the user has not provided the index parameter, `caver.wallet.signMessage` sig
 | 이름          | 타입     | 설명                             |
 | ----------- | ------ | ------------------------------ |
 | messageHash | string | Klaytn 고유의 접두사를 가진 메시지의 해시입니다. |
-| signatures  | 배열     | An array of [SignatureData][]. |
+| signatures  | Array  | An array of [SignatureData][]. |
 | 메시지         | string | 서명할 메시지입니다.                    |
 
 **Example**
