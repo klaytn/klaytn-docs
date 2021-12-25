@@ -164,7 +164,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 [klay_getBlockByHash](#klay_getblockbyhash)를 참고하세요.
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -230,11 +230,11 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | gasUsed          | QUANTITY       | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                             |
 | timestamp        | QUANTITY       | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                |
 | timestampFoS     | QUANTITY       | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                           |
-| transactions     | 배열             | 트랜잭션 객체의 배열이거나 또는 마지막으로 주어진 매개변수에 따라 32바이트 크기의 트랜잭션 해시입니다. |
+| transactions     | Array          | 트랜잭션 객체의 배열이거나 또는 마지막으로 주어진 매개변수에 따라 32바이트 크기의 트랜잭션 해시입니다. |
 | governanceData   | DATA           | RLP 인코딩된 거버넌스 설정입니다.                                       |
 | voteData         | DATA           | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                  |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -285,7 +285,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 해당 블록에 포함된 Receipt를 반환합니다.  조회하고자 하는 블록이 트랜잭션을 포함하지 않으면 빈 배열 `[]`이 반환됩니다.
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -349,7 +349,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 | -------- | ---------------------------- |
 | QUANTITY | 이 블록에 담긴 트랜잭션의 개수의 정수 형태입니다. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -413,7 +413,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | ---------------- | ------------- | ------------------------------------------------------------------------ |
 | blockScore       | QUANTITY      | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                         |
 | totalBlockScore  | QUANTITY      | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                   |
-| committee        | 배열            | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
+| committee        | Array         | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
 | gasUsed          | QUANTITY      | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                           |
 | 해시               | 32바이트 크기 DATA | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                      |
 | number           | QUANTITY      | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                                       |
@@ -424,10 +424,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | stateRoot        | 32바이트 크기 DATA | 블록의 상태 트라이의 루트 해시입니다.                                                    |
 | timestamp        | QUANTITY      | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                              |
 | timestampFoS     | QUANTITY      | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                         |
-| transactions     | 배열            | 트랜잭션 객체의 배열입니다.                                                          |
+| transactions     | Array         | 트랜잭션 객체의 배열입니다.                                                          |
 | transactionsRoot | 32바이트 크기 DATA | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                  |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -521,7 +521,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 | ---------------- | ------------- | ------------------------------------------------------------------------ |
 | blockScore       | QUANTITY      | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                         |
 | totalBlockScore  | QUANTITY      | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                   |
-| committee        | 배열            | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
+| committee        | Array         | 블록 생성에 관여한 위원회 멤버들의 주소의 배열입니다. 위원회란 블록 생성을 위한 합의 프로토콜에 참여한 검증자들 중 일부입니다. |
 | gasUsed          | QUANTITY      | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                           |
 | 해시               | 32바이트 크기 DATA | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                      |
 | number           | QUANTITY      | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                                       |
@@ -532,7 +532,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 | stateRoot        | 32바이트 크기 DATA | 블록의 상태 트라이의 루트 해시입니다.                                                    |
 | timestamp        | QUANTITY      | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                              |
 | timestampFoS     | QUANTITY      | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                         |
-| transactions     | 배열            | 트랜잭션 객체의 배열입니다.                                                          |
+| transactions     | Array         | 트랜잭션 객체의 배열입니다.                                                          |
 | transactionsRoot | 32바이트 크기 DATA | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                  |
 
 **예시**
@@ -612,9 +612,9 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 이름                   | 타입    | 설명                                                                                                                                        |
-| -------------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY  &#124; TAG | 블록 번호 | (정수 또는 16진수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열, 또는 블록 해시입니다. |
+| 이름                   | 타입    | 설명                                                                                                                                               |
+| -------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| QUANTITY  &#124; TAG | 블록 번호 | (선택 사항) 정수 또는 16진수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열, 또는 블록 해시입니다. |
 
 {% hint style="success" %}
 참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
@@ -651,9 +651,9 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 이름                   | 타입    | 설명                                                                                                                                        |
-| -------------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY  &#124; TAG | 블록 번호 | (정수 또는 16진수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열, 또는 블록 해시입니다. |
+| 이름                   | 타입    | 설명                                                                                                                                               |
+| -------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| QUANTITY  &#124; TAG | 블록 번호 | (선택 사항) 정수 또는 16진수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열, 또는 블록 해시입니다. |
 
 {% hint style="success" %}
 참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
@@ -688,9 +688,9 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 이름                   | 타입    | 설명                                                                                                                                        |
-| -------------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY  &#124; TAG | 블록 번호 | (정수 또는 16진수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열, 또는 블록 해시입니다. |
+| 이름                   | 타입    | 설명                                                                                                                                               |
+| -------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| QUANTITY  &#124; TAG | 블록 번호 | (선택 사항) 정수 또는 16진수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열, 또는 블록 해시입니다. |
 
 {% hint style="success" %}
 참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
@@ -727,9 +727,9 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 이름                   | 타입    | 설명                                                                                                                                        |
-| -------------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| QUANTITY  &#124; TAG | 블록 번호 | (정수 또는 16진수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열, 또는 블록 해시입니다. |
+| 이름                   | 타입    | 설명                                                                                                                                               |
+| -------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| QUANTITY  &#124; TAG | 블록 번호 | (선택 사항) 정수 또는 16진수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열, 또는 블록 해시입니다. |
 
 {% hint style="success" %}
 참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
@@ -763,11 +763,11 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **매개변수**
 
-| 타입                              | 설명                                                                                                                                  |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA                   | 스토리지의 주소입니다.                                                                                                                        |
-| QUANTITY                        | 스토리지 내 위치의 정수 형태입니다.                                                                                                                |
-| QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](block.md#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
+| 타입                              | 설명                                                                                                                                           |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20바이트 크기 DATA                   | 스토리지의 주소입니다.                                                                                                                                 |
+| QUANTITY                        | 스토리지 내 위치의 정수 형태입니다.                                                                                                                         |
+| QUANTITY &#124; TAG &#124; HASH | 정수나 16진수 형태의 블록 번호 또는 [기본 블록 매개변수](block.md#the-default-block-parameter)나 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"` 상태를 나타내는 문자열입니다. |
 
 {% hint style="success" %}
 참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
@@ -779,7 +779,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 | ---- | -------------------------- |
 | DATA | 입력으로 받은 스토리지 위치의 값을 반환합니다. |
 
-**Example**
+**예시**
 
 올바른 위치를 계산하는 것은 탐색할 스토리지에 따라 차이가 있습니다. 아래와 같이 `0x391694e7e0b0cce554cb130d723a9d27458f9298` 주소에 의해 `0x295a70b2de5e3953354a6a8344e616ed314d7251`에 배포된 컨트랙트를 가정해봅시다.
 
