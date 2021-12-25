@@ -66,7 +66,7 @@ myContract.options
 | 명칭            | 형식     | 설명                                                                           |
 |:------------- |:------ |:---------------------------------------------------------------------------- |
 | address       | String | 컨트랙트가 배포된 주소.  Also see [options.address](#options-address).                 |
-| jsonInterface | 배열     | 컨트랙트의 JSON 인터페이스.  Also see [options.jsonInterface](#options-jsoninterface). |
+| jsonInterface | Array  | 컨트랙트의 JSON 인터페이스.  Also see [options.jsonInterface](#options-jsoninterface). |
 | data          | String | 컨트랙트의 바이트 코드. 컨트랙트가 배포될 때 사용됩니다.                                             |
 | from          | String | 트랜잭션이 만들어진 송신자 주소.                                                           |
 | gasPrice      | String | 트랜잭션에 사용할 peb 단위의 가스 가격.                                                     |
