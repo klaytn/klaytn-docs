@@ -68,7 +68,7 @@ const accountKeyWeightedMultiSig = new caver.account.accountKey.accountKeyWeight
 | 이름                 | 타입     | 설명                            |
 | ------------------ | ------ | ----------------------------- |
 | 임계값                | number | 검증 임계값입니다.                    |
-| weightedPublicKeys | 배열     | [WeightedPublicKey][]의 배열입니다. |
+| weightedPublicKeys | Array  | [WeightedPublicKey][]의 배열입니다. |
 
 ### AccountKeyRoleBased <a id="accountkeyrolebased"></a>
 
@@ -82,9 +82,9 @@ const accountKeyRoleBased = new caver.account.accountKey.accountKeyRoleBased(acc
 
 **속성**
 
-| 이름              | 타입 | 설명                                                                                                                                                                                                                                                 |
-| --------------- | -- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| accountKeyArray | 배열 | 각 [역할][]에 사용되는 키를 정의하는 배열입니다. 각 역할은 [AccountKeyLegacy, [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) 또는 AccountKeyRoleBased](#accountkeylegacy)로 정의될 수 있습니다. |
+| 이름              | 타입    | 설명                                                                                                                                                                                                                                                 |
+| --------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| accountKeyArray | Array | 각 [역할][]에 사용되는 키를 정의하는 배열입니다. 각 역할은 [AccountKeyLegacy, [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) 또는 AccountKeyRoleBased](#accountkeylegacy)로 정의될 수 있습니다. |
 
 ### WeightedPublicKey <a id="weightedpublickey"></a>
 
@@ -114,7 +114,7 @@ const weightedMultiSigOptions = new caver.account.weightedMultiSigOptions(thresh
 | 이름  | 타입     | 설명            |
 | --- | ------ | ------------- |
 | 임계값 | number | 검증 임계값입니다.    |
-| 가중치 | 배열     | 키 가중치의 배열입니다. |
+| 가중치 | Array  | 키 가중치의 배열입니다. |
 
 
 ## caver.account.create <a id="caver-account-create"></a>
@@ -395,7 +395,7 @@ AccountKeyWeightedMultiSig를 accountKey로 지닌 Account 인스턴스를 생�
 | 이름             | 타입                          | 설명                                                             |
 | -------------- | --------------------------- | -------------------------------------------------------------- |
 | address        | string                      | 업데이트 할 계정의 주소입니다.                                              |
-| publicKeyArray | 배열                          | 다수의 공개키 문자열을 포함한 배열입니다.                                        |
+| publicKeyArray | Array                       | 다수의 공개키 문자열을 포함한 배열입니다.                                        |
 | options        | [WeightedMultiSigOptions][] | (선택 사항) 임계값과 가중치 배열을 정의하는 [WeightedMultiSigOptions][] 인스턴스입니다. |
 
 
@@ -451,8 +451,8 @@ AccountKeyRoleBased를 accountKey로 지닌 Account 인스턴스를 생성합니
 | 이름                       | 타입     | 설명                                                             |
 | ------------------------ | ------ | -------------------------------------------------------------- |
 | address                  | string | 업데이트 할 계정의 주소입니다.                                              |
-| roledBasedPublicKeyArray | 배열     | 각 역할에 대해 공개키 문자열의 배열을 포함하고 있는 2차원 배열입니다.                       |
-| options                  | 배열     | (선택 사항) 각 역할에 대해 [WeightedMultiSigOptions][] 인스턴스를 포함하는 배열입니다. |
+| roledBasedPublicKeyArray | Array  | 각 역할에 대해 공개키 문자열의 배열을 포함하고 있는 2차원 배열입니다.                       |
+| options                  | Array  | (선택 사항) 각 역할에 대해 [WeightedMultiSigOptions][] 인스턴스를 포함하는 배열입니다. |
 
 
 **리턴값**
