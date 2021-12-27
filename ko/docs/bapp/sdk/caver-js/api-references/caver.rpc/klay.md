@@ -47,7 +47,7 @@ caver.rpc.klay.getAccount(address [, blockNumber] [, callback])
 
 | 이름          | 타입                                       | 설명                                                                                              |
 | ----------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| address     | string                                   | 계정 정보를 알고 싶은 계정 주소입니다.                                                                          |
+| address     | string                                   | 정보를 알고 싶은 계정 주소입니다.                                                                             |
 | blockNumber | number &#124; stringnumber &#124; string | (선택 사항) 블록 넘버, 또는 `latest`, `earliest`, `pending` 문자열 중 하나입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
 | callback    | function                                 | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                            |
 
