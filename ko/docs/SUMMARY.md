@@ -128,6 +128,7 @@
     * [사용 방법 가이드](node/service-chain/howto/README.md)
   * [에러 & 문제 해결](node/errors-and-troubleshooting.md)
   * [다운로드](node/download/README.md)
+    * [v1.7.3](node/download/v1.7.3.md)
     * [v1.7.2](node/download/v1.7.2.md)
     * [v1.7.1](node/download/v1.7.1.md)
     * [v1.7.0](node/download/v1.7.0.md)
