@@ -155,6 +155,7 @@
   * [JSON-RPC APIs](bapp/json-rpc/README.md)
     * [API references](bapp/json-rpc/api-references/README.md)
       * [eth](bapp/json-rpc/api-references/eth.md)
+        * [Caution](bapp/json-rpc/api-references/eth/caution.md)
       * [klay](bapp/json-rpc/api-references/klay.md)
         * [Account](bapp/json-rpc/api-references/klay/account.md)
         * [Block](bapp/json-rpc/api-references/klay/block.md)
