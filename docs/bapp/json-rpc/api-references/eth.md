@@ -1,6 +1,6 @@
 ---
 description: >-
-  APIs related to accounts, blocks, transactions, and nodes. 
+  APIs related to ETH Apis.
 ---
 
 # Namespace eth <a id="namespace-eth"></a>
