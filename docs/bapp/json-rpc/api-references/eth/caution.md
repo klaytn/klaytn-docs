@@ -80,8 +80,8 @@ are served as Ethereum Legacy Transaction.
 
 | Ethereum Legacy Transaction Field | Klaytn FeeDelegation Transaction Field | Description                                                                                                  |
 |-----------------------------------|----------------------------------------|--------------------------------------------------------------------------------------------------------------|
-|                                   | feePayer                               | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.          |
-|                                   | feePayerSignatures                     | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.          |
+|                                   | feePayer(omitted)                      | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.          |
+|                                   | feePayerSignatures(omitted)            | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.          |
 
 ### Common Fields For PartialFeeDelegation
 Regardless of various Klaytn PartialFeeDelegation transaction type, there are common fields.
@@ -90,7 +90,7 @@ are served as Ethereum Legacy Transaction.
 
 | Ethereum Legacy Transaction Field | Klaytn FeeDelegation Transaction Field | Description                                                                                                  |
 |-----------------------------------|----------------------------------------|--------------------------------------------------------------------------------------------------------------|
-|                                   | feeRatio                               | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.          |
+|                                   | feeRatio(omitted)                      | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.          |
 
 ### LegacyTransaction
 
@@ -441,6 +441,480 @@ are served as Ethereum Legacy Transaction.
     "v": "0x4055" /** added */
     /** "typeInt": 72, omitted */
     "value": "0x0" /** added */
+  }
+}
+```
+
+## Transaction Receipt
+
+To support Ethereum Transaction Receipt data structure from Klaytn, there were a lot of changes.
+By default, the fields in the Klaytn Transaction Receipt are different depending on the transaction type.
+
+When you try to query Klaytn transaction receipts via eth namespace JSON-RPC apis, 
+Klaytn TransactionReceipt will be return as Ethereum Transaction Receipt.
+
+But since Klaytn Transaction Receipt and Ethereum Transaction Receipt are quite different,
+it is difficult to make them perfectly compatible.
+
+This document describes the limitations of those APIs.
+
+### Common Fields
+
+Regardless of various Klaytn transaction type, there are common fields. 
+(Please remind that fields of Klaytn Transaction Receipt are various dependent on transaction types.)
+
+This section describes how that common fields are served as Ethereum Transaction Receipt.
+
+Please read the descriptions marked "(Note that)" carefully.
+
+| Ethereum Transaction Receipt Field | Klaytn Transaction Receipt Field | Description                                                                                                                                                                                                                           |
+|------------------------------------|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| blockHash                          | blockHash                        | (Same with Ethereum) Block hash                                                                                                                                                                                                       |
+| blockNumber                        | blockNumber                      | (Same with Ethereum) Block number                                                                                                                                                                                                     |
+| contractAddress                    | contractAddress                  | (Same with Ethereum) The contract address created, if the transaction was a contract creation, otherwise - null.                                                                                                                      |
+| cumulativeGasUsed                  | (added)                          | (Note that) The total amount of gas used when this transaction was executed in the block. It is provided with the same meaning as the Ethereum field.                                                                                 |
+| effectiveGasPrice                  | (added)                          | (Note that) Klaytn currently is using [fixed gasPrice](https://docs.klaytn.com/klaytn/design/transaction-fees#unit-price) policy. So it returns always same value.                                                                    |
+| from                               | from                             | (Same with Ethereum) Address of the sender                                                                                                                                                                                            |
+|                                    | gas(omitted)                     | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                   |
+| gasUsed                            | gasUsed                          | (Same with Ethereum) the amount of gas used by this specific transaction alone.                                                                                                                                                       |
+|                                    | gasPrice(omitted)                | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                   |
+| logs                               | logs                             | (Same with Ethereum) Array of log objects generated by transactions.                                                                                                                                                                  |
+| logsBloom                          | logsBloom                        | (Same with Ethereum) Bloom filter for light clients to quickly retrieve related logs.                                                                                                                                                 |
+|                                    | nonce(omitted)                   | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                   |
+|                                    | senderTxHash(omitted)            | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                   |
+|                                    | signatures(omitted)              | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                   |
+| status                             | status                           | (Same with Ethereum) Either 1(success) or 0(failure).                                                                                                                                                                                 |
+| to                                 | (will be covered below sections) | The description of this field is covered in the detailed transaction items below.                                                                                                                                                     |
+| transactionHash                    | transactionHash                  | (Same with Ethereum) The transaction hash.                                                                                                                                                                                            |
+| transactionIndex                   | transactionIndex                 | (Note that) Almost same with Ethereum but unlike Ethereum, Klaytn returns integer as it is when its pending.                                                                                                                          |
+| type                               | type(converted)                  | (Note that) Value and data type of this field is converted. The type of this field is a string(e.g. `"LegacyTransaction"`) in Klaytn but it is converted and served as hexadecimal(e.g. `0x`) just like Ethereum Transaction Receipt. |
+|                                    | typeInt(omitted)                 | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                   |
+
+### Common Fields For FeeDelegation
+Regardless of various Klaytn FeeDelegation transaction type, there are common fields.
+(Please remind that fields of Klaytn Transaction Receipt are various dependent on transaction types.)
+
+This section describes how that common fields for feeDelegation(except for the common fields covered above)
+are served as Ethereum Transaction Receipt.
+
+| Ethereum Legacy Transaction Field | Klaytn FeeDelegation Transaction Field | Description                                                                                          |
+|-----------------------------------|----------------------------------------|------------------------------------------------------------------------------------------------------|
+|                                   | feePayer(omitted)                      | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
+|                                   | feePayerSignatures(omitted)            | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
+
+### Common Fields For PartialFeeDelegation
+Regardless of various Klaytn PartialFeeDelegation transaction type, there are common fields.
+(Please remind that fields of Klaytn Transaction Receipt are various dependent on transaction types.)
+
+This section describes how that common fields for partialFeeDelegation(except for the common fields covered above)
+are served as Ethereum Transaction Receipt.
+
+| Ethereum Legacy Transaction Field | Klaytn FeeDelegation Transaction Field | Description                                                                                                  |
+|-----------------------------------|----------------------------------------|--------------------------------------------------------------------------------------------------------------|
+|                                   | feeRatio(omitted)                      | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.          |
+
+### LegacyTransaction Receipt
+
+| Ethereum Transaction Receipt Field | Klaytn LegacyTransaction Receipt Field   | Description                                                                                             |
+|------------------------------------|------------------------------------------|---------------------------------------------------------------------------------------------------------|
+|                                    | input(omitted)                           | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt.    |
+| to                                 | to                                       | (Same with Ethereum) Address of the receiver. null when its a contract creation transaction.            |
+|                                    | value(omitted)                           | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt.    |
+
+**Klaytn LegacyTransaction Receipt** is served as Ethereum Transaction Receipt like below.
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "blockHash": "0x0f5fa35be72c9c49a60c936ccdf0e85210c12ea227e679f32a6dc6c84c3cb859",
+    "blockNumber": "0x47ef00c",
+    "contractAddress": null,
+    "cumulativeGasUsed": "0xa0dbd0", /** added */
+    "effectiveGasPrice": "0x143ec7aafa", /** added */
+    "from": "0xbd4fa032e6afe41cacde8e3292fb129b857bfca8",
+    /** "gas": "0x204c8e", omitted */
+    /** "gasPrice": "0x5d21dba00", omitted */
+    "gasUsed": "0x1c278",
+    /** "input": "0xe2b...", omitted */
+    "logs": [
+      {
+        "address": "0x0cddc42b218a109ca4cf93cbef1f8740d72af7b2",
+        "topics": [
+          "0x90890809c654f11d6e72a28fa60149770a0d11ec6c92319d6ceb2bb0a4ea1a15",
+          "0x000000000000000000000000bd4fa032e6afe41cacde8e3292fb129b857bfca8",
+          "0x0000000000000000000000000000000000000000000000000000000000000003"
+        ],
+        "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "blockNumber": "0x47ef00c",
+        "transactionHash": "0x6ad3b34e12242a2ef8daadea7ebf538f735d9cad400e1a8745263c877cfb9058",
+        "transactionIndex": "0xe",
+        "blockHash": "0x0f5fa35be72c9c49a60c936ccdf0e85210c12ea227e679f32a6dc6c84c3cb859",
+        "logIndex": "0xa",
+        "removed": false
+      }
+    ],
+    "logsBloom": "0x00...",
+    /** "nonce": "0x22aa", omitted */
+    /** "senderTxHash": "0x6ad3b34e12242a2ef8daadea7ebf538f735d9cad400e1a8745263c877cfb9058", omitted */
+    /** "signatures": [ 
+      { 
+        "V": "0x4055", 
+        "R": "0xcf815d41522d4c95d1b86b956c1101b8fef9d446358e7675e8db467ada6b7549", 
+        "S": "0x39b7e32b8d689737f57ef005f13f9c65abaf89d8444b7f286a43d7df6c684d69" 
+      } 
+    ], omitted */
+    "status": "0x1",
+    "to": "0x0cddc42b218a109ca4cf93cbef1f8740d72af7b2",
+    "transactionHash": "0x6ad3b34e12242a2ef8daadea7ebf538f735d9cad400e1a8745263c877cfb9058",
+    "transactionIndex": "0xe",
+    "type": "0x0", /** data type converted (string -> hexutil.Uint64(0)) */
+    /** "typeInt": 0, omitted */
+    /** "value": "0x0" omitted */
+  }
+}
+```
+
+### ValueTransfer Transaction Receipt
+
+| Ethereum Transaction Receipt Field | Klaytn ValueTransfer Transaction Receipt Field | Description                                                                                               |
+|------------------------------------|------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| to                                 | to                                             | (Same with Ethereum) Address of the receiver. null when its a contract creation transaction.              |
+|                                    | value(omitted)                                 | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt.      |
+
+**Klaytn ValueTransfer Transaction Receipt** is served as Ethereum Transaction Receipt like below.
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "blockHash": "0xa500c5bc0e0410a60961fca0a4beceb19f1af9a42c5cbcfad7818865eb0ee114",
+    "blockNumber": "0x487d166",
+    "contractAddress": null,
+    "cumulativeGasUsed": "0xa0dbd0", /** added */
+    "effectiveGasPrice": "0x143ec7aafa", /** added */
+    "from": "0x5386d9f21be7034ba3aeadc7bedb5ea4dd538237",
+    /** "gas": "0x5208", omitted */
+    /** "gasPrice": "0x5d21dba00", omitted */
+    "gasUsed": "0x5208",
+    "logs": [],
+    "logsBloom": "0x00...",
+    /** "nonce": "0x120", omitted */
+    /** "senderTxHash": "0xd1f9019b8ddd8929d0b090d130b2d73df8f2318686782b232d43d9ffb69b26bf", omitted */
+    /** "signatures": [
+      {
+        "V": "0x4056",
+        "R": "0xa95c8fcf98c0b43eec70aa7749dd1f8f4f9b54e7aa882c28bb25d72d7ef627b9",
+        "S": "0x46e2c676b314fc55f05caf87ad695443b347beb6fac8f6d355201ac2a49c45ec"
+      }
+    ], omitted */
+    "status": "0x1",
+    "to": "0x5994af2bfe0bdaf7f66ec3d7924e5647094718bf",
+    "transactionHash": "0xd1f9019b8ddd8929d0b090d130b2d73df8f2318686782b232d43d9ffb69b26bf",
+    "transactionIndex": "0x5",
+    "type": "0x0", /** data type converted (string -> hexutil.Uint64(0)) */
+    /** "typeInt": 8, omitted */
+    /** "value": "0xa5c40c07eb33e87000" omitted */
+  }
+}
+```
+
+### ValueTransferMemo Transaction Receipt
+
+| Ethereum Transaction Receipt Field | Klaytn ValueTransferMemo Transaction Receipt Field | Description                                                                                          |
+|------------------------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------|
+|                                    | input(omitted)                                     | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
+| to                                 | to                                                 | (Same with Ethereum) Address of the receiver. null when its a contract creation transaction.         |
+|                                    | value(omitted)                                     | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
+
+**Klaytn ValueTransferMemo Transaction** is served as Ethereum Transaction Receipt like below.
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "blockHash": "0xa500c5bc0e0410a60961fca0a4beceb19f1af9a42c5cbcfad7818865eb0ee114",
+    "blockNumber": "0x487d166",
+    "contractAddress": null,
+    "cumulativeGasUsed": "0xa0dbd0", /** added */
+    "effectiveGasPrice": "0x143ec7aafa", /** added */
+    "from": "0x5386d9f21be7034ba3aeadc7bedb5ea4dd538237",
+    /** "gas": "0x5208", omitted */
+    /** "gasPrice": "0x5d21dba00", omitted */
+    "gasUsed": "0x5208",
+    /** "input": "0x32142912492149122", omitted */
+    "logs": [],
+    "logsBloom": "0x00...",
+    /** "nonce": "0x120", omitted */
+    /** "senderTxHash": "0xd1f9019b8ddd8929d0b090d130b2d73df8f2318686782b232d43d9ffb69b26bf", omitted */
+    /** "signatures": [
+      {
+        "V": "0x4056",
+        "R": "0xa95c8fcf98c0b43eec70aa7749dd1f8f4f9b54e7aa882c28bb25d72d7ef627b9",
+        "S": "0x46e2c676b314fc55f05caf87ad695443b347beb6fac8f6d355201ac2a49c45ec"
+      }
+    ], omitted */
+    "status": "0x1",
+    "to": "0x5994af2bfe0bdaf7f66ec3d7924e5647094718bf",
+    "transactionHash": "0xd1f9019b8ddd8929d0b090d130b2d73df8f2318686782b232d43d9ffb69b26bf",
+    "transactionIndex": "0x5",
+    "type": "0x0", /** data type converted (string -> hexutil.Uint64(0)) */
+    /** "typeInt": 16, omitted */
+    /** "value": "0xa5c40c07eb33e87000" omitted */
+  }
+}
+```
+
+### SmartContractDeploy Transaction Receipt
+
+| Ethereum Transaction Receipt Field | Klaytn SmartContractDeploy Transaction Receipt Field | Description                                                                                           |
+|------------------------------------|------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+|                                    | codeFormat(omitted)                                  | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt.  |
+|                                    | humanReadable(omitted)                               | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt.  |
+|                                    | input                                                | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt   |
+| to                                 | to                                                   | (Same with Ethereum) Address of the receiver. null when its a contract creation transaction.          |
+|                                    | value                                                | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt   |
+
+**Klaytn SmartContractDeploy Transaction Receipt** is served as Ethereum Transaction Receipt like below.
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "blockHash": "0xda357820b1d70922422219dd6d2d3507f4af32588b90a0a7f825ce36887f2de6",
+    "blockNumber": "0x487d166",
+    /** "codeFormat": "0x0", omitted */
+    "contractAddress": null,
+    "cumulativeGasUsed": "0xa0dbd0", /** added */
+    "effectiveGasPrice": "0x143ec7aafa", /** added */
+    "from": "0x5386d9f21be7034ba3aeadc7bedb5ea4dd538237",
+    /** "gas": "0x5208", omitted */
+    /** "gasPrice": "0x5d21dba00", omitted */
+    "gasUsed": "0x5208",
+    /** "humanReadable": false, omitted */
+    /** "input": "0x6080...", omitted */
+    "logs": [
+      {
+        "address": "0xf1ac00f758a5baf71507e1d62e2c9dab6aaaf49f",
+        "topics": [
+          "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+          "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "0x000000000000000000000000760fcf5159263b7cf39b0751e7d2bb008d09147d"
+        ],
+        "data": "0x",
+        "blockNumber": "0x4857712",
+        "transactionHash": "0xbf230e13023aad3c3c758b07ee3d2f7eaac45b301972f1bfa49a5bf49a1ccd7c",
+        "transactionIndex": "0x6",
+        "blockHash": "0x93ec6f013194d4a16453fd17fb98630b89d763532208a7712d12e8fcf3900f3a",
+        "logIndex": "0x42",
+        "removed": false
+      }
+    ],
+    "logsBloom": "0x00...",
+    /** "nonce": "0x120", omitted */
+    /** "senderTxHash": "0xd1f9019b8ddd8929d0b090d130b2d73df8f2318686782b232d43d9ffb69b26bf", omitted */
+    /** "signatures": [
+      {
+        "V": "0x4056",
+        "R": "0xa95c8fcf98c0b43eec70aa7749dd1f8f4f9b54e7aa882c28bb25d72d7ef627b9",
+        "S": "0x46e2c676b314fc55f05caf87ad695443b347beb6fac8f6d355201ac2a49c45ec"
+      }
+    ], omitted */
+    "status": "0x1",
+    "to": null,
+    "transactionHash": "0x7ef015c30dbe02cf68870a8b740635266e28abe25d68c4f467affe88956729c4",
+    "transactionIndex": "0x5",
+    "type": "0x0", /** data type converted (string -> hexutil.Uint64(0)) */
+    /** "typeInt": 40, omitted */
+    /** "value": "0x0" omitted */
+  }
+}
+```
+
+### SmartContractExecution Transaction Receipt
+
+| Ethereum Transaction Receipt Field | Klaytn SmartContractExecution Transaction Receipt Field | Description                                                                                           |
+|------------------------------------|---------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+|                                    | input                                                   | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt.  |
+| to                                 | to                                                      | (Same with Ethereum) Address of the receiver. null when its a contract creation transaction.          |
+|                                    | value                                                   | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt.  |
+
+**Klaytn SmartContractExecution Transaction Receipt** is served as Ethereum Transaction Receipt like below.
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "blockHash": "0xa500c5bc0e0410a60961fca0a4beceb19f1af9a42c5cbcfad7818865eb0ee114",
+    "blockNumber": "0x487d166",
+    "contractAddress": null,
+    "cumulativeGasUsed": "0xa0dbd0", /** added */
+    "effectiveGasPrice": "0x143ec7aafa", /** added */
+    "from": "0x5386d9f21be7034ba3aeadc7bedb5ea4dd538237",
+    /** "gas": "0x5208", omitted */
+    /** "gasPrice": "0x5d21dba00", omitted */
+    "gasUsed": "0x5208",
+    /** "input": "0x32142912492149122", omitted */
+    "logs": [],
+    "logsBloom": "0x00...",
+    /** "nonce": "0x120", omitted */
+    /** "senderTxHash": "0xd1f9019b8ddd8929d0b090d130b2d73df8f2318686782b232d43d9ffb69b26bf", omitted */
+    /** "signatures": [
+      {
+        "V": "0x4056",
+        "R": "0xa95c8fcf98c0b43eec70aa7749dd1f8f4f9b54e7aa882c28bb25d72d7ef627b9",
+        "S": "0x46e2c676b314fc55f05caf87ad695443b347beb6fac8f6d355201ac2a49c45ec"
+      }
+    ], omitted */
+    "status": "0x1",
+    "to": "0x5994af2bfe0bdaf7f66ec3d7924e5647094718bf",
+    "transactionHash": "0xd1f9019b8ddd8929d0b090d130b2d73df8f2318686782b232d43d9ffb69b26bf",
+    "transactionIndex": "0x5",
+    "type": "0x0", /** data type converted (string -> hexutil.Uint64(0)) */
+    /** "typeInt": 48, omitted */
+    /** "value": "0xa5c40c07eb33e87000" omitted */
+  }
+}
+```
+
+### AccountUpdate Transaction Receipt
+
+| Ethereum Transaction Receipt Field | Klaytn AccountUpdate Transaction Receipt Field | Description                                                                                                                                                                                                        |
+|------------------------------------|------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                                    | key(omitted)                                   | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                                               |
+| to                                 | (added)                                        | (Note that) This field always have same address with `from` because this field does not exist in Klaytn AccountUpdate transaction receipt and giving a value of this field as `from` address is most meaningful.   | 
+
+**Klaytn AccountUpdate Transaction Receipt** is served as Ethereum Transaction Receipt like below.
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "blockHash": "0xa500c5bc0e0410a60961fca0a4beceb19f1af9a42c5cbcfad7818865eb0ee114",
+    "blockNumber": "0x487d166",
+    "contractAddress": null,
+    "cumulativeGasUsed": "0xa0dbd0", /** added */
+    "effectiveGasPrice": "0x143ec7aafa", /** added */
+    "from": "0x5386d9f21be7034ba3aeadc7bedb5ea4dd538237",
+    /** "gas": "0x5208", omitted */
+    /** "gasPrice": "0x5d21dba00", omitted */
+    "gasUsed": "0x5208",
+    /** "key": "0x02a102a288c3fb864a012dbe6ca84fcd2afcd9b390cf473b4d35a0126c3164ac3e7f73", omitted */
+    "logs": [],
+    "logsBloom": "0x00...",
+    /** "nonce": "0x120", omitted */
+    /** "senderTxHash": "0xd1f9019b8ddd8929d0b090d130b2d73df8f2318686782b232d43d9ffb69b26bf", omitted */
+    /** "signatures": [
+      {
+        "V": "0x4056",
+        "R": "0xa95c8fcf98c0b43eec70aa7749dd1f8f4f9b54e7aa882c28bb25d72d7ef627b9",
+        "S": "0x46e2c676b314fc55f05caf87ad695443b347beb6fac8f6d355201ac2a49c45ec"
+      }
+    ], omitted */
+    "status": "0x1",
+    "to": "0x5386d9f21be7034ba3aeadc7bedb5ea4dd538237", /** added */
+    "transactionHash": "0xd1f9019b8ddd8929d0b090d130b2d73df8f2318686782b232d43d9ffb69b26bf",
+    "transactionIndex": "0x5",
+    "type": "0x0", /** data type converted (string -> hexutil.Uint64(0)) */
+    /** "typeInt": 32, omitted */
+    /** "value": "0xa5c40c07eb33e87000" omitted */
+  }
+}
+```
+
+### Cancel Transaction Receipt
+
+| Ethereum Transaction Receipt Field | Klaytn Cancel Transaction Receipt Field | Description                                                                                                                                                                                                |
+|------------------------------------|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| to                                 | (added)                                 | (Note that) This field always have same address with `from` because this field does not exist in Klaytn Cancel transaction receipt and giving a value of this field as `from` address is most meaningful.  | 
+
+**Klaytn Cancel Transaction Receipt** is served as Ethereum Transaction Receipt like below.
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "blockHash": "0xda357820b1d70922422219dd6d2d3507f4af32588b90a0a7f825ce36887f2de6",
+    "blockNumber": "0x487d166",
+    "contractAddress": null,
+    "cumulativeGasUsed": "0xa0dbd0", /** added */
+    "effectiveGasPrice": "0x143ec7aafa", /** added */
+    "from": "0x5386d9f21be7034ba3aeadc7bedb5ea4dd538237",
+    /** "gas": "0x5208", omitted */
+    /** "gasPrice": "0x5d21dba00", omitted */
+    "gasUsed": "0x5208",
+    "logs": []
+    "logsBloom": "0x00...",
+    /** "nonce": "0x120", omitted */
+    /** "senderTxHash": "0xd1f9019b8ddd8929d0b090d130b2d73df8f2318686782b232d43d9ffb69b26bf", omitted */
+    /** "signatures": [
+      {
+        "V": "0x4056",
+        "R": "0xa95c8fcf98c0b43eec70aa7749dd1f8f4f9b54e7aa882c28bb25d72d7ef627b9",
+        "S": "0x46e2c676b314fc55f05caf87ad695443b347beb6fac8f6d355201ac2a49c45ec"
+      }
+    ], omitted */
+    "status": "0x1",
+    "to": "0x5386d9f21be7034ba3aeadc7bedb5ea4dd538237", /** added */
+    "transactionHash": "0x7ef015c30dbe02cf68870a8b740635266e28abe25d68c4f467affe88956729c4",
+    "transactionIndex": "0x5",
+    "type": "0x0", /** data type converted (string -> hexutil.Uint64(0)) */
+    /** "typeInt": 56, omitted */
+  }
+}
+```
+
+### ChainDataAnchoring Transaction Receipt
+
+| Ethereum Transaction Receipt Field | Klaytn ChainDataAnchoring Transaction Receipt Field | Description                                                                                                                                                                                                           |
+|------------------------------------|-----------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                                    | input(omitted)                                      | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                                                  |
+|                                    | inputJSON(omitted)                                  | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                                                  |
+| to                                 | (added)                                             | (Note that) This field always have same address with `from` because this field does not exist in Klaytn ChainDataAnchoring transaction receipt and giving a value of this field as `from` address is most meaningful. |  
+
+**Klaytn ChainDataAnchoring Transaction Receipt** is served as Ethereum Transaction Receipt like below.
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "blockHash": "0xda357820b1d70922422219dd6d2d3507f4af32588b90a0a7f825ce36887f2de6",
+    "blockNumber": "0x487d166",
+    "contractAddress": null,
+    "cumulativeGasUsed": "0xa0dbd0", /** added */
+    "effectiveGasPrice": "0x143ec7aafa", /** added */
+    "from": "0x5386d9f21be7034ba3aeadc7bedb5ea4dd538237",
+    /** "gas": "0x5208", omitted */
+    /** "gasPrice": "0x5d21dba00", omitted */
+    "gasUsed": "0x5208",
+    /** "input": "0xf8...", omitted */
+    /** "inputJSON": {
+      "blockHash": "0x2b69e9532eddd9a25dc48c53253d8bc93a29770362a8f778fe799e3493cad626",
+      "transactionsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+      "parentHash": "0x094084ac3580231708c2a2dcbcf39f712a61dcc070b76a7eaaaf8b6f07a9549c",
+      "receiptsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+      "stateRoot": "0x768b8ae0874e4ac5e3ef9bccbeb417b4207d562b85dfb30ecf9cc8344209a5e6",
+      "blockNumber": 43372800,
+      "blockCount": 86400,
+      "txCount": 53777
+    }, omitted */
+    "logs": []
+    "logsBloom": "0x00...",
+    /** "nonce": "0x120", omitted */
+    /** "senderTxHash": "0xd1f9019b8ddd8929d0b090d130b2d73df8f2318686782b232d43d9ffb69b26bf", omitted */
+    /** "signatures": [
+      {
+        "V": "0x4056",
+        "R": "0xa95c8fcf98c0b43eec70aa7749dd1f8f4f9b54e7aa882c28bb25d72d7ef627b9",
+        "S": "0x46e2c676b314fc55f05caf87ad695443b347beb6fac8f6d355201ac2a49c45ec"
+      }
+    ], omitted */
+    "status": "0x1",
+    "to": "0x5386d9f21be7034ba3aeadc7bedb5ea4dd538237", /** added */
+    "transactionHash": "0x7ef015c30dbe02cf68870a8b740635266e28abe25d68c4f467affe88956729c4",
+    "transactionIndex": "0x5",
+    "type": "0x0", /** data type converted (string -> hexutil.Uint64(0)) */
+    /** "typeInt": 72, omitted */
   }
 }
 ```
