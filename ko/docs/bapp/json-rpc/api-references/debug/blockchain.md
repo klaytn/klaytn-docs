@@ -27,7 +27,7 @@
 | ----------- | --------- |
 | JSON string | 블록 정보입니다. |
 
-**Example**
+**예시**
 
 콘솔
 ```javascript
@@ -75,7 +75,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.dumpStateTrie(number)`                           |
 |  RPC  | `{"method": "debug_dumpStateTrie", "params": [number]}` |
 
-**매개변수**
+**Parameters**
 
 | 이름     | 타입  | 설명        |
 | ------ | --- | --------- |
@@ -87,7 +87,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 | -------- | ---------------- |
 | JSON 문자열 | 덤프 상태 트라이 결과입니다. |
 
-**Example**
+**예시**
 
 콘솔
 ```javascript
@@ -114,7 +114,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 [RLP](https://github.com/ethereum/wiki/wiki/RLP)를 참고하세요.
 
-**매개변수**
+**Parameters**
 
 | 이름                   | 타입                              | 설명                                                                                                                                                   |
 | -------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -233,7 +233,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 |  RPC  | `{"method": "debug_preimage", "params": [hash]}` |
 
 
-**매개변수**
+**Parameters**
 
 | 이름 | 타입     | 설명         |
 | -- | ------ | ---------- |
@@ -245,7 +245,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 | -------- | ------ | ----------------------- |
 | preimage | string | 입력으로 받은 sha3 해시의 역상입니다. |
 
-**Example**
+**예시**
 
 콘솔
 ```javascript
@@ -268,7 +268,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.getBadBlocks()`                           |
 |  RPC  | `{"method": "debug_getBadBlocks", "params": []}` |
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -278,7 +278,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 | -------- | ---- | ------------------ |
 | badBlock | JSON | 블록 해시의 JSON 목록입니다. |
 
-**Example**
+**예시**
 
 콘솔
 ```javascript
@@ -300,7 +300,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.printBlock(number)`                           |
 |  RPC  | `{"method": "debug_printBlock", "params": [number]}` |
 
-**매개변수**
+**Parameters**
 
 | 이름                   | 타입                              | 설명                                                                                                                                                   |
 | -------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -316,7 +316,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 | ------ | -------------- |
 | string | 블록 구조체의 덤프입니다. |
 
-**Example**
+**예시**
 
 콘솔
 ```javascript
@@ -345,7 +345,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  RPC  | `{"method": "debug_setHead", "params": [number]}` |
 
 
-**매개변수**
+**Parameters**
 
 | 이름     | 타입     | 설명                     |
 | ------ | ------ | ---------------------- |
@@ -355,7 +355,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 없음
 
-**Example**
+**예시**
 
 콘솔
 ```javascript
@@ -379,7 +379,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  RPC  | `{"method": "debug_seedHash", "params": [number]}` |
 
 
-**매개변수**
+**Parameters**
 
 | 이름     | 타입     | 설명        |
 | ------ | ------ | --------- |
@@ -391,7 +391,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 | -------- | ------ | ------------ |
 | seedHash | string | 블록 시드 해시입니다. |
 
-**Example**
+**예시**
 
 콘솔
 ```javascript
@@ -414,7 +414,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.startWarmUp()`             |
 |  RPC  | `{"method": "debug_startWarmUp"}` |
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -424,7 +424,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 | -- | -------------------------------------------------------- |
 | 에러 | 트리 캐시 채우기를 시작하는 데에 성공했다면 `null`을 반환하고 그렇지 않으면 에러를 반환합니다. |
 
-**Example**
+**예시**
 
 콘솔
 
@@ -448,7 +448,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.startContractWarmUp(address)`                           |
 |  RPC  | `{"method": "debug_startContractWarmUp", "params": [address]}` |
 
-**매개변수**
+**Parameters**
 
 | 타입            | 설명          |
 | ------------- | ----------- |
@@ -460,7 +460,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 | -- | -------------------------------------------------------- |
 | 에러 | 트리 캐시 채우기를 시작하는 데에 성공했다면 `null`을 반환하고 그렇지 않으면 에러를 반환합니다. |
 
-**Example**
+**예시**
 
 콘솔
 
@@ -484,7 +484,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.stopWarmUp()`       |
 |  RPC  | `{"method": "stopWarmUp"}` |
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -494,7 +494,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 | -- | -------------------------------------------------------- |
 | 에러 | 트리 캐시 채우기를 중단하는 데에 성공했다면 `null`를 반환하고 그렇지 않으면 에러를 반환합니다. |
 
-**Example**
+**예시**
 
 콘솔
 
@@ -517,7 +517,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.startCollectingTrieStats(address)`                           |
 |  RPC  | `{"method": "debug_startCollectingTrieStats", "params": [address]}` |
 
-**매개변수**
+**Parameters**
 
 | 타입            | 설명          |
 | ------------- | ----------- |
@@ -529,7 +529,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 | -- | ---------------------------------------------------- |
 | 에러 | 트리 통계 수집이 시작되었을 시 `null`를 반환하며, 그렇지 않을 경우 에러를 반환합니다. |
 
-**Example**
+**예시**
 
 콘솔
 
