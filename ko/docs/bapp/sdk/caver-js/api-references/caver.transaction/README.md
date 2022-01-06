@@ -26,7 +26,7 @@ caver.transaction.decode(rlpEncoded)
 
 Decodes RLP-encoded transaction string, a raw transaction, and returns a [Transaction][] instance.
 
-**매개변수**
+**Parameters**
 
 | 이름         | 타입     | 설명                         |
 | ---------- | ------ | -------------------------- |
@@ -38,7 +38,7 @@ Decodes RLP-encoded transaction string, a raw transaction, and returns a [Transa
 | ------ | ------------------------------------------------------------------------------------------ |
 | object | An instance of [Transaction][]. For details of each transaction, refer to [Transaction][]. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.transaction.decode('0x08f87...')
@@ -66,7 +66,7 @@ Queries a transaction from Klaytn and converts to a caver transaction instance.
 
 **NOTE** `caver.transaction.getTransactionByHash` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
-**매개변수**
+**Parameters**
 
 | 이름              | 타입     | 설명                                                |
 | --------------- | ------ | ------------------------------------------------- |
@@ -80,7 +80,7 @@ Queries a transaction from Klaytn and converts to a caver transaction instance.
 | ------ | ------------------------------------------------------------------------------------------ |
 | object | An instance of [Transaction][]. For details of each transaction, refer to [Transaction][]. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.transaction.getTransactionByHash('0x30575f5a76a4477502aa1e5e707e47f05b92c3450132529cf55764cc94f780b0').then(console.log)
@@ -111,7 +111,7 @@ Recovers the public key strings from `signatures` field of the given transaction
 
 **NOTE** `caver.transaction.recoverPublicKeys` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
-**매개변수**
+**Parameters**
 
 | 이름    | 타입     | 설명                                                                           |
 | ----- | ------ | ---------------------------------------------------------------------------- |
@@ -123,7 +123,7 @@ Recovers the public key strings from `signatures` field of the given transaction
 | ----- | ------------------------------------------------------------ |
 | Array | An array containing public keys recovered from `signatures`. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.transaction.recoverPublicKeys('0x08f9010e808505d21dba008402faf0809459177716c34ac6e49e295a0e78e33522f14d61ee0194f21460730845e3652aa3cc9bc13b345e4f53984af8d5f845820feaa02b5934c6d26bb3e65edf099d79c57c743d2f70744ca09d3ba9a1099edff9f173a00797886edff4b449c1a599943e3a6003ae9e46b3f3f34862ced327e43fba3a6af845820fe9a063177648732ef855f800eb9f80f68501abb507f84c0d660286a6e0801334a1d2a0620a996623c114f2df35b11ec8ac4f3758d3ad89cf81ba13614e51908cfe9218f845820fe9a086c8ecbfd892be41d48443a2243274beb6daed3f72895045965a3baede4c350ea069ea748aff6e4c106d3a8ba597d8f134745b76f12dacb581318f9da07351511a')
@@ -144,7 +144,7 @@ Recovers the public key strings from `feePayerSignatures` field of the given tra
 
 **NOTE** `caver.transaction.recoverFeePayerPublicKeys` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
-**매개변수**
+**Parameters**
 
 | 이름    | 타입     | 설명                                                                                                                                                                                                                         |
 | ----- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -156,7 +156,7 @@ Recovers the public key strings from `feePayerSignatures` field of the given tra
 | ----- | -------------------------------------------------------------------- |
 | Array | An array containing public keys recovered from `feePayerSignatures`. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.transaction.recoverFeePayerPublicKeys('0x09f901fa808505d21dba008402faf0809459177716c34ac6e49e295a0e78e33522f14d61ee019407a9a76ef778676c3bd2b334edcf581db31a85e5f8d5f845820feaa0cb2bbf04a12ec3a06163c30ce8782739ec4745a53e265aa9443f1c0d678bb871a07dd348c7d8fce6be36b661f116973d1c36cc92a389ad4a1a4053bd486060a083f845820fe9a06d5dfca992d6833c0da272578bc6ea941be45f44fb2fa114310ebe18d673ed52a04dc5cd7985c9ce7d44d46d65e65c995a4a8c97159a1eed8b2efb0510b981ab7cf845820feaa0945151edf556fbcebf832092d4534b9a3b1f3d46f85bce09e7d7211070cb57bea01617c8f918f96970baddd12f240a9824eca6b29d91eb7333adacb987f2dcd8dd94b5db72925b1b6b79299a1a49ae226cd7861083acf8d5f845820feaa086fd17d788e89a6e0639395b3c0a04f916103debd6cbe639d6f4ff5034dde3e8a00795551c551d9096234c290689767f34f2d409c95166ab18d216dbc93845ba16f845820feaa00653b6d1cdb90462094b089ce8e2fed0e3b8ec2c44125965e1a5af286644c758a0259b10e3bf594d48535fd0d95e15d095897c8d075c01dd56e7417d5943b0d53af845820fe9a0ce8d051427adab10d1dc93de49123aeab18ba8aadedce0d57ef5b7fa451b1f4fa04fe2a845d92ff48abca3e1d59637fab5f4a4e3172d91772d9bfce60760edc506')
@@ -177,7 +177,7 @@ Signs the transaction as a transaction sender with the private key(s) in the `ke
 
 For [Account Update][] transaction, use [roleAccountUpdateKey][], or otherwise, use [roleTransactionKey][] in [RoleBasedKeyring][]. If the user has not defined an `index`, `transaction.sign` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.sign` signs the transaction using only one private key at the given index.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입                   | 설명                                                                                                                                                                                                                                                                                   |
 | ------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -193,7 +193,7 @@ For [Account Update][] transaction, use [roleAccountUpdateKey][], or otherwise, 
 | ------ | ------------------------------------------------------------------------------------------------- |
 | object | An instance of signed [Transaction][]. The signature is appended to the `transaction.signatures`. |
 
-**Example**
+**예시**
 
 ```javascript
 // 이 예시는 ValueTransfer 트랜잭션 사용
@@ -289,7 +289,7 @@ For signing a transaction as a fee payer, use [roleFeePayerKey][] in `keyring`. 
 
 **참고** 이 함수는 "수수료 대납" 트랜잭션 또는 "수수료 부분 대납" 트랜잭션에서만 작동합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입                   | 설명                                                                                                                                                                                                                                                                                   |
 | ------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -305,7 +305,7 @@ For signing a transaction as a fee payer, use [roleFeePayerKey][] in `keyring`. 
 | ------ | --------------------------------------------------------------------------------------------------------- |
 | object | An instance of signed [Transaction][]. The signature is appended to the `transaction.feePayerSignatures`. |
 
-**Example**
+**예시**
 
 ```javascript
 // This example uses the FeeDelegatedValueTransfer transaction.
@@ -401,13 +401,13 @@ transaction.appendSignatures(signatures)
 
 Appends `signatures` to the transaction.
 
-**매개변수**
+**Parameters**
 
 | 이름         | 타입                  | 설명                                                                                                                                                                                                                                                                                          |
 | ---------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | signatures | object &#124; Array | The signatures to be appended to the transaction. [SignatureData][] instance or an array containing [SignatureData][] instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
 
-**Example**
+**예시**
 
 ```javascript
 > transaction.appendSignatures([ '0x4e44', '0x7010e...', '0x65d6b...' ])
@@ -423,13 +423,13 @@ Appends `feePayerSignatures` to the transaction.
 
 **참고** 이 함수는 "수수료 대납" 트랜잭션 또는 "수수료 부분 대납" 트랜잭션에서만 작동합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름                 | 타입                  | 설명                                                                                                                                                                                                                                                                                                  |
 | ------------------ | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | feePayerSignatures | object &#124; Array | The feePayerSignatures to be appended to the transaction. [SignatureData][] instance or an array containing [SignatureData][] instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
 
-**Example**
+**예시**
 
 ```javascript
 > transaction.appendFeePayerSignatures([ '0x4e44', '0x7010e...', '0x65d6b...' ])
@@ -443,7 +443,7 @@ transaction.combineSignedRawTransactions(rlpEncodedTxs)
 
 Collects signs in each RLP-encoded transaction string in the given array, combines them with the transaction instance, and returns a RLP-encoded transaction string which includes all signs. Note that the transaction instance doesn't necessarily be signed in advance. If the transaction is either a type of "fee-delegated" or "fee-delegated with ratio", `feePayerSignatures` is also merged and included in the output RLP-encoded transaction string.
 
-**매개변수**
+**Parameters**
 
 | 이름            | 타입    | 설명                                                  |
 | ------------- | ----- | --------------------------------------------------- |
@@ -455,7 +455,7 @@ Collects signs in each RLP-encoded transaction string in the given array, combin
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | string | A RLP-encoded transaction string which includes all `signatures` (and `feePayerSignatures` if transaction is a type of either "fee-delgated" or "fee-delegated with ratio"). |
 
-**Example**
+**예시**
 
 ```javascript
 > transaction.combineSignedRawTransactions(['0x09f88...'])
@@ -478,7 +478,7 @@ RLP 인코딩된 트랜잭션 문자열을 반환합니다.
 | ------ | --------------------- |
 | string | RLP 인코딩된 트랜잭션 문자열입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > transaction.getRLPEncoding()
@@ -499,7 +499,7 @@ transaction.getRawTransaction()
 | ------ | --------------------- |
 | string | RLP 인코딩된 트랜잭션 문자열입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > transaction.getRawTransaction()
@@ -522,7 +522,7 @@ transaction.getTransactionHash()
 | ------ | ----------- |
 | string | 트랜잭션 해시입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > transaction.getTransactionHash()
@@ -547,7 +547,7 @@ transaction.getSenderTxHash()
 | ------ | ------------------------------- |
 | string | 전송자의 트랜잭션 해시(senderTxHash) 입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > transaction.getSenderTxHash()
@@ -570,7 +570,7 @@ transaction.getRLPEncodingForSignature()
 | ------ | --------------------------------- |
 | string | 서명이 첨부되지 않은 RLP 인코딩된 트랜잭션 문자열입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > transaction.getRLPEncodingForSignature()
@@ -595,7 +595,7 @@ transaction.getRLPEncodingForFeePayerSignature()
 | ------ | --------------------------------- |
 | string | 서명이 첨부되지 않은 RLP 인코딩된 트랜잭션 문자열입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > transaction.getRLPEncodingForFeePayerSignature()
@@ -618,7 +618,7 @@ Use [caver.rpc.klay.getGasPrice][] to get `gasPrice`, [caver.rpc.klay.getTransac
 
 `Promise`는 `void`을 반환합니다.
 
-**Example**
+**예시**
 
 ```javascript
 > transaction.fillTransaction()
@@ -640,7 +640,7 @@ transaction.recoverPublicKeys()
 | ----- | ------------------------------------ |
 | Array | `signatures`에서 복구된 공개키를 포함하는 문자열입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > transaction.recoverPublicKeys()
@@ -667,7 +667,7 @@ transaction.recoverFeePayerPublicKeys()
 | ----- | -------------------------------------------- |
 | Array | `feePayerSignatures`에서 복구된 공개키를 포함하는 문자열입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > transaction.recoverFeePayerPublicKeys()
