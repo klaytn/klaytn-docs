@@ -12,7 +12,7 @@ caver.validator.validateSignedMessage(message, signatures, address [, isHashed])
 
 Validates a signed message by comparing the public key recovered from the signature with the account key of the Klaytn account.
 
-**매개변수**
+**Parameters**
 
 | 이름         | 타입                  | 설명                                                                                                                                                                                                                                                        |
 | ---------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -57,7 +57,7 @@ caver.validator.validateTransaction(tx)
 
 Validates a transaction. This function compares the public keys from the account key of the Klaytn account with the public keys recovered from `signatures`. If the transaction is fee-delegated with the `feePayerSignatures` variable inside, this function compares the public keys recovered from `feePayerSignatures` with the public keys of the fee payer.
 
-**매개변수**
+**Parameters**
 
 | 이름 | 타입     | 설명                                          |
 | -- | ------ | ------------------------------------------- |
@@ -88,7 +88,7 @@ caver.validator.validateSender(tx)
 
 Validates the sender of the transaction. This function compares the public keys of the account key of the Klaytn account with the public keys recovered from `signatures`.
 
-**매개변수**
+**Parameters**
 
 | 이름 | 타입     | 설명                                          |
 | -- | ------ | ------------------------------------------- |
@@ -114,7 +114,7 @@ caver.validator.validateFeePayer(tx)
 
 Validates a fee payer in the transaction. This function compares the public keys of the account key of the fee payer with the public keys recovered from `feePayerSignatures`.
 
-**매개변수**
+**Parameters**
 
 | 이름 | 타입     | 설명                                          |
 | -- | ------ | ------------------------------------------- |
