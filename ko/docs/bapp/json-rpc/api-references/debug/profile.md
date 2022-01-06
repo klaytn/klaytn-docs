@@ -187,7 +187,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 없음
 
-**Example**
+**예시**
 
 콘솔
 
@@ -211,7 +211,7 @@ CPU 프로파일링을 중단합니다.
 |  콘솔   | `debug.stopCPUProfile()`                           |
 |  RPC  | `{"method": "debug_stopCPUProfile", "params": []}` |
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -256,7 +256,7 @@ pprof HTTP 서버를 시작합니다.  실행 중인 pprof 서버는 아래를 �
 
 없음
 
-**Example**
+**예시**
 
 콘솔
 ```javascript
@@ -286,7 +286,7 @@ pprof HTTP 서버를 중단합니다.
 |  콘솔   | `debug.stopPProf()`                           |
 |  RPC  | `{"method": "debug_stopPProf", "params": []}` |
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -351,7 +351,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.writeMemProfile(file)`                             |
 |  RPC  | `{"method": "debug_writeMemProfile", "params": [string]}` |
 
-**매개변수**
+**Parameters**
 
 | 이름   | 타입     | 설명                  |
 | ---- | ------ | ------------------- |
@@ -361,7 +361,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 없음
 
-**Example**
+**예시**
 
 콘솔
 ```javascript
@@ -383,7 +383,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.writeMutexProfile(file)`                             |
 |  RPC  | `{"method": "debug_writeMutexProfile", "params": [string]}` |
 
-**매개변수**
+**Parameters**
 
 | 이름   | 타입     | 설명                  |
 | ---- | ------ | ------------------- |
@@ -393,7 +393,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 없음
 
-**Example**
+**예시**
 
 콘솔
 ```javascript
