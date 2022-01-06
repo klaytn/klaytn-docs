@@ -13,7 +13,7 @@ JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로
 
 **참고** `caver.contract.create`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
 [new caver.contract](#new-contract)를 참고하세요.
 
@@ -22,7 +22,7 @@ JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로
 [new caver.contract](#new-contract)를 참고하세요.
 
 
-**Example**
+**예시**
 
 ```javascript
 const contract = caver.contract.create([
@@ -46,7 +46,7 @@ new caver.contract(jsonInterface [, address] [, options])
 ```
 JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로 새 컨트랙트 인스턴스를 생성합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름            | 타입     | 설명                                                                                        |
 | ------------- | ------ | ----------------------------------------------------------------------------------------- |
@@ -73,7 +73,7 @@ JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로
 | object | 모든 메소드와 이벤트가 있는 컨트랙트 인스턴스. |
 
 
-**Example**
+**예시**
 
 ```javascript
 const myContract = new caver.contract([...], '0x{address in hex}', { gasPrice: '25000000000' })
@@ -104,7 +104,7 @@ myContract.options
 **참고** `feeDelegation`, `feePayer`, 그리고 `feeRatio`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 이후부터 지원됩니다.
 
 
-**Example**
+**예시**
 
 ```javascript
 > myContract.options
@@ -143,7 +143,7 @@ myContract.options.address
 | ------- | -------------------- | --------------------------------------- |
 | address | string &#124; `null` | 이 컨트랙트의 주소이거나, 아직 설정되지 않은 경우 `null`입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 >  myContract.options.address
@@ -167,7 +167,7 @@ myContract.options.jsonInterface
 | jsonInterface | Array | 이 컨트랙트의 JSON 인터페이스. 이를 재설정하면 컨트랙트 인스턴스의 메소드 및 이벤트가 재생성됩니다. |
 
 
-**Example**
+**예시**
 
 ```javascript
 > myContract.options.jsonInterface
@@ -209,7 +209,7 @@ myContract.clone([contractAddress])
 
 현재 컨트랙트 인스턴스를 복제합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름              | 타입     | 설명                                                                                 |
 | --------------- | ------ | ---------------------------------------------------------------------------------- |
@@ -222,7 +222,7 @@ myContract.clone([contractAddress])
 | object | 새로 복제된 컨트랙트 인스턴스. |
 
 
-**Example**
+**예시**
 
 ```javascript
 > myContract.clone()
@@ -245,7 +245,7 @@ myContract.deploy(options, byteCode [, param1 [, param2 [, ...]]])
 
 **참고** `myContract.deploy`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
 | 이름         | 타입     | 설명                                                                                     |
 | ---------- | ------ | -------------------------------------------------------------------------------------- |
@@ -268,7 +268,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 - `receipt`: 트랜잭션 영수중이 준비되면 발생합니다. 자세한 내용은 [caver.rpc.klay.getTransactionReceipt](./caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt)를 참조하세요. 타입은 `object`입니다.
 - `error`: 전송 중 에러가 발생하면 발생합니다. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다. 타입은 `error`입니다.
 
-**Example**
+**예시**
 
 ```javascript
 // Deploy a smart contract without constructor arguments
@@ -341,7 +341,7 @@ myContract.deploy(options)
 
 Klaytn에 스마트 컨트랙트를 배포할 때 사용되는 객체를 반환합니다. `myContract.deploy({ data, arguments }).send(options)`를 호출함으로써 스마트 컨트랙트 배포 트랜잭션을 전송할 수 있습니다. 성공적으로 배포된 후, Promise는 새로운 컨트랙트 인스턴스와 함께 해결(resolved)될 것입니다.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입     | 설명                                      |
 | ------- | ------ | --------------------------------------- |
@@ -373,7 +373,7 @@ The object contains the following:
 
 **참고** `myContract.deploy({ data, arguments }).sign(options)` and `myContract.deploy({ data, arguments }).signAsFeePayer(options)`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
-**Example**
+**예시**
 
 ```javascript
 > myContract.deploy({
@@ -447,7 +447,7 @@ myContract.send(options, methodName [, param1 [, param2 [, ...]]])
 
 **참고** `myContract.send`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
 | 이름         | 타입     | 설명                                                                                  |
 | ---------- | ------ | ----------------------------------------------------------------------------------- |
@@ -469,7 +469,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 - `receipt`: 트랜잭션 영수중이 준비되면 발생합니다. 자세한 내용은 [caver.rpc.klay.getTransactionReceipt](./caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt)를 참조하세요. 타입은 `object`입니다.
 - `error`: 전송 중 에러가 발생하면 발생합니다. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다. 타입은 `error`입니다.
 
-**Example**
+**예시**
 
 ```javascript
 // Send a SmartContractExecution and use the promise
@@ -594,7 +594,7 @@ myContract.sign(options, methodName [, param1 [, param2 [, ...]]])
 
 **참고** `myContract.sign`은 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
 | 이름         | 타입     | 설명                                                                                         |
 | ---------- | ------ | ------------------------------------------------------------------------------------------ |
@@ -606,7 +606,7 @@ myContract.sign(options, methodName [, param1 [, param2 [, ...]]])
 
 `Promise`는 [Transaction](./caver.transaction/README.md)을 반환 - 서명된 스마트 컨트랙트 트랜잭션입니다.
 
-**Example**
+**예시**
 
 ```javascript
 // Sign a SmartContractDeploy
@@ -746,7 +746,7 @@ myContract.signAsFeePayer(options, methodName [, param1 [, param2 [, ...]]])
 
 **참고** `myContract. signAsFeePayer`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
 | 이름         | 타입     | 설명                                                                                         |
 | ---------- | ------ | ------------------------------------------------------------------------------------------ |
@@ -758,7 +758,7 @@ myContract.signAsFeePayer(options, methodName [, param1 [, param2 [, ...]]])
 
 `Promise`는 [Transaction](./caver.transaction/README.md)을 반환 - 서명된 스마트 컨트랙트 트랜잭션입니다.
 
-**Example**
+**예시**
 
 ```javascript
 // Sign a FeeDelegatedSmartContractDeploy
@@ -858,7 +858,7 @@ myContract.call(options, 'methodName', [param1 [, param2 [, ...]]])
 
 **참고** `myContract.call`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
 | 이름         | 타입     | 설명                                                                                                                             |
 | ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -871,7 +871,7 @@ myContract.call(options, 'methodName', [param1 [, param2 [, ...]]])
 
 `Promise`가 `Mixed`를 반환: 스마트 컨트랙트 메서드의 리턴값(들) 입니다. 하나의 값을 반환하면, 그대로 반환됩니다. 다수의 반환값이 있는 경우 속성과 인덱스로 구성된 객체로서 반환됩니다.
 
-**Example**
+**예시**
 
 ```javascript
 > myContract.call('methodName').then(console.log)
@@ -891,7 +891,7 @@ Decodes a function call and returns parameters.
 
 **NOTE** `myContract.decodeFunctionCall` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
-**매개변수**
+**Parameters**
 
 | 이름           | 타입     | 설명                                |
 | ------------ | ------ | --------------------------------- |
@@ -971,7 +971,7 @@ caver.utils.sha3('methodName(uint256)').substr(0, 10)
 > 0x58cf5f10
 ```
 
-**매개변수**
+**Parameters**
 
 JSON 인터페이스에 정의된 스마트 컨트랙트 메서드에 속하는 모든 메서드의 매개변수
 
@@ -991,7 +991,7 @@ JSON 인터페이스에 정의된 스마트 컨트랙트 메서드에 속하는 
 
 **참고** `sign`과 `signAsFeePayer`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
-**Example**
+**예시**
 
 ```javascript
 // Calling a method
@@ -1089,7 +1089,7 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]]).call(options [, ca
 
 상수형 메서드를 호출하며 트랜잭션을 보내지 않고 그 스마트 컨트랙트 메서드를 Klaytn 가상머신에서 실행합니다.  이러한 호출은 스마트 컨트랙트 상태를 변경할 수 없음에 유의하세요. 단축함수로서 제공되는 [myContract.call](#mycontract-call)를 사용하는 것이 제안됩니다.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                                                                                                                   |
 | -------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1108,7 +1108,7 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]]).call(options [, ca
 
 `Promise`가 `Mixed`를 반환: 스마트 컨트랙트 메서드의 리턴값(들) 입니다. 하나를 반환하면, 그대로 반환됩니다. 다수의 반환값이 있는 경우 속성과 인덱스로 구성된 객체로서 반환됩니다.
 
-**Example**
+**예시**
 
 ```javascript
 // promise 사용
@@ -1174,7 +1174,7 @@ If a smart contract is deployed, 'constructor' can be entered in the methodName,
 
 **NOTE** 서명을 하기 위해서는 `caver.wallet`가 `options`나 `myContract.options`의 `from`와 `feePayer`에 해당하는 키링 인스턴스를 포함해야 합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                                                                      |
 | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------- |
@@ -1209,7 +1209,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 - `receipt`: 트랜잭션 영수중이 준비되면 발생합니다. 자세한 내용은 [caver.rpc.klay.getTransactionReceipt](./caver.rpc/klay.md#caver-rpc-klay-gettransactionreceipt)를 참조하세요. 타입은 `object`입니다.
 - `error`: 전송 중 에러가 발생하면 발생합니다. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다. 타입은 `error`입니다.
 
-**Example**
+**예시**
 
 ```javascript
 // using the promise
@@ -1290,7 +1290,7 @@ If a smart contract is deployed, 'constructor' can be entered in the methodName,
 
 **NOTE** `methods.methodName.sign` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입     | 설명                                                                                                                                           |
 | ------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1300,7 +1300,7 @@ If a smart contract is deployed, 'constructor' can be entered in the methodName,
 
 `Promise`는 [Transaction](./caver.transaction/README.md)을 반환 - 서명된 스마트 컨트랙트 트랜잭션입니다.
 
-**Example**
+**예시**
 
 ```javascript
 // Sign a SmartContractDeploy transaction
@@ -1405,7 +1405,7 @@ If a smart contract is deployed, 'constructor' can be entered in the methodName,
 
 **NOTE** `methods.methodName.signAsFeePayer` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입     | 설명                                                                                                                                           |
 | ------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1415,7 +1415,7 @@ If a smart contract is deployed, 'constructor' can be entered in the methodName,
 
 `Promise`는 [Transaction](./caver.transaction/README.md)을 반환 - 서명된 스마트 컨트랙트 트랜잭션입니다.
 
-**Example**
+**예시**
 
 ```javascript
 // Sign a FeeDelegatedSmartContractDeploy transaction
@@ -1465,7 +1465,7 @@ myContract.methods.methodName([param1 [, param2 [, ...]]]).estimateGas(options [
 
 Will estimate the gas that a method execution will take when executed in the Klaytn Virtual Machine. The estimation can differ from the actual gas used when later sending a transaction, as the state of the smart contract can be different at that time.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                                                                                                  |
 | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1488,7 +1488,7 @@ Will estimate the gas that a method execution will take when executed in the Kla
 | ------ | ------------------------------------------------ |
 | number | The used gas for the simulated call/transaction. |
 
-**Example**
+**예시**
 
 ```javascript
 > myContract.methods.methodName(123).estimateGas({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
@@ -1510,7 +1510,7 @@ myContract.methods.methodName([param1 [, param2[, ...]]]).encodeABI()
 이 메소드에 대한 ABI를 인코딩합니다. This can be used to send a transaction or call a method, or pass it into another smart contract method as arguments.
 
 
-**매개변수**
+**Parameters**
 
 JSON 인터페이스에 정의된 스마트 컨트랙트 메서드에 속하는 모든 메서드의 매개변수
 
@@ -1521,7 +1521,7 @@ JSON 인터페이스에 정의된 스마트 컨트랙트 메서드에 속하는 
 | string | 트랜잭션 또는 호출을 통해 전송할 인코딩된 ABI 바이트 코드. |
 
 
-**Example**
+**예시**
 
 ```javascript
 > myContract.methods.methodName(123).encodeABI()
@@ -1537,7 +1537,7 @@ myContract.once(event [, options], callback)
 
 Subscribes to an event and unsubscribes immediately after the first event or error. 단일 이벤트에 대해서만 발생합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                                                                                        |
 | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1556,7 +1556,7 @@ Subscribes to an event and unsubscribes immediately after the first event or err
 
 `Promise` returns `object` - An event object. For more detail about event object, please refer to [myContract.getPastEvents](#getpastevents).
 
-**Example**
+**예시**
 
 ```javascript
 > myContract.once('eventName', {
@@ -1594,7 +1594,7 @@ myContract.events.eventName([options][, callback])
 
 이벤트를 구독합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                                                               |
 | -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
@@ -1639,7 +1639,7 @@ The structure of the returned event `object` looks as follows:
 | raw.topics       | Array                | An array with a maximum of four 32-byte topics, and topic 1-3 contains indexed parameters of the event. |
 | id               | string               | 로그 식별자. `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`을 사용하여 "log_" 문자열을 연결하여 작성됩니다.  |
 
-**Example**
+**예시**
 
 ```javascript
 > myContract.events.eventName({
@@ -1693,7 +1693,7 @@ myContract.getPastEvents(event [, options] [, callback])
 ```
 이 컨트랙트의 이전 이벤트를 가져옵니다.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                                                                            |
 | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -1729,7 +1729,7 @@ An event object can contain the following:
 | blockNumber      | number               | The block number this log was created in. null when still pending.                                                                                                                                            |
 | raw              | object               | An object defines `data` and `topic`. `raw.data` containing non-indexed log parameter. `raw.topic` is an array with a maximum of four 32 Byte topics, and topic 1-3 contains indexed parameters of the event. |
 
-**Example**
+**예시**
 
 ```javascript
 > myContract.getPastEvents('eventName', {
