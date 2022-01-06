@@ -9,28 +9,28 @@ Klaytn supports `eth` namespace APIs, so Developers who using Ethereum based SDK
 existing projects to Klaytn.
 (e.g. just replacing endpoint url to Klaytn node in the source code using Ethereum SDKs should work enough.)
 
-But due to the fundamental design differences that exist between Klaytn and Ethereum, there are some APIs that are
-difficult to fully support compatibility with Ethereum.
+But due to the fundamental design differences that exist between Klaytn and Ethereum, 
+there are some APIs that are difficult to fully supported. (e.g. some fields have always zero value, etc...)
 
 This document describes the limitations of those APIs.
 
 ## Block Header
 
-Please read the descriptions marked "(Note that)" carefully. 
+Please read the descriptions marked "**(Note that)**" carefully. 
 
-| Field         | Description                                                                                                                                                                                                                                                                                                                                                  |
-|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| baseFeePerGas | (Note that) It always return `0x0` because there is no scheme of baseFeePerGas in Klaytn yet.                                                                                                                                                                                                                                                                |
-| difficulty    | (Note that) It always return `0x1`, this value is from blockScore field of Klaytn Header. There is no PoW mechanism in Klaytn.                                                                                                                                                                                                                               |
-| extraData     | (Note that) It always return `0x` because actual value of extraData in Klaytn header cannot be used as meaningful way when serving eth namespace api because we cannot provide original header of Klaytn and this field is used as consensus info which is encoded value of validators addresses, validators signatures, and proposer signature in Klaytn.   |
-| gasLimit      | (Note that) It always return `0x3b9ac9ff`(=`999999999` in decimal representation.). There is no GasLimit in Klaytn, so we return this value as a large enough. As of the writing date, it is 30 times the block gas limit of Ethereum. Please check [computation cost](https://docs.klaytn.com/klaytn/design/computation/computation-cost) for more details. |
-| gasUsed       | (Same with Ethereum) A scalar value equal to the total gas used in transactions in this block.                                                                                                                                                                                                                                                               |
-| hash          | (Same with Ethereum) A hash of the block.                                                                                                                                                                                                                                                                                                                    |
-| logsBloom     | (Same with Ethereum) The bloom filter for the logs of the block. null when it is pending block.                                                                                                                                                                                                                                                              |
-| miner         | (Note that) Because the [consensus mechanism](https://docs.klaytn.com/klaytn/design/consensus-mechanism) in Klaytn is PBFT, there is a block proposer not miner. So it returns the address of proposer of the block.                                                                                                                                         |
-| mixHash       | (Note that) It always return zeroHash(`0x00...`) because there is no PoW mechanism in Klaytn.                                                                                                                                                                                                                                                                |
-| nonce         | (Note that) It always return zeroNonce(`0x00...`) because there is no PoW mechanism in Klaytn.                                                                                                                                                                                                                                                               |
-| number        | (Same with Ethereum) The block number.                                                                                                                                                                                                                                                                                                                       |
+| Field         | Description                                                                                                                                                                                                                                                                                                                                                    |
+|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| baseFeePerGas | **(Note that)** It always return `0x0` because there is no scheme of baseFeePerGas in Klaytn yet.                                                                                                                                                                                                                                                              |
+| difficulty    | **(Note that)** It always return `0x1`, this value is from blockScore field of Klaytn Header. There is no PoW mechanism in Klaytn.                                                                                                                                                                                                                             |
+| extraData     | **(Note that)** It always return `0x` because actual value of extraData in Klaytn header cannot be used as meaningful way when serving eth namespace api because we cannot provide original header of Klaytn and this field is used as consensus info which is encoded value of validators addresses, validators signatures, and proposer signature in Klaytn. |
+| gasLimit      | **(Note that)** It always return `0x3b9ac9ff`(=`999999999` in decimal representation.). There is no GasLimit in Klaytn, so we return this value as a large enough. As of the writing date, it is 30 times the block gas limit of Ethereum. Please check [computation cost](https://docs.klaytn.com/klaytn/design/computation/computation-cost) for more details.   |
+| gasUsed       | (Same with Ethereum) A scalar value equal to the total gas used in transactions in this block.                                                                                                                                                                                                                                                                 |
+| hash          | (Same with Ethereum) A hash of the block.                                                                                                                                                                                                                                                                                                                      |
+| logsBloom     | (Same with Ethereum) The bloom filter for the logs of the block. null when it is pending block.                                                                                                                                                                                                                                                                |
+| miner         | **(Note that)** Because the [consensus mechanism](https://docs.klaytn.com/klaytn/design/consensus-mechanism) in Klaytn is PBFT, there is a block proposer not miner. So it returns the address of proposer of the block.                                                                                                                                           |
+| mixHash       | **(Note that)** It always return zeroHash(`0x00...`) because there is no PoW mechanism in Klaytn.                                                                                                                                                                                                                                                                  |
+| nonce         | **(Note that)** It always return zeroNonce(`0x00...`) because there is no PoW mechanism in Klaytn.                                                                                                                                                                                                                                                                 |
+| number        | (Same with Ethereum) The block number.                                                                                                                                                                                                                                                                                                                         |
 
 ## Transaction
 
@@ -50,7 +50,7 @@ This document describes the limitations of those APIs.
 Regardless of various Klaytn transaction type, there are common fields.
 This section describes how that common fields are served as Ethereum Legacy Transaction.
 
-Please read the descriptions marked "(Note that)" carefully.
+Please read the descriptions marked "**(Note that)**" carefully.
 
 | Ethereum Legacy Transaction Field | Klaytn Transaction Field         | Description                                                                                                                                                                                                                          |
 |-----------------------------------|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -58,20 +58,20 @@ Please read the descriptions marked "(Note that)" carefully.
 | blockNumber                       | blockNumber                      | (Same with Ethereum) Block number                                                                                                                                                                                                    |
 | from                              | from                             | (Same with Ethereum) Address of the sender                                                                                                                                                                                           |
 | gas                               | gas                              | (Same with Ethereum) Gas provided by the sender                                                                                                                                                                                      |
-| gasPrice                          | gasPrice                         | (Note that) Gas price provided by the sender in Peb.                                                                                                                                                                                 |
+| gasPrice                          | gasPrice                         | **(Note that)** Gas price provided by the sender in Peb.                                                                                                                                                                                 |
 | hash                              | hash                             | (Same with Ethereum) Transaction hash                                                                                                                                                                                                |
 | input                             | (will be covered below sections) | The description of this field is covered in the detailed transaction items below.                                                                                                                                                    |
 | nonce                             | nonce                            | (Same with Ethereum) The number of transactions made by the sender prior to this one.                                                                                                                                                |
-|                                   | senderTxHash(omitted)            | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                  |
-|                                   | signatures(omitted)              | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                  |
+|                                   | senderTxHash(omitted)            | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                  |
+|                                   | signatures(omitted)              | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                  |
 | to                                | (will be covered below sections) | The description of this field is covered in the detailed transaction items below.                                                                                                                                                    |
-| transactionIndex                  | transactionIndex                 | (Note that) Almost same with Ethereum but unlike Ethereum, Klaytn returns integer as it is when its pending.                                                                                                                         |
+| transactionIndex                  | transactionIndex                 | **(Note that)** Almost same with Ethereum but unlike Ethereum, Klaytn returns integer as it is when its pending.                                                                                                                         |
 | value                             | (will be covered below sections) | The description of this field is covered in the detailed transaction items below.                                                                                                                                                    |
-| type                              | type(converted)                  | (Note that) Value and data type of this field is converted. The type of this field is a string(e.g. `"LegacyTransaction"`) in Klaytn but it is converted and served as hexadecimal(e.g. `0x`) just like Ethereum Legacy Transaction. |
-|                                   | typeInt(omitted)                 | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                  |
-| v                                 | (added)                          | (Note that) `signatures[0].V` will be added as the value of the field `v`.                                                                                                                                                           |
-| r                                 | (added)                          | (Note that) `signatures[0].R` will be added as the value of the field `r`.                                                                                                                                                           |
-| s                                 | (added)                          | (Note that) `signatures[0].S` will be added as the value of the field `s`.                                                                                                                                                           |
+| type                              | type(converted)                  | **(Note that)** Value and data type of this field is converted. The type of this field is a string(e.g. `"LegacyTransaction"`) in Klaytn but it is converted and served as hexadecimal(e.g. `0x`) just like Ethereum Legacy Transaction. |
+|                                   | typeInt(omitted)                 | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                  |
+| v                                 | (added)                          | **(Note that)** `signatures[0].V` will be added as the value of the field `v`.                                                                                                                                                           |
+| r                                 | (added)                          | **(Note that)** `signatures[0].R` will be added as the value of the field `r`.                                                                                                                                                           |
+| s                                 | (added)                          | **(Note that)** `signatures[0].S` will be added as the value of the field `s`.                                                                                                                                                           |
 
 ### Common Fields For FeeDelegation
 Regardless of various Klaytn FeeDelegation transaction type, there are common fields.
@@ -80,8 +80,8 @@ are served as Ethereum Legacy Transaction.
 
 | Ethereum Legacy Transaction Field | Klaytn FeeDelegation Transaction Field | Description                                                                                                  |
 |-----------------------------------|----------------------------------------|--------------------------------------------------------------------------------------------------------------|
-|                                   | feePayer(omitted)                      | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.          |
-|                                   | feePayerSignatures(omitted)            | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.          |
+|                                   | feePayer(omitted)                      | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction.          |
+|                                   | feePayerSignatures(omitted)            | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction.          |
 
 ### Common Fields For PartialFeeDelegation
 Regardless of various Klaytn PartialFeeDelegation transaction type, there are common fields.
@@ -90,7 +90,7 @@ are served as Ethereum Legacy Transaction.
 
 | Ethereum Legacy Transaction Field | Klaytn FeeDelegation Transaction Field | Description                                                                                                  |
 |-----------------------------------|----------------------------------------|--------------------------------------------------------------------------------------------------------------|
-|                                   | feeRatio(omitted)                      | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.          |
+|                                   | feeRatio(omitted)                      | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction.          |
 
 ### LegacyTransaction
 
@@ -138,7 +138,7 @@ are served as Ethereum Legacy Transaction.
 
 | Ethereum Legacy Transaction Field | Klaytn ValueTransfer Transaction Field | Description                                                                                                          |
 |-----------------------------------|----------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| input                             | (added)                                | (Note that) This field always have value `0x` because this field does not exist in Klaytn ValueTransfer transaction. |
+| input                             | (added)                                | **(Note that)** This field always have value `0x` because this field does not exist in Klaytn ValueTransfer transaction. |
 | to                                | to                                     | (Same with Ethereum) Address of the receiver. null when its a contract creation transaction.                         |
 | value                             | value                                  | (Same with Ethereum) Value transferred in Peb.                                                                       |
 
@@ -222,8 +222,8 @@ are served as Ethereum Legacy Transaction.
 
 | Ethereum Legacy Transaction Field | Klaytn SmartContractDeploy Transaction Field | Description                                                                                         |
 |-----------------------------------|----------------------------------------------|-----------------------------------------------------------------------------------------------------|
-|                                   | codeFormat(omitted)                          | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction. |
-|                                   | humanReadable(omitted)                       | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction. |
+|                                   | codeFormat(omitted)                          | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction. |
+|                                   | humanReadable(omitted)                       | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction. |
 | input                             | input                                        | (Same with Ethereum) the data sent along with the transaction.                                      |
 | to                                | to                                           | (Same with Ethereum) Address of the receiver. null when its a contract creation transaction.        |
 | value                             | value                                        | (Same with Ethereum) Value transferred in Peb.                                                      |
@@ -310,10 +310,10 @@ are served as Ethereum Legacy Transaction.
 
 | Ethereum Legacy Transaction Field | Klaytn AccountUpdate Transaction Field | Description                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                                   | key(omitted)                           | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                       |
-| input                             | (added)                                | (Note that) This field always have value `0x` because this field does not exist in Klaytn AccountUpdate transaction.                                                                                      |
-| to                                | (added)                                | (Note that) This field always have same address with `from` because this field does not exist in Klaytn AccountUpdate transaction and giving a value of this field as `from` address is most meaningful.  | 
-| value                             | (added)                                | (Note that) This field always have value `0x0` because this field does not exist in Klaytn AccountUpdate transaction.                                                                                     |
+|                                   | key(omitted)                           | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                       |
+| input                             | (added)                                | **(Note that)** This field always have value `0x` because this field does not exist in Klaytn AccountUpdate transaction.                                                                                      |
+| to                                | (added)                                | **(Note that)** This field always have same address with `from` because this field does not exist in Klaytn AccountUpdate transaction and giving a value of this field as `from` address is most meaningful.  | 
+| value                             | (added)                                | **(Note that)** This field always have value `0x0` because this field does not exist in Klaytn AccountUpdate transaction.                                                                                     |
 
 **Klaytn AccountUpdate Transaction** is served as Ethereum Legacy Transaction like below.
 ```json
@@ -354,9 +354,9 @@ are served as Ethereum Legacy Transaction.
 
 | Ethereum Legacy Transaction Field | Klaytn Cancel Transaction Field | Description                                                                                                                                                                                          |
 |-----------------------------------|---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| input                             | (added)                         | (Note that) This field always have value `0x` because this field does not exist in Klaytn Cancel transaction.                                                                                        |
-| to                                | (added)                         | (Note that) This field always have same address with `from` because this field does not exist in Klaytn Cancel transaction and giving a value of this field as `from` address is most meaningful.    | 
-| value                             | (added)                         | (Note that) This field always have value `0x0` because this field does not exist in Klaytn Cancel transaction.                                                                                       |
+| input                             | (added)                         | **(Note that)** This field always have value `0x` because this field does not exist in Klaytn Cancel transaction.                                                                                        |
+| to                                | (added)                         | **(Note that)** This field always have same address with `from` because this field does not exist in Klaytn Cancel transaction and giving a value of this field as `from` address is most meaningful.    | 
+| value                             | (added)                         | **(Note that)** This field always have value `0x0` because this field does not exist in Klaytn Cancel transaction.                                                                                       |
 
 **Klaytn Cancel Transaction** is served as Ethereum Legacy Transaction like below.
 ```json
@@ -397,9 +397,9 @@ are served as Ethereum Legacy Transaction.
 | Ethereum Legacy Transaction Field | Klaytn ChainDataAnchoring Transaction Field  | Description                                                                                                                                                                                                   |
 |-----------------------------------|----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | input                             | input                                        | (Same with Ethereum) the data sent along with the transaction.                                                                                                                                                |
-|                                   | inputJSON(omitted)                           | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                           |
-| to                                | (added)                                      | (Note that) This field always have same address with `from` because this field does not exist in Klaytn ChainDataAnchoring transaction and giving a value of this field as `from` address is most meaningful. | 
-| value                             | (added)                                      | (Note that) This field always have value `0x0` because this field does not exist in Klaytn ChainDataAnchoring transaction.                                                                                    |
+|                                   | inputJSON(omitted)                           | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                           |
+| to                                | (added)                                      | **(Note that)** This field always have same address with `from` because this field does not exist in Klaytn ChainDataAnchoring transaction and giving a value of this field as `from` address is most meaningful. | 
+| value                             | (added)                                      | **(Note that)** This field always have value `0x0` because this field does not exist in Klaytn ChainDataAnchoring transaction.                                                                                    |
 
 **Klaytn ChainDataAnchoring Transaction** is served as Ethereum Legacy Transaction like below.
 ```json
@@ -465,30 +465,30 @@ Regardless of various Klaytn transaction type, there are common fields.
 
 This section describes how that common fields are served as Ethereum Transaction Receipt.
 
-Please read the descriptions marked "(Note that)" carefully.
+Please read the descriptions marked "**(Note that)**" carefully.
 
 | Ethereum Transaction Receipt Field | Klaytn Transaction Receipt Field | Description                                                                                                                                                                                                                           |
 |------------------------------------|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | blockHash                          | blockHash                        | (Same with Ethereum) Block hash                                                                                                                                                                                                       |
 | blockNumber                        | blockNumber                      | (Same with Ethereum) Block number                                                                                                                                                                                                     |
 | contractAddress                    | contractAddress                  | (Same with Ethereum) The contract address created, if the transaction was a contract creation, otherwise - null.                                                                                                                      |
-| cumulativeGasUsed                  | (added)                          | (Note that) The total amount of gas used when this transaction was executed in the block. It is provided with the same meaning as the Ethereum field.                                                                                 |
-| effectiveGasPrice                  | (added)                          | (Note that) Klaytn currently is using [fixed gasPrice](https://docs.klaytn.com/klaytn/design/transaction-fees#unit-price) policy. So it returns always same value.                                                                    |
+| cumulativeGasUsed                  | (added)                          | **(Note that)** The total amount of gas used when this transaction was executed in the block. It is provided with the same meaning as the Ethereum field.                                                                                 |
+| effectiveGasPrice                  | (added)                          | **(Note that)** Klaytn currently is using [fixed gasPrice](https://docs.klaytn.com/klaytn/design/transaction-fees#unit-price) policy. So it returns always same value.                                                                    |
 | from                               | from                             | (Same with Ethereum) Address of the sender                                                                                                                                                                                            |
-|                                    | gas(omitted)                     | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                   |
+|                                    | gas(omitted)                     | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                   |
 | gasUsed                            | gasUsed                          | (Same with Ethereum) the amount of gas used by this specific transaction alone.                                                                                                                                                       |
-|                                    | gasPrice(omitted)                | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                   |
+|                                    | gasPrice(omitted)                | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                   |
 | logs                               | logs                             | (Same with Ethereum) Array of log objects generated by transactions.                                                                                                                                                                  |
 | logsBloom                          | logsBloom                        | (Same with Ethereum) Bloom filter for light clients to quickly retrieve related logs.                                                                                                                                                 |
-|                                    | nonce(omitted)                   | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                   |
-|                                    | senderTxHash(omitted)            | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                   |
-|                                    | signatures(omitted)              | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                   |
+|                                    | nonce(omitted)                   | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                   |
+|                                    | senderTxHash(omitted)            | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                   |
+|                                    | signatures(omitted)              | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                   |
 | status                             | status                           | (Same with Ethereum) Either 1(success) or 0(failure).                                                                                                                                                                                 |
 | to                                 | (will be covered below sections) | The description of this field is covered in the detailed transaction items below.                                                                                                                                                     |
 | transactionHash                    | transactionHash                  | (Same with Ethereum) The transaction hash.                                                                                                                                                                                            |
-| transactionIndex                   | transactionIndex                 | (Note that) Almost same with Ethereum but unlike Ethereum, Klaytn returns integer as it is when its pending.                                                                                                                          |
-| type                               | type(converted)                  | (Note that) Value and data type of this field is converted. The type of this field is a string(e.g. `"LegacyTransaction"`) in Klaytn but it is converted and served as hexadecimal(e.g. `0x`) just like Ethereum Transaction Receipt. |
-|                                    | typeInt(omitted)                 | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                   |
+| transactionIndex                   | transactionIndex                 | **(Note that)** Almost same with Ethereum but unlike Ethereum, Klaytn returns integer as it is when its pending.                                                                                                                          |
+| type                               | type(converted)                  | **(Note that)** Value and data type of this field is converted. The type of this field is a string(e.g. `"LegacyTransaction"`) in Klaytn but it is converted and served as hexadecimal(e.g. `0x`) just like Ethereum Transaction Receipt. |
+|                                    | typeInt(omitted)                 | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                   |
 
 ### Common Fields For FeeDelegation
 Regardless of various Klaytn FeeDelegation transaction type, there are common fields.
@@ -499,8 +499,8 @@ are served as Ethereum Transaction Receipt.
 
 | Ethereum Legacy Transaction Field | Klaytn FeeDelegation Transaction Field | Description                                                                                          |
 |-----------------------------------|----------------------------------------|------------------------------------------------------------------------------------------------------|
-|                                   | feePayer(omitted)                      | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
-|                                   | feePayerSignatures(omitted)            | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
+|                                   | feePayer(omitted)                      | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
+|                                   | feePayerSignatures(omitted)            | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
 
 ### Common Fields For PartialFeeDelegation
 Regardless of various Klaytn PartialFeeDelegation transaction type, there are common fields.
@@ -511,15 +511,15 @@ are served as Ethereum Transaction Receipt.
 
 | Ethereum Legacy Transaction Field | Klaytn FeeDelegation Transaction Field | Description                                                                                                  |
 |-----------------------------------|----------------------------------------|--------------------------------------------------------------------------------------------------------------|
-|                                   | feeRatio(omitted)                      | (Note that) This field is omitted because this field does not exist in Ethereum Legacy Transaction.          |
+|                                   | feeRatio(omitted)                      | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction.          |
 
 ### LegacyTransaction Receipt
 
 | Ethereum Transaction Receipt Field | Klaytn LegacyTransaction Receipt Field   | Description                                                                                             |
 |------------------------------------|------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|                                    | input(omitted)                           | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt.    |
+|                                    | input(omitted)                           | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt.    |
 | to                                 | to                                       | (Same with Ethereum) Address of the receiver. null when its a contract creation transaction.            |
-|                                    | value(omitted)                           | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt.    |
+|                                    | value(omitted)                           | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt.    |
 
 **Klaytn LegacyTransaction Receipt** is served as Ethereum Transaction Receipt like below.
 ```json
@@ -580,7 +580,7 @@ are served as Ethereum Transaction Receipt.
 | Ethereum Transaction Receipt Field | Klaytn ValueTransfer Transaction Receipt Field | Description                                                                                               |
 |------------------------------------|------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
 | to                                 | to                                             | (Same with Ethereum) Address of the receiver. null when its a contract creation transaction.              |
-|                                    | value(omitted)                                 | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt.      |
+|                                    | value(omitted)                                 | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt.      |
 
 **Klaytn ValueTransfer Transaction Receipt** is served as Ethereum Transaction Receipt like below.
 ```json
@@ -623,9 +623,9 @@ are served as Ethereum Transaction Receipt.
 
 | Ethereum Transaction Receipt Field | Klaytn ValueTransferMemo Transaction Receipt Field | Description                                                                                          |
 |------------------------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------|
-|                                    | input(omitted)                                     | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
+|                                    | input(omitted)                                     | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
 | to                                 | to                                                 | (Same with Ethereum) Address of the receiver. null when its a contract creation transaction.         |
-|                                    | value(omitted)                                     | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
+|                                    | value(omitted)                                     | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
 
 **Klaytn ValueTransferMemo Transaction** is served as Ethereum Transaction Receipt like below.
 ```json
@@ -669,11 +669,11 @@ are served as Ethereum Transaction Receipt.
 
 | Ethereum Transaction Receipt Field | Klaytn SmartContractDeploy Transaction Receipt Field | Description                                                                                           |
 |------------------------------------|------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
-|                                    | codeFormat(omitted)                                  | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt.  |
-|                                    | humanReadable(omitted)                               | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt.  |
-|                                    | input                                                | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt   |
+|                                    | codeFormat(omitted)                                  | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt.  |
+|                                    | humanReadable(omitted)                               | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt.  |
+|                                    | input                                                | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt   |
 | to                                 | to                                                   | (Same with Ethereum) Address of the receiver. null when its a contract creation transaction.          |
-|                                    | value                                                | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt   |
+|                                    | value                                                | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt   |
 
 **Klaytn SmartContractDeploy Transaction Receipt** is served as Ethereum Transaction Receipt like below.
 ```json
@@ -735,9 +735,9 @@ are served as Ethereum Transaction Receipt.
 
 | Ethereum Transaction Receipt Field | Klaytn SmartContractExecution Transaction Receipt Field | Description                                                                                           |
 |------------------------------------|---------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
-|                                    | input                                                   | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt.  |
+|                                    | input                                                   | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt.  |
 | to                                 | to                                                      | (Same with Ethereum) Address of the receiver. null when its a contract creation transaction.          |
-|                                    | value                                                   | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt.  |
+|                                    | value                                                   | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt.  |
 
 **Klaytn SmartContractExecution Transaction Receipt** is served as Ethereum Transaction Receipt like below.
 ```json
@@ -781,8 +781,8 @@ are served as Ethereum Transaction Receipt.
 
 | Ethereum Transaction Receipt Field | Klaytn AccountUpdate Transaction Receipt Field | Description                                                                                                                                                                                                        |
 |------------------------------------|------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                                    | key(omitted)                                   | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                                               |
-| to                                 | (added)                                        | (Note that) This field always have same address with `from` because this field does not exist in Klaytn AccountUpdate transaction receipt and giving a value of this field as `from` address is most meaningful.   | 
+|                                    | key(omitted)                                   | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                                               |
+| to                                 | (added)                                        | **(Note that)** This field always have same address with `from` because this field does not exist in Klaytn AccountUpdate transaction receipt and giving a value of this field as `from` address is most meaningful.   | 
 
 **Klaytn AccountUpdate Transaction Receipt** is served as Ethereum Transaction Receipt like below.
 ```json
@@ -826,7 +826,7 @@ are served as Ethereum Transaction Receipt.
 
 | Ethereum Transaction Receipt Field | Klaytn Cancel Transaction Receipt Field | Description                                                                                                                                                                                                |
 |------------------------------------|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| to                                 | (added)                                 | (Note that) This field always have same address with `from` because this field does not exist in Klaytn Cancel transaction receipt and giving a value of this field as `from` address is most meaningful.  | 
+| to                                 | (added)                                 | **(Note that)** This field always have same address with `from` because this field does not exist in Klaytn Cancel transaction receipt and giving a value of this field as `from` address is most meaningful.  | 
 
 **Klaytn Cancel Transaction Receipt** is served as Ethereum Transaction Receipt like below.
 ```json
@@ -868,9 +868,9 @@ are served as Ethereum Transaction Receipt.
 
 | Ethereum Transaction Receipt Field | Klaytn ChainDataAnchoring Transaction Receipt Field | Description                                                                                                                                                                                                           |
 |------------------------------------|-----------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                                    | input(omitted)                                      | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                                                  |
-|                                    | inputJSON(omitted)                                  | (Note that) This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                                                  |
-| to                                 | (added)                                             | (Note that) This field always have same address with `from` because this field does not exist in Klaytn ChainDataAnchoring transaction receipt and giving a value of this field as `from` address is most meaningful. |  
+|                                    | input(omitted)                                      | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                                                  |
+|                                    | inputJSON(omitted)                                  | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                                                                                                  |
+| to                                 | (added)                                             | **(Note that)** This field always have same address with `from` because this field does not exist in Klaytn ChainDataAnchoring transaction receipt and giving a value of this field as `from` address is most meaningful. |  
 
 **Klaytn ChainDataAnchoring Transaction Receipt** is served as Ethereum Transaction Receipt like below.
 ```json
