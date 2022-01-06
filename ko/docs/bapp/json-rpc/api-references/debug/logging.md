@@ -134,7 +134,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.verbosityByName(name, level)`                              |
 |  RPC  | `{"method": "debug_verbosityByName", "params": [string, number]}` |
 
-**매개변수**
+**Parameters**
 
 | 이름    | 타입     | 설명                     |
 | ----- | ------ | ---------------------- |
@@ -145,7 +145,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 없음
 
-**Example**
+**예시**
 
 콘솔
 ```javascript
@@ -174,7 +174,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.verbosityByID(id, level)`                                |
 |  RPC  | `{"method": "debug_verbosityByID", "params": [number, number]}` |
 
-**매개변수**
+**Parameters**
 
 | 이름    | 타입  | 설명                    |
 | ----- | --- | --------------------- |
@@ -185,7 +185,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 없음
 
-**Example**
+**예시**
 
 콘솔
 ```javascript
@@ -208,7 +208,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.vmodule(module)`                           |
 |  RPC  | `{"method": "debug_vmodule", "params": [string]}` |
 
-**매개변수**
+**Parameters**
 
 | 이름     | 타입     | 설명                           |
 | ------ | ------ | ---------------------------- |
@@ -218,7 +218,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 없음
 
-**Example**
+**예시**
 
 콘솔
 
