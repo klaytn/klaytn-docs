@@ -10,7 +10,7 @@ description: '>- APIs related to the namespace "istanbul".'
 
 특정 블록 넘버에서 상태 스냅샷을 반환합니다. 상태 스냅샷은 번호/해시, 검증자, 스냅샷 블록의 거버넌스 투표 등의 정보를 포함하고 있습니다.
 
-**매개변수**
+**Parameters**
 
 | 이름    | 타입                  | 설명                                                                                                                            |
 | ----- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -22,7 +22,7 @@ description: '>- APIs related to the namespace "istanbul".'
 
 | 이름 | 타입 | 설명 | | Epoch | 64-byte DATA | 해당 블록 다음부터 보류 중인 표결을 체크포인트 및 리셋합니다. | | Number | 64-byte DATA | 스냅샷이 생성된 블록 번호입니다. | | Number | 64-byte DATA | 스냅샷이 생성된 블록 번호입니다. | | ValSet | 64-byte DATA | 현재 검증자 목록입니다. | | Policy | 64-byte DATA | | | CommiteeSize | 64-byte DATA | | | Votes | 64-byte DATA | 연대기 순으로 정렬된 표결입니다. | | Tally | 64-byte DATA | 재계산을 방지하기 위한 현재 표 합산입니다. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -35,7 +35,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 특정 블록 해시의 스냅샷을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름         | 타입            | 설명                   |
 | ---------- | ------------- | -------------------- |
@@ -45,7 +45,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 [istanbul_getSnapshot](#istanbul_getsnapshot)를 확인하세요.
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -59,7 +59,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 특정 블록 번호의 검증자 목록을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름    | 타입                  | 설명                                                                                                                            |
 | ----- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -71,7 +71,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 | --- | ------------- | -------------- |
 | 검증자 | 20바이트 크기 DATA | 검증자의 주소 목록입니다. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -84,7 +84,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 주어진 블록 해시에서의 승인된 검증자 목록을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름         | 타입            | 설명                   |
 | ---------- | ------------- | -------------------- |
@@ -94,7 +94,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 [istanbul_getValidators](#istanbul_getvalidators)를 참고하세요.
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -107,7 +107,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 노드가 지지하고 투표하려고 하는 현재 후보자들을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -115,7 +115,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 | account | 20-byte DATA | 후보자의 주소입니다. | | auth | boolean | 후보자의 승인 상태를 나타내는 값입니다. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -128,7 +128,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 검증자가 관철시키고자 하는 새로운 승인 후보를 추가합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입            | 설명                     |
 | ------- | ------------- | ---------------------- |
@@ -139,7 +139,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 없음
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -152,7 +152,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 현재 후보자를 탈락시키고, 검증자가 더 이상 투표하지 못하도록 합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입            | 설명          |
 | ------- | ------------- | ----------- |
@@ -162,7 +162,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 
 없음
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -176,7 +176,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 이스탄불 config 타임아웃을 반환합니다. 기본값은 10000ms이며, 이를 초과할 시 timeoutEvent가 전송됩니다. CN의 경우 timeoutEvent는 currentRound, preparesSize, 그리고 로그될 commitsSize를 포함합니다.
 
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -186,7 +186,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"is
 | ------- | --- | --------------- |
 | timeout | int | config 타임아웃입니다. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
