@@ -19,7 +19,7 @@ description: >-
 |  콘솔   | `personal.importRawKey(keydata, passphrase)`                           |
 |  RPC  | `{"method": "personal_importRawKey", "params": [keydata, passphrase]}` |
 
-**매개변수**
+**파라미터**
 
 | 이름         | 타입     | 설명                                                                                                                      |
 | ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------- |
@@ -60,7 +60,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 |  콘솔   | `personal.listAccounts`                             |
 |  RPC  | `{"method": "personal_listAccounts", "params": []}` |
 
-**매개변수**
+**파라미터**
 
 없음
 
@@ -94,7 +94,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 |  콘솔   | `personal.listWallets`                             |
 |  RPC  | `{"method": "personal_listWallets", "params": []}` |
 
-**매개변수**
+**파라미터**
 
 없음
 
@@ -140,7 +140,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 |  콘솔   | `personal.openWallet(url, passhrase)`                            |
 |  RPC  | `{"method": "personal_openWallet", "params": [url, passphrase]}` |
 
-**매개변수**
+**파라미터**
 
 | 이름         | 타입     | 설명           |
 | ---------- | ------ | ------------ |
@@ -153,7 +153,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 | -- | ----- | --------- |
 | 에러 | error | 오류 조건입니다. |
 
-**Example**
+**예시**
 
 콘솔
 ``` javascript
@@ -175,7 +175,7 @@ HD 지갑이 새로운 계정을 도출하도록 요청하며, 추후 사용을 
 |  콘솔   | `personal.deriveAccount(url, path, pin)`                           |
 |  RPC  | `{"method": "personal_deriveAccount", "params": [url, path, pin]}` |
 
-**매개변수**
+**파라미터**
 
 | 이름   | 타입      | 설명         |
 | ---- | ------- | ---------- |
@@ -190,7 +190,7 @@ HD 지갑이 새로운 계정을 도출하도록 요청하며, 추후 사용을 
 | 계정(Account) | string | 새로운 계정의 주소입니다. |
 | 에러          | error  | 오류 조건입니다.      |
 
-**Example**
+**예시**
 
 콘솔
 ``` javascript
@@ -214,7 +214,7 @@ Klaytn 콘솔에서 비밀번호가 매개변수로 주어지지 않으면 `newA
 |  콘솔   | `personal.newAccount(passphrase)`                           |
 |  RPC  | `{"method": "personal_newAccount", "params": [passphrase]}` |
 
-**매개변수**
+**파라미터**
 
 | 이름         | 타입     | 설명                         |
 | ---------- | ------ | -------------------------- |
@@ -226,7 +226,7 @@ Klaytn 콘솔에서 비밀번호가 매개변수로 주어지지 않으면 `newA
 | ------ | -------------- |
 | string | 새로운 계정의 주소입니다. |
 
-**Example**
+**예시**
 
 콘솔
 ``` javascript
@@ -259,7 +259,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 |  콘솔   | `personal.lockAccount(address)`                           |
 |  RPC  | `{"method": "personal_lockAccount", "params": [address]}` |
 
-**매개변수**
+**파라미터**
 
 | 이름      | 타입     | 설명            |
 | ------- | ------ | ------------- |
@@ -271,7 +271,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 | ---- | --------------------------------------------------- |
 | bool | 계정이 성공적으로 잠기면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**Example**
+**예시**
 
 콘솔
 ```javascript
@@ -300,7 +300,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 |  콘솔   | `personal.unlockAccount(address, passphrase, duration)`                           |
 |  RPC  | `{"method": "personal_unlockAccount", "params": [address, passphrase, duration]}` |
 
-**매개변수**
+**파라미터**
 
 | 이름         | 타입     | 설명                                     |
 | ---------- | ------ | -------------------------------------- |
@@ -314,7 +314,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 | ---- | --------------------------------------------- |
 | bool | 잠금 해제되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**Example**
+**예시**
 
 콘솔
 ``` javascript
@@ -356,7 +356,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 |  콘솔   | `personal.replaceRawKey(keydata, oldPassphrase, newPassphrase)`                           |
 |  RPC  | `{"method": "personal_replaceRawKey", "params": [keydata, oldPassphrase, newPassphrase]}` |
 
-**매개변수**
+**파라미터**
 
 | 이름            | 타입     | 설명                                                                                                                      |
 | ------------- | ------ | ----------------------------------------------------------------------------------------------------------------------- |
@@ -370,7 +370,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 | ------- | ------ | -------------- |
 | address | string | 변경된 계정의 주소입니다. |
 
-**Example**
+**예시**
 
 콘솔
 ```javascript
@@ -396,7 +396,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 |  콘솔   | `personal.sendAccountUpdate(tx, passphrase)`                           |
 |  RPC  | `{"method": "personal_sendAccountUpdate", "params": [tx, passphrase]}` |
 
-**매개변수**
+**파라미터**
 
 | 이름         | 타입     | 설명                                             |
 | ---------- | ------ | ---------------------------------------------- |
@@ -409,7 +409,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 | --------- | ------------------------------------ |
 | 32바이트 문자열 | 성공하면 트랜잭션 해시를 반환합니다. 실패하면 오류가 발생합니다. |
 
-**Example**
+**예시**
 
 콘솔
 ``` javascript
@@ -435,7 +435,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 |  콘솔   | `personal.sendTransaction(tx, passphrase)`                           |
 |  RPC  | `{"method": "personal_sendTransaction", "params": [tx, passphrase]}` |
 
-**매개변수**
+**파라미터**
 
 | 이름         | 타입     | 설명                                                                                            |
 | ---------- | ------ | --------------------------------------------------------------------------------------------- |
@@ -448,7 +448,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 | --------- | ------------------------------------ |
 | 32바이트 문자열 | 성공하면 트랜잭션 해시를 반환합니다. 실패하면 오류가 발생합니다. |
 
-**Example**
+**예시**
 
 콘솔
 ``` javascript
@@ -474,7 +474,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 |  콘솔   | `personal.sendValueTransfer(tx, passphrase)`                           |
 |  RPC  | `{"method": "personal_sendValueTransfer", "params": [tx, passphrase]}` |
 
-**매개변수**
+**파라미터**
 
 | 이름         | 타입     | 설명                                                     |
 | ---------- | ------ | ------------------------------------------------------ |
@@ -487,7 +487,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 | --------- | ------------------------------------ |
 | 32바이트 문자열 | 성공하면 트랜잭션 해시를 반환합니다. 실패하면 오류가 발생합니다. |
 
-**Example**
+**예시**
 
 콘솔
 ``` javascript
@@ -517,7 +517,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 |  콘솔   | `personal.sign(message, account, password)`                           |
 |  RPC  | `{"method": "personal_sign", "params": [message, account, password]}` |
 
-**매개변수**
+**파라미터**
 
 | 이름       | 타입     | 설명                        |
 | -------- | ------ | ------------------------- |
@@ -531,7 +531,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 | ------ | --------- |
 | string | 서명 결과입니다. |
 
-**Example**
+**예시**
 
 콘솔
 ``` javascript
@@ -552,7 +552,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 참고: 보안이 되지 않은 HTTP RPC 연결을 통해 계정 비밀번호를 전송하는 것은 매우 위험합니다. [klay_signTransaction](./klay/transaction.md#klay_signtransaction)를 참고하세요.
 {% endhint %}
 
-**매개변수**
+**파라미터**
 
 필수적으로 있어야 하는 파라미터들은 트랜잭션 타입에 따라 다릅니다. [Working with Klaytn Transaction Types](./klay/transaction/transaction-type-support.md)에서 적절한 파라미터를 확인하십시오.
 
@@ -574,7 +574,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 |  콘솔   | `personal.ecRecover(message, signature)`                           |
 |  RPC  | `{"method": "personal_ecRecover", "params": [message, signature]}` |
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입     | 설명          |
 | -------- | ------ | ----------- |
@@ -587,7 +587,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 | ------ | ------ |
 | string | 계정 주소. |
 
-**Example**
+**예시**
 
 콘솔
 
