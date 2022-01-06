@@ -127,7 +127,7 @@ caver.account.create(address, accountKey [, options])
 
 accountKey가 공개키 문자열인 경우, accountKey가 [AccountKeyPublic](#accountkeypublic)인 Account 인스턴스가 생성됩니다. accountKey가 공개키 문자열을 포함한 배열인 경우, accountKey가 [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig)인 Account 인스턴스가 생성됩니다. 옵션들이 마지막 파라미터로 정의되지 않은 경우 기본값으로 임계값이 1, 각 키의 가중치가 1로 설정되어 생성됩니다. accountKey가 각 역할에 사용되는 accountKeys를 포함한 배열인 경우, [AccountKeyRoleBased](#accountkeyrolebased)를 지닌 Account 인스턴스가 생성됩니다. 옵션들은 [WeightedMultiSigOptions][]를 통해 각 역할에 정의되어야 합니다. 옵션들이 정의되어 있지 않다면, 다수의 공개키를 사용하는 역할들에 대해 기본 옵션이 사용됩니다. 사용법은 아래 예시를 참고하세요.
 
-**매개변수**
+**Parameters**
 
 | 이름         | 타입                                       | 설명                                                                 |
 | ---------- | ---------------------------------------- | ------------------------------------------------------------------ |
@@ -142,7 +142,7 @@ accountKey가 공개키 문자열인 경우, accountKey가 [AccountKeyPublic](#a
 | --------------- | -------------------- |
 | [계정(Account)][] | Account 인스턴스가 반환됩니다. |
 
-**Example**
+**예시**
 
 ```javascript
 // Create an Account instance with a public key string -> Account with AccountKeyPublic
@@ -257,7 +257,7 @@ caver.account.createFromRLPEncoding(address, rlpEncodedKey)
 
 RLP 인코딩된 AccountKey로부터 Account 인스턴스를 생성합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름            | 타입     | 설명                           |
 | ------------- | ------ | ---------------------------- |
@@ -271,7 +271,7 @@ RLP 인코딩된 AccountKey로부터 Account 인스턴스를 생성합니다.
 | --------------- | -------------------- |
 | [계정(Account)][] | Account 인스턴스가 반환됩니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.account.createFromRLPEncoding('0x{address in hex}', '0x04f84b02f848e301a102c10b598a1a3ba252acc21349d61c2fbd9bc8c15c50a5599f420cccc3291f9bf9e301a1021769a9196f523c419be50c26419ebbec34d3d6aa8b59da834212f13dbec9a9c1')
@@ -296,7 +296,7 @@ caver.account.createWithAccountKeyLegacy(address)
 
 AccountKeyLegacy를 accountKey로 지닌 Account 인스턴스를 생성합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입     | 설명                |
 | ------- | ------ | ----------------- |
@@ -309,7 +309,7 @@ AccountKeyLegacy를 accountKey로 지닌 Account 인스턴스를 생성합니다
 | --------------- | -------------------- |
 | [계정(Account)][] | Account 인스턴스가 반환됩니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.account.createWithAccountKeyLegacy('0x{address in hex}')
@@ -327,7 +327,7 @@ caver.account.createWithAccountKeyPublic(address, publicKey)
 
 AccountKeyPublic를 accountKey로 지닌 Account 인스턴스를 생성합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름        | 타입     | 설명                |
 | --------- | ------ | ----------------- |
@@ -341,7 +341,7 @@ AccountKeyPublic를 accountKey로 지닌 Account 인스턴스를 생성합니다
 | --------------- | -------------------- |
 | [계정(Account)][] | Account 인스턴스가 반환됩니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.account.createWithAccountKeyPublic('0x{address in hex}', '0xb5a9a...')
@@ -359,7 +359,7 @@ caver.account.createWithAccountKeyFail(address)
 
 AccountKeyFail를 accountKey로 지닌 Account 인스턴스를 생성합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입     | 설명                |
 | ------- | ------ | ----------------- |
@@ -372,7 +372,7 @@ AccountKeyFail를 accountKey로 지닌 Account 인스턴스를 생성합니다.
 | --------------- | -------------------- |
 | [계정(Account)][] | Account 인스턴스가 반환됩니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.account.createWithAccountKeyFail('0x{address in hex}')
@@ -390,7 +390,7 @@ caver.account.createWithAccountKeyWeightedMultiSig(address, publicKeyArray [, op
 
 AccountKeyWeightedMultiSig를 accountKey로 지닌 Account 인스턴스를 생성합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름             | 타입                          | 설명                                                             |
 | -------------- | --------------------------- | -------------------------------------------------------------- |
@@ -405,7 +405,7 @@ AccountKeyWeightedMultiSig를 accountKey로 지닌 Account 인스턴스를 생�
 | --------------- | -------------------- |
 | [계정(Account)][] | Account 인스턴스가 반환됩니다. |
 
-**Example**
+**예시**
 
 ```javascript
 // create an Account instance without options
@@ -446,7 +446,7 @@ caver.account.createWithAccountKeyRoleBased(address, roledBasedPublicKeyArray [,
 
 AccountKeyRoleBased를 accountKey로 지닌 Account 인스턴스를 생성합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름                       | 타입     | 설명                                                             |
 | ------------------------ | ------ | -------------------------------------------------------------- |
@@ -461,7 +461,7 @@ AccountKeyRoleBased를 accountKey로 지닌 Account 인스턴스를 생성합니
 | --------------- | -------------------- |
 | [계정(Account)][] | Account 인스턴스가 반환됩니다. |
 
-**Example**
+**예시**
 
 ```javascript
 // create an Account instance without options
@@ -540,7 +540,7 @@ caver.account.accountKey.decode(rlpEncodedAccountKey)
 
 AccountKey의 RLP 인코딩된 문자열을 디코딩하며, [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) 또는 [AccountKeyRoleBased](#accountkeyrolebased) 인스턴스를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름                   | 타입     | 설명                           |
 | -------------------- | ------ | ---------------------------- |
@@ -553,7 +553,7 @@ AccountKey의 RLP 인코딩된 문자열을 디코딩하며, [AccountKeyLegacy](
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
 | [AccountKeyLegacy](#accountkeylegacy) &#124; [AccountKeyPublic](#accountkeypublic) &#124; [AccountKeyFail](#accountkeyfail) &#124; [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) &#124; [AccountKeyRoleBased](#accountkeyrolebased) | AccountKey 인스턴스가 반환됩니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.account.accountKey.decode('0x02a102c10b598a1a3ba252acc21349d61c2fbd9bc8c15c50a5599f420cccc3291f9bf9')
@@ -575,7 +575,7 @@ AccountKey의 RLP 인코딩된 문자열을 반환합니다.
 | ------ | ----------------------------- |
 | string | AccountKey의 RLP 인코딩된 문자열입니다 . |
 
-**Example**
+**예시**
 
 ```javascript
 > const account = caver.account.create('0x{address in hex}', '0x034f1...')
