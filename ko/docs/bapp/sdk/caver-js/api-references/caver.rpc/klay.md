@@ -10,7 +10,7 @@ caver.rpc.klay.accountCreated(address [, blockNumber] [, callback])
 
 입력된 주소의 계정이 Klaytn 블록체인 플랫폼(Klaytn)에 존재하는 경우 `true`를 반환합니다. 해당 주소의 계정이 존재하지 않으면 `false`를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름          | 타입                   | 설명                                                                                              |
 | ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
@@ -26,7 +26,7 @@ caver.rpc.klay.accountCreated(address [, blockNumber] [, callback])
 | ------- | ------------------------------------ |
 | boolean | 입력으로 받은 주소가 Klaytn에 존재하는지 여부를 반환합니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.accountCreated('0x{address in hex}').then(console.log)
@@ -43,7 +43,7 @@ caver.rpc.klay.getAccount(address [, blockNumber] [, callback])
 
 **참고** `caver.rpc.klay.getAccount` 는 계정이 Klaytn에 있는 경우에만 계정을 반환하므로 주소와 일치하는 계정이 Klaytn 상에 존재하지 않으면 `null` 이 반환됩니다.
 
-**매개변수**
+**Parameters**
 
 | 이름          | 타입                                       | 설명                                                                                              |
 | ----------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------- |
@@ -59,7 +59,7 @@ caver.rpc.klay.getAccount(address [, blockNumber] [, callback])
 | ------ | ------------------------------------------- |
 | object | 계정 정보를 담고 있는 객체입니다. 계정 유형에 따라 다른 속성을 반환합니다. |
 
-**Example**
+**예시**
 
 ```javascript
 // Get account with EOA
@@ -100,7 +100,7 @@ caver.rpc.klay.getAccountKey(address [, blockNumber] [, callback])
 
 **참고** `caver.rpc.klay.getAccountKey`는 각 AccountKey 타입에 따라 다른 객체를 반환합니다. 주어진 주소를 가진 계정이 Klaytn에 존재하지 않는다면 `null`을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름          | 타입                   | 설명                                                                                              |
 | ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
@@ -116,7 +116,7 @@ caver.rpc.klay.getAccountKey(address [, blockNumber] [, callback])
 | ------ | ----------------------------------------------------------- |
 | object | AccountKey 정보를 담고 있는 객체입니다. AccountKey 유형에 따라 다른 속성을 반환합니다. |
 
-**Example**
+**예시**
 
 ```javascript
 // AccountKey type: AccountKeyLegacy
@@ -186,7 +186,7 @@ caver.rpc.klay.encodeAccountKey(accountKey [, callback])
 
 AccountKey 정보를 담고 있는 객체를 RLP(Recursive Length Prefix)로 인코딩합니다. [account.getRLPEncodingAccountKey](../caver.account.md#account-getrlpencodingaccountkey)를 사용해도 RLP 인코딩된 AccountKey를 얻습니다.
 
-**매개변수**
+**Parameters**
 
 | 이름         | 타입       | 설명                                                                                                                                                                              |
 | ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -201,7 +201,7 @@ AccountKey 정보를 담고 있는 객체를 RLP(Recursive Length Prefix)로 인
 | ------ | --------------------- |
 | string | RLP로 인코딩된 AccountKey. |
 
-**Example**
+**예시**
 
 ```javascript
 // AccountKey type: AccountKeyLegacy
@@ -305,7 +305,7 @@ caver.rpc.klay.decodeAccountKey(encodedKey [, callback])
 
 RLP 인코딩된 AccountKey를 디코딩 합니다. [caver.account.accountKey.decode](../caver.account.md#caver-account-accountkey-decode)를 사용해도 RLP 인코딩된 AccountKey를 디코딩합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름         | 타입       | 설명                                                                   |
 | ---------- | -------- | -------------------------------------------------------------------- |
@@ -320,7 +320,7 @@ RLP 인코딩된 AccountKey를 디코딩 합니다. [caver.account.accountKey.de
 | ------ | -------------------------------- |
 | object | 내부에 `keyType`과 `key`가 정의된 객체입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 // AccountKey type: AccountKeyLegacy
@@ -420,11 +420,11 @@ caver.rpc.klay.getBalance(address [, blockNumber] [, callback])
 
 입력으로 받은 Klaytn 계정 주소의 잔액을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름          | 타입                   | 설명                                                                                              |
 | ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
-| address     | string               | 잔액을 알고 싶은 계정 주소입니다.                                                                             |
+| address     | string               | 잔액을 확인할 계정 주소입니다.                                                                               |
 | blockNumber | number &#124; string | (선택 사항) 블록 넘버, 또는 `latest`, `earliest`, `pending` 문자열 중 하나입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
 | callback    | function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                            |
 
@@ -436,7 +436,7 @@ caver.rpc.klay.getBalance(address [, blockNumber] [, callback])
 | ------ | ------------------------ |
 | string | 주어진 주소의 peb 단위 현재 잔액입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getBalance('0x{address in hex}').then(console.log)
@@ -451,7 +451,7 @@ caver.rpc.klay.getCode(address [, blockNumber] [, callback])
 
 입력으로 받은 주소의 코드를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름          | 타입                   | 설명                                                                                              |
 | ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
@@ -467,7 +467,7 @@ caver.rpc.klay.getCode(address [, blockNumber] [, callback])
 | ------ | ------------------ |
 | string | 입력으로 받은 주소의 코드입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getCode('0x{address in hex}').then(console.log)
@@ -482,7 +482,7 @@ caver.rpc.klay.getTransactionCount(address [, blockNumber] [, callback])
 
 어떤 주소의 계정에서 발신된 트랜잭션의 총 개수를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름          | 타입                   | 설명                                                                                                                                                                                                                                 |
 | ----------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -494,11 +494,11 @@ caver.rpc.klay.getTransactionCount(address [, blockNumber] [, callback])
 
 `Promise`는 `string`을 반환합니다.
 
-| 타입     | 설명                                        |
-| ------ | ----------------------------------------- |
-| string | 주어진 주소에서 발신된 트랜잭션의 개수입니다. 이 값은 16진수 값입니다. |
+| 타입     | 설명                                      |
+| ------ | --------------------------------------- |
+| string | 주어진 주소에서 발신된 트랜잭션의 개수입니다. 이 값은 16진수입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getTransactionCount('0x{address in hex}').then(console.log)
@@ -513,23 +513,23 @@ caver.rpc.klay.isContractAccount(address [, blockNumber] [, callback])
 
 특정 번호의 블록 시간에서 입력으로 받은 계정의 codeHash가 비어 있지 않은 경우 `true`를 반환합니다. 해당 계정이 EOA이거나 codeHash가 비어 있는 스마트 컨트랙트 계정이면 `false`를 반환합니다. 더 자세한 내용은 [Smart Contract Account](../../../../../klaytn/design/accounts.md#smart-contract-accounts-scas)를 확인하십시오.
 
-**매개변수**
+**파라미터**
 
 | 이름          | 타입                   | 설명                                                                                              |
 | ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
 | address     | string               | isContractAccount로 확인할 주소입니다.                                                                   |
 | blockNumber | number &#124; string | (선택 사항) 블록 넘버, 또는 `latest`, `earliest`, `pending` 문자열 중 하나입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
-| callback    | function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                            |
+| callback    | function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 파라미터로, 결과를 두 번째 파라미터로 반환합니다.                              |
 
 **리턴값**
 
 `Promise`는 `boolean`을 반환합니다.
 
-| 타입      | 설명                               |
-| ------- | -------------------------------- |
-| boolean | true이면 매개변수가 스마트 컨트랙트 계정의 주소입니다. |
+| 타입      | 설명                              |
+| ------- | ------------------------------- |
+| boolean | true면 파라미터가 스마트 컨트랙트 계정의 주소입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.isContractAccount('0x{address in hex}').then(console.log)
@@ -547,9 +547,9 @@ caver.rpc.klay.sign(address, message [, blockNumber] [, callback])
 
 Klaytn에서 사용하는 서명된 데이터를 생성합니다. [Klaytn Platform API - klay_sign](../../../../json-rpc/api-references/klay/account.md#klay_sign)을 참고해 서명이 생성되는 방법을 확인하십시오.
 
-**참고**: 이 API는 당신의 Klaytn 노드에 [가져온 계정](../../../../json-rpc/api-references/personal.md#personal_importrawkey)으로 메시지에 서명하는 기능을 제공합니다. 메시지에 서명하려면 노드에 불러온 당신의 계정은 반드시 [unlocked](../../../../json-rpc/api-references/personal.md#personal_unlockaccount) 상태이어야 합니다. 당신의 Klaytn 노드에 불러온 계정으로 트랜잭션에 서명하려면 [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction)을 사용하십시오.
+**참고**: 이 API는 Klaytn 노드에 [가져온 계정](../../../../json-rpc/api-references/personal.md#personal_importrawkey)으로 메시지에 서명하는 기능을 제공합니다. 메시지에 서명하려면 노드에 불러온 당신의 계정은 반드시 [unlocked](../../../../json-rpc/api-references/personal.md#personal_unlockaccount) 상태이어야 합니다. 당신의 Klaytn 노드에 불러온 계정으로 트랜잭션에 서명하려면 [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction)을 사용하십시오.
 
-**매개변수**
+**파라미터**
 
 | 이름          | 타입                   | 설명                                                                                              |
 | ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
@@ -566,7 +566,7 @@ Klaytn에서 사용하는 서명된 데이터를 생성합니다. [Klaytn Platfo
 | ------ | --------------------- |
 | string | 노드에 불러온 계정이 만든 서명입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.sign('0x{address in hex}', '0xdeadbeaf').then(console.log)
@@ -581,7 +581,7 @@ caver.rpc.klay.getAccounts([callback])
 
 Klaytn 노드가 가진 주소 목록을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -595,7 +595,7 @@ Klaytn 노드가 가진 주소 목록을 반환합니다.
 | ----- | ----------------------- |
 | Array | Klaytn 노드가 가진 주소 목록입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getAccounts().then(console.log)
@@ -613,7 +613,7 @@ caver.rpc.klay.getBlockNumber([callback])
 
 가장 최근의 블록 번호를 반환합니다.
 
-**매개변수**
+**파라미터**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -627,7 +627,7 @@ caver.rpc.klay.getBlockNumber([callback])
 | ------ | -------------------------------- |
 | string | 가장 최근의 블록 번호입니다. 이 값은 16진수 값입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getBlockNumber().then(console.log)
@@ -642,11 +642,11 @@ caver.rpc.klay.getBlockByNumber(blockNumber [, returnTransactionObjects] [, call
 
 블록 번호로 조회한 블록의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
 
-**매개변수**
+**Parameters**
 
 | 이름                       | 타입                   | 설명                                                                                           |
 | ------------------------ | -------------------- | -------------------------------------------------------------------------------------------- |
-| blockNumber              | number &#124; string | 블록 번호, 또는 "genesis", `"latest"` 또는 `"pending"` 문자열로 태깅된 블록.                                  |
+| blockNumber              | number &#124; string | 블록 번호, 또는 "genesis", `"latest"` 또는 `"pending"` 문자열로 태깅된 블록입니다.                               |
 | returnTransactionObjects | boolean              | (선택 사항, 기본값은 `false`) `true`이면, 반환된 블록은 모든 트랜잭션 객체를 가집니다. `false`이면, 반환된 블록은 트랜잭션 해시만을 가집니다. |
 | callback                 | function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                         |
 
@@ -658,7 +658,7 @@ caver.rpc.klay.getBlockByNumber(blockNumber [, returnTransactionObjects] [, call
 | ------ | ------------------------------------------------------------------------------------------------- |
 | string | 블록 객체입니다. 리턴값에 대한 자세한 설명은 [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash)를 참조하세요. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getBlockByNumber(1).then(console.log)
@@ -692,7 +692,7 @@ caver.rpc.klay.getBlockByHash(blockHash [, returnTransactionObjects] [, callback
 
 `blockHash`를 사용해 가장 최근의 블록 번호를 반환합니다.
 
-**매개변수**
+**파라미터**
 
 | 이름                       | 타입       | 설명                                                                                           |
 | ------------------------ | -------- | -------------------------------------------------------------------------------------------- |
@@ -725,7 +725,7 @@ caver.rpc.klay.getBlockByHash(blockHash [, returnTransactionObjects] [, callback
 | transactionsRoot | string | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                        |
 | voteData         | string | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                                      |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getBlockByHash('0x58482921af951cf42a069436ac9338de50fd963bdbea40e396f416f9ac96a08b').then(console.log)
@@ -759,7 +759,7 @@ caver.rpc.klay.getBlockReceipts(blockHash [, callback])
 
 블록 해시로 조회한 블록에 포함된 영수증을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름        | 타입       | 설명                                                                   |
 | --------- | -------- | -------------------------------------------------------------------- |
@@ -774,7 +774,7 @@ caver.rpc.klay.getBlockReceipts(blockHash [, callback])
 | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Array | 조회한 블록에 포함된 트랜잭션 영수증들입니다. 조회하고자 하는 블록이 트랜잭션을 담고 있지 않으면 빈 배열 `[]`이 반환됩니다. 트랜잭션 영수증에 대한 자세한 설명은 [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt)를 참조하세요. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getBlockReceipts('0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0').then(console.log)
@@ -817,7 +817,7 @@ caver.rpc.klay.getBlockTransactionCountByNumber(blockNumber [, callback])
 
 블록 번호로 조회한 블록에 담긴 트랜잭션의 개수를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름          | 타입                   | 설명                                                                   |
 | ----------- | -------------------- | -------------------------------------------------------------------- |
@@ -832,7 +832,7 @@ caver.rpc.klay.getBlockTransactionCountByNumber(blockNumber [, callback])
 | ------ | ---------------------------------------- |
 | string | 주어진 블록에 기록된 트랜잭션의 개수입니다. 이 값은 16진수 값입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getBlockTransactionCountByNumber(21249).then(console.log)
@@ -847,7 +847,7 @@ caver.rpc.klay.getBlockTransactionCountByHash(blockHash [, callback])
 
 블록 해시로 조회한 블록에 담긴 트랜잭션의 개수를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름        | 타입       | 설명                                                                   |
 | --------- | -------- | -------------------------------------------------------------------- |
@@ -862,7 +862,7 @@ caver.rpc.klay.getBlockTransactionCountByHash(blockHash [, callback])
 | ------ | ---------------------------------------- |
 | string | 주어진 블록에 기록된 트랜잭션의 개수입니다. 이 값은 16진수 값입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getBlockTransactionCountByHash('0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0').then(console.log)
@@ -877,7 +877,7 @@ caver.rpc.klay.getBlockWithConsensusInfoByNumber(blockNumber [, callback])
 
 블록 번호로 조회한 블록을 합의에 대한 정보와 함께 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름          | 타입                   | 설명                                                                   |
 | ----------- | -------------------- | -------------------------------------------------------------------- |
@@ -888,11 +888,11 @@ caver.rpc.klay.getBlockWithConsensusInfoByNumber(blockNumber [, callback])
 
 `Promise`는 `object`를 반환합니다.
 
-| 타입     | 설명                                                                                                                                                         |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| string | 컨센서스 정보를 포함해 블록 정보를 담고 있는 객체입니다. 리턴값에 대한 자세한 설명은 [caver.rpc.klay.getBlockWithConsensusInfoByHash](#caver-rpc-klay-getblockwithconsensusinfobyhash)를 참조하세요. |
+| 타입     | 설명                                                                                                                                                       |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| string | 합의 정보를 포함해 블록 정보를 담고 있는 객체입니다. 리턴값에 대한 자세한 설명은 [caver.rpc.klay.getBlockWithConsensusInfoByHash](#caver-rpc-klay-getblockwithconsensusinfobyhash)를 참조하세요. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getBlockWithConsensusInfoByNumber(21249).then(console.log)
@@ -954,7 +954,7 @@ caver.rpc.klay.getBlockWithConsensusInfoByHash(blockHash [, callback])
 
 블록 해시로 조회한 블록을 합의에 대한 정보와 함께 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름        | 타입       | 설명                                                                   |
 | --------- | -------- | -------------------------------------------------------------------- |
@@ -975,12 +975,12 @@ caver.rpc.klay.getBlockWithConsensusInfoByHash(blockHash [, callback])
 | 해시               | string | 블록의 해시입니다. 아직 보류 중인 블록이면 `null`입니다.                                     |
 | logsBloom        | string | 블록의 로그를 위한 블룸필터입니다. 아직 보류 중인 블록이면 `null`입니다.                            |
 | number           | string | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                                      |
-| originProposer   | string | The proposal of 0 round at the same block number.                       |
+| originProposer   | string | 동일한 블록 번호에서 0 라운드의 제안자입니다.                                              |
 | parentHash       | string | 이전 블록의 해시입니다.                                                           |
 | proposer         | string | 블록 제안자의 주소입니다.                                                          |
 | receiptsRoot     | string | 블록의 영수증 트라이의 루트 해시입니다.                                                  |
 | reward           | string | 블록 보상을 받을 수혜자의 주소입니다.                                                   |
-| round            | number | The round number.                                                       |
+| round            | number | 라운드 번호입니다.                                                              |
 | size             | string | 블록의 바이트 크기의 정수 형태입니다.                                                   |
 | stateRoot        | string | 블록의 상태 트라이의 루트 해시입니다.                                                   |
 | timestamp        | string | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                             |
@@ -990,7 +990,7 @@ caver.rpc.klay.getBlockWithConsensusInfoByHash(blockHash [, callback])
 | transactionsRoot | string | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                 |
 | voteData         | string | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                               |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getBlockWithConsensusInfoByHash('0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0').then(console.log)
@@ -1077,7 +1077,7 @@ caver.rpc.klay.getCommittee([blockNumber] [, callback])
 
 어떤 블록 시간에서 위원회에 속한 검증자 목록을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름          | 타입                   | 설명                                                                                              |
 | ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
@@ -1092,7 +1092,7 @@ caver.rpc.klay.getCommittee([blockNumber] [, callback])
 | ----- | -------------------------------- |
 | Array | 주어진 블록에서 위원회에 속한 모든 검증자의 주소들입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getCommittee().then(console.log)
@@ -1108,9 +1108,9 @@ caver.rpc.klay.getCommittee([blockNumber] [, callback])
 caver.rpc.klay.getCommitteeSize([blockNumber] [, callback])
 ```
 
-어떤 블록 시간에서 위원회의 구성원 수를 반환합니다.
+어떤 블록의 위원회의 구성원 수를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름          | 타입                   | 설명                                                                                              |
 | ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
@@ -1121,11 +1121,11 @@ caver.rpc.klay.getCommitteeSize([blockNumber] [, callback])
 
 `Promise`는 `number`를 반환합니다.
 
-| 타입     | 설명                    |
-| ------ | --------------------- |
-| number | 주어진 블록의 위원회 구성원 수입니다. |
+| 타입     | 설명                |
+| ------ | ----------------- |
+| number | 블록의 위원회 구성원 수입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getCommitteeSize().then(console.log)
@@ -1140,7 +1140,7 @@ caver.rpc.klay.getCouncil([blockNumber] [, callback])
 
 어떤 블록 시간에서 council에 속한 검증자 목록을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름          | 타입                   | 설명                                                                                              |
 | ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
@@ -1155,7 +1155,7 @@ caver.rpc.klay.getCouncil([blockNumber] [, callback])
 | ----- | ----------------------------------------------------------------- |
 | Array | 주어진 블록에서 카운슬에 속한 검증자들의 주소가 담긴 배열입니다. 카운슬을 찾을 수 없는 경우 null을 반환합니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getCouncil().then(console.log)
@@ -1173,7 +1173,7 @@ caver.rpc.klay.getCouncilSize([blockNumber] [, callback])
 
 어떤 블록 시간에서 council의 구성원 수를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름          | 타입                   | 설명                                                                                              |
 | ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
@@ -1188,7 +1188,7 @@ caver.rpc.klay.getCouncilSize([blockNumber] [, callback])
 | ------ | --------------------- |
 | number | 주어진 블록의 카운슬 구성원 수입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getCouncilSize().then(console.log)
@@ -1203,7 +1203,7 @@ caver.rpc.klay.getStorageAt(address, position [, blockNumber] [, callback])
 
 입력으로 받은 주소의 스토리지 위치에서 값을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름          | 타입                   | 설명                                                                                                                                      |
 | ----------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1220,7 +1220,7 @@ caver.rpc.klay.getStorageAt(address, position [, blockNumber] [, callback])
 | ------ | -------------------------- |
 | string | 입력으로 받은 스토리지 위치의 값을 반환합니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getStorageAt('0x407d73d8a49eeb85d32cf465507dd71d507100c1', 0).then(console.log)
@@ -1235,7 +1235,7 @@ caver.rpc.klay.isMinting([callback])
 
 클라이언트가 새로운 블록을 채굴하고 있으면 `true`를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -1243,9 +1243,9 @@ caver.rpc.klay.isMinting([callback])
 
 **리턴값**
 
-`Promise` returns `boolean` - `true` if the client is mining, otherwise `false`.
+`Promise`는 `boolean`을 반환합니다. 클라이언트가 블록을 채굴중이면 `true`, 그렇지 않을 경우 `false`를 반환합니다.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.isMinting().then(console.log)
@@ -1258,9 +1258,9 @@ true
 caver.rpc.klay.isSyncing([callback])
 ```
 
-Returns an object with data about the sync status or false.
+동기화 상태에 대한 데이터가 있는 객체를 반환하거나 false를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -1268,17 +1268,17 @@ Returns an object with data about the sync status or false.
 
 **리턴값**
 
-`Promise` returns `object|boolean` - `false` if the Klaytn Node is not syncing. Otherwise, a sync object is returned:
+`Promise`는 `Boolean`을 반환합니다. 계정이 발행자라면 `true`를 반환합니다. 그렇지 않다면 동기화 객체를 반환합니다.
 
-| 이름            | 타입     | 설명                                                          |
-| ------------- | ------ | ----------------------------------------------------------- |
-| startingBlock | string | The block number in hex where the sync started.             |
-| currentBlock  | string | The block number in hex where the node currently synced to. |
-| highestBlock  | string | The estimated block number in hex to sync to.               |
-| knownStates   | string | The estimated states in hex to download.                    |
-| pulledStates  | string | The already downloaded states in hex.                       |
+| 이름            | 타입     | 설명                                       |
+| ------------- | ------ | ---------------------------------------- |
+| startingBlock | string | 동기화가 시작된 블록의 번호로, 16진수입니다.               |
+| currentBlock  | string | 현재 노드가 동기화한 블록의 블록 번호로, 16진수입니다.         |
+| highestBlock  | string | 싱크해야 할 블록 번호 추정값으로, 16진수입니다.             |
+| knownStates   | string | The estimated states in hex to download. |
+| pulledStates  | string | The already downloaded states in hex.    |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.isSyncing().then(console.log)
@@ -1300,26 +1300,26 @@ false
 caver.rpc.klay.call(callObject [, blockNumber] [, callback])
 ```
 
-Executes a new message call immediately without sending a transaction on the blockchain. It returns data or an error object of JSON RPC if an error occurs.
+블록체인에 트랜잭션을 전송하지 않고 즉시 새 메시지를 호출합니다. 결과 데이터를 반환하거나, 또는 에러 발생 시 JSON RPC의 에러 객체를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름          | 타입                   | 설명                                                                                              |
 | ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
-| callObject  | object               | A transaction call object. 객체 속성은 다음의 표를 참고해주세요.                                                |
+| callObject  | object               | 트랜잭션 호출 객체입니다. 객체 속성은 다음의 표를 참고해주세요.                                                            |
 | blockNumber | number &#124; string | (선택 사항) 블록 넘버, 또는 `latest`, `earliest`, `pending` 문자열 중 하나입니다. 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
 | callback    | function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                            |
 
 `callObject`에는 다음의 속성이 있습니다.
 
-| 이름       | 타입     | 설명                                                                                                                                                  |
-| -------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| to       | string | (새 트랜잭션 배포 테스트 시 선택 사항) 트랜잭션을 수신하는 주소입니다.                                                                                                           |
-| input    | string | (optional) The hash of the method signature and encoded parameters. You can use [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall). |
-| from     | string | (선택 사항) 트랜잭션을 발신한 주소입니다.                                                                                                                            |
-| gas      | string | (optional) The gas provided for the transaction execution. `klay_call`은 가스를 소비하지 않지만 트랜잭션 실행 중 일부에서 이 매개변수가 필요할 수 있습니다.                             |
-| gasPrice | string | (optional) The gasPrice used for each paid gas.                                                                                                     |
-| value    | string | (optional) The value sent with this transaction in `peb`.                                                                                           |
+| 이름       | 타입     | 설명                                                                                                                 |
+| -------- | ------ | ------------------------------------------------------------------------------------------------------------------ |
+| to       | string | (새 트랜잭션 배포 테스트 시 선택 사항) 트랜잭션을 수신하는 주소입니다.                                                                          |
+| input    | string | (선택 사항) 메서드 서명와 인코딩된 파라미터들의 해시입니다. [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall)를 사용할 수 있습니다. |
+| from     | string | (선택 사항) 트랜잭션을 발신한 주소입니다.                                                                                           |
+| gas      | string | (선택 사항) 트랜잭션 실행을 위해 설정한 가스입니다. `klay_call`은 가스를 소비하지 않지만 트랜잭션 실행 중 일부에서 이 매개변수가 필요할 수 있습니다.                        |
+| gasPrice | string | (선택 사항) 가스당 가격, 즉 gasPrice입니다.                                                                                     |
+| value    | string | (선택 사항) 트랜잭션에 의해 전송된 `peb` 단위의 값입니다.                                                                               |
 
 **리턴값**
 
@@ -1329,7 +1329,7 @@ Executes a new message call immediately without sending a transaction on the blo
 | ------ | ---------------------------------------------- |
 | string | 호출 결과로 리턴된 데이터입니다. *e.g.* 스마트 컨트랙트 함수의 리턴값입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.call({ 
@@ -1345,11 +1345,11 @@ Executes a new message call immediately without sending a transaction on the blo
 caver.rpc.klay.estimateGas(callObject [, blockNumber] [, callback])
 ```
 
-Generates and returns an estimate of how much `gas` is necessary to allow a transaction to complete. The transaction from this method will not be added to the blockchain.
+트랜잭션 실행을 완료하는 데에 필요한 `gas`의 추정치를 생성하여 반환합니다. 이때 이 메서드가 발생시킨 트랜잭션은 블록체인에 추가되지 않습니다.
 
-**매개변수**
+**Parameters**
 
-See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all properties are optional.
+[caver.rpc.klay.call](#caver-rpc-klay-call)의 파라미터들을 보면 모든 속성이 선택사항인 것을 볼 수 있습니다.
 
 **리턴값**
 
@@ -1359,7 +1359,7 @@ See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all prop
 | ------ | ----------- |
 | string | 사용된 가스양입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.estimateGas({ 
@@ -1375,11 +1375,11 @@ See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all prop
 caver.rpc.klay.estimateComputationCost(callObject [, blockNumber] [, callback])
 ```
 
-Generates and returns an estimate of how much `computation cost` will be spent to execute the transaction. Klaytn은 한 트랜잭션을 실행하는 데에 너무 많은 시간이 걸리지 않도록 하기 위해 현재 트랜잭션당 연산 비용을 `100000000`으로 제한합니다. The transaction will not be added to the blockchain like [caver.rpc.klay.estimateGas](#caver-rpc-klay-estimategas).
+트랜잭션을 실행하는 데에 드는 `computation cost`를 생성하여 반환합니다. Klaytn은 한 트랜잭션을 실행하는 데에 너무 많은 시간이 걸리지 않도록 하기 위해 현재 트랜잭션당 연산 비용을 `100000000`으로 제한합니다. The transaction will not be added to the blockchain like [caver.rpc.klay.estimateGas](#caver-rpc-klay-estimategas).
 
-**매개변수**
+**Parameters**
 
-See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all properties are optional.
+[caver.rpc.klay.call](#caver-rpc-klay-call)의 파라미터들을 보면 모든 속성이 선택사항인 것을 볼 수 있습니다.
 
 **리턴값**
 
@@ -1389,7 +1389,7 @@ See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all prop
 | ------ | ------------- |
 | string | 사용된 연산 비용입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.estimateComputationCost({ 
@@ -1407,7 +1407,7 @@ caver.rpc.klay.getTransactionByBlockHashAndIndex(blockHash, index [, callback])
 
 Returns information about a transaction by `block hash` and `transaction index` position.
 
-**매개변수**
+**Parameters**
 
 | 이름        | 타입       | 설명                                                                   |
 | --------- | -------- | -------------------------------------------------------------------- |
@@ -1423,7 +1423,7 @@ Returns information about a transaction by `block hash` and `transaction index` 
 | ------ | ---------------------------------------------------------------------------------- |
 | object | A transaction object, see [caver.rpc.klay.getTransactionByHash][] for more detail. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getTransactionByBlockHashAndIndex('0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576', 0).then(console.log)
@@ -1453,7 +1453,7 @@ caver.rpc.klay.getTransactionByBlockNumberAndIndex(blockNumber, index [, callbac
 
 Returns information about a transaction by `block number` and `transaction index` position.
 
-**매개변수**
+**Parameters**
 
 | 이름          | 타입                   | 설명                                                                   |
 | ----------- | -------------------- | -------------------------------------------------------------------- |
@@ -1469,7 +1469,7 @@ Returns information about a transaction by `block number` and `transaction index
 | ------ | ---------------------------------------------------------------------------------- |
 | object | A transaction object, see [caver.rpc.klay.getTransactionByHash][] for more detail. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getTransactionByBlockNumberAndIndex(183, 0).then(console.log)
@@ -1499,7 +1499,7 @@ caver.rpc.klay.getTransactionByHash(transactionHash [, callback])
 
 트랜잭션 해시로 조회한 트랜잭션의 정보를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름              | 타입       | 설명                                                                   |
 | --------------- | -------- | -------------------------------------------------------------------- |
@@ -1536,7 +1536,7 @@ caver.rpc.klay.getTransactionByHash(transactionHash [, callback])
 
 If the transaction is in `pending` status that has not yet been processed, default values for `blockHash`, `blockNumber` and `transactionIndex` are returned. 아래 예제를 참조하세요.
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getTransactionByHash('0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa').then(console.log)
@@ -1590,7 +1590,7 @@ Returns the information about a transaction requested by the sender transaction 
 
 Please note that this API returns the correct result only if the indexing feature is enabled in the node by `--sendertxhashindexing`. Use [caver.rpc.klay.isSenderTxHashIndexingEnabled](#caver-rpc-klay-issendertxhashindexingenabled) to check if the indexing feature is enabled or not.
 
-**매개변수**
+**Parameters**
 
 | 이름           | 타입       | 설명                                                                   |
 | ------------ | -------- | -------------------------------------------------------------------- |
@@ -1605,7 +1605,7 @@ Please note that this API returns the correct result only if the indexing featur
 | ------ | ----------------------------------------------------------------------------------- |
 | object | A transaction object, see [caver.rpc.klay.getTransactionByHash][] for more details. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getTransactionBySenderTxHash('0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa').then(console.log)
@@ -1640,7 +1640,7 @@ caver.rpc.klay.getTransactionReceipt(transactionHash [, callback])
 
 **NOTE** Receipt is not available for `pending` transactions whose transactions have not yet been processed.
 
-**매개변수**
+**Parameters**
 
 | 이름              | 타입       | 설명                                                                   |
 | --------------- | -------- | -------------------------------------------------------------------- |
@@ -1681,7 +1681,7 @@ caver.rpc.klay.getTransactionReceipt(transactionHash [, callback])
 | typeInt            | number  | 트랜잭션의 유형을 나타내는 정수입니다.                                                                                                                            |
 | value              | string  | peb로 전송된 값입니다.                                                                                                                                   |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getTransactionReceipt('0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898').then(console.log)
@@ -1720,7 +1720,7 @@ Please note that this API returns the correct result only if the indexing featur
 
 **NOTE** Receipt is not available for `pending` transactions whose transactions have not yet been processed.
 
-**매개변수**
+**Parameters**
 
 | 이름           | 타입       | 설명                                                                   |
 | ------------ | -------- | -------------------------------------------------------------------- |
@@ -1735,7 +1735,7 @@ Please note that this API returns the correct result only if the indexing featur
 | ------ | -------------------------------------------------------------------------------------------------------------------------------- |
 | object | A transaction receipt object, see [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) for more detail. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getTransactionReceiptBySenderTxHash('0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898').then(console.log)
@@ -1772,7 +1772,7 @@ Sends a `signed transaction` to the Klaytn.
 
 The `signedTransaction` parameter can be a "RLP-encoded signed transaction." You can get the RLP-encoded transaction of a signed transaction using `transaction.getRLPEncoding`. For convenience, `caver.rpc.klay.sendRawTransaction` also accepts a "signed transaction instance" as parameter.
 
-**매개변수**
+**Parameters**
 
 | 이름                | 타입                   | 설명                                                                     |
 | ----------------- | -------------------- | ---------------------------------------------------------------------- |
@@ -1791,7 +1791,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 - `receipt`는 `Object`를 반환: 트랜잭션 영수중이 중비되면 발생합니다. 자세한 내용은 [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt)를 참조하세요.
 - `error`는 `Error`를 반환: 전송 중 에러가 발생하면 발생합니다. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
 
-**Example**
+**예시**
 
 ```javascript
 // Using promise
@@ -1834,7 +1834,7 @@ For more information about each transaction type, refer to [Transaction][].
 
 **NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/api-references/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/api-references/personal.md#personal_unlockaccount) to sign a transaction.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -1853,7 +1853,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 - `receipt`는 `Object`를 반환: 트랜잭션 영수중이 중비되면 발생합니다. 자세한 내용은 [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt)를 참조하세요.
 - `error`는 `Error`를 반환: 전송 중 에러가 발생하면 발생합니다. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
 
-**Example**
+**예시**
 
 ```javascript
 > const tx = caver.transaction.valueTransfer.create({
@@ -1904,7 +1904,7 @@ For more information about each transaction type, refer to [Transaction][].
 
 **NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/api-references/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/api-references/personal.md#personal_unlockaccount) to sign a transaction.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -1923,7 +1923,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 - `receipt`는 `Object`를 반환: 트랜잭션 영수중이 중비되면 발생합니다. 자세한 내용은 [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt)를 참조하세요.
 - `error`는 `Error`를 반환: 전송 중 에러가 발생하면 발생합니다. 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
 
-**Example**
+**예시**
 
 ```javascript
 > const tx = caver.transaction.feeDelegatedValueTransfer.create({
@@ -1983,7 +1983,7 @@ For more information about each transaction type, refer to [Transaction][].
 
 **NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/api-references/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/api-references/personal.md#personal_unlockaccount) to sign a transaction.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -1999,7 +1999,7 @@ For more information about each transaction type, refer to [Transaction][].
 | raw | string | A RLP-encoded signed transaction.                        |
 | tx  | object | The transaction object including the sender's signature. |
 
-**Example**
+**예시**
 
 ```javascript
 > const tx = caver.transaction.valueTransfer.create({
@@ -2039,7 +2039,7 @@ For more information about each transaction type, refer to [Transaction][].
 
 **NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/api-references/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/api-references/personal.md#personal_unlockaccount) to sign a transaction.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -2055,7 +2055,7 @@ For more information about each transaction type, refer to [Transaction][].
 | raw | string | A RLP-encoded signed transaction.            |
 | tx  | object | The transaction object to sign as fee payer. |
 
-**Example**
+**예시**
 
 ```javascript
 > const tx = caver.transaction.feeDelegatedValueTransfer.craete({
@@ -2102,7 +2102,7 @@ caver.rpc.klay.getDecodedAnchoringTransactionByHash(transactionHash [, callback]
 
 주어진 트랜잭션 해시에 대응하는 트랜잭션의 앵커링 데이터를 디코딩하여 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름              | 타입       | 설명                                                                   |
 | --------------- | -------- | -------------------------------------------------------------------- |
@@ -2124,7 +2124,7 @@ caver.rpc.klay.getDecodedAnchoringTransactionByHash(transactionHash [, callback]
 | BlockCount    | number | 이 앵커링 주기 동안 생성된 블록 수입니다. In most cases, this number is equal to the child chain's `SC_TX_PERIOD`, except the case that this transaction was the first anchoring tx after turning on the anchoring. |
 | TxCount       | number | 이 앵커링 주기 동안 자식 체인에서 생성된 트랜잭션 수 입니다.                                                                                                                                                                |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getDecodedAnchoringTransactionByHash('0x59831a092a9f0b48018848f5dd88a457efdbfabec13ea07cd769686741a1cd13').then(console.log)
@@ -2148,7 +2148,7 @@ caver.rpc.klay.getChainId([callback])
 
 체인 ID를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -2162,7 +2162,7 @@ caver.rpc.klay.getChainId([callback])
 | ------ | -------------------------- |
 | string | The chain ID of the chain. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getChainId().then(console.log)
@@ -2177,7 +2177,7 @@ caver.rpc.klay.getClientVersion([callback])
 
 Klaytn 노드의 현재 클라이언트 버전을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -2191,7 +2191,7 @@ Klaytn 노드의 현재 클라이언트 버전을 반환합니다.
 | ------ | ------------------------------ |
 | string | Klaytn 노드의 현재 클라이언트 버전을 반환합니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getClientVersion().then(console.log)
@@ -2206,7 +2206,7 @@ caver.rpc.klay.getGasPrice([callback])
 
 peb의 현재 가스 가격을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -2220,7 +2220,7 @@ peb의 현재 가스 가격을 반환합니다.
 | ------ | ----------------------------- |
 | string | The current gas price in peb. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getGasPrice().then(console.log)
@@ -2235,7 +2235,7 @@ caver.rpc.klay.getGasPriceAt([blockNumber] [, callback])
 
 Returns the current price per gas in peb for the given block.
 
-**매개변수**
+**Parameters**
 
 | 이름          | 타입       | 설명                                                                               |
 | ----------- | -------- | -------------------------------------------------------------------------------- |
@@ -2250,7 +2250,7 @@ Returns the current price per gas in peb for the given block.
 | ------ | ----------------------------- |
 | string | The current gas price in peb. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getGasPriceAt().then(console.log)
@@ -2265,7 +2265,7 @@ caver.rpc.klay.isParallelDBWrite([callback])
 
 Returns `true` if the node is writing blockchain data in a parallel manner.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -2279,7 +2279,7 @@ Returns `true` if the node is writing blockchain data in a parallel manner.
 | ------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | boolean | `true` means the node is writing blockchain data in a parallel manner. It is `false` if the node is serially writing the data. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.isParallelDBWrite().then(console.log)
@@ -2294,7 +2294,7 @@ caver.rpc.klay.isSenderTxHashIndexingEnabled([callback])
 
 노드가 트랜잭션 해시 맵핑 정보를 SenderTxHash로 색인화하고 있으면 `true`를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -2308,7 +2308,7 @@ caver.rpc.klay.isSenderTxHashIndexingEnabled([callback])
 | ------- | --------------------------------------------------------- |
 | boolean | `true`이면 노드가 트랜잭션 해시 맵핑 정보를 SenderTxHash로 색인화하고 있다는 것입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.isSenderTxHashIndexingEnabled().then(console.log)
@@ -2323,7 +2323,7 @@ caver.rpc.klay.getProtocolVersion([callback])
 
 노드의 Klaytn 프로토콜 버전을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -2337,7 +2337,7 @@ caver.rpc.klay.getProtocolVersion([callback])
 | ------ | ---------------------- |
 | string | 노드의 Klaytn 프로토콜 버전입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getProtocolVersion().then(console.log)
@@ -2352,7 +2352,7 @@ caver.rpc.klay.getRewardbase([callback])
 
 현재 노드의 Rewardbase를 반환합니다. Rewardbase is the address of the account where the block rewards go to. 컨센서스 노드(CN)의 경우에만 해당합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -2366,7 +2366,7 @@ caver.rpc.klay.getRewardbase([callback])
 | ------ | ----------------------- |
 | string | The rewardbase address. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getRewardbase().then(console.log)
@@ -2381,7 +2381,7 @@ caver.rpc.klay.getFilterChanges(filterId [, callback])
 
 필터에 대한 폴링 방법으로, 마지막 폴링 이후 발생한 로그를 배열의 형태로 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -2407,7 +2407,7 @@ caver.rpc.klay.getFilterChanges(filterId [, callback])
 | data             | string | 로그 중 인덱스화되지 않은 인수를 담고 있습니다.                                                                                                                                                     |
 | topics           | Array  | 길이가 0부터 4까지인 배열로, 배열의 각 원소는 32바이트 크기 DATA 형태의 인덱스화된 로그 인수들입니다. (솔리디티의 경우 `anonymous` 지정자로 이벤트를 선언하지 않았다면 첫 번째 토픽은 이벤트에 대한 서명의 해시입니다. (*예*. `Deposit(address,bytes32,uint256)`)) |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getFilterChanges('0xafb8e49bbcba9d61a3c616a3a312533e').then(console.log)
@@ -2436,7 +2436,7 @@ caver.rpc.klay.getFilterLogs(filterId [, callback])
 Note that filter ids returned by other filter creation functions, such as [caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter) or [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter), cannot be used with this function.
 
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -2447,7 +2447,7 @@ Note that filter ids returned by other filter creation functions, such as [caver
 
 See [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getFilterLogs('0xcac08a7fc32fc625a519644187e9f690').then(console.log);
@@ -2473,7 +2473,7 @@ caver.rpc.klay.getLogs(options [, callback])
 
 입력으로 받은 필터 객체와 일치하는 모든 로그를 배열 형태로 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -2493,7 +2493,7 @@ caver.rpc.klay.getLogs(options [, callback])
 
 See [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.getLogs({
@@ -2526,7 +2526,7 @@ caver.rpc.klay.newBlockFilter([callback])
 
 노드에 필터를 생성하여 새로운 블록이 도착하였음을 알립니다. 상태가 변경되었는지 확인하려면 [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)를 호출하세요.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -2540,7 +2540,7 @@ caver.rpc.klay.newBlockFilter([callback])
 | ------ | --------- |
 | string | 필터 ID입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.newBlockFilter().then(console.log)
@@ -2559,7 +2559,7 @@ caver.rpc.klay.newFilter(options [, callback])
 
 For detailed information about the topics in the filter object, please see [Klaytn Platform API - klay_newFilter](../../../../json-rpc/api-references/klay/filter.md#klay_newfilter).
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -2583,7 +2583,7 @@ For detailed information about the topics in the filter object, please see [Klay
 | ------ | --------- |
 | string | 필터 ID입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.newFilter({}).then(console.log)
@@ -2601,7 +2601,7 @@ caver.rpc.klay.newPendingTransactionFilter([callback])
 
 Creates a filter in the node, to receive the information about new pending transaction arrival. 상태가 변경되었는지 확인하려면 [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)를 호출하세요.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -2615,7 +2615,7 @@ Creates a filter in the node, to receive the information about new pending trans
 | ------ | --------- |
 | string | 필터 ID입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.newPendingTransactionFilter().then(console.log)
@@ -2630,7 +2630,7 @@ caver.rpc.klay.uninstallFilter(filterId [, callback])
 
 Uninstalls a filter with a given id. Should always be called when a watch is no longer needed. Additionally, filters time out when they are not being called with [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges) for a period of time.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -2645,7 +2645,7 @@ Uninstalls a filter with a given id. Should always be called when a watch is no 
 | ------- | ---------------------------------------------------- |
 | boolean | 필터가 성공적으로 제거되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.uninstallFilter('0x1426438ffdae5abf43edf4159c5b013b').then(console.log)
@@ -2660,7 +2660,7 @@ caver.rpc.klay.sha3(data[, callback])
 
 입력된 데이터의 Keccak-256(이 해시 함수는 표준 SHA3-256가 아닙니다) 해시를 반환합니다. You can use [caver.utils.sha3](../caver.utils.md#sha3) instead of this.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
@@ -2675,7 +2675,7 @@ caver.rpc.klay.sha3(data[, callback])
 | ------ | --------------------------- |
 | string | 입력으로 받은 데이터의 SHA3 해시 결과입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.rpc.klay.sha3('0x11223344').then(console.log)
