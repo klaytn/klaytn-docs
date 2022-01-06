@@ -36,7 +36,7 @@
 
 문제가 발생할 경우 JSON RPC의 에러 객체를 반환합니다. 예를 들어, 어떤 메시지 호출이 `REVERT` opcode로 종료되면 "evm: execution reverted"라는 메시지의 에러 객체가 생성됩니다.
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -50,7 +50,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 트랜잭션 실행을 완료하는 데에 필요한 가스양의 추정치를 생성하여 반환합니다. 이때 발생한 트랜잭션은 블록체인에 추가되지 않습니다. Klaytn 가상머신의 메커니즘, 노드 성능 등의 다양한 원인에 의해 추정치가 실제 사용된 가스양보다 훨씬 클 수도 있습니다.
 
-**매개변수**
+**Parameters**
 
 | 이름         | 타입     | 설명                                    |
 | ---------- | ------ | ------------------------------------- |
@@ -74,7 +74,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 | QUANTITY | 사용된 가스양입니다. |
 
 
-**Example**
+**예시**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_estimateGas", "params": [{"from": "0x3f71029af4e252b25b9ab999f77182f0cd3bc085", "to": "0x87ac99835e67168d4f9a40580f8f5c33550ba88b", "gas": "0x100000", "gasPrice": "0x5d21dba00", "value": "0x0", "data": "0x8ada066e"}], "id": 1}' http://localhost:8551
@@ -90,7 +90,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 트랜잭션을 실행하는 데에 들 연산 비용의 추정치를 생성하여 반환합니다. Klaytn은 한 트랜잭션을 실행하는 데에 너무 많은 시간이 걸리지 않도록 하기 위해 현재 트랜잭션당 연산 비용을 `100000000`으로 제한합니다. 이때 발생한 트랜잭션은 [klay_estimateGas](#klay_estimategas)와 마찬가지로 블록체인에 추가되지 않습니다.
 
-**매개변수**
+**Parameters**
 
 [klay_call](#klay_call)의 매개변수들을 보면 모든 속성이 선택사항인 것을 볼 수 있습니다. 하지만 가스 한도를 지정하지 않으면, Klaytn 노드는 기본 가스 한도(uint64 / 2) 를 상한으로 설정합니다.
 
@@ -100,7 +100,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 | -------- | ------------- |
 | QUANTITY | 사용된 연산 비용입니다. |
 
-**Example**
+**예시**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_estimateComputationCost","params":[{"from":"0x73718c4980728857f3aa5148e9d1b471efa3a7dd", "to":"0x069942a3ca0dabf495dba872533134205764bc9c", "value":"0x0", "data":"0x2a31efc7000000000000000000000000000000000000000000000000000000000000271000000000000000000000000000000000000000000000000000000000000000420000000000000000000000000000000000000000000000000000000000003039"}, "latest"],"id":1}' http://localhost:8551
@@ -116,7 +116,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 블록 해시와 트랜잭션 인덱스 위치로 조회한 트랜잭션의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
 
-**매개변수**
+**Parameters**
 
 | 타입            | 설명                    |
 | ------------- | --------------------- |
@@ -127,7 +127,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 [klay_getTransactionByHash](#klay_gettransactionbyhash)를 참고하세요.
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -168,7 +168,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 블록 번호와 트랜잭션 인덱스 위치로 조회한 트랜잭션의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
 
-**매개변수**
+**Parameters**
 
 | 타입                  | 설명                                                                                                                                            |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -183,7 +183,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 [klay_getTransactionByHash](#klay_gettransactionbyhash)를 참고하세요.
 
-**Example**
+**예시**
 
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getTransactionByBlockNumberAndIndex","params":["0x27", "0x0"],"id":1}' http://localhost:8551
@@ -223,7 +223,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 트랜잭션 해시로 조회한 트랜잭션의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다.
 
-**매개변수**
+**Parameters**
 
 | 타입            | 설명          |
 | ------------- | ----------- |
@@ -258,7 +258,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | 값                  | QUANTITY      | peb로 전송된 값입니다.                                                                                                                                                    |
 
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -485,7 +485,7 @@ SenderTxHash로 조회한 트랜잭션의 영수증을 반환합니다.
 
 **참고**: 보류 상태의 트랜잭션은 영수증을 확인할 수 없습니다. 이 API는 `--sendertxhashindexing`에 의해 인덱싱 기능이 활성화되어 있을 때만 올바른 결과를 반환합니다. [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled)를 호출하여 확인할 수 있습니다.
 
-**매개변수**
+**Parameters**
 
 | 이름 | 타입            | 설명                                                                         |
 | -- | ------------- | -------------------------------------------------------------------------- |
@@ -525,7 +525,7 @@ SenderTxHash로 조회한 트랜잭션의 영수증을 반환합니다.
 | typeInt            | QUANTITY             | 트랜잭션의 유형을 나타내는 정수입니다.                                                                                                                     |
 | value              | QUANTITY             | peb로 전송된 값입니다.                                                                                                                            |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -592,7 +592,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 컨트랙트를 배포했다면 [klay_getTransactionReceipt](#klay_gettransactionreceipt)를 사용해 컨트랙트 주소를 확인하세요.
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -613,7 +613,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **참고**: 서명하려는 계정은 잠금 해제되어 있어야 합니다.
 
-**매개변수**
+**Parameters**
 
 필수적으로 있어야 하는 파라미터들은 트랜잭션 타입에 따라 다릅니다. [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md)에서 적절한 파라미터를 확인하십시오.
 
@@ -625,7 +625,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 컨트랙트를 배포했다면 [klay_getTransactionReceipt](#klay_gettransactionreceipt)를 사용해 컨트랙트 주소를 확인하세요.
 
-**Example**
+**예시**
 
 ```shell
 params: [{
@@ -656,7 +656,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **참고**: 서명하려는 트랜잭션 수수료 납부자의 주소는 잠금 해제되어 있어야 합니다.
 
-**매개변수**
+**Parameters**
 
 필수적으로 있어야 하는 파라미터들은 트랜잭션 타입에 따라 다릅니다. [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md)에서 적절한 파라미터를 확인하십시오.
 
@@ -763,7 +763,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 | raw | 서명된 rawTransaction을 반환합니다.       |
 | tx  | 트랜잭션 수수료 납부자 서명을 포함한 트랜잭션 객체입니다. |
 
-**Example**
+**예시**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransactionAsFeePayer", "params": [{"typeInt": 17, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x76c0", "gasPrice": "0x5d21dba00", "value": "0xf4", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d"}], "id": 83}' http://127.0.0.1:8551
@@ -840,7 +840,7 @@ Klaytn은 트랜잭션 영수증의 `txError` 필드를 통해 트랜잭션 실�
 
 주어진 트랜잭션 해시에 대응하는 트랜잭션의 앵커링 데이터를 디코딩하여 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 타입            | 설명          |
 | ------------- | ----------- |
@@ -859,7 +859,7 @@ Klaytn은 트랜잭션 영수증의 `txError` 필드를 통해 트랜잭션 실�
 | BlockCount    | QUANTITY      | 이 앵커링 주기 동안 생성된 블록 수입니다. 대부분의 경우 이 숫자는 자식 체인의 `SC_TX_PERIOD`와 같은데, 다만 이 트랜잭션이 앵커링을 활성화한 후 첫 번째 트랜잭션인 경우만 예외입니다. |
 | TxCount       | QUANTITY      | 이 앵커링 주기 동안 자식 체인에서 생성된 트랜잭션 수 입니다.                                                                             |
 
-**Example**
+**예시**
 
 ```shell
 // Request
