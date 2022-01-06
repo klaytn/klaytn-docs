@@ -111,7 +111,7 @@ caver.wallet.keyring.generate([entropy])
 
 무작위로 생성된 캐인키로 SingleKeyring 인스턴스를 생성합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입     | 설명                              |
 | ------- | ------ | ------------------------------- |
@@ -123,7 +123,7 @@ caver.wallet.keyring.generate([entropy])
 | ----------------- | ---------------------------- |
 | [SingleKeyring][] | 무작위로 생성된 하나의 키링 인스턴스가 반환됩니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.wallet.keyring.generate()
@@ -141,7 +141,7 @@ caver.wallet.keyring.generateSingleKey([entropy])
 
 개인키 문자열을 생성합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입     | 설명                              |
 | ------- | ------ | ------------------------------- |
@@ -153,7 +153,7 @@ caver.wallet.keyring.generateSingleKey([entropy])
 | ------ | --------------- |
 | string | 개인키 문자열이 반환됩니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.wallet.keyring.generateSingleKey()
@@ -168,7 +168,7 @@ caver.wallet.keyring.generateMultipleKeys(num [, entropy])
 
 개인키 문자열들을 생성합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입     | 설명                              |
 | ------- | ------ | ------------------------------- |
@@ -181,7 +181,7 @@ caver.wallet.keyring.generateMultipleKeys(num [, entropy])
 | ----- | -------------------- |
 | Array | 개인키들을 포함한 배열이 반환됩니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.wallet.keyring.generateMultipleKeys(3)
@@ -200,7 +200,7 @@ caver.wallet.keyring.generateRoleBasedKeys(numArray [, entropy])
 
 각 [역할][]에 정의된 키를 포함하는 요소들을 지닌 2차원 배열을 생성합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입     | 설명                                |
 | -------- | ------ | --------------------------------- |
@@ -213,7 +213,7 @@ caver.wallet.keyring.generateRoleBasedKeys(numArray [, entropy])
 | ----- | ---------------------------------------- |
 | Array | 각 [역할][]에 정의된 키를 포함하는 요소들을 지닌 2차원 배열입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.wallet.keyring.generateRoleBasedKeys([2, 1, 3])
@@ -243,7 +243,7 @@ caver.wallet.keyring.create(address, key)
 
 `key`가 개인키 문자열인 경우, 하나의 개인키를 사용하는 [SingleKeyring][] 인스턴스가 생성됩니다. `key`가 개인키 문자열들을 포함한 배열인 경우, 다수의 개인키를 사용하는 [MultipleKeyring][] 인스턴스가 생성됩니다. `key`가 각 [역할][]에 사용될 키를 포함하는 요소들을 지닌 2차원 배열인 경우 [RoleBasedKeyring][]가 생성됩니다.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입                  | 설명                                                             |
 | ------- | ------------------- | -------------------------------------------------------------- |
@@ -256,7 +256,7 @@ caver.wallet.keyring.create(address, key)
 | --------- | ------------------------------------------------------------------------------------------------------- |
 | `Keyring` | 키링 인스턴스가 반환됩니다. `key` 파라미터에 따라 [SingleKeyring][], [MultipleKeyring][] 또는 [RoleBasedKeyring][] 일 수 있습니다. |
 
-**Example**
+**예시**
 
 ```javascript
 // Create singleKeyring which uses one private key
@@ -310,7 +310,7 @@ caver.wallet.keyring.createFromPrivateKey(key)
 
 개인키 문자열 또는 [KlaytnWalletKey][]로부터 `SingleKeyring` 인스턴스를 생성합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름  | 타입     | 설명                                               |
 | --- | ------ | ------------------------------------------------ |
@@ -322,7 +322,7 @@ caver.wallet.keyring.createFromPrivateKey(key)
 | ----------------- | -------------------------- |
 | [SingleKeyring][] | SingleKeyring 인스턴스가 반환됩니다. |
 
-**Example**
+**예시**
 
 ```javascript
 // Create singleKeyring from private key string
@@ -348,7 +348,7 @@ caver.wallet.keyring.createFromKlaytnWalletKey(klaytnWalletKey)
 
 [KlaytnWalletKey][] 문자열로부터 `SingleKeyring` 인스턴스를 생성합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름              | 타입     | 설명                           |
 | --------------- | ------ | ---------------------------- |
@@ -360,7 +360,7 @@ caver.wallet.keyring.createFromKlaytnWalletKey(klaytnWalletKey)
 | ----------------- | -------------------------- |
 | [SingleKeyring][] | SingleKeyring 인스턴스가 반환됩니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.wallet.keyring.createFromKlaytnWalletKey('0x{private key}0x{type}0x{address in hex}')
@@ -378,7 +378,7 @@ caver.wallet.keyring.createWithSingleKey(address, key)
 
 주소와 개인키 문자열로부터 `SingleKeyring` 인스턴스를 생성합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입     | 설명                    |
 | ------- | ------ | --------------------- |
@@ -391,7 +391,7 @@ caver.wallet.keyring.createWithSingleKey(address, key)
 | ----------------- | -------------------------- |
 | [SingleKeyring][] | SingleKeyring 인스턴스가 반환됩니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key}')
@@ -409,7 +409,7 @@ caver.wallet.keyring.createWithMultipleKey(address, key)
 
 주소와 개인키 문자열로부터 `MultipleKeyring` 인스턴스를 생성합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입     | 설명               |
 | -------- | ------ | ---------------- |
@@ -422,7 +422,7 @@ caver.wallet.keyring.createWithMultipleKey(address, key)
 | ------------------- | ---------------------------- |
 | [MultipleKeyring][] | MultipleKeyring 인스턴스가 반환됩니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.wallet.keyring.createWithMultipleKey('0x{address in hex}', ['0x{private key1}', '0x{private key2}' ])
@@ -443,7 +443,7 @@ caver.wallet.keyring.createWithRoleBasedKey(address, roledBasedKeyArray)
 
 주소와 `key`가 각 [역할][]에 사용될 키를 포함하는 요소들을 지닌 2차원 배열로부터  `RoleBasedKeyring` 인스턴스를 생성합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름                 | 타입     | 설명                                  |
 | ------------------ | ------ | ----------------------------------- |
@@ -456,7 +456,7 @@ caver.wallet.keyring.createWithRoleBasedKey(address, roledBasedKeyArray)
 | -------------------- | ----------------------------- |
 | [RoleBasedKeyring][] | RoleBasedKeyring 인스턴스가 반환됩니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > const roleBasedKeys = [
@@ -492,7 +492,7 @@ caver.wallet.keyring.decrypt(keystore, password)
 
 키스토어 v3 또는 v4 JSON을 복호화하고 복호화된 키링 객체를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입     | 설명                     |
 | -------- | ------ | ---------------------- |
@@ -505,7 +505,7 @@ caver.wallet.keyring.decrypt(keystore, password)
 | --------- | ---------------------------------------------------------------------------- |
 | `Keyring` | 복호화된 인스턴스입니다([SingleKeyring][], [MultipleKeyring][] 또는[RoleBasedKeyring][]). |
 
-**Example**
+**예시**
 
 ```javascript
 // Decrypt keystroe v4 (encrypted single keyring)
@@ -715,7 +715,7 @@ keyring.getPublicKey()
 공개키 문자열(들)을 반환합니다. `keyring`이 [SingleKeyring][]의 인스턴스인 경우 getPublicKey는 공개키 문자열을 반환합니다. `keyring`이 [MultipleKeyring][]의 인스턴스인 경우 getPublicKey는 공개키 문자열의 배열을 반환합니다. `keyring`이 [RoleBasedKeyring][]의 인스턴스인 경우, getPublicKey는 각 역할에 대해 공개키(들)이 배열로서 정의된 2차원 배열을 반환합니다.
 
 
-**매개변수**
+**Parameters**
 
 | 이름         | 타입      | 설명                                                                 |
 | ---------- | ------- | ------------------------------------------------------------------ |
@@ -727,7 +727,7 @@ keyring.getPublicKey()
 | ------------------- | ------------------------------ |
 | string &#124; Array | The public key of the keyring. |
 
-**Example**
+**예시**
 
 ```javascript
 // Get public key with singleKeyring
@@ -762,7 +762,7 @@ Returns a copied keyring instance.
 | --------- | ------------------------------------------------------------------------------------------- |
 | `Keyring` | A copied keyring instance ([SingleKeyring][], [MultipleKeyring][] or [RoleBasedKeyring][]). |
 
-**Example**
+**예시**
 
 ```javascript
 // When keyring is an instance of SingleKeyring
@@ -813,7 +813,7 @@ Signs with transactionHash with the private key(s) and returns signature(s). If 
 
 When signing transactions, it is recommended to use [caver.wallet.sign][] or [transaction.sign][].
 
-**매개변수**
+**Parameters**
 
 | 이름              | 타입                   | 설명                                                                                                            |
 | --------------- | -------------------- | ------------------------------------------------------------------------------------------------------------- |
@@ -828,7 +828,7 @@ When signing transactions, it is recommended to use [caver.wallet.sign][] or [tr
 | ----- | ------------------------------ |
 | Array | An array of [SignatureData][]. |
 
-**Example**
+**예시**
 
 ```javascript
 // Using roleBasedKeyring which has two private key in roleTransactionKey
@@ -885,7 +885,7 @@ sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 
 If the user has not defined the index parameter, `keyring.signMessage` signs message with all the private keys used by the role. If the index parameter is given, `keyring.signMessage` signs message using only one private key at the given index. The role used in caver-js can be found through `caver.wallet.keyring.role`.
 
-**매개변수**
+**Parameters**
 
 | 이름    | 타입     | 설명                                                                                                            |
 | ----- | ------ | ------------------------------------------------------------------------------------------------------------- |
@@ -907,7 +907,7 @@ If the user has not defined the index parameter, `keyring.signMessage` signs mes
 | signatures  | Array  | An array of [SignatureData][]. |
 | 메시지         | string | 서명할 메시지입니다.                    |
 
-**Example**
+**예시**
 
 ```javascript
 // Sign with roleTransactionKey
@@ -939,7 +939,7 @@ keyring.getKeyByRole(role)
 
 Returns the private key(s) used by the role entered as a parameter.
 
-**매개변수**
+**Parameters**
 
 | 이름   | 타입     | 설명                                                          |
 | ---- | ------ | ----------------------------------------------------------- |
@@ -951,7 +951,7 @@ Returns the private key(s) used by the role entered as a parameter.
 | --------------------------- | --------------------------------------------------------------------------------------------------- |
 | [PrivateKey][] &#124; Array | An instance of [PrivateKey][] or an array containing the [PrivateKey][] instances used by the role. |
 
-**Example**
+**예시**
 
 ```javascript
 // getKeyByRole with singleKeyring. 
@@ -1020,7 +1020,7 @@ Returns the [KlaytnWalletKey][] string for the keyring. With [MultipleKeyring][]
 | ------ | --------------------------------------- |
 | string | The [KlaytnWalletKey][] of the keyring. |
 
-**Example**
+**예시**
 
 ```javascript
 > keyring.getKlaytnWalletKey()
@@ -1042,7 +1042,7 @@ Depending on the type of the private key(s) in the keyring, the returned [Accoun
 - 키링이 다수의 개인키 문자열을 포함하고 있는 경우: 키링 내의 주소 및 [AccountKeyWeigthedMultiSig][] 인스턴스를 포함한 [Account][] 인스턴스를 반환합니다.
 - 키링이 역할에 따른 개인키 문자열들을 포함하고 있는 경우: 키링 내의 주소 및 [AccountKeyRoleBased][] 인스턴스를 포함한 [Account][] 인스턴스를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입                                       | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -1054,7 +1054,7 @@ Depending on the type of the private key(s) in the keyring, the returned [Accoun
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [계정(Account)][] | An Account instance to be used when a user updates AccountKey for their account in the Klaytn. Note that if you want to replace the existing keyring (or the existing private key(s)) with a new keyring (or a new private key(s)) for your account, you must update your AccountKey by sending an Account Update transaction to Klaytn beforehand. |
 
-**Example**
+**예시**
 
 ```javascript
 // Get account with singleKeyring
@@ -1168,7 +1168,7 @@ keyring.encrypt(password [, options])
 
 Encrypts a keyring and returns a keystore v4 standard. 더 자세한 내용은 [KIP-3](https://kips.klaytn.com/KIPs/kip-3)를 참조하십시오.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입     | 설명                                                                                                   |
 | -------- | ------ | ---------------------------------------------------------------------------------------------------- |
@@ -1192,7 +1192,7 @@ Encrypts a keyring and returns a keystore v4 standard. 더 자세한 내용은 [
 
 더 자세한 내용은 [KIP-3](https://kips.klaytn.com/KIPs/kip-3)를 참조하십시오.
 
-**Example**
+**예시**
 
 ```javascript
 // Encrypt singleKeyring
@@ -1318,7 +1318,7 @@ Encrypts an instance of [SingleKeyring][] and returns a keystore v3 standard.
 
 Note that [MultipleKeyring][] and [RoleBasedKeyring][] cannot use encryptV3. In this case, please use [keyring.encrypt](#keyring-encrypt) with a keystore V4 standard.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입     | 설명                                                                                                              |
 | -------- | ------ | --------------------------------------------------------------------------------------------------------------- |
@@ -1340,7 +1340,7 @@ Note that [MultipleKeyring][] and [RoleBasedKeyring][] cannot use encryptV3. In 
 | address | string | The address of encrypted [Keyring][]. |
 | crypto  | object | The encrypted private key.            |
 
-**Example**
+**예시**
 
 ```javascript
 > keyring.encryptV3('password')
@@ -1379,7 +1379,7 @@ Returns `true` if keyring has decoupled key.
 | ------- | ------------------------------------ |
 | boolean | `true` if keyring has decoupled key. |
 
-**Example**
+**예시**
 
 ```javascript
 > keyring.isDecoupled()
