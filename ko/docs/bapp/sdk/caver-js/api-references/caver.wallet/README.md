@@ -26,7 +26,7 @@ caver.wallet.generate(numberOfKeyrings [, entropy])
 
 임의적으로 생성된 개인키를 가지고 keyringContainer 안에 [SingleKeyring][] 인스턴스를 생성합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름               | 타입     | 설명                                |
 | ---------------- | ------ | --------------------------------- |
@@ -39,7 +39,7 @@ caver.wallet.generate(numberOfKeyrings [, entropy])
 | ----- | ------------------------- |
 | Array | 생성된 인스턴스의 주소를 포함하는 배열입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 // generate without entropy
@@ -69,7 +69,7 @@ caver.wallet.newKeyring(address, key)
 
 `key`가 개인키 문자열인 경우 하나의 개인키를 사용하는 [SingleKeyring][] 인스턴스가 생성됩니다. `key`가 개인키 문자열들을 포함한 배열인 경우, 다수의 개인키를 사용하는 [MultipleKeyring][] 인스턴스가 생성됩니다. `key`가 각 [역할][]에 사용될 키를 포함하는 요소들을 지닌 2차원 배열인 경우 [RoleBasedKeyring][]가 생성됩니다. 사용할 키링은 `caver.wallet`에 추가해야 합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입                  | 설명                                                             |
 | ------- | ------------------- | -------------------------------------------------------------- |
@@ -82,7 +82,7 @@ caver.wallet.newKeyring(address, key)
 | ------ | ------------------------------------------------------------------------------------------------- |
 | object | caver.wallet에 추가된 키링 인스턴스([SingleKeyring][], [MultipleKeyring][] 또는 [RoleBasedKeyring][])가 반환됩니다. |
 
-**Example**
+**예시**
 
 ```javascript
 // Create a instance of SingleKeyring and add to caver.wallet
@@ -136,7 +136,7 @@ caver.wallet.updateKeyring(keyring)
 
 `caver.wallet` 안에 있는 키링을 업데이트합니다. 새 `keyring` 인스턴스([SingleKeyring][], [MultipleKeyring][] 또는 [RoleBasedKeyring][])가 파라미터로 전달될 경우, 주어진 `keyring` 인스턴스의 `address` 속성에 일치하는, `caver.wallet`에 저장된 기존의 키링을 대체합니다. 일치하는 키링을 찾을 수 없는 경우 에러가 발생합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입     | 설명                                                                                              |
 | ------- | ------ | ----------------------------------------------------------------------------------------------- |
@@ -148,7 +148,7 @@ caver.wallet.updateKeyring(keyring)
 | ------ | ------------------------------------------------------------------------------------------------ |
 | object | `caver.wallet`에 저장된 업데이트된 키링([SingleKeyring][], [MultipleKeyring][] 또는 [RoleBasedKeyring][])입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.wallet.updateKeyring(newKeyring)
@@ -166,7 +166,7 @@ caver.wallet.getKeyring(address)
 
 `caver.wallet` 주소에 일치하는 키링 인스턴스를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입     | 설명             |
 | ------- | ------ | -------------- |
@@ -178,7 +178,7 @@ caver.wallet.getKeyring(address)
 | ------ | ----------------------------------------------------------------------------------------------------- |
 | object | `caver.wallet`에 저장된 업데이트된 키링 인스턴스([SingleKeyring][], [MultipleKeyring][] 또는 [RoleBasedKeyring][])입니다. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.wallet.getKeyring('0x386a4bb40abbfaa59cecdc3ced202475895fd569')
@@ -196,7 +196,7 @@ caver.wallet.isExisted(address)
 
 Returns `true` if there is a keyring matching the address.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입     | 설명                                         |
 | ------- | ------ | ------------------------------------------ |
@@ -208,7 +208,7 @@ Returns `true` if there is a keyring matching the address.
 | ------- | ---------------------------------------------------------------------------------- |
 | boolean | `true` means a keyring matching with the address is existed in the `caver.wallet`. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.wallet.isExisted('0x386a4bb40abbfaa59cecdc3ced202475895fd569')
@@ -223,7 +223,7 @@ caver.wallet.add(keyring)
 
 Adds an instance of keyring to the `caver.wallet`. If the newly given keyring has the same address with one of the keyrings that already exist in `caver.wallet`, an error is returned. In this case, use [updateKeyring](#caver-wallet-updatekeyring) to update the existing keyring in `caver.wallet`.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입     | 설명                                                                                                            |
 | ------- | ------ | ------------------------------------------------------------------------------------------------------------- |
@@ -235,7 +235,7 @@ Adds an instance of keyring to the `caver.wallet`. If the newly given keyring ha
 | ------ | ----------------------------------------------------------------------------------------------------- |
 | object | The added keyring ([SingleKeyring][], [MultipleKeyring][] or [RoleBasedKeyring][]) in `caver.wallet`. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.wallet.add(keyring)
@@ -253,7 +253,7 @@ caver.wallet.remove(address)
 
 Deletes the keyring from `caver.wallet` whose address matches the address of the given keyring.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입     | 설명                                                         |
 | ------- | ------ | ---------------------------------------------------------- |
@@ -265,7 +265,7 @@ Deletes the keyring from `caver.wallet` whose address matches the address of the
 | ------- | ------------------------------------------------- |
 | boolean | `true` if keyring is removed from `caver.wallet`. |
 
-**Example**
+**예시**
 
 ```javascript
 > caver.wallet.remove('0x6a3edfad6d1126020d5369e9097db39281876c5d')
@@ -286,7 +286,7 @@ sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 
 If the user has not provided the index parameter, `caver.wallet.signMessage` signs message using all the private keys used by the role. If the index parameter is given, `caver.wallet.signMessage` signs message using only one private key at the given index. The role used in caver-js can be found from `caver.wallet.keyring.role`.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입     | 설명                                                                                                            |
 | ------- | ------ | ------------------------------------------------------------------------------------------------------------- |
@@ -309,7 +309,7 @@ If the user has not provided the index parameter, `caver.wallet.signMessage` sig
 | signatures  | Array  | An array of [SignatureData][]. |
 | 메시지         | string | 서명할 메시지입니다.                    |
 
-**Example**
+**예시**
 
 ```javascript
 // Sign message with roleTransactionKey which uses two private keys
@@ -344,7 +344,7 @@ Signs the transaction as a `sender` of the transaction and appends `signatures` 
 
 For [Account Update][] transaction, use [roleTransactionKey][], otherwise, use [roleTransactionKey][]. If the user has not defined an `index`, `caver.wallet.sign` signs the transaction using all the private keys used by the role. If `index` is defined, the `caver.wallet.sign` signs the transaction using only one private key at the given index.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입       | 설명                                                                                                                                                                                                                                                                                                                                                            |
 | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -363,7 +363,7 @@ For [Account Update][] transaction, use [roleTransactionKey][], otherwise, use [
 
 For more information about fields by transaction type, see [caver.transaction][].
 
-**Example**
+**예시**
 
 ```javascript
 // 이 예시는 ValueTransfer 트랜잭션 사용
@@ -456,7 +456,7 @@ For signing a transaction as a fee payer, use [roleFeePayerKey][]. If the user h
 
 If the `transaction.feePayer` is not defined, the address of keyring which is founded from `caver.wallet` is assigned.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입       | 설명                                                                                                                                                                                |
 | ------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -475,7 +475,7 @@ If the `transaction.feePayer` is not defined, the address of keyring which is fo
 
 For more information about fields by transaction type, see [caver.transaction][].
 
-**Example**
+**예시**
 
 ```javascript
 // This example uses the FeeDelegatedValueTransfer transaction.
