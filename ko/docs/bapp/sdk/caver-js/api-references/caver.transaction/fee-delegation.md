@@ -30,7 +30,7 @@ new caver.transaction.feeDelegatedValueTransfer(transactionObject)
 | gasPrice           | string | (선택 사항) 발신자가 지불할 토큰양을 구하기 위한 승수입니다. 미입력시 gasPrice 설정을 위해 `caver.rpc.klay.getGasPrice`가 사용됩니다.                              |
 | chainId            | string | (선택 사항) Klaytn 블록체인의 체인 ID입니다. 미입력시 chainId 설정을 위해 `caver.rpc.klay.getChainId`가 사용됩니다.                                     |
 
-**Example**
+**예시**
 
 ```javascript
 // feeDelegatedValueTransfer 생성
@@ -88,7 +88,7 @@ new caver.transaction.feeDelegatedValueTransferMemo(transactionObject)
 | gasPrice           | string | (선택 사항) 발신자가 지불할 토큰양을 구하기 위한 승수입니다. 미입력시 gasPrice 설정을 위해 `caver.rpc.klay.getGasPrice`가 사용됩니다.                              |
 | chainId            | string | (선택 사항) Klaytn의 체인 ID입니다. 미입력시 chainId 설정을 위해 `caver.rpc.klay.getChainId`가 사용됩니다.                                          |
 
-**Example**
+**예시**
 
 ```javascript
 // feeDelegatedValueTransferMemo 생성
@@ -148,7 +148,7 @@ new caver.transaction.feeDelegatedAccountUpdate(transactionObject)
 
 각 `AccountKey`에 대해 [Account] 인스턴스를 생성하는 방법은 [Getting Started - Account Update](../../getting-started.md#account-update) 또는 [caver.account.create](../caver.account.md#caver-account-create)를 참고하세요.
 
-**Example**
+**예시**
 
 ```javascript
 // feeDelegatedAccountUpdate 생성
@@ -209,7 +209,7 @@ new caver.transaction.feeDelegatedSmartContractDeploy(transactionObject)
 | gasPrice           | string  | (선택 사항) 발신자가 지불할 토큰양을 구하기 위한 승수입니다. 미입력시 gasPrice 설정을 위해 `caver.rpc.klay.getGasPrice`가 사용됩니다.                                              |
 | chainId            | string  | (선택 사항) Klaytn의 체인 ID입니다. 미입력시 chainId 설정을 위해 `caver.rpc.klay.getChainId`가 사용됩니다.                                                          |
 
-**Example**
+**예시**
 
 ```javascript
 // feeDelegatedSmartContractDeploy 생성
@@ -269,7 +269,7 @@ new caver.transaction.feeDelegatedSmartContractExecution(transactionObject)
 | gasPrice           | string | (선택 사항) 발신자가 지불할 토큰양을 구하기 위한 승수입니다. 미입력시 gasPrice 설정을 위해 `caver.rpc.klay.getGasPrice`가 사용됩니다.                                                                     |
 | chainId            | string | (선택 사항) Klaytn의 체인 ID입니다. 미입력시 chainId 설정을 위해 `caver.rpc.klay.getChainId`가 사용됩니다.                                                                                 |
 
-**Example**
+**예시**
 
 ```javascript
 // feeDelegatedSmartContractExecution 생성
@@ -325,7 +325,7 @@ new caver.transaction.feeDelegatedCancel(transactionObject)
 | gasPrice           | string | (선택 사항) 발신자가 지불할 토큰양을 구하기 위한 승수입니다. 미입력시 gasPrice 설정을 위해 `caver.rpc.klay.getGasPrice`가 사용됩니다.                              |
 | chainId            | string | (선택 사항) Klaytn의 체인 ID입니다. 미입력시 chainId 설정을 위해 `caver.rpc.klay.getChainId`가 사용됩니다.                                          |
 
-**Example**
+**예시**
 
 ```javascript
 // feeDelegatedCancel 생성
@@ -378,7 +378,7 @@ new caver.transaction.feeDelegatedChainDataAnchoring(transactionObject)
 | gasPrice           | string | (선택 사항) 발신자가 지불할 토큰양을 구하기 위한 승수입니다. 미입력시 gasPrice 설정을 위해 `caver.rpc.klay.getGasPrice`가 사용됩니다.                              |
 | chainId            | string | (선택 사항) Klaytn의 체인 ID입니다. 미입력시 chainId 설정을 위해 `caver.rpc.klay.getChainId`가 사용됩니다.                                          |
 
-**Example**
+**예시**
 
 ```javascript
 // feeDelegatedChainDataAnchoring 생성
