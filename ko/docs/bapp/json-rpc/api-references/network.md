@@ -126,7 +126,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 현재 Klaytn 프로토콜 버전을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -136,7 +136,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | QUANTITY | 네트워크 식별자의 정숫값입니다.<br /> - `"1001"`: Klaytn Baobab 테스트넷<br /> - `"8217"`: Klaytn Cypress 메인넷 |
 
-**Example**
+**예시**
 
 ```shell
 // Request
