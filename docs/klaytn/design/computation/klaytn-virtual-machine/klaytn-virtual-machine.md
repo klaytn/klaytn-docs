@@ -93,11 +93,16 @@ Storage fees have a slightly nuanced behavior. To incentivize minimization of th
 The fee schedule `G` is a tuple of 37 scalar values corresponding to the relative costs, in gas, of a number of abstract operations that a transaction may incur. For other tables such as `Precompiled contracts` and `accounts`, please refer to [this document](../../../transaction-fees.md#klaytns-gas-table)
 
 {% hint style="success" %}
-NOTE: Since protocol upgrade, in other words, hard fork introduced in klaytn v1.7.0, the fee has been changed.
-In case of Baobab network, protocol upgrade was enabled from block number `#75373312`.
+NOTE: With the protocol upgrade, or the "hard fork", the fee have been changed.
+If you want the previous document, please refer to [previous document](klaytn-virtual-machine-previous.md).
+
+v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** Hard-Fork items and klaytn own items.
+It has been enabled from block number `#75373312`.
 Cypress mainnet will be subject to the same protocol upgrade in the next version.
 
-If you want a previous document, please refer [previous document](klaytn-virtual-machine-previous.md).
+v1.7.3 Protocol Upgrade - incompatible changes including BaseFee **London** Hard-Fork item.
+It has been enabled from block number `#80295291`.
+Cypress mainnet will be subject to the same protocol upgrade in the next version.
 {% endhint %}
 
 | Name | Value | Description |
@@ -143,7 +148,7 @@ If you want a previous document, please refer [previous document](klaytn-virtual
 We define the following subsets of instructions:
 
 * `W_zero` = {`STOP`, `RETURN`, `REVERT`}
-* `W_base` = {`ADDRESS`, `ORIGIN`, `CALLER`, `CALLVALUE`, `CALLDATASIZE`, `CODESIZE`, `GASPRICE`, `COINBASE`, `TIMESTAMP`, `NUMBER`, `DIFFICULTY`, `GASLIMIT`, `RETURNDATASIZE`, `POP`, `PC`, `MSIZE`, `GAS`, `CHAINID`}
+* `W_base` = {`ADDRESS`, `ORIGIN`, `CALLER`, `CALLVALUE`, `CALLDATASIZE`, `CODESIZE`, `GASPRICE`, `COINBASE`, `TIMESTAMP`, `NUMBER`, `DIFFICULTY`, `GASLIMIT`, `RETURNDATASIZE`, `POP`, `PC`, `MSIZE`, `GAS`, `CHAINID`, `BASEFEE`}
 * `W_verylow` = {`ADD`, `SUB`, `LT`, `GT`, `SLT`, `SGT`, `EQ`, `ISZERO`, `AND`, `OR`, `XOR`, `NOT`, `BYTE`, `CALLDATALOAD`, `MLOAD`, `MSTORE`, `MSTORE8`, `PUSH`, `DUP`, `SWAP`}
 * `W_low` = {`MUL`, `DIV`, `SDIV`, `MOD`, `SMOD`, `SIGNEXTEND`, `SELFBALANCE`}
 * `W_mid` = {`ADDMOD`, `MULMOD`, `JUMP`}

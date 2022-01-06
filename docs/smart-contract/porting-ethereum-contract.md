@@ -5,15 +5,22 @@ However, be aware of the following two issues.
 
 ## Solidity Support <a id="solidity-support"></a>
 
-* Baobab network is currently compatible with **istanbul** Ethereum Virtual Machine (EVM).
-* Cypress network is currently compatible with **constantinople** Ethereum Virtual Machine (EVM).
+* Baobab network is currently compatible with **London** Ethereum Virtual Machine (EVM).
+* Cypress network is currently compatible with **Constantinople** Ethereum Virtual Machine (EVM).
 
-**NOTE**: In case of Baobab network, protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0 has been enabled from block number `#75373312`. This led to a transition from **constantinople EVM** to **istanbul EVM**.
-Cypress mainnet has not enabled the protocol upgrade yet, but soon, it will be subject to the same protocol upgrade in the next version. 
+{% hint style="success" %}
+v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** Hard-Fork items and klaytn own items.
+It has been enabled from block number `#75373312`.
+Cypress mainnet will be subject to the same protocol upgrade in the next version.
+
+v1.7.3 Protocol Upgrade - incompatible changes including BaseFee **London** Hard-Fork item.
+It has been enabled from block number `#80295291`.
+Cypress mainnet will be subject to the same protocol upgrade in the next version. 
+{% endhint %}
 
 Backward compatibility is not guaranteed with other EVM versions on Klaytn.
 Thus, it is highly recommended compiling Solidity code with the correct target option according to the protocol upgrade status.
-* Baobab: --evm-version istanbul
+* Baobab: --evm-version london
 * Cypress: --evm-version constantinople
 * Others(private/service chain): determined according to the protocol upgrade status
 
@@ -23,7 +30,7 @@ Please refer to [how to set the EVM version of solc](https://solidity.readthedoc
 An example command is shown below:
 
 ```
-$ solc --evm-version istanbul contract.sol
+$ solc --evm-version london contract.sol
 ```
 
 ## Decoupled Key Pairs <a id="decoupled-key-pairs"></a>

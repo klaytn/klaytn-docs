@@ -93,10 +93,7 @@ Storage fees have a slightly nuanced behavior. To incentivize minimization of th
 The fee schedule `G` is a tuple of 37 scalar values corresponding to the relative costs, in gas, of a number of abstract operations that a transaction may incur. For other tables such as `Precompiled contracts` and `accounts`, please refer to [this document](../transaction-fees.md#klaytns-gas-table)
 
 {% hint style="success" %}
-NOTE: The table below is used before the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0.
-In case of Baobab network, protocol upgrade was enabled from block number `#75373312`.
-Cypress mainnet will be subject to the same protocol upgrade in the next version.
-
+NOTE: This document contains the fee schedule which is used before the activations of the protocol upgrades.
 If you want the latest document, please refer to [latest document](klaytn-virtual-machine.md).
 {% endhint %}
 
