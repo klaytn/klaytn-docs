@@ -36,6 +36,8 @@ Please read the descriptions marked "**(Note that)**" carefully.
 
 ## Transaction
 
+Related APIs: `eth_getTransactionByHash`, `eth_getTransactionByBlockHashAndIndex`, `eth_getTransactionByBlockNumberAndIndex`, `eth_pendingTransactions`.
+
 There are lots of transaction types in Klaytn, and fields of data structure vary based on the type.
 
 So you have to check how various types of Klaytn transaction are converted as Ethereum transaction because 
@@ -449,6 +451,8 @@ are served as Ethereum Legacy Transaction.
 ```
 
 ## Transaction Receipt
+
+Related APIs: `eth_getTransactionReceipt`.
 
 By default, the fields in the Klaytn Transaction Receipt are different depending on the transaction type.
 Because there are lots of transaction types in Klaytn, fields of transaction receipt vary based on the transaction type.
