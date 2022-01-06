@@ -2361,7 +2361,7 @@ caver.klay.accounts.wallet.remove(account)
 | Boolean | 지갑이 제거된 경우 `true`입니다. 찾을 수 없으면 `false`입니다. |
 
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.accounts.wallet;
@@ -2390,7 +2390,7 @@ caver.klay.accounts.wallet.clear()
 ```
 지갑을 안전하게 비우고 모든 계정을 제거합니다.
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -2568,7 +2568,7 @@ caver.klay.accounts.wallet.getKlaytnWalletKey(address)
 ```
 caver-js 지갑에 있는 계정에 대한 Klaytn 지갑 키를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름             | 타입                 | 설명                                                            |
 | -------------- | ------------------ | ------------------------------------------------------------- |
@@ -2582,7 +2582,7 @@ caver-js 지갑에 있는 계정에 대한 Klaytn 지갑 키를 반환합니다.
 | String | 계정과 일치하는 KlaytnWalletKey입니다. 이 값을 사용하면 지갑에 로그인할 수 있습니다. |
 
 
-**Example**
+**예시**
 
 ```javascript
 // With non-human-readable address
@@ -2613,7 +2613,7 @@ caver.klay.accounts.wallet.updatePrivateKey(privateKey, address)
 
 **참고** `updatePrivateKey`는 계정의 accountKey가 AccountKeyPublic일 때만 동작합니다. caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)에서 AccountKeys(AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased)를 지원하기 때문에, `privateKey`는 accountKey의 defaultKey를 참조하는 읽기 전용 속성으로 변경되었습니다. 이 메서드는 `privateKey`직접 업데이트하지 않고 accountKey를 업데이트합니다. 이 메서드는 이전 버전과의 호환성을 위해 유지됩니다. 이제는 좀 더 포괄적인 [caver.klay.accounts.wallet.updateAccountKey](#wallet-updateaccountkey) 사용을 권장합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름         | 타입     | 설명                    |
 | ---------- | ------ | --------------------- |
@@ -2628,7 +2628,7 @@ caver.klay.accounts.wallet.updatePrivateKey(privateKey, address)
 | Object | 새 accountKey를 가지는 Account 인스턴스입니다. Account 인스턴스는 caver-js의 인메모리 지갑에 존재합니다. |
 
 
-**Example**
+**예시**
 
 ```javascript
 > caver.klay.accounts.wallet.updatePrivateKey('0x{private key}', '0xf2e2565629c7763dc0b595e8e531a31371a95f95');
@@ -2657,7 +2657,7 @@ caver.klay.accounts.wallet.updateAccountKey(address, accountKey)
 
 **참고** `caver.klay.accounts.wallet.updateAccountKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
 | 이름         | 타입                                | 설명                                                                                                                                                    |
 | ---------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2672,7 +2672,7 @@ caver.klay.accounts.wallet.updateAccountKey(address, accountKey)
 | Object | 새 accountKey를 가지는 Account 인스턴스입니다. Account 인스턴스는 caver-js의 인메모리 지갑에 존재합니다. |
 
 
-**Example**
+**예시**
 
 ```javascript
 // Update to AccountKeyPublic with a private key string
