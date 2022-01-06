@@ -61,7 +61,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 - 한 번의 조회당 반환되는 최대 숫자 (기본값: 10.000)
 - 한 번의 조회당 실행 시간 (기본값: 10초)
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입     | 설명        |
 | -------- | ------ | --------- |
@@ -71,7 +71,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 See [klay_getFilterChanges](#klay_getfilterchanges)
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -104,7 +104,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 - 한 번의 조회당 반환되는 최대 숫자 (기본값: 10.000)
 - 한 번의 조회당 실행 시간 (기본값: 10초)
 
-**매개변수**
+**Parameters**
 
 `Object` - 필터 객체를 구성하는 옵션은 다음과 같습니다.
 
@@ -245,7 +245,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 
 노드에 필터를 생성하여 새로운 블록이 도착하였음을 알립니다. 상태가 변경되었는지 확인하려면 [klay_getFilterChanges](#klay_getfilterchanges)를 호출하세요.
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -255,7 +255,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 | -------- | --------- |
 | QUANTITY | 필터 ID입니다. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -283,7 +283,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 * `[A, B]` "A가 첫 번째 위치에 있으며 B가 두 번째 위치에 있음 (이후에는 무엇이든 있어도 됨)"
 * `[[A, B], [A, B]]` "(A 또는 B)가 첫 번째 위치에 있으며 (A 또는 B)가 두 번째 위치에 있음 (이후에는 무엇이든 있어도 됨)"
 
-**매개변수**
+**Parameters**
 
 `Object` - 필터 객체를 구성하는 옵션은 다음과 같습니다.
 
@@ -304,7 +304,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | -------- | -------- |
 | QUANTITY | 필터 ID입니다 |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -319,7 +319,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 
 노드에 필터를 생성하여 보류 상태인 새로운 트랜잭션이 도착하였음을 알립니다. 상태가 변경되었는지 확인하려면 [klay_getFilterChanges](#klay_getfilterchanges)를 호출하세요.
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -329,7 +329,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 | -------- | --------- |
 | QUANTITY | 필터 ID입니다. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -349,7 +349,7 @@ Websockets을 통한 RPC Pub/Sub 또는 HTTP를 통한 필터를 이용하여 �
 
 매 생성된 구독에 대해 노드는 구독 ID를 반환할 것입니다. 구독에 일치하는 모든 이벤트에 대해서는 관계된 데이터와 구독 ID를 포함한 알림이 전송됩니다. 연결이 닫힐 경우, 이 연결을 통해 생성된 모든 구독들이 제거됩니다.
 
-**매개변수**
+**Parameters**
 
 `Object` -알림 타입: `"newHeads"` 또는 `"logs"`.
 
@@ -363,7 +363,7 @@ Websockets을 통한 RPC Pub/Sub 또는 HTTP를 통한 필터를 이용하여 �
 | QUANTITY | 구독이 생성될 때의 구독 ID입니다. 구독에 일치하는 모든 이벤트에 대해서는 관계된 데이터와 구독 ID를 포함한 알림이 전달됩니다. |
 
 
-**Example**
+**예시**
 
 이 API는 WebSocket 툴인 [`wscat`](https://www.npmjs.com/package/wscat)과 함께 쓰기에 적합합니다.
 
@@ -392,7 +392,7 @@ wscat -c http://localhost:8552
 
 입력으로 받은 ID를 가진 필터를 제거합니다. 더는 모니터링이 필요없을 때 항상 호출해야 합니다. 또한, 일정 주기 동안 [klay_getFilterChanges](#klay_getfilterchanges)를 통해 요청되지 않으면 필터는 타임아웃 됩니다.
 
-**매개변수**
+**Parameters**
 
 | 이름     | 타입       | 설명        |
 | ------ | -------- | --------- |
@@ -404,7 +404,7 @@ wscat -c http://localhost:8552
 | ------- | ---------------------------------------------------- |
 | Boolean | 필터가 성공적으로 제거되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -423,7 +423,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 Websockets을 통한 RPC Pub/Sub 또는 HTTP를 통한 필터를 이용하여 특정 구독 ID에 대한 구독을 취소합니다. 해당 구독을 생성한 연결만이 구독을 취소할 수 있습니다.
 
-**매개변수**
+**Parameters**
 
 | 타입       | 설명        |
 | -------- | --------- |
@@ -436,7 +436,7 @@ Websockets을 통한 RPC Pub/Sub 또는 HTTP를 통한 필터를 이용하여 �
 | Boolean | 구독이 성공적으로 취소되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 
-**Example**
+**예시**
 
 이 API는 WebSocket 툴인 [`wscat`](https://www.npmjs.com/package/wscat)과 함께 쓰기에 적합합니다.
 
