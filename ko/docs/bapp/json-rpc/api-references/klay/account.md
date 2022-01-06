@@ -19,7 +19,7 @@
 | ------- | ---------------------------- |
 | Boolean | 입력으로 받은 주소가 존재하는지 여부를 반환합니다. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -38,7 +38,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 클라이언트가 소유한 계정의 주소 목록을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -48,7 +48,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | ------------------- | -------------------------- |
 | 20바이트 크기 DATA array | 클라이언트가 소유한 계정의 주소들을 반환합니다. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -67,7 +67,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 RLP(Recursive Length Prefix)를 사용해 계정 키를 인코딩합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입        | 설명                                                                                                                     |
 | ------- | --------- | ---------------------------------------------------------------------------------------------------------------------- |
@@ -81,7 +81,7 @@ RLP(Recursive Length Prefix)를 사용해 계정 키를 인코딩합니다.
 | DATA | RLP로 인코딩된 계정 키 |
 
 
-**Example**
+**예시**
 
 ```shell
 // Request to encode AccountKeyNil
@@ -155,7 +155,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 RLP 인코딩된 계정 키를 디코딩합니다.
 
-**매개변수**
+**Parameters**
 
 | 타입   | 설명             |
 | ---- | -------------- |
@@ -168,7 +168,7 @@ RLP 인코딩된 계정 키를 디코딩합니다.
 | keytype | QUANTITY  | 계정 키 타입을 의미하는 정수값입니다. |
 | key     | JSON DATA | 계정 키 객체               |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -226,7 +226,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 입력으로 받은 주소의 계정 정보를 반환합니다. Klaytn에는 스마트 컨트랙트 계정과 외부 소유 계정(EOA)이 있습니다. 자세한 내용은 [Klaytn 계정](../../../../klaytn/design/accounts.md#klaytn-accounts)을 참고해주세요.
 
-**매개변수**
+**Parameters**
 
 | 이름                   | 타입                              | 설명                                                                                                                                           |
 | -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -243,7 +243,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 | ------- | ----------------------- |
 | Account | 계정 유형에 따라 다른 속성을 반환합니다. |
 
-**Example**
+**예시**
 
 ```shell
     // Request (Account type: Externally Owned Account)
@@ -301,7 +301,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 입력으로 받은 주소의 외부 소유 계정(EOA)에 해당하는 계정의 키를 반환합니다. 해당 계정이 AccountKeyLegacy이거나 입력으로 받은 주소의 계정이 스마트 컨트랙트 계정이면 빈 값을 반환합니다. 자세한 내용은 [계정 키](../../../../klaytn/design/accounts.md#account-key)를 참고해주세요.
 
-**매개변수**
+**Parameters**
 
 | 타입                              | 설명                                                                                                                                           |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -318,7 +318,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | ---------- | ------------------------------------ |
 | AccountKey | 계정 키는 1개 이상의 공개 키와 1가지 키 타입으로 구성됩니다. |
 
-**Example**
+**예시**
 
 ```shell
 // Request (AccountKey type: AccountKeyPublic)
@@ -389,7 +389,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 입력으로 받은 주소에 해당하는 계정의 잔액을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름                   | 타입                              | 설명                                                                                                                                           |
 | -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -424,7 +424,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 입력으로 받은 주소의 코드를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 타입                              | 설명                                                                                                                                           |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -441,7 +441,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | ---- | ------------------ |
 | DATA | 입력으로 받은 주소의 코드입니다. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -460,7 +460,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 어떤 주소의 계정에서 *발신된* 트랜잭션의 개수를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 타입                              | 설명                                                                                                                                           |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -477,7 +477,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | -------- | ---------------------------------------- |
 | QUANTITY | 입력으로 받은 주소에서 발신한 트랜잭션의 개수를 정수 형태로 반환합니다. |
 
-**Example**
+**예시**
 
  ```shell
 // Request
@@ -498,7 +498,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 특정 번호의 블록 시간에서 입력으로 받은 계정의 codeHash가 비어 있지 않은 경우 `true`를 반환합니다. 해당 계정이 EOA이거나 codeHash가 비어 있는 스마트 컨트랙트 계정이면 `false`를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름                   | 타입                              | 설명                                                                                                                                           |
 | -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -515,7 +515,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | ------- | --------------------------------------------- |
 | Boolean | 리턴값이 `true`이면 매개변수가 기존에 있는 스마트 컨트랙트 계정 주소입니다. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
@@ -540,7 +540,7 @@ sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 
 **참고**: 서명하려는 계정은 잠금 해제되어 있어야 합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입             | 설명            |
 | ------- | -------------- | ------------- |
@@ -553,7 +553,7 @@ sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 | ---- | -------- |
 | DATA | 서명 값입니다. |
 
-**Example**
+**예시**
 
 ```shell
 // Request
