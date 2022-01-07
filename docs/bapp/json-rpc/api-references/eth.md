@@ -221,7 +221,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Returns information about a header by number.
 
-Please check the [Caution-Header](./caution.md#block_header) before using this API.
+Please check the [Caution-Header](./eth/caution.md#block_header) before using this API.
 
 **Parameters**
 
@@ -269,7 +269,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Returns information about a header by hash.
 
-Please check the [Caution-Header](./caution.md#block_header) before using this API.
+Please check the [Caution-Header](./eth/caution.md#block_header) before using this API.
 
 **Parameters**
 
@@ -341,7 +341,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Returns information about a block by block number.
 
-Please check the [Caution-Block](./caution.md#block) before using this API.
+Please check the [Caution-Block](./eth/caution.md#block) before using this API.
 
 **Parameters**
 
@@ -400,7 +400,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Returns information about a block by hash.
 
-Please check the [Caution-Block](./caution.md#block) before using this API.
+Please check the [Caution-Block](./eth/caution.md#block) before using this API.
 
 **Parameters**
 
