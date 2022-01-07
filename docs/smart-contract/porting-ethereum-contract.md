@@ -10,11 +10,11 @@ However, be aware of the following two issues.
 
 {% hint style="success" %}
 v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items.
-It has been enabled from block number `#75373312`.
+It has been enabled from block number `#75373312` in case of Baobab network.
 Cypress mainnet will be subject to the same protocol upgrade in the next version.
 
 v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
-It has been enabled from block number `#80295291`.
+It has been enabled from block number `#80295291` in case of Baobab network.
 Cypress mainnet will be subject to the same protocol upgrade in the next version. 
 {% endhint %}
 

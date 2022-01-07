@@ -9,11 +9,11 @@ Klaytn additionally implements precompiled contracts from 0x3fd through 0x3ff to
 NOTE: With the protocol upgrade, or the hard fork introduced in Klaytn v1.7.0, three precompiled contract addresses have changed, and **blake2F** was added.
 
 v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hark fork items and Klaytn's own items.
-It has been enabled from block number `#75373312`.
+It has been enabled from block number `#75373312` in case of Baobab network.
 Cypress mainnet will be subject to the same protocol upgrade in the next version.
 
 v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
-It has been enabled from block number `#80295291`.
+It has been enabled from block number `#80295291` in case of Baobab network.
 Cypress mainnet will be subject to the same protocol upgrade in the next version.
 
 Contracts deployed before the protocol upgrade should use the original addresses.
