@@ -18,7 +18,7 @@ Therefore, we chose the third option for Klaytn. For now, the limit of the execu
 The below table shows the computation cost of EVM opcodes. The computation cost was determined based on experiments.
 
 {% hint style="success" %}
-NOTE: This document contains the computation costs which is used before the activations of the protocol upgrades.
+NOTE: This document contains computation costs used before the activation of the protocol upgrade.
 If you want the latest document, please refer to [latest document](computation-cost.md).
 {% endhint %}
 

@@ -9,11 +9,11 @@ This chapter describes only the high-level concepts, development processes, and 
 Klaytn is officially compatible with **London** Ethereum Virtual Machine (EVM) version. Backward compatibility is not guaranteed with other EVM versions on Klaytn. Thus, it is highly recommended to compile Solidity code with the Istanbul target option. Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).  
 
 {% hint style="success" %}
-v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** Hard-Fork items and klaytn own items.
+v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items.
 It has been enabled from block number `#75373312`.
 Cypress mainnet will be subject to the same protocol upgrade in the next version.
 
-v1.7.3 Protocol Upgrade - incompatible changes including BaseFee **London** Hard-Fork item.
+v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
 It has been enabled from block number `#80295291`.
 Cypress mainnet will be subject to the same protocol upgrade in the next version.
 {% endhint %}  

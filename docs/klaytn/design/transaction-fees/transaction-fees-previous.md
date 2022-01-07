@@ -44,7 +44,7 @@ Klaytn currently does not provide a way to replace a transaction using the unit 
 Basically, Klaytn is keeping compatibility with Ethereum. So Klaytn's gas table is pretty similar with that of Ethereum. But because of the existence of unique features of Klaytn, there are several new constants for those features.
 
 {% hint style="success" %}
-NOTE: This document contains the gas table which is used before the activations of the protocol upgrades.
+NOTE: This document contains the gas table used before the activation of the protocol upgrade.
 If you want the latest document, please refer to [latest document](transaction-fees.md).
 {% endhint %}
 

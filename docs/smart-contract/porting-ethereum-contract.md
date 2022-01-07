@@ -9,11 +9,11 @@ However, be aware of the following two issues.
 * Cypress network is currently compatible with **Constantinople** Ethereum Virtual Machine (EVM).
 
 {% hint style="success" %}
-v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** Hard-Fork items and klaytn own items.
+v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items.
 It has been enabled from block number `#75373312`.
 Cypress mainnet will be subject to the same protocol upgrade in the next version.
 
-v1.7.3 Protocol Upgrade - incompatible changes including BaseFee **London** Hard-Fork item.
+v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
 It has been enabled from block number `#80295291`.
 Cypress mainnet will be subject to the same protocol upgrade in the next version. 
 {% endhint %}

@@ -93,10 +93,10 @@ Storage fees have a slightly nuanced behavior. To incentivize minimization of th
 The fee schedule `G` is a tuple of 37 scalar values corresponding to the relative costs, in gas, of a number of abstract operations that a transaction may incur. For other tables such as `Precompiled contracts` and `accounts`, please refer to [this document](../../../transaction-fees.md#klaytns-gas-table)
 
 {% hint style="success" %}
-NOTE: With the protocol upgrade, or the "hard fork", the fee have been changed.
+NOTE: Fee has been changed after the protocol upgrade, or the hard fork.
 If you want the previous document, please refer to [previous document](klaytn-virtual-machine-previous.md).
 
-v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** Hard-Fork items and klaytn own items.
+v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items.
 It has been enabled from block number `#75373312`.
 Cypress mainnet will be subject to the same protocol upgrade in the next version.
 

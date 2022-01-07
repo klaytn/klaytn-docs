@@ -3,7 +3,7 @@
 Klaytn provides several useful precompiled contracts. These contracts are implemented in the platform itself as a native implementation. The precompiled contracts from address 0x01 through 0x08 are the same as those in Ethereum. Klaytn additionally implements precompiled contracts from 0x09 through 0x0B to support new Klaytn features.
 
 {% hint style="success" %}
-NOTE: This document contains the gas table which is used before the activations of the protocol upgrades.
+NOTE: This document contains the gas table used before the activation of the protocol upgrade.
 If you want the latest document, please refer to [latest document](precompiled-contracts.md).
 {% endhint %}
 
