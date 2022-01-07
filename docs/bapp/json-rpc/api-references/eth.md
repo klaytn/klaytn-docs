@@ -48,9 +48,9 @@ Returns the balance of the account of given address.
 
 **Parameters**
 
-| Name | Type           | Description                                                  |
-| ---- | -------------- | ------------------------------------------------------------ |
-| address | 20-byte DATA | Address to check for balance.                               |
+| Name                 | Type                            | Description                                                                                                                                                                            |
+|----------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| address              | 20-byte DATA                    | Address to check for balance.                                                                                                                                                          |
 | block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
 
 {% hint style="success" %}
@@ -59,9 +59,9 @@ NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the str
 
 **Return Value**
 
-| Type     | Description                            |
-| -------- | -------------------------------------- |
-| QUANTITY | Integer of the current balance in peb. |
+| Type       | Description                              |
+|------------|------------------------------------------|
+| QUANTITY   | Integer of the current balance in peb.   |
 
 **Example**
 
@@ -83,10 +83,10 @@ Returns code at a given address.
 
 **Parameters**
 
-| Type          | Description                                                  |
-| ------------- | ------------------------------------------------------------ |
-| 20-byte DATA | Address                                                      |
-| QUANTITY &#124; TAG &#124; HASH| Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| Type                            | Description                                                                                                                                                                            |
+|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 20-byte DATA                    | Address                                                                                                                                                                                |
+| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
 
 {% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
@@ -94,9 +94,9 @@ NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the str
 
 **Return Value**
 
-| Type | Description                      |
-| ---- | -------------------------------- |
-| DATA | The code from the given address. |
+| Type   | Description                        |
+|--------|------------------------------------|
+| DATA   | The code from the given address.   |
 
 **Example**
 
@@ -119,10 +119,10 @@ Returns the number of transactions *sent* from an address.
 
 **Parameters**
 
-| Type          | Description                                                  |
-| ------------- | ------------------------------------------------------------ |
-| 20-byte DATA | Address                                                      |
-| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash.|
+| Type                            | Description                                                                                                                                                                            |
+|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 20-byte DATA                    | Address                                                                                                                                                                                |
+| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
 
 {% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
@@ -130,9 +130,9 @@ NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the str
 
 **Return Value**
 
-| Type     | Description                                                  |
-| -------- | ------------------------------------------------------------ |
-| QUANTITY | Integer of the number of transactions send from this address. |
+| Type       | Description                                                   |
+|------------|---------------------------------------------------------------|
+| QUANTITY   | Integer of the number of transactions send from this address. |
 
 **Example**
 
@@ -162,16 +162,16 @@ Adding a prefix to the message makes the calculated signature recognizable as a 
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| account | 20-byte DATA | Address |
-| message | N-byte DATA | Message to sign |
+| Name    | Type         | Description     |
+|---------|--------------|-----------------|
+| account | 20-byte DATA | Address         |
+| message | N-byte DATA  | Message to sign |
 
 **Return Value**
 
-| Type | Description |
-| --- | --- |
-| DATA | Signature |
+| Type   | Description   |
+|--------|---------------|
+| DATA   | Signature     |
 
 **Example**
 
@@ -202,8 +202,6 @@ The following options are possible for the `defaultBlock` parameter:
 
 ## eth_blockNumber <a id="eth_blocknumber"></a>
 
-**NOTE**: This API is supported from Klaytn v1.8.0.
-
 Returns the number of most recent block.
 
 **Parameters**
@@ -232,8 +230,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 
 ## eth_getHeaderByNumber <a id="eth_getheaderbynumber"></a>
-
-**NOTE**: This API is supported from Klaytn v1.8.0.
 
 Returns information about a header by number.
 
@@ -282,8 +278,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 ```
 
 ## eth_getHeaderByHash <a id="eth_getheaderbyhash"></a>
-
-**NOTE**: This API is supported from Klaytn v1.8.0.
 
 Returns information about a header by hash.
 
@@ -357,8 +351,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getBlockByNumber <a id="eth_getblockbynumber"></a>
 
-**NOTE**: This API is supported from Klaytn v1.8.0.
-
 Returns information about a block by block number.
 
 Please check the [Caution-Block](./caution.md#caution_block) before using this API.
@@ -417,8 +409,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 
 ## eth_getBlockByHash <a id="eth_getblockbyhash"></a>
-
-**NOTE**: This API is supported from Klaytn v1.8.0.
 
 Returns information about a block by hash.
 
@@ -498,8 +488,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getBlockTransactionCountByNumber <a id="eth_getblocktransactioncountbynumber"></a>
 
-**NOTE**: This API is supported from Klaytn v1.8.0.
-
 Returns the number of transactions in a block matching the given block number.
 
 **Parameters**
@@ -531,8 +519,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getBlockTransactionCountByHash <a id="eth_getblocktransactioncountbyhash"></a>
 
-**NOTE**: This API is supported from Klaytn v1.8.0.
-
 Returns the number of transactions in a block from a block that matches the given hash.
 
 **Parameters**
@@ -563,8 +549,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 
 ## eth_getStorageAt <a id="eth_getstorageat"></a>
-
-**NOTE**: This API is supported from Klaytn v1.8.0.
 
 Returns the value from a storage position at a given address.
 
@@ -632,8 +616,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "et
 
 ## eth_mining <a id="eth_mining"></a>
 
-**NOTE**: This API is supported from Klaytn v1.8.0.
-
 Returns `true` if client is actively mining new blocks.
 
 **NOTE**: Currently, every node is on mining mode by default to resend transactions. Please note that actual "mining" process is only done by Consensus Nodes (CNs).
@@ -664,8 +646,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 
 ## eth_syncing <a id="eth_syncing"></a>
-
-**NOTE**: This API is supported from Klaytn v1.8.0.
 
 Returns an object with data about the sync status or `false`.
 
