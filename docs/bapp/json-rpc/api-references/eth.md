@@ -53,10 +53,6 @@ Returns the balance of the account of given address.
 | address              | 20-byte DATA                    | Address to check for balance.                                                                                                                                                          |
 | block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
 
-{% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
-{% endhint %}
-
 **Return Value**
 
 | Type       | Description                              |
@@ -87,10 +83,6 @@ Returns code at a given address.
 |---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 20-byte DATA                    | Address                                                                                                                                                                                |
 | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
-
-{% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
-{% endhint %}
 
 **Return Value**
 
@@ -123,10 +115,6 @@ Returns the number of transactions *sent* from an address.
 |---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 20-byte DATA                    | Address                                                                                                                                                                                |
 | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
-
-{% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
-{% endhint %}
 
 **Return Value**
 
