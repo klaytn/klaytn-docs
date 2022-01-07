@@ -15,7 +15,7 @@
 
 | 이름                   | 타입                              | 설명                                                                                                                                                   |
 | -------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](../klay/block.md#the-default-block-parameter) 또는 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
+| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 파라미터](../klay/block.md#the-default-block-parameter) 또는 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
 
 {% hint style="success" %}
 참고: v1.7.0 이전 버전에서는 16진수 문자열 타입만 사용 가능합니다.
@@ -75,7 +75,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.dumpStateTrie(number)`                           |
 |  RPC  | `{"method": "debug_dumpStateTrie", "params": [number]}` |
 
-**Parameters**
+**파라미터**
 
 | 이름     | 타입  | 설명        |
 | ------ | --- | --------- |
@@ -118,7 +118,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 | 이름                   | 타입                              | 설명                                                                                                                                                   |
 | -------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](../klay/block.md#the-default-block-parameter) 또는 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
+| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 파라미터](../klay/block.md#the-default-block-parameter) 또는 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
 
 {% hint style="success" %}
 참고: v1.7.0 이전 버전에서는 정수 타입만 사용 가능합니다.
@@ -304,7 +304,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 | 이름                   | 타입                              | 설명                                                                                                                                                   |
 | -------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](../klay/block.md#the-default-block-parameter) 또는 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
+| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 파라미터](../klay/block.md#the-default-block-parameter) 또는 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
 
 {% hint style="success" %}
 참고: v1.7.0 이전 버전에서는 정수 타입만 사용 가능합니다.
