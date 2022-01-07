@@ -473,6 +473,63 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
+## eth_getUncleBlockByHashAndIndex <a id="eth_getunclebyblockhashandindex"></a>
+
+Returns information about a uncle of a block by hash and uncle index position.
+But there are no uncles in Klaytn, so it always return `null` as result.
+
+**Parameters**
+
+| Type         | Description                 |
+|--------------|-----------------------------|
+| 32-byte DATA | The hash of a block.        |
+| QUANTITY     | The uncle's index position. |
+
+**Return Value**
+`null`
+
+**Example**
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getUncleBlockByHashAndIndex","params":["0xb8deae63002d2b6aa33247c8ef545383ee0fd2282ac9b49dbbb74114389ddb5c", "0x1"],"id":1}' http://localhost:8551
+
+// Result
+{
+  "jsonrpc": "2.0",
+  "id":1,
+  "result": null
+}
+```
+
+
+## eth_getUncleByBlockNumberAndIndex <a id="eth_getunclebyblocknumberandindex"></a>
+
+Returns information about a uncle of a block by number and uncle index position.
+But there are no uncles in Klaytn, so it always return `null` as result.
+
+**Parameters**
+
+| Type                | Description                                                                                                                                                           |
+|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| QUANTITY            | The uncle's index position.                                                                                                                                           |
+
+**Return Value**
+`null`
+
+**Example**
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getUncleBlockByNumberAndIndex","params":["0xe8", "0x1"],"id":1}' http://localhost:8551
+
+// Result
+{
+  "jsonrpc": "2.0",
+  "id":1,
+  "result": null
+}
+```
+
 
 ## eth_getBlockTransactionCountByNumber <a id="eth_getblocktransactioncountbynumber"></a>
 
@@ -508,6 +565,70 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 ## eth_getBlockTransactionCountByHash <a id="eth_getblocktransactioncountbyhash"></a>
 
 Returns the number of transactions in a block from a block that matches the given hash.
+
+**Parameters**
+
+| Type         | Description         |
+|--------------|---------------------|
+| 32-byte DATA | Hash of a block     |
+
+**Return Value**
+
+| Type       | Description                                           |
+|------------|-------------------------------------------------------|
+| QUANTITY   | Integer of the number of transactions in this block.  |
+
+**Example**
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByHash","params":["0x0c11803ab36110db993e7520908b9ba9336cca2f2dcc9b6130c481a3ccdc2621"],"id":1}' http://localhost:8551
+
+// Result
+{
+  "jsonrpc": "2.0",
+  "id":1,
+  "result": "0x0"
+}
+```
+
+
+## eth_getUncleCountByBlockNumber <a id="eth_getunclecountbyblocknumber"></a>
+
+Returns the number of uncles in a block from a block matching the given block number.
+There is no uncles in Klaytn, so it always returns `0x0`.
+
+**Parameters**
+
+| Type                | Description                                                                                                                                                           |
+|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
+
+**Return Value**
+
+| Type       | Description                                           |
+|------------|-------------------------------------------------------|
+| QUANTITY   | Integer of the number of transactions in this block.  |
+
+**Example**
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByNumber","params":["0xe8"],"id":1}' http://localhost:8551
+
+// Result
+{
+  "jsonrpc": "2.0",
+  "id":1,
+  "result": "0x0" // 0
+}
+```
+
+
+## eth_getUncleCountByBlockHash <a id="eth_getunclecountbyblockhash"></a>
+
+Returns the number of uncles in a block from a block matching the given block hash.
+There is no uncles in Klaytn, so it always returns `0x0`.
 
 **Parameters**
 
