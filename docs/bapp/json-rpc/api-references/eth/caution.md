@@ -15,7 +15,7 @@ there are some APIs that are difficult to fully supported. (e.g. some fields hav
 This document describes the limitations of those APIs.
 
 
-## Block Header <a id="caution_block_header"></a>
+## Block Header <a id="block_header"></a>
 
 Related APIs: `eth_getHeaderByNumber`, `eth_getHeaderByHash`.
 
@@ -47,7 +47,7 @@ Please read the descriptions marked "**(Note that)**" carefully.
 | transactionsRoot      | transactionsRoot        | (Same with Ethereum) The root of the transaction trie of the block.                                                                                                                                                                                                                                                                                                                                                                            |
 
 
-## Block <a id="caution_block"></a>
+## Block <a id="block"></a>
 
 Related APIs: `eth_getHeaderByNumber`, `eth_getHeaderByHash`.
 
@@ -63,7 +63,7 @@ Please read the descriptions marked "**(Note that)**" carefully.
 | transactions          | transactions        | (Same with Ethereum) Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter.   | 
 
 
-## Transaction <a id="caution_transaction"></a>
+## Transaction <a id="transaction"></a>
 
 Related APIs: `eth_getTransactionByHash`, `eth_getTransactionByBlockHashAndIndex`, `eth_getTransactionByBlockNumberAndIndex`, `eth_pendingTransactions`.
 
@@ -479,7 +479,7 @@ are served as Ethereum Legacy Transaction.
 }
 ```
 
-## Transaction Receipt <a id="caution_transaction_receipt"></a>
+## Transaction Receipt <a id="transaction_receipt"></a>
 
 Related APIs: `eth_getTransactionReceipt`.
 
