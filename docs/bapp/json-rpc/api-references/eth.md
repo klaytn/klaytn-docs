@@ -1165,6 +1165,43 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
+## eth_feeHistory<a id="eth_feehistory"></a>
+
+Returns base fee per gas and transaction effective priority fee per gas history for the requested block range if available.
+
+**Parameters**
+
+| Name               | Type                | Description                                                                                                                                                                                                                  |
+|--------------------|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| blockCount         | QUANTITY            | Number of blocks in the requested range expressed as a hexidecimal number. Between 1 (0x1) and 1024 (0x400) blocks can be requested in a single query. Less than requested may be returned if not all blocks are available.  |
+| lastBlock          | QUANTITY &#124; TAG | Highest number block of the requested range as a block number or block tag.                                                                                                                                                  |
+| rewardPercentiles  | Array of FLOAT      | Array of floating point value between 0 and 100.                                                                                                                                                                             |
+
+
+**Return Value**
+
+| Name          | Type              | Description                                                                                                                                                        |
+|---------------|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| oldestBlock   | QUANTITY          | Lowest number block of the returned range expressed as a hexidecimal number.                                                                                       |
+| baseFeePerGas | Array of QUANTITY | An array of block base fees per gas. This includes the next block after the newest of the returned range, because this value can be derived from the newest block. |
+| gasUsedRatio  | Array of FLOAT    | An array of block gas used ratios. These are calculated as the ratio of gasUsed and gasLimit.                                                                      |
+| reward        | Array of QUANTITY | An array of effective priority fee per gas data points from a single block. All zeroes are returned if the block is empty.                                         |
+
+
+**Example**
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_maxPriorityFeePerGas","params":[],"id":1}' http://localhost:8551
+
+// Result
+{
+  "jsonrpc": "2.0",
+  "id":1,
+  "result": "0x5d21dba00" // 25,000,000,000 peb = 25 Gpeb
+}
+```
+
 
 ## eth_getFilterChanges <a id="eth_getfilterchanges"></a>
 
@@ -1172,9 +1209,9 @@ Polling method for a filter, which returns an array of logs which occurred since
 
 **Parameters**
 
-| Name     | Type   | Description                           |
-|----------|--------|---------------------------------------|
-| QUANTITY | string | The filter id (*e.g.*, "0x16" // 22). |
+| Name | Type      | Description                           |
+|------|-----------|---------------------------------------|
+| id   | QUANTITY  | The filter id (*e.g.*, "0x16" // 22). |
 
 **Return Value**
 
@@ -1237,9 +1274,9 @@ The execution of this API can be limited by two node configurations to manage re
 
 **Parameters**
 
-| Name     | Type   | Description   |
-|----------|--------|---------------|
-| QUANTITY | string | The filter id |
+| Name | Type     | Description   |
+|------|----------|---------------|
+| id   | QUANTITY | The filter id |
 
 **Return Value**
 
@@ -1289,10 +1326,6 @@ The execution of this API can be limited by two node configurations to manage re
 | address   | 20-byte DATA &#124; Array | (optional) Contract address or a list of addresses from which logs should originate.                                                                                                                                                                                                                             |
 | topics    | Array of DATA             | (optional) Array of 32-byte DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with “or” options.                                                                                                                                                                                  |
 | blockHash | 32-byte DATA              | (optional) A filter option that restricts the logs returned to the single block with the 32-byte hash blockHash. Using blockHash is equivalent to fromBlock = toBlock = the block number with hash blockHash. If blockHash is present in in the filter criteria, then neither fromBlock nor toBlock are allowed. |
-
-{% hint style="success" %}
-NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
-{% endhint %}
 
 **Return Value**
 
