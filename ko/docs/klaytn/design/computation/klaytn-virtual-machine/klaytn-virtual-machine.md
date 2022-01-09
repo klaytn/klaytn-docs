@@ -93,9 +93,11 @@ KLVM은 간단한 스택 기반 아키텍처입니다. 머신의 워드 크기(�
 비용표 `G`는 트랜잭션에서 발생할 수 있는 연산의 가스값 정보를 가지고 있는 37개 스칼라값을 가진 튜플(tuple)입니다. `Precompiled contracts`와 `accounts` 같은 다른 표에 대해서는 이 [문서](../../../transaction-fees.md#klaytns-gas-table)를 참고하세요.
 
 {% hint style="success" %}
-NOTE: Klaytn v1.7.0에서 도입된 protocol upgrade, 또는 "hard fork" 활성화부터는, 일부 가스 비용이 변경되었습니다. Baobab 네트워크의 경우 프로토콜 업데이트는 블록번호 `#75373312`번 부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
+NOTE: Fee has been changed after the protocol upgrade, or the hard fork. If you want the previous document, please refer to [previous document](klaytn-virtual-machine-previous.md).
 
-이전 문서는 [이전 문서](klaytn-virtual-machine-previous.md)를 참고해주세요.
+v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items. It has been enabled from block number `#75373312` in case of Baobab network. Cypress mainnet will be subject to the same protocol upgrade in the next version.
+
+v1.7.3 Protocol Upgrade - incompatible changes including BaseFee **London** Hard-Fork item. It has been enabled from block number `#80295291` in case of Baobab network. Cypress mainnet will be subject to the same protocol upgrade in the next version.
 {% endhint %}
 
 | 명칭                |     값 | 설명                                                          |
@@ -141,7 +143,7 @@ NOTE: Klaytn v1.7.0에서 도입된 protocol upgrade, 또는 "hard fork" 활성�
 다음과 같이 명령어의 subset을 정의합니다.
 
 * `W_zero` = {`STOP`, `RETURN`, `REVERT`}
-* `W_base` = {`ADDRESS`, `ORIGIN`, `CALLER`, `CALLVALUE`, `CALLDATASIZE`, `CODESIZE`, `GASPRICE`, `COINBASE`, `TIMESTAMP`, `NUMBER`, `DIFFICULTY`, `GASLIMIT`, `RETURNDATASIZE`, `POP`, `PC`, `MSIZE`, `GAS`, `CHAINID`}
+* `W_base` = {`ADDRESS`, `ORIGIN`, `CALLER`, `CALLVALUE`, `CALLDATASIZE`, `CODESIZE`, `GASPRICE`, `COINBASE`, `TIMESTAMP`, `NUMBER`, `DIFFICULTY`, `GASLIMIT`, `RETURNDATASIZE`, `POP`, `PC`, `MSIZE`, `GAS`, `CHAINID`, `BASEFEE`}
 * `W_verylow` = {`ADD`, `SUB`, `LT`, `GT`, `SLT`, `SGT`, `EQ`, `ISZERO`, `AND`, `OR`, `XOR`, `NOT`, `BYTE`, `CALLDATALOAD`, `MLOAD`, `MSTORE`, `MSTORE8`, `PUSH`, `DUP`, `SWAP`}
 * `W_low` = {`MUL`, `DIV`, `SDIV`, `MOD`, `SMOD`, `SIGNEXTEND`, `SELFBALANCE`}
 * `W_mid` = {`ADDMOD`, `MULMOD`, `JUMP`}
