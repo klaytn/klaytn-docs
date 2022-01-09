@@ -93,7 +93,7 @@ Please read the descriptions marked "**(Note that)**" carefully.
 | gas                               | gas                                                                                      | (Same with Ethereum) Gas provided by the sender.                                                                                                                                                                                          |
 | gasPrice                          | gasPrice                                                                                 | **(Note that)** It is also called [Unit Price](https://docs.klaytn.com/klaytn/design/transaction-fees#unit-price) in Klaytn and this value is set in the system by the governance.                                                        |
 | hash                              | hash                                                                                     | (Same with Ethereum) Transaction hash.                                                                                                                                                                                                    |
-| input                             | (will be covered below sections)                                                         | The description of this field is covered in the detailed transaction items below.                                                                                                                                                         |
+| input                             | (covered in below sections)                                                              | The description of this field is covered in the detailed transaction items below.                                                                                                                                                         |
 | nonce                             | nonce                                                                                    | (Same with Ethereum) The number of transactions made by the sender prior to this one.                                                                                                                                                     |
 |                                   | [senderTxHash](https://docs.klaytn.com/klaytn/design/transactions#sendertxhash)(omitted) | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                   |
 |                                   | signatures(omitted)                                                                      | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                                                                                                                   |
@@ -128,11 +128,11 @@ are served as Ethereum Legacy Transaction.
 ### Different fields for each transaction type
 #### LegacyTransaction
 
-| Ethereum Legacy Transaction Field | Klaytn LegacyTransaction Field   | Description                                                                                     |
-|-----------------------------------|----------------------------------|-------------------------------------------------------------------------------------------------|
-| input                             | input                            | (Same with Ethereum) The data sent along with the transaction.                                  |
-| to                                | to                               | (Same with Ethereum) Address of the receiver. null when its a contract creation transaction.    |
-| value                             | value                            | (Same with Ethereum) Value transferred in Peb.                                                  |
+| Ethereum Legacy Transaction Field | Klaytn LegacyTransaction Field   | Description                                                                                      |
+|-----------------------------------|----------------------------------|--------------------------------------------------------------------------------------------------|
+| input                             | input                            | (Same with Ethereum) The data sent along with the transaction.                                   |
+| to                                | to                               | (Same with Ethereum) Address of the receiver. `null` when its a contract creation transaction.   |
+| value                             | value                            | (Same with Ethereum) Value transferred in Peb.                                                   |
 
 **Klaytn LegacyTransaction** is served as Ethereum Legacy Transaction like below.
 ```json
@@ -173,7 +173,7 @@ are served as Ethereum Legacy Transaction.
 | Ethereum Legacy Transaction Field | Klaytn ValueTransfer Transaction Field | Description                                                                                                                                      |
 |-----------------------------------|----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
 | input                             | (added)                                | **(Note that)** This field always have value `0x` which means empty input because this field does not exist in Klaytn ValueTransfer transaction. |
-| to                                | to                                     | (Same with Ethereum) Address of the receiver. null when its a contract creation transaction.                                                     |
+| to                                | to                                     | (Same with Ethereum) Address of the receiver.                                                                                                    | 
 | value                             | value                                  | (Same with Ethereum) Value transferred in Peb.                                                                                                   |
 
 **Klaytn ValueTransfer Transaction** is served as Ethereum Legacy Transaction like below.
@@ -212,11 +212,11 @@ are served as Ethereum Legacy Transaction.
 
 #### ValueTransferMemo
 
-| Ethereum Legacy Transaction Field | Klaytn ValueTransferMemo Transaction Field | Description                                                                                    |
-|-----------------------------------|--------------------------------------------|------------------------------------------------------------------------------------------------|
-| input                             | input                                      | (Same with Ethereum) The data sent along with the transaction.                                 |
-| to                                | to                                         | (Same with Ethereum) Address of the receiver. `null` when its a contract creation transaction. |
-| value                             | value                                      | (Same with Ethereum) Value transferred in Peb.                                                 |
+| Ethereum Legacy Transaction Field | Klaytn ValueTransferMemo Transaction Field | Description                                                    |
+|-----------------------------------|--------------------------------------------|----------------------------------------------------------------|
+| input                             | input                                      | (Same with Ethereum) The data sent along with the transaction. |
+| to                                | to                                         | (Same with Ethereum) Address of the receiver.                  |
+| value                             | value                                      | (Same with Ethereum) Value transferred in Peb.                 |
 
 **Klaytn ValueTransferMemo Transaction** is served as Ethereum Legacy Transaction like below.
 ```json
@@ -254,13 +254,13 @@ are served as Ethereum Legacy Transaction.
 
 #### SmartContractDeploy
 
-| Ethereum Legacy Transaction Field | Klaytn SmartContractDeploy Transaction Field | Description                                                                                               |
-|-----------------------------------|----------------------------------------------|-----------------------------------------------------------------------------------------------------------|
-|                                   | codeFormat(omitted)                          | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction.   |
-|                                   | humanReadable(omitted)                       | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction.   |
-| input                             | input                                        | (Same with Ethereum) The data sent along with the transaction.                                            |
-| to                                | to                                           | (Same with Ethereum) Address of the receiver. null when its a contract creation transaction.              |
-| value                             | value                                        | (Same with Ethereum) Value transferred in Peb.                                                            |
+| Ethereum Legacy Transaction Field | Klaytn SmartContractDeploy Transaction Field | Description                                                                                                                                    |
+|-----------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+|                                   | codeFormat(omitted)                          | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                        |
+|                                   | humanReadable(omitted)                       | **(Note that)** This field is omitted because this field does not exist in Ethereum Legacy Transaction.                                        |
+| input                             | input                                        | (Same with Ethereum) The data sent along with the transaction.                                                                                 |
+| to                                | to                                           | (Same with Ethereum) Address of the receiver. This field always have value `null` because this transaction is a contract creation transaction. |
+| value                             | value                                        | (Same with Ethereum) Value transferred in Peb.                                                                                                 |
 
 **Klaytn SmartContractDeploy Transaction** is served as Ethereum Legacy Transaction like below.
 ```json
@@ -300,11 +300,11 @@ are served as Ethereum Legacy Transaction.
 
 #### SmartContractExecution
 
-| Ethereum Legacy Transaction Field | Klaytn SmartContractExecution Transaction Field | Description                                                                                         |
-|-----------------------------------|-------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| input                             | input                                           | (Same with Ethereum) The data sent along with the transaction.                                      |
-| to                                | to                                              | (Same with Ethereum) Address of the receiver. null when its a contract creation transaction.        |
-| value                             | value                                           | (Same with Ethereum) Value transferred in Peb.                                                      |
+| Ethereum Legacy Transaction Field | Klaytn SmartContractExecution Transaction Field | Description                                                    |
+|-----------------------------------|-------------------------------------------------|----------------------------------------------------------------|
+| input                             | input                                           | (Same with Ethereum) The data sent along with the transaction. |
+| to                                | to                                              | (Same with Ethereum) Address of the receiver.                  |
+| value                             | value                                           | (Same with Ethereum) Value transferred in Peb.                 |
 
 **Klaytn SmartContractExecution Transaction** is served as Ethereum Legacy Transaction like below.
 ```json
@@ -404,7 +404,7 @@ are served as Ethereum Legacy Transaction.
     "gas": "0x5b8d80",
     "gasPrice": "0x5d21dba00",
     "hash": "0xbf230e13023aad3c3c758b07ee3d2f7eaac45b301972f1bfa49a5bf49a1ccd7c",
-    "input": "0x6080...",
+    "input": "0x", /** added */
     "nonce": "0x2",
     /** "senderTxHash": "0x104e27f4cd69215f0080eca9f51bf06232c107b3209e16a7c004c7b5e619c846", omitted */
     /** "signatures": [
@@ -421,7 +421,7 @@ are served as Ethereum Legacy Transaction.
     "type": "0x0", /** data type converted (string -> hexutil.Uint64(0)) */
     "v": "0x4055" /** added */
     /** "typeInt": 56, omitted */
-    "value": "0x6449e84e47a8a80000"
+    "value": "0x0" /** added */
   }
 }
 ```
@@ -447,7 +447,7 @@ are served as Ethereum Legacy Transaction.
     "gas": "0x186a0",
     "gasPrice": "0x5d21dba00",
     "hash": "0x9d64d2fb416cb4e4c2c9a4575b627d291c5139d477356af767f35dc5a887c138",
-    "input": "0xf8...",
+    "input": "0xf8129412941294129.",
     /** "inputJSON": {
       "blockHash": "0x2b69e9532eddd9a25dc48c53253d8bc93a29770362a8f778fe799e3493cad626",
       "transactionsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
