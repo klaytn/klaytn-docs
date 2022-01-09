@@ -1,26 +1,33 @@
 # Precompiled Contracts <a id="precompiled-contracts"></a>
 
-Klaytn provides several useful precompiled contracts. These contracts are implemented in the platform itself as a native implementation. The precompiled contracts from address 0x01 through 0x09 are the same as those in Ethereum. Klaytn additionally implements precompiled contracts from 0x3ff through 0x3fd to support new Klaytn features.
+Klaytn provides several useful precompiled contracts. 
+These contracts are implemented in the platform itself as a native implementation. 
+The precompiled contracts from address 0x01 through 0x09 are the same as those in Ethereum. 
+Klaytn additionally implements precompiled contracts from 0x3fd through 0x3ff to support new Klaytn features.
 
 {% hint style="success" %}
-NOTE: With the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0, three addresses have changed, and the blake2F contract has been added.
+NOTE: With the protocol upgrade, or the hard fork introduced in Klaytn v1.7.0, three precompiled contract addresses have changed, and **blake2F** was added.
 
-| precompiled contract | address before change | address after change |
-| :--- | :--- | :--- |
-| blake2b| - | 0x09 |
-| vmLog | 0x09 | 0x3fd |
-| feePayer | 0x0a | 0x3fe |
-| validateSender | 0x0b | 0x3ff |
+v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hark fork items and Klaytn's own items.
+It has been enabled from block number `#75373312` in case of Baobab network.
+Cypress mainnet will be subject to the same protocol upgrade in the next version.
 
-It should be noted that contracts deployed before the Protocol Upgrade activation introduced in klaytn v1.7.0 use the old address.
+v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
+It has been enabled from block number `#80295291` in case of Baobab network.
+Cypress mainnet will be subject to the same protocol upgrade in the next version.
+
+Contracts deployed before the protocol upgrade should use the original addresses.
 * case 1) The contracts deployed in Baobab at block number `#75373310` recognizes 0x09, 0x0a, and 0x0b as addresses of vmLog, feePayer, and validateSender, respectively, and blake2f cannot be used.
 * case 2) The contracts deployed in Baobab at block number `#75373314` recognizes 0x09 as the address of blake2f, and recognizes 0x3fd, 0x3fe, and 0xff as addresses of vmLog, feePayer, and validateSender.
 
-In case of Baobab network, protocol upgrade was enabled from block number `#75373312`.
-Cypress mainnet will be subject to the same protocol upgrade in the next version.
-
-If you want the previous document, please refer to [previous document](precompiled-contracts-previous.md)
+If you want the previous document, please refer to [previous document](precompiled-contracts-previous.md).
 {% endhint %}
+
+| precompiled contract | addresses used in the contracts deployed before v1.7.0 PU activation | address used in the contracts deployed after v1.7.0 PU activation |
+| :--- | :--- | :--- |
+| vmLog | 0x09 | 0x3fd |
+| feePayer | 0x0a | 0x3fe |
+| validateSender | 0x0b | 0x3ff |
 
 ## Address 0x01: ecrecover\(hash, v, r, s\) <a id="address-0x-01-ecrecover-hash-v-r-s"></a>
 

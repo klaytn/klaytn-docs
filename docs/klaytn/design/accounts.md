@@ -76,11 +76,10 @@ In contrast to EOAs, SCAs have code associated with them and are controlled by t
 | codeHash | \[\]byte \(Go\) | The hash of the account's smart contract code. This value is immutable, which means it is set only when the smart contract is created. |
 | storageRoot | \[32\]byte \(Go\) | A 256-bit hash of the root of the Merkle Patricia Trie that contains the values of all the storage variables in the account. |
 | codeFormat | uint8 \(Go\) | Supporting interpreter version. Up to 16 can be set. Currently, it supports EVM\(0x00\) only. |
-| vmVersion | uint8 \(Go\) | The protocol upgrade (hard fork) information at contract deployment time (ex. 0x0(constantinople), 0x1(istanbul,...)). Up to 16 can be used. It is automatically created with the contract. |
+| vmVersion | uint8 \(Go\) | The protocol upgrade (hard fork) information at contract deployment time (ex. 0x0(constantinople), 0x1(istanbul,london,...)). Up to 16 can be used. It is automatically created with the contract. |
 
 {% hint style="success" %}
 NOTE: From klaytn v1.7.0 onwards, vmVersion attribute will be added to the Smart Contract Account.
-
 {% endhint %}
 
 ### Klaytn Account Type ID <a id="klaytn-account-type-id"></a>
@@ -185,12 +184,18 @@ In order for a transaction to be valid for an account associated with AccountKey
 * The number of signed public keys should be less than the number of weightedPublicKeys.
 
 {% hint style="success" %}
-NOTE: After the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0, next multiSig validation logic is added.
-In case of Baobab network, protocol upgrade was enabled from block number `#75373312`.
-Cypress mainnet will be subject to the same protocol upgrade in the next version.
-
+NOTE: The next multiSig validation logic have been changed with the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0.
 * The invalid signature should not be included in the transaction.
 * The number of signed public keys should be less than the number of weightedPublicKeys.
+If you want the previous document, please refer to [previous document](transaction-fees-previous.md).
+
+v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items.
+It has been enabled from block number `#75373312` in case of Baobab network.
+Cypress mainnet will be subject to the same protocol upgrade in the next version.
+
+v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
+It has been enabled from block number `#80295291` in case of Baobab network.
+Cypress mainnet will be subject to the same protocol upgrade in the next version.
 {% endhint %}
 
 #### Attributes <a id="attributes"></a>

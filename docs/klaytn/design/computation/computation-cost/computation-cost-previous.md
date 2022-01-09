@@ -18,10 +18,7 @@ Therefore, we chose the third option for Klaytn. For now, the limit of the execu
 The below table shows the computation cost of EVM opcodes. The computation cost was determined based on experiments.
 
 {% hint style="success" %}
-NOTE: The computation costs below are used before the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0.
-In case of Baobab network, protocol upgrade was enabled from block number `#75373312`.
-Cypress mainnet will be subject to the same protocol upgrade in the next version.
-
+NOTE: This document contains computation costs used before the activation of the protocol upgrade.
 If you want the latest document, please refer to [latest document](computation-cost.md).
 {% endhint %}
 
