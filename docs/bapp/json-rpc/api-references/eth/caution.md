@@ -303,7 +303,7 @@ are served as Ethereum Legacy Transaction.
 | Ethereum Legacy Transaction Field | Klaytn SmartContractExecution Transaction Field | Description                                                    |
 |-----------------------------------|-------------------------------------------------|----------------------------------------------------------------|
 | input                             | input                                           | (Same with Ethereum) The data sent along with the transaction. |
-| to                                | to                                              | (Same with Ethereum) Address of the receiver.                  |
+| to                                | to                                              | (Same with Ethereum) Address of the smart contract.            |
 | value                             | value                                           | (Same with Ethereum) Value transferred in Peb.                 |
 
 **Klaytn SmartContractExecution Transaction** is served as Ethereum Legacy Transaction like below.
@@ -549,11 +549,11 @@ are served as Ethereum Transaction Receipt.
 ### Different fields for each transaction type
 #### LegacyTransaction Receipt
 
-| Ethereum Transaction Receipt Field | Klaytn LegacyTransaction Receipt Field   | Description                                                                                               |
-|------------------------------------|------------------------------------------|-----------------------------------------------------------------------------------------------------------|
-|                                    | input(omitted)                           | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt.  |
-| to                                 | to                                       | (Same with Ethereum) Address of the receiver. null when its a contract creation transaction.              |
-|                                    | value(omitted)                           | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt.  |
+| Ethereum Transaction Receipt Field | Klaytn LegacyTransaction Receipt Field   | Description                                                                                                 |
+|------------------------------------|------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+|                                    | input(omitted)                           | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt.    |
+| to                                 | to                                       | (Same with Ethereum) Address of the receiver. `null` when its a contract creation transaction.              |
+|                                    | value(omitted)                           | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt.    |
 
 **Klaytn LegacyTransaction Receipt** is served as Ethereum Transaction Receipt like below.
 ```json
@@ -611,10 +611,10 @@ are served as Ethereum Transaction Receipt.
 
 #### ValueTransfer Transaction Receipt
 
-| Ethereum Transaction Receipt Field | Klaytn ValueTransfer Transaction Receipt Field | Description                                                                                                 |
-|------------------------------------|------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
-| to                                 | to                                             | (Same with Ethereum) Address of the receiver. null when its a contract creation transaction.                |
-|                                    | value(omitted)                                 | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt.    |
+| Ethereum Transaction Receipt Field | Klaytn ValueTransfer Transaction Receipt Field | Description                                                                                              |
+|------------------------------------|------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| to                                 | to                                             | (Same with Ethereum) Address of the receiver.                                                            |
+|                                    | value(omitted)                                 | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
 
 **Klaytn ValueTransfer Transaction Receipt** is served as Ethereum Transaction Receipt like below.
 ```json
@@ -658,7 +658,7 @@ are served as Ethereum Transaction Receipt.
 | Ethereum Transaction Receipt Field | Klaytn ValueTransferMemo Transaction Receipt Field | Description                                                                                              |
 |------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------------------------------|
 |                                    | input(omitted)                                     | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
-| to                                 | to                                                 | (Same with Ethereum) Address of the receiver. null when its a contract creation transaction.             |
+| to                                 | to                                                 | (Same with Ethereum) Address of the receiver.                                                            |
 |                                    | value(omitted)                                     | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
 
 **Klaytn ValueTransferMemo Transaction** is served as Ethereum Transaction Receipt like below.
@@ -701,13 +701,13 @@ are served as Ethereum Transaction Receipt.
 
 #### SmartContractDeploy Transaction Receipt
 
-| Ethereum Transaction Receipt Field | Klaytn SmartContractDeploy Transaction Receipt Field | Description                                                                                              |
-|------------------------------------|------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-|                                    | codeFormat(omitted)                                  | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
-|                                    | humanReadable(omitted)                               | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
-|                                    | input                                                | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt  |
-| to                                 | to                                                   | (Same with Ethereum) Address of the receiver. null when its a contract creation transaction.             |
-|                                    | value                                                | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt  |
+| Ethereum Transaction Receipt Field | Klaytn SmartContractDeploy Transaction Receipt Field | Description                                                                                                                                      |
+|------------------------------------|------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+|                                    | codeFormat(omitted)                                  | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                         |
+|                                    | humanReadable(omitted)                               | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt.                                         |
+|                                    | input                                                | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt                                          |
+| to                                 | to                                                   | (Same with Ethereum) Address of the receiver. This field always have value `null` because this transaction is a contract creation transaction.   |
+|                                    | value                                                | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt                                          |
 
 **Klaytn SmartContractDeploy Transaction Receipt** is served as Ethereum Transaction Receipt like below.
 ```json
@@ -770,7 +770,7 @@ are served as Ethereum Transaction Receipt.
 | Ethereum Transaction Receipt Field | Klaytn SmartContractExecution Transaction Receipt Field | Description                                                                                              |
 |------------------------------------|---------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
 |                                    | input                                                   | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
-| to                                 | to                                                      | (Same with Ethereum) Address of the receiver. null when its a contract creation transaction.             |
+| to                                 | to                                                      | (Same with Ethereum) Address of the smart contract.                                                      |
 |                                    | value                                                   | **(Note that)** This field is omitted because this field does not exist in Ethereum Transaction Receipt. |
 
 **Klaytn SmartContractExecution Transaction Receipt** is served as Ethereum Transaction Receipt like below.
@@ -877,7 +877,7 @@ are served as Ethereum Transaction Receipt.
     /** "gas": "0x5208", omitted */
     /** "gasPrice": "0x5d21dba00", omitted */
     "gasUsed": "0x5208",
-    "logs": []
+    "logs": [],
     "logsBloom": "0x00...",
     /** "nonce": "0x120", omitted */
     /** "senderTxHash": "0xd1f9019b8ddd8929d0b090d130b2d73df8f2318686782b232d43d9ffb69b26bf", omitted */
@@ -932,7 +932,7 @@ are served as Ethereum Transaction Receipt.
       "blockCount": 86400,
       "txCount": 53777
     }, omitted */
-    "logs": []
+    "logs": [],
     "logsBloom": "0x00...",
     /** "nonce": "0x120", omitted */
     /** "senderTxHash": "0xd1f9019b8ddd8929d0b090d130b2d73df8f2318686782b232d43d9ffb69b26bf", omitted */
