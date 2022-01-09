@@ -18,9 +18,7 @@ The last approach is to limit the computation cost of a transaction. 우리는 �
 아래 표는 EVM Opcode의 연산 비용을 보여줍니다. 연산 비용은 시뮬레이션을 통해 결정되었습니다.
 
 {% hint style="success" %}
-NOTE: The computation costs below are used before the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0. Baobab 네트워크의 경우 프로토콜 업데이트는 블록번호 `#75373312`번 부터 적용됩니다. Cypress mainnet will be subject to the same protocol upgrade in the next version.
-
-If you want the latest document, please refer to [latest document](computation-cost.md).
+NOTE: This document contains computation costs used before the activation of the protocol upgrade. If you want the latest document, please refer to [latest document](computation-cost.md).
 {% endhint %}
 
 | Opcode         | 연산 비용 |
