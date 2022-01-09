@@ -1664,3 +1664,60 @@ This API is appropriate for use with a WebSocket tool, [`wscat`](https://www.npm
 // Result
 < {"jsonrpc":"2.0","id":1,"result":true}
 ```
+
+## eth_coinbase <a id="eth_coinbase"></a>
+
+Returns the client coinbase address.
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Type           | Description                     |
+|----------------|---------------------------------|
+| 20-byte DATA   | The current coinbase address.   |
+
+**Example**
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_etherbase","params":[],"id":1}' http://localhost:8551
+
+// Result
+{
+  "jsonrpc": "2.0",
+  "id":1,
+  "result": "0xc94770007dda54cF92009BFF0dE90c06F603a09f"
+}
+```
+
+
+## eth_etherbase <a id="eth_etherbase"></a>
+
+Returns the client etherbase address.
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Type           | Description                    |
+|----------------|--------------------------------|
+| 20-byte DATA   | The current etherbase address. |
+
+**Example**
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_etherbase","params":[],"id":1}' http://localhost:8551
+
+// Result
+{
+  "jsonrpc": "2.0",
+  "id":1,
+  "result": "0xc94770007dda54cF92009BFF0dE90c06F603a09f"
+}
+```
