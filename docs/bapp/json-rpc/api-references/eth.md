@@ -1133,6 +1133,39 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
+
+## eth_maxPriorityFeePerGas <a id="eth_maxpriorityfeepergas"></a>
+
+Returns a suggestion for a gas tip cap for dynamic fee transaction in peb.
+
+**NOTE**: This API has different behavior from Ethereum's and
+returns a gas price of Klaytn instead of suggesting a gas price as in Ethereum.
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Type       | Description                                |
+|------------|--------------------------------------------|
+| QUANTITY   | Integer of the current gas price in peb.   |
+
+**Example**
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_maxPriorityFeePerGas","params":[],"id":1}' http://localhost:8551
+
+// Result
+{
+  "jsonrpc": "2.0",
+  "id":1,
+  "result": "0x5d21dba00" // 25,000,000,000 peb = 25 Gpeb
+}
+```
+
+
 ## eth_getFilterChanges <a id="eth_getfilterchanges"></a>
 
 Polling method for a filter, which returns an array of logs which occurred since last poll.
