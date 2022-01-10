@@ -6,7 +6,7 @@ Klaytn 가상머신\(KLVM\)의 현재 버전은 이더리움 가상머신\(EVM\)
 
 KLVM은 공식적으로 Klaytn의 실행 모델을 지칭합니다. 실행 모델은 일련의 바이트 코드 명령어와 작은 튜플 환경 데이터가 제공될 때, 시스템 상태가 어떻게 변경될지 지정합니다. KLVM은 준 튜링 완전 머신(quasi-Turing-complete machine)입니다. '준(quasi)'은 KLVM에서의 연산이 총 연산의 양을 제한할 수 있는 가스라는 매개변수의 제한을 받기 때문에 붙입니다.
 
-KLVM은 일련의 KLVM 명령어(or Klaytn bytecode)로 이루어진 Klaytn 가상 머신 코드를 실행합니다. KLVM 코드는 Klaytn 블록체인 상에 코드를 가지고 있는 계정을 위해 사용되는 프로그래밍 언어입니다. 계정과 연결된 KLVM 코드는 메시지가 해당 계정으로 전송될 때마다 실행되며, 이 코드는 스토리지 읽고 쓰기가 가능하고 메세지를 보낼 수 있습니다.
+KLVM은 일련의 KLVM 명령어(또는 Klaytn bytecode)로 이루어진 Klaytn 가상 머신 코드를 실행합니다. KLVM 코드는 Klaytn 블록체인 상에 코드를 가지고 있는 계정을 위해 사용되는 프로그래밍 언어입니다. 계정과 연결된 KLVM 코드는 메시지가 해당 계정으로 전송될 때마다 실행되며, 이 코드는 스토리지 읽고 쓰기가 가능하고 메세지를 보낼 수 있습니다.
 
 ## KLVM 사양 <a id="klvm-specification"></a>
 
@@ -86,18 +86,18 @@ KLVM은 간단한 스택 기반 아키텍처입니다. 머신의 워드 크기(�
 
 계정 실행시 메모리 사용 가능 지불(memory-usage payable)에 대해 지불해야하는 총 비용은 해당 범위의 모든 메모리 인덱스(읽기 또는 쓰기)를 포함하는데 필요한 32 바이트의 최소 배수에 비례합니다. 이 수수료는 실행 시점에 지불됩니다. 따라서 이전에 색인된 메모리보다 최소 32 바이트 더 큰 메모리 영역을 참조하면 추가 메모리 사용 요금이 발생합니다. 이 수수료 때문에, 주소가 32비트 범위를 초과할 가능성은 거의 없습니다. 즉, 구현할 때 이러한 만일의 사태를 관리할 수 있도록 고려하여야 합니다.
 
-스토리지 수수료에는 약간의 차이가 있습니다. 스토리지 사용을 최소화하는 것을 장려하기 위해 (스토리지를 많이 사용한다는 것은 모든 노드에서 더 큰 상태 데이터베이스가 있어야 한다는 의미) 스토리지에서 항목을 지우는 작업은 실행 수수료를 면제할 뿐만 아니라 정책에 따라 환불을 받을 수도 있습니다. 저장 위치의 최초 사용이 일반적인 사용보다 실질적으로 많은 비용이 들기 때문에 이 환불은 사실상 사전에 지불됩니다.
+스토리지 수수료에는 약간의 차이가 있습니다. 스토리지 사용을 최소화하는 것을 장려하기 위해 (스토리지를 많이 사용한다는 것은 모든 노드에 더 큰 상태 데이터베이스가 있어야 한다는 뜻) 스토리지에서 항목을 지우는 작업으로 실행 수수료를 면제 뿐 아니라 정책에 따라 환불을 받을 수도 있습니다. 저장 위치를  최초 사용하는 것이 일반적인 사용보다 실질적으로 많은 비용이 들기 때문에 이 환불은 사실상 사전에 지불됩니다.
 
 #### 비용표 <a id="fee-schedule"></a>
 
 비용표 `G`는 트랜잭션에서 발생할 수 있는 연산의 가스값 정보를 가지고 있는 37개 스칼라값을 가진 튜플(tuple)입니다. `Precompiled contracts`와 `accounts` 같은 다른 표에 대해서는 이 [문서](../../../transaction-fees.md#klaytns-gas-table)를 참고하세요.
 
 {% hint style="success" %}
-NOTE: Fee has been changed after the protocol upgrade, or the hard fork. If you want the previous document, please refer to [previous document](klaytn-virtual-machine-previous.md).
+참고: 연산 비용은 프로토콜 업그레이드(하드포크)와 함께 변경되었습니다. 이전 문서는 [이전 문서](klaytn-virtual-machine-previous.md)를 참고해주세요.
 
-v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items. It has been enabled from block number `#75373312` in case of Baobab network. Cypress mainnet will be subject to the same protocol upgrade in the next version.
+v1.7.0 프로토콜 업그레이드 - **Istanbul** 하드포크 및 Klaytn의 자체 사항들을 포함하는 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#75373312`부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
 
-v1.7.3 Protocol Upgrade - incompatible changes including BaseFee **London** Hard-Fork item. It has been enabled from block number `#80295291` in case of Baobab network. Cypress mainnet will be subject to the same protocol upgrade in the next version.
+v1.7.3 프로토콜 업그레이드 - **London** 하드 포크의 Base Fee를 포함한 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#80295291`부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
 {% endhint %}
 
 | 명칭                |     값 | 설명                                                          |
@@ -273,7 +273,7 @@ where
 
     결과로 남은 머신 상태 `S_machine'`에서 차감한다는 의미입니다.
 
-따라서 `Z`가 true 즉 현재 상태에 예외가 발생했으며 머신이 반드시 중지되어야 하고 따라서 모든 상태 변화는 무시되는 상황이 될 때까지, 또는 `H`가 (Set_empty가 아닌) 시퀀스가 될 때 즉 머신이 통제 가능한 중지 상황에 이를 때까지 `X`는 재귀적으로(보통 실제 구현은 단순한 반복 루프 사용) 반복해서 정의됩니다.
+따라서 `Z`가 true, 즉 현재 상태에 예외가 발생했으며 머신이 반드시 중지되어야 하고 따라서 모든 상태 변화는 무시되는 상황이 될 때까지, 또는 `H`가 (Set_empty가 아닌) 시퀀스가 될 때, 즉 머신이 통제 가능한 중지 상황에 이를 때까지 `X`는 재귀적으로(보통 실제 구현은 단순한 반복 루프 사용) 반복해서 정의됩니다.
 
 #### 머신 상태 <a id="machine-state"></a>
 
