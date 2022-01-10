@@ -76,19 +76,19 @@ EOA와 달리 SCA에는 관련 코드가 있으며 해당 코드로 제어됩니
 | codeHash      | \[\]byte \(Go\)                   | 계정의 스마트 컨트랙트 코드의 해시. 이 값은 변경할 수 없으며, 스마트 컨트랙트가 생성 될 때만 설정됩니다.                                                                                                                                                                                                                                                                               |
 | storageRoot   | \[32\]byte \(Go\)                 | 계정에 저장된 모든 변수들의 값을 포함하는 Merkle Patricia trie 루트의 256비트 해시입니다.                                                                                                                                                                                                                                                                               |
 | codeFormat    | uint8 \(Go\)                        | 계정이 지원하는 interpreter 버전입니다. 16까지 설정할 수 있으며,  현재는 EVM\(0x00\)만 지원합니다.                                                                                                                                                                                                                                                                      |
-| vmVersion     | uint8 \(Go\)                        | 계정이 배포될 당시의 Protocol Upgrade (hard fork) 정보 (ex.  0x0(constantinople), 0x1(istanbul,london,...)). 16까지 존재하며,  컨트랙트 배포 시 자동으로 값이 설정됩니다.                                                                                                                                                                                                      |
+| vmVersion     | uint8 \(Go\)                        | 계정이 배포될 당시의 프로토콜 업그레이드 (하드 포크) 정보 (ex.  0x0(constantinople), 0x1(istanbul, london,...)).  16까지 존재하며,  컨트랙트 배포 시 자동으로 값이 설정됩니다.                                                                                                                                                                                                              |
 
 {% hint style="success" %}
-NOTE: 클레이튼 v1.7.0부터는, 스마트 컨트랙트 계정의 속성으로 vmVersion이 추가됩니다.
+NOTE: Klaytn v1.7.0부터는 스마트 컨트랙트 계정의 속성으로 vmVersion이 추가됩니다.
 {% endhint %}
 
 ### Klaytn 계정 유형 ID <a id="klaytn-account-type-id"></a>
 아래는 각 계정 유형에 할당된 계정 유형 ID입니다.
 
-| 계정 유형                | 계정 유형 ID |
-| -------------------- | -------- |
-| 외부 소유 계정 \(EOAs)    | 0x1      |
-| 스마트 컨트랙트 계정 \(SCAs) | 0x2      |
+| 계정 유형              | 계정 유형 ID |
+| ------------------ | -------- |
+| 외부 소유 계정 (EOAs)    | 0x1      |
+| 스마트 컨트랙트 계정 (SCAs) | 0x2      |
 
 ## 계정 키 <a id="account-key"></a>
 
@@ -180,13 +180,13 @@ AccountKeyWeightedMultiSig는 계정 키 타입입니다. 여기에는 threshold
 * 서명된 공개키 개수가 WeightedPublicKey 개수보다 적어야만 합니다.
 
 {% hint style="success" %}
-NOTE: The next multiSig validation logic have been changed with the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0.
+참고: 다음 multiSig 검증 로직은 Klaytn v.1.7.0에서 도입된 프로토콜 업그레이드(하드포크)와 함께 변경되었습니다.
 * 트랜잭션에 유효하지 않은 서명이 포함되면 안 됩니다.
-* 서명된 공개키 개수가 WeightedPublicKey 개수보다 적어야만 합니다. If you want the previous document, please refer to [previous document](transaction-fees-previous.md).
+* 서명된 공개키 개수가 WeightedPublicKey 개수보다 적어야만 합니다. 이전 문서는 [이전 문서](transaction-fees-previous.md)를 참고해주세요.
 
-v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items. It has been enabled from block number `#75373312` in case of Baobab network. Cypress mainnet will be subject to the same protocol upgrade in the next version.
+v1.7.0 프로토콜 업그레이드 - **Istanbul** 하드포크 및 Klaytn의 자체 사항들을 포함하는 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#75373312`부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
 
-v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork. It has been enabled from block number `#80295291` in case of Baobab network. Cypress mainnet will be subject to the same protocol upgrade in the next version.
+v1.7.3 프로토콜 업그레이드 - **London** 하드 포크의 Base Fee를 포함한 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#80295291`부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
 {% endhint %}
 
 #### 속성 <a id="attributes"></a>
@@ -223,7 +223,7 @@ RLP: 0x04f89303f890e301a102c734b50ddb229be5e929fc4aa8080ae8240a802d23d3290e5e615
 
 ### AccountKeyRoleBased <a id="accountkeyrolebased"></a>
 
-AccountKeyRoleBased represents a role-based key. The roles are specified at [Roles](accounts.md#roles).
+AccountKeyRoleBased는 역할기반 키를 의미합니다. 역할은 [Roles](accounts.md#roles)에 명시되어있습니다.
 
 #### 속성 <a id="attributes"></a>
 
@@ -234,7 +234,7 @@ AccountKeyRoleBased represents a role-based key. The roles are specified at [Rol
 
 #### 역할 <a id="roles"></a>
 
-Roles of AccountKeyRoleBased are defined as below:
+AccountKeyRoleBased의 역할은 다음과 같이 정의됩니다.
 
 | 역할                | 설명                                                                                                                             |
 |:----------------- |:------------------------------------------------------------------------------------------------------------------------------ |
@@ -246,13 +246,13 @@ Roles of AccountKeyRoleBased are defined as below:
 
 `0x05 + encode([key1, key2, key3])`
 
-Note that key1, key2, and key3 can be any of above keys \(AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail, and AccountKeyWeightedMultiSig\).
+참고: key1, key2 및 key3은 위의 키(AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail 및 AccountKeyWeightedMultiSig\) 중 하나입니다.
 
-#### 생략할 수 있고 확장이 가능한 역할 <a id="omissible-and-extendable-roles"></a>
+#### 생략 또는 확장 가능한 역할<a id="omissible-and-extendable-roles"></a>
 
-The roles can be omitted from the last, and the omitted roles are mapped to the first role. However, a role in the middle cannot be omitted, which means RoleTransaction and RoleFeePayer cannot be set without RoleAccountUpdate. For example, if a role-based key is set to `0x05 + encode([key1, key2])`, RoleFeePayer works as if the key is set like `0x05 + encode([key1, key2, key1])`.
+역할은 끝에서부터 생략할 수 있으며 생략된 역할은 첫 번째 역할에 매핑됩니다. 그러나, 중간에 있는 역할을 생략할 수 없으므로 RoleAccountUpdate 없이는 RoleTransaction 및 RoleFeePayer를 설정할 수 없습니다. 예를 들어, 역할기반 키가 `0x05 + encode([key1, key2])`로 설정되어있으면, RoleFeePayer는 `0x05 + encode ([key1, key2, key1])`로 설정되어있는 것처럼 작동합니다.
 
-This feature is provided to extend more roles in the future. If a new role is provided, the new role of accounts already created with old roles is mapped to the first role.
+이 기능은 향후 더 많은 역할을 추가하기 위해 제공됩니다. 새 역할이 제공되면 이전 역할로 이미 생성된 새 계정 역할이 첫 번째 역할에 대응됩니다.
 
 #### RLP 인코딩 \(예시\) <a id="rlp-encoding-example"></a>
 
@@ -276,7 +276,7 @@ RLP: 0x05f898a302a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf0
 ```
 
 ## 계정 키 유형 ID <a id="account-key-type-id"></a>
-Below are the Account Key Type ID assigned to each Account Key Type.
+다음은 각 계정 키 유형에 지정된 계정 키 유형 ID입니다.
 
 | 계정 키 유형                    | 계정 키 유형 ID |
 | -------------------------- | ---------- |
