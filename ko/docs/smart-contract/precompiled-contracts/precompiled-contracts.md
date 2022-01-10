@@ -1,26 +1,26 @@
 # 미리 컴파일된 컨트랙트(Precompiled Contracts) <a id="precompiled-contracts"></a>
 
-Klaytn은 몇 가지 유용한 미리 컴파일된 컨트랙트를 제공합니다. 이러한 컨트랙트들은 플랫폼 자체에서 기본 구현되어 있습니다. 미리 컴파일된 컨트랙트 중 주소 0x01부터 0x08까지의 컨트랙트는 이더리움에서 구현된 것과 동일합니다. Klaytn additionally implements precompiled contracts from 0x3fd through 0x3ff to support new Klaytn features.
+Klaytn은 몇 가지 유용한 미리 컴파일된 컨트랙트를 제공합니다. 이러한 컨트랙트들은 플랫폼 자체에서 기본 구현되어 있습니다. 미리 컴파일된 컨트랙트 중 주소 0x01부터 0x08까지의 컨트랙트는 이더리움에서 구현된 것과 동일합니다. 여기에 추가로 Klaytn은 이더리움에 없는 새로운 기능을 지원하기 위해 주소 0x09부터 0x0B까지의 미리 컴파일된 컨트랙트를 제공합니다.
 
 {% hint style="success" %}
-NOTE: With the protocol upgrade, or the hard fork introduced in Klaytn v1.7.0, three precompiled contract addresses have changed, and **blake2F** was added.
+NOTE: Klaytn v1.7.0부터 도입된 프로토콜 업그레이드(하드 포크)로 미리 컴파일된 컨트랙트 주소 세 개가 변경되었으며, **blake2F** 컨트랙트가 추가되었습니다.
 
-v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hark fork items and Klaytn's own items. It has been enabled from block number `#75373312` in case of Baobab network. Cypress mainnet will be subject to the same protocol upgrade in the next version.
+v1.7.0 프로토콜 업그레이드 - **Istanbul** 하드포크 및 Klaytn의 자체 사항들을 포함하는 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#75373312`부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
 
-v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork. It has been enabled from block number `#80295291` in case of Baobab network. Cypress mainnet will be subject to the same protocol upgrade in the next version.
+v1.7.3 프로토콜 업그레이드 - **London** 하드 포크의 Base Fee를 포함한 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#80295291`부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
 
-Contracts deployed before the protocol upgrade should use the original addresses.
+프로토콜 업데이트 전에 배포된 컨트랙트는 이전 주소를 써야 합니다.
 * case 1) Baobab에서 블록번호 `#75373310`에 배포된 컨트랙트는 0x09, 0x0a와 0x0b를 각각 vmLog, feePayer, and validateSender로 인식하지만,  blake2f는 사용될 수 없습니다.
 * case 2) Baobab에서 블록번호 #75373314에 배포된 컨트랙트는 0x09를 blake2f로, 그리고 0x3fd, 0x3fe와 0xff를 각각 vmLog, feePayer와 validateSender로 인식합니다.
 
-If you want the previous document, please refer to [previous document](precompiled-contracts-previous.md).
+이전 문서는 [이전 문서](precompiled-contracts-previous.md)를 참고해주세요.
 {% endhint %}
 
-| 미리 컴파일된 컨트랙트   | addresses used in the contracts deployed before v1.7.0 PU activation | address used in the contracts deployed after v1.7.0 PU activation |
-|:-------------- |:-------------------------------------------------------------------- |:----------------------------------------------------------------- |
-| vmLog          | 0x09                                                                 | 0x3fd                                                             |
-| feePayer       | 0x0a                                                                 | 0x3fe                                                             |
-| validateSender | 0x0b                                                                 | 0x3ff                                                             |
+| 미리 컴파일된 컨트랙트   | v1.7.0 프로토콜 업데이트 이전에 배포된 컨트랙트에서 사용되는 주소 | v1.7.0 프로토콜 업데이트 이후에 배포된 컨트랙트에서 사용되는 주소 |
+|:-------------- |:--------------------------------------- |:--------------------------------------- |
+| vmLog          | 0x09                                    | 0x3fd                                   |
+| feePayer       | 0x0a                                    | 0x3fe                                   |
+| validateSender | 0x0b                                    | 0x3ff                                   |
 
 ## 주소 0x01: ecrecover\(hash, v, r, s\) <a id="address-0x-01-ecrecover-hash-v-r-s"></a>
 
@@ -160,7 +160,7 @@ function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
 ```
 
 ## Address 0x09: blake2F\(rounds, h, m, t, f\) <a id="address-0x-3fc-vmlog-str"></a>
-The address 0x09 implements BLAKE2b F compression function. For more information, see [EIP-152](https://eips.ethereum.org/EIPS/eip-152). 이 미리 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
+0x09 주소는 BLAKE2b F 압축 함수(compression function)를 구현합니다. 자세한 내용은 [EIP-152](https://eips.ethereum.org/EIPS/eip-152)를 참고해주세요. 이 미리 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
 
 ```text
 function callBlake2F(uint32 rounds, bytes32[2] memory h, bytes32[4] memory m, bytes8[2] memory t, bool f) public view returns (bytes32[2] memory) {
@@ -180,7 +180,7 @@ function callBlake2F(uint32 rounds, bytes32[2] memory h, bytes32[4] memory m, by
 
 ## 0x3fd 주소: vmLog\(str\) <a id="address-0x-3fc-vmlog-str"></a>
 
-The address 0x3FD prints the specified string `str` to a specific file or passes it to the logger module. For more information, see [debug\_setVMLogTarget](../../../bapp/json-rpc/api-references/debug/logging.md#debug_setvmlogtarget). 이 컨트랙트는 오직 디버깅을 목적으로 사용되어야 하며, Klaytn 노드를 시작할 때 `--vmlog` 옵션을 활성화해야 사용할 수 있습니다. 또한 vmLog의 출력을 보려면 Klaytn 노드의 로깅 수준이 4 이상이어야 합니다. 이 미리 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
+0x3FD 주소는 특정 문자열 `str`을 특정 파일로 출력하거나 로깅 모듈에 전달하는 미리 컴파일된 컨트랙트입니다. 자세한 내용은 [debug\_setVMLogTarget](../../../bapp/json-rpc/api-references/debug/logging.md#debug_setvmlogtarget)를 참고해주세요. 이 컨트랙트는 오직 디버깅을 목적으로 사용되어야 하며, Klaytn 노드를 시작할 때 `--vmlog` 옵션을 활성화해야 사용할 수 있습니다. 또한 vmLog의 출력을 보려면 Klaytn 노드의 로깅 수준이 4 이상이어야 합니다. 이 미리 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
 
 ```text
 function callVmLog(bytes memory str) public {
@@ -190,7 +190,7 @@ function callVmLog(bytes memory str) public {
 
 ## 0x3fe 주소: feePayer\(\) <a id="address-0x-3fd-feepayer"></a>
 
-The address 0x3FE returns a fee payer of the executing transaction. 이 미리 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
+0x3FE  주소는 실행 트랜잭션 비용 납부 계정을 반환합니다. 이 미리 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
 
 ```text
 function feePayer() internal returns (address addr) {
@@ -207,13 +207,13 @@ function feePayer() internal returns (address addr) {
 
 ## 0x3ff 주소: validateSender\(\) <a id="address-0x-3fe-validatesender"></a>
 
-The address 0x3FF validates the sender's signature with the message. Since Klaytn [decouples key pairs from addresses](../../../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses), it is required to validate that a signature is properly signed by the corresponding sender. 이를 위해 이 컨트랙트는 세 개의 매개 변수를 입력받습니다.
+0x3FF는 주소의 미리 컴파일된 컨트랙트는 메세지 발신자의 서명을 검증합니다. Klaytn은 [주소로부터 키 쌍\(key pairs\) 분리하기](../../../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses) 때문에 해당 발신자가 올바르게 서명했는지 검증해야 합니다. 이를 위해 이 컨트랙트는 세 개의 매개 변수를 입력받습니다.
 
 * 공개키를 가져오는 데에 사용되는 발신자의 주소
 * 서명을 생성하는 데에 사용된 메세지의 해시
 * 메세지의 해시를 발신자의 개인키로 서명한 서명 값
 
-이 컨트랙트는 주어진 서명 값이 발신자의 개인키로 올바르게 서명된 것인지 검증합니다. Note that Klaytn natively support multi signatures, which means there can be multiple signatures. The signature must be 65 bytes long.
+이 컨트랙트는 주어진 서명 값이 발신자의 개인키로 올바르게 서명된 것인지 검증합니다. Klaytn은 기본적으로 다중 서명을 지원하기 때문에 여러 개의 서명이 있을 수도 있습니다. 각 서명의 길이는 65바이트입니다.
 
 ```text
 function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public returns (bool) {
