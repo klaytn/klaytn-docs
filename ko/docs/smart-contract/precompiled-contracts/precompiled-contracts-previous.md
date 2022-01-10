@@ -3,7 +3,7 @@
 Klaytn은 몇 가지 유용한 미리 컴파일된 컨트랙트를 제공합니다. 이러한 컨트랙트들은 플랫폼 자체에서 기본 구현되어 있습니다. 미리 컴파일된 컨트랙트 중 주소 0x01부터 0x08까지의 컨트랙트는 이더리움에서 구현된 것과 동일합니다. 여기에 추가로 Klaytn은 이더리움에 없는 새로운 기능을 지원하기 위해 주소 0x09부터 0x0B까지의 미리 컴파일된 컨트랙트를 제공합니다.
 
 {% hint style="success" %}
-NOTE: This document contains the gas table used before the activation of the protocol upgrade. If you want the latest document, please refer to [latest document](precompiled-contracts.md).
+참고: 이 문서에는 프로토콜 업데이트 적용 이전에 사용되던 연산 비용이 포함되어 있습니다. If you want the latest document, please refer to [latest document](precompiled-contracts.md).
 {% endhint %}
 
 ## 주소 0x01: ecrecover\(hash, v, r, s\) <a id="address-0x-01-ecrecover-hash-v-r-s"></a>
