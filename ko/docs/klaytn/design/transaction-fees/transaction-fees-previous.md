@@ -44,7 +44,7 @@ Klaytn은 현재 단가를 이용하는 트랜잭션을 교체할 수 없습니�
 기본적으로 Klaytn은 이더리움과 호환성을 유지합니다. 그래서 Klaytn의 가스표는 이더리움과 매우 유사합니다. 하지만 Klaytn의 고유한 기능이 있기 때문에, 그런 기능들을 위한 다른 수치들이 있습니다.
 
 {% hint style="success" %}
-NOTE: This document contains the gas table used before the activation of the protocol upgrade. If you want the latest document, please refer to [latest document](transaction-fees.md).
+참고: 이 문서에는 프로토콜 업데이트 적용 이전에 사용되던 연산 비용이 포함되어 있습니다. 최신 문서는 [최신 문서](transaction-fees.md)를 참고해주세요.
 {% endhint %}
 
 ### 공통 비용<a id="common-fee"></a>
@@ -155,7 +155,7 @@ GasPayload = number_of_bytes * TxDataGas
 | SmartContractExecution | TxGasContractExecution + PayloadGas + KeyValidationGas |
 | Cancel                 | TxGasCancel + KeyValidationGas                         |
 
-KeyValidationGas is defined as below based on key type,
+KeyValidationGas는 키 유형에 따라 아래와 같이 정의됩니다.
 
 | 키 유형      | 가스                                                |
 |:--------- |:------------------------------------------------- |
@@ -166,7 +166,7 @@ KeyValidationGas is defined as below based on key type,
 | MultiSig  | \(keys-1\) \* GasValidationPerKey \(15000\) |
 | RoleBased | 검증(validation)에 사용된 역할의 키를 기반으로 함                 |
 
-KeyCreationGas is defined as below based on key type,
+KeyCreationGas는 키 유형에 따라 아래와 같이 정의됩니다.
 
 | 키 유형      | 가스                                                                                                                                                                                              |
 |:--------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
