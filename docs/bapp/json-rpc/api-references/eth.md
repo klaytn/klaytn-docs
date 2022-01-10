@@ -1810,7 +1810,7 @@ Please note that it always return `false` because there is no PoW mechanism in K
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getWork","params":[],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_submitWork","params":[],"id":1}' http://localhost:8551
 
 // Result
 {
