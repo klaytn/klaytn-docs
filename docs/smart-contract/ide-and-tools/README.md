@@ -17,11 +17,11 @@ You can write, compile, deploy and execute smart contracts from Klaytn IDE.
 
 #### [Kaikas] <a id="kaikas"></a>
 
-* Kaikas is a browser extension wallet for the Klaytn Network. Kaikas empowers you to store and interact with KLAY and your Klaytn-based tokens. Kaikas also enables you to sign transactions from web-based Klaytn BApps in realtime.
+* Kaikas is a browser extension wallet for the Klaytn Network. Kaikas empowers you to store and interact with KLAY and your Klaytn-based tokens. Kaikas also enables you to sign transactions from web-based Klaytn dApps in realtime.
 
 #### [Klaytn Wallet]  <a id="klaytn-wallet"></a>
 
-* Klaytn Wallet is a browser-based account management tool for the Blockchain Application (BApp) developers. You can create/load your accounts, review your account balance, and transfer KLAY. You can also register your own Klaytn tokens to test basic behaviors.
+* Klaytn Wallet is a browser-based account management tool for the Decentralized Application (dApp) developers. You can create/load your accounts, review your account balance, and transfer KLAY. You can also register your own Klaytn tokens to test basic behaviors.
 
 #### [Klaytnscope]  <a id="klaytnscope"></a>
 

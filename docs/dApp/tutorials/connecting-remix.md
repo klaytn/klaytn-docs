@@ -66,7 +66,7 @@ You need a local plugin to connect to the Klaytn network using Remix. The proces
 
 ## Connecting Klaytn - Remix using MetaMask <a id="connecting-klaytn-remix-using-metamask"></a>
 
-* Connect Klaytn with MetaMask by referring to the [**Connecting to MetaMask**](https://docs.klaytn.com/bapp/tutorials/connecting-metamask).
+* Connect Klaytn with MetaMask by referring to the [**Connecting to MetaMask**](https://docs.klaytn.com/dapp/tutorials/connecting-metamask).
 * Select [Injected Web3] on the Remix Environment menu.
 
 ![Injected Web3](./img/remix-klaytn-environment-injectedWeb3.png)

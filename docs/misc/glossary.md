@@ -2,7 +2,7 @@
 
 | Term | Description |
 | :--- | :--- |
-| BApp | Blockchain application |
+| dApp | Decentralized application |
 | Block reward | Newly issued KLAY and the sum of transaction fees used in the block |
 | Bootnode | Bootnodes that helps PNs and ENs to register themselves in the network and to discover other nodes to connect to. |
 | caver-js | [caver-js] is a JavaScript API library that allows developers to interact with a Klaytn node. |
@@ -47,6 +47,6 @@
 [Endpoint Node]: ../node/endpoint-node/README.md
 [EN Operation Guide]: ../node/endpoint-node/README.md
 [SCN Operation Guide]: ../node/service-chain/README.md
-[caver-js]: ../bapp/sdk/caver-js/README.md
-[caver-java]: ../bapp/sdk/caver-java/README.md
+[caver-js]: ../dapp/sdk/caver-js/README.md
+[caver-java]: ../dapp/sdk/caver-java/README.md
 

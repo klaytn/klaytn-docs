@@ -91,7 +91,7 @@ In case of a PN,
   >
 ```
 
-You can check the usable commands on [API Document](../../../bapp/json-rpc/README.md)
+You can check the usable commands on [API Document](../../../dapp/json-rpc/README.md)
 
 The useful APIs to check the status of a CN/PN:
 

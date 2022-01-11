@@ -954,7 +954,7 @@ console.log(rawTransaction)
 
 ## Sample Projects <a id="sample-projects"></a>
 
-The BApp \(Blockchain Application\) Development sample projects using caver-js are the following:
+Sample projects for development of dApps \(Decentralized Applications\) using caver-js can be found below:
 
 * [Count BApp](../../../tutorials/count-bapp/README.md)
 * [Klaystagram](../../../tutorials/klaystagram/README.md)
