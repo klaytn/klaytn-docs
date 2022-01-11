@@ -2,11 +2,11 @@
 
 | 용어                   | 설명                                                                                                                                                                      |
 |:-------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| BApp                 | 블록체인 애플리케이션(Blockchain application)                                                                                                                                     |
+| dApp                 | Decentralized application                                                                                                                                               |
 | 블록 보상(Block Rewards) | 블록생성시 새로 발행한 KLAY와 사용한 수수료 총합                                                                                                                                           |
 | 부트노드(Bootnode)       | 부트노드는 PN 및 EN이 네트워크에 자신을 등록하고 다른 노드에 연결하는 것을 도와주는 노드입니다.                                                                                                                |
-| caver-js             | [caver-js](../bapp/sdk/caver-js/README.md)는 JavaScript API 라이브러리로 개발자가 Klaytn node와 상호작용하도록 합니다.                                                                        |
-| caver-java           | [caver-java](../bapp/sdk/caver-java/README.md)는 Java API 라이브러리로 개발자가 Klaytn 노드와 상호작용하도록 합니다.                                                                            |
+| caver-js             | [caver-js](../dapp/sdk/caver-js/README.md) is a JavaScript API library that allows developers to interact with a Klaytn node.                                           |
+| caver-java           | [caver-java](../dapp/sdk/caver-java/README.md) is a Java API library that allows developers to interact with a Klaytn node.                                             |
 | CC                   | [코어 셀(Core Cell)](../node/core-cell/README.md). 코어 셀은 Klaytn 블록체인 네트워크에서 블록을 생성하는 역할을 합니다.                                                                              |
 | CCN                  | 코어 셀 네트워크(CCN). 네트워크는 제출된 트랜잭션를 검증하고 실행하는 코어 셀(CC)로 구성됩니다.  CCN은 또한 트랜잭션을 포함한 블록을 생성하고 전파하는 역할을 합니다.                                                                    |
 | CN                   | Klaytn 컨센서스 노드(Consensus Node). 코어 셀 네트워크에서 다른 CN과 새로운 블록을 생성하는 노드. [코어 셀(Core Cell)](../node/core-cell/README.md) 참조.                                                  |
