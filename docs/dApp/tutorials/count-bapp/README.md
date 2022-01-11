@@ -17,7 +17,7 @@
 
 ![intro](images/tutorial-1intro.gif)
 
-This tutorial is intended to give a step by step guide to build a Klaytn BApp. No previous Klaytn experience is needed. We will make a simple web app interacting with a basic smart contract, `Count`.  
+This tutorial is intended to give a step by step guide to build a Klaytn dApp. No previous Klaytn experience is needed. We will make a simple web app interacting with a basic smart contract, `Count`.  
 Any user who has a Klaytn account can increase and decrease the current value as shown in the above gif.
 
 > **Source Code**  

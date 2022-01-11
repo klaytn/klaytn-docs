@@ -98,5 +98,5 @@ Klaytn does not sacrifice blockchain’s core characteristics to achieve the abo
 [Service Chain]: scaling-solutions.md#service-chain
 [Solidity-Smart Contract Language]: ../smart-contract/solidity-smart-contract-language.md
 [Truffle]: ../toolkit/truffle.md
-[Migrating Ethereum App to Klaytn]: ../bapp/tutorials/migrating-ethereum-app-to-klaytn.md
+[Migrating Ethereum App to Klaytn]: ../dapp/tutorials/migrating-ethereum-app-to-klaytn.md
 [Incentive Program]: design/token-economy.md

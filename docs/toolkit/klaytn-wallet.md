@@ -1,6 +1,6 @@
 # Klaytn Wallet <a id="klaytn-wallet"></a>
 
-Klaytn Wallet is a browser-based account management tool for blockchain application (BApp) developers on Klaytn. It helps developers create new accounts or view existing account information directly through a web browser without having to run a Klaytn node locally. Klaytn Wallet also lets users transfer KLAY or Klaytn tokens to other accounts for testing purposes.
+Klaytn Wallet is a browser-based account management tool for dApp (decentralized application) developers on Klaytn. It helps developers create new accounts or view existing account information directly through a web browser without having to run a Klaytn node locally. Klaytn Wallet also lets users transfer KLAY or Klaytn tokens to other accounts for testing purposes.
 
 #### Important Notice on Security <a id="important-notice-on-security"></a>
 

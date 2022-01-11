@@ -34,4 +34,4 @@ kni://a979...163c@10.0.0.1:32323?subport=32324&discport=30301   # multi-channel 
 ```
 
 If you want to know how to generate a KNI of a node, please refer to [Node Key & Node URI Creation](../../node/core-cell/installation-guide/before-you-install.md#node-key-node-uri-creation).
-The KNI scheme is used in node discovery protocol, [setting `static-nodes.json` file](../../node/core-cell/installation-guide/proxy-node-setup/configuration.md#install-static-nodes-json), [addPeer API](../../bapp/json-rpc/api-references/admin.md#admin_addpeer), [bootnodes option](../../node/endpoint-node/operation-guide/configuration.md#properties) and etc.
+The KNI scheme is used in node discovery protocol, [setting `static-nodes.json` file](../../node/core-cell/installation-guide/proxy-node-setup/configuration.md#install-static-nodes-json), [addPeer API](../../dapp/json-rpc/api-references/admin.md#admin_addpeer), [bootnodes option](../../node/endpoint-node/operation-guide/configuration.md#properties) and etc.
