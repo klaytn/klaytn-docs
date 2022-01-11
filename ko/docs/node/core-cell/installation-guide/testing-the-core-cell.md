@@ -91,7 +91,7 @@ PN의 경우,
   >
 ```
 
-[API 문서](../../../bapp/json-rpc/README.md)를 보시면 유용한 명령어들을 확인할 수 있습니다.
+You can check the usable commands on [API Document](../../../dapp/json-rpc/README.md)
 
 CN/PN의 상태를 확인하는 유용한 API는 다음과 같습니다.
 
