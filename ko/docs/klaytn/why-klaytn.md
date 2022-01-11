@@ -57,7 +57,7 @@ Klaytn은 블록체인 대중화가 목표입니다. 가장 중요한 디자인 
 ### 쾌속 개발(Rapid Development)<a id="rapid-development"></a>
 
 - Klaytn의 애플리케이션 개발은 간단해야 하며, 사용되는 기술은 개방형 표준을 따라서 학습이 쉬워야 합니다.
-- [Solidity - Smart Contract Language](../smart-contract/solidity-smart-contract-language.md), [Truffle](../toolkit/truffle.md)과 [Migrating Ethereum App to Klaytn](../bapp/tutorials/migrating-ethereum-app-to-klaytn.md)을 참고해주세요. Klaytn 가상머신(KLVM)은 이더리움의 솔리디티 컨트랙트를 지원하므로 이더리움의 PoC 제품을 Klaytn에 훨씬 쉽게 포팅(porting)하여 상업적으로 사용할 수 있습니다. 또한, 잘 구축된 개발자 커뮤니티에서 개발 도구를 찾고 도움을 쉽게 받을 수 있습니다.
+- See [Solidity-Smart Contract Language](../smart-contract/solidity-smart-contract-language.md), [Truffle](../toolkit/truffle.md), and [Migrating Ethereum App to Klaytn](../dapp/tutorials/migrating-ethereum-app-to-klaytn.md). Klaytn 가상머신(KLVM)은 이더리움의 솔리디티 컨트랙트를 지원하므로 이더리움의 PoC 제품을 Klaytn에 훨씬 쉽게 포팅(porting)하여 상업적으로 사용할 수 있습니다. 또한, 잘 구축된 개발자 커뮤니티에서 개발 도구를 찾고 도움을 쉽게 받을 수 있습니다.
 
 ### 데이터 앵커링을 사용하는 서비스별 프라이빗 체인 <a id="service-specific-private-chains-with-data-anchoring"></a>
 
