@@ -151,9 +151,9 @@
     * [v0.9.6](node/download/v0.9.6.md)
     * [v0.8.2](node/download/v0.8.2.md)
 
-* [dApp Developers](bapp/README.md)
-  * [JSON-RPC APIs](bapp/json-rpc/README.md)
-    * [API references](bapp/json-rpc/api-references/README.md)
+* [dApp Developers](dapp/README.md)
+  * [JSON-RPC APIs](dapp/json-rpc/README.md)
+    * [API references](dapp/json-rpc/api-references/README.md)
       * [klay](dapp/json-rpc/api-references/klay.md)
         * [Account](dapp/json-rpc/api-references/klay/account.md)
         * [Block](dapp/json-rpc/api-references/klay/block.md)
