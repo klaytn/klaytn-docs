@@ -33,7 +33,7 @@ ENN은 주로 트랜잭션을 생성하고, RPC API 요청을 처리하며, 서�
 
 ### 서비스체인 네트워크(SCN) <a id="service-chain-network-scn"></a>
 
-SCN은 블록체인 애플리케이션(BApp)에 의해 독립적으로 운영되는 보조 블록체인들로 구성된 Klaytn 서브네트워크입니다. 서비스체인은 EN을 통해 메인 체인에 연결됩니다.
+SCNs are Klaytn subnetworks composed of auxiliary blockchains independently operated by dApps (Decentralized Applications). 서비스체인은 EN을 통해 메인 체인에 연결됩니다.
 
 **코어 셀 네트워크**와 **엔드포인트 노드 네트워크**은 Klaytn 메인체인과 메인넷을 구성합니다. 블록체인 애플리케이션은 Klaytn 메인 체인인 Cypress에서 실행하거나 자체적인 블록체인인 **서비스체인**에서 작동할 수 있습니다. 높은 TPS와 설정 변경이 가능한 네트워크 정책을 가진 전용 실행 환경을 원한다면 서비스체인을 사용하는 것을 추천합니다.
 
@@ -111,9 +111,9 @@ Klaytn 네트워크의 서비스 제공자와 사용자는 블록 생성 결과�
 
 ## 블록 및 트랜잭션을 위한 별도의 전파 채널 (멀티채널 전파) <a id="separated-propagation-channels-for-blocks-and-transactions-multichannel-propagat"></a>
 
-네트워크 지연 시간은 네트워크의 정체 정도에 따라 크게 영향을받습니다. 네트워크의 처리량이 일정하고 트랜잭션 수가 증가하면 네트워크 대기 시간이 비례해서 증가합니다. 지연 시간은 BApp에서 중요한 문제입니다. 기존 모바일 앱 또는 웹 서비스의 일반적인 사용자는 몇 초 이상 걸리는 응답 시간을 참지 않습니다. 그런데, 블록체인 서비스 사용자라고 더 오래 기다릴 것이라고 가정할 수는 없습니다.
+네트워크 지연 시간은 네트워크의 정체 정도에 따라 크게 영향을받습니다. 네트워크의 처리량이 일정하고 트랜잭션 수가 증가하면 네트워크 대기 시간이 비례해서 증가합니다. Latency delay is a critical issue in dApps; typical users of legacy mobile apps or web services will not tolerate response time that takes more than a few seconds, and blockchain services have no reason to assume a higher user tolerance.
 
-Klaytn은 네트워크 정체 문제를 처리하기 위해 다중 채널 접근 방식을 채택합니다. 트랜잭션과 블록에 별도의 전파 채널을 할당함으로써 Klaytn 네트워크는 많은 수의 트랜잭션으로 혼잡한 상황에도 제시간에 새로 생성된 블록을 전파 할 수 있습니다. 이러한 방식으로 Klaytn은 종종 일어나는 네트워크 트래픽의 갑작스런 증가와 관계없이 BApp이 사용자 요청에 응답 할 수 상태를 유지하도록 합니다.
+Klaytn은 네트워크 정체 문제를 처리하기 위해 다중 채널 접근 방식을 채택합니다. 트랜잭션과 블록에 별도의 전파 채널을 할당함으로써 Klaytn 네트워크는 많은 수의 트랜잭션으로 혼잡한 상황에도 제시간에 새로 생성된 블록을 전파 할 수 있습니다. In this way, Klaytn ensures that dApps on its network can stay responsive to end-user requests regardless of intermittent network traffic spikes.
 
 ## 블록 보상(Block Rewards)<a id="block-rewards"></a>
 
