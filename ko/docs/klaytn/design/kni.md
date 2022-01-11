@@ -30,4 +30,4 @@ kni://a979...163c@10.0.0.1:32323?discport=30301                 # either single-
 kni://a979...163c@10.0.0.1:32323?subport=32324&discport=30301   # multi-channel peer
 ```
 
-노드의 KNI 생성에 대해 더 알고 싶으시다면, [Node Key & Node URI Creation](../../node/core-cell/installation-guide/before-you-install.md#node-key-node-uri-creation)를 참고하세요. 노드 발견 프로토콜에는 KNI 스킴이 사용되며, [`static-nodes.json` file](../../node/core-cell/installation-guide/proxy-node-setup/configuration.md#install-static-nodes-json), [addPeer API](../../bapp/json-rpc/api-references/admin.md#admin_addpeer), [bootnodes option](../../node/endpoint-node/operation-guide/configuration.md#properties) 등을 설정합니다.
+노드의 KNI 생성에 대해 더 알고 싶으시다면, [Node Key & Node URI Creation](../../node/core-cell/installation-guide/before-you-install.md#node-key-node-uri-creation)를 참고하세요. The KNI scheme is used in node discovery protocol, [setting `static-nodes.json` file](../../node/core-cell/installation-guide/proxy-node-setup/configuration.md#install-static-nodes-json), [addPeer API](../../dapp/json-rpc/api-references/admin.md#admin_addpeer), [bootnodes option](../../node/endpoint-node/operation-guide/configuration.md#properties) and etc.
