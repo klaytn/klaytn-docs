@@ -1,9 +1,9 @@
 ## 서비스체인 <a id="service-chain"></a>
-Klaytn의 서비스체인은 Klaytn의 메인체인과는 분리된 독립적인 보조 블록체인입니다. 서비스체인은 개별 BApp에 맞도록 특별하게 노드 설정을 할 수 있습니다. 또한, 커스터마이즈된 보안 레벨 설정을 하거나 메인체인에서는 불편하거나 불가능한 예외적으로 높은 처리량을 가진 블록체인을 구현할 수 있습니다.
+Service chains in Klaytn are auxiliary blockchains independent from the Klaytn main chain, tailored for individual dApp requiring special node configurations, customized security levels, or exceptionally high throughput that makes deploying the dApp on the main chain inconvenient or economically infeasible.
 
 완전히 탈중앙화된 스케일링 솔루션이 존재하지만 Challenge나 Exit 같은 어려운 인터페이스나 비즉각적 완결성 문제 때문에, Klaytn의 서비스체인은 다른 접근법을 취하였습니다. 서비스체인은 더 나은 사용성, 즉각적인 완결성, 높은 퍼포먼스, 높은 가용성을 위해 완전한 탈중앙화를 일부 희생하였습니다.
 
-Klaytn 서비스체인은 다양한 서비스별 목표를 위해 사용될 수 있으며 데이터 앵커링이나 밸류 트랜스퍼 같은 여러 가지 이유로 메인체인과 연결될 수 있습니다. (데이터 앵커링: 노드 수가 적어 서비스체인의 보안이 저하된 것을 보완하기 위해 서비스체인의 블록 해시를 메인 체인으로 정기적으로 저장하는 일 / 밸류 트랜스퍼: KLAY나 BApps에서 발행한 토큰의 체인 간 전송)
+Klaytn service chains may be used for various service-specific goals, and can connect to the main chain for multiple reasons including data anchoring (periodic storing of block hashes from the service chain onto the main chain to compensate for the decreased security of the service chain due to the smaller number of nodes) or value transfer (interchain transfer of KLAY, Klaytn’s native unit of value, and the tokens issued by dApps).
 
 ## 네트워크 <a id="network"></a>
 Klaytn 메인체인에 연결된 서비스체인들을 통칭하여 서비스체인 네트워크라고 부릅니다. 서비스체인과 메인체인의 연결 방법은 추후 달라질 수 있습니다.
@@ -23,5 +23,5 @@ Klaytn 메인체인에 연결된 서비스체인들을 통칭하여 서비스체
 데이터 무결성을 위해 서비스체인의 블록 해시를 메인체인에 특별한 트랜잭션을 이용해 자동으로 저장할 수 있습니다. 이 데이터 앵커링을 이용하여 서비스체인에 올라간 데이터가 바뀌지 않았음을 사용자들에게 확신시킬 수 있습니다.
 
 ### 밸류 트랜스퍼(Value Transfer)<a id="value-transfer"></a>
-서비스 제공자들(SPs)이 쉽게 서비스 사용자들을 체인간 이전할 수 있도록 KLAY나 BApp을 통해 만들어진 토큰 등의 체인간 전송을 지원합니다. 사용자는 bridge contract라고 불리는 특별한 컨트랙트에 트랜잭션을 보냄으로써 다른 체인으로 토큰을 쉽게 이전할 수 있습니다.
+To help the service providers (SPs) to easily migrate service users and values across chains, transferring tokens, such as KLAY (Klaytn's native unit of value) and Klaytn tokens issued by dApps, between different chains can be enabled. 사용자는 bridge contract라고 불리는 특별한 컨트랙트에 트랜잭션을 보냄으로써 다른 체인으로 토큰을 쉽게 이전할 수 있습니다.
 
