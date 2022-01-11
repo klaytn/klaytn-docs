@@ -29,11 +29,11 @@ Baobab 테스트넷:
 
 ## Klaytn SDK가 있나요? 어떤 언어를 지원하나요? <a id="klaytn-sdks"></a>
 
-공식 Klaytn SDK는 JavaScript 및 Java로 제공됩니다. [caver-js](../bapp/sdk/caver-js/README.md)와 [caver-java](../bapp/sdk/caver-java/README.md)를 참조하세요. 다른 언어로 [Klaytn API](../bapp/json-rpc/README.md)를 제공하기 위한  커뮤니티의 참여는 언제나 환영합니다.
+공식 Klaytn SDK는 JavaScript 및 Java로 제공됩니다. See [caver-js](../dapp/sdk/caver-js/README.md) and [caver-java](../dapp/sdk/caver-java/README.md). Community contributions are always welcome in providing [Klaytn APIs](../dapp/json-rpc/README.md) in other languages.
 
-Klaytn SDK를 사용하여 BApp을 구축하는 방법에 대한 자세한 내용은 [튜토리얼](../bapp/tutorials/README.md)을 확인하세요.
+To learn about how to build dApps using Klaytn SDK, see [Tutorials](../dapp/tutorials/README.md).
 
-Also, check the porting guidelines [from web3.js](../bapp/sdk/caver-js/v1.4.1/porting-from-web3.js.md) and [from web3j](../bapp/sdk/caver-java/v1.4.0/porting-from-web3j.md). caver-js 및 caver-java의 구문은 web3.js 및 web3j와 매우 유사하므로 최소의 노력으로 간단하게 포팅할 수 있습니다. 그러나, web3.js 또는 web3j를 사용하여 Klaytn에 직접 요청을 보낼 수는 없다는 점을 기억하세요.
+Also, check the porting guidelines [from web3.js](../dapp/sdk/caver-js/v1.4.1/porting-from-web3.js.md) and [from web3j](../dapp/sdk/caver-java/v1.4.0/porting-from-web3j.md). caver-js 및 caver-java의 구문은 web3.js 및 web3j와 매우 유사하므로 최소의 노력으로 간단하게 포팅할 수 있습니다. 그러나, web3.js 또는 web3j를 사용하여 Klaytn에 직접 요청을 보낼 수는 없다는 점을 기억하세요.
 
 
 
@@ -86,12 +86,12 @@ Fee-payer accounts usually have a [role-based key](../klaytn/design/accounts.md#
 
 ## 수수료 위임을 구현한 온전한 샘플코드를 어디에서 볼 수 있을까요? <a id="fee-delegation-samples"></a>
 
-Check [fee-delegation-example](../bapp/tutorials/fee-delegation-example.md) to get a complete working code of value transfer.
+Check [fee-delegation-example](../dapp/tutorials/fee-delegation-example.md) to get a complete working code of value transfer.
 
 See the [JavaScript code snippet](https://gist.github.com/w3kim/64a3cf5da58250474f046d4dd7f85cc8) for deploying a contract with fee-delegation. Note that you can not use Truffle for the contract deployment with fee-delegation.
 
-[Sending a transaction with multiple signer](../bapp/sdk/caver-js/v1.4.1/getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer) gives a good explanation about two different ways of collecting signatures. Relevant caver-js APIs are as follows. Take a look at the code examples in the API description.
-- [caver.klay.accounts.signTransaction](../bapp/sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#signtransaction)
-- [caver.klay.accounts.feePayerSignTransaction](../bapp/sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#feepayersigntransaction)
-- [caver.klay.accounts.combinesignatures](../bapp/sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#combinesignatures)
-- [caver.klay.sendSignedTransaction](../bapp/sdk/caver-js/v1.4.1/api-references/caver.klay/transaction.md#sendsignedtransaction)
+[Sending a transaction with multiple signer](../dapp/sdk/caver-js/v1.4.1/getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer) gives a good explanation about two different ways of collecting signatures. Relevant caver-js APIs are as follows. Take a look at the code examples in the API description.
+- [caver.klay.accounts.signTransaction](../dapp/sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#signtransaction)
+- [caver.klay.accounts.feePayerSignTransaction](../dapp/sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#feepayersigntransaction)
+- [caver.klay.accounts.combinesignatures](../dapp/sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#combinesignatures)
+- [caver.klay.sendSignedTransaction](../dapp/sdk/caver-js/v1.4.1/api-references/caver.klay/transaction.md#sendsignedtransaction)
