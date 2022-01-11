@@ -30,7 +30,7 @@ Klaytn 계정의 역할 기반 키나 다중 키 기능을 이용하여, 사용�
 
 ### Human-Readable Address \(HRA\) <a id="human-readable-address-hra"></a>
 
-블록체인 플랫폼의 주소 체계 \(예 : "0x0fe2e20716753082222b52e753854f40afddffd2"\)는 계정 소유자의 개인 정보를 효율적으로 보호한다는 점에서 장점이 있지만, 사용자 경험 측면에서는 매우 불편합니다. 첫째, 인간의 두뇌는 이런 주소를 암기하거나 인식하기 어려워하기 때문에, 이런 주소 체계는 입력 실수 같은 다양한 인적 오류를 유발하여 중대한 재정적 손해를 입힐 수도 있습니다. 둘째, 이런 주소 체계는 사용자가 선호하는 사용하거나 기억하기 쉬운 주소를 선택할 기회를 뺏어갑니다. 이런 문제들은 더욱 간단하고, 쉬운 기존의 모바일 앱이나 서비스에 익숙한 사용자들이 BApp을 낯설고, 이해할 수 없으며, 불편하다고 생각하게 할 수 있습니다. 따라서 사용성에 큰 문제가 됩니다. 이전 버전과의 호환성을 제공하고, 대규모 아키텍쳐 변경 없이 이런 문제를 해결하기 위해 Klaytn은 20바이트 주소와 20바이트 문자열 매핑을 제공합니다. 이 문자열은 사용자가 지정할 수 있습니다. 이 기능은 human-readable address \(HRA\)라고 불립니다. 이 기능은 현재 개발 중이며 준비가 되면 더 많은 정보가 제공될 것입니다.
+블록체인 플랫폼의 주소 체계 \(예 : "0x0fe2e20716753082222b52e753854f40afddffd2"\)는 계정 소유자의 개인 정보를 효율적으로 보호한다는 점에서 장점이 있지만, 사용자 경험 측면에서는 매우 불편합니다. 첫째, 인간의 두뇌는 이런 주소를 암기하거나 인식하기 어려워하기 때문에, 이런 주소 체계는 입력 실수 같은 다양한 인적 오류를 유발하여 중대한 재정적 손해를 입힐 수도 있습니다. 둘째, 이런 주소 체계는 사용자가 선호하는 사용하거나 기억하기 쉬운 주소를 선택할 기회를 뺏어갑니다. Combined, these problems are among the toughest usability hurdles that cause dApp user experience for typical end-users \(who are more accustomed to the simpler, frictionless user experience offered by legacy mobile apps or services\) to be perceived as alien, incomprehensible, and severely inconvenient. To overcome such challenges without undergoing architectural modifications at large-scale and while preserving backward compatibility, Klaytn opts to provide a mapping between a 20-byte address to a 20-byte length text string that end-users could assign their own preferred values to. 이 기능은 human-readable address \(HRA\)라고 불립니다. 이 기능은 현재 개발 중이며 준비가 되면 더 많은 정보가 제공될 것입니다.
 
 ### Klaytn 지갑 키 형식 <a id="klaytn-wallet-key-format"></a>
 
