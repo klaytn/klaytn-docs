@@ -1,4 +1,4 @@
-Endpoint Node exposes JSON-RPC APIs. You can enable/disable APIs as follows. For the detailed API specification, please refer to the [JSON-RPC APIs](../../bapp/json-rpc/api-references/README.md). 
+Endpoint Node exposes JSON-RPC APIs. You can enable/disable APIs as follows. For the detailed API specification, please refer to the [JSON-RPC APIs](../../dapp/json-rpc/api-references/README.md). 
 
 **NOTE**: Offering an API over the HTTP (`rpc`) or WebSocket (`ws`) interfaces will give everyone
 access to the APIs who can access this interface (DApps, browser tabs, etc). Be careful about which APIs

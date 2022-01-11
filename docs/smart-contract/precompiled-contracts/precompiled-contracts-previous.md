@@ -146,7 +146,7 @@ function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
 
 ## Address 0x09: vmLog\(str\) <a id="address-0x-09-vmlog-str"></a>
 
-The address 0x09 prints the specified string `str` to a specific file or passes it to the logger module. For more information, see [debug\_setVMLogTarget](../bapp/json-rpc/api-references/debug/logging.md#debug_setvmlogtarget). Note that this precompiled contract should be used only for debugging purposes, and it is required to enable the `--vmlog` option when the Klaytn node starts. Also, the log level of the Klaytn node should be 4 or more to see the output of vmLog. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
+The address 0x09 prints the specified string `str` to a specific file or passes it to the logger module. For more information, see [debug\_setVMLogTarget](../dapp/json-rpc/api-references/debug/logging.md#debug_setvmlogtarget). Note that this precompiled contract should be used only for debugging purposes, and it is required to enable the `--vmlog` option when the Klaytn node starts. Also, the log level of the Klaytn node should be 4 or more to see the output of vmLog. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callVmLog(bytes memory str) public {
