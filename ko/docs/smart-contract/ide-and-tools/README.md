@@ -15,11 +15,11 @@ description: >-
 
 #### [Kaikas](../../toolkit/kaikas.md) <a id="kaikas"></a>
 
-* Kaikas는 Klaytn 네트워크를 위한 웹 브라우저 확장 프로그램 지갑입니다. Kaikas는 KLAY와 Klaytn 기반 토큰을 보관하고 활용하도록 당신을 돕습니다. 또 Kaikas를 사용하면 웹 기반 Klaytn BApp과 연동하여 실시간으로 트랜잭션에 서명할 수 있습니다.
+* Kaikas는 Klaytn 네트워크를 위한 웹 브라우저 확장 프로그램 지갑입니다. Kaikas는 KLAY와 Klaytn 기반 토큰을 보관하고 활용하도록 당신을 돕습니다. Kaikas also enables you to sign transactions from web-based Klaytn dApps in realtime.
 
 #### [Klaytn Wallet](../../toolkit/klaytn-wallet.md)  <a id="klaytn-wallet"></a>
 
-* Klaytn Wallet은 블록체인 어플리케이션 \(BApp\) 개발자들을 위한 브라우저 기반의 계정 관리 도구입니다. 계정을 생성/불러오고, 잔액을 확인하고, KLAY를 전송할 수 있습니다. Klaytn 토큰을 동록해 기본 동작들을 테스트할 수도 있습니다.
+* Klaytn Wallet is a browser-based account management tool for the Decentralized Application (dApp) developers. 계정을 생성/불러오고, 잔액을 확인하고, KLAY를 전송할 수 있습니다. Klaytn 토큰을 동록해 기본 동작들을 테스트할 수도 있습니다.
 
 #### [Klaytnscope](../../toolkit/klaytnscope.md)  <a id="klaytnscope"></a>
 
