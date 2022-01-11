@@ -10,7 +10,7 @@ Klaytn은 1초 블록생성 시간을 목표로 하기 때문에 트랜잭션 �
 
 마지막 해결책은 트랜잭션의 연산 비용을 제한하는 것입니다. 우리는 각 EVM 연산자(Opcode)의 연산 비용을 실제 실행 시간에 기반하여 모델링하고, 한 트랜잭션 연산 비용의 합계를 제한합니다. 이 접근 방식을 사용하면 다른 요소들을 제거하고, 정규화된 실행 시간만 계산하여 노드들이 합의에 도달 할 수 있습니다.
 
-그렇기 때문에 우리는 Klaytn에 세번 째 방법을 선택했습니다. 현재는 실행 비용 한도는 100,000,000으로 설정되어 있습니다. 한도는 플랫폼에 의해 결정되므로 개발자들은 트랜잭션의 연산 비용을 알아야합니다. 트랜잭션의 연산 비용을 알 수 있도록 Klaytn은 [ klay_estimateComputationCost](../../../../../bapp/json-rpc/api-references/klay/transaction.md#klay_estimatecomputationcost)를 제공합니다. 사용법은 [klay_estimateGas](../../../../../bapp/json-rpc/api-references/klay/transaction.md#klay_estimategas)와 거의 같습니다.
+그렇기 때문에 우리는 Klaytn에 세번 째 방법을 선택했습니다. 현재는 실행 비용 한도는 100,000,000으로 설정되어 있습니다. 한도는 플랫폼에 의해 결정되므로 개발자들은 트랜잭션의 연산 비용을 알아야합니다. To calculate the computation cost of a transaction, Klaytn provides [klay_estimateComputationCost](../../../../../dapp/json-rpc/api-references/klay/transaction.md#klay_estimatecomputationcost). The usage is almost the same as [klay_estimateGas](../../../../../dapp/json-rpc/api-references/klay/transaction.md#klay_estimategas).
 
 ## Opcode의 연산 비용 <a id="computation-cost-of-opcodes"></a>
 
