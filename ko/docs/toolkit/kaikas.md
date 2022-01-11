@@ -1,10 +1,10 @@
 # Kaikas <a id="kaikas"></a>
 
-Kaikas는 Klaytn 네트워크를 위한 웹 브라우저 확장 프로그램 지갑입니다. Kaikas는 구글 크롬과 모질라 파이어폭스에서 사용 가능하며, 웹 브라우저를 통해 Klaytn 네트워크와 상호 작용할 수 있는 안전하고 유용한 방법을 제공합니다. Kaikas를 통해 KLAY를 포함한 Klaytn 기반 토큰들을 보관하거나 전송할 수 있습니다. 그리고 웹 기반 Klaytn BApp(Blockchain Applications)과 실시간 연동해 트랜잭션 서명을 대신 수행할 수 있습니다.
+Kaikas는 Klaytn 네트워크를 위한 웹 브라우저 확장 프로그램 지갑입니다. Kaikas는 구글 크롬과 모질라 파이어폭스에서 사용 가능하며, 웹 브라우저를 통해 Klaytn 네트워크와 상호 작용할 수 있는 안전하고 유용한 방법을 제공합니다. Kaikas를 통해 KLAY를 포함한 Klaytn 기반 토큰들을 보관하거나 전송할 수 있습니다. You are also able to sign requests from web-based dApps (Decentralized Applications) in realtime.
 
 * 크롬 웹 스토어 다운로드: [link](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi)
 
-Kaikas와 연동하여 BApp을 개발하고자 하시는 분들은 [https://docs.kaikas.io](https://docs.kaikas.io)에서 자세한 내용을 참고하시기 바랍니다.
+For developers, please visit [https://docs.kaikas.io](https://docs.kaikas.io) to learn how you can develop dApps using Kaikas.
 
 ## PC 웹 브라우저 기반의 탈중앙화 HD 월렛
 
@@ -20,8 +20,8 @@ Kaikas는 위와 같은 구조를 통해 지갑 사용성, 편의성은 물론 �
 
 Kaikas는 KLAY를 포함한 모든 종류의 Klaytn 기반 토큰을 지원합니다. Kaikas에 디폴트로 탑재되지 않은 코인이라도 토큰 어드레스를 등록해 이용하실 수 있습니다. 뿐만 아니라, 사용자가 직접 개발한 클레이튼 기반의 커스텀 토큰을 Kaikas에 추가해 보관하거나 지인에게 전송할 수도 있습니다.
 
-사용자는 Klaytn의 Baobab 테스트넷과 Cypress 메인넷 환경에서 Kaikas를 이용할 수 있습니다. 더불어, Kaikas는 개인 네트워크에서 커스톰 토큰을 발행하려는 Klaytn BApp 개발자를 위해 프라이빗 체인도 지원합니다.
+사용자는 Klaytn의 Baobab 테스트넷과 Cypress 메인넷 환경에서 Kaikas를 이용할 수 있습니다. Moreover, Kaikas supports the private chains for Klaytn-based dApp developers who may wish to circulate custom tokens in their private network.
 
-## 웹기반 BApp에서 요청하는 트랜잭션 서명 수행
+## Signing web-based dApp transactions
 
-Kaikas는 개발자 여러분과 Klaytn BApp을 잇는 다리이며, Kaikas 계정으로 여러 BApp에서 들어오는 트랜잭션/데이터에 서명할 수 있도록 합니다. 또 Kaikas는 [fee-delegated transactions](/klaytn/design/transactions/README.md#fee-delegation)를 다루는 개발자들에게 매우 유용한 유틸리티입니다. Kaikas를 사용하면 트랜잭션 발신자와 수수료 납부자 모두 수수료 위임 트랜잭션에 매우 손쉽게 서명할 수 있습니다.
+Kaikas simply bridges the gap between you and dApps, empowering you to sign transactions/data flowing to you from dApps with Kaikas account. 또 Kaikas는 [fee-delegated transactions](/klaytn/design/transactions/README.md#fee-delegation)를 다루는 개발자들에게 매우 유용한 유틸리티입니다. Kaikas를 사용하면 트랜잭션 발신자와 수수료 납부자 모두 수수료 위임 트랜잭션에 매우 손쉽게 서명할 수 있습니다.
