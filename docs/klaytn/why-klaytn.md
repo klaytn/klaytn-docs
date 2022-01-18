@@ -2,92 +2,86 @@
 description: >-
   This document explains the key design principles of Klaytn and illustrates how Klaytn differentiates itself from others. 
 ---
-
+​
 # Why Klaytn <a id="why-klaytn"></a>
-
-Ever since the first bitcoin transaction in 2009, numerous blockchain applications have been developed, but few of them gain meaningful traction in the market. The major roadblocks to blockchain adoption are; 
-
-- Difficulty of use: Blockchain applications force end-users to understand cryptographic terms and the inner workings of the system. There are too many steps in making transactions, and hex-strings pop up all over.
-- Poor user experience: The burden of technical immaturity is simply passed to the users. In many blockchain systems, a transaction is not confirmed until significant time passes. Use of application often requires password inputs repeatedly (while there are no password recoveries), and charges a fee for each interaction (where the amount of fee can be highly fluctuating each time). 
-- Uncertain sustainability: Lack of long-term sustainable business models for public blockchains slows down enterprise adoption. The operation heavily relies on the token economy that incentivizes the stakeholders to act in a sustainable manner, but the model is not proven in commercial areas yet.
-
-## Klaytn is aiming at Mass-adoption of Blockchain <a id="klaytn-is-aiming-at-mass-adoption-of-blockchain"></a>
-
-The goal of Klaytn is blockchain mass adoption. The foremost design principle is;
-
+​
+## Klaytn as a trust layer of metaverse <a id="klaytn-as-a-trust-layer-of-metaverse"></a>
+​
+Klaytn is built to be the fundamental trust layer for the metaverse that compensates and respects all communities according to their participation and contribution, eventually bringing people together in the new world, stimulating their creation, and empowering them.
+​
+The foremost design principle is;
+​
 {% hint style="success" %}
-Giving the same user experience that matches the expectation set on the web/mobile applications, eventually making the technology invisible to the users.
+Helping the pioneers to easily build the applications and organize the community, in scalable way. 
 {% endhint %}
-
+​
 As per this principle, Klaytn has been designed to meet the following requirements.
-
-### High Performance  <a id="high-performance"></a>
-
+​
+### High Performance <a id="high-performance"></a>
+​
+**Throughput(TPS) and Finality**
 - Main chain should handle at least 4,000 TPS. 
 - Main chain should guarantee immediate transaction finality with one-second block generation time.
 - See [Consensus Mechanism].
-
+​
+**Scalability**
+- Service chain is the default L2 solution for Klaytn 2.0 which is easily customizable and deployable. The service chain can have its own governance and connect to the Klaytn main chain for data anchoring and asset transfer. 
+- See [Service Chain]. Enterprises or large networks often want to have their own dedicated execution environment. With the service chain, they can maintain an isolated high-performing execution environment that is not affected by other blockchain applications.
+- Other scalability solutions will be available in the near future, such as sharding or rollups.
+​
 ### Low Cost  <a id="low-cost"></a>
-
+​
 - End-users should not be burdened with any higher transaction fee that is beyond the cost that the traditional systems require.
 - Transaction fee should be stable and be determined by the transaction complexity itself, not by surrounding factors.
 - See [Affordable Smart Contract Execution Cost] and [Transaction Fees]. At the time of writing, sending KLAY requires a fixed fee of 0.000625 KLAY. 
-
-### Usability in User Account Management <a id="usability-in-user-account-management"></a>
-
-- User should be able to choose own account address in a human-readable format.
-- User can change the private key of an account without changing the address. 
-- See [Human-Readable Address] and [Decoupling of Key Pairs from Addresses].
-
-### Usability in Transaction <a id="usability-in-transaction"></a>
-
+​
+### Rapid Development <a id="rapid-development"></a>
+​
+**Ethereum Compatibility**
+- Development Tools: Any tooling that can run on Ethereum will run seamlessly within the Klaytn ecosystem by making Klaytn’s technical stack equivalent, from an interfacing and execution perspective, to the existing Ethereum stack.
+- EVM and API: By building on top of existing Ethereum stacks; we inherit any improvements made to the open-source codebases of EVM and supporting libraries. See [Solidity-Smart Contract Language], and [Migrating Ethereum App to Klaytn].
+- Core Development Contribution: Supporting Ethereum equivalence translates most to the mutual benefit to both the Klaytn and Ethereum ecosystems. The majority of Ethereum Improvement Proposals (EIPs) could be migrated and adopted to the Klaytn core development agenda, and in turn Klaytn Improvement Proposals (KIPs) could contribute to the advancement of Ethereum and EVM.
+​
+**Open Source Infrastructure and Package**
+- Primary Infrastructure: tool sets for end-to-end blockchain integration and building. It includes SDKs and smart contract libraries, Wallets and chain explorers, Distributed storage solutions, Oracle support and Bridges.
+- Secondary Infrastructure: ecosystem for supporting products and services. It includes Integration/abstraction services, Stablecoin integrations, DAOs, NFT Marketplaces, DEX and DeFi and Traditional finance interfaces.
+​
+​
+### Enhanced User Experience <a id="usability-in-transaction"></a>
+​
+**Usability in Transaction**
 - Ability to delegate the user's transaction fee to the application operator. 
 - See [Fee Delegation]. Application operator can decide the amount of subsidy for each transaction and can implement more flexible business models such as freemium or subscription. Fee delegation can effectively lower the user acquisition barrier. 
-
+​
+​
+### A Full-suite, Protocol-level Eco Fund <a id="contribution-reward"></a>
+- Klaytn is the first and the largest example in which the incentives supporting the ecosystem are encoded in an on-chain protocol tokenomics. 66% of the newly minted tokens are reinvested in the ecosystem.
+- See [Klaytn Improvement Reserve] and [Klaytn Growth Fund].
+​
+​
+### Community Co-Building <a id="community-co-building"></a>
+- In addition to the protocol design, Klaytn will expands its territory through community co-building; it includes a various kinds of communities such as game guilds, investment DAOs, community DAOs, alliance with global players, etc. 
+​
 ***
-
-Removing usability hurdles in the platform layer is not enough to drive the mass-adoption. To find attractive blockchain applications, fostering global developer communities along the strategic partnership with business owners is a crucial step. 
-
-{% hint style="success" %}
-Making a business-friendly environment to encourage the birth of compelling applications.
-{% endhint %}
-
-This entails the following requirements to support application development. 
-
-### Rapid Development <a id="rapid-development"></a>
-
-- The development of application on Klaytn must be straightforward, and the technologies used must follow the open standard to reduce the learning curve.
-- See [Solidity-Smart Contract Language], [Truffle], and [Migrating Ethereum App to Klaytn]. As Klaytn Virtual Machine (KLVM) supports Ethereum’s Solidity contract, it becomes much easier to port PoC product on Ethereum to Klaytn for commercial use. It is much easier as well to find development tools and to get some help from the well-established developer community. 
-
-### Service-specific Private Chains with Data Anchoring <a id="service-specific-private-chains-with-data-anchoring"></a>
-
-- Klaytn should provide a dedicated solution for private blockchain. The private chain can have its own governance and connect to the Klaytn main chain for data anchoring and asset transfer. 
-- See [Service Chain]. Enterprises often want to have their own dedicated execution environment to meet the SLA. With the service chain, an enterprise can maintain an isolated high-performing execution environment that is not affected by other blockchain applications, and also keep their business-sensitive data private. 
-
-### Contribution Reward <a id="contribution-reward"></a>
-
-- Applications that contribute to growing Klaytn ecosystem should be fairly rewarded.
-- See [Incentive Program]. 
-
-***
-
+​
 Lastly, the grounding rules, 
-
+​
 {% hint style="success" %}
-Klaytn does not sacrifice blockchain’s core characteristics to achieve the above-mentioned enhancement, and the platform stays stable with strongly committed stakeholders.
+Klaytn does not sacrifice blockchain’s core characteristics to achieve the above-mentioned enhancement, and the protocol stays stable with strongly committed stakeholders.
 {% endhint %}
-
+​
 ### Transparency, Security and Decentralization <a id="transparency-security-and-decentralization"></a>
-
+​
 - Everyone can request transactions and retrieve and validate every transaction execution result on the blockchain.
 - Klaytn is a decentralized network and no single malicious node breaks the data integrity.
-
-### Governance by Trusted Entities <a id="governance-by-trusted-entities"></a>
-
-- At its initial phase, trusted entities, global listed enterprises that manage the business of hundreds of thousands to billions of dollars, operate Klaytn node and participate in decision making for the development of Klaytn. 
-
-
-
+​
+### Governance by DAOs, Builders and Enterprises Realizes Decentralization with Stability <a id="governance-by-trusted-entities"></a>
+​
+- In addition to current traditional enterprises as Klaytn Governance Council(GC), by bringing more decentralized entities such as DAOs and builders into GC, we are opening up the potential to rebuild the entire Klaytn governance structure in an unprecedented way with hundreds of governance participants. 
+​
+​
+​
+​
 [Decoupling of Key Pairs from Addresses]: design/accounts.md#decoupling-key-pairs-from-addresses
 [Multiple Key Pairs and Role-Based Keys]: design/accounts.md#multiple-key-pairs-and-role-based-keys
 [Human-Readable Address]: design/accounts.md#human-readable-address-hra
@@ -100,3 +94,5 @@ Klaytn does not sacrifice blockchain’s core characteristics to achieve the abo
 [Truffle]: ../toolkit/truffle.md
 [Migrating Ethereum App to Klaytn]: ../dapp/tutorials/migrating-ethereum-app-to-klaytn.md
 [Incentive Program]: design/token-economy.md
+[Klaytn Improvement Reserve]: design/token-economy#klaytn-improvement-reserve.md
+[Klaytn Growth Fund]: design/token-economy#klaytn-growth-fund.md
