@@ -187,7 +187,7 @@ In order for a transaction to be valid for an account associated with AccountKey
 NOTE: The next multiSig validation logic have been changed with the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0.
 * The invalid signature should not be included in the transaction.
 * The number of signed public keys should be less than the number of weightedPublicKeys.
-If you want the previous document, please refer to [previous document](transaction-fees-previous.md).
+If you want the previous document, please refer to [previous document](transaction-fees/transaction-fees-previous.md).
 
 v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items.
 It has been enabled from block number `#75373312` in case of Baobab network.
