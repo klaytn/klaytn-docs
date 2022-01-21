@@ -279,11 +279,9 @@
 
 ## --- <a id="misc"></a>
 
-* [Vision](misc/vision/README.md)
-  * [Value Proposition](misc/vision/value-proposition.md)
-  * [Open Source](misc/vision/opensource.md)
 * [FAQ](misc/faq.md)
 * [Glossary](misc/glossary.md)
+* [Open Source](misc/opensource.md)
 * [Terms of Use](misc/terms-of-use.md)
 
 * [Languages](languages.md)
