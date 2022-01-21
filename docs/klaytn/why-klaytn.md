@@ -2,9 +2,9 @@
 description: >-
   This document explains the key design principles of Klaytn and illustrates how Klaytn differentiates itself from others. 
 ---
-​
+
 # Why Klaytn <a id="why-klaytn"></a>
-​
+
 ## Klaytn as a trust layer of metaverse <a id="klaytn-as-a-trust-layer-of-metaverse"></a>
 ​
 Klaytn is built to be the fundamental trust layer for the metaverse that respects the participation and contributions of all communities, bringing them together in the new world and empowering them.
@@ -30,7 +30,6 @@ As per this principle, Klaytn has been designed to meet the following requiremen
 - Other scalability solutions will be available in the near future, such as sharding or rollups.
 ​
 ### Low Cost  <a id="low-cost"></a>
-​
 - End-users should not be burdened with any higher transaction fee that is beyond the cost that the traditional systems require.
 - Transaction fee should be stable and be determined by the transaction complexity itself, not by surrounding factors.
 - See [Affordable Smart Contract Execution Cost] and [Transaction Fees]. At the time of writing, sending KLAY requires a fixed fee of 0.000625 KLAY. 
@@ -62,26 +61,19 @@ As per this principle, Klaytn has been designed to meet the following requiremen
 ### Community Co-Building <a id="community-co-building"></a>
 - In addition to the protocol design, Klaytn will expands its territory through community co-building; it includes a various kinds of communities such as game guilds, investment DAOs, community DAOs, alliance with global players, etc. 
 ​
-***
-​
 Lastly, the grounding rules, 
 ​
 {% hint style="success" %}
 Klaytn does not sacrifice blockchain’s core characteristics to achieve the above-mentioned enhancement, and the protocol stays stable with strongly committed stakeholders.
 {% endhint %}
-​
+
 ### Transparency, Security and Decentralization <a id="transparency-security-and-decentralization"></a>
-​
 - Everyone can request transactions and retrieve and validate every transaction execution result on the blockchain.
 - Klaytn is a decentralized network and no single malicious node breaks the data integrity.
 ​
 ### Governance by DAOs, Builders and Enterprises Realizes Decentralization with Stability <a id="governance-by-trusted-entities"></a>
-​
 - In addition to the current traditional enterprises as Klaytn Governance Council (GC), by bringing more decentralized entities such as DAOs and builders into the GC, we are opening up the potential to rebuild the entire Klaytn governance structure in an unprecedented way with hundreds of governance participants. 
-​
-​
-​
-​
+
 [Decoupling of Key Pairs from Addresses]: design/accounts.md#decoupling-key-pairs-from-addresses
 [Multiple Key Pairs and Role-Based Keys]: design/accounts.md#multiple-key-pairs-and-role-based-keys
 [Human-Readable Address]: design/accounts.md#human-readable-address-hra
