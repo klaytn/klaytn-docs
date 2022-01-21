@@ -2,7 +2,7 @@
 
 ## 개요 <a id="overview"></a>
 
-Klaytn의 토큰 이코노미는 플랫폼의 생태계 운영, 성장 계획, 전략적 투자를 지속가능하게 지원하기 위한 구조를 갖추도록 설계되었습니다. 많은 공개 블록체인 프로젝트들의 토큰 이코노미는 네트워크 유지라는 기술적 측면에만 초점을 맞추면서 노드 운영자(채굴자 또는 블록 생산자)에게만 유인을 제공합니다. 그러나 이는 네트워크의 확장에 기여하거나 장기 성장에 투자하는 다른 참여자들에게 유인을 제공하는 중요성을 간과하는 것입니다. Klaytn의 토큰 이코노미는 폭넒은 영역의 참여자들의 더 다양한 형태로 기여하고 이에 대해 보상을 받을 수 있도록 설계되었습니다. 또한, 블록체인 노드 운영 외에도 외에도 미래 성장 계획이나 전략적으로 기획된 투자 프로젝트를 지원하기 위해 지속적으로 재원을 공급할 수 있는 구조를 가지고 있습니다. Klaytn의 토큰 이코노미에 대해 더 자세한 정보를 알고 싶다면 [토큰 이코노미 & 거버넌스 페이퍼](https://www.klaytn.com/Klaytn_Token_Economics_and_Governance_Paper_V1.01.pdf)를 참고해주세요.
+Klaytn의 토큰 이코노미는 플랫폼의 생태계 운영, 성장 계획, 전략적 투자를 지속가능하게 지원하기 위한 구조를 갖추도록 설계되었습니다. 많은 공개 블록체인 프로젝트들의 토큰 이코노미는 네트워크 유지라는 기술적 측면에만 초점을 맞추면서 노드 운영자(채굴자 또는 블록 생산자)에게만 유인을 제공합니다. 그러나 이는 네트워크의 확장에 기여하거나 장기 성장에 투자하는 다른 참여자들에게 유인을 제공하는 중요성을 간과하는 것입니다. Klaytn의 토큰 이코노미는 폭넒은 영역의 참여자들의 더 다양한 형태로 기여하고 이에 대해 보상을 받을 수 있도록 설계되었습니다. 또한, 블록체인 노드 운영 외에도 외에도 미래 성장 계획이나 전략적으로 기획된 투자 프로젝트를 지원하기 위해 지속적으로 재원을 공급할 수 있는 구조를 가지고 있습니다.
 
 ## 펀딩 구조(Funding Structure)<a id="funding-structure"></a>
 
@@ -12,7 +12,7 @@ Klaytn의 펀딩 구조는 Klaytn 네트워크의 블록 생성과 함께 지속
 * Klaytn Growth Fund \(KGF\): 54%
 * Klaytn 개선 준비금 \(KIR\) : 12 %
 
-Klaytn 메인넷 출시 시점에는 블록당 9.6 KLAY가 발행됩니다. 따라서 매년 약 3억개의 KLAY가 발행될 것으로 예상할 수 있습니다. 최초 발행된 100억 KLAY 대비 연간 인플레이션율은 3 %인 것입니다(연간 인플레이션율은 Klaytn Governance Process를 통해 변경 될 수 있습니다). 트랜잭션 수수료는 OPcode당 부과되며, 트랜잭션 수수료 표에 따라 책정됩니다. 트랜잭션 수수료 표에 대해서 더 자세한 정보를 알고 싶으시다면 [트랜잭션 수수료](transaction-fees/transaction-fees.md)를 참고해주세요.
+For every block created, 9.6 KLAY will be minted. 따라서 매년 약 3억개의 KLAY가 발행될 것으로 예상할 수 있습니다. 최초 발행된 100억 KLAY 대비 연간 인플레이션율은 3 %인 것입니다(연간 인플레이션율은 Klaytn Governance Process를 통해 변경 될 수 있습니다). 트랜잭션 수수료는 OPcode당 부과되며, 트랜잭션 수수료 표에 따라 책정됩니다. 트랜잭션 수수료 표에 대해서 더 자세한 정보를 알고 싶으시다면 [트랜잭션 수수료](transaction-fees/transaction-fees.md)를 참고해주세요.
 
 ## Klaytn 거버넌스 카운슬 보상 <a id="klaytn-governance-council-reward"></a>
 
@@ -47,18 +47,16 @@ Liveness Failure를 일으키는 경우:
 
 ### Background
 
-Klaytn's token economy operates and develops through the activities of Klaytn's economic entities. The growth of the economy will help improve the stability of the platform and help the ecosystem last. Therefore, Klaytn has created an incentive system to foster the economic entities' activities in order to help maintain and strengthen the economic growth of Klaytn.
+Klaytn's token economy operates and develops through the activities of Klaytn's economic entities. The growth of the economy will help improve the stability of the platform and help the ecosystem last. Therefore, Klaytn has an incentive system that fosters the economic entities' activities in order to help maintain and strengthen the economic growth of Klaytn.
 
 
 ### General Concept
-The Klaytn Growth Fund (KGF) aims to bring Klaytn economy forward by providing grants and investing in various organizations and individuals that contribute to the Klaytn economy. Klaytn's technology provides enormous opportunities for people to store, transfer, and exchange data and value globally with ease and at minimal cost. And since it is an open network, anyone can join to build an application without obtaining any permissions. However, a wider adoption of blockchain has been hindered because the technology is still in its early phase, and most of the values and data are still being managed in traditional ways in the form of contracts, local storage, etc. And solving these problems are exactly what the KGF is intended for. During its initial phase, digital asset applications and infrastructures will be some of its focus areas. To operate the KGF, various programs for promoting the adoption of Klaytn in the digital asset industry may be included. It will be constantly financed through a certain percentage of the block rewards (refer to [Funding Structure](token-economy.md#funding-structure)).
+The Klaytn Growth Fund (KGF) aims to bring Klaytn economy forward by providing grants and investing in various organizations and individuals that contribute to the Klaytn economy. Klaytn's technology provides enormous opportunities for people to store, transfer, and exchange data and value globally with ease and at minimal cost. And since it is an open network, anyone can join to build an application without obtaining any permissions. However, a wider adoption of blockchain has been hindered because the technology is still in its early phase, and most of the values and data are still being managed in traditional ways in the form of legal contracts, local storage, etc. And KGF is intended to solve these problems. KGF will support various programs for promoting the adoption of Klaytn across all industries, such as rewarding those who show proof-of-contribution on-chain and investing in early-stage dApps. It will be constantly financed through a certain percentage of block rewards (refer to [Funding Structure](token-economy.md#funding-structure)).
 
 
 ## Klaytn Improvement Reserve <a id="klaytn-improvement-reserve"></a>
 
-As technology continues to improve and the needs of users change over time, our platform must have the ability to quickly adapt to any new circumstance that arises. To respond to such changes, we must not only work on services, but also undergo various activities to maintain Klaytn’s ecosystem. For instance, research and development for better technology, or projects that contribute to the overall growth of the ecosystem may be part of these activities. These activities are necessary for Klaytn to progress continuously. Therefore, the Klaytn Improvement Reserve \(KIR\) will be managed on the platform for the investment and research on the Klaytn ecosystem.
-
-The spending necessary to set up the ecosystem can be categorized as following.
+As technology continues to improve and the needs of users change over time, our platform must have the ability to quickly adapt to any new circumstance that arises. To respond to such changes, we must not only work on services, but also undergo various activities to maintain Klaytn’s ecosystem. For instance, research and development for better technology, or projects that contribute to the overall growth of the ecosystem may be part of these activities. These activities are necessary for Klaytn to progress continuously. Klaytn Improvement Reserve (KIR) will be deployed for activities that improve the Klaytn ecosystem such:
 
 
 
