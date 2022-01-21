@@ -77,7 +77,7 @@ Klaytn does not sacrifice blockchain’s core characteristics to achieve the abo
 ​
 ### Governance by DAOs, Builders and Enterprises Realizes Decentralization with Stability <a id="governance-by-trusted-entities"></a>
 ​
-- In addition to current traditional enterprises as Klaytn Governance Council(GC), by bringing more decentralized entities such as DAOs and builders into GC, we are opening up the potential to rebuild the entire Klaytn governance structure in an unprecedented way with hundreds of governance participants. 
+- In addition to the current traditional enterprises as Klaytn Governance Council (GC), by bringing more decentralized entities such as DAOs and builders into the GC, we are opening up the potential to rebuild the entire Klaytn governance structure in an unprecedented way with hundreds of governance participants. 
 ​
 ​
 ​
