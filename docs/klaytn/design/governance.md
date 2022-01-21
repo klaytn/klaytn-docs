@@ -4,7 +4,7 @@
 
 ### Klaytn Governance: Taking the First Step to Decentralization <a id="klaytn-governance-taking-the-first-step-to-decentralization"></a>
 
-The Klaytn Governance Council is a council that has the right to decide various governance matters. To secure its reliability, the early members of the Governance Council has been limited to trusted organizations. This decision has been made so that the protocol can be quickly improved in the platform development and stabilization stage. Klaytn reached the stages by joining hands with 31 Governance Council Members and seamlessly running the Klaytn Mainnet. 
+The Klaytn Governance Council is a council that has the right to decide various governance matters. To secure its reliability, the early members of the Governance Council have been limited to trusted organizations. This was chosen for the sake of efficiency in the platform's development and stabilization stage. Klaytn reached the stage by joining hands with 31 Governance Council Members and a seamless operation of the Klaytn Mainnet. 
 
 Klaytn believes that Klaytn governance should be able to guide Klaytn’s growth to a direction aligned with the transition of our world. One of the key transitions of the world is coming from the growth of the Metaverse. Along with technological advancement, we will live in a more metaversified world. In particular, we are witnessing the growth of the influence of non-traditional entities such as Decentralized Autonomous Organizations (DAOs) and builders. As an organization operating on smart contracts without centralized structure, DAOs will be a major form of entity in the Metaverse. Builders will have more influence by contributing to the operation and growth of the Metaverse. 
 
