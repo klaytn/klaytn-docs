@@ -182,7 +182,7 @@ AccountKeyWeightedMultiSig는 계정 키 타입입니다. 여기에는 threshold
 {% hint style="success" %}
 참고: 다음 multiSig 검증 로직은 Klaytn v.1.7.0에서 도입된 프로토콜 업그레이드(하드포크)와 함께 변경되었습니다.
 * 트랜잭션에 유효하지 않은 서명이 포함되면 안 됩니다.
-* 서명된 공개키 개수가 WeightedPublicKey 개수보다 적어야만 합니다. 이전 문서는 [이전 문서](transaction-fees-previous.md)를 참고해주세요.
+* 서명된 공개키 개수가 WeightedPublicKey 개수보다 적어야만 합니다. If you want the previous document, please refer to [previous document](transaction-fees/transaction-fees-previous.md).
 
 v1.7.0 프로토콜 업그레이드 - **Istanbul** 하드포크 및 Klaytn의 자체 사항들을 포함하는 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#75373312`부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
 
