@@ -8,7 +8,7 @@ The Klaytn Governance Council is a council that has the right to decide various 
 
 Klaytn believes that Klaytn governance should lead Klaytn’s growth aligned with the transition of our world. One of the key transitions in the world is coming from the growth of the metaverse. The technological advancements are ushering in a more metaversified world. In particular, we are witnessing the growth of the influence of non-traditional entities such as Decentralized Autonomous Organizations (DAOs) and builders. As an organization operating on smart contracts without a centralized structure, DAOs will be a core entity in the metaverse. Builders will have more influence by contributing to the operation and growth of the metaverse. 
 
-We are reshuffling our governance structure to facilitate the interaction between the transition of the world and the composition of Klaytn governance. In addition to traditional enterprises, Klaytn is opening up the Membership of the Klaytn Governance Council to the non-traditional entities mentioned above. 
+We are reorganizing our governance structure to better accommodate to the changing world. In addition to traditional enterprises, Klaytn is opening up the Membership of the Klaytn Governance Council to the non-traditional entities mentioned above. 
 
 By introducing a stake-based governance model and eliminating the Gini Coefficient from Klaytn’s voting mechanism, Klaytn enables governance participants who can gather more support from Klaytn Communities to shape Klaytn in line with their preference. Entities who can make a proper decision in a Metaversified world will have more influence in the Klaytn GC. We believe DAOs and builders will lead the scene in the future.
 
