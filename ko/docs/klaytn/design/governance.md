@@ -2,17 +2,21 @@
 
 ## 개요 <a id="overview"></a>
 
-### Klaytn 거버넌스 카운슬: Klaytn 기여자와 함께 거버넌스를 운영 <a id="klaytn-governance-council-co-governed-by-klaytn-contributors"></a>
+### Klaytn Governance: Taking the First Step to Decentralization <a id="klaytn-governance-taking-the-first-step-to-decentralization"></a>
 
-Klaytn의 장기적인 발전과 이해관계를 공유하며 플랫폼을 수립하고 확장하는 기여자들이야말로 Klaytn 거버넌스 참여에 가장 적합한 주체라고 생각합니다. Klaytn에 새로운 서비스를 제공하여 블록체인 서비스 대중화를 지원하는 서비스 제공자, Klaytn을 세상에 소개하고 홍보하는 생태계 빌더 등 모든 형태의 기여자가 Klaytn 거버넌스 카운슬의 구성원이 될 수 있습니다. 즉, Klaytn 거버넌스 카운슬은 Klaytn의 장기적 성장을 이끄는 의사결정 그룹입니다. Klaytn의 토큰 이코노미에 대해 더 자세한 정보를 알고 싶다면, [토큰 이코노미 & 거버넌스 페이퍼](https://www.klaytn.com/Klaytn_Token_Economics_and_Governance_Paper_V1.01.pdf)를 참고해주세요.
+The Klaytn Governance Council is a council that has the right to decide various governance matters. To secure its reliability, the early members of the Governance Council have been limited to trusted organizations. This was chosen for the sake of efficiency in the platform's development and stabilization stage. Klaytn reached the stage by joining hands with 31 Governance Council Members and a seamless operation of the Klaytn Mainnet.
 
-### 부트스트래핑 <a id="bootstrapping"></a>
+Klaytn believes that Klaytn governance should lead Klaytn’s growth aligned with the transition of our world. One of the key transitions in the world is coming from the growth of the metaverse. The technological advancements are ushering in a more metaversified world. In particular, we are witnessing the growth of the influence of non-traditional entities such as Decentralized Autonomous Organizations (DAOs) and builders. As an organization operating on smart contracts without a centralized structure, DAOs will be a core entity in the metaverse. Builders will have more influence by contributing to the operation and growth of the metaverse.
 
-초기 단계에서 신뢰할 수 있는 플랫폼을 만들기 위해, 오직 신뢰할 수 있는 주체들만 Klaytn 거버넌스 카운슬의 잠재적인 멤버로 간주됩니다. 개발 및 안정화 단계에서 프로토콜이 신속하게 개선될 수 있도록 설계되었습니다.
+We are reorganizing our governance structure to better accommodate to the changing world. In addition to traditional enterprises, Klaytn is opening up the Membership of the Klaytn Governance Council to the non-traditional entities mentioned above.
+
+By introducing a stake-based governance model and eliminating the Gini Coefficient from Klaytn’s voting mechanism, Klaytn enables governance participants who can gather more support from Klaytn Communities to shape Klaytn in line with their preference. Entities who can make a proper decision in a Metaversified world will have more influence in the Klaytn GC. We believe DAOs and builders will lead the scene in the future.
+
+When the level of metaversification crosses the critical threshold, Klaytn governance will be fully decentralized with various types of entities. Ultimately, Klaytn will evolve into a DAO of DAOs and a platform for DAOs to communicate the voices of Klaytn Communities through on-chain mechanisms.
 
 ## 거버넌스 사항 <a id="governance-topics"></a>
 
-거버넌스 구조를 통해 결정할 수 있는 주요 사항은 다음과 같은 3가지이며, 추가 의사결정이 필요한 제안은 정기 회의나 임시 회의에서 검토될 수 있습니다. Klaytn 거버넌스 카운슬은 Klaytn의 성장에 가장 적합한 결정을 내려야 합니다.
+The main topics that can be decided through the governance structure include the following three areas, and proposals that require additional decision making may be introduced in a regular meeting or temporary meeting for review. The Klaytn Governance Council must make decisions that are best for the growth of Klaytn.
 
 - **Technology**
   - Matters related to the technical update of the platform. Here the issues on the blockchain's basic structure (e.g., Account Structure), new features (e.g., L2 solution), or software update schedule are included.
@@ -25,7 +29,7 @@ Klaytn의 장기적인 발전과 이해관계를 공유하며 플랫폼을 수�
 
 Klaytn principally aims for the governance process to occur within the protocol (on-chain). Through this process, the votes will be recorded on the blockchain, and the results will be carried out following the vote. As the platform grows, more matters will be handled through on-chain governance.
 
-### 일반 거버넌스 프로세스 <a id="general-governance-process"></a>
+### General Governance Process <a id="general-governance-process"></a>
 
 The initial governance process proceeds in the following order: proposal introduction, statement of opinion submitted by advisors, voting by council members, and various follow-up procedures depending on the result of the vote.
 
@@ -33,7 +37,7 @@ Those who have the right to introduce proposals can make sure each proposal is v
 
 During the initial phase of Klaytn governance, the Klaytn Governance Council members will have the right to vote on the introduced proposals and will reference the advisors' statements of opinion to vote on what they believe to be the best option. If the number of votes passes the threshold, the proposal will pass; if not, the proposal will be dismissed. In its initial phase, the voting process may be replaced by a discussion process facilitated by the Klaytn foundation. The follow-up measures for an approved proposal will be led by the chairman, and the chairman has the responsibility to carry out all the proposals that have been passed by the council during his or her term.
 
-### Klaytn 개선 준비금 심사 절차(Klaytn Improvement Reserve Review Process)<a id="klaytn-improvement-reserve-review-process"></a>
+### Klaytn Improvement Reserve Review Process <a id="klaytn-improvement-reserve-review-process"></a>
 
 
 The KIR Proposal review will be decided through the voting of the Governance Council members, and the proposal will be rejected if half of the committee or more vote against(rejected) the proposal. For more details on the KIR Proposal review, refer to the following.
@@ -48,4 +52,4 @@ The bodies participating in governance must act in consideration of Klaytn’s l
 
 * **Development Phase**: The initial development phase after the mainnet launch must quickly see parameter adjustments, new feature developments, etc. For this to be possible, many issues will be decided through gathering the opinions of the Klaytn Governance Council members, service providers, and community members. To secure initial stabilization, Klaytn Foundation will lead the decision-making process. Additionally, all decided matters will be transparently shared with the public.
 * **Stabilization Phase**: The Klaytn Governance Council has governing rights on many proposals and this phase will gradually begin starting Jan 2021. For special matters such as those concerning platform development, and matters that directly affect the overall Klaytn ecosystem, Klaytn foundation may facilitate the discussion and execution.
-* **Decentralization Phase**: Following the stabilization period, to gather additional opinions, more service providers and other bodies may be brought into the decision-making process. Decentralization phase may be gradually achieved through multiple stages with different governing rules and participants.
+* **Decentralization Phase**: Following the stabilization period, a number of non-traditional entities such as DAOs and builders may be brought into the decision-making process for additional opinions. Decentralization phase may be gradually achieved through multiple stages with different governing rules and participants.
