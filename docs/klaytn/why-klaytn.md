@@ -7,7 +7,7 @@ description: >-
 ​
 ## Klaytn as a trust layer of metaverse <a id="klaytn-as-a-trust-layer-of-metaverse"></a>
 ​
-Klaytn is built to be the fundamental trust layer for the metaverse that compensates and respects all communities according to their participation and contribution, eventually bringing people together in the new world, stimulating their creation, and empowering them.
+Klaytn is built to be the fundamental trust layer for the metaverse that respects the participation and contributions of all communities, bringing them together in the new world and empowering them.
 ​
 The foremost design principle is;
 ​
