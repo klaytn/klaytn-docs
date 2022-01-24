@@ -39,7 +39,7 @@ to:
 - DAOs
 - NFT Marketplace
 - DEXs/DeFi
-- ... + 'Packaging' all of these
+- ... + All of these offered in 'packages'
 
 ## 2. High Performing Mainnet <a id="high-performing-mainnet"></a>
 - High throughput / TPS
