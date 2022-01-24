@@ -19,4 +19,46 @@ That being said, the metaverse will be built on a blockchain protocol which no c
 
 Klaytn is built to be the fundamental trust layer for the metaverse that respects the participation and contributions of all communities, bringing them together in the new world for empowerment.
 
+
+# 'One-Stop' Chain for Metaverse Builders <a id="one-stop-chain-for-metaverse-builders"></a>
+
+Klaytn will provide Metaverse builders with integrated solutions so that they
+can easily utilize Klaytn as the trust layer for Metaverse and realize their
+ideas. Our integrated offers for builders include the following but not limited
+to.
+
+## 1. Open Source Dev Infra Package <a id="open-source-dev-infra-package"></a>
+- L2 Solutions
+- SDKs
+- Smart Contract Library
+- Wallets
+- Chain Explorer
+- Oracles
+- Distributed Storage
+- Bridges
+- DAOs
+- NFT Marketplace
+- DEXs/DeFi
+- ... + 'Packaging' all of these
+
+## 2. High Performing Mainnet <a id="high-performing-mainner"></a>
+- High throughput / TPS
+- Immediate finality (~1 Second)
+- Seamless interoperability with other blockchains (including Klaytn L2 chains), wallets, bridges, and explorers
+
+## 3. Community Co-Building <a id="community-co-building"></a>
+- Game guilds
+- Investment DAOs
+- Community DAOs
+- Launchpads
+- Alliance with global players
+
+## 4. Management and Financial Support <a id="management-and-financial-support"></a>
+- Treasury advisory
+- Klaytn Grant Fund
+- IP-centric Investment Fund • Performance Incentives
+- GC Invitation
+
+---
+
 To better understand Klaytn 2.0, please refer to our Light Paper.
