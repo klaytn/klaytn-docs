@@ -2,7 +2,7 @@
 
 * [Welcome](README.md)
 
-* [Klaytn 2.0](klaytn2.md)
+* [Klaytn 2.0](klaytn2/README.md)
 
 * [Klaytn Overview](klaytn/README.md)
   * [Why Klaytn](klaytn/why-klaytn.md)
