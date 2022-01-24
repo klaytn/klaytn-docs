@@ -43,7 +43,7 @@ to:
 
 ## 2. High Performing Mainnet <a id="high-performing-mainnet"></a>
 - High throughput / TPS
-- Immediate finality (~1 Second)
+- Immediate finality (~1 second)
 - Seamless interoperability with other blockchains (including Klaytn L2 chains), wallets, bridges, and explorers
 
 ## 3. Community Co-Building <a id="community-co-building"></a>
