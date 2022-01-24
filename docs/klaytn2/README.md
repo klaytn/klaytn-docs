@@ -57,7 +57,7 @@ to:
 - Treasury advisory
 - Klaytn Grant Fund
 - IP-centric Investment Fund • Performance Incentives
-- GC Invitation
+- GC invitation
 
 ---
 
