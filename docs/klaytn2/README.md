@@ -41,7 +41,7 @@ to:
 - DEXs/DeFi
 - ... + 'Packaging' all of these
 
-## 2. High Performing Mainnet <a id="high-performing-mainner"></a>
+## 2. High Performing Mainnet <a id="high-performing-mainnet"></a>
 - High throughput / TPS
 - Immediate finality (~1 Second)
 - Seamless interoperability with other blockchains (including Klaytn L2 chains), wallets, bridges, and explorers
