@@ -23,9 +23,9 @@ Klaytn is built to be the fundamental trust layer for the metaverse that respect
 # 'One-Stop' Chain for Metaverse Builders <a id="one-stop-chain-for-metaverse-builders"></a>
 
 Klaytn will provide Metaverse builders with integrated solutions so that they
-can easily utilize Klaytn as the trust layer for Metaverse and realize their
+can easily utilize Klaytn as the trust layer for the Metaverse and realize their
 ideas. Our integrated offers for builders include the following but not limited
-to.
+to:
 
 ## 1. Open Source Dev Infra Package <a id="open-source-dev-infra-package"></a>
 - L2 Solutions
