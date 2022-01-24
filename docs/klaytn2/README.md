@@ -56,7 +56,8 @@ to:
 ## 4. Management and Financial Support <a id="management-and-financial-support"></a>
 - Treasury advisory
 - Klaytn Grant Fund
-- IP-centric Investment Fund • Performance Incentives
+- IP-centric Investment Fund
+- Performance incentives
 - GC invitation
 
 ---
