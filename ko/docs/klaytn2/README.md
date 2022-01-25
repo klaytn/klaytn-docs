@@ -1,59 +1,59 @@
-# We Are Here to Give Power Back to the People <a id="klaytn2"></a>
+# 권력을 다시 사람들에게<a id="klaytn2"></a>
 
-The South Korean Web2 giant Kakao created the most practical, reliable EVM Layer 1 blockchain network Klaytn. Staying true to its mission to "make a better world with people and technology", the Klaytn blockchain gives power back to the people in the age of Web3, rather than focusing solely on technology and business. To that end, the Klaytn Foundation is committed to making cutting-edge technologies more accessible, to pave the way to engage more people to partake in this new experience.
+대한민국의 Web2 대기업 카카오가 가장 실용적이고 신뢰할 수 있는 EVM 레이어 1 블록체인 네트워크 클레이튼을 만들었습니다. 클레이튼 블록체인은 "기술과 사람이 만드는 더 나은 세상"이라는 비전에 걸맞게 기술과 사업에만 집중하는 대신 Web3의 시대에 사람들에게 권력을 되돌려 줍니다. 이를 위해 클레이튼 제단은 최첨단 기술의 접근성을 높이고, 더 많은 사람들이 이 새로운 경험을 할 수 있도록 길을 열어주기 위해 노력할 것입니다.
 
-A robust community based on trust coupled with powerful technologies that support infrastructure will help Klaytn and its participants build a collaborative playground for a new, exciting world of Web3. This will allow the Klaytn Foundation to discover new opportunities and accelerate the speed of innovation reaching mainstream. Web3 is where people group together in flexible affiliations based on common interest, and the millennials and zoomers are emerging as the main actors that willingly embrace what it has to offer. Klaytn Network will be the best trust layer to accommodate these members of the next generation.
+신뢰에 기반한 탄탄한 커뮤니티와 인프라를 지원해주는 강력한 기술은 클레이튼과 그 참여자들이 Web3라는 새롭고 흥미진진한 세상을 위한 공동의 놀이공간을 만드는 것을 도와줄 것입니다. 이를 통해 클레이튼 재단은 새로운 기회를 발굴할 수 있게 되며, 혁신의 대중적 확산은 더욱 가속화될 것입니다. Web3는 사람들이 공동의 관심사를 기반으로 유연하게 제휴하는 공간으로, MZ 세대들이 이를 적극적으로 수용하는 주 행위자로 부상하고 있습니다. 클레이튼 네트워크 이러한 신세대 구성원들을 수용할 수 있는 최고의 신뢰 레이어입니다.
 
-# We Are the Trust Layer of Metaverse <a id="trustlayer"></a>
+# 메타버스를 위한 신뢰 레이어<a id="trustlayer"></a>
 
-With the approaching of a new civilization, the metaverse is emerging as a space for creators and players to define new standards, where a dynamic, digital future with flourishing creativity awaits.
+새로운 문명의 도래와 함께 메타버스는 크리에이터들과 행위자들이 새로운 기준을 정의하는, 창조성이 넘치는 역동적 디지털 미래의 공간으로 부상하고 있습니다.
 
-This movement will begin with the underdogs, creative minds, youngsters, outsiders - whoever that wants to be themselves without facing any prejudice due to as age, occupation or nationality.
+이러한 움직임은 비주류, 크리에이터, 청년, 아웃사이더 - 나이, 직업, 국적에 따른 편견 없이 자기 자신이고 싶은 모두에 의해 시작될 것입니다.
 
-But the metaverse should not be a 'Disney Land'. It should be a different world where people are granted genuine ownership and the freedom to express their ideas without inhibition.
+하지만 메타버스가 단순 '디즈니 랜드'에 머물러서는 안 됩니다. 사람들이 진정한 소유권을 가지고, 제한없이 스스로를 표현할 수 있는 새로운 세상이어야 합니다.
 
-That being said, the metaverse will be built on a blockchain protocol which no central authority can control - and that's exactly what we strive for.
+그런 의미에서 메타버스는 그 어떤 중앙화된 주체도 통제하지 못하는 블록체인 프로토콜 위에 만들어 질 것이며, 그것이야 말로 우리가 추구하는 바입니다.
 
-Klaytn is built to be the fundamental trust layer for the metaverse that respects the participation and contributions of all communities, bringing them together in the new world for empowerment.
+클레이튼은 모든 커뮤니티의 참여와 기여를 존중하며, 이들을 새로운 세상에 결집하고 지원하기 위한 메타버스의 근본적 신뢰 레이어로서 개발되었습니다.
 
 
-# 'One-Stop' Chain for Metaverse Builders <a id="one-stop-chain-for-metaverse-builders"></a>
+# 메타버스 빌더를 위한 '원스톱' 체인<a id="one-stop-chain-for-metaverse-builders"></a>
 
-Klaytn will provide Metaverse builders with integrated solutions so that they can easily utilize Klaytn as the trust layer for the Metaverse and realize their ideas. Our integrated offers for builders include the following but not limited to:
+클레이튼은 메타버스 빌더들이 클레이튼을 메타버스를 위한 신뢰 레이어로 사용하면서 자신의 아이디어를 실현시킬 수 있도록 통합된 솔루션을 제공할 것입니다. 아래는 우리가 빌더를 위해 제공하는 것 중 일부입니다.
 
-## 1. Open Source Dev Infra Package <a id="open-source-dev-infra-package"></a>
-- L2 Solutions
-- SDKs
-- Smart Contract Library
-- Wallets
-- Chain Explorer
-- Oracles
-- Distributed Storage
-- Bridges
-- DAOs
-- NFT Marketplace
+## 1. 오픈 소스 개발 인프라 패키지 <a id="open-source-dev-infra-package"></a>
+- L2 솔루션
+- SDK
+- 스마트 컨트랙트 라이브러리
+- 지갑
+- 체인 탐색기
+- 오라클
+- 분산 저장
+- 브릿지
+- DAO
+- NFT 마켓플레이스
 - DEXs/DeFi
-- ... + All of these offered in 'packages'
+- ... + 이 모든 것들이 '패키지'로 제공됩니다.
 
-## 2. High Performing Mainnet <a id="high-performing-mainnet"></a>
-- High throughput / TPS
-- Immediate finality (~1 second)
-- Seamless interoperability with other blockchains (including Klaytn L2 chains), wallets, bridges, and explorers
+## 2. 고성능 메인넷 <a id="high-performing-mainnet"></a>
+- 높은 처리량 / TPS
+- 즉각적 완결성 (~1초)
+- 클레이튼 L2 레이어를 포함한 타 블록체인과의 원활한 호환성, 지갑, 브릿지, 탐색기
 
-## 3. Community Co-Building <a id="community-co-building"></a>
-- Game guilds
-- Investment DAOs
-- Community DAOs
-- Launchpads
-- Alliance with global players
+## 3. 커뮤니티 공동 구축 <a id="community-co-building"></a>
+- 게임 길드
+- 투자 DAO
+- 커뮤니티 DAO
+- 런치패드
+- 글로벌 참여자들과의 제휴
 
-## 4. Management and Financial Support <a id="management-and-financial-support"></a>
-- Treasury advisory
-- Klaytn Grant Fund
-- IP-centric Investment Fund
-- Performance incentives
-- GC invitation
+## 4. 관리 및 재정적 지원 <a id="management-and-financial-support"></a>
+- 재단 기금 자문
+- 클레이튼 그랜트 펀드
+- IP 중심 투자 펀드
+- 성과 인센티브
+- GC 초대
 
 ---
 
-To better understand Klaytn 2.0, please refer to our Light Paper.
+클레이튼 2.0을 더 잘 이해하고 싶다면 라이트 페이퍼를 참고하세요.
