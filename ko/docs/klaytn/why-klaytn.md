@@ -31,7 +31,7 @@ description: >-
 - 코어 개발 기여: 이더리움 동일성(equivalence)을 지원함으로써 클레이튼과 이더리움 생태계 간 호혜적 관계로 이어집니다. 대부분의 이더리움 개선 제안(EIP)은 클레이튼 코어 개발 어젠다에 이전, 적용될 수 있을 것이며 클레이튼 개선 제안(KIP) 또한 이더리움과 EVM의 발전에 기여할 수 있을 것입니다. ​
 #### 오픈소스 인프라 및 패키지<a id="open-source-infrastructure-and-package"></a>
 - 일차적 인프라: 종단간(end-to-end) 블록체인 결합 및 개발을 위한 툴셋입니다. 여기에는 SDK와 스마트 컨트랙트 라이브러리, 월렛, 체인 탐색기, 분산 저장 솔루션, 오라클 지원, 브릿지가 포함됩니다.
-- 이차적 인프라: 제품과 서비스 지원을 위한 생태계에 해당합니다. It includes Integration/abstraction services, Stablecoin integrations, DAOs, NFT Marketplaces, DEX and DeFi and Traditional finance interfaces. ​
+- 이차적 인프라: 제품과 서비스 지원을 위한 생태계에 해당합니다. 여기에는 통합/추상화 서비스, 스테이블 코인 연동, DAO, NFT 마켓플레이스, DEX, DeFi, 전통 금융 인터페이스 등이 포함됩니다. ​
 ### 우수한 사용자 경험<a id="enhanced-user-experience"></a>
 #### 트랜잭션의 사용성 <a id="usability-in-transaction"></a>
 - 사용자의 트랜잭션 수수료를 애플리케이션 운영자가 대신 지불할 수 있습니다.
@@ -47,6 +47,6 @@ description: >-
 
 ### 투명성, 보안 및 탈중앙화<a id="transparency-security-and-decentralization"></a>
 - 누구나 트랜잭션을 요청하고 블록체인에서 모든 트랜잭션 실행 결과를 조회하고 확인할 수 있습니다.
-- Klaytn is a decentralized network and no single malicious node breaks the data integrity. ​
-### Governance by DAOs, Builders and Enterprises Realizes Decentralization with Stability <a id="governance-by-trusted-entities"></a>
-- In addition to the current traditional enterprises as Klaytn Governance Council (GC), by bringing more decentralized entities such as DAOs and builders into the GC, we are opening up the potential to rebuild the entire Klaytn governance structure in an unprecedented way with hundreds of governance participants.
+- 클레이튼은 탈중앙화된 네트워크이므로 하나의 악성 노드가 데이터 무결성을 손상시키지 않습니다. ​
+### DAO, 빌더, 기업들의 거버넌스로 안정적인 탈중앙화 실현<a id="governance-by-trusted-entities"></a>
+- 클레이튼 거버넌스 카운슬(GC)에 기존의 전통적 기업들에 더해 DAO 및 빌더들을 영입함으로써 클레이튼의 거버넌스 구조를 수백 개의 주체들이 참여하는 포함한 유례없는 방식으로 재정립할 가능성이 열립니다.
