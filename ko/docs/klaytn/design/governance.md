@@ -2,15 +2,15 @@
 
 ## 개요 <a id="overview"></a>
 
-### Klaytn Governance: Taking the First Step to Decentralization <a id="klaytn-governance-taking-the-first-step-to-decentralization"></a>
+### 클레이튼 거버넌스: 탈중앙화로 가는 첫 걸음<a id="klaytn-governance-taking-the-first-step-to-decentralization"></a>
 
-The Klaytn Governance Council is a council that has the right to decide various governance matters. To secure its reliability, the early members of the Governance Council have been limited to trusted organizations. This was chosen for the sake of efficiency in the platform's development and stabilization stage. Klaytn reached the stage by joining hands with 31 Governance Council Members and a seamless operation of the Klaytn Mainnet.
+클레이튼 거버넌스 카운슬은 다양한 거버넌스 사안에 대한 결정권이 있습니다. 그 신뢰성을 확보하기 위해 거버넌스 카운슬 초기 멤버들은 신뢰받는 기업들에 한정되었습니다. 플랫폼의 발전 및 안정화 단계의 효과성을 위한 선택이었습니다. 클레이튼은 31곳의 거버넌스 카운슬 멤버와의 협력과 클레이튼 메인넷의 원활한 운영을 통해 이 단계에 도달할 수 있었습니다.
 
-Klaytn believes that Klaytn governance should lead Klaytn’s growth aligned with the transition of our world. One of the key transitions in the world is coming from the growth of the metaverse. The technological advancements are ushering in a more metaversified world. In particular, we are witnessing the growth of the influence of non-traditional entities such as Decentralized Autonomous Organizations (DAOs) and builders. As an organization operating on smart contracts without a centralized structure, DAOs will be a core entity in the metaverse. Builders will have more influence by contributing to the operation and growth of the metaverse.
+클레이튼은 클레이튼 거버넌스가 우리 세계의 변화와 정렬된 클레이튼의 성장을 이끌어야 한다고 믿습니다. 이 세계의 주된 변화 중 하나가 바로 메타버스의 성장에서 비롯됩니다. 기술 진보는 더 메타버스화된 세상을 불러오고 있습니다. 특히 비전통적인 탈중앙화된 자율 조직(DAO)과 빌더들의 영향력이 날로 강해지고 있습니다. 중앙화된 구조 없이 스마트 컨트랙트 상에서 작동하는 조직인 DAO는 메타버스의 핵심 주체가 될 것입니다. 빌더들은 메타버스의 운영과 성장에 기여하면서 더 큰 영향력을 가지게 될 것이다.
 
-We are reorganizing our governance structure to better accommodate to the changing world. In addition to traditional enterprises, Klaytn is opening up the Membership of the Klaytn Governance Council to the non-traditional entities mentioned above.
+우리는 변화하는 세상에 더 잘 적응하기 위해 거버넌스 구조를 재편성하고 있습니다. 클레이튼은 클레이튼 거버넌스 카운슬 멤버십을 전통적인 기업 외에 앞서 언급한 비전통적 주체들에게도 개방할 것입니다.
 
-By introducing a stake-based governance model and eliminating the Gini Coefficient from Klaytn’s voting mechanism, Klaytn enables governance participants who can gather more support from Klaytn Communities to shape Klaytn in line with their preference. Entities who can make a proper decision in a Metaversified world will have more influence in the Klaytn GC. We believe DAOs and builders will lead the scene in the future.
+스테이킹 기반 거버넌스 모델의 도입과 클레이튼 투표 메커니즘에서 지니 계수의 제거를 통해 클레이튼은 커뮤니티의 지지를 많이 받는 거버넌스 참여자들이 자신의 선호에 따라 클레이튼을 만들어 나갈 수 있도록 해줍니다. 메타버스화된 세상에서 적절한 결정을 내릴 수 있는 주체들이 클레이튼 GC에서 더 많은 영향력을 지니게 될 것입니다. 우리는 DAO와 빌더들이 해당 영역의 리더가 될 것이라 믿습니다.
 
 When the level of metaversification crosses the critical threshold, Klaytn governance will be fully decentralized with various types of entities. Ultimately, Klaytn will evolve into a DAO of DAOs and a platform for DAOs to communicate the voices of Klaytn Communities through on-chain mechanisms.
 
