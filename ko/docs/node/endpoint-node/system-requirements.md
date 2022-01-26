@@ -8,21 +8,19 @@ EN에는 다음 사양을 권장합니다.
 
 ### 클라우드 VM <a id="cloud-vm"></a>
 
-#### AWS 권장 사양 <a id="recommended-specification-based-on-aws"></a>
+#### Recommended Specification <a id="recommended-specification-based-on-aws"></a>
 
-| 모델명             | vCPU 수 | 메모리(GiB) | 스토리지(GiB) | EBS 대역폭(Mbps) | 네트워크 대역폭(Gbps) | 가격(서울 지역, USD/h) |
-|:--------------- |:------ |:-------- |:--------- |:------------- |:-------------- |:---------------- |
-| m5.2xlarge (권장) | 8      | 32       | EBS 전용    | 3,500         | 최대 10          | 0.472            |
-
-위 정보의 출처는 [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/)과 [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/)이며, AWS에 의해 변경될 수도 있습니다.
+| vCPU 수 | Memory (GiB) | Storage (GiB) | EBS Bandwidth (Mbps) | Network Bandwidth (Gbps) | Price (Seoul region, USD/h) |
+|:------ |:------------ |:------------- |:-------------------- |:------------------------ |:--------------------------- |
+| 8      | 64           | EBS-Only      | 3,500                | Up to 10                 | 0.472                       |
 
 ### 베어 머신 <a id="bare-metal-machine"></a>
 
-저희가 EN에 대한 정확한 물리적 사양을 지정하지는 않지만, 클라우드 VM 장과 유사한 하드웨어 구성을 가진 시스템이라면 EN을 운용하기에 충분합니다.
+We do not specify the exact physical machine specification for EN, but any physical machine having hardware configuration similar to the one in the Cloud VM section would be sufficient to operate an EN.
 
 ## 스토리지 요구사항 <a id="storage-requirements"></a>
 
-평균 100 TPS, 평균 트랜잭션 크기 300 바이트, 그리고 1초의 블록 생성 시간을 가정 할 때 예상되는 EN 스토리지 요구 사항은 2.5GB/1일(= 300x100x86400)입니다.
+Assuming 100 TPS in average,  300 bytes average transaction size, and 1-second block latency, the expected EN daily storage requirement is 2.5 GB/day (=300x100x86400).
 
 ## 운영 체제 <a id="operating-system"></a>
 
