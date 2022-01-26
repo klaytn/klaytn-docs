@@ -8,13 +8,11 @@ For the ENs, the following specifications are recommended.
 
 ### Cloud VM <a id="cloud-vm"></a>
 
-#### Recommended Specification Based on AWS <a id="recommended-specification-based-on-aws"></a>
+#### Recommended Specification <a id="recommended-specification-based-on-aws"></a>
 
-| Model | vCPU | Memory (GiB) | Storage (GiB) | EBS Bandwidth (Mbps) | Network Bandwidth (Gbps) | Price (Seoul region, USD/h) |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| m5.2xlarge (recommended) | 8 | 32 | EBS-Only | 3,500 | Up to 10 | 0.472 |
-
-The information above is from [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/) and [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/) and may be changed by AWS.
+| vCPU | Memory (GiB) | Storage (GiB) | EBS Bandwidth (Mbps) | Network Bandwidth (Gbps) | Price (Seoul region, USD/h) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 8 | 64 | EBS-Only | 3,500 | Up to 10 | 0.472 |
 
 ### Bare-metal Machine <a id="bare-metal-machine"></a>
 
