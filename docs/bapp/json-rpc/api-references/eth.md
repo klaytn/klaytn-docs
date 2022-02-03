@@ -1,6 +1,6 @@
 ---
 description: >-
-  `eth` namespace Apis.
+  `eth` namespace APIs.
 ---
 
 # Namespace eth <a id="namespace-eth"></a>
