@@ -2,7 +2,7 @@
 
 ## Lowering the barrier to entry <a id="lowering-the-barrier-to-entry"></a>
 
-![Klaytn offers end-to-end integration including a built-in L2 solution](../images/mainnet-integration.png)
+![Klaytn offers end-to-end integration including a built-in L2 solution](images/mainnet-integration.png)
 
 It is clear that blockchain technology will serve as the critical trust layer for the metaverse.
 
