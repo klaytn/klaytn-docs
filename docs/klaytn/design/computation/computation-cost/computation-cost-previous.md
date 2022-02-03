@@ -11,17 +11,14 @@ Limiting the execution time of a transaction was not feasible either because the
 
 The last approach is to limit the computation cost of a transaction. We modelled the computation cost of each EVM opcode based on its actual execution time and limit the sum of computation cost of a transaction. With this approach, we eliminate other factors and only count the normalized execution time unit, and nodes can reach a consensus as well.
 
-Therefore, we chose the third option for Klaytn. For now, the limit of the execution cost is set to 100,000,000. Since the limit is determined by the platform, developers should be aware of the computation cost of a transaction. To calculate the computation cost of a transaction, Klaytn provides [klay_estimateComputationCost](../../../../bapp/json-rpc/api-references/klay/transaction.md#klay_estimatecomputationcost). The usage is almost the same as [klay_estimateGas](../../../../bapp/json-rpc/api-references/klay/transaction.md#klay_estimategas).
+Therefore, we chose the third option for Klaytn. For now, the limit of the execution cost is set to 100,000,000. Since the limit is determined by the platform, developers should be aware of the computation cost of a transaction. To calculate the computation cost of a transaction, Klaytn provides [klay_estimateComputationCost](../../../../dapp/json-rpc/api-references/klay/transaction.md#klay_estimatecomputationcost). The usage is almost the same as [klay_estimateGas](../../../../dapp/json-rpc/api-references/klay/transaction.md#klay_estimategas).
 
 ## Computation Cost of Opcodes <a id="computation-cost-of-opcodes"></a>
 
 The below table shows the computation cost of EVM opcodes. The computation cost was determined based on experiments.
 
 {% hint style="success" %}
-NOTE: The computation costs below are used before the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0.
-In case of Baobab network, protocol upgrade was enabled from block number `#75373312`.
-Cypress mainnet will be subject to the same protocol upgrade in the next version.
-
+NOTE: This document contains computation costs used before the activation of the protocol upgrade.
 If you want the latest document, please refer to [latest document](computation-cost.md).
 {% endhint %}
 

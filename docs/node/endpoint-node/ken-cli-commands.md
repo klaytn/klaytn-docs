@@ -80,7 +80,7 @@ Welcome to the Klaytn JavaScript console
 
 ### Module APIs <a id="module-apis"></a>
 
-If you type the module name on the console prompt, you will see the available properties and functions of the module. For the details of functions, please see [Klaytn API](../../bapp/json-rpc/api-references/README.md).  
+If you type the module name on the console prompt, you will see the available properties and functions of the module. For the details of functions, please see [Klaytn API](../../dapp/json-rpc/api-references/README.md).  
 
 ```javascript
 > personal

@@ -3,10 +3,7 @@
 Klaytn provides several useful precompiled contracts. These contracts are implemented in the platform itself as a native implementation. The precompiled contracts from address 0x01 through 0x08 are the same as those in Ethereum. Klaytn additionally implements precompiled contracts from 0x09 through 0x0B to support new Klaytn features.
 
 {% hint style="success" %}
-NOTE: The table below is used before the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0.
-In case of Baobab network, protocol upgrade was enabled from block number `#75373312`.
-Cypress mainnet will be subject to the same protocol upgrade in the next version.
-
+NOTE: This document contains the gas table used before the activation of the protocol upgrade.
 If you want the latest document, please refer to [latest document](precompiled-contracts.md).
 {% endhint %}
 
@@ -149,7 +146,7 @@ function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
 
 ## Address 0x09: vmLog\(str\) <a id="address-0x-09-vmlog-str"></a>
 
-The address 0x09 prints the specified string `str` to a specific file or passes it to the logger module. For more information, see [debug\_setVMLogTarget](../bapp/json-rpc/api-references/debug/logging.md#debug_setvmlogtarget). Note that this precompiled contract should be used only for debugging purposes, and it is required to enable the `--vmlog` option when the Klaytn node starts. Also, the log level of the Klaytn node should be 4 or more to see the output of vmLog. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
+The address 0x09 prints the specified string `str` to a specific file or passes it to the logger module. For more information, see [debug\_setVMLogTarget](../dapp/json-rpc/api-references/debug/logging.md#debug_setvmlogtarget). Note that this precompiled contract should be used only for debugging purposes, and it is required to enable the `--vmlog` option when the Klaytn node starts. Also, the log level of the Klaytn node should be 4 or more to see the output of vmLog. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callVmLog(bytes memory str) public {

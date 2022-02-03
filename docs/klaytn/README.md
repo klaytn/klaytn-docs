@@ -35,7 +35,7 @@ ENN consists of Endpoint Nodes (ENs) that mainly create transactions, handle RPC
 
 ### Service Chain Network (SCN) <a id="service-chain-network-scn"></a>
 
-SCNs are Klaytn subnetworks composed of auxiliary blockchains independently operated by blockchain applications (BApps). Service chains are connected to the main chain via ENs.
+SCNs are Klaytn subnetworks composed of auxiliary blockchains independently operated by dApps (Decentralized Applications). Service chains are connected to the main chain via ENs.
 
 **Core Cell Network** and **Endpoint Node Network** form a Klaytn main chain or mainnet.
 Blockchain Applications can run on the Klaytn main chain, Cypress, or can operate on their own blockchains called **Service Chains**. If you want to have a dedicated execution environment for your application that guarantees high TPS and configurable network policies, we recommend using Service Chain. 
@@ -166,7 +166,7 @@ behaviors.
 A network's latency is heavily affected by its degree of congestion. Assuming
 the network's throughput remains constant, increased number of transactions
 will cause the network's latency to be proportionately delayed. Latency delay
-is a critical issue in BApps;
+is a critical issue in dApps;
 typical users of legacy mobile apps or web services will not tolerate response
 time that takes more than a few seconds, and blockchain services have no reason
 to assume a higher user tolerance.
@@ -175,7 +175,7 @@ Klaytn adopts a multichannel approach in order to handle network congestion
 issues. By assigning separate propagation channels for transactions and blocks,
 Klaytn network is able to propagate newly created blocks in a timely manner
 even when the network faces heavy congestion with high number of transactions.
-In this way, Klaytn ensures that BApps on its network can stay responsive to
+In this way, Klaytn ensures that dApps on its network can stay responsive to
 end-user requests regardless of intermittent network traffic spikes.
 
 ## Block Rewards <a id="block-rewards"></a>

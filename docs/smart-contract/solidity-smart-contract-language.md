@@ -6,10 +6,15 @@ This chapter describes only the high-level concepts, development processes, and 
 
 [Solidity](https://github.com/ethereum/solidity) is a high-level, statically typed, contract-oriented language for implementing smart contracts on the Ethereum platform. Although Solidity was originally designed for Ethereum, it is general enough to write smart contracts; therefore, it can also be used for other blockchain platforms, such as Klaytn.
 
-Klaytn is officially compatible with **Istanbul** Ethereum Virtual Machine (EVM) version. Backward compatibility is not guaranteed with other EVM versions on Klaytn. Thus, it is highly recommended to compile Solidity code with the Istanbul target option. Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).  
+Klaytn is officially compatible with **London** Ethereum Virtual Machine (EVM) version. Backward compatibility is not guaranteed with other EVM versions on Klaytn. Thus, it is highly recommended to compile Solidity code with the Istanbul target option. Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).  
 
 {% hint style="success" %}
-NOTE: In case of Baobab network, protocol upgrade was enabled from block number `#75373312`.
+v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items.
+It has been enabled from block number `#75373312` in case of Baobab network.
+Cypress mainnet will be subject to the same protocol upgrade in the next version.
+
+v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
+It has been enabled from block number `#80295291` in case of Baobab network.
 Cypress mainnet will be subject to the same protocol upgrade in the next version.
 {% endhint %}  
 

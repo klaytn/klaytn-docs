@@ -75,7 +75,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  >
 ```
 
-You can check the usable commands on [API Document](../../../bapp/json-rpc/README.md)
+You can check the usable commands on [API Document](../../../dapp/json-rpc/README.md)
 
 The useful APIs to check the status of EN:
 

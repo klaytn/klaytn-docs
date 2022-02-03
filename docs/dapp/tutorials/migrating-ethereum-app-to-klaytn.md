@@ -15,7 +15,7 @@
 
 This tutorial is intended to give a guide to migrate an Ethereum App to Klaytn. No previous Klaytn experience is needed. A simple blockchain app will be used as a sample to show how to migrate an Ethereum App to Klaytn.  
 
-We will focus only on the code modifications required to migrate an Ethereum App to Klaytn. If you need details on creating a Klaytn BApp, Please refer to [CountBApp Tutorial](count-bapp/README.md).
+We will focus only on the code modifications required to migrate an Ethereum App to Klaytn. If you need details on creating a Klaytn dApp, Please refer to [CountBApp Tutorial](count-bapp/README.md).
 
 > **Source Code**  
 > Complete source code can be found on GitHub at [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
@@ -41,10 +41,10 @@ Klaytn runtime environment is compatible with Ethereum Virtual Machine and execu
 
 First, you need to change the library that makes a connection to the node. Then you will specify the node URL in 'rpcURL'. 
 
-- In Ethereum BApp example
+- Ethereum
   - `web3` library connects to and communicates with Ethereum node.
   - `Ropsten testnet` URL is assigned to 'rpcURL' .
-- In Klaytn BApp example
+- Klaytn
   - `caver-js` library is used to connect to and communicate with Klaytn node.
   - `Baobab testnet` URL is assigned to 'rpcURL'.
 
@@ -198,7 +198,7 @@ The `ABI` \(Application Binary Interface\) used to create the Count contract ins
 `CountContract.methods.plus().send({ ... })`  
 `CountContract.methods.minus().send({ ... })`
 
-Once you created a contract instance as in the previous step, you don't need to modify any code in using the contract methods afterward. BApp migration has been completed!
+Once you created a contract instance as in the previous step, you don't need to modify any code in using the contract methods afterward. dApp migration has been completed!
 
 #### Full code: `Count` component <a id="full-code-count-component"></a>
 

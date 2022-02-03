@@ -30,7 +30,7 @@ By utilizing Klaytn account’s role-based multi-key support, end-users can bett
 
 ### Human-Readable Address \(HRA\) <a id="human-readable-address-hra"></a>
 
-Although the address scheme \(e.g., "0x0fe2e20716753082222b52e753854f40afddffd2"\) has its own strengths in that it efficiently protects the privacy of account holders, it also proposes major problems in terms of end-user experience. First, it is very difficult for a human brain to memorize, or even recognize, such addresses, making them prone to input mistakes and various human errors that often lead to non-trivial financial damages. Second, such scheme takes away from end-users the power to choose one’s own preferred identity handle that’s easier to memorize or use. Combined, these problems are among the toughest usability hurdles that cause BApp user experience for typical end-users \(who are more accustomed to the simpler, frictionless user experience offered by legacy mobile apps or services\) to be perceived as alien, incomprehensible, and severely inconvenient. To overcome such challenges without undergoing architectural modifications at large-scale and preserving backward compatibility, Klaytn opts to provide a mapping between a 20-byte address to a 20-byte length text string that end-users could assign their own preferred values to. This feature in Klaytn is called human-readable address \(HRA\). Currently, this feature is under development, and we will provide more information when it is ready.
+Although the address scheme \(e.g., "0x0fe2e20716753082222b52e753854f40afddffd2"\) has its own strengths in that it efficiently protects the privacy of account holders, it also proposes major problems in terms of end-user experience. First, it is very difficult for a human brain to memorize, or even recognize, such addresses, making them prone to input mistakes and various human errors that often lead to non-trivial financial damages. Second, such scheme takes away from end-users the power to choose one’s own preferred identity handle that’s easier to memorize or use. Combined, these problems are among the toughest usability hurdles that cause dApp user experience for typical end-users \(who are more accustomed to the simpler, frictionless user experience offered by legacy mobile apps or services\) to be perceived as alien, incomprehensible, and severely inconvenient. To overcome such challenges without undergoing architectural modifications at large-scale and while preserving backward compatibility, Klaytn opts to provide a mapping between a 20-byte address to a 20-byte length text string that end-users could assign their own preferred values to. This feature in Klaytn is called human-readable address \(HRA\). Currently, this feature is under development, and we will provide more information when it is ready.
 
 ### Klaytn Wallet Key Format <a id="klaytn-wallet-key-format"></a>
 
@@ -76,11 +76,10 @@ In contrast to EOAs, SCAs have code associated with them and are controlled by t
 | codeHash | \[\]byte \(Go\) | The hash of the account's smart contract code. This value is immutable, which means it is set only when the smart contract is created. |
 | storageRoot | \[32\]byte \(Go\) | A 256-bit hash of the root of the Merkle Patricia Trie that contains the values of all the storage variables in the account. |
 | codeFormat | uint8 \(Go\) | Supporting interpreter version. Up to 16 can be set. Currently, it supports EVM\(0x00\) only. |
-| vmVersion | uint8 \(Go\) | The protocol upgrade (hard fork) information at contract deployment time (ex. 0x0(constantinople), 0x1(istanbul,...)). Up to 16 can be used. It is automatically created with the contract. |
+| vmVersion | uint8 \(Go\) | The protocol upgrade (hard fork) information at contract deployment time (ex. 0x0(constantinople), 0x1(istanbul,london,...)). Up to 16 can be used. It is automatically created with the contract. |
 
 {% hint style="success" %}
 NOTE: From klaytn v1.7.0 onwards, vmVersion attribute will be added to the Smart Contract Account.
-
 {% endhint %}
 
 ### Klaytn Account Type ID <a id="klaytn-account-type-id"></a>
@@ -185,12 +184,18 @@ In order for a transaction to be valid for an account associated with AccountKey
 * The number of signed public keys should be less than the number of weightedPublicKeys.
 
 {% hint style="success" %}
-NOTE: After the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0, next multiSig validation logic is added.
-In case of Baobab network, protocol upgrade was enabled from block number `#75373312`.
-Cypress mainnet will be subject to the same protocol upgrade in the next version.
-
+NOTE: The next multiSig validation logic have been changed with the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0.
 * The invalid signature should not be included in the transaction.
 * The number of signed public keys should be less than the number of weightedPublicKeys.
+If you want the previous document, please refer to [previous document](transaction-fees/transaction-fees-previous.md).
+
+v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items.
+It has been enabled from block number `#75373312` in case of Baobab network.
+Cypress mainnet will be subject to the same protocol upgrade in the next version.
+
+v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
+It has been enabled from block number `#80295291` in case of Baobab network.
+Cypress mainnet will be subject to the same protocol upgrade in the next version.
 {% endhint %}
 
 #### Attributes <a id="attributes"></a>

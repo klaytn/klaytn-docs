@@ -8,7 +8,7 @@
 **Endpoint Node**
 
 * [Endpoint Node](../node/endpoint-node/README.md) is needed to connect to the Klaytn network and to issue an API call or send a transaction. 
-* `ken` is a Klaytn Endpoint Node binary. `ken` exposes two interfaces, a [command-line interface](../node/endpoint-node/ken-cli-commands.md) and the [JSON-RPC APIs](../bapp/json-rpc/README.md). `ken` runs on Linux and MacOS.
+* `ken` is a Klaytn Endpoint Node binary. `ken` exposes two interfaces, a [command-line interface](../node/endpoint-node/ken-cli-commands.md) and the [JSON-RPC APIs](../dapp/json-rpc/README.md). `ken` runs on Linux and MacOS.
 * `ken` CLI comes with several utility and node management functions.
 
 **Smart Contract Development**
@@ -18,8 +18,8 @@
 
 **Klaytn SDKs** 
 
-* [caver-js](../bapp/sdk/caver-js/README.md) : A JavaScript library that implements the Klaytn JSON-RPC APIs.
-* [caver-java](../bapp/sdk/caver-java/README.md) : A Java library that implements the Klaytn JSON-RPC APIs. 
+* [caver-js](../dapp/sdk/caver-js/README.md) : A JavaScript library that implements the Klaytn JSON-RPC APIs.
+* [caver-java](../dapp/sdk/caver-java/README.md) : A Java library that implements the Klaytn JSON-RPC APIs. 
 
 **Klaytn Toolkits**
 

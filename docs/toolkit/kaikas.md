@@ -1,11 +1,11 @@
 # Kaikas <a id="kaikas"></a>
 
-Kaikas is a browser extension wallet for the Klaytn Network. Available in Google Chrome, Kaikas provides a secure and usable means to interact with the Klaytn network via web browser. With Kaikas, you are able to store and transact with your KLAY and Klaytn-based tokens. You are also able to sign requests from web-based Klaytn BApps (Blockchain Applications) in
+Kaikas is a browser extension wallet for the Klaytn Network. Available in Google Chrome, Kaikas provides a secure and usable means to interact with the Klaytn network via web browser. With Kaikas, you are able to store and transact with your KLAY and Klaytn-based tokens. You are also able to sign requests from web-based dApps (Decentralized Applications) in
 realtime.
 
 * Download from Chrome Web Store: [link](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi)
 
-For developers, please visit [https://docs.kaikas.io](https://docs.kaikas.io) to learn how you can develop BApps using Kaikas.
+For developers, please visit [https://docs.kaikas.io](https://docs.kaikas.io) to learn how you can develop dApps using Kaikas.
 
 ## PC web browser based decentralized HD wallet
 
@@ -21,11 +21,11 @@ With the features described above, Kaikas has improved the security, transparenc
 
 Kaikas allows you to store and transact with all Klaytn-based tokens including KLAY. Tokens that are not loaded by default can be inserted by pasting in their contract address. You can even store and transact your own Klaytn-based custom tokens on Kaikas!
 
-Kaikas supports Klaytn's Baobab testnet as well as the Cypress mainnet. Moreover, Kaikas supports the private chains for Klaytn-based blockchain application developers who may wish to circulate custom tokens in their private network.
+Kaikas supports Klaytn's Baobab testnet as well as the Cypress mainnet. Moreover, Kaikas supports the private chains for Klaytn-based dApp developers who may wish to circulate custom tokens in their private network.
 
-## Signing web-based BApp transactions
+## Signing web-based dApp transactions
 
-Kaikas simply bridges the gap between you and Klaytn BApps, empowering you to sign transactions/data flowing to you from BApps with Kaikas account.
+Kaikas simply bridges the gap between you and dApps, empowering you to sign transactions/data flowing to you from dApps with Kaikas account.
 Kaikas is also an aidful utility for developers to handle [fee-delegated transactions](/klaytn/design/transactions/README.md#fee-delegation). Using Kaikas, both transaction senders and fee payers can swiftly sign the fee-delegated transactions.
 
 
