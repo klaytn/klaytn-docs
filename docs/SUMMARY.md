@@ -156,6 +156,8 @@
 * [dApp Developers](dapp/README.md)
   * [JSON-RPC APIs](dapp/json-rpc/README.md)
     * [API references](dapp/json-rpc/api-references/README.md)
+      * [eth](dapp/json-rpc/api-references/eth.md)
+        * [Caution](dapp/json-rpc/api-references/eth/caution.md)
       * [klay](dapp/json-rpc/api-references/klay.md)
         * [Account](dapp/json-rpc/api-references/klay/account.md)
         * [Block](dapp/json-rpc/api-references/klay/block.md)
