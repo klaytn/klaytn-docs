@@ -2,7 +2,7 @@
 
 ## Our Unique Governance Structure Delivers Decentralization with Stability
 
-![](../images/governance.png)
+![](images/governance.png)
 
 ## Response to the Growth of Non-traditional Entities <a id="response-to-non-traditional-entities"></a>
 With technological advancement, we will live in a more metaversified world where the influence of non-traditional entities such as builders contributing to the operation of the metaverse and DAOs as a major form of organization in the metaverse will continue to grow.

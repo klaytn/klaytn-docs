@@ -2,7 +2,7 @@
 
 ## We Support Ethereum Equivalence
 
-![](../images/triangle.png)
+![](images/triangle.png)
 
 ### 1. Development Tools <a id="finality-and-improvements"></a>
 Any tooling that can run on Ethereum will run seamlessly within the Klaytn ecosystem by making Klaytn’s technical stack equivalent, from an interfacing and execution perspective, to the existing Ethereum stack. New tooling created in the Klaytn ecosystem could be reciprocally adopted within the Ethereum ecosystem.
