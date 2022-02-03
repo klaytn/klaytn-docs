@@ -1871,7 +1871,7 @@ Please note that it always return `false` because there is no PoW mechanism in K
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_submitWork","params":[],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_submitWork","params":["0x0000000000000001", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"],"id":1}' http://localhost:8551
 
 // Result
 {
@@ -1904,12 +1904,40 @@ Please note that it always return `false` because there is no PoW mechanism in K
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_submithashrate","params":[],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_submithashrate","params":["0x5", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"],"id":1}' http://localhost:8551
 
 // Result
 {
   "jsonrpc": "2.0",
   "id":1,
   "result": false
+}
+```
+
+## eth_chainId <a id="eth_chainid"></a>
+
+Return current chainId set on the requested node.
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Type      | Description                         |
+|-----------|-------------------------------------|
+| QUANTITY  | Chain id set on the requested node. |
+
+**Example**
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}' http://localhost:8551
+
+// Result
+{
+  "jsonrpc": "2.0",
+  "id":1,
+  "result": "0x2019"
 }
 ```
