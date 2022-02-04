@@ -29,6 +29,7 @@ DEX and DeFi
 Traditional finance interfaces
 
 • This package will be managed by our dedicated package manager.
+
 • Builders can easily build and customize Layer 2 as well as create/transfer assets.
 
 With our metaverse package, the complexity of blockchain will no longer
