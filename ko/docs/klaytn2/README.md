@@ -56,4 +56,4 @@
 
 ---
 
-클레이튼 2.0을 더 잘 이해하고 싶다면 라이트 페이퍼를 참고하세요.
+To better understand Klaytn 2.0, please refer to our [Light Paper](https://klaytn.foundation/wp-content/uploads/2022/01/Klaytn-2.0_Light-Paper-20220128.pdf).
