@@ -32,10 +32,10 @@ The information above is from [https://aws.amazon.com/ec2/instance-types/](https
 
 #### Recommended Specification for Azure<a id="recommended-specification-for-azure"></a>
 
-| Node Type | Model | vCPU | Memory \(GiB\) | Storage type \(GiB\) | Storage speed \(IOPS\) | Price \(Seoul region, USD/h\) |
+| Node Type | Model | vCPU | Memory \(GiB\) | Storage type \(GiB\) | Storage speed \(IOPS\) | Price \(Korea Central, USD/h\) |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| CN | F72sv2  | 72 | 144 | P50 (4096) | 7500 | 3.456 |
-| PN | D32sv5  | 32 | 128 | P50 (4096) | 7500 | 1.625 |
+| CN | F72s v2  | 72 | 144 | P50 (4096) | 7500 | 3.456 |
+| PN | D32s v5  | 32 | 128 | P50 (4096) | 7500 | 1.625 |
 
 This storage specification is derived from Azure Premium Disk specification. 
 
