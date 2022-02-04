@@ -163,6 +163,7 @@
         * [Transaction](dapp/json-rpc/api-references/eth/transaction.md)
         * [Config](dapp/json-rpc/api-references/eth/config.md)
         * [Filter](dapp/json-rpc/api-references/eth/filter.md)
+        * [Gas](dapp/json-rpc/api-references/eth/gas.md)
         * [Miscellaneous](dapp/json-rpc/api-references/eth/misc.md)
       * [klay](dapp/json-rpc/api-references/klay.md)
         * [Account](dapp/json-rpc/api-references/klay/account.md)
