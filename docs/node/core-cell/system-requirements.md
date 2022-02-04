@@ -30,16 +30,6 @@ This storage specification is derived from AWS EBS SSD (gp2) specification.
 
 The information above is from [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/) and [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/) and may be changed by AWS.
 
-## Storage Requirements <a id="storage-requirements"></a>
-
-Assuming 100 TPS in average,  300 bytes average transaction size, and 1-second block latency, the expected daily storage requirement is 2.5 GB/day \(=300x100x86400\).
-
-## Operating System <a id="operating-system"></a>
-
-Recommended environment is [Amazon Linux 2](https://aws.amazon.com/ko/about-aws/whats-new/2017/12/introducing-amazon-linux-2/).
-Klaytn binaries are fully tested on Amazon Linux 2, but they should work on other linux-based environments as well.
-macOS binaries are also provided for development purpose.
-
 #### Recommended Specification for Azure<a id="recommended-specification-for-azure"></a>
 
 | Node Type | Model | vCPU | Memory \(GiB\) | Storage type \(GiB\) | Storage speed \(IOPS\) | Price \(Seoul region, USD/h\) |
@@ -51,3 +41,11 @@ This storage specification is derived from Azure Premium Disk specification.
 
 The information above is from [https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/) and [https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing) and may be changed by Microsoft.
 
+## Storage Requirements <a id="storage-requirements"></a>
+
+Assuming 100 TPS in average, 300 bytes average transaction size, and 1-second block latency, the expected daily storage requirement is 2.5 GB/day \(=300x100x86400\).
+
+## Operating System <a id="operating-system"></a>
+
+Recommended environment is compatible with RHEL (7.8 or later).
+Klaytn binaries are fully tested on Amazon Linux 2, but they should work on other linux-based environments as well. macOS binaries are also provided for development purpose.
