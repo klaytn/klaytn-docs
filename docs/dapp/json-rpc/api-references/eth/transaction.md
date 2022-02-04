@@ -70,11 +70,11 @@ The goal of the state override set is manyfold:
 
 To test call in meaningful way, you need to setup test environment like below.
 * Deploy KIP-7 Contract to test call or you can use it with already deployed one. 
-  * We will KIP-7 contract functions `totalSupply` to check whether call is working or not in this example.
-  * To call `totalSupply` you should know about it's function signature which is `0x18160ddd``0x18160ddd`.
+  * We will use KIP-7 contract function `totalSupply` to check whether call is working or not in this example.
+  * To call `totalSupply` you should know about its function signature which is `0x18160ddd`.
 
 In this example:
-* The address of KIP-7 contract: `0xbE3892d33620bE5aca8c75D39e7401871194d290` (You should use the existing contract address.)
+* The address of KIP-7 contract: `0xbE3892d33620bE5aca8c75D39e7401871194d290` (You should use an existing contract address.)
 * The address of caller: `0xca7a99380131e6c76cfa622396347107aeedca2d` 
 
 ```shell
@@ -86,7 +86,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "et
 **Example - StateOverrides**
 
 Following the example above, let's test call using state overrides feature.
-* We will replace the bytecode of `0xbE3892d33620bE5aca8c75D39e7401871194d290` which is the address of KIP-7 already deployed (Check the above example).
+* We will replace the bytecode of `0xbE3892d33620bE5aca8c75D39e7401871194d290` which is the address of KIP-7 contract already deployed above (Check the above example).
 * The bytecode to be replaced is `6080604052600436106049576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680632e64cec114604e5780636057361d146076575b600080fd5b348015605957600080fd5b50606060a0565b6040518082815260200191505060405180910390f35b348015608157600080fd5b50609e6004803603810190808035906020019092919050505060a9565b005b60008054905090565b80600081905550505600a165627a7a723058207783dba41884f73679e167576362b7277f88458815141651f48ca38c25b498f80029`.
   * The original source code of this bytecode is below.
 
@@ -119,7 +119,7 @@ contract Storage {
 }
 ```
 
-Now let's override the state of `0xbE3892d33620bE5aca8c75D39e7401871194d290` with the another contract
+Now let's override the state of `0xbE3892d33620bE5aca8c75D39e7401871194d290` (KIP-7 contract) with another contract's byte code (Storage contract) 
 and call `retrieve` (function signature: `0x2e64cec1`) of Storage contract.
 
 ```shell
