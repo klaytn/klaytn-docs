@@ -10,16 +10,19 @@ in the ecosystem expansion.
 
 ### Klaytn Improvement Reserve (KIR) Grant Program <a id="kir-program"></a>
 • Our grant program that supports public goods such as infrastructure, tools and services that improve the quality of Klaytn L1
+
 • 12% of the newly issued tokens are the main financial resource
 
 ### Klaytn Growth Fund (KGF) Grant Program <a id="kgf-program"></a>
 • Faucet resources for initial service testing and marketing - quickly applied and easily approved
+
 • Paid cumulative $9M in 4Q of 2021
 
 ## Invest <a id="invest"></a>
 
 ### KGF Investment Program <a id="kgf-investment-program"></a>
 • Invests in early-stage projects with potential to have a positive impact on Klaytn
+
 • 54% of the newly issued tokens are the main financial resource of the Klaytn Growth Fund
 
 ## Reward <a id="reward"></a>
