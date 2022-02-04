@@ -56,4 +56,4 @@ Klaytn will provide Metaverse builders with integrated solutions so that they ca
 
 ---
 
-To better understand Klaytn 2.0, please refer to our Light Paper.
+To better understand Klaytn 2.0, please refer to our [Light Paper](https://klaytn.foundation/wp-content/uploads/2022/01/Klaytn-2.0_Light-Paper-20220128.pdf).
