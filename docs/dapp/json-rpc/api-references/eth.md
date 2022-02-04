@@ -53,16 +53,16 @@ this section describes the remaining fields of the block except for header.
 
 Related APIs: `eth_getTransactionByHash`, `eth_getTransactionByBlockHashAndIndex`, `eth_getTransactionByBlockNumberAndIndex`, `eth_pendingTransactions`.
 
+> Due to the fundamental design differences existing between Klaytn and Ethereum, 
+> Klaytn transaction cannot be fully supported when served via Ethereum namespace APIs. 
+
 | Field    | Description                                                                                                                                                                                                                                                                                                   |
 |----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | gasPrice | **(Note that)** It is also called [Unit Price](https://docs.klaytn.com/klaytn/design/transaction-fees#unit-price) in Klaytn and this value is set in the system by the governance.                                                                                                                            |
-| input    | **(Note that)** The value of this field can be different based on Klaytn's transaction types. So, please check [the detailed reference](./eth/caution.md#transaction).                                                                                                                                        |
-| to       | **(Note that)** The value of this field can be different based on Klaytn's transaction types. So, please check [the detailed reference](./eth/caution.md#transaction).                                                                                                                                        |
-| value    | **(Note that)** The value of this field can be different based on Klaytn's transaction types. So, please check [the detailed reference](./eth/caution.md#transaction).                                                                                                                                        |
 | type     | **(Note that)** Value and data type of this field is converted. The type of this field is a string(e.g. `"LegacyTransaction"`) in Klaytn but it is converted and served as hexadecimal(e.g. `0x0`) just like Ethereum Legacy Transaction. Transaction types valid only for Klaytn are served as `0x0` always. |
-| v        | **(Note that)** Klaytn supports MultiSig so transaction in Klaytn can have more than one signature. `signatures[0].V` is used as the value of the field `v`.                                                                                                                                                  |
-| r        | **(Note that)** Klaytn supports MultiSig so transaction in Klaytn can have more than one signature. `signatures[0].R` is used as the value of the field `r`.                                                                                                                                                  |
-| s        | **(Note that)** Klaytn supports MultiSig so transaction in Klaytn can have more than one signature. `signatures[0].S` is used as the value of the field `s`.                                                                                                                                                  |
+
+Transaction in Klaytn can have more than one signature because Klaytn supports MultiSig(Ethereum transaction have only one signature field (= v, r, s)).
+In that context, fields related with signature (v, r, s) will match `tx.signatures[0].V`, `tx.signatures[0].R`, `tx.signatures[0].S`.
 
 Fields not covered here are fields used synonymously with Ethereum.
 
@@ -70,12 +70,16 @@ Fields not covered here are fields used synonymously with Ethereum.
 
 Related APIs: `eth_getTransactionReceipt`.
 
+> Due to the fundamental design differences existing between Klaytn and Ethereum,
+> Klaytn transaction receipt cannot be fully supported when served via Ethereum namespace APIs.
+ 
 | Field             | Description                                                                                                                                                                                                                                                                                                   |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | effectiveGasPrice | **(Note that)** In Klaytn, gasPrice(also called [Unit Price](https://docs.klaytn.com/klaytn/design/transaction-fees#unit-price)) is set in the system by the governance.                                                                                                                                      |
-| to                | **(Note that)** The value of this field can be different based on Klaytn's transaction types. So, please check [the detailed reference](./eth/caution.md#transaction_receipt).                                                                                                                                |
 | type              | **(Note that)** Value and data type of this field is converted. The type of this field is a string(e.g. `"LegacyTransaction"`) in Klaytn but it is converted and served as hexadecimal(e.g. `0x0`) just like Ethereum Legacy Transaction. Transaction types valid only for Klaytn are served as `0x0` always. |
 | transactionIndex  | **(Note that)** Almost same with Ethereum but unlike Ethereum, Klaytn returns integer as it is when its pending.                                                                                                                                                                                              |
+
+Fields not covered here are fields used synonymously with Ethereum.
 
 ## eth_accounts <a id="eth_accounts"></a>
 
