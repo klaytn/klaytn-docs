@@ -69,7 +69,7 @@ tcp        0      0 :::61001        :::*       LISTEN      8989/kcn
   hostname = "<hostname>"
 
 [[outputs.influxdb]]
-  urls = [ "http://13.209.53.161:45560" ]
+  urls = [ "http://localhost:" ]
   database = "klaytn_cypress"
 
 [[inputs.prometheus]]
