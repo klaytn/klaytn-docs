@@ -28,7 +28,7 @@ Note that this is a recommended hardware specification for CNs and PNs, not an e
 
 This storage specification is derived from AWS EBS SSD (gp2) specification. 
 
-The information above is from https://aws.amazon.com/ec2/instance-types/and [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/) and may be changed by AWS.
+The information above is from [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/) and [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/) and may be changed by AWS.
 
 ## Storage Requirements <a id="storage-requirements"></a>
 
@@ -49,13 +49,5 @@ macOS binaries are also provided for development purpose.
 
 This storage specification is derived from Azure Premium Disk specification. 
 
-The information above is from [https://azure.microsoft.com/en-us/pricing/details/virtual-
-
-machines/series/](https://azure.microsoft.com/en-us/pricing/details/virtual-
-
-machines/series/) and [https://azure.microsoft.com/en-us/pricing/details/
-
-managed-disks/#pricing](https://azure.microsoft.com/en-us/pricing/details/
-
-managed-disks/#pricing) and may be changed by Microsoft.
+The information above is from [https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/) and [https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing) and may be changed by Microsoft.
 
