@@ -16,7 +16,7 @@ v1.7.3 프로토콜 업그레이드 - **London** 하드 포크의 Base Fee를 �
 
 또한 Klaytn의 스마트 컨트랙트를 개발할 때 [Remix](https://remix.ethereum.org/) \(브라우저 기반 IDE\)와 [Truffle](https://github.com/trufflesuite/truffle) \(개발 프레임워크\)을 활용할 수 있습니다. Klaytn 팀은 이더리움 개발 도구와 Klaytn 개발 도구의 호환성을 유지하고자 하지만, 필요에 따라 Ethereum 도구보다 향상되거나 업데이트된 버전의 도구를 Klaytn 스마트 컨트랙트 개발자들에게 제공할 수도 있습니다.
 
-스마트 컨트랙트를 개발할 때 Remix 또는 Truffle을 활용하는 것이 편리하지만, 아래 웹 페이지들의 안내에 따라 솔리디티 컴파일러를 빌드하거나 설치하여 로컬로 사용할 수도 있습니다.
+It is convenient to utilize Remix or Truffle to develop smart contracts, but the Solidity compiler can be used locally, by building or installing it by following the instructions described in the web page below:
 
 * [솔리디티 컴파일러 설치](https://docs.soliditylang.org/en/latest/installing-solidity.html)
 
