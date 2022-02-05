@@ -180,13 +180,13 @@ AccountKeyWeightedMultiSig는 계정 키 타입입니다. 여기에는 threshold
 * 서명된 공개키 개수가 WeightedPublicKey 개수보다 적어야만 합니다.
 
 {% hint style="success" %}
-참고: 다음 multiSig 검증 로직은 Klaytn v.1.7.0에서 도입된 프로토콜 업그레이드(하드포크)와 함께 변경되었습니다.
+NOTE: The following multiSig validation logic have been changed with the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0.
 * 트랜잭션에 유효하지 않은 서명이 포함되면 안 됩니다.
 * 서명된 공개키 개수가 WeightedPublicKey 개수보다 적어야만 합니다. If you want the previous document, please refer to [previous document](transaction-fees/transaction-fees-previous.md).
 
-v1.7.0 프로토콜 업그레이드 - **Istanbul** 하드포크 및 Klaytn의 자체 사항들을 포함하는 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#75373312`부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
+v1.7.0 프로토콜 업그레이드 - **Istanbul** 하드포크 및 Klaytn의 자체 사항들을 포함하는 비호환 변경이 적용됩니다. It has been enabled from block number `#75373312` in case of the Baobab network. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
 
-v1.7.3 프로토콜 업그레이드 - **London** 하드 포크의 Base Fee를 포함한 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#80295291`부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
+v1.7.3 프로토콜 업그레이드 - **London** 하드 포크의 Base Fee를 포함한 비호환 변경이 적용됩니다. It has been enabled from block number `#80295291` in case of the Baobab network. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
 {% endhint %}
 
 #### 속성 <a id="attributes"></a>
@@ -248,11 +248,11 @@ AccountKeyRoleBased의 역할은 다음과 같이 정의됩니다.
 
 참고: key1, key2 및 key3은 위의 키(AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail 및 AccountKeyWeightedMultiSig\) 중 하나입니다.
 
-#### 생략 또는 확장 가능한 역할<a id="omissible-and-extendable-roles"></a>
+#### Omissible and Expandable Roles <a id="omissible-and-expandable-roles"></a>
 
-역할은 끝에서부터 생략할 수 있으며 생략된 역할은 첫 번째 역할에 매핑됩니다. 그러나, 중간에 있는 역할을 생략할 수 없으므로 RoleAccountUpdate 없이는 RoleTransaction 및 RoleFeePayer를 설정할 수 없습니다. 예를 들어, 역할기반 키가 `0x05 + encode([key1, key2])`로 설정되어있으면, RoleFeePayer는 `0x05 + encode ([key1, key2, key1])`로 설정되어있는 것처럼 작동합니다.
+The roles can be omitted from the last index, and the omitted roles are mapped to the first role. 그러나, 중간에 있는 역할을 생략할 수 없으므로 RoleAccountUpdate 없이는 RoleTransaction 및 RoleFeePayer를 설정할 수 없습니다. 예를 들어, 역할기반 키가 `0x05 + encode([key1, key2])`로 설정되어있으면, RoleFeePayer는 `0x05 + encode ([key1, key2, key1])`로 설정되어있는 것처럼 작동합니다.
 
-이 기능은 향후 더 많은 역할을 추가하기 위해 제공됩니다. 새 역할이 제공되면 이전 역할로 이미 생성된 새 계정 역할이 첫 번째 역할에 대응됩니다.
+This feature allows for more roles to be added in the future. 새 역할이 제공되면 이전 역할로 이미 생성된 새 계정 역할이 첫 번째 역할에 대응됩니다.
 
 #### RLP 인코딩 \(예시\) <a id="rlp-encoding-example"></a>
 
