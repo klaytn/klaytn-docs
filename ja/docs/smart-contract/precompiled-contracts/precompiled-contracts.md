@@ -16,11 +16,11 @@ Contracts deployed before the protocol upgrade should use the original addresses
 If you want the previous document, please refer to [previous document](precompiled-contracts-previous.md).
 {% endhint %}
 
-| precompiled contract | addresses used in the contracts deployed before v1.7.0 PU activation | address used in the contracts deployed after v1.7.0 PU activation |
-|:-------------------- |:-------------------------------------------------------------------- |:----------------------------------------------------------------- |
-| vmLog                | 0x09                                                                 | 0x3fd                                                             |
-| feePayer             | 0x0a                                                                 | 0x3fe                                                             |
-| validateSender       | 0x0b                                                                 | 0x3ff                                                             |
+| precompiled contract | addresses used in the contracts deployed before v1.7.0 protocol update activation | address used in the contracts deployed after v1.7.0 protocol update activation |
+|:-------------------- |:--------------------------------------------------------------------------------- |:------------------------------------------------------------------------------ |
+| vmLog                | 0x09                                                                              | 0x3fd                                                                          |
+| feePayer             | 0x0a                                                                              | 0x3fe                                                                          |
+| validateSender       | 0x0b                                                                              | 0x3ff                                                                          |
 
 ## Address 0x01: ecrecover\(hash, v, r, s\) <a id="address-0x-01-ecrecover-hash-v-r-s"></a>
 
