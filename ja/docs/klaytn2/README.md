@@ -1,39 +1,40 @@
 # We Are Here to Give Power Back to the People <a id="klaytn2"></a>
 
-The South Korean Web2 giant Kakao created the most practical, reliable EVM Layer 1 blockchain network Klaytn. Staying true to its mission to "make a better world with people and technology", the Klaytn blockchain gives power back to the people in the age of Web3, rather than focusing solely on technology and business. To that end, the Klaytn Foundation is committed to making cutting-edge technologies more accessible, to pave the way to engage more people to partake in this new experience.
+In 2019, Kakao—one of South Korea’s leading software enterprises—created the Klaytn blockchain with the intention of staying true to its mission of making a better world through people and technology.
 
-A robust community based on trust coupled with powerful technologies that support infrastructure will help Klaytn and its participants build a collaborative playground for a new, exciting world of Web3. This will allow the Klaytn Foundation to discover new opportunities and accelerate the speed of innovation reaching mainstream. Web3 is where people group together in flexible affiliations based on common interest, and the millennials and zoomers are emerging as the main actors that willingly embrace what it has to offer. Klaytn Network will be the best trust layer to accommodate these members of the next generation.
+As an EVM Layer 1 blockchain, Klaytn is designed to be practical and reliable, focusing not just on technology and business, but also transformative change that will empower individuals in the age of Web3.
+
+To that end, the Klaytn Foundation is committed to making blockchain technologies more accessible, to pave the way for more to be a part of the Web3 revolution, with Klaytn as the preferred trust layer that will connect people from all walks of life and all corners of the world.
+
+To build the infrastructure for this collaborative Web3 playground, Klaytn will couple our robust community with powerful infrastructure technologies to discover new opportunities and accelerate the speed of innovation.
 
 # We Are the Trust Layer of Metaverse <a id="trustlayer"></a>
 
-With the approaching of a new civilization, the metaverse is emerging as a space for creators and players to define new standards, where a dynamic, digital future with flourishing creativity awaits.
+The metaverse is poised to redefine society, by providing creators and players with a clean slate to define new standards and let their creativity flourish in our dynamic digital future.
 
-This movement will begin with the underdogs, creative minds, youngsters, outsiders - whoever that wants to be themselves without facing any prejudice due to as age, occupation or nationality.
+This movement will begin with the underdogs, creative minds, youngsters, and outsiders—everyone who wants to be themselves without facing any prejudice.
 
-But the metaverse should not be a 'Disney Land'. It should be a different world where people are granted genuine ownership and the freedom to express their ideas without inhibition.
+This means that the metaverse should not be owned and operated by a central authority. It has to be a world where people are granted genuine ownership and the freedom to express their ideas without inhibition.
 
-That being said, the metaverse will be built on a blockchain protocol which no central authority can control - and that's exactly what we strive for.
-
-Klaytn is built to be the fundamental trust layer for the metaverse that respects the participation and contributions of all communities, bringing them together in the new world for empowerment.
-
+As an open source public blockchain project, Klaytn is built to be the fundamental trust layer for the metaverse, respecting the participation and contribution from all communities, empowering and bringing them together in the new world.
 
 # 'One-Stop' Chain for Metaverse Builders <a id="one-stop-chain-for-metaverse-builders"></a>
 
-Klaytn will provide Metaverse builders with integrated solutions so that they can easily utilize Klaytn as the trust layer for the Metaverse and realize their ideas. Our integrated offers for builders include the following but not limited to:
+Klaytn will provide metaverse builders with integrated solutions so that they can easily utilize Klaytn as the trust layer for the metaverse to bring their ideas to life. Our integrated offers include the following:
 
 ## 1. Open Source Dev Infra Package <a id="open-source-dev-infra-package"></a>
 - L2 Solutions
 - SDKs
-- Smart Contract Library
+- Smart contract library
 - Wallets
-- Chain Explorer
+- Chain explorer
 - Oracles
-- Distributed Storage
+- Distributed storage
 - Bridges
 - DAOs
-- NFT Marketplace
+- NFT marketplace
 - DEXs/DeFi
-- ... + All of these offered in 'packages'
+- ... + 'Packaging' all of these
 
 ## 2. High Performing Mainnet <a id="high-performing-mainnet"></a>
 - High throughput / TPS
@@ -49,7 +50,7 @@ Klaytn will provide Metaverse builders with integrated solutions so that they ca
 
 ## 4. Management and Financial Support <a id="management-and-financial-support"></a>
 - Treasury advisory
-- Klaytn Grant Fund
+- Klaytn Growth Fund
 - IP-centric Investment Fund
 - Performance incentives
 - GC invitation
