@@ -16,11 +16,11 @@ v1.7.3 프로토콜 업그레이드 - **London** 하드 포크의 Base Fee를 �
 이전 문서는 [이전 문서](precompiled-contracts-previous.md)를 참고해주세요.
 {% endhint %}
 
-| 미리 컴파일된 컨트랙트   | v1.7.0 프로토콜 업데이트 이전에 배포된 컨트랙트에서 사용되는 주소 | v1.7.0 프로토콜 업데이트 이후에 배포된 컨트랙트에서 사용되는 주소 |
-|:-------------- |:--------------------------------------- |:--------------------------------------- |
-| vmLog          | 0x09                                    | 0x3fd                                   |
-| feePayer       | 0x0a                                    | 0x3fe                                   |
-| validateSender | 0x0b                                    | 0x3ff                                   |
+| 미리 컴파일된 컨트랙트   | addresses used in the contracts deployed before v1.7.0 protocol update activation | address used in the contracts deployed after v1.7.0 protocol update activation |
+|:-------------- |:--------------------------------------------------------------------------------- |:------------------------------------------------------------------------------ |
+| vmLog          | 0x09                                                                              | 0x3fd                                                                          |
+| feePayer       | 0x0a                                                                              | 0x3fe                                                                          |
+| validateSender | 0x0b                                                                              | 0x3ff                                                                          |
 
 ## 주소 0x01: ecrecover\(hash, v, r, s\) <a id="address-0x-01-ecrecover-hash-v-r-s"></a>
 
