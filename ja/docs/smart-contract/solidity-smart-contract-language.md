@@ -16,7 +16,7 @@ v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **Lon
 
 Development tools such as [Remix](https://remix.ethereum.org/) \(a browser-based IDE\) and [Truffle](https://github.com/trufflesuite/truffle) \(a development framework\) can be utilized when developing smart contracts for Klaytn. The Klaytn team will attempt to maintain compatibility between Ethereum's development tools and Klaytn's but may elect to provide the Klaytn smart contract developers with enhanced or updated versions of those tools when necessary.
 
-It is convenient to exploit Remix or Truffle to develop smart contracts, but the Solidity compiler can be used locally, by building or installing it by following the instructions described in the web page below:
+It is convenient to utilize Remix or Truffle to develop smart contracts, but the Solidity compiler can be used locally, by building or installing it by following the instructions described in the web page below:
 
 * [Installing the Solidity Compiler](https://docs.soliditylang.org/en/latest/installing-solidity.html)
 
