@@ -182,13 +182,13 @@ AccountKeyWeightedMultiSig is an account key type containing a threshold and Wei
 * The number of signed public keys should be less than the number of weightedPublicKeys.
 
 {% hint style="success" %}
-NOTE: The next multiSig validation logic have been changed with the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0.
+NOTE: The following multiSig validation logic have been changed with the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0.
 * The invalid signature should not be included in the transaction.
 * The number of signed public keys should be less than the number of weightedPublicKeys. If you want the previous document, please refer to [previous document](transaction-fees/transaction-fees-previous.md).
 
-v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items. It has been enabled from block number `#75373312` in case of Baobab network. Cypress mainnet will be subject to the same protocol upgrade in the next version.
+v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items. It has been enabled from block number `#75373312` in case of the Baobab network. Cypress mainnet will be subject to the same protocol upgrade in the next version.
 
-v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork. It has been enabled from block number `#80295291` in case of Baobab network. Cypress mainnet will be subject to the same protocol upgrade in the next version.
+v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork. It has been enabled from block number `#80295291` in case of the Baobab network. Cypress mainnet will be subject to the same protocol upgrade in the next version.
 {% endhint %}
 
 #### Attributes <a id="attributes"></a>
@@ -250,11 +250,11 @@ Roles of AccountKeyRoleBased are defined as below:
 
 Note that key1, key2, and key3 can be any of above keys \(AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail, and AccountKeyWeightedMultiSig\).
 
-#### Omissible and Extendable Roles <a id="omissible-and-extendable-roles"></a>
+#### Omissible and Expandable Roles <a id="omissible-and-expandable-roles"></a>
 
-The roles can be omitted from the last, and the omitted roles are mapped to the first role. However, a role in the middle cannot be omitted, which means RoleTransaction and RoleFeePayer cannot be set without RoleAccountUpdate. For example, if a role-based key is set to `0x05 + encode([key1, key2])`, RoleFeePayer works as if the key is set like `0x05 + encode([key1, key2, key1])`.
+The roles can be omitted from the last index, and the omitted roles are mapped to the first role. However, a role in the middle cannot be omitted, which means RoleTransaction and RoleFeePayer cannot be set without RoleAccountUpdate. For example, if a role-based key is set to `0x05 + encode([key1, key2])`, RoleFeePayer works as if the key is set like `0x05 + encode([key1, key2, key1])`.
 
-This feature is provided to extend more roles in the future. If a new role is provided, the new role of accounts already created with old roles is mapped to the first role.
+This feature allows for more roles to be added in the future. If a new role is provided, the new role of accounts already created with old roles is mapped to the first role.
 
 #### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
