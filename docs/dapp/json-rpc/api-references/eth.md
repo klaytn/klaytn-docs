@@ -9,10 +9,12 @@ The namespace `eth` provides functions related to accounts, blocks, transactions
 configurations of networks or nodes, filters, and so on.
 
 Klaytn now supports eth namespace of [Ethereum's JSON RPC API](https://eth.wiki/json-rpc/API). But Please note that
-there are some fields returning values adjusted to match Ethereum API response. Below is the overview of that fields.
+there are some fields returning values adjusted to match Ethereum API response. 
 
 And due to the fundamental design differences existing between Klaytn and Ethereum, 
 Klaytn's data structure (Transaction, Block, and TransactionReceipt) cannot be fully supported via eth namespace APIs.
+
+Please check the [Differences Overview from Ethereum](#differences_overview_from_ethereum) section of this document.
 
 **NOTE**: `eth` namespace APIs are supported from Klaytn v1.8.0.
 
@@ -84,7 +86,7 @@ The list below enumerates the API functions that are currently supported in Klay
 - [eth_submitWork](./eth/misc.md#eth_submitwork)
 - [eth_submitHashrate](./eth/misc.md#eth_submithashrate)
 
-## Differences Overview from Ethereum
+## Differences Overview from Ethereum <a id="differences_overview_from_ethereum">
 
 > Please check the [Caution](./eth/caution.md) document which describes details about differences between Klaytn and Ethereum when serving eth namespace APIs. 
 
