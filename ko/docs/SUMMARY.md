@@ -6,7 +6,7 @@
   * [Metaverse Package](klaytn2/metaverse-package.md)
   * [Finality and Improvements](klaytn2/finality-and-improvements.md)
   * [Ethereum Compatibility](klaytn2/ethereum-compatibility.md)
-  * [Decentralizing Governance](klaytn2/decentralizing-governance.md)
+  * [거버넌스 탈중앙화](klaytn2/decentralizing-governance.md)
   * [Massive Eco Fund](klaytn2/massive-ecofund.md)
 
 * [Klaytn 개요](klaytn/README.md)
