@@ -1,10 +1,10 @@
-# Decentralizing Governance
+# 거버넌스 탈중앙화
 
-## Our Unique Governance Structure Delivers Decentralization with Stability
+## 안정적인 탈중앙화를 위한 특별한 거버넌스 구조
 
 ![](images/governance.png)
 
-## Response to the Growth of Non-traditional Entities <a id="response-to-non-traditional-entities"></a>
+## 비전통적 주체들의 성장에 대응<a id="response-to-non-traditional-entities"></a>
 With technological advancement, we will live in a more metaversified world where the influence of non-traditional entities such as builders contributing to the operation of the metaverse and DAOs as a major form of organization in the metaverse will continue to grow.
 
 ## Diversification of Governance Participants <a id="diversification-of-governance-participants"></a>
