@@ -90,14 +90,14 @@ The list below enumerates the API functions. All `eth` namespace APIs are suppor
 
 > Please check the [Caution](./eth/caution.md) document which describes details about differences between Klaytn and Ethereum when serving eth namespace APIs. 
 
-### Block Header <a id="block_header"></a>
+### Block <a id="block"></a>
 
-Related APIs: [eth_getHeaderByNumber](./eth/block/#eth_getHeaderByNumber), [eth_getHeaderByHash](./eth/block/#eth_getHeaderByHash).
+Related APIs: [eth_getHeaderByNumber](./eth/block/#eth_getHeaderByNumber), [eth_getHeaderByHash](./eth/block/#eth_getHeaderByHash), [eth_getBlockByHash](./eth/block/#eth_getBlockByHash), [eth_getBlockByNumber](./eth/block/#eth_getBlockByNumber), [eth_getUncleByBlockHashAndIndex](./eth/block/#eth_getUncleByBlockHashAndIndex), [eth_getUncleByBlockNumberAndIndex](./eth/block/#eth_getUncleByBlockNumberAndIndex).
 
 | Field           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                            
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | baseFeePerGas   | This field always have value `0x0` because there is no scheme of baseFeePerGas in Klaytn yet.                                                                                                                                                                                                                                                                                                                                                   |
-| difficulty      | This field always has value `0x1` because the value is from the `blockScore` field from Klaytn's Header. There is no PoW mechanism on Klaytn.                                                                                                                                                                                                                                                                                                          |
+| difficulty      | This field always has value `0x1` because the value is from the `blockScore` field from Klaytn's Header. There is no PoW mechanism on Klaytn.                                                                                                                                                                                                                                                                                                   |
 | extraData       | It always return `0x` which means empty data because actual value of `extraData` field in Klaytn header cannot be used as meaningful way when served as eth namespace api. Because `extraData` is used as consensus info which is an encoded value of validators addresses, validators signatures, and proposer signature in Klaytn but the original Klaytn header changes while serving eth namespace apis, so it lost it's meaning.           |
 | gasLimit        | This field always have value `0xe8d4a50fff`(=`999999999999` in decimal representation.) because there is no GasLimit in Klaytn, so we return this value as a large enough. As of the writing date, it is 30 times larger than [the block gas limit of Ethereum](https://ethereum.org/en/developers/docs/gas/#block-size). Please check [computation cost](https://docs.klaytn.com/klaytn/design/computation/computation-cost) for more details. |
 | miner           | Because the [consensus mechanism](https://docs.klaytn.com/klaytn/design/consensus-mechanism) in Klaytn is [PBFT](https://docs.klaytn.com/klaytn/design/consensus-mechanism#pbft-practical-byzantine-fault-tolerance), there is a block proposer not miner. So it returns the address of proposer of the block.                                                                                                                                  |
@@ -105,19 +105,9 @@ Related APIs: [eth_getHeaderByNumber](./eth/block/#eth_getHeaderByNumber), [eth_
 | nonce           | This field always have zeroNonce(`0x00...`) because there is no PoW mechanism in Klaytn.                                                                                                                                                                                                                                                                                                                                                        |
 | sha3Uncles      | This field always have `0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347` which is the keccak256 hash of rlp encoded bytes of empty list of block headers because there is no uncles in Klaytn.                                                                                                                                                                                                                               |
 | totalDifficulty | The total blockScore of the chain until this block.                                                                                                                                                                                                                                                                                                                                                                                             |
+| uncles          | This field is always have value `[]` because there are no uncles in Klaytn.                                                                                                                                                                                                                                                                                                                                                                     |
 
 Fields not covered here are fields used synonymously with Ethereum.
-
-### Block <a id="block"></a>
-
-Related APIs: [eth_getBlockByHash](./eth/block/#eth_getBlockByHash), [eth_getBlockByNumber](./eth/block/#eth_getBlockByNumber), [eth_getUncleByBlockHashAndIndex](./eth/block/#eth_getUncleByBlockHashAndIndex), [eth_getUncleByBlockNumberAndIndex](./eth/block/#eth_getUncleByBlockNumberAndIndex).
-
-Since Block includes the Header fields already covered above,
-this section describes the remaining fields of the block except for header.
-
-| Field           | Description                                                                         |
-|-----------------|-------------------------------------------------------------------------------------|
-| uncles          | This field is always have value `[]` because there are no uncles in Klaytn.         |
 
 ### Transaction <a id="transaction"></a>
 
