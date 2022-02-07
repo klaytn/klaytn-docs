@@ -43,7 +43,7 @@ The information above is from [https://azure.microsoft.com/en-us/pricing/details
 
 ## Storage Requirements <a id="storage-requirements"></a>
 
-Assuming 100 TPS in average, 300 bytes average transaction size, and 1-second block latency, the expected daily storage requirement is 2.5 GB/day \(=300x100x86400\).
+Assuming 100 TPS in average, 300 bytes average transaction size, and 1-second block latency, the expected daily storage requirement is about 2.5 GB/day \(=300x100x86400\).
 
 ## Operating System <a id="operating-system"></a>
 
