@@ -145,7 +145,7 @@ Related APIs: `eth_getTransactionReceipt`.
  
 | Field             | Description                                                                                                                                                                        |
 |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| effectiveGasPrice | Klaytn uses fixed gasPrice policy. gasPrice(also called [Unit Price](https://docs.klaytn.com/klaytn/design/transaction-fees#unit-price)) is set in the system by the governance.   |
+| effectiveGasPrice | Since Klaytn uses a fixed gas price policy, the gasPrice value is returned. gasPrice(also called [Unit Price](https://docs.klaytn.com/klaytn/design/transaction-fees#unit-price)) is set in the system by the governance.   |
 | transactionIndex  | Almost same with Ethereum but unlike Ethereum, Klaytn returns integer as it is when its pending.                                                                                   |
 
 Fields not covered here are fields used synonymously with Ethereum.
