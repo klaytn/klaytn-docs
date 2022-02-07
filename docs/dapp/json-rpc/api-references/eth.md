@@ -92,7 +92,7 @@ The list below enumerates the API functions. All `eth` namespace APIs are suppor
 
 ### Block Header <a id="block_header"></a>
 
-Related APIs: `eth_getHeaderByNumber`, `eth_getHeaderByHash`.
+Related APIs: [eth_getHeaderByNumber](./eth/block/#eth_getHeaderByNumber), [eth_getHeaderByHash](./eth/block/#eth_getHeaderByHash).
 
 | Field           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                            
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -110,7 +110,7 @@ Fields not covered here are fields used synonymously with Ethereum.
 
 ### Block <a id="block"></a>
 
-Related APIs: `eth_getBlockByHash`, `eth_getBlockByNumber`, `eth_getUncleByBlockHashAndIndex`, `eth_getUncleByBlockNumberAndIndex`.
+Related APIs: [eth_getBlockByHash](./eth/block/#eth_getBlockByHash), [eth_getBlockByNumber](./eth/block/#eth_getBlockByNumber), [eth_getUncleByBlockHashAndIndex](./eth/block/#eth_getUncleByBlockHashAndIndex), [eth_getUncleByBlockNumberAndIndex](./eth/block/#eth_getUncleByBlockNumberAndIndex).
 
 Since Block includes the Header fields already covered above,
 this section describes the remaining fields of the block except for header.
@@ -121,7 +121,7 @@ this section describes the remaining fields of the block except for header.
 
 ### Transaction <a id="transaction"></a>
 
-Related APIs: `eth_getTransactionByHash`, `eth_getTransactionByBlockHashAndIndex`, `eth_getTransactionByBlockNumberAndIndex`, `eth_pendingTransactions`.
+Related APIs: [eth_getTransactionByHash](./eth/transaction/#eth_getTransactionByHash), [eth_getTransactionByBlockHashAndIndex](./eth/transaction/#eth_getTransactionByBlockHashAndIndex), [eth_getTransactionByBlockNumberAndIndex](./eth/transaction/#eth_getTransactionByBlockNumberAndIndex), [eth_pendingTransactions](./eth/transaction/#eth_pendingTransactions).
 
 > Due to the fundamental design differences existing between Klaytn and Ethereum, 
 > Klaytn transactions cannot be fully supported when served via `eth` namespace APIs. 
@@ -138,7 +138,7 @@ Fields not covered here are fields used synonymously with Ethereum.
 
 ### Transaction Receipt <a id="transaction_receipt"></a>
 
-Related APIs: `eth_getTransactionReceipt`.
+Related APIs: [eth_getTransactionReceipt](./eth/transaction/#eth_getTransactionReceipt).
 
 > Due to the fundamental design differences existing between Klaytn and Ethereum,
 > Klaytn transaction receipt cannot be fully supported when served via Ethereum namespace APIs.
