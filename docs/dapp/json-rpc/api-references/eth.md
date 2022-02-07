@@ -112,7 +112,7 @@ Fields not covered here are fields used synonymously with Ethereum.
 
 Related APIs: `eth_getBlockByHash`, `eth_getBlockByNumber`, `eth_getUncleByBlockHashAndIndex`, `eth_getUncleByBlockNumberAndIndex`.
 
-Since Block contains fields of Header and header has already been covered above,
+Since Block includes the Header fields already covered above,
 this section describes the remaining fields of the block except for header.
 
 | Field           | Description                                                                         |
@@ -129,7 +129,7 @@ Related APIs: `eth_getTransactionByHash`, `eth_getTransactionByBlockHashAndIndex
 | Field    | Description                                                                                                                                                                                                                                                                                     |
 |----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | gasPrice | It is also called [Unit Price](https://docs.klaytn.com/klaytn/design/transaction-fees#unit-price) in Klaytn and this value is set in the system by the governance.                                                                                                                              |
-| type     | Value and data type of this field is converted. The type of this field is a string(e.g. `"LegacyTransaction"`) in Klaytn but it is converted and served as hexadecimal(e.g. `0x0`) just like Ethereum Legacy Transaction. Transaction types valid only for Klaytn are served as `0x0` always.   |
+| type     | The value and data type of this field are converted. The type of this field is a string(e.g. `"LegacyTransaction"`) in Klaytn but it is converted and served as hexadecimal(e.g. `0x0`) just like Ethereum Transaction. Transaction types valid only for Klaytn are served as `0x0` always.   |
 
 Transaction in Klaytn can have more than one signature because Klaytn supports MultiSig(Ethereum transaction have only one signature field (= v, r, s)).
 In that context, fields related with signature (v, r, s) will match `tx.signatures[0].V`, `tx.signatures[0].R`, `tx.signatures[0].S`.
