@@ -5,9 +5,9 @@
 ![](images/governance.png)
 
 ## 비전통적 주체들의 성장에 대응<a id="response-to-non-traditional-entities"></a>
-With technological advancement, we will live in a more metaversified world where the influence of non-traditional entities such as builders contributing to the operation of the metaverse and DAOs as a major form of organization in the metaverse will continue to grow.
+기술의 진보와 함께 우리는 메타버스와 그 대표적 조직 형태인 DAO의 운영에 기여하는 빌더와 같은 비전통적 주체들의 영향력이 계속해서 강해지는, 더 메타버스화된 세계에서 살게될 것입니다.
 
-## Diversification of Governance Participants <a id="diversification-of-governance-participants"></a>
+## 거버넌스 참여자들의 다양화<a id="diversification-of-governance-participants"></a>
 In addition to traditional enterprises, by bringing the two decentralized entities into Klaytn Governance Council (GC), we are opening up the potential to rebuild the entire Klaytn governance structure in an unprecedented way with hundreds of governance participants.
 
 ## Voting Power that Scales with Community Support <a id="voting-power-that-scales-with-community-support"></a>
