@@ -8,7 +8,7 @@ description: >-
 The namespace `eth` provides functions related to accounts, blocks, transactions,
 configurations of networks or nodes, filters, and so on.
 
-Klaytn now supports eth namespace of [Ethereum's JSON RPC API](https://eth.wiki/json-rpc/API). But Please note that
+Klaytn now supports eth namespace of [Ethereum's JSON-RPC API](https://eth.wiki/json-rpc/API). But Please note that
 there are some fields returning values adjusted to match Ethereum API response. 
 
 And due to the fundamental design differences existing between Klaytn and Ethereum, 
@@ -18,7 +18,7 @@ Please check the [Differences Overview from Ethereum](#differences_overview_from
 
 **NOTE**: `eth` namespace APIs are supported from Klaytn v1.8.0.
 
-The list below enumerates the API functions. All `eth` namespace APIs are supported in Klaytn
+The list below enumerates the API functions. All `eth` namespace APIs are supported in Klaytn.
 
 ### [Account](./eth/account.md) <a id="account"></a>
 - [eth_accounts](./eth/account.md#eth_accounts)
