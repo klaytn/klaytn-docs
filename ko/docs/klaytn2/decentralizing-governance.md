@@ -8,10 +8,10 @@
 기술의 진보와 함께 우리는 메타버스와 그 대표적 조직 형태인 DAO의 운영에 기여하는 빌더와 같은 비전통적 주체들의 영향력이 계속해서 강해지는, 더 메타버스화된 세계에서 살게될 것입니다.
 
 ## 거버넌스 참여자들의 다양화<a id="diversification-of-governance-participants"></a>
-In addition to traditional enterprises, by bringing the two decentralized entities into Klaytn Governance Council (GC), we are opening up the potential to rebuild the entire Klaytn governance structure in an unprecedented way with hundreds of governance participants.
+클레이튼 거버넌스 카운슬(GC)에 기존의 전통적 기업에 더해 두 탈중앙화된 주체들을 영입함으로써 클레이튼의 거버넌스 구조를 수백 개의 주체들이 참여하는 유례없는 방식으로 재정립할 가능성이 열립니다.
 
-## Voting Power that Scales with Community Support <a id="voting-power-that-scales-with-community-support"></a>
-A stake-based governance model will be introduced to enable governance participants who can gather more support from Klaytn Communities to shape Klaytn in line with their preference. The Gini Coefficient will be discontinued soon. 메타버스화된 세상에서 적절한 결정을 내릴 수 있는 주체들이 클레이튼 GC에서 더 많은 영향력을 지니게 될 것입니다. 우리는 DAO와 빌더들이 해당 영역의 리더가 될 것이라 믿습니다.
+## 커뮤니티 지지와 함께 확대되는 투표권<a id="voting-power-that-scales-with-community-support"></a>
+커뮤니티에서 더 많은 지지를 받는 거버넌스 참여자들이 원하는 방향으로 클레이튼을 구성해가도록 하기 위해 스테이킹 기반 거버넌스 모델이 도입될 것입니다. 지니 계수가 곧 폐지될 예정입니다. 메타버스화된 세상에서 적절한 결정을 내릴 수 있는 주체들이 클레이튼 GC에서 더 많은 영향력을 지니게 될 것입니다. 우리는 DAO와 빌더들이 해당 영역의 리더가 될 것이라 믿습니다.
 
-## Ultimate Goal of Decentralization <a id="ultimate-goal-of-decentralization"></a>
-When the level of metaversification crosses the critical threshold, Klaytn governance will be fully decentralized with DAOs and builders. Ultimately, Klaytn will evolve into a DAO of DAOs and a platform for DAOs to communicate the voices of Klaytn Communities through on-chain mechanisms.
+## 탈중앙화의 최종 목표<a id="ultimate-goal-of-decentralization"></a>
+메타버스화 수준이 임계치를 넘어서면 클레이튼 거버넌스는 DAO와 빌더들과 함께 완전한 탈중앙화를 이룰 것입니다. 최종적으로 클레이튼은 온체인 메커니즘을 통해 클레이튼 커뮤니티의 목소리를 전파시킬 수 있는 DAO의 DAO, 그리고 DAO 플랫폼으로 진화할 것입니다.
