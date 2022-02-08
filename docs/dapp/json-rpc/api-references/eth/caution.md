@@ -17,7 +17,7 @@ This document describes the limitations of those APIs.
 
 ## Block Header <a id="block_header"></a>
 
-Related APIs: `eth_getHeaderByNumber`, `eth_getHeaderByHash`.
+Related APIs: [eth_getHeaderByNumber](./block/#eth_getHeaderByNumber), [eth_getHeaderByHash](./block/#eth_getHeaderByHash).
 
 Please read the descriptions marked "**(Note that)**" carefully.
 
@@ -49,7 +49,7 @@ Please read the descriptions marked "**(Note that)**" carefully.
 
 ## Block <a id="block"></a>
 
-Related APIs: `eth_getBlockByHash`, `eth_getBlockByNumber`, `eth_getUncleByBlockHashAndIndex`, `eth_getUncleByBlockNumberAndIndex`.
+Related APIs: [eth_getBlockByHash](./block/#eth_getBlockByHash), [eth_getBlockByNumber](./block/#eth_getBlockByNumber), [eth_getUncleByBlockHashAndIndex](./block/#eth_getUncleByBlockHashAndIndex), [eth_getUncleByBlockNumberAndIndex](./block/#eth_getUncleByBlockNumberAndIndex).
 
 Since Block contains fields of Header and header has already been covered above,
 this section describes the remaining fields of the block except for header.
@@ -65,7 +65,7 @@ Please read the descriptions marked "**(Note that)**" carefully.
 
 ## Transaction <a id="transaction"></a>
 
-Related APIs: `eth_getTransactionByHash`, `eth_getTransactionByBlockHashAndIndex`, `eth_getTransactionByBlockNumberAndIndex`, `eth_pendingTransactions`.
+Related APIs: [eth_getTransactionByHash](./transaction/#eth_getTransactionByHash), [eth_getTransactionByBlockHashAndIndex](./transaction/#eth_getTransactionByBlockHashAndIndex), [eth_getTransactionByBlockNumberAndIndex](./transaction/#eth_getTransactionByBlockNumberAndIndex), [eth_pendingTransactions](./transaction/#eth_pendingTransactions).
 
 There are lots of transaction types in Klaytn, and fields of data structure vary based on the type.
 
@@ -481,7 +481,7 @@ are served as Ethereum Legacy Transaction.
 
 ## Transaction Receipt <a id="transaction_receipt"></a>
 
-Related APIs: `eth_getTransactionReceipt`.
+Related APIs: [eth_getTransactionReceipt](./transaction/#eth_getTransactionReceipt).
 
 By default, the fields in the Klaytn Transaction Receipt are different depending on the transaction type.
 Because there are lots of transaction types in Klaytn, fields of transaction receipt vary based on the transaction type.
