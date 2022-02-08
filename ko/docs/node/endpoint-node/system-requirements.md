@@ -10,9 +10,9 @@ EN에는 다음 사양을 권장합니다.
 
 #### Recommended Specification <a id="recommended-specification-based-on-aws"></a>
 
-| vCPU 수 | Memory (GiB) | Storage (GiB) | EBS Bandwidth (Mbps) | Network Bandwidth (Gbps) | Price (Seoul region, USD/h) |
-|:------ |:------------ |:------------- |:-------------------- |:------------------------ |:--------------------------- |
-| 8      | 64           | EBS-Only      | 3,500                | Up to 10                 | 0.472                       |
+| vCPU 수 | Memory (GiB) | Storage (GiB) | Disk Bandwidth (Mbps) | Network Bandwidth (Gbps) |
+|:------ |:------------ |:------------- |:--------------------- |:------------------------ |
+| 8      | 64           | > 3,000       | 3,500                 | Up to 10                 |
 
 ### 베어 머신 <a id="bare-metal-machine"></a>
 
