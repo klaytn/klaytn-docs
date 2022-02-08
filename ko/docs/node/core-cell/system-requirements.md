@@ -8,32 +8,43 @@
 
 ### 베어메탈 서버 <a id="bare-metal-server"></a>
 
-| 카테고리          | 사양                                                                                                                                                      |
-|:------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 서버            | Intel® Server System R2312WFTZS                                                                                                                         |
-| CPU           | Intel® Xeon 6148 2.40 GHz \(20-core/40-thread\) \* 2EA \(total 40-core/80-thread\)                                                                |
-| 메모리           | 256GB \(32GB \* 8\)                                                                                                                                 |
-| 스토리지(Storage) | 1.5TB (or larger size) SSD (The preferred storage size and configuration could differ depending on the chain data size. 자세한 내용은 Klaytn 팀에게 문의하시기 바랍니다.) |
+| 카테고리          | 사양                                                                                                                                                                          |
+|:------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 서버            | Intel® Server System R2312WFTZS                                                                                                                                             |
+| CPU           | Intel® Xeon 6148 2.40 GHz \(20-core/40-thread\) \* 2EA \(total 40-core/80-thread\)                                                                                    |
+| 메모리           | 256GB \(32GB \* 8\)                                                                                                                                                     |
+| 스토리지(Storage) | 3TB (or larger size) SSD (The preferred storage size and configuration could differ depending on the chain data size. Please consult the Klaytn Team for more information.) |
 
-이는 CN 및 PN에 권장되는 하드웨어 사양이며, 정확히 필요한 요구 사항은 아닙니다. 하드웨어 환경설정이 비슷하면 어떤 물리적 시스템이라도 CN 또는 PN을 작동시키기에 충분합니다.
+이는 CN 및 PN에 권장되는 하드웨어 사양이며, 정확히 필요한 요구 사항은 아닙니다. Any physical machine with similar hardware configurations would be sufficient to operate a CN or a PN.
 
 ### 클라우드 VM <a id="cloud-vm"></a>
 
-#### AWS 권장 사양 <a id="recommended-specification-based-on-aws"></a>
+#### Recommended Specification for AWS<a id="recommended-specification-for-aws"></a>
 
 | 노드 타입 |     모델명     | vCPU 수 | 메모리 \(GiB\) | 스토리지 크기 \(GiB\) | 스토리지 속도 \(IOPS\) | 가격 \(서울 지역, USD/h\) |
 |:-----:|:-----------:|:------:|:-------------:|:-----------------:|:------------------:|:---------------------:|
-|  CN   | c5.18xlarge |   72   |      144      |    1,000 (최소)     |     3,000 (최소)     |         3.456         |
-|  PN   | m5.8xlarge  |   32   |      128      |    1,000 (최소)     |     3,000 (최소)     |         1.888         |
+|  CN   | c5.18xlarge |   72   |      144      |    3,000 (최소)     |     3,000 (최소)     |         3.456         |
+|  PN   | m5.8xlarge  |   32   |      128      |    3,000 (최소)     |     3,000 (최소)     |         1.888         |
 
 이 스토리지 스펙은 AWS EBS SSD (gp2) 스펙을 참조했습니다.
 
 위 정보의 출처는 [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/)과 [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/)이며, AWS에 의해 변경될 수도 있습니다.
 
+#### Recommended Specification for Azure<a id="recommended-specification-for-azure"></a>
+
+| 노드 타입 |   모델명   | vCPU 수 | 메모리 \(GiB\) | Storage type \(GiB\) | 스토리지 속도 \(IOPS\) | Price \(Korea Central, USD/h\) |
+|:-----:|:-------:|:------:|:-------------:|:----------------------:|:------------------:|:--------------------------------:|
+|  CN   | F72s v2 |   72   |      144      |       P50 (4096)       |        7500        |              3.456               |
+|  PN   | D32s v5 |   32   |      128      |       P50 (4096)       |        7500        |              1.625               |
+
+This storage specification is derived from Azure Premium Disk specification.
+
+The information above is from [https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/) and [https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing) and may be changed by Microsoft.
+
 ## 스토리지 요구사항 <a id="storage-requirements"></a>
 
-평균 100 TPS, 평균 트랜잭션 크기 300 바이트, 그리고 1초의 블록 생성 시간을 가정 할 때 예상되는 스토리지 요구 사항은 2.5GB/1일 \(= 300x100x86400\) 입니다.
+Assuming 100 TPS in average, 300 bytes average transaction size, and 1-second block latency, the expected daily storage requirement is about 2.5 GB/day \(=300x100x86400\).
 
 ## 운영 체제 <a id="operating-system"></a>
 
-[Amazon Linux 2](https://aws.amazon.com/ko/about-aws/whats-new/2017/12/introducing-amazon-linux-2/) 환경을 권장합니다. Klaytn 바이너리는 Amazon Linux 2에서 충분히 테스트 되었고, 리눅스 기반의 다른 환경에서도 가능합니다. 또한 개발 지원을 위해 macOS 용 바이너리도 제공하고 있습니다.
+Recommended environment is compatible with RHEL (7.8 or later). Klaytn 바이너리는 Amazon Linux 2에서 충분히 테스트 되었고, 리눅스 기반의 다른 환경에서도 가능합니다. 또한 개발 지원을 위해 macOS 용 바이너리도 제공하고 있습니다.
