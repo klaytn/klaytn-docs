@@ -1,21 +1,21 @@
-# Massive Eco Fund <a id="massive-eco-fund"></a>
+# 거대한 에코 펀드<a id="massive-eco-fund"></a>
 
-## Our Full-suite, Protocol-level $1B+ Eco Fund <a id="our-full-suite-protocol-level-eco-fund"></a>
+## 프로토콜 수준의 종합 $1억+ 에코 펀드<a id="our-full-suite-protocol-level-eco-fund"></a>
 클레이튼은 생태계를 지원하는 인센티브들이 온체인 프로토콜 토크노믹스에 인코딩된 최초이자 최대 규모의 사례입니다. 신규 발행 토큰의 66%가 생태계에 재투자됩니다.
 
-Initially issued reserve tokens will also be used as a resource for investment in the ecosystem expansion.
+최초 발행된 리저브 토큰들은 생태계 확장을 위한 투자 자원으로도 사용될 것입니다.
 
-## Grant <a id="grant"></a>
+## 개발 장려금<a id="grant"></a>
 
-### Klaytn Improvement Reserve (KIR) Grant Program <a id="kir-program"></a>
-• Our grant program that supports public goods such as infrastructure, tools and services that improve the quality of Klaytn L1
+### 클레이튼 개선 준비금 (KIR, Klaytn Improvement Reserve)<a id="kir-program"></a>
+• 클레이튼의 L1를 개선시킬 공공재를 지원하는 인프라, 툴 및 서비스입니다.
 
-• 12% of the newly issued tokens are the main financial resource
+• 신규 발행 토큰의 12%가 주된 재원입니다.
 
-### Klaytn Growth Fund (KGF) Grant Program <a id="kgf-program"></a>
-• Faucet resources for initial service testing and marketing - quickly applied and easily approved
+### 클레이튼 성장 펀드 (KGF) 개발 장려 프로그램<a id="kgf-program"></a>
+• 초기 테스팅과 마케팅을 위한 자원 - 신속한 신청과 쉬운 승인
 
-• Paid cumulative $9M in 4Q of 2021
+• 2021년 4분기 누적 지급액 9백만 달러
 
 ## Invest <a id="invest"></a>
 
