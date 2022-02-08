@@ -364,7 +364,7 @@ If a connection is closed, all subscriptions created over the connection are rem
 
 
 `"newHeads"` notifies you of each block added to the blockchain.
-`"logs"` notifies you of logs included in new blocks. This type requires a second parameter that specifies filter options. For more details, go to [eth_newFilter > parameters](https://docs.klaytn.com/bapp/json-rpc/api-references/klay/filter#eth_newfilter).
+`"logs"` notifies you of logs included in new blocks. This type requires a second parameter that specifies filter options. For more details, go to [eth_newFilter > parameters](./filter#eth_newfilter).
 
 **Return Value**
 
