@@ -1,24 +1,24 @@
-# Finality and Improvements <a id="finality-and-improvements"></a>
+# 완결성과 개선 사항들<a id="finality-and-improvements"></a>
 
-## Vast Improvements with uncompromised instant finality <a id="vast-improvements-with-uncompromised-finality"></a>
+## 빠른 완결성 및 포괄적 개선 사항들<a id="vast-improvements-with-uncompromised-finality"></a>
 
-### 1-second Finality <a id="finality"></a>
-Even with more consensus nodes, better performance and numerous feature enhancements, Klaytn will maintain 1-second block finality to ensure speedy transactions that will never be reversed.
+### 1초 완결성<a id="finality"></a>
+컨센서스 노드 수의 확장, 강력한 성능, 수 많은 기능의 개선들에도 불구하고 클레이튼은 절대 취소(revert)되지 않는 신속한 트랜잭션을 위해 1초 블록 완결성을 유지할 것입니다.
 
-### Throughput (TPS) <a id="throughput"></a>
-Klaytn’s performance will be further boosted through a combination of network upgrades and layer 2 solutions, allowing it to handle a massive number of transactions.
+### 처리량 (TPS) <a id="throughput"></a>
+클레이튼의 성능은 일련의 네트워크 업그레이드, 레이어 2 솔루션 등을 통해 보강될 것이며, 더 많은 트랜잭션을 처리하게 될 것입니다.
 
 ### 확장성 <a id="scalability"></a>
-Klaytn 2.0 will address scalability through service chains, our easily customizable and deployable L2 solution. Other solutions, such as sharding or rollups, are also being planned for the future.
+Klaytn 2.0은 쉬운 커스터마이징, 배포를 가능하게 하는 자체 L2 솔루션인 서비스 체인을 통해 확장성을 보장할 것입니다. 샤딩이나 롤업과 같은 다른 솔루션들도 향후 계획되고 있습니다.
 
-### Tiered Network <a id="tiered-network"></a>
-Klaytn’s tiered structure delivers transactions to the consensus nodes effectively by distributing the workload for greater stability. Our nodes are also continuously fortified to ensure seamless operation.
+### 계층화된 네트워크<a id="tiered-network"></a>
+더 나은 안정성을 위해 클레이튼의 계층화된 구조는 데이터를 효과적으로 분산시키면서 컨센서스 노드에 트랜잭션을 전달합니다. 노드들은 매끄럽게 동작할 수 있도록 지속적으로 강화됩니다.
 
-### Interoperability <a id="interoperability"></a>
-Various ecosystems (such as DEX, Bridge, Oracle, etc) will flourish on Klaytn. The asset transfer or exchange between Klaytn and other blockchains will be much easier.
+### 상호운용성 <a id="interoperability"></a>
+(DEX, Bridge, Oracle과 같은) 다양한 생태계들이 클레이튼에서 번성할 것입니다. 클레이튼과 이종 블록체인 간 자산 전송 및 교환이 쉬워질 것입니다.
 
-### User Experience <a id="user-experience"></a>
-Klaytn delivers a superior end-user experience by providing fast transaction processing suitable for mobile environments, the ability to update exposed keys to mitigate risks, and fee delegation to transfer the transaction fee burden.
+### 사용자 경험<a id="user-experience"></a>
+클레이튼은 모바일 환경에 적합한 빠른 트랜잭션 처리, 리스크 완화를 위한 노출된 키 업데이트 기능, 트랜잭션 수수료를 이전시킬 수 있는 수수료 위임 등 우월한 사용자 환경을 제공합니다.
 
-### Developer Experience <a id="developer-experience"></a>
-Klaytn supports Ethereum equivalence, which provides access to the complete stack of Ethereum development tools and enables effortless migration of Ethereum projects. In addition, fast and inexpensive multi-signature functionality is also supported at a protocol level without requiring a smart contract implementation.
+### 개발자 경험<a id="developer-experience"></a>
+클레이튼은 이더리움 동일성을 지원합니다. 이더리움 개발 도구의 스택에 대한 접근을 제공하며, 이더리움 프로젝트의 수월한 이동을 가능하게 합니다. 아울러 빠르고 저렴한 다중서명 기능도 스마트 컨트랙트 구현이 필요없이 프로토콜 수준에서 지원합니다.
