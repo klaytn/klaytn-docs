@@ -1,23 +1,23 @@
-# A Hassle-free Entrance to the Metaverse <a id="enter-metaverse"></a>
+# 메타버스로 가는 간편한 관문<a id="enter-metaverse"></a>
 
-## Lowering the barrier to entry <a id="lowering-the-barrier-to-entry"></a>
+## 진입 장벽 낮추기<a id="lowering-the-barrier-to-entry"></a>
 
-![Klaytn offers end-to-end integration including a built-in L2 solution](images/mainnet-integration.png)
+![클레이튼은 빌트인 L2 솔루션을 포함한 종단간 통합을 지원합니다.](images/mainnet-integration.png)
 
-It is clear that blockchain technology will serve as the critical trust layer for the metaverse.
+블록체인 기술이야 말로 메타버스의 필수적인 신뢰 레이어로 자리잡을 것입니다.
 
-However, between the fledgling state of blockchain tech and the difficulty of selecting the right tools and components, blockchain development is still filled with hurdles.
+하지만 초기 단계에 있는 블록체인 기술, 그리고 올바른 도구와 구성요소들의 선택이라는 어려움 사이에서 블록체인 개발은 아직도 넘어야 할 관문이 많습니다.
 
-That’s why we put together an end-to-end package that’s designed to help builders of metaverse enter the blockchain world as smoothly as possible.
+그래서 우리는 메타버스 빌더들이 블록체인 세계에 최대한 부드럽게 진입할 수 있도록 도와주는 종단간(end-to-end) 패키지를 구성했습니다.
 
-## Klaytn’s ‘Metaverse Package’ <a id="klaytns-metaverse-package"></a>
+## 클레이튼의 "메타버스 패키지"<a id="klaytns-metaverse-package"></a>
 
-Primary Infrastructure: Tool sets for end-to-end blockchain integration and building Customized L2 solution SDKs and smart contract libraries Wallets and chain explorers Distributed storage solutions Oracle support Bridges
+1차 인프라: 종단간 블록체인 통합과 개발을 위한 툴셋 맞춤형 L2 솔루션 SDK와 스마트 컨트랙트 라이브러리 월렛과 체인 탐색기 분산 저장 솔루션 오라클 지원 브릿지
 
-Secondary Infrastructure: Ecosystem for supporting products and services Integration/abstraction services Stablecoin integrations DAOs NFT Marketplaces DEX and DeFi Traditional finance interfaces
+2차 인프라: 제품과 서비스 지원을 위한 생태계 통합/추상화 서비스 스테이블 코인 통합 DAOs NFT 마켓플레이스 DEX와 DeFi 전통 금융 인터페이스
 
-• This package will be managed by our dedicated package manager.
+• 전담 패키지 매니저가 패키지를 관리해줍니다.
 
-• Builders can easily build and customize Layer 2 as well as create/transfer assets.
+• 빌더들은 레이어 2를 쉽게 개발하고 맞춤형 제작할 수 있으며, 자산을 생성/전송할 수 있습니다.
 
-With our metaverse package, the complexity of blockchain will no longer get in the way of realizing your aspirations.
+클레이튼의 메타버스 패키지와 함께라면 여러분의 소망을 실현하는 데 있어 블록체인의 난해함이 더 이상 장애물이 되지 않을 것입니다.
