@@ -1,4 +1,4 @@
-# 거대한 에코 펀드<a id="massive-eco-fund"></a>
+# 대규모 에코 펀드<a id="massive-eco-fund"></a>
 
 ## 프로토콜 수준의 종합 $1억+ 에코 펀드<a id="our-full-suite-protocol-level-eco-fund"></a>
 클레이튼은 생태계를 지원하는 인센티브들이 온체인 프로토콜 토크노믹스에 인코딩된 최초이자 최대 규모의 사례입니다. 신규 발행 토큰의 66%가 생태계에 재투자됩니다.
@@ -17,14 +17,14 @@
 
 • 2021년 4분기 누적 지급액 9백만 달러
 
-## Invest <a id="invest"></a>
+## 투자<a id="invest"></a>
 
-### KGF Investment Program <a id="kgf-investment-program"></a>
-• Invests in early-stage projects with potential to have a positive impact on Klaytn
+### KGF 투자 프로그램<a id="kgf-investment-program"></a>
+• 클레이튼에 긍정적인 영향을 줄 가능성이 있는 초기 단계 프로젝트에 투자합니다
 
-• 54% of the newly issued tokens are the main financial resource of the Klaytn Growth Fund
+• 신규 발행 토큰의 54%가 클레이튼 성장 펀드의 주요 재원입니다
 
-## Reward <a id="reward"></a>
+## 보상 <a id="reward"></a>
 
-### Proof of Contribution (PoC) Program <a id="poc-program"></a>
-• Rewards builders of smart contracts that contribute to the growth of on-chain activities on Klaytns
+### 기여 증명 (PoC, Proof of Contribution) 프로그램<a id="poc-program"></a>
+• 클레이튼의 온체인 활동 성장에 기여하는 스마트 컨트랙트 개발자들에게 보상을 줍니다
