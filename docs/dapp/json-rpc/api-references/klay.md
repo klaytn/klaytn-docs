@@ -46,7 +46,6 @@ The list below enumerates the API functions that are currently supported in Klay
 
 ### [Transaction](./klay/transaction.md) <a id="transaction"></a>
 - [klay_call](./klay/transaction.md#klay_call)
-- [klay_createAccessList](./klay/transaction.md#klay_createaccesslist)
 - [klay_estimateGas](./klay/transaction.md#klay_estimategas)
 - [klay_estimateComputationCost](./klay/transaction.md#klay_estimatecomputationcost)
 - [klay_getTransactionByBlockHashAndIndex](./klay/transaction.md#klay_gettransactionbyblockhashandindex)

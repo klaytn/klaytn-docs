@@ -47,44 +47,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 {"jsonrpc":"2.0","id":1,"result":"0x000000000000000000000000000000000000000000000000000000000000000a"}
 ```
 
-## klay_createAccessList <a id="klay_createaccesslist"></a>
-
-This method creates an accessList based on a given Transaction. The accessList contains all storage slots and addresses read and written by the transaction, except for the sender account and the precompiles.
-This method uses the same transaction call object and blockNumberOrTag object as klay_call. An accessList can be used to unstuck contracts that became inaccessible due to gas cost increases.
-Adding an accessList to your transaction does not necessary result in lower gas usage compared to a transaction without an access list.
-
-**NOTE** This API is only for EthereumTypedTransaction. Currently it returns an empty value.
-
-**Parameters**
-
-See [klay_call](#klay_call) parameters.
-
-**Return Value**
-
-`Object` -  list of addresses and storage keys used by the transaction, plus the gas consumed when the access list is added:
-
-| Name | Type | Description |
-| --- | --- | --- |
-| accessList | Array | The list of addresses and storage keys that will be used by that transaction. The list could change when the transaction is actually mined. |
-| gasUsed | QUANTITY | The estimated amount of gas used. |
-
-**Example**
-
-```shell
-// Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc" : "2.0", "method": "eth_createAccessList", "params": [{"from": "0x8cd02c6cbd8375b39b06577f8d50c51d86e8d5cd", "data": "0x608060806080608155"}, "latest"], "id": 1}' http://localhost:8551
-
-// Result
-{
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": {
-    "accessList": [],
-    "gasUsed": "0x0"
-  }
-}
-```
-
 ## klay_estimateGas <a id="klay_estimategas"></a>
 
 Generates and returns an estimate of how much gas is necessary to allow the transaction to complete. The transaction will not be added to the blockchain. Note that the estimate may be significantly more than the amount of gas actually used by the transaction, for a variety of reasons including Klaytn Virtual Machine mechanics and node performance.
