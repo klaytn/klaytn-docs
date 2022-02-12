@@ -2,7 +2,7 @@
 
 ## Overview <a id="overview"></a>
 
-Klaytn’s token economy is designed to create sustainable funding structures for powering its ecosystem operations, growth initiatives, and strategic investments. Many public blockchain projects have monetary systems that solely incentivize their node operators \(miners or block producers\), focusing only on the technical aspect of network maintenance. However, such designs miss out on the importance of incentivizing other types of participants who contribute to the growth of the network’s token economy or invest in long-term growth prospects. In contrast, Klaytn’s token economy is designed to compensate more diverse forms of contributions from a wider range of participants, and has built-in funding structure to procure sustained resources to fuel future growth initiatives and strategically sourced investment projects in addition to maintaining its blockchain nodes.
+Klaytn’s token economy is designed to create sustainable funding structures for empowering its ecosystem, growth initiatives, and strategic investments. Many public blockchain projects have monetary systems that solely incentivize their node operators \(miners or block producers\), focusing only on the technical aspect of network maintenance. However, such designs miss out on the importance of incentivizing other types of participants who contribute to the growth of the network’s token economy or invest in long-term growth prospects. In contrast, Klaytn’s token economy is designed to compensate more diverse forms of contributions from a wider range of participants, and has built-in funding structure to procure sustained resources to fuel future growth initiatives and strategically sourced investment projects in addition to maintaining its blockchain nodes.
 
 ## Funding Structure <a id="funding-structure"></a>
 
@@ -12,7 +12,7 @@ Klaytn’s funding structure runs continuously with Klaytn network’s block gen
 * Klaytn Growth Fund \(KGF\): 54%
 * Klaytn Improvement Reserve \(KIR\): 12%
 
-For every block created, 9.6 KLAY will be minted. This implies that approximately 300 million KLAY will be minted annually, which is equivalent to 3% annual inflation against the 10 billion KLAY issued at genesis \(the annual inflation rate is subject to change through the Klaytn Governance Process\). Transaction fee is charged per OPCODE and is metered according to the transaction fee table. For detailed information on the transaction fee table, please refer to [Transaction Fees](transaction-fees/transaction-fees.md).
+9.6 KLAY will be minted for every new block. This implies that approximately 300 million KLAY will be minted annually, which is equivalent to 3% annual inflation against the 10 billion KLAY issued at genesis \(the annual inflation rate is subject to change through the Klaytn Governance Process\). Transaction fee is charged per OPCODE and is metered according to the transaction fee table. For detailed information on the transaction fee table, please refer to [Transaction Fees](transaction-fees/transaction-fees.md).
 
 ## Klaytn Governance Council Reward <a id="klaytn-governance-council-reward"></a>
 
@@ -56,7 +56,7 @@ The Klaytn Growth Fund (KGF) aims to bring Klaytn economy forward by providing g
 
 ## Klaytn Improvement Reserve <a id="klaytn-improvement-reserve"></a>
 
-As technology continues to improve and the needs of users change over time, our platform must have the ability to quickly adapt to any new circumstance that arises. To respond to such changes, we must not only work on services, but also undergo various activities to maintain Klaytn’s ecosystem. For instance, research and development for better technology, or projects that contribute to the overall growth of the ecosystem may be part of these activities. These activities are necessary for Klaytn to progress continuously. Klaytn Improvement Reserve (KIR) will be deployed for activities that improve the Klaytn ecosystem such:
+As technology continues to improve and the needs of users change over time, our platform must have the ability to quickly adapt to any new circumstance that arises. To respond to such changes, we must not only work on services, but also undergo various activities to maintain Klaytn’s ecosystem. For instance, research and development for better technology, or projects that contribute to the overall growth of the ecosystem may be part of these activities. These activities are necessary for Klaytn to progress continuously. Klaytn Improvement Reserve (KIR) will be deployed for activities that improve the Klaytn ecosystem such as:
 
 
 

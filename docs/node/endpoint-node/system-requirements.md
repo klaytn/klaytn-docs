@@ -10,9 +10,9 @@ For the ENs, the following specifications are recommended.
 
 #### Recommended Specification <a id="recommended-specification-based-on-aws"></a>
 
-| vCPU | Memory (GiB) | Storage (GiB) | EBS Bandwidth (Mbps) | Network Bandwidth (Gbps) | Price (Seoul region, USD/h) |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| 8 | 64 | EBS-Only | 3,500 | Up to 10 | 0.472 |
+| vCPU | Memory (GiB) | Storage (GiB) | Disk Bandwidth (Mbps) | Network Bandwidth (Gbps) |
+| :--- | :--- | :--- | :--- | :--- |
+| 8 | 64 | > 3,000 | 3,500 | Up to 10 |
 
 ### Bare-metal Machine <a id="bare-metal-machine"></a>
 
