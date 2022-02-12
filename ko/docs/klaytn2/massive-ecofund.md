@@ -1,6 +1,6 @@
 # 대규모 에코 펀드<a id="massive-eco-fund"></a>
 
-## 프로토콜 수준의 종합 $1억+ 에코 펀드<a id="our-full-suite-protocol-level-eco-fund"></a>
+## 프로토콜 수준의 종합 $10억+ 에코 펀드<a id="our-full-suite-protocol-level-eco-fund"></a>
 클레이튼은 생태계를 지원하는 인센티브들이 온체인 프로토콜 토크노믹스에 인코딩된 최초이자 최대 규모의 사례입니다. 신규 발행 토큰의 66%가 생태계에 재투자됩니다.
 
 최초 발행된 리저브 토큰들은 생태계 확장을 위한 투자 자원으로도 사용될 것입니다.
