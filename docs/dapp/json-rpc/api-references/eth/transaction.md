@@ -363,7 +363,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 | to               | 20-byte DATA  | Address of the receiver. `null` when it is a contract creation transaction.        |
 | transactionIndex | QUANTITY      | Integer of the transaction index position in the block. `null` when it is pending. |
 | type             | QUANTITY      | An integer representing the type of the transaction.                               |
-| accessList       | Array         | Access of [accessList](https://eips.ethereum.org/EIPS/eip-2930).                   |
+| accessList       | Array         | An array of [accessList](https://eips.ethereum.org/EIPS/eip-2930).                 |
 | chainId          | QUANTITY      | Chain id set on the requested node.                                                |
 | v                | QUANTITY      | ECDSA recovery id.                                                                 |
 | r                | 32-byte DATA  | ECDSA signature r.                                                                 |
@@ -425,7 +425,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 | to                     | 20-byte DATA  | Address of the receiver. `null` when it is a contract creation transaction.        |
 | transactionIndex       | QUANTITY      | Integer of the transaction index position in the block. `null` when it is pending. |
 | type                   | QUANTITY      | An integer representing the type of the transaction.                               |
-| accessList             | Array         | Access of [accessList](https://eips.ethereum.org/EIPS/eip-2930).                   |
+| accessList             | Array         | An array of [accessList](https://eips.ethereum.org/EIPS/eip-2930).                 |
 | chainId                | QUANTITY      | Chain id set on the requested node.                                                |
 | v                      | QUANTITY      | ECDSA recovery id.                                                                 |
 | r                      | 32-byte DATA  | ECDSA signature r.                                                                 |
