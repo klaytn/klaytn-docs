@@ -196,12 +196,11 @@ Please check the [Caution-Transaction](./eth/caution.md#transaction) before usin
 
 **Return Value**
 
-Klaytn-TODO: Ethereum transaction has various types of transaction, so if we support that
-we should add descriptions about it.
-
 See [eth_getTransactionByHash](#eth_gettransactionbyhash)
 
 **Example**
+
+To see examples of various transaction types, check [eth_getTransactionByHash](#eth_gettransactionbyhash)
 
 ```shell
 // Request
@@ -247,15 +246,11 @@ Please check the [Caution-Transaction](./eth/caution.md#transaction) before usin
 
 **Return Value**
 
-Klaytn-TODO: Ethereum transaction has various types of transaction, so if we support that
-we should add descriptions about it.
-
 See [eth_getTransactionByHash](#eth_gettransactionbyhash)
 
 **Example**
 
-Klaytn-TODO: Ethereum transaction has various types of transaction, so if we support that
-we should add descriptions about it.
+To see examples of various transaction types, check [eth_getTransactionByHash](#eth_gettransactionbyhash)
 
 ```shell
 // Request
@@ -300,10 +295,12 @@ Please check the [Caution-Transaction](./eth/caution.md#transaction) before usin
 
 **Return Value**
 
-Klaytn-TODO: Ethereum transaction has various types of transaction, so if we support that
-we should add descriptions about it.
+Fields of transaction can be different based on transaction types. 
+Currently, there are three types of transactions in Ethereum(Legacy, [AccessList](https://eips.ethereum.org/EIPS/eip-2930), [DynamicFee](https://eips.ethereum.org/EIPS/eip-1559)).
 
 `Object` - A transaction object, or `null` when no transaction was found:
+
+**Legacy Transaction**
 
 | Name             | Type          | Description                                                                        |
 |------------------|---------------|------------------------------------------------------------------------------------|
@@ -322,9 +319,7 @@ we should add descriptions about it.
 | r                | 32-byte DATA  | ECDSA signature r.                                                                 |
 | s                | 32-byte DATA  | ECDSA signature s.                                                                 |
 
-
-**Example**
-
+**Example - Legacy Transaction**
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0xaca5d9a1ed8b86b1ef61431b2bedfc99a66eaefc3a7e1cffdf9ff53653956a67"],"id":1}' http://localhost:8551
@@ -349,6 +344,130 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
     "type": "0x0",
     "v": "0x25",
     "value": "0x0"
+  }
+}
+```
+
+**AccessList Transaction**
+
+| Name             | Type          | Description                                                                        |
+|------------------|---------------|------------------------------------------------------------------------------------|
+| blockHash        | 32-byte DATA  | Hash of the block where this transaction was in. `null` when it is pending.        |
+| blockNumber      | QUANTITY      | Block number where this transaction was in. `null` when it is pending.             |
+| from             | 20-byte DATA  | Address of the sender.                                                             |
+| gas              | QUANTITY      | Gas provided by the sender.                                                        |
+| gasPrice         | QUANTITY      | Gas price provided by the sender in peb.                                           |
+| hash             | 32-byte DATA  | Hash of the transaction.                                                           |
+| input            | DATA          | (optional) The data sent along with the transaction.                               |
+| nonce            | QUANTITY      | The number of transactions made by the sender prior to this one.                   |
+| to               | 20-byte DATA  | Address of the receiver. `null` when it is a contract creation transaction.        |
+| transactionIndex | QUANTITY      | Integer of the transaction index position in the block. `null` when it is pending. |
+| type             | QUANTITY      | An integer representing the type of the transaction.                               |
+| accessList       | Array         | Access of [accessList](https://eips.ethereum.org/EIPS/eip-2930).                   |
+| chainId          | QUANTITY      | Chain id set on the requested node.                                                |
+| v                | QUANTITY      | ECDSA recovery id.                                                                 |
+| r                | 32-byte DATA  | ECDSA signature r.                                                                 |
+| s                | 32-byte DATA  | ECDSA signature s.                                                                 |
+
+
+**Example - AccessList Transaction**
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0xfe134fa592b5acdd353fc3c25c3ba9979b8582fee3e5ac9740f418813b405038"],"id":1}' http://localhost:8551
+
+// Result
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "blockHash": "0x12bb73d1bfd0b8ec005839acc69926d5699005c7738455848b3438a549457457",
+    "blockNumber": "0x3c",
+    "from": "0x3753f5bf8cca929eeeb4b74f200dfc6375ad5444",
+    "gas": "0x52080",
+    "gasPrice": "0x99999",
+    "hash": "0xfe134fa592b5acdd353fc3c25c3ba9979b8582fee3e5ac9740f418813b405038",
+    "input": "0x",
+    "nonce": "0x3",
+    "to": "0xca7a99380131e6c76cfa622396347107aeedca2d",
+    "transactionIndex": "0x0",
+    "value": "0x1",
+    "type": "0x1",
+    "accessList": [
+      {
+        "address": "0xca7a99380131e6c76cfa622396347107aeedca2d",
+        "storageKeys": [
+          "0x0709c257577296fac29c739dad24e55b70a260497283cf9885ab67b4daa9b67f"
+        ]
+      }
+    ],
+    "chainId": "0x2edaf",
+    "v": "0x0",
+    "r": "0x7c2568b6970bc2a87f828ef10dbd83057369cb62cf7c9e2b21357f04c3685cf0",
+    "s": "0x21a32ce836b06acadcf507748909e5d7efaf49825b6eafff583b1e751e0cd306"
+  }
+}
+```
+
+**DynamicFee Transaction**
+
+| Name                   | Type          | Description                                                                        |
+|------------------------|---------------|------------------------------------------------------------------------------------|
+| blockHash              | 32-byte DATA  | Hash of the block where this transaction was in. `null` when it is pending.        |
+| blockNumber            | QUANTITY      | Block number where this transaction was in. `null` when it is pending.             |
+| from                   | 20-byte DATA  | Address of the sender.                                                             |
+| gas                    | QUANTITY      | Gas provided by the sender.                                                        |
+| gasPrice               | QUANTITY      | Gas price provided by the sender in peb.                                           |
+| maxFeePerGas           | QUANTITY      | A maximum amount to pay for the transaction to execute.                            |
+| maxPriorityFeePerGas   | QUANTITY      | Gas tip cap for dynamic fee transaction in peb.                                    |
+| hash                   | 32-byte DATA  | Hash of the transaction.                                                           |
+| input                  | DATA          | (optional) The data sent along with the transaction.                               |
+| nonce                  | QUANTITY      | The number of transactions made by the sender prior to this one.                   |
+| to                     | 20-byte DATA  | Address of the receiver. `null` when it is a contract creation transaction.        |
+| transactionIndex       | QUANTITY      | Integer of the transaction index position in the block. `null` when it is pending. |
+| type                   | QUANTITY      | An integer representing the type of the transaction.                               |
+| accessList             | Array         | Access of [accessList](https://eips.ethereum.org/EIPS/eip-2930).                   |
+| chainId                | QUANTITY      | Chain id set on the requested node.                                                |
+| v                      | QUANTITY      | ECDSA recovery id.                                                                 |
+| r                      | 32-byte DATA  | ECDSA signature r.                                                                 |
+| s                      | 32-byte DATA  | ECDSA signature s.                                                                 |
+
+
+**Example - DynamicFee Transaction**
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0x40e64aac79b2e51b05d41adc005e45d4618ad5e8783f8fac9e3af63b4f6cf27d"],"id":1}' http://localhost:8551
+
+// Result
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "blockHash": "0x2228ad3dd7588af51060adbdd6b4ac8c50ef91d59bea5399b2fa439138720886",
+    "blockNumber": "0x4a",
+    "from": "0x3753f5bf8cca929eeeb4b74f200dfc6375ad5444",
+    "gas": "0x52080",
+    "gasPrice": "0xa6528",
+    "maxFeePerGas": "0xb6adf",
+    "maxPriorityFeePerGas": "0x99999",
+    "hash": "0x40e64aac79b2e51b05d41adc005e45d4618ad5e8783f8fac9e3af63b4f6cf27d",
+    "input": "0x",
+    "nonce": "0x4",
+    "to": "0xca7a99380131e6c76cfa622396347107aeedca2d",
+    "transactionIndex": "0x0",
+    "value": "0x1",
+    "type": "0x2",
+    "accessList": [
+      {
+        "address": "0xca7a99380131e6c76cfa622396347107aeedca2d",
+        "storageKeys": [
+          "0x0709c257577296fac29c739dad24e55b70a260497283cf9885ab67b4daa9b67f"
+        ]
+      }
+    ],
+    "chainId": "0x2edaf",
+    "v": "0x0",
+    "r": "0xf7de95e3d4893cdb53c88fd5f7ec37a32df24da6a390259e470a5192cbefba46",
+    "s": "0x2ba8cecb1332088ffc017cd9a08e613dabc306d16e593a42cda6f57def901292"
   }
 }
 ```
