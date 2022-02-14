@@ -46,8 +46,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_maxPriorityFeePerGas <a id="klay_maxpriorityfeepergas"></a>
 
-Returns a suggestion for a gas tip cap for dynamic fee transaction in peb.
-Since Klaytn uses a fixed gas price, this `klay_maxPriorityFeePerGas` returns the gas price used by Klaytn.
+Returns a suggestion for a gas tip cap for dynamic fee transactions in peb.
+Since Klaytn has a fixed gas price, this `klay_maxPriorityFeePerGas` returns the gas price set by Klaytn.
 
 **Parameters**
 
