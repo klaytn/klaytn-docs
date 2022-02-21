@@ -2,6 +2,8 @@
 
 Returns base fee per gas and transaction effective priority fee per gas history for the requested block range if available.
 
+**NOTE**: This API is effective after Klaytn v1.8.0
+
 **Parameters**
 
 | Name               | Type                | Description                                                                                                                                                                                                                  |
@@ -48,6 +50,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 Returns a suggestion for a gas tip cap for dynamic fee transactions in peb.
 Since Klaytn has a fixed gas price, `klay_maxPriorityFeePerGas` returns the gas price set by Klaytn.
+
+**NOTE**: This API is effective after Klaytn v1.8.0
 
 **Parameters**
 

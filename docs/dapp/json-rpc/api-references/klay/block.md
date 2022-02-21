@@ -122,6 +122,8 @@ This API works only on RPC call, not on JavaScript console.
 | voteData | DATA | RLP encoded governance vote of the proposer |
 | baseFeePerGas | QUANTITY | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
 
+**NOTE**: The `baseFeePerGas` field is added from Klaytn v1.8.0
+
 **Example**
 
 ```shell
@@ -245,6 +247,8 @@ This API works only on RPC call, not on JavaScript console.
 | governanceData | DATA | RLP encoded governance configuration |
 | voteData | DATA | RLP encoded governance vote of the proposer |
 | baseFeePerGas | QUANTITY | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
+
+**NOTE**: The `baseFeePerGas` field is added from Klaytn v1.8.0
 
 **Example**
 
@@ -438,6 +442,8 @@ Returns a block with consensus information that matches the given hash.
 | transactionsRoot | 32-byte DATA | The root of the transaction trie of the block. |
 | baseFeePerGas | QUANTITY | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
 
+**NOTE**: The `baseFeePerGas` field is added from Klaytn v1.8.0
+
 **Example**
 
 ```shell
@@ -547,6 +553,8 @@ NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the str
 | transactions | Array | Array of transaction objects. |
 | transactionsRoot | 32-byte DATA | The root of the transaction trie of the block. |
 | baseFeePerGas | QUANTITY | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
+
+**NOTE**: The `baseFeePerGas` field is added from Klaytn v1.8.0
 
 **Example**
 
