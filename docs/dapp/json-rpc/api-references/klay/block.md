@@ -436,7 +436,7 @@ Returns a block with consensus information that matches the given hash.
 | timestampFoS | QUANTITY | The fraction of a second of the timestamp for when the block was collated. |
 | transactions | Array | Array of transaction objects. |
 | transactionsRoot | 32-byte DATA | The root of the transaction trie of the block. |
-| baseFeePerGas | QUANTITY | The base fee per gas. This value is returned only when the block number is enabled for Ethereum Tx Type Compitable. |
+| baseFeePerGas | QUANTITY | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
 
 **Example**
 
@@ -546,7 +546,7 @@ NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the str
 | timestampFoS | QUANTITY | The fraction of a second of the timestamp for when the block was collated. |
 | transactions | Array | Array of transaction objects. |
 | transactionsRoot | 32-byte DATA | The root of the transaction trie of the block. |
-| baseFeePerGas | QUANTITY | The base fee per gas. This value is returned only when the block number is enabled for Ethereum Tx Type Compitable. |
+| baseFeePerGas | QUANTITY | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
 
 **Example**
 
