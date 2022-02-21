@@ -120,7 +120,7 @@ This API works only on RPC call, not on JavaScript console.
 | timestampFoS | QUANTITY | The fraction of a second of the timestamp for when the block was collated. |
 | governanceData | DATA | RLP encoded governance configuration |
 | voteData | DATA | RLP encoded governance vote of the proposer |
-| baseFeePerGas | QUANTITY | The base fee per gas. This value is returned only when the block number is enabled for Ethereum Tx Type Compitable. |
+| baseFeePerGas | QUANTITY | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
 
 **Example**
 
@@ -244,7 +244,7 @@ This API works only on RPC call, not on JavaScript console.
 | transactions | Array | Array of transaction objects, or 32-byte transaction hashes depending on the last given parameter. |
 | governanceData | DATA | RLP encoded governance configuration |
 | voteData | DATA | RLP encoded governance vote of the proposer |
-| baseFeePerGas | QUANTITY | The base fee per gas. This value is returned only when the block number is enabled for Ethereum Tx Type Compitable. |
+| baseFeePerGas | QUANTITY | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
 
 **Example**
 
