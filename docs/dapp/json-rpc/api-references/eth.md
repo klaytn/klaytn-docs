@@ -107,7 +107,7 @@ Related APIs: [eth_getHeaderByNumber](./eth/block/#eth_getHeaderByNumber), [eth_
 | totalDifficulty | The total blockScore of the chain until the querying block.                                                                                                                                                                                                                                                                                                                                                                                     |
 | uncles          | This field always has the value `[]` because there is no technical concept of uncles block in Klaytn core.                                                                                                                                                                                                                                                                                                                                                          |
 
-Fields not covered here are fields used synonymously with Ethereum.
+Fields not covered here will stick to the block fields of Ethereum.
 
 ### Transaction <a id="transaction"></a>
 
