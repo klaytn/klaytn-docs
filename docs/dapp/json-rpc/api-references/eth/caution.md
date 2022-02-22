@@ -7,10 +7,10 @@ Cautions when using `eth` namespace apis in Klaytn.
 
 Klaytn supports `eth` namespace APIs, so developers using Ethereum based SDKs or tools now can easily migrate their
 existing projects to Klaytn.
-(e.g. Just replacing the endpoint URL in Ethereum tools to point to a Klaytn node should work enough.)
+(e.g. You can replace the endpoint URL in the Ethereum tools to point to a Klaytn node.)
 
 But due to the fundamental design differences existing between Klaytn and Ethereum,
-there are some APIs that are difficult to fully supported. (e.g. some fields have always zero value, etc...)
+some APIs cannot be fully supported. (e.g. some fields have always zero value)
 
 This document describes the limitations of those APIs.
 
