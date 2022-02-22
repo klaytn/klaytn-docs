@@ -1,19 +1,18 @@
 ## The Default Block Parameter <a id="the-default-block-parameter"></a>
 
-When requests are made that act on the state of Klaytn, the last default block
-parameter determines the height of the block.
+  When you send an API request with the `eth` namespace, the block height is determined by the `defaultBlock` parameter.
 
 The following options are possible for the `defaultBlock` parameter:
 
 - `HEX String` - an integer block number
 - `String "earliest"` for the earliest/genesis block
 - `String "latest"` - for the latest mined block
-- `String "pending"` - for the pending state/transactions
+- `String "pending"` - for pending state/transactions
 
 
 ## eth_blockNumber <a id="eth_blocknumber"></a>
 
-Returns the number of most recent block.
+Returns the number of the most recent block.
 
 **Parameters**
 
@@ -93,7 +92,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Returns information about a header by hash.
 
-Please check the [Caution-Header](./eth/caution.md#block_header) before using this API.
+Please check [Caution-Header](./eth/caution.md#block_header) before using this API.
 
 **Parameters**
 
@@ -112,19 +111,19 @@ Please check the [Caution-Header](./eth/caution.md#block_header) before using th
 | extraData        | DATA          | The "extra data" field of this block.                                                                                     |
 | gasLimit         | QUANTITY      | The maximum gas allowed in this block.                                                                                    |
 | gasUsed          | QUANTITY      | The total used gas by all transactions in this block.                                                                     |
-| hash             | 32-byte DATA  | Hash of the block. `null` when it is pending block.                                                                       |
+| hash             | 32-byte DATA  | Hash of the block. `null` when it is a pending block.                                                                       |
 | logsBloom        | 256-byte DATA | The bloom filter for the logs of the block.                                                                               |
 | miner            | 20-byte DATA  | The address of the beneficiary to whom the mining rewards were given.                                                     |
 | mixHash          | 32-byte DATA  | The hash which proves combined with the nonce that a sufficient amount of computation has been carried out on this block. |
 | nonce            | 8-byte DATA   | The hash of the generated proof-of-work.                                                                                  |
-| number           | QUANTITY      | The block number. `null` when it is pending block.                                                                        |
+| number           | QUANTITY      | The block number. `null` when it is a pending block.                                                                        |
 | parentHash       | 32-byte DATA  | Hash of the parent block.                                                                                                 |
 | receiptsRoot     | 32-byte DATA  | The root of the receipts trie of the block.                                                                               |
-| sha3Uncles       | 32-byte DATA  | The sha3 of the uncles data in the block.                                                                                 |
-| size             | QUANTITY      | Integer the size of this block in bytes.                                                                                  |
+| sha3Uncles       | 32-byte DATA  | The SHA3 of the uncles data in the block.                                                                                 |
+| size             | QUANTITY      | Integer of the size of this block in bytes.                                                                                  |
 | stateRoot        | 32-byte DATA  | The root of the final state trie of the block.                                                                            |
 | timestamp        | QUANTITY      | The Unix timestamp for when the block was collated.                                                                       |
-| totalDifficulty  | QUANTITY      | The total blockScore of the chain until this block                                                                        |
+| totalDifficulty  | QUANTITY      | The total blockScore of the chain until this block.                                                                       |
 | transactionsRoot | 32-byte DATA  | The root of the transaction trie of the block.                                                                            |
 
 **Example**
@@ -165,13 +164,13 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Returns information about a block by block number.
 
-Please check the [Caution-Block](./eth/caution.md#block) before using this API.
+Please check [Caution-Block](./eth/caution.md#block) before using this API.
 
 **Parameters**
 
 | Type                | Description                                                                                                                                                   |
 |---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](#the-default-block-parameter). |
 | Boolean             | If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.                                                            |
 
 
@@ -224,7 +223,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 Returns information about a block by hash.
 
-Please check the [Caution-Block](./eth/caution.md#block) before using this API.
+Please check [Caution-Block](./eth/caution.md#block) before using this API.
 
 **Parameters**
 
@@ -244,16 +243,16 @@ Please check the [Caution-Block](./eth/caution.md#block) before using this API.
 | extraData         | DATA          | The "extra data" field of this block.                                                                                     |
 | gasLimit          | QUANTITY      | The maximum gas allowed in this block.                                                                                    |
 | gasUsed           | QUANTITY      | The total used gas by all transactions in this block.                                                                     |
-| hash              | 32-byte DATA  | Hash of the block. `null` when it is pending block.                                                                       |
-| logsBloom         | 256-byte DATA | The bloom filter for the logs of the block. `null` when it is pending block.                                              |
+| hash              | 32-byte DATA  | Hash of the block. `null` when it is a pending block.                                                                       |
+| logsBloom         | 256-byte DATA | The bloom filter for the logs of the block. `null` when it is a pending block.                                              |
 | miner             | 20-byte DATA  | The address of the beneficiary to whom the mining rewards were given.                                                     |
 | mixHash           | 32-byte DATA  | The hash which proves combined with the nonce that a sufficient amount of computation has been carried out on this block. |
 | nonce             | 8-byte DATA   | The hash of the generated proof-of-work.                                                                                  |
-| number            | QUANTITY      | The block number. `null` when it is pending block.                                                                        | 
+| number            | QUANTITY      | The block number. `null` when it is a pending block.                                                                        | 
 | parentHash        | 32-byte DATA  | Hash of the parent block.                                                                                                 |
 | receiptsRoot      | 32-byte DATA  | The root of the receipts trie of the block.                                                                               |
-| sha3Uncles        | 32-byte DATA  | The sha3 of the uncles data in the block.                                                                                 |
-| size              | QUANTITY      | Integer the size of this block in bytes.                                                                                  |
+| sha3Uncles        | 32-byte DATA  | The SHA3 of the uncles data in the block.                                                                                 |
+| size              | QUANTITY      | Integer of the size of this block in bytes.                                                                                  |
 | stateRoot         | 32-byte DATA  | The root of the final state trie of the block.                                                                            |
 | timestamp         | QUANTITY      | The Unix timestamp for when the block was collated.                                                                       |
 | totalDifficulty   | QUANTITY      | The total blockScore of the chain until this block                                                                        |
@@ -300,8 +299,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getUncleBlockByHashAndIndex <a id="eth_getunclebyblockhashandindex"></a>
 
-Returns information about a uncle of a block by hash and uncle index position.
-But there are no uncles in Klaytn, so it always return `null` as result.
+Returns information about a uncle of a block by hash and the uncle's index position.
+Since there are no uncles in Klaytn, it always returns `null`.
 
 **Parameters**
 
@@ -329,14 +328,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getUncleByBlockNumberAndIndex <a id="eth_getunclebyblocknumberandindex"></a>
 
-Returns information about a uncle of a block by number and uncle index position.
-But there are no uncles in Klaytn, so it always return `null` as result.
+Returns information about a uncle of a block by number and the uncle's index position.
+As there are no uncles in Klaytn, it always returns `null`.
 
 **Parameters**
 
 | Type                | Description                                                                                                                                                           |
 |---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](block.md#the-default-block-parameter). |
 | QUANTITY            | The uncle's index position.                                                                                                                                           |
 
 **Return Value**
@@ -364,7 +363,7 @@ Returns the number of transactions in a block matching the given block number.
 
 | Type                | Description                                                                                                                                                           |
 |---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](block.md#the-default-block-parameter). |
 
 **Return Value**
 
@@ -421,13 +420,13 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 ## eth_getUncleCountByBlockNumber <a id="eth_getunclecountbyblocknumber"></a>
 
 Returns the number of uncles in a block from a block matching the given block number.
-There is no uncles in Klaytn, so it always returns `0x0`.
+Since there are no uncles in Klaytn, it always returns `0x0`.
 
 **Parameters**
 
 | Type                | Description                                                                                                                                                           |
 |---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](block.md#the-default-block-parameter). |
 
 **Return Value**
 
@@ -453,7 +452,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 ## eth_getUncleCountByBlockHash <a id="eth_getunclecountbyblockhash"></a>
 
 Returns the number of uncles in a block from a block matching the given block hash.
-There is no uncles in Klaytn, so it always returns `0x0`.
+As there are no uncles in Klaytn, it always returns `0x0`.
 
 **Parameters**
 
@@ -494,7 +493,7 @@ Returns the value from a storage position at a given address.
 |---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 20-byte DATA                    | Address of the storage.                                                                                                                                                              |
 | QUANTITY                        | Integer of the position in the storage.                                                                                                                                              |
-| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](block.md#the-default-block-parameter), or block hash. |
+| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](block.md#the-default-block-parameter), or block hash. |
 
 **Return Value**
 
@@ -504,7 +503,7 @@ Returns the value from a storage position at a given address.
 
 **Example**
 
-Calculating the correct position depends on the storage to retrieve. Consider the following contract deployed at `0x295a70b2de5e3953354a6a8344e616ed314d7251` by address `0x391694e7e0b0cce554cb130d723a9d27458f9298`.
+Calculating the correct position depends on the storage to retrieve. Consider the following contract deployed at `0x295a70b2de5e3953354a6a8344e616ed314d7251` by the address `0x391694e7e0b0cce554cb130d723a9d27458f9298`.
 
 ```
 contract Storage {
@@ -554,7 +553,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "et
 
 Returns `true` if client is actively mining new blocks.
 
-**NOTE**: Currently, every node is on mining mode by default to resend transactions. Please note that actual "mining" process is only done by Consensus Nodes (CNs).
+**NOTE**: Currently, every node is on mining mode by default to resend transactions. Please note that the actual "mining" is only performed by the Consensus Nodes (CNs).
 
 **Parameters**
 
