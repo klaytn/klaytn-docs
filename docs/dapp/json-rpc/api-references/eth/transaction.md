@@ -713,8 +713,8 @@ Parameters are same with eth_sendTransaction. See [eth_sendtransaction](#eth_sen
 
 ## eth_fillTransaction <a id="eth_filltransaction"></a>
 
-FillTransaction fills the defaults (nonce, gas, gasPrice or 1559 fields) on a given unsigned transaction, and returns it
-to the caller for further processing (signing + broadcast).
+Fills the defaults (nonce, gas, gasPrice or 1559 fields) on a given unsigned transaction, and returns it to the caller
+for further processing (signing + broadcast).
 
 **Parameters**:
 
@@ -754,5 +754,56 @@ curl http://localhost:8551 -H "Content-Type: application/json" --data '{"jsonrpc
       "hash": "0x83e382bfb39249dc0e2b4283702bc1c0685deffad1316d166546da9c4c14c59d"
     }
   }
+}
+```
+
+## eth_pendingTransactions <a id="eth_pendingtransactions"></a>
+
+Returns the transactions that are in the transaction pool and have a from address that is one of the accounts this node
+manages.
+
+**Parameters**:
+
+None
+
+**Return value**
+
+| Name                | Type          | Description                                                                                                      |
+|---------------------|---------------|------------------------------------------------------------------------------------------------------------------|
+| pendingTransactions | Array         | An array of transactions. For the returned transaction object, See [eth_signTransaction](#eth_signtransaction)   |
+
+**Example**
+
+```shell
+// Request
+curl http://localhost:8551 -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_pendingTransactions", "params":[],"id":1}'
+
+// Result
+{
+  "jsonrpc": "2.0",
+  "id": 39,
+  "result": [
+    {
+      "blockHash": null,
+      "blockNumber": null,
+      "from": "0xca7a99380131e6c76cfa622396347107aeedca2d",
+      "gas": "0x5208",
+      "gasPrice": "0x5d21dba00",
+      "maxFeePerGas": "0x5d21dba00",
+      "maxPriorityFeePerGas": "0x5d21dba00",
+      "hash": "0xb5cd867ccc356b86634092919fb1acf4e315618d6c804df3ec3d30d66b6baba5",
+      "input": "0x",
+      "nonce": "0xdb",
+      "to": "0x3e2ac308cd78ac2fe162f9522deb2b56d9da9499",
+      "transactionIndex": null,
+      "value": "0x1",
+      "type": "0x2",
+      "accessList": [],
+      "chainId": "0x2edaf",
+      "v": "0x1",
+      "r": "0x73992e7c3b9f6cd73176969efa8509d8e9ae0739e24b03d514508f8ef03f19ef",
+      "s": "0x7035dd8639e82ea3ba922ff02e1f21f4cff92d0de33050934f5c70908d61e8c3"
+    }
+  ]
 }
 ```
