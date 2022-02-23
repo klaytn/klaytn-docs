@@ -28,6 +28,35 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
+## eth_getHashrate <a id="eth_gethashrate"></a>
+
+Returns the number of hashes per second that the node is mining with.
+
+Please note that it always return `0` because there is no PoW mechanism in Klaytn.
+
+**Parameters**
+
+None
+
+**Return Value**
+
+| Type     | Description                      |
+|----------|----------------------------------|
+| QUANTITY | The number of hashes per second. |
+
+**Example**
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getHashrate","params":[],"id":1}' http://localhost:8551
+
+// Result
+{
+  "jsonrpc": "2.0",
+  "id":1,
+  "result": 0
+}
+``
 
 ## eth_getWork <a id="eth_getwork"></a>
 
