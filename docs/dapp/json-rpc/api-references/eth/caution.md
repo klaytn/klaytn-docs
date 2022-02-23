@@ -14,6 +14,12 @@ some APIs cannot be fully supported. (e.g. some fields have always zero value)
 
 This document describes the limitations of those APIs.
 
+REMOVE THIS: [api-references/admin.md](../admin.md)
+REMOVE THIS: [json-rpc/README.md](../../README.md)
+REMOVE THIS: [dapp/README.md](../../../README.md)
+REMOVE THIS: [docs/languages.md](../../../../languages.md)
+REMOVE THIS: [docs/klaytn/design/accounts.md](../../../../klaytn/design/accounts.md)
+
 
 ## Block Header <a id="block_header"></a>
 
