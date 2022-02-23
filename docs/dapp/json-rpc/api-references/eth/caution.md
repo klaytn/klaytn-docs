@@ -1,6 +1,6 @@
 ---
 description: >-
-Cautions when using `eth` namespace apis in Klaytn.
+  Cautions when using `eth` namespace apis in Klaytn.
 ---
 
 # Namespace caution <a id="namespace-caution"></a>
@@ -72,6 +72,8 @@ There are lots of transaction types in Klaytn, and fields of data structure vary
 So you have to check how various types of Klaytn transaction are converted as Ethereum transaction because
 during converting process some fields are omitted or added with zero or dummy values. That means
 Some important information(in terms of Klaytn) will be lost during converting.
+
+Please note that we define EthereumLegacyTransaction in this document as the Ethereum transaction format before [EIP-2718](https://eips.ethereum.org/EIPS/eip-2718).
 
 When you try to query Klaytn transactions via eth namespace JSON-RPC apis, Klaytn transactions will be
 return as Ethereum Legacy Transaction type.
