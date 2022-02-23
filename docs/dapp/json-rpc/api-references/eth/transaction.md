@@ -169,6 +169,7 @@ Note that the estimate may be significantly more than the amount of gas actually
 | QUANTITY | The amount of gas used. |
 
 **Example**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_estimateGas", "params": [{"from": "0x3f71029af4e252b25b9ab999f77182f0cd3bc085", "to": "0x87ac99835e67168d4f9a40580f8f5c33550ba88b", "gas": "0x100000", "gasPrice": "0x5d21dba00", "value": "0x0", "data": "0x8ada066e"}], "id": 1}' http://localhost:8551
@@ -310,9 +311,10 @@ Currently, there are three types of transactions in Ethereum(Legacy, [AccessList
 | gas              | QUANTITY      | Gas provided by the sender.                                                        |
 | gasPrice         | QUANTITY      | Gas price provided by the sender in peb.                                           |
 | hash             | 32-byte DATA  | Hash of the transaction.                                                           |
-| input            | DATA          | (optional) The data sent along with the transaction.                               |
+| input            | DATA          | The data sent along with the transaction.                                          |
 | nonce            | QUANTITY      | The number of transactions made by the sender prior to this one.                   |
 | to               | 20-byte DATA  | Address of the receiver. `null` when it is a contract creation transaction.        |
+| value            | QUANTITY      | Integer of values sent with this transaction.                                      |
 | transactionIndex | QUANTITY      | Integer of the transaction index position in the block. `null` when it is pending. |
 | type             | QUANTITY      | An integer representing the type of the transaction.                               |
 | v                | QUANTITY      | ECDSA recovery id.                                                                 |
@@ -358,9 +360,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 | gas              | QUANTITY      | Gas provided by the sender.                                                        |
 | gasPrice         | QUANTITY      | Gas price provided by the sender in peb.                                           |
 | hash             | 32-byte DATA  | Hash of the transaction.                                                           |
-| input            | DATA          | (optional) The data sent along with the transaction.                               |
+| input            | DATA          | The data sent along with the transaction.                                          |
 | nonce            | QUANTITY      | The number of transactions made by the sender prior to this one.                   |
 | to               | 20-byte DATA  | Address of the receiver. `null` when it is a contract creation transaction.        |
+| value            | QUANTITY      | Integer of values sent with this transaction.                                      |
 | transactionIndex | QUANTITY      | Integer of the transaction index position in the block. `null` when it is pending. |
 | type             | QUANTITY      | An integer representing the type of the transaction.                               |
 | accessList       | Array         | An array of [accessList](https://eips.ethereum.org/EIPS/eip-2930).                 |
@@ -371,6 +374,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 
 **Example - AccessList Transaction**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0xfe134fa592b5acdd353fc3c25c3ba9979b8582fee3e5ac9740f418813b405038"],"id":1}' http://localhost:8551
@@ -410,29 +414,31 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 **DynamicFee Transaction**
 
-| Name                   | Type          | Description                                                                        |
-|------------------------|---------------|------------------------------------------------------------------------------------|
-| blockHash              | 32-byte DATA  | Hash of the block where this transaction was in. `null` when it is pending.        |
-| blockNumber            | QUANTITY      | Block number where this transaction was in. `null` when it is pending.             |
-| from                   | 20-byte DATA  | Address of the sender.                                                             |
-| gas                    | QUANTITY      | Gas provided by the sender.                                                        |
-| gasPrice               | QUANTITY      | Gas price provided by the sender in peb.                                           |
-| maxFeePerGas           | QUANTITY      | A maximum amount to pay for the transaction to execute.                            |
-| maxPriorityFeePerGas   | QUANTITY      | Gas tip cap for dynamic fee transaction in peb.                                    |
-| hash                   | 32-byte DATA  | Hash of the transaction.                                                           |
-| input                  | DATA          | (optional) The data sent along with the transaction.                               |
-| nonce                  | QUANTITY      | The number of transactions made by the sender prior to this one.                   |
-| to                     | 20-byte DATA  | Address of the receiver. `null` when it is a contract creation transaction.        |
-| transactionIndex       | QUANTITY      | Integer of the transaction index position in the block. `null` when it is pending. |
-| type                   | QUANTITY      | An integer representing the type of the transaction.                               |
-| accessList             | Array         | An array of [accessList](https://eips.ethereum.org/EIPS/eip-2930).                 |
-| chainId                | QUANTITY      | Chain id set on the requested node.                                                |
-| v                      | QUANTITY      | ECDSA recovery id.                                                                 |
-| r                      | 32-byte DATA  | ECDSA signature r.                                                                 |
-| s                      | 32-byte DATA  | ECDSA signature s.                                                                 |
+| Name                 | Type          | Description                                                                        |
+|----------------------|---------------|------------------------------------------------------------------------------------|
+| blockHash            | 32-byte DATA  | Hash of the block where this transaction was in. `null` when it is pending.        |
+| blockNumber          | QUANTITY      | Block number where this transaction was in. `null` when it is pending.             |
+| from                 | 20-byte DATA  | Address of the sender.                                                             |
+| gas                  | QUANTITY      | Gas provided by the sender.                                                        |
+| gasPrice             | QUANTITY      | Gas price provided by the sender in peb.                                           |
+| maxFeePerGas         | QUANTITY      | A maximum amount to pay for the transaction to execute.                            |
+| maxPriorityFeePerGas | QUANTITY      | Gas tip cap for dynamic fee transaction in peb.                                    |
+| hash                 | 32-byte DATA  | Hash of the transaction.                                                           |
+| input                | DATA          | The data sent along with the transaction.                                          |
+| nonce                | QUANTITY      | The number of transactions made by the sender prior to this one.                   |
+| to                   | 20-byte DATA  | Address of the receiver. `null` when it is a contract creation transaction.        |
+| value                | QUANTITY      | Integer of values sent with this transaction.                                      |
+| transactionIndex     | QUANTITY      | Integer of the transaction index position in the block. `null` when it is pending. |
+| type                 | QUANTITY      | An integer representing the type of the transaction.                               |
+| accessList           | Array         | An array of [accessList](https://eips.ethereum.org/EIPS/eip-2930).                 |
+| chainId              | QUANTITY      | Chain id set on the requested node.                                                |
+| v                    | QUANTITY      | ECDSA recovery id.                                                                 |
+| r                    | 32-byte DATA  | ECDSA signature r.                                                                 |
+| s                    | 32-byte DATA  | ECDSA signature s.                                                                 |
 
 
 **Example - DynamicFee Transaction**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0x40e64aac79b2e51b05d41adc005e45d4618ad5e8783f8fac9e3af63b4f6cf27d"],"id":1}' http://localhost:8551
@@ -588,9 +594,162 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_sendTransaction <a id="eth_sendtransaction"></a>
 
-Klaytn-TODO: Write docs after implement sendTransaction.
+Constructs a transaction with given parameters, signs the transaction with a sender's private key and propagates the
+transaction to Klaytn network.
 
+**NOTE**: The address to sign with must be unlocked.
+
+**Parameters**:
+
+| Name            | Type   | Description                                                                       |
+|-----------------|--------|-----------------------------------------------------------------------------------|
+| transactionArgs | Object | The transaction arguments object. See the next table for the object's properties. |
+
+`transactionArgs` has the following properties:
+
+| Name                 | Type            | Description                                                                                                                                                                   |
+|----------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| from                 | 20-byte DATA    | Address the transaction is send from.                                                                                                                                         |
+| to                   | 20-byte DATA    | (optional when creating a new contract) Address the transaction is directed to.                                                                                               |
+| gas                  | QUANTITY        | (optional) Integer of gas provided for the transaction execution. It will return unused gas.                                                                                  |
+| maxFeePerGas         | QUANTITY        | (optional, default: 25 ston) A maximum amount to pay for the transaction to execute. Since Klaytn uses a fixed gas price policy, it must be set as 25 ston(Gpeb in Ethereum). |
+| maxPriorityFeePerGas | QUANTITY        | (optional, default: 25 ston) Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price policy, it must be set as 25 ston(Gpeb in Ethereum).         |
+| data                 | DATA            | (optional) Hash of the method signature and encoded parameter.                                                                                                                |
+| value                | QUANTITY        | (optional) Integer of values sent with this transaction.                                                                                                                      |
+| nonce                | QUANTITY        | (optional) Integer of a nonce.                                                                                                                                                |
+
+**Return Value**
+
+| Type         | Description                                                                    |
+|--------------|--------------------------------------------------------------------------------|
+| 32-byte DATA | The transaction hash or the zero hash if the transaction is not yet available. |
+
+If you deployed a contract, use [eth_getTransactionReceipt](#eth_gettransactionreceipt) to get the contract address.
+
+**Example**
+
+```shell
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{"from": "0xca7a99380131e6c76cfa622396347107aeedca2d", "to": "0x8c9f4468ae04fb3d79c80f6eacf0e4e1dd21deee", "value": "0x1", "gas": "0x9999", "maxFeePerGas": "0x5d21dba00", "maxPriorityPerGas": "0x5d21dba00"}],"id":1}' http://localhost:8551
+
+// Result
+{
+  "jsonrpc": "2.0",
+  "id":1,
+  "result": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
+}
+```
 
 ## eth_signTransaction <a id="eth_signtransaction"></a>
 
-Klaytn-TODO: Write docs after implement sendTransaction.
+Signs a transaction that can be submitted to the network at a later time using with eth_sendRawTransaction.
+
+**NOTE**: The address to sign with must be unlocked.
+
+**Parameters**:
+
+Parameters are same with eth_sendTransaction.
+See [eth_sendtransaction](#eth_sendtransaction).
+
+**Return Value**
+
+`Object` - The signed transaction object.
+
+| Name | Type   | Description                                                             |
+|------|--------|-------------------------------------------------------------------------|
+| raw  | DATA   | A `rawTransaction` string (a RLP-encoded transaction string).           |
+| tx   | Object | The transaction object. See the next table for the object's properties. |
+
+`tx` has the following properties:
+
+| Name                 | Type            | Description                                                                                     |
+|----------------------|-----------------|-------------------------------------------------------------------------------------------------|
+| type                 | QUANTITY        | An integer representing the type of the transaction.                                            |
+| nonce                | QUANTITY        | The block number where this transaction was in.                                                 |
+| gasPrice             | QUANTITY        | Gas price provided by the sender in peb. `null` when it is not a legacy transaction.            |
+| maxFeePerGas         | QUANTITY        | A maximum amount to pay for the transaction to execute. `null` when it is a legacy transaction. |
+| maxPriorityFeePerGas | QUANTITY        | Gas tip cap for dynamic fee transaction in peb. `null` when it is a legacy transaction.         |
+| gas                  | QUANTITY        | Gas provided by the sender.                                                                     |
+| value                | QUANTITY        | Integer of values sent with this transaction.                                                   |
+| v                    | QUANTITY        | ECDSA recovery id.                                                                              |
+| r                    | 32-byte DATA    | ECDSA signature r.                                                                              |
+| s                    | 32-byte DATA    | ECDSA signature s.                                                                              |
+| chainId              | QUANTITY        | Chain id set on the requested node.                                                             |
+| accessList           | Array           | An array of [accessList](https://eips.ethereum.org/EIPS/eip-2930).                              |
+| hash                 | 32-byte DATA    | Hash of the transaction.                                                                        |
+
+**Example**
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "raw": "0x02f86f8302edaf048505d21dba008505d21dba00829999948c9f4468ae04fb3d79c80f6eacf0e4e1dd21deee0180c001a0b6e16781d247b505aa8eaf363a6ea61e7c23c77ad64846ffda28e73e31304884a05a296904cd009506cb5ed006af016d2c5dab255966af9ba6f8fc352f75e9b079",
+    "tx": {
+      "type": "0x2",
+      "nonce": "0x4",
+      "gasPrice": null,
+      "maxPriorityFeePerGas": "0x5d21dba00",
+      "maxFeePerGas": "0x5d21dba00",
+      "gas": "0x9999",
+      "value": "0x1",
+      "input": "0x",
+      "v": "0x1",
+      "r": "0xb6e16781d247b505aa8eaf363a6ea61e7c23c77ad64846ffda28e73e31304884",
+      "s": "0x5a296904cd009506cb5ed006af016d2c5dab255966af9ba6f8fc352f75e9b079",
+      "to": "0x8c9f4468ae04fb3d79c80f6eacf0e4e1dd21deee",
+      "chainId": "0x2edaf",
+      "accessList": [],
+      "hash": "0x9cfbea4942b334050660ec7207f3323ee13e3196b06279f922404384acbf7b47"
+    }
+  }
+}
+```
+
+## eth_fillTransaction <a id="eth_filltransaction"></a>
+
+FillTransaction fills the defaults (nonce, gas, gasPrice or 1559 fields) on a given unsigned transaction, 
+and returns it to the caller for further processing (signing + broadcast).
+
+**Parameters**:
+
+Parameters are same with eth_sendTransaction.
+See [eth_sendtransaction](#eth_sendtransaction).
+
+**Return value**
+
+See [eth_signTransaction](#eth_signtransaction).
+
+**Example**
+
+```shell
+// Request
+curl http://localhost:8551 -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_fillTransaction", "params":[{"from": "0xca7a99380131e6c76cfa622396347107aeedca2d", "to": "0x8c9f4468ae04fb3d79c80f6eacf0e4e1dd21deee", "value": "0x1", "gas": "0x9999", "maxFeePerGas": "0x5d21dba00"}],"id":1}'
+
+// Result
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "raw": "0x02ef8302edaf808505d21dba008505d21dba00829999948c9f4468ae04fb3d79c80f6eacf0e4e1dd21deee0180c0808080",
+    "tx": {
+      "type": "0x2",
+      "nonce": "0x0",
+      "gasPrice": null,
+      "maxPriorityFeePerGas": "0x5d21dba00",
+      "maxFeePerGas": "0x5d21dba00",
+      "gas": "0x9999",
+      "value": "0x1",
+      "input": "0x",
+      "v": "0x0",
+      "r": "0x0",
+      "s": "0x0",
+      "to": "0x8c9f4468ae04fb3d79c80f6eacf0e4e1dd21deee",
+      "chainId": "0x2edaf",
+      "accessList": [],
+      "hash": "0x83e382bfb39249dc0e2b4283702bc1c0685deffad1316d166546da9c4c14c59d"
+    }
+  }
+}
+```

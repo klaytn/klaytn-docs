@@ -55,6 +55,7 @@ The list below enumerates the API functions. All `eth` namespace APIs are suppor
 - [eth_sendRawTransaction](./eth/transaction.md#eth_sendrawtransaction)
 - [eth_sendTransaction](./eth/transaction.md#eth_sendtransaction)
 - [eth_signTransaction](./eth/transaction.md#eth_signtransaction)
+- [eth_fillTransaction](./eth/transaction.md#eth_filltransaction)
 
 
 ### [Configuration](./eth/config.md) <a id="configuration"></a>
