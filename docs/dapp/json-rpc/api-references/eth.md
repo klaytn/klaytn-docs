@@ -1,6 +1,6 @@
 ---
 description: >-
-  `eth` namespace APIs.
+  eth namespace APIs.
 ---
 
 # Namespace eth <a id="namespace-eth"></a>
@@ -14,7 +14,7 @@ some return values have been adjusted to match the Ethereum's API response body.
 And due to the fundamental design differences between Klaytn and Ethereum, 
 Klaytn's data structure (Transaction, Block, and TransactionReceipt) cannot be fully supported via `eth` namespace APIs.
 
-Please check the [Summary of Differences from Ethereum](#summary_of_differences_from_ethereum) in this document.
+Please check the [Differences Overview from Ethereum](#differences_overview_from_ethereum) in this document.
 
 **NOTE**: `eth` namespace APIs are supported from Klaytn v1.8.0.
 
