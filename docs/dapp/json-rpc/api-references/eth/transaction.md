@@ -1,14 +1,14 @@
 ## eth_call <a id="eth_call"></a>
 
-Executes a new message call immediately, without creating a transaction on the block chain. 
-The eth_call method can be used to query internal contract state, to execute validations coded into a contract or even to test 
-what the effect of a transaction would be without running it live.
+Executes a new message call immediately, without creating a transaction on the block chain. The eth_call method can be
+used to query internal contract state, to execute validations coded into a contract or even to test what the effect of a
+transaction would be without running it live.
 
 **Parameters**
 
 | Name             | Type                | Description                                                                                                                                                                                                                                                                                       |
 |------------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| callObject       | Object              | The transaction call object.  See the next table for the object's properties.                                                                                                                                                                                                                     |
+| callObject       | Object              | The transaction call object. See the next table for the object's properties.                                                                                                                                                                                                                     |
 | blockNumberOrTag | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter). The block number is mandatory and defines the context (state) against which the specified transaction should be executed. |
 | stateOverrideSet | Object              | The state override set is an optional address-to-state mapping, where each entry specifies some state to be ephemerally overridden prior to executing the call.                                                                                                                                   |
 
@@ -23,14 +23,14 @@ what the effect of a transaction would be without running it live.
 | value    | QUANTITY     | (optional) Amount of `peb` to simulate sending along with the transaction. Defaults to `0`.                                                                       |
 | data     | DATA         | (optional) Hash of the method signature and encoded parameter.                                                                                                    |
 
-**Example - callObject** 
+**Example - callObject**
 
 ```json
 {
   "from": "0xd9c9cd5f6779558b6e0ed4e6acf6b1947e7fa1f3",
-  "to":   "0xebe8efa441b9302a0d7eaecc277c09d20d684540",
-  "gas":  "0x1bd7c",
-  "data": "0xd459fc46000000000000000000000000000000000000000000000000000000000046c650dbb5e8cb2bac4d2ed0b1e6475d37361157738801c494ca482f96527eb48f9eec488c2eba92d31baeccfb6968fad5c21a3df93181b43b4cf253b4d572b64172ef000000000000000000000000000000000000000000000000000000000000008c00000000000000000000000000000000000000000000000000000000000000e0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000001c000000000000000000000000000000000000000000000000000000000000001c0000000000000000000000000000000000000000000000000000000000000002b85c0c828d7a98633b4e1b65eac0c017502da909420aeade9a280675013df36bdc71cffdf420cef3d24ba4b3f9b980bfbb26bd5e2dcf7795b3519a3fd22ffbb2000000000000000000000000000000000000000000000000000000000000000238fb6606dc2b5e42d00c653372c153da8560de77bd9afaba94b4ab6e4aa11d565d858c761320dbf23a94018d843772349bd9d92301b0ca9ca983a22d86a70628",
+  "to": "0xebe8efa441b9302a0d7eaecc277c09d20d684540",
+  "gas": "0x1bd7c",
+  "data": "0xd459fc46000000000000000000000000000000000000000000000000000000000046c650dbb5e8cb2bac4d2ed0b1e6475d37361157738801c494ca482f96527eb48f9eec488c2eba92d31baeccfb6968fad5c21a3df93181b43b4cf253b4d572b64172ef000000000000000000000000000000000000000000000000000000000000008c00000000000000000000000000000000000000000000000000000000000000e0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000001c000000000000000000000000000000000000000000000000000000000000001c0000000000000000000000000000000000000000000000000000000000000002b85c0c828d7a98633b4e1b65eac0c017502da909420aeade9a280675013df36bdc71cffdf420cef3d24ba4b3f9b980bfbb26bd5e2dcf7795b3519a3fd22ffbb2000000000000000000000000000000000000000000000000000000000000000238fb6606dc2b5e42d00c653372c153da8560de77bd9afaba94b4ab6e4aa11d565d858c761320dbf23a94018d843772349bd9d92301b0ca9ca983a22d86a70628"
 }
 ```
 
@@ -46,9 +46,12 @@ what the effect of a transaction would be without running it live.
 
 The goal of the state override set is manyfold:
 
-* It can be used by DApps to reduce the amount of contract code needed to be deployed on chain. Code that simply returns internal state or does pre-defined validations can be kept off chain and fed to the node on-demand.
-* It can be used for smart contract analysis by extending the code deployed on chain with custom methods and invoking them. This avoids having to download and reconstruct the entire state in a sandbox to run custom code against.
-* It can be used to debug smart contracts in an already deployed large suite of contracts by selectively overriding some code or state and seeing how execution changes. Specialized tooling will probably be necessary.
+* It can be used by DApps to reduce the amount of contract code needed to be deployed on chain. Code that simply returns
+  internal state or does pre-defined validations can be kept off chain and fed to the node on-demand.
+* It can be used for smart contract analysis by extending the code deployed on chain with custom methods and invoking
+  them. This avoids having to download and reconstruct the entire state in a sandbox to run custom code against.
+* It can be used to debug smart contracts in an already deployed large suite of contracts by selectively overriding some
+  code or state and seeing how execution changes. Specialized tooling will probably be necessary.
 
 **Example - stateOverrideSet**
 
@@ -69,13 +72,16 @@ The goal of the state override set is manyfold:
 **Example**
 
 To test call in meaningful way, you need to setup test environment like below.
-* Deploy KIP-7 Contract to test call or you can use it with already deployed one. 
+
+* Deploy KIP-7 Contract to test call or you can use it with already deployed one.
   * We will use KIP-7 contract function `totalSupply` to check whether call is working or not in this example.
   * To call `totalSupply` you should know about its function signature which is `0x18160ddd`.
 
 In this example:
-* The address of KIP-7 contract: `0xbE3892d33620bE5aca8c75D39e7401871194d290` (You should use an existing contract address.)
-* The address of caller: `0xca7a99380131e6c76cfa622396347107aeedca2d` 
+
+* The address of KIP-7 contract: `0xbE3892d33620bE5aca8c75D39e7401871194d290` (You should use an existing contract
+  address.)
+* The address of caller: `0xca7a99380131e6c76cfa622396347107aeedca2d`
 
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "eth_call", "params": [{"from": "0xca7a99380131e6c76cfa622396347107aeedca2d", "to": "0xbE3892d33620bE5aca8c75D39e7401871194d290", "data": "0x18160ddd"}, "latest"], "id": 1}' http://localhost:8551
@@ -86,8 +92,12 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "et
 **Example - StateOverrides**
 
 Following the example above, let's test call using state overrides feature.
-* We will replace the bytecode of `0xbE3892d33620bE5aca8c75D39e7401871194d290` which is the address of KIP-7 contract already deployed above (Check the above example).
-* The bytecode to be replaced is `6080604052600436106049576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680632e64cec114604e5780636057361d146076575b600080fd5b348015605957600080fd5b50606060a0565b6040518082815260200191505060405180910390f35b348015608157600080fd5b50609e6004803603810190808035906020019092919050505060a9565b005b60008054905090565b80600081905550505600a165627a7a723058207783dba41884f73679e167576362b7277f88458815141651f48ca38c25b498f80029`.
+
+* We will replace the bytecode of `0xbE3892d33620bE5aca8c75D39e7401871194d290` which is the address of KIP-7 contract
+  already deployed above (Check the above example).
+* The bytecode to be replaced
+  is `6080604052600436106049576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680632e64cec114604e5780636057361d146076575b600080fd5b348015605957600080fd5b50606060a0565b6040518082815260200191505060405180910390f35b348015608157600080fd5b50609e6004803603810190808035906020019092919050505060a9565b005b60008054905090565b80600081905550505600a165627a7a723058207783dba41884f73679e167576362b7277f88458815141651f48ca38c25b498f80029`
+  .
   * The original source code of this bytecode is below.
 
 ```solidity
@@ -119,7 +129,8 @@ contract Storage {
 }
 ```
 
-Now let's override the state of `0xbE3892d33620bE5aca8c75D39e7401871194d290` (KIP-7 contract) with another contract's byte code (Storage contract) 
+Now let's override the state of `0xbE3892d33620bE5aca8c75D39e7401871194d290` (KIP-7 contract) with another contract's
+byte code (Storage contract)
 and call `retrieve` (function signature: `0x2e64cec1`) of Storage contract.
 
 ```shell
@@ -128,17 +139,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "et
 {"jsonrpc":"2.0","id":1,"result":"0x0000000000000000000000000000000000000000000000000000000000000000"}
 ```
 
-
 ## eth_estimateGas <a id="eth_estimategas"></a>
 
-Generates and returns an estimate of how much gas is necessary to allow the transaction to complete. The transaction will not be added to the blockchain. 
-Note that the estimate may be significantly more than the amount of gas actually used by the transaction, for a variety of reasons including EVM mechanics and node performance.
+Generates and returns an estimate of how much gas is necessary to allow the transaction to complete. The transaction
+will not be added to the blockchain. Note that the estimate may be significantly more than the amount of gas actually
+used by the transaction, for a variety of reasons including EVM mechanics and node performance.
 
 **Parameters**
 
 | Name       | Type   | Description                                                                   |
 |------------|--------|-------------------------------------------------------------------------------|
-| callObject | Object | The transaction call object.  See the next table for the object's properties. |
+| callObject | Object | The transaction call object. See the next table for the object's properties. |
 
 `callObject` has the following properties:
 
@@ -156,9 +167,9 @@ Note that the estimate may be significantly more than the amount of gas actually
 ```json
 {
   "from": "0xd9c9cd5f6779558b6e0ed4e6acf6b1947e7fa1f3",
-  "to":   "0xebe8efa441b9302a0d7eaecc277c09d20d684540",
-  "gas":  "0x1bd7c",
-  "data": "0xd459fc46000000000000000000000000000000000000000000000000000000000046c650dbb5e8cb2bac4d2ed0b1e6475d37361157738801c494ca482f96527eb48f9eec488c2eba92d31baeccfb6968fad5c21a3df93181b43b4cf253b4d572b64172ef000000000000000000000000000000000000000000000000000000000000008c00000000000000000000000000000000000000000000000000000000000000e0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000001c000000000000000000000000000000000000000000000000000000000000001c0000000000000000000000000000000000000000000000000000000000000002b85c0c828d7a98633b4e1b65eac0c017502da909420aeade9a280675013df36bdc71cffdf420cef3d24ba4b3f9b980bfbb26bd5e2dcf7795b3519a3fd22ffbb2000000000000000000000000000000000000000000000000000000000000000238fb6606dc2b5e42d00c653372c153da8560de77bd9afaba94b4ab6e4aa11d565d858c761320dbf23a94018d843772349bd9d92301b0ca9ca983a22d86a70628",
+  "to": "0xebe8efa441b9302a0d7eaecc277c09d20d684540",
+  "gas": "0x1bd7c",
+  "data": "0xd459fc46000000000000000000000000000000000000000000000000000000000046c650dbb5e8cb2bac4d2ed0b1e6475d37361157738801c494ca482f96527eb48f9eec488c2eba92d31baeccfb6968fad5c21a3df93181b43b4cf253b4d572b64172ef000000000000000000000000000000000000000000000000000000000000008c00000000000000000000000000000000000000000000000000000000000000e0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000001c000000000000000000000000000000000000000000000000000000000000001c0000000000000000000000000000000000000000000000000000000000000002b85c0c828d7a98633b4e1b65eac0c017502da909420aeade9a280675013df36bdc71cffdf420cef3d24ba4b3f9b980bfbb26bd5e2dcf7795b3519a3fd22ffbb2000000000000000000000000000000000000000000000000000000000000000238fb6606dc2b5e42d00c653372c153da8560de77bd9afaba94b4ab6e4aa11d565d858c761320dbf23a94018d843772349bd9d92301b0ca9ca983a22d86a70628"
 }
 ```
 
@@ -181,12 +192,11 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-
 ## eth_getTransactionByBlockHashAndIndex <a id="eth_gettransactionbyblockhashandindex"></a>
 
 Returns information about a transaction by block hash and transaction index position.
 
-Please check the [Caution-Transaction](./eth/caution.md#transaction) before using this API.
+Please check the [Caution-Transaction](./caution.md#transaction) before using this API.
 
 **Parameters**
 
@@ -231,12 +241,11 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_getTransactionByBlockNumberAndIndex <a id="eth_gettransactionbyblocknumberandindex"></a>
 
 Returns information about a transaction by block number and transaction index position.
 
-Please check the [Caution-Transaction](./eth/caution.md#transaction) before using this API.
+Please check the [Caution-Transaction](./caution.md#transaction) before using this API.
 
 **Parameters**
 
@@ -281,12 +290,11 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_getTransactionByHash <a id="eth_gettransactionbyhash"></a>
 
 Returns the information about a transaction requested by transaction hash.
 
-Please check the [Caution-Transaction](./eth/caution.md#transaction) before using this API.
+Please check the [Caution-Transaction](./caution.md#transaction) before using this API.
 
 **Parameters**
 
@@ -296,8 +304,9 @@ Please check the [Caution-Transaction](./eth/caution.md#transaction) before usin
 
 **Return Value**
 
-Fields of transaction can be different based on transaction types. 
-Currently, there are three types of transactions in Ethereum(Legacy, [AccessList](https://eips.ethereum.org/EIPS/eip-2930), [DynamicFee](https://eips.ethereum.org/EIPS/eip-1559)).
+Fields of transaction can be different based on transaction types. Currently, there are three types of transactions in
+Ethereum(Legacy, [AccessList](https://eips.ethereum.org/EIPS/eip-2930)
+, [DynamicFee](https://eips.ethereum.org/EIPS/eip-1559)).
 
 `Object` - A transaction object, or `null` when no transaction was found:
 
@@ -322,6 +331,7 @@ Currently, there are three types of transactions in Ethereum(Legacy, [AccessList
 | s                | 32-byte DATA  | ECDSA signature s.                                                                 |
 
 **Example - Legacy Transaction**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0xaca5d9a1ed8b86b1ef61431b2bedfc99a66eaefc3a7e1cffdf9ff53653956a67"],"id":1}' http://localhost:8551
@@ -371,7 +381,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 | v                | QUANTITY      | ECDSA recovery id.                                                                 |
 | r                | 32-byte DATA  | ECDSA signature r.                                                                 |
 | s                | 32-byte DATA  | ECDSA signature s.                                                                 |
-
 
 **Example - AccessList Transaction**
 
@@ -436,7 +445,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 | r                    | 32-byte DATA  | ECDSA signature r.                                                                 |
 | s                    | 32-byte DATA  | ECDSA signature s.                                                                 |
 
-
 **Example - DynamicFee Transaction**
 
 ```shell
@@ -478,14 +486,13 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_getTransactionReceipt <a id="eth_gettransactionreceipt"></a>
 
 Returns the receipt of a transaction by transaction hash.
 
 **NOTE**: The receipt is not available for pending transactions.
 
-Please check the [Caution-TransactionReceipt](./eth/caution.md#transaction_receipt) before using this API.
+Please check the [Caution-TransactionReceipt](./caution.md#transaction_receipt) before using this API.
 
 **Parameters**
 
@@ -558,7 +565,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_sendRawTransaction <a id="eth_sendrawtransaction"></a>
 
 Creates a new message call transaction or a contract creation for signed transactions.
@@ -590,7 +596,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
   "result": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
 }
 ```
-
 
 ## eth_sendTransaction <a id="eth_sendtransaction"></a>
 
@@ -648,8 +653,7 @@ Signs a transaction that can be submitted to the network at a later time using w
 
 **Parameters**:
 
-Parameters are same with eth_sendTransaction.
-See [eth_sendtransaction](#eth_sendtransaction).
+Parameters are same with eth_sendTransaction. See [eth_sendtransaction](#eth_sendtransaction).
 
 **Return Value**
 
@@ -709,13 +713,12 @@ See [eth_sendtransaction](#eth_sendtransaction).
 
 ## eth_fillTransaction <a id="eth_filltransaction"></a>
 
-FillTransaction fills the defaults (nonce, gas, gasPrice or 1559 fields) on a given unsigned transaction, 
-and returns it to the caller for further processing (signing + broadcast).
+FillTransaction fills the defaults (nonce, gas, gasPrice or 1559 fields) on a given unsigned transaction, and returns it
+to the caller for further processing (signing + broadcast).
 
 **Parameters**:
 
-Parameters are same with eth_sendTransaction.
-See [eth_sendtransaction](#eth_sendtransaction).
+Parameters are same with eth_sendTransaction. See [eth_sendtransaction](#eth_sendtransaction).
 
 **Return value**
 
