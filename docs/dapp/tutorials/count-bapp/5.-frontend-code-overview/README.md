@@ -194,12 +194,12 @@ cf\) `JSON.parse` is needed since `walletInstance` session is stored as a JSON s
  * caver-js library make a connection with klaytn node.
  * You could connect to specific klaytn node by changing 'rpcURL' value.
  * If you are running a klaytn full node, set rpcURL to your node's URL.
- * ex) rpcURL: 'https://api.baobab.klaytn.net:8651'
+ * ex) rpcURL: 'http://localhost:8551'
  */
 import Caver from 'caver-js'
 
 export const config = {
-  rpcURL: 'https://api.baobab.klaytn.net:8651/'
+  rpcURL: 'http://localhost:8551/'
 }
 
 export const cav = new Caver(config.rpcURL)
@@ -214,5 +214,5 @@ You can connect to a specific Klaytn node by specifying it in the 'rpcURL'.
 
 * If you are running a Klaytn full node, you can set rpcURL to your node's URL.  
 
-  for example, `rpcURL: 'https://api.baobab.klaytn.net:8651'`  
+  for example, `rpcURL: 'http://localhost:8551'`  
 
