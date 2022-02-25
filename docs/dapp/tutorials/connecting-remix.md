@@ -60,7 +60,7 @@ You need a local plugin to connect to the Klaytn network using Remix. The proces
 ![Caver Provider](./img/remix-klaytn-environment.png)
 
 * Enter the RPC address of the EN in the Caver Provider Endpoint.
-  Local EN (default): [http://localhost:8551](http://localhost:8551/)
+  Local EN (default): [https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651/)
 
 * Once you are successfully connected to the Network, you will see the Chain ID as below. You can view the list of accounts that you have created in Account.
 
