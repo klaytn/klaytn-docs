@@ -57,7 +57,7 @@ module.exports = {
 
         return new HDWalletProvider(
           mnemonic,
-          "http://localhost:8551",
+          "https://api.baobab.klaytn.net:8651",
           0,
           mnemonic.length
         );
@@ -164,7 +164,7 @@ module.exports = {
 
         return new HDWalletProvider(
           pks,
-          "http://localhost:8551",
+          "https://api.baobab.klaytn.net:8651",
           0,
           pks.length
         );
