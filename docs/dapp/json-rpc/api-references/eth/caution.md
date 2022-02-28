@@ -18,7 +18,7 @@ This document describes the limitations of those APIs.
 
 Related APIs: [eth_getHeaderByNumber](./block.md#eth_getheaderbynumber), [eth_getHeaderByHash](./block.md/#eth_getheaderbyhash).
 
-* Please read the description ":warning:" carefully.
+* Please read the description :warning: carefully.
 * The :white_check_mark: icon in the description denotes that the field used in the same way as in Ethereum.
 
 | Ethereum Header Field | Klaytn Header Field     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                            |                                                                                                                                                                                                                                                                                                                                                                                                            
@@ -54,7 +54,7 @@ Related APIs: [eth_getBlockByHash](./block.md/#eth_getblockbyhash), [eth_getBloc
 Since Block contains fields of Header and header has already been covered above,
 this section describes the remaining fields of the block except for header.
 
-* Please read the description ":warning:" carefully.
+* Please read the description :warning: carefully.
 * The :white_check_mark: icon in the description denotes that the field used in the same way as in Ethereum.
 
 | Ethereum Header Field | Klaytn Header Field | Description                                                                                                            |                                                                                                                                                                                                                                                                                                                                                                                                            
@@ -81,7 +81,7 @@ return as Ethereum Legacy Transaction type.
 
 This document describes the details of converting process (Klaytn transactions -> Ethereum Legacy Transaction).
 
-* Please read the description ":warning:" carefully.
+* Please read the description :warning: carefully.
 * The :white_check_mark: icon in the description denotes that the field used in the same way as in Ethereum.
  
 ### Common Fields
@@ -495,7 +495,7 @@ Klaytn TransactionReceipt will be return as Ethereum Transaction Receipt.
 
 This document describes the details of converting process (Klaytn Transaction Receipt -> Ethereum Transaction Receipt).
 
-* Please read the description ":warning:" carefully.
+* Please read the description :warning: carefully.
 * The :white_check_mark: icon in the description denotes that the field used in the same way as in Ethereum.
 * 
 ### Common Fields
