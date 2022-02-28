@@ -72,6 +72,9 @@ The list below enumerates the API functions that are currently supported in Klay
 - [klay_protocolVersion](./klay/config.md#klay_protocolversion)
 - [klay_rewardbase](./klay/config.md#klay_rewardbase)
 
+### [Gas](./klay/gas.md) <a id="gas"></a>
+- [klay_feeHistory](./klay/gas.md#eth_feehistory)
+- [klay_maxPriorityFeePerGas](./klay/gas.md#eth_maxpriorityfeepergas)
 
 ### [Filter](./klay/filter.md) <a id="filter"></a>
 - [klay_getFilterChanges](./klay/filter.md#klay_getfilterchanges)
