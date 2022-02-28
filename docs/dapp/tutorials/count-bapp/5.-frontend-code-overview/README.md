@@ -214,5 +214,5 @@ You can connect to a specific Klaytn node by specifying it in the 'rpcURL'.
 
 * If you are running a Klaytn full node, you can set rpcURL to your node's URL.  
 
-  for example, `rpcURL: 'https://api.baobab.klaytn.net:8651'`  
+  for example, `rpcURL: 'http://localhost:8551'`  
 
