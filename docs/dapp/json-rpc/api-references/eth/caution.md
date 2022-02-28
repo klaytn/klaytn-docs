@@ -497,7 +497,7 @@ This document describes the details of converting process (Klaytn Transaction Re
 
 * Please read the description :warning: carefully.
 * The :white_check_mark: icon in the description denotes that the field used in the same way as in Ethereum.
-* 
+
 ### Common Fields
 
 Regardless of various Klaytn transaction type, there are common fields.
