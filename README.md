@@ -1,26 +1,20 @@
-## How to check modifications on gitbook.com
+# The Klaytn Docs
 
-KlaytnDocs의 개발 버전을 보기 위해서는 다음 링크를 통해 gitbook.com에 가입을
-해야합니다.
+[![Gitter](https://badges.gitter.im/klaytn/Test-klaytn-docs.svg)](https://gitter.im/klaytn/Test-klaytn-docs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-* https://www.gitbook.com
+![Klaytn Docs](images/klaytn.png)
 
-NOTE: docs.klaytn.com은 master 브랜치만 보여줍니다.
+Klaytn Docs introduces [Klaytn](https://www.klaytn.com), the blockchain of choice for web3 era with high performance and great user experience. In these documents you will find detailed explanations on Klaytn along with guidelines and instructions on how to use Klaytn and interact with the Klaytn network. More information on how to use Klaytn Docs is depicted on the [Klaytn Docs Wiki](https://github.com/Krustuniverse-Klaytn-Group/test-klaytn-docs/wiki/Using-the-Klaytn-Docs)
 
-gitbook.com을 통해 자신의 수정 결과를 보기 위해서는 현 repository에 "gitbook"을
-prefix로 하여 브랜치를 생성합니다.  예를 들어, `gitbook-update`라는 브랜치를
-만들면 다음 링크를 통해 자신이 생성한 브랜치로부터 만들어진 KlaytnDocs
-사이트를 볼 수 있습니다.
+## Want to Contribute to Klaytn Docs? <a id="want-to-contribute"></a>
 
-* https://app.gitbook.com/@klaytn/s/docs-dev/v/gitbook-update/
+In line with our commitment to decentralization, all Klaytn codebase and its documentations are completely open source. Klaytn always welcomes your contribution. Anyone can view, edit, fix its contents and make suggestions. You can either create a pull request on GitHub or use GitBook. Make sure to sign our [Contributor License Agreement (CLA)](https://cla-assistant.io/klaytn/klaytn) first and there are also a few guidelines our contributors would check out before contributing:
 
-위 사이트를 통해 수정된 버전이 맞게 되었으면 위 링크를 포함해 PR을 생성합니다.
+- [Contribution Guide](./CONTRIBUTING.md)
+- [License Section](https://github.com/Krustuniverse-Klaytn-Group/test-klaytn-docs/wiki/Using-the-Klaytn-Docs#license)
+- [Code of Conducts](./code-of-conduct.md)
+- [Style Guide](./style-guide.md)
 
-NOTE:
-* 자신이 fork한 repository에 브랜치를 만들면 사이트가 만들어지지 않습니다.
-* 자신의 브랜치에 대한 사이트 URL을 수동으로 타이핑하기 귀찮으면
-  https://app.gitbook.com/@klaytn/s/docs-dev/ 로 들어가 왼쪽 상단의 브랜치 선택을 통해
-  자신의 브랜치에 대한 사이트를 볼 수 있습니다.
-  https://app.gitbook.com/@klaytn/s/docs-dev/ 는 master 및 gitbook\* 브랜치들에 대한
-  사이트를 모두 보여주는 개발용 사이트입니다.
-* 사이트 생성에 시간이 조금 걸립니다(3 ~ 4분 정도).
+## Need Help? <a href="#need-help" id="need-help"></a>
+
+If you have any questions, please visit our [Gitter channel](https://gitter.im/klaytn/Test-klaytn-docs?utm_source=share-link&utm_medium=link&utm_campaign=share-link), [Klaytn Developers Forum](https://forum.klaytn.com/) and [Discord channel](https://discord.gg/mWsHFqN5Zf).
