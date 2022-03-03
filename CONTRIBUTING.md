@@ -8,9 +8,9 @@ Thank you for your interest in contributing to Klaytn Docs. As an open source pr
 2. Sign [Contributor Licensing Agreement (CLA)](#contributor-license-agreement-cla).
 3. Submit an issue with a proper [labeling](#usage-of-labels).
 4. Please wait until the label changes to `contribution welcome` - otherwise, it is not ready to be worked on.
-5. After the label changed to `contribution welcome`, you can start submitting the changes. To avoid any duplicate efforts, it is recommended to update the issue so that other contributors could see someone working on the issue.
-6. Before making a Pull Request (PR), please make sure the suggested content changes are accurate. After submitting the PR, wait for code review and approval. The reviewer may ask you for additional commits or changes.
-7. All PRs should be made against the `master` branch, and following the successful build, the suggested content change could be previewed with GitBook preview feature (clicking `Details` under `Show all checks`)
+5. Only after the label changed to `contribution welcome`, you can start submitting the changes. To avoid any duplicate efforts, it is recommended to update the issue so that other contributors could see someone working on the issue.
+6. Before making a Pull Request (PR), please make sure the suggested content changes are accurate and linked with the corresponding issue reported. After submitting the PR, wait for code review and approval. The reviewer may ask you for additional commits or changes.
+7. All PRs should be made against the `master` branch, and following the successful build, the suggested content change could be previewed with GitBook preview feature (clicking `Details` under `Show all checks`).
 8. Once the change has been approved, the PR is merged by the project moderator.
 9. After merging the PR, the pull request will be closed. You can then delete the now obsolete branch.
 10. https://docs.klaytn.com/ will be updated with the suggested changes (merged content).
