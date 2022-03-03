@@ -6,7 +6,7 @@ Thank you for your interest in contributing to Klaytn Docs. As an open source pr
 
 1. Read this [contributing document](./CONTRIBUTING.md).
 2. Sign [Contributor Licensing Agreement (CLA)](#contributor-license-agreement-cla).
-3. Submit an issue with a proper [labeling](#usage-of-labels).
+3. Submit an issue with a proper [labelling](#usage-of-labels).
 4. Please wait until the label changes to `contribution welcome` - otherwise, it is not ready to be worked on.
 5. Only after the label changed to `contribution welcome`, you can start submitting the changes. To avoid any duplicate efforts, it is recommended to update the issue so that other contributors could see someone working on the issue.
 6. Before making a Pull Request (PR), please make sure the suggested content changes are accurate and linked with the corresponding issue reported. After submitting the PR, wait for code review and approval. The reviewer may ask you for additional commits or changes.
