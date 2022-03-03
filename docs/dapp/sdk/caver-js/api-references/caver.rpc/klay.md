@@ -634,13 +634,218 @@ Returns the number of the most recent block.
 0x5d39
 ```
 
+## caver.rpc.klay.getHeader <a id="caver-rpc-klay-getheader"></a>
+
+```javascript
+caver.rpc.klay.getHeader(blockNumberOrHash [, callback])
+```
+
+Returns a block header by block hash or block number.
+If the user passes the block hash as a parameter, [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash) is called, and if the block number is called as a parameter, [caver.rpc.klay.getHeaderByNumber](#caver-rpc-klay-getheaderbynumber) is called.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| blockNumberOrHash | number &#124; string | The block hash, number or the block tag string. |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+
+**Return Value**
+
+`Promise` returns `object`
+
+| Type | Description |
+| --- | --- |
+| object | A block header object. For detailed description of return value, please refer to [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash). |
+
+**Example**
+
+```javascript
+> caver.rpc.klay.getHeader(1).then(console.log)
+{
+  baseFeePerGas: '0x0',
+  blockScore: '0x1',
+  extraData: '0xd8830...',
+  gasUsed: '0x0',
+  governanceData: '0x',
+  hash: '0x1b6582f0908add2221317288482aada596551e9f9d779a2aebc55d81d3149ba3',
+  logsBloom: '0x00000...',
+  number: '0xbacd3',
+  parentHash: '0xd6e36611a6722b94b8e4bb4d164755445409cf43aa5db0a5d4ae01e621c81ce7',
+  receiptsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
+  reward: '0x30be91c80566da777d30e659b6746174ecc61576',
+  stateRoot: '0xe75d808889451b1dac3d209e8cfbb2159ea6b2a080ce6081be775fb426f047a8',
+  timestamp: '0x62201975',
+  timestampFoS: '0x0',
+  transactionsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470'
+}
+```
+
+## caver.rpc.klay.getHeaderByNumber <a id="caver-rpc-klay-getheaderbynumber"></a>
+
+```javascript
+caver.rpc.klay.getHeaderByNumber(blockNumber [, returnTransactionObjects] [, callback])
+```
+
+Returns a block header by block number.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| blockNumber | number &#124; string | The block number or the block tag string. |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+
+**Return Value**
+
+`Promise` returns `object`
+
+| Type | Description |
+| --- | --- |
+| object | A block header object. For detailed description of return value, please refer to [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash). |
+
+**Example**
+
+```javascript
+> caver.rpc.klay.getHeaderByNumber(765139).then(console.log)
+{
+  baseFeePerGas: '0x0',
+  blockScore: '0x1',
+  extraData: '0xd8830...',
+  gasUsed: '0x0',
+  governanceData: '0x',
+  hash: '0x1b6582f0908add2221317288482aada596551e9f9d779a2aebc55d81d3149ba3',
+  logsBloom: '0x00000...',
+  number: '0xbacd3',
+  parentHash: '0xd6e36611a6722b94b8e4bb4d164755445409cf43aa5db0a5d4ae01e621c81ce7',
+  receiptsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
+  reward: '0x30be91c80566da777d30e659b6746174ecc61576',
+  stateRoot: '0xe75d808889451b1dac3d209e8cfbb2159ea6b2a080ce6081be775fb426f047a8',
+  timestamp: '0x62201975',
+  timestampFoS: '0x0',
+  transactionsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470'
+}
+```
+
+## caver.rpc.klay.getHeaderByHash <a id="caver-rpc-klay-getheaderbyhash"></a>
+
+```javascript
+caver.rpc.klay.getHeaderByHash(blockHash [, returnTransactionObjects] [, callback])
+```
+
+Returns the block number of the most recent block by using `blockHash`.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| blockHash | string | The block hash. |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+
+**Return Value**
+
+`Promise` returns `object` - An object includes block header:
+
+| Name | Type | Description |
+| --- | --- | --- |
+| baseFeePerGas | string | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
+| blockScore | string | The difficulty of mining in the blockchain network. The use of `blockScore` differs from the consensus of the network. Always 1 in the BFT consensus engine. |
+| extraData | string | The "extra data" field of this block. |
+| gasUsed | string | The gas in total that was used by all transactions in this block. |
+| governanceData | string | RLP encoded governance configuration |
+| hash | string | Hash of the block. `null` when it is a pending block. |
+| logsBloom | string | The bloom filter for the logs of the block. `null` when it is a pending block. |
+| number | string | The block number. `null` when it is a pending block. |
+| parentHash | string | Hash of the parent block. |
+| receiptsRoot | string | The root of the receipts trie of the block. |
+| reward | string | The address of the beneficiary to whom the block rewards were given. |
+| stateRoot | string | The root of the final state trie of the block. |
+| timestamp | string | The unix timestamp for when the block was collated. |
+| timestampFoS | string | The fraction of a second of the timestamp for when the block was collated. |
+| transactionsRoot | string | The root of the transaction trie of the block. |
+
+**Example**
+
+```javascript
+> caver.rpc.klay.getHeaderByHash('0x1b6582f0908add2221317288482aada596551e9f9d779a2aebc55d81d3149ba3').then(console.log)
+{
+  baseFeePerGas: '0x0',
+  blockScore: '0x1',
+  extraData: '0xd8830...',
+  gasUsed: '0x0',
+  governanceData: '0x',
+  hash: '0x1b6582f0908add2221317288482aada596551e9f9d779a2aebc55d81d3149ba3',
+  logsBloom: '0x00000...',
+  number: '0xbacd3',
+  parentHash: '0xd6e36611a6722b94b8e4bb4d164755445409cf43aa5db0a5d4ae01e621c81ce7',
+  receiptsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
+  reward: '0x30be91c80566da777d30e659b6746174ecc61576',
+  stateRoot: '0xe75d808889451b1dac3d209e8cfbb2159ea6b2a080ce6081be775fb426f047a8',
+  timestamp: '0x62201975',
+  timestampFoS: '0x0',
+  transactionsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470'
+}
+```
+
+## caver.rpc.klay.getBlock <a id="caver-rpc-klay-getblock"></a>
+
+```javascript
+caver.rpc.klay.getBlock(blockNumberOrHash [, returnTransactionObjects] [, callback])
+```
+
+Returns information about a block by block hash or block number.
+If the user passes the block hash as a parameter, [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash) is called, and if the block number is called as a parameter, [caver.rpc.klay.getBlockByNumber](#caver-rpc-klay-getblockbynumber) is called.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| blockNumberOrHash | number &#124; string | The block hash, number or the block tag string. |
+| returnTransactionObjects | boolean | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+
+**Return Value**
+
+`Promise` returns `object`
+
+| Type | Description |
+| --- | --- |
+| object | A block object. For detailed description of return value, please refer to [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash). |
+
+**Example**
+
+```javascript
+> caver.rpc.klay.getBlock(1).then(console.log)
+{
+    baseFeePerGas: '0x0',
+    blockscore: '0x1',
+    extraData: '0xd8830...',
+    gasUsed: '0x0',
+    governanceData: '0x',
+    hash: '0x58482921af951cf42a069436ac9338de50fd963bdbea40e396f416f9ac96a08b',
+    logsBloom: '0x00000...',
+    number: '0x1',
+    parentHash: '0x6b7c0a49f445d39b6d7dc9ba5b593b326f3a953e75ff1fcf64b9a5fa51c2725b',
+    receiptsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
+    reward: '0xddc2002b729676dfd906484d35bb02a8634d7040',
+    size: '0x285',
+    stateRoot: '0xb88b6110e6f73b732714bb346e6ff24beb480c0dc901a55be24e38ad1c6d5fa9',
+    timestamp: '0x5ee7fe9f',
+    timestampFoS: '0xd',
+    totalBlockScore: '0x2',
+    transactions: [],
+    transactionsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
+    voteData: '0x',
+}
+```
+
 ## caver.rpc.klay.getBlockByNumber <a id="caver-rpc-klay-getblockbynumber"></a>
 
 ```javascript
 caver.rpc.klay.getBlockByNumber(blockNumber [, returnTransactionObjects] [, callback])
 ```
 
-Returns information about a block by block number. This API works only on RPC call, not on JavaScript console.
+Returns information about a block by block number.
 
 **Parameters**
 
@@ -656,13 +861,14 @@ Returns information about a block by block number. This API works only on RPC ca
 
 | Type | Description |
 | --- | --- |
-| string | A block object. For detailed description of return value, please refer to [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash). |
+| object | A block object. For detailed description of return value, please refer to [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash). |
 
 **Example**
 
 ```javascript
 > caver.rpc.klay.getBlockByNumber(1).then(console.log)
 {
+    baseFeePerGas: '0x0',
     blockscore: '0x1',
     extraData: '0xd8830...',
     gasUsed: '0x0',
@@ -706,6 +912,7 @@ Returns the block number of the most recent block by using `blockHash`.
 
 | Name | Type | Description |
 | --- | --- | --- |
+| baseFeePerGas | string | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
 | blockScore | string | The difficulty of mining in the blockchain network. The use of `blockScore` differs from the consensus of the network. Always 1 in the BFT consensus engine. |
 | extraData | string | The "extra data" field of this block. |
 | gasUsed | string | The gas in total that was used by all transactions in this block. |
@@ -730,6 +937,7 @@ Returns the block number of the most recent block by using `blockHash`.
 ```javascript
 > caver.rpc.klay.getBlockByHash('0x58482921af951cf42a069436ac9338de50fd963bdbea40e396f416f9ac96a08b').then(console.log)
 {
+    baseFeePerGas: '0x0',
     blockscore: '0x1',
     extraData: '0xd8830...',
     gasUsed: '0x0',
@@ -2255,6 +2463,125 @@ Returns the current price per gas in peb for the given block.
 ```javascript
 > caver.rpc.klay.getGasPriceAt().then(console.log)
 0x5d21dba00
+```
+
+## caver.rpc.klay.getMaxPriorityFeePerGas <a id="caver-rpc-klay-getmaxpriorityfeepergas"></a>
+
+```javascript
+caver.rpc.klay.getMaxPriorityFeePerGas([callback])
+```
+
+Returns a suggestion for a gas tip cap for dynamic fee transactions in peb.
+Since Klaytn has a fixed gas price, this returns the gas price set by Klaytn.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+
+**Return Value**
+
+`Promise` returns `string`
+
+| Type | Description |
+| --- | --- |
+| string | The suggested gas tip cap in peb. |
+
+**Example**
+
+```javascript
+> caver.rpc.klay.getMaxPriorityFeePerGas().then(console.log)
+0x5d21dba00
+```
+
+## caver.rpc.klay.getFeeHistory <a id="caver-rpc-klay-getfeehistory"></a>
+
+```javascript
+caver.rpc.klay.getFeeHistory(blockCount, lastBlock, rewardPercentiles [, callback])
+```
+
+Returns fee history for the returned block range.
+This can be a subsection of the requested range if not all blocks are available.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| blockCount | number&#124;BigNumber&#124;BN&#124;string | Number of blocks in the requested range. Between 1 and 1024 blocks can be requested in a single query. Less than requested may be returned if not all blocks are available. |
+| lastBlock | number&#124;BigNumber&#124;BN&#124;string | Highest number block (or block tag string) of the requested range. |
+| rewardPercentiles | Array | A monotonically increasing list of percentile values to sample from each block’s effective priority fees per gas in ascending order, weighted by gas used. (Example: `['0', '25', '50', '75', '100']` or `['0', '0.5', '1', '1.5', '3', '80']`) |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+
+**Return Value**
+
+`Promise` returns `object` - An object includes fee history:
+
+| Name | Type | Description |
+| --- | --- | --- |
+| oldestBlock | string | Lowest number block of returned range. |
+| reward | Array | A two-dimensional array of effective priority fees per gas at the requested block percentiles. |
+| baseFeePerGas | Array | An array of block base fees per gas. This includes the next block after the newest of the returned range, because this value can be derived from the newest block. Zeroes are returned for pre-EIP-1559 blocks. |
+| gasUsedRatio | Array | An array of gasUsed/gasLimit in the block. |
+
+**Example**
+
+```javascript
+> caver.rpc.klay.getFeeHistory(3, 'latest', [0.1, 0.2, 0.3]).then(console.log)
+{
+  oldestBlock: '0xbb701',
+  reward: [
+    [ '0x0', '0x0', '0x0' ],
+    [ '0x5d21dba00', '0x5d21dba00', '0x5d21dba00' ],
+    [ '0x0', '0x0', '0x0' ]
+  ],
+  baseFeePerGas: [ '0x0', '0x0', '0x0', '0x0' ],
+  gasUsedRatio: [ 0, 2.1000000000021e-8, 0 ]
+}
+```
+
+## caver.rpc.klay.createAccessList <a id="caver-rpc-klay-createaccesslist"></a>
+
+```javascript
+caver.rpc.klay.createAccessList(txCallObject [, callback])
+```
+
+This method creates an accessList based on a given Transaction. 
+The accessList contains all storage slots and addresses read and written by the transaction, except for the sender account and the precompiles.
+This method uses the same transaction call object and blockNumberOrTag object as `caver.rpc.klay.call`. 
+An accessList can be used to unstuck contracts that became inaccessible due to gas cost increases.
+Adding an accessList to your transaction does not necessary result in lower gas usage compared to a transaction without an access list.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| callObject | object | A transaction call object. Please see [caver.rpc.klay.call](#caver-rpc-klay-call) parameters. |
+| blockParameter | number&#124;BigNumber&#124;BN&#124;string | (optional) A block number, blockhash or the block tag string (`latest` or `earliest`). If omitted, `latest` will be used. |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+
+**Return Value**
+
+`Promise` returns `object` - An object includes an access list:
+
+| Name | Type | Description |
+| --- | --- | --- |
+| oldestBlock | string | Lowest number block of returned range. |
+| reward | Array | A two-dimensional array of effective priority fees per gas at the requested block percentiles. |
+| baseFeePerGas | Array | An array of block base fees per gas. This includes the next block after the newest of the returned range, because this value can be derived from the newest block. Zeroes are returned for pre-EIP-1559 blocks. |
+| gasUsedRatio | Array | An array of gasUsed/gasLimit in the block. |
+
+**Example**
+
+```javascript
+> caver.rpc.klay.createAccessList({
+        from: '0x3bc5885c2941c5cda454bdb4a8c88aa7f248e312',
+        data: '0x20965255',
+        gasPrice: '0x3b9aca00',
+        gas: '0x3d0900',
+        to: '0x00f5f5f3a25f142fafd0af24a754fafa340f32c7'
+    }, 'latest').then(console.log)
+{ accessList: [], gasUsed: '0x0' }
 ```
 
 ## caver.rpc.klay.isParallelDBWrite <a id="caver-rpc-klay-isparalleldbwrite"></a>

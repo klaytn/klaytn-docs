@@ -444,6 +444,146 @@ ChainDataAnchoring {
     _input: '0xf8a6a...'
 }
 ```
+## EthereumAccessList <a id="ethereumaccesslist"></a>
+
+```javascript
+caver.transaction.ethereumAccessList.create(transactionObject)
+new caver.transaction.ethereumAccessList(transactionObject)
+```
+
+`EthereumAccessList` represents a [ethereum access list transaction](../../../../../klaytn/design/transactions/basic.md#txtypeethereumaccesslist). A [Klaytn account](../../../../../klaytn/design/accounts.md#klaytn-accounts) can execute a `EthereumAccessList` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumAccessList`.
+
+`EthereumAccessList` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `EthereumAccessList`.
+
+{% hint style="success" %} 
+**NOTE** You can create an instance of `EthereumAccessList` from RLP-encoded string. Please refer to the below example.
+**NOTE** `caver.transaction.ethereumAccessList` is supported since caver-js [v1.8.0](https://www.npmjs.com/package/caver-js/v/1.8.0).
+{% endhint %} 
+
+**properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| gas | string | The maximum amount of transaction fee the transaction is allowed to use. |
+| value | string | (optional, default: `'0x0'`) The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`. |
+| from | string | (optional) The address of the sender. If omitted, the keyring address used for signing will be set. |
+| to | string | (optional, default: `'0x'`) The account address that will receive the transferred value or smart contact address if a legacy transaction execute smart contract. If a legacy transaction deploys a smart contract, `to` does not need to be defined. |
+| input | string | (optional) Data attached to the transaction, used for smart contract deployment/execution. |
+| signatures | Array | (optional) An array of signatures. A legacy transaction can have only one signature. |
+| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
+| gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
+| chainId | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
+| accessList | Array | (optional) As an EIP-2930 access list that contains all storage slots and addresses read and written by the transaction. |
+
+**Example**
+
+```javascript
+> caver.transaction.ethereumAccessList.create({
+    to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
+    value: caver.utils.toPeb(1, 'KLAY'),
+    gas: 40000,
+    accessList: [
+        {
+            address: '0x5430192ae264b3feff967fc08982b9c6f5694023',
+            storageKeys: [
+                '0x0000000000000000000000000000000000000000000000000000000000000003',
+                '0x0000000000000000000000000000000000000000000000000000000000000007',
+            ],
+        },
+    ]
+})
+
+> caver.transaction.ethereumAccessList.create('0x7801f90109822710238505d21dba00829c4094c5fb1386b60160614a8151dcd4b0ae41325d1cb801b844a9059cbb0000000000000000000000008a4c9c443bb0645df646a2d5bb55def0ed1e885a0000000000000000000000000000000000000000000000000000000000003039f85bf859945430192ae264b3feff967fc08982b9c6f5694023f842a00000000000000000000000000000000000000000000000000000000000000003a0000000000000000000000000000000000000000000000000000000000000000701a05ac25e47591243af2d6b8e7f54d608e9e0e0aeb5194d34c17852bd7e376f4857a0095a40394f33e95cce9695d5badf4270f4cc8aff0b5395cefc3a0fe213be1f30')
+EthereumAccessList {
+  _type: 'TxTypeEthereumAccessList',
+  _from: '0x0000000000000000000000000000000000000000',
+  _gas: '0x9c40',
+  _nonce: '0x23',
+  _chainId: '0x2710',
+  _signatures: SignatureData {
+    _v: '0x01',
+    _r: '0x5ac25e47591243af2d6b8e7f54d608e9e0e0aeb5194d34c17852bd7e376f4857',
+    _s: '0x095a40394f33e95cce9695d5badf4270f4cc8aff0b5395cefc3a0fe213be1f30'
+  },
+  _to: '0xc5fb1386b60160614a8151dcd4b0ae41325d1cb8',
+  _input: '0xa9059cbb0000000000000000000000008a4c9c443bb0645df646a2d5bb55def0ed1e885a0000000000000000000000000000000000000000000000000000000000003039',
+  _value: '0x1',
+  _accessList: AccessList(0) [],
+  _gasPrice: '0x5d21dba00'
+}
+```
+
+## EthereumDynamicFee <a id="ethereumdynamicfee"></a>
+
+```javascript
+caver.transaction.ethereumDynamicFee.create(transactionObject)
+new caver.transaction.ethereumDynamicFee(transactionObject)
+```
+
+`EthereumDynamicFee` represents a [ethereum dynamic fee transaction](../../../../../klaytn/design/transactions/basic.md#txtypeethereumdynamicfee). A [Klaytn account](../../../../../klaytn/design/accounts.md#klaytn-accounts) can execute a `EthereumDynamicFee` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumDynamicFee`.
+
+`EthereumDynamicFee` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `EthereumDynamicFee`.
+And note that `EthereumDynamicFee` does not use `gasPrice`, it uses `maxPriorityFeePerGas` and `maxFeePerGas`.
+
+{% hint style="success" %} 
+**NOTE** You can create an instance of `EthereumDynamicFee` from RLP-encoded string. Please refer to the below example.
+**NOTE** `caver.transaction.ethereumDynamicFee` is supported since caver-js [v1.8.0](https://www.npmjs.com/package/caver-js/v/1.8.0).
+{% endhint %} 
+
+**properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| gas | string | The maximum amount of transaction fee the transaction is allowed to use. |
+| value | string | (optional, default: `'0x0'`) The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`. |
+| from | string | (optional) The address of the sender. If omitted, the keyring address used for signing will be set. |
+| to | string | (optional, default: `'0x'`) The account address that will receive the transferred value or smart contact address if a legacy transaction execute smart contract. If a legacy transaction deploys a smart contract, `to` does not need to be defined. |
+| input | string | (optional) Data attached to the transaction, used for smart contract deployment/execution. |
+| signatures | Array | (optional) An array of signatures. A legacy transaction can have only one signature. |
+| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
+| maxPriorityFeePerGas | string | (optional) Gas tip cap for the transaction in peb. Since Klaytn uses a fixed gas pricing, it should be set to the same value as `caver.rpc.klay.getGasPrice`. If omitted, the value of `caver.rpc.klay.getGasPrice` is set to maxPriorityFeePerGas. |
+| maxFeePerGas | string | (optional) A maximum amount to pay for the transaction to execute. Since Klaytn uses a fixed gas price policy, it should be set to the same value as `caver.rpc.klay.getGasPrice`. If omitted, the value of `baseFeePerGas * 2 + maxPriorityFeePerGas` is set to maxFeePerGas. |
+| chainId | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
+| accessList | Array | (optional) As an EIP-2930 access list that contains all storage slots and addresses read and written by the transaction. |
+
+**Example**
+
+```javascript
+> caver.transaction.ethereumDynamicFee.create({
+    to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
+    value: caver.utils.toPeb(1, 'KLAY'),
+    gas: 50000,
+    accessList: [
+        {
+            address: '0x5430192ae264b3feff967fc08982b9c6f5694023',
+            storageKeys: [
+                '0x0000000000000000000000000000000000000000000000000000000000000003',
+                '0x0000000000000000000000000000000000000000000000000000000000000007',
+            ],
+        },
+    ]
+})
+
+> caver.transaction.ethereumDynamicFee.create('0x7802f9010f822710258505d21dba008505d21dba00829c40941fc92c23f71a7de4cdb4394a37fc636986a0f48401b844a9059cbb0000000000000000000000008a4c9c443bb0645df646a2d5bb55def0ed1e885a0000000000000000000000000000000000000000000000000000000000003039f85bf8599467116062f1626f7b3019631f03d301b8f701f709f842a00000000000000000000000000000000000000000000000000000000000000003a0000000000000000000000000000000000000000000000000000000000000000780a04fc52da183020a27dc4b684a45404445630e946b0c1a37edeb538d4bdae63040a07d56dbcc61f42ffcbced105f838d20b8fe71e85a4d0344c7f60815fddfeae4cc')
+EthereumDynamicFee {
+  _type: 'TxTypeEthereumDynamicFee',
+  _from: '0x0000000000000000000000000000000000000000',
+  _gas: '0x9c40',
+  _nonce: '0x25',
+  _chainId: '0x2710',
+  _signatures: SignatureData {
+    _v: '0x',
+    _r: '0x4fc52da183020a27dc4b684a45404445630e946b0c1a37edeb538d4bdae63040',
+    _s: '0x7d56dbcc61f42ffcbced105f838d20b8fe71e85a4d0344c7f60815fddfeae4cc'
+  },
+  _to: '0x1fc92c23f71a7de4cdb4394a37fc636986a0f484',
+  _input: '0xa9059cbb0000000000000000000000008a4c9c443bb0645df646a2d5bb55def0ed1e885a0000000000000000000000000000000000000000000000000000000000003039',
+  _value: '0x1',
+  _accessList: AccessList(0) [],
+  _maxPriorityFeePerGas: '0x5d21dba00',
+  _maxFeePerGas: '0x5d21dba00'
+}
+```
 
 [AccountKeyLegacy]: ../../../../../klaytn/design/accounts.md#accountkeylegacy
 [Account]: ../caver.account.md#account
