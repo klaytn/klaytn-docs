@@ -47,6 +47,7 @@ will give all enabled modules including the version number:
       "debug":"1.0",
       "istanbul":"1.0",
       "klay":"1.0",
+      "eth":"1.0",
       "miner":"1.0",
       "net":"1.0",
       "personal":"1.0",
