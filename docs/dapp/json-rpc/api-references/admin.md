@@ -68,7 +68,7 @@ Console
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_nodeInfo","id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_nodeInfo","id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,
 "result":               {"id":"377ef808aff73a397d133b3bf160df586054c98c0e6a65c8fce9560e6a0632bc975419f461803d27f28ee270287113cc2359225814debc1bfb2f811061e14c5d", "name":"Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X",    "kni":"kni://377ef808aff73a397d133b3bf160df586054c98c0e6a65c8fce9560e6a0632bc975419f461803d27f28ee270287113cc2359225814debc1bfb2f811061e14c5d@[::]:32323?discport=0",
 "ip":"::",
@@ -110,7 +110,7 @@ Console
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_datadir","id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_datadir","id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":"/your/dir/ken/data/dd"}
 ```
 
@@ -189,7 +189,7 @@ HTTP RPC
 **NOTE**: All IP addresses below are shown as examples. Please replace them with the actual IP addresses in your execution environment.
 
 ```shell
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_peers","id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_peers","id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":[{"id":"144af69d2bb030c6a2a5ceee7445dc613e200f19358547cffc353d56e6c8a5b4186a6953c028b6afd0ab3c2bfc4c86f24b0bf855d0686b964ec65cefd3deec37","name":"Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X","caps":["istanbul/64"],"network":{"localAddress":"10.0.10.1:49355","remoteAddress":"10.0.0.1:32323","inbound":false,"trusted":false,"static":true},"protocols":{"istanbul":{"version":64,"difficulty":1285901,"head":"0x2d04ac52df4af08a9a0e15d5939c29decb00031e7b3f6abd05bc0c731f6b5561"}}},{"id":"a875620f67f0b12edb97d0ec269e7940f2505b1f62576f39858c37e1d7f956318c3a619239f03f806a79ccaa8e7e9b5def343c24a9fd2e9d715964e0952dd995","name":"Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X","caps":["istanbul/64"],"networks":[{"localAddress":"10.0.10.2:49353","remoteAddress":"10.0.0.2:32323","inbound":false,"trusted":false,"static":true}],"protocols":{"istanbul":{"version":64,"difficulty":1285901,"head":"0x2d04ac52df4af08a9a0e15d5939c29decb00031e7b3f6abd05bc0c731f6b5561"}}},{"id":"e18d6d4e0ffac0a51028a8d49a548295ac8ac50d064f3581600799a3ae761a61f0b39c38b4195e163e01f30db616debf61b5b2ddea716bc8fb1c907ce7a1de26","name":"Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X","caps":["istanbul/64"],"network":{"localAddress":"10.0.10.3:49354","remoteAddress":"10.0.0.3:32323","inbound":false,"trusted":false,"static":true},"protocols":{"istanbul":{"version":64,"difficulty":1285900,"head":"0x2e228a45c7c9b9e6729b6c66b31957d6cb62ce53e32cedf156615a4e8a2e253a"}}}]}
 ```
 
@@ -232,7 +232,7 @@ true
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:32323"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:32323"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -273,7 +273,7 @@ true
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_removePeer","params":["kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:32323"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_removePeer","params":["kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:32323"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -316,7 +316,7 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startHTTP","id":1, "params":["127.0.0.1", 8551, "", "klay"]}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startHTTP","id":1, "params":["127.0.0.1", 8551, "", "klay"]}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"error":{"code":-32000,"message":"HTTP RPC already running on 127.0.0.1:8551"}}
 ```
 
@@ -352,7 +352,7 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stopHTTP","id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stopHTTP","id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -394,7 +394,7 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startWS","params":["127.0.0.1", 8552, "", "klay"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startWS","params":["127.0.0.1", 8552, "", "klay"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -428,7 +428,7 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stopWS","id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stopWS","id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -464,7 +464,7 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_exportChain","params":["/tmp/chain.txt"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_exportChain","params":["/tmp/chain.txt"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -501,7 +501,7 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_importChain","params":["/tmp/chain.txt"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_importChain","params":["/tmp/chain.txt"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -537,7 +537,7 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_importChainFromString","params":["f9071...080c0"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_importChainFromString","params":["f9071...080c0"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -573,7 +573,7 @@ null
 
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startStateMigration","id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startStateMigration","id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -609,7 +609,7 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stopStateMigration","id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stopStateMigration","id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -657,7 +657,7 @@ Console
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stateMigrationStatus","id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stateMigrationStatus","id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":{"committed":14995692,"err":"null","isMigration":true,"migrationBlockNumber":32630836,"pending":19699,"progress":25,"read":14997777}}
 ```
 
@@ -691,7 +691,7 @@ null
 
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_saveTrieNodeCacheToDisk", "id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_saveTrieNodeCacheToDisk", "id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -727,6 +727,6 @@ null
 
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_setMaxSubscriptionPerWSConn", "params":[5], "id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_setMaxSubscriptionPerWSConn", "params":[5], "id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```

@@ -57,7 +57,7 @@ module.exports = {
 
         return new HDWalletProvider(
           mnemonic,
-          "http://localhost:8551",
+          "https://api.baobab.klaytn.net:8651",
           0,
           mnemonic.length
         );
@@ -164,7 +164,7 @@ module.exports = {
 
         return new HDWalletProvider(
           pks,
-          "http://localhost:8551",
+          "https://api.baobab.klaytn.net:8651",
           0,
           pks.length
         );
@@ -231,7 +231,7 @@ module.exports = {
     },
     baobab: {
       provider: () => {
-        return new HDWalletProvider(privateKey, "http://your.baobab.en:8551");
+        return new HDWalletProvider(privateKey, "http://api.baobab.klaytn.net:8651");
       },
       network_id: "1001", //Klaytn baobab testnet's network id
       gas: "8500000",
@@ -239,7 +239,7 @@ module.exports = {
     },
     cypress: {
       provider: () => {
-        return new HDWalletProvider(privateKey, "http://your.cypress.en:8551");
+        return new HDWalletProvider(privateKey, "https://public-node-api.klaytnapi.com/v1/cypress");
       },
       network_id: "8217", //Klaytn mainnet's network id
       gas: "8500000",
