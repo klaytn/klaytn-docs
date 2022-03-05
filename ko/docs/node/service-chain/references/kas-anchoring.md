@@ -1,29 +1,29 @@
-As explained in the design section, you can anchor your service chain data to Klaytn main chain. This page introduces how to enable data anchoring via [KAS (Klaytn API Service)](https://www.klaytnapi.com).
+Design에서 설명했듯이, 클레이튼 메인체인에 서비스 체인 데이터를 앵커링할 수 있습니다. 이 페이지는 [KAS (Klaytn API Service)](https://www.klaytnapi.com)를 통해 데이터 앵커링을 활성화하는 법을 소개합니다.
 
-Once it is turned on, a node in your service chain can periodically anchor its chain data (block data) to Cypress or Baobab as a proof of existence and immutability of the service chain. 이는 서비스체인의 보안과 신뢰성을 보장합니다.
+서비스 체인의 노드가 활성화되면 주기적으로 그 체인 데이터(블록 데이터)를 Cypress나 Baobab에 앵커링함으로써 서비스체인의 존재와 불가역성을 증명할 수 있습니다. 이는 서비스체인의 보안과 신뢰성을 보장합니다.
 
-# Preparation for Using KAS <a id="preparation-with-kas"></a>
-This section introduces the pre-requisites to use KAS for data anchoring.
+# KAS 사용 준비하기<a id="preparation-with-kas"></a>
+이 장은 데이터 앵커링을 위해 KAS를 사용하기 위한 필요조건들을 소개합니다.
 
 ## Sign Up KAS (Klaytn API Service) <a id="sign-up-kas"></a>
-First, you need to sign up KAS on the [KAS console website](https://www.klaytnapi.com) to get a KAS account. Please visit the website above and sign up in KAS.
+우선 [KAS 콘솔](https://www.klaytnapi.com)에서 KAS에 가입을 해서 KAS 계정을 생성해야 합니다. KAS 웹사이트를 방문하여 가입을 합니다.
 
 [![main page](../images/kas-main-en.png)](https://www.klaytnapi.com)
 
 [![sign up](../images/kas-signup-en.png)](https://www.klaytnapi.com)
 
-## Create Credential <a id="check-credential"></a>
-After login, you can create your credential like below. The `AccessKey ID` and `Secret AccessKey`, or `Authorization` will be used to call KAS APIs.
+## 자격증명 생성하기<a id="check-credential"></a>
+로그인 후 아래와 같이 자격증명을 생성할 수 있습니다. `AccessKey ID`와 `Secret AccessKey` 또는 `Authorization`를 사용해 KAS APIs를 호출할 것입니다.
 
 ![credential](../images/kas-credential-en.png)
 
-## Anchor API <a id="anchor-api"></a>
-KAS provides Anchor API, which is designed for data anchoring and surely it is the one that you are going to use for anchoring task.
+## Anchor API<a id="anchor-api"></a>
+앵커링을 하기 위해서 KAS가 데이터 앵커링을 위해 제공하는 Anchor API를 사용하게 될 것입니다.
 
 ![anchor api](../images/kas-anchor-api-en.png)
 
-## Create Operator Address <a id="create-kas-credential"></a>
-To anchor service chain data via KAS, there should be a Klaytn address, enrolled in KAS, that actually send anchoring transaction to Klaytn. So, before you set up your service node, you need to create an Klaytn account called "operator" via KAS. Please, use KAS console to create this account.
+## 운영자 주소 생성하기<a id="create-kas-credential"></a>
+KAS를 통해 서비스 체인 데이터를 앵커링 하기 위해서는 KAS에 등록이 된 클레이튼 주소가 있어야 하며, 이 주소가 클레이튼에 앵커링 트랜잭션을 보내게 될 주소입니다. 서비스 노드를 셋업하기 전에, KAS를 통해 "operator"라는 클레이튼 계정을 생성해야 합니다. KAS 콘솔을 이용해 이 계정을 만들어 주세요.
 
 It is important to be noticed that you must **first select the chain** in Klaytn to which you want to anchor your data on **the top right corner of the KAS console page**. You should create an operator for each chain (Cypress/Baobab).
 
