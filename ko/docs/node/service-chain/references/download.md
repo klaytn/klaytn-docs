@@ -1,3 +1,3 @@
 # 다운로드<a id="download"></a>
 
-You can get packages for SCN, SPN, and SEN in the [download page](../../download/README.md).
+[download page](../../download/README.md)에서 SCN, SPN, SEN 패키지를 다운받을 수 있습니다.
