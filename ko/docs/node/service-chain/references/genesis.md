@@ -62,7 +62,7 @@ concat('0x',Vanity,RLPEncode({Validators,Seal,CommittedSeal}))
 
 # 합의 엔진 <a id="consensus-engine"></a>
 
-Klaytn 네트워크에 사용 가능한 합의 엔진은 Clique와 Istanbul입니다. 각 엔진은 다음과 같이 설명됩니다.
+클레이튼 네트워크에 사용 가능한 합의 엔진은 Clique와 Istanbul입니다. 각 엔진의 설명은 다음과 같습니다.
 
 ## Clique <a id="clique"></a>
 
@@ -83,7 +83,7 @@ Klaytn 네트워크에 사용 가능한 합의 엔진은 Clique와 Istanbul입�
 | policy | 블록 제안자 선출 정책. [0: 라운드 로빈, 1: 고정, 2: 가중 랜덤] |
 | sub    | 위원회 규모.                                    |
 
-# Governance<a id="governance"></a>
+# 거버넌스<a id="governance"></a>
 
 `governance` 필드는 네트워크를 위한 거버넌스 정보를 저장합니다.
 
