@@ -51,6 +51,9 @@ async function testFunction() {
 	// Decrypt keystore
 	const keyring = caver.wallet.keyring.decrypt(keystore, 'password')
 	console.log(keyring)
+	
+	// You can also generate a private key directly via
+	// const keyring = caver.wallet.keyring.generate()
 
 	// Add to caver.wallet
 	caver.wallet.add(keyring)
