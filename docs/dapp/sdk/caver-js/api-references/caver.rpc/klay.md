@@ -2471,7 +2471,7 @@ Returns the current price per gas in peb for the given block.
 caver.rpc.klay.getMaxPriorityFeePerGas([callback])
 ```
 
-Returns a suggestion for a gas tip cap for dynamic fee transactions in peb.
+Returns a suggested gas tip cap for dynamic fee transactions in peb.
 Since Klaytn has a fixed gas price, this returns the gas price set by Klaytn.
 
 **Parameters**
