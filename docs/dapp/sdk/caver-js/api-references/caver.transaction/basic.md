@@ -451,7 +451,7 @@ caver.transaction.ethereumAccessList.create(transactionObject)
 new caver.transaction.ethereumAccessList(transactionObject)
 ```
 
-`EthereumAccessList` represents a [ethereum access list transaction](../../../../../klaytn/design/transactions/basic.md#txtypeethereumaccesslist). A [Klaytn account](../../../../../klaytn/design/accounts.md#klaytn-accounts) can execute a `EthereumAccessList` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumAccessList`.
+`EthereumAccessList` represents an [Ethereum access list transaction](../../../../../klaytn/design/transactions/basic.md#txtypeethereumaccesslist). A [Klaytn account](../../../../../klaytn/design/accounts.md#klaytn-accounts) can execute a `EthereumAccessList` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumAccessList`.
 
 `EthereumAccessList` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `EthereumAccessList`.
 
@@ -520,7 +520,7 @@ caver.transaction.ethereumDynamicFee.create(transactionObject)
 new caver.transaction.ethereumDynamicFee(transactionObject)
 ```
 
-`EthereumDynamicFee` represents a [ethereum dynamic fee transaction](../../../../../klaytn/design/transactions/basic.md#txtypeethereumdynamicfee). A [Klaytn account](../../../../../klaytn/design/accounts.md#klaytn-accounts) can execute a `EthereumDynamicFee` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumDynamicFee`.
+`EthereumDynamicFee` represents an [Ethereum dynamic fee transaction](../../../../../klaytn/design/transactions/basic.md#txtypeethereumdynamicfee). A [Klaytn account](../../../../../klaytn/design/accounts.md#klaytn-accounts) can execute a `EthereumDynamicFee` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumDynamicFee`.
 
 `EthereumDynamicFee` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `EthereumDynamicFee`.
 And note that `EthereumDynamicFee` does not use `gasPrice`, it uses `maxPriorityFeePerGas` and `maxFeePerGas`.
@@ -536,14 +536,14 @@ And note that `EthereumDynamicFee` does not use `gasPrice`, it uses `maxPriority
 | --- | --- | --- |
 | gas | string | The maximum amount of transaction fee the transaction is allowed to use. |
 | value | string | (optional, default: `'0x0'`) The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`. |
-| from | string | (optional) The address of the sender. If omitted, the keyring address used for signing will be set. |
-| to | string | (optional, default: `'0x'`) The account address that will receive the transferred value or smart contact address if a legacy transaction execute smart contract. If a legacy transaction deploys a smart contract, `to` does not need to be defined. |
+| from | string | (optional) The address of the sender. If omitted, it will be set to the keyring address used for signing. |
+| to | string | (optional, default: `'0x'`) The account address that will receive the transferred value or smart contact address when a legacy transaction executes a smart contract. When a legacy transaction deploys a smart contract, `to` does not need to be defined. |
 | input | string | (optional) Data attached to the transaction, used for smart contract deployment/execution. |
 | signatures | Array | (optional) An array of signatures. A legacy transaction can have only one signature. |
-| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
-| maxPriorityFeePerGas | string | (optional) Gas tip cap for the transaction in peb. Since Klaytn uses a fixed gas pricing, it should be set to the same value as `caver.rpc.klay.getGasPrice`. If omitted, the value of `caver.rpc.klay.getGasPrice` is set to maxPriorityFeePerGas. |
-| maxFeePerGas | string | (optional) A maximum amount to pay for the transaction to execute. Since Klaytn uses a fixed gas price policy, it should be set to the same value as `caver.rpc.klay.getGasPrice`. If omitted, the value of `baseFeePerGas * 2 + maxPriorityFeePerGas` is set to maxFeePerGas. |
-| chainId | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
+| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, it will be set to `caver.rpc.klay.getTransactionCount(address, 'pending')`. |
+| maxPriorityFeePerGas | string | (optional) Gas tip cap for the transaction in peb. Since Klaytn has a fixed gas price, it should be set to the same value as `caver.rpc.klay.getGasPrice`. If omitted, the value of `caver.rpc.klay.getGasPrice` will be set to `maxPriorityFeePerGas`. |
+| maxFeePerGas | string | (optional) A maximum amount to pay for the transaction to execute. Since Klaytn has a fixed gas price, it should be set to the same value as `caver.rpc.klay.getGasPrice`. If omitted, the value of `baseFeePerGas * 2 + maxPriorityFeePerGas` is set to `maxFeePerGas`. |
+| chainId | string | (optional) The chain id of the Klaytn network. If omitted, it will be set to `caver.rpc.klay.getChainId`. |
 | accessList | Array | (optional) As an EIP-2930 access list that contains all storage slots and addresses read and written by the transaction. |
 
 **Example**

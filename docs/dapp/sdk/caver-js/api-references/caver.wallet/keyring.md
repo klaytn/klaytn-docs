@@ -877,7 +877,7 @@ When signing transactions, it is recommended to use [caver.wallet.sign] or [tran
 keyring.ecsign(hash, role [, index])
 ```
 
-Signs with hashed data with the private key and returns signature which V is 0 or 1 (parity of the y-value of a secp256k1 signature).
+Signs with hashed data using the private key and returns a signature where V is 0 or 1 (parity of the y-value of a the secp256k1 curve).
 
 This function is only used for certain transaction types.
 Therefore, it is recommended to use [caver.wallet.sign] or [transaction.sign] when signing a transaction.

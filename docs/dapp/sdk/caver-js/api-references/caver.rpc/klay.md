@@ -744,7 +744,7 @@ Returns the block number of the most recent block by using `blockHash`.
 
 **Return Value**
 
-`Promise` returns `object` - An object includes block header:
+`Promise` returns `object` - An object includes the block header:
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -810,7 +810,7 @@ If the user passes the block hash as a parameter, [caver.rpc.klay.getBlockByHash
 
 | Type | Description |
 | --- | --- |
-| object | A block object. For detailed description of return value, please refer to [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash). |
+| object | A block object. For a detailed description of the return value, please refer to [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash). |
 
 **Example**
 
@@ -2549,7 +2549,7 @@ caver.rpc.klay.createAccessList(txCallObject [, callback])
 This method creates an accessList based on a given Transaction. 
 The accessList contains all storage slots and addresses read and written by the transaction, except for the sender account and the precompiles.
 This method uses the same transaction call object and blockNumberOrTag object as `caver.rpc.klay.call`. 
-An accessList can be used to unstuck contracts that became inaccessible due to gas cost increases.
+An accessList can be used to release stuck contracts that became inaccessible due to gas cost increases.
 Adding an accessList to your transaction does not necessary result in lower gas usage compared to a transaction without an access list.
 
 **Parameters**
