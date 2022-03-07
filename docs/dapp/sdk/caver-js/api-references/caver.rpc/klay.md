@@ -702,7 +702,7 @@ Returns a block header by block number.
 
 | Type | Description |
 | --- | --- |
-| object | A block header object. For detailed description of return value, please refer to [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash). |
+| object | A block header object. For a detailed description of the return value, please refer to [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash). |
 
 **Example**
 
