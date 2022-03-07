@@ -871,6 +871,40 @@ When signing transactions, it is recommended to use [caver.wallet.sign] or [tran
 ]
 ```
 
+## keyring.ecsign <a id="keyring-ecsign"></a>
+
+```javascript
+keyring.ecsign(hash, role [, index])
+```
+
+Signs with hashed data using the private key and returns a signature where V is 0 or 1 (parity of the y-value of a the secp256k1 curve).
+
+This function is only used for certain transaction types.
+Therefore, it is recommended to use [caver.wallet.sign] or [transaction.sign] when signing a transaction.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| hash | string | The hash string to sign. |
+| role | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`. |
+| index | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| Array | An array of [SignatureData]. |
+
+**Example**
+
+```javascript
+> keyring.ecsign('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550', caver.wallet.keyring.role.roleTransactionKey)
+[
+    SignatureData { _v: '0x00', _r: '0x7a8b6...', _s: '0x17139...' }
+]
+```
+
 ## keyring.signMessage <a id="keyring-signmessage"></a>
 
 ```javascript
