@@ -653,7 +653,22 @@ Signs a transaction that can be submitted to the network at a later time using w
 
 **Parameters**:
 
-Parameters are same with eth_sendTransaction. See [eth_sendtransaction](#eth_sendtransaction).
+| Name            | Type   | Description                                                                       |
+|-----------------|--------|-----------------------------------------------------------------------------------|
+| transactionArgs | Object | The transaction arguments object. See the next table for the object's properties. |
+
+`transactionArgs` has the following properties:
+
+| Name                 | Type            | Description                                                                                                                                      |
+|----------------------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| from                 | 20-byte DATA    | Address the transaction is send from.                                                                                                            |
+| to                   | 20-byte DATA    | (optional when creating a new contract) Address the transaction is directed to.                                                                  |
+| gas                  | QUANTITY        | Integer of gas provided for the transaction execution. It will return unused gas.                                                                |
+| maxFeePerGas         | QUANTITY        | A maximum amount to pay for the transaction to execute. Since Klaytn uses a fixed gas price policy, it must be set as 25 ston(Gpeb in Ethereum). |
+| maxPriorityFeePerGas | QUANTITY        | Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price policy, it must be set as 25 ston(Gpeb in Ethereum).         |
+| data                 | DATA            | (optional) Hash of the method signature and encoded parameter.                                                                                   |
+| value                | QUANTITY        | (optional) Integer of values sent with this transaction.                                                                                         |
+| nonce                | QUANTITY        | Integer of a nonce.                                                                                                                              |
 
 **Return Value**
 
