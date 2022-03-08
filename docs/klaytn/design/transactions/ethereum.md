@@ -120,7 +120,7 @@ NOTE: Klaytn networks are able to process this transaction type after `EthTxType
 {% endhint %}
 
 {% hint style="success" %} 
-NOTE: Currently, this type of transaction only supports a format of Ethereum transaction type. Unlike [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930), there is no benefit of transaction fee from the access list.
+NOTE: Currently, this type of transaction only supports a format of the Ethereum transaction type. Unlike [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930), there is no benefit of transaction fee from the access list.
 {% endhint %}
 
 {% hint style="success" %} 
