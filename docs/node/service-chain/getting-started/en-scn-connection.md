@@ -57,7 +57,7 @@ DATA_DIR=~/data
 $ kend start
 Starting kscnd: OK
 ```
-You can check block sync status by watching `klay.blockNumber`. If this number is not 0, the node is working fine. To download all blocks of the Baobab network, it will take about two hours though it can vary due to network condition and hardware performance.
+You can check block sync status by watching `klay.blockNumber`. If this number is not 0, the node is working fine. To download all blocks of the Baobab network, it will take about 1 to 2 days though it can vary due to network condition and hardware performance.
 ```
 $ ken attach --datadir ~/data
 > klay.blockNumber
