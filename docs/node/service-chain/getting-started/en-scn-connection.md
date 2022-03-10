@@ -82,14 +82,14 @@ $ echo '["kni://0f7aa6499553cdfeb8f21df10c656252ca6039047242eb86278689a87d57a41f
 
 ## Step 7: Configure SCN then Reboot <a id="step-7-configure-scn-then-reboot"></a>
 From the SCN node's shell, edit `kscn-XXXXX-amd64/conf/kscnd.conf`.
-`SC_TX_PERIOD` is the parameter that decides the period to send an anchoring tx to the main chain. By setting the value to 10, you configure the node to perform anchoring every 10 blocks. The default value is 1.
+`SC_ANCHORING_PERIOD` is the parameter that decides the period to send an anchoring tx to the main chain. By setting the value to 10, you configure the node to perform anchoring every 10 blocks. The default value is 1.
 ```
 ...
 SC_SUB_BRIDGE=1
 ...
 SC_PARENT_CHAIN_ID=1001
 ...
-SC_TX_PERIOD=10
+SC_ANCHORING_PERIOD=10
 ...
 ```
 
@@ -126,7 +126,7 @@ $ kscn attach --datadir ~/data
 > subbridge.anchoring(true)
 true
 ```
-After anchoring starts, you can check the latest block anchored to Baobab by using `subbridge.latestAnchoredBlockNumber`. Please note that this only works after the EN already followed up on the latest block of Baobab. By default, SCN tries anchoring on every block from the block on which anchoring is turned on. The anchoring period can be set by changing SC_TX_PERIOD. If the value is set to 10, the node tries anchoring when the block number is a multiple of 10.
+After anchoring starts, you can check the latest block anchored to Baobab by using `subbridge.latestAnchoredBlockNumber`. Please note that this only works after the EN already followed up on the latest block of Baobab. By default, SCN tries anchoring on every block from the block on which anchoring is turned on. The anchoring period can be set by changing SC_ANCHORING_PERIOD. If the value is set to 10, the node tries anchoring when the block number is a multiple of 10.
 ```
 $ kscn attach --datadir ~/data
 > subbridge.latestAnchoredBlockNumber
