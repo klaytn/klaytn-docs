@@ -63,7 +63,7 @@ Created :  homi-output/Klaytn.json
 Created :  homi-output/Klaytn_txpool.json
 ```
 
-Among the outputs, we will use `nodeky*`, `genesis.json` and `static-nodes.json` in the subsequent steps.
+Among the outputs, we will use `nodekey*`, `genesis.json` and `static-nodes.json` in the subsequent steps.
 
 
 ## Step 2: Customize static-nodes.json <a id="step-2-customize-static-nodes-json"></a>
