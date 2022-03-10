@@ -18,6 +18,7 @@
       * [기본](klaytn/design/transactions/basic.md)
       * [트랜잭션 비용 위임](klaytn/design/transactions/fee-delegation.md)
       * [부분 트랜잭션 비용 위임](klaytn/design/transactions/partial-fee-delegation.md)
+      * [이더리움](klaytn/design/transactions/ethereum.md)
     * [Computation](klaytn/design/computation/README.md)
       * [Klaytn Smart Contract](klaytn/design/computation/klaytn-smart-contract.md)
       * [Execution Model](klaytn/design/computation/execution-model.md)
