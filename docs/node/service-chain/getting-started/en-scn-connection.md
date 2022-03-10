@@ -40,7 +40,7 @@ $ ken --datadir ~/data init ~/genesis.json
 ```
 
 ## Step 3: Configure the EN Node <a id="step-3-configure-the-en-node"></a>
-Go to the ken installation folder and edit `conf/kend.conf` as follows.
+Go to the ken installation folder and rename `mv kend_baobab.conf kend.conf`, then edit `conf/kend.conf` as follows.
 
 ```
 ...
