@@ -56,7 +56,7 @@ Signature = sign(SigHash, <private key>)
 
 ### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-To make a `SenderTxHash`, the RLP serialization proceeds as follows:
+To obtain `SenderTxHash` for this transaction type, the RLP serialization proceeds as follows:
 
 ```javascript
 SenderTxHashRLP = EthereumTransactionType || encode([chainId, nonce, gasPrice, gasLimit, to, value, data, accessList, v, r, s])
