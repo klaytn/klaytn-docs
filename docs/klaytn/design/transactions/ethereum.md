@@ -106,8 +106,70 @@ The following shows the result of the RLP serialization and the transaction obje
 
 The following shows a transaction object returned via JSON RPC.
 
+The return of `eth_getTransactionByHash`
 ```javascript
-TBU
+{
+  "blockHash": "0x7bd7e8a92ecaa5781a15a8b6fff589f8ac8a79325b517a1ba5d5f2f3d7af1b00",
+  "blockNumber": "0x1c8f4b",
+  "from": "0x5618e15ec2916bbe6cf2cce20ce31e61d6062cac",
+  "gas": "0x174876e800",
+  "gasPrice": "0x5d21dba00",
+  "hash": "0x3f67e48c2090f560234f555cd4edf7853b6327aa9a6a795be1efe3f360dac118",
+  "input": "0x1122",
+  "nonce": "0x11",
+  "to": "0x5dce87b5bfcde54023811b168dc97a9f10913957",
+  "transactionIndex": "0x0",
+  "value": "0x186a0",
+  "type": "0x1",
+  "accessList": [
+      {
+          "address": "0x0000000000000000000000000000000000000001",
+          "storageKeys": [
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ]
+      }
+  ],
+  "chainId": "0x2710",
+  "v": "0x1",
+  "r": "0xebb2d2144293c257e27aaa1d22156f322b0d2d7385257f186c117899d791f174",
+  "s": "0x5cea970287c9f0f9754050a552c458c066d8f3b3e4639f561b22ce4cb7553ac0"
+}
+```
+
+The return of `klay_getTransactionByHash`
+```javascript
+{
+  "accessList": [
+      {
+          "address": "0x0000000000000000000000000000000000000001",
+          "storageKeys": [
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ]
+      }
+  ],
+  "blockHash": "0x7bd7e8a92ecaa5781a15a8b6fff589f8ac8a79325b517a1ba5d5f2f3d7af1b00",
+  "blockNumber": "0x1c8f4b",
+  "chainID": "0x2710",
+  "from": "0x5618e15ec2916bbe6cf2cce20ce31e61d6062cac",
+  "gas": "0x174876e800",
+  "gasPrice": "0x5d21dba00",
+  "hash": "0x3f67e48c2090f560234f555cd4edf7853b6327aa9a6a795be1efe3f360dac118",
+  "input": "0x1122",
+  "nonce": "0x11",
+  "senderTxHash": "0x3f67e48c2090f560234f555cd4edf7853b6327aa9a6a795be1efe3f360dac118",
+  "signatures": [
+      {
+          "V": "0x1",
+          "R": "0xebb2d2144293c257e27aaa1d22156f322b0d2d7385257f186c117899d791f174",
+          "S": "0x5cea970287c9f0f9754050a552c458c066d8f3b3e4639f561b22ce4cb7553ac0"
+      }
+  ],
+  "to": "0x5dce87b5bfcde54023811b168dc97a9f10913957",
+  "transactionIndex": "0x0",
+  "type": "TxTypeEthereumAccessList",
+  "typeInt": 30721,
+  "value": "0x186a0"
+}
 ```
 
 
@@ -208,6 +270,71 @@ The following shows the result of RLP serialization and the transaction object:
 
 The following shows a transaction object returned via JSON RPC.
 
+The return of `eth_getTransactionByHash`
 ```javascript
-TBU
+{
+  "blockHash": "0x55792fe186e3d1515fe35a68c2c8d7977b2d7db184d80526f906c53222b77833",
+  "blockNumber": "0x1c944d",
+  "from": "0x5618e15ec2916bbe6cf2cce20ce31e61d6062cac",
+  "gas": "0x174876e800",
+  "gasPrice": "0x5d21dba00",
+  "maxFeePerGas": "0x5d21dba00",
+  "maxPriorityFeePerGas": "0x5d21dba00",
+  "hash": "0x5db239963029ad9ef6c3331b10ae455638316e330b0efdae2cc1f8e86884e66e",
+  "input": "0x1122",
+  "nonce": "0x13",
+  "to": "0xa0f1633f4c666d7fe5ba912bd5caf03d3655ac31",
+  "transactionIndex": "0x0",
+  "value": "0x186a0",
+  "type": "0x2",
+  "accessList": [
+      {
+          "address": "0x0000000000000000000000000000000000000001",
+          "storageKeys": [
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ]
+      }
+  ],
+  "chainId": "0x2710",
+  "v": "0x1",
+  "r": "0x27e007cbe79fd8cc9b89dd798bdd5aa62d038273bf006c7c3b40e13a938ab807",
+  "s": "0x6209bb328855f02fa2671fecb41efd9f191b03ecab5e580227fa2a0674879384"
+}
+```
+
+The return of `klay_getTransactionByHash`
+```javascript
+{
+  "accessList": [
+      {
+          "address": "0x0000000000000000000000000000000000000001",
+          "storageKeys": [
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ]
+      }
+  ],
+  "blockHash": "0x55792fe186e3d1515fe35a68c2c8d7977b2d7db184d80526f906c53222b77833",
+  "blockNumber": "0x1c944d",
+  "chainId": "0x2710",
+  "from": "0x5618e15ec2916bbe6cf2cce20ce31e61d6062cac",
+  "gas": "0x174876e800",
+  "hash": "0x5db239963029ad9ef6c3331b10ae455638316e330b0efdae2cc1f8e86884e66e",
+  "input": "0x1122",
+  "maxFeePerGas": "0x5d21dba00",
+  "maxPriorityFeePerGas": "0x5d21dba00",
+  "nonce": "0x13",
+  "senderTxHash": "0x5db239963029ad9ef6c3331b10ae455638316e330b0efdae2cc1f8e86884e66e",
+  "signatures": [
+      {
+          "V": "0x1",
+          "R": "0x27e007cbe79fd8cc9b89dd798bdd5aa62d038273bf006c7c3b40e13a938ab807",
+          "S": "0x6209bb328855f02fa2671fecb41efd9f191b03ecab5e580227fa2a0674879384"
+      }
+  ],
+  "to": "0xa0f1633f4c666d7fe5ba912bd5caf03d3655ac31",
+  "transactionIndex": "0x0",
+  "type": "TxTypeEthereumDynamicFee",
+  "typeInt": 30722,
+  "value": "0x186a0"
+}
 ```
