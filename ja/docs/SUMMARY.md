@@ -18,6 +18,7 @@
       * [Basic](klaytn/design/transactions/basic.md)
       * [Fee Delegation](klaytn/design/transactions/fee-delegation.md)
       * [Partial Fee Delegation](klaytn/design/transactions/partial-fee-delegation.md)
+      * [Ethereum](klaytn/design/transactions/ethereum.md)
     * [Computation](klaytn/design/computation/README.md)
       * [Klaytn Smart Contract](klaytn/design/computation/klaytn-smart-contract.md)
       * [Execution Model](klaytn/design/computation/execution-model.md)
