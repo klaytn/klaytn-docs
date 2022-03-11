@@ -37,7 +37,7 @@ $ ken --datadir ~/data init ~/genesis.json
 ```
 
 ## 3 단계 : EN 노드 설정<a id="step-3-configure-the-en-node"></a>
-ken 설치 폴더로 이동하여 `conf/kend.conf`를 다음과 같이 편집하세요.
+Go to the ken installation folder and rename `mv kend_baobab.conf kend.conf`, then edit `conf/kend.conf` as follows.
 
 ```
 ...
@@ -54,7 +54,7 @@ DATA_DIR=~/data
 $ kend start
 Starting kscnd: OK
 ```
-`klay.blockNumber`로 블록 동기화 상태를 확인할 수 있습니다. 이 숫자가 0이 아니면 노드가 제대로 동작하는 것입니다. Baobab 네트워크의 모든 블록을 다운로드하려면 네트워크 상태 및 하드웨어 성능에 따라 다를 수 있지만 약 2시간이 걸립니다.
+You can check block sync status by watching `klay.blockNumber`. If this number is not 0, the node is working fine. To download all blocks of the Baobab network, it will take about 1 to 2 days though it can vary due to network condition and hardware performance.
 ```
 $ ken attach --datadir ~/data
 > klay.blockNumber
@@ -78,14 +78,14 @@ $ echo '["kni://0f7aa6499553cdfeb8f21df10c656252ca6039047242eb86278689a87d57a41f
 ```
 
 ## 7 단계 : SCN 설정 후 재부팅<a id="step-7-configure-scn-then-reboot"></a>
-SCN 노드의 쉘에서 `kscn-XXXXX-amd64/conf/kscnd.conf`를 편집하세요. `SC_TX_PERIOD`는 앵커링 트랜잭션을 메인 체인에 보내는 주기를 결정하는 파라메터입니다. 값을 10으로 지정하여 10개의 블록마다 앵커링을 수행하도록 노드를 설정합니다. 기본값은 1입니다.
+From the SCN node's shell, edit `kscn-XXXXX-amd64/conf/kscnd.conf`. `SC_ANCHORING_PERIOD` is the parameter that decides the period to send an anchoring tx to the main chain. By setting the value to 10, you configure the node to perform anchoring every 10 blocks. The default value is 1.
 ```
 ...
 SC_SUB_BRIDGE=1
 ...
 SC_PARENT_CHAIN_ID=1001
 ...
-SC_TX_PERIOD=10
+SC_ANCHORING_PERIOD=10
 ...
 ```
 
@@ -121,7 +121,7 @@ $ kscn attach --datadir ~/data
 > subbridge.anchoring(true)
 true
 ```
-앵커링이 시작된 후 `subbridge.latestAnchoredBlockNumber`를 사용하여 마지막으로 Baobab에 앵커링된 블록을 확인할 수 있습니다. 이는 EN이 최신 Baobab 블록까지 다운로드 한 후에만 작동한다는 것을 기억하세요. 기본적으로, SCN은 앵커링을 활성화한 블록부터 시작해 모든 블록에서 앵커링을 시도합니다. 앵커링 주기는  SC_TX_PERIOD를 변경하여 설정할 수 있습니다. 값이 10으로 설정되면 블록 번호가 10의 배수일때 노드가 앵커링을 시도합니다.
+After anchoring starts, you can check the latest block anchored to Baobab by using `subbridge.latestAnchoredBlockNumber`. Please note that this only works after the EN already followed up on the latest block of Baobab. By default, SCN tries anchoring on every block from the block on which anchoring is turned on. The anchoring period can be set by changing SC_ANCHORING_PERIOD. If the value is set to 10, the node tries anchoring when the block number is a multiple of 10.
 ```
 $ kscn attach --datadir ~/data
 > subbridge.latestAnchoredBlockNumber
