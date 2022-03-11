@@ -61,7 +61,7 @@ Created :  homi-output/Klaytn.json
 Created :  homi-output/Klaytn_txpool.json
 ```
 
-결과물 중 이어지는 단계에서 우리가 사용할 파일은 `nodeky*`, `genesis.json` 그리고 `static-nodes.json`입니다.
+Among the outputs, we will use `nodekey*`, `genesis.json` and `static-nodes.json` in the subsequent steps.
 
 
 ## 2 단계: static-nodes.json 수정 <a id="step-2-customize-static-nodes-json"></a>
