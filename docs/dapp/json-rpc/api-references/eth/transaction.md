@@ -606,22 +606,24 @@ transaction to Klaytn network.
 
 **Parameters**:
 
-| Name            | Type   | Description                                                                       |
-|-----------------|--------|-----------------------------------------------------------------------------------|
-| transactionArgs | Object | The transaction arguments object. See the next table for the object's properties. |
+| Name            | Type   | Description                                                                          |
+|-----------------|--------|--------------------------------------------------------------------------------------|
+| transactionArgs | Object | An object of transaction arguments. See the table below for the object's properties. |
 
 `transactionArgs` has the following properties:
 
-| Name                 | Type            | Description                                                                                                                                                                   |
-|----------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| from                 | 20-byte DATA    | Address the transaction is send from.                                                                                                                                         |
-| to                   | 20-byte DATA    | (optional when creating a new contract) Address the transaction is directed to.                                                                                               |
-| gas                  | QUANTITY        | (optional) Integer of gas provided for the transaction execution. It will return unused gas.                                                                                  |
-| maxFeePerGas         | QUANTITY        | (optional, default: 25 ston) A maximum amount to pay for the transaction to execute. Since Klaytn uses a fixed gas price policy, it must be set as 25 ston(Gpeb in Ethereum). |
-| maxPriorityFeePerGas | QUANTITY        | (optional, default: 25 ston) Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price policy, it must be set as 25 ston(Gpeb in Ethereum).         |
-| data                 | DATA            | (optional) Hash of the method signature and encoded parameter.                                                                                                                |
-| value                | QUANTITY        | (optional) Integer of values sent with this transaction.                                                                                                                      |
-| nonce                | QUANTITY        | (optional) Integer of a nonce.                                                                                                                                                |
+| Name                 | Type            | Description                                                                                                                                                                |
+|----------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| from                 | 20-byte DATA    | The address from which the transaction is sent.                                                                                                                            |
+| to                   | 20-byte DATA    | (not required when creating a new contract) The address to which the transaction is directed.                                                                              |
+| gas                  | QUANTITY        | (optional) The integer of the gas provided for the transaction's execution. It will return unused gas.                                                                     |
+| maxFeePerGas         | QUANTITY        | (optional, default: 25 ston) The maximum amount to pay for the transaction's execution. Since Klaytn uses a fixed gas price, it must be set to 25 ston (Gpeb in Ethereum). |
+| maxPriorityFeePerGas | QUANTITY        | (optional, default: 25 ston) Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 25 ston (Gpeb in Ethereum).            |
+| data                 | DATA            | (optional) The hash of the method signature and the encoded parameter.                                                                                                     |
+| value                | QUANTITY        | (optional) The integer of values sent with this transaction.                                                                                                               |
+| nonce                | QUANTITY        | (optional) The integer of a nonce.                                                                                                                                         |
+
+
 
 **Return Value**
 
@@ -653,22 +655,22 @@ Signs a transaction that can be submitted to the network at a later time using w
 
 **Parameters**:
 
-| Name            | Type   | Description                                                                       |
-|-----------------|--------|-----------------------------------------------------------------------------------|
+| Name            | Type   | Description                                                                          |
+|-----------------|--------|--------------------------------------------------------------------------------------|
 | transactionArgs | Object | An object of transaction arguments. See the table below for the object's properties. |
 
 `transactionArgs` has the following properties:
 
-| Name                 | Type            | Description                                                                                                                                      |
-|----------------------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| from                 | 20-byte DATA    | The address from which the transaction is sent.                                                                                                            |
-| to                   | 20-byte DATA    | (optional when creating a new contract) The address to which the transaction is directed.                                                                 |
-| gas                  | QUANTITY        | The integer of the gas provided for the transaction's execution. It will return unused gas.                                                                |
+| Name                 | Type            | Description                                                                                                                                   |
+|----------------------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| from                 | 20-byte DATA    | The address from which the transaction is sent.                                                                                               |
+| to                   | 20-byte DATA    | (not required when creating a new contract) The address to which the transaction is directed.                                                 |
+| gas                  | QUANTITY        | The integer of the gas provided for the transaction's execution. It will return unused gas.                                                   |
 | maxFeePerGas         | QUANTITY        | The maximum amount to pay for the transaction's execution. Since Klaytn uses a fixed gas price, it must be set to 25 ston (Gpeb in Ethereum). |
-| maxPriorityFeePerGas | QUANTITY        | Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 25 ston (Gpeb in Ethereum).         |
-| data                 | DATA            | (optional) The hash of the method signature and the encoded parameter.                                                                                   |
-| value                | QUANTITY        | (optional) The integer of values sent with this transaction.                                                                                         |
-| nonce                | QUANTITY        | The integer of a nonce.                                                                                                                         |
+| maxPriorityFeePerGas | QUANTITY        | Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 25 ston (Gpeb in Ethereum).            |
+| data                 | DATA            | (optional) The hash of the method signature and the encoded parameter.                                                                        |
+| value                | QUANTITY        | (optional) The integer of values sent with this transaction.                                                                                  |
+| nonce                | QUANTITY        | The integer of a nonce.                                                                                                                       |
 
 **Return Value**
 
