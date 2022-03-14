@@ -1,4 +1,4 @@
-# Klaytn Docs style guide
+# Klaytn Docs Style Guide
 
 Please refer to this style guide when you contribute to Klaytn Docs.
 
