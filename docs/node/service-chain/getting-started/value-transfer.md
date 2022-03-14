@@ -5,7 +5,7 @@ Then you will register the contract address on SCN. And you will test an ERC-20 
 
 ## Prerequisites <a id="prerequisites"></a>
 - We assume that you installed the service chain, and connected the service chain to the Baobab EN ([link](en-scn-connection.md)).
-- Clone the cross chain transfer [example](https://github.com/klaytn/sc-vt) repository.
+- Clone the [cross-chain-transfer-example repository](https://github.com/klaytn/sc-vt).
 - Install `Node.js` (v10.60.0) and `npm` ([How to install](https://nodejs.org/en/download/package-manager/))
 
 
@@ -48,8 +48,8 @@ Check if the operator accounts have enough balance.
 ```
 
 ### Step 2: Deploy Contracts <a id="step-2-deploy-contracts"></a>
-Connect to the SCN and prepare the node environment for contract deployment.
-Clone the cross chain transfer [example](https://github.com/klaytn/sc-vt) repository.
+- Connect to the SCN and prepare the node environment for contract deployment.
+- Clone the [cross-chain-transfer-example repository](https://github.com/klaytn/sc-vt).
 
 
 ```bash
