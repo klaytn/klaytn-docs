@@ -49,7 +49,6 @@ Check if the operator accounts have enough balance.
 
 ### Step 2: Deploy Contracts <a id="step-2-deploy-contracts"></a>
 Connect to the SCN and prepare the node environment for contract deployment.
-[Download `deploy_and_test.tar.gz`](https://drive.google.com/file/d/14tNU-jOAv7JwfY5xZqJlckkpO16TuS2S/view?usp=sharing) and extract it to node_project directory.
 Clone the cross chain transfer [example](https://github.com/klaytn/sc-vt) repository.
 
 
