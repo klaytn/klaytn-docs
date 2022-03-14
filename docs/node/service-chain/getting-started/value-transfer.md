@@ -55,7 +55,7 @@ Clone the cross chain transfer [example](https://github.com/klaytn/sc-vt) reposi
 
 ```bash
 $ git clone https://github.com/klaytn/sc-vt
-$ cd SC-VT
+$ cd sc-vt
 $ npm install
 $ cd erc20
 ```
