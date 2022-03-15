@@ -108,7 +108,7 @@ null
 null
 ```
 
-### Step 3: Token transfer <a id="step-4-token-transfer"></a>
+### Step 3: Token transfer <a id="step-3-token-transfer"></a>
 Perform token transfer with `node erc20-transfer-1step.js` command.
 ```
 $ node erc20-transfer-1step.js
