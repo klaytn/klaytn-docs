@@ -137,4 +137,4 @@ $ node erc20-transfer-2step-kip7-interface.js
 ```
 
 ## ERC-721, KIP7, KIP17, Klay Transfer <a id="erc-721-token-transfer"></a>
-The workflow is same as before. `erc721`, `kip7`, `kip17`, and `klay` directories contain corresponding example source code.
+The workflow is same as above. `erc721`, `kip7`, `kip17`, and `klay` directories contain corresponding example source code.
