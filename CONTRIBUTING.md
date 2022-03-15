@@ -58,7 +58,6 @@ Status of open issues (will be tagged by the project moderators):
 - open/need more information : The issue's creator needs to provide additional information to review.
 - open/reviewing: The issue is under review.
 - open/re-label needed: The label needs to be changed to confirmed as being a `issues-and-typos` or future `content-contribution`.
-- open/approved: The issue is confirmed as being a `issues-and-typos` to be fixed or `content-contribution` to be covered.
 - open/contribution welcome: The content fix or update is approved and you are invited to contribute to it.
 
 Status of closed issues:
