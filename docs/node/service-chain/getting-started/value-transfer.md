@@ -121,7 +121,7 @@ Check if the result is `alice balance: 100`.
 
 ## ERC-20 Token Transfer (two-step) <a id="erc-20-token-transfer-twostep"></a>
 Run erc20-transfer-2step.js for two-step transfer example.
-The two-step transfer consist of two function calls: (1) approve bridge contract first, and then (2) call contract function(`requestXXXTransfer()`).
+The two-step transfer consists of two function calls: (1) approve bridge contract first, and then (2) call the contract function(`requestERC20Transfer()`).
 ```
 $ node erc20-transfer-2step.js
 ```
