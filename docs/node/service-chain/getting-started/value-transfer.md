@@ -85,7 +85,7 @@ On a text editor, edit the `bridge_info.json` as below.
  }
 ```
 
-- Add `subbridge` to `RPC_API` of `kscnd.conf`. This setting is required for sending RPC call from the deployment script.
+- Add `subbridge` to `RPC_API` of `kscnd.conf`. This setting is required for sending an RPC call from the deployment script.
 ```
 RPC_API="klay,subbridge"
 ```
