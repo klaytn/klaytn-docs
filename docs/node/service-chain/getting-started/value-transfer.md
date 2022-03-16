@@ -100,9 +100,9 @@ Do not run these commands if you did run `node erc20-deploy.js` since the script
 ```
 > subbridge.registerBridge("0xCHILD_BRIDGE_ADDR", "0xPARENT_BRIDGE_ADDR")
 null
-> subbridge.subscribeBridge("0x..", "0x...")
+> subbridge.subscribeBridge("0xCHILD_BRIDGE_ADDR", "0xPARENT_BRIDGE_ADDR")
 null
-> subbridge.registerToken("0x...", "0x...", "0x...", "0x...")
+> subbridge.registerToken("0xCHILD_BRIDGE_ADDR", "0xPARENT_BRIDGE_ADDR", "0xCHILD_TOKEN_ADDR", "0XPARENT_TOKEN_ADDR")
 null
 ```
 
