@@ -129,7 +129,7 @@ $ node erc20-transfer-2step.js
 ## ERC-20 Token Transfer via Compatible Token Contract (two-step) <a id="erc-20-token-transfer-compatiable"></a>
 KIP7 and KIP17 are compatiable with the token standards ERC20 and ERC721. We can call `requestERCXXXTransfer()` and `requestKIPXXXTransfer()` functions from the KIP7 token contract and the ERC token contract, respectively.
 Currently, the bridge contract provided by the Klaytn team supports only `requestERC20Transfer()` and `requestERC721Transfer()` for token trasnfer. The corresponding request functions for KIP7 and KIP17 will be supported soon.
-The below command shows example of seding KIP7 token using ERC20 interface with `requestERC20Transfer()`.
+The below command is an example of sending KIP7 tokens using the ERC20 interface with `requestERC20Transfer()`.
 ```
 $ node erc20-transfer-2step-kip7-interface.js
 ```
