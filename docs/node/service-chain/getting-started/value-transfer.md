@@ -53,7 +53,7 @@ Check if the operator accounts have enough balance.
 - Clone the [cross-chain-transfer-example repository](https://github.com/klaytn/sc-vt).
 
 In this step, we would deploy both bridge contract and token contract in parent chain as well as child chain.
-Token contracts are for mint/trasnfer test and bridge contracts are used for the listen/handle value transfer request.
+Token contracts are for mint/transfer test and bridge contracts are used for the listen/handle value transfer request.
 
 ```bash
 $ git clone https://github.com/klaytn/sc-vt
