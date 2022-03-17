@@ -112,6 +112,7 @@
       * [Connecting to Baobab](node/service-chain/getting-started/en-scn-connection.md)
       * [Cross-Chain Value Transfer](node/service-chain/getting-started/value-transfer.md)
       * [HA(High Availability) for ServiceChain](node/service-chain/getting-started/ha-for-sc.md)
+      * [Nested ServiceChain](node/service-chain/getting-started/nested-sc.md)
     * [Reference Manuals](node/service-chain/references/README.md)
       * [System Requirements](node/service-chain/references/system-requirements.md)
       * [Download](node/service-chain/references/download.md)

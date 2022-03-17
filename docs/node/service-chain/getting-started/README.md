@@ -11,3 +11,4 @@ In order to construct a blockchain for actual services, we will explain High Ava
 - [Connecting to Baobab](./en-scn-connection.md)
 - [Cross-chain Value Transfer](./value-transfer.md)
 - [HA for ServiceChain](./ha-for-sc.md)
+- [Nested ServiceChain](./nested-sc.md)
