@@ -111,6 +111,7 @@
       * [Setting up a 4-node Service Chain](node/service-chain/getting-started/4nodes-setup-guide.md)
       * [Connecting to Baobab](node/service-chain/getting-started/en-scn-connection.md)
       * [Cross-Chain Value Transfer](node/service-chain/getting-started/value-transfer.md)
+      * [HA(High Availability) for ServiceChain](node/service-chain/getting-started/ha-for-sc.md)
     * [Reference Manuals](node/service-chain/references/README.md)
       * [System Requirements](node/service-chain/references/system-requirements.md)
       * [Download](node/service-chain/references/download.md)
