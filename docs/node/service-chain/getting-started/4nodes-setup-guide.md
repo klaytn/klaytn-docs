@@ -1,12 +1,4 @@
-{% hint style="info" %}
-The simplest form of ServiceChain can be one SCN.
-This tutorial illustrates 4-node ServiceChain, however, you can set up a single-node ServiceChain as well.
-Simply pass `--cn-num 1` instead of `4` to homi in 'Step 1:Create genesis.json and nodekeys'.
-
-To tolerate byzantine faults, at least four nodes are required. Therefore, the minimum number of SCNs to achieve high availability under BFT algorithm is 4. Having 2 SCN nodes is not enough, because if one SCN fails, the other one can not reach a consensus.
-{% endhint %}
-
-This section covers how to set up a multi-node ServiceChain. As shown in the figure below, we will set up a 4-consensus-node ServiceChain with `chainID` 1002 as shown in blue in the figure below.
+This section covers how to set up a multi-node ServiceChain. We will set up a 4-consensus-node ServiceChain with `chainID` 1002, as you can see in the blue border box in the figure below.
 
 ![](../images/sc-4scn-arch.png)
 
@@ -16,7 +8,7 @@ This section covers how to set up a multi-node ServiceChain. As shown in the fig
  - 4 Linux or MacOS servers
  - Minimum hardware requirements
    - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
-   - Please refer to the [System Requirements](../references/system-requirements.md) for more explanation.
+   - Please refer to [System Requirements](../references/system-requirements.md) for more explanation.
 
 ## Step 0: Install SCN on all nodes <a id="install-scn"></a>
 The installation is the uncompression of the downloaded package. Extract the SCN archive on each server.
@@ -82,7 +74,7 @@ Among the outputs, we will use `nodekey*`, `genesis.json` and `static-nodes.json
 ## Step 2: Customize static-nodes.json <a id="step-2-customize-static-nodes-json"></a>
 
 Open `homi-output/scripts/static-nodes.json` in a text editor then update the IP addresses and ports with the actual values of your nodes.
-In this example, it is assumed that the IP of each SCN node in the ServiceChain is as shown in the figure below. Note the port you assigned here, the value will be used later in step 4.
+In this example, it is assumed that the IP of each SCN node in the ServiceChain is as shown in the figure below. Remember the port you assigned here, as it will be used later in step 4.
 
 ![](../images/sc-4scn-ip.png)
 
@@ -136,7 +128,7 @@ $ cp ~/homi-output/keys/nodekey{1..4} ~/data/klay/nodekey
 
 ## Step 5: Configure nodes <a id="step-5-configure-nodes"></a>
 
-On every SCNs, go to the kscn installation folder and edit `conf/kscnd.conf` as follows. `PORT` is the port used when setting up `homi`, and `SC_SUB_BRIDGE` is needed when connecting a bridge in the next section. For now, just set it to 0. In `DATA_DIR`, write the data folder used in step 3.
+On every SCNs, go to the kscn installation folder and edit `conf/kscnd.conf` as follows. `PORT` is the port used to set up `homi`, and `SC_SUB_BRIDGE` is required for connecting bridges in the next section. For now, just set it to 0. In `DATA_DIR`, enter the data folder used in step 3.
 ```
 ...
 PORT=22323
@@ -195,3 +187,11 @@ true
 > klay.getBalance("305c6cc464d5fe1e624679695a20d641a01688e1")
 10
 ```
+
+{% hint style="info" %}
+The simplest form of ServiceChain is having one SCN.
+The ServiceChain illustrated in this tutorial is a 4-node ServiceChain. You can, however, set up a single-node ServiceChain if you wish.
+Simply pass `--cn-num 1` instead of `--cn-num 4` to homi in 'Step 1:Create genesis.json and nodekeys'.
+
+At least 4 nodes are required to tolerate byzantine faults. Therefore, the minimum number of SCNs to achieve high availability under the BFT algorithm is 4. Having 2 SCN nodes is not enough, because if one SCN fails, the other one cannot reach a consensus on its own.
+{% endhint %}
