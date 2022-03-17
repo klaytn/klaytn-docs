@@ -1,4 +1,4 @@
-This section will explain how to enable ERC-20 value transfer between Baobab network and your service chain with the provided test code.
+This section will explain how to enable ERC-20 value transfer between Baobab network and your ServiceChain with the provided test code.
 You will add KLAY to the operator account and deploy bridge and ERC-20 contracts.
 Then you will register the contract address on SCN. And you will test an ERC-20 value transferring.
 
