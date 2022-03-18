@@ -124,15 +124,43 @@ Run erc20-transfer-2step.js for the two-step transfer example.
 The two-step transfer consists of two function calls: (1) approve bridge contract first, and then (2) call the contract function(`requestERC20Transfer()`).
 ```
 $ node erc20-transfer-2step.js
+> ------------------------- erc20-transfer-2step START -------------------------
+> alice balance: 100
+> requestValueTransfer..
+> alice balance: 200
+------------------------- erc20-transfer-2step END -------------------------
 ```
 
-## ERC-20 Token Transfer via Compatible Token Contract (two-step) <a id="erc-20-token-transfer-compatiable"></a>
-KIP7 and KIP17 are compatiable with the token standards ERC20 and ERC721. We can call `requestERCXXXTransfer()` and `requestKIPXXXTransfer()` functions from the KIP7 token contract and the ERC token contract, respectively.
-Currently, the bridge contract provided by the Klaytn team supports only `requestERC20Transfer()` and `requestERC721Transfer()` for token trasnfer. The corresponding request functions for KIP7 and KIP17 will be supported soon.
+## KIP-7 Token Transfer via ERC-20 Interface (two-step) <a id="erc-20-token-transfer-compatiable"></a>
+KIP7 is compatiable token standard with ERC20. We can call `requestERC20Transfer()` function from the KIP7 token contract and vice versa.
+In the case of sending the KIP-7 token via ERC20 interface, we call the `approve()` function to allow the bridge can send the token instaed of the transaction sender, and then call the `requestERC20Transfer()` function.
 The below command is an example of sending KIP7 tokens using the ERC20 interface with `requestERC20Transfer()`.
 ```
-$ node erc20-transfer-2step-kip7-interface.js
+$ node kip7-deploy.js
+> ------------------------- kip7-deploy START -------------------------
+> info.bridge: 0x1362aBc251a8FC14C40Cb59Cb112B0FC74Baa9B4
+> info.token: 0x30F194D1f25BC9b6773e59e9214b018dCc99add5
+> info.bridge: 0x49523a060E172d3591867A6c3d15c9DA770fAF7E
+> info.token: 0x73B8BF60573B2D0093312fdB79Ed6Cb1c05C62Bc
+> registering bridges to the child node
+> subscribing bridges to the child node
+> register token to subbridge..
+------------------------- kip7-deploy END -------------------------
 ```
+
+```
+$ node kip7-transfer-2step-erc20-interface.js
+> ------------------------- kip7-transfer-2step-erc20-interface START -------------------------
+> alice balance: 0
+> requestValueTransfer..
+> alice balance: 100
+> ------------------------- kip7-transfer-2step-erc20-interface END -------------------------
+```
+
+Please refer [service-chain-value-transfer-example](https://github.com/klaytn/servicechain-value-transfer-examples) for the other cases.
+
+## To Be Supported
+Currently, the bridge contract provided by the Klaytn team supports only `requestERC20Transfer()` and `requestERC721Transfer()` for token trasnfer. The corresponding request functions for KIP7 and KIP17 will be supported soon.
 
 ## ERC-721, KIP7, KIP17, KLAY Transfer <a id="erc-721-token-transfer"></a>
 The workflow is the same as above. `erc721`, `kip7`, `kip17`, and `klay` directories contain corresponding example source code.
