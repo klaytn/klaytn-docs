@@ -5,7 +5,7 @@ Then you will register the contract address on SCN. And you will test an ERC-20 
 
 ## Prerequisites <a id="prerequisites"></a>
 - We assume that you installed the ServiceChain, and connected the ServiceChain to the Baobab EN ([link](en-scn-connection.md)).
-- Clone the [cross-chain-transfer-example repository](https://github.com/klaytn/sc-vt).
+- Clone the [cross-chain-transfer-example repository](https://github.com/klaytn/servicechain-value-transfer-examples).
 - Install `Node.js` (v14) and `npm` ([How to install](https://nodejs.org/en/download/package-manager/))
     - This example leverages two packages, axios and caver-js, which both support v14.
 
@@ -50,14 +50,14 @@ Check if the operator accounts have enough balance.
 
 ### Step 2: Deploy Contracts <a id="step-2-deploy-contracts"></a>
 - Connect to the SCN and prepare the node environment for contract deployment.
-- Clone the [cross-chain-transfer-example repository](https://github.com/klaytn/sc-vt).
+- Clone the [cross-chain-transfer-example repository](https://github.com/klaytn/servicechain-value-transfer-examples).
 
 In this step, we would deploy both the bridge contract and token contract in the parent as well as the child chain.
 Token contracts are for mint/transfer test and bridge contracts are used to listen/handle value transfer requests.
 
 ```bash
-$ git clone https://github.com/klaytn/sc-vt
-$ cd sc-vt
+$ git clone https://github.com/klaytn/servicechain-value-transfer-examples
+$ cd servicechain-value-transfer-examples
 $ npm install
 $ cd erc20
 ```
