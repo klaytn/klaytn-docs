@@ -163,4 +163,4 @@ Please refer [service-chain-value-transfer-example](https://github.com/klaytn/se
 Currently, the bridge contract provided by the Klaytn team supports only `requestERC20Transfer()` and `requestERC721Transfer()` for token transfer. The corresponding request functions for KIP-7 and KIP-17 will be supported soon.
 
 ## Value Transfer for ERC-721, KIP17, and KLAY <a id="value-transfer-for-erc-721-kip17-and-klay"></a>
-The workflow is the same as above. `erc721`, `kip7`, `kip17`, and `klay` directories contain corresponding example source code.
+The workflow is the same as above. [`erc721`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/master/erc721), [`kip17`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/master/kip17), and [`klay`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/master/klay) directories contain corresponding example source code.
