@@ -134,7 +134,7 @@ $ node erc20-transfer-2step.js
 ## KIP-7 Token Transfer via ERC-20 Interface (two-step) <a id="erc-20-token-transfer-compatiable"></a>
 KIP7 is compatiable token standard with ERC20. We can call `requestERC20Transfer()` function from the KIP7 token contract and vice versa.
 In the case of sending KIP-7 tokens via ERC-20 interface, we call the `approve()` function to allow the bridge to send the tokens on behalf of the transaction sender. Then call the `requestERC20Transfer()` function.
-The below command is an example of sending KIP7 tokens using the ERC20 interface with `requestERC20Transfer()`.
+The below command is an example of sending KIP-7 tokens using the ERC-20 interface with `requestERC20Transfer()`.
 ```
 $ node kip7-deploy.js
 > ------------------------- kip7-deploy START -------------------------
