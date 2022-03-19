@@ -117,7 +117,7 @@ alice balance: 100
 ------------------------- erc20-transfer-1step END -------------------------
 ```
 
-Check if the result is `alice balance: 100`.
+If the result is `alice balance: 100`, then it has been executed successfully.
 
 ## ERC-20 Token Transfer (two-step) <a id="erc-20-token-transfer-twostep"></a>
 Run erc20-transfer-2step.js for the two-step transfer example.
