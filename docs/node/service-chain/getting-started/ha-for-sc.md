@@ -1,27 +1,27 @@
-If only a pair of bridges are used in the ServiceChain, that bridge can become a single point of failure. To solve this, we describe how you can build an HA system with two or more pairs of bridges. As shown in the figure below, configure the bridges to be connected in at least two pairs, so that even if there is a problem in one bridge connection, data anchoring and value transfer between chains work normally through the other bridge.
+If only a pair of bridges is used in the ServiceChain, that bridge can become a single point of failure. To solve this, we describe how you can build an HA system with two or more pairs of bridges. As shown in the figure below, configure the bridges to be connected in at least two pairs, so that even if there is a problem in one bridge connection, data anchoring and value transfer between chains work normally through the other bridge.
 
 ![](../images/sc-ha-arch.png)
 
 
 ## Prerequisites <a id="prerequisites"></a>
- - The main bridge of EN node and the subbridge pair of SCN node are connected.
- - This section describes how to add a bridge between Baobab and ServiceChain L2. In the same way, you can also set up HA by adding a bridge even between ServiceChains.
+ - The main bridge of EN node and the subbridge pair of SCN node are connected. If it's not, please refer to [Baobab connection](./en-scn-connection.md)
+ - This section describes how to add a bridge between Baobab and a ServiceChain. In the same way, you can also set up HA by adding another bridge.
 
-## Step 1: Add bridge between EN-SCN <a id="step-1-add-bridge-between-en-scn"></a>
+## Step 1: Add Bridge between EN-SCN <a id="step-1-add-bridge-between-en-scn"></a>
 
-In the previous [Baobab connection](./en-scn-connection.md), if we define the EN node and the SCN node connected by a bridge as EN-01 and SCN-L2-01, respectively, in this section, we will add a bridge between EN-02 and SCN-L2-02, which is the part marked in blue. 
+In [Connecting to Baobab](./en-scn-connection.md), we assume that the EN node and the SCN node connected by a bridge as EN-01 and SCN-L2-01, respectively. In this section, we will add a bridge between EN-02 and SCN-L2-02, which is the part marked in blue. 
 Since it follows the same procedure, we will briefly explain.
 
 
 ![](../images/sc-ha-add-bridge.png)
 
-After building the new EN-02 node, set `SC_MAIN_BRIDGE` to 1 in `conf/kend.conf` and restart the EN-02 node.
+After building EN-02, set `SC_MAIN_BRIDGE` to 1 in `conf/kend.conf` and restart EN-02.
 
 ```console
 SC_MAIN_BRIDGE=1
 ```
 
-Check KNI information of EN-02 node. 
+Check the KNI information of EN-02 by the following command: 
 
 
 ```console
@@ -30,17 +30,17 @@ $ ken attach --datadir ~/data
 "kni://eb8f21df10c6562...25bae@[::]:50505?discport=0"
 ```
 
-Connect to SCN-L2-02 node, and create main-bridges.json.
+Log in to SCN-L2-02, and create `main-bridges.json` with the KNI of EN-02. Please make sure that it should be in the JSON array format with a square bracket.
 
 
 ```console
 $ echo '["kni://eb8f21df10c6562...25bae@192.168.0.5:50505?discport=0"]' > ~/data/main-bridges.json
 ```
 
-From the SCN node's shell, edit `kscn-XXXXX-amd64/conf/kscnd.conf`.
+On the shell of SCN-L2-02, edit `kscn-XXXXX-amd64/conf/kscnd.conf` as described below.
 To connect a bridge, set `SC_SUB_BRIDGE` to 1.
 `SC_PARENT_CHAIN_ID` is set to Baobob's `chainID` 1001. 
-`SC_ANCHORING_PERIOD` is the parameter that decides the period to send an anchoring tx to the main chain. 
+`SC_ANCHORING_PERIOD` is the parameter that decides the period to send an anchoring transaction to the parent chain. 
 ```
 ...
 SC_SUB_BRIDGE=1
@@ -52,7 +52,7 @@ SC_ANCHORING_PERIOD=10
 ```
 
 
-If you reboot EN node, a bridge is connected between the EN-02 and the SCN-L2-02 and data is anchored as shown in the figure below.
+If you reboot EN-02, a bridge is connected automatically between the EN-02 and the SCN-L2-02 and data is anchored as shown in the figure below.
 
 ![](../images/sc-ha-before-register.png)
 
