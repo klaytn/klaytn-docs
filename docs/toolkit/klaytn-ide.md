@@ -32,14 +32,14 @@ Workspaces contain contracts, scripts, tests folders and README.txt by default.
 
 Let’s go over the icons one by one. 
 
-**A** Klaytn IDE is forked from Ethereum’s Remix. Clicking this icon will redirect you to the documents containing the instructions for using Remix. 
-**B** Create a Workspace.
-**C** Change the name of a Workspace.
-**D** Delete a Workspace.
-**E** Create a new file. The created file will appear in the editor.
-**F** Create a new folder.
-**G** Send Workspace to gist.
-**H** Send a file to browser storage.
+**A** Klaytn IDE is forked from Ethereum’s Remix. Clicking this icon will redirect you to the documents containing the instructions for using Remix <br> 
+**B** Create a Workspace.<br>
+**C** Change the name of a Workspace.<br>
+**D** Delete a Workspace.<br>
+**E** Create a new file. The created file will appear in the editor.<br>
+**F** Create a new folder.<br>
+**G** Send Workspace to gist.<br>
+**H** Send a file to browser storage.<br>
 
 ### Plugin Manager <a id="plugin-manager"></a>
 
@@ -67,10 +67,10 @@ Let’s take a look at the four common modules used in Klaytn IDE: Compile, Depl
 
 You can activate SOLIDITY COMPILER, SOLIDITY STATIC ANALYSIS, SOLIDITY UNIT TESTING in the plugin manager. The function of each module is summarized as follows:
 
-- Compile: In order to deploy Solidity source code, you have to compile it first. You can set the compiler version and various options.
-- Deploy & Run: You can deploy the compiled smart contract and execute functions. You can also manage transaction’s parameters.
-- Analysis: You can execute static runtime code analysis based on the checklist.
-- Testing: You can create and run a unit test.
+- Compile: In order to deploy Solidity source code, you have to compile it first. You can set the compiler version and various options.<br>
+- Deploy & Run: You can deploy the compiled smart contract and execute functions. You can also manage transaction’s parameters.<br>
+- Analysis: You can execute static runtime code analysis based on the checklist.<br>
+- Testing: You can create and run a unit test.<br>
 
 ### Compile <a id="compile"></a>
 
