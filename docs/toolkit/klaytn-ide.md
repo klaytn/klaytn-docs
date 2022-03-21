@@ -1,228 +1,418 @@
 # Klaytn IDE <a id="klaytn-ide"></a>
 
-![](img/klaytn-ide/ide-overview-all.png)
+![](img/klaytn-ide/1_ide_full.png)
 
-Klaytn IDE is a browser-based compiler and IDE that helps developers build Klaytn smart contracts with Solidity language. Klaytn IDE also supports test and deployment of smart contracts. Klaytn IDE is forked from Remix 0.7.7.
+Klaytn IDE is a browser-based application compatible with Ethereum. It has been forked from Remix 0.20.0. It supports a fast development cycle through various plug-ins and an intuitive GUI. You can write, test, and deploy Klaytn smart contracts using Solidity. You can use Klaytn IDE at https://ide.klaytn.com.
 
-You can access to the Klaytn IDE at [https://ide.klaytn.com](https://ide.klaytn.com). This document is an overview of the Klaytn IDE, it explains the major features and the usage guideline. You can find more detailed information in [Remix docs](https://remix-ide.readthedocs.io/en/latest/).
+This document covers Klaytn IDE’s main features and instructions on how to use it. For more information, please visit  Remix Documentation.
 
-## What's different from Remix? <a id="what-s-different-from-remix"></a>
+## 1. Layout <a id="layout"></a>
 
-1. Sign-in with Klaytn accounts
-2. Supports 2 Solidity versions \(v0.4.24 and v0.5.6\)
-3. Does not support Plugin, Gist add-on, and Swarm.
+Below is the layout for Klaytn IDE. The icon panel (A), where you can select the plug-in to be displayed in the side panel (B). The GUI for most plug-ins will be displayed on the side panel. On the main panel (C), you will see the plug-ins or you can edit the files to be compiled by the IDE. In Terminal (D), you can see the result of your interactions with the GUI, or run scripts.
 
-## Overview <a id="overview"></a>
+![](img/klaytn-ide/1_ide_layout.png)
+
+## 2. Default Modules <a id="default-modules"></a>
 
 ![](img/klaytn-ide/ide-docs-sections.png)
 
-The layout of the Klaytn IDE is as shown above. There are 4 areas - file explorer, code editor, console, and modules.
+The default modules when you first open Klaytn IDE are File Explorer, Plugin Manager, and Editor.
 
-## 1. File Explorer <a id="1-file-explorer"></a>
+### File Explorer <a id="file-explorer"></a>
 
-![](img/klaytn-ide/ide-file-explorer.png)
+The File Explorer icon is at the top of the icon panel.
+
+![](img/klaytn-ide/3_ide_fileexplorer.png)
 
 The file explorer on the left side of the workspace shows the list of smart contract files stored in your browser. Please be aware that clearing the browser storage will permanently delete all smart contract files you wrote. You can add, rename, and delete files from the file explorer.
 
-* Create a new file  
-  * You can create `Untitled1.sol` file by clicking ![](img/klaytn-ide/ide-create-file.png) icon on the title bar.
-* Add a local file  
-  * You can select files from the local file system and import them to the browser storage. Clicking ![](img/klaytn-ide/ide-open-file.png) icon will display a select-file dialog.
-* Rename and delete a file  
-  * Right-click on a file will show up a context menu from which you can rename or delete the file.
+Klaytn IDE stores all files in Workspaces, the browser’s local storage. You can’t restore the files once they are deleted from the local storage. If you use Remixd, you can connect to the local file system.
 
-## 2. Code Editor <a id="2-code-editor"></a>
+Workspaces contain contracts, scripts, tests folders and README.txt by default.
 
-![](img/klaytn-ide/ide-editor-view.png)
+![](img/klaytn-ide/4_ide_fileexplorer2.png)
 
-At the center of the workspace, you can edit files.
+Let’s go over the icons one by one. 
 
-### File tabs <a id="file-tabs"></a>
+**A** Klaytn IDE is forked from Ethereum’s Remix. Clicking this icon will redirect you to the documents containing the instructions for using Remix. 
+**B** Create a Workspace.
+**C** Change the name of a Workspace.
+**D** Delete a Workspace.
+**E** Create a new file. The created file will appear in the editor.
+**F** Create a new folder.
+**G** Send Workspace to gist.
+**H** Send a file to browser storage.
 
-You can open multiple files, and the editor displays the opened files as tabs. When you create or add a file to the file explorer, the file appears on the file tabs. Clicking ![](img/klaytn-ide/ide-editor-close.png) icon on the tab will close the file.
+### Plugin Manager <a id="plugin-manager"></a>
 
-Note: Closing a file \(by clicking ![](img/klaytn-ide/ide-editor-close.png) icon\) does not remove the file from the file explorer.
+Klaytn IDE runs based on plugins. To use its diverse features, you have to activate the modules in the Plugin Manager. The default modules in the Icon Panel are File Explorer, Compile, Deploy&Run. We will explain more about Compile and Deploy&Run in [3. Common Modules] below. 
 
-### Auto-completion for Solidity reserved keywords <a id="auto-completion-for-solidity-reserved-keywords"></a>
+![](img/klaytn-ide/plugin-manager.png)
 
-There are frequently-used statements in Solidity, for example, `bytes32`, `public`, and `modifier`. You don't need to type the whole characters since Klaytn IDE suggests the word you are intending to type. The auto-completion works for all reserved keywords in Solidity and the functions, variables, and classes you define.
+### Code Editor <a id="code-editor"></a>
 
-![](img/klaytn-ide/ide-auto-completion.png)
+In the Main Panel’s Code Editor, you can write and edit code. If you make changes to an existing code, it needs to be compiled again. If you have autocompile checked, the code will automatically be compiled every time a file is changed or another file is selected. It also supports highlights for syntaxes mapped to Solidity keywords.
 
-### Error detection <a id="error-detection"></a>
+![](img/klaytn-ide/5_ide_codeeditor.png)
 
-A red marker is displayed next to the line number where a compilation error occurred.
+### Terminal <a id="terminal"></a>
 
-![](img/klaytn-ide/ide-error-detection.png)
+In the terminal you can check the compile result, error, deployment status and transaction information. Click on the checked transaction to see details. On the terminal you can enter a transaction hash or contract address.
 
-## 3. Modules <a id="3-modules"></a>
+![](img/klaytn-ide/6_ide_terminal.png)
 
-There are six tabs in Modules. Compile, Run, Analysis, Testing, Debugger, and Settings.
+## 3. Common Modules <a id="3-common-modules"></a>
 
-![](img/klaytn-ide/ide-tabs.png)
+Let’s take a look at the four common modules used in Klaytn IDE: Compile, Deploy&Run, Analyze, and Testing. As mentioned earlier, you have to activate the non-default modules in the plugin manager.
 
-* Compile: To select the compiler version and to enable/disable several compilation options. A list of compiled projects is displayed in this tab as well. 
-* Run: In this tab, you can deploy a contract to the network and invoke the contract functions. This tab has options to manage the parameters for transactions, such as network, account, gas limit, and input params.
-* Analysis: You can run static and runtime code analysis with the selected checklist. 
-* Testing: Create and run unit tests.
-* Debugger: Allows you to debug the transaction. 
-* Settings: General settings and Help & Support links.
+![](img/klaytn-ide/6_ide_all-modules.png)
+
+You can activate SOLIDITY COMPILER, SOLIDITY STATIC ANALYSIS, SOLIDITY UNIT TESTING in the plugin manager. The function of each module is summarized as follows:
+
+- Compile: In order to deploy Solidity source code, you have to compile it first. You can set the compiler version and various options.
+- Deploy & Run: You can deploy the compiled smart contract and execute functions. You can also manage transaction’s parameters.
+- Analysis: You can execute static runtime code analysis based on the checklist.
+- Testing: You can create and run a unit test.
 
 ### Compile <a id="compile"></a>
 
-Compiling is triggered when you click the `Start to compile` button. If you want the file to be compiled each time the file is saved or when another file is selected - check the `Auto compile` checkbox.
+If you finished your code, use Compile to check for any errors or warnings. It’s only after you compile the contract that you can deploy it.
 
-For now, we support two compiler versions, Solidity v0.4.24 and v0.5.6. So you always need to add `pragma solidity 0.4.24;` or `pragma solidity 0.5.6` on top of the document. You can manually click `"Compile"` button \(Cmd+s for MacOS, Ctrl+s for Windows\) every time you need, or you can activate the auto-compile function.
+![](img/klaytn-ide/7_ide_compiler.png)
 
-![](img/klaytn-ide/ide-compile-tab.png)
+Click Compile (F). In Compiler (A), select the compiler version that corresponds to the one stated in the Solidity file. You can select the language of your choice in B. If you want the file to be automatically compiled every time it is saved or another file is selected, you can check Auto compile (D). But be aware that contracts with a lot of dependencies may take a long time.
 
-Note:
+#### EVM <a id="evm-version"></a>
 
-* Your codes are automatically saved every 15 seconds. Auto-save is also triggered when you compile a file, close the file tab, or leave the Klaytn IDE.  
-* If activated, "Auto-compile" starts to compile when you stop typing.
+Select the EVM Version you want in the dropdown menu (C).
 
-### Run <a id="run"></a>
+![](img/klaytn-ide/8_ide_evm.png)
 
-#### Environment \(Network Selector\) <a id="environment-network-selector"></a>
+You will find the EVM versions applied for Klaytn Baobab testnet and Cypress mainnet, so choose the appropriate version. You can check the current EVM version in Compilation Details, Metadata > Settings.
 
-![](img/klaytn-ide/ide-environment.png)
+#### Optimization <a id="optimization"></a>
 
-You can choose which network to use from the `"Environment"` dropdown. By default, Klaytn IDE provides following network options:
+With Optimization (E), you can reduce the code size and execution costs, thereby saving gas required for contract deployment and calls. For more details, please refer to [Optimizer Options](https://docs.soliditylang.org/en/latest/using-the-compiler.html?highlight=optimize-runs#optimizer-options).
 
-1. **Baobab network** \(Klaytn testnet\)
-2. **Cypress network** \(Klaytn mainnet\)
 
-If you want to connect to another custom node, click the dropdown list, select `"Caver provider"`, and fill the URL of the network you want to connect to. If the protocol of network you want to connect to is `HTTP`, not `HTTPS`, please use [http\://ide.klaytn.com](http://ide.klaytn.com).
+#### Compilation Details <a id="compilation-details"></a>
 
-> To deploy a contract, you need KLAY to pay the transaction fee. For the `Baobab network` \(Klaytn testnet\), you can get some **testnet KLAY** from the faucet \[[https://baobab.wallet.klaytn.com/faucet](https://baobab.wallet.klaytn.com/faucet)\]. After receiving **testnet KLAY** from the faucet, import the account to the Klaytn IDE in the `"Account"` selector.
+In Compilation Details you can find the bytecode and ABI. A single file may contain multiple contracts, and a single contract may import other contracts, so often, multiple contracts get compiled. But you can only check the Compilation Details for one contract at a time. Select a contract you want.
 
-#### Account \(Account Selector\) <a id="account-account-selector"></a>
+![](img/klaytn-ide/9_ide_compilation.png)
 
-![](img/klaytn-ide/ide-from-account.png)
+#### Upload on IPFS <a id="upload-on-ipfs"></a>
 
-With `Account Selector`, you can change your current account to another one.  
-To import an account, click ![](img/klaytn-ide/ide-add-account-button.png) button and choose the import method either by private key or keystore.
+You can also publish the contracts on IPFS if they are non-abstract. If you publish a contract that imports other contracts, all contracts including the main contract will be uploaded to each address. The uploaded data will include ABI and Solidity source code.
 
-![](img/klaytn-ide/ide-account-add-popup.png)
+![](img/klaytn-ide/10_ide_ipfs.png)
 
-After Import, your account balance will appear in the`Account` selector in a few seconds.
+#### Compilation Error and Warning <a id="compilation-error-and-warning"></a>
 
-#### Value <a id="value"></a>
+Any errors or warnings will appear below the contract section.
 
-![](img/klaytn-ide/ide-tx-value-controller.png)
-
-On the `Value (Tx Value Controller)`, you can fill the amount of value for the next created transaction.
-
-#### Gas Limit Controller <a id="gas-limit-controller"></a>
-
-![](img/klaytn-ide/ide-gas-limit-controller.png)
+![](img/klaytn-ide/11_ide_err.png)
 
 In the `Gas Limit` controller, you can fill the maximum amount of gas which will be used for calling a smart contract function.
 
-#### Deploy <a id="deploy"></a>
 
-![](img/klaytn-ide/ide-deploy.png)
+### Deploy & Run <a id="deploy-and-run"></a>
 
-Once you compile the code, you will find the contract listed in the dropdown selector. Among the compiled list, you can select a contract and deploy it by clicking the `Deploy` button.
+If the contract is compiled, select the KLAY icon (A) in the Icon Panel to deploy it.
 
-![](img/klaytn-ide/ide-deploy-result.png)
+![](img/klaytn-ide/12_ide_deploy.png)
 
-If the contract is deployed successfully, the contract address is shown and you can see the list of functions that the contract exposes in the below. There are only two types of functions in the smart contract, functions that write data to the blockchain \(transaction\) and functions that read data from the blockchain.
+ou can set the environment for the contract deployment in the dropdown menu (B).
 
-### Analysis <a id="analysis"></a>
+![](img/klaytn-ide/13_ide_env.png)
 
-![](img/klaytn-ide/ide-tab-analysis.png)
+- Baobab: Klaytn testnet. You will be connected to the Klaytn public node.
+- Cypress: Klaytn mainnet. You will be connected to the Klaytn public node.
+- Injected Web3: Klaytn IDE will be connected to the Web3 Provider provided by extensions like MetaMask.
+- Web3 Provider: Customize a node where you will deploy the contract.
 
-This section shows the output from the last compilation. By default, a new analysis is run at each compilation.
+#### Account <a id="account"></a>
 
-The analysis tab gives detailed information about the contract code. It can help you avoid code mistakes and to enforce best practices.
+You can import the contracts from the respective deployment environment (C). For example, if you selected Injected Web3, you can use your MetaMask account.
 
-If you need more information, please visit [Remix docs &gt; Analysis ](https://remix-ide.readthedocs.io/en/latest/static_analysis.html?highlight=analysis)
+#### Gas Limit <a id="gas-limit"></a>
+
+In Gas Limit (D), you can set the maximum amount of gas to be used to call the contract functions.
+
+#### Value <a id="value"></a>
+
+Value (E), you can choose the amount of peb, ston, mKLAY, KLAY to be sent to the contract or function. It will be reset to 0 after each transaction.
+
+#### Deploy & AtAddress <a id="deploy-and-ataddress"></a>
+
+In the Contracts drop-down list (F), you will find the list of compiled contracts. The Deploy button (G) will create a transaction that deploys the contract. Once the contract is deployed, you will see the contract address and the functions. You can use atAddress to select a contract that has already been deployed.
+
+There are two types of functions: one that records data on the blockchain and one that reads data from the blockchain. The former is shown in orange, and the latter in dark blue. Transactions and contracts that simply read data will not incur any gas fees.
+
+![](img/klaytn-ide/14_ide_contracts.png)
+
+You can use AtAddress to use already deployed contracts. Since you are accessing contracts that have already been deployed, it won’t cost any gas fee. To use AtAddress, the contract’s source code or ABI must be open on Editor. For more information about ABI, please refer to this [link](https://docs.soliditylang.org/en/latest/abi-spec.html).
+
+#### Recorder
+
+Recorder allows you to store a batch of transactions to execute them in another environment. Executing a contract may involve multiple transactions, and you can automate their execution using this feature. Or you can test a contract you used on Baobab in a different environment like Injected Web3 using the scenario.json file.
+
+Below you see the default state of the recorder, with 0 transactions executed.
+
+![](img/klaytn-ide/15_ide_transaction_recorded.png)
+
+After deploying two contracts Count and Owner, you can see that the number went up to 2. Click on the disk icon and the transactions will be stored in a scenario.json file.
+
+![](img/klaytn-ide/16_ide_scenariosave.png)
+
+The file looks like this:
+
+```
+{
+ "accounts": {
+   "account{0}": "0x02a96293B5745752E135bC9Ec30173A7a1d50232"
+ },
+ "linkReferences": {},
+ "transactions": [
+   {
+     "timestamp": 1647319472459,
+     "record": {
+       "value": "0",
+       "parameters": [],
+       "abi": "0x4b1ba47c8f784f96abd81c133839578c6763348ea83b370a8b4fb3864e474ff3",
+       "contractName": "Count",
+       "bytecode": "6080604052600a60005534801561001557600080fd5b5061017e806100256000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c806306661abd1461004657806342cbb15c14610064578063d14e62b814610082575b600080fd5b61004e61009e565b60405161005b9190610107565b60405180910390f35b61006c6100a4565b6040516100799190610107565b60405180910390f35b61009c600480360381019061009791906100cb565b6100ac565b005b60005481565b600043905090565b8060008190555050565b6000813590506100c581610131565b92915050565b6000602082840312156100e1576100e061012c565b5b60006100ef848285016100b6565b91505092915050565b61010181610122565b82525050565b600060208201905061011c60008301846100f8565b92915050565b6000819050919050565b600080fd5b61013a81610122565b811461014557600080fd5b5056fea2646970667358221220d763789013ad3e25664327566795fb20cdf911c6f6a9bf92f3518930ee06ea9164736f6c63430008070033",
+       "linkReferences": {},
+       "name": "",
+       "inputs": "()",
+       "type": "constructor",
+       "from": "account{0}"
+     }
+   },
+   {
+     "timestamp": 1647319502643,
+     "record": {
+       "value": "0",
+       "parameters": [],
+       "abi": "0xc360c586262124d3cd7ee973d0b20bbc3ed7e3ef25d4060ac86a84b209acd54a",
+       "contractName": "Owner",
+       "bytecode": "608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16600073ffffffffffffffffffffffffffffffffffffffff167f342827c97908e5e2f71151c08502a66d44b6f758e3ac2f1de95f02eb95f0a73560405160405180910390a3610356806100db6000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063893d20e81461003b578063a6f9dae114610059575b600080fd5b610043610075565b604051610050919061025d565b60405180910390f35b610073600480360381019061006e91906101fe565b61009e565b005b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161461012c576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161012390610278565b60405180910390fd5b8073ffffffffffffffffffffffffffffffffffffffff1660008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f342827c97908e5e2f71151c08502a66d44b6f758e3ac2f1de95f02eb95f0a73560405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b6000813590506101f881610309565b92915050565b600060208284031215610214576102136102db565b5b6000610222848285016101e9565b91505092915050565b610234816102a9565b82525050565b6000610247601383610298565b9150610252826102e0565b602082019050919050565b6000602082019050610272600083018461022b565b92915050565b600060208201905081810360008301526102918161023a565b9050919050565b600082825260208201905092915050565b60006102b4826102bb565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600080fd5b7f43616c6c6572206973206e6f74206f776e657200000000000000000000000000600082015250565b610312816102a9565b811461031d57600080fd5b5056fea2646970667358221220d8b1ba73854235865084cd146d56b584ad91a0dd55cf8fe3ca277e04896bf95c64736f6c63430008070033",
+       "linkReferences": {},
+       "name": "",
+       "inputs": "()",
+       "type": "constructor",
+       "from": "account{0}"
+     }
+   }
+ ],
+ "abis": {
+   "0x4b1ba47c8f784f96abd81c133839578c6763348ea83b370a8b4fb3864e474ff3": [
+     {
+       "inputs": [
+         {
+           "internalType": "uint256",
+           "name": "_count",
+           "type": "uint256"
+         }
+       ],
+       "name": "setCount",
+       "outputs": [],
+       "stateMutability": "nonpayable",
+       "type": "function"
+     },
+     {
+       "inputs": [],
+       "name": "count",
+       "outputs": [
+         {
+           "internalType": "uint256",
+           "name": "",
+           "type": "uint256"
+         }
+       ],
+       "stateMutability": "view",
+       "type": "function"
+     },
+     {
+       "inputs": [],
+       "name": "getBlockNumber",
+       "outputs": [
+         {
+           "internalType": "uint256",
+           "name": "",
+           "type": "uint256"
+         }
+       ],
+       "stateMutability": "view",
+       "type": "function"
+     }
+   ],
+   "0xc360c586262124d3cd7ee973d0b20bbc3ed7e3ef25d4060ac86a84b209acd54a": [
+     {
+       "inputs": [
+         {
+           "internalType": "address",
+           "name": "newOwner",
+           "type": "address"
+         }
+       ],
+       "name": "changeOwner",
+       "outputs": [],
+       "stateMutability": "nonpayable",
+       "type": "function"
+     },
+     {
+       "inputs": [],
+       "stateMutability": "nonpayable",
+       "type": "constructor"
+     },
+     {
+       "anonymous": false,
+       "inputs": [
+         {
+           "indexed": true,
+           "internalType": "address",
+           "name": "oldOwner",
+           "type": "address"
+         },
+         {
+           "indexed": true,
+           "internalType": "address",
+           "name": "newOwner",
+           "type": "address"
+         }
+       ],
+       "name": "OwnerSet",
+       "type": "event"
+     },
+     {
+       "inputs": [],
+       "name": "getOwner",
+       "outputs": [
+         {
+           "internalType": "address",
+           "name": "",
+           "type": "address"
+         }
+       ],
+       "stateMutability": "view",
+       "type": "function"
+     }
+   ]
+ }
+}
+```
+
+Now click on the play button, which will play the scenario of the transactions in the terminal.
+
+![](img/klaytn-ide/17_ide_recorded.png)
+
+### Static Analysis <a id="static-analysis"></a>
+
+Static analysis allows you to debug without executing the code. As with other modules, you can activate it in the Plugin Manager.
+
+As default, all Security boxes are checked. With Autorun, the analysis will be conducted every time a contract is compiled.
+
+![](img/klaytn-ide/18_ide_analysis.png)
+
+
+For more details on the Security categories, please refer to [Remix Docs > Analysis Modules](https://remix-ide.readthedocs.io/en/latest/static_analysis.html#analysis-modules).
 
 ### Testing <a id="testing"></a>
 
-![](img/klaytn-ide/ide-tab-testing.png)
+Activate the Unit Testing module in the Plugin Manager.
 
-In this section, you can create a new solidity test file in the current folder and execute the tests. The execution result is displayed below. If you need more information, please visit [Remix docs &gt; Unit Testing](https://remix-ide.readthedocs.io/en/latest/unittesting.html)
+![](img/klaytn-ide/19_ide_testing.png)
 
-### Debugger <a id="debugger"></a>
+You can set the test directory, the workspace that will be used with the Testing module.
 
-![](img/klaytn-ide/ide-tab-debugger.png)
+![](img/klaytn-ide/20_ide_test-dir.png)
 
-This module allows you to debug the transaction. It can be used to deploy transactions created from IDE and already mined transactions.
+And then select the file you want to test and click Generate. It will create a test file in the selected directory. If you haven’t selected a specific file, a new file with the name `newFile_test.sol` will be created.
 
-> Debugging works only if the current environment provides the necessary features. For debugging, the **personal** API must be enabled in the EN node. Please see the `RPC_API` option in the [EN configuration file](../node/endpoint-node/operation-guide/configuration.md).
+![](img/klaytn-ide/20_ide_test-dir.png)
 
-If you need more information, please visit [Remix docs &gt; Debugger](https://remix-ide.readthedocs.io/en/latest/debugger.html)
+Now write and test different unit tests in the file. For more details, please check [Remix Docs > Solidity Unit Test Plugin](https://remix-ide.readthedocs.io/en/latest/unittesting.html#unit-testing-plugin).
 
-### Settings <a id="settings"></a>
+![](img/klaytn-ide/21_ide_test-file.png)
 
-![](img/klaytn-ide/ide-tab-setting.png)
+## 4. Accessing Local File System <a id="access-local"></a>
 
-This tab contains general settings and support channels.
+You can use Remixd to let Klaytn IDE access the folders in your computer. Remixd is a websocket plugin designed to be used with Remix IDE. You can create a websocket connection with your local file system. To do this, you need the Remixd plugin and the remixd cli/npm module. For more details, please refer to [Remix](https://remix-ide.readthedocs.io/en/latest/remixd.html).
 
-Important settings:
+### Remixd Plugin <a id="remixd-plugin"></a>
 
-* Text Wrap: controls if the text in the editor should be wrapped.
-* Enable Personal Mode : use in private network
+You can activate the Remixd plugin in the Plugin Manager, or have it automatically activated by selecting “connect to localhost” in Workspaces.
 
-## 4. Terminal <a id="4-terminal"></a>
-
-![](img/klaytn-ide/ide-console.png)
-
-At the bottom of the code editor, compiled outputs, compiler errors, deployment results, and transaction information are shown in the terminal.
-
-If you click on the transaction output, detailed information will be shown. If debugging is supported, debugging the transaction will work on the Debug tab.
-
-## Develop with OpenZeppelin <a id="develop-with-openzeppelin"></a>
-
-OpenZeppelin is a library for secure smart contract development. It provides implementations of standards like ERC20 and ERC721 which you can deploy as-is or extend to suit your needs, as well as Solidity components to build custom contracts and more complex decentralized systems.
-
-The OpenZeppelin library is available after connecting to localhost via remixd. This requires the installation of remixd.
-
-### Install Remixd <a id="install-remixd"></a>
-
-Remixd is a tool that is intended to be used with Remix IDE \(aka. Browser-Solidity\). It allows a websocket connection between Remix IDE \(web application\) and the local computer. Get more details at: [remixd document](https://remix-ide.readthedocs.io/en/latest/remixd.html?highlight=remixd).
+![](img/klaytn-ide/21_ide_test-file.png)
 
 `remixd` can be globally installed using the following command: After installation, start `remixd`. `-s` option gives the IDE access to the given folder. In the given folder, you will install OpenZeppelin and place your contract source code.
 
-\`\`\`bash $ remixd -s  --remix-ide [http://ide.klaytn.com](http://ide.klaytn.com)
+![](img/klaytn-ide/22_ide_connect_local.png)
 
-For example, `remixd -s ~/temp/openzeppelin --remix-ide http://ide.klaytn.com`
+When you click “connect to localhost”, you will see a popup message like this:
 
-Then, you will see the following messages in your terminal.
+![](img/klaytn-ide/23_ide_local_pop.png)
 
-![](img/klaytn-ide/ide-launch-remixd.png)
+But before clicking Connect, you have to have the remixd NPM module installed.
 
-### Install OpenZeppelin <a id="install-openzepplin"></a>
+### Install and Run remixd <a id="install-and-run-remixd"></a>
 
-Go to the shared folder, and install OpenZeppelin.
+You can install remixd using the following command:
 
-\`\`\`bash $ cd  $ npm install openzeppelin-solidity
+```
+npm install -g @remix-project/remixd
+```
 
-### Connect Remixd <a id="connect-remixd"></a>
+After installing, you have to permit access to the desired folder. Enter the command line as shown below:
 
-Click remix connect button as shown below.
+```
+remixd -s {absolute path folder} --remix-ide https://ide.klaytn.com
+```
 
-![](img/klaytn-ide/ide-connect-remixd.png)
+{absolute path folder} is where you specify the absolute path of the desired folder.
 
-Click connect.
+You have to distinguish between `http` and `https` depending on your browser. 
 
-![](img/klaytn-ide/ide-connet-remix-popup.png)
 
-localhost directory will appear in the file browser.
+### Connect <a id="connect"></a>
 
-![](img/klaytn-ide/ide-connection-localhost.png)
+When `remixd` is activated, you will see the popup message like below. You have to click Connect when the remixd from the previous step is running in the background.
 
-In your contract source file, import the required solidity contract from the OpenZeppelin.
+![](img/klaytn-ide/23_ide_local_pop.png)
 
-![](img/klaytn-ide/ide-import-openzepplin.png)
+And then select a file in the localhost to work on.
 
-## Need more information? <a id="need-more-information"></a>
+![](img/klaytn-ide/24_ide_localhost.png)
 
-The Klaytn IDE is based on the Remix v0.7.7. Many features are compatible, so please refer to the [official Remix documentation](https://remix-ide.readthedocs.io/en/latest/).
+To close the session, use the command `ctrl-c` in the terminal where remixd is running.
 
-## Send us feedback! <a id="send-us-feedback"></a>
+## 5. Using OpenZepplin <a id="using-openzepplin"></a>
 
-If you have any feedback or suggestions about Klaytn IDE, please send an email to [developer@klaytn.com](mailto:developer@klaytn.com).
+[OpenZeppelin](https://openzeppelin.com/) is a library for developing secure smart contracts. You can implement the standards [ERC20](https://eips.ethereum.org/EIPS/eip-20) or [ERC721](https://eips.ethereum.org/EIPS/eip-721) as is, or modified. It also supports solidity components that allow you to create customized contracts or more decentralized systems.
+
+You can import them using npm or through GitHub URL, by using the `import` statement in your contract. The imported files will be stored in the `.deps` folder under Workspaces. For more details on the `import` keyword, please refer to [Solidity documentation](https://docs.soliditylang.org/en/latest/layout-of-source-files.html?highlight=import#importing-other-source-files).
+
+```
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+```
+
+```
+import "@openzeppelin/contracts@4.2.0/token/ERC20/ERC20.sol";
+```
+
+You can also import it from GitHub. Make sure to only use their officially released code.
+
+```
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v2.5.0/contracts/math/SafeMath.sol";
+```
+
+## Learn More <a id="need-more-information"></a>
+
+Klaytn IDE offers almost identical features with Remix. For more instructions, please refer to [Remix Documentation](https://remix-ide.readthedocs.io/en/latest/).
+
+## Send us Your Feedback! <a id="send-us-feedback"></a>
+
+For any inquiries or suggestions regarding Klaytn IDE, please leave them on our [Discord](https://discord.com/invite/aY8mrCGANk) or [Klaytn Developers Forum](https://forum.klaytn.com/).
+
 
