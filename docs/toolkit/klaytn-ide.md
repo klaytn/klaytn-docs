@@ -1,6 +1,6 @@
 # Klaytn IDE <a id="klaytn-ide"></a>
 
-![](img/klaytn-ide/img/klaytn-ide/1_ide_full.png)
+![](img/klaytn-ide/klaytn-ide/1_ide_full.png)
 
 Klaytn IDE is a browser-based application compatible with Ethereum. It has been forked from Remix 0.20.0. It supports a fast development cycle through various plug-ins and an intuitive GUI. You can write, test, and deploy Klaytn smart contracts using Solidity. You can use Klaytn IDE at https://ide.klaytn.com.
 
@@ -8,9 +8,9 @@ This document covers Klaytn IDE’s main features and instructions on how to use
 
 ## 1. Layout <a id="layout"></a>
 
-Below is the layout for Klaytn IDE. The icon panel (A), where you can select the plug-in to be displayed in the side panel (B). The GUI for most plug-ins will be displayed on the side panel. On the main panel (C), you will see the plug-ins or you can edit the files to be compiled by the IDE. In Terminal (D), you can see the result of your interactions with the GUI, or run scripts.
+Below is the layout for Klaytn IDE. The icon panel (A), where you can select the plug-in to be displayed in the side panel (B). The GUI for most plug-ins will be displayed on the side panel. On the main panel (C), you will see the plugins or you can edit the files to be compiled by the IDE. In Terminal (D), you can see the result of your interactions with the GUI, or run scripts.
 
-![](img/klaytn-ide/img/klaytn-ide/2_ide_layout.png)
+![](img/klaytn-ide/klaytn-ide/2_ide_layout.png)
 
 ## 2. Default Modules <a id="default-modules"></a>
 
