@@ -1,6 +1,6 @@
 # Klaytn IDE <a id="klaytn-ide"></a>
 
-<img src="img/klaytn-ide/1_ide_full.png" width="1800" height="800"/>
+<img src="img/klaytn-ide/1_ide_full.png" width="1800" height=""/>
 
 Klaytn IDE is a browser-based application compatible with Ethereum. It has been forked from Remix 0.20.0. It supports a fast development cycle through various plug-ins and an intuitive GUI. You can write, test, and deploy Klaytn smart contracts using Solidity. You can use Klaytn IDE at https://ide.klaytn.com.
 
