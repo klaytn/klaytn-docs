@@ -58,7 +58,7 @@ If you reboot EN-02, a bridge is connected automatically between the EN-02 and t
 
 ## Step 2: Register and Subscribe to the Bridge Contract <a id="step-2-register-bridge-contract"></a>
 
-As shown in the figure above, only one bridge between EN-01 and SCN-L2-01 has registered a bridge contract.
+As shown in the figure above, only one bridge between EN-01 and SCN-L2-01 has been registered as a bridge contract.
 
 Connect to the SCN-L2-02 console and run the APIs for bridge registration, bridge subscription, and token registration, which were created while deploying the Bridge Contract with EN-01 and SCN-L2-01 in step 2 of the previous section([link](./value-transfer.md)).
 
