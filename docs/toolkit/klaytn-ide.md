@@ -10,11 +10,9 @@ This document covers Klaytn IDE’s main features and instructions on how to use
 
 Below is the layout for Klaytn IDE. The icon panel (A), where you can select the plug-in to be displayed in the side panel (B). The GUI for most plug-ins will be displayed on the side panel. On the main panel (C), you will see the plug-ins or you can edit the files to be compiled by the IDE. In Terminal (D), you can see the result of your interactions with the GUI, or run scripts.
 
-![](img/klaytn-ide/1_ide_layout.png)
+![](img/klaytn-ide/2_ide_layout.png)
 
 ## 2. Default Modules <a id="default-modules"></a>
-
-![](img/klaytn-ide/ide-docs-sections.png)
 
 The default modules when you first open Klaytn IDE are File Explorer, Plugin Manager, and Editor.
 
