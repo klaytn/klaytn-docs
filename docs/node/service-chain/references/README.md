@@ -18,4 +18,7 @@ Klaytn ServiceChain is an enterprise-level blockchain to meet companies' require
 ![](./images/sc-overview.png)
 
 
-Read the [Klaytn Scaling Solution](../../klaytn/scaling-solutions.md) for more details about the ServiceChain.
+Read the [Klaytn Scaling Solution](../../klaytn/scaling-solutions.md) for more details about the ServiceChain. And the following videos will help you understand Klaytn ServiceChain.
+
+- [Horizontal Scaling through Service Chain in Klaytn | TXGX 2019](https://www.youtube.com/watch?v=8yQc5FQysJc)
+- [High Availability Architecture of Klaytn Service Chain | TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
