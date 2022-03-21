@@ -47,19 +47,19 @@ Let’s go over the icons one by one.
 
 Klaytn IDE runs based on plugins. To use its diverse features, you have to activate the modules in the Plugin Manager. The default modules in the Icon Panel are File Explorer, Compile, Deploy&Run. We will explain more about Compile and Deploy&Run in [3. Common Modules] below. 
 
-![](img/klaytn-ide/plugin-manager.png)
+![](img/klaytn-ide/5_ide_pluginmanager.png)
 
 ### Code Editor <a id="code-editor"></a>
 
 In the Main Panel’s Code Editor, you can write and edit code. If you make changes to an existing code, it needs to be compiled again. If you have autocompile checked, the code will automatically be compiled every time a file is changed or another file is selected. It also supports highlights for syntaxes mapped to Solidity keywords.
 
-![](img/klaytn-ide/5_ide_codeeditor.png)
+![](img/klaytn-ide/ide_codeeditor.png)
 
 ### Terminal <a id="terminal"></a>
 
 In the terminal you can check the compile result, error, deployment status and transaction information. Click on the checked transaction to see details. On the terminal you can enter a transaction hash or contract address.
 
-![](img/klaytn-ide/6_ide_terminal.png)
+![](img/klaytn-ide/ide_terminal.png)
 
 ## 3. Common Modules <a id="3-common-modules"></a>
 
