@@ -1,15 +1,15 @@
-If only a pair of bridges is used in the ServiceChain, that bridge can become a single point of failure. To solve this, we describe how you can build an HA system with two or more pairs of bridges. As shown in the figure below, configure the bridges to be connected in at least two pairs, so that even if there is a problem in one bridge connection, data anchoring and value transfer between chains work normally through the other bridge.
+If only one bridge is used in the ServiceChain, that bridge can become a single point of failure. To solve this, we describe how you can build an HA system with two or more pairs of bridges. As shown in the figure below, configure the bridges to be connected in at least two pairs, so that even if there is a problem in one bridge connection, data anchoring and value transfer between chains can still work normally through the other bridge.
 
 ![](../images/sc-ha-arch.png)
 
 
 ## Prerequisites <a id="prerequisites"></a>
- - The main bridge of EN node and the subbridge pair of SCN node are connected. If it's not, please refer to [Baobab connection](./en-scn-connection.md)
+ - The main bridge of the EN node and the subbridge pair of the SCN node are connected. If it's not, please refer to [Baobab connection](./en-scn-connection.md)
  - This section describes how to add a bridge between Baobab and a ServiceChain. In the same way, you can also set up HA by adding another bridge.
 
-## Step 1: Add Bridge between EN-SCN <a id="step-1-add-bridge-between-en-scn"></a>
+## Step 1: Adding another Bridge between EN-SCN <a id="step-1-adding-another-bridge-between-en-scn"></a>
 
-In [Connecting to Baobab](./en-scn-connection.md), we assume that the EN node and the SCN node connected by a bridge as EN-01 and SCN-L2-01, respectively. In this section, we will add a bridge between EN-02 and SCN-L2-02, which is the part marked in blue. 
+In [Connecting to Baobab](./en-scn-connection.md), we assume that the EN node and the SCN node connected by a bridge as EN-01 and SCN-L2-01, respectively. In this section, we will add another bridge between EN-02 and SCN-L2-02, which is the part marked in blue. 
 Since it follows the same procedure, we will briefly explain.
 
 
@@ -40,7 +40,7 @@ SCN-L2-02$ echo '["kni://eb8f21df10c6562...25bae@192.168.0.5:50505?discport=0"]'
 On the shell of SCN-L2-02, edit `kscn-XXXXX-amd64/conf/kscnd.conf` as described below.
 To connect a bridge, set `SC_SUB_BRIDGE` to 1.
 `SC_PARENT_CHAIN_ID` is set to Baobob's `chainID` 1001. 
-`SC_ANCHORING_PERIOD` is the parameter that decides the period to send an anchoring transaction to the parent chain. 
+`SC_ANCHORING_PERIOD` is the parameter that decides the period to send an anchoring transaction to the parent chain. In this example, an anchor transaction is submitted to the parent chain (Baobab) for every 10 child blocks.
 ```
 ...
 SC_SUB_BRIDGE=1
@@ -58,11 +58,11 @@ After adding the bridge between EN-02 and SCN-L2-02, you can now see the connect
 
 ![](../images/sc-ha-before-register.png)
 
-## Step 2: Registering and Subscribing to the Bridge Contract <a id="step-2-registering-and-subscribing-the-bridge-contract"></a>
+## Step 2: Registering and Subscribing the Bridge Contract <a id="step-2-registering-and-subscribing-the-bridge-contract"></a>
 
 As shown in the figure above, only one bridge between EN-01 and SCN-L2-01 has been registered as a bridge contract.
 
-Connect to the SCN-L2-02 console and run the APIs for bridge registration, bridge subscription, and token registration, which were created while deploying the Bridge Contract with EN-01 and SCN-L2-01 in step 2 of the previous section([link](./value-transfer.md)).
+Connect to the SCN-L2-02 console and run the APIs for bridge registration, bridge subscription, and token registration. The bridge and token contract were created while deploying the bridge contract with EN-01 and SCN-L2-01 in step 2 of [Cross-Chain Value Transfer](./value-transfer.md).
 
 ```
 $ kscn attach --datadir ~/data
@@ -74,6 +74,6 @@ null
 null
 ```
 
-When registration is completed, a bridge between EN-02 and SCN-L2-02 is added as shown in the figure below to configure HA.
+When registration is completed, a bridge contract is registered in both EN-02 and SCN-L2-02 as shown in the figure below to configure HA.
 
 ![](../images/sc-ha-after-register.png)
