@@ -25,7 +25,7 @@ Check the KNI information of EN-02 by the following command:
 
 
 ```console
-$ ken attach --datadir ~/data
+EN-02$ ken attach --datadir ~/data
 > mainbridge.nodeInfo.kni
 "kni://eb8f21df10c6562...25bae@[::]:50505?discport=0"
 ```
@@ -34,7 +34,7 @@ Log in to SCN-L2-02, and create `main-bridges.json` with the KNI of EN-02. Pleas
 
 
 ```console
-$ echo '["kni://eb8f21df10c6562...25bae@192.168.0.5:50505?discport=0"]' > ~/data/main-bridges.json
+SCN-L2-02$ echo '["kni://eb8f21df10c6562...25bae@192.168.0.5:50505?discport=0"]' > ~/data/main-bridges.json
 ```
 
 On the shell of SCN-L2-02, edit `kscn-XXXXX-amd64/conf/kscnd.conf` as described below.
@@ -52,11 +52,13 @@ SC_ANCHORING_PERIOD=10
 ```
 
 
-If you reboot EN-02, a bridge is connected automatically between the EN-02 and the SCN-L2-02 and data is anchored as shown in the figure below.
+If you reboot EN-02, a bridge will be connected automatically between the EN-02 and the SCN-L2-02 and data anchoring will start from the point where the connection is made as shown in the figure below.
+
+After adding the bridge between EN-02 and SCN-L2-02, you can now see the connection between the nodes are established as shown in below.
 
 ![](../images/sc-ha-before-register.png)
 
-## Step 2: Register and Subscribe to the Bridge Contract <a id="step-2-register-bridge-contract"></a>
+## Step 2: Registering and Subscribing to the Bridge Contract <a id="step-2-registering-and-subscribing-the-bridge-contract"></a>
 
 As shown in the figure above, only one bridge between EN-01 and SCN-L2-01 has been registered as a bridge contract.
 
