@@ -20,7 +20,7 @@ The default modules when you first open Klaytn IDE are File Explorer, Plugin Man
 
 The File Explorer icon is at the top of the icon panel.
 
-<img src="img/klaytn-ide/3_ide_fileexplorer.png" width="310" height="210"/>
+![](img/klaytn-ide/3_ide_fileexplorer.png)
 
 The file explorer on the left side of the workspace shows the list of smart contract files stored in your browser. Please be aware that clearing the browser storage will permanently delete all smart contract files you wrote. You can add, rename, and delete files from the file explorer.
 
@@ -28,7 +28,7 @@ Klaytn IDE stores all files in Workspaces, the browser’s local storage. You ca
 
 Workspaces contain contracts, scripts, tests folders and README.txt by default.
 
-<img src="img/klaytn-ide/4_ide_fileexplorer2.png" width="310" height="210">
+![](img/klaytn-ide/4_ide_fileexplorer2.png)
 
 Let’s go over the icons one by one. 
 
@@ -45,7 +45,7 @@ Let’s go over the icons one by one.
 
 Klaytn IDE runs based on plugins. To use its diverse features, you have to activate the modules in the Plugin Manager. The default modules in the Icon Panel are File Explorer, Compile, Deploy&Run. We will explain more about Compile and Deploy&Run in [3. Common Modules] below. 
 
-<img src="img/klaytn-ide/5_ide_pluginmanager.png" width="470" height="370"/>
+![](img/klaytn-ide/5_ide_pluginmanager.png)
 
 ### Code Editor <a id="code-editor"></a>
 
