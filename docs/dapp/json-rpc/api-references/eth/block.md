@@ -234,7 +234,7 @@ Please check [Caution-Block](./caution.md#block) before using this API.
 
 **Return Value**
 
-`Object` - A block object, or `error` when no block was found:
+`Object` - A block object, or `null` when no block was found:
 
 | Name              | Type          | Description                                                                                                               |
 |-------------------|---------------|---------------------------------------------------------------------------------------------------------------------------|
