@@ -28,7 +28,7 @@ Klaytn IDE stores all files in Workspaces, the browser’s local storage. You ca
 
 Workspaces contain contracts, scripts, tests folders and README.txt by default.
 
-<img src="img/klaytn-ide/4_ide_fileexplorer2.png" width="310" height="210" align=center>
+<img src="img/klaytn-ide/4_ide_fileexplorer2.png" width="310" height="210">
 
 Let’s go over the icons one by one. 
 
@@ -167,137 +167,57 @@ The file looks like this:
 
 ```
 {
- "accounts": {
-   "account{0}": "0x02a96293B5745752E135bC9Ec30173A7a1d50232"
- },
- "linkReferences": {},
- "transactions": [
-   {
-     "timestamp": 1647319472459,
-     "record": {
-       "value": "0",
-       "parameters": [],
-       "abi": "0x4b1ba47c8f784f96abd81c133839578c6763348ea83b370a8b4fb3864e474ff3",
-       "contractName": "Count",
-       "bytecode": "6080604052600a60005534801561001557600080fd5b5061017e806100256000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c806306661abd1461004657806342cbb15c14610064578063d14e62b814610082575b600080fd5b61004e61009e565b60405161005b9190610107565b60405180910390f35b61006c6100a4565b6040516100799190610107565b60405180910390f35b61009c600480360381019061009791906100cb565b6100ac565b005b60005481565b600043905090565b8060008190555050565b6000813590506100c581610131565b92915050565b6000602082840312156100e1576100e061012c565b5b60006100ef848285016100b6565b91505092915050565b61010181610122565b82525050565b600060208201905061011c60008301846100f8565b92915050565b6000819050919050565b600080fd5b61013a81610122565b811461014557600080fd5b5056fea2646970667358221220d763789013ad3e25664327566795fb20cdf911c6f6a9bf92f3518930ee06ea9164736f6c63430008070033",
-       "linkReferences": {},
-       "name": "",
-       "inputs": "()",
-       "type": "constructor",
-       "from": "account{0}"
-     }
-   },
-   {
-     "timestamp": 1647319502643,
-     "record": {
-       "value": "0",
-       "parameters": [],
-       "abi": "0xc360c586262124d3cd7ee973d0b20bbc3ed7e3ef25d4060ac86a84b209acd54a",
-       "contractName": "Owner",
-       "bytecode": "608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16600073ffffffffffffffffffffffffffffffffffffffff167f342827c97908e5e2f71151c08502a66d44b6f758e3ac2f1de95f02eb95f0a73560405160405180910390a3610356806100db6000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063893d20e81461003b578063a6f9dae114610059575b600080fd5b610043610075565b604051610050919061025d565b60405180910390f35b610073600480360381019061006e91906101fe565b61009e565b005b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161461012c576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161012390610278565b60405180910390fd5b8073ffffffffffffffffffffffffffffffffffffffff1660008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f342827c97908e5e2f71151c08502a66d44b6f758e3ac2f1de95f02eb95f0a73560405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b6000813590506101f881610309565b92915050565b600060208284031215610214576102136102db565b5b6000610222848285016101e9565b91505092915050565b610234816102a9565b82525050565b6000610247601383610298565b9150610252826102e0565b602082019050919050565b6000602082019050610272600083018461022b565b92915050565b600060208201905081810360008301526102918161023a565b9050919050565b600082825260208201905092915050565b60006102b4826102bb565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600080fd5b7f43616c6c6572206973206e6f74206f776e657200000000000000000000000000600082015250565b610312816102a9565b811461031d57600080fd5b5056fea2646970667358221220d8b1ba73854235865084cd146d56b584ad91a0dd55cf8fe3ca277e04896bf95c64736f6c63430008070033",
-       "linkReferences": {},
-       "name": "",
-       "inputs": "()",
-       "type": "constructor",
-       "from": "account{0}"
-     }
-   }
- ],
- "abis": {
-   "0x4b1ba47c8f784f96abd81c133839578c6763348ea83b370a8b4fb3864e474ff3": [
-     {
-       "inputs": [
-         {
-           "internalType": "uint256",
-           "name": "_count",
-           "type": "uint256"
-         }
-       ],
-       "name": "setCount",
-       "outputs": [],
-       "stateMutability": "nonpayable",
-       "type": "function"
-     },
-     {
-       "inputs": [],
-       "name": "count",
-       "outputs": [
-         {
-           "internalType": "uint256",
-           "name": "",
-           "type": "uint256"
-         }
-       ],
-       "stateMutability": "view",
-       "type": "function"
-     },
-     {
-       "inputs": [],
-       "name": "getBlockNumber",
-       "outputs": [
-         {
-           "internalType": "uint256",
-           "name": "",
-           "type": "uint256"
-         }
-       ],
-       "stateMutability": "view",
-       "type": "function"
-     }
-   ],
-   "0xc360c586262124d3cd7ee973d0b20bbc3ed7e3ef25d4060ac86a84b209acd54a": [
-     {
-       "inputs": [
-         {
-           "internalType": "address",
-           "name": "newOwner",
-           "type": "address"
-         }
-       ],
-       "name": "changeOwner",
-       "outputs": [],
-       "stateMutability": "nonpayable",
-       "type": "function"
-     },
-     {
-       "inputs": [],
-       "stateMutability": "nonpayable",
-       "type": "constructor"
-     },
-     {
-       "anonymous": false,
-       "inputs": [
-         {
-           "indexed": true,
-           "internalType": "address",
-           "name": "oldOwner",
-           "type": "address"
-         },
-         {
-           "indexed": true,
-           "internalType": "address",
-           "name": "newOwner",
-           "type": "address"
-         }
-       ],
-       "name": "OwnerSet",
-       "type": "event"
-     },
-     {
-       "inputs": [],
-       "name": "getOwner",
-       "outputs": [
-         {
-           "internalType": "address",
-           "name": "",
-           "type": "address"
-         }
-       ],
-       "stateMutability": "view",
-       "type": "function"
-     }
-   ]
- }
+  "accounts": {
+    "account{0}": "0xeC45d4724A4148B95528BD5F9ED56F2Ef80CB61C"
+  },
+  "linkReferences": {},
+  "transactions": [
+    {
+      "timestamp": 1647916002296,
+      "record": {
+        "value": "0",
+        "parameters": [],
+        "abi": "0xf64e9d2538e9b682f0efcc4e652b9ef7c4057549fa1ea612b04794d55beaf4c1",
+        "contractName": "Storage",
+        "bytecode": "608060405234801561001057600080fd5b50610150806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80632e64cec11461003b5780636057361d14610059575b600080fd5b610043610075565b60405161005091906100d9565b60405180910390f35b610073600480360381019061006e919061009d565b61007e565b005b60008054905090565b8060008190555050565b60008135905061009781610103565b92915050565b6000602082840312156100b3576100b26100fe565b5b60006100c184828501610088565b91505092915050565b6100d3816100f4565b82525050565b60006020820190506100ee60008301846100ca565b92915050565b6000819050919050565b600080fd5b61010c816100f4565b811461011757600080fd5b5056fea2646970667358221220bafbb6967d7f4b37b93bfe2fe5938ed3a2d511abf3d5775fa6190843b2db7b8264736f6c63430008070033",
+        "linkReferences": {},
+        "name": "",
+        "inputs": "()",
+        "type": "constructor",
+        "from": "account{0}"
+      }
+    }
+  ],
+  "abis": {
+    "0xf64e9d2538e9b682f0efcc4e652b9ef7c4057549fa1ea612b04794d55beaf4c1": [
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "num",
+            "type": "uint256"
+          }
+        ],
+        "name": "store",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "retrieve",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      }
+    ]
+  }
 }
 ```
 
