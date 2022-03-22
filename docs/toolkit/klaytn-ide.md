@@ -28,7 +28,7 @@ Klaytn IDE stores all files in Workspaces, the browser’s local storage. You ca
 
 Workspaces contain contracts, scripts, tests folders and README.txt by default.
 
-<img src="img/klaytn-ide/4_ide_fileexplorer2.png" width="310" height="210"/>
+<img src="img/klaytn-ide/4_ide_fileexplorer2.png" width="310" height="210" align=center>
 
 Let’s go over the icons one by one. 
 
