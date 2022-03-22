@@ -11,10 +11,10 @@ caver.transaction.legacyTransaction.create(transactionObject)
 `LegacyTransaction` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `LegacyTransaction`.
 
 {% hint style="success" %} 
-NOTE: You can create an instance of `LegacyTransaction` from RLP-encoded string. Please refer to the below example.
+NOTE: You can create an instance of `LegacyTransaction` from RLP-encoded strings. Please refer to the below example.
 NOTE: `caver.transaction.legacyTransaction.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), only transaction creation using `create` function is supported. If you were creating a transaction using a constructor like `new caver.transaction.legacyTransaction({...})`, please change it to `caver.transaction.legacyTransaction.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.legacyTransaction({...})`, please change it to `caver.transaction.legacyTransaction.create({...})`.
 {% endhint %}
 
 **properties**
@@ -80,10 +80,10 @@ caver.transaction.valueTransfer.create(transactionObject)
 `ValueTransfer` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `ValueTransfer` transaction.
 
 {% hint style="success" %} 
-NOTE: You can create an instance of `ValueTransfer` from RLP-encoded string. Please refer to the below example.
+NOTE: You can create an instance of `ValueTransfer` from RLP-encoded strings. Please refer to the below example.
 NOTE: `caver.transaction.valueTransfer.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), only transaction creation using `create` function is supported. If you were creating a transaction using a constructor like `new caver.transaction.valueTransfer({...})`, please change it to `caver.transaction.valueTransfer.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.valueTransfer({...})`, please change it to `caver.transaction.valueTransfer.create({...})`.
 {% endhint %}
 
 **properties**
@@ -135,10 +135,10 @@ caver.transaction.valueTransferMemo.create(transactionObject)
 `ValueTransferMemo` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `ValueTransferMemo` transaction.
 
 {% hint style="success" %} 
-NOTE: You can create an instance of `ValueTransferMemo` from RLP-encoded string. Please refer to the below example.
+NOTE: You can create an instance of `ValueTransferMemo` from RLP-encoded strings. Please refer to the below example.
 NOTE: `caver.transaction.valueTransferMemo.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), only transaction creation using `create` function is supported. If you were creating a transaction using a constructor like `new caver.transaction.valueTransferMemo({...})`, please change it to `caver.transaction.valueTransferMemo.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.valueTransferMemo({...})`, please change it to `caver.transaction.valueTransferMemo.create({...})`.
 {% endhint %}
 
 **properties**
