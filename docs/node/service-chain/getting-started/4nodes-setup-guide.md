@@ -28,7 +28,7 @@ For the convenience, we will add the binary path to $PATH. Use the actual path o
 $ export PATH=$PATH:~/path/to/kscn-XXXXX-amd64/bin
 ```
 
-SCN also provides RPM Distribution(RHEL/EntOS/Fedora). For more information, please refer [here](../references/scn/installation.md).
+SCN also provides RPM Distribution(RHEL/EntOS/Fedora). For more information, please refer to [Installation](../references/scn/installation.md).
 
 ```console
 # curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo
