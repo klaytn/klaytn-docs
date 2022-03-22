@@ -148,6 +148,7 @@ $ node kip7-deploy.js
 > register token to subbridge..
 ------------------------- kip7-deploy END -------------------------
 ```
+The below command is an example of sending KIP-7 tokens using the ERC-20 interface with `requestERC20Transfer()`.
 
 ```
 $ node kip7-transfer-2step-erc20-interface.js
