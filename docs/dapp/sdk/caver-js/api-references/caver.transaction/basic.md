@@ -194,10 +194,10 @@ caver.transaction.accountUpdate.create(transactionObject)
 
 
 {% hint style="success" %} 
-NOTE: You can create an instance of `AccountUpdate` from RLP-encoded string. Please refer to the below example.
+NOTE: You can create an instance of `AccountUpdate` from RLP-encoded strings. Please refer to the below example.
 NOTE: `caver.transaction.accountUpdate.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), only transaction creation using `create` function is supported. If you were creating a transaction using a constructor like `new caver.transaction.accountUpdate({...})`, please change it to `caver.transaction.accountUpdate.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.accountUpdate({...})`, please change it to `caver.transaction.accountUpdate.create({...})`.
 {% endhint %}
 
 **properties**
@@ -251,10 +251,10 @@ caver.transaction.smartContractDeploy.create(transactionObject)
 `SmartContractDeploy` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `SmartContractDeploy` transaction.
 
 {% hint style="success" %} 
-NOTE: You can create an instance of `SmartContractDeploy` from RLP-encoded string. Please refer to the below example.
+NOTE: You can create an instance of `SmartContractDeploy` from RLP-encoded strings. Please refer to the below example.
 NOTE: `caver.transaction.smartContractDeploy.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), only transaction creation using `create` function is supported. If you were creating a transaction using a constructor like `new caver.transaction.smartContractDeploy({...})`, please change it to `caver.transaction.smartContractDeploy.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.smartContractDeploy({...})`, please change it to `caver.transaction.smartContractDeploy.create({...})`.
 {% endhint %}
 
 **properties**
@@ -311,10 +311,10 @@ caver.transaction.smartContractExecution.create(transactionObject)
 `SmartContractExecution` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `SmartContractExecution` transaction.
 
 {% hint style="success" %} 
-NOTE: You can create an instance of `SmartContractExecution` from RLP-encoded string. Please refer to the below example.
+NOTE: You can create an instance of `SmartContractExecution` from RLP-encoded strings. Please refer to the below example.
 NOTE: `caver.transaction.smartContractExecution.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), only transaction creation using `create` function is supported. If you were creating a transaction using a constructor like `new caver.transaction.smartContractExecution({...})`, please change it to `caver.transaction.smartContractExecution.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.smartContractExecution({...})`, please change it to `caver.transaction.smartContractExecution.create({...})`.
 {% endhint %}
 
 **properties**
@@ -370,10 +370,10 @@ caver.transaction.cancel.create(transactionObject)
 `Cancel` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `Cancel` transaction.
 
 {% hint style="success" %} 
-NOTE: You can create an instance of `Cancel` from RLP-encoded string. Please refer to the below example.
+NOTE: You can create an instance of `Cancel` from RLP-encoded strings. Please refer to the below example.
 NOTE: `caver.transaction.cancel.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), only transaction creation using `create` function is supported. If you were creating a transaction using a constructor like `new caver.transaction.xcancelxx({...})`, please change it to `caver.transaction.cancel.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.xcancelxx({...})`, please change it to `caver.transaction.cancel.create({...})`.
 {% endhint %}
 
 **properties**
@@ -420,10 +420,10 @@ caver.transaction.chainDataAnchoring.create(transactionObject)
 `ChainDataAnchoring` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `ChainDataAnchoring` transaction.
 
 {% hint style="success" %} 
-NOTE: You can create an instance of `ChainDataAnchoring` from RLP-encoded string. Please refer to the below example.
+NOTE: You can create an instance of `ChainDataAnchoring` from RLP-encoded strings. Please refer to the below example.
 NOTE: `caver.transaction.chainDataAnchoring.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), only transaction creation using `create` function is supported. If you were creating a transaction using a constructor like `new caver.transaction.chainDataAnchoring({...})`, please change it to `caver.transaction.chainDataAnchoring.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.chainDataAnchoring({...})`, please change it to `caver.transaction.chainDataAnchoring.create({...})`.
 {% endhint %}
 
 **properties**
@@ -471,10 +471,10 @@ caver.transaction.ethereumAccessList.create(transactionObject)
 `EthereumAccessList` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `EthereumAccessList`.
 
 {% hint style="success" %} 
-NOTE: You can create an instance of `EthereumAccessList` from RLP-encoded string. Please refer to the below example.
+NOTE: You can create an instance of `EthereumAccessList` from RLP-encoded strings. Please refer to the below example.
 NOTE: `caver.transaction.ethereumAccessList` is supported since caver-js [v1.8.0](https://www.npmjs.com/package/caver-js/v/1.8.0).
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), only transaction creation using `create` function is supported. If you were creating a transaction using a constructor like `new caver.transaction.ethereumAccessList({...})`, please change it to `caver.transaction.ethereumAccessList.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.ethereumAccessList({...})`, please change it to `caver.transaction.ethereumAccessList.create({...})`.
 {% endhint %}
 
 **properties**
@@ -542,10 +542,10 @@ caver.transaction.ethereumDynamicFee.create(transactionObject)
 And note that `EthereumDynamicFee` does not use `gasPrice`, it uses `maxPriorityFeePerGas` and `maxFeePerGas`.
 
 {% hint style="success" %} 
-NOTE: You can create an instance of `EthereumDynamicFee` from RLP-encoded string. Please refer to the below example.
+NOTE: You can create an instance of `EthereumDynamicFee` from RLP-encoded strings. Please refer to the below example.
 NOTE: `caver.transaction.ethereumDynamicFee` is supported since caver-js [v1.8.0](https://www.npmjs.com/package/caver-js/v/1.8.0).
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), only transaction creation using `create` function is supported. If you were creating a transaction using a constructor like `new caver.transaction.ethereumDynamicFee({...})`, please change it to `caver.transaction.ethereumDynamicFee.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.ethereumDynamicFee({...})`, please change it to `caver.transaction.ethereumDynamicFee.create({...})`.
 {% endhint %}
 
 **properties**

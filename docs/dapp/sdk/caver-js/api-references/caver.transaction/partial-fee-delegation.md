@@ -11,10 +11,10 @@ caver.transaction.feeDelegatedValueTransferWithRatio.create(transactionObject)
 `FeeDelegatedValueTransferWithRatio` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedValueTransfer` transaction.
 
 {% hint style="success" %} 
-NOTE: You can create an instance of `FeeDelegatedValueTransferWithRatio` from RLP-encoded string. Please refer to the below example.
+NOTE: You can create an instance of `FeeDelegatedValueTransferWithRatio` from RLP-encoded strings. Please refer to the below example.
 NOTE: `caver.transaction.feeDelegatedValueTransferWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), only transaction creation using `create` function is supported. If you were creating a transaction using a constructor like `new caver.transaction.feeDelegatedValueTransferWithRatio({...})`, please change it to `caver.transaction.feeDelegatedValueTransferWithRatio.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedValueTransferWithRatio({...})`, please change it to `caver.transaction.feeDelegatedValueTransferWithRatio.create({...})`.
 {% endhint %}
 
 **properties**
@@ -73,10 +73,10 @@ caver.transaction.feeDelegatedValueTransferMemoWithRatio.create(transactionObjec
 `FeeDelegatedValueTransferMemoWithRatio` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedValueTransferMemoWithRatio` transaction.
 
 {% hint style="success" %} 
-NOTE: You can create an instance of `FeeDelegatedValueTransferMemoWithRatio` from RLP-encoded string. Please refer to the below example.
+NOTE: You can create an instance of `FeeDelegatedValueTransferMemoWithRatio` from RLP-encoded strings. Please refer to the below example.
 NOTE: `caver.transaction.feeDelegatedValueTransferMemoWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), only transaction creation using `create` function is supported. If you were creating a transaction using a constructor like `new caver.transaction.feeDelegatedValueTransferMemoWithRatio({...})`, please change it to `caver.transaction.feeDelegatedValueTransferMemoWithRatio.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedValueTransferMemoWithRatio({...})`, please change it to `caver.transaction.feeDelegatedValueTransferMemoWithRatio.create({...})`.
 {% endhint %}
 
 **properties**
@@ -138,10 +138,10 @@ caver.transaction.feeDelegatedAccountUpdateWithRatio.create(transactionObject)
 `FeeDelegatedAccountUpdateWithRatio` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedAccountUpdateWithRatio` transaction.
 
 {% hint style="success" %} 
-NOTE: You can create an instance of `FeeDelegatedAccountUpdateWithRatio` from RLP-encoded string. Please refer to the below example.
+NOTE: You can create an instance of `FeeDelegatedAccountUpdateWithRatio` from RLP-encoded strings. Please refer to the below example.
 NOTE: `caver.transaction.feeDelegatedAccountUpdateWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), only transaction creation using `create` function is supported. If you were creating a transaction using a constructor like `new caver.transaction.feeDelegatedAccountUpdateWithRatio({...})`, please change it to `caver.transaction.feeDelegatedAccountUpdateWithRatio.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedAccountUpdateWithRatio({...})`, please change it to `caver.transaction.feeDelegatedAccountUpdateWithRatio.create({...})`.
 {% endhint %}
 
 **properties**
@@ -202,10 +202,10 @@ caver.transaction.feeDelegatedSmartContractDeployWithRatio.create(transactionObj
 `FeeDelegatedSmartContractDeployWithRatio` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedSmartContractDeployWithRatio` transaction.
 
 {% hint style="success" %} 
-NOTE: You can create an instance of `FeeDelegatedSmartContractDeployWithRatio` from RLP-encoded string. Please refer to the below example.
+NOTE: You can create an instance of `FeeDelegatedSmartContractDeployWithRatio` from RLP-encoded strings. Please refer to the below example.
 NOTE: `caver.transaction.feeDelegatedSmartContractDeployWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), only transaction creation using `create` function is supported. If you were creating a transaction using a constructor like `new caver.transaction.feeDelegatedSmartContractDeployWithRatio({...})`, please change it to `caver.transaction.feeDelegatedSmartContractDeployWithRatio.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedSmartContractDeployWithRatio({...})`, please change it to `caver.transaction.feeDelegatedSmartContractDeployWithRatio.create({...})`.
 {% endhint %}
 
 **properties**
@@ -269,10 +269,10 @@ caver.transaction.feeDelegatedSmartContractExecutionWithRatio.create(transaction
 `FeeDelegatedSmartContractExecutionWithRatio` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedSmartContractExecutionWithRatio` transaction.
 
 {% hint style="success" %} 
-NOTE: You can create an instance of `FeeDelegatedSmartContractExecutionWithRatio` from RLP-encoded string. Please refer to the below example.
+NOTE: You can create an instance of `FeeDelegatedSmartContractExecutionWithRatio` from RLP-encoded strings. Please refer to the below example.
 NOTE: `caver.transaction.feeDelegatedSmartContractExecutionWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), only transaction creation using `create` function is supported. If you were creating a transaction using a constructor like `new caver.transaction.feeDelegatedSmartContractExecutionWithRatio({...})`, please change it to `caver.transaction.feeDelegatedSmartContractExecutionWithRatio.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedSmartContractExecutionWithRatio({...})`, please change it to `caver.transaction.feeDelegatedSmartContractExecutionWithRatio.create({...})`.
 {% endhint %}
 
 **properties**
@@ -333,10 +333,10 @@ caver.transaction.feeDelegatedCancelWithRatio.create(transactionObject)
 `FeeDelegatedCancelWithRatio` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedCancelWithRatio` transaction.
 
 {% hint style="success" %} 
-NOTE: You can create an instance of `FeeDelegatedCancelWithRatio` from RLP-encoded string. Please refer to the below example.
+NOTE: You can create an instance of `FeeDelegatedCancelWithRatio` from RLP-encoded strings. Please refer to the below example.
 NOTE: `caver.transaction.feeDelegatedCancelWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), only transaction creation using `create` function is supported. If you were creating a transaction using a constructor like `new caver.transaction.feeDelegatedCancelWithRatio({...})`, please change it to `caver.transaction.feeDelegatedCancelWithRatio.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedCancelWithRatio({...})`, please change it to `caver.transaction.feeDelegatedCancelWithRatio.create({...})`.
 {% endhint %}
 
 **properties**
@@ -390,10 +390,10 @@ caver.transaction.feeDelegatedChainDataAnchoringWithRatio.create(transactionObje
 `FeeDelegatedChainDataAnchoringWithRatio` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedChainDataAnchoringWithRatio` transaction.
 
 {% hint style="success" %} 
-NOTE: You can create an instance of `FeeDelegatedChainDataAnchoringWithRatio` from RLP-encoded string. Please refer to the below example.
+NOTE: You can create an instance of `FeeDelegatedChainDataAnchoringWithRatio` from RLP-encoded strings. Please refer to the below example.
 NOTE: `caver.transaction.feeDelegatedChainDataAnchoringWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), only transaction creation using `create` function is supported. If you were creating a transaction using a constructor like `new caver.transaction.feeDelegatedChainDataAnchoringWithRatio({...})`, please change it to `caver.transaction.feeDelegatedChainDataAnchoringWithRatio.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedChainDataAnchoringWithRatio({...})`, please change it to `caver.transaction.feeDelegatedChainDataAnchoringWithRatio.create({...})`.
 {% endhint %}
 
 **properties**
