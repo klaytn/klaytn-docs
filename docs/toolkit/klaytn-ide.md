@@ -77,7 +77,7 @@ If you finished writing your code, use Compile to check for any errors or warnin
 
 ![](img/klaytn-ide/7_ide_compiler.png)
 
-Click Compile (F). In Compiler (A), select the compiler version that corresponds to the one stated in the Solidity file. You can select the language of your choice in B. If you want the file to be automatically compiled every time it is saved or another file is selected, you can check Auto compile (D). But be aware that contracts with a lot of dependencies may take a long time.
+Click Compile (F) to build the file on the Code Editor. In Compiler (A), select the compiler version that corresponds to the one stated in the Solidity file. You can select the language of your choice in (B). If you want the file to be automatically compiled every time it is saved or another file is selected, you can check Auto compile (D). But be aware that contracts with a lot of dependencies may take a long time.
 
 #### EVM <a id="evm-version"></a>
 
