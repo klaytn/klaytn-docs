@@ -161,7 +161,7 @@ $ kscnd start
 Starting kscnd: OK
 ```
 
-Check `subbridge.peers.length` to see if SCN is connected to EN, check `subbridge.latestAnchoredBlockNumber` to check the latest anchored block number to see if anchoring is in progress.
+Check `subbridge.peers.length` to see if SCN-L3-01 is connected to SCN-L2-03, check `subbridge.latestAnchoredBlockNumber` to check the latest anchored block number to see if anchoring is in progress.
 
 ```console
 $ kscn attach --datadir ~/data
