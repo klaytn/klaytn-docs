@@ -74,7 +74,7 @@ You can activate SOLIDITY COMPILER, SOLIDITY STATIC ANALYSIS, SOLIDITY UNIT TEST
 
 ### Compile <a id="compile"></a>
 
-If you finished your code, use Compile to check for any errors or warnings. It’s only after you compile the contract that you can deploy it.
+If you finished writing your code, use Compile to check for any errors or warnings. It’s only after you compile the contract that you can deploy it.
 
 ![](img/klaytn-ide/7_ide_compiler.png)
 
