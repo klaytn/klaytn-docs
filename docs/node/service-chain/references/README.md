@@ -8,7 +8,7 @@
 
 ## ServiceChain Overview <a id="service-chain-overview"></a>
 
-Klaytn ServiceChain is an enterprise-level blockchain to meet companies' requirements such as value transfer, security, high performance, and customization. Klaytn ServiceChain provides the following features:
+ServiceChain is an enterprise-level blockchain to meet companies' requirements such as value transfer, security, high performance, and customization. Klaytn ServiceChain provides the following features:
 
 - Immediate finality
 - Cross-chain token transfer
