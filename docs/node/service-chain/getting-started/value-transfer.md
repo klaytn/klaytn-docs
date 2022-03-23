@@ -5,7 +5,7 @@ Then you will register the contract address on SCN. And you will test an ERC-20 
 
 ## Prerequisites <a id="prerequisites"></a>
 - We assume that you installed the ServiceChain, and connected the ServiceChain to the Baobab EN by the instructions in [Connecting to Baobab](en-scn-connection.md).
-- Clone the [cross-chain-transfer-example repository](https://github.com/klaytn/servicechain-value-transfer-examples).
+- Clone the repository [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples).
 - Install `Node.js` (v14) and `npm` ([How to install](https://nodejs.org/en/download/package-manager/))
     - This example leverages two packages, axios and caver-js, which both support v14.
 
