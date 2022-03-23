@@ -131,7 +131,7 @@ If the result is `alice balance: 100`, then it has been executed successfully.
 ## ERC-20 Token Transfer (two-step) <a id="erc-20-token-transfer-twostep"></a>
 Run erc20-transfer-2step.js for the two-step transfer example. With this two-step token transfer example, unmodified ERC-20 token contracts can be used.
 The two-step transfer consists of two function calls: (1) approve the bridge contract first, and then (2) call the contract function `requestERC20Transfer()`.
-We do not deploy contracts since we already deployed both bridge and token contracts. You must deploy first if you didn't deploy them. You can deploy the contract using `node erc20-deploy.js`.
+We do not deploy contracts in this section since we already deployed both bridge and token contracts. You must deploy first if you didn't deploy them. You can deploy the contract using `node erc20-deploy.js`.
 ```
 $ node erc20-transfer-2step.js
 > ------------------------- erc20-transfer-2step START -------------------------
