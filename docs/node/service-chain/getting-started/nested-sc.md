@@ -126,7 +126,7 @@ Check the KNI information of SCN-L2-03 node. This value will be used to create t
 
 
 ```console
-$ kscn   attach   --datadir   ~/data
+SCN-L2-03$ kscn   attach   --datadir   ~/data
 > mainbridge.nodeInfo.kni
 "kni://87989a5a5dcc165...85b16b@[::]:50505?discport=0"
 ```
