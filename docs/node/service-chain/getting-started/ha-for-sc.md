@@ -4,7 +4,7 @@ If only one bridge is used in the ServiceChain, that bridge can become a single 
 
 
 ## Prerequisites <a id="prerequisites"></a>
- - The main bridge of the EN node and the subbridge pair of the SCN node are connected. If it's not, please refer to [Baobab connection](./en-scn-connection.md)
+ - The main bridge of the EN and the sub bridge of the SCN are connected. If it's not, please refer to [Baobab connection](./en-scn-connection.md) to establish the connection.
  - This section describes how to add a bridge between Baobab and a ServiceChain. In the same way, you can also set up HA by adding another bridge.
 
 ## Step 1: Adding another Bridge between EN-SCN <a id="step-1-adding-another-bridge-between-en-scn"></a>
