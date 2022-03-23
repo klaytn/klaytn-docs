@@ -68,7 +68,7 @@ On a text editor, edit the `bridge_info.json` as below.
 - Set `child.operator` to the `subbridge.childOperator` address that we examined in the previous step.
 - Replace `url` in the `parent` section (EN node on Baobab network) with your EN node IP and the proper port number from `RPC_PORT` in `kend.conf`.
 - Replace `parent.key` with the private key of the test account created from [Baobab Wallet](https://baobab.wallet.klaytn.com/) in the previous step.
-- Set `operator` as the `subbridge.parentOperator` of the previous step.
+- Set `parent.operator` as the `subbridge.parentOperator` of the previous step.
 
 ```
 {
