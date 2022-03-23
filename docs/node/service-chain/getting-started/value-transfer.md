@@ -50,7 +50,7 @@ Check if the operator accounts have enough balance.
 
 ### Step 2: Deploy Contracts <a id="step-2-deploy-contracts"></a>
 - Connect to the SCN and prepare the node environment for contract deployment.
-- Clone the [cross-chain-transfer-example repository](https://github.com/klaytn/servicechain-value-transfer-examples).
+Clone the repository [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples).
 
 In this step, we would deploy both the bridge contract and token contract in the parent as well as the child chain.
 Token contracts are for mint/transfer test and bridge contracts are used to listen/handle value transfer requests.
