@@ -43,10 +43,10 @@ Update `IP address` and `port` information of ServiceChain L3 nodes in `homi-out
 
 ```json
 [
-     "kni://358235ccbf97a1f...787f7@192.168.0.21:22323?discport=0\u0026ntype=cn",
-     "kni://14ac4e3d53de5c7...6c91d@192.168.0.22:22323?discport=0\u0026ntype=cn",
-     "kni://5f36a456d93da09...8e216@192.168.0.23:22323?discport=0\u0026ntype=cn",
-     "kni://d62fd0928b9b6e5...6badf@192.168.0.24:22323?discport=0\u0026ntype=cn"
+     "kni://358235ccbf97a1f...787f7@192.168.0.21:22323?discport=0&type=cn",
+     "kni://14ac4e3d53de5c7...6c91d@192.168.0.22:22323?discport=0&type=cn",
+     "kni://5f36a456d93da09...8e216@192.168.0.23:22323?discport=0&type=cn",
+     "kni://d62fd0928b9b6e5...6badf@192.168.0.24:22323?discport=0&type=cn"
 ]
 ```
 
