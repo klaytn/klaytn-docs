@@ -164,7 +164,7 @@ Starting kscnd: OK
 Check `subbridge.peers.length` to see if SCN-L3-01 is connected to SCN-L2-03, check `subbridge.latestAnchoredBlockNumber` to check the latest anchored block number to see if anchoring is in progress.
 
 ```console
-$ kscn attach --datadir ~/data
+SCN-L3-01$ kscn attach --datadir ~/data
 > subbridge.peers.length
 1
 > subbridge.latestAnchoredBlockNumber
