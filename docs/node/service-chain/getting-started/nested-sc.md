@@ -11,7 +11,7 @@ This chapter explains how to build ServiceChain networks in a hierarchical struc
    - Not all SCNs in L2 need to be bridged to EN, and likewise SCNs in L3 need not all be bridged to L2. However, for high availability, it is recommended that there are two or more main-bridge and sub-bridge pairs between chains. In this chapter, only one pair will be connected between L2 and L3, and the high availability between L2 and L3 is same to the HA between Baobab and L2. 
 
 ## Step 1: Create and update Homi data for L3 <a id="step-1-create-and-update-homi"></a>
-As when configuring ServiceChain L2, execute the `homi` command to create scripts and configuration files for building L3. You can run `homi` on any Linux/Mac PC. Baobab's `chainID` is `1001`, and L2's `chainID` was set to `1002` in the previous example, so for convenience, L3's `chainID` is set to `1003`. When operating a blockchain for an actual service, you must register a new `chainID` value at https://chainlist.defillama.com/ to avoid overlapping `chainID` with other ServiceChains.
+As when configuring ServiceChain L2, execute the `homi` command to create scripts and configuration files for building L3. You can run `homi` on any Linux/Mac PC. Baobab's `chainID` is `1001`, and L2's `chainID` was set to `1002` in the previous example, so for convenience, L3's `chainID` is set to `1003`. When operating a blockchain for an actual service, you must register a new `chainID` value at https://chainlist.defillama.com/ to avoid the `chainID` conflict with other ServiceChains and EVM chains.
 
 
 ```console
