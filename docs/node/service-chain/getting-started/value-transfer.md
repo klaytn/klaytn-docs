@@ -116,7 +116,7 @@ null
 ```
 
 ### Step 3: Token transfer <a id="step-3-token-transfer"></a>
-Perform token transfer with the command `node erc20-transfer-1step.js`.
+Perform token transfer with the command `node erc20-transfer-1step.js`. This one-step token transfer requires modification of an ERC-20 token implementation. If you don't want to modify the token contract or you have a token contract that is already deployed, please refer to [ERC-20 Token Transfer (two-step)](#erc-20-token-transfer-twostep).
 ```
 $ node erc20-transfer-1step.js
 ------------------------- erc20-transfer-1step START -------------------------
