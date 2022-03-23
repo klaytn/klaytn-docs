@@ -94,13 +94,13 @@ With Optimization (E), you can reduce the code size and execution costs, thereby
 
 #### Compilation Details <a id="compilation-details"></a>
 
-In Compilation Details you can find the bytecode and ABI. A single file may contain multiple contracts, and a single contract may import other contracts, so often, multiple contracts get compiled. But you can only check the Compilation Details for one contract at a time. Select a contract you want.
+In Compilation Details you can find the bytecode and ABI. A single file may contain multiple contracts, and a single contract may import other contracts, so often, multiple contracts get compiled. But you can only check the Compilation Details (H) for one contract at a time. Select a contract you want.
 
 ![](img/klaytn-ide/9_ide_compilation.png)
 
 #### Upload on IPFS <a id="upload-on-ipfs"></a>
 
-You can also publish the contracts on IPFS if they are non-abstract. If you publish a contract that imports other contracts, all contracts including the main contract will be uploaded to each address. The uploaded data will include ABI and Solidity source code.
+You can also publish the contracts on IPFS using "Publish on IPFS" (G) button if they are non-abstract. If you publish a contract that imports other contracts, all contracts including the main contract will be uploaded to each address. The uploaded data will include ABI and Solidity source code.
 
 ![](img/klaytn-ide/10_ide_ipfs.png)
 
@@ -110,7 +110,6 @@ Any errors or warnings will appear below the contract section.
 
 ![](img/klaytn-ide/11_ide_err.png)
 
-In the `Gas Limit` controller, you can fill the maximum amount of gas which will be used for calling a smart contract function.
 
 
 ### Deploy & Run <a id="deploy-and-run"></a>
@@ -138,7 +137,7 @@ In Gas Limit (D), you can set the amount of gas to be used to call the contract 
 
 #### Value <a id="value"></a>
 
-Value (E), you can choose the amount of peb, ston, mKLAY, KLAY to be sent to the contract or function. It will be reset to 0 after each transaction.
+Value (E), you can choose the amount of peb, ston, mKLAY, and KLAY to be sent to the contract or function. It will be reset to 0 after each transaction. If you don't are not familiar with the units of KLAY (peb, ston, mKLAY, KLAY, etc.), please refer to [Units of KLAY](https://docs.klaytn.com/klaytn/design/klaytn-native-coin-klay#units-of-klay). If you set this value, then the function should have the attribute `payable`.
 
 #### Deploy & AtAddress <a id="deploy-and-ataddress"></a>
 
@@ -243,7 +242,6 @@ Activate the Unit Testing module in the Plugin Manager.
 
 You can set the test directory, the workspace that will be used with the Testing module.
 
-![](img/klaytn-ide/20_ide_test-dir.png)
 
 And then select the file you want to test and click Generate. It will create a test file in the selected directory. If you haven’t selected a specific file, a new file with the name `newFile_test.sol` will be created.
 
