@@ -4,7 +4,7 @@ This chapter explains how to build a ServiceChain in a hierarchical structure by
 
 
 ## Prerequisites <a id="prerequisites"></a>
- - Assume that you have progressed to the ServiceChain configuration and Baobab EN described in the previous [Nested ServiceChain](./nested-sc.md). So we will briefly explain what was explained in the previous section.
+ - Assume that you have progressed to the ServiceChain configuration and Baobab EN described in [Nested ServiceChain](./nested-sc.md). So we will briefly explain what was explained in the previous section.
  - Assumptions and Limitations
    - One EN can bridge one-to-one to one of the SCNs of the ServiceChain L2. Similarly, one SCN in L2 of the ServiceChain can bridge one-to-one to one of the SCNs in L3.
    - An SCN node can have a main bridge and a sub bridge at the same time. However, the port numbers of the main bridge and the sub bridge must be set differently. (eg main-bridge: 50505, sub-bridge:50506)
