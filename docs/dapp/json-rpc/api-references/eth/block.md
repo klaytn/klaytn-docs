@@ -420,7 +420,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 ## eth_getUncleCountByBlockNumber <a id="eth_getunclecountbyblocknumber"></a>
 
 Returns the number of uncles in a block from a block matching the given block number.
-Since there are no uncles in Klaytn, it returns `0x0`. If there is no matching block, it returns `null`.
+Since there are no uncles in Klaytn, it returns `0x0`. It returns `null` if there is no matching block.
 
 **Parameters**
 
@@ -432,7 +432,7 @@ Since there are no uncles in Klaytn, it returns `0x0`. If there is no matching b
 
 | Type       | Description                                                                                |
 |------------|--------------------------------------------------------------------------------------------|
-| QUANTITY   | Integer of the number of transactions in this block. `null` if there is no matching block. |
+| QUANTITY   | Integer of the number of transactions in this block. It returns `null` if there is no matching block. |
 
 **Example**
 
@@ -452,7 +452,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 ## eth_getUncleCountByBlockHash <a id="eth_getunclecountbyblockhash"></a>
 
 Returns the number of uncles in a block from a block matching the given block hash.
-Since there are no uncles in Klaytn, it returns `0x0`. If there is no matching block, it returns `null`.
+Since there are no uncles in Klaytn, it returns `0x0`. It returns `null` if there is no matching block.
 
 **Parameters**
 
@@ -464,7 +464,7 @@ Since there are no uncles in Klaytn, it returns `0x0`. If there is no matching b
 
 | Type       | Description                                                                                |
 |------------|--------------------------------------------------------------------------------------------|
-| QUANTITY   | Integer of the number of transactions in this block. `null` if there is no matching block. |
+| QUANTITY   | Integer of the number of transactions in this block. It returns `null` if there is no matching block. |
 
 **Example**
 
