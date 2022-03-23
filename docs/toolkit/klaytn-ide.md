@@ -157,11 +157,11 @@ Below you see the default state of the recorder, with 0 transactions executed.
 
 ![](img/klaytn-ide/15_ide_transaction_recorded.png)
 
-After deploying two contracts Count and Owner, you can see that the number went up to 2. Click on the disk icon and the transactions will be stored in a scenario.json file.
+After deploying some contracts, you can see that the number went up to 4. Click on the disk icon and the transactions will be stored in a scenario.json file.
 
 ![](img/klaytn-ide/16_ide_scenariosave.png)
 
-The file looks like this:
+An example file looks like this:
 
 ```
 {
