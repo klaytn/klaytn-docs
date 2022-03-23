@@ -48,7 +48,7 @@ Klaytn IDE runs based on plugins. To use its diverse features, you have to activ
 
 ### Code Editor <a id="code-editor"></a>
 
-In the Main Panel’s Code Editor, you can write and edit code. If you make changes to an existing code, it needs to be compiled again. If you have autocompile checked, the code will automatically be compiled every time a file is changed or another file is selected. It also supports highlights for syntaxes mapped to Solidity keywords.
+In the Main Panel’s Code Editor, you can write and edit code. If you make changes to an existing code, it needs to be compiled again. If you have auto compile checked in [3. Common Modules](#3-common-modules), the code will automatically be compiled every time a file is changed or another file is selected. It also supports highlights for syntaxes mapped to Solidity keywords.
 
 ![](img/klaytn-ide/ide_codeeditor.png)
 
