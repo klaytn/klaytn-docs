@@ -24,7 +24,6 @@ The File Explorer icon is at the top of the icon panel.
 
 The file explorer on the left side of the workspace shows the list of smart contract files stored in your browser. You can add, rename, and delete files from the file explorer. Please be aware that clearing the browser storage will permanently delete all smart contract files you wrote. If you use Remixd, you can connect to the local file system.
 
-Klaytn IDE stores all files in Workspaces, the browser’s local storage. You can’t restore the files once they are deleted from the local storage. If you use Remixd, you can connect to the local file system.
 
 Workspaces contain contracts, scripts, tests folders and README.txt by default.
 
