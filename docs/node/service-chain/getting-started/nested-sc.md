@@ -138,7 +138,7 @@ $ kscn   attach   --datadir   ~/data
 Connect to CN-L3-01 node that will have a subbridge of the ServiceChain L3 (Note: this is not L2). Create `main-bridges.json` under `~/data` folder. Replace \[::\] after @ with the IP address of the node you checked in step 4.
 
 ```console
-$ echo '["kni://87989a5a5dcc165...85b16b@192.168.0.13:50505?discport=0"]' > ~/data/main-bridges.json
+SCN-L3-01$ echo '["kni://87989a5a5dcc165...85b16b@192.168.0.13:50505?discport=0"]' > ~/data/main-bridges.json
 ```
 
 Edit the configuration file `conf/kscnd.conf` of the SCN-L3-01 node with subbridge as follows. set `SC_SUB_BRIDGE`to 1 for activating the bridge connection, and `SC_PARENT_CHAIN_ID` is `1002`, `chainID` of L2, Set `SC_ANCHORING` to 1 to automatically anchor data upon restart. You can also access the SCN-L3-01 shell and turn on data anchoring with the subbridge.anchoring(true) command or turn it off with the subbridge.anchoring(false) command. `SC_ANCHORING_PERIOD` is a parameter that determines how often anchoring transactions are sent to the parent chain. Set the node to anchor every 10 blocks by specifying a value of 10. Default is 1.
