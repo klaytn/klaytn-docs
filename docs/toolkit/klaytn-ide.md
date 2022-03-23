@@ -2,9 +2,9 @@
 
 ![](img/klaytn-ide/1_ide_full.png)
 
-Klaytn IDE is a browser-based application compatible with Ethereum. It has been forked from Remix 0.20.0. It supports a fast development cycle through various plug-ins and an intuitive GUI. You can write, test, and deploy Klaytn smart contracts using Solidity. You can use Klaytn IDE at https://ide.klaytn.com.
+[Klaytn IDE](https://ide.klaytn.com) is a browser-based application compatible with Ethereum. It has been forked from [Remix 0.20.0](https://github.com/ethereum/remix-project/releases/tag/v0.20.0). It supports a fast development cycle through various plug-ins and an intuitive GUI. You can write, test, and deploy Klaytn smart contracts using Solidity. You can use Klaytn IDE at https://ide.klaytn.com.
 
-This document covers Klaytn IDE’s main features and instructions on how to use it. For more information, please visit  Remix Documentation.
+This document covers Klaytn IDE’s main features and instructions on how to use it. For more information, please visit [Remix Documentation](https://remix-ide.readthedocs.io/en/latest/).
 
 ## 1. Layout <a id="layout"></a>
 
@@ -32,18 +32,18 @@ Workspaces contain contracts, scripts, tests folders and README.txt by default.
 
 Let’s go over the icons one by one. 
 
-**A** Klaytn IDE is forked from Ethereum’s Remix. Clicking this icon will redirect you to the documents containing the instructions for using Remix <br> 
+**A** Klaytn IDE is forked from Remix IDE. Clicking this icon will redirect you to the documents containing the instructions for using Remix <br> 
 **B** Create a Workspace.<br>
 **C** Change the name of a Workspace.<br>
 **D** Delete a Workspace.<br>
 **E** Create a new file. The created file will appear in the editor.<br>
 **F** Create a new folder.<br>
 **G** Send Workspace to gist.<br>
-**H** Send a file to browser storage.<br>
+**H** Send a local file to the Workspace.<br>
 
 ### Plugin Manager <a id="plugin-manager"></a>
 
-Klaytn IDE runs based on plugins. To use its diverse features, you have to activate the modules in the Plugin Manager. The default modules in the Icon Panel are File Explorer, Compile, Deploy&Run. We will explain more about Compile and Deploy&Run in [3. Common Modules] below. 
+Klaytn IDE runs based on plugins. To use its diverse features, you have to activate the modules in the Plugin Manager. The default modules in the Icon Panel are File Explorer, Compile, Deploy&Run. We will explain more about Compile and Deploy&Run in [3. Common Modules](#3-common-modules) below. 
 
 ![](img/klaytn-ide/5_ide_pluginmanager.png)
 
@@ -65,7 +65,7 @@ Let’s take a look at the four common modules used in Klaytn IDE: Compile, Depl
 
 ![](img/klaytn-ide/6_ide_all-modules.png)
 
-You can activate SOLIDITY COMPILER, SOLIDITY STATIC ANALYSIS, SOLIDITY UNIT TESTING in the plugin manager. The function of each module is summarized as follows:
+The function of each module is summarized as follows:
 
 - Compile: In order to deploy Solidity source code, you have to compile it first. You can set the compiler version and various options.<br>
 - Deploy & Run: You can deploy the compiled smart contract and execute functions. You can also manage transaction’s parameters.<br>
@@ -116,26 +116,26 @@ In the `Gas Limit` controller, you can fill the maximum amount of gas which will
 
 ### Deploy & Run <a id="deploy-and-run"></a>
 
-If the contract is compiled, select the KLAY icon (A) in the Icon Panel to deploy it.
+If the contract is compiled, select the Klaytn icon (A) in the Icon Panel to deploy it.
 
 ![](img/klaytn-ide/12_ide_deploy.png)
 
-ou can set the environment for the contract deployment in the dropdown menu (B).
+You can set the environment for the contract deployment in the dropdown menu (B).
 
 ![](img/klaytn-ide/13_ide_env.png)
 
 - Baobab: Klaytn testnet. You will be connected to the Klaytn public node.
 - Cypress: Klaytn mainnet. You will be connected to the Klaytn public node.
 - Injected Web3: Klaytn IDE will be connected to the Web3 Provider provided by extensions like MetaMask.
-- Web3 Provider: Customize a node where you will deploy the contract.
+- Web3 Provider: You can specify the endpoint of a node where you will deploy the contract.
 
 #### Account <a id="account"></a>
 
-You can import the contracts from the respective deployment environment (C). For example, if you selected Injected Web3, you can use your MetaMask account.
+You can import accounts from the respective deployment environment (C). For example, if you selected Injected Web3, you can use your MetaMask account.
 
 #### Gas Limit <a id="gas-limit"></a>
 
-In Gas Limit (D), you can set the maximum amount of gas to be used to call the contract functions.
+In Gas Limit (D), you can set the amount of gas to be used to call the contract functions. If the given gas is not enough to execute the contract functions, it will result in an out-of-gas failure. If the given gas is too big, you may end up spending more KLAY than you expected due to wrong execution of your code. Also, the transaction will be rejected if the gas requires more KLAY than what your account has.
 
 #### Value <a id="value"></a>
 
@@ -145,11 +145,11 @@ Value (E), you can choose the amount of peb, ston, mKLAY, KLAY to be sent to the
 
 In the Contracts drop-down list (F), you will find the list of compiled contracts. The Deploy button (G) will create a transaction that deploys the contract. Once the contract is deployed, you will see the contract address and the functions. You can use atAddress to select a contract that has already been deployed.
 
-There are two types of functions: one that records data on the blockchain and one that reads data from the blockchain. The former is shown in orange, and the latter in dark blue. Transactions and contracts that simply read data will not incur any gas fees.
+There are two types of functions: one that records data on the blockchain and one that reads data from the blockchain. The former is shown in orange, and the latter in dark blue. Simply reading data from a contract will not incur any gas fees.
 
 ![](img/klaytn-ide/14_ide_contracts.png)
 
-You can use AtAddress to use already deployed contracts. Since you are accessing contracts that have already been deployed, it won’t cost any gas fee. To use AtAddress, the contract’s source code or ABI must be open on Editor. For more information about ABI, please refer to this [link](https://docs.soliditylang.org/en/latest/abi-spec.html).
+You can use AtAddress to use already deployed contracts. Since you are accessing a contract that has already been deployed, it won’t cost any gas fee. For more information about ABI, please refer to this [Contract ABI Specification](https://docs.soliditylang.org/en/latest/abi-spec.html).
 
 #### Recorder
 
@@ -256,7 +256,7 @@ Now write and test different unit tests in the file. For more details, please ch
 
 ## 4. Accessing Local File System <a id="access-local"></a>
 
-You can use Remixd to let Klaytn IDE access the folders in your computer. Remixd is a websocket plugin designed to be used with Remix IDE. You can create a websocket connection with your local file system. To do this, you need the Remixd plugin and the remixd cli/npm module. For more details, please refer to [Remix](https://remix-ide.readthedocs.io/en/latest/remixd.html).
+You can use Remixd to let Klaytn IDE access the folders in your computer. Remixd is a websocket plugin designed to be used with Remix IDE. You can create a websocket connection with your local file system. To do this, you need the Remixd plugin and the remixd cli/npm module. For more details, please refer to [Remixd](https://remix-ide.readthedocs.io/en/latest/remixd.html).
 
 ### Remixd Plugin <a id="remixd-plugin"></a>
 
@@ -264,11 +264,15 @@ You can activate the Remixd plugin in the Plugin Manager, or have it automatical
 
 ![](img/klaytn-ide/21_ide_test-file.png)
 
-`remixd` can be globally installed using the following command: After installation, start `remixd`. `-s` option gives the IDE access to the given folder. In the given folder, you will install OpenZeppelin and place your contract source code.
+`remixd` can be globally installed using the following command: 
+
+$ npm install -g @remix-project/remixd
+
+After installation, start `remixd`. `-s` option gives the IDE access to the given folder. In the given folder, you will install OpenZeppelin and place your contract source code.
 
 ![](img/klaytn-ide/22_ide_connect_local.png)
 
-When you click “connect to localhost”, you will see a popup message like this:
+When you click "connect to localhost", you will see a popup message like this:
 
 ![](img/klaytn-ide/23_ide_local_pop.png)
 
