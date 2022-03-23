@@ -5,11 +5,11 @@ If only one bridge is used in the ServiceChain, that bridge can become a single 
 
 ## Prerequisites <a id="prerequisites"></a>
  - The main bridge of the EN and the sub bridge of the SCN are connected. If it's not, please refer to [Baobab connection](./en-scn-connection.md) to establish the connection.
- - This section describes how to add a bridge between Baobab and a ServiceChain. In the same way, you can also set up HA by adding another bridge.
+ - This section describes how to add an extra bridge between Baobab and a ServiceChain. In the same way, you can also set up HA by adding another bridge.
 
 ## Step 1: Adding another Bridge between EN-SCN <a id="step-1-adding-another-bridge-between-en-scn"></a>
 
-In [Connecting to Baobab](./en-scn-connection.md), we assume that the EN node and the SCN node connected by a bridge as EN-01 and SCN-L2-01, respectively. In this section, we will add another bridge between EN-02 and SCN-L2-02, which is the part marked in blue. 
+In [Connecting to Baobab](./en-scn-connection.md), we assume that the EN and the SCN connected by a bridge as EN-01 and SCN-L2-01, respectively. In this section, we will add another bridge between EN-02 and SCN-L2-02, which is the part marked in blue. 
 Since it follows the same procedure, we will briefly explain.
 
 
@@ -52,7 +52,7 @@ SC_ANCHORING_PERIOD=10
 ```
 
 
-If you reboot EN-02, a bridge will be connected automatically between the EN-02 and the SCN-L2-02 and data anchoring will start from the point where the connection is made as shown in the figure below.
+If you restart EN-02, a bridge will be connected automatically between the EN-02 and the SCN-L2-02 and data anchoring will start from the point where the connection is made as shown in the figure below.
 
 After adding the bridge between EN-02 and SCN-L2-02, you can now see the connection between the nodes are established as shown in below.
 

@@ -152,7 +152,7 @@ SC_ANCHORING=1
 SC_ANCHORING_PERIOD=10
 ```
 
-Reboot the SCN node after completing the setup.
+Restart the SCN node after completing the setup.
 
 ```console
 $ kscnd stop
