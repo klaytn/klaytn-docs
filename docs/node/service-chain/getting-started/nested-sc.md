@@ -53,10 +53,10 @@ Update `IP address` and `port` information of ServiceChain L3 nodes in `homi-out
 Copy `homi-output` to all SCN nodes (SCN-L3-01, SCN-L3-02, SCN-L3-03, SCN-L3-04) of L3 ServiceChain.
 
 ```console
-$ scp -r path/to/homi-output/ user@192.168.0.21:~/ 
-$ scp -r path/to/homi-output/ user@192.168.0.22:~/ 
-$ scp -r path/to/homi-output/ user@192.168.0.23:~/ 
-$ scp -r path/to/homi-output/ user@192.168.0.24:~/ 
+$ scp -r path/to/homi-output user@192.168.0.21:~/ 
+$ scp -r path/to/homi-output user@192.168.0.22:~/ 
+$ scp -r path/to/homi-output user@192.168.0.23:~/ 
+$ scp -r path/to/homi-output user@192.168.0.24:~/ 
 ```
 
 Initialize all nodes.
