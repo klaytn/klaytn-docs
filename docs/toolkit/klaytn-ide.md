@@ -54,7 +54,7 @@ In the Main Panel’s Code Editor, you can write and edit code. If you make chan
 
 ### Terminal <a id="terminal"></a>
 
-In the terminal you can check the compile result, error, deployment status and transaction information. Click on the checked transaction to see details. On the terminal you can enter a transaction hash or contract address.
+In the terminal you can check the compile result, error, deployment status and transaction information. Click on the checked icon to see details. On the terminal you can enter a transaction hash or contract address.
 
 ![](img/klaytn-ide/ide_terminal.png)
 
