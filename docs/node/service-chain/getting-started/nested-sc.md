@@ -135,7 +135,7 @@ SCN-L2-03$ kscn   attach   --datadir   ~/data
 
 ## Step 5: Configure L3 sub-bridge <a id="step-5-configure-l3-sub-bridge"></a>
 
-Connect to CN-L3-01 node that will have a subbridge of the ServiceChain L3 (Note: this is not L2). Create `main-bridges.json` under `~/data` folder. Replace \[::\] after @ with the IP address of the node you checked in step 4.
+Connect to SCN-L3-01 node that will have a subbridge of the ServiceChain L3 (Note: this is not L2). Create `main-bridges.json` under `~/data` folder. Replace \[::\] after @ with the IP address of the node you checked in step 4.
 
 ```console
 SCN-L3-01$ echo '["kni://87989a5a5dcc165...85b16b@192.168.0.13:50505?discport=0"]' > ~/data/main-bridges.json
