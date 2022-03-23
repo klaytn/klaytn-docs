@@ -86,7 +86,7 @@ Select the EVM Version you want in the dropdown menu (C).
 
 ![](img/klaytn-ide/8_ide_evm.png)
 
-You will find the EVM versions applied for Klaytn Baobab testnet and Cypress mainnet, so choose the appropriate version. You can check the current EVM version in Compilation Details, Metadata > Settings.
+You will find the EVM versions applied for Klaytn Baobab testnet and Cypress mainnet, so choose the appropriate version. You can check the current EVM version in Compilation Details > Metadata > Settings.
 
 #### Optimization <a id="optimization"></a>
 
