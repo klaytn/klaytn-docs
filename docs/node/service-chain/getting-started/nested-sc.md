@@ -67,7 +67,7 @@ $ ls ~/data
 keystore	klay		kscn
 ```
 
-Connect to all SCNs (SCN-L3-01, SCN-L3-02, SCN-L3-03, SCN-L3-04), copy `static-nodes.json` to the data folder `~/data`, and copy nodekeys one by one.
+Connect to all SCNs (SCN-L3-01, SCN-L3-02, SCN-L3-03, and SCN-L3-04), copy `static-nodes.json` to the data folder `~/data`, and copy `nodekeys` one by one.
 
 ```console
 $ cp   ~/homi-output/scripts/static-nodes.json   ~/data/
