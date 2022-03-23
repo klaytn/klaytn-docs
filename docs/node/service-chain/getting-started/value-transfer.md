@@ -90,7 +90,7 @@ On a text editor, edit the `bridge_info.json` as below.
 RPC_API="klay,subbridge"
 ```
 
-Perform the token deployment by running the command `node erc20-deploy.js`. This script deploys both the bridge contract and the token contract, and sends RPC calls to register and subscribe the token contract to the bridge contract.
+Perform the token deployment by running the command `node erc20-deploy.js`. This script deploys both the bridge contract and the token contract, and it sends RPC calls to register and subscribe the token contract to the bridge contract.
 ```
 $ node erc20-deploy.js
 ```
