@@ -262,7 +262,6 @@ You can use Remixd to let Klaytn IDE access the folders in your computer. Remixd
 
 You can activate the Remixd plugin in the Plugin Manager, or have it automatically activated by selecting “connect to localhost” in Workspaces.
 
-![](img/klaytn-ide/21_ide_test-file.png)
 
 `remixd` can be globally installed using the following command: 
 
