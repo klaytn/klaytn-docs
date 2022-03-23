@@ -93,6 +93,15 @@ RPC_API="klay,subbridge"
 Perform the token deployment by running the command `node erc20-deploy.js`. This script deploys both the bridge contract and the token contract, and it sends RPC calls to register and subscribe the token contract to the bridge contract.
 ```
 $ node erc20-deploy.js
+------------------------- erc20-deploy START -------------------------
+info.bridge: 0xcb9e197cc328c39376C5aB7Dc5d3C684D5F9d2f3
+info.token: 0xd88d18D05629d58432FB192adE5c56279a2E5a2B
+info.bridge: 0x1Da965D374Dc8065781394B01F669a190fB981C2
+info.token: 0x09Ced338326DF53cea7e595C803c662eC020a0A5
+registering bridges to the child node
+subscribing bridges to the child node
+register token to subbridge..
+------------------------- erc20-deploy END -------------------------
 ```
 
 You can see the required initialization APIs in the deployment source code. If you want to register them manually, you can type the API calls in your attached console.
