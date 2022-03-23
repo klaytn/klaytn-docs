@@ -114,7 +114,7 @@ SC_MAIN_BRIDGE=1
 Restart the node.
 
 ```console
-$ kscnd stop
+SCN-L2-03$ kscnd stop
 $ kscnd start
 ```
 
