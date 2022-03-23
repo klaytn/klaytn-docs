@@ -66,10 +66,10 @@ Let’s take a look at the four common modules used in Klaytn IDE: Compile, Depl
 
 The function of each module is summarized as follows:
 
-- Compile: In order to deploy Solidity source code, you have to compile it first. You can set the compiler version and various options.<br>
-- Deploy & Run: You can deploy the compiled smart contract and execute functions. You can also manage transaction’s parameters.<br>
-- Analysis: You can execute static runtime code analysis based on the checklist.<br>
-- Testing: You can create and run a unit test.<br>
+- Compile: In order to deploy Solidity source code, you have to compile it first. You can set the compiler version and various options.
+- Deploy & Run: You can deploy the compiled smart contract and execute functions. You can also manage transaction’s parameters.
+- Analysis: You can execute static runtime code analysis based on the checklist.
+- Testing: You can create and run a unit test.
 
 ### Compile <a id="compile"></a>
 
