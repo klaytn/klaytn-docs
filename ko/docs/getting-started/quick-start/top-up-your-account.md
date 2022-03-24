@@ -53,7 +53,7 @@ true
 * KlaytnWallet의 Baobab Faucet 사용하기
 * [https://baobab.wallet.klaytn.com](https://baobab.wallet.klaytn.com/) 접근하기
 * 지갑에 로그인하기 위하여 지갑에서 새 계정을 만들거나 위의 EN 자바스크립트 콘솔에서 생성한 키스토어 파일을 사용할 수 있습니다.
-* 왼쪽 창 메뉴에서 "KLAY Faucet"으로 이동하고, "Run Faucet" 버튼을 클릭해 5 KLAY를 얻습니다.
+* Go to "KLAY Faucet" from the left pane menu, and click the "Run Faucet" button to get 150 KLAY.
 
   KLAY Faucet를 24시간마다 한 번씩 실행할 수 있습니다.
 
