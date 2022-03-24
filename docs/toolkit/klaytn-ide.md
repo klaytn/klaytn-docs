@@ -262,7 +262,9 @@ You can activate the Remixd plugin in the Plugin Manager, or have it automatical
 
 `remixd` can be globally installed using the following command: 
 
+```
 $ npm install -g @remix-project/remixd
+```
 
 After installation, start `remixd`. The option `-s` gives the IDE access to the given folder. In the given folder, you will install OpenZeppelin and place your contract source code.
 
