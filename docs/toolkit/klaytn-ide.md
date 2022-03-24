@@ -236,7 +236,7 @@ For more details on the Security categories, please refer to [Remix Docs > Analy
 
 ### Testing <a id="testing"></a>
 
-Activate the Unit Testing module in the Plugin Manager.
+You can see the solidity unit testing plugin as shown below by activating the Solidity Unit Testing module in the Plugin Manager.
 
 ![](img/klaytn-ide/19_ide_testing.png)
 
