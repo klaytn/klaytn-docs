@@ -285,7 +285,7 @@ npm install -g @remix-project/remixd
 After installing, you have to permit access to the desired folder. Enter the command line as shown below:
 
 ```
-remixd -s {absolute path folder} --remix-ide https://ide.klaytn.com
+remixd -s {absolute path of the folder} --remix-ide https://ide.klaytn.com
 ```
 
 {absolute path of the folder} is where you specify the absolute path of the desired folder.
