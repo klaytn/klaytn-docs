@@ -53,7 +53,7 @@ true
 * Using the Baobab faucet in KlaytnWallet.
 * Access [https://baobab.wallet.klaytn.com](https://baobab.wallet.klaytn.com/).
 * You can either create a new account from the Wallet or use the keystore file you created from the EN JavaScript console above to log into the Wallet.
-* Go to "KLAY Faucet" from the left pane menu, and click the "Run Faucet" button to get 5 KLAY.
+* Go to "KLAY Faucet" from the left pane menu, and click the "Run Faucet" button to get 150 KLAY.
 
   You can run the KLAY Faucet once every 24 hours.
 
