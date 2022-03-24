@@ -264,7 +264,7 @@ You can activate the Remixd plugin in the Plugin Manager, or have it automatical
 
 $ npm install -g @remix-project/remixd
 
-After installation, start `remixd`. `-s` option gives the IDE access to the given folder. In the given folder, you will install OpenZeppelin and place your contract source code.
+After installation, start `remixd`. The option `-s` gives the IDE access to the given folder. In the given folder, you will install OpenZeppelin and place your contract source code.
 
 ![](img/klaytn-ide/22_ide_connect_local.png)
 
