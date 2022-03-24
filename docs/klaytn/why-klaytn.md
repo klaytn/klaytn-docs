@@ -31,7 +31,7 @@ As per this principle, Klaytn has been designed to meet the following requiremen
 ### Low Cost  <a id="low-cost"></a>
 - End-users should not be burdened with any higher transaction fee beyond what the traditional systems require.
 - Transaction fee should be stable and be determined by the transaction complexity itself, and not the surrounding factors.
-- See [Affordable Smart Contract Execution Cost] and [Transaction Fees]. For a gas price of 25 ston, a KLAY transfer would incur a fixed cost of 0.000525 KLAY. (21,000 Gas for KLAY transfer x (25 x 10^9) == 0.000525 KLAY) 
+- See [Affordable Smart Contract Execution Cost] and [Transaction Fees]. For a gas price of 750 ston, a KLAY transfer would incur a fixed cost of 0.01575 KLAY. (21,000 Gas for KLAY transfer x (750 x 10^9) == 0.01575 KLAY) 
 ​
 ### Rapid Development <a id="rapid-development"></a>
 #### Ethereum Compatibility <a id="ethereum-compatibility"></a>
