@@ -288,7 +288,7 @@ After installing, you have to permit access to the desired folder. Enter the com
 remixd -s {absolute path folder} --remix-ide https://ide.klaytn.com
 ```
 
-{absolute path folder} is where you specify the absolute path of the desired folder.
+{absolute path of the folder} is where you specify the absolute path of the desired folder.
 
 You have to distinguish between `http` and `https` depending on your browser. 
 
