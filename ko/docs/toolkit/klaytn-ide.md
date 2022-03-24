@@ -1,227 +1,331 @@
 # Klaytn IDE <a id="klaytn-ide"></a>
 
-![](img/klaytn-ide/ide-overview-all.png)
+![](img/klaytn-ide/1_ide_full.png)
 
-Klaytn IDE는 솔리디티 언어로 Klaytn 스마트 컨트랙트를 개발하도록 도와주는 브라우저 기반의 컴파일러 및 IDE입니다. 또한 Klaytn IDE는 스마트 컨트랙트의 테스트 및 배포를 지원합니다. Klaytn IDE는 Remix의 0.7.7 버전으로부터 파생되어 만들어졌습니다.
+[Klaytn IDE](https://ide.klaytn.com) is a browser-based application compatible with Ethereum. It has been forked from [Remix 0.20.0](https://github.com/ethereum/remix-project/releases/tag/v0.20.0). It supports a fast development cycle through various plug-ins and an intuitive GUI. You can write, test, and deploy Klaytn smart contracts using Solidity. You can use Klaytn IDE at [https://ide.klaytn.com](https://ide.klaytn.com).
 
-Klaytn IDE는 [https://ide.klaytn.com](https://ide.klaytn.com)에서 확인하실 수 있습니다. 본 문서는 Klaytn IDE의 개요로, 주요 기능과 사용법에 대해 설명하겠습니다. 더 자세한 내용은 [Remix docs](https://remix-ide.readthedocs.io/en/latest/)를 참고해주세요.
+This document covers Klaytn IDE’s main features and instructions on how to use it. For more information, please visit [Remix Documentation](https://remix-ide.readthedocs.io/en/latest/).
 
-## Remix와 차이점<a id="what-s-different-from-remix"></a>
+## 1. Layout <a id="layout"></a>
 
-1. Klaytn 계정으로 로그인
-2. 두 개의 솔리디티 버전\(v0.4.24, v0.5.6\) 지원
-3. 플러그인, Gist 애드온, Swarm 미지원
+Below is the layout for Klaytn IDE. The icon panel (A), where you can select the plug-in to be displayed in the side panel (B). The GUI for most plug-ins will be displayed on the side panel. On the main panel (C), you will see the plugins or you can edit the files to be compiled by the IDE. In Terminal (D), you can see the result of your interactions with the GUI, or run scripts.
 
-## 개요 <a id="overview"></a>
+![](img/klaytn-ide/2_ide_layout.png)
 
-![](img/klaytn-ide/ide-docs-sections.png)
+## 2. Default Modules <a id="default-modules"></a>
 
-Klaytn IDE의 레이아웃은 다음과 같습니다. 화면은 파일 탐색기, 코드 편집기, 콘솔, 모듈 등 4개 부분으로 분할되어 있습니다.
+The default modules when you first open Klaytn IDE are File Explorer, Plugin Manager, and Editor.
 
-## 1. 파일 탐색기 <a id="1-file-explorer"></a>
+### File Explorer <a id="file-explorer"></a>
 
-![](img/klaytn-ide/ide-file-explorer.png)
+The File Explorer icon is at the top of the icon panel.
 
-작업 공간 왼편의 파일 탐색기는 브라우저에 저장된 스마트 컨트랙트 파일의 목록을 나타냅니다. 브라우저 스토리지를 비우면 이전에 작성했던 스마트 컨트랙트 파일 모두 영구적으로 삭제됩니다. 파일 탐색기에서 파일을 추가하거나 삭제하고, 파일의 이름을 변경할 수 있습니다.
+![](img/klaytn-ide/3_ide_fileexplorer.png)
 
-* 새 파일 생성
-  * 새 파일 `Untitled1.sol`을 생성하려면 제목 표시줄에서 ![](img/klaytn-ide/ide-create-file.png) 아이콘을 클릭하세요.
-* 로컬 파일 추가
-  * 로컬 파일 시스템에서 파일을 선택하여 브라우저 스토리지로 가져올 수 있습니다. ![](img/klaytn-ide/ide-open-file.png) 아이콘을 클릭하면 파일을 선택할 수 있습니다.
-* 파일 이름 변경 및 삭제
-  * 파일을 우클릭하면 파일의 이름을 변경하거나 파일을 삭제할 수 있는 메뉴가 나타납니다.
+The file explorer on the left side of the workspace shows the list of smart contract files stored in your browser. You can add, rename, and delete files from the file explorer. Please be aware that clearing the browser storage will permanently delete all smart contract files you wrote. If you use Remixd, you can connect to the local file system. For more information, refer to [4. Accessing Local File System](#access-local).
 
-## 2. 코드 편집기 <a id="2-code-editor"></a>
 
-![](img/klaytn-ide/ide-editor-view.png)
+Workspaces contain contracts, scripts, tests folders and README.txt by default.
 
-작업 공간의 중앙에서 파일을 편집할 수 있습니다.
+![](img/klaytn-ide/4_ide_fileexplorer2.png)
 
-### 파일 탭 <a id="file-tabs"></a>
+Let’s go over the icons one by one.
 
-여러 파일을 열 수 있고, 코드 편집기는 현재 열린 파일을 탭에 나타냅니다. 파일 탐색기에 파일을 생성하거나 추가하면 해당 파일이 파일 탭에 나타납니다. 파일 탭에서 ![](img/klaytn-ide/ide-editor-close.png) 아이콘을 클릭하여 파일을 닫을 수 있습니다.
+**A** Klaytn IDE is forked from Remix IDE. Clicking this icon will redirect you to the documents containing the instructions for using Remix <br /> **B** Create a Workspace.<br /> **C** Change the name of a Workspace.<br /> **D** Delete a Workspace.<br /> **E** Create a new file. The created file will appear in the editor.<br /> **F** Create a new folder.<br /> **G** Send Workspace to gist.<br /> **H** Send a local file to the Workspace.<br />
 
-참고: \(![](img/klaytn-ide/ide-editor-close.png) 아이콘을 클릭하여\) 파일을 닫아도 해당 파일이 파일 탐색기에서 제거되지 않습니다.
+### Plugin Manager <a id="plugin-manager"></a>
 
-### 솔리디티 예약어 자동 완성 <a id="auto-completion-for-solidity-reserved-keywords"></a>
+Klaytn IDE runs based on plugins. To use its diverse features, you have to activate the modules in the Plugin Manager. The default modules in the Icon Panel are File Explorer, Compile, Deploy&Run. We will explain more about Compile and Deploy&Run in [3. Common Modules](#3-common-modules) below.
 
-솔리디티에는 `bytes32`, `public`, `modifier`처럼 자주 사용되는 단어가 있습니다. 입력하려는 단어를 Klaytn IDE가 추천해주기 때문에 단어 자체를 직접 입력할 필요가 없습니다. 자동 완성 기능은 솔리디티의 예약어뿐만 아니라 사용자가 정의한 함수, 변수, 클래스에도 적용이 됩니다.
+![](img/klaytn-ide/5_ide_pluginmanager.png)
 
-![](img/klaytn-ide/ide-auto-completion.png)
+### Code Editor <a id="code-editor"></a>
 
-### 에러 감지 <a id="error-detection"></a>
+In the Main Panel’s Code Editor, you can write and edit code. If you make changes to an existing code, it needs to be compiled again. If you have auto compile checked in [3. Common Modules](#3-common-modules), the code will automatically be compiled every time a file is changed or another file is selected. It also supports highlights for syntaxes mapped to Solidity keywords.
 
-컴파일 에러가 발생한 행은 해당 행의 번호 옆에 빨간색으로 표시됩니다.
+![](img/klaytn-ide/ide_codeeditor.png)
 
-![](img/klaytn-ide/ide-error-detection.png)
+### Terminal <a id="terminal"></a>
 
-## 3. 모듈 <a id="3-modules"></a>
+In the terminal you can check the compile result, error, deployment status and transaction information. Click on the checked icon to see details.
 
-Klaytn IDE는 모듈에는 Compile, Run, Analysis, Testing, Debugger, Settings 등 6개 탭이 있습니다.
+![](img/klaytn-ide/ide_terminal.png)
 
-![](img/klaytn-ide/ide-tabs.png)
+## 3. Common Modules <a id="3-common-modules"></a>
 
-* Compile: 컴파일러 버전을 선택하고 여러 컴파일 옵션을 활성화/비활성화합니다. 컴파일된 프로젝트의 목록 또한 나타납니다.
-* Run: 컨트랙트를 네트워크에 배포하고 컨트랙트 함수를 호출할 수 있습니다. 이 탭에는 네트워크, 계정, 가스 한도, 입력 인자 등 트랜잭션의 매개변수를 관리하는 옵션이 있습니다.
-* Analysis: 선택한 체크리스트에 따라 정적 및 런타임 코드 분석을 실행할 수 있습니다.
-* Testing: 유닛 테스트를 생성하고 실행합니다.
-* Debugger: 트랜잭션을 디버깅합니다.
-* Settings: 일반 설정과 도움말 & 지원 링크가 있습니다.
+Let’s take a look at the four common modules used in Klaytn IDE: Compile, Deploy&Run, Analyze, and Testing. As mentioned earlier, you have to activate the non-default modules in the plugin manager.
+
+![](img/klaytn-ide/6_ide_all-modules.png)
+
+The function of each module is summarized as follows:
+
+- Compile: In order to deploy Solidity source code, you have to compile it first. You can set the compiler version and various options.
+- Deploy & Run: You can deploy the compiled smart contract and execute functions. You can also manage transaction’s parameters.
+- Analysis: You can execute static runtime code analysis based on the checklist.
+- Testing: You can create and run a unit test.
 
 ### Compile <a id="compile"></a>
 
-컴파일을 시작하려면 `Start to compile` 버튼을 클릭하세요. 각 파일을 저장하거나 다른 파일을 선택할 때마다 파일을 컴파일하려면 `Auto compile` 체크 박스를 체크하세요.
+If you finished writing your code, use Compile to check for any errors or warnings. It’s only after you compile the contract that you can deploy it.
 
-현재 솔리디티 v0.4.24과 v0.5.6 두 컴파일러 버전을 지원하고 있습니다. 따라서 솔리디티 코드의 맨 위는 `pragma solidity 0.4.24;` 또는 `pragma solidity 0.5.6`가 되어야 합니다. `"Compile"` 버튼 \(MacOS의 경우 Cmd+s, Windows의 경우 Ctrl+s\)을 필요할 때마다 수동으로 클릭할 수도 있고 자동 컴파일 기능을 활성화할 수도 있습니다.
+![](img/klaytn-ide/7_ide_compiler.png)
 
-![](img/klaytn-ide/ide-compile-tab.png)
+Click Compile (F) to build the file on the Code Editor. In Compiler (A), select the compiler version that corresponds to the one stated in the Solidity file. You can select the language of your choice in (B). If you want the file to be automatically compiled every time it is saved or another file is selected, you can check Auto compile (D). But be aware that contracts with a lot of dependencies may take a long time.
 
-참고:
+#### EVM <a id="evm-version"></a>
 
-* 15초마다 코드가 자동으로 저장됩니다. 또한 파일을 컴파일하거나 파일 탭을 닫거나 Klaytn IDE를 종료할 때에도 자동으로 저장됩니다.
-* 자동 컴파일 기능이 활성화되면 입력을 중지할 때 컴파일이 됩니다.
+Select the EVM Version you want in the dropdown menu (C).
 
-### Run <a id="run"></a>
+![](img/klaytn-ide/8_ide_evm.png)
 
-#### Environment \(네트워크 선택 옵션\) <a id="environment-network-selector"></a>
+You will find the EVM versions applied for Klaytn Baobab testnet and Cypress mainnet, so choose the appropriate version. You can check which the EVM version is chosen to build in the last compilation in Compilation Details > Metadata > Settings.
 
-![](img/klaytn-ide/ide-environment.png)
+#### Optimization <a id="optimization"></a>
 
-`"Environment"` 옵션을 클릭하면 하단으로 출력되는 네트워크 목록에서 하나를 선택하여 어떤 네트워크를 사용할 것인지 선택할 수 있습니다. Klaytn IDE는 기본적으로 다음 네트워크를 선택할 수 있습니다.
+With Optimization (E), you can reduce the code size and execution costs, thereby saving gas required for contract deployment and calls. For more details, please refer to [Optimizer Options](https://docs.soliditylang.org/en/latest/using-the-compiler.html?highlight=optimize-runs#optimizer-options).
 
-1. **Baobab 네트워크** \(Klaytn 테스트넷\)
-2. **Cypress 네트워크** \(Klaytn 메인넷\)
 
-그 외 사용자 정의 노드에 연결하려면 `"Caver provider"`를 선택하고 연결하려는 네트워크의 URL을 입력하세요. `HTTPS`가 아니라 `HTTP` 네트워크 프로토콜에 연결하려면 [http\://ide.klaytn.com](http://ide.klaytn.com)을 사용하세요.
+#### Compilation Details <a id="compilation-details"></a>
 
-> 컨트랙트를 배포하려면 트랜잭션 수수료를 지불하기 위한 KLAY가 필요합니다. `Baobab 네트워크` \(Klaytn 테스트넷\)의 경우 **테스트넷 KLAY**를 Faucet \[[https://baobab.wallet.klaytn.com/faucet](https://baobab.wallet.klaytn.com/faucet)\]에서 얻을 수 있습니다. **테스트넷 KLAY**를 받으면 해당 계정을 Klaytn IDE의 `"Account"`에서 선택하여 연동하세요.
+In Compilation Details you can find the bytecode and ABI. A single file may contain multiple contracts, and a single contract may import other contracts, so often, multiple contracts get compiled. But you can only check the Compilation Details (H) for one contract at a time. Select a contract you want.
 
-#### Account \(계정 선택 옵션\) <a id="account-account-selector"></a>
+![](img/klaytn-ide/9_ide_compilation.png)
 
-![](img/klaytn-ide/ide-from-account.png)
+#### Upload on IPFS <a id="upload-on-ipfs"></a>
 
-`계정 선택 옵션`을 통해 현재 계정을 다른 계정으로 변경할 수 있습니다. ![](img/klaytn-ide/ide-add-account-button.png) 버튼을 클릭하고, 개인키 또는 키스토어로 가져올 것인지 선택하여 계정을 가져올 수 있습니다.
+You can also publish the contracts on IPFS using "Publish on IPFS" (G) button if they are non-abstract. If you publish a contract that imports other contracts, all contracts including the main contract will be uploaded to each address. The uploaded data will include ABI and Solidity source code.
 
-![](img/klaytn-ide/ide-account-add-popup.png)
+![](img/klaytn-ide/10_ide_ipfs.png)
 
-연동이 완료되면 수 초 내에 `Account`에 연동한 계정의 잔액이 나타납니다.
+#### Compilation Error and Warning <a id="compilation-error-and-warning"></a>
+
+Any errors or warnings will appear below the contract section.
+
+![](img/klaytn-ide/11_ide_err.png)
+
+
+
+### Deploy & Run <a id="deploy-and-run"></a>
+
+If the contract is compiled, select the Klaytn icon (A) in the Icon Panel to deploy it.
+
+![](img/klaytn-ide/12_ide_deploy.png)
+
+You can set the environment for the contract deployment in the dropdown menu (B).
+
+![](img/klaytn-ide/13_ide_env.png)
+
+- Baobab: Klaytn testnet. You will be connected to the Klaytn public node.
+- Cypress: Klaytn mainnet. You will be connected to the Klaytn public node.
+- Injected Web3: Klaytn IDE will be connected to the Web3 Provider provided by extensions like MetaMask.
+- Web3 Provider: You can specify the endpoint of a node where you will deploy the contract.
+
+#### 계정 <a id="account"></a>
+
+You can import accounts from the respective deployment environment (C). For example, if you selected Injected Web3, you can use your MetaMask account.
+
+#### Gas Limit <a id="gas-limit"></a>
+
+In Gas Limit (D), you can set the amount of gas to be used to call the contract functions. If the given gas is not enough to execute the contract functions, it will result in an out-of-gas failure. If the given gas is too big, you may end up spending more KLAY than you expected due to wrong execution of your code. Also, the transaction will be rejected if the gas requires more KLAY than what your account has.
 
 #### Value <a id="value"></a>
 
-![](img/klaytn-ide/ide-tx-value-controller.png)
+Value (E), you can choose the amount of peb, ston, mKLAY, and KLAY to be sent to the contract or function. It will be reset to 0 after each transaction. If you don't are not familiar with the units of KLAY (peb, ston, mKLAY, KLAY, etc.), please refer to [Units of KLAY](https://docs.klaytn.com/klaytn/design/klaytn-native-coin-klay#units-of-klay). If you set this value, then the function should have the attribute `payable`.
 
-`Value (트랜잭션값 조절)` 옵션을 통해 다음에 생성된 트랜잭션의 값을 입력할 수 있습니다.
+#### Deploy & AtAddress <a id="deploy-and-ataddress"></a>
 
-#### Gas Limit 조절 <a id="gas-limit-controller"></a>
+In the Contracts drop-down list (F), you will find the list of compiled contracts. The Deploy button (G) will create a transaction that deploys the contract. Once the contract is deployed, you will see the contract address and the functions. You can use atAddress to select a contract that has already been deployed.
 
-![](img/klaytn-ide/ide-gas-limit-controller.png)
+There are two types of functions: one that records data on the blockchain and one that reads data from the blockchain. The former is shown in orange, and the latter in dark blue. Simply reading data from a contract will not incur any gas fees.
 
-`Gas Limit` 옵션을 통해 스마트 컨트랙트 함수를 호출하는 데에 사용될 가스양의 최대한도를 설정할 수 있습니다.
+![](img/klaytn-ide/14_ide_contracts.png)
 
-#### Deploy <a id="deploy"></a>
+You can use AtAddress to use already deployed contracts. Since you are accessing a contract that has already been deployed, it won’t cost any gas fee. For more information about ABI, please refer to this [Contract ABI Specification](https://docs.soliditylang.org/en/latest/abi-spec.html).
 
-![](img/klaytn-ide/ide-deploy.png)
+#### Recorder
 
-코드를 컴파일하면 하단에 컴파일된 컨트랙트의 목록이 나타납니다. 그중에 컨트랙트를 선택하고 `Deploy` 버튼을 클릭하여 배포할 수 있습니다.
+Recorder allows you to store a batch of transactions to execute them in another environment. Executing a contract may involve multiple transactions, and you can automate their execution using this feature. Or you can test a contract you used on Baobab in a different environment like Injected Web3 using the scenario.json file.
 
-![](img/klaytn-ide/ide-deploy-result.png)
+Below you see the default state of the recorder, with 0 transactions executed.
 
-컨트랙트가 성공적으로 배포되면 컨트랙트의 주소와 해당 컨트랙트의 함수들이 나타납니다. 스마트 컨트랙트에는 블록체인에 데이터를 쓰는 함수와 블록체인으로부터 데이터를 읽어오는 함수 두 종류의 함수가 있습니다.
+![](img/klaytn-ide/15_ide_transaction_recorded.png)
 
-### Analysis <a id="analysis"></a>
+After deploying some contracts, you can see that the number went up to 4. Click on the disk icon and the transactions will be stored in a scenario.json file.
 
-![](img/klaytn-ide/ide-tab-analysis.png)
+![](img/klaytn-ide/16_ide_scenariosave.png)
 
-이 장에서는 마지막 컴파일 결과를 확인할 수 있습니다. 기본적으로 각 컴파일당 새로운 분석이 실행됩니다.
+An example file looks like this:
 
-분석 탭에서는 컨트랙트 코드에 대한 자세한 정보를 확인할 수 있습니다. 이를 통해 코드 실수를 피하고 모범 사례를 시행할 수 있습니다.
+```
+{
+  "accounts": {
+    "account{0}": "0xeC45d4724A4148B95528BD5F9ED56F2Ef80CB61C"
+  },
+  "linkReferences": {},
+  "transactions": [
+    {
+      "timestamp": 1647916002296,
+      "record": {
+        "value": "0",
+        "parameters": [],
+        "abi": "0xf64e9d2538e9b682f0efcc4e652b9ef7c4057549fa1ea612b04794d55beaf4c1",
+        "contractName": "Storage",
+        "bytecode": "608060405234801561001057600080fd5b50610150806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80632e64cec11461003b5780636057361d14610059575b600080fd5b610043610075565b60405161005091906100d9565b60405180910390f35b610073600480360381019061006e919061009d565b61007e565b005b60008054905090565b8060008190555050565b60008135905061009781610103565b92915050565b6000602082840312156100b3576100b26100fe565b5b60006100c184828501610088565b91505092915050565b6100d3816100f4565b82525050565b60006020820190506100ee60008301846100ca565b92915050565b6000819050919050565b600080fd5b61010c816100f4565b811461011757600080fd5b5056fea2646970667358221220bafbb6967d7f4b37b93bfe2fe5938ed3a2d511abf3d5775fa6190843b2db7b8264736f6c63430008070033",
+        "linkReferences": {},
+        "name": "",
+        "inputs": "()",
+        "type": "constructor",
+        "from": "account{0}"
+      }
+    }
+  ],
+  "abis": {
+    "0xf64e9d2538e9b682f0efcc4e652b9ef7c4057549fa1ea612b04794d55beaf4c1": [
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "num",
+            "type": "uint256"
+          }
+        ],
+        "name": "store",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "retrieve",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      }
+    ]
+  }
+}
+```
 
-자세한 안내는  [Remix docs &gt; Analysis ](https://remix-ide.readthedocs.io/en/latest/static_analysis.html?highlight=analysis)을 참고하세요.
+Now click on the play button, which will play the scenario of the transactions in the terminal.
+
+![](img/klaytn-ide/17_ide_recorded.png)
+
+### Static Analysis <a id="static-analysis"></a>
+
+Static analysis allows you to debug without executing the code. As with other modules, you can activate it in the Plugin Manager.
+
+As default, all Security boxes are checked. With Autorun, the analysis will be conducted every time a contract is compiled.
+
+![](img/klaytn-ide/18_ide_analysis.png)
+
+
+For more details on the Security categories, please refer to [Remix Docs > Analysis Modules](https://remix-ide.readthedocs.io/en/latest/static_analysis.html#analysis-modules).
 
 ### Testing <a id="testing"></a>
 
-![](img/klaytn-ide/ide-tab-testing.png)
+You can see the solidity unit testing plugin as shown below by activating the Solidity Unit Testing module in the Plugin Manager.
 
-이 장에서는 새로운 솔리디티 테스트 파일을 현재 폴더에서 생성하고 테스트를 실행할 수 있습니다. 실행 결과는 아래에 나타납니다. 자세한 안내는 [Remix docs &gt; Unit Testing](https://remix-ide.readthedocs.io/en/latest/unittesting.html)을 참고하세요.
+![](img/klaytn-ide/19_ide_testing.png)
 
-### Debugger <a id="debugger"></a>
+You can set the test directory, the workspace that will be used with the Testing module.
 
-![](img/klaytn-ide/ide-tab-debugger.png)
 
-이 장에서는 트랜잭션을 디버깅할 수 있습니다. IDE에서 생성된 트랜잭션과 이미 채굴된 트랜잭션을 배포하는 데에 사용할 수 있습니다.
+And then select the file you want to test and click Generate. It will create a test file in the selected directory. If you haven’t selected a specific file, a new file with the name `newFile_test.sol` will be created.
 
-> 필요한 기능을 현재 환경에서 제공하는 경우에만 디버깅이 작동합니다. 디버깅하려면 EN 노드에서 **개인** API가 활성화되어야 합니다. `RPC_API` 옵션을 [EN 환경설정 파일](../node/endpoint-node/operation-guide/configuration.md)에서 참고해주세요.
+![](img/klaytn-ide/20_ide_test-dir.png)
 
-자세한 안내는 [Remix docs &gt; Debugger](https://remix-ide.readthedocs.io/en/latest/debugger.html)를 참고하세요.
+Now write and test different unit tests in the file. For more details, please check [Remix Docs > Solidity Unit Test Plugin](https://remix-ide.readthedocs.io/en/latest/unittesting.html#unit-testing-plugin).
 
-### Settings <a id="settings"></a>
+![](img/klaytn-ide/21_ide_test-file.png)
 
-![](img/klaytn-ide/ide-tab-setting.png)
+## 4. Accessing Local File System <a id="access-local"></a>
 
-이 탭에는 일반 설정 및 지원 채널이 있습니다.
+You can use Remixd to let Klaytn IDE access the folders in your computer. Remixd is a websocket plugin designed to be used with Remix IDE. You can create a websocket connection with your local file system. To do this, you need the Remixd plugin and the remixd cli/npm module. For more details, please refer to [Remixd](https://remix-ide.readthedocs.io/en/latest/remixd.html).
 
-주요 설정:
+### Remixd Plugin <a id="remixd-plugin"></a>
 
-* Text Wrap: 편집기의 텍스트 줄 바꿈 여부를 설정합니다.
-* Enable Personal Mode : 프라이빗 네트워크에서 사용합니다.
+You can activate the Remixd plugin in the Plugin Manager, or have it automatically activated by selecting “connect to localhost” in Workspaces.
 
-## 4. 터미널 <a id="4-terminal"></a>
 
-![](img/klaytn-ide/ide-console.png)
+`remixd` can be globally installed using the following command:
 
-코드 편집기 하단의 터미널에 컴파일 결과, 컴파일 에러, 배포 결과, 트랜잭션 정보가 나타납니다.
+```
+$ npm install -g @remix-project/remixd
+```
 
-트랜잭션 결과를 클릭하여 자세한 정보를 확인할 수 있습니다. 디버깅이 가능한 경우 Debug 탭에서 트랜잭션 디버깅을 할 수 있습니다.
+After installation, start `remixd`. The option `-s` gives the IDE access to the given folder. In the given folder, you will install OpenZeppelin and place your contract source code.
 
-## OpenZeppelin으로 개발하기<a id="develop-with-openzeppelin"></a>
+![](img/klaytn-ide/22_ide_connect_local.png)
 
-OpenZeppelin은 안전한 스마트 컨트랙트 개발을 위한 라이브러리입니다. OpenZeppelin은 ERC20과 ERC721과 같은 표준 구현체를 제공하여 이를 그대로 배포하거나 필요에 따라 확장할 수 있습니다. 그뿐만 아니라 맞춤형 컨트랙트와 더 복잡한 탈중앙화된 시스템을 구축할 수 있도록 솔리디티 컴포넌트를 제공합니다.
+When you click "connect to localhost", you will see a popup message like this:
 
-OpenZeppelin 라이브러리는 remixd를 통해 로컬 호스트에 연결한 후 사용할 수 있습니다. 따라서 remixd의 설치가 필요합니다.
+![](img/klaytn-ide/23_ide_local_pop.png)
 
-### Remixd 설치 <a id="install-remixd"></a>
+But before clicking Connect, you have to have the remixd NPM module installed.
 
-Remixd는 Remix IDE \( 브라우저 솔리디티\)에서 사용하기 위한 도구입니다. Remixd는 Remix IDE \(web application\)와 로컬 컴퓨터 간 웹소켓 연결을 하도록 합니다. 자세한 내용은 [remixd 문서](https://remix-ide.readthedocs.io/en/latest/remixd.html?highlight=remixd)를 참고해주세요.
+### Install and Run remixd <a id="install-and-run-remixd"></a>
 
-`remixd`는 다음 명령어를 사용하여 전역적으로 설치할 수 있습니다. 설치 후 `remixd`를 입력하여 실행하세요. `-s` 옵션은 IDE가 주어진 폴더에 접근할 수 있도록 합니다. 해당 폴더에는 OpenZeppelin을 설치하고 컨트랙트 소스 코드들을 넣을 것입니다.
+You can install remixd using the following command:
 
-\`\`\`bash $ remixd -s  --remix-ide [http://ide.klaytn.com](http://ide.klaytn.com)
+```
+npm install -g @remix-project/remixd
+```
 
-예를 들어, `remixd -s ~/temp/openzeppelin --remix-ide http://ide.klaytn.com`
+After installing, you have to permit access to the desired folder. Enter the command line as shown below:
 
-터미널에서 다음과 같은 메세지를 확인할 수 있습니다.
+```
+remixd -s {absolute path of the folder} --remix-ide https://ide.klaytn.com
+```
 
-![](img/klaytn-ide/ide-launch-remixd.png)
+{absolute path of the folder} is where you specify the absolute path of the desired folder.
 
-### OpenZeppelin 설치 <a id="install-openzepplin"></a>
+You have to distinguish between `http` and `https` depending on your browser.
 
-공유 폴더로 이동하여 OpenZeppelin을 설치하세요.
 
-\`\`\`bash $ cd  $ npm install openzeppelin-solidity
+### Connect <a id="connect"></a>
 
-### Remixd 연결 <a id="connect-remixd"></a>
+When `remixd` is activated, you will see the popup message like below. You have to click Connect when the remixd from the previous step is running in the background.
 
-아래와 같이 Remix 연결 버튼을 클릭하세요.
+![](img/klaytn-ide/23_ide_local_pop.png)
 
-![](img/klaytn-ide/ide-connect-remixd.png)
+And then select a file in the localhost to work on.
 
-Connect 버튼을 클릭하세요.
+![](img/klaytn-ide/24_ide_localhost.png)
 
-![](img/klaytn-ide/ide-connet-remix-popup.png)
+To close the session, use the command `ctrl-c` in the terminal where remixd is running.
 
-파일 탐색기에 localhost 디렉토리가 나타납니다.
+## 5. Using OpenZepplin <a id="using-openzepplin"></a>
 
-![](img/klaytn-ide/ide-connection-localhost.png)
+[OpenZeppelin](https://openzeppelin.com/) is a library for developing secure smart contracts. You can implement the standards [ERC20](https://eips.ethereum.org/EIPS/eip-20) or [ERC721](https://eips.ethereum.org/EIPS/eip-721) as is, or modified. It also supports solidity components that allow you to create customized contracts or more decentralized systems.
 
-OpenZeppelin에서 필요한 솔리디티 컨트랙트 파일을 가져오세요.
+You can import them using npm or through GitHub URL, by using the `import` statement in your contract. The imported files will be stored in the `.deps` folder under Workspaces. For more details on the `import` keyword, please refer to [Solidity documentation](https://docs.soliditylang.org/en/latest/layout-of-source-files.html?highlight=import#importing-other-source-files).
 
-![](img/klaytn-ide/ide-import-openzepplin.png)
+```
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+```
 
-## 자세한 내용 보기<a id="need-more-information"></a>
+```
+import "@openzeppelin/contracts@4.2.0/token/ERC20/ERC20.sol";
+```
 
-Klaytn IDE는 Remix v0.7.7을 기반으로 합니다. 많은 기능이 호환되고 있으므로 [official Remix documentation](https://remix-ide.readthedocs.io/en/latest/)을 참고해주세요.
+You can also import it from GitHub. Make sure to only use their officially released code.
 
-## 의견 보내기<a id="send-us-feedback"></a>
+```
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v2.5.0/contracts/math/SafeMath.sol";
+```
 
-Klaytn IDE에 대한 의견 또는 제안은 [developer@klaytn.com](mailto:developer@klaytn.com)으로 이메일을 보내주세요!
+## Learn More <a id="need-more-information"></a>
+
+Klaytn IDE offers almost identical features with Remix. For more instructions, please refer to [Remix Documentation](https://remix-ide.readthedocs.io/en/latest/).
+
+## Send us Your Feedback! <a id="send-us-feedback"></a>
+
+For any inquiries or suggestions regarding Klaytn IDE, please leave them on our [Discord](https://discord.com/invite/aY8mrCGANk) or [Klaytn Developers Forum](https://forum.klaytn.com/).
+
 
