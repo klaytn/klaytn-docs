@@ -15,7 +15,7 @@ ServiceChain is an enterprise-level blockchain to meet companies' requirements s
 - Data anchoring to the main chain for data integrity
 - Multi-sig bridge contract to meet enterprise-level security requirements
 
-![](./images/sc-overview.png)
+![](../images/sc-overview.png)
 
 
 Read the [Klaytn Scaling Solution](../../klaytn/scaling-solutions.md) for more details about the ServiceChain. And the following videos will help you understand Klaytn ServiceChain.
