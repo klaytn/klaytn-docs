@@ -28,15 +28,19 @@ Please keep in mind that these nodes are provided to the community for testing p
 
 These public nodes are provided to the community by third party services and can take commercial service traffic. However, as a third party service we cannot guarantee uptime and stability.
 
-*RPC* 
+**RPC** 
 `https://klaytn01.fandom.finance:8551`
+
 `https://klaytn02.fandom.finance:8551`
+
 `https://klaytn03.fandom.finance:8551`
+
 `https://klaytn04.fandom.finance:8551`
+
 `https://klaytn05.fandom.finance:8551`
 
-*WebSocket*
-`wss://klaytn01.fandom.finance:8552`
+**WebSocket**
+`wss://klaytn01.fandom.finance:8552`<br/>
 `wss://klaytn02.fandom.finance:8552`
 `wss://klaytn03.fandom.finance:8552`
 `wss://klaytn04.fandom.finance:8552`
@@ -47,18 +51,18 @@ These public nodes are provided to the community by third party services and can
 
 #### Service Provider: Klaytn API Service
 
-*RPC*
+**RPC** 
 `https://public-node-api.klaytnapi.com/v1/baobab`
 
-*WebSocket* 
+**WebSocket**
 `wss://public-node-api.klaytnapi.com/v1/baobab/ws`
 
 #### Service Provider: Klaytn Foundation
 
-*RPC*
+**RPC**
 `https://api.baobab.klaytn.net:8651`
 
-*WebSocket*
+**WebSocket**
 `wss://api.baobab.klaytn.net:8652`
 
 
