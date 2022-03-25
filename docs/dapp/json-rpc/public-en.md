@@ -6,9 +6,9 @@ Running your own Klaytn Endpoint Node (EN) is not simple, it requires technical 
  
 ## Things to Consider
 
-The node providers are not responsible for any damage or losses caused in relation to traffic or interaction with the nodes. 
-If traffic is concentrated on certain nodes, you may experience service delay. 
-To prevent too many requests, rate limits may apply on a per-node basis, which are subject to change without prior notification.
+- The node providers are not responsible for any damage or losses caused in relation to traffic or interaction with the nodes. <br/>
+- If traffic is concentrated on certain nodes, you may experience service delay. <br/>
+- To prevent too many requests, rate limits may apply on a per-node basis, which are subject to change without prior notification. <br/>
 
 ## Public Node Providers
 
