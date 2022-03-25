@@ -18,41 +18,48 @@ Below is the list of Klaytn’s Public Node Providers and the network domains. (
 
 #### Service Provider: Klaytn API Service
 
-    * Please keep in mind that these nodes are provided to the community for testing purposes, and will not support commercial use.
+Please keep in mind that these nodes are provided to the community for testing purposes, and will not support commercial use.
 
-    * RPC: https://public-node-api.klaytnapi.com/v1/cypress
-    * WebSocket: wss://public-node-api.klaytnapi.com/v1/cypress/ws
+*RPC*
+`https://public-node-api.klaytnapi.com/v1/cypress`
+`WebSocket: wss://public-node-api.klaytnapi.com/v1/cypress/ws`
 
 #### Service Provider: Fantrie
-* These public nodes are provided to the community by third party services and can take commercial service traffic. However, as a third party service we cannot guarantee uptime and stability.
 
-    * RPC 
-     * https://klaytn01.fandom.finance:8551
-     * https://klaytn02.fandom.finance:8551
-     * https://klaytn03.fandom.finance:8551
-     * https://klaytn04.fandom.finance:8551
-     * https://klaytn05.fandom.finance:8551
+These public nodes are provided to the community by third party services and can take commercial service traffic. However, as a third party service we cannot guarantee uptime and stability.
 
-    * WebSocket
-     * wss://klaytn01.fandom.finance:8552
-     * wss://klaytn02.fandom.finance:8552
-     * wss://klaytn03.fandom.finance:8552
-     * wss://klaytn04.fandom.finance:8552
-     * wss://klaytn05.fandom.finance:8552
+*RPC* 
+`https://klaytn01.fandom.finance:8551`
+`https://klaytn02.fandom.finance:8551`
+`https://klaytn03.fandom.finance:8551`
+`https://klaytn04.fandom.finance:8551`
+`https://klaytn05.fandom.finance:8551`
+
+*WebSocket*
+`wss://klaytn01.fandom.finance:8552`
+`wss://klaytn02.fandom.finance:8552`
+`wss://klaytn03.fandom.finance:8552`
+`wss://klaytn04.fandom.finance:8552`
+`wss://klaytn05.fandom.finance:8552`
 
 
 ### Testnet (Baobab) Public Endpoint Node
 
 #### Service Provider: Klaytn API Service
 
-    * RPC: https://public-node-api.klaytnapi.com/v1/baobab
-    * WebSocket: wss://public-node-api.klaytnapi.com/v1/baobab/ws
+*RPC*
+`https://public-node-api.klaytnapi.com/v1/baobab`
+
+*WebSocket* 
+`wss://public-node-api.klaytnapi.com/v1/baobab/ws`
 
 #### Service Provider: Klaytn Foundation
 
-    * RPC: https://api.baobab.klaytn.net:8651
+*RPC*
+`https://api.baobab.klaytn.net:8651`
 
-    * WebSocket : wss://api.baobab.klaytn.net:8652
+*WebSocket*
+`wss://api.baobab.klaytn.net:8652`
 
 
 ## Useful Resources 
