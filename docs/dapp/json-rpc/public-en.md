@@ -16,13 +16,13 @@ Below is the list of Klaytn’s Public Node Providers and the network domains. (
 
 ### Mainnet (Cypress) Public Endpoint Nodes
 
-* Service Provider: Klaytn API Service
+#### Service Provider: Klaytn API Service
     * Please keep in mind that these nodes are provided to the community for testing purposes, and will not support commercial use.
 
     * RPC: https://public-node-api.klaytnapi.com/v1/cypress
     * WebSocket: wss://public-node-api.klaytnapi.com/v1/cypress/ws
 
-* Service Provider: Fantrie
+#### Service Provider: Fantrie
 * These public nodes are provided to the community by third party services and can take commercial service traffic. However, as a third party service we cannot guarantee uptime and stability.
 
     * RPC 
@@ -42,11 +42,11 @@ Below is the list of Klaytn’s Public Node Providers and the network domains. (
 
 ### Testnet (Baobab) Public Endpoint Node
 
-* Service Provider: Klaytn API Service
+#### Service Provider: Klaytn API Service
     * RPC: https://public-node-api.klaytnapi.com/v1/baobab
     * WebSocket: wss://public-node-api.klaytnapi.com/v1/baobab/ws
 
-* Service Provider: Klaytn Foundation
+#### Service Provider: Klaytn Foundation
 
     * RPC: https://api.baobab.klaytn.net:8651
 
