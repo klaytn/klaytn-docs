@@ -12,7 +12,7 @@ To prevent too many requests, rate limits may apply on a per-node basis, which a
 
 ## Public Node Providers
 
-Below is the list of Klaytn’s Public Node Providers and the network domains. (As of: 03.23.2022)
+Below is the list of Klaytn’s Public Node Providers and the network domains. (03.23.2022)
 
 ### Mainnet (Cypress) Public Endpoint Nodes
 
