@@ -20,15 +20,20 @@ Below is the list of Klaytn’s Public Node Providers and the network domains. (
 
 Please keep in mind that these nodes are provided to the community for testing purposes, and will not support commercial use.
 
-*RPC*
+**RPC**
+
 `https://public-node-api.klaytnapi.com/v1/cypress`
-`WebSocket: wss://public-node-api.klaytnapi.com/v1/cypress/ws`
+
+**WebSocket** 
+
+`wss://public-node-api.klaytnapi.com/v1/cypress/ws`
 
 #### Service Provider: Fantrie
 
 These public nodes are provided to the community by third party services and can take commercial service traffic. However, as a third party service we cannot guarantee uptime and stability.
 
-**RPC** 
+**RPC**
+
 `https://klaytn01.fandom.finance:8551`
 
 `https://klaytn02.fandom.finance:8551`
@@ -40,10 +45,15 @@ These public nodes are provided to the community by third party services and can
 `https://klaytn05.fandom.finance:8551`
 
 **WebSocket**
-`wss://klaytn01.fandom.finance:8552`<br/>
+
+`wss://klaytn01.fandom.finance:8552`
+
 `wss://klaytn02.fandom.finance:8552`
+
 `wss://klaytn03.fandom.finance:8552`
+
 `wss://klaytn04.fandom.finance:8552`
+
 `wss://klaytn05.fandom.finance:8552`
 
 
@@ -52,17 +62,21 @@ These public nodes are provided to the community by third party services and can
 #### Service Provider: Klaytn API Service
 
 **RPC** 
+
 `https://public-node-api.klaytnapi.com/v1/baobab`
 
 **WebSocket**
+
 `wss://public-node-api.klaytnapi.com/v1/baobab/ws`
 
 #### Service Provider: Klaytn Foundation
 
 **RPC**
+
 `https://api.baobab.klaytn.net:8651`
 
 **WebSocket**
+
 `wss://api.baobab.klaytn.net:8652`
 
 
