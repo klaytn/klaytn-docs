@@ -22,11 +22,11 @@ Please keep in mind that these nodes are provided to the community for testing p
 
 **RPC**
 
-`https://public-node-api.klaytnapi.com/v1/cypress`
+- `https://public-node-api.klaytnapi.com/v1/cypress`
 
 **WebSocket** 
 
-`wss://public-node-api.klaytnapi.com/v1/cypress/ws`
+- `wss://public-node-api.klaytnapi.com/v1/cypress/ws`
 
 #### Service Provider: Fantrie
 
@@ -34,27 +34,27 @@ These public nodes are provided to the community by third party services and can
 
 **RPC**
 
-`https://klaytn01.fandom.finance:8551`
+- `https://klaytn01.fandom.finance:8551`
 
-`https://klaytn02.fandom.finance:8551`
+- `https://klaytn02.fandom.finance:8551`
 
-`https://klaytn03.fandom.finance:8551`
+- `https://klaytn03.fandom.finance:8551`
 
-`https://klaytn04.fandom.finance:8551`
+- `https://klaytn04.fandom.finance:8551`
 
-`https://klaytn05.fandom.finance:8551`
+- `https://klaytn05.fandom.finance:8551`
 
 **WebSocket**
 
-`wss://klaytn01.fandom.finance:8552`
+- `wss://klaytn01.fandom.finance:8552`
 
-`wss://klaytn02.fandom.finance:8552`
+- `wss://klaytn02.fandom.finance:8552`
 
-`wss://klaytn03.fandom.finance:8552`
+- `wss://klaytn03.fandom.finance:8552`
 
-`wss://klaytn04.fandom.finance:8552`
+- `wss://klaytn04.fandom.finance:8552`
 
-`wss://klaytn05.fandom.finance:8552`
+- `wss://klaytn05.fandom.finance:8552`
 
 
 ### Testnet (Baobab) Public Endpoint Node
@@ -63,21 +63,21 @@ These public nodes are provided to the community by third party services and can
 
 **RPC** 
 
-`https://public-node-api.klaytnapi.com/v1/baobab`
+- `https://public-node-api.klaytnapi.com/v1/baobab`
 
 **WebSocket**
 
-`wss://public-node-api.klaytnapi.com/v1/baobab/ws`
+- `wss://public-node-api.klaytnapi.com/v1/baobab/ws`
 
 #### Service Provider: Klaytn Foundation
 
 **RPC**
 
-`https://api.baobab.klaytn.net:8651`
+- `https://api.baobab.klaytn.net:8651`
 
 **WebSocket**
 
-`wss://api.baobab.klaytn.net:8652`
+- `wss://api.baobab.klaytn.net:8652`
 
 
 ## Useful Resources 
