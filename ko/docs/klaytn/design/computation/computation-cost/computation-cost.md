@@ -8,7 +8,7 @@ Klaytn은 1초 블록생성 시간을 목표로 하기 때문에 트랜잭션 �
 
 트랜잭션의 실행 시간을 제한하는 것도 실현 가능한 해결책이 아닙니다. 실행 시간은 블록체인 플랫폼 내 노드에 따라 달라질 수 있기 때문입니다. 예를 들어, 트랜잭션 실행 시간을 100ms로 제한하는 경우를 고려해보겠습니다. 만약 한 노드에서 트랜잭션 실행 시간이 90ms고, 다른 노드에서 110ms라면 두 노드는 합의에 도달 할 수 없습니다. 그렇기 때문에 이 해결책은 적절하지 않습니다.
 
-마지막 해결책은 트랜잭션의 연산 비용을 제한하는 것입니다. 우리는 각 EVM 연산자(Opcode)의 연산 비용을 실제 실행 시간에 기반하여 모델링하고, 한 트랜잭션 연산 비용의 합계를 제한합니다. 이 접근 방식을 사용하면 다른 요소들을 제거하고, 정규화된 실행 시간만 계산하여 노드들이 합의에 도달 할 수 있습니다.
+마지막 방법은 트랜잭션의 연산 비용을 제한하는 것입니다. 우리는 각 EVM 연산자(Opcode)의 연산 비용을 실제 실행 시간에 기반하여 모델링하고, 한 트랜잭션 연산 비용의 합계를 제한합니다. 이 접근 방식을 사용하면 다른 요소들을 제거하고, 정규화된 실행 시간만 계산하여 노드들이 합의에 도달 할 수 있습니다.
 
 그렇기 때문에 우리는 Klaytn에 세번 째 방법을 선택했습니다. 현재는 실행 비용 한도는 100,000,000으로 설정되어 있습니다. 한도는 플랫폼에 의해 결정되므로 개발자들은 트랜잭션의 연산 비용을 알아야합니다. 트랜잭션의 연산 비용을 계산할 수 있도록 클레이튼은 [ klay_estimateComputationCost](../../../../../dapp/json-rpc/api-references/klay/transaction.md#klay_estimatecomputationcost)를 제공합니다. 사용법은 [klay_estimateGas](../../../../../dapp/json-rpc/api-references/klay/transaction.md#klay_estimategas)와 거의 같습니다.
 
@@ -19,9 +19,9 @@ Klaytn은 1초 블록생성 시간을 목표로 하기 때문에 트랜잭션 �
 {% hint style="success" %}
 참고: 연산 비용은 프로토콜 업그레이드(하드포크)와 함께 변경되었습니다. 이전 문서는 [이전 문서](computation-cost-previous.md)를 참고해주세요.
 
-v1.7.0 프로토콜 업그레이드 - **Istanbul** 하드포크 및 Klaytn의 자체 사항들을 포함하는 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#75373312`부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
+v1.7.0 프로토콜 업그레이드 - **Istanbul** 하드포크 및 Klaytn의 자체 사항들을 포함하는 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#75373312`부터 적용됩니다. Cypress mainnet will be subject to the same protocol upgrade in the next version.
 
-v1.7.3 프로토콜 업그레이드 - **London** 하드 포크의 Base Fee를 포함한 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#80295291`부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
+v1.7.3 프로토콜 업그레이드 - **London** 하드 포크의 Base Fee를 포함한 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#80295291`부터 적용됩니다. Cypress mainnet will be subject to the same protocol upgrade in the next version.
 {% endhint %}
 
 | Opcode         | 연산 비용 |
