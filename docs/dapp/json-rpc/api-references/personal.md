@@ -553,7 +553,7 @@ See `personal_ecRecover` to verify the signature.
 | --- | --- | --- |
 | message | string | A message to sign. |
 | account | string | The account address. |
-| password | string | (optional) the pass phrase used for signing. |
+| password | string | The pass phrase used for signing. |
 
 **Return Value**
 
