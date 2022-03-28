@@ -61,7 +61,7 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work
 
 ### ken 콘솔 <a id="ken-console"></a>
 
-Klaytn은 `ken console`이라는 CLI 클라이언트를 제공합니다. 클라이언트를 사용하는 또 다른 방법은 IPC(inter-process communication)를 통해 프로세스에 연결하는 것입니다. `klay.ipc` IPC 파일은 EN의 `data` 디렉토리에 있습니다.
+Klaytn은 `ken console`이라는 CLI 클라이언트를 제공합니다. 클라이언트를 사용하는 또 다른 방법은 IPC (inter-process communication)를 통해 프로세스에 연결하는 것입니다. `klay.ipc` IPC 파일은 EN의 `data` 디렉토리에 있습니다.
 
 다음 명령을 실행하고 결과를 확인하세요.
 
