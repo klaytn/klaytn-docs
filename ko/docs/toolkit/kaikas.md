@@ -10,7 +10,7 @@ For developers, please visit [https://docs.kaikas.io](https://docs.kaikas.io) to
 
 Kaikas는 크롬과 파이어폭스 웹 브라우저의 확장 프로그램으로 작동됩니다. Kaikas는 데스크탑 브라우저 환경에서 최적화된 애플리케이션입니다.
 
-Kaikas는 사용자 계정과 계정 키를 쉽게 관리하도록 돕습니다. Kaikas의 모든 트랜잭션 내용은 Klaytn에 기록되며, 누구든지 Klaytn 네트워크의 블록 탐색기인 [Klaytnscope](./klaytnscope.md)를 통해 확인할 수 있습니다.
+Kaikas는 사용자 계정과 계정 키를 쉽게 관리하도록 돕습니다. All transactions are transparently recorded on the Klaytn blockchain, so anybody can access the transaction history by using [Klaytnscope][].
 
 Kaikas는 단일 시드 구문(single seed phrase)으로 트리 구조의 키를 무한대로 생성하는 '계층 결정적(Hierarchical Deterministic)' 지갑으로 개발됐습니다. 시드 구문은 니모닉 코드 단어(mnemonic code words)로 구성되어 일반적인 숫자 및 알파벳 조합의 시드 대비 기억하고 보관하기 쉽습니다. 사용자 개인키는 암호화되어 사용자 웹 브라우저에 저장됩니다.
 
@@ -25,3 +25,6 @@ Kaikas는 KLAY를 포함한 모든 종류의 Klaytn 기반 토큰을 지원합�
 ## Signing web-based dApp transactions
 
 Kaikas simply bridges the gap between you and dApps, empowering you to sign transactions/data flowing to you from dApps with Kaikas account. 또 Kaikas는 [fee-delegated transactions](/klaytn/design/transactions/README.md#fee-delegation)를 다루는 개발자들에게 매우 유용한 유틸리티입니다. Kaikas를 사용하면 트랜잭션 발신자와 수수료 납부자 모두 수수료 위임 트랜잭션에 매우 손쉽게 서명할 수 있습니다.
+
+
+[Klaytnscope]: ./klaytnscope.md
