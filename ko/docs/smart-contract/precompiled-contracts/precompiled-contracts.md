@@ -5,9 +5,9 @@ Klaytn은 몇 가지 유용한 미리 컴파일된 컨트랙트를 제공합니�
 {% hint style="success" %}
 NOTE: Klaytn v1.7.0부터 도입된 프로토콜 업그레이드(하드 포크)로 미리 컴파일된 컨트랙트 주소 세 개가 변경되었으며, **blake2F** 컨트랙트가 추가되었습니다.
 
-v1.7.0 프로토콜 업그레이드 - **Istanbul** 하드포크 및 Klaytn의 자체 사항들을 포함하는 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#75373312`부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
+v1.7.0 프로토콜 업그레이드 - **Istanbul** 하드포크 및 Klaytn의 자체 사항들을 포함하는 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#75373312`부터 적용됩니다. Cypress mainnet will be subject to the same protocol upgrade in the next version.
 
-v1.7.3 프로토콜 업그레이드 - **London** 하드 포크의 Base Fee를 포함한 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#80295291`부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
+v1.7.3 프로토콜 업그레이드 - **London** 하드 포크의 Base Fee를 포함한 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#80295291`부터 적용됩니다. Cypress mainnet will be subject to the same protocol upgrade in the next version.
 
 프로토콜 업데이트 전에 배포된 컨트랙트는 이전 주소를 써야 합니다.
 * case 1) Baobab에서 블록번호 `#75373310`에 배포된 컨트랙트는 0x09, 0x0a와 0x0b를 각각 vmLog, feePayer, and validateSender로 인식하지만,  blake2f는 사용될 수 없습니다.
@@ -231,7 +231,7 @@ function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public retu
         data[idx++] = sigs[i];
     }
     assembly {
-        // 길이를 나타내는 헤더는 건너 뜁니다.
+        // 길이를 나타내는 헤더는 건너뜁니다
         let ptr := add(data, 0x20)
         if iszero(call(gas, 0x3ff, 0, ptr, idx, 31, 1)) {
           invalid()
