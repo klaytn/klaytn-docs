@@ -1,4 +1,4 @@
-# 설정<a id="configuration"></a>
+# 환경설정<a id="configuration"></a>
 
 이 페이지는 컨센서스 네트워크를 구성하기 위해 SCN를 설정하는 방법을 설명합니다.
 
