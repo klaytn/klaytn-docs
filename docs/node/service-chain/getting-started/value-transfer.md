@@ -105,7 +105,7 @@ register token to subbridge..
 ```
 
 You can see the required initialization APIs in the deployment source code. If you want to register them manually, you can type the API calls in your attached console.
-Do not run these commands if you ran `node erc20-deploy.js` since the script already called those APIs (It causes a duplicate error).
+NOTE: DO NOT run these commands if you ran `node erc20-deploy.js` since the script already called those APIs (It causes a duplicate error).
 ```
 > subbridge.registerBridge("0xCHILD_BRIDGE_ADDR", "0xPARENT_BRIDGE_ADDR")
 null
