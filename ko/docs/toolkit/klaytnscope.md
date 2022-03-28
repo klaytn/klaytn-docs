@@ -67,7 +67,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 * Time: 블록이 생성된 때부터 지금까지 지난 시간입니다. 여기에 마우스 포인터를 가져가면 정확한 날짜와 시간을 볼 수 있습니다.
 * Total TXs: 블록에 담긴 트랜잭션의 개수입니다.
 * Block Proposer: 블록을 제안한 컨센서스 노드입니다. 블록을 생성한 노드는 무작위적이지만 한편으론 결정론적으로 선택됩니다. 이 주소를 클릭하여 상세 보기 페이지로 쉽게 이동할 수 있습니다.
-* Reward: 새로 발행된 KLAY \(9.6 KLAY\)와 블록에서 사용된 트랜잭션 수수료의 합계입니다. 이 목록에서는 Klaytn 거버넌스 카운슬 보상, 기여증명, Klaytn 개선 준비금의 합계만 나타납니다. 상세 정보를 보려면 블록 상세 보기 페이지의 블록 보상 장에 마우스 포인터를 가져가세요. 블록 보상 분배 시스템에 대한 자세한 내용은 [Klaytn Token Economy](../klaytn/design/token-economy.md)를 참고하세요.
+* Reward: 새로 발행된 KLAY \(9.6 KLAY\)와 블록에서 사용된 트랜잭션 수수료의 합계입니다. 이 목록에서는 Klaytn 거버넌스 카운슬 보상, 기여증명, Klaytn 개선 준비금의 합계만 나타납니다. 상세 정보를 보려면 블록 상세 보기 페이지의 블록 보상 장에 마우스 포인터를 가져가세요. More details about the block reward distribution system can be found in the [Klaytn Token Economy][].
 * Size: 블록의 바이트 단위 크기입니다. 많은 트랜잭션이 담겨 있을수록 블록의 크기가 더 커집니다.
 
 ### Transactions <a id="transactions"></a>
@@ -80,7 +80,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 * Block \#: 해당 트랜잭션을 담은 블록의 번호입니다. 번호를 클릭하여 해당 블록의 상세 보기 페이지로 이동할 수 있습니다.
 * Time: 트랜잭션 실행으로부터 지금까지 지난 시간입니다. 여기에 마우스 포인터를 가져가면 정확한 날짜와 시간을 볼 수 있습니다.
 * From -&gt; To: 트랜잭션 발신자와 수신자의 주소입니다. 이 주소를 클릭하여 상세 보기 페이지로 쉽게 이동할 수 있습니다. 주소 옆에 파일 아이콘이 표시되면 해당 주소는 컨트랙트의 주소입니다.
-* TX Type: 트랜잭션의 유형입니다. 필터를 적용하여 특정 유형의 트랜잭션을 조회할 수 있습니다. 자세한 내용은 [Transactions](../klaytn/design/transactions/README.md)를 참고해주세요.
+* TX Type: 트랜잭션의 유형입니다. 필터를 적용하여 특정 유형의 트랜잭션을 조회할 수 있습니다. For more information, please visit [Transactions][].
 * Amount: 트랜잭션을 통해 전송된 금액입니다.
 * TX Fee: 트랜잭션 처리에 소비된 실제 비용입니다.
 
@@ -88,11 +88,11 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 
 이 페이지를 통해 블록, 트랜잭션, 계정, 컨트랙트 하나씩의 자세한 정보를 확인할 수 있습니다. 상세 보기로 이동하려면 검색 창에서 검색하거나 목록 보기에서 항목을 클릭하세요.
 
-### Block <a id="block"></a>
+### 블록 <a id="block"></a>
 
 ![](img/scope_08_block_detail.png)
 
-#### Overview <a id="overview"></a>
+#### 개요 <a id="overview"></a>
 
 블록에 대한 전반적인 정보입니다.
 
@@ -100,7 +100,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 * Hash: 블록의 고유 식별자입니다. 복사 버튼을 눌러 해시를 쉽게 복사할 수 있습니다.
 * Parent Hash: 이전 블록의 고유 식별자입니다. 해시를 클릭하여 이전 블록 해시의 상세 보기 페이지로 이동할 수 있습니다.
 * Total TXs: 블록에 담긴 트랜잭션의 개수입니다.
-* Block Reward: 새로 발행된 KLAY \(9.6 KLAY\)와 블록에서 사용된 트랜잭션 수수료의 합계입니다. 마우스 포인터를 가져가면 Klaytn 거버넌스 카운슬 보상, 기여증명, Klaytn 개선 준비금에 대한 자세한 정보를 확인할 수 있습니다. 블록 보상 분배 시스템에 대한 자세한 내용은 [Klaytn Token Economy](../klaytn/design/token-economy.md)를 참고하세요.
+* Block Reward: 새로 발행된 KLAY \(9.6 KLAY\)와 블록에서 사용된 트랜잭션 수수료의 합계입니다. 마우스 포인터를 가져가면 Klaytn 거버넌스 카운슬 보상, 기여증명, Klaytn 개선 준비금에 대한 자세한 정보를 확인할 수 있습니다. More details about block reward distribution system can be found in the [Klaytn Token Economy][].
 * Block Size: 블록의 바이트 단위 크기입니다. 많은 트랜잭션이 담겨 있을수록 블록의 크기가 더 커집니다.
 
 #### Committee <a id="committee"></a>
@@ -123,7 +123,7 @@ Klaytn 네트워크의 상태를 자세히 보려면 최근 생성된 블록과 
 트랜잭션에 대한 전반적인 정보입니다.
 
 * Status indicator: 우측 상단에 있습니다. 트랜잭션의 성공 여부를 나타냅니다.
-* TX Type: 트랜잭션의 유형입니다. 자세한 내용은 [Transactions](../klaytn/design/transactions/README.md)을 참고해주세요.
+* TX Type: 트랜잭션의 유형입니다. For more information, please see [Transactions][].
 * Block \#: 해당 트랜잭션을 담은 블록의 번호입니다. 번호를 클릭하여 해당 블록의 상세 보기 페이지로 이동할 수 있습니다.
 * From -&gt; To: 트랜잭션 발신자와 수신자의 주소입니다. 이 주소를 클릭하여 계정의 상세 보기 페이지로 쉽게 이동할 수 있습니다. 주소 옆에 파일 아이콘이 표시되면 해당 주소는 컨트랙트의 주소입니다.
 * Fee Payer: 트랜잭션 수수료가 전부 혹은 부분적으로 위임된 트랜잭션의 경우 표시됩니다. 이 주소를 클릭하여 계정의 상세 보기 페이지로 쉽게 이동할 수 있습니다.
@@ -233,3 +233,7 @@ Klaytnscope를 통해 계정, 컨트랙트, 트랜잭션, 블록에 대한 정�
 
 * 검색 키워드에 해당하는 블록이 아직 생성되지 않은 경우 \(검색한 블록 번호가 현재 블록 번호보다 더 이후인 경우\)
 * 검색 키워드가 존재하지 않는 트랜잭션 해시인 경우
+
+
+[Transactions]: ../klaytn/design/transactions/README.md
+[Klaytn Token Economy]: ../klaytn/design/token-economy.md
