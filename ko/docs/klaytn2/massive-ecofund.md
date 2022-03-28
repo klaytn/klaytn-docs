@@ -24,7 +24,7 @@
 
 • 신규 발행 토큰의 54%가 클레이튼 성장 펀드의 주요 재원입니다
 
-## 보상 <a id="reward"></a>
+## Reward <a id="reward"></a>
 
 ### 기여 증명 (PoC, Proof of Contribution) 프로그램<a id="poc-program"></a>
 • 클레이튼의 온체인 활동 성장에 기여하는 스마트 컨트랙트 개발자들에게 보상을 줍니다
