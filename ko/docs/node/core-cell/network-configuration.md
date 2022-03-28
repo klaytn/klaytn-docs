@@ -19,7 +19,7 @@ DB + AppServer 및 프록시 웹 서버와 같은 일반 웹 서비스에 사용
 
 ### CN 서브넷 <a id="cn-subnet"></a>
 
-CN 서브넷은 코어 셀의 CN 서버로 구성됩니다. 코어 셀에서 작동하는 CN은 하나이지만, 높은 가용성을 위해 여분의 CN을 준비해야 합니다. CCN (Core Cell Network) 내의 모든 CN의 IP/포트는 코어 셀 외부에서 다른 CN에 연결을 시도하기 때문에 서로에게 열려 있어야 합니다. (이 연결 정보는 Baobab 운영자로부터 수신할 수 있습니다.) 코어 셀의 다른 서브넷과의 내부 통신은 PN 서브넷의 PN에 연결하기 위해 기본 포트 (32323: 기본 Klaytn P2P 포트 번호)를 열어야 합니다. 또한 모니터링 서버를 위한 CN 모니터링 포트 (61001) 및 관리 목적을 위한 SSH 포트 (22)와 같은 다른 포트들을 열어야 합니다. 멀티채널 기능을 사용하는 경우 다른 포트 (32324: 기본 멀티채널 포트)도 열어야 합니다.
+CN 서브넷은 코어 셀의 CN 서버로 구성됩니다. 코어 셀에서 작동하는 CN은 하나이지만, 높은 가용성을 위해 여분의 CN을 준비해야 합니다. CCN (Core Cell Network) 내의 모든 CN의 IP/포트는 코어 셀 외부에서 다른 CN에 연결을 시도하기 때문에 서로에게 열려 있어야 합니다. (This connection information can be received from Baobab operators.) The internal communication with other subnets in the Core Cell requires to open default port (32323: default Klaytn P2P port number) in order to connect to PNs of the PN Subnet. 또한 모니터링 서버를 위한 CN 모니터링 포트 (61001) 및 관리 목적을 위한 SSH 포트 (22)와 같은 다른 포트들을 열어야 합니다. 멀티채널 기능을 사용하는 경우 다른 포트 (32324: 기본 멀티채널 포트)도 열어야 합니다.
 
 ![CN 서브넷](images/cn_subnet.png)
 
