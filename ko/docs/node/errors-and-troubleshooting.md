@@ -1,6 +1,6 @@
 # 에러 & 문제 해결 <a id="errors-troubleshooting"></a>
 
-## Klaytn 바이너리 패키지를 사용하여 실행 중인 Klaytn 노드에 대한 로그 파일을 어디에서 찾을 수 있습니까? <a id="where-can-i-find-a-log-file-for-the-running-klaytn-node-using-the-klaytn-binary"></a>
+## Klaytn 바이너리 패키지를 사용하여 실행 중인 Klaytn 노드의 로그 파일을 어디에서 찾을 수 있나요? <a id="where-can-i-find-a-log-file-for-the-running-klaytn-node-using-the-klaytn-binary"></a>
 
 **답변**
 
