@@ -162,8 +162,7 @@
     * [v0.9.6](node/download/v0.9.6.md)
     * [v0.8.2](node/download/v0.8.2.md)
 
-* [dApp  
-  개발자](dapp/README.md)
+* [dApp<br>개발자](dapp/README.md)
   * [JSON-RPC APIs](dapp/json-rpc/README.md)
     * [API references](dapp/json-rpc/api-references/README.md)
       * [eth](dapp/json-rpc/api-references/eth.md)
