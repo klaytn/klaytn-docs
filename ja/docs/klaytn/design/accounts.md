@@ -130,7 +130,8 @@ AccountKeyLegacy is used for the account having an address derived from the corr
 
 ### AccountKeyPublic <a id="accountkeypublic"></a>
 
-AccountKeyPublic is used for accounts having one public key. If an account has an AccountKeyPublic object, the transaction validation process is done like below:
+AccountKeyPublic is used for accounts having one public key.  
+If an account has an AccountKeyPublic object, the transaction validation process is done like below:
 
 * Get the public key derived from `ecrecover(txhash, txsig)`.
 * Check that the derived public key is the same as the corresponding
