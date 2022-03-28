@@ -136,9 +136,6 @@
     * [How-To Guides](node/service-chain/howto/README.md)
   * [Errors & Troubleshooting](node/errors-and-troubleshooting.md)
   * [Download](node/download/README.md)
-    * [v1.8.2](node/download/v1.8.2.md)
-    * [v1.8.1](node/download/v1.8.1.md)
-    * [v1.8.0](node/download/v1.8.0.md)
     * [v1.7.3](node/download/v1.7.3.md)
     * [v1.7.2](node/download/v1.7.2.md)
     * [v1.7.1](node/download/v1.7.1.md)
@@ -164,6 +161,7 @@
 
 * [dApp Developers](dapp/README.md)
   * [JSON-RPC APIs](dapp/json-rpc/README.md)
+    * [Public JSON-RPC Endpoint](dapp/json-rpc/public-en.md)
     * [API references](dapp/json-rpc/api-references/README.md)
       * [eth](dapp/json-rpc/api-references/eth.md)
         * [Caution](dapp/json-rpc/api-references/eth/caution.md)
