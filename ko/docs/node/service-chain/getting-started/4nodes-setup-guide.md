@@ -11,7 +11,7 @@ This section covers how to set up a multi-node ServiceChain. We will set up a 4-
    - Please refer to [System Requirements](../references/system-requirements.md) for more explanation.
 
 ## 0 단계: 모든 노드에 SCN 설치하기 <a id="install-scn"></a>
-The installation is the uncompression of the downloaded package. Extract the SCN archive on each server.
+다운로드한 패키지를 압축 해제해 설치합니다. Extract the SCN archive on each server.
 
 ```console
 $ tar xvf kscn-vX.X.X-XXXXX-amd64.tar.gz
