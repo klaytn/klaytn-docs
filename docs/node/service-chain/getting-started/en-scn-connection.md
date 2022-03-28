@@ -1,5 +1,5 @@
-This section covers how to connect your 4-node ServiceChain to the Baobab network.
-You will set up a Baobab EN and connect the EN with one of your SCNs. Then you will enable the Anchoring feature to write ServiceChain block information on Baobab network.
+This section covers how to connect your 4-node ServiceChain network to the Baobab network.
+You will set up a Baobab EN and connect the EN with one of your SCNs. Then you will enable the anchoring feature to put ServiceChain block information onto the Baobab network.
 
 ![](../images/sc-en-scn-arch.png)
 
@@ -8,24 +8,24 @@ You will set up a Baobab EN and connect the EN with one of your SCNs. Then you w
  - Minimum hardware requirements for testing
    - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
    - Please refer to the [System Requirements](../references/system-requirements.md) for more explanation.
- - Download the Baobab EN executable. For the full list of downloadables, see [Download](../../download/README.md).
+ - Download the Baobab EN executable. For the full list of downloadable binaries, see [Download](../../download/README.md).
  - Assumptions and Limitations
-   - ServiceChain is installed and running.([link](4nodes-setup-guide.md))
-   - EN connects to Baobab testnet.
-   - One EN can only have one SCN one-to-one connection.
-   - Not every SCN has to connect to the EN.
+   - A ServiceChain network is installed and running. Please refer to [Setting up a 4-node Service Chain](4nodes-setup-guide.md) to setup a network.
+   - A Baobab EN.
+   - One EN can only connect to one SCN since only one-to-one connection is supported.
+   - Every SCN does not have to connect to the EN.
 
 ## Step 0: Install Baobab EN <a id="install-baobab-en"></a>
 The installation is the uncompression of the downloaded package. Extract the archive on the EN server.
 
 ```bash
-$ tar xvf ken-baobab-vX.X.X-XXXXX-amd64.tar.gz
+EN-01$ tar xvf ken-baobab-vX.X.X-XXXXX-amd64.tar.gz
 ```
 
 ## Step 1: Preparing genesis.json <a id="step-1-preparing-genesis-json"></a>
 From the EN server, download the `genesis.json` for `Baobab` network.
 ```
-$ curl -X GET https://packages.klaytn.net/baobab/genesis.json -o ~/genesis.json
+EN-01$ curl -X GET https://packages.klaytn.net/baobab/genesis.json -o ~/genesis.json
 ```
 
 ## Step 2: EN Node Initialization <a id="step-2-en-node-initialization"></a>
@@ -34,7 +34,7 @@ It will create the data folder storing the chain data and logs on your home dire
 You can change the data folder using the `--datadir` directive.
 
 ```
-$ ken --datadir ~/data init ~/genesis.json
+EN-01$ ken --datadir ~/data init ~/genesis.json
 ```
 
 ## Step 3: Configure the EN Node <a id="step-3-configure-the-en-node"></a>
@@ -52,21 +52,21 @@ DATA_DIR=~/data
 
 ## Step 4: Start the EN Node <a id="step-4-start-the-en-node"></a>
 ```
-$ kend start
+EN-01$ kend start
 Starting kscnd: OK
 ```
 You can check block sync status by watching `klay.blockNumber`. If this number is not 0, the node is working fine. Downloading all blocks on the Baobab network may take a long time depending on network conditions and hardware performance, so we recommend using [Fast Sync](../../node/endpoint-node/installation-guide/configuration.md) to synchronize blocks. 
 ```
-$ ken attach --datadir ~/data
+EN-01$ ken attach --datadir ~/data
 > klay.blockNumber
 21073
 ```
 If you want to stop a node, you can use the command `kend stop`
 
 ## Step 5: Check KNI of EN Node <a id="step-5-check-kni-of-en-node"></a>
-Take note of EN-01's KNI which is the information used to connect from an SCN-L2-01 node. This value will be used in the next step when generating `main-bridges.json`
+Take note of EN-01's KNI which is the information used to connect from an SCN-L2-01 node. This value will be used in the next step when generating `main-bridges.json`.
 ```
-$ ken attach --datadir ~/data
+EN-01$ ken attach --datadir ~/data
 > mainbridge.nodeInfo.kni
 "kni://0f7aa6499553...25bae@[::]:50505?discport=0"
 ```
@@ -76,10 +76,10 @@ $ ken attach --datadir ~/data
 ## Step 6: Create main-bridges.json <a id="step-6-create-main-bridges-json"></a>
 Log on to an SCN-L2-01 (note: not the EN-01 node) and create `main-bridges.json` on `~/data`. Replace `[::]` located after `@` letter with EN-01 node's IP address.
 ```
-$ echo '["kni://0f7aa6499553...25bae@192.168.1.1:50505?discport=0"]' > ~/data/main-bridges.json
+SCN-L2-01$ echo '["kni://0f7aa6499553...25bae@192.168.1.1:50505?discport=0"]' > ~/data/main-bridges.json
 ```
 
-## Step 7: Configure SCN then Reboot <a id="step-7-configure-scn-then-reboot"></a>
+## Step 7: Configure SCN then Restart kscn <a id="step-7-configure-scn-then-restart-kscn"></a>
 From the SCN-L2-01 node's shell, edit `kscn-XXXXX-amd64/conf/kscnd.conf`.
 If `SC_SUB_BRIDGE` is set to 1, data anchoring starts automatically when the SCN-L2-01 node starts. In this example, `SC_PARENT_CHAIN_ID` is set to 1001 because the `chainID` of the parent chain, Baobab, is 1001.
 `SC_ANCHORING_PERIOD` is the parameter that decides the period to send an anchoring tx to the main chain. By setting the value to 10, you configure the node to perform anchoring every 10 blocks. The default value is 1.
@@ -93,17 +93,17 @@ SC_ANCHORING_PERIOD=10
 ...
 ```
 
-Reboot the SCN-L2-01 node
+Restart kscn by executing the following command:
 ```
-$ kscnd stop
+SCN-L2-01$ kscnd stop
 Shutting down kscnd: Killed
-$ kscnd start
+SCN-L2-01$ kscnd start
 Starting kscnd: OK
 ```
 
 Check if the SCN-L2-01 is connected to the EN-01 by checking `subbridge.peers.length`
 ```
-$ kscn attach --datadir ~/data
+SCN-L2-01$ kscn attach --datadir ~/data
 > subbridge.peers.length
 1
 ```
@@ -115,21 +115,22 @@ In this section, you will top up a parent operator account, enable Anchoring, an
 ### Step 1: Get KLAY to test anchoring <a id="step-1-get-klay-to-test-anchoring"></a>
 To do an anchoring, SCN-L2-01 has to make an anchoring transaction to Baobab. So `subbridge.parentOperator` account should have enough KLAY to pay the transaction fee. Get some KLAY from [Baobab Wallet Faucet](https://baobab.wallet.klaytn.com/) and transfer some KLAY to the `parentOperator`. For data anchoring in real service, `parentOperator` needs to have enough KLAY for transaction fee.
 ```
-$ kscn attach --datadir ~/data
+SCN-L2-01$ kscn attach --datadir ~/data
 > subbridge.parentOperator
 "0x3ce216beeafc62d20547376396e89528e1d778ca"
 ```
 ![](../images/sc-en-scn-faucet.png)
 
 ### Step 2: Start Anchoring <a id="step-2-start-anchoring"></a>
+To start anchoring, execute the following command:
 ```
-$ kscn attach --datadir ~/data
+SCN-L2-01$ kscn attach --datadir ~/data
 > subbridge.anchoring(true)
 true
 ```
 After anchoring starts, you can check the latest block anchored to Baobab by using `subbridge.latestAnchoredBlockNumber`. Please note that this only works after the EN already followed up on the latest block of Baobab. By default, SCN-L2-01 tries anchoring on every block from the block on which anchoring is turned on. The anchoring period can be set by changing `SC_ANCHORING_PERIOD`. If the value is set to 10, the node tries anchoring when the block number is a multiple of 10.
 ```
-$ kscn attach --datadir ~/data
+SCN-L2-01$ kscn attach --datadir ~/data
 > subbridge.latestAnchoredBlockNumber
 100
 ```
