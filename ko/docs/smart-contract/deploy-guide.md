@@ -38,7 +38,7 @@ contract KlaytnGreeter is Mortal {
     }
 }
 ```
-- 컴파일러 버전을 설정하세요. 현재 0.4.24와 0.5.6 중에서 선택할 수 있습니다. (기본값은 0.5.6입니다.)
+- 컴파일러 버전을 설정하세요. Currently, you can choose between 0.4.24 and 0.5.6. (Default is 0.5.6.)
 
 ![](img/deploy-with-ide/deploy-with-ide.002.png)
 
@@ -228,7 +228,7 @@ $ npm install caver-js.
 
 ```
 const Caver = require("caver-js");
-const caver = new Caver("https://your.en.url:8651")
+const caver = new Caver("https://api.baobab.klaytn.net:8651")
 
 const walletInstance = caver.klay.accounts.privateKeyToAccount(
   '0x3de0c9...' // enter your private key to deploy contract with
