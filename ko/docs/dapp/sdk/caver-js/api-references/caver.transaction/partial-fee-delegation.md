@@ -4,16 +4,17 @@
 
 ```javascript
 caver.transaction.feeDelegatedValueTransferWithRatio.create(transactionObject)
-new caver.transaction.feeDelegatedValueTransferWithRatio(transactionObject)
 ```
 
 `FeeDelegatedValueTransferWithRatio`는 [수수료 부분 위임 KLAY 전송 트랜잭션](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio)을 나타냅니다. `transactionObject`는 `FeeDelegatedValueTransferWithRatio` 트랜잭션을 생성하기 위해 아래와 같은 속성들을 가질 수 있습니다.
 
 `FeeDelegatedValueTransferWithRatio`는 멤버변수로서 아래와 같은 속성들을 가지고 있습니다. `선택 사항`인 속성들은 사용자가 `FeeDelegatedValueTransfer` 트랜잭션을 생성할 때 `transactionObject`에 선택적으로 주어질 수 있는 속성들을 뜻합니다.
 
-**참고** RLP 인코딩된 문자열로부터 `FeeDelegatedValueTransferWithRatio` 인스턴스를 생성할 수 있습니다. 아래 예시를 참고해주세요.
+{% hint style="success" %}
+NOTE: You can create an instance of `FeeDelegatedValueTransferWithRatio` from RLP-encoded strings. 아래 예시를 참고해주세요. NOTE: `caver.transaction.feeDelegatedValueTransferWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-**참고** `caver.transaction.feeDelegatedValueTransferWithRatio.create`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedValueTransferWithRatio({...})`, please change it to `caver.transaction.feeDelegatedValueTransferWithRatio.create({...})`.
+{% endhint %}
 
 **속성**
 
@@ -64,16 +65,17 @@ FeeDelegatedValueTransferWithRatio {
 
 ```javascript
 caver.transaction.feeDelegatedValueTransferMemoWithRatio.create(transactionObject)
-new caver.transaction.feeDelegatedValueTransferMemoWithRatio(transactionObject)
 ```
 
 `FeeDelegatedValueTransferWithRatio`는 [수수료 부분 위임 KLAY 전송 메모 트랜잭션](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio)을 나타냅니다. `transactionObject`는 `FeeDelegatedValueTransferMemoWithRatio` 트랜잭션을 생성하기 위해 아래와 같은 속성들을 가질 수 있습니다.
 
 `FeeDelegatedValueTransferMemoWithRatio`는 멤버변수로서 아래와 같은 속성들을 가지고 있습니다. `선택 사항`인 속성들은 사용자가 `FeeDelegatedValueTransferMemoWithRatio` 트랜잭션을 생성할 때 `transactionObject`에 선택적으로 주어질 수 있는 속성들을 뜻합니다.
 
-**참고** RLP 인코딩된 문자열로부터 `FeeDelegatedValueTransferMemoWithRatio` 인스턴스를 생성할 수 있습니다. 아래 예시를 참고해주세요.
+{% hint style="success" %}
+NOTE: You can create an instance of `FeeDelegatedValueTransferMemoWithRatio` from RLP-encoded strings. 아래 예시를 참고해주세요. NOTE: `caver.transaction.feeDelegatedValueTransferMemoWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-**참고** `caver.transaction.feeDelegatedValueTransferMemoWithRatio.create`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedValueTransferMemoWithRatio({...})`, please change it to `caver.transaction.feeDelegatedValueTransferMemoWithRatio.create({...})`.
+{% endhint %}
 
 **속성**
 
@@ -127,16 +129,17 @@ FeeDelegatedValueTransferMemoWithRatio {
 
 ```javascript
 caver.transaction.feeDelegatedAccountUpdateWithRatio.create(transactionObject)
-new caver.transaction.feeDelegatedAccountUpdateWithRatio(transactionObject)
 ```
 
 `FeeDelegatedAccountUpdateWithRatio`는 [수수료 부분 위임 계정 업데이트 트랜잭션](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio)을 나타냅니다. `transactionObject`는 <`FeeDelegatedAccountUpdateWithRatio` 트랜잭션을 생성하기 위해 아래와 같은 속성들을 가질 수 있습니다.
 
 `FeeDelegatedAccountUpdateWithRatio` 는 멤버변수로서 아래와 같은 속성들을 가지고 있습니다. `선택 사항`인 속성들은 사용자가 `FeeDelegatedAccountUpdateWithRatio` 트랜잭션을 생성할 때 `transactionObject`에 선택적으로 주어질 수 있는 속성들을 뜻합니다.
 
-**참고** RLP 인코딩된 문자열로부터 `FeeDelegatedAccountUpdateWithRatio` 인스턴스를 생성할 수 있습니다. 아래 예시를 참고해주세요.
+{% hint style="success" %}
+NOTE: You can create an instance of `FeeDelegatedAccountUpdateWithRatio` from RLP-encoded strings. 아래 예시를 참고해주세요. NOTE: `caver.transaction.feeDelegatedAccountUpdateWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-**참고** `caver.transaction.feeDelegatedAccountUpdateWithRatio.create`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedAccountUpdateWithRatio({...})`, please change it to `caver.transaction.feeDelegatedAccountUpdateWithRatio.create({...})`.
+{% endhint %}
 
 **속성**
 
@@ -189,16 +192,17 @@ FeeDelegatedAccountUpdateWithRatio {
 
 ```javascript
 caver.transaction.feeDelegatedSmartContractDeployWithRatio.create(transactionObject)
-new caver.transaction.feeDelegatedSmartContractDeployWithRatio(transactionObject)
 ```
 
 `FeeDelegatedSmartContractDeployWithRatio`는 [부분 수수료 위임 스마트 컨트랙트 배포 트랜잭션](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio)을 나타냅니다. `transactionObject`는 `FeeDelegatedSmartContractDeployWithRatio` 트랜잭션을 생성하기 위해 아래와 같은 속성들을 가질 수 있습니다.
 
 `FeeDelegatedSmartContractDeployWithRatio`는 멤버변수로서 아래와 같은 속성들을 가지고 있습니다. `선택 사항`인 속성들은 사용자가 `FeeDelegatedSmartContractDeployWithRatio` 트랜잭션을 생성할 때 `transactionObject`에 선택적으로 주어질 수 있는 속성들을 뜻합니다.
 
-**참고** RLP 인코딩된 문자열로부터 `FeeDelegatedSmartContractDeployWithRatio` 인스턴스를 생성할 수 있습니다. 아래 예시를 참고해주세요.
+{% hint style="success" %}
+NOTE: You can create an instance of `FeeDelegatedSmartContractDeployWithRatio` from RLP-encoded strings. 아래 예시를 참고해주세요. NOTE: `caver.transaction.feeDelegatedSmartContractDeployWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-**참고** `caver.transaction.feeDelegatedSmartContractDeployWithRatio.create`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedSmartContractDeployWithRatio({...})`, please change it to `caver.transaction.feeDelegatedSmartContractDeployWithRatio.create({...})`.
+{% endhint %}
 
 **속성**
 
@@ -254,16 +258,17 @@ FeeDelegatedSmartContractDeployWithRatio {
 
 ```javascript
 caver.transaction.feeDelegatedSmartContractExecutionWithRatio.create(transactionObject)
-new caver.transaction.feeDelegatedSmartContractExecutionWithRatio(transactionObject)
 ```
 
 `FeeDelegatedSmartContractExecutionWithRatio`는 [부분 수수료 위임 스마트 컨트랙트 실행 트랜잭션](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio)을 나타냅니다. `transactionObject`는 `FeeDelegatedSmartContractExecutionWithRatio` 트랜잭션을 생성하기 위해 아래와 같은 속성들을 가질 수 있습니다.
 
 `FeeDelegatedSmartContractExecutionWithRatio`는 멤버변수로서 아래와 같은 속성들을 가지고 있습니다. `선택 사항`인 속성들은 사용자가 `FeeDelegatedSmartContractExecutionWithRatio` 트랜잭션을 생성할 때 `transactionObject`에 선택적으로 주어질 수 있는 속성들을 뜻합니다.
 
-**참고** RLP 인코딩된 문자열로부터 `FeeDelegatedSmartContractExecutionWithRatio` 인스턴스를 생성할 수 있습니다. 아래 예시를 참고해주세요.
+{% hint style="success" %}
+NOTE: You can create an instance of `FeeDelegatedSmartContractExecutionWithRatio` from RLP-encoded strings. 아래 예시를 참고해주세요. NOTE: `caver.transaction.feeDelegatedSmartContractExecutionWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-**참고** `caver.transaction.feeDelegatedSmartContractExecutionWithRatio.create`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedSmartContractExecutionWithRatio({...})`, please change it to `caver.transaction.feeDelegatedSmartContractExecutionWithRatio.create({...})`.
+{% endhint %}
 
 **속성**
 
@@ -316,16 +321,17 @@ FeeDelegatedSmartContractExecutionWithRatio {
 
 ```javascript
 caver.transaction.feeDelegatedCancelWithRatio.create(transactionObject)
-new caver.transaction.feeDelegatedCancelWithRatio(transactionObject)
 ```
 
 `FeeDelegatedCancelWithRatio`는 [수수료 부분 위임 취소 트랜잭션](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio)을 나타냅니다. `transactionObject`는 `FeeDelegatedCancelWithRatio` 트랜잭션을 생성하기 위해 아래와 같은 속성들을 가질 수 있습니다.
 
 `FeeDelegatedCancelWithRatio`은 멤버변수로서 아래와 같은 속성들을 가지고 있습니다. `선택 사항`인 속성들은 사용자가 `FeeDelegatedCancelWithRatio` 트랜잭션을 생성할 때 `transactionObject`에 선택적으로 주어질 수 있는 속성들을 뜻합니다.
 
-**참고** RLP 인코딩된 문자열로부터 `FeeDelegatedCancelWithRatio` 인스턴스를 생성할 수 있습니다. 아래 예시를 참고해주세요.
+{% hint style="success" %}
+NOTE: You can create an instance of `FeeDelegatedCancelWithRatio` from RLP-encoded strings. 아래 예시를 참고해주세요. NOTE: `caver.transaction.feeDelegatedCancelWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-**참고** `caver.transaction.feeDelegatedCancelWithRatio.create`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedCancelWithRatio({...})`, please change it to `caver.transaction.feeDelegatedCancelWithRatio.create({...})`.
+{% endhint %}
 
 **속성**
 
@@ -371,16 +377,17 @@ FeeDelegatedCancelWithRatio {
 
 ```javascript
 caver.transaction.feeDelegatedChainDataAnchoringWithRatio.create(transactionObject)
-new caver.transaction.feeDelegatedChainDataAnchoringWithRatio(transactionObject)
 ```
 
 `FeeDelegatedChainDataAnchoringWithRatio`는 [수수료 부분 위임 체인 데이터 앵커링 트랜잭션](../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedchaindataanchoringwithratio)을 나타냅니다. `transactionObject`는 `FeeDelegatedChainDataAnchoringWithRatio` 트랜잭션을 생성하기 위해 아래와 같은 속성들을 가질 수 있습니다.
 
 `FeeDelegatedChainDataAnchoringWithRatio`은 멤버변수로서 아래와 같은 속성들을 가지고 있습니다. `선택 사항`인 속성들은 사용자가 `FeeDelegatedChainDataAnchoringWithRatio` 트랜잭션을 생성할 때 `transactionObject`에 선택적으로 주어질 수 있는 속성들을 뜻합니다.
 
-**참고** RLP 인코딩된 문자열로부터 `FeeDelegatedChainDataAnchoringWithRatio` 인스턴스를 생성할 수 있습니다. 아래 예시를 참고해주세요.
+{% hint style="success" %}
+NOTE: You can create an instance of `FeeDelegatedChainDataAnchoringWithRatio` from RLP-encoded strings. 아래 예시를 참고해주세요. NOTE: `caver.transaction.feeDelegatedChainDataAnchoringWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-**참고** `caver.transaction.feeDelegatedChainDataAnchoringWithRatio.create`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedChainDataAnchoringWithRatio({...})`, please change it to `caver.transaction.feeDelegatedChainDataAnchoringWithRatio.create({...})`.
+{% endhint %}
 
 **속성**
 
