@@ -123,7 +123,8 @@ Compiling your contracts...
       at processResult (/Users/jieunkim/.nvm/versions/node/v10.16.0/lib/node_modules/truffle/build/webpack:/packages/core/lib/testing/soliditytest.js:69:1)
       at process._tickCallback (internal/process/next_tick.js:68:7)
 ```
-앗, 실패했습니다. 오류 메시지 `Error: greeting message should match (Tested: Hello, Klaytn, Against: Hello Klaytn)`를 확인해봅시다. *string memory expectedGreet = "Hello Klaytn"*에 `',(반점)'`이 빠졌음을 알 수 있습니다. 코드를 수정하고 테스트를 다시 실행하세요.
+앗, 실패했습니다. 오류 메시지 `Error: greeting message should match (Tested: Hello, Klaytn, Against: Hello Klaytn)`를 확인해봅시다. I can notice the missed `',(comma)'` at *string memory expectedGreet = "Hello Klaytn"*.  
+Fix the code and run the test again.
 ```
 $ truffle test
 # Output
@@ -147,7 +148,8 @@ Compiling your contracts...
 ### 3) 자바스크립트로 테스트 작성하기 <a id="3-writing-test-in-javascript"></a>
 트러플은 자바스크립트 테스트를 위한 견고한 프레임워크를 제공하기 위해 [Mocha](https://mochajs.org/) 테스트 프레임워크 및 [Chai](https://www.chaijs.com/) 어설션 라이브러리를 사용합니다. 자바스크립트 테스트는 더 많은 유연성을 제공하며 더 복잡한 테스트를 작성할 수 있게 합니다.
 
-`test` 경로 하에 파일을 생성하고 이름을 `0_KlaytnGreeting.js`이라 합시다. 테스트 코드는 다음과 같습니다:
+Let's create a file and name it `0_KlaytnGreeting.js` under `test` directory.  
+The test code is:
 ```javascript
 // KlaytnGreeter 컨트랙트와 직접 상호작용
 const KlaytnGreeter = artifacts.require("./KlaytnGreeter.sol");
@@ -190,17 +192,18 @@ contract("KlaytnGreeter", async(accounts) => {
 ```
 만일 `Mocha` 유닛 테스트에 익숙하지 않다면, [Mocha 문서](https://mochajs.org/#getting-started)를 참조하시길 바랍니다.
 
-* describe() 대신 contract()를 사용하세요.  
-  구조적으로 트러플 테스트 코드는 Mocha의 일반적인 테스트 코드와 크게 다르지 않을겁니다. 테스트에는 Mocha가 자동화된 테스트임을 인지할 수 있도록 하는 코드가 포함되어야 합니다. Mocha와 트러플 테스트의 차이는 contract() 함수입니다. **참고** `contract()` 함수의 사용과, 사용 가능한 Klaytn 계정들을 지정하기 위한 `account` 배열입니다.
+* Use contract() instead of describe()  
+  Structurally, the Truffle test code shouldn't be much different from the usual test code of Mocha. 테스트에는 Mocha가 자동화된 테스트임을 인지할 수 있도록 하는 코드가 포함되어야 합니다. The difference between Mocha and Truffle test is the contract() function.  
+  **NOTE** the use of the `contract()` function, and the `accounts` array for specifying available Klaytn accounts.
 
-* 테스트 내 컨트랙트 추상화  
-  트러플은 테스트 중 어떤 컨트랙트와 상호작용해야 하는지 감지할 방법이 없기에, 컨트랙트를 명시적으로 지정해야 합니다. 이를 수행하는 한 방법은 `artifacts.require()` 메소드를 사용하는 것입니다.
+* Contract abstractions within your tests  
+  Since Truffle has no way of detecting which contract you'll need to interact with during test, you should specify the contract explicitly. 이를 수행하는 한 방법은 `artifacts.require()` 메소드를 사용하는 것입니다.
 
-* `it` 구문  
-  각 테스트 사례를 설명과 함께 나타냅니다. 테스트 실행 시 콘솔에 설명이 출력됩니다.
+* `it` syntax  
+  This represents each test case with description. 테스트 실행 시 콘솔에 설명이 출력됩니다.
 
-* `truffle-assertion` 라이브러리  
-  이 라이브러리는 `truffleAssert.reverts()` 및 `truffleAssert.fails()` 함수를 제공해 revert 및 기타 오류를 쉽게 테스트할 수 있도록 합니다.
+* `truffle-assertion` library  
+  This library allows you to easily test reverts or other failures by offering the `truffleAssert.reverts()` and `truffleAssert.fails()` functions.
 
 출력은 다음과 같아야 합니다:
 ```
