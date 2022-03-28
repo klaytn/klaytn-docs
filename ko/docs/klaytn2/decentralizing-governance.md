@@ -14,4 +14,4 @@
 커뮤니티에서 더 많은 지지를 받는 거버넌스 참여자들이 원하는 방향으로 클레이튼을 구성해가도록 하기 위해 스테이킹 기반 거버넌스 모델이 도입될 것입니다. 지니 계수가 곧 폐지될 예정입니다. 메타버스화된 세상에서 적절한 결정을 내릴 수 있는 주체들이 클레이튼 GC에서 더 많은 영향력을 지니게 될 것입니다. 우리는 DAO와 빌더들이 해당 영역의 리더가 될 것이라 믿습니다.
 
 ## 탈중앙화의 최종 목표<a id="ultimate-goal-of-decentralization"></a>
-메타버스화 수준이 임계치를 넘어서면 클레이튼 거버넌스는 DAO와 빌더들과 함께 완전한 탈중앙화를 이룰 것입니다. 최종적으로 클레이튼은 온체인 메커니즘을 통해 클레이튼 커뮤니티의 목소리를 전파시킬 수 있는 DAO의 DAO, 그리고 DAO 플랫폼으로 진화할 것입니다.
+메타버스화 수준이 임계치를 넘어서면 클레이튼 거버넌스는 DAO와 빌더들과 함께 완전한 탈중앙화를 이룰 것입니다. Ultimately, Klaytn will evolve into a DAO of DAOs and a platform for DAOs to communicate the voices of Klaytn Communities through on-chain mechanisms.
