@@ -31,7 +31,7 @@ Workspaces contain contracts, scripts, tests folders and README.txt by default.
 
 Let’s go over the icons one by one.
 
-**A** Klaytn IDE is forked from Remix IDE. Clicking this icon will redirect you to the documents containing the instructions for using Remix <br /> **B** Create a Workspace.<br /> **C** Change the name of a Workspace.<br /> **D** Delete a Workspace.<br /> **E** Create a new file. The created file will appear in the editor.<br /> **F** Create a new folder.<br /> **G** Send Workspace to gist.<br /> **H** Send a local file to the Workspace.<br />
+**A** Klaytn IDE is forked from Remix IDE. Clicking this icon will redirect you to the documents containing the instructions for using Remix <br> **B** Create a Workspace.<br> **C** Change the name of a Workspace.<br> **D** Delete a Workspace.<br> **E** Create a new file. The created file will appear in the editor.<br> **F** Create a new folder.<br> **G** Send Workspace to gist.<br> **H** Send a local file to the Workspace.<br>
 
 ### Plugin Manager <a id="plugin-manager"></a>
 
