@@ -15,7 +15,7 @@ Since it follows the same procedure, we will briefly explain.
 
 ![](../images/sc-ha-add-bridge.png)
 
-After building EN-02, set `SC_MAIN_BRIDGE` to 1 in `conf/kend.conf` and restart EN-02.
+After building EN-02, set `SC_MAIN_BRIDGE` to 1 in `conf/kend.conf` and restart ken on EN-02.
 
 ```console
 SC_MAIN_BRIDGE=1
