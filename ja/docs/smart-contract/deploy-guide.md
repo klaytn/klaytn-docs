@@ -231,7 +231,7 @@ $ npm install caver-js.
 
 ```
 const Caver = require("caver-js");
-const caver = new Caver("https://your.en.url:8651")
+const caver = new Caver("https://api.baobab.klaytn.net:8651")
 
 const walletInstance = caver.klay.accounts.privateKeyToAccount(
   '0x3de0c9...' // enter your private key to deploy contract with
