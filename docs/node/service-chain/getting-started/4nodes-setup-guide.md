@@ -31,11 +31,11 @@ $ export PATH=$PATH:~/path/to/kscn-XXXXX-amd64/bin
 SCN also provides RPM Distribution(RHEL/EntOS/Fedora). For more information, please refer to [Installation](../references/scn/installation.md).
 
 ```console
-# curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo
+$ curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo
   % Total % Received % Xferd Average Speed Time Time Time Current Dload Upload Total Spent Left Speed
      100 118 100 118 0 0 1113 0 --:--:-- --:--:-- --:--:-- 1102 
 
-# yum list | grep klaytn 
+$ yum list | grep klaytn 
 packages-klaytn-prod 31 kB/s | 2.9 kB 00:00 
 homi.x86_64           v1.8.0-0.el7      packages-klaytn-prod 
 kbnd.x86_64           v1.8.0-0.el7      packages-klaytn-prod 
@@ -50,7 +50,7 @@ kscnd.x86_64          v1.8.0-0.el7      packages-klaytn-prod
 ksend.x86_64          v1.8.0-0.el7      packages-klaytn-prod 
 kspnd.x86_64          v1.8.0-0.el7      packages-klaytn-prod 
 
-# yum install kscnd
+$ yum install kscnd
 ```
 
 ## Step 1: Create genesis.json and nodekeys <a id="step-1-create-genesis-json-and-a-key"></a>
