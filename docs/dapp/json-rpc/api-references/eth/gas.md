@@ -184,7 +184,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 {
   "jsonrpc": "2.0",
   "id":1,
-  "result": "0x5d21dba00" // 25,000,000,000 peb = 25 Gpeb
+  "result": "0x5d21dba00" // 750,000,000,000 peb = 750 ston (Gpeb)
 }
 ```
 
