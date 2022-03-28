@@ -9,9 +9,9 @@
 Klaytn은 **London** Ethereum Virtual Machine (EVM)과 공식 호환 가능합니다. 다른 EVM 버전들과의 하위 호환성은 보장되지 않습니다. 따라서 Istanbul 타겟 옵션과 함께 솔리디티 코드를 컴파일하는 것을 권장드립니다. 자세한 내용은 [How to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target)를 참고해주세요.
 
 {% hint style="success" %}
-v1.7.0 프로토콜 업그레이드 - **Istanbul** 하드포크 및 Klaytn의 자체 사항들을 포함하는 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#75373312`부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
+v1.7.0 프로토콜 업그레이드 - **Istanbul** 하드포크 및 Klaytn의 자체 사항들을 포함하는 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#75373312`부터 적용됩니다. Cypress mainnet will be subject to the same protocol upgrade in the next version.
 
-v1.7.3 프로토콜 업그레이드 - **London** 하드 포크의 Base Fee를 포함한 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#80295291`부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
+v1.7.3 프로토콜 업그레이드 - **London** 하드 포크의 Base Fee를 포함한 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#80295291`부터 적용됩니다. Cypress mainnet will be subject to the same protocol upgrade in the next version.
 {% endhint %}
 
 또한 Klaytn의 스마트 컨트랙트를 개발할 때 [Remix](https://remix.ethereum.org/) \(브라우저 기반 IDE\)와 [Truffle](https://github.com/trufflesuite/truffle) \(개발 프레임워크\)을 활용할 수 있습니다. Klaytn 팀은 이더리움 개발 도구와 Klaytn 개발 도구의 호환성을 유지하고자 하지만, 필요에 따라 Ethereum 도구보다 향상되거나 업데이트된 버전의 도구를 Klaytn 스마트 컨트랙트 개발자들에게 제공할 수도 있습니다.
