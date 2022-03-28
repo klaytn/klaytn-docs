@@ -34,27 +34,27 @@ These public nodes are provided to the community by third party services and can
 
 **RPC**
 
-- `https://klaytn01.fandom.finance:8551`
+- `https://klaytn01.fandom.finance/`
 
-- `https://klaytn02.fandom.finance:8551`
+- `https://klaytn02.fandom.finance/`
 
-- `https://klaytn03.fandom.finance:8551`
+- `https://klaytn03.fandom.finance/`
 
-- `https://klaytn04.fandom.finance:8551`
+- `https://klaytn04.fandom.finance/`
 
-- `https://klaytn05.fandom.finance:8551`
+- `https://klaytn05.fandom.finance/`
 
 **WebSocket**
 
-- `wss://klaytn01.fandom.finance:8552`
+- `wss://klaytn01.fandom.finance/ws/`
 
-- `wss://klaytn02.fandom.finance:8552`
+- `wss://klaytn02.fandom.finance/ws/`
 
-- `wss://klaytn03.fandom.finance:8552`
+- `wss://klaytn03.fandom.finance/ws/`
 
-- `wss://klaytn04.fandom.finance:8552`
+- `wss://klaytn04.fandom.finance/ws/`
 
-- `wss://klaytn05.fandom.finance:8552`
+- `wss://klaytn05.fandom.finance/ws/`
 
 
 ### Testnet (Baobab) Public Endpoint Node
