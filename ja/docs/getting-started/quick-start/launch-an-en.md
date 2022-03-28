@@ -2,7 +2,8 @@
 
 ## Download and Initialize an Endpoint Node \(EN\) <a id="download-and-initialize-an-endpoint-node-en"></a>
 
-Unzip the provided [ken binary package](../../node/endpoint-node/installation-guide/download.md) and copy the files into the klaytn folder. **Note**: Please download appropriate package starting with `ken`.
+Unzip the provided [ken binary package](../../node/endpoint-node/installation-guide/download.md) and copy the files into the klaytn folder.  
+**Note**: Please download appropriate package starting with `ken`.
 
 For Mac users, unzip the downloaded file with the following command.
 
