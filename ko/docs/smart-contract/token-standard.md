@@ -67,7 +67,7 @@ function renouncePauser() external;
 
 예를 들어, 블록체인 수집 게임인 [크립토키티](https://www.cryptokitties.co/)는 다른 유전 정보를 가진 고양이를 표현하기 위해 대체 불가능한 토큰을 구현합니다. 모든 고양이는 고유하고 상호 교환이 불가능하며, 그 결과 고양이 토큰마다 다른 가치를 가집니다.
 
-대체 불가 토큰을 구현하기 위해 [KIP-17](https://kips.klaytn.com/KIPs/kip-17) 을 사용할 수 있습니다. KIP-17 토큰 컨트랙트는 다음에 소개할 인터페이스를 사용합니다. KIP-7을 구현 시 [KIP-13](https://kips.klaytn.com/KIPs/kip-13)도 반드시 함께 구현해야 함에 주의하십시오. 추가로, [wallet interface](https://kips.klaytn.com/KIPs/kip-17#wallet-interface)을 구현해 지갑 애플리케이션을 개발할 수 있습니다.
+대체 불가 토큰을 구현하기 위해 [KIP-17](https://kips.klaytn.com/KIPs/kip-17) 을 사용할 수 있습니다. KIP-17 토큰 컨트랙트는 다음에 소개할 인터페이스를 사용합니다. KIP-17을 구현 시 [KIP-13](https://kips.klaytn.com/KIPs/kip-13)도 반드시 함께 구현해야 함에 주의하십시오. 추가로, [wallet interface](https://kips.klaytn.com/KIPs/kip-17#wallet-interface)을 구현해 지갑 애플리케이션을 개발할 수 있습니다.
 
 ```solidity
 // IKIP17
