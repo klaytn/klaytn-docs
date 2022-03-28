@@ -1,4 +1,4 @@
-If only one bridge is used in the ServiceChain, that bridge can become a single point of failure. To solve this, we describe how you can build an HA system with two or more pairs of bridges. As shown in the figure below, configure the bridges to be connected in at least two pairs, so that even if there is a problem in one bridge connection, data anchoring and value transfer between chains can still work normally through the other bridge.
+If only one bridge is used in the ServiceChain, that bridge can become a single point of failure. To solve this, we describe how you can build an HA system with two or more bridges. As shown in the figure below, configure the bridges to be connected in at least two pairs, so that even if there is a problem in one bridge connection, data anchoring and value transfer between chains can still work normally through the other bridge.
 
 ![](../images/sc-ha-arch.png)
 
@@ -60,7 +60,7 @@ After adding the bridge between EN-02 and SCN-L2-02, you can now see the connect
 
 ## Step 2: Registering and Subscribing the Bridge Contract <a id="step-2-registering-and-subscribing-the-bridge-contract"></a>
 
-As shown in the figure above, only one bridge between EN-01 and SCN-L2-01 has been registered as a bridge contract.
+As shown in the figure above, the bridge contract is registered only in EN-01 and SCN-L2-01.
 
 Connect to the SCN-L2-02 console and run the APIs for bridge registration, bridge subscription, and token registration. The bridge and token contract were created while deploying the bridge contract with EN-01 and SCN-L2-01 in step 2 of [Cross-Chain Value Transfer](./value-transfer.md).
 

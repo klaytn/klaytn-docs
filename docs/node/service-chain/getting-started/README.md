@@ -1,6 +1,6 @@
 ---
 description: >-
-  By following the steps in this section, you will quickly set up and run a ServiceChain, an independent blockchain connected to the Klaytn testnet.
+  By following the steps in this section, you will quickly set up and run a ServiceChain network, an independent blockchain network connected to the Klaytn testnet.
 ---
 
 This tutorial provides a step-by-step guide for setting up a ServiceChain and connecting it to the Klaytn Baobab network.
