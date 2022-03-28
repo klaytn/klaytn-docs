@@ -1,7 +1,7 @@
-이 장에서는 4-노드 서비스체인을 Baobab 네트워크에 연결하는 방법을 설명합니다. Baobab EN을 설정하고 EN을 SCN 중 하나와 연결할 것입니다. 그 후 앵커링 기능을 사용하여 서비스체인 블록 정보를 Baobab 네트워크에 기록할 것입니다.
+This section covers how to connect your 4-node service chain to the Baobab network. You will set up a Baobab EN and connect the EN with one of your SCNs. Then you will enable the Anchoring feature to write service chain block information on Baobab network.
 
 ## 준비 사항 <a id="prerequisites"></a>
- - 아래 Baobab EN 실행 파일을 다운로드하세요. 다운로드 가능한 전체 목록은 [다운로드](../../download/README.md) 페이지를 참조하세요.
+ - Download the Baobab EN executable below. For the full list of downloadables, see [Download](../../download/README.md).
    - Linux
       - [ken-baobab-v1.5.0-0-linux-amd64.tar.gz](http://packages.klaytn.net/klaytn/v1.5.0/ken-baobab-v1.5.0-0-linux-amd64.tar.gz)
    - MacOS
@@ -17,7 +17,7 @@
    - 모든 SCN이 EN에 연결될 필요는 없습니다.
 
 ## 0 단계 : Baobab EN 설치하기 <a id="install-baobab-en"></a>
-설치는 다운로드 한 패키지의 압축을 해제하기만 하면 됩니다. 서버에서 EN 아카이브를 압축 해제하세요.
+다운로드한 패키지를 압축 해제해 설치합니다. Extract the archive on the EN server.
 
 ```bash
 $ tar xvf ken-baobab-vX.X.X-XXXXX-amd64.tar.gz
@@ -30,7 +30,7 @@ $ curl -X GET https://packages.klaytn.net/baobab/genesis.json -o ~/genesis.json
 ```
 
 ## 2 단계 : EN 노드 초기화<a id="step-2-en-node-initialization"></a>
-이제, genesis 파일을 사용하여 EN 노드를 초기화합니다. 노드에서 다음 명령을 실행하세요. 이 명령어는 체인 데이터와 로그를 저장하는 데이터 폴더를 홈 디렉토리에 생성합니다. `-datadir` 지시어로 데이터 폴더 위치를 변경할 수 있습니다.
+Now, we will initialize the EN node using the genesis file. Execute the following command. It will create the data folder storing the chain data and logs on your home directory. You can change the data folder using the `--datadir` directive.
 
 ```
 $ ken --datadir ~/data init ~/genesis.json
@@ -63,7 +63,7 @@ $ ken attach --datadir ~/data
 노드를 중지하려면 `kend stop` 명령어를 사용하세요.
 
 ## 5 단계 : EN 노드의 KNI 확인<a id="step-5-check-kni-of-en-node"></a>
-SCN 노드에서 연결하기 위해 필요한 정보인 EN의 KNI를 기록해 두세요. 이 값은 다음 단계에서 `main-bridges.json`을 생성할 때 사용합니다.
+Take note of EN's KNI which is the information used to connect from an SCN node. This value will be used in the next step when generating `main-bridges.json`
 ```
 
 $ ken attach --datadir ~/data
@@ -72,7 +72,7 @@ $ ken attach --datadir ~/data
 ```
 
 ## 6 단계 : main-bridges.json 생성<a id="step-6-create-main-bridges-json"></a>
-SCN에 로긴하여 (주의: EN이 아닙니다) `~/data` 폴더 아래에 `main-bridges.json`을 생성하세요. `@` 뒤에 위치한 `[::]`를 EN 노드의 IP 주소로 변경하세요.
+Log on to an SCN (note: not the EN node) and create `main-bridges.json` on `~/data`. Replace `[::]` located after `@` letter with EN node's IP address.
 ```
 $ echo '["kni://0f7aa6499553cdfeb8f21df10c656252ca6039047242eb86278689a87d57a41f9f004720180d1921e9f7632a4c6476f1775a2c381568d8e8c3c9c4a8cfe25bae@192.168.0.5:50505?discport=0"]' > ~/data/main-bridges.json
 ```
@@ -105,10 +105,10 @@ $ kscn attach --datadir ~/data
 ```
 
 ## 앵커링<a id="anchoring"></a>
-EN과 SCN 연결이 완료되면 앵커링을 통해 부모 체인에 서비스체인 블록 정보를 기록할 수 있습니다. 이 장에서는 부모 오퍼레이터 계정의 잔고를 채우고, 앵커링을 활성화한 다음, 앵커링된 블록 번호를 확인해 볼 것입니다.
+After finishing the EN and SCN connection, you can log Service Chain block information on the parent chain via Anchoring. In this section, you will top up a parent operator account, enable Anchoring, and check the anchored block number.
 
 ### 1 단계 : 앵커링 테스트를 위한 KLAY 얻기 <a id="step-1-get-klay-to-test-anchoring"></a>
-앵커링을 하려면 SCN은 앵커링 트랜잭션을 바오밥에 생성해야 합니다. 따라서 `subbridge.parentOperator` 계정은 트랜잭션 수수료 납부를 위해 KLAY를 가지고 있어야 합니다. [Baobab Wallet Faucet](https://baobab.wallet.klaytn.com/)에서 KLAY를 받은 후 1 KLAY를 `subbridge.parentOperator`로 전송하세요.
+To do an anchoring, SCN has to make an anchoring transaction to Baobab. So `subbridge.parentOperator` account should have KLAY to pay the transaction fee. Get some KLAY from [Baobab Wallet Faucet](https://baobab.wallet.klaytn.com/) and transfer 1 KLAY to the `subbridge.parentOperator`.
 ```
 $ kscn attach --datadir ~/data
 > subbridge.parentOperator
