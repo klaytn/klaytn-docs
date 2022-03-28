@@ -92,6 +92,6 @@ https://docs.klaytn.com/dapp/developer-tools/klaytn-wallet#how-to-receive-baobab
 https://docs.klaytn.com/dapp/developer-tools/klaytnscope
 - ChainID : Baobab: 1001 (0x3E9), Cypress: 8217 (0x2019)
 
-- Gas price : Fixed at 750 STON (Gpeb)
+- Gas price : Fixed at 750 STON
 https://docs.klaytn.com/klaytn/design/transaction-fees
 
