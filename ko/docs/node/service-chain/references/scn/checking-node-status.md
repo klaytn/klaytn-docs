@@ -56,7 +56,7 @@ $ tail -F ~/kscnd_home/logs/kscnd.out
   INFO[11/12,10:19:12 +09] [24] Committed                                 number=14 hash=dcd2bc…b2aec0 address=0xf8690562c0839C44B17AF421F7AaaA9F12dCc62b
 ```
 
-## 조회<a id="queries"></a>
+## 쿼리 <a id="queries"></a>
 
 ### kscn 콘솔 <a id="kscn-console"></a>
 
