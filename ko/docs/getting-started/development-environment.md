@@ -5,7 +5,7 @@
 * Baobab 테스트넷
 * Cypress 메인넷
 
-**Endpoint Node**
+**엔드포인트 노드**
 
 * [엔드포인트 노드](../node/endpoint-node/README.md)는 Klaytn 네트워크에 연결하고 API 호출을 하거나 트랜잭션을 전송하는 데 필요합니다.
 * `ken`은 Klaytn 엔드포인트 노드 바이너리입니다. `ken` exposes two interfaces, a [command-line interface](../node/endpoint-node/ken-cli-commands.md) and the [JSON-RPC APIs](../dapp/json-rpc/README.md). `ken`은 Linux와 MacOS에서 실행됩니다.
