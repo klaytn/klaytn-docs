@@ -43,7 +43,7 @@ contract KlaytnGreeter is Mortal {
 컨트랙트 배포 및 Klaytn IDE 사용 가이드에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Klaytn IDE](../ide-and-tools/README.md#klaytn-ide)
-* [Truffle](../ide-and-tools/README.md#truffle)
+* [트러플(Truffle)](../ide-and-tools/README.md#truffle)
 * [배포 가이드](../deploy-guide.md)
 
 
