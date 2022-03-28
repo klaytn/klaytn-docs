@@ -12,7 +12,7 @@ Open your internet browser and go to https://ide.klaytn.com
 ![](img/deploy-with-ide/01_deployment_ide.png)
 
 
-- Copy and paste the following sample code (or any code you want to deploy) in the new file.
+- Copy and paste the following sample code (or any code you want to deploy) in the new file. The code consists of two contracts called Mortal and KlaytnGreeter, and it allows you to run a simple "Hello World!".
 
 ```
 pragma solidity 0.5.12;
