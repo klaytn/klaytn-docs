@@ -519,11 +519,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 **Parameters**
 
-| 이름       | 타입     | 설명                        |
-| -------- | ------ | ------------------------- |
-| 메시지      | string | 서명할 메시지입니다.               |
-| account  | string | 계정 주소.                    |
-| password | string | (선택 사항) 서명에 사용되는 비밀번호입니다. |
+| 이름       | 타입     | 설명                                |
+| -------- | ------ | --------------------------------- |
+| 메시지      | string | 서명할 메시지입니다.                       |
+| account  | string | 계정 주소.                            |
+| password | string | The pass phrase used for signing. |
 
 **리턴값**
 
