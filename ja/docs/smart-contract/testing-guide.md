@@ -125,7 +125,8 @@ Compiling your contracts...
       at processResult (/Users/jieunkim/.nvm/versions/node/v10.16.0/lib/node_modules/truffle/build/webpack:/packages/core/lib/testing/soliditytest.js:69:1)
       at process._tickCallback (internal/process/next_tick.js:68:7)
 ```
-Oops, we failed. Let's check the error message,`Error: greeting message should match (Tested: Hello, Klaytn, Against: Hello Klaytn)`. I can notice the missed `',(comma)'` at *string memory expectedGreet = "Hello Klaytn"*. Fix the code and run the test again.
+Oops, we failed. Let's check the error message,`Error: greeting message should match (Tested: Hello, Klaytn, Against: Hello Klaytn)`. I can notice the missed `',(comma)'` at *string memory expectedGreet = "Hello Klaytn"*.  
+Fix the code and run the test again.
 ```
 $ truffle test
 # Output
@@ -149,7 +150,8 @@ Congratulations! Your test has passed.
 ### 3) Writing test in JavaScript <a id="3-writing-test-in-javascript"></a>
 Truffle uses the [Mocha](https://mochajs.org/) testing framework and [Chai](https://www.chaijs.com/) assertion library to provide a solid framework for JavaScript test. JavaScript test gives you more flexibility and enables you to write more complex tests.
 
-Let's create a file and name it `0_KlaytnGreeting.js` under `test` directory. The test code is:
+Let's create a file and name it `0_KlaytnGreeting.js` under `test` directory.  
+The test code is:
 ```javascript
 // Interacting directly with KlaytnGreeter contract
 const KlaytnGreeter = artifacts.require("./KlaytnGreeter.sol");
@@ -193,7 +195,8 @@ contract("KlaytnGreeter", async(accounts) => {
 If you are unfamiliar with `Mocha` unit test, please check the [Mocha document](https://mochajs.org/#getting-started).
 
 * Use contract() instead of describe()  
-  Structurally, the Truffle test code shouldn't be much different from the usual test code of Mocha. Your test should contain the code that Mocha will recognize it as an automated test. The difference between Mocha and Truffle test is the contract() function. **NOTE** the use of the `contract()` function, and the `accounts` array for specifying available Klaytn accounts.
+  Structurally, the Truffle test code shouldn't be much different from the usual test code of Mocha. Your test should contain the code that Mocha will recognize it as an automated test. The difference between Mocha and Truffle test is the contract() function.  
+  **NOTE** the use of the `contract()` function, and the `accounts` array for specifying available Klaytn accounts.
 
 * Contract abstractions within your tests  
   Since Truffle has no way of detecting which contract you'll need to interact with during test, you should specify the contract explicitly. One way to do this is by using the `artifacts.require()` method.
