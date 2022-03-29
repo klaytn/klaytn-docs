@@ -164,6 +164,7 @@
 
 * [dApp<br>개발자](dapp/README.md)
   * [JSON-RPC APIs](dapp/json-rpc/README.md)
+    * [Public JSON-RPC Endpoint](dapp/json-rpc/public-en.md)
     * [API references](dapp/json-rpc/api-references/README.md)
       * [eth](dapp/json-rpc/api-references/eth.md)
         * [Caution](dapp/json-rpc/api-references/eth/caution.md)
