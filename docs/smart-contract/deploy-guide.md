@@ -40,7 +40,7 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-- Select Compiler in the icon panel. Choose the desired EVM environment. For the Klaytn networks, you can choose between Baobab (testnet) and Cypress (mainnet). And click Compile.
+- Select Compiler in the icon panel. Choose the desired EVM environment. For the Klaytn networks, you can choose between Baobab (testnet) and Cypress (mainnet). Click `Compile` when the sample code is ready to be complied before actual deployment.
 
 ![](img/deploy-with-ide/02_deployment_compile.png)
 
