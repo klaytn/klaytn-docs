@@ -44,7 +44,7 @@ contract KlaytnGreeter is Mortal {
 
 ![](img/deploy-with-ide/02_deployment_compile.png)
 
-- Now we can deploy the contract. Click on the Klaytn logo in the icon panel. Import an account by clicking the plus button next to `Account`. Make sure that the account has sufficient KLAY to deploy and transact the contracts.
+- Now we can deploy the contract. Click on the Klaytn logo in the icon panel. Import an account by clicking the plus button next to `Account`. Make sure that the account has sufficient KLAY to pay for the transaction of deploying the smart contracts required.
 
 ![](img/deploy-with-ide/05_deployment_account.png)
 
