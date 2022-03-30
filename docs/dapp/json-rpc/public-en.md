@@ -82,16 +82,17 @@ These public endpoints are provided to the community by third party services and
 
 ## Useful Resources 
 
-- Wallet : Kaikas is a browser extension wallet for the Klaytn Network.
-https://docs.klaytn.com/dapp/developer-tools/kaikas
+- Wallet: Kaikas is a browser extension wallet for the Klaytn Network.
+[Kaikas](https://docs.klaytn.com/dapp/developer-tools/kaikas)
 
-- Faucet : You can obtain test KLAY for the Baobab test network. 
-https://docs.klaytn.com/dapp/developer-tools/klaytn-wallet#how-to-receive-baobab-testnet-klay
+- Faucet: You can obtain test KLAY for the Baobab test network. 
+[Faucet](https://docs.klaytn.com/dapp/developer-tools/klaytn-wallet#how-to-receive-baobab-testnet-klay)
 
-- Explorer : Klaytnscope is the block explorer for the Klaytn Network.
-https://docs.klaytn.com/dapp/developer-tools/klaytnscope
+- Explorer: Klaytnscope is the block explorer for the Klaytn Network.
+[Klaytnscope](https://docs.klaytn.com/dapp/developer-tools/klaytnscope)
+
 - ChainID : Baobab: 1001 (0x3E9), Cypress: 8217 (0x2019)
 
-- Gas price : Fixed at 750 ston
-https://docs.klaytn.com/klaytn/design/transaction-fees
+- Gas price: Fixed at 750 ston
+[Transaction Fees](https://docs.klaytn.com/klaytn/design/transaction-fees)
 
