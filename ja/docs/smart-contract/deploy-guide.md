@@ -1,21 +1,21 @@
 # Deploy Guide <a id="deploy-guide"></a>
 
-There are various ways of deploying a smart contract to Klaytn. This document provides a step-by-step guide to deploy a sample contract using various tools. We assume that you have a Klaytn account with enough KLAY to pay the transaction fee. To create an account, please refer to [Klaytn Wallet](../toolkit/klaytn-wallet.md).
+There are various ways of deploying a smart contract on Klaytn. This document provides a step-by-step guide to deploy a sample contract using various tools. We assume that you have a Klaytn account with enough KLAY to pay the transaction fee. To create an account, please visit [Klaytn Wallet](../toolkit/klaytn-wallet.md).
 
 ## Klaytn IDE <a id="klaytn-ide"></a>
 
-Open up your internet browser and go to https://ide.klaytn.com
+Open your internet browser and go to https://ide.klaytn.com
 
 
 - Add a new file.
 
-![](img/deploy-with-ide/deploy-with-ide.001.png)
+![](img/deploy-with-ide/01_deployment_ide.png)
 
 
-- Copy and paste the following code (or any code you want to deploy).
+- Copy and paste the following sample code (or any code you want to deploy) in the new file. The code consists of two contracts called Mortal and KlaytnGreeter, and it allows you to run a simple "Hello World!".
 
 ```
-pragma solidity 0.5.6;
+pragma solidity 0.5.12;
 
 contract Mortal {
     /* Define variable owner of the type address */
@@ -39,31 +39,29 @@ contract KlaytnGreeter is Mortal {
     }
 }
 ```
-- Set compiler version. Currently, you can choose between 0.4.24 and 0.5.6. (Default is 0.5.6.)
 
-![](img/deploy-with-ide/deploy-with-ide.002.png)
+- Select Compiler in the icon panel. Choose the desired EVM environment. For the Klaytn networks, you can choose between Baobab (testnet) and Cypress (mainnet). Click `Compile` when the sample code is ready to be complied before actual deployment.
 
+![](img/deploy-with-ide/02_deployment_compile.png)
 
-- Click Run tab. At `Environment` dropdown, you can choose a target network to deploy the contract. (Baobab is test network and Cypress is main network.)
+- Now we can deploy the contract. Click on the Klaytn logo in the icon panel. Import an account by clicking the plus button next to `Account`. Make sure that the account has sufficient KLAY to pay for the transaction of deploying the smart contracts required.
 
-![](img/deploy-with-ide/deploy-with-ide.003.png)
-
-- After choosing a network, import account by clicking on the plus button next to `Account`. Make sure to import account that has enough `KLAY` to deploy the contract on the network.
-
-![](img/deploy-with-ide/deploy-with-ide.004.png)
+![](img/deploy-with-ide/05_deployment_account.png)
 
 - Set Gas limit and Value to send.
   - You may need to set higher Gas limit if you are deploying a more complicated contract. In this example, you can leave it as it is.
   - Set `Value` to 0 unless you want to send `KLAY` to the contract at the time of deployment.
-- Enter "Hello World!" as an argument for constructor function and click on `Deploy` button. If everything goes successful, deployed contract's instance will show up below.
+- Enter "Hello World!" as an argument for constructor function and click on `Deploy` button.
 
-![](img/deploy-with-ide/deploy-with-ide.005.png)
+![](img/deploy-with-ide/03_deployment_hello.png)
 
-- You can interact with the contract by clicking on the function buttons. Dark blue buttons are `send` functions which can change state on blockchain and consumes gas. Light blue buttons are `call` functions which do not change state and do not require gas fee.
+- If the contract is successfully deployed, you will see the corresponding transaction receipt and detailed result in the terminal.
 
-![](img/deploy-with-ide/deploy-with-ide.006.png)
+- You can interact with the contract by clicking on the function buttons. The functions are represented in different colors. `constant` or `pure` functions in Solidity have blue bottons (`greet` in the example) and do not create a new transaction, so they don't cost any gas. Red buttons (`kill` in the example) represent `payable` functions that change the state on the blockchain, consume gas and can accept value. Orange buttons are for `non-payable` functions that change the contract state but do NOT accept a value.
 
-For more details refer to this [link](../toolkit/klaytn-ide.md).
+![](img/deploy-with-ide/06_deployment_functions.png)
+
+For more details, please refer to this [link](../toolkit/klaytn-ide.md).
 
 ## Truffle  <a id="truffle"></a>
 
