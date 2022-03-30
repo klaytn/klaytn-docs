@@ -57,7 +57,7 @@ contract KlaytnGreeter is Mortal {
 
 - If the contract is successfully deployed, you will see the corresponding transaction receipt and detailed result in the terminal. 
 
-- You can interact with the contract by clicking on the function buttons. The functions are represented in different colors. `constant` or `pure` functions in Solidity have blue bottons (`greet` in the example) and do not create a new transaction, so they don't cost any gas. Red buttons (`kill` in the example) represent `payable` functions that change the state on the blockchain, consumes gas and can accept value. Orange buttons are for `non-payable` functions that change the contract state but do NOT accept a value.
+- You can interact with the contract by clicking on the function buttons. The functions are represented in different colors. `constant` or `pure` functions in Solidity have blue bottons (`greet` in the example) and do not create a new transaction, so they don't cost any gas. Red buttons (`kill` in the example) represent `payable` functions that change the state on the blockchain, consume gas and can accept value. Orange buttons are for `non-payable` functions that change the contract state but do NOT accept a value.
 
 ![](img/deploy-with-ide/06_deployment_functions.png)
 
