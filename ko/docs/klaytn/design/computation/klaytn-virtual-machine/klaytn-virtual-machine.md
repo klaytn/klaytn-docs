@@ -27,7 +27,7 @@ KLVM은 일련의 KLVM 명령어(또는 Klaytn bytecode)로 이루어진 Klaytn 
 | 기호         | 설명           |
 |:---------- |:------------ |
 | `BC`       | 블록체인         |
-| `B`        | 블록           |
+| `B`        | Block        |
 | `B_header` | 현재 블록의 블록 헤더 |
 
 #### 상태 관련 기호(State-Related Symbols)<a id="state-related-symbols"></a>
