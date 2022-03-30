@@ -1,68 +1,67 @@
 # 배포 가이드 <a id="deploy-guide"></a>
 
-Klaytn에 스마트 컨트랙트를 배포하는 방법에는 여러 가지가 있습니다. 이 문서는 다양한 도구를 사용하여 샘플 컨트랙트를 배포하기 위한 단계별 가이드를 제공합니다. 트랜잭션 수수료를 지불하기에 충분한 KLAY가 있는 Klaytn 계정이 있다고 가정합니다. 계정을 만들려면 [Klaytn Wallet](../toolkit/klaytn-wallet.md)을 참조하세요.
+There are various ways of deploying a smart contract on Klaytn. 이 문서는 다양한 도구를 사용하여 샘플 컨트랙트를 배포하기 위한 단계별 가이드를 제공합니다. 트랜잭션 수수료를 지불하기에 충분한 KLAY가 있는 Klaytn 계정이 있다고 가정합니다. To create an account, please visit [Klaytn Wallet](../toolkit/klaytn-wallet.md).
 
 ## Klaytn IDE <a id="klaytn-ide"></a>
 
-인터넷 브라우저를 열고 <0>https://ide.klaytn.com</0>으로 이동하세요.
+Open your internet browser and go to https://ide.klaytn.com
 
 
 - 새 파일을 추가하세요.
 
-![](img/deploy-with-ide/deploy-with-ide.001.png)
+![](img/deploy-with-ide/01_deployment_ide.png)
 
 
-- 다음 코드(또는 배포하고자 하는 아무 코드)를 복사해 붙여넣습니다.
+- Copy and paste the following sample code (or any code you want to deploy) in the new file. The code consists of two contracts called Mortal and KlaytnGreeter, and it allows you to run a simple "Hello World!".
 
 ```
-pragma solidity 0.5.6;
+pragma solidity 0.5.12;
+
 contract Mortal {
-    /* 주소 타입의 소유자(owner) 변수 정의 */
+    /* Define variable owner of the type address */
     address payable owner;
-    /* 이 함수는 초기화 시점에 실행되어 컨트랙트 소유자를 설정합니다 */
+    /* This function is executed at initialization and sets the owner of the contract */
     constructor () public { owner = msg.sender; }
-    /* 컨트랙트에서 자금을 회수하는 함수 */
+    /* Function to recover the funds on the contract */
     function kill() public payable { if (msg.sender == owner) selfdestruct(owner); }
 }
 
 contract KlaytnGreeter is Mortal {
-    /* 문자열 타입의 변수 greeting 정의 */
+    /* Define variable greeting of the type string */
     string greeting;
-    /* 이 함수는 컨트랙트가 실행될 때 작동합니다 */
+    /* This runs when the contract is executed */
     constructor (string memory _greeting) public {
         greeting = _greeting;
     }
-    /* 주(Main) 함수 */
+    /* Main function */
     function greet() public view returns (string memory) {
         return greeting;
     }
 }
 ```
-- 컴파일러 버전을 설정하세요. Currently, you can choose between 0.4.24 and 0.5.6. (Default is 0.5.6.)
 
-![](img/deploy-with-ide/deploy-with-ide.002.png)
+- Select Compiler in the icon panel. Choose the desired EVM environment. For the Klaytn networks, you can choose between Baobab (testnet) and Cypress (mainnet). Click `Compile` when the sample code is ready to be complied before actual deployment.
 
+![](img/deploy-with-ide/02_deployment_compile.png)
 
-- 실행(Run) 탭을 클릭하세요. `환경(Environment)` 드롭다운에서 컨트랙트를 배포할 대상 네트워크를 선택할 수 있습니다. (Baobab은 테스트 네트워크이고 Cypress는 메인 네트워크입니다.)
+- Now we can deploy the contract. Click on the Klaytn logo in the icon panel. Import an account by clicking the plus button next to `Account`. Make sure that the account has sufficient KLAY to pay for the transaction of deploying the smart contracts required.
 
-![](img/deploy-with-ide/deploy-with-ide.003.png)
-
-- 네트워크를 선택한 후, `계정(Account)` 옆의 더하기 버튼을 클릭하여 계정을 가져옵니다. 네트워크에 컨트랙트를 배포하기에 충분한 `KLAY`를 가진 계정을 불러와야 합니다.
-
-![](img/deploy-with-ide/deploy-with-ide.004.png)
+![](img/deploy-with-ide/05_deployment_account.png)
 
 - 보낼 가스 한도 및 값을 설정하세요.
   - 보다 복잡한 컨트랙트를 배포하는 경우 가스 한도를 더 높게 설정해야 할 수 있습니다. 이 예시에서는 그대로 두어도 됩니다.
   - 배포 시 컨트랙트에 `KLAY`를 보내고 싶지 않다면 `값(Value)`을 0으로 설정하세요.
-- "Hello World!"를 생성자 함수의 인자로 입력하고 `배포(Deploy)` 버튼을 클릭하세요. 모든 것이 성공적으로 진행되었다면, 배포된 컨트랙트의 인스턴스가 아래에 표시됩니다.
+- "Hello World!"를 생성자 함수의 인자로 입력하고 `배포(Deploy)` 버튼을 클릭하세요.
 
-![](img/deploy-with-ide/deploy-with-ide.005.png)
+![](img/deploy-with-ide/03_deployment_hello.png)
 
-- 함수 버튼을 클릭하여 컨트랙트와 상호작용할 수 있습니다. 진한 파란색 버튼은 블록체인의 상태를 변경하고 가스를 소비하는 `전송(send)` 함수입니다. 하늘색 버튼은 상태를 변경하지 않고 트랜잭션 수수료를 요구하지 않는 `호출(call)` 함수입니다.
+- If the contract is successfully deployed, you will see the corresponding transaction receipt and detailed result in the terminal.
 
-![](img/deploy-with-ide/deploy-with-ide.006.png)
+- 함수 버튼을 클릭하여 컨트랙트와 상호작용할 수 있습니다. The functions are represented in different colors. `constant` or `pure` functions in Solidity have blue bottons (`greet` in the example) and do not create a new transaction, so they don't cost any gas. Red buttons (`kill` in the example) represent `payable` functions that change the state on the blockchain, consume gas and can accept value. Orange buttons are for `non-payable` functions that change the contract state but do NOT accept a value.
 
-자세한 내용은 이 [링크](../toolkit/klaytn-ide.md)를 참조하세요.
+![](img/deploy-with-ide/06_deployment_functions.png)
+
+For more details, please refer to this [link](../toolkit/klaytn-ide.md).
 
 ## Truffle  <a id="truffle"></a>
 
