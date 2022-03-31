@@ -6,9 +6,9 @@
 Remix is a browser-based IDE (Integrated Development Environment) for developing Solidity contracts. This document will cover connecting Remix with Klaytn. If you want to know more about how to use Remix, please refer to[ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) or [**Klaytn IDE**](../../smart-contract/ide-and-tools/README.md#klaytn-ide), which was derived from Remix.
 
 ## Setup EVM version <a id="setup-EVM-version"></a>
-Klaytn supports contracts written in Solidity, and is compatible with the **Constantinople** version of EVM. Also, Solidity version 0.7.x and lower are supported in Klaytn. Therefore, to deploy the contract on Klaytn, the contract must be compiled with the **Constantinople** EVM version.
+Klaytn supports contracts written in Solidity, and is compatible with the **London** version of EVM. Also, Solidity version 0.8.x and lower are supported in Klaytn. Therefore, to deploy the contract on Klaytn, the contract must be compiled with the **London** EVM version.
 
-* Click **solidity compiler**, and then choose **constantinople** EVM version.
+* Click **solidity compiler**, and then choose **London** EVM version.
 
 ![Solidity Complier](./img/remix-solidity-compiler.png)
 
