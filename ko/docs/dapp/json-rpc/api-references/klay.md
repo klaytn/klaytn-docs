@@ -38,7 +38,6 @@ The namespace `klay` provides functions related to accounts, blocks, transaction
 - [klay_getCouncil](./klay/block.md#klay_getcouncil)
 - [klay_getCouncilSize](./klay/block.md#klay_getcouncilsize)
 - [klay_getStorageAt](./klay/block.md#klay_getstorageat)
-- [klay_mining](./klay/block.md#klay_mining)
 - [klay_syncing](./klay/block.md#klay_syncing)
 
 
