@@ -102,7 +102,7 @@ Please check [Caution-Header](./caution.md#block_header) before using this API.
 
 **Return Value**
 
-`Object` - A header object, or `error` when no header was found:
+`Object` - A header object, or `null` when no header was found. Otherwise, it returns an error.
 
 | Name             | Type          | Description                                                                                                               |
 |------------------|---------------|---------------------------------------------------------------------------------------------------------------------------|
@@ -234,7 +234,7 @@ Please check [Caution-Block](./caution.md#block) before using this API.
 
 **Return Value**
 
-`Object` - A block object, or `error` when no block was found:
+`Object` - A block object, or `null` when no block was found. Otherwise, it returns an error.
 
 | Name              | Type          | Description                                                                                                               |
 |-------------------|---------------|---------------------------------------------------------------------------------------------------------------------------|
