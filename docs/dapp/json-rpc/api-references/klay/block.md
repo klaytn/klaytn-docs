@@ -857,37 +857,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "kl
 ```
 
 
-## klay_mining <a id="klay_mining"></a>
-
-Returns `true` if client is actively mining new blocks.
-
-**NOTE**: Currently, every node is on mining mode by default to resend transactions. Please note that actual "mining" process is only done by Consensus Nodes (CNs).
-
-**Parameters**
-
-None
-
-**Return Value**
-
-| Type    | Description                                        |
-| ------- | -------------------------------------------------- |
-| Boolean | `true` if the client is mining, otherwise `false`. |
-
-**Example**
-
-```shell
-// Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_mining","params":[],"id":1}' https://api.baobab.klaytn.net:8651
-
-// Result
-{
-  "jsonrpc":"2.0",
-  "id":1,
-  "result":true
-}
-```
-
-
 ## klay_syncing <a id="klay_syncing"></a>
 
 Returns an object with data about the sync status or `false`.
