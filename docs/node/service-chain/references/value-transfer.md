@@ -173,7 +173,7 @@ Therefore, if nonces are updated as follows, we can say the cross-chain value-tr
 If "handleNonce" equals to the "requestNonce" of the counterpart bridge contract, and the "lowerHandleNonce" is greater than "handleNonce" by 1, then users' requests were all processed.
 
 ### Log <a id="log"></a>
-Below is a typical log output from SCN during normal operation.
+Below is a typical log output from a SCN during normal operation.
 Every 1 second, the status of bridge contracts are printed.
 ```
 INFO[10/16,19:37:40 +09] [45] VT : Parent -> Child Chain                request=8699 handle=4826 lowerHandle=4826 pending=3873
