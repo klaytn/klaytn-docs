@@ -289,7 +289,7 @@ Value transfer request may be failed with some reasons. Assume that you requeste
 In that case the birdge contract in the receiver side must have enough klay than requested amount of klay. If not, the transfer would be slitenly failed without error notification by return value.
 A feature of value transfer recovery finds unhandled events and inserts them into the event pool again by every given interval, which means the failed transaction can be succeed again when the counterpart bridge can successfully handle that event.
 In the case of above example, the failed transaction would be eventually handled by value transfer recovery when the counterpart bridge has enough KLAY.
-In order to set the value transfer recovery as default, you need to set two properties:
+In order to set the value transfer recovery by default, you need to set two properties below:
 ```
 SC_VTRECOVERY=1
 SC_VTRECOVERY_INTERVAL=5
