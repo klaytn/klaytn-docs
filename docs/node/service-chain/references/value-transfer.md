@@ -22,7 +22,7 @@ Below contracts communicate with each other via main/sub-bridge to process user'
 ![Figure 1. Service chain architecture](../images/sc_arch.png)
 
 # Bridge Operator Account <a id="bridge-operator-account"></a>
-For Service Chain, there are two operator accounts: parent chain bridge operator account, service chain bridge operator account. Each operator account is used to sign transactions.
+For ServiceChain, there are two operator accounts: parent chain bridge operator account, service chain bridge operator account. Each operator account is used to sign transactions.
 If the transaction moves the value to the parent chain, the parent chain bridge operator account signs the transaction. To the child chain, the child chain bridge operator account is used.
 If a user submits a "request value transfer" transaction, the Sub-bridge creates a "handle value transfer" transaction signed by the bridge operator account.
 Therefore, the parent chain bridge operator needs enough KLAY in their balance to pay the transaction fee to the parent chain.
@@ -173,7 +173,7 @@ Therefore, if nonces are updated as follows, we can say the cross-chain value-tr
 If "handleNonce" equals to the "requestNonce" of the counterpart bridge contract, and the "lowerHandleNonce" is greater than "handleNonce" by 1, then users' requests were all processed.
 
 ### Log <a id="log"></a>
-Below is a typical log output from SCN during normal operation.
+Below is a typical log output from a SCN during normal operation.
 Every 1 second, the status of bridge contracts are printed.
 ```
 INFO[10/16,19:37:40 +09] [45] VT : Parent -> Child Chain                request=8699 handle=4826 lowerHandle=4826 pending=3873
@@ -294,15 +294,15 @@ In order to set the value transfer recovery as default, you need to set two prop
 SC_VTRECOVERY=1
 SC_VTRECOVERY_INTERVAL=5
 ```
-The value transfer recovery runs automatically by set `SC_VTRECOVERY=1`. `SC_VTRECOVERY_INTERVAL` means an interval how many often to be executed the value transfer recovery.
+The value transfer recovery runs automatically by set `SC_VTRECOVERY=1`. `SC_VTRECOVERY_INTERVAL` means an interval how often the value transfer recovery is executed.
 
 # Collecting Fee for KLAY/ERC-20 transfer <a id="collecting-fee-for-klay-erc-20-transfer"></a>
-In Service Chain, there is a fee collecting feature for the KLAY/ERC-20 transfer.
+In ServiceChain, there is a fee collecting feature for KLAY/ERC-20 transfers.
 
-**It will be updated soon.**
+**To be updated soon.**
 
 # Customizing your Bridge Contract  <a id="customizing-your-bridge-contract"></a>
-In Service Chain, you can use your own customized Bridge contract that inherits from the original Bridge contract for your own unique service.
+In ServiceChain, you can use your own customized Bridge contract that inherits from the original Bridge contract for your own unique service.
 This section explains how to customize the Bridge contract and presents the example code.
 
 **It will be updated soon.**
