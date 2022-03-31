@@ -297,7 +297,7 @@ SC_VTRECOVERY_INTERVAL=5
 The value transfer recovery runs automatically by set `SC_VTRECOVERY=1`. `SC_VTRECOVERY_INTERVAL` means an interval how often the value transfer recovery is executed.
 
 # Collecting Fee for KLAY/ERC-20 transfer <a id="collecting-fee-for-klay-erc-20-transfer"></a>
-In Service Chain, there is a fee collecting feature for the KLAY/ERC-20 transfer.
+In ServiceChain, there is a fee collecting feature for KLAY/ERC-20 transfers.
 
 **It will be updated soon.**
 
