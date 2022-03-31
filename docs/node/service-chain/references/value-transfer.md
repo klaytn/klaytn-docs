@@ -22,7 +22,7 @@ Below contracts communicate with each other via main/sub-bridge to process user'
 ![Figure 1. Service chain architecture](../images/sc_arch.png)
 
 # Bridge Operator Account <a id="bridge-operator-account"></a>
-For Service Chain, there are two operator accounts: parent chain bridge operator account, service chain bridge operator account. Each operator account is used to sign transactions.
+For ServiceChain, there are two operator accounts: parent chain bridge operator account, service chain bridge operator account. Each operator account is used to sign transactions.
 If the transaction moves the value to the parent chain, the parent chain bridge operator account signs the transaction. To the child chain, the child chain bridge operator account is used.
 If a user submits a "request value transfer" transaction, the Sub-bridge creates a "handle value transfer" transaction signed by the bridge operator account.
 Therefore, the parent chain bridge operator needs enough KLAY in their balance to pay the transaction fee to the parent chain.
