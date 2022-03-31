@@ -102,7 +102,7 @@ Please check [Caution-Header](./caution.md#block_header) before using this API.
 
 **Return Value**
 
-`Object` - A header object, or `error` when no header was found:
+`Object` - A header object, or `null` when no header was found. Otherwise, it returns an error.
 
 | Name             | Type          | Description                                                                                                               |
 | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------- |
@@ -234,7 +234,7 @@ Please check [Caution-Block](./caution.md#block) before using this API.
 
 **Return Value**
 
-`Object` - A block object, or `error` when no block was found:
+`Object` - A block object, or `null` when no block was found. Otherwise, it returns an error.
 
 | Name             | Type          | Description                                                                                                               |
 | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------- |
@@ -415,7 +415,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getUncleCountByBlockNumber <a id="eth_getunclecountbyblocknumber"></a>
 
-Returns the number of uncles in a block from a block matching the given block number. Since there are no uncles in Klaytn, it always returns `0x0`.
+Returns the number of uncles in a block from a block matching the given block number. Since there are no uncles in Klaytn, it returns `0x0`. It returns `null` if there is no matching block.
 
 **Parameters**
 
@@ -425,9 +425,9 @@ Returns the number of uncles in a block from a block matching the given block nu
 
 **Return Value**
 
-| Type     | Description                                          |
-| -------- | ---------------------------------------------------- |
-| QUANTITY | Integer of the number of transactions in this block. |
+| Type     | Description                                                                                           |
+| -------- | ----------------------------------------------------------------------------------------------------- |
+| QUANTITY | Integer of the number of transactions in this block. It returns `null` if there is no matching block. |
 
 **Example**
 
@@ -446,7 +446,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getUncleCountByBlockHash <a id="eth_getunclecountbyblockhash"></a>
 
-Returns the number of uncles in a block from a block matching the given block hash. As there are no uncles in Klaytn, it always returns `0x0`.
+Returns the number of uncles in a block from a block matching the given block hash. Since there are no uncles in Klaytn, it returns `0x0`. It returns `null` if there is no matching block.
 
 **Parameters**
 
@@ -456,9 +456,9 @@ Returns the number of uncles in a block from a block matching the given block ha
 
 **Return Value**
 
-| Type     | Description                                          |
-| -------- | ---------------------------------------------------- |
-| QUANTITY | Integer of the number of transactions in this block. |
+| Type     | Description                                                                                           |
+| -------- | ----------------------------------------------------------------------------------------------------- |
+| QUANTITY | Integer of the number of transactions in this block. It returns `null` if there is no matching block. |
 
 **Example**
 
