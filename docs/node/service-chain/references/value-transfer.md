@@ -302,7 +302,7 @@ In ServiceChain, there is a fee collecting feature for KLAY/ERC-20 transfers.
 **To be updated soon.**
 
 # Customizing your Bridge Contract  <a id="customizing-your-bridge-contract"></a>
-In Service Chain, you can use your own customized Bridge contract that inherits from the original Bridge contract for your own unique service.
+In ServiceChain, you can use your own customized Bridge contract that inherits from the original Bridge contract for your own unique service.
 This section explains how to customize the Bridge contract and presents the example code.
 
 **It will be updated soon.**
