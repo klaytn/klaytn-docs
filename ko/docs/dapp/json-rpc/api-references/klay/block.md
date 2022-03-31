@@ -851,37 +851,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "kl
 ```
 
 
-## klay_mining <a id="klay_mining"></a>
-
-클라이언트가 새로운 블록을 채굴하고 있으면 `true`를 반환합니다.
-
-**참고**: 현재는 트랜잭션을 재전송하기 위해 모든 노드가 기본적으로 채굴 모드입니다. 실질적인 "채굴" 과정은 컨센서스 노드(CN)만이 하고 있습니다.
-
-**Parameters**
-
-없음
-
-**리턴값**
-
-| 타입      | 설명                                                  |
-| ------- | --------------------------------------------------- |
-| Boolean | 클라이언트가 채굴 중이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
-
-**예시**
-
-```shell
-// Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_mining","params":[],"id":1}' https://api.baobab.klaytn.net:8651
-
-// Result
-{
-  "jsonrpc":"2.0",
-  "id":1,
-  "result":true
-}
-```
-
-
 ## klay_syncing <a id="klay_syncing"></a>
 
 동기화 상태에 대한 데이터가 있는 객체를 반환하거나 `false`를 반환합니다.
