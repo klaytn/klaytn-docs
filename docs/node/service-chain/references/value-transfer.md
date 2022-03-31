@@ -285,10 +285,10 @@ function requestValueTransfer(uint256 _uid, address _to) external
 ```
 
 # Value Transfer Recovery
-Value transfer request may be failed with seom reasons. Say you requested klay transfer from subbridge to mainbridge or mainbridge to subbridge.
-In that case the birdge contract in the receiver side must have enough klay than requested amount of klay. If not, the transfer would be slitenly failed without error notification by return value.
+Value transfer request may be fail for a number of reasons. Say you requested KLAY transfer from subbridge to mainbridge or from mainbridge to subbridge.
+In that case, the bridge contract on the receiver side must have enough KLAY than the requested amount of KLAY. If not, the transfer would fail without error notification in the return value.
 A feature of value transfer recovery finds unhandled events and insert them into event pool again by every given interval, which means the failed transaction can be succeed again when the counterpart bridge can successfully handle that event.
-In the case of above example, the failed transaction would be eventually handled by value transfer recovery when the counterpart bridge has enough klay.
+In case of the above example, the failed transaction would be eventually handled by value transfer recovery when the counterpart bridge has enough KLAY.
 In order to set the value transfer recovery as default, you need to set two properties:
 ```
 SC_VTRECOVERY=1
