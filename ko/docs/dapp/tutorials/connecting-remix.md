@@ -6,9 +6,9 @@
 Solidity Contract 개발을 위한 브라우저 기반의 IDE 입니다. 이 문서는 Remix와 Klaytn의 연동에 대해서만 다루고 있습니다. 리믹스에 대한 자세한 사용법은 [ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) 혹은 리믹스에서 파생된 [**Klaytn IDE**](../../smart-contract/ide-and-tools/README.md#klaytn-ide) 사용법을 참고하시기 바랍니다.
 
 ## EVM 버전 설정하기 <a id="setup-EVM-version"></a>
-Klaytn supports contracts written in Solidity, and is compatible with the **Constantinople** version of EVM. Also, Solidity version 0.7.x and lower are supported in Klaytn. Therefore, to deploy the contract on Klaytn, the contract must be compiled with the **Constantinople** EVM version.
+Klaytn supports contracts written in Solidity, and is compatible with the **London** version of EVM. Also, Solidity version 0.8.x and lower are supported in Klaytn. Therefore, to deploy the contract on Klaytn, the contract must be compiled with the **London** EVM version.
 
-* Click **solidity compiler**, and then choose **constantinople** EVM version.
+* Click **solidity compiler**, and then choose **London** EVM version.
 
 ![Solidity Complier](./img/remix-solidity-compiler.png)
 
