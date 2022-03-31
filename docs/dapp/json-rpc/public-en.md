@@ -1,4 +1,4 @@
-# Public JSON-RPC Endpoints
+# Public JSON-RPC Endpoints (Klaytn Pulic EN)
 
 Publicly exposed JSON-RPC endpoints allow you to test and run your blockchain products by providing interaction with the Klaytn network without running your own node.
 
