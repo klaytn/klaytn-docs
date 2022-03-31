@@ -299,7 +299,7 @@ The value transfer recovery runs automatically by set `SC_VTRECOVERY=1`. `SC_VTR
 # Collecting Fee for KLAY/ERC-20 transfer <a id="collecting-fee-for-klay-erc-20-transfer"></a>
 In ServiceChain, there is a fee collecting feature for KLAY/ERC-20 transfers.
 
-**It will be updated soon.**
+**To be updated soon.**
 
 # Customizing your Bridge Contract  <a id="customizing-your-bridge-contract"></a>
 In Service Chain, you can use your own customized Bridge contract that inherits from the original Bridge contract for your own unique service.
