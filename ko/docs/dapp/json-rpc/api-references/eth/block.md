@@ -102,7 +102,7 @@ Please check [Caution-Header](./caution.md#block_header) before using this API.
 
 **리턴값**
 
-`객체` - 헤더 객체, 또는 블록이 없는 경우 `error`를 반환합니다.
+`Object` - A header object, or `null` when no header was found. Otherwise, it returns an error.
 
 | 이름               | 타입             | 설명                                                                                                                        |
 | ---------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------- |
@@ -234,7 +234,7 @@ Please check [Caution-Block](./caution.md#block) before using this API.
 
 **리턴값**
 
-`객체` - 블록 객체, 또는 블록이 없는 경우 `error`를 반환합니다.
+`Object` - A block object, or `null` when no block was found. Otherwise, it returns an error.
 
 | 이름               | 타입             | 설명                                                                                                                        |
 | ---------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------- |
@@ -415,7 +415,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getUncleCountByBlockNumber <a id="eth_getunclecountbyblocknumber"></a>
 
-Returns the number of uncles in a block from a block matching the given block number. Since there are no uncles in Klaytn, it always returns `0x0`.
+Returns the number of uncles in a block from a block matching the given block number. Since there are no uncles in Klaytn, it returns `0x0`. It returns `null` if there is no matching block.
 
 **Parameters**
 
@@ -425,9 +425,9 @@ Returns the number of uncles in a block from a block matching the given block nu
 
 **리턴값**
 
-| 타입       | 설명                           |
-| -------- | ---------------------------- |
-| QUANTITY | 이 블록에 담긴 트랜잭션의 개수의 정수 형태입니다. |
+| 타입       | 설명                                                                            |
+| -------- | ----------------------------------------------------------------------------- |
+| QUANTITY | 이 블록에 담긴 트랜잭션의 개수의 정수 형태입니다. It returns `null` if there is no matching block. |
 
 **예시**
 
@@ -446,7 +446,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getUncleCountByBlockHash <a id="eth_getunclecountbyblockhash"></a>
 
-Returns the number of uncles in a block from a block matching the given block hash. As there are no uncles in Klaytn, it always returns `0x0`.
+Returns the number of uncles in a block from a block matching the given block hash. Since there are no uncles in Klaytn, it returns `0x0`. It returns `null` if there is no matching block.
 
 **Parameters**
 
@@ -456,9 +456,9 @@ Returns the number of uncles in a block from a block matching the given block ha
 
 **리턴값**
 
-| 타입       | 설명                           |
-| -------- | ---------------------------- |
-| QUANTITY | 이 블록에 담긴 트랜잭션의 개수의 정수 형태입니다. |
+| 타입       | 설명                                                                            |
+| -------- | ----------------------------------------------------------------------------- |
+| QUANTITY | 이 블록에 담긴 트랜잭션의 개수의 정수 형태입니다. It returns `null` if there is no matching block. |
 
 **예시**
 
