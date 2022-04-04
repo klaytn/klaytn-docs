@@ -12,6 +12,7 @@
 
 * Chrome 검색 바 오른쪽 아이콘을 클릭하면 메타마스크를 실행시킬 수 있습니다.
 
+
 ## 2단계: 메타마스크 지갑 생성 <a id="generate-a-metamask"></a>
 
 ![Create a Wallet](./img/new-to-metamask.png)
@@ -23,6 +24,7 @@
   > **참고:** 해당 구문을 알아야만 지갑 복구가 가능합니다. 타인에게 노출 시 계정의 자금을 모두 잃을 수 있습니다. 그렇기에 시드 구문은 수기로 적어두거나 외부 연결이 차단된 장치에 기록하기를 권장합니다.
 
 ![Seed phrase and Wallet](./img/metamask-secret-backup.png)
+
 
 ## 3단계: Klaytn 네트워크 연결 <a id="connect-to-klaytn-network"></a>
 
@@ -48,18 +50,35 @@
 
 ![Network Setup and Custom RPC](./img/metamask-add-cypress-1.png) ![Network Setup and Custom RPC](./img/metamask-add-cypress-2.png)
 
-## 4단계: KLAY 보내기 <a id="send-klay"></a>
-**Note:** KLAY를 보내기 위해서는 트랜잭션을 발생시켜야 하며, 이 과정은 KLAY를 요구합니다. Klaytn Baobab 네트워크를 사용하는 경우, KLAY가 부족할 시 이 단계를 따르세요.
 
-* 우측 상단 아이콘 탭에서 [Create Account]을 클릭하여 새로운 계정을 생성합니다.
-* 계정 주소를 복사합니다.
+## 4단계: Set Gas Price and Send KLAY <a id="send-klay"></a>
+**Note:** The following steps require KLAY.
 
-![계정 주소를 복사하세요.](./img/metamask-copy-address.png)
+* Click [Send] on the main page and enter the recipient address and the amount of KLAY.
 
-* 드롭다운 메뉴에서 첫 번째 계정으로 전환합니다.
-* [Send]에서 받을 계정 주소와 KLAY 수량을 입력한 후 [Next]을 클릭하여 송금을 진행합니다. > **Note:** Klaytn의 가스비는 고정되어 있습니다. 임의적으로 가스비를 변경할 경우 트랜잭션이 실패할 수 있습니다. [Activity] 탭에서 거래 내역을 확인할 수 있습니다.
+![Send KLAY 1](./img/metamask-send-klay-1.png)
 
-![거래 내역](./img/metamask-send-klay.png)
+* Klaytn has a fixed gas fee, so it's important to set the right amount.
+* Click on `Turn on Enhanced Gas Fee UI in Settings` to set gas fee.
+* Set the `Enable Enhanced Gas Fee UI` toggle to ON and exit Settings.
+
+![Send KLAY 2](./img/metamask-send-klay-2.png)
+
+* Return to the `SENDING KLAY` window and set a fixed gas fee instead of using the market price.
+* Click [Market] and then select [Advanced] in the `Edit gas fee`window.
+* Enter fixed gas fee for Max base fee and Priority Fee.
+   * Baobab gas fee: 750, Cypress gas fee: 750
+* And check `Always use these values and advanced setting as default` to not repeat this process next time.
+
+![Send KLAY 3](./img/metamask-send-klay-3.png) ![Send KLAY 4](./img/metamask-send-klay-4.png)
+
+**NOTE:** Sending KLAY requires a transaction, for which you need KLAY.
+
+* Check the amount to send and the transaction fee and click [Confirm] to complete the KLAY transfer, after which you will be redirected to the main page.
+* Click [Activity] on the main page to confirm the transaction history.
+
+![Send KLAY 5](./img/metamask-send-klay-5.png)
+
 
 ## Klaytn Baobab 네트워크 - 트랜잭션을 위한 KLAY 충전<a id="obtain-klay-to-make-a-transaction"></a>
 > **참고:** 예제는 테스트넷(Baobab)의 Public EN으로 네트워크에 연결하였습니다. 테스트 시에는 Baobab을 사용하세요.
