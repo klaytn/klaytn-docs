@@ -12,6 +12,7 @@
 
 * You can start MetaMask by clicking on the icon in the upper right-hand corner of your chrome browser.
 
+
 ## Step 2. Generate a MetaMask Wallet <a id="generate-a-metamask"></a>
 
 ![Create a Wallet](./img/new-to-metamask.png)
@@ -23,6 +24,7 @@
   > **Note:** You can only restore your wallet with the seed phrase. Sharing your seed phrase with others may result in losing all of your funds. Therefore, it is recommended that you either write it down manually or store it in an offline device.
 
 ![Seed phrase and Wallet](./img/metamask-secret-backup.png)
+
 
 ## Step 3. Connect to Klaytn Network <a id="connect-to-klaytn-network"></a>
 
@@ -48,18 +50,35 @@
 
 ![Network Setup and Custom RPC](./img/metamask-add-cypress-1.png) ![Network Setup and Custom RPC](./img/metamask-add-cypress-2.png)
 
-## Step 4. Send KLAY <a id="send-klay"></a>
-**Note:** To send KLAY, you will need to make a transaction, which requires KLAY. For the Klaytn Baobab Network, follow this step if you don't have enough KLAY.
 
-* Click on the round icon in the top right corner, and select [Create Account] in the menu to create a new account.
-* Copy the account address to clipboard.
+## Step 4. Set Gas Price and Send KLAY <a id="send-klay"></a>
+**Note:** The following steps require KLAY.
 
-![Copy the Account Address](./img/metamask-copy-address.png)
+* Click [Send] on the main page and enter the recipient address and the amount of KLAY.
 
-* In the drop-down menu, change to the first account.
-* On [Send], enter the recipient's account address as well as the amount of KLAY and then click [Next] to proceed. > **Note:** The gas price on Klaytn is fixed. Arbitrarily changing the price may result in a transaction failure. You can view your transaction history in the [Activity] tab.
+![Send KLAY 1](./img/metamask-send-klay-1.png)
 
-![Transfer History](./img/metamask-send-klay.png)
+* Klaytn has a fixed gas fee, so it's important to set the right amount.
+* Click on `Turn on Enhanced Gas Fee UI in Settings` to set gas fee.
+* Set the `Enable Enhanced Gas Fee UI` toggle to ON and exit Settings.
+
+![Send KLAY 2](./img/metamask-send-klay-2.png)
+
+* Return to the `SENDING KLAY` window and set a fixed gas fee instead of using the market price.
+* Click [Market] and then select [Advanced] in the `Edit gas fee`window.
+* Enter fixed gas fee for Max base fee and Priority Fee.
+   * Baobab gas fee: 750, Cypress gas fee: 750
+* And check `Always use these values and advanced setting as default` to not repeat this process next time.
+
+![Send KLAY 3](./img/metamask-send-klay-3.png) ![Send KLAY 4](./img/metamask-send-klay-4.png)
+
+**NOTE:** Sending KLAY requires a transaction, for which you need KLAY.
+
+* Check the amount to send and the transaction fee and click [Confirm] to complete the KLAY transfer, after which you will be redirected to the main page.
+* Click [Activity] on the main page to confirm the transaction history.
+
+![Send KLAY 5](./img/metamask-send-klay-5.png)
+
 
 ## Klaytn Baobab Network - Obtain KLAY to make a transaction <a id="obtain-klay-to-make-a-transaction"></a>
 > **Note:** This tutorial uses Public EN of the Testnet (Baobab) to connect to the network. Make sure to use Baobab when you are running a test.
