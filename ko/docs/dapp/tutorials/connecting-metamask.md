@@ -51,8 +51,8 @@
 ![Network Setup and Custom RPC](./img/metamask-add-cypress-1.png) ![Network Setup and Custom RPC](./img/metamask-add-cypress-2.png)
 
 
-## 4단계: Set Gas Price and Send KLAY <a id="send-klay"></a>
-**Note:** The following steps require KLAY.
+## 4단계: 가스비 설정하고 KLAY 전송하기 <a id="send-klay"></a>
+**주의:** 다음 단계들은 KLAY를 필요로 합니다.
 
 * Click [Send] on the main page and enter the recipient address and the amount of KLAY.
 
