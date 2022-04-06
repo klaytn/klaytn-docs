@@ -54,28 +54,28 @@
 ## 4단계: 가스비 설정하고 KLAY 전송하기 <a id="send-klay"></a>
 **주의:** 다음 단계들은 KLAY를 필요로 합니다.
 
-* Click [Send] on the main page and enter the recipient address and the amount of KLAY.
+* 메인 페이지에서 [Send]를 누르고 수신자 주소 및 전송할 KLAY 수량을 입력합니다.
 
 ![Send KLAY 1](./img/metamask-send-klay-1.png)
 
-* Klaytn has a fixed gas fee, so it's important to set the right amount.
-* Click on `Turn on Enhanced Gas Fee UI in Settings` to set gas fee.
-* Set the `Enable Enhanced Gas Fee UI` toggle to ON and exit Settings.
+* 클레이튼은 고정 가스 정책을 사용하기에 이에 해당하는 가스 가격을 설정해야 합니다.
+* `Turn on Enhanced Gas Fee UI in Settings`를 클릭해서 가스 비용 설정 화면으로 이동합니다.
+* `Enable Enhanced Gas Fee UI`를 켜기(ON)으로 설정한뒤 닫기(X) 버튼을 눌러 설정창을 닫습니다.
 
 ![Send KLAY 2](./img/metamask-send-klay-2.png)
 
-* Return to the `SENDING KLAY` window and set a fixed gas fee instead of using the market price.
-* Click [Market] and then select [Advanced] in the `Edit gas fee`window.
-* Enter fixed gas fee for Max base fee and Priority Fee.
-   * Baobab gas fee: 750, Cypress gas fee: 750
-* And check `Always use these values and advanced setting as default` to not repeat this process next time.
+* 다시 KLAY 전송 화면으로 돌아온 뒤, Gas 비용 설정을 시장가격이 아닌 고정가격으로 변경하겠습니다.
+* 시장(Market) 버튼을 클릭하고, 가스 요금 편집(Edit gas fee) 창에서 고급(Advanced) 버튼을 누릅니다.
+* 이후 최대 기본 요금(Max base fee)와 우선 요금(Priority Fee)에 고정 가스 가격을 입력합니다.
+   * Baobab 가스 가격: 750, Cypress 가스 가격: 750
+* 그리고, `항상 이 값과 고급 설정을 기본값으로 사용합니다`(Always use these values and advanced setting as default) 버튼을 체크하고 저장(Save) 버튼을 누릅니다. 이 버튼을 체크하면, 다음 전송부터는 가스 비용 설정과정을 반복하지 않아도 됩니다.
 
 ![Send KLAY 3](./img/metamask-send-klay-3.png) ![Send KLAY 4](./img/metamask-send-klay-4.png)
 
-**NOTE:** Sending KLAY requires a transaction, for which you need KLAY.
+**NOTE:** KLAY를 보내기 위해서는 트랜잭션을 발생시켜야 하며, 이 과정에서 KLAY가 소진됩니다.
 
-* Check the amount to send and the transaction fee and click [Confirm] to complete the KLAY transfer, after which you will be redirected to the main page.
-* Click [Activity] on the main page to confirm the transaction history.
+* 전송할 수량과 수수료를 확인한 후, 확인(Confirm) 버튼을 누르면 KLAY 전송이 완료되고 메인 화면으로 되돌아갑니다.
+* 메인 화면에서 활동(Activity) 버튼을 클릭하면, 방금 전송한 트랜잭션을 조회할 수 있습니다.
 
 ![Send KLAY 5](./img/metamask-send-klay-5.png)
 
