@@ -289,9 +289,9 @@ kip7Instance.balanceOf(address)
 
 **Parameters**
 
-| 이름      | 타입     | 설명                |
-|:------- |:------ |:----------------- |
-| address | String | 잔액을 확인할 계정 주소입니다. |
+| 이름 | 타입     | 설명                |
+|:-- |:------ |:----------------- |
+| 주소 | String | 잔액을 확인할 계정 주소입니다. |
 
 **리턴값**
 
@@ -343,9 +343,9 @@ kip7Instance.isMinter(address)
 
 **Parameters**
 
-| 이름      | 타입     | 설명                             |
-|:------- |:------ |:------------------------------ |
-| address | String | 발행 권한을 가지고 있는지를 확인받을 계정 주소입니다. |
+| 이름 | 타입     | 설명                             |
+|:-- |:------ |:------------------------------ |
+| 주소 | String | 발행 권한을 가지고 있는지를 확인받을 계정 주소입니다. |
 
 **리턴값**
 
@@ -371,9 +371,9 @@ kip7Instance.isPauser(address)
 
 **Parameters**
 
-| 이름      | 타입     | 설명                                |
-|:------- |:------ |:--------------------------------- |
-| address | String | 토큰 전송을 멈출 권한이 있는지를 확인받을 계정 주소입니다. |
+| 이름 | 타입     | 설명                                |
+|:-- |:------ |:--------------------------------- |
+| 주소 | String | 토큰 전송을 멈출 권한이 있는지를 확인받을 계정 주소입니다. |
 
 **리턴값**
 
@@ -437,12 +437,12 @@ kip7Instance.approve(spender, amount [, sendParam])
 
 `sendParam` 객체는 다음을 포함합니다:
 
-| 이름       | 타입        | 설명                                                                                                                                                                                             |
-|:-------- |:--------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from     | String    | \(optional\) The address from which the transaction should be sent. 생략되면, `this.options.from`에 의해 지정됩니다. `sendParam`객체의 `from` 또는 `this.options.from`가 주어지지 않으면, 에러가 발생합니다.                  |
-| gas      | Number \ | String | \(optional\) The maximum number of gas provided for this transaction \(gas limit\). 생략되면, caver-js가 `this.methods.approve(spender, amount).estimateGas({from})`를 호출하여 이 값을 지정합니다. |
-| gasPrice | Number \ | String | \(optional\) The gas price in peb for this transaction. 생략하면 `caver.klay.getGasPrice` 값으로 caver-js가 설정합니다.                                                                          |
-| value    | Number \ | String \| BN \| BigNumber | \(optional\) The value to be transferred in peb.                                                                                                               |
+| 이름    | 타입        | 설명                                                                                                                                                                                             |
+|:----- |:--------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from  | String    | \(optional\) The address from which the transaction should be sent. 생략되면, `this.options.from`에 의해 지정됩니다. `sendParam`객체의 `from` 또는 `this.options.from`가 주어지지 않으면, 에러가 발생합니다.                  |
+| gas   | Number \ | String | \(optional\) The maximum number of gas provided for this transaction \(gas limit\). 생략되면, caver-js가 `this.methods.approve(spender, amount).estimateGas({from})`를 호출하여 이 값을 지정합니다. |
+| 가스 가격 | Number \ | String | \(optional\) The gas price in peb for this transaction. 생략하면 `caver.klay.getGasPrice` 값으로 caver-js가 설정합니다.                                                                          |
+| value | Number \ | String \| BN \| BigNumber | \(optional\) The value to be transferred in peb.                                                                                                               |
 
 **리턴값**
 
@@ -586,7 +586,7 @@ kip7Instance.safeTransfer(recipient, amount [, data] [, sendParam])
 |:--------- |:------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | recipient | String       | 토큰을 받을 계정 주소입니다.                                                                                                                                                                                            |
 | amount    | BigNumber \ | String \| Number | The amount of token you want to transfer.                                                                                                                                               |
-| data      | Buffer \    | String \| Number | \(optional\) The optional data to send along with the call.                                                                                                                           |
+| 데이터       | Buffer \    | String \| Number | \(optional\) The optional data to send along with the call.                                                                                                                           |
 | sendParam | Object       | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP7.md#kip7instance-approve). |
 
 **NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
@@ -660,7 +660,7 @@ kip7Instance.transferFrom(sender, recipient, amount [, sendParam])
 
 | 이름        | 타입           | 설명                                                                                                                                                                                                          |
 |:--------- |:------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sender    | String       | 토큰을 소유한 계정 주소입니다. 이 계정 주소 잔액에서 allowance(kip7Instance.approve)를 사용해 토큰이 보내집니다.                                                                                                                              |
+| 발신자       | String       | 토큰을 소유한 계정 주소입니다. 이 계정 주소 잔액에서 allowance(kip7Instance.approve)를 사용해 토큰이 보내집니다.                                                                                                                              |
 | recipient | String       | 토큰을 받을 계정 주소입니다.                                                                                                                                                                                            |
 | amount    | BigNumber \ | String \| Number | The amount of token you want to transfer.                                                                                                                                               |
 | sendParam | Object       | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP7.md#kip7instance-approve). |
@@ -758,10 +758,10 @@ kip7Instance.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
 
 | 이름        | 타입           | 설명                                                                                                                                                                                                          |
 |:--------- |:------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sender    | String       | 토큰을 소유한 계정 주소입니다. 이 계정 주소 잔액에서 allowance(kip7Instance.approve)를 사용해 토큰이 보내집니다.                                                                                                                              |
+| 발신자       | String       | 토큰을 소유한 계정 주소입니다. 이 계정 주소 잔액에서 allowance(kip7Instance.approve)를 사용해 토큰이 보내집니다.                                                                                                                              |
 | recipient | String       | 토큰을 받을 계정 주소입니다.                                                                                                                                                                                            |
 | amount    | BigNumber \ | String \| Number | The amount of token you want to transfer.                                                                                                                                               |
-| data      | Buffer \    | String \| Number | \(optional\) The optional data to send along with the call.                                                                                                                           |
+| 데이터       | Buffer \    | String \| Number | \(optional\) The optional data to send along with the call.                                                                                                                           |
 | sendParam | Object       | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP7.md#kip7instance-approve). |
 
 **NOTE** The `amount` parameter accepts `Number` type but if the fed value were out of the range capped by Number.MAX\_SAFE\_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
