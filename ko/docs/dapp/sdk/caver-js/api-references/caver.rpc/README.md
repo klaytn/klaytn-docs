@@ -34,7 +34,7 @@ caver.rpc
 - [getCode](./klay.md#caver-rpc-klay-getcode)
 - [getTransactionCount](./klay.md#caver-rpc-klay-gettransactioncount)
 - [isContractAccount](./klay.md#caver-rpc-klay-iscontractaccount)
-- [sign](./klay.md#caver-rpc-klay-sign)
+- [서명](./klay.md#caver-rpc-klay-sign)
 - [getAccounts](./klay.md#caver-rpc-klay-getaccounts)
 
 ### [블록(Block)](./klay.md#caver-rpc-klay-getblocknumber) <a id="block"></a>
