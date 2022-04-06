@@ -23,7 +23,7 @@ KIP-37 토큰 컨트랙트를 Klaytn 블록체인에 배포합니다. caver.kct.
 
 | 이름        | 타입                   | 설명                                                                                                                                                                                                                                                                                                                                                         |
 | --------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenInfo | object               | Klaytn 블록체인에 KIP-37 토큰 컨트랙트를 배포하는 데 필요한 정보입니다. 자세한 내용은 아래 표를 참조하세요.                                                                                                                                                                                                                                                                                        |
+| tokenInfo | 객체                   | Klaytn 블록체인에 KIP-37 토큰 컨트랙트를 배포하는 데 필요한 정보입니다. 자세한 내용은 아래 표를 참조하세요.                                                                                                                                                                                                                                                                                        |
 | deployer  | string &#124; object | KIP-37 토큰 컨트랙트를 배포할 keyring 인스턴스의 계정 주소입니다. 이 주소는 반드시 배포를 위해 충분한 KLAY를 가지고 있어야 합니다. 자세한 내용은 [Keyring](../caver.wallet/keyring.md#caver-wallet-keyring)을 참조하세요. 트랜잭션 전송 시 사용할 필드를 자체적으로 정의하고 싶다면 객체 타입을 매개변수로 전달하면 됩니다. KIP-37 컨트랙트 배포 시 수수료 위임을 이용하고 싶다면, 객체 내 수수료 위임과 관련된 필드를 정의할 수 있습니다. 객체에 정의될 수 있는 필드에 대해서는 [create](#kip37-create)의 매개변수 설명을 참고하십시오. |
 
 tokenInfo 객체는 다음을 반드시 포함해야 합니다:
@@ -39,7 +39,7 @@ tokenInfo 객체는 다음을 반드시 포함해야 합니다:
 | 이름              | 타입     | 설명                                                                                                                                                    |
 | --------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionHash | string | 트랜잭션이 전송된 직후 및 트랜잭션 해시를 사용할 수 있을 때 발생합니다.                                                                                                             |
-| receipt         | object | 트랜잭션 영수증을 사용할 수 있을 때 발생합니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP37 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다. |
+| receipt         | 객체     | 트랜잭션 영수증을 사용할 수 있을 때 발생합니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP37 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다. |
 | error           | 에러     | 전송 중 오류가 나타나면 발생됩니다.                                                                                                                                  |
 
 **예시**
@@ -164,9 +164,9 @@ new caver.kct.kip37([tokenAddress])
 
 **리턴값**
 
-| 타입     | 설명                                   |
-| ------ | ------------------------------------ |
-| object | 인스턴스 메소드와 이벤트들을 갖고 있는 KIP37 인스턴스입니다. |
+| 타입 | 설명                                   |
+| -- | ------------------------------------ |
+| 객체 | 인스턴스 메소드와 이벤트들을 갖고 있는 KIP37 인스턴스입니다. |
 
 
 **예시**
@@ -195,9 +195,9 @@ kip37.clone([tokenAddress])
 
 **리턴값**
 
-| 타입     | 설명                          |
-| ------ | --------------------------- |
-| object | 원본 KIP37 인스턴스를 복제한 인스턴스입니다. |
+| 타입 | 설명                          |
+| -- | --------------------------- |
+| 객체 | 원본 KIP37 인스턴스를 복제한 인스턴스입니다. |
 
 
 **예시**
@@ -387,9 +387,9 @@ kip37.isMinter(address)
 
 **Parameters**
 
-| 이름      | 타입     | 설명                             |
-| ------- | ------ | ------------------------------ |
-| address | string | 발행 권한을 가지고 있는지를 확인받을 계정 주소입니다. |
+| 이름 | 타입     | 설명                             |
+| -- | ------ | ------------------------------ |
+| 주소 | string | 발행 권한을 가지고 있는지를 확인받을 계정 주소입니다. |
 
 **리턴값**
 
@@ -411,9 +411,9 @@ kip37.isPauser(address)
 
 **Parameters**
 
-| 이름      | 타입     | 설명                                |
-| ------- | ------ | --------------------------------- |
-| address | string | 토큰 전송을 멈출 권한이 있는지를 확인받을 계정 주소입니다. |
+| 이름 | 타입     | 설명                                |
+| -- | ------ | --------------------------------- |
+| 주소 | string | 토큰 전송을 멈출 권한이 있는지를 확인받을 계정 주소입니다. |
 
 **리턴값**
 
@@ -514,7 +514,7 @@ kip37.create(id, initialSupply [, uri] [, sendParam])
 | id            | BigNumber &#124; string &#124; number | 생성할 토큰 ID입니다.                                |
 | initialSupply | BigNumber &#124; string &#124; number | 발행할 토큰의 양입니다.                                |
 | uri           | string                                | (선택 사항) 생성된 토큰의 URI입니다.                      |
-| sendParam     | object                                | (선택 사항) 트랜잭션을 보내는 데 필요한 파라미터들을 가지고 있는 객체입니다. |
+| sendParam     | 객체                                    | (선택 사항) 트랜잭션을 보내는 데 필요한 파라미터들을 가지고 있는 객체입니다. |
 
 **참고** `initialSupply` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
@@ -524,7 +524,7 @@ kip37.create(id, initialSupply [, uri] [, sendParam])
 | ------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | from          | string                                          | (선택 사항) 트랜잭션 발신자 주소입니다. 미입력시 `kip37.options.from`에 의해 지정됩니다. `sendParam`객체의 `from` 또는 `kip37.options.from`가 주어지지 않으면 오류가 발생합니다.                                                                                    |
 | gas           | number &#124; string                            | (선택 사항) 이 트랜잭션이 쓸 수 있는 최대 가스량 (가스 제한) 입니다. 미입력시 caver-js가 `kip37.methods.approve(spender, amount).estimateGas({from})`를 호출하여 이 값을 지정합니다.                                                                           |
-| gasPrice      | number &#124; string                            | (선택 사항) 이 트랜잭션에 사용할 peb 단위의 가스 가격. 생략하면 `caver.klay.getGasPrice` 값으로 caver-js가 설정합니다.                                                                                                                              |
+| 가스 가격         | number &#124; string                            | (선택 사항) 이 트랜잭션에 사용할 peb 단위의 가스 가격. 생략하면 `caver.klay.getGasPrice` 값으로 caver-js가 설정합니다.                                                                                                                              |
 | value         | number &#124; string &#124; BN &#124; BigNumber | (선택 사항) peb으로 환산한 전송될 토큰 가치.                                                                                                                                                                                       |
 | feeDelegation | boolean                                         | (optional, default `false`) 수수료 위임 트랜잭션 사용 여부를 나타냅니다. 미입력시 `kip37.options.feeDelegation`를 사용합니다. 둘 다 미입력시 수수료 위임은 사용되지 않습니다.                                                                                       |
 | feePayer      | string                                          | (선택 사항) 트랜잭션 수수료를 부담하는 수수료 납부자의 주소입니다. `feeDelegation`이 `true`일 때, 값은 트랜잭션의 `feePayer` 필드에 설정됩니다. 미입력시 `kip37.options.feePayer`를 사용합니다. 둘 다 미입력시 오류를 반환합니다.                                                        |
@@ -610,7 +610,7 @@ kip37.setApprovalForAll(operator, approved [, sendParam])
 | --------- | ------- | --------------------------------------------------------------------------------------------------------------- |
 | operator  | string  | 토큰 소유자의 모든 토큰을 전송할 권한을 받거나 전송할 권한을 잃게될 계정 주소입니다.                                                                |
 | approved  | boolean | `true`이면 이 operator는 전송할 권한을 받습니다. `false`이면 이 operator는 전송할 권한을 잃습니다.                                          |
-| sendParam | object  | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
+| sendParam | 객체      | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
 
 **리턴값**
 
@@ -692,8 +692,8 @@ The address that was authorized to send the owner's token (the operator) or the 
 | recipient | string                                | 토큰을 받을 계정 주소입니다.                                                                                                |
 | id        | BigNumber &#124; string &#124; number | 전송할 토큰 ID입니다.                                                                                                   |
 | amount    | BigNumber &#124; string &#124; number | 전송할 토큰 수량입니다.                                                                                                   |
-| data      | Buffer &#124; string &#124; number    | (선택 사항) 호출 시 함께 보낼 데이터입니다.                                                                                      |
-| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
+| 데이터       | Buffer &#124; string &#124; number    | (선택 사항) 호출 시 함께 보낼 데이터입니다.                                                                                      |
+| sendParam | 객체                                    | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
 
 **참고**  `id`와 `amount` 파라미터는 `number` 타입 값을 받지만, 입력된 값이 number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
@@ -785,8 +785,8 @@ kip37.safeBatchTransferFrom(from, recipient, ids, amounts, data [, sendParam])
 | recipient | string                             | 토큰을 받을 계정 주소입니다.                                                                                                |
 | ids       | Array                              | 전송할 토큰 ID의 배열입니다.                                                                                               |
 | amounts   | Array                              | 전송하고자 하는 토큰 수량의 배열입니다.                                                                                          |
-| data      | Buffer &#124; string &#124; number | (선택 사항) 호출 시 함께 보낼 데이터입니다.                                                                                      |
-| sendParam | object                             | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
+| 데이터       | Buffer &#124; string &#124; number | (선택 사항) 호출 시 함께 보낼 데이터입니다.                                                                                      |
+| sendParam | 객체                                 | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
 
 **참고**  `id`와 `amount` 파라미터는 `number` 타입 값을 받지만, 입력된 값이 number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
@@ -872,7 +872,7 @@ kip37.mint(to, id, value [, sendParam])
 | to        | string &#124; Array                                | 토큰이 발행될 계정의 주소 또는 주소들의 배열입니다.                                                                                   |
 | id        | BigNumber &#124; string &#124; number              | 발행할 토큰 ID입니다.                                                                                                   |
 | value     | BigNumber &#124; string &#124; number &#124; Array | 발행될 토큰 수량입니다. 다수의 주소를 포함한 배열은 배열 형식으로 `to` 파라미터에 전달되어야 합니다.                                                     |
-| sendParam | object                                             | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
+| sendParam | 객체                                                 | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
 
 **참고**  `id`와 `value` 파라미터는 `number` 타입 값을 받지만, 입력된 값이 number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
@@ -1028,7 +1028,7 @@ kip37.mintBatch(to, ids, values [, sendParam])
 | to        | string | 토큰들이 발행될 계정 주소입니다.                                                                                              |
 | ids       | Array  | 발행할 토큰 ID들의 배열입니다.                                                                                              |
 | values    | Array  | 발행할 토큰 수량들의 배열입니다.                                                                                              |
-| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
+| sendParam | 객체     | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
 
 **참고**  `ids`와 `values` 배열 파라미터는 배열 요소로서 `number` 타입 값을 받지만, 입력된 값이 number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
@@ -1112,7 +1112,7 @@ kip37.addMinter(account [, sendParam])
 | 이름        | 타입     | 설명                                                                                                              |
 | --------- | ------ | --------------------------------------------------------------------------------------------------------------- |
 | account   | string | 발행자에 추가될 계정 주소입니다.                                                                                              |
-| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
+| sendParam | 객체     | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
 
 **참고** 만약 `sendParam.from` 또는 `kip37.options.from`이 주어졌다면, 이 주소는 반드시 발행자이어야 합니다.
 
@@ -1183,9 +1183,9 @@ kip37.renounceMinter([sendParam])
 
 **Parameters**
 
-| 이름        | 타입     | 설명                                                                                                              |
-| --------- | ------ | --------------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
+| 이름        | 타입 | 설명                                                                                                              |
+| --------- | -- | --------------------------------------------------------------------------------------------------------------- |
+| sendParam | 객체 | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
 
 **참고** 만약 `sendParam.from` 또는 `kip37.options.from`이 주어졌다면, 이 주소는 반드시 MinterRole를 가진 발행자이어야 합니다.
 
@@ -1263,7 +1263,7 @@ The address that was approved to operate the owner's token (the operator) or the
 | account   | string                                | 제거될 토큰을 소유하는 계정의 주소입니다.                                                                                         |
 | id        | BigNumber &#124; string &#124; number | 제거할 토큰 ID입니다.                                                                                                   |
 | value     | BigNumber &#124; string &#124; number | 제거할 토큰 수량입니다.                                                                                                   |
-| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
+| sendParam | 객체                                    | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
 
 **참고**  `id`와 `amount` 파라미터는 `number` 타입 값을 받지만, 입력된 값이 number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
@@ -1349,7 +1349,7 @@ kip37.burnBatch(account, ids, values [, sendParam])
 | account   | string | 제거될 토큰을 소유하는 계정의 주소입니다.                                                                                         |
 | ids       | Array  | 소각할 토큰 ID들의 배열입니다.                                                                                              |
 | values    | Array  | 소각할 토큰 수량들의 배열입니다.                                                                                              |
-| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
+| sendParam | 객체     | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
 
 **참고**  `ids`와 `values` 배열 파라미터는 배열 요소로서 `number` 타입 값을 받지만, 입력된 값이 number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
@@ -1431,7 +1431,7 @@ kip37.addPauser(account [, sendParam])
 | 이름        | 타입     | 설명                                                                                                              |
 | --------- | ------ | --------------------------------------------------------------------------------------------------------------- |
 | account   | string | 컨트랙트 중지 권한을 가질 계정 주소입니다.                                                                                        |
-| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
+| sendParam | 객체     | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
 
 **참고** 만약 `sendParam.from` 또는 `kip37.options.from`이 주어졌다면, 이 주소는 반드시 PauserRole을 가진 컨트랙트 중지 권한 소유자이어야 합니다.
 
@@ -1502,9 +1502,9 @@ kip37.renouncePauser([sendParam])
 
 **Parameters**
 
-| 이름        | 타입     | 설명                                                                                                              |
-| --------- | ------ | --------------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
+| 이름        | 타입 | 설명                                                                                                              |
+| --------- | -- | --------------------------------------------------------------------------------------------------------------- |
+| sendParam | 객체 | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
 
 **참고** 만약 `sendParam.from` 또는 `kip37.options.from`이 주어졌다면, 이 주소는 반드시 PauserRole을 가진 컨트랙트 중지 권한 소유자이어야 합니다.
 
@@ -1578,7 +1578,7 @@ kip37.pause([id] [, sendParam])
 | 이름        | 타입                                    | 설명                                                                                                              |
 | --------- | ------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | id        | BigNumber &#124; string &#124; number | (선택 사항) 중지시킬 토큰 ID입니다. 해당 파라미터 미입력시 `pause` 함수는 컨트랙트를 중지시킵니다.                                                   |
-| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
+| sendParam | 객체                                    | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [kip37.create](#kip37-create)의 파라미터 설명을 참고하십시오. |
 
 **참고** 만약 `sendParam.from` 또는 `kip37.options.from`이 주어졌다면, 이 주소는 반드시 PauserRole을 가진 컨트랙트 중지 권한 소유자이어야 합니다.
 
