@@ -12,14 +12,14 @@ Executes a new message call immediately, without creating a transaction on the b
 
 `callObject`에는 다음의 속성이 있습니다.
 
-| 이름       | 타입            | 설명                                                                                                                                                                |
-| -------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from     | 20바이트 크기 DATA | (optional) Address the transaction is simulated to have been sent from. The `0x00..0` address is used if no address is specified.                                 |
-| to       | 20바이트 크기 DATA | (optional) Address the transaction is sent to.                                                                                                                    |
-| gas      | QUANTITY      | (optional) Maximum gas allowance for the code execution to avoid infinite loops. Defaults to 2^63 or whatever value the node operator specified via --rpc.gascap. |
-| gasPrice | QUANTITY      | (optional) Number of `peb` to simulate paying for each unit of gas during execution. Defaults to `0` peb.                                                         |
-| value    | QUANTITY      | (optional) Amount of `peb` to simulate sending along with the transaction. Defaults to `0`.                                                                       |
-| data     | DATA          | (optional) Hash of the method signature and encoded parameter.                                                                                                    |
+| 이름    | 타입            | 설명                                                                                                                                                                |
+| ----- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from  | 20바이트 크기 DATA | (optional) Address the transaction is simulated to have been sent from. The `0x00..0` address is used if no address is specified.                                 |
+| to    | 20바이트 크기 DATA | (optional) Address the transaction is sent to.                                                                                                                    |
+| gas   | QUANTITY      | (optional) Maximum gas allowance for the code execution to avoid infinite loops. Defaults to 2^63 or whatever value the node operator specified via --rpc.gascap. |
+| 가스 가격 | QUANTITY      | (optional) Number of `peb` to simulate paying for each unit of gas during execution. Defaults to `0` peb.                                                         |
+| value | QUANTITY      | (optional) Amount of `peb` to simulate sending along with the transaction. Defaults to `0`.                                                                       |
+| 데이터   | DATA          | (optional) Hash of the method signature and encoded parameter.                                                                                                    |
 
 **Example - callObject**
 
@@ -36,7 +36,7 @@ Executes a new message call immediately, without creating a transaction on the b
 
 | 이름        | 타입     | 설명                                                                                                               |
 | --------- | ------ | ---------------------------------------------------------------------------------------------------------------- |
-| balance   | 수량     | (optional) Fake balance to set for the account before executing the call.                                        |
+| 잔액        | 수량     | (optional) Fake balance to set for the account before executing the call.                                        |
 | 논스        | 수량     | (optional) Fake nonce to set for the account before executing the call.                                          |
 | code      | DATA   | (optional) Fake EVM bytecode to inject into the account before executing the call.                               |
 | state     | Object | (optional) Fake key-value mapping to override all slots in the account storage before executing the call.        |
@@ -140,14 +140,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "et
 
 `callObject`에는 다음의 속성이 있습니다.
 
-| 이름       | 타입            | 설명                                                                                                                                                                |
-| -------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from     | 20바이트 크기 DATA | (optional) Address the transaction is simulated to have been sent from. The `0x00..0` address is used if no address is specified.                                 |
-| to       | 20바이트 크기 DATA | (optional) Address the transaction is sent to.                                                                                                                    |
-| gas      | QUANTITY      | (optional) Maximum gas allowance for the code execution to avoid infinite loops. Defaults to 2^63 or whatever value the node operator specified via --rpc.gascap. |
-| gasPrice | QUANTITY      | (optional) Number of `peb` to simulate paying for each unit of gas during execution. Defaults to `0` peb.                                                         |
-| value    | QUANTITY      | (optional) Amount of `peb` to simulate sending along with the transaction. Defaults to `0`.                                                                       |
-| data     | DATA          | (optional) Hash of the method signature and encoded parameter.                                                                                                    |
+| 이름    | 타입            | 설명                                                                                                                                                                |
+| ----- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from  | 20바이트 크기 DATA | (optional) Address the transaction is simulated to have been sent from. The `0x00..0` address is used if no address is specified.                                 |
+| to    | 20바이트 크기 DATA | (optional) Address the transaction is sent to.                                                                                                                    |
+| gas   | QUANTITY      | (optional) Maximum gas allowance for the code execution to avoid infinite loops. Defaults to 2^63 or whatever value the node operator specified via --rpc.gascap. |
+| 가스 가격 | QUANTITY      | (optional) Number of `peb` to simulate paying for each unit of gas during execution. Defaults to `0` peb.                                                         |
+| value | QUANTITY      | (optional) Amount of `peb` to simulate sending along with the transaction. Defaults to `0`.                                                                       |
+| 데이터   | DATA          | (optional) Hash of the method signature and encoded parameter.                                                                                                    |
 
 **Example - callObject**
 
@@ -303,7 +303,7 @@ Fields of transaction can be different based on transaction types. Currently, th
 | blockNumber      | QUANTITY      | 트랜잭션이 담긴 블록의 번호입니다. 보류 중인 상태이면 `null`을 반환합니다.        |
 | from             | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                     |
 | gas              | QUANTITY      | 트랜잭션 발신자에 의해 설정된 가스양입니다.                             |
-| gasPrice         | QUANTITY      | peb에서 트랜잭션 발신자에 의해 설정된 가스 가격입니다.                     |
+| 가스 가격            | QUANTITY      | peb에서 트랜잭션 발신자에 의해 설정된 가스 가격입니다.                     |
 | 해시               | 32바이트 크기 DATA | 트랜잭션의 해시입니다.                                         |
 | input            | DATA          | 트랜잭션과 함께 전송된 데이터입니다.                                 |
 | 논스               | QUANTITY      | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.              |
@@ -353,7 +353,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 | blockNumber      | QUANTITY      | 트랜잭션이 담긴 블록의 번호입니다. 보류 중인 상태이면 `null`을 반환합니다.                      |
 | from             | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                   |
 | gas              | QUANTITY      | 트랜잭션 발신자에 의해 설정된 가스양입니다.                                           |
-| gasPrice         | QUANTITY      | peb에서 트랜잭션 발신자에 의해 설정된 가스 가격입니다.                                   |
+| 가스 가격            | QUANTITY      | peb에서 트랜잭션 발신자에 의해 설정된 가스 가격입니다.                                   |
 | 해시               | 32바이트 크기 DATA | 트랜잭션의 해시입니다.                                                       |
 | input            | DATA          | 트랜잭션과 함께 전송된 데이터입니다.                                               |
 | 논스               | QUANTITY      | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                            |
@@ -414,7 +414,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 | blockNumber          | QUANTITY      | 트랜잭션이 담긴 블록의 번호입니다. 보류 중인 상태이면 `null`을 반환합니다.                      |
 | from                 | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                   |
 | gas                  | QUANTITY      | 트랜잭션 발신자에 의해 설정된 가스양입니다.                                           |
-| gasPrice             | QUANTITY      | peb에서 트랜잭션 발신자에 의해 설정된 가스 가격입니다.                                   |
+| 가스 가격                | QUANTITY      | peb에서 트랜잭션 발신자에 의해 설정된 가스 가격입니다.                                   |
 | maxFeePerGas         | QUANTITY      | A maximum amount to pay for the transaction to execute.            |
 | maxPriorityFeePerGas | QUANTITY      | Gas tip cap for dynamic fee transaction in peb.                    |
 | 해시                   | 32바이트 크기 DATA | 트랜잭션의 해시입니다.                                                       |
@@ -603,7 +603,7 @@ Constructs a transaction with given parameters, signs the transaction with a sen
 | gas                  | QUANTITY      | (optional) The integer of the gas provided for the transaction's execution. It will return unused gas.                                                                       |
 | maxFeePerGas         | QUANTITY      | (optional, default: 750 ston) The maximum amount to pay for the transaction's execution. Since Klaytn uses a fixed gas price, it must be set to 750 ston (Gpeb in Ethereum). |
 | maxPriorityFeePerGas | QUANTITY      | (optional, default: 750 ston) Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 750 ston (Gpeb in Ethereum).            |
-| data                 | DATA          | (optional) The hash of the method signature and the encoded parameter.                                                                                                       |
+| 데이터                  | DATA          | (optional) The hash of the method signature and the encoded parameter.                                                                                                       |
 | value                | QUANTITY      | (optional) The integer of values sent with this transaction.                                                                                                                 |
 | 논스                   | QUANTITY      | (optional) The integer of a nonce.                                                                                                                                           |
 
@@ -652,7 +652,7 @@ Signs a transaction that can be submitted to the network at a later time using w
 | gas                  | QUANTITY      | The integer of the gas provided for the transaction's execution. It will return unused gas.                                                    |
 | maxFeePerGas         | QUANTITY      | The maximum amount to pay for the transaction's execution. Since Klaytn uses a fixed gas price, it must be set to 750 ston (Gpeb in Ethereum). |
 | maxPriorityFeePerGas | QUANTITY      | Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 750 ston (Gpeb in Ethereum).            |
-| data                 | DATA          | (optional) The hash of the method signature and the encoded parameter.                                                                         |
+| 데이터                  | DATA          | (optional) The hash of the method signature and the encoded parameter.                                                                         |
 | value                | QUANTITY      | (optional) The integer of values sent with this transaction.                                                                                   |
 | 논스                   | QUANTITY      | The integer of a nonce.                                                                                                                        |
 
@@ -671,7 +671,7 @@ Signs a transaction that can be submitted to the network at a later time using w
 | -------------------- | ------------- | ----------------------------------------------------------------------------------------------- |
 | 형식                   | QUANTITY      | 트랜잭션의 유형을 나타내는 정수입니다.                                                                           |
 | 논스                   | QUANTITY      | 트랜잭션이 담긴 블록의 번호입니다.                                                                             |
-| gasPrice             | QUANTITY      | peb에서 트랜잭션 발신자에 의해 설정된 가스 가격입니다. `null` when it is not a legacy transaction.                    |
+| 가스 가격                | QUANTITY      | peb에서 트랜잭션 발신자에 의해 설정된 가스 가격입니다. `null` when it is not a legacy transaction.                    |
 | maxFeePerGas         | QUANTITY      | A maximum amount to pay for the transaction to execute. `null` when it is a legacy transaction. |
 | maxPriorityFeePerGas | QUANTITY      | Gas tip cap for dynamic fee transaction in peb. `null` when it is a legacy transaction.         |
 | gas                  | QUANTITY      | 트랜잭션 발신자에 의해 설정된 가스양입니다.                                                                        |
