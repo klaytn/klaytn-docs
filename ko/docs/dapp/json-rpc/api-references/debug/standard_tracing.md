@@ -15,7 +15,7 @@
 | 이름      | 타입            | 설명                                            |
 | ------- | ------------- | --------------------------------------------- |
 | 해시      | 32바이트 크기 DATA | 블록의 해시입니다.                                    |
-| options | object        | [표준 추적 옵션](#standard-tracing-options)을 참고하세요. |
+| options | 객체            | [표준 추적 옵션](#standard-tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -52,7 +52,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 | 이름      | 타입            | 설명                                            |
 | ------- | ------------- | --------------------------------------------- |
 | 해시      | 32바이트 크기 DATA | 블록의 해시입니다.                                    |
-| options | object        | [표준 추적 옵션](#standard-tracing-options)을 참고하세요. |
+| options | 객체            | [표준 추적 옵션](#standard-tracing-options)을 참고하세요. |
 
 **리턴값**
 
