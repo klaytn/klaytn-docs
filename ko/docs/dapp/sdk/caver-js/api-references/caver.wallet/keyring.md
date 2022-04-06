@@ -24,10 +24,10 @@ const keyring = new caver.wallet.keyring.singleKeyring(address, key)
 
 **속성**
 
-| 이름      | 타입             | 설명                                        |
-| ------- | -------------- | ----------------------------------------- |
-| address | string         | 계정 주소.                                    |
-| key     | [PrivateKey][] | 하나의 개인키를 포함하고 있는 [PrivateKey][]의 인스턴스입니다. |
+| 이름  | 타입             | 설명                                        |
+| --- | -------------- | ----------------------------------------- |
+| 주소  | string         | 계정 주소.                                    |
+| key | [PrivateKey][] | 하나의 개인키를 포함하고 있는 [PrivateKey][]의 인스턴스입니다. |
 
 ### MultipleKeyring<a id="multiplekeyring"></a>
 
@@ -41,10 +41,10 @@ const keyring = new caver.wallet.keyring.multipleKeyring(address, keys)
 
 **속성**
 
-| 이름      | 타입     | 설명                                        |
-| ------- | ------ | ----------------------------------------- |
-| address | string | 계정 주소.                                    |
-| keys    | Array  | 하나의 개인키를 포함하고 있는 [PrivateKey][]의 인스턴스입니다. |
+| 이름   | 타입     | 설명                                        |
+| ---- | ------ | ----------------------------------------- |
+| 주소   | string | 계정 주소.                                    |
+| keys | Array  | 하나의 개인키를 포함하고 있는 [PrivateKey][]의 인스턴스입니다. |
 
 ### RoleBasedKeyring<a id="rolebasedkeyring"></a>
 
@@ -58,10 +58,10 @@ const keyring = new caver.wallet.keyring.roleBasedKeyring(address, keys)
 
 **속성**
 
-| 이름      | 타입     | 설명                                                                                                                                                                              |
-| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address | string | 계정 주소.                                                                                                                                                                          |
-| keys    | Array  | 각 [역할][]에 사용되는 키를 정의하는 2차원 배열입니다. 각 [역할][]은 [PrivateKey][] 인스턴스를 포함하고 있습니다. 첫 번째 원소는 `roleTransactionKey`입니다. 두 번째 원소는 `roleAccountUpdateKey`입니다. 마지막 원소는 `roleFeePayerKey`입니다. |
+| 이름   | 타입     | 설명                                                                                                                                                                              |
+| ---- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 주소   | string | 계정 주소.                                                                                                                                                                          |
+| keys | Array  | 각 [역할][]에 사용되는 키를 정의하는 2차원 배열입니다. 각 [역할][]은 [PrivateKey][] 인스턴스를 포함하고 있습니다. 첫 번째 원소는 `roleTransactionKey`입니다. 두 번째 원소는 `roleAccountUpdateKey`입니다. 마지막 원소는 `roleFeePayerKey`입니다. |
 
 이하는 각 역할에 정의된 키를 직관적으로 사용하기 위해 키링에 정의된 게터(getter)입니다. 각 역할에 사용되는 키에 게터를 통해 더 쉽게 접근할 수 있습니다.
 
@@ -245,10 +245,10 @@ caver.wallet.keyring.create(address, key)
 
 **Parameters**
 
-| 이름      | 타입                  | 설명                                                             |
-| ------- | ------------------- | -------------------------------------------------------------- |
-| address | string              | 키링 주소입니다.                                                      |
-| key     | string &#124; Array | 개인키 문자열, 개인키들의 배열, 또는 각 [역할][]에 사용될 키를 포함하는 요소들을 지닌 2차원 배열입니다. |
+| 이름  | 타입                  | 설명                                                             |
+| --- | ------------------- | -------------------------------------------------------------- |
+| 주소  | string              | 키링 주소입니다.                                                      |
+| key | string &#124; Array | 개인키 문자열, 개인키들의 배열, 또는 각 [역할][]에 사용될 키를 포함하는 요소들을 지닌 2차원 배열입니다. |
 
 **리턴값**
 
@@ -380,10 +380,10 @@ caver.wallet.keyring.createWithSingleKey(address, key)
 
 **Parameters**
 
-| 이름      | 타입     | 설명                    |
-| ------- | ------ | --------------------- |
-| address | string | 키링 생성을 위해 사용되는 주소입니다. |
-| key     | string | 개인키 문자열입니다.           |
+| 이름  | 타입     | 설명                    |
+| --- | ------ | --------------------- |
+| 주소  | string | 키링 생성을 위해 사용되는 주소입니다. |
+| key | string | 개인키 문자열입니다.           |
 
 **리턴값**
 
@@ -413,7 +413,7 @@ caver.wallet.keyring.createWithMultipleKey(address, key)
 
 | 이름       | 타입     | 설명               |
 | -------- | ------ | ---------------- |
-| address  | string | 키링 주소입니다.        |
+| 주소       | string | 키링 주소입니다.        |
 | keyArray | Array  | 개인키 문자열들의 배열입니다. |
 
 **리턴값**
@@ -447,7 +447,7 @@ caver.wallet.keyring.createWithRoleBasedKey(address, roledBasedKeyArray)
 
 | 이름                 | 타입     | 설명                                  |
 | ------------------ | ------ | ----------------------------------- |
-| address            | string | 키링 주소입니다.                           |
+| 주소                 | string | 키링 주소입니다.                           |
 | roledBasedKeyArray | Array  | 각 역할에 대해 개인키 배열을 포함하고 있는 2차원 배열입니다. |
 
 **리턴값**
@@ -496,7 +496,7 @@ caver.wallet.keyring.decrypt(keystore, password)
 
 | 이름       | 타입     | 설명                     |
 | -------- | ------ | ---------------------- |
-| 키스토어     | object | 복호화할 키스토어 v3 또는 v4입니다. |
+| 키스토어     | 객체     | 복호화할 키스토어 v3 또는 v4입니다. |
 | password | string | 암호화에 사용되는 비밀번호.        |
 
 **리턴값**
@@ -928,16 +928,16 @@ If the user has not defined the index parameter, `keyring.signMessage` signs mes
 
 **리턴값**
 
-| 타입     | 설명                 |
-| ------ | ------------------ |
-| object | 서명 결과를 포함하는 객체입니다. |
+| 타입 | 설명                 |
+| -- | ------------------ |
+| 객체 | 서명 결과를 포함하는 객체입니다. |
 
 반환된 객체는 다음을 포함합니다.
 
 | 이름          | 타입     | 설명                             |
 | ----------- | ------ | ------------------------------ |
 | messageHash | string | Klaytn 고유의 접두사를 가진 메시지의 해시입니다. |
-| signatures  | Array  | An array of [SignatureData][]. |
+| 서명          | Array  | An array of [SignatureData][]. |
 | 메시지         | string | 서명할 메시지입니다.                    |
 
 **예시**
@@ -1210,9 +1210,9 @@ Encrypts a keyring and returns a keystore v4 standard. 더 자세한 내용은 [
 
 **리턴값**
 
-| 타입     | 설명                         |
-| ------ | -------------------------- |
-| object | The encrypted keystore v4. |
+| 타입 | 설명                         |
+| -- | -------------------------- |
+| 객체 | The encrypted keystore v4. |
 
 반환된 객체는 다음을 포함합니다.
 
@@ -1220,8 +1220,8 @@ Encrypts a keyring and returns a keystore v4 standard. 더 자세한 내용은 [
 | ------- | ------ | ----------------------------------------- |
 | version | number | The version of keystore.                  |
 | id      | string | The id of keystore.                       |
-| address | string | The address in the encrypted [Keyring][]. |
-| keyring | Array  | The encrypted private key(s).             |
+| 주소      | string | The address in the encrypted [Keyring][]. |
+| Keyring | Array  | The encrypted private key(s).             |
 
 더 자세한 내용은 [KIP-3](https://kips.klaytn.com/KIPs/kip-3)를 참조하십시오.
 
@@ -1360,9 +1360,9 @@ Note that [MultipleKeyring][] and [RoleBasedKeyring][] cannot use encryptV3. In 
 
 **리턴값**
 
-| 타입     | 설명                         |
-| ------ | -------------------------- |
-| object | The encrypted keystore v3. |
+| 타입 | 설명                         |
+| -- | -------------------------- |
+| 객체 | The encrypted keystore v3. |
 
 반환된 객체는 다음을 포함합니다.
 
@@ -1370,8 +1370,8 @@ Note that [MultipleKeyring][] and [RoleBasedKeyring][] cannot use encryptV3. In 
 | ------- | ------ | ------------------------------------- |
 | version | number | The version of keystore.              |
 | id      | string | The id of keystore.                   |
-| address | string | The address of encrypted [Keyring][]. |
-| crypto  | object | The encrypted private key.            |
+| 주소      | string | The address of encrypted [Keyring][]. |
+| crypto  | 객체     | The encrypted private key.            |
 
 **예시**
 
