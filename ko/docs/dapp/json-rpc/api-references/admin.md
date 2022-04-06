@@ -607,7 +607,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 | err                  | 에러      | 상태 마이그레이션이 성공적으로 완료되었다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
 | isMigration          | bool    | 상태 마이그레이션이 진행중이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.   |
 | migrationBlockNumber | uint64  | 상태 마이그레이션이 시작된 블록 번호입니다. (상태 마이그레이션이 진행중이 아니라면 `0`.)     |
-| pending              | int     | `pending`은 상태 마이그레이션이 처리하지 않은 트리 노드 개수입니다.               |
+| 보류                   | int     | `pending`은 상태 마이그레이션이 처리하지 않은 트리 노드 개수입니다.               |
 | progress             | float64 | `progress`는 퍼센트(%)로 표현한 상태 마이그레이션 진행 정도입니다.              |
 | read                 | int     | `read`는 상태 마이그레이션이 읽어 들인 트리 노드 개수입니다.                    |
 
