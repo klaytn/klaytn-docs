@@ -112,10 +112,10 @@ Related APIs: [eth_getTransactionByHash](./eth/transaction/#eth_getTransactionBy
 
 > Due to the fundamental design differences between Klaytn and Ethereum, Klaytn transactions cannot be fully supported via `eth` namespace APIs.
 
-| 필드       | 설명                                                                                                                                                                                                                                   |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| gasPrice | Also known as [Unit Price](../../../klaytn/design/transaction-fees/transaction-fees.md#unit-price) in Klaytn's context, this value is determined in the system via the governance processes.                                         |
-| 형식       | In Klaytn, `type` returns the transaction type in string (e.g. `"LegacyTransaction"`), but it has been converted to hexadecimal (e.g. `0x0`) to match Ethereum. Transaction types that are only valid in Klaytn always return `0x0`. |
+| 필드    | 설명                                                                                                                                                                                                                                   |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 가스 가격 | Also known as [Unit Price](../../../klaytn/design/transaction-fees/transaction-fees.md#unit-price) in Klaytn's context, this value is determined in the system via the governance processes.                                         |
+| 형식    | In Klaytn, `type` returns the transaction type in string (e.g. `"LegacyTransaction"`), but it has been converted to hexadecimal (e.g. `0x0`) to match Ethereum. Transaction types that are only valid in Klaytn always return `0x0`. |
 
 Klaytn transactions can have more than one signature because Klaytn supports MultiSig (Ethereum transactions only have one signature field (= v, r, s)) even on protocol-level. In that context, fields related to signature (v, r, s) will match `tx.signatures[0].V`, `tx.signatures[0].R`, and `tx.signatures[0].S`.
 
