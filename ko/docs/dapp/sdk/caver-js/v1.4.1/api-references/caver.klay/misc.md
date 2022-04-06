@@ -11,7 +11,7 @@ Returns the Keccak-256 hash (not the standardized SHA3-256) of the given data.
 
 | 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
-| data     | String   | SHA3 해시로 변환할 데이터입니다.                                                 |
+| 데이터      | String   | SHA3 해시로 변환할 데이터입니다.                                                 |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 **리턴값**
