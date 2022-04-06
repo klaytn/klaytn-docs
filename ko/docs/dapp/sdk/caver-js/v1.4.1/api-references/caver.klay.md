@@ -18,7 +18,7 @@ The `caver-klay` package allows you to interact with the Klaytn nodes.  The list
 - [getCode](./caver.klay/account.md#getcode)
 - [getTransactionCount](./caver.klay/account.md#gettransactioncount)
 - [isContractAccount](./caver.klay/account.md#iscontractaccount)
-- [sign](./caver.klay/account.md#sign)
+- [서명](./caver.klay/account.md#sign)
 
 
 ## [블록](./caver.klay/block.md) <a id="block"></a>
