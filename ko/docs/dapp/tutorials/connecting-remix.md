@@ -3,88 +3,88 @@
 
 ## 리믹스(Remix)란? <a id="what-is-remix"></a>
 
-Solidity Contract 개발을 위한 브라우저 기반의 IDE 입니다. 이 문서는 Remix와 Klaytn의 연동에 대해서만 다루고 있습니다. 리믹스에 대한 자세한 사용법은 [ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) 혹은 리믹스에서 파생된 [**Klaytn IDE**](../../smart-contract/ide-and-tools/README.md#klaytn-ide) 사용법을 참고하시기 바랍니다.
+Solidity Contract 개발을 위한 브라우저 기반의 IDE 입니다. 이 문서는 리믹스와 클레이튼의 연동에 대해서만 다루고 있습니다. 리믹스에 대한 자세한 사용법은 [ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) 혹은 리믹스에서 파생된 [**Klaytn IDE**](../../smart-contract/ide-and-tools/README.md#klaytn-ide) 사용법을 참고하시기 바랍니다.
 
 ## EVM 버전 설정하기 <a id="setup-EVM-version"></a>
-Klaytn supports contracts written in Solidity, and is compatible with the **London** version of EVM. Also, Solidity version 0.8.x and lower are supported in Klaytn. Therefore, to deploy the contract on Klaytn, the contract must be compiled with the **London** EVM version.
+클레이튼은 솔리디티로 작성된 컨트랙트를 지원하며, EVM의 **London** 버전과 호환됩니다. 클레이튼은 솔리디티 버전 0.8.x 이하를 지원합니다. 클레이튼에 컨트랙트를 배포하기 위해서는 컨트랙트가  **London** EVM 버전으로 컴파일되어야 합니다.
 
-* Click **solidity compiler**, and then choose **London** EVM version.
+* **solidity compiler**를 클릭한 후 **London** EVM 버전을 선택해주세요.
 
 ![Solidity Complier](./img/remix-solidity-compiler.png)
 
 ## 로컬 플러그인 연동하기 <a id="connect-to-a-local-plugin"></a>
 
-You need a local plugin to connect to the Klaytn network using Remix. The process is described in the following:
+리믹스를 사용해 클레이튼 네트워크에 연결하기 위해서는 로컬 플러그인이 필요합니다. 그 프로세스는 아래와 같이 설명됩니다.
 
-* Click **plugin manager**, and then click **Connect to a Local Plugin**.
+* **plugin manager**를 클릭한 뒤 **Connect to a Local Plugin**를 클릭하세요.
 
 ![Plugin](./img/remix-environment-plugin.png)
 
-* Put https://klaytn-remix-plugin.ozys.net in the **URL**. Use any name what you want in the **Plugin Name** and **Display Name**.
+* **URL**에 https://klaytn-remix-plugin.ozys.net를 입력하세요. **Plugin Name**과 **Display Name**에 원하는 아무 이름이나 사용할 수 있습니다.
 
 ![Local Plugin](./img/remix-local-plugin.png)
 
-* If the [Klaytn] tab appears, you are ready to interact with Klaytn.
+* [Klaytn] 탭이 보이면 이제 클레이튼과 연결할 준비가 완료된 것입니다.
 
-## Setting up the Deployment Environment <a id="setting-up-the-deployment-environment"></a>
+## 배포 환경 설정하기<a id="setting-up-the-deployment-environment"></a>
 
-* Click on the [Klaytn] tab.
-* Select the appropriate [Environment].  You can select **Baobab**, **Cypress**, or **Caver provider**.
-  * **[Baobab]**: Connects to the Baobab network
-  * **[Cypress]**: Connects to the Cypress network
-  * **[Caver Provider]**: Connects directly to Klaytn node, which supports RPC
+* [Klaytn] 탭을 클릭하세요.
+* 적절한 [Environment]을 선택하세요.  **Baobab**, **Cypress** 또는 **Caver Provider** 중에서 선택할 수 있습니다.
+  * **[Baobab]**: Baobab 네트워크에 연결합니다.
+  * **[Cypress]**: Cypress 네트워크에 연결합니다.
+  * **[Caver Provider]**: RPC를 지원하는 클레이튼 노드에 직접 연결합니다.
 
 ![Klaytn Tab](./img/remix-klaytn-tab.png)
 
-## Import account <a id="import-account"></a>
+## 계정 가져오기<a id="import-account"></a>
 
-* You can import keys from **private key** or **Keystore**.
-* Click **plus** button next to the **ACCOUNT**.
+* **private key** 나 **Keystore**에서 키를 가져올 수 있습니다.
+* **ACCOUNT** 옆 **plus** 버튼을 클릭합니다.
 
 ![Import Keys](./img/remix-klaytn-import-account.png)
 
-* Then put private key or keystore.
-* You can also import keys for the **feePayer**. It only supports **private key**.
+* private key나 keystore를 입력하세요.
+* **feePayer**를 위해 키를 가져올 수도 있습니다. **private key**만 지원합니다.
 
-## Connecting Klaytn - Remix using EN (Endpoint Node) <a id="connecting-klaytn-remix-using-en"></a>
+## EN(Endpoint Node)을 이용한 클레이튼 - 리믹스 연동<a id="connecting-klaytn-remix-using-en"></a>
 
-* Set up an Endpoint Node in the local environment by following the instructions in [**the EN documents**](https://docs.klaytn.com/getting-started/quick-start/launch-an-en).
+* [**EN 문서**](https://docs.klaytn.com/getting-started/quick-start/launch-an-en)의 설명을 따라 로컬 환경에 Endpoint Node를 설치하세요.
 
-* Create an account by following the instructions in [**Account Management**](https://docs.klaytn.com/getting-started/account).
+* [**계정 관리**](https://docs.klaytn.com/getting-started/account)의 설명을 따라 계정을 생성하세요.
 
-  > **Note:** If you use the Public EN from Baobab, instead of from your local environment, you won't be connected to your account because the personal API is disabled.
+  > **Note:** 개인 환경의 EN이 아닌 Baobab Public EN으로 연결 시 personal API가 닫혀있기 때문에 Account에 연결되지 않습니다.
 
-* Select [Caver Provider] in the Environment menu.
+* 환경 설정에서 [Caver Provider]를 선택합니다.
 
 ![Caver Provider](./img/remix-klaytn-environment.png)
 
-* Enter the RPC address of the EN in the Caver Provider Endpoint. Local EN (default): [http://localhost:8551](http://localhost:8551/)
+* Caver Provider Endpoint에 위에서 띄운 EN의 RPC 주소를 입력합니다. Local EN(default): [http://localhost:8551](http://localhost:8551/)
 
-* Once you are successfully connected to the Network, you will see the Chain ID as below. You can view the list of accounts that you have created in Account.
+* 네트워크에 연결되면 Chain ID가 아래와 같이 표시됩니다. 앞에서 생성한 계정 목록을 Account에서 확인할 수 있습니다.
 
-## Connecting Klaytn - Remix using MetaMask <a id="connecting-klaytn-remix-using-metamask"></a>
+## 메타마스크를 사용하여 클레이튼 - 리믹스 연동하기<a id="connecting-klaytn-remix-using-metamask"></a>
 
-* Connect Klaytn with MetaMask by referring to the [**Connecting to MetaMask**](https://docs.klaytn.com/dapp/tutorials/connecting-metamask).
-* Select [Injected Web3] on the Remix Environment menu.
+* [**MetaMask 연동 문서**](https://docs.klaytn.com/dapp/tutorials/connecting-metamask)를 참고하여 클레이튼을 연동합니다.
+* Remix 환경 설정에서 [Injected Web3]를 선택합니다.
 
 ![Injected Web3](./img/remix-klaytn-environment-injectedWeb3.png)
 
-* When you see the MetaMask pop-up, select the connected account and click [Next].
-* Once you are connected to the Network (Baobab Testnet in this example), you will see the Chain ID as below. You can check the connection status with the MetaMask wallet under [Account].
+* 메타마스크에 연결이 뜨면 연동된 Account를 선택 후 [Next]를 클릭합니다.
+* Network(예제에서는 Baobab 테스트넷)에 연결되면 Chain ID가 아래와 같이 표시됩니다. MetaMask 지갑과의 연결 상태를 [Account]에서 확인할 수 있습니다.
 
-## Tutorial: KlaytnGreeter Contract <a id="tutorial-KlaytnGreeter-contract"></a>
+## 튜토리얼: KlaytnGreeter 컨트랙트 <a id="tutorial-KlaytnGreeter-contract"></a>
 
-We will be using the [**KlaytnGreeter**](https://docs.klaytn.com/smart-contract/sample-contracts/klaytngreeter) sample contract.
+[**KlaytnGreeter**](https://docs.klaytn.com/smart-contract/sample-contracts/klaytngreeter) 샘플 컨트랙트를 이용하여 진행합니다.
 
-* Add KlaytnGreeter.sol and write the testing code.
+* KlaytnGreeter.sol 파일을 추가하고 테스트할 코드를 작성합니다.
 
 ![Add KlaytnGreeter](./img/remix-add-klaytngreeter.png)
 
-* On the Solidity Compile tab, select [Compile KlaytnGreeter.sol] to compile the contract code.
-* In the Deploy & Run Transactions tab, click [Deploy] to deploy the compiled contract.
+* Solidity Compile 탭에서 [Compile KlaytnGreeter.sol]을 클릭해 작성한 컨트랙트 코드를 컴파일합니다.
+* Deploy & Run Transactions 탭에서 [Deploy]를 클릭해 컴파일된 컨트랙트를 배포합니다.
 
 ![Deploy the Contract](./img/remix-deploy-run-tx.png)
 
-* You can view the deployed contract. You can test or debug it.
+* 배포된 컨트랙트를 확인합니다. 테스트하거나 디버깅할 수 있습니다.
 
 ![Check the Contract](./img/remix-test-or-debug.png)
