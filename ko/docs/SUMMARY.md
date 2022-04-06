@@ -178,7 +178,7 @@
       * [klay](dapp/json-rpc/api-references/klay.md)
         * [Account](dapp/json-rpc/api-references/klay/account.md)
         * [Block](dapp/json-rpc/api-references/klay/block.md)
-        * [트랜잭션 (Transaction)](dapp/json-rpc/api-references/klay/transaction.md)
+        * [Transaction](dapp/json-rpc/api-references/klay/transaction.md)
           * [Klaytn 트랜잭션 타입 활용하기](dapp/json-rpc/api-references/klay/transaction/transaction-type-support.md)
         * [Configuration](dapp/json-rpc/api-references/klay/config.md)
         * [Filter](dapp/json-rpc/api-references/klay/filter.md)
