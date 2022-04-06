@@ -14,12 +14,12 @@ Validates a signed message by comparing the public key recovered from the signat
 
 **Parameters**
 
-| 이름         | 타입                  | 설명                                                                                                                                                                                                                                                        |
-| ---------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 메시지        | string              | The raw message string. If this message is hashed with the Klaytn-specific prefix, the third parameter should be passed as `true`.                                                                                                                        |
-| signatures | object &#124; Array | An object in the format of `{ v, r, s }`, an instance of `SignatureData`, or an array of `SignatureData`. '[ v, r, s ]' or '[[ v, r, s ]]' array can also be passed as a parameter, and in this case, it is internally converted to `SignatureData` type. |
-| address    | string              | The address of the account that signed the message.                                                                                                                                                                                                       |
-| isHashed   | boolean             | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Klaytn Signed Message:\n" + message.length + message`.                                                                                           |
+| 이름       | 타입                  | 설명                                                                                                                                                                                                                                                        |
+| -------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 메시지      | string              | The raw message string. If this message is hashed with the Klaytn-specific prefix, the third parameter should be passed as `true`.                                                                                                                        |
+| 서명       | object &#124; Array | An object in the format of `{ v, r, s }`, an instance of `SignatureData`, or an array of `SignatureData`. '[ v, r, s ]' or '[[ v, r, s ]]' array can also be passed as a parameter, and in this case, it is internally converted to `SignatureData` type. |
+| 주소       | string              | The address of the account that signed the message.                                                                                                                                                                                                       |
+| isHashed | boolean             | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Klaytn Signed Message:\n" + message.length + message`.                                                                                           |
 
 **리턴값**
 
@@ -59,9 +59,9 @@ Validates a transaction. This function compares the public keys from the account
 
 **Parameters**
 
-| 이름 | 타입     | 설명                                          |
-| -- | ------ | ------------------------------------------- |
-| tx | object | An instance of [Transaction][] to validate. |
+| 이름 | 타입 | 설명                                          |
+| -- | -- | ------------------------------------------- |
+| tx | 객체 | An instance of [Transaction][] to validate. |
 
 **리턴값**
 
@@ -90,9 +90,9 @@ Validates the sender of the transaction. This function compares the public keys 
 
 **Parameters**
 
-| 이름 | 타입     | 설명                                          |
-| -- | ------ | ------------------------------------------- |
-| tx | object | An instance of [Transaction][] to validate. |
+| 이름 | 타입 | 설명                                          |
+| -- | -- | ------------------------------------------- |
+| tx | 객체 | An instance of [Transaction][] to validate. |
 
 **리턴값**
 
@@ -116,9 +116,9 @@ Validates a fee payer in the transaction. This function compares the public keys
 
 **Parameters**
 
-| 이름 | 타입     | 설명                                          |
-| -- | ------ | ------------------------------------------- |
-| tx | object | An instance of [Transaction][] to validate. |
+| 이름 | 타입 | 설명                                          |
+| -- | -- | ------------------------------------------- |
+| tx | 객체 | An instance of [Transaction][] to validate. |
 
 **리턴값**
 
