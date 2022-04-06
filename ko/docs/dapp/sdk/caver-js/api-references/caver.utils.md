@@ -112,9 +112,9 @@ caver.utils.isBN(bn)
 
 **Parameters**
 
-| 이름 | 타입     | 설명                                               |
-| -- | ------ | ------------------------------------------------ |
-| bn | object | [BN.js](https://github.com/indutny/bn.js/) 인스턴스. |
+| 이름 | 타입 | 설명                                               |
+| -- | -- | ------------------------------------------------ |
+| bn | 객체 | [BN.js](https://github.com/indutny/bn.js/) 인스턴스. |
 
 **리턴값**
 
@@ -141,9 +141,9 @@ caver.utils.isBigNumber(bignumber)
 
 **Parameters**
 
-| 이름        | 타입     | 설명                                                           |
-| --------- | ------ | ------------------------------------------------------------ |
-| bignumber | object | [BigNumber.js](http://mikemcl.github.io/bignumber.js/) 인스턴스. |
+| 이름        | 타입 | 설명                                                           |
+| --------- | -- | ------------------------------------------------------------ |
+| bignumber | 객체 | [BigNumber.js](http://mikemcl.github.io/bignumber.js/) 인스턴스. |
 
 **리턴값**
 
@@ -344,9 +344,9 @@ caver.utils.isAddress(address)
 
 **Parameters**
 
-| 이름      | 타입     | 설명      |
-| ------- | ------ | ------- |
-| address | string | 주소 문자열. |
+| 이름 | 타입     | 설명      |
+| -- | ------ | ------- |
+| 주소 | string | 주소 문자열. |
 
 **리턴값**
 
@@ -383,9 +383,9 @@ caver.utils.toChecksumAddress(address)
 
 **Parameters**
 
-| 이름      | 타입     | 설명      |
-| ------- | ------ | ------- |
-| address | string | 주소 문자열. |
+| 이름 | 타입     | 설명      |
+| -- | ------ | ------- |
+| 주소 | string | 주소 문자열. |
 
 **리턴값**
 
@@ -413,9 +413,9 @@ caver.utils.checkAddressChecksum(address)
 
 **Parameters**
 
-| 이름      | 타입     | 설명      |
-| ------- | ------ | ------- |
-| address | string | 주소 문자열. |
+| 이름 | 타입     | 설명      |
+| -- | ------ | ------- |
+| 주소 | string | 주소 문자열. |
 
 **리턴값**
 
@@ -857,7 +857,7 @@ caver.utils.leftPad(string, characterAmount [, sign]) // ALIAS
 | --------------- | ------ | --------------------------------- |
 | string          | string | 왼쪽에 패딩을 추가할 문자열.                  |
 | characterAmount | number | 총 문자열이 가질 문자 개수.                  |
-| sign            | string | (선택 사항) 사용할 문자 부호, 기본값은 `"0"`입니다. |
+| 서명              | string | (선택 사항) 사용할 문자 부호, 기본값은 `"0"`입니다. |
 
 **리턴값**
 
@@ -892,7 +892,7 @@ Adds padding on the right of a string, Useful for adding paddings to HEX strings
 | --------------- | ------ | --------------------------------- |
 | str             | string | 오른쪽에 패딩을 추가할 문자열.                 |
 | characterAmount | number | 총 문자열이 가질 문자 개수.                  |
-| sign            | string | (선택 사항) 사용할 문자 부호, 기본값은 `"0"`입니다. |
+| 서명              | string | (선택 사항) 사용할 문자 부호, 기본값은 `"0"`입니다. |
 
 **리턴값**
 
@@ -1015,9 +1015,9 @@ caver.utils.isContractDeployment(transactionObject)
 
 **Parameters**
 
-| 이름                | 타입     | 설명                                                                          |
-| ----------------- | ------ | --------------------------------------------------------------------------- |
-| transactionObject | object | An instance of [Transaction][] to check contract deploy transaction or not. |
+| 이름                | 타입 | 설명                                                                          |
+| ----------------- | -- | --------------------------------------------------------------------------- |
+| transactionObject | 객체 | An instance of [Transaction][] to check contract deploy transaction or not. |
 
 **리턴값**
 
@@ -1968,9 +1968,9 @@ Decodes a raw signature data composed of 'R(32 byte) + S(32 byte) + V(1byte)'.
 
 **리턴값**
 
-| 타입     | 설명                                                         |
-| ------ | ---------------------------------------------------------- |
-| object | A `SignatureData` instance that includes `v`, `r` and `s`. |
+| 타입 | 설명                                                         |
+| -- | ---------------------------------------------------------- |
+| 객체 | A `SignatureData` instance that includes `v`, `r` and `s`. |
 
 **예제**
 
