@@ -210,10 +210,10 @@ JSON 인터페이스 객체 및 주어진 매개변수를 사용하여 함수 �
 
 **Parameters**
 
-| 이름            | 타입     | 설명                 |
-| ------------- | ------ | ------------------ |
-| jsonInterface | object | 함수의 JSON 인터페이스 객체. |
-| parameters    | Array  | 인코딩할 매개변수.         |
+| 이름            | 타입    | 설명                 |
+| ------------- | ----- | ------------------ |
+| jsonInterface | 객체    | 함수의 JSON 인터페이스 객체. |
+| parameters    | Array | 인코딩할 매개변수.         |
 
 **리턴값**
 
@@ -252,14 +252,14 @@ Decodes a function call from its abi object of a function or function abi string
 
 | 이름           | 타입     | 설명                                |
 | ------------ | ------ | --------------------------------- |
-| abi          | object | The abi object of a function.     |
+| abi          | 객체     | The abi object of a function.     |
 | functionCall | string | The encoded function call string. |
 
 **리턴값**
 
-| 타입     | 설명                                                                                                                                            |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | An object which includes plain params. You can use `result[0]` as it is provided to be accessed like an array in the order of the parameters. |
+| 타입 | 설명                                                                                                                                            |
+| -- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| 객체 | An object which includes plain params. You can use `result[0]` as it is provided to be accessed like an array in the order of the parameters. |
 
 **예제**
 
@@ -353,9 +353,9 @@ ABI 인코딩된 매개변수를 자바스크립트 타입으로 디코딩합니
 
 **리턴값**
 
-| 타입     | 설명                     |
-| ------ | ---------------------- |
-| object | 디코딩된 매개변수를 포함하는 결과 객체. |
+| 타입 | 설명                     |
+| -- | ---------------------- |
+| 객체 | 디코딩된 매개변수를 포함하는 결과 객체. |
 
 **예제**
 
@@ -446,9 +446,9 @@ ABI 인코딩된 로그 데이터 및 인덱싱된 토픽 데이터를 디코딩
 
 **리턴값**
 
-| 타입     | 설명                                             |
-| ------ | ---------------------------------------------- |
-| object | The result object containing the decoded logs. |
+| 타입 | 설명                                             |
+| -- | ---------------------------------------------- |
+| 객체 | The result object containing the decoded logs. |
 
 **예제**
 
