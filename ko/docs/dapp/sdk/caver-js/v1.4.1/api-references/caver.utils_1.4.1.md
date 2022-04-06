@@ -365,9 +365,9 @@ caver.utils.isAddress(address)
 
 **Parameters**
 
-| 이름      | 타입     | 설명      |
-| ------- | ------ | ------- |
-| address | String | 주소 문자열. |
+| 이름 | 타입     | 설명      |
+| -- | ------ | ------- |
+| 주소 | String | 주소 문자열. |
 
 **리턴값**
 
@@ -404,9 +404,9 @@ caver.utils.toChecksumAddress(address)
 
 **Parameters**
 
-| 이름      | 타입     | 설명      |
-| ------- | ------ | ------- |
-| address | String | 주소 문자열. |
+| 이름 | 타입     | 설명      |
+| -- | ------ | ------- |
+| 주소 | String | 주소 문자열. |
 
 **리턴값**
 
@@ -434,9 +434,9 @@ caver.utils.checkAddressChecksum(address)
 
 **Parameters**
 
-| 이름      | 타입     | 설명      |
-| ------- | ------ | ------- |
-| address | String | 주소 문자열. |
+| 이름 | 타입     | 설명      |
+| -- | ------ | ------- |
+| 주소 | String | 주소 문자열. |
 
 **리턴값**
 
@@ -891,7 +891,7 @@ caver.utils.leftPad(string, characterAmount [, sign]) // ALIAS
 | --------------- | ------ | ------------------------------ |
 | string          | String | 왼쪽에 패딩을 추가할 문자열.               |
 | characterAmount | Number | 총 문자열이 가질 문자 개수.               |
-| sign            | String | (선택 사항) 사용할 문자 부호, 기본값은 `"0"`. |
+| 서명              | String | (선택 사항) 사용할 문자 부호, 기본값은 `"0"`. |
 
 **리턴값**
 
@@ -928,7 +928,7 @@ caver.utils.rightPad(string, characterAmount [, sign]) // ALIAS
 | --------------- | ------ | ------------------------------ |
 | string          | String | 오른쪽에 패딩을 추가할 문자열.              |
 | characterAmount | Number | 총 문자열이 가질 문자 개수.               |
-| sign            | String | (선택 사항) 사용할 문자 부호, 기본값은 `"0"`. |
+| 서명              | String | (선택 사항) 사용할 문자 부호, 기본값은 `"0"`. |
 
 **리턴값**
 
