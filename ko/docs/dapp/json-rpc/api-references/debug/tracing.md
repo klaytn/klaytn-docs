@@ -16,7 +16,7 @@
 | 이름      | 타입            | 설명                                |
 | ------- | ------------- | --------------------------------- |
 | 해시      | 32바이트 크기 DATA | 블록의 해시입니다.                        |
-| options | object        | [추적 옵션](#tracing-options)을 참고하세요. |
+| options | 객체            | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -73,7 +73,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 | 이름       | 타입     | 설명                                |
 | -------- | ------ | --------------------------------- |
 | blockRlp | string | RLP 인코딩된 블록입니다.                   |
-| options  | object | [추적 옵션](#tracing-options)을 참고하세요. |
+| options  | 객체     | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -117,7 +117,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 | 이름      | 타입            | 설명                                |
 | ------- | ------------- | --------------------------------- |
 | 해시      | 32바이트 크기 DATA | 블록의 해시입니다.                        |
-| options | object        | [추적 옵션](#tracing-options)을 참고하세요. |
+| options | 객체            | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -157,10 +157,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **Parameters**
 
-| 이름      | 타입     | 설명                                |
-| ------- | ------ | --------------------------------- |
-| number  | int    | 블록 번호입니다.                         |
-| options | object | [추적 옵션](#tracing-options)을 참고하세요. |
+| 이름      | 타입  | 설명                                |
+| ------- | --- | --------------------------------- |
+| number  | int | 블록 번호입니다.                         |
+| options | 객체  | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -209,7 +209,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 | 이름       | 타입     | 설명                                |
 | -------- | ------ | --------------------------------- |
 | fileName | string | 블록의 RLP를 담고 있는 파일의 이름입니다.         |
-| options  | object | [추적 옵션](#tracing-options)을 참고하세요. |
+| options  | 객체     | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -260,7 +260,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 | 이름      | 타입     | 설명                                |
 | ------- | ------ | --------------------------------- |
 | txHash  | string | 트랜잭션의 해시입니다.                      |
-| options | object | [추적 옵션](#tracing-options)을 참고하세요. |
+| options | 객체     | [추적 옵션](#tracing-options)을 참고하세요. |
 
 **리턴값**
 
@@ -413,17 +413,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 `log`는 다음의 필드를 갖고 있습니다.
 
-| 필드명        | 타입             | 설명                            |
-| ---------- | -------------- | ----------------------------- |
-| `pc`       | Number         | 현재 프로그램 카운터입니다.               |
-| `op`       | Object         | 현재 Opcode를 나타내는 Opcode 객체입니다. |
-| `gas`      | Number         | 남은 가스양입니다.                    |
-| `gasPrice` | Number         | peb에서 가스당 가격입니다.              |
-| `memory`   | Object         | 컨트랙트의 메모리 공간을 나타내는 구조체입니다.    |
-| `stack`    | array[big.Int] | KLVM 실행 스택입니다.                |
-| `depth`    | Number         | 실행 뎁스입니다.                     |
-| `account`  | String         | 현재 연산을 실행하는 계정의 주소입니다.        |
-| `err`      | String         | 발생한 오류에 대한 정보입니다.             |
+| 필드명       | 타입             | 설명                            |
+| --------- | -------------- | ----------------------------- |
+| `pc`      | Number         | 현재 프로그램 카운터입니다.               |
+| `op`      | Object         | 현재 Opcode를 나타내는 Opcode 객체입니다. |
+| `gas`     | Number         | 남은 가스양입니다.                    |
+| `가스 가격`   | Number         | peb에서 가스당 가격입니다.              |
+| `memory`  | Object         | 컨트랙트의 메모리 공간을 나타내는 구조체입니다.    |
+| `stack`   | array[big.Int] | KLVM 실행 스택입니다.                |
+| `depth`   | Number         | 실행 뎁스입니다.                     |
+| `account` | String         | 현재 연산을 실행하는 계정의 주소입니다.        |
+| `err`     | String         | 발생한 오류에 대한 정보입니다.             |
 
 `err` 필드가 null이 아니면 다른 모든 필드의 정보는 무시되어야 합니다.
 
