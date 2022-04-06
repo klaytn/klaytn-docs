@@ -21,17 +21,17 @@ JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로
 | 이름            | 타입     | 설명                                                                                                                        |
 |:------------- |:------ |:------------------------------------------------------------------------------------------------------------------------- |
 | jsonInterface | Object | 컨트랙트를 인스턴스화하기 위한 JSON 인터페이스                                                                                               |
-| address       | String | \(optional\) The address of the smart contract to call. `myContract.options.address = '0x1234..'`를 사용하여 나중에 추가할 수 있습니다. |
+| 주소            | String | \(optional\) The address of the smart contract to call. `myContract.options.address = '0x1234..'`를 사용하여 나중에 추가할 수 있습니다. |
 | options       | Object | \(optional\) The options of the contract.  자세한 내용은 아래 표를 참조하세요.                                                         |
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 이름       | 타입     | 설명                                                                         |
-|:-------- |:------ |:-------------------------------------------------------------------------- |
-| from     | String | \(optional\) The address from which transactions should be made.         |
-| gasPrice | String | \(optional\) The gas price in peb to use for transactions.               |
-| gas      | Number | \(optional\) The maximum gas provided for a transaction \(gas limit\). |
-| data     | String | \(optional\) The byte code of the contract. 컨트랙트가 배포될 때 사용됩니다.           |
+| 이름    | 타입     | 설명                                                                         |
+|:----- |:------ |:-------------------------------------------------------------------------- |
+| from  | String | \(optional\) The address from which transactions should be made.         |
+| 가스 가격 | String | \(optional\) The gas price in peb to use for transactions.               |
+| gas   | Number | \(optional\) The maximum gas provided for a transaction \(gas limit\). |
+| 데이터   | String | \(optional\) The byte code of the contract. 컨트랙트가 배포될 때 사용됩니다.           |
 
 **리턴값**
 
@@ -65,11 +65,11 @@ myContract.options
 
 | 이름            | 타입     | 설명                                                                           |
 |:------------- |:------ |:---------------------------------------------------------------------------- |
-| address       | String | 컨트랙트가 배포된 주소.  Also see [options.address](#options-address).                 |
+| 주소            | String | 컨트랙트가 배포된 주소.  Also see [options.address](#options-address).                 |
 | jsonInterface | Array  | 컨트랙트의 JSON 인터페이스.  Also see [options.jsonInterface](#options-jsoninterface). |
-| data          | String | 컨트랙트의 바이트 코드. 컨트랙트가 배포될 때 사용됩니다.                                             |
+| 데이터           | String | 컨트랙트의 바이트 코드. 컨트랙트가 배포될 때 사용됩니다.                                             |
 | from          | String | 트랜잭션이 만들어진 송신자 주소.                                                           |
-| gasPrice      | String | 트랜잭션에 사용할 peb 단위의 가스 가격.                                                     |
+| 가스 가격         | String | 트랜잭션에 사용할 peb 단위의 가스 가격.                                                     |
 | gas           | Number | The maximum gas provided for a transaction \(gas limit\).                  |
 
 **예시**
@@ -99,9 +99,9 @@ myContract.options.address
 
 **속성**
 
-| 이름      | 타입        | 설명                                                                     |
-|:------- |:--------- |:---------------------------------------------------------------------- |
-| address | String \ | `null` | The address for this contract or `null` if it is not yet set. |
+| 이름 | 타입        | 설명                                                                     |
+|:-- |:--------- |:---------------------------------------------------------------------- |
+| 주소 | String \ | `null` | The address for this contract or `null` if it is not yet set. |
 
 **예시**
 
@@ -188,7 +188,7 @@ myContract.deploy(options)
 
 | 이름        | 타입     | 설명                                                                             |
 |:--------- |:------ |:------------------------------------------------------------------------------ |
-| data      | String | 컨트랙트의 바이트 코드.                                                                  |
+| 데이터       | String | 컨트랙트의 바이트 코드.                                                                  |
 | arguments | Array  | \(optional\) The arguments that get passed to the constructor on deployment. |
 
 **리턴값**
@@ -349,11 +349,11 @@ Will call a "constant" method and execute its smart contract method in the Klayt
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 이름       | 타입     | 설명                                                                                   |
-|:-------- |:------ |:------------------------------------------------------------------------------------ |
-| from     | String | \(optional\) The address the call “transaction” should be made from.               |
-| gasPrice | String | \(optional\) The gas price in peb to use for this call "transaction".              |
-| gas      | Number | \(optional\) The maximum gas provided for this call "transaction" \(gas limit\). |
+| 이름    | 타입     | 설명                                                                                   |
+|:----- |:------ |:------------------------------------------------------------------------------------ |
+| from  | String | \(optional\) The address the call “transaction” should be made from.               |
+| 가스 가격 | String | \(optional\) The gas price in peb to use for this call "transaction".              |
+| gas   | Number | \(optional\) The maximum gas provided for this call "transaction" \(gas limit\). |
 
 **리턴값**
 
@@ -426,12 +426,12 @@ myContract.methods.myMethod([param1 [, param2 [, ...]]]).send(options [, callbac
 
 옵션 개체에는 다음이 포함됩니다:
 
-| 이름       | 타입        | 설명                                                                                             |
-|:-------- |:--------- |:---------------------------------------------------------------------------------------------- |
-| from     | String    | 트랜잭션을 보낼 송신자 주소.                                                                               |
-| gasPrice | String    | \(optional\) The gas price in peb to use for this transaction.                               |
-| gas      | Number    | The maximum gas provided for this transaction \(gas limit\).                                 |
-| value    | Number \ | String \| BN \| BigNumber | \(optional\) The value transferred for the transaction in peb. |
+| 이름    | 타입        | 설명                                                                                             |
+|:----- |:--------- |:---------------------------------------------------------------------------------------------- |
+| from  | String    | 트랜잭션을 보낼 송신자 주소.                                                                               |
+| 가스 가격 | String    | \(optional\) The gas price in peb to use for this transaction.                               |
+| gas   | Number    | The maximum gas provided for this transaction \(gas limit\).                                 |
+| value | Number \ | String \| BN \| BigNumber | \(optional\) The value transferred for the transaction in peb. |
 
 **리턴값**
 
@@ -662,7 +662,7 @@ myContract.events.MyEvent([options][, callback])
 
 | 이름    | 타입     | 설명                           |
 |:----- |:------ |:---------------------------- |
-| data  | Object | 이벤트 객체를 인수로 각 수신 이벤트를 발생합니다. |
+| 데이터   | Object | 이벤트 객체를 인수로 각 수신 이벤트를 발생합니다. |
 | error | Object | 구독 오류가 발생하면 발생합니다.           |
 
 반환된 이벤트 `Object`의 구조는 다음과 같습니다:
@@ -671,7 +671,7 @@ myContract.events.MyEvent([options][, callback])
 |:---------------- |:-------------- |:------------------------------------------------------------------------------------------------------------------------------- |
 | event            | String         | 이벤트 이름.                                                                                                                         |
 | 서명 값입니다.         | String \      | `null` | The event signature, `null` if it is an anonymous event.                                                               |
-| address          | String         | 이 이벤트가 발생한 주소.                                                                                                                  |
+| 주소               | String         | 이 이벤트가 발생한 주소.                                                                                                                  |
 | returnValues     | Object         | The return values coming from the event, _e.g._, `{myVar: 1, myVar2: '0x234...'}`.                                              |
 | logIndex         | Number         | 블록에서 이벤트 인덱스 위치의 정수값.                                                                                                           |
 | transactionIndex | Number         | 이벤트가 생성된 트랜잭션의 인덱스 위치의 정수값.                                                                                                     |
