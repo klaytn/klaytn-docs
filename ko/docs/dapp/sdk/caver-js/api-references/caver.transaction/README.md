@@ -36,9 +36,9 @@ Decodes RLP-encoded transaction string, a raw transaction, and returns a [Transa
 
 **리턴값**
 
-| 타입     | 설명                                                                                         |
-| ------ | ------------------------------------------------------------------------------------------ |
-| object | An instance of [Transaction][]. For details of each transaction, refer to [Transaction][]. |
+| 타입 | 설명                                                                                         |
+| -- | ------------------------------------------------------------------------------------------ |
+| 객체 | An instance of [Transaction][]. For details of each transaction, refer to [Transaction][]. |
 
 **예시**
 
@@ -78,9 +78,9 @@ Queries a transaction from Klaytn and converts to a caver transaction instance.
 
 `Promise` returning `object`: An instance of [Transaction][]. If it fails to receive a transaction object from Klaytn, an error occurs.
 
-| 타입     | 설명                                                                                         |
-| ------ | ------------------------------------------------------------------------------------------ |
-| object | An instance of [Transaction][]. For details of each transaction, refer to [Transaction][]. |
+| 타입 | 설명                                                                                         |
+| -- | ------------------------------------------------------------------------------------------ |
+| 객체 | An instance of [Transaction][]. For details of each transaction, refer to [Transaction][]. |
 
 **예시**
 
@@ -183,7 +183,7 @@ For [Account Update][] transaction, use [roleAccountUpdateKey][], or otherwise, 
 
 | 이름      | 타입                   | 설명                                                                                                                                                                                                                                                                                   |
 | ------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| keyring | object &#124; string | A private key string ([KlaytnWalletKey][] format is also allowed) or an instance of Keyring ([SingleKeyring][], [MultipleKeyring][] or [RoleBasedKeyring][]). If a private key string or a [KlaytnWalletKey][] is passed as a parameter, the keyring instance is created internally. |
+| Keyring | object &#124; string | A private key string ([KlaytnWalletKey][] format is also allowed) or an instance of Keyring ([SingleKeyring][], [MultipleKeyring][] or [RoleBasedKeyring][]). If a private key string or a [KlaytnWalletKey][] is passed as a parameter, the keyring instance is created internally. |
 | index   | number               | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. 인덱스는 각각의 역할에 정의된 개인키들의 배열 길이보다 작아야 합니다. 인덱스가 정의되지 않았을 경우, 이 메서드는 모든 개인키를 사용합니다.                                                                                                                                                                        |
 | hasher  | Function             | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                     |
 
@@ -191,9 +191,9 @@ For [Account Update][] transaction, use [roleAccountUpdateKey][], or otherwise, 
 
 `Promise`는 `객체`를 반환: 서명된 트랜잭션입니다.
 
-| 타입     | 설명                                                                                                |
-| ------ | ------------------------------------------------------------------------------------------------- |
-| object | An instance of signed [Transaction][]. The signature is appended to the `transaction.signatures`. |
+| 타입 | 설명                                                                                                |
+| -- | ------------------------------------------------------------------------------------------------- |
+| 객체 | An instance of signed [Transaction][]. The signature is appended to the `transaction.signatures`. |
 
 **예시**
 
@@ -295,7 +295,7 @@ For signing a transaction as a fee payer, use [roleFeePayerKey][] in `keyring`. 
 
 | 이름      | 타입                   | 설명                                                                                                                                                                                                                                                                                   |
 | ------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| keyring | object &#124; string | A private key string ([KlaytnWalletKey][] format is also allowed) or an instance of Keyring ([SingleKeyring][], [MultipleKeyring][] or [RoleBasedKeyring][]). If the private key string or [KlaytnWalletKey][] is passed as a parameter, the keyring instance is created internally. |
+| Keyring | object &#124; string | A private key string ([KlaytnWalletKey][] format is also allowed) or an instance of Keyring ([SingleKeyring][], [MultipleKeyring][] or [RoleBasedKeyring][]). If the private key string or [KlaytnWalletKey][] is passed as a parameter, the keyring instance is created internally. |
 | index   | number               | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. 인덱스는 각각의 역할에 정의된 개인키들의 배열 길이보다 작아야 합니다. 인덱스가 정의되지 않았을 경우, 이 메서드는 모든 개인키를 사용합니다.                                                                                                                                                                        |
 | hasher  | Function             | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                     |
 
@@ -303,9 +303,9 @@ For signing a transaction as a fee payer, use [roleFeePayerKey][] in `keyring`. 
 
 `Promise`는 `객체`를 반환: 서명된 트랜잭션입니다.
 
-| 타입     | 설명                                                                                                        |
-| ------ | --------------------------------------------------------------------------------------------------------- |
-| object | An instance of signed [Transaction][]. The signature is appended to the `transaction.feePayerSignatures`. |
+| 타입 | 설명                                                                                                        |
+| -- | --------------------------------------------------------------------------------------------------------- |
+| 객체 | An instance of signed [Transaction][]. The signature is appended to the `transaction.feePayerSignatures`. |
 
 **예시**
 
@@ -405,9 +405,9 @@ Appends `signatures` to the transaction.
 
 **Parameters**
 
-| 이름         | 타입                  | 설명                                                                                                                                                                                                                                                                                          |
-| ---------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| signatures | object &#124; Array | The signatures to be appended to the transaction. [SignatureData][] instance or an array containing [SignatureData][] instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
+| 이름 | 타입                  | 설명                                                                                                                                                                                                                                                                                          |
+| -- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 서명 | object &#124; Array | The signatures to be appended to the transaction. [SignatureData][] instance or an array containing [SignatureData][] instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
 
 **예시**
 
@@ -427,9 +427,9 @@ Appends `feePayerSignatures` to the transaction.
 
 **Parameters**
 
-| 이름                 | 타입                  | 설명                                                                                                                                                                                                                                                                                                  |
-| ------------------ | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| feePayerSignatures | object &#124; Array | The feePayerSignatures to be appended to the transaction. [SignatureData][] instance or an array containing [SignatureData][] instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
+| 이름              | 타입                  | 설명                                                                                                                                                                                                                                                                                                  |
+| --------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 트랜잭션 수수료 납부자 서명 | object &#124; Array | The feePayerSignatures to be appended to the transaction. [SignatureData][] instance or an array containing [SignatureData][] instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
 
 **예시**
 
