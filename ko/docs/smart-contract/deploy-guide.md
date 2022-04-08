@@ -1,10 +1,10 @@
 # 배포 가이드 <a id="deploy-guide"></a>
 
-There are various ways of deploying a smart contract on Klaytn. 이 문서는 다양한 도구를 사용하여 샘플 컨트랙트를 배포하기 위한 단계별 가이드를 제공합니다. 트랜잭션 수수료를 지불하기에 충분한 KLAY가 있는 Klaytn 계정이 있다고 가정합니다. To create an account, please visit [Klaytn Wallet](../toolkit/klaytn-wallet.md).
+클레이튼에 스마트 컨트랙트를 배포하는 방법에는 여러 가지가 있습니다. 이 문서는 다양한 도구를 사용하여 샘플 컨트랙트를 배포하기 위한 단계별 가이드를 제공합니다. 트랜잭션 수수료를 지불하기에 충분한 KLAY가 있는 Klaytn 계정이 있다고 가정합니다. 계정을 만들려면 [Klaytn Wallet](../toolkit/klaytn-wallet.md)을 참조하세요.
 
 ## Klaytn IDE <a id="klaytn-ide"></a>
 
-Open your internet browser and go to https://ide.klaytn.com
+인터넷 브라우저를 열고 <0>https://ide.klaytn.com</0>으로 이동하세요.
 
 
 - 새 파일을 추가하세요.
@@ -12,7 +12,7 @@ Open your internet browser and go to https://ide.klaytn.com
 ![](img/deploy-with-ide/01_deployment_ide.png)
 
 
-- Copy and paste the following sample code (or any code you want to deploy) in the new file. The code consists of two contracts called Mortal and KlaytnGreeter, and it allows you to run a simple "Hello World!".
+- 다음 코드(또는 배포하고자 하는 아무 코드)를 복사해 붙여넣습니다. 이 코드는 Mortal과 KlaytnGreeter라는 두 컨트랙트로, 간단히 "Hello World!"를 실행할 수 있습니다.
 
 ```
 pragma solidity 0.5.12;
@@ -40,11 +40,11 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-- Select Compiler in the icon panel. Choose the desired EVM environment. For the Klaytn networks, you can choose between Baobab (testnet) and Cypress (mainnet). Click `Compile` when the sample code is ready to be complied before actual deployment.
+- 아이콘 패널에서 Compiler를 선택해주세요. 그리고 원하는 EVM 환경을 선택합니다. 클레이튼 네트워크의 경우 Baobab(테스트넷)과 Cypress(메인넷) 사이에서 선택할 수 있습니다. Click `Compile` when the sample code is ready to be complied before actual deployment.
 
 ![](img/deploy-with-ide/02_deployment_compile.png)
 
-- Now we can deploy the contract. Click on the Klaytn logo in the icon panel. Import an account by clicking the plus button next to `Account`. Make sure that the account has sufficient KLAY to pay for the transaction of deploying the smart contracts required.
+- 이제 컨트랙트를 배포할 수 있습니다. 아이콘 패널에서 클레이튼 로고를 선택해주세요. `Account` 옆의 더하기 버튼을 눌러 계정을 가져올 수 있습니다. Make sure that the account has sufficient KLAY to pay for the transaction of deploying the smart contracts required.
 
 ![](img/deploy-with-ide/05_deployment_account.png)
 
@@ -55,13 +55,13 @@ contract KlaytnGreeter is Mortal {
 
 ![](img/deploy-with-ide/03_deployment_hello.png)
 
-- If the contract is successfully deployed, you will see the corresponding transaction receipt and detailed result in the terminal.
+- 컨트랙트가 성공적으로 배포되었다면 터미널에 상응하는 트랜잭션 receipt와 자세한 결과값을 볼 수 있습니다.
 
-- 함수 버튼을 클릭하여 컨트랙트와 상호작용할 수 있습니다. The functions are represented in different colors. `constant` or `pure` functions in Solidity have blue bottons (`greet` in the example) and do not create a new transaction, so they don't cost any gas. Red buttons (`kill` in the example) represent `payable` functions that change the state on the blockchain, consume gas and can accept value. Orange buttons are for `non-payable` functions that change the contract state but do NOT accept a value.
+- 함수 버튼을 클릭하여 컨트랙트와 상호작용할 수 있습니다. 함수들은 다양한 색으로 표시됩니다. 솔리디티의 `constant` 또는 `pure` 함수는 파란색 버튼으로 표시되며(예시에서 `greet`), 새로운 트랜잭션을 생성하지 않기 때문에 가스비가 들지 않습니다. 빨간색 버튼(예시에서 `kill`)은 `payable` 함수로서, 블록체인의 상태를 변경하고 가스를 소진하며 KLAY를 받을 수 있습니다.  오렌지 버튼은 컨트랙트 상태를 변경시키지만 KLAY를 받을 수는 없는 `non-payable` 함수를 나타냅니다.
 
 ![](img/deploy-with-ide/06_deployment_functions.png)
 
-For more details, please refer to this [link](../toolkit/klaytn-ide.md).
+자세한 내용은 [링크](../toolkit/klaytn-ide.md)를 참고해주세요.
 
 ## Truffle  <a id="truffle"></a>
 
@@ -125,34 +125,9 @@ module.exports = function(deployer) {
 ```
 const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
 
-const privateKey = "0x3de..." // Enter your private key;
-
-module.exports = {
-  networks: {
-    development: {
-      host: "localhost",
-      port: 8545,
-      network_id: "*" // Match any network id
-    },
-    testnet: {
-      provider: () => new HDWalletProvider(privateKey, "https://your.baobab.en.url:8651"),
-      network_id: '1001', //Klaytn baobab testnet's network id
-      gas: '8500000',
-      gasPrice: null
-    },
-    mainnet: {
-      provider: () => new HDWalletProvider(privateKey, "https://your.cypress.en.url:8651"),
-      network_id: '8217', //Klaytn mainnet's network id
-      gas: '8500000',
-      gasPrice: null
-    }
-  },
-  compilers: {
-    solc: {
-      version: "0.5.6"
-    }
-  }
-};
+const privateKey = "0x3de..." 
+ 
+XPath: /pre[6]/code
 ```
 *참고*: 이 예제는 상업용으로 권장되지 않습니다. 개인키를 다룰 때 많은 주의를 기울이세요.
 
@@ -170,7 +145,7 @@ $ truffle deploy --network mainnet
 
 자세한 내용은 이 [링크](../toolkit/truffle.md)를 참조하세요.
 
-## VVISP <a id="vvisp"></a>
+## VVISP<a id="vvisp"></a>
 vvisp은 스마트 컨트랙트 개발을 위해 HEACHI LABS에서 제공하는 사용하기 쉬운 cli 도구/프레임워크입니다. 단일 명령만으로 환경을 쉽게 설정하고, Klaytn 스마트 컨트랙트를 배포 및 실행할 수 있습니다. 자세한 내용을 위해 다음 링크를 참조하세요.
 - https://henesis.gitbook.io/vvisp/deploying-smart-contracts
 
