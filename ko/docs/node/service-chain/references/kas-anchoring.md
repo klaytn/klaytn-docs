@@ -25,24 +25,24 @@ Design에서 설명했듯이, 클레이튼 메인체인에 서비스 체인 데�
 ## 운영자 주소 생성하기<a id="create-kas-credential"></a>
 KAS를 통해 서비스 체인 데이터를 앵커링 하기 위해서는 KAS에 등록이 된 클레이튼 주소가 있어야 하며, 이 주소가 클레이튼에 앵커링 트랜잭션을 보내게 될 주소입니다. 서비스 노드를 셋업하기 전에, KAS를 통해 "operator"라는 클레이튼 계정을 생성해야 합니다. KAS 콘솔을 이용해 이 계정을 만들어 주세요.
 
-It is important to be noticed that you must **first select the chain** in Klaytn to which you want to anchor your data on **the top right corner of the KAS console page**. You should create an operator for each chain (Cypress/Baobab).
+우선 KAS 콘솔 우측 상단에서 데이터를 앵커링하고자 하는 클레이튼 체인을 선택하는 것이 중요합니다. 각 체인(Cypress/Baobab)에 대한 운영자를 생성해야 합니다.
 
 
 
 ![select chain](../images/kas-select-chain-en.png)
 
-Create an operator as below.
+아래와 같이 운영자를 생성하세요.
 
 ![create operator](../images/kas-create-operator-en.png)
 
-Then, you can check your operator list like below. Please note that the address of an operator is required for setting your service chain node.
+그리고 나서 아래와 같이 운영자 목록을 확인할 수 있습니다. 여러분의 서비스 체인 노드를 설정하기 위해 운영자 주소가 필요하다는 점을 유의해주세요.
 
 ![create operator](../images/kas-operator-list-en.png)
 
-## Configure Service Chain Node <a id="configure-service-chain-node"></a>
-After obtaining API credentials, Anchor API information (API endpoint and parameters), and an operator account in KAS, then It is time to set up your service chain node. You need to edit the configuration file (`kscnd.conf`, `kspnd.conf`, `ksend.conf`) of your service chain node like below.
+## 서비스 체인 노드 설정<a id="configure-service-chain-node"></a>
+API 자격증명,  Anchor API 정보(API 엔드포인트와 파라미터), KAS 운영자 정보를 획득한 뒤 서비스 체인 노드를 설정합니다. 아래와 같이 서비스 체인 노드의 구성 파일(`kscnd.conf`, `kspnd.conf`, `ksend.conf`)을 수정해야 합니다.
 
-You should set `SC_SUB_BRIDGE=1` and all `SC_KAS_` prefix items.
+`SC_SUB_BRIDGE=1`과 모든 `SC_KAS_` 접두사 항목들을 설정해야 합니다.
 
 ```bash
 ...
@@ -61,8 +61,8 @@ SC_KAS_ANCHOR_X_CHAIN_ID=1001                                           # Cypres
 ...
 ```
 
-## Run Service Chain Node <a id="run-service-chain-node"></a>
-Now you are good to go. You can run your service chain node. You will see the log message related with KAS Anchor API like below.
+## 서비스 체인 노드 운영<a id="run-service-chain-node"></a>
+이제 준비가 되었습니다. 서비스 체인 노드를 운영할 수 있습니다. 아래와 같이 KAS Anchor API와 연관된 로그 메시지가 나타납니다.
 
 ```bash
 ...
@@ -79,7 +79,7 @@ INFO[09/10,18:09:32 +09] [53] Anchored a block via KAS                  blkNum=8
 ...
 ```
 
-## List of Transaction <a id="list-of-transaction"></a>
-In KAS console website, you can see the list of anchoring transactions that the operator of your service chain has sent at "KAS Console - Service - Anchor - Operators" menu like below.
+## 트랜잭션 목록<a id="list-of-transaction"></a>
+KAS 콘솔 웹사이트에서 여러분의 서비스체인 운영자가 보낸 앵커링 트랜잭션 목록을 "KAS Console - Service - Anchor - Operators"에서 아래와 같이 확인하실 수 있습니다.
 
 ![anchoring transaction list](../images/kas-tx-list-en.png)
