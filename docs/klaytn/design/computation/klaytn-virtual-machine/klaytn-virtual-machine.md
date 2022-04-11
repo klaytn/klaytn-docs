@@ -96,7 +96,7 @@ The fee schedule `G` is a tuple of 37 scalar values corresponding to the relativ
 NOTE: Fee has been changed after `IstanbulEVM` protocol upgrade, or the "hard fork".
 If you want the previous document, please refer to [previous document](klaytn-virtual-machine-previous.md).
 
-`IstanbulEVM` protocol upgrade block number is like the followings.
+`IstanbulEVM` protocol upgrade block number is as follows.
 * Baobab Testnet: `#75373312`
 * Cypress Mainnet: `#86816005`
 {% endhint %}
