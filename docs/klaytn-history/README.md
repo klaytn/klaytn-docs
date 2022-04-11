@@ -33,4 +33,4 @@ Ethereum's London hard fork items were introduced with the [v1.7.3 release](http
 
 ### Summary
 
-Ethereum's Istanbul hard fork items were introduced with the [v1.7.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.7.0), which includes changes from `[EIP-152](https://eips.ethereum.org/EIPS/eip-152)`, `[EIP-1108](https://eips.ethereum.org/EIPS/eip-1108)`, `[EIP-1344](https://eips.ethereum.org/EIPS/eip-1344)`, `[EIP-1844](https://eips.ethereum.org/EIPS/eip-1844)`, and `[EIP-2200](https://eips.ethereum.org/EIPS/eip-2200)`.
+Ethereum's Istanbul hard fork items were introduced with the [v1.7.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.7.0), which includes changes from [EIP-152](https://eips.ethereum.org/EIPS/eip-152), [EIP-1108](https://eips.ethereum.org/EIPS/eip-1108), [EIP-1344](https://eips.ethereum.org/EIPS/eip-1344), [EIP-1844](https://eips.ethereum.org/EIPS/eip-1844), and [EIP-2200](https://eips.ethereum.org/EIPS/eip-2200).
