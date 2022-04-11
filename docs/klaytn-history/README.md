@@ -4,9 +4,10 @@ This page shows all the major milestones, forks and updates to the Klaytn blockc
 
 ## EthTxType
 
---- | Baobab | Cypress
-Date | Mar 27, 2022 23:56:31 / UTC+9 | Mar 31, 2022 12:14:39 / UTC+9
-Block number  | `#86513895`  | `#86816005`
+| --- | Baobab | Cypress |
+| --------------- | --------------- | --------------- |
+| Date | Mar 27, 2022 23:56:31 / UTC+9 | Mar 31, 2022 12:14:39 / UTC+9 |
+| Block number  | `#86513895`  | `#86816005` |
 
 ### Summary
 
