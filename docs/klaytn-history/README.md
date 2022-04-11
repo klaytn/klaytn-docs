@@ -4,7 +4,7 @@ This page shows all the major milestones, forks and updates to the Klaytn blockc
 
 ## EthTxType
 
-| --- | Baobab | Cypress |
+|  | Baobab | Cypress |
 | --------------- | --------------- | --------------- |
 | Date | Mar 27, 2022 23:56:31 / UTC+9 | Mar 31, 2022 12:14:39 / UTC+9 |
 | Block number  | `#86513895`  | `#86816005` |
@@ -15,8 +15,10 @@ Ethereum's EthTxType changes were introduced with the [v1.8.0 release](https://g
 
 ## London EVM
 
-- Date: Jan 14, 2022 11:02:55 / UTC+9 on Baobab, Mar 31, 2022 12:14:39 / UTC+9 on Cypress 
-- Block number: `#80295291` for Baobab testnet, `#86816005` for Cypress mainnet
+|  | Baobab | Cypress |
+| --------------- | --------------- | --------------- |
+| Date | Jan 14, 2022 11:02:55 / UTC+9 | Mar 31, 2022 12:14:39 / UTC+9 on Cypress |
+| Block number  | `#80295291`  | `#86816005` |
 
 ### Summary
 
@@ -24,8 +26,10 @@ Ethereum's London hard fork items were introduced with the [v1.7.3 release](http
 
 ## Istanbul EVM
 
-- Date: Nov 17, 2021 23:42:13 / UTC+9, Mar 31, 2022 12:14:39 / UTC+9 on Cypress
-- Block number: `#75373312` for Baobab testnet and `#86816005` for Cypress mainnet
+|  | Baobab | Cypress |
+| --------------- | --------------- | --------------- |
+| Date | Nov 17, 2021 23:42:13 / UTC+9 |  Mar 31, 2022 12:14:39 / UTC+ |
+| Block number  | `#75373312`  | `#86816005` |
 
 ### Summary
 
