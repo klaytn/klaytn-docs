@@ -22,7 +22,7 @@ Ethereum's EthTxType changes were introduced with the [v1.8.0 release](https://g
 
 ### Summary
 
-Ethereum's London hard fork items were introduced with the [v1.7.3 release](https://github.com/klaytn/klaytn/releases/tag/v1.7.3), which includes BaseFee EVM opcode for Ethereum London EVM compatibility (#1065, #1066, #1096).
+Ethereum's London hard fork items were introduced with the [v1.7.3 release](https://github.com/klaytn/klaytn/releases/tag/v1.7.3), which includes BaseFee EVM opcode for Ethereum London EVM compatibility ([#1065](https://github.com/klaytn/klaytn-docs/pull/1065), [#1066](https://github.com/klaytn/klaytn-docs/pull/1066), [#1096](https://github.com/klaytn/klaytn-docs/pull/1096)).
 
 ## Istanbul EVM
 
@@ -33,4 +33,4 @@ Ethereum's London hard fork items were introduced with the [v1.7.3 release](http
 
 ### Summary
 
-Ethereum's Istanbul hard fork items were introduced with the [v1.7.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.7.0), which includes changes from `EIP-152`, `EIP-1108`, `EIP-1344`, `EIP-1844`, and `EIP-2200`.
+Ethereum's Istanbul hard fork items were introduced with the [v1.7.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.7.0), which includes changes from `[EIP-152](https://eips.ethereum.org/EIPS/eip-152)`, `[EIP-1108](https://eips.ethereum.org/EIPS/eip-1108)`, `[EIP-1344](https://eips.ethereum.org/EIPS/eip-1344)`, `[EIP-1844](https://eips.ethereum.org/EIPS/eip-1844)`, and `[EIP-2200](https://eips.ethereum.org/EIPS/eip-2200)`.
