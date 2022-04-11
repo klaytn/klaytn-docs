@@ -23,7 +23,7 @@ description: >-
 
 #### [Klaytnscope][]  <a id="klaytnscope"></a>
 
-* Klaytnscope는 Klaytn 네트워크의 블록 탐색기입니다. 브라우저에서 트랜잭션을 탐색하고 검사할 수 있습니다.
+* Klaytnscope는 클레이튼 네트워크의 블록 탐색기입니다. 브라우저에서 트랜잭션을 탐색하고 검사할 수 있습니다.
 
 
 [Klaytn IDE]: ../../toolkit/klaytn-ide.md
