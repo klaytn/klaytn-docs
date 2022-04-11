@@ -1,19 +1,5 @@
 # Download <a id="download"></a>
 
-## Hard Fork History
-
-### Istanbul EVM
-
-Ethereum's Istanbul hard fork items were introduced with the [v1.7.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.7.0), activated at block `#75373312` for Baobab testnet and `#86816005` for Cypress mainnet.
-
-### London EVM
-
-Ethereum's London hard fork items were introduced with the [v1.7.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.7.0), activated at block `#80295291` for Baobab testnet and `#86816005` for Cypress mainnet.
-
-### EthTxType
-
-Ethereum's EthTxType changes were introduced with the [v1.8.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.8.0), activated at block `#86513895` for Baobab testnet and `#86816005` for Cypress mainnet.
-
 ## Get the Packages <a id="get-the-packages"></a>
 You can get the packages for CN, PN, EN, SCN, SPN and SEN.
 
