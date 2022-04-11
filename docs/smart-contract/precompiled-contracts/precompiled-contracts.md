@@ -6,7 +6,7 @@ The precompiled contracts from address 0x01 through 0x09 are the same as those i
 Klaytn additionally implements precompiled contracts from 0x3fd through 0x3ff to support new Klaytn features.
 
 {% hint style="success" %}
-NOTE: Three precompiled contract addresses have changed, and **blake2F** was added after `IstanbulEVM` protocol upgrade, or the "hard fork".
+NOTE: Three precompiled contract addresses have been changed, and **blake2F** was added after the `IstanbulEVM` protocol upgrade, or the "hard fork".
 
 `IstanbulEVM` protocol upgrade block number is as follows.
 * Baobab Testnet: `#75373312`
