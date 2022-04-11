@@ -17,7 +17,7 @@ Ethereum's EthTxType changes were introduced with the [v1.8.0 release](https://g
 
 |  | Baobab | Cypress |
 | --------------- | --------------- | --------------- |
-| Date | Jan 14, 2022 11:02:55 / UTC+9 | Mar 31, 2022 12:14:39 / UTC+9 on Cypress |
+| Date | Jan 14, 2022 11:02:55 / UTC+9 | Mar 31, 2022 12:14:39 / UTC+9 |
 | Block number  | `#80295291`  | `#86816005` |
 
 ### Summary
