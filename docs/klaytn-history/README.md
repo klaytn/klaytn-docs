@@ -22,7 +22,7 @@ Ethereum's EthTxType changes were introduced with the [v1.8.0 release](https://g
 
 ### Summary
 
-Ethereum's London hard fork items were introduced with the [v1.7.3 release](https://github.com/klaytn/klaytn/releases/tag/v1.7.3), which includes BaseFee EVM opcode for Ethereum London EVM compatibility ([#1065](https://github.com/klaytn/klaytn-docs/pull/1065), [#1066](https://github.com/klaytn/klaytn-docs/pull/1066), [#1096](https://github.com/klaytn/klaytn-docs/pull/1096)).
+Ethereum's London hard fork items were introduced with the [v1.7.3 release](https://github.com/klaytn/klaytn/releases/tag/v1.7.3), which includes BaseFee EVM opcode for Ethereum London EVM compatibility ([#1065](https://github.com/klaytn/klaytn/pull/1065), [#1066](https://github.com/klaytn/klaytn/pull/1066), [#1096](https://github.com/klaytn/klaytn/pull/1096)).
 
 ## Istanbul EVM
 
