@@ -42,7 +42,7 @@ Other materials that are useful for getting started with Solidity include the fo
 This section presents an example of Solidity source code to provide readers with an idea of how smart contracts look and how to write a contract. Note that the code included here is provided solely for explanatory purposes; it is not intended for production purposes. In the code, `(require)` means that the line is required for any Solidity source file while `(optional)` indicates that the line is not always needed. The symbol `Ln:` is not part of the Solidity code and is included here only to show the line numbers. Please do not include these symbols in source code intended for real use.
 
 ```text
-L01: pragma solidity 0.5.6;   // (required) version pragma
+L01: pragma solidity 0.5.12;   // (required) version pragma
 L02:
 L03: import "filename";        // (optional) imporiting other source files
 L04:
