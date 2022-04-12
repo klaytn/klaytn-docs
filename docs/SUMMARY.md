@@ -297,6 +297,7 @@
     * [Kaikas](toolkit/kaikas.md)
     * [Klaytn Wallet](toolkit/klaytn-wallet.md)
     * [Klaytnscope](toolkit/klaytnscope.md)
+* [Klaytn Hard Fork History](klaytn-history/README.md)
 
 ## --- <a id="misc"></a>
 
