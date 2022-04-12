@@ -50,12 +50,9 @@ A block is a crucial element of the Klaytn blockchain because the blockchain lit
 | :--- | :--- |
 | baseFeePerGas | QUANTITY | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
 | blockScore | QUANTITY | Former difficulty. Always 1 in the BFT consensus engine |
-| currentBlock  | QUANTITY | The current block, same as `klay_blockNumber`.               |
 | extraData | DATA | The "extra data" field of this block. |
 | gasUsed | QUANTITY | The total used gas by all transactions in this block. |
 | governanceData | DATA | RLP encoded governance configuration |
-| highestBlock  | QUANTITY | The estimated highest block.                                 |
-| knownStates  | QUANTITY | The number of known state entries that still need to be pulled.  If the sync mode is not "fast", zero is returned. |
 | logsBloom | The bloom filter for the logs of the block. `null` when it is pending block. |
 | number | The block number. `null` when it is pending block. |
 | ParentHash | The hash of the block's parent block. |
@@ -63,8 +60,6 @@ A block is a crucial element of the Klaytn blockchain because the blockchain lit
 | receiptsRoot | 32-byte DATA | The root of the receipts trie of the block. |
 | reward | 20-byte DATA | The address receiving block reward. |
 | size | QUANTITY | Integer the size of this block in bytes. |
-| startingBlock | QUANTITY | The block at which the import started (will only be reset, after the sync reached his head). |
-| pulledStates  | QUANTITY | The number of state entries processed until now.  If the sync mode is not "fast", zero is returned. |
 | stateRoot | 32-byte DATA | The root of the final state trie of the block. |
 | totalBlockScore | QUANTITY | Integer of the total blockScore of the chain until this block. |
 | transactionsRoot | 32-byte DATA | The root of the transaction trie of the block. |
