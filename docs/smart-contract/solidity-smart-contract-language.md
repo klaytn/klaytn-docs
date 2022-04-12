@@ -10,13 +10,13 @@ Klaytn is officially compatible with **London** Ethereum Virtual Machine (EVM) v
 
 {% hint style="success" %}
 v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items.
-It has been enabled from block number `#75373312` in case of Baobab network and `#86816005` for the Cypress network.
+It has been enabled from block number `#75,373,312` in case of Baobab network and `#86,816,005` for the Cypress network.
 
 v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
-It has been enabled from block number `#80295291` in case of Baobab network and `#86816005` for the Cypress network.
+It has been enabled from block number `#80,295,291` in case of Baobab network and `#86,816,005` for the Cypress network.
 
 v1.8.0 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
-It has been enabled from block number `#86513895` in case of Baobab network and `#86816005` for the Cypress network.
+It has been enabled from block number `#86,513,895` in case of Baobab network and `#86,816,005` for the Cypress network.
 {% endhint %}  
 
 Development tools such as [Remix](https://remix.ethereum.org/) \(a browser-based IDE\) and [Truffle](https://github.com/trufflesuite/truffle) \(a development framework\) can be utilized when developing smart contracts for Klaytn. The Klaytn team will attempt to maintain compatibility between Ethereum's development tools and Klaytn's but may elect to provide the Klaytn smart contract developers with enhanced or updated versions of those tools when necessary.
