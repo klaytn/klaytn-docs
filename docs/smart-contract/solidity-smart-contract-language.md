@@ -10,12 +10,13 @@ Klaytn is officially compatible with **London** Ethereum Virtual Machine (EVM) v
 
 {% hint style="success" %}
 v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items.
-It has been enabled from block number `#75373312` in case of Baobab network.
-Cypress mainnet will be subject to the same protocol upgrade in the next version.
+It has been enabled from block number `#75,373,312` in case of Baobab network and `#86,816,005` for the Cypress network.
 
 v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
-It has been enabled from block number `#80295291` in case of Baobab network.
-Cypress mainnet will be subject to the same protocol upgrade in the next version.
+It has been enabled from block number `#80,295,291` in case of Baobab network and `#86,816,005` for the Cypress network.
+
+v1.8.0 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
+It has been enabled from block number `#86,513,895` in case of Baobab network and `#86,816,005` for the Cypress network.
 {% endhint %}  
 
 Development tools such as [Remix](https://remix.ethereum.org/) \(a browser-based IDE\) and [Truffle](https://github.com/trufflesuite/truffle) \(a development framework\) can be utilized when developing smart contracts for Klaytn. The Klaytn team will attempt to maintain compatibility between Ethereum's development tools and Klaytn's but may elect to provide the Klaytn smart contract developers with enhanced or updated versions of those tools when necessary.
@@ -41,7 +42,7 @@ Other materials that are useful for getting started with Solidity include the fo
 This section presents an example of Solidity source code to provide readers with an idea of how smart contracts look and how to write a contract. Note that the code included here is provided solely for explanatory purposes; it is not intended for production purposes. In the code, `(require)` means that the line is required for any Solidity source file while `(optional)` indicates that the line is not always needed. The symbol `Ln:` is not part of the Solidity code and is included here only to show the line numbers. Please do not include these symbols in source code intended for real use.
 
 ```text
-L01: pragma solidity 0.5.6;   // (required) version pragma
+L01: pragma solidity 0.5.12;   // (required) version pragma
 L02:
 L03: import "filename";        // (optional) imporiting other source files
 L04:
