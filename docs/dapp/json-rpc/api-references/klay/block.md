@@ -107,7 +107,7 @@ This API works only on RPC call, not on JavaScript console.
 | Name | Type | Description |
 | --- | --- | --- |
 | number | QUANTITY | The block number. `null` when it is pending block. |
-| parentHash | 32-byte DATA | Hash of the parent block. |
+| parentHash | 32-byte DATA | The hash of the parent block. |
 | logsBloom | 256-byte DATA | The bloom filter for the logs of the block. `null` when it is pending block. |
 | transactionsRoot | 32-byte DATA | The root of the transaction trie of the block. |
 | stateRoot | 32-byte DATA | The root of the final state trie of the block. |

@@ -1,6 +1,6 @@
 # Execution Model <a id="execution-model"></a>
 
-This chapter describes the execution model, the data structures, and the life cycle of Klaytn smart contracts.
+This page describes the execution model, the data structures, and the life cycle of Klaytn smart contracts.
 
 ## Execution Model <a id="execution-model"></a>
 
@@ -48,17 +48,25 @@ A block is a crucial element of the Klaytn blockchain because the blockchain lit
 
 | Component | Description |
 | :--- | :--- |
+| baseFeePerGas | QUANTITY | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
+| blockScore | QUANTITY | Former difficulty. Always 1 in the BFT consensus engine |
+| extraData | DATA | The "extra data" field of this block. |
+| gasUsed | QUANTITY | The total used gas by all transactions in this block. |
+| governanceData | DATA | RLP encoded governance configuration |
+| logsBloom | The bloom filter for the logs of the block. `null` when it is pending block. |
+| number | The block number. `null` when it is pending block. |
 | ParentHash | The hash of the block's parent block. |
-| Rewardbase | The account address receiving the block reward. |
-| Root | The hash of the root of the Merkle Patricia Trie of the blockchain state. |
-| TxHash | The hash of the transactions included in the block. |
-| ReceiptHash | The hash of the receipts of transactions included in the block. |
-| Bloom | The Bloom filter value of the receipts. |
-| Number | An integer value equal to the number of ancestor blocks. |
-| GasUsed | The number of gas used to process transactions in the block. |
-| Time | An integer value equal to the Unix timestamp when the block was generated. |
-| Extra | RLP encoded string which includes validators list, proposer's seal and committed validators' seals |
-| Transactions | The transactions included in the block. |
+| proposer | 20-byte DATA | The address of the block proposer. |
+| receiptsRoot | 32-byte DATA | The root of the receipts trie of the block. |
+| reward | 20-byte DATA | The address receiving block reward. |
+| size | QUANTITY | Integer the size of this block in bytes. |
+| stateRoot | 32-byte DATA | The root of the final state trie of the block. |
+| totalBlockScore | QUANTITY | Integer of the total blockScore of the chain until this block. |
+| transactionsRoot | 32-byte DATA | The root of the transaction trie of the block. |
+| timestamp | QUANTITY | The Unix timestamp for when the block was collated. |
+| timestampFoS | QUANTITY | The fraction of a second of the timestamp for when the block was collated. |
+| transactions | Array | Array of transaction objects, or 32-byte transaction hashes depending on the last given parameter. |
+| voteData | DATA | RLP encoded governance vote of the proposer |
 
 ## Smart Contract <a id="smart-contract"></a>
 
