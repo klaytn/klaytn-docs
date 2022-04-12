@@ -8,9 +8,11 @@ In most cases, you can use Ethereum contracts on Klaytn without any modification
 * Cypress network is currently compatible with **Constantinople** Ethereum Virtual Machine (EVM).
 
 {% hint style="success" %}
-v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items. It has been enabled from block number `#75373312` in case of Baobab network. Cypress mainnet will be subject to the same protocol upgrade in the next version.
+v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items. It has been enabled from block number `#75,373,312` in case of Baobab network and `#86,816,005` for the Cypress network.
 
-v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork. It has been enabled from block number `#80295291` in case of Baobab network. Cypress mainnet will be subject to the same protocol upgrade in the next version.
+v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork. It has been enabled from block number `#80,295,291` in case of Baobab network and `#86,816,005` for the Cypress network.
+
+v1.8.0 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork. It has been enabled from block number `#86,513,895` in case of Baobab network and `#86,816,005` for the Cypress network.
 {% endhint %}
 
 Backward compatibility is not guaranteed with other EVM versions on Klaytn. Thus, it is highly recommended compiling Solidity code with the correct target option according to the protocol upgrade status.
