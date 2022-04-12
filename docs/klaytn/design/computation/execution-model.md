@@ -37,10 +37,10 @@ The table below shows the account data that are stored in the state.
 
 | Component | Description |
 | :--- | :--- |
-| Nonce | An integer value indicating the number of transactions executed by this account. When submitting a transaction, the nonce of the transaction should be equal to the account's nonce. |
-| Balance | An integer value showing the amount of KLAY that this account currently has. |
-| StorageRoot | A 256-bit hash of the root of the Merkle Patricia Trie that contains the values of all the storage variables in the account. |
-| CodeHash | The hash of the account's bytecode.  This value is immutable, which means it is set only when the smart contract is created.  If the account is an EOA or an EA, this value is set to the hash of null. |
+| nonce | An integer value indicating the number of transactions executed by this account. When submitting a transaction, the nonce of the transaction should be equal to the account's nonce. |
+| balance | An integer value showing the amount of KLAY that this account currently has. |
+| storageRoot | A 256-bit hash of the root of the Merkle Patricia Trie that contains the values of all the storage variables in the account. |
+| codeHash | The hash of the account's bytecode.  This value is immutable, which means it is set only when the smart contract is created.  If the account is an EOA or an EA, this value is set to the hash of null. |
 
 ### Block <a id="block"></a>
 
@@ -48,25 +48,25 @@ A block is a crucial element of the Klaytn blockchain because the blockchain lit
 
 | Component | Description |
 | :--- | :--- |
-| baseFeePerGas | QUANTITY | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
-| blockScore | QUANTITY | Former difficulty. Always 1 in the BFT consensus engine |
-| extraData | DATA | The "extra data" field of this block. |
-| gasUsed | QUANTITY | The total used gas by all transactions in this block. |
-| governanceData | DATA | RLP encoded governance configuration |
+| baseFeePerGas | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
+| blockScore | Former difficulty. Always 1 in the BFT consensus engine |
+| extraData | The "extra data" field of this block. |
+| gasUsed | The total used gas by all transactions in this block. |
+| governanceData | RLP encoded governance configuration |
 | logsBloom | The bloom filter for the logs of the block. `null` when it is pending block. |
 | number | The block number. `null` when it is pending block. |
 | ParentHash | The hash of the block's parent block. |
-| proposer | 20-byte DATA | The address of the block proposer. |
-| receiptsRoot | 32-byte DATA | The root of the receipts trie of the block. |
-| reward | 20-byte DATA | The address receiving block reward. |
-| size | QUANTITY | Integer the size of this block in bytes. |
-| stateRoot | 32-byte DATA | The root of the final state trie of the block. |
-| totalBlockScore | QUANTITY | Integer of the total blockScore of the chain until this block. |
-| transactionsRoot | 32-byte DATA | The root of the transaction trie of the block. |
-| timestamp | QUANTITY | The Unix timestamp for when the block was collated. |
-| timestampFoS | QUANTITY | The fraction of a second of the timestamp for when the block was collated. |
-| transactions | Array | Array of transaction objects, or 32-byte transaction hashes depending on the last given parameter. |
-| voteData | DATA | RLP encoded governance vote of the proposer |
+| proposer | The address of the block proposer. |
+| receiptsRoot | The root of the receipts trie of the block. |
+| reward | The address receiving block reward. |
+| size | Integer the size of this block in bytes. |
+| stateRoot | The root of the final state trie of the block. |
+| totalBlockScore | Integer of the total blockScore of the chain until this block. |
+| transactionsRoot | The root of the transaction trie of the block. |
+| timestamp | The Unix timestamp for when the block was collated. |
+| timestampFoS | The fraction of a second of the timestamp for when the block was collated. |
+| transactions | Array of transaction objects, or 32-byte transaction hashes depending on the last given parameter. |
+| voteData | RLP encoded governance vote of the proposer |
 
 {% hint style="success" %}
 **NOTE**: The `baseFeePerGas` field is added from Klaytn v1.8.0
