@@ -259,7 +259,7 @@
         * [Porting from web3j](dapp/sdk/caver-java/v1.4.0/porting-from-web3j.md)
   * [Tutorials](dapp/tutorials/README.md)
     * [Fee Delegation Example](dapp/tutorials/fee-delegation-example.md)
-    * [BApp on Baobab \(Video Lecture\)](dapp/tutorials/dapp-on-baobab-video-lecture/README.md)
+    * [dApp on Baobab \(Video Lecture\)](dapp/tutorials/dapp-on-baobab-video-lecture/README.md)
       * [1. Introduction](dapp/tutorials/dapp-on-baobab-video-lecture/1.-introduction.md)
       * [2. Weakness of Blockchain Platform](dapp/tutorials/dapp-on-baobab-video-lecture/2.-weakness-of-blockchain-platform.md)
       * [3. Understanding Klaytn](dapp/tutorials/dapp-on-baobab-video-lecture/3.-understanding-klaytn.md)
