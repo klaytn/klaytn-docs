@@ -39,7 +39,7 @@ UTC--2019-06-24T11-20-15.590879000Z--75a59b94889a05c03c66c3c84e9d2f8308ca4abd
 
 ## Klaytn 계정 잠금 해제 <a id="unlocking-the-klaytn-account"></a>
 
-생성된 계정을 잠금 해제하려면, 다음 명령을 실행합니다. 이는 300초 동안 계정을 잠금 해제합니다. **Note**: If you want to manually set the unlock duration, refer to this [link](../../dapp/json-rpc/api-references/personal.md#personal_unlockaccount). **`경고`**: 계정 잠금 해제는 조심해서 하지 않으면 매우 위험할 수 있습니다. EN이 해커에 의해 해킹되면, 해커가 토큰을 빼앗을 가능성이 있습니다. To use safer method, refer to this [deployment guide using private key](../../dapp/tutorials/count-bapp/6.-deploy-contract.md#deploy-method-1-by-private-key)
+생성된 계정을 잠금 해제하려면, 다음 명령을 실행합니다. 이는 300초 동안 계정을 잠금 해제합니다. **참고**: 잠금 해제 기간을 수동으로 설정하려면, 다음 [링크](../../dapp/json-rpc/api-references/personal.md#personal_unlockaccount)를 참조하세요. **`경고`**: 계정 잠금 해제는 조심해서 하지 않으면 매우 위험할 수 있습니다. EN이 해커에 의해 해킹되면, 해커가 토큰을 빼앗을 가능성이 있습니다. 보다 안전한 방법을 사용하려면, 다음의 [개인키를 사용하는 배포 가이드](../../dapp/tutorials/count-bapp/6.-deploy-contract.md#deploy-method-1-by-private-key)를 참조하세요.
 
 ```javascript
 > personal.unlockAccount('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # 잠금을 해제할 계정 주소
@@ -53,7 +53,7 @@ true
 * KlaytnWallet의 Baobab Faucet 사용하기
 * [https://baobab.wallet.klaytn.com](https://baobab.wallet.klaytn.com/) 접근하기
 * 지갑에 로그인하기 위하여 지갑에서 새 계정을 만들거나 위의 EN 자바스크립트 콘솔에서 생성한 키스토어 파일을 사용할 수 있습니다.
-* Go to "KLAY Faucet" from the left pane menu, and click the "Run Faucet" button to get 150 KLAY.
+* 왼쪽 창 메뉴에서 "KLAY Faucet"으로 이동하고, "Run Faucet" 버튼을 클릭해 150 KLAY를 얻습니다.
 
   KLAY Faucet를 24시간마다 한 번씩 실행할 수 있습니다.
 
