@@ -55,7 +55,7 @@ A block is a crucial element of the Klaytn blockchain because the blockchain lit
 | governanceData | RLP encoded governance configuration |
 | logsBloom | The bloom filter for the logs of the block. `null` when it is pending block. |
 | number | The block number. `null` when it is pending block. |
-| ParentHash | The hash of the block's parent block. |
+| parentHash | The hash of the block's parent block. |
 | proposer | The address of the block proposer. |
 | receiptsRoot | The root of the receipts trie of the block. |
 | reward | The address receiving block reward. |
