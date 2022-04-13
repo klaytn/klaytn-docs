@@ -68,10 +68,6 @@ A block is a crucial element of the Klaytn blockchain because the blockchain lit
 | transactions | Array of transaction objects, or 32-byte transaction hashes depending on the last given parameter. |
 | voteData | RLP encoded governance vote of the proposer |
 
-{% hint style="success" %}
-**NOTE**: The `baseFeePerGas` field is added from Klaytn v1.8.0
-{% endhint %}
-
 ## Smart Contract <a id="smart-contract"></a>
 
 A _smart contract_ consists of a collection of code \(functions\) and data \(state\) that resides at a specific address on the Klaytn blockchain. Contract accounts are able to pass messages between each other as well as perform practically Turing complete computation. Contracts exist on the blockchain in Klaytn-specific binary formats. Currently, Klaytn supports one binary format --Ethereum Virtual Machine \(EVM\) bytecode; however, other formats will be supported in the future.
