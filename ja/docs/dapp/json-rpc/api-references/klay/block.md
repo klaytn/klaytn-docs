@@ -104,7 +104,7 @@ Returns information about a header by hash. This API works only on RPC call, not
 | Name             | Type          | Description                                                                                                         |
 | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------------- |
 | number           | QUANTITY      | The block number. `null` when it is pending block.                                                                  |
-| parentHash       | 32-byte DATA  | Hash of the parent block.                                                                                           |
+| parentHash       | 32-byte DATA  | The hash of the parent block.                                                                                       |
 | logsBloom        | 256-byte DATA | The bloom filter for the logs of the block. `null` when it is pending block.                                        |
 | transactionsRoot | 32-byte DATA  | The root of the transaction trie of the block.                                                                      |
 | stateRoot        | 32-byte DATA  | The root of the final state trie of the block.                                                                      |
@@ -118,10 +118,6 @@ Returns information about a header by hash. This API works only on RPC call, not
 | governanceData   | DATA          | RLP encoded governance configuration                                                                                |
 | voteData         | DATA          | RLP encoded governance vote of the proposer                                                                         |
 | baseFeePerGas    | QUANTITY      | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
-
-{% hint style="success" %}
-**NOTE**: The `baseFeePerGas` field is added from Klaytn v1.8.0
-{% endhint %}
 
 **Example**
 
@@ -244,10 +240,6 @@ Returns information about a block by hash. This API works only on RPC call, not 
 | governanceData   | DATA          | RLP encoded governance configuration                                                                                |
 | voteData         | DATA          | RLP encoded governance vote of the proposer                                                                         |
 | baseFeePerGas    | QUANTITY      | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
-
-{% hint style="success" %}
-**NOTE**: The `baseFeePerGas` field is added from Klaytn v1.8.0
-{% endhint %}
 
 **Example**
 
@@ -440,10 +432,6 @@ Returns a block with consensus information that matches the given hash.
 | transactionsRoot | 32-byte DATA | The root of the transaction trie of the block.                                                                                                        |
 | baseFeePerGas    | QUANTITY     | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number.                                   |
 
-{% hint style="success" %}
-**NOTE**: The `baseFeePerGas` field is added from Klaytn v1.8.0
-{% endhint %}
-
 **Example**
 
 ```shell
@@ -553,10 +541,6 @@ NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the str
 | transactions     | Array        | Array of transaction objects.                                                                                                                         |
 | transactionsRoot | 32-byte DATA | The root of the transaction trie of the block.                                                                                                        |
 | baseFeePerGas    | QUANTITY     | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number.                                   |
-
-{% hint style="success" %}
-**NOTE**: The `baseFeePerGas` field is added from Klaytn v1.8.0
-{% endhint %}
 
 **Example**
 
