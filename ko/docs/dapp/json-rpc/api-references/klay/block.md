@@ -104,7 +104,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | 이름               | 타입             | 설명                                                                                                                  |
 | ---------------- | -------------- | ------------------------------------------------------------------------------------------------------------------- |
 | number           | QUANTITY       | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                                                                                  |
-| parentHash       | 32바이트 크기 DATA  | 이전 블록의 해시입니다.                                                                                                       |
+| parentHash       | 32바이트 크기 DATA  | The hash of the parent block.                                                                                       |
 | logsBloom        | 256바이트 크기 DATA | 블록의 로그를 위한 블룸필터입니다. 아직 보류 중인 블록이면 `null`입니다.                                                                        |
 | transactionsRoot | 32바이트 크기 DATA  | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                                                             |
 | stateRoot        | 32바이트 크기 DATA  | 블록의 상태 트라이의 루트 해시입니다.                                                                                               |
@@ -118,10 +118,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | governanceData   | DATA           | RLP 인코딩된 거버넌스 설정입니다.                                                                                                |
 | voteData         | DATA           | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                                                                           |
 | baseFeePerGas    | QUANTITY       | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
-
-{% hint style="success" %}
-**NOTE**: The `baseFeePerGas` field is added from Klaytn v1.8.0
-{% endhint %}
 
 **예시**
 
@@ -171,7 +167,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **리턴값**
 
-[klay_getBlockByHash](#klay_getblockbyhash)를 참고하세요.
+See [klay_getBlockByHash](#klay_getblockbyhash)
 
 **예시**
 
@@ -221,7 +217,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **리턴값**
 
-`객체` - 블록 객체, 또는 블록이 없는 경우 `error`를 반환합니다.
+`Object` - A block object, or `error` when no block was found:
 
 | 이름               | 타입             | 설명                                                                                                                  |
 | ---------------- | -------------- | ------------------------------------------------------------------------------------------------------------------- |
@@ -244,10 +240,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | governanceData   | DATA           | RLP 인코딩된 거버넌스 설정입니다.                                                                                                |
 | voteData         | DATA           | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                                                                           |
 | baseFeePerGas    | QUANTITY       | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
-
-{% hint style="success" %}
-**NOTE**: The `baseFeePerGas` field is added from Klaytn v1.8.0
-{% endhint %}
 
 **예시**
 
@@ -291,11 +283,11 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 **Parameters**
 | 타입            | 설명         |
 | ------------- | ---------- |
-| 32바이트 크기 DATA | 블록의 해시입니다. |
+| 32바이트 크기 DATA | Block hash |
 
 **리턴값**
 
-해당 블록에 포함된 Receipt를 반환합니다.  조회하고자 하는 블록이 트랜잭션을 포함하지 않으면 빈 배열 `[]`이 반환됩니다.
+Receipts included in a block.  If the target block contains no transaction, an empty array `[]` is returned.
 
 **예시**
 
@@ -409,7 +401,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBlockWithConsensusInfoByHash <a id="klay_getblockwithconsensusinfobyhash"></a>
 
-블록 해시를 기준으로 블록과 합의에 대한 정보를 반환합니다.
+Returns a block with consensus information that matches the given hash.
 
 **Parameters**
 
@@ -419,7 +411,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **리턴값**
 
-`객체` - 합의에 대한 정보(제안자와 위원회 멤버의 목록)를 포함한 블록 객체를 반환하거나 블록이 없는 경우 `error`을 반환합니다.
+`Object` - A block object with consensus information (a proposer and a list of committee members), or `error` when no block was found:
 
 | 이름               | 타입            | 설명                                                                                                                  |
 | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------------- |
@@ -439,10 +431,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | transactions     | Array         | 트랜잭션 객체의 배열입니다.                                                                                                     |
 | transactionsRoot | 32바이트 크기 DATA | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                                                             |
 | baseFeePerGas    | QUANTITY      | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
-
-{% hint style="success" %}
-**NOTE**: The `baseFeePerGas` field is added from Klaytn v1.8.0
-{% endhint %}
 
 **예시**
 
@@ -519,7 +507,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 
 ## klay_getBlockWithConsensusInfoByNumber <a id="klay_getblockwithconsensusinfobynumber"></a>
-블록 번호를 기준으로 블록과 합의에 대한 정보를 반환합니다.
+Returns a block with consensus information that matches the given block number.
 
 **Parameters**
 
@@ -533,7 +521,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **리턴값**
 
-`객체` - 합의에 대한 정보(제안자와 위원회 멤버의 목록)를 포함한 블록 객체를 반환하거나 블록이 없는 경우 `error`을 반환합니다.
+`Object` - A block object with consensus information (a proposer and a list of committee members), or `error` when no block was found:
 
 | 이름               | 타입            | 설명                                                                                                                  |
 | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------------- |
@@ -553,10 +541,6 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 | transactions     | Array         | 트랜잭션 객체의 배열입니다.                                                                                                     |
 | transactionsRoot | 32바이트 크기 DATA | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                                                             |
 | baseFeePerGas    | QUANTITY      | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
-
-{% hint style="success" %}
-**NOTE**: The `baseFeePerGas` field is added from Klaytn v1.8.0
-{% endhint %}
 
 **예시**
 
@@ -646,7 +630,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **리턴값**
 
-`배열` - 위원회에 속한 검증자들의 주소를 배열로 반환하거나 또는 위원회를 찾을 수 없는 경우 `null`을 반환합니다.
+`Array` - Array of addresses of all validators in the committee, or `null` when no committee was found:
 
 | 타입                  | 설명                     |
 | ------------------- | ---------------------- |
@@ -685,7 +669,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **리턴값**
 
-`정수` - 위원회의 구성원 수를 반환하거나 또는 위원회를 찾을 수 없는 경우 `-1`을 반환합니다.
+`Integer` - The size of the committee, or `-1` when no committee was found:
 
 | 타입       | 설명             |
 | -------- | -------------- |
@@ -708,7 +692,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ## klay_getCouncil <a id="klay_getcouncil"></a>
 어떤 블록 시간에서 council에 속한 검증자 목록을 반환합니다. 매개변수를 설정하지 않으면 최신 블록에서 council에 속한 검증자 목록을 반환합니다.
 
-**참고**: `klay_getValidators`은 이 메서드로 대체되어 더 이상 지원하지 않습니다.
+**NOTE**: `klay_getValidators` is replaced with this method and is not supported anymore.
 
 **Parameters**
 
@@ -722,7 +706,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **리턴값**
 
-`배열` - council에 속한 검증자들의 주소를 배열로 반환하거나 또는 council을 찾을 수 없는 경우 `null`을 반환합니다.
+`Array` - Array of validator addresses of the council, or `null` when no council was found:
 
 | 타입                  | 설명                     |
 | ------------------- | ---------------------- |
@@ -761,7 +745,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **리턴값**
 
-`정수` - council의 구성원 수를 반환하거나 또는 council을 찾을 수 없는 경우 `-1`을 반환합니다.
+`Integer` - The size of the council, or `-1` when no council was found:
 
 | 타입       | 설명             |
 | -------- | -------------- |
@@ -805,7 +789,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **예시**
 
-올바른 위치를 계산하는 것은 탐색할 스토리지에 따라 차이가 있습니다. 아래와 같이 `0x391694e7e0b0cce554cb130d723a9d27458f9298` 주소에 의해 `0x295a70b2de5e3953354a6a8344e616ed314d7251`에 배포된 컨트랙트를 가정해봅시다.
+올바른 위치를 계산하는 것은 탐색할 스토리지에 따라 차이가 있습니다. Consider the following contract deployed at `0x295a70b2de5e3953354a6a8344e616ed314d7251` by address `0x391694e7e0b0cce554cb130d723a9d27458f9298`.
 
 ```
 contract Storage {
