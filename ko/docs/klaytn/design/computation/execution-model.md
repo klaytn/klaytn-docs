@@ -1,6 +1,6 @@
 # 실행 모델(Execution Model)<a id="execution-model"></a>
 
-이 장에서는 Klaytn 스마트 컨트랙트의 실행 모델, 데이터 구조 및 생명 주기에 관해 설명합니다.
+This page describes the execution model, the data structures, and the life cycle of Klaytn smart contracts.
 
 ## 실행 모델(Execution Model)<a id="execution-model"></a>
 
@@ -37,28 +37,36 @@ Klaytn의 **상태**는 계정 상태를 모은 것입니다. Klaytn의 노드�
 
 | 구성요소        | 설명                                                                                                     |
 |:----------- |:------------------------------------------------------------------------------------------------------ |
-| Nonce       | 계정에서 실행한 트랜잭션의 수를 나타내는 정숫값입니다. 트랜잭션을 보낼 때 트랜잭션의 논스는 계정의 논스와 같아야합니다.                                    |
-| Balance     | 계정이 현재 가지고 있는 KLAY를 나타내는 양의 정숫값입니다.                                                                    |
-| StorageRoot | 계정에 저장된 모든 변수들의 값을 포함하는 Merkle Patricia trie 루트의 256비트 해시입니다.                                          |
-| CodeHash    | 계정 바이트코드의 해시입니다.  이 값은 변경할 수 없으며, 스마트 컨트랙트가 생성 될 때만 설정됩니다.  계정이 EOA 또는 EA인 경우, 이 값은 null의 해시값으로 설정됩니다. |
+| 논스          | 계정에서 실행한 트랜잭션의 수를 나타내는 정숫값입니다. 트랜잭션을 보낼 때 트랜잭션의 논스는 계정의 논스와 같아야합니다.                                    |
+| 잔액          | 계정이 현재 가지고 있는 KLAY를 나타내는 양의 정숫값입니다.                                                                    |
+| storageRoot | 계정에 저장된 모든 변수들의 값을 포함하는 Merkle Patricia trie 루트의 256비트 해시입니다.                                          |
+| codeHash    | 계정 바이트코드의 해시입니다.  이 값은 변경할 수 없으며, 스마트 컨트랙트가 생성 될 때만 설정됩니다.  계정이 EOA 또는 EA인 경우, 이 값은 null의 해시값으로 설정됩니다. |
 
 ### 블록 <a id="block"></a>
 
 블록체인은 문자 그대로 블록을 체인으로 연결한 것이기 때문에 블록은 Klaytn 블록체인의 아주 중요한 요소입니다. 아래 표는 블록의 구성 요소를 보여줍니다.
 
-| 구성요소         | 설명                                               |
-|:------------ |:------------------------------------------------ |
-| ParentHash   | 부모 블록의 해시                                        |
-| Rewardbase   | 블록 보상을 받는 계정 주소                                  |
-| Root         | 블록체인 상태의 Merkle Patricia Trie 루트의 해시             |
-| TxHash       | 블록에 포함된 트랜잭션들의 해시                                |
-| ReceiptHash  | 블록에 포함된 트랜잭션들의 영수증의 해시                           |
-| Bloom        | 영수증의 블룸필터 값                                      |
-| Number       | 이전 블록 수와 동일한 정숫값                                 |
-| GasUsed      | 블록에서 트랜잭션을 처리하는 데 사용된 가스                         |
-| Time         | 블록 생성시 Unix 타임스탬프와 동일한 정숫값                       |
-| Extra        | 검증자 목록, 제안자 및 참여한 검증자의 seal 등을 포함하는 RLP 인코딩된 문자열 |
-| Transactions | 블록에 포함된 트랜잭션들                                    |
+| 구성요소             | 설명                                                                                                                  |
+|:---------------- |:------------------------------------------------------------------------------------------------------------------- |
+| baseFeePerGas    | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
+| blockScore       | 이전 난이도입니다. BFT 합의 엔진에서는 항상 1입니다.                                                                                    |
+| extraData        | 블록의 "추가 데이터"를 위한 필드입니다.                                                                                             |
+| gasUsed          | 블록에 있는 트랜잭션들에서 사용된 가스양의 총합입니다.                                                                                      |
+| governanceData   | RLP 인코딩된 거버넌스 설정입니다.                                                                                                |
+| logsBloom        | 블록의 로그를 위한 블룸필터입니다. 아직 보류 중인 블록이면 `null`입니다.                                                                        |
+| number           | 블록 번호입니다. 아직 보류 중인 블록이면 `null`입니다.                                                                                  |
+| parentHash       | The hash of the block's parent block.                                                                               |
+| proposer         | 블록 제안자의 주소입니다.                                                                                                      |
+| receiptsRoot     | 블록의 영수증 트라이의 루트 해시입니다.                                                                                              |
+| reward           | The address receiving block reward.                                                                                 |
+| size             | 블록의 바이트 크기의 정수 형태입니다.                                                                                               |
+| stateRoot        | 블록의 상태 트라이의 루트 해시입니다.                                                                                               |
+| totalBlockScore  | 본 블록까지 체인 내 모든 블록의 blockScore 값의 합입니다.                                                                              |
+| transactionsRoot | 블록의 트랜잭션 트라이의 루트 해시입니다.                                                                                             |
+| timestamp        | 블록이 생성되었을 때의 Unix 타임스탬프입니다.                                                                                         |
+| timestampFoS     | 블록이 생성되었을 때의 타임스탬프 중 초 단위 부분입니다.                                                                                    |
+| transactions     | 트랜잭션 객체의 배열이거나 또는 마지막으로 주어진 매개변수에 따라 32바이트 크기의 트랜잭션 해시입니다.                                                          |
+| voteData         | 제안자의 RLP 인코딩된 거버넌스 투표입니다.                                                                                           |
 
 ## 스마트 컨트랙트 <a id="smart-contract"></a>
 
