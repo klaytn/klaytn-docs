@@ -66,11 +66,11 @@ Connect to the SCN-L2-02 console and run the APIs for bridge registration, bridg
 
 ```
 $ kscn attach --datadir ~/data
-> subbridge.registerBridge("0x5f093de8a1b1d32Fc4cF6F40357DCcD24453BAb3", "0xD1C4808960Fb4581b9A5B3B217b9a67057D84c19")
+> subbridge.registerBridge("0xCHILD_BRIDGE_ADDR", "0xPARENT_BRIDGE_ADDR")
 null
-> subbridge.subscribeBridge("0x5f093de8a1b1d32Fc4cF6F40357DCcD24453BAb3", "0xD1C4808960Fb4581b9A5B3B217b9a67057D84c19")
+> subbridge.subscribeBridge("0xCHILD_BRIDGE_ADDR", "0xPARENT_BRIDGE_ADDR")
 null
-> subbridge.registerToken("0x5f093de8a1b1d32Fc4cF6F40357DCcD24453BAb3", "0xD1C4808960Fb4581b9A5B3B217b9a67057D84c19", "0x96272131600EC7c64c45CE139C32F4919fBFaDC8", "0xc7858a153376764208e8F6B6B55B4a0792B67c3E")
+> subbridge.registerToken("0xCHILD_BRIDGE_ADDR", "0xPARENT_BRIDGE_ADDR", "0xCHILD_TOKEN_ADDR", "0XPARENT_TOKEN_ADDR")
 null
 ```
 
