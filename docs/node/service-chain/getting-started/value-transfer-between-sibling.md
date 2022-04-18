@@ -60,4 +60,4 @@ $ kscn attach --datadir ~/data
 1
 ```
 
-In the case of value transfer, if the information corresponding to chainID 1002 is used as the mainbridge information and the information corresponding to chainID 1004 is set as a subbridge, value transfer is possible between siblings as in the previous value transfer example.
+In the case of value transfer, if the information corresponding to chainID 1002 is used as the mainbridge information and the information corresponding to chainID 1004 is set as a subbridge, value transfer is possible between siblings as in [Cross-Chain Value Transfer](./value-transfer.md).
