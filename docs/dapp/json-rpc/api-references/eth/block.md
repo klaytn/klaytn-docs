@@ -344,7 +344,7 @@ As there are no uncles in Klaytn, it always returns `null`.
 **Example**
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getUncleBlockByNumberAndIndex","params":["0xe8", "0x1"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockNumberAndIndex","params":["0xe8", "0x1"],"id":1}' http://localhost:8551
 
 // Result
 {
