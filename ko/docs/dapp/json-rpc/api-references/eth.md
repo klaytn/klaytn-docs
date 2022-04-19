@@ -30,7 +30,7 @@ The list below enumerates the API functions. All `eth` namespace APIs are suppor
 - [eth_getHeaderByHash](./eth/block.md#eth_getheaderbyhash)
 - [eth_getBlockByNumber](./eth/block.md#eth_getblockbynumber)
 - [eth_getBlockByHash](./eth/block.md#eth_getblockbyhash)
-- [eth_getUncleBlockByHashAndIndex](./eth/block.md#eth_getunclebyblockhashandindex)
+- [eth_getUncleByBlockHashAndIndex](./eth/block.md#eth_getunclebyblockhashandindex)
 - [eth_getUncleByBlockNumberAndIndex](./eth/block.md#eth_getunclebyblocknumberandindex)
 - [eth_getBlockTransactionCountByNumber](./eth/block.md#eth_getblocktransactioncountbynumber)
 - [eth_getBlockTransactionCountByHash](./eth/block.md#eth_getblocktransactioncountbyhash)
