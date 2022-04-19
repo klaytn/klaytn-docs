@@ -96,3 +96,6 @@ When there are multiple bridges, value transfer can be provided more safely by s
 When registration is completed, a bridge contract is registered in both EN-02 and SCN-L2-02 as shown in the figure below to configure HA.
 
 ![](../images/sc-ha-after-register.png)
+
+
+When two or more bridge pairs are connected for HA, data anchoring transactions for the same block occur more than once, and value transfer transactions can also occur multiple times. That is, additional fees are required.
