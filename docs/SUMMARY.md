@@ -164,6 +164,7 @@
 
 * [dApp Developers](dapp/README.md)
   * [JSON-RPC APIs](dapp/json-rpc/README.md)
+    * [Public JSON-RPC Endpoint](dapp/json-rpc/public-en.md)
     * [API references](dapp/json-rpc/api-references/README.md)
       * [eth](dapp/json-rpc/api-references/eth.md)
         * [Caution](dapp/json-rpc/api-references/eth/caution.md)
@@ -258,13 +259,13 @@
         * [Porting from web3j](dapp/sdk/caver-java/v1.4.0/porting-from-web3j.md)
   * [Tutorials](dapp/tutorials/README.md)
     * [Fee Delegation Example](dapp/tutorials/fee-delegation-example.md)
-    * [BApp on Baobab \(Video Lecture\)](dapp/tutorials/bapp-on-baobab-video-lecture/README.md)
-      * [1. Introduction](dapp/tutorials/bapp-on-baobab-video-lecture/1.-introduction.md)
-      * [2. Weakness of Blockchain Platform](dapp/tutorials/bapp-on-baobab-video-lecture/2.-weakness-of-blockchain-platform.md)
-      * [3. Understanding Klaytn](dapp/tutorials/bapp-on-baobab-video-lecture/3.-understanding-klaytn.md)
-      * [4. Developing an Addition Game with Klaytn Tools](dapp/tutorials/bapp-on-baobab-video-lecture/4.-developing-an-addition-game-with-klaytn-tools.md)
-      * [5. Front-end for Klaytn Addition Game Development](dapp/tutorials/bapp-on-baobab-video-lecture/5.-front-end-for-klaytn-addition-game-development.md)
-      * [6. Summary](dapp/tutorials/bapp-on-baobab-video-lecture/6.-summary.md)
+    * [dApp on Baobab \(Video Lecture\)](dapp/tutorials/dapp-on-baobab-video-lecture/README.md)
+      * [1. Introduction](dapp/tutorials/dapp-on-baobab-video-lecture/1.-introduction.md)
+      * [2. Weakness of Blockchain Platform](dapp/tutorials/dapp-on-baobab-video-lecture/2.-weakness-of-blockchain-platform.md)
+      * [3. Understanding Klaytn](dapp/tutorials/dapp-on-baobab-video-lecture/3.-understanding-klaytn.md)
+      * [4. Developing an Addition Game with Klaytn Tools](dapp/tutorials/dapp-on-baobab-video-lecture/4.-developing-an-addition-game-with-klaytn-tools.md)
+      * [5. Front-end for Klaytn Addition Game Development](dapp/tutorials/dapp-on-baobab-video-lecture/5.-front-end-for-klaytn-addition-game-development.md)
+      * [6. Summary](dapp/tutorials/dapp-on-baobab-video-lecture/6.-summary.md)
     * [Count BApp](dapp/tutorials/count-bapp/README.md)
       * [1. Environment Setup](dapp/tutorials/count-bapp/1.-environment-setup.md)
       * [2. Clone Count BApp](dapp/tutorials/count-bapp/2.-clone-count-bapp.md)
@@ -296,6 +297,7 @@
     * [Kaikas](toolkit/kaikas.md)
     * [Klaytn Wallet](toolkit/klaytn-wallet.md)
     * [Klaytnscope](toolkit/klaytnscope.md)
+* [Klaytn Hard Fork History](klaytn-history/README.md)
 
 ## --- <a id="misc"></a>
 

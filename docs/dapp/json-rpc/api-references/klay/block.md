@@ -107,7 +107,7 @@ This API works only on RPC call, not on JavaScript console.
 | Name | Type | Description |
 | --- | --- | --- |
 | number | QUANTITY | The block number. `null` when it is pending block. |
-| parentHash | 32-byte DATA | Hash of the parent block. |
+| parentHash | 32-byte DATA | The hash of the parent block. |
 | logsBloom | 256-byte DATA | The bloom filter for the logs of the block. `null` when it is pending block. |
 | transactionsRoot | 32-byte DATA | The root of the transaction trie of the block. |
 | stateRoot | 32-byte DATA | The root of the final state trie of the block. |
@@ -121,10 +121,6 @@ This API works only on RPC call, not on JavaScript console.
 | governanceData | DATA | RLP encoded governance configuration |
 | voteData | DATA | RLP encoded governance vote of the proposer |
 | baseFeePerGas | QUANTITY | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
-
-{% hint style="success" %}
-**NOTE**: The `baseFeePerGas` field is added from Klaytn v1.8.0
-{% endhint %}
 
 **Example**
 
@@ -249,10 +245,6 @@ This API works only on RPC call, not on JavaScript console.
 | governanceData | DATA | RLP encoded governance configuration |
 | voteData | DATA | RLP encoded governance vote of the proposer |
 | baseFeePerGas | QUANTITY | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
-
-{% hint style="success" %}
-**NOTE**: The `baseFeePerGas` field is added from Klaytn v1.8.0
-{% endhint %}
 
 **Example**
 
@@ -446,10 +438,6 @@ Returns a block with consensus information that matches the given hash.
 | transactionsRoot | 32-byte DATA | The root of the transaction trie of the block. |
 | baseFeePerGas | QUANTITY | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
 
-{% hint style="success" %}
-**NOTE**: The `baseFeePerGas` field is added from Klaytn v1.8.0
-{% endhint %}
-
 **Example**
 
 ```shell
@@ -559,10 +547,6 @@ NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the str
 | transactions | Array | Array of transaction objects. |
 | transactionsRoot | 32-byte DATA | The root of the transaction trie of the block. |
 | baseFeePerGas | QUANTITY | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
-
-{% hint style="success" %}
-**NOTE**: The `baseFeePerGas` field is added from Klaytn v1.8.0
-{% endhint %}
 
 **Example**
 
@@ -854,37 +838,6 @@ Now to fetch the storage:
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "klay_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9", "latest"], "id": 1}' https://api.baobab.klaytn.net:8651
 
 {"jsonrpc":"2.0","id":1,"result":"0x000000000000000000000000000000000000000000000000000000000000162e"}
-```
-
-
-## klay_mining <a id="klay_mining"></a>
-
-Returns `true` if client is actively mining new blocks.
-
-**NOTE**: Currently, every node is on mining mode by default to resend transactions. Please note that actual "mining" process is only done by Consensus Nodes (CNs).
-
-**Parameters**
-
-None
-
-**Return Value**
-
-| Type    | Description                                        |
-| ------- | -------------------------------------------------- |
-| Boolean | `true` if the client is mining, otherwise `false`. |
-
-**Example**
-
-```shell
-// Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_mining","params":[],"id":1}' https://api.baobab.klaytn.net:8651
-
-// Result
-{
-  "jsonrpc":"2.0",
-  "id":1,
-  "result":true
-}
 ```
 
 

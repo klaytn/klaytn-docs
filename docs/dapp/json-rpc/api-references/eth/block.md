@@ -102,7 +102,7 @@ Please check [Caution-Header](./caution.md#block_header) before using this API.
 
 **Return Value**
 
-`Object` - A header object, or `error` when no header was found:
+`Object` - A header object, or `null` when no header was found. Otherwise, it returns an error.
 
 | Name             | Type          | Description                                                                                                               |
 |------------------|---------------|---------------------------------------------------------------------------------------------------------------------------|
@@ -234,7 +234,7 @@ Please check [Caution-Block](./caution.md#block) before using this API.
 
 **Return Value**
 
-`Object` - A block object, or `error` when no block was found:
+`Object` - A block object, or `null` when no block was found. Otherwise, it returns an error.
 
 | Name              | Type          | Description                                                                                                               |
 |-------------------|---------------|---------------------------------------------------------------------------------------------------------------------------|
@@ -297,7 +297,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 ```
 
 
-## eth_getUncleBlockByHashAndIndex <a id="eth_getunclebyblockhashandindex"></a>
+## eth_getUncleByBlockHashAndIndex <a id="eth_getunclebyblockhashandindex"></a>
 
 Returns information about a uncle of a block by hash and the uncle's index position.
 Since there are no uncles in Klaytn, it always returns `null`.
@@ -315,7 +315,7 @@ Since there are no uncles in Klaytn, it always returns `null`.
 **Example**
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getUncleBlockByHashAndIndex","params":["0xb8deae63002d2b6aa33247c8ef545383ee0fd2282ac9b49dbbb74114389ddb5c", "0x1"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockHashAndIndex","params":["0xb8deae63002d2b6aa33247c8ef545383ee0fd2282ac9b49dbbb74114389ddb5c", "0x1"],"id":1}' http://localhost:8551
 
 // Result
 {
@@ -344,7 +344,7 @@ As there are no uncles in Klaytn, it always returns `null`.
 **Example**
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getUncleBlockByNumberAndIndex","params":["0xe8", "0x1"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockNumberAndIndex","params":["0xe8", "0x1"],"id":1}' http://localhost:8551
 
 // Result
 {
@@ -420,7 +420,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 ## eth_getUncleCountByBlockNumber <a id="eth_getunclecountbyblocknumber"></a>
 
 Returns the number of uncles in a block from a block matching the given block number.
-Since there are no uncles in Klaytn, it always returns `0x0`.
+Since there are no uncles in Klaytn, it returns `0x0`. It returns `null` if there is no matching block.
 
 **Parameters**
 
@@ -430,9 +430,9 @@ Since there are no uncles in Klaytn, it always returns `0x0`.
 
 **Return Value**
 
-| Type       | Description                                           |
-|------------|-------------------------------------------------------|
-| QUANTITY   | Integer of the number of transactions in this block.  |
+| Type       | Description                                                                                |
+|------------|--------------------------------------------------------------------------------------------|
+| QUANTITY   | Integer of the number of transactions in this block. It returns `null` if there is no matching block. |
 
 **Example**
 
@@ -452,7 +452,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 ## eth_getUncleCountByBlockHash <a id="eth_getunclecountbyblockhash"></a>
 
 Returns the number of uncles in a block from a block matching the given block hash.
-As there are no uncles in Klaytn, it always returns `0x0`.
+Since there are no uncles in Klaytn, it returns `0x0`. It returns `null` if there is no matching block.
 
 **Parameters**
 
@@ -462,9 +462,9 @@ As there are no uncles in Klaytn, it always returns `0x0`.
 
 **Return Value**
 
-| Type       | Description                                           |
-|------------|-------------------------------------------------------|
-| QUANTITY   | Integer of the number of transactions in this block.  |
+| Type       | Description                                                                                |
+|------------|--------------------------------------------------------------------------------------------|
+| QUANTITY   | Integer of the number of transactions in this block. It returns `null` if there is no matching block. |
 
 **Example**
 
