@@ -21,7 +21,7 @@ A node can have only one main-bridge and one sub-bridge each. In this example, f
 Take note of SCN-L2-03's KNI which is the information used to connect from an SCN node. This value will be used in the next step when generating `main-bridges.json`
 
 ```
-$ kscn attach --datadir ~/data
+SCN-L2-03$ kscn attach --datadir ~/data
 > mainbridge.nodeInfo.kni
 "kni://...39047242eb86278689...@[::]:50505?discport=0"
 ```
@@ -32,7 +32,7 @@ Log on to an SCN-L2-07 (note: chianID 1004) and create `main-bridges.json` on `~
 $ echo '["kni://...39047242eb86278689...@192.168.0.3:50505?discport=0"]' > ~/data/main-bridges.json
 ```
 
-## Step 3: Configure SCN then Reboot <a id="step-3-configure-scn-then-reboot"></a>
+## Step 3: Configure SCN then Restart <a id="step-3-configure-scn-then-restart"></a>
 From the SCN-L2-07 node's shell, edit `kscn-XXXXX-amd64/conf/kscnd.conf`. Since each ServiceChain already anchored with the Baobab EN, data anchoring between sibling is not required. So we set `SC_ANCHORING` to 0. 
 
 ```
@@ -45,17 +45,17 @@ SC_ANCHORING=0
 ...
 ```
 
-Reboot kscnd on SCN-L2-07 node
+Restart kscnd on SCN-L2-07 node
 ```
-$ kscnd stop
+SCN-L2-07$ kscnd stop
 Shutting down kscnd: Killed
-$ kscnd start
+SCN-L2-07$ kscnd start
 Starting kscnd: OK
 ```
 
 Check if the SCN-L2-07 is connected to the SCN-L2-03 by checking `subbridge.peers.length`
 ```
-$ kscn attach --datadir ~/data
+SCN-L2-07$ kscn attach --datadir ~/data
 > subbridge.peers.length
 1
 ```

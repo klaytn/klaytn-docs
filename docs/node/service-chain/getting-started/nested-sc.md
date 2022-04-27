@@ -111,11 +111,11 @@ Edit the kscn configuration file `conf/kscnd.conf` of SCN-L2-03 as follows.
 SC_MAIN_BRIDGE=1
 ```
 
-Restart the node.
+Restart kscnd on SCN-L2-03.
 
 ```console
 SCN-L2-03$ kscnd stop
-$ kscnd start
+SCN-L2-03$ kscnd start
 ```
 
 ## Step 4: Check KNI of Main Bridge Node <a id="step-4-check-kni-of-main-bridge-node"></a>
@@ -152,12 +152,12 @@ SC_ANCHORING=1
 SC_ANCHORING_PERIOD=10
 ```
 
-Restart the SCN node after completing the setup.
+Restart kscnd on SCN-L3-01 after completing the setup.
 
 ```console
-$ kscnd stop
+SCN-L3-01$ kscnd stop
 Shutting down kscnd: Killed
-$ kscnd start
+SCN-L3-01$ kscnd start
 Starting kscnd: OK
 ```
 
