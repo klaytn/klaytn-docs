@@ -6,15 +6,11 @@ The precompiled contracts from address 0x01 through 0x09 are the same as those i
 Klaytn additionally implements precompiled contracts from 0x3fd through 0x3ff to support new Klaytn features.
 
 {% hint style="success" %}
-NOTE: With the protocol upgrade, or the hard fork introduced in Klaytn v1.7.0, three precompiled contract addresses have changed, and **blake2F** was added.
+NOTE: Three precompiled contract addresses have been changed, and **blake2F** was added after the `IstanbulEVM` protocol upgrade, or the "hard fork".
 
-v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hark fork items and Klaytn's own items.
-It has been enabled from block number `#75373312` in case of Baobab network.
-Cypress mainnet will be subject to the same protocol upgrade in the next version.
-
-v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
-It has been enabled from block number `#80295291` in case of Baobab network.
-Cypress mainnet will be subject to the same protocol upgrade in the next version.
+`IstanbulEVM` protocol upgrade block number is as follows.
+* Baobab Testnet: `#75373312`
+* Cypress Mainnet: `#86816005`
 
 Contracts deployed before the protocol upgrade should use the original addresses.
 * case 1) The contracts deployed in Baobab at block number `#75373310` recognizes 0x09, 0x0a, and 0x0b as addresses of vmLog, feePayer, and validateSender, respectively, and blake2f cannot be used.
