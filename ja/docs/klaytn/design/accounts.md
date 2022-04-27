@@ -183,13 +183,13 @@ AccountKeyWeightedMultiSig is an account key type containing a threshold and Wei
 * The number of signed public keys should be less than the number of weightedPublicKeys.
 
 {% hint style="success" %}
-NOTE: The following multiSig validation logic have been changed with the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0.
+NOTE: The following multiSig validation logic has changed with the `IstanbulEVM` protocol upgrade, or the "hard fork".
 * The invalid signature should not be included in the transaction.
 * The number of signed public keys should be less than the number of weightedPublicKeys. If you want the previous document, please refer to [previous document](transaction-fees/transaction-fees-previous.md).
 
-v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items. It has been enabled from block number `#75373312` in case of the Baobab network. Cypress mainnet will be subject to the same protocol upgrade in the next version.
-
-v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork. It has been enabled from block number `#80295291` in case of the Baobab network. Cypress mainnet will be subject to the same protocol upgrade in the next version.
+`IstanbulEVM` protocol upgrade block number is as follows.
+* Baobab Testnet: `#75373312`
+* Cypress Mainnet: `#86816005`
 {% endhint %}
 
 #### Attributes <a id="attributes"></a>
