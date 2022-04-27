@@ -181,13 +181,13 @@ AccountKeyWeightedMultiSig는 계정 키 타입입니다. 여기에는 threshold
 * 서명된 공개키 개수가 WeightedPublicKey 개수보다 적어야만 합니다.
 
 {% hint style="success" %}
-NOTE: The following multiSig validation logic have been changed with the protocol upgrade, or the "hard fork" introduced in klaytn v1.7.0.
+NOTE: The following multiSig validation logic has changed with the `IstanbulEVM` protocol upgrade, or the "hard fork".
 * 트랜잭션에 유효하지 않은 서명이 포함되면 안 됩니다.
 * 서명된 공개키 개수가 WeightedPublicKey 개수보다 적어야만 합니다. If you want the previous document, please refer to [previous document](transaction-fees/transaction-fees-previous.md).
 
-v1.7.0 프로토콜 업그레이드 - **Istanbul** 하드포크 및 Klaytn의 자체 사항들을 포함하는 비호환 변경이 적용됩니다. It has been enabled from block number `#75373312` in case of the Baobab network. Cypress mainnet will be subject to the same protocol upgrade in the next version.
-
-v1.7.3 프로토콜 업그레이드 - **London** 하드 포크의 Base Fee를 포함한 비호환 변경이 적용됩니다. It has been enabled from block number `#80295291` in case of the Baobab network. Cypress mainnet will be subject to the same protocol upgrade in the next version.
+`IstanbulEVM` protocol upgrade block number is as follows.
+* Baobab Testnet: `#75373312`
+* Cypress Mainnet: `#86816005`
 {% endhint %}
 
 #### 속성 <a id="attributes"></a>
@@ -224,7 +224,7 @@ RLP: 0x04f89303f890e301a102c734b50ddb229be5e929fc4aa8080ae8240a802d23d3290e5e615
 
 ### AccountKeyRoleBased <a id="accountkeyrolebased"></a>
 
-AccountKeyRoleBased는 역할기반 키를 의미합니다. 역할은 [Roles](accounts.md#roles)에 명시되어있습니다.
+AccountKeyRoleBased represents a role-based key. The roles are specified at [Roles](accounts.md#roles).
 
 #### 속성 <a id="attributes"></a>
 
@@ -235,7 +235,7 @@ AccountKeyRoleBased는 역할기반 키를 의미합니다. 역할은 [Roles](ac
 
 #### 역할 <a id="roles"></a>
 
-AccountKeyRoleBased의 역할은 다음과 같이 정의됩니다.
+Roles of AccountKeyRoleBased are defined as below:
 
 | 역할                | 설명                                                                                                                             |
 |:----------------- |:------------------------------------------------------------------------------------------------------------------------------ |
@@ -247,13 +247,13 @@ AccountKeyRoleBased의 역할은 다음과 같이 정의됩니다.
 
 `0x05 + encode([key1, key2, key3])`
 
-참고: key1, key2 및 key3은 위의 키(AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail 및 AccountKeyWeightedMultiSig\) 중 하나입니다.
+Note that key1, key2, and key3 can be any of above keys \(AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail, and AccountKeyWeightedMultiSig\).
 
 #### Omissible and Expandable Roles <a id="omissible-and-expandable-roles"></a>
 
-The roles can be omitted from the last index, and the omitted roles are mapped to the first role. 그러나, 중간에 있는 역할을 생략할 수 없으므로 RoleAccountUpdate 없이는 RoleTransaction 및 RoleFeePayer를 설정할 수 없습니다. 예를 들어, 역할기반 키가 `0x05 + encode([key1, key2])`로 설정되어있으면, RoleFeePayer는 `0x05 + encode ([key1, key2, key1])`로 설정되어있는 것처럼 작동합니다.
+The roles can be omitted from the last index, and the omitted roles are mapped to the first role. However, a role in the middle cannot be omitted, which means RoleTransaction and RoleFeePayer cannot be set without RoleAccountUpdate. For example, if a role-based key is set to `0x05 + encode([key1, key2])`, RoleFeePayer works as if the key is set like `0x05 + encode([key1, key2, key1])`.
 
-This feature allows for more roles to be added in the future. 새 역할이 제공되면 이전 역할로 이미 생성된 새 계정 역할이 첫 번째 역할에 대응됩니다.
+This feature allows for more roles to be added in the future. If a new role is provided, the new role of accounts already created with old roles is mapped to the first role.
 
 #### RLP 인코딩 \(예시\) <a id="rlp-encoding-example"></a>
 
@@ -277,7 +277,7 @@ RLP: 0x05f898a302a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf0
 ```
 
 ## 계정 키 유형 ID <a id="account-key-type-id"></a>
-다음은 각 계정 키 유형에 지정된 계정 키 유형 ID입니다.
+Below are the Account Key Type ID assigned to each Account Key Type.
 
 | 계정 키 유형                    | 계정 키 유형 ID |
 | -------------------------- | ---------- |
