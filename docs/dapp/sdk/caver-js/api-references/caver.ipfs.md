@@ -66,7 +66,7 @@ If the path of a file is passed, the contents of the file are loaded from the pa
 Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC
 
 // Adds a file with Buffer containing the contents of the file.
-> caver.ipfs.add(Buffer.from('test data'))
+> caver.ipfs.add(Buffer.from('test data').buffer)
 QmWmsL95CYvci8JiortAMhezezr8BhAwAVohVUSJBcZcBL
 ```
 
