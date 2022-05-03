@@ -93,6 +93,6 @@ These public endpoints are provided to the community by third party services and
 
 - ChainID : Baobab: 1001 (0x3E9), Cypress: 8217 (0x2019)
 
-- Gas price: Fixed at 750 ston
+- Gas price: Fixed at 250 ston
 [Transaction Fees](https://docs.klaytn.com/klaytn/design/transaction-fees)
 
