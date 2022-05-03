@@ -40,9 +40,9 @@ True
 ```
 오퍼레이터 계정의 잔액이 충분한지 확인하세요.
 ```
-> klay.getBalance(subbridge.childOperator)
+> subbridge.childOperatorBalance
 1e+21
-> klay.getBalance(subbridge.parentOperator)
+> subbridge.parentOperatorBalance
 1e+18
 ```
 
