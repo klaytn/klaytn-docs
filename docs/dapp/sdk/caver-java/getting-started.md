@@ -24,7 +24,7 @@ caver.wallet is a package that manages Keyring instances in in-memory wallet. A 
 
 ### caver.transaction
 
-caver.transaction is a package that provides functionality related to [Transaction](https://docs.klaytn.com/klaytn/design/transactions#transactions-overview).
+caver.transaction is a package that provides functionality related to [Transaction](https://docs.klaytn.foundation/klaytn/design/transactions#transactions-overview).
 
 - `caver.transaction` replaces `caver.tx` in caver-java 1.4.0
 
