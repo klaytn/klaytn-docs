@@ -33,8 +33,8 @@ contract KlaytnGreeter is Mortal {
 
 * Please visit the [Klaytn IDE website](https://ide.klaytn.foundation) and create a `KlaytnGreeter` contract. The complete source code was given in the above.
 * Prepare your account which will be used to deploy the contract. 
-  * If you do not have an account yet, create one at [https://baobab.wallet.klaytn.com/create](https://baobab.wallet.klaytn.com/create)
-  * Get some test KLAY from the faucet - [https://baobab.wallet.klaytn.com/faucet](https://baobab.wallet.klaytn.com/faucet)
+  * If you do not have an account yet, create one at [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create)
+  * Get some test KLAY from the faucet - [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet)
 * Deploy the contract with initial parameter, a greeting message. 
 * After deploying, you can invoke `greet` from the IDE.
 

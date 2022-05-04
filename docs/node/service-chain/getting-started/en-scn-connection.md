@@ -113,7 +113,7 @@ After finishing the EN and SCN connection, you can log Service Chain block infor
 In this section, you will top up a parent operator account, enable Anchoring, and check the anchored block number.
 
 ### Step 1: Get KLAY to test anchoring <a id="step-1-get-klay-to-test-anchoring"></a>
-To do an anchoring, SCN has to make an anchoring transaction to Baobab. So `subbridge.parentOperator` account should have KLAY to pay the transaction fee. Get some KLAY from [Baobab Wallet Faucet](https://baobab.wallet.klaytn.com/) and transfer 1 KLAY to the `subbridge.parentOperator`.
+To do an anchoring, SCN has to make an anchoring transaction to Baobab. So `subbridge.parentOperator` account should have KLAY to pay the transaction fee. Get some KLAY from [Baobab Wallet Faucet](https://baobab.wallet.klaytn.foundation/) and transfer 1 KLAY to the `subbridge.parentOperator`.
 ```
 $ kscn attach --datadir ~/data
 > subbridge.parentOperator

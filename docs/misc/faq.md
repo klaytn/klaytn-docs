@@ -24,8 +24,8 @@ Cypress mainnet:
 Baobab testnet:
 - EN download : Choose the Baobab package from the [download page](../node/endpoint-node/installation-guide/download.md).
 - Klaytnscope : https://baobab.scope.klaytn.com
-- Klaytn Wallet : https://baobab.wallet.klaytn.com
-- Baobab Faucet : https://baobab.wallet.klaytn.com/faucet
+- Klaytn Wallet : https://baobab.wallet.klaytn.foundation
+- Baobab Faucet : https://baobab.wallet.klaytn.foundation/faucet
 
 
 ## Are there any Klaytn SDKs? In what languages? <a id="klaytn-sdks"></a>

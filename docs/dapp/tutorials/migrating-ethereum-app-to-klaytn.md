@@ -115,7 +115,7 @@ Let's learn step by step how to migrate `CountBApp` from Ethereum to Klaytn!
 The first step is deploying Count contract on Klaytn and get the contract address. Most of the cases, you can use Etherem contracts on Klaytn without modification. See [Porting Etherem Contract](../../smart-contract/porting-ethereum-contract.md). In this guide, we will use Truffle to deploy the contract.
 
 1. Change network properties in `truffle-config.js` to deploy the contract on Klaytn.
-2. Top up your account using [KLAY faucet](https://baobab.wallet.klaytn.com/access?next=faucet).
+2. Top up your account using [KLAY faucet](https://baobab.wallet.klaytn.foundation/access?next=faucet).
 3. Type `$ truffle deploy --network baobab --reset`
 4. `Count` contract will be deployed on Baobab testnet, Klaytn.
 
