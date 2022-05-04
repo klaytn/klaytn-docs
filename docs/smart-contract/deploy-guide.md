@@ -4,7 +4,7 @@ There are various ways of deploying a smart contract on Klaytn. This document pr
 
 ## Klaytn IDE <a id="klaytn-ide"></a>
 
-Open your internet browser and go to https://ide.klaytn.com  
+Open your internet browser and go to https://ide.klaytn.foundation  
 
 
 - Add a new file.

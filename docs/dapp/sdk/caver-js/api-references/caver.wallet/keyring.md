@@ -1200,7 +1200,7 @@ Account {
 keyring.encrypt(password [, options])
 ```
 
-Encrypts a keyring and returns a keystore v4 standard. For more information, please refer to [KIP-3](https://kips.klaytn.com/KIPs/kip-3).
+Encrypts a keyring and returns a keystore v4 standard. For more information, please refer to [KIP-3](https://kips.klaytn.foundation/KIPs/kip-3).
 
 **Parameters**
 
@@ -1224,7 +1224,7 @@ The returned object contains the following:
 | address | string | The address in the encrypted [Keyring]. |
 | keyring | Array | The encrypted private key(s). |
 
-For more information, please refer to [KIP-3](https://kips.klaytn.com/KIPs/kip-3).
+For more information, please refer to [KIP-3](https://kips.klaytn.foundation/KIPs/kip-3).
 
 **Example**
 
