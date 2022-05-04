@@ -491,7 +491,7 @@ By default, the fields in the Klaytn Transaction Receipt are different depending
 Because there are lots of transaction types in Klaytn, fields of transaction receipt vary based on the transaction type.
 
 When you try to query Klaytn transaction receipts via eth namespace JSON-RPC apis,
-Klaytn TransactionReceipt will return as Ethereum Transaction Receipt.
+Klaytn TransactionReceipt will be returned as Ethereum Transaction Receipt.
 
 This document describes the details of converting process (Klaytn Transaction Receipt -> Ethereum Transaction Receipt).
 
