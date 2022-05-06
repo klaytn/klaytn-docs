@@ -1,15 +1,13 @@
 ---
 description: >-
-  Following this chapter, you will quickly set up and run a Service Chain, an independent blockchain connected to the Klaytn main chain.
+  By following the steps in this section, you will quickly set up and run a ServiceChain network, an independent blockchain network connected to the Klaytn testnet.
 ---
 
-This tutorial provides a step-by-step guide for setting up a service chain and connecting it with Klaytn Baobab network. You will also learn how to enable periodic anchoring and cross-chain value transfer.
-- [Setting up a 4-node Service Chain](./4nodes-setup-guide.md)
+This tutorial provides a step-by-step guide for setting up a ServiceChain network and connecting it to the Klaytn Baobab network. You will also learn how to enable periodic anchoring and cross-chain value transfer. In order to operate the actual blockchain services with the ServiceChain, we will explain High Availability, building a ServiceChain hierarchically, and value transfer between sibling ServiceChains.
+
+- [Setting up a 4-node ServiceChain](./4nodes-setup-guide.md)
 - [Connecting to Baobab](./en-scn-connection.md)
-- [Cross-chain Value Transfer](value-transfer.md)
-
-{% hint style="info" %}
-The simplest form of service chain can be one SCN. This tutorial illustrates 4-node service chain, however, you can set up a single-node service chain as well. Simply pass `--cn-num 1` instead of `4` to homi in 'Step 1:Create genesis.json and nodekeys'.
-
-The minimum number of SCNs to achieve high availability under BFT algorithm is 4. Having 2 SCN nodes is not enough, because if one SCN fails, the other one can not reach a consensus.
-{% endhint %}
+- [Cross-chain Value Transfer](./value-transfer.md)
+- [HA for ServiceChain](./ha-for-sc.md)
+- [Nested ServiceChain](./nested-sc.md)
+- [Value Transfer between Sibling ServiceChains](./value-transfer-between-sibling.md)
