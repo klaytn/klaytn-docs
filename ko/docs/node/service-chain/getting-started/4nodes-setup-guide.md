@@ -28,9 +28,34 @@ For the convenience, we will add the binary path to $PATH. Use the actual path o
 $ export PATH=$PATH:~/path/to/kscn-XXXXX-amd64/bin
 ```
 
+SCN also provides various RPM distributions like RHEL, CentOS, and Fedora. For more information, please refer to [Installation](../references/scn/installation.md).
+
+```console
+$ curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo
+  % Total % Received % Xferd Average Speed Time Time Time Current Dload Upload Total Spent Left Speed
+     100 118 100 118 0 0 1113 0 --:--:-- --:--:-- --:--:-- 1102 
+
+$ yum list | grep klaytn 
+packages-klaytn-prod 31 kB/s | 2.9 kB 00:00 
+homi.x86_64           v1.8.0-0.el7      packages-klaytn-prod 
+kbnd.x86_64           v1.8.0-0.el7      packages-klaytn-prod 
+kcnd.x86_64           v1.8.0-0.el7      packages-klaytn-prod 
+kcnd-baobab.x86_64    v1.8.0-0.el7      packages-klaytn-prod 
+kend.x86_64           v1.8.0-0.el7      packages-klaytn-prod 
+kend-baobab.x86_64    v1.8.0-0.el7      packages-klaytn-prod 
+kgen.x86_64           v1.8.0-0.el7      packages-klaytn-prod 
+kpnd.x86_64           v1.8.0-0.el7      packages-klaytn-prod 
+kpnd-baobab.x86_64    v1.8.0-0.el7      packages-klaytn-prod 
+kscnd.x86_64          v1.8.0-0.el7      packages-klaytn-prod 
+ksend.x86_64          v1.8.0-0.el7      packages-klaytn-prod 
+kspnd.x86_64          v1.8.0-0.el7      packages-klaytn-prod 
+
+$ yum install kscnd
+```
+
 ## 1 단계: genesis.json 및 nodekey 생성 <a id="step-1-create-genesis-json-and-a-key"></a>
 
-We will use homi utility to generate the needful files. Homi is a utility that automatically generates scripts, configuration files, and encryption keys necessary to configure the Klaytn blockchain. You can execute homi from any Linux/Mac PC.
+We will use homi utility to generate the needful files. `homi` is a utility that automatically generates scripts, configuration files, and private keys necessary to configure the Klaytn blockchain. You can execute homi from any Linux/Mac PC.
 
 First, extract the homi archive you downloaded.
 ```console
