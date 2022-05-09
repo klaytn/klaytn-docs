@@ -28,7 +28,7 @@ description: >-
 #### 이더리움 동일성<a id="ethereum-compatibility"></a>
 - 개발 도구: 클레이튼 스택을 인터페에스와 실행 관점에서 기존의 이더리움 스택과 동일하게 보장함으로써 이더리움의 어떤 도구든 클레이튼 생태계에서 문제없이 동작할 수 있습니다. 클레이튼 생태계에서 만들어진 모든 도구는 이더리움 생태계에서도 상호적으로 도입될 수 있습니다.
 - EVM과 API: 기존 이더리움 스택에 개발함으로써 EVM과 라이브러리의 오픈소스 코드 베이스에 추가된 모든 개선 사항들을 상속합니다. 클레이튼 EVM 환경과 동일한 옵코드와 스택 로직을 지원함으로써 실행 동작도 호환됩니다. 또한 동일한 엔드포인트 페이로드 구문을 지닌 JSON-RPC API를 지원하여 완전한 이더리움 인터페이스 호환성이 보장됩니다. See [Solidity-Smart Contract Language][], and [Migrating Ethereum App to Klaytn][].
-- 코어 개발 기여: 이더리움 동일성(equivalence)을 지원함으로써 클레이튼과 이더리움 생태계 간 호혜적 관계로 이어집니다. 대부분의 이더리움 개선 제안(EIP)은 클레이튼 코어 개발 어젠다에 이전, 적용될 수 있을 것이며 클레이튼 개선 제안(KIP) 또한 이더리움과 EVM의 발전에 기여할 수 있을 것입니다. 한 생태계에 대한 개발 커뮤니티의 기여는 두 생태계 모두에 대한 기여로 이어집니다. ​
+- Core Development Contribution: Supporting Ethereum equivalence translates most to the mutual benefit to both the Klaytn and Ethereum ecosystems. 대부분의 이더리움 개선 제안(EIP)은 클레이튼 코어 개발 어젠다에 이전, 적용될 수 있을 것이며 클레이튼 개선 제안(KIP) 또한 이더리움과 EVM의 발전에 기여할 수 있을 것입니다. 한 생태계에 대한 개발 커뮤니티의 기여는 두 생태계 모두에 대한 기여로 이어집니다. ​
 #### 오픈소스 인프라 및 패키지<a id="open-source-infrastructure-and-package"></a>
 - 일차적 인프라: 종단간(end-to-end) 블록체인 결합 및 개발을 위한 툴셋입니다. 여기에는 SDK와 스마트 컨트랙트 라이브러리, 월렛, 체인 탐색기, 분산 저장 솔루션, 오라클 지원, 브릿지가 포함됩니다.
 - 이차적 인프라: 제품과 서비스 지원을 위한 생태계에 해당합니다. 여기에는 통합/추상화 서비스, 스테이블 코인 연동, DAO, NFT 마켓플레이스, DEX, DeFi, 전통 금융 인터페이스 등이 포함됩니다. ​
