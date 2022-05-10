@@ -10,7 +10,7 @@
 
 이 단계별 가이드는 Baobab 테스트넷의 엔드포인트 노드\(EN\)를 시작하고 새 계정으로 기본 스마트 컨트랙트를 구성하는 과정을 안내합니다. 이 튜토리얼은 EN을 설정하고 EN을 통해 스마트 컨트랙트를 배포하는 두 부분으로 구성됩니다.
 
-> 스마트 컨트랙트를 배포하고 트랜잭션을 제출하려면 트랜잭션 수수료로 KLAY가 필요하기 때문에, 이 가이드는 **Baobab** 테스트넷을 사용합니다. 개발 목적으로 [Baobab Faucet](https://baobab.wallet.klaytn.com/faucet)에서 테스트넷 KLAY를 얻을 수 있습니다.
+> 스마트 컨트랙트를 배포하고 트랜잭션을 제출하려면 트랜잭션 수수료로 KLAY가 필요하기 때문에, 이 가이드는 **Baobab** 테스트넷을 사용합니다. For the development purpose, testnet KLAY can be obtained from the [Baobab faucet](https://baobab.wallet.klaytn.foundation/faucet).
 
 ## 1. 엔드포인트 노드를 시작하고 계정에 Baobab 테스트넷 KLAY 받기 \(Linux, Mac\) <a id="1-launch-an-endpoint-node-and-add-baobab-testnet-klay-to-your-account-linux-mac"></a>
 
