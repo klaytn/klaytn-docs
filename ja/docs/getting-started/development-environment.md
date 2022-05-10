@@ -13,7 +13,7 @@
 
 **Smart Contract Development**
 
-* [Klaytn IDE](https://ide.klaytn.com/) - A browser-based compiler and IDE for the Klaytn smart contracts.
+* [Klaytn IDE](https://ide.klaytn.foundation/) - A browser-based compiler and IDE for the Klaytn smart contracts.
 * [Truffle](https://github.com/trufflesuite/truffle) - An open-source tool for developing smart contracts in Solidity.
 
 **Klaytn SDKs**
