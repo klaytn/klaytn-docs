@@ -44,7 +44,7 @@ The KIR Proposal review will be decided through the voting of the Governance Cou
 
 ![kir_process](../images/kir_process.png)
 
-For more information, visit [KIR Forum](https://kir.klaytn.com/).
+For more information, visit [KIR Forum](https://kir.klaytn.foundation/).
 
 ## Governance Roadmap <a id="governance-roadmap"></a>
 
