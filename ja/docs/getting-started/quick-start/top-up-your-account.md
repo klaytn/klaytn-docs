@@ -51,7 +51,7 @@ true
 ## Getting testnet KLAY from the Baobab Faucet <a id="getting-testnet-klay-from-the-baobab-faucet"></a>
 
 * Using the Baobab faucet in KlaytnWallet.
-* Access [https://baobab.wallet.klaytn.com](https://baobab.wallet.klaytn.com/).
+* Access [https://baobab.wallet.klaytn.foundation](https://baobab.wallet.klaytn.foundation/).
 * You can either create a new account from the Wallet or use the keystore file you created from the EN JavaScript console above to log into the Wallet.
 * Go to "KLAY Faucet" from the left pane menu, and click the "Run Faucet" button to get 150 KLAY.
 
