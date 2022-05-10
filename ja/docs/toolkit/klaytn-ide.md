@@ -2,7 +2,7 @@
 
 ![](img/klaytn-ide/1_ide_full.png)
 
-[Klaytn IDE](https://ide.klaytn.com) is a browser-based application compatible with Ethereum. It has been forked from [Remix 0.20.0](https://github.com/ethereum/remix-project/releases/tag/v0.20.0). It supports a fast development cycle through various plug-ins and an intuitive GUI. You can write, test, and deploy Klaytn smart contracts using Solidity. You can use Klaytn IDE at [https://ide.klaytn.com](https://ide.klaytn.com).
+[Klaytn IDE](https://ide.klaytn.foundation) is a browser-based application compatible with Ethereum. It has been forked from [Remix 0.20.0](https://github.com/ethereum/remix-project/releases/tag/v0.20.0). It supports a fast development cycle through various plug-ins and an intuitive GUI. You can write, test, and deploy Klaytn smart contracts using Solidity. You can use Klaytn IDE at [https://ide.klaytn.foundation](https://ide.klaytn.foundation).
 
 This document covers Klaytn IDE’s main features and instructions on how to use it. For more information, please visit [Remix Documentation](https://remix-ide.readthedocs.io/en/latest/).
 
@@ -130,7 +130,7 @@ In Gas Limit (D), you can set the amount of gas to be used to call the contract 
 
 #### Value <a id="value"></a>
 
-Value (E), you can choose the amount of peb, ston, mKLAY, and KLAY to be sent to the contract or function. It will be reset to 0 after each transaction. If you don't are not familiar with the units of KLAY (peb, ston, mKLAY, KLAY, etc.), please refer to [Units of KLAY](https://docs.klaytn.com/klaytn/design/klaytn-native-coin-klay#units-of-klay). If you set this value, then the function should have the attribute `payable`.
+Value (E), you can choose the amount of peb, ston, mKLAY, and KLAY to be sent to the contract or function. It will be reset to 0 after each transaction. If you don't are not familiar with the units of KLAY (peb, ston, mKLAY, KLAY, etc.), please refer to [Units of KLAY](https://docs.klaytn.foundation/klaytn/design/klaytn-native-coin-klay#units-of-klay). If you set this value, then the function should have the attribute `payable`.
 
 #### Deploy & AtAddress <a id="deploy-and-ataddress"></a>
 
@@ -280,7 +280,7 @@ npm install -g @remix-project/remixd
 After installing, you have to permit access to the desired folder. Enter the command line as shown below:
 
 ```
-remixd -s {absolute path of the folder} --remix-ide https://ide.klaytn.com
+remixd -s {absolute path of the folder} --remix-ide https://ide.klaytn.foundation
 ```
 
 {absolute path of the folder} is where you specify the absolute path of the desired folder.
@@ -326,6 +326,6 @@ Klaytn IDE offers almost identical features with Remix. For more instructions, p
 
 ## Send us Your Feedback! <a id="send-us-feedback"></a>
 
-For any inquiries or suggestions regarding Klaytn IDE, please leave them on our [Discord](https://discord.com/invite/aY8mrCGANk) or [Klaytn Developers Forum](https://forum.klaytn.com/).
+For any inquiries or suggestions regarding Klaytn IDE, please leave them on our [Discord](https://discord.com/invite/aY8mrCGANk) or [Klaytn Developers Forum](https://forum.klaytn.foundation/).
 
 
