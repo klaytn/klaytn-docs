@@ -6,7 +6,7 @@
 
 caver-js에서 KIP-37을 구현한 예시는 [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/token/KIP37)에서 확인할 수 있습니다.
 
-KIP-37에 관한 더 자세한 정보는 [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-37)를 참조하십시오.
+For more information about KIP-37, see [Klaytn Improvement Proposals](https://kips.klaytn.foundation/KIPs/kip-37).
 
 **참고** `caver.kct.kip37`는 caver-js [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7)부터 지원됩니다.
 
@@ -28,9 +28,9 @@ KIP-37 토큰 컨트랙트를 Klaytn 블록체인에 배포합니다. caver.kct.
 
 tokenInfo 객체는 다음을 반드시 포함해야 합니다:
 
-| 이름  | 타입     | 설명                                                                                                         |
-| --- | ------ | ---------------------------------------------------------------------------------------------------------- |
-| uri | string | [token type ID substitution mechanism](http://kips.klaytn.com/KIPs/kip-37#metadata)에 의거한 모든 토큰 타입의 URI입니다. |
+| 이름  | 타입     | 설명                                                                                                                                         |
+| --- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| uri | string | The URI for all token types, by relying on the [token type ID substitution mechanism](http://kips.klaytn.foundation/KIPs/kip-37#metadata). |
 
 **리턴값**
 
@@ -103,7 +103,7 @@ caver.kct.kip37.detectInterface(contractAddress)
 
 **리턴값**
 
-`Promise`는 각 [KIP-37 interface](https://kips.klaytn.com/KIPs/kip-7#kip-13-identifiers)가 구현되었는지에 대한 boolean 값을 포함한 `object`를 반환합니다.
+`Promise` returns an `object` containing the result with boolean values whether each [KIP-37 interface](https://kips.klaytn.foundation/KIPs/kip-37#kip-13-identifiers) is implemented.
 
 **예시**
 
@@ -225,7 +225,7 @@ kip37.detectInterface()
 
 **리턴값**
 
-`Promise`는 각 [KIP-37 interface](https://kips.klaytn.com/KIPs/kip-7#kip-13-identifiers)가 구현되었는지에 대한 boolean 값을 포함한 `object`를 반환합니다.
+`Promise` returns an `object` containing the result with boolean values whether each [KIP-37 interface](https://kips.klaytn.foundation/KIPs/kip-37#kip-13-identifiers) is implemented.
 
 **예시**
 
@@ -275,7 +275,7 @@ kip37.uri(id)
 ```
 주어진 토큰의 고유한 Uniform Resource Identifier (URI)를 반환합니다.
 
-어느 URI에 문자열 "{id}"가 포함된다면, 이 함수는 16진수 형식의 실제 토큰 ID로 이를 대체합니다. [KIP-34 Metadata](http://kips.klaytn.com/KIPs/kip-37#metadata)를 참고하세요.
+어느 URI에 문자열 "{id}"가 포함된다면, 이 함수는 16진수 형식의 실제 토큰 ID로 이를 대체합니다. Please refer to [KIP-34 Metadata](http://kips.klaytn.foundation/KIPs/kip-37#metadata).
 
 **Parameters**
 
@@ -680,7 +680,7 @@ kip37.safeTransferFrom(from, recipient, id, amount, data [, sendParam])
 
 The address that was authorized to send the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an authorized address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
 
-만약 수신자 주소가 컨트랙트 주소라면, 컨트랙트는 반드시 [IKIP37Receiver.onKIP37Received](https://kips.klaytn.com/KIPs/kip-37#kip-37-token-receiver)를 구현했어야 합니다. 그렇지 않으면, 전송은 거부됩니다.
+If the recipient was a contract address, it should implement [IKIP37Receiver.onKIP37Received](https://kips.klaytn.foundation/KIPs/kip-37#kip-37-token-receiver). 그렇지 않으면, 전송은 거부됩니다.
 
 이 메서드는 Klaytn 네트워크에 트랜잭션을 전송하며 트랜잭션 수수료가 트랜잭션 발신자에게 부과됨을 참고하시기 바랍니다.
 
@@ -773,7 +773,7 @@ kip37.safeBatchTransferFrom(from, recipient, ids, amounts, data [, sendParam])
 
 토큰 소유자의 토큰을 보내도록 허락받은 주소인 operator, 또는 토큰 소유자 자신이 이 토큰 전송 트랜잭션을 실행할 수 있습니다. 따라서 토큰을 보내도록 승인 계정 또는 토큰 소유자가 이 트랜잭션 발신자이어야 하며, 허락받은 계정의 주소는 반드시 `sendParam.from` 또는 `kip37.options.from`에 주어져야 합니다. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
 
-만약 수신자 주소가 컨트랙트 주소라면, 컨트랙트는 반드시 [IKIP37Receiver.onKIP37Received](https://kips.klaytn.com/KIPs/kip-37#kip-37-token-receiver)를 구현했어야 합니다. 그렇지 않으면, 전송은 거부됩니다.
+If the recipient was a contract address, it should implement [IKIP37Receiver.onKIP37Received](https://kips.klaytn.foundation/KIPs/kip-37#kip-37-token-receiver). 그렇지 않으면, 전송은 거부됩니다.
 
 이 메서드는 Klaytn 네트워크에 트랜잭션을 전송하며 트랜잭션 수수료가 트랜잭션 발신자에게 부과됨을 참고하시기 바랍니다.
 
