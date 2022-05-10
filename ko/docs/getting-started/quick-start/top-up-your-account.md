@@ -51,7 +51,7 @@ true
 ## Baobab Faucet에서 테스트넷 KLAY 받기 <a id="getting-testnet-klay-from-the-baobab-faucet"></a>
 
 * KlaytnWallet의 Baobab Faucet 사용하기
-* [https://baobab.wallet.klaytn.com](https://baobab.wallet.klaytn.com/) 접근하기
+* Access [https://baobab.wallet.klaytn.foundation](https://baobab.wallet.klaytn.foundation/).
 * 지갑에 로그인하기 위하여 지갑에서 새 계정을 만들거나 위의 EN 자바스크립트 콘솔에서 생성한 키스토어 파일을 사용할 수 있습니다.
 * 왼쪽 창 메뉴에서 "KLAY Faucet"으로 이동하고, "Run Faucet" 버튼을 클릭해 150 KLAY를 얻습니다.
 
