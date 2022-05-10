@@ -48,9 +48,9 @@ Solidity Contract 개발을 위한 브라우저 기반의 IDE 입니다. 이 문
 
 ## EN(Endpoint Node)을 이용한 클레이튼 - 리믹스 연동<a id="connecting-klaytn-remix-using-en"></a>
 
-* [**EN 문서**](https://docs.klaytn.com/getting-started/quick-start/launch-an-en)의 설명을 따라 로컬 환경에 Endpoint Node를 설치하세요.
+* Set up an Endpoint Node in the local environment by following the instructions in [**the EN documents**](https://docs.klaytn.foundation/getting-started/quick-start/launch-an-en).
 
-* [**계정 관리**](https://docs.klaytn.com/getting-started/account)의 설명을 따라 계정을 생성하세요.
+* Create an account by following the instructions in [**Account Management**](https://docs.klaytn.foundation/getting-started/account).
 
   > **Note:** 개인 환경의 EN이 아닌 Baobab Public EN으로 연결 시 personal API가 닫혀있기 때문에 Account에 연결되지 않습니다.
 
@@ -64,7 +64,7 @@ Solidity Contract 개발을 위한 브라우저 기반의 IDE 입니다. 이 문
 
 ## 메타마스크를 사용하여 클레이튼 - 리믹스 연동하기<a id="connecting-klaytn-remix-using-metamask"></a>
 
-* [**MetaMask 연동 문서**](https://docs.klaytn.com/dapp/tutorials/connecting-metamask)를 참고하여 클레이튼을 연동합니다.
+* Connect Klaytn with MetaMask by referring to the [**Connecting to MetaMask**](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask).
 * Remix 환경 설정에서 [Injected Web3]를 선택합니다.
 
 ![Injected Web3](./img/remix-klaytn-environment-injectedWeb3.png)
@@ -74,7 +74,7 @@ Solidity Contract 개발을 위한 브라우저 기반의 IDE 입니다. 이 문
 
 ## 튜토리얼: KlaytnGreeter 컨트랙트 <a id="tutorial-KlaytnGreeter-contract"></a>
 
-[**KlaytnGreeter**](https://docs.klaytn.com/smart-contract/sample-contracts/klaytngreeter) 샘플 컨트랙트를 이용하여 진행합니다.
+We will be using the [**KlaytnGreeter**](https://docs.klaytn.foundation/smart-contract/sample-contracts/klaytngreeter) sample contract.
 
 * KlaytnGreeter.sol 파일을 추가하고 테스트할 코드를 작성합니다.
 
