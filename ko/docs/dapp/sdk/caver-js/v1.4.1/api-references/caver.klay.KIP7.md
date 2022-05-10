@@ -10,7 +10,7 @@ The `caver.klay.KIP7` inherits [caver.klay.Contract](caver.klay.Contract.md) to 
 
 caver.klay.KIP7에서 사용된 abi와 바이트 코드는 [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20) 예시를 사용하여 구현되었습니다.
 
-KIP-7에 관한 자세한 정보는 [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-7)를 참조하십시오.
+For more information about KIP-7, see [Klaytn Improvement Proposals](https://kips.klaytn.foundation/KIPs/kip-7).
 
 **참고** `caver.klay.KIP7`는 caver-js[v1.4.0](https://www.npmjs.com/package/caver-js/v/1.4.0)부터 지원됩니다.
 
@@ -576,7 +576,7 @@ kip7Instance.safeTransfer(recipient, amount [, data] [, sendParam])
 
 주어진 `amount`만큼의 토큰을 토큰 소유자 잔액에서 `recipient`에게 안전하게 보냅니다. 토큰 소유자는 이 토큰 전송을 직접 실행해야 합니다. 따라서 토큰 소유자는 이 트랜잭션 발신자이어야 하며, 토큰 소유자의 주소는 반드시 `sendParam.from` 또는 `kip7Instance.options.from`에 주어져야 합니다. `sendParam.from` 또는 `kip7Instance.options.from`가 주어지지 않는다면 에러가 발생합니다.
 
-만약 토큰 수신자 주소가 컨트랙트 주소라면, 컨트랙트는 반드시 [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface)를 구현했어야 합니다. 그렇지 않으면, 전송은 거부됩니다.
+If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface). 그렇지 않으면, 전송은 거부됩니다.
 
 트랜잭션 전송은 트랜잭션 발신자에게 트랜잭션 수수료를 부과함을 유의하십시오.
 
@@ -750,7 +750,7 @@ kip7Instance.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
 
 주어진 `amount`만큼의 토큰을 토큰 소유자 잔액에서 `recipient`에게 안전하게 보냅니다. 토큰 소유자의 토큰을 보내도록 허락받은 주소가 이 토큰 전송 트랜잭션을 실행할 수 있습니다. 따라서 토큰을 보내도록 허락받은 계정이 이 트랜잭션 발신자이어야 하며, 허락받은 계정의 주소는 반드시 `sendParam.from` 또는 `kip7Instance.options.from`에 주어져야 합니다. `sendParam.from` 또는 `kip7Instance.options.from`가 주어지지 않는다면 에러가 발생합니다.
 
-만약 토큰 수신자 주소가 컨트랙트 주소라면, 컨트랙트는 반드시 [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface)를 구현했어야 합니다. 그렇지 않으면, 전송은 거부됩니다.
+If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface). 그렇지 않으면, 전송은 거부됩니다.
 
 트랜잭션 전송은 트랜잭션 발신자에게 트랜잭션 수수료를 부과함을 유의하십시오.
 
