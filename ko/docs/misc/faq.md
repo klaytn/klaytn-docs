@@ -23,8 +23,8 @@ Cypress 메인넷:
 Baobab 테스트넷:
 - EN 다운로드 : [다운로드 페이지](../node/endpoint-node/installation-guide/download.md)에서 Baobab 패키지를 선택하십시오.
 - Klaytnscope : https://baobab.scope.klaytn.com
-- Klaytn Wallet : https://baobab.wallet.klaytn.com
-- Baobab Faucet : https://baobab.wallet.klaytn.com/faucet
+- Klaytn Wallet : https://baobab.wallet.klaytn.foundation
+- Baobab Faucet : https://baobab.wallet.klaytn.foundation/faucet
 
 
 ## Klaytn SDK가 있나요? 어떤 언어를 지원하나요? <a id="klaytn-sdks"></a>
@@ -54,7 +54,7 @@ Check the [fast sync](../node/endpoint-node/installation-guide/configuration.md#
 
 Yes. Klaytn supports Solidity as a smart contract language. [ERC-20](../smart-contract/sample-contracts/erc-20/README.md) and [ERC-721](../smart-contract/sample-contracts/erc-721/README.md) written in Solidity for Etherem can be deployed and executed on Klaytn.
 
-Further Klaytn-specific token standards can be defined. Follow the [KIP (Klaytn Improvement Proposal)](http://kips.klaytn.com) and join the discussion.
+Further Klaytn-specific token standards can be defined. Follow the [KIP (Klaytn Improvement Proposal)](http://kips.klaytn.foundation) and join the discussion.
 
 
 
