@@ -24,7 +24,7 @@ caver.wallet은 인메모리 지갑에서 Keyring 인스턴스를 관리하도�
 
 ### caver.transaction
 
-caver.transaction은 [Transaction](https://docs.klaytn.com/klaytn/design/transactions#transactions-overview) 관련 기능을 제공하는 패키지입니다.
+caver.transaction is a package that provides functionality related to [Transaction](https://docs.klaytn.foundation/klaytn/design/transactions#transactions-overview).
 
 - `caver.transaction`은 caver-java 1.4.0의 `caver.tx`를 대체합니다.
 
@@ -1359,7 +1359,7 @@ System.out.println(resultJson);
 
 
 [caver-java API]: https://javadoc.io/doc/com.klaytn.caver/core/
-[KIP-7]: https://kips.klaytn.com/KIPs/kip-7
-[KIP-13]: https://kips.klaytn.com/KIPs/kip-13
-[KIP-17]: https://kips.klaytn.com/KIPs/kip-17
-[KIP-37]: https://kips.klaytn.com/KIPs/kip-37
+[KIP-7]: https://kips.klaytn.foundation/KIPs/kip-7
+[KIP-13]: https://kips.klaytn.foundation/KIPs/kip-13
+[KIP-17]: https://kips.klaytn.foundation/KIPs/kip-17
+[KIP-37]: https://kips.klaytn.foundation/KIPs/kip-37
