@@ -7,7 +7,7 @@ Klaytn Wallet is a browser-based account management tool for dApp (decentralized
 > **참고:** Klaytn Wallet은 개발과 테스트 목적으로만 사용해야 합니다. 저장 용도 또는 KLAY 및 Klaytn 토큰을 전송하는 등 Klaytn Wallet을 상업적 또는 개인적 용도로 사용하지 마세요. Klaytn Wallet은 상업 용도를 위한 보안 테스트를 거치지 않아 악의적인 공격에 취약할 수 있습니다. Klaytn Wallet은 사용자의 개인키를 브라우저의 로컬 스토리지에 저장하므로 브라우저의 보안 취약점을 악용한 공격에 취약할 수 있습니다.
 
 * Cypress 메인넷의 Klaytn Wallet: [https://wallet.klaytn.com](https://wallet.klaytn.com)
-* Baobab 테스트넷의 Klaytn Wallet: [https://baobab.wallet.klaytn.com](https://baobab.wallet.klaytn.com)
+* Klaytn Wallet for the Baobab testnet: [https://baobab.wallet.klaytn.foundation](https://baobab.wallet.klaytn.foundation)
 
 ![](img/00-main.png)
 
@@ -171,7 +171,7 @@ Klaytn Wallet을 사용하여 KLAY 또는 Klaytn 토큰을 다른 계정으로 �
 
 ## Baobab 테스트넷 KLAY 받기 <a id="how-to-receive-baobab-testnet-klay"></a>
 
-테스트넷 KLAY Faucet은 Baobab 네트워크에서 실행 중입니다. Faucet은 [Baobab Klaytn Wallet](https://baobab.wallet.klaytn.com)에서 접근할 수 있습니다.
+테스트넷 KLAY Faucet은 Baobab 네트워크에서 실행 중입니다. The faucet can be accessed from the [Baobab Klaytn Wallet](https://baobab.wallet.klaytn.foundation).
 
 테스트넷 KLAY를 받으려면, 유효한 Klaytn 계정이 있어야 합니다.
 
@@ -180,7 +180,7 @@ Klaytn Wallet을 사용하여 KLAY 또는 Klaytn 토큰을 다른 계정으로 �
 
 ### 1단계: 테스트넷 KLAY Faucet으로 이동하세요. <a id="step-1-go-to-the-testnet-klay-faucet"></a>
 
-[Baobab Klaytn Wallet](https://baobab.wallet.klaytn.com)의 왼쪽 메뉴 모음에 있는 `KLAY Faucet`을 통해 테스트넷 KLAY 요청 페이지로 이동할 수 있습니다.
+From the [Baobab Klaytn Wallet](https://baobab.wallet.klaytn.foundation), `KLAY Faucet` menu on the left bar brings you to the testnet KLAY request page.
 
 요청된 페이지에서 현재 계정의 주소와 테스트넷 KLAY 잔액을 확인할 수 있습니다.
 
