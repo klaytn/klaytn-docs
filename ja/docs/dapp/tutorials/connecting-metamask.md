@@ -93,7 +93,7 @@
 
 ![Export Private Key](./img/metamask-obtain-private-key.png)
 
-* When using Baobab Testnet, you can obtain Test Klay in [**Klaytn Faucet**](https://baobab.wallet.klaytn.com/access?next=faucet).
+* When using Baobab Testnet, you can obtain Test Klay in [**Klaytn Faucet**](https://baobab.wallet.klaytn.foundation/access?next=faucet).
 * Enter your private key on Klaytn Wallet and log in by clicking [Access]. (Attach 0x in front of the private key.)
 * Click [Run Faucet]. 5 Testnet KLAY will be sent to your account and the balance will be updated accordingly. You can claim Testnet KLAY from Faucet once every 24 hours per account.
 
