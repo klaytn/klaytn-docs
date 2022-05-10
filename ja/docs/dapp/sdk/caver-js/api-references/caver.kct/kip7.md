@@ -8,7 +8,7 @@ The abi and bytecode used in the caver.kct.kip7 were implemented using the examp
 
 The code that implements KIP-7 for caver-js is available on the [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/token/KIP7).
 
-For more information about KIP-7, see [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-7).
+For more information about KIP-7, see [Klaytn Improvement Proposals](https://kips.klaytn.foundation/KIPs/kip-7).
 
 ## caver.kct.kip7.deploy <a id="caver-klay-kip7-deploy"></a>
 
@@ -121,7 +121,7 @@ Returns the information of the interface implemented by the token contract. This
 
 **Return Value**
 
-`Promise` returns an `object` containing the result with boolean values whether each [KIP-7 interface](https://kips.klaytn.com/KIPs/kip-7#kip-13-identifiers) is implemented.
+`Promise` returns an `object` containing the result with boolean values whether each [KIP-7 interface](https://kips.klaytn.foundation/KIPs/kip-7#kip-13-identifiers) is implemented.
 
 **Example**
 
@@ -242,7 +242,7 @@ None
 
 **Return Value**
 
-`Promise` returns an `object` containing the result with boolean values whether each [KIP-7 interface](https://kips.klaytn.com/KIPs/kip-7#kip-13-identifiers) is implemented.
+`Promise` returns an `object` containing the result with boolean values whether each [KIP-7 interface](https://kips.klaytn.foundation/KIPs/kip-7#kip-13-identifiers) is implemented.
 
 **Example**
 
@@ -691,7 +691,7 @@ kip7.safeTransfer(recipient, amount [, data] [, sendParam])
 ```
 Safely transfers the given `amount` of the token from the token owner's balance to the `recipient`. The token owner should execute this token transfer with its own hands. Thus, the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
 
-If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface). Otherwise, the transfer is reverted.
+If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface). Otherwise, the transfer is reverted.
 
 Note that sending this transaction will charge the transaction fee to the transaction sender.
 
@@ -878,7 +878,7 @@ kip7.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
 ```
 Safely transfers the given `amount` of the token from the token owner's balance to the `recipient`. The address who was approved to send the token owner's tokens is expected to execute this token transferring transaction. Thus, the approved one should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
 
-If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface). Otherwise, the transfer is reverted.
+If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface). Otherwise, the transfer is reverted.
 
 Note that sending this transaction will charge the transaction fee to the transaction sender.
 
