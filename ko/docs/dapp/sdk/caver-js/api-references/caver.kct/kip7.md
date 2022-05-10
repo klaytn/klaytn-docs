@@ -8,7 +8,7 @@ caver.kct.kip7에서 사용된 abi와 바이트 코드는 [OpenZeppelin](https:/
 
 caver-js에서 KIP-7을 구현한 예시는 [Caver-js Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/token/KIP7)에서 확인할 수 있습니다.
 
-KIP-7에 관한 자세한 정보는 [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-7)를 참조하십시오.
+For more information about KIP-7, see [Klaytn Improvement Proposals](https://kips.klaytn.foundation/KIPs/kip-7).
 
 ## caver.kct.kip7.deploy <a id="caver-klay-kip7-deploy"></a>
 
@@ -121,7 +121,7 @@ caver.kct.kip7.detectInterface(contractAddress)
 
 **리턴값**
 
-`Promise`는 각 [KIP-7 interface](https://kips.klaytn.com/KIPs/kip-7#kip-13-identifiers)가 구현되었는지에 대한 boolean 값을 포함한 결과를 반환합니다.
+`Promise` returns an `object` containing the result with boolean values whether each [KIP-7 interface](https://kips.klaytn.foundation/KIPs/kip-7#kip-13-identifiers) is implemented.
 
 **예시**
 
@@ -242,7 +242,7 @@ kip7.detectInterface()
 
 **리턴값**
 
-`Promise`는 각 [KIP-7 interface](https://kips.klaytn.com/KIPs/kip-7#kip-13-identifiers)가 구현되었는지에 대한 boolean 값을 포함한 결과를 반환합니다.
+`Promise` returns an `object` containing the result with boolean values whether each [KIP-7 interface](https://kips.klaytn.foundation/KIPs/kip-7#kip-13-identifiers) is implemented.
 
 **예시**
 
@@ -691,7 +691,7 @@ kip7.safeTransfer(recipient, amount [, data] [, sendParam])
 ```
 주어진 `amount`만큼의 토큰을 토큰 소유자 잔액에서 `recipient`에게 안전하게 보냅니다. 토큰 소유자는 이 토큰 전송을 직접 실행해야 합니다. 따라서 토큰 소유자는 이 트랜잭션 발신자이어야 하며, 토큰 소유자의 주소는 반드시 `sendParam.from` 또는 `kip7.options.from`에 주어져야 합니다. `sendParam.from` 또는 `kip7.options.from`가 주어지지 않는다면 에러가 발생합니다.
 
-만약 토큰 수신자 주소가 컨트랙트 주소라면, 컨트랙트는 반드시 [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface)를 구현했어야 합니다. 그렇지 않으면, 전송은 거부됩니다.
+If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface). 그렇지 않으면, 전송은 거부됩니다.
 
 트랜잭션 전송은 트랜잭션 발신자에게 트랜잭션 수수료를 부과함을 유의하십시오.
 
@@ -878,7 +878,7 @@ kip7.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
 ```
 주어진 `amount`만큼의 토큰을 토큰 소유자 잔액에서 `recipient`에게 안전하게 보냅니다. 토큰 소유자의 토큰을 보내도록 허락받은 주소가 이 토큰 전송 트랜잭션을 실행할 수 있습니다. 따라서 토큰을 보내도록 허락받은 계정이 이 트랜잭션 발신자이어야 하며, 허락받은 계정의 주소는 반드시 `sendParam.from` 또는 `kip7.options.from`에 주어져야 합니다. `sendParam.from` 또는 `kip7.options.from`가 주어지지 않는다면 에러가 발생합니다.
 
-만약 토큰 수신자 주소가 컨트랙트 주소라면, 컨트랙트는 반드시 [IKIP7Receiver.onKIP7Received](https://kips.klaytn.com/KIPs/kip-7#wallet-interface)를 구현했어야 합니다. 그렇지 않으면, 전송은 거부됩니다.
+If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface). 그렇지 않으면, 전송은 거부됩니다.
 
 트랜잭션 전송은 트랜잭션 발신자에게 트랜잭션 수수료를 부과함을 유의하십시오.
 
