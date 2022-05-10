@@ -1,12 +1,12 @@
 # caver.kct.kip17 <a id="caver-kct-kip17"></a>
 
-`caver.kct.kip17`은 [KIP-17](https://kips.klaytn.com/KIPs/kip-17) 표준을 구현한 스마트 컨트랙트를 JavaScript 객체 형태로 Klaytn 블록체인에서 손쉽게 다룰 수 있도록 돕습니다.
+`caver.kct.kip17` helps you easily handle a smart contract that implements [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17) as a JavaScript object on the Klaytn blockchain.
 
 `caver.kct.kip17`는 KIP-17 토큰 컨트랙트를 구현하기 위해 [caver.contract](../caver.contract.md)를 상속합니다. `caver.kct.kip17`은 `caver.contract`와 동일한 속성값들을 가지며, 추가 기능 구현을 위해 메서드를 더 가지고 있습니다. 이 장은 `caver.kct.kip17` 메서드들 중 오직 새롭게 추가된 것만을 소개합니다.
 
 caver-js에서 KIP-17을 구현한 예시는 [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/token/KIP17)에서 확인할 수 있습니다.
 
-KIP-17에 관한 자세한 정보는 [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-17)를 참조하십시오.
+For more information about KIP-17, see [Klaytn Improvement Proposals](https://kips.klaytn.foundation/KIPs/kip-17).
 
 ## caver.kct.kip17.deploy <a id="caver-klay-kip17-deploy"></a>
 
@@ -109,7 +109,7 @@ caver.kct.kip17.detectInterface(contractAddress)
 
 **리턴값**
 
-`Promise`는 각 [KIP-17 interface](https://kips.klaytn.com/KIPs/kip-7#kip-13-identifiers)가 구현되었는지에 대한 boolean 값을 포함한 `object`를 반환합니다.
+`Promise` returns an `object` containing the result with boolean values whether each [KIP-17 interface](https://kips.klaytn.foundation/KIPs/kip-17#kip-13-identifiers) is implemented.
 
 **예시**
 
@@ -230,7 +230,7 @@ kip17.detectInterface
 
 **리턴값**
 
-`Promise`는 각 [KIP-17 interface](https://kips.klaytn.com/KIPs/kip-7#kip-13-identifiers)가 구현되었는지에 대한 boolean 값을 포함한 `object`를 반환합니다.
+`Promise` returns an `object` containing the result with boolean values whether each [KIP-17 interface](https://kips.klaytn.foundation/KIPs/kip-17#kip-13-identifiers) is implemented.
 
 **예시**
 
@@ -879,7 +879,7 @@ kip17.safeTransferFrom(from, to, tokenId [, data] [, sendParam])
 ```
 더 안전한 방법으로 주어진 토큰 ID `tokenId`를 가진 토큰을 토큰 소유자 잔액에서 다른 계정으로 전송합니다. The address that was authorized to send the token owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. 따라서 토큰을 보내도록 허락받은 계정 또는 토큰 소유자가 이 트랜잭션 발신자이어야 하며, 허락받은 계정의 주소는 반드시 `sendParam.from` 또는 `kip7Instance.options.from`에 주어져야 합니다. Unless both `sendParam.from` and `kip17Instance.options.from` are provided, an error would occur.
 
-`to`이 컨트랙트 주소라면, 이 컨트랙트는 반드시 [IKIP17Receiver.onKIP17Received](https://kips.klaytn.com/KIPs/kip-17#wallet-interface)를 구현했어야 합니다. 그렇지 않으면, 전송은 거부됩니다.
+If the `to` is a contract address, it must implement [IKIP17Receiver.onKIP17Received](https://kips.klaytn.foundation/KIPs/kip-17#wallet-interface). 그렇지 않으면, 전송은 거부됩니다.
 
 트랜잭션 전송은 트랜잭션 발신자에게 트랜잭션 수수료를 부과함을 유의하십시오.
 
