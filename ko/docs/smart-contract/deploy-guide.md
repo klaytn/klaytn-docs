@@ -4,7 +4,7 @@
 
 ## Klaytn IDE <a id="klaytn-ide"></a>
 
-인터넷 브라우저를 열고 <0>https://ide.klaytn.com</0>으로 이동하세요.
+Open your internet browser and go to https://ide.klaytn.foundation
 
 
 - 새 파일을 추가하세요.
