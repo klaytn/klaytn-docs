@@ -114,7 +114,7 @@ export default BlockNumber
 첫 번째 단계는 Count 컨트랙트를 Klaytn에 배포하고 컨트랙트 주소를 가져오는 것입니다. 대부분의 경우 Klaytn에서 이더리움 컨트랙트를 수정 없이 사용할 수 있습니다. 자세한 내용은 [이더리움 컨트랙트 포팅](../../smart-contract/porting-ethereum-contract.md)을 참고하세요. 이 가이드에서는 트러플을 사용하여 컨트랙트를 배포하겠습니다.
 
 1. `truffle-config.js`의 네트워크 속성을 변경하여 Klaytn에 컨트랙트를 배포합니다.
-2. [KLAY faucet](https://baobab.wallet.klaytn.com/access?next=faucet)을 사용하여 계정에 KLAY를 충전하세요.
+2. Top up your account using [KLAY faucet](https://baobab.wallet.klaytn.foundation/access?next=faucet).
 3. `$ truffle deploy --network baobab --reset`를 입력하세요.
 4. `Count` 컨트랙트는 Klaytn의 Baobab 테스트넷에 배포됩니다.
 
