@@ -1651,7 +1651,7 @@ caver.klay.accounts.getRawTransactionWithSignatures(tx [, callback])
 ```javascript
 caver.klay.accounts.encrypt(encryptTarget, password [, options])
 ```
-Klaytn 키스토어 표준으로 계정을 암호화합니다. 더 자세한 내용은 [KIP-3](https://kips.klaytn.com/KIPs/kip-3)를 참조하십시오.
+Klaytn 키스토어 표준으로 계정을 암호화합니다. For more information, please refer to [KIP-3](https://kips.klaytn.foundation/KIPs/kip-3).
 
 **참고** caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터, `caver.klay.accounts.encrypt`는 다양한 AccountKey 타입(AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased)을 지원하기 키스토어 v4 표준을 사용하여 암호화합니다. 키스토어 v3를 사용해 계정을 암호화하려면, [caver.klay.accounts.encryptV3](#encryptv3)를 사용하시기 바랍니다.
 
