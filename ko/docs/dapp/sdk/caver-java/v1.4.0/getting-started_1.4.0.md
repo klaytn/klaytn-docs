@@ -122,7 +122,7 @@ KlayCredentials credentials = KlayWalletUtils.loadCredentials(<password>, <walle
 
 ### Baobab Faucet을 통해 KLAY 받기 <a id="getting-klay-via-baobab-faucet"></a>
 
-계정을 만든 후 [https://baobab.wallet.klaytn.com/](https://baobab.wallet.klaytn.com/)에 있는 Baobab Faucet을 통해 Baobab 테스트넷에 대한 약간의 Baobab 테스트넷 KLAY를 받을 수 있습니다. 수신된 테스트넷 KLAY는 나중에 트랜잭션 수수료로 사용될 것입니다.
+After creating an account, you can receive some Baobab testnet KLAY for the Baobab testnet via Baobab Faucet, available at [https://baobab.wallet.klaytn.foundation/](https://baobab.wallet.klaytn.foundation/). 수신된 테스트넷 KLAY는 나중에 트랜잭션 수수료로 사용될 것입니다.
 
 ### Baobab 연결 <a id="connecting-to-baobab"></a>
 
