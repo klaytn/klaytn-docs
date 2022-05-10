@@ -31,10 +31,10 @@ contract KlaytnGreeter is Mortal {
 
 ## Klaytn IDE를 사용하여 KlaytnGreeter 배포 <a id="deploying-klaytngreeter-using-klaytn-ide"></a>
 
-* [Klaytn IDE 웹사이트](https://ide.klaytn.com)를 방문하고 `KlaytnGreeter` 컨트랙트를 생성합니다. 완전한 소스 코드는 위에서 주어졌습니다.
+* Please visit the [Klaytn IDE website](https://ide.klaytn.foundation) and create a `KlaytnGreeter` contract. 완전한 소스 코드는 위에서 주어졌습니다.
 * 컨트랙트를 배포하는 데 사용할 계정을 준비하세요.
-  * 아직 계정이 없으면, [https://baobab.wallet.klaytn.com/create](https://baobab.wallet.klaytn.com/create)에서 하나를 생성하세요.
-  * Faucet에서 테스트 KLAY를 받으세요 - [https://baobab.wallet.klaytn.com/faucet](https://baobab.wallet.klaytn.com/faucet)
+  * If you do not have an account yet, create one at [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create)
+  * Get some test KLAY from the faucet - [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet)
 * 초기 파라미터에 인사말 메시지를 넣어 컨트랙트를 배포하세요.
 * 배포 후 IDE에서 `greet`를 호출할 수 있습니다.
 
