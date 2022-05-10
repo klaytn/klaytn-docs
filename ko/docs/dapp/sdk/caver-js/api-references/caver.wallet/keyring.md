@@ -1199,7 +1199,7 @@ Account {
 keyring.encrypt(password [, options])
 ```
 
-Encrypts a keyring and returns a keystore v4 standard. 더 자세한 내용은 [KIP-3](https://kips.klaytn.com/KIPs/kip-3)를 참조하십시오.
+Encrypts a keyring and returns a keystore v4 standard. For more information, please refer to [KIP-3](https://kips.klaytn.foundation/KIPs/kip-3).
 
 **Parameters**
 
@@ -1223,7 +1223,7 @@ Encrypts a keyring and returns a keystore v4 standard. 더 자세한 내용은 [
 | 주소      | string | The address in the encrypted [Keyring][]. |
 | Keyring | Array  | The encrypted private key(s).             |
 
-더 자세한 내용은 [KIP-3](https://kips.klaytn.com/KIPs/kip-3)를 참조하십시오.
+For more information, please refer to [KIP-3](https://kips.klaytn.foundation/KIPs/kip-3).
 
 **예시**
 
