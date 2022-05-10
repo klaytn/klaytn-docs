@@ -72,4 +72,4 @@ Liveness Failure를 일으키는 경우:
 
 클레이튼 생태계 내 모두가 KIR 제안을 할 수 있습니다. KIR 지출 제안은 KIR 심사 절차에 따라 처리됩니다. 자세한 정보는 [클레이튼 개선 준비금 거버넌스 프로세스](governance.md#klaytn-improvement-reserve-review-process)를 참고해주세요. 지출 제안서가 통과되면 프로젝트의 진행 수준에 따라 KLAY는 미리 결정된 총액 안에서 주기적으로 배포됩니다. 이 프로세스는 프로젝트 규모에 따라 변경될 수 있지만 매달 처리될 예정입니다.
 
-자세한 사항은 KIR Forum(https://kir.klaytn.com/)을 참고하세요.
+For more information, please visit [Klaytn Improvement Reserve Forum](https://kir.klaytn.foundation/).
