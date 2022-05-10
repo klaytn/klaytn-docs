@@ -2,8 +2,8 @@
 
 KlaytnDocs is available in the following languages:
 
-- [English](https://docs.klaytn.com)
-- [한국어](https://ko.docs.klaytn.com)
+- [English](https://docs.klaytn.foundation)
+- [한국어](https://ko.docs.klaytn.foundation)
 
 
 ## Get involved! <a id="get-involved"></a>
