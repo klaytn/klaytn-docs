@@ -4,13 +4,13 @@ description: KIP-17 표준을 구현한 스마트 컨트랙트와 상호작용�
 
 # caver.klay.KIP17
 
-`caver.klay.KIP17` helps you easily handle a smart contract that implements [KIP-17](https://kips.klaytn.com/KIPs/kip-17) as a JavaScript object on the Klaytn blockchain.
+`caver.klay.KIP17` helps you easily handle a smart contract that implements [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17) as a JavaScript object on the Klaytn blockchain.
 
 The `caver.klay.KIP17` inherits [caver.klay.Contract](caver.klay.Contract.md) to implement the KIP-17 token contract. The `caver.klay.KIP17` holds the same properties of `caver.klay.Contract` whereas there are additional methods to implement extra features. This section only introduces the newly added bound methods of the `caver.klay.KIP17`.
 
 caver-js에서 KIP-17을 구현한 예시는 [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/token/KIP17)에서 확인할 수 있습니다.
 
-KIP-17에 관한 자세한 정보는 [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-17)를 참조하십시오.
+For more information about KIP-17, see [Klaytn Improvement Proposals](https://kips.klaytn.foundation/KIPs/kip-17).
 
 **참고** `caver.klay.KIP17`은 caver-js [v1.4.1](https://www.npmjs.com/package/caver-js/v/1.4.1)부터 지원됩니다.
 
@@ -758,7 +758,7 @@ kip17Instance.safeTransferFrom(from, to, tokenId [, data] [, sendParam])
 
 더 안전한 방법으로 주어진 토큰 ID `tokenId`를 가진 토큰을 토큰 소유자 잔액에서 다른 계정으로 전송합니다. The address who was approved to send the token owner's token \(the operator\) or the token owner itself is expected to execute this token transferring transaction. 따라서 토큰을 보내도록 허락받은 계정 또는 토큰 소유자가 이 트랜잭션 발신자이어야 하며, 허락받은 계정의 주소는 반드시 `sendParam.from` 또는 `kip7Instance.options.from`에 주어져야 합니다. `sendParam.from` 또는 `kip7Instance.options.from`가 주어지지 않는다면 에러가 발생합니다.
 
-`to`이 컨트랙트 주소라면, 이 컨트랙트는 반드시 [IKIP17Receiver.onKIP17Received](https://kips.klaytn.com/KIPs/kip-17#wallet-interface)를 구현했어야 합니다. 그렇지 않으면, 전송은 거부됩니다.
+If the `to` is a contract address, it must implement [IKIP17Receiver.onKIP17Received](https://kips.klaytn.foundation/KIPs/kip-17#wallet-interface). 그렇지 않으면, 전송은 거부됩니다.
 
 트랜잭션 전송은 트랜잭션 발신자에게 트랜잭션 수수료를 부과함을 유의하십시오.
 
