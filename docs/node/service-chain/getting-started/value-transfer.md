@@ -42,9 +42,9 @@ True
 ```
 Check if the operator accounts have enough balance.
 ```
-> klay.getBalance(subbridge.childOperator)
+> subbridge.childOperatorBalance
 1e+21
-> klay.getBalance(subbridge.parentOperator)
+> subbridge.parentOperatorBalance
 1e+18
 ```
 
