@@ -72,4 +72,4 @@ As technology continues to improve and the needs of users change over time, our 
 
 KIR proposals can be created by any participant in Klaytn’s ecosystem. KIR spending proposals will be processed per KIR Governance Process. Refer to the [Klaytn Improvement Reserve Review Process](governance.md#klaytn-improvement-reserve-review-process) section for more information on the procedure. Once a spending proposal has passed, KLAY will be distributed periodically, from a predetermined total amount, based on the project’s level of progress. This process may change based on the project size but is planned to be processed monthly.
 
-For more information, please visit [Klaytn Improvement Reserve Forum](https://kir.klaytn.com/).
+For more information, please visit [Klaytn Improvement Reserve Forum](https://kir.klaytn.foundation/).
