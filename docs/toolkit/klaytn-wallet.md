@@ -7,7 +7,7 @@ Klaytn Wallet is a browser-based account management tool for dApp (decentralized
 > **Please note:** Klaytn Wallet is should be used for development and testing purposes only. Do NOT use Klaytn Wallet for commercial or personal use, including storage or transfer of KLAY or Klaytn tokens. Klaytn Wallet has NOT been tested for commercial-level security and may be vulnerable to malicious attacks. Klaytn Wallet stores user's private key in the browser's local storage, which may be susceptible to attacks that exploit the browser's security vulnerabilities.
 
 * Klaytn Wallet for the Cypress mainnet: [https://wallet.klaytn.com](https://wallet.klaytn.com)
-* Klaytn Wallet for the Baobab testnet: [https://baobab.wallet.klaytn.com](https://baobab.wallet.klaytn.com)
+* Klaytn Wallet for the Baobab testnet: [https://baobab.wallet.klaytn.foundation](https://baobab.wallet.klaytn.foundation)
 
 ![](img/00-main.png)
 
@@ -171,7 +171,7 @@ Your transaction request is completed. You can check the status of the transacti
 
 ## How to Receive Baobab testnet KLAY <a id="how-to-receive-baobab-testnet-klay"></a>
 
-The testnet KLAY faucet runs on the Baobab network. The faucet can be accessed from the [Baobab Klaytn Wallet](https://baobab.wallet.klaytn.com).
+The testnet KLAY faucet runs on the Baobab network. The faucet can be accessed from the [Baobab Klaytn Wallet](https://baobab.wallet.klaytn.foundation).
 
 To receive testnet KLAY, you should have a valid Klaytn account.
 
@@ -180,7 +180,7 @@ To receive testnet KLAY, you should have a valid Klaytn account.
 
 ### Step 1. Go to the testnet KLAY Faucet <a id="step-1-go-to-the-testnet-klay-faucet"></a>
 
-From the [Baobab Klaytn Wallet](https://baobab.wallet.klaytn.com), `KLAY Faucet` menu on the left bar brings you to the testnet KLAY request page.
+From the [Baobab Klaytn Wallet](https://baobab.wallet.klaytn.foundation), `KLAY Faucet` menu on the left bar brings you to the testnet KLAY request page.
 
 The requested page will show your address and the current testnet KLAY balance of your account.
 

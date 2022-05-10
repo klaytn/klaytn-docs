@@ -49,9 +49,9 @@ You need a local plugin to connect to the Klaytn network using Remix. The proces
 
 ## Connecting Klaytn - Remix using EN (Endpoint Node) <a id="connecting-klaytn-remix-using-en"></a>
 
-* Set up an Endpoint Node in the local environment by following the instructions in [**the EN documents**](https://docs.klaytn.com/getting-started/quick-start/launch-an-en).
+* Set up an Endpoint Node in the local environment by following the instructions in [**the EN documents**](https://docs.klaytn.foundation/getting-started/quick-start/launch-an-en).
 
-* Create an account by following the instructions in [**Account Management**](https://docs.klaytn.com/getting-started/account).
+* Create an account by following the instructions in [**Account Management**](https://docs.klaytn.foundation/getting-started/account).
 
   > **Note:** If you use the Public EN from Baobab, instead of from your local environment, you won't be connected to your account because the personal API is disabled. 
 
@@ -66,7 +66,7 @@ You need a local plugin to connect to the Klaytn network using Remix. The proces
 
 ## Connecting Klaytn - Remix using MetaMask <a id="connecting-klaytn-remix-using-metamask"></a>
 
-* Connect Klaytn with MetaMask by referring to the [**Connecting to MetaMask**](https://docs.klaytn.com/dapp/tutorials/connecting-metamask).
+* Connect Klaytn with MetaMask by referring to the [**Connecting to MetaMask**](https://docs.klaytn.foundation/dapp/tutorials/connecting-metamask).
 * Select [Injected Web3] on the Remix Environment menu.
 
 ![Injected Web3](./img/remix-klaytn-environment-injectedWeb3.png)
@@ -76,7 +76,7 @@ You need a local plugin to connect to the Klaytn network using Remix. The proces
 
 ## Tutorial: KlaytnGreeter Contract <a id="tutorial-KlaytnGreeter-contract"></a>
 
-We will be using the [**KlaytnGreeter**](https://docs.klaytn.com/smart-contract/sample-contracts/klaytngreeter) sample contract.
+We will be using the [**KlaytnGreeter**](https://docs.klaytn.foundation/smart-contract/sample-contracts/klaytngreeter) sample contract.
 
 * Add KlaytnGreeter.sol and write the testing code.
 

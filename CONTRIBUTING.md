@@ -13,7 +13,7 @@ Thank you for your interest in contributing to Klaytn Docs. As an open source pr
 7. All PRs should be made against the `master` branch, and following the successful build, the suggested content change could be previewed with GitBook preview feature (clicking `Details` under `Show all checks`).
 8. Once the change has been approved, the PR is merged by the project moderator.
 9. After merging the PR, the pull request will be closed. You can then delete the now obsolete branch.
-10. https://docs.klaytn.com/ will be updated with the suggested changes (merged content).
+10. https://docs.klaytn.foundation/ will be updated with the suggested changes (merged content).
 
 ## Types of Contribution
 There are various ways to contribute and participate. Please read the guidelines below regarding the process of each type of contribution.
