@@ -80,7 +80,6 @@ def get_wallet_balance(chain_id, address):
 get_wallet_balance(klatyn_chain_id, demo_address)
 ```
 
-&nbsp;
 ## Use Cases
 The Covalent API supports a broad range of Web3 data use cases including:
 
@@ -96,7 +95,6 @@ The Covalent API supports a broad range of Web3 data use cases including:
 
 Check out our collection of ready-to-ship [**Code Templates**](https://covalenthq.notion.site/dbf062042f4a463a950f0047b9df9ec1?v=2f7a0d7267034526a641ce7215dd7512/?utm_source=klaytn&utm_medium=partner-docs) that you can use to build your Web3 data-powered dApps.
 
-&nbsp;
 ## Resources
 Here are some additional resources to help you get started with the Covalent API:
 - [Klaytn Network Details](https://www.covalenthq.com/docs/networks/klaytn/?utm_source=klaytn&utm_medium=partner-docs)
@@ -105,7 +103,6 @@ Here are some additional resources to help you get started with the Covalent API
 - [API FAQs](https://www.covalenthq.com/docs/developer/faq/?utm_source=klaytn&utm_medium=partner-docs)
 - [Discord Support](https://www.covalenthq.com/discord/?utm_source=klaytn&utm_medium=partner-docs)
 
-&nbsp;
 ## About Covalent
 Covalent provides the industry-leading Unified API bringing visibility to billions of Web3 data points. Developers use Covalent to build exciting multi-chain applications like crypto wallets, NFT galleries, and investor dashboard tools utilizing data from most major blockchains. Covalent is trusted by a community of 15,000+ developers and powers data for hundreds of applications including 0x, Zerion, Rainbow Wallet, Rotki, Bitski and others.
 
