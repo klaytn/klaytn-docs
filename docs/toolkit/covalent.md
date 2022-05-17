@@ -105,7 +105,3 @@ Here are some additional resources to help you get started with the Covalent API
 - [API FAQs](https://www.covalenthq.com/docs/developer/faq/?utm_source=klaytn&utm_medium=partner-docs)
 - [Discord Support](https://www.covalenthq.com/discord/?utm_source=klaytn&utm_medium=partner-docs)
 
-## About Covalent
-Covalent provides the industry-leading Unified API bringing visibility to billions of Web3 data points. Developers use Covalent to build exciting multi-chain applications like crypto wallets, NFT galleries, and investor dashboard tools utilizing data from most major blockchains. Covalent is trusted by a community of 15,000+ developers and powers data for hundreds of applications including 0x, Zerion, Rainbow Wallet, Rotki, Bitski and others.
-
-[Website](https://www.covalenthq.com/?utm_source=klaytn&utm_medium=partner-docs) | [Discord](https://covalenthq.com/discord/?utm_source=klaytn&utm_medium=partner-docs) | [Telegram](https://t.me/CovalentHQ) | [Twitter](https://twitter.com/covalent_hq) | [YouTube](https://www.youtube.com/channel/UCGn-T9qPiXAx490Wr6WPbOw/?utm_source=klaytn&utm_medium=partner-docs) | [WeChat](https://mp.weixin.qq.com/s?__biz=MzU0MzY5ODMzMg==&mid=2247483899&idx=1&sn=9c1d4df3acc04bc35c429b244307d3c7&chksm=fb063d08cc71b41e2da96b4747513acf2ab9182babe57c135e4a7d1fef9255eb3b310217835c&token=2144505038&lang=zh_CN#rd)
