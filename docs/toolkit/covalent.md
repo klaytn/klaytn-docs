@@ -2,6 +2,8 @@
 
 [Covalent](https://www.covalenthq.com/?utm_source=klaytn&utm_medium=partner-docs) provides a unified API to bring full transparency and visibility to assets across all blockchains including Klaytn Mainnet and Testnet.
 
+Covalent provides the industry-leading Unified API bringing visibility to billions of Web3 data points. Developers use Covalent to build exciting multi-chain applications like crypto wallets, NFT galleries, and investor dashboard tools utilizing data from most major blockchains.
+
 ## Getting Started
 
 To get started, sign up for an [**API Key**](https://www.covalenthq.com/platform/?utm_source=klaytn&utm_medium=partner-docs). 
