@@ -4,7 +4,7 @@
 
 Covalent provides the industry-leading Unified API bringing visibility to billions of Web3 data points. Developers use Covalent to build exciting multi-chain applications like crypto wallets, NFT galleries, and investor dashboard tools utilizing data from most major blockchains.
 
-## Getting Started
+## Generating API Keys
 
 To get started, sign up for an [**API Key**](https://www.covalenthq.com/platform/?utm_source=klaytn&utm_medium=partner-docs). 
 
