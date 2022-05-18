@@ -17,7 +17,7 @@ description: >-
 
 * Klaytnscope is the block explorer for the Klaytn Network. You can browse and inspect your transactions on the browser.
 
-#### Covalent <a id="Covalent"></a>
+#### Covalent API <a id="Covalent"></a>
 
 * Covalent aggregates information from across dozens of sources including nodes, chains, and data feeds. This Covalent RESTful API allows you to pull detailed, granular and historical blockchain transaction data from Klaytn (and other blockchains) with no code. The Covalent API allows you to create entirely new applications or augment existing ones without configuring or maintaining blockchain infrastructure.
 
