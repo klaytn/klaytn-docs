@@ -300,6 +300,8 @@
     * [Kaikas](toolkit/kaikas.md)
     * [Klaytn Wallet](toolkit/klaytn-wallet.md)
     * [Klaytnscope](toolkit/klaytnscope.md)
+    * [트러플(Truffle)](toolkit/truffle.md)
+    * [Covalent API](toolkit/covalent.md)
 * [Klaytn Hard Fork History](klaytn-history/README.md)
 
 ## --- <a id="misc"></a>
