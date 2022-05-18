@@ -17,7 +17,7 @@ description: >-
 
 * Klaytnscope는 클레이튼 네트워크의 블록 탐색기입니다. 브라우저에서 트랜잭션을 탐색하고 검사할 수 있습니다.
 
-#### Covalent<a id="Covalent"></a>
+#### Covalent API <a id="Covalent"></a>
 
 * Covalent는 노드, 체인, 데이터 피드 등 수십 가지 소스에서 정보를 취합합니다. Covalent RESTful API를 이용하여 코드없이 클레이튼(및 다른 블록체인으로부터) 상세하고 자세한 블록체인 트랜잭션 데이터를 가져올 수 있습니다. Covalent API는 블록체인 인프라 설정을 바꾸거나 유지할 필요없이 새로운 애플리케이션을 개발하거나 기존의 것을 확장할 수 있게 해줍니다.
 
