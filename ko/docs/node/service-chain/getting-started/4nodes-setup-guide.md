@@ -1,4 +1,4 @@
-This section covers how to set up a multi-node ServiceChain. We will set up a 4-consensus-node ServiceChain with `chainID` 1002, as you can see in the blue border box in the figure below.
+이 장에서는 멀티노드 서비스 체인을 설치하는 법을 다룹니다. We will set up a 4-consensus-node ServiceChain with `chainID` 1002, as you can see in the blue border box in the figure below.
 
 ![](../images/sc-4scn-arch.png)
 
