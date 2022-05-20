@@ -2,7 +2,7 @@
 
 ## 튜토리얼 대상 <a id="intended-audience"></a>
 
-- dApp developers who need high TPS, minimal transaction fees, or data privacy.
+- 높은 TPS, 낮은 트랜잭션 수수료 그리고 데이터 보호를 원하는 dApp 개발자.
 - 테스트를 위해 로컬 개인 네트워크 또는 원장 데이터베이스를 구축하려는 사람.
 
 ## 서비스체인 개요 <a id="service-chain-overview"></a>
