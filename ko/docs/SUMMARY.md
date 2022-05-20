@@ -139,6 +139,7 @@
     * [How-To 가이드](node/service-chain/howto/README.md)
   * [Errors & Troubleshooting](node/errors-and-troubleshooting.md)
   * [Download](node/download/README.md)
+    * [v1.8.4](node/download/v1.8.4.md)
     * [v1.8.3](node/download/v1.8.3.md)
     * [v1.8.2](node/download/v1.8.2.md)
     * [v1.8.1](node/download/v1.8.1.md)
