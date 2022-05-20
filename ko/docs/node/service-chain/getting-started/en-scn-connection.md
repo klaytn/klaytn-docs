@@ -1,41 +1,41 @@
-This section covers how to connect your 4-node ServiceChain network to the Baobab network. You will set up a Baobab EN and connect the EN with one of your SCNs. Then you will enable the anchoring feature to put ServiceChain block information onto the Baobab network.
+이 장에서는 4개 노드 서비스 체인을 Baobab 네트워크에 연결하는 법을 다룹니다. Baobab EN을 구축하고 여러분의 SCN 중 하나와 연결할 것입니다. 그리고 나서 서비스 체인 블록 정보를 Baobab 네트워크에 저장하는 앵커링 기능을 사용해볼 것입니다.
 
 ![](../images/sc-en-scn-arch.png)
 
 ## 준비 사항 <a id="prerequisites"></a>
- - 1 Linux or MacOS server for EN
- - Minimum hardware requirements for testing
+ - EN용 Linux 또는 MacOS 서버 1대
+ - 테스트를 위한 최소 하드웨어 요구 사항
    - CPU: 4코어(Intel Xeon 또는 동급), RAM: 16GB, HDD: 50GB
-   - Please refer to the [System Requirements](../references/system-requirements.md) for more explanation.
- - Download the Baobab EN executable. For the full list of downloadable binaries, see [Download](../../download/README.md).
+   - 자세한 설명은 [시스템 요구사항](../references/system-requirements.md)을 참조하세요.
+ - Baobab EN 실행파일을 다운로드하세요. 다운로드할 수 있는 바이너리의 전체 목록을 보려면 [Download](../../download/README.md)을 참고하세요.
  - 가정 및 제약
-   - A ServiceChain network is installed and running. Please refer to [Setting up a 4-node Service Chain](4nodes-setup-guide.md) to setup a network.
-   - A Baobab EN.
-   - One EN can only connect to one SCN since only one-to-one connection is supported.
-   - Every SCN does not have to connect to the EN.
+   - 서비스 체인이 설치되어 실행 중입니다. 네트워크를 설치하기 위해서는 [4개 노드 서비스 체인 설치하기](4nodes-setup-guide.md)를 참고해주세요.
+   - Baobab EN.
+   - 오직 1대1 연결만 지원되기 때문에 하나의 EN은 하나의 SCN에 연결될 수 있습니다.
+   - 모든 SCN이 EN에 연결되어야 하는 것은 아닙니다.
 
 ## 0 단계 : Baobab EN 설치하기 <a id="install-baobab-en"></a>
-다운로드한 패키지를 압축 해제해 설치합니다. Extract the archive on the EN server.
+다운로드한 패키지를 압축 해제해 설치합니다. 각 서버에 SCN 아카이브를 추출합니다.
 
 ```bash
 EN-01$ tar xvf ken-baobab-vX.X.X-XXXXX-amd64.tar.gz
 ```
 
 ## 1 단계 : genesis.json 준비하기 <a id="step-1-preparing-genesis-json"></a>
-From the EN server, download the `genesis.json` for `Baobab` network.
+EN 서버에서 아래 명령어로 `Baobab` 네트워크를 위한 `genesis.json`을 다운로드하세요.
 ```
 EN-01$ curl -X GET https://packages.klaytn.net/baobab/genesis.json -o ~/genesis.json
 ```
 
 ## 2 단계 : EN 노드 초기화<a id="step-2-en-node-initialization"></a>
-Now, we will initialize the EN node using the genesis file. Execute the following command. It will create the data folder storing the chain data and logs on your home directory. You can change the data folder using the `--datadir` directive.
+이제 제네시스 파일을 사용해서 각 노드를 초기화해보겠습니다. 아래의 명령어를 실행하세요. 여러분의 홈 디렉토리에 체인 데이터와 로그를 저장하는 데이터 폴더를 생성할 것입니다. `--datadir` 지시문을 이용해 데이터 폴더를 변경할 수 있습니다.
 
 ```
 EN-01$ ken --datadir ~/data init ~/genesis.json
 ```
 
 ## 3 단계 : EN 노드 설정<a id="step-3-configure-the-en-node"></a>
-Go to the ken installation folder and rename `mv kend_baobab.conf kend.conf`, then edit `conf/kend.conf` as follows.
+ken 설치 폴더에서 `mv kend_baobab.conf kend.conf`의 이름을 변경한 뒤 아래와 같이 `conf/kend.conf`를 수정하세요.
 
 ```
 ...
