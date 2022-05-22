@@ -67,7 +67,7 @@
 * Return to the `SENDING KLAY` window and set a fixed gas fee instead of using the market price.
 * Click [Market] and then select [Advanced] in the `Edit gas fee`window.
 * Enter fixed gas fee for Max base fee and Priority Fee.
-   * Baobab gas fee: 750, Cypress gas fee: 750
+   * Baobab gas fee: 250, Cypress gas fee: 250
 * And check `Always use these values and advanced setting as default` to not repeat this process next time.
 
 ![Send KLAY 3](./img/metamask-send-klay-3.png) ![Send KLAY 4](./img/metamask-send-klay-4.png)
