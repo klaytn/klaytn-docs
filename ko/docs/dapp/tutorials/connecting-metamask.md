@@ -67,7 +67,7 @@
 * 다시 KLAY 전송 화면으로 돌아온 뒤, Gas 비용 설정을 시장가격이 아닌 고정가격으로 변경하겠습니다.
 * 시장(Market) 버튼을 클릭하고, 가스 요금 편집(Edit gas fee) 창에서 고급(Advanced) 버튼을 누릅니다.
 * 이후 최대 기본 요금(Max base fee)와 우선 요금(Priority Fee)에 고정 가스 가격을 입력합니다.
-   * Baobab 가스 가격: 750, Cypress 가스 가격: 750
+   * Baobab gas fee: 250, Cypress gas fee: 250
 * 그리고, `항상 이 값과 고급 설정을 기본값으로 사용합니다`(Always use these values and advanced setting as default) 버튼을 체크하고 저장(Save) 버튼을 누릅니다. 이 버튼을 체크하면, 다음 전송부터는 가스 비용 설정과정을 반복하지 않아도 됩니다.
 
 ![Send KLAY 3](./img/metamask-send-klay-3.png) ![Send KLAY 4](./img/metamask-send-klay-4.png)
