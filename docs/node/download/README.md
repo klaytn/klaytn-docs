@@ -3,6 +3,8 @@
 ## Get the Packages <a id="get-the-packages"></a>
 You can get the packages for CN, PN, EN, SCN, SPN and SEN.
 
+* [v1.8.4](v1.8.4.md)
+* [v1.8.3](v1.8.3.md)
 * [v1.8.2](v1.8.2.md)
 * [v1.8.1](v1.8.1.md)
 * [v1.8.0](v1.8.0.md)

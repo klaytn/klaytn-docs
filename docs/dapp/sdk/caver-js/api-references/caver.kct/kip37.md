@@ -6,7 +6,7 @@ The `caver.kct.kip37` inherits [caver.contract](../caver.contract.md) to impleme
 
 The code that implements KIP-37 for caver-js is available on the [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/token/KIP37).
 
-For more information about KIP-37, see [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-37).
+For more information about KIP-37, see [Klaytn Improvement Proposals](https://kips.klaytn.foundation/KIPs/kip-37).
 
 **NOTE** `caver.kct.kip37` is supported since caver-js [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7).
 
@@ -30,7 +30,7 @@ The tokenInfo object must contain the following:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| uri | string | The URI for all token types, by relying on the [token type ID substitution mechanism](http://kips.klaytn.com/KIPs/kip-37#metadata). |
+| uri | string | The URI for all token types, by relying on the [token type ID substitution mechanism](http://kips.klaytn.foundation/KIPs/kip-37#metadata). |
 
 **Return Value**
 
@@ -103,7 +103,7 @@ Returns the information of the interface implemented by the token contract. This
 
 **Return Value**
 
-`Promise` returns an `object` containing the result with boolean values whether each [KIP-37 interface](https://kips.klaytn.com/KIPs/kip-37#kip-13-identifiers) is implemented.
+`Promise` returns an `object` containing the result with boolean values whether each [KIP-37 interface](https://kips.klaytn.foundation/KIPs/kip-37#kip-13-identifiers) is implemented.
 
 **Example**
 
@@ -225,7 +225,7 @@ None
 
 **Return Value**
 
-`Promise` returns an `object` containing the result with boolean values whether each [KIP-37 interface](https://kips.klaytn.com/KIPs/kip-37#kip-13-identifiers) is implemented.
+`Promise` returns an `object` containing the result with boolean values whether each [KIP-37 interface](https://kips.klaytn.foundation/KIPs/kip-37#kip-13-identifiers) is implemented.
 
 **Example**
 
@@ -276,7 +276,7 @@ kip37.uri(id)
 Returns distinct Uniform Resource Identifier (URI) of the given token.
 
 If the string "{id}" exists in any URI, this function will replace this with the actual token ID in hexadecimal form.
-Please refer to [KIP-34 Metadata](http://kips.klaytn.com/KIPs/kip-37#metadata).
+Please refer to [KIP-34 Metadata](http://kips.klaytn.foundation/KIPs/kip-37#metadata).
 
 **Parameters**
 
@@ -685,7 +685,7 @@ Safely transfers the given `amount` tokens of specific token type `id` from `fro
 
 The address that was authorized to send the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an authorized address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
 
-If the recipient was a contract address, it should implement [IKIP37Receiver.onKIP37Received](https://kips.klaytn.com/KIPs/kip-37#kip-37-token-receiver). Otherwise, the transfer is reverted.  
+If the recipient was a contract address, it should implement [IKIP37Receiver.onKIP37Received](https://kips.klaytn.foundation/KIPs/kip-37#kip-37-token-receiver). Otherwise, the transfer is reverted.  
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
 
@@ -778,7 +778,7 @@ Safely batch transfers of multiple token ids and values from `from` to the `reci
 
 The address that was approved to send the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an approved address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
 
-If the recipient was a contract address, it should implement [IKIP37Receiver.onKIP37Received](https://kips.klaytn.com/KIPs/kip-37#kip-37-token-receiver). Otherwise, the transfer is reverted.  
+If the recipient was a contract address, it should implement [IKIP37Receiver.onKIP37Received](https://kips.klaytn.foundation/KIPs/kip-37#kip-37-token-receiver). Otherwise, the transfer is reverted.  
 
 Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
 
