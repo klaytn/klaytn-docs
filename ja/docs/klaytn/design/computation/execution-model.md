@@ -16,7 +16,7 @@ When block generation is complete, the block is propagated to all the other CNs.
 
 Klaytn's Baobab and Cypress networks currently have the following restrictions on the transaction execution:
 
-* A transaction must set its gas price to Klaytn's [unit price](../klaytn-native-coin-klay.md/#units-of-klay), _i.e._, 750 ston.
+* A transaction must set its gas price to Klaytn's [unit price](../klaytn-native-coin-klay.md/#units-of-klay), _i.e._, 250 ston.
 * A transaction which has bigger execution cost than the computation cost limit will be discarded. Please refer to [computation cost](computation-cost/computation-cost.md)
 
 ## Data Structures <a id="data-structures"></a>
