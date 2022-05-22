@@ -23,7 +23,7 @@ description: >-
 ### 저렴한 비용  <a id="low-cost"></a>
 - 사용자는 기존 시스템을 사용할 때에 비해 높은 트랜잭션 수수료를 부담해서는 안 됩니다.
 - 트랜잭션 수수료는 안정적이어야 하고, 주변 요인이 아니라 트랜잭션의 복잡성 자체에 의해 결정되어야 합니다.
-- See [Affordable Smart Contract Execution Cost][] and [Transaction Fees][]. For a gas price of 750 ston, a KLAY transfer would incur a fixed cost of 0.01575 KLAY. (21,000 Gas for KLAY transfer x (750 x 10^-9) == 0.01575 KLAY) ​
+- See [Affordable Smart Contract Execution Cost][] and [Transaction Fees][]. For a gas price of 250 ston, a KLAY transfer would incur a fixed cost of 0.00525 KLAY. (21,000 Gas for KLAY transfer x (250 x 10^-9) == 0.00525 KLAY) ​
 ### 빠른 개발<a id="rapid-development"></a>
 #### 이더리움 동일성<a id="ethereum-compatibility"></a>
 - 개발 도구: 클레이튼 스택을 인터페에스와 실행 관점에서 기존의 이더리움 스택과 동일하게 보장함으로써 이더리움의 어떤 도구든 클레이튼 생태계에서 문제없이 동작할 수 있습니다. 클레이튼 생태계에서 만들어진 모든 도구는 이더리움 생태계에서도 상호적으로 도입될 수 있습니다.
