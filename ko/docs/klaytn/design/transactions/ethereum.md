@@ -186,7 +186,7 @@ NOTE: Currently, this type of transaction only supports the format of the Ethere
 {% endhint %}
 
 {% hint style="success" %}
-NOTE: Since Klaytn has a fixed gas price, `gasTipCap` and `gasFeeCap` should take the gas price for the respective network, which is 750 ston at the time of writing.
+NOTE: Since Klaytn has a fixed gas price, `gasTipCap` and `gasFeeCap` should take the gas price for the respective network, which is 250 ston at the time of writing.
 {% endhint %}
 
 ### 속성 <a id="attributes"></a>
@@ -196,8 +196,8 @@ NOTE: Since Klaytn has a fixed gas price, `gasTipCap` and `gasFeeCap` should tak
 | 형식         | uint8 \(Go\)              | The type of `TxTypeEthereumDynamicFee` that is a concatenation of `EthereumTxTypeEnvelope` and `EthereumTransactionType`. It must be `0x7802`.                                                                                                                                             |
 | chainId    | \*big.Int \(Go\)        | The destination chain ID.                                                                                                                                                                                                                                                                  |
 | 논스         | uint64 \(Go\)             | 발신자의 트랜잭션을 고유하게 식별하기 위해 사용되는 값입니다. 발신자가 동일한 논스를 가진 두 개의 트랜잭션을 생성하면 하나만 실행됩니다.                                                                                                                                                                                                              |
-| gasTipCap  | \*big.Int \(Go\)        | A multiplier to get how much the sender will pay in addition to `baseFee`. Since Klaytn has a fixed gas price, `gasTipCap` and `gasFeeCap` should take the gas price for the respective network, which is 750 ston at the time of writing.                                                 |
-| gasFeeCap  | \*big.Int \(Go\)        | 발신자가 얼마나 가스비를 지급해야하는지 알 수 있도록 곱하는 값입니다. The amount of tokens the sender will pay is calculated via `gas` \* `gasFeeCap`. Since Klaytn has a fixed gas price, `gasTipCap` and `gasFeeCap` should take the gas price for the respective network, which is 750 ston at the time of writing. |
+| gasTipCap  | \*big.Int \(Go\)        | A multiplier to get how much the sender will pay in addition to `baseFee`. Since Klaytn has a fixed gas price, `gasTipCap` and `gasFeeCap` should take the gas price for the respective network, which is 250 ston at the time of writing.                                                 |
+| gasFeeCap  | \*big.Int \(Go\)        | 발신자가 얼마나 가스비를 지급해야하는지 알 수 있도록 곱하는 값입니다. The amount of tokens the sender will pay is calculated via `gas` \* `gasFeeCap`. Since Klaytn has a fixed gas price, `gasTipCap` and `gasFeeCap` should take the gas price for the respective network, which is 250 ston at the time of writing. |
 | gas        | uint64 \(Go\)             | 트랜잭션에서 사용하도록 허락된 최대 트랜잭션 수수료입니다.                                                                                                                                                                                                                                                           |
 | to         | \*common.Address \(Go\) | 전송되는 KLAY를 받을 계정 주소입니다.                                                                                                                                                                                                                                                                    |
 | value      | \*big.Int \(Go\)        | 명시된 양의 KLAY(단위: peb)가 전송됩니다.                                                                                                                                                                                                                                                               |
