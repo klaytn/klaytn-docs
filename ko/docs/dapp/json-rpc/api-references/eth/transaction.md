@@ -601,8 +601,8 @@ Constructs a transaction with given parameters, signs the transaction with a sen
 | from                 | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                             |
 | to                   | 20바이트 크기 DATA | (not required when creating a new contract) The address to which the transaction is directed.                                                                                |
 | gas                  | QUANTITY      | (optional) The integer of the gas provided for the transaction's execution. It will return unused gas.                                                                       |
-| maxFeePerGas         | QUANTITY      | (optional, default: 750 ston) The maximum amount to pay for the transaction's execution. Since Klaytn uses a fixed gas price, it must be set to 750 ston (Gpeb in Ethereum). |
-| maxPriorityFeePerGas | QUANTITY      | (optional, default: 750 ston) Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 750 ston (Gpeb in Ethereum).            |
+| maxFeePerGas         | QUANTITY      | (optional, default: 250 ston) The maximum amount to pay for the transaction's execution. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum). |
+| maxPriorityFeePerGas | QUANTITY      | (optional, default: 250 ston) Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).            |
 | 데이터                  | DATA          | (optional) The hash of the method signature and the encoded parameter.                                                                                                       |
 | value                | QUANTITY      | (optional) The integer of values sent with this transaction.                                                                                                                 |
 | 논스                   | QUANTITY      | (optional) The integer of a nonce.                                                                                                                                           |
@@ -650,8 +650,8 @@ Signs a transaction that can be submitted to the network at a later time using w
 | from                 | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                               |
 | to                   | 20바이트 크기 DATA | (not required when creating a new contract) The address to which the transaction is directed.                                                  |
 | gas                  | QUANTITY      | The integer of the gas provided for the transaction's execution. It will return unused gas.                                                    |
-| maxFeePerGas         | QUANTITY      | The maximum amount to pay for the transaction's execution. Since Klaytn uses a fixed gas price, it must be set to 750 ston (Gpeb in Ethereum). |
-| maxPriorityFeePerGas | QUANTITY      | Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 750 ston (Gpeb in Ethereum).            |
+| maxFeePerGas         | QUANTITY      | The maximum amount to pay for the transaction's execution. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum). |
+| maxPriorityFeePerGas | QUANTITY      | Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).            |
 | 데이터                  | DATA          | (optional) The hash of the method signature and the encoded parameter.                                                                         |
 | value                | QUANTITY      | (optional) The integer of values sent with this transaction.                                                                                   |
 | 논스                   | QUANTITY      | The integer of a nonce.                                                                                                                        |
