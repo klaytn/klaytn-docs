@@ -56,6 +56,12 @@ These public endpoints are provided to the community by third party services and
 
 - `wss://klaytn05.fandom.finance/ws/`
 
+##### Archive Node Access Points
+
+- `https://cypress.fandom.finance/archive`
+
+- `wss://cypress.fandom.finance/archive/ws`
+
 
 ### Testnet (Baobab) Public JSON-RPC Endpoints
 
@@ -79,6 +85,25 @@ These public endpoints are provided to the community by third party services and
 
 - `wss://api.baobab.klaytn.net:8652`
 
+#### Service Provider: Fantrie
+
+**HTTPS**
+
+- `https://baobab01.fandom.finance`
+
+- `https://baobab02.fandom.finance`
+
+**WebSocket**
+
+- `wss://baobab01.fandom.finance/ws`
+
+- `wss://baobab02.fandom.finance/ws`
+
+##### Archive Node Access Points
+
+- `https://baobab.fandom.finance/archive`
+
+- `wss://baobab.fandom.finance/archive/ws`
 
 ## Useful Resources
 
