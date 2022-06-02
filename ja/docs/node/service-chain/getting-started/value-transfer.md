@@ -81,33 +81,18 @@ On a text editor, edit the `bridge_info.json` as below.
  }
 ```
 
-- Add `subbridge` to `RPC_API` of `kscnd.conf`. This setting is required for sending an RPC call from the deployment script.
-```
-RPC_API="klay,subbridge"
-```
-
-Perform the token deployment by running the command `node erc20-deploy.js`. This script deploys both the bridge contract and the token contract, and it sends RPC calls to register and subscribe the token contract to the bridge contract.
+Perform the token deployment by running the command `node erc20-deploy.js`. This script deploys both the bridge contract and the token contract, and it outputs API usage to initialize bridge pair.
 ```
 $ node erc20-deploy.js
 ------------------------- erc20-deploy START -------------------------
-info.bridge: 0xcb9e197cc328c39376C5aB7Dc5d3C684D5F9d2f3
-info.token: 0xd88d18D05629d58432FB192adE5c56279a2E5a2B
-info.bridge: 0x1Da965D374Dc8065781394B01F669a190fB981C2
-info.token: 0x09Ced338326DF53cea7e595C803c662eC020a0A5
-registering bridges to the child node
-subscribing bridges to the child node
-register token to subbridge..
+> info.bridge: 0xEa024d8101E112330f2d7B1a7e7932034E206721
+> info.token: 0xbE641028610F628835C36F12bE62d54d74308D70
+> info.bridge: 0xA5af6Ffe13b367626B5AdF827DdE7438E3Db4463
+> info.token: 0x52F8Fa79Fa6D37b18b7AC8f9Ca835373f3C9270f
+> subbridge.registerBridge("0xEa024d8101E112330f2d7B1a7e7932034E206721", "0xA5af6Ffe13b367626B5AdF827DdE7438E3Db4463")
+> subbridge.subscribeBridge("0xEa024d8101E112330f2d7B1a7e7932034E206721", "0xA5af6Ffe13b367626B5AdF827DdE7438E3Db4463")
+> subbridge.registerToken("0xEa024d8101E112330f2d7B1a7e7932034E206721", "0xA5af6Ffe13b367626B5AdF827DdE7438E3Db4463", "0xbE641028610F628835C36F12bE62d54d74308D70", "0x52F8Fa79Fa6D37b18b7AC8f9Ca835373f3C9270f")
 ------------------------- erc20-deploy END -------------------------
-```
-
-You can see the required initialization APIs in the deployment source code. If you want to register them manually, you can type the API calls in your attached console. NOTE: DO NOT run these commands if you ran `node erc20-deploy.js` since the script already called those APIs (It causes a duplicate error).
-```
-> subbridge.registerBridge("0xCHILD_BRIDGE_ADDR", "0xPARENT_BRIDGE_ADDR")
-null
-> subbridge.subscribeBridge("0xCHILD_BRIDGE_ADDR", "0xPARENT_BRIDGE_ADDR")
-null
-> subbridge.registerToken("0xCHILD_BRIDGE_ADDR", "0xPARENT_BRIDGE_ADDR", "0xCHILD_TOKEN_ADDR", "0XPARENT_TOKEN_ADDR")
-null
 ```
 
 ### Step 3: Token transfer <a id="step-3-token-transfer"></a>
@@ -135,17 +120,17 @@ $ node erc20-transfer-2step.js
 ```
 
 ## KIP-7 Token Transfer via ERC-20 Interface (two-step) <a id="kip-7-token-transfer-via-erc-20-interface-two-step"></a>
-[KIP-7](https://kips.klaytn.foundation/KIPs/kip-7) is a token standard compatible with ERC-20. We can call `requestERC20Transfer()` function to a KIP-7 token contract to transfer KIP-7 tokens between a parent chain and a child chain. In the case of sending KIP-7 tokens via the ERC-20 interface, we call the `approve()` function to allow the bridge to send the tokens on behalf of the transaction sender. Then call the `requestERC20Transfer()` function. The below command deploys the bridge contract and a KIP-7 contract. Then it registers and subscribes the bridge contract.
+[KIP-7](https://kips.klaytn.foundation/KIPs/kip-7) is a token standard compatible with ERC-20. We can call `requestERC20Transfer()` function to a KIP-7 token contract to transfer KIP-7 tokens between a parent chain and a child chain. In the case of sending KIP-7 tokens via the ERC-20 interface, we call the `approve()` function to allow the bridge to send the tokens on behalf of the transaction sender. Then call the `requestERC20Transfer()` function. The below command deploys the bridge contract and a KIP-7 contract.
 ```
 $ node kip7-deploy.js
 > ------------------------- kip7-deploy START -------------------------
-> info.bridge: 0x1362aBc251a8FC14C40Cb59Cb112B0FC74Baa9B4
-> info.token: 0x30F194D1f25BC9b6773e59e9214b018dCc99add5
-> info.bridge: 0x49523a060E172d3591867A6c3d15c9DA770fAF7E
-> info.token: 0x73B8BF60573B2D0093312fdB79Ed6Cb1c05C62Bc
-> registering bridges to the child node
-> subscribing bridges to the child node
-> register token to subbridge..
+> info.bridge: 0x04e929Cd2A08acd28a210369407D8Ca237Edd8FE
+> info.token: 0xE0E2fC6C7d1eB069153E0c12a4C87B01586b39e7
+> info.bridge: 0xEb502159A4B4E876B1cb423f250DCC0d276e01b6
+> info.token: 0xd4f02Ca1d49674056A9ec78fbBDc9e1e97726A4F
+> subbridge.registerBridge("0x04e929Cd2A08acd28a210369407D8Ca237Edd8FE", "0xEb502159A4B4E876B1cb423f250DCC0d276e01b6")
+> subbridge.subscribeBridge("0x04e929Cd2A08acd28a210369407D8Ca237Edd8FE", "0xEb502159A4B4E876B1cb423f250DCC0d276e01b6")
+> subbridge.registerToken("0x04e929Cd2A08acd28a210369407D8Ca237Edd8FE", "0xEb502159A4B4E876B1cb423f250DCC0d276e01b6", "0xE0E2fC6C7d1eB069153E0c12a4C87B01586b39e7", "0xd4f02Ca1d49674056A9ec78fbBDc9e1e97726A4F")
 ------------------------- kip7-deploy END -------------------------
 ```
 The below command is an example of sending KIP-7 tokens using the ERC-20 interface with `requestERC20Transfer()`.
