@@ -1,4 +1,4 @@
-If only one bridge is used in the ServiceChain, that bridge can become a single point of failure. To solve this, we describe how you can build an HA system with two or more bridges. As shown in the figure below, configure the bridges to be connected in at least two pairs, so that even if there is a problem in one bridge connection, data anchoring and value transfer between chains can still work normally through the other bridge.
+ServiceChain에서 하나의 브리지만 사용하는 경우, 해당 브리지가 단일 실패 지점이 될 수 있습니다. ServiceChain에서 하나의 브릿지만 사용하는 경우 해당 브릿지가 단일 실패 지점이 될 수 있습니다. As shown in the figure below, configure the bridges to be connected in at least two pairs, so that even if there is a problem in one bridge connection, data anchoring and value transfer between chains can still work normally through the other bridge.
 
 ![](../images/sc-ha-arch.png)
 
