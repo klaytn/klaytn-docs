@@ -21,7 +21,7 @@ EN과 SCN을 설정한 후 체인 간 밸류 트랜스퍼를 활성화하려면 
 ![그림 1. 서비스체인 구조](../images/sc_arch.png)
 
 # 브리지 오퍼레이터 계정<a id="bridge-operator-account"></a>
-서비스체인에는 두 개의 오퍼레이터 계정이 있습니다 : 부모 체인 브리지 오퍼레이터 계정, 자식 체인 브리지 오퍼레이터 계정. 각 오퍼레이터 계정은 트랜잭션 서명에 사용됩니다. 만일 트랜잭션이 부모체인으로 가치를 전송하면 부모 체인 브리지 오퍼레이터 계정이 트랜잭션에 서명합니다. 자식 체인으로 자치를 전송할때는 자식 체인 브리지 오퍼레이터 계정이 사용됩니다. 사용자가 "request value transfer" 트랜잭션을 제출하면 서브 브리지는 브리지 오퍼레이터 계정이 서명한 "handle value transfer" 트랜잭션을 생성합니다. 따라서 부모 체인 브리지 운영자는 트랜잭션 수수료를 부모 체인에 지불할 수 있는 충분한 KLAY 잔액이 필요합니다. 서비스체인의 가스 가격이 0이 아닌 값으로 설정되어 있다면 서비스체인 브리지 오퍼레이터도 KLAY 잔액을 보유해야 합니다.
+For ServiceChain, there are two operator accounts: parent chain bridge operator account, service chain bridge operator account. 각 오퍼레이터 계정은 트랜잭션 서명에 사용됩니다. 만일 트랜잭션이 부모체인으로 가치를 전송하면 부모 체인 브리지 오퍼레이터 계정이 트랜잭션에 서명합니다. 자식 체인으로 자치를 전송할때는 자식 체인 브리지 오퍼레이터 계정이 사용됩니다. 사용자가 "request value transfer" 트랜잭션을 제출하면 서브 브리지는 브리지 오퍼레이터 계정이 서명한 "handle value transfer" 트랜잭션을 생성합니다. 따라서 부모 체인 브리지 운영자는 트랜잭션 수수료를 부모 체인에 지불할 수 있는 충분한 KLAY 잔액이 필요합니다. 서비스체인의 가스 가격이 0이 아닌 값으로 설정되어 있다면 서비스체인 브리지 오퍼레이터도 KLAY 잔액을 보유해야 합니다.
 
 ## 키스토어와 패스워드 파일<a id="keystore-and-password-file"></a>
 SCN이 부팅될 때 제공된 키가 없으면 부모/자식 오퍼레이터를 위한 키스토어 파일 및 패스워드 파일이 자동으로 생성됩니다. 특정 계정을 오퍼레이터로 사용하려면 해당 계정의 키를 제공하면 됩니다. SCN을 부팅하기 전에 아래 파일들을 지정된 경로에 넣으세요. 패스워드 파일에는 키스토어 파일의 비밀번호 문자열이 있어야 합니다. 패스워드 파일 이름은 해당 키스토어 파일의 계정 주소여야 합니다.
@@ -39,13 +39,13 @@ SCN이 부팅될 때 제공된 키가 없으면 부모/자식 오퍼레이터를
 /$dataDIR/child_bridge_account
 
 > ls
-0x2eD72a9D7fe5da7672fD21567e07302431649B0B                                    
+0x2eD72a9D7fe5da7672fD21567e07302431649B0B
 UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b
 
-> cat 0x2eD72a9D7fe5da7672fD21567e07302431649B0B 
-%S~f5qqM38cB47jL% 
+> cat 0x2eD72a9D7fe5da7672fD21567e07302431649B0B
+%S~f5qqM38cB47jL%
 
-> cat UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b 
+> cat UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b
 {"address":"2ed72a9d7fe5da7672fd21567e07302431649b0b","crypto":{"cipher":"aes-128-ctr","ciphertext":"6486509e8158bf4984608cbc5562cf2c9a27cd988a98e543731b39251144e633","cipherparams":{"iv":"96d7e5b6a936278c0797faae6cb3d903"},"kdf":"scrypt","kdfparams":{"dklen":32,"n":262144,"p":1,"r":8,"salt":"8928ba41b8228af19390ec881c51452fa3ea973ad2c253ca0f5bc9197a8b24c4"},"mac":"9c8ec63694c20a473e0ea33840e7d16e9f1a20afc52b3244b703a3ac0a66cfa3"},"id":"9ae10527-7fd3-4aae-a4eb-316af211494e","version":3}
 ```
 ## 브리지 오퍼레이터 주소 확인 <a id="check-bridge-operator-addresses"></a>
@@ -158,10 +158,10 @@ null
 "handleNonce"가 상대 브리지 컨트랙트의 "requestNonce"와 같고 "lowerHandleNonce"가  "handleNonce"보다 1만큼 크면 사용자 요청이 모두 처리 된 것입니다.
 
 ### 로그 <a id="log"></a>
-아래는 SCN이 정상 작동할 경우의 일반적인 로그 출력입니다. 1초마다 브리지 컨트랙트의 상태가 출력됩니다.
+Below is a typical log output from a SCN during normal operation. 1초마다 브리지 컨트랙트의 상태가 출력됩니다.
 ```
 INFO[10/16,19:37:40 +09] [45] VT : Parent -> Child Chain                request=8699 handle=4826 lowerHandle=4826 pending=3873
-INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=7894 handle=4207 lowerHandle=4207 pending=3687  
+INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=7894 handle=4207 lowerHandle=4207 pending=3687
 ```
 이 로그는 request, handle, lowerHandle 그리고 pending 논스를 보여줍니다. 각각의 값의 의미는 아래와 같습니다.
 
@@ -258,13 +258,21 @@ function requestERC721Transfer(address _tokenAddress, address _to, uint256 _toke
 function requestValueTransfer(uint256 _uid, address _to) external
 ```
 
-# KLAY/ERC-20 전송 수수료 징수 <a id="collecting-fee-for-klay-erc-20-transfer"></a>
-서비스체인에는 KLAY/ERC-20 전송 수수료를 징수하는 기능이 있습니다.
+# Value Transfer Recovery
+Value transfer request may be fail for a number of reasons. Say you requested KLAY transfer from subbridge to mainbridge or from mainbridge to subbridge. In that case, the bridge contract on the receiver side must have enough KLAY than the requested amount of KLAY. If not, the transfer would fail without error notification in the return value. A feature of value transfer recovery finds unhandled events and insert them into event pool again in a given interval, which means the failed transaction can be succeed again when the counterpart bridge can successfully handle that event. In case of the above example, the failed transaction would be eventually handled by value transfer recovery when the counterpart bridge has enough KLAY. In order to set the value transfer recovery as default, you need to set two properties:
+```
+SC_VTRECOVERY=1
+SC_VTRECOVERY_INTERVAL=5
+```
+The value transfer recovery runs automatically by set `SC_VTRECOVERY=1`. `SC_VTRECOVERY_INTERVAL` means an interval how often the value transfer recovery is executed.
 
-**추후 업데이트 될 예정입니다.**
+# Collecting Fee for KLAY/ERC-20 transfer <a id="collecting-fee-for-klay-erc-20-transfer"></a>
+In ServiceChain, there is a fee collecting feature for KLAY/ERC-20 transfers.
 
-# 사용자 정의 브리지 컨트랙트<a id="customizing-your-bridge-contract"></a>
-고유한 서비스를 구현하고 싶다면 기본 브리지 컨트랙트를 상속한 새로운 브리지 컨트랙트를 정의하여 서비스체인에서 사용할 수 있습니다. 이 장에서는 브리지 컨트랙트를 사용자 정의하는 방법을 설명하고 예제 코드를 제공합니다.
+**To be updated soon.**
 
-**추후 업데이트 될 예정입니다.**
-  
+# Customizing your Bridge Contract  <a id="customizing-your-bridge-contract"></a>
+In ServiceChain, you can use your own customized Bridge contract that inherits from the original Bridge contract for your own unique service. This section explains how to customize the Bridge contract and presents the example code.
+
+**It will be updated soon.**
+
