@@ -21,7 +21,7 @@ Below contracts communicate with each other via main/sub-bridge to process user'
 ![Figure 1. Service chain architecture](../images/sc_arch.png)
 
 # Bridge Operator Account <a id="bridge-operator-account"></a>
-For Service Chain, there are two operator accounts: parent chain bridge operator account, service chain bridge operator account. Each operator account is used to sign transactions. If the transaction moves the value to the parent chain, the parent chain bridge operator account signs the transaction. To the child chain, the child chain bridge operator account is used. If a user submits a "request value transfer" transaction, the Sub-bridge creates a "handle value transfer" transaction signed by the bridge operator account. Therefore, the parent chain bridge operator needs enough KLAY in their balance to pay the transaction fee to the parent chain. If the service chain's gas price is set to non-zero, the service chain bridge operator should have KLAY in their balance as well.
+For ServiceChain, there are two operator accounts: parent chain bridge operator account, service chain bridge operator account. Each operator account is used to sign transactions. If the transaction moves the value to the parent chain, the parent chain bridge operator account signs the transaction. To the child chain, the child chain bridge operator account is used. If a user submits a "request value transfer" transaction, the Sub-bridge creates a "handle value transfer" transaction signed by the bridge operator account. Therefore, the parent chain bridge operator needs enough KLAY in their balance to pay the transaction fee to the parent chain. If the service chain's gas price is set to non-zero, the service chain bridge operator should have KLAY in their balance as well.
 
 ## Keystore and Password file <a id="keystore-and-password-file"></a>
 When SCN is booted, the keystore files and password files for the parent/child operators are automatically generated if their keys don't exist. If you want to use a specific account as an operator, you can provide the key. Place the below files in the designated path before booting the SCN. The password file should have a password string of the keystore file. The password file name should be the account address of the corresponding keystore file.
@@ -39,13 +39,13 @@ When SCN is booted, the keystore files and password files for the parent/child o
 /$dataDIR/child_bridge_account
 
 > ls
-0x2eD72a9D7fe5da7672fD21567e07302431649B0B                                    
+0x2eD72a9D7fe5da7672fD21567e07302431649B0B
 UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b
 
-> cat 0x2eD72a9D7fe5da7672fD21567e07302431649B0B 
-%S~f5qqM38cB47jL% 
+> cat 0x2eD72a9D7fe5da7672fD21567e07302431649B0B
+%S~f5qqM38cB47jL%
 
-> cat UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b 
+> cat UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b
 {"address":"2ed72a9d7fe5da7672fd21567e07302431649b0b","crypto":{"cipher":"aes-128-ctr","ciphertext":"6486509e8158bf4984608cbc5562cf2c9a27cd988a98e543731b39251144e633","cipherparams":{"iv":"96d7e5b6a936278c0797faae6cb3d903"},"kdf":"scrypt","kdfparams":{"dklen":32,"n":262144,"p":1,"r":8,"salt":"8928ba41b8228af19390ec881c51452fa3ea973ad2c253ca0f5bc9197a8b24c4"},"mac":"9c8ec63694c20a473e0ea33840e7d16e9f1a20afc52b3244b703a3ac0a66cfa3"},"id":"9ae10527-7fd3-4aae-a4eb-316af211494e","version":3}
 ```
 ## Check Bridge Operator Addresses <a id="check-bridge-operator-addresses"></a>
@@ -158,10 +158,10 @@ Therefore, if nonces are updated as follows, we can say the cross-chain value-tr
 If "handleNonce" equals to the "requestNonce" of the counterpart bridge contract, and the "lowerHandleNonce" is greater than "handleNonce" by 1, then users' requests were all processed.
 
 ### Log <a id="log"></a>
-Below is a typical log output from SCN during normal operation. Every 1 second, the status of bridge contracts are printed.
+Below is a typical log output from a SCN during normal operation. Every 1 second, the status of bridge contracts are printed.
 ```
 INFO[10/16,19:37:40 +09] [45] VT : Parent -> Child Chain                request=8699 handle=4826 lowerHandle=4826 pending=3873
-INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=7894 handle=4207 lowerHandle=4207 pending=3687  
+INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=7894 handle=4207 lowerHandle=4207 pending=3687
 ```
 This log shows the request, handle, lowerHandle, and pending nonces. Each value means like below
 
@@ -258,13 +258,21 @@ Users can make a "request value transfer" transaction directly to the **ERC-721 
 function requestValueTransfer(uint256 _uid, address _to) external
 ```
 
-# Collecting Fee for KLAY/ERC-20 transfer <a id="collecting-fee-for-klay-erc-20-transfer"></a>
-In Service Chain, there is a fee collecting feature for the KLAY/ERC-20 transfer.
+# Value Transfer Recovery
+Value transfer request may be fail for a number of reasons. Say you requested KLAY transfer from subbridge to mainbridge or from mainbridge to subbridge. In that case, the bridge contract on the receiver side must have enough KLAY than the requested amount of KLAY. If not, the transfer would fail without error notification in the return value. A feature of value transfer recovery finds unhandled events and insert them into event pool again in a given interval, which means the failed transaction can be succeed again when the counterpart bridge can successfully handle that event. In case of the above example, the failed transaction would be eventually handled by value transfer recovery when the counterpart bridge has enough KLAY. In order to set the value transfer recovery as default, you need to set two properties:
+```
+SC_VTRECOVERY=1
+SC_VTRECOVERY_INTERVAL=5
+```
+The value transfer recovery runs automatically by set `SC_VTRECOVERY=1`. `SC_VTRECOVERY_INTERVAL` means an interval how often the value transfer recovery is executed.
 
-**It will be updated soon.**
+# Collecting Fee for KLAY/ERC-20 transfer <a id="collecting-fee-for-klay-erc-20-transfer"></a>
+In ServiceChain, there is a fee collecting feature for KLAY/ERC-20 transfers.
+
+**To be updated soon.**
 
 # Customizing your Bridge Contract  <a id="customizing-your-bridge-contract"></a>
-In Service Chain, you can use your own customized Bridge contract that inherits from the original Bridge contract for your own unique service. This section explains how to customize the Bridge contract and presents the example code.
+In ServiceChain, you can use your own customized Bridge contract that inherits from the original Bridge contract for your own unique service. This section explains how to customize the Bridge contract and presents the example code.
 
 **It will be updated soon.**
-  
+
