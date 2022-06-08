@@ -1,4 +1,4 @@
-이 장에서는 멀티노드 서비스 체인을 설치하는 법을 다룹니다. 아래 이미지와 같은 `chainID`가 1002인 4개의 컨센서스 노드로 구성된 서비스 체인을 설치해 볼 것입니다.
+이 장에서는 여러 노드로 서비스체인을 구성하는 법을 설명합니다. `chainID`를 1002로 구별하여 4개의 컨센서스 노드로 구성된 서비스체인을 설치할 것입니다.
 
 ![](../images/sc-4scn-arch.png)
 
@@ -11,7 +11,7 @@
    - 자세한 설명은 [시스템 요구사항](../references/system-requirements.md)을 참조하세요.
 
 ## 0 단계: 모든 노드에 SCN 설치하기 <a id="install-scn"></a>
-다운로드한 패키지를 압축 해제해 설치합니다. 각 서버에 SCN 아카이브를 추출합니다.
+다운로드한 kscn 패키지를 압축 해제하고, 압축해제된 파일들을 각 노드로 복사합니다.
 
 ```console
 $ tar xvf kscn-vX.X.X-XXXXX-amd64.tar.gz
@@ -65,7 +65,7 @@ x homi-XXXXX-amd64/bin/
 x homi-XXXXX-amd64/bin/homi
 ```
 
-`bin` 폴더로 가서 파일 생성을 위해 다음의 옵션과 함께 `homi`를 실행하세요. `homi setup local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output` Baobab의 `chainID`는 1001이기 때문에, 편의 상 본 예제에서는 서비스 체인의 `chainID`를 1002로 하겠습니다. 실제 서비스를 출시하기 위해 블록체인을 운영하는 경우, 다른 서비스 체인과 겹치지 않도록 https://chainlist.defillama.com/에서 새로운 chainID를 등록한 뒤에 사용하는 것을 권장합니다. 서비스 체인의 포트는 기본값이 22323으로 설정되어 있습니다.
+`bin` 폴더로 가서 파일 생성을 위해 다음의 옵션과 함께 `homi`를 실행하세요. `homi setup local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output` Baobab의 `chainID`는 1001이기 때문에, 편의 상 본 예제에서는 서비스 체인의 `chainID`를 1002로 하겠습니다. 실제 서비스를 출시하기 위해 블록체인을 운영하는 경우, 다른 서비스 체인과 겹치지 않도록 https://chainlist.defillama.com/에서 새로운 chainID를 등록한 뒤에 사용할 것을 권장합니다. 서비스체인의 포트는 기본값이 22323으로 설정되어 있습니다.
 
 ```console
 $ ./homi setup local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output
@@ -94,7 +94,7 @@ Created :  homi-output/Klaytn_txpool.json
 
 ## 2 단계: static-nodes.json 수정 <a id="step-2-customize-static-nodes-json"></a>
 
-문서 편집기에서 `homi-output/scripts/static-nodes.json`를 열고 IP 주소 및 포트를 여러분 노드의 실제 값으로 업데이트 해주세요. 이 예제에서는 서비스 체인의 각 SCN 노드의 IP가 아래와 같다고 가정합니다. 여러분이 여기에 설정한 포트값은 4 단계에서 사용될 것이므로 꼭 기억해주세요.
+문서 편집기에서 `homi-output/scripts/static-nodes.json`를 열고 IP 주소 및 포트를 여러분 노드의 실제 값으로 업데이트 해주세요. 이 예제에서는 서비스체인의 각 SCN 노드의 IP가 아래 그림과 같다고 가정합니다. 여러분이 여기에 설정한 포트값은 4 단계에서 사용될 것이므로 꼭 기억해주세요.
 
 ![](../images/sc-4scn-ip.png)
 
@@ -143,7 +143,7 @@ $ cp ~/homi-output/keys/nodekey{1..4} ~/data/klay/nodekey
 
 ## 5 단계: 노드 설정 <a id="step-5-configure-nodes"></a>
 
-모든 SCN에서 kscn 설치 폴더로 이동하여 `conf/kscnd.conf`를 다음과 같이 편집하세요. `PORT`는 `homi`를 설치하는 데 사용하는 포트이며,  `SC_SUB_BRIDGE`는 다음 장에서 브릿지를 연결하는 데 필요합니다. 현재는 0으로 설정하겠습니다. `DATA_DIR`에서 3 단계에 사용된 데이터 폴더를 입력합니다.
+모든 SCN에서 kscn 설치 폴더로 이동하여 `conf/kscnd.conf`를 다음과 같이 편집하세요. `PORT`는 `homi`를 설치하는 데 사용하는 포트이며,  `SC_SUB_BRIDGE`는 다음 장에서 브릿지를 연결하는 데 필요합니다. 현재는 0으로 설정하겠습니다. `DATA_DIR`에서 3 단계에 설정한 데이터 폴더를 입력합니다.
 ```
 ...
 PORT=22323
@@ -155,7 +155,7 @@ DATA_DIR=~/data
 ```
 
 ## 6 단계: 노드 시작 <a id="step-6-start-nodes"></a>
-모든 SCN 노드에서 다음 명령을 실행하세요.
+모든 SCN에서 다음 명령을 실행하세요.
 ```console
 $ kscnd start
 Starting kscnd: OK
@@ -169,7 +169,7 @@ $ kscn attach --datadir ~/data
 노드를 중지하고 싶으면 `kscnd stop` 명령을 사용할 수 있습니다.
 
 ## (예) 토큰 전송 트랜잭션 생성 및 확인 <a id="example-creation-and-confirmation-of-a-value-transfer-transaction"></a>
-이제 4 노드 서비스 체인이 작동하고 있습니다. 이제 설치된 것을 확인하기 위해 서비스 체인에서 토큰 전송 트랜잭션을 실행해 보겠습니다.
+이제 4개의 노드로 구성된 서비스체인이 작동하고 있습니다. 서비스체인이 잘 동작하는지 확인하기 위해 서비스체인에서 토큰 전송 트랜잭션을 실행해 보겠습니다.
 
 ![](../images/sc-4scn-test.png)
 
@@ -186,7 +186,7 @@ Address: {80119c31cdae67c42c8296929bb4f89b2a52cec4}
 ```
 
 ### 2 단계: 계정 잠금 해제 <a id="step-2-unlock-the-account"></a>
-계정의 잠금 해제는 `testkey1`를 가져온 SCN 노드 콘솔을 통해서만 가능합니다.
+계정의 잠금 해제는 `testkey1`를 가져온 SCN의 콘솔을 통해서만 가능합니다.
 ```console
 $ kscn attach --datadir ~/data
 > personal.unlockAccount("80119c31cdae67c42c8296929bb4f89b2a52cec4")
@@ -206,5 +206,5 @@ true
 {% hint style="info" %}
 가장 단순한 형태의 서비스 체인은 SCN를 하나만 가지고 있는 것입니다. 이 예제에서는 4개 노드를 가진 서비스 체인을 설명했습니다. 하지만 필요에 따라 단일 노드 서비스 체인도 구축할 수 있습니다. 1 단계 'genesis.json 및 nodekeys 생성하기'에서 `--cn-num 4` 대신 `--cn-num 1`를 homi에 전달하면 됩니다.
 
-비잔틴 장애를 견뎌내기 위해서는 최소 4개의 노드가 필요합니다. BTF 알고리즘 하에서 높은 가용성을 보장하기 위한 SCN의 최소값은 4입니다. 2개의 SCN인 경우 하나에 장애가 생길 경우 다른 하나가 혼자서 합의를 이루지 못하기 때문에 부족합니다.
+비잔틴 장애를 견뎌내기 위해서는 최소 4개의 노드가 필요합니다. BTF 알고리즘 하에서 높은 가용성을 보장하기 위한 SCN의 최소값은 4입니다. 2개의 SCN인 경우 하나에 장애가 생길 경우 다른 하나가 혼자서 합의를 이루지 못하기 때문에 가용성을 보장하지 못 합니다.
 {% endhint %}
