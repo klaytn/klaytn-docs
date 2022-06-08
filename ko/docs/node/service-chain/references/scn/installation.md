@@ -20,7 +20,7 @@ homi 바이너리의 아카이브 파일은 다음과 같은 디렉토리 레이
 
 ### 설치 <a id="installation"></a>
 
-다운로드한 패키지를 압축 해제해 설치합니다.
+다운로드한 kscn 패키지를 압축 해제하고,
 
 ```text
 $ tar zxf kscn-vX.X.X-XXXXX-amd64.tar.gz
