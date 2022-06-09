@@ -52,16 +52,16 @@ DATA_DIR=~/data
 EN-01$ kend start
 Starting kscnd: OK
 ```
-You can check block sync status by watching `klay.blockNumber`. If this number is not 0, the node is working fine. Downloading all blocks on the Baobab network may take a long time depending on network conditions and hardware performance, so we recommend using [Fast Sync](../../node/endpoint-node/installation-guide/configuration.md) to synchronize blocks.
+EN 노드를 시작하고, 콘솔에서 klay.blockNumber를 조회하면 블록 동기화 상태를 확인할 수 있습니다. 조회 결과가 0이 아니라면 노드가 제대로 작동하는 것입니다. Baobab 네트워크의 모든 블록을 다운로드하는 과정에서 네트워크 조건 및 하드웨어 성능에 따라 시간이 오래 걸릴 수 있으며, [Fast Sync](../../node/endpoint-node/installation-guide/configuration.md)를 사용하여 블록을 동기화하는 것을 권장합니다.
 ```
 EN-01$ ken attach --datadir ~/data
 > klay.blockNumber
 21073
 ```
-If you want to stop a node, you can use the command `kend stop`
+노드를 중지하려면 `kend stop` 명령어를 사용하세요.
 
 ## 5 단계 : EN 노드의 KNI 확인<a id="step-5-check-kni-of-en-node"></a>
-Take note of EN-01's KNI which is the information used to connect from an SCN-L2-01 node. This value will be used in the next step when generating `main-bridges.json`.
+SCN-L2-01 노드에서 연결하는 데 사용되는 정보인 EN-01의 KNI를 잘 기억해 둡니다.  이 정보는 다음 단계에서 main-bridges.json을 생성할 때 사용됩니다.
 ```
 EN-01$ ken attach --datadir ~/data
 > mainbridge.nodeInfo.kni
@@ -71,13 +71,13 @@ EN-01$ ken attach --datadir ~/data
 ![](../images/sc-en-scn-nodeInfo.png)
 
 ## 6 단계 : main-bridges.json 생성<a id="step-6-create-main-bridges-json"></a>
-Log on to an SCN-L2-01 (note: not the EN-01 node) and create `main-bridges.json` on `~/data`. Replace `[::]` located after `@` letter with EN-01 node's IP address.
+SCN-L2-01(참고: EN-01 아님)에 로그온하고 `~/data`에 `main-bridges.json`을 만듭니다.  `@` 문자 뒤에 있는 `[::]`를 EN-01의 IP 주소로 바꿉니다.
 ```
 SCN-L2-01$ echo '["kni://0f7aa6499553...25bae@192.168.1.1:50505?discport=0"]' > ~/data/main-bridges.json
 ```
 
 ## Step 7: Configure SCN then Restart kscn <a id="step-7-configure-scn-then-restart-kscn"></a>
-From the SCN-L2-01 node's shell, edit `kscn-XXXXX-amd64/conf/kscnd.conf`. If `SC_SUB_BRIDGE` is set to 1, data anchoring starts automatically when the SCN-L2-01 node starts. In this example, `SC_PARENT_CHAIN_ID` is set to 1001 because the `chainID` of the parent chain, Baobab, is 1001. `SC_ANCHORING_PERIOD` is the parameter that decides the period to send an anchoring tx to the main chain. By setting the value to 10, you configure the node to perform anchoring every 10 blocks. The default value is 1.
+SCN-L2-01의 콘솔에서 `kscn-XXXXX-amd64/conf/kscnd.conf`를 편집합니다. `SC_SUB_BRIDGE`가 1로 설정되면, SCN-L2-01에서 kscn이 실행될 때 데이터 앵커링이 자동으로 동작합니다.   이 예제에서는 `SC_PARENT_CHAIN_ID`는 부모체인인 Baobab의 `chainID`가 1001이기 때문에 1001로 설정되어 있습니다. `SC_ANCHORING_PERIOD`는 앵커링 tx를 메인체인으로 보낼 주기를 결정하는 파라미터입니다.  값을 10으로 설정하면 10블록마다 앵커링을 수행하도록 노드를 구성합니다.  기본값은 1입니다.
 ```
 ...
 SC_SUB_BRIDGE=1
@@ -88,7 +88,7 @@ SC_ANCHORING_PERIOD=10
 ...
 ```
 
-Restart kscn by executing the following command:
+다음 명령어로 kscn을 다시 시작합니다.
 ```
 SCN-L2-01$ kscnd stop
 Shutting down kscnd: Killed
@@ -96,7 +96,7 @@ SCN-L2-01$ kscnd start
 Starting kscnd: OK
 ```
 
-Check if the SCN-L2-01 is connected to the EN-01 by checking `subbridge.peers.length`
+SCN-L2-01과 EN-01이 연결되었는지를 확인하기 위해서 `subbridge.peers.length`을 조회해 봅니다.
 ```
 SCN-L2-01$ kscn attach --datadir ~/data
 > subbridge.peers.length
@@ -104,10 +104,10 @@ SCN-L2-01$ kscn attach --datadir ~/data
 ```
 
 ## 앵커링<a id="anchoring"></a>
-After finishing the EN-01 and SCN-L2-01 connection, you can log ServiceChain block information on the parent chain via Anchoring. In this section, you will top up a parent operator account, enable Anchoring, and check the anchored block number.
+EN-01 및 SCN-L2-01 연결을 완료한 후 앵커링을 통해 상위 체인에 ServiceChain 블록 정보를 기록할 수 있습니다. 이번 예제에서는 부모체인의 운영자 계정을 충전하고 앵커링을 활성화하고 앵커링된 블록 번호를 확인합니다.
 
 ### 1 단계 : 앵커링 테스트를 위한 KLAY 얻기 <a id="step-1-get-klay-to-test-anchoring"></a>
-Anchoring requires SCN-L2-01 to make an anchoring transaction to Baobab. So `subbridge.parentOperator` account should have enough KLAY to pay the transaction fee. Get some KLAY from [Baobab Wallet Faucet](https://baobab.wallet.klaytn.foundation/) and transfer some KLAY to the `parentOperator`. For data anchoring in real service, `parentOperator` needs to have enough KLAY for transaction fee.
+앵커링을 사용하려면 SCN-L2-01이 Baobab에 대한 앵커링 트랜잭션을 전송해야 합니다.  따라서 `subbridge.parentOperator` 계정에는 거래 수수료를 지불하기에 충분한 KLAY가 있어야 합니다.  [Baobab Wallet Faucet](https://baobab.wallet.klaytn.foundation/)에서 일부 KLAY를 가져오고 일부 KLAY를 `parentOperator`로 전송합니다. 실제 서비스 환경에서 데이터 앵커링을 하려면 `parentOperator`에 거래 수수료에 대한 충분한 KLAY가 있어야 합니다.
 
 ```
 SCN-L2-01$ kscn attach --datadir ~/data
@@ -117,13 +117,13 @@ SCN-L2-01$ kscn attach --datadir ~/data
 ![](../images/sc-en-scn-faucet.png)
 
 ### 2 단계 : 앵커링 시작 <a id="step-2-start-anchoring"></a>
-To start anchoring, execute the following command:
+엥커링을 시작하기 위해서는 다음의 명령어를 수행합니다.
 ```
 SCN-L2-01$ kscn attach --datadir ~/data
 > subbridge.anchoring(true)
 true
 ```
-After anchoring starts, you can check the latest block anchored to Baobab by using `subbridge.latestAnchoredBlockNumber`. Please note that this only works after the EN already followed up on the latest block of Baobab. By default, SCN-L2-01 tries anchoring on every block from the block on which anchoring is turned on. The anchoring period can be set by changing `SC_ANCHORING_PERIOD`. If the value is set to 10, the node tries anchoring when the block number is a multiple of 10.
+앵커링이 시작된 후 `subbridge.latestAnchoredBlockNumber`를 사용하여 Baobab에 가장 최근에 앵커된 블록을 확인할 수 있습니다.  최근 앵커링된 블록을 확인하기 위해서는 EN이 Baobab 네트워크의 최신 블록으로 동기화된 이후에만 가능하다는 점에 유의하십시오.  기본적으로 SCN-L2-01은 앵커링이 활성화된 이후부터 모든 블록에 대해서 앵커링을 시도합니다. 앵커링 주기는 `SC_ANCHORING_PERIOD`를 변경하여 설정할 수 있습니다.  예를 들면 값이 10으로 설정되면 블록 번호가 10의 배수일 때마다 앵커링을 시도합니다.
 ```
 SCN-L2-01$ kscn attach --datadir ~/data
 > subbridge.latestAnchoredBlockNumber
