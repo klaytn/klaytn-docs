@@ -11,11 +11,11 @@
  - 가정 및 제약
    - 서비스 체인이 설치되어 실행 중입니다. 네트워크를 설치하기 위해서는 [4개 노드 서비스 체인 설치하기](4nodes-setup-guide.md)를 참고해주세요.
    - Baobab EN.
-   - 오직 1대1 연결만 지원되기 때문에 하나의 EN은 하나의 SCN에 연결될 수 있습니다.
+   - 오직 일대일 연결만 지원되기 때문에 하나의 EN은 하나의 SCN에 연결될 수 있습니다.
    - 모든 SCN이 EN과 연결되어야 하는 것은 아닙니다.
 
 ## 0 단계 : Baobab EN 설치하기 <a id="install-baobab-en"></a>
-다운로드한 kscn 패키지를 압축 해제하고, 각 서버에 SCN 아카이브를 추출합니다.
+다운로드한 kscn 패키지를 압축 해제하고, EN 서버에 EN 패키지를 압축 해제합니다.
 
 ```bash
 EN-01$ tar xvf ken-baobab-vX.X.X-XXXXX-amd64.tar.gz
@@ -28,14 +28,14 @@ EN-01$ curl -X GET https://packages.klaytn.net/baobab/genesis.json -o ~/genesis.
 ```
 
 ## 2 단계 : EN 노드 초기화<a id="step-2-en-node-initialization"></a>
-이제 제네시스 파일을 사용해서 각 노드를 초기화해보겠습니다. 아래의 명령어를 실행하세요. 여러분의 홈 디렉토리에 체인 데이터와 로그를 저장하는 데이터 폴더를 생성할 것입니다. `--datadir` 지시문을 이용해 데이터 폴더를 변경할 수 있습니다.
+다운로드 받은 제네시스 파일을 사용해서 EN을 초기화합니다. 아래의 명령어를 실행하시면, 홈 디렉토리에 체인 데이터와 로그를 저장하는 데이터 폴더를 생성합니다. `--datadir` 지시문을 이용해 데이터 폴더를 변경할 수 있습니다.
 
 ```
 EN-01$ ken --datadir ~/data init ~/genesis.json
 ```
 
 ## 3 단계 : EN 노드 설정<a id="step-3-configure-the-en-node"></a>
-ken 설치 폴더에서 `mv kend_baobab.conf kend.conf`의 이름을 변경한 뒤 아래와 같이 `conf/kend.conf`를 수정하세요.
+ken 설치 폴더에서 `mv kend_baobab.conf kend.conf` 명령어로 파일명을 변경하고, `conf/kend.conf` 파일을 아래와 같이 수정하세요.
 
 ```
 ...
