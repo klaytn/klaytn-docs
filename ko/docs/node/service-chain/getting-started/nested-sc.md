@@ -1,12 +1,12 @@
-This chapter explains how to build ServiceChain networks in a hierarchical structure by adding a new ServiceChain network to the ServiceChain network built in the previous chapter. The ServiceChain network to be added also consists of 4 SCNs in this example. The ServiceChain network constructed in the previous chapter is defined as L2, and the ServiceChain network to be newly constructed is defined as L3. We are going to connect a bridge between L2 and L3 to create a hierarchical structure. The overall structure of the ServiceChain network to be constructed in this chapter is shown in the figure below.
+이번 장에서는 이전에서 구축한 ServiceChain 네트워크의 하위 계층으로 새로운 ServiceChain 네트워크를 추가하여  ServiceChain 네트워크를 계층적 구조로 구축하는 방법을 설명합니다.  추가할 ServiceChain 네트워크는 4개의 SCN으로 구성됩니다.  이전 장에서 구축한 ServiceChain 네트워크를 L2로 정의하고, 새롭게 구축할 ServiceChain 네트워크를 L3로 정의합니다.  L2와 L3 사이에 브리지를 연결하여 계층 구조를 만들 것입니다.  이번 장에서 구성할 ServiceChain 네트워크의 전체 구조는 아래 그림과 같습니다.
 
 ![](../images/sc-nestedsc-arch.png)
 
 
 ## 준비 사항 <a id="prerequisites"></a>
- - Assume that you have progressed to the ServiceChain configuration and Baobab EN described in [Nested ServiceChain](./nested-sc.md). So we will briefly explain what was explained in the previous section.
+ - [Connecting to Baobab](./nested-sc.md)에 설명된 ServiceChain 및 Baobab EN으로 구성했다고 가정합니다.  따라서 이전 섹션에서 설명한 내용은 간략하게 설명합니다.
  - 가정 및 제약
-   - One EN can bridge one-to-one to one of the SCNs of the ServiceChain L2. Similarly, one SCN in L2 of the ServiceChain can bridge one-to-one to one of the SCNs in L3.
+   - 하나의 EN은 ServiceChain L2의 SCN 중 하나에 일대일로만 연결될 수 있습니다.  Similarly, one SCN in L2 of the ServiceChain can bridge one-to-one to one of the SCNs in L3.
    - An SCN node can have a main bridge and a sub bridge at the same time. However, the port numbers of the main bridge and the sub bridge must be set differently. (eg main-bridge: 50505, sub-bridge:50506)
    - Not all SCNs in L2 need to be bridged to EN, and likewise SCNs in L3 need not all be bridged to L2. However, for high availability, it is recommended that there are two or more main-bridge and sub-bridge pairs between chains. In this chapter, only one pair will be connected between L2 and L3, and the high availability between L2 and L3 is same to the HA between Baobab and L2.
 
