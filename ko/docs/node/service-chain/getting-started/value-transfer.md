@@ -1,8 +1,8 @@
-This section will explain how to enable ERC-20 value transfer between Baobab network and your ServiceChain with the provided test code. You will add KLAY to the operator account and deploy bridge and ERC-20 contracts. Then you will register the contract address on SCN. And you will test an ERC-20 value transferring.
+이번 장에서는 Baobab 네트워크와 서비스체인 간에 토큰을 전송하는 방법을 설명합니다. 운영자 계정에 KLAY를 추가하고 브리지 및 ERC-20 컨트랙트를 배포합니다. 그런 다음 SCN 서브 브릿지에 계약 주소를 등록합니다.  그리고 ERC-20 토큰 전송을 테스트합니다.
 
 
 ## 준비 사항 <a id="prerequisites"></a>
-- We assume that you installed the ServiceChain, and connected the ServiceChain to the Baobab EN by the instructions in [Connecting to Baobab](en-scn-connection.md).
+- 서비스체인을 구성하고, [Baobab 연결](en-scn-connection.md)의 설명에 따라 서비스체인을 Baobab EN에 연결했다고 가정합니다.
 - Clone the repository [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples).
 - Install `Node.js` (v14) and `npm` ([How to install](https://nodejs.org/en/download/package-manager/))
     - This example leverages two packages, axios and caver-js, which both support v14.
