@@ -43,7 +43,7 @@ True
 > klay.sendTransaction({from:"80119c31cdae67c42c8296929bb4f89b2a52cec4", to:subbridge.childOperator, value: web3.toPeb(1000, "KLAY")})
 "0x84caab84ebf0c4bb4ecf0a7849f1de3e479f1863a95f70c51047a7ca7bc64b33"
 ```
-Check if the operator accounts have enough balance. You can query as follows from the console of the SCN node where the subbridge is installed.
+Check if the operator accounts have enough balance. You can query from the console of the SCN node where the subbridge is installed as follows:
 ```
 > klay.getBalance(subbridge.childOperator)
 1e+21
