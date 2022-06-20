@@ -15,7 +15,7 @@ If you encounter any abnormal situation, please report it to the klaytn team: [k
 | NetworksP2P | CN/PN/EN | **Protocol istanbul/64 failed** id=04680a827fa1b240 conn=staticdial err="write tcp 10.117.2.105:34396->10.117.2.27:32323: use of closed etwork connection"</br></br> **Protocol istanbul/64 failed** err="shutting down" | This log can be printed when the other node is disconnected. Usually `Disconnected a P2P Peer` log is followed. | Check the disconnected peer is reconnected again. if not, check the network status or peer connection [admin_peers](https://docs.klaytn.foundation/dapp/json-rpc/api-references/admin#admin_peers) |
 | NodeCN | CN | **fail to SendNewBlockHashes** err="write tcp 10.117.2.124:24108->10.117.2.108:32323: use of closed network connection" </br></br> **fail to SendNewBlockHashes** err="shutting down" | same as `Protocol istanbul/64 failed` | same as `Protocol istanbul/64 failed` |
 | NodeCN | CN | **fail to SendNewBlock** peer=d35220eccdb0de7b err="shutting down" | same as `Protocol istanbul/64 failed` | same as `Protocol istanbul/64 failed` | 
-| NetworksRPC | EN (mostly) | **FastWebsocketHandler fail to upgrade message** error="websocket: version != 13" | Version issue of WebSocket connection | The header of the request should contain `Sec-Websocket-Version` field, and its value must be 13. You may not use klaytn rpc client. |
+| NetworksRPC | EN (mostly) | **FastWebsocketHandler fail to upgrade message** error="websocket: version != 13" | Version issue of WebSocket connection | The header of the request should contain `Sec-Websocket-Version` field with the value set at 13. You may not have used klaytn rpc client. |
 
 ## Warn Logs
 | Log Type | Node Type | Log Message | Description | Suggested Guide |
