@@ -89,8 +89,8 @@ concat('0x',Vanity,RLPEncode({Validators,Seal,CommittedSeal}))
 
 | 필드             | 설명                                                                      |
 | -------------- | ----------------------------------------------------------------------- |
-| governingNode  | 세 가지 거버넌스 모드 중 하나입니다. `none`, `single`, `ballot` 등 세 가지 모드 중 하나를 선택합니다. |
-| governanceMode | 거버넌스를 통제하는 특정 노드의 주소입니다. 거버넌스 모드가 `single` 인 경우에만 작동합니다.                |
+| governanceMode | 세 가지 거버넌스 모드 중 하나입니다. `none`, `single`, `ballot` 등 세 가지 모드 중 하나를 선택합니다. |
+| governingNode  | 거버넌스를 통제하는 특정 노드의 주소입니다. 거버넌스 모드가 `single` 인 경우에만 작동합니다.                |
 | reward         | 보상 환경설정을 저장합니다. [Reward](#reward) 장을 확인하세요.                             |
 
 ## Reward <a id="reward"></a>
