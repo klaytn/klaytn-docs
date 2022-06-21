@@ -89,8 +89,8 @@ The `governance` field stores governance information for a network.
 
 | Fields         | Description                                                                            |
 | -------------- | -------------------------------------------------------------------------------------- |
-| governingNode  | One of three governance modes. [`none`, `single`, `ballot`]                            |
-| governanceMode | Designated governing node's address. It only works if the governance mode is `single`. |
+| governanceMode | One of three governance modes. [`none`, `single`, `ballot`]                            |
+| governingNode  | Designated governing node's address. It only works if the governance mode is `single`. |
 | reward         | It stores the reward configuration. See the section [Reward](#reward).                 |
 
 ## Reward <a id="reward"></a>
