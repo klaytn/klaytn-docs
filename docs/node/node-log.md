@@ -1,11 +1,11 @@
 # Node Log <a id="node-log"></a>
 
-This page details some important or frequently asked logs of the Klaytn node logs.
+This page details some important or frequently asked logs from Klaytn nodes.
 If the Klaytn log is modified or newly added/deleted, please edit this page as well.
 
 For more detailed information about log types, you can refer to [log_modules.go](https://github.com/klaytn/klaytn/blob/dev/log/log_modules.go)
 
-If you encounter any abnormal situation, please report it to the klaytn team: [klaytn issues](https://github.com/klaytn/klaytn/issues)
+If you encounter any abnormal situation, please report it to the klaytn team via [github](https://github.com/klaytn/klaytn/issues), [Klaytn Forum](https://forum.klaytn.foundation/), or [Discord](https://discord.io/KlaytnOfficial).
 
 ## Error Logs
 | Log Type | Node Type | Log Message | Description | Suggested Guide |
