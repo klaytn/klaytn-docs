@@ -12,7 +12,7 @@ Running your own Klaytn Endpoint Node (EN) is not simple, it requires technical 
 
 ## Public JSON-RPC Endpoint Providers
 
-Below is the list of Klaytn’s Public Node Providers and the network domains. (03.23.2022)
+Below is the list of Klaytn’s Public Node Providers and the network domains. (06.23.2022)
 
 ### Mainnet (Cypress) Public JSON-RPC Endpoints
 
@@ -62,6 +62,14 @@ These public endpoints are provided to the community by third party services and
 
 - `wss://cypress.fandom.finance/archive/ws`
 
+#### Service Provider: [All That Node](www.allthatnode.com)
+
+These public endpoints are provided to the community by third party services.
+
+**HTTPS**
+
+- `https://klaytn-mainnet-rpc.allthatnode.com:8551`
+
 
 ### Testnet (Baobab) Public JSON-RPC Endpoints
 
@@ -104,6 +112,13 @@ These public endpoints are provided to the community by third party services and
 - `https://baobab.fandom.finance/archive`
 
 - `wss://baobab.fandom.finance/archive/ws`
+
+#### Service Provider: [All That Node](www.allthatnode.com)
+
+**HTTPS**
+
+- `https://klaytn-baobab-rpc.allthatnode.com:8551`
+
 
 ## Useful Resources
 
