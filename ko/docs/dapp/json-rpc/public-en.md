@@ -12,7 +12,7 @@
 
 ## 퍼블릭 JSON-RPC 엔드포인트 목록
 
-클레이튼의 퍼블릭 노드 및 네트워크 도메인 목록은 다음과 같습니다. (2022.03.23)
+클레이튼의 퍼블릭 노드 및 네트워크 도메인 목록은 다음과 같습니다. (06.23.2022)
 
 ### 메인넷 (Cypress) 퍼블릭 JSON-RPC 엔드포인트
 
@@ -62,6 +62,14 @@
 
 - `wss://cypress.fandom.finance/archive/ws`
 
+#### Service Provider: [All That Node](www.allthatnode.com)
+
+These public endpoints are provided to the community by third party services.
+
+**HTTPS**
+
+- `https://klaytn-mainnet-rpc.allthatnode.com:8551`
+
 
 ### 테스트넷 (Baobab) 퍼블릭 JSON-RPC 엔드포인트
 
@@ -75,7 +83,7 @@
 
 - `wss://public-node-api.klaytnapi.com/v1/baobab/ws`
 
-#### 서비스 제공주체: 클레이튼 재단
+#### Service Provider: Klaytn Foundation
 
 **HTTPS**
 
@@ -104,6 +112,13 @@
 - `https://baobab.fandom.finance/archive`
 
 - `wss://baobab.fandom.finance/archive/ws`
+
+#### Service Provider: [All That Node](www.allthatnode.com)
+
+**HTTPS**
+
+- `https://klaytn-baobab-rpc.allthatnode.com:8551`
+
 
 ## 유용한 정보
 
