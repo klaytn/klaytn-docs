@@ -139,6 +139,7 @@
     * [How-To Guides](node/service-chain/howto/README.md)
   * [Errors & Troubleshooting](node/errors-and-troubleshooting.md)
   * [Download](node/download/README.md)
+    * [v1.8.4](node/download/v1.8.4.md)
     * [v1.8.3](node/download/v1.8.3.md)
     * [v1.8.2](node/download/v1.8.2.md)
     * [v1.8.1](node/download/v1.8.1.md)
@@ -301,6 +302,8 @@
     * [Kaikas](toolkit/kaikas.md)
     * [Klaytn Wallet](toolkit/klaytn-wallet.md)
     * [Klaytnscope](toolkit/klaytnscope.md)
+    * [Truffle](toolkit/truffle.md)
+    * [Covalent API](toolkit/covalent.md)
 * [Klaytn Hard Fork History](klaytn-history/README.md)
 
 ## --- <a id="misc"></a>

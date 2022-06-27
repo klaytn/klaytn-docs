@@ -12,7 +12,7 @@ Running your own Klaytn Endpoint Node (EN) is not simple, it requires technical 
 
 ## Public JSON-RPC Endpoint Providers
 
-Below is the list of Klaytn’s Public Node Providers and the network domains. (03.23.2022)
+Below is the list of Klaytn’s Public Node Providers and the network domains. (06.23.2022)
 
 ### Mainnet (Cypress) Public JSON-RPC Endpoints
 
@@ -56,6 +56,20 @@ These public endpoints are provided to the community by third party services and
 
 - `wss://klaytn05.fandom.finance/ws/`
 
+##### Archive Node Access Points
+
+- `https://cypress.fandom.finance/archive`
+
+- `wss://cypress.fandom.finance/archive/ws`
+
+#### Service Provider: [All That Node](www.allthatnode.com)
+
+These public endpoints are provided to the community by third party services.
+
+**HTTPS**
+
+- `https://klaytn-mainnet-rpc.allthatnode.com:8551`
+
 
 ### Testnet (Baobab) Public JSON-RPC Endpoints
 
@@ -79,20 +93,46 @@ These public endpoints are provided to the community by third party services and
 
 - `wss://api.baobab.klaytn.net:8652`
 
+#### Service Provider: Fantrie
+
+**HTTPS**
+
+- `https://baobab01.fandom.finance`
+
+- `https://baobab02.fandom.finance`
+
+**WebSocket**
+
+- `wss://baobab01.fandom.finance/ws`
+
+- `wss://baobab02.fandom.finance/ws`
+
+##### Archive Node Access Points
+
+- `https://baobab.fandom.finance/archive`
+
+- `wss://baobab.fandom.finance/archive/ws`
+
+#### Service Provider: [All That Node](www.allthatnode.com)
+
+**HTTPS** 
+
+- `https://klaytn-baobab-rpc.allthatnode.com:8551`
+
 
 ## Useful Resources 
 
 - Wallet: Kaikas is a browser extension wallet for the Klaytn Network.
-[Kaikas](https://docs.klaytn.com/dapp/developer-tools/kaikas)
+[Kaikas](https://docs.klaytn.foundation/dapp/developer-tools/kaikas)
 
 - Faucet: You can obtain test KLAY for the Baobab test network. 
-[Faucet](https://docs.klaytn.com/dapp/developer-tools/klaytn-wallet#how-to-receive-baobab-testnet-klay)
+[Faucet](https://docs.klaytn.foundation/dapp/developer-tools/klaytn-wallet#how-to-receive-baobab-testnet-klay)
 
 - Explorer: Klaytnscope is the block explorer for the Klaytn Network.
-[Klaytnscope](https://docs.klaytn.com/dapp/developer-tools/klaytnscope)
+[Klaytnscope](https://docs.klaytn.foundation/dapp/developer-tools/klaytnscope)
 
 - ChainID : Baobab: 1001 (0x3E9), Cypress: 8217 (0x2019)
 
-- Gas price: Fixed at 750 ston
+- Gas price: Fixed at 250 ston
 [Transaction Fees](https://docs.klaytn.com/klaytn/design/transaction-fees)
 

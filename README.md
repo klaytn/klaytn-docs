@@ -17,4 +17,4 @@ In line with our commitment to decentralization, all Klaytn codebase and its doc
 
 ## Need Help? <a href="#need-help" id="need-help"></a>
 
-If you have any questions, please visit our [Gitter channel](https://gitter.im/klaytn/klaytn-docs?utm_source=share-link&utm_medium=link&utm_campaign=share-link), [Klaytn Developers Forum](https://forum.klaytn.com/) and [Discord channel](https://discord.gg/mWsHFqN5Zf).
+If you have any questions, please visit our [Gitter channel](https://gitter.im/klaytn/klaytn-docs?utm_source=share-link&utm_medium=link&utm_campaign=share-link), [Klaytn Developers Forum](https://forum.klaytn.foundation/) and [Discord channel](https://discord.gg/mWsHFqN5Zf).

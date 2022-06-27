@@ -24,8 +24,8 @@ Cypress mainnet:
 Baobab testnet:
 - EN download : Choose the Baobab package from the [download page](../node/endpoint-node/installation-guide/download.md).
 - Klaytnscope : https://baobab.scope.klaytn.com
-- Klaytn Wallet : https://baobab.wallet.klaytn.com
-- Baobab Faucet : https://baobab.wallet.klaytn.com/faucet
+- Klaytn Wallet : https://baobab.wallet.klaytn.foundation
+- Baobab Faucet : https://baobab.wallet.klaytn.foundation/faucet
 
 
 ## Are there any Klaytn SDKs? In what languages? <a id="klaytn-sdks"></a>
@@ -61,7 +61,7 @@ Klaytn publishes the chain data every day. Chain data is a database snapshot tha
 
 Yes. Klaytn supports Solidity as a smart contract language. [ERC-20](../smart-contract/sample-contracts/erc-20/README.md) and [ERC-721](../smart-contract/sample-contracts/erc-721/README.md) written in Solidity for Etherem can be deployed and executed on Klaytn.
 
-Further Klaytn-specific token standards can be defined. Follow the [KIP (Klaytn Improvement Proposal)](http://kips.klaytn.com) and join the discussion.
+Further Klaytn-specific token standards can be defined. Follow the [KIP (Klaytn Improvement Proposal)](http://kips.klaytn.foundation) and join the discussion.
 
 
 
