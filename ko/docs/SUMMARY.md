@@ -138,6 +138,7 @@
       * [Genesis JSON](node/service-chain/references/genesis.md)
     * [How-To 가이드](node/service-chain/howto/README.md)
   * [Errors & Troubleshooting](node/errors-and-troubleshooting.md)
+  * [Node Log](node/node-log.md)
   * [Download](node/download/README.md)
     * [v1.8.4](node/download/v1.8.4.md)
     * [v1.8.3](node/download/v1.8.3.md)
