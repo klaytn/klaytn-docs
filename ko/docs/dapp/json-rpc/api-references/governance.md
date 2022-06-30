@@ -445,7 +445,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 - `CouncilStakingAmounts`: 관련 노드들이 예치하는 KLAY 액수
 - `Gini`: 지니 계수
 - `KIRAddr`: KIR 컨트랙트 주소
-- `KGFAddr`: KGF 컨트랙트 주소
+- `PoCAddr`: The contract address of KGF. PoC is the previous name of KGF.
 - `UseGini`: 지니 계수 사용 여부를 나타내는 boolean 값
 
 각 주소 순서와 스테이킹 양은 대응됩니다.
@@ -474,7 +474,7 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
   CouncilStakingAmounts: [5000000, 5000000, 5000000, 5000000, 5000000, 5000000, 5000000],
   Gini: 0,
   KIRAddr: "0x716f89d9bc333286c79db4ebb05516897c8d208a",
-  KGFAddr: "0x2bcf9d3e4a846015e7e3152a614c684de16f37c6",
+  PoCAddr: "0x2bcf9d3e4a846015e7e3152a614c684de16f37c6",
   UseGini: true
 }
 ```
