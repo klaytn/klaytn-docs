@@ -452,7 +452,7 @@ The `getStakingInfo` returns staking information at a specific block. The result
 - `CouncilStakingAmounts`: The amount of KLAY which the associated nodes stake.
 - `Gini`: Gini coefficient.
 - `KIRAddr`: The contract address of KIR.
-- `KGFAddr`: The contract address of KGF.
+- `PoCAddr`: The contract address of KGF. PoC is the previous name of KGF.
 - `UseGini`: The boolean value whether or not the Gini coefficient is used.
 
 Note that the order of all addresses and the staking amounts are matched.
@@ -481,7 +481,7 @@ Note that the order of all addresses and the staking amounts are matched.
   CouncilStakingAmounts: [5000000, 5000000, 5000000, 5000000, 5000000, 5000000, 5000000],
   Gini: 0,
   KIRAddr: "0x716f89d9bc333286c79db4ebb05516897c8d208a",
-  KGFAddr: "0x2bcf9d3e4a846015e7e3152a614c684de16f37c6",
+  PoCAddr: "0x2bcf9d3e4a846015e7e3152a614c684de16f37c6",
   UseGini: true
 }
 ```
