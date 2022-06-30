@@ -496,7 +496,7 @@ caver.rpc.governance.getStakingInfo([blockNumberOrTag] [, callback])
   CouncilStakingAddrs: [],
   CouncilRewardAddrs: [],
   KIRAddr: '0x0000000000000000000000000000000000000000',
-  KGFAddr: '0x0000000000000000000000000000000000000000',
+  PoCAddr: '0x0000000000000000000000000000000000000000',
   UseGini: false,
   Gini: -1,
   CouncilStakingAmounts: []
