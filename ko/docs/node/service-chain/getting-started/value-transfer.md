@@ -161,5 +161,5 @@ $ node kip7-transfer-2step-erc20-interface.js
 ## Native Support for KIP-7 and KIP-17 (To Be Implemented) <a id="native-support-for-kip-7-and-kip-17-to-be-implemented"></a>
 현재 Klaytn 팀에서 제공하는 브릿지 컨트랙트는 토큰 전송을 위해 `requestERC20Transfer()` 및 `requestERC721Transfer()`만 지원합니다.  KIP-7 및 KIP-17에 대한 기능은 곧 지원될 예정입니다.  구현이 완료되기 까지는 위의 설명과 같이 ERC-20 인터페이스를 사용하여 KIP-7 토큰을 전송할 수 있습니다.
 
-## Value Transfer for ERC-721, KIP-17, and KLAY <a id="value-transfer-for-erc721-kip17-and-klay"></a>
+## ERC-721, KIP-17와 KLAY 토큰 전송<a id="value-transfer-for-erc721-kip17-and-klay"></a>
 ERC-721, KIP-17, KLAY의 동작도 위와 동일합니다.  `erc721</a>`, [`kip17`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/master/kip17) 및 [`klay`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/master/klay) 디렉토리에 예제 소스 코드가 있습니다.</p>
