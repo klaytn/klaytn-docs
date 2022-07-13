@@ -2,7 +2,7 @@
 
 ## State Migration <a id="block-archiving"></a>
 
-As more blocks are added to the blockchain, chain data also pile up. Chain data are necessary for node operation, so  they are stored in the node storage as a data structure called trie, and ultimately in a database called LevelDB. So with more blocks, comes more chain data in the storage, along with increasing cost. Klaytn therefore provides a feature called State Migration that allows you to reduce the amount of required storage space.
+As more blocks are added to the blockchain, chain data also pile up. Chain data are necessary for node operation, so they are stored in the node storage as a data structure called trie, and ultimately in a database called LevelDB. So with more blocks, comes more chain data in the storage, along with increasing cost. Klaytn, therefore, provides a feature called State Migration that allows you to reduce the amount of required storage space.
 
 State Migration targets state tries, which comprise most of the chain data. It deletes state trie nodes that are not required for processing new blocks. It only leaves the state trie nodes starting from a specific block. After State Migration, you are only left with the latest data required for EN operation, consisting of state tries of the target block as well as newly added blocks.
 
