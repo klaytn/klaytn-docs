@@ -17,7 +17,7 @@ Below is the list of Klaytn’s Public Node Providers and the network domains. (
 ### Mainnet (Cypress) Public JSON-RPC Endpoints
 
 Please keep in mind that these endpoints are provided to the community for testing and development purposes.
-Since we cannot guarantee uptime and stability of the endpoints, do not use for commercial purposes.
+Since we cannot guarantee uptime and stability of the endpoints, do not use them for commercial purposes.
 
 **HTTPS**
 
