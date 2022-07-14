@@ -16,111 +16,58 @@
 
 ### 메인넷 (Cypress) 퍼블릭 JSON-RPC 엔드포인트
 
-#### 서비스 제공주체: Klaytn API Service
-
-이 엔드포인트들은 테스팅 목적으로 커뮤니티에 제공되는 것이며, 상업적인 이용은 지원하지 않습니다.
+Please keep in mind that these endpoints are provided to the community for testing and development purposes. Since we cannot guarantee uptime and stability of the endpoints, do not use them for commercial purposes.
 
 **HTTPS**
 
-- `https://public-node-api.klaytnapi.com/v1/cypress`
+| 서비스 제공자                                          | Endpoints                                          | Namespaces         | 타입      |
+| ------------------------------------------------ | -------------------------------------------------- | ------------------ | ------- |
+| [Klaytn API Service](https://www.klaytnapi.com/) | `https://public-node-api.klaytnapi.com/v1/cypress` | klay,eth,net,debug | Full    |
+| Fantrie                                          | `https://klaytn01.fandom.finance/`                 | klay,eth,net,debug | Full    |
+|                                                  | `https://klaytn02.fandom.finance/`                 | klay,eth,net,debug | Full    |
+|                                                  | `https://klaytn03.fandom.finance/`                 | klay,eth,net,debug | Full    |
+|                                                  | `https://klaytn04.fandom.finance/`                 | klay,eth,net,debug | Full    |
+|                                                  | `https://klaytn05.fandom.finance/`                 | klay,eth,net,debug | Full    |
+|                                                  | `https://cypress.fandom.finance/archive`           | klay,eth,net,debug | Archive |
+| [All That Node](www.allthatnode.com)             | `https://klaytn-mainnet-rpc.allthatnode.com:8551`  | klay,eth,net       | Full    |
 
 **WebSocket**
 
-- `wss://public-node-api.klaytnapi.com/v1/cypress/ws`
+| 서비스 제공자                                          | Endpoints                                           | Namespaces         | 타입      |
+| ------------------------------------------------ | --------------------------------------------------- | ------------------ | ------- |
+| [Klaytn API Service](https://www.klaytnapi.com/) | `wss://public-node-api.klaytnapi.com/v1/cypress/ws` | klay,eth,net,debug | Full    |
+| Fantrie                                          | `wss://klaytn01.fandom.finance/ws/`                 | klay,eth,net,debug | Full    |
+|                                                  | `wss://klaytn02.fandom.finance/ws/`                 | klay,eth,net,debug | Full    |
+|                                                  | `wss://klaytn03.fandom.finance/ws/`                 | klay,eth,net,debug | Full    |
+|                                                  | `wss://klaytn04.fandom.finance/ws/`                 | klay,eth,net,debug | Full    |
+|                                                  | `wss://klaytn05.fandom.finance/ws/`                 | klay,eth,net,debug | Full    |
+|                                                  | `wss://cypress.fandom.finance/archive/ws`           | klay,eth,net,debug | Archive |
 
-#### 서비스 제공주체: Fantrie
 
-이 퍼블릭 엔드포인트들은 제3자 서비스가 커뮤니티에 제공하는 것으로, 상업적 이용을 지원할 수 있습니다. 하지만 제3자 서비스인 만큼 클레이튼은 가동 시간 및 안정성을 보장할 수 없습니다.
+## Testnet (Baobab) Public JSON-RPC Endpoints
 
 **HTTPS**
 
-- `https://klaytn01.fandom.finance/`
-
-- `https://klaytn02.fandom.finance/`
-
-- `https://klaytn03.fandom.finance/`
-
-- `https://klaytn04.fandom.finance/`
-
-- `https://klaytn05.fandom.finance/`
+| 서비스 제공자                                            | Endpoints                                         | Namespaces         | 타입      |
+| -------------------------------------------------- | ------------------------------------------------- | ------------------ | ------- |
+| [Klaytn API Service](https://www.klaytnapi.com/)   | `https://public-node-api.klaytnapi.com/v1/baobab` | klay,eth,net,debug | Full    |
+| [Klaytn Foundation](https://www.klaytn.foundation) | `https://api.baobab.klaytn.net:8651`              | klay,eth,net       | Full    |
+| Fantrie                                            | `https://baobab01.fandom.finance/`                | klay,eth,net,debug | Full    |
+|                                                    | `https://baobab02.fandom.finance/`                | klay,eth,net,debug | Full    |
+|                                                    | `https://baobab.fandom.finance/archive`           | klay,eth,net,debug | Archive |
+| [All That Node](www.allthatnode.com)               | `https://klaytn-baobab-rpc.allthatnode.com:8551`  | klay,eth,net       | Full    |
 
 **WebSocket**
 
-- `wss://klaytn01.fandom.finance/ws/`
+| 서비스 제공자                                            | Endpoints                                          | Namespaces         | 타입      |
+| -------------------------------------------------- | -------------------------------------------------- | ------------------ | ------- |
+| [Klaytn API Service](https://www.klaytnapi.com/)   | `wss://public-node-api.klaytnapi.com/v1/baobab/ws` | klay,eth,net,debug | Full    |
+| [Klaytn Foundation](https://www.klaytn.foundation) | `wss://api.baobab.klaytn.net:8652`                 | klay,eth,net       | Full    |
+| Fantrie                                            | `wss://baobab01.fandom.finance/ws/`                | klay,eth,net,debug | Full    |
+|                                                    | `wss://baobab02.fandom.finance/ws/`                | klay,eth,net,debug | Full    |
+|                                                    | `wss://baobab.fandom.finance/archive/ws`           | klay,eth,net,debug | Archive |
 
-- `wss://klaytn02.fandom.finance/ws/`
-
-- `wss://klaytn03.fandom.finance/ws/`
-
-- `wss://klaytn04.fandom.finance/ws/`
-
-- `wss://klaytn05.fandom.finance/ws/`
-
-##### Archive Node Access Points
-
-- `https://cypress.fandom.finance/archive`
-
-- `wss://cypress.fandom.finance/archive/ws`
-
-#### Service Provider: [All That Node](www.allthatnode.com)
-
-These public endpoints are provided to the community by third party services.
-
-**HTTPS**
-
-- `https://klaytn-mainnet-rpc.allthatnode.com:8551`
-
-
-### 테스트넷 (Baobab) 퍼블릭 JSON-RPC 엔드포인트
-
-#### 서비스 제공주체: Klaytn API Service
-
-**HTTPS**
-
-- `https://public-node-api.klaytnapi.com/v1/baobab`
-
-**WebSocket**
-
-- `wss://public-node-api.klaytnapi.com/v1/baobab/ws`
-
-#### Service Provider: Klaytn Foundation
-
-**HTTPS**
-
-- `https://api.baobab.klaytn.net:8651`
-
-**WebSocket**
-
-- `wss://api.baobab.klaytn.net:8652`
-
-#### 서비스 제공주체: Fantrie
-
-**HTTPS**
-
-- `https://baobab01.fandom.finance`
-
-- `https://baobab02.fandom.finance`
-
-**WebSocket**
-
-- `wss://baobab01.fandom.finance/ws`
-
-- `wss://baobab02.fandom.finance/ws`
-
-##### Archive Node Access Points
-
-- `https://baobab.fandom.finance/archive`
-
-- `wss://baobab.fandom.finance/archive/ws`
-
-#### Service Provider: [All That Node](www.allthatnode.com)
-
-**HTTPS**
-
-- `https://klaytn-baobab-rpc.allthatnode.com:8551`
-
-
-## 유용한 정보
+## Useful Resources
 
 - Wallet: Kaikas is a browser extension wallet for the Klaytn Network. [Kaikas](https://docs.klaytn.foundation/dapp/developer-tools/kaikas)
 
