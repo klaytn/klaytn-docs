@@ -56,7 +56,7 @@ Error: runtime error occurred in interpreter
 
 ## Caution when Sending a Transaction to Klaytn <a id="caution-when-sending-a-transaction-to-klaytn"></a>
 
-Klaytn has a new gas price policy since the Magma hard fork which enabled the [KIP-71](https://kips.klaytn.foundation/KIPs/kip-71) feature.
+Klaytn has a new gas price policy since the Magma hard fork which enabled the [KIP-71](https://kips.klaytn.foundation/KIPs/kip-71).
 
 Therefore, when sending a transaction, you need to set the gasPrice logic differently depending on whether it is a hard fork or not.
 
