@@ -1865,7 +1865,7 @@ Returns the receipt of a transaction by transaction hash.
 | blockNumber | string | Block number where this transaction was in. |
 | codeFormat | string | (optional) The code format of smart contract code. |
 | contractAddress | string | The contract address created, if the transaction was a contract creation, otherwise `null`. |
-| effectiveGasPrice | string | The actual value per gas deducted from the senders account. Before Magma hard fork, this is equal to the transaction’s gas price. After, it is equal to baseFee of the block header. |
+| effectiveGasPrice | string | The actual value per gas deducted from the sender. Before Magma hard fork, this is equal to the transaction’s gas price. After Magma, it is equal to the value of baseFee in the block header. |
 | feePayer | string | (optional) Address of the fee payer. |
 | feePayerSignatures | Array | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 | feeRatio | string | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. |

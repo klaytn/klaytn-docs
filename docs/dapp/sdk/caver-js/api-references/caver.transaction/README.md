@@ -695,7 +695,7 @@ After Magma hard fork, `suggestedGasPrice` returns `baseFee * 2` which is recomm
 
 **Return Value**
 
-`Promise` returning `string`: The suggested gas price.
+`Promise` returning `string`: The suggested gas price in a hexadecimal string.
 
 | Type | Description |
 | --- | --- |
