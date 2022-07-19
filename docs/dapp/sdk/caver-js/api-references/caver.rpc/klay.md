@@ -1865,7 +1865,7 @@ Returns the receipt of a transaction by transaction hash.
 | blockNumber | string | Block number where this transaction was in. |
 | codeFormat | string | (optional) The code format of smart contract code. |
 | contractAddress | string | The contract address created, if the transaction was a contract creation, otherwise `null`. |
-| effectiveGasPrice | string | The actual value per gas deducted from the sender. Before Magma hard fork, this is equal to the transaction’s gas price. After Magma, it is equal to the value of baseFee in the block header. |
+| effectiveGasPrice | string | The actual value per gas deducted from the sender. Before the Magma hard fork, this value was equal to the transaction’s gas price. After the Magma hard fork, it is equal to the value of `baseFee` in the block header. |
 | feePayer | string | (optional) Address of the fee payer. |
 | feePayerSignatures | Array | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 | feeRatio | string | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. |
@@ -1895,7 +1895,7 @@ Returns the receipt of a transaction by transaction hash.
 **Example**
 
 ```javascript
-// Before Magma hard fork
+// Before the Magma hard fork
 > caver.rpc.klay.getTransactionReceipt('0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898').then(console.log)
 {
     blockHash: '0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576',
@@ -1920,7 +1920,7 @@ Returns the receipt of a transaction by transaction hash.
     value: '0x8ac7230489e80000',
 }
 
-// After Magma hard fork
+// After the Magma hard fork
 > caver.rpc.klay.getTransactionReceipt('0xf0554493c273352eac667eb30a1b70fffa8e8a0f682928b31baaceccc17c64b9').then(console.log)
 {
   blockHash: '0xaa358681023db9d967ff44577a34aea487c37433ebf6ef349baee50f9d1d2f03',
