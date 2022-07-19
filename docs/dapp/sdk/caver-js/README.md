@@ -58,12 +58,12 @@ Error: runtime error occurred in interpreter
 
 Klaytn has a new gas price policy since the Magma hard fork which enabled the [KIP-71](https://kips.klaytn.foundation/KIPs/kip-71).
 
-Therefore, when sending a transaction, you need to set the gasPrice logic differently depending on whether it is a hard fork or not.
+Therefore, you need to set the `gasPrice` logic differently when sending a transaction, depending on whether the hard fork is applicable or not.
 
-Before Magma hard fork, Klaytn uses a "fixed gas price". A transaction with a different price submitted to the Klaytn network will be rejected.
-If `gasPrice` is not defined when you sign or submit a transaction, caver-js uses the [caver.rpc.klay.getGasPrice] RPC call to set the gas price of the transaction.
+Until the Magma hard fork, transactions on Klaytn have been subject to a "fixed gas price". Therefore, transactions with any other price submitted to the network are rejected.
+If `gasPrice` is not defined when you sign or submit a transaction, caver-js uses [caver.rpc.klay.getGasPrice] RPC call to set the gas price.
 
-After Magma hard fork, Klaytn uses a "dynamic gas fee pricing mechanism". A gas price of the transaction should be bigger than base fee of the Klaytn network. 
+After the Magma hard fork, Klaytn uses a "dynamic gas fee pricing mechanism". The gas price of the transaction should be higher than the base fee of the Klaytn network. 
 If `gasPrice` is not defined when you sign or submit a transaction, caver-js sets the `gasPrice` field as `latestBlockHeader.baseFeePerGas * 2`.
 
 ### How to set gasPrice field
