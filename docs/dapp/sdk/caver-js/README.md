@@ -64,7 +64,7 @@ Until the Magma hard fork, transactions on Klaytn have been subject to a "fixed 
 If `gasPrice` is not defined when you sign or submit a transaction, caver-js uses [caver.rpc.klay.getGasPrice] RPC call to set the gas price.
 
 After the Magma hard fork, Klaytn uses a "dynamic gas fee pricing mechanism". The gas price of the transaction should be higher than the base fee of the Klaytn network. 
-If `gasPrice` is not defined when you sign or submit a transaction, caver-js sets the `gasPrice` field as `latestBlockHeader.baseFeePerGas * 2`.
+If `gasPrice` is not defined when you sign or submit a transaction, caver-js sets the `gasPrice` field of the transaction using `caver.rpc.klay.getGasPrice`.
 
 ### How to set gasPrice field
 
