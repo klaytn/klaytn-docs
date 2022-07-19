@@ -68,7 +68,7 @@ If `gasPrice` is not defined when you sign or submit a transaction, caver-js set
 
 ### How to set gasPrice field
 
-caver-js provides various ways to set the `gasPrice`. The recommended ways to set the `gasPrice` field when using caver-js are explained, and the methods described here can be used regardless of hard fork.
+caver-js provides various ways to set the `gasPrice`. Ways to set the `gasPrice` field when using caver-js are suggested below. The methods described here can be used regardless of the hard fork.
 
 #### Do not define `gasPrice` field
 
@@ -90,7 +90,7 @@ await tx.fillTransaction() // Fill the optional tx fields.
 
 #### Use `tx.suggestGasPrice` method
 
-You can set the `gasPrice` with result of `tx.suggestGasPrice` which returns the recommended gas price.
+You can set the `gasPrice` with the result of `tx.suggestGasPrice` which returns the recommended gas price.
 
 ```
 const tx = caver.transaction.valueTransfer.create({ from, to, value, gas })
