@@ -88,13 +88,13 @@ const tx = caver.transaction.valueTransfer.create({ from, to, value, gas })
 await tx.fillTransaction() // Fill the optional tx fields. 
 ```
 
-#### Use `tx.suggestedGasPrice` method
+#### Use `tx.suggestGasPrice` method
 
-You can set the `gasPrice` with result of `tx.suggestedGasPrice` which returns the recommended gas price.
+You can set the `gasPrice` with result of `tx.suggestGasPrice` which returns the recommended gas price.
 
 ```
 const tx = caver.transaction.valueTransfer.create({ from, to, value, gas })
-tx.gasPrice = await tx.suggestedGasPrice() 
+tx.gasPrice = await tx.suggestGasPrice() 
 ```
 
 For more information about the gas price, see [Gas and Unit Price Overview](../../../klaytn/design/transaction-fees/transaction-fees.md#gas-and-unit-price-overview) The price of gas used in the network can be obtained by using [caver.rpc.klay.getGasPrice].
