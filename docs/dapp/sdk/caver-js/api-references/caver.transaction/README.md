@@ -688,14 +688,14 @@ transaction.suggestGasPrice()
 
 Returns suggested gas price. This function is used to set gasPrice field in the [fillTransaction](#transaction-fillTransaction).
 
-Before Magma hard fork, `suggestGasPrice` returns unit price.
-After Magma hard fork, `suggestGasPrice` returns `baseFee * 2` which is recommended to use as a gasPrice.
+Before the Magma hard fork, `suggestGasPrice` returns unit price.
+After the Magma hard fork, `suggestGasPrice` returns `baseFee * 2` which is recommended to use as gasPrice.
 
 **NOTE** `transaction.suggestGasPrice` is supported since caver-js [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0).
 
 **Return Value**
 
-`Promise` returning `string`: The suggested gas price in a hexadecimal string.
+`Promise` returning `string`: The suggested gas price in hexadecimal string.
 
 | Type | Description |
 | --- | --- |
