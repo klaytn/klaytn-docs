@@ -1857,44 +1857,49 @@ caver.rpc.klay.getTransactionReceipt(transactionHash [, callback])
 
 `Promise` returns `object` - A transaction receipt object, or `null` when no receipt was found:
 
-| 이름               | 타입      | 설명                                                                                                                                               |
-| ---------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockHash        | string  | 트랜잭션이 담긴 블록의 해시입니다.                                                                                                                              |
-| blockNumber      | string  | 트랜잭션이 담긴 블록의 번호입니다.                                                                                                                              |
-| codeFormat       | string  | (선택사항) 스마트 컨트랙트 코드의 코드 형식입니다.                                                                                                                    |
-| contractAddress  | string  | 컨트랙트 생성 트랜잭션이면 생성된 컨트랙트의 주소를 반환합니다. 컨트랙트 생성 트랜잭션이 아닌 경우 `null`을 반환합니다.                                                                           |
-| feePayer         | string  | (선택사항) 트랜잭션 수수료 납부자의 주소입니다.                                                                                                                      |
-| 트랜잭션 수수료 납부자 서명  | Array   | (선택사항) 트랜잭션 수수료 납부자의 서명 객체들로 이루어진 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다. |
-| feeRatio         | string  | (선택사항) 트랜잭션 수수료 납부자의 부담 비율입니다. 이 값이 30이면, 트랜잭션 수수료의 30%를 트랜잭션 수수료 납부자가 지불합니다. 나머지 70%는 트랜잭션 발신자가 지불합니다.                                          |
-| from             | string  | 트랜잭션 발신자의 주소입니다.                                                                                                                                 |
-| gas              | string  | 트랜잭션 발신자에 의해 설정된 가스양입니다.                                                                                                                         |
-| 가스 가격            | string  | peb에서 트랜잭션 발신자에 의해 설정된 가스 가격입니다.                                                                                                                 |
-| gasUsed          | string  | 이 트랜잭션에서만 사용된 가스양입니다.                                                                                                                            |
-| humanReadable    | Boolean | (선택사항) Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.                                                                            |
-| key              | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of a Klaytn account.                                                             |
-| input            | string  | (선택사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                      |
-| 로그               | Array   | 이 트랜잭션이 발생시킨 로그 객체들의 배열입니다.                                                                                                                      |
-| logsBloom        | string  | 라이트 클라이언트가 관련된 로그를 빠르게 검색할 수 있도록 하는 블룸필터입니다.                                                                                                     |
-| 논스               | string  | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                          |
-| senderTxHash     | string  | (선택사항) 발신자만 서명한 트랜잭션 해시. See [SenderTxHash][]. This value is always the same as `transactionHash` for non-fee-delegated transactions.            |
-| 서명               | Array   | 서명 객체의 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                            |
-| 상태               | string  | `0x1` if the transaction was successful, `0x0` if the Klaytn Virtual Machine reverted the transaction.                                           |
-| txError          | string  | (optional) detailed error code if `status` is equal to `0x0`.                                                                                    |
-| to               | string  | 트랜잭션 수신자의 주소입니다. 컨트랙트 생성 트랜잭션이면 `null`을 반환합니다.                                                                                                   |
-| transactionHash  | string  | 트랜잭션의 해시입니다.                                                                                                                                     |
-| transactionIndex | string  | 블록 내 트랜잭션의 인덱스 위치의 정숫값입니다.                                                                                                                       |
-| 형식               | string  | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                           |
-| typeInt          | number  | 트랜잭션의 유형을 나타내는 정수입니다.                                                                                                                            |
-| value            | string  | peb로 전송된 값입니다.                                                                                                                                   |
+| 이름                | 타입      | 설명                                                                                                                                                                                                                        |
+| ----------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash         | string  | 트랜잭션이 담긴 블록의 해시입니다.                                                                                                                                                                                                       |
+| blockNumber       | string  | 트랜잭션이 담긴 블록의 번호입니다.                                                                                                                                                                                                       |
+| codeFormat        | string  | (선택사항) 스마트 컨트랙트 코드의 코드 형식입니다.                                                                                                                                                                                             |
+| contractAddress   | string  | 컨트랙트 생성 트랜잭션이면 생성된 컨트랙트의 주소를 반환합니다. 컨트랙트 생성 트랜잭션이 아닌 경우 `null`을 반환합니다.                                                                                                                                                    |
+| effectiveGasPrice | string  | The actual value per gas deducted from the sender. Before the Magma hard fork, this value was equal to the transaction’s gas price. After the Magma hard fork, it is equal to the value of `baseFee` in the block header. |
+| feePayer          | string  | (선택사항) 트랜잭션 수수료 납부자의 주소입니다.                                                                                                                                                                                               |
+| 트랜잭션 수수료 납부자 서명   | Array   | (선택사항) 트랜잭션 수수료 납부자의 서명 객체들로 이루어진 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                                                                          |
+| feeRatio          | string  | (선택사항) 트랜잭션 수수료 납부자의 부담 비율입니다. 이 값이 30이면, 트랜잭션 수수료의 30%를 트랜잭션 수수료 납부자가 지불합니다. 나머지 70%는 트랜잭션 발신자가 지불합니다.                                                                                                                   |
+| from              | string  | 트랜잭션 발신자의 주소입니다.                                                                                                                                                                                                          |
+| gas               | string  | 트랜잭션 발신자에 의해 설정된 가스양입니다.                                                                                                                                                                                                  |
+| 가스 가격             | string  | peb에서 트랜잭션 발신자에 의해 설정된 가스 가격입니다.                                                                                                                                                                                          |
+| gasUsed           | string  | 이 트랜잭션에서만 사용된 가스양입니다.                                                                                                                                                                                                     |
+| humanReadable     | Boolean | (선택사항) Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.                                                                                                                                                     |
+| key               | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of a Klaytn account.                                                                                                                                      |
+| input             | string  | (선택사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                                                                               |
+| 로그                | Array   | 이 트랜잭션이 발생시킨 로그 객체들의 배열입니다.                                                                                                                                                                                               |
+| logsBloom         | string  | 라이트 클라이언트가 관련된 로그를 빠르게 검색할 수 있도록 하는 블룸필터입니다.                                                                                                                                                                              |
+| 논스                | string  | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                                                                                                   |
+| senderTxHash      | string  | (선택사항) 발신자만 서명한 트랜잭션 해시. See [SenderTxHash][]. This value is always the same as `transactionHash` for non-fee-delegated transactions.                                                                                     |
+| 서명                | Array   | 서명 객체의 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                                                                                                     |
+| 상태                | string  | `0x1` if the transaction was successful, `0x0` if the Klaytn Virtual Machine reverted the transaction.                                                                                                                    |
+| txError           | string  | (optional) detailed error code if `status` is equal to `0x0`.                                                                                                                                                             |
+| to                | string  | 트랜잭션 수신자의 주소입니다. 컨트랙트 생성 트랜잭션이면 `null`을 반환합니다.                                                                                                                                                                            |
+| transactionHash   | string  | 트랜잭션의 해시입니다.                                                                                                                                                                                                              |
+| transactionIndex  | string  | 블록 내 트랜잭션의 인덱스 위치의 정숫값입니다.                                                                                                                                                                                                |
+| 형식                | string  | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                                                                                                    |
+| typeInt           | number  | 트랜잭션의 유형을 나타내는 정수입니다.                                                                                                                                                                                                     |
+| value             | string  | peb로 전송된 값입니다.                                                                                                                                                                                                            |
+
+**NOTE** `effectiveGasPrice` is supported since caver-js [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0).
 
 **예시**
 
 ```javascript
+// Before the Magma hard fork
 > caver.rpc.klay.getTransactionReceipt('0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898').then(console.log)
 {
     blockHash: '0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576',
     blockNumber: '0xb7',
     contractAddress: null,
+    effectiveGasPrice: '0x5d21dba00',
     from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e',
     gas: '0x61a8',
     gasPrice: '0x5d21dba00',
@@ -1911,6 +1916,31 @@ caver.rpc.klay.getTransactionReceipt(transactionHash [, callback])
     type: 'TxTypeValueTransfer',
     typeInt: 8,
     value: '0x8ac7230489e80000',
+}
+
+// After the Magma hard fork
+> caver.rpc.klay.getTransactionReceipt('0xf0554493c273352eac667eb30a1b70fffa8e8a0f682928b31baaceccc17c64b9').then(console.log)
+{
+  blockHash: '0xaa358681023db9d967ff44577a34aea487c37433ebf6ef349baee50f9d1d2f03',
+  blockNumber: '0x99',
+  contractAddress: null,
+  effectiveGasPrice: '0x5d21dba00',
+  from: '0xca7a99380131e6c76cfa622396347107aeedca2d',
+  gas: '0x61a8',
+  gasPrice: '0xba43b7400',
+  gasUsed: '0x5208',
+  logs: [],
+  logsBloom: '0x00000...',
+  nonce: '0x2',
+  senderTxHash: '0xf0554493c273352eac667eb30a1b70fffa8e8a0f682928b31baaceccc17c64b9',
+  signatures: [ { V: '0x1cb4c6', R: '0x1605e...', S: '0x459cf...' } ],
+  status: '0x1',
+  to: '0x08ef5d2def29ff4384dd93a73e076d959abbd2f4',
+  transactionHash: '0xf0554493c273352eac667eb30a1b70fffa8e8a0f682928b31baaceccc17c64b9',
+  transactionIndex: '0x0',
+  type: 'TxTypeValueTransfer',
+  typeInt: 8,
+  value: '0xde0b6b3a7640000'
 }
 ```
 
@@ -1949,6 +1979,7 @@ Please note that this API returns the correct result only if the indexing featur
     blockHash: '0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576',
     blockNumber: '0xb7',
     contractAddress: null,
+    effectiveGasPrice: '0x5d21dba00',
     from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e',
     gas: '0x61a8',
     gasPrice: '0x5d21dba00',
@@ -2490,6 +2521,64 @@ Returns a suggested gas tip cap for dynamic fee transactions in peb. Since Klayt
 ```javascript
 > caver.rpc.klay.getMaxPriorityFeePerGas().then(console.log)
 0x5d21dba00
+```
+
+## caver.rpc.klay.getLowerBoundGasPrice <a id="caver-rpc-klay-getlowerboundgasprice"></a>
+
+```javascript
+caver.rpc.klay.getLowerBoundGasPrice([callback])
+```
+
+Returns the lower bound gas price in peb.
+
+**Parameters**
+
+| 이름       | 타입       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
+
+**리턴값**
+
+`Promise`는 `string`을 반환합니다.
+
+| 타입     | 설명                                |
+| ------ | --------------------------------- |
+| string | The lower bound gas price in peb. |
+
+**예시**
+
+```javascript
+> caver.rpc.klay.getLowerBoundGasPrice().then(console.log)
+0x5d21dba00
+```
+
+## caver.rpc.klay.getUpperBoundGasPrice <a id="caver-rpc-klay-getupperboundgasprice"></a>
+
+```javascript
+caver.rpc.klay.getUpperBoundGasPrice([callback])
+```
+
+Returns the upper bound gas price in peb.
+
+**Parameters**
+
+| 이름       | 타입       | 설명                                                                   |
+| -------- | -------- | -------------------------------------------------------------------- |
+| callback | function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
+
+**리턴값**
+
+`Promise`는 `string`을 반환합니다.
+
+| 타입     | 설명                                |
+| ------ | --------------------------------- |
+| string | The upper bound gas price in peb. |
+
+**예시**
+
+```javascript
+> caver.rpc.klay.getUpperBoundGasPrice().then(console.log)
+0xae9f7bcc00
 ```
 
 ## caver.rpc.klay.getFeeHistory <a id="caver-rpc-klay-getfeehistory"></a>
