@@ -207,6 +207,13 @@ caver.rpc.governance.getChainConfig([callback])
       stakingUpdateInterval: 60,
       proposerUpdateInterval: 30,
       minimumStake: 5000000
+    },
+    kip71: {
+      lowerboundbasefee: 25000000000,
+      upperboundbasefee: 750000000000,
+      gastarget: 30000000,
+      maxblockgasusedforbasefee: 60000000,
+      basefeedenominator: 20
     }
   }
 }
@@ -275,6 +282,11 @@ caver.rpc.governance.getItemsAt([blockNumberOrTag] [, callback])
   'istanbul.committeesize': 22,
   'istanbul.epoch': 30,
   'istanbul.policy': 2,
+  'kip71.basefeedenominator': 20,
+  'kip71.gastarget': 30000000,
+  'kip71.lowerboundbasefee': 25000000000,
+  'kip71.maxblockgasusedforbasefee': 60000000,
+  'kip71.upperboundbasefee': 750000000000,
   'reward.deferredtxfee': true,
   'reward.minimumstake': '5000000',
   'reward.mintingamount': '9600000000000000000',
@@ -405,7 +417,7 @@ caver.rpc.governance.getItemCacheFromDb([callback])
 **예시**
 
 ```javascript
-> caver.rpc.governance.getItemCacheFromDb(321180).then(console.log)
+> caver.rpc.governance.getItemCacheFromDb(540).then(console.log)
 {
   'governance.governancemode': 'single',
   'governance.governingnode': '0xbeafcca672100a88a953fcf5e882cb763f9e3de9',
@@ -413,6 +425,11 @@ caver.rpc.governance.getItemCacheFromDb([callback])
   'istanbul.committeesize': 22,
   'istanbul.epoch': 30,
   'istanbul.policy': 2,
+  'kip71.basefeedenominator': 30,
+  'kip71.gastarget': 30000000,
+  'kip71.lowerboundbasefee': 25000000000,
+  'kip71.maxblockgasusedforbasefee': 60000000,
+  'kip71.upperboundbasefee': 750000000000,
   'reward.deferredtxfee': true,
   'reward.minimumstake': '5000000',
   'reward.mintingamount': '9600000000000000000',
