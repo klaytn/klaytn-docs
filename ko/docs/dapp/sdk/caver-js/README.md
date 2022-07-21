@@ -56,9 +56,46 @@ Error: runtime error occurred in interpreter
 
 ## Klaytn에 트랜잭션을 보낼 때 주의사항 <a id="caution-when-sending-a-transaction-to-klaytn"></a>
 
-Klaytn uses a fixed gas price \(250 ston = 250 \* 10^9\). Klaytn 네트워크에 제출된 다른 가스 가격의 트랜잭션은 거절됩니다. For more information about the gas price, see [Gas and Unit Price Overview](../../../klaytn/design/transaction-fees/transaction-fees.md#gas-and-unit-price-overview) The price of gas used in the network can be obtained by using [caver.rpc.klay.getGasPrice][].
+Klaytn has a new gas price policy since the Magma hard fork which enabled the [KIP-71](https://kips.klaytn.foundation/KIPs/kip-71).
 
-If `gasPrice` is not defined when you sign or submit a transaction, caver-js uses the [caver.rpc.klay.getGasPrice][] RPC call to set the gas price of the transaction.
+Therefore, you need to set the `gasPrice` logic differently when sending a transaction, depending on whether the hard fork is applicable or not.
+
+Until the Magma hard fork, transactions on Klaytn have been subject to a "fixed gas price". Therefore, transactions with any other price submitted to the network are rejected. If `gasPrice` is not defined when you sign or submit a transaction, caver-js uses [caver.rpc.klay.getGasPrice][] RPC call to set the gas price.
+
+After the Magma hard fork, Klaytn uses a "dynamic gas fee pricing mechanism". The gas price of the transaction should be higher than the base fee of the Klaytn network. If `gasPrice` is not defined when you sign or submit a transaction, caver-js sets the `gasPrice` field of the transaction using `caver.rpc.klay.getGasPrice`.
+
+### How to set gasPrice field
+
+caver-js provides various ways to set the `gasPrice`. Ways to set the `gasPrice` field when using caver-js are suggested below. The methods described here can be used regardless of the hard fork.
+
+#### Do not define `gasPrice` field
+
+If you create an instance without defining the `gasPrice` field, the `gasPrice` field is automatically set when you call `tx.sign` or `tx.signAsFeePayer` to sign a transaction.
+
+```
+const tx = caver.transaction.valueTransfer.create({ from, to, value, gas })
+await tx.sign(from, tx) // Before signing, gasPrice is set inside `tx.sign`.
+```
+
+#### Use `tx.fillTransaction` method
+
+You can use `tx.fillTransaction`, a function that fills the optional fields of a transaction with appropriate values when they are omitted.
+
+```
+const tx = caver.transaction.valueTransfer.create({ from, to, value, gas })
+await tx.fillTransaction() // Fill the optional tx fields. 
+```
+
+#### Use `tx.suggestGasPrice` method
+
+You can set the `gasPrice` with the result of `tx.suggestGasPrice` which returns the recommended gas price.
+
+```
+const tx = caver.transaction.valueTransfer.create({ from, to, value, gas })
+tx.gasPrice = await tx.suggestGasPrice() 
+```
+
+For more information about the gas price, see [Gas and Unit Price Overview](../../../klaytn/design/transaction-fees/transaction-fees.md#gas-and-unit-price-overview) The price of gas used in the network can be obtained by using [caver.rpc.klay.getGasPrice][].
 
 ## 링크 <a id="links"></a>
 
