@@ -207,6 +207,13 @@ Provides the initial chain configuration. Because it just stores the initial con
       stakingUpdateInterval: 60,
       proposerUpdateInterval: 30,
       minimumStake: 5000000
+    },
+    kip71: {
+      lowerboundbasefee: 25000000000,
+      upperboundbasefee: 750000000000,
+      gastarget: 30000000,
+      maxblockgasusedforbasefee: 60000000,
+      basefeedenominator: 20
     }
   }
 }
@@ -275,6 +282,11 @@ Returns governance items at a specific block. It is the result of previous votin
   'istanbul.committeesize': 22,
   'istanbul.epoch': 30,
   'istanbul.policy': 2,
+  'kip71.basefeedenominator': 20,
+  'kip71.gastarget': 30000000,
+  'kip71.lowerboundbasefee': 25000000000,
+  'kip71.maxblockgasusedforbasefee': 60000000,
+  'kip71.upperboundbasefee': 750000000000,
   'reward.deferredtxfee': true,
   'reward.minimumstake': '5000000',
   'reward.mintingamount': '9600000000000000000',
@@ -405,7 +417,7 @@ Returns the governance information stored on the given block. If no changes are 
 **Example**
 
 ```javascript
-> caver.rpc.governance.getItemCacheFromDb(321180).then(console.log)
+> caver.rpc.governance.getItemCacheFromDb(540).then(console.log)
 {
   'governance.governancemode': 'single',
   'governance.governingnode': '0xbeafcca672100a88a953fcf5e882cb763f9e3de9',
@@ -413,6 +425,11 @@ Returns the governance information stored on the given block. If no changes are 
   'istanbul.committeesize': 22,
   'istanbul.epoch': 30,
   'istanbul.policy': 2,
+  'kip71.basefeedenominator': 30,
+  'kip71.gastarget': 30000000,
+  'kip71.lowerboundbasefee': 25000000000,
+  'kip71.maxblockgasusedforbasefee': 60000000,
+  'kip71.upperboundbasefee': 750000000000,
   'reward.deferredtxfee': true,
   'reward.minimumstake': '5000000',
   'reward.mintingamount': '9600000000000000000',
