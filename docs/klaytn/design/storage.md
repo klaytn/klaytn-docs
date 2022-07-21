@@ -1,34 +1,15 @@
 # Storage Layer <a id="storage-layer"></a>
 
-## Block archiving <a id="block-archiving"></a>
+## State Migration <a id="block-archiving"></a>
 
-The high throughput of Klaytn should result in high storage costs. Klaytn plans
-to perform block-archiving to ease storage burdens of participating nodes. With
-block archiving enabled, ENs may remove bodies of stale blocks, maintaining only
-a certain number of the last blocks. Only a subgroup of Klaytn network nodes will
-keep all the blocks in cost-effective storage and they will serve read requests
-by verifying older transactions no longer stored in ENs. However, even block
-archiving ENs will still have to keep the headers from all archived blocks in
-order to allow clients to securely verify the contents of the archived blocks.
+As more blocks are added to the blockchain, chain data also pile up. Chain data are necessary for node operation, so they are stored in the node storage as a data structure called trie, and ultimately in a database called LevelDB. So with more blocks, comes more chain data in the storage, along with increasing cost. Klaytn, therefore, provides a feature called State Migration that allows you to reduce the amount of required storage space.
 
-This process can effectively reduce the storage cost of ENs, encouraging
-diverse participants to join the ENN. Assuming 100 TPS in average and
-1-second block latency, the size of data that an EN must replicate can be
-significant. If the average transaction size is 300 bytes, the expected EN daily
-storage requirement is 2.5 GB/day (=300x100x86400). While this does not hinder
-servers and desktops (where storage space is more easily expandable and less expensive),
-certain ENs running their nodes on lighter machines such as laptops could find
-this storage requirement a burden. By allowing ENs to only keep a fixed number
-of blocks, block archiving will extend its benefits to a broad spectrum of audiences
-on the network, fortifying data redundancy and security without requiring ENs to
-replicate an ever-growing ledger of blocks.
+State Migration targets state tries, which comprise most of the chain data. It deletes state trie nodes that are not required for processing new blocks. It only leaves the state trie nodes that are reachable from the state trie root of a specific block. After State Migration, you are only left with the latest data required for node synchronization, consisting of state trie nodes of the target block as well as newly added blocks.
 
-Whereas removing block bodies may be perceived as weakening decentralization as
-block archiving nodes cannot independently verify all historical transactions
-without the help of other nodes. Nonetheless, not all applications need
-constant access to the complete history of transactions, and we believe that
-block archiving is a welcome feature strongly preferred by certain groups of
-services --- services that require only the latest states of applications.
-Serving all blocks in this context is inefficient and less desirable. We
-believe that block archiving will benefit many applications requiring high
-replication levels and the security of blockchain technology.
+Note that a node can't read old states from blocks previous to the target block after State Migration. In other words, you can't return the balance from an old block number using the `klay_getBalance` API.
+
+More details on the mechanism of State Migration can be found below:
+[Klaytn v1.5.0 State Migration: Saving Node Storage](https://medium.com/klaytn/klaytn-v1-5-0-state-migration-saving-node-storage-1358d87e4a7a)
+[Klaytn State Migration: An Efficient Way to Reduce Blockchain Data](https://medium.com/klaytn/klaytn-state-migration-an-efficient-way-to-reduce-blockchain-data-6615a3b36523)
+
+To use State Migration, please refer to the documentation on admin APIs.[`admin_startStateMigration`](https://docs.klaytn.foundation/dapp/json-rpc/api-references/admin#admin_startstatemigration) lets you start State Migration, [`admin_stateMigrationStatus`](https://docs.klaytn.foundation/dapp/json-rpc/api-references/admin#admin_statemigrationstatus) allows you to check the Migration status, and [`admin_stopStateMigration`](https://docs.klaytn.foundation/dapp/json-rpc/api-references/admin#admin_stopstatemigration) allows you to stop the process.
