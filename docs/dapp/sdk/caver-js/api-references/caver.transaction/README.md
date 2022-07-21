@@ -680,6 +680,33 @@ Recovers the public key strings from `feePayerSignatures` field.
 ]
 ```
 
+## transaction.suggestGasPrice <a id="transaction-suggestGasPrice"></a>
+
+```javascript
+transaction.suggestGasPrice()
+```
+
+Returns suggested gas price. This function is used to set gasPrice field in the [fillTransaction](#transaction-fillTransaction).
+
+Before the Magma hard fork, `suggestGasPrice` returns the unit price of the network.
+After the Magma hard fork, `suggestGasPrice` returns `baseFee * 2` which is recommended to use as gasPrice.
+
+**NOTE** `transaction.suggestGasPrice` is supported since caver-js [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0).
+
+**Return Value**
+
+`Promise` returning `string`: The suggested gas price in hexadecimal string.
+
+| Type | Description |
+| --- | --- |
+| string | The suggested gas price. |
+
+**Example**
+
+```javascript
+> tx.suggestGasPrice().then(console.log)
+0xba43b7400
+```
 
 [Klaytn Design - Transactions]: ../../../../../klaytn/design/transactions/README.md
 [senderTxHash]: ../../../../../klaytn/design/transactions/README.md#sendertxhash
