@@ -1865,6 +1865,7 @@ Returns the receipt of a transaction by transaction hash.
 | blockNumber | string | Block number where this transaction was in. |
 | codeFormat | string | (optional) The code format of smart contract code. |
 | contractAddress | string | The contract address created, if the transaction was a contract creation, otherwise `null`. |
+| effectiveGasPrice | string | The actual value per gas deducted from the sender. Before the Magma hard fork, this value was equal to the transaction’s gas price. After the Magma hard fork, it is equal to the value of `baseFee` in the block header. |
 | feePayer | string | (optional) Address of the fee payer. |
 | feePayerSignatures | Array | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
 | feeRatio | string | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. |
@@ -1889,14 +1890,18 @@ Returns the receipt of a transaction by transaction hash.
 | typeInt | number | An integer representing the type of the transaction. |
 | value | string | Value transferred in peb. |
 
+**NOTE** `effectiveGasPrice` is supported since caver-js [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0).
+
 **Example**
 
 ```javascript
+// Before the Magma hard fork
 > caver.rpc.klay.getTransactionReceipt('0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898').then(console.log)
 {
     blockHash: '0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576',
     blockNumber: '0xb7',
     contractAddress: null,
+    effectiveGasPrice: '0x5d21dba00',
     from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e',
     gas: '0x61a8',
     gasPrice: '0x5d21dba00',
@@ -1913,6 +1918,31 @@ Returns the receipt of a transaction by transaction hash.
     type: 'TxTypeValueTransfer',
     typeInt: 8,
     value: '0x8ac7230489e80000',
+}
+
+// After the Magma hard fork
+> caver.rpc.klay.getTransactionReceipt('0xf0554493c273352eac667eb30a1b70fffa8e8a0f682928b31baaceccc17c64b9').then(console.log)
+{
+  blockHash: '0xaa358681023db9d967ff44577a34aea487c37433ebf6ef349baee50f9d1d2f03',
+  blockNumber: '0x99',
+  contractAddress: null,
+  effectiveGasPrice: '0x5d21dba00',
+  from: '0xca7a99380131e6c76cfa622396347107aeedca2d',
+  gas: '0x61a8',
+  gasPrice: '0xba43b7400',
+  gasUsed: '0x5208',
+  logs: [],
+  logsBloom: '0x00000...',
+  nonce: '0x2',
+  senderTxHash: '0xf0554493c273352eac667eb30a1b70fffa8e8a0f682928b31baaceccc17c64b9',
+  signatures: [ { V: '0x1cb4c6', R: '0x1605e...', S: '0x459cf...' } ],
+  status: '0x1',
+  to: '0x08ef5d2def29ff4384dd93a73e076d959abbd2f4',
+  transactionHash: '0xf0554493c273352eac667eb30a1b70fffa8e8a0f682928b31baaceccc17c64b9',
+  transactionIndex: '0x0',
+  type: 'TxTypeValueTransfer',
+  typeInt: 8,
+  value: '0xde0b6b3a7640000'
 }
 ```
 
@@ -1951,6 +1981,7 @@ Please note that this API returns the correct result only if the indexing featur
     blockHash: '0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576',
     blockNumber: '0xb7',
     contractAddress: null,
+    effectiveGasPrice: '0x5d21dba00',
     from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e',
     gas: '0x61a8',
     gasPrice: '0x5d21dba00',
@@ -2493,6 +2524,64 @@ Since Klaytn has a fixed gas price, this returns the gas price set by Klaytn.
 ```javascript
 > caver.rpc.klay.getMaxPriorityFeePerGas().then(console.log)
 0x5d21dba00
+```
+
+## caver.rpc.klay.getLowerBoundGasPrice <a id="caver-rpc-klay-getlowerboundgasprice"></a>
+
+```javascript
+caver.rpc.klay.getLowerBoundGasPrice([callback])
+```
+
+Returns the lower bound gas price in peb.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+
+**Return Value**
+
+`Promise` returns `string`
+
+| Type | Description |
+| --- | --- |
+| string | The lower bound gas price in peb. |
+
+**Example**
+
+```javascript
+> caver.rpc.klay.getLowerBoundGasPrice().then(console.log)
+0x5d21dba00
+```
+
+## caver.rpc.klay.getUpperBoundGasPrice <a id="caver-rpc-klay-getupperboundgasprice"></a>
+
+```javascript
+caver.rpc.klay.getUpperBoundGasPrice([callback])
+```
+
+Returns the upper bound gas price in peb.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+
+**Return Value**
+
+`Promise` returns `string`
+
+| Type | Description |
+| --- | --- |
+| string | The upper bound gas price in peb. |
+
+**Example**
+
+```javascript
+> caver.rpc.klay.getUpperBoundGasPrice().then(console.log)
+0xae9f7bcc00
 ```
 
 ## caver.rpc.klay.getFeeHistory <a id="caver-rpc-klay-getfeehistory"></a>
