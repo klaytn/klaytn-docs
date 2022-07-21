@@ -472,7 +472,7 @@ transaction.getRLPEncoding()
 
 RLP 인코딩된 트랜잭션 문자열을 반환합니다.
 
-각 트랜잭션 타입에서 RLP 인코딩된 문자열을 만드는 방법은 [Klaytn Design - Transactions][]를 참고하세요.
+For information on how to make the RLP-encoded string for each transaction type, see [Klaytn Design - Transactions][].
 
 **리턴값**
 
@@ -516,7 +516,7 @@ transaction.getTransactionHash()
 
 `transactionHash`를 반환합니다.
 
-각 트랜잭션 타입에서 트랜잭션 해시를 구하는 방법은 [Klaytn Design - Transactions][]를 참고하세요.
+For information on how to make the transaction hash for each transaction type, see [Klaytn Design - Transactions][].
 
 **리턴값**
 
@@ -541,7 +541,7 @@ transaction.getSenderTxHash()
 
 [senderTxHash][]는 수수료 납부자 주소와 서명을 제외한 트랜잭션의 해시입니다. 따라서 [transactionHash](#transaction-gettransactionhash)와 [senderTxHash][]는 기본 트랜잭션에서 동일합니다.
 
-각 트랜잭션 타입에서  [senderTxHash][]를 만드는 방법은 [Klaytn Design - Transactions][]를 참고하세요.
+For information on how to make the [senderTxHash][] for each transaction type, see [Klaytn Design - Transactions][].
 
 **리턴값**
 
@@ -564,7 +564,7 @@ transaction.getRLPEncodingForSignature()
 
 트랜잭션 전송자의 서명을 만들기 위한 RLP 인코딩된 트랜잭션 문자열을 반환합니다. 반환된 RLP 인코딩된 트랜잭션 문자열은 서명에 추가되는 것이 아니라, 이 서명을 생성하는 데 사용된다는 점을 참고하세요.
 
-각 트랜잭션 타입에서 트랜잭션 전송자의 서명을 생성하기 위한 RLP 인코딩된 트랜잭션 문자열을 구하는 방법은 [Klaytn Design - Transactions][]를 참고하세요.
+For information on how to make a RLP-encoded transaction string to generate the transaction sender's signature for each transaction type, see [Klaytn Design - Transactions][].
 
 **리턴값**
 
@@ -587,7 +587,7 @@ transaction.getRLPEncodingForFeePayerSignature()
 
 수수료 납부자의 서명을 생성하기 위한 RLP 인코딩된 트랜잭션 문자열을 반환합니다. 반환된 RLP 인코딩된 트랜잭션 문자열은 서명에 추가되는 것이 아니라, 이 서명을 생성하는 데 사용된다는 점을 참고하세요.
 
-각 트랜잭션 타입에서 트랜잭션 전송자의 서명을 생성하기 위한 RLP 인코딩된 트랜잭션 문자열을 구하는 방법은 [Klaytn Design - Transactions][]를 참고하세요.
+For information on how to make a RLP-encoded transaction string to generate the fee payer's signature for each transaction type, see [Klaytn Design - Transactions][].
 
 **참고** 이 함수는 "수수료 대납" 트랜잭션 또는 "수수료 부분 대납" 트랜잭션에서만 작동합니다.
 
@@ -680,6 +680,32 @@ transaction.recoverFeePayerPublicKeys()
 ]
 ```
 
+## transaction.suggestGasPrice <a id="transaction-suggestGasPrice"></a>
+
+```javascript
+transaction.suggestGasPrice()
+```
+
+Returns suggested gas price. This function is used to set gasPrice field in the [fillTransaction](#transaction-fillTransaction).
+
+Before the Magma hard fork, `suggestGasPrice` returns the unit price of the network. After the Magma hard fork, `suggestGasPrice` returns `baseFee * 2` which is recommended to use as gasPrice.
+
+**NOTE** `transaction.suggestGasPrice` is supported since caver-js [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0).
+
+**리턴값**
+
+`Promise` returning `string`: The suggested gas price in hexadecimal string.
+
+| 타입     | 설명                       |
+| ------ | ------------------------ |
+| string | The suggested gas price. |
+
+**예시**
+
+```javascript
+> tx.suggestGasPrice().then(console.log)
+0xba43b7400
+```
 
 [Klaytn Design - Transactions]: ../../../../../klaytn/design/transactions/README.md
 [senderTxHash]: ../../../../../klaytn/design/transactions/README.md#sendertxhash
