@@ -44,6 +44,11 @@ The `vote` method submits a new vote. If the node has the right to vote based on
 | `"governance.removevalidator"`| `ADDRESS`. Address of a current validator which need to be removed. e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`|
 |`"istanbul.epoch"` | `NUMBER`. A period in which votes are gathered in blocks. When an epoch end, all votes which haven't been passed will be cleared. e.g., `86400`|
 | `"istanbul.committeesize"`| `NUMBER`. The number of validators in a committee.(`sub` in chain configuration) e.g., `7`|
+| `"kip71.basefeedenominator"`| `NUMBER`. The value of base fee denominator. e.g., `20` |
+| `"kip71.gastarget"`| `NUMBER`. Standard gas usage for whether to raise or lower the base fee. e.g. `60000000`  |
+| `"kip71.lowerboundbasefee"`| `NUMBER`. Lower bound value of base fee. e.g., `25000000000`|
+| `"kip71.maxblockgasusedforbasefee"`| `NUMBER`. The value of max block gas used for base fee. e.g. `60000000` |
+| `"kip71.upperboundbasefee"`| `NUMBER`. Upper bound value of base fee. e.g., `750000000000`|
 | `"reward.mintingamount"`| `STRING`. Amount of Peb minted when a block is generated. Double quotation marks are needed for a value. e.g., `"9600000000000000000"` |
 | `"reward.ratio"`| `STRING`. Distribution rate for a CN/KGF/KIR separated by `"/"`. The sum of all values has to be `100`. e.g., `"34/54/12"` meaning CN 34%, KGF 54%, KIR 12% |
 | `"reward.useginicoeff"`| `BOOL`. Use the Gini coefficient or not. `true`, `false`|
@@ -310,6 +315,11 @@ NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the str
  istanbul.committeesize: 13,
  istanbul.epoch: 30,
  istanbul.policy: 2,
+ kip71.basefeedenominator: 20,
+ kip71.gastarget: 30000000,
+ kip71.lowerboundbasefee: 25000000000,
+ kip71.maxblockgasusedforbasefee: 60000000,
+ kip71.upperboundbasefee: 750000000000,
  reward.deferredtxfee: true,
  reward.minimumstake: "5000000",
  reward.mintingamount: "9600000000000000000",
