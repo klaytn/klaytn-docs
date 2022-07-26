@@ -49,7 +49,7 @@ The `vote` method submits a new vote. If the node has the right to vote based on
 | `"reward.useginicoeff"`| `BOOL`. Use the Gini coefficient or not. `true`, `false`|
 | `"reward.deferredtxfee"`| `BOOL`. The way of giving transaction fee to a proposer. If true, it means the tx fee will be summed up with block reward and distributed to the proposer, KIR and KGF. If not, all tx fee will be given to the proposer. `true`, `false`|
 | `"reward.minimumstake"`| `STRING`. Amount of Klay required to be a CN (Consensus Node). Double quotation marks are needed for a value. e.g., `"5000000"`|
-| `"kip71.lowerboundbasefee"` | `NUMBER`. The lowest possible base fee. e.g., `25000000000` |
+| `"kip71.lowerboundbasefee"` | `NUMBER`. The lowest possible base fee. See [KIP-71](https://github.com/klaytn/kips/blob/master/KIPs/kip-71.md) for further details. e.g., `25000000000` |
 | `"kip71.upperboundbasefee"` | `NUMBER`. The highest possible base fee. e.g., `750000000000` |
 | `"kip71.gastarget"` | `NUMBER`. The block gas that base fee wants to achieve. The base fee increases when parent block contains more than gas target, and decreases when parent block contains less than gas target. e.g., `30000000` |
 | `"kip71.basefeedenominator"` | `NUMBER`. Controls how fast base fee changes. e.g., `20` |
