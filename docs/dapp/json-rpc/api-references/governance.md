@@ -37,18 +37,23 @@ The `vote` method submits a new vote. If the node has the right to vote based on
   
 | Key           | Description                                                  |
 | -------------- | ------------------------------------------------------------ |
-|`"governance.governancemode"`| `STRING`. One of the three governance modes. `"none"`, `"single"`, `"ballot"`|
+| `"governance.governancemode"`| `STRING`. One of the three governance modes. `"none"`, `"single"`, `"ballot"`|
 | `"governance.governingnode"`| `ADDRESS`. Designated governing node's address. It only works if the governance mode is `"single"` e.g.,`"0xe733cb4d279da696f30d470f8c04decb54fcb0d2"` |
 | `"governance.unitprice"`| `NUMBER`. Price of unit gas. e.g., `25000000000`|
 | `"governance.addvalidator"`| `ADDRESS`. Address of a new validator candidate. e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`|
 | `"governance.removevalidator"`| `ADDRESS`. Address of a current validator which need to be removed. e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`|
-|`"istanbul.epoch"` | `NUMBER`. A period in which votes are gathered in blocks. When an epoch end, all votes which haven't been passed will be cleared. e.g., `86400`|
+| `"istanbul.epoch"` | `NUMBER`. A period in which votes are gathered in blocks. When an epoch end, all votes which haven't been passed will be cleared. e.g., `86400`|
 | `"istanbul.committeesize"`| `NUMBER`. The number of validators in a committee.(`sub` in chain configuration) e.g., `7`|
 | `"reward.mintingamount"`| `STRING`. Amount of Peb minted when a block is generated. Double quotation marks are needed for a value. e.g., `"9600000000000000000"` |
 | `"reward.ratio"`| `STRING`. Distribution rate for a CN/KGF/KIR separated by `"/"`. The sum of all values has to be `100`. e.g., `"34/54/12"` meaning CN 34%, KGF 54%, KIR 12% |
 | `"reward.useginicoeff"`| `BOOL`. Use the Gini coefficient or not. `true`, `false`|
 | `"reward.deferredtxfee"`| `BOOL`. The way of giving transaction fee to a proposer. If true, it means the tx fee will be summed up with block reward and distributed to the proposer, KIR and KGF. If not, all tx fee will be given to the proposer. `true`, `false`|
 | `"reward.minimumstake"`| `STRING`. Amount of Klay required to be a CN (Consensus Node). Double quotation marks are needed for a value. e.g., `"5000000"`|
+| `"kip71.lowerboundbasefee"` | `NUMBER`. The lowest possible base fee. See [KIP-71](https://github.com/klaytn/kips/blob/master/KIPs/kip-71.md) for further details. e.g., `25000000000` |
+| `"kip71.upperboundbasefee"` | `NUMBER`. The highest possible base fee. e.g., `750000000000` |
+| `"kip71.gastarget"` | `NUMBER`. The block gas that base fee wants to achieve. The base fee increases when parent block contains more than gas target, and decreases when parent block contains less than gas target. e.g., `30000000` |
+| `"kip71.basefeedenominator"` | `NUMBER`. Controls how fast base fee changes. e.g., `20` |
+| `"kip71.maxblockgasusedforbasefee"` | `NUMBER`. The maximum block gas perceived in base fee calculation. e.g., `60000000` |
 
 
 **Return Value**
@@ -238,6 +243,13 @@ None
   governance: {
     governanceMode: "ballot",
     governingNode: "0xe733cb4d279da696f30d470f8c04decb54fcb0d2",
+    kip71: {
+      basefeedenominator: 20,
+      gastarget: 30000000,
+      lowerboundbasefee: 25000000000,
+      maxblockgasusedforbasefee: 60000000,
+      upperboundbasefee: 750000000000
+    },
     reward: {
       deferredTxFee: true,
       minimumStake: 5000000,
@@ -253,6 +265,9 @@ None
     policy: 2,
     sub: 1
   },
+  istanbulCompatibleBlock: 0,
+  londonCompatibleBlock: 0,
+  magmaCompatibleBlock: 0,
   unitPrice: 25000000000
 }
 ```
@@ -304,19 +319,24 @@ NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the str
 ```javascript
 > governance.itemsAt(89)
 {
- governance.governancemode: "single",
- governance.governingnode: "0x7bf29f69b3a120dae17bca6cf344cf23f2daf208",
- governance.unitprice: 25000000000,
- istanbul.committeesize: 13,
- istanbul.epoch: 30,
- istanbul.policy: 2,
- reward.deferredtxfee: true,
- reward.minimumstake: "5000000",
- reward.mintingamount: "9600000000000000000",
- reward.proposerupdateinterval: 30,
- reward.ratio: "34/54/12",
- reward.stakingupdateinterval: 60,
- reward.useginicoeff: true
+  governance.governancemode: "single",
+  governance.governingnode: "0x7bf29f69b3a120dae17bca6cf344cf23f2daf208",
+  governance.unitprice: 25000000000,
+  istanbul.committeesize: 13,
+  istanbul.epoch: 30,
+  istanbul.policy: 2,
+  kip71.basefeedenominator: 20,
+  kip71.gastarget: 30000000,
+  kip71.lowerboundbasefee: 25000000000,
+  kip71.maxblockgasusedforbasefee: 60000000,
+  kip71.upperboundbasefee: 750000000000,
+  reward.deferredtxfee: true,
+  reward.minimumstake: "5000000",
+  reward.mintingamount: "9600000000000000000",
+  reward.proposerupdateinterval: 30,
+  reward.ratio: "34/54/12",
+  reward.stakingupdateinterval: 60,
+  reward.useginicoeff: true
 }
 ```
 ## governance_pendingChanges <a id="governance_pendingchanges"></a>
