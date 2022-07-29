@@ -30,20 +30,25 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 - `Key` : 변경하고자 하는 환경설정의 이름입니다. 키는 `domain.field`의 형식으로 되어 있습니다.
 - `Value` : 각 키에 대한 다양한 형태의 값입니다.
 
-| Key                            | 설명                                                                                                                                               |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `"governance.governancemode"`  | `STRING`. 세 거버넌스 모드 중 하나입니다. `"none"`, `"single"`, `"ballot"` 등 세 가지 모드 중 하나를 선택합니다.                                                             |
-| `"governance.governingnode"`   | `ADDRESS`. 거버넌스를 통제하는 특정 노드의 주소입니다. 거버넌스 모드가 `"single"`인 경우에만 해당합니다. 예를 들어, `"0xe733cb4d279da696f30d470f8c04decb54fcb0d2"`입니다.                   |
-| `"governance.unitprice"`       | `NUMBER`. 가스당 가격입니다. 예를 들어, `25000000000`입니다.                                                                                                    |
-| `"governance.addvalidator"`    | `ADDRESS`. 새로운 검증자 후보의 주소입니다. 예를 들어, `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`입니다.                                                            |
-| `"governance.removevalidator"` | `ADDRESS`. 제거될 검증자의 주소입니다. 예를 들어, `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`입니다.                                                               |
-| `"istanbul.epoch"`             | `NUMBER`. 표를 수집할 블록 단위의 시간입니다. 투표 기간이 종료되면 기간을 넘긴 투표는 무효가 됩니다. 예를 들어, `86400`입니다.                                                                |
-| `"istanbul.committeesize"`     | `NUMBER`. 위원회 내 검증자 수입니다.(체인 환경설정에서 `sub`입니다.) 예를 들어, `7`입니다.                                                                                    |
-| `"reward.mintingamount"`       | `STRING`. 블록이 생성될 때 발행되는 peb의 양입니다. 값에는 큰따옴표가 필요합니다. 예를 들어, `"9600000000000000000"`입니다.                                                          |
-| `"reward.ratio"`               | `STRING`. `"/"`로 구분되는 <0>CN/KIR/PoC</0>의 분포 비율입니다. 각 값의 합은 `100`이어야 합니다. 예를 들어, `"34/54/12"`은 CN이 34%, PoC이 54%, KIR이 12%를 차지하고 있다는 것입니다.        |
-| `"reward.useginicoeff"`        | `BOOL`. 지니(GINI) 계수 사용 여부입니다 `true` 또는 `false`로 설정합니다.                                                                                           |
-| `"reward.deferredtxfee"`       | `BOOL`. 트랜잭션 수수료를 제안자에게 지급하는 방법입니다. true이면 트랜잭션 수수료는 블록 보상과 합산되어 제안자, KIR, PoC에게 분배됩니다. false이면 트랜잭션 수수료가 제안자에게 지급됩니다. `true` 또는 `false`로 설정합니다. |
-| `"reward.minimumstake"`        | `STRING`. CN(컨센서스 노드)이 되는 데 필요한 KLAY 양입니다. 값에는 큰따옴표가 필요합니다. 예를 들어, `"5000000"`입니다.                                                               |
+| Key                                 | 설명                                                                                                                                                                                                              |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"governance.governancemode"`       | `STRING`. 세 거버넌스 모드 중 하나입니다. `"none"`, `"single"`, `"ballot"` 등 세 가지 모드 중 하나를 선택합니다.                                                                                                                            |
+| `"governance.governingnode"`        | `ADDRESS`. 거버넌스를 통제하는 특정 노드의 주소입니다. 거버넌스 모드가 `"single"`인 경우에만 해당합니다. 예를 들어, `"0xe733cb4d279da696f30d470f8c04decb54fcb0d2"`입니다.                                                                                  |
+| `"governance.unitprice"`            | `NUMBER`. 가스당 가격입니다. 예를 들어, `25000000000`입니다.                                                                                                                                                                   |
+| `"governance.addvalidator"`         | `ADDRESS`. 새로운 검증자 후보의 주소입니다. 예를 들어, `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`입니다.                                                                                                                           |
+| `"governance.removevalidator"`      | `ADDRESS`. 제거될 검증자의 주소입니다. 예를 들어, `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`입니다.                                                                                                                              |
+| `"istanbul.epoch"`                  | `NUMBER`. 표를 수집할 블록 단위의 시간입니다. 투표 기간이 종료되면 기간을 넘긴 투표는 무효가 됩니다. 예를 들어, `86400`입니다.                                                                                                                               |
+| `"istanbul.committeesize"`          | `NUMBER`. 위원회 내 검증자 수입니다.(체인 환경설정에서 `sub`입니다.) 예를 들어, `7`입니다.                                                                                                                                                   |
+| `"reward.mintingamount"`            | `STRING`. 블록이 생성될 때 발행되는 peb의 양입니다. 값에는 큰따옴표가 필요합니다. 예를 들어, `"9600000000000000000"`입니다.                                                                                                                         |
+| `"reward.ratio"`                    | `STRING`. `"/"`로 구분되는 <0>CN/KIR/PoC</0>의 분포 비율입니다. 각 값의 합은 `100`이어야 합니다. 예를 들어, `"34/54/12"`은 CN이 34%, PoC이 54%, KIR이 12%를 차지하고 있다는 것입니다.                                                                       |
+| `"reward.useginicoeff"`             | `BOOL`. 지니(GINI) 계수 사용 여부입니다 `true` 또는 `false`로 설정합니다.                                                                                                                                                          |
+| `"reward.deferredtxfee"`            | `BOOL`. 트랜잭션 수수료를 제안자에게 지급하는 방법입니다. true이면 트랜잭션 수수료는 블록 보상과 합산되어 제안자, KIR, PoC에게 분배됩니다. false이면 트랜잭션 수수료가 제안자에게 지급됩니다. `true` 또는 `false`로 설정합니다.                                                                |
+| `"reward.minimumstake"`             | `STRING`. CN(컨센서스 노드)이 되는 데 필요한 KLAY 양입니다. 값에는 큰따옴표가 필요합니다. 예를 들어, `"5000000"`입니다.                                                                                                                              |
+| `"kip71.lowerboundbasefee"`         | `NUMBER`. The lowest possible base fee. See [KIP-71](https://github.com/klaytn/kips/blob/master/KIPs/kip-71.md) for further details. 예를 들어, `25000000000`입니다.                                                   |
+| `"kip71.upperboundbasefee"`         | `NUMBER`. The highest possible base fee. e.g., `750000000000`                                                                                                                                                   |
+| `"kip71.gastarget"`                 | `NUMBER`. The block gas that base fee wants to achieve. The base fee increases when parent block contains more than gas target, and decreases when parent block contains less than gas target. e.g., `30000000` |
+| `"kip71.basefeedenominator"`        | `NUMBER`. Controls how fast base fee changes. e.g., `20`                                                                                                                                                        |
+| `"kip71.maxblockgasusedforbasefee"` | `NUMBER`. The maximum block gas perceived in base fee calculation. e.g., `60000000`                                                                                                                             |
 
 
 **리턴값**
@@ -231,6 +236,13 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
   governance: {
     governanceMode: "ballot",
     governingNode: "0xe733cb4d279da696f30d470f8c04decb54fcb0d2",
+    kip71: {
+      basefeedenominator: 20,
+      gastarget: 30000000,
+      lowerboundbasefee: 25000000000,
+      maxblockgasusedforbasefee: 60000000,
+      upperboundbasefee: 750000000000
+    },
     reward: {
       deferredTxFee: true,
       minimumStake: 5000000,
@@ -246,6 +258,9 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
     policy: 2,
     sub: 1
   },
+  istanbulCompatibleBlock: 0,
+  londonCompatibleBlock: 0,
+  magmaCompatibleBlock: 0,
   unitPrice: 25000000000
 }
 ```
@@ -297,19 +312,24 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 ```javascript
 > governance.itemsAt(89)
 {
- governance.governancemode: "single",
- governance.governingnode: "0x7bf29f69b3a120dae17bca6cf344cf23f2daf208",
- governance.unitprice: 25000000000,
- istanbul.committeesize: 13,
- istanbul.epoch: 30,
- istanbul.policy: 2,
- reward.deferredtxfee: true,
- reward.minimumstake: "5000000",
- reward.mintingamount: "9600000000000000000",
- reward.proposerupdateinterval: 30,
- reward.ratio: "34/54/12",
- reward.stakingupdateinterval: 60,
- reward.useginicoeff: true
+  governance.governancemode: "single",
+  governance.governingnode: "0x7bf29f69b3a120dae17bca6cf344cf23f2daf208",
+  governance.unitprice: 25000000000,
+  istanbul.committeesize: 13,
+  istanbul.epoch: 30,
+  istanbul.policy: 2,
+  kip71.basefeedenominator: 20,
+  kip71.gastarget: 30000000,
+  kip71.lowerboundbasefee: 25000000000,
+  kip71.maxblockgasusedforbasefee: 60000000,
+  kip71.upperboundbasefee: 750000000000,
+  reward.deferredtxfee: true,
+  reward.minimumstake: "5000000",
+  reward.mintingamount: "9600000000000000000",
+  reward.proposerupdateinterval: 30,
+  reward.ratio: "34/54/12",
+  reward.stakingupdateinterval: 60,
+  reward.useginicoeff: true
 }
 ```
 ## governance_pendingChanges <a id="governance_pendingchanges"></a>
