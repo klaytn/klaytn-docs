@@ -70,8 +70,8 @@ The namespace `klay` provides functions related to accounts, blocks, transaction
 - [klay_rewardbase](./klay/config.md#klay_rewardbase)
 
 ### [Gas](./klay/gas.md) <a id="gas"></a>
-- [klay_feeHistory](./klay/gas.md#eth_feehistory)
-- [klay_maxPriorityFeePerGas](./klay/gas.md#eth_maxpriorityfeepergas)
+- [klay_feeHistory](./klay/gas.md#klay_feehistory)
+- [klay_maxPriorityFeePerGas](./klay/gas.md#klay_maxpriorityfeepergas)
 
 ### [필터](./klay/filter.md) <a id="filter"></a>
 - [klay_getFilterChanges](./klay/filter.md#klay_getfilterchanges)
