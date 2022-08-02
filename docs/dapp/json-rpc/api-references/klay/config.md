@@ -58,9 +58,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_gasPrice <a id="klay_gasprice"></a>
 
-Returns the current price per gas in peb.
-
-**NOTE**: This API has different behavior from Ethereum's and returns a gas price of Klaytn instead of suggesting a gas price as in Ethereum.
+Returns a suggestion for a gas price in peb.
 
 **Parameters**
 
@@ -88,9 +86,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_gasPriceAt <a id="klay_gaspriceat"></a>
 
-Returns the unit price of the given block in peb.
-
-**NOTE**: This API has different behavior from Ethereum's and returns a gas price of Klaytn instead of suggesting a gas price as in Ethereum.
+Returns the base fee of the given block in peb, or returns unit price by using governance if there is no base fee set in header, or returns gas price of txpool if the block is pending block.
 
 **Parameters**
 
