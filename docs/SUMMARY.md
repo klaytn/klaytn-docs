@@ -140,6 +140,7 @@
   * [Errors & Troubleshooting](node/errors-and-troubleshooting.md)
   * [Node Log](node/node-log.md)
   * [Download](node/download/README.md)
+    * [v1.9.0](node/download/v1.9.0.md)
     * [v1.8.4](node/download/v1.8.4.md)
     * [v1.8.3](node/download/v1.8.3.md)
     * [v1.8.2](node/download/v1.8.2.md)
