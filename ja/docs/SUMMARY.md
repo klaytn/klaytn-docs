@@ -188,6 +188,7 @@
           * [Working with Klaytn Transaction Types](dapp/json-rpc/api-references/klay/transaction/transaction-type-support.md)
         * [Configuration](dapp/json-rpc/api-references/klay/config.md)
         * [Filter](dapp/json-rpc/api-references/klay/filter.md)
+        * [Gas](dapp/json-rpc/api-references/klay/gas.md)
         * [Miscellaneous](dapp/json-rpc/api-references/klay/misc.md)
       * [net](dapp/json-rpc/api-references/network.md)
       * [debug](dapp/json-rpc/api-references/debug.md)
