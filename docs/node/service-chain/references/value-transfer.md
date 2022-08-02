@@ -284,17 +284,22 @@ The ERC-721 contract should implement the function, then.
 function requestValueTransfer(uint256 _uid, address _to) external
 ```
 
-# Value Transfer Recovery
-Value transfer request may be fail for a number of reasons. Say you requested KLAY transfer from subbridge to mainbridge or from mainbridge to subbridge.
+# Reasoning
+Value transfer request may fail for a number of reasons. Say you requested KLAY transfer from subbridge to mainbridge or from mainbridge to subbridge.
 In that case, the bridge contract on the receiver side must have enough KLAY than the requested amount of KLAY. If not, the transfer would fail without error notification in the return value.
-A feature of value transfer recovery finds unhandled events and insert them into event pool again in a given interval, which means the failed transaction can be succeed again when the counterpart bridge can successfully handle that event.
-In case of the above example, the failed transaction would be eventually handled by value transfer recovery when the counterpart bridge has enough KLAY.
-In order to set the value transfer recovery as default, you need to set two properties:
+If a transaction was executed and failed from the counterpart chain, the **reasoning** protocol is performed to decide whether to resend, refund, or not.
+If a transaction is failed by poor operation, such as insufficient KLAY or tokens and out of gas error, the sender can be paid the requested amount of KLAY or tokens back by reasoning protocol.
+If a transaction was not executed, the transaction is repeatedly resent every 30s by reasoning protocol.
+In order to set the reasoing protocol running as default, you need to set two options:
 ```
-SC_VTRECOVERY=1
-SC_VTRECOVERY_INTERVAL=5
+SC_REASONING=1
+SC_REASONING_INTERVAL=5
 ```
-The value transfer recovery runs automatically by set `SC_VTRECOVERY=1`. `SC_VTRECOVERY_INTERVAL` means an interval how often the value transfer recovery is executed.
+The reasoning protocol is enabled by set `SC_REASONING=1`. `SC_REASONING_INTERVAL` means an interval how often the reasoning is executed.
+
+# Fee model and withdraw
+ServiceChain operators pay transaction fee as weel as token or KLAY transfer.
+In the fee model section, we demonstrate how a bridge service operator would not have a deficit for the service of value transfer between chains.
 
 # Collecting Fee for KLAY/ERC-20 transfer <a id="collecting-fee-for-klay-erc-20-transfer"></a>
 In ServiceChain, there is a fee collecting feature for KLAY/ERC-20 transfers.
