@@ -188,6 +188,7 @@
           * [Klaytn 트랜잭션 타입 활용하기](dapp/json-rpc/api-references/klay/transaction/transaction-type-support.md)
         * [Configuration](dapp/json-rpc/api-references/klay/config.md)
         * [Filter](dapp/json-rpc/api-references/klay/filter.md)
+        * [가스](dapp/json-rpc/api-references/klay/gas.md)
         * [기타](dapp/json-rpc/api-references/klay/misc.md)
       * [net](dapp/json-rpc/api-references/network.md)
       * [debug](dapp/json-rpc/api-references/debug.md)
