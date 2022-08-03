@@ -86,7 +86,12 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_gasPriceAt <a id="klay_gaspriceat"></a>
 
-Returns the base fee of the given block in peb, or returns unit price by using governance if there is no base fee set in header, or returns gas price of txpool if the block is pending block.
+Returns different values based on the condition described below. The unit of the return value is peb.
+
+- If `baseFee` is undefined in the header, it returns the unit price from the governance parameter
+- If the block is a pending block, it returns the gas price of the txpool.
+- Otherwise, it returns the base fee of the given block.
+
 
 **Parameters**
 
