@@ -244,7 +244,7 @@ This API works only on RPC call, not on JavaScript console.
 | transactions | Array | Array of transaction objects, or 32-byte transaction hashes depending on the last given parameter. |
 | governanceData | DATA | RLP encoded governance configuration |
 | voteData | DATA | RLP encoded governance vote of the proposer |
-| baseFeePerGas | QUANTITY | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. And it's value is `kip71.lowerboundbasefee` after MagmaCompatibleBlock is activated. |
+| baseFeePerGas | QUANTITY | The base fee per gas. It has a meaningful value when EthTxTypeCompatible and Magma hardforks are activated. |
 
 **Example**
 
