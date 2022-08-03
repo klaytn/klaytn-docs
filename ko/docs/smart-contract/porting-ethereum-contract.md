@@ -5,7 +5,7 @@
 ## 솔리디티 지원 <a id="solidity-support"></a>
 
 * Baobab 네트워크는 현재 **London** Ethereum Virtual Machine(EVM)과 호환 가능합니다.
-* Cypress 네트워크는 현재 **Constantinople** Ethereum Virtual Machine(EVM)과 호환 가능합니다.
+* Cypress network is currently compatible with **London** Ethereum Virtual Machine (EVM).
 
 {% hint style="success" %}
 v1.7.0 프로토콜 업그레이드 - **Istanbul** 하드포크 및 Klaytn의 자체 사항들을 포함하는 비호환 변경이 적용됩니다. It has been enabled from block number `#75,373,312` in case of Baobab network and `#86,816,005` for the Cypress network.
@@ -17,7 +17,7 @@ v1.8.0 Protocol Upgrade - incompatible changes including Base Fee from the **Lon
 
 다른 EVM 버전들과의 하위 호환성은 보장되지 않습니다. Thus, it is highly recommended compiling Solidity code with the correct target option according to the protocol upgrade status.
 * Baobab: --evm-version london
-* Cypress: --evm-version constantinople
+* Cypress: --evm-version london
 * 그 외(private/service chain): 프로토콜 업그레이드 상태에 따라 결정
 
 자세한 내용은 [How to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target)를 참고해주세요.
