@@ -519,7 +519,7 @@ Returns a block with consensus information that matches the given hash.
 | timestampFoS | QUANTITY | The fraction of a second of the timestamp for when the block was collated. |
 | transactions | Array | Array of transaction objects. |
 | transactionsRoot | 32-byte DATA | The root of the transaction trie of the block. |
-| baseFeePerGas | QUANTITY | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. And it's value is `kip71.lowerboundbasefee` after MagmaCompatibleBlock is activated. |
+| baseFeePerGas | QUANTITY | The base fee per gas. It has a meaningful value when EthTxTypeCompatible and Magma hardforks are activated. |
 
 **Example**
 
