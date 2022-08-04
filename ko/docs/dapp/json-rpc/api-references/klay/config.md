@@ -58,9 +58,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_gasPrice <a id="klay_gasprice"></a>
 
-peb의 현재 가스 가격을 반환합니다.
-
-**참고**: 이더리움에서 권장 가스비를 반환하던 것과 달리 Klaytn에서는 현재 가스비를 반환하는 형태로, 이더리움과 다르게 동작하는 API 입니다.
+Returns a suggestion for a gas price in peb.
 
 **Parameters**
 
@@ -88,9 +86,12 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_gasPriceAt <a id="klay_gaspriceat"></a>
 
-입력으로 받은 peb의 블록의 단가를 반환합니다.
+Returns different values based on the condition described below. The unit of the return value is peb.
 
-**참고**: 이더리움에서 권장 가스비를 반환하던 것과 달리 Klaytn에서는 현재 가스비를 반환하는 형태로, 이더리움과 다르게 동작하는 API 입니다.
+- If `baseFee` is undefined in the header, it returns the unit price from the governance parameter
+- If the block is a pending block, it returns the gas price of the txpool.
+- Otherwise, it returns the base fee of the given block.
+
 
 **Parameters**
 
@@ -149,7 +150,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_isSenderTxHashIndexingEnabled <a id="klay_issendertxhashindexingenabled"></a>
 
-노드가 트랜잭션 해시 맵핑 정보를 SenderTxHash로 색인화하고 있으면 `true`를 반환합니다. 이 설정은 기본적으로 비활성화되어 있으며 `--sendertxhashindexing`으로 활성화할 수 있습니다.
+노드가 트랜잭션 해시 맵핑 정보를 SenderTxHash로 색인화하고 있으면 `true`를 반환합니다. It is disabled by default and can be enabled by `--sendertxhashindexing`.
 
 **Parameters**
 
@@ -207,7 +208,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_rewardbase <a id="klay_rewardbase"></a>
 
-현재 노드의 Rewardbase를 반환합니다. Rewardbase는 블록 보상을 받은 계정의 주소입니다. 컨센서스 노드(CN)의 경우에만 해당합니다.
+현재 노드의 Rewardbase를 반환합니다. Rewardbase is the address of the account where the block rewards goes to. 컨센서스 노드(CN)의 경우에만 해당합니다.
 
 **Parameters**
 
