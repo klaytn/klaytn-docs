@@ -65,7 +65,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "baseFeePerGas": "0x0",
+        "baseFeePerGas": "0x5d21dba00",
         "difficulty": "0x1",
         "extraData": "0x",
         "gasLimit": "0xe8d4a50fff",
@@ -136,7 +136,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "baseFeePerGas": "0x0",
+        "baseFeePerGas": "0x5d21dba00",
         "difficulty": "0x1",
         "extraData": "0x",
         "gasLimit": "0xe8d4a50fff",
@@ -189,7 +189,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
   "jsonrpc": "2.0",
   "id": 1,
   "result": {
-    "baseFeePerGas": "0x0",
+    "baseFeePerGas": "0x5d21dba00",
     "difficulty": "0x1",
     "extraData": "0x",
     "gasLimit": "0xe8d4a50fff",
@@ -271,6 +271,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
    "jsonrpc":"2.0",
    "id":1,
    "result":{
+      baseFeePerGas: "0x5d21dba00",
       difficulty: "0x1",
       extraData: "0xd8820505846b6c617988676f312e31312e328664617277696e00000000000000f89ed594e733cb4d279da696f30d470f8c04decb54fcb0d2b841f1f600d136f93a5a2d9c12a7a9f6d7ba80a047c3910a2bbc01e38bcce25e48ed2004d21f134df5efaf1f8cbb9a26e1548e57628ab258c935490c11a7cd65324701f843b841444b3efc40071b6eec2c4d2630b483710b8fc7a601432431b0161f489102d1ca02f2ef93153d0be3843aa563d34cee1716163f58711843442aedd94a56303c0400",
       gasLimit: "0xe8d4a50fff",
