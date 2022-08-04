@@ -412,6 +412,7 @@ Returns the receipt of a transaction by transaction hash.
 | feeRatio           | QUANTITY                | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                            |
 | from               | 20-byte DATA            | Address of the sender.                                                                                                                                                                                       |
 | gas                | QUANTITY                | Gas provided by the sender.                                                                                                                                                                                  |
+| effectiveGasPrice  | QUANTITY                | The actual value per gas deducted from the senders account.                                                                                                                                                  |
 | gasPrice           | QUANTITY                | Gas price provided by the sender in peb.                                                                                                                                                                     |
 | gasUsed            | QUANTITY                | The amount of gas used by this specific transaction alone.                                                                                                                                                   |
 | humanReadable      | Boolean                 | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                              |
@@ -453,6 +454,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
         "S":"0x17165688acc01736f1221a39399e3aac7e1ece14731fcab31631e3e4a59b7441"
       }
     ],
+    "effectiveGasPrice":"0x5d21dba00",
     "from":"0xab0833d744a8943fe3c783f9cc70c13cbd70fcf4",
     "gas":"0xdbba0",
     "gasPrice":"0x5d21dba00",
