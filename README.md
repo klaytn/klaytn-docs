@@ -2,6 +2,8 @@
 
 [![Gitter](https://badges.gitter.im/klaytn/klaytn-docs.svg)](https://gitter.im/klaytn/klaytn-docs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
+[![Check Links](https://github.com/klaytn/klaytn-docs/actions/workflows/links.yml/badge.svg)](https://github.com/klaytn/klaytn-docs/actions/workflows/links.yml)
+
 ![Klaytn Docs](images/klaytn.png)
 
 Klaytn Docs introduces [Klaytn](https://klaytn.foundation/), the blockchain of choice for web3 era with high performance and great user experience. In these documents you will find detailed explanations on Klaytn along with guidelines and instructions on how to use Klaytn and interact with the Klaytn network. More information on how to use Klaytn Docs is depicted on the [Klaytn Docs Wiki](https://github.com/klaytn/klaytn-docs/wiki)
