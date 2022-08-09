@@ -61,7 +61,49 @@ $ cat /path/to/genesis.json
 }
 ```
 
-Then, re-initialize the chain config and apply your change.
+To enable a hard fork in the chain config, the previous hard fork should be enabled.
+That is, to enable Magma hard fork, the EthTxType hard fork should be already enabled.
+If there are missing hard forks in the chain config, you have to add them too.
+
+For example, if you want to activate Magma hard fork and if your `genesis.json` does not have `ethTxTypeCompatibleBlock` in its `config` field like below:
+```
+{
+  "config": {
+    "chainId": 1000,
+    "istanbulCompatibleBlock": 0,
+    "londonCompatibleBlock": 0,
+    "istanbul": {
+      "epoch": 3600,
+      "policy":0,
+      "sub":21
+    },
+    ...
+  }
+}
+```
+
+You have to add `ethTxTypeCompatibleBlock` too, when you add `magmaCompatibleBlock` in the `config` field, like below.
+```
+{
+  "config": {
+    "chainId": 1000,
+    "istanbulCompatibleBlock": 0,
+    "londonCompatibleBlock": 0,
+    "ethTxTypeCompatibleBlock": 1500,
+    "magmaCompatibleBlock": 1500,
+    "istanbul": {
+      "epoch": 3600,
+      "policy":0,
+      "sub":21
+    },
+    ...
+  }
+}
+```
+
+You can find the history of Klaytn hard forks in the [Klaytn Docs](https://docs.klaytn.foundation/klaytn-history).
+
+If you have updated your `genesis.json` with desired hard forks, re-initialize the chain config and apply your change.
 
 ```
 $ kscn --datadir /path/to/data/directory init /path/to/genesis.json
