@@ -1,9 +1,36 @@
-Klaytn has introduced several [hard forks](../../../klaytn-history/README.md) to provide new features.
-In accordance with the Klaytn hard forks, new versions of ServiceChain binaries are also released to support the hard forks. However you need to activate the hard fork in order to use their new features in the ServiceChain.
+Klaytn and its ServiceChain has constantly released new versions in order to introduce new features, fix bugs, and support hard forks.
+This page shows guides to upgrade ServiceChain binary and activate hard fork in the ServiceChain.
 
-**NOTE** Upgrading ServiceChain binaries may be irreversible and backward-incompatible, meaning you cannot downgrade to an older version.
+# Upgrade <a id="upgrade"></a>
 
-# Bringing Klaytn Hard Fork to ServiceChain <a id="bringing-klaytn-hard-fork-to-servicechain"></a>
+This section shows how to upgrade the ServiceChain binary.
+
+**NOTE** Upgrading ServiceChain binaries may be irreversible and backward-incompatible, meaning you cannot downgrade to an older version. Refer to the release notes for more details.
+For example, the [Klaytn v1.9.0 release note](https://medium.com/klaytn/klaytn-v1-9-0-release-notes-medium-58e4644f7544) says:
+> NOTE: This version updates the version of the database to support snapshot sync. You cannot downgrade to the older versions with existing data after updating to v1.9.0.
+
+You can get the latest version of Klaytn and ServiceChain binaries in one of the below links:
+- [Klaytn Docs](../../download/README.md)
+- [Klaytn Github Repository](https://github.com/klaytn/klaytn/releases)
+
+To upgrade the ServiceChain binary, stop the ServiceChain node and replace the binary.
+For example, you can use below commands to stop an SCN node and replace the binary to a newer one.
+
+```bash
+$ kscnd stop
+Shutting down kscnd: OK
+$ cp /path/to/new/kscn /path/to/original/kscn
+```
+
+You may restart the ServiceChain node after the upgrade. However, if you are planning the activate a hard fork in the ServiceChain, you have to keep the ServiceChain nodes down. Refer to the [Hard Fork](#hard-fork) for instructions of ServiceChain hard fork.
+
+```bash
+$ kscnd start
+```
+
+# Hard Fork <a id="hard-fork"></a>
+
+This section describe steps for bringing Klaytn [hard forks](../../../klaytn-history/README.md) to ServiceChain.
 
 To apply the hard fork to the ServiceChain, you need to:
 1. Pick an appropriate block number for the hard fork
@@ -28,20 +55,7 @@ Now, you have to decide an appropriate block number to activate the hard fork. M
 
 ## 2. Upgrade the ServiceChain binary <a id="2-upgrade-the-servicechain-binary"></a>
 
-You can get the latest version of Klaytn binaries in one of the below links:
-- [Klaytn Docs](../../download/README.md)
-- [Klaytn Github Repository](https://github.com/klaytn/klaytn/releases)
-
-To upgrade the ServiceChain binary, stop the ServiceChain node and replace the binary.
-For example, you can use below commands to stop an SCN node and replace the binary to a newer one.
-
-```bash
-$ kscnd stop
-Shutting down kscnd: OK
-$ cp /path/to/new/kscn /path/to/original/kscn
-```
-
-**NOTE** After you have replaced all ServiceChain nodes' binaries, keep the ServiceChain nodes down (or stopped). You will restart them after you have activated the hard fork.
+Refer to the [Upgrade](#upgrade) section in this page for instructions on upgrading the ServiceChain binaries. Make sure to keep the ServiceChain nodes down (or stopped) for now. You will restart them after you have activated the hard fork.
 
 ## 3. Activate Hard Fork <a id="3-activate-hard-fork"></a>
 
