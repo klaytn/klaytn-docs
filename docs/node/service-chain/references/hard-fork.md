@@ -65,9 +65,9 @@ For example, if you are trying to activate the Magma hard fork in your ServiceCh
 }
 ```
 
-To enable a hard fork in the chain config, the previous hard fork should be enabled.
+To enable a hard fork in the chain config, the previous hard forks should be enabled.
 That is, to enable Magma hard fork, the EthTxType hard fork should be already enabled.
-If there are missing hard forks in the chain config, you have to add them too.
+If there are missing fields for the compatible block numbers of preceding hard forks in the chain config, you have to add them too.
 
 For example, if you want to activate Magma hard fork and if your `genesis.json` does not have `ethTxTypeCompatibleBlock` in its `config` field like below:
 
@@ -174,7 +174,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 If the votes for updating the upper and lower bound of the gas price were successful, those changes will take effect after 2 istanbul epochs (An epoch has the value in block numbers).
 
 For example, if the epoch is 3600, and the votes for updating the upper and lower bounds of gas price has been placed in the block #4000, those changes will take effect starting from the block #10800.
-In detail, the votes will be finalized when their first epoch was encounted in the block #7200, and the changes are applied when their second epoch was encountered in the block #10800.
+In detail, the votes will be finalized when their first epoch was reached at the block #7200, and the changes are applied at the second epoch (block #10800).
 
 To check the epoch, you can use the `governanace.itemsAt` API, like below.
 
