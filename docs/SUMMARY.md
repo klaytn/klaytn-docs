@@ -136,6 +136,7 @@
       * [Configuration Files](node/service-chain/references/configuration-files.md)
       * [Log Files](node/service-chain/references/log-files.md)
       * [Genesis JSON](node/service-chain/references/genesis.md)
+      * [ServiceChain Hard Fork](node/service-chain/references/hard-fork.md)
     * [How-To Guides](node/service-chain/howto/README.md)
   * [Errors & Troubleshooting](node/errors-and-troubleshooting.md)
   * [Node Log](node/node-log.md)
@@ -205,7 +206,7 @@
       * [txpool](dapp/json-rpc/api-references/txpool.md)
       * [governance](dapp/json-rpc/api-references/governance.md)
       <!-- Hided instanbul page because istanbul APIs are only for specific users and need more enhancement now -->
-      <!-- * [istanbul](dapp/json-rpc/api-references/istanbul.md)  --> 
+      <!-- * [istanbul](dapp/json-rpc/api-references/istanbul.md)  -->
     * [Service Chain API references](dapp/json-rpc/api-references/servicechain.md)
       * [mainbridge](dapp/json-rpc/api-references/mainbridge.md)
       * [subbridge](dapp/json-rpc/api-references/subbridge.md)
