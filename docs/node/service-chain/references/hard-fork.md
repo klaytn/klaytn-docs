@@ -10,10 +10,10 @@ To apply the hard fork to the ServiceChain, you need to:
 2. Upgrade the ServiceChain binary to a version that supports the hard fork
 3. Activate the hard fork in the ServiceChain
 
-## 1. Pick an appropriate block number for the hard fork
+## 1. Pick an appropriate block number for the hard fork <a id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
 
 In the Javascript console of the ServiceChain, you can check the current block number as shown below.
-```
+```bash
 $ kscn attach ~/kscnd_home/klay.ipc
 Welcome to the Klaytn JavaScript console!
 
@@ -26,7 +26,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 ```
 Now, you have to decide an appropriate block number to activate the hard fork. Make sure to have enough number of blocks (which is produced every second) between the current block and the block of hard fork.
 
-## 2. Upgrade the ServiceChain binary <a id="update-the-servicechain-binary"></a>
+## 2. Upgrade the ServiceChain binary <a id="2-upgrade-the-servicechain-binary"></a>
 
 You can get the latest version of Klaytn binaries in one of the below links:
 - [Klaytn Docs](https://docs.klaytn.foundation/node/download)
@@ -34,7 +34,8 @@ You can get the latest version of Klaytn binaries in one of the below links:
 
 To upgrade the ServiceChain binary, stop the ServiceChain node and replace the binary.
 For example, you can use below commands to stop an SCN node and replace the binary to a newer one.
-```
+
+```bash
 $ kscnd stop
 Shutting down kscnd: OK
 $ cp /path/to/new/kscn /path/to/original/kscn
@@ -42,15 +43,16 @@ $ cp /path/to/new/kscn /path/to/original/kscn
 
 **NOTE** After you have replaced all ServiceChain nodes' binaries, keep the ServiceChain nodes down (or stopped). You will restart them after you have activated the hard fork.
 
-## 3. Activate Hard Fork <a id="activate-hard-fork"></a>
+## 3. Activate Hard Fork <a id="3-activate-hard-fork"></a>
 
 If you have upgraded the ServiceChain binaries with a version that supports desired hard fork, you can activate the hard fork in the ServiceChain by re-initializing the chain config with updated genesis.
 
-### Update genesis and re-initialize chain config for all ServiceChain nodes
+### Update genesis and re-initialize chain config for all ServiceChain nodes <a id="update-genesis-and-re-initialize-chain-config-for-all-servicechain-nodes"></a>
 
 First, specify the hard fork number in the `config` field of `genesis.json`.
 For example, if you are trying to activate the Magma hard fork in your ServiceChan, you should specify the `magmaCompatibleBlock` in `config` field of the genesis, like below.
-```
+
+```json
 {
   "config": {
     "chainId": 1000,
@@ -68,7 +70,8 @@ That is, to enable Magma hard fork, the EthTxType hard fork should be already en
 If there are missing hard forks in the chain config, you have to add them too.
 
 For example, if you want to activate Magma hard fork and if your `genesis.json` does not have `ethTxTypeCompatibleBlock` in its `config` field like below:
-```
+
+```json
 {
   "config": {
     "chainId": 1000,
@@ -85,7 +88,8 @@ For example, if you want to activate Magma hard fork and if your `genesis.json` 
 ```
 
 You have to add `ethTxTypeCompatibleBlock` too, when you add `magmaCompatibleBlock` in the `config` field, like below.
-```
+
+```json
 {
   "config": {
     "chainId": 1000,
@@ -107,25 +111,28 @@ You can find the history of Klaytn hard forks in the [Klaytn Docs](https://docs.
 
 If you have updated your `genesis.json` with desired hard forks, re-initialize the chain config and apply your change.
 
-```
+```bash
 $ kscn --datadir /path/to/data/directory init /path/to/genesis.json
 ```
 
 **NOTE** It is normal that the following error log is printed when you re-initialize chain config.
-```
+
+```text
 ERROR[08/02,09:12:39 Z] [48] The same or more recent governance index exist. Skip writing governance index  newIdx=0 govIdxes=[0]
 ```
 
-### Confirm the updated chain config
+### Confirm the updated chain config <a id="confirm-the-updated-chain-config"></a>
 
 Now, restart the ServiceChain node.
 For example, you can restart a SCN node with the following command.
-```
+
+```bash
 $ kscnd start
 ```
 
 Then, in the Javascript console of SCN, you can check the updated chain config.
-```
+
+```bash
 $ kscn attach ~/kscnd_home/klay.ipc
 Welcome to the Klaytn JavaScript console!
 
@@ -150,7 +157,7 @@ Obviously, lower bound cannot exceed the upper bound.
 
 To set the gas price to a static value, you have to set the upper and lower bound of the gas price to the same value. For example, you can set gas price to `0`, using `governance.vote` API in the Javascript console of the SCN nodes.
 
-```
+```bash
 $ kscn attach ~/kscnd_home/klay.ipc
 Welcome to the Klaytn JavaScript console!
 
@@ -170,7 +177,8 @@ For example, if the epoch is 3600, and the votes for updating the upper and lowe
 In detail, the votes will be finalized when their first epoch was encounted in the block #7200, and the changes are applied when their second epoch was encountered in the block #10800.
 
 To check the epoch, you can use the `governanace.itemsAt` API, like below.
-```
+
+```javascript
 > governance.itemsAt(klay.blockNumber)
 {
   governance.governancemode: "none",
@@ -195,7 +203,8 @@ To check the epoch, you can use the `governanace.itemsAt` API, like below.
 You can see that the `istanbul.epoch` has a value of 3600 blocks, which would normally take an hour to pass.
 
 You can change the epoch too, using the `governance.vote` API.
-```
+
+```javascript
 > governance.vote("istanbul.epoch", 60)
 "Your vote is prepared. It will be put into the block header or applied when your node generates a block as a proposer. Note that your vote may be duplicate."
 ```
