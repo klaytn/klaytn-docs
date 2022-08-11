@@ -1,4 +1,4 @@
-Klaytn has introduced several [hard forks](../../klaytn-history) to provide new features.
+Klaytn has introduced several [hard forks](../../../klaytn-history/README.md) to provide new features.
 In accordance with the Klaytn hard forks, new versions of ServiceChain binaries are also released to support the hard forks. However you need to activate the hard fork in order to use their new features in the ServiceChain.
 
 **NOTE** Upgrading ServiceChain binaries may be irreversible and backward-incompatible, meaning you cannot downgrade to an older version.
@@ -29,7 +29,7 @@ Now, you have to decide an appropriate block number to activate the hard fork. M
 ## 2. Upgrade the ServiceChain binary <a id="2-upgrade-the-servicechain-binary"></a>
 
 You can get the latest version of Klaytn binaries in one of the below links:
-- [Klaytn Docs](https://docs.klaytn.foundation/node/download)
+- [Klaytn Docs](../../download/README.md)
 - [Klaytn Github Repository](https://github.com/klaytn/klaytn/releases)
 
 To upgrade the ServiceChain binary, stop the ServiceChain node and replace the binary.
@@ -107,7 +107,7 @@ You have to add `ethTxTypeCompatibleBlock` too, when you add `magmaCompatibleBlo
 }
 ```
 
-You can find the history of Klaytn hard forks in the [Klaytn Docs](https://docs.klaytn.foundation/klaytn-history).
+You can find the history of Klaytn hard forks in the [Klaytn Docs](../../../klaytn-history/README.md).
 
 If you have updated your `genesis.json` with desired hard forks, re-initialize the chain config and apply your change.
 
@@ -152,7 +152,7 @@ This section describes some details for a specific hard fork.
 
 The Magma hard fork introduces the KIP-71, dynamic gas fee. It includes the upper and lower bound of the gas price.
 
-By default, the upper bound is set to `750000000000` and the lower bound is set to `25000000000`. You can change those bounds in the Javascript console of SCN nodes using the [governance APIs](https://docs.klaytn.foundation/dapp/json-rpc/api-references/governance).
+By default, the upper bound is set to `750000000000` and the lower bound is set to `25000000000`. You can change those bounds in the Javascript console of SCN nodes using the [governance APIs](../../../dapp/json-rpc/api-references/governance.md).
 Obviously, lower bound cannot exceed the upper bound.
 
 To set the gas price to a static value, you have to set the upper and lower bound of the gas price to the same value. For example, you can set gas price to `0`, using `governance.vote` API in the Javascript console of the SCN nodes.
