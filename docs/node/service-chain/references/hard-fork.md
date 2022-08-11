@@ -1,7 +1,7 @@
-Klaytn has introduced several [hard forks](../../klaytn-history) to introduce new features.
-The ServiceChain binaries are also updated with the hard forks, however you may required to activate the hard fork in order to use their new features.
+Klaytn has introduced several [hard forks](../../klaytn-history) to provide new features.
+In accordance with the Klaytn hard forks, new versions of ServiceChain binaries are also released to support the hard forks. However you need to activate the hard fork in order to use their new features in the ServiceChain.
 
-**NOTE** Upgrading ServiceChain binaries may be irreversible, backward-incompatible, meaning you cannot downgrade to an older version.
+**NOTE** Upgrading ServiceChain binaries may be irreversible and backward-incompatible, meaning you cannot downgrade to an older version.
 
 # Bringing Klaytn Hard Fork to ServiceChain <a id="bringing-klaytn-hard-fork-to-servicechain"></a>
 
@@ -10,7 +10,7 @@ To apply the hard fork to the ServiceChain, you need to:
 2. Upgrade the ServiceChain binary to a version that supports the hard fork
 3. Activate the hard fork in the ServiceChain
 
-## Pick an appropriate block number for the hard fork
+## 1. Pick an appropriate block number for the hard fork
 
 In the Javascript console of the ServiceChain, you can check the current block number as shown below.
 ```
@@ -26,7 +26,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 ```
 Now, you have to decide an appropriate block number to activate the hard fork. Make sure to have enough number of blocks (which is produced every second) between the current block and the block of hard fork.
 
-## Upgrade the ServiceChain binary <a id="update-the-servicechain-binary"></a>
+## 2. Upgrade the ServiceChain binary <a id="update-the-servicechain-binary"></a>
 
 You can get the latest version of Klaytn binaries in one of the below links:
 - [Klaytn Docs](https://docs.klaytn.foundation/node/download)
@@ -40,7 +40,9 @@ Shutting down kscnd: OK
 $ cp /path/to/new/kscn /path/to/original/kscn
 ```
 
-## Activate Hard Fork <a id="activate-hard-fork"></a>
+**NOTE** After you have replaced all ServiceChain nodes' binaries, keep the ServiceChain nodes down (or stopped). You will restart them after you have activated the hard fork.
+
+## 3. Activate Hard Fork <a id="activate-hard-fork"></a>
 
 If you have upgraded the ServiceChain binaries with a version that supports desired hard fork, you can activate the hard fork in the ServiceChain by re-initializing the chain config with updated genesis.
 
@@ -49,7 +51,6 @@ If you have upgraded the ServiceChain binaries with a version that supports desi
 First, specify the hard fork number in the `config` field of `genesis.json`.
 For example, if you are trying to activate the Magma hard fork in your ServiceChan, you should specify the `magmaCompatibleBlock` in `config` field of the genesis, like below.
 ```
-$ cat /path/to/genesis.json
 {
   "config": {
     "chainId": 1000,
@@ -57,7 +58,8 @@ $ cat /path/to/genesis.json
     ...
     "magmaCompatibleBlock": 1500,
     ...
-  }
+  },
+  ...
 }
 ```
 
@@ -162,9 +164,9 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 "Your vote is prepared. It will be put into the block header or applied when your node generates a block as a proposer. Note that your vote may be duplicate."
 ```
 
-If the votes for updating the upper and lower bound of the gas price were successful, those changes will be in effect after 2 istanbul epoch. Epoch has the value in block numbers.
+If the votes for updating the upper and lower bound of the gas price were successful, those changes will take effect after 2 istanbul epochs (An epoch has the value in block numbers).
 
-For example, if the epoch is 3600, and the votes for updating the upper and lower bounds of gas price has been placed in the block #4000, those changes will be in effect after the block #10800.
+For example, if the epoch is 3600, and the votes for updating the upper and lower bounds of gas price has been placed in the block #4000, those changes will take effect starting from the block #10800.
 In detail, the votes will be finalized when their first epoch was encounted in the block #7200, and the changes are applied when their second epoch was encountered in the block #10800.
 
 To check the epoch, you can use the `governanace.itemsAt` API, like below.
