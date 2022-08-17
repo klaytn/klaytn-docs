@@ -284,22 +284,44 @@ The ERC-721 contract should implement the function, then.
 function requestValueTransfer(uint256 _uid, address _to) external
 ```
 
-# Reasoning
+# Value Transfer Recovery
 Value transfer request may fail for a number of reasons. Say you requested KLAY transfer from subbridge to mainbridge or from mainbridge to subbridge.
 In that case, the bridge contract on the receiver side must have enough KLAY than the requested amount of KLAY. If not, the transfer would fail without error notification in the return value.
-If a transaction was executed and failed from the counterpart chain, the **reasoning** protocol is performed to decide whether to resend, refund, or not.
-If a transaction is failed by poor operation, such as insufficient KLAY or tokens and out of gas error, the sender can be paid the requested amount of KLAY or tokens back by reasoning protocol.
-If a transaction was not executed, the transaction is repeatedly resent every 30s by reasoning protocol.
-In order to set the reasoing protocol running as default, you need to set two options:
+If a transaction was executed and failed from the counterpart chain, the requested amount of asset is refunded.
+If a transaction was not executed, the transaction is repeatedly resent every 30s.
+In order to activate value transfer recovery, you need to set two options:
 ```
-SC_REASONING=1
-SC_REASONING_INTERVAL=5
+SC_RECOVERY=1
+SC_RECOVERY_INTERVAL=5
 ```
-The reasoning protocol is enabled by set `SC_REASONING=1`. `SC_REASONING_INTERVAL` means an interval how often the reasoning is executed.
+The value transfer recovery is enabled by set `SC_RECOVERY=1`. `SC_RECOVERY_INTERVAL` means an interval how often the recovery is executed.
+
+The implementation of the platform-level code automatically does the refund for the failed value transfer requests. Considering the bridge node is not able to service for any reason (e.g., outage), The bridge node may not create the refund transaction.
+However, users can make a refund transaction themselves if the reserved period (1 day) is passed. Before that, they cannot make a transaction, which was regarded as invalid. Please refer to the below for the contract ABI of refund function that user can transact.
+```
+{
+    "constant": false,
+    "inputs": [
+        {
+            "name": "requestNonce_",
+            "type": "uint64"
+        }
+    ],
+    "name": "handleRefund",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+```
+And the function signature is
+```
+function handleRefund(uint64 requestNonce_) external
+```
 
 # Fee model and withdraw
-ServiceChain operators pay transaction fee as weel as token or KLAY transfer.
-In the fee model section, we demonstrate how a bridge service operator would not have a deficit for the service of value transfer between chains.
+ServiceChain operators pay transaction fee as weel as assets(KLAY, ERC-20, and ERC-721) that the counteraprt bridge contract holds.
+In the fee model section, we demonstrate how a bridge service operator would not have a deficit for the value transfer servcie operation.
 
 # Collecting Fee for KLAY/ERC-20 transfer <a id="collecting-fee-for-klay-erc-20-transfer"></a>
 In ServiceChain, there is a fee collecting feature for KLAY/ERC-20 transfers.
