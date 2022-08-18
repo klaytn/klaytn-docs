@@ -1763,11 +1763,11 @@ caver.utils.recover(message, signature [, isHashed])
 
 **Parameters**
 
-| 이름       | 타입                  | 설명                                                                                                                                                                                                                                   |
-| -------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 메시지      | string              | Either message or hashed message.                                                                                                                                                                                                    |
-| 서명 값입니다. | object &#124; Array | An instance of [SignatureData][].                                                                                                                                                                                                    |
-| isHashed | boolean             | (optional, default: `false`) If the last parameter is `true`, the given `message` will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and will be assumed to be already prefixed. |
+| 이름        | 타입                  | 설명                                                                                                                                                                                                                                   |
+| --------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 메시지       | string              | Either message or hashed message.                                                                                                                                                                                                    |
+| signature | object &#124; Array | An instance of [SignatureData][].                                                                                                                                                                                                    |
+| isHashed  | boolean             | (optional, default: `false`) If the last parameter is `true`, the given `message` will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and will be assumed to be already prefixed. |
 
 **리턴값**
 
@@ -1803,11 +1803,11 @@ Recovers the public key that was used to sign the given data.
 
 **Parameters**
 
-| 이름       | 타입                  | 설명                                                                                                                                                              |
-| -------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 메시지      | string              | Either message or hashed message.                                                                                                                               |
-| 서명 값입니다. | object &#124; Array | An instance of [SignatureData][].                                                                                                                               |
-| isHashed | boolean             | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Klaytn Signed Message:\n" + message.length + message`. |
+| 이름        | 타입                  | 설명                                                                                                                                                              |
+| --------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 메시지       | string              | Either message or hashed message.                                                                                                                               |
+| signature | object &#124; Array | An instance of [SignatureData][].                                                                                                                               |
+| isHashed  | boolean             | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Klaytn Signed Message:\n" + message.length + message`. |
 
 **리턴값**
 
@@ -1962,9 +1962,9 @@ Decodes a raw signature data composed of 'R(32 byte) + S(32 byte) + V(1byte)'.
 
 **Parameters**
 
-| 이름       | 타입     | 설명                                                                                    |
-| -------- | ------ | ------------------------------------------------------------------------------------- |
-| 서명 값입니다. | string | The signature string to decode. It is composed of R(32bytes) + S(32bytes) + V(1byte). |
+| 이름        | 타입     | 설명                                                                                    |
+| --------- | ------ | ------------------------------------------------------------------------------------- |
+| signature | string | The signature string to decode. It is composed of R(32bytes) + S(32bytes) + V(1byte). |
 
 **리턴값**
 
