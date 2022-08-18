@@ -321,7 +321,7 @@ function handleRefund(uint64 requestNonce_) external
 
 # Fee model and withdraw
 ServiceChain operators pay transaction fee as weel as assets(KLAY, ERC-20, and ERC-721) that the counteraprt bridge contract holds.
-In the fee model section, we demonstrate how a bridge service operator would not have a deficit for the value transfer servcie operation.
+In the [fee model document](./fee-model.md), we demonstrate how a bridge service operator would not have a deficit for the value transfer servcie operation.
 
 # Collecting Fee for KLAY/ERC-20 transfer <a id="collecting-fee-for-klay-erc-20-transfer"></a>
 In ServiceChain, there is a fee collecting feature for KLAY/ERC-20 transfers.
