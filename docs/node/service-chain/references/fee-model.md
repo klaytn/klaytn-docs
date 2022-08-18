@@ -6,7 +6,7 @@ ServiceChain provides an API(`subbridge.suggestLeastFee`) for a suggestion of it
 The API returns a fee by consideration of current gas price and required number of gas to be injected for value transfer transaction.
 Therefore, its return value is the suggestion of least fee to not have operation cost loss.
 
-First of all, clone the example repository
+First of all, clone the example repository.
 ```bash
 $ git clone https://github.com/klaytn/servicechain-value-transfer-examples
 $ cd servicechain-value-transfer-examples

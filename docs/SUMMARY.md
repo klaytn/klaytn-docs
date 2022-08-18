@@ -134,6 +134,7 @@
       * [KAS Anchoring](node/service-chain/references/kas-anchoring.md)
       * [Value Transfer](node/service-chain/references/value-transfer.md)
       * [Fee](node/service-chain/references/fee-model.md)
+      * [Bridge Withdrawal](node/service-chain/references/withdrawal.md)
       * [Configuration Files](node/service-chain/references/configuration-files.md)
       * [Log Files](node/service-chain/references/log-files.md)
       * [Genesis JSON](node/service-chain/references/genesis.md)
