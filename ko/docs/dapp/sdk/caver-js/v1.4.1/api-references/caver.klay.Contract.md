@@ -670,7 +670,7 @@ myContract.events.MyEvent([options][, callback])
 | 이름               | 타입             | 설명                                                                                                                              |
 |:---------------- |:-------------- |:------------------------------------------------------------------------------------------------------------------------------- |
 | event            | String         | 이벤트 이름.                                                                                                                         |
-| 서명 값입니다.         | String \      | `null` | The event signature, `null` if it is an anonymous event.                                                               |
+| signature        | String \      | `null` | The event signature, `null` if it is an anonymous event.                                                               |
 | 주소               | String         | 이 이벤트가 발생한 주소.                                                                                                                  |
 | returnValues     | Object         | The return values coming from the event, _e.g._, `{myVar: 1, myVar2: '0x234...'}`.                                              |
 | logIndex         | Number         | 블록에서 이벤트 인덱스 위치의 정수값.                                                                                                           |
