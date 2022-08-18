@@ -576,10 +576,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 
 **Parameters**
 
-| 이름       | 타입     | 설명          |
-| -------- | ------ | ----------- |
-| 메시지      | string | 서명한 메시지입니다. |
-| 서명 값입니다. | string | 서명입니다.      |
+| 이름        | 타입     | 설명          |
+| --------- | ------ | ----------- |
+| 메시지       | string | 서명한 메시지입니다. |
+| signature | string | 서명입니다.      |
 
 **리턴값**
 
