@@ -113,6 +113,7 @@
       * [Cross-Chain Value Transfer](node/service-chain/getting-started/value-transfer.md)
     * [Reference Manuals](node/service-chain/references/README.md)
       * [System Requirements](node/service-chain/references/system-requirements.md)
+      * [Release Compatibility](node/service-chain/references/release-compatibility.md)
       * [Download](node/service-chain/references/download.md)
       * [SCN User Guide](node/service-chain/references/scn/README.md)
         * [Installation](node/service-chain/references/scn/installation.md)
