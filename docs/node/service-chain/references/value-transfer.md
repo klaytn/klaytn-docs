@@ -291,10 +291,10 @@ If a transaction was executed and failed from the counterpart chain, the request
 If a transaction was not executed, the transaction is repeatedly resent every 30s.
 In order to activate value transfer recovery, you need to set two options:
 ```
-SC_RECOVERY=1
-SC_RECOVERY_INTERVAL=5
+SC_VTRECOVERY=1
+SC_VTRECOVERY_INTERVAL=5
 ```
-The value transfer recovery is enabled by set `SC_RECOVERY=1`. `SC_RECOVERY_INTERVAL` means an interval how often the recovery is executed.
+The value transfer recovery is enabled by set `SC_VTRECOVERY=1`. `SC_VTRECOVERY_INTERVAL` means an interval how often the recovery is executed.
 
 The implementation of the platform-level code automatically does the refund for the failed value transfer requests. Considering the bridge node is not able to service for any reason (e.g., outage), The bridge node may not create the refund transaction.
 However, users can make a refund transaction themselves if the reserved period (1 day) is passed. Before that, they cannot make a transaction, which was regarded as invalid. Please refer to the below for the contract ABI of refund function that user can transact.
