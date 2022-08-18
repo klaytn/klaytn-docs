@@ -413,22 +413,22 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | from               | 20바이트 크기 DATA        | 트랜잭션 발신자의 주소입니다.                                                                                                                                 |
 | gas                | QUANTITY             | 트랜잭션 발신자에 의해 설정된 가스양입니다.                                                                                                                         |
 | effectiveGasPrice  | QUANTITY             | The actual value per gas deducted from the senders account.                                                                                      |
-| 가스 가격              | QUANTITY             | peb에서 트랜잭션 발신자에 의해 설정된 가스 가격입니다.                                                                                                                 |
+| gasPrice           | QUANTITY             | peb에서 트랜잭션 발신자에 의해 설정된 가스 가격입니다.                                                                                                                 |
 | gasUsed            | QUANTITY             | 이 트랜잭션에서만 사용된 가스양입니다.                                                                                                                            |
 | humanReadable      | Boolean              | (선택사항) Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.                                                                            |
 | key                | String               | (선택사항) 새로 생성된 계정의 키입니다.                                                                                                                          |
 | input              | DATA                 | (선택사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                      |
-| 로그                 | Array                | 이 트랜잭션이 발생시킨 로그 객체들의 배열입니다.                                                                                                                      |
+| logs               | Array                | 이 트랜잭션이 발생시킨 로그 객체들의 배열입니다.                                                                                                                      |
 | logsBloom          | 256바이트 크기 DATA       | 라이트 클라이언트가 관련된 로그를 빠르게 검색할 수 있도록 하는 블룸필터입니다.                                                                                                     |
-| 논스                 | QUANTITY             | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                          |
+| nonce              | QUANTITY             | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                          |
 | senderTxHash       | (선택사항) 32바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소와 서명이 없는 트랜잭션 해시입니다. 이 값은 수수료 위임된 트랜잭션이 아닌 경우의 transactionHash의 값과 항상 동일합니다.                                                     |
-| 서명 값입니다.           | Array                | 서명 객체의 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                            |
-| 상태                 | QUANTITY             | `1` (성공) 또는 `0` (실패)를 나타냅니다.                                                                                                                     |
+| signature          | Array                | 서명 객체의 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                            |
+| status             | QUANTITY             | `1` (성공) 또는 `0` (실패)를 나타냅니다.                                                                                                                     |
 | txError            | QUANTITY             | (선택사항) `status`가 0이면 상세한 오류 코드를 나타냅니다.                                                                                                           |
 | to                 | 20바이트 크기 DATA        | 트랜잭션 수신자의 주소입니다. 컨트랙트 생성 트랜잭션이면 `null`을 반환합니다.                                                                                                   |
 | transactionHash    | 32바이트 크기 DATA        | 트랜잭션의 해시입니다.                                                                                                                                     |
 | transactionIndex   | QUANTITY             | 블록 내 트랜잭션의 인덱스 위치의 정숫값입니다.                                                                                                                       |
-| 형식                 | String               | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                           |
+| type               | String               | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                           |
 | typeInt            | QUANTITY             | 트랜잭션의 유형을 나타내는 정수입니다.                                                                                                                            |
 | value              | QUANTITY             | peb로 전송된 값입니다.                                                                                                                                   |
 
@@ -490,9 +490,9 @@ SenderTxHash로 조회한 트랜잭션의 영수증을 반환합니다.
 
 **Parameters**
 
-| 이름 | 타입            | 설명                                                                         |
-| -- | ------------- | -------------------------------------------------------------------------- |
-| 해시 | 32바이트 크기 DATA | 트랜잭션 납부자(feePayer)에 의해 서명되기 이전의 트랜잭션의 해시입니다. (즉 senderTransactionHash입니다.) |
+| 이름   | 타입            | 설명                                                                         |
+| ---- | ------------- | -------------------------------------------------------------------------- |
+| Hash | 32바이트 크기 DATA | 트랜잭션 납부자(feePayer)에 의해 서명되기 이전의 트랜잭션의 해시입니다. (즉 senderTransactionHash입니다.) |
 
 **리턴값**
 
@@ -509,22 +509,22 @@ SenderTxHash로 조회한 트랜잭션의 영수증을 반환합니다.
 | feeRatio           | QUANTITY             | (선택사항) 트랜잭션 수수료 납부자의 부담 비율입니다. 이 값이 30이면, 트랜잭션 수수료의 30%를 트랜잭션 수수료 납부자가 지불합니다. 나머지 70%는 트랜잭션 발신자가 지불합니다.                                   |
 | from               | 20바이트 크기 DATA        | 트랜잭션 발신자의 주소입니다.                                                                                                                          |
 | gas                | QUANTITY             | 트랜잭션 발신자에 의해 설정된 가스양입니다.                                                                                                                  |
-| 가스 가격              | QUANTITY             | peb에서 트랜잭션 발신자에 의해 설정된 가스 가격입니다.                                                                                                          |
+| gasPrice           | QUANTITY             | peb에서 트랜잭션 발신자에 의해 설정된 가스 가격입니다.                                                                                                          |
 | gasUsed            | QUANTITY             | 이 트랜잭션에서만 사용된 가스양입니다.                                                                                                                     |
 | humanReadable      | Boolean              | (선택사항) Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.                                                                     |
 | key                | String               | (선택사항) 새로 생성된 계정의 키입니다.                                                                                                                   |
 | input              | DATA                 | (선택사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                                               |
-| 로그                 | Array                | 이 트랜잭션이 발생시킨 로그 객체들의 배열입니다.                                                                                                               |
+| logs               | Array                | 이 트랜잭션이 발생시킨 로그 객체들의 배열입니다.                                                                                                               |
 | logsBloom          | 256바이트 크기 DATA       | 라이트 클라이언트가 관련된 로그를 빠르게 검색할 수 있도록 하는 블룸필터입니다.                                                                                              |
-| 논스                 | QUANTITY             | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                   |
+| nonce              | QUANTITY             | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                   |
 | senderTxHash       | (선택사항) 32바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소와 서명이 없는 트랜잭션 해시입니다. 이 값은 수수료 위임된 트랜잭션이 아닌 경우의 transactionHash의 값과 항상 동일합니다.                                              |
-| 서명 값입니다.           | Array                | 서명 객체의 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                     |
-| 상태                 | QUANTITY             | `1` (성공) 또는 `0` (실패)를 나타냅니다.                                                                                                              |
+| signature          | Array                | 서명 객체의 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                     |
+| status             | QUANTITY             | `1` (성공) 또는 `0` (실패)를 나타냅니다.                                                                                                              |
 | txError            | QUANTITY             | (선택사항) `status`가 0이면 상세한 오류 코드를 나타냅니다.                                                                                                    |
 | to                 | 20바이트 크기 DATA        | 트랜잭션 수신자의 주소입니다. 컨트랙트 생성 트랜잭션이면 `null`을 반환합니다.                                                                                            |
 | transactionHash    | 32바이트 크기 DATA        | 트랜잭션의 해시입니다.                                                                                                                              |
 | transactionIndex   | QUANTITY             | 블록 내 트랜잭션의 인덱스 위치의 정숫값입니다.                                                                                                                |
-| 형식                 | String               | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                    |
+| type               | String               | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                    |
 | typeInt            | QUANTITY             | 트랜잭션의 유형을 나타내는 정수입니다.                                                                                                                     |
 | value              | QUANTITY             | peb로 전송된 값입니다.                                                                                                                            |
 
