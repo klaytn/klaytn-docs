@@ -1585,6 +1585,65 @@ The options object can contain the following:
 }
 ```
 
+## myContract.subscribe <a id="mycontract-subscribe"></a>
+
+```javascript
+myContract.subscribe(event [, options], callback)
+```
+
+Subscribes to an event. This function works same as [myContract.events.eventName](#mycontract-events).
+
+You can unsubscribe an event by calling the `unsubscribe` function of the subscription object returned by the `subscribe` function.
+
+**NOTE** `myContract.subscribe` is supported since caver-js [v1.9.1-rc.1](https://www.npmjs.com/package/caver-js/v/1.9.1-rc.1).
+
+**Parameters**
+
+| Name     | Type     | Description                                                                                                                                                                                      |
+| -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| event    | string   | The name of the event in the contract, or `allEvents` to get all events.                                                                                                                         |
+| options  | object   | (optional) The options used for subscription. See the table below for the details.                                                                                                               |
+| callback | function | This callback will be fired for the first event as the second argument, or an error as the first argument. See [myContract.getPastEvents](#getpastevents) for details about the event structure. |
+
+The options object can contain the following:
+
+| Name   | Type   | Description                                                                                                                                                           |
+| ------ | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| filter | object | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                       |
+| topics | Array  | (optional) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
+
+**Return Value**
+
+`Promise` returns `object` - An event object. For more detail about event object, please refer to [myContract.getPastEvents](#getpastevents).
+
+**Example**
+
+```javascript
+> const subscription = myContract.subscribe('eventName', {
+    filter: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
+  }, function(error, event) { console.log(event) })
+{
+    returnValues: {
+        myIndexedParam: 20,
+        myOtherIndexedParam: '0x123456789...',
+        myNonIndexParam: 'My string'
+    },
+    raw: {
+        data: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
+        topics: ['0xfd43a...', '0x7f9fa...']
+    },
+    event: 'eventName',
+    signature: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
+    logIndex: 0,
+    transactionIndex: 0,
+    transactionHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
+    blockHash: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
+    blocknumber: 1234,
+    address: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'
+}
+> subscription.unsubscribe() // unsubscribe the event
+```
+
 
 ## myContract.events <a id="mycontract-events"></a>
 
