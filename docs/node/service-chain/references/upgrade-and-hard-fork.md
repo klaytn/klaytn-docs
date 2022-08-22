@@ -1,5 +1,5 @@
-Klaytn and its ServiceChain has constantly released new versions in order to introduce new features, fix bugs, and support hard forks.
-This page shows guides to upgrade ServiceChain binary and activate hard fork in the ServiceChain.
+Klaytn and its ServiceChain have constantly released new versions to develop new features and bug fixes.
+This page shows guides to upgrade ServiceChain binaries and activate hard forks for your ServiceChain.
 
 # Upgrade <a id="upgrade"></a>
 
@@ -64,7 +64,7 @@ If you have upgraded the ServiceChain binaries with a version that supports desi
 ### Update genesis and re-initialize chain config for all ServiceChain nodes <a id="update-genesis-and-re-initialize-chain-config-for-all-servicechain-nodes"></a>
 
 First, specify the hard fork number in the `config` field of `genesis.json`.
-For example, if you are trying to activate the Magma hard fork in your ServiceChan, you should specify the `magmaCompatibleBlock` in `config` field of the genesis, like below.
+For example, if you are trying to activate the Magma hard fork in your ServiceChain, you should specify the `magmaCompatibleBlock` in `config` field of the genesis, like below.
 
 ```json
 {
@@ -184,6 +184,8 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 > governance.vote("kip71.upperboundbasefee", 0)
 "Your vote is prepared. It will be put into the block header or applied when your node generates a block as a proposer. Note that your vote may be duplicate."
 ```
+
+**NOTE** The governance voting and its update are available regardless of the activation of the Magma hard fork. That is, the governance voting can be also done prior to the Magma hard fork activation.
 
 If the votes for updating the upper and lower bound of the gas price were successful, those changes will take effect after 2 istanbul epochs (An epoch has the value in block numbers).
 
