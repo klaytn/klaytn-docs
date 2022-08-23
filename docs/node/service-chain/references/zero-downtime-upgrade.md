@@ -10,7 +10,7 @@ We deomonstrate with the following environments:
     - `SEN` node connects with two or more CNs at least.
 
 We call `v1` and `v2` are previous release and new release, respectively in this demonstration.
-Assume that all the nodes are parent nodes and child nodes are now in running with 'v1'.
+Assume that all the nodes are parent chain and child chain are now in running with 'v1'.
 We tag a names all the entities of each chain as follows:
 - Parent chain:
     - `CNN` (e.g., CN1, CN2, and so on), `BEN`(Bridge `EN` node), and `EN`
