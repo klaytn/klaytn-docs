@@ -57,8 +57,10 @@ The namespace `debug` gives you access to several non-standard RPC methods, whic
 - [debug_traceBlock](./debug/tracing.md#debug_traceblock)
 - [debug_traceBlockByHash](./debug/tracing.md#debug_traceblockbyhash)
 - [debug_traceBlockByNumber](./debug/tracing.md#debug_traceblockbynumber)
+- [debug_traceBlockByNumberRange](./debug/tracing.md#debug_traceblockbynumberrange)
 - [debug_traceBlockFromFile](./debug/tracing.md#debug_traceblockfromfile)
 - [debug_traceTransaction](./debug/tracing.md#debug_tracetransaction)
+- [debug_traceChain](./debug/tracing.md#debug_tracechain)
 - [Tracing Options](./debug/tracing.md#tracing-options)
 - [JavaScript-based Tracing](./debug/tracing.md#javascript-based-tracing)
 
