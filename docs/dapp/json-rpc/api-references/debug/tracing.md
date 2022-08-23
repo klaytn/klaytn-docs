@@ -195,6 +195,62 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ,{"pc":322,"op":"RETURN","gas":865278,"gasCost":0,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000236","0000000000000000000000000000000000000000000000000000000000000000"],"memory":["60806040526004361061004c576000357c010000000000000000000000000000","0000000000000000000000000000900463ffffffff16806341c0e1b514610051","578063cfae321714610068575b600080fd5b34801561005d57600080fd5b5061","00666100f8565b005b34801561007457600080fd5b5061007d610168565b6040","5180806020018281038252838181518152602001915080519060200190808383","60005b838110156100bd5780820151818401526020810190506100a2565b5050","5050905090810190601f1680156100ea5780820380516001836020036101000a","031916815260200191505b509250505060405180910390f35b60008090549061","01000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffff","ffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffff","ffffffffffffff161415610166573373ffffffffffffffffffffffffffffffff","ffffffff16ff5b565b6060600180546001816001161561010002031660029004","80601f0160208091040260200160405190810160405280929190818152602001","828054600181600116156101000203166002900480156102005780601f106101","d557610100808354040283529160200191610200565b82019190600052602060","0020905b8154815290600101906020018083116101e357829003601f16820191","5b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6","c4e54ad49014e2faa152e49e7f9d927c932c7287002900000000000000000000"],"storage":{"0000000000000000000000000000000000000000000000000000000000000000":"000000000000000000000000b0945862f63b832849a5f20b19e9f8188eb2230a","0000000000000000000000000000000000000000000000000000000000000001":"0000000000000000000000000000000000000000000000000000000000000000"}}]}}]}
 ```
 
+## debug_traceBlockByNumberRange <a id="debug_traceblockbynumberrange"></a>
+
+Returns the structured logs created during the execution of EVM between two blocks (including start) as a JSON object
+That is, the result of tracing for a total of end-start+1 blocks is returned.
+
+| Client  | Method Invocation                                                |
+|:-------:|------------------------------------------------------------------|
+| Console | `debug.traceBlockByNumberRange(number, number, [options])`                    |
+| RPC     | `{"method": "debug_traceBlockByNumberRange", "params": [number, number, {}]}` |
+
+**NOTE**: Don't trace too many blocks at the same time.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| number | int | Tracing start block number. |
+| number | int | Tracing end block number. |
+| options  | object | See [tracing options](#tracing-options). |
+
+**Return Value**
+
+| Type | Description |
+| --- | --- |
+| map(key: block number. value: JSON string) | Value contains the structured logs created during the execution of KLVM. |
+
+**Example**
+
+Console
+```javascript
+> debug.traceBlockByNumberRange(21, 30, {})
+{
+    21: {
+        block: "0x15",
+            hash: "0x24b0a90822e63295623e6d8f5a8e5d47cead5c8d5854e44db00dc42d28e0850e",
+            traces: [{
+                result: {...},
+                txHash: "0x43ed7e441db8e90f377d74b5d61c6d7d8b85ffd277b965c9f275ce7e93fb1090"
+            }, {
+                result: {...},
+                txHash: "0x1a448049b21d39cd4320ab95f18b8e91d687bfc7136268f50e041e439181fa0d"
+            }]
+        },
+    22: {
+        ...
+        },
+    ...
+}
+```
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_traceBlockByNumberRange","params":[21, 30, {}],"id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":{"21":{"block":"0x15","hash":"0x24b0a90822e63295623e6d8f5a8e5d47cead5c8d5854e44db00dc42d28e0850e","traces":[{"txHash":"0x43ed7e441db8e90f377d74b5d61c6d7d8b85ffd277b965c9f275ce7e93fb1090","result":{"gas":21000,"failed":false,"returnValue":"","structLogs":[]}},{"txHash":"0x1a448049b21d39cd4320ab95f18b8e91d687bfc7136268f50e041e439181fa0d","result":{"gas":21000,"failed":false,"returnValue":"","structLogs":[]}}]},
+...
+"result":{"gas":21000,"failed":false,"returnValue":"","structLogs":[]}}]}}}
+```
 
 ## debug_traceBlockFromFile <a id="debug_traceblockfromfile"></a>
 
@@ -359,6 +415,30 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ,{"pc":322,"op":"RETURN","gas":865278,"gasCost":0,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000236","0000000000000000000000000000000000000000000000000000000000000000"],"memory":["60806040526004361061004c576000357c010000000000000000000000000000","0000000000000000000000000000900463ffffffff16806341c0e1b514610051","578063cfae321714610068575b600080fd5b34801561005d57600080fd5b5061","00666100f8565b005b34801561007457600080fd5b5061007d610168565b6040","5180806020018281038252838181518152602001915080519060200190808383","60005b838110156100bd5780820151818401526020810190506100a2565b5050","5050905090810190601f1680156100ea5780820380516001836020036101000a","031916815260200191505b509250505060405180910390f35b60008090549061","01000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffff","ffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffff","ffffffffffffff161415610166573373ffffffffffffffffffffffffffffffff","ffffffff16ff5b565b6060600180546001816001161561010002031660029004","80601f0160208091040260200160405190810160405280929190818152602001","828054600181600116156101000203166002900480156102005780601f106101","d557610100808354040283529160200191610200565b82019190600052602060","0020905b8154815290600101906020018083116101e357829003601f16820191","5b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6","c4e54ad49014e2faa152e49e7f9d927c932c7287002900000000000000000000"],"storage":{"0000000000000000000000000000000000000000000000000000000000000000":"000000000000000000000000b0945862f63b832849a5f20b19e9f8188eb2230a","0000000000000000000000000000000000000000000000000000000000000001":"0000000000000000000000000000000000000000000000000000000000000000"}}]}}
 ```
 
+## debug_traceChain <a id="debug_tracechain"></a>
+
+Returns the structured logs created during the execution of EVM between two blocks (excluding start) as a JSON object. This endpoint must be invoked via debug_subscribe as follows:
+
+**NOTE**: Don't trace too many blocks at the same time.
+
+**Parameters**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| number | int | Tracing start block number. |
+| number | int | Tracing end block number. |
+| options  | object | See [tracing options](#tracing-options). |
+
+**Example**
+```
+wscat -c ws://localhost:8552
+> {"id": 1, "method": "debug_subscribe", "params": ["traceChain", 21, 30, {}]}
+< {"jsonrpc":"2.0","id":1,"result":"0xcef1ebe5819ce55a11e97c28cee5d36b"}
+< {"jsonrpc":"2.0","method":"debug_subscription","params":{"subscription":"0xcef1ebe5819ce55a11e97c28cee5d36b","result":{"block":"0x16","hash":"0xb620aa234c0a9279d3eb467d5be96d93a31edc580385cae632c6f7c231c3ac72","traces":[{"txHash":"0xeb6b4ddb206952f8600dd64d04618d518b51bfe722226d6717ce5c96aa243070","result":{"gas":21000,"failed":false,"returnValue":"","structLogs":[]}},{"txHash":"0xf389f44a0e61b6497517c2b4569343adeab59e2b099d6a43ae1c6c10a71823b2","result":{"gas":21000,"failed":false,"returnValue":"","structLogs":[]}}]}}}
+< {"jsonrpc":"2.0","method":"debug_subscription","params":{"subscription":"0xcef1ebe5819ce55a11e97c28cee5d36b","result":{"block":"0x17","hash":"0x634c41b5687fe733dacb9d4a4062fd29f744132771f8529838c1956d18efadd4","traces":[{"txHash":"0xa0bdd0e9c69f45295e7cb8fe2e6fb6c35f0d99b69d31d496fd57e40e4da6f85e","result":{"gas":21000,"failed":false,"returnValue":"","structLogs":[]}},{"txHash":"0x5762193b76c0c61cbe272e3bc54d0d7e123677efb12cc62e2e08a4743992f1ff","result":{"gas":21000,"failed":false,"returnValue":"","structLogs":[]}}]}}}
+...
+>
+```
 
 ## Tracing Options <a id="tracing-options"></a>
 
