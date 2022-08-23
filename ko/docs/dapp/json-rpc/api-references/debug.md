@@ -57,10 +57,12 @@ description: >-
 - [debug_traceBlock](./debug/tracing.md#debug_traceblock)
 - [debug_traceBlockByHash](./debug/tracing.md#debug_traceblockbyhash)
 - [debug_traceBlockByNumber](./debug/tracing.md#debug_traceblockbynumber)
+- [debug_traceBlockByNumberRange](./debug/tracing.md#debug_traceblockbynumberrange)
 - [debug_traceBlockFromFile](./debug/tracing.md#debug_traceblockfromfile)
 - [debug_traceTransaction](./debug/tracing.md#debug_tracetransaction)
-- [추적 옵션](./debug/tracing.md#tracing-options)
-- [자바스크립트 기반 추적](./debug/tracing.md#javascript-based-tracing)
+- [debug_traceChain](./debug/tracing.md#debug_tracechain)
+- [Tracing Options](./debug/tracing.md#tracing-options)
+- [JavaScript-based Tracing](./debug/tracing.md#javascript-based-tracing)
 
 
 ## [VM 표준 추적](./debug/standard_tracing.md) <a id="vm-standard-tracing"></a>
