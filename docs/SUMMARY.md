@@ -130,6 +130,7 @@
       * [Anchoring](node/service-chain/references/anchoring.md)
       * [KAS Anchoring](node/service-chain/references/kas-anchoring.md)
       * [Value Transfer](node/service-chain/references/value-transfer.md)
+      * [Zero Downtime Upgrade](node/service-chain/references/zero-downtime-upgrade.md)
       * [Configuration Files](node/service-chain/references/configuration-files.md)
       * [Log Files](node/service-chain/references/log-files.md)
       * [Genesis JSON](node/service-chain/references/genesis.md)
