@@ -197,7 +197,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlockByNumberRange <a id="debug_traceblockbynumberrange"></a>
 
-Returns the structured logs created during the execution of EVM between two blocks (including start) as a JSON object
+Returns the structured logs created during the execution of EVM between two blocks (including start) as a JSON object.
 That is, the result of tracing for a total of end-start+1 blocks is returned.
 
 | Client  | Method Invocation                                                |
@@ -205,7 +205,7 @@ That is, the result of tracing for a total of end-start+1 blocks is returned.
 | Console | `debug.traceBlockByNumberRange(number, number, [options])`                    |
 | RPC     | `{"method": "debug_traceBlockByNumberRange", "params": [number, number, {}]}` |
 
-**NOTE**: Don't trace too many blocks at the same time.
+**NOTE**: Don't trace too many blocks at the same time as it can overuse machine resources.
 
 **Parameters**
 
@@ -419,7 +419,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Returns the structured logs created during the execution of EVM between two blocks (excluding start) as a JSON object. This endpoint must be invoked via debug_subscribe as follows:
 
-**NOTE**: Don't trace too many blocks at the same time.
+**NOTE**: Don't trace too many blocks at the same time as it can overuse machine resources.
 
 **Parameters**
 
