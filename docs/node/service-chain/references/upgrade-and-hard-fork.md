@@ -30,7 +30,7 @@ $ kscnd start
 
 # Hard Fork <a id="hard-fork"></a>
 
-This section describe steps for bringing Klaytn [hard forks](../../../klaytn-history/README.md) to ServiceChain.
+This section describes steps for bringing Klaytn [hard forks](../../../klaytn-history/README.md) to ServiceChain.
 
 To apply the hard fork to the ServiceChain, you need to:
 1. Pick an appropriate block number for the hard fork
@@ -55,7 +55,7 @@ Now, you have to decide an appropriate block number to activate the hard fork. M
 
 ## 2. Upgrade the ServiceChain binary <a id="2-upgrade-the-servicechain-binary"></a>
 
-Refer to the [Upgrade](#upgrade) section in this page for instructions on upgrading the ServiceChain binaries. Make sure to keep the ServiceChain nodes down (or stopped) for now. You will restart them after you have activated the hard fork.
+Refer to the [Upgrade](#upgrade) section in this page for instructions on upgrading the ServiceChain binaries. Make sure to keep the ServiceChain nodes down (or stopped) for now. You will restart them after you have set the hard fork block number.
 
 ## 3. Activate Hard Fork <a id="3-activate-hard-fork"></a>
 
@@ -83,7 +83,7 @@ To enable a hard fork in the chain config, the previous hard forks should be ena
 That is, to enable Magma hard fork, the EthTxType hard fork should be already enabled.
 If there are missing fields for the compatible block numbers of preceding hard forks in the chain config, you have to add them too.
 
-For example, if you want to activate Magma hard fork and if your `genesis.json` does not have `ethTxTypeCompatibleBlock` in its `config` field like below:
+For example, if you want to set Magma hard fork block number and if your `genesis.json` does not have `ethTxTypeCompatibleBlock` in its `config` field like below:
 
 ```json
 {
