@@ -1,5 +1,5 @@
-Klaytn and its ServiceChain have constantly released new versions to develop new features and bug fixes.
-This page shows guides to upgrade ServiceChain binaries and activate hard forks for your ServiceChain.
+Klaytn and its ServiceChain have constantly released new versions to develop new features and fix bugs.
+This page is a guide to upgrade ServiceChain binaries and activate hard forks for your ServiceChain.
 
 # Upgrade <a id="upgrade"></a>
 
@@ -14,7 +14,7 @@ You can get the latest version of Klaytn and ServiceChain binaries in one of the
 - [Klaytn Github Repository](https://github.com/klaytn/klaytn/releases)
 
 To upgrade the ServiceChain binary, stop the ServiceChain node and replace the binary.
-For example, you can use below commands to stop an SCN node and replace the binary to a newer one.
+For example, you can use below commands to stop an SCN node and replace the binary with a newer one.
 
 ```bash
 $ kscnd stop
@@ -22,7 +22,7 @@ Shutting down kscnd: OK
 $ cp /path/to/new/kscn /path/to/original/kscn
 ```
 
-You may restart the ServiceChain node after the upgrade. However, if you are planning the activate a hard fork in the ServiceChain, you have to keep the ServiceChain nodes down. Refer to the [Hard Fork](#hard-fork) for instructions of ServiceChain hard fork.
+You may restart the ServiceChain node after the upgrade. However, if you are planning to activate hard fork in the ServiceChain, you have to keep the ServiceChain nodes down. Refer to the [Hard Fork](#hard-fork) for instructions of ServiceChain hard fork.
 
 ```bash
 $ kscnd start
@@ -30,7 +30,7 @@ $ kscnd start
 
 # Hard Fork <a id="hard-fork"></a>
 
-This section describes steps for bringing Klaytn [hard forks](../../../klaytn-history/README.md) to ServiceChain.
+This section describes the steps for applying Klaytn [hard forks](../../../klaytn-history/README.md) to ServiceChain.
 
 To apply the hard fork to the ServiceChain, you need to:
 1. Pick an appropriate block number for the hard fork
@@ -51,7 +51,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 > klay.blockNumber
 1234
 ```
-Now, you have to decide an appropriate block number to activate the hard fork. Make sure to have enough number of blocks (which is produced every second) between the current block and the block of hard fork.
+Now, you have to choose an appropriate block number to activate the hard fork. Make sure to have enough number of blocks (which is produced every second) between the current block and the block of hard fork.
 
 ## 2. Upgrade the ServiceChain binary <a id="2-upgrade-the-servicechain-binary"></a>
 
@@ -59,7 +59,7 @@ Refer to the [Upgrade](#upgrade) section in this page for instructions on upgrad
 
 ## 3. Activate Hard Fork <a id="3-activate-hard-fork"></a>
 
-If you have upgraded the ServiceChain binaries with a version that supports desired hard fork, you can activate the hard fork in the ServiceChain by re-initializing the chain config with updated genesis.
+If you have upgraded the ServiceChain binaries with a version that supports the desired hard fork, you can activate the hard fork in the ServiceChain by re-initializing the chain config with updated genesis.
 
 ### Update genesis and re-initialize chain config for all ServiceChain nodes <a id="update-genesis-and-re-initialize-chain-config-for-all-servicechain-nodes"></a>
 
@@ -79,7 +79,7 @@ For example, if you are trying to activate the Magma hard fork in your ServiceCh
 }
 ```
 
-To enable a hard fork in the chain config, the previous hard forks should be enabled.
+To enable a hard fork in the chain config, previous hard forks should be enabled.
 That is, to enable Magma hard fork, the EthTxType hard fork should be already enabled.
 If there are missing fields for the compatible block numbers of preceding hard forks in the chain config, you have to add them too.
 
@@ -129,7 +129,7 @@ If you have updated your `genesis.json` with desired hard forks, re-initialize t
 $ kscn --datadir /path/to/data/directory init /path/to/genesis.json
 ```
 
-**NOTE** It is normal that the following error log is printed when you re-initialize chain config.
+**NOTE** It is normal that the following error log is printed when you re-initialize the chain config.
 
 ```text
 ERROR[08/02,09:12:39 Z] [48] The same or more recent governance index exist. Skip writing governance index  newIdx=0 govIdxes=[0]
