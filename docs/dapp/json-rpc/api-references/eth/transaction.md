@@ -21,7 +21,7 @@ transaction would be without running it live.
 | gas      | QUANTITY     | (optional) Maximum gas allowance for the code execution to avoid infinite loops. Defaults to 2^63 or whatever value the node operator specified via --rpc.gascap. |
 | gasPrice | QUANTITY     | (optional) Number of `peb` to simulate paying for each unit of gas during execution. Defaults to `0` peb.                                                         |
 | value    | QUANTITY     | (optional) Amount of `peb` to simulate sending along with the transaction. Defaults to `0`.                                                                       |
-| data     | DATA         | (optional) Hash of the method signature and encoded parameter.                                                                                                    |
+| input    | DATA         | (optional) Hash of the method signature and encoded parameter. It replaces `data` field but 'data` field is still being supported for backward-compatiblity.      |
 
 **Example - callObject**
 
@@ -30,7 +30,7 @@ transaction would be without running it live.
   "from": "0xd9c9cd5f6779558b6e0ed4e6acf6b1947e7fa1f3",
   "to": "0xebe8efa441b9302a0d7eaecc277c09d20d684540",
   "gas": "0x1bd7c",
-  "data": "0xd459fc46000000000000000000000000000000000000000000000000000000000046c650dbb5e8cb2bac4d2ed0b1e6475d37361157738801c494ca482f96527eb48f9eec488c2eba92d31baeccfb6968fad5c21a3df93181b43b4cf253b4d572b64172ef000000000000000000000000000000000000000000000000000000000000008c00000000000000000000000000000000000000000000000000000000000000e0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000001c000000000000000000000000000000000000000000000000000000000000001c0000000000000000000000000000000000000000000000000000000000000002b85c0c828d7a98633b4e1b65eac0c017502da909420aeade9a280675013df36bdc71cffdf420cef3d24ba4b3f9b980bfbb26bd5e2dcf7795b3519a3fd22ffbb2000000000000000000000000000000000000000000000000000000000000000238fb6606dc2b5e42d00c653372c153da8560de77bd9afaba94b4ab6e4aa11d565d858c761320dbf23a94018d843772349bd9d92301b0ca9ca983a22d86a70628"
+  "input": "0xd459fc46000000000000000000000000000000000000000000000000000000000046c650dbb5e8cb2bac4d2ed0b1e6475d37361157738801c494ca482f96527eb48f9eec488c2eba92d31baeccfb6968fad5c21a3df93181b43b4cf253b4d572b64172ef000000000000000000000000000000000000000000000000000000000000008c00000000000000000000000000000000000000000000000000000000000000e0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000001c000000000000000000000000000000000000000000000000000000000000001c0000000000000000000000000000000000000000000000000000000000000002b85c0c828d7a98633b4e1b65eac0c017502da909420aeade9a280675013df36bdc71cffdf420cef3d24ba4b3f9b980bfbb26bd5e2dcf7795b3519a3fd22ffbb2000000000000000000000000000000000000000000000000000000000000000238fb6606dc2b5e42d00c653372c153da8560de77bd9afaba94b4ab6e4aa11d565d858c761320dbf23a94018d843772349bd9d92301b0ca9ca983a22d86a70628"
 }
 ```
 
@@ -84,7 +84,7 @@ In this example:
 * The address of caller: `0xca7a99380131e6c76cfa622396347107aeedca2d`
 
 ```shell
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "eth_call", "params": [{"from": "0xca7a99380131e6c76cfa622396347107aeedca2d", "to": "0xbE3892d33620bE5aca8c75D39e7401871194d290", "data": "0x18160ddd"}, "latest"], "id": 1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "eth_call", "params": [{"from": "0xca7a99380131e6c76cfa622396347107aeedca2d", "to": "0xbE3892d33620bE5aca8c75D39e7401871194d290", "input": "0x18160ddd"}, "latest"], "id": 1}' http://localhost:8551
 
 {"jsonrpc":"2.0","id":1,"result":"0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"}
 ```
@@ -134,7 +134,7 @@ byte code (Storage contract)
 and call `retrieve` (function signature: `0x2e64cec1`) of Storage contract.
 
 ```shell
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "eth_call", "params": [{"from": "0xca7a99380131e6c76cfa622396347107aeedca2d", "to": "0xbE3892d33620bE5aca8c75D39e7401871194d290", "data": "0x2e64cec1"}, "latest", {"0xbE3892d33620bE5aca8c75D39e7401871194d290": {"code":"0x6080604052600436106049576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680632e64cec114604e5780636057361d146076575b600080fd5b348015605957600080fd5b50606060a0565b6040518082815260200191505060405180910390f35b348015608157600080fd5b50609e6004803603810190808035906020019092919050505060a9565b005b60008054905090565b80600081905550505600a165627a7a723058207783dba41884f73679e167576362b7277f88458815141651f48ca38c25b498f80029"}}], "id": 1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "eth_call", "params": [{"from": "0xca7a99380131e6c76cfa622396347107aeedca2d", "to": "0xbE3892d33620bE5aca8c75D39e7401871194d290", "input": "0x2e64cec1"}, "latest", {"0xbE3892d33620bE5aca8c75D39e7401871194d290": {"code":"0x6080604052600436106049576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680632e64cec114604e5780636057361d146076575b600080fd5b348015605957600080fd5b50606060a0565b6040518082815260200191505060405180910390f35b348015608157600080fd5b50609e6004803603810190808035906020019092919050505060a9565b005b60008054905090565b80600081905550505600a165627a7a723058207783dba41884f73679e167576362b7277f88458815141651f48ca38c25b498f80029"}}], "id": 1}' http://localhost:8551
 
 {"jsonrpc":"2.0","id":1,"result":"0x0000000000000000000000000000000000000000000000000000000000000000"}
 ```
@@ -160,7 +160,7 @@ used by the transaction, for a variety of reasons including EVM mechanics and no
 | gas      | QUANTITY     | (optional) Maximum gas allowance for the code execution to avoid infinite loops. Defaults to 2^63 or whatever value the node operator specified via --rpc.gascap. |
 | gasPrice | QUANTITY     | (optional) Number of `peb` to simulate paying for each unit of gas during execution. Defaults to `0` peb.                                                         |
 | value    | QUANTITY     | (optional) Amount of `peb` to simulate sending along with the transaction. Defaults to `0`.                                                                       |
-| data     | DATA         | (optional) Hash of the method signature and encoded parameter.                                                                                                    |
+| input    | DATA         | (optional) Hash of the method signature and encoded parameter. It replaces `data` field but 'data` field is still being supported for backward-compatiblity.      |
 
 **Example - callObject**
 
@@ -169,7 +169,7 @@ used by the transaction, for a variety of reasons including EVM mechanics and no
   "from": "0xd9c9cd5f6779558b6e0ed4e6acf6b1947e7fa1f3",
   "to": "0xebe8efa441b9302a0d7eaecc277c09d20d684540",
   "gas": "0x1bd7c",
-  "data": "0xd459fc46000000000000000000000000000000000000000000000000000000000046c650dbb5e8cb2bac4d2ed0b1e6475d37361157738801c494ca482f96527eb48f9eec488c2eba92d31baeccfb6968fad5c21a3df93181b43b4cf253b4d572b64172ef000000000000000000000000000000000000000000000000000000000000008c00000000000000000000000000000000000000000000000000000000000000e0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000001c000000000000000000000000000000000000000000000000000000000000001c0000000000000000000000000000000000000000000000000000000000000002b85c0c828d7a98633b4e1b65eac0c017502da909420aeade9a280675013df36bdc71cffdf420cef3d24ba4b3f9b980bfbb26bd5e2dcf7795b3519a3fd22ffbb2000000000000000000000000000000000000000000000000000000000000000238fb6606dc2b5e42d00c653372c153da8560de77bd9afaba94b4ab6e4aa11d565d858c761320dbf23a94018d843772349bd9d92301b0ca9ca983a22d86a70628"
+  "input": "0xd459fc46000000000000000000000000000000000000000000000000000000000046c650dbb5e8cb2bac4d2ed0b1e6475d37361157738801c494ca482f96527eb48f9eec488c2eba92d31baeccfb6968fad5c21a3df93181b43b4cf253b4d572b64172ef000000000000000000000000000000000000000000000000000000000000008c00000000000000000000000000000000000000000000000000000000000000e0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000001c000000000000000000000000000000000000000000000000000000000000001c0000000000000000000000000000000000000000000000000000000000000002b85c0c828d7a98633b4e1b65eac0c017502da909420aeade9a280675013df36bdc71cffdf420cef3d24ba4b3f9b980bfbb26bd5e2dcf7795b3519a3fd22ffbb2000000000000000000000000000000000000000000000000000000000000000238fb6606dc2b5e42d00c653372c153da8560de77bd9afaba94b4ab6e4aa11d565d858c761320dbf23a94018d843772349bd9d92301b0ca9ca983a22d86a70628"
 }
 ```
 
@@ -183,7 +183,7 @@ used by the transaction, for a variety of reasons including EVM mechanics and no
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_estimateGas", "params": [{"from": "0x3f71029af4e252b25b9ab999f77182f0cd3bc085", "to": "0x87ac99835e67168d4f9a40580f8f5c33550ba88b", "gas": "0x100000", "gasPrice": "0x5d21dba00", "value": "0x0", "data": "0x8ada066e"}], "id": 1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_estimateGas", "params": [{"from": "0x3f71029af4e252b25b9ab999f77182f0cd3bc085", "to": "0x87ac99835e67168d4f9a40580f8f5c33550ba88b", "gas": "0x100000", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0x8ada066e"}], "id": 1}' http://localhost:8551
 
 // Result
 {
@@ -612,16 +612,16 @@ transaction to Klaytn network.
 
 `transactionArgs` has the following properties:
 
-| Name                 | Type            | Description                                                                                                                                                                |
-|----------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| from                 | 20-byte DATA    | The address from which the transaction is sent.                                                                                                                            |
-| to                   | 20-byte DATA    | (not required when creating a new contract) The address to which the transaction is directed.                                                                              |
-| gas                  | QUANTITY        | (optional) The integer of the gas provided for the transaction's execution. It will return unused gas.                                                                     |
-| maxFeePerGas         | QUANTITY        | (optional, default: 250 ston) The maximum amount to pay for the transaction's execution. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum). |
-| maxPriorityFeePerGas | QUANTITY        | (optional, default: 250 ston) Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).            |
-| data                 | DATA            | (optional) The hash of the method signature and the encoded parameter.                                                                                                     |
-| value                | QUANTITY        | (optional) The integer of values sent with this transaction.                                                                                                               |
-| nonce                | QUANTITY        | (optional) The integer of a nonce.                                                                                                                                         |
+| Name                 | Type            | Description                                                                                                                                                                 |
+|----------------------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| from                 | 20-byte DATA    | The address from which the transaction is sent.                                                                                                                             |
+| to                   | 20-byte DATA    | (not required when creating a new contract) The address to which the transaction is directed.                                                                               |
+| gas                  | QUANTITY        | (optional) The integer of the gas provided for the transaction's execution. It will return unused gas.                                                                      |
+| maxFeePerGas         | QUANTITY        | (optional, default: 250 ston) The maximum amount to pay for the transaction's execution. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).|
+| maxPriorityFeePerGas | QUANTITY        | (optional, default: 250 ston) Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).           |
+| data                 | DATA            | (optional) The hash of the method signature and the encoded parameter. It replaces `data` field but 'data` field is still being supported for backward-compatiblity.        |
+| value                | QUANTITY        | (optional) The integer of values sent with this transaction.                                                                                                                |
+| nonce                | QUANTITY        | (optional) The integer of a nonce.                                                                                                                                          |
 
 
 
@@ -661,16 +661,16 @@ Signs a transaction that can be submitted to the network at a later time using w
 
 `transactionArgs` has the following properties:
 
-| Name                 | Type            | Description                                                                                                                                   |
-|----------------------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| from                 | 20-byte DATA    | The address from which the transaction is sent.                                                                                               |
-| to                   | 20-byte DATA    | (not required when creating a new contract) The address to which the transaction is directed.                                                 |
-| gas                  | QUANTITY        | The integer of the gas provided for the transaction's execution. It will return unused gas.                                                   |
-| maxFeePerGas         | QUANTITY        | The maximum amount to pay for the transaction's execution. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum). |
-| maxPriorityFeePerGas | QUANTITY        | Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).            |
-| data                 | DATA            | (optional) The hash of the method signature and the encoded parameter.                                                                        |
-| value                | QUANTITY        | (optional) The integer of values sent with this transaction.                                                                                  |
-| nonce                | QUANTITY        | The integer of a nonce.                                                                                                                       |
+| Name                 | Type            | Description                                                                                                                                                         |
+|----------------------|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| from                 | 20-byte DATA    | The address from which the transaction is sent.                                                                                                                     |
+| to                   | 20-byte DATA    | (not required when creating a new contract) The address to which the transaction is directed.                                                                       |
+| gas                  | QUANTITY        | The integer of the gas provided for the transaction's execution. It will return unused gas.                                                                         |
+| maxFeePerGas         | QUANTITY        | The maximum amount to pay for the transaction's execution. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).                      |
+| maxPriorityFeePerGas | QUANTITY        | Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).                                 |
+| input                | DATA            | (optional) The hash of the method signature and the encoded parameter. It replaces `data` field but 'data` field is still being supported for backward-compatiblity.|
+| value                | QUANTITY        | (optional) The integer of values sent with this transaction.                                                                                                        |
+| nonce                | QUANTITY        | The integer of a nonce.                                                                                                                                             |
 
 **Return Value**
 
