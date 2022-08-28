@@ -1,5 +1,5 @@
 Klaytn and its ServiceChain have constantly released new versions to develop new features and fix bugs.
-This page is a guide to upgrade ServiceChain binaries and activate hard forks for your ServiceChain.
+This page is a guide to upgrade ServiceChain binaries and setting hard fork block numbers for your ServiceChain.
 
 # Upgrade <a id="upgrade"></a>
 
@@ -35,7 +35,7 @@ This section describes the steps for applying Klaytn [hard forks](../../../klayt
 To apply the hard fork to the ServiceChain, you need to:
 1. Pick an appropriate block number for the hard fork
 2. Upgrade the ServiceChain binary to a version that supports the hard fork
-3. Activate the hard fork in the ServiceChain
+3. Set the hard fork block number in the ServiceChain
 
 ## 1. Pick an appropriate block number for the hard fork <a id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
 
@@ -57,9 +57,9 @@ Now, you have to choose an appropriate block number to activate the hard fork. M
 
 Refer to the [Upgrade](#upgrade) section in this page for instructions on upgrading the ServiceChain binaries. Make sure to keep the ServiceChain nodes down (or stopped) for now. You will restart them after you have set the hard fork block number.
 
-## 3. Activate Hard Fork <a id="3-activate-hard-fork"></a>
+## 3. Set the Hard Fork Block Number <a id="3-set-the-hard-fork-block-number"></a>
 
-If you have upgraded the ServiceChain binaries with a version that supports the desired hard fork, you can activate the hard fork in the ServiceChain by re-initializing the chain config with updated genesis.
+If you have upgraded the ServiceChain binaries with a version that supports the desired hard fork, you can set the hard fork block number in the ServiceChain by re-initializing the chain config with updated genesis.
 
 ### Update genesis and re-initialize chain config for all ServiceChain nodes <a id="update-genesis-and-re-initialize-chain-config-for-all-servicechain-nodes"></a>
 
