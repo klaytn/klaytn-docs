@@ -136,6 +136,7 @@
       * [Configuration Files](node/service-chain/references/configuration-files.md)
       * [Log Files](node/service-chain/references/log-files.md)
       * [Genesis JSON](node/service-chain/references/genesis.md)
+      * [Upgrade & Hard Fork](node/service-chain/references/upgrade-and-hard-fork.md)
     * [How-To Guides](node/service-chain/howto/README.md)
   * [Errors & Troubleshooting](node/errors-and-troubleshooting.md)
   * [Node Log](node/node-log.md)
