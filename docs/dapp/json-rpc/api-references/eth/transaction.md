@@ -619,7 +619,7 @@ transaction to Klaytn network.
 | gas                  | QUANTITY        | (optional) The integer of the gas provided for the transaction's execution. It will return unused gas.                                                                      |
 | maxFeePerGas         | QUANTITY        | (optional, default: 250 ston) The maximum amount to pay for the transaction's execution. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).|
 | maxPriorityFeePerGas | QUANTITY        | (optional, default: 250 ston) Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum).           |
-| data                 | DATA            | (optional) The hash of the method signature and the encoded parameter. It replaces `data` field but 'data` field is still being supported for backward-compatiblity.        |
+| input                | DATA            | (optional) The hash of the method signature and the encoded parameter. It replaces `data` field but 'data` field is still being supported for backward-compatiblity.        |
 | value                | QUANTITY        | (optional) The integer of values sent with this transaction.                                                                                                                |
 | nonce                | QUANTITY        | (optional) The integer of a nonce.                                                                                                                                          |
 
