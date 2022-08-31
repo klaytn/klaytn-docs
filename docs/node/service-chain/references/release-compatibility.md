@@ -10,5 +10,5 @@ To have expected behaviors in short:
 # Release changes
 - v1.9.0 (07/29/2022)
     - Binary compatibility: The v1.9.0 releases of `SCN` and `EN` does not have backward compatibility with previous releases.
-    Both binaries must be v1.9.0 if you plan to upgrade either one.
+    If you plan to upgrade either one to v1.9.0 or above, both binaries must be v1.9.0 or above.
     - Contract compatibility: No changes.
