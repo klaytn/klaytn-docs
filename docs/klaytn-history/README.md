@@ -10,7 +10,7 @@ This page shows all the hard forks to the Klaytn blockchain.
 
 ### Summary
 
-Magma hardfork were introduced with the [v1.9.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.9.0). It includes dynamic gas fee pricing mechanism, [#1493](https://github.com/klaytn/klaytn/pull/1493))
+Magma hardfork were introduced with the [v1.9.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.9.0). It includes dynamic gas fee pricing mechanism, [#1493](https://github.com/klaytn/klaytn/pull/1493)) and is an implementation of KIP-71(https://kips.klaytn.foundation/KIPs/kip-71)
 
 ## EthTxType
 
