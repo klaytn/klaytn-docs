@@ -2,6 +2,16 @@
 
 This page shows all the hard forks to the Klaytn blockchain.
 
+## Magma
+| ` ` | Baobab | Cypress |
+| --------------- | --------------- | --------------- |
+| Date | Aug 08, 2022 11:01:20 / UTC+9 | Aug 29, 2022 11:51:00 / UTC+9 |
+| Block number  | `#98,347,376`  | `#99,841,497` |
+
+### Summary
+
+Magma hardfork were introduced with the [v1.9.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.9.0). It includes dynamic gas fee pricing mechanism, [#1493](https://github.com/klaytn/klaytn/pull/1493))
+
 ## EthTxType
 
 | ` ` | Baobab | Cypress |
