@@ -2,7 +2,7 @@
 
 The `SCN` and `EN` nodes make a bridge connection between child and parent chains. As both binaries are being continuously developed to add features, fix bugs, and make improvements,
 their node versions will go up with every new release. It is very important to check for the backward compatibility of the release versions.
-No every release breaks backward compatibility, but we keep track of the case of broken backward compatibility and add a notice to [here](./compatibility.md).
+Not every release breaks backward compatibility, but we keep track of cases of broken backward compatibility and add notice [here](./compatibility.md).
 
 
 ## Example
