@@ -6,7 +6,7 @@ No every release breaks backward compatibility, but we keep track of the case of
 
 
 ## Example
-We deomonstrate with the following environments:
+We demonstrate with the following environments:
 - Parent chain(Cypress or Baobab or ServiceChain): N of `CN`(or N of `SCN`) + 1`EN`(Bridge node) + 1`EN`
 - Child chain(ServiceChain): 4`SCN`(Assume that the bridge node is `SCN1`) + 1`SEN`
     - `SEN` node connects with two or more CNs at least.
