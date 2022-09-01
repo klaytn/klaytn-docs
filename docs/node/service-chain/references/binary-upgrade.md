@@ -11,7 +11,7 @@ We demonstrate with the following environments:
 - Child chain (ServiceChain): 4`SCN`(Assume that the bridge node is `SCN1`) + 1`SEN`
     - `SEN` node connects with two or more CNs at least.
 
-We call `v1` and `v2` are previous release and new release, respectively in this demonstration.
+In this example, we call the previous and the new release `v1` and `v2` respectively.
 Assume that all the nodes are parent chain and child chain are now in running with 'v1'.
 We tag a names all the entities of each chain as follows:
 - Parent chain:
