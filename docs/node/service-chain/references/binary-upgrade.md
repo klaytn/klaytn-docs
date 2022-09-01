@@ -1,7 +1,7 @@
 # Binary update on sustained service
 
 The `SCN` and `EN` nodes make a bridge connection between child and parent chains. As both binaries are being continuously developed to add features, fix bugs, and make improvements,
-their node versions increase by a new release. The release version is very important to check out for backward compatibility.
+their node versions will go up with every new release. It is very important to check for the backward compatibility of the release versions.
 No every release breaks backward compatibility, but we keep track of the case of broken backward compatibility and add a notice to [here](./compatibility.md).
 
 
