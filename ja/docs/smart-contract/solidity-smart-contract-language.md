@@ -111,7 +111,7 @@ It is more difficult to debug Solidity code than to debug code written in other 
 
 * [Debugging a transaction with Remix](https://remix-ide.readthedocs.io/en/latest/debugger.html)
 * [Tutorial on debugging transactions with Remix](https://remix-ide.readthedocs.io/en/latest/tutorial_debug.html)
-* [Debugging contracts with Truffle](https://trufflesuite.com/docs/truffle/getting-started/debugging-your-contracts)
+* [Debugging contracts with Truffle](https://trufflesuite.com/docs/truffle/getting-started/using-the-truffle-debugger/)
 
 NOTE: This section will be updated in the future.
 
@@ -128,4 +128,4 @@ NOTE: This section will be updated in the future.
 * [Solidity GitHub page](https://github.com/ethereum/solidity)
 * [Solidity documentation](https://solidity.readthedocs.io/en/latest/index.html)
 * [Remix documentation](https://remix-ide.readthedocs.io/en/latest/)
-* [Truffle documentation](https://trufflesuite.com/docs/truffle/overview)
+* [Truffle documentation](https://trufflesuite.com/docs/truffle/)
