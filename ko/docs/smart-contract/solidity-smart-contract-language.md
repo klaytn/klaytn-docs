@@ -111,7 +111,7 @@ It is more difficult to debug Solidity code than to debug code written in other 
 
 * [Remix로 트랜잭션 디버깅하기](https://remix-ide.readthedocs.io/en/latest/debugger.html)
 * [Remix 트랜잭션 디버깅 튜토리얼](https://remix-ide.readthedocs.io/en/latest/tutorial_debug.html)
-* [트러플로 컨트랙트 디버깅하기](https://trufflesuite.com/docs/truffle/getting-started/debugging-your-contracts)
+* [트러플로 컨트랙트 디버깅하기](https://trufflesuite.com/docs/truffle/getting-started/using-the-truffle-debugger/)
 
 참고: 이 장은 나중에 업데이트 될 예정입니다.
 
@@ -128,4 +128,4 @@ To eliminate security concerns and code quality issues from your smart contract,
 * [솔리디티 GitHub 사이트](https://github.com/ethereum/solidity)
 * [솔리디티 문서](https://solidity.readthedocs.io/en/latest/index.html)
 * [Remix 문서](https://remix-ide.readthedocs.io/en/latest/)
-* [트러플 문서](https://trufflesuite.com/docs/truffle/overview)
+* [트러플 문서](https://trufflesuite.com/docs/truffle/)
