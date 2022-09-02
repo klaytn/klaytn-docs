@@ -6,7 +6,7 @@
 
 caver.kct.kip7에서 사용된 abi와 바이트 코드는 [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20) 예시를 사용하여 구현되었습니다.
 
-caver-js에서 KIP-7을 구현한 예시는 [Caver-js Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/token/KIP7)에서 확인할 수 있습니다.
+The code that implements KIP-7 for caver-js is available on the [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP7).
 
 For more information about KIP-7, see [Klaytn Improvement Proposals](https://kips.klaytn.foundation/KIPs/kip-7).
 
