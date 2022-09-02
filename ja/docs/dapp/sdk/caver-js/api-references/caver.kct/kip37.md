@@ -4,7 +4,7 @@ The `caver.kct.kip37` helps you easily handle a smart contract that implements K
 
 The `caver.kct.kip37` inherits [caver.contract](../caver.contract.md) to implement the KIP-37 token contract. The `caver.kct.kip37` holds the same properties of `caver.contract` whereas additional methods are implemented for extra features. This section only introduces the newly added methods of the `caver.kct.kip37`.
 
-The code that implements KIP-37 for caver-js is available on the [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/token/KIP37).
+The code that implements KIP-37 for caver-js is available on the [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP37).
 
 For more information about KIP-37, see [Klaytn Improvement Proposals](https://kips.klaytn.foundation/KIPs/kip-37).
 
