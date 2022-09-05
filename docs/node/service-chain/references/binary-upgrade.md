@@ -30,6 +30,7 @@ In the case above, users can continuously send value transfer transactions to li
 Thus, no missing value transfer transactions and those are correctly handled by VTR in the counterpart chain.
 Replacing both `BEN` and `SBEN` at the same time is valid too as long as both chains are live.
 
+
 ## Alternative
 Another way to replace with a new release is by adjusting the validators with governance vote. Please refer to [guide](https://forum.klaytn.foundation/t/scn-servicechain-consensus-node/98).
 Note that this guide was not written for the binary update for sustained service, as explained above. You can take an idea for binary update with sustained service.
