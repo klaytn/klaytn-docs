@@ -33,6 +33,6 @@ Replacing both `BEN` and `SBEN` at the same time is valid too as long as both ch
 
 ## Alternative
 Another way to replace with a new release is by adjusting the validators with governance vote. Please refer to [guide](https://forum.klaytn.foundation/t/scn-servicechain-consensus-node/98).
-Note that this guide was not written for the binary update for sustained service, as explained above. You can take an idea for binary update with sustained service.
+Note that this guide was not written for the binary upgrade for sustained service, as explained above. You can take an idea for binary upgrade with sustained service.
 To upgrade using governance votes, you may reduce the current number of validators to only one and the other validators nodes can be upgraded at a time if a governance mode is a single mode.
 You should add the upgraded nodes to validators again by voting.
