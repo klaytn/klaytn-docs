@@ -21,6 +21,7 @@ We tag names all the entities of each chain as follows and they are currently ru
 0. The `v2` binary should be prepared offline to replace `v1`.
 1. Terminate `v1` of `BSEN` and replace it with `v2`.
 2. Restart `BSEN` with the value transfer recovery (VTR) option(`SC_VTRECOVERY=1`).
+
 Note that every value transfer transactions are not normally mined because of the bridge node's downtime.
 After restarting, the unhandled transactions are executed and mined as expected by VTR.
 Considering the replacement of `BEN`, it has the same process above.
