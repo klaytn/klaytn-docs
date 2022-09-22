@@ -2729,7 +2729,7 @@ true
 caver.rpc.klay.getProtocolVersion([callback])
 ```
 
-노드의 Klaytn 프로토콜 버전을 반환합니다.
+노드의 Klaytn 프로토콜 버전을 반환합니다. The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
 
 **Parameters**
 
