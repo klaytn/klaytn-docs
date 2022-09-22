@@ -2729,7 +2729,7 @@ true
 caver.rpc.klay.getProtocolVersion([callback])
 ```
 
-Returns the Klaytn protocol version of the node.
+Returns the Klaytn protocol version of the node. The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
 
 **Parameters**
 
