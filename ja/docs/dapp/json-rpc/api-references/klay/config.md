@@ -179,7 +179,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_protocolVersion <a id="klay_protocolversion"></a>
 
-Returns the Klaytn protocol version of the node.
+Returns the Klaytn protocol version of the node. The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
 
 **Parameters**
 
