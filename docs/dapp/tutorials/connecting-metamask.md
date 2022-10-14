@@ -54,7 +54,7 @@
 
 **NOTE:** Sending KLAY requires a transaction, for which you need KLAY.
 
-* With Klaytn v1.9.0, a (dynamic gas fee mechanism)[https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689] has replaced the existing fixed price policy.
+* With Klaytn v1.9.0, a [dynamic gas fee mechanism](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689) has replaced the existing fixed price policy.
 * So you don't have to set the fixed gas fee manually.
 
 * Check the amount to send and the transaction fee and click [Confirm] to complete the KLAY transfer, after which you will be redirected to the main page.
