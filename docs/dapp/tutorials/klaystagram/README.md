@@ -15,6 +15,15 @@
   * [7-4. TransferOwnership Component](7.-feedpage/7-4.-transferownership-component.md)
 * [8. Run App](8.-run-app.md)
 
+## Testing Environment <a id="testing-environment"></a>
+
+Klaystagram BApp is tested in the following environment.
+
+* MacOS Mojave 10.14.5
+* Node 10.16.0 \(LTS\)
+* npm 6.9.0
+* Python 2.7.10
+
 ## Introduction <a id="introduction"></a>
 
 [![Klaystagram Introduction Video](images/klaystagram-video-poster.png)](https://vimeo.com/327033594)
@@ -41,13 +50,4 @@ We will build a web application that interacts with smart contracts. To complete
 * We assume that you have basic knowledge on [React](https://reactjs.org/) and [Redux](https://redux.js.org/). This course is not for absolute beginners.
 * Basic knowledge and experience in [Solidity](https://solidity.readthedocs.io/en/v0.5.10/) development are recommended. However, any experienced SW developer should be able to complete the task by following the step-by-step guideline of this tutorial.
 * Anyone interested in [ERC-721 Tokens](http://erc721.org/).
-
-## Testing Environment <a id="testing-environment"></a>
-
-Klaystagram BApp is tested in the following environment.
-
-* MacOS Mojave 10.14.5
-* Node 10.16.0 \(LTS\)
-* npm 6.9.0
-* Python 2.7.10
 
