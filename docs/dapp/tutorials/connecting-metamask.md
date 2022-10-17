@@ -26,7 +26,9 @@
 ![Seed phrase and Wallet](./img/metamask-secret-backup.png)
 
 
-## Step 3. Connect to Klaytn Cypress Network(Mainnet) <a id="connect-to-klaytn-network"></a>
+## Step 3. Connect to Klaytn Cypress Network (Mainnet) <a id="connect-to-klaytn-cypress-network-mainnet"></a>
+
+> Here's a simple way. [Connect your wallet to the Klaytn Cypress Network (Mainnet)](https://chainlist.org/chain/8217).
 
 * Click on the upper Networks tab, which is on Ethereum Mainnet as default and select [Add network].
 
@@ -54,7 +56,7 @@
 
 **NOTE:** Sending KLAY requires a transaction, for which you need KLAY.
 
-* With Klaytn v1.9.0, a [dynamic gas fee mechanism](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689) has replaced the existing fixed price policy.
+* Since Klaytn v1.9.0, a [dynamic gas fee mechanism](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689) has replaced the existing fixed price policy.
 * So you don't have to set the fixed gas fee manually.
 
 * Check the amount to send and the transaction fee and click [Confirm] to complete the KLAY transfer, after which you will be redirected to the main page.
@@ -63,9 +65,12 @@
 ![Send KLAY 2](./img/metamask-send-klay-2.png)
 
 
-## Connect to Klaytn Baobab Network(Testnet) <a id="obtain-klay-to-make-a-transaction"></a>
+## Connect to Klaytn Baobab Network (Testnet) <a id="connect-to-klaytn-baobab-network-testnet"></a>
 ### Obtain KLAY to make a transaction
 > **Note:** This tutorial uses Public EN of the Testnet (Baobab) to connect to the network. Make sure to use Baobab when you are running a test.
+
+> Here's a simple way. [Connect your wallet to the Klaytn Baobab Network (Testnet)](https://chainlist.org/chain/1001).
+
 * Click [Save] to add Klaytn Baobab Network.
   * Baobab
     * Network Name: Klaytn Baobab

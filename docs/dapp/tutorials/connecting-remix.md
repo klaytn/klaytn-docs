@@ -36,9 +36,9 @@ You need a local plugin to connect to the Klaytn network using Remix. The proces
 * You can select **Baobab**, **Cypress**, **Injected Caver**, **Caver Provider** or **Injected Web3**.
   * **[Baobab]**: Connects to the Baobab network
   * **[Cypress]**: Connects to the Cypress network
-  * **[Injected Caver]**: Connects to injected caver(ex. Kaikas)
+  * **[Injected Caver]**: Connects to injected caver(e.g. Kaikas)
   * **[Caver Provider]**: Connects directly to Klaytn node, which supports RPC
-  * **[Injected Web3]**: Connects to injected web3(ex. Metamask)
+  * **[Injected Web3]**: Connects to injected web3(e.g. Metamask)
 
 ![Klaytn Tab](./img/remix-klaytn-tab.png)
 
@@ -67,7 +67,7 @@ You need a local plugin to connect to the Klaytn network using Remix. The proces
 * Enter the RPC address of the EN in the Caver Provider Endpoint.
   Local EN (default): [http://localhost:8551](http://localhost:8551/)
 
-* Once you are successfully connected to the Network, you will see the connected Chain ID and Account.
+* Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
 
 ## Connecting Klaytn - Remix using MetaMask <a id="connecting-klaytn-remix-using-metamask"></a>
 
@@ -86,7 +86,7 @@ You need a local plugin to connect to the Klaytn network using Remix. The proces
 ![Injected Caver](./img/env-injected-caver.png)
 
 * When you see the Kaikas pop-up, click [Connect].
-* Once you are successfully connected to the Network, you will see the connected Chain ID and Account.
+* Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
 
 ## Tutorial: KlaytnGreeter Contract <a id="tutorial-KlaytnGreeter-contract"></a>
 
