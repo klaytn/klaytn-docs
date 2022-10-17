@@ -77,7 +77,7 @@ You need a local plugin to connect to the Klaytn network using Remix. The proces
 ![Injected Web3](./img/env-injected-web3.png)
 
 * When you see the MetaMask pop-up, select the account by clicking it.
-* Once you are successfully connected to the Network, you will see the connected Chain ID and Account.
+* Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
 
 ## Connecting Klaytn - Remix using Kaikas <a id="connecting-klaytn-remix-using-kaikas"></a>
 
