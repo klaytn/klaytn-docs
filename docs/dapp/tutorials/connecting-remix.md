@@ -36,9 +36,9 @@ You need a local plugin to connect to the Klaytn network using Remix. The proces
 * You can select **Baobab**, **Cypress**, **Injected Caver**, **Caver Provider** or **Injected Web3**.
   * **[Baobab]**: Connects to the Baobab network
   * **[Cypress]**: Connects to the Cypress network
-  * **[Injected Caver]**: Connects to injected caver(e.g. Kaikas)
+  * **[Injected Caver]**: Connects to injected caver(e.g., Kaikas)
   * **[Caver Provider]**: Connects directly to Klaytn node, which supports RPC
-  * **[Injected Web3]**: Connects to injected web3(e.g. Metamask)
+  * **[Injected Web3]**: Connects to injected web3(e.g., Metamask)
 
 ![Klaytn Tab](./img/remix-klaytn-tab.png)
 
