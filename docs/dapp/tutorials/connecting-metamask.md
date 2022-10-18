@@ -30,7 +30,7 @@
 
 > Here's a simple way. [Connect your wallet to the Klaytn Cypress Network (Mainnet)](https://chainlist.org/chain/8217).
 
-* Click on the upper Networks tab, which is on Ethereum Mainnet as default and select [Add network].
+* Click on the upper Networks tab, which is on Ethereum Mainnet as default, and select [Add network].
 
 * Enter the Endpoint Node (EN) data of the Klaytn chain.
 
