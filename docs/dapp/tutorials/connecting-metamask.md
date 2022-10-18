@@ -71,13 +71,15 @@
 
 > Here's a simple way. [Connect your wallet to the Klaytn Baobab Network (Testnet)](https://chainlist.org/chain/1001).
 
+
+* Baobab
+  * Network Name: Klaytn Baobab
+  * New RPC URL: [https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651)
+  * Block Explorer URL: [https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
+  * Chain ID: 1001
+  * Currency Symbol: KLAY
+
 * Click [Save] to add Klaytn Baobab Network.
-  * Baobab
-    * Network Name: Klaytn Baobab
-    * New RPC URL: [https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651)
-    * Block Explorer URL: [https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
-    * Chain ID: 1001
-    * Currency Symbol: KLAY
 
 ![Network Setup](./img/connect-testnet-1.png)
 
