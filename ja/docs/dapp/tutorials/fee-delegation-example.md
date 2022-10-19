@@ -31,12 +31,14 @@ To sign a transaction, use [signTransaction](../sdk/caver-js/v1.4.1/api-referenc
 
 ```text
 // using the event emitter
-const senderPrivateKey = "PRIVATE_KEY"
+const senderAddress = "SENDER_ADDRESS";
+const senderPrivateKey = "SENDER_PRIVATEKEY";
+const toAddress = "TO_ADDRESS";
 
 const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
   type: 'FEE_DELEGATED_VALUE_TRANSFER',
-  from: '0x90B3E9A3770481345A7F17f22f16D020Bccfd33e',
-  to: '0x75c3098Be5E4B63FBAc05838DaAEE378dD48098d',
+  from: senderAddress,
+  to: toAddress,
   gas: '300000',
   value: caver.utils.toPeb('1', 'KLAY'),
 }, senderPrivateKey)
