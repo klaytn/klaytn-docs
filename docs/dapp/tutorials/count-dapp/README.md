@@ -1,9 +1,9 @@
-# Count BApp <a id="count-bapp"></a>
+# Count DApp <a id="count-dapp"></a>
 
 ## Table of Contents <a id="table-of-contents"></a>
 
 * [1. Environment Setup](1.-environment-setup.md)
-* [2. Clone Count BApp](2.-clone-count-bapp.md)
+* [2. Clone Count DApp](2.-clone-count-dapp.md)
 * [3. Directory Structure](3.-directory-structure.md)
 * [4. Write Smart Contract](4.-write-smart-contract.md)
 * [5. Frontend Code Overview](5.-frontend-code-overview/README.md)
@@ -15,7 +15,7 @@
 
 ## Testing Environment <a id="testing-environment"></a>
 
-Count BApp is tested in the following environment.
+Count DApp is tested in the following environment.
 
 * MacOS Mojave 10.14.5
 * Node 10.16.0 \(LTS\)
