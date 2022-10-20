@@ -44,7 +44,7 @@ This section presents an example of Solidity source code to provide readers with
 ```text
 L01: pragma solidity 0.5.12;   // (required) version pragma
 L02:
-L03: import "filename";        // (optional) imporiting other source files
+L03: import "filename";        // (optional) importing other source files
 L04:
 L05: // (optional) smart contract definition
 L06: contract UserStorage {
