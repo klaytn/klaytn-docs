@@ -289,7 +289,7 @@
       * [7. Run App](dapp/tutorials/count-bapp/7.-run-app.md)
     * [Klaystagram](dapp/tutorials/klaystagram/README.md)
       * [1. Environment Setup](dapp/tutorials/klaystagram/1.-environment-setup.md)
-      * [2. Clone Klaystagram BApp](dapp/tutorials/klaystagram/2.-clone-klaystagram-bapp.md)
+      * [2. Clone Klaystagram DApp](dapp/tutorials/klaystagram/2.-clone-klaystagram-dapp.md)
       * [3. Directory Structure](dapp/tutorials/klaystagram/3.-directory-structure.md)
       * [4. Write Klaystagram Smart Contract](dapp/tutorials/klaystagram/4.-write-klaystagram-smart-contract.md)
       * [5. Deploy Contract](dapp/tutorials/klaystagram/5.-deploy-contract.md)
