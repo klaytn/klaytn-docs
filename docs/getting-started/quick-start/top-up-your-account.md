@@ -39,7 +39,7 @@ UTC--2019-06-24T11-20-15.590879000Z--75a59b94889a05c03c66c3c84e9d2f8308ca4abd
 
 ## Unlocking the Klaytn Account <a id="unlocking-the-klaytn-account"></a>
 
-To unlock the created account, execute the following command. It unlocks the account for 300 seconds. **Note**: If you want to manually set the unlock duration, refer to this [link](../../dapp/json-rpc/api-references/personal.md#personal_unlockaccount). **`WARNING`**: Unlocking an account could be very dangerous if not done carefully. There are chances that your tokens will be taken away by hackers if your EN is hacked by a hacker. To use safer method, refer to this [deployment guide using private key](../../dapp/tutorials/count-bapp/6.-deploy-contract.md#deploy-method-1-by-private-key)
+To unlock the created account, execute the following command. It unlocks the account for 300 seconds. **Note**: If you want to manually set the unlock duration, refer to this [link](../../dapp/json-rpc/api-references/personal.md#personal_unlockaccount). **`WARNING`**: Unlocking an account could be very dangerous if not done carefully. There are chances that your tokens will be taken away by hackers if your EN is hacked by a hacker. To use safer method, refer to this [deployment guide using private key](../../dapp/tutorials/count-dapp/6.-deploy-contract.md#deploy-method-1-by-private-key)
 
 ```javascript
 > personal.unlockAccount('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # account address to unlock

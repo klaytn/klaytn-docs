@@ -1798,9 +1798,9 @@ $ node ./test.js
 
 ## Sample Projects <a id="sample-projects"></a>
 
-The BApp \(Blockchain Application\) Development sample projects using caver-js are the following:
+The DApp \(Blockchain Application\) Development sample projects using caver-js are the following:
 
-* [Count BApp](../../tutorials/count-bapp/README.md)
+* [Count DApp](../../tutorials/count-dapp/README.md)
 * [Klaystagram](../../tutorials/klaystagram/README.md)
 
 ## Troubleshooting <a id="troubleshooting"></a>
